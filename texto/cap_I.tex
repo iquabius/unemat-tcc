@@ -1,0 +1,128 @@
+Interfaces gráficas mediam a maioria das nossas interações com computadores,
+seja através de \emph{laptops}, tabletes, ou navegadores web.
+Desde o projeto até a implementação elas apresentam muitos desafios
+\cite{myers1994}.
+Além de problemas comuns de programação, como análise e processamento de dados,
+destacam-se também a apresentação de dados na tela e o gerenciamento de
+interações.
+Para gerenciar interações na programação de interfaces é necessário coordenar
+vários eventos desencadeados pelo usuário, através de dispositivos de interação
+como teclado, mouse, e tela multitoque.
+
+Para coordenar eventos é comum usar o \emph{callback}: um bloco de código executado
+sempre que um dado evento ocorrer, p. ex., clique em um botão.
+Esse conceito é criticado por tornar o programa complexo: a ordem de execução é
+imprevisível, é definida por eventos externos, e não pela sequência especificada
+pelo programador\footnote{A ordem de execução de um programa também é denominada \emph{fluxo
+de controle}.} \cite{maier2010,edwards2009,fischer2007}.
+“Coordenar alterações ao estado compartilhada em meio a esse caos pode ser
+desconcertante, e está longe de ser modular. A definição coloquial é \emph{Inferno de
+Callbacks}.”\footnote{Tradução literal do inglês \emph{‘Callback Hell’}: expressão
+popular na comunidade de programação.} \cite[p. 2; tradução nossa]{edwards2009}.
+Inerentemente imperativo, o \emph{callback} é muito usado na \emph{programação orientada a
+objetos} (POO) através do \emph{Observer Pattern}\footnote{O \emph{Observer Pattern} é usado para coordenar eventos em
+linguagens orientadas a objetos, e \emph{callback} as vezes é chamado de \emph{event
+handler}, \emph{event listener} ou \emph{observer}, mas em essência o conceito é o mesmo.}
+\cite{blackheath2016,maier2010}.
+Para esclarecer os desafios enfrentados por sistemas de software em produção,
+podemos citar uma análise das aplicações \emph{desktop} da Adobe, de 2005, onde foi
+concluído que a lógica de coordenação de eventos consistia de um terço do
+código, além de conter metade dos \emph{bugs} reportados durante o ciclo de vida do
+produto \cite{jarvi2008}.
+
+Uma alternativa é a \emph{programação reativa (PR)}, recentemente proposta como
+solução apropriada para sistemas orientados a eventos, como interfaces gráficas,
+jogos digitais, robôs, e servidores web \cite{salvaneschi2015,bainomugisha2013}.
+Conceitos de PR permitem descrever um programa como um fluxo de dados, que o
+ambiente de execução converte em um grafo direcionado, e pode manter os dados
+atualizados automaticamente.
+Esse comportamento pode ser observado em aplicações de planilha eletrônica, como
+\emph{Google Sheets} e \emph{Microsoft Excel}.\footnote{“Possivelmente a linguagem de programação mais utilizada por
+usuários finais”, como é notado por \textcite[p. 2]{bainomugisha2013}.}
+Os paradigmas de PR e \emph{programação funcional} (PF) compartilham vários conceitos
+declarativos, e são considerados mais simples de se programar que os imperativos
+\cite{blackheath2016,bainomugisha2013}.
+Um experimento controlado realizado na Alemanha investigou a compreensibilidade
+de programação entre a PR e o \emph{Observer Pattern}.
+Apesar da baixa significância estatística, resultados empíricos confirmaram que
+a PR é mais simples para compreensão de programas em comparação a abordagem
+tradicional \cite{salvaneschi2014}.
+
+Visto que POO permeia o ensino de programação \cite{vanroy2003}, e que a
+utilização inadequada de conceitos imperativos é uma das principais causas de
+complexidade em sistemas modernos\footnote{\textcite{moseley2006} distinguem complexidade \emph{acidental} e
+\emph{essencial}, aqui nos referimos à primeira.} \cite{moseley2006}, indaga-se se
+os conceitos de programação declarativa podem mitigar problemas enfrentados no
+desenvolvimento de software em larga escala.
+Posto isso, propomos estudar os paradigmas de PF e PR aplicados na programação
+de interfaces gráficas.
+
+\section{Problema e Questões de Pesquisa}
+\label{sec:orga3ccd98}
+Quais os conceitos apropriados para programação de interfaces gráficas?
+Conceitos de programação \emph{imperativa} são bastante comuns em linguagens
+tradicionais, como as orientadas a objetos.
+Linguagens funcionais e lógicas empregam conceitos de programação
+\emph{declarativa}, que é considerada mais simples e intuitiva.\footnote{\textcite[p. 31]{roy2004}: “\textelp{} we are interested in
+computation models that are useful and intuitive for programmers \textelp{}. The
+first and simplest computation model we will study is \emph{declarative
+programming}.”}
+Questiona-se então se programação declarativa é adequada para o
+desenvolvimento de interfaces gráficas, e quais suas vantagens e desvantagens
+em relação à programação imperativa.
+
+\section{Objetivos}
+\label{sec:org53c7bd7}
+Demonstrar e analisar conceitos declarativos de PF e PR. Especificamente:
+
+\begin{itemize}
+\item Demonstrar a essência da programação declarativa com conceitos de PF;
+\item Demonstrar conceitos declarativos de PR e imperativos de POO com
+\emph{callbacks};
+\item Analisar e comparar os conceitos quanto a usabilidade da linguagem de
+programação.
+\end{itemize}
+
+\section{Métodos de Pesquisa}
+\label{sec:orgba92f88}
+Esta pesquisa é de natureza \emph{aplicada}, e quanto aos objetivos que visamos
+alcançar ela se classifica como \emph{exploratória}, pois tem o “\textelp{} foco
+mais aberto para investigação de fenômenos (culturais, sociais, técnicos,
+históricos, etc.) pouco sistematizados e/ou passíveis de várias perspectivas
+de interpretação.” \cite[p. 32]{leal2011}.
+Quanto aos meios empregados este trabalho constitui um \emph{estudo de casos
+múltiplos}:
+
+\begin{citacao}
+  O estudo de casos múltiplos – denominado, em algumas áreas, como
+  administração pública e ciência política, de método de caso comparativo – é
+  preferido quando há possibilidade de comparar semelhanças e de contrastar
+  diferenças entre os casos selecionados. \cite[p. 43]{leal2011}
+\end{citacao}
+
+\textcite{yin2001} salienta que pesquisas desse tipo envolvem o estudo profundo
+e minucioso de um ou mais casos, que neste trabalho serão programas concretos
+implementados para demonstrar os conceitos de programação.
+A linguagem \emph{JavaScript} será usada na implementação dos mesmos.
+Essa escolha pode ser resguardada pelo fato de que, além de ser a língua
+franca da web, ela tem suporte para os paradigmas a serem estudados.
+
+A \emph{priori}, o paradigma de PF será demostrado com a implementação de programas
+para \emph{processamento de listas}.
+Isso fundamentará diferenças essenciais entre conceitos declarativos e
+imperativos.
+Em seguida, conceitos de PR e o \emph{callback} serão demonstrados na \emph{coordenação
+de eventos} em interfaces gráficas.
+Essa segunda parte esclarecerá conceitos declarativos do paradigma de PR e o
+tradicional \emph{callback}, imperativo.
+
+Afim de contrastar as vantagens e desvantagens de cada conceito, a linguagem de
+programação em cada caso será analisada através de um conjunto de critérios
+padronizados, chamados de \emph{Dimensões Cognitivas de Notações} (DCs), do inglês
+\emph{Cognitive Dimensions of Notations} \cite{green1989}.
+Criadas para analisar a usabilidade de ‘artefatos de
+informação’\footnote{Geralmente sistemas de software, especialmente linguagens de
+programação. Mais informações podem ser encontradas no site
+\url{http://www.cl.cam.ac.uk/\~afb21/CognitiveDimensions/}.}, essas DCs já foram usadas para investigar API
+— \emph{Application Programming Interface} \cite{clarke2003}, recursos de linguagens
+de programação \cite{sadowski2011}, e paradigmas de programação \cite{kiss2014}.

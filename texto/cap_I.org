@@ -1,0 +1,144 @@
+# -*- ispell-local-dictionary: "portugues"; org-export-headline-levels: 5; -*-
+
+Interfaces gráficas mediam a maioria das nossas interações com computadores,
+seja através de /laptops/, tabletes, ou navegadores web.
+Desde o projeto até a implementação elas apresentam muitos desafios
+cite:myers1994.
+Além de problemas comuns de programação, como análise e processamento de dados,
+destacam-se também a apresentação de dados na tela e o gerenciamento de
+interações.
+Para gerenciar interações na programação de interfaces é necessário coordenar
+vários eventos desencadeados pelo usuário, através de dispositivos de interação
+como teclado, mouse, e tela multitoque.
+
+Para coordenar eventos é comum usar o /callback/: um bloco de código executado
+sempre que um dado evento ocorrer, p. ex., clique em um botão.
+Esse conceito é criticado por tornar o programa complexo: a ordem de execução é
+imprevisível, é definida por eventos externos, e não pela sequência especificada
+pelo programador[fn:control_flow] cite:maier2010,edwards2009,fischer2007.
+“Coordenar alterações ao estado compartilhada em meio a esse caos pode ser
+desconcertante, e está longe de ser modular. A definição coloquial é /Inferno de
+Callbacks/.”[fn:callback_hell] [[cite:edwards2009][p. 2; tradução nossa]].
+Inerentemente imperativo, o /callback/ é muito usado na /programação orientada a
+objetos/ (POO) através do /Observer Pattern/[fn:observer_pattern]
+cite:blackheath2016,maier2010.
+Para esclarecer os desafios enfrentados por sistemas de software em produção,
+podemos citar uma análise das aplicações /desktop/ da Adobe, de 2005, onde foi
+concluído que a lógica de coordenação de eventos consistia de um terço do
+código, além de conter metade dos /bugs/ reportados durante o ciclo de vida do
+produto cite:jarvi2008.
+
+Uma alternativa é a /programação reativa (PR)/, recentemente proposta como
+solução apropriada para sistemas orientados a eventos, como interfaces gráficas,
+jogos digitais, robôs, e servidores web cite:salvaneschi2015,bainomugisha2013.
+Conceitos de PR permitem descrever um programa como um fluxo de dados, que o
+ambiente de execução converte em um grafo direcionado, e pode manter os dados
+atualizados automaticamente.
+Esse comportamento pode ser observado em aplicações de planilha eletrônica, como
+/Google Sheets/ e /Microsoft Excel/.[fn:spreadsheet]
+Os paradigmas de PR e /programação funcional/ (PF) compartilham vários conceitos
+declarativos, e são considerados mais simples de se programar que os imperativos
+cite:blackheath2016,bainomugisha2013.
+Um experimento controlado realizado na Alemanha investigou a compreensibilidade
+de programação entre a PR e o /Observer Pattern/.
+Apesar da baixa significância estatística, resultados empíricos confirmaram que
+a PR é mais simples para compreensão de programas em comparação a abordagem
+tradicional cite:salvaneschi2014.
+
+Visto que POO permeia o ensino de programação cite:vanroy2003, e que a
+utilização inadequada de conceitos imperativos é uma das principais causas de
+complexidade em sistemas modernos[fn:complexity] cite:moseley2006, indaga-se se
+os conceitos de programação declarativa podem mitigar problemas enfrentados no
+desenvolvimento de software em larga escala.
+Posto isso, propomos estudar os paradigmas de PF e PR aplicados na programação
+de interfaces gráficas.
+
+* Problema e Questões de Pesquisa
+  Quais os conceitos apropriados para programação de interfaces gráficas?
+  Conceitos de programação /imperativa/ são bastante comuns em linguagens
+  tradicionais, como as orientadas a objetos.
+  Linguagens funcionais e lógicas empregam conceitos de programação
+  /declarativa/, que é considerada mais simples e intuitiva.[fn:intuitive]
+  Questiona-se então se programação declarativa é adequada para o
+  desenvolvimento de interfaces gráficas, e quais suas vantagens e desvantagens
+  em relação à programação imperativa.
+
+* Objetivos
+   Demonstrar e analisar conceitos declarativos de PF e PR. Especificamente:
+
+   - Demonstrar a essência da programação declarativa com conceitos de PF;
+   - Demonstrar conceitos declarativos de PR e imperativos de POO com
+     /callbacks/;
+   - Analisar e comparar os conceitos quanto a usabilidade da linguagem de
+     programação.
+
+* Métodos de Pesquisa
+  Esta pesquisa é de natureza /aplicada/, e quanto aos objetivos que visamos
+  alcançar ela se classifica como /exploratória/, pois tem o “\textelp{} foco
+  mais aberto para investigação de fenômenos (culturais, sociais, técnicos,
+  históricos, etc.) pouco sistematizados e/ou passíveis de várias perspectivas
+  de interpretação.” [[cite:leal2011][p. 32]].
+  Quanto aos meios empregados este trabalho constitui um /estudo de casos
+  múltiplos/:
+
+  #+BEGIN_EXPORT latex
+  \begin{citacao}
+    O estudo de casos múltiplos – denominado, em algumas áreas, como
+    administração pública e ciência política, de método de caso comparativo – é
+    preferido quando há possibilidade de comparar semelhanças e de contrastar
+    diferenças entre os casos selecionados. \cite[p. 43]{leal2011}
+  \end{citacao}
+  #+END_EXPORT
+
+  textcite:yin2001 salienta que pesquisas desse tipo envolvem o estudo profundo
+  e minucioso de um ou mais casos, que neste trabalho serão programas concretos
+  implementados para demonstrar os conceitos de programação.
+  A linguagem /JavaScript/ será usada na implementação dos mesmos.
+  Essa escolha pode ser resguardada pelo fato de que, além de ser a língua
+  franca da web, ela tem suporte para os paradigmas a serem estudados.
+
+  A /priori/, o paradigma de PF será demostrado com a implementação de programas
+  para /processamento de listas/.
+  Isso fundamentará diferenças essenciais entre conceitos declarativos e
+  imperativos.
+  Em seguida, conceitos de PR e o /callback/ serão demonstrados na /coordenação
+  de eventos/ em interfaces gráficas.
+  Essa segunda parte esclarecerá conceitos declarativos do paradigma de PR e o
+  tradicional /callback/, imperativo.
+
+  Afim de contrastar as vantagens e desvantagens de cada conceito, a linguagem de
+  programação em cada caso será analisada através de um conjunto de critérios
+  padronizados, chamados de /Dimensões Cognitivas de Notações/ (DCs), do inglês
+  /Cognitive Dimensions of Notations/ cite:green1989.
+  Criadas para analisar a usabilidade de ‘artefatos de
+  informação’[fn:infoArtifactis], essas DCs já foram usadas para investigar API
+  — /Application Programming Interface/ cite:clarke2003, recursos de linguagens
+  de programação cite:sadowski2011, e paradigmas de programação cite:kiss2014.
+  # linguagem de especificação cite:kutar2000
+
+* Footnotes
+
+[fn:complexity] textcite:moseley2006 distinguem complexidade /acidental/ e
+/essencial/, aqui nos referimos à primeira.
+
+[fn:control_flow] A ordem de execução de um programa também é denominada /fluxo
+de controle/.
+
+[fn:spreadsheet] “Possivelmente a linguagem de programação mais utilizada por
+usuários finais”, como é notado por [[textcite:bainomugisha2013][p. 2]].
+
+[fn:callback_hell] Tradução literal do inglês /‘Callback Hell’/: expressão
+ popular na comunidade de programação.
+
+[fn:observer_pattern] O /Observer Pattern/ é usado para coordenar eventos em
+linguagens orientadas a objetos, e /callback/ as vezes é chamado de /event
+handler/, /event listener/ ou /observer/, mas em essência o conceito é o mesmo.
+
+[fn:infoArtifactis] Geralmente sistemas de software, especialmente linguagens de
+programação. Mais informações podem ser encontradas no site
+http://www.cl.cam.ac.uk/~afb21/CognitiveDimensions/.
+
+[fn:intuitive] [[textcite:roy2004][p. 31]]: “\textelp{} we are interested in
+computation models that are useful and intuitive for programmers \textelp{}. The
+first and simplest computation model we will study is /declarative
+programming/.”
