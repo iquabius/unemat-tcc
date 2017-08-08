@@ -1,0 +1,115 @@
+\documentclass[relatorio]{tex/unemat-comp}
+% Opções da classe inf-ufg (ao usar mais de uma, separe por vírgulas)
+%   [tese]         -> Tese de doutorado.
+%   [dissertacao]  -> Dissertação de mestrado (padrão).
+%   [monografia]   -> Monografia de especialização.
+%   [relatorio]    -> Relatório final de graduação.
+%   [abnt]         -> Usa o estilo "abnt-alf" de citação bibliográfica.
+%   [nocolorlinks] -> Os links de navegação no texto ficam na cor preta.
+%                     Use esta opção para gerar o arquivo para impressão
+%                     da versão final do seu texto!!!
+
+\addbibresource{tex/refs/biblatex-abnt.bib}
+
+%----------------------------------------------------- INICIO DO DOCUMENTO %
+\begin{document}
+
+%------------------------------------------ AUTOR, TÍTULO E DATA DE DEFESA %
+\autor{Josias Duarte Busiquia}
+\autorR{Duarte Busiquia, Josias}
+
+\titulo{Interfaces Gráficas Declarativas}
+\subtitulo{Demonstração e Análise de Programação Funcional e Reativa}
+
+\cidade{Barra do Bugres}
+\dia{03}
+\mes{07}
+\ano{2017} % Formato numérico: \dia{01}, \mes{01} e \ano{2009}
+
+%-------------------------------------------------------------- ORIENTADOR %
+\orientador{Me. Alexandre Berndt}
+\orientadorR{Berndt, Alexandre}
+
+
+%-------------------------------------------------- INSTITUIÇÃO E PROGRAMA %
+\universidade{Universidade do Estado de Mato Grosso}
+\uni{UNEMAT}
+\unidade{Faculdade de Ciências Exatas e Tecnológicas}
+\departamento{Curso de Ciência da Computação} % Unidades com mais de um departamento.
+
+\programa{Ciência da Computação}
+\concentracao{Ciência da Computação}
+
+%-------------------------------------------------- ELEMENTOS PRÉ-TEXTUAIS %
+\capa    % Gera o modelo da capa externa do trabalho
+%\publica % Gera a autorização para publicação em formato eletrônico
+\rosto   % Primeira folha interna do trabalho
+
+%\input{./pre/pre_aprovacao}
+%\input{./pre/pre_direitos}
+%\input{./pre/pre_dedicatoria}
+%\input{./pre/pre_agradecimentos}
+%\input{./pre/pre_epigrafe}
+%\input{./pre/pre_resumo}
+%\input{./pre/pre_abstract}
+
+\tabelas [figtab]
+
+%Opções:
+%nada [] -> Gera apenas o sumário
+%fig     -> Gera o sumário e a lista de figuras
+%tab     -> Sumário e lista de tabelas
+%alg     -> Sumário e lista de algoritmos
+%cod     -> Sumário e lista de códigos de programas
+%
+% Pode-se usar qualquer combinação dessas opções.
+% Por exemplo:
+%  figtab       -> Sumário e listas de figuras e tabelas
+%  figtabcod    -> Sumário e listas de figuras, tabelas e
+%                  códigos de programas
+%  figtabalg    -> Sumário e listas de figuras, tabelas e algoritmos
+%  figtabalgcod -> Sumário e listas de figuras, tabelas, algoritmos e
+%                  códigos de programas
+
+%--------------------------------------------------------------- CAPÍTULOS %
+% Introdução ---------------------------------------------------------------
+\chapter{Introdução}
+\label{chap:intro}
+\input{texto/cap_I}
+
+% Revisão da Literatura ----------------------------------------------------
+\chapter{Programação de Computadores}
+\label{chap:prog}
+\input{texto/cap_II}
+
+% Estudos de Casos ---------------------------------------------------------
+\chapter{Estudos de Casos: Processamento de Listas}
+\label{chap:processamentoDeListas}
+\input{texto/cap_III}
+
+\chapter{Estudos de Casos: Coordenação de Eventos}
+\label{chap:coordenacaoDeEventos}
+\input{texto/cap_IV}
+
+% Conclusão ----------------------------------------------------------------
+\input{texto/cap_V}
+
+
+%------------------------------------------------------------- REFERÊNCIAS %
+
+\cleardoublepage
+
+%\nocite{*}                  % para incluir referências não citadas no texto
+
+\arial
+\printbibliography[heading=bibintoc,title=\refname]
+
+
+%------------------------------------------------------------------------- %
+%               F I M   D O  A R Q U I V O :  t c c . t e x                %
+%------------------------------------------------------------------------- %
+\end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
