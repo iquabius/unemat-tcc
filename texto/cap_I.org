@@ -53,7 +53,7 @@ desenvolvimento de software em larga escala.
 Posto isso, propomos estudar os paradigmas de PF e PR aplicados na programação
 de interfaces gráficas.
 
-* Problema e Questões de Pesquisa
+* Problema
   Quais os conceitos apropriados para programação de interfaces gráficas?
   Conceitos de programação /imperativa/ são bastante comuns em linguagens
   tradicionais, como as orientadas a objetos.
@@ -72,7 +72,7 @@ de interfaces gráficas.
    - Analisar e comparar os conceitos quanto a usabilidade da linguagem de
      programação.
 
-* Métodos de Pesquisa
+* Métodos
   Esta pesquisa é de natureza /aplicada/, e quanto aos objetivos que visamos
   alcançar ela se classifica como /exploratória/, pois tem o “\textelp{} foco
   mais aberto para investigação de fenômenos (culturais, sociais, técnicos,
