@@ -1,0 +1,25 @@
+/versoes_pdf
+/_minted*
+
+# com template abntex
+*.aux
+*.bbl
+*.blg
+*.brf
+*.fdb_latexmk
+*.fls
+*.idx
+*.ilg
+*.ind
+*.log
+*.out.ps
+*.pdf
+*.synctex.gz
+*.toc
+
+# com o template unemat-comp (derivado do inf-ufg)
+*.bcf
+*.lof
+*.lot
+*.out
+*.run.xml

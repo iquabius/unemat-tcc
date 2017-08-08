@@ -1,0 +1,7 @@
+# -*- ispell-local-dictionary: "portugues"; -*-
+#+TITLE: Interfaces Gráficas Declarativas
+#+AUTHOR: Josias Duarte Busiquia
+
+* Demonstração e Análise de Programação Funcional e Reativa
+  Trabalho de conclusão a ser apresentado ao curso de Ciência da Computação da
+  Universidade do Estado de Mato Grosso.
