@@ -280,6 +280,8 @@
  \tocfile{\listalgorithmcfname}{loa}
  \endgroup}
 
+\usepackage{tex/src_code}
+
 %% Code lists
 %% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 %\RequirePackage{float}
