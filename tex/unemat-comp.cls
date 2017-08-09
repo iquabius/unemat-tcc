@@ -833,7 +833,7 @@
  {\listofalgorithmes\clearpage
  }{}
 \IfSubStringInString{cod}{#1}
- {\listofcodes\clearpage
+ {\listoflistings\clearpage
  }{}
 
 \normalfont\pagestyle{fancy}%
