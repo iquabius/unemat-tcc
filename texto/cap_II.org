@@ -133,6 +133,79 @@ denominadas /linguagens imperativas/.
   inglês.
 
 
+* Programação Funcional
+  Programação Funcional (PF) é assim chamada porque sua operação básica é a
+  aplicação de funções à argumentos cite:hughes1990.
+  Lisp foi a primeira linguagem de programação funcional.
+  Criada em 1958 originalmente como uma notação matemática para programas de
+  computador, influenciada pela do /cálculo lambda/ de Alonzo Church.
+
+  Na matemática a ideia de /quadrado de um número/ pode ser expressa
+  algebricamente como uma função $f(x)=x*x$.
+  Em Elm, a ideia de quadrado pode ser expressa como src_elm{quadrado x = x *
+  x}.
+  A expressão pode ser lida em português da seguinte forma: “O quadrado de algo
+  é ele multiplicado por ele mesmo.”
+
+  A expressão algébrica denota uma função $f$ que relaciona um número $x$ com
+  seu quadrado, ou transforma $x$ em seu quadrado.
+  A expressão em Elm define uma função src_elm{quadrado} que transforma o
+  parâmetro src_elm{x} em seu quadrado.
+  textcite:roy2009 descreve uma função no contexto da PF:
+
+  #+BEGIN_EXPORT latex
+  \begin{citacao}
+    Functions are mathematical functions: when called with the same arguments,
+    they always give the same results. Functions do not change. In the real world,
+    things are different. There are few real-world entities that have the timeless
+    behavior of functions. Organisms grow and learn. When the same stimulus is
+    given to an organism at different times, the reaction will usually be
+    different. (p. 26)
+  \end{citacao}
+  #+END_EXPORT
+
+  Um programa funcional é uma expressão a ser avaliada, no contexto de um
+  conjunto de definições — principalmente definições de funções.
+  Por exemplo, dada as definições de função em ref:code:programfnDefinitions, um
+  programa pode consistir da expressão src_elm{dobrar (somar 2 3)} e o resultado
+  do programa então seria src_elm{10} cite:noble1994.
+
+  #+BEGIN_EXPORT latex
+  \begin{listing}[H]
+    \centering
+    \caption{Definição das funções \texttt{somar} e \texttt{dobrar}.}
+    \begin{minted}[linenos=false]{elm}
+      somar x y = x + y
+      dobrar z = 2 * z
+    \end{minted}
+    \small Fonte: Adaptado de \textcite{noble1994}.
+    \label{code:programfnDefinitions}
+  \end{listing}
+  #+END_EXPORT
+
+  Funções são consideradas /cidadãs de primeira classe — do inglês ‘first-class
+  citizens’/, e podem ser passadas como argumentos da mesma forma que qualquer
+  outro tipo de dado.
+  Uma função é definida para ter um certo número de argumentos (sua /aridade/),
+  mas se for calculada com menos argumentos o resultado é outra função.
+  Isso permite funções como as definidas em ref:code:currying, onde ~inc~ recebe
+  um número e adiciona ~1~ a ele, e ~tres~ aplica ~f~, uma dada função, três
+  vezes à qualquer argumento em que ~f~ normalmente aceitaria, por exemplo: a
+  expressão ~tres inc 2~ resulta no valor ~5~ cite:noble1994.
+
+  #+BEGIN_EXPORT latex
+  \begin{listing}[H]
+    \centering \caption{\emph{Currying}.}
+    \begin{minted}[linenos=false]{elm}
+      inc = somar 1
+      tres f = f >> f >> f >>
+    \end{minted}
+    \small Fonte: Adaptado de \textcite{noble1994}.
+    \label{code:currying}
+  \end{listing}
+  #+END_EXPORT
+
+
 * Footnotes
 
 [fn:statement]
