@@ -205,6 +205,69 @@ denominadas /linguagens imperativas/.
   \end{listing}
   #+END_EXPORT
 
+* Programação Reativa
+  Programação reativa abrange um leque enorme de conceitos de programação.
+  Isso se deve pela escolha da palavra ‘reativa’, que diz mais sobre uma
+  /propriedade do que se programa/ do que sobre um /conceito de programação/.
+  Vários conceitos e paradigmas diferentes podem ser empregados na programação
+  de uma aplicação reativa — ou de qualquer tipo de programa cite:roy2009.
+  Entende-se então o porquê do paradigma abarcar tantos conceitos.
+  Portanto, faz sentido descrever /programas reativos/ e a propriedade
+  /reativa/, antes de discutir os modelos de programação disponíveis para
+  abordá-los.
+  A /priori/, é conveniente distinguir entre três tipos de programas de
+  computador:
+
+  - /programa transacional/: computa resultados a partir de um dados conjunto de
+    dados de entrada. Compiladores e programas de computação numérica são alguns
+    exemplos clássicos;
+  - /programa interativo/: interage, no seu próprio ritmo, com usuários ou com
+    outros programas. Sistemas de tempo compartilhado são interativos, do ponto
+    de vista do usuário;
+  - /programa reativo/: também mantém interação contínua com seu ambiente, mas
+    no ritmo determinado pelo ambiente, não pelo próprio programa. Interfaces
+    gráficas[fn:interactive] e robôs são alguns exemplos muito comuns.
+
+  Programas interativos computam no seu próprio ritmo e tratam, em grande parte,
+  de comunicação.
+  Enquanto programas reativos só computam em resposta a demanda externa e lidam
+  principalmente com eventos ou interrupções de hardware cite:berry1989.
+  /Interfaces gráficas/ reagem a cliques do mouse, pressionamento de teclas,
+  gestos multitoque, etc.
+  /Sistemas embarcados/ reagem a sinais de hardware.
+  E /programas de monitoração e controle/ reagem a mudanças no ambiente externo
+  cite:salvaneschi2015.
+
+  Programação reativa é um paradigma que dá suporte à programação de aplicações
+  reativas através de alguns conceitos específicos.
+  Alguns deles são:
+
+  - /fluxos de eventos[fn:event_streams]/: servem para modelar notificações
+    discretas;
+  - /propagação automática de alterações/: o modelo de execução automaticamente
+    repercuti alterações nos dados;
+
+  PR é compartilha muitos conceitos com o paradigma de /Programação Funcional
+  Reativa (PFR)/.
+  Os dois geralmente são confundidos na comunidade de praticantes.
+  PFR possui dois conceitos importantes que o diferencia da PR.
+  O primeiro é o conceito de /tempo contínuo/ — na PR o tempo é discreto.
+  O segundo é o conceito de /semântica denotacional/.
+  PFR é mais indicada para domínios que precisam representar tempo contínuo,
+  como simulações físicas.
+  PR é mais indicada para sistemas reativos, como é explicado por
+  textcite:roy2009:
+
+  #+BEGIN_EXPORT latex
+  \begin{citacao}
+    Usar tempo discreto simplifica enormemente a programação de sistemas reativos.
+    Por exemplo, isso significa que subprogramas podem ser compostos de forma
+    trivial: os eventos de saída de um subcomponente estão instantaneamente
+    disponíveis como eventos de entrada para outros subcomponentes.
+    (pg. 36; tradução nossa)
+  \end{citacao}
+  #+END_EXPORT
+
 
 * Footnotes
 
@@ -214,3 +277,10 @@ Uma única instrução numa linguagem de alto nível pode representar múltiplas
 instruções de máquinas.
 Programas consistem de instruções e expressões.
 Uma expressão é um grupo de símbolos que representa um valor.
+
+[fn:interactive]
+Este tipo de programa é popularmente conhecido como interativo — nota-se muito o
+uso da expressão ‘Aplicações interativas’ por exemplo.
+
+[fn:event_streams]
+Tradução literal de /‘event streams’/, em inglês.
