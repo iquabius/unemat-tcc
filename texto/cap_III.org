@@ -1,0 +1,9 @@
+# -*- ispell-local-dictionary: "portugues"; org-export-headline-levels: 5; -*-
+
+Este capítulo demonstra PF no processamento de listas.
+
+* Adicionar $1$ a cada número de uma lista
+* Remover Nomes que não Começam com ‘S’
+* Multiplicar os Números de uma Lista
+* Redução de valores com ~reduce()~
+* Agrupamento de valores com ~zip()~
