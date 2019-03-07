@@ -499,30 +499,30 @@
  \modelo%
  \singlespacing%
  \begin{titlepage}%
-   \begin{textblock}{5}(14.45,5.5)
+   \begin{textblock}{5}(14.95,5.5)
      \includegraphics[height=3cm,width=2.8cm]{tex/img/brasao/unemat_cor.png}
    \end{textblock}
-   \begin{textblock}{5}(2.1,5.6)
+   \begin{textblock}{5}(1.6,5.6)
      \includegraphics[height=2.5cm,width=2.73cm]{tex/img/brasao/mt_cor.png}
    \end{textblock}
 % 
 %   \vspace*{30pt}
-  \textoC{1}{\normalsize \scshape \@universidade \normalsize \upshape}%
+  \textoC{1}{\normalsize \MakeUppercase{\@universidade \normalsize}}%
 
   \vspace*{\stretch{-0.8}}%
-  \textoC{1}{\normalsize \scshape Campus Universitário de \@cidade\relax \normalsize \upshape}
+  \textoC{1}{\normalsize \MakeUppercase{Campus Universitário de \@cidade\relax \normalsize}}
   
   \vspace*{\stretch{-0.8}}%
-  \textoC{1}{\normalsize \scshape \@unidade \normalsize \upshape}%
+  \textoC{1}{\normalsize \MakeUppercase{\@unidade \normalsize}}%
 
   \ifthenelse{\equal{\@departamento}{}}{}{%
    \vspace*{\stretch{-0.8}}%
-   \textoC{1}{\normalsize \scshape \@departamento\relax \normalsize \upshape} }%
+   \textoC{1}{\normalsize \MakeUppercase{\@departamento\relax \normalsize}} }%
 
   \vspace*{\stretch{3}}%
-  \textoC{1}{\Large \scshape \@autor \normalsize \upshape}%
+  \textoC{1}{\Large \MakeUppercase{\@autor} \normalsize}%
   \vspace*{\stretch{4}}%
-  \textoC{1.8}{\huge \textbf{\@titulo\relax} \normalsize}%
+  \textoC{1.8}{\Large \textbf{\MakeUppercase{\@titulo}\relax} \normalsize}%
   \ifthenelse{\equal{\@subtitulo}{}}{}{%
    \textoC{1.3}{\Large \textbf{\@subtitulo\relax} \normalsize} }%
   \vspace*{\stretch{9}}%
@@ -546,7 +546,7 @@
  \singlespacing%
  \textoC{1}{\Large \scshape \@autor \normalsize \upshape}%
  \vspace*{\stretch{3}}%
- \textoC{1.7}{\huge \textbf{\@titulo\relax} \normalsize}%
+ \textoC{1.7}{\Large \textbf{\MakeUppercase{\@titulo}\relax} \normalsize}%
  \ifthenelse{\equal{\@subtitulo}{}}{}{%
   \textoC{1.2}{\Large \textbf{\@subtitulo} \normalsize \relax} }%
  \vspace*{\stretch{4}}%
