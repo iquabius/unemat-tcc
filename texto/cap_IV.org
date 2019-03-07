@@ -1,0 +1,5 @@
+# -*- ispell-local-dictionary: "portugues"; org-export-headline-levels: 5; -*-
+
+* Contador
+
+* Reserva de voo
