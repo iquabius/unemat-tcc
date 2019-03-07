@@ -544,7 +544,7 @@
   \pdfbookmark[1]{Folha de Rosto}{pretexto.3}
  \fi
  \singlespacing%
- \textoC{1}{\Large \scshape \@autor \normalsize \upshape}%
+ \textoC{1}{\Large \MakeUppercase{\@autor} \normalsize}%
  \vspace*{\stretch{3}}%
  \textoC{1.7}{\Large \textbf{\MakeUppercase{\@titulo}\relax} \normalsize}%
  \ifthenelse{\equal{\@subtitulo}{}}{}{%
