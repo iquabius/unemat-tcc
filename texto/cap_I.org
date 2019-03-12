@@ -35,7 +35,9 @@ Conceitos de PR permitem descrever um programa como um fluxo de dados, que o
 ambiente de execução converte em um grafo direcionado, e pode manter os dados
 atualizados automaticamente.
 Esse comportamento pode ser observado em aplicações de planilha eletrônica, como
-/Google Sheets/ e /Microsoft Excel/.[fn:spreadsheet]
+/Google Sheets/ e /Microsoft Excel/, “Possivelmente a linguagem de programação
+mais utilizada por usuários finais”, como é notado por
+[[textcite:bainomugisha2013][p. 2]].
 Os paradigmas de PR e /programação funcional/ (PF) compartilham vários conceitos
 declarativos, e são considerados mais simples de se programar que os imperativos
 cite:blackheath2016,bainomugisha2013.
@@ -120,9 +122,6 @@ de interfaces gráficas.
 
 [fn:control_flow] A ordem de execução de um programa também é denominada /fluxo
 de controle/.
-
-[fn:spreadsheet] “Possivelmente a linguagem de programação mais utilizada por
-usuários finais”, como é notado por [[textcite:bainomugisha2013][p. 2]].
 
 [fn:callback_hell] Tradução literal do inglês /‘Callback Hell’/: expressão
  popular na comunidade de programação.
