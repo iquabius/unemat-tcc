@@ -135,6 +135,26 @@ denominadas /linguagens imperativas/.
 
 # Falta o item “6.1.3 Programação de Interfaces Gráficas” do pré-projeto
 
+* Programação de Interfaces Gráficas
+
+  Conforme é notado por textcite:blackheath2016, a maioria das aplicações que
+  interagem com o ambiente externo são arquitetadas em torno de dois modelos de
+  programaçao, ou uma mistura dos dois:
+
+  - /Threads/ :: modelam transições de estado como um fluxo de controle.
+                 Adequadas para operações de I/O ou qualquer situação onde as
+                 transições de estado se enquadram em uma sequência claramente
+                 definida.
+  - Eventos :: são mensagens discretas e assíncronas que são propagadas pela
+               aplicação. Formam um modelo adequado para sequências menos
+               óbvias, principalmente onde as interações entre componentes são
+               mais complexas. Algumas aplicações incluem /GUIs/ e video
+               games.
+
+  Alguns problemas de computação são melhor resolvidos com o modelo baseado
+  em /threads/. No entanto textcite:blackheath2016 afirmam que a
+  abordagem com eventos geralmente é a melhor escolha.
+
 * Programação Funcional
   Programação Funcional (PF) é assim chamada porque sua operação básica é a
   aplicação de funções à argumentos cite:hughes1990.

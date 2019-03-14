@@ -16,7 +16,7 @@ Tais linguagens são baseadas no modelo \emph{imperativo} de computação, e sã
 denominadas \emph{linguagens imperativas}.
 
 \section{Linguagens de Programação}
-\label{sec:org78cb0c1}
+\label{sec:orgd2a83b6}
 \label{sec:langs}
 
 Linguagens de programação são mais simples que linguagens naturais, no
@@ -48,7 +48,7 @@ lembrar de eventos anteriores ou de interações com o usuário.
 A informação recordada é denominada o estado do programa \cite{rouse2005}.
 
 \section{Paradigmas de Programação}
-\label{sec:orgabc65ff}
+\label{sec:orgb6a594d}
 Programação é uma disciplina extensa, e linguagens práticas de programação
 geralmente são bastante complicadas.
 Felizmente, as ideias importantes de linguagens de programação são simples
@@ -120,8 +120,31 @@ Esses paradigmas não possuem condições de corrida, \emph{‘race conditions�
 inglês.
 \todo{Esses últimos dois parágrafos parecem estar deslocados.}
 
+\section{Programação de Interfaces Gráficas}
+\label{sec:org90adba0}
+
+Conforme é notado por \textcite{blackheath2016}, a maioria das aplicações que
+interagem com o ambiente externo são arquitetadas em torno de dois modelos de
+programaçao, ou uma mistura dos dois:
+
+\begin{description}
+\item[{\emph{Threads}}] modelam transições de estado como um fluxo de controle.
+Adequadas para operações de I/O ou qualquer situação onde as
+transições de estado se enquadram em uma sequência claramente
+definida.
+\item[{Eventos}] são mensagens discretas e assíncronas que são propagadas pela
+aplicação. Formam um modelo adequado para sequências menos
+óbvias, principalmente onde as interações entre componentes são
+mais complexas. Algumas aplicações incluem \emph{GUIs} e video
+games.
+\end{description}
+
+Alguns problemas de computação são melhor resolvidos com o modelo baseado
+em \emph{threads}. No entanto \textcite{blackheath2016} afirmam que a
+abordagem com eventos geralmente é a melhor escolha.
+
 \section{Programação Funcional}
-\label{sec:org75febf5}
+\label{sec:org266d840}
 Programação Funcional (PF) é assim chamada porque sua operação básica é a
 aplicação de funções à argumentos \cite{hughes1990}.
 Lisp foi a primeira linguagem de programação funcional.
@@ -188,7 +211,7 @@ expressão \texttt{tres inc 2} resulta no valor \texttt{5} \cite{noble1994}.
 \end{listing}
 
 \section{Programação Reativa}
-\label{sec:orgb0b9adc}
+\label{sec:orgdd0fbe1}
 Programação reativa abrange um leque enorme de conceitos de programação.
 Isso se deve pela escolha da palavra ‘reativa’, que diz mais sobre uma
 \emph{propriedade do que se programa} do que sobre um \emph{conceito de programação}.
