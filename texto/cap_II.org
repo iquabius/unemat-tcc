@@ -5,7 +5,7 @@
 # Revisão de Literatura --------------------------------------------------------
 
 Um programa de computador é expresso por um conjunto de sentenças em alguma
-linguagem de programação.[fn:statement]
+linguagem de programação.[fn:statement] \todo{Trazer o conteúdo do rodapé pra cá?}
 A forma como as sentenças de uma linguagem são executadas pelo computador é
 definida por um /modelo de computação/ cite:roy2004.
 
