@@ -132,6 +132,7 @@ denominadas /linguagens imperativas/.
   Esses paradigmas não possuem condições de corrida, /‘race conditions’/ em
   inglês.
 
+# Falta o item “6.1.3 Programação de Interfaces Gráficas” do pré-projeto
 
 * Programação Funcional
   Programação Funcional (PF) é assim chamada porque sua operação básica é a
@@ -155,14 +156,22 @@ denominadas /linguagens imperativas/.
 
   #+BEGIN_EXPORT latex
   \begin{citacao}
-    Functions are mathematical functions: when called with the same arguments,
-    they always give the same results. Functions do not change. In the real world,
-    things are different. There are few real-world entities that have the timeless
-    behavior of functions. Organisms grow and learn. When the same stimulus is
-    given to an organism at different times, the reaction will usually be
-    different. (p. 26)
+    Funções são funcões matemáticas: quando chamadas com os mesmos argumentos,
+    elas sempre dão os mesmos resultados. Funções não mudam. No mundo real,
+    as coisas são diferentes. Há poucas entidades reais que têm o comportamento
+    intemporal das funções. Organismos crescem e aprendem. Quando o mesmo
+    estímulo é dado à um organismo em momentos diferentes, a reação geralmente
+    será diferente. (p. 26; tradução nossa)
   \end{citacao}
   #+END_EXPORT
+
+  # Original:
+  # Functions are mathematical functions: when called with the same arguments,
+  # they always give the same results. Functions do not change. In the real
+  # world, things are different. There are few real-world entities that have the
+  # timeless behavior of functions. Organisms grow and learn. When the same
+  # stimulus is given to an organism at different times, the reaction will
+  # usually be different. (p. 26)
 
   Um programa funcional é uma expressão a ser avaliada, no contexto de um
   conjunto de definições — principalmente definições de funções.
