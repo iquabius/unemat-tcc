@@ -3,7 +3,7 @@ linguagem de programação.\footnote{Uma sentença (\emph{statement}) pode conte
 Uma única instrução numa linguagem de alto nível pode representar múltiplas
 instruções de máquinas.
 Programas consistem de instruções e expressões.
-Uma expressão é um grupo de símbolos que representa um valor.} \todo{Trazer o conteúdo do rodapé pra cá?}
+Uma expressão é um grupo de símbolos que representa um valor.} \todo[fancyline]{Trazer o conteúdo do rodapé pra cá?}
 A forma como as sentenças de uma linguagem são executadas pelo computador é
 definida por um \emph{modelo de computação} \cite{roy2004}.
 
@@ -16,7 +16,7 @@ Tais linguagens são baseadas no modelo \emph{imperativo} de computação, e sã
 denominadas \emph{linguagens imperativas}.
 
 \section{Linguagens de Programação}
-\label{sec:org47faacb}
+\label{sec:org78cb0c1}
 \label{sec:langs}
 
 Linguagens de programação são mais simples que linguagens naturais, no
@@ -48,7 +48,7 @@ lembrar de eventos anteriores ou de interações com o usuário.
 A informação recordada é denominada o estado do programa \cite{rouse2005}.
 
 \section{Paradigmas de Programação}
-\label{sec:orgb38909c}
+\label{sec:orgabc65ff}
 Programação é uma disciplina extensa, e linguagens práticas de programação
 geralmente são bastante complicadas.
 Felizmente, as ideias importantes de linguagens de programação são simples
@@ -118,18 +118,20 @@ programa também irá calcular o resultado de saída incrementalmente.”
 \cite[p. 238; tradução nossa]{roy2004}.
 Esses paradigmas não possuem condições de corrida, \emph{‘race conditions’} em
 inglês.
+\todo{Esses últimos dois parágrafos parecem estar deslocados.}
 
 \section{Programação Funcional}
-\label{sec:org612d772}
+\label{sec:org75febf5}
 Programação Funcional (PF) é assim chamada porque sua operação básica é a
 aplicação de funções à argumentos \cite{hughes1990}.
 Lisp foi a primeira linguagem de programação funcional.
 Criada em 1958 originalmente como uma notação matemática para programas de
-computador, influenciada pela do \emph{cálculo lambda} de Alonzo Church.
+computador, influenciada pelo \emph{cálculo lambda} de Alonzo Church.
 
 Na matemática a ideia de \emph{quadrado de um número} pode ser expressa
 algebricamente como uma função \(f(x)=x*x\).
-Em Elm, a ideia de quadrado pode ser expressa como \mintinline{elm}{quadrado x = x * x}.
+Em Elm, \todo{Migrar os exemplos pra JavaScript.} a ideia de quadrado pode ser
+expressa como \mintinline{elm}{quadrado x = x * x}.
 A expressão pode ser lida em português da seguinte forma: “O quadrado de algo
 é ele multiplicado por ele mesmo.”
 
@@ -186,7 +188,7 @@ expressão \texttt{tres inc 2} resulta no valor \texttt{5} \cite{noble1994}.
 \end{listing}
 
 \section{Programação Reativa}
-\label{sec:org6ddf57f}
+\label{sec:orgb0b9adc}
 Programação reativa abrange um leque enorme de conceitos de programação.
 Isso se deve pela escolha da palavra ‘reativa’, que diz mais sobre uma
 \emph{propriedade do que se programa} do que sobre um \emph{conceito de programação}.

@@ -5,7 +5,7 @@
 # Revisão de Literatura --------------------------------------------------------
 
 Um programa de computador é expresso por um conjunto de sentenças em alguma
-linguagem de programação.[fn:statement] \todo{Trazer o conteúdo do rodapé pra cá?}
+linguagem de programação.[fn:statement] \todo[fancyline]{Trazer o conteúdo do rodapé pra cá?}
 A forma como as sentenças de uma linguagem são executadas pelo computador é
 definida por um /modelo de computação/ cite:roy2004.
 
@@ -131,6 +131,7 @@ denominadas /linguagens imperativas/.
   [[cite:roy2004][p. 238; tradução nossa]].
   Esses paradigmas não possuem condições de corrida, /‘race conditions’/ em
   inglês.
+  \todo{Esses últimos dois parágrafos parecem estar deslocados.}
 
 # Falta o item “6.1.3 Programação de Interfaces Gráficas” do pré-projeto
 
@@ -139,12 +140,12 @@ denominadas /linguagens imperativas/.
   aplicação de funções à argumentos cite:hughes1990.
   Lisp foi a primeira linguagem de programação funcional.
   Criada em 1958 originalmente como uma notação matemática para programas de
-  computador, influenciada pela do /cálculo lambda/ de Alonzo Church.
+  computador, influenciada pelo /cálculo lambda/ de Alonzo Church.
 
   Na matemática a ideia de /quadrado de um número/ pode ser expressa
   algebricamente como uma função $f(x)=x*x$.
-  Em Elm, a ideia de quadrado pode ser expressa como src_elm{quadrado x = x *
-  x}.
+  Em Elm, \todo{Migrar os exemplos pra JavaScript.} a ideia de quadrado pode ser
+  expressa como src_elm{quadrado x = x * x}.
   A expressão pode ser lida em português da seguinte forma: “O quadrado de algo
   é ele multiplicado por ele mesmo.”
 
