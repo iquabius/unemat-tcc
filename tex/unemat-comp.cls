@@ -392,6 +392,12 @@
     \vskip 40\p@
   }}
 
+% https://latex.org/forum/viewtopic.php?t=3245
+% https://en.wikibooks.org/wiki/LaTeX/Fonts#Sizing_text
+\usepackage{titlesec}
+\titleformat{\section}{\normalsize\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{1em}{}
+
 %% header and footer
 %% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 \RequirePackage{fancyhdr}
