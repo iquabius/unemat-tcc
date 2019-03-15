@@ -248,15 +248,15 @@ denominadas /linguagens imperativas/.
   A /priori/, é conveniente distinguir entre três tipos de programas de
   computador:
 
-  - /programa transacional/: computa resultados a partir de um dados conjunto de
-    dados de entrada. Compiladores e programas de computação numérica são alguns
+  - /programa transacional/: computa resultados a partir de um conjunto de dados
+    de entrada. Compiladores e programas de computação numérica são alguns
     exemplos clássicos;
   - /programa interativo/: interage, no seu próprio ritmo, com usuários ou com
     outros programas. Sistemas de tempo compartilhado são interativos, do ponto
     de vista do usuário;
   - /programa reativo/: também mantém interação contínua com seu ambiente, mas
     no ritmo determinado pelo ambiente, não pelo próprio programa. Interfaces
-    gráficas[fn:interactive] e robôs são alguns exemplos muito comuns.
+    gráficas[fn:interactive] e robôs são exemplos muito comuns.
 
   Programas interativos computam no seu próprio ritmo e tratam, em grande parte,
   de comunicação.
