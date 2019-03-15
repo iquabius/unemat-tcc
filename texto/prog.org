@@ -235,6 +235,45 @@ denominadas /linguagens imperativas/.
   \end{listing}
   #+END_EXPORT
 
+** Porque Programação Funcional é Relevante
+   Muitas das vezes as características e vantagens da programação funcional são
+   resumidas com declarações do tipo ‘programas funcionais não contêm
+   atribuições’, ‘não contêm efeitos colaterais’, e ‘não necessitam preescrever
+   o fluxo de controle’. Programação estruturada também já foi abordada de forma
+   similar: ‘programas estruturados não possuem \texttt{goto}, ‘blocos não
+   possuem múltiplos pontos de entrada e saída’. Essa analogia é feita por
+   textcite:hughes1990 em /Why Functinal Programming Matters/.
+
+   textcite:hughes1990 comenta que “essas ‘vantagens’ da programação estruturada
+   são muito semelhantes em espírito as ‘vantagens’ da programação funcional”
+   (p. 3). O autor afirma que embora essas propriedades de programas
+   estruturados sejam úteis, elas não vão ao cerne da questão. Segundo o autor,
+   “a diferença mais importante entre programas estruturados e não-estruturados
+   é que programas estruturados são projetados de maneira modular”.
+
+   Modularidade é a chave para programação eficaz, no entanto ela é mais do que
+   separar um programa em módulos. textcite:hughes1990 argumenta que “a
+   capacidade de se decompor um problema em partes depende diretamente da
+   capacidade de unir soluções” (pg. 22). Hughes apresenta dois mecanismos
+   fornecidos por linguagens funcionais: /funções de ordem superior/ e
+   /avaliação preguiçosa/. Estas /ligas/, como são chamadas pelo autor, podem
+   contribuir significativamente para a modularização de programas:
+
+   #+BEGIN_EXPORT latex
+   \begin{citacao}
+     Usando estas ligas pode-se modularizar programas de formas novas e úteis, e
+     nós mostramos vários exemplos disso. Módulos menores e mais genéricos podem
+     ser reutilizados mais largamente, aliviando programação posterior. Isso
+     explica porque programas funcionais são menores e mais fáceis de escrever do
+     que os convencionais. \cite[p.~22; tradução nossa]{hughes1990}
+   \end{citacao}
+   #+END_EXPORT
+   # Original em inglês: “Using these glues one can modularize programs in new
+   # and useful ways, and we’ve shown several examples of this. Smaller and
+   # more general modules can be reused more widely, easing subsequent
+   # programming. This explains why functional programs are so much smaller
+   # and easier to write than conventional ones.”
+
 * Programação Reativa
   Programação reativa abrange um leque enorme de conceitos de programação.
   Isso se deve pela escolha da palavra ‘reativa’, que diz mais sobre uma

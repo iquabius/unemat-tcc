@@ -16,7 +16,7 @@ Tais linguagens são baseadas no modelo \emph{imperativo} de computação, e sã
 denominadas \emph{linguagens imperativas}.
 
 \section{Linguagens de Programação}
-\label{sec:org4473728}
+\label{sec:org15634a5}
 \label{sec:langs}
 
 Linguagens de programação são mais simples que linguagens naturais, no
@@ -48,7 +48,7 @@ lembrar de eventos anteriores ou de interações com o usuário.
 A informação recordada é denominada o estado do programa \cite{rouse2005}.
 
 \section{Paradigmas de Programação}
-\label{sec:orgb32ce69}
+\label{sec:org837cfea}
 Programação é uma disciplina extensa, e linguagens práticas de programação
 geralmente são bastante complicadas.
 Felizmente, as ideias importantes de linguagens de programação são simples
@@ -121,7 +121,7 @@ inglês.
 \todo{Esses últimos dois parágrafos parecem estar deslocados.}
 
 \section{Programação de Interfaces Gráficas}
-\label{sec:org0904d3a}
+\label{sec:orga431335}
 
 Conforme é notado por \textcite{blackheath2016}, a maioria das aplicações que
 interagem com o ambiente externo são arquitetadas em torno de dois modelos de
@@ -144,7 +144,7 @@ em \emph{threads}. No entanto \textcite{blackheath2016} afirmam que a
 abordagem com eventos geralmente é a melhor escolha.
 
 \section{Programação Funcional}
-\label{sec:org65c74e7}
+\label{sec:org17a51a0}
 Programação Funcional (PF) é assim chamada porque sua operação básica é a
 aplicação de funções à argumentos \cite{hughes1990}.
 Lisp foi a primeira linguagem de programação funcional.
@@ -210,8 +210,41 @@ expressão \texttt{tres inc 2} resulta no valor \texttt{5} \cite{noble1994}.
   \label{code:currying}
 \end{listing}
 
+\subsection{Porque Programação Funcional é Relevante}
+\label{sec:orgeb573e0}
+Muitas das vezes as características e vantagens da programação funcional são
+resumidas com declarações do tipo ‘programas funcionais não contêm
+atribuições’, ‘não contêm efeitos colaterais’, e ‘não necessitam preescrever
+o fluxo de controle’. Programação estruturada também já foi abordada de forma
+similar: ‘programas estruturados não possuem \texttt{goto}, ‘blocos não
+possuem múltiplos pontos de entrada e saída’. Essa analogia é feita por
+\textcite{hughes1990} em \emph{Why Functinal Programming Matters}.
+
+\textcite{hughes1990} comenta que “essas ‘vantagens’ da programação estruturada
+são muito semelhantes em espírito as ‘vantagens’ da programação funcional”
+(p. 3). O autor afirma que embora essas propriedades de programas
+estruturados sejam úteis, elas não vão ao cerne da questão. Segundo o autor,
+“a diferença mais importante entre programas estruturados e não-estruturados
+é que programas estruturados são projetados de maneira modular”.
+
+Modularidade é a chave para programação eficaz, no entanto ela é mais do que
+separar um programa em módulos. \textcite{hughes1990} argumenta que “a
+capacidade de se decompor um problema em partes depende diretamente da
+capacidade de unir soluções” (pg. 22). Hughes apresenta dois mecanismos
+fornecidos por linguagens funcionais: \emph{funções de ordem superior} e
+\emph{avaliação preguiçosa}. Estas \emph{ligas}, como são chamadas pelo autor, podem
+contribuir significativamente para a modularização de programas:
+
+\begin{citacao}
+  Usando estas ligas pode-se modularizar programas de formas novas e úteis, e
+  nós mostramos vários exemplos disso. Módulos menores e mais genéricos podem
+  ser reutilizados mais largamente, aliviando programação posterior. Isso
+  explica porque programas funcionais são menores e mais fáceis de escrever do
+  que os convencionais. \cite[p.~22; tradução nossa]{hughes1990}
+\end{citacao}
+
 \section{Programação Reativa}
-\label{sec:orgf09113b}
+\label{sec:orgb1ca7aa}
 Programação reativa abrange um leque enorme de conceitos de programação.
 Isso se deve pela escolha da palavra ‘reativa’, que diz mais sobre uma
 \emph{propriedade do que se programa} do que sobre um \emph{conceito de programação}.
