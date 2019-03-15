@@ -2,13 +2,18 @@
 
 Este capítulo demonstra PF no processamento de listas.
 
-* Projeção de valores com =map()=
-  - Adicionar $1$ a cada número de uma lista
-  - Multiplicar os números de uma lista
+* Processamento de Listas
+** Projeção de valores com =map()=
+   - Adicionar $1$ a cada número de uma lista
+   - Multiplicar os números de uma lista
 
-* Seleção de valores com =filter()=
-  Remover nomes que não começam com ‘S’
+** Seleção de valores com =filter()=
+   Remover nomes que não começam com ‘S’
 
-* Nivelamento de valores com =concatAll()=
-* Redução de valores com ~reduce()~
-* Agrupamento de valores com ~zip()~
+** Nivelamento de valores com =concatAll()=
+** Redução de valores com ~reduce()~
+** Agrupamento de valores com ~zip()~
+
+* Coordenação de Eventos
+** Contador
+** Reserva de voo
