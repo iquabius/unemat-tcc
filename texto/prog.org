@@ -254,7 +254,7 @@ denominadas /linguagens imperativas/.
    Modularidade é a chave para programação eficaz, no entanto ela é mais do que
    separar um programa em módulos. textcite:hughes1990 argumenta que “a
    capacidade de se decompor um problema em partes depende diretamente da
-   capacidade de unir soluções” (pg. 22). Hughes apresenta dois mecanismos
+   capacidade de unir soluções” (p. 22). Hughes apresenta dois mecanismos
    fornecidos por linguagens funcionais: /funções de ordem superior/ e
    /avaliação preguiçosa/. Estas /ligas/, como são chamadas pelo autor, podem
    contribuir significativamente para a modularização de programas:
@@ -333,7 +333,7 @@ denominadas /linguagens imperativas/.
     Por exemplo, isso significa que subprogramas podem ser compostos de forma
     trivial: os eventos de saída de um subcomponente estão instantaneamente
     disponíveis como eventos de entrada para outros subcomponentes.
-    (pg. 36; tradução nossa)
+    (p. 36; tradução nossa)
   \end{citacao}
   #+END_EXPORT
 
