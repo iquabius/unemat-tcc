@@ -416,6 +416,9 @@
 \fancyhead[L]{\footnotesize \nouppercase{\@chapapp}\space\thechapter}
 }
 
+% Remove o recuo do parágrafo nos rodapés
+\usepackage[hang,flushmargin]{footmisc}
+
 \renewcommand\chapter{\if@openright\cleardoublepage\else\clearpage\fi
   \@mkboth{}{}
   \thispagestyle{plain}
