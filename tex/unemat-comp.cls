@@ -403,17 +403,14 @@
 \RequirePackage{fancyhdr}
 \fancyhf{} % delete current setting for header and footer
 
-\renewcommand{\sectionmark}[1]{ \markright{\thesection\ #1}{}}
-\fancyhead[L]{\footnotesize \nouppercase{\rightmark}}
 \fancyhead[R]{\footnotesize \thepage}
-\renewcommand{\headrulewidth}{0.5pt}
-\fancypagestyle{plain}{\fancyhead{} \fancyfoot{} \renewcommand{\headrulewidth}{0pt}}
+\renewcommand{\headrulewidth}{0pt}
 
-\newcommand{\apendices}{
-\cleardoublepage
-\rm
-\appendix
-\fancyhead[L]{\footnotesize \nouppercase{\@chapapp}\space\thechapter}
+% The pages where a chapter begins are typeset differently. Refer to section 7
+% of the fancyhdr manual to learn how to change the plain style.
+\fancypagestyle{plain}{%
+  \fancyhf{}%
+  \fancyhead[R]{\footnotesize \thepage}%
 }
 
 % Remove o recuo do parágrafo nos rodapés
