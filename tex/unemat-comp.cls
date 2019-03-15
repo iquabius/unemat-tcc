@@ -387,7 +387,7 @@
   { \parindent \z@ \raggedright
     \interlinepenalty\@M
     % \mghrulefill{0.5pt}\par\nobreak
-    \raggedright\large\rm\bfseries \MakeUppercase{#1} \par\nobreak \vskip -10\p@
+    \centering\large\rm\bfseries \MakeUppercase{#1} \par\nobreak \vskip -10\p@
     % \mghrulefill{0.5pt}\par\nobreak
     \vskip 40\p@
   }}
