@@ -361,16 +361,16 @@
 
 %% Section titles
 %% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-\def\mghrulefill#1{\leavevmode\leaders\hrule\@height #1\hfill\kern\z@}
+% \def\mghrulefill#1{\leavevmode\leaders\hrule\@height #1\hfill\kern\z@}
 
 \def\@makechapterhead#1{%
   \vspace*{20\p@}%
    {\interlinepenalty\@M
     \raggedleft
     % \mghrulefill{0.5pt}
-    \Large\sf\mdseries\MakeUppercase{\@chapapp}\space\Huge\thechapter
-    \par\nobreak
-    \raggedright\LARGE\rm\bfseries #1 \par\nobreak\vskip -10\p@
+    % \Large\sf\mdseries\MakeUppercase{\@chapapp}\space\Huge\thechapter
+    % \par\nobreak
+    \raggedright\large\rm\bfseries \thechapter{} \MakeUppercase{#1} \par\nobreak\vskip -10\p@
     % \mghrulefill{0.5pt}\par\nobreak
     \vskip 40\p@
   }}
@@ -387,7 +387,7 @@
   { \parindent \z@ \raggedright
     \interlinepenalty\@M
     % \mghrulefill{0.5pt}\par\nobreak
-    \raggedright\Large\rm\bfseries #1 \par\nobreak \vskip -10\p@
+    \raggedright\large\rm\bfseries \MakeUppercase{#1} \par\nobreak \vskip -10\p@
     % \mghrulefill{0.5pt}\par\nobreak
     \vskip 40\p@
   }}

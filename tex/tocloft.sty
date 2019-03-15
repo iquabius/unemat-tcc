@@ -262,7 +262,9 @@ Consider installing the current version of tocbibind.}}
      \let\@cftasnum \cftchapaftersnum
      \let\@cftasnumb \cftchapaftersnumb
      \advance\leftskip \@tempdima \null\nobreak\hskip -\leftskip
-     {\cftchapfont #1}\nobreak
+     % Using \uppercase{} makes the text black for some reason,
+     % so we set the text color back to blue manually
+     {\textcolor{blue}{\uppercase{\cftchapfont #1}}}\nobreak
      \cftchapfillnum{#2}}
   \fi}
 \fi
