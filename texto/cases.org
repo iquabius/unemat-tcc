@@ -1,6 +1,100 @@
-# -*- ispell-local-dictionary: "portugues"; org-export-headline-levels: 5; -*-
+# -*- ispell-local-dictionary: "pt_BR"; org-export-headline-levels: 5; -*-
 
 Este capítulo demonstra PF no processamento de listas.
+
+\todo[noline]{“Dimensions of evaluation” em inglês, talvez “dimensões de análise” ou “de verificação” seja melhor?}
+* Dimensões de Avaliação
+
+  As dimensões utilizadas neste trabalho são baseadas nas DCs. Assim usamos
+  critérios estabelecidos, o que facilita a comparação de nossos resultados com
+  trabalhos baseados nas DCs. O /framework/ completo possui 14 dimensões, mas os
+  autores recomendam usar um subconjunto apropriado para o artefato em mãos.
+
+  # Traduzidas diretamente de KISS 2014
+  - Nível de abstração :: /Disponibilidade e tipos de mecanismos de abstração/
+
+       O sistema fornece alguma forma de definir novos termos com a notação pra
+       que eles possam ser extendidos afim de descrever ideias claramente? Os
+       detalhes podem ser encapsulados? O sistema insiste em definir novos
+       termos? Qual o número de novos conceitos de alto nível devem ser
+       aprendidos pra se fazer uso do sistema? Eles são fáceis de aprender e
+       usar?
+
+       Cada novo conceito é um empecilho pra aprendizagem e aceitação, mas
+       também pode tornar um código complexo mais compreensível.
+
+  - Proximidade de descrição :: \todo{Traduzido de “Closeness of mapping”, poderia ser “Proximidade de mapeamento”} /Semelhança entre representação e o domínio/
+
+       O quão relacionado é a notação com o resultado que ela descreve, ou
+       melhor, o domínio do problema? Que partes parecem ser uma forma
+       particularmente estranha de descrever algo?
+
+  - Dependências ocultas :: /Vínculos importantes implícitos entre entidades/
+
+       As dependências entre as entidades da notação são visíveis ou ocultas?
+       Todas as dependências são especificadas em ambas as direções? Alterações
+       locais podem ter efeitos globais confusos?
+
+       Se uma entidade cita outra, que por sua vez cita uma terceira, a
+       alteração do valor da terceira entidade pode desencadear efeitos
+       inesperados. O problema chave não é o fato de A depender de B, mas sim
+       que a dependência não é visível. Um caso bem conhecido de dependência
+       oculta é o “problema da classe base frágil”[fn:fragile_base_class].
+
+  - Propensão a erros :: /Notação incita erros/
+
+       Até que ponto a notação influência o programador a cometer um erro? Fazer
+       algumas coisas parece ser particularmente complexo ou difícil, p. ex.,
+       juntar várias coisas?
+
+       Em muitas linguagens dinâmicas com definições implícitas de
+       variáveis[fn:var_implicit_def], um erro de tipagem em uma variável pode
+       de repente levar a erros difíceis de encontrar já que o IDE nem sempre
+       pode apontar tal erro devido a dinamicidade na linguagem. A inicialização
+       implícita de variáveis com valor =null= pode levar a uma exceção de
+       ponteiro nulo se o programador esquecer de inicializar as variáveis
+       corretamente antes de usá-las.
+
+  - Difusão         :: \todo{Diffuseness/terseness: difusão/concisão, ou dispersão} /Verbosidade da linguagem/
+       # Diffuseness/terseness: difusão/concisão, ou dispersão
+       Quantos símbolos ou quanto espaço a notação requer pra produzir um certo
+       resultado ou expressar uma ideia. Que tipos de coisas ocupam mais espaço
+       para se descrever?
+
+  - Viscosidade     :: /Resistência a mudanças/
+
+       Existe alguma barreira contra mudança na notação? Quanto esforço é
+       necessário pra fazer uma alteração num programa expresso na notação?
+
+       Num sistema viscoso o usuário precisa realizar várias passos para
+       concluir uma tarefa. Alterar o tipo de returno de uma função pode causar
+       erros em várias partes do código onde a função é chamada. Nesses casos um
+       IDE pode ajudar muito.
+
+
+  Outras dimensões que ficaram de fora são:
+
+  - Comprometimento prematuro: /limitações na ordem de fazer as coisas/
+  - Expressividade: /o propósito de uma entidade pode ser rapidamente determinado/
+  - Consistência: /semânticas parecidas são apresentadas em estilo sintático
+    parecido/
+  - Operações mentais difíceis: /alto esforço cognitivo pra realizar tarefas/
+  - Notação secundária: /informações extras por meio de notações além das
+    formais/
+
+
+  Em outras situações, e dependendo dos artefatos de informação, essas dimensões
+  poderiam ser úteis. Se tivéssemos focado mais nas ferramentas e no processo de
+  criação dos estudos de caso então as seguintes dimensões poderiam ser usadas:
+
+  # progressive evaluation: análise/verificação
+  # provisionality: momentaneidade, transitoriedade, provisoriedade
+  - Visibilidade: /habilidade de ver os componentes claramente/
+  - Análise progressiva: /trabalho realizado pode ser verificado em qualquer
+    momento/
+  - Provisoriedade\todo{'momentaneidade' ou 'transitoriedade'}: /grau
+    de comprometimento com uma ação ou marco/
+
 
 * Processamento de Listas
 ** Projeção de valores com =map()=
@@ -17,3 +111,10 @@ Este capítulo demonstra PF no processamento de listas.
 * Coordenação de Eventos
 ** Contador
 ** Reserva de voo
+
+* Footnotes
+
+[fn:var_implicit_def] Isto é, quando não se precede uma definição de variável
+com =var= ou =let= por exemplo.
+
+[fn:fragile_base_class] Veja: https://en.wikipedia.org/wiki/Fragile_base_class. 

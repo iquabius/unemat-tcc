@@ -1,28 +1,127 @@
 Este capítulo demonstra PF no processamento de listas.
 
+\todo[noline]{“Dimensions of evaluation” em inglês, talvez “dimensões de análise” ou “de verificação” seja melhor?}
+\section{Dimensões de Avaliação}
+\label{sec:org049f7a0}
+
+As dimensões utilizadas neste trabalho são baseadas nas DCs. Assim usamos
+critérios estabelecidos, o que facilita a comparação de nossos resultados com
+trabalhos baseados nas DCs. O \emph{framework} completo possui 14 dimensões, mas os
+autores recomendam usar um subconjunto apropriado para o artefato em mãos.
+
+\begin{description}
+\item[{Nível de abstração}] \emph{Disponibilidade e tipos de mecanismos de abstração}
+
+O sistema fornece alguma forma de definir novos termos com a notação pra
+que eles possam ser extendidos afim de descrever ideias claramente? Os
+detalhes podem ser encapsulados? O sistema insiste em definir novos
+termos? Qual o número de novos conceitos de alto nível devem ser
+aprendidos pra se fazer uso do sistema? Eles são fáceis de aprender e
+usar?
+
+Cada novo conceito é um empecilho pra aprendizagem e aceitação, mas
+também pode tornar um código complexo mais compreensível.
+
+\item[{Proximidade de descrição}] \todo{Traduzido de “Closeness of mapping”, poderia ser “Proximidade de mapeamento”} \emph{Semelhança entre representação e o domínio}
+
+O quão relacionado é a notação com o resultado que ela descreve, ou
+melhor, o domínio do problema? Que partes parecem ser uma forma
+particularmente estranha de descrever algo?
+
+\item[{Dependências ocultas}] \emph{Vínculos importantes implícitos entre entidades}
+
+As dependências entre as entidades da notação são visíveis ou ocultas?
+Todas as dependências são especificadas em ambas as direções? Alterações
+locais podem ter efeitos globais confusos?
+
+Se uma entidade cita outra, que por sua vez cita uma terceira, a
+alteração do valor da terceira entidade pode desencadear efeitos
+inesperados. O problema chave não é o fato de A depender de B, mas sim
+que a dependência não é visível. Um caso bem conhecido de dependência
+oculta é o “problema da classe base frágil”\footnote{Veja: \url{https://en.wikipedia.org/wiki/Fragile\_base\_class}.}.
+
+\item[{Propensão a erros}] \emph{Notação incita erros}
+
+Até que ponto a notação influência o programador a cometer um erro? Fazer
+algumas coisas parece ser particularmente complexo ou difícil, p. ex.,
+juntar várias coisas?
+
+Em muitas linguagens dinâmicas com definições implícitas de
+variáveis\footnote{Isto é, quando não se precede uma definição de variável
+com \texttt{var} ou \texttt{let} por exemplo.}, um erro de tipagem em uma variável pode
+de repente levar a erros difíceis de encontrar já que o IDE nem sempre
+pode apontar tal erro devido a dinamicidade na linguagem. A inicialização
+implícita de variáveis com valor \texttt{null} pode levar a uma exceção de
+ponteiro nulo se o programador esquecer de inicializar as variáveis
+corretamente antes de usá-las.
+
+\item[{Difusão        }] \todo{Diffuseness/terseness: difusão/concisão, ou dispersão} \emph{Verbosidade da linguagem}
+
+Quantos símbolos ou quanto espaço a notação requer pra produzir um certo
+resultado ou expressar uma ideia. Que tipos de coisas ocupam mais espaço
+para se descrever?
+
+\item[{Viscosidade    }] \emph{Resistência a mudanças}
+
+Existe alguma barreira contra mudança na notação? Quanto esforço é
+necessário pra fazer uma alteração num programa expresso na notação?
+
+Num sistema viscoso o usuário precisa realizar várias passos para
+concluir uma tarefa. Alterar o tipo de returno de uma função pode causar
+erros em várias partes do código onde a função é chamada. Nesses casos um
+IDE pode ajudar muito.
+\end{description}
+
+
+Outras dimensões que ficaram de fora são:
+
+\begin{itemize}
+\item Comprometimento prematuro: \emph{limitações na ordem de fazer as coisas}
+\item Expressividade: \emph{o propósito de uma entidade pode ser rapidamente determinado}
+\item Consistência: \emph{semânticas parecidas são apresentadas em estilo sintático
+parecido}
+\item Operações mentais difíceis: \emph{alto esforço cognitivo pra realizar tarefas}
+\item Notação secundária: \emph{informações extras por meio de notações além das
+formais}
+\end{itemize}
+
+
+Em outras situações, e dependendo dos artefatos de informação, essas dimensões
+poderiam ser úteis. Se tivéssemos focado mais nas ferramentas e no processo de
+criação dos estudos de caso então as seguintes dimensões poderiam ser usadas:
+
+\begin{itemize}
+\item Visibilidade: \emph{habilidade de ver os componentes claramente}
+\item Análise progressiva: \emph{trabalho realizado pode ser verificado em qualquer
+momento}
+\item Provisoriedade\todo{'momentaneidade' ou 'transitoriedade'}: \emph{grau
+de comprometimento com uma ação ou marco}
+\end{itemize}
+
+
 \section{Processamento de Listas}
-\label{sec:orgb5510fd}
+\label{sec:org171044f}
 \subsection{Projeção de valores com \texttt{map()}}
-\label{sec:org208eb24}
+\label{sec:orgb51c5c5}
 \begin{itemize}
 \item Adicionar \(1\) a cada número de uma lista
 \item Multiplicar os números de uma lista
 \end{itemize}
 
 \subsection{Seleção de valores com \texttt{filter()}}
-\label{sec:org9b45916}
+\label{sec:orgae38ddd}
 Remover nomes que não começam com ‘S’
 
 \subsection{Nivelamento de valores com \texttt{concatAll()}}
-\label{sec:org51676f4}
+\label{sec:org35a5bbe}
 \subsection{Redução de valores com \texttt{reduce()}}
-\label{sec:org98ad5ae}
+\label{sec:orgcf561ff}
 \subsection{Agrupamento de valores com \texttt{zip()}}
-\label{sec:orgae8a5ed}
+\label{sec:org7150be0}
 
 \section{Coordenação de Eventos}
-\label{sec:org9b51ab3}
+\label{sec:org390307a}
 \subsection{Contador}
-\label{sec:org8a9541c}
+\label{sec:org6426061}
 \subsection{Reserva de voo}
-\label{sec:org566a902}
+\label{sec:orga5e552b}
