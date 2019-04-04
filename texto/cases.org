@@ -1,7 +1,5 @@
 # -*- ispell-local-dictionary: "pt_BR"; org-export-headline-levels: 5; -*-
 
-Este capítulo demonstra PF no processamento de listas.
-
 \todo[noline]{“Dimensions of evaluation” em inglês, talvez “dimensões de análise” ou “de verificação” seja melhor?}
 * Dimensões de Avaliação
 
@@ -96,10 +94,22 @@ Este capítulo demonstra PF no processamento de listas.
     de comprometimento com uma ação ou marco/
 
 
+* *Revisão do JavaScript
+
+  Talvez devêssemos colocar uma seção de revisão das ferramentas utilizadas na
+  implementação dos estudos de caso? Poderíamos descrever os recursos relevantes
+  para nossa análise.
+
+
 * Processamento de Listas
+
+  Este capítulo demonstra PF no processamento de listas.
+
 ** Projeção de valores com =map()=
    - Adicionar $1$ a cada número de uma lista
    - Multiplicar os números de uma lista
+   - Transformar palavras com letras minúsculas de uma lista em palavras com
+     letras maiúsculas
 
 ** Seleção de valores com =filter()=
    Remover nomes que não começam com ‘S’
@@ -117,4 +127,4 @@ Este capítulo demonstra PF no processamento de listas.
 [fn:var_implicit_def] Isto é, quando não se precede uma definição de variável
 com =var= ou =let= por exemplo.
 
-[fn:fragile_base_class] Veja: https://en.wikipedia.org/wiki/Fragile_base_class. 
+[fn:fragile_base_class] Veja: https://en.wikipedia.org/wiki/Fragile_base_class.
