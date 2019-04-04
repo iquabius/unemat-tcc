@@ -177,7 +177,7 @@ denominadas /linguagens imperativas/.
 
   #+BEGIN_EXPORT latex
   \begin{citacao}
-    Funções são funcões matemáticas: quando chamadas com os mesmos argumentos,
+    Funções são funções matemáticas: quando chamadas com os mesmos argumentos,
     elas sempre dão os mesmos resultados. Funções não mudam. No mundo real,
     as coisas são diferentes. Há poucas entidades reais que têm o comportamento
     intemporal das funções. Organismos crescem e aprendem. Quando o mesmo
