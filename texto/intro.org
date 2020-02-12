@@ -72,11 +72,11 @@ de interfaces gráficas.
    - Analisar e comparar os conceitos quanto a usabilidade da linguagem de
      programação.
 
-  Esta pesquisa é de natureza /aplicada/, e quanto aos objetivos que visamos
-  alcançar ela se classifica como /exploratória/, pois tem o “\textelp{} foco
-  mais aberto para investigação de fenômenos (culturais, sociais, técnicos,
-  históricos, etc.) pouco sistematizados e/ou passíveis de várias perspectivas
-  de interpretação.” [[cite:leal2011][p. 32]].
+  Esta pesquisa é de natureza /aplicada/, e quanto aos objetivos ela se
+  classifica como /exploratória/, pois tem o “\textelp{} foco mais aberto para
+  investigação de fenômenos (culturais, sociais, técnicos, históricos, etc.)
+  pouco sistematizados e/ou passíveis de várias perspectivas de interpretação.”
+  [[cite:leal2011][p. 32]].
   Quanto aos meios empregados este trabalho constitui um /estudo de casos
   múltiplos/:
 
@@ -93,8 +93,8 @@ de interfaces gráficas.
   e minucioso de um ou mais casos, que neste trabalho serão programas concretos
   implementados para demonstrar os conceitos de programação.
   A linguagem /JavaScript/ será usada na implementação dos mesmos.
-  Essa escolha pode ser resguardada pelo fato de que, além de ser a língua
-  franca da web, ela tem suporte para os paradigmas a serem estudados.
+  Essa escolha é resguardada pelo fato de que, além de ser a língua franca da
+  web, ela tem suporte para os paradigmas a serem estudados.
 
   A /priori/, o paradigma de PF será demostrado com a implementação de programas
   para /processamento de listas/.
