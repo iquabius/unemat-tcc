@@ -1,6 +1,6 @@
 \todo[noline]{“Dimensions of evaluation” em inglês, talvez “dimensões de análise” ou “de verificação” seja melhor?}
 \section{Dimensões de Avaliação}
-\label{sec:org5956a28}
+\label{sec:orgf7fef14}
 
 As dimensões utilizadas neste trabalho são baseadas nas DCs. Assim usamos
 critérios estabelecidos, o que facilita a comparação de nossos resultados com
@@ -98,7 +98,7 @@ de comprometimento com uma ação ou marco}
 
 
 \section{*Revisão do JavaScript}
-\label{sec:orge079ced}
+\label{sec:org4727f84}
 
 Talvez devêssemos colocar uma seção de revisão das ferramentas utilizadas na
 implementação dos estudos de caso? Poderíamos descrever os recursos relevantes
@@ -106,12 +106,94 @@ para nossa análise.
 
 
 \section{Processamento de Listas}
-\label{sec:org8476e73}
+\label{sec:orga3dbfb6}
 
-Este capítulo demonstra PF no processamento de listas.
+Uma coleção é um agrupamento com uma quantidade variável de itens, que (1)
+compartilham algum significado ao problema a se resolver e (2) precisam ser
+manipulados juntos de forma controlada.
 
-\subsection{Projeção de valores com \texttt{map()}}
-\label{sec:orgac5aaf8}
+O único tipo de coleção no JavaScript é o arranjo, ou \emph{array}, que pode ser
+construído através do objeto\footnote{Diferente da maioria das linguagens, em que objetos são
+instâncias de classes, no JavaScript os objetos são extensões de \emph{protótipos}.} global \mintinline{js}{Array}, ou da
+notação de arranjos literais com colchetes:
+
+\begin{listing}[htbp]
+\caption{Criando coleções}
+\begin{minted}[]{js}
+var collection1 = new Array();
+var collection2 = [];
+\end{minted}
+\end{listing}
+
+Uma tarefa muito comum na programação é a iteração\footnote{O processo de percorrer, um por um, os itens de uma coleção.} de coleções.
+Um mecanismo muito utilizado para tal é o comando \mintinline{js}{for}. Em
+\ref{code:forLoopTraverse} é demonstrado o uso do comando \mintinline{js}{for} para
+percorrer os itens da coleção \mintinline{js}{people} e mostrar cada um no console de
+depuração.
+
+\begin{listing}[htbp]
+\caption{\label{code:forLoopTraverse}
+Percorrendo uma coleção com o laço \mintinline{js}{for}}
+\begin{minted}[]{js}
+var people = ["Alan Turing", "Alonzo Church", "Kurt Gödel"];
+var count  = 0;
+
+for (count = 0; count < people.length; count++) {
+  console.log(people[count]);
+}
+\end{minted}
+\end{listing}
+
+\subsection{Formatação de preços}
+\label{sec:orgf7a38ee}
+
+Nesta seção veremos como formatar uma lista preços para serem mostrados na
+tela, p. ex., transformando um valor numérico \mintinline{js}{50.45} em uma \emph{string}
+\mintinline{js}{"R$ 50.45"}. Para isso usamos uma função de formatação que é aplicada
+a cada valor da lista. A função de formatação pode ser observada em
+\ref{code:formatPriceFunction}.
+
+\begin{listing}[htbp]
+\caption{\label{code:formatPriceFunction}
+Função pra formatar um preço}
+\begin{minted}[]{js}
+function formatPrice(price) {
+  return 'R$' + price.toFixed(2);
+}
+\end{minted}
+\end{listing}
+
+Em \ref{code:formatPricesFor} pode-se ver a solução implementada com o laço
+\mintinline{js}{for}.
+
+\begin{listing}[htbp]
+\caption{\label{code:formatPricesFor}
+Formatação de preços com laço \mintinline{js}{for}}
+\begin{minted}[]{js}
+const prices = [50.45, 47, 20.99, 3.44, 1];
+let formatedPrices = [];
+
+for (let i = 0; i < prices.length; i++) {
+  formatedPrices.push(formatPrice(prices[i]));
+}
+\end{minted}
+\end{listing}
+
+Em \ref{code:formatPricesMap} pode-se ver a solução implementada com a função
+\mintinline{js}{map}.
+
+\begin{listing}[htbp]
+\caption{\label{code:formatPricesMap}
+Formatação de preços com laço \mintinline{js}{for}}
+\begin{minted}[]{js}
+const prices = [50.45, 47, 20.99, 3.44, 1];
+
+const formatedPrices = prices.map(formatPrice);
+\end{minted}
+\end{listing}
+
+Outras ideias:
+
 \begin{itemize}
 \item Adicionar \(1\) a cada número de uma lista
 \item Multiplicar os números de uma lista
@@ -120,19 +202,19 @@ letras maiúsculas
 \end{itemize}
 
 \subsection{Seleção de valores com \texttt{filter()}}
-\label{sec:org47d07ae}
+\label{sec:orge250f8a}
 Remover nomes que não começam com ‘S’
 
 \subsection{Nivelamento de valores com \texttt{concatAll()}}
-\label{sec:org3801f26}
+\label{sec:org210ffde}
 \subsection{Redução de valores com \texttt{reduce()}}
-\label{sec:org6b8c015}
+\label{sec:org28852aa}
 \subsection{Agrupamento de valores com \texttt{zip()}}
-\label{sec:org2a22b21}
+\label{sec:org34376d6}
 
 \section{Coordenação de Eventos}
-\label{sec:orge516da4}
+\label{sec:orgf8f668b}
 \subsection{Contador}
-\label{sec:orgb0e8446}
+\label{sec:orgb3b9856}
 \subsection{Reserva de voo}
-\label{sec:orgf17b40b}
+\label{sec:org328e322}

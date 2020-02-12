@@ -1,4 +1,7 @@
 # -*- ispell-local-dictionary: "pt_BR"; org-export-headline-levels: 5; -*-
+#+PROPERTY: header-args:js  :exports code
+
+# header-args is needed to use src_js{} for inline source code
 
 \todo[noline]{“Dimensions of evaluation” em inglês, talvez “dimensões de análise” ou “de verificação” seja melhor?}
 * Dimensões de Avaliação
@@ -103,9 +106,83 @@
 
 * Processamento de Listas
 
-  Este capítulo demonstra PF no processamento de listas.
+  Uma coleção é um agrupamento com uma quantidade variável de itens, que (1)
+  compartilham algum significado ao problema a se resolver e (2) precisam ser
+  manipulados juntos de forma controlada.
 
-** Projeção de valores com =map()=
+  O único tipo de coleção no JavaScript é o arranjo, ou /array/, que pode ser
+  construído através do objeto[fn:prototypes] global src_js{Array}, ou da
+  notação de arranjos literais com colchetes:
+
+  # TODO: find a way to insert a '\legend{}' before '\end{listing}' for the
+  # reference. Take a look at function org-latex-src-block in ox-latex.
+  #+caption: Criando coleções
+  #+begin_src js
+  var collection1 = new Array();
+  var collection2 = [];
+  #+end_src
+
+  Uma tarefa muito comum na programação é a iteração[fn:iteration] de coleções.
+  Um mecanismo muito utilizado para tal é o comando src_js{for}. Em
+  \ref{code:forLoopTraverse} é demonstrado o uso do comando src_js{for} para
+  percorrer os itens da coleção src_js{people} e mostrar cada um no console de
+  depuração.
+
+  #+caption: Percorrendo uma coleção com o laço src_js{for}
+  #+label: code:forLoopTraverse
+  #+BEGIN_SRC js
+  var people = ["Alan Turing", "Alonzo Church", "Kurt Gödel"];
+  var count  = 0;
+
+  for (count = 0; count < people.length; count++) {
+    console.log(people[count]);
+  }
+  #+END_SRC
+
+** Formatação de preços
+
+   Nesta seção veremos como formatar uma lista preços para serem mostrados na
+   tela, p. ex., transformando um valor numérico src_js{50.45} em uma /string/
+   src_js{"R$ 50.45"}. Para isso usamos uma função de formatação que é aplicada
+   a cada valor da lista. A função de formatação pode ser observada em
+   ref:code:formatPriceFunction.
+   # Esse processo de transformação é chamado de projeção
+
+   #+caption: Função pra formatar um preço
+   #+label: code:formatPriceFunction
+   #+BEGIN_SRC js
+   function formatPrice(price) {
+     return 'R$' + price.toFixed(2);
+   }
+   #+END_SRC
+
+   Em ref:code:formatPricesFor pode-se ver a solução implementada com o laço
+   src_js{for}.
+
+   #+caption: Formatação de preços com laço src_js{for}
+   #+label: code:formatPricesFor
+   #+BEGIN_SRC js
+   const prices = [50.45, 47, 20.99, 3.44, 1];
+   let formatedPrices = [];
+
+   for (let i = 0; i < prices.length; i++) {
+     formatedPrices.push(formatPrice(prices[i]));
+   }
+   #+END_SRC
+
+   Em ref:code:formatPricesMap pode-se ver a solução implementada com a função
+   src_js{map}.
+
+   #+caption: Formatação de preços com laço src_js{for}
+   #+label: code:formatPricesMap
+   #+BEGIN_SRC js
+   const prices = [50.45, 47, 20.99, 3.44, 1];
+
+   const formatedPrices = prices.map(formatPrice);
+   #+END_SRC
+
+   Outras ideias:
+
    - Adicionar $1$ a cada número de uma lista
    - Multiplicar os números de uma lista
    - Transformar palavras com letras minúsculas de uma lista em palavras com
@@ -123,6 +200,11 @@
 ** Reserva de voo
 
 * Footnotes
+
+[fn:prototypes] Diferente da maioria das linguagens, em que objetos são
+instâncias de classes, no JavaScript os objetos são extensões de /protótipos/.
+
+[fn:iteration] O processo de percorrer, um por um, os itens de uma coleção.
 
 [fn:var_implicit_def] Isto é, quando não se precede uma definição de variável
 com =var= ou =let= por exemplo.
