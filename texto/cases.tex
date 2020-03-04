@@ -1,13 +1,13 @@
 
 \section{Dimensões de Avaliação}
-\label{sec:org6c338b7}
+\label{sec:org8fb778a}
 \todo[inline]{“Dimensions of evaluation” em inglês, talvez “dimensões de análise” ou “de verificação” seja melhor?}
 
 As dimensões utilizadas neste trabalho são baseadas nas DCs de
-\textcite{green1989}. Assim usamos critérios estabelecidos, o
-que facilita a comparação de nossos resultados com trabalhos baseados nas DCs.
-O \emph{framework} completo possui 14 dimensões, mas os autores recomendam usar um
-subconjunto apropriado para o artefato em mãos.
+\textcite{green1989}. Assim usamos critérios estabelecidos, o que facilita a
+comparação de nossos resultados com trabalhos baseados nas DCs. O \emph{framework}
+completo possui 14 dimensões, mas os autores recomendam usar um subconjunto
+apropriado para o artefato em mãos.
 
 \begin{description}
 \item[{Nível de abstração}] \emph{Disponibilidade e tipos de mecanismos de abstração}
@@ -152,7 +152,7 @@ de comprometimento com uma ação ou marco}
 
 
 \section{*Revisão do JavaScript}
-\label{sec:org4e12851}
+\label{sec:org62ed1c7}
 Talvez devêssemos colocar uma seção de revisão das ferramentas utilizadas na
 implementação dos estudos de caso? Poderíamos descrever os recursos relevantes
 para nossa análise.
@@ -160,7 +160,7 @@ para nossa análise.
 
 
 \section{Processamento de Listas}
-\label{sec:orgca9dfa0}
+\label{sec:orgec2b4c0}
 
 Uma coleção é um agrupamento com uma quantidade variável de itens, que (1)
 compartilham algum significado ao problema a se resolver e (2) precisam ser
@@ -198,7 +198,7 @@ for (count = 0; count < people.length; count++) {
 \end{listing}
 
 \subsection{Formatação de preços}
-\label{sec:org5ea1337}
+\label{sec:org0e1af61}
 
 Nesta seção veremos como formatar uma lista preços para serem mostrados na
 tela, p. ex., transformando um valor numérico \mintinline{js}{50.45} em uma \emph{string}
@@ -252,19 +252,59 @@ letras maiúsculas
 \end{itemize}
 
 \subsection{Seleção de valores com \texttt{filter()}}
-\label{sec:org7d7f71b}
+\label{sec:orgb2b2999}
 Remover nomes que não começam com ‘S’
 
 \subsection{Nivelamento de valores com \texttt{concatAll()}}
-\label{sec:org2e951be}
+\label{sec:org664557f}
 \subsection{Redução de valores com \texttt{reduce()}}
-\label{sec:orgae96865}
+\label{sec:orga7efef8}
 \subsection{Agrupamento de valores com \texttt{zip()}}
-\label{sec:orgdd4c02e}
+\label{sec:org3caf3e1}
 
 \section{Coordenação de Eventos}
-\label{sec:org7c3fc57}
+\label{sec:orgd0404b2}
 \subsection{Contador}
-\label{sec:org5eb38df}
+\label{sec:org80940c7}
+
+A implementação do contador usando classes poder ser observada em
+\ref{code:contadorComPOO}.
+
+\begin{listing}[htbp]
+\caption{\label{code:contadorComPOO}Contador com POO}
+\begin{minted}[]{js}
+// No Java isto extenderia alguma classe padrão do toolkit,
+// como `Application`
+class Contador {
+  constructor(props) {
+    // Em Java estas propriedades precisam ser definidas antes
+    this.contador = props.valorInicial;
+    this.caixaDoValor = document.getElementById("valor");
+    this.botãoDeIncrementar = document.getElementById("botãoDeIncrementar");
+    this.botãoDeIncrementar.addEventListener(
+      "click",
+      // Isto requer uma explicação um tanto extensa
+      this.tratarClique.bind(this)
+    );
+  }
+
+  tratarClique(_evento) {
+    this.contador = this.contador + 1;
+    this.renderizar();
+  }
+
+  // Equivalente ao `public static void main()` do Java
+  renderizar() {
+    this.caixaDoValor.innerText = this.contador;
+  }
+}
+
+const contador = new Contador({ valorInicial: 0 });
+// Como no Java o `main()` é padronizado, sua execução seria
+// feita automaticamente pelo ambiente de execução.
+contador.renderizar();
+\end{minted}
+\end{listing}
+
 \subsection{Reserva de voo}
-\label{sec:org276465e}
+\label{sec:org58f1c75}

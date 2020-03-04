@@ -267,7 +267,51 @@
 
 * Coordenação de Eventos
 ** Contador
+
+   A implementação do contador usando classes poder ser observada em
+   ref:code:contadorComPOO.
+   # Para o autocomplete do ref funcionar a label precisa ser declarada da
+   # seguinte forma: 'label:códigoDoRótulo'
+
+   #+caption: Contador com POO
+   #+label: code:contadorComPOO
+   #+begin_src js
+   // No Java isto extenderia alguma classe padrão do toolkit,
+   // como `Application`
+   class Contador {
+     constructor(props) {
+       // Em Java estas propriedades precisam ser definidas antes
+       this.contador = props.valorInicial;
+       this.caixaDoValor = document.getElementById("valor");
+       this.botãoDeIncrementar = document.getElementById("botãoDeIncrementar");
+       this.botãoDeIncrementar.addEventListener(
+         "click",
+         // Isto requer uma explicação um tanto extensa
+         this.tratarClique.bind(this)
+       );
+     }
+
+     tratarClique(_evento) {
+       this.contador = this.contador + 1;
+       this.renderizar();
+     }
+
+     // Equivalente ao `public static void main()` do Java
+     renderizar() {
+       this.caixaDoValor.innerText = this.contador;
+     }
+   }
+
+   const contador = new Contador({ valorInicial: 0 });
+   // Como no Java o `main()` é padronizado, sua execução seria
+   // feita automaticamente pelo ambiente de execução.
+   contador.renderizar();
+   #+end_src
+   # https://codesandbox.io/s/contador-com-oop-callbacks-nst9y
+
+
 ** Reserva de voo
+
 
 * Footnotes
 
