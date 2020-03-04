@@ -1,6 +1,6 @@
 
 \section{Dimensões de Avaliação}
-\label{sec:org8fb778a}
+\label{sec:orgcc7add5}
 \todo[inline]{“Dimensions of evaluation” em inglês, talvez “dimensões de análise” ou “de verificação” seja melhor?}
 
 As dimensões utilizadas neste trabalho são baseadas nas DCs de
@@ -152,7 +152,7 @@ de comprometimento com uma ação ou marco}
 
 
 \section{*Revisão do JavaScript}
-\label{sec:org62ed1c7}
+\label{sec:org0a45d39}
 Talvez devêssemos colocar uma seção de revisão das ferramentas utilizadas na
 implementação dos estudos de caso? Poderíamos descrever os recursos relevantes
 para nossa análise.
@@ -160,7 +160,7 @@ para nossa análise.
 
 
 \section{Processamento de Listas}
-\label{sec:orgec2b4c0}
+\label{sec:orgfc0c065}
 
 Uma coleção é um agrupamento com uma quantidade variável de itens, que (1)
 compartilham algum significado ao problema a se resolver e (2) precisam ser
@@ -198,7 +198,7 @@ for (count = 0; count < people.length; count++) {
 \end{listing}
 
 \subsection{Formatação de preços}
-\label{sec:org0e1af61}
+\label{sec:org7d1925b}
 
 Nesta seção veremos como formatar uma lista preços para serem mostrados na
 tela, p. ex., transformando um valor numérico \mintinline{js}{50.45} em uma \emph{string}
@@ -252,22 +252,22 @@ letras maiúsculas
 \end{itemize}
 
 \subsection{Seleção de valores com \texttt{filter()}}
-\label{sec:orgb2b2999}
+\label{sec:org03a6ef8}
 Remover nomes que não começam com ‘S’
 
 \subsection{Nivelamento de valores com \texttt{concatAll()}}
-\label{sec:org664557f}
+\label{sec:org1559dab}
 \subsection{Redução de valores com \texttt{reduce()}}
-\label{sec:orga7efef8}
+\label{sec:org482561b}
 \subsection{Agrupamento de valores com \texttt{zip()}}
-\label{sec:org3caf3e1}
+\label{sec:orgc0ba433}
 
 \section{Coordenação de Eventos}
-\label{sec:orgd0404b2}
+\label{sec:org2f27f28}
 \subsection{Contador}
-\label{sec:org80940c7}
+\label{sec:orgb95d1c9}
 
-A implementação do contador usando classes poder ser observada em
+A implementação do contador usando classes poder ser observado em
 \ref{code:contadorComPOO}.
 
 \begin{listing}[htbp]
@@ -306,5 +306,43 @@ contador.renderizar();
 \end{minted}
 \end{listing}
 
+O \mintinline{js}{tratarClique.bind(this)} na linha 12 requer uma explicação um tanto
+extensa.
+
+O contador usando função e operadores do xstream pode ser observado em
+\ref{code:contadorComPR}.
+
+\begin{listing}[htbp]
+\caption{\label{code:contadorComPR}Contador com PR}
+\begin{minted}[]{js}
+import fromEvent from "xstream/extra/fromEvent";
+
+const Contador = props => {
+  const caixaDoValor = document.getElementById("valor");
+  const botãoDeIncrementar = document.getElementById("botãoDeIncrementar");
+
+  // Fluxo que emite um evento toda vez que o botão for clicado
+  const clique$ = fromEvent(botãoDeIncrementar, "click");
+
+  // Fluxo que emite "valor + 1" (acumulado) toda vez que
+  // cliqueS emite um evento
+  const contador$ = clique$.fold(
+    (valor, _evento) => valor + 1,
+    props.valorInicial
+  );
+
+  const observador = {
+    next: valor => {
+      caixaDoValor.innerText = valor;
+    }
+  };
+
+  contador$.addListener(observador);
+};
+
+Contador({ valorInicial: 0 });
+\end{minted}
+\end{listing}
+
 \subsection{Reserva de voo}
-\label{sec:org58f1c75}
+\label{sec:org4238904}

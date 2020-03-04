@@ -268,7 +268,7 @@
 * Coordenação de Eventos
 ** Contador
 
-   A implementação do contador usando classes poder ser observada em
+   A implementação do contador usando classes poder ser observado em
    ref:code:contadorComPOO.
    # Para o autocomplete do ref funcionar a label precisa ser declarada da
    # seguinte forma: 'label:códigoDoRótulo'
@@ -309,6 +309,47 @@
    #+end_src
    # https://codesandbox.io/s/contador-com-oop-callbacks-nst9y
 
+   # Como fazer o ref se vincular com a linha no código? No LaTeX não está
+   # funcionando: https://orgmode.org/manual/Literal-Examples.html
+   O src_js{tratarClique.bind(this)} na linha 12 requer uma explicação um tanto
+   extensa.
+
+   O contador usando função e operadores do xstream pode ser observado em
+   ref:code:contadorComPR.
+
+   #+caption: Contador com PR
+   #+label: code:contadorComPR
+   #+begin_src js
+   import fromEvent from "xstream/extra/fromEvent";
+
+   const Contador = props => {
+     const caixaDoValor = document.getElementById("valor");
+     const botãoDeIncrementar = document.getElementById("botãoDeIncrementar");
+
+     // Fluxo que emite um evento toda vez que o botão for clicado
+     const clique$ = fromEvent(botãoDeIncrementar, "click");
+
+     // Fluxo que emite "valor + 1" (acumulado) toda vez que
+     // cliqueS emite um evento
+     const contador$ = clique$.fold(
+       (valor, _evento) => valor + 1,
+       props.valorInicial
+     );
+
+     const observador = {
+       next: valor => {
+         caixaDoValor.innerText = valor;
+       }
+     };
+
+     contador$.addListener(observador);
+   };
+
+   Contador({ valorInicial: 0 });
+   #+end_src
+
+   # O “$” quebra o LaTeX quando usado no comentário do código. A solução talvez
+   # seja usar anotações/annotations: https://tex.stackexchange.com/a/86457/103967
 
 ** Reserva de voo
 
