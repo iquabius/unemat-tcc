@@ -3,8 +3,8 @@
 
 # header-args is needed to use src_js{} for inline source code
 
-\todo[noline]{“Dimensions of evaluation” em inglês, talvez “dimensões de análise” ou “de verificação” seja melhor?}
 * Dimensões de Avaliação
+  \todo[inline]{“Dimensions of evaluation” em inglês, talvez “dimensões de análise” ou “de verificação” seja melhor?}
 
   As dimensões utilizadas neste trabalho são baseadas nas DCs. Assim usamos
   critérios estabelecidos, o que facilita a comparação de nossos resultados com
@@ -22,13 +22,49 @@
        usar?
 
        Cada novo conceito é um empecilho pra aprendizagem e aceitação, mas
-       também pode tornar um código complexo mais compreensível.
+    também pode tornar um código complexo mais compreensível. Por exemplo, o
+    React emprega o /fluxo de dados de mão única/ --- do inglês /one-way data
+    flow/ ou /one-way binding/ --- em sua arquitetura. É necessário aprender
+    conceitos novos para usar os componentes do React de forma adequada. Não
+    compensa para aplicações pequenas, mas para aplicações complexas pode tornar
+    o código mais compreensível e passível de manutenção porque os detalhes
+    podem ser encapsulados em novos termos: os componentes.
+    # maintainable: passível de manutenção, sustentável
+
+    Outro exemplo é a função:
+
+    #+begin_export latex
+    \begin{citacao}
+      A function has a name and, optionally, parameters as well as a body that
+      returns a value following certain computational steps. A client can simply
+      refer to a function by its name without knowing its implementation details.
+      Accordingly, a function abstracts the computational process involved in the
+      computation of a value. The learning barrier to the principle of a function is
+      not great but it can still make a lot of code much more understandable 3 by
+      hiding unimportant details.
+      \cite[p.~13]{kiss2014}
+    \end{citacao}
+    #+end_export
 
   - Proximidade de descrição :: \todo{Traduzido de “Closeness of mapping”, poderia ser “Proximidade de mapeamento”} /Semelhança entre representação e o domínio/
 
        O quão relacionado é a notação com o resultado que ela descreve, ou
        melhor, o domínio do problema? Que partes parecem ser uma forma
        particularmente estranha de descrever algo?
+
+       #+begin_export latex
+       \begin{citacao}
+         Um exemplo é a definição de layout de uma interface gráfica. Linguagens que
+         não fornecem uma forma de descrever o layout de modo aninhado, ou seja,
+         hierárquico, e como tal força o programador a “linearizar” o código com o uso
+         desnecessário de variáveis intermediárias, dificultando enchergar como a
+         estrutura de definição do layout corresponde com o layout final da aplicação.
+         Não é atoa que especificações baseadas no XML são amplamente usadas na
+         construção de interfaces gráficas em linguagens sem suporte nativo para
+         representação hierárquica de layout.
+         \cite[p.~13; tradução nossa]{kiss2014}
+       \end{citacao}
+       #+end_export
 
   - Dependências ocultas :: /Vínculos importantes implícitos entre entidades/
 
@@ -38,19 +74,34 @@
 
        Se uma entidade cita outra, que por sua vez cita uma terceira, a
        alteração do valor da terceira entidade pode desencadear efeitos
-       inesperados. O problema chave não é o fato de A depender de B, mas sim
-       que a dependência não é visível. Um caso bem conhecido de dependência
+       inesperados. O principal problema não é o fato de A depender de B, mas sim
+       que a dependência não é explicitamente visível. Um caso bem conhecido de dependência
        oculta é o “problema da classe base frágil”[fn:fragile_base_class].
+
+       # https://medium.com/ui-lab-school/guia-para-dimensoes-cognitivas-no-design-72d898a62bc7
+
+       #+begin_export latex
+       \begin{citacao}
+         In (complex) class hierarchies a seemingly safe modification to a base class
+         may cause derived classes to malfunction. The IDE in general cannot help
+         discovering such problems and only certain programming language features can
+         help preventing them. Another example are non-local side-effects in
+         procedures, i.e. the dependencies of a procedure with non-local side-effects
+         are not visible in its signature.
+         \cite[pg.~14]{kiss2014}
+       \end{citacao}
+       #+end_export
 
   - Propensão a erros :: /Notação incita erros/
 
        Até que ponto a notação influência o programador a cometer um erro? Fazer
        algumas coisas parece ser particularmente complexo ou difícil, p. ex.,
        juntar várias coisas?
+       # TODO: Melhorar, pois Berndt perguntou “o que são essas coisas?”
 
        Em muitas linguagens dinâmicas com definições implícitas de
        variáveis[fn:var_implicit_def], um erro de tipagem em uma variável pode
-       de repente levar a erros difíceis de encontrar já que o IDE nem sempre
+       de repente causar erros difíceis de encontrar já que o IDE nem sempre
        pode apontar tal erro devido a dinamicidade na linguagem. A inicialização
        implícita de variáveis com valor =null= pode levar a uma exceção de
        ponteiro nulo se o programador esquecer de inicializar as variáveis
@@ -61,6 +112,22 @@
        Quantos símbolos ou quanto espaço a notação requer pra produzir um certo
        resultado ou expressar uma ideia. Que tipos de coisas ocupam mais espaço
        para se descrever?
+
+       #+begin_export latex
+       \begin{citacao}
+         Some notations can be annoyingly long-winded, or occupy too much valuable
+         “real-estate” within a display area. In Java before version 8 in order to
+         express what are lambdas today anonymous classes were employed. Compared to
+         Java 8’s lambdas these anonymous classes used to be a very verbose way of
+         encoding anonymous functions especially when used in a callback-heavy setting
+         like traditional GUI programming.
+         \cite[p.~14]{kiss2014}
+         \todo[inline]{Pensar num exemplo mais próximo da Web e substituir citação direta.}
+       \end{citacao}
+       #+end_export
+
+       # TODO: Comentar que concisão a custo de intenção explícita prejudica
+       # legibilidade.
 
   - Viscosidade     :: /Resistência a mudanças/
 
@@ -86,7 +153,7 @@
 
   Em outras situações, e dependendo dos artefatos de informação, essas dimensões
   poderiam ser úteis. Se tivéssemos focado mais nas ferramentas e no processo de
-  criação dos estudos de caso então as seguintes dimensões poderiam ser usadas:
+  construção dos estudos de caso então as seguintes dimensões poderiam ser usadas:
 
   # progressive evaluation: análise/verificação
   # provisionality: momentaneidade, transitoriedade, provisoriedade
@@ -98,10 +165,12 @@
 
 
 * *Revisão do JavaScript
+  # TODO: Berndt disse p/ colocar como apêndice
 
   Talvez devêssemos colocar uma seção de revisão das ferramentas utilizadas na
   implementação dos estudos de caso? Poderíamos descrever os recursos relevantes
   para nossa análise.
+  \todo[noline]{Berndt disse p/ colocar como apêndice}
 
 
 * Processamento de Listas

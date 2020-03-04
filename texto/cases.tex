@@ -1,6 +1,7 @@
-\todo[noline]{“Dimensions of evaluation” em inglês, talvez “dimensões de análise” ou “de verificação” seja melhor?}
+
 \section{Dimensões de Avaliação}
-\label{sec:orgf7fef14}
+\label{sec:org6a1a9cc}
+\todo[inline]{“Dimensions of evaluation” em inglês, talvez “dimensões de análise” ou “de verificação” seja melhor?}
 
 As dimensões utilizadas neste trabalho são baseadas nas DCs. Assim usamos
 critérios estabelecidos, o que facilita a comparação de nossos resultados com
@@ -17,14 +18,45 @@ termos? Qual o número de novos conceitos de alto nível devem ser
 aprendidos pra se fazer uso do sistema? Eles são fáceis de aprender e
 usar?
 
-Cada novo conceito é um empecilho pra aprendizagem e aceitação, mas
-também pode tornar um código complexo mais compreensível.
+   Cada novo conceito é um empecilho pra aprendizagem e aceitação, mas
+também pode tornar um código complexo mais compreensível. Por exemplo, o
+React emprega o \emph{fluxo de dados de mão única} --- do inglês \emph{one-way data
+flow} ou \emph{one-way binding} --- em sua arquitetura. É necessário aprender
+conceitos novos para usar os componentes do React de forma adequada. Não
+compensa para aplicações pequenas, mas para aplicações complexas pode tornar
+o código mais compreensível e passível de manutenção porque os detalhes
+podem ser encapsulados em novos termos: os componentes.
+
+Outro exemplo é a função:
+
+\begin{citacao}
+  A function has a name and, optionally, parameters as well as a body that
+  returns a value following certain computational steps. A client can simply
+  refer to a function by its name without knowing its implementation details.
+  Accordingly, a function abstracts the computational process involved in the
+  computation of a value. The learning barrier to the principle of a function is
+  not great but it can still make a lot of code much more understandable 3 by
+  hiding unimportant details.
+  \cite[p.~13]{kiss2014}
+\end{citacao}
 
 \item[{Proximidade de descrição}] \todo{Traduzido de “Closeness of mapping”, poderia ser “Proximidade de mapeamento”} \emph{Semelhança entre representação e o domínio}
 
 O quão relacionado é a notação com o resultado que ela descreve, ou
 melhor, o domínio do problema? Que partes parecem ser uma forma
 particularmente estranha de descrever algo?
+
+\begin{citacao}
+  Um exemplo é a definição de layout de uma interface gráfica. Linguagens que
+  não fornecem uma forma de descrever o layout de modo aninhado, ou seja,
+  hierárquico, e como tal força o programador a “linearizar” o código com o uso
+  desnecessário de variáveis intermediárias, dificultando enchergar como a
+  estrutura de definição do layout corresponde com o layout final da aplicação.
+  Não é atoa que especificações baseadas no XML são amplamente usadas na
+  construção de interfaces gráficas em linguagens sem suporte nativo para
+  representação hierárquica de layout.
+  \cite[p.~13; tradução nossa]{kiss2014}
+\end{citacao}
 
 \item[{Dependências ocultas}] \emph{Vínculos importantes implícitos entre entidades}
 
@@ -34,9 +66,19 @@ locais podem ter efeitos globais confusos?
 
 Se uma entidade cita outra, que por sua vez cita uma terceira, a
 alteração do valor da terceira entidade pode desencadear efeitos
-inesperados. O problema chave não é o fato de A depender de B, mas sim
-que a dependência não é visível. Um caso bem conhecido de dependência
+inesperados. O principal problema não é o fato de A depender de B, mas sim
+que a dependência não é explicitamente visível. Um caso bem conhecido de dependência
 oculta é o “problema da classe base frágil”\footnote{Veja: \url{https://en.wikipedia.org/wiki/Fragile\_base\_class}.}.
+
+\begin{citacao}
+  In (complex) class hierarchies a seemingly safe modification to a base class
+  may cause derived classes to malfunction. The IDE in general cannot help
+  discovering such problems and only certain programming language features can
+  help preventing them. Another example are non-local side-effects in
+  procedures, i.e. the dependencies of a procedure with non-local side-effects
+  are not visible in its signature.
+  \cite[pg.~14]{kiss2014}
+\end{citacao}
 
 \item[{Propensão a erros}] \emph{Notação incita erros}
 
@@ -47,7 +89,7 @@ juntar várias coisas?
 Em muitas linguagens dinâmicas com definições implícitas de
 variáveis\footnote{Isto é, quando não se precede uma definição de variável
 com \texttt{var} ou \texttt{let} por exemplo.}, um erro de tipagem em uma variável pode
-de repente levar a erros difíceis de encontrar já que o IDE nem sempre
+de repente causar erros difíceis de encontrar já que o IDE nem sempre
 pode apontar tal erro devido a dinamicidade na linguagem. A inicialização
 implícita de variáveis com valor \texttt{null} pode levar a uma exceção de
 ponteiro nulo se o programador esquecer de inicializar as variáveis
@@ -58,6 +100,17 @@ corretamente antes de usá-las.
 Quantos símbolos ou quanto espaço a notação requer pra produzir um certo
 resultado ou expressar uma ideia. Que tipos de coisas ocupam mais espaço
 para se descrever?
+
+\begin{citacao}
+  Some notations can be annoyingly long-winded, or occupy too much valuable
+  “real-estate” within a display area. In Java before version 8 in order to
+  express what are lambdas today anonymous classes were employed. Compared to
+  Java 8’s lambdas these anonymous classes used to be a very verbose way of
+  encoding anonymous functions especially when used in a callback-heavy setting
+  like traditional GUI programming.
+  \cite[p.~14]{kiss2014}
+  \todo[inline]{Pensar num exemplo mais próximo da Web e substituir citação direta.}
+\end{citacao}
 
 \item[{Viscosidade    }] \emph{Resistência a mudanças}
 
@@ -86,7 +139,7 @@ formais}
 
 Em outras situações, e dependendo dos artefatos de informação, essas dimensões
 poderiam ser úteis. Se tivéssemos focado mais nas ferramentas e no processo de
-criação dos estudos de caso então as seguintes dimensões poderiam ser usadas:
+construção dos estudos de caso então as seguintes dimensões poderiam ser usadas:
 
 \begin{itemize}
 \item Visibilidade: \emph{habilidade de ver os componentes claramente}
@@ -98,15 +151,15 @@ de comprometimento com uma ação ou marco}
 
 
 \section{*Revisão do JavaScript}
-\label{sec:org4727f84}
-
+\label{sec:org0ce380e}
 Talvez devêssemos colocar uma seção de revisão das ferramentas utilizadas na
 implementação dos estudos de caso? Poderíamos descrever os recursos relevantes
 para nossa análise.
+\todo[noline]{Berndt disse p/ colocar como apêndice}
 
 
 \section{Processamento de Listas}
-\label{sec:orga3dbfb6}
+\label{sec:org941d5fc}
 
 Uma coleção é um agrupamento com uma quantidade variável de itens, que (1)
 compartilham algum significado ao problema a se resolver e (2) precisam ser
@@ -132,8 +185,7 @@ percorrer os itens da coleção \mintinline{js}{people} e mostrar cada um no con
 depuração.
 
 \begin{listing}[htbp]
-\caption{\label{code:forLoopTraverse}
-Percorrendo uma coleção com o laço \mintinline{js}{for}}
+\caption{\label{code:forLoopTraverse}Percorrendo uma coleção com o laço \mintinline{js}{for}}
 \begin{minted}[]{js}
 var people = ["Alan Turing", "Alonzo Church", "Kurt Gödel"];
 var count  = 0;
@@ -145,7 +197,7 @@ for (count = 0; count < people.length; count++) {
 \end{listing}
 
 \subsection{Formatação de preços}
-\label{sec:orgf7a38ee}
+\label{sec:org9cb2a4e}
 
 Nesta seção veremos como formatar uma lista preços para serem mostrados na
 tela, p. ex., transformando um valor numérico \mintinline{js}{50.45} em uma \emph{string}
@@ -154,8 +206,7 @@ a cada valor da lista. A função de formatação pode ser observada em
 \ref{code:formatPriceFunction}.
 
 \begin{listing}[htbp]
-\caption{\label{code:formatPriceFunction}
-Função pra formatar um preço}
+\caption{\label{code:formatPriceFunction}Função pra formatar um preço}
 \begin{minted}[]{js}
 function formatPrice(price) {
   return 'R$' + price.toFixed(2);
@@ -167,8 +218,7 @@ Em \ref{code:formatPricesFor} pode-se ver a solução implementada com o laço
 \mintinline{js}{for}.
 
 \begin{listing}[htbp]
-\caption{\label{code:formatPricesFor}
-Formatação de preços com laço \mintinline{js}{for}}
+\caption{\label{code:formatPricesFor}Formatação de preços com laço \mintinline{js}{for}}
 \begin{minted}[]{js}
 const prices = [50.45, 47, 20.99, 3.44, 1];
 let formatedPrices = [];
@@ -183,8 +233,7 @@ Em \ref{code:formatPricesMap} pode-se ver a solução implementada com a funçã
 \mintinline{js}{map}.
 
 \begin{listing}[htbp]
-\caption{\label{code:formatPricesMap}
-Formatação de preços com laço \mintinline{js}{for}}
+\caption{\label{code:formatPricesMap}Formatação de preços com laço \mintinline{js}{for}}
 \begin{minted}[]{js}
 const prices = [50.45, 47, 20.99, 3.44, 1];
 
@@ -202,19 +251,19 @@ letras maiúsculas
 \end{itemize}
 
 \subsection{Seleção de valores com \texttt{filter()}}
-\label{sec:orge250f8a}
+\label{sec:org26aba6d}
 Remover nomes que não começam com ‘S’
 
 \subsection{Nivelamento de valores com \texttt{concatAll()}}
-\label{sec:org210ffde}
+\label{sec:orgd7191d7}
 \subsection{Redução de valores com \texttt{reduce()}}
-\label{sec:org28852aa}
+\label{sec:orgac56a4c}
 \subsection{Agrupamento de valores com \texttt{zip()}}
-\label{sec:org34376d6}
+\label{sec:org5c01ea2}
 
 \section{Coordenação de Eventos}
-\label{sec:orgf8f668b}
+\label{sec:org3b65bf2}
 \subsection{Contador}
-\label{sec:orgb3b9856}
+\label{sec:org237ab2c}
 \subsection{Reserva de voo}
-\label{sec:org328e322}
+\label{sec:orgbae82e0}
