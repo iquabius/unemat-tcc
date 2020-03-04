@@ -6,10 +6,11 @@
 * Dimensões de Avaliação
   \todo[inline]{“Dimensions of evaluation” em inglês, talvez “dimensões de análise” ou “de verificação” seja melhor?}
 
-  As dimensões utilizadas neste trabalho são baseadas nas DCs. Assim usamos
-  critérios estabelecidos, o que facilita a comparação de nossos resultados com
-  trabalhos baseados nas DCs. O /framework/ completo possui 14 dimensões, mas os
-  autores recomendam usar um subconjunto apropriado para o artefato em mãos.
+  As dimensões utilizadas neste trabalho são baseadas nas DCs de
+  textcite:green1989. Assim usamos critérios estabelecidos, o que facilita a
+  comparação de nossos resultados com trabalhos baseados nas DCs. O /framework/
+  completo possui 14 dimensões, mas os autores recomendam usar um subconjunto
+  apropriado para o artefato em mãos.
 
   # Traduzidas diretamente de KISS 2014
   - Nível de abstração :: /Disponibilidade e tipos de mecanismos de abstração/
