@@ -267,14 +267,26 @@
 * Coordenação de Eventos
 ** Contador
 
+   - Problema :: entender os conceitos básicos da linguagem e o esqueleto
+     necessário
+
+   #+CAPTION: Interface gráfica do Contador.
+   #+NAME: img:contador
+   #+ATTR_LATEX: :width 12cm :center t
+   [[./fig/screenshot-contador-epiphany.png]]
+   # https://stackoverflow.com/a/42170221/1787829
+   # Ctrl-c Ctrl-l (org-insert-link) -> “file:”
+   # Dá pra configurar o :width globalmente
+
    A implementação do contador usando classes poder ser observado em
    ref:code:contadorComPOO.
    # Para o autocomplete do ref funcionar a label precisa ser declarada da
-   # seguinte forma: 'label:códigoDoRótulo'
+   # seguinte forma: 'label:códigoDoRótulo'. Na vdd é só trocar "#+label:" por
+   # "#+name:" e usar o comando "org-ref-insert-ref-link".
 
-   #+caption: Contador com POO
-   #+label: code:contadorComPOO
-   #+begin_src js
+   #+caption: Contador com POO.
+   #+name: code:contadorComPOO
+   #+BEGIN_SRC js
    // No Java isto extenderia alguma classe padrão do toolkit,
    // como `Application`
    class Contador {
@@ -305,7 +317,7 @@
    // Como no Java o `main()` é padronizado, sua execução seria
    // feita automaticamente pelo ambiente de execução.
    contador.renderizar();
-   #+end_src
+   #+END_SRC
    # https://codesandbox.io/s/contador-com-oop-callbacks-nst9y
 
    # Como fazer o ref se vincular com a linha no código? No LaTeX não está
