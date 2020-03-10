@@ -135,7 +135,7 @@
        necessário pra fazer uma alteração num programa expresso na notação?
 
        Num sistema viscoso o usuário precisa realizar várias passos para
-       concluir uma tarefa. Alterar o tipo de returno de uma função pode causar
+       concluir uma tarefa. Alterar o tipo de retorno de uma função pode causar
        erros em várias partes do código onde a função é chamada. Nesses casos um
        IDE pode ajudar muito.
 
