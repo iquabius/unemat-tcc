@@ -328,9 +328,9 @@
    O contador usando função e operadores do xstream pode ser observado em
    ref:code:contadorComPR.
 
-   #+caption: Contador com PR
-   #+label: code:contadorComPR
-   #+begin_src js
+   #+caption: Contador com PR.
+   #+name: code:contadorComPR
+   #+BEGIN_SRC js
    import fromEvent from "xstream/extra/fromEvent";
 
    const Contador = props => {
@@ -357,7 +357,7 @@
    };
 
    Contador({ valorInicial: 0 });
-   #+end_src
+   #+END_SRC
 
    # O “$” quebra o LaTeX quando usado no comentário do código. A solução talvez
    # seja usar anotações/annotations: https://tex.stackexchange.com/a/86457/103967
