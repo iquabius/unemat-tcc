@@ -121,8 +121,7 @@
          express what are lambdas today anonymous classes were employed. Compared to
          Java 8’s lambdas these anonymous classes used to be a very verbose way of
          encoding anonymous functions especially when used in a callback-heavy setting
-         like traditional GUI programming.
-         \cite[p.~14]{kiss2014}
+         like traditional GUI programming~\cite[p.~14]{kiss2014}.
          \todo[inline]{Pensar num exemplo mais próximo da Web e substituir citação direta.}
        \end{citacao}
        #+end_export
