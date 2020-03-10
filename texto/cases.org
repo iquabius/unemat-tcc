@@ -362,10 +362,113 @@
    # O “$” quebra o LaTeX quando usado no comentário do código. A solução talvez
    # seja usar anotações/annotations: https://tex.stackexchange.com/a/86457/103967
 
+*** Análise
+
+    Essa primeira análise é focada no básico.
+
+**** Nível de abstração
+     Na solução com POO os conceitos da linguagem que deve-se entender são:
+     classes, construtor, objetos, propriedades, métodos, /callbacks/ na forma
+     de método, e conhecimento da API do objeto do documento do HTML ---
+     /Document Object Model (DOM)/.
+     Além do caso do src_js{this} específico do JavaScript:
+     src_js{this.tratarClique.bind(this)}.
+     Embora sejam conceitos básicos para um programador experiente em JavaScript
+     e POO, o número é grande.
+     Abstrações mais sofisticadas não são necessários pelo Contador e o sistema
+     não insiste em abstrações especiais.
+     Apesar da solução usar uma quantidade considerável de conceitos, eles são
+     básicos, então observamos que o Nível de Abstração é baixo, ou seja, bom.
+
+     Em contrapartida, na solução com PR os conceitos usados são: funções,
+     variáveis, fluxos e eventos, callbacks, e a API do DOM.
+     A abstração mais sofisticada é o método src_js{fold()} do fluxo de evento,
+     que nada mais é que uma versão assíncrona do src_js{Array.reduce()} nativo.
+     Ambos produzem um resultado para cada elemento da lista.
+     A diferença é que no primeiro a lista é de eventos assíncronos, e infinita.
+     No segundo a lista é síncrona, com valores escales (números, /strings/,
+     objetos, etc.).
+     \todo{Paralelo entre métodos assíncronos e síncronos em outra seção?}
+     Níveis mais altos de abstração não são necessários, então a solução com PR
+     é igualmente boa ou um pouco melhor que a solução com POO quanto ao Nível
+     de Abstração.
+
+**** Proximidade de descrição
+     Essa dimensão/critério faz mais sentido para análise de apresentação do que
+     comportamento (coordenação de eventos).
+
+**** Dependências ocultas
+     \todo[noline]{Acredito que o HTML só não está situado no mesmo local que o código JavaScript, que é diferente de “oculto”.}
+     As únicas dependências que podem ser consideradas ocultas são os elementos
+     HTML buscados pelo identificador com =document.getElementById("id")=.
+
+**** Propensão a erros
+     Na solução com POO, esquecer de vincular a instância do contador à função
+     =tratarClique()= resultará no erro “TypeError: this.renderizar is not a
+     function”.
+     Pois o valor do =this= estará vinculado ao objeto que chamou
+     =tratarClique()=, ou seja, o =this.botãoDeIncrementar=.
+     \todo{Talvez isso seja uma dependência oculta?}
+     Isso se deve ao fato de a palavra chave =this= se comportar de forma
+     diferente no JavaScript quando comparado com outras linguagens.
+
+     # https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Operators/this
+     #+begin_quote
+     In most cases, the value of this is determined by how a function is called
+     (runtime binding). It can't be set by assignment during execution, and it
+     may be different each time the function is called. ES5 introduced the
+     bind() method to set the value of a function's this regardless of how it's
+     called, and ES2015 introduced arrow functions which don't provide their own
+     this binding (it retains the this value of the enclosing lexical context).
+     cite:This2020.
+     #+end_quote
+
+     #+begin_export latex
+     \todo[inline]{Nos próximos exemplos acredito que podemos usar as funções de seta
+       como callback no lugar dos métodos, pois possuem o valor do this vinculado
+       lexicalmente. O Java possui lambdas desde a versão 8, o que despensa o uso de
+       métodos para casos como esse. Ou já removemos desse primeiro? Pra evitar ter
+       que explicar o \texttt{.bind(this)} que é um problema específico do
+       JavaScript}.
+     #+end_export
+
+     Na solução com PR, esquecer de definir o observador fará com que a
+     =caixaDoValor= não seja atualizada.
+     Pois ela não será renderizada, apesar de toda a lógica do contador
+     funcionar.
+     Apesar de tudo, essas possibilidades de erros não são críticas.
+
+**** Concisão/Difusão
+     Na solução com POO o método src_js{tratarClique()}, usado como /callback/,
+     poderia ser substituído por uma função de seta.
+     Além de poupar algumas linhas o uso do src_js{.bind(this)} se torna
+     desnecessário.
+     Veja o código do Contador com POO e função de seta em
+     ref:code:contadorComPOOeFuncDeSeta no apêndice.
+     Na solução com PR a variável intermediária src_js{contador$} poderia ser
+     removida, encadeando a chamada do src_js{fromEvent} com o src_js{fold()}:
+     src_js{const clique$ = fromEvent().fold()}.
+     No entanto essa manobra diminuiria a legibilidade do
+     código[fn:encadeamento].
+     De qualquer forma, a PR evita a verbosidade da declaração da classe e dos
+     métodos, além da repetição do src_js{this}.
+     Então em termos de Concisão a PR está à frente da POO.
+
+**** Viscosidade
+     Num caso tão simples como o do Contador a única resistência a alteração
+     está em renomear atributos no caso da POO, e variáveis na PR.
+     No entanto isso é inevitável ao renomear termos.
+     Além disso o IDE pode ajudar através de uma funcionalidade de refatoração.
+     \todo{Talves seja interessante analisar a viscosidade da alteração pra
+     colocar um botão de decremento (-1) do Contador.}
+
 ** Reserva de voo
 
 
 * Footnotes
+
+[fn:encadeamento] Note que o nome da variável src_js{clique$} já nem faz mais
+sentido, pois o resultado da expressão não inclui apenas os eventos de clique.
 
 [fn:prototypes] Diferente da maioria das linguagens, em que objetos são
 instâncias de classes, no JavaScript os objetos são extensões de /protótipos/.

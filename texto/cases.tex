@@ -1,6 +1,6 @@
 
 \section{Dimensões de Avaliação}
-\label{sec:orgcc7add5}
+\label{sec:org3e0c507}
 \todo[inline]{“Dimensions of evaluation” em inglês, talvez “dimensões de análise” ou “de verificação” seja melhor?}
 
 As dimensões utilizadas neste trabalho são baseadas nas DCs de
@@ -108,8 +108,7 @@ para se descrever?
   express what are lambdas today anonymous classes were employed. Compared to
   Java 8’s lambdas these anonymous classes used to be a very verbose way of
   encoding anonymous functions especially when used in a callback-heavy setting
-  like traditional GUI programming.
-  \cite[p.~14]{kiss2014}
+  like traditional GUI programming~\cite[p.~14]{kiss2014}.
   \todo[inline]{Pensar num exemplo mais próximo da Web e substituir citação direta.}
 \end{citacao}
 
@@ -119,7 +118,7 @@ Existe alguma barreira contra mudança na notação? Quanto esforço é
 necessário pra fazer uma alteração num programa expresso na notação?
 
 Num sistema viscoso o usuário precisa realizar várias passos para
-concluir uma tarefa. Alterar o tipo de returno de uma função pode causar
+concluir uma tarefa. Alterar o tipo de retorno de uma função pode causar
 erros em várias partes do código onde a função é chamada. Nesses casos um
 IDE pode ajudar muito.
 \end{description}
@@ -152,7 +151,7 @@ de comprometimento com uma ação ou marco}
 
 
 \section{*Revisão do JavaScript}
-\label{sec:org0a45d39}
+\label{sec:org8f26323}
 Talvez devêssemos colocar uma seção de revisão das ferramentas utilizadas na
 implementação dos estudos de caso? Poderíamos descrever os recursos relevantes
 para nossa análise.
@@ -160,7 +159,7 @@ para nossa análise.
 
 
 \section{Processamento de Listas}
-\label{sec:orgfc0c065}
+\label{sec:org194e380}
 
 Uma coleção é um agrupamento com uma quantidade variável de itens, que (1)
 compartilham algum significado ao problema a se resolver e (2) precisam ser
@@ -172,11 +171,11 @@ instâncias de classes, no JavaScript os objetos são extensões de \emph{protó
 notação de arranjos literais com colchetes:
 
 \begin{listing}[htbp]
-\caption{Criando coleções}
 \begin{minted}[]{js}
 var collection1 = new Array();
 var collection2 = [];
 \end{minted}
+\caption{Criando coleções}
 \end{listing}
 
 Uma tarefa muito comum na programação é a iteração\footnote{O processo de percorrer, um por um, os itens de uma coleção.} de coleções.
@@ -186,7 +185,6 @@ percorrer os itens da coleção \mintinline{js}{people} e mostrar cada um no con
 depuração.
 
 \begin{listing}[htbp]
-\caption{\label{code:forLoopTraverse}Percorrendo uma coleção com o laço \mintinline{js}{for}}
 \begin{minted}[]{js}
 var people = ["Alan Turing", "Alonzo Church", "Kurt Gödel"];
 var count  = 0;
@@ -195,10 +193,11 @@ for (count = 0; count < people.length; count++) {
   console.log(people[count]);
 }
 \end{minted}
+\caption{\label{code:forLoopTraverse}Percorrendo uma coleção com o laço \mintinline{js}{for}}
 \end{listing}
 
 \subsection{Formatação de preços}
-\label{sec:org7d1925b}
+\label{sec:org0018a57}
 
 Nesta seção veremos como formatar uma lista preços para serem mostrados na
 tela, p. ex., transformando um valor numérico \mintinline{js}{50.45} em uma \emph{string}
@@ -207,19 +206,18 @@ a cada valor da lista. A função de formatação pode ser observada em
 \ref{code:formatPriceFunction}.
 
 \begin{listing}[htbp]
-\caption{\label{code:formatPriceFunction}Função pra formatar um preço}
 \begin{minted}[]{js}
 function formatPrice(price) {
   return 'R$' + price.toFixed(2);
 }
 \end{minted}
+\caption{\label{code:formatPriceFunction}Função pra formatar um preço}
 \end{listing}
 
 Em \ref{code:formatPricesFor} pode-se ver a solução implementada com o laço
 \mintinline{js}{for}.
 
 \begin{listing}[htbp]
-\caption{\label{code:formatPricesFor}Formatação de preços com laço \mintinline{js}{for}}
 \begin{minted}[]{js}
 const prices = [50.45, 47, 20.99, 3.44, 1];
 let formatedPrices = [];
@@ -228,18 +226,19 @@ for (let i = 0; i < prices.length; i++) {
   formatedPrices.push(formatPrice(prices[i]));
 }
 \end{minted}
+\caption{\label{code:formatPricesFor}Formatação de preços com laço \mintinline{js}{for}}
 \end{listing}
 
 Em \ref{code:formatPricesMap} pode-se ver a solução implementada com a função
 \mintinline{js}{map}.
 
 \begin{listing}[htbp]
-\caption{\label{code:formatPricesMap}Formatação de preços com laço \mintinline{js}{for}}
 \begin{minted}[]{js}
 const prices = [50.45, 47, 20.99, 3.44, 1];
 
 const formatedPrices = prices.map(formatPrice);
 \end{minted}
+\caption{\label{code:formatPricesMap}Formatação de preços com laço \mintinline{js}{for}}
 \end{listing}
 
 Outras ideias:
@@ -252,26 +251,36 @@ letras maiúsculas
 \end{itemize}
 
 \subsection{Seleção de valores com \texttt{filter()}}
-\label{sec:org03a6ef8}
+\label{sec:org1bb09e3}
 Remover nomes que não começam com ‘S’
 
 \subsection{Nivelamento de valores com \texttt{concatAll()}}
-\label{sec:org1559dab}
+\label{sec:org16402e7}
 \subsection{Redução de valores com \texttt{reduce()}}
-\label{sec:org482561b}
+\label{sec:orgb2f70b1}
 \subsection{Agrupamento de valores com \texttt{zip()}}
-\label{sec:orgc0ba433}
+\label{sec:org03470bc}
 
 \section{Coordenação de Eventos}
-\label{sec:org2f27f28}
+\label{sec:org67a7765}
 \subsection{Contador}
-\label{sec:orgb95d1c9}
+\label{sec:org96cdecc}
+
+\begin{description}
+\item[{Problema}] entender os conceitos básicos da linguagem e o esqueleto
+necessário
+\end{description}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=12cm]{./fig/screenshot-contador-epiphany.png}
+\caption{\label{img:contador}Interface gráfica do Contador.}
+\end{figure}
 
 A implementação do contador usando classes poder ser observado em
 \ref{code:contadorComPOO}.
 
 \begin{listing}[htbp]
-\caption{\label{code:contadorComPOO}Contador com POO}
 \begin{minted}[]{js}
 // No Java isto extenderia alguma classe padrão do toolkit,
 // como `Application`
@@ -304,6 +313,7 @@ const contador = new Contador({ valorInicial: 0 });
 // feita automaticamente pelo ambiente de execução.
 contador.renderizar();
 \end{minted}
+\caption{\label{code:contadorComPOO}Contador com POO.}
 \end{listing}
 
 O \mintinline{js}{tratarClique.bind(this)} na linha 12 requer uma explicação um tanto
@@ -313,7 +323,6 @@ O contador usando função e operadores do xstream pode ser observado em
 \ref{code:contadorComPR}.
 
 \begin{listing}[htbp]
-\caption{\label{code:contadorComPR}Contador com PR}
 \begin{minted}[]{js}
 import fromEvent from "xstream/extra/fromEvent";
 
@@ -342,7 +351,109 @@ const Contador = props => {
 
 Contador({ valorInicial: 0 });
 \end{minted}
+\caption{\label{code:contadorComPR}Contador com PR.}
 \end{listing}
 
+\subsubsection{Análise}
+\label{sec:orgc3642b8}
+
+Essa primeira análise é focada no básico.
+
+\paragraph{Nível de abstração}
+\label{sec:org4136f4d}
+Na solução com POO os conceitos da linguagem que deve-se entender são:
+classes, construtor, objetos, propriedades, métodos, \emph{callbacks} na forma
+de método, e conhecimento da API do objeto do documento do HTML ---
+\emph{Document Object Model (DOM)}.
+Além do caso do \mintinline{js}{this} específico do JavaScript:
+\mintinline{js}{this.tratarClique.bind(this)}.
+Embora sejam conceitos básicos para um programador experiente em JavaScript
+e POO, o número é grande.
+Abstrações mais sofisticadas não são necessários pelo Contador e o sistema
+não insiste em abstrações especiais.
+Apesar da solução usar uma quantidade considerável de conceitos, eles são
+básicos, então observamos que o Nível de Abstração é baixo, ou seja, bom.
+
+Em contrapartida, na solução com PR os conceitos usados são: funções,
+variáveis, fluxos e eventos, callbacks, e a API do DOM.
+A abstração mais sofisticada é o método \mintinline{js}{fold()} do fluxo de evento,
+que nada mais é que uma versão assíncrona do \mintinline{js}{Array.reduce()} nativo.
+Ambos produzem um resultado para cada elemento da lista.
+A diferença é que no primeiro a lista é de eventos assíncronos, e infinita.
+No segundo a lista é síncrona, com valores escales (números, \emph{strings},
+objetos, etc.).
+\todo{Paralelo entre métodos assíncronos e síncronos em outra seção?}
+Níveis mais altos de abstração não são necessários, então a solução com PR
+é igualmente boa ou um pouco melhor que a solução com POO quanto ao Nível
+de Abstração.
+
+
+\paragraph{Proximidade de descrição}
+\label{sec:org5f6e2d7}
+Essa dimensão/critério faz mais sentido para análise de apresentação do que
+comportamento (coordenação de eventos).
+
+\paragraph{Dependências ocultas}
+\label{sec:orgf233411}
+\todo[noline]{Acredito que o HTML só não está situado no mesmo local que o código JavaScript. Acho que é diferente de “oculto”.}
+As únicas dependências que podem ser consideradas ocultas são os elementos
+HTML buscados pelo identificador com \texttt{document.getElementById("id")}.
+
+\paragraph{Propensão a erros}
+\label{sec:orgad59c50}
+Na solução com POO, esquecer de vincular a instância do contador à função
+\texttt{tratarClique()} resultará no erro “TypeError: this.renderizar is not a
+function”.
+Pois o valor do \texttt{this} estará vinculado ao objeto que chamou
+\texttt{tratarClique()}, ou seja, o \texttt{this.botãoDeIncrementar}.
+\todo{Talvez isso seja uma dependência oculta?}
+Isso se deve ao fato de a palavra chave \texttt{this} se comportar de forma
+diferente no JavaScript quando comparado com outras linguagens.
+
+\begin{citacao}
+In most cases, the value of this is determined by how a function is called
+(runtime binding). It can't be set by assignment during execution, and it
+may be different each time the function is called. ES5 introduced the
+bind() method to set the value of a function's this regardless of how it's
+called, and ES2015 introduced arrow functions which don't provide their own
+this binding (it retains the this value of the enclosing lexical context).
+\cite{This2020}.
+\end{citacao}
+
+\todo[inline]{Nos próximos exemplos acredito que podemos usar as funções de seta
+  como callback no lugar dos métodos, pois possuem o valor do this vinculado
+  lexicalmente. O Java possui lambdas desde a versão 8, o que despensa o uso de
+  métodos para casos como esse. Ou já removemos desse primeiro? Pra evitar ter
+  que explicar o \texttt{.bind(this)} que é um problema específico do
+  JavaScript}.
+
+Na solução com PR, esquecer de definir o observador fará com que a
+\texttt{caixaDoValor} não seja atualizada. Pois ela não será renderizada, apesar
+de toda a lógica do contador funcionar. Apesar de tudo, essas
+possibilidades de erros não são críticas.
+
+\paragraph{Concisão/Difusão}
+\label{sec:org49fca8d}
+Na solução com POO o método \mintinline{js}{tratarClique()}, usado como \emph{callback},
+poderia ser substituído por uma função de seta. Além de poupar algumas
+linhas o uso do \mintinline{js}{.bind(this)} se torna desnecessário. Veja o código
+do Contador com POO e função de seta em \ref{code:contadorComPOOeFuncDeSeta}
+no apêndice. Na solução com PR a variável intermediária \mintinline{js}{contador$}
+poderia ser removida, encadeando a chamada do \mintinline{js}{fromEvent} com o
+\mintinline{js}{fold()}: \mintinline{js}{const clique$ = fromEvent().fold()}. No entanto essa
+manobra diminuiria a legibilidade do código\footnote{Note que o nome da variável \mintinline{js}{clique$} já nem faz mais
+sentido, pois o resultado da expressão não inclui apenas os eventos de clique.}. De qualquer
+forma, a PR evita a verbosidade da declaração da classe e dos métodos, além
+da repetição do \mintinline{js}{this}. Então em termos de Concisão a PR está à
+frente da POO.
+
+\paragraph{Viscosidade}
+\label{sec:org038ecdd}
+Num caso tão simples como o do Contador a única resistência a alteração
+está em renomear atributos no caso da POO, e variáveis na PR. No entanto
+isso é inevitável ao renomear termos. Além disso o IDE pode ajudar através
+de uma funcionalidade de refatoração.
+\todo{Talves seja interessante analisar a viscosidade da alteração pra colocar um botão de decremento (-1) do Contador.}
+
 \subsection{Reserva de voo}
-\label{sec:org4238904}
+\label{sec:org1e8cfd0}
