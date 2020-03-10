@@ -1,6 +1,6 @@
 
 \section{Dimensões de Avaliação}
-\label{sec:org3e0c507}
+\label{sec:orgc5df262}
 \todo[inline]{“Dimensions of evaluation” em inglês, talvez “dimensões de análise” ou “de verificação” seja melhor?}
 
 As dimensões utilizadas neste trabalho são baseadas nas DCs de
@@ -151,7 +151,7 @@ de comprometimento com uma ação ou marco}
 
 
 \section{*Revisão do JavaScript}
-\label{sec:org8f26323}
+\label{sec:org4a5f51a}
 Talvez devêssemos colocar uma seção de revisão das ferramentas utilizadas na
 implementação dos estudos de caso? Poderíamos descrever os recursos relevantes
 para nossa análise.
@@ -159,7 +159,7 @@ para nossa análise.
 
 
 \section{Processamento de Listas}
-\label{sec:org194e380}
+\label{sec:org251a9d7}
 
 Uma coleção é um agrupamento com uma quantidade variável de itens, que (1)
 compartilham algum significado ao problema a se resolver e (2) precisam ser
@@ -197,7 +197,7 @@ for (count = 0; count < people.length; count++) {
 \end{listing}
 
 \subsection{Formatação de preços}
-\label{sec:org0018a57}
+\label{sec:org71399f0}
 
 Nesta seção veremos como formatar uma lista preços para serem mostrados na
 tela, p. ex., transformando um valor numérico \mintinline{js}{50.45} em uma \emph{string}
@@ -251,20 +251,36 @@ letras maiúsculas
 \end{itemize}
 
 \subsection{Seleção de valores com \texttt{filter()}}
-\label{sec:org1bb09e3}
+\label{sec:org1c066a2}
 Remover nomes que não começam com ‘S’
 
 \subsection{Nivelamento de valores com \texttt{concatAll()}}
-\label{sec:org16402e7}
+\label{sec:orgfacf92c}
 \subsection{Redução de valores com \texttt{reduce()}}
-\label{sec:orgb2f70b1}
+\label{sec:org6b1d302}
+
+O método \mintinline{js}{reduce()} executa uma função \textbf{reducer} para cada item da
+lista, resultando num único valor. Em \ref{code:somaDePreçosComReduce} é
+demostrado a soma dos preços de uma lista usando o método \mintinline{js}{reduce()}.
+Nesta demonstração a função \mintinline{js}{somar()} é o \textbf{reducer}. 
+
+\begin{listing}[htbp]
+\begin{minted}[]{js}
+const preços = [50.45, 47, 20.99, 3.44, 1];
+
+const somar = (a, b) => a + b;
+const total = preços.reduce(somar);
+\end{minted}
+\caption{\label{code:somaDePreçosComReduce}Soma dos preços de uma lista com o método \mintinline{js}{reduce()}.}
+\end{listing}
+
 \subsection{Agrupamento de valores com \texttt{zip()}}
-\label{sec:org03470bc}
+\label{sec:orgf319b4e}
 
 \section{Coordenação de Eventos}
-\label{sec:org67a7765}
+\label{sec:orgaa3809b}
 \subsection{Contador}
-\label{sec:org96cdecc}
+\label{sec:org6add6c8}
 
 \begin{description}
 \item[{Problema}] entender os conceitos básicos da linguagem e o esqueleto
@@ -355,12 +371,12 @@ Contador({ valorInicial: 0 });
 \end{listing}
 
 \subsubsection{Análise}
-\label{sec:orgc3642b8}
+\label{sec:orgc80ae99}
 
 Essa primeira análise é focada no básico.
 
 \paragraph{Nível de abstração}
-\label{sec:org4136f4d}
+\label{sec:org7736b6c}
 Na solução com POO os conceitos da linguagem que deve-se entender são:
 classes, construtor, objetos, propriedades, métodos, \emph{callbacks} na forma
 de método, e conhecimento da API do objeto do documento do HTML ---
@@ -377,7 +393,8 @@ básicos, então observamos que o Nível de Abstração é baixo, ou seja, bom.
 Em contrapartida, na solução com PR os conceitos usados são: funções,
 variáveis, fluxos e eventos, callbacks, e a API do DOM.
 A abstração mais sofisticada é o método \mintinline{js}{fold()} do fluxo de evento,
-que nada mais é que uma versão assíncrona do \mintinline{js}{Array.reduce()} nativo.
+que nada mais é que uma versão assíncrona do \mintinline{js}{Array.reduce()}
+nativo --- veja a soma de preços em \ref{code:somaDePreçosComReduce}.
 Ambos produzem um resultado para cada elemento da lista.
 A diferença é que no primeiro a lista é de eventos assíncronos, e infinita.
 No segundo a lista é síncrona, com valores escales (números, \emph{strings},
@@ -387,20 +404,19 @@ Níveis mais altos de abstração não são necessários, então a solução com
 é igualmente boa ou um pouco melhor que a solução com POO quanto ao Nível
 de Abstração.
 
-
 \paragraph{Proximidade de descrição}
-\label{sec:org5f6e2d7}
+\label{sec:orga505c29}
 Essa dimensão/critério faz mais sentido para análise de apresentação do que
 comportamento (coordenação de eventos).
 
 \paragraph{Dependências ocultas}
-\label{sec:orgf233411}
-\todo[noline]{Acredito que o HTML só não está situado no mesmo local que o código JavaScript. Acho que é diferente de “oculto”.}
+\label{sec:org2c369b6}
+\todo[noline]{Acredito que o HTML só não está situado no mesmo local que o código JavaScript, que é diferente de “oculto”.}
 As únicas dependências que podem ser consideradas ocultas são os elementos
 HTML buscados pelo identificador com \texttt{document.getElementById("id")}.
 
 \paragraph{Propensão a erros}
-\label{sec:orgad59c50}
+\label{sec:orgb61d718}
 Na solução com POO, esquecer de vincular a instância do contador à função
 \texttt{tratarClique()} resultará no erro “TypeError: this.renderizar is not a
 function”.
@@ -428,32 +444,37 @@ this binding (it retains the this value of the enclosing lexical context).
   JavaScript}.
 
 Na solução com PR, esquecer de definir o observador fará com que a
-\texttt{caixaDoValor} não seja atualizada. Pois ela não será renderizada, apesar
-de toda a lógica do contador funcionar. Apesar de tudo, essas
-possibilidades de erros não são críticas.
+\texttt{caixaDoValor} não seja atualizada.
+Pois ela não será renderizada, apesar de toda a lógica do contador
+funcionar.
+Apesar de tudo, essas possibilidades de erros não são críticas.
 
 \paragraph{Concisão/Difusão}
-\label{sec:org49fca8d}
+\label{sec:org7eb8153}
 Na solução com POO o método \mintinline{js}{tratarClique()}, usado como \emph{callback},
-poderia ser substituído por uma função de seta. Além de poupar algumas
-linhas o uso do \mintinline{js}{.bind(this)} se torna desnecessário. Veja o código
-do Contador com POO e função de seta em \ref{code:contadorComPOOeFuncDeSeta}
-no apêndice. Na solução com PR a variável intermediária \mintinline{js}{contador$}
-poderia ser removida, encadeando a chamada do \mintinline{js}{fromEvent} com o
-\mintinline{js}{fold()}: \mintinline{js}{const clique$ = fromEvent().fold()}. No entanto essa
-manobra diminuiria a legibilidade do código\footnote{Note que o nome da variável \mintinline{js}{clique$} já nem faz mais
-sentido, pois o resultado da expressão não inclui apenas os eventos de clique.}. De qualquer
-forma, a PR evita a verbosidade da declaração da classe e dos métodos, além
-da repetição do \mintinline{js}{this}. Então em termos de Concisão a PR está à
-frente da POO.
+poderia ser substituído por uma função de seta.
+Além de poupar algumas linhas o uso do \mintinline{js}{.bind(this)} se torna
+desnecessário.
+Veja o código do Contador com POO e função de seta em
+\ref{code:contadorComPOOeFuncDeSeta} no apêndice.
+Na solução com PR a variável intermediária \mintinline{js}{contador$} poderia ser
+removida, encadeando a chamada do \mintinline{js}{fromEvent} com o \mintinline{js}{fold()}:
+\mintinline{js}{const clique$ = fromEvent().fold()}.
+No entanto essa manobra diminuiria a legibilidade do
+código\footnote{Note que o nome da variável \mintinline{js}{clique$} já nem faz mais
+sentido, pois o resultado da expressão não inclui apenas os eventos de clique.}.
+De qualquer forma, a PR evita a verbosidade da declaração da classe e dos
+métodos, além da repetição do \mintinline{js}{this}.
+Então em termos de Concisão a PR está à frente da POO.
 
 \paragraph{Viscosidade}
-\label{sec:org038ecdd}
+\label{sec:orga25b6c9}
 Num caso tão simples como o do Contador a única resistência a alteração
-está em renomear atributos no caso da POO, e variáveis na PR. No entanto
-isso é inevitável ao renomear termos. Além disso o IDE pode ajudar através
-de uma funcionalidade de refatoração.
-\todo{Talves seja interessante analisar a viscosidade da alteração pra colocar um botão de decremento (-1) do Contador.}
+está em renomear atributos no caso da POO, e variáveis na PR.
+No entanto isso é inevitável ao renomear termos.
+Além disso o IDE pode ajudar através de uma funcionalidade de refatoração.
+\todo\{Talves seja interessante analisar a viscosidade da alteração pra
+colocar um botão de decremento (-1) do Contador.\}
 
 \subsection{Reserva de voo}
-\label{sec:org1e8cfd0}
+\label{sec:org4afc389}

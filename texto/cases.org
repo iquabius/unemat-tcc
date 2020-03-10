@@ -262,6 +262,22 @@
 
 ** Nivelamento de valores com =concatAll()=
 ** Redução de valores com ~reduce()~
+
+   O método src_js{reduce()} executa uma função *reducer* para cada item da
+   lista, resultando num único valor. Em ref:code:somaDePreçosComReduce é
+   demostrado a soma dos preços de uma lista usando o método src_js{reduce()}.
+   Nesta demonstração a função src_js{somar()} é o *reducer*.
+   # https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce
+
+   #+caption: Soma dos preços de uma lista com o método src_js{reduce()}.
+   #+name: code:somaDePreçosComReduce
+   #+begin_src js
+   const preços = [50.45, 47, 20.99, 3.44, 1];
+
+   const somar = (a, b) => a + b;
+   const total = preços.reduce(somar);
+   #+end_src
+
 ** Agrupamento de valores com ~zip()~
 
 * Coordenação de Eventos
@@ -383,7 +399,8 @@
      Em contrapartida, na solução com PR os conceitos usados são: funções,
      variáveis, fluxos e eventos, callbacks, e a API do DOM.
      A abstração mais sofisticada é o método src_js{fold()} do fluxo de evento,
-     que nada mais é que uma versão assíncrona do src_js{Array.reduce()} nativo.
+     que nada mais é que uma versão assíncrona do src_js{Array.reduce()}
+     nativo --- veja a soma de preços em ref:code:somaDePreçosComReduce.
      Ambos produzem um resultado para cada elemento da lista.
      A diferença é que no primeiro a lista é de eventos assíncronos, e infinita.
      No segundo a lista é síncrona, com valores escales (números, /strings/,
