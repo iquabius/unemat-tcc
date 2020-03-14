@@ -1,3 +1,6 @@
 Blá blá blá…
 
+# TODO: Comentar que em linguagem com tipagem forte há um balanço entre
+# usabilidade e _________ (não encontrei a palavra).
+
 * Considerações finais
