@@ -1,4 +1,3 @@
-# -*- ispell-local-dictionary: "portugues"; org-export-headline-levels: 5; -*-
 
 Interfaces gráficas mediam a maioria das nossas interações com computadores,
 seja através de /laptops/, tabletes, ou navegadores web.

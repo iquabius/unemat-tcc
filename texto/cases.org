@@ -1,4 +1,3 @@
-# -*- ispell-local-dictionary: "pt_BR"; org-export-headline-levels: 5; -*-
 #+PROPERTY: header-args:js  :exports code
 
 # header-args is needed to use src_js{} for inline source code
