@@ -12,6 +12,8 @@
 *.ilg
 *.ind
 *.log
+# (List of Listings), produced by the listings package.
+*.lol
 *.out.ps
 *.pdf
 *.synctex.gz
