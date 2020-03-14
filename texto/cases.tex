@@ -1,6 +1,6 @@
 
 \section{Dimensões de Avaliação}
-\label{sec:orgc5df262}
+\label{sec:org25250c8}
 \todo[inline]{“Dimensions of evaluation” em inglês, talvez “dimensões de análise” ou “de verificação” seja melhor?}
 
 As dimensões utilizadas neste trabalho são baseadas nas DCs de
@@ -151,7 +151,7 @@ de comprometimento com uma ação ou marco}
 
 
 \section{*Revisão do JavaScript}
-\label{sec:org4a5f51a}
+\label{sec:orge625c5e}
 Talvez devêssemos colocar uma seção de revisão das ferramentas utilizadas na
 implementação dos estudos de caso? Poderíamos descrever os recursos relevantes
 para nossa análise.
@@ -159,7 +159,7 @@ para nossa análise.
 
 
 \section{Processamento de Listas}
-\label{sec:org251a9d7}
+\label{sec:org2a4ac63}
 
 Uma coleção é um agrupamento com uma quantidade variável de itens, que (1)
 compartilham algum significado ao problema a se resolver e (2) precisam ser
@@ -171,11 +171,11 @@ instâncias de classes, no JavaScript os objetos são extensões de \emph{protó
 notação de arranjos literais com colchetes:
 
 \begin{listing}[htbp]
+\caption{Criando coleções}
 \begin{minted}[]{js}
 var collection1 = new Array();
 var collection2 = [];
 \end{minted}
-\caption{Criando coleções}
 \end{listing}
 
 Uma tarefa muito comum na programação é a iteração\footnote{O processo de percorrer, um por um, os itens de uma coleção.} de coleções.
@@ -185,6 +185,7 @@ percorrer os itens da coleção \mintinline{js}{people} e mostrar cada um no con
 depuração.
 
 \begin{listing}[htbp]
+\caption{\label{code:forLoopTraverse}Percorrendo uma coleção com o laço \mintinline{js}{for}}
 \begin{minted}[]{js}
 var people = ["Alan Turing", "Alonzo Church", "Kurt Gödel"];
 var count  = 0;
@@ -193,11 +194,10 @@ for (count = 0; count < people.length; count++) {
   console.log(people[count]);
 }
 \end{minted}
-\caption{\label{code:forLoopTraverse}Percorrendo uma coleção com o laço \mintinline{js}{for}}
 \end{listing}
 
 \subsection{Formatação de preços}
-\label{sec:org71399f0}
+\label{sec:org8429fb5}
 
 Nesta seção veremos como formatar uma lista preços para serem mostrados na
 tela, p. ex., transformando um valor numérico \mintinline{js}{50.45} em uma \emph{string}
@@ -206,18 +206,19 @@ a cada valor da lista. A função de formatação pode ser observada em
 \ref{code:formatPriceFunction}.
 
 \begin{listing}[htbp]
+\caption{\label{code:formatPriceFunction}Função pra formatar um preço}
 \begin{minted}[]{js}
 function formatPrice(price) {
   return 'R$' + price.toFixed(2);
 }
 \end{minted}
-\caption{\label{code:formatPriceFunction}Função pra formatar um preço}
 \end{listing}
 
 Em \ref{code:formatPricesFor} pode-se ver a solução implementada com o laço
 \mintinline{js}{for}.
 
 \begin{listing}[htbp]
+\caption{\label{code:formatPricesFor}Formatação de preços com laço \mintinline{js}{for}}
 \begin{minted}[]{js}
 const prices = [50.45, 47, 20.99, 3.44, 1];
 let formatedPrices = [];
@@ -226,19 +227,18 @@ for (let i = 0; i < prices.length; i++) {
   formatedPrices.push(formatPrice(prices[i]));
 }
 \end{minted}
-\caption{\label{code:formatPricesFor}Formatação de preços com laço \mintinline{js}{for}}
 \end{listing}
 
 Em \ref{code:formatPricesMap} pode-se ver a solução implementada com a função
 \mintinline{js}{map}.
 
 \begin{listing}[htbp]
+\caption{\label{code:formatPricesMap}Formatação de preços com laço \mintinline{js}{for}}
 \begin{minted}[]{js}
 const prices = [50.45, 47, 20.99, 3.44, 1];
 
 const formatedPrices = prices.map(formatPrice);
 \end{minted}
-\caption{\label{code:formatPricesMap}Formatação de preços com laço \mintinline{js}{for}}
 \end{listing}
 
 Outras ideias:
@@ -251,36 +251,36 @@ letras maiúsculas
 \end{itemize}
 
 \subsection{Seleção de valores com \texttt{filter()}}
-\label{sec:org1c066a2}
+\label{sec:org84eeb0c}
 Remover nomes que não começam com ‘S’
 
 \subsection{Nivelamento de valores com \texttt{concatAll()}}
-\label{sec:orgfacf92c}
+\label{sec:org65bb05a}
 \subsection{Redução de valores com \texttt{reduce()}}
-\label{sec:org6b1d302}
+\label{sec:orgf626f8a}
 
 O método \mintinline{js}{reduce()} executa uma função \textbf{reducer} para cada item da
 lista, resultando num único valor. Em \ref{code:somaDePreçosComReduce} é
 demostrado a soma dos preços de uma lista usando o método \mintinline{js}{reduce()}.
-Nesta demonstração a função \mintinline{js}{somar()} é o \textbf{reducer}. 
+Nesta demonstração a função \mintinline{js}{somar()} é o \textbf{reducer}.
 
 \begin{listing}[htbp]
+\caption{\label{code:somaDePreçosComReduce}Soma dos preços de uma lista com o método \mintinline{js}{reduce()}.}
 \begin{minted}[]{js}
 const preços = [50.45, 47, 20.99, 3.44, 1];
 
 const somar = (a, b) => a + b;
 const total = preços.reduce(somar);
 \end{minted}
-\caption{\label{code:somaDePreçosComReduce}Soma dos preços de uma lista com o método \mintinline{js}{reduce()}.}
 \end{listing}
 
 \subsection{Agrupamento de valores com \texttt{zip()}}
-\label{sec:orgf319b4e}
+\label{sec:org93c9dfe}
 
 \section{Coordenação de Eventos}
-\label{sec:orgaa3809b}
+\label{sec:orgdecf69b}
 \subsection{Contador}
-\label{sec:org6add6c8}
+\label{sec:orge883185}
 
 \begin{description}
 \item[{Problema}] entender os conceitos básicos da linguagem e o esqueleto
@@ -288,15 +288,16 @@ necessário
 \end{description}
 
 \begin{figure}[htbp]
+\caption{\label{img:contador}Interface gráfica do Contador.}
 \centering
 \includegraphics[width=12cm]{./fig/screenshot-contador-epiphany.png}
-\caption{\label{img:contador}Interface gráfica do Contador.}
 \end{figure}
 
 A implementação do contador usando classes poder ser observado em
 \ref{code:contadorComPOO}.
 
 \begin{listing}[htbp]
+\caption{\label{code:contadorComPOO}Contador com POO.}
 \begin{minted}[]{js}
 // No Java isto extenderia alguma classe padrão do toolkit,
 // como `Application`
@@ -329,7 +330,6 @@ const contador = new Contador({ valorInicial: 0 });
 // feita automaticamente pelo ambiente de execução.
 contador.renderizar();
 \end{minted}
-\caption{\label{code:contadorComPOO}Contador com POO.}
 \end{listing}
 
 O \mintinline{js}{tratarClique.bind(this)} na linha 12 requer uma explicação um tanto
@@ -339,6 +339,7 @@ O contador usando função e operadores do xstream pode ser observado em
 \ref{code:contadorComPR}.
 
 \begin{listing}[htbp]
+\caption{\label{code:contadorComPR}Contador com PR.}
 \begin{minted}[]{js}
 import fromEvent from "xstream/extra/fromEvent";
 
@@ -367,16 +368,15 @@ const Contador = props => {
 
 Contador({ valorInicial: 0 });
 \end{minted}
-\caption{\label{code:contadorComPR}Contador com PR.}
 \end{listing}
 
 \subsubsection{Análise}
-\label{sec:orgc80ae99}
+\label{sec:orgd279da4}
 
 Essa primeira análise é focada no básico.
 
 \paragraph{Nível de abstração}
-\label{sec:org7736b6c}
+\label{sec:org517586b}
 Na solução com POO os conceitos da linguagem que deve-se entender são:
 classes, construtor, objetos, propriedades, métodos, \emph{callbacks} na forma
 de método, e conhecimento da API do objeto do documento do HTML ---
@@ -405,18 +405,18 @@ Níveis mais altos de abstração não são necessários, então a solução com
 de Abstração.
 
 \paragraph{Proximidade de descrição}
-\label{sec:orga505c29}
+\label{sec:org3041ad8}
 Essa dimensão/critério faz mais sentido para análise de apresentação do que
 comportamento (coordenação de eventos).
 
 \paragraph{Dependências ocultas}
-\label{sec:org2c369b6}
+\label{sec:orgb49b015}
 \todo[noline]{Acredito que o HTML só não está situado no mesmo local que o código JavaScript, que é diferente de “oculto”.}
 As únicas dependências que podem ser consideradas ocultas são os elementos
 HTML buscados pelo identificador com \texttt{document.getElementById("id")}.
 
 \paragraph{Propensão a erros}
-\label{sec:orgb61d718}
+\label{sec:org0ae3161}
 Na solução com POO, esquecer de vincular a instância do contador à função
 \texttt{tratarClique()} resultará no erro “TypeError: this.renderizar is not a
 function”.
@@ -450,7 +450,7 @@ funcionar.
 Apesar de tudo, essas possibilidades de erros não são críticas.
 
 \paragraph{Concisão/Difusão}
-\label{sec:org7eb8153}
+\label{sec:org80e7054}
 Na solução com POO o método \mintinline{js}{tratarClique()}, usado como \emph{callback},
 poderia ser substituído por uma função de seta.
 Além de poupar algumas linhas o uso do \mintinline{js}{.bind(this)} se torna
@@ -468,7 +468,7 @@ métodos, além da repetição do \mintinline{js}{this}.
 Então em termos de Concisão a PR está à frente da POO.
 
 \paragraph{Viscosidade}
-\label{sec:orga25b6c9}
+\label{sec:orge0e0aa6}
 Num caso tão simples como o do Contador a única resistência a alteração
 está em renomear atributos no caso da POO, e variáveis na PR.
 No entanto isso é inevitável ao renomear termos.
@@ -477,4 +477,4 @@ Além disso o IDE pode ajudar através de uma funcionalidade de refatoração.
 colocar um botão de decremento (-1) do Contador.\}
 
 \subsection{Reserva de voo}
-\label{sec:org4afc389}
+\label{sec:org2312dd5}
