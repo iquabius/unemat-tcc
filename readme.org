@@ -5,3 +5,14 @@
 * Demonstração e Análise de Programação Funcional e Reativa
   Trabalho de conclusão a ser apresentado ao curso de Ciência da Computação da
   Universidade do Estado de Mato Grosso.
+
+* Emacs Org-mode & LaTeX
+
+  Para iniciar o LaTeX, abra o arquivo =tcc.tex= e execute o
+  =TeX-command-master= Ctrl-c Ctrl-c. Escolha a opção “LatexMk”.
+
+  Para escrever edite os arquivos =.org= em =./texto=. Para os arquivos =.tex=
+  correspondentes basta exportar executando o comando =org-export-dispatch= e
+  depois escolher “Export to LaTex” -> “As LaTeX file”. Atalho: =Ctrl-c Ctrl-e l
+  l=.
+
