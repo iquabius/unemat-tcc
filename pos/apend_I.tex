@@ -1,0 +1,28 @@
+\chapter{Variações dos Estudos de Caso}
+\label{apend:1}
+
+\begin{listing}[htbp]
+\caption{\label{code:contadorComPOOeFuncDeSeta}Contador com POO e função de seta.}
+\begin{minted}[]{js}
+class Contador {
+  constructor(props) {
+    this.contador = props.valorInicial;
+    this.caixaDoValor = document.getElementById("valor");
+    this.botãoDeIncrementar = document.getElementById("botãoDeIncrementar");
+
+    const tratarClique = _evento => {
+      this.contador = this.contador + 1;
+      this.renderizar();
+    };
+    this.botãoDeIncrementar.addEventListener("click", tratarClique);
+  }
+
+  renderizar() {
+    this.caixaDoValor.innerText = this.contador;
+  }
+}
+
+const contador = new Contador({ valorInicial: 0 });
+contador.renderizar();
+\end{minted}
+\end{listing}
