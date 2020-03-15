@@ -16,3 +16,10 @@
   depois escolher “Export to LaTex” -> “As LaTeX file”. Atalho: =Ctrl-c Ctrl-e l
   l=.
 
+* Ferramentas auxiliares
+
+  Para correção ortográfica usei o [[http://aspell.net][GNU Aspell]]. Para instalar execute:
+
+  #+begin_src fish
+  sudo apt install -y aspell aspell-en aspell-pt-br
+  #+end_src
