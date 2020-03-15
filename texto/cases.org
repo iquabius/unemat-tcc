@@ -211,7 +211,7 @@
 
    Nesta seção veremos como formatar uma lista preços para serem mostrados na
    tela, p. ex., transformando um valor numérico src_js{50.45} em uma /string/
-   src_js{"R$ 50.45"}. Para isso usamos uma função de formatação que é aplicada
+   src_js{"R\$ 50.45"}. Para isso usamos uma função de formatação que é aplicada
    a cada valor da lista. A função de formatação pode ser observada em
    ref:code:formatPriceFunction.
    # Esse processo de transformação é chamado de projeção
@@ -220,7 +220,7 @@
    #+label: code:formatPriceFunction
    #+BEGIN_SRC js
    function formatPrice(price) {
-     return 'R$' + price.toFixed(2);
+     return 'R\$' + price.toFixed(2);
    }
    #+END_SRC
 
@@ -353,11 +353,11 @@
      const botãoDeIncrementar = document.getElementById("botãoDeIncrementar");
 
      // Fluxo que emite um evento toda vez que o botão for clicado
-     const clique$ = fromEvent(botãoDeIncrementar, "click");
+     const clique\$ = fromEvent(botãoDeIncrementar, "click");
 
      // Fluxo que emite "valor + 1" (acumulado) toda vez que
      // cliqueS emite um evento
-     const contador$ = clique$.fold(
+     const contador\$ = clique\$.fold(
        (valor, _evento) => valor + 1,
        props.valorInicial
      );
@@ -368,7 +368,7 @@
        }
      };
 
-     contador$.addListener(observador);
+     contador\$.addListener(observador);
    };
 
    Contador({ valorInicial: 0 });
@@ -461,9 +461,9 @@
      desnecessário.
      Veja o código do Contador com POO e função de seta em
      ref:code:contadorComPOOeFuncDeSeta no apêndice.
-     Na solução com PR a variável intermediária src_js{contador$} poderia ser
+     Na solução com PR a variável intermediária src_js{contador\$} poderia ser
      removida, encadeando a chamada do src_js{fromEvent} com o src_js{fold()}:
-     src_js{const clique$ = fromEvent().fold()}.
+     src_js{const clique\$ = fromEvent().fold()}.
      No entanto essa manobra diminuiria a legibilidade do
      código[fn:encadeamento].
      De qualquer forma, a PR evita a verbosidade da declaração da classe e dos
@@ -475,15 +475,14 @@
      está em renomear atributos no caso da POO, e variáveis na PR.
      No entanto isso é inevitável ao renomear termos.
      Além disso o IDE pode ajudar através de uma funcionalidade de refatoração.
-     \todo{Talves seja interessante analisar a viscosidade da alteração pra
-     colocar um botão de decremento (-1) do Contador.}
+     \todo{Talves seja interessante analisar a viscosidade da alteração pra colocar um botão de decremento (-1) do Contador.}
 
 ** Reserva de voo
 
 
 * Footnotes
 
-[fn:encadeamento] Note que o nome da variável src_js{clique$} já nem faz mais
+[fn:encadeamento] Note que o nome da variável src_js{clique\$} já nem faz mais
 sentido, pois o resultado da expressão não inclui apenas os eventos de clique.
 
 [fn:prototypes] Diferente da maioria das linguagens, em que objetos são
