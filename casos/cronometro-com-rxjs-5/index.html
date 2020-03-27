@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cronômetro com RxJS 5</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" type="text/css" href="src/styles.css" />
+  </head>
+
+  <body>
+    <div id="app">
+      <label for="gaugeProgress">Tempo passado: </label>
+      <progress id="gaugeProgress" max="100" value="0">
+        0%
+      </progress>
+      <div id="ellapsedTime">0s</div>
+      <div>
+        <label for="durationRange">Duração: </label>
+        <input type="range" min="0" max="100" value="0" id="durationRange" />
+      </div>
+      <button id="resetButton">Resetar</button>
+    </div>
+
+    <script src="src/index.js"></script>
+  </body>
+</html>
