@@ -10,8 +10,7 @@ const reset$ = Rx.Observable.fromEvent(resetButton, "click").mapTo({
   elapsed: 0
 });
 
-const count$ = Rx.Observable.interval(1000)
-  .map(_ => ({ count: true }));
+const count$ = Rx.Observable.interval(1000).map(_ => ({ count: true }));
 
 const event$ = Rx.Observable.merge(duration$, reset$, count$);
 
@@ -26,8 +25,10 @@ const cronometro$ = event$
   .scan((state, curr) => {
     const shouldCount = state.elapsed < state.duration;
     const newElapsed = shouldCount ? state.elapsed + 1 : state.elapsed;
+    const newDuration =
+      state.duration >= state.elapsed ? state.duration : state.elapsed;
     return curr.count
-      ? { ...state, elapsed: newElapsed }
+      ? { ...state, duration: newDuration, elapsed: newElapsed }
       : { ...state, ...curr };
   }, {});
 
