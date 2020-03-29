@@ -6,26 +6,32 @@ const duration$ = Rx.Observable.fromEvent(durationRange, "input").map(_e => ({
 }));
 
 const resetButton = document.getElementById("resetButton");
-const reset$ = Rx.Observable.fromEvent(resetButton, "click");
-
-const count$ = reset$.startWith(0).switchMap(t => {
-  return Rx.Observable.interval(1000).map(count => ({ elapsed: count }));
+const reset$ = Rx.Observable.fromEvent(resetButton, "click").mapTo({
+  elapsed: 0
 });
 
-const event$ = Rx.Observable.merge(duration$, count$);
+const count$ = Rx.Observable.interval(1000)
+  .map(_ => ({ count: true }));
+
+const event$ = Rx.Observable.merge(duration$, reset$, count$);
 
 const gaugeProgress = document.getElementById("gaugeProgress");
 const ellapsedTime = document.getElementById("ellapsedTime");
 
 const cronometro$ = event$
   .startWith({
-    duration: 100,
+    duration: 5,
     elapsed: 0
   })
-  .scan((state, curr) => ({ ...state, ...curr }), {});
+  .scan((state, curr) => {
+    const shouldCount = state.elapsed < state.duration;
+    const newElapsed = shouldCount ? state.elapsed + 1 : state.elapsed;
+    return curr.count
+      ? { ...state, elapsed: newElapsed }
+      : { ...state, ...curr };
+  }, {});
 
 const render = state => {
-  console.log(JSON.stringify({ state }));
   const percent = Number.parseInt((state.elapsed / state.duration) * 100, 10);
   gaugeProgress.max = state.duration;
   gaugeProgress.value = state.elapsed;
