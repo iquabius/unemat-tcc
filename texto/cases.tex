@@ -1,6 +1,6 @@
 
 \section{Dimensões de Avaliação}
-\label{sec:org8d9a4ba}
+\label{sec:org68bab9b}
 \todo[inline]{“Dimensions of evaluation” em inglês, talvez “dimensões de análise” ou “de verificação” seja melhor?}
 
 As dimensões utilizadas neste trabalho são baseadas nas DCs de
@@ -151,7 +151,7 @@ de comprometimento com uma ação ou marco}
 
 
 \section{*Revisão do JavaScript}
-\label{sec:orga54f6c5}
+\label{sec:org2990c84}
 Talvez devêssemos colocar uma seção de revisão das ferramentas utilizadas na
 implementação dos estudos de caso? Poderíamos descrever os recursos relevantes
 para nossa análise.
@@ -159,7 +159,7 @@ para nossa análise.
 
 
 \section{Processamento de Listas}
-\label{sec:org5d93786}
+\label{sec:org7fcb742}
 
 Uma coleção é um agrupamento com uma quantidade variável de itens, que (1)
 compartilham algum significado ao problema a se resolver e (2) precisam ser
@@ -197,11 +197,11 @@ for (count = 0; count < people.length; count++) {
 \end{listing}
 
 \subsection{Formatação de preços}
-\label{sec:org2814a11}
+\label{sec:org75ddf0b}
 
 Nesta seção veremos como formatar uma lista preços para serem mostrados na
 tela, p. ex., transformando um valor numérico \mintinline{js}{50.45} em uma \emph{string}
-\mintinline{js}{"R\$ 50.45"}. Para isso usamos uma função de formatação que é aplicada
+\mintinline{js}{"R$ 50.45"}. Para isso usamos uma função de formatação que é aplicada
 a cada valor da lista. A função de formatação pode ser observada em
 \ref{code:formatPriceFunction}.
 
@@ -209,7 +209,7 @@ a cada valor da lista. A função de formatação pode ser observada em
 \caption{\label{code:formatPriceFunction}Função pra formatar um preço}
 \begin{minted}[]{js}
 function formatPrice(price) {
-  return 'R\$' + price.toFixed(2);
+  return 'R$' + price.toFixed(2);
 }
 \end{minted}
 \end{listing}
@@ -251,13 +251,13 @@ letras maiúsculas
 \end{itemize}
 
 \subsection{Seleção de valores com \texttt{filter()}}
-\label{sec:org882ca95}
+\label{sec:orgf49997c}
 Remover nomes que não começam com ‘S’
 
 \subsection{Nivelamento de valores com \texttt{concatAll()}}
-\label{sec:org6d34b1e}
+\label{sec:org1c4a881}
 \subsection{Redução de valores com \texttt{reduce()}}
-\label{sec:orgcdcb729}
+\label{sec:org02996fd}
 
 O método \mintinline{js}{reduce()} executa uma função \textbf{reducer} para cada item da
 lista, resultando num único valor. Em \ref{code:somaDePreçosComReduce} é
@@ -275,12 +275,12 @@ const total = preços.reduce(somar);
 \end{listing}
 
 \subsection{Agrupamento de valores com \texttt{zip()}}
-\label{sec:org977a381}
+\label{sec:orga37a278}
 
 \section{Coordenação de Eventos}
-\label{sec:orga37ed56}
+\label{sec:orge04530e}
 \subsection{Contador}
-\label{sec:org49b2ba2}
+\label{sec:orgee1db2e}
 
 \begin{description}
 \item[{Problema}] entender os conceitos básicos da linguagem e o esqueleto
@@ -348,11 +348,11 @@ const Contador = props => {
   const botãoDeIncrementar = document.getElementById("botãoDeIncrementar");
 
   // Fluxo que emite um evento toda vez que o botão for clicado
-  const clique\$ = fromEvent(botãoDeIncrementar, "click");
+  const cliqueStream = fromEvent(botãoDeIncrementar, "click");
 
   // Fluxo que emite "valor + 1" (acumulado) toda vez que
   // cliqueS emite um evento
-  const contador\$ = clique\$.fold(
+  const contadorStream = cliqueStream.fold(
     (valor, _evento) => valor + 1,
     props.valorInicial
   );
@@ -363,7 +363,7 @@ const Contador = props => {
     }
   };
 
-  contador\$.addListener(observador);
+  contadorStream.addListener(observador);
 };
 
 Contador({ valorInicial: 0 });
@@ -371,12 +371,12 @@ Contador({ valorInicial: 0 });
 \end{listing}
 
 \subsubsection{Análise}
-\label{sec:org54f3b3f}
+\label{sec:org13237b4}
 
 Essa primeira análise é focada no básico.
 
 \paragraph{Nível de abstração}
-\label{sec:orgd0cdda8}
+\label{sec:org8930234}
 Na solução com POO os conceitos da linguagem que deve-se entender são:
 classes, construtor, objetos, propriedades, métodos, \emph{callbacks} na forma
 de método, e conhecimento da API do objeto do documento do HTML ---
@@ -405,18 +405,18 @@ Níveis mais altos de abstração não são necessários, então a solução com
 de Abstração.
 
 \paragraph{Proximidade de descrição}
-\label{sec:orgeb544b7}
+\label{sec:orgcadf59e}
 Essa dimensão/critério faz mais sentido para análise de apresentação do que
 comportamento (coordenação de eventos).
 
 \paragraph{Dependências ocultas}
-\label{sec:orga9d37c8}
+\label{sec:orge1693b9}
 \todo[noline]{Acredito que o HTML só não está situado no mesmo local que o código JavaScript, que é diferente de “oculto”.}
 As únicas dependências que podem ser consideradas ocultas são os elementos
 HTML buscados pelo identificador com \texttt{document.getElementById("id")}.
 
 \paragraph{Propensão a erros}
-\label{sec:orgffd44fd}
+\label{sec:orgc9ea622}
 Na solução com POO, esquecer de vincular a instância do contador à função
 \texttt{tratarClique()} resultará no erro “TypeError: this.renderizar is not a
 function”.
@@ -450,25 +450,25 @@ funcionar.
 Apesar de tudo, essas possibilidades de erros não são críticas.
 
 \paragraph{Concisão/Difusão}
-\label{sec:orga12290d}
+\label{sec:org9d4f207}
 Na solução com POO o método \mintinline{js}{tratarClique()}, usado como \emph{callback},
 poderia ser substituído por uma função de seta.
 Além de poupar algumas linhas o uso do \mintinline{js}{.bind(this)} se torna
 desnecessário.
 Veja o código do Contador com POO e função de seta em
 \ref{code:contadorComPOOeFuncDeSeta} no apêndice.
-Na solução com PR a variável intermediária \mintinline{js}{contador\$} poderia ser
+Na solução com PR a variável intermediária \mintinline{js}{contadorStream} poderia ser
 removida, encadeando a chamada do \mintinline{js}{fromEvent} com o \mintinline{js}{fold()}:
-\mintinline{js}{const clique\$ = fromEvent().fold()}.
+\mintinline{js}{const cliqueStream = fromEvent().fold()}.
 No entanto essa manobra diminuiria a legibilidade do
-código\footnote{Note que o nome da variável \mintinline{js}{clique\$} já nem faz mais
+código\footnote{Note que o nome da variável \mintinline{js}{cliqueStream} já nem faz mais
 sentido, pois o resultado da expressão não inclui apenas os eventos de clique.}.
 De qualquer forma, a PR evita a verbosidade da declaração da classe e dos
 métodos, além da repetição do \mintinline{js}{this}.
 Então em termos de Concisão a PR está à frente da POO.
 
 \paragraph{Viscosidade}
-\label{sec:org20a8b32}
+\label{sec:orgb085adf}
 Num caso tão simples como o do Contador a única resistência a alteração
 está em renomear atributos no caso da POO, e variáveis na PR.
 No entanto isso é inevitável ao renomear termos.
@@ -476,4 +476,4 @@ Além disso o IDE pode ajudar através de uma funcionalidade de refatoração.
 \todo{Talves seja interessante analisar a viscosidade da alteração pra colocar um botão de decremento (-1) do Contador.}
 
 \subsection{Reserva de voo}
-\label{sec:org960050e}
+\label{sec:orgd7f0ade}
