@@ -1,4 +1,3 @@
-# -*- ispell-local-dictionary: "portugues"; -*-
 #+TITLE: Interfaces Gráficas Declarativas
 #+AUTHOR: Josias Duarte Busiquia
 
@@ -15,6 +14,44 @@
   correspondentes basta exportar executando o comando =org-export-dispatch= e
   depois escolher “Export to LaTex” -> “As LaTeX file”. Atalho: =Ctrl-c Ctrl-e l
   l=.
+
+** Gerar PDF com LatexMk
+
+   #+begin_src fish
+   latexmk -outdir=versoes_pdf -pvc- -view=none tcc.tex
+   #+end_src
+
+   Ao contrário do comando =Tex-clean= no Emacs, este deixa alguns arquivos para
+   trás:
+
+   #+begin_src fish
+   latexmk -c -outdir=versoes_pdf
+   #+end_src
+
+** Gerar PDF com git-latexdiff
+
+   O [[https://gitlab.com/git-latexdiff/git-latexdiff][git-latexdiff]] é a junção do Git com o [[https://github.com/ftilmann/latexdiff][latexdiff]] que permite visualizar o
+   antes e o depois das alterações direto no PDF:
+
+   #+caption: Exemplo de diff depois de uma alteração.
+   [[https://3142.nl/latex-diff/screenshot.png]]
+
+   O ambiente do =minted= ainda não é suportado pelo =latexdiff=:
+   https://github.com/ftilmann/latexdiff/pull/193. Portanto desativamos
+   latexdiff para o minted com a configuração =PICTUREENV=. Além disso
+   desativamos a visualização do PDF depois da compilação do =latexmk=.
+
+   #+begin_src fish
+   git latexdiff \
+     --config="PICTUREENV=(?:picture|DIFnomarkup|minted)[\w\d*@]*" \
+     --no-view \
+     --output versoes_pdf/diff.pdf \
+     --latexmk \
+     --latexopt "-pvc- -view=none" \
+     HEAD --                       # diff entre último commit e alterações locais
+   #+end_src
+   # https://tex.stackexchange.com/a/73649/103967
+   # https://tex.stackexchange.com/a/305562/103967
 
 * Ferramentas auxiliares
 
