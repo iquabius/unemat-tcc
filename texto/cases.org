@@ -107,7 +107,7 @@
        ponteiro nulo se o programador esquecer de inicializar as variáveis
        corretamente antes de usá-las.
 
-  - Difusão         :: \todo{Diffuseness/terseness: difusão/concisão, ou dispersão} /Verbosidade da linguagem/
+  - Concisão         :: /Verbosidade da linguagem/
        # Diffuseness/terseness: difusão/concisão, ou dispersão
        Quantos símbolos ou quanto espaço a notação requer pra produzir um certo
        resultado ou expressar uma ideia. Que tipos de coisas ocupam mais espaço
@@ -454,7 +454,7 @@
      funcionar.
      Apesar de tudo, essas possibilidades de erros não são críticas.
 
-**** Concisão/Difusão
+**** Concisão
      Na solução com POO o método src_js{tratarClique()}, usado como /callback/,
      poderia ser substituído por uma função de seta.
      Além de poupar algumas linhas o uso do src_js{.bind(this)} se torna
