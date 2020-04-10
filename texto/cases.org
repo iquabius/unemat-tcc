@@ -3,8 +3,6 @@
 # header-args is needed to use src_js{} for inline source code
 
 * Dimensões de Avaliação
-  \todo[inline]{“Dimensions of evaluation” em inglês, talvez “dimensões de análise” ou “de verificação” seja melhor?}
-
   As dimensões utilizadas neste trabalho são baseadas nas DCs de
   textcite:green1989. Assim usamos critérios estabelecidos, o que facilita a
   comparação de nossos resultados com trabalhos baseados nas DCs. O /framework/
