@@ -146,7 +146,19 @@
   - Operações mentais difíceis: /alto esforço cognitivo pra realizar tarefas/
   - Notação secundária: /informações extras por meio de notações além das
     formais/
+  \todo[inline]{Berndt sugeriu considerar “Expressividade” e “Operações mentais difíceis”.}
+  # Uma operação mental difícil é a leitura de um laço “for”. O usuário precisa
+  # manter na memória os valores de todas as variáveis intermediárias envolvidas
+  # na iteração. É um mal sinal se o usuário precisa fazer um teste de mesa para
+  # entender a lógica.
 
+  # “Uma notação pode tornar as coisas desnecessariamente complexas para o
+  # usuário se ele faz exigências excessivas na sua memória de curta duração.”
+
+  # “É um mau sinal se o usuário precisa usar um bloco de notas para fazer
+  # anotações ao invés de continuar usando o sistema.”
+
+  # https://medium.com/ui-lab-school/guia-para-dimensoes-cognitivas-no-design-72d898a62bc7
 
   Em outras situações, e dependendo dos artefatos de informação, essas dimensões
   poderiam ser úteis. Se tivéssemos focado mais nas ferramentas e no processo de
