@@ -1,8 +1,6 @@
 
 \section{Dimensões de Avaliação}
-\label{sec:org68bab9b}
-\todo[inline]{“Dimensions of evaluation” em inglês, talvez “dimensões de análise” ou “de verificação” seja melhor?}
-
+\label{sec:org050f7e0}
 As dimensões utilizadas neste trabalho são baseadas nas DCs de
 \textcite{green1989}. Assim usamos critérios estabelecidos, o que facilita a
 comparação de nossos resultados com trabalhos baseados nas DCs. O \emph{framework}
@@ -96,7 +94,7 @@ implícita de variáveis com valor \texttt{null} pode levar a uma exceção de
 ponteiro nulo se o programador esquecer de inicializar as variáveis
 corretamente antes de usá-las.
 
-\item[{Difusão        }] \todo{Diffuseness/terseness: difusão/concisão, ou dispersão} \emph{Verbosidade da linguagem}
+\item[{Concisão        }] \emph{Verbosidade da linguagem}
 
 Quantos símbolos ou quanto espaço a notação requer pra produzir um certo
 resultado ou expressar uma ideia. Que tipos de coisas ocupam mais espaço
@@ -135,7 +133,7 @@ parecido}
 \item Notação secundária: \emph{informações extras por meio de notações além das
 formais}
 \end{itemize}
-
+\todo[inline]{Berndt sugeriu considerar “Expressividade” e “Operações mentais difíceis”.}
 
 Em outras situações, e dependendo dos artefatos de informação, essas dimensões
 poderiam ser úteis. Se tivéssemos focado mais nas ferramentas e no processo de
@@ -151,7 +149,7 @@ de comprometimento com uma ação ou marco}
 
 
 \section{*Revisão do JavaScript}
-\label{sec:org2990c84}
+\label{sec:org393daf3}
 Talvez devêssemos colocar uma seção de revisão das ferramentas utilizadas na
 implementação dos estudos de caso? Poderíamos descrever os recursos relevantes
 para nossa análise.
@@ -159,7 +157,7 @@ para nossa análise.
 
 
 \section{Processamento de Listas}
-\label{sec:org7fcb742}
+\label{sec:org369cfb2}
 
 Uma coleção é um agrupamento com uma quantidade variável de itens, que (1)
 compartilham algum significado ao problema a se resolver e (2) precisam ser
@@ -197,7 +195,7 @@ for (count = 0; count < people.length; count++) {
 \end{listing}
 
 \subsection{Formatação de preços}
-\label{sec:org75ddf0b}
+\label{sec:org3d46859}
 
 Nesta seção veremos como formatar uma lista preços para serem mostrados na
 tela, p. ex., transformando um valor numérico \mintinline{js}{50.45} em uma \emph{string}
@@ -251,13 +249,13 @@ letras maiúsculas
 \end{itemize}
 
 \subsection{Seleção de valores com \texttt{filter()}}
-\label{sec:orgf49997c}
+\label{sec:orgdf5bd0e}
 Remover nomes que não começam com ‘S’
 
 \subsection{Nivelamento de valores com \texttt{concatAll()}}
-\label{sec:org1c4a881}
+\label{sec:org32929f0}
 \subsection{Redução de valores com \texttt{reduce()}}
-\label{sec:org02996fd}
+\label{sec:org5461138}
 
 O método \mintinline{js}{reduce()} executa uma função \textbf{reducer} para cada item da
 lista, resultando num único valor. Em \ref{code:somaDePreçosComReduce} é
@@ -275,16 +273,16 @@ const total = preços.reduce(somar);
 \end{listing}
 
 \subsection{Agrupamento de valores com \texttt{zip()}}
-\label{sec:orga37a278}
+\label{sec:org4004e7d}
 
 \section{Coordenação de Eventos}
-\label{sec:orge04530e}
+\label{sec:org27de126}
 \subsection{Contador}
-\label{sec:orgee1db2e}
+\label{sec:org8ed5085}
 
 \begin{description}
-\item[{Problema}] entender os conceitos básicos da linguagem e o esqueleto
-necessário
+\item[{Problema}] entender os conceitos essenciais da linguagem e a estrutura
+básica necessária
 \end{description}
 
 \begin{figure}[htbp]
@@ -371,12 +369,12 @@ Contador({ valorInicial: 0 });
 \end{listing}
 
 \subsubsection{Análise}
-\label{sec:org13237b4}
+\label{sec:org81db0a6}
 
 Essa primeira análise é focada no básico.
 
 \paragraph{Nível de abstração}
-\label{sec:org8930234}
+\label{sec:org00357e4}
 Na solução com POO os conceitos da linguagem que deve-se entender são:
 classes, construtor, objetos, propriedades, métodos, \emph{callbacks} na forma
 de método, e conhecimento da API do objeto do documento do HTML ---
@@ -405,18 +403,18 @@ Níveis mais altos de abstração não são necessários, então a solução com
 de Abstração.
 
 \paragraph{Proximidade de descrição}
-\label{sec:orgcadf59e}
+\label{sec:orgc9c6145}
 Essa dimensão/critério faz mais sentido para análise de apresentação do que
 comportamento (coordenação de eventos).
 
 \paragraph{Dependências ocultas}
-\label{sec:orge1693b9}
+\label{sec:orgc129516}
 \todo[noline]{Acredito que o HTML só não está situado no mesmo local que o código JavaScript, que é diferente de “oculto”.}
 As únicas dependências que podem ser consideradas ocultas são os elementos
 HTML buscados pelo identificador com \texttt{document.getElementById("id")}.
 
 \paragraph{Propensão a erros}
-\label{sec:orgc9ea622}
+\label{sec:org610ef5a}
 Na solução com POO, esquecer de vincular a instância do contador à função
 \texttt{tratarClique()} resultará no erro “TypeError: this.renderizar is not a
 function”.
@@ -449,8 +447,8 @@ Pois ela não será renderizada, apesar de toda a lógica do contador
 funcionar.
 Apesar de tudo, essas possibilidades de erros não são críticas.
 
-\paragraph{Concisão/Difusão}
-\label{sec:org9d4f207}
+\paragraph{Concisão}
+\label{sec:org3a4cb87}
 Na solução com POO o método \mintinline{js}{tratarClique()}, usado como \emph{callback},
 poderia ser substituído por uma função de seta.
 Além de poupar algumas linhas o uso do \mintinline{js}{.bind(this)} se torna
@@ -468,7 +466,7 @@ métodos, além da repetição do \mintinline{js}{this}.
 Então em termos de Concisão a PR está à frente da POO.
 
 \paragraph{Viscosidade}
-\label{sec:orgb085adf}
+\label{sec:orgcb6d0e7}
 Num caso tão simples como o do Contador a única resistência a alteração
 está em renomear atributos no caso da POO, e variáveis na PR.
 No entanto isso é inevitável ao renomear termos.
@@ -476,4 +474,4 @@ Além disso o IDE pode ajudar através de uma funcionalidade de refatoração.
 \todo{Talves seja interessante analisar a viscosidade da alteração pra colocar um botão de decremento (-1) do Contador.}
 
 \subsection{Reserva de voo}
-\label{sec:orgd7f0ade}
+\label{sec:org0b7dd7a}
