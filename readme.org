@@ -11,9 +11,13 @@
   =TeX-command-master= Ctrl-c Ctrl-c. Escolha a opção “LatexMk”.
 
   Para escrever edite os arquivos =.org= em =./texto=. Para os arquivos =.tex=
-  correspondentes basta exportar executando o comando =org-export-dispatch= e
-  depois escolher “Export to LaTex” -> “As LaTeX file”. Atalho: =Ctrl-c Ctrl-e l
-  l=.
+  correspondentes basta exportar executando o comando =org-export-dispatch=,
+  ligar a opção “Body only” (=Ctrl-b=) e depois escolher “Export to LaTex” ->
+  “As LaTeX file”. Atalho: =Ctrl-c Ctrl-e Ctrl-b l l=.
+
+  O “Body only” é obrigatório: o =tcc.tex= inclui cada capítulo com =\input=,
+  e sem essa opção o arquivo exportado vem com =\documentclass=, preâmbulo e
+  sumário próprios, o que quebra a compilação.
 
 ** Gerar PDF com LatexMk
 
@@ -41,8 +45,20 @@
    latexdiff para o minted com a configuração =PICTUREENV=. Além disso
    desativamos a visualização do PDF depois da compilação do =latexmk=.
 
+   Duas opções são necessárias:
+
+   - =--main tcc.tex=: sem ela o =git-latexdiff= tenta adivinhar o arquivo
+     principal e desiste quando encontra mais de um candidato.
+   - =--packages=biblatex=: o =biblatex= é carregado pela classe
+     =tex/unemat-comp.cls=, que o =latexdiff= não lê. Sem o modo biblatex, um
+     =\textcite= cujo argumento opcional mudou (p. ex., =[p. 2]= →
+     =[p. 2; tradução nossa]=) é marcado com as chaves desbalanceadas, e o
+     =pdflatex= para com “File ended while scanning use of \DIFdel”.
+
    #+begin_src fish
    git latexdiff \
+     --main tcc.tex \
+     --packages=biblatex \
      --config="PICTUREENV=(?:picture|DIFnomarkup|minted)[\w\d*@]*" \
      --no-view \
      --output versoes_pdf/diff.pdf \
