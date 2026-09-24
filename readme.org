@@ -53,6 +53,11 @@
    # https://tex.stackexchange.com/a/73649/103967
    # https://tex.stackexchange.com/a/305562/103967
 
+* Setup numa máquina nova
+
+  As dependências externas e o passo a passo estão em [[file:setup.org][setup.org]] e
+  [[file:dependencies.json][dependencies.json]].
+
 * Ferramentas auxiliares
 
   Para correção ortográfica usei o [[http://aspell.net][GNU Aspell]]. Para instalar execute:

@@ -1,0 +1,116 @@
+{
+  "$comment": [
+    "Dependências externas do unemat-tcc, no estilo de um package.json.",
+    "Nada aqui é instalado automaticamente: é a lista para reinstalar numa máquina nova.",
+    "Os nomes de pacote são do openSUSE Tumbleweed. As versões são as da máquina onde",
+    "isto foi registrado em 2026-09-23, para referência, não como mínimo exigido.",
+    "O passo a passo está em setup.org.",
+    "A lista saiu do que a compilação realmente carrega (os .sty/.cls/.bbx do",
+    "versoes_pdf/tcc.fls, mapeados de volta para os pacotes que os fornecem)."
+  ],
+  "projeto": "unemat-tcc",
+  "registrado_em": "2026-09-23",
+  "plataforma_de_referencia": {
+    "distro": "openSUSE Tumbleweed 20260914",
+    "gerenciador": "zypper",
+    "texlive": "TeX Live 2026 (pacotes do openSUSE, não o instalador do TUG)",
+    "motor": "pdflatex + biber, via latexmk"
+  },
+
+  "sistema": {
+    "motor_e_ferramentas": {
+      "texlive-latex": { "versao": "2026.226.svn76924-63.2", "porque": "base LaTeX: ifthen, inputenc, fontenc" },
+      "texlive-latex-bin": { "versao": "2026.226.svn77830-63.2", "porque": "pdflatex" },
+      "texlive-latexmk": { "versao": "2026.226.4.87svn75540-61.2", "porque": "orquestra pdflatex + biber" },
+      "texlive-biber-bin": { "versao": "2026.20260301.svn75738-120.4", "porque": "biber — a classe usa backend=biber" }
+    },
+    "classe_do_documento": {
+      "$comment": "A classe é tex/unemat-comp.cls, versionada aqui; estes são os pacotes que ela carrega.",
+      "texlive-beebe": { "versao": "2026.226.svn77590-61.3", "porque": "texnames.sty — o nome do pacote não aparece em busca por 'texnames'" },
+      "texlive-amsmath": { "versao": "2026.226.svn78101-61.3", "porque": "amsmath" },
+      "texlive-amsfonts": { "versao": "2026.226.3.04svn77682-61.3", "porque": "amssymb, amsfonts" },
+      "texlive-stmaryrd": { "versao": "2026.226.svn77682-64.2", "porque": "stmaryrd" },
+      "texlive-graphics": { "versao": "2026.226.svn75374-60.4", "porque": "graphicx, color" },
+      "texlive-pdfpages": { "versao": "2026.226.0.0.6gsvn77682-58.2", "porque": "pdfpages" },
+      "texlive-pgf": { "versao": "2026.226.3.1.11asvn78101-58.2", "porque": "tikz" },
+      "texlive-blindtext": { "versao": "2026.226.2.0svn77682-59.2", "porque": "blindtext" },
+      "texlive-textpos": { "versao": "2026.227.1.10.1svn77682-62.2", "porque": "textpos" },
+      "texlive-float": { "versao": "2026.226.1.3dsvn77682-60.2", "porque": "float" },
+      "texlive-tools": { "versao": "2026.226.svn76708-59.2", "porque": "longtable, indentfirst" },
+      "texlive-pslatex": { "versao": "2026.226.1.3svn67469-59.2", "porque": "pslatex" },
+      "texlive-sansmath": { "versao": "2026.226.1.1svn77682-60.2", "porque": "sansmath" },
+      "texlive-fancyvrb": { "versao": "2026.226.4.6svn77682-59.2", "porque": "fancyvrb" },
+      "texlive-setspace": { "versao": "2026.226.6.7bsvn77682-60.2", "porque": "setspace" },
+      "texlive-eso-pic": { "versao": "2026.226.3.0dsvn77682-59.2", "porque": "eso-pic" },
+      "texlive-lastpage": { "versao": "2026.226.2.1hsvn77682-63.2", "porque": "lastpage" },
+      "texlive-iftex": { "versao": "2026.226.1.0gsvn77682-60.2", "porque": "ifpdf" },
+      "texlive-hyperref": { "versao": "2026.226.7.01psvn77682-60.2", "porque": "hyperref" },
+      "texlive-subfigure": { "versao": "2026.226.2.1.5svn15878-64.2", "porque": "subfigure — obsoleto há anos, ainda empacotado e ainda funciona" },
+      "texlive-algorithm2e": { "versao": "2026.226.5.2svn77682-61.3", "porque": "algorithm2e" },
+      "texlive-titlesec": { "versao": "2026.226.2.17svn77682-59.2", "porque": "titlesec" },
+      "texlive-fancyhdr": { "versao": "2026.226.5.2svn78101-59.2", "porque": "fancyhdr" },
+      "texlive-tocloft": { "versao": "2026.226.2.3jsvn77682-59.2", "porque": "tocloft — há uma cópia em tex/tocloft.sty, mas o pacote da distro é o que carrega" },
+      "texlive-etoolbox": { "versao": "2026.226.2.5msvn77682-59.2", "porque": "etoolbox" },
+      "texlive-todonotes": { "versao": "2026.226.1.1.7svn77682-59.2", "porque": "todonotes, carregado no tcc.tex" },
+      "texlive-collection-fontsrecommended": { "versao": "2026.222.svn54074-68.2", "porque": "fontes URW que o pslatex usa" }
+    },
+    "bibliografia": {
+      "texlive-biblatex": { "versao": "2026.226.3.21svn77682-61.3", "porque": "biblatex" },
+      "texlive-biblatex-abnt": { "versao": "2026.226.4.0svn72565-61.3", "porque": "style=abnt — as citações no padrão ABNT" },
+      "texlive-csquotes": { "versao": "2026.226.5.2osvn77682-61.2", "porque": "exigido pelo biblatex; fornece \\textelp{}" }
+    },
+    "listagens_de_codigo": {
+      "texlive-minted": { "versao": "2026.226.3.7.0svn77682-61.2", "porque": "minted, em tex/src_code.sty" },
+      "texlive-minted-bin": { "versao": "2026.20260301.svn72375-120.4", "porque": "latexminted — o minted 3 chama esse binário" },
+      "python313-Pygments": { "versao": "2.21.0-1.1", "porque": "o colorizador do minted; vem do zypper, não do pip" }
+    },
+    "idioma": {
+      "texlive-babel": { "versao": "2026.226.26.3svn77829-60.2", "porque": "babel" },
+      "texlive-babel-portuges": { "versao": "2026.226.1.2usvn77682-60.2", "porque": "opções portuguese e brazil" },
+      "texlive-babel-english": {
+        "versao": "2026.226.3.3rsvn77682-60.2",
+        "porque": "a classe carrega babel com [english,portuguese,brazil]",
+        "nota": "precisa ser explícito: nenhum pacote declara tex(english.ldf); aqui veio por uma collection"
+      },
+      "texlive-hyphen-portuguese": { "versao": "2026.226.svn78069-60.2", "porque": "hifenização em português (entra no formato, não aparece no .fls)" },
+      "aspell": { "versao": "0.60.8.2-1.3", "porque": "correção ortográfica no Emacs", "opcional": true },
+      "aspell-pt_BR": { "versao": "20131030.12.0-4.6", "porque": "dicionário pt_BR do .dir-locals.el", "opcional": true }
+    },
+    "opcional": {
+      "texlive-git-latexdiff": { "versao": "2026.226.1.7.1svn75878-60.2", "porque": "o PDF de diff entre revisões descrito no readme.org", "opcional": true }
+    }
+  },
+
+  "emacs": {
+    "$comment": "Só é necessário para EXPORTAR os texto/*.org. Os texto/*.tex estão versionados: para compilar, nada disto é preciso.",
+    "sistema": {
+      "emacs": { "versao": "31.1-3.1", "porque": "Org 9.8.7 vem embutido" },
+      "emacs-auctex": { "versao": "14.1.0-3.2", "porque": "modo LaTeX e o comando LaTeXMk; entrou como dependência ao instalar o TeX Live" }
+    },
+    "pacotes_elpa": {
+      "org-ref": {
+        "versao": "20260915.1033",
+        "arquivo": "melpa",
+        "porque": "links cite: e textcite: usados nos texto/*.org; sem ele a exportação aborta no primeiro cite:",
+        "nota": "precisa de pin para o melpa rolling — o MELPA Stable tem a 2.0.0, de 2019, que exige helm-config e nem carrega"
+      },
+      "bibtex-completion": { "versao": "2.0.0", "porque": "dependência do org-ref" },
+      "helm-bibtex": { "versao": "2.0.0", "porque": "dependência do org-ref" },
+      "parsebib": { "versao": "6.7", "porque": "dependência do org-ref" },
+      "citeproc": { "versao": "0.9.5", "porque": "dependência do org-ref" }
+    },
+    "configuracao_local": [
+      "O .dir-locals.el deste repo já traz dicionário pt_BR, headline-levels e",
+      "caption-above. Diferente do unemat-projeto-tcc, aqui NÃO é preciso entrada",
+      "no org-latex-classes: os texto/*.tex são fragmentos incluídos pelo tcc.tex,",
+      "exportados com body-only."
+    ]
+  },
+
+  "nao_usado": {
+    "$comment": "Registrado para evitar reinstalações por engano.",
+    "pip_npm": "nenhum pacote veio de pip ou npm — o Pygments é o do zypper",
+    "abntex2": "este projeto NÃO usa a classe abntex2 nem o abntex2cite (isso é o unemat-projeto-tcc); aqui é tex/unemat-comp.cls + biblatex-abnt",
+    "ripgrep": "não instalado nesta máquina; só afeta o atalho do deadgrep no Emacs, não a compilação"
+  }
+}

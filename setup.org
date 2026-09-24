@@ -1,0 +1,130 @@
+#+TITLE: Setup — compilar o TCC numa máquina nova
+#+AUTHOR: Josias Duarte Busiquia
+#+OPTIONS: toc:2
+
+Receita para clonar este repositório e chegar ao PDF. As dependências estão em
+[[file:dependencies.json][dependencies.json]], com versões; aqui estão os passos e as armadilhas.
+
+Referência: openSUSE Tumbleweed, TeX Live 2026 dos pacotes da distro, Emacs 31.1.
+Em outra distro só muda o gerenciador — os nomes CTAN são os mesmos.
+
+* Duas metades independentes
+
+  | Metade | O que faz | Precisa de |
+  |--------+-----------+------------|
+  | Org -> LaTeX | exporta =texto/*.org= para =texto/*.tex= | Emacs + org-ref |
+  | LaTeX -> PDF | compila =tcc.tex=, que inclui os =texto/*.tex= | TeX Live + Pygments |
+
+  Os =texto/*.tex= estão versionados, então quem só quer o PDF não precisa de
+  Emacs nenhum.
+
+* 1. Pacotes do sistema
+
+  #+begin_src sh
+  sudo zypper install -y \
+    texlive-latex texlive-latex-bin texlive-latexmk texlive-biber-bin \
+    texlive-beebe texlive-amsmath texlive-amsfonts texlive-stmaryrd \
+    texlive-graphics texlive-pdfpages texlive-pgf texlive-blindtext \
+    texlive-textpos texlive-float texlive-tools texlive-pslatex \
+    texlive-sansmath texlive-fancyvrb texlive-setspace texlive-eso-pic \
+    texlive-lastpage texlive-iftex texlive-hyperref texlive-subfigure \
+    texlive-algorithm2e texlive-titlesec texlive-fancyhdr texlive-tocloft \
+    texlive-etoolbox texlive-todonotes texlive-collection-fontsrecommended \
+    texlive-biblatex texlive-biblatex-abnt texlive-csquotes \
+    texlive-minted texlive-minted-bin python313-Pygments \
+    texlive-babel texlive-babel-portuges texlive-babel-english \
+    texlive-hyphen-portuguese \
+    aspell aspell-pt_BR texlive-git-latexdiff
+  #+end_src
+
+  Dois da lista não são óbvios:
+
+  - =texlive-beebe= fornece o =texnames.sty= que a classe exige. Nenhuma busca
+    por "texnames" encontra o pacote.
+  - =texlive-babel-english= precisa ser explícito: a classe carrega
+    =\RequirePackage[english,portuguese,brazil]{babel}=, mas nenhum pacote do
+    TeX Live declara precisar de =tex(english.ldf)= — nesta máquina ele entrou
+    de carona numa collection, o que não se pode contar numa instalação enxuta.
+
+  Em outra distro, pergunte ao próprio documento o que ele carrega:
+
+  #+begin_src sh
+  grep -hoE '\\(usepackage|RequirePackage)(\[[^]]*\])?\{[^}]*\}' tex/*.cls tex/*.sty *.tex
+  zypper se --provides 'tex(texnames.sty)'   # no openSUSE cada pacote declara o que fornece
+  #+end_src
+
+  Conferir antes de compilar:
+
+  #+begin_src sh
+  for s in texnames.sty minted.sty biblatex.sty abnt.bbx sansmath.sty \
+           subfigure.sty algorithm2e.sty stmaryrd.sty pslatex.sty; do
+    printf '%-18s ' "$s"; kpsewhich "$s" >/dev/null && echo ok || echo FALTANDO
+  done
+  #+end_src
+
+* 2. Compilar
+
+  #+begin_src sh
+  latexmk -outdir=versoes_pdf -pvc- -view=none tcc.tex
+  #+end_src
+
+  O =-pvc-= desliga o modo contínuo, ligado por padrão no
+  =~/.config/latexmk/latexmkrc= desta máquina — o mesmo arquivo que passa
+  =--shell-escape= ao pdflatex, que o *minted exige*. Sem latexmkrc:
+
+  #+begin_src sh
+  latexmk -pdf -pdflatex='pdflatex --shell-escape %O %S' -outdir=versoes_pdf tcc.tex
+  #+end_src
+
+  Limpar: =latexmk -c -outdir=versoes_pdf=.
+
+* 3. Exportar os capítulos (só se for editar o texto)
+
+  Além do Emacs, é preciso o =org-ref=: os capítulos usam =cite:= e =textcite:=,
+  e sem o pacote a exportação aborta no primeiro deles.
+
+  #+begin_src emacs-lisp
+  ;; no init.el
+  (add-to-list 'package-selected-packages 'org-ref)
+  (require 'org-ref)
+  ;; no early-init.el — sem o pin vem a 2.0.0 (2019) do MELPA Stable, que exige
+  ;; helm-config e nem carrega
+  (add-to-list 'package-pinned-packages (cons 'org-ref "melpa"))
+  #+end_src
+
+  Exportar *body-only*: =C-c C-e= , =C-b= para ligar "body only", depois =l l=.
+  Os =texto/*.tex= são fragmentos que o =tcc.tex= puxa com =\input=; uma
+  exportação normal escreveria um documento completo, com preâmbulo próprio, e
+  a compilação quebraria.
+
+  Ao abrir o primeiro arquivo aqui, o Emacs pergunta se as variáveis do
+  =.dir-locals.el= são seguras — responda =!= uma vez por máquina.
+
+* 4. Conferir
+
+  #+begin_src sh
+  pdfinfo versoes_pdf/tcc.pdf | grep Pages                          # 30
+  tr -d '\n' < versoes_pdf/tcc.log | grep -c undefined              # 0
+  ls versoes_pdf/tcc.bbl                                            # o biber rodou
+  ls versoes_pdf/_minted | head -3                                  # o Pygments rodou
+  pdftotext versoes_pdf/tcc.pdf - | grep -c "REFER"                 # a lista de referências saiu
+  #+end_src
+
+* Armadilhas
+
+  - *O log do TeX quebra linha em 79 colunas.* =grep= por ~Citation ... undefined~
+    não acha nada mesmo quando está lá. Achate antes:
+    =tr -d '\n' < versoes_pdf/tcc.log | grep ...=
+  - *O latexmk pode sair com 0 e mesmo assim ter falhado.* Já aconteceu aqui: PDF
+    gerado, 24 páginas, sem capítulos e sem nenhuma citação resolvida. PDF
+    existir não prova nada — confira o número de páginas e as citações.
+  - *Nome de estilo do Pygments some com o tempo.* O =src_code.sty= pedia o
+    estilo =rtt=, que não existe no Pygments 2.21 (o parecido é =rrt=), e a
+    compilação parava. Corrigido em e45ecd1.
+  - *=emacs --batch= não carrega init nenhum* (=user-init-file= volta =nil=): não
+    serve para testar exportação, porque o org-ref nunca é carregado.
+  - *Exportação body-only*, senão o =\input= puxa um segundo =\documentclass=.
+  - *A bibliografia é biblatex + biber*, não BibTeX. O =refs.bib= está em formato
+    biblatex (=date=, =journaltitle=, =location=). O =unemat-projeto-tcc= usa o
+    mesmo acervo convertido para BibTeX clássico — os dois arquivos não são
+    intercambiáveis sem conversão.
