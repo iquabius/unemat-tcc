@@ -12,18 +12,18 @@ como teclado, mouse, e tela multitoque.
 
 Para coordenar eventos é comum usar o /callback/: um bloco de código executado
 sempre que um dado evento ocorrer, p. ex., clique em um botão.
-Esse conceito é criticado por tornar o programa complexo: a ordem de execução é
+Esse conceito é criticado por tornar o programa complexo: a ordem de execução[fn:control_flow] é
 imprevisível, é definida por eventos externos, e não pela sequência especificada
 pelo programador cite:maier2010,edwards2009,fischer2007.
-“Coordenar alterações ao estado compartilhada em meio a esse caos pode ser
+“Coordenar alterações ao estado compartilhado em meio a esse caos pode ser
 desconcertante, e está longe de ser modular. A definição coloquial é /Inferno de
 Callbacks/.”[fn:callback_hell] [[cite:edwards2009][p. 2; tradução nossa]].
 Inerentemente imperativo, o /callback/ é muito usado na /programação orientada a
 objetos/ (POO) através do /Observer Pattern/[fn:observer_pattern]
 cite:blackheath2016,maier2010.
 Para esclarecer os desafios enfrentados por sistemas de software em produção,
-podemos citar uma análise das aplicações /desktop/ da Adobe, de 2005, onde foi
-concluído que a lógica de coordenação de eventos consistia de um terço do
+podemos citar uma análise das aplicações /desktop/ da Adobe, de 2005, na qual se
+concluiu que a lógica de coordenação de eventos consistia em um terço do
 código, além de conter metade dos /bugs/ reportados durante o ciclo de vida do
 produto cite:jarvi2008.
 
@@ -34,16 +34,16 @@ Conceitos de PR permitem descrever um programa como um fluxo de dados, que o
 ambiente de execução converte em um grafo direcionado, e pode manter os dados
 atualizados automaticamente.
 Esse comportamento pode ser observado em aplicações de planilha eletrônica, como
-/Google Sheets/ e /Microsoft Excel/, “Possivelmente a linguagem de programação
+/Google Sheets/ e /Microsoft Excel/, “possivelmente a linguagem de programação
 mais utilizada por usuários finais”, como é notado por
-[[textcite:bainomugisha2013][p. 2]].
+[[textcite:bainomugisha2013][p. 2; tradução nossa]].
 Os paradigmas de PR e /programação funcional/ (PF) compartilham vários conceitos
 declarativos, e são considerados mais simples de se programar que os imperativos
 cite:blackheath2016,bainomugisha2013.
 Um experimento controlado realizado na Alemanha investigou a compreensibilidade
 de programação entre a PR e o /Observer Pattern/.
 Apesar da baixa significância estatística, resultados empíricos confirmaram que
-a PR é mais simples para compreensão de programas em comparação a abordagem
+a PR é mais simples para compreensão de programas em comparação à abordagem
 tradicional cite:salvaneschi2014.
 
 Visto que POO permeia o ensino de programação cite:vanroy2003, e que a
@@ -68,7 +68,7 @@ de interfaces gráficas.
    - Demonstrar a essência da programação declarativa com conceitos de PF;
    - Demonstrar conceitos declarativos de PR e imperativos de POO com
      /callbacks/;
-   - Analisar e comparar os conceitos quanto a usabilidade da linguagem de
+   - Analisar e comparar os conceitos quanto à usabilidade da linguagem de
      programação.
 
   Esta pesquisa é de natureza /aplicada/, e quanto aos objetivos ela se
@@ -91,11 +91,11 @@ de interfaces gráficas.
   textcite:yin2001 salienta que pesquisas desse tipo envolvem o estudo profundo
   e minucioso de um ou mais casos, que neste trabalho serão programas concretos
   implementados para demonstrar os conceitos de programação.
-  A linguagem /JavaScript/ será usada na implementação dos mesmos.
+  A linguagem /JavaScript/ será usada na implementação dos casos.
   Essa escolha é resguardada pelo fato de que, além de ser a língua franca da
   web, ela tem suporte para os paradigmas a serem estudados.
 
-  A /priori/, o paradigma de PF será demostrado com a implementação de programas
+  Primeiro, o paradigma de PF será demonstrado com a implementação de programas
   para /processamento de listas/.
   Isso fundamentará diferenças essenciais entre conceitos declarativos e
   imperativos.
@@ -104,7 +104,7 @@ de interfaces gráficas.
   Essa segunda parte esclarecerá conceitos declarativos do paradigma de PR e o
   tradicional /callback/, imperativo.
 
-  Afim de contrastar as vantagens e desvantagens de cada conceito, a linguagem de
+  A fim de contrastar as vantagens e desvantagens de cada conceito, a linguagem de
   programação em cada caso será analisada através de um conjunto de critérios
   padronizados, chamados de /Dimensões Cognitivas de Notações/ (DCs), do inglês
   /Cognitive Dimensions of Notations/ cite:green1989.
@@ -126,7 +126,7 @@ de controle/.
  popular na comunidade de programação.
 
 [fn:observer_pattern] O /Observer Pattern/ é usado para coordenar eventos em
-linguagens orientadas a objetos, e /callback/ as vezes é chamado de /event
+linguagens orientadas a objetos, e /callback/ às vezes é chamado de /event
 handler/, /event listener/ ou /observer/, mas em essência o conceito é o mesmo.
 
 [fn:infoArtifactis] Geralmente sistemas de software, especialmente linguagens de

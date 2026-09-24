@@ -11,21 +11,22 @@ como teclado, mouse, e tela multitoque.
 
 Para coordenar eventos é comum usar o \emph{callback}: um bloco de código executado
 sempre que um dado evento ocorrer, p. ex., clique em um botão.
-Esse conceito é criticado por tornar o programa complexo: a ordem de execução é
+Esse conceito é criticado por tornar o programa complexo: a ordem de execução\footnote{A ordem de execução de um programa também é denominada \emph{fluxo
+de controle}.} é
 imprevisível, é definida por eventos externos, e não pela sequência especificada
 pelo programador \cite{maier2010,edwards2009,fischer2007}.
-“Coordenar alterações ao estado compartilhada em meio a esse caos pode ser
+“Coordenar alterações ao estado compartilhado em meio a esse caos pode ser
 desconcertante, e está longe de ser modular. A definição coloquial é \emph{Inferno de
 Callbacks}.”\footnote{Tradução literal do inglês \emph{‘Callback Hell’}: expressão
 popular na comunidade de programação.} \cite[p. 2; tradução nossa]{edwards2009}.
 Inerentemente imperativo, o \emph{callback} é muito usado na \emph{programação orientada a
 objetos} (POO) através do \emph{Observer Pattern}\footnote{O \emph{Observer Pattern} é usado para coordenar eventos em
-linguagens orientadas a objetos, e \emph{callback} as vezes é chamado de \emph{event
+linguagens orientadas a objetos, e \emph{callback} às vezes é chamado de \emph{event
 handler}, \emph{event listener} ou \emph{observer}, mas em essência o conceito é o mesmo.}
 \cite{blackheath2016,maier2010}.
 Para esclarecer os desafios enfrentados por sistemas de software em produção,
-podemos citar uma análise das aplicações \emph{desktop} da Adobe, de 2005, onde foi
-concluído que a lógica de coordenação de eventos consistia de um terço do
+podemos citar uma análise das aplicações \emph{desktop} da Adobe, de 2005, na qual se
+concluiu que a lógica de coordenação de eventos consistia em um terço do
 código, além de conter metade dos \emph{bugs} reportados durante o ciclo de vida do
 produto \cite{jarvi2008}.
 
@@ -36,16 +37,16 @@ Conceitos de PR permitem descrever um programa como um fluxo de dados, que o
 ambiente de execução converte em um grafo direcionado, e pode manter os dados
 atualizados automaticamente.
 Esse comportamento pode ser observado em aplicações de planilha eletrônica, como
-\emph{Google Sheets} e \emph{Microsoft Excel}, “Possivelmente a linguagem de programação
+\emph{Google Sheets} e \emph{Microsoft Excel}, “possivelmente a linguagem de programação
 mais utilizada por usuários finais”, como é notado por
-\textcite[p. 2]{bainomugisha2013}.
+\textcite[p. 2; tradução nossa]{bainomugisha2013}.
 Os paradigmas de PR e \emph{programação funcional} (PF) compartilham vários conceitos
 declarativos, e são considerados mais simples de se programar que os imperativos
 \cite{blackheath2016,bainomugisha2013}.
 Um experimento controlado realizado na Alemanha investigou a compreensibilidade
 de programação entre a PR e o \emph{Observer Pattern}.
 Apesar da baixa significância estatística, resultados empíricos confirmaram que
-a PR é mais simples para compreensão de programas em comparação a abordagem
+a PR é mais simples para compreensão de programas em comparação à abordagem
 tradicional \cite{salvaneschi2014}.
 
 Visto que POO permeia o ensino de programação \cite{vanroy2003}, e que a
@@ -75,7 +76,7 @@ Demonstrar e analisar conceitos declarativos de PF e PR. Especificamente:
 \item Demonstrar a essência da programação declarativa com conceitos de PF;
 \item Demonstrar conceitos declarativos de PR e imperativos de POO com
 \emph{callbacks};
-\item Analisar e comparar os conceitos quanto a usabilidade da linguagem de
+\item Analisar e comparar os conceitos quanto à usabilidade da linguagem de
 programação.
 \end{itemize}
 
@@ -97,11 +98,11 @@ múltiplos}:
 \textcite{yin2001} salienta que pesquisas desse tipo envolvem o estudo profundo
 e minucioso de um ou mais casos, que neste trabalho serão programas concretos
 implementados para demonstrar os conceitos de programação.
-A linguagem \emph{JavaScript} será usada na implementação dos mesmos.
+A linguagem \emph{JavaScript} será usada na implementação dos casos.
 Essa escolha é resguardada pelo fato de que, além de ser a língua franca da
 web, ela tem suporte para os paradigmas a serem estudados.
 
-A \emph{priori}, o paradigma de PF será demostrado com a implementação de programas
+Primeiro, o paradigma de PF será demonstrado com a implementação de programas
 para \emph{processamento de listas}.
 Isso fundamentará diferenças essenciais entre conceitos declarativos e
 imperativos.
@@ -110,7 +111,7 @@ de eventos} em interfaces gráficas.
 Essa segunda parte esclarecerá conceitos declarativos do paradigma de PR e o
 tradicional \emph{callback}, imperativo.
 
-Afim de contrastar as vantagens e desvantagens de cada conceito, a linguagem de
+A fim de contrastar as vantagens e desvantagens de cada conceito, a linguagem de
 programação em cada caso será analisada através de um conjunto de critérios
 padronizados, chamados de \emph{Dimensões Cognitivas de Notações} (DCs), do inglês
 \emph{Cognitive Dimensions of Notations} \cite{green1989}.
