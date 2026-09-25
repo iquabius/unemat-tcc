@@ -21,8 +21,12 @@
 >   vieram de exportações do Zotero de 2017 e nenhuma é citada. `gammie2009`
 >   já era conhecida como corrompida (ver a revisão bibliográfica de
 >   2026-09-25).
-> - **Erro real novo:** `braithwaite2007` tem o título duplicado ("Why Why
->   Functional Programming Matters Matters"). Não é citada.
+>
+> - ~~**Erro real novo:** `braithwaite2007` tem o título duplicado ("Why Why
+>   Functional Programming Matters Matters")~~. **Errata (2026-09-25):** não é
+>   erro. É o título real do ensaio de Reginald Braithwaite, como mostra a
+>   própria `url` (`raganwald.com/…/why-why-functional-programming-matters-matters`);
+>   o bib-audit o confundiu com o artigo de Hughes. Falso positivo.
 > - **P4:** `edwards2009`, `fischer2007`, `sadowski2011` e `sawada2016` repetem
 >   o DOI no campo `url`. Tirar a `url` é seguro.
 > - **O que o bib-audit não detecta:** entradas duplicadas (`hughes1989` ×
@@ -33,7 +37,23 @@
 > colá-lo no `refs.bib`, a começar pelos 12 prioritários da revisão
 > bibliográfica.
 >
-> **Situação em 2026-09-25:** nada aplicado ainda.
+> **Situação** (atualizada a cada item resolvido; última: 2026-09-25)
+>
+> - **Resolvido** no commit “Limpa o refs.bib: duplicatas, entrada corrompida e URLs” (2026-09-25):
+>   - `leal2011` ficou sem a `url` do livrozilla. A fonte oficial da UNIVALI
+>     indicada por uma busca respondeu 404, então nenhuma URL não conferida
+>     entrou no lugar;
+>   - a `url` que repetia o DOI saiu de `edwards2009`, `fischer2007`,
+>     `sadowski2011` e `sawada2016`;
+>   - duplicatas removidas: `noble1994a` (cópia de `noble1994`, com tipo
+>     errado) e `This` (versão em português de `This2020`, que é a citada);
+>   - `gammie2009` (resenha com autores trocados, não citada) removida.
+> - **Mantido de propósito:** `hughes1989` e `hughes1990` são publicações
+>   diferentes (artigo e capítulo), não duplicatas; `braithwaite2007` está
+>   certo (ver a errata acima).
+> - **Pendente:** achar uma URL oficial para `leal2011`, se quiser citá-la
+>   como documento on-line; o tipo `@mvbook` dela também merece revisão
+>   (é um volume da série *Cadernos de Ensino*).
 
 ## Saída completa
 

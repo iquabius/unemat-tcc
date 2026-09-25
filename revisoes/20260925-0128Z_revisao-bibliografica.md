@@ -28,6 +28,10 @@
 >   `blackwell2003` (organizador do livro não confirmado em fonte oficial) e a
 >   grafia de “Mota Filho” em `zimmerle2022`; ler Krishnamurthi & Fisler (2019)
 >   e Blackwell et al. (2019) antes de citar; os passos 2, 4, 5 e 6.
+>   Do passo 2 (faxina), o commit “Limpa o refs.bib: duplicatas, entrada
+>   corrompida e URLs” (2026-09-25) removeu `noble1994a`, `This` e
+>   `gammie2009`; faltam separar as entradas fora do tema e acrescentar os
+>   DOIs da seção 1.3.
 > - **Encontrado depois** (2026-09-25, com os subcomandos novos da busca),
 >   ainda fora do `.bib` e da tabela da seção 5:
 >   - LIMA, C. E. Z. de (Carlos Zimmerle). *Unveiling the usability of
