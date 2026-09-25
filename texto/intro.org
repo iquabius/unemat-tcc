@@ -42,9 +42,9 @@ declarativos, e são considerados mais simples de se programar que os imperativo
 cite:blackheath2016,bainomugisha2013.
 Um experimento controlado realizado na Alemanha investigou a compreensibilidade
 de programação entre a PR e o /Observer Pattern/.
-Apesar da baixa significância estatística, resultados empíricos confirmaram que
-a PR é mais simples para compreensão de programas em comparação à abordagem
-tradicional cite:salvaneschi2014.
+Os resultados confirmaram que a PR facilita a compreensão de programas em
+comparação à abordagem tradicional: o grupo que usou PR teve desempenho
+significativamente melhor cite:salvaneschi2014.
 
 Visto que POO permeia o ensino de programação cite:vanroy2003, e que a
 utilização inadequada de conceitos imperativos é uma das principais causas de
