@@ -1,0 +1,182 @@
+# Escopo: casos, plataformas e tecnologias das implementações
+
+> **Origem:** sessão de decisão sobre a pergunta, os objetivos e as áreas de
+> aplicação (itens 1.1, 1.2, 1.4 e 1.5 do
+> [feedback da introdução](20260924-0242Z_feedback-introducao.md)), em
+> 2026-09-25.
+>
+> **Situação** (atualizada a cada item resolvido; última: 2026-09-25)
+>
+> - **Decidido (2026-09-25):** a matriz de implementação da seção 1. O
+>   trabalho fica em interfaces gráficas, na web (JavaScript) e no Android
+>   (Kotlin). A implementação é maximalista: o que entra na análise do texto
+>   se decide depois.
+> - **Pendente:**
+>   - confirmar os casos do Android (recomendação na seção 2);
+>   - escolher as implementações que entram na análise;
+>   - aplicar a pergunta e os objetivos à `intro.org` (proposta na seção 6,
+>     ainda não aplicada) e, com isso, fechar os itens 1.1, 1.2, 1.4 e 1.5 do
+>     feedback da introdução;
+>   - refazer a análise do Contador em `cases.org`, hoje escrita com xstream;
+>   - rever o título do TCC (“Demonstração e Análise de Programação Funcional
+>     e Reativa”) quando o recorte da análise estiver fechado.
+
+---
+
+## 1. Matriz de implementação (decidida)
+
+O critério é que os exemplos se pareçam com interfaces que programadores
+implementam no dia a dia, com as ferramentas mais usadas hoje.
+
+**Casos.** Cada um exercita um padrão diferente:
+
+| Caso | Padrão que testa |
+|---|---|
+| Contador | introdução didática: evento → estado → tela |
+| Formulário com validação (Reserva de voo do 7GUIs, `kiss2014`, ampliada) | estado derivado, campos que dependem uns dos outros, botão habilitado ou não |
+| Busca com sugestões (*typeahead*) | assincronia: espera pela digitação (*debounce*), respostas fora de ordem, cancelamento |
+| Lista filtrável | lista derivada (`map`, `filter`, `sort`); liga-se ao capítulo de processamento de listas |
+| Carrinho de compras | estado compartilhado entre componentes |
+
+**Web (JavaScript): os cinco casos em todas as tecnologias abaixo.**
+
+| Tecnologia | Papel | Entra no texto? |
+|---|---|---|
+| Web Component (DOM puro, classe que estende `HTMLElement`) | imperativa com *callbacks*, sem biblioteca | candidata |
+| jQuery | imperativa legada, a mais reconhecível | candidata |
+| React | declarativa por re-renderização (*pull*) | candidata |
+| Solid | reativa fina com *signals* (*push*), com a mesma sintaxe JSX do React | candidata |
+| Angular com RxJS | **apoio à escrita**: exemplos de RxJS para comparação | **não** |
+
+**Android (Kotlin): pelo menos dois casos em Views × Jetpack Compose.** Os
+casos escolhidos para o Android já estão todos em React, que é o parâmetro
+familiar do autor para ler o Kotlin.
+
+**Fora (nem implementar):** Svelte, Swing e JavaFX.
+
+## 2. Quais casos implementar no Android (recomendação, a confirmar)
+
+1. **Lista filtrável.** É o maior contraste entre Views e Compose. Em Views,
+   a lista exige `RecyclerView`, `Adapter` e `ViewHolder`. Em Compose, basta
+   uma `LazyColumn` sobre a lista filtrada.
+2. **Formulário com validação.** Em Views, cada campo pede um *listener*
+   (`TextWatcher`, `OnItemSelectedListener`), e atualizar um campo por código
+   dentro do próprio `TextWatcher` dispara o *listener* de novo. Em Compose, a
+   validação é uma derivação do estado. Mantém a referência ao 7GUIs.
+3. **Contador, como aquecimento (opcional e barato).** Serve para aprender a
+   sintaxe do Kotlin comparando com o Contador em React, que o autor conhece.
+
+Não recomendo para o Android:
+
+- **Busca com sugestões:** a lógica assíncrona ficaria na camada de
+  `ViewModel` com corrotinas e `Flow` nas duas versões, então o contraste
+  Views × Compose seria pequeno. O que mudaria seria `Flow` × *callbacks*,
+  outra comparação.
+- **Carrinho:** pede várias telas, navegação e estado compartilhado. O
+  contraste ficaria na arquitetura, não na notação da interface, e o custo é
+  o maior.
+
+## 3. Convenções das implementações
+
+- **Web Component:** *custom element* definido por classe
+  (`class X extends HTMLElement`, `customElements.define`), com
+  `addEventListener` e atualização manual do DOM.
+- **Angular com RxJS:** usar RxJS de propósito (`Observable`, *pipe*
+  `async`, `valueChanges` dos formulários reativos, `debounceTime` e
+  `switchMap` na busca). A documentação atual do Angular põe os *signals* no
+  centro da reatividade (angular.dev/guide/signals), então sem esse cuidado o
+  exemplo não serviria de comparação com RxJS. O Angular obriga TypeScript;
+  as demais tecnologias web ficam em JavaScript.
+- **Android Views:** estilo clássico, com *listeners* e estado na `Activity`
+  ou no `Fragment`, no papel imperativo que o jQuery tem na web. A variante
+  moderna (Views com `ViewModel` e `StateFlow`) fica como alternativa (seção
+  5).
+- **Android, as duas versões em Kotlin.** O Compose só existe em Kotlin: o
+  compilador dele é um *plugin* do compilador Kotlin
+  (`org.jetbrains.kotlin.plugin.compose`, só a partir do Kotlin 2.0, segundo
+  developer.android.com/develop/ui/compose/compiler). Escrever o Views em
+  Java misturaria a diferença de linguagem com a de paradigma, sobretudo na
+  DC concisão.
+- **Pastas (sugestão):** `casos/<caso>/<tecnologia>/`, por exemplo
+  `casos/contador/react/` e `casos/lista-filtravel/android-compose/`. O
+  `casos/cronometro-com-rxjs-5/` existente fica como está.
+
+## 4. O que foi conferido
+
+**Conferido nesta sessão:**
+
+- **Uso de frameworks web:** React 44,7%, jQuery 23,4%, Angular 18,2%,
+  Vue.js 17,6%, Svelte 7,2% entre todos os respondentes (Stack Overflow
+  Developer Survey 2025, seção *Technology*). O Solid não aparece na tabela.
+- **RxJS é de *front-end*, não de *back-end*.** O `@angular/core` 22.2.0
+  declara `rxjs` como *peer dependency* (`^6.5.3 || ^7.4.0`, registro do
+  npm). A PR de *back-end* usa RxJava e Reactor. Os ~370 milhões de
+  downloads mensais do `rxjs` no npm (contra ~620 milhões do `react`) incluem
+  instalações indiretas e não medem uso direto. A preocupação do autor com a
+  acessibilidade do RxJS procede: fora do Angular, pouca gente o escreve
+  diretamente.
+- **React é declarativo, mas não totalmente reativo.** A documentação antiga
+  do React (*Design Principles*, seção *Scheduling*, legacy.reactjs.org)
+  diz que ele fica no modelo *pull*. Isso ancora a comparação React × Solid
+  na dimensão push/pull da taxonomia de `bainomugisha2013`, já usada no TCC.
+- **ReactFX:** a última versão, v2.0-M6 (ago. 2025), veio depois de nove
+  anos sem lançamentos e ainda é *milestone* (API do GitHub).
+- **Servidor:** a busca no OpenAlex por DCs aplicadas a Reactive Streams ou
+  *backpressure* voltou vazia. A literatura do tema trata de desempenho, por
+  exemplo Charlak, Brzeziński e Kozieł (2026), *Comparative analysis of
+  reactive programming and Java virtual threads*, DOI 10.35784/jcsi.9409.
+- **Jetpack Compose:** só apareceu literatura sem revisão por pares (uma
+  dissertação de mestrado de Helsinki, 2024; um artigo no IJSREM, 2025).
+- **Nicho provável:** nas buscas desta sessão não apareceu nenhuma análise
+  por DCs de React ou de *signals*. Zimmerle & Gama (2025) avaliaram RxJS e
+  Bacon.js. Confirmar numa busca dedicada antes de afirmar no texto.
+- **Depuração de PR** (útil para o lado das desvantagens): *Debugging for
+  reactive programming* (2016, DOI 10.1145/2884781.2884815) e *Debugging
+  data flows in reactive programs* (2018, DOI 10.1145/3180155.3180156). Ler
+  antes de citar.
+
+## 5. Alternativas documentadas (para voltar a elas, se preciso)
+
+| Alternativa | Por que ficou fora |
+|---|---|
+| Três áreas: *typeahead* na web, *pipeline* Kafka no servidor (WebFlux/Mutiny × *threads*), painel IoT no desktop/mobile | o servidor é questão de desempenho, que as DCs não medem; pouca literatura; custo ~3× |
+| Escopo mínimo: só Contador e Reserva de voo, PR (xstream/RxJS) × *callbacks* | sem caso assíncrono; ferramentas pouco usadas hoje |
+| Escopo mínimo + *typeahead* | superada pela matriz da seção 1 |
+| Svelte no lugar do Solid | mais popular (7,2% no Stack Overflow 2025), mas tem sintaxe e compilador próprios: a comparação com o React mudaria duas variáveis |
+| Java desktop: Swing × JavaFX (*properties* e *bindings*) | é Java de fato, mas desktop Java é menos comum no dia a dia que Android |
+| ReactFX | parado de 2016 a 2025; versão atual ainda *milestone* |
+| Android Views em Java | misturaria linguagem e paradigma |
+| Android Views com `ViewModel` e `StateFlow` | mais moderna, mas já é reativa; perde o papel imperativo |
+| RxJS ou xstream sem framework (como hoje em `cases.org`) | pouco acessível; o RxJS fica só como apoio, via Angular |
+| Vue, Preact Signals | não pedidos; Vue tem 17,6% de uso e pode entrar se a banca pedir |
+
+## 6. Pergunta e objetivos (proposta, não aplicada à `intro.org`)
+
+Ajustar conforme as implementações que entrarem na análise.
+
+- **Pergunta:** Como as notações de programação de interfaces gráficas mais
+  usadas na prática — a imperativa com *callbacks*, a declarativa por
+  re-renderização e a reativa com *signals* — se comparam quanto à
+  usabilidade, segundo as Dimensões Cognitivas de Notações?
+- **Objetivo geral:** Comparar, segundo as Dimensões Cognitivas de Notações,
+  a usabilidade das notações imperativa (*callbacks*), declarativa por
+  re-renderização e reativa (*signals*) na implementação de interfaces
+  gráficas típicas, na web (JavaScript) e no Android (Kotlin).
+- **Objetivos específicos:**
+  1. demonstrar, com processamento de listas, os conceitos de PF em que se
+     apoiam as notações declarativas;
+  2. implementar casos de interfaces típicas com Web Components, jQuery,
+     React e Solid, e parte deles no Android com Views e Jetpack Compose;
+  3. avaliar as implementações pelas DCs selecionadas;
+  4. sintetizar vantagens e desvantagens de cada notação por padrão de
+     interface.
+- A “larga escala” de `intro.org:51-53` passa a motivação, não pergunta.
+
+## 7. Tamanho do trabalho
+
+- Web: 5 casos × 5 tecnologias = 25 implementações (5 delas, em Angular, só
+  de apoio).
+- Android: 2 ou 3 casos × 2 = 4 a 6 implementações.
+- Sugestão de ordem: um caso por vez em todas as tecnologias, começando pelo
+  Contador (o menor), para fixar a estrutura de pastas e de *build* antes dos
+  casos maiores.
