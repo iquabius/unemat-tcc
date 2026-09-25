@@ -1,0 +1,108 @@
+# Candidatos para 'Why functional programming matters'
+# Confira título, autores e ano antes de aceitar um DOI. Relatórios técnicos,
+# livros antigos e páginas web muitas vezes não têm DOI.
+
+## OpenAlex
+
+1. Why Functional Programming Matters (1989)
+   John Hughes — The Computer Journal [article]
+   DOI: 10.1093/comjnl/32.2.98 | citações: 743 | https://openalex.org/W2089241138
+
+2. Why functional programming matters (1990)
+   John Hughes — — [article]
+   DOI: sem DOI | citações: 66 | https://openalex.org/W3021661880
+
+3. Why Functional Programming Matters to Me (2013)
+   Peter A. J. Achten — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-642-40355-2_7 | citações: 3 | https://openalex.org/W2098077312
+
+## Crossref
+
+1. Why Functional Programming Matters (1989) — Hughes — The Computer Journal [journal-article]
+   DOI: 10.1093/comjnl/32.2.98 | score: 38.0
+
+2. Why Parallel Functional Programming Matters: Panel Statement (2011) — Hammond — Lecture Notes in Computer Science [book-chapter]
+   DOI: 10.1007/978-3-642-21338-0_17 | score: 26.8
+
+3. Why functional program synthesis matters (in the realm of genetic programming) (2022) — Garrow, Lones, Stewart — Proceedings of the Genetic and Evolutionary Computation Conference Companion [proceedings-article]
+   DOI: 10.1145/3520304.3534045 | score: 26.4
+
+# Candidatos para 'Cognitive dimensions of notations'
+# Confira título, autores e ano antes de aceitar um DOI. Relatórios técnicos,
+# livros antigos e páginas web muitas vezes não têm DOI.
+
+## OpenAlex
+
+1. Cognitive dimensions of notations (1990)
+   T. R. G. Green — — [article]
+   DOI: sem DOI | citações: 472 | https://openalex.org/W2163314677
+
+2. Notational Systems—The Cognitive Dimensions of Notations Framework (2003)
+   Alan F. Blackwell, Thomas Green — Elsevier eBooks [book-chapter]
+   DOI: 10.1016/b978-155860808-5/50005-8 | citações: 256 | https://openalex.org/W255410355
+
+3. Cognitive Dimensions of Notations: Design Tools for Cognitive Technology (2001)
+   Alan F. Blackwell, C. Britton, Anna L. Cox et al. — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/3-540-44617-6_31 | citações: 198 | https://openalex.org/W1553589896
+
+## Crossref
+
+1. Notational Systems—The Cognitive Dimensions of Notations Framework (2003) — Blackwell, Green — HCI Models, Theories, and Frameworks [book-chapter]
+   DOI: 10.1016/b978-155860808-5/50005-8 | score: 34.0
+
+2. A Cognitive Dimensions of Notations Evaluation of the Gwich'in Place Names Atlas Interface (None) — Mott — — [dissertation]
+   DOI: 10.22215/etd/2017-11747 | score: 30.8
+
+3. Cognitive Dimensions of Notations (None) — Blackwell — 2005 IEEE Symposium on Visual Languages and Human-Centric Computing (VL/HCC'05) [proceedings-article]
+   DOI: 10.1109/vlhcc.2005.26 | score: 28.2
+
+# Candidatos para 'Concepts, techniques, and models of computer programming'
+# Confira título, autores e ano antes de aceitar um DOI. Relatórios técnicos,
+# livros antigos e páginas web muitas vezes não têm DOI.
+
+## OpenAlex
+
+1. Concepts, Techniques, and Models of Computer Programming (2004)
+   Peter Van Roy, Seif Haridi — — [article]
+   DOI: sem DOI | citações: 353 | https://openalex.org/W1518369453
+
+2. Concepts, Techniques, and Models of Computer Programming by Peter Van Roy and Seif Haridi, MIT Press, 2004, hard cover: ISBN 0-262-22069-5, xxvii + 900 pages, 55$ (2005)
+   Yves Deville, with contributions from Raphal Collet, Jonathan Fallon, Kevin Glynn, David Janssens, Luis Quesada, and Stéphane Zampelli — Theory and Practice of Logic Programming [book-review]
+   DOI: 10.1017/s1471068405002450 | citações: 1 | https://openalex.org/W2172193823
+
+3. Peter Van Roy and Seif Haridi. Concepts, Techniques, and Models of Computer Programming. The MIT Press, 2004. ISBN: 0262220695 Price $70. 930pp. (2009)
+   Peter Gammie — Journal of Functional Programming [book-review]
+   DOI: 10.1017/s0956796808007028 | citações: 0 | https://openalex.org/W2026884752
+
+## Crossref
+
+1. Peter Van Roy and Seif Haridi. Concepts, Techniques, and Models of Computer Programming. The MIT Press, 2004. ISBN: 0262220695 Price $70. 930pp. (2009) — Gammie — Journal of Functional Programming [journal-article]
+   DOI: 10.1017/s0956796808007028 | score: 39.0
+
+2. SATISFICING AND COMPROMISE MODELS (2001) —  — Multiple Criteria and Multiple Constraint Levels Linear Programming [book-chapter]
+   DOI: 10.1142/9789812810748_0013 | score: 27.3
+
+3. Actor-based slicing techniques for efficient reduction of Rebeca models (2010) — Sabouri, Sirjani — Science of Computer Programming [journal-article]
+   DOI: 10.1016/j.scico.2010.02.003 | score: 26.2
+
+# Candidatos para 'Real time programming: special purpose or general purpose languages'
+# Confira título, autores e ano antes de aceitar um DOI. Relatórios técnicos,
+# livros antigos e páginas web muitas vezes não têm DOI.
+
+## OpenAlex
+
+1. Real time programming : special purpose or general purpose languages (1989)
+   Gérard Berry — OpenGrey (Institut de l'Information Scientifique et Technique) [article]
+   DOI: sem DOI | citações: 106 | https://openalex.org/W32272584
+
+## Crossref
+
+1. Information technology. Programming languages. PL/I general purpose subset (None) —  — — [standard]
+   DOI: 10.3403/00511642u | score: 49.6
+
+2. Information technology. Programming languages. PL/I general purpose subset (None) —  — — [standard]
+   DOI: 10.3403/00511642 | score: 49.4
+
+3. Selection and use of general-purpose programming languages (1984) — Cugini — — [report]
+   DOI: 10.6028/nbs.sp.500-117v1 | score: 46.9
+

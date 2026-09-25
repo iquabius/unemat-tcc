@@ -1,0 +1,304 @@
+# Candidatos para 'A survey on reactive programming'
+# Confira título, autores e ano antes de aceitar um DOI. Relatórios técnicos,
+# livros antigos e páginas web muitas vezes não têm DOI.
+
+## OpenAlex
+
+1. A survey on reactive programming (2013)
+   Engineer Bainomugisha, Andoni Lombide Carreton, Tom Van Cutsem et al. — ACM Computing Surveys [article]
+   DOI: 10.1145/2501654.2501666 | citações: 304 | https://openalex.org/W2004791319
+
+2. From Reactive to Proactive: Developing a Valid Clinical Ethics Needs Assessment Survey to Support Ethics Program Strategic Planning (Part 1 of 2) (2012)
+   Andrea Nadine Frolic, Barb Jennings, Wendy Seidlitz et al. — HEC Forum [article]
+   DOI: 10.1007/s10730-012-9204-y | citações: 11 | https://openalex.org/W1999486271
+
+3. RAPID TRANSIT--A REACTIVITY SURVEY PROGRAM FOR THE IBM-704 (1959)
+   C. W. Nestor — — [report]
+   DOI: 10.2172/4257148 | citações: 0 | https://openalex.org/W2166799790
+
+## Crossref
+
+1. A survey on reactive programming (2013) — Bainomugisha, Carreton, Cutsem — ACM Computing Surveys [journal-article]
+   DOI: 10.1145/2501654.2501666 | score: 31.9
+
+2. Open reactive dispatch (2012) — Bainomugisha, De Meuter — Proceedings of the 3rd international workshop on Free composition [proceedings-article]
+   DOI: 10.1145/2414716.2414719 | score: 25.2
+
+3. Teaching language processing with the PAMOJA framework (2023) — Ssanyu, Bainomugisha, Kanagwa — Science of Computer Programming [journal-article]
+   DOI: 10.1016/j.scico.2023.102959 | score: 25.1
+
+# Candidatos para 'An empirical study on program comprehension with reactive programming'
+# Confira título, autores e ano antes de aceitar um DOI. Relatórios técnicos,
+# livros antigos e páginas web muitas vezes não têm DOI.
+
+## OpenAlex
+
+1. An empirical study on program comprehension with reactive programming (2014)
+   Guido Salvaneschi, Sven Amann, Sebastian Proksch et al. — — [conference-paper]
+   DOI: 10.1145/2635868.2635895 | citações: 37 | https://openalex.org/W1998445782
+
+2. On the Positive Effect of Reactive Programming on Software Comprehension: An Empirical Study (2017)
+   Guido Salvaneschi, Sebastian Proksch, Sven Amann et al. — IEEE Transactions on Software Engineering [article]
+   DOI: 10.1109/tse.2017.2655524 | citações: 40 | https://openalex.org/W2572482456
+
+3. An empirical study on program comprehension with reactive programming. (2016)
+   Guido Salvaneschi, Sven Amann, Sebastian Proksch et al. — — [article]
+   DOI: sem DOI | citações: 0 | https://openalex.org/W2575134494
+
+## Crossref
+
+1. An empirical study on program comprehension with reactive programming (2014) — Salvaneschi, Amann, Proksch — Proceedings of the 22nd ACM SIGSOFT International Symposium on Foundations of Software Engineering [proceedings-article]
+   DOI: 10.1145/2635868.2635895 | score: 49.8
+
+2. On the Positive Effect of Reactive Programming on Software Comprehension: An Empirical Study (2017) — Salvaneschi, Proksch, Amann — IEEE Transactions on Software Engineering [journal-article]
+   DOI: 10.1109/tse.2017.2655524 | score: 41.0
+
+3. Thread-safe reactive programming (2018) — Drechsler, Mogk, Salvaneschi — Proceedings of the ACM on Programming Languages [journal-article]
+   DOI: 10.1145/3276477 | score: 35.5
+
+# Candidatos para 'On the positive effect of reactive programming on software comprehension: an empirical study'
+# Confira título, autores e ano antes de aceitar um DOI. Relatórios técnicos,
+# livros antigos e páginas web muitas vezes não têm DOI.
+
+## OpenAlex
+
+1. On the Positive Effect of Reactive Programming on Software Comprehension: An Empirical Study (2017)
+   Guido Salvaneschi, Sebastian Proksch, Sven Amann et al. — IEEE Transactions on Software Engineering [article]
+   DOI: 10.1109/tse.2017.2655524 | citações: 40 | https://openalex.org/W2572482456
+
+## Crossref
+
+1. On the Positive Effect of Reactive Programming on Software Comprehension: An Empirical Study (2017) — Salvaneschi, Proksch, Amann — IEEE Transactions on Software Engineering [journal-article]
+   DOI: 10.1109/tse.2017.2655524 | score: 59.2
+
+2. An empirical study on program comprehension with reactive programming (2014) — Salvaneschi, Amann, Proksch — Proceedings of the 22nd ACM SIGSOFT International Symposium on Foundations of Software Engineering [proceedings-article]
+   DOI: 10.1145/2635868.2635895 | score: 50.0
+
+3. Debugging reactive programming with reactive inspector (2016) — Salvaneschi, Mezini — Proceedings of the 38th International Conference on Software Engineering Companion [proceedings-article]
+   DOI: 10.1145/2889160.2893174 | score: 38.8
+
+# Candidatos para 'Reactive programming: a walkthrough'
+# Confira título, autores e ano antes de aceitar um DOI. Relatórios técnicos,
+# livros antigos e páginas web muitas vezes não têm DOI.
+
+## OpenAlex
+
+1. Reactive Programming: A Walkthrough (2015)
+   Guido Salvaneschi, Alessandro Margara, Giordano Tamburrelli — — [conference-paper]
+   DOI: 10.1109/icse.2015.303 | citações: 20 | https://openalex.org/W4235459228
+
+2. Reactive programming: a walkthrough (2015)
+   Guido Salvaneschi, Alessandro Margara, Giordano Tamburrelli — — [article]
+   DOI: 10.5555/2819009.2819226 | citações: 11 | https://openalex.org/W2029992173
+
+## Crossref
+
+1. Reactive Programming: A Walkthrough (2015) — Salvaneschi, Margara, Tamburrelli — 2015 IEEE/ACM 37th IEEE International Conference on Software Engineering [proceedings-article]
+   DOI: 10.1109/icse.2015.303 | score: 44.0
+
+2. Debugging reactive programming with reactive inspector (2016) — Salvaneschi, Mezini — Proceedings of the 38th International Conference on Software Engineering Companion [proceedings-article]
+   DOI: 10.1145/2889160.2893174 | score: 32.2
+
+3. Debugging for reactive programming (2016) — Salvaneschi, Mezini — Proceedings of the 38th International Conference on Software Engineering [proceedings-article]
+   DOI: 10.1145/2884781.2884815 | score: 31.6
+
+# Candidatos para 'Functional reactive animation'
+# Confira título, autores e ano antes de aceitar um DOI. Relatórios técnicos,
+# livros antigos e páginas web muitas vezes não têm DOI.
+
+## OpenAlex
+
+1. Functional reactive animation (1997)
+   Conal M. Elliott, Paul Hudak — — [conference-paper]
+   DOI: 10.1145/258948.258973 | citações: 624 | https://openalex.org/W2079512738
+
+2. Functional reactive animation (1997)
+   Conal M. Elliott, Paul Hudak — ACM SIGPLAN Notices [article]
+   DOI: 10.1145/258949.258973 | citações: 81 | https://openalex.org/W2997671293
+
+3. A functional reactive animation of a lift using Fran (2000)
+   Simon Thompson — Journal of Functional Programming [article]
+   DOI: 10.1017/s0956796800003671 | citações: 12 | https://openalex.org/W2056095554
+
+## Crossref
+
+1. Functional reactive animation (1997) — Elliott, Hudak — Proceedings of the second ACM SIGPLAN international conference on Functional programming [proceedings-article]
+   DOI: 10.1145/258948.258973 | score: 34.6
+
+2. Functional reactive animation (1997) — Elliott, Hudak — ACM SIGPLAN Notices [journal-article]
+   DOI: 10.1145/258949.258973 | score: 32.8
+
+3. A functional reactive animation of a lift using Fran (2000) — THOMPSON — Journal of Functional Programming [journal-article]
+   DOI: 10.1017/s0956796800003671 | score: 23.9
+
+# Candidatos para 'Asynchronous functional reactive programming for GUIs'
+# Confira título, autores e ano antes de aceitar um DOI. Relatórios técnicos,
+# livros antigos e páginas web muitas vezes não têm DOI.
+
+## OpenAlex
+
+1. Asynchronous functional reactive programming for GUIs (2013)
+   Evan Czaplicki, Stephen Chong — — [conference-paper]
+   DOI: 10.1145/2491956.2462161 | citações: 169 | https://openalex.org/W2113112607
+
+2. Asynchronous functional reactive programming for GUIs (2013)
+   Evan Czaplicki, Stephen Chong — ACM SIGPLAN Notices [article]
+   DOI: 10.1145/2499370.2462161 | citações: 33 | https://openalex.org/W3006529926
+
+## Crossref
+
+1. Asynchronous functional reactive programming for GUIs (2013) — Czaplicki, Chong — Proceedings of the 34th ACM SIGPLAN Conference on Programming Language Design and Implementation [proceedings-article]
+   DOI: 10.1145/2491956.2462161 | score: 58.6
+
+2. Asynchronous functional reactive programming for GUIs (2013) — Czaplicki, Chong — ACM SIGPLAN Notices [journal-article]
+   DOI: 10.1145/2499370.2462161 | score: 58.2
+
+3. Reactive extensions (Rx) (2010) — Meijer — ACM SIGPLAN Commercial Users of Functional Programming [proceedings-article]
+   DOI: 10.1145/1900160.1900173 | score: 34.3
+
+# Candidatos para 'Deprecating the observer pattern with Scala.React'
+# Confira título, autores e ano antes de aceitar um DOI. Relatórios técnicos,
+# livros antigos e páginas web muitas vezes não têm DOI.
+
+## OpenAlex
+
+1. Deprecating the Observer Pattern with Scala.React (2012)
+   Ingo Maier, Martin Odersky — Infoscience (Ecole Polytechnique Fédérale de Lausanne) [report]
+   DOI: sem DOI | citações: 35 | https://openalex.org/W2097785504
+
+## Crossref
+
+1. Pattern-driven Programming in Scala (None) — Pang — — [dissertation]
+   DOI: 10.31979/etd.q66w-d7v6 | score: 23.3
+
+2. Towards virtual traits in Scala (2014) — Weiel, Maier, Erdweg — Proceedings of the Fifth Annual Scala Workshop [proceedings-article]
+   DOI: 10.1145/2637647.2637654 | score: 23.2
+
+3. Observer (2013) — Hunt — Scala Design Patterns [book-chapter]
+   DOI: 10.1007/978-3-319-02192-8_32 | score: 22.1
+
+# Candidatos para 'Functional reactive programming'
+# Confira título, autores e ano antes de aceitar um DOI. Relatórios técnicos,
+# livros antigos e páginas web muitas vezes não têm DOI.
+
+## OpenAlex
+
+1. Functional reactive programming, continued (2002)
+   Henrik Nilsson, Antony Courtney, John R. Peterson — — [conference-paper]
+   DOI: 10.1145/581690.581695 | citações: 209 | https://openalex.org/W2049440551
+
+2. Functional reactive programming from first principles (2000)
+   Zhanyong Wan, Paul Hudak — — [conference-paper]
+   DOI: 10.1145/349299.349331 | citações: 211 | https://openalex.org/W2089589666
+
+3. Arrows, Robots, and Functional Reactive Programming (2003)
+   Paul Hudak, Antony Courtney, Henrik Nilsson et al. — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-540-44833-4_6 | citações: 185 | https://openalex.org/W1511203305
+
+## Crossref
+
+1. Functional Reactive Programming (2016) — Doglio — Reactive Programming with Node.js [book-chapter]
+   DOI: 10.1007/978-1-4842-2152-5_3 | score: 28.4
+
+2. Functional Reactive Programming with Reagent (2017) — Modrzyk — Reactive with ClojureScript Recipes [book-chapter]
+   DOI: 10.1007/978-1-4842-3009-1_4 | score: 25.5
+
+3. Functional reactive programming with liveness guarantees (2013) — Jeffrey — Proceedings of the 18th ACM SIGPLAN international conference on Functional programming [proceedings-article]
+   DOI: 10.1145/2500365.2500584 | score: 25.5
+
+# Candidatos para 'Comparison of object-oriented and functional programming for GUI development'
+# Confira título, autores e ano antes de aceitar um DOI. Relatórios técnicos,
+# livros antigos e páginas web muitas vezes não têm DOI.
+
+## OpenAlex
+
+## Crossref
+
+1. GUI programming (2010) —  — Steps in Scala [book-chapter]
+   DOI: 10.1017/cbo9780511778735.007 | score: 35.6
+
+2. Tcl
+            <scp>Object‐Oriented</scp>
+            Programming (2022) —  — Programming and GUI Fundamentals [other]
+   DOI: 10.1002/9781119837442.ch5 | score: 34.7
+
+3. GUI Programming with Visual Caché (2001) — Kirsten, Ihringer, Schulte — Object-Oriented Application Development Using the Caché Postrelational Database [book-chapter]
+   DOI: 10.1007/978-3-642-98104-3_9 | score: 34.4
+
+# Candidatos para 'Coherent reaction'
+# Confira título, autores e ano antes de aceitar um DOI. Relatórios técnicos,
+# livros antigos e páginas web muitas vezes não têm DOI.
+
+## OpenAlex
+
+1. Observation of Coherent Reaction Dynamics in Heme Proteins (1994)
+   Leyun Zhu, J. Timothy Sage, Paul M. Champion — Science [article]
+   DOI: 10.1126/science.7939716 | citações: 209 | https://openalex.org/W2027057239
+
+2. Coherent reaction dynamics in a bacterial cytochrome c oxidase (1999)
+   Ursula Liebl, Gérard Lipowski, Michel Négrerie et al. — Nature [article]
+   DOI: 10.1038/43699 | citações: 100 | https://openalex.org/W1530175381
+
+3. Coherent reaction (2009)
+   Jonathan Edwards — — [conference-paper]
+   DOI: 10.1145/1639950.1640058 | citações: 39 | https://openalex.org/W2611840193
+
+## Crossref
+
+1. Coherent reaction (2009) — Edwards — Proceedings of the 24th ACM SIGPLAN conference companion on Object oriented programming systems languages and applications [proceedings-article]
+   DOI: 10.1145/1639950.1640058 | score: 22.8
+
+2. Transient Two-Dimensional Electronic Spectroscopy: Coherent Dynamics at Arbitrary Times along the Reaction Coordinate (None) —  — — [component]
+   DOI: 10.1021/acs.jpclett.9b00826.s001 | score: 17.4
+
+3. Coherent calculus of subjective probability (1976) — Edwards — Nature [journal-article]
+   DOI: 10.1038/260655a0 | score: 17.2
+
+# Candidatos para 'Out of the tar pit'
+# Confira título, autores e ano antes de aceitar um DOI. Relatórios técnicos,
+# livros antigos e páginas web muitas vezes não têm DOI.
+
+## OpenAlex
+
+1. Out of the Tar Pit (2006)
+   Ben Moseley, Peter J. Marks — — [article]
+   DOI: sem DOI | citações: 9 | https://openalex.org/W2113349737
+
+2. Software Process Design: Out of the Tar Pit (1994)
+   Jacqueline Holdsworth — Medical Entomology and Zoology [book]
+   DOI: sem DOI | citações: 7 | https://openalex.org/W388901986
+
+3. Getting Out of the Tar‐Pits (1971)
+   autoria não informada — Journal of Public Health Dentistry [article]
+   DOI: 10.1111/j.1752-7325.1971.tb00624.x | citações: 0 | https://openalex.org/W4251419378
+
+## Crossref
+
+1. tar pit (2014) —  — Dictionary Geotechnical Engineering/Wörterbuch GeoTechnik [book-chapter]
+   DOI: 10.1007/978-3-642-41714-6_200246 | score: 24.3
+
+2. Up from the DP tar pit into the IT mosh pit (1999) — Pistole — IT Professional [journal-article]
+   DOI: 10.1109/6294.793678 | score: 23.6
+
+3. Boardwalks across the Tar Pit (2001) —  — Mechanizing Proof [book-chapter]
+   DOI: 10.7551/mitpress/4529.003.0003 | score: 23.6
+
+# Candidatos para 'Reactive behavior in object-oriented applications: an analysis and a research roadmap'
+# Confira título, autores e ano antes de aceitar um DOI. Relatórios técnicos,
+# livros antigos e páginas web muitas vezes não têm DOI.
+
+## OpenAlex
+
+## Crossref
+
+1. Reactive behavior in object-oriented applications (2013) — Salvaneschi, Mezini — Proceedings of the 12th annual international conference on Aspect-oriented software development [proceedings-article]
+   DOI: 10.1145/2451436.2451442 | score: 61.0
+
+2. REScala (2014) — Salvaneschi, Hintz, Mezini — Proceedings of the 13th international conference on Modularity [proceedings-article]
+   DOI: 10.1145/2577080.2577083 | score: 40.5
+
+3. Towards Reactive Programming for Object-Oriented Applications (2014) — Salvaneschi, Mezini — Lecture Notes in Computer Science [book-chapter]
+   DOI: 10.1007/978-3-642-55099-7_7 | score: 40.2
+
+usage: buscar_literatura.py [-h] {buscar,citantes,referencias,doi,bibtex} ...
+buscar_literatura.py: error: unrecognized arguments: Roy

@@ -1,0 +1,29 @@
+# Candidatos para 'Programming paradigms and beyond'
+# Confira título, autores e ano antes de aceitar um DOI. Relatórios técnicos,
+# livros antigos e páginas web muitas vezes não têm DOI.
+
+## OpenAlex
+
+1. Programming Paradigms and Beyond (2019)
+   Shriram Krishnamurthi, Kathi Fisler — Cambridge University Press eBooks [book-chapter]
+   DOI: 10.1017/9781108654555.014 | citações: 64 | https://openalex.org/W2917373358
+
+2. Prompt Programming for Large Language Models: Beyond the Few-Shot Paradigm (2021)
+   Laria Reynolds, Kyle McDonell — — [conference-paper]
+   DOI: 10.1145/3411763.3451760 | citações: 48 | https://openalex.org/W3130319171
+
+3. Moving beyond Tolerance: A New Paradigm for Programming about Homophobia/Biphobia and Heterosexism. (1995)
+   Barry A. Schreier — Journal of college student development [article]
+   DOI: sem DOI | citações: 19 | https://openalex.org/W131358495
+
+## Crossref
+
+1. Programming Paradigms and Beyond (2019) — Krishnamurthi, Fisler — The Cambridge Handbook of Computing Education Research [book-chapter]
+   DOI: 10.1017/9781108654555.014 | score: 38.2
+
+2. Sharing Is Scaring: Linking Cloud File-Sharing to Programming Language Semantics (2025) — Austen, Krishnamurthi, Fisler — Proceedings of the 2025 ACM SIGPLAN International Symposium on New Ideas, New Paradigms, and Reflections on Programming and Software [proceedings-article]
+   DOI: 10.1145/3759429.3762621 | score: 26.8
+
+3. Progressive types (2012) — Politz, Quay-de la Vallee, Krishnamurthi — Proceedings of the ACM international symposium on New ideas, new paradigms, and reflections on programming and software [proceedings-article]
+   DOI: 10.1145/2384592.2384599 | score: 26.4
+

@@ -1,0 +1,119 @@
+# Trabalhos que citam: An empirical study on program comprehension with reactive programming (2014)
+# Total: 29 (mostrando 29)
+
+1. An Empirical Validation of Cognitive Complexity as a Measure of Source Code Understandability (2020)
+   Marvin Muñoz Barón, Marvin Wyrich, Stefan Wagner — — [conference-paper]
+   DOI: 10.1145/3382494.3410636 | citações: 61 | https://openalex.org/W3044934120
+
+2. On the Positive Effect of Reactive Programming on Software Comprehension: An Empirical Study (2017)
+   Guido Salvaneschi, Sebastian Proksch, Sven Amann et al. — IEEE Transactions on Software Engineering [article]
+   DOI: 10.1109/tse.2017.2655524 | citações: 40 | https://openalex.org/W2572482456
+
+3. Distributed system development with ScalaLoci (2018)
+   Pascal Weisenburger, Mirko Köhler, Guido Salvaneschi — Proceedings of the ACM on Programming Languages [article]
+   DOI: 10.1145/3276499 | citações: 39 | https://openalex.org/W2898179350
+
+4. 40 Years of Designing Code Comprehension Experiments: A Systematic Mapping Study (2023)
+   Marvin Wyrich, Justus Bogner, Stefan Wagner — ACM Computing Surveys [article]
+   DOI: 10.1145/3626522 | citações: 38 | https://openalex.org/W4387496047
+
+5. On the Semantics of Distributed Reactive Programming: The Cost of Consistency (2018)
+   Alessandro Margara, Guido Salvaneschi — IEEE Transactions on Software Engineering [article]
+   DOI: 10.1109/tse.2018.2833109 | citações: 29 | https://openalex.org/W2801707263
+
+6. Debugging data flows in reactive programs (2018)
+   Herman Banken, Erik Meijer, Georgios Gousios — — [conference-paper]
+   DOI: 10.1145/3180155.3180156 | citações: 27 | https://openalex.org/W2789282297
+
+7. An empirical study on software understandability and its dependence on code characteristics (2023)
+   Luigi Lavazza, Sandro Morasca, Marco Gatto — Empirical Software Engineering [article]
+   DOI: 10.1007/s10664-023-10396-7 | citações: 16 | https://openalex.org/W4388706046
+
+8. Thread-safe reactive programming (2018)
+   Joscha Drechsler, Ragnar Mogk, Guido Salvaneschi et al. — Proceedings of the ACM on Programming Languages [article]
+   DOI: 10.1145/3276477 | citações: 16 | https://openalex.org/W2898117650
+
+9. Distributed Reactive Programming for Reactive Distributed Systems (2019)
+   Florian Myter — VUBIR (Vrije Universiteit Brussel) [article]
+   DOI: 10.22152/programming-journal.org/2019/3/5 | citações: 15 | https://openalex.org/W3100682208
+
+10. Active Expressions: Basic Building Blocks for Reactive Programming (2017)
+   Stefan Ramson, Robert Hirschfeld — The Art Science and Engineering of Programming [article]
+   DOI: 10.22152/programming-journal.org/2017/1/12 | citações: 11 | https://openalex.org/W2128324598
+
+11. Automated Refactoring to Reactive Programming (2019)
+   Mirko Köhler, Guido Salvaneschi — — [conference-paper]
+   DOI: 10.1109/ase.2019.00082 | citações: 10 | https://openalex.org/W2999664051
+
+12. Predicting Code Comprehension: A Novel Approach to Align Human Gaze with Code using Deep Neural Networks (2024)
+   Tarek Alakmeh, David R. Reich, Lena A. Jäger et al. — Proceedings of the ACM on software engineering. [article]
+   DOI: 10.1145/3660795 | citações: 8 | https://openalex.org/W4400582504
+
+13. Towards a Methodology for Participant Selection in Software Engineering Experiments (2021)
+   Valentina Lenarduzzi, Óscar Dieste, Davide Fucci et al. — — [conference-paper]
+   DOI: 10.1145/3475716.3484273 | citações: 7 | https://openalex.org/W3196894413
+
+14. ReactiFi: Reactive Programming of Wi-Fi Firmware on Mobile Devices (2020)
+   Artur Sterz, Matthias Eichholz, Ragnar Mogk et al. — The Art Science and Engineering of Programming [article]
+   DOI: 10.22152/programming-journal.org/2021/5/4 | citações: 7 | https://openalex.org/W3091667238
+
+15. A mapping study of language features improving object-oriented design patterns (2023)
+   William Flageol, Éloi Menaud, Yann‐Gaël Guéhéneuc et al. — Information and Software Technology [article]
+   DOI: 10.1016/j.infsof.2023.107222 | citações: 6 | https://openalex.org/W4365456905
+
+16. 40 Years of Designing Code Comprehension Experiments: A Systematic Mapping Study (2022)
+   Marvin Wyrich, Justus Bogner, Stefan Wagner — arXiv (Cornell University) [preprint]
+   DOI: 10.48550/arxiv.2206.11102 | citações: 6 | https://openalex.org/W4283382363
+
+17. Reactive programming experience with REScala (2018)
+   Ragnar Mogk, Guido Salvaneschi, Mira Mezini — — [conference-paper]
+   DOI: 10.1145/3191697.3214337 | citações: 5 | https://openalex.org/W2810135794
+
+18. An empirical study of multi-threading paradigms Reactive programming vs continuation-passing style (2020)
+   Sirojiddin Komolov, Nursultan Askarbekuly, Manuel Mazzara — — [conference-paper]
+   DOI: 10.1145/3418688.3418695 | citações: 4 | https://openalex.org/W3097880706
+
+19. Towards a Reactive Game Engine (2019)
+   João Paulo Oliveira Marum, J. Adam Jones, H. Conrad Cunningham — — [conference-paper]
+   DOI: 10.1109/southeastcon42311.2019.9020527 | citações: 4 | https://openalex.org/W3011398976
+
+20. Enriching the Internet By Acting and Reacting (2017)
+   Sam Van den Vonder, Florian Myter, Joeri De Koster et al. — — [conference-paper]
+   DOI: 10.1145/3079368.3079407 | citações: 4 | https://openalex.org/W2740556437
+
+21. Early Career Developers’ Perceptions of Code Understandability: A Study of Complexity Metrics (2025)
+   Matteo Esposito, Andrea Janes, Terhi Kilamo et al. — IEEE Access [article]
+   DOI: 10.1109/access.2025.3585777 | citações: 3 | https://openalex.org/W4411996481
+
+22. Reactive caching for composed services: polling at the speed of push (2018)
+   Sebastian Burckhardt, Tim Coppieters — Proceedings of the ACM on Programming Languages [article]
+   DOI: 10.1145/3276522 | citações: 3 | https://openalex.org/W2898166391
+
+23. On the Usability of Reactive Programming APIs: A Mixed Evaluation (2025)
+   Carlos Zimmerle, Kiev Santos da Gama — Software Practice and Experience [article]
+   DOI: 10.1002/spe.3435 | citações: 2 | https://openalex.org/W4410705712
+
+24. An Empirical Evaluation of the “Cognitive Complexity” Measure as a Predictor of Code Understandability (2022)
+   Luigi Lavazza, Abedallah Zaid Abualkishik, Geng Liu et al. — — [preprint]
+   DOI: 10.31219/osf.io/2mbwe | citações: 2 | https://openalex.org/W4309305493
+
+25. Interacto: A Modern User Interaction Processing Model (2021)
+   Arnaud Blouin, Jean‐Marc Jezéquél — IEEE Transactions on Software Engineering [article]
+   DOI: 10.1109/tse.2021.3083321 | citações: 2 | https://openalex.org/W3164464611
+
+26. An Empirical Study on Code Comprehension: Data Context Interaction Compared to Classical Object Oriented (2017)
+   Hector Adrian Valdecantos, Katy Tarrit, Mehdi Mirakhorli et al. — — [conference-paper]
+   DOI: 10.1109/icpc.2017.23 | citações: 2 | https://openalex.org/W2726600984
+
+27. UAX: Measuring the Usability of TypeScript APIs (2024)
+   Carlos Zimmerle, Kiev Santos da Gama — — [conference-paper]
+   DOI: 10.5753/sbes.2024.3658 | citações: 1 | https://openalex.org/W4403585108
+
+28. Unified Library for Dependency-graph Reactivity on Web and Desktop User Interfaces (2020)
+   João Paulo Oliveira Marum, H. Conrad Cunningham, J. Adam Jones — — [conference-paper]
+   DOI: 10.1145/3374135.3385278 | citações: 1 | https://openalex.org/W3028932906
+
+29. Design and evaluation of software framework that improves the management of reactive dependencies in development of object-oriented applications (2021)
+   Marko Mijač — — [dissertation]
+   DOI: sem DOI | citações: 0 | https://openalex.org/W3194954552
+

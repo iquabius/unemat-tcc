@@ -1,0 +1,46 @@
+# Busca: 'functional programming empirical study developers comprehension' — 11 resultados no OpenAlex (mostrando 11, ordem: relevancia)
+
+1. Effects of explicit feature traceability on program comprehension (2019)
+   Jacob Krüger, Gül Çalıklı, Thorsten Berger et al. — — [conference-paper]
+   DOI: 10.1145/3338906.3338968 | citações: 29 | https://openalex.org/W2967762320
+
+2. Large Language Models are Few-Shot Summarizers: Multi-Intent Comment Generation via In-Context Learning (2024)
+   Mingyang Geng, Shangwen Wang, Dezun Dong et al. — — [conference-paper]
+   DOI: 10.1145/3597503.3608134 | citações: 145 | https://openalex.org/W4391558635
+
+3. Evaluating and Improving ChatGPT for Unit Test Generation (2024)
+   Zhiqiang Yuan, Mingwei Liu, Shiji Ding et al. — Proceedings of the ACM on software engineering. [article]
+   DOI: 10.1145/3660783 | citações: 144 | https://openalex.org/W4400582690
+
+4. Empirical Assessment of Program Comprehension Styles in Programming Language Paradigms (2021)
+   Niloofar Mansoor — — [conference-paper]
+   DOI: 10.1109/vl/hcc51201.2021.9576333 | citações: 1 | https://openalex.org/W3210846516
+
+5. Large Language Models are Few-Shot Summarizers: Multi-Intent Comment Generation via In-Context Learning (2023)
+   Mingyang Geng, Shangwen Wang, Dezun Dong et al. — arXiv (Cornell University) [preprint]
+   DOI: 10.48550/arxiv.2304.11384 | citações: 9 | https://openalex.org/W4366999442
+
+6. Are Multi-Language Design Smells Fault-Prone? An Empirical Study (2021)
+   Mouna Abidi, Saidur Rahman, Moses Openja et al. — ACM Transactions on Software Engineering and Methodology [article]
+   DOI: 10.1145/3432690 | citações: 1 | https://openalex.org/W3094649757
+
+7. Visualization of aggregated information to support class-level software evolution (2022)
+   Mona Rahimi, Michael Vierhauser — Journal of Systems and Software [article]
+   DOI: 10.1016/j.jss.2022.111421 | citações: 3 | https://openalex.org/W4283466978
+
+8. An exploratory eye tracking study on how developers classify and debug Python code in different paradigms (2026)
+   Samuel W. Flint, Jigyasa Chauhan, Niloofar Mansoor et al. — Empirical Software Engineering [article]
+   DOI: 10.1007/s10664-025-10774-3 | citações: 0 | https://openalex.org/W4416189323
+
+9. Dataset for the paper "The Relationship Between Different Python Argument-Passing Mechanisms and Fixes: An Empirical Study" (2023)
+   ­ Anonymous — Zenodo (CERN European Organization for Nuclear Research) [dataset]
+   DOI: 10.5281/zenodo.7870870 | citações: 0 | https://openalex.org/W4393617955
+
+10. Dataset for the paper "The Relationship Between Different Python Argument-Passing Mechanisms and Fixes: An Empirical Study" (2023)
+   ­ Anonymous — Zenodo (CERN European Organization for Nuclear Research) [dataset]
+   DOI: 10.5281/zenodo.7870869 | citações: 0 | https://openalex.org/W4393782018
+
+11. Repositioning intellectual disability in the ethics of digital mental health technologies (2025)
+   Anithamol Babu, Akhil P. Joseph — Frontiers in Psychiatry [article]
+   DOI: 10.3389/fpsyt.2025.1691940 | citações: 0 | https://openalex.org/W4415373359
+

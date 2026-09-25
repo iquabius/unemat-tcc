@@ -1,0 +1,122 @@
+# Busca: 'functional reactive programming' — 4283 resultados no OpenAlex (mostrando 30, ordem: citacoes)
+
+1. Mismatch repair deficiency predicts response of solid tumors to PD-1 blockade (2017)
+   Dung Thi Le, Jennifer N. Durham, Kellie Nicole Smith et al. — Science [article]
+   DOI: 10.1126/science.aan6733 | citações: 6817 | https://openalex.org/W2622499649
+
+2. Open-access bacterial population genomics: BIGSdb software, the PubMLST.org website and their applications (2018)
+   Keith A. Jolley, James E. Bray, Martin C. J. Maiden — Wellcome Open Research [article]
+   DOI: 10.12688/wellcomeopenres.14826.1 | citações: 3703 | https://openalex.org/W2891078715
+
+3. Defining ‘T cell exhaustion’ (2019)
+   Christian U. Blank, W. Nicholas Haining, Werner Held et al. — Nature reviews. Immunology [review]
+   DOI: 10.1038/s41577-019-0221-9 | citações: 1669 | https://openalex.org/W2975736685
+
+4. Reactive oxygen species, oxidative signaling and the regulation of photosynthesis (2018)
+   Christine Helen Foyer — Environmental and Experimental Botany [article]
+   DOI: 10.1016/j.envexpbot.2018.05.003 | citações: 867 | https://openalex.org/W2801020340
+
+5. RIP1 autophosphorylation is promoted by mitochondrial ROS and is essential for RIP3 recruitment into necrosome (2017)
+   Yingying Zhang, Sheng Sean Su, Shubo Zhao et al. — Nature Communications [article]
+   DOI: 10.1038/ncomms14329 | citações: 617 | https://openalex.org/W2586088194
+
+6. Targeting Oxidative Stress and Inflammation to Prevent Ischemia-Reperfusion Injury (2020)
+   Liquan Wu, Xiaoxing Xiong, Xiaomin Wu et al. — Frontiers in Molecular Neuroscience [article]
+   DOI: 10.3389/fnmol.2020.00028 | citações: 538 | https://openalex.org/W3010589304
+
+7. The primordial differentiation of tumor-specific memory CD8+ T cells as bona fide responders to PD-1/PD-L1 blockade in draining lymph nodes (2022)
+   Qizhao Huang, Xia Wu, Zhiming Wang et al. — Cell [article]
+   DOI: 10.1016/j.cell.2022.09.020 | citações: 498 | https://openalex.org/W4303614681
+
+8. Mechanisms of Nickel-Catalyzed Coupling Reactions and Applications in Alkene Functionalization (2020)
+   Justin B. Diccianni, Qiao Lin, Tianning Diao — Accounts of Chemical Research [article]
+   DOI: 10.1021/acs.accounts.0c00032 | citações: 480 | https://openalex.org/W3014364773
+
+9. Iridium-Catalyzed Asymmetric Synthesis of Functionally Rich Molecules Enabled by (Phosphoramidite,Olefin) Ligands (2019)
+   Simon L. Rössler, David A. Petrone, Erick M. Carreira — Accounts of Chemical Research [article]
+   DOI: 10.1021/acs.accounts.9b00209 | citações: 402 | https://openalex.org/W2949913740
+
+10. Focus on the Contribution of Oxidative Stress in Skin Aging (2022)
+   Federica Papaccio, Andrea D’Arino, Silvia Caputo et al. — Antioxidants [article]
+   DOI: 10.3390/antiox11061121 | citações: 394 | https://openalex.org/W4281805377
+
+11. Developmental Trajectories of Early Life Stress and Trauma: A Narrative Review on Neurobiological Aspects Beyond Stress System Dysregulation (2019)
+   Agorastos Agorastos, Panagiota Pervanidou, George Panagiotis Chrousos et al. — Frontiers in Psychiatry [review]
+   DOI: 10.3389/fpsyt.2019.00118 | citações: 391 | https://openalex.org/W2920870682
+
+12. Engineering Cobalt Oxide with Coexisting Cobalt Defects and Oxygen Vacancies for Enhanced Catalytic Oxidation of Toluene (2022)
+   Yifei Li, Tingyu Chen, Shuaiqi Zhao et al. — ACS Catalysis [article]
+   DOI: 10.1021/acscatal.2c00296 | citações: 367 | https://openalex.org/W4223528276
+
+13. Functionalizing Framework Nucleic‐Acid‐Based Nanostructures for Biomedical Application (2021)
+   Tao Zhang, Taoran Tian, Yunfeng Lin — Advanced Materials [article]
+   DOI: 10.1002/adma.202107820 | citações: 363 | https://openalex.org/W3213625400
+
+14. A metabolite-derived protein modification integrates glycolysis with KEAP1–NRF2 signalling (2018)
+   Michael J. Bollong, Gihoon Lee, John S. Coukos et al. — Nature [article]
+   DOI: 10.1038/s41586-018-0622-0 | citações: 355 | https://openalex.org/W2897079052
+
+15. Stomatal Defense a Decade Later (2017)
+   Maeli Melotto, Li Zhang, Paula Rodrigues Oblessuc et al. — PLANT PHYSIOLOGY [article]
+   DOI: 10.1104/pp.16.01853 | citações: 353 | https://openalex.org/W2603015443
+
+16. Regulation of Root Traits for Internal Aeration and Tolerance to Soil Waterlogging-Flooding Stress (2017)
+   Takaki Yamauchi, Timothy D. Colmer, Ole Pedersen et al. — PLANT PHYSIOLOGY [article]
+   DOI: 10.1104/pp.17.01157 | citações: 343 | https://openalex.org/W2767905846
+
+17. Sperm epigenetics and influence of environmental factors (2018)
+   Ida Donkin, Romain Barrès — Molecular Metabolism [article]
+   DOI: 10.1016/j.molmet.2018.02.006 | citações: 342 | https://openalex.org/W2791924680
+
+18. Impact of climate change on animal health and welfare (2018)
+   Nicola Lacetera — Animal Frontiers [article]
+   DOI: 10.1093/af/vfy030 | citações: 317 | https://openalex.org/W2904641693
+
+19. Organocatalytic Enantioselective Synthesis of Axially Chiral Molecules: Development of Strategies and Skeletons (2022)
+   Jun Kee Cheng, Shao‐Hua Xiang, Bin Tan — Accounts of Chemical Research [article]
+   DOI: 10.1021/acs.accounts.2c00509 | citações: 286 | https://openalex.org/W4298087473
+
+20. Cohort Profile: The FinnBrain Birth Cohort Study (FinnBrain) (2017)
+   Linnéa Karlsson, Mimmi Tolvanen, Noora M. Scheinin et al. — International Journal of Epidemiology [article]
+   DOI: 10.1093/ije/dyx173 | citações: 278 | https://openalex.org/W2885028383
+
+21. Plant glutathione transferase-mediated stress tolerance: functions and biotechnological applications (2017)
+   Irini Nianiou‐Obeidat, Panagiotis B. Madesis, Christos Kissoudis et al. — Plant Cell Reports [article]
+   DOI: 10.1007/s00299-017-2139-7 | citações: 276 | https://openalex.org/W2604349127
+
+22. Realization of Conceptual Density Functional Theory and Information‐Theoretic Approach in Multiwfn Program (2022)
+   Tian Lu, Qinxue Chen — — [other]
+   DOI: 10.1002/9783527829941.ch31 | citações: 248 | https://openalex.org/W4224125997
+
+23. Rapid removal of toxic metals Cu2+ and Pb2+ by amino trimethylene phosphonic acid intercalated layered double hydroxide: A combined experimental and DFT study (2019)
+   Sidi Zhu, Muhammad Asim Khan, Fengyun Wang et al. — Chemical Engineering Journal [article]
+   DOI: 10.1016/j.cej.2019.123711 | citações: 242 | https://openalex.org/W2991709030
+
+24. Self-limiting directional nanoparticle bonding governed by reaction stoichiometry (2020)
+   Chenglin Yi, Hong  Shi Liu, Shaoyi Zhang et al. — Science [article]
+   DOI: 10.1126/science.aba8653 | citações: 228 | https://openalex.org/W3084646008
+
+25. A designed photoenzyme for enantioselective [2+2] cycloadditions (2022)
+   Jonathan S. Trimble, Rebecca Crawshaw, Florence J. Hardy et al. — Nature [article]
+   DOI: 10.1038/s41586-022-05335-3 | citações: 219 | https://openalex.org/W4296693414
+
+26. Stem Cell‐Derived Nanovesicles Embedded in Dual‐Layered Hydrogel for Programmed ROS Regulation and Comprehensive Tissue Regeneration in Burn Wound Healing (2024)
+   Meijiao Zhao, Miaomiao Kang, Jingru Wang et al. — Advanced Materials [article]
+   DOI: 10.1002/adma.202401369 | citações: 212 | https://openalex.org/W4399260468
+
+27. NADPH oxidase 4 promotes cisplatin-induced acute kidney injury via ROS-mediated programmed cell death and inflammation (2017)
+   Xiao‐Ming Meng, Gui‐Ling Ren, Li Gao et al. — Laboratory Investigation [article]
+   DOI: 10.1038/labinvest.2017.120 | citações: 207 | https://openalex.org/W2767924566
+
+28. Reactive astrocytes facilitate vascular repair and remodeling after stroke (2021)
+   Michael R. Williamson, Cathleen Joy A. Fuertes, Andrew K. Dunn et al. — Cell Reports [article]
+   DOI: 10.1016/j.celrep.2021.109048 | citações: 206 | https://openalex.org/W3158935371
+
+29. Deterioration of orthodox seeds during ageing: Influencing factors, physiological alterations and the role of reactive oxygen species (2020)
+   Keliang Zhang, Zhang Yin, Jing Fang Sun et al. — Plant Physiology and Biochemistry [article]
+   DOI: 10.1016/j.plaphy.2020.11.031 | citações: 204 | https://openalex.org/W3106668443
+
+30. A review of recent innovative strategies for controlling mycotoxins in foods (2022)
+   Gamal M. Hamad, Taha Mehany, Jesús Simal‐Gándara et al. — Food Control [article]
+   DOI: 10.1016/j.foodcont.2022.109350 | citações: 203 | https://openalex.org/W4294838564
+

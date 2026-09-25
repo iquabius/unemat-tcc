@@ -1,0 +1,315 @@
+# Referências de: On the Usability of Reactive Programming APIs: A Mixed Evaluation (2025)
+# 82 referências indexadas no OpenAlex
+
+1. The Coding Manual for Qualitative Researchers (2022)
+   Maria Lungu — American Journal of Qualitative Research [article]
+   DOI: 10.29333/ajqr/12085 | citações: 10939 | https://openalex.org/W4281564584
+
+2. Basics of Qualitative Research: Techniques and Procedures for Developing Grounded Theory (2010)
+   Brad Wuetherick — Canadian Journal of University Continuing Education [article]
+   DOI: 10.21225/d5g01t | citações: 8424 | https://openalex.org/W1615506555
+
+3. Usability Engineering (1993)
+   autoria não informada — Elsevier eBooks [book]
+   DOI: 10.1016/c2009-0-21512-1 | citações: 5528 | https://openalex.org/W4239720002
+
+4. Types and Programming Languages (2002)
+   Benjamin C. Pierce — — [article]
+   DOI: sem DOI | citações: 2242 | https://openalex.org/W1557561422
+
+5. Proceedings of the 2020 CHI Conference on Human Factors in Computing Systems (2020)
+   Bernhaupt, Regina, Mueller, Florian, Verweij, David et al. — — [paratext]
+   DOI: 10.1145/3313831 | citações: 1957 | https://openalex.org/W2783539613
+
+6. Refining the Test Phase of Usability Evaluation: How Many Subjects Is Enough? (1992)
+   Robert A. Virzi — Human Factors The Journal of the Human Factors and Ergonomics Society [article]
+   DOI: 10.1177/001872089203400407 | citações: 1227 | https://openalex.org/W1596953637
+
+7. Thinking aloud: reconciling theory and practice (2000)
+   Ted Boren, Judith A. Ramey — IEEE Transactions on Professional Communication [article]
+   DOI: 10.1109/47.867942 | citações: 825 | https://openalex.org/W2156196376
+
+8. Designing the user interface: Strategies for effective human-computer interaction (1987)
+   Dr.M. Sriram — Artificial Intelligence in Engineering [book-review]
+   DOI: 10.1016/0954-1810(87)90189-0 | citações: 758 | https://openalex.org/W262436420
+
+9. Functional reactive animation (1997)
+   Conal M. Elliott, Paul Hudak — — [conference-paper]
+   DOI: 10.1145/258948.258973 | citações: 624 | https://openalex.org/W2079512738
+
+10. Using triangulation to validate themes in qualitative studies (2009)
+   Karsten Jonsen, Karen A. Jehn — Qualitative Research in Organizations and Management An International Journal [article]
+   DOI: 10.1108/17465640910978391 | citações: 513 | https://openalex.org/W2069548922
+
+11. MAPO: Mining and Recommending API Usage Patterns (2009)
+   Hao Zhong, Tao Xie, Lu Zhang et al. — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-642-03013-0_15 | citações: 416 | https://openalex.org/W90447038
+
+12. What Makes APIs Hard to Learn? Answers from Developers (2009)
+   Martin P. Robillard — IEEE Software [article]
+   DOI: 10.1109/ms.2009.193 | citações: 385 | https://openalex.org/W2008107570
+
+13. A field study of API learning obstacles (2010)
+   Martin P. Robillard, Robert A DeLine — Empirical Software Engineering [article]
+   DOI: 10.1007/s10664-010-9150-8 | citações: 358 | https://openalex.org/W1991613282
+
+14. Using an LLM to Help With Code Understanding (2024)
+   Daye Nam, Andrew Macvean, Vincent Josua Hellendoorn et al. — — [conference-paper]
+   DOI: 10.1145/3597503.3639187 | citações: 340 | https://openalex.org/W4394745423
+
+15. A survey on reactive programming (2013)
+   Engineer Bainomugisha, Andoni Lombide Carreton, Tom Van Cutsem et al. — ACM Computing Surveys [article]
+   DOI: 10.1145/2501654.2501666 | citações: 304 | https://openalex.org/W2004791319
+
+16. What makes a good code example?: A study of programming Q&A in StackOverflow (2012)
+   Seyed Mehdi Nasehi, Jonathan Sillito, Frank Maurer et al. — — [conference-paper]
+   DOI: 10.1109/icsm.2012.6405249 | citações: 292 | https://openalex.org/W2051204868
+
+17. Improving API usability (2016)
+   Brad A. Myers, Jeffrey Stylos — Communications of the ACM [article]
+   DOI: 10.1145/2896587 | citações: 270 | https://openalex.org/W2395092677
+
+18. Are Students Representatives of Professionals in Software Engineering Experiments? (2015)
+   Iflaah Salman, Ayşe Tosun, Natália Juristo — — [conference-paper]
+   DOI: 10.1109/icse.2015.82 | citações: 233 | https://openalex.org/W4248361652
+
+19. Tell me more? (2012)
+   Todd Kulesza, Simone Stumpf, Margaret Burnett et al. — — [conference-paper]
+   DOI: 10.1145/2207676.2207678 | citações: 226 | https://openalex.org/W2168747479
+
+20. How to specify the participant group size for usability studies: a practitioner's guide (2009)
+   Ritch Macefield — Journal of Usability Studies archive [article]
+   DOI: sem DOI | citações: 209 | https://openalex.org/W1608814077
+
+21. Cognitive Dimensions of Notations: Design Tools for Cognitive Technology (2001)
+   Alan F. Blackwell, C. Britton, Anna L. Cox et al. — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/3-540-44617-6_31 | citações: 198 | https://openalex.org/W1553589896
+
+22. A games first approach to teaching introductory programming (2007)
+   Scott T. Leutenegger, Jeffrey Edgington — — [conference-paper]
+   DOI: 10.1145/1227310.1227352 | citações: 196 | https://openalex.org/W1968088872
+
+23. Determining Usability Test Sample Size (2006)
+   Jakob Nielsen, James D. Lewis, Carl W. Turner — — [reference-entry]
+   DOI: 10.1201/9780849375477.ch597 | citações: 196 | https://openalex.org/W2308373634
+
+24. How many participants are really enough for usability studies? (2014)
+   Roobaea Alroobaea, Pam J. Mayhew — — [conference-paper]
+   DOI: 10.1109/sai.2014.6918171 | citações: 184 | https://openalex.org/W2319273553
+
+25. Designing Data-Intensive Applications: The Big Ideas Behind Reliable, Scalable, and Maintainable Systems (2017)
+   Martin Kleppmann — — [article]
+   DOI: sem DOI | citações: 173 | https://openalex.org/W2403659235
+
+26. Flapjax (2009)
+   Leo A. Meyerovich, Arjun Guha, Jacob Baskin et al. — — [conference-paper]
+   DOI: 10.1145/1640089.1640091 | citações: 153 | https://openalex.org/W4253360640
+
+27. The Factory Pattern in API Design: A Usability Evaluation (2007)
+   Brian Ellis, Jeffrey Stylos, Brad A. Myers — Proceedings/Proceedings - International Conference on Software Engineering [conference-paper]
+   DOI: 10.1109/icse.2007.85 | citações: 151 | https://openalex.org/W2170480356
+
+28. The Influence of the Design of Web Survey Questionnaires on the Quality of Responses (2007)
+   Stéphane Ganassali — DOAJ (DOAJ: Directory of Open Access Journals) [article]
+   DOI: 10.18148/srm/2008.v2i1.598 | citações: 120 | https://openalex.org/W1584422981
+
+29. API design matters (2009)
+   Michi Henning — Communications of the ACM [article]
+   DOI: 10.1145/1506409.1506424 | citações: 113 | https://openalex.org/W2100809735
+
+30. An Empirical Study of API Usability (2013)
+   Marco Piccioni, Carlo A. Furia, Bertrand Meyer — — [conference-paper]
+   DOI: 10.1109/esem.2013.14 | citações: 112 | https://openalex.org/W2013731130
+
+31. Building more usable APIs (1998)
+   S. G. McLellan, Axel Roesler, J.T. Tempest et al. — IEEE Software [article]
+   DOI: 10.1109/52.676963 | citações: 110 | https://openalex.org/W1990693033
+
+32. The implications of method placement on API learnability (2008)
+   Jeffrey Stylos, Brad A. Myers — — [conference-paper]
+   DOI: 10.1145/1453101.1453117 | citações: 103 | https://openalex.org/W2048627472
+
+33. REScala (2014)
+   Guido Salvaneschi, Gerold Hintz, Mira Mezini — — [conference-paper]
+   DOI: 10.1145/2577080.2577083 | citações: 98 | https://openalex.org/W2168485266
+
+34. Determining Usability Test Sample Size (2006)
+   autoria não informada — — [reference-entry]
+   DOI: 10.1201/9780849375477-616 | citações: 96 | https://openalex.org/W3112513434
+
+35. The Future of Software Engineering (2010)
+   Nanz, Sebastian — — [book]
+   DOI: 10.1007/978-3-642-15187-3 | citações: 81 | https://openalex.org/W1623616428
+
+36. Do static type systems improve the maintainability of software systems? An empirical study (2012)
+   Sebastian Kleinschmager, Romain Robbes, Andreas Stefik et al. — — [conference-paper]
+   DOI: 10.1109/icpc.2012.6240483 | citações: 76 | https://openalex.org/W2035206966
+
+37. Asking and answering questions about unfamiliar APIs: An exploratory study (2012)
+   Ekwa Duala-Ekoko, Martin P. Robillard — — [conference-paper]
+   DOI: 10.1109/icse.2012.6227187 | citações: 69 | https://openalex.org/W3151410988
+
+38. Automated measurement of API usability: The API Concepts Framework (2015)
+   Thomas Scheller, Eva Kühn — Information and Software Technology [article]
+   DOI: 10.1016/j.infsof.2015.01.009 | citações: 66 | https://openalex.org/W2024683376
+
+39. Mining Multi-level API Usage Patterns (2015)
+   Mohamed Aymen Saied, Omar Benomar, Hani Abdeen et al. — — [conference-paper]
+   DOI: 10.1109/saner.2015.7081812 | citações: 53 | https://openalex.org/W2003876621
+
+40. Some structural measures of API usability (2013)
+   Girish Maskeri Rama, Avinash C. Kak — Software Practice and Experience [article]
+   DOI: 10.1002/spe.2215 | citações: 45 | https://openalex.org/W1858986506
+
+41. Handbook of Statistical Methods for Engineers and Scientists (1991)
+   Anne M. Barker — Technometrics [article]
+   DOI: 10.1080/00401706.1991.10484812 | citações: 44 | https://openalex.org/W4250252996
+
+42. We have a DREAM (2014)
+   Alessandro Margara, Guido Salvaneschi — — [conference-paper]
+   DOI: 10.1145/2611286.2611290 | citações: 40 | https://openalex.org/W1986923831
+
+43. On the Positive Effect of Reactive Programming on Software Comprehension: An Empirical Study (2017)
+   Guido Salvaneschi, Sebastian Proksch, Sven Amann et al. — IEEE Transactions on Software Engineering [article]
+   DOI: 10.1109/tse.2017.2655524 | citações: 40 | https://openalex.org/W2572482456
+
+44. Characterization and Prediction of Popular Projects on GitHub (2019)
+   Junxiao Han, Shuiguang Deng, Xin Xia et al. — — [conference-paper]
+   DOI: 10.1109/compsac.2019.00013 | citações: 40 | https://openalex.org/W2959468682
+
+45. An evaluation of reactive programming and promises for structuring collaborative web applications (2013)
+   Kennedy Kambona, Elisa Gonzalez Boix, Wolfgang De Meuter — — [conference-paper]
+   DOI: 10.1145/2489798.2489802 | citações: 39 | https://openalex.org/W2141305501
+
+46. Mapping the Space of API Design Decisions (2007)
+   Jeffrey Stylos, Brad Myers — — [conference-paper]
+   DOI: 10.1109/vlhcc.2007.44 | citações: 39 | https://openalex.org/W2139798588
+
+47. A systematic mapping study of API usability evaluation methods (2019)
+   Irum Rauf, Elena Troubitsynå, Iván Porres — Computer Science Review [article]
+   DOI: 10.1016/j.cosrev.2019.05.001 | citações: 39 | https://openalex.org/W2944972137
+
+48. An empirical study on program comprehension with reactive programming (2014)
+   Guido Salvaneschi, Sven Amann, Sebastian Proksch et al. — — [conference-paper]
+   DOI: 10.1145/2635868.2635895 | citações: 37 | https://openalex.org/W1998445782
+
+49. API Designers in the Field: Design Practices and Challenges for Creating Usable APIs (2018)
+   Lauren M. Murphy, Mary Beth Kery, Oluwatosin Alliyu et al. — — [conference-paper]
+   DOI: 10.1109/vlhcc.2018.8506523 | citações: 35 | https://openalex.org/W2898149195
+
+50. A Philosophy of Software Design (2018)
+   John K. Ousterhout — CERN Document Server (European Organization for Nuclear Research) [article]
+   DOI: sem DOI | citações: 34 | https://openalex.org/W2890672905
+
+51. Dolos: Language‐agnostic plagiarism detection in source code (2022)
+   Rien Maertens, Charlotte Van Petegem, Niko Strijbol et al. — Journal of Computer Assisted Learning [article]
+   DOI: 10.1111/jcal.12662 | citações: 33 | https://openalex.org/W4220983258
+
+52. Automatic evaluation of API usability using complexity metrics and visualizations (2009)
+   Cleidson R. B. de Souza, David Leonardo M. Bentolila — — [conference-paper]
+   DOI: 10.1109/icse-companion.2009.5071006 | citações: 31 | https://openalex.org/W2162216720
+
+53. On the Semantics of Distributed Reactive Programming: The Cost of Consistency (2018)
+   Alessandro Margara, Guido Salvaneschi — IEEE Transactions on Software Engineering [article]
+   DOI: 10.1109/tse.2018.2833109 | citações: 29 | https://openalex.org/W2801707263
+
+54. To type or not to type? (2022)
+   Justus Bogner, Manuel Merkel — — [conference-paper]
+   DOI: 10.1145/3524842.3528454 | citações: 27 | https://openalex.org/W4313133034
+
+55. Towards Distributed Reactive Programming (2013)
+   Guido Salvaneschi, Joscha Drechsler, Mira Mezini — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-642-38493-6_16 | citações: 26 | https://openalex.org/W157169979
+
+56. Designing an API at an appropriate abstraction level for programming social robot applications (2016)
+   James P. Diprose, Bruce A. MacDonald, John Hosking et al. — Journal of Visual Languages & Computing [article]
+   DOI: 10.1016/j.jvlc.2016.07.005 | citações: 26 | https://openalex.org/W2460525064
+
+57. An empirical comparison of static and dynamic type systems on API usage in the presence of an IDE: Java vs. groovy with eclipse (2014)
+   Pujan Petersen, Stefan Hanenberg, Romain Robbes — — [conference-paper]
+   DOI: 10.1145/2597008.2597152 | citações: 26 | https://openalex.org/W2048464280
+
+58. A Generic Cognitive Dimensions Questionnaire to Evaluate the Usability of Security APIs (2017)
+   Chamila Wijayarathna, Nalin Asanka Gamagedara Arachchilage, Jill Slay — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-319-58460-7_11 | citações: 24 | https://openalex.org/W2604400213
+
+59. Designing and evaluating the usability of an API for real-time multimedia services in the Internet (2016)
+   Luis Andrés López-Fernández, Boni García, Micael Gallego et al. — Multimedia Tools and Applications [article]
+   DOI: 10.1007/s11042-016-3729-z | citações: 20 | https://openalex.org/W2509624328
+
+60. Usable results from the field of API usability: A systematic mapping and further analysis (2012)
+   Christopher G. Burns, Jennifer Ferreira, Theodore D. Hellmann et al. — — [conference-paper]
+   DOI: 10.1109/vlhcc.2012.6344511 | citações: 20 | https://openalex.org/W2002706478
+
+61. Reactive Programming: A Walkthrough (2015)
+   Guido Salvaneschi, Alessandro Margara, Giordano Tamburrelli — — [conference-paper]
+   DOI: 10.1109/icse.2015.303 | citações: 20 | https://openalex.org/W4235459228
+
+62. An Empirical Study of Quick Remedy Commits (2020)
+   Fengcai Wen, Csaba Nagy, Michele Lanza et al. — — [conference-paper]
+   DOI: 10.1145/3387904.3389266 | citações: 19 | https://openalex.org/W3086681761
+
+63. Structural conformance checking with design tests: An evaluation of usability and calability (2011)
+   João Brunet, Dalton Serey, Jorge C. A. de Figueiredo — — [conference-paper]
+   DOI: 10.1109/icsm.2011.6080781 | citações: 17 | https://openalex.org/W2071141067
+
+64. A Reactive and Model-Based Approach for Developing Internet-of-Things Systems (2018)
+   Joaõ Pedro Dias, João Pascoal Faria, Hugo Sereno Ferreira — — [conference-paper]
+   DOI: 10.1109/quatic.2018.00049 | citações: 17 | https://openalex.org/W2908421179
+
+65. What are the characteristics of popular APIs? A large-scale study on Java, Android, and 165 libraries (2019)
+   Caroline de Lima, André Hora — Software Quality Journal [article]
+   DOI: 10.1007/s11219-019-09476-z | citações: 17 | https://openalex.org/W2990699025
+
+66. Functional Reactive Programming (2016)
+   Fernando Doglio — Apress eBooks [book-chapter]
+   DOI: 10.1007/978-1-4842-2152-5_3 | citações: 12 | https://openalex.org/W2559809343
+
+67. Geometric median and its application in the identification of multiple outliers (2013)
+   Keya Rani Das, A. H. M. Rahmatullah Imon — Journal of Applied Statistics [article]
+   DOI: 10.1080/02664763.2013.856385 | citações: 11 | https://openalex.org/W2077346647
+
+68. Mining the use of higher-order functions: (2020)
+   Yisen Xu, Fan Wu, Xiangyang Jia et al. — Empirical Software Engineering [article]
+   DOI: 10.1007/s10664-020-09842-7 | citações: 9 | https://openalex.org/W3083016217
+
+69. Quality-Aware Reactive Programming for the Internet of Things (2017)
+   José Proença, Carlos Baquero — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-319-68972-2_12 | citações: 8 | https://openalex.org/W2761712642
+
+70. Mining the usage of reactive programming APIs (2022)
+   Carlos Zimmerle, Kiev Santos da Gama, Fernando Castor et al. — — [conference-paper]
+   DOI: 10.1145/3524842.3527966 | citações: 8 | https://openalex.org/W4312302436
+
+71. ReactiFi: Reactive Programming of Wi-Fi Firmware on Mobile Devices (2020)
+   Artur Sterz, Matthias Eichholz, Ragnar Mogk et al. — The Art Science and Engineering of Programming [article]
+   DOI: 10.22152/programming-journal.org/2021/5/4 | citações: 7 | https://openalex.org/W3091667238
+
+72. Distributed REScala (2014)
+   Joscha Drechsler, Guido Salvaneschi, Ragnar Mogk et al. — ACM SIGPLAN Notices [article]
+   DOI: 10.1145/2714064.2660240 | citações: 7 | https://openalex.org/W4251338560
+
+73. Grounded Theory and the Politics of Interpretation, Redux (2019)
+   Norman K. Denzin — — [book-chapter]
+   DOI: 10.4135/9781526485656.n24 | citações: 6 | https://openalex.org/W4247978912
+
+74. What do we really know about data flow languages? (2016)
+   Guido Salvaneschi — — [conference-paper]
+   DOI: 10.1145/3001878.3001884 | citações: 5 | https://openalex.org/W2538788616
+
+75. Reactive programming experience with REScala (2018)
+   Ragnar Mogk, Guido Salvaneschi, Mira Mezini — — [conference-paper]
+   DOI: 10.1145/3191697.3214337 | citações: 5 | https://openalex.org/W2810135794
+
+76. A web-based approach using reactive programming for complex event processing in internet of things applications (2018)
+   Carlos Zimmerle, Kiev Santos da Gama — — [conference-paper]
+   DOI: 10.1145/3167132.3167365 | citações: 5 | https://openalex.org/W2811216049
+
+77. Towards a Reactive Game Engine (2019)
+   João Paulo Oliveira Marum, J. Adam Jones, H. Conrad Cunningham — — [conference-paper]
+   DOI: 10.1109/southeastcon42311.2019.9020527 | citações: 4 | https://openalex.org/W3011398976
+
+78. On the comprehension of application programming interface usability in game engines (2021)
+   Akhila Sri Manasa Venigalla, Sridhar Chimalakonda — Software Practice and Experience [article]
+   DOI: 10.1002/spe.2985 | citações: 4 | https://openalex.org/W3161482875
+

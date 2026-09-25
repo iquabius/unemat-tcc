@@ -1,0 +1,23 @@
+# Trabalhos que citam: Reactive behavior in object-oriented applications (2013)
+# Total: 5 (mostrando 5)
+
+1. On the Semantics of Distributed Reactive Programming: The Cost of Consistency (2018)
+   Alessandro Margara, Guido Salvaneschi — IEEE Transactions on Software Engineering [article]
+   DOI: 10.1109/tse.2018.2833109 | citações: 29 | https://openalex.org/W2801707263
+
+2. A lightweight push-pull mechanism for implicitly using signals in imperative programming (2019)
+   YungYu Zhuang — Journal of Computer Languages [article]
+   DOI: 10.1016/j.cola.2019.100903 | citações: 4 | https://openalex.org/W2946645264
+
+3. Reactor Design Pattern (2021)
+   Marko Mijač, Antonio García‐Cabot, Vjeran Strahonja — TEM Journal [article]
+   DOI: 10.18421/tem101-03 | citações: 3 | https://openalex.org/W3133951795
+
+4. Reactive caching for composed services: polling at the speed of push (2018)
+   Sebastian Burckhardt, Tim Coppieters — Proceedings of the ACM on Programming Languages [article]
+   DOI: 10.1145/3276522 | citações: 3 | https://openalex.org/W2898166391
+
+5. Reactive Programming as an Evolution of Architectural Trade-offs in Managing Changes (2026)
+   Darya Tsukanova, Andrey Zabrodin — Intellectual Technologies on Transport [article]
+   DOI: 10.20295/2413-2527-2026-246-54-63 | citações: 0 | https://openalex.org/W7166530535
+

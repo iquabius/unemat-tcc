@@ -1,0 +1,12 @@
+#+TITLE: Relatórios de revisão
+
+Relatórios de revisão do texto e da bibliografia do TCC, guardados para que
+os pontos ainda não corrigidos não se percam.
+
+Cada arquivo é nomeado =AAAAMMDD-HHMMZ_assunto.md=, com a data e a hora em UTC
+de quando o relatório foi gerado, no mesmo formato de
+=~/code/linux/opensuse-tw=. Assim a ordem alfabética é a ordem cronológica.
+
+Quando um relatório é guardado depois de parte das correções já ter sido
+feita, o cabeçalho registra o que foi corrigido (com o commit), o que está
+pendente e as erratas encontradas depois. O corpo fica como foi gerado.

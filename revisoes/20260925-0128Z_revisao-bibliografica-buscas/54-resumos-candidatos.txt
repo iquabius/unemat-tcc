@@ -1,0 +1,23 @@
+### 10.1145/3524842.3527966
+Mining the usage of reactive programming APIs 2022
+### 10.1007/s10664-024-10568-z
+The downside of functional constructs: a quantitative and qualitative analysis of their fix-inducing effects 2024
+(sem resumo no OpenAlex)
+### 10.1109/tse.2021.3083321
+Interacto: A Modern User Interaction Processing Model 2021
+### 10.4230/lipics.ecoop.2020.12
+A Semantics for the Essence of React 2020
+### 10.1145/3510003.3519016
+Imperative versus declarative collection processing 2022
+### 10.1145/3609023.3609806
+The Beauty and Elegance of Functional Reactive Animation 2023
+### 10.1017/9781108654555.014
+Programming Paradigms and Beyond 2019
+(sem resumo no OpenAlex)
+### 10.1016/j.ijhcs.2019.06.009
+Fifty years of the psychology of programming 2019
+(sem resumo no OpenAlex)
+### 10.1007/978-3-030-71995-1_15
+Adjoint Reactive GUI Programming 2021
+### 10.1145/3763067
+React-tRace: A Semantics for Understanding React Hooks: An Operational Semantics and a Visualizer for Clarifying React Hooks 2025

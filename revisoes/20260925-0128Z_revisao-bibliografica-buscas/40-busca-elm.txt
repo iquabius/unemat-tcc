@@ -1,0 +1,62 @@
+# Busca: 'Elm programming language web' — 18 resultados no OpenAlex (mostrando 15, ordem: relevancia)
+
+1. Extracting functional programs from Coq, in Coq (2022)
+   Danil Annenkov, Mikkel Milo, Jakob Botsch Nielsen et al. — Journal of Functional Programming [article]
+   DOI: 10.1017/s0956796822000077 | citações: 5 | https://openalex.org/W3188083979
+
+2. Elmsvuur: A Multi-tier Version of Elm and its Time-Traveling Debugger (2018)
+   Jeff Horemans, Bob Reynders, Dominique Devriese et al. — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-319-89719-6_5 | citações: 1 | https://openalex.org/W2798604531
+
+3. Application of Normalized Systems Theory to pure functional code to achieve sustainability of web front-end applications (2025)
+   Jan Slifka, Robert Pergl — Journal of Computer Languages [article]
+   DOI: 10.1016/j.cola.2025.101346 | citações: 1 | https://openalex.org/W4413444308
+
+4. Creation of web applications by ELM language (2018)
+   Vladimír JIROUDEK — Digital Repository (National Repository of Grey Literature) [dissertation]
+   DOI: sem DOI | citações: 0 | https://openalex.org/W7128344530
+
+5. Assessing the suitability of Elm language for developing web applications (2018)
+   Marko Grešak — — [dissertation]
+   DOI: sem DOI | citações: 0 | https://openalex.org/W2885675678
+
+6. Web frontend development with Elm (2018)
+   Aleksi Holappa — Theseus (Ammattikorkeakoulujen) [article]
+   DOI: sem DOI | citações: 0 | https://openalex.org/W3027220228
+
+7. Lambda Calculus Calculator (2018)
+   Cyrill Hänni, Dominik Kessler — HSR (HSR University of Applied Sciences Rapperswil) [dissertation]
+   DOI: sem DOI | citações: 1 | https://openalex.org/W3087471123
+
+8. Model-View-Update-Communicate: Session Types Meet the Elm Architecture (2019)
+   Simon Fowler — ENLIGHTEN (Jurnal Bimbingan dan Konseling Islam) [conference-paper]
+   DOI: 10.4230/lipics.ecoop.2020.14 | citações: 0 | https://openalex.org/W2981363248
+
+9. Moogle: a type-based API search engine for Elm (2019)
+   Junpeng Ouyang — LA Referencia (Red Federada de Repositorios Institucionales de Publicaciones Científicas) [dissertation]
+   DOI: sem DOI | citações: 0 | https://openalex.org/W2992861707
+
+10. Features of a dream programming language: 2nd draft (2022)
+   Magne Matre Gåsland — — [preprint]
+   DOI: 10.22541/au.164510374.48530005/v1 | citações: 0 | https://openalex.org/W4212994994
+
+11. Middle School Architect: Programmatic Modeling and Construction via a 3D Graphics Platform in Elm (2024)
+   Anurag Parcha, Sanjana Mishra, Christopher Kumar Anand et al. — — [conference-paper]
+   DOI: 10.1109/ic-etite58242.2024.10493720 | citações: 0 | https://openalex.org/W4394937511
+
+12. Extracting functional programs from Coq, in Coq (2021)
+   Danil Annenkov, Mikkel Milo, Jakob Botsch Nielsen et al. — arXiv (Cornell University) [preprint]
+   DOI: 10.48550/arxiv.2108.02995 | citações: 0 | https://openalex.org/W4287027904
+
+13. Interactive computer vision through the Web (2020)
+   Matthieu Pizenberg — Open Archive Toulouse Archive Ouverte (University of Toulouse) [dissertation]
+   DOI: sem DOI | citações: 0 | https://openalex.org/W3004244613
+
+14. Directing O'Neill: Mourning Becomes Electra, Long Day's Journey Into Night, Desire Under the Elms, Days Without End (2019)
+   Ben Barnes, Miles Potter, Fred Abrahamse et al. — The Eugene O Neill Review [article]
+   DOI: 10.5325/eugeoneirevi.40.2.0220 | citações: 0 | https://openalex.org/W2997697692
+
+15. Introduction (2018)
+   Wolfgang Loder — Apress eBooks [book-chapter]
+   DOI: 10.1007/978-1-4842-2610-0_1 | citações: 0 | https://openalex.org/W4238265845
+

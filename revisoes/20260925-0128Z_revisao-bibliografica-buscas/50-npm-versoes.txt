@@ -1,0 +1,19 @@
+rxjs latest= 7.8.2 publicado= 2025-02-22T03:00:42.711Z modificado= 2026-08-04T19:46:37.001Z
+  primeira versão de cada major: {'1': '2012-03-04', '5': '2016-12-13', '6': '2018-04-24', '7': '2021-04-29'}
+xstream latest= 11.14.0 publicado= 2020-10-12T15:36:17.689Z modificado= 2022-06-29T06:05:53.466Z
+  primeira versão de cada major: {'8': '2016-11-17', '9': '2016-11-28', '10': '2016-12-12', '11': '2017-09-27'}
+baconjs latest= 3.0.23 publicado= 2025-04-18T11:28:06.148Z modificado= 2025-04-18T11:28:06.310Z
+  primeira versão de cada major: {'0': '2012-11-06', '1': '2017-12-15', '2': '2018-01-29', '3': '2019-03-27'}
+react latest= 19.3.0 publicado= 2026-09-09T17:21:30.071Z modificado= 2026-09-23T16:29:47.413Z
+  primeira versão de cada major: {'16': '2017-09-26', '17': '2020-10-20', '18': '2022-03-29', '19': '2024-12-05'}
+elm latest= 0.19.2-0 publicado= 2026-07-06T08:43:48.037Z modificado= 2026-07-07T06:46:50.083Z
+  primeira versão de cada major: {'0': '2014-10-12', '1': '2015-03-16', '2': '2015-07-04'}
+xstream último commit: 2022-02-07T13:38:24Z chore(deps): bump elliptic from 6.5.3 to 6.5.4 (#319)
+
+Bumps [elliptic](https://
+react 16.8.0 2019-02-06T08:00:25.150Z
+@angular/core 16.0.0 2023-05-03T16:47:02.052Z
+solid-js 1.0.0 2021-06-28T05:32:22.597Z
+@preact/signals 1.0.0 2022-09-05T15:08:28.158Z
+svelte 5.0.0 2024-10-19T16:45:12.576Z
+vue 3.0.0 2020-09-18T15:28:56.011Z

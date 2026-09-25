@@ -1,0 +1,79 @@
+# Trabalhos que citam: Reactive Programming: A Walkthrough (2015)
+# Total: 19 (mostrando 19)
+
+1. The R Language: An Engine for Bioinformatics and Data Science (2022)
+   Federico Manuel Giorgi, Carmine Ceraolo, Daniele Mercatelli — Life [article]
+   DOI: 10.3390/life12050648 | citações: 229 | https://openalex.org/W4225000460
+
+2. Detecting Cyber Security Vulnerabilities through Reactive Programming (2019)
+   Ole Christian Moholth, Radmila Juric, Karoline Moholth McClenaghan — Proceedings of the ... Annual Hawaii International Conference on System Sciences/Proceedings of the Annual Hawaii International Conference on System Sciences [conference-paper]
+   DOI: 10.24251/hicss.2019.864 | citações: 9 | https://openalex.org/W2935356978
+
+3. Mining the usage of reactive programming APIs (2022)
+   Carlos Zimmerle, Kiev Santos da Gama, Fernando Castor et al. — — [conference-paper]
+   DOI: 10.1145/3524842.3527966 | citações: 8 | https://openalex.org/W4312302436
+
+4. Quality-Aware Reactive Programming for the Internet of Things (2017)
+   José Proença, Carlos Baquero — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-319-68972-2_12 | citações: 8 | https://openalex.org/W2761712642
+
+5. Facet-oriented Modelling (2021)
+   Juan D. Lara, Esther Guerra, Jörg Kienzle — ACM Transactions on Software Engineering and Methodology [article]
+   DOI: 10.1145/3428076 | citações: 7 | https://openalex.org/W3133170989
+
+6. RxAda: An Ada implementation of the ReactiveX API (2017)
+   Alejandro R. Mosteo — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-319-60588-3_10 | citações: 5 | https://openalex.org/W2618267232
+
+7. A Systematic Exploration on Challenges and Limitations in Middleware Programming for IoT Technology (2018)
+   Pedro Taveras — International Journal of Hyperconnectivity and the Internet of Things [article]
+   DOI: 10.4018/ijhiot.2018070101 | citações: 4 | https://openalex.org/W2911018138
+
+8. The Use of Reactive Programming in the Proposed Model for Cloud Security Controlled by ITSS (2022)
+   Dhuratë Hyseni, Nimete Piraj, Betim Çiço et al. — Computers [article]
+   DOI: 10.3390/computers11050062 | citações: 3 | https://openalex.org/W4224444661
+
+9. A Semantic Framework for the Design of Distributed Reactive Real-Time Languages and Applications (2020)
+   Mateo Sanabria, Luis Daniel Benavides Navarro, Daniel Díaz López et al. — IEEE Access [article]
+   DOI: 10.1109/access.2020.3010697 | citações: 3 | https://openalex.org/W3044527226
+
+10. Computational Model for Wearable Hardware Commodities (2019)
+   Karoline Moholth McClenaghan, Ole Christian Moholth — — [conference-paper]
+   DOI: 10.1109/dasc/picom/cbdcom/cyberscitech.2019.00055 | citações: 3 | https://openalex.org/W2982350967
+
+11. On the Usability of Reactive Programming APIs: A Mixed Evaluation (2025)
+   Carlos Zimmerle, Kiev Santos da Gama — Software Practice and Experience [article]
+   DOI: 10.1002/spe.3435 | citações: 2 | https://openalex.org/W4410705712
+
+12. Reactive Programming with Swift Combine: An Analysis of Problems Faced by Developers on Stack Overflow (2023)
+   Alessandra Marques Pereira, Kiev Santos da Gama, Carlos Zimmerle et al. — — [conference-paper]
+   DOI: 10.1145/3613372.3613381 | citações: 2 | https://openalex.org/W4387007130
+
+13. Reactive-based Complex Event Processing (2019)
+   Carlos Zimmerle, Wellington Oliveira, Kiev Santos da Gama et al. — — [conference-paper]
+   DOI: 10.1145/3350768.3352492 | citações: 2 | https://openalex.org/W2973365407
+
+14. UAX: Measuring the Usability of TypeScript APIs (2024)
+   Carlos Zimmerle, Kiev Santos da Gama — — [conference-paper]
+   DOI: 10.5753/sbes.2024.3658 | citações: 1 | https://openalex.org/W4403585108
+
+15. Computers as Interactive Machines: Can We Build an Explanatory Abstraction? (2023)
+   Alice O. Martin, Mathieu Magnaudet, Stéphane Conversy — Minds and Machines [article]
+   DOI: 10.1007/s11023-023-09624-2 | citações: 1 | https://openalex.org/W4360986164
+
+16. Rx-PETaL: A Reactive Data Publishing Framework (2021)
+   Carl Camilleri, Joseph G. Vella, Vitezslav Nezval — Lecture notes in networks and systems [conference-paper]
+   DOI: 10.1007/978-3-030-86223-7_10 | citações: 1 | https://openalex.org/W3197539748
+
+17. Physical Programmability (2025)
+   Nick Wiggershaus — Minds and Machines [article]
+   DOI: 10.1007/s11023-025-09714-3 | citações: 0 | https://openalex.org/W4408073036
+
+18. Perspectives and Challenges of iOS Developers in Using Reactive Programming with RxSwift (2024)
+   Elaine Cruz Farias, Carlos Zimmerle, Kiev Santos da Gama — — [conference-paper]
+   DOI: 10.5753/sbes.2024.3569 | citações: 0 | https://openalex.org/W4403607095
+
+19. Computational Edge for Multiple Autonomous Objects (2020)
+   Karoline Moholth McClenaghan, Ole Christian Moholth, Jan Dyre Bjerknes — 2020 IEEE International Conference on Human-Machine Systems (ICHMS) [conference-paper]
+   DOI: 10.1109/ichms49158.2020.9209547 | citações: 0 | https://openalex.org/W3090302480
+

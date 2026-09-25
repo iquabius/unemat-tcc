@@ -1,0 +1,102 @@
+# Busca: 'state management web front-end applications' — 90 resultados no OpenAlex (mostrando 25, ordem: relevancia)
+
+1. Application State Management (ASM) in the Modern Web and Mobile Applications: A Comprehensive Review (2024)
+   Anujkumarsinh Donvir, Apeksha Jain, Pradeep Kumar Saraswathi — arXiv (Cornell University) [preprint]
+   DOI: 10.48550/arxiv.2407.19318 | citações: 2 | https://openalex.org/W4401201689
+
+2. Building a Rig State Classifier Using Supervised Machine Learning to Support Invisible Lost Time Analysis (2019)
+   Christopher M. Coley — — [conference-paper]
+   DOI: 10.2118/194136-ms | citações: 17 | https://openalex.org/W2915603314
+
+3. anem: A Simple Web‐Based Platform to Build Stakeholder Understanding of Groundwater Behavior (2020)
+   Gopal Penny, Connor Mullen, Diogo Bolster et al. — Ground Water [article]
+   DOI: 10.1111/gwat.13043 | citações: 6 | https://openalex.org/W3081935394
+
+4. Executive Summary: American Association of Clinical Chemistry Laboratory Medicine Practice Guideline—Using Clinical Laboratory Tests to Monitor Drug Therapy in Pain Management Patients (2018)
+   Paul J. Jannetto, Nancy C Bratanow, William A. Clark et al. — The Journal of Applied Laboratory Medicine [article]
+   DOI: 10.1373/jalm.2017.023341 | citações: 47 | https://openalex.org/W2787046262
+
+5. E-BUSINESS LEARNING TOOL FOR ONLINE BANKING BASED ON BPM (BUSINESS PROCESS MANAGEMENT) (2019)
+   Radu Rădescu, Tudor Ardelean — eLearning and Software for Education [conference-paper]
+   DOI: 10.12753/2066-026x-19-047 | citações: 1 | https://openalex.org/W4321847466
+
+6. Automatic Data Standardization for the Global Cryosphere Watch Data Portal (2020)
+   Mathias Bavay, Joel Fiddes, Øystein Godøy — Data Science Journal [article]
+   DOI: 10.5334/dsj-2020-006 | citações: 4 | https://openalex.org/W3008594776
+
+7. Transforming Operations Data into Business Intelligence: Leveraging Natural Language Processing (NLP) and Machine Learning (ML) for Accurate and Sustainable Insights (2023)
+   S. Mukherjee, Shashi Shekhar, Sabrina Sales Martínez et al. — — [conference-paper]
+   DOI: 10.2118/216736-ms | citações: 3 | https://openalex.org/W4387229929
+
+8. End-to-End Application and Backend State Management: A Comprehensive Review (2024)
+   Anujkumarsinh Donvir, Pradeep Kumar Saraswathi, Apeksha Jain — — [conference-paper]
+   DOI: 10.1109/uemcon62879.2024.10754779 | citações: 0 | https://openalex.org/W4404564807
+
+9. Policy is theft: The state of global Internet policy in an age of revolutions (2023)
+   John A. Hartley — Policy & Internet [article]
+   DOI: 10.1002/poi3.364 | citações: 1 | https://openalex.org/W4385837492
+
+10. Gigged: The End of the Job and the Future of Work by Sarah Kessler, Uberland: How Algorithms Are Rewriting the Rules of Work by Alex Rosenblat, Humans as Service: The Promise and Perils of Work in the Gig Economy by Jeremias Prassl (2020)
+   Katie J. Wells — Labor Studies in Working-Class History of the Americas [article]
+   DOI: 10.1215/15476715-8114842 | citações: 2 | https://openalex.org/W3021132814
+
+11. State Management (2023)
+   Francesco Strazzullo — Apress eBooks [book-chapter]
+   DOI: 10.1007/978-1-4842-9351-5_8 | citações: 0 | https://openalex.org/W4386588364
+
+12. State Management (2019)
+   Francesco Strazzullo — Apress eBooks [book-chapter]
+   DOI: 10.1007/978-1-4842-4967-3_7 | citações: 0 | https://openalex.org/W4232603904
+
+13. Integrated Project Development through Combined Theory and Practices of Core Courses focusing on Software Development Skills: Integrated Learning Framework (2024)
+   Padmashree Desai, Pavan Hiremath — Journal of Engineering Education/Journal of engineering education transformations/Journal of engineering education transformation [article]
+   DOI: 10.16920/jeet/2024/v37is2/24148 | citações: 1 | https://openalex.org/W4394980803
+
+14. Level Up Your Front-End Skills with React JS (2025)
+   Muhammad Daffa Saptrian, Muhammad Thoriq Ramadhan, Muhammad Haikal Syauqi et al. — Society Jurnal Pengabdian Masyarakat [article]
+   DOI: 10.55824/jpm.v4i5.659 | citações: 0 | https://openalex.org/W4414340244
+
+15. Online task management application (2023)
+   Muttahar Farooq — University of Debrecen Electronic Archive (University of Debrecen) [article]
+   DOI: sem DOI | citações: 0 | https://openalex.org/W7200641964
+
+16. Modern E-Commerce Web Application with React (2025)
+   GUDLA JYOTHI CHANDRA, Barkha Kumari — International Scientific Journal of Engineering and Management [article]
+   DOI: 10.55041/isjem04951 | citações: 0 | https://openalex.org/W4413030339
+
+17. Implementation of Vue.js Large Scale Web Application Architecture (2026)
+   Min Lu, Xiaoxu Xiao — Lecture notes on data engineering and communications technologies [conference-paper]
+   DOI: 10.1007/978-981-95-8876-3_15 | citações: 0 | https://openalex.org/W7166886303
+
+18. Proposal for an SMS-driven CMMS solution (2019)
+   Dieudonné Abessolo Assoumou, Aimé Joseph Oyobé Okassa, Pierre Élé — International Journal of Engineering and Technology [article]
+   DOI: 10.21817/ijet/2019/v11i2/191102010 | citações: 1 | https://openalex.org/W2943491016
+
+19. Ai-Assisted Legacy Front-End Modernization: Intelligent Jquery-To-React Transformation Using Automated Component Extraction And Dependency Analysis (2026)
+   Mohammed Sayerwala — International Journal of Artificial Intelligence and Machine Learning [article]
+   DOI: 10.5281/zenodo.21342590 | citações: 0 | https://openalex.org/W7168151940
+
+20. Ai-Assisted Legacy Front-End Modernization: Intelligent Jquery-To-React Transformation Using Automated Component Extraction And Dependency Analysis (2026)
+   Mohammed Sayerwala — International Journal of Artificial Intelligence and Machine Learning [article]
+   DOI: 10.51483/ijaiml.6.4s.2026.903-909 | citações: 0 | https://openalex.org/W7167841290
+
+21. Ai-Assisted Legacy Front-End Modernization: Intelligent Jquery-To-React Transformation Using Automated Component Extraction And Dependency Analysis (2026)
+   Mohammed Sayerwala — International Journal of Artificial Intelligence and Machine Learning [article]
+   DOI: 10.5281/zenodo.21342591 | citações: 0 | https://openalex.org/W7168183376
+
+22. Architecting Scalable Front-End Systems for Enterprise E-Commerce Promotions: Micro-Frontend Patterns, React-Based Modernization, and Event-Driven UI Architectural Practices (2025)
+   Preejith Ponneth — International Journal of Computational and Experimental Science and Engineering [article]
+   DOI: 10.22399/ijcesen.4536 | citações: 0 | https://openalex.org/W7117158298
+
+23. Development of a Cloud-Based Healthcare Data Management System for Public Health Facilities in Ekiti State, Nigeria (2026)
+   Tolani Grace Oluwatoki, Victory Chinemelum Nwaka Azobu, Josphine Olamatanmi Mebawondu et al. — ABUAD International  Journal of Natural and Applied Sciences [article]
+   DOI: 10.53982/aijnas.2026.0603.12-j | citações: 0 | https://openalex.org/W7213494780
+
+24. Improved method of targeted user interface updates for enhancing the efficiency of web applications based on reactive streams and virtual DOM (2025)
+   M.V. Havatiuk, I. Saiapina — DOAJ (DOAJ: Directory of Open Access Journals) [article]
+   DOI: 10.26642/ten-2025-1(95)-259-265 | citações: 0 | https://openalex.org/W4413084223
+
+25. Catanduanes State University Employee Profiling Management System Implementing Knuth-Morris-Pratt Search String Algorithm (2024)
+   Ramona Michelle M. Magtangob, Maria Concepcion S. Vera — — [conference-paper]
+   DOI: 10.1109/icaccess61735.2024.10499503 | citações: 0 | https://openalex.org/W4394995069
+

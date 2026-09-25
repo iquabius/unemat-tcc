@@ -1,0 +1,6 @@
+# Busca: 'reactive extensions RxJS observables' — 1 resultados no OpenAlex (mostrando 1, ordem: relevancia)
+
+1. RxJS with Angular (2018)
+   Mark Clow — Apress eBooks [book-chapter]
+   DOI: 10.1007/978-1-4842-3279-8_17 | citações: 0 | https://openalex.org/W2788192426
+

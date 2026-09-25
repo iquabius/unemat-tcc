@@ -1,0 +1,62 @@
+# Busca: 'React hooks' — 305 resultados no OpenAlex (mostrando 15, ordem: relevancia)
+
+1. React-tRace: A Semantics for Understanding React Hooks: An Operational Semantics and a Visualizer for Clarifying React Hooks (2025)
+   Jaeho Lee, Joongwon Ahn, Kwangkeun Yi — Proceedings of the ACM on Programming Languages [article]
+   DOI: 10.1145/3763067 | citações: 1 | https://openalex.org/W4414977261
+
+2. ROS-React: A Framework for Dynamic, Over-the-Air Reconfigurable Robot Behavior Trees via React Native Hooks (2025)
+   Nnaemeka Kingsley Ugwumba, Peter Sunday Jaja — Research Square [preprint]
+   DOI: 10.21203/rs.3.rs-7935527/v1 | citações: 2 | https://openalex.org/W4415587152
+
+3. Performance Analysis of Hooks Functionality in React and Vue Frameworks (2022)
+   Jason Sianandar, Ida Bagus Kerthyayana Manuaba — 2022 International Conference on Information Management and Technology (ICIMTech) [conference-paper]
+   DOI: 10.1109/icimtech55957.2022.9915183 | citações: 1 | https://openalex.org/W4312909042
+
+4. Genome-wide identification and expression analysis of the AT-hook Motif Nuclear Localized gene family in soybean (2021)
+   Min Wang, Bowei Chen, Wei Zhou et al. — BMC Genomics [article]
+   DOI: 10.1186/s12864-021-07687-y | citações: 47 | https://openalex.org/W3153222874
+
+5. Structure and chemistry of lysinoalanine crosslinking in the spirochaete flagella hook (2019)
+   Michael J. Lynch, Michael Raymond Miller, Milinda E. James et al. — Nature Chemical Biology [article]
+   DOI: 10.1038/s41589-019-0341-3 | citações: 26 | https://openalex.org/W2967502564
+
+6. React Hook Form (2025)
+   Usman Abdur Rehman — Apress pocket guides. [book-chapter]
+   DOI: 10.1007/979-8-8688-1224-8_2 | citações: 0 | https://openalex.org/W4407127865
+
+7. React Hook Form Basics (2025)
+   Usman Abdur Rehman — Apress pocket guides. [book-chapter]
+   DOI: 10.1007/979-8-8688-1224-8_3 | citações: 0 | https://openalex.org/W4407126991
+
+8. A Semantically Grounded Visualization of React Hooks (2026)
+   Jay Lee, Kwangkeun Yi — KiltHub Repository [conference-paper]
+   DOI: 10.1184/r1/31816744 | citações: 0 | https://openalex.org/W7151816134
+
+9. Making Forms with React Hook Form (2025)
+   Usman Abdur Rehman — Apress pocket guides. [book-chapter]
+   DOI: 10.1007/979-8-8688-1224-8_4 | citações: 0 | https://openalex.org/W4407155018
+
+10. A Semantically Grounded Visualization of React Hooks (2026)
+   Jay Lee, Kwangkeun Yi — KiltHub Repository [conference-paper]
+   DOI: 10.1184/r1/31816744.v1 | citações: 0 | https://openalex.org/W7151811567
+
+11. Day 4: Mastering React Hooks (2023)
+   Eric Sarrion — Apress eBooks [book-chapter]
+   DOI: 10.1007/978-1-4842-9855-8_4 | citações: 0 | https://openalex.org/W4387960967
+
+12. A Semantics for the Essence of React (2020)
+   Magnus Linnet Madsen, Ondřej Lhoták, Frank Tip — DROPS (Schloss Dagstuhl – Leibniz Center for Informatics) [article]
+   DOI: 10.4230/lipics.ecoop.2020.12 | citações: 9 | https://openalex.org/W3107097716
+
+13. HookLens: Visual Analytics for Understanding React Hooks Structures (2026)
+   Suyeon Hwang, Minkyu Kweon, J. Rhee et al. — arXiv (Cornell University) [preprint]
+   DOI: sem DOI | citações: 0 | https://openalex.org/W7131191332
+
+14. HookLens: Visual Analytics for Understanding React Hooks Structures (2026)
+   Suyeon Hwang, Minkyu Kweon, J. Rhee et al. — arXiv (Cornell University) [preprint]
+   DOI: 10.48550/arxiv.2602.17891 | citações: 0 | https://openalex.org/W7131098196
+
+15. Optimizing React Hooks for Efficient State and Side-Effect Management (2022)
+   Kavya Muppaneni — American International Journal of Computer Science and Technology [article]
+   DOI: 10.63282/3117-5481/aijcst-v4i6p105 | citações: 0 | https://openalex.org/W7153143008
+

@@ -1,0 +1,70 @@
+# Auditoria de refs.bib (ano de referência: 2026)
+
+Entradas: 80
+Tipos: inproceedings 27, article 21, book 14, online 6, report 4, thesis 3, collection 2, incollection 2, mvbook 1
+
+## Idade das referências
+
+Mais antiga: 1937 | mais recente: 2020 | mediana: 2008 (idade mediana: 18 anos)
+Publicadas nos últimos 5 anos: 0 (0%)
+Publicadas nos últimos 10 anos: 8 (11%)
+
+Por ano:
+  1937: █ 1
+  1986: █ 1
+  1989: ███ 3
+  1990: ██ 2
+  1992: █ 1
+  1994: ███████ 7
+  1995: █ 1
+  1996: ██ 2
+  1997: ██ 2
+  1998: █ 1
+  1999: █ 1
+  2000: ██ 2
+  2001: ██ 2
+  2002: █ 1
+  2003: ████ 4
+  2004: █ 1
+  2005: █ 1
+  2006: ██ 2
+  2007: ███ 3
+  2008: ███ 3
+  2009: ████████ 8
+  2010: █ 1
+  2011: ██ 2
+  2012: █ 1
+  2013: █████ 5
+  2014: ███████ 7
+  2015: ███ 3
+  2016: ███████ 7
+  2020: █ 1
+
+Sem ano/data: mogk, nishino, perera, This
+
+## Metadados
+
+Artigos/trabalhos em evento sem DOI (41): albinson2016a, bainomugisha2013, belikov2013, clarke2003, cooper2006, courtney2003, czaplicki2012, elliott1997, gammie2009, gavidia1997, gil1994, green1989, green1996d, green2000, haller2016, hughes1989, hughes1990, jose2014, kambona2013, kutar2000, leal2014, lloyd1994, meyerovich2009, mogk, moseley2006, nishino, perera, prodanov2013, pucella1998, rao2003, roy2009, salvaneschi2013, salvaneschi2014, salvaneschi2014a, salvaneschi2015, salvaneschi2016, santanna2015, smolka1994, turing1937, vanroy2003, xavier2002
+URLs instáveis (busca/Google Books com parâmetros): abelson1996, felleisen2001, gerhardt2009, green1989, sebesta2009, yin2001
+Campos essenciais ausentes: albinson2016a (booktitle); gavidia1997 (periódico); jose2014 (periódico); leal2014 (periódico); mogk (periódico); nishino (periódico); perera (periódico); reynders2014 (booktitle); xavier2002 (periódico)
+Possíveis duplicatas (mesmo título): gammie2009 = roy2004; hughes1989 = hughes1990; noble1994 = noble1994a; This = This2020
+
+## Uso no texto (5 arquivos)
+
+Chaves citadas: 25 | entradas nunca citadas: 55
+
+Nunca citadas: This, abelson1996, agha1986, albinson2016a, assayag2009, belikov2013, braithwaite2007, carvalho1999, cooper2006, courtney2003, czaplicki2012, elliott1997, felleisen2001, gamma1995, gammie2009, gavidia1997, gerhardt2009, gil1994, green1996d, green2000, haller2016, hudak2008, hughes1989, jose2014, kambona2013, krishnamurthi2007, krishnamurthi2008, leal2014, lemos2015, lin2016, lloyd1994, medeiros2014, meyerovich2009, minasi1994, mogk, nishino, noble1994a, perera, prodanov2013, pucella1998, rao2003, reppy1992, reynders2014, rota2016, salvaneschi2013, salvaneschi2014a, salvaneschi2016, santanna2015, santos2009, sawada2016, sebesta2009, smolka1994, turing1937, turner1990, xavier2002
+
+Mais citadas no texto (chave, ano, vezes):
+  - roy2009 (2009): 12
+  - kiss2014 (2014): 5
+  - hughes1990 (1990): 5
+  - blackheath2016 (2016): 4
+  - roy2004 (2004): 4
+  - noble1994 (1994): 4
+  - bainomugisha2013 (2013): 3
+  - leal2011 (2011): 2
+  - green1989 (1989): 2
+  - moseley2006 (2006): 2
+  - salvaneschi2015 (2015): 2
+  - edwards2009 (2009): 2

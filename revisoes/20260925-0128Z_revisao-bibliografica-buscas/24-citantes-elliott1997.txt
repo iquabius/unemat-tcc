@@ -1,0 +1,243 @@
+# Trabalhos que citam: Functional reactive animation (1997)
+# Total: 137 (mostrando 60)
+
+1. FlowMatic: An Immersive Authoring Tool for Creating Interactive Scenes in Virtual Reality (2020)
+   Lei Zhang, Steve Oney — — [conference-paper]
+   DOI: 10.1145/3379337.3415824 | citações: 94 | https://openalex.org/W3093907960
+
+2. Reactors: A Deterministic Model for Composable Reactive Systems (2020)
+   Marten Lohstroh, Inigo Incer, Andrés Goens et al. — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-030-41131-2_4 | citações: 57 | https://openalex.org/W3008843202
+
+3. Animated Vega-Lite: Unifying Animation with a Grammar of Interactive Graphics (2022)
+   Jonathan Zong, Josh Pollock, Dylan Wootton et al. — IEEE Transactions on Visualization and Computer Graphics [article]
+   DOI: 10.1109/tvcg.2022.3209369 | citações: 36 | https://openalex.org/W4304479239
+
+4. Temporal Stream Logic: Synthesis Beyond the Bools (2019)
+   Bernd Finkbeiner, Felix Klein, Ružica Piskač et al. — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-030-25540-4_35 | citações: 32 | https://openalex.org/W2947784983
+
+5. Recurrence extraction for functional programs through call-by-push-value (2019)
+   G. A. Kavvos, Edward Morehouse, Daniel R. Licata et al. — Proceedings of the ACM on Programming Languages [article]
+   DOI: 10.1145/3371083 | citações: 20 | https://openalex.org/W2984542881
+
+6. Can reactive synthesis and syntax-guided synthesis be friends? (2022)
+   Wonhyuk Choi, Bernd Finkbeiner, Ružica Piskač et al. — — [conference-paper]
+   DOI: 10.1145/3519939.3523429 | citações: 18 | https://openalex.org/W4281723906
+
+7. Online Signal Monitoring With Bounded Lag (2020)
+   Konstantinos Mamouras, Zhifu Wang — IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems [article]
+   DOI: 10.1109/tcad.2020.3013053 | citações: 18 | https://openalex.org/W3090131141
+
+8. A vision of miking: interactive programmatic modeling, sound language composition, and self-learning compilation (2019)
+   David Broman — — [conference-paper]
+   DOI: 10.1145/3357766.3359531 | citações: 16 | https://openalex.org/W2979505726
+
+9. A fault-tolerant programming model for distributed interactive applications (2019)
+   Ragnar Mogk, Joscha Drechsler, Guido Salvaneschi et al. — Proceedings of the ACM on Programming Languages [article]
+   DOI: 10.1145/3360570 | citações: 16 | https://openalex.org/W2979761551
+
+10. Hailstorm: A Statically-Typed, Purely Functional Language for IoT Applications (2020)
+   Abhiroop Sarkar, Mary Sheeran — — [conference-paper]
+   DOI: 10.1145/3414080.3414092 | citações: 14 | https://openalex.org/W3082024547
+
+11. Towards secure IoT programming in Haskell (2020)
+   Nachiappan Valliappan, Robert Krook, Alejandro Russo et al. — — [conference-paper]
+   DOI: 10.1145/3406088.3409027 | citações: 14 | https://openalex.org/W3046845804
+
+12. Lenses for Web Data (2024)
+   Raghu Rajkumar, Nate Foster, Sam Lindley et al. — Edinburgh Research Explorer (University of Edinburgh) [article]
+   DOI: 10.14279/tuj.eceasst.57.879 | citações: 13 | https://openalex.org/W1506770266
+
+13. Semantic Foundations for Deterministic Dataflow and Stream Processing (2020)
+   Konstantinos Mamouras — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-030-44914-8_15 | citações: 12 | https://openalex.org/W3017159537
+
+14. Implementing Micro Frontends Using Signal-based Web Components (2022)
+   Yuma Nishizu, Tetsuo Kamina — Journal of Information Processing [article]
+   DOI: 10.2197/ipsjjip.30.505 | citações: 11 | https://openalex.org/W4291517574
+
+15. HipHop.js: (A)Synchronous reactive web programming (2020)
+   Gérard Berry, Manuel Serrano — — [conference-paper]
+   DOI: 10.1145/3385412.3385984 | citações: 10 | https://openalex.org/W3032938888
+
+16. Automated Refactoring to Reactive Programming (2019)
+   Mirko Köhler, Guido Salvaneschi — — [conference-paper]
+   DOI: 10.1109/ase.2019.00082 | citações: 10 | https://openalex.org/W2999664051
+
+17. A programming model for semi-implicit parallelization of static analyses (2020)
+   Dominik Helm, Florian Kübler, Jan Thomas Kölzer et al. — — [conference-paper]
+   DOI: 10.1145/3395363.3397367 | citações: 9 | https://openalex.org/W3043272472
+
+18. Distributed Neural Representation for Reactive In Situ Visualization (2024)
+   Qi Wu, Joseph A. Insley, Victor A. Mateevitsi et al. — IEEE Transactions on Visualization and Computer Graphics [article]
+   DOI: 10.1109/tvcg.2024.3432710 | citações: 8 | https://openalex.org/W4401416664
+
+19. Reactive Context-Aware Programming (2024)
+   Stijn Mostinckx, Andoni Lombide Carreton, Wolfgang De Meuter — — [article]
+   DOI: 10.14279/tuj.eceasst.11.133 | citações: 8 | https://openalex.org/W2098582158
+
+20. Modal FRP for all: Functional reactive programming without space leaks in Haskell (2022)
+   Patrick Bahr — Journal of Functional Programming [article]
+   DOI: 10.1017/s0956796822000132 | citações: 8 | https://openalex.org/W4312855657
+
+21. StreamQL: a query language for processing streaming time series (2020)
+   Lingkun Kong, Konstantinos Mamouras — Proceedings of the ACM on Programming Languages [article]
+   DOI: 10.1145/3428251 | citações: 8 | https://openalex.org/W3106997291
+
+22. Towards a statically scheduled parallel execution of an FRP language for embedded systems (2019)
+   Yoshitaka Sakurai, Takuo Watanabe — — [conference-paper]
+   DOI: 10.1145/3358503.3361276 | citações: 8 | https://openalex.org/W2979874994
+
+23. Interpreting task oriented programs on tiny computers (2019)
+   Mart Lubbers, Pieter Koopman, Rinus Plasmeijer — — [conference-paper]
+   DOI: 10.1145/3412932.3412936 | citações: 8 | https://openalex.org/W3184705703
+
+24. Stream Types (2024)
+   Joseph W. Cutler, Christopher Watson, Emeka Nkurumeh et al. — Proceedings of the ACM on Programming Languages [article]
+   DOI: 10.1145/3656434 | citações: 7 | https://openalex.org/W4399851350
+
+25. Facet-oriented Modelling (2021)
+   Juan D. Lara, Esther Guerra, Jörg Kienzle — ACM Transactions on Software Engineering and Methodology [article]
+   DOI: 10.1145/3428076 | citações: 7 | https://openalex.org/W3133170989
+
+26. Nested Monitors: Monitors as Expressions to Build Monitors (2021)
+   Felipe Gorostiaga, César Sánchez — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-030-88494-9_9 | citações: 7 | https://openalex.org/W3204461312
+
+27. Fault-tolerant functional reactive programming (extended version) (2020)
+   Ivan Pérez, Alwyn E. Goodloe — Journal of Functional Programming [article]
+   DOI: 10.1017/s0956796820000118 | citações: 7 | https://openalex.org/W3022173246
+
+28. Gavial: Programming the web with multi-tier FRP. (2020)
+   Bob Reynders, Frank Piessens, Dominique Devriese — Lirias [article]
+   DOI: sem DOI | citações: 7 | https://openalex.org/W3104018683
+
+29. Multitasking on Microcontrollers using Task Oriented Programming (2019)
+   Mart Lubbers, Pieter Koopman, Rinus Plasmeijer — — [conference-paper]
+   DOI: 10.23919/mipro.2019.8756711 | citações: 7 | https://openalex.org/W2960818429
+
+30. Leviathan: A Unified System for General-Purpose Near-Data Computing (2024)
+   Brian C. Schwedock, Nathan Beckmann — — [conference-paper]
+   DOI: 10.1109/micro61859.2024.00095 | citações: 6 | https://openalex.org/W4404954970
+
+31. Trident: Toward Distributed Reactive SDN Programming With Consistent Updates (2020)
+   Kai Gao, Taishi Nojima, Haitao Yu et al. — IEEE Journal on Selected Areas in Communications [article]
+   DOI: 10.1109/jsac.2020.2999654 | citações: 6 | https://openalex.org/W3033801467
+
+32. Unifying the Time-Event Spectrum for Stream Runtime Verification (2020)
+   Felipe Gorostiaga, Luis Miguel Danielsson, César Sánchez — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-030-60508-7_26 | citações: 6 | https://openalex.org/W3092139145
+
+33. TopHat (2019)
+   Tim Steenvoorden, Nico Naus, Markus Klinik — — [conference-paper]
+   DOI: 10.1145/3354166.3354182 | citações: 6 | https://openalex.org/W2976117375
+
+34. Reactive sorting networks (2020)
+   Bjarno Oeyen, Sam Van den Vonder, Wolfgang De Meuter — — [conference-paper]
+   DOI: 10.1145/3427763.3428316 | citações: 5 | https://openalex.org/W3109424891
+
+35. Adaptive Variables for Declarative UAV Planning (2020)
+   John Henry Burns, Xiaozhou Liang, Yu David Liu — — [conference-paper]
+   DOI: 10.1145/3422584.3422763 | citações: 5 | https://openalex.org/W3109785769
+
+36. Runtime verification and validation of functional reactive systems (2020)
+   Ivan Pérez, Henrik Nilsson — Journal of Functional Programming [article]
+   DOI: 10.1017/s0956796820000210 | citações: 5 | https://openalex.org/W3081239953
+
+37. An approach for persistent time-varying values (2019)
+   Tetsuo Kamina, Tomoyuki Aotani — — [conference-paper]
+   DOI: 10.1145/3359591.3359730 | citações: 5 | https://openalex.org/W2980108707
+
+38. Tell-XR: Conversational End-User Development of XR Automations (2025)
+   Alessandro Carcangiu, Marco Manolo Manca, Jacopo Mereu et al. — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-032-04999-5_35 | citações: 4 | https://openalex.org/W4414193729
+
+39. Imperative versus declarative collection processing (2022)
+   Nils Mehlhorn, Stefan Hanenberg — Proceedings of the 44th International Conference on Software Engineering [conference-paper]
+   DOI: 10.1145/3510003.3519016 | citações: 4 | https://openalex.org/W4284665222
+
+40. Temporal Refinements for Guarded Recursive Types (2021)
+   Guilhem Jaber, Colin Riba — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-030-72019-3_20 | citações: 4 | https://openalex.org/W3043298057
+
+41. Asynchronous monad for reactive IoT programming (2020)
+   Zhao Tian, Adam Berger, Yonglun Li — — [conference-paper]
+   DOI: 10.1145/3427763.3428314 | citações: 4 | https://openalex.org/W3106603046
+
+42. Interactive Worksheets for Teaching Atmospheric Aerosols and Cloud Physics (2020)
+   Markus Dirk Petters — Bulletin of the American Meteorological Society [article]
+   DOI: 10.1175/bams-d-20-0072.1 | citações: 4 | https://openalex.org/W3092449009
+
+43. DIVA: A Declarative and Reactive Language for in situ Visualization (2020)
+   Qi Wu, Tyson Neuroth, Oleg Igouchkine et al. — — [conference-paper]
+   DOI: 10.1109/ldav51489.2020.00007 | citações: 4 | https://openalex.org/W3117761617
+
+44. A lightweight push-pull mechanism for implicitly using signals in imperative programming (2019)
+   YungYu Zhuang — Journal of Computer Languages [article]
+   DOI: 10.1016/j.cola.2019.100903 | citações: 4 | https://openalex.org/W2946645264
+
+45. TinyCORP (2019)
+   Tetsuo Kamina, Tomoyuki Aotani — — [conference-paper]
+   DOI: 10.1145/3340671.3343356 | citações: 4 | https://openalex.org/W2969822327
+
+46. Towards Real-Time Aggregate Computing (2024)
+   Giorgio Audrito, Ferruccio Damiani, Gianluca Torta — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-031-75107-3_4 | citações: 3 | https://openalex.org/W4403792043
+
+47. Orchestrating the Internet of Things with Task-Oriented Programming (2023)
+   Mart Lubbers — Radboud University Press eBooks [book]
+   DOI: 10.54195/9789493296114 | citações: 3 | https://openalex.org/W4387774419
+
+48. Asynchronous Modal FRP (2023)
+   Patrick Bahr, Rasmus Ejlers Møgelberg — Proceedings of the ACM on Programming Languages [article]
+   DOI: 10.1145/3607847 | citações: 3 | https://openalex.org/W4386321895
+
+49. Work in Progress: Response Time Analysis of Real-Time Quantum Computing Systems (2023)
+   Albert M. K. Cheng — — [conference-paper]
+   DOI: 10.1109/rtas58335.2023.00033 | citações: 3 | https://openalex.org/W4381886050
+
+50. Topology-Level Reactivity in Distributed Reactive Programs (2022)
+   Sam Van den Vonder, Thierry Renaux, Wolfgang De Meuter — The Art Science and Engineering of Programming [article]
+   DOI: 10.22152/programming-journal.org/2022/6/14 | citações: 3 | https://openalex.org/W4213093762
+
+51. Trampoline variables: a general method for state accumulation in reactive programming (2021)
+   Bjarno Oeyen, Sam Van den Vonder, Wolfgang De Meuter — — [conference-paper]
+   DOI: 10.1145/3486605.3486787 | citações: 3 | https://openalex.org/W3205178959
+
+52. Synchronous and asynchronous stream runtime verification (2021)
+   César Sánchez — — [conference-paper]
+   DOI: 10.1145/3464974.3468453 | citações: 3 | https://openalex.org/W3181838507
+
+53. Reactor Design Pattern (2021)
+   Marko Mijač, Antonio García‐Cabot, Vjeran Strahonja — TEM Journal [article]
+   DOI: 10.18421/tem101-03 | citações: 3 | https://openalex.org/W3133951795
+
+54. Adjoint Reactive GUI Programming (2021)
+   Christian Uldal Graulund, Dmitrij Szamozvancev, Neel Krishnaswami — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-030-71995-1_15 | citações: 3 | https://openalex.org/W3138062835
+
+55. Reactive Programming of Robots with RxROS (2021)
+   Henrik Gutzon Larsen, Gijs van der Hoorn, Andrzej Wąsowski — Studies in computational intelligence [book-chapter]
+   DOI: 10.1007/978-3-030-75472-3_2 | citações: 3 | https://openalex.org/W3188506721
+
+56. Leveraging Hybrid Cloud HPC with Multitier Reactive Programming (2020)
+   Daniel Sokolowski, Jan-Patrick Lehr, Christian H Bischof et al. — — [conference-paper]
+   DOI: 10.1109/supercompcloud51944.2020.00010 | citações: 3 | https://openalex.org/W3123445711
+
+57. Interfaces for Modular Reasoning in Context-Oriented Programming (2020)
+   Paul Leger, Hidehiko Masuhara, Ismael Figueroa — — [conference-paper]
+   DOI: 10.1145/3422584.3423152 | citações: 3 | https://openalex.org/W3109397709
+
+58. Runtime verification of real-time event streams under non-synchronized arrival (2020)
+   Martin Leucker, César Sánchez, Torben Scheffel et al. — Software Quality Journal [article]
+   DOI: 10.1007/s11219-019-09493-y | citações: 3 | https://openalex.org/W2995634384
+
+59. The Implementation of Metagraph Agents Based on Functional Reactive Programming (2020)
+   Valeriy M. Chernenkiy, Yuriy Gapanyuk, Anatoly N. Nardid et al. — — [conference-paper]
+   DOI: 10.23919/fruct48808.2020.9087470 | citações: 3 | https://openalex.org/W3021157474
+
+60. A Semantic Framework for the Design of Distributed Reactive Real-Time Languages and Applications (2020)
+   Mateo Sanabria, Luis Daniel Benavides Navarro, Daniel Díaz López et al. — IEEE Access [article]
+   DOI: 10.1109/access.2020.3010697 | citações: 3 | https://openalex.org/W3044527226
+

@@ -1,0 +1,102 @@
+# Busca: 'reactive programming survey' — 1152 resultados no OpenAlex (mostrando 25, ordem: relevancia)
+
+1. Berth allocation and quay crane assignment/scheduling problem under uncertainty: A survey (2022)
+   Filipe Rodrigues, Agostinho Agra — European Journal of Operational Research [article]
+   DOI: 10.1016/j.ejor.2021.12.040 | citações: 183 | https://openalex.org/W4205331178
+
+2. Optimal reactive power dispatch: a review, and a new stochastic voltage stability constrained multi‐objective model at the presence of uncertain wind power generation (2016)
+   Seyed Masoud Mohseni‐Bonab, Abbas Rabiee — IET Generation Transmission & Distribution [article]
+   DOI: 10.1049/iet-gtd.2016.1545 | citações: 121 | https://openalex.org/W2554153528
+
+3. A Survey on Static Cache Analysis for Real-Time Systems (2016)
+   Mingsong Lv, Nan Guan, Jan Reineke et al. — DROPS (Schloss Dagstuhl – Leibniz Center for Informatics) [article]
+   DOI: 10.4230/lites-v003-i001-a005 | citações: 67 | https://openalex.org/W2511362782
+
+4. Severity and threshold of peanut reactivity during hospital‐based open oral food challenges: An international multicenter survey (2018)
+   Peter D. Arkwright, Jayne M. MacMahon, Jennifer Julia Koplin et al. — Pediatric Allergy and Immunology [article]
+   DOI: 10.1111/pai.12959 | citações: 48 | https://openalex.org/W2884220840
+
+5. Cyclophanes as Platforms for Reactive Multimetallic Complexes (2019)
+   Ricardo B. Ferreira, Leslie J. Murray — Accounts of Chemical Research [article]
+   DOI: 10.1021/acs.accounts.8b00559 | citações: 45 | https://openalex.org/W2913387295
+
+6. National Survey of Wellness Programs in U.S. and Canadian Medical Schools (2021)
+   Alison Schutt, Katherine Chang Chretien, James N. Woodruff et al. — Academic Medicine [article]
+   DOI: 10.1097/acm.0000000000003953 | citações: 22 | https://openalex.org/W3129179114
+
+7. Thermodynamic Stability, Redox Properties, and Reactivity of Mn3O4, Fe3O4, and Co3O4 Model Catalysts for N2O Decomposition: Resolving the Origins of Steady Turnover (2016)
+   Jan Kaczmarczyk, Filip Zasada, Janusz Janas et al. — ACS Catalysis [article]
+   DOI: 10.1021/acscatal.5b02642 | citações: 136 | https://openalex.org/W2265284740
+
+8. Social anxiety and disordered eating: The influence of stress reactivity and self-esteem (2017)
+   Jessica Lyn Ciarma, Jaya Mathew — Eating Behaviors [article]
+   DOI: 10.1016/j.eatbeh.2017.03.011 | citações: 43 | https://openalex.org/W2604726991
+
+9. Perceptions of Community Norms and Youths’ Reactive and Proactive Dating and Sexual Violence Bystander Action (2019)
+   Emily F. Rothman, Katie M. Edwards, Andrew J. Rizzo et al. — American Journal of Community Psychology [article]
+   DOI: 10.1002/ajcp.12312 | citações: 53 | https://openalex.org/W2915106903
+
+10. Software-Defined Networking Approaches for Link Failure Recovery: A Survey (2020)
+   Jehad Ali, Gyu-min Lee, Byeong‐hee Roh et al. — Sustainability [article]
+   DOI: 10.3390/su12104255 | citações: 88 | https://openalex.org/W3027378420
+
+11. Climate Change Resilience and Sustainable Tropical Agriculture: Farmers’ Perceptions, Reactive Adaptations and Determinants of Reactive Adaptations in Hainan, China (2022)
+   Jian Ming Gao, Rabia Shahid, Xiang Ji et al. — Atmosphere [article]
+   DOI: 10.3390/atmos13060955 | citações: 31 | https://openalex.org/W4282972890
+
+12. Pursuing sustainable productivity with millions of smallholder farmers (2018)
+   Zhenling Cui, Hongyan Zhang, Xinping Chen et al. — Nature [article]
+   DOI: 10.1038/nature25785 | citações: 1338 | https://openalex.org/W2790542267
+
+13. The adaptive calibration model of stress responsivity: An empirical test in the Tracking Adolescents' Individual Lives Survey study (2016)
+   Bruce J. Ellis, Albertine J. Oldehinkel, Esther Nederhof — Development and Psychopathology [article]
+   DOI: 10.1017/s0954579416000985 | citações: 89 | https://openalex.org/W2532154617
+
+14. Quantum chemical package Jaguar: A survey of recent developments and unique features (2024)
+   Yixiang Cao, Ty Balduf, Michael D. Beachy et al. — The Journal of Chemical Physics [article]
+   DOI: 10.1063/5.0213317 | citações: 64 | https://openalex.org/W4401256703
+
+15. Volt/VAR Optimization: A Survey of Classical and Heuristic Optimization Methods (2022)
+   Haltor Mataifa, Senthil Krishnamurthy, Carl Kriger — IEEE Access [article]
+   DOI: 10.1109/access.2022.3146366 | citações: 50 | https://openalex.org/W4210589043
+
+16. Survey and Comparison of Optimization-Based Aggregation Methods for the Determination of the Flexibility Potentials at Vertical System Interconnections (2021)
+   Marcel Sarstedt, Leonard Kluß, Johannes Gerster et al. — Energies [article]
+   DOI: 10.3390/en14030687 | citações: 42 | https://openalex.org/W3123041506
+
+17. Classic and evolving approaches to evaluating cross reactivity of mAb and mAb-like molecules – A survey of industry 2008–2019 (2021)
+   Timothy K. MacLachlan, Shari A. Price, Joy A. Cavagnaro et al. — Regulatory Toxicology and Pharmacology [article]
+   DOI: 10.1016/j.yrtph.2021.104872 | citações: 13 | https://openalex.org/W3122548735
+
+18. Data Resource Profile: China National Nutrition Surveys (2019)
+   Yuna He, Wen­hua Zhao, Jian Zhang et al. — International Journal of Epidemiology [article]
+   DOI: 10.1093/ije/dyy289 | citações: 42 | https://openalex.org/W2913114988
+
+19. Successful and Emerging Cyberbullying Prevention Programs: A Narrative Review of Seventeen Interventions Applied Worldwide (2023)
+   Sohni Siddiqui, Anja Schultze‐Krumbholz — Societies [review]
+   DOI: 10.3390/soc13090212 | citações: 38 | https://openalex.org/W4386832566
+
+20. A multiphase program for malaria elimination in southern Mozambique (the Magude project): A before-after study (2020)
+   Beatriz Galatas, Francisco Saúte, Helena Martí-Soler et al. — PLoS Medicine [article]
+   DOI: 10.1371/journal.pmed.1003227 | citações: 81 | https://openalex.org/W3049456982
+
+21. Reactive transport modeling in heterogeneous porous media with dynamic mesh optimization (2020)
+   Alireza E. Yekta, Pablo Salinas, Sassan Hajirezaie et al. — Computational Geosciences [article]
+   DOI: 10.1007/s10596-020-10009-y | citações: 21 | https://openalex.org/W3102000816
+
+22. Prevalence and determinants of Vitamin A deficiency among children in India: Findings from a national cross-sectional survey (2021)
+   Sampurna Kundu, Balram Rai, Anandi Shukla — Clinical Epidemiology and Global Health [article]
+   DOI: 10.1016/j.cegh.2021.100768 | citações: 40 | https://openalex.org/W3161442927
+
+23. Clinician acceptability of the ReacStep reactive balance training program for fall prevention (2024)
+   Chrissie Ho, Shivam Sharma, Tiffany Huang et al. — Physiotherapy Research International [article]
+   DOI: 10.1002/pri.2133 | citações: 6 | https://openalex.org/W4402842487
+
+24. Local Coordination and Reactivity of a Pt Single-Atom Catalyst as Probed by Spectroelectrochemical and Computational Approaches (2020)
+   Kun Peng Jiang, Xian‐Yin Ma, Seoin Back et al. — CCS Chemistry [article]
+   DOI: 10.31635/ccschem.020.202000667 | citações: 40 | https://openalex.org/W3116380369
+
+25. The “No Wrong Door” Approach to HIV Testing: Results From a Statewide Retail Pharmacy–Based HIV Testing Program in Virginia, 2014-2016 (2018)
+   Bryan Collins, Heather Bronson, Fatima Elamin et al. — Public Health Reports [article]
+   DOI: 10.1177/0033354918801026 | citações: 43 | https://openalex.org/W2901895801
+

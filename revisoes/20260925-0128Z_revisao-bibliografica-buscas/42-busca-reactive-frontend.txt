@@ -1,0 +1,30 @@
+# Busca: 'reactive programming web frontend JavaScript' — 7 resultados no OpenAlex (mostrando 7, ordem: relevancia)
+
+1. Implementing Micro Frontends Using Signal-based Web Components (2022)
+   Yuma Nishizu, Tetsuo Kamina — Journal of Information Processing [article]
+   DOI: 10.2197/ipsjjip.30.505 | citações: 11 | https://openalex.org/W4291517574
+
+2. TRUST: StabiliTy and Safety ContRoller Synthesis for Unknown Dynamical Models Using a Single Trajectory (2025)
+   Jamie Gardner, Ben Wooding, Ameneh Nejati et al. — — [conference-paper]
+   DOI: 10.1145/3716863.3718036 | citações: 1 | https://openalex.org/W4410555901
+
+3. Realizing Persistent Signals in JavaScript (2023)
+   D. Hidaka, Tetsuo Kamina — — [conference-paper]
+   DOI: 10.1145/3623506.3623576 | citações: 0 | https://openalex.org/W4387781488
+
+4. BRHC: Backend-driven Reactive Hypermedia Controls with a Statically Typed Kotlin DSL (2026)
+   Fernando Miguel Carvalho, Paulo Carvalho, Leonel Correia et al. — arXiv (Cornell University) [preprint]
+   DOI: 10.48550/arxiv.2607.29338 | citações: 0 | https://openalex.org/W7172305400
+
+5. BRHC: Backend-driven Reactive Hypermedia Controls with a Statically Typed Kotlin DSL (2026)
+   Fernando Miguel Carvalho, Paulo Carvalho, Leonel Correia et al. — arXiv (Cornell University) [preprint]
+   DOI: sem DOI | citações: 0 | https://openalex.org/W7172473954
+
+6. Research and Development of Kinesi: A Multifaceted Platform to Improve Patient Adherence to Home Exercise Programs (2025)
+   Weidong Liao — Proceedings of the West Virginia Academy of Science [article]
+   DOI: 10.55632/pwvas.v97i2.1180 | citações: 0 | https://openalex.org/W4409263794
+
+7. TRUST: Stability and Safety Controller Synthesis for Unknown Dynamical Models Using a Single Trajectory (2025)
+   Gardner, Jamie, Ben Wooding, Ameneh Nejati et al. — arXiv (Cornell University) [preprint]
+   DOI: 10.48550/arxiv.2503.08081 | citações: 0 | https://openalex.org/W4414576907
+

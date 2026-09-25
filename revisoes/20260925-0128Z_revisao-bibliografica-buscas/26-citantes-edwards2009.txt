@@ -1,0 +1,75 @@
+# Trabalhos que citam: Coherent reaction (2009)
+# Total: 18 (mostrando 18)
+
+1. Reactors: A Deterministic Model for Composable Reactive Systems (2020)
+   Marten Lohstroh, Inigo Incer, Andrés Goens et al. — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-030-41131-2_4 | citações: 57 | https://openalex.org/W3008843202
+
+2. Lyra 2: Designing Interactive Visualizations by Demonstration (2020)
+   Jonathan Zong, Dhiraj Barnwal, Rupayan Neogy et al. — IEEE Transactions on Visualization and Computer Graphics [article]
+   DOI: 10.1109/tvcg.2020.3030367 | citações: 50 | https://openalex.org/W3092206318
+
+3. Distributed system development with ScalaLoci (2018)
+   Pascal Weisenburger, Mirko Köhler, Guido Salvaneschi — Proceedings of the ACM on Programming Languages [article]
+   DOI: 10.1145/3276499 | citações: 39 | https://openalex.org/W2898179350
+
+4. Mining guidelines for architecting robotics software (2021)
+   Ivano Malavolta, Grace A. Lewis, Bradley R. Schmerl et al. — Journal of Systems and Software [article]
+   DOI: 10.1016/j.jss.2021.110969 | citações: 31 | https://openalex.org/W3157587805
+
+5. Debugging data flows in reactive programs (2018)
+   Herman Banken, Erik Meijer, Georgios Gousios — — [conference-paper]
+   DOI: 10.1145/3180155.3180156 | citações: 27 | https://openalex.org/W2789282297
+
+6. A Survey of Asynchronous Programming Using Coroutines in the Internet of Things and Embedded Systems (2019)
+   Bruce Belson, Jason J Holdsworth, Wei Xiang et al. — ACM Transactions on Embedded Computing Systems [article]
+   DOI: 10.1145/3319618 | citações: 22 | https://openalex.org/W2951467711
+
+7. Versatile event correlation with algebraic effects (2018)
+   Oliver Bračevac, Nada Amin, Guido Salvaneschi et al. — Proceedings of the ACM on Programming Languages [article]
+   DOI: 10.1145/3236762 | citações: 15 | https://openalex.org/W2911706275
+
+8. ReactiFi: Reactive Programming of Wi-Fi Firmware on Mobile Devices (2020)
+   Artur Sterz, Matthias Eichholz, Ragnar Mogk et al. — The Art Science and Engineering of Programming [article]
+   DOI: 10.22152/programming-journal.org/2021/5/4 | citações: 7 | https://openalex.org/W3091667238
+
+9. RxAda: An Ada implementation of the ReactiveX API (2017)
+   Alejandro R. Mosteo — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-319-60588-3_10 | citações: 5 | https://openalex.org/W2618267232
+
+10. Fundamental concepts of reactive control for autonomous drones (2018)
+   Luca Mottola, Kamin Whitehouse — Communications of the ACM [article]
+   DOI: 10.1145/3264417 | citações: 4 | https://openalex.org/W2892748555
+
+11. Topology-Level Reactivity in Distributed Reactive Programs (2022)
+   Sam Van den Vonder, Thierry Renaux, Wolfgang De Meuter — The Art Science and Engineering of Programming [article]
+   DOI: 10.22152/programming-journal.org/2022/6/14 | citações: 3 | https://openalex.org/W4213093762
+
+12. Reactive programming in Ada 2012 with RxAda (2020)
+   Alejandro R. Mosteo — Journal of Systems Architecture [article]
+   DOI: 10.1016/j.sysarc.2020.101784 | citações: 3 | https://openalex.org/W3026082318
+
+13. Simplifying CPS Application Development through Fine-grained, Automatic Timeout Predictions (2020)
+   Stefanos Peros, Stéphane Delbruel, Sam Michiels et al. — ACM Transactions on Internet of Things [article]
+   DOI: 10.1145/3385960 | citações: 2 | https://openalex.org/W3033036609
+
+14. Poker: visual instrumentation of reactive programs with programmable probes (2021)
+   Cloé Descheemaeker, Sam Van den Vonder, Thierry Renaux et al. — — [conference-paper]
+   DOI: 10.1145/3486605.3486785 | citações: 1 | https://openalex.org/W3197335303
+
+15. Lyra 2: Designing Interactive Visualizations by Demonstration (2020)
+   Jonathan Zong, Dhiraj Barnwal, Rupayan Neogy et al. — arXiv (Cornell University) [preprint]
+   DOI: 10.48550/arxiv.2008.09576 | citações: 1 | https://openalex.org/W3080920546
+
+16. Flying Blind with Reactive Control of Aerial Drones (2017)
+   Luca Mottola, Kamin Whitehouse — GetMobile Mobile Computing and Communications [article]
+   DOI: 10.1145/3103535.3103545 | citações: 1 | https://openalex.org/W2619986241
+
+17. Prisma : A Tierless Language for Enforcing Contract-client Protocols in Decentralized Applications (2023)
+   David Richter, David Kretzler, Pascal Weisenburger et al. — ACM Transactions on Programming Languages and Systems [article]
+   DOI: 10.1145/3604629 | citações: 0 | https://openalex.org/W4384662007
+
+18. Interactive Computation in an Open World (2018)
+   Stefan K. Muller, Umut A. Acar, William G. Duff et al. — Figshare [article]
+   DOI: 10.1184/r1/6606560 | citações: 0 | https://openalex.org/W1185764189
+

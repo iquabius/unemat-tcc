@@ -1,0 +1,14 @@
+# Busca: 'JavaScript front-end frameworks React Vue Angular comparison' — 3 resultados no OpenAlex (mostrando 3, ordem: relevancia)
+
+1. DOM benchmark comparison of the front-end JavaScript frameworks React, Angular, Vue, and Svelte (2020)
+   Mattias Levlin — Doria (University of Helsinki) [dissertation]
+   DOI: sem DOI | citações: 5 | https://openalex.org/W3048564884
+
+2. Performance, Modularity and Usability, a Comparison of JavaScript Frameworks (2020)
+   Niclas Olsson, Nicklas Ockelberg — KTH Publication Database DiVA (KTH Royal Institute of Technology) [dissertation]
+   DOI: sem DOI | citações: 0 | https://openalex.org/W3084042858
+
+3. Developing an information system solution with React : Case: FPT information system (FIS) (2020)
+   Viet Linh Vu — Theseus (Ammattikorkeakoulujen) [dissertation]
+   DOI: sem DOI | citações: 0 | https://openalex.org/W3125421899
+

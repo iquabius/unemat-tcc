@@ -1,0 +1,102 @@
+# Busca: 'reactive programming graphical user interfaces' — 54 resultados no OpenAlex (mostrando 25, ordem: relevancia)
+
+1. SWATMOD‐Prep: Graphical User Interface for Preparing Coupled SWAT‐MODFLOW Simulations (2017)
+   Ryan T. Bailey, Hendrik Rathjens, Katrin Bieger et al. — JAWRA Journal of the American Water Resources Association [article]
+   DOI: 10.1111/1752-1688.12502 | citações: 73 | https://openalex.org/W2584177037
+
+2. Testing and debugging functional reactive programming (2017)
+   Ivan Pérez, Henrik Nilsson — Proceedings of the ACM on Programming Languages [article]
+   DOI: 10.1145/3110246 | citações: 26 | https://openalex.org/W2751194474
+
+3. Siri : a constrained-object language for reactive program implementation (2018)
+   Bruce Horn — Figshare [article]
+   DOI: 10.1184/r1/6609533.v1 | citações: 7 | https://openalex.org/W1483844787
+
+4. A Graphical User Interface Framework for Formal Verification (2021)
+   Edward W. Ayers, Mateja Jamnik, William Timothy Gowers — DROPS (Schloss Dagstuhl – Leibniz Center for Informatics) [article]
+   DOI: 10.4230/lipics.itp.2021.4 | citações: 3 | https://openalex.org/W3175003771
+
+5. Geochemical and reactive transport modelling in R with the RedModRphree package (2021)
+   Marco De Lucia, Michael Kühn — Advances in geosciences [article]
+   DOI: 10.5194/adgeo-56-33-2021 | citações: 15 | https://openalex.org/W3172209569
+
+6. Adjoint Reactive GUI Programming (2021)
+   Christian Uldal Graulund, Dmitrij Szamozvancev, Neel Krishnaswami — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-030-71995-1_15 | citações: 3 | https://openalex.org/W3138062835
+
+7. An agent-based simulation system for multi-project scheduling under uncertainty (2018)
+   Wen Wu Song, Hui Xi, Dong‐Hun Kang et al. — Simulation Modelling Practice and Theory [article]
+   DOI: 10.1016/j.simpat.2018.05.009 | citações: 42 | https://openalex.org/W2803665988
+
+8. Asynchronous Reactive Programming with Modal Types in Haskell (2023)
+   Patrick Bahr, Emil Houlborg, Gregers Thomas Skat Rørdam — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-031-52038-9_2 | citações: 3 | https://openalex.org/W4391494410
+
+9. FPGA-based real-time implementation of a digital reactivity-meter (2022)
+   Adnane Messai, I. Abdellani, A. Mellit — Progress in Nuclear Energy [article]
+   DOI: 10.1016/j.pnucene.2022.104313 | citações: 7 | https://openalex.org/W4283373862
+
+10. ABOD3: A Graphical Visualization and Real-Time Debugging Tool for BOD Agents (2017)
+   Andreas A. Theodorou — The University of Bath Online Publications Store (The University of Bath) [article]
+   DOI: sem DOI | citações: 5 | https://openalex.org/W2586350663
+
+11. Development of an Interactive Program to Study of the Continuation Power Flow (2018)
+   Jaine Henrique Canossa, Alfredo Bonini Neto, Dilson Amancio Alves et al. — IEEE Latin America Transactions [article]
+   DOI: 10.1109/tla.2018.8362161 | citações: 4 | https://openalex.org/W2804791506
+
+12. elementr : An R package for reducing elemental data from LA ‐ ICPMS analysis of biological calcified structures (2017)
+   Charlotte Sirot, Franck Ferraton, Jacques Panfili et al. — Methods in Ecology and Evolution [article]
+   DOI: 10.1111/2041-210x.12822 | citações: 28 | https://openalex.org/W2618930125
+
+13. Molecular arrangement and fringe identification and analysis from molecular dynamics (MAFIA-MD): A tool for analyzing the molecular structures formed during reactive molecular dynamics simulation of hydrocarbons (2022)
+   Khaled Mosharraf Mukut, Somesh P. Roy, Eirini Goudeli — Computer Physics Communications [article]
+   DOI: 10.1016/j.cpc.2022.108325 | citações: 9 | https://openalex.org/W4214582563
+
+14. SCADA Applications for Electric Power System (2017)
+   Florentina Magda Enescu, Nicu Bizon — Power systems [book-chapter]
+   DOI: 10.1007/978-3-319-51118-4_15 | citações: 24 | https://openalex.org/W2604330179
+
+15. Visual interfaces for the digital simulation system of the IPR-R1 Triga nuclear research reactor (2020)
+   Amir Zacarías Mesquita, Adriano de Almeida Massaud Felippe, Aldo Márcio Fonseca Lage et al. — ACCENTS Transactions on Image Processing and Computer Vision [article]
+   DOI: 10.19101/tipcv.2020.618054 | citações: 3 | https://openalex.org/W3102794580
+
+16. Ethernet based smart energy meter for power quality monitoring and enhancement (2017)
+   Himshekhar Das, Lalit Chandra Saikia — — [conference-paper]
+   DOI: 10.1109/rdcape.2017.8358264 | citações: 15 | https://openalex.org/W2802435116
+
+17. surveydown: An open-source, markdown-based platform for programmable and reproducible surveys (2025)
+   Pingfan Hu, Bogdan Bunea, John Paul Helveston — PLoS ONE [article]
+   DOI: 10.1371/journal.pone.0331002 | citações: 2 | https://openalex.org/W4413817837
+
+18. DEBrowser: Interactive Differential Expression Analysis and Visualization Tool for Count Data (2018)
+   Alper Küçükural, Onur Yukselen, Deniz Mahmut Özata et al. — bioRxiv (Cold Spring Harbor Laboratory) [preprint]
+   DOI: 10.1101/399931 | citações: 10 | https://openalex.org/W2888333954
+
+19. Geochemical and reactive transport modelling in R with the RedModRphree package (2021)
+   Marco De Lucia, Michael Kühn — — [conference-abstract]
+   DOI: 10.5194/egusphere-egu21-2636 | citações: 1 | https://openalex.org/W3215380408
+
+20. REFRAME–A software framework for managing reactive dependencies in object-oriented applications (2023)
+   Marko Mijač, Antonio García‐Cabot, Vjeran Strahonja — SoftwareX [software-paper]
+   DOI: 10.1016/j.softx.2023.101571 | citações: 1 | https://openalex.org/W4388741313
+
+21. A Surveillance Infrastructure for Malaria Analytics: Provisioning Data Access and Preservation of Interoperability (2018)
+   Mohammad Sadnan Al Manir, Jon Haël Brenas, Christopher JO Baker et al. — JMIR Public Health and Surveillance [article]
+   DOI: 10.2196/10218 | citações: 16 | https://openalex.org/W2951648472
+
+22. Automated Problem and Solution Generation Software for Computer-aided Instruction in Elementary Linear Circuit Analysis (2020)
+   Charles Whitlatch, Qiao Wang, Brian J. Skromme — — [conference-paper]
+   DOI: 10.18260/1-2--21002 | citações: 18 | https://openalex.org/W2595396420
+
+23. ECLStat: A robust machine learning based visual imaging tool for electrochemiluminescence biosensing (2024)
+   Abhishek Kumar, Shashwat Goel, Shashwat Goel et al. — Computers in Biology and Medicine [article]
+   DOI: 10.1016/j.compbiomed.2024.109546 | citações: 10 | https://openalex.org/W4405175167
+
+24. The ATP Package: Capabilities and Applications (2019)
+   Juan A. Martínez-Velasco, Jacinto Martin-Arnedo — — [other]
+   DOI: 10.1002/9781119480549.ch4 | citações: 3 | https://openalex.org/W2993621459
+
+25. A New Method for Solving Three Moment Equation in Well Trajectory Control (2024)
+   Jiangjun Xi, ZhuangWei Li, Tao Lin et al. — Chemistry and Technology of Fuels and Oils [article]
+   DOI: 10.1007/s10553-024-01763-1 | citações: 2 | https://openalex.org/W4403285952
+

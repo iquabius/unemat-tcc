@@ -1,0 +1,74 @@
+# Busca: 'reactive programming empirical study developers' — 18 resultados no OpenAlex (mostrando 18, ordem: relevancia)
+
+1. On the Semantics of Distributed Reactive Programming: The Cost of Consistency (2018)
+   Alessandro Margara, Guido Salvaneschi — IEEE Transactions on Software Engineering [article]
+   DOI: 10.1109/tse.2018.2833109 | citações: 29 | https://openalex.org/W2801707263
+
+2. On the Importance and Shortcomings of Code Readability Metrics: A Case Study on Reactive Programming (2021)
+   Gustaf Holst, Felix Dobslaw — arXiv (Cornell University) [preprint]
+   DOI: 10.48550/arxiv.2110.15246 | citações: 2 | https://openalex.org/W3210272172
+
+3. Review of NoSQL Data Stores: Using a reactive three-tier application for software developers to achieve a high availability application design architecture (2019)
+   Waldon Hendricks — — [conference-paper]
+   DOI: 10.1109/oi.2019.8908187 | citações: 3 | https://openalex.org/W2990969239
+
+4. Comparative analysis of reactive programming and Java virtual threads (2026)
+   Daniel Charlak, Jakub Brzeziński, Grzegorz Kozieł — Journal of Computer Sciences Institute [article]
+   DOI: 10.35784/jcsi.9409 | citações: 1 | https://openalex.org/W7166706492
+
+5. A Traffic Analysis on Serverless Computing Based on the Example of a File Upload Stream on AWS Lambda (2020)
+   Lisa Müller, Christos Chrysoulas, Nikolaos Pitropakis et al. — Big Data and Cognitive Computing [article]
+   DOI: 10.3390/bdcc4040038 | citações: 6 | https://openalex.org/W3111836594
+
+6. On the Importance and Shortcomings of Code Readability Metrics: A Case\n Study on Reactive Programming (2021)
+   Gustaf Holst, Felix Dobslaw — arXiv (Cornell University) [preprint]
+   DOI: 10.48550/arxiv.2110.15246 | citações: 0 | https://openalex.org/W4286891363
+
+7. Reimagining Strategic Foresight through the Lens of Digital Technology Adoption (2026)
+   Hasliza Abdul Halim, Haniruzila Hanifah, Ali Waqas et al. — International Journal of Academic Research in Economics and Management Sciences [article]
+   DOI: 10.6007/ijarems/v15-i1/27890 | citações: 1 | https://openalex.org/W7135398321
+
+8. Beyond Algorithms: A G.E.N.D.E.R. AI Framework for Advancing Workplace Equity in Automation (2025)
+   A. Uma Maheswari — International Journal of Global Research Innovations & Technology (IJGRIT). [article]
+   DOI: 10.62823/ijgrit/03.2(ii).7624 | citações: 2 | https://openalex.org/W4411611517
+
+9. Appendix Q: Recommendations for Developing Molecular Assays for Microbial Pathogen Detection Using Modern In Silico Approaches (2020)
+   John SantaLucia, Shanmuga Sozhamannan, Jason D. Gans et al. — Journal of AOAC International [article]
+   DOI: 10.1093/jaoacint/qsaa045 | citações: 12 | https://openalex.org/W3045932186
+
+10. Gamification of Investment Decision-Making Using Augmented Reality and Neuro-Linguistic Programming (2026)
+   Shweta Patroti, S. Rohitraj, K. Shivashankar — Zenodo (CERN European Organization for Nuclear Research) [article]
+   DOI: 10.5281/zenodo.18707335 | citações: 0 | https://openalex.org/W7130727923
+
+11. Gamification of Investment Decision-Making Using Augmented Reality and Neuro-Linguistic Programming (2026)
+   Shweta Patroti, S. Rohitraj, K. Shivashankar — Zenodo (CERN European Organization for Nuclear Research) [article]
+   DOI: 10.5281/zenodo.18707334 | citações: 0 | https://openalex.org/W7130733844
+
+12. A Large-Scale Longitudinal Study of Multi-CI Service Adoption (2026)
+   Taher A. Ghaleb, Rasha Bin-Thalab — arXiv (Cornell University) [preprint]
+   DOI: 10.48550/arxiv.2609.26181 | citações: 0 | https://openalex.org/W7214118291
+
+13. EVALUATING THE TRANSITION TO WEBFLUX PERFORMANCE, MAINTAINABILITY, AND ADOPTION CHALLENGES IN MODERN JAVA WEB FRAMEWORKS (2022)
+   Sireesha Devalla — — [article]
+   DOI: 10.34218/ijdsrd_01_01_002 | citações: 0 | https://openalex.org/W4415586819
+
+14. Recognizing and Referring Children with Posttraumatic Stress Disorder: Guidelines for Pediatric Providers (2018)
+   Helen W. Wilson, Shashank Joshi — Pediatrics in Review [article]
+   DOI: 10.1542/pir.2017-0036 | citações: 9 | https://openalex.org/W2793240627
+
+15. How to Counter Disinformation: What Works — Prebunking, Debunking, and Inoculation (2026)
+   Pavlichenko Ketevan — Universal Library of arts and humanities. [article]
+   DOI: 10.70315/uloap.ulahu.2026.0301002 | citações: 0 | https://openalex.org/W7127578819
+
+16. Cost optimization in hybrid cloud environments (2025)
+   Ravi Kumar Vankayalapati — — [book-chapter]
+   DOI: 10.70593/978-81-984306-5-6_7 | citações: 3 | https://openalex.org/W4406396817
+
+17. Guest editorial: Sport business research in the era of artificial intelligence (2025)
+   Jerred Junqi Wang, Luke Lunhua Mao, Brandon Mastromartino — International Journal of Sports Marketing and Sponsorship [editorial]
+   DOI: 10.1108/ijsms-10-2025-376 | citações: 3 | https://openalex.org/W4416838769
+
+18. Facets of Human–AI Collaboration: The Importance of Collaboration Type, Invocation Type, and AI Output Quality (2026)
+   Christopher Diebel — TUbilio (Technical University of Darmstadt) [dissertation]
+   DOI: 10.26083/tuda-7841 | citações: 0 | https://openalex.org/W7135238587
+

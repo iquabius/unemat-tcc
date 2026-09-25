@@ -1,0 +1,29 @@
+# Busca: 'Elm architecture model view update' — 5 resultados no OpenAlex (mostrando 5, ordem: relevancia)
+
+1. Model-View-Update-Communicate: Session Types Meet the Elm Architecture (2019)
+   Simon Fowler — ENLIGHTEN (Jurnal Bimbingan dan Konseling Islam) [conference-paper]
+   DOI: 10.4230/lipics.ecoop.2020.14 | citações: 0 | https://openalex.org/W2981363248
+
+2. Model-View-Update-Communicate: Session Types Meet the Elm Architecture (Artifact) (2020)
+   Simon Fowler — DROPS (Schloss Dagstuhl – Leibniz Center for Informatics) [article]
+   DOI: 10.4230/darts.6.2.13 | citações: 0 | https://openalex.org/W3107311996
+
+3. Demo Elm code for complex interactions and a design pattern to handle them (2026)
+   Yusuf Motara — — [other]
+   DOI: 10.21504/rur.32900561 | citações: 0 | https://openalex.org/W7169852675
+
+4. Demo Elm code for complex interactions and a design pattern to handle them (2026)
+   Yusuf Motara — — [other]
+   DOI: 10.21504/rur.32900561.v1 | citações: 0 | https://openalex.org/W7169875072
+
+5. Samoučeća mrežna aplikacija za igru pogađanja riječi u programskome jeziku Haskell (2018)
+   Jasmin Zukić — — [dissertation]
+   DOI: sem DOI | citações: 0 | https://openalex.org/W2922463120
+Syntagmas are pairs of nouns and its attributes. For the pairs to be grammatically
+correct, they have to match in gender, number and case. For them to be semantically
+very deviant, their usage should be rare in common conversations. Pairs are even
+more semantically deviant if they have never been used in conversations and writings.
+Those syntagmas are a basis of a word guessing board game which are to be guessed
+during all 3 rounds of the game. The first round is a game similar to Alias. For
+the rest of the rounds a…
+

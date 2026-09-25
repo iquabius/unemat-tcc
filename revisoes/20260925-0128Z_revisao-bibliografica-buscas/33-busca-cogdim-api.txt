@@ -1,0 +1,82 @@
+# Busca: 'cognitive dimensions API usability' — 68 resultados no OpenAlex (mostrando 20, ordem: relevancia)
+
+1. A Generic Cognitive Dimensions Questionnaire to Evaluate the Usability of Security APIs (2017)
+   Chamila Wijayarathna, Nalin Asanka Gamagedara Arachchilage, Jill Slay — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-319-58460-7_11 | citações: 24 | https://openalex.org/W2604400213
+
+2. Using cognitive dimensions to evaluate the usability of security APIs: An empirical investigation (2019)
+   Chamila Wijayarathna, Nalin Asanka Gamagedara Arachchilage — Information and Software Technology [article]
+   DOI: 10.1016/j.infsof.2019.07.007 | citações: 20 | https://openalex.org/W2963725780
+
+3. Developing usable APIs with XP and cognitive dimensions (2016)
+   Rahul Kamal Bhaskar, Craig Anslow, John Brosz et al. — — [conference-paper]
+   DOI: 10.1109/vlhcc.2016.7739671 | citações: 4 | https://openalex.org/W2550336446
+
+4. Using Cognitive Dimensions Questionnaire to Evaluate the Usability of\n Security APIs (2017)
+   Chamila Wijayarathna, Nalin Asanka Gamagedara Arachchilage, Jill Slay — arXiv (Cornell University) [preprint]
+   DOI: 10.48550/arxiv.1706.00138 | citações: 4 | https://openalex.org/W2959301532
+
+5. Using Cognitive Dimensions Questionnaire to Evaluate the Usability of Security APIs (2017)
+   Chamila Wijayarathna, Arachchilage, NAG, Jill Slay et al. — arXiv (Cornell University) [preprint]
+   DOI: 10.26190/unsworks/27466 | citações: 1 | https://openalex.org/W2809907716
+
+6. Why Johnny can’t develop a secure application? A usability analysis of Java Secure Socket Extension API (2018)
+   Chamila Wijayarathna, Nalin Asanka Gamagedara Arachchilage — Computers & Security [article]
+   DOI: 10.1016/j.cose.2018.09.007 | citações: 23 | https://openalex.org/W2894351723
+
+7. Designing and Evaluating the Usability of a Machine Learning API for Rapid Prototyping Music Technology (2020)
+   Francisco Bernardo, Michael Zbyszyński, Mick Grierson et al. — Frontiers in Artificial Intelligence [article]
+   DOI: 10.3389/frai.2020.00013 | citações: 15 | https://openalex.org/W3015015671
+
+8. Growth hacking: Insights on data-driven decision-making from three firms (2019)
+   Orlando Troisi, Gennaro Maione, Mara Grimaldi et al. — Industrial Marketing Management [article]
+   DOI: 10.1016/j.indmarman.2019.08.005 | citações: 175 | https://openalex.org/W2969283397
+
+9. Cognitive ecology of pollinators and the main determinants of foraging plasticity (2019)
+   David Baracchi — Current Zoology [article]
+   DOI: 10.1093/cz/zoz036 | citações: 26 | https://openalex.org/W2963582414
+
+10. Towards a formal API assessment (2018)
+   Amir Zghidi, Imed Hammouda, Brahim Hnich — — [conference-paper]
+   DOI: 10.1145/3183440.3195026 | citações: 2 | https://openalex.org/W2809304708
+
+11. Cognitive Computing Approaches for Human Activity Recognition from Tweets—A Case Study of Twitter Marketing Campaign (2019)
+   Jari Jussila, Prashanth Madhala — Springer proceedings in complexity [conference-paper]
+   DOI: 10.1007/978-3-030-30809-4_15 | citações: 10 | https://openalex.org/W2982619239
+
+12. On the Usability of Reactive Programming APIs: A Mixed Evaluation (2025)
+   Carlos Zimmerle, Kiev Santos da Gama — Software Practice and Experience [article]
+   DOI: 10.1002/spe.3435 | citações: 2 | https://openalex.org/W4410705712
+
+13. Poster: Towards a Formal API Assessment (2018)
+   Amir Zghidi, Imed Hammouda, Brahim Hnich — International Conference on Software Engineering [conference-paper]
+   DOI: sem DOI | citações: 1 | https://openalex.org/W2889147265
+
+14. A Generic Cognitive Dimensions Questionnaire to Evaluate the Usability of Security APIs (2017)
+   Chamila Wijayarathna, Nalin Asanka Gamagedara Arachchilage, Jill Slay — arXiv (Cornell University) [preprint]
+   DOI: 10.48550/arxiv.1703.09846 | citações: 0 | https://openalex.org/W4300795392
+
+15. An institutional perspective on application programming interface development and integration (2023)
+   Joshua Ofoeda, Richard Boateng, John K. Effah — Information Technology and People [article]
+   DOI: 10.1108/itp-11-2022-0826 | citações: 10 | https://openalex.org/W4389802000
+
+16. Beyond accuracy: cognitive, pedagogical, and practical readiness of multimodal LLMs for K-12 science education (2026)
+   Kexin Jiang, Xiaoqin Xiao — Interactive Learning Environments [article]
+   DOI: 10.1080/10494820.2026.2679730 | citações: 1 | https://openalex.org/W7164928088
+
+17. MOOD DETECTION BASED ON LAST SONG LISTENED ON SPOTIFY (2022)
+   Ridi Ferdiana, Wiiliam Fajar Dicka, Faturahman Yudanto — ASEAN Engineering Journal [article]
+   DOI: 10.11113/aej.v12.16834 | citações: 3 | https://openalex.org/W4295066238
+
+18. Task guidelines and the CDF questionnaire instrument of security API usability study (2019)
+   Gamagedara Arachchilage, Nalin Asanka — — [article]
+   DOI: 10.26190/5da65c5981f7c | citações: 0 | https://openalex.org/W3158945752
+
+19. A Hybrid Machine Learning and Mathematical Modeling Approach for Predicting Academic Performance Using Latent Dimensions (2026)
+   Rajoelison Andrianarimalala Abel, Rakotomalala Vololona Harinoro, Rasolomampiandry Gilbert — International Journal of Innovative Science and Research Technology (IJISRT) [article]
+   DOI: 10.38124/ijisrt/26apr1548 | citações: 0 | https://openalex.org/W7160930038
+
+20. A Conceptual Task-Based Framework for Estimating AI Automation Potential in Multidisciplinary Oncology Workflows: Introducing the API, MAQ, and UTD Instruments (2026)
+   Mauro Iannopollo — SSRN Electronic Journal [preprint]
+   DOI: 10.2139/ssrn.6945638 | citações: 0 | https://openalex.org/W7171631075
+

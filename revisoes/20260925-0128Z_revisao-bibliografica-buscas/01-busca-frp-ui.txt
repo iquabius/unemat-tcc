@@ -1,0 +1,102 @@
+# Busca: 'functional reactive programming user interface' — 86 resultados no OpenAlex (mostrando 25, ordem: relevancia)
+
+1. Testing and debugging functional reactive programming (2017)
+   Ivan Pérez, Henrik Nilsson — Proceedings of the ACM on Programming Languages [article]
+   DOI: 10.1145/3110246 | citações: 26 | https://openalex.org/W2751194474
+
+2. Vehicle Platooning Simulations with Functional Reactive Programming (2017)
+   Bernd Finkbeiner, Felix Klein, Ružica Piskač et al. — — [conference-paper]
+   DOI: 10.1145/3055378.3055385 | citações: 11 | https://openalex.org/W2605935018
+
+3. The Performance Analysis of Web Applications Based on Virtual DOM and Reactive User Interfaces (2018)
+   Dariusz Chęć, Ziemowit Nowak — Advances in intelligent systems and computing [conference-paper]
+   DOI: 10.1007/978-3-319-99617-2_8 | citações: 11 | https://openalex.org/W2891447286
+
+4. FlowMatic: An Immersive Authoring Tool for Creating Interactive Scenes in Virtual Reality (2020)
+   Lei Zhang, Steve Oney — — [conference-paper]
+   DOI: 10.1145/3379337.3415824 | citações: 94 | https://openalex.org/W3093907960
+
+5. Adjoint Reactive GUI Programming (2021)
+   Christian Uldal Graulund, Dmitrij Szamozvancev, Neel Krishnaswami — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-030-71995-1_15 | citações: 3 | https://openalex.org/W3138062835
+
+6. A Graphical User Interface Framework for Formal Verification (2021)
+   Edward W. Ayers, Mateja Jamnik, William Timothy Gowers — DROPS (Schloss Dagstuhl – Leibniz Center for Informatics) [article]
+   DOI: 10.4230/lipics.itp.2021.4 | citações: 3 | https://openalex.org/W3175003771
+
+7. The Beauty and Elegance of Functional Reactive Animation (2023)
+   Ivan Pérez — — [conference-paper]
+   DOI: 10.1145/3609023.3609806 | citações: 2 | https://openalex.org/W4386316284
+
+8. Asynchronous Reactive Programming with Modal Types in Haskell (2023)
+   Patrick Bahr, Emil Houlborg, Gregers Thomas Skat Rørdam — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-031-52038-9_2 | citações: 3 | https://openalex.org/W4391494410
+
+9. TCRmodel: high resolution modeling of T cell receptors from sequence (2018)
+   Ragul Gowthaman, Brian G. Pierce — Nucleic Acids Research [article]
+   DOI: 10.1093/nar/gky432 | citações: 70 | https://openalex.org/W2803170063
+
+10. Asparagus: A toolkit for autonomous, user-guided construction of machine-learned potential energy surfaces (2024)
+   Kai Töpfer, Luis Itza Vazquez-Salazar, Markus Meuwly — Computer Physics Communications [article]
+   DOI: 10.1016/j.cpc.2024.109446 | citações: 13 | https://openalex.org/W4404626715
+
+11. PyBEST: Improved functionality and enhanced performance (2023)
+   Katharina Bogusławski, Filip Brzęk, Rahul Chakraborty et al. — Computer Physics Communications [article]
+   DOI: 10.1016/j.cpc.2023.109049 | citações: 28 | https://openalex.org/W4389670454
+
+12. Diamonds are not forever: liveness in reactive programming with guarded recursion (2021)
+   Patrick Bahr, Christian Uldal Graulund, Rasmus Ejlers Møgelberg — Proceedings of the ACM on Programming Languages [article]
+   DOI: 10.1145/3434283 | citações: 2 | https://openalex.org/W3009855409
+
+13. Gavial: Programming the web with multi-tier FRP (2020)
+   Bob Reynders, Frank Piessens, Dominique Devriese — The Art Science and Engineering of Programming [article]
+   DOI: 10.22152/programming-journal.org/2020/4/6 | citações: 5 | https://openalex.org/W3006386447
+
+14. A Robust and Versatile QM / MM Interface for Molecular Dynamics in GROMOS (2025)
+   Peter Poliak, Patrick Bleiziffer, Felix Pultar et al. — Journal of Computational Chemistry [article]
+   DOI: 10.1002/jcc.70053 | citações: 4 | https://openalex.org/W4407238072
+
+15. elementr : An R package for reducing elemental data from LA ‐ ICPMS analysis of biological calcified structures (2017)
+   Charlotte Sirot, Franck Ferraton, Jacques Panfili et al. — Methods in Ecology and Evolution [article]
+   DOI: 10.1111/2041-210x.12822 | citações: 28 | https://openalex.org/W2618930125
+
+16. Asparagus: A Toolkit for Autonomous, User-Guided Construction of Machine-Learned Potential Energy Surfaces (2024)
+   Kai Töpfer, Luis Itza Vazquez-Salazar, Markus Meuwly — SSRN Electronic Journal [preprint]
+   DOI: 10.2139/ssrn.4917955 | citações: 3 | https://openalex.org/W4401357527
+
+17. CHARMM-GUI EnzyDocker for Protein–Ligand Docking of Multiple Reactive States along a Reaction Coordinate in Enzymes (2025)
+   Donghyuk Suh, Renana Schwartz, Prashant Kumar Gupta et al. — Journal of Chemical Theory and Computation [article]
+   DOI: 10.1021/acs.jctc.4c01691 | citações: 7 | https://openalex.org/W4407564385
+
+18. Designing Modular Software: A Case Study in Introductory Statistics (2017)
+   Eric Hare, Andee Kaplan — Journal of Computational and Graphical Statistics [article]
+   DOI: 10.1080/10618600.2016.1276839 | citações: 8 | https://openalex.org/W2483337796
+
+19. Geochemical and reactive transport modelling in R with the RedModRphree package (2021)
+   Marco De Lucia, Michael Kühn — — [conference-abstract]
+   DOI: 10.5194/egusphere-egu21-2636 | citações: 1 | https://openalex.org/W3215380408
+
+20. A Surveillance Infrastructure for Malaria Analytics: Provisioning Data Access and Preservation of Interoperability (2018)
+   Mohammad Sadnan Al Manir, Jon Haël Brenas, Christopher JO Baker et al. — JMIR Public Health and Surveillance [article]
+   DOI: 10.2196/10218 | citações: 16 | https://openalex.org/W2951648472
+
+21. The Model View Controller as a Functional Reactive Program (2023)
+   Abu Saleh Mohammed Monirul Alam, Vicky J. Bush — Research Square [preprint]
+   DOI: 10.21203/rs.3.rs-3743640/v1 | citações: 0 | https://openalex.org/W4389640223
+
+22. Multi-mode P-FRP Task Scheduling (2017)
+   Xingliang Zou, Albert M. K. Cheng, Carlos Rincón et al. — — [conference-paper]
+   DOI: 10.1109/isorc.2017.19 | citações: 3 | https://openalex.org/W2732894309
+
+23. Functional Reactive Programming for iOS : using Objective-C and ReactiveCocoa (2018)
+   Mark Vasiv — Theseus (Ammattikorkeakoulujen) [article]
+   DOI: sem DOI | citações: 0 | https://openalex.org/W2786619788
+
+24. Property-Based Testing for Asynchronous Functional Reactive Programming Using Linear Temporal Logic (2026)
+   Christian Emil Nielsen, Mathias Faber Kristiansen, Patrick Bahr — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-032-15981-6_3 | citações: 0 | https://openalex.org/W7122691329
+
+25. CyDER: A Cyber Physical Co-simulation Platform for Distributed Energy Resources in Smartgrids (2020)
+   Christoph Gehbauer, USDOE Office of Energy Efficiency and Renewable Energy (EERE), Renewable Power Office. Solar Energy Technologies Office — — [report]
+   DOI: 10.2172/1634767 | citações: 4 | https://openalex.org/W3003802188
+

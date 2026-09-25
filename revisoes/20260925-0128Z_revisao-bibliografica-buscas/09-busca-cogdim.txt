@@ -1,0 +1,102 @@
+# Busca: 'cognitive dimensions of notations programming' — 38 resultados no OpenAlex (mostrando 25, ordem: relevancia)
+
+1. A Usability Analysis of Blocks-based Programming Editors using Cognitive Dimensions (2018)
+   Robert Holwerda, Felienne Hermans — — [conference-paper]
+   DOI: 10.1109/vlhcc.2018.8506483 | citações: 24 | https://openalex.org/W2898089993
+
+2. LUME: Eliminating Cognitive Distance - A Deterministic Natural-Language Programming Language with Intent-Resolving Compilation, Voice Input, Certified Security, and Synthetic Organism Runtime (2026)
+   Ronald Jason Andrews — Zenodo (CERN European Organization for Nuclear Research) [preprint]
+   DOI: 10.5281/zenodo.19382282 | citações: 33 | https://openalex.org/W7148269042
+
+3. Assessing the Usefulness of a Visual Programming IDE for Large-Scale Automation Software (2021)
+   Bianca Wiesmayr, Alois Zoitl, Rick Rabiser — — [conference-paper]
+   DOI: 10.1109/models50736.2021.00037 | citações: 13 | https://openalex.org/W3206246360
+
+4. Assessing the usefulness of a visual programming IDE for large-scale automation software (2023)
+   Bianca Wiesmayr, Alois Zoitl, Rick Rabiser — Software & Systems Modeling [article]
+   DOI: 10.1007/s10270-023-01084-7 | citações: 11 | https://openalex.org/W4319659534
+
+5. XLBlocks: a Block-based Formula Editor for Spreadsheet Formulas (2019)
+   Bas Wouterszoon Jansen, Felienne Hermans — — [conference-paper]
+   DOI: 10.1109/vlhcc.2019.8818748 | citações: 13 | https://openalex.org/W2974347137
+
+6. On the Usability of Reactive Programming APIs: A Mixed Evaluation (2025)
+   Carlos Zimmerle, Kiev Santos da Gama — Software Practice and Experience [article]
+   DOI: 10.1002/spe.3435 | citações: 2 | https://openalex.org/W4410705712
+
+7. Design and Evaluation of an XML-Based Language for Programming Socially Assistive Robots (2025)
+   Marcelo Marques da Rocha, Jesús Favela, Débora C. Muchaluat-Saade — International Journal of Social Robotics [article]
+   DOI: 10.1007/s12369-025-01254-1 | citações: 4 | https://openalex.org/W4410156223
+
+8. Challenges of Music Score Writing and the Potentials of Interactive Surfaces (2024)
+   Vincent Cavez, Catherine Letondal, Emmanuel Pietriga et al. — — [conference-paper]
+   DOI: 10.1145/3613904.3642079 | citações: 4 | https://openalex.org/W4392934309
+
+9. Usability-based Language for Authoring NCL Documents (2017)
+   Lucas de Macêdo Terças, Daniel de Sousa Moraes, Dalai dos Santos Ribeiro et al. — — [conference-paper]
+   DOI: 10.1145/3126858.3126866 | citações: 3 | https://openalex.org/W2761663128
+
+10. LondonTube (2016)
+   Christopher Scaffidi, Andrew P. Dove, Tahmid Nabi — — [conference-paper]
+   DOI: 10.1145/2858036.2858076 | citações: 3 | https://openalex.org/W2401181117
+
+11. DIEL: Interactive Visualization Beyond the Here and Now (2021)
+   Yifan Wu, Remco Chang, Joseph M. Hellerstein et al. — IEEE Transactions on Visualization and Computer Graphics [article]
+   DOI: 10.1109/tvcg.2021.3114796 | citações: 9 | https://openalex.org/W3204141329
+
+12. Practice-led design and evaluation of a live visual constraint language (2021)
+   Alan F. Blackwell, Ignatios Charalampidis — CL Technical Reports [report]
+   DOI: 10.48456/tr-833 | citações: 2 | https://openalex.org/W2508536034
+
+13. Machine Legibility Dimensions: A Framework for Evaluating Notations Where the Primary Reader Is an AI System (2026)
+   Michael Shatny — Zenodo (CERN European Organization for Nuclear Research) [software]
+   DOI: 10.5281/zenodo.19546589 | citações: 0 | https://openalex.org/W7153860243
+
+14. Machine Legibility Dimensions: A Framework for Evaluating Notations Where the Primary Reader Is an AI System (2026)
+   Michael Shatny — Zenodo (CERN European Organization for Nuclear Research) [software]
+   DOI: 10.5281/zenodo.19546590 | citações: 0 | https://openalex.org/W7153834654
+
+15. DIEL: Interactive Visualization Beyond the Here and Now (2019)
+   Yifan Wu, Remco Chang, Joseph M. Hellerstein et al. — arXiv (Cornell University) [preprint]
+   DOI: 10.48550/arxiv.1907.00062 | citações: 1 | https://openalex.org/W3189598913
+
+16. The Effect of a Block-based Language on Formula Comprehension in Spreadsheets (2021)
+   Bas Wouterszoon Jansen, Felienne Hermans — — [conference-paper]
+   DOI: 10.1109/icpc52881.2021.00035 | citações: 1 | https://openalex.org/W3176172920
+
+17. The Use of Special Symbols in Simultaneous Interpreting: Cognitive, Functional, And Strategic Dimensions (2026)
+   Raufov Miraziz Mustafakulovich — American Journal Of Philological Sciences [article]
+   DOI: 10.37547/ajps/volume06issue02-31 | citações: 0 | https://openalex.org/W7133483546
+
+18. Editorial: The impact of home and school environment on early literacy and mathematic skills (2023)
+   Paola Bonifacci, Valentina Tobia, Tomohiro Inoue et al. — Frontiers in Psychology [editorial]
+   DOI: 10.3389/fpsyg.2023.1258391 | citações: 3 | https://openalex.org/W4385643962
+
+19. LUME: Eliminating Cognitive Distance — A Deterministic Natural-Language Programming Language with Intent-Resolving Compilation, Voice Input, Certified Security, and Synthetic Organism Runtime (2026)
+   Ronald Jason Andrews — Zenodo (CERN European Organization for Nuclear Research) [preprint]
+   DOI: 10.5281/zenodo.19612948 | citações: 0 | https://openalex.org/W7154654057
+
+20. LUME: Eliminating Cognitive Distance - A Deterministic Natural-Language Programming Language with Intent-Resolving Compilation, Voice Input, Certified Security, and Synthetic Organism Runtime (2026)
+   Ronald Jason Andrews — Zenodo (CERN European Organization for Nuclear Research) [preprint]
+   DOI: 10.5281/zenodo.19825125 | citações: 0 | https://openalex.org/W7156257888
+
+21. LUME: Eliminating Cognitive Distance - A Deterministic Natural-Language Programming Language with Intent-Resolving Compilation, Voice Input, Certified Security, and Synthetic Organism Runtime (2026)
+   Ronald Jason Andrews — Zenodo (CERN European Organization for Nuclear Research) [preprint]
+   DOI: 10.5281/zenodo.20075074 | citações: 0 | https://openalex.org/W7160536305
+
+22. LUME: Eliminating Cognitive Distance — A Deterministic Natural-Language Programming Language with Intent-Resolving Compilation, Voice Input, Certified Security, and Synthetic Organism Runtime (2026)
+   Ronald Jason Andrews — Zenodo (CERN European Organization for Nuclear Research) [preprint]
+   DOI: 10.5281/zenodo.19820001 | citações: 0 | https://openalex.org/W7156054010
+
+23. LUME: Eliminating Cognitive Distance — A Deterministic Natural-Language Programming Language with Intent-Resolving Compilation, Voice Input, Certified Security, and Synthetic Organism Runtime (2026)
+   Ronald Jason Andrews — Zenodo (CERN European Organization for Nuclear Research) [preprint]
+   DOI: 10.5281/zenodo.19645129 | citações: 0 | https://openalex.org/W7154856772
+
+24. LUME: Eliminating Cognitive Distance — A Deterministic Natural-Language Programming Language with Intent-Resolving Compilation, Voice Input, Certified Security, and Synthetic Organism Runtime (2026)
+   Ronald Jason Andrews — Zenodo (CERN European Organization for Nuclear Research) [preprint]
+   DOI: 10.5281/zenodo.19812043 | citações: 0 | https://openalex.org/W7156284639
+
+25. TIDE: An Educational Live Programming Environment to Compose Graphics with PyTamaro (2025)
+   Joey Bevilacqua, Nathan Coquerel, Luca Chiodini et al. — — [conference-paper]
+   DOI: 10.1145/3759534.3762683 | citações: 0 | https://openalex.org/W4415002564
+

@@ -1,0 +1,35 @@
+# Trabalhos que citam: Mining the usage of reactive programming APIs (2022)
+# Total: 8 (mostrando 8)
+
+1. On the Usability of Reactive Programming APIs: A Mixed Evaluation (2025)
+   Carlos Zimmerle, Kiev Santos da Gama — Software Practice and Experience [article]
+   DOI: 10.1002/spe.3435 | citações: 2 | https://openalex.org/W4410705712
+
+2. Reactive Programming with Swift Combine: An Analysis of Problems Faced by Developers on Stack Overflow (2023)
+   Alessandra Marques Pereira, Kiev Santos da Gama, Carlos Zimmerle et al. — — [conference-paper]
+   DOI: 10.1145/3613372.3613381 | citações: 2 | https://openalex.org/W4387007130
+
+3. Open source oriented cross-platform survey (2025)
+   Side Yao, Xunhui Zhang, Yang Zhang et al. — Information and Software Technology [article]
+   DOI: 10.1016/j.infsof.2025.107704 | citações: 1 | https://openalex.org/W4408538212
+
+4. UAX: Measuring the Usability of TypeScript APIs (2024)
+   Carlos Zimmerle, Kiev Santos da Gama — — [conference-paper]
+   DOI: 10.5753/sbes.2024.3658 | citações: 1 | https://openalex.org/W4403585108
+
+5. Preserving Reactiveness: Understanding and Improving the Debugging Practice of Blocking-Call Bugs (2024)
+   Arooba Shahoor, Jooyong Yi, Dongsun Kim — — [conference-paper]
+   DOI: 10.1145/3650212.3680319 | citações: 1 | https://openalex.org/W4402442470
+
+6. Perspectives and Challenges of iOS Developers in Using Reactive Programming with RxSwift (2024)
+   Elaine Cruz Farias, Carlos Zimmerle, Kiev Santos da Gama — — [conference-paper]
+   DOI: 10.5753/sbes.2024.3569 | citações: 0 | https://openalex.org/W4403607095
+
+7. Mining for Cost Awareness in the Infrastructure as Code Artifacts of Cloud-Based Applications: An Exploratory Study (2024)
+   Daniel Feitosa, Matei-Tudor Penca, Massimiliano Berardi et al. — SSRN Electronic Journal [preprint]
+   DOI: 10.2139/ssrn.4681763 | citações: 0 | https://openalex.org/W4390502614
+
+8. Mining for Cost Awareness in the Infrastructure as Code Artifacts of Cloud-based Applications: an Exploratory Study (2023)
+   Daniel Feitosa, Matei-Tudor Penca, Massimiliano Berardi et al. — arXiv (Cornell University) [preprint]
+   DOI: 10.48550/arxiv.2304.07531 | citações: 0 | https://openalex.org/W4366342365
+

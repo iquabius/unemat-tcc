@@ -1,0 +1,102 @@
+# Busca: 'declarative user interface programming functional' — 80 resultados no OpenAlex (mostrando 25, ordem: relevancia)
+
+1. A Graphical User Interface Framework for Formal Verification (2021)
+   Edward W. Ayers, Mateja Jamnik, William Timothy Gowers — DROPS (Schloss Dagstuhl – Leibniz Center for Informatics) [article]
+   DOI: 10.4230/lipics.itp.2021.4 | citações: 3 | https://openalex.org/W3175003771
+
+2. Super 8 languages for making movies (functional pearl) (2017)
+   Leif Andersen, Stephen Chang, Matthias Felleisen — Proceedings of the ACM on Programming Languages [article]
+   DOI: 10.1145/3110274 | citações: 10 | https://openalex.org/W2753210791
+
+3. Worldwide Effect of COVID-19 on Physical Activity: A Descriptive Study (2020)
+   Geoffrey H. Tison, Robert Avram, Peter Kuhar et al. — Annals of Internal Medicine [article]
+   DOI: 10.7326/m20-2665 | citações: 856 | https://openalex.org/W3037505531
+
+4. Gavial: Programming the web with multi-tier FRP (2020)
+   Bob Reynders, Frank Piessens, Dominique Devriese — The Art Science and Engineering of Programming [article]
+   DOI: 10.22152/programming-journal.org/2020/4/6 | citações: 5 | https://openalex.org/W3006386447
+
+5. Adjoint Reactive GUI Programming (2021)
+   Christian Uldal Graulund, Dmitrij Szamozvancev, Neel Krishnaswami — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-030-71995-1_15 | citações: 3 | https://openalex.org/W3138062835
+
+6. Proceedings 35th International Conference on Logic Programming (Technical Communications) (2019)
+   Bart Bogaerts, Esra Erdem, Paul Fodor et al. — Electronic Proceedings in Theoretical Computer Science [paratext]
+   DOI: 10.4204/eptcs.306 | citações: 3 | https://openalex.org/W2974613685
+
+7. The Beauty and Elegance of Functional Reactive Animation (2023)
+   Ivan Pérez — — [conference-paper]
+   DOI: 10.1145/3609023.3609806 | citações: 2 | https://openalex.org/W4386316284
+
+8. plantGIR: a genomic database of plants (2024)
+   Zhuo Liu, Chenhao Zhang, Jinghua He et al. — Horticulture Research [article]
+   DOI: 10.1093/hr/uhae342 | citações: 35 | https://openalex.org/W4405231121
+
+9. Declarative Specification of Information System Data Models and Business Logic (2019)
+   Daco C. Harkes — Research Repository (Delft University of Technology) [dissertation]
+   DOI: 10.4233/uuid:5e9805ca-95d0-451e-a8f0-55decb26c94a | citações: 1 | https://openalex.org/W2928296830
+
+10. PlantSPEAD: a web resource towards comparatively analysing stress‐responsive expression of splicing‐related proteins in plant (2020)
+   Mo‐Xian Chen, Long‐Can Mei, Fan Wang et al. — Plant Biotechnology Journal [article]
+   DOI: 10.1111/pbi.13486 | citações: 61 | https://openalex.org/W3089649635
+
+11. From model to implementation: a network algorithm programming language (2020)
+   Jian Wang, Jie An, Mingshuai Chen et al. — Science China Information Sciences [article]
+   DOI: 10.1007/s11432-019-2644-8 | citações: 2 | https://openalex.org/W3033835181
+
+12. VOFTools 5: An extension to non-convex geometries of calculation tools for volume of fluid methods (2020)
+   Joaquín López, Julio Hernández, Pablo Gómez et al. — Computer Physics Communications [article]
+   DOI: 10.1016/j.cpc.2020.107277 | citações: 20 | https://openalex.org/W3010688045
+
+13. ZMCintegral-v5: Support for Integrations with the scanning of large parameter space on multi-GPUs (2020)
+   Jun-Jie Zhang, Hongzhong Wu — Computer Physics Communications [article]
+   DOI: 10.1016/j.cpc.2020.107240 | citações: 11 | https://openalex.org/W3007917262
+
+14. OSS-GPT: An LLM-Powered Intent-Driven Operations Support System for 6G Networks (2025)
+   Abdelkader Mekrache, Adlen Ksentini, Christos V. Verikoukis — — [conference-paper]
+   DOI: 10.1109/netsoft64993.2025.11080632 | citações: 4 | https://openalex.org/W4412537323
+
+15. Leveraging an open source serverless framework for high energy physics computing (2023)
+   Vincenzo Eduardo Padulano, Pablo Oliver Cortés, Pedro Alonso et al. — The Journal of Supercomputing [article]
+   DOI: 10.1007/s11227-022-05016-y | citações: 6 | https://openalex.org/W4313480471
+
+16. Metadata specification in a dynamic geometry software (2017)
+   Davorka Radaković, Đorđe Herceg — AIP conference proceedings [conference-paper]
+   DOI: 10.1063/1.4992504 | citações: 1 | https://openalex.org/W2737600009
+
+17. iSoybean : A database for the mutational fingerprints of soybean (2022)
+   Mengzhu Zhang, Xiyu Zhang, Xinyu Jiang et al. — Plant Biotechnology Journal [article]
+   DOI: 10.1111/pbi.13844 | citações: 47 | https://openalex.org/W4280527209
+
+18. How to Build Your Own ASP-based System?! (2021)
+   Roland Kaminski, Javier Romero, Torsten H. Schaub et al. — Theory and Practice of Logic Programming [article]
+   DOI: 10.1017/s1471068421000508 | citações: 2 | https://openalex.org/W3049478784
+
+19. Declarative interfaces for HEP data analysis: FuncADL and ADL/CutLang (2023)
+   C. Huh, M. L. Proffitt, Harrison Bertrand Prosper et al. — Journal of Physics Conference Series [conference-paper]
+   DOI: 10.1088/1742-6596/2438/1/012075 | citações: 0 | https://openalex.org/W4320915887
+
+20. Structure of African swine fever virus p15 reveals its dual role for membrane-association and DNA binding (2020)
+   Dan Beverly Fu, Dongming Zhao, Wei Zhang et al. — Protein & Cell [article]
+   DOI: 10.1007/s13238-020-00731-9 | citações: 20 | https://openalex.org/W3032022560
+
+21. Cryo-EM structure of L-fucokinase/GDP-fucose pyrophosphorylase (FKP) in Bacteroides fragilis (2018)
+   Ying Liu, Huifang Hu, Jia Wang et al. — Protein & Cell [article]
+   DOI: 10.1007/s13238-018-0576-x | citações: 15 | https://openalex.org/W2890403868
+
+22. OrganoidPortal: Web server and single‐cell transcriptome database featuring reference atlases of organoids (2024)
+   Jialin Chen, Hao Yu, Ke Sui et al. — Clinical and Translational Medicine [article]
+   DOI: 10.1002/ctm2.1794 | citações: 3 | https://openalex.org/W4401433701
+
+23. DNA‐Encoded Synthetic Systems: Coding More than Life (2023)
+   Damien Baigl — Advanced Biology [article]
+   DOI: 10.1002/adbi.202300064 | citações: 2 | https://openalex.org/W4327683212
+
+24. Body-coupled smart fibers: Enhancing seamless integration and efficiency in medical human-machine interaction (2024)
+   Xiang Lei, Yihan Li, Ding Xuan Zhao et al. — The Innovation [article]
+   DOI: 10.1016/j.xinn.2024.100674 | citações: 5 | https://openalex.org/W4400521166
+
+25. Structural basis for DAXX interaction with ATRX (2017)
+   Xiaoman Wang, Yiyue Zhao, Jian Zhang et al. — Protein & Cell [article]
+   DOI: 10.1007/s13238-017-0462-y | citações: 27 | https://openalex.org/W2750780774
+

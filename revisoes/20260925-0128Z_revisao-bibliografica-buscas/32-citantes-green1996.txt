@@ -1,0 +1,243 @@
+# Trabalhos que citam: Usability Analysis of Visual Programming Environments: A ‘Cognitive Dimensions’ Framework (1996)
+# Total: 328 (mostrando 60)
+
+1. Design Principles for Tools to Support Creative Thinking (2018)
+   Mitchel Resnick, Brad A. Myers, Kumiyo Nakakoji et al. — Figshare [article]
+   DOI: 10.1184/r1/6621917 | citações: 203 | https://openalex.org/W654216708
+
+2. Novice Programmers and Introductory Programming (2019)
+   Anthony V. Robins — Cambridge University Press eBooks [book-chapter]
+   DOI: 10.1017/9781108654555.013 | citações: 175 | https://openalex.org/W2915211782
+
+3. plyranges: a grammar of genomic data transformation (2019)
+   Stuart A. Lee, Dianne Cook, Michael C. Lawrence — Genome biology [article]
+   DOI: 10.1186/s13059-018-1597-8 | citações: 151 | https://openalex.org/W2952053464
+
+4. AI Agents and Agentic Systems: A Multi-Expert Analysis (2025)
+   Laurie Hughes, Yogesh Kumar Dwivedi, Tegwen Malik et al. — Journal of Computer Information Systems [article]
+   DOI: 10.1080/08874417.2025.2483832 | citações: 150 | https://openalex.org/W4409737900
+
+5. Usability Issues in the Design of Novice Programming Systems (2018)
+   John F. Pane, Brad A. Myers — KiltHub Repository [article]
+   DOI: 10.1184/r1/6626363 | citações: 150 | https://openalex.org/W125355735
+
+6. The Cambridge Handbook of Computing Education Research (2019)
+   autoria não informada — Cambridge University Press eBooks [book]
+   DOI: 10.1017/9781108654555 | citações: 127 | https://openalex.org/W3211146700
+
+7. Design pattern modelling and instantiation using DPML (2024)
+   David Mapelsden, John Hosking, John Grundy — Swinburne figshare (Swinburne University of Technology) [conference-paper]
+   DOI: 10.25916/sut.26294170 | citações: 118 | https://openalex.org/W1574278914
+
+8. “What It Wants Me To Say”: Bridging the Abstraction Gap Between End-User Programmers and Code-Generating Large Language Models (2023)
+   Michael Xieyang Liu, Advait Sarkar, Carina Negreanu et al. — — [conference-paper]
+   DOI: 10.1145/3544548.3580817 | citações: 115 | https://openalex.org/W4365601419
+
+9. PUMICE: A Multi-Modal Agent that Learns Concepts and Conditionals from Natural Language and Demonstrations (2019)
+   Toby Jia-Jun Li, Marissa Radensky, Justin Jia et al. — — [conference-paper]
+   DOI: 10.1145/3332165.3347899 | citações: 111 | https://openalex.org/W2972018816
+
+10. Application Programming Interface (API) Research (2019)
+   Joshua Ofoeda, Richard Boateng, John K. Effah — International Journal of Enterprise Information Systems [article]
+   DOI: 10.4018/ijeis.2019070105 | citações: 103 | https://openalex.org/W2952886702
+
+11. A Survey on End-User Robot Programming (2021)
+   Gopika Ajaykumar, Maureen Steele, Chien-Ming Huang — ACM Computing Surveys [article]
+   DOI: 10.1145/3466819 | citações: 89 | https://openalex.org/W3158716008
+
+12. Code compliance checking of railway designs by integrating BIM, BPMN and DMN (2020)
+   Marco Häußler, Sebastian Esser, André Borrmann — Automation in Construction [article]
+   DOI: 10.1016/j.autcon.2020.103427 | citações: 88 | https://openalex.org/W3094051283
+
+13. Visual Programming Environments for End-User Development of intelligent and social robots, a systematic review (2020)
+   Enrique Coronado, Fulvio Mastrogiovanni, Bipin Indurkhya et al. — Journal of Computer Languages [review]
+   DOI: 10.1016/j.cola.2020.100970 | citações: 85 | https://openalex.org/W3026868555
+
+14. Optimization of geometric parameters of arch bridges using visual programming FEM components and genetic algorithm (2021)
+   Kamil Korus, Marek Salamak, Marcin Jasiński — Engineering Structures [article]
+   DOI: 10.1016/j.engstruct.2021.112465 | citações: 74 | https://openalex.org/W3163201076
+
+15. Spellburst: A Node-based Interface for Exploratory Creative Coding with Natural Language Prompts (2023)
+   Tyler Angert, Miroslav Suzara, Jenny Yi-Chen Han et al. — — [conference-paper]
+   DOI: 10.1145/3586183.3606719 | citações: 71 | https://openalex.org/W4385714563
+
+16. Visual design thinking: a collaborative dimensions framework to profile visualisations (2019)
+   Sabrina Bresciani — Design Studies [article]
+   DOI: 10.1016/j.destud.2019.04.001 | citações: 69 | https://openalex.org/W2942357311
+
+17. Computational Thinking (2019)
+   Paul Curzon, Tim Bell, Jane Waite et al. — Cambridge University Press eBooks [book-chapter]
+   DOI: 10.1017/9781108654555.018 | citações: 68 | https://openalex.org/W4211252168
+
+18. Programming Paradigms and Beyond (2019)
+   Shriram Krishnamurthi, Kathi Fisler — Cambridge University Press eBooks [book-chapter]
+   DOI: 10.1017/9781108654555.014 | citações: 64 | https://openalex.org/W2917373358
+
+19. Animation as a dynamic visualization technique for improving process model comprehension (2021)
+   Banu Aysolmaz, Hajo Alexander Reijers — Information & Management [article]
+   DOI: 10.1016/j.im.2021.103478 | citações: 61 | https://openalex.org/W3158195593
+
+20. The History of Computing Education Research (2019)
+   Mark Guzdial, Benedict du Boulay — Cambridge University Press eBooks [book-chapter]
+   DOI: 10.1017/9781108654555.002 | citações: 60 | https://openalex.org/W2916376035
+
+21. Declarative Process Specifications: Reasoning, Discovery, Monitoring (2022)
+   Claudio Di Ciccio, Marco Montali — Lecture notes in business information processing [book-chapter]
+   DOI: 10.1007/978-3-031-08848-3_4 | citações: 58 | https://openalex.org/W4285303785
+
+22. Tangible Computing (2019)
+   Michael Horn, Marina Umaschi Bers — Cambridge University Press eBooks [book-chapter]
+   DOI: 10.1017/9781108654555.023 | citações: 55 | https://openalex.org/W4211119453
+
+23. The Influence of Cognitive Dimensions on the Consumer-SME Relationship: A Sustainability-Oriented View (2018)
+   Francesco Caputo, Luca Carrubbo, Debora Sarno — Sustainability [article]
+   DOI: 10.3390/su10093238 | citações: 54 | https://openalex.org/W2891428309
+
+24. Cognitive Diagram Understanding and Task Performance in Systems Analysis and Design (2021)
+   Monika Malinova, Jan Mendling — MIS Quarterly [article]
+   DOI: 10.25300/misq/2021/15262 | citações: 53 | https://openalex.org/W3206316284
+
+25. Innovative approaches to sustainable construction: a detailed study of rice husk ash as an eco-friendly substitute in cement production (2024)
+   M. Indumathi, G. Nakkeeran, Dipankar Roy et al. — Discover Applied Sciences [article]
+   DOI: 10.1007/s42452-024-06314-1 | citações: 41 | https://openalex.org/W4404206362
+
+26. icepack: a new glacier flow modeling package in Python, version 1.0 (2021)
+   Daniel Shapero, Jessica A. Badgeley, Andrew O. Hoffman et al. — Geoscientific model development [article]
+   DOI: 10.5194/gmd-14-4593-2021 | citações: 40 | https://openalex.org/W3118489805
+
+27. On the declarative paradigm in hybrid business process representations: A conceptual framework and a systematic literature study (2020)
+   Amine Abbad Andaloussi, Andrea Burattin, Tijs Slaats et al. — Information Systems [article]
+   DOI: 10.1016/j.is.2020.101505 | citações: 40 | https://openalex.org/W3001004827
+
+28. Examining data visualization pitfalls in scientific publications (2021)
+   Vinh T. Nguyen, Kwanghee Jung, Vibhuti Gupta — Visual Computing for Industry Biomedicine and Art [article]
+   DOI: 10.1186/s42492-021-00092-y | citações: 39 | https://openalex.org/W3211294635
+
+29. A systematic mapping study of API usability evaluation methods (2019)
+   Irum Rauf, Elena Troubitsynå, Iván Porres — Computer Science Review [article]
+   DOI: 10.1016/j.cosrev.2019.05.001 | citações: 39 | https://openalex.org/W2944972137
+
+30. Cognitive Sciences for Computing Education (2019)
+   Anthony V. Robins, Lauren Elizabeth Margulieux, Briana B. Morrison — Cambridge University Press eBooks [book-chapter]
+   DOI: 10.1017/9781108654555.010 | citações: 39 | https://openalex.org/W2917832356
+
+31. Programmer eXperience: A Systematic Literature Review (2019)
+   Jenny Morales, Cristián Rusu, Federico Botella et al. — IEEE Access [review]
+   DOI: 10.1109/access.2019.2920124 | citações: 38 | https://openalex.org/W2947383549
+
+32. Computing EducationLiterature Review and Voices from the Field (2019)
+   Paulo Blikstein, Sepi Hejazi Moghadam — Cambridge University Press eBooks [book-chapter]
+   DOI: 10.1017/9781108654555.004 | citações: 37 | https://openalex.org/W2917832570
+
+33. Model Translation: A UML-based specification technique and active implementation approach (2020)
+   David H. Akehurst — Kent Academic Repository (University of Kent) [dissertation]
+   DOI: 10.22024/unikent/01.02.21926 | citações: 34 | https://openalex.org/W801829517
+
+34. Idiomatic Patterns and Aesthetic Influence in Computer Music Languages (2020)
+   Andrew McPherson, Koray Tahıroğlu — Organised Sound [article]
+   DOI: 10.1017/s1355771819000463 | citações: 34 | https://openalex.org/W3003251631
+
+35. Towards Human-centric Model-driven Software Engineering (2020)
+   John Grundy, Hourieh Khalajzadeh, Jennifer McIntosh — — [conference-paper]
+   DOI: 10.5220/0009806002290238 | citações: 33 | https://openalex.org/W3026292508
+
+36. Learning Sciences for Computing Education (2019)
+   Lauren Elizabeth Margulieux, Brian Dorn, Kristin A. Searle — Cambridge University Press eBooks [book-chapter]
+   DOI: 10.1017/9781108654555.009 | citações: 33 | https://openalex.org/W2916618000
+
+37. VizAbility: Enhancing Chart Accessibility with LLM-based Conversational Interaction (2024)
+   Joshua Gorniak, Yoon Kim, Donglai Wei et al. — — [conference-paper]
+   DOI: 10.1145/3654777.3676414 | citações: 32 | https://openalex.org/W4403334466
+
+38. Building a three-level multimodal emotion recognition framework (2022)
+   Jose Maria Garcia-Garcia, María Dolores Lozano, Víctor M. R. Penichet et al. — Multimedia Tools and Applications [article]
+   DOI: 10.1007/s11042-022-13254-8 | citações: 32 | https://openalex.org/W4281802316
+
+39. Enhanced function-means modeling supporting design space exploration (2019)
+   Jakob R. Müller, Ola Isaksson, Jonas Landahl et al. — Artificial intelligence for engineering design analysis and manufacturing [article]
+   DOI: 10.1017/s0890060419000271 | citações: 30 | https://openalex.org/W2979906295
+
+40. The moderating effect of gender and age on the students’ acceptance of learning management systems in Saudi higher education (2020)
+   Sami Saeed Binyamin, Malcolm J. Rutter, Sally Smith et al. — Knowledge Management & E-Learning An International Journal [article]
+   DOI: 10.34105/j.kmel.2020.12.003 | citações: 29 | https://openalex.org/W3017211739
+
+41. Equity and Diversity (2019)
+   Colleen M. Lewis, Niral Shah, Katrina E. Falkner — Cambridge University Press eBooks [book-chapter]
+   DOI: 10.1017/9781108654555.017 | citações: 28 | https://openalex.org/W2917031097
+
+42. Teacher Learning and Professional Development (2019)
+   Sally A. Fincher, Yifat Ben‐David Kolikant, Katrina E. Falkner — Cambridge University Press eBooks [book-chapter]
+   DOI: 10.1017/9781108654555.026 | citações: 28 | https://openalex.org/W2917551407
+
+43. CoPrompt: Supporting Prompt Sharing and Referring in Collaborative Natural Language Programming (2024)
+   Feng Li, Ryan Yen, Y. You et al. — — [conference-paper]
+   DOI: 10.1145/3613904.3642212 | citações: 26 | https://openalex.org/W4396831935
+
+44. Fifty years of the psychology of programming (2019)
+   Alan F. Blackwell, Marian Petre, Luke Church — International Journal of Human-Computer Studies [article]
+   DOI: 10.1016/j.ijhcs.2019.06.009 | citações: 26 | https://openalex.org/W2949437788
+
+45. Motivation, Attitudes, and Dispositions (2019)
+   Alex Lishinski, Aman Kumar Yadav — Cambridge University Press eBooks [book-chapter]
+   DOI: 10.1017/9781108654555.029 | citações: 26 | https://openalex.org/W2918128486
+
+46. PLIERS (2021)
+   Michael J. Coblenz, Gauri Kambhatla, Paulette Koronkevich et al. — ACM Transactions on Computer-Human Interaction [article]
+   DOI: 10.1145/3452379 | citações: 25 | https://openalex.org/W3185065804
+
+47. Enabling Data-Driven API Design with Community Usage Data (2020)
+   Tianyi Zhang, Björn Hartmann, Miryung Kim et al. — — [conference-paper]
+   DOI: 10.1145/3313831.3376382 | citações: 25 | https://openalex.org/W3028676906
+
+48. Pedagogic Approaches (2019)
+   Katrina E. Falkner, Judy Sheard — Cambridge University Press eBooks [book-chapter]
+   DOI: 10.1017/9781108654555.016 | citações: 25 | https://openalex.org/W4211222557
+
+49. Discovering hidden dependencies in constraint-based declarative process models for improving understandability (2018)
+   Johannes De Smedt, Jochen De Weerdt, Estefanía Serral et al. — Information Systems [article]
+   DOI: 10.1016/j.is.2018.01.001 | citações: 25 | https://openalex.org/W2787948531
+
+50. Qualitative Methods for Computing Education (2019)
+   Josh Tenenberg — Cambridge University Press eBooks [book-chapter]
+   DOI: 10.1017/9781108654555.008 | citações: 24 | https://openalex.org/W2917414276
+
+51. A Usability Analysis of Blocks-based Programming Editors using Cognitive Dimensions (2018)
+   Robert Holwerda, Felienne Hermans — — [conference-paper]
+   DOI: 10.1109/vlhcc.2018.8506483 | citações: 24 | https://openalex.org/W2898089993
+
+52. Calculation View: multiple-representation editing in spreadsheets (2018)
+   Advait Sarkar, Andrew D. Gordon, Simon Peyton Jones et al. — — [conference-paper]
+   DOI: 10.1109/vlhcc.2018.8506584 | citações: 24 | https://openalex.org/W2898211431
+
+53. What practitioners really want: requirements for visual notations in conceptual modeling (2018)
+   Dirk van der Linden, Irit Hadar, Anna Zamansky — Software & Systems Modeling [article]
+   DOI: 10.1007/s10270-018-0667-4 | citações: 24 | https://openalex.org/W2793806550
+
+54. Towards More Effective AI-Assisted Programming: A Systematic Design Exploration to Improve Visual Studio IntelliCode’s User Experience (2023)
+   Priyan Vaithilingam, Elena Leah Glassman, Peter Groenwegen et al. — — [conference-paper]
+   DOI: 10.1109/icse-seip58684.2023.00022 | citações: 23 | https://openalex.org/W4383888921
+
+55. SpaceInk: Making Space for In-Context Annotations (2019)
+   Hugo Romat, Emmanuel Pietriga, Nathalie Henry-Riche et al. — — [conference-paper]
+   DOI: 10.1145/3332165.3347934 | citações: 23 | https://openalex.org/W2973091178
+
+56. CoLadder: Manipulating Code Generation via Multi-Level Blocks (2024)
+   Ryan Yen, J. Zhu, Sangho Suh et al. — — [conference-paper]
+   DOI: 10.1145/3654777.3676357 | citações: 22 | https://openalex.org/W4403334275
+
+57. Will Code Remain a Relevant User Interface for End-User Programming with Generative AI Models? (2023)
+   Advait Sarkar — — [conference-paper]
+   DOI: 10.1145/3622758.3622882 | citações: 21 | https://openalex.org/W4387773936
+
+58. Rules of Program Behavior (2021)
+   Rodrigo Duran, Juha Sorva, Otto Seppälä — ACM Transactions on Computing Education [article]
+   DOI: 10.1145/3469128 | citações: 21 | https://openalex.org/W3211655051
+
+59. Should Computers Be Easy To Use? Questioning the Doctrine of Simplicity in User Interface Design (2023)
+   Advait Sarkar — — [conference-paper]
+   DOI: 10.1145/3544549.3582741 | citações: 20 | https://openalex.org/W4366597495
+
+60. How Domain Experts Create Conceptual Diagrams and Implications for Tool Design (2020)
+   Dor Ma’ayan, Wode Ni, Katherine Ye et al. — — [conference-paper]
+   DOI: 10.1145/3313831.3376253 | citações: 20 | https://openalex.org/W3031080112
+

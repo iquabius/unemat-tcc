@@ -1,0 +1,21 @@
+# Candidatos para 'An evaluation of reactive programming and promises for structuring collaborative web applications'
+# Confira título, autores e ano antes de aceitar um DOI. Relatórios técnicos,
+# livros antigos e páginas web muitas vezes não têm DOI.
+
+## OpenAlex
+
+1. An evaluation of reactive programming and promises for structuring collaborative web applications (2013)
+   Kennedy Kambona, Elisa Gonzalez Boix, Wolfgang De Meuter — — [conference-paper]
+   DOI: 10.1145/2489798.2489802 | citações: 39 | https://openalex.org/W2141305501
+
+## Crossref
+
+1. An evaluation of reactive programming and promises for structuring collaborative web applications (2013) — Kambona, Boix, De Meuter — Proceedings of the 7th Workshop on Dynamic Languages and Applications [proceedings-article]
+   DOI: 10.1145/2489798.2489802 | score: 68.1
+
+2. Programming Web Enterprise Applications (2016) —  — Reactive Internet Programming [book-chapter]
+   DOI: 10.1145/2872585.2872594 | score: 32.4
+
+3. Coordinating Collaborative Interactions in Web-based Mobile Applications (2015) — Kambona, Hoste, Gonzalez Boix — Proceedings of the 2015 International Conference on Interactive Tabletops &amp; Surfaces - ITS '15 [proceedings-article]
+   DOI: 10.1145/2817721.2817742 | score: 31.5
+

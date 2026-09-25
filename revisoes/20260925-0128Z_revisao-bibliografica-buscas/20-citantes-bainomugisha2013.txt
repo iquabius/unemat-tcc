@@ -1,0 +1,243 @@
+# Trabalhos que citam: A survey on reactive programming (2013)
+# Total: 244 (mostrando 60)
+
+1. Serverless Computing: Current Trends and Open Problems (2017)
+   Ioana Baldini, Paul Castro, Kerry Shih-Ping Chang et al. — — [book-chapter]
+   DOI: 10.1007/978-981-10-5026-8_1 | citações: 644 | https://openalex.org/W2626970695
+
+2. The rise of serverless computing (2019)
+   Paul Castro, Vatche Ishakian, Vinod Muthusamy et al. — Communications of the ACM [article]
+   DOI: 10.1145/3368454 | citações: 343 | https://openalex.org/W2997561286
+
+3. Novice Programmers and Introductory Programming (2019)
+   Anthony V. Robins — Cambridge University Press eBooks [book-chapter]
+   DOI: 10.1017/9781108654555.013 | citações: 175 | https://openalex.org/W2915211782
+
+4. The serverless trilemma: function composition for serverless computing (2017)
+   Ioana Baldini, Perry C. Cheng, Stephen J. Fink et al. — — [conference-paper]
+   DOI: 10.1145/3133850.3133855 | citações: 131 | https://openalex.org/W2763095368
+
+5. The Cambridge Handbook of Computing Education Research (2019)
+   autoria não informada — Cambridge University Press eBooks [book]
+   DOI: 10.1017/9781108654555 | citações: 127 | https://openalex.org/W3211146700
+
+6. FlowMatic: An Immersive Authoring Tool for Creating Interactive Scenes in Virtual Reality (2020)
+   Lei Zhang, Steve Oney — — [conference-paper]
+   DOI: 10.1145/3379337.3415824 | citações: 94 | https://openalex.org/W3093907960
+
+7. Visual Programming Environments for End-User Development of intelligent and social robots, a systematic review (2020)
+   Enrique Coronado, Fulvio Mastrogiovanni, Bipin Indurkhya et al. — Journal of Computer Languages [review]
+   DOI: 10.1016/j.cola.2020.100970 | citações: 85 | https://openalex.org/W3026868555
+
+8. The design space of construction tools for information visualization: A survey (2017)
+   Honghui Mei, Yuxin Ma, Yating Wei et al. — Journal of Visual Languages & Computing [article]
+   DOI: 10.1016/j.jvlc.2017.10.001 | citações: 74 | https://openalex.org/W2762040054
+
+9. Idyll (2018)
+   Matthew Conlen, Jeffrey Heer — — [conference-paper]
+   DOI: 10.1145/3242587.3242600 | citações: 70 | https://openalex.org/W2897426720
+
+10. Computational Thinking (2019)
+   Paul Curzon, Tim Bell, Jane Waite et al. — Cambridge University Press eBooks [book-chapter]
+   DOI: 10.1017/9781108654555.018 | citações: 68 | https://openalex.org/W4211252168
+
+11. Enabling consistency in view-based system development — The Vitruvius approach (2020)
+   Heiko Klare, Max E. Kramer, Michael Langhammer et al. — Journal of Systems and Software [article]
+   DOI: 10.1016/j.jss.2020.110815 | citações: 65 | https://openalex.org/W3083978427
+
+12. Programming Paradigms and Beyond (2019)
+   Shriram Krishnamurthi, Kathi Fisler — Cambridge University Press eBooks [book-chapter]
+   DOI: 10.1017/9781108654555.014 | citações: 64 | https://openalex.org/W2917373358
+
+13. Serverless Programming (Function as a Service) (2017)
+   Paul Castro, Vatche Ishakian, Vinod Muthusamy et al. — — [conference-paper]
+   DOI: 10.1109/icdcs.2017.305 | citações: 63 | https://openalex.org/W2734903536
+
+14. The History of Computing Education Research (2019)
+   Mark Guzdial, Benedict du Boulay — Cambridge University Press eBooks [book-chapter]
+   DOI: 10.1017/9781108654555.002 | citações: 60 | https://openalex.org/W2916376035
+
+15. Reactors: A Deterministic Model for Composable Reactive Systems (2020)
+   Marten Lohstroh, Inigo Incer, Andrés Goens et al. — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-030-41131-2_4 | citações: 57 | https://openalex.org/W3008843202
+
+16. Tangible Computing (2019)
+   Michael Horn, Marina Umaschi Bers — Cambridge University Press eBooks [book-chapter]
+   DOI: 10.1017/9781108654555.023 | citações: 55 | https://openalex.org/W4211119453
+
+17. danceON: Culturally Responsive Creative Computing (2021)
+   William Christopher Payne, Yoav Bergner, Mary Etta West et al. — — [conference-paper]
+   DOI: 10.1145/3411764.3445149 | citações: 48 | https://openalex.org/W3161036062
+
+18. AI based HealthCare Platform for Real Time, Predictive and Prescriptive Analytics using Reactive Programming (2018)
+   Jagreet Kaur, Kulwinder Singh Mann — Journal of Physics Conference Series [conference-paper]
+   DOI: 10.1088/1742-6596/933/1/012010 | citações: 45 | https://openalex.org/W2782091637
+
+19. CO/DA: Live-Coding Movement-Sound Interactions for Dance Improvisation (2022)
+   Jules Françoise, Sarah Fdili Alaoui, Yves Candau — CHI Conference on Human Factors in Computing Systems [conference-paper]
+   DOI: 10.1145/3491102.3501916 | citações: 40 | https://openalex.org/W4224988820
+
+20. On the Positive Effect of Reactive Programming on Software Comprehension: An Empirical Study (2017)
+   Guido Salvaneschi, Sebastian Proksch, Sven Amann et al. — IEEE Transactions on Software Engineering [article]
+   DOI: 10.1109/tse.2017.2655524 | citações: 40 | https://openalex.org/W2572482456
+
+21. Cognitive Sciences for Computing Education (2019)
+   Anthony V. Robins, Lauren Elizabeth Margulieux, Briana B. Morrison — Cambridge University Press eBooks [book-chapter]
+   DOI: 10.1017/9781108654555.010 | citações: 39 | https://openalex.org/W2917832356
+
+22. Computing EducationLiterature Review and Voices from the Field (2019)
+   Paulo Blikstein, Sepi Hejazi Moghadam — Cambridge University Press eBooks [book-chapter]
+   DOI: 10.1017/9781108654555.004 | citações: 37 | https://openalex.org/W2917832570
+
+23. Marcelle: Composing Interactive Machine Learning Workflows and Interfaces (2021)
+   Jules Françoise, Baptiste Caramiaux, Téo Sanchez — — [conference-paper]
+   DOI: 10.1145/3472749.3474734 | citações: 35 | https://openalex.org/W3198268897
+
+24. Learning Sciences for Computing Education (2019)
+   Lauren Elizabeth Margulieux, Brian Dorn, Kristin A. Searle — Cambridge University Press eBooks [book-chapter]
+   DOI: 10.1017/9781108654555.009 | citações: 33 | https://openalex.org/W2916618000
+
+25. Quality-Aware Runtime Adaptation in Complex Event Processing (2017)
+   Pascal Weisenburger, Manisha Luthra, Boris Koldehofe et al. — — [conference-paper]
+   DOI: 10.1109/seams.2017.10 | citações: 31 | https://openalex.org/W2732579758
+
+26. High-performance Deterministic Concurrency Using Lingua Franca (2023)
+   Christian Menard, Marten Lohstroh, Soroush Bateni et al. — ACM Transactions on Architecture and Code Optimization [article]
+   DOI: 10.1145/3617687 | citações: 29 | https://openalex.org/W4386254894
+
+27. On the Semantics of Distributed Reactive Programming: The Cost of Consistency (2018)
+   Alessandro Margara, Guido Salvaneschi — IEEE Transactions on Software Engineering [article]
+   DOI: 10.1109/tse.2018.2833109 | citações: 29 | https://openalex.org/W2801707263
+
+28. Equity and Diversity (2019)
+   Colleen M. Lewis, Niral Shah, Katrina E. Falkner — Cambridge University Press eBooks [book-chapter]
+   DOI: 10.1017/9781108654555.017 | citações: 28 | https://openalex.org/W2917031097
+
+29. Teacher Learning and Professional Development (2019)
+   Sally A. Fincher, Yifat Ben‐David Kolikant, Katrina E. Falkner — Cambridge University Press eBooks [book-chapter]
+   DOI: 10.1017/9781108654555.026 | citações: 28 | https://openalex.org/W2917551407
+
+30. Motivation, Attitudes, and Dispositions (2019)
+   Alex Lishinski, Aman Kumar Yadav — Cambridge University Press eBooks [book-chapter]
+   DOI: 10.1017/9781108654555.029 | citações: 26 | https://openalex.org/W2918128486
+
+31. Pedagogic Approaches (2019)
+   Katrina E. Falkner, Judy Sheard — Cambridge University Press eBooks [book-chapter]
+   DOI: 10.1017/9781108654555.016 | citações: 25 | https://openalex.org/W4211222557
+
+32. Distributed functional reactive programming on actor-based runtime (2018)
+   Kazuhiro Shibanai, Takuo Watanabe — — [conference-paper]
+   DOI: 10.1145/3281366.3281370 | citações: 25 | https://openalex.org/W2898297789
+
+33. Qualitative Methods for Computing Education (2019)
+   Josh Tenenberg — Cambridge University Press eBooks [book-chapter]
+   DOI: 10.1017/9781108654555.008 | citações: 24 | https://openalex.org/W2917414276
+
+34. Streaming semantic translations (2017)
+   Maria Ganzha, Marcin Paprzycki, Wiesław Pawłowski et al. — — [conference-paper]
+   DOI: 10.1109/icstcc.2017.8107003 | citações: 24 | https://openalex.org/W2769573528
+
+35. FlowDB (2017)
+   Lorenzo Affetti, Alessandro Margara, Gianpaolo Cugola — — [conference-paper]
+   DOI: 10.1145/3093742.3093929 | citações: 24 | https://openalex.org/W2622654092
+
+36. TSpoon: Transactions on a stream processor (2020)
+   Lorenzo Affetti, Alessandro Margara, Gianpaolo Cugola — Journal of Parallel and Distributed Computing [article]
+   DOI: 10.1016/j.jpdc.2020.03.003 | citações: 21 | https://openalex.org/W3013273041
+
+37. Descriptive Statistics (2019)
+   Patricia Haden — Cambridge University Press eBooks [book-chapter]
+   DOI: 10.1017/9781108654555.006 | citações: 19 | https://openalex.org/W4210976421
+
+38. Syntalos: a software for precise synchronization of simultaneous multi-modal data acquisition and closed-loop interventions (2025)
+   Matthias Klumpp, Lee Embray, Filippo Heimburg et al. — Nature Communications [article]
+   DOI: 10.1038/s41467-025-56081-9 | citações: 17 | https://openalex.org/W4406411606
+
+39. Tools and Environments (2019)
+   Lauri Malmi, Ian Utting, Amy J. Ko — Cambridge University Press eBooks [book-chapter]
+   DOI: 10.1017/9781108654555.022 | citações: 17 | https://openalex.org/W2915539411
+
+40. Thread-safe reactive programming (2018)
+   Joscha Drechsler, Ragnar Mogk, Guido Salvaneschi et al. — Proceedings of the ACM on Programming Languages [article]
+   DOI: 10.1145/3276477 | citações: 16 | https://openalex.org/W2898117650
+
+41. Computing for Other Disciplines (2019)
+   Mark Guzdial — Cambridge University Press eBooks [book-chapter]
+   DOI: 10.1017/9781108654555.020 | citações: 15 | https://openalex.org/W2916614967
+
+42. Engineering Education Research (2019)
+   Michael C. Loui, Maura J. Borrego — Cambridge University Press eBooks [book-chapter]
+   DOI: 10.1017/9781108654555.012 | citações: 15 | https://openalex.org/W2917717680
+
+43. Distributed Reactive Programming for Reactive Distributed Systems (2019)
+   Florian Myter — VUBIR (Vrije Universiteit Brussel) [article]
+   DOI: 10.22152/programming-journal.org/2019/3/5 | citações: 15 | https://openalex.org/W3100682208
+
+44. Versatile event correlation with algebraic effects (2018)
+   Oliver Bračevac, Nada Amin, Guido Salvaneschi et al. — Proceedings of the ACM on Programming Languages [article]
+   DOI: 10.1145/3236762 | citações: 15 | https://openalex.org/W2911706275
+
+45. Djnn/Smala (2018)
+   Mathieu Magnaudet, Stéphane Chatty, Stéphane Conversy et al. — Proceedings of the ACM on Human-Computer Interaction [article]
+   DOI: 10.1145/3229094 | citações: 15 | https://openalex.org/W2808836817
+
+46. Robotic world models—conceptualization, review, and engineering best practices (2023)
+   Ryo Sakagami, Florian Samuel Lay, Andreas Dömel et al. — Frontiers in Robotics and AI [article]
+   DOI: 10.3389/frobt.2023.1253049 | citações: 14 | https://openalex.org/W4388224702
+
+47. A Language for Deterministic Coordination Across Multiple Timelines (2020)
+   Marten Lohstroh, Christian Menard, Alexander Schulz-Rosengarten et al. — — [conference-paper]
+   DOI: 10.1109/fdl50818.2020.9232939 | citações: 14 | https://openalex.org/W3095867396
+
+48. Teacher Knowledge for Inclusive Computing Learning (2019)
+   Joanna Goode, Jean J. Ryoo — Cambridge University Press eBooks [book-chapter]
+   DOI: 10.1017/9781108654555.025 | citações: 12 | https://openalex.org/W2915793947
+
+49. Learning Outside the Classroom (2019)
+   Andrew Begel, Amy J. Ko — Cambridge University Press eBooks [book-chapter]
+   DOI: 10.1017/9781108654555.027 | citações: 12 | https://openalex.org/W2915955462
+
+50. Leveraging the Integrated Development Environment for Learning Analytics (2019)
+   J. Adam Carter, Christopher Hundhausen, Daniel M. Olivares — Cambridge University Press eBooks [book-chapter]
+   DOI: 10.1017/9781108654555.024 | citações: 12 | https://openalex.org/W2915980295
+
+51. Design Patterns for Code Reuse in HLS Packet Processing Pipelines (2019)
+   Haggai Eran, Lior Zeno, Zsolt István et al. — — [conference-paper]
+   DOI: 10.1109/fccm.2019.00036 | citações: 11 | https://openalex.org/W2952724890
+
+52. A Simple Context-Oriented Programming Extension to an FRP Language for Small-Scale Embedded Systems (2018)
+   Takuo Watanabe — — [conference-paper]
+   DOI: 10.1145/3242921.3242925 | citações: 11 | https://openalex.org/W2891300087
+
+53. If Docker is the Answer, What is the Question? (2018)
+   Hong Mei Zhu, Ian Bayley — — [conference-paper]
+   DOI: 10.1109/sose.2018.00027 | citações: 11 | https://openalex.org/W2804039070
+
+54. Active Expressions: Basic Building Blocks for Reactive Programming (2017)
+   Stefan Ramson, Robert Hirschfeld — The Art Science and Engineering of Programming [article]
+   DOI: 10.22152/programming-journal.org/2017/1/12 | citações: 11 | https://openalex.org/W2128324598
+
+55. Automated Refactoring to Reactive Programming (2019)
+   Mirko Köhler, Guido Salvaneschi — — [conference-paper]
+   DOI: 10.1109/ase.2019.00082 | citações: 10 | https://openalex.org/W2999664051
+
+56. Declarative Construction of Distributed Event-driven IoT Services Based on IoT Resource Models (2017)
+   Yang Zhang, Junliang Chen — IEEE Transactions on Services Computing [article]
+   DOI: 10.1109/tsc.2017.2782794 | citações: 10 | https://openalex.org/W2773295166
+
+57. Schools (K–12) (2019)
+   Jan Vahrenhold, Quintin I. Cutts, Katrina E. Falkner — Cambridge University Press eBooks [book-chapter]
+   DOI: 10.1017/9781108654555.019 | citações: 9 | https://openalex.org/W2915339536
+
+58. Detecting Cyber Security Vulnerabilities through Reactive Programming (2019)
+   Ole Christian Moholth, Radmila Juric, Karoline Moholth McClenaghan — Proceedings of the ... Annual Hawaii International Conference on System Sciences/Proceedings of the Annual Hawaii International Conference on System Sciences [conference-paper]
+   DOI: 10.24251/hicss.2019.864 | citações: 9 | https://openalex.org/W2935356978
+
+59. Stellar: A Programming Model for Developing Protocol-Compliant Agents (2019)
+   Akın Günay, Amit K. Chopra — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-030-25693-7_7 | citações: 9 | https://openalex.org/W2959603919
+
+60. Calculational Verification of Reactive Programs with Reactive Relations and Kleene Algebra (2018)
+   Simon Foster, Kangfeng Ye, Ana Cavalcanti et al. — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-030-02149-8_13 | citações: 9 | https://openalex.org/W2807209221
+

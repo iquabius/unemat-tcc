@@ -1,0 +1,102 @@
+# Busca: 'reactive programming systematic mapping OR systematic literature review' — 321 resultados no OpenAlex (mostrando 25, ordem: relevancia)
+
+1. Mitigation themes in supply chain research during the COVID-19 pandemic: a systematic literature review (2022)
+   Sufian Qrunfleh, Shiri D. Vivek, Russ Merz et al. — Benchmarking An International Journal [review]
+   DOI: 10.1108/bij-11-2021-0692 | citações: 47 | https://openalex.org/W4280642291
+
+2. Do workplace-based mindfulness meditation programs improve physiological indices of stress? A systematic review and meta-analysis (2018)
+   Rachael A. Heckenberg, Pennie J. Eddy, Stephen Kent et al. — Journal of Psychosomatic Research [review]
+   DOI: 10.1016/j.jpsychores.2018.09.010 | citações: 235 | https://openalex.org/W2894477010
+
+3. Mindfulness-based interventions for patients with schizophrenia spectrum disorders: A systematic review of the literature (2023)
+   Michel Sabé, Raoul Kohler, Natacha Perez et al. — Schizophrenia Research [review]
+   DOI: 10.1016/j.schres.2023.12.011 | citações: 27 | https://openalex.org/W4390382330
+
+4. The impact of physical activity on serum levels of inflammatory markers in rheumatoid arthritis: a systematic literature review (2019)
+   Rolf-Dieter Burghardt, Murteza Ali Kazim, W. Rüther et al. — Rheumatology International [review]
+   DOI: 10.1007/s00296-019-04284-x | citações: 23 | https://openalex.org/W2924771339
+
+5. Media literacy education for parents: A systematic literature review (2023)
+   Alicia Haywood, Sabrina Francesca Sembiante — Journal of Media Literacy Education [review]
+   DOI: 10.23860/jmle-2023-15-3-7 | citações: 12 | https://openalex.org/W4390401502
+
+6. A Systematic Literature Review on prioritizing software test cases using Markov chains (2022)
+   Gerson Barbosa, Érica Ferreira de Souza, Luciana Brasil Rebelo dos Santos et al. — Information and Software Technology [review]
+   DOI: 10.1016/j.infsof.2022.106902 | citações: 15 | https://openalex.org/W4220907602
+
+7. Examining links between child temperament and feeding, eating, and weight outcomes: An updated systematic review of the literature (2023)
+   Sara Tauriello, Kameron J. Moding, Nell Aronoff et al. — Eating Behaviors [review]
+   DOI: 10.1016/j.eatbeh.2023.101739 | citações: 14 | https://openalex.org/W4375947157
+
+8. Risk Management and Patient Safety in the Artificial Intelligence Era: A Systematic Review (2024)
+   Michela Ferrara, Giuseppe Bertozzi, Nicola Di Fazio et al. — Healthcare [review]
+   DOI: 10.3390/healthcare12050549 | citações: 50 | https://openalex.org/W4392198021
+
+9. Does social and emotional learning intervention influence physiological and biological indicators? A systematic literature review of universal and targeted programs in Pre-K to grade 12 (2024)
+   Claire Blewitt, Heather Morris, Yihan Sun et al. — Social and Emotional Learning Research Practice and Policy [review]
+   DOI: 10.1016/j.sel.2024.100028 | citações: 10 | https://openalex.org/W4391543327
+
+10. Strength, rate of force development, power and reactive strength in adult male athletic populations post anterior cruciate ligament reconstruction - A systematic review and meta-analysis (2020)
+   Luca Maestroni, Paul James Read, Anthony Nicholas Turner et al. — Physical Therapy in Sport [review]
+   DOI: 10.1016/j.ptsp.2020.11.024 | citações: 49 | https://openalex.org/W3100165760
+
+11. Beyond Mortality: Exploring the Influence of Plant Phenolics on Modulating Ferroptosis—A Systematic Review (2024)
+   Nemanja Živanović, Marija M. Lesjak, Nataša Đ. Simin et al. — Antioxidants [review]
+   DOI: 10.3390/antiox13030334 | citações: 27 | https://openalex.org/W4392642569
+
+12. Effectiveness of physical activity on immunity markers and quality of life in cancer patient: a systematic review (2022)
+   Sameer Badri Al-Mhanna, Wan Syaheedah Wan Ghazali, Mahaneem Mohamed et al. — PeerJ [review]
+   DOI: 10.7717/peerj.13664 | citações: 31 | https://openalex.org/W4289521536
+
+13. The Effect of Dietary Patterns on Inflammatory Biomarkers in Adults with Type 2 Diabetes Mellitus: A Systematic Review and Meta-Analysis of Randomized Controlled Trials (2022)
+   Abril I. Sánchez‐Rosales, Ana Laura Guadarrama López, Laura S. Gaona-Valle et al. — Nutrients [review]
+   DOI: 10.3390/nu14214577 | citações: 41 | https://openalex.org/W4308121392
+
+14. Aerobic exercise for axial spondyloarthritis ‐ its effects on disease activity and function as compared to standard physiotherapy: A systematic review and meta‐analysis (2018)
+   Frank Verhoeven, Xavier Guillot, Clément Prati et al. — International Journal of Rheumatic Diseases [review]
+   DOI: 10.1111/1756-185x.13385 | citações: 40 | https://openalex.org/W2890604948
+
+15. Sex differences in the physiological responses to cardiac rehabilitation: a systematic review (2024)
+   J. Bouakkar, Tania J. Pereira, Heather Johnston et al. — BMC Sports Science Medicine and Rehabilitation [review]
+   DOI: 10.1186/s13102-024-00867-9 | citações: 20 | https://openalex.org/W4393277288
+
+16. Effect of exercise on inflammatory markers in postmenopausal women with overweight and obesity: A systematic review and meta-analysis (2023)
+   Liang Tan, Weihua Yan, Weilin Yang et al. — Experimental Gerontology [review]
+   DOI: 10.1016/j.exger.2023.112310 | citações: 27 | https://openalex.org/W4387692023
+
+17. Beyond T cell toxicity – Intrathecal chemokine CXCL13 indicating B cell involvement in immune‐related adverse events following checkpoint inhibition: A two‐case series and literature review (2024)
+   Ferdinand Otto, Michael Seiberl, Lara Bieler et al. — European Journal of Neurology [article]
+   DOI: 10.1111/ene.16279 | citações: 16 | https://openalex.org/W4393383819
+
+18. Learning from small islands in the Western Indian Ocean (WIO): A systematic review of responses to environmental change (2022)
+   Meenakshi Poti, Jean Hugé, Kartik Shanker et al. — Ocean & Coastal Management [review]
+   DOI: 10.1016/j.ocecoaman.2022.106268 | citações: 23 | https://openalex.org/W4285490174
+
+19. Programmed Death-Ligand 1, C-reactive Protein, and Neutrophil/Lymphocyte Ratio as Lymphangiogenesis Markers of Metastasis in Penile Cancer – A Systematic Review (2023)
+   ⁠I Wayan Yudiana, Stacia Novia Marta, Ronald Sugianto et al. — Forum of Clinical Oncology [review]
+   DOI: 10.2478/fco-2023-0010 | citações: 1 | https://openalex.org/W4390482742
+
+20. A Review of Agent-Based Programming for Multi-Agent Systems (2021)
+   Rafael Cauê Cardoso, Angelo Ferrando — Computers [article]
+   DOI: 10.3390/computers10020016 | citações: 132 | https://openalex.org/W3121694942
+
+21. Strategies used by care home staff to manage behaviour that challenges in dementia: A systematic review of qualitative studies (2022)
+   Elizabeth A O'Donnell, Carol Holland, Caroline Swarbrick — International Journal of Nursing Studies [review]
+   DOI: 10.1016/j.ijnurstu.2022.104260 | citações: 21 | https://openalex.org/W4224303189
+
+22. Evidence and gap maps: a comparison of different approaches (2018)
+   Ashrita Saran, Howard White — Campbell Systematic Reviews [article]
+   DOI: 10.4073/cmdp.2018.2 | citações: 196 | https://openalex.org/W2963993928
+
+23. Stress Factors and Stress Management Interventions: the Heuristic of “Bottom Up” an Update From a Systematic Review (2018)
+   Silvia Riva, Ezekiel Chinyio — Occupational Health Science [review]
+   DOI: 10.1007/s41542-018-0015-7 | citações: 12 | https://openalex.org/W2794486055
+
+24. THU0656 IMMUNE CHECKPOINT INHIBITORS IN PATIENTS WITH CANCER AND RHEUMATOLOGIC DISEASES: A SYSTEMATIC REVIEW OF THE LITERATURE (2019)
+   Noha Abdel‐Wahab, Houssein Safa, Maria Angeles Lopez-Olivo et al. — Annals of the Rheumatic Diseases [conference-abstract]
+   DOI: 10.1136/annrheumdis-2019-eular.6541 | citações: 1 | https://openalex.org/W2951140797
+
+25. Comparative efficacy of different exercise types on inflammatory markers in women with overweight and obesity: A systematic review and network meta-analysis of randomized controlled trials (2024)
+   Liang Tan, Weihua Yan, Bo Zhang et al. — Journal of science and medicine in sport [review]
+   DOI: 10.1016/j.jsams.2024.03.007 | citações: 19 | https://openalex.org/W4393352301
+

@@ -1,0 +1,21 @@
+# Candidatos para 'Fifty years of the psychology of programming'
+# Confira título, autores e ano antes de aceitar um DOI. Relatórios técnicos,
+# livros antigos e páginas web muitas vezes não têm DOI.
+
+## OpenAlex
+
+1. Fifty years of the psychology of programming (2019)
+   Alan F. Blackwell, Marian Petre, Luke Church — International Journal of Human-Computer Studies [article]
+   DOI: 10.1016/j.ijhcs.2019.06.009 | citações: 26 | https://openalex.org/W2949437788
+
+## Crossref
+
+1. Fifty years of the psychology of programming (2019) — Blackwell, Petre, Church — International Journal of Human-Computer Studies [journal-article]
+   DOI: 10.1016/j.ijhcs.2019.06.009 | score: 34.6
+
+2. Fifty Years of the Psychology of Personality (1993) — Stagner — Fifty Years of Personality Psychology [book-chapter]
+   DOI: 10.1007/978-1-4899-2311-0_2 | score: 30.3
+
+3. Fifty-Plus Years of Combinatorial Integer Programming (2009) — Cook — 50 Years of Integer Programming 1958-2008 [book-chapter]
+   DOI: 10.1007/978-3-540-68279-0_12 | score: 27.2
+
