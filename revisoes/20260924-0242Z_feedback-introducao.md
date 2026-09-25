@@ -5,13 +5,20 @@
 > referem ao `intro.org` do commit `7a1df27`; as correções de `e2a6eda` não
 > mudaram a numeração.
 >
-> **Situação em 2026-09-25**
+> **Situação** (atualizada a cada item resolvido; última: 2026-09-25)
 >
-> - **Corrigido** em `e2a6eda`: a tabela 3.2 (menos “tabletes”, que era
->   “considerar”), “tradução nossa” e a minúscula na citação de Bainomugisha, a
->   nota órfã `[fn:control_flow]` e a grafia de Van Roy no `.bib`.
-> - **Pendente:** todo o resto — seções 1, 2, 3.1 e 3.3 a 3.7, e os itens da
->   seção 4 que não foram citados acima.
+> - **Resolvido:**
+>   - `e2a6eda`: a tabela 3.2 (menos “tabletes”, que era “considerar”),
+>     “tradução nossa” e a minúscula na citação de Bainomugisha, a nota órfã
+>     `[fn:control_flow]` e a grafia de Van Roy no `.bib`.
+>   - `532b7c3`: a descrição de Salvaneschi *et al.* (2014), primeiro ponto do
+>     item 1.7 e exemplo de revisão, conforme a errata abaixo.
+>   - `b879a4a`: “realizado na Alemanha” (item 3.6) saiu. O tamanho da amostra
+>     ainda não entrou: falta conferir no artigo.
+>   - commit “Passa a metodologia da introdução para o presente” (2026-09-25): as 8 formas no futuro da metodologia
+>     (`:92-108`) passaram para o presente. Ver “Encontrado depois”.
+> - **Pendente:** seções 1 (menos o primeiro ponto de 1.7), 2, 3.1, 3.3 a 3.5
+>   e 3.7, e os itens da seção 4 que não foram citados acima.
 > - **Errata do item 1.7 e do exemplo de revisão:** o relatório aceitou a
 >   “baixa significância estatística” de Salvaneschi *et al.* (2014) como fato e
 >   só sugeriu trocar “confirmaram” por “sugerem”. O resumo do artigo, que está
@@ -28,6 +35,10 @@
 >     no artigo de onde vêm o ano e os números, e acrescente a página.
 >   - `tex/unemat-comp.cls` usa `maxcitenames=2`, o que gera “et al.” já com
 >     três autores (p. ex., `maier2010`). A ABNT indica todos até três.
+>   - A metodologia (`:92-108`) estava no futuro, resíduo do projeto.
+>     **Resolvido** no commit “Passa a metodologia da introdução para o presente”: passou para o presente, que descreve o que
+>     o trabalho faz enquanto os resultados não estão escritos. Reler quando o
+>     TCC estiver concluído.
 >   - O resumo de `kiss2014` descreve uma comparação entre OO e PF para GUIs,
 >     incluindo Elm e Scala.Rx. A lacuna do item 1.4 precisa dizer o que este
 >     TCC acrescenta em relação a ele e a Zimmerle & Gama (2025), que avaliam
@@ -104,7 +115,7 @@ Feche a introdução com um parágrafo que diga o que cada capítulo faz (Progra
 *Problema:* a frase se contradiz. Se a significância foi baixa, o estudo não "confirmou". Confira no artigo o que Salvaneschi *et al.* relatam de fato (tamanho da amostra, medidas, significância) e ajuste o verbo: "sugerem", "indicaram".
 *Princípio:* a força da afirmação deve ser proporcional à evidência (Zobel).
 
-> **Errata (2026-09-25):** ver o cabeçalho. O resumo do artigo relata resultado
+> **Errata (2026-09-25):** ver o cabeçalho. **Resolvido em `532b7c3`.** O resumo do artigo relata resultado
 > significativo; o que se corrige é a "baixa significância", não o verbo.
 
 > **`intro.org:61` + `[fn:intuitive]` (`:136-139`)**: "programação declarativa, que é considerada mais simples e intuitiva"
@@ -186,7 +197,7 @@ Os outros casos seguem o mesmo padrão: `:49` (44 palavras, "Visto que..., e que
 
 "muitos desafios" (`:4`: quais? cite um ou dois), "muito usado" (`:21`), "bastante comuns" (`:58`), "vários conceitos declarativos" (`:40`: quais?), "sistemas modernos" (`:51`). Em texto científico, o exemplo concreto convence mais que o adjetivo (Sainani; Wazlawick).
 
-### 3.6 Detalhe irrelevante no lugar do essencial
+### 3.6 Detalhe irrelevante no lugar do essencial — *resolvido em `b879a4a`*
 
 > **`intro.org:43`**: "Um experimento controlado **realizado na Alemanha**..."
 O país não importa. O que o leitor precisa saber é quem fez o estudo, com quantos participantes e o que foi medido. Veja a reescrita abaixo.
@@ -213,7 +224,7 @@ O país não importa. O que o leitor precisa saber é quem fez o estudo, com qua
 
 ## Exemplo de revisão
 
-> **Superado pela errata do cabeçalho:** a ressalva sobre significância
+> **Superado pela errata do cabeçalho** (aplicado em `532b7c3`): a ressalva sobre significância
 > estatística não existe no artigo. A versão correta da reescrita termina em
 > "...o grupo que usou PR teve desempenho significativamente melhor."
 

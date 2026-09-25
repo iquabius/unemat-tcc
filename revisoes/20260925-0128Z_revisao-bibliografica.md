@@ -13,8 +13,14 @@
 > citações ficaram. Para reler um resumo, busque o DOI (`buscar_literatura.py
 > doi` ou `pdf`).
 >
-> **Situação em 2026-09-25:** nada deste relatório foi aplicado ainda. Os
-> 30 DOIs citados foram conferidos no Crossref e no `doi.org` e existem. Três
+> **Situação** (atualizada a cada item resolvido; última: 2026-09-25)
+>
+> - **Resolvido:** a descrição de `salvaneschi2014` em `intro.org:43-47`
+>   (seção 1.2 e passo 1 da seção 10), em `532b7c3`; “realizado na Alemanha”,
+>   em `b879a4a`.
+> - **Pendente:** citar também `salvaneschi2017` (passo 1), e os passos 2 a 6.
+>
+> Os 30 DOIs citados foram conferidos no Crossref e no `doi.org` e existem. Três
 > trabalhos foram sugeridos sem que o resumo tenha sido lido (Krishnamurthi &
 > Fisler 2019, Blackwell et al. 2019, Zampetti et al. 2024): leia antes de
 > citar.
@@ -379,7 +385,7 @@ Três ajustes para conferir:
 
 ## 10. Próximos passos (em ordem)
 
-1. **Corrija a descrição de salvaneschi2014** em `intro.org:43-47` e acrescente salvaneschi2017. É um erro de conteúdo, não de estilo.
+1. **Corrija a descrição de salvaneschi2014** em `intro.org:43-47` e acrescente salvaneschi2017. É um erro de conteúdo, não de estilo. — *descrição corrigida em `532b7c3`; falta acrescentar salvaneschi2017.*
 2. **Faxina no `.bib`**: remova duplicatas e `gammie2009`, separe as entradas fora do tema e acrescente os DOIs listados em 1.3.
 3. **Aprove (ou corte) os 12 candidatos de prioridade alta.** Leia primeiro Zimmerle & Gama (2025) e Salvaneschi et al. (2017), que mais mudam o texto, e Krishnamurthi & Fisler (2019), Blackwell et al. (2019) e Zampetti et al. (2024), dos quais não li o resumo.
 4. **Reescreva a seção de GUIs** seguindo o roteiro da seção 8, e acrescente elliott1997 e perez2023 à distinção PR × PFR.
