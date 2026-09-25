@@ -11,8 +11,10 @@
 >   trabalho fica em interfaces gráficas, na web (JavaScript) e no Android
 >   (Kotlin). A implementação é maximalista: o que entra na análise do texto
 >   se decide depois.
+> - **Decidido (2026-09-25), no commit “Confirma os casos do Android”:** no
+>   Android entram Lista filtrável, Formulário com validação e Contador
+>   (seção 2).
 > - **Pendente:**
->   - confirmar os casos do Android (recomendação na seção 2);
 >   - escolher as implementações que entram na análise;
 >   - aplicar a pergunta e os objetivos à `intro.org` (proposta na seção 6,
 >     ainda não aplicada) e, com isso, fechar os itens 1.1, 1.2, 1.4 e 1.5 do
@@ -48,13 +50,13 @@ implementam no dia a dia, com as ferramentas mais usadas hoje.
 | Solid | reativa fina com *signals* (*push*), com a mesma sintaxe JSX do React | candidata |
 | Angular com RxJS | **apoio à escrita**: exemplos de RxJS para comparação | **não** |
 
-**Android (Kotlin): pelo menos dois casos em Views × Jetpack Compose.** Os
-casos escolhidos para o Android já estão todos em React, que é o parâmetro
+**Android (Kotlin): Contador, Formulário com validação e Lista filtrável, em
+Views × Jetpack Compose** (seção 2). Os três já estão em React, que é o parâmetro
 familiar do autor para ler o Kotlin.
 
 **Fora (nem implementar):** Svelte, Swing e JavaFX.
 
-## 2. Quais casos implementar no Android (recomendação, a confirmar)
+## 2. Quais casos implementar no Android (decidido)
 
 1. **Lista filtrável.** É o maior contraste entre Views e Compose. Em Views,
    a lista exige `RecyclerView`, `Adapter` e `ViewHolder`. Em Compose, basta
@@ -63,7 +65,7 @@ familiar do autor para ler o Kotlin.
    (`TextWatcher`, `OnItemSelectedListener`), e atualizar um campo por código
    dentro do próprio `TextWatcher` dispara o *listener* de novo. Em Compose, a
    validação é uma derivação do estado. Mantém a referência ao 7GUIs.
-3. **Contador, como aquecimento (opcional e barato).** Serve para aprender a
+3. **Contador, como aquecimento.** Serve para aprender a
    sintaxe do Kotlin comparando com o Contador em React, que o autor conhece.
 
 Não recomendo para o Android:
@@ -176,7 +178,7 @@ Ajustar conforme as implementações que entrarem na análise.
 
 - Web: 5 casos × 5 tecnologias = 25 implementações (5 delas, em Angular, só
   de apoio).
-- Android: 2 ou 3 casos × 2 = 4 a 6 implementações.
+- Android: 3 casos × 2 = 6 implementações.
 - Sugestão de ordem: um caso por vez em todas as tecnologias, começando pelo
   Contador (o menor), para fixar a estrutura de pastas e de *build* antes dos
   casos maiores.
