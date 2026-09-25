@@ -15,10 +15,19 @@
 >
 > **Situação** (atualizada a cada item resolvido; última: 2026-09-25)
 >
-> - **Resolvido:** a descrição de `salvaneschi2014` em `intro.org:43-47`
->   (seção 1.2 e passo 1 da seção 10), em `532b7c3`; “realizado na Alemanha”,
->   em `b879a4a`.
-> - **Pendente:** citar também `salvaneschi2017` (passo 1), e os passos 2 a 6.
+> - **Resolvido:**
+>   - a descrição de `salvaneschi2014` em `intro.org:43-47` (seção 1.2 e
+>     passo 1 da seção 10), em `532b7c3`; “realizado na Alemanha”, em
+>     `b879a4a`;
+>   - os 12 BibTeX da seção 9 entraram no `refs.bib` no commit “Acrescenta ao refs.bib os 12 trabalhos prioritários da revisão”
+>     (2026-09-25), depois de o bib-audit conferir as 12 com o registro
+>     oficial. `krishnamurthi2019` ganhou os organizadores (Fincher e Robins,
+>     confirmados no Crossref). Entrar no `.bib` não é citar: nenhuma aparece
+>     ainda no texto.
+> - **Pendente:** citar `salvaneschi2017` (passo 1); o `editor` de
+>   `blackwell2003` (organizador do livro não confirmado em fonte oficial) e a
+>   grafia de “Mota Filho” em `zimmerle2022`; ler Krishnamurthi & Fisler (2019)
+>   e Blackwell et al. (2019) antes de citar; os passos 2, 4, 5 e 6.
 >
 > Os 30 DOIs citados foram conferidos no Crossref e no `doi.org` e existem. Três
 > trabalhos foram sugeridos sem que o resumo tenha sido lido (Krishnamurthi &
@@ -387,7 +396,7 @@ Três ajustes para conferir:
 
 1. **Corrija a descrição de salvaneschi2014** em `intro.org:43-47` e acrescente salvaneschi2017. É um erro de conteúdo, não de estilo. — *descrição corrigida em `532b7c3`; falta acrescentar salvaneschi2017.*
 2. **Faxina no `.bib`**: remova duplicatas e `gammie2009`, separe as entradas fora do tema e acrescente os DOIs listados em 1.3.
-3. **Aprove (ou corte) os 12 candidatos de prioridade alta.** Leia primeiro Zimmerle & Gama (2025) e Salvaneschi et al. (2017), que mais mudam o texto, e Krishnamurthi & Fisler (2019), Blackwell et al. (2019) e Zampetti et al. (2024), dos quais não li o resumo.
+3. **Aprove (ou corte) os 12 candidatos de prioridade alta.** — *os 12 foram aprovados e entraram no `refs.bib` (ver Situação); citar e ler continua pendente.* Leia primeiro Zimmerle & Gama (2025) e Salvaneschi et al. (2017), que mais mudam o texto, e Krishnamurthi & Fisler (2019), Blackwell et al. (2019) e Zampetti et al. (2024), dos quais não li o resumo.
 4. **Reescreva a seção de GUIs** seguindo o roteiro da seção 8, e acrescente elliott1997 e perez2023 à distinção PR × PFR.
 5. **Segunda rodada de *snowballing*** nos citantes de bainomugisha2013, elliott1997, czaplicki2013 e Green & Petre (1996), filtrando por GUI/web/JavaScript, e busca manual na SBC-OpenLib e na BDTD.
 6. **Decida sobre as versões das bibliotecas nos casos** (RxJS 5, xstream) e registre a decisão no texto.
