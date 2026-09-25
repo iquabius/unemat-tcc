@@ -19,6 +19,16 @@
 >     (`:92-108`) passaram para o presente. Ver “Encontrado depois”.
 > - **Pendente:** seções 1 (menos o primeiro ponto de 1.7), 2, 3.1, 3.3 a 3.5
 >   e 3.7, e os itens da seção 4 que não foram citados acima.
+> - **Em decisão, em sessão separada (2026-09-25): pergunta, objetivos e
+>   áreas de aplicação** (itens 1.1, 1.2, 1.4 e 1.5). Há uma proposta restrita
+>   a interfaces gráficas (pergunta única A/B, objetivo geral com o critério
+>   das DCs e quatro específicos), mas o autor quer avaliar outras áreas além
+>   de UIs antes de decidir. Base para essa decisão: a pré-pesquisa em
+>   `pesquisa/relatório_de_fundamentação_de_casos_de_uso_e_modelos_de_computação_para_análise_ergonômica_multiplataforma.md`
+>   (não versionada), gerada por outra IA, **sem nenhuma citação e com erros
+>   já vistos**: classifica React como imperativo, põe Goroutines e Virtual
+>   Threads como PF/PR, escreve “Diffuseerness” e troca o método por
+>   entrevistas com desenvolvedores. Conferir tudo antes de usar.
 > - **Errata do item 1.7 e do exemplo de revisão:** o relatório aceitou a
 >   “baixa significância estatística” de Salvaneschi *et al.* (2014) como fato e
 >   só sugeriu trocar “confirmaram” por “sugerem”. O resumo do artigo, que está

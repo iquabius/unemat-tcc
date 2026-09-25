@@ -28,6 +28,21 @@
 >   `blackwell2003` (organizador do livro não confirmado em fonte oficial) e a
 >   grafia de “Mota Filho” em `zimmerle2022`; ler Krishnamurthi & Fisler (2019)
 >   e Blackwell et al. (2019) antes de citar; os passos 2, 4, 5 e 6.
+> - **Encontrado depois** (2026-09-25, com os subcomandos novos da busca),
+>   ainda fora do `.bib` e da tabela da seção 5:
+>   - LIMA, C. E. Z. de (Carlos Zimmerle). *Unveiling the usability of
+>     reactive programming APIs: findings, tools, and recommendations*. Tese
+>     (Doutorado) — UFPE, 2024. <https://repositorio.ufpe.br/handle/123456789/64485>.
+>     Achada com `buscar_literatura.py bdtd`. É a tese que reúne os trabalhos de
+>     Zimmerle & Gama e aplica as DCs a APIs de PR: o trabalho mais próximo
+>     do TCC, junto com `zimmerle2025`.
+>   - ZIMMERLE, C.; GAMA, K. UAX: Measuring the Usability of TypeScript APIs.
+>     SBES 2024. DOI 10.5753/sbes.2024.3658. Achado com `buscar --sbc`.
+> - **Passo 5 (segunda rodada de *snowballing*):** agora dá para fazer pelos
+>   scripts, sem busca manual na BDTD e na SBC: `citantes <DOI> --todos
+>   --filtro "user interface"` percorre todos os citantes (303 no caso de
+>   `bainomugisha2013`, contra 60 nesta rodada), `bdtd` e `buscar --sbc`
+>   cobrem as bases brasileiras. SciELO e Portal CAPES continuam manuais.
 >
 > Os 30 DOIs citados foram conferidos no Crossref e no `doi.org` e existem. Três
 > trabalhos foram sugeridos sem que o resumo tenha sido lido (Krishnamurthi &
