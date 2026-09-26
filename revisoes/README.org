@@ -1,18 +1,11 @@
 #+TITLE: Relatórios de revisão
 
-Relatórios de revisão do texto e da bibliografia do TCC, guardados para que
-os pontos ainda não corrigidos não se percam.
+Relatórios de revisão do texto, da bibliografia e do escopo do TCC, escritos
+para serem lidos meses depois por quem não viu a conversa que os gerou.
 
 Cada arquivo é nomeado =AAAAMMDD-HHMMZ_assunto.md=, com a data e a hora em UTC
-de quando o relatório foi gerado, no mesmo formato de
+de quando o relatório foi gerado (=date -u +%Y%m%d-%H%MZ=), no mesmo formato de
 =~/code/linux/opensuse-tw=. Assim a ordem alfabética é a ordem cronológica.
 
-O cabeçalho de cada relatório tem uma seção *Situação* com o que foi
-resolvido, o que está pendente e as erratas encontradas depois. O corpo fica
-como foi gerado; só ganha marcas curtas (“resolvido em =abc1234=”) nos itens
-já tratados.
-
-A cada item resolvido, o mesmo commit que corrige o texto atualiza a
-*Situação* dos relatórios que o mencionam. Como um commit não conhece o
-próprio hash, ele se identifica pelo título e pela data; os commits
-anteriores aparecem pelo hash.
+A forma dos relatórios (conclusão primeiro, datas absolutas, registro de
+decisão) está na skill =relatorios-de-revisao=.
