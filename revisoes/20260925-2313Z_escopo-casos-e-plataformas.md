@@ -5,7 +5,7 @@
 > [feedback da introdução](20260924-0242Z_feedback-introducao.md)), em
 > 2026-09-25.
 >
-> **Situação** (atualizada a cada item resolvido; última: 2026-09-25)
+> **Situação** (atualizada a cada item resolvido; última: 2026-09-26)
 >
 > - **Decidido (2026-09-25):** a matriz de implementação da seção 1. O
 >   trabalho fica em interfaces gráficas, na web (TypeScript) e no Android
@@ -41,6 +41,27 @@
 >   partir de R$ 199, “Finalizar compra” e o carrinho salvo no
 >   `localStorage` (especificação em `casos/carrinho/README.org`). Com
 >   ele, os cinco casos estão implementados na web.
+> - **Implementado:** o commit “Prepara o Android e implementa o Contador
+>   em Views e Compose” (2026-09-26) criou o projeto Gradle único em
+>   `casos/android/` (JDK Temurin 25 pelo asdf, Gradle 9.7.0, AGP 9.3.3,
+>   Kotlin 2.4.20, dentro da tabela de compatibilidade do Kotlin) e o
+>   Contador em `casos/contador/android-views/` e `android-compose/`. As
+>   capturas do Android saem na JVM (Robolectric e Roborazzi, sem emulador)
+>   e entram no mesmo `npm run capturas`. Views e Compose ficam com o tema
+>   padrão de cada um: o código com a menor variação possível entre as
+>   implementações importa mais que a aparência, então a diferença visual
+>   entre as duas variantes é esperada.
+> - **Para a análise (padrões implícitos):** no Contador Android, o mesmo
+>   layout de duas colunas, sem nenhuma opção de alinhamento escrita, saía
+>   diferente nas duas variantes. O `LinearLayout` do Views alinha os filhos
+>   pela linha de base do texto por padrão (`mBaselineAligned = true`), e o
+>   número parecia centralizado porque acompanhava o “+” do botão. A `Row`
+>   do Compose alinha pelo topo (`verticalAlignment = Alignment.Top` na
+>   assinatura). No Views, o padrão não aparece no XML; no Compose, fica na
+>   assinatura da função. A correção foi escrever nas duas variantes a
+>   centralização que a web faz com `place-items: center`, nos dois eixos
+>   (`gravity` no Views; `Alignment.CenterVertically` e `TextAlign.Center`
+>   no Compose).
 > - **Para a análise (propensão a erros):** ao criar a Busca, a comparação
 >   de capturas mostrou que o Web Component e o jQuery deixavam a lista
 >   vazia ocupando espaço: escondiam a `<ul>` com o atributo `hidden`, mas

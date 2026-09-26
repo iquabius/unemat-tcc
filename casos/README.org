@@ -6,17 +6,19 @@ próprio =package.json=, e pode ser lida sozinha. O escopo (casos e
 tecnologias) está em
 [[file:../revisoes/20260925-2313Z_escopo-casos-e-plataformas.md][revisoes/20260925-2313Z_escopo-casos-e-plataformas.md]].
 
-* Pré-requisito: Node.js
+* Pré-requisitos: Node.js e JDK
 
-  A versão fica em =.tool-versions=, na raiz do repositório, e o [[https://asdf-vm.com][asdf]] a
-  instala:
+  As versões ficam em =.tool-versions=, na raiz do repositório, e o
+  [[https://asdf-vm.com][asdf]] as instala:
 
   #+begin_src sh
   asdf plugin add nodejs
+  asdf plugin add java
   asdf install
   #+end_src
 
-  O Angular 22 exige Node 22.22.3 ou mais novo.
+  O Angular 22 exige Node 22.22.3 ou mais novo. O JDK (Temurin 25) só é
+  preciso para os casos Android.
 
 * Instalar e rodar (web)
 
@@ -43,10 +45,52 @@ tecnologias) está em
   O =cronometro-com-rxjs-5= é anterior a esta organização e não é
   /workspace/: tem instalação própria.
 
+* Instalar e rodar (Android)
+
+  Contador, Formulário com validação e Lista filtrável também existem no
+  Android, em Kotlin, em duas variantes:
+
+  | Subpasta           | Tecnologia                                         |
+  |--------------------+----------------------------------------------------|
+  | =android-views=    | Views clássico: /listeners/, estado na =Activity= |
+  | =android-compose=  | Jetpack Compose                                    |
+
+  Todos formam um único projeto Gradle, com raiz em =casos/android/=, onde
+  ficam o /wrapper/ e as versões (=gradle/libs.versions.toml=). Cada
+  subpasta é um módulo, chamado =:<caso>-android-<variante>=.
+
+  Precisa do Android SDK (o Android Studio o instala em =~/Android/Sdk=),
+  com a plataforma =android-37= e as /build-tools/ 36.0.0. Para compilar
+  pela linha de comando, crie =casos/android/local.properties= (não é
+  versionado; o Android Studio o cria ao abrir o projeto):
+
+  #+begin_src sh
+  echo "sdk.dir=$HOME/Android/Sdk" > casos/android/local.properties
+  cd casos/android
+  ./gradlew assembleDebug                                   # todos os APKs
+  ./gradlew :contador-android-compose:installDebug           # instala no emulador
+  #+end_src
+
+  No Android Studio, abra a pasta =casos/android/=.
+
+  | Peça              | Versão     | Por quê                                           |
+  |-------------------+------------+---------------------------------------------------|
+  | JDK               | Temurin 25 | LTS; o Gradle roda no 25 desde a 9.1               |
+  | Gradle            | 9.7.0      | máximo com suporte completo do Kotlin 2.4.20       |
+  | AGP               | 9.3.3      | linha 9.3, a última com suporte do Kotlin 2.4.20 |
+  | Kotlin            | 2.4.20     |                                                   |
+  | Compose BOM       | 2026.09.00 |                                                   |
+  | Robolectric       | 4.17       | suporta a API 37 (notas da versão)                 |
+  | Roborazzi         | 1.75.0     |                                                   |
+
+  A compatibilidade entre Kotlin, Gradle e AGP segue a tabela de
+  [[https://kotlinlang.org/docs/gradle-configure-project.html][kotlinlang.org/docs/gradle-configure-project.html]]; havia Gradle 9.8 e AGP
+  9.4 mais novos, fora dela.
+
 * Capturas de tela
 
   Cada caso guarda capturas versionadas em =casos/<caso>/capturas/=, uma
-  por tecnologia e cena (=react-inicial.png=, =react-erros.png=...). Ao
+  por tecnologia e cena (=react-inicial.png=, =android-compose-erros.png=...). Ao
   criar ou alterar um exemplo, gere-as de novo e inclua no mesmo commit:
   o =git diff= mostra o que mudou na tela.
 
@@ -55,6 +99,7 @@ tecnologias) está em
   npm run capturas                                  # todos
   npm run capturas -- formulario                    # um caso
   npm run capturas -- contador/react                # uma implementação
+  npm run capturas -- contador/android-views        # uma implementação Android
   npm run capturas -- --conferir                    # só compara, não grava
   #+end_src
 
@@ -67,11 +112,22 @@ tecnologias) está em
   Playwright antes da captura); sem ele, só o estado inicial é capturado.
   O /script/ ([[file:capturar.mts][casos/capturar.mts]]) faz o /build/, serve o resultado, fixa a
   data em 26/09/2026 (para "hoje" não mudar a imagem) e, no fim, avisa se
-  a mesma cena saiu diferente entre as tecnologias de um caso, o que indica
-  que alguma implementação foge da especificação.
+  a mesma cena saiu diferente entre as tecnologias web de um caso, o que
+  indica que alguma implementação foge da especificação.
+
+  No Android, as mesmas cenas ficam nos testes de cada módulo
+  (=src/test/.../CenasTest.kt=). O /script/ roda esses testes pelo Gradle
+  com [[https://robolectric.org][Robolectric]] e [[https://github.com/takahirom/roborazzi][Roborazzi]], que desenham a tela na JVM, sem
+  emulador, e o resto segue igual: mesma pasta, mesmo =--conferir=. O aviso
+  compara só Views com Compose, e nele a diferença é esperada: cada
+  variante usa o tema padrão, sem código a mais para igualar a aparência.
+  Confira nas imagens só o conteúdo. As animações ficam desligadas nos
+  testes: o efeito de toque (/ripple/) tem um brilho que mudaria a imagem a
+  cada execução.
 
   Agentes de código seguem essas regras pelo [[file:AGENTS.md][casos/AGENTS.md]] (o
   =CLAUDE.md= ao lado é um /symlink/ para ele).
 
-  As imagens dependem das fontes instaladas: geradas noutra máquina, podem
-  mudar sem que o código tenha mudado.
+  As imagens web dependem das fontes instaladas: geradas noutra máquina,
+  podem mudar sem que o código tenha mudado. As do Android usam as fontes
+  que o Robolectric traz.

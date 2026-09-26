@@ -29,3 +29,8 @@
 node_modules/
 dist/
 .angular/
+# Gradle (projeto Android dos casos, em casos/android/)
+.gradle/
+.kotlin/
+build/
+local.properties
