@@ -1,0 +1,64 @@
+/* Aparência comum às implementações do Formulário, para que só a lógica mude. */
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: #2b2b2b;
+  color: #eee;
+}
+
+.formulario {
+  display: grid;
+  gap: 0.75rem;
+  max-width: 24rem;
+  padding: 1rem;
+}
+
+.formulario label {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.formulario input,
+.formulario select {
+  padding: 0.4rem;
+  border: 1px solid #555;
+  background: #3a3a3a;
+  color: #eee;
+  font-size: 1rem;
+}
+
+.formulario input:disabled {
+  opacity: 0.5;
+}
+
+.formulario [aria-invalid="true"] {
+  border-color: #e05555;
+  background: #4a2a2a;
+}
+
+.formulario .erro {
+  margin: 0;
+  color: #ff8a8a;
+  font-size: 0.875rem;
+}
+
+.formulario button {
+  padding: 0.5rem;
+  border: 1px solid #555;
+  background: #2e4d24;
+  color: #eee;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.formulario button:disabled {
+  background: #3a3a3a;
+  color: #888;
+  cursor: not-allowed;
+}
+
+.confirmacao {
+  margin: 0 1rem;
+  max-width: 24rem;
+  color: #9fd88a;
+}

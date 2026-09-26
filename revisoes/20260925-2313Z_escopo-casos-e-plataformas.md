@@ -20,6 +20,11 @@
 >   web” (2026-09-25) criou os *workspaces* do npm e o Contador em Web
 >   Component, jQuery, React, Solid e Angular com RxJS, todos em TypeScript
 >   (convenções na seção 3).
+> - **Implementado:** o commit “Implementa o Formulário com validação nas
+>   cinco tecnologias web” (2026-09-25) criou o Formulário: o *Flight
+>   Booker* do 7GUIs mais nome e e-mail, com erros visíveis só em campos
+>   tocados, datas em texto DD/MM/AAAA e só o que cada *framework* traz
+>   (especificação em `casos/formulario/README.org`).
 > - **Pendente:**
 >   - escolher as implementações que entram na análise;
 >   - aplicar a pergunta e os objetivos à `intro.org` (proposta na seção 6,
@@ -126,6 +131,16 @@ Não recomendo para o Android:
   distrobox só oferece o 22.22.1.
 - **Aparência comum:** cada caso tem um `estilo.css` compartilhado pelas
   implementações, para que só a lógica mude entre elas.
+- **Especificação e domínio por caso:** cada caso tem um `README.org` com a
+  especificação que todas as implementações seguem. Quando há regras de
+  domínio (formato de data, e-mail, mensagens), elas ficam num `dominio.ts`
+  compartilhado pelos projetos web, e as implementações só diferem na
+  coordenação da interface. Um `roteiro-de-teste.js` confere a
+  especificação no navegador, igual para todas.
+- **Sem bibliotecas de formulário (decidido em 2026-09-25):** só o que cada
+  *framework* traz. O Angular usa os Reactive Forms, que são dele. Fica
+  como alternativa usar a biblioteca mais comum de cada um (por exemplo,
+  react-hook-form no React), o que passaria a medir as bibliotecas.
 - **Android:** um único projeto Gradle, com um módulo por caso e variante.
 
 ## 4. O que foi conferido

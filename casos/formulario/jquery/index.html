@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulário com jQuery</title>
+  </head>
+  <body>
+    <form id="reserva" class="formulario" novalidate>
+      <label>
+        Nome do passageiro
+        <input id="nome" name="nome" autocomplete="name" />
+      </label>
+      <p id="erro-nome" class="erro" hidden></p>
+
+      <label>
+        E-mail
+        <input id="email" name="email" type="email" autocomplete="email" />
+      </label>
+      <p id="erro-email" class="erro" hidden></p>
+
+      <label>
+        Tipo de voo
+        <select id="tipo" name="tipo">
+          <option value="ida">Só ida</option>
+          <option value="ida-e-volta">Ida e volta</option>
+        </select>
+      </label>
+
+      <label>
+        Data de ida
+        <input id="ida" name="ida" placeholder="DD/MM/AAAA" />
+      </label>
+      <p id="erro-ida" class="erro" hidden></p>
+
+      <label>
+        Data de volta
+        <input id="volta" name="volta" placeholder="DD/MM/AAAA" disabled />
+      </label>
+      <p id="erro-volta" class="erro" hidden></p>
+
+      <button id="reservar" type="submit">Reservar</button>
+    </form>
+    <p id="confirmacao" class="confirmacao" role="status"></p>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

@@ -1,0 +1,55 @@
+#+TITLE: Formulário com validação
+
+Reserva de voo baseada na tarefa /Flight Booker/ do [[https://eugenkiss.github.io/7guis/tasks/][7GUIs]] (=kiss2014=),
+ampliada com os campos de um formulário real. Todas as implementações seguem
+esta especificação; as regras de domínio (formato de data, e-mail, mensagens)
+ficam em =dominio.ts=, compartilhado pelos projetos web, para que as
+implementações só difiram na coordenação da interface.
+
+* Campos
+
+  | Campo              | Regra                                                    |
+  |--------------------+----------------------------------------------------------|
+  | Nome do passageiro | obrigatório (não vazio, ignorando espaços)               |
+  | E-mail             | obrigatório, no formato =algo@dominio.tld=               |
+  | Tipo de voo        | "Só ida" (padrão) ou "Ida e volta"                       |
+  | Data de ida        | data real no formato DD/MM/AAAA                          |
+  | Data de volta      | idem; habilitada só em "Ida e volta"                     |
+
+* Restrições (do 7GUIs)
+
+  1. A data de volta só fica habilitada quando o tipo é "Ida e volta".
+  2. Data mal formatada num campo habilitado deixa o campo vermelho e
+     desabilita o botão.
+  3. Em "Ida e volta", volta anterior à ida desabilita o botão.
+  4. As duas datas começam com a data de hoje.
+
+* Acréscimos de formulário real
+
+  5. Nome e e-mail começam vazios, então o botão começa desabilitado.
+  6. Cada campo mostra a sua mensagem de erro (e fica vermelho) só depois de
+     /tocado/, isto é, depois de perder o foco uma vez. O botão, porém,
+     considera todos os erros desde o início. Aqui o 7GUIs, que pinta a data
+     mal formatada na hora, foi trocado pelo comportamento comum em
+     formulários reais.
+  7. O erro "volta antes da ida" aparece sob a data de volta quando qualquer
+     uma das duas datas já foi tocada.
+  8. Um campo desabilitado não mostra erro nem conta para o botão.
+  9. Ao reservar, aparece uma confirmação abaixo do formulário, que fica até
+     a próxima reserva.
+
+* Mensagens
+
+  | Situação             | Mensagem                                          |
+  |----------------------+---------------------------------------------------|
+  | nome vazio           | Informe o nome do passageiro.                     |
+  | e-mail inválido      | Informe um e-mail válido.                         |
+  | data mal formatada   | Use uma data válida no formato DD/MM/AAAA.        |
+  | volta antes da ida   | A volta não pode ser antes da ida.                |
+  | reserva só de ida    | Voo só de ida reservado para NOME em IDA. A confirmação vai para EMAIL. |
+  | reserva ida e volta  | Voo de ida e volta reservado para NOME: ida em IDA e volta em VOLTA. A confirmação vai para EMAIL. |
+
+* Teste
+
+  O =roteiro-de-teste.js= percorre esta especificação (19 verificações).
+  Com um exemplo aberto no navegador, cole o arquivo no console.
