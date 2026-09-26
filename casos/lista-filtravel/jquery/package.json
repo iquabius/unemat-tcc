@@ -1,0 +1,19 @@
+{
+  "name": "lista-filtravel-jquery",
+  "private": true,
+  "type": "module",
+  "description": "Lista filtrável em jQuery (estilo imperativo legado)",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -p . && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "jquery": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/jquery": "^4.0.1",
+    "typescript": "~6.0.3",
+    "vite": "^8.3.1"
+  }
+}

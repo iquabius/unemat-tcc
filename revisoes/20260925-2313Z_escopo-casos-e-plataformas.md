@@ -25,6 +25,11 @@
 >   Booker* do 7GUIs mais nome e e-mail, com erros visíveis só em campos
 >   tocados, datas em texto DD/MM/AAAA e só o que cada *framework* traz
 >   (especificação em `casos/formulario/README.org`).
+> - **Implementado:** o commit “Implementa a Lista filtrável nas cinco
+>   tecnologias web” (2026-09-26) criou a Lista: um catálogo de 30
+>   produtos com busca por “contém” (sem diferenciar maiúsculas e acentos),
+>   filtro por categoria e ordenação, sem edição (especificação em
+>   `casos/lista-filtravel/README.org`).
 > - **Pendente:**
 >   - escolher as implementações que entram na análise;
 >   - aplicar a pergunta e os objetivos à `intro.org` (proposta na seção 6,

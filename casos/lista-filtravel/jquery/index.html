@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lista filtrável com jQuery</title>
+  </head>
+  <body>
+    <main class="catalogo">
+      <div class="filtros">
+        <label>
+          Buscar
+          <input id="busca" name="busca" type="search" placeholder="Nome do produto" />
+        </label>
+        <label>
+          Categoria
+          <select id="categoria" name="categoria">
+            <option value="">Todas</option>
+          </select>
+        </label>
+        <label>
+          Ordenar por
+          <select id="ordem" name="ordem"></select>
+        </label>
+      </div>
+      <p id="contagem" class="contagem" role="status"></p>
+      <ul id="produtos" class="produtos"></ul>
+      <p id="vazio" class="vazio" hidden>Nenhum produto encontrado.</p>
+    </main>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

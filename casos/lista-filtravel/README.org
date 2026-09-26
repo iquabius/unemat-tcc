@@ -1,0 +1,37 @@
+#+TITLE: Lista filtrável
+
+Catálogo de produtos com busca, filtro por categoria e ordenação: a tela de
+lista mais comum no dia a dia. O filtro imediato vem da tarefa /CRUD/ do
+[[https://eugenkiss.github.io/7guis/tasks/][7GUIs]] (=kiss2014=); a edição da lista fica de fora, porque a mutação é
+o assunto do Carrinho. Retoma o capítulo de processamento de listas do
+=cases.org= (formatar preços, selecionar e ordenar).
+
+Os produtos e as regras (normalização da busca, comparação, formato do
+preço) ficam em =dominio.ts=, compartilhado pelos projetos web. Cada
+implementação compõe a lista visível com =filter= e =sort= e decide quando
+recalculá-la: é isso que se compara.
+
+* Controles
+
+  | Controle    | Comportamento                                                 |
+  |-------------+---------------------------------------------------------------|
+  | Buscar      | produtos cujo nome /contém/ o texto, sem diferenciar          |
+  |             | maiúsculas e acentos e ignorando espaços nas pontas           |
+  | Categoria   | "Todas" (padrão) ou uma das categorias, em ordem alfabética   |
+  | Ordenar por | "Nome (A–Z)" (padrão), "Menor preço" ou "Maior preço";        |
+  |             | empate de preço desempata pelo nome                           |
+
+  A lista se atualiza a cada tecla ou escolha, sem botão de enviar.
+
+* Lista
+
+  1. Cada produto mostra nome, categoria e preço em reais (=R$ 1.234,56=).
+  2. Acima da lista, a contagem "N de M produtos", com M = total do catálogo.
+  3. Sem nenhum produto visível, aparece "Nenhum produto encontrado.".
+  4. O catálogo tem 30 produtos, 6 por categoria.
+
+* Teste
+
+  O =roteiro-de-teste.js= percorre esta especificação (11 verificações).
+  Com um exemplo aberto no navegador, cole o arquivo no console. As cenas
+  das capturas ficam em =cenas.mts=.
