@@ -1,9 +1,9 @@
 # Instruções para agentes: exemplos do TCC (`casos/`)
 
 Cada caso é uma interface implementada em várias tecnologias, para comparação
-no TCC. O escopo (casos, tecnologias e convenções) está em
-`revisoes/20260925-2313Z_escopo-casos-e-plataformas.md`; instalação e uso,
-em `casos/README.org`.
+no TCC. As decisões de escopo (casos, tecnologias, Android) estão em
+`docs/adr/0001` a `0007`; os termos, em `CONTEXT.md` na raiz; instalação e
+uso, em `casos/README.org`.
 
 ## Conferir as capturas a cada alteração
 

@@ -45,7 +45,7 @@ class DominioTest {
     // domínio fica simples, e estas entradas ninguém digita. As respostas
     // esperadas são as do próprio dominio.ts, rodado no Node; os anos de 0 a
     // 99 e os espaços fora do ASCII falham aqui (ver
-    // revisoes/20260925-2313Z_escopo-casos-e-plataformas.md).
+    // docs/adr/0010-dominio-compartilhado-sem-imitar-o-javascript.md).
     @Ignore("diferença conhecida em relação à web; só documenta")
     @Test
     fun igualAoDaWeb() {

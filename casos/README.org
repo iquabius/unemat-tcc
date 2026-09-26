@@ -3,8 +3,8 @@
 Cada caso tem uma pasta, e cada tecnologia uma subpasta:
 =casos/<caso>/<tecnologia>/=. Cada subpasta é um projeto completo, com o
 próprio =package.json=, e pode ser lida sozinha. O escopo (casos e
-tecnologias) está em
-[[file:../revisoes/20260925-2313Z_escopo-casos-e-plataformas.md][revisoes/20260925-2313Z_escopo-casos-e-plataformas.md]].
+tecnologias) está nas decisões em [[file:../docs/adr/][docs/adr/]], da 0001 à
+0007.
 
 * Pré-requisitos: Node.js e JDK
 

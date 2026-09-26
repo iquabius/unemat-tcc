@@ -1,0 +1,26 @@
+# 0001. O TCC compara notações de interfaces gráficas na web e no Android
+
+2026-09-25. O projeto de 2017 comparava paradigmas em JavaScript com RxJS 5 e
+xstream, ferramentas pouco usadas em 2025, e a pré-pesquisa de 2026 cogitou
+ampliar para servidor e desktop. O trabalho fica em interfaces gráficas,
+com implementações na web (TypeScript) e no Android (Kotlin), porque é onde
+as notações imperativa, declarativa e reativa aparecem no dia a dia dos
+programadores e onde as Dimensões Cognitivas de Notações (DCs) têm o que
+medir.
+
+Em vez de: três áreas, um caso na web, um *pipeline* Kafka no servidor
+(WebFlux/Mutiny × *threads*, Java com Spring) e um painel IoT no desktop ou
+móvel; cobriria a PR de *back-end*, mas o servidor é questão de desempenho,
+que as DCs não medem, a literatura é escassa e o custo era cerca de três
+vezes maior.
+Em vez de: Java desktop, Swing × JavaFX (*properties* e *bindings* sem
+biblioteca), Java de fato e sem dependência externa; desktop Java é menos
+comum no dia a dia que Android.
+Em vez de: ReactFX no JavaFX; a última versão (v2.0-M6, 2025-08) veio depois
+de nove anos parada e era *milestone*.
+Custo: dois ecossistemas de *build* (npm e Gradle) e uma linguagem que o
+autor não conhecia (Kotlin), com o React como parâmetro de leitura.
+
+Fontes: Stack Overflow Developer Survey 2025 (React 44,7%, jQuery 23,4%,
+Angular 18,2%); busca no OpenAlex por DCs em Reactive Streams, vazia em
+2026-09-25; commit `25cf4dd`.
