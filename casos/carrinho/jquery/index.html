@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carrinho de compras com jQuery</title>
+  </head>
+  <body>
+    <div class="loja">
+      <header class="cabecalho">
+        <strong>Minha loja</strong>
+        <span id="resumo" class="resumo"></span>
+      </header>
+      <section class="catalogo">
+        <h2>Produtos</h2>
+        <ul id="produtos"></ul>
+      </section>
+      <section class="carrinho">
+        <h2>Carrinho</h2>
+        <p id="aviso" class="aviso" hidden></p>
+        <p id="confirmacao" class="confirmacao" hidden></p>
+        <ul id="itens" class="itens" hidden></ul>
+        <div id="totais" class="totais" hidden>
+          <p><span>Subtotal</span><span id="subtotal"></span></p>
+          <p><span>Frete</span><span id="valor-do-frete"></span></p>
+          <p class="total"><span>Total</span><span id="total"></span></p>
+        </div>
+        <button id="finalizar" type="button" class="finalizar" hidden>Finalizar compra</button>
+        <p id="frete" class="frete" hidden></p>
+      </section>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

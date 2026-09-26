@@ -1,0 +1,15 @@
+{
+  "name": "carrinho-web-component",
+  "private": true,
+  "type": "module",
+  "description": "Carrinho de compras em Web Component (DOM puro, classe e callbacks)",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -p . && vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "typescript": "~6.0.3",
+    "vite": "^8.3.1"
+  }
+}

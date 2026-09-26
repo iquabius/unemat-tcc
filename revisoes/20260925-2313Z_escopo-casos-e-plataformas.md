@@ -35,6 +35,12 @@
 >   espera de 300 ms, termo repetido ignorado, cancelamento por
 >   `AbortSignal`, Esc, falha simulada da API e escolha por clique
 >   (especificação em `casos/busca-com-sugestoes/README.org`).
+> - **Implementado:** o commit “Implementa o Carrinho nas cinco tecnologias
+>   web” (2026-09-26) criou o Carrinho: cabeçalho, catálogo de 8 produtos
+>   da Lista e painel compartilhando o mesmo estado, com frete grátis a
+>   partir de R$ 199, “Finalizar compra” e o carrinho salvo no
+>   `localStorage` (especificação em `casos/carrinho/README.org`). Com
+>   ele, os cinco casos estão implementados na web.
 > - **Para a análise (propensão a erros):** ao criar a Busca, a comparação
 >   de capturas mostrou que o Web Component e o jQuery deixavam a lista
 >   vazia ocupando espaço: escondiam a `<ul>` com o atributo `hidden`, mas

@@ -1,0 +1,127 @@
+/* Aparência comum às implementações do Carrinho, para que só a lógica mude. */
+[hidden] {
+  display: none !important;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: #2b2b2b;
+  color: #eee;
+}
+
+.loja {
+  display: grid;
+  gap: 1rem;
+  max-width: 28rem;
+  padding: 1rem;
+}
+
+.cabecalho {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.5rem 0.75rem;
+  background: #2e4d24;
+}
+
+.loja h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.1rem;
+}
+
+.catalogo ul,
+.itens {
+  display: grid;
+  gap: 1px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background: #444;
+}
+
+.catalogo li,
+.itens li {
+  display: grid;
+  gap: 0.25rem 0.75rem;
+  align-items: center;
+  padding: 0.5rem;
+  background: #333;
+}
+
+.catalogo li {
+  grid-template-columns: 1fr auto auto;
+}
+
+.itens li {
+  grid-template-columns: 1fr auto auto;
+}
+
+.preco,
+.subtotal {
+  color: #9fd88a;
+}
+
+.no-carrinho {
+  grid-column: 1;
+  color: #999;
+  font-size: 0.875rem;
+}
+
+.loja button {
+  padding: 0.3rem 0.6rem;
+  border: 1px solid #555;
+  background: #3a3a3a;
+  color: #eee;
+  font: inherit;
+  cursor: pointer;
+}
+
+.quantidade {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.itens .remover {
+  grid-column: 1;
+  justify-self: start;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: #ff8a8a;
+  font-size: 0.875rem;
+}
+
+.totais {
+  display: grid;
+  gap: 0.25rem;
+  margin: 0.75rem 0 0;
+}
+
+.totais p {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+}
+
+.totais .total {
+  font-weight: bold;
+}
+
+.loja .finalizar {
+  width: 100%;
+  margin-top: 0.75rem;
+  background: #2e4d24;
+}
+
+.aviso,
+.frete {
+  margin: 0.5rem 0 0;
+  color: #aaa;
+}
+
+.confirmacao {
+  margin: 0;
+  color: #9fd88a;
+}

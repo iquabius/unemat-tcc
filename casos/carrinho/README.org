@@ -1,0 +1,47 @@
+#+TITLE: Carrinho de compras
+
+Loja com três componentes que leem e alteram o mesmo carrinho: o
+*cabeçalho* (quantidade de itens e total), o *catálogo* (botões "Adicionar"
+e quanto de cada produto já está no carrinho) e o *painel do carrinho*
+(quantidades, subtotais, frete, total e "Finalizar compra"). O padrão
+testado é o estado compartilhado entre componentes, que nas versões
+imperativas é o /Observer Pattern/.
+
+Os produtos vêm do catálogo da Lista filtrável. As regras (transição do
+carrinho, totais, frete, textos e o formato salvo) ficam em =dominio.ts=,
+compartilhado pelos projetos web. Cada implementação decide onde o estado
+mora, como os componentes são avisados das mudanças e quando salvar.
+
+* Regras
+
+  1. *Produtos.* 8 produtos do catálogo da Lista, na ordem do =dominio.ts=,
+     cada um com nome, preço e botão "Adicionar".
+  2. *Adicionar.* Coloca o produto no carrinho com quantidade 1, ou soma 1
+     se ele já estiver lá. O catálogo mostra "N no carrinho" ao lado dos
+     produtos que estão no carrinho.
+  3. *Quantidade.* No painel, "−" e "+" mudam a quantidade; "−" com
+     quantidade 1 tira o produto. "Remover" tira o produto de uma vez. Os
+     itens ficam na ordem em que entraram no carrinho.
+  4. *Totais.* Cada item mostra o subtotal (preço × quantidade). O painel
+     mostra subtotal, frete e total. O frete é R$ 19,90, grátis quando o
+     subtotal chega a R$ 199,00.
+  5. *Aviso de frete.* Abaixo do botão de finalizar: "Faltam R$ X para frete
+     grátis." ou "Você ganhou frete grátis!".
+  6. *Cabeçalho.* "Carrinho vazio", "Carrinho: 1 item · R$ T" ou
+     "Carrinho: N itens · R$ T", em que N soma as quantidades e T é o
+     total com frete.
+  7. *Vazio.* O painel mostra "Seu carrinho está vazio." e esconde totais,
+     aviso e botão.
+  8. *Finalizar compra.* Esvazia o carrinho e mostra, no lugar do aviso de
+     vazio, "Pedido confirmado: N itens, total de R$ T." (ou "1 item"). A
+     confirmação some quando algo é adicionado de novo.
+  9. *Salvar.* Toda mudança grava os itens no =localStorage= (chave
+     =carrinho=, formato =[{"id":1,"quantidade":2}]=). Ao abrir a página,
+     o carrinho salvo volta; conteúdo inválido vira carrinho vazio. A
+     confirmação do pedido não é salva.
+
+* Teste
+
+  O =roteiro-de-teste.js= percorre estas regras. Com um exemplo aberto no
+  navegador, cole o arquivo no console. A restauração ao abrir a página é
+  conferida pela cena =restaurado= das capturas (=cenas.mts=).
