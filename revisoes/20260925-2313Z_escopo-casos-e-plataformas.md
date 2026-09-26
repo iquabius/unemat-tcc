@@ -8,18 +8,27 @@
 > **Situação** (atualizada a cada item resolvido; última: 2026-09-25)
 >
 > - **Decidido (2026-09-25):** a matriz de implementação da seção 1. O
->   trabalho fica em interfaces gráficas, na web (JavaScript) e no Android
+>   trabalho fica em interfaces gráficas, na web (TypeScript) e no Android
 >   (Kotlin). A implementação é maximalista: o que entra na análise do texto
 >   se decide depois.
 > - **Decidido (2026-09-25), no commit “Confirma os casos do Android”:** no
 >   Android entram Lista filtrável, Formulário com validação e Contador
 >   (seção 2).
+> - **Decidido (2026-09-25):** TypeScript em todos os exemplos web, não só
+>   no Angular (seção 3).
+> - **Implementado:** o commit “Implementa o Contador nas cinco tecnologias
+>   web” (2026-09-25) criou os *workspaces* do npm e o Contador em Web
+>   Component, jQuery, React, Solid e Angular com RxJS, todos em TypeScript
+>   (convenções na seção 3).
 > - **Pendente:**
 >   - escolher as implementações que entram na análise;
 >   - aplicar a pergunta e os objetivos à `intro.org` (proposta na seção 6,
 >     ainda não aplicada) e, com isso, fechar os itens 1.1, 1.2, 1.4 e 1.5 do
 >     feedback da introdução;
 >   - refazer a análise do Contador em `cases.org`, hoje escrita com xstream;
+>   - trocar JavaScript por TypeScript em `intro.org:93-95` (“A linguagem
+>     /JavaScript/ é usada na implementação dos casos”) e rever a
+>     justificativa, junto com a pergunta e os objetivos;
 >   - rever o título do TCC (“Demonstração e Análise de Programação Funcional
 >     e Reativa”) quando o recorte da análise estiver fechado.
 
@@ -40,7 +49,7 @@ implementam no dia a dia, com as ferramentas mais usadas hoje.
 | Lista filtrável | lista derivada (`map`, `filter`, `sort`); liga-se ao capítulo de processamento de listas |
 | Carrinho de compras | estado compartilhado entre componentes |
 
-**Web (JavaScript): os cinco casos em todas as tecnologias abaixo.**
+**Web (TypeScript): os cinco casos em todas as tecnologias abaixo.**
 
 | Tecnologia | Papel | Entra no texto? |
 |---|---|---|
@@ -87,8 +96,11 @@ Não recomendo para o Android:
   `async`, `valueChanges` dos formulários reativos, `debounceTime` e
   `switchMap` na busca). A documentação atual do Angular põe os *signals* no
   centro da reatividade (angular.dev/guide/signals), então sem esse cuidado o
-  exemplo não serviria de comparação com RxJS. O Angular obriga TypeScript;
-  as demais tecnologias web ficam em JavaScript.
+  exemplo não serviria de comparação com RxJS.
+- **TypeScript em todos os exemplos web (decidido em 2026-09-25).** Com
+  isso os cinco usam a mesma linguagem, que o Angular já exigia. Os projetos
+  do Vite estendem o `tsconfig.base.json` da raiz (modo `strict`), e o
+  `build` roda `tsc` antes do Vite, que só remove os tipos sem conferi-los.
 - **Android Views:** estilo clássico, com *listeners* e estado na `Activity`
   ou no `Fragment`, no papel imperativo que o jQuery tem na web. A variante
   moderna (Views com `ViewModel` e `StateFlow`) fica como alternativa (seção
@@ -99,9 +111,22 @@ Não recomendo para o Android:
   developer.android.com/develop/ui/compose/compiler). Escrever o Views em
   Java misturaria a diferença de linguagem com a de paradigma, sobretudo na
   DC concisão.
-- **Pastas (sugestão):** `casos/<caso>/<tecnologia>/`, por exemplo
+- **Pastas:** `casos/<caso>/<tecnologia>/`, por exemplo
   `casos/contador/react/` e `casos/lista-filtravel/android-compose/`. O
   `casos/cronometro-com-rxjs-5/` existente fica como está.
+- **Projetos web: *workspaces* do npm (decidido em 2026-09-25).** Cada
+  exemplo tem o próprio `package.json` e pode ser lido sozinho, mas um só
+  `npm install` na raiz instala todos. Um projeto por tecnologia exigiria
+  25 instalações; um projeto único misturaria as configurações, e React e
+  Solid transformam JSX de formas diferentes. O npm ficou no lugar do pnpm
+  por já vir com o Node. O Vite serve os exemplos, menos o Angular, que usa
+  o próprio CLI.
+- **Node pelo asdf:** a versão fica em `.tool-versions` na raiz (Node 24
+  LTS). O Angular 22 exige Node 22.22.3 ou mais novo, e o Ubuntu do
+  distrobox só oferece o 22.22.1.
+- **Aparência comum:** cada caso tem um `estilo.css` compartilhado pelas
+  implementações, para que só a lógica mude entre elas.
+- **Android:** um único projeto Gradle, com um módulo por caso e variante.
 
 ## 4. O que foi conferido
 
@@ -163,7 +188,7 @@ Ajustar conforme as implementações que entrarem na análise.
 - **Objetivo geral:** Comparar, segundo as Dimensões Cognitivas de Notações,
   a usabilidade das notações imperativa (*callbacks*), declarativa por
   re-renderização e reativa (*signals*) na implementação de interfaces
-  gráficas típicas, na web (JavaScript) e no Android (Kotlin).
+  gráficas típicas, na web (TypeScript) e no Android (Kotlin).
 - **Objetivos específicos:**
   1. demonstrar, com processamento de listas, os conceitos de PF em que se
      apoiam as notações declarativas;

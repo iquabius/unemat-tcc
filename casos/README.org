@@ -1,0 +1,44 @@
+#+TITLE: Casos: implementações dos exemplos
+
+Cada caso tem uma pasta, e cada tecnologia uma subpasta:
+=casos/<caso>/<tecnologia>/=. Cada subpasta é um projeto completo, com o
+próprio =package.json=, e pode ser lida sozinha. O escopo (casos e
+tecnologias) está em
+[[file:../revisoes/20260925-2313Z_escopo-casos-e-plataformas.md][revisoes/20260925-2313Z_escopo-casos-e-plataformas.md]].
+
+* Pré-requisito: Node.js
+
+  A versão fica em =.tool-versions=, na raiz do repositório, e o [[https://asdf-vm.com][asdf]] a
+  instala:
+
+  #+begin_src sh
+  asdf plugin add nodejs
+  asdf install
+  #+end_src
+
+  O Angular 22 exige Node 22.22.3 ou mais novo.
+
+* Instalar e rodar (web)
+
+  Os projetos web são /workspaces/ do npm, todos em TypeScript: um único
+  =npm install= na raiz instala todos. O =build= confere os tipos com =tsc=
+  antes de empacotar.
+
+  #+begin_src sh
+  npm install
+  npm run dev -w casos/contador/react
+  #+end_src
+
+  Troque o caminho pelo do exemplo desejado. O Vite serve em
+  =http://localhost:5173= e o Angular em =http://localhost:4200=.
+
+  | Subpasta         | Tecnologia                                     |
+  |------------------+------------------------------------------------|
+  | =web-component=  | DOM puro com /custom element/ (classe)          |
+  | =jquery=         | jQuery                                         |
+  | =react=          | React                                          |
+  | =solid=          | Solid (/signals/)                               |
+  | =angular-rxjs=   | Angular com RxJS (apoio à escrita; fora do texto) |
+
+  O =cronometro-com-rxjs-5= é anterior a esta organização e não é
+  /workspace/: tem instalação própria.

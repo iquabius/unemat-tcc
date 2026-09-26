@@ -25,3 +25,7 @@
 *.lot
 *.out
 *.run.xml
+# npm (workspaces dos casos)
+node_modules/
+dist/
+.angular/
