@@ -67,11 +67,22 @@
 >   Compose” (2026-09-26) portou o `dominio.ts` para
 >   `casos/formulario/dominio-kotlin/` e criou as duas variantes, com a
 >   aparência da web e as 19 verificações do `roteiro-de-teste.js` em
->   `RoteiroTest.kt`. O commit “Iguala o domínio Kotlin do Formulário ao
->   da web” levou para o Kotlin dois detalhes do JavaScript: a recusa dos
->   anos de 0 a 99, que o `Date` lê como 19xx, e o conjunto de espaços do
->   `\s` e do `trim()`. O gabarito do `DominioTest` saiu do próprio
->   `dominio.ts`, rodado no Node.
+>   `RoteiroTest.kt`.
+> - **Diferença conhecida (Formulário, Android × web):** o `Dominio.kt`
+>   responde diferente do `dominio.ts` em entradas-limite, e fica assim para
+>   o domínio continuar simples. Datas com ano de 0 a 99 (01/01/0050): a web
+>   recusa, porque o `Date` do JavaScript lê esses anos como 1900 a 1999 e a
+>   conferência dela não fecha; o `LocalDate` aceita. Espaços fora do ASCII:
+>   o `\s` e o `trim()` do JavaScript reconhecem o espaço não separável, o
+>   `\u2028` e o `\uFEFF`, entre outros; na JVM, o `\s` só conhece os do
+>   ASCII, e o `trim()` do Kotlin apara também `\u001C` a `\u001F` e não
+>   apara o `\uFEFF`. Por isso, um e-mail com espaço não separável no meio
+>   passa no Android e não na web. As respostas da web, tiradas do próprio
+>   `dominio.ts` rodado no Node, estão no teste `igualAoDaWeb` do
+>   `DominioTest.kt`, desativado com `@Ignore`: ele documenta a diferença e
+>   falha se for ativado. O commit “Iguala o domínio Kotlin do Formulário
+>   ao da web” chegou a reproduzir esses detalhes no Kotlin, e o commit
+>   seguinte o desfez: o código a mais não compensava.
 > - **Para a análise (o que cada notação traz pronto):** no Formulário, o
 >   Compose não tem `onBlur`: o `onFocusChanged` avisa também o estado
 >   inicial, sem foco, e a tela precisa lembrar quais campos já tiveram
