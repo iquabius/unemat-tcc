@@ -68,6 +68,26 @@
 >   `casos/formulario/dominio-kotlin/` e criou as duas variantes, com a
 >   aparência da web e as 19 verificações do `roteiro-de-teste.js` em
 >   `RoteiroTest.kt`.
+> - **Implementado:** o commit “Implementa a Lista filtrável em Views e
+>   Compose” (2026-09-26) portou o catálogo e as regras para
+>   `casos/lista-filtravel/dominio-kotlin/` e criou as duas variantes, com a
+>   aparência da web e as 11 verificações do roteiro. O `DominioTest`
+>   compara o porte com respostas do próprio `dominio.ts` e bate nas ordens
+>   (o `Collator` pt-BR do Java), nos 30 preços (o `NumberFormat`, com o
+>   mesmo espaço não separável depois do R$), nas categorias e nas buscas
+>   sem acento. Com ela, os três casos Android estão implementados.
+> - **Para a análise (a lista):** no Views, a lista pede `RecyclerView`, um
+>   `Adapter` com `ViewHolder` e um layout por item, e o código avisa a
+>   mudança com `notifyDataSetChanged()`, que refaz tudo como o
+>   `.empty().append()` do jQuery (o `ListAdapter` com `DiffUtil` fica como
+>   alternativa). No Compose, a `LazyColumn` recebe a lista derivada com
+>   `items(visiveis, key = { it.id })`, como o `map` com `key` do React. As
+>   opções do `Spinner` que vêm do domínio precisam de um `ArrayAdapter` no
+>   código.
+> - **Para a análise (propensão a erros):** na Lista do Views, o
+>   `fitsSystemWindows` apagou o `padding` de 16dp da mesma view, sem aviso:
+>   ele troca o padding pelo espaço das barras do sistema. A comparação com
+>   a captura do Compose mostrou o erro; a correção foi usar margem.
 > - **Diferença conhecida (Formulário, Android × web):** o `Dominio.kt`
 >   responde diferente do `dominio.ts` em entradas-limite, e fica assim para
 >   o domínio continuar simples. Datas com ano de 0 a 99 (01/01/0050): a web

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Aparência da Lista filtrável, no papel do estilo.css da web: os layouts
+     só citam os estilos pelo nome (style="@style/..."), como o class do
+     HTML. -->
+<resources>
+    <color name="fundo">#2b2b2b</color>
+
+    <!-- body: o tema da tela inteira, aplicado no AndroidManifest.xml. -->
+    <style name="Tema" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="android:windowBackground">@color/fundo</item>
+    </style>
+
+    <style name="Coluna">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <!-- .catalogo: uma coluna com 0.75rem entre os itens e 1rem de margem.
+         Os filtros ficam parados e só a lista rola (na web, rola a página).
+         Margem, e não padding: o fitsSystemWindows troca o padding da view
+         pelo espaço das barras do sistema. -->
+    <style name="Catalogo" parent="Coluna">
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:fitsSystemWindows">true</item>
+        <item name="android:layout_margin">16dp</item>
+        <item name="android:divider">@drawable/espaco_de_12dp</item>
+        <item name="android:showDividers">middle</item>
+    </style>
+
+    <!-- .filtros: 0.5rem entre os controles. -->
+    <style name="Filtros" parent="Coluna">
+        <item name="android:divider">@drawable/espaco_de_8dp</item>
+        <item name="android:showDividers">middle</item>
+    </style>
+
+    <!-- .filtros label: o texto e o controle, com 0.25rem entre eles. -->
+    <style name="Rotulo" parent="Coluna">
+        <item name="android:divider">@drawable/espaco_de_4dp</item>
+        <item name="android:showDividers">middle</item>
+    </style>
+
+    <!-- Texto comum (a cor e o tamanho do body). -->
+    <style name="Texto">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">#eeeeee</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <!-- .filtros input -->
+    <style name="Entrada" parent="Texto">
+        <item name="android:background">@drawable/caixa</item>
+        <item name="android:textColorHint">#999999</item>
+        <item name="android:textCursorDrawable">@drawable/cursor</item>
+        <item name="android:padding">6.4dp</item>
+        <item name="android:minHeight">0dp</item>
+    </style>
+
+    <!-- .filtros select -->
+    <style name="Selecao">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/caixa</item>
+        <item name="android:popupBackground">#3a3a3a</item>
+        <item name="android:padding">6.4dp</item>
+        <item name="android:minHeight">0dp</item>
+    </style>
+
+    <!-- .contagem e .vazio -->
+    <style name="Contagem" parent="Texto">
+        <item name="android:textColor">#aaaaaa</item>
+    </style>
+
+    <!-- .produtos: uma lista vertical sobre fundo #444, que aparece entre os
+         itens (a margem de 1dp de cada um faz o gap de 1px). -->
+    <style name="Produtos">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">#444444</item>
+        <item name="layoutManager">androidx.recyclerview.widget.LinearLayoutManager</item>
+    </style>
+
+    <!-- .produtos li: uma grade de duas colunas; o nome e a categoria na
+         primeira, o preço na segunda, centrado nas duas linhas. -->
+    <style name="Produto">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">1dp</item>
+        <item name="android:columnCount">2</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:background">#333333</item>
+    </style>
+
+    <style name="Produto.Nome" parent="Texto">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_row">0</item>
+        <item name="android:layout_column">0</item>
+        <item name="android:layout_columnWeight">1</item>
+    </style>
+
+    <!-- .produtos .categoria -->
+    <style name="Produto.Categoria" parent="Produto.Nome">
+        <item name="android:layout_row">1</item>
+        <item name="android:textColor">#999999</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <!-- .produtos .preco -->
+    <style name="Produto.Preco" parent="Texto">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_row">0</item>
+        <item name="android:layout_column">1</item>
+        <item name="android:layout_rowSpan">2</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:layout_marginStart">16dp</item>
+        <item name="android:textColor">#9fd88a</item>
+    </style>
+</resources>

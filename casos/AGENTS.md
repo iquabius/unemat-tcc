@@ -106,7 +106,13 @@ Gradle em `casos/android/` e as dependências (`package.json`,
   marcas só para teste no código da tela: o Views acha as views pelo `id`;
   o Compose, pela semântica (texto, ordem dos campos, papel).
 - Confira que o roteiro pega erros: introduza um defeito numa regra e veja
-  o `RoteiroTest` falhar antes de dar o caso por pronto.
+  o `RoteiroTest` falhar antes de dar o caso por pronto. Rode um módulo por
+  vez: com duas tarefas e `--tests` na mesma linha do Gradle, o resultado
+  do primeiro módulo não foi atualizado.
+- Nas cenas, só foque um campo quando a cena depende do foco (como o
+  "tocado" do Formulário). Na Lista, um teste do Compose que focava a busca
+  fez o teste seguinte capturar a tela anterior à mudança; sem foco, as
+  imagens saem certas (e sem cursor, como na web).
 - Para rodar num emulador ou abrir no Android Studio, use a pasta
   `casos/android/`.
 

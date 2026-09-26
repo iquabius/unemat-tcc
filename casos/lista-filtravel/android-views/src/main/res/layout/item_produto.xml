@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Um produto da lista, como o <li> com os três <span>. -->
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Produto">
+
+    <TextView
+        android:id="@+id/nome"
+        style="@style/Produto.Nome" />
+
+    <TextView
+        android:id="@+id/categoria"
+        style="@style/Produto.Categoria" />
+
+    <TextView
+        android:id="@+id/preco"
+        style="@style/Produto.Preco" />
+</GridLayout>

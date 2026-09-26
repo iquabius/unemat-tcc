@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- A estrutura da tela, como o index.html do jQuery. A aparência fica em
+     res/values/estilo.xml, como o estilo.css. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Catalogo">
+
+    <LinearLayout style="@style/Filtros">
+
+        <!-- Como o <label>: o texto e o campo que ele nomeia. -->
+        <LinearLayout style="@style/Rotulo">
+            <TextView
+                style="@style/Texto"
+                android:labelFor="@id/busca"
+                android:text="Buscar" />
+
+            <EditText
+                android:id="@+id/busca"
+                style="@style/Entrada"
+                android:hint="Nome do produto"
+                android:importantForAutofill="no"
+                android:inputType="text" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/Rotulo">
+            <TextView
+                style="@style/Texto"
+                android:labelFor="@id/categoria"
+                android:text="Categoria" />
+
+            <!-- Como o <select>; as opções vêm do domínio, no código. -->
+            <Spinner
+                android:id="@+id/categoria"
+                style="@style/Selecao" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/Rotulo">
+            <TextView
+                style="@style/Texto"
+                android:labelFor="@id/ordem"
+                android:text="Ordenar por" />
+
+            <Spinner
+                android:id="@+id/ordem"
+                style="@style/Selecao" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Como o role="status": o leitor de tela anuncia a mudança. -->
+    <TextView
+        android:id="@+id/contagem"
+        style="@style/Contagem"
+        android:accessibilityLiveRegion="polite" />
+
+    <!-- Como o <ul>: cada <li> vem de res/layout/item_produto.xml. -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/produtos"
+        style="@style/Produtos" />
+
+    <TextView
+        android:id="@+id/vazio"
+        style="@style/Contagem"
+        android:text="Nenhum produto encontrado."
+        android:visibility="gone" />
+</LinearLayout>

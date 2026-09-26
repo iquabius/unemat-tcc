@@ -7,7 +7,10 @@ o assunto do Carrinho. Retoma o capítulo de processamento de listas do
 =cases.org= (formatar preços, selecionar e ordenar).
 
 Os produtos e as regras (normalização da busca, comparação, formato do
-preço) ficam em =dominio.ts=, compartilhado pelos projetos web. Cada
+preço) ficam em =dominio.ts=, compartilhado pelos projetos web. No Android, o
+mesmo catálogo e as mesmas regras estão portados para Kotlin em
+=dominio-kotlin/main/Dominio.kt=, compartilhado por =android-views= e
+=android-compose=. Cada
 implementação compõe a lista visível com =filter= e =sort= e decide quando
 recalculá-la: é isso que se compara.
 
@@ -35,3 +38,8 @@ recalculá-la: é isso que se compara.
   O =roteiro-de-teste.js= percorre esta especificação (11 verificações).
   Com um exemplo aberto no navegador, cole o arquivo no console. As cenas
   das capturas ficam em =cenas.mts=.
+
+  No Android, as mesmas 11 verificações estão em =RoteiroTest.kt=, nos testes
+  de cada variante. O =DominioTest.kt= compara o porte com respostas do
+  próprio =dominio.ts=, rodado no Node: as três ordens, os 30 preços, as
+  categorias e as buscas.

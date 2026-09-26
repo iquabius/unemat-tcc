@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Espaço entre os itens de uma coluna, como o gap do CSS. -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <size android:height="4dp" />
+</shape>
