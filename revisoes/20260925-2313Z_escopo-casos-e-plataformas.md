@@ -137,6 +137,15 @@ Não recomendo para o Android:
   compartilhado pelos projetos web, e as implementações só diferem na
   coordenação da interface. Um `roteiro-de-teste.js` confere a
   especificação no navegador, igual para todas.
+- **Capturas de tela versionadas (decidido em 2026-09-26):** cada caso
+  guarda em `casos/<caso>/capturas/` uma imagem por tecnologia e cena,
+  geradas pelo Playwright com `npm run capturas` e atualizadas no mesmo
+  commit que altera o exemplo. As cenas ficam em `casos/<caso>/cenas.mts`.
+  Como as implementações de um caso seguem a mesma especificação e a mesma
+  aparência, a mesma cena deve sair idêntica em todas; o *script* avisa
+  quando não sai. `npm run capturas -- --conferir` compara sem gravar, e o
+  `casos/AGENTS.md` manda os agentes conferirem a cada alteração num
+  exemplo.
 - **Sem bibliotecas de formulário (decidido em 2026-09-25):** só o que cada
   *framework* traz. O Angular usa os Reactive Forms, que são dele. Fica
   como alternativa usar a biblioteca mais comum de cada um (por exemplo,

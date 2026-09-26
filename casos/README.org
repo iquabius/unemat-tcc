@@ -42,3 +42,36 @@ tecnologias) está em
 
   O =cronometro-com-rxjs-5= é anterior a esta organização e não é
   /workspace/: tem instalação própria.
+
+* Capturas de tela
+
+  Cada caso guarda capturas versionadas em =casos/<caso>/capturas/=, uma
+  por tecnologia e cena (=react-inicial.png=, =react-erros.png=...). Ao
+  criar ou alterar um exemplo, gere-as de novo e inclua no mesmo commit:
+  o =git diff= mostra o que mudou na tela.
+
+  #+begin_src sh
+  npx playwright install chromium-headless-shell   # só na primeira vez
+  npm run capturas                                  # todos
+  npm run capturas -- formulario                    # um caso
+  npm run capturas -- contador/react                # uma implementação
+  npm run capturas -- --conferir                    # só compara, não grava
+  #+end_src
+
+  O =--conferir= gera as imagens numa pasta temporária, compara com as
+  versionadas e lista as que mudaram, as novas e as que sumiram, saindo com
+  erro se houver alguma. Rode antes de commitar uma alteração num exemplo:
+  se algo mudou de propósito, regenere; se não, é regressão.
+
+  As cenas de cada caso ficam em =casos/<caso>/cenas.mts= (ações do
+  Playwright antes da captura); sem ele, só o estado inicial é capturado.
+  O /script/ ([[file:capturar.mts][casos/capturar.mts]]) faz o /build/, serve o resultado, fixa a
+  data em 26/09/2026 (para "hoje" não mudar a imagem) e, no fim, avisa se
+  a mesma cena saiu diferente entre as tecnologias de um caso, o que indica
+  que alguma implementação foge da especificação.
+
+  Agentes de código seguem essas regras pelo [[file:AGENTS.md][casos/AGENTS.md]] (o
+  =CLAUDE.md= ao lado é um /symlink/ para ele).
+
+  As imagens dependem das fontes instaladas: geradas noutra máquina, podem
+  mudar sem que o código tenha mudado.

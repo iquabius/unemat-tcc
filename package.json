@@ -9,7 +9,13 @@
     "casos/*/solid",
     "casos/*/angular-rxjs"
   ],
+  "scripts": {
+    "capturas": "node casos/capturar.mts"
+  },
   "engines": {
     "node": ">=22.22.3"
+  },
+  "devDependencies": {
+    "playwright": "^1.63.0"
   }
 }
