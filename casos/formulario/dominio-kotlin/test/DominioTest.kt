@@ -40,6 +40,33 @@ class DominioTest {
         assertNull(erroDaOrdem("xx", "09/10/2026"))
     }
 
+    // Respostas do próprio dominio.ts, rodado no Node com as mesmas entradas:
+    // anos de 0 a 99 e os espaços do JavaScript, que não são os do Kotlin.
+    @Test
+    fun igualAoDaWeb() {
+        assertNull(parsearData("01/01/0050"))
+        assertNull(parsearData("31/12/0099"))
+        assertNotNull(parsearData("01/01/0100"))
+        assertNotNull(parsearData("29/02/0104"))
+        assertNotNull(parsearData("\uFEFF10/10/2026"))
+        assertNull(parsearData("\u001C10/10/2026"))
+        assertNotNull(parsearData("\u00A010/10/2026 "))
+
+        val invalido = "Informe um e-mail válido."
+        assertEquals(invalido, erroDoEmail("maria\u00A0@exemplo.com"))
+        assertEquals(invalido, erroDoEmail("maria@exem\u2028plo.com"))
+        assertNull(erroDoEmail("maria\u001C@exemplo.com"))
+        assertNull(erroDoEmail("\uFEFFmaria@exemplo.com"))
+        assertNull(erroDoEmail("maria@exemplo.com\u3000"))
+
+        val vazio = "Informe o nome do passageiro."
+        assertEquals(vazio, erroDoNome("\uFEFF"))
+        assertNull(erroDoNome("\u001C"))
+        assertEquals(vazio, erroDoNome("\u2007"))
+        assertNull(erroDoNome("\u0085"))
+        assertEquals(vazio, erroDoNome(" \u00A0 "))
+    }
+
     @Test
     fun confirmacoes() {
         assertEquals(

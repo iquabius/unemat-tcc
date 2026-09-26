@@ -67,7 +67,11 @@
 >   Compose” (2026-09-26) portou o `dominio.ts` para
 >   `casos/formulario/dominio-kotlin/` e criou as duas variantes, com a
 >   aparência da web e as 19 verificações do `roteiro-de-teste.js` em
->   `RoteiroTest.kt`.
+>   `RoteiroTest.kt`. O commit “Iguala o domínio Kotlin do Formulário ao
+>   da web” levou para o Kotlin dois detalhes do JavaScript: a recusa dos
+>   anos de 0 a 99, que o `Date` lê como 19xx, e o conjunto de espaços do
+>   `\s` e do `trim()`. O gabarito do `DominioTest` saiu do próprio
+>   `dominio.ts`, rodado no Node.
 > - **Para a análise (o que cada notação traz pronto):** no Formulário, o
 >   Compose não tem `onBlur`: o `onFocusChanged` avisa também o estado
 >   inicial, sem foco, e a tela precisa lembrar quais campos já tiveram
