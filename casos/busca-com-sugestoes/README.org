@@ -1,0 +1,42 @@
+#+TITLE: Busca com sugestões
+
+Campo "Cidade de destino" que sugere cidades enquanto o usuário digita (o
+/typeahead/ de sites de viagem e de entrega). É o caso assíncrono: esperar
+o usuário parar de digitar, cancelar a requisição anterior e nunca mostrar
+uma resposta atrasada. O 7GUIs não tem tarefa equivalente.
+
+A "API" é simulada em =dominio.ts=, com a forma de uma chamada =fetch=:
+=buscarCidades(termo, sinal)= devolve uma /Promise/ e aceita um
+=AbortSignal=. A latência é determinística, para os testes e as capturas
+se repetirem: termos de até 2 letras levam 800 ms (têm mais resultados);
+os demais, 200 ms. O termo =erro= faz a API falhar.
+
+* Comportamento
+
+  1. *Espera.* Cada tecla reinicia uma espera de 300 ms; a busca só
+     acontece quando ela termina. O termo é o texto sem espaços nas pontas.
+  2. *Termo repetido.* Se o termo for igual ao da última busca, nada muda:
+     sem nova requisição (=rio= e =rio = são o mesmo termo).
+  3. *Termo curto.* Com menos de 2 letras, some o que estiver na tela e não
+     há requisição.
+  4. *Busca.* Some o que estiver na tela, aparece "Buscando…" e a
+     requisição anterior, se houver, é cancelada pelo =AbortSignal=: a
+     resposta de uma busca antiga nunca aparece.
+  5. *Resposta.* Até 8 cidades, como "Nome (UF)": primeiro as que começam
+     com o termo, depois as que o contêm, cada grupo em ordem alfabética,
+     sem diferenciar maiúsculas e acentos. Sem nenhuma: "Nenhuma cidade
+     encontrada.".
+  6. *Falha.* "Não foi possível buscar as cidades.". As buscas seguintes
+     funcionam normalmente.
+  7. *Esc* no campo cancela a espera e a requisição em andamento e limpa a
+     tela. Como o termo continua sendo o da última busca, digitar o mesmo
+     termo não reabre as sugestões.
+  8. *Clique numa sugestão.* O campo recebe "Nome (UF)", as sugestões
+     somem, aparece "Destino: Nome (UF)" e /nenhuma/ busca é disparada pela
+     mudança do texto. O destino fica até a próxima escolha.
+
+* Teste
+
+  O =roteiro-de-teste.js= percorre esta especificação. Com um exemplo
+  aberto no navegador, cole o arquivo no console. As cenas das capturas
+  ficam em =cenas.mts=.

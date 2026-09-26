@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Busca com sugestões com jQuery</title>
+  </head>
+  <body>
+    <main class="busca">
+      <label>
+        Cidade de destino
+        <input id="destino" name="destino" autocomplete="off" placeholder="Digite ao menos 2 letras" />
+      </label>
+      <p id="situacao" class="situacao" role="status" hidden></p>
+      <ul id="sugestoes" class="sugestoes" hidden></ul>
+      <p id="escolha" class="escolha" hidden></p>
+    </main>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

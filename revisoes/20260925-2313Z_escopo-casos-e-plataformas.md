@@ -30,6 +30,18 @@
 >   produtos com busca por “contém” (sem diferenciar maiúsculas e acentos),
 >   filtro por categoria e ordenação, sem edição (especificação em
 >   `casos/lista-filtravel/README.org`).
+> - **Implementado:** o commit “Implementa a Busca com sugestões nas cinco
+>   tecnologias web” (2026-09-26) criou a Busca: cidade de destino com
+>   espera de 300 ms, termo repetido ignorado, cancelamento por
+>   `AbortSignal`, Esc, falha simulada da API e escolha por clique
+>   (especificação em `casos/busca-com-sugestoes/README.org`).
+> - **Para a análise (propensão a erros):** ao criar a Busca, a comparação
+>   de capturas mostrou que o Web Component e o jQuery deixavam a lista
+>   vazia ocupando espaço: escondiam a `<ul>` com o atributo `hidden`, mas
+>   a regra `display: grid` do CSS vence o `display: none` que o navegador
+>   aplica a `[hidden]`. As versões declarativas não renderizam a lista e
+>   não caem nisso. A correção foi `[hidden] { display: none !important; }`
+>   no `estilo.css` do caso.
 > - **Pendente:**
 >   - escolher as implementações que entram na análise;
 >   - aplicar a pergunta e os objetivos à `intro.org` (proposta na seção 6,

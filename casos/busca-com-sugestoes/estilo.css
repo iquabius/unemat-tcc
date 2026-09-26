@@ -1,0 +1,68 @@
+/* Aparência comum às implementações da Busca com sugestões, para que só a lógica mude. */
+/* As versões imperativas escondem elementos com o atributo hidden, mas uma
+   regra de display do autor (como a da .sugestoes) venceria o display: none
+   que o navegador aplica a [hidden]. */
+[hidden] {
+  display: none !important;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: #2b2b2b;
+  color: #eee;
+}
+
+.busca {
+  display: grid;
+  gap: 0.5rem;
+  max-width: 24rem;
+  padding: 1rem;
+}
+
+.busca label {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.busca input {
+  padding: 0.4rem;
+  border: 1px solid #555;
+  background: #3a3a3a;
+  color: #eee;
+  font-size: 1rem;
+}
+
+.situacao {
+  margin: 0;
+  color: #aaa;
+}
+
+.sugestoes {
+  display: grid;
+  gap: 1px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background: #444;
+}
+
+.sugestoes button {
+  width: 100%;
+  padding: 0.5rem;
+  border: 0;
+  background: #333;
+  color: #eee;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.sugestoes button:hover {
+  background: #3d3d3d;
+}
+
+.escolha {
+  margin: 0;
+  color: #9fd88a;
+}
