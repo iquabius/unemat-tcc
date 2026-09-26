@@ -50,7 +50,8 @@
 >   e entram no mesmo `npm run capturas`. Views e Compose ficam com o tema
 >   padrão de cada um: o código com a menor variação possível entre as
 >   implementações importa mais que a aparência, então a diferença visual
->   entre as duas variantes é esperada.
+>   entre as duas variantes é esperada. (Superado pela decisão seguinte: o
+>   Android passou a reproduzir a aparência da web.)
 > - **Decidido (2026-09-26): o Android reproduz a aparência da web, com o
 >   estilo fora da tela.** Na web, a aparência fica no `estilo.css` do
 >   caso, longe do JSX, que só marca os elementos com `className`. No
@@ -133,6 +134,14 @@
 >   não caem nisso. A correção foi `[hidden] { display: none !important; }`
 >   no `estilo.css` do caso.
 > - **Pendente:**
+>   - rodar os apps Android num emulador ou aparelho: até aqui, tudo foi
+>     conferido na JVM (Robolectric). O `./gradlew installDebug` no host
+>     falhou porque o Gradle usou o JDK do sistema, sem `javac`; a correção
+>     está em andamento noutra sessão;
+>   - descobrir por que, na Lista do Compose, uma cena capturava a tela
+>     anterior à mudança quando o teste anterior da mesma classe tinha
+>     focado a busca. O contorno (cenas sem foco) está no
+>     `casos/AGENTS.md`;
 >   - escolher as implementações que entram na análise;
 >   - aplicar a pergunta e os objetivos à `intro.org` (proposta na seção 6,
 >     ainda não aplicada) e, com isso, fechar os itens 1.1, 1.2, 1.4 e 1.5 do
@@ -258,6 +267,12 @@ Não recomendo para o Android:
   como alternativa usar a biblioteca mais comum de cada um (por exemplo,
   react-hook-form no React), o que passaria a medir as bibliotecas.
 - **Android:** um único projeto Gradle, com um módulo por caso e variante.
+- **Android, estrutura de cada caso (decidido em 2026-09-26):** o domínio
+  portado para Kotlin em `casos/<caso>/dominio-kotlin/`, compartilhado
+  pelas duas variantes; a aparência da web fora da tela, em
+  `res/values/estilo.xml` (Views) e `Estilo.kt` (Compose); as cenas e o
+  roteiro da web em `CenasTest.kt` e `RoteiroTest.kt`, com capturas na JVM
+  pelo mesmo `npm run capturas`. Os detalhes estão em `casos/AGENTS.md`.
 
 ## 4. O que foi conferido
 
