@@ -27,11 +27,14 @@ Gradle em `casos/android/` e as dependências (`package.json`,
    tecnologias`, alguma implementação web foge da especificação do caso.
    Corrija antes de seguir: as implementações web de um caso devem gerar
    imagens idênticas.
-   No Android, o aviso `(android)` é esperado: Views e Compose usam o tema
-   padrão de cada um. Abra as duas imagens e confira só o conteúdo (textos,
-   valores, mensagens, itens da lista). **Não acrescente código para igualar
-   a aparência**: no TCC, o código com a menor variação possível entre as
-   implementações importa mais que o resultado visual.
+   No Android, o aviso `(android)` pode vir só do desenho do texto: Views e
+   Compose desenham os mesmos glifos com diferenças de poucos pixels (no
+   Contador, 0,15% da imagem, só na faixa dos algarismos). Abra as duas
+   imagens: se posições, tamanhos, cores e conteúdo batem, siga; se não,
+   corrija o arquivo de estilo da variante. **Nunca acrescente código de
+   aparência na tela para igualar as imagens**: no TCC, o código da tela
+   com a menor variação possível entre as implementações importa mais que
+   o resultado visual.
 3. Se alguma captura mudou:
    - **mudança intencional:** abra as imagens da pasta temporária que o
      comando indica, confirme que mostram o esperado, rode
@@ -69,16 +72,23 @@ Gradle em `casos/android/` e as dependências (`package.json`,
 - O leitor conhece React, não Kotlin: comentários curtos em português que
   apontem o equivalente na versão web (como o `useState`, como o
   `$("#id")`).
-- Estilo mínimo e equivalente nas duas variantes: o tema padrão de cada uma
-  (Material 3), sem cores, fontes ou tamanhos próprios.
-- Alinhamento igual ao da web (o do `estilo.css` do caso) e sempre
-  explícito, com o parâmetro equivalente nas duas variantes. No Contador,
-  por exemplo: `android:gravity="center_vertical"` no `LinearLayout` e
-  `android:gravity="center"` no `TextView`, no Views;
-  `verticalAlignment = Alignment.CenterVertically` na `Row` e
-  `textAlign = TextAlign.Center` no `Text`, no Compose. Nunca dependa do
-  padrão de cada uma, porque eles diferem: o `LinearLayout` alinha os
-  filhos pela linha de base do texto, e a `Row`, pelo topo.
+- Aparência igual à da web, reproduzindo o `estilo.css` do caso (cores,
+  medidas em dp e sp com os mesmos números dos px, alinhamentos), e
+  separada da tela, como o CSS fica separado do JSX:
+  - **Views:** `res/values/estilo.xml`, com o `Tema` (papel do `body`,
+    aplicado no `AndroidManifest.xml`) e um estilo nomeado por regra do
+    CSS. O layout só tem estrutura, `id`, textos e acessibilidade, e cita
+    a aparência com `style="@style/..."`, como o `class`.
+  - **Compose:** `Estilo.kt`, com o `Tema { }`, o objeto `Estilo`
+    (`Modifier`s nomeados, como `Estilo.contador`) e componentes já
+    estilizados no papel das regras por elemento (`Valor` para
+    `.contador output`, `Botao` para `.contador button`). A tela só usa
+    esses nomes.
+  - Os arquivos de estilo ficam fora da análise, como o `estilo.css`.
+- Alinhamento sempre explícito no arquivo de estilo, nunca deixado ao
+  padrão de cada variante, porque eles diferem: o `LinearLayout` alinha os
+  filhos pela linha de base do texto (desligue com
+  `android:baselineAligned="false"`), e a `Row` do Compose, pelo topo.
 - As cenas ficam em `src/test/.../CenasTest.kt` de cada módulo (Robolectric
   e Roborazzi, sem emulador), com os mesmos nomes do `cenas.mts` do caso.
   Cada cena termina com `capturar("<cena>")`, e a classe usa a regra

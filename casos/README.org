@@ -119,9 +119,11 @@ tecnologias) está em
   (=src/test/.../CenasTest.kt=). O /script/ roda esses testes pelo Gradle
   com [[https://robolectric.org][Robolectric]] e [[https://github.com/takahirom/roborazzi][Roborazzi]], que desenham a tela na JVM, sem
   emulador, e o resto segue igual: mesma pasta, mesmo =--conferir=. O aviso
-  compara só Views com Compose, e nele a diferença é esperada: cada
-  variante usa o tema padrão, sem código a mais para igualar a aparência.
-  Confira nas imagens só o conteúdo. As animações ficam desligadas nos
+  compara só Views com Compose. As duas reproduzem o =estilo.css= do caso,
+  cada uma no seu arquivo de estilo (=res/values/estilo.xml= no Views,
+  =Estilo.kt= no Compose), mas desenham o texto com diferenças de poucos
+  pixels, e o aviso aparece mesmo assim: abra as imagens e confira se
+  posições, cores e conteúdo batem. As animações ficam desligadas nos
   testes: o efeito de toque (/ripple/) tem um brilho que mudaria a imagem a
   cada execução.
 

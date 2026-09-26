@@ -18,8 +18,9 @@
 // No fim, avisa quando a mesma cena sai diferente entre as tecnologias de
 // um caso na mesma plataforma: na web, as implementações seguem a mesma
 // especificação e a mesma aparência, então as imagens deveriam ser
-// idênticas; no Android, Views e Compose usam o tema padrão de cada um, e a
-// diferença visual é esperada.
+// idênticas; no Android, Views e Compose reproduzem o mesmo estilo, mas
+// desenham o texto com diferenças de poucos pixels, e o aviso pede só
+// conferir as imagens.
 
 import { execFileSync } from "node:child_process";
 import { createHash } from "node:crypto";

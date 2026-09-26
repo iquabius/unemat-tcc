@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Aparência do Contador, no papel do estilo.css da web: o layout só cita
+     os estilos pelo nome (style="@style/..."), como o class do HTML. -->
+<resources>
+    <!-- body: o tema da tela inteira, aplicado no AndroidManifest.xml. -->
+    <style name="Tema" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:windowBackground">@color/fundo</item>
+    </style>
+
+    <color name="fundo">#2b2b2b</color>
+
+    <!-- .contador: duas colunas iguais. O espaço entre elas (1rem) e a
+         margem (0.5rem) vêm das margens de 8dp de cada célula. Sem o
+         baselineAligned="false", o LinearLayout alinharia as células pela
+         linha de base do texto, e não pelo topo, como a web. -->
+    <style name="Contador">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:baselineAligned">false</item>
+        <item name="android:fitsSystemWindows">true</item>
+    </style>
+
+    <!-- .contador output -->
+    <style name="Valor">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:layout_margin">8dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:background">#2e4d24</item>
+        <item name="android:textColor">#eeeeee</item>
+    </style>
+
+    <!-- .contador button (sem os cantos arredondados e as margens internas
+         do botão do Material). -->
+    <style name="Botao" parent="Widget.Material3.Button">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:layout_margin">8dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">40sp</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:textColor">#f5d33b</item>
+        <item name="backgroundTint">#3a3a3a</item>
+        <item name="strokeColor">#555555</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="cornerRadius">0dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:padding">0dp</item>
+        <item name="android:minHeight">0dp</item>
+        <item name="android:minWidth">0dp</item>
+    </style>
+</resources>

@@ -51,6 +51,18 @@
 >   padrão de cada um: o código com a menor variação possível entre as
 >   implementações importa mais que a aparência, então a diferença visual
 >   entre as duas variantes é esperada.
+> - **Decidido (2026-09-26): o Android reproduz a aparência da web, com o
+>   estilo fora da tela.** Na web, a aparência fica no `estilo.css` do
+>   caso, longe do JSX, que só marca os elementos com `className`. No
+>   Android, cada variante tem o equivalente: `res/values/estilo.xml` no
+>   Views, citado no layout com `style="@style/..."`, e `Estilo.kt` no
+>   Compose, com um `Tema`, `Modifier`s nomeados e componentes já
+>   estilizados (`Valor`, `Botao`). A tela só cita os nomes. A primeira
+>   versão do Contador usava o tema padrão de cada variante, sem estilo, e
+>   ficava longe da web. Diferença entre as notações que fica para a
+>   análise: o Views seleciona por estilo nomeado, como o CSS por classe;
+>   o Compose não tem seletores, e cada elemento precisa citar o estilo,
+>   o que leva a componentes estilizados.
 > - **Para a análise (padrões implícitos):** no Contador Android, o mesmo
 >   layout de duas colunas, sem nenhuma opção de alinhamento escrita, saía
 >   diferente nas duas variantes. O `LinearLayout` do Views alinha os filhos
@@ -58,10 +70,11 @@
 >   número parecia centralizado porque acompanhava o “+” do botão. A `Row`
 >   do Compose alinha pelo topo (`verticalAlignment = Alignment.Top` na
 >   assinatura). No Views, o padrão não aparece no XML; no Compose, fica na
->   assinatura da função. A correção foi escrever nas duas variantes a
->   centralização que a web faz com `place-items: center`, nos dois eixos
->   (`gravity` no Views; `Alignment.CenterVertically` e `TextAlign.Center`
->   no Compose).
+>   assinatura da função. A correção foi escrever o alinhamento nos
+>   arquivos de estilo das duas variantes, como a web faz com
+>   `place-items: center`. No Views, isso exige desligar a linha de base
+>   (`android:baselineAligned="false"`): sem isso, até células de mesma
+>   altura saíam desencontradas.
 > - **Para a análise (propensão a erros):** ao criar a Busca, a comparação
 >   de capturas mostrou que o Web Component e o jQuery deixavam a lista
 >   vazia ocupando espaço: escondiam a `<ul>` com o atributo `hidden`, mas
