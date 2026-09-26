@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- A estrutura da tela, como o index.html do jQuery. A aparência fica em
+     res/values/estilo.xml, como o estilo.css. -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Pagina">
+
+    <LinearLayout style="@style/Coluna">
+
+        <LinearLayout style="@style/Formulario">
+
+            <!-- Como o <label>: o texto e o campo que ele nomeia. -->
+            <LinearLayout style="@style/Rotulo">
+                <TextView
+                    style="@style/Texto"
+                    android:labelFor="@id/nome"
+                    android:text="Nome do passageiro" />
+
+                <EditText
+                    android:id="@+id/nome"
+                    style="@style/Entrada"
+                    android:autofillHints="name"
+                    android:inputType="textPersonName" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/erro_nome"
+                style="@style/Erro" />
+
+            <LinearLayout style="@style/Rotulo">
+                <TextView
+                    style="@style/Texto"
+                    android:labelFor="@id/email"
+                    android:text="E-mail" />
+
+                <EditText
+                    android:id="@+id/email"
+                    style="@style/Entrada"
+                    android:autofillHints="emailAddress"
+                    android:inputType="textEmailAddress" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/erro_email"
+                style="@style/Erro" />
+
+            <LinearLayout style="@style/Rotulo">
+                <TextView
+                    style="@style/Texto"
+                    android:labelFor="@id/tipo"
+                    android:text="Tipo de voo" />
+
+                <!-- Como o <select>; as opções ficam em res/values/opcoes.xml. -->
+                <Spinner
+                    android:id="@+id/tipo"
+                    style="@style/Selecao"
+                    android:entries="@array/tipos_de_voo" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/Rotulo">
+                <TextView
+                    style="@style/Texto"
+                    android:labelFor="@id/ida"
+                    android:text="Data de ida" />
+
+                <EditText
+                    android:id="@+id/ida"
+                    style="@style/Entrada"
+                    android:hint="DD/MM/AAAA"
+                    android:inputType="date" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/erro_ida"
+                style="@style/Erro" />
+
+            <LinearLayout style="@style/Rotulo">
+                <TextView
+                    style="@style/Texto"
+                    android:labelFor="@id/volta"
+                    android:text="Data de volta" />
+
+                <EditText
+                    android:id="@+id/volta"
+                    style="@style/Entrada"
+                    android:enabled="false"
+                    android:hint="DD/MM/AAAA"
+                    android:inputType="date" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/erro_volta"
+                style="@style/Erro" />
+
+            <Button
+                android:id="@+id/reservar"
+                style="@style/Botao"
+                android:text="Reservar" />
+        </LinearLayout>
+
+        <!-- Como o role="status": o leitor de tela anuncia a mudança. -->
+        <TextView
+            android:id="@+id/confirmacao"
+            style="@style/Confirmacao"
+            android:accessibilityLiveRegion="polite" />
+    </LinearLayout>
+</ScrollView>

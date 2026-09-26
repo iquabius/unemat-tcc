@@ -68,7 +68,11 @@ Gradle em `casos/android/` e as dependências (`package.json`,
   só plugins, `namespace` e dependências.
 - Mesma especificação do `README.org` do caso: mesmos textos, mensagens,
   regras e dados. Regras do `dominio.ts` portadas para Kotlin com o mesmo
-  comportamento.
+  comportamento, em `casos/<caso>/dominio-kotlin/main/Dominio.kt` (pacote
+  `tcc.<caso>`), com os mesmos nomes de funções. O `build.gradle.kts` da
+  raiz inclui essa pasta nas duas variantes quando ela existe; os testes do
+  porte e as regras JUnit do caso (como a `DataFixa`, que fixa "hoje" em
+  26/09/2026) ficam em `dominio-kotlin/test/`.
 - O leitor conhece React, não Kotlin: comentários curtos em português que
   apontem o equivalente na versão web (como o `useState`, como o
   `$("#id")`).
@@ -94,6 +98,15 @@ Gradle em `casos/android/` e as dependências (`package.json`,
   Cada cena termina com `capturar("<cena>")`, e a classe usa a regra
   `SemAnimacoes()` (ambos em `casos/android/captura/Captura.kt`). No
   Compose, chame `regra.waitForIdle()` antes de capturar.
+- Quando o caso tem `roteiro-de-teste.js`, as mesmas verificações vão para
+  `RoteiroTest.kt` em cada variante, na mesma ordem e com os mesmos nomes.
+  As ações e leituras ficam numa classe `Tela` de teste por variante, com
+  a mesma API nas duas (`digitar`, `sair`, `erros()`...), para que
+  `CenasTest` e `RoteiroTest` fiquem iguais entre Views e Compose. Nada de
+  marcas só para teste no código da tela: o Views acha as views pelo `id`;
+  o Compose, pela semântica (texto, ordem dos campos, papel).
+- Confira que o roteiro pega erros: introduza um defeito numa regra e veja
+  o `RoteiroTest` falhar antes de dar o caso por pronto.
 - Para rodar num emulador ou abrir no Android Studio, use a pasta
   `casos/android/`.
 

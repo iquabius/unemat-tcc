@@ -63,6 +63,21 @@
 >   análise: o Views seleciona por estilo nomeado, como o CSS por classe;
 >   o Compose não tem seletores, e cada elemento precisa citar o estilo,
 >   o que leva a componentes estilizados.
+> - **Implementado:** o commit “Implementa o Formulário em Views e
+>   Compose” (2026-09-26) portou o `dominio.ts` para
+>   `casos/formulario/dominio-kotlin/` e criou as duas variantes, com a
+>   aparência da web e as 19 verificações do `roteiro-de-teste.js` em
+>   `RoteiroTest.kt`.
+> - **Para a análise (o que cada notação traz pronto):** no Formulário, o
+>   Compose não tem `onBlur`: o `onFocusChanged` avisa também o estado
+>   inicial, sem foco, e a tela precisa lembrar quais campos já tiveram
+>   foco para saber quando um foi "tocado". Também não tem `<select>`: o
+>   `Selecao.kt` monta um com `DropdownMenu` e estado próprio, enquanto a
+>   web e o Views (`Spinner`) trazem o componente pronto. O Views, por sua
+>   vez, não tem estado "inválido": o código marca o campo com
+>   `isActivated`, e o seletor de estilo o pinta de vermelho, no papel do
+>   `aria-invalid`. E o `Spinner` avisa a seleção inicial ao aparecer, como
+>   se o usuário tivesse escolhido.
 > - **Para a análise (padrões implícitos):** no Contador Android, o mesmo
 >   layout de duas colunas, sem nenhuma opção de alinhamento escrita, saía
 >   diferente nas duas variantes. O `LinearLayout` do Views alinha os filhos

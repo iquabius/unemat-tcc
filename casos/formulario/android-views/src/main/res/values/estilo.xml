@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Aparência do Formulário, no papel do estilo.css da web: o layout só cita
+     os estilos pelo nome (style="@style/..."), como o class do HTML. Os
+     estados (desabilitado, inválido) ficam nos seletores de res/drawable/ e
+     res/color/, como o :disabled e o [aria-invalid] do CSS. -->
+<resources>
+    <color name="fundo">#2b2b2b</color>
+
+    <!-- body: o tema da tela inteira, aplicado no AndroidManifest.xml. -->
+    <style name="Tema" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="android:windowBackground">@color/fundo</item>
+    </style>
+
+    <style name="Pagina">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:fitsSystemWindows">true</item>
+    </style>
+
+    <style name="Coluna">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <!-- .formulario: uma coluna com 0.75rem entre os itens e 1rem de margem.
+         O LinearLayout não tem max-width (24rem na web); a captura usa uma
+         tela de 416dp, em que a coluna fica com os mesmos 384dp. -->
+    <style name="Formulario" parent="Coluna">
+        <item name="android:padding">16dp</item>
+        <item name="android:divider">@drawable/espaco_de_12dp</item>
+        <item name="android:showDividers">middle</item>
+    </style>
+
+    <!-- .formulario label: o texto e o campo, com 0.25rem entre eles. -->
+    <style name="Rotulo" parent="Coluna">
+        <item name="android:divider">@drawable/espaco_de_4dp</item>
+        <item name="android:showDividers">middle</item>
+    </style>
+
+    <!-- Texto comum (a cor e o tamanho do body). -->
+    <style name="Texto">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">#eeeeee</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <!-- .formulario input, com :disabled e [aria-invalid="true"] no fundo
+         (drawable/entrada.xml) e na cor do texto (color/texto_da_entrada.xml). -->
+    <style name="Entrada" parent="Texto">
+        <item name="android:background">@drawable/entrada</item>
+        <item name="android:textColor">@color/texto_da_entrada</item>
+        <item name="android:textColorHint">#999999</item>
+        <item name="android:textCursorDrawable">@drawable/cursor</item>
+        <item name="android:padding">6.4dp</item>
+        <item name="android:minHeight">0dp</item>
+    </style>
+
+    <!-- .formulario select -->
+    <style name="Selecao">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/entrada</item>
+        <item name="android:popupBackground">#3a3a3a</item>
+        <item name="android:padding">6.4dp</item>
+        <item name="android:minHeight">0dp</item>
+    </style>
+
+    <!-- .formulario .erro (escondido até haver erro). -->
+    <style name="Erro" parent="Texto">
+        <item name="android:textColor">#ff8a8a</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:visibility">gone</item>
+    </style>
+
+    <!-- .formulario button, com :disabled nas cores (color/fundo_do_botao.xml
+         e color/texto_do_botao.xml). Sem os cantos arredondados, as margens
+         internas e o texto em negrito do botão do Material. -->
+    <style name="Botao" parent="Widget.Material3.Button">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="android:textColor">@color/texto_do_botao</item>
+        <item name="backgroundTint">@color/fundo_do_botao</item>
+        <item name="strokeColor">#555555</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="cornerRadius">0dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:minHeight">0dp</item>
+    </style>
+
+    <!-- .confirmacao -->
+    <style name="Confirmacao" parent="Texto">
+        <item name="android:layout_marginHorizontal">16dp</item>
+        <item name="android:textColor">#9fd88a</item>
+    </style>
+</resources>

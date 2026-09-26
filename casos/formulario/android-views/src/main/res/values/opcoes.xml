@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- As opções do <select> "Tipo de voo", na ordem do enum TipoDeVoo. -->
+<resources>
+    <string-array name="tipos_de_voo">
+        <item>Só ida</item>
+        <item>Ida e volta</item>
+    </string-array>
+</resources>

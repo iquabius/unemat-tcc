@@ -24,6 +24,13 @@ subprojects {
             }
             // Auxiliar de captura (casos/android/captura/) nos testes de todos.
             sourceSets.getByName("test").kotlin.directories += rootDir.resolve("captura").path
+            // Domínio do caso (casos/<caso>/dominio-kotlin/), o equivalente do
+            // dominio.ts da web, compartilhado pelas duas variantes.
+            val dominio = projectDir.resolveSibling("dominio-kotlin")
+            if (dominio.isDirectory) {
+                sourceSets.getByName("main").kotlin.directories += dominio.resolve("main").path
+                sourceSets.getByName("test").kotlin.directories += dominio.resolve("test").path
+            }
             testOptions.unitTests {
                 isIncludeAndroidResources = true
                 all { teste ->

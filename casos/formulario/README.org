@@ -4,7 +4,9 @@ Reserva de voo baseada na tarefa /Flight Booker/ do [[https://eugenkiss.github.i
 ampliada com os campos de um formulário real. Todas as implementações seguem
 esta especificação; as regras de domínio (formato de data, e-mail, mensagens)
 ficam em =dominio.ts=, compartilhado pelos projetos web, para que as
-implementações só difiram na coordenação da interface.
+implementações só difiram na coordenação da interface. No Android, as mesmas
+regras estão portadas para Kotlin em =dominio-kotlin/main/Dominio.kt=,
+compartilhado por =android-views= e =android-compose=.
 
 * Campos
 
@@ -53,3 +55,9 @@ implementações só difiram na coordenação da interface.
 
   O =roteiro-de-teste.js= percorre esta especificação (19 verificações).
   Com um exemplo aberto no navegador, cole o arquivo no console.
+
+  No Android, as mesmas 19 verificações estão em =RoteiroTest.kt=, nos testes
+  de cada variante, e rodam com o =npm run capturas= (ou com
+  =./gradlew testDebugUnitTest= em =casos/android/=). O =DominioTest.kt=
+  confere os casos-limite do porte do domínio (31/02, e-mail, ordem das
+  datas).

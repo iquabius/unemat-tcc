@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Fundo e borda do campo. Desabilitado: as cores com 50% de opacidade
+     sobre o fundo (opacity: 0.5 na web). Ativado: o campo inválido, que o
+     código marca com isActivated, como o aria-invalid da web. -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_enabled="false">
+        <shape>
+            <solid android:color="#333333" />
+            <stroke android:width="1dp" android:color="#404040" />
+        </shape>
+    </item>
+    <item android:state_activated="true">
+        <shape>
+            <solid android:color="#4a2a2a" />
+            <stroke android:width="1dp" android:color="#e05555" />
+        </shape>
+    </item>
+    <item>
+        <shape>
+            <solid android:color="#3a3a3a" />
+            <stroke android:width="1dp" android:color="#555555" />
+        </shape>
+    </item>
+</selector>
