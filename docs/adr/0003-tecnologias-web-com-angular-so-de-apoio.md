@@ -27,3 +27,9 @@ Fontes: Stack Overflow Developer Survey 2025; `@angular/core` 22.2.0 com
 `rxjs` como *peer dependency* (npm, 2026-09-25); *Design Principles* do
 React (legacy.reactjs.org), modelo *pull*; taxonomia push/pull de
 `bainomugisha2013`; commit `25cf4dd`.
+
+Errata 2026-09-26: a notação reativa fina com *signals* é *push-pull*,
+não *push*; a proposta TC39 Signals ("push-pull construction") e
+Carniato (*Derivations in Reactivity*, 2024-01-19) descrevem a
+notificação por *push* e o recálculo por *pull* (`docs/literatura.md`,
+seções 8.1 e 8.5).

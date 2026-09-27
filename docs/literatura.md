@@ -442,11 +442,12 @@ tecnologias.
 3. **Partes interessadas.** A literatura dos *signals* é escrita por
    autores de Solid, Qwik, Preact, Svelte e Angular; a posição do React é
    um comentário de blog e dois textos sobre o compilador.
-4. **Rótulo *push*.** O ADR 0003 chama a notação reativa fina de *push*;
-   a proposta TC39 e Carniato (2024-01-19) a chamam de *push-pull*:
-   notifica (marca sujo) por *push* e recalcula por *pull*. O texto deve
-   usar o híbrido ao aplicar a dimensão de `bainomugisha2013`; e a
-   documentação do Solid não usa as palavras *push* e *pull*.
+4. **Rótulo *push*.** O ADR 0003 chamava a notação reativa fina de
+   *push* (errata de 2026-09-26); a proposta TC39 e Carniato (2024-01-19)
+   a chamam de *push-pull*: notifica (marca sujo) por *push* e recalcula
+   por *pull*. O texto deve usar o híbrido ao aplicar a dimensão de
+   `bainomugisha2013`; e a documentação do Solid não usa as palavras
+   *push* e *pull*.
 5. ***Benchmarks*.** O js-framework-benchmark mede um só tipo de carga
    (tabela de linhas), não tem jQuery, e as médias aqui foram recalculadas
    dos dados brutos; a variante do React com compilador não é mais rápida
