@@ -1,4 +1,4 @@
-// Roteiro de teste do Formulário, igual para as cinco implementações web.
+// Roteiro de teste do Formulário, igual para as seis implementações web.
 // Cole no console do navegador com o exemplo aberto; a última linha devolve
 // o resultado de cada verificação ("ok" ou "FALHOU"). Segue a especificação
 // do README.org.
