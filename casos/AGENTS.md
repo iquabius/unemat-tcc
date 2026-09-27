@@ -52,8 +52,10 @@ Gradle em `casos/android/` e as dependências (`package.json`,
 - Crie o `cenas.mts` do caso (estados a capturar), gere as capturas com
   `npm run capturas -- <caso>` e versione-as no mesmo commit.
 - Exemplos web em TypeScript, sem bibliotecas além do que cada framework
-  traz. O Angular usa RxJS de propósito, embora a documentação dele
-  recomende signals.
+  traz. O Angular tem duas implementações (ADR 0013): `angular-signals`,
+  que espelha a do Solid (`signal`, `computed`, `effect`, `resource`, sem
+  RxJS nem formulários do Angular), e `angular-rxjs`, de apoio, que usa
+  RxJS e Reactive Forms de propósito.
 
 ## Android (Kotlin)
 

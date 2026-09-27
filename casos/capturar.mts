@@ -35,7 +35,7 @@ export type Cenas = Record<string, (pagina: Page) => Promise<void>>;
 
 const RAIZ = path.resolve(import.meta.dirname, "..");
 const CASOS = path.join(RAIZ, "casos");
-const WEB = ["web-component", "jquery", "react", "solid", "angular-rxjs"];
+const WEB = ["web-component", "jquery", "react", "solid", "angular-signals", "angular-rxjs"];
 const ANDROID = ["android-views", "android-compose"];
 const TECNOLOGIAS = [...WEB, ...ANDROID];
 const GRADLEW = path.join(CASOS, "android", "gradlew");

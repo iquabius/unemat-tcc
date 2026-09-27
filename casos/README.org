@@ -34,13 +34,14 @@ tecnologias) está nas decisões em [[file:../docs/adr/][docs/adr/]], da 0001 à
   Troque o caminho pelo do exemplo desejado. O Vite serve em
   =http://localhost:5173= e o Angular em =http://localhost:4200=.
 
-  | Subpasta         | Tecnologia                                     |
-  |------------------+------------------------------------------------|
-  | =web-component=  | DOM puro com /custom element/ (classe)          |
-  | =jquery=         | jQuery                                         |
-  | =react=          | React                                          |
-  | =solid=          | Solid (/signals/)                               |
-  | =angular-rxjs=   | Angular com RxJS (apoio à escrita; fora do texto) |
+  | Subpasta           | Tecnologia                                        |
+  |--------------------+---------------------------------------------------|
+  | =web-component=    | DOM puro com /custom element/ (classe)            |
+  | =jquery=           | jQuery                                            |
+  | =react=            | React                                             |
+  | =solid=            | Solid (/signals/)                                 |
+  | =angular-signals=  | Angular com /signals/                             |
+  | =angular-rxjs=     | Angular com RxJS (apoio à escrita; fora do texto) |
 
   O =cronometro-com-rxjs-5= é anterior a esta organização e não é
   /workspace/: tem instalação própria. É registro do projeto de 2017 e fica

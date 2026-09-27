@@ -7,6 +7,7 @@
     "casos/*/jquery",
     "casos/*/react",
     "casos/*/solid",
+    "casos/*/angular-signals",
     "casos/*/angular-rxjs"
   ],
   "scripts": {
