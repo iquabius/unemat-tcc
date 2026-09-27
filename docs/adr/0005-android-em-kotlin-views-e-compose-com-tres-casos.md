@@ -56,3 +56,15 @@ Fontes: developer.android.com/kotlin/first (2026-09-22) e
 (2026-09-23); Stack Overflow Developer Survey 2025; a tabela de prós e
 contras com as fontes em `docs/literatura.md`, seção 7; commits `25cf4dd` e
 `9220b5b`.
+
+Errata 2026-09-26: os "mais de 60% dos desenvolvedores Android
+profissionais" são número do Google, e os dados brutos do JetBrains State
+of Developer Ecosystem 2025, ponderados, dizem o contrário entre quem
+desenvolve para Android: Java 55% e Kotlin 33% no uso em 12 meses, 35% e
+17% como linguagem principal (n = 3.539); só com ferramentas nativas, 65%
+e 48%, 41% e 28% (n = 1.720). A afirmação de que o código idiomático de
+Views em 2026 é Kotlin fica sustentada pela recomendação oficial e pelo
+Compose ser Kotlin-only, não por maioria de uso. O Stack Overflow 2025
+confirma os 29,4% contra 10,8% e mostra o Kotlin mais admirado (51% contra
+41,8%) e menos desejado (12% contra 15,8%) que o Java. Fontes e cálculo em
+`docs/literatura.md`, seção 7.

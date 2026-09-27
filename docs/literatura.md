@@ -202,6 +202,8 @@ partes interessadas, sem metodologia publicada; "conter código Kotlin" não
 | Compilação mais lenta que `javac` (cerca de 15 a 25% em *builds* frios; +17% num *benchmark* de 2017), atenuada pelo K2 (Kotlin 2.0, "potentially doubling") | contra Kotlin | Keepsafe Engineering 2017; AndroidDocs 2026; JetBrains 2024-05 | *benchmark* antigo; sem fonte sólida para os números de 2026 |
 | APK um pouco maior pela biblioteca padrão do Kotlin (ordem de 1 MB) | contra Kotlin | AndroidDocs 2026; Adapty 2024-01-16 | sem fonte sólida |
 | Java é cerca de três vezes mais usado no mercado geral (Stack Overflow 2025: 29,4% contra 10,8%; 2024: 30,3% contra 9,4%); ecossistema, documentação e comunidade maiores | contra Kotlin | survey.stackoverflow.co/2025 e /2024; Netguru 2026-09-23; Kinsta 2026-06-04 | número (SO) e opinião |
+| Kotlin é mais admirado que Java e menos desejado: 2025, admirado 51% contra 41,8%, desejado 12% contra 15,8%; 2024, admirado 60,9% contra 47,6%, desejado 12,3% contra 17,9%; a admiração pelo Kotlin caiu 10 pontos de 2024 para 2025 | pró Kotlin (satisfação de quem usa); contra Kotlin (demanda) | survey.stackoverflow.co/2025/technology e /2024/technology, seção "Admired and Desired" (2026-09-26) | número (SO); "admirado" é quem usou no ano e quer continuar, "desejado" é quem quer usar |
+| Entre quem desenvolve para Android, o Java ainda é mais usado que o Kotlin: 55% contra 33% no uso nos últimos 12 meses, 35% contra 17% como linguagem principal, 23% contra 11% como linguagem única mais importante (n = 3.539, ponderado); só com ferramentas nativas, 65% contra 48% e 41% contra 28%, e entre as linguagens principais usadas no *mobile* o Kotlin empata (32% contra 31%, n = 1.720) | contra Kotlin (contradiz os "mais de 60%" do Google) | dados brutos do JetBrains State of Developer Ecosystem 2025 (calculados em 2026-09-26; o relatório publicado não tem seção Android) | número de terceiro, com peso e metodologia publicados; população diferente da do Google |
 | Java 16 a 21 fechou lacunas: *records*, classes seladas, *pattern matching*, *virtual threads* | contra Kotlin (reduz a vantagem) | kotlinlang comparação (lista *records* como "Java tem"); Java Code Geeks 2026-04-08; Toptal 2026-05-11 | fato de linguagem; opinião sobre o tamanho da lacuna |
 | Várias formas de fazer a mesma coisa (*scope functions*, `it`); curva de aprendizado "moderada" | contra Kotlin | Java Code Geeks 2026-04-08; Koder.ai (s.d.) | opinião |
 | Armadilhas da interoperabilidade: *platform types*, exceções verificadas não verificadas | contra Kotlin em código misto | kotlinlang comparação; Koder.ai | fato |
@@ -221,14 +223,40 @@ compiler moving to the Kotlin repository*, 2024-04-29; JETBRAINS,
 Android* (2025-12-09), kotlinlang.org/docs; SHAFIROV, M., *Kotlin on
 Android. Now official*, JetBrains Blog, 2017-05; TOLSTOY, E., *Celebrating
 Kotlin 2.0*, JetBrains Blog, 2024-05; STACK OVERFLOW, *Developer Survey*
-2024 e 2025, seção *Technology*.
+2024 e 2025, seção *Technology*, subseções *Most popular technologies* e
+*Admired and Desired*, survey.stackoverflow.co/2024/technology e
+/2025/technology (2026-09-26); JETBRAINS, *The State of Developer
+Ecosystem 2025*, devecosystem-2025.jetbrains.com (2026-09-26), e os dados
+brutos, resources.jetbrains.com/storage/products/research/DevEco2025/RawData.zip
+(arquivos de 2025-10-08, CC BY 4.0, 24.534 respondentes).
 
 Artigos de desenvolvedores (opinião, com parcimônia): JACKOWSKI, K.,
 Netguru, 2026-09-23; GIRO, G., Toptal, 2026-05-11; DROSOPOULOU, E., Java
 Code Geeks, 2026-04-08; PARK, D., AndroidDocs, 2026; LOTAREV, I., Adapty,
 2024-01-16; MCBRIDE, J., dev.to, 2023-04-26; ALT, A. J., Keepsafe
 Engineering, 2017 (acesso bloqueado em 2026-09-26; conferir antes de
-citar). Não verificados: os percentuais "admired/desired" do Kotlin no
-Stack Overflow 2024 e 2025 (gráficos interativos) e a fatia Kotlin × Java
-entre desenvolvedores Android no JetBrains State of Developer Ecosystem
-2025.
+citar).
+
+Verificados em 2026-09-26, nos gráficos interativos (valores lidos do
+SVG da página): Stack Overflow 2025, seção "Admired and Desired"
+(https://survey.stackoverflow.co/2025/technology#admired-and-desired),
+Kotlin desejado 12% e admirado 51%, Java desejado 15,8% e admirado 41,8%;
+Stack Overflow 2024
+(https://survey.stackoverflow.co/2024/technology#admired-and-desired),
+Kotlin 12,3% e 60,9%, Java 17,9% e 47,6%. Na mesma visita, "Most popular
+technologies" confirma 29,4% contra 10,8% (2025) e 30,3% contra 9,4%
+(2024). O relatório publicado do JetBrains State of Developer Ecosystem
+2025 (https://devecosystem-2025.jetbrains.com/tools-and-trends,
+2026-09-26) não tem seção Android nem a fatia Kotlin × Java entre
+desenvolvedores Android: esse número não existe no relatório. A fatia da
+tabela foi calculada dos dados brutos
+(https://resources.jetbrains.com/storage/products/research/DevEco2025/RawData.zip,
+arquivo `developer_ecosystem_2025_external.csv` de 2025-10-08, com a
+coluna `weight` aplicada como pede o README): denominador
+`mobile_os::Android` (pergunta "For which mobile operating systems do you
+develop?", de um bloco mostrado a metade dos respondentes elegíveis), e
+numeradores `proglang` (uso em 12 meses), `primary_lang`, `main_lang` e
+`platform_by_primary::Mobile`; "ferramentas nativas" é a resposta "I use
+native tools" em `mobile_target_os`. Sem o peso o Kotlin sobe (36% contra
+51% no uso em 12 meses), porque o peso corrige a inclinação da audiência
+da JetBrains por país, linguagem e relação com a empresa.
