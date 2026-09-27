@@ -20,9 +20,11 @@ implementações seguem. Os cinco: Contador, Formulário com validação, Busca
 com sugestões, Lista filtrável, Carrinho.
 _Avoid_: exemplo, cenário, estudo de caso (só no sentido metodológico de Yin)
 
-**Padrão de interface**:
-O comportamento que um caso exercita: evento → estado → tela, estado
-derivado, assincronia, lista derivada, estado compartilhado.
+**Problema de coordenação**:
+O que um caso exige da notação ao coordenar evento, estado e tela: evento →
+estado → tela, estado derivado, assincronia, lista derivada, estado
+compartilhado (ADR 0002).
+_Avoid_: padrão de interface (lê-se como padrão de projeto, de UI ou de API)
 
 **Tecnologia**:
 Uma das formas de implementar um caso na web: Web Component, jQuery, React,

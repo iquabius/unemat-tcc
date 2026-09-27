@@ -27,13 +27,13 @@ a que Dimensão Cognitiva (DC) parece servir; a classificação é provisória.
   `isActivated`, e o seletor de estilo o pinta de vermelho, no papel do
   `aria-invalid`. O `Spinner` avisa a seleção inicial ao aparecer, como se
   o usuário tivesse escolhido.
-- **Padrões implícitos de alinhamento** (dependências ocultas, propensão a
+- **Alinhamento implícito** (dependências ocultas, propensão a
   erros): no Contador, o mesmo layout de duas colunas, sem opção de
   alinhamento escrita, saía diferente nas duas variantes. O `LinearLayout`
   do Views alinha os filhos pela linha de base do texto por padrão
   (`mBaselineAligned = true`), e o número parecia centralizado porque
   acompanhava o "+" do botão; a `Row` do Compose alinha pelo topo
-  (`verticalAlignment = Alignment.Top` na assinatura). No Views o padrão não
+  (`verticalAlignment = Alignment.Top` na assinatura). No Views o valor padrão não
   aparece no XML; no Compose fica na assinatura da função. A correção foi
   escrever o alinhamento nos arquivos de estilo, como a web faz com
   `place-items: center`; no Views isso exige

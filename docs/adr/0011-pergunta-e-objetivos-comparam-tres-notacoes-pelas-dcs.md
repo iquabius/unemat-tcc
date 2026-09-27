@@ -16,7 +16,7 @@ específicos: demonstrar com processamento de listas os conceitos de PF em
 que se apoiam as notações declarativas; implementar os casos com Web
 Components, jQuery, React e Solid, e parte deles no Android com Views e
 Compose; avaliar as implementações pelas DCs selecionadas; sintetizar
-vantagens e desvantagens por padrão de interface.
+vantagens e desvantagens por problema de coordenação.
 
 Em vez de: manter a comparação de 2017, PF e PR contra POO com *callbacks*;
 continuidade com o projeto aprovado, mas o lado declarativo de 2026 se

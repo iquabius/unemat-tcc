@@ -16,7 +16,7 @@ processamento de listas os conceitos de PF em que se apoiam as notações
 declarativas; implementar os cinco casos com Web Component, jQuery,
 React, Solid e Angular com *signals*, e Contador, Formulário e Lista no
 Android com Views e Compose; avaliar as implementações pelas oito DCs do
-ADR 0012; sintetizar vantagens e desvantagens por padrão de interface.
+ADR 0012; sintetizar vantagens e desvantagens por problema de coordenação.
 
 Em vez de: manter a comparação de 2017, PF e PR contra POO com
 *callbacks*; continuidade com o projeto aprovado, mas o lado declarativo

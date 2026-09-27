@@ -3,9 +3,9 @@
 Loja com três componentes que leem e alteram o mesmo carrinho: o
 *cabeçalho* (quantidade de itens e total), o *catálogo* (botões "Adicionar"
 e quanto de cada produto já está no carrinho) e o *painel do carrinho*
-(quantidades, subtotais, frete, total e "Finalizar compra"). O padrão
-testado é o estado compartilhado entre componentes, que nas versões
-imperativas é o /Observer Pattern/.
+(quantidades, subtotais, frete, total e "Finalizar compra"). O problema de
+coordenação testado é o estado compartilhado entre componentes, que nas
+implementações imperativas é o /Observer Pattern/.
 
 Os produtos vêm do catálogo da Lista filtrável. As regras (transição do
 carrinho, totais, frete, textos e o formato salvo) ficam em =dominio.ts=,

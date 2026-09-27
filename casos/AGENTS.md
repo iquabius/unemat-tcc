@@ -74,7 +74,7 @@ Gradle em `casos/android/` e as dependências (`package.json`,
   porte e as regras JUnit do caso (como a `DataFixa`, que fixa "hoje" em
   26/09/2026) ficam em `dominio-kotlin/test/`.
 - O leitor conhece React, não Kotlin: comentários curtos em português que
-  apontem o equivalente na versão web (como o `useState`, como o
+  apontem o equivalente nas implementações web (como o `useState`, como o
   `$("#id")`).
 - Aparência igual à da web, reproduzindo o `estilo.css` do caso (cores,
   medidas em dp e sp com os mesmos números dos px, alinhamentos), e

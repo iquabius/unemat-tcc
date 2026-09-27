@@ -2,7 +2,7 @@
 
 2026-09-26. O ADR 0004 deixou para depois, com as implementações prontas,
 a escolha do que entra no texto; o objetivo de sintetizar vantagens e
-desvantagens por padrão de interface (ADR 0011) pede os cinco casos, e
+desvantagens por problema de coordenação (ADR 0011) pede os cinco casos, e
 analisar cada caso em todas as DCs multiplicaria o texto por casos, DCs e
 tecnologias. A análise abre com uma tabela-síntese, DC por notação, com o
 caso de onde vem cada evidência, e segue com uma seção por DC, com os
@@ -22,7 +22,7 @@ Em vez de: análise por caso, cada caso em todas as DCs, como o Contador
 de 2017; mais fácil de seguir, mas repetitiva e longa demais com cinco
 casos.
 Em vez de: três ou quatro casos; texto menor, mas a síntese perderia
-padrões de interface.
+problemas de coordenação.
 Em vez de: só as seis DCs de 2017; menos trabalho, mas sem operações
 mentais difíceis, a DC em que a assincronia da Busca mais pesa sobre os
 *callbacks*.

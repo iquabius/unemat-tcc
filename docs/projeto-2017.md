@@ -43,7 +43,7 @@ problema, a justificativa, os objetivos e o método do projeto.
 | Pergunta | Três formulações; a central: declarativa é adequada a GUIs e quais vantagens e desvantagens frente à imperativa? | Uma: como as notações de GUI mais usadas na prática (imperativa com *callbacks*, declarativa por re-renderização e reativa com *signals*) se comparam quanto à usabilidade, segundo as DCs? (ADR 0011) | Refinada: mesma comparação, com critério explícito e as notações de 2026 |
 | "Larga escala" | Parte da pergunta | Só motivação | Recortada: os casos não permitem concluir sobre larga escala |
 | Objetivo geral | Demonstrar e analisar conceitos declarativos de PF e PR | Comparar, segundo as DCs, a usabilidade das três notações em interfaces típicas, na web e no Android | Refinado: verificável (objeto, critério e escopo) |
-| Objetivos específicos | (1) PF com listas; (2) PR e *callbacks*; (3) analisar e comparar | (1) mantido; (2) ampliado: casos de interfaces típicas nas tecnologias de 2026; (3) mantido; (4) novo: sintetizar vantagens e desvantagens por padrão de interface | Mantidos e ampliados |
+| Objetivos específicos | (1) PF com listas; (2) PR e *callbacks*; (3) analisar e comparar | (1) mantido; (2) ampliado: casos de interfaces típicas nas tecnologias de 2026; (3) mantido; (4) novo: sintetizar vantagens e desvantagens por problema de coordenação | Mantidos e ampliados |
 | Paradigmas comparados | PF e PR (declarativos) × POO com *callbacks* (imperativo) | Imperativo com *callbacks* × declarativo por re-renderização (React, Compose) × reativo fino (*signals*); PF continua como base | Refinado: o lado declarativo se divide em dois modelos |
 | Áreas de aplicação | Interfaces gráficas (implicitamente web) | Web e Android; servidor e desktop avaliados e descartados (ADR 0001) | Ampliado dentro do tema |
 | Linguagem | JavaScript | TypeScript (web) e Kotlin (Android) (ADRs 0005, 0006) | Trocada, com continuidade: TypeScript é JavaScript com tipos |
@@ -69,9 +69,10 @@ problema, a justificativa, os objetivos e o método do projeto.
    não apareceu análise por DCs de React ou de *signals*, nem comparação com
    *callbacks* sobre os mesmos casos: o nicho provável, a confirmar
    (`.beans/`, segunda rodada de *snowballing*).
-4. **Casos mais representativos.** Seguem o 7GUIs (`kiss2014`) e padrões
-   comuns de interfaces reais; cada caso exercita um padrão diferente, o
-   que atende à lógica de replicação do estudo de casos múltiplos (Yin).
+4. **Casos mais representativos.** Seguem o 7GUIs (`kiss2014`) e
+   interfaces reais comuns; cada caso exercita um problema de coordenação
+   diferente, o que atende à lógica de replicação do estudo de casos
+   múltiplos (Yin).
 5. **Continuidade da linguagem.** TypeScript é um superconjunto de
    JavaScript. Java foi considerado em três formas (Spring no servidor,
    Swing × JavaFX no desktop, ReactFX) e descartado pelos motivos do ADR
