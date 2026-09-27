@@ -1,4 +1,4 @@
-// Roteiro de teste do Carrinho, igual para as cinco implementações web.
+// Roteiro de teste do Carrinho, igual para as seis implementações web.
 // Abra o exemplo com o localStorage limpo (ou rode localStorage.clear() e
 // recarregue), cole no console; a última linha devolve o resultado de cada
 // verificação ("ok" ou "FALHOU"). Segue a especificação do README.org.
