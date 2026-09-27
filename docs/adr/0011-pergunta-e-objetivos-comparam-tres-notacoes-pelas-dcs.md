@@ -26,3 +26,7 @@ reescritos; a mudança deve ser justificada ao curso e aos orientadores.
 
 Fontes: itens 1.1 e 1.2 da revisão da introdução (2026-09-23, Wazlawick);
 `docs/projeto-2017.md`; commit `25cf4dd`.
+
+Errata 2026-09-26: no "Em vez de", os dois modelos do lado declarativo
+são a re-renderização (*pull*) e a reatividade fina com *signals*
+(*push-pull*), não *pull* e *push*; ver a errata do ADR 0003.
