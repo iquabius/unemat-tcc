@@ -5,13 +5,15 @@ Substitui o ADR 0011.
 2026-09-26. O ADR 0011 propôs a pergunta e os objetivos para confirmar
 quando o recorte da análise fechasse; o recorte fechou (ADRs 0012 e 0013)
 sem mudar as notações, e mudou as tecnologias e o papel do Android. A
-pergunta continua a do 0011: como as notações de interfaces gráficas mais
-usadas na prática, a imperativa com *callbacks*, a declarativa por
-re-renderização e a reativa fina com *signals*, se comparam quanto à
-usabilidade, segundo as Dimensões Cognitivas de Notações? "Larga escala"
-fica só na motivação. O objetivo geral é comparar, segundo as DCs, a
-usabilidade das três notações em interfaces típicas na web (TypeScript),
-com replicação no Android (Kotlin); os específicos: demonstrar com
+pergunta continua a do 0011, em outra redação: como as notações mais
+usadas na prática para programar interfaces gráficas, a imperativa com
+*callbacks*, a declarativa por re-renderização e a reativa fina com
+*signals*, se comparam quanto à usabilidade, segundo as Dimensões
+Cognitivas de Notações? A notação é a do código que programa a interface,
+não a da tela. "Larga escala" fica só na motivação. O objetivo geral é
+comparar, segundo as DCs, a usabilidade das três notações na programação
+de interfaces típicas da web (TypeScript), com replicação no Android
+(Kotlin); os específicos: demonstrar com
 processamento de listas os conceitos de PF em que se apoiam as notações
 declarativas; implementar os cinco casos com Web Component, jQuery,
 React, Solid e Angular com *signals*, e Contador, Formulário e Lista no

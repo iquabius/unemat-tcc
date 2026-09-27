@@ -1,4 +1,4 @@
-# 0001. O TCC compara notações de interfaces gráficas na web e no Android
+# 0001. O TCC compara notações para programar interfaces gráficas na web e no Android
 
 2026-09-25. O projeto de 2017 comparava paradigmas em JavaScript com RxJS 5 e
 xstream, ferramentas pouco usadas em 2025, e a pré-pesquisa de 2026 cogitou

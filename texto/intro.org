@@ -48,28 +48,39 @@ significativamente melhor cite:salvaneschi2014.
 
 Visto que POO permeia o ensino de programação cite:vanroy2003, e que a
 utilização inadequada de conceitos imperativos é uma das principais causas de
-complexidade em sistemas modernos[fn:complexity] cite:moseley2006, indaga-se se
-os conceitos de programação declarativa podem mitigar problemas enfrentados no
+complexidade em sistemas modernos[fn:complexity] cite:moseley2006, conceitos
+de programação declarativa podem mitigar problemas enfrentados no
 desenvolvimento de software em larga escala.
-Posto isso, propomos estudar os paradigmas de PF e PR aplicados na programação
-de interfaces gráficas.
 
-  Quais os conceitos apropriados para programação de interfaces gráficas?
-  Conceitos de programação /imperativa/ são bastante comuns em linguagens
-  tradicionais, como as orientadas a objetos.
-  Linguagens funcionais e lógicas empregam conceitos de programação
-  /declarativa/, que é considerada mais simples e intuitiva.[fn:intuitive]
-  Questiona-se então se programação declarativa é adequada para o
-  desenvolvimento de interfaces gráficas, e quais suas vantagens e desvantagens
-  em relação à programação imperativa.
+  Na programação de interfaces gráficas, a coordenação entre evento, estado e
+  tela se escreve hoje em três notações, e duas delas são declarativas.
+  Na /imperativa com callbacks/, cada /callback/ altera o estado e a tela
+  diretamente, como no jQuery e nos Web Components sem biblioteca.
+  Nas declarativas, o programador descreve a tela em função do estado, e o
+  ambiente de execução a mantém atualizada.
+  Na /declarativa por re-renderização/, cada mudança de estado reexecuta o
+  componente, como no React.
+  Na /reativa fina com signals/, cada /signal/ avisa os valores e trechos da
+  tela que dependem dele, e esses são recalculados quando lidos, como no Solid e
+  no Angular.
+  Pergunta-se, então: como as notações mais usadas na prática para programar
+  interfaces gráficas, a imperativa com /callbacks/, a declarativa por
+  re-renderização e a reativa fina com /signals/, se comparam quanto à
+  usabilidade, segundo as Dimensões Cognitivas de Notações?
 
-   Demonstrar e analisar conceitos declarativos de PF e PR. Especificamente:
+   O objetivo geral é comparar a usabilidade das três notações segundo as
+   Dimensões Cognitivas de Notações, na programação de interfaces típicas da
+   web, em TypeScript, com replicação no Android, em Kotlin. Especificamente:
 
-   - Demonstrar a essência da programação declarativa com conceitos de PF;
-   - Demonstrar conceitos declarativos de PR e imperativos de POO com
-     /callbacks/;
-   - Analisar e comparar os conceitos quanto à usabilidade da linguagem de
-     programação.
+   - Demonstrar, com processamento de listas, os conceitos de PF em que se
+     apoiam as notações declarativas;
+   - Implementar cinco casos de interface (Contador, Formulário com validação,
+     Busca com sugestões, Lista filtrável e Carrinho) com Web Component,
+     jQuery, React, Solid e Angular com /signals/, e o Contador, o Formulário e
+     a Lista no Android, com Views e Jetpack Compose;
+   - Avaliar as implementações por oito Dimensões Cognitivas;
+   - Sintetizar as vantagens e desvantagens de cada notação por problema de
+     coordenação, como estado derivado e assincronia.
 
   Esta pesquisa é de natureza /aplicada/, e quanto aos objetivos ela se
   classifica como /exploratória/, pois tem o “\textelp{} foco mais aberto para
@@ -133,7 +144,3 @@ handler/, /event listener/ ou /observer/, mas em essência o conceito é o mesmo
 programação. Mais informações podem ser encontradas no site
 http://www.cl.cam.ac.uk/~afb21/CognitiveDimensions/.
 
-[fn:intuitive] [[textcite:roy2004][p. 31]]: “\textelp{} we are interested in
-computation models that are useful and intuitive for programmers \textelp{}. The
-first and simplest computation model we will study is /declarative
-programming/.”

@@ -1,4 +1,4 @@
-# TCC: notações de interfaces gráficas
+# TCC: notações para programar interfaces gráficas
 
 Trabalho de conclusão que compara, pelas Dimensões Cognitivas de Notações,
 como se programam interfaces gráficas em três notações, com os mesmos casos
@@ -8,11 +8,12 @@ implementados em várias tecnologias na web e no Android. O texto está em
 ## Language
 
 **Notação**:
-Uma forma de escrever a coordenação entre evento, estado e tela. As três do
-trabalho: imperativa com *callbacks*, declarativa por re-renderização e
-reativa fina com *signals*.
+Uma forma de escrever, no código, a coordenação entre evento, estado e tela.
+As três do trabalho: imperativa com *callbacks*, declarativa por
+re-renderização e reativa fina com *signals*.
 _Avoid_: paradigma (reservado para PF, PR e POO no capítulo de programação),
-estilo, abordagem
+estilo, abordagem; "notação de interface gráfica" (a notação é do código que
+programa a interface, não da tela)
 
 **Caso**:
 Uma interface especificada num `README.org` (`casos/<caso>/`), que todas as
@@ -69,8 +70,9 @@ _Avoid_: screenshot, print
 
 **DC**:
 Dimensão Cognitiva de Notações (Green, 1989; Blackwell & Green, 2003). O
-trabalho usa seis: nível de abstração, proximidade de descrição,
-dependências ocultas, propensão a erros, concisão e viscosidade.
+trabalho usa oito (ADR 0012): nível de abstração, proximidade de descrição,
+dependências ocultas, propensão a erros, concisão, viscosidade,
+expressividade e operações mentais difíceis.
 _Avoid_: critério, métrica
 
 **PF, PR, PFR**:

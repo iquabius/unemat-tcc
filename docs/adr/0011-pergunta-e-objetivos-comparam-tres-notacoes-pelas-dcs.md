@@ -6,14 +6,15 @@ Proposta em 2026-09-25, a confirmar quando o recorte da análise estiver
 fechado (ADR 0004); em 2026-09-26 ainda não aplicada à `intro.org`. A
 introdução de 2017 trazia a pergunta em três formulações, uma delas sobre
 software em larga escala, que casos pequenos não respondem, e um objetivo
-geral sem critério. A pergunta passa a ser: como as notações de interfaces
-gráficas mais usadas na prática, a imperativa com *callbacks*, a
-declarativa por re-renderização e a reativa com *signals*, se comparam
-quanto à usabilidade, segundo as Dimensões Cognitivas de Notações? O
-objetivo geral é comparar, segundo as DCs, a usabilidade das três notações
-em interfaces típicas, na web (TypeScript) e no Android (Kotlin); os
-específicos: demonstrar com processamento de listas os conceitos de PF em
-que se apoiam as notações declarativas; implementar os casos com Web
+geral sem critério. A pergunta passa a ser: como as notações mais usadas
+na prática para programar interfaces gráficas, a imperativa com
+*callbacks*, a declarativa por re-renderização e a reativa fina com
+*signals*, se comparam quanto à usabilidade, segundo as Dimensões
+Cognitivas de Notações? O objetivo geral é comparar, segundo as DCs, a
+usabilidade das três notações na programação de interfaces típicas, na
+web (TypeScript) e no Android (Kotlin); os específicos: demonstrar com
+processamento de listas os conceitos de PF em que se apoiam as notações
+declarativas; implementar os casos com Web
 Components, jQuery, React e Solid, e parte deles no Android com Views e
 Compose; avaliar as implementações pelas DCs selecionadas; sintetizar
 vantagens e desvantagens por problema de coordenação.
