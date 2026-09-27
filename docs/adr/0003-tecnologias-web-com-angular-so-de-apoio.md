@@ -1,5 +1,7 @@
 # 0003. Na web, Web Component, jQuery, React e Solid entram na análise; Angular com RxJS fica só de apoio
 
+Substituído por 0013 em 2026-09-26.
+
 2026-09-25. As notações a comparar são a imperativa com *callbacks*, a
 declarativa por re-renderização (*pull*) e a reativa fina com *signals*
 (*push*), e o RxJS, centro do projeto de 2017, é pouco escrito diretamente

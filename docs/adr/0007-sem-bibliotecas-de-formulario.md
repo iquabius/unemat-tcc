@@ -1,5 +1,7 @@
 # 0007. Só o que cada framework traz: sem bibliotecas de formulário
 
+Substituído por 0013 em 2026-09-26.
+
 2026-09-25. O Formulário com validação poderia usar a biblioteca mais comum
 de cada tecnologia (react-hook-form no React, por exemplo). Cada
 implementação usa só o que o *framework* traz; o Angular usa os Reactive

@@ -26,7 +26,7 @@ derivado, assincronia, lista derivada, estado compartilhado.
 
 **Tecnologia**:
 Uma das formas de implementar um caso na web: Web Component, jQuery, React,
-Solid, Angular com RxJS.
+Solid, Angular com *signals*, Angular com RxJS.
 _Avoid_: framework, biblioteca (quando o assunto é a coluna da comparação)
 
 **Variante**:
@@ -34,9 +34,14 @@ Uma das duas formas de implementar um caso no Android: Views ou Jetpack
 Compose.
 
 **Implementação**:
-Um caso numa tecnologia ou variante: `casos/<caso>/<tecnologia>/`. São 25
+Um caso numa tecnologia ou variante: `casos/<caso>/<tecnologia>/`. São 30
 na web e 6 no Android.
 _Avoid_: versão, exemplo
+
+**Replicação**:
+A análise do Formulário e da Lista no Android, que confere se as conclusões
+da web se repetem com Views e Compose (ADR 0012).
+_Avoid_: segunda plataforma
 
 **Apoio**:
 Implementação que existe para o autor consultar enquanto escreve e não entra
