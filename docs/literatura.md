@@ -264,7 +264,9 @@ numeradores `proglang` (uso em 12 meses), `primary_lang`, `main_lang` e
 `platform_by_primary::Mobile`; "ferramentas nativas" é a resposta "I use
 native tools" em `mobile_target_os`. Sem o peso o Kotlin sobe (36% contra
 51% no uso em 12 meses), porque o peso corrige a inclinação da audiência
-da JetBrains por país, linguagem e relação com a empresa.
+da JetBrains por país, linguagem e relação com a empresa. O cálculo está
+em `docs/jetbrains-deveco-2025-android.py`, que recebe o ZIP ou o CSV e
+imprime os dois valores.
 
 ## 8. Tecnologias web: Web Component, jQuery, React, Solid e Angular com RxJS (literatura cinzenta, consultada em 2026-09-26)
 
