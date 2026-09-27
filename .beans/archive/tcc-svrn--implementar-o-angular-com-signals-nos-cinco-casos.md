@@ -1,10 +1,10 @@
 ---
 title: Implementar o Angular com signals nos cinco casos
-status: todo
+status: completed
 type: task
 priority: high
 created_at: 2026-09-27T02:17:00Z
-updated_at: 2026-09-27T02:17:00Z
+updated_at: 2026-09-27T02:47:00Z
 ---
 
 ADR 0013: uma subpasta `angular-signals` em cada caso (`casos/<caso>/angular-signals/`), escrita para espelhar a implementação em `solid/`: `signal`, `computed`, `effect` e `resource()` (na Busca, com o `abortSignal` do *loader* no lugar do `AbortController` do Solid), *debounce* por `setTimeout`, sem RxJS, sem Reactive Forms e sem *Signal Forms*. Mesmo Angular do `angular-rxjs` (`@angular/core` ^22.2.0), componentes *standalone*, domínio e estilo compartilhados do caso.

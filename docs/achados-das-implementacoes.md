@@ -56,3 +56,61 @@ a que Dimensão Cognitiva (DC) parece servir; a classificação é provisória.
   aplica a `[hidden]`, e a lista vazia ocupava espaço. As versões
   declarativas não renderizam a lista e não caem nisso. Correção:
   `[hidden] { display: none !important; }` no `estilo.css` do caso.
+
+## 2026-09-26, Angular com signals (commits `2fc6a3a` a `ccc4db6`)
+
+As cinco implementações espelham as do Solid (ADR 0013); cada item diz em
+que o Angular obrigou a escrever diferente.
+
+- **O `resource` descarta, mas nem sempre aborta** (dependências ocultas,
+  propensão a erros, operações mentais difíceis; commit `7e1a4ed`): na
+  Busca, o `resource()` aborta pelo `abortSignal` o *loader* anterior quando
+  os `params` mudam para outro termo, mas, quando eles viram `undefined`
+  (termo curto), só descarta a resposta, e a requisição segue até o fim; as
+  outras cinco tecnologias a abortam. A tela e o roteiro não mostram a
+  diferença: ela só apareceu contando os abortos no navegador. A
+  implementação grava `undefined` no recurso (`cidades.set(undefined)`),
+  cujo `set()` aborta o *loader*, nos mesmos pontos em que o Solid chama
+  `controlador.abort()`. Nada disso está nos `params` nem no *loader*: está
+  no código-fonte do Angular 22.2 (`loadEffect` e `set` em `ResourceImpl`).
+  O erro de uma requisição abortada também é descartado, então o
+  `foiCancelada` do domínio fica sem uso, e o `batch` do Solid não tem
+  equivalente: o Angular agenda a atualização da tela sozinho.
+- **O *template* tipa o alvo do evento no `<input>`, não no `<select>`**
+  (propensão a erros; commits `b87a333` e `21bcd64`): com a checagem
+  estrita de *templates* do `ng new`, `$event.target.value` compila num
+  `<input>` (o alvo é `HTMLInputElement`) e falha num `<select>` (o alvo é
+  `EventTarget | null`). Os `<select>` usam `$any($event.target).value`,
+  que desliga a checagem; o Solid tipa `e.currentTarget` em todos e só
+  precisa do `as TipoDeVoo`.
+- **O *template* só enxerga membros da classe** (concisão, viscosidade;
+  commits `21bcd64` e `ccc4db6`): cada função ou constante do domínio
+  usada no *template* é repassada como campo (`protected readonly
+  formatarPreco = formatarPreco;`): quatro na Lista, dois a quatro por
+  componente no Carrinho. No JSX do Solid, o `import` basta. No código da
+  classe, cada leitura de *signal* leva `this.` (`this.tipo()`), que o
+  Solid, com funções e variáveis locais, não tem.
+- **Estado compartilhado sem *store*** (nível de abstração; commit
+  `ccc4db6`): o Angular não tem o `createStore` com `reconcile`; o
+  Carrinho guarda o estado inteiro num `signal`, e o `effect` que salva no
+  `localStorage` e o `computed` do resumo dependem dele todo, não só dos
+  itens. São o `track item.id` do `@for` e a igualdade por referência que
+  mantêm as linhas do painel. O contexto do Solid vira um serviço em
+  `providers` da `Loja` e `inject()` nos componentes, e o `effect`
+  precisa nascer num contexto de injeção (construtor ou campo).
+- **Sintaxe do *template* no lugar dos componentes de controle**
+  (proximidade de descrição, concisão): `@if (x; as erro)` e `@else if`
+  no lugar de `<Show when fallback>`, `@for` com `track` obrigatório no
+  lugar de `<For>`, que usa a referência, e `@let` para o valor de cada
+  linha, que no Solid é uma variável dentro da função do `<For>`. O
+  Angular 22 liga atributos ARIA direto (`[aria-invalid]`,
+  `aria-label="Adicionar {{ p.nome }}"`), sem o `attr.` do `angular-rxjs`.
+- **Componente raiz sem *inputs*** (modelo de componente; commit
+  `2fc6a3a`): o `bootstrapApplication` não passa *inputs*, então o valor
+  inicial do Contador é um campo da classe, onde o Solid recebe
+  `props.valorInicial`.
+- **O RxJS continua instalado** (commit `2fc6a3a`): o `@angular/core`
+  22.2.0 declara `rxjs` como `peerDependency` obrigatória, e o npm o
+  instala mesmo sem nenhum `import` dele. O Angular 22 também traz
+  `debounced()` no `@angular/core`; as implementações usam `setTimeout`,
+  como o Solid.
