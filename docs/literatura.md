@@ -199,7 +199,7 @@ partes interessadas, sem metodologia publicada; "conter código Kotlin" não
 | Interoperabilidade total com Java: o ecossistema Java continua disponível | neutraliza contra | kotlinlang FAQ; kotlin/first | fato |
 | Java no Android é um subconjunto do JDK (API 34 → Java 17), via *desugaring* | contra Java no Android | developer.android.com/build/jdks (2026-09-16) | fato oficial |
 | Distância menor para quem vem de JavaScript: `val`/`var`, lambdas e *trailing lambdas*, inferência, *templates* de string, `map`/`filter`, funções de nível superior | pró Kotlin (perfil do autor) | kotlinlang.org/docs/comparison-to-java (2026-02-06); McBride, dev.to, 2023-04-26 | características da linguagem; opinião |
-| Compilação mais lenta que `javac` (cerca de 15 a 25% em *builds* frios; +17% num *benchmark* de 2017), atenuada pelo K2 (Kotlin 2.0, "potentially doubling") | contra Kotlin | Keepsafe Engineering 2017; AndroidDocs 2026; JetBrains 2024-05 | *benchmark* antigo; sem fonte sólida para os números de 2026 |
+| Compilação mais lenta que `javac` em *builds* limpos (cerca de 15 a 25% segundo o AndroidDocs; +17% sem *daemon* e +13% com *daemon* aquecido no *benchmark* da Keepsafe, de 2016-09-08, Gradle 2.14.1), mas igual ou um pouco mais rápida nos *builds* incrementais do mesmo *benchmark* (4,5 s contra 4,6 s sem mudança; 6,0 s contra 7,1 s com um arquivo central mudado), atenuada pelo K2 (Kotlin 2.0, "potentially doubling") | contra Kotlin (só em *build* limpo) | Alt, Keepsafe Engineering, 2016-09-08 (lido em 2026-09-27); AndroidDocs 2026; JetBrains 2024-05 | *benchmark* de um aplicativo, com Kotlin 1.0; sem fonte sólida para os números de 2026 |
 | APK um pouco maior pela biblioteca padrão do Kotlin (ordem de 1 MB) | contra Kotlin | AndroidDocs 2026; Adapty 2024-01-16 | sem fonte sólida |
 | Java é cerca de três vezes mais usado no mercado geral (Stack Overflow 2025: 29,4% contra 10,8%; 2024: 30,3% contra 9,4%); ecossistema, documentação e comunidade maiores | contra Kotlin | survey.stackoverflow.co/2025 e /2024; Netguru 2026-09-23; Kinsta 2026-06-04 | número (SO) e opinião |
 | Kotlin é mais admirado que Java e menos desejado: 2025, admirado 51% contra 41,8%, desejado 12% contra 15,8%; 2024, admirado 60,9% contra 47,6%, desejado 12,3% contra 17,9%; a admiração pelo Kotlin caiu 10 pontos de 2024 para 2025 | pró Kotlin (satisfação de quem usa); contra Kotlin (demanda) | survey.stackoverflow.co/2025/technology e /2024/technology, seção "Admired and Desired" (2026-09-26) | número (SO); "admirado" é quem usou no ano e quer continuar, "desejado" é quem quer usar |
@@ -238,9 +238,9 @@ pesquisa.codigofonte.com.br/2026, /2026/ranking, /2026/area/mobile,
 Artigos de desenvolvedores (opinião, com parcimônia): JACKOWSKI, K.,
 Netguru, 2026-09-23; GIRO, G., Toptal, 2026-05-11; DROSOPOULOU, E., Java
 Code Geeks, 2026-04-08; PARK, D., AndroidDocs, 2026; LOTAREV, I., Adapty,
-2024-01-16; MCBRIDE, J., dev.to, 2023-04-26; ALT, A. J., Keepsafe
-Engineering, 2017 (acesso bloqueado em 2026-09-26; conferir antes de
-citar).
+2024-01-16; MCBRIDE, J., dev.to, 2023-04-26; ALT, A. J., *Kotlin vs Java:
+Compilation speed*, Keepsafe Engineering (Medium), 2016-09-08 (lido no
+navegador em 2026-09-27; bloqueado para *fetch* em 2026-09-26).
 
 Verificados em 2026-09-26, nos gráficos interativos (valores lidos do
 SVG da página): Stack Overflow 2025, seção "Admired and Desired"
@@ -488,9 +488,15 @@ CÓDIGO FONTE TV, *Pesquisa Salarial de Programadores 2026* (6ª edição) e
 CHROME PLATFORM STATUS, *CustomElementRegistryDefine* (2026-09-25); KRAUSE,
 S., *js-framework-benchmark*, resultados Chrome 140 (2025) e 152 (2026).
 
-Não verificados: EISENBERG, R., *A TC39 Proposal for Signals*, Medium,
-2024-04-01 (403; data só de resultado de busca); as postagens do Angular
-Blog no Medium (v16 2023-05, v17 2023-11, v20 2025-05, v21 2025-11; 403;
-substituídas pelo CHANGELOG); o número de respondentes da pergunta de
-*frameworks* no Stack Overflow 2024; a palestra de Harris *Rethinking
-reactivity* (2019, vídeo); os *tweets* de Abramov sobre *signals*.
+Verificados no navegador em 2026-09-27 (bloqueados para *fetch* em
+2026-09-26): EISENBERG, R., *A TC39 Proposal for Signals*,
+eisenbergeffect.medium.com, 2024-04-01; as postagens do Angular Blog
+(blog.angular.dev): GECHEV, M., *Angular v16 is here!*, 2023-05-03,
+*Introducing Angular v17*, 2023-11-08, *Announcing Angular v20*,
+2025-05-28; KUEHLERS, J.; THOMPSON, M., *Announcing Angular v21*,
+2025-11-19 (as datas de versão da seção continuam vindo do CHANGELOG);
+HARRIS, R., *Rethinking reactivity*, palestra na You Gotta Love Frontend,
+vídeo publicado em 2019-04-22 (36 min). Não verificados: o número de
+respondentes da pergunta de *frameworks* no Stack Overflow 2024 e 2025
+(as páginas não o exibem; só nos dados brutos); os *tweets* de Abramov
+sobre *signals* (sem URL registrada; o X exige conta).
