@@ -43,7 +43,8 @@ tecnologias) está nas decisões em [[file:../docs/adr/][docs/adr/]], da 0001 à
   | =angular-rxjs=   | Angular com RxJS (apoio à escrita; fora do texto) |
 
   O =cronometro-com-rxjs-5= é anterior a esta organização e não é
-  /workspace/: tem instalação própria.
+  /workspace/: tem instalação própria. É registro do projeto de 2017 e fica
+  fora da análise (ADR 0012).
 
 * Instalar e rodar (Android)
 
