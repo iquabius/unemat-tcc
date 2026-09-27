@@ -1,5 +1,7 @@
 # 0011. A pergunta e os objetivos comparam três notações pelas Dimensões Cognitivas, e "larga escala" vira motivação
 
+Substituído por 0014 em 2026-09-26.
+
 Proposta em 2026-09-25, a confirmar quando o recorte da análise estiver
 fechado (ADR 0004); em 2026-09-26 ainda não aplicada à `intro.org`. A
 introdução de 2017 trazia a pergunta em três formulações, uma delas sobre
