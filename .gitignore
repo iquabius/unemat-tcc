@@ -41,3 +41,6 @@ local.properties
 .beads-credential-key
 .beads/proxieddb/
 *.gate.lock*
+
+# Material local: PDFs baixados, textos extraídos e relatórios (não versionar)
+/tmp/
