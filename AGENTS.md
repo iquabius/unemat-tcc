@@ -24,11 +24,18 @@ As tarefas vivem no [Beads](https://github.com/gastownhall/beads) (`bd`
 `docs/beads-e-dolt.md`.
 
 - Criar: `bd create "Título" -p 2 --body-file -`, com o corpo pela entrada
-  padrão. Id `tcc-` mais um hash que o `bd` gera; tipo `task` (padrão) ou
-  `bug`.
+  padrão. Id `tcc-` mais um hash que o `bd` gera; tipo `task` (padrão),
+  `bug` ou `epic`.
+- Toda tarefa nova entra num épico (`bd list -t epic`): numa das fases,
+  que andam em sequência (a fase N depende da N−1, e o bloqueio passa às
+  filhas, então `bd ready` só mostra a fase em curso), ou num dos épicos
+  fora das fases. Crie sem `--parent` e pendure com
+  `bd update <id> --parent <épico>`: com `--parent` na criação, o `bd` dá
+  um id hierárquico (`tcc-e2e.1`), que engana se a tarefa mudar de épico.
 - Prioridade: `1` alta, `2` normal, `3` baixa. `0` e `4` não se usam.
-- Status: `open`, `in_progress`, `closed`. Tarefa que espera outra não
-  muda de status: `bd dep add <id> --blocked-by <outro>`.
+- Status: `open`, `in_progress`, `closed`, e `deferred` para o que fica
+  para depois (o Backlog do Scotty). Tarefa que espera outra não muda de
+  status: `bd dep add <id> --blocked-by <outro>`.
 - Prazo, quando houver: `--due AAAA-MM-DD` no `create` ou no `update`.
 - O corpo diz o que decide a tarefa: `arquivo:linha`, o ADR ou o commit de
   origem, o critério de pronto. Datas absolutas; nada de "hoje" ou "atual".
@@ -45,8 +52,9 @@ As tarefas vivem no [Beads](https://github.com/gastownhall/beads) (`bd`
   mão nem se importa de volta.
 - Listar: `bd ready` (abertas e sem bloqueio); `bd list -p 1` (altas);
   `bd list --all -n 0` (todas, com as fechadas); `bd show <id>`.
-- Ao começar uma sessão de trabalho no texto ou no código, leia as tarefas
-  de prioridade `1` (`bd list -p 1`) antes de propor o que fazer.
+- Ao começar uma sessão de trabalho no texto ou no código, leia
+  `bd ready` (a fase em curso e o que está fora das fases) antes de
+  propor o que fazer.
 - Worktrees usam o banco do checkout principal; nunca rode `bd init` numa
   worktree. Sessões paralelas esperam a trava do Dolt, sem erro.
 - Não rode `bd dolt push`, `bd sync` nem `bd init` sem o autor pedir: o
