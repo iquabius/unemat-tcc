@@ -11,30 +11,43 @@ texto em `texto/*.org` (exportado para `.tex`), a bibliografia em
 |---|---|---|
 | Decisão cara de reverter, com alternativa real | `docs/adr/NNNN-slug.md` | skill `adr`: um parágrafo, data absoluta, "Em vez de" e "Custo" obrigatórios; nunca se edita, substitui-se |
 | Termo do projeto | `CONTEXT.md` | skill `domain-modeling`: definição de uma ou duas frases e o que evitar |
-| Tarefa aberta | `.beans/` | seção abaixo |
+| Tarefa aberta | Beads (`bd`), exportado em `.beads/issues.jsonl` | seção abaixo |
 | Nota de referência ou histórico que o texto ainda vai absorver | `docs/*.md` | seção abaixo |
 | Convenção de código, pastas ou ambiente | `casos/AGENTS.md` | |
-| Feedback de escrita e revisão bibliográfica | não vai para o repositório | skill `escrita-academica`; o que sobra vira tarefa em `.beans/` ou nota em `docs/` |
+| Feedback de escrita e revisão bibliográfica | não vai para o repositório | skill `escrita-academica`; o que sobra vira tarefa no `bd` ou nota em `docs/` |
 
-## Tarefas: `.beans/`
+## Tarefas: Beads (`bd`)
 
-Formato de arquivo do [beans](https://github.com/hmans/beans), sem o
-binário; `.beans.yml` guarda a configuração para o caso de instalá-lo.
+As tarefas vivem no [Beads](https://github.com/gastownhall/beads) (`bd`
+1.3.0, em `~/.local/bin`), num banco Dolt embutido em
+`.beads/embeddeddolt/`, fora do git (ADR 0015). Detalhes técnicos em
+`docs/beads-e-dolt.md`.
 
-- Uma tarefa por arquivo: `.beans/tcc-XXXX--slug.md`, com `XXXX` de quatro
-  caracteres aleatórios em `[a-z0-9]` e o slug do título em minúsculas, sem
-  acento, com hífens.
-- Frontmatter: `title`, `status` (`todo`, `in-progress`, `blocked`,
-  `completed`, `cancelled`), `type` (`task`, `bug`), `priority` (`low`,
-  `normal`, `high`), `created_at` e `updated_at` (UTC, ISO 8601). Nenhuma
-  outra chave: o binário do beans apaga as que não conhece.
+- Criar: `bd create "Título" -p 2 --body-file -`, com o corpo pela entrada
+  padrão. Id `tcc-` mais um hash que o `bd` gera; tipo `task` (padrão) ou
+  `bug`.
+- Prioridade: `1` alta, `2` normal, `3` baixa. `0` e `4` não se usam.
+- Status: `open`, `in_progress`, `closed`. Tarefa que espera outra não
+  muda de status: `bd dep add <id> --blocked-by <outro>`.
+- Prazo, quando houver: `--due AAAA-MM-DD` no `create` ou no `update`.
 - O corpo diz o que decide a tarefa: `arquivo:linha`, o ADR ou o commit de
   origem, o critério de pronto. Datas absolutas; nada de "hoje" ou "atual".
-- Concluída ou cancelada: mude o `status`, atualize `updated_at` e mova o
-  arquivo para `.beans/archive/`, no mesmo commit que a resolve.
-- Listar: `ls .beans/`; por prioridade: `grep -l 'priority: high' .beans/*.md`.
+  Mudar: `bd update <id> --body-file -`.
+- Concluída ou cancelada: `bd close <id> --reason "..."`, dizendo o que a
+  resolveu ou por que foi cancelada.
+- Todo commit que cria, muda ou fecha uma tarefa leva o
+  `.beads/issues.jsonl` regenerado por `bd export -o .beads/issues.jsonl`,
+  e o commit que resolve uma tarefa a fecha. O arquivo é só um retrato,
+  para ler no git: nunca se edita à mão nem se importa de volta.
+- Listar: `bd ready` (abertas e sem bloqueio); `bd list -p 1` (altas);
+  `bd list --all -n 0` (todas, com as fechadas); `bd show <id>`.
 - Ao começar uma sessão de trabalho no texto ou no código, leia as tarefas
-  de prioridade `high` antes de propor o que fazer.
+  de prioridade `1` (`bd list -p 1`) antes de propor o que fazer.
+- Worktrees usam o banco do checkout principal; nunca rode `bd init` numa
+  worktree. Sessões paralelas esperam a trava do Dolt, sem erro.
+- Não rode `bd dolt push`, `bd sync` nem `bd init` sem o autor pedir: o
+  push grava `refs/dolt/data` no GitHub e força o ramo
+  `__dolt_remote_info__`.
 
 ## Notas em `docs/`
 
@@ -56,5 +69,5 @@ palavra por conceito (`CONTEXT.md`), sem alusão à conversa que o gerou.
 
 Mensagens em português, no imperativo, sem prefixo, explicando o problema
 antes da solução (skill `commit-message`). O commit que resolve uma tarefa
-arquiva a tarefa; o que altera um exemplo inclui as capturas
-(`casos/AGENTS.md`).
+fecha a tarefa e leva o `.beads/issues.jsonl`; o que altera um exemplo
+inclui as capturas (`casos/AGENTS.md`).

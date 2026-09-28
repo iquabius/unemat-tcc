@@ -1,7 +1,7 @@
 # Achados das implementações, à espera da análise
 
 Achados. Observações feitas ao implementar os casos, com data e commit, para
-entrar na análise em `texto/cases.org` (tarefa em `.beans/`). Cada item diz
+entrar na análise em `texto/cases.org` (tarefa no `bd`). Cada item diz
 a que Dimensão Cognitiva (DC) parece servir; a classificação é provisória.
 
 ## 2026-09-26, Android (commits `58277f3` a `274f7e9`)

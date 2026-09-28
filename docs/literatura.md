@@ -6,7 +6,8 @@ leva a data em que foi observada. Origem: revisão bibliográfica de
 as 41 saídas brutas em `docs/literatura/buscas/` (resumos retirados; título,
 autores, DOI e contagem de citações ficaram; para reler um resumo,
 `buscar_literatura.py doi`). Os 30 DOIs citados aqui foram conferidos no
-Crossref e no `doi.org`. As ações que a revisão pediu estão em `.beans/`.
+Crossref e no `doi.org`. As ações que a revisão pediu estão nas tarefas do
+`bd`.
 
 ## 1. A base em 2026-09-24 (`refs.bib` no commit `e2a6eda`)
 

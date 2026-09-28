@@ -81,5 +81,5 @@ os paradigmas do capítulo de programação. PFR é a de Elliott & Hudak (1997),
 com tempo contínuo; PR cobre também o tempo discreto.
 
 **Tarefa**:
-Um item aberto de trabalho, em `.beans/`. Não é decisão (ADR) nem achado
+Um item de trabalho, no Beads (`bd`). Não é decisão (ADR) nem achado
 para a análise.
