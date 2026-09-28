@@ -48,6 +48,11 @@ As tarefas vivem no [Beads](https://github.com/gastownhall/beads) (`bd`
 - Não rode `bd dolt push`, `bd sync` nem `bd init` sem o autor pedir: o
   push grava `refs/dolt/data` no GitHub e força o ramo
   `__dolt_remote_info__`.
+- Painel: `npm run tarefas`, da raiz, abre o Bead Me Up, Scotty v0.3.0 no
+  quadro deste repositório, com o envio de uso ao PostHog desligado. O
+  Scotty fica instalado e compilado fora do repositório, em
+  `~/.local/share/bead-me-up-scotty` (ou em `$SCOTTY_HOME`), e não entra no
+  `package-lock.json` dos casos.
 
 ## Notas em `docs/`
 

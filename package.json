@@ -11,7 +11,8 @@
     "casos/*/angular-rxjs"
   ],
   "scripts": {
-    "capturas": "node casos/capturar.mts"
+    "capturas": "node casos/capturar.mts",
+    "tarefas": "POSTHOG_KEY= node \"${SCOTTY_HOME:-$HOME/.local/share/bead-me-up-scotty}/bin/bead-me-up-scotty.mjs\""
   },
   "engines": {
     "node": ">=22.22.3"

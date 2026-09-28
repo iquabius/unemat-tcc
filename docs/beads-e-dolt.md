@@ -44,7 +44,8 @@ decisão está no ADR 0015.
   `Executed-By:` a toda mensagem de commit e reimportariam o
   `issues.jsonl` depois de `merge` e `checkout`.
 - `bd metrics off` desligou, por usuário, as métricas de uso que o `bd`
-  envia por padrão.
+  envia por padrão. O Scotty roda com `POSTHOG_KEY=` vazio
+  (`npm run tarefas`).
 
 ## Sincronização com o GitHub
 
