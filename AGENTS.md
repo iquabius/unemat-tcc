@@ -35,10 +35,14 @@ As tarefas vivem no [Beads](https://github.com/gastownhall/beads) (`bd`
   Mudar: `bd update <id> --body-file -`.
 - Concluída ou cancelada: `bd close <id> --reason "..."`, dizendo o que a
   resolveu ou por que foi cancelada.
-- Todo commit que cria, muda ou fecha uma tarefa leva o
-  `.beads/issues.jsonl` regenerado por `bd export -o .beads/issues.jsonl`,
-  e o commit que resolve uma tarefa a fecha. O arquivo é só um retrato,
-  para ler no git: nunca se edita à mão nem se importa de volta.
+- O `bd` regrava o `.beads/issues.jsonl` do checkout principal depois de
+  cada escrita, inclusive as feitas no Scotty (`export.auto` e
+  `export.interval: 1ms` em `.beads/config.yaml`). Todo commit que cria,
+  muda ou fecha uma tarefa leva esse arquivo, e o commit que resolve uma
+  tarefa a fecha. Numa worktree, rode `bd export -o .beads/issues.jsonl`
+  antes de commitar, porque a exportação automática grava no checkout
+  principal. O arquivo é só um retrato, para ler no git: nunca se edita à
+  mão nem se importa de volta.
 - Listar: `bd ready` (abertas e sem bloqueio); `bd list -p 1` (altas);
   `bd list --all -n 0` (todas, com as fechadas); `bd show <id>`.
 - Ao começar uma sessão de trabalho no texto ou no código, leia as tarefas

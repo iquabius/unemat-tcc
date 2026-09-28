@@ -16,10 +16,17 @@ decisão está no ADR 0015.
   15 min. Liga sozinho porque o repositório tem remoto git
   (`bd config get backup.enabled`: `true`, "auto"). 504 KB em 2026-09-28.
 - **Versionados:** `.beads/metadata.json` (modo `embedded`, banco `tcc`),
-  `config.yaml` (só o `sync.remote` ativo), `.gitignore`, `README.md` e o
-  `issues.jsonl`, que é só um retrato: `bd export` "is not a full database
-  backup". Sem os hooks, o `bd` só o relê num banco vazio ou no
+  `config.yaml` (`sync.remote` e a exportação), `.gitignore`, `README.md`
+  e o `issues.jsonl`, que é só um retrato: `bd export` "is not a full
+  database backup". Sem os hooks, o `bd` só o relê num banco vazio ou no
   `bd bootstrap`.
+- **Exportação automática:** ligada desde 2026-09-28, com
+  `export.interval: 1ms`, regrava o `issues.jsonl` inteiro depois de cada
+  escrita, em cerca de 0,4 s para 36 tarefas. O intervalo `0s` não
+  desliga o limite: o `bd` volta ao padrão de 60 s e pula a exportação
+  (`auto-export: throttled`, visto com `-v`). A exportação grava sempre no
+  `.beads/` do banco em uso, o do checkout principal, mesmo quando o `bd`
+  roda numa worktree.
 - **Sem coleta de lixo automática** no modo embutido: o banco só cresce.
 - **Nunca apague** `.beads/embeddeddolt/tcc/.dolt/noms/LOCK`,
   `.beads/embeddeddolt.gate.lock` nem `.beads.gate.lock` na raiz, mesmo que
