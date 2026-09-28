@@ -38,3 +38,7 @@ Fontes: tarefa tcc-308d, seção "Painéis prontos, conferidos em
 2026-09-27"; beads.gascity.com, páginas "Sync Concepts" e "Community
 Tools" (2026-09-27); código do `bd` 1.3.0 (commit f45b249) e
 `docs/beads-e-dolt.md`.
+
+Errata 2026-09-28: a tarefa tcc-308d foi apagada do `bd`; a seção
+"Painéis prontos, conferidos em 2026-09-27" continua no
+`.beads/issues.jsonl` do commit c81c5e7.
