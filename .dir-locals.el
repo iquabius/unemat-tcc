@@ -1,4 +1,4 @@
-((nil . ((ispell-local-dictionary . "pt_BR")
+((nil . ((ispell-local-dictionary . "pt_BR,en_US")
          (org-export-headline-levels . 5)
          (org-latex-caption-above . (image src-block table))
          (org-latex-src-block-backend . minted)

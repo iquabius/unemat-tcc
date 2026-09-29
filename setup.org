@@ -34,10 +34,10 @@ Em outra distro só muda o gerenciador — os nomes CTAN são os mesmos.
     texlive-minted texlive-minted-bin python313-Pygments \
     texlive-babel texlive-babel-portuges texlive-babel-english \
     texlive-hyphen-portuguese \
-    aspell aspell-pt_BR texlive-git-latexdiff
+    hunspell myspell-pt_BR myspell-en_US texlive-git-latexdiff
   #+end_src
 
-  Dois da lista não são óbvios:
+  Três da lista não são óbvios:
 
   - =texlive-beebe= fornece o =texnames.sty= que a classe exige. Nenhuma busca
     por "texnames" encontra o pacote.
@@ -45,6 +45,10 @@ Em outra distro só muda o gerenciador — os nomes CTAN são os mesmos.
     =\RequirePackage[english,portuguese,brazil]{babel}=, mas nenhum pacote do
     TeX Live declara precisar de =tex(english.ldf)= — nesta máquina ele entrou
     de carona numa collection, o que não se pode contar numa instalação enxuta.
+  - =hunspell= em vez do aspell: o =.dir-locals.el= pede o dicionário
+    =pt_BR,en_US=, para que os termos em inglês do texto não saiam como erro, e
+    o aspell só verifica contra um dicionário por vez. O nome combinado precisa
+    ser registrado no init com =ispell-hunspell-add-multi-dic=.
 
   Em outra distro, pergunte ao próprio documento o que ele carrega:
 
