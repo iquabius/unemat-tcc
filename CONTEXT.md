@@ -8,14 +8,24 @@ implementados em várias tecnologias na web e no Android. O texto está em
 ## Language
 
 **Notação**:
-Uma forma de escrever, no código, a coordenação entre evento, estado e tela.
-As três do trabalho: imperativa com *callbacks*, declarativa por
-re-renderização e reativa fina com *signals*. Não é a sintaxe da tela:
-Solid e Angular com *signals* são a mesma notação, React e Solid são duas
-(ADR 0016).
+Abreviação de notação de coordenação: uma forma de escrever, no código, a
+coordenação entre evento, estado e tela (onde vive o estado, como se declara
+um valor derivado, quem atualiza a tela). As três do trabalho: imperativa
+com *callbacks*, declarativa por re-renderização e reativa fina com
+*signals*. Os sinais de coordenação escritos dentro da estrutura da tela,
+como o `{contador()}` do Solid, contam nela. Solid e Angular com *signals*
+são a mesma notação, React e Solid são duas (ADR 0019).
 _Avoid_: sintaxe; paradigma (reservado para PF, PR e POO no capítulo de
 programação), estilo, abordagem; "notação de interface gráfica" (a notação é
 do código que programa a interface, não da tela)
+
+**Notação da estrutura da tela**:
+A forma de escrever quais elementos a tela tem, em que hierarquia e com que
+textos: HTML (jQuery), JSX (React, Solid), *template* (Angular),
+`createElement` (Web Component), layout XML (Views), funções (Compose). É
+notação, mas fica fora da comparação (ADR 0019).
+_Avoid_: sintaxe da tela; marcação (não cobre o `createElement` nem o
+Compose)
 
 **Caso**:
 Uma interface especificada num `README.org` (`casos/<caso>/`), que todas as

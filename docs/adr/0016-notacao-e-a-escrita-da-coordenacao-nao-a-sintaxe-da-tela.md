@@ -1,5 +1,7 @@
 # 0016. A notação é a escrita da coordenação, não a sintaxe da tela, e re-renderização e *signals* são duas notações
 
+Substituído por 0019 em 2026-09-29.
+
 2026-09-28. Nas Dimensões Cognitivas, a notação é o conjunto de sinais
 que o usuário vê e edita, e duas notações com a mesma estrutura que
 diferem na execução diferem só no ambiente (Green 1989); por essa letra,
