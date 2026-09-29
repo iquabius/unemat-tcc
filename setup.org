@@ -98,7 +98,10 @@ Em outra distro só muda o gerenciador — os nomes CTAN são os mesmos.
   a compilação quebraria.
 
   Ao abrir o primeiro arquivo aqui, o Emacs pergunta se as variáveis do
-  =.dir-locals.el= são seguras — responda =!= uma vez por máquina.
+  =.dir-locals.el= são seguras — responda =!= uma vez por máquina. Uma delas é
+  =org-latex-src-block-backend=: recusada, o Org 9.8 exporta os blocos de código
+  como =verbatim= em vez de =minted=, e o PDF perde o destaque de sintaxe sem
+  erro nenhum.
 
 * 4. Conferir
 
@@ -121,8 +124,11 @@ Em outra distro só muda o gerenciador — os nomes CTAN são os mesmos.
   - *Nome de estilo do Pygments some com o tempo.* O =src_code.sty= pedia o
     estilo =rtt=, que não existe no Pygments 2.21 (o parecido é =rrt=), e a
     compilação parava. Corrigido em e45ecd1.
-  - *=emacs --batch= não carrega init nenhum* (=user-init-file= volta =nil=): não
-    serve para testar exportação, porque o org-ref nunca é carregado.
+  - *=emacs --batch= não carrega init nenhum* (=user-init-file= volta =nil=), e
+    sem init o org-ref nunca é carregado. Para testar uma exportação, carregue
+    o init explicitamente, ativando os pacotes antes:
+    =emacs --batch -l ~/.config/emacs/early-init.el --eval '(package-activate-all)' -l ~/.config/emacs/init.el -l teste.el=,
+    com =(setq enable-local-variables :all)= no começo do =teste.el=.
   - *Exportação body-only*, senão o =\input= puxa um segundo =\documentclass=.
   - *A bibliografia é biblatex + biber*, não BibTeX. O =refs.bib= está em formato
     biblatex (=date=, =journaltitle=, =location=). O =unemat-projeto-tcc= usa o
