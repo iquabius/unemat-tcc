@@ -10,10 +10,12 @@ implementados em várias tecnologias na web e no Android. O texto está em
 **Notação**:
 Uma forma de escrever, no código, a coordenação entre evento, estado e tela.
 As três do trabalho: imperativa com *callbacks*, declarativa por
-re-renderização e reativa fina com *signals*.
-_Avoid_: paradigma (reservado para PF, PR e POO no capítulo de programação),
-estilo, abordagem; "notação de interface gráfica" (a notação é do código que
-programa a interface, não da tela)
+re-renderização e reativa fina com *signals*. Não é a sintaxe da tela:
+Solid e Angular com *signals* são a mesma notação, React e Solid são duas
+(ADR 0016).
+_Avoid_: sintaxe; paradigma (reservado para PF, PR e POO no capítulo de
+programação), estilo, abordagem; "notação de interface gráfica" (a notação é
+do código que programa a interface, não da tela)
 
 **Caso**:
 Uma interface especificada num `README.org` (`casos/<caso>/`), que todas as
