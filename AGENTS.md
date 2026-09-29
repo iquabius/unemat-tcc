@@ -87,4 +87,6 @@ palavra por conceito (`CONTEXT.md`), sem alusão à conversa que o gerou.
 Mensagens em português, no imperativo, sem prefixo, explicando o problema
 antes da solução (skill `commit-message`). O commit que resolve uma tarefa
 fecha a tarefa e leva o `.beads/issues.jsonl`; o que altera um exemplo
-inclui as capturas (`casos/AGENTS.md`).
+inclui as capturas (`casos/AGENTS.md`). Com outra sessão no mesmo
+checkout, prepare só os próprios arquivos, por índice temporário
+(`GIT_INDEX_FILE`) se o índice compartilhado tiver mudanças alheias.
