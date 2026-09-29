@@ -25,6 +25,14 @@
    latexmk -outdir=versoes_pdf -pvc- -view=none tcc.tex
    #+end_src
 
+   Confira depois que nenhuma citação ficou indefinida (uma chave errada ou
+   um =refs.bib= que o biber não leu). O log é latin-1, o que atrapalha o
+   =grep=:
+
+   #+begin_src fish
+   python3 -c "import re; t = open('versoes_pdf/tcc.log', encoding='latin-1').read(); print(sorted(set(re.findall(r\"Citation '([^']+)'\", t))) or 'nenhuma citação indefinida')"
+   #+end_src
+
    Ao contrário do comando =Tex-clean= no Emacs, este deixa alguns arquivos para
    trás:
 
@@ -68,6 +76,21 @@
    #+end_src
    # https://tex.stackexchange.com/a/73649/103967
    # https://tex.stackexchange.com/a/305562/103967
+
+** Exportar pelo terminal
+
+   O mesmo export “Body only”, sem abrir o Emacs, útil para quem edita o =.org=
+   fora dele. O =bin/exportar-org.sh= recebe os capítulos e exporta todos numa
+   chamada só do Emacs, com o init do usuário e o =org-ref=:
+
+   #+begin_src fish
+   bin/exportar-org.sh texto/intro.org             # escreve texto/intro.tex
+   bin/exportar-org.sh texto/intro.org texto/cases.org
+   bin/exportar-org.sh -o /tmp/saida texto/*.org   # .tex noutro diretório
+   #+end_src
+
+   O Emacs e o TeX Live ficam no host. De dentro do container (distrobox), o
+   script se chama de novo pelo =distrobox-host-exec=.
 
 * Setup numa máquina nova
 

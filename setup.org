@@ -97,6 +97,8 @@ Em outra distro só muda o gerenciador — os nomes CTAN são os mesmos.
   #+end_src
 
   Exportar *body-only*: =C-c C-e= , =C-b= para ligar "body only", depois =l l=.
+  Pelo terminal, um ou mais capítulos: =bin/exportar-org.sh texto/intro.org=
+  (=readme.org=, "Exportar pelo terminal").
   Os =texto/*.tex= são fragmentos que o =tcc.tex= puxa com =\input=; uma
   exportação normal escreveria um documento completo, com preâmbulo próprio, e
   a compilação quebraria.
