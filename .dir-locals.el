@@ -1,4 +1,6 @@
 ((nil . ((ispell-local-dictionary . "pt_BR")
          (org-export-headline-levels . 5)
          (org-latex-caption-above . (image src-block table))
-         (org-latex-src-block-backend . minted))))
+         (org-latex-src-block-backend . minted)
+         (org-ref-cite-insert-version . 2)))
+ ("texto" . ((org-mode . ((bibtex-completion-bibliography . ("../refs.bib")))))))
