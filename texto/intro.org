@@ -27,29 +27,43 @@ concluiu que a lógica de coordenação de eventos consistia em um terço do
 código, além de conter metade dos /bugs/ reportados durante o ciclo de vida do
 produto cite:jarvi2008.
 
-Uma alternativa é a /programação reativa (PR)/, recentemente proposta como
-solução apropriada para sistemas orientados a eventos, como interfaces gráficas,
-jogos digitais, robôs, e servidores web cite:salvaneschi2015,bainomugisha2013.
-Conceitos de PR permitem descrever um programa como um fluxo de dados, que o
-ambiente de execução converte em um grafo direcionado, e pode manter os dados
-atualizados automaticamente.
-Esse comportamento pode ser observado em aplicações de planilha eletrônica, como
-/Google Sheets/ e /Microsoft Excel/, “possivelmente a linguagem de programação
-mais utilizada por usuários finais”, como é notado por
-[[textcite:bainomugisha2013][p. 2; tradução nossa]].
-Os paradigmas de PR e /programação funcional/ (PF) compartilham vários conceitos
-declarativos, e são considerados mais simples de se programar que os imperativos
-cite:blackheath2016,bainomugisha2013.
-Um experimento controlado investigou a compreensibilidade de programação entre
-a PR e o /Observer Pattern/.
-Os resultados confirmaram que a PR facilita a compreensão de programas em
-comparação à abordagem tradicional: o grupo que usou PR teve desempenho
-significativamente melhor cite:salvaneschi2014.
+Uma alternativa é a /programação reativa/ (PR), proposta para aplicações
+orientadas a eventos cite:bainomugisha2013 e aplicada a interfaces gráficas,
+animações, aplicações web, robótica e redes de sensores cite:salvaneschi2017.
+Na PR, o programador declara as relações entre os valores, e o ambiente de
+execução faz todas as atualizações que elas exigem cite:salvaneschi2017.
+Esse comportamento é o das planilhas eletrônicas, como o /Google Sheets/ e o
+/Microsoft Excel/, “possivelmente a linguagem de programação mais utilizada
+por usuários finais” [[cite:bainomugisha2013][p. 2; tradução nossa]].
+A PR descende da /programação funcional/ (PF): a maior parte da pesquisa na
+área vem do Fran, uma linguagem funcional do fim dos anos 1990
+[[cite:bainomugisha2013][p. 2]].
 
-Visto que POO permeia o ensino de programação cite:vanroy2003, e que a
-utilização inadequada de conceitos imperativos é uma das principais causas de
-complexidade em sistemas modernos[fn:complexity] cite:moseley2006, conceitos
-de programação declarativa podem mitigar problemas enfrentados no
+Argumenta-se há tempos que a PR torna os programas mais fáceis de compreender
+que o /Observer Pattern/, mas faltava evidência empírica
+cite:salvaneschi2017.
+Um experimento controlado comparou a compreensão de programas escritos com PR
+e com o /Observer Pattern/, primeiro com 38 participantes
+cite:salvaneschi2014 e depois com mais 89, num total de 127
+cite:salvaneschi2017.
+Os participantes eram estudantes do quarto ano de Ciência da Computação,
+divididos ao acaso em dois grupos.
+Um grupo leu dez programas em Scala escritos com PR, e o outro, os mesmos
+programas escritos com o /Observer Pattern/.
+Para cada programa, os participantes respondiam a uma pergunta de múltipla
+escolha sobre o comportamento dele.
+O grupo da PR acertou mais, com diferença significativa (médias de 8,13 e 7,05
+acertos em dez), e não levou mais tempo para responder.
+Além disso, no grupo do /Observer Pattern/ os acertos acompanharam o nível de
+habilidade de programação dos participantes, o que não se observou no grupo da
+PR cite:salvaneschi2017.
+
+Para [[textcite:moseley2006][p. 1]], o que mais contribui para a complexidade
+dos sistemas grandes é o tratamento do estado, ao lado do volume de código e
+da preocupação explícita com o fluxo de controle[fn:complexity].
+Eles propõem reduzi-la com uma abordagem baseada em programação funcional e no
+modelo relacional de dados.
+Conceitos de programação declarativa podem, assim, mitigar problemas do
 desenvolvimento de software em larga escala.
 
   Na programação de interfaces gráficas, a coordenação entre evento, estado e
@@ -127,8 +141,9 @@ desenvolvimento de software em larga escala.
 
 * Footnotes
 
-[fn:complexity] textcite:moseley2006 distinguem complexidade /acidental/ e
-/essencial/, aqui nos referimos à primeira.
+[fn:complexity] textcite:moseley2006 distinguem a complexidade essencial,
+própria do problema, da acidental, todo o resto, e sustentam que a maior parte
+da que resta nos sistemas é acidental.
 
 [fn:control_flow] A ordem de execução de um programa também é denominada /fluxo
 de controle/.
