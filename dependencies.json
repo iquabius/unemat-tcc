@@ -77,7 +77,10 @@
       "aspell-pt_BR": { "versao": "20131030.12.0-4.6", "porque": "dicionário pt_BR do .dir-locals.el", "opcional": true }
     },
     "opcional": {
-      "texlive-git-latexdiff": { "versao": "2026.226.1.7.1svn75878-60.2", "porque": "o PDF de diff entre revisões descrito no readme.org", "opcional": true }
+      "texlive-git-latexdiff": { "versao": "2026.226.1.7.1svn75878-60.2", "porque": "o PDF de diff entre revisões descrito no readme.org", "opcional": true },
+      "poppler-tools": { "versao": "26.09.0-1.1", "porque": "pdftotext: ler as fontes e achar a página no PDF do diff (bin/pagina-no-pdf.py; ADR 0018)", "opcional": true },
+      "pdfgrep": { "versao": null, "porque": "buscar um termo nas fontes em PDF (ADR 0018)", "opcional": true, "nota": "ausente no host em 2026-09-29; a sessão do agente usa o do container" },
+      "evince": { "versao": "48.4-2.1", "porque": "mostra e recarrega o PDF do bin/diff-ao-vivo.sh; evince -p abre na página impressa", "opcional": true }
     }
   },
 

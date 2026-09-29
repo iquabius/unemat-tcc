@@ -50,6 +50,14 @@ Em outra distro só muda o gerenciador — os nomes CTAN são os mesmos.
     o aspell só verifica contra um dicionário por vez. O nome combinado precisa
     ser registrado no init com =ispell-hunspell-add-multi-dic=.
 
+  A revisão do texto (ADR 0018) usa mais três, opcionais: =poppler-tools=
+  (=pdftotext=, para ler as fontes e achar a página no PDF do diff),
+  =pdfgrep= e =evince=, que o =bin/diff-ao-vivo.sh= abre e recarrega:
+
+  #+begin_src sh
+  sudo zypper install -y poppler-tools pdfgrep evince
+  #+end_src
+
   Em outra distro, pergunte ao próprio documento o que ele carrega:
 
   #+begin_src sh

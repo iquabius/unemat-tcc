@@ -15,6 +15,7 @@ texto em `texto/*.org` (exportado para `.tex`), a bibliografia em
 | Nota de referência ou histórico que o texto ainda vai absorver | `docs/*.md` | seção abaixo |
 | Convenção de código, pastas ou ambiente | `casos/AGENTS.md` | |
 | Feedback de escrita e revisão bibliográfica | não vai para o repositório | skill `escrita-academica`; o que sobra vira tarefa no `bd` ou nota em `docs/` |
+| Frase nova ou alterada em `texto/*.org` | rascunho em `tmp/`, depois o texto | seção "Texto" abaixo e skill do projeto `revisao-de-texto` (ADR 0018) |
 
 ## Tarefas: Beads (`bd`)
 
@@ -65,6 +66,36 @@ As tarefas vivem no [Beads](https://github.com/gastownhall/beads) (`bd`
   Scotty fica instalado e compilado fora do repositório, em
   `~/.local/share/bead-me-up-scotty` (ou em `$SCOTTY_HOME`), e não entra no
   `package-lock.json` dos casos.
+
+## Texto
+
+Nenhuma frase nova ou alterada entra em `texto/*.org` sem a rodada da skill
+`revisao-de-texto` (ADR 0018): rascunho em `tmp/`, cada afirmação com o
+trecho lido no PDF e a página, `metricas_texto.py` e leitura com as
+referências da `escrita-academica` (Modo 3), aprovo do autor frase a frase,
+a proposta aplicada na árvore com o `bin/diff-ao-vivo.sh` rodando contra
+HEAD e, na resposta, um bloco que abre o Evince na página de cada alteração
+(`bin/pagina-no-pdf.py`). O commit espera o aprovo.
+
+- Decisão de método, rótulo, recorte ou critério é do autor: perguntar,
+  com as alternativas, antes de escrever.
+- O `.tex` sai só da exportação body only do Emacs, no host
+  (`bin/exportar-org.sh`, `readme.org`); compilar e conferir zero citações
+  indefinidas.
+- No `refs.bib`, escapar `%`, `#` e `&` fora de `url` e `doi`, inclusive em
+  `annotation`: sem escape, quebram o `.bbl`.
+- Siglas conferidas contra a primeira definição no capítulo.
+- Preferências do autor: "uma pessoa só", não "uma só pessoa"; nenhum autor
+  citado duas vezes na mesma frase (`[[textcite:chave][p. N]]` imprime
+  "Autor (ano, p. N)"); quem sugeriu uma decisão, como o orientador, fica
+  no ADR e fora do texto; "seguem a mesma especificação"; "sem
+  bibliotecas de formulário", não "bibliotecas auxiliares", por ser mais
+  específico. A metodologia fica no presente por escolha do autor, contra
+  o pretérito que a `escrita-academica` recomenda, até a reunião com o
+  orientador (tcc-y4q, item 6).
+- Sessão que edita texto usa worktree própria; os rascunhos dela ficam no
+  `tmp/` da worktree, e as fontes em PDF, no `tmp/fontes/` do checkout
+  principal.
 
 ## Notas em `docs/`
 
