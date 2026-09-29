@@ -92,6 +92,56 @@
    O Emacs e o TeX Live ficam no host. De dentro do container (distrobox), o
    script se chama de novo pelo =distrobox-host-exec=.
 
+** Acompanhar o diff ao vivo
+
+   O =bin/diff-ao-vivo.sh= mantém um PDF com o =latexdiff= de um commit
+   contra a árvore de trabalho e o refaz a cada mudança em =texto/*.org=,
+   =refs.bib= ou =tcc.tex=: espera 2 s sem mudança, exporta os =.org= que
+   mudaram com o =bin/exportar-org.sh=, gera o diff com
+   =latexdiff --flatten=, compila com o =latexmk= e o Evince recarrega o
+   PDF sozinho. Da edição ao PDF novo, cerca de 9 s (medido em
+   2026-09-28).
+
+   #+begin_src fish
+   bin/diff-ao-vivo.sh            # compara com HEAD: só o que não foi commitado
+   bin/diff-ao-vivo.sh . 7975f81  # compara com um commit: o trabalho inteiro
+   VIEW=none bin/diff-ao-vivo.sh  # sem abrir o Evince
+   #+end_src
+
+   Rode no host, num terminal próprio; Ctrl-C para. De outro terminal, ou do
+   container por =distrobox-host-exec=, pare com
+   =pkill -f '[b]in/diff-ao-vivo.sh'=: os colchetes impedem o padrão de casar
+   com o próprio comando do =pkill=.
+
+   Contra =HEAD=, o PDF sai sem marcas enquanto a árvore não difere do último
+   commit: não há diferença a mostrar. As marcas aparecem na primeira edição
+   salva.
+
+   Tudo fica em =versoes_pdf/ao-vivo/=, fora do git: o PDF =diff-ao-vivo.pdf=,
+   a compilação em =build/= e os logs =emacs.log=, =latexdiff.log= e
+   =latexmk.log=. Os =texto/*.tex= da árvore não são tocados: capítulo cujo
+   =.org= não mudou entra pelo =.tex= da árvore. A compilação roda em =build/=
+   e o PDF só é copiado para =diff-ao-vivo.pdf= quando ela termina sem erro;
+   um =.org= no meio de uma edição ou um =refs.bib= quebrado deixam no Evince
+   o último PDF bom, e a correção recompila sozinha (testado em 2026-09-29).
+   O =--shell-escape= do =minted= vem do =latexmkrc= do usuário; sem ele,
+   acrescente =-pdflatex='pdflatex --shell-escape %O %S'= à linha do =latexmk=
+   no script.
+
+   Para abrir o Evince na página de um trecho, o =bin/pagina-no-pdf.py= acha
+   a página com o =pdftotext= e imprime o comando, pelo número impresso
+   (=evince -p=, o mesmo que aparece no topo da página; o índice físico
+   =-i= fica um à frente, porque a capa não tem número):
+
+   #+begin_src fish
+   bin/pagina-no-pdf.py "duas partes" "as oito DCs"
+   #+end_src
+
+   Use poucas palavras seguidas que o diff não mudou: no PDF do diff, o texto
+   apagado fica intercalado com o novo. O comando impresso roda no host ou no
+   container, onde cai para o =distrobox-host-exec evince=; com a janela já
+   aberta, o Evince só pula para a página.
+
 * Setup numa máquina nova
 
   As dependências externas e o passo a passo estão em [[file:setup.org][setup.org]] e
