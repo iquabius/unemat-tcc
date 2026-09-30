@@ -86,3 +86,8 @@ problema, a justificativa, os objetivos e o método do projeto.
 Pontos de atenção: são 25 implementações na web e 6 no Android, mas a
 análise vai usar um subconjunto (ADR 0004). Conferir no regulamento de TCC
 do curso se mudança de título ou de objetivos exige registro formal.
+
+Errata 2026-09-29: a linha "Tecnologias" da tabela da seção 2 atribui ao
+projeto o RxJS 5 e o xstream, mas o projeto não nomeia biblioteca
+(`seções/método.org`); o RxJS e o xstream entraram no `cases.org` em 2020
+(commits `17fa011` e `6eb671c`).
