@@ -77,6 +77,31 @@ desenvolvimento de software em larga escala.
   Na /reativa fina com signals/, cada /signal/ avisa os valores e trechos da
   tela que dependem dele, e esses são recalculados quando lidos, como no Solid e
   no Angular.
+
+  As pesquisas de uso medem tecnologias, não notações, e por isso o uso de
+  cada notação se afere pelas tecnologias que a adotam.
+  No Stack Overflow Developer Survey 2025, React, jQuery e Angular estão entre
+  as sete tecnologias web mais usadas pelos respondentes, com 44,7%, 23,4% e
+  18,2% cite:stackoverflow2025.
+  O jQuery está ainda em 65,5% dos /sites/ que o W3Techs monitora
+  cite:w3techs2026.
+  Nenhuma das duas listas traz o Solid ou os Web Components.
+  O Solid é usado por 10% dos respondentes do State of JS 2025
+  cite:devographics2026.
+  Por isso, o uso da notação reativa fina se apoia no Angular, que também a
+  adota, embora o número do Angular não separe quem usa /signals/.
+  Da mesma forma, o uso da notação imperativa se apoia no jQuery.
+  O Web Component entra por ser o modelo de componente do próprio navegador,
+  sem biblioteca cite:mozilla2026, e nele a notação é o =addEventListener=
+  cujo /callback/ altera a tela.
+  Essas medidas têm ainda limites de amostra.
+  O Stack Overflow recruta os respondentes sobretudo pelos próprios canais, o
+  que favorece os usuários mais ativos do site cite:stackoverflow2025.
+  O State of JS é aberto a quem quiser responder e se declara o retrato de um
+  subconjunto de desenvolvedores cite:devographics2026.
+  O W3Techs conta uma biblioteca como usada por um /site/ se a achar em
+  qualquer página dele cite:w3techs2026a, o que favorece o jQuery e nada diz
+  das aplicações novas.
   Pergunta-se, então: como as notações mais usadas na prática para programar
   interfaces gráficas, a imperativa com /callbacks/, a declarativa por
   re-renderização e a reativa fina com /signals/, se comparam quanto à

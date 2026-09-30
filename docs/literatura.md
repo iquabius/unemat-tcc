@@ -308,7 +308,7 @@ usaram e querem continuar; *desired*, dos que querem usar.
 | Tecnologia | Uso 2024 | Uso 2025 | *Admired* 2024 → 2025 | *Desired* 2024 → 2025 |
 |---|---|---|---|---|
 | React | 39,5% | 44,7% | 62,2% → 52,1% | 33,4% → 30,7% |
-| jQuery | 21,4% | 23,5% | 35,7% → 31,5% | 9,1% → 9,0% |
+| jQuery | 21,4% | 23,4% | 35,7% → 31,5% | 9,1% → 9,0% |
 | Angular | 17,1% | 18,2% | 53,4% → 44,7% | 13,9% → 12,6% |
 | Vue.js | 15,4% | 17,6% | 60,2% → 51,0% | 16,3% → 15,3% |
 | Svelte | 6,5% | 7,2% | 72,8% → 62,4% | 11,5% → 11,1% |
@@ -416,7 +416,7 @@ tecnologias.
 |---|---|---|---|---|
 | Web Component como a imperativa sem biblioteca | pró | É a plataforma: padrão WHATWG, *baseline* desde 2020-01, cerca de 20% dos carregamentos no Chrome; a classe com *callbacks* de ciclo de vida torna explícito o que a notação imperativa exige (evento → mutação do DOM à mão) | MDN; WHATWG; Chrome Platform Status; Lawson 2023 | fato oficial; contador de uso |
 | | contra | Não aparece nas pesquisas de uso (Lit: 10% no State of JS, ausente no Stack Overflow); "Elements !== Components": o elemento é folha e cola, não modelo de aplicação; a categoria "DOM puro" já existiria sem a classe | Carniato 2024; Harris 2019; Verou 2024; State of JS 2025 | opinião de partes interessadas; número |
-| jQuery como a imperativa reconhecível | pró | Terceira mais usada no Stack Overflow 2025 (23,5%), 65,6% dos *sites*; 4.0.0 em 2026-01, mantida; a API (`.on`, `.html`, `.val`) é a forma canônica de evento → *callback* → DOM | SO 2025; W3Techs 2026-09-26; Willison 2026 | número; fato |
+| jQuery como a imperativa reconhecível | pró | Terceira mais usada no Stack Overflow 2025 (23,4%), 65,6% dos *sites*; 4.0.0 em 2026-01, mantida; a API (`.on`, `.html`, `.val`) é a forma canônica de evento → *callback* → DOM | SO 2025; W3Techs 2026-09-26; Willison 2026 | número; fato |
 | | contra | A menos admirada (31,5%) e a menos desejada (9,0%) da tabela; uso medido em *sites* legados, não em aplicações novas; sem linha no js-framework-benchmark; leitores podem tomá-la como "espantalho" do imperativo | SO 2025; Bhattacharyea 2025; Krause | número; opinião |
 | React como a declarativa por re-renderização | pró | A mais usada em todas as medidas (44,7% SO; 85% State of JS; 204 M downloads por semana); modelo *pull* declarado na própria documentação; o compilador não muda o modelo, o que mantém a notação estável para o texto | SO 2025; State of JS 2025; npm; *Design Principles*; React Compiler 1.0 | número; fato oficial |
 | | contra | *Admired* caiu de 62,2% para 52,1% e a retenção de 75% para 72%; a página que diz "pull" é legada e sem data; a posição da equipe sobre *signals* é um comentário de Abramov, não documento | SO 2024 e 2025; State of JS; Abramov 2023 | número; lacuna de fonte |
