@@ -278,15 +278,98 @@ desenvolvimento de software em larga escala.
   As versões de linguagens, bibliotecas e ferramentas ficam
   fixadas[fn:versoes], para que as implementações possam ser reproduzidas.
 
-  A fim de contrastar as vantagens e desvantagens de cada conceito, a linguagem de
-  programação em cada caso é analisada através de um conjunto de critérios
-  padronizados, chamados de /Dimensões Cognitivas de Notações/ (DCs), do inglês
-  /Cognitive Dimensions of Notations/ cite:green1989.
-  Criadas para analisar a usabilidade de ‘artefatos de
-  informação’[fn:infoArtifactis], essas DCs já foram usadas para investigar API
-  — /Application Programming Interface/ cite:clarke2003, recursos de linguagens
-  de programação cite:sadowski2011, e paradigmas de programação cite:kiss2014.
-  # linguagem de especificação cite:kutar2000
+  A comparação usa as /Dimensões Cognitivas de Notações/ (DCs), do inglês
+  /Cognitive Dimensions of Notations/ cite:green1989, um vocabulário para
+  discutir a usabilidade de artefatos de informação[fn:infoArtifactis].
+  textcite:blackwell2003 as chamam de ferramentas de discussão, para quem
+  projeta ou avalia esses artefatos, e não de método analítico.
+  As DCs já foram usadas para avaliar APIs (/Application Programming
+  Interfaces/) cite:clarke2003, recursos de linguagens de programação
+  cite:sadowski2011 e paradigmas de programação de interfaces gráficas
+  cite:kiss2014.
+  O trabalho usa oito das catorze dimensões.
+  Seis são as que [[textcite:kiss2014][p. 12-14]] usou: nível de
+  abstração, proximidade de descrição, dependências ocultas, propensão a
+  erros, concisão e viscosidade.
+  As outras duas, expressividade e operações mentais difíceis, vêm do
+  grupo que ele deixou de fora e que, a seu ver, teria sido útil se as
+  linguagens e os /toolkits/ comparados fossem muito mais diferentes
+  [[cite:kiss2014][p. 15]].
+  Na comparação principal dele, o ScalaFX envolve o próprio JavaFX, e o
+  Scala foi escolhido por ser sintaticamente próximo do Java
+  [[cite:kiss2014][p. 11-12]].
+  Aqui, as tecnologias diferem no /toolkit/ e na forma de escrever a
+  coordenação.
+  E, ao avaliar bibliotecas reativas, ele próprio descreve o esforço
+  mental de cada uma sem uma dimensão para isso
+  [[cite:kiss2014][p. 87 e 97]].
+
+  As duas tratam da leitura do código.
+  A expressividade é a facilidade de reconhecer o propósito de cada
+  trecho, e as operações mentais difíceis obrigam quem lê a contar nos
+  dedos ou anotar à parte para acompanhar o que acontece cite:green1996d.
+  Numa comparação entre uma notação declarativa e uma imperativa para
+  construir interfaces gráficas, as duas estiveram entre as dimensões que
+  mais pesaram na compreensão dos programadores cite:mernik2009.
+
+  As outras três do grupo ficam de fora.
+  O compromisso prematuro nasce da ordem em que o ambiente obriga a
+  construir o programa, e o código pronto não guarda essa ordem
+  cite:green1996d.
+  A consistência mede o quanto quem aprende consegue adivinhar da notação,
+  e só se avalia por introspecção cite:green1996d.
+  Já a notação secundária (comentários, indentação e nomes) depende
+  sobretudo do estilo de quem escreve cite:green1996d, e aqui um autor só
+  escreve todas as implementações.
+  Ficam de fora, como em [[textcite:kiss2014][p. 15]], as dimensões que
+  tratam das ferramentas e do processo de escrita, como a visibilidade, a
+  análise progressiva e a provisoriedade, porque o objeto da análise é o
+  código pronto.
+
+  A análise abre com uma tabela-síntese, com uma linha por DC e uma coluna
+  por notação.
+  Cada célula traz um juízo curto e o caso de que vem a evidência.
+  Quando o Solid e o Angular com /signals/ divergem numa DC, a célula o
+  registra.
+  Segue uma seção por DC, com os trechos de um caso escolhido antes da
+  análise pelo problema de coordenação que a dimensão mais toca.
+  A seção cita os outros casos quando contradizem o escolhido, e a tabela
+  diz "sem diferença" quando nenhum caso mostra uma.
+  Nas seções em que o Formulário ou a Lista mostram diferença entre Views e
+  Compose, a replicação diz se a conclusão da web se repete no Android.
+  A concisão tem ainda o apoio de uma contagem das linhas de cada
+  implementação, com a marcação da tela, esteja ela no código-fonte ou no
+  arquivo HTML da página, e sem linhas vazias, comentários, domínio e
+  estilo.
+
+  O desenho tem limitações.
+  Um avaliador só, o autor, aplica as DCs, sem outro que confira o juízo
+  em cada dimensão.
+  Em métodos de inspeção, avaliadores diferentes acham problemas bem
+  diferentes na mesma interface cite:hertzum2003, e quem avalia o que
+  escreveu pode trazer um viés implícito cite:ledo2018.
+  O autor também escreve todas as implementações, e a familiaridade
+  desigual com as tecnologias, maior com o React, pode favorecer uma
+  notação.
+  O trabalho escolheu as oito DCs antes da análise, e usar um subconjunto
+  pode deixar de fora propriedades importantes da notação cite:britton2001.
+  A exclusão mais discutível é a do compromisso prematuro, que também
+  aparece na própria notação, quando um trecho escrito numa construção
+  pede outra e mudar custa caro cite:green1996d.
+
+  Os casos são pequenos, e o que só aparece em programas grandes ou ao
+  longo da manutenção fica de fora.
+  O autor criou os casos para este trabalho, três deles a partir do 7GUIs.
+  Um conjunto de tarefas criado por um pesquisador só e pouco usado tende
+  a ter menos impacto que um adotado por uma comunidade cite:sim2003.
+  A avaliação também não mede o desempenho de programadores, como fez o
+  experimento de textcite:salvaneschi2017, nem o das implementações, como
+  o tempo de atualização da tela ou o uso de memória.
+  Por fim, a comparação entre Solid e Angular não isola só a notação da
+  estrutura da tela.
+  O Angular escreve o componente como classe, com decorador e injeção de
+  dependências, e a análise precisa separar o que vem do /template/ do que
+  vem desse modelo de componente.
 
 * Footnotes
 
@@ -304,9 +387,10 @@ de controle/.
 linguagens orientadas a objetos, e /callback/ às vezes é chamado de /event
 handler/, /event listener/ ou /observer/, mas em essência o conceito é o mesmo.
 
-[fn:infoArtifactis] Geralmente sistemas de software, especialmente linguagens de
-programação. Mais informações podem ser encontradas no site
-http://www.cl.cam.ac.uk/~afb21/CognitiveDimensions/.
+[fn:infoArtifactis] As DCs se aplicam a todo tipo de artefato de informação,
+mas ganharam destaque nas linguagens e nos ambientes de programação visual
+cite:blackwell2003. Mais informações em
+https://www.cl.cam.ac.uk/~afb21/CognitiveDimensions/ (acesso em 28 set. 2026).
 
 [fn:kotlin] O Kotlin é a linguagem que a documentação do Android recomenda
 desde 2019, e o compilador do Compose é um /plugin/ do compilador Kotlin. Ver
