@@ -143,33 +143,140 @@ desenvolvimento de software em larga escala.
   investigação de fenômenos (culturais, sociais, técnicos, históricos, etc.)
   pouco sistematizados e/ou passíveis de várias perspectivas de interpretação.”
   [[cite:leal2011][p. 32]].
-  Quanto aos meios empregados este trabalho constitui um /estudo de casos
-  múltiplos/:
 
-  #+BEGIN_EXPORT latex
-  \begin{citacao}
-    O estudo de casos múltiplos – denominado, em algumas áreas, como
-    administração pública e ciência política, de método de caso comparativo – é
-    preferido quando há possibilidade de comparar semelhanças e de contrastar
-    diferenças entre os casos selecionados. \cite[p. 43]{leal2011}
-  \end{citacao}
-  #+END_EXPORT
+  Quanto aos meios, o trabalho é uma avaliação qualitativa, pelas Dimensões
+  Cognitivas, de implementações de um mesmo conjunto de tarefas.
+  O conjunto de tarefas segue a ideia de /benchmark/: testes que representam
+  as tarefas da prática e servem para comparar técnicas alternativas
+  cite:sim2003.
+  Aqui, as técnicas são as três notações, e as tarefas, cinco casos de
+  interface.
+  [[textcite:kiss2014][p. 11]] compara assim programação orientada a objetos
+  e funcional em interfaces gráficas, pela usabilidade do código, e não por
+  tempo de execução e memória, como num /benchmark/ tradicional.
+  A avaliação cabe ao autor, que examina o código das implementações critério
+  a critério, sem participantes.
+  [[textcite:kitchenham1996][p. 12]] chama de análise de características
+  (/feature analysis/) esse juízo subjetivo de como cada alternativa atende a
+  um conjunto de critérios.
+  Feita por uma pessoa só, ela é uma triagem, que em geral se apoia no que se
+  escreveu sobre as alternativas, e não no uso delas
+  [[cite:kitchenham1996][p. 15]].
+  O avaliador deste trabalho usa as notações, porque é ele quem implementa os
+  casos.
+  [[textcite:kiss2014][p. 8]] chama essa via de abordagem analítica e a adota
+  como alternativa aos experimentos com programadores, muitas vezes caros e de
+  resultados necessariamente restritos.
 
-  textcite:yin2001 salienta que pesquisas desse tipo envolvem o estudo profundo
-  e minucioso de um ou mais casos, que neste trabalho são programas concretos
-  implementados para demonstrar os conceitos de programação.
-  A linguagem /JavaScript/ é usada na implementação dos casos.
-  Essa escolha é resguardada pelo fato de que, além de ser a língua franca da
-  web, ela tem suporte para os paradigmas estudados.
+  O trabalho não é um estudo de caso.
+  As definições que [[textcite:runeson2009][p. 134]] reúnem pedem um fenômeno
+  contemporâneo observado no seu contexto real, e os estudos com programas de
+  exemplo ficam de fora por não terem esse contexto
+  [[cite:runeson2009][p. 139]].
+  Neste trabalho, ao contrário, o autor escreve todas as implementações e
+  decide o que muda de uma para outra.
+  O que se compara, então, é a notação: cada implementação mostra como se
+  escreve, numa notação, a coordenação entre evento, estado e tela.
+  As Dimensões Cognitivas admitem várias notações num mesmo sistema
+  [[cite:blackwell2001][p. N]], e o código de uma interface tem pelo menos duas.
+  A /notação de coordenação/ é a parte do código que escreve essa coordenação
+  (onde vive o estado, como se declara um valor derivado, quem atualiza a
+  tela).
+  A /notação da estrutura da tela/ escreve quais elementos a tela tem, em que
+  hierarquia e com que textos, como o HTML ou o JSX.
+  O JSX é uma extensão do JavaScript que escreve marcação parecida com HTML
+  dentro do código cite:meta2026c.
+  Quando o texto diz só notação, é a de coordenação.
+  Ela inclui os sinais de coordenação escritos dentro da estrutura da tela,
+  como a leitura de um /signal/ no JSX.
 
-  Primeiro, o paradigma de PF é demonstrado com a implementação de programas
-  para /processamento de listas/.
-  Isso fundamenta diferenças essenciais entre conceitos declarativos e
-  imperativos.
-  Em seguida, conceitos de PR e o /callback/ são demonstrados na /coordenação
-  de eventos/ em interfaces gráficas.
-  Essa segunda parte esclarece conceitos declarativos do paradigma de PR e o
-  tradicional /callback/, imperativo.
+  Os cinco casos exercitam cinco /problemas de coordenação/, isto é, cinco
+  exigências que a interface faz à notação.
+  O Contador exercita o caminho mais simples, do evento ao estado e à tela, e o
+  Formulário com validação, o estado derivado e os campos que dependem uns dos
+  outros.
+  A Busca com sugestões exercita a assincronia (espera, respostas fora de
+  ordem e cancelamento).
+  A Lista filtrável exercita a lista derivada por busca, filtro e ordenação,
+  e o Carrinho, o estado compartilhado entre componentes.
+  Três casos partem do 7GUIs, as sete tarefas de interface propostas na
+  dissertação de textcite:kiss2014.
+  O Contador é a tarefa /Counter/, e o Formulário amplia a /Flight Booker/
+  com os campos de um formulário real [[cite:kiss2014][p. 17 e 25]].
+  A Lista toma o filtro por prefixo da tarefa /CRUD/
+  [[cite:kiss2014][p. 34]].
+  A Busca e o Carrinho não têm tarefa equivalente.
+  O /Timer/ trata da concorrência entre um relógio e o usuário, mas nenhuma
+  das sete tarefas faz uma requisição cujas respostas chegam fora de ordem ou
+  são canceladas [[cite:kiss2014][p. 30]].
+  E nenhuma põe três componentes independentes para ler e alterar o mesmo
+  estado, como os do Carrinho.
+
+  Na web, os casos são implementados em /TypeScript/, que acrescenta ao
+  JavaScript uma sintaxe de tipos cite:microsoft2026.
+  O Angular exige TypeScript cite:google2026b, e as demais tecnologias também
+  o usam, para que a linguagem seja a mesma em todas as implementações e a
+  diferença entre elas fique só na notação.
+
+  O trabalho se divide em duas partes.
+  Na primeira, programas de /processamento de listas/ demonstram conceitos
+  de PF, como descrever o resultado de uma transformação em vez dos passos
+  do laço que a executa.
+  As duas notações declarativas aplicam essa ideia à tela, que o código
+  descreve em função do estado cite:meta2026a.
+  Na segunda, os cinco casos são implementados nas três notações e
+  comparados.
+
+  Na web, o desenho tem duas comparações controladas, entre pares de
+  tecnologias escolhidos para diferir num ponto só.
+  React e Solid escrevem a estrutura da tela no mesmo JSX e diferem na
+  notação de coordenação.
+  No React, um valor derivado é uma expressão comum, recalculada a cada
+  execução do componente cite:meta2026b.
+  No Solid, é uma função que lê o /signal/ cite:solidjs2026a.
+  Solid e Angular com /signals/ são a mesma notação: os dois guardam o
+  estado em /signals/ e derivam valores de outros /signals/
+  cite:solidjs2026a,google2026.
+  Diferem na notação da estrutura da tela, que o Solid escreve em JSX dentro
+  de uma função, e o Angular num /template/ em HTML cite:google2026a, ligado a
+  um componente escrito como classe.
+  A notação imperativa entra com duas tecnologias, o Web Component, só com a
+  API do navegador, e o jQuery, uma biblioteca.
+
+  No Android, o Formulário e a Lista formam uma /replicação/, que confere se
+  as conclusões tiradas na web se repetem em outra plataforma e outra
+  linguagem.
+  As Views ficam na notação imperativa, e o Compose, na declarativa por
+  re-renderização, porque chama de novo as funções da tela quando o estado
+  muda cite:android2026.
+  A replicação fica, assim, entre essas duas notações.
+  As duas variantes são escritas em Kotlin, a linguagem que o Android
+  recomenda e a única em que o Compose se escreve[fn:kotlin], para que ali
+  também a diferença fique só na notação.
+  O Contador também é implementado no Android, como introdução à sintaxe,
+  sem análise própria.
+
+  Para que as diferenças entre as implementações venham da notação, o
+  desenho controla o resto.
+  Todas as implementações de um caso seguem a mesma especificação, com os
+  mesmos textos, regras e dados.
+  Cada uma usa só o que a própria tecnologia traz, sem bibliotecas de
+  formulário.
+  As regras que não dependem da interface, como o formato das datas, a
+  validação do e-mail e o catálogo de produtos, ficam num /domínio/ comum
+  às implementações web, portado para Kotlin no Android.
+  O porte responde diferente em entradas-limite, como anos de 0 a 99, e
+  cada diferença conhecida fica registrada num teste.
+
+  Um /roteiro/ de teste por caso executa as verificações da especificação
+  contra cada implementação.
+  /Capturas/ de tela de cada estado previsto da interface, geradas
+  automaticamente, denunciam desvios de comportamento ou de aparência,
+  porque devem sair idênticas entre as tecnologias web.
+  Entre Views e Compose, a única diferença admitida é a de poucos pixels na
+  renderização do texto.
+  As versões de linguagens, bibliotecas e ferramentas ficam
+  fixadas[fn:versoes], para que as implementações possam ser reproduzidas.
 
   A fim de contrastar as vantagens e desvantagens de cada conceito, a linguagem de
   programação em cada caso é analisada através de um conjunto de critérios
@@ -200,4 +307,15 @@ handler/, /event listener/ ou /observer/, mas em essência o conceito é o mesmo
 [fn:infoArtifactis] Geralmente sistemas de software, especialmente linguagens de
 programação. Mais informações podem ser encontradas no site
 http://www.cl.cam.ac.uk/~afb21/CognitiveDimensions/.
+
+[fn:kotlin] O Kotlin é a linguagem que a documentação do Android recomenda
+desde 2019, e o compilador do Compose é um /plugin/ do compilador Kotlin. Ver
+https://developer.android.com/kotlin/first, acesso em 22 set. 2026.
+
+[fn:versoes] Fixadas no =package-lock.json= e no =libs.versions.toml= do
+repositório: na web, TypeScript 6.0.3, jQuery 4.0.0, React 19.3.0, Solid
+1.9.15 e Angular 22.2.0, com Vite 8.3.1 para o /build/ (no Angular, o
+=@angular/build= 22.2.0) e Playwright 1.63.0 para as capturas; no Android,
+Kotlin 2.4.20, Jetpack Compose pela BOM 2026.09.00 e, para as capturas,
+Robolectric 4.17 com Roborazzi 1.75.0.
 
