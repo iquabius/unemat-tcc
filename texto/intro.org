@@ -67,16 +67,33 @@ Conceitos de programação declarativa podem, assim, mitigar problemas do
 desenvolvimento de software em larga escala.
 
   Na programação de interfaces gráficas, a coordenação entre evento, estado e
-  tela se escreve hoje em três notações, e duas delas são declarativas.
+  tela se escreve, nas tecnologias mais usadas, em três notações, e duas delas
+  são declarativas.
   Na /imperativa com callbacks/, cada /callback/ altera o estado e a tela
-  diretamente, como no jQuery e nos Web Components sem biblioteca.
+  diretamente, como no jQuery cite:openjs2026 e nos Web Components sem
+  biblioteca cite:mozilla2026.
   Nas declarativas, o programador descreve a tela em função do estado, e o
-  ambiente de execução a mantém atualizada.
+  ambiente de execução a mantém atualizada cite:meta2026a.
   Na /declarativa por re-renderização/, cada mudança de estado reexecuta o
-  componente, como no React.
+  componente, como no React cite:meta2026.
   Na /reativa fina com signals/, cada /signal/ avisa os valores e trechos da
-  tela que dependem dele, e esses são recalculados quando lidos, como no Solid e
-  no Angular.
+  tela que dependem dele, e só esses são recalculados, como no Solid e no
+  Angular com /signals/ cite:solidjs2026,google2026.
+  A notação reativa fina aplica conceitos da PR, como os valores que variam no
+  tempo, chamados /signals/, e a propagação automática de alterações
+  cite:salvaneschi2015.
+
+  Cada tecnologia fica na notação em que escreve a maior parte da
+  coordenação, mas a classificação não é exclusiva.
+  Em quase todo problema, cada parte pede o seu conjunto de conceitos
+  [[cite:roy2009][p. 10]], e as implementações deste trabalho também os
+  misturam.
+  O jQuery e o Web Component derivam a Lista filtrável com =filter=, =sort= e
+  =map=, funções de PF.
+  E o React e o Solid recorrem a efeitos para sincronizar o componente com
+  sistemas externos, como o armazenamento do navegador no Carrinho.
+  A documentação do React chama os efeitos de “uma saída de emergência do
+  paradigma do React” [[cite:meta2026d][tradução nossa]].
 
   As pesquisas de uso medem tecnologias, não notações, e por isso o uso de
   cada notação se afere pelas tecnologias que a adotam.
