@@ -503,3 +503,133 @@ vídeo publicado em 2019-04-22 (36 min). Não verificados: o número de
 respondentes da pergunta de *frameworks* no Stack Overflow 2024 e 2025
 (as páginas não o exibem; só nos dados brutos); os *tweets* de Abramov
 sobre *signals* (sem URL registrada; o X exige conta).
+
+## 9. O método da comparação: avaliação qualitativa de um conjunto de tarefas, não estudo de caso (fontes lidas em 2026-09-28)
+
+Conclusão (revista em 2026-09-28): quanto aos meios, o trabalho é uma
+avaliação qualitativa, pelas Dimensões Cognitivas, de implementações de um
+mesmo conjunto de tarefas, e não um estudo de caso. "*Benchmark*" só
+explica o conjunto de tarefas (Sim, Easterbrook e Holt 2003; Kiss 2014):
+fora de Sim et al., benchmark é medida objetiva (Tichy 2014; Silva-Junior et
+al. 2023; DESMET), e a avaliação de um só avaliador, critério a critério, é
+a *feature analysis* da DESMET (Kitchenham 1996). Runeson e Höst (2009)
+sustentam por que não é estudo de caso, no lugar de `yin2001`. As fontes
+foram lidas no texto completo, salvo onde a tabela diz outra coisa. Em
+2026-09-29, `sim2003`, `runeson2009` e `kitchenham1996` estão no `refs.bib`
+e na intro.org; as demais, não.
+Cópias locais em `tmp/fontes/`, fora do git.
+
+| Fonte | O que sustenta | Onde |
+|---|---|---|
+| SIM, S. E.; EASTERBROOK, S.; HOLT, R. C. *Using benchmarking to advance research: a challenge to software engineering*. ICSE 2003, p. 74-83. DOI 10.1109/icse.2003.1201189 | *Benchmark* é "um teste ou conjunto de testes usado para comparar o desempenho de ferramentas ou técnicas alternativas", com três componentes: comparação motivadora, amostra de tarefas ("representativa" das tarefas da prática, como substitutas) e medidas de desempenho, que "podem ser quantitativas ou qualitativas", feitas "por um computador ou por uma pessoa". Um conjunto de testes sem medida de desempenho é um proto-*benchmark*, às vezes chamado de "estudos de caso ou exemplares" | §3.2; a cópia do autor (cs.toronto.edu) e a do ResearchGate são o mesmo arquivo, sem a paginação dos anais (p. 74-83), que continua a conferir |
+| idem | **Ressalva a declarar nas limitações:** a teoria trata de *benchmarks* criados e usados por uma comunidade de pesquisa; os "criados por um único indivíduo ou laboratório e pouco usados" tendem a não ter o mesmo impacto. Os cinco casos do TCC são de um só autor; três partem do 7GUIs, que tem implementações de terceiros, e dois não | §3.1 |
+| STOL, K.-J.; FITZGERALD, B. *The ABC of software engineering research*. ACM TOSEM, v. 27, n. 3, art. 11, 2018. DOI 10.1145/3241743 | Estudos de *benchmarking* que comparam técnicas por critérios predefinidos pertencem à estratégia de experimento de laboratório, porque o pesquisador monta um ambiente artificial (*contrived*); limitações inerentes: contexto abstrato ou irreal e validade interna à custa da externa. Serve para enquadrar o desenho e as limitações, não como rótulo: os autores pensam em dados quantitativos | p. 11:15 e Tabela 5, p. 11:13-14 (versão publicada; na aceita, p. 1:13 e 1:15-16) |
+| RUNESON, P.; HÖST, M. *Guidelines for conducting and reporting case study research in software engineering*. Empirical Software Engineering, v. 14, n. 2, 2009. DOI 10.1007/s10664-008-9102-8 | As definições de estudo de caso que reúnem (Robson, Yin, Benbasat et al.) concordam em método empírico sobre fenômeno contemporâneo no seu contexto; estudos com "*toy programs*" ficam excluídos "por falta de contexto real" | p. 134 (§2.1) e p. 139 |
+| KITCHENHAM, B. A. *Evaluating software engineering methods and tool, part 1: the evaluation context and evaluation methods*. ACM SIGSOFT Software Engineering Notes, v. 21, n. 1, p. 11-15, 1996. DOI 10.1145/381790.381795 | Na DESMET, toda avaliação é comparativa (p. 11). *Benchmarking* é rodar testes padronizados com ferramentas alternativas e medir o desempenho relativo; a escolha dos testes é subjetiva, as medidas costumam ser objetivas, e é mais útil quando a ferramenta "não exige perícia humana" (p. 14). Por esse critério, o TCC não é *benchmarking*. A avaliação qualitativa ou subjetiva (p. 12), característica por característica, é a *feature analysis*, que "pode ser feita por uma única pessoa" (p. 14); nessa forma é a triagem (*qualitative screening*): um só indivíduo escolhe as características e a escala e avalia, em geral com base na literatura sobre as ferramentas, e não no uso delas (p. 15). O TCC fica entre a triagem e o estudo de caso qualitativo, feito após o uso num projeto real (p. 15): o avaliador usa as notações, mas em casos pequenos | p. 11, 12, 14 e 15; partes 2 e 3 (v. 21, n. 2 e n. 4) tratam da escolha do método |
+| TICHY, W. F. *Where's the science in software engineering?* Ubiquity, mar. 2014. DOI 10.1145/2590528.2590529 | *Benchmarks* "consistem de um ou mais problemas de amostra com uma métrica de sucesso" e podem ser testados "sem exigir participantes humanos" (p. 5): sentido objetivo, como a DESMET | p. 5 |
+| SILVA-JUNIOR, D. et al. *A systematic mapping of the proposition of benchmarks in the software testing and debugging domain*. Software (MDPI), v. 2, n. 4, p. 447-475, 2023. DOI 10.3390/software2040021 | *Benchmark* como grupo de programas para comparar técnicas "*according to pre-established parameters*" (p. 447); cita a definição do IBM Dictionary of Computing, ponto de referência para aplicar medidas (p. 450). Sentido objetivo | p. 447 e 450 |
+| CHARPENTIER, A. et al. *Raters' reliability in clone benchmarks construction*. Empirical Software Engineering, v. 22, n. 1, p. 235-258, 2017. DOI 10.1007/s10664-015-9419-z | *Benchmark* construído com julgamento humano: avaliadores sem conhecimento do código raramente concordam entre si e com o especialista, e seus juízos nem sempre se repetem (resumo). Sustenta a limitação do juízo de uma pessoa, não o rótulo | resumo (manuscrito do HAL, sem a paginação publicada) |
+| DE SOUZA, C. S. et al. *Can inspection methods generate valid new knowledge in HCI?* International Journal of Human-Computer Studies, v. 68, p. 22-40, 2010. DOI 10.1016/j.ijhcs.2009.08.006 | Métodos de inspeção podem gerar conhecimento científico válido, sob condições (p. 22); a inspeção pode ser feita por um inspetor ou por um grupo, e a validação é por triangulação (p. 26); resultados qualitativos não se generalizam, mas a triangulação os torna amplamente aplicáveis (p. 38). Sustenta a triangulação como mitigação do avaliador único (tcc-y4q, item 2) | p. 22, 26 e 38 |
+| BLACKWELL, A.; GREEN, T. (2003), `blackwell2003` | O arcabouço das DCs "*is not an analytic method*", e sim um conjunto de "*discussion tools*"; oferece avaliação *broad-brush* | p. 3 da cópia; conferir no capítulo (p. 103-133) |
+| GREEN, T. R. G.; PETRE, M. (1996), JVLC 7, p. 131-174. DOI 10.1006/jvlc.1996.0009 | As DCs são uma "*broad-brush evaluation technique*"; precedente do desenho (seção 10.2) | p. 3 da pré-publicação; conferir na publicada |
+| KISS, E. *Comparison of object-oriented and functional programming for GUI development*. Dissertação (mestrado), Leibniz Universität Hannover, 2014 (`kiss2014`) | Chama o método de "abordagem analítica" pelas DCs, em oposição a experimentos, "caros" e de resultado "estreito" (p. 8); compara implementações pela usabilidade do código, e não por tempo e memória, como num *benchmark* tradicional (p. 11) | p. 8 e 11; o PDF saiu do ar e está no Wayback Machine (captura de 2018-05-06) |
+
+### 9.1 O 7GUIs e os casos
+
+- O 7GUIs saiu da dissertação (eugenkiss.github.io/7guis, página *More*,
+  2026-09-28); na dissertação, as sete tarefas são os *case studies* do
+  capítulo 3, escolhidos para refletir desafios "fundamentais" da
+  programação de interfaces, simples e baseados em exemplos existentes
+  (p. 11).
+- Contador = *Counter* (§3.3, p. 17); Formulário parte do *Flight Booker*
+  (§3.5, p. 25); a Lista toma o filtro por prefixo do *CRUD* (§3.7, p. 34).
+- Assincronia: o *Timer* (§3.6, p. 30) trata de concorrência entre o
+  relógio e o usuário; nenhuma tarefa tem requisição com respostas fora de
+  ordem e cancelamento, como a Busca.
+- Estado compartilhado: o *Cells* (§3.9, p. 49) propaga mudanças entre
+  células; nenhuma tarefa divide o estado entre componentes separados da
+  tela, como o Carrinho.
+
+### 9.2 As DCs de Kiss e as oito do TCC
+
+As seis DCs de `cases.org` são o subconjunto de Kiss (p. 12-14). Ele deixou
+de fora compromisso prematuro, expressividade, consistência, operações
+mentais difíceis e notação secundária, que "provavelmente teriam sido
+úteis" se as linguagens e os *toolkits* fossem "muito mais diferentes"; e
+visibilidade, análise progressiva e provisoriedade, que serviriam se o foco
+fosse o processo e as ferramentas (p. 15). Na comparação principal dele, o
+ScalaFX "is a wrapper around JavaFX", escolhido para que a comparação não
+fosse "dominated by unimportant toolkit differences" (p. 11), e o Scala é
+"syntactically not too distant from Java" (p. 12). Errata 2026-09-29: esta
+seção dizia que "as notações do TCC diferem mais que JavaFX e ScalaFX", sem
+fonte; a razão das duas DCs a mais está na seção 11. O texto de `cases.org` sobre as dimensões é
+tradução de Kiss (p. 12-15) sem atribuição impressa, só num comentário
+Org.
+
+## 10. Trabalhos relacionados: candidatos (levantados em 2026-09-28)
+
+Lista para a seção de trabalhos relacionados ou para a fundamentação, que
+ainda não existe no texto (tcc-n73z faz a busca; a tarefa de escrita aponta
+para esta seção). Nenhum trabalho encontrado repete o desenho do TCC (mesmas
+tarefas de interface, várias tecnologias, avaliação pelas DCs); os mais
+próximos estão na primeira tabela. "Lido" diz quem leu e quanto: TC é texto
+completo, R é só o resumo; "subagente" quer dizer que o autor ainda não
+conferiu no PDF.
+
+### 10.1 Brasileiros
+
+| Trabalho | O que compara e como | Rótulo do método | Lido |
+|---|---|---|---|
+| CAVALCANTE, G. S. *Uma análise comparativa de frameworks de desenvolvimento web*. TCC (Ciência da Computação), UFC, Quixadá, 2025. repositorio.ufc.br/bitstream/riufc/83076/1/2025_tcc_gscavalcante.pdf | React, Angular e Vue numa mesma aplicação de lista de tarefas, por um só desenvolvedor; curva de aprendizado (anotações do autor) e desempenho (renderização, memória, CPU); sem DCs | "análise comparativa", "abordagem híbrida (técnica e qualitativa)", sem fonte metodológica | TC (subagente); título, resumo e sumário conferidos |
+| HOFFMANN, S.; PINTO, L. A.; URIARTE, L. R. *Análise comparativa entre as tecnologias de front-end React, Angular e Vue*. IFC, Blumenau, 2023 (veículo a identificar; Cavalcante cita como Pinto, Hoffmann e Uriarte) | Popularidade (downloads no npm, questionário) e desempenho; sem implementação comum analisada pelo código | "análise comparativa" | R (conferido no PDF) |
+| XAVIER, R. D. *Paradigmas de desenvolvimento de software: comparação entre abordagens orientada a eventos e orientada a notificações*. Dissertação (Mestrado), UTFPR, 2014. repositorio.utfpr.edu.br/jspui/handle/1/1006 | POE (dispatcher, State, Observer) × PON em dois "casos de estudo"; taxonomia estrutural, linhas, escopos, *tokens* e tempo de resposta; o autor avalia | "teórico-prática, com comparações qualitativas e quantitativas"; "casos de estudo" sem fonte | TC da seção 1.4 (subagente); termos conferidos no PDF |
+| LIMA, C. E. Z. de (Zimmerle). Tese (Doutorado), UFPE, 2024; e ZIMMERLE; GAMA (2025) | APIs de PR avaliadas pelas DCs com questionário | ver seção 3 | seção 3 |
+| MAIA, R. D. et al. *A qualitative human-centric evaluation of flexibility in middleware implementations*. Empirical Software Engineering, v. 17, p. 166-199, 2011. DOI 10.1007/s10664-011-9167-7 | PUC-Rio; a conferir se compara implementações e com que rótulo | ? | não lido (pago) |
+| Citados por Cavalcante (2025) como comparações anteriores: Almeida et al. (2022); Ferreira e Zuchi (2018) | a localizar | ? | não lidos |
+
+### 10.2 Internacionais mais próximos do desenho
+
+| Trabalho | O que compara e como | Lido |
+|---|---|---|
+| KISS (2014) | Seção 9; JavaFX × ScalaFX, Scala.Rx, ReactFX, Elm em sete tarefas, pelas DCs | TC |
+| GREEN, T. R. G.; PETRE, M. *Usability analysis of visual programming environments: a 'cognitive dimensions' framework*. JVLC, v. 7, p. 131-174, 1996. DOI 10.1006/jvlc.1996.0009 | Basic, LabVIEW e Prograph num mesmo problema, pelas DCs, pelos dois autores; "*broad-brush evaluation technique*" (p. 3 da pré-publicação) | TC (pré-publicação; página do trecho conferida) |
+| BAYRAK, G.; OCKER, F.; VOGEL-HEUSER, B. *Evaluation of selected control programming languages for process engineers by means of cognitive effectiveness and dimensions*. JSEA, v. 10, p. 457-481, 2017. DOI 10.4236/jsea.2017.105026 | Três notações de controle num exemplo e cinco modificações, pelas DCs | TC (subagente) |
+| NANZ, S. et al. *Benchmarking usability and performance of multicore languages*. ESEM 2013, p. 183-192. DOI 10.1109/esem.2013.10 | Quatro linguagens, seis problemas, um implementador e revisão por especialistas (§II-E) | TC (arXiv; conferido) |
+| NANZ, S.; FURIA, C. A. *A comparative study of programming languages in Rosetta Code*. ICSE 2015, p. 778-788. DOI 10.1109/icse.2015.90 | Oito linguagens, 745 tarefas, soluções da comunidade, métricas | TC (subagente) |
+| KRUCHTEN, N.; MCNUTT, A. M.; MCGUFFIN, M. J. *Metrics-based evaluation and comparison of visualization notations*. IEEE TVCG, 2023. DOI 10.1109/tvcg.2023.3326907 | Nove notações de visualização numa galeria de 40 exemplos | TC (subagente) |
+| KUTAR, M.; BRITTON, C.; BARKER, T. *A comparison of empirical study and cognitive dimensions analysis in the evaluation of UML diagrams*. PPIG 14, 2002 | Análise pelas DCs pelos três autores, com consenso, confrontada com estudo empírico; os dois não concordaram | TC (subagente) |
+
+Relatórios completos das buscas, com os links bloqueados: `tmp/pesquisa-*.md`
+(fora do git).
+
+## 11. Expressividade e operações mentais difíceis nas fontes (lidas em 2026-09-28)
+
+Conclusão: as duas DCs a mais se justificam pela condição do próprio Kiss
+(as cinco que ele deixou de fora serviriam se as notações fossem muito mais
+diferentes, e as dele eram próximas de propósito), pelo esforço mental que
+ele descreve nas bibliotecas reativas sem uma dimensão para isso, e por
+Mernik et al. (2009), no mesmo domínio. Compromisso prematuro, consistência
+e notação secundária ficam de fora com razões declaradas, e o compromisso
+prematuro é a exclusão mais frágil. É a base do parágrafo das DCs e das
+limitações da metodologia da introdução. Levantamento
+feito por quatro subagentes; "conferido" quer dizer trecho lido no PDF pelo
+agente principal, e "subagente", só pela leitura do subagente. Cópias em
+`tmp/fontes/`, fora do git.
+
+| Fonte | O que sustenta | Onde | Leitura |
+|---|---|---|---|
+| Kiss 2014 (`kiss2014`) | As cinco "would probably have been useful" se "the languages and toolkits were much more different"; o ScalaFX é "a wrapper around JavaFX"; o toolkit "played the most crucial role" | p. 15, 11, 56 | conferido |
+| idem, cap. 4 (Scala.Rx, ReactFX, Elm) | Custo mental sem dimensão própria: "mental effort", "higher conceptual costs" (p. 97), "rethinking effort" (p. 98); a explicação do Elm "worsens the Abstraction Level drastically" (p. 87). "Restricted expressivity" (p. 98) é poder de expressão, não role-expressiveness | p. 87, 97, 98 | conferido |
+| MERNIK, M. et al. INForum 2009 (`mernik2009`) | XAML (declarativo) × C# Forms (imperativo), 36 programadores: RE e HMO entre as mais influentes na compreensão; diferenças RE 0,296, HMO 0,105, imposed guess-ahead 0,146, consistency 0,028, secondary notation 0,018 | Tabela 6 | conferido |
+| Green 1989 (`green1989`) | HMO não é questão da relação entre notação e ambiente | p. 11 da cópia | conferido |
+| Green e Petre 1996 (`green1996d`) | HMO "at the notational level, not solely at the semantic level" (p. 22); RE = "what is this bit for?" (p. 30); HMO: "resort to fingers or pencilled annotation" (p. 11); compromisso prematuro vem do ambiente que "constrains the order" (p. 28), mas também da escolha de construção, "while should be changed to for" (p. 29-30); consistência é "guessability", avaliada por introspecção (p. 20); notação secundária é "idiosyncratic and private" (p. 32) | páginas da pré-publicação | conferido |
+| Blackwell e Green 2003 (`blackwell2003`) | "not an analytic method"; "discussion tools" (p. 3); aplica-se a todo artefato de informação, com destaque na programação visual (p. 6) | páginas da cópia | conferido |
+| Britton e Kutar 2001, PPIG 13 (`britton2001`) | Um perfil com só um subconjunto das DCs pode deixar de fora aspectos importantes; o perfil de compreensão incluía RE e HMO, mas também consistência e notação secundária | p. 265 (resumo); p. 3 da cópia | conferido (resumo); subagente (perfil) |
+| Blackwell et al. 2001 (`blackwell2001`, fora do refs.bib) | Relata o mesmo estudo: "prior selection of a subset of CDs may be unhelpful" | p. 5 da cópia | conferido |
+| Ledo et al. 2018 (`ledo2018`) | Avaliações feitas pelos autores "may have an implicit bias"; omitir heurísticas sem razão clara parece "cherry picking" | p. 9 (o artigo ocupa p. 1-17) | conferido |
+| Hertzum e Jacobsen 2003 (`hertzum2003`) | Efeito do avaliador: concordância entre dois avaliadores de 5% a 65% | resumo (pré-publicação) | conferido |
+| Green 2006, Kutar et al. 2000, Green 2000, Clarke 2003, Sadowski 2011, Dagit 2006, Borowski 2022, Bellingham 2014, Hadhrawi 2017 | Vagueza das duas DCs ("potentially-explosive mental processes", green2006 p. 8); RE dependia de quem escreve (Kutar 2000, p. ix); RE como leitura em planos (Green 2000, p. 5); recortes das DCs em APIs e recursos de linguagem; compromisso prematuro no estado de UIs (Borowski, p. 4); fluxo explícito reduz HMO (Bellingham, p. 1); subconjuntos são prática comum (Hadhrawi, p. 8) | ver fonte | subagente, salvo o rótulo de green2006 |
+
+Objeções que o texto enfrenta: a escolha prévia do subconjunto (Britton e
+Kutar; Ledo) e o compromisso prematuro, ambos nas limitações. Não
+conferido: "sempre foram mal descritas" (green2006, p. 8-9).
