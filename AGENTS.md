@@ -85,6 +85,16 @@ HEAD e, na resposta, um bloco que abre o Evince na página de cada alteração
 - No `refs.bib`, escapar `%`, `#` e `&` fora de `url` e `doi`, inclusive em
   `annotation`: sem escape, quebram o `.bbl`.
 - Siglas conferidas contra a primeira definição no capítulo.
+- Notas `\todo` (todonotes) servem à orientação e ficam no `.org`, senão
+  somem na próxima exportação: `@@latex:\todo{...}@@` junto da frase, na
+  margem, para ponto de uma frase; `@@latex:\todo[inline]{...}@@` para
+  pergunta ou mudança de parágrafo (`#+LATEX: \todo{...}` em linha própria
+  também sobrevive). O leitor é o orientador: prosa curta que diz o que
+  mudou ou o que se pergunta, sem id de tarefa, caminho, commit nem nome
+  de skill; fonte por autor e ano, sem chave de citação, para não entrar
+  nas referências; aspas em `\enquote{...}`, porque o `"` cru é atalho do
+  babel e cola na palavra seguinte. A versão entregue desliga todas com
+  `\usepackage[disable]{todonotes}` no `tcc.tex`.
 - Preferências do autor: "uma pessoa só", não "uma só pessoa"; nenhum autor
   citado duas vezes na mesma frase (`[[textcite:chave][p. N]]` imprime
   "Autor (ano, p. N)"); quem sugeriu uma decisão, como o orientador, fica

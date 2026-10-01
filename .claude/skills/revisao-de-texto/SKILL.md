@@ -64,6 +64,9 @@ Evince estão só no host: tudo que os usa vai por `distrobox-host-exec`.
 6. **Aplicar na árvore**, sem commit: edite `texto/*.org` e espere o
    "PDF atualizado" do diff ao vivo (`versoes_pdf/diff-ao-vivo.out`, uns
    10 s; "compilação falhou" deixa o PDF anterior e aponta o log).
+   Nota `\todo` para a orientação segue a forma e o leitor do `AGENTS.md`
+   ("Texto"); confira no `pdftotext` do diff ao vivo que ela saiu inteira,
+   com as aspas no lugar.
 7. **Links para a página.** Para cada alteração, rode
    `bin/pagina-no-pdf.py "poucas palavras do texto novo"` e ponha na
    resposta, por alteração, um bloco `bash` com a linha que ele imprime:
