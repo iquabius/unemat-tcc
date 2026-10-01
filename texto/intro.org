@@ -276,7 +276,7 @@ desenvolvimento de software em larga escala.
   As versões de linguagens, bibliotecas e ferramentas ficam
   fixadas[fn:versoes], para que as implementações possam ser reproduzidas.
 
-  A comparação usa as /Dimensões Cognitivas de Notações/ (DCs), do inglês
+  A avaliação usa as /Dimensões Cognitivas de Notações/ (DCs), do inglês
   /Cognitive Dimensions of Notations/ cite:green1989, um vocabulário para
   discutir a usabilidade de artefatos de informação[fn:infoArtifactis].
   textcite:blackwell2003 as chamam de ferramentas de discussão, para quem
@@ -322,15 +322,15 @@ desenvolvimento de software em larga escala.
   uma notação da outra.
   Ficam de fora, como em [[textcite:kiss2014][p. 15]], as dimensões que
   tratam das ferramentas e do processo de escrita, como a visibilidade, a
-  análise progressiva e a provisoriedade, porque o objeto da análise é o
+  análise progressiva e a provisoriedade, porque o objeto da avaliação é o
   código pronto.
 
-  A análise abre com uma tabela-síntese, com uma linha por DC e uma coluna
-  por notação.
+  O resultado da avaliação vai para a análise, que compara as notações e
+  abre com uma tabela-síntese, com uma linha por DC e uma coluna por notação.
   Cada célula traz um juízo curto e a tarefa de que vem a evidência.
   Quando o Solid e o Angular com /signals/ divergem numa DC, a célula o
   registra.
-  Segue uma seção por DC, com os trechos de uma tarefa escolhida antes da análise pelo problema de coordenação que a dimensão mais toca.
+  Segue uma seção por DC, com os trechos de uma tarefa escolhida antes da avaliação pelo problema de coordenação que a dimensão mais toca.
   A seção cita as outras tarefas quando contradizem a escolhida, e a tabela
   diz "sem diferença" quando nenhuma tarefa mostra uma.
   Nas seções em que o Formulário ou a Lista mostram diferença entre Views e
@@ -339,6 +339,7 @@ desenvolvimento de software em larga escala.
   implementação, com a marcação da tela, esteja ela no código-fonte ou no
   arquivo HTML da página, e sem linhas vazias, comentários, domínio e
   estilo.
+  @@latex:\todo[inline]{Termos: \enquote{comparar} fica para o objetivo, \enquote{avaliação} para a aplicação das DCs ao código e \enquote{análise} para a parte que apresenta os resultados. Considerar um termo só, \enquote{avaliação}, para a atividade toda. A favor: uma palavra por conceito, sem o leitor se perguntar se são três atividades. Contra: mudam mais frases, e o objetivo geral perde o verbo \enquote{comparar}, que diz o que se faz entre as notações.}@@
 
   O desenho tem limitações em três pontos: quem avalia, o instrumento e o
   objeto.
@@ -351,10 +352,10 @@ desenvolvimento de software em larga escala.
   A familiaridade do autor com as tecnologias é desigual, maior com o React.
   Na escrita das implementações, esse desnível pesa menos, porque elas seguem
   a mesma especificação e são padronizadas entre as tecnologias.
-  No juízo da análise, que é subjetivo, o desnível continua e pode favorecer
+  No juízo da avaliação, que é subjetivo, o desnível continua e pode favorecer
   uma notação.
 
-  O trabalho escolheu as oito DCs antes da análise, e usar um subconjunto
+  O trabalho escolheu as oito DCs antes da avaliação, e usar um subconjunto
   pode deixar de fora propriedades importantes da notação cite:britton2001.
   A exclusão mais discutível é a do compromisso prematuro, que também
   aparece na própria notação, quando um trecho escrito numa construção
