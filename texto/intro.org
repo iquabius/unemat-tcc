@@ -188,6 +188,14 @@ desenvolvimento de software em larga escala.
   Ela inclui os sinais de coordenação escritos dentro da estrutura da tela,
   como a leitura de um /signal/ no JSX.
 
+  O trabalho se divide em duas partes.
+  Na primeira, programas de /processamento de listas/ demonstram conceitos
+  de PF, como descrever o resultado de uma transformação em vez dos passos
+  do laço que a executa.
+  As duas notações declarativas aplicam essa ideia à tela, que o código
+  descreve em função do estado cite:meta2026a.
+  Na segunda, as cinco tarefas são implementadas nas três notações e comparadas.
+
   As cinco tarefas exercitam cinco /problemas de coordenação/, isto é, cinco
   exigências que a interface faz à notação.
   O Contador exercita o caminho mais simples, do evento ao estado e à tela, e o
@@ -210,20 +218,6 @@ desenvolvimento de software em larga escala.
   E nenhuma põe três componentes independentes para ler e alterar o mesmo
   estado, como os do Carrinho.
 
-  Na web, as tarefas são implementadas em /TypeScript/, que acrescenta ao
-  JavaScript uma sintaxe de tipos cite:microsoft2026.
-  O Angular exige TypeScript cite:google2026b, e as demais tecnologias também
-  o usam, para que a linguagem seja a mesma em todas as implementações e a
-  diferença entre elas fique só na notação.
-
-  O trabalho se divide em duas partes.
-  Na primeira, programas de /processamento de listas/ demonstram conceitos
-  de PF, como descrever o resultado de uma transformação em vez dos passos
-  do laço que a executa.
-  As duas notações declarativas aplicam essa ideia à tela, que o código
-  descreve em função do estado cite:meta2026a.
-  Na segunda, as cinco tarefas são implementadas nas três notações e comparadas.
-
   Na web, o desenho tem duas comparações controladas, entre pares de
   tecnologias escolhidos para diferir num ponto só.
   React e Solid escrevem a estrutura da tela no mesmo JSX e diferem na
@@ -235,8 +229,11 @@ desenvolvimento de software em larga escala.
   estado em /signals/ e derivam valores de outros /signals/
   cite:solidjs2026a,google2026.
   Diferem na notação da estrutura da tela, que o Solid escreve em JSX dentro
-  de uma função, e o Angular num /template/ em HTML cite:google2026a, ligado a
-  um componente escrito como classe.
+  de uma função, e o Angular num /template/ em HTML cite:google2026a.
+  Esse par, porém, não difere só nisso: o Angular escreve o componente como
+  classe, com decorador e injeção de dependências.
+  A análise precisa separar o que vem do /template/ do que vem desse modelo
+  de componente.
   A notação imperativa entra com duas tecnologias, o Web Component, só com a
   API do navegador, e o jQuery, uma biblioteca.
 
@@ -248,13 +245,17 @@ desenvolvimento de software em larga escala.
   muda cite:android2026.
   A replicação fica, assim, entre essas duas notações.
   As duas variantes são escritas em Kotlin, a linguagem que o Android
-  recomenda e a única em que o Compose se escreve[fn:kotlin], para que ali
-  também a diferença fique só na notação.
+  recomenda e a única em que o Compose se escreve[fn:kotlin].
   O Contador também é implementado no Android, como introdução à sintaxe,
   sem análise própria.
 
   Para que as diferenças entre as implementações venham da notação, o
   desenho controla o resto.
+  A linguagem é uma só em cada plataforma: Kotlin no Android e, na web,
+  /TypeScript/, que acrescenta ao JavaScript uma sintaxe de tipos
+  cite:microsoft2026.
+  O Angular exige TypeScript cite:google2026b, e as demais tecnologias web
+  também o usam.
   Todas as implementações de uma tarefa seguem a mesma especificação, com os
   mesmos textos, regras e dados.
   Cada uma usa só o que a própria tecnologia traz, sem bibliotecas de
@@ -339,17 +340,20 @@ desenvolvimento de software em larga escala.
   arquivo HTML da página, e sem linhas vazias, comentários, domínio e
   estilo.
 
-  O desenho tem limitações.
-  Um avaliador só, o autor, aplica as DCs, sem outro que confira o juízo
-  em cada dimensão.
+  O desenho tem limitações em três pontos: quem avalia, o instrumento e o
+  objeto.
+  Como a avaliação cabe ao autor, nenhum outro avaliador confere o juízo em
+  cada dimensão.
   Em métodos de inspeção, avaliadores diferentes acham problemas bem
-  diferentes na mesma interface cite:hertzum2003, e quem avalia o que
-  escreveu pode trazer um viés implícito cite:ledo2018.
+  diferentes na mesma interface cite:hertzum2003.
+  Além disso, quem avalia o que escreveu pode trazer um viés implícito
+  cite:ledo2018.
   A familiaridade do autor com as tecnologias é desigual, maior com o React.
   Na escrita das implementações, esse desnível pesa menos, porque elas seguem
   a mesma especificação e são padronizadas entre as tecnologias.
-  No juízo da análise, subjetivo e feito por uma pessoa só, o desnível
-  continua e pode favorecer uma notação.
+  No juízo da análise, que é subjetivo, o desnível continua e pode favorecer
+  uma notação.
+
   O trabalho escolheu as oito DCs antes da análise, e usar um subconjunto
   pode deixar de fora propriedades importantes da notação cite:britton2001.
   A exclusão mais discutível é a do compromisso prematuro, que também
@@ -358,17 +362,9 @@ desenvolvimento de software em larga escala.
 
   As tarefas são pequenas, e o que só aparece em programas grandes ou ao
   longo da manutenção fica de fora.
-  O autor criou as tarefas para este trabalho, três delas a partir do 7GUIs.
-  Um conjunto de tarefas criado por um pesquisador só e pouco usado tende
-  a ter menos impacto que um adotado por uma comunidade cite:sim2003.
-  A avaliação também não mede o desempenho de programadores, como fez o
-  experimento de textcite:salvaneschi2017, nem o das implementações, como
-  o tempo de atualização da tela ou o uso de memória.
-  Por fim, a comparação entre Solid e Angular não isola só a notação da
-  estrutura da tela.
-  O Angular escreve o componente como classe, com decorador e injeção de
-  dependências, e a análise precisa separar o que vem do /template/ do que
-  vem desse modelo de componente.
+  Foram criadas pelo autor para este trabalho, e um conjunto de tarefas
+  criado por um pesquisador só e pouco usado tende a ter menos impacto que
+  um adotado por uma comunidade cite:sim2003.
 
 * Footnotes
 
