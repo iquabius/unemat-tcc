@@ -130,7 +130,7 @@ desenvolvimento de software em larga escala.
 
    - Demonstrar, com processamento de listas, os conceitos de PF em que se
      apoiam as notações declarativas;
-   - Implementar cinco casos de interface (Contador, Formulário com validação,
+   - Implementar cinco tarefas de interface (Contador, Formulário com validação,
      Busca com sugestões, Lista filtrável e Carrinho) com Web Component,
      jQuery, React, Solid e Angular com /signals/, e o Contador, o Formulário e
      a Lista no Android, com Views e Jetpack Compose;
@@ -143,45 +143,43 @@ desenvolvimento de software em larga escala.
   investigação de fenômenos (culturais, sociais, técnicos, históricos, etc.)
   pouco sistematizados e/ou passíveis de várias perspectivas de interpretação.”
   [[cite:leal2011][p. 32]].
+  @@latex:\todo[inline]{Em relação ao projeto de 2017: a pergunta deixa de comparar paradigmas, PF e PR frente à POO com callbacks, e passa a comparar três notações de coordenação, com as DCs como critério explícito. A demonstração de PR e callbacks dá lugar a cinco tarefas de interface, implementadas em cinco tecnologias web e replicadas no Android. O JavaScript passa a TypeScript, e entra o Kotlin. A classificação quanto aos meios também muda (nota adiante). A natureza aplicada e os objetivos exploratórios vêm do projeto sem revisão: conferir se ainda servem.}@@
 
   Quanto aos meios, o trabalho é uma avaliação qualitativa, pelas Dimensões
   Cognitivas, de implementações de um mesmo conjunto de tarefas.
   O conjunto de tarefas segue a ideia de /benchmark/: testes que representam
   as tarefas da prática e servem para comparar técnicas alternativas
   cite:sim2003.
-  Aqui, as técnicas são as três notações, e as tarefas, cinco casos de
-  interface.
+  Aqui, as técnicas são as três notações, e as tarefas, cinco interfaces
+  típicas da web.
   [[textcite:kiss2014][p. 11]] compara assim programação orientada a objetos
   e funcional em interfaces gráficas, pela usabilidade do código, e não por
   tempo de execução e memória, como num /benchmark/ tradicional.
+  @@latex:\todo[inline]{O projeto classificava o trabalho, quanto aos meios, como estudo de casos múltiplos (Leal 2011; Yin 2001). As definições reunidas por Runeson e Höst (2009, p. 134 e 139) pedem um fenômeno contemporâneo no seu contexto real e excluem os programas de exemplo. Por isso a classificação saiu, e as interfaces implementadas passaram a se chamar tarefas, como no 7GUIs (Kiss 2014) e em Sim et al. (2003). Registrar essa mudança no texto?}@@
+
   A avaliação cabe ao autor, que examina o código das implementações critério
   a critério, sem participantes.
-  [[textcite:kitchenham1996][p. 12]] chama de análise de características
-  (/feature analysis/) esse juízo subjetivo de como cada alternativa atende a
-  um conjunto de critérios.
-  Feita por uma pessoa só, ela é uma triagem, que em geral se apoia no que se
-  escreveu sobre as alternativas, e não no uso delas
-  [[cite:kitchenham1996][p. 15]].
-  O avaliador deste trabalho usa as notações, porque é ele quem implementa os
-  casos.
-  [[textcite:kiss2014][p. 8]] chama essa via de abordagem analítica e a adota
-  como alternativa aos experimentos com programadores, muitas vezes caros e de
-  resultados necessariamente restritos.
+  [[textcite:kiss2014][p. 8]] chama de analítica a avaliação pelas Dimensões
+  Cognitivas e a adota como alternativa aos experimentos com programadores,
+  muitas vezes caros e de resultados necessariamente restritos.
+  Para [[textcite:kitchenham1996][p. 12]], o juízo subjetivo de como cada
+  alternativa atende a um conjunto de critérios é uma análise de
+  características (/feature analysis/).
+  Feita por uma pessoa só, que escolhe os critérios e os aplica, ela é uma
+  triagem (/screening/).
+  A triagem em geral se apoia no que se escreveu sobre as alternativas, e não
+  no uso delas [[cite:kitchenham1996][p. 15]].
+  Aqui, ela se apoia também no uso de duas das notações, porque o autor
+  escreveu implementações de referência em React e em JavaScript com
+  /callbacks/.
 
-  O trabalho não é um estudo de caso.
-  As definições que [[textcite:runeson2009][p. 134]] reúnem pedem um fenômeno
-  contemporâneo observado no seu contexto real, e os estudos com programas de
-  exemplo ficam de fora por não terem esse contexto
-  [[cite:runeson2009][p. 139]].
-  Neste trabalho, ao contrário, o autor escreve todas as implementações e
-  decide o que muda de uma para outra.
-  O que se compara, então, é a notação: cada implementação mostra como se
-  escreve, numa notação, a coordenação entre evento, estado e tela.
+  Cada implementação escreve numa notação a coordenação entre evento, estado
+  e tela, e é essa notação que se compara.
   As Dimensões Cognitivas admitem várias notações num mesmo sistema
   [[cite:blackwell2001][p. N]], e o código de uma interface tem pelo menos duas.
-  A /notação de coordenação/ é a parte do código que escreve essa coordenação
-  (onde vive o estado, como se declara um valor derivado, quem atualiza a
-  tela).
+  A /notação de coordenação/ escreve a coordenação entre evento, estado e
+  tela: onde vive o estado, como se declara um valor derivado, quem atualiza
+  a tela.
   A /notação da estrutura da tela/ escreve quais elementos a tela tem, em que
   hierarquia e com que textos, como o HTML ou o JSX.
   O JSX é uma extensão do JavaScript que escreve marcação parecida com HTML
@@ -190,7 +188,7 @@ desenvolvimento de software em larga escala.
   Ela inclui os sinais de coordenação escritos dentro da estrutura da tela,
   como a leitura de um /signal/ no JSX.
 
-  Os cinco casos exercitam cinco /problemas de coordenação/, isto é, cinco
+  As cinco tarefas exercitam cinco /problemas de coordenação/, isto é, cinco
   exigências que a interface faz à notação.
   O Contador exercita o caminho mais simples, do evento ao estado e à tela, e o
   Formulário com validação, o estado derivado e os campos que dependem uns dos
@@ -199,7 +197,7 @@ desenvolvimento de software em larga escala.
   ordem e cancelamento).
   A Lista filtrável exercita a lista derivada por busca, filtro e ordenação,
   e o Carrinho, o estado compartilhado entre componentes.
-  Três casos partem do 7GUIs, as sete tarefas de interface propostas na
+  Três delas partem do 7GUIs, as sete tarefas de interface propostas na
   dissertação de textcite:kiss2014.
   O Contador é a tarefa /Counter/, e o Formulário amplia a /Flight Booker/
   com os campos de um formulário real [[cite:kiss2014][p. 17 e 25]].
@@ -212,7 +210,7 @@ desenvolvimento de software em larga escala.
   E nenhuma põe três componentes independentes para ler e alterar o mesmo
   estado, como os do Carrinho.
 
-  Na web, os casos são implementados em /TypeScript/, que acrescenta ao
+  Na web, as tarefas são implementadas em /TypeScript/, que acrescenta ao
   JavaScript uma sintaxe de tipos cite:microsoft2026.
   O Angular exige TypeScript cite:google2026b, e as demais tecnologias também
   o usam, para que a linguagem seja a mesma em todas as implementações e a
@@ -224,8 +222,7 @@ desenvolvimento de software em larga escala.
   do laço que a executa.
   As duas notações declarativas aplicam essa ideia à tela, que o código
   descreve em função do estado cite:meta2026a.
-  Na segunda, os cinco casos são implementados nas três notações e
-  comparados.
+  Na segunda, as cinco tarefas são implementadas nas três notações e comparadas.
 
   Na web, o desenho tem duas comparações controladas, entre pares de
   tecnologias escolhidos para diferir num ponto só.
@@ -258,7 +255,7 @@ desenvolvimento de software em larga escala.
 
   Para que as diferenças entre as implementações venham da notação, o
   desenho controla o resto.
-  Todas as implementações de um caso seguem a mesma especificação, com os
+  Todas as implementações de uma tarefa seguem a mesma especificação, com os
   mesmos textos, regras e dados.
   Cada uma usa só o que a própria tecnologia traz, sem bibliotecas de
   formulário.
@@ -268,7 +265,7 @@ desenvolvimento de software em larga escala.
   O porte responde diferente em entradas-limite, como anos de 0 a 99, e
   cada diferença conhecida fica registrada num teste.
 
-  Um /roteiro/ de teste por caso executa as verificações da especificação
+  Um /roteiro/ de teste por tarefa executa as verificações da especificação
   contra cada implementação.
   /Capturas/ de tela de cada estado previsto da interface, geradas
   automaticamente, denunciam desvios de comportamento ou de aparência,
@@ -318,9 +315,10 @@ desenvolvimento de software em larga escala.
   cite:green1996d.
   A consistência mede o quanto quem aprende consegue adivinhar da notação,
   e só se avalia por introspecção cite:green1996d.
-  Já a notação secundária (comentários, indentação e nomes) depende
-  sobretudo do estilo de quem escreve cite:green1996d, e aqui um autor só
-  escreve todas as implementações.
+  Já a notação secundária (comentários, indentação e nomes) é própria de
+  quem escreve cite:green1996d.
+  Aqui, ela é padronizada entre as tecnologias, e por isso não distingue
+  uma notação da outra.
   Ficam de fora, como em [[textcite:kiss2014][p. 15]], as dimensões que
   tratam das ferramentas e do processo de escrita, como a visibilidade, a
   análise progressiva e a provisoriedade, porque o objeto da análise é o
@@ -328,13 +326,12 @@ desenvolvimento de software em larga escala.
 
   A análise abre com uma tabela-síntese, com uma linha por DC e uma coluna
   por notação.
-  Cada célula traz um juízo curto e o caso de que vem a evidência.
+  Cada célula traz um juízo curto e a tarefa de que vem a evidência.
   Quando o Solid e o Angular com /signals/ divergem numa DC, a célula o
   registra.
-  Segue uma seção por DC, com os trechos de um caso escolhido antes da
-  análise pelo problema de coordenação que a dimensão mais toca.
-  A seção cita os outros casos quando contradizem o escolhido, e a tabela
-  diz "sem diferença" quando nenhum caso mostra uma.
+  Segue uma seção por DC, com os trechos de uma tarefa escolhida antes da análise pelo problema de coordenação que a dimensão mais toca.
+  A seção cita as outras tarefas quando contradizem a escolhida, e a tabela
+  diz "sem diferença" quando nenhuma tarefa mostra uma.
   Nas seções em que o Formulário ou a Lista mostram diferença entre Views e
   Compose, a replicação diz se a conclusão da web se repete no Android.
   A concisão tem ainda o apoio de uma contagem das linhas de cada
@@ -348,18 +345,20 @@ desenvolvimento de software em larga escala.
   Em métodos de inspeção, avaliadores diferentes acham problemas bem
   diferentes na mesma interface cite:hertzum2003, e quem avalia o que
   escreveu pode trazer um viés implícito cite:ledo2018.
-  O autor também escreve todas as implementações, e a familiaridade
-  desigual com as tecnologias, maior com o React, pode favorecer uma
-  notação.
+  A familiaridade do autor com as tecnologias é desigual, maior com o React.
+  Na escrita das implementações, esse desnível pesa menos, porque elas seguem
+  a mesma especificação e são padronizadas entre as tecnologias.
+  No juízo da análise, subjetivo e feito por uma pessoa só, o desnível
+  continua e pode favorecer uma notação.
   O trabalho escolheu as oito DCs antes da análise, e usar um subconjunto
   pode deixar de fora propriedades importantes da notação cite:britton2001.
   A exclusão mais discutível é a do compromisso prematuro, que também
   aparece na própria notação, quando um trecho escrito numa construção
   pede outra e mudar custa caro cite:green1996d.
 
-  Os casos são pequenos, e o que só aparece em programas grandes ou ao
+  As tarefas são pequenas, e o que só aparece em programas grandes ou ao
   longo da manutenção fica de fora.
-  O autor criou os casos para este trabalho, três deles a partir do 7GUIs.
+  O autor criou as tarefas para este trabalho, três delas a partir do 7GUIs.
   Um conjunto de tarefas criado por um pesquisador só e pouco usado tende
   a ter menos impacto que um adotado por uma comunidade cite:sim2003.
   A avaliação também não mede o desempenho de programadores, como fez o
