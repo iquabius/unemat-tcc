@@ -153,6 +153,10 @@ PR cite:salvaneschi2017.
   navegador [[cite:kiss2014][p. 104]].
   [[textcite:lima2024][p. 71 e 80]] avaliou com usuários duas bibliotecas de PR
   para JavaScript, RxJS e Bacon.js, em tarefas de requisições HTTP.
+  Fora das Dimensões Cognitivas, [[textcite:grolaux2026][p. 15]] compararam
+  conceitualmente, numa prova de conceito em JavaScript, o async/await com
+  /listeners/, barramento de eventos, /streams/ funcionais e PR no tratamento
+  dos eventos de interface.
   Nenhum desses trabalhos compara, sobre as mesmas tarefas, as três notações
   como as escrevem as tecnologias web mais usadas.
   Pergunta-se, então: como as notações mais usadas na prática para programar
