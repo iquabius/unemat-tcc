@@ -1,13 +1,17 @@
 Interfaces gráficas mediam a maioria das nossas interações com computadores,
-seja através de \emph{laptops}, tabletes, ou navegadores web.
-Desde o projeto até a implementação elas apresentam muitos desafios
-\cite{myers1994}.
+seja em celulares e \emph{notebooks}, seja no navegador web.
+Projetá-las e implementá-las é difícil por natureza, e deve continuar sendo
+\cite[p. 73]{myers1994}.
+Na implementação, a aplicação deixa de controlar a execução e se divide em
+sub-rotinas que o \emph{toolkit} da interface chama quando o usuário age, e
+programas assim parecem mais difíceis de organizar e modularizar
+\cite[p. 79]{myers1994}.
 Além de problemas comuns de programação, como análise e processamento de dados,
 destacam-se também a apresentação de dados na tela e o gerenciamento de
 interações.
-Para gerenciar interações na programação de interfaces é necessário coordenar
-vários eventos desencadeados pelo usuário, através de dispositivos de interação
-como teclado, mouse, e tela multitoque.
+Para gerenciar interações na programação de interfaces, é necessário coordenar
+os eventos gerados pelas ações do usuário no teclado, no mouse ou na tela
+multitoque.
 
 Para coordenar eventos é comum usar o \emph{callback}: um bloco de código executado
 sempre que um dado evento ocorrer, p. ex., clique em um botão.
