@@ -396,6 +396,15 @@ desenvolvimento de software em larga escala.
   criado por um pesquisador só e pouco usado tende a ter menos impacto que
   um adotado por uma comunidade cite:sim2003.
 
+  Além desta introdução, o texto tem quatro capítulos.
+  O capítulo ref:chap:prog reúne os conceitos de programação em que o
+  trabalho se apoia, da programação de interfaces gráficas à PF e à PR.
+  O capítulo ref:chap:cases descreve as DCs da avaliação, os programas de
+  processamento de listas e as implementações das cinco tarefas.
+  O capítulo ref:chap:results compara as três notações pelas DCs, e o
+  capítulo ref:chap:conclusion responde à pergunta de pesquisa.
+  @@latex:\todo{Os capítulos ainda seguem o projeto de 2017 e mudam com a seção de trabalhos relacionados; este parágrafo se revê no fechamento.}@@
+
 * Footnotes
 
 [fn:complexity] textcite:moseley2006 distinguem a complexidade essencial,
