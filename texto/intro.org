@@ -15,20 +15,18 @@ multitoque.
 
 Para coordenar eventos é comum usar o /callback/: um bloco de código executado
 sempre que um dado evento ocorrer, p. ex., clique em um botão.
-Esse conceito é criticado por tornar o programa complexo: a ordem de execução[fn:control_flow] é
-imprevisível, é definida por eventos externos, e não pela sequência especificada
-pelo programador cite:maier2010,edwards2009,fischer2007.
+O /callback/ é criticado por tornar o programa complexo: a ordem de
+execução[fn:control_flow] é imprevisível, é definida por eventos externos, e
+não pela sequência especificada pelo programador
+cite:edwards2009,fischer2007,maier2010.
 “Coordenar alterações ao estado compartilhado em meio a esse caos pode ser
-desconcertante, e está longe de ser modular. A definição coloquial é /Inferno de
-Callbacks/.”[fn:callback_hell] [[cite:edwards2009][p. 2; tradução nossa]].
-Inerentemente imperativo, o /callback/ é muito usado na /programação orientada a
-objetos/ (POO) através do /Observer Pattern/[fn:observer_pattern]
-cite:blackheath2016,maier2010.
-Para esclarecer os desafios enfrentados por sistemas de software em produção,
-podemos citar uma análise das aplicações /desktop/ da Adobe, de 2005, na qual se
-concluiu que a lógica de coordenação de eventos consistia em um terço do
-código, além de conter metade dos /bugs/ reportados durante o ciclo de vida do
-produto cite:jarvi2008.
+desconcertante, e está longe de ser modular. A definição coloquial é /Inferno
+de Callbacks/[fn:callback_hell].” [[cite:edwards2009][p. 926; tradução nossa]].
+Uma análise das aplicações /desktop/ da Adobe concluiu que a lógica de
+tratamento de eventos era um terço do código e continha metade dos /bugs/
+relatados [[cite:edwards2009][p. 926]].
+Na /programação orientada a objetos/ (POO), o /callback/ aparece no /Observer
+Pattern/[fn:observer_pattern] cite:blackheath2016,maier2010.
 
 Uma alternativa é a /programação reativa/ (PR), proposta para aplicações
 orientadas a eventos cite:bainomugisha2013 e aplicada a interfaces gráficas,

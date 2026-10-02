@@ -14,24 +14,22 @@ multitoque.
 
 Para coordenar eventos é comum usar o \emph{callback}: um bloco de código executado
 sempre que um dado evento ocorrer, p. ex., clique em um botão.
-Esse conceito é criticado por tornar o programa complexo: a ordem de execução\footnote{A ordem de execução de um programa também é denominada \emph{fluxo
-de controle}.} é
-imprevisível, é definida por eventos externos, e não pela sequência especificada
-pelo programador \cite{maier2010,edwards2009,fischer2007}.
+O \emph{callback} é criticado por tornar o programa complexo: a ordem de
+execução\footnote{A ordem de execução de um programa também é denominada \emph{fluxo
+de controle}.} é imprevisível, é definida por eventos externos, e
+não pela sequência especificada pelo programador
+\cite{edwards2009,fischer2007,maier2010}.
 “Coordenar alterações ao estado compartilhado em meio a esse caos pode ser
-desconcertante, e está longe de ser modular. A definição coloquial é \emph{Inferno de
-Callbacks}.”\footnote{Tradução literal do inglês \emph{‘Callback Hell’}: expressão
-popular na comunidade de programação.} \cite[p. 2; tradução nossa]{edwards2009}.
-Inerentemente imperativo, o \emph{callback} é muito usado na \emph{programação orientada a
-objetos} (POO) através do \emph{Observer Pattern}\footnote{O \emph{Observer Pattern} é usado para coordenar eventos em
+desconcertante, e está longe de ser modular. A definição coloquial é \emph{Inferno
+de Callbacks}\footnote{Tradução literal do inglês \emph{‘Callback Hell’}: expressão
+popular na comunidade de programação.}.” \cite[p. 926; tradução nossa]{edwards2009}.
+Uma análise das aplicações \emph{desktop} da Adobe concluiu que a lógica de
+tratamento de eventos era um terço do código e continha metade dos \emph{bugs}
+relatados \cite[p. 926]{edwards2009}.
+Na \emph{programação orientada a objetos} (POO), o \emph{callback} aparece no \emph{Observer
+Pattern}\footnote{O \emph{Observer Pattern} é usado para coordenar eventos em
 linguagens orientadas a objetos, e \emph{callback} às vezes é chamado de \emph{event
-handler}, \emph{event listener} ou \emph{observer}, mas em essência o conceito é o mesmo.}
-\cite{blackheath2016,maier2010}.
-Para esclarecer os desafios enfrentados por sistemas de software em produção,
-podemos citar uma análise das aplicações \emph{desktop} da Adobe, de 2005, na qual se
-concluiu que a lógica de coordenação de eventos consistia em um terço do
-código, além de conter metade dos \emph{bugs} reportados durante o ciclo de vida do
-produto \cite{jarvi2008}.
+handler}, \emph{event listener} ou \emph{observer}, mas em essência o conceito é o mesmo.} \cite{blackheath2016,maier2010}.
 
 Uma alternativa é a \emph{programação reativa} (PR), proposta para aplicações
 orientadas a eventos \cite{bainomugisha2013} e aplicada a interfaces gráficas,
