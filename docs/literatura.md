@@ -640,3 +640,62 @@ agente principal, e "subagente", só pela leitura do subagente. Cópias em
 
 Objeções que o texto enfrenta: a escolha prévia do subconjunto (Britton e
 Kutar; Ledo) e o compromisso prematuro, ambos nas limitações.
+
+## 12. Callbacks, eventos e promises: fontes da justificativa (levantadas em 2026-10-02)
+
+Conclusão: a crítica ao callback na introdução se apoia agora em quem diz
+cada coisa (Fischer et al. a complexidade, Blackheath e Jones a ordem
+imprevisível, Edwards o "Callback Hell" e o dado da Adobe), numa medida
+empírica do uso de callbacks em JavaScript (Gallaba et al. 2015) e no que
+mudou na web desde 2010: promises e async/await resolvem o aninhamento,
+mas o código com promises continua difícil de entender e propenso a erros
+(Madsen et al. 2017; Alimadadi et al. 2018). Lacunas: o dado da Adobe é de
+2006 e de aplicações desktop, não da web; a produção brasileira sobre
+callbacks e eventos em interfaces é escassa (só trabalhos sobre PR em
+geral). Levantamento por três subagentes; "conferido" quer dizer trecho
+lido no PDF pelo agente principal, "subagente", só pela leitura do
+subagente, e "resumo", só o resumo. Cópias em `tmp/fontes/`, fora do git,
+das páginas dos autores, de repositórios institucionais e do Internet
+Archive; a de Mijač et al. 2023 foi baixada pelo autor.
+
+### 12.1 Citadas no parágrafo do callback (`texto/intro.org`)
+
+| Fonte | O que sustenta | Onde | Leitura |
+|---|---|---|---|
+| Myers 1994 (`myers1994`) | Projetar e implementar interfaces "are inherently difficult tasks and will remain so"; a aplicação vira sub-rotinas chamadas pelo toolkit, e "it appears to be more difficult [...] to organize and modularize reactive programs" | p. 73 e 79 (versão publicada) | conferido |
+| Fischer, Majumdar e Millstein 2007 (`fischer2007`) | "the event-driven style severely complicates program maintenance and understanding, as it requires each logical flow of control to be fragmented across multiple independent callbacks"; ordem só na semântica formal ("nondeterministically selected", p. 138) | p. 134, calculada (cópia sem paginação) | conferido |
+| Blackheath e Jones 2016, cap. 1 (`blackheath2016`) | "Listeners or callbacks—also called the observer pattern" (p. 7); "Unpredictable order", a primeira das "six plagues of listeners" (p. 8) | amostra oficial da Manning | conferido |
+| Edwards 2009 (`edwards2009`) | "The colloquial description is Callback Hell"; "An analysis [21] of Adobe's desktop applications indicated that event handling logic comprised a third of the code and contained half of the reported bugs" ([21] = Järvi et al. 2008) | p. 926, calculada (cópia sem paginação) | conferido |
+| Maier, Rompf e Odersky 2010 (`maier2010`) | "callbacks such as in the observer pattern" (p. 1); não diz ordem imprevisível, diz "control flow is inverted" (p. 2) | relatório técnico, 18 p. | conferido |
+| Gallaba, Mesbah e Beschastnikh 2015 (`gallaba2015`) | 138 programas JavaScript: "every 10th function definition takes a callback argument", "the majority of callbacks are nested", mais da metade assíncronos | p. 1 (resumo) | conferido |
+| Madsen, Lhoták e Tip 2017 (`madsen2017`) | Promises "enables programmers to chain asynchronous computations", mas "are complex and error-prone in their own right" | p. 86:1 (PACMPL, artigo 86) | conferido |
+| Gallaba et al. 2017 (`gallaba2017`) | Async e await "allow a linear programming style"; refatoração de callbacks em promises | p. 362, calculada (cópia sem paginação) | conferido |
+| Alimadadi et al. 2018 (`alimadadi2018`) | Promises evitam o callback hell, mas "the intricate control- and data-flow present in promise-based code hinders program comprehension and can easily lead to bugs" | p. 162:1 (PACMPL, artigo 162) | conferido |
+
+### 12.2 A cadeia do dado da Adobe
+
+| Fonte | O que diz | Onde | Leitura |
+|---|---|---|---|
+| Edwards 2009 | "a third of the code", "half of the reported bugs", "Adobe's desktop applications" | p. 926 | conferido |
+| Järvi et al. 2008 (`jarvi2008`) | "approximately one third of the code, and more than half of the reported defects" numa "large industrial code base", sem dizer Adobe nem ano; cita Parent (2006), coautor | p. 90 | conferido em sessão paralela (2026-10-01) |
+| Parent 2006 (`parent2006`) | Slides da palestra de abertura do LCSD '06: "1/3 of the code in Adobe's desktop applications is devoted to event handling logic"; "1/2 of the bugs reported during a product cycle exist in this code" | slide sem número | subagente |
+| Priesnitz e Schupp 2006 (`priesnitz2006`) | Anais do LCSD '06: só mencionam a palestra no prefácio, sem resumo | p. 1 | subagente |
+
+O texto cita Edwards (2009, p. 926), que diz "Adobe", sem o ano (decisão do
+autor em 2026-10-01). O "ciclo do produto" do texto antigo vinha dos
+slides de Parent, que Edwards não reproduz.
+
+### 12.3 Para a fundamentação
+
+| Fonte | O que traz | Leitura |
+|---|---|---|
+| Madsen, Tip e Lhoták 2015 (`madsen2015`), OOPSLA | Análise estática de Node.js orientado a eventos: eventos perdidos, listeners registrados tarde | resumo (subagente) |
+| Wang et al. 2017 (`wang2017`), ASE | Bugs de concorrência reais em Node.js, do modelo orientado a eventos | resumo (subagente) |
+| Davis, Thekumparampil e Lee 2017 (`davis2017`), EuroSys | Node.fz: fuzzing da ordem de execução dos eventos | resumo (subagente) |
+| Myers e Rosson 1992 (`myers1992`), CHI | Levantamento de programação de interfaces; antecedente de "metade do código é interface" (Myers 1994, p. 79) | não lido |
+| Mijač, García-Cabot e Strahonja 2021 (`mijac2021`), TEM Journal; Mijač et al. 2023 (`mijac2023`), SoftwareX | Padrão Reactor e o framework REFRAME contra os limites do Observer Pattern em POO | resumo (subagente) |
+| Cardoso 2018 (`cardoso2018`), dissertação UFSM | Programação orientada a objeto reativa assíncrona (ASYNCRFJ) | resumo (subagente) |
+| Já no `refs.bib`: Kambona et al. 2013, Salvaneschi e Mezini 2016, Zimmerle e Gama 2025 (e a tese de Lima 2024) | PR e promises contra o "asynchronous spaghetti"; falta de depuração para PR; usabilidade de APIs de PR | resumo (subagente) |
+
+As páginas calculadas (Edwards, Fischer et al., Gallaba et al. 2017) estão
+na tcc-wg7.
