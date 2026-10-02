@@ -222,6 +222,25 @@ PR cite:salvaneschi2017.
   escreveu implementações de referência em React e em JavaScript com
   /callbacks/.
 
+  A lacuna se apoia numa revisão bibliográfica por palavras-chave e
+  /snowballing/ [[cite:wohlin2014][p. 3-4]].
+  A revisão teve duas rodadas, em setembro e outubro de 2026, no OpenAlex, no
+  Crossref, na ACM Digital Library, na IEEE Xplore, na SBC-OpenLib e na
+  Biblioteca Digital Brasileira de Teses e Dissertações.
+  Entram trabalhos revisados por pares, em inglês ou português, de três
+  tipos.
+  Os primeiros tratam de PR ou de interfaces declarativas, e os segundos
+  comparam a compreensão e a usabilidade dessas abordagens com as dos
+  /callbacks/ ou do /Observer Pattern/.
+  Os terceiros aplicam as Dimensões Cognitivas a linguagens e bibliotecas.
+  O /snowballing/ para a frente parte de dez trabalhos centrais e, na
+  segunda rodada, percorre todos os citantes de quatro deles, até que uma
+  iteração não traga trabalho novo, o que acontece na terceira.
+  Para trás, percorre as referências de dois trabalhos.
+  Os números de cada etapa estão no Apêndice ref:apend:2.
+  A revisão não viu os citantes de textcite:kiss2014, que o OpenAlex não
+  indexa, e julgou só pelo título 280 registros sem resumo.
+
   Cada implementação escreve numa notação a coordenação entre evento, estado
   e tela, e é essa notação que se compara.
   As Dimensões Cognitivas admitem várias notações num mesmo sistema
