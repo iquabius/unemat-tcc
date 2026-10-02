@@ -28,6 +28,16 @@ popular na comunidade de programação.}.” \cite[p. 926; tradução nossa]{edw
 Uma análise das aplicações \emph{desktop} da Adobe concluiu que a lógica de
 tratamento de eventos era um terço do código e continha metade dos \emph{bugs}
 relatados \cite[p. 926]{edwards2009}.
+Em JavaScript, os \emph{callbacks} são frequentes: num estudo de 138 programas, uma
+em cada dez definições de função recebe um \emph{callback}, e a maioria dos
+\emph{callbacks} é aninhada \cite[p. 1]{gallaba2015}.
+O JavaScript ganhou alternativas ao \emph{callback}: as \emph{promises}, que encadeiam
+computações assíncronas \cite{madsen2017}, e as palavras-chave \emph{async} e
+\emph{await}, que permitem escrever esse código num estilo linear
+\cite[p. 362]{gallaba2017}.
+Mas as \emph{promises} têm semântica complexa, e o fluxo de controle e de dados do
+código que as usa dificulta a compreensão e leva facilmente a erros
+\cite[p. 162:1]{alimadadi2018}.
 Na \emph{programação orientada a objetos} (POO), o \emph{callback} aparece no \emph{Observer
 Pattern}\footnote{O \emph{Observer Pattern} é usado para coordenar eventos em
 linguagens orientadas a objetos, e \emph{callback} às vezes é chamado de \emph{event
