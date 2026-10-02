@@ -800,3 +800,58 @@ slides de Parent, que Edwards não reproduz.
 
 As páginas calculadas (Edwards, Fischer et al., Gallaba et al. 2017) estão
 na tcc-wg7.
+
+## 13. Trabalhos próximos e escrita da introdução: citações (lidas em 2026-10-02)
+
+Conclusão: nenhum trabalho lido compara as três notações nas tecnologias
+web mais usadas sobre as mesmas tarefas. Kiss (2014) já avaliou *signals*
+pelas DCs (Scala.Rx e Elm), na JVM e no Elm, e deixou a web como trabalho
+futuro; Lima (2024) avalia bibliotecas de PR, sem interface gráfica;
+Grolaux et al. (2026) comparam notações de eventos no navegador, mas
+conceitualmente e sem DCs. Trechos guardados mesmo quando o texto não os
+usa, para outras seções. "Conferido": lido no PDF pelo agente principal;
+"subagente": só pela leitura de um subagente. Cópias em `tmp/fontes/`,
+fora do git.
+
+### 13.1 Trabalhos próximos
+
+| Fonte | Trecho | Onde | Leitura | Uso |
+|---|---|---|---|---|
+| Kiss 2014 (`kiss2014`) | "Java/JavaFX on the object-oriented side, and Scala/ScalaFX, Scala.Rx, ReactFX and Elm on the functional side" | p. v | conferido | lacuna |
+| Kiss 2014 | Scala.Rx: `Var` cria um nó de entrada e `Rx`, "a signal expression", um nó interno do grafo; `Obs` executa um efeito quando o valor muda | p. 61 (código na p. 65) | conferido (p. 65); p. 61 subagente | *signals* já avaliados pelas DCs |
+| Kiss 2014 | "Signals in Elm combine both the time-varying and change propagation aspect of Rx expressions from Scala.Rx and the event stream concept from ReactFX" | p. 81 | subagente | fundamentação de *signals* |
+| Kiss 2014 | Nota 63: no Elm a tela parece redesenhada inteira a cada mudança, mas "a clever diffing scheme is used to compute the minimal changes", "the approach prominently taken […] by the framework" React | p. 90-91 | conferido | re-renderização |
+| Kiss 2014 | "In the case of ReactFX, and considerably moreso in the case of Elm, the Abstraction Level in general is more demanding […] Hidden Dependencies and Error-Proneness are reduced" | p. 97 | conferido | análise por DC |
+| Kiss 2014 | "much activity in the web development world with respect to browser-based GUI frameworks. It would be interesting to […] systematically compare their viability"; TodoMVC como *benchmark* notacional | p. 104 | conferido | lacuna e originalidade |
+| Lima 2024 (`lima2024`) | "the first appliance of a user-centered evaluation with CDN and RP" | p. 7 (resumo) | conferido | trabalhos relacionados |
+| Lima 2024 | "React library, for instance, employs concepts like immutability, pure functions, and automatic propagation of updates" | p. 18 | conferido | React e PR |
+| Lima 2024 | "we only focus on two RP libraries: Bacon.js and RxJS" | p. 71 | conferido | lacuna |
+| Lima 2024 | cinco tarefas, todas "revolving HTTP requests" | p. 80 | conferido | lacuna |
+| Lima 2024 | questionário de DCs: 12 participantes, 4 com Bacon.js e 8 com RxJS; cinco dimensões (understandability, abstraction, expressiveness, reusability, learnability) | p. 82, 102 | conferido (p. 102); p. 82 subagente | método |
+| Mernik et al. 2009 (`mernik2009`) | experimento com 36 programadores, XAML (DSL) contra C# Forms (biblioteca de aplicação) | resumo; seção 3.1 (sem paginação) | conferido | lacuna |
+| Mernik et al. 2009 | "the most influential for DSL/GPL program understanding were: closeness of mappings, diffuseness, error-proneness, role expressiveness, and hard mental operations"; a maior diferença entre as duas: as mesmas, com viscosidade no lugar das operações mentais difíceis | seção 4 | conferido (primeira lista); segunda, subagente | escolha das DCs |
+| Grolaux, Nguyen e Vanderdonckt 2026 (`grolaux2026`) | "existing event-handling approaches in GUIs still rely on callbacks or listener-based mechanisms, which fragment the program logic across multiple handlers and make complex interaction flows difficult to express and maintain" | p. 8 | conferido | crítica ao *callback* |
+| Grolaux et al. 2026 | "React […] implements its own event handling, thereby replicating functionality already provided by the browser" | p. 8 | subagente | desvantagens do React |
+| Grolaux et al. 2026 | "nesting these for sequential operations leads to callback hell […], making code difficult to maintain" (exemplo com `jQuery.ajax`) | p. 9 | conferido | crítica ao *callback* |
+| Grolaux et al. 2026 | "Through conceptual comparisons with other paradigms, including synchronous scripts, event listeners, event-bus architectures, animation loops, functional streams, and reactive programming"; async/await "constitutes a compelling foundation for modern GUI event management" | p. 15 | conferido | lacuna |
+| Mijailović e Milićev 2014 (`mijailovic2014`, fora do `.bib`) | interfaces grandes com "more than 30,000 widgets" e "more than 10,000 functional or structural connections usually manifested in event handlers"; nota 1: dados próprios | p. 757 | conferido | peso do tratamento de eventos |
+| Mijailović e Milićev 2014 | Tabela 10: 1.221 a 31.285 *event handlers* nos quatro sistemas industriais dos autores | p. 770-771 | conferido (título da tabela); números, subagente | peso do tratamento de eventos |
+| Mijailović e Milićev 2014 | "most faults in GUI code are found to emerge only when certain interactions between event handlers occur" (citando Yuan e Memon 2008) | p. 759-760 | subagente | crítica ao *callback* |
+| Mijailović e Milićev 2014 | "the interplay between listeners and handlers is the most complex part of GUI programming because it usually involves higher-order programming constructs, such as delegates or callbacks" (citando Bishop e Horspool 2004) | p. 761 | subagente; fonte secundária | crítica ao *callback* |
+| Moseley e Marks 2006 (`moseley2006`) | "the major contributor to this complexity in many systems is the handling of state […]. Other closely related contributors are code volume, and explicit concern with the flow of control"; POO e PF como "classical ways to approach the difficulty of state" | p. 1 | conferido | parágrafo do Moseley |
+| Sperber e Schlegel 2025 | React "re-renders the entire UI on each interaction, just like Elm" | p. 32 | sessão paralela (seção 10.3) | Kiss e re-renderização |
+
+### 13.2 Escrita da introdução
+
+| Fonte | Trecho | Onde | Leitura |
+|---|---|---|---|
+| Anthony 1999 (IEEE TPC 42(1)) | Introduções de engenharia de software são longas e alternam território e nicho "piece by piece"; definições e exemplos depois do movimento 1 | p. 42-44 | conferido |
+| Anthony 1999 | Passo "Evaluation of Research" no movimento 3, em todas as 12 introduções: aplicabilidade (58% do passo) e novidade (24%, em 7 das 12), dita como "differs from", "unique", "extends" | p. 44 | conferido |
+| Posteguillo 1999 (ESP 18(2)) | Em 40 artigos de computação: lacuna (1B) em 57,5%, contra-argumento (1A) em 2,5%, movimento 2 cíclico em 75%; estrutura do artigo bem-vinda | p. 142-144 | conferido |
+| Motta-Roth e Hendges 2010 | Justificativa do projeto: "demonstrar a relevância, a originalidade e/ou a aplicabilidade"; não prometer demais | p. 104 (PDF = página + 49) | conferido |
+| Motta-Roth e Hendges 2010 | CARS de Swales (1990, p. 141) em português: território, nicho, ocupar o nicho | p. 131-132 | conferido |
+| Motta-Roth e Hendges 2010 | Razões pessoais, como preferência pelo tema, "não vêm ao caso" | p. 133 | conferido |
+| Prodanov e Freitas 2013 | Introdução da monografia: "o tema da monografia e a justificativa de sua escolha; a relevância e as contribuições para a área", e "as partes que compõem o trabalho" | p. 252 | conferido |
+| Prodanov e Freitas 2013 | Justificativa: "Razões de ordem teórica e os motivos de ordem prática"; "Mostrar a originalidade" | p. 82 | conferido |
+| Leal 2011 | A justificativa pode explicar "as possíveis contribuições" e "os aspectos inovadores do estudo, se for esse o caso" | p. 62 | conferido |
+| Wazlawick 2014 | "A justificativa vai dizer por que vale a pena buscar esse objetivo" (p. 38); o problema com "referência direta à bibliografia" de que não foi tratado, citando Chinneck (p. 39) | p. 38-39 | conferido |
