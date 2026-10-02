@@ -239,9 +239,11 @@ Situação em 2026-10-02, depois da segunda rodada (seção 5.1):
   à PR por Kiss (2014), com Scala.Rx, ReactFX e Elm (seção 9), e por
   Zimmerle & Gama (2025), com RxJS e Bacon.js por questionário (seção 3);
   "nenhuma análise de *signals* pelas DCs" não se sustenta. O mais perto de
-  comparar notações de coordenação é Grolaux et al. (2026), que põe
-  async/await contra laços de eventos, *callbacks* e PR numa prova de
-  conceito. A revisão de Hadhrawi et al. (2017), sobre mais de 1600
+  comparar notações de coordenação é Grolaux et al. (2026): reproduzem numa
+  biblioteca com async/await o essencial de seis práticas, de
+  *listeners* e barramento de eventos a RxJS e componentes reativos, e as
+  comparam conceitualmente, com exemplos diferentes para cada uma, sem
+  casos comuns nem DCs (p. 8, 10, 14-15). A revisão de Hadhrawi et al. (2017), sobre mais de 1600
   publicações que citam as DCs, pergunta que elementos do *framework* se
   usam (p. 1-2 da cópia), não a que notações, e não confirma a primeira
   parte.
@@ -683,12 +685,13 @@ Relatórios completos das buscas, com os links bloqueados: `tmp/pesquisa-*.md`
 ### 10.3 Da segunda rodada (2026-10-02)
 
 Nenhum repete o desenho do TCC. "R" é o resumo, relido no OpenAlex ou no
-Crossref; ninguém leu o texto completo.
+Crossref; "TC", o texto completo, lido em 2026-10-02 nas cópias de
+`tmp/fontes/`.
 
 | Trabalho | O que faz | Para que serve | Lido |
 |---|---|---|---|
-| GROLAUX, D.; NGUYEN, T.-D.; VANDERDONCKT, J. *Async/await is an effective paradigm for event management of user interfaces*. EICS '26 Companion, p. 7-16, 2026. DOI 10.1145/3807968.3810928 | Prova de conceito que trata eventos de GUI como E/S com async/await e a compara com laços de eventos, *callbacks* e PR | O mais perto de comparar notações de coordenação; trabalhos relacionados | R; PDF aberto na ACM, baixar à mão |
-| SPERBER, M.; SCHLEGEL, M. *Evolution of functional UI paradigms*. FUNARCH '25, p. 27-38, 2025. DOI 10.1145/3759163.3760429 | Traça os *toolkits* funcionais de UI, dos *streams* ao modelo-visão-atualização, e resume o estado da arte | Visão parcial depois de 2013 (lacuna 2); fundamentação da notação declarativa | R; PDF aberto na ACM, baixar à mão |
+| GROLAUX, D.; NGUYEN, T.-D.; VANDERDONCKT, J. *Async/await is an effective paradigm for event management of user interfaces*. EICS '26 Companion, p. 7-16, 2026. DOI 10.1145/3807968.3810928 | Prova de conceito (StreamAsync, JavaScript) que trata eventos de GUI como E/S com async/await. Reproduz nela o essencial de seis práticas (programação síncrona, *listeners*, barramento de eventos, laço de animação, RxJS e afins, componentes reativos) e as compara "conceitualmente", sem casos comuns, DCs nem medidas (p. 10, 15); a introdução fala em cinco práticas e lista seis (p. 8). Contra a reatividade implícita: "Hidden execution can make understanding the actual execution flow quite hard" (p. 14). Limites declarados: princípios centrais de cada prática, sem desempenho, sem experiência em escala (p. 14) | O mais perto de comparar notações de coordenação; trabalhos relacionados; a frase da p. 14 toca as dependências ocultas | TC |
+| SPERBER, M.; SCHLEGEL, M. *Evolution of functional UI paradigms*. FUNARCH '25, p. 27-38, 2025. DOI 10.1145/3759163.3760429 | Narra a evolução dos *toolkits* funcionais de UI (eXene, Fudgets, Fruit, Haggis, Universe do Racket, Elm, React) pela arquitetura: acoplamento e os desafios de atualizar a tela, de modularidade e de circularidade do MVC (p. 28); inclui os *toolkits* dos autores (Reacl, reacl-c). Não é revisão sistemática nem usa DCs. O React "re-renders the entire UI on each interaction, just like Elm" (p. 32); Angular, Svelte e Vue.js atualizam "specific parts of the UI corresponding to specific changes in the model" (p. 32); o Elm deixou a PFR em 2016 (p. 31) | Visão parcial depois de 2013 (lacuna 2); a p. 32 sustenta a fronteira entre re-renderização e atualização fina | TC |
 | WIJAYARATHNA, C.; GROBLER, M.; ARACHCHILAGE, N. A. G. *Software developers need help too! Developing a methodology to analyse cognitive dimension-based feedback on usability*. Behaviour & Information Technology, 2019. DOI 10.1080/0144929x.2019.1705393 | Revisão sistemática de 70 estudos que usaram questionários de DCs e diretrizes para analisar as respostas | Método: DCs por questionário, contra a análise feita pelo autor | R; versão submetida aberta na UNSWorks |
 | ZHUANG, Y.; CHIBA, S. *Expanding event systems to support signals by enabling the automation of handler bindings*. Journal of Information Processing, v. 24, n. 4, p. 620-634, 2016. DOI 10.2197/ipsjjip.24.620 | Contrasta a ligação explícita de *handlers* nos eventos com a implícita dos *signals* e estende sistemas de eventos | *Callbacks* × *signals*; o resumo não fala de GUI | R |
 | ALABOR, M.; STOLZE, M. *Debugging of RxJS-based applications*. REBLS 2020, p. 15-24. DOI 10.1145/3427763.3428313 | Como se depuram aplicações em RxJS e o que atrapalha | Apoio (Angular com RxJS); propensão a erros | R |
