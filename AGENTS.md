@@ -41,6 +41,14 @@ As tarefas vivem no [Beads](https://github.com/gastownhall/beads) (`bd`
 - O corpo diz o que decide a tarefa: `arquivo:linha`, o ADR ou o commit de
   origem, o critério de pronto. Datas absolutas; nada de "hoje" ou "atual".
   Mudar: `bd update <id> --body-file -`.
+- Corpo e notas se leem no painel e na extensão do editor, que mostram as
+  quebras de linha: parágrafos curtos separados por linha em branco, lista
+  com `-` para itens paralelos (trabalhos, critérios, passos, achados),
+  nunca um bloco corrido emendado por ponto e vírgula. Nas notas, cada
+  entrada abre com `## AAAA-MM-DD: assunto`. Escreva o texto num arquivo e
+  passe-o: `--body-file arquivo`; nas notas, `--append-notes "$(cat
+  arquivo)"`, com o arquivo começando por uma linha em branco, porque
+  `--notes` substitui todas as notas.
 - Concluída ou cancelada: `bd close <id> --reason "..."`, dizendo o que a
   resolveu ou por que foi cancelada.
 - O `bd` regrava o `.beads/issues.jsonl` do checkout principal depois de
