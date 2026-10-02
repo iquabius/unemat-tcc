@@ -3,13 +3,12 @@ Interfaces gráficas mediam a maioria das nossas interações com computadores,
 seja em celulares e /notebooks/, seja no navegador web.
 Projetá-las e implementá-las é difícil por natureza, e deve continuar sendo
 [[cite:myers1994][p. 73]].
+Além de problemas comuns de programação, como análise e processamento de dados,
+destacam-se a apresentação de dados na tela e o gerenciamento de interações.
 Na implementação, a aplicação deixa de controlar a execução e se divide em
 sub-rotinas que o /toolkit/ da interface chama quando o usuário age, e
 programas assim parecem mais difíceis de organizar e modularizar
 [[cite:myers1994][p. 79]].
-Além de problemas comuns de programação, como análise e processamento de dados,
-destacam-se também a apresentação de dados na tela e o gerenciamento de
-interações.
 Para gerenciar interações na programação de interfaces, é necessário coordenar
 os eventos gerados pelas ações do usuário no teclado, no mouse ou na tela
 multitoque.
