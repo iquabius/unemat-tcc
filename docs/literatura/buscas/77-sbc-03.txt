@@ -1,0 +1,46 @@
+# Busca: 'cognitive dimensions' — 11 resultados no OpenAlex (mostrando 11, ordem: relevancia)
+
+1. HCI evaluation with Cognitive Dimensions of Notations (2019)
+   Juliana Jansen Ferreira, Vinícius Segura — — [conference-paper]
+   DOI: 10.5753/ihc.2019.8375 | citações: 0 | https://openalex.org/W2980821532
+
+2. An experience in mixing cognitive and affective teaching approaches in a CS1 course (2021)
+   João Marcelo Borovina Josko — — [conference-paper]
+   DOI: 10.5753/wei.2021.15892 | citações: 2 | https://openalex.org/W3178373286
+
+3. Assisting Novice Developers Learning in Flutter Through Cognitive-Driven Development (2024)
+   Ronivaldo Ferreira, Victor Hugo Santiago C. Pinto, Cleidson R. B. de Souza et al. — — [conference-paper]
+   DOI: 10.5753/sbes.2024.3473 | citações: 1 | https://openalex.org/W4403606096
+
+4. Towards Blockchain Developer Experience (BcDEx): Exploring Dimensions of Developer Experience in Blockchain-oriented Software Engineering (2024)
+   Pamella Soares, Allysson Allex Araújo, Raphael Saraiva et al. — — [conference-paper]
+   DOI: 10.5753/sbes.2024.3575 | citações: 1 | https://openalex.org/W4403606342
+
+5. The effect of political polarization on social distance stances in the Brazilian COVID-19 scenario (2021)
+   Régis Ebeling, Carlos Abel Córdova Sáenz, Jéferson Campos Nobre et al. — Journal of Information and Data Management [article]
+   DOI: 10.5753/jidm.2021.1889 | citações: 22 | https://openalex.org/W3189104398
+
+6. Student Engagement Through Creation of New Activities: An Empirical Study on Contributing Student Pedagogy (2020)
+   Mirna Carelli Oliveira Maia, Eliane Araújo, Jorge Manuel Figueiredo et al. — — [conference-paper]
+   DOI: 10.5753/cbie.sbie.2020.1693 | citações: 2 | https://openalex.org/W3107462204
+
+7. L-PRISM: A Domain-Specific Language for Describing Multimedia Service Function Chains (2025)
+   Franklin Jordan Ventura Quico, Anselmo L. E. Battisti, Débora C. Muchaluat-Saade et al. — Journal of the Brazilian Computer Society [article]
+   DOI: 10.5753/jbcs.2025.5453 | citações: 1 | https://openalex.org/W4413775596
+
+8. Task Interdependence in Software Teams: A Systematic Review Anchored in Kiggundu’s Theory (2026)
+   Mayara Benício de Barros Souza, Fábio Q. B. da Silva — Journal of Software Engineering Research and Development [review]
+   DOI: 10.5753/jserd.2026.6507 | citações: 0 | https://openalex.org/W7164926205
+
+9. Generative AI Assisting Programming Learning: Functional Roles, Comparative Analysis, and Emerging Challenges (2025)
+   Heloise Acco Tives Bedin, Madianita  Bogo Marioti, Patrícia A. Jaques — — [conference-paper]
+   DOI: 10.5753/sbie.2025.12361 | citações: 0 | https://openalex.org/W4417197815
+
+10. Enhancing Hackaton Practices in Software Engineering: a Neuroscience-Informed Model for TeamWell-being and Software Quality (2025)
+   Alcione Ramos, Márcia Jacyntha Nunes Rodrigues Lucena — — [conference-paper]
+   DOI: 10.5753/sbes.2025.11606 | citações: 0 | https://openalex.org/W4414984231
+
+11. Towards Human-Centered VR in STEM Education: A Framework for Student–Teacher Challenges through Learning Analytics and Personalized Learning (2026)
+   Muhammad Ahsan, Laura Coura, Ulfat Tahireen et al. — Journal on Interactive Systems [article]
+   DOI: 10.5753/jis.2026.6616 | citações: 0 | https://openalex.org/W7171619028
+

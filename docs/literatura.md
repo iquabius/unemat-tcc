@@ -6,8 +6,9 @@ leva a data em que foi observada. Origem: revisão bibliográfica de
 as 41 saídas brutas em `docs/literatura/buscas/` (resumos retirados; título,
 autores, DOI e contagem de citações ficaram; para reler um resumo,
 `buscar_literatura.py doi`). Os 30 DOIs citados aqui foram conferidos no
-Crossref e no `doi.org`. As ações que a revisão pediu estão nas tarefas do
-`bd`.
+Crossref e no `doi.org`. A segunda rodada, de 2026-10-02, tem as saídas
+nos arquivos 69 a 79 da mesma pasta (seção 5.1). As ações que a revisão
+pediu estão nas tarefas do `bd`.
 
 ## 1. A base em 2026-09-24 (`refs.bib` no commit `e2a6eda`)
 
@@ -171,6 +172,53 @@ traz química e medicina), e nos trabalhos mais citados (Bainomugisha 244
 citantes; Elliott & Hudak 137; Czaplicki & Chong 104; Green & Petre 328) só
 os 60 primeiros foram vistos. Não houve saturação.
 
+### 5.1 Segunda rodada (2026-10-02)
+
+O *snowballing* para a frente saturou: a segunda iteração trouxe um
+incluído marginal e a terceira, nenhum; nada do que entrou muda o nicho
+(seção 6). As bases brasileiras só trouxeram o que a base já tinha.
+
+- **Bases.** OpenAlex (`buscar_literatura.py` e a API direto) e Crossref;
+  BDTD (`bdtd`) e SBC-OpenLib (`buscar --sbc`); ACM DL, à mão, pelo autor.
+  O Semantic Scholar recusou as consultas (HTTP 429). SciELO e Portal
+  CAPES não foram consultados.
+- **Critérios.** Os da seção 5, escritos em
+  `buscas/69-criterios-segunda-rodada.md`: entram (I1) PR, PFR, *signals*
+  ou UI declarativa para GUIs, web ou apps móveis; (I2) estudo empírico de
+  compreensão, usabilidade, manutenção ou defeitos de PR, PF ou
+  declarativo contra *callbacks*, Observer ou imperativo; (I3) DCs
+  aplicadas a linguagem, API, biblioteca ou notação textual; (I4) *survey*
+  ou revisão de PR, PFR ou *frameworks* de UI; (I5) várias tecnologias de
+  UI nas mesmas tarefas. Na BDTD, dissertações e teses de Computação
+  também entram. Citantes desde 2013, ano de bainomugisha2013 e
+  czaplicki2013, para alcançar o nicho; 914 dos 1230 são de 2016 em diante.
+- **Estratégia.** Iteração 1: todos os citantes, sem filtro de termos, de
+  bainomugisha2013, elliott1997, czaplicki2013 e Green & Petre (1996).
+  Iteração 2: citantes de 13 incluídos novos ou próximos do nicho.
+  Iteração 3: referências de Sperber & Schlegel (2025) e trabalhos que
+  citam o 7GUIs no texto completo, no lugar dos citantes de Kiss (2014),
+  que o OpenAlex não indexa. Triagem por título e resumo em seis lotes de
+  cerca de 205 registros, por subagentes; os resumos dos candidatos da
+  seção 10.3 foram relidos no OpenAlex ou no Crossref.
+
+| Etapa | Registros |
+|---|---|
+| Citantes das 4 sementes, todos os anos | 2359 (308 + 629 + 171 + 1251, com sobreposição) |
+| Citantes únicos desde 2013 | 1230 (263 já vistos na primeira rodada, pelo DOI; 280 sem resumo) |
+| Incluídos por título e resumo, iteração 1 | 89 (44 com DOI fora da primeira rodada) |
+| Iteração 2 (13 trabalhos) | 79 citantes, 70 inéditos, 1 incluído (*Realizing persistent signals in JavaScript*, REBLS 2023) |
+| Iteração 3 | 14 referências e 4 trabalhos com "7GUIs"; nenhum incluído |
+| BDTD (14 consultas) e SBC-OpenLib (10) | 556 exibidos, 508 títulos únicos, 2 incluídos, ambos já na base (Lima 2024; farias2024) |
+| Nicho e *survey* no OpenAlex (16 consultas) | 211 exibidos, mais 813 títulos varridos por `title.search` ("reactive programming", "functional reactive") |
+| *Survey* no Crossref (5 consultas) | 500 títulos varridos |
+| ACM DL: "reactive programming" e survey, review, mapping ou overview no título | 4 resultados, nenhuma *survey* além de bainomugisha2013 |
+| Candidatos novos (seção 10.3) | 12 |
+
+Limitações: o número de incluídos é o dos subagentes, de critério largo; o
+corte que vale para o texto é o da seção 10.3. 280 registros sem resumo
+foram julgados pelo título; dissertações em francês saíram pelo idioma;
+os citantes de Kiss (2014) não foram vistos.
+
 ## 6. Lacunas em 2026-09-24
 
 1. Nenhum experimento controlado comparando *callbacks*, PR (RxJS) e o
@@ -181,6 +229,36 @@ os 60 primeiros foram vistos. Não houve saturação.
 3. Trabalhos brasileiros além do grupo da UFPE (SBES, SBLP, WEI, BDTD).
 4. *Signals* em revisão por pares: pouco além de Nishizu & Kamina (2022); o
    fenômeno está na literatura cinzenta.
+
+Situação em 2026-10-02, depois da segunda rodada (seção 5.1):
+
+- **Nicho.** Não se encontrou análise pelas DCs de React nem dos *signals*
+  das bibliotecas web atuais (Solid, Angular), nem comparação das três
+  notações (imperativa com *callbacks*, declarativa por re-renderização,
+  reativa fina com *signals*) nos mesmos casos. As DCs já foram aplicadas
+  à PR por Kiss (2014), com Scala.Rx, ReactFX e Elm (seção 9), e por
+  Zimmerle & Gama (2025), com RxJS e Bacon.js por questionário (seção 3);
+  "nenhuma análise de *signals* pelas DCs" não se sustenta. O mais perto de
+  comparar notações de coordenação é Grolaux et al. (2026), que põe
+  async/await contra laços de eventos, *callbacks* e PR numa prova de
+  conceito. A revisão de Hadhrawi et al. (2017), sobre mais de 1600
+  publicações que citam as DCs, pergunta que elementos do *framework* se
+  usam (p. 1-2 da cópia), não a que notações, e não confirma a primeira
+  parte.
+- **Lacuna 1** continua: nenhum experimento controlado novo.
+- **Lacuna 2** confirmada: nenhuma *survey* de PR revisada por pares com o
+  alcance de Bainomugisha et al. (2013) no OpenAlex, no Crossref nem na
+  ACM DL. Há visões parciais: Salvaneschi et al. (2015, *technical
+  briefing* no ICSE), Sperber & Schlegel (2025, UIs funcionais, *workshop*
+  FUNARCH), Matos & Zuchi (2021, revisão bibliográfica em revista da
+  Fatec) e Tsukanova & Zabrodin (2026, seção 3.3). "P-FRP task scheduling:
+  a survey" (2016) trata de escalonamento de tempo real.
+- **Lacuna 3** fechada: nas bases brasileiras, só o grupo da UFPE trata de
+  PR e usabilidade; Naves (PUC-Rio, 2021) compara dois modelos de PR em
+  aplicações de tempo real brando, sem GUI.
+- **Lacuna 4** continua: *signals* no front-end aparecem em Nishizu &
+  Kamina (2022), Zhuang & Chiba (2016) e dois trabalhos sobre *signals*
+  persistentes (SignalJ, 2022; JavaScript, 2023), nenhum sobre a notação.
 
 ## 7. Kotlin × Java no Android (literatura cinzenta, consultada em 2026-09-26)
 
@@ -569,8 +647,8 @@ Org.
 ## 10. Trabalhos relacionados: candidatos (levantados em 2026-09-28)
 
 Lista para a seção de trabalhos relacionados ou para a fundamentação, que
-ainda não existe no texto (tcc-n73z faz a busca; a tarefa de escrita aponta
-para esta seção). Nenhum trabalho encontrado repete o desenho do TCC (mesmas
+ainda não existe no texto (a busca da segunda rodada está na seção 5.1; a
+tarefa de escrita aponta para esta seção). Nenhum trabalho encontrado repete o desenho do TCC (mesmas
 tarefas de interface, várias tecnologias, avaliação pelas DCs); os mais
 próximos estão na primeira tabela. "Lido" diz quem leu e quanto: TC é texto
 completo, R é só o resumo; "subagente" quer dizer que o autor ainda não
@@ -601,6 +679,26 @@ conferiu no PDF.
 
 Relatórios completos das buscas, com os links bloqueados: `tmp/pesquisa-*.md`
 (fora do git).
+
+### 10.3 Da segunda rodada (2026-10-02)
+
+Nenhum repete o desenho do TCC. "R" é o resumo, relido no OpenAlex ou no
+Crossref; ninguém leu o texto completo.
+
+| Trabalho | O que faz | Para que serve | Lido |
+|---|---|---|---|
+| GROLAUX, D.; NGUYEN, T.-D.; VANDERDONCKT, J. *Async/await is an effective paradigm for event management of user interfaces*. EICS '26 Companion, p. 7-16, 2026. DOI 10.1145/3807968.3810928 | Prova de conceito que trata eventos de GUI como E/S com async/await e a compara com laços de eventos, *callbacks* e PR | O mais perto de comparar notações de coordenação; trabalhos relacionados | R; PDF aberto na ACM, baixar à mão |
+| SPERBER, M.; SCHLEGEL, M. *Evolution of functional UI paradigms*. FUNARCH '25, p. 27-38, 2025. DOI 10.1145/3759163.3760429 | Traça os *toolkits* funcionais de UI, dos *streams* ao modelo-visão-atualização, e resume o estado da arte | Visão parcial depois de 2013 (lacuna 2); fundamentação da notação declarativa | R; PDF aberto na ACM, baixar à mão |
+| WIJAYARATHNA, C.; GROBLER, M.; ARACHCHILAGE, N. A. G. *Software developers need help too! Developing a methodology to analyse cognitive dimension-based feedback on usability*. Behaviour & Information Technology, 2019. DOI 10.1080/0144929x.2019.1705393 | Revisão sistemática de 70 estudos que usaram questionários de DCs e diretrizes para analisar as respostas | Método: DCs por questionário, contra a análise feita pelo autor | R; versão submetida aberta na UNSWorks |
+| ZHUANG, Y.; CHIBA, S. *Expanding event systems to support signals by enabling the automation of handler bindings*. Journal of Information Processing, v. 24, n. 4, p. 620-634, 2016. DOI 10.2197/ipsjjip.24.620 | Contrasta a ligação explícita de *handlers* nos eventos com a implícita dos *signals* e estende sistemas de eventos | *Callbacks* × *signals*; o resumo não fala de GUI | R |
+| ALABOR, M.; STOLZE, M. *Debugging of RxJS-based applications*. REBLS 2020, p. 15-24. DOI 10.1145/3427763.3428313 | Como se depuram aplicações em RxJS e o que atrapalha | Apoio (Angular com RxJS); propensão a erros | R |
+| MIJAILOVIĆ, Ž.; MILIĆEV, D. *Empirical analysis of GUI programming concerns*. International Journal of Human-Computer Studies, p. 757-771, 2014. DOI 10.1016/j.ijhcs.2014.04.002 | Sem resumo no OpenAlex e no Crossref | A ler: o título promete análise empírica da programação de GUIs | só título |
+| KELLEHER, C.; BRACHMAN, M. *A sensemaking analysis of API learning using React*. Journal of Computer Languages, art. 101189, 2022. DOI 10.1016/j.cola.2022.101189 | Sem resumo no OpenAlex e no Crossref | A ler: aprendizado do React | só título |
+| MORSHCHININA, L. et al. *A comparative study of web frontend reactivity*. CMSD-IV 2024 (Proc. SPIE), 2025. DOI 10.1117/12.3061434 | Reatividade do Vue 2 (`Object.defineProperty`) contra a do Vue 3 (`Proxy`): flexibilidade, modularidade, desempenho | Rastreamento automático de dependências no front-end; veículo fora da área | R |
+| MATOS, E. F. de; ZUCHI, J. D. *Estudo sobre programação reativa*. Revista Interface Tecnológica, v. 18, n. 2, p. 219-228, 2021. DOI 10.31510/infa.v18i2.1287 | Revisão bibliográfica de PR | Brasileiro; visão parcial (lacuna 2); conferir se o Zuchi é o de Ferreira e Zuchi (2018), citado por Cavalcante (seção 10.1) | R |
+| NAVES, T. D. *Comparação dos modelos ReactiveX e programação reativa estruturada em aplicações soft real time*. PUC-Rio, 2021 (a BDTD diz tese; o OpenAlex, *dissertation*). DOI 10.17771/pucrio.acad.53553 | PR estruturada × ReactiveX em aplicações em Lua de tempo real brando | Brasileiro; mesma aplicação em dois modelos, sem GUI | R (BDTD) |
+| SAEED, M. S. *Traditional view system vs. Kotlin-driven Jetpack Compose in native Android development*. Dissertação (mestrado), University of Helsinki, 2024 | Views (imperativo, orientado a eventos) × Compose (declarativo) | Replicação no Android; literatura cinzenta | R |
+| SUAREZ-CARVAJAL, F.-E. et al. *MVVM in the era of modern Android: a systematic literature review and taxonomy of architectural trade-offs*. CLEI Electronic Journal, v. 29, n. 2, 2026. DOI 10.19153/cleiej.29.2.8 | Revisão sistemática de 78 estudos (2017-2025) sobre MVVM e UI declarativa no Android | Replicação no Android | R, só o início |
 
 ## 11. Expressividade e operações mentais difíceis nas fontes (lidas em 2026-09-28)
 

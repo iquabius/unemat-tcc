@@ -1,0 +1,154 @@
+# Busca: '"cognitive dimensions" reactive' — 38 resultados no OpenAlex (mostrando 38, ordem: relevancia)
+
+1. Autonomic Reactivity to Arousing Stimuli with Social and Non-social Relevance in Alexithymia (2017)
+   Eduardo Salvador Martínez-Velázquez, Jacques Honoré, Lucas De Zorzi et al. — Frontiers in Psychology [article]
+   DOI: 10.3389/fpsyg.2017.00361 | citações: 22 | https://openalex.org/W2591599333
+
+2. On the Usability of Reactive Programming APIs: A Mixed Evaluation (2025)
+   Carlos Zimmerle, Kiev Santos da Gama — Software Practice and Experience [article]
+   DOI: 10.1002/spe.3435 | citações: 2 | https://openalex.org/W4410705712
+
+3. Subjective experience of emotions and emotional empathy in paranoid schizophrenia (2014)
+   Anja I. Lehmann, Katja Bahçesular, Eva-Maria Brockmann et al. — Psychiatry Research [article]
+   DOI: 10.1016/j.psychres.2014.09.009 | citações: 66 | https://openalex.org/W1972731925
+
+4. Cognitive empathy moderates the relationship between affective empathy and wellbeing in adolescents with autism spectrum disorder (2018)
+   Jason Bos, Mark Andrew Stokes — European Journal of Developmental Psychology [article]
+   DOI: 10.1080/17405629.2018.1444987 | citações: 48 | https://openalex.org/W2793508313
+
+5. Personal values as early predictors of emotional and cognitive empathy among medical students (2021)
+   Stefano Ardenghi, Giulia Rampoldi, Marco Bani et al. — Current Psychology [article]
+   DOI: 10.1007/s12144-021-01373-8 | citações: 43 | https://openalex.org/W3128173979
+
+6. The role of the amygdala in processing social and affective touch (2021)
+   Katalin M. Gothard, Andrew J. Fuglevand — Current Opinion in Behavioral Sciences [review]
+   DOI: 10.1016/j.cobeha.2021.08.004 | citações: 35 | https://openalex.org/W3167696456
+
+7. Val66Met BDNF polymorphism as a vulnerability factor for inflammation-associated depressive symptoms in women with breast cancer (2016)
+   Larissa N. Dooley, Patricia A. Ganz, Steve W. Cole et al. — Journal of Affective Disorders [article]
+   DOI: 10.1016/j.jad.2016.02.059 | citações: 50 | https://openalex.org/W2290717075
+
+8. Anti-inflammatory treatment of depression: study protocol for a randomised controlled trial of vortioxetine augmented with celecoxib or placebo (2018)
+   Célia Fourrier, Emma Sampson, Natalie T. Mills et al. — Trials [article]
+   DOI: 10.1186/s13063-018-2829-7 | citações: 65 | https://openalex.org/W2888228438
+
+9. Genes, Cognition, and Their Interplay in Methamphetamine Use Disorder (2025)
+   Ramisha Khan, Alyna Turner, Michael Berk et al. — Biomolecules [article]
+   DOI: 10.3390/biom15020306 | citações: 13 | https://openalex.org/W4407748613
+
+10. Cognitive and emotional empathy in individuals at clinical high risk of psychosis (2020)
+   Christiane Montag, Lasse Brandt, Anja I. Lehmann et al. — Acta Psychiatrica Scandinavica [article]
+   DOI: 10.1111/acps.13178 | citações: 29 | https://openalex.org/W3019261970
+
+11. Sing4Health: protocol of a randomized controlled trial of the effects of a singing group intervention on the well-being, cognitive function and health of older adults (2020)
+   Iolanda Costa Galinha, Manuel Farinha, Maria Luı́sa Lima et al. — BMC Geriatrics [article]
+   DOI: 10.1186/s12877-020-01686-6 | citações: 19 | https://openalex.org/W3087202055
+
+12. DIEL: Interactive Visualization Beyond the Here and Now (2021)
+   Yifan Wu, Remco Chang, Joseph M. Hellerstein et al. — IEEE Transactions on Visualization and Computer Graphics [article]
+   DOI: 10.1109/tvcg.2021.3114796 | citações: 9 | https://openalex.org/W3204141329
+
+13. Mapping microglial reactivity in the ‘pain matrix’ after peripheral nerve injury (2018)
+   Peter M. Grace, Michael J. Lacagnina — Journal of Pain [article]
+   DOI: 10.1016/j.jpain.2017.12.217 | citações: 0 | https://openalex.org/W2793107215
+
+14. The role of the amygdala in processing social and affective touch (2021)
+   Katalin M. Gothard, Andrew J. Fuglevand — — [preprint]
+   DOI: 10.31234/osf.io/un9gs | citações: 2 | https://openalex.org/W4241150339
+
+15. Neural correlates of empathy in mild cognitive impairment (2023)
+   Davide Quaranta, Sonia Di Tella, Valeria Cassano et al. — Cognitive Affective & Behavioral Neuroscience [article]
+   DOI: 10.3758/s13415-023-01146-9 | citações: 3 | https://openalex.org/W4390394160
+
+16. Selective attention to pain and empathy: Studying frequent blood donors (2022)
+   Sina Omyan, Mahdi Mazidi, Ali Khatibi — Brain and Behavior [article]
+   DOI: 10.1002/brb3.2841 | citações: 2 | https://openalex.org/W4310531297
+
+17. Soft claims unwrapped: How they drive Preadolescents' food choices (2025)
+   Alazne Arraztio-Cordoba, Rafael A. Araque Padilla, Cristian M. Olarte‐Sánchez et al. — Food Quality and Preference [article]
+   DOI: 10.1016/j.foodqual.2025.105521 | citações: 2 | https://openalex.org/W4408960727
+
+18. Adverse childhood experiences differently affect Theory of Mind brain networks in schizophrenia and healthy controls (2024)
+   Benedetta Vai, Federico Calesella, Alice Pelucchi et al. — Journal of Psychiatric Research [article]
+   DOI: 10.1016/j.jpsychires.2024.02.034 | citações: 2 | https://openalex.org/W4391812273
+
+19. Empathy in mild cognitive impairment: a preliminary clinical comparative study in Southern Switzerland using the interpersonal reactivity index (IRI) and the story-based empathy task (SET) (2025)
+   L. Arnaud, Lucia Morellini, Laura Rege-Colet et al. — Frontiers in Aging Neuroscience [article]
+   DOI: 10.3389/fnagi.2025.1661172 | citações: 0 | https://openalex.org/W4414217478
+
+20. DIEL: Interactive Visualization Beyond the Here and Now (2019)
+   Yifan Wu, Remco Chang, Joseph M. Hellerstein et al. — arXiv (Cornell University) [preprint]
+   DOI: 10.48550/arxiv.1907.00062 | citações: 1 | https://openalex.org/W3189598913
+
+21. RoboCerebra: A Large-scale Benchmark for Long-horizon Robotic Manipulation Evaluation (2025)
+   Songhao Han, Boxiang Qiu, Yue Liao et al. — — [conference-paper]
+   DOI: 10.52202/085713-4031 | citações: 1 | https://openalex.org/W4417119772
+
+22. Relationship Between Fatigue And Balance In Patients With Multiple Sclerosis (2025)
+   Engy Mohamed Abdelfattah, Nagwa Ibrahim Rehab, Ebtesam Mohamed Fahmy et al. — Benha International Journal of Physical Therapy [article]
+   DOI: 10.21608/bijpt.2025.388175.1092 | citações: 1 | https://openalex.org/W4412857787
+
+23. Pedagogical Implications of Attending to Student Voice (2026)
+   Claudia Mewald — — [book-chapter]
+   DOI: 10.4324/9781003626879-4 | citações: 0 | https://openalex.org/W7171409205
+
+24. Understanding the effects of emotional and cognitive factors on trust in human–robot interaction using interpretable machine learning (2026)
+   Mingxuan Wang, Liang Dong, Ningning Zhao et al. — Advanced Engineering Informatics [article]
+   DOI: 10.1016/j.aei.2026.104729 | citações: 0 | https://openalex.org/W7157226735
+
+25. The Cornerstones of a Theoretical Model Based on Affective Semiosis to Prevent the Monological Rigidity of Conspiracy Theories in a Democratic System (2026)
+   Angelo Maria De Fortuna, Raffaele De Luca Picione, Luca Tateo — Theory and history in the human and social sciences [book-chapter]
+   DOI: 10.1007/978-3-032-26797-9_4 | citações: 0 | https://openalex.org/W7203530235
+
+26. Merging Domains and Dimensions Within an Innovative Common Simulation of Autonomous Behaviors During Operations (2025)
+   Agostino Bruzzone, Marina Massei, Marco Gotelli et al. — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-031-99732-7_11 | citações: 0 | https://openalex.org/W4414638767
+
+27. Four-Dimensional Decision Stability: Integrating Dimensional Logic into the ALI Architecture (2026)
+   Wolfgang Stegemann — Zenodo (CERN European Organization for Nuclear Research) [preprint]
+   DOI: 10.5281/zenodo.21889417 | citações: 0 | https://openalex.org/W7202211315
+
+28. Sambandet mellan empati och psykisk hälsa (2025)
+   Ellinor Johansson — DiVA at Umeå University (Umeå University) [dissertation]
+   DOI: sem DOI | citações: 0 | https://openalex.org/W7128124221
+
+29. Four-Dimensional Decision Stability: Integrating Dimensional Logic into the ALI Architecture (2026)
+   Wolfgang Stegemann — — [preprint]
+   DOI: 10.5281/zenodo.21889416 | citações: 0 | https://openalex.org/W7202166117
+
+30. 24. TEORÍA DE LA POTENCIALIDAD CONSCIENTE (TPC): RFC-SYNC-001. PROTOCOLO SYNC - CONSCIENCIA HARDWARE-INDEPENDIENTE Y MIGRACIÓN CONSCIENTE. (2025)
+   Víctor Cristóbal Bernal Díaz — Zenodo (CERN European Organization for Nuclear Research) [article]
+   DOI: 10.5281/zenodo.18046199 | citações: 0 | https://openalex.org/W7117251678
+
+31. 24. TEORÍA DE LA POTENCIALIDAD CONSCIENTE (TPC): RFC-SYNC-001. PROTOCOLO SYNC - CONSCIENCIA HARDWARE-INDEPENDIENTE Y MIGRACIÓN CONSCIENTE. (2025)
+   Víctor Cristóbal Bernal Díaz — Zenodo (CERN European Organization for Nuclear Research) [article]
+   DOI: 10.5281/zenodo.18049087 | citações: 0 | https://openalex.org/W7117237188
+
+32. Cognitive and affective mechanisms in impulsive buying: evaluating triggers’ effect (2025)
+   O. V Yermoshkina — Economic Bulletin of Dnipro University of Technology [article]
+   DOI: 10.33271/ebdut/92.027 | citações: 0 | https://openalex.org/W7128907815
+
+33. THEORY OF MIND, EMPATHY, AND IDENTITY PROCESSING STYLE: EXAMINING INTERRELATIONSHIPS AND ADVANTAGES OF ACTING EXPERIENCE (2017)
+   Zachary Allen Pilot — OpenSIUC (Southern Illinois University Carbondale) [article]
+   DOI: sem DOI | citações: 0 | https://openalex.org/W2772901351
+
+34. The New Law of Silicon: Deterministic AI Efficiency through Brahim's IIAS Framework (2026)
+   Elias Oulad Brahim — Zenodo (CERN European Organization for Nuclear Research) [article]
+   DOI: 10.5281/zenodo.18395457 | citações: 0 | https://openalex.org/W7125826195
+
+35. A multi-level legitimacy analysis of the World Anti-Doping Agency (2020)
+   Daniel Read — Loughborough University Research Repository (Loughborough University) [dissertation]
+   DOI: 10.26174/thesis.lboro.11109455.v1 | citações: 0 | https://openalex.org/W2994409924
+
+36. POSTER PRESENTATION (2023)
+   autoria não informada — International Journal of Psychology [article]
+   DOI: 10.1002/ijop.13051 | citações: 0 | https://openalex.org/W4390452237
+
+37. **The Inner Life of the Mind: Understanding Mental Fatigue, Emotional Complexity, and the Quest for Inner Peace in Contemporary Life** (2026)
+   Sudhakar Geruganti — Zenodo (CERN European Organization for Nuclear Research) [preprint]
+   DOI: 10.5281/zenodo.22074974 | citações: 0 | https://openalex.org/W7204108984
+
+38. **The Inner Life of the Mind: Understanding Mental Fatigue, Emotional Complexity, and the Quest for Inner Peace in Contemporary Life** (2026)
+   Sudhakar Geruganti — Zenodo (CERN European Organization for Nuclear Research) [preprint]
+   DOI: 10.5281/zenodo.22074973 | citações: 0 | https://openalex.org/W7204097762
+

@@ -1,0 +1,43 @@
+# BDTD: 'interface gráfica React' — 10 resultados (mostrando 10)
+# A BDTD não filtra por área aqui: descarte o que for de outro campo.
+
+1. Uma nova metodologia baseada na avaliação heurística e simulação realista para o desenvolvimento de interfaces de ventiladores mecânicos centrado no usuário (2014)
+   Maia, Nathalia Parente de Sousa — UFC [dissertação]
+   http://www.repositorio.ufc.br/handle/riufc/10985
+
+2. NFV-Prime : uma plataforma para prototipação e visualização de funções virtualizadas de rede (2024)
+   Quiles, Felipe Ribeiro — UFPR [dissertação]
+   https://hdl.handle.net/1884/95280
+
+3. Desenvolvimento de uma solução com computação móvel para otimização de entregas técnicas e manutenções de máquinas agrícolas (2025)
+   Chiconetto, Cássio — UPF [dissertação]
+   https://repositorio.upf.br/handle/123456789/10017
+
+4. Explorando frameworks multiplataforma para desenvolvimento Android : uma investigação sobre o consumo de recursos (2024)
+   SANTANA JÚNIOR, Bernardo de Moraes — UFPE [dissertação]
+   https://repositorio.ufpe.br/handle/123456789/58168
+
+5. Arquitetura baseada em web e IoT para avaliação de desempenho de painéis fotovoltaicos (2025)
+   Bonfim, Christian Griehl — UTFPR [dissertação]
+   http://repositorio.utfpr.edu.br/jspui/handle/1/38948
+
+6. J’arrive : aventure-se em francês : desenvolvimento de um aplicativo gamificado para a aprendizagem de francês (2025)
+   Santos, Yádini do Conto Winter dos — UFRGS [tese]
+   http://hdl.handle.net/10183/295414
+
+7. Wid - wise infant development: software para o ensino na avaliação do desenvolvimento infantil do lactente. (2020)
+   Melo, Wesley Soares de — UNILAB [dissertação]
+   https://repositorio.unilab.edu.br/jspui/handle/123456789/2029
+
+8. Estudo experimental, simulação e modelagem do efeito de agitação e mistura no processo da produção de biodiesel de soja (Glycine max) metílico e etílico. (2017)
+   PEITER, Amanda Santana. — UCB [tese]
+   http://dspace.sti.ufcg.edu.br:8080/jspui/handle/riufcg/1469
+
+9. Letramento literário na EJA: transformando e (re)construindo caminhos (2018)
+   ALMEIDA, Andreia Silva Ferreira de — UFTM [dissertação]
+   http://bdtd.uftm.edu.br/handle/tede/557
+
+10. Estudo experimental, simulação e modelagem do efeito de agitação e mistura no processo da produção de biodiesel de soja (Glycine max) metílico e etílico. (2017)
+   PEITER, Amanda Santana. — UFCG [tese]
+   https://dspace.sti.ufcg.edu.br/handle/riufcg/1469
+

@@ -1,0 +1,22 @@
+# Busca: '"cognitive dimensions" React' — 5 resultados no OpenAlex (mostrando 5, ordem: relevancia)
+
+1. Psychological reactance in psychiatric patients: Examining the dimensionality and correlates of the Hong Psychological Reactance Scale in a large clinical sample (2014)
+   Carlos De las Cuevas, Wenceslao Peñate, Moisés Betancort et al. — Personality and Individual Differences [article]
+   DOI: 10.1016/j.paid.2014.06.027 | citações: 33 | https://openalex.org/W1982824391
+
+2. The legitimation strategies of early stage disruptive innovation (2020)
+   Karim Ben Slimane, Cédric Diridollou, Karim Hamadache — Technological Forecasting and Social Change [article]
+   DOI: 10.1016/j.techfore.2020.120161 | citações: 32 | https://openalex.org/W3036136861
+
+3. Pathways to Civic Engagement Among Urban Youth of Color (2020)
+   Laura Wray‐Lake, Laura S. Abrams — Monographs of the Society for Research in Child Development [article]
+   DOI: 10.1111/mono.12415 | citações: 123 | https://openalex.org/W3026001416
+
+4. Rejection sensitivity in severe alcohol use disorder: Increased anxious anticipation of rejection (2023)
+   Arthur Pabst, Pauline Billaux, Mado Gautier et al. — Journal of Psychiatric Research [article]
+   DOI: 10.1016/j.jpsychires.2023.05.083 | citações: 8 | https://openalex.org/W4378840151
+
+5. The human firewall: modeling AI-driven influence and human vulnerability in hybrid ecosystems (2026)
+   Sayara Beg — AI & Society [article]
+   DOI: 10.1007/s00146-026-02985-z | citações: 1 | https://openalex.org/W7151772680
+

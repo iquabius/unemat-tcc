@@ -1,0 +1,86 @@
+# Busca: '"cognitive dimensions" API usability' — 21 resultados no OpenAlex (mostrando 21, ordem: relevancia)
+
+1. An Empirical Study of API Usability (2013)
+   Marco Piccioni, Carlo A. Furia, Bertrand Meyer — — [conference-paper]
+   DOI: 10.1109/esem.2013.14 | citações: 112 | https://openalex.org/W2013731130
+
+2. A Generic Cognitive Dimensions Questionnaire to Evaluate the Usability of Security APIs (2017)
+   Chamila Wijayarathna, Nalin Asanka Gamagedara Arachchilage, Jill Slay — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-319-58460-7_11 | citações: 24 | https://openalex.org/W2604400213
+
+3. Using cognitive dimensions to evaluate the usability of security APIs: An empirical investigation (2019)
+   Chamila Wijayarathna, Nalin Asanka Gamagedara Arachchilage — Information and Software Technology [article]
+   DOI: 10.1016/j.infsof.2019.07.007 | citações: 20 | https://openalex.org/W2963725780
+
+4. Applying the Cognitive Dimensions of API Usability to Improve API Documentation Planning (2014)
+   Robert B. Watson — — [conference-paper]
+   DOI: 10.1145/2666216.2666239 | citações: 9 | https://openalex.org/W2032959135
+
+5. Developing usable APIs with XP and cognitive dimensions (2016)
+   Rahul Kamal Bhaskar, Craig Anslow, John Brosz et al. — — [conference-paper]
+   DOI: 10.1109/vlhcc.2016.7739671 | citações: 4 | https://openalex.org/W2550336446
+
+6. Why Johnny can’t develop a secure application? A usability analysis of Java Secure Socket Extension API (2018)
+   Chamila Wijayarathna, Nalin Asanka Gamagedara Arachchilage — Computers & Security [article]
+   DOI: 10.1016/j.cose.2018.09.007 | citações: 23 | https://openalex.org/W2894351723
+
+7. Using Cognitive Dimensions Questionnaire to Evaluate the Usability of Security APIs (2017)
+   Chamila Wijayarathna, Arachchilage, NAG, Jill Slay et al. — arXiv (Cornell University) [preprint]
+   DOI: 10.26190/unsworks/27466 | citações: 1 | https://openalex.org/W2809907716
+
+8. Designing and Evaluating the Usability of a Machine Learning API for Rapid Prototyping Music Technology (2020)
+   Francisco Bernardo, Michael Zbyszyński, Mick Grierson et al. — Frontiers in Artificial Intelligence [article]
+   DOI: 10.3389/frai.2020.00013 | citações: 15 | https://openalex.org/W3015015671
+
+9. On the Usability of Reactive Programming APIs: A Mixed Evaluation (2025)
+   Carlos Zimmerle, Kiev Santos da Gama — Software Practice and Experience [article]
+   DOI: 10.1002/spe.3435 | citações: 2 | https://openalex.org/W4410705712
+
+10. A Generic Cognitive Dimensions Questionnaire to Evaluate the Usability of Security APIs (2017)
+   Chamila Wijayarathna, Nalin Asanka Gamagedara Arachchilage, Jill Slay — arXiv (Cornell University) [preprint]
+   DOI: 10.48550/arxiv.1703.09846 | citações: 0 | https://openalex.org/W4300795392
+
+11. A human-centric API for programming socially interactive robots (2014)
+   James P. Diprose, Beryl Plimmer, Bruce A. MacDonald et al. — — [conference-paper]
+   DOI: 10.1109/vlhcc.2014.6883033 | citações: 11 | https://openalex.org/W2042684430
+
+12. Towards a formal API assessment (2018)
+   Amir Zghidi, Imed Hammouda, Brahim Hnich — — [conference-paper]
+   DOI: 10.1145/3183440.3195026 | citações: 2 | https://openalex.org/W2809304708
+
+13. Task guidelines and the CDF questionnaire instrument of security API usability study (2019)
+   Gamagedara Arachchilage, Nalin Asanka — — [article]
+   DOI: 10.26190/5da65c5981f7c | citações: 0 | https://openalex.org/W3158945752
+
+14. Tools for programming human robot interaction (2014)
+   James P. Diprose — — [conference-paper]
+   DOI: 10.1109/vlhcc.2014.6883046 | citações: 1 | https://openalex.org/W2094397338
+
+15. EOI Dataset — YouTube Discourse and Google Trends Corpus on Epistemic Outsourcing to Generative AI (2022–2026) (2026)
+   Theofanis Aritzis — Zenodo (CERN European Organization for Nuclear Research) [dataset]
+   DOI: 10.5281/zenodo.19916308 | citações: 0 | https://openalex.org/W7158839184
+
+16. EOI Dataset — YouTube Discourse and Google Trends Corpus on Epistemic Outsourcing to Generative AI (2022–2026) (2026)
+   Theofanis Aritzis — Zenodo (CERN European Organization for Nuclear Research) [dataset]
+   DOI: 10.5281/zenodo.19916307 | citações: 0 | https://openalex.org/W7158743088
+
+17. Pelinkehitystyökalujen API-käytettävyys (2013)
+   Tukiainen, Ninja — Aaltodoc (Aalto University) [dissertation]
+   DOI: sem DOI | citações: 0 | https://openalex.org/W7111637481
+
+18. The Design and Evaluation of an Application Programming Interface for Programming Social Robots (2015)
+   James P. Diprose — ResearchSpace (University of Auckland) [dissertation]
+   DOI: 10.13140/rg.2.2.28740.50569 | citações: 0 | https://openalex.org/W2298837710
+
+19. MetaCogAgent: A Metacognitive Multi-Agent LLM Framework with Self-Aware Task Delegation (2026)
+   Chenyu Wang, Yang Shu — arXiv (Cornell University) [preprint]
+   DOI: 10.48550/arxiv.2605.17292 | citações: 0 | https://openalex.org/W7161692540
+
+20. Social Media Emergency Analysis and Realistic Evacuation Modeling (2021)
+   Coşkun Şahin — — [dissertation]
+   DOI: 10.11575/prism/39190 | citações: 0 | https://openalex.org/W3199235784
+
+21. Voxvoro: Repurposing Social Media UI Patterns for AI-Augmented Scholarly Synthesis (2026)
+   P. Matthew Healey — Journal of the Association for Information Systems [article]
+   DOI: sem DOI | citações: 0 | https://openalex.org/W7166260371
+

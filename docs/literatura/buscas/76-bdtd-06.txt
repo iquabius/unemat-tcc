@@ -1,0 +1,7 @@
+# BDTD: 'React Angular Vue' — 1 resultados (mostrando 1)
+# A BDTD não filtra por área aqui: descarte o que for de outro campo.
+
+1. Arquitetura de micro-frontends baseada em princípios de microsserviços para o PDSA - RS (2024)
+   Perlin, Rodrigo — UFSM [dissertação]
+   http://repositorio.ufsm.br/handle/1/33555
+

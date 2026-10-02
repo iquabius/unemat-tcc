@@ -1,0 +1,47 @@
+# BDTD: 'programação reativa interface' — 11 resultados (mostrando 11)
+# A BDTD não filtra por área aqui: descarte o que for de outro campo.
+
+1. Unveiling the usability of reactive programming APIs: findings, tools, and recommendations (2024)
+   LIMA, Carlos Eduardo Zimmerle de — UFPE [tese]
+   https://repositorio.ufpe.br/handle/123456789/64485
+
+2. Gap de integralidade das variáveis discretas para a resolução do problema de fluxo de potência ótimo reativo (2020)
+   Silva, Daisy Paes [UNESP] — UNESP [tese]
+   http://hdl.handle.net/11449/192435
+
+3. Exploração de análises automatizadas de repositórios de códigos para feedback frequente a alunos de programação (2017)
+   Kummer Neto, Alberto Francisco — UFSM [dissertação]
+   http://repositorio.ufsm.br/handle/1/21411
+
+4. Avaliação do papel da NADPH oxidase na nefrogênese normal e na indução de retardo da nefrogênese pela inflamação materna em ratos (2018)
+   CONSTANTINO, Thayná da Silva — UFPE [dissertação]
+   https://repositorio.ufpe.br/handle/123456789/34390
+
+5. Desenvolvimento de um sistema de tutoria inteligente e interativo baseada na metodologia PBL aplicado em ambiente virtual de aprendizagem (2022)
+   Meira, Matheus Carvalho, 1983- — UNICAMP [tese]
+   https://hdl.handle.net/20.500.12733/7165
+
+6. Linguagem e compilador para o paradigma orientado a notificações: avanços para facilitar a codificação e sua validação em uma aplicação de controle de futebol de robôs (2017)
+   Santos, Leonardo Araujo — UTFPR [dissertação]
+   http://repositorio.utfpr.edu.br/jspui/handle/1/2778
+
+7. Modelagem de um componente adaptativo para o gerenciamento dos recursos de acessibilidade de um sistema computacional de uso geral. (2015)
+   Carhuanina, Rosalia Edith Caya — USP [dissertação]
+   —
+
+8. Roteamento por múltiplos caminhos : explorando a operação híbrida entre os planos de dados e de controle (2019)
+   Pizzutti, Marcelo — UFRGS [dissertação]
+   http://hdl.handle.net/10183/198546
+
+9. Tutormama : um sistema tutor inteligente aplicado a neoplasia mamária (2018)
+   Santos, Paulo Henrique Barros — UNB [dissertação]
+   https://repositorio.unb.br/handle/10482/39677
+
+10. Efeito da nanoemulsão do canabidiol (Cannabis sativa) sob a morfologia e o estresse oxidativo da placenta e ovário de ratas submetidas à desnutrição proteica durante a gestação (2026)
+   SILVA, Alison Jose da — UFPE [dissertação]
+   https://repositorio.ufpe.br/handle/123456789/70419
+
+11. Dieta hiperlipídica provoca alterações fenotípicas e funcionais no útero das gerações parental e F1 prenhes (2019)
+   Salles, Évila Da Silva Lopes — UNIFAL [tese]
+   https://repositorio.unifal-mg.edu.br/handle/123456789/1542
+

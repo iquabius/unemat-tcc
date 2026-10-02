@@ -1,0 +1,194 @@
+# Busca: 'React' — 48 resultados no OpenAlex (mostrando 48, ordem: relevancia)
+
+1. Accessibility Evaluation of LLM-Generated Android Code in React Native (2025)
+   Carlos David Ventura, Daniel Mesquita Feijó Rabelo, Ticianne Darin et al. — — [conference-paper]
+   DOI: 10.5753/ihc.2025.10833 | citações: 0 | https://openalex.org/W4415812354
+
+2. Why is my community reacting like this? Understanding reactions in open-source communities (2024)
+   Jorge Luís Melgarejo, Awdren Fontão, Hudson Silva Borges — — [conference-paper]
+   DOI: 10.5753/sbes.2024.3578 | citações: 0 | https://openalex.org/W4403585195
+
+3. Makiphone: um Aplicativo em React Native com o uso de WebRTC e Asterisk (2024)
+   Matheo Rodrigues Bonucia, Joyce Aline de Oliveira Marins, Fabrício B. Carvalho — — [conference-paper]
+   DOI: 10.5753/eri-mt.2024.245928 | citações: 0 | https://openalex.org/W4404519019
+
+4. Implementação de Testes de Integração nos Frameworks de Desenvolvimento Mobile Flutter e React Native: um estudo comparativo (2025)
+   Kelvia Kolln, José Carlos Toniazzo, Viviane Duarte Bonfim — — [conference-paper]
+   DOI: 10.5753/eres.2025.16357 | citações: 0 | https://openalex.org/W7130644394
+
+5. Aplicação da Abordagem Ágil REACT para a Melhoria do Processo de Desenvolvimento de Requisitos: O Caso da W3AS (2019)
+   Luis Fábio Sobral Magalhães, Luiz Márcio Moraes dos Anjos, Gabriel Rego Cavaleiro de Macedo Maia et al. — — [conference-abstract]
+   DOI: 10.5753/cbsoft_estendido.2019.7657 | citações: 0 | https://openalex.org/W2975129122
+
+6. React Native Descomplicado para Iniciantes: Um Relato de Experiência dos Cursos Online e Presencial no Ensino Prático de Desenvolvimento Mobile (2025)
+   Pedro C. Chaaban, Israely Lima, Gabriel Nogueira Bezerra et al. — — [conference-paper]
+   DOI: 10.5753/wei.2025.8524 | citações: 0 | https://openalex.org/W4413356642
+
+7. Development and Test of a Serious Game for Dorsiflexion and Plantarflexion Exercises of the Feet (2021)
+   Daniel Rogerio de Matos Jorge Ferreira, Caio Kaufman Baptista, Bruno da Silva Rodrigues et al. — Journal on Interactive Systems [article]
+   DOI: 10.5753/jis.2021.1916 | citações: 13 | https://openalex.org/W3190627153
+
+8. Fake News and Brazilian politics – temporal investigation based on semantic annotations and graph analysis (2019)
+   Luiz Gomes-Jr, Gabriel Frizzon — — [conference-paper]
+   DOI: 10.5753/sbbd.2019.8818 | citações: 6 | https://openalex.org/W3004123984
+
+9. Investigating the Relationship between Technical Debt Management and Software Development Issues (2023)
+   Clara Berenguer, Adriano Borges, Sávio Freire et al. — Journal of Software Engineering Research and Development [article]
+   DOI: 10.5753/jserd.2023.2581 | citações: 11 | https://openalex.org/W4323321542
+
+10. Matemagos: Uma Experiência de e-Sports e Matemática na Região Amazônica (2022)
+   Sylker Teles, Tarcinara Tavares, Isabelly Cristina Soares de Oliveira et al. — — [conference-paper]
+   DOI: 10.5753/sbgames_estendido.2022.225588 | citações: 2 | https://openalex.org/W4327782982
+
+11. Teachers' Perceptions on Traditional and Non-Traditional Data Visualization for Pedagogical Decision-Making (2019)
+   Ranilson Paiva, Ig Ibert Bittencourt, Maria Cavalcante et al. — Anais do XXX Simpósio Brasileiro de Informática na Educação (SBIE 2019) [conference-paper]
+   DOI: 10.5753/cbie.sbie.2019.1741 | citações: 2 | https://openalex.org/W2990531070
+
+12. Virtual look around: comparing presence, cybersickness and usability for virtual tours across different devices (2021)
+   Jean Felipe Patikowski Cheiran, Adriel Rodrigues, Marcelo Soares Pimenta — Journal on Interactive Systems [article]
+   DOI: 10.5753/jis.2021.2063 | citações: 4 | https://openalex.org/W3213133005
+
+13. Be a Maker: Um Aplicativo de Compartilhamento de Materiais Instrucionais Sobre Robótica Educacional (2020)
+   Luiz Felipe Duarte Alves, Almir de Oliveira Costa — — [conference-paper]
+   DOI: 10.5753/cbie.wcbie.2020.132 | citações: 1 | https://openalex.org/W3106753788
+
+14. Únicos, mas não incomparáveis: abordagens para identificação de similaridades em respostas emocionais de diferentes indivíduos ao mesmo estímulo audiovisual (2024)
+   Guilherme Oliveira Aguiar, Juan Pablo Dantas Esteves, Cleon X. Pereira Júnior et al. — — [conference-paper]
+   DOI: 10.5753/webmedia.2024.241432 | citações: 1 | https://openalex.org/W4403389833
+
+15. P4eBalancer: Leveraging P4 and eBPF for Optimized Load Balancing with Network and Host Insights (2025)
+   Cleiton Puttlitz, Alberto Egon Schaeffer-Filho — — [conference-paper]
+   DOI: 10.5753/sbrc.2025.5950 | citações: 1 | https://openalex.org/W4410849739
+
+16. Utilizando Agentes Pedagógicos Animados como uma abordagem não restritiva ao Gaming The System (2014)
+   Thiago Marquez Nunes, Patrícia A. Jaques — Revista Brasileira de Informática na Educação [article]
+   DOI: 10.5753/rbie.2014.22.01.147 | citações: 1 | https://openalex.org/W2054137695
+
+17. Towards an Automated Approach to Detect Code Smells in ReScript (2025)
+   Maykon Nunes, Carla Ilane Moreira Bezerra, Emanuel Ferreira Coutinho — — [conference-paper]
+   DOI: 10.5753/se4fp.2025.14841 | citações: 0 | https://openalex.org/W4414995369
+
+18. Simulating Behavior Diversity in BioCrowds (2019)
+   Paulo Knob, Soraia Raupp Musse — — [conference-paper]
+   DOI: 10.5753/sibgrapi.est.2019.8296 | citações: 0 | https://openalex.org/W2914121483
+
+19. Exploring approaches to compare emotional responses to the same stimuli from different individuals (2025)
+   Guilherme Oliveira Aguiar, Juan Pablo Dantas Esteves, Livia Mancine et al. — Journal on Interactive Systems [article]
+   DOI: 10.5753/jis.2025.5421 | citações: 0 | https://openalex.org/W4415308505
+
+20. Enhancing Mathematics Education with Geometrix: A Study on the Effectiveness of Gamified 2D and 3D Animation Tools (2024)
+   Vitor M. A. F. Leite, Felipe V. Duarte, Havillon B. Freitas et al. — — [conference-paper]
+   DOI: 10.5753/sbie.2024.242318 | citações: 0 | https://openalex.org/W4404871749
+
+21. IFungi: Solução Econômica para Cultivo Indoor de Cogumelos (2025)
+   Vinicius Alexandre Merlak, Flávio Endrigo Cechim — — [conference-paper]
+   DOI: 10.5753/latinoware.2025.16511 | citações: 0 | https://openalex.org/W7134969316
+
+22. TeaTalk: Uma prancha de Comunicação Aumentativa e Alternativa Digital Personalizável e de Baixo Custo para pessoas com Transtorno do Espectro Autista (2026)
+   Ian Jairo T. Gonzales, Mônica X. C. da Cunha — — [conference-paper]
+   DOI: 10.5753/wics.2026.21022 | citações: 0 | https://openalex.org/W7172409178
+
+23. FoodConnect: um software de gestão logística para auxiliar no combate à fome e redução de desperdícios (2025)
+   Maykon Willyam de Sousa Ferreira, Maria Mislene Rosado de Sousa Veras, Rafael T. Anchiêta — — [conference-paper]
+   DOI: 10.5753/webmedia_estendido.2025.16400 | citações: 0 | https://openalex.org/W4416791194
+
+24. WOLF: Sistema de Consulta de Vagas para Redistribuição de Servidores Docentes do Magistério Superior e Ensino Básico, Técnico e Tecnológico federal (2026)
+   Josiel Santos dos Santos, Raimundo Martins de Araújo Júnior — — [conference-paper]
+   DOI: 10.5753/sbsc.2026.20225 | citações: 0 | https://openalex.org/W7163990813
+
+25. Reactive CEP: Integrating Complex Event Processing into Web Reactive Languages (2018)
+   UFPE, Carlos Zimmerle, Kiev Santos da Gama et al. — — [conference-paper]
+   DOI: 10.5753/webmedia.2018.4556 | citações: 0 | https://openalex.org/W4230015720
+
+26. Assistente de Cena de Crime: Solução Para Auxílio à Investigação de Homicídios (2019)
+   Mateus Amorim, João Venceslau, Pedro Carvalho et al. — — [conference-paper]
+   DOI: 10.5753/wbci.2019.6747 | citações: 0 | https://openalex.org/W2979997625
+
+27. Sistema de Monitoramento de Passageiros para Transporte de Tratamento Médico Intermunicipal (2026)
+   Deilson da S. Sousa, Diogo Bruno de Sá Amorim, Vinicius A. Lima et al. — — [conference-paper]
+   DOI: 10.5753/sbcas.2026.21387 | citações: 0 | https://openalex.org/W7165653880
+
+28. Otimização da Gestão de Capital Humano: Uma abordagem Orientada a Dados com o Sistema TaskMatch (2026)
+   Alana Aíres da Rocha Brito, Dahise Emanuelly, Ivaldir de Farias Júnior et al. — Anais Estendidos do Simpósio Brasileiro de Sistemas de Informação (SBSI) [conference-paper]
+   DOI: 10.5753/sbsi_estendido.2026.249097 | citações: 0 | https://openalex.org/W7160890163
+
+29. Experiência Interativa em 3D para Exibição de Animais Extintos no Museu Emílio Goeldi: Uma Abordagem Educacional e Tecnológica Baseada em WebGL (2025)
+   Israel Coimbra de Pina, Tobias Moraes de Souza, Frederico Guilherme Santana da Silva Filho et al. — — [conference-paper]
+   DOI: 10.5753/webmedia.2025.16163 | citações: 0 | https://openalex.org/W4416744492
+
+30. Automatic Physical Design Tuning based on Hypothetical Plans (2016)
+   Ana Carolina Almeida, Ângelo Brayner, José Maria Monteiro et al. — — [conference-paper]
+   DOI: 10.5753/sbbd.2016.24314 | citações: 0 | https://openalex.org/W2613600412
+
+31. Toda Saúde: Um Estudo de Caso para Possíveis Melhorias ao Meu SUS Digital (2025)
+   João Victor Ramos dos Reis, Diego Cardoso Borda Castro, Carlos Eduardo Pantoja — — [conference-paper]
+   DOI: 10.5753/wsis.2025.15795 | citações: 0 | https://openalex.org/W4415470015
+
+32. Explorando o PostgREST como Solução de Interoperabilidade para Sistemas Legados (2026)
+   Gustavo Klehm, Evandro Miguel Kuszera — — [conference-paper]
+   DOI: 10.5753/erbd.2026.21337 | citações: 0 | https://openalex.org/W7204208753
+
+33. Arquitetura de um sistema de informação geográfica para o monitoramento de conflitos de terra (2023)
+   Fabricio Oliveira Libório, Rubens de Souza Matos Junior, Sandra Helena Gonçalves Costa — — [conference-paper]
+   DOI: 10.5753/erbase.2023.236212 | citações: 0 | https://openalex.org/W4394628855
+
+34. Sistema Web para Gerenciamento de Análises da Qualidade da Água em Poços e Nascentes (2025)
+   Lucas Gabriel Machado da Silva, Taynara da Silva Dias, Roberta Vanessa Rojo Parcianello et al. — — [conference-paper]
+   DOI: 10.5753/latinoware.2025.16542 | citações: 0 | https://openalex.org/W7134902330
+
+35. Introduction to LLM-Based Agents (2025)
+   Eduardo Bezerra — — [book-chapter]
+   DOI: 10.5753/sbc.17956.8.2 | citações: 0 | https://openalex.org/W4415430878
+
+36. Aplicativo para o Aprendizado Facilitado de Libras – Signare (2025)
+   Ana Luiza Brito Carvalho, Isadora Luiz de Lourdes, Edmar André Bellorini et al. — — [conference-paper]
+   DOI: 10.5753/latinoware.2025.16571 | citações: 0 | https://openalex.org/W7134955954
+
+37. Compartilhamento de Atividades Extracurriculares: Estudo de Caso em uma Instituição de Ensino Público (2026)
+   Gustavo Sousa, João Pedro Holanda, Francisco Paulino Arruda Filho et al. — — [conference-paper]
+   DOI: 10.5753/sbsc_estendido.2026.20862 | citações: 0 | https://openalex.org/W7164012324
+
+38. GeneDatabase: Plataforma Web para Comparação de Estruturas de Proteínas com Mutações Associadas à Resistência a Fármacos em Mycobacterium tuberculosis (2026)
+   Veridiana P. Richter, Abdirasak Mohamed Osman, Karina S. Machado — — [conference-paper]
+   DOI: 10.5753/sbcas_estendido.2026.26538 | citações: 0 | https://openalex.org/W7172529193
+
+39. Desenvolvimento de uma Aplicação Mobile para Coleta de Micro Fatores para Micro-Habitats (EcoLox) (2025)
+   Alan Gabriel Berkenbrock, Pedro Henrique Henrique de Lima Silveira, Rodrigo Ramos Nogueira et al. — — [conference-paper]
+   DOI: 10.5753/latinoware.2025.16551 | citações: 0 | https://openalex.org/W7134893505
+
+40. Impacto do Gerenciamento de Estado com a Ferramenta Context API em Single Page Applications (2026)
+   Vitor Gabriel Comin, Leanderson André — Revista Eletrônica de Iniciação Científica em Computação [article]
+   DOI: 10.5753/reic.2026.7413 | citações: 0 | https://openalex.org/W7154746713
+
+41. How Can Collaborative Work Shape the Evolution of a Project Management Teaching Tool? (2026)
+   Matheus Boeira, Dionas Luan Müller, Raul Neves et al. — — [conference-paper]
+   DOI: 10.5753/sbsi.2026.248575 | citações: 0 | https://openalex.org/W7160240155
+
+42. KBchat: Uma abordagem para consulta inteligente de bases de conhecimento (2026)
+   Davi Santos Tavares, Robson Gonçalves Fechine Feitosa — Revista Eletrônica de Iniciação Científica em Computação [article]
+   DOI: 10.5753/reic.2026.6742 | citações: 0 | https://openalex.org/W7201863029
+
+43. Sistema de apoio na classificação e avaliação sensorial de cafés (2025)
+   Bruna Amaro da Silva, Marcos Henrique de Morais Golinelli — — [conference-paper]
+   DOI: 10.5753/latinoware.2025.16515 | citações: 0 | https://openalex.org/W7134905771
+
+44. Automated Drive-Test System for Mobile Communication Networks (2024)
+   Heber Miguel dos Santos, Matheus Riquelme Gonsalves, Isamara Graziele Lima de Souza — — [conference-paper]
+   DOI: 10.5753/latinoware.2024.245780 | citações: 0 | https://openalex.org/W4405030108
+
+45. Evaluating Customizable Serious Games for Scientific Dissemination through Thematic Analysis (2026)
+   Daniel Duarte Ckagnazaroff, Milena Soares Barreira, Raphael Ramos D. Costa et al. — Journal on Interactive Systems [article]
+   DOI: 10.5753/jis.2026.7357 | citações: 0 | https://openalex.org/W7163363431
+
+46. A Lightweight Method for Recognition of Emotions through Facial Geometry with Normalized Landmarks (2025)
+   Leandro Persona, Fernando Meloni, Alessandra Alaniz Macedo — Journal of the Brazilian Computer Society [article]
+   DOI: 10.5753/jbcs.2025.4456 | citações: 0 | https://openalex.org/W4410645450
+
+47. Sistemas LBS, Internet das Coisas e Computação Vestível: Usando a Computação Sensível ao Contexto para Desenvolver as Aplicações do Séc. XXI (2016)
+   Marcio Pereira de SÁ — — [book-chapter]
+   DOI: 10.5753/sbc.417.8.4 | citações: 0 | https://openalex.org/W4393979162
+
+48. Agentes Inteligentes para Configuração de Redes de Computadores: Da Teoria à Prática com LLM, SLM, RAG e IA Agentic (2026)
+   William L. Reiznautt, Eduardo Cerqueira, Diogo M. da Cunha et al. — — [book-chapter]
+   DOI: 10.5753/sbc.19269.8.3 | citações: 0 | https://openalex.org/W7165119162
+

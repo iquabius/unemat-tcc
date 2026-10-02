@@ -1,0 +1,26 @@
+# Busca: '"Jetpack Compose" Views comparison' — 6 resultados no OpenAlex (mostrando 6, ordem: relevancia)
+
+1. Comparison analysis of Jetpack Compose and Flutter in Android-based application development using Technical Domain (2023)
+   Mandahadi Kusuma, Ahmad Haris Rifani, Bambang Sugiantoro — — [conference-paper]
+   DOI: 10.1109/icic60109.2023.10381987 | citações: 3 | https://openalex.org/W4390727741
+
+2. Traditional view system vs. Kotlin-Driven Jetpack Compose in Native Android Development (2024)
+   Saeed, Muhammad Suleman — Doria (University of Helsinki) [dissertation]
+   DOI: sem DOI | citações: 0 | https://openalex.org/W7115340655
+
+3. AccessDroid: Detecting Screen Reader Accessibility Issues in Android Applications via Semantics Trees (2026)
+   Hang Zhou, Wei Song — Zenodo (CERN European Organization for Nuclear Research) [article]
+   DOI: 10.5281/zenodo.18525656 | citações: 2 | https://openalex.org/W7130529834
+
+4. Architectural and Usability Challenges in Designing a Unified Mobile Journey Planner Using Open Public Transport APIs in Finland (2026)
+   Timofei Rykov, Denys Vasiak — Theseus (Ammattikorkeakoulujen) [dissertation]
+   DOI: sem DOI | citações: 0 | https://openalex.org/W7162894646
+
+5. MVVM in the Era of Modern Android: A Systematic Literature Review and Taxonomy of Architectural Trade-offs (2026)
+   Fabian-Enrique Suarez-Carvajal, René Lobo-Quintero, Julián Santiago Santoyo Díaz et al. — CLEI electronic journal [review]
+   DOI: 10.19153/cleiej.29.2.8 | citações: 0 | https://openalex.org/W7168035161
+
+6. AccessDroid: Detecting Screen Reader Accessibility Issues in Android Applications via Semantics Trees (2026)
+   Hang Zhou, Wei Song — Zenodo (CERN European Organization for Nuclear Research) [article]
+   DOI: 10.5281/zenodo.18525655 | citações: 0 | https://openalex.org/W7130612790
+

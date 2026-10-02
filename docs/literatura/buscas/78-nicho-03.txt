@@ -1,0 +1,10 @@
+# Busca: '"cognitive dimensions" declarative user interface' — 2 resultados no OpenAlex (mostrando 2, ordem: relevancia)
+
+1. DIEL: Interactive Visualization Beyond the Here and Now (2019)
+   Yifan Wu, Remco Chang, Joseph M. Hellerstein et al. — arXiv (Cornell University) [preprint]
+   DOI: 10.48550/arxiv.1907.00062 | citações: 1 | https://openalex.org/W3189598913
+
+2. The Politics of code. How digital representations and languages shape culture (2015)
+   Doménico Fiormonte, Desmond Schmidt, Paolo Monella et al. — — [conference-paper]
+   DOI: 10.3390/isis-summit-vienna-2015-s3003 | citações: 1 | https://openalex.org/W2313143737
+

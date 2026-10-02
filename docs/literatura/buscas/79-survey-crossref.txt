@@ -1,0 +1,18 @@
+# Crossref query.title='reactive programming survey' — 902202 no total, 100 vistos; com reactive + survey/review/...: 1
+  2013 | A survey on reactive programming | ACM Computing Surveys | journal-article | 10.1145/2501654.2501666
+# Crossref query.title='reactive programming systematic review' — 3834289 no total, 100 vistos; com reactive + survey/review/...: 3
+  2007 | Campylobacter Reactive Arthritis: A Systematic Review | Seminars in Arthritis and Rheumatism | journal-article | 10.1016/j.semarthrit.2006.12.006
+  2025 | Post-infectious Reactive Arthritis:  A Systematic Review | Advances in Research | journal-article | 10.9734/air/2025/v26i31356
+  2013 | A survey on reactive programming | ACM Computing Surveys | journal-article | 10.1145/2501654.2501666
+# Crossref query.title='reactive programming systematic mapping' — 1403145 no total, 100 vistos; com reactive + survey/review/...: 2
+  2011 | Mapping reactive cysteines | Nature Chemical Biology | journal-article | 10.1038/nchembio.513
+  2013 | A survey on reactive programming | ACM Computing Surveys | journal-article | 10.1145/2501654.2501666
+# Crossref query.title='functional reactive programming survey' — 1621471 no total, 100 vistos; com reactive + survey/review/...: 1
+  2013 | A survey on reactive programming | ACM Computing Surveys | journal-article | 10.1145/2501654.2501666
+# Crossref query.title='reactive programming literature review' — 3978367 no total, 100 vistos; com reactive + survey/review/...: 6
+  2002 | Reactive Coatings Literature Review |  | report | 10.21236/ada414297
+  2025 | Orbital reactive lymphoid hyperplasia: Case series and literature review | European Journal of Ophthalmology | journal-article | 10.1177/11206721241310350
+  2012 | A systematic literature review of the Teleo-Reactive paradigm | Artificial Intelligence Review | journal-article | 10.1007/s10462-012-9350-2
+  2017 | Focal Reactive Overgrowths: Case Series with Review of Literature | JOURNAL OF CLINICAL AND DIAGNOSTIC RESEARCH | journal-article | 10.7860/jcdr/2017/30261.11018
+  2005 | Feline Systemic Reactive Angioendotheliomatosis: Eight Cases and Literature Review | Veterinary Pathology | journal-article | 10.1354/vp.42-5-608
+  2013 | A survey on reactive programming | ACM Computing Surveys | journal-article | 10.1145/2501654.2501666

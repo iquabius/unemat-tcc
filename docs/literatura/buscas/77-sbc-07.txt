@@ -1,0 +1,78 @@
+# Busca: 'user interface programming' — 19 resultados no OpenAlex (mostrando 19, ordem: relevancia)
+
+1. Graphical User Interface for educational content programming with social robots activities and how teachers may perceive it (2020)
+   Daniel C. Tozadore, Roseli Aparecida Francelin Romero — Revista Brasileira de Informática na Educação [article]
+   DOI: 10.5753/rbie.2020.28.0.191 | citações: 6 | https://openalex.org/W3092576295
+
+2. Towards an API for User Attention Prediction in Mobile Notification Overload (2018)
+   Alberto Vianna Dias da Silva, Vaninha Vieira — — [conference-paper]
+   DOI: 10.5753/webmedia.2018.4552 | citações: 4 | https://openalex.org/W2931933595
+
+3. Graphical User Interface for Adaptive Human-Robot Interaction Design in Educational Activities Creation (2018)
+   Daniel C. Tozadore, Roseli Aparecida Francelin Romero — Anais do ... Simpósio Brasileiro de Informática na Educação/Anais do Simpósio Brasileiro de Informática na Educação [conference-paper]
+   DOI: 10.5753/cbie.sbie.2018.605 | citações: 1 | https://openalex.org/W2898915375
+
+4. Authoring of interventions with on-demand generation of screen for mobile devices (2018)
+   Bruna C.R. Cunha, Kamila Rios da Hora Rodrigues, Leonardo Fernandes Scalco et al. — — [conference-paper]
+   DOI: 10.5753/webmedia.2018.4588 | citações: 6 | https://openalex.org/W2908947656
+
+5. Batebit Controller: Popularizing Digital Musical Instruments' Technical Development Process (2019)
+   Filipe Calegário, João Tragtenberg, Giordano Ribeiro Eulalio Cabral et al. — — [conference-paper]
+   DOI: 10.5753/sbcm.2019.10453 | citações: 5 | https://openalex.org/W3025786005
+
+6. Iracema: a Python library for audio content analysis (2019)
+   Tairone Magalhães, Felippe Brandão Barros, Maurício Alves Loureiro — — [conference-paper]
+   DOI: 10.5753/sbcm.2019.10418 | citações: 2 | https://openalex.org/W3025607341
+
+7. EmoWeb: An Infrastructure for Adapting User Interfaces Based on Desired Emotions (2026)
+   Alex Sandro Rodrigues Ancioto, Rogério Aparecido Campanari-Xavier, Fernando Miguelão Silva et al. — Journal on Interactive Systems [article]
+   DOI: 10.5753/jis.2026.6834 | citações: 0 | https://openalex.org/W7167788125
+
+8. GUISSE: A Graphical User Interface For Snippet Selection and Evaluation in Time Series Data (2025)
+   Guilherme Fernandes, Lucas Peres Gaspar, Lívia Almada Cruz et al. — — [conference-paper]
+   DOI: 10.5753/sbbd_estendido.2025.247671 | citações: 0 | https://openalex.org/W4415430981
+
+9. AromaDr: A Language-Independent Tool for Detecting Test Smells (2025)
+   Públio Silva, Carla Ilane Moreira Bezerra, Ivan Machado et al. — — [conference-paper]
+   DOI: 10.5753/sbes.2025.11114 | citações: 1 | https://openalex.org/W4414984427
+
+10. Um Resumo do Artigo - Projeto e Avaliação de uma Plataforma de Autoria para Jogos Digitais Terapêuticos (2023)
+   Kamila Rios da Hora Rodrigues, Aline Elias Cardoso Verhalen, Jonattan Willian da Silva et al. — — [conference-paper]
+   DOI: 10.5753/ihc_estendido.2023.233784 | citações: 1 | https://openalex.org/W4389670079
+
+11. UAX: Measuring the Usability of TypeScript APIs (2024)
+   Carlos Zimmerle, Kiev Santos da Gama — — [conference-paper]
+   DOI: 10.5753/sbes.2024.3658 | citações: 1 | https://openalex.org/W4403585108
+
+12. HCI Support Card: Creating and Using a Support Card for Education in Human-Computer Interaction (2019)
+   Lesandro Ponciano — — [conference-paper]
+   DOI: 10.5753/ihc.2019.8409 | citações: 1 | https://openalex.org/W2972976243
+
+13. BOCADE: Improving the User Experience (UX) of Competitive Programming Contestants with a Visual Studio Code Extension (2024)
+   Luiz Gustavo Albuquerque dos Santos, Fabíola Gonçalves C. Ribeiro, Kênia Santos de Oliveira — — [conference-paper]
+   DOI: 10.5753/sbie.2024.241858 | citações: 0 | https://openalex.org/W4404839768
+
+14. Desenvolvendo Aplicativos Android usando Kotlin (2023)
+   Larissa Cardoso Zimmermann, J. Eusebio, Maria da Graça Campos Pimentel — — [book-chapter]
+   DOI: 10.5753/sbc.14282.0.2 | citações: 0 | https://openalex.org/W4400982362
+
+15. Web usability as a mechanism for disseminating information on the internet (2018)
+   Raimundo Carvalho Rabelo Filho — — [conference-paper]
+   DOI: 10.5753/ihc.2018.4183 | citações: 0 | https://openalex.org/W2911858623
+
+16. Colloquy: Evidence-Based Method for Supporting the Design of Conversational APIs (2025)
+   JOAO ANTONIO DUTRA MARCONDES BASTOS, Rafael de Mello, Alessandro Garcia — Journal of Software Engineering Research and Development [article]
+   DOI: 10.5753/jserd.2024.4130 | citações: 0 | https://openalex.org/W4407946512
+
+17. BOBS: an Intel 8085 processor simulator (2025)
+   Antônio Drumond Cota de Sousa, Mateus Henrique Medeiros Diniz, Davi Ferreira Puddo et al. — — [conference-paper]
+   DOI: 10.5753/eradse.2025.16918 | citações: 0 | https://openalex.org/W7133219620
+
+18. LOCUS: An environment description language for JASON (2015)
+   Ramon Fraga Pereira, Maurício Cecílio Magnaguagno, Felipe Rech Meneguzzi et al. — — [conference-paper]
+   DOI: 10.5753/wesaac.2015.33309 | citações: 0 | https://openalex.org/W4408363885
+
+19. Ferramentas de Autoria para Aplicações na TV Digital Voltadas a Produtores de Conteúdo: Uma Revisão Sistemática de Literatura (2025)
+   Li-Chang Shuen Sousa, MARCELO FERREIRA MORENO, Carlos de Salles Soares Neto — — [conference-paper]
+   DOI: 10.5753/webmedia.2025.16103 | citações: 0 | https://openalex.org/W4416744764
+

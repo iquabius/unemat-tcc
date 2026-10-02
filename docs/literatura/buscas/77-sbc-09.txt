@@ -1,0 +1,202 @@
+# Busca: 'usability programming language' — 144 resultados no OpenAlex (mostrando 50, ordem: relevancia)
+
+1. Integrating Robot Control into the AgentSpeak(L) Programming Language (2014)
+   Rodrigo Wesz — — [conference-paper]
+   DOI: 10.5753/wesaac.2014.33302 | citações: 8 | https://openalex.org/W2518543689
+
+2. Evaluating Large Language Models in Detecting Test Smells (2024)
+   Keila Lucas, Rohit Gheyi, Elvys Soares et al. — — [conference-paper]
+   DOI: 10.5753/sbes.2024.3642 | citações: 12 | https://openalex.org/W4403607483
+
+3. Parameterized and automated assessment on an introductory programming course (2020)
+   Francisco de Assis Zampirolli, Paulo Henrique Pisani, João Marcelo Borovina Josko et al. — — [conference-paper]
+   DOI: 10.5753/cbie.sbie.2020.1573 | citações: 11 | https://openalex.org/W3109014800
+
+4. Combining Effects in a Music Programming Language based on Patterns (2019)
+   André Rauber Du Bois, Rodrigo Geraldo Ribeiro — — [conference-paper]
+   DOI: 10.5753/sbcm.2019.10430 | citações: 2 | https://openalex.org/W3024969902
+
+5. GoDonnie: A robot programming language for teaching people who are visually impaired (2019)
+   Juliana Damasio Oliveira, Márcia de Borba Campos, Alexandre M. Amory et al. — Anais do XXX Simpósio Brasileiro de Informática na Educação (SBIE 2019) [conference-paper]
+   DOI: 10.5753/cbie.sbie.2019.1181 | citações: 2 | https://openalex.org/W2990407827
+
+6. State-of-the-Art Javascript Language for Internet of Things (2019)
+   Fernando Oliveira, Júlio C. B. Mattos — — [conference-paper]
+   DOI: 10.5753/sbesc_estendido.2019.8651 | citações: 5 | https://openalex.org/W2989195829
+
+7. Understanding the Impact of Introducing Lambda Expressions in Java Programs (2020)
+   Walter Lucas, J.A.B. Fortes, Francisco Vitor Lopes et al. — Journal of Software Engineering Research and Development [article]
+   DOI: 10.5753/jserd.2020.744 | citações: 7 | https://openalex.org/W3147393450
+
+8. Network Address Translation using a Programmable Dataplane Processor (2018)
+   Juán Sebastián Mejía Vallejo, Daniel Lazkani Feferman, Christian Esteve Rothenberg — Anais do Workshop em Desempenho de Sistemas Computacionais e de Comunicação (WPerformance) [conference-paper]
+   DOI: 10.5753/wperformance.2018.3333 | citações: 2 | https://openalex.org/W2970290181
+
+9. DDoS on Sketch: Spoofed DDoS attack defense with programmable data plans using sketches in SDN (2019)
+   Kairo Tavares, Tiago Coelho Ferreto — — [conference-paper]
+   DOI: 10.5753/sbrc.2019.7404 | citações: 4 | https://openalex.org/W2974275633
+
+10. Toward a Language-Agnostic Approach to Detect Test Smells (2024)
+   Públio Silva, Carla Ilane Moreira Bezerra, Ivan Machado — — [conference-paper]
+   DOI: 10.5753/sbes.2024.3647 | citações: 2 | https://openalex.org/W4403585019
+
+11. BioDSL: A Domain-Specific Language for mapping and dissemination of Biodiversity Data in the LOD (2016)
+   Kleberson Junio do Amaral Serique, José Laurindo Campos dos Santos, Dilvan de Abreu Moreira — — [conference-paper]
+   DOI: 10.5753/bresci.2016.10011 | citações: 3 | https://openalex.org/W2561516620
+
+12. The development of libmosaic-sound: a library for sound design and an extension for the Mosaicode Programming Environment (2019)
+   Luan Luiz Gonçalves, Flávio Luiz Schiavoni — — [conference-paper]
+   DOI: 10.5753/sbcm.2019.10429 | citações: 3 | https://openalex.org/W3025875079
+
+13. Exception Miner: Multi-language Static Analysis Tool to Identify Exception Handling Anti-Patterns (2024)
+   Jairo Souza, Tales Alves, Robson Ytallo Silva de Oliveira et al. — — [conference-paper]
+   DOI: 10.5753/sbes.2024.3573 | citações: 3 | https://openalex.org/W4403585018
+
+14. Pointers on Paper: Teaching and learning pointers in the c programming language based on colored envelopes (2018)
+   Gustavo Kira, Luiz Ernesto Merkle — — [conference-paper]
+   DOI: 10.5753/wei.2018.3529 | citações: 1 | https://openalex.org/W2940657081
+
+15. Search-based Test Data Generation for Mutation Testing: a tool for Python programs (2020)
+   Matheus Silva Ferreira, Lincoln Costa, Francisco Carlos M. Souza — — [conference-paper]
+   DOI: 10.5753/eres.2020.13722 | citações: 4 | https://openalex.org/W3133765908
+
+16. Exploring the Use of Clustering Algorithms and LLMs to Identify Programming Strategies (2026)
+   Rafaela Melo, Tiago Souza, Fernanda Pires et al. — Revista Brasileira de Informática na Educação [article]
+   DOI: 10.5753/rbie.2026.6550 | citações: 1 | https://openalex.org/W7130723468
+
+17. Processamento de Linguagem Natural (2022)
+   Helena de Medeiros Caseli, Cláudia Freitas, Roberta Viola — — [book-chapter]
+   DOI: 10.5753/sbc.10309.7.1 | citações: 40 | https://openalex.org/W4296458987
+
+18. Use of ChatBots in Programming Education: A Scoping Review (2024)
+   João Victor Barbosa Alves, Yanna Torres Gonçalves, Henrique Barbosa Silva — — [conference-paper]
+   DOI: 10.5753/sbie.2024.242473 | citações: 1 | https://openalex.org/W4404839761
+
+19. Programming fundamentals and human factors: an empirical study of three variables (2015)
+   Osvaldo Luiz de Oliveira, Ana Maria Monteiro, Norton Trevisan Roman — iSys - Brazilian Journal of Information Systems [article]
+   DOI: 10.5753/isys.2015.281 | citações: 1 | https://openalex.org/W1698382704
+
+20. Automatic program verification in Dynamic Logic with applications to smart contracts (2021)
+   Allan Patrick, Igor Machado Coelho, Bruno Lopes — — [conference-paper]
+   DOI: 10.5753/wbl.2021.15772 | citações: 1 | https://openalex.org/W3173164178
+
+21. An Open List of Computer Programming Student’s Common Problems and its Leverage in Teaching Practice (2023)
+   Renato Cortinovis, Pablo Frank Bolton, Ricardo Caceffo — — [conference-paper]
+   DOI: 10.5753/educomp.2023.228328 | citações: 2 | https://openalex.org/W4361268452
+
+22. A Systematic Mapping Study on Chatbots in Programming Education (2025)
+   Marcelino Garcia, Renato Garcia, Arthur Parizotto et al. — — [conference-paper]
+   DOI: 10.5753/sbie.2025.12323 | citações: 1 | https://openalex.org/W4417197839
+
+23. Analysis of WebAssembly as a Strategy to Improve JavaScript Performance on IoT Environments (2020)
+   Fernando Luis Oliveira, Júlio C. B. Mattos — — [conference-paper]
+   DOI: 10.5753/sbesc_estendido.2020.13102 | citações: 9 | https://openalex.org/W3114697601
+
+24. Random Forest for Code Smell Detection in JavaScript (2022)
+   Diego S. Sarafim, Karina Valdivia Delgado, Daniel Cordeiro — — [conference-paper]
+   DOI: 10.5753/eniac.2022.227328 | citações: 3 | https://openalex.org/W4316036017
+
+25. RefModel: Detecting Refactorings using Foundation Models (2025)
+   Pedro Simões, Rohit Gheyi, Rui Melo et al. — — [conference-paper]
+   DOI: 10.5753/sbes.2025.11582 | citações: 2 | https://openalex.org/W4414945962
+
+26. An Analysis of Javino Middleware for Robotic Platforms Using Jason and JADE Frameworks (2016)
+   Dayana Junger, João Victor Guinelli da Silva, Carlos Eduardo Pantoja — — [conference-paper]
+   DOI: 10.5753/wesaac.2016.33217 | citações: 3 | https://openalex.org/W4407139220
+
+27. Um Mapeamento Sistemático sobre Ensino de Teste de Software (2015)
+   Pedro Henrique Dias Valle, Ellen Francine Barbosa, José Maldonado — Anais do ... Simpósio Brasileiro de Informática na Educação/Anais do Simpósio Brasileiro de Informática na Educação [conference-abstract]
+   DOI: 10.5753/cbie.sbie.2015.71 | citações: 16 | https://openalex.org/W2179678597
+
+28. An internal domain-specific language for expressing linear pipelines: a proof-of-concept with MPI in Rust (2024)
+   Leonardo G. Faé, Dalvan Griebler — — [conference-paper]
+   DOI: 10.5753/sblp.2024.3691 | citações: 1 | https://openalex.org/W4403427389
+
+29. Are You Seeing This? What Is Available and How Can We Include Blind Students in Virtual UML Learning Activities (2014)
+   Leandro Luque, Leônidas de Oliveira Brandão, Romero Tori et al. — Anais do ... Simpósio Brasileiro de Informática na Educação/Anais do Simpósio Brasileiro de Informática na Educação [conference-paper]
+   DOI: 10.5753/cbie.sbie.2014.204 | citações: 10 | https://openalex.org/W1823966628
+
+30. Uma abordagem baseada no ambiente Robocode para ensino de programação no Ensino Médio (2017)
+   Eliana Pantaleão, Laurence Rodrigues do Amaral, Gláucia Braga e Silva — Revista Brasileira de Informática na Educação [article]
+   DOI: 10.5753/rbie.2017.25.03.95 | citações: 5 | https://openalex.org/W2765277986
+
+31. GrameStation: Specifying Games with Graphs (2021)
+   Braz Araujo da Silva, Simone André da Costa Cavalheiro, Luciana Foss — Anais do XXXII Simpósio Brasileiro de Informática na Educação (SBIE 2021) [conference-paper]
+   DOI: 10.5753/sbie.2021.218639 | citações: 9 | https://openalex.org/W4200084212
+
+32. On the test smells detection: an empirical study on the JNose Test accuracy (2021)
+   Tássio Virgínio, Luana Martins, Railana Santana et al. — Journal of Software Engineering Research and Development [article]
+   DOI: 10.5753/jserd.2021.1893 | citações: 18 | https://openalex.org/W3210416950
+
+33. Development of an immersive sound tool for RPG session using Pure Data and MobMuPlat. (2023)
+   Gabriel Lopes da Rocha, João P. M. Oliveira, Flávio Luiz Schiavoni — — [conference-paper]
+   DOI: 10.5753/sbgames_estendido.2023.234190 | citações: 1 | https://openalex.org/W4393380400
+
+34. Um estudo sobre erros em programação - Reconhecendo as dificuldades de programadores iniciantes. (2015)
+   Marina Gomes, Liliane Becker, Lucas Gestaro et al. — Anais ... Workshops do Congresso Brasileiro de Informática na Educação [conference-paper]
+   DOI: 10.5753/cbie.wcbie.2015.1398 | citações: 4 | https://openalex.org/W2229421903
+
+35. A Parallel Strategy for a Genetic Algorithm in Routing Wavelength Assignment Problem Using GPU with CUDA (2020)
+   Esdras La-Roque, Cassio Batista, Josivaldo de Souza Araújo — — [conference-paper]
+   DOI: 10.5753/eniac.2020.12175 | citações: 1 | https://openalex.org/W4245624425
+
+36. Developing Algorithms for the Internet of Flying Things Through Environments With Varying Degrees of Realism (2024)
+   Thiago de Souza Lamenza, Josef Kamysek, Bruno José Olivieri de Souza et al. — — [conference-paper]
+   DOI: 10.5753/sbrc_estendido.2024.2305 | citações: 4 | https://openalex.org/W4402127143
+
+37. A Syllabi Analysis of CS1 Courses from Brazilian Public Universities (2023)
+   Eryck Pedro da Silva, Ricardo Caceffo, Rodolfo Azevedo — Revista Brasileira de Informática na Educação [article]
+   DOI: 10.5753/rbie.2023.2870 | citações: 3 | https://openalex.org/W4385950459
+
+38. GEM: A Framework for Strengthening LLM-Generated Unit Tests Using Mutation Feedback (2026)
+   Arda Celik, Qusay H. Mahmoud — — [conference-paper]
+   DOI: 10.5753/cibse.2026.42441 | citações: 1 | https://openalex.org/W7162811052
+
+39. Hok: Higher-Order GPU kernels in Elixir (2024)
+   André Rauber Du Bois, Tiago Perlin, Frederico Peixoto Antunes et al. — — [conference-paper]
+   DOI: 10.5753/sblp.2024.3690 | citações: 2 | https://openalex.org/W4403427251
+
+40. Detection and Mitigation of Attacks at the Edge of IoT Networks Using Deep Learning and P4 (2025)
+   Antônia Mayara de A. da Silva, Michel Bonfim, Arthur C. Callado et al. — — [conference-paper]
+   DOI: 10.5753/sbsi.2025.246599 | citações: 1 | https://openalex.org/W4410159742
+
+41. Minicursos da XXII Escola Regional de Alto Desempenho da Região Sul (2022)
+   autoria não informada — — [book]
+   DOI: 10.5753/sbc.8387.0 | citações: 4 | https://openalex.org/W4293234348
+
+42. Theoretical Computer Science in Basic Education: A Systematic Review (2021)
+   Braz Araujo da Silva, Simone André da Costa Cavalheiro, Luciana Foss — — [review]
+   DOI: 10.5753/weit.2021.18933 | citações: 5 | https://openalex.org/W4226417876
+
+43. Método de Ensino de Programação Mediada por Simulação: Um Estudo de Caso no Curso Técnico Integrado em Informática (2016)
+   Bruno Lopes, Walisson Santos Duarte, Tiago do Carmo Nogueira et al. — Anais do ... Simpósio Brasileiro de Informática na Educação/Anais do Simpósio Brasileiro de Informática na Educação [conference-paper]
+   DOI: 10.5753/cbie.sbie.2016.340 | citações: 2 | https://openalex.org/W2555512836
+
+44. I know what you coded last summer (2021)
+   Lucas Mendonça de Souza, Igor Moreira Félix, Bernardo Martins Ferreira et al. — Anais do XXXII Simpósio Brasileiro de Informática na Educação (SBIE 2021) [conference-paper]
+   DOI: 10.5753/sbie.2021.218673 | citações: 3 | https://openalex.org/W4200622830
+
+45. Implementação do Jogo Torre de Hanói como Estratégia de Aprendizagem de Pilha (2016)
+   Tharles Andrade, Rafael Rodrigues Glay, Guilherme De S. Lopes et al. — Anais do ... Simpósio Brasileiro de Informática na Educação/Anais do Simpósio Brasileiro de Informática na Educação [conference-paper]
+   DOI: 10.5753/cbie.sbie.2016.1311 | citações: 2 | https://openalex.org/W2554904324
+
+46. Fortran DO CONCURRENT Evaluation in Multi-core for NAS-PB Conjugate Gradient and a Porous Media Application (2024)
+   Gabriel Dineck Tremarin, Anna V. G. Marciano, Cláudio Schepke et al. — — [conference-paper]
+   DOI: 10.5753/sscad.2024.244796 | citações: 3 | https://openalex.org/W4403757888
+
+47. P4Docker: Enabling Efficient P4 Switch Testbeds with Docker Integration (2024)
+   Dener Silva, Alexandre Heideker, Lucas Trombeta et al. — — [conference-paper]
+   DOI: 10.5753/sbrc_estendido.2024.2254 | citações: 3 | https://openalex.org/W4402126315
+
+48. HCI Support Card: Creating and Using a Support Card for Education in Human-Computer Interaction (2019)
+   Lesandro Ponciano — — [conference-paper]
+   DOI: 10.5753/ihc.2019.8409 | citações: 1 | https://openalex.org/W2972976243
+
+49. Interdisciplinaridade, programação visual e robótica educacional: relato de experiência sobre o ensino inicial de programação (2015)
+   Rogério Cardoso, Sérgio Antonello — Anais ... Workshops do Congresso Brasileiro de Informática na Educação [conference-abstract]
+   DOI: 10.5753/cbie.wcbie.2015.1255 | citações: 5 | https://openalex.org/W2236775814
+
+50. Estudo e adaptação de software para o ensino de Linguagens Formais e Autômatos (2014)
+   Juliana Pinheiro Campos Pirovani, Guilherme Mataveli — Revista Brasileira de Informática na Educação [article]
+   DOI: 10.5753/rbie.2013.21.03.53 | citações: 2 | https://openalex.org/W2070920271
+

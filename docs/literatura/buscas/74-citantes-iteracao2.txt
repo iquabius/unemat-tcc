@@ -1,0 +1,107 @@
+
+## citantes de Sperber & Schlegel 2025 (W4415033437): 0
+
+## citantes de Tsukanova & Zabrodin 2026 (W7166530535): 0
+
+## citantes de Grolaux et al. 2026 (W7166324084): 0
+
+## citantes de Wijayarathna et al. 2019 (W2997784555): 7
+- [W3133538641] NOVO I’m all ears! Listening to software developers on putting GDPR principles into software development practice (2021) | Personal and Ubiquitous Computing | https://doi.org/10.1007/s00779-021-01544-1
+- [W4402991528] NOVO Development of a T2D App for Elderly Users: Participatory Design Study via Heuristic Evaluation and Usability Testing (2024) | Electronics | https://doi.org/10.3390/electronics13193862
+- [W4402350936] NOVO Empowering IoT Developers with Privacy-Preserving End-User Development Tools (2024) | Proceedings of the ACM on Interactive Mobile Wearable and Ubiquitous Technologies | https://doi.org/10.1145/3678588
+- [W4288079736] NOVO Designing a serious game (2020) | None | https://doi.org/10.1145/3417113.3422149
+- [W3048018529] NOVO Why are Developers Struggling to Put GDPR into Practice when Developing Privacy-Preserving Software Systems? (2020) | arXiv (Cornell University) | https://doi.org/10.48550/arxiv.2008.02987
+- [W3085521044] NOVO Designing a Serious Game: Teaching Developers to Embed Privacy into Software Systems (2020) | arXiv (Cornell University) | https://doi.org/10.48550/arxiv.2009.05714
+- [W4402861478] NOVO Optimization Design of Industrial 3D CAD Software Based on Interview Analysis (2024) | Lecture notes on data engineering and communications technologies | https://doi.org/10.1007/978-3-031-71225-8_33
+
+## citantes de Hadhrawi et al. 2017 (W2809782713): 5
+- [W2942357311] Visual design thinking: a collaborative dimensions framework to profile visualisations (2019) | Design Studies | https://doi.org/10.1016/j.destud.2019.04.001
+- [W3083578726] The patterns of user experience for sticky-note diagrams in software requirements workshops (2020) | Journal of Computer Languages | https://doi.org/10.1016/j.cola.2020.100997
+- [W2962788178] NOVO DEVELOPING FORMATIVE EVALUATION FOR COMPLEX INTERACTION (2019) | None | https://doi.org/10.33965/is2019_201905l005
+- [W2887639250] NOVO The Case for API Communicability Evaluation: Introducing API-SI with Examples from Keras (2018) | arXiv (Cornell University) | https://doi.org/10.48550/arxiv.1808.05891
+- [W3140662449] Designing an Open Visual Workflow Environment (2021) | SHURA (Sheffield Hallam University Research Archive) (Sheffield Hallam University) | None
+
+## citantes de Rauf et al. 2019 (W2944972137): 39
+- [W2981405027] NOVO Computer Estimation of Customer Similarity With Facebook Lookalikes: Advantages and Disadvantages of Hyper-Targeting (2019) | IEEE Access | https://doi.org/10.1109/access.2019.2948401
+- [W3178592347] NOVO The Case for Adaptive Security Interventions (2021) | ACM Transactions on Software Engineering and Methodology | https://doi.org/10.1145/3471930
+- [W4211187792] NOVO Evaluating usability in educational technology: A systematic review from the teaching of mathematics (2022) | LUMAT International Journal on Math Science and Technology Education | https://doi.org/10.31129/lumat.10.1.1686
+- [W4384338508] NOVO Using Eye Tracking to Measure Overall Usability of Online Grocery Shopping Websites (2023) | International Journal of Mobile Computing and Multimedia Communications | https://doi.org/10.4018/ijmcmc.326129
+- [W4365563291] NOVO Evolutionary trend and network structure characteristics of publicity information dissemination about waste separation by different opinion leaders (2023) | Resources Conservation and Recycling | https://doi.org/10.1016/j.resconrec.2023.106991
+- [W4387917947] NOVO Metrics-Based Evaluation and Comparison of Visualization Notations (2023) | IEEE Transactions on Visualization and Computer Graphics | https://doi.org/10.1109/tvcg.2023.3326907
+- [W4401591632] NOVO Performance and Availability Analysis of API Design Techniques for API Gateways (2024) | Arabian Journal for Science and Engineering | https://doi.org/10.1007/s13369-024-09474-9
+- [W4292295224] NOVO A study on application programming interface recommendation: state-of-the-art techniques, challenges and future directions (2022) | Library Hi Tech | https://doi.org/10.1108/lht-02-2022-0103
+- [W4316658255] NOVO API Deprecation: A Systematic Mapping Study (2022) | None | https://doi.org/10.1109/seaa56994.2022.00076
+- [W4393317111] NOVO A distributed collaborative platform for multi-stakeholder multi-level management of renovation projects (2024) | Journal of Information Technology in Construction | https://doi.org/10.36680/j.itcon.2024.011
+- [W4411403365] NOVO Revisiting Graph Analytics Benchmark (2025) | Proceedings of the ACM on Management of Data | https://doi.org/10.1145/3725345
+- [W3094519432] NOVO A Data-Driven Approach to Measure the Usability of Web APIs (2020) | None | https://doi.org/10.1109/seaa51224.2020.00021
+- [W3194883667] NOVO State of the Practice in Application Programming Interfaces (APIs): A Case Study (2021) | Lecture notes in computer science | https://doi.org/10.1007/978-3-030-86044-8_14
+- [W3126349206] NOVO Automatically Identifying Parameter Constraints in Complex Web APIs: A Case Study at Adyen (2021) | None | https://doi.org/10.1109/icse-seip52600.2021.00016
+- [W3214872724] NOVO Vehicle Routing Optimization System with Smart Geopositioning Updates (2021) | Applied Sciences | https://doi.org/10.3390/app112210933
+- [W4403212593] NOVO Unveiling Quality in API Management: A Systematic Mapping Study (2024) | None | https://doi.org/10.1109/clei64178.2024.10700447
+- [W4410705712] On the Usability of Reactive Programming APIs: A Mixed Evaluation (2025) | Software Practice and Experience | https://doi.org/10.1002/spe.3435
+- [W3126541897] NOVO Roadblocks to Implementing Modern Digital Infrastructure: Exploratory Study of API Deployment in Large Organizations (2021) | Proceedings of the ... Annual Hawaii International Conference on System Sciences/Proceedings of the Annual Hawaii International Conference on System Sciences | https://doi.org/10.24251/hicss.2021.723
+- [W3161482875] NOVO On the comprehension of application programming interface usability in game engines (2021) | Software Practice and Experience | https://doi.org/10.1002/spe.2985
+- [W4360980338] NOVO WEBAPIK: a body of structured knowledge on designing web APIs (2023) | Requirements Engineering | https://doi.org/10.1007/s00766-023-00401-2
+- [W4416574630] NOVO Exploring the strategies shaping application programming interface development and integration in digital music platforms: A qualitative case study (2025) | African Journal of Science Technology Innovation and Development | https://doi.org/10.1080/20421338.2025.2578078
+- [W7140606645] NOVO API Security Testing and Exploitation Techniques (2026) | None | https://doi.org/10.4018/979-8-2600-0747-1.ch004
+- [W4403585108] UAX: Measuring the Usability of TypeScript APIs (2024) | None | https://doi.org/10.5753/sbes.2024.3658
+- [W3096813432] NOVO Smart Dissemination by Using Natural Language Processing Technology (2020) | Journal of Information Systems Engineering and Business Intelligence | https://doi.org/10.20473/jisebi.6.2.133-142
+- [W3127257728] NOVO The Generative Fourth Industrial Revolution: Features, Affordances, and Implications (2020) | SSRN Electronic Journal | https://doi.org/10.2139/ssrn.3728052
+- [W4229447163] NOVO Non-empirical ISO 9241-210:2019-based usability evaluation using fuzzy inference analyser: a special issue on interactive social robots (2022) | Library Hi Tech | https://doi.org/10.1108/lht-02-2022-0091
+- [W2978982540] NOVO A Framework to Reduce the Human Factors for Analysis of Constraint Solvers in Project Management (2019) | Advances in IT personnel and project management | https://doi.org/10.4018/978-1-7998-1279-1.ch006
+- [W3210595098] NOVO Interaction Toolkit for Programming Interactions with Marker-Based Tangibles in Virtual Reality (2021) | Lecture notes in computer science | https://doi.org/10.1007/978-3-030-89394-1_30
+- [W4297377266] NOVO Decision Support for the Planning of Production Systems for Renewable Resources (2022) | None | https://doi.org/10.53846/goediss-9456
+- [W4387718112] NOVO Technical Analysis for Bit2Byte – A Novel System for Cognitive Development of Students (2023) | SSRN Electronic Journal | https://doi.org/10.2139/ssrn.4602276
+- [W4387780605] NOVO Community and Interoperability at the Core of Sustaining Image Archives (2023) | Digital Humanities in the Nordic and Baltic Countries Publications | https://doi.org/10.5617/dhnbpub.10649
+- [W4394757770] NOVO A data-driven approach to prescribe web API evolution (2024) | None | https://doi.org/10.5821/dissertation-2117-406401
+- [W4412353486] NOVO A catalog of API Gateway metrics and its quantitative evaluation (2025) | DYNA | https://doi.org/10.15446/dyna.v92n237.118741
+- [W4416156320] NOVO Benchmarking Web API Integration Code Generation (2025) | None | https://doi.org/10.1109/aiware69974.2025.00034
+- [W7123360679] NOVO Implementation of Domain-Driven Design to Improve Developer Understandability of Web APIs (2025) | None | https://doi.org/10.1109/icsecs65227.2025.11279024
+- [W7140205756] NOVO Early-Stage Usability Evaluation: A Checklist Proposal Grounded in Empirical Evidence and International Standards. (2026) | Procedia Computer Science | https://doi.org/10.1016/j.procs.2026.03.050
+- [W7153120363] NOVO A novel NFR-based conceptual quality framework for modern API industry (2026) | Scientific Reports | https://doi.org/10.1038/s41598-026-48021-4
+- [W7153738454] NOVO Lessons from API Usability Analyses Using an LLM (2026) | None | https://doi.org/10.1145/3772363.3798454
+- [W7213543311] NOVO Beitrag von Digitalisierungstechnologien zur Resilienz in Supply Chains (2026) | Advances in supply management | https://doi.org/10.1007/978-3-658-52933-8_11
+
+## citantes de Kelleher & Brachman 2022 (W4313334587): 2
+- [W4403447062] NOVO Exploring the impacts of semi-automated storytelling on programmers’ comprehension of software histories (2024) | None | https://doi.org/10.1109/vl/hcc60511.2024.00025
+- [W7214585064] NOVO Towards a Framework of Mental Models and Cognitive Processes in Component Use (2026) | Lecture notes in computer science | https://doi.org/10.1007/978-3-032-41627-8_8
+
+## citantes de Mijailovic & Milicev 2014 (W1978554718): 6
+- [W3006937233] NOVO Combinatorial Optimization of Graphical User Interface Designs (2020) | Proceedings of the IEEE | https://doi.org/10.1109/jproc.2020.2969687
+- [W2588961580] NOVO Using a Two-Stage System Evaluation Approach to Explore the New Adoption of an Information System in the Mobile Era (2017) | Journal of Educational Computing Research | https://doi.org/10.1177/0735633117692102
+- [W2555885777] NOVO A computer application for parametric aircraft design (2016) | Open Engineering | https://doi.org/10.1515/eng-2016-0067
+- [W2039055059] NOVO CAPWISE — A domain-specific language for developing graphical user interfaces (2014) | None | https://doi.org/10.1109/telfor.2014.7034598
+- [W2316498584] NOVO A Comparative Study on The Existing Graphical User Interfaces for Occupational Therapy (2015) | None | https://doi.org/10.15849/icit.2015.0104
+- [W4226148979] NOVO Application Programming Interface Features of a Building Information Modeling at the Design Stage Within Life Cycle (2022) | Lecture notes in civil engineering | https://doi.org/10.1007/978-3-030-96206-7_18
+
+## citantes de Alabor & Stolze 2020 (W3109908453): 7
+- [W3206328748] NOVO Analysing the performance and costs of reactive programming libraries in Java (2021) | None | https://doi.org/10.1145/3486605.3486788
+- [W4312302436] Mining the usage of reactive programming APIs (2022) | None | https://doi.org/10.1145/3524842.3527966
+- [W4402442470] NOVO Preserving Reactiveness: Understanding and Improving the Debugging Practice of Blocking-Call Bugs (2024) | None | https://doi.org/10.1145/3650212.3680319
+- [W3197335303] NOVO Poker: visual instrumentation of reactive programs with programmable probes (2021) | None | https://doi.org/10.1145/3486605.3486785
+- [W3215997453] NOVO A concurrency model for JavaScript with cooperative cancellation (2021) | None | https://doi.org/10.1145/3486608.3486911
+- [W4310517693] Semantics of RxJS (2022) | None | https://doi.org/10.1145/3563837.3568340
+- [W4392060551] Extensible Tooling for Reactive Programming Based on Active Expressions. (2024) | The Journal of Object Technology | https://doi.org/10.5381/jot.2024.23.1.a4
+
+## citantes de Nishizu & Kamina 2022 (W4291517574): 11
+- [W4310517663] NOVO Distributed Persistent Signals: Architecture and Implementation (2022) | None | https://doi.org/10.1145/3563837.3568341
+- [W4399433208] NOVO Analysis of Performance and Features of the Functioning of Microfrontends (2024) | Computational nanotechnology | https://doi.org/10.33693/2313-223x-2024-11-1-25-35
+- [W4410158970] NOVO Guidelines for Adoption Micro-frontend Architecture (2025) | None | https://doi.org/10.5753/sbsi.2025.246619
+- [W4387194235] NOVO Design Method of Component-Based Party Building Visualization Large-screen System (2023) | None | https://doi.org/10.1109/ictech58362.2023.00114
+- [W4387781488] NOVO Realizing Persistent Signals in JavaScript (2023) | None | https://doi.org/10.1145/3623506.3623576
+- [W4387781772] Proceedings of the 10th ACM SIGPLAN International Workshop on Reactive and Event-Based Languages and Systems (2023) | None | https://doi.org/10.1145/3623506
+- [W4394840370] NOVO Geo-WC: Custom Web Components for Earth Science Organizations and Agencies (2024) | None | https://doi.org/10.31223/x5fx2h
+- [W4403536081] NOVO Assessing the feasibility of Micro frontend architecture in native mobile app development (2024) | None | https://doi.org/10.1145/3691620.3695313
+- [W4406377944] NOVO Geo-WC: Custom web components for earth science organizations and agencies (2025) | Environmental Modelling & Software | https://doi.org/10.1016/j.envsoft.2025.106328
+- [W4414202561] NOVO АНАЛІЗ ПІДХОДІВ ДО СТВОРЕННЯ МАСШТАБОВАНИХ ВЕБ-ДОДАТКІВ НА ОСНОВІ МІКРОФРОНТЕНД-АРХІТЕКТУРИ (2025) | Збірник наукових праць Харківського національного університету Повітряних Сил | https://doi.org/10.30748/zhups.2025.84.10
+- [W7167021785] NOVO An Empirical Study of Heterogeneous Microfrontends Across Development and Production Environments (2026) | None | https://doi.org/10.1109/meco70748.2026.11579173
+
+## citantes de Zimmerle & Gama 2025 (W4410705712): 2
+- [W7164528883] NOVO The Usability Analysis of PYTHON Optimization Libraries in the Context of Student Research Projects (2026) | None | https://doi.org/10.1109/inforino68543.2026.11556625
+- [W7212142704] NOVO A Review on the Development Trend of Mainstream Programming Paradigms in the New Era (2026) | None | https://doi.org/10.1109/cisat71030.2026.11682106
+
+## citantes de Morshchinina et al. 2025 (W4410422909): 0
+
+## citantes de Matos & Zuchi 2021 (W4280510133): 0
+
+# total 79 citantes; 70 fora dos 1230 da iteração 1

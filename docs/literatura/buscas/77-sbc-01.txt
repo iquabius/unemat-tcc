@@ -1,0 +1,10 @@
+# Busca: 'reactive programming' — 2 resultados no OpenAlex (mostrando 2, ordem: relevancia)
+
+1. Perspectives and Challenges of iOS Developers in Using Reactive Programming with RxSwift (2024)
+   Elaine Cruz Farias, Carlos Zimmerle, Kiev Santos da Gama — — [conference-paper]
+   DOI: 10.5753/sbes.2024.3569 | citações: 0 | https://openalex.org/W4403607095
+
+2. UAX: Measuring the Usability of TypeScript APIs (2024)
+   Carlos Zimmerle, Kiev Santos da Gama — — [conference-paper]
+   DOI: 10.5753/sbes.2024.3658 | citações: 1 | https://openalex.org/W4403585108
+

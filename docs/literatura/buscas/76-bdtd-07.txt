@@ -1,0 +1,203 @@
+# BDTD: 'gerenciamento de estado interface' — 260 resultados (mostrando 50)
+# A BDTD não filtra por área aqui: descarte o que for de outro campo.
+
+1. Tráfico ilícito de bens culturais: interface com a gestão da informação no IPHAN e IBRAM (2021)
+   Leonardo Barreto de Oliveira — UFMG [tese]
+   https://hdl.handle.net/1843/39088
+
+2. Proposta de criação da interface do sistema de manifesto de transporte de resíduos do estado do Pará (2024)
+   BRAGA, Leonan de Souza — UFPA [dissertação]
+   https://repositorio.ufpa.br/handle/2011/16545
+
+3. e+Vida: concepção e validação de software de apoio ao gerenciamento do tempo de permanência de unidades de internação traumatológicas e sua interface com a segurança do paciente (2018)
+   Aragão, Isrraelly Mororó Passos — UNIFOR [dissertação]
+   https://biblioteca.sophia.com.br/terminalri/9575/acervo/detalhe/118030
+
+4. Atendimento educacional especializado: das interfaces entre gestão, formação e gerenciamento do Sistema Mineiro de Administração Escolar – SIMADE (2018)
+   Silveira, Aline Celestina — UFJF [dissertação]
+   https://repositorio.ufjf.br/jspui/handle/ufjf/10300
+
+5. Interfaces da gestão integrada de recursos hídricos - estudo de caso: o baixo curso do rio Paraíba e sua zona costeira. (2014)
+   REGO FILHO, Marco Tulio do Nascimento. — UCB [dissertação]
+   http://dspace.sti.ufcg.edu.br:8080/jspui/handle/riufcg/432
+
+6. Interfaces da gestão integrada de recursos hídricos - estudo de caso: o baixo curso do rio Paraíba e sua zona costeira. (2014)
+   REGO FILHO, Marco Tulio do Nascimento. — UFCG [dissertação]
+   https://dspace.sti.ufcg.edu.br/handle/riufcg/432
+
+7. A política de avaliação do estado do Ceará de 2009 a 2018: interfaces com as políticas de avaliação do governo federal para o Ensino Médio (2021)
+   Bravo, Maria Helena de Aguiar — USP [tese]
+   —
+
+8. Gerenciamento de resíduos de serviços de saúde através de um sistema computacional: modelagem e teste em uma unidade de saúde da Universidade do Estado do Rio de Janeiro. (2016)
+   Santos, Neemias Espíndola dos — UERJ [dissertação]
+   http://www.bdtd.uerj.br/handle/1/11038
+
+9. Os sistemas de recompensa nas interfaces contemporâneas de comunicação (2015)
+   Veiga, Diogo Lean — UERJ [dissertação]
+   http://www.bdtd.uerj.br/handle/1/9120
+
+10. Recomendações para (re)design da visualização em ferramentas de monitoramento de redes (2018)
+   Oliveira, Hélio Tibagí de — UFSCAR [dissertação]
+   https://repositorio.ufscar.br/handle/20.500.14289/9630
+
+11. Diretrizes projetuais de usabilidade de interfaces móveis para crianças autistas (2023)
+   Gorsk, Brenda Francis — UDESC [dissertação]
+   https://repositorio.udesc.br/handle/UDESC/18033
+
+12. Gerenciamento dinâmico de energia com política do tempo ótimo de desligamento. (2019)
+   VILAR, Bruna Maria Justino Cruz. — UCB [tese]
+   http://dspace.sti.ufcg.edu.br:8080/jspui/handle/riufcg/27025
+
+13. Gerenciamento de resíduos sólidos na prática odontológica: uma revisão de escopo (2025)
+   Nakayama, Henrique Kiyoshi — USP [dissertação]
+   —
+
+14. Núcleo interno de regulação : uma estratégia de gerenciamento de leitos hospitalares (2020)
+   Silva, Marina Aparecida Emerenciano da — UEM [dissertação]
+   http://repositorio.uem.br:8080/jspui/handle/1/7543
+
+15. Gerenciamento dinâmico de energia com política do tempo ótimo de desligamento. (2019)
+   VILAR, Bruna Maria Justino Cruz. — UFCG [tese]
+   https://dspace.sti.ufcg.edu.br/handle/riufcg/27025
+
+16. [pt] CINÉTICA DA FORMAÇÃO DE HIDRATO DE CICLOPENTANO: UM ESTUDO DA REOLOGIA INTERFACIAL (2017)
+   BRUNA COSTA LEOPERCIO — PUC_RIO [tese]
+   https://www.maxwell.vrac.puc-rio.br/colecao.php?strSecao=resultado&nrSeq=29255&idi=1
+
+17. Gestão de conflitos e interfaces com a inteligência emocional na formação universitária de enfermagem: perspectiva discente (2023)
+   Boaventura, Vanessa Rocha — UFBA [dissertação]
+   https://repositorio.ufba.br/handle/ri/38510
+
+18. Recomposição das aprendizagens e o currículo escolar do município de Salvador-BA: uma interface com as tecnologias digitais (2025)
+   Santos, Gilmária Oliveira dos — UNEB [dissertação]
+   https://saberaberto.uneb.br/handle/20.500.11896/8910
+
+19. Biblioteca, API e IDE para o desenvolvimento de projetos de metodologias de Ressonância Magnética (2014)
+   Pizetta, Daniel Cosmo — USP [dissertação]
+   —
+
+20. Processo de avaliação de software aplicado à seleção de sistemas gerenciadores de conteúdo (2016)
+   Menezes, Jislane Silva Santos de — UFS [dissertação]
+   https://ri.ufs.br/handle/riufs/3380
+
+21. Inteligência pericial para o gerenciamento de ações de perícia papiloscópica em local de crimes de homicídio (2025)
+   Hiramoto, Fábio da Silva — UERJ [dissertação]
+   http://www.bdtd.uerj.br/handle/1/25001
+
+22. Metodologia de testes para avaliação de um sistema de gerenciamento de qualidade da energia elétrica (2020)
+   CARVALHO, Elisa Lefol Nani — UNIFEI [dissertação]
+   https://repositorio.unifei.edu.br/jspui/handle/123456789/2223
+
+23. Gerenciamento e destinação final para componentes automobilísticos em Polipropileno com aplicação em filamentos para impressora 3D (2024)
+   Gonçalves, Péterson Alexandre de Souza — UERJ [dissertação]
+   http://www.bdtd.uerj.br/handle/1/23126
+
+24. A ciência da informação e a inteligência de estado: um estudo de caso do programa nacional de proteção do conhecimento sensível da agência brasileira de inteligência (2016)
+   Isabella Moreira dos Santos — UFMG [dissertação]
+   https://hdl.handle.net/1843/BUOS-AV2FKE
+
+25. Um arcabouço holístico para a execução de funções virtualizadas de rede : arquitetura, gerenciamento e aplicações (2022)
+   Fülber Garcia, Vinícius — UFPR [tese]
+   https://hdl.handle.net/1884/80825
+
+26. A responsabilidade civil do estado em face dos depósitos irregulares de resíduos sólidos no Estado do Amazonas (2016)
+   Santos, Silvia Helena Antunes Dos — UEA [dissertação]
+   https://ri.uea.edu.br/handle/riuea/2484
+
+27. Radio resource management techniques for 5G networks based on machine learning (2020)
+   Costa Neto, Francisco Hugo — UFC [tese]
+   http://www.repositorio.ufc.br/handle/riufc/58915
+
+28. A interface público-privada no programa Universidade para Todos – PROUNI : uma análise de política pública para educação superior no Brasil (2017)
+   Souza, Alessandra Aparecida De Paula — UNIFAL [dissertação]
+   https://repositorio.unifal-mg.edu.br/handle/123456789/990
+
+29. Experiências de captação de recursos e a interface com o marketing social: estudo de caso Núcleo Social de Diadema (2014)
+   Teske, Rui Osvaldo — PUC_SP [dissertação]
+   https://tede2.pucsp.br/handle/handle/1117
+
+30. Empoderamento psicológico de enfermagem no manejo do acesso vascular para hemodiálise: interface com ambiente da prática e clima de segurança (2021)
+   Nicole, Andressa Garcia — USP [tese]
+   —
+
+31. Interfaces entre os mecanismos de gestão democrática e de gerencialismo na gestão educacional e escolar do Programa de Educação Integral de Pernambuco (2025)
+   PEREIRA, Paulo Ricardo — UFPE [dissertação]
+   https://repositorio.ufpe.br/handle/123456789/67280
+
+32. Interfaces entre os mecanismos de gestão democrática e de gerencialismo na gestão educacional e escolar do Programa de Educação Integral de Pernambuco (2025)
+   PEREIRA, Paulo Ricardo — UFPE [dissertação]
+   https://repositorio.ufpe.br/handle/123456789/67280
+
+33. Competências gerenciais na atenção primária: avaliação das habilidades sociais de enfermeiras gestoras em equipes de Saúde da Família (2018)
+   Marinho, Alessandro Simões — UFRRJ [dissertação]
+   https://rima.ufrrj.br/jspui/handle/20.500.14407/14446
+
+34. Método senes: a manifestação da dignidade humana sob o prisma da coexistência pacífica no gerenciamento de conflitos entre idosos em situação de acolhimento institucional em Fortaleza-CE (2020)
+   Gondim, Diana Moreira — UNIFOR [dissertação]
+   https://biblioteca.sophia.com.br/terminalri/9575/acervo/detalhe/125100
+
+35. Artefatos em ferro de origem terrestre : um estudo de caso sobre a interface entre pesquisa arqueológica e conservação no sítio Charqueada Santa Bárbara, Pelotas, RS, Brasil (2014)
+   Vasconcelos, Mara Lúcia Carrett de — UFS [dissertação]
+   https://ri.ufs.br/handle/riufs/3212
+
+36. A interface do trabalho do assistente social com a vigilância socioassistencial: um estudo sobre a atuação profissional na gestão dos Centros de Referência de Assistência Social (CRAS) de Manaus/AM (2021)
+   Lima, Isteice Nogueira de — UFAM [dissertação]
+   https://tede.ufam.edu.br/handle/tede/8826
+
+37. Uso dos recursos hídricos para lazer e recreação: diagnóstico e gestão ambiental do balneário do Miriti em Manacapuru - Amazonas (2018)
+   Silva, Claudenei Sampaio da — UEA [dissertação]
+   https://ri.uea.edu.br/handle/riuea/1647
+
+38. Avaliação do estado trófico de um sistema estuarino tropical a partir do índice trófico TRIX (2014)
+   Bertoldi, Larissa — UFES [dissertação]
+   http://repositorio.ufes.br/handle/10/1940
+
+39. Judicialização do direito à saúde no estado do Ceará, Brasil : cenários e desafios (2014)
+   Nunes, Carlos Francisco Oliveira — UFC [dissertação]
+   http://www.repositorio.ufc.br/handle/riufc/15795
+
+40. SUSTENTABILIDADE DA ORLA DO MUNICÍPIO DE SÃO LUÍS, ESTADO DO MARANHÃO: subsídios para o planejamento e gestão costeira (2024)
+   SOARES, Luciana Amorim — UFMA [dissertação]
+   https://tedebc.ufma.br/jspui/handle/tede/5343
+
+41. Os desafios na gestão dos recursos hídricos e os comitês de bacias hidrográficas no estado do Amazonas (2015)
+   Quadros, Jefferson Rodrigues De — UEA [dissertação]
+   https://ri.uea.edu.br/handle/riuea/2372
+
+42. A política das nomeações para a burocracia dirigente da Secretaria de Estado de Fazenda do Rio de Janeiro (2025)
+   Carl, Rachel Carvalho da Silva — FGV [dissertação]
+   https://hdl.handle.net/10438/36832
+
+43. Da corresponsabilidade civil da união, estados e municípios em face dos deslocados ambientais internos (2016)
+   Péres, Taynah Litaiff Isper Abrahim Carpinteiro — UEA [dissertação]
+   https://ri.uea.edu.br/handle/riuea/2496
+
+44. Impactos da reforma gerencial do Estado na gestão das políticas públicas para a EJA (2019)
+   Andrade, Rodrigo Coutinho — UFRRJ [tese]
+   https://rima.ufrrj.br/jspui/handle/20.500.14407/9900
+
+45. [pt] FATORES INTERVENIENTES NA QUALIDADE DA GESTÃO DE RISCOS EM ESTRUTURAS HOSPITALARES: PERCEPÇÃO DE GESTORES DE OPERAÇÕES (2024)
+   RITA DE CASSIA NASCIMENTO GAUDENCIO — PUC_RIO [tese]
+   https://www.maxwell.vrac.puc-rio.br/colecao.php?strSecao=resultado&nrSeq=66707&idi=1
+
+46. Biogeochemical processes in a tropical hypersaline lagoon: trophic crises, diffusive fluxes, and phytoplankton nutrition (2024)
+   Trevisan, Cleuza Leatriz — UFF [tese]
+   https://app.uff.br/riuff/handle/1/35543
+
+47. Planejamento ótimo de microrredes usando aritmética afim (2022)
+   Peñaloza Morán, John Eugenio — UNESP [dissertação]
+   http://hdl.handle.net/11449/217595
+
+48. Simulação de modelagem quali-quantitativa para avaliação preliminar da qualidade da água na bacia do Ribeirão das Perdizes em Campos do Jordão/SP como subsídio ao enquadramento (2013)
+   Gomes, Fabricio Cesar [UNESP] — UNESP [dissertação]
+   http://hdl.handle.net/11449/92968
+
+49. Gestão do design: desenvolvimento de competências para o Designer-gestor (2019)
+   Asp, Alessandra de Lucas Chazin — UERJ [dissertação]
+   http://www.bdtd.uerj.br/handle/1/9078
+
+50. Sentidos do trabalho para gerentes de Unidades Básicas de Saúde em contextos de vulnerabilidades (2019)
+   Karina Martins de Oliveira Carvalho Lima — UFMG [dissertação]
+   https://hdl.handle.net/1843/31058
+

@@ -1,0 +1,62 @@
+# Busca: '"reactive programming" survey' — 15 resultados no OpenAlex (mostrando 15, ordem: relevancia)
+
+1. National Survey of Wellness Programs in U.S. and Canadian Medical Schools (2021)
+   Alison Schutt, Katherine Chang Chretien, James N. Woodruff et al. — Academic Medicine [article]
+   DOI: 10.1097/acm.0000000000003953 | citações: 22 | https://openalex.org/W3129179114
+
+2. Embedding statecharts into Teleo-Reactive programs to model interactions between agents (2017)
+   Pedro Sánchez, Bárbara Álvarez, Ramón Martínez et al. — Journal of Systems and Software [article]
+   DOI: 10.1016/j.jss.2017.05.081 | citações: 4 | https://openalex.org/W2617181552
+
+3. P-FRP task scheduling: A survey (2016)
+   Xingliang Zou, Albert M. K. Cheng, Yu Jiang — — [conference-paper]
+   DOI: 10.1109/dcps.2016.7588295 | citações: 5 | https://openalex.org/W2533125399
+
+4. surveydown: An open-source, markdown-based platform for programmable and reproducible surveys (2025)
+   Pingfan Hu, Bogdan Bunea, John Paul Helveston — PLoS ONE [article]
+   DOI: 10.1371/journal.pone.0331002 | citações: 2 | https://openalex.org/W4413817837
+
+5. Concurrency and Distribution in Reactive Programming (2019)
+   Joscha Drechsler — TUbilio (Technical University of Darmstadt) [dissertation]
+   DOI: 10.26083/tuprints-00005228 | citações: 0 | https://openalex.org/W2969139959
+
+6. Redesigning Android Development: Using Reactive Programming to Retrofit REST APIs and Concurrency (2024)
+   Samridhi Kaura — INTERANTIONAL JOURNAL OF SCIENTIFIC RESEARCH IN ENGINEERING AND MANAGEMENT [article]
+   DOI: 10.55041/ijsrem30623 | citações: 0 | https://openalex.org/W4394715400
+
+7. Gravid oviposition sticky trap and dengue non-structural 1 antigen test for early surveillance of dengue in multi-storey dwellings: study protocol of a cluster randomized controlled trial (2019)
+   Jonathan Wee Kent Liew, Sivaneswari Selvarajoo, Wing Tan et al. — Infectious Diseases of Poverty [article]
+   DOI: 10.1186/s40249-019-0584-y | citações: 20 | https://openalex.org/W2972106624
+
+8. Extending the Cascading Style Sheets (CSS) Language with Programming Constructs (2015)
+   Bernát Kalló — Aaltodoc (Aalto University) [dissertation]
+   DOI: sem DOI | citações: 1 | https://openalex.org/W2899817299
+
+9. Child Well-Being and Peer Bullying Victimization in Post-Communist Countries: Moderating Effects of Youth Participation in Decision-Making in Family and Schools (2024)
+   Daria P. Shamrova, Jeoung Min Lee — International Journal of Bullying Prevention [article]
+   DOI: 10.1007/s42380-024-00218-9 | citações: 1 | https://openalex.org/W4391880661
+
+10. Architectural and Technological Foundations of Real-Time Applications (2026)
+   Anish Mathew — Zenodo (CERN European Organization for Nuclear Research) [article]
+   DOI: 10.5281/zenodo.22642151 | citações: 0 | https://openalex.org/W7211890512
+
+11. Architectural and Technological Foundations of Real-Time Applications (2026)
+   Anish Mathew — Zenodo (CERN European Organization for Nuclear Research) [article]
+   DOI: 10.5281/zenodo.22642150 | citações: 0 | https://openalex.org/W7211874893
+
+12. What is possible with speecollectr (2024)
+   Abbey L. Thomas — The Journal of the Acoustical Society of America [conference-abstract]
+   DOI: 10.1121/10.0034977 | citações: 0 | https://openalex.org/W4406343554
+
+13. Foundations for the Security Analysis of Distributed Blockchain Applications (2021)
+   Clara Schneidewind — reposiTUm (TU Wien) [dissertation]
+   DOI: 10.34726/hss.2021.91204 | citações: 0 | https://openalex.org/W3174200055
+
+14. Event Correlation with Algebraic Effects - Theory, Design and Implementation (2019)
+   Oliver Bračevac — Technischen Universität Darmstadt [dissertation]
+   DOI: 10.26083/tuprints-00009258 | citações: 0 | https://openalex.org/W2991553258
+
+15. Understanding Heroin Addiction from the Life Course Perspective (2015)
+   Kayli Fisher — — [article]
+   DOI: sem DOI | citações: 0 | https://openalex.org/W1751154905
+

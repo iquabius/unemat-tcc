@@ -1,0 +1,2524 @@
+# Trabalhos que citam: Functional reactive animation (1997)
+# Total: 629 (mostrando 629)
+
+1. Frenetic (2011)
+   Nate Foster, Rob Harrison, Michael J. Freedman et al. — ACM SIGPLAN Notices [article]
+   DOI: 10.1145/2034574.2034812 | citações: 585 | https://openalex.org/W2099501333
+
+2. Generalising monads to arrows (2000)
+   John Hughes — Science of Computer Programming [article]
+   DOI: 10.1016/s0167-6423(99)00023-4 | citações: 518 | https://openalex.org/W2064138295
+
+3. Modular domain specific languages and tools (2002)
+   Paul Hudak — — [conference-paper]
+   DOI: 10.1109/icsr.1998.685738 | citações: 333 | https://openalex.org/W1839902311
+
+4. A survey on reactive programming (2013)
+   Engineer Bainomugisha, Andoni Lombide Carreton, Tom Van Cutsem et al. — ACM Computing Surveys [article]
+   DOI: 10.1145/2501654.2501666 | citações: 309 | https://openalex.org/W2004791319
+
+5. Frenetic (2011)
+   Nate Foster, Rob Harrison, Michael J. Freedman et al. — — [conference-paper]
+   DOI: 10.1145/2034773.2034812 | citações: 268 | https://openalex.org/W4234045312
+
+6. A history of Haskell (2007)
+   Paul Hudak, John Hughes, Simon Peyton Jones et al. — — [conference-paper]
+   DOI: 10.1145/1238844.1238856 | citações: 263 | https://openalex.org/W2112774031
+
+7. Region streams (2004)
+   Ryan Newton, Matt Welsh — — [conference-abstract]
+   DOI: 10.1145/1052199.1052213 | citações: 227 | https://openalex.org/W2162460825
+
+8. Functional reactive programming from first principles (2000)
+   Zhanyong Wan, Paul Hudak — — [conference-paper]
+   DOI: 10.1145/349299.349331 | citações: 211 | https://openalex.org/W2089589666
+
+9. Functional reactive programming, continued (2002)
+   Henrik Nilsson, Antony Courtney, John R. Peterson — — [conference-paper]
+   DOI: 10.1145/581690.581695 | citações: 209 | https://openalex.org/W2049440551
+
+10. The regiment macroprogramming system (2007)
+   Ryan Newton, Greg Morrisett, Matt Welsh — — [conference-abstract]
+   DOI: 10.1145/1236360.1236422 | citações: 206 | https://openalex.org/W2126711172
+
+11. Forms/3: A first-order visual language to explore the boundaries of the spreadsheet paradigm (2001)
+   Margaret Burnett, JOHN ATWOOD, REBECCA WALPOLE DJANG et al. — Journal of Functional Programming [article]
+   DOI: 10.1017/s0956796800003828 | citações: 197 | https://openalex.org/W1899639145
+
+12. Arrows, Robots, and Functional Reactive Programming (2003)
+   Paul Hudak, Antony Courtney, Henrik Nilsson et al. — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-540-44833-4_6 | citações: 187 | https://openalex.org/W1511203305
+
+13. Infrastructure for Engineered Emergence on Sensor/Actuator Networks (2006)
+   Jacob Beal, Jonathan Bachrach — IEEE Intelligent Systems [article]
+   DOI: 10.1109/mis.2006.29 | citações: 187 | https://openalex.org/W2076260575
+
+14. Embedding Dynamic Dataflow in a Call-by-Value Language (2006)
+   Gregory H. Cooper, Shriram Krishnamurthi — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/11693024_20 | citações: 174 | https://openalex.org/W95578667
+
+15. Asynchronous functional reactive programming for GUIs (2013)
+   Evan Czaplicki, Stephen Chong — — [conference-paper]
+   DOI: 10.1145/2491956.2462161 | citações: 171 | https://openalex.org/W2113112607
+
+16. Flapjax (2009)
+   Leo A. Meyerovich, Arjun Guha, Jacob Baskin et al. — ACM SIGPLAN Notices [article]
+   DOI: 10.1145/1639949.1640091 | citações: 170 | https://openalex.org/W2171267342
+
+17. Plenary talk III Domain-specific languages (2008)
+   Walid Taha — — [conference-paper]
+   DOI: 10.1109/icces.2008.4772953 | citações: 161 | https://openalex.org/W2170002779
+
+18. Flapjax (2009)
+   Leo A. Meyerovich, Arjun Guha, Jacob Baskin et al. — — [conference-paper]
+   DOI: 10.1145/1640089.1640091 | citações: 154 | https://openalex.org/W4253360640
+
+19. Lime (2010)
+   Joshua S. Auerbach, David F. Bacon, Perry Cheng et al. — — [conference-paper]
+   DOI: 10.1145/1869459.1869469 | citações: 151 | https://openalex.org/W2054625910
+
+20. Push-pull functional reactive programming (2009)
+   Conal M. Elliott — — [conference-paper]
+   DOI: 10.1145/1596638.1596643 | citações: 130 | https://openalex.org/W2041337116
+
+21. Nettle: Taking the Sting Out of Programming Network Routers (2011)
+   Andreas Voellmy, Paul Hudak — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-642-18378-2_19 | citações: 120 | https://openalex.org/W1949062307
+
+22. Declarative interaction design for data visualization (2014)
+   Arvind Satyanarayan, Kanit Wongsuphasawat, Jeffrey Heer — — [conference-paper]
+   DOI: 10.1145/2642918.2647360 | citações: 115 | https://openalex.org/W2068779004
+
+23. The Yampa arcade (2003)
+   Antony Courtney, Henrik Nilsson, John M. Peterson — — [conference-paper]
+   DOI: 10.1145/871895.871897 | citações: 114 | https://openalex.org/W1968464751
+
+24. Real-time FRP (2001)
+   Zhanyong Wan, Walid Taha, Paul Hudak — — [conference-paper]
+   DOI: 10.1145/507635.507654 | citações: 111 | https://openalex.org/W2095343326
+
+25. DSL Implementation in MetaOCaml, Template Haskell, and C++ (2004)
+   Krzysztof Czarnecki, John T. O’Donnell, Jörg Striegnitz et al. — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-540-25935-0_4 | citações: 111 | https://openalex.org/W2176580510
+
+26. REScala (2014)
+   Guido Salvaneschi, Gerold Hintz, Mira Mezini — — [conference-paper]
+   DOI: 10.1145/2577080.2577083 | citações: 101 | https://openalex.org/W2168485266
+
+27. Composing contracts (2000)
+   Simon Peyton Jones, Jean‐Marc Eber, Julian Seward — — [conference-paper]
+   DOI: 10.1145/351240.351267 | citações: 96 | https://openalex.org/W2087307736
+
+28. FlowMatic: An Immersive Authoring Tool for Creating Interactive Scenes in Virtual Reality (2020)
+   Lei Zhang, Steve Oney — — [conference-paper]
+   DOI: 10.1145/3379337.3415824 | citações: 95 | https://openalex.org/W3093907960
+
+29. A language for declarative robotic programming (2003)
+   John R. Peterson, Gregory D. Hager, Paul Hudak — — [conference-paper]
+   DOI: 10.1109/robot.1999.772516 | citações: 95 | https://openalex.org/W1509606339
+
+30. Lambda in Motion: Controlling Robots with Haskell (1998)
+   John R. Peterson, Paul Hudak, Conal M. Elliott — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/3-540-49201-1_7 | citações: 94 | https://openalex.org/W1875562881
+
+31. Implementing first-class polymorphic delimited continuations by a type-directed selective CPS-transform (2009)
+   Tiark Rompf, Ingo Maier, Martin Odersky — — [conference-paper]
+   DOI: 10.1145/1596550.1596596 | citações: 92 | https://openalex.org/W2133051483
+
+32. Ultrametric Semantics of Reactive Programs (2011)
+   Neelakantan R. Krishnaswami, Nick Benton — — [conference-paper]
+   DOI: 10.1109/lics.2011.38 | citações: 91 | https://openalex.org/W2158789193
+
+33. Composable continuous-space programs for robotic swarms (2010)
+   Jonathan Bachrach, Jacob Beal, James McLurkin — Neural Computing and Applications [article]
+   DOI: 10.1007/s00521-010-0382-8 | citações: 82 | https://openalex.org/W2098914525
+
+34. Frenetic (2010)
+   Nate Foster, Michael J. Freedman, Rob Harrison et al. — — [conference-paper]
+   DOI: 10.1145/1921151.1921160 | citações: 79 | https://openalex.org/W2136439543
+
+35. Event-Driven FRP (2001)
+   Zhanyong Wan, Walid Taha, Paul Hudak — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/3-540-45587-6_11 | citações: 79 | https://openalex.org/W1500975741
+
+36. A functional I/O system or, fun for freshman kids (2009)
+   Matthias Felleisen, Robert Bruce Findler, Matthew Flatt et al. — — [conference-paper]
+   DOI: 10.1145/1596550.1596561 | citações: 77 | https://openalex.org/W2041183503
+
+37. TeSSLa: Temporal Stream-Based Specification Language (2018)
+   Lukas Convent, Sebastian Hungerecker, Martin Leucker et al. — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-030-03044-5_10 | citações: 76 | https://openalex.org/W2888811801
+
+38. Idyll (2018)
+   Matthew Conlen, Jeffrey Heer — — [conference-paper]
+   DOI: 10.1145/3242587.3242600 | citações: 72 | https://openalex.org/W2897426720
+
+39. The power of Pi (2008)
+   Nicolas Oury, Wouter Swierstra — ACM SIGPLAN Notices [article]
+   DOI: 10.1145/1411203.1411213 | citações: 67 | https://openalex.org/W2136651263
+
+40. Plugging a Space Leak with an Arrow (2007)
+   Hai Liu, Paul Hudak — Electronic Notes in Theoretical Computer Science [article]
+   DOI: 10.1016/j.entcs.2007.10.006 | citações: 66 | https://openalex.org/W2078019303
+
+41. Declaratively programming the mobile web with Mobl (2011)
+   Zef Hemel, Eelco Visser — — [conference-paper]
+   DOI: 10.1145/2048066.2048121 | citações: 65 | https://openalex.org/W2130741346
+
+42. Frappé: Functional Reactive Programming in Java (2001)
+   Antony Courtney — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/3-540-45241-9_3 | citações: 63 | https://openalex.org/W1491796397
+
+43. A Software Engineering Perspective on SDN Programmability (2015)
+   Felipe A. Lopes, Marcelo Santos, Robson Fidalgo et al. — IEEE Communications Surveys & Tutorials [article]
+   DOI: 10.1109/comst.2015.2501026 | citações: 62 | https://openalex.org/W2345022687
+
+44. Nettle: Functional Reactive Programming for OpenFlow Networks (2010)
+   Andreas Voellmy, Ashish K. Agarwal, Paul Hudak — — [report]
+   DOI: 10.21236/ada555162 | citações: 61 | https://openalex.org/W121467848
+
+45. Living it up with a live programming language (2007)
+   Sean McDirmid — — [conference-paper]
+   DOI: 10.1145/1297027.1297073 | citações: 60 | https://openalex.org/W2120248644
+
+46. Reactors: A Deterministic Model for Composable Reactive Systems (2020)
+   Marten Lohstroh, Inigo Incer, Andrés Goens et al. — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-030-41131-2_4 | citações: 59 | https://openalex.org/W3008843202
+
+47. Flask (2008)
+   Geoffrey Mainland, Greg Morrisett, Matt Welsh — ACM SIGPLAN Notices [article]
+   DOI: 10.1145/1411203.1411251 | citações: 59 | https://openalex.org/W2117222496
+
+48. An embedded modeling language approach to interactive 3D and multimedia animation (1999)
+   Conal M. Elliott — IEEE Transactions on Software Engineering [article]
+   DOI: 10.1109/32.798320 | citações: 59 | https://openalex.org/W2110066118
+
+49. Dyna: Extending Datalog for Modern AI (2011)
+   Jason M. Eisner, Nathaniel Wesley Filardo — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-642-24206-9_11 | citações: 56 | https://openalex.org/W165195483
+
+50. The Design and Implementation of (2002)
+   Rong Zeng, Xinfu Sheng, Zongze Xia — — [article]
+   DOI: sem DOI | citações: 56 | https://openalex.org/W2183928100
+
+51. LTL types FRP (2012)
+   Alan Jeffrey — — [conference-paper]
+   DOI: 10.1145/2103776.2103783 | citações: 54 | https://openalex.org/W2162492115
+
+52. A theory of changes for higher-order languages (2014)
+   Yufei Cai, Paolo G. Giarrusso, Tillmann Rendel et al. — — [conference-paper]
+   DOI: 10.1145/2594291.2594304 | citações: 51 | https://openalex.org/W2015995083
+
+53. Domain-specific languages (2008)
+   autoria não informada — — [conference-paper]
+   DOI: 10.1109/vlhcc.2008.4639065 | citações: 51 | https://openalex.org/W2316961636
+
+54. Flask (2008)
+   Geoffrey Mainland, Greg Morrisett, Matt Welsh — — [conference-paper]
+   DOI: 10.1145/1411204.1411251 | citações: 51 | https://openalex.org/W4230414644
+
+55. EScala (2011)
+   Vaidas Gasiūnas, Lucas Satabin, Mira Mezini et al. — — [conference-paper]
+   DOI: 10.1145/1960275.1960303 | citações: 50 | https://openalex.org/W2002887992
+
+56. Higher-order functional reactive programming without spacetime leaks (2013)
+   Neelakantan R. Krishnaswami — — [conference-paper]
+   DOI: 10.1145/2500365.2500588 | citações: 50 | https://openalex.org/W2139695229
+
+57. On embedding a microarchitectural design language within Haskell (1999)
+   John Launchbury, Jeffrey R. Lewis, Byron Cook — — [conference-paper]
+   DOI: 10.1145/317636.317784 | citações: 50 | https://openalex.org/W2000722817
+
+58. The power of Pi (2008)
+   Nicolas Oury, Wouter Swierstra — — [conference-paper]
+   DOI: 10.1145/1411204.1411213 | citações: 49 | https://openalex.org/W4237116508
+
+59. Functional reactive programming, refactored (2016)
+   Ivan Pérez, Manuel Bärenz, Henrik Nilsson — — [conference-paper]
+   DOI: 10.1145/2976002.2976010 | citações: 48 | https://openalex.org/W2514237507
+
+60. TeSSLa (2018)
+   Martin Leucker, César Sánchez, Torben Scheffel et al. — — [conference-paper]
+   DOI: 10.1145/3167132.3167338 | citações: 48 | https://openalex.org/W2801291729
+
+61. Functional reactive programming from first principles (2000)
+   Zhanyong Wan, Paul Hudak — ACM SIGPLAN Notices [article]
+   DOI: 10.1145/358438.349331 | citações: 48 | https://openalex.org/W3023901936
+
+62. The Fun of Programming (2003)
+   autoria não informada — Bloomsbury Publishing Plc eBooks [book]
+   DOI: 10.1007/978-1-349-91518-7 | citações: 48 | https://openalex.org/W1563858934
+
+63. A survey on software defined networking and its applications (2015)
+   Yili Gong, Wei Kang Huang, Wenjie Wang et al. — Frontiers of Computer Science [article]
+   DOI: 10.1007/s11704-015-3448-z | citações: 47 | https://openalex.org/W1799150848
+
+64. Causal commutative arrows and their optimization (2009)
+   Hai Liu, Eric Cheng, Paul Hudak — — [conference-paper]
+   DOI: 10.1145/1596550.1596559 | citações: 47 | https://openalex.org/W2006232221
+
+65. Wormholes (2012)
+   Daniel Winograd-Cort, Paul Hudak — — [conference-paper]
+   DOI: 10.1145/2364506.2364519 | citações: 45 | https://openalex.org/W2030449944
+
+66. Relationally-parametric polymorphic contracts (2007)
+   Arjun Guha, Jacob Matthews, Robert Bruce Findler et al. — — [conference-paper]
+   DOI: 10.1145/1297081.1297089 | citações: 45 | https://openalex.org/W2075981791
+
+67. Mathematical equations as executable models of mechanical systems (2010)
+   Yun Zhu, Edwin Westbrook, Jun Inoue et al. — — [conference-paper]
+   DOI: 10.1145/1795194.1795196 | citações: 44 | https://openalex.org/W2049316772
+
+68. Functional implementations of continuous modeled animation (1998)
+   Conal M. Elliott — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/bfb0056621 | citações: 44 | https://openalex.org/W2070998289
+
+69. FranTk - a declarative GUI language for Haskell (2000)
+   Meurig Sage — — [conference-paper]
+   DOI: 10.1145/351240.351250 | citações: 44 | https://openalex.org/W1970757850
+
+70. A functional I/O system or, fun for freshman kids (2009)
+   Matthias Felleisen, Robert Bruce Findler, Matthew Flatt et al. — ACM SIGPLAN Notices [article]
+   DOI: 10.1145/1631687.1596561 | citações: 43 | https://openalex.org/W4230365488
+
+71. Virtualizing Real-World Objects in FRP (2012)
+   Daniel Winograd-Cort, Hai Liu, Paul Hudak — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-642-27694-1_17 | citações: 42 | https://openalex.org/W36701709
+
+72. Programming with time (2010)
+   Andrew Sorensen, Henry Gardner — — [conference-paper]
+   DOI: 10.1145/1869459.1869526 | citações: 42 | https://openalex.org/W1996596157
+
+73. Safe functional reactive programming through dependent types (2009)
+   Neil Sculthorpe, Henrik Nilsson — — [conference-paper]
+   DOI: 10.1145/1596550.1596558 | citações: 41 | https://openalex.org/W2105153579
+
+74. Implementing level 4 liveness in declarative visual programming languages (1998)
+   Margaret Burnett, J.W. Atwood, Zachary T Welch — — [conference-paper]
+   DOI: 10.1109/vl.1998.706155 | citações: 41 | https://openalex.org/W2098815929
+
+75. Distributed REScala (2014)
+   Joscha Drechsler, Guido Salvaneschi, Ragnar Mogk et al. — — [conference-paper]
+   DOI: 10.1145/2660193.2660240 | citações: 40 | https://openalex.org/W1982590499
+
+76. We have a DREAM (2014)
+   Alessandro Margara, Guido Salvaneschi — — [conference-paper]
+   DOI: 10.1145/2611286.2611290 | citações: 40 | https://openalex.org/W1986923831
+
+77. How functional programming mattered (2015)
+   Zhenjiang Hu, John Hughes, Meng Wang — National Science Review [article]
+   DOI: 10.1093/nsr/nwv042 | citações: 40 | https://openalex.org/W2103628211
+
+78. Coherent reaction (2009)
+   Jonathan Edwards — — [conference-paper]
+   DOI: 10.1145/1639950.1640058 | citações: 40 | https://openalex.org/W2611840193
+
+79. Composing contracts (2000)
+   Simon Peyton Jones, Jean‐Marc Eber, Julian Seward — ACM SIGPLAN Notices [article]
+   DOI: 10.1145/357766.351267 | citações: 40 | https://openalex.org/W4251493246
+
+80. E-FRP with priorities (2007)
+   Roumen Kaiabachev, Walid Taha, Angela Yun Zhu — — [conference-abstract]
+   DOI: 10.1145/1289927.1289963 | citações: 40 | https://openalex.org/W2122852486
+
+81. Emfrp: a functional reactive programming language for small-scale embedded systems (2016)
+   Kensuke Sawada, Takuo Watanabe — — [conference-paper]
+   DOI: 10.1145/2892664.2892670 | citações: 39 | https://openalex.org/W2333469955
+
+82. On the Positive Effect of Reactive Programming on Software Comprehension: An Empirical Study (2017)
+   Guido Salvaneschi, Sebastian Proksch, Sven Amann et al. — IEEE Transactions on Software Engineering [article]
+   DOI: 10.1109/tse.2017.2655524 | citações: 39 | https://openalex.org/W2572482456
+
+83. Distributed system development with ScalaLoci (2018)
+   Pascal Weisenburger, Mirko Köhler, Guido Salvaneschi — Proceedings of the ACM on Programming Languages [article]
+   DOI: 10.1145/3276499 | citações: 39 | https://openalex.org/W2898179350
+
+84. Modeling interactive 3D and multimedia animation with an embedded language (1997)
+   Conal M. Elliott — — [article]
+   DOI: sem DOI | citações: 39 | https://openalex.org/W15799706
+
+85. Reactive Objects and Functional Programming (1999)
+   Johan Nordlander — Epubl LTU [dissertation]
+   DOI: sem DOI | citações: 39 | https://openalex.org/W2113115746
+
+86. An empirical study on program comprehension with reactive programming (2014)
+   Guido Salvaneschi, Sven Amann, Sebastian Proksch et al. — — [conference-paper]
+   DOI: 10.1145/2635868.2635895 | citações: 38 | https://openalex.org/W1998445782
+
+87. Higher-Order Reactive Programming with Incremental Lists (2013)
+   Ingo Maier, Martin Odersky — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-642-39038-8_29 | citações: 37 | https://openalex.org/W131463356
+
+88. Fair reactive programming (2014)
+   Andrew Cave, Francisco Ferreira, Prakash Panangaden et al. — — [conference-paper]
+   DOI: 10.1145/2535838.2535881 | citações: 37 | https://openalex.org/W2010337608
+
+89. Debugging for reactive programming (2016)
+   Guido Salvaneschi, Mira Mezini — — [conference-paper]
+   DOI: 10.1145/2884781.2884815 | citações: 37 | https://openalex.org/W2348402940
+
+90. Animated Vega-Lite: Unifying Animation with a Grammar of Interactive Graphics (2022)
+   Jonathan Zong, Josh Pollock, Dylan Wootton et al. — IEEE Transactions on Visualization and Computer Graphics [article]
+   DOI: 10.1109/tvcg.2022.3209369 | citações: 36 | https://openalex.org/W4304479239
+
+91. Higher-order functional reactive programming in bounded space (2012)
+   Neelakantan R. Krishnaswami, Nick Benton, Jan Hoffmann — ACM SIGPLAN Notices [article]
+   DOI: 10.1145/2103621.2103665 | citações: 36 | https://openalex.org/W2096936728
+
+92. A cost semantics for self-adjusting computation (2009)
+   Ruy Ley-Wild, Umut A. Acar, Matthew T. Fluet — — [conference-paper]
+   DOI: 10.1145/1480881.1480907 | citações: 36 | https://openalex.org/W2001280137
+
+93. Deprecating the Observer Pattern (2010)
+   Ingo Maier, Tiark Rompf, Martin Odersky — Infoscience (Ecole Polytechnique Fédérale de Lausanne) [report]
+   DOI: sem DOI | citações: 36 | https://openalex.org/W1919109517
+
+94. Deprecating the Observer Pattern with Scala.React (2012)
+   Ingo Maier, Martin Odersky — Infoscience (Ecole Polytechnique Fédérale de Lausanne) [report]
+   DOI: sem DOI | citações: 35 | https://openalex.org/W2097785504
+
+95. Temporal Stream Logic: Synthesis Beyond the Bools (2019)
+   Bernd Finkbeiner, Felix Klein, Ružica Piskač et al. — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-030-25540-4_35 | citações: 34 | https://openalex.org/W2947784983
+
+96. Functional Reactive Programming (1999)
+   Paul Hudak — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/3-540-49099-x_1 | citações: 34 | https://openalex.org/W133030971
+
+97. Behavior generation for interpersonal coordination with virtual humans : on specifying, scheduling and realizing multimodal virtual human behavior (2011)
+   van Herwin Welbergen — — [dissertation]
+   DOI: 10.3990/1.9789036532334 | citações: 34 | https://openalex.org/W2157952330
+
+98. A semantic model for graphical user interfaces (2011)
+   Neelakantan R. Krishnaswami, Nick Benton — ACM SIGPLAN Notices [article]
+   DOI: 10.1145/2034574.2034782 | citações: 33 | https://openalex.org/W1978353388
+
+99. Multi-Tier Functional Reactive Programming for the Web (2014)
+   Bob Reynders, Dominique Devriese, Frank Piessens — — [conference-paper]
+   DOI: 10.1145/2661136.2661140 | citações: 33 | https://openalex.org/W2076414129
+
+100. Higher-order functional reactive programming in bounded space (2012)
+   Neelakantan R. Krishnaswami, Nick Benton, Jan Hoffmann — — [conference-paper]
+   DOI: 10.1145/2103656.2103665 | citações: 33 | https://openalex.org/W4236134058
+
+101. Asynchronous functional reactive programming for GUIs (2013)
+   Evan Czaplicki, Stephen Chong — ACM SIGPLAN Notices [article]
+   DOI: 10.1145/2499370.2462161 | citações: 33 | https://openalex.org/W3006529926
+
+102. Lightweight monadic programming in ML (2011)
+   Nikhil Swamy, Nataliya Guts, Daan Leijen et al. — ACM SIGPLAN Notices [article]
+   DOI: 10.1145/2034574.2034778 | citações: 32 | https://openalex.org/W2030360570
+
+103. VREUD - An End-User Development Tool to Simplify the Creation of Interactive VR Scenes (2021)
+   Enes Yigitbas, Jonas Klauke, Sebastian Gottschalk et al. — — [conference-paper]
+   DOI: 10.1109/vl/hcc51201.2021.9576372 | citações: 32 | https://openalex.org/W3175697424
+
+104. Quality-Aware Runtime Adaptation in Complex Event Processing (2017)
+   Pascal Weisenburger, Manisha Luthra, Boris Koldehofe et al. — — [conference-paper]
+   DOI: 10.1109/seams.2017.10 | citações: 31 | https://openalex.org/W2732579758
+
+105. The Regiment Macroprogramming System (2007)
+   Ryan Newton, Greg Morrisett, Matt Welsh — — [conference-paper]
+   DOI: 10.1109/ipsn.2007.4379709 | citações: 31 | https://openalex.org/W3144372924
+
+106. A semantic model for graphical user interfaces (2011)
+   Neelakantan R. Krishnaswami, Nick Benton — — [conference-paper]
+   DOI: 10.1145/2034773.2034782 | citações: 31 | https://openalex.org/W4231894538
+
+107. Dynamic optimization for functional reactive programming using generalized algebraic data types (2005)
+   Henrik Nilsson — — [conference-paper]
+   DOI: 10.1145/1086365.1086374 | citações: 30 | https://openalex.org/W2070203924
+
+108. Prototyping real-time vision systems (1999)
+   Alastair Reid, John R. Peterson, Greg Hager et al. — — [conference-paper]
+   DOI: 10.1145/302405.302681 | citações: 30 | https://openalex.org/W2014932497
+
+109. Using Lazy Evaluation to Simulate Realistic-size Repertoires in Models of the Immune System (1998)
+   Derek J. Smith — Bulletin of Mathematical Biology [article]
+   DOI: 10.1006/bulm.1997.0035 | citações: 30 | https://openalex.org/W2094752957
+
+110. Reactive imperative programming with dataflow constraints (2011)
+   Camil Demetrescu, Irene Finocchi, Andrea Ribichini — — [conference-paper]
+   DOI: 10.1145/2048066.2048100 | citações: 29 | https://openalex.org/W2119772607
+
+111. On the Semantics of Distributed Reactive Programming: The Cost of Consistency (2018)
+   Alessandro Margara, Guido Salvaneschi — IEEE Transactions on Software Engineering [article]
+   DOI: 10.1109/tse.2018.2833109 | citações: 29 | https://openalex.org/W2801707263
+
+112. Crossing State Lines: Adapting Object-Oriented Frameworks to Functional Reactive Languages (2006)
+   Daniel Ignatoff, Gregory H. Cooper, Shriram Krishnamurthi — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/11737414_18 | citações: 29 | https://openalex.org/W1597838511
+
+113. Verifying event-driven programs using ramified frame properties (2010)
+   Neel Krishnaswami, Lars Birkedal, Jonathan Aldrich — — [conference-paper]
+   DOI: 10.1145/1708016.1708025 | citações: 29 | https://openalex.org/W2144058993
+
+114. Debugging data flows in reactive programs (2018)
+   Herman Banken, Erik Meijer, Georgios Gousios — — [conference-paper]
+   DOI: 10.1145/3180155.3180156 | citações: 29 | https://openalex.org/W2789282297
+
+115. Reactive behavior in object-oriented applications (2013)
+   Guido Salvaneschi, Mira Mezini — — [conference-paper]
+   DOI: 10.1145/2451436.2451442 | citações: 28 | https://openalex.org/W1968219237
+
+116. Modelyze : a Gradually Typed Host Language for Embedding Equation-Based Modeling Languages (2012)
+   David Broman, Jeremy G. Siek — — [article]
+   DOI: sem DOI | citações: 28 | https://openalex.org/W2135259582
+
+117. FVision: A Declarative Language for Visual Tracking (2001)
+   John M. Peterson, Paul Hudak, Alastair Reid et al. — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/3-540-45241-9_21 | citações: 28 | https://openalex.org/W2147417170
+
+118. Rapidly Adjustable Non-intrusive Online Monitoring for Multi-core Systems (2017)
+   Normann Decker, Philip Gottschling, Christian Hochberger et al. — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-319-70848-5_12 | citações: 27 | https://openalex.org/W2767243782
+
+119. Lightweight monadic programming in ML (2011)
+   Nikhil Swamy, Nataliya Guts, Daan Leijen et al. — — [conference-paper]
+   DOI: 10.1145/2034773.2034778 | citações: 27 | https://openalex.org/W4244177239
+
+120. Design and evaluation of a compiler for embedded stream programs (2008)
+   Ryan Newton, Lewis Girod, Michael B. Craig et al. — — [conference-paper]
+   DOI: 10.1145/1375657.1375675 | citações: 27 | https://openalex.org/W2105655245
+
+121. Expositor: scriptable time-travel debugging with first-class traces (2013)
+   Khoo Yit Phang, Jeffrey S. Foster, Michael Hicks — — [article]
+   DOI: 10.5555/2486788.2486835 | citações: 27 | https://openalex.org/W2162468176
+
+122. Testing and debugging functional reactive programming (2017)
+   Ivan Pérez, Henrik Nilsson — Proceedings of the ACM on Programming Languages [article]
+   DOI: 10.1145/3110246 | citações: 26 | https://openalex.org/W2751194474
+
+123. Compiling self-adjusting programs with continuations (2008)
+   Ruy Ley-Wild, Matthew T. Fluet, Umut A. Acar — ACM SIGPLAN Notices [article]
+   DOI: 10.1145/1411203.1411249 | citações: 26 | https://openalex.org/W2089020545
+
+124. Embedding a Functional Hybrid Modelling Language in Haskell (2011)
+   George Giorgidze, Henrik Nilsson — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-642-24452-0_8 | citações: 26 | https://openalex.org/W2235952657
+
+125. Compiling self-adjusting programs with continuations (2008)
+   Ruy Ley-Wild, Matthew T. Fluet, Umut A. Acar — — [conference-paper]
+   DOI: 10.1145/1411204.1411249 | citações: 26 | https://openalex.org/W4253063713
+
+126. Foundational extensible corecursion: a proof assistant perspective (2015)
+   Jasmin Christian Blanchette, Andrei Popescu, Dmitriy Traytel — — [conference-paper]
+   DOI: 10.1145/2784731.2784732 | citações: 25 | https://openalex.org/W2147890340
+
+127. Lowering (2007)
+   Kimberley Burchett, Gregory H. Cooper, Shriram Krishnamurthi — — [conference-paper]
+   DOI: 10.1145/1244381.1244393 | citações: 25 | https://openalex.org/W2085931775
+
+128. The design and implementation of a dataflow language for scriptable debugging (2006)
+   Guillaume Marceau, Gregory H. Cooper, Jonathan P. Spiro et al. — Automated Software Engineering [article]
+   DOI: 10.1007/s10515-006-0003-z | citações: 25 | https://openalex.org/W2154833931
+
+129. Distributed functional reactive programming on actor-based runtime (2018)
+   Kazuhiro Shibanai, Takuo Watanabe — — [conference-paper]
+   DOI: 10.1145/3281366.3281370 | citações: 25 | https://openalex.org/W2898297789
+
+130. wxHaskell (2004)
+   Daan Leijen — — [conference-paper]
+   DOI: 10.1145/1017472.1017483 | citações: 25 | https://openalex.org/W2014047952
+
+131. Programming a Sensor Network as an Amorphous Medium (2006)
+   Jonathan Bachrach, Jacob Beal — DSpace@MIT (Massachusetts Institute of Technology) [article]
+   DOI: sem DOI | citações: 25 | https://openalex.org/W2109777648
+
+132. Higher-Order Non-Causal Modelling and Simulation of Structurally Dynamic Systems (2009)
+   George Giorgidze, Henrik Nilsson — Linköping electronic conference proceedings [conference-paper]
+   DOI: 10.3384/ecp09430137 | citações: 24 | https://openalex.org/W1988138560
+
+133. Expositor: Scriptable time-travel debugging with first-class traces (2013)
+   Khoo Yit Phang, Jeffrey S. Foster, Michael Hicks — — [conference-paper]
+   DOI: 10.1109/icse.2013.6606581 | citações: 23 | https://openalex.org/W4238282158
+
+134. Loosely-Coupled Distributed Reactive Programming in Mobile Ad Hoc Networks (2010)
+   Andoni Lombide Carreton, Stijn Mostinckx, Tom Van Cutsem et al. — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-642-13953-6_3 | citações: 23 | https://openalex.org/W1687120846
+
+135. The design space of dynamic interactive virtual environments (2013)
+   Kristopher J. Blom, Steffi Beckhaus — Virtual Reality [article]
+   DOI: 10.1007/s10055-013-0232-y | citações: 23 | https://openalex.org/W2003421529
+
+136. The Haskell School of Music: From Signals to Symphonies (2018)
+   Paul Hudak, Donya Quick — — [book]
+   DOI: sem DOI | citações: 23 | https://openalex.org/W2802896123
+
+137. Modeling user interfaces in a functional language (2004)
+   Antony Courtney, Paul Hudak — — [dissertation]
+   DOI: sem DOI | citações: 23 | https://openalex.org/W1578608903
+In this thesis, we develop Fruit, a Functional Reactive User Interface Toolkit. Fruit is based on Yampa, an adaptation of Functional Reactive Programming (FRP) to the Arrows computational framework. Yampa has a clear, simple formal s…
+
+138. Practical principled FRP: forget the past, change the future, FRPNow! (2015)
+   Atze van der Ploeg, Koen Claessen — — [conference-paper]
+   DOI: 10.1145/2784731.2784752 | citações: 22 | https://openalex.org/W1963585471
+
+139. Model-based, event-driven programming paradigm for interactive web applications (2013)
+   Aleksandar Milicevic, Daniel Jackson, Milos Gligoric et al. — — [conference-paper]
+   DOI: 10.1145/2509578.2509588 | citações: 22 | https://openalex.org/W2124776613
+
+140. An optimizing compiler for a purely functional web-application language (2015)
+   Adam J. Chlipala — — [conference-paper]
+   DOI: 10.1145/2784731.2784741 | citações: 21 | https://openalex.org/W2045983162
+
+141. Ziria (2015)
+   Gordon Stewart, Mahanth Gowda, Geoffrey Mainland et al. — — [conference-paper]
+   DOI: 10.1145/2694344.2694368 | citações: 21 | https://openalex.org/W2067083925
+
+142. Efficient and Compositional Higher-Order Streams (2011)
+   Gergely Patai — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-642-20775-4_8 | citações: 21 | https://openalex.org/W106138687
+
+143. An Algebraic Theory of Polymorphic Temporal Media (2004)
+   Paul Hudak — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-540-24836-1_1 | citações: 21 | https://openalex.org/W1754949605
+
+144. A theory of changes for higher-order languages (2014)
+   Yufei Cai, Paolo G. Giarrusso, Tillmann Rendel et al. — ACM SIGPLAN Notices [article]
+   DOI: 10.1145/2666356.2594304 | citações: 21 | https://openalex.org/W3033035528
+
+145. Determining Actual Response Time in P-FRP (2011)
+   Chaitanya Belwal, Albert M. K. Cheng — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-642-18378-2_20 | citações: 21 | https://openalex.org/W1501729914
+
+146. Behavioral reactivity and real time programming in XML (2004)
+   Peter King, Patrick Schmitz, Simon Thompson — — [conference-paper]
+   DOI: 10.1145/1030397.1030411 | citações: 21 | https://openalex.org/W1985850505
+
+147. Charting patterns on price history (2001)
+   Saswat Anand, Wei-Ngan Chin, Siau‐Cheng Khoo — — [conference-paper]
+   DOI: 10.1145/507635.507653 | citações: 21 | https://openalex.org/W1996961096
+
+148. Reactive Programming: A Walkthrough (2015)
+   Guido Salvaneschi, Alessandro Margara, Giordano Tamburrelli — — [conference-paper]
+   DOI: 10.1109/icse.2015.303 | citações: 21 | https://openalex.org/W4235459228
+
+149. Recurrence extraction for functional programs through call-by-push-value (2019)
+   G. A. Kavvos, Edward Morehouse, Daniel R. Licata et al. — Proceedings of the ACM on Programming Languages [article]
+   DOI: 10.1145/3371083 | citações: 20 | https://openalex.org/W2984542881
+
+150. Causal commutative arrows (2011)
+   Hai Liu, Eric Cheng, Paul Hudak — Journal of Functional Programming [article]
+   DOI: 10.1017/s0956796811000153 | citações: 20 | https://openalex.org/W1979330843
+
+151. SuperGlue: Component Programming with Object-Oriented Signals (2006)
+   Sean McDirmid, Wilson C. Hsieh — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/11785477_15 | citações: 20 | https://openalex.org/W1486467881
+
+152. Mixed-Level Embedding and JIT Compilation for an Iteratively Staged DSL (2011)
+   George Giorgidze, Henrik Nilsson — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-642-20775-4_3 | citações: 19 | https://openalex.org/W1440012756
+
+153. Divide and recycle (2011)
+   Albert Benveniste, Timothy Bourke, Benoı̂t Caillaud et al. — — [conference-paper]
+   DOI: 10.1145/1967677.1967687 | citações: 19 | https://openalex.org/W2153637288
+
+154. Synthesizing functional reactive programs (2019)
+   Bernd Finkbeiner, Felix Klein, Ružica Piskač et al. — — [conference-paper]
+   DOI: 10.1145/3331545.3342601 | citações: 19 | https://openalex.org/W2774448829
+
+155. Simply RaTT: a fitch-style modal calculus for reactive programming without space leaks (2019)
+   Patrick Bahr, Christian Uldal Graulund, Rasmus Ejlers Møgelberg — Proceedings of the ACM on Programming Languages [article]
+   DOI: 10.1145/3341713 | citações: 19 | https://openalex.org/W2951549658
+
+156. Lime (2010)
+   Joshua S. Auerbach, David F. Bacon, Perry Cheng et al. — ACM SIGPLAN Notices [article]
+   DOI: 10.1145/1932682.1869469 | citações: 19 | https://openalex.org/W4251609645
+
+157. Integrating Dataflow Evaluation into a Practical Higher-Order Call-by-Value Language (2008)
+   Gregory H. Cooper — Brown Digital Repository [article]
+   DOI: 10.7301/z0d50k84 | citações: 19 | https://openalex.org/W2149092902
+
+158. Type-directed weaving of aspects for higher-order functional languages (2006)
+   Meng Wang, Kung Chen, Siau‐Cheng Khoo — — [conference-paper]
+   DOI: 10.1145/1111542.1111555 | citações: 19 | https://openalex.org/W2067607302
+
+159. Context-oriented software engineering (2014)
+   Tetsuo Kamina, Tomoyuki Aotani, Hidehiko Masuhara et al. — — [conference-paper]
+   DOI: 10.1145/2577080.2579816 | citações: 18 | https://openalex.org/W2129732645
+
+160. Can reactive synthesis and syntax-guided synthesis be friends? (2022)
+   Wonhyuk Choi, Bernd Finkbeiner, Ružica Piskač et al. — — [conference-paper]
+   DOI: 10.1145/3519939.3523429 | citações: 18 | https://openalex.org/W4281723906
+
+161. Towards Reactive Programming for Object-Oriented Applications (2014)
+   Guido Salvaneschi, Mira Mezini — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-642-55099-7_7 | citações: 18 | https://openalex.org/W21595345
+
+162. A reactive extension of the OpenMusic visual programming language (2014)
+   Jean Bresson, Jean‐Louis Giavitto — Journal of Visual Languages & Computing [article]
+   DOI: 10.1016/j.jvlc.2014.03.003 | citações: 18 | https://openalex.org/W2161151706
+
+163. Composing Reactive GUIs in F# Using WebSharper (2011)
+   Joel Bjornson, Anton Tayanovskyy, Ádám Gránicz — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-642-24276-2_13 | citações: 18 | https://openalex.org/W1534674107
+
+164. Declarative event-oriented programming (2000)
+   Conal M. Elliott — — [conference-paper]
+   DOI: 10.1145/351268.351276 | citações: 18 | https://openalex.org/W2059130087
+
+165. The Playful Software Platform: Reactive Programming for Orchestrating Robotic Behavior (2018)
+   Vincent Berenz, Stefan Schaal — IEEE Robotics & Automation Magazine [article]
+   DOI: 10.1109/mra.2018.2803168 | citações: 18 | https://openalex.org/W2803090783
+
+166. Runtime Verification for Timed Event Streams with Partial Information (2019)
+   Martin Leucker, César Sánchez, Torben Scheffel et al. — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-030-32079-9_16 | citações: 18 | https://openalex.org/W2961912033
+
+167. Online Signal Monitoring With Bounded Lag (2020)
+   Konstantinos Mamouras, Zhifu Wang — IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems [article]
+   DOI: 10.1109/tcad.2020.3013053 | citações: 18 | https://openalex.org/W3090131141
+
+168. Structuring graphical paradigms in TkGofer (1997)
+   Koen Claessen, Ton Vullinghs, Erik Meijer — — [conference-paper]
+   DOI: 10.1145/258948.258972 | citações: 18 | https://openalex.org/W2079510670
+
+169. Reactive stream processing for data-centric publish/subscribe (2015)
+   Shweta Khare, Kyoungho An, Aniruddha S. Gokhale et al. — — [conference-paper]
+   DOI: 10.1145/2675743.2771880 | citações: 17 | https://openalex.org/W1991598225
+
+170. Keeping calm in the face of change (2010)
+   Neil Sculthorpe, Henrik Nilsson — LISP and Symbolic Computation [article]
+   DOI: 10.1007/s10990-011-9068-x | citações: 17 | https://openalex.org/W1566348926
+
+171. Correct-by-Construction Concurrency: Using Dependent Types to Verify Implementations of Effectful Resource Usage Protocols (2010)
+   Edwin C. Brady, Kevin Hammond — Fundamenta Informaticae [article]
+   DOI: 10.3233/fi-2010-303 | citações: 17 | https://openalex.org/W1591780766
+
+172. Djnn/Smala (2018)
+   Mathieu Magnaudet, Stéphane Chatty, Stéphane Conversy et al. — Proceedings of the ACM on Human-Computer Interaction [article]
+   DOI: 10.1145/3229094 | citações: 17 | https://openalex.org/W2808836817
+
+173. Rhine: FRP with type-level clocks (2018)
+   Manuel Bärenz, Ivan Pérez — — [conference-paper]
+   DOI: 10.1145/3242744.3242757 | citações: 17 | https://openalex.org/W2891744584
+
+174. None (2002)
+   Peter B. Henderson — Higher-Order and Symbolic Computation [article]
+   DOI: 10.1023/a:1022986521797 | citações: 17 | https://openalex.org/W2911891988
+
+175. Reactive Programming in Standard ML (1998)
+   Riccardo R. Pucella — — [article]
+   DOI: sem DOI | citações: 17 | https://openalex.org/W3106288350
+
+176. Functional Image Synthesis (2001)
+   Conal M. Elliott — Bridges: Mathematical Connections in Art, Music, and Science [article]
+   DOI: sem DOI | citações: 17 | https://openalex.org/W567960075
+
+177. Functional programming: An angry half-dozen (1998)
+   Philip L. Wadler — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/3-540-64823-2_2 | citações: 17 | https://openalex.org/W1833440862
+
+178. WaveScript: A Case-Study in Applying a Distributed Stream-Processing Language (2008)
+   Ryan Newton, Lewis Girod, Michael B. Craig et al. — DSpace@MIT (Massachusetts Institute of Technology) [article]
+   DOI: sem DOI | citações: 16 | https://openalex.org/W1854820700
+
+179. Monadic functional reactive programming (2013)
+   Atze van der Ploeg — — [conference-paper]
+   DOI: 10.1145/2503778.2503783 | citações: 16 | https://openalex.org/W2034582967
+
+180. Containers and aggregates, mutators and isolates for reactive programming (2014)
+   Aleksandar Prokopec, Philipp Haller, Martin Odersky — — [conference-paper]
+   DOI: 10.1145/2637647.2637656 | citações: 16 | https://openalex.org/W2138749053
+
+181. Functional programming and theorem proving for undergraduates (2008)
+   Rex L. Page, Carl Eastlund, Matthias Felleisen — — [conference-paper]
+   DOI: 10.1145/1411260.1411264 | citações: 16 | https://openalex.org/W2154753152
+
+182. Bridging the GUI gap with reactive values and relations (2015)
+   Ivan Pérez, Henrik Nilsson — — [conference-paper]
+   DOI: 10.1145/2804302.2804316 | citações: 16 | https://openalex.org/W2170455857
+
+183. Declarative Stream Runtime Verification (hLola) (2020)
+   Martín Ceresa, Felipe Gorostiaga, César Sánchez — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-030-64437-6_2 | citações: 16 | https://openalex.org/W3007704824
+
+184. Diamonds are not forever: liveness in reactive programming with guarded recursion (2021)
+   Patrick Bahr, Christian Uldal Graulund, Rasmus Ejlers Møgelberg — Proceedings of the ACM on Programming Languages [article]
+   DOI: 10.1145/3434283 | citações: 16 | https://openalex.org/W3009855409
+
+185. Parallel Functional Reactive Programming (1999)
+   John R. Peterson, Valery Trifonov, Andrei Serjantov — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/3-540-46584-7_2 | citações: 16 | https://openalex.org/W1528312358
+
+186. Functional automatic differentiation with dirac impulses (2003)
+   Henrik Nilsson — — [conference-paper]
+   DOI: 10.1145/944705.944720 | citações: 16 | https://openalex.org/W2103009337
+
+187. Polymonadic Programming (2014)
+   Michael Hicks, Gavin M. Bierman, Nataliya Guts et al. — Electronic Proceedings in Theoretical Computer Science [article]
+   DOI: 10.4204/eptcs.153.7 | citações: 15 | https://openalex.org/W3038013766
+
+188. Programming with Implicit Flows (2014)
+   Guido Salvaneschi, Patrick Th. Eugster, Mira Mezini — IEEE Software [article]
+   DOI: 10.1109/ms.2014.101 | citações: 15 | https://openalex.org/W2090040302
+
+189. Harmonizing Signals and Events with a Lightweight Extension to Java (2018)
+   Tetsuo Kamina, Tomoyuki Aotani — The Art Science and Engineering of Programming [article]
+   DOI: 10.22152/programming-journal.org/2018/2/5 | citações: 15 | https://openalex.org/W2795128967
+
+190. Thread-safe reactive programming (2018)
+   Joscha Drechsler, Ragnar Mogk, Guido Salvaneschi et al. — Proceedings of the ACM on Programming Languages [article]
+   DOI: 10.1145/3276477 | citações: 15 | https://openalex.org/W2898117650
+
+191. A vision of miking: interactive programmatic modeling, sound language composition, and self-learning compilation (2019)
+   David Broman — — [conference-paper]
+   DOI: 10.1145/3357766.3359531 | citações: 15 | https://openalex.org/W2979505726
+
+192. A fault-tolerant programming model for distributed interactive applications (2019)
+   Ragnar Mogk, Joscha Drechsler, Guido Salvaneschi et al. — Proceedings of the ACM on Programming Languages [article]
+   DOI: 10.1145/3360570 | citações: 15 | https://openalex.org/W2979761551
+
+193. Implicit self-adjusting computation for purely functional programs (2011)
+   Yan Chen, Jana Dunfield, Matthew A. Hammer et al. — ACM SIGPLAN Notices [article]
+   DOI: 10.1145/2034574.2034792 | citações: 14 | https://openalex.org/W2146731920
+
+194. The Haskell School of Music (2018)
+   Paul Hudak, Donya Quick — Cambridge University Press eBooks [book]
+   DOI: 10.1017/9781108241861 | citações: 14 | https://openalex.org/W2182417178
+
+195. Programming with time (2010)
+   Andrew Sorensen, Henry Gardner — ACM SIGPLAN Notices [article]
+   DOI: 10.1145/1932682.1869526 | citações: 14 | https://openalex.org/W3006438770
+
+196. Declaratively programming the mobile web with Mobl (2011)
+   Zef Hemel, Eelco Visser — ACM SIGPLAN Notices [article]
+   DOI: 10.1145/2076021.2048121 | citações: 14 | https://openalex.org/W3000675268
+
+197. Towards secure IoT programming in Haskell (2020)
+   Nachiappan Valliappan, Robert Krook, Alejandro Russo et al. — — [conference-paper]
+   DOI: 10.1145/3406088.3409027 | citações: 14 | https://openalex.org/W3046845804
+
+198. Hailstorm: A Statically-Typed, Purely Functional Language for IoT Applications (2020)
+   Abhiroop Sarkar, Mary Sheeran — — [conference-paper]
+   DOI: 10.1145/3414080.3414092 | citações: 14 | https://openalex.org/W3082024547
+
+199. Directions in Functional Programming for Real(-Time) Applications (2001)
+   Walid Taha, Paul Hudak, Zhanyong Wan — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/3-540-45449-7_13 | citações: 14 | https://openalex.org/W1771890704
+
+200. Parametric lenses (2014)
+   László Domoszlai, Bas Lijnse, Rinus Plasmeijer — — [conference-paper]
+   DOI: 10.1145/2746325.2746333 | citações: 14 | https://openalex.org/W2097008682
+
+201. Propagation Networks: A Flexible and Expressive Substrate for Computation (2009)
+   Alexey Radul — DSpace@MIT (Massachusetts Institute of Technology) [article]
+   DOI: sem DOI | citações: 14 | https://openalex.org/W2134707416
+
+202. Functional reactive programming with liveness guarantees (2013)
+   Alan Jeffrey — — [conference-paper]
+   DOI: 10.1145/2500365.2500584 | citações: 13 | https://openalex.org/W2008307801
+
+203. Lenses for Web Data (2024)
+   Raghu Rajkumar, Nate Foster, Sam Lindley et al. — Edinburgh Research Explorer (University of Edinburgh) [article]
+   DOI: 10.14279/tuj.eceasst.57.879 | citações: 13 | https://openalex.org/W1506770266
+
+204. KScript and KSWorld (2013)
+   Yoshiki Ohshima, Aran Lunzer, Bert Freudenberg et al. — — [conference-paper]
+   DOI: 10.1145/2509578.2509590 | citações: 13 | https://openalex.org/W2012072241
+
+205. S (2012)
+   Daniele Bonetta, Achille Peternier, Cesare Pautasso et al. — — [conference-paper]
+   DOI: 10.1145/2145816.2145829 | citações: 13 | https://openalex.org/W2147494929
+
+206. Designing a Video Monitoring System for AAL applications: the SPHERE Case Study (2016)
+   James K. Hall, Sion Hannuna, Massimo Camplani et al. — — [conference-paper]
+   DOI: 10.1049/ic.2016.0061 | citações: 13 | https://openalex.org/W2565336906
+
+207. Back to the future: time travel in FRP (2017)
+   Ivan Pérez — — [conference-paper]
+   DOI: 10.1145/3122955.3122957 | citações: 13 | https://openalex.org/W2750765390
+
+208. Settable and non-interfering signal functions for FRP (2014)
+   Daniel Winograd-Cort, Paul Hudak — — [conference-paper]
+   DOI: 10.1145/2628136.2628140 | citações: 13 | https://openalex.org/W2003774770
+
+209. Functional reactive types (2014)
+   Alan Jeffrey — — [conference-paper]
+   DOI: 10.1145/2603088.2603106 | citações: 13 | https://openalex.org/W2045396951
+
+210. Compositional Information-Flow Security for Interactive Systems (2014)
+   Willard Rafnsson, Andrei Sabelfeld — — [conference-paper]
+   DOI: 10.1109/csf.2014.27 | citações: 13 | https://openalex.org/W2054633150
+
+211. Reactive Game Engine Programming for STEM Outreach (2015)
+   Alan Cleary, Lucas Vandenbergh, John R. Peterson — — [conference-paper]
+   DOI: 10.1145/2676723.2677312 | citações: 13 | https://openalex.org/W2056122214
+
+212. Haskino: A Remote Monad for Programming the Arduino (2016)
+   Mark Grebe, Andy Gill — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-319-28228-2_10 | citações: 13 | https://openalex.org/W2397614356
+
+213. APLicative Programming with Naperian Functors (2017)
+   Jeremy Gibbons — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-662-54434-1_21 | citações: 13 | https://openalex.org/W2589901545
+
+214. A Consistent Semantics of Self-adjusting Computation (2007)
+   Umut A. Acar, Matthias Blume, Jacob Donham — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-540-71316-6_31 | citações: 13 | https://openalex.org/W1657869212
+
+215. Smooth Animation of Algorithms in a Declarative Framework (2001)
+   Camil Demetrescu, Irene Finocchi — Journal of Visual Languages & Computing [article]
+   DOI: 10.1006/jvlc.2001.0208 | citações: 13 | https://openalex.org/W2081734788
+
+216. Reactive chatbot programming (2018)
+   Guillaume Baudart, Martin J. Hirzel, Louis Mandel et al. — — [conference-paper]
+   DOI: 10.1145/3281278.3281282 | citações: 13 | https://openalex.org/W2898522085
+
+217. FROB: A Transformational Approach to the Design of Robot Software (2000)
+   Gregory D. Hager, John R. Peterson — — [book-chapter]
+   DOI: 10.1007/978-1-4471-0765-1_31 | citações: 13 | https://openalex.org/W92193974
+
+218. T rident (2018)
+   Kai Gao, Taishi Nojima, Yufan Yang — — [conference-paper]
+   DOI: 10.1145/3230543.3230562 | citações: 12 | https://openalex.org/W2878990204
+
+219. A formal specification for casanova, a language for computer games (2012)
+   Giuseppe Maggiore, Alvise Spanò, Renzo Orsini et al. — — [conference-paper]
+   DOI: 10.1145/2305484.2305533 | citações: 12 | https://openalex.org/W2071600742
+
+220. Functionally Modeled User Interfaces (2003)
+   Antony Courtney — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-540-39929-2_8 | citações: 12 | https://openalex.org/W1887185653
+
+221. Slideshow: functional presentations (2006)
+   Robert Bruce Findler, Matthew Flatt — Journal of Functional Programming [article]
+   DOI: 10.1017/s0956796806006010 | citações: 12 | https://openalex.org/W2075161796
+
+222. Monadic robotics (1999)
+   John M. Peterson, Greg Hager — — [conference-paper]
+   DOI: 10.1145/331960.331976 | citações: 12 | https://openalex.org/W2294457340
+
+223. Higher-order functional reactive programming without spacetime leaks (2013)
+   Neelakantan R. Krishnaswami — ACM SIGPLAN Notices [article]
+   DOI: 10.1145/2544174.2500588 | citações: 12 | https://openalex.org/W4253774675
+
+224. A functional reactive animation of a lift using Fran (2000)
+   Simon Thompson — Journal of Functional Programming [article]
+   DOI: 10.1017/s0956796800003671 | citações: 12 | https://openalex.org/W2056095554
+
+225. Schedulability Analysis for the Abort-and-Restart (AR) Model (2014)
+   Ho-Lun-T. Wong, Alan Burns — — [conference-paper]
+   DOI: 10.1145/2659787.2659813 | citações: 11 | https://openalex.org/W2094143933
+
+226. Temporal type constructors for computer music programming (2000)
+   Eli Brandt — University of Michigan Library Repository [conference-paper]
+   DOI: sem DOI | citações: 11 | https://openalex.org/W1499206169
+
+227. Active Expressions: Basic Building Blocks for Reactive Programming (2017)
+   Stefan Ramson, Robert Hirschfeld — The Art Science and Engineering of Programming [article]
+   DOI: 10.22152/programming-journal.org/2017/1/12 | citações: 11 | https://openalex.org/W2128324598
+
+228. Functional programming for dynamic and large data with self-adjusting computation (2014)
+   Yan Chen, Umut A. Acar, Kanat Tangwongsan — — [conference-paper]
+   DOI: 10.1145/2628136.2628150 | citações: 11 | https://openalex.org/W2166238335
+
+229. Reactive programming with reactive variables (2016)
+   Christopher Schuster, Cormac Flanagan — — [conference-paper]
+   DOI: 10.1145/2892664.2892666 | citações: 11 | https://openalex.org/W2329935200
+
+230. Semantic Foundations for Deterministic Dataflow and Stream Processing (2020)
+   Konstantinos Mamouras — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-030-44914-8_15 | citações: 11 | https://openalex.org/W3017159537
+
+231. HipHop.js: (A)Synchronous reactive web programming (2020)
+   Gérard Berry, Manuel Serrano — — [conference-paper]
+   DOI: 10.1145/3385412.3385984 | citações: 11 | https://openalex.org/W3032938888
+
+232. Implementing Micro Frontends Using Signal-based Web Components (2022)
+   Yuma Nishizu, Tetsuo Kamina — Journal of Information Processing [article]
+   DOI: 10.2197/ipsjjip.30.505 | citações: 11 | https://openalex.org/W4291517574
+
+233. Reactive programming: a walkthrough (2015)
+   Guido Salvaneschi, Alessandro Margara, Giordano Tamburrelli — — [article]
+   DOI: 10.5555/2819009.2819226 | citações: 11 | https://openalex.org/W2029992173
+
+234. A Simple Context-Oriented Programming Extension to an FRP Language for Small-Scale Embedded Systems (2018)
+   Takuo Watanabe — — [conference-paper]
+   DOI: 10.1145/3242921.3242925 | citações: 11 | https://openalex.org/W2891300087
+
+235. Implementing first-class polymorphic delimited continuations by a type-directed selective CPS-transform (2009)
+   Tiark Rompf, Ingo Maier, Martin Odersky — ACM SIGPLAN Notices [article]
+   DOI: 10.1145/1631687.1596596 | citações: 11 | https://openalex.org/W3008353026
+
+236. Slideshow (2004)
+   Robert Bruce Findler, Matthew Flatt — ACM SIGPLAN Notices [article]
+   DOI: 10.1145/1016848.1016880 | citações: 11 | https://openalex.org/W2159271289
+
+237. Imperative streams—a monadic combinator library for synchronous programming (1998)
+   Enno Scholz — — [conference-paper]
+   DOI: 10.1145/289423.289454 | citações: 11 | https://openalex.org/W2033507668
+
+238. Causality for free! (2013)
+   Alan Jeffrey — — [conference-paper]
+   DOI: 10.1145/2428116.2428127 | citações: 10 | https://openalex.org/W2104925086
+
+239. FRP IoT modules as a Scala DSL (2017)
+   Ben Calus, Bob Reynders, Dominique Devriese et al. — — [conference-paper]
+   DOI: 10.1145/3141858.3141861 | citações: 10 | https://openalex.org/W2761036701
+
+240. Automated Refactoring to Reactive Programming (2019)
+   Mirko Köhler, Guido Salvaneschi — — [conference-paper]
+   DOI: 10.1109/ase.2019.00082 | citações: 10 | https://openalex.org/W2999664051
+
+241. Ways to React: Comparing Reactive Languages and Complex Event Processing (2013)
+   Alessandro Margara, Guido Salvaneschi — — [article]
+   DOI: sem DOI | citações: 10 | https://openalex.org/W172513044
+
+242. Programming with Managed Time (2014)
+   Sean McDirmid, Jonathan Edwards — — [conference-paper]
+   DOI: 10.1145/2661136.2661145 | citações: 10 | https://openalex.org/W2125135308
+
+243. Maintaining Separation of Concerns Through Task Oriented Software Development (2018)
+   Jurriën Stutterheim, Peter Achten, Rinus Plasmeijer — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-319-89719-6_2 | citações: 10 | https://openalex.org/W2799104883
+
+244. Opis (2009)
+   Pierre-Évariste Dagand, Dejan Kostić, Viktor Kunčak — — [conference-paper]
+   DOI: 10.1145/1481861.1481870 | citações: 10 | https://openalex.org/W2125033688
+
+245. Debugging reactive programming with reactive inspector (2016)
+   Guido Salvaneschi, Mira Mezini — — [conference-paper]
+   DOI: 10.1145/2889160.2893174 | citações: 9 | https://openalex.org/W2398503193
+
+246. Out of the Tar Pit (2006)
+   Ben Moseley, Peter J. Marks — — [article]
+   DOI: sem DOI | citações: 9 | https://openalex.org/W2113349737
+
+247. Determining Actual Response Time in P-FRP Using Idle-Period Game Board (2011)
+   Chaitanya Belwal, Albert M. K. Cheng — — [conference-paper]
+   DOI: 10.1109/isorc.2011.26 | citações: 9 | https://openalex.org/W2171534730
+
+248. A programming model for semi-implicit parallelization of static analyses (2020)
+   Dominik Helm, Florian Kübler, Jan Thomas Kölzer et al. — — [conference-paper]
+   DOI: 10.1145/3395363.3397367 | citações: 9 | https://openalex.org/W3043272472
+
+249. Modal FRP for all: Functional reactive programming without space leaks in Haskell (2022)
+   Patrick Bahr — Journal of Functional Programming [article]
+   DOI: 10.1017/s0956796822000132 | citações: 9 | https://openalex.org/W4312855657
+
+250. A dataflow language for scriptable debugging (2004)
+   Guillaume Marceau, Gregory H. Cooper, Shriram Krishnamurthi et al. — — [article]
+   DOI: 10.1109/ase.2004.4 | citações: 9 | https://openalex.org/W1600704175
+
+251. Hashconsing in an incrementally garbage-collected system (2008)
+   Pascal Cuoq, Damien Doligez — — [conference-paper]
+   DOI: 10.1145/1411304.1411308 | citações: 9 | https://openalex.org/W1968783161
+
+252. Automatic verification for interactive graphical programs (2009)
+   Carl Eastlund, Matthias Felleisen — — [conference-paper]
+   DOI: 10.1145/1637837.1637843 | citações: 9 | https://openalex.org/W2047507101
+
+253. Task Oriented Programming with Purely Compositional Interactive Scalable Vector Graphics (2014)
+   Peter Achten, Jurriën Stutterheim, László Domoszlai et al. — — [conference-paper]
+   DOI: 10.1145/2746325.2746329 | citações: 9 | https://openalex.org/W2136729623
+
+254. Disposable memo functions (extended abstract) (1997)
+   Byron Cook, John Launchbury — — [conference-paper]
+   DOI: 10.1145/258948.258979 | citações: 9 | https://openalex.org/W2152936245
+
+255. Wallingford: toward a constraint reactive programming language (2016)
+   Alan H. Borning — — [conference-paper]
+   DOI: 10.1145/2892664.2892667 | citações: 9 | https://openalex.org/W2313930557
+
+256. Towards Safe and Efficient Functional Reactive Programming (2011)
+   Neil Sculthorpe — Nottingham ePrints (University of Nottingham) [dissertation]
+   DOI: sem DOI | citações: 9 | https://openalex.org/W2125519398
+
+257. Distributed Neural Representation for Reactive In Situ Visualization (2024)
+   Qi Wu, Joseph A. Insley, Victor A. Mateevitsi et al. — IEEE Transactions on Visualization and Computer Graphics [article]
+   DOI: 10.1109/tvcg.2024.3432710 | citações: 8 | https://openalex.org/W4401416664
+
+258. A library-based approach to context-dependent computation with reactive values: suppressing reactions of context-dependent functions using dynamic binding (2016)
+   Hiroaki Inoue, Atsushi Igarashi — — [conference-paper]
+   DOI: 10.1145/2892664.2892669 | citações: 8 | https://openalex.org/W2310261357
+
+259. Interpreting task oriented programs on tiny computers (2019)
+   Mart Lubbers, Pieter Koopman, Rinus Plasmeijer — — [conference-paper]
+   DOI: 10.1145/3412932.3412936 | citações: 8 | https://openalex.org/W3184705703
+
+260. Distributed REScala (2014)
+   Joscha Drechsler, Guido Salvaneschi, Ragnar Mogk et al. — ACM SIGPLAN Notices [article]
+   DOI: 10.1145/2714064.2660240 | citações: 8 | https://openalex.org/W4251338560
+
+261. Functional reactive programming for real-time reactive systems (2002)
+   Zhanyong Wan, Paul Hudak — — [article]
+   DOI: sem DOI | citações: 8 | https://openalex.org/W13405029
+In this thesis we present RT-FRP, a language for real-time reactive systems. RT-FRP can be executed with guaranteed resource bounds, and improves on previous languages for the same domain by allowing a restricted form of recursive switching, which is a source of both e…
+
+262. Developing a stage lighting system from scratch (2001)
+   Michael Sperber — — [conference-paper]
+   DOI: 10.1145/507635.507652 | citações: 8 | https://openalex.org/W2008111857
+
+263. Reactive Context-Aware Programming (2024)
+   Stijn Mostinckx, Andoni Lombide Carreton, Wolfgang De Meuter — — [article]
+   DOI: 10.14279/tuj.eceasst.11.133 | citações: 8 | https://openalex.org/W2098582158
+
+264. Fault tolerant functional reactive programming (functional pearl) (2018)
+   Ivan Pérez — Proceedings of the ACM on Programming Languages [article]
+   DOI: 10.1145/3236791 | citações: 8 | https://openalex.org/W2885771508
+
+265. StreamQL: a query language for processing streaming time series (2020)
+   Lingkun Kong, Konstantinos Mamouras — Proceedings of the ACM on Programming Languages [article]
+   DOI: 10.1145/3428251 | citações: 8 | https://openalex.org/W3106997291
+
+266. Causal commutative arrows and their optimization (2009)
+   Hai Liu, Eric Cheng, Paul Hudak — ACM SIGPLAN Notices [article]
+   DOI: 10.1145/1631687.1596559 | citações: 8 | https://openalex.org/W4230549095
+
+267. Practical principled FRP: forget the past, change the future, FRPNow! (2015)
+   Atze van der Ploeg, Koen Claessen — ACM SIGPLAN Notices [article]
+   DOI: 10.1145/2858949.2784752 | citações: 8 | https://openalex.org/W4244085287
+
+268. Foundational extensible corecursion: a proof assistant perspective (2015)
+   Jasmin Christian Blanchette, Andrei Popescu, Dmitriy Traytel — ACM SIGPLAN Notices [article]
+   DOI: 10.1145/2858949.2784732 | citações: 8 | https://openalex.org/W4252815648
+
+269. Slideshow (2004)
+   Robert Bruce Findler, Matthew Flatt — — [conference-paper]
+   DOI: 10.1145/1016850.1016880 | citações: 8 | https://openalex.org/W4253934805
+
+270. Towards a statically scheduled parallel execution of an FRP language for embedded systems (2019)
+   Yoshitaka Sakurai, Takuo Watanabe — — [conference-paper]
+   DOI: 10.1145/3358503.3361276 | citações: 8 | https://openalex.org/W2979874994
+
+271. HPorter: Using Arrows to Compose Parallel Processes (2006)
+   Liwen Huang, Paul Hudak, John R. Peterson — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-540-69611-7_18 | citações: 8 | https://openalex.org/W1564934805
+
+272. Modeling Reactive Multimedia: Events and Behaviors (2003)
+   Helen Cameron, Peter King, Simon Thompson — Multimedia Tools and Applications [article]
+   DOI: 10.1023/a:1021168913400 | citações: 8 | https://openalex.org/W1514346850
+
+273. Don't Configure the Network, Program It! Domain-Specific Programming Languages for Network Systems (2010)
+   Andreas Voellmy, Ashish Agarwal, Paul Hudak et al. — — [report]
+   DOI: 10.21236/ada555142 | citações: 8 | https://openalex.org/W345154655
+
+274. Stream Types (2024)
+   Joseph W. Cutler, Christopher Watson, Emeka Nkurumeh et al. — Proceedings of the ACM on Programming Languages [article]
+   DOI: 10.1145/3656434 | citações: 7 | https://openalex.org/W4399851350
+
+275. Representing Contractive Functions on Streams (2011)
+   Graham Hutton, Mauro Jaskelioff — — [article]
+   DOI: sem DOI | citações: 7 | https://openalex.org/W2183460091
+
+276. Dependently Typed Web Client Applications (2013)
+   Alan Jeffrey — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-642-45284-0_16 | citações: 7 | https://openalex.org/W2221145448
+
+277. Designing Casanova: A Language for Games (2012)
+   Giuseppe Maggiore, Alvise Spanò, Renzo Orsini et al. — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-642-31866-5_27 | citações: 7 | https://openalex.org/W2274588772
+
+278. Multitasking on Microcontrollers using Task Oriented Programming (2019)
+   Mart Lubbers, Pieter Koopman, Rinus Plasmeijer — — [conference-paper]
+   DOI: 10.23919/mipro.2019.8756711 | citações: 7 | https://openalex.org/W2960818429
+
+279. Fault-tolerant functional reactive programming (extended version) (2020)
+   Ivan Pérez, Alwyn E. Goodloe — Journal of Functional Programming [article]
+   DOI: 10.1017/s0956796820000118 | citações: 7 | https://openalex.org/W3022173246
+
+280. Facet-oriented Modelling (2021)
+   Juan D. Lara, Esther Guerra, Jörg Kienzle — ACM Transactions on Software Engineering and Methodology [article]
+   DOI: 10.1145/3428076 | citações: 7 | https://openalex.org/W3133170989
+
+281. Nested Monitors: Monitors as Expressions to Build Monitors (2021)
+   Felipe Gorostiaga, César Sánchez — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-030-88494-9_9 | citações: 7 | https://openalex.org/W3204461312
+
+282. ChalkBoard: Mapping Functions to Polygons (2010)
+   Kevin Matlage, Andy Gill — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-642-16478-1_4 | citações: 7 | https://openalex.org/W1519033762
+
+283. Real-time Composition in Elody (2000)
+   Stéphane Letz, Dominique Fober, Yann Orlarey — University of Michigan Library Repository [conference-paper]
+   DOI: sem DOI | citações: 7 | https://openalex.org/W2293389068
+
+284. A livecoding semantics for functional reactive programming (2016)
+   Tom E. Murphy — — [conference-paper]
+   DOI: 10.1145/2975980.2975986 | citações: 7 | https://openalex.org/W2511785964
+
+285. Rhine: FRP with type-level clocks (2018)
+   Manuel Bärenz, Ivan Pérez — ACM SIGPLAN Notices [article]
+   DOI: 10.1145/3299711.3242757 | citações: 7 | https://openalex.org/W3010981755
+
+286. Gavial: Programming the web with multi-tier FRP. (2020)
+   Bob Reynders, Frank Piessens, Dominique Devriese — Lirias [article]
+   DOI: sem DOI | citações: 7 | https://openalex.org/W3104018683
+
+287. Fair reactive programming (2014)
+   Andrew Cave, Francisco Ferreira, Prakash Panangaden et al. — ACM SIGPLAN Notices [article]
+   DOI: 10.1145/2578855.2535881 | citações: 7 | https://openalex.org/W4233082099
+
+288. Modelling Reactive Multimedia: Design and Authoring (2005)
+   Simon Thompson, Peter King, Helen Cameron — Multimedia Tools and Applications [article]
+   DOI: 10.1007/s11042-005-2713-9 | citações: 7 | https://openalex.org/W2003734918
+
+289. Techniques for embedding postfix languages in Haskell (2002)
+   Chris Okasaki — — [conference-paper]
+   DOI: 10.1145/581690.581699 | citações: 7 | https://openalex.org/W2048862001
+
+290. Interactors and Haggis: Executable specifications for interactive systems (1997)
+   Meurig Sage, Chris Johnson — Eurographics [book-chapter]
+   DOI: 10.1007/978-3-7091-6878-3_7 | citações: 7 | https://openalex.org/W1524095072
+
+291. Compiling functional reactive macroprograms for sensor networks (2005)
+   Ryan Newton — DSpace@MIT (Massachusetts Institute of Technology) [dissertation]
+   DOI: sem DOI | citações: 7 | https://openalex.org/W1529005548
+
+292. From Functional Animation to Sprite-Based Display (1998)
+   Conal M. Elliott — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/3-540-49201-1_5 | citações: 7 | https://openalex.org/W1824936989
+
+293. Interactive Functional Programming (2013)
+   Perera, Roly — University of Birmingham Institutional Research Archive (University of Birmingham) [dissertation]
+   DOI: 10.13140/rg.2.1.3026.9043 | citações: 7 | https://openalex.org/W20466588
+
+294. First-class models: on a noncausal language for higher-order and structurally dynamic modelling and simulation (2012)
+   George Giorgidze — Nottingham ePrints (University of Nottingham) [dissertation]
+   DOI: sem DOI | citações: 7 | https://openalex.org/W2103209875
+
+295. Advanced control flows for flexible graphical user interfaces (2002)
+   Paul T. Graunke, Shriram Krishnamurthi — — [conference-abstract]
+   DOI: 10.1145/581339.581375 | citações: 7 | https://openalex.org/W2106963157
+
+296. Leviathan: A Unified System for General-Purpose Near-Data Computing (2024)
+   Brian C. Schwedock, Nathan Beckmann — — [conference-paper]
+   DOI: 10.1109/micro61859.2024.00095 | citações: 6 | https://openalex.org/W4404954970
+
+297. Rate types for stream programs (2014)
+   Thomas W. Bartenstein, Yu David Liu — — [conference-paper]
+   DOI: 10.1145/2660193.2660225 | citações: 6 | https://openalex.org/W2003034473
+
+298. Fixing idioms (2013)
+   Dominique Devriese, Ilya Sergey, Dave Clarke et al. — — [conference-paper]
+   DOI: 10.1145/2426890.2426910 | citações: 6 | https://openalex.org/W2070764484
+
+299. An approach for persistent time-varying values (2019)
+   Tetsuo Kamina, Tomoyuki Aotani — — [conference-paper]
+   DOI: 10.1145/3359591.3359730 | citações: 6 | https://openalex.org/W2980108707
+
+300. Charting patterns on price history (2001)
+   Saswat Anand, Wei-Ngan Chin, Siau‐Cheng Khoo — ACM SIGPLAN Notices [article]
+   DOI: 10.1145/507669.507653 | citações: 6 | https://openalex.org/W3006312083
+
+301. Supporting Multidisciplinary Software Composition for Interactive Applications (2008)
+   Stéphane Chatty — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-540-78789-1_14 | citações: 6 | https://openalex.org/W1603159732
+
+302. Towards frabjous (2012)
+   Oliver Schneider, Christopher Dutchyn, Nathaniel David Osgood — — [conference-paper]
+   DOI: 10.1145/2110363.2110458 | citações: 6 | https://openalex.org/W1975328930
+
+303. The problem with time in mixed continuous/discrete time modelling (2011)
+   Kenneth C. Rovers, Jan Kuper, Gerard J.M. Smit — ACM SIGBED Review [article]
+   DOI: 10.1145/2000367.2000373 | citações: 6 | https://openalex.org/W2019984466
+
+304. Generating reactive programs for graphical user interfaces from multi-way dataflow constraint systems (2015)
+   Gabriel Foust, Jaakko Järvi, Sean Parent — — [conference-paper]
+   DOI: 10.1145/2814204.2814207 | citações: 6 | https://openalex.org/W2029735511
+
+305. AUI: a programming language for developing plastic interactive software (2003)
+   Kevin A. Schneider, James R. Cordy — — [conference-paper]
+   DOI: 10.1109/hicss.2002.994494 | citações: 6 | https://openalex.org/W2164453407
+
+306. Every Animation Should Have a Beginning, a Middle, and an End (2011)
+   Kevin Matlage, Andy Gill — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-642-22941-1_10 | citações: 6 | https://openalex.org/W2398216877
+
+307. From Monads to Effects and Back (2016)
+   Niki Vazou, Daan Leijen — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-319-28228-2_11 | citações: 6 | https://openalex.org/W2407350208
+
+308. NNdef: livecoding digital musical instruments in SuperCollider using functional reactive programming (2018)
+   Miguel Negrão — — [conference-paper]
+   DOI: 10.1145/3242903.3242905 | citações: 6 | https://openalex.org/W2890484044
+
+309. Trident: Toward Distributed Reactive SDN Programming With Consistent Updates (2020)
+   Kai Gao, Taishi Nojima, Haitao Yu et al. — IEEE Journal on Selected Areas in Communications [article]
+   DOI: 10.1109/jsac.2020.2999654 | citações: 6 | https://openalex.org/W3033801467
+
+310. Unifying the Time-Event Spectrum for Stream Runtime Verification (2020)
+   Felipe Gorostiaga, Luis Miguel Danielsson, César Sánchez — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-030-60508-7_26 | citações: 6 | https://openalex.org/W3092139145
+
+311. A cost semantics for self-adjusting computation (2009)
+   Ruy Ley-Wild, Umut A. Acar, Matthew T. Fluet — ACM SIGPLAN Notices [article]
+   DOI: 10.1145/1594834.1480907 | citações: 6 | https://openalex.org/W4235537707
+
+312. TopHat (2019)
+   Tim Steenvoorden, Nico Naus, Markus Klinik — — [conference-paper]
+   DOI: 10.1145/3354166.3354182 | citações: 6 | https://openalex.org/W2976117375
+
+313. Real-time FRP (2001)
+   Zhanyong Wan, Walid Taha, Paul Hudak — ACM SIGPLAN Notices [article]
+   DOI: 10.1145/507669.507654 | citações: 6 | https://openalex.org/W3000348110
+
+314. Functional programming, and where you can put it (2001)
+   Rex L. Page — ACM SIGPLAN Notices [article]
+   DOI: 10.1145/609769.609771 | citações: 6 | https://openalex.org/W1972885281
+
+315. Collecting hollywood's garbage (2010)
+   Tomas Petricek, Don Syme — — [conference-paper]
+   DOI: 10.1145/1806651.1806662 | citações: 6 | https://openalex.org/W2109478085
+
+316. Post-design domain-specific language embedding: a case study in the software engineering domain (2003)
+   Anthony M. Sloane — — [conference-paper]
+   DOI: 10.1109/hicss.2002.994492 | citações: 6 | https://openalex.org/W2144343030
+
+317. Denotational design with type class morphisms (extended version) (2011)
+   Conal M. Elliott — — [article]
+   DOI: sem DOI | citações: 6 | https://openalex.org/W2185128289
+
+318. Foundational Extensible Corecursion (2015)
+   Jasmin Christian Blanchette, Andrei Popescu, Dmitriy Traytel — arXiv (Cornell University) [preprint]
+   DOI: 10.48550/arxiv.1501.05425 | citações: 6 | https://openalex.org/W1659248751
+
+319. situ-f: a domain specific language and a first step towards the realization of situ framework (2012)
+   Hua Ming — — [dissertation]
+   DOI: 10.31274/etd-180810-601 | citações: 6 | https://openalex.org/W207002816
+
+320. The cross-reactive immune response: analysis, modeling, and application to vaccine design (1997)
+   Derek J. Smith — — [dissertation]
+   DOI: sem DOI | citações: 6 | https://openalex.org/W2169008496
+
+321. Reactive Single-Page Applications with Dynamic Dataflow (2015)
+   Simon Fowler, Loïc Denuzière, Ádám Gránicz — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-319-19686-2_5 | citações: 5 | https://openalex.org/W1154131766
+
+322. First-Order Interactive Programming (2010)
+   Roly Perera — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-642-11503-5_17 | citações: 5 | https://openalex.org/W1520671442
+
+323. Simplifying Web Programming (2015)
+   Nishant Sinha, Rezwana Karim, Monika Gupta — — [conference-paper]
+   DOI: 10.1145/2723742.2723750 | citações: 5 | https://openalex.org/W1999822247
+
+324. A synchronous embedding of Antescofo, a domain-specific language for interactive mixed music (2013)
+   Guillaume Baudart, Florent Jacquemard, Louis Mandel et al. — — [conference-paper]
+   DOI: 10.1109/emsoft.2013.6658579 | citações: 5 | https://openalex.org/W2042753430
+
+325. Feasibility Interval for the Transactional Event Handlers of P-FRP (2011)
+   Chaitanya Belwal, Albert M. K. Cheng — — [conference-paper]
+   DOI: 10.1109/trustcom.2011.133 | citações: 5 | https://openalex.org/W2082985569
+
+326. Specifying behavior in C++ (2003)
+   Xiangtian Dai, Gregory D. Hager, John M. Peterson — — [conference-paper]
+   DOI: 10.1109/robot.2002.1013354 | citações: 5 | https://openalex.org/W2155097127
+
+327. A Hybrid Visual Dataflow Language for Coordination in Mobile Ad Hoc Networks (2010)
+   Andoni Lombide Carreton, Theo D’Hondt — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-642-13414-2_6 | citações: 5 | https://openalex.org/W2162539028
+
+328. Query customization and trigger optimization on home care systems (2017)
+   YungYu Zhuang — — [conference-paper]
+   DOI: 10.1109/icasi.2017.7988514 | citações: 5 | https://openalex.org/W2739421263
+
+329. An embedded geometrical language in Haskell : construction, visualisation, proof (2007)
+   Maria Grima, Gordon J. Pace — OAR@UM (University of Malta) [conference-paper]
+   DOI: sem DOI | citações: 5 | https://openalex.org/W2766657136
+
+330. Gradually typed symbolic expressions (2017)
+   David Broman, Jeremy G. Siek — — [conference-paper]
+   DOI: 10.1145/3162068 | citações: 5 | https://openalex.org/W2779157683
+
+331. Reactive imperative programming with dataflow constraints (2011)
+   Camil Demetrescu, Irene Finocchi, Andrea Ribichini — ACM SIGPLAN Notices [article]
+   DOI: 10.1145/2076021.2048100 | citações: 5 | https://openalex.org/W2950190313
+
+332. Runtime verification and validation of functional reactive systems (2020)
+   Ivan Pérez, Henrik Nilsson — Journal of Functional Programming [article]
+   DOI: 10.1017/s0956796820000210 | citações: 5 | https://openalex.org/W3081239953
+
+333. Reactive sorting networks (2020)
+   Bjarno Oeyen, Sam Van den Vonder, Wolfgang De Meuter — — [conference-paper]
+   DOI: 10.1145/3427763.3428316 | citações: 5 | https://openalex.org/W3109424891
+
+334. Adaptive Variables for Declarative UAV Planning (2020)
+   John Henry Burns, Xiaozhou Liang, Yu David Liu — — [conference-paper]
+   DOI: 10.1145/3422584.3422763 | citações: 5 | https://openalex.org/W3109785769
+
+335. DIVA: A Declarative and Reactive Language for in situ Visualization (2020)
+   Qi Wu, Tyson Neuroth, Oleg Igouchkine et al. — — [conference-paper]
+   DOI: 10.1109/ldav51489.2020.00007 | citações: 5 | https://openalex.org/W3117761617
+
+336. A dataflow language for scriptable debugging (2004)
+   Guillaume Marceau, Gregory H. Cooper, Shriram Krishnamurthi et al. — — [conference-paper]
+   DOI: 10.1109/ase.2004.1342739 | citações: 5 | https://openalex.org/W3140391790
+
+337. Reactive programming experience with REScala (2018)
+   Ragnar Mogk, Guido Salvaneschi, Mira Mezini — — [conference-paper]
+   DOI: 10.1145/3191697.3214337 | citações: 5 | https://openalex.org/W2810135794
+
+338. A Synchronous Semantics of Higher-Order Processes for Modeling Reconfigurable Reactive Systems (1998)
+   Jean-Pierre Talpin, David Nowak — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-540-49382-2_8 | citações: 5 | https://openalex.org/W1514687340
+
+339. Feasibility interval for the transactional event handlers of P-FRP (2012)
+   Chaitanya Belwal, Albert M. K. Cheng, Bo Liu — Journal of Computer and System Sciences [article]
+   DOI: 10.1016/j.jcss.2012.11.006 | citações: 5 | https://openalex.org/W1977411752
+
+340. A consistent semantics of self-adjusting computation (2013)
+   Umut A. Acar, MATTHIAS BLUME, Jacob Donham — Journal of Functional Programming [article]
+   DOI: 10.1017/s0956796813000099 | citações: 5 | https://openalex.org/W1993173595
+
+341. Partitioned Scheduling of P-FRP in Symmetric Homogenous Multiprocessors (2011)
+   Chaitanya Belwal, Albert M. K. Cheng — — [conference-paper]
+   DOI: 10.1109/euc.2011.55 | citações: 5 | https://openalex.org/W2034235150
+
+342. Concurrent orchestration in Haskell (2010)
+   John Launchbury, Trevor Elliott — — [conference-paper]
+   DOI: 10.1145/1863523.1863534 | citações: 5 | https://openalex.org/W2049455690
+
+343. ReactiveML, un langage fonctionnel pour la programmation réactive (2008)
+   Louis Mandel, Marc Pouzet — Techniques et sciences informatiques [article]
+   DOI: 10.3166/tsi.27.1097-1128 | citações: 5 | https://openalex.org/W2092613864
+
+344. Programming Language Features for Web Application Development (2009)
+   Ezra Cooper — — [article]
+   DOI: sem DOI | citações: 5 | https://openalex.org/W2184794554
+
+345. Formally verified, rapid prototyping for Air Traffic Control (2002)
+   M Sage, C.W Johnson — Reliability Engineering & System Safety [article]
+   DOI: 10.1016/s0951-8320(01)00089-8 | citações: 5 | https://openalex.org/W2089349269
+
+346. On embedding a microarchitectural design language within Haskell (1999)
+   John Launchbury, Jeffrey R. Lewis, Byron Cook — ACM SIGPLAN Notices [article]
+   DOI: 10.1145/317765.317784 | citações: 5 | https://openalex.org/W4254619011
+
+347. Optimisation of dynamic, hybrid signal function networks (2009)
+   Neil Sculthorpe, Henrik Nilsson — Nottingham Trent University's Institutional Repository (Nottingham Trent Repository) [book-chapter]
+   DOI: sem DOI | citações: 5 | https://openalex.org/W1590583227
+
+348. Predictable programs in barcodes (2002)
+   Alwyn E. Goodloe, Michael McDougall, Carl A. Gunter et al. — — [conference-abstract]
+   DOI: 10.1145/581630.581679 | citações: 5 | https://openalex.org/W2082391055
+
+349. Modeling for the plausible emulation of large worlds (2002)
+   John F. Hughes, Steven Charles Dollins — — [dissertation]
+   DOI: sem DOI | citações: 5 | https://openalex.org/W2188189942
+The goal of this dissertation is to enable the authoring and real-time emulation …
+
+350. Tell-XR: Conversational End-User Development of XR Automations (2025)
+   Alessandro Carcangiu, Marco Manca, Jacopo Mereu et al. — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-032-04999-5_35 | citações: 4 | https://openalex.org/W4414193729
+
+351. Temporal Refinements for Guarded Recursive Types (2021)
+   Guilhem Jaber, Colin Riba — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-030-72019-3_20 | citações: 4 | https://openalex.org/W3043298057
+
+352. Imperative versus declarative collection processing (2022)
+   Nils Mehlhorn, Stefan Hanenberg — Proceedings of the 44th International Conference on Software Engineering [conference-paper]
+   DOI: 10.1145/3510003.3519016 | citações: 4 | https://openalex.org/W4284665222
+
+353. A Flexible Solver for Finite Arithmetic Circuits (2012)
+   Nathaniel Wesley Filardo, Jason M. Eisner — DROPS (Schloss Dagstuhl – Leibniz Center for Informatics) [article]
+   DOI: 10.4230/lipics.iclp.2012.425 | citações: 4 | https://openalex.org/W1535774026
+
+354. Reactive data visualizations (2015)
+   Curran Kelleher, Haim Levkowitz — Proceedings of SPIE, the International Society for Optical Engineering/Proceedings of SPIE [conference-paper]
+   DOI: 10.1117/12.2078301 | citações: 4 | https://openalex.org/W1965189624
+
+355. Towards a formal semantics for a structurally dynamic noncausal modelling language (2012)
+   John Capper, Henrik Nilsson — — [conference-paper]
+   DOI: 10.1145/2103786.2103792 | citações: 4 | https://openalex.org/W2089157590
+
+356. Programmable self-adjusting computation (2010)
+   Guy E. Blelloch, Ruy Ley-Wild — — [article]
+   DOI: sem DOI | citações: 4 | https://openalex.org/W2408528200
+We show that high-level language constructs are suitable for writing readable self-adjusting programs and can be compiled into low-level primitives. In particular, language constructs such …
+
+357. Synchronous-reactive web programming (2016)
+   Rémy El Sibaïe, Emmanuel Chailloux — — [conference-paper]
+   DOI: 10.1145/3001929.3001931 | citações: 4 | https://openalex.org/W2534004093
+
+358. Unified media programming: an algebraic approach (2017)
+   Simon Archipoff, David Janin — — [conference-paper]
+   DOI: 10.1145/3122938.3122943 | citações: 4 | https://openalex.org/W2742850883
+
+359. A survey of real‐time capabilities in functional languages and compilers (2018)
+   Jeffrey C Murphy, Bhargav Shivkumar, Amy Pritchard et al. — Concurrency and Computation Practice and Experience [article]
+   DOI: 10.1002/cpe.4902 | citações: 4 | https://openalex.org/W2914644984
+
+360. Safe functional reactive programming through dependent types (2009)
+   Neil Sculthorpe, Henrik Nilsson — ACM SIGPLAN Notices [article]
+   DOI: 10.1145/1631687.1596558 | citações: 4 | https://openalex.org/W3091792994
+
+361. S (2012)
+   Daniele Bonetta, Achille Peternier, Cesare Pautasso et al. — ACM SIGPLAN Notices [article]
+   DOI: 10.1145/2370036.2145829 | citações: 4 | https://openalex.org/W4232314215
+
+362. Structured reactive programming with polymorphic temporal tiles (2016)
+   Simon Archipoff, David Janin — — [conference-paper]
+   DOI: 10.1145/2975980.2975984 | citações: 4 | https://openalex.org/W2512748989
+
+363. CFRP: A Functional Reactive Programming Language for Small-Scale Embedded Systems (2017)
+   Kohei SUZUKI, Kanato Nagayama, Kensuke Sawada et al. — — [conference-paper]
+   DOI: 10.1142/9789813234079_0001 | citações: 4 | https://openalex.org/W2766856524
+
+364. Time-freeness and clock-freeness and related concepts in P systems (2018)
+   Artiom Alhazov, Rudolf Freund, Sergiu Ivanov et al. — Theoretical Computer Science [article]
+   DOI: 10.1016/j.tcs.2018.09.009 | citações: 4 | https://openalex.org/W2786988550
+
+365. A Systematic Exploration on Challenges and Limitations in Middleware Programming for IoT Technology (2018)
+   Pedro Taveras — International Journal of Hyperconnectivity and the Internet of Things [article]
+   DOI: 10.4018/ijhiot.2018070101 | citações: 4 | https://openalex.org/W2911018138
+
+366. A lightweight push-pull mechanism for implicitly using signals in imperative programming (2019)
+   YungYu Zhuang — Journal of Computer Languages [article]
+   DOI: 10.1016/j.cola.2019.100903 | citações: 4 | https://openalex.org/W2946645264
+
+367. TinyCORP (2019)
+   Tetsuo Kamina, Tomoyuki Aotani — — [conference-paper]
+   DOI: 10.1145/3340671.3343356 | citações: 4 | https://openalex.org/W2969822327
+
+368. A Semantic Framework for the Design of Distributed Reactive Real-Time Languages and Applications (2020)
+   Mateo Sanabria, Luis Daniel Benavides Navarro, Daniel Díaz López et al. — IEEE Access [article]
+   DOI: 10.1109/access.2020.3010697 | citações: 4 | https://openalex.org/W3044527226
+
+369. Asynchronous monad for reactive IoT programming (2020)
+   Zhao Tian, Adam Berger, Yonglun Li — — [conference-paper]
+   DOI: 10.1145/3427763.3428314 | citações: 4 | https://openalex.org/W3106603046
+
+370. Adjoint Reactive GUI Programming (2021)
+   Christian Uldal Graulund, Dmitrij Szamozvancev, Neel Krishnaswami — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-030-71995-1_15 | citações: 4 | https://openalex.org/W3138062835
+
+371. A Utilization Based Sufficient Condition for P-FRP (2011)
+   Chaitanya Belwal, Albert M. K. Cheng — — [conference-paper]
+   DOI: 10.1109/euc.2011.11 | citações: 4 | https://openalex.org/W1998825927
+
+372. Denotational design with type class morphisms (2011)
+   Conal M. Elliott — — [article]
+   DOI: sem DOI | citações: 4 | https://openalex.org/W2153547099
+
+373. FranTk - a declarative GUI language for Haskell (2000)
+   Meurig Sage — ACM SIGPLAN Notices [article]
+   DOI: 10.1145/357766.351250 | citações: 4 | https://openalex.org/W3008368856
+
+374. Functional automatic differentiation with dirac impulses (2003)
+   Henrik Nilsson — ACM SIGPLAN Notices [article]
+   DOI: 10.1145/944746.944720 | citações: 4 | https://openalex.org/W3021278590
+
+375. Interactive Worksheets for Teaching Atmospheric Aerosols and Cloud Physics (2020)
+   Markus Dirk Petters — Bulletin of the American Meteorological Society [article]
+   DOI: 10.1175/bams-d-20-0072.1 | citações: 4 | https://openalex.org/W3092449009
+
+376. Declarative Events for Object-Oriented Programming (2010)
+   Vaidas Gasiūnas, Lucas Satabin, Mira Mezini et al. — — [article]
+   DOI: sem DOI | citações: 4 | https://openalex.org/W562223615
+
+377. Construction et simulation graphiques de comportements : le modèle des Icobjs (2004)
+   Christian Brunette — HAL (Le Centre pour la Communication Scientifique Directe) [preprint]
+   DOI: sem DOI | citações: 4 | https://openalex.org/W1900107362
+
+378. A general specification for scene animation (2002)
+   G.S. Lee — — [conference-paper]
+   DOI: 10.1109/sibgra.1998.722753 | citações: 4 | https://openalex.org/W2128432947
+
+379. Feris: A Functional Environment for Retargetable Interactive Systems (2005)
+   Robert J. Ennals — — [article]
+   DOI: sem DOI | citações: 4 | https://openalex.org/W657285
+
+380. Orchestrating the Internet of Things with Task-Oriented Programming (2023)
+   Mart Lubbers — Radboud University Press eBooks [book]
+   DOI: 10.54195/9789493296114 | citações: 3 | https://openalex.org/W4387774419
+
+381. Reactive Programming without Functions (2024)
+   Bjarno Oeyen, Joeri De Koster, Wolfgang De Meuter — The Art Science and Engineering of Programming [article]
+   DOI: 10.22152/programming-journal.org/2024/8/11 | citações: 3 | https://openalex.org/W4392389978
+
+382. Response time bounds for event handlers in the priority based functional reactive programming (P-FRP) paradigm (2012)
+   Chaitanya Belwal, Albert M. K. Cheng, Yuanfeng Wen — — [conference-paper]
+   DOI: 10.1145/2401603.2401665 | citações: 3 | https://openalex.org/W2072446319
+
+383. Frabjous: A Declarative Domain-Specific Language for Agent-Based Modeling (2014)
+   Ivan Vendrov, Christopher Dutchyn, Nathaniel David Osgood — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-319-05579-4_47 | citações: 3 | https://openalex.org/W2189221899
+
+384. Dyna: Extending Datalog For Modern AI (full version) ? (2011)
+   Jason M. Eisner, Nathaniel Wesley Filardo — — [article]
+   DOI: sem DOI | citações: 3 | https://openalex.org/W2343532609
+
+385. Reactive caching for composed services: polling at the speed of push (2018)
+   Sebastian Burckhardt, Tim Coppieters — Proceedings of the ACM on Programming Languages [article]
+   DOI: 10.1145/3276522 | citações: 3 | https://openalex.org/W2898166391
+
+386. Synchronous and asynchronous stream runtime verification (2021)
+   César Sánchez — — [conference-paper]
+   DOI: 10.1145/3464974.3468453 | citações: 3 | https://openalex.org/W3181838507
+
+387. Reactive Programming of Robots with RxROS (2021)
+   Henrik Larsen, Gijs van der Hoorn, Andrzej Wąsowski — Studies in computational intelligence [book-chapter]
+   DOI: 10.1007/978-3-030-75472-3_2 | citações: 3 | https://openalex.org/W3188506721
+
+388. Trampoline variables: a general method for state accumulation in reactive programming (2021)
+   Bjarno Oeyen, Sam Van den Vonder, Wolfgang De Meuter — — [conference-paper]
+   DOI: 10.1145/3486605.3486787 | citações: 3 | https://openalex.org/W3205178959
+
+389. Topology-Level Reactivity in Distributed Reactive Programs (2022)
+   Sam Van den Vonder, Thierry Renaux, Wolfgang De Meuter — The Art Science and Engineering of Programming [article]
+   DOI: 10.22152/programming-journal.org/2022/6/14 | citações: 3 | https://openalex.org/W4213093762
+
+390. Monadic functional reactive programming (2013)
+   Atze van der Ploeg — ACM SIGPLAN Notices [article]
+   DOI: 10.1145/2578854.2503783 | citações: 3 | https://openalex.org/W4250233769
+
+391. Work in Progress: Response Time Analysis of Real-Time Quantum Computing Systems (2023)
+   Albert M. K. Cheng — — [conference-paper]
+   DOI: 10.1109/rtas58335.2023.00033 | citações: 3 | https://openalex.org/W4381886050
+
+392. Towards Real-Time Aggregate Computing (2024)
+   Giorgio Audrito, Ferruccio Damiani, Gianluca Torta — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-031-75107-3_4 | citações: 3 | https://openalex.org/W4403792043
+
+393. Typelets — A Rule-Based Evaluation Model for Dynamic, Statically Typed User Interfaces (2013)
+   Martin Elsman, Anders Schack-Nielsen — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-319-04132-2_13 | citações: 3 | https://openalex.org/W67068934
+
+394. Semantics for graphical user interfaces (2012)
+   Neelakantan R. Krishnaswami — — [conference-paper]
+   DOI: 10.1145/2103786.2103794 | citações: 3 | https://openalex.org/W1970404787
+
+395. Spatio-Temporal Domains: An Overview (2018)
+   David Janin — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-030-02508-3_13 | citações: 3 | https://openalex.org/W2783767991
+
+396. Reactive Server Interface Design for Real-Time Data Exchange in Multiple Data Source and Clients (2018)
+   Dong-cheol Jeon, Dae-Hyung Lee, HeeJoung Hwang — — [conference-paper]
+   DOI: 10.1109/ictc.2018.8539585 | citações: 3 | https://openalex.org/W2900980382
+
+397. Interfaces for Modular Reasoning in Context-Oriented Programming (2020)
+   Paul Leger, Hidehiko Masuhara, Ismael Figueroa — — [conference-paper]
+   DOI: 10.1145/3422584.3423152 | citações: 3 | https://openalex.org/W3109397709
+
+398. Structural types for systems of equations (2012)
+   John Capper, Henrik Nilsson — LISP and Symbolic Computation [article]
+   DOI: 10.1007/s10990-013-9099-6 | citações: 3 | https://openalex.org/W154314746
+
+399. A Declarative API for Particle Systems (2011)
+   Pavel Krajcevski, John H. Reppy — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-642-18378-2_12 | citações: 3 | https://openalex.org/W1582243459
+
+400. UniTi: Unified Composition and Time for Multi-domain Model-based Design (2012)
+   Kenneth C. Rovers, Jan Kuper — International Journal of Parallel Programming [article]
+   DOI: 10.1007/s10766-012-0226-5 | citações: 3 | https://openalex.org/W1976147754
+
+401. Real-Time Matching of Antescofo Temporal Patterns (2014)
+   Jean‐Louis Giavitto, José Echeveste — — [conference-paper]
+   DOI: 10.1145/2643135.2643158 | citações: 3 | https://openalex.org/W2028862920
+
+402. A formal mathematical framework for physiological observations, experiments and analyses (2011)
+   Thomas A. Nielsen, Henrik Nilsson, Tom Matheson — Journal of The Royal Society Interface [article]
+   DOI: 10.1098/rsif.2011.0616 | citações: 3 | https://openalex.org/W2100182041
+
+403. Writing Real-Time .Net Games in Casanova (2012)
+   Giuseppe Maggiore, Pieter H.M. Spronck, Renzo Orsini et al. — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-642-33542-6_30 | citações: 3 | https://openalex.org/W2107660728
+
+404. Multi-domain transformational design flow for embedded systems (2011)
+   Kenneth C. Rovers, Marcel D. van de Burgwal, Jan Kuper et al. — — [conference-paper]
+   DOI: 10.1109/samos.2011.6045449 | citações: 3 | https://openalex.org/W2120798795
+
+405. Unrestricted pure call-by-value recursion (2008)
+   Johan Nordlander, Magnus Carlsson, Andy Gill — — [conference-paper]
+   DOI: 10.1145/1411304.1411309 | citações: 3 | https://openalex.org/W2130480853
+
+406. DynCam (2018)
+   Christoph Schröder, Mayank Mohan Sharma, Jörn Teuber et al. — — [conference-paper]
+   DOI: 10.1145/3234253.3234299 | citações: 3 | https://openalex.org/W2903133825
+
+407. Bridging the GUI gap with reactive values and relations (2015)
+   Ivan Pérez, Henrik Nilsson — ACM SIGPLAN Notices [article]
+   DOI: 10.1145/2887747.2804316 | citações: 3 | https://openalex.org/W2999148018
+
+408. The Implementation of Metagraph Agents Based on Functional Reactive Programming (2020)
+   Valeriy M. Chernenkiy, Yuriy Gapanyuk, Anatoly N. Nardid et al. — — [conference-paper]
+   DOI: 10.23919/fruct48808.2020.9087470 | citações: 3 | https://openalex.org/W3021157474
+
+409. Leveraging Hybrid Cloud HPC with Multitier Reactive Programming (2020)
+   Daniel Sokolowski, Jan-Patrick Lehr, Christian H Bischof et al. — — [conference-paper]
+   DOI: 10.1109/supercompcloud51944.2020.00010 | citações: 3 | https://openalex.org/W3123445711
+
+410. Reactor Design Pattern (2021)
+   Marko Mijač, Antonio García‐Cabot, Vjeran Strahonja — TEM Journal [article]
+   DOI: 10.18421/tem101-03 | citações: 3 | https://openalex.org/W3133951795
+
+411. Functional programming for dynamic and large data with self-adjusting computation (2014)
+   Yan Chen, Umut A. Acar, Kanat Tangwongsan — ACM SIGPLAN Notices [article]
+   DOI: 10.1145/2692915.2628150 | citações: 3 | https://openalex.org/W4232464611
+
+412. Concurrent orchestration in Haskell (2010)
+   John Launchbury, Trevor Elliott — ACM SIGPLAN Notices [article]
+   DOI: 10.1145/2088456.1863534 | citações: 3 | https://openalex.org/W4234582489
+
+413. Asynchronous Modal FRP (2023)
+   Patrick Bahr, Rasmus Ejlers Møgelberg — Proceedings of the ACM on Programming Languages [article]
+   DOI: 10.1145/3607847 | citações: 3 | https://openalex.org/W4386321895
+
+414. Using Clean for Platform Games (2000)
+   Mike Wiering, Peter Achten, Rinus Plasmeijer — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/10722298_1 | citações: 3 | https://openalex.org/W1537176491
+
+415. Efficient Functional Reactive Programming Through Incremental Behaviors (2017)
+   Bob Reynders, Dominique Devriese — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-319-71237-6_16 | citações: 3 | https://openalex.org/W2770351459
+
+416. Runtime verification of real-time event streams under non-synchronized arrival (2020)
+   Martin Leucker, César Sánchez, Torben Scheffel et al. — Software Quality Journal [article]
+   DOI: 10.1007/s11219-019-09493-y | citações: 3 | https://openalex.org/W2995634384
+
+417. Prototyping real-time vision systems: an experiment in DSL design (2003)
+   Alastair Reid, John R. Peterson, Gregory D. Hager et al. — — [conference-paper]
+   DOI: 10.1109/icse.1999.841038 | citações: 3 | https://openalex.org/W3150459971
+
+418. Hybrid meta-heuristic frameworks : a functional approach (2013)
+   Richard Senington — White Rose eTheses Online (University of Leeds, The University of Sheffield, University of York) [dissertation]
+   DOI: sem DOI | citações: 3 | https://openalex.org/W1530732950
+
+419. Functional model-based design of embedded systems with UniTi (2011)
+   Kenneth C. Rovers — — [dissertation]
+   DOI: 10.3990/1.9789036532945 | citações: 3 | https://openalex.org/W1579428568
+
+420. CGLIB—a constraint‐based graphics library (2003)
+   Neng‐Fa Zhou — Software Practice and Experience [article]
+   DOI: 10.1002/spe.539 | citações: 3 | https://openalex.org/W2075029512
+
+421. Diagrammatic Representations in Domain-Specific Languages (2002)
+   Konstantinos Tourlas — — [article]
+   DOI: sem DOI | citações: 3 | https://openalex.org/W2101740569
+
+422. On the Usability of Reactive Programming APIs: A Mixed Evaluation (2025)
+   Carlos Zimmerle, Kiev Santos da Gama — Software Practice and Experience [article]
+   DOI: 10.1002/spe.3435 | citações: 2 | https://openalex.org/W4410705712
+
+423. GALE: a functional graphic adventure library and engine (2017)
+   Ivan Pérez — — [conference-paper]
+   DOI: 10.1145/3122938.3122944 | citações: 2 | https://openalex.org/W2750865153
+
+424. Semantic Mapping from SysML to FRP: to Enable Executable and Verifiable Systems Design (2021)
+   Jingwei Huang, Wael Khallouli, Handley Holly A. H. et al. — — [conference-paper]
+   DOI: 10.1109/syscon48628.2021.9447075 | citações: 2 | https://openalex.org/W3168732342
+
+425. A Graph-Based Formal Semantics of Reactive Programming from First Principles (2022)
+   Bjarno Oeyen, Joeri De Koster, Wolfgang De Meuter — — [conference-paper]
+   DOI: 10.1145/3611096.3611101 | citações: 2 | https://openalex.org/W4387683215
+
+426. Being Lazy When It Counts (2024)
+   Chun Kit Lam, Lionel Parreaux — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-981-97-2300-3_11 | citações: 2 | https://openalex.org/W4396981572
+
+427. Heterogeneous System Modeling Using Timed- and Untimed-Based Models of Computation: A Case Study for Avionics Systems Domain (2024)
+   Gabriel C. Duarte, Denis Silva Loubach — — [conference-paper]
+   DOI: 10.1109/dasc62030.2024.10749534 | citações: 2 | https://openalex.org/W4404411368
+
+428. High-Level Reconfigurable Embedded System Design Based on Heterogeneous Models of Computation (2025)
+   Gabriel C. Duarte, Denis Silva Loubach, Ingo Sander — IEEE Access [article]
+   DOI: 10.1109/access.2025.3559695 | citações: 2 | https://openalex.org/W4409325816
+
+429. Mobile game programming in Haskell (2019)
+   Christina Zeller, Ivan Pérez — — [conference-paper]
+   DOI: 10.1145/3331543.3342580 | citações: 2 | https://openalex.org/W2965378291
+
+430. Settable and non-interfering signal functions for FRP (2014)
+   Daniel Winograd-Cort, Paul Hudak — ACM SIGPLAN Notices [article]
+   DOI: 10.1145/2692915.2628140 | citações: 2 | https://openalex.org/W3027629344
+
+431. Scripted signal functions (2020)
+   David A. Stuart — — [conference-paper]
+   DOI: 10.1145/3406088.3409016 | citações: 2 | https://openalex.org/W3046741614
+
+432. An Efficient Layer-Aware Technique for Developing Asynchronous Context-Oriented Software (ACOS) (2015)
+   Mohamed A. El-Zawawy — — [conference-paper]
+   DOI: 10.1109/iccsa.2015.9 | citações: 2 | https://openalex.org/W1575441514
+
+433. How Enterprises Use Functional Languages, and Why They Don’t (1999)
+   Philip L. Wadler — Artificial intelligence [book-chapter]
+   DOI: 10.1007/978-3-642-60085-2_9 | citações: 2 | https://openalex.org/W1627774744
+
+434. Enabling the Automation of Handler Bindings in Event-Driven Programming (2015)
+   YungYu Zhuang, Shigeru Chiba — — [conference-paper]
+   DOI: 10.1109/compsac.2015.48 | citações: 2 | https://openalex.org/W1638459424
+
+435. Reactive programming in Standard ML (2002)
+   R.R. Pucella — — [conference-paper]
+   DOI: 10.1109/iccl.1998.674156 | citações: 2 | https://openalex.org/W1873316443
+
+436. EditorArrow: An arrow-based model for editor-based programming (2012)
+   Peter Achten, Marko van Eekelen, Maarten de Mol et al. — Journal of Functional Programming [article]
+   DOI: 10.1017/s0956796812000421 | citações: 2 | https://openalex.org/W1995775793
+
+437. Reactive Imperative Programming with Dataflow Constraints (2014)
+   Camil Demetrescu, Irene Finocchi, Andrea Ribichini — ACM Transactions on Programming Languages and Systems [article]
+   DOI: 10.1145/2623200 | citações: 2 | https://openalex.org/W2017385491
+
+438. Mixed continuous/discrete time modelling with exact time adjustments (2011)
+   Kenneth C. Rovers, Jan Kuper, Marcel D. van de Burgwal et al. — — [conference-paper]
+   DOI: 10.1109/iwcmc.2011.5982696 | citações: 2 | https://openalex.org/W2045719978
+
+439. Constraints as a design pattern (2015)
+   Hesam Samimi, Alessandro Warth, Mahdi Eslamimehr et al. — — [conference-paper]
+   DOI: 10.1145/2814228.2814244 | citações: 2 | https://openalex.org/W2053179758
+
+440. Time petri nets for schedulability analysis of the transactional event handlers of P-FRP (2012)
+   Chaitanya Belwal, Albert M. K. Cheng, Yuanfeng Wen — — [conference-paper]
+   DOI: 10.1145/2401603.2401661 | citações: 2 | https://openalex.org/W2095905203
+
+441. Push-Pull Signal-Function Functional Reactive Programming (2013)
+   Edward Amsden — — [article]
+   DOI: sem DOI | citações: 2 | https://openalex.org/W2187177494
+
+442. Immlib - A New Library For Immersive Spatial Composition (2014)
+   Miguel Negrão — University of Michigan Library Repository [conference-paper]
+   DOI: 10.5281/zenodo.850696 | citações: 2 | https://openalex.org/W2401859966
+
+443. Expanding Event Systems to Support Signals by Enabling the Automation of Handler Bindings (2016)
+   YungYu Zhuang, Shigeru Chiba — Journal of Information Processing [article]
+   DOI: 10.2197/ipsjjip.24.620 | citações: 2 | https://openalex.org/W2471106584
+
+444. Funky Grooves: Declarative Programming of Full-Fledged Musical Applications (2016)
+   Henrik Nilsson, Guerric Chupin — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-319-51676-9_11 | citações: 2 | https://openalex.org/W2560104159
+
+445. Cognitive robot programming using procedural parameters and complex event processing (2016)
+   Floris Erich, Kenji Suzuki — — [conference-paper]
+   DOI: 10.1109/simpar.2016.7862376 | citações: 2 | https://openalex.org/W2590628562
+
+446. A Timed IO Monad (2020)
+   David Janin — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-030-39197-3_9 | citações: 2 | https://openalex.org/W2993768519
+
+447. ARx: Reactive Programming for Synchronous Connectors (2020)
+   José Proença, Guillermina Cledou — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-030-50029-0_3 | citações: 2 | https://openalex.org/W3034525593
+
+448. An optimizing compiler for a purely functional web-application language (2015)
+   Adam J. Chlipala — ACM SIGPLAN Notices [article]
+   DOI: 10.1145/2858949.2784741 | citações: 2 | https://openalex.org/W3158107811
+
+449. Where-Provenance for Bidirectional Editing in Spreadsheets (2021)
+   Jack Marvin Williams, Andrew D. Gordon — — [conference-paper]
+   DOI: 10.1109/vl/hcc51201.2021.9576272 | citações: 2 | https://openalex.org/W3198632386
+
+450. Design and evaluation of a compiler for embedded stream programs (2008)
+   Ryan Newton, Lewis Girod, Michael B. Craig et al. — ACM SIGPLAN Notices [article]
+   DOI: 10.1145/1379023.1375675 | citações: 2 | https://openalex.org/W4235310430
+
+451. Dynamic optimization for functional reactive programming using generalized algebraic data types (2005)
+   Henrik Nilsson — ACM SIGPLAN Notices [article]
+   DOI: 10.1145/1090189.1086374 | citações: 2 | https://openalex.org/W4252463689
+
+452. Variable voltage scheduling with the priority-based functional reactive programming language (2013)
+   Chaitanya Belwal, Albert M. K. Cheng, Jim Ras et al. — — [conference-paper]
+   DOI: 10.1145/2513228.2513271 | citações: 2 | https://openalex.org/W2023264872
+
+453. Live music programming in Haskell (2013)
+   Henning Thielemann — arXiv (Cornell University) [preprint]
+   DOI: 10.48550/arxiv.1303.5768 | citações: 2 | https://openalex.org/W1516427748
+
+454. HyCom: a domain specific language for hypermedia application development (2005)
+   Walter A. Risi, Pablo E. Martínez López, Daniel H. Marcos — — [conference-paper]
+   DOI: 10.1109/hicss.2001.927268 | citações: 2 | https://openalex.org/W1565790625
+
+455. Controlled temporal non-determinism for reasoning with a machine of finite speed (1998)
+   Robert J. Ennals — — [conference-paper]
+   DOI: 10.1145/289423.289467 | citações: 2 | https://openalex.org/W1986199495
+
+456. Authoring graphics-rich and interactive documents in CGLIB (2001)
+   Neng‐Fa Zhou — — [conference-paper]
+   DOI: 10.1145/502187.502193 | citações: 2 | https://openalex.org/W2083496631
+
+457. Composable robot controllers (2002)
+   John R. Peterson, Gregory D. Hager, A. Serjentov — — [conference-paper]
+   DOI: 10.1109/cira.2001.1013188 | citações: 2 | https://openalex.org/W2106459608
+
+458. Component programming with object-oriented signals (2005)
+   Wilson C. Hsieh, Sean McDirmid — — [dissertation]
+   DOI: sem DOI | citações: 2 | https://openalex.org/W2294796873
+
+459. Reactive programming and its effect on performance and the development process (2017)
+   Gustav Hochbergs — Lund University Publications Student Papers (Lund University) [other]
+   DOI: sem DOI | citações: 2 | https://openalex.org/W2795808891
+
+460. A Theory of Changes for Higher-Order Languages - Incrementalizing {\lambda}-Calculi by Static Differentiation (2013)
+   Yufei Cai, Paolo G. Giarrusso, Tillmann Rendel et al. — arXiv (Cornell University) [preprint]
+   DOI: sem DOI | citações: 2 | https://openalex.org/W2951329652
+
+461. Structuring graphical paradigms in TkGofer (1997)
+   Koen Claessen, Ton Vullinghs, Erik Meijer — ACM SIGPLAN Notices [article]
+   DOI: 10.1145/258949.258972 | citações: 2 | https://openalex.org/W3006203753
+
+462. Conversational concurrency (2017)
+   Garnock-Jones — — [dissertation]
+   DOI: 10.17760/d20261862 | citações: 2 | https://openalex.org/W4234111198
+
+463. Disposable memo functions (extended abstract) (1997)
+   Byron Cook, John Launchbury — ACM SIGPLAN Notices [article]
+   DOI: 10.1145/258949.258979 | citações: 2 | https://openalex.org/W4249434345
+
+464. A Mechanized Formalization of an FRP Language with Effects (2025)
+   Jordan Ischard, Frédéric Dabrowski, Jules Chouquet et al. — — [conference-paper]
+   DOI: 10.1145/3672608.3707907 | citações: 1 | https://openalex.org/W4404680759
+
+465. Fast Direct Manipulation Programming with Patch-Reconciliation Correspondence (2025)
+   Parker Ziegler, Justin P. Lubin, Sarah Chasins — Proceedings of the ACM on Programming Languages [article]
+   DOI: 10.1145/3729278 | citações: 1 | https://openalex.org/W4411267041
+
+466. Functional Meaning for Parallel Streaming (2025)
+   Nick Rioux, Steve Zdancewic — Proceedings of the ACM on Programming Languages [article]
+   DOI: 10.1145/3729299 | citações: 1 | https://openalex.org/W4411267077
+
+467. GRust: A Programming Language for Automotive Engineering (2025)
+   Émilie Thomé, Xavier Denis, Christine Tasson — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-032-00942-5_7 | citações: 1 | https://openalex.org/W4413744003
+
+468. Functional Reactive GUI Programming with Modal Types (2025)
+   Jean-Claude Disch, Asger Heegaard, Patrick Bahr — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-031-99751-8_5 | citações: 1 | https://openalex.org/W4414719592
+
+469. React-tRace: A Semantics for Understanding React Hooks: An Operational Semantics and a Visualizer for Clarifying React Hooks (2025)
+   Jaeho Lee, Joongwon Ahn, Kwangkeun Yi — Proceedings of the ACM on Programming Languages [article]
+   DOI: 10.1145/3763067 | citações: 1 | https://openalex.org/W4414977261
+
+470. Realizing Atomic Switch Operation for Distributed Update Propagation in Reactive Programming (2025)
+   Sota Ueno, Tetsuo Kamina — Journal of Information Processing [article]
+   DOI: 10.2197/ipsjjip.33.804 | citações: 1 | https://openalex.org/W4416253154
+
+471. Let It Flow: A Formally Verified Compilation Framework for Asynchronous Dataflow (2026)
+   Zhengyao Lin, Yi Cai, Milijana Surbatovich — Proceedings of the ACM on Programming Languages [article]
+   DOI: 10.1145/3808263 | citações: 1 | https://openalex.org/W7163916735
+
+472. Commit-Window Observation Contracts for Reactive Entity-Component Systems (2026)
+   Tomoyuki Aotani, Tetsuo Kamina — Proceedings of the ACM on Programming Languages [article]
+   DOI: 10.1145/3839467 | citações: 1 | https://openalex.org/W7170408681
+
+473. Development of Functional Reactive Programming Using an Incrementally Modular Abstraction Hierarchy (2015)
+   Kenji Ohmori — — [conference-paper]
+   DOI: 10.1109/icitcs.2015.7292972 | citações: 1 | https://openalex.org/W1631133748
+
+474. Reactive queries in mobile ad hoc networks (2008)
+   Andoni Lombide Carreton, Tom Van Cutsem, Wolfgang De Meuter — — [conference-paper]
+   DOI: 10.1145/1462789.1462792 | citações: 1 | https://openalex.org/W2057883591
+
+475. Towards optimal priority assignments for the transactional event handlers of P-FRP (2013)
+   Yuanfeng Wen, Chaitanya Belwal, Albert M. K. Cheng — — [conference-paper]
+   DOI: 10.1145/2513228.2513263 | citações: 1 | https://openalex.org/W2062682489
+
+476. Release Offset Bounds for Response Time Analysis of P-FRP Using Exhaustive Enumeration (2011)
+   Chaitanya Belwal, Albert M. K. Cheng, Walid Taha — — [conference-paper]
+   DOI: 10.1109/trustcom.2011.131 | citações: 1 | https://openalex.org/W2142562499
+
+477. Declarative Game Programming (2014)
+   Henrik Nilsson, Ivan Pérez — — [conference-paper]
+   DOI: 10.1145/2643135.2643160 | citações: 1 | https://openalex.org/W2146541539
+
+478. Crafting game-models using reactive system design (2008)
+   David Harel, Itai Segall, Hillel Kugler et al. — — [conference-paper]
+   DOI: 10.1145/1496984.1497005 | citações: 1 | https://openalex.org/W2158788932
+
+479. Making A pplications in KSWorld (2013)
+   Yoshiki Ohshima, Aran Lunzer, Bert Freudenberg et al. — — [article]
+   DOI: sem DOI | citações: 1 | https://openalex.org/W2183223964
+
+480. Glitch: A Live Programming Model (2013)
+   Sean McDirmid — — [article]
+   DOI: sem DOI | citações: 1 | https://openalex.org/W2186654337
+
+481. Efficient Monadic Streams (2015)
+   Josef David Svenningsson, Emil Axelsson, Anders Persson et al. — — [article]
+   DOI: sem DOI | citações: 1 | https://openalex.org/W2211165718
+
+482. Transforming JavaScript event-loop into a pipeline (2016)
+   Etienne Brodu, Stéphane Frénot, Frédéric Oblé — — [conference-paper]
+   DOI: 10.1145/2851613.2851745 | citações: 1 | https://openalex.org/W2260268513
+
+483. Integrating Network Management for Cloud Computing Services (2015)
+   Peng Sun — — [article]
+   DOI: sem DOI | citações: 1 | https://openalex.org/W2338463046
+
+484. Braincurry: A Domain-specific Language for Integrative Neuroscience. (2009)
+   Tom Nielsen, Tom Matheson, Henrik Nilsson — — [article]
+   DOI: sem DOI | citações: 1 | https://openalex.org/W2408556685
+
+485. Programming for humans: a new paradigm for domain-specific languages (2021)
+   Robin Message — — [article]
+   DOI: 10.48456/tr-843 | citações: 1 | https://openalex.org/W2478687391
+
+486. Towards the Layout of Things (2016)
+   Peter Achten, Jurriën Stutterheim, Bas Lijnse et al. — — [conference-paper]
+   DOI: 10.1145/3064899.3064905 | citações: 1 | https://openalex.org/W2608303003
+
+487. Taking Back Control (Flow) of Reactive Programming (2014)
+   Sean McDirmid — — [article]
+   DOI: sem DOI | citações: 1 | https://openalex.org/W2614391703
+
+488. Towards Reflection in an FRP Language for Small-Scale Embedded Systems (2017)
+   Takuo Watanabe, Kensuke Sawada — — [conference-paper]
+   DOI: 10.1145/3079368.3079387 | citações: 1 | https://openalex.org/W2741921666
+
+489. Structured Synchronous Reactive Programming for Game Development - Case Study: On Rewriting Pingus from C++ to Céu (2018)
+   Francisco Sant’Anna — — [conference-paper]
+   DOI: 10.1109/sbgames.2018.00036 | citações: 1 | https://openalex.org/W2912243058
+
+490. Systematic functional design of an XML editor (2004)
+   Raymond T. Boute, Hannes Verlinde — Ghent University Academic Bibliography (Ghent University) [article]
+   DOI: sem DOI | citações: 1 | https://openalex.org/W422350847
+
+491. Rate types for stream programs (2014)
+   Thomas W. Bartenstein, Yu David Liu — ACM SIGPLAN Notices [article]
+   DOI: 10.1145/2714064.2660225 | citações: 1 | https://openalex.org/W4230451087
+
+492. Projektionsbasierte Striktheitsanalyse (1998)
+   Ralf Thomas Walter Hinze — — [book-chapter]
+   DOI: 10.1007/978-3-322-91230-5_3 | citações: 1 | https://openalex.org/W4248804763
+
+493. Wormholes (2012)
+   Daniel Winograd-Cort, Paul Hudak — ACM SIGPLAN Notices [article]
+   DOI: 10.1145/2430532.2364519 | citações: 1 | https://openalex.org/W4253055448
+
+494. Teaching Interaction using State Diagrams (2022)
+   Padma Pasupathi, Christopher William Schankula, Nicole DiVincenzo et al. — Electronic Proceedings in Theoretical Computer Science [article]
+   DOI: 10.4204/eptcs.363.8 | citações: 1 | https://openalex.org/W4286775475
+
+495. Types that Change: The Extensible Type Design Pattern (2023)
+   Ivan Pérez — — [conference-paper]
+   DOI: 10.1145/3609025.3609475 | citações: 1 | https://openalex.org/W4386306652
+
+496. The Essence of Reactivity (2023)
+   Ivan Pérez, Frank Dedden — — [conference-paper]
+   DOI: 10.1145/3609026.3609727 | citações: 1 | https://openalex.org/W4386317293
+
+497. Effectful Mealy Machines: Bisimulation and Trace (2025)
+   Filippo Bonchi, Elena Di Lavore, Mario Román — — [conference-paper]
+   DOI: 10.1109/lics65433.2025.00047 | citações: 1 | https://openalex.org/W4415003998
+
+498. Context-Oriented Software Development with Generalized Layer Activation Mechanism (2016)
+   Tetsuo Kamina, Tomoyuki Aotani, Hidehiko Masuhara et al. — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-319-46969-0_1 | citações: 1 | https://openalex.org/W2526936012
+
+499. A service platform for streamlining the production of cyber–physical interactive performance art (2019)
+   Chun-Feng Liao, Kung Chen — Service Oriented Computing and Applications [article]
+   DOI: 10.1007/s11761-019-00268-8 | citações: 1 | https://openalex.org/W2957315855
+
+500. Functional, Reactive Web Programming in F# (2019)
+   Ádám Gránicz, Loïc Denuzière — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-030-28346-9_5 | citações: 1 | https://openalex.org/W2966884652
+
+501. Transparent Synchronous Dataflow (2021)
+   Steven W.T. Cheung, Dan R. Ghica, Koko Muroya — The Art Science and Engineering of Programming [article]
+   DOI: 10.22152/programming-journal.org/2021/5/12 | citações: 1 | https://openalex.org/W2982277135
+
+502. Object-oriented Reactive Programming is Not Reactive Object-oriented Programming (2013)
+   Elisa Gonzalez Boix, Kevin Pinte, Simon Van De Water et al. — — [article]
+   DOI: sem DOI | citações: 1 | https://openalex.org/W3129753361
+
+503. Building an Integrated Development Environment (IDE) on top of a Build System (2020)
+   Neil Mitchell, Moritz Kiefer, Pepe Iborra et al. — — [conference-paper]
+   DOI: 10.1145/3462172.3462180 | citações: 1 | https://openalex.org/W3185004093
+
+504. Reducing the Power Consumption of IoT with Task-Oriented Programming (2022)
+   Sjoerd Crooijmans, Mart Lubbers, Pieter Koopman — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-031-21314-4_5 | citações: 1 | https://openalex.org/W4313351140
+
+505. A Software Architecture Based on Coarse-Grained Self-Adjusting Computations (2023)
+   Stefan Wehr — — [conference-paper]
+   DOI: 10.1145/3609025.3609481 | citações: 1 | https://openalex.org/W4386306674
+
+506. Functional Reactive Programming (Abstract) (1999)
+   Paul Hudak — European Symposium on Programming [conference-paper]
+   DOI: sem DOI | citações: 1 | https://openalex.org/W113198862
+
+507. Language design for distributed stream processing (2009)
+   Samuel R. Madden, Arvind Johnson, Ryan Newton — — [dissertation]
+   DOI: sem DOI | citações: 1 | https://openalex.org/W1516958767
+
+508. Live-Musikprogrammierung in Haskell (2012)
+   Henning Thielemann — arXiv (Cornell University) [preprint]
+   DOI: 10.48550/arxiv.1202.4269 | citações: 1 | https://openalex.org/W1598423128
+
+509. Simply efficient functional reactivity (2008)
+   Conal M. Elliott — — [article]
+   DOI: sem DOI | citações: 1 | https://openalex.org/W181132469
+
+510. Microsoft and Yale conclude agreement to license technology for Haskell (1999)
+   John M. Peterson — ACM SIGPLAN Notices [article]
+   DOI: 10.1145/312009.312033 | citações: 1 | https://openalex.org/W1976772013
+
+511. Multimedia document engineering in MCF (2002)
+   Peter King, Jocelyne Nanard, Marc Nanard — — [conference-paper]
+   DOI: 10.1145/585058.585063 | citações: 1 | https://openalex.org/W2038744208
+
+512. DeCo: a declarative coordination framework for scientific model federations (2003)
+   Dean Herington, David Stotts — — [article]
+   DOI: 10.5555/3106091.3106101 | citações: 1 | https://openalex.org/W2143294674
+
+513. An Ultrametric Model of Reactive Programming (2010)
+   Neelakantan R. Krishnaswami, Nick Benton — — [article]
+   DOI: sem DOI | citações: 1 | https://openalex.org/W2188377229
+
+514. Abstract categorical semantics for resourceful functional reactive programming (2016)
+   Wolfgang Jeltsch — Journal of Logical and Algebraic Methods in Programming [conference-abstract]
+   DOI: 10.1016/j.jlamp.2016.07.001 | citações: 1 | https://openalex.org/W2460254609
+
+515. Efficient Image Manipulation via Run-time Compilation (1999)
+   Conal M. Elliott, Oege de Moor, Sigbjørn Finne — — [article]
+   DOI: sem DOI | citações: 1 | https://openalex.org/W35940898
+
+516. DeCo: a declarative coordination framework for scientific model federations (2004)
+   D. Herington, David Stotts — — [conference-paper]
+   DOI: 10.1109/ase.2003.1240295 | citações: 1 | https://openalex.org/W4246813706
+
+517. Interactive Computation in an Open World (2018)
+   Stefan K. Muller, Umut A. Acar, Duff, William et al. — Figshare [article]
+   DOI: 10.1184/r1/6606560 | citações: 0 | https://openalex.org/W1185764189
+
+518. Streaming Computations in Feldspar (2014)
+   Markus Aronsson — — [dissertation]
+   DOI: sem DOI | citações: 0 | https://openalex.org/W148826738
+streaming algorithms and their mathematical description; efficiency is maintained by optimising the network structures. We demonstrate the usefulness of our lib…
+
+519. Programming Languages for Compressing Graphics (2002)
+   Morgan McGuire, Shriram Krishnamurthi, John F. Hughes — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/3-540-45927-8_6 | citações: 0 | https://openalex.org/W1497607387
+
+520. A Constraint-Based Framework for Prototyping Distributed Virtual Applications (2000)
+   Vineet Gupta, Lalita Jategaonkar Jagadeesan, Radha Jagadeesan et al. — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/3-540-45349-0_16 | citações: 0 | https://openalex.org/W1545129944
+
+521. Una aproximación offline a la evaluación parcial dirigida por narrowing (2007)
+   JA Díaz — — [dissertation]
+   DOI: 10.4995/thesis/10251/1888 | citações: 0 | https://openalex.org/W1593869584
+
+522. Presentation Dynamism in XML Functional Programming meets SMIL Animation (2003)
+   Patrick Schmitz, Simon Thompson, Peter R. King — — [article]
+   DOI: sem DOI | citações: 0 | https://openalex.org/W1716670109
+
+523. Functional reactive Scala (Fresca) for 2D painting (2007)
+   Michel Ganguin — — [article]
+   DOI: sem DOI | citações: 0 | https://openalex.org/W190857593
+
+524. Helmet: a clojure-based rules engine for stochastic demand sampling in army force structure analysis (2014)
+   Thomas Spoon — Winter Simulation Conference [conference-paper]
+   DOI: 10.5555/2693848.2694135 | citações: 0 | https://openalex.org/W1964464971
+
+525. Mutable objects in R (2011)
+   Hadley Wickham — Computational Statistics [article]
+   DOI: 10.1007/s00180-011-0235-7 | citações: 0 | https://openalex.org/W2027970410
+
+526. Frob—functional robotics (1998)
+   Gary Shu Ling — — [conference-paper]
+   DOI: 10.1145/289423.289475 | citações: 0 | https://openalex.org/W2069837911
+
+527. Language support for processing distributed ad hoc data (2009)
+   Kenny Qili Zhu, Daniel S. Dantas, Kathleen Fisher et al. — — [conference-paper]
+   DOI: 10.1145/1599410.1599440 | citações: 0 | https://openalex.org/W2075681749
+
+528. A compiler providing incremental scalability for web applications (2014)
+   Etienne Brodu, Stéphane Frénot, Fabien Cellier et al. — — [conference-paper]
+   DOI: 10.1145/2678508.2678526 | citações: 0 | https://openalex.org/W2087264301
+
+529. An embedded language for simulating and visualizing particle systems (2003)
+   Marcus Lindblom — — [article]
+   DOI: sem DOI | citações: 0 | https://openalex.org/W2096243396
+
+530. Two-Handed Image Navigation in Fran (1998)
+   Conal M. Elliott — — [article]
+   DOI: sem DOI | citações: 0 | https://openalex.org/W2098325233
+
+531. ChalkBoard: A Functional Image Description Language and Its Practical Applications (2011)
+   Kevin Matlage — KU ScholarWorks (The University of Kansas) [dissertation]
+   DOI: sem DOI | citações: 0 | https://openalex.org/W2123822633
+
+532. Algebraic Semantics of Domain-Specific Languages (2006)
+   Andrei Lapets, Andrei Lapets, Name Andrei Lapets — — [article]
+   DOI: sem DOI | citações: 0 | https://openalex.org/W2129283621
+
+533. Patterns in Reactive Programming: from Transformative to Reactive (2015)
+   Thesis Teemu Kaukoranta — — [article]
+   DOI: sem DOI | citações: 0 | https://openalex.org/W2181507758
+
+534. Reactive Web Applications with Dynamic Dataflow in F (2014)
+   Anton Tayanovskyy, Simon Fowler, Loïc Denuzière et al. — — [article]
+   DOI: sem DOI | citações: 0 | https://openalex.org/W2183178360
+
+535. Graphical User Interfaces in Haskell (2011)
+   Gideon Sireling — — [article]
+   DOI: sem DOI | citações: 0 | https://openalex.org/W2183506500
+
+536. Debugging Scheme Fair Threads (2004)
+   Damien Ciabrini, Inria Sophia Antipolis, Sophia Antipolis — — [article]
+   DOI: sem DOI | citações: 0 | https://openalex.org/W2183621312
+
+537. Denotational design with type class morphisms (extended version) DRAFT — comments please (2009)
+   Conal M. Elliott — — [article]
+   DOI: sem DOI | citações: 0 | https://openalex.org/W2184593658
+
+538. Representing Contractive Functions on Streams (Extended Version) (2011)
+   Graham Hutton, Mauro Jaskelioff — — [article]
+   DOI: sem DOI | citações: 0 | https://openalex.org/W2184805250
+
+539. Functional Reactive Animation in SVG for the Web via Links (2011)
+   Chi-Feng Chou — — [article]
+   DOI: sem DOI | citações: 0 | https://openalex.org/W2184963500
+
+540. Taking Back Control (Flow) of Reactive Programming Position Paper (2014)
+   Sean McDirmid — — [article]
+   DOI: sem DOI | citações: 0 | https://openalex.org/W2186971729
+
+541. Dr. Formlens, Or: How I Learned to Stop Worrying and Love Monoidal Functors (2012)
+   Raghu Rajkumar, Nate Foster, Sam Lindley et al. — — [article]
+   DOI: sem DOI | citações: 0 | https://openalex.org/W2188055638
+
+542. Opis: Reliable Distributed Systems in OCaml EPFL Technical Report NSL-REPORT-2008-001 (2008)
+   Evariste Dagand, Dejan Kostić, Viktor Kunčak — — [article]
+   DOI: sem DOI | citações: 0 | https://openalex.org/W2189145996
+
+543. A Study on a Single Construct for Events, Aspects, and Behaviors (2014)
+   永裕 莊 — Institutional Repositories DataBase (IRDB) [dissertation]
+   DOI: 10.15083/00006148 | citações: 0 | https://openalex.org/W2222855119
+
+544. Integration von Programmiersprachen durch strukturelle Typanalyse und partielle Auswertung (2005)
+   Jörg Striegnitz — — [dissertation]
+   DOI: sem DOI | citações: 0 | https://openalex.org/W2280383604
+
+545. Declarative Composition And Reactive Control In Marsyas (2014)
+   Jakob Leben, George Tzanetakis — University of Michigan Library Repository [conference-paper]
+   DOI: 10.5281/zenodo.850538 | citações: 0 | https://openalex.org/W2296476238
+
+546. Systematic functional design of XML tools (2004)
+   Hannes Verlinde, Raymond T. Boute — Ghent University Academic Bibliography (Ghent University) [article]
+   DOI: sem DOI | citações: 0 | https://openalex.org/W2297185815
+
+547. Toward a new constraint imperative programming language for interactive graphics (2016)
+   Hiroshi Hosobe — — [conference-paper]
+   DOI: 10.1145/2892664.2892668 | citações: 0 | https://openalex.org/W2315583863
+
+548. Fixing Idioms A recursion primitive for applicative DSLs Dominique Devriese Ilya Sergey Dave Clarke Frank Piessens (2013)
+   KU Leuven — — [article]
+   DOI: sem DOI | citações: 0 | https://openalex.org/W2334325838
+
+549. Teaching game programming with PlayN (2015)
+   Paul V. Gestwicki — Journal of computing sciences in colleges [article]
+   DOI: sem DOI | citações: 0 | https://openalex.org/W2402238421
+
+550. From Events to Reactions: A Progress Report (2016)
+   Tony Garnock-Jones — Electronic Proceedings in Theoretical Computer Science [article]
+   DOI: 10.4204/eptcs.211.5 | citações: 0 | https://openalex.org/W2444635885
+
+551. Two Lightweight DSLs for Rich UI Programming (2009)
+   Sean McDirmid — — [article]
+   DOI: sem DOI | citações: 0 | https://openalex.org/W2462034990
+
+552. AM : Towards A Hardware Unix Accelerator for Many-Cores (2015)
+   Raphaël Poss, Koen Koning — IEEE Transactions on Parallel and Distributed Systems [article]
+   DOI: 10.1109/tpds.2015.2492542 | citações: 0 | https://openalex.org/W2487759056
+
+553. Functional Reactive Programming on the Web - A Practical Evaluation (2015)
+   Christian Strand Young — NORA - Norwegian Open Research Archives [dissertation]
+   DOI: sem DOI | citações: 0 | https://openalex.org/W2494328428
+
+554. Type Directives in Elm (2016)
+   Falco Peijnenburg — Utrecht University Repository (Utrecht University) [dissertation]
+   DOI: sem DOI | citações: 0 | https://openalex.org/W2508137130
+
+555. Bithoven: Gödel encoding of chamber music and functional 8-bit audio synthesis (2016)
+   J. P. McCarthy — — [conference-paper]
+   DOI: 10.1145/2975980.2975981 | citações: 0 | https://openalex.org/W2511071673
+
+556. Multitier reactive abstractions (2016)
+   Pascal Weisenburger — — [conference-paper]
+   DOI: 10.1145/2984043.2984051 | citações: 0 | https://openalex.org/W2537859421
+
+557. Cognitive Computing Systems in Reactive Multimedia Applications Developed in CÉU (2016)
+   Rodrigo Costa Mesquita Santos, Francisco Sant’Anna, Márcio Ferreira Moreno et al. — — [conference-paper]
+   DOI: 10.1109/ism.2016.0141 | citações: 0 | https://openalex.org/W2575486453
+
+558. Stochastic Hybrid Systems Modeling and Middleware-enabled DDDAS for Next-generation US Air Force Systems (2017)
+   Aniruddha S. Gokhale, Douglas C. Schmidt, Xenofon Koutsoukos — — [article]
+   DOI: sem DOI | citações: 0 | https://openalex.org/W2746417198
+
+559. A Formalization for Specifying and Implementing Correct Pull-Stream Modules (2018)
+   Erick Lavoie, Laurie Jane Hendren — arXiv (Cornell University) [preprint]
+   DOI: 10.48550/arxiv.1801.06144 | citações: 0 | https://openalex.org/W2782909517
+
+560. OUTSIDE THE BLOCK SYNDICATE: TRANSLATING FAUST'S ALGEBRA OF BLOCKS TO THE ARROWS FRAMEWORK (2018)
+   Benedict R. Gaster, Nathan Renney, Tom Mitchell — UWE Research Repository (UWE Bristol) [conference-paper]
+   DOI: sem DOI | citações: 0 | https://openalex.org/W2806606748
+
+561. Fungi: Typed incremental computation with names (2018)
+   Matthew A. Hammer, Jana Dunfield, Kyle Headley et al. — arXiv (Cornell University) [preprint]
+   DOI: 10.48550/arxiv.1808.07826 | citações: 0 | https://openalex.org/W2888582492
+
+562. P-FRP task scheduling with preemption threshold (2018)
+   Jian Denny Lin, Albert M. K. Cheng — ACM SIGBED Review [article]
+   DOI: 10.1145/3269482.3269485 | citações: 0 | https://openalex.org/W2888755354
+
+563. AsyncRFJ (2018)
+   Diogo J. Cardoso, Juliana Kaizer Vizzotto, Eduardo Kessler Piveta — — [conference-paper]
+   DOI: 10.1145/3264637.3264642 | citações: 0 | https://openalex.org/W2892336933
+
+564. Decomposing Interactive Systems (2017)
+   Philip Tchernavskij — HAL (Le Centre pour la Communication Scientifique Directe) [conference-paper]
+   DOI: sem DOI | citações: 0 | https://openalex.org/W2897573106
+
+565. Reactive Interfaces: Combining Events and Expressing Signals (2015)
+   Ragnar Mogk — — [article]
+   DOI: sem DOI | citações: 0 | https://openalex.org/W2906018897
+
+566. Automated Generation of Reactive Programs from Human Demonstration for Orchestration of Robot Behaviors. (2019)
+   Vincent Berenz, Ahmed Bjelic, Jim Mainprice — — [article]
+   DOI: sem DOI | citações: 0 | https://openalex.org/W2919213115
+
+567. Design and Implementation of a Reactive Framework for the Development of 3D Real-Time Applications (2019)
+   Francesco Scarlato, Giovanni Palmitesta, Franco Tecchia et al. — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-030-25965-5_19 | citações: 0 | https://openalex.org/W2964413815
+
+568. Screaming in the IO monad: a realtime audio processing and control experiment in Haskell (2019)
+   David Janin — — [conference-paper]
+   DOI: 10.1145/3331543.3342585 | citações: 0 | https://openalex.org/W2965813679
+
+569. Concurrency control of JavaScript with arrows (2019)
+   Tian Qi Zhao, Adam Berger, Yonglun Li — — [conference-paper]
+   DOI: 10.1145/3358503.3361273 | citações: 0 | https://openalex.org/W2979481600
+
+570. GRASS: generic reactive application-specific scheduling (2019)
+   Marcel Blöcher, Matthias Eichholz, Pascal Weisenburger et al. — — [conference-paper]
+   DOI: 10.1145/3358503.3361274 | citações: 0 | https://openalex.org/W2979795504
+
+571. PaSe: An Extensible and Inspectable DSL for Micro-Animations (2020)
+   Ruben P. Pieters, Tom Schrijvers — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-030-57761-2_1 | citações: 0 | https://openalex.org/W3004716212
+
+572. Trustworthy Software: When Computers Serve as Proxies for Humans (2000)
+   Tim Sheard — — [report]
+   DOI: 10.21236/ada397680 | citações: 0 | https://openalex.org/W300623554
+
+573. Divide and recycle (2011)
+   Albert Benveniste, Timothy Bourke, Benoı̂t Caillaud et al. — ACM SIGPLAN Notices [article]
+   DOI: 10.1145/2016603.1967687 | citações: 0 | https://openalex.org/W3016092549
+
+574. Learning Sensory-Motor Associations from Demonstration (2020)
+   Vincent Berenz, Ahmed Bjelic, Lahiru Herath et al. — — [conference-paper]
+   DOI: 10.1109/ro-man47096.2020.9223439 | citações: 0 | https://openalex.org/W3044676102
+
+575. Assisting End Users in Workflow Systems (2020)
+   Nico Naus — — [dissertation]
+   DOI: 10.33540/115 | citações: 0 | https://openalex.org/W3081795359
+
+576. A Ruby-Based Hardware/Software Co-Design Environment with Functional Reactive Programming: Mulvery (2020)
+   Daichi Teruya, Hironori Nakajo — IEICE Transactions on Information and Systems [article]
+   DOI: 10.1587/transinf.2019edp7233 | citações: 0 | https://openalex.org/W3082945135
+
+577. Controlled temporal non-determinism for reasoning with a machine of finite speed (1998)
+   Robert J. Ennals — ACM SIGPLAN Notices [article]
+   DOI: 10.1145/291251.289467 | citações: 0 | https://openalex.org/W3093127448
+
+578. Imperative streams—a monadic combinator library for synchronous programming (1998)
+   Enno Scholz — ACM SIGPLAN Notices [article]
+   DOI: 10.1145/291251.289454 | citações: 0 | https://openalex.org/W3093982936
+
+579. Adjoint Reactive GUI (2020)
+   Christian Uldal Graulund, Dmitrij Szamozvancev, Neel Krishnaswami — arXiv (Cornell University) [preprint]
+   DOI: 10.48550/arxiv.2010.12338 | citações: 0 | https://openalex.org/W3094357980
+
+580. Causal Inductive Synthesis Corpus (2020)
+   Zenna Tavares, Ria Das, Elizabeth Weeks et al. — — [article]
+   DOI: sem DOI | citações: 0 | https://openalex.org/W3127161261
+
+581. Modular Compilation for a Hybrid Non-Causal Modelling Language (2021)
+   Guerric Chupin, Henrik Nilsson — Electronics [article]
+   DOI: 10.3390/electronics10070814 | citações: 0 | https://openalex.org/W3141739970
+
+582. Functional Reactive Programming For Games (2015)
+   Peter Adewunmi Salu — — [article]
+   DOI: sem DOI | citações: 0 | https://openalex.org/W3162984210
+
+583. Collecting hollywood's garbage (2010)
+   Tomas Petricek, Don Syme — ACM SIGPLAN Notices [article]
+   DOI: 10.1145/1837855.1806662 | citações: 0 | https://openalex.org/W3163417320
+
+584. Design and evaluation of software framework that improves the management of reactive dependencies in development of object-oriented applications (2021)
+   Marko Mijač — — [dissertation]
+   DOI: sem DOI | citações: 0 | https://openalex.org/W3194954552
+
+585. Higher-order concurrency for microcontrollers (2021)
+   Abhiroop Sarkar, Robert Krook, Bo Joel Svensson et al. — — [conference-paper]
+   DOI: 10.1145/3475738.3480716 | citações: 0 | https://openalex.org/W3195175454
+
+586. The w-calculus: a synchronous framework for the verified modelling of digital signal processing algorithms (2021)
+   Emilio Jesús Gallego Arias, Pierre Jouvelot, Sylvain Ribstein et al. — — [conference-paper]
+   DOI: 10.1145/3471872.3472970 | citações: 0 | https://openalex.org/W3195945533
+
+587. Developing a stage lighting system from scratch (2001)
+   Michael Sperber — ACM SIGPLAN Notices [article]
+   DOI: 10.1145/507669.507652 | citações: 0 | https://openalex.org/W3210811935
+
+588. A “Fifteen Puzzle” in Fran (1998)
+   Conal M. Elliott — — [article]
+   DOI: sem DOI | citações: 0 | https://openalex.org/W39609428
+
+589. Temporal Refinements for Guarded Recursive Types (2021)
+   Colin Riba, Guilhem Jaber — — [other]
+   DOI: 10.26226/morressier.604907f41a80aac83ca25d14 | citações: 0 | https://openalex.org/W4231599903
+
+590. Helmet: A Clojure-based rules engine for stochastic demand sampling in Army force structure analysis (2014)
+   Thomas Spoon — — [conference-paper]
+   DOI: 10.1109/wsc.2014.7020073 | citações: 0 | https://openalex.org/W4236991119
+
+591. Frob—functional robotics (1998)
+   Gary Shu Ling — ACM SIGPLAN Notices [article]
+   DOI: 10.1145/291251.289475 | citações: 0 | https://openalex.org/W4244094753
+
+592. Functional reactive programming with liveness guarantees (2013)
+   Alan Jeffrey — ACM SIGPLAN Notices [article]
+   DOI: 10.1145/2544174.2500584 | citações: 0 | https://openalex.org/W4244834611
+
+593. Monadic robotics (1999)
+   John M. Peterson, Greg Hager — ACM SIGPLAN Notices [article]
+   DOI: 10.1145/331963.331976 | citações: 0 | https://openalex.org/W4245626845
+
+594. Legacy (2000)
+   T. Hoare — — [conference-paper]
+   DOI: 10.1109/icosp.2000.894409 | citações: 0 | https://openalex.org/W4247127526
+
+595. Gradually typed symbolic expressions (2017)
+   David Broman, Jeremy G. Siek — — [conference-paper]
+   DOI: 10.1145/3175493.3162068 | citações: 0 | https://openalex.org/W4254031826
+
+596. Legacy (2000)
+   T. Hoare — — [conference-paper]
+   DOI: 10.1109/icct.2000.1218338 | citações: 0 | https://openalex.org/W4255113328
+
+597. Semantics of RxJS (2022)
+   Tian Qi Zhao, Yonglun Li — — [conference-paper]
+   DOI: 10.1145/3563837.3568340 | citações: 0 | https://openalex.org/W4310517693
+
+598. Proceedings of the 16th ACM SIGPLAN International Haskell Symposium (2023)
+   autoria não informada — — [paratext]
+   DOI: 10.1145/3609026 | citações: 0 | https://openalex.org/W4386316089
+
+599. Proceedings of the 11th ACM SIGPLAN International Workshop on Functional Art, Music, Modelling, and Design (2023)
+   autoria não informada — — [paratext]
+   DOI: 10.1145/3609023 | citações: 0 | https://openalex.org/W4386316311
+
+600. The Stackage repository: An exploratory study of its evolution (2026)
+   Paul Leger, Felipe Ruiz, David Moreno-Lumbreras et al. — Journal of Computer Languages [article]
+   DOI: 10.1016/j.cola.2026.101386 | citações: 0 | https://openalex.org/W4387798026
+
+601. The Model View Controller as a Functional Reactive Program (2023)
+   Abu Alam, Vicky J. Bush — Research Square [preprint]
+   DOI: 10.21203/rs.3.rs-3743640/v1 | citações: 0 | https://openalex.org/W4389640223
+
+602. Productivity Verification for Functional Programs by Reduction to Termination Verification (2024)
+   Ren Fukaishi, Naoki Kobayashi, Ryosuke Sato — — [conference-paper]
+   DOI: 10.1145/3635800.3636963 | citações: 0 | https://openalex.org/W4390806416
+
+603. Extensible Tooling for Reactive Programming Based on Active Expressions. (2024)
+   Stefan Ramson, Markus Brand, Jens Lincke et al. — The Journal of Object Technology [article]
+   DOI: 10.5381/jot.2024.23.1.a4 | citações: 0 | https://openalex.org/W4392060551
+
+604. Dynamic TopHat: Start and Stop Tasks at Runtime (2023)
+   Tim Steenvoorden, Nico Naus — — [conference-paper]
+   DOI: 10.1145/3652561.3652574 | citações: 0 | https://openalex.org/W4399835298
+
+605. Reactive Programming. A Brief Analysis in the Context of Programming Paradigms (2024)
+   Patricia Burtic, Daniel Burtic — Springer proceedings in business and economics [conference-paper]
+   DOI: 10.1007/978-3-031-59858-6_14 | citações: 0 | https://openalex.org/W4402115687
+
+606. The Meerkat Vision: Language Support for Live, Scalable, Reactive Web Apps (2024)
+   João Costa Seco, Jonathan Aldrich — — [conference-paper]
+   DOI: 10.1145/3689492.3690048 | citações: 0 | https://openalex.org/W4403493236
+
+607. Compositional Views in Compositional Images – Category: Research – (2025)
+   Peter Achten, Pieter Koopman — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-031-74558-4_4 | citações: 0 | https://openalex.org/W4406165904
+
+608. Functional Reactive Animation with Functions of Time (2025)
+   Katsuhiro Ueno, Haru Karato — Journal of Information Processing [article]
+   DOI: 10.2197/ipsjjip.33.368 | citações: 0 | https://openalex.org/W4411301737
+
+609. Things We Never Told Anyone About Functional Programming (2025)
+   Michael Sperber — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-031-99751-8_1 | citações: 0 | https://openalex.org/W4414719580
+
+610. Synchronous Programming for Kids: A Manifesto (2025)
+   Jean Pichon-Pharabod — — [conference-paper]
+   DOI: 10.1145/3759429.3762617 | citações: 0 | https://openalex.org/W4415008931
+
+611. Evolution of Functional UI Paradigms (2025)
+   Michael Sperber, Markus Schlegel — — [conference-paper]
+   DOI: 10.1145/3759163.3760429 | citações: 0 | https://openalex.org/W4415033437
+
+612. Unrestricted call-by-value recursion (2008)
+   Johan Nordlander, Magnus Carlsson, Andy Gill — — [article]
+   DOI: sem DOI | citações: 0 | https://openalex.org/W46085146
+
+613. TimeFlies: Push-Pull Signal-Function Functional Reactive Programming (2013)
+   Edward Amsden — RIT Scholar Works (Rochester Institute of Technology) [article]
+   DOI: sem DOI | citações: 0 | https://openalex.org/W607336758
+
+614. Property-Based Testing for Asynchronous Functional Reactive Programming Using Linear Temporal Logic (2026)
+   Christian Emil Nielsen, Mathias Faber Kristiansen, Patrick Bahr — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-032-15981-6_3 | citações: 0 | https://openalex.org/W7122691329
+
+615. Composable models and guarantees for aggregate systems (2026)
+   Giorgio Audrito, Ferruccio Damiani, Gianluca Torta — International Journal on Software Tools for Technology Transfer [article]
+   DOI: 10.1007/s10009-026-00860-2 | citações: 0 | https://openalex.org/W7144209685
+
+616. Programmation web réactive (2018)
+   Colin Vidal — — [dissertation]
+   DOI: 10.70675/613c15e0z2505z47e1zbfb4zd60c657fda74 | citações: 0 | https://openalex.org/W7148627132
+
+617. Designing and Programming Malleable Software (2019)
+   Philip Tchernavskij — — [dissertation]
+   DOI: 10.70675/0049f2afz7505z415ez870fz22d0a308356a | citações: 0 | https://openalex.org/W7148703330
+
+618. Interactive computer vision through the Web (2020)
+   Matthieu Pizenberg — — [dissertation]
+   DOI: 10.70675/31d3db07z1123z48dczb7e2zd4e471c8fa5c | citações: 0 | https://openalex.org/W7148862710
+
+619. Programmation Web Réactive dans un cadre typé statiquement pour l'orchestration de contenus multimédia riches (2018)
+   Rémy El Sibaïe Besognet — — [dissertation]
+   DOI: 10.70675/159521c7z9229z4008z8c8ez45db6e20ae49 | citações: 0 | https://openalex.org/W7149014643
+
+620. Concepts and tool for interactive computing (2022)
+   Alice Martin — — [dissertation]
+   DOI: 10.70675/3902a426z78e8z4b29za1cfz67fc0c497149 | citações: 0 | https://openalex.org/W7151632234
+
+621. Varda : a language for programming distributed systems by composition (2023)
+   Laurent Prosperi — — [dissertation]
+   DOI: 10.70675/3d17a2d6z19bbz4b7az8011z1ee81781ccee | citações: 0 | https://openalex.org/W7151946355
+
+622. Designing Interactions, Interacting with Design : Towards Instrumentality and Materiality in Procedural Computer Graphics and Beyond (2024)
+   Martin Tricaud — — [dissertation]
+   DOI: 10.70675/c5957458zf4edz47cez8818zc13370484472 | citações: 0 | https://openalex.org/W7152045745
+
+623. Development of a Method for Improving the Efficiency of a Reactive State Management System (2026)
+   Aung Kyaw Myo, Alexander M. Bain, Evgeni Mikhailovich Portnov — — [conference-paper]
+   DOI: 10.1109/smartindustrycon68821.2026.11493026 | citações: 0 | https://openalex.org/W7156026435
+
+624. Reactive Programming as an Evolution of Architectural Trade-offs in Managing Changes (2026)
+   Darya Tsukanova, Andrey N. Zabrodin — Intellectual Technologies on Transport [article]
+   DOI: 10.20295/2413-2527-2026-246-54-63 | citações: 0 | https://openalex.org/W7166530535
+
+625. Citrus: Algebraic Reasoning about Superconductor Electronics (2026)
+   Harlan Kringen, Timothy Sherwood, Ben Hardekopf — Proceedings of the ACM on Programming Languages [article]
+   DOI: 10.1145/3828690 | citações: 0 | https://openalex.org/W7203597469
+
+626. Escaping the DAG Dogma: Toward Modular Reactive Architectures (2026)
+   Rivka Altshuler, David H. Lorenz — — [conference-paper]
+   DOI: 10.1145/3840586.3843206 | citações: 0 | https://openalex.org/W7215107318
+
+627. Timeline: Adding the Time Dimension to Spreadsheets (2026)
+   Tomáš Petříček, Boďa Tomáš — Proceedings of the ACM on Programming Languages [article]
+   DOI: 10.1145/3839502 | citações: 0 | https://openalex.org/W7215122170
+
+628. Croquetify: Transforming Single-User Functional Reactive Programs into Multi-user Applications (2026)
+   Yoshiki Ohshima, Aran Lunzer, David A. Smith — — [conference-paper]
+   DOI: 10.1145/3840586.3843209 | citações: 0 | https://openalex.org/W7215130868
+
+629. Securing Interactive Systems (2014)
+   Willard Rafnsson — Chalmers Publication Library (Chalmers University of Technology) [dissertation]
+   DOI: sem DOI | citações: 0 | https://openalex.org/W76754017
+

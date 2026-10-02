@@ -1,0 +1,10 @@
+# Busca: 'Android Jetpack Compose' — 2 resultados no OpenAlex (mostrando 2, ordem: relevancia)
+
+1. Recursos de Acessibilidade em Componentes do Android Jetpack Compose (2023)
+   Saulo Matos Pereira Gomes, João Soares de Oliveira Neto — — [conference-paper]
+   DOI: 10.5753/erbase.2023.236215 | citações: 1 | https://openalex.org/W4394628874
+
+2. Image-to-UI Accessibility: Assessing ChatGPT’s Effectiveness in Generating Accessible Android Screens from Figma Templates (2025)
+   Lucas Emanuel Oliveira Xavier, Daniel Mesquita Feijó Rabelo, Ribamar de Souza Martins et al. — — [conference-paper]
+   DOI: 10.5753/webmedia.2025.15298 | citações: 0 | https://openalex.org/W4416744781
+

@@ -1,0 +1,58 @@
+# Busca: '"fine-grained reactivity"' — 14 resultados no OpenAlex (mostrando 14, ordem: relevancia)
+
+1. Extending an Object-Oriented RETE Network with Fine-Grained Reactivity to Property Modifications (2013)
+   Mark Proctor, Mario Fusco, Davide Sottara — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-642-39617-5_17 | citações: 2 | https://openalex.org/W73857362
+
+2. irid: Component-Based 'Shiny' UI with Fine-Grained Reactivity (2026)
+   Kyle Husmann — — [dataset]
+   DOI: 10.32614/cran.package.irid | citações: 0 | https://openalex.org/W7172218119
+
+3. Contact metamorphic rocks (2014)
+   Kurt Hollocher — — [book-chapter]
+   DOI: 10.1201/b17436-19 | citações: 2 | https://openalex.org/W4246709017
+
+4. Fracture process zone evaluation of ultra-high performance hybrid fibre reinforced concrete with varying fibre percentage. (2024)
+   Sneha Sneha, S. Ray — Procedia Structural Integrity [article]
+   DOI: 10.1016/j.prostr.2024.11.094 | citações: 3 | https://openalex.org/W4405962373
+
+5. Flexible and Scalable Systems for Network Management (2018)
+   Arpit Kumar Gupta — ProQuest Demo Repository [dissertation]
+   DOI: sem DOI | citações: 1 | https://openalex.org/W2910137736
+
+6. Retained Memory after UI Subscription Churn: Reproducibility Artifact (2026)
+   Akash Singh, Rajeev Ranjan Kumar Tripathi — Zenodo (CERN European Organization for Nuclear Research) [software]
+   DOI: 10.5281/zenodo.21725298 | citações: 0 | https://openalex.org/W7171981051
+
+7. Retained Memory after UI Subscription Churn: Reproducibility Artifact (2026)
+   Akash Singh, Rajeev Ranjan Kumar Tripathi — Zenodo (CERN European Organization for Nuclear Research) [software]
+   DOI: 10.5281/zenodo.21725299 | citações: 0 | https://openalex.org/W7172013047
+
+8. THE EVOLUTION OF FRONTEND ARCHITECTURE: FROM VIRTUAL DOM TO SERVER COMPONENTS (2025)
+   Murali Ajit Varma — INTERNATIONAL JOURNAL OF COMPUTER ENGINEERING & TECHNOLOGY [article]
+   DOI: 10.34218/ijcet_16_01_256 | citações: 0 | https://openalex.org/W4407771062
+
+9. SuperServe: Fine-Grained Inference Serving for Unpredictable Workloads (2023)
+   Alind Khare, Dhruv Garg, Sukrit Kalra et al. — arXiv (Cornell University) [preprint]
+   DOI: 10.48550/arxiv.2312.16733 | citações: 0 | https://openalex.org/W4390437573
+
+10. Rapid carbonation of silicate minerals drives atmospheric CO2 drawdown in glacier-fed stream waters (2026)
+   Tom J. Battin, Michael Nikolaos Styllas, Nicola Deluigi et al. — Research Square [preprint]
+   DOI: 10.21203/rs.3.rs-8711277/v1 | citações: 0 | https://openalex.org/W7126250228
+
+11. Reactive transport modeling of unsaturated hydrology and geochemistry of neutral and acid rock drainage in highly heterogeneous mine waste rock at the Antamina Mine, Peru (2019)
+   Mehrnoush Javadi — cIRcle (University of British Columbia) [dissertation]
+   DOI: 10.14288/1.0378324 | citações: 0 | https://openalex.org/W2992023193
+
+12. Quantifying and treating contaminant discharges from the James Mine on New Zealand’s West Coast (2018)
+   Carlos Hillman — UC Research Repository  (University of Canterbury) [dissertation]
+   DOI: 10.26021/8273 | citações: 0 | https://openalex.org/W2912371233
+
+13. The Future of Web Application Development: Trends to Watch in 2026 and Beyond (2026)
+   Moltech Solutions Inc — Zenodo (CERN European Organization for Nuclear Research) [other]
+   DOI: 10.5281/zenodo.22040184 | citações: 0 | https://openalex.org/W7203884428
+
+14. The Future of Web Application Development: Trends to Watch in 2026 and Beyond (2026)
+   Moltech Solutions Inc — Zenodo (CERN European Organization for Nuclear Research) [other]
+   DOI: 10.5281/zenodo.22040185 | citações: 0 | https://openalex.org/W7203922516
+

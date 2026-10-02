@@ -1,0 +1,10 @@
+# Busca: 'callback' — 2 resultados no OpenAlex (mostrando 2, ordem: relevancia)
+
+1. Intrusiveness and Scalability of OMPT-Based Tracing Tools for Task-based OpenMP Applications (2025)
+   Rayan Raddatz de Matos, Lucas Mello Schnorr — — [conference-paper]
+   DOI: 10.5753/sscad.2025.16751 | citações: 1 | https://openalex.org/W7106823022
+
+2. An Exact Framework for the Trigger Arc Traveling Salesman Problem (2026)
+   Miguel A. Mini, Lucas de Oliveira Silva, Flávio K. Miyazawa — — [conference-paper]
+   DOI: 10.5753/etc.2026.23818 | citações: 0 | https://openalex.org/W7171775317
+

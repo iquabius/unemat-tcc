@@ -1,0 +1,42 @@
+# Busca: 'front-end frameworks' — 10 resultados no OpenAlex (mostrando 10, ordem: relevancia)
+
+1. Desenvolvimento de um Front-end para um Sistema de Diagnóstico Empresarial com o Framework Angular (2024)
+   T. da S. Nascimento, Rafael Divino Ferreira Feitosa — — [conference-paper]
+   DOI: 10.5753/erigo.2024.4838 | citações: 0 | https://openalex.org/W4405910631
+
+2. SmartNode Dashboard: um framework front-end baseado em Node-RED para criação de City Dashboards (2019)
+   Cesimar Dias, Frederico Lopes, Jair Cavalcanti Leite — — [conference-paper]
+   DOI: 10.5753/wbci.2019.6744 | citações: 0 | https://openalex.org/W2945896390
+
+3. HyMobWeb: A hybrid adaptation of context-sensitive Web interfaces with multimodality support in mobile devices (2017)
+   Danilo Camargo Bueno, Luciana Aparecida Martinez Zaina — Journal on Interactive Systems [article]
+   DOI: 10.5753/jis.2017.680 | citações: 8 | https://openalex.org/W2994479691
+
+4. Image2Test: Using ChatGPT to Build Manual Tests from Screenshots (2025)
+   Manoel Aranda, Antônio Wagner, Eduardo Cristo de Oliveira Barros et al. — — [conference-paper]
+   DOI: 10.5753/sast.2025.14358 | citações: 1 | https://openalex.org/W4414276255
+
+5. Front-end de um Aplicativo de Gestão de Demandas de Infraestrutura no Município de Ceres-Goiás (2024)
+   Matheus Medrado dos Santos, Rafael Divino Ferreira Feitosa — — [conference-paper]
+   DOI: 10.5753/erigo.2024.4840 | citações: 0 | https://openalex.org/W4405910607
+
+6. Desenvolvimento Full-Stack com Javascript: uma Visão Geral e Prática (2023)
+   Bruna C.R. Cunha — — [book-chapter]
+   DOI: 10.5753/sbc.14282.0.3 | citações: 0 | https://openalex.org/W4400983148
+
+7. Towards an Automated Approach to Detect Code Smells in ReScript (2025)
+   Maykon Nunes, Carla Ilane Moreira Bezerra, Emanuel Ferreira Coutinho — — [conference-paper]
+   DOI: 10.5753/se4fp.2025.14841 | citações: 0 | https://openalex.org/W4414995369
+
+8. IF-Eventos: sistema de registro de frequência em eventos institucionais (2025)
+   Tiago de Brito Tavares, Mario Teixeira Lemes, João R. B. Paiva — Revista Eletrônica de Iniciação Científica em Computação [article]
+   DOI: 10.5753/reic.2025.5930 | citações: 0 | https://openalex.org/W4413775862
+
+9. Quality Assurance and Testing Strategies in a Digital Platform for Screening and Early Diagnosis of Oral Cancer (2026)
+   Leandro Pedrosa, Luiza de Oliveira Costa, Gabriel Freitas et al. — — [conference-paper]
+   DOI: 10.5753/sbsi.2026.248359 | citações: 0 | https://openalex.org/W7160307028
+
+10. Uma Metodologia para Agrupamento e Extração de Informações de URLs de Phishing (2019)
+   Welton Santos, Elverton Carvalho Fazzion, Osvaldo Fonseca et al. — — [conference-paper]
+   DOI: 10.5753/sbseg.2019.13970 | citações: 0 | https://openalex.org/W3136639920
+

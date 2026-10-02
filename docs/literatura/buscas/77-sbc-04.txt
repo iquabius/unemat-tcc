@@ -1,0 +1,58 @@
+# Busca: 'dimensões cognitivas' — 14 resultados no OpenAlex (mostrando 14, ordem: relevancia)
+
+1. Quanto cabe na sua mochila? Análise da carga cognitiva em um jogo educacional sobre complexidade algorítmica (2024)
+   Jeniffer Macena, Fernanda Pires, Elaine  Harada Teixeira de Oliveira et al. — — [conference-paper]
+   DOI: 10.5753/sbie.2024.242588 | citações: 1 | https://openalex.org/W4404871748
+
+2. Acessibilidade em Jogos: Um Mapeamento Sistemático (2021)
+   Luiz Henrique F. Barbosa de Andrade, Rosa Maria E. Moreira da Costa, Vera Maria B. Werneck — — [conference-paper]
+   DOI: 10.5753/sbgames_estendido.2021.19722 | citações: 12 | https://openalex.org/W4295329716
+
+3. Identificação de Critérios para Avaliação do Pensamento Computacional Aplicado (2020)
+   César França, Cleudimar Galindo Silva — — [conference-paper]
+   DOI: 10.5753/cbie.sbie.2020.1493 | citações: 4 | https://openalex.org/W3106952595
+
+4. AutiBots: Jogo Digital Educativo para Desenvolvimento Cognitivo e Motor de Crianças com Autismo (2025)
+   Leandro Pereira Sampaio, Cláudia Pinto Pereira — Revista Brasileira de Informática na Educação [article]
+   DOI: 10.5753/rbie.2025.3300 | citações: 6 | https://openalex.org/W4406524822
+
+5. Dimensões do engajamento estudantil na EPT ofertada na EaD: limites e desafios (2026)
+   Rute Nogueira de Morais Bicalho, Conceição de Maria Cardoso Costa, Francilene Barbosa dos Santos Silva et al. — — [conference-paper]
+   DOI: 10.5753/seadco.2026.43686 | citações: 0 | https://openalex.org/W7203922565
+
+6. Um Método não Supervisionado Baseado em Tópicos para Identificar Dimensões de Reputação em Microblogs (2016)
+   Brayan Neves, Anderson Almeida Ferreira — Anais do Simpósio Brasileiro de Sistemas de Informação (SBSI) [conference-paper]
+   DOI: 10.5753/sbsi.2016.5943 | citações: 0 | https://openalex.org/W2987807927
+
+7. Repressão à Criminalidade com o uso de Computação Cognitiva: Classificação de Urgência, Severidade e Relevância de Denúncias (2023)
+   Alexandre Filgueiras Costa, Cláudia Lage Rebello da Motta — — [conference-paper]
+   DOI: 10.5753/sbsc_estendido.2023.230217 | citações: 0 | https://openalex.org/W4376869850
+
+8. Analisando um Jogo Colaborativo à Luz do GC1 dos Grandes Desafios da IHC: O Caso Among Us (2025)
+   Alvaro Santana de Campos Junior, Elton Mario de Lima, Luiz Augusto de Oliveira Almeida et al. — — [conference-paper]
+   DOI: 10.5753/eri-mt.2025.17025 | citações: 0 | https://openalex.org/W7125932749
+
+9. Avaliação da interface de um jogo educacional baseado na Aprendizagem Multimídia (2025)
+   Jeniffer Macena, Fernanda Pires, Marcela Pessoa et al. — — [conference-paper]
+   DOI: 10.5753/sbgames.2025.10367 | citações: 0 | https://openalex.org/W4415587936
+
+10. Uma Avaliação Experimental do Uso de BDD na Automação de Testes de Segurança (2026)
+   Samuel Sousa Teles, RUBENS ABRAAO DA SILVA SOUSA, Ismayle de Sousa Santos — Revista Eletrônica de Iniciação Científica em Computação [article]
+   DOI: 10.5753/reic.2026.7750 | citações: 0 | https://openalex.org/W7204549358
+
+11. Aplicação e Avaliação de um Sistema Adaptativo Baseado em Lógica Fuzzy para o Ensino de Robótica com Arduino (2026)
+   Renan Grion, Laura O. Moraes — — [conference-paper]
+   DOI: 10.5753/educomp.2026.18658 | citações: 0 | https://openalex.org/W7164880893
+
+12. Letramentos Digitais de Estudantes da EaD: Memórias e Narrativas em Blog (2022)
+   Iracema Cristina Fernandes, Terezinha Fernandes — — [conference-paper]
+   DOI: 10.5753/seadco.2022.20385 | citações: 0 | https://openalex.org/W4283800849
+
+13. Proposta de um Grau de Uso da Inteligência Artificial no Contexto Educacional: Critérios Éticos e Pedagógicos para Orientar a Prática Docente (2026)
+   Alana de A. Oliveira, Mário Meireles Teixeira — — [conference-paper]
+   DOI: 10.5753/educomp.2026.18562 | citações: 0 | https://openalex.org/W7164941103
+
+14. Superação de Barreiras à Usabilidade em Aplicações Blockchain: Uma Análise de Interação Humano-Computador em Finanças Descentralizadas sobre Redes Compatíveis com Máquinas Virtuais do Ethereum (2026)
+   Emanuele Lacerda Morais Martins, Henrique Marlon Conceição Santos, Bryan Kano Ferreira — Revista Eletrônica de Iniciação Científica em Computação [article]
+   DOI: 10.5753/reic.2026.7238 | citações: 0 | https://openalex.org/W7160319763
+

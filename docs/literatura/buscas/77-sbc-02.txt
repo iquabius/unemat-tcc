@@ -1,0 +1,10 @@
+# Busca: 'programação reativa' — 2 resultados no OpenAlex (mostrando 2, ordem: relevancia)
+
+1. Avaliação de Desempenho de Frameworks Web Java entre Reatividade e Threads Virtuais: Um Estudo Comparativo entre Spring e Quarkus (2025)
+   Ítalo Martins de Deus, Rubens de Souza Matos Junior, George Leite et al. — — [conference-paper]
+   DOI: 10.5753/wperformance.2025.8657 | citações: 1 | https://openalex.org/W4412827141
+
+2. Projecting Microservices: A Study over Asynchronous Queues to Achieve Reactive Design (2019)
+   Jonathan Brilhante, Rostand Edson Oliveira Costa, Tiago Maritan — iSys - Brazilian Journal of Information Systems [article]
+   DOI: 10.5753/isys.2019.391 | citações: 0 | https://openalex.org/W2936456237
+

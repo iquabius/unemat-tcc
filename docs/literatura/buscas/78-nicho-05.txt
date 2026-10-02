@@ -1,0 +1,202 @@
+# Busca: '"cognitive dimensions" signals' — 72 resultados no OpenAlex (mostrando 50, ordem: relevancia)
+
+1. A Cognitive Dimensions analysis of interaction design for algorithmic composition software (2014)
+   Matt Bellingham, Simon Holland, Paul Mulholland — Open Research Online - ORO (The Open University) [conference-paper]
+   DOI: sem DOI | citações: 11 | https://openalex.org/W2126014381
+
+2. Using Eye Tracking and Electroencephalography to assess and evaluate students' cognitive dimensions (2013)
+   Efi A. Nisiforou — — [article]
+   DOI: sem DOI | citações: 1 | https://openalex.org/W2397224046
+
+3. Are Signals Regulating Energy Homeostasis Related to Neuropsychological and Clinical Features of Gambling Disorder? A Case–Control Study (2022)
+   Mikel Etxandi, Isabel Baenas, Bernat Mora‐Maltas et al. — Nutrients [article]
+   DOI: 10.3390/nu14235084 | citações: 13 | https://openalex.org/W4310472603
+
+4. Closed-Loop Deep Brain Stimulation for Refractory Chronic Pain (2018)
+   Prasad R. Shirvalkar, Tess L. Veuthey, Heather E. Dawes et al. — Frontiers in Computational Neuroscience [article]
+   DOI: 10.3389/fncom.2018.00018 | citações: 79 | https://openalex.org/W2789639386
+
+5. The role of the amygdala in processing social and affective touch (2021)
+   Katalin M. Gothard, Andrew J. Fuglevand — Current Opinion in Behavioral Sciences [review]
+   DOI: 10.1016/j.cobeha.2021.08.004 | citações: 35 | https://openalex.org/W3167696456
+
+6. Supraspinal neuroimmune crosstalk in chronic pain states (2019)
+   Paul J. Austin, Nathan T. Fiore — Current Opinion in Physiology [review]
+   DOI: 10.1016/j.cophys.2019.03.008 | citações: 21 | https://openalex.org/W2932535698
+
+7. LUME: Eliminating Cognitive Distance - A Deterministic Natural-Language Programming Language with Intent-Resolving Compilation, Voice Input, Certified Security, and Synthetic Organism Runtime (2026)
+   Ronald Jason Andrews — Zenodo (CERN European Organization for Nuclear Research) [preprint]
+   DOI: 10.5281/zenodo.19382282 | citações: 33 | https://openalex.org/W7148269042
+
+8. Confidence ratings do not distinguish imagination from reality (2024)
+   Nadine Dijkstra, Matan Mazor, Stephen M. Fleming — Journal of Vision [article]
+   DOI: 10.1167/jov.24.5.13 | citações: 10 | https://openalex.org/W4399169680
+
+9. Exploring the relationship between lipid metabolism and cognition in individuals living with stable-phase Schizophrenia: a small cross-sectional study using Olink proteomics analysis (2024)
+   Yingkang Zheng, Xiaojun Cai, Dezhong Wang et al. — BMC Psychiatry [article]
+   DOI: 10.1186/s12888-024-06054-x | citações: 14 | https://openalex.org/W4402179520
+
+10. A wireless self-decoupling scheme for multimodal sensing (2025)
+   Kai Wang, Chuyuan Gao, Zhaofeng Zhu et al. — Microsystems & Nanoengineering [article]
+   DOI: 10.1038/s41378-025-01075-2 | citações: 7 | https://openalex.org/W4416668292
+
+11. Confidence ratings do not distinguish imagination from reality (2023)
+   Nadine Dijkstra, Matan Mazor, Stephen M. Fleming — — [preprint]
+   DOI: 10.31234/osf.io/2sxj4 | citações: 8 | https://openalex.org/W4383620360
+
+12. Tipping Points Emerge in the Interaction Between Narrative and Reality (2024)
+   Sander van der LEEUW — Springer climate [book-chapter]
+   DOI: 10.1007/978-3-031-50762-5_2 | citações: 5 | https://openalex.org/W4393074665
+
+13. "Emotions, Intuition, and Reasoning in Moral Decision Making" (2013)
+   Keith J. Murnighan, Long Wang — Academy of Management Proceedings [conference-abstract]
+   DOI: 10.5465/ambpp.2013.13413abstract | citações: 2 | https://openalex.org/W1975687061
+
+14. The Impact of Personalized Recommendation Systems on Consumer Purchase Decisions Under Data Law Frameworks (2025)
+   S.J. Daniel Patrick Huang, Zichen Liu — Journal of Organizational and End User Computing [article]
+   DOI: 10.4018/joeuc.385731 | citações: 2 | https://openalex.org/W4412533744
+
+15. “Magical thinking” and the Emergence of New Social Movements (2015)
+   Ann Taves — Journal of Cognitive Historiography [article]
+   DOI: 10.1558/jch.v1i2.17275 | citações: 3 | https://openalex.org/W2031314604
+
+16. Impact of Single‐Side Deafness on Listening Effort: A Prospective Comparative Study (2025)
+   Wenwen Su, Yuqi Xia, Caifeng Xia et al. — Laryngoscope Investigative Otolaryngology [article]
+   DOI: 10.1002/lio2.70185 | citações: 4 | https://openalex.org/W4412090000
+
+17. Chronic Joint Pain Drives Sex-Specific Changes in Hippocampal Glutamatergic Signaling and Sleep (2026)
+   Valeriia Stepanova, Noël Lefevre, Angel-Rose Villegas et al. — Research Square [preprint]
+   DOI: 10.21203/rs.3.rs-8752652/v1 | citações: 0 | https://openalex.org/W7130392498
+
+18. Beyond Negative Emotions: The Effects of Positive Emotions and Stealing Thunder on Organizational Outcomes After a Crisis (2025)
+   James Ndone — Journal of Contingencies and Crisis Management [article]
+   DOI: 10.1111/1468-5973.70075 | citações: 3 | https://openalex.org/W4413737775
+
+19. The role of the amygdala in processing social and affective touch (2021)
+   Katalin M. Gothard, Andrew J. Fuglevand — — [preprint]
+   DOI: 10.31234/osf.io/un9gs | citações: 2 | https://openalex.org/W4241150339
+
+20. Hierarchically and Temporally Distinct Ca 2+ Signaling Across Thalamic Nuclei During Nociceptive Stimulation (2026)
+   Yao-Hua Liu, Tian-Yu Zhao, Jin Cheng et al. — CNS Neuroscience & Therapeutics [article]
+   DOI: 10.1002/cns.71119 | citações: 0 | https://openalex.org/W7204955018
+
+21. Feeling the heat: Investigating interoception and motivation as risk factors for exertional heatstroke (2025)
+   Charles Verdonk, Camille Mellier, Keyne Charlot et al. — Physiological Reports [article]
+   DOI: 10.14814/phy2.70529 | citações: 2 | https://openalex.org/W4415312277
+
+22. Differential Cortical Oscillatory Patterns in Amputees With and Without Phantom Limb Pain (2021)
+   Zahra Bagheri, Reza Khosrowabadi, Javad Hatami et al. — Basic and Clinical Neuroscience Journal [article]
+   DOI: 10.32598/bcn.2021.261.1 | citações: 7 | https://openalex.org/W3208095516
+
+23. Evaluation of Rural Visual Landscape Quality Based on Multi-Source Affective Computing (2025)
+   Xinyu Zhao, Lin Lin, Xiao Juan Guo et al. — Applied Sciences [article]
+   DOI: 10.3390/app15094905 | citações: 1 | https://openalex.org/W4409920685
+
+24. Impacto das comunidades de consumidores no valor das marcas (2013)
+   Ana Patrícia Pinto Lima, José Dionísio, Carlos Alexandre Antunes de Brito — Portuguese National Funding Agency for Science, Research and Technology (RCAAP Project by FCT) [conference-paper]
+   DOI: sem DOI | citações: 1 | https://openalex.org/W2227164014
+
+25. TriNet-MTL: A Multi-Branch Deep Learning Framework for Biometric Identification and Cognitive State Inference from Auditory-Evoked EEG (2026)
+   Noor Fatima, Ghulam Nabi — eNeuro [article]
+   DOI: 10.1523/eneuro.0265-25.2025 | citações: 1 | https://openalex.org/W7127290179
+
+26. Are We Conflating Innovation Resistance With Innovation (Non‐)Adoption? A Reflection and Potential Resolution (2026)
+   Juliëtte van Acker, Bas Hillebrand, Simone M. Ritter et al. — Journal of Product Innovation Management [article]
+   DOI: 10.1111/jpim.70036 | citações: 1 | https://openalex.org/W7138941934
+
+27. Closed-Loop Deep Brain Stimulation for Refractory Chronic Pain (2019)
+   autoria não informada — Case Medical Research [article]
+   DOI: 10.31525/ct1-nct04144972 | citações: 0 | https://openalex.org/W4234177420
+
+28. RECALL: A COBOL-Inspired Publishing Language for the Web, and the Machine Legibility Dimensions Framework (2026)
+   Michael Shatny — Zenodo (CERN European Organization for Nuclear Research) [software]
+   DOI: 10.5281/zenodo.19463347 | citações: 0 | https://openalex.org/W7152038862
+
+29. RECALL: A COBOL-Inspired Publishing Language for the Web, and the Machine Legibility Dimensions Framework (2026)
+   Michael Shatny — Zenodo (CERN European Organization for Nuclear Research) [software]
+   DOI: 10.5281/zenodo.19463346 | citações: 0 | https://openalex.org/W7151744552
+
+30. Cognitively-Aware Generative Feedback: Integrating Learner State Modeling with Large Language Models for Adaptive Educational Support (2026)
+   Association for Computational Linguistics 2026, Mahule Roy, Subhas Roy — Underline Science Inc. [other]
+   DOI: 10.48448/4exa-nf83 | citações: 0 | https://openalex.org/W7170039102
+
+31. Machine Legibility Dimensions: A Framework for Evaluating Notations Where the Primary Reader Is an AI System (2026)
+   Michael Shatny — Zenodo (CERN European Organization for Nuclear Research) [software]
+   DOI: 10.5281/zenodo.19546589 | citações: 0 | https://openalex.org/W7153860243
+
+32. Machine Legibility Dimensions: A Framework for Evaluating Notations Where the Primary Reader Is an AI System (2026)
+   Michael Shatny — Zenodo (CERN European Organization for Nuclear Research) [software]
+   DOI: 10.5281/zenodo.19546590 | citações: 0 | https://openalex.org/W7153834654
+
+33. The CSR Mask of Corporate Irresponsibility: Inside the Historical Case Anatomy of Theranos’s CSR Rhetoric and CSI Practice (2026)
+   Pier Luigi Giardino, Matteo Cristofaro — — [book-chapter]
+   DOI: 10.1108/978-1-80686-157-620261003 | citações: 0 | https://openalex.org/W7134815790
+
+34. Vizualni programski jezik za sintezu zvuka i računalno stvaranje glazbe (2019)
+   Antonio Pošćić — — [dissertation]
+   DOI: sem DOI | citações: 0 | https://openalex.org/W2999252074
+
+35. Star Emergence: Beyond Performance to Social Capital and Status (2025)
+   Noor Nishan — Academy of Management Proceedings [conference-abstract]
+   DOI: 10.5465/amproc.2025.20161poster | citações: 0 | https://openalex.org/W4416004850
+
+36. EduGage: Methods and Dataset for Sensor-Based Momentary Assessment of Engagement in Self-Guided Video Learning (2026)
+   Zikang Leng, Edan Eyal, Yingtian Shi et al. — arXiv (Cornell University) [preprint]
+   DOI: 10.48550/arxiv.2605.01238 | citações: 0 | https://openalex.org/W7160330059
+
+37. Tapping the Differences Between Reward Processes and Executive Control for Efficient Brain-Machine Interfacing (BMI) Recovery in Post-Stroke Patients with Upper Limb Impairments (2024)
+   Gokul Krishna Raja Padmaja, Nikunj Arunkumar Bhagat, Pragathi Priyadharsini Balasubramani — — [conference-paper]
+   DOI: 10.1109/icon-bciht63907.2024.10882377 | citações: 0 | https://openalex.org/W4407737303
+
+38. Analysis as the Core Component of Intelligence and Counterintelligence Support in High-Risk Regime-Targeting Operations: A Theoretical and Comparative Study (2026)
+   Andrey Spiridonov — Zenodo (CERN European Organization for Nuclear Research) [preprint]
+   DOI: 10.5281/zenodo.18214079 | citações: 0 | https://openalex.org/W7122509488
+
+39. Analysis as the Core Component of Intelligence and Counterintelligence Support in High-Risk Regime-Targeting Operations: A Theoretical and Comparative Study (2026)
+   Andrey Spiridonov — Zenodo (CERN European Organization for Nuclear Research) [preprint]
+   DOI: 10.5281/zenodo.18214080 | citações: 0 | https://openalex.org/W7122682013
+
+40. Feeling the heat: Investigating interoception and motivation as risk factors for exertional heatstroke (2022)
+   Charles Verdonk, Camille Mellier, Keyne Charlot et al. — medRxiv [preprint]
+   DOI: 10.1101/2022.08.12.22278401 | citações: 0 | https://openalex.org/W4292185173
+
+41. LUME: Eliminating Cognitive Distance — A Deterministic Natural-Language Programming Language with Intent-Resolving Compilation, Voice Input, Certified Security, and Synthetic Organism Runtime (2026)
+   Ronald Jason Andrews — Zenodo (CERN European Organization for Nuclear Research) [preprint]
+   DOI: 10.5281/zenodo.19612948 | citações: 0 | https://openalex.org/W7154654057
+
+42. LUME: Eliminating Cognitive Distance - A Deterministic Natural-Language Programming Language with Intent-Resolving Compilation, Voice Input, Certified Security, and Synthetic Organism Runtime (2026)
+   Ronald Jason Andrews — Zenodo (CERN European Organization for Nuclear Research) [preprint]
+   DOI: 10.5281/zenodo.19825125 | citações: 0 | https://openalex.org/W7156257888
+
+43. LUME: Eliminating Cognitive Distance — A Deterministic Natural-Language Programming Language with Intent-Resolving Compilation, Voice Input, Certified Security, and Synthetic Organism Runtime (2026)
+   Ronald Jason Andrews — Zenodo (CERN European Organization for Nuclear Research) [preprint]
+   DOI: 10.5281/zenodo.19820001 | citações: 0 | https://openalex.org/W7156054010
+
+44. LUME: Eliminating Cognitive Distance — A Deterministic Natural-Language Programming Language with Intent-Resolving Compilation, Voice Input, Certified Security, and Synthetic Organism Runtime (2026)
+   Ronald Jason Andrews — Zenodo (CERN European Organization for Nuclear Research) [preprint]
+   DOI: 10.5281/zenodo.19645129 | citações: 0 | https://openalex.org/W7154856772
+
+45. LUME: Eliminating Cognitive Distance — A Deterministic Natural-Language Programming Language with Intent-Resolving Compilation, Voice Input, Certified Security, and Synthetic Organism Runtime (2026)
+   Ronald Jason Andrews — Zenodo (CERN European Organization for Nuclear Research) [preprint]
+   DOI: 10.5281/zenodo.19812043 | citações: 0 | https://openalex.org/W7156284639
+
+46. Pain and Its Modulation (2023)
+   Asaf Keller — Oxford Research Encyclopedia of Neuroscience [reference-entry]
+   DOI: 10.1093/acrefore/9780190264086.013.369 | citações: 0 | https://openalex.org/W4327976390
+
+47. LUME: Eliminating Cognitive Distance - A Deterministic Natural-Language Programming Language with Intent-Resolving Compilation, Voice Input, Certified Security, and Synthetic Organism Runtime (2026)
+   Ronald Jason Andrews — Zenodo (CERN European Organization for Nuclear Research) [preprint]
+   DOI: 10.5281/zenodo.20075074 | citações: 0 | https://openalex.org/W7160536305
+
+48. Decoding acupoint specificity: from neural patterns to bodily maps (2026)
+   Da-Eun Yoon, Yeonhee Ryu, Younbyoung Chae — Frontiers in Neuroscience [article]
+   DOI: 10.3389/fnins.2026.1815538 | citações: 4 | https://openalex.org/W7154147881
+
+49. Advancing A.I.: Mapping Human Psychological Complexity for Intelligent Systems (2026)
+   Vynolyn Naidoo Vynolyn Naidoo — Zenodo (CERN European Organization for Nuclear Research) [preprint]
+   DOI: 10.5281/zenodo.19354478 | citações: 0 | https://openalex.org/W7147104447
+
+50. Advancing A.I.: Mapping Human Psychological Complexity for Intelligent Systems (2026)
+   Vynolyn Naidoo Vynolyn Naidoo — Zenodo (CERN European Organization for Nuclear Research) [preprint]
+   DOI: 10.5281/zenodo.19298678 | citações: 0 | https://openalex.org/W7141874250
+

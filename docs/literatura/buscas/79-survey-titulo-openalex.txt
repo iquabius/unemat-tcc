@@ -1,0 +1,18 @@
+# OpenAlex title.search:"reactive programming" — 491 trabalhos; títulos com survey/review/mapping/overview/taxonomy/literature/systematic/landscape: 7
+  1995 | Systematic testing and formal verification to validate reactive programs | Software Quality Journal | article | https://doi.org/10.1007/bf00402649
+  2013 | A survey on reactive programming | ACM Computing Surveys | article | https://doi.org/10.1145/2501654.2501666
+  2025 | Review 1: "Single-cell Immune Profiling at Time of M. Tuberculosis Exposure Reveals Antigen-Reactive Programs that Predict Progression to Active Disease" | None | peer-review | https://doi.org/10.1162/2e3983f5.f42c862b
+  2025 | Review 2: "Single-cell Immune Profiling at Time of M. Tuberculosis Exposure Reveals Antigen-Reactive Programs that Predict Progression to Active Disease" | None | peer-review | https://doi.org/10.1162/2e3983f5.935143a9
+  2025 | Review 3: "Single-cell Immune Profiling at Time of M. Tuberculosis Exposure Reveals Antigen-Reactive Programs that Predict Progression to Active Disease" | None | peer-review | https://doi.org/10.1162/2e3983f5.9d8d6096
+  2025 | Review 4: "Single-cell Immune Profiling at Time of M. Tuberculosis Exposure Reveals Antigen-Reactive Programs that Predict Progression to Active Disease" | None | peer-review | https://doi.org/10.1162/2e3983f5.40f57c94
+  2025 | Reviews of "Single-cell Immune Profiling at Time of M. Tuberculosis Exposure Reveals Antigen-Reactive Programs that Predict Progression to Active Disease" | None | peer-review | https://doi.org/10.1162/2e3983f5.5432efa9
+# OpenAlex title.search:"functional reactive" — 322 trabalhos; títulos com survey/review/mapping/overview/taxonomy/literature/systematic/landscape: 1
+  2022 | Functionalized reactive polymers for the removal of chemical warfare agents: A review | Journal of Hazardous Materials | article | https://doi.org/10.1016/j.jhazmat.2022.130015
+# OpenAlex title.search:"reactive programming" OR "reactive language" — 510 trabalhos; títulos com survey/review/mapping/overview/taxonomy/literature/systematic/landscape: 7
+  1995 | Systematic testing and formal verification to validate reactive programs | Software Quality Journal | article | https://doi.org/10.1007/bf00402649
+  2013 | A survey on reactive programming | ACM Computing Surveys | article | https://doi.org/10.1145/2501654.2501666
+  2025 | Review 1: "Single-cell Immune Profiling at Time of M. Tuberculosis Exposure Reveals Antigen-Reactive Programs that Predict Progression to Active Disease" | None | peer-review | https://doi.org/10.1162/2e3983f5.f42c862b
+  2025 | Review 2: "Single-cell Immune Profiling at Time of M. Tuberculosis Exposure Reveals Antigen-Reactive Programs that Predict Progression to Active Disease" | None | peer-review | https://doi.org/10.1162/2e3983f5.935143a9
+  2025 | Review 3: "Single-cell Immune Profiling at Time of M. Tuberculosis Exposure Reveals Antigen-Reactive Programs that Predict Progression to Active Disease" | None | peer-review | https://doi.org/10.1162/2e3983f5.9d8d6096
+  2025 | Review 4: "Single-cell Immune Profiling at Time of M. Tuberculosis Exposure Reveals Antigen-Reactive Programs that Predict Progression to Active Disease" | None | peer-review | https://doi.org/10.1162/2e3983f5.40f57c94
+  2025 | Reviews of "Single-cell Immune Profiling at Time of M. Tuberculosis Exposure Reveals Antigen-Reactive Programs that Predict Progression to Active Disease" | None | peer-review | https://doi.org/10.1162/2e3983f5.5432efa9

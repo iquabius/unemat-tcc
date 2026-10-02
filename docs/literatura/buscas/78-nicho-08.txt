@@ -1,0 +1,26 @@
+# Busca: 'signals reactivity JavaScript framework' — 6 resultados no OpenAlex (mostrando 6, ordem: relevancia)
+
+1. Implementing Micro Frontends Using Signal-based Web Components (2022)
+   Yuma Nishizu, Tetsuo Kamina — Journal of Information Processing [article]
+   DOI: 10.2197/ipsjjip.30.505 | citações: 11 | https://openalex.org/W4291517574
+
+2. The DS-Pnet modeling formalism for cyber-physical system development (2017)
+   Fernando Pereira — New University of Lisbon's Repository (New University of Lisbon) [dissertation]
+   DOI: sem DOI | citações: 1 | https://openalex.org/W2786970829
+
+3. Digital Twin for Device to Device Communication (2025)
+   R Deekshitha, R. Bhagya, Bharathi R et al. — — [conference-paper]
+   DOI: 10.1109/csitss67709.2025.11294106 | citações: 1 | https://openalex.org/W4417508893
+
+4. A Unified Distributed Computing Framework with Mobile Multi-Agent Systems and Virtual Machines for Large-Scale Applications: From the Internet-of-Things to Sensor Clouds (2015)
+   Stefan Bosse — Annals of Computer Science and Information Systems [conference-paper]
+   DOI: 10.15439/2015f252 | citações: 0 | https://openalex.org/W2294573779
+
+5. Loom: Unifying Client-Side Web Technologies in a Single Programming Language (2017)
+   Nuno Castro Martins — New University of Lisbon's Repository (New University of Lisbon) [dissertation]
+   DOI: sem DOI | citações: 0 | https://openalex.org/W2942480423
+
+6. GETTING AND ANALYZING STUDENT FEEDBACK IN SYNCHRONOUS TEACHING (2025)
+   Stefano Lariccia, Maja Vujičić, Giovanni Toffoli et al. — INTED proceedings [conference-paper]
+   DOI: 10.21125/inted.2025.0475 | citações: 0 | https://openalex.org/W4408871058
+

@@ -1,0 +1,79 @@
+# BDTD: 'usabilidade de linguagens de programação' — 19 resultados (mostrando 19)
+# A BDTD não filtra por área aqui: descarte o que for de outro campo.
+
+1. Python e Fortran como ferramenta na resolução de problemas de Matemática e Física (2020)
+   Leite, Gustavo Nogueira — UECE [dissertação]
+   https://siduece.uece.br/siduece/trabalhoAcademicoPublico.jsf?id=98693
+
+2. Automação de processos de projeto e programação em BIM: Dynamo, Python e C# (2019)
+   Sena, Paulo Cézar Peixoto de — USP [dissertação]
+   —
+
+3. A tool to promote multilevel analysis of survey data (2019)
+   OLIVEIRA, Marcela Pereira de — UFPE [dissertação]
+   https://repositorio.ufpe.br/handle/123456789/41287
+
+4. SSPOT-VR: Uma Estação Espacial em Realidade Virtual para Treinamento em Programação (2021)
+   Avellar, Gustavo Martins Nunes — USP [dissertação]
+   —
+
+5. FDRobô: um framework didático para auxiliar o ensino de linguagem de programação adaptada ao método de aprendizagem cooperativa e competitiva (2016)
+   Picanço, Wollace de Souza — UFAM [dissertação]
+   http://tede.ufam.edu.br/handle/tede/5409
+
+6. Framework PON C++ 4.0: contribuição para a concepção de aplicações no paradigma orientado a notificações por meio de programação genérica (2021)
+   Neves, Felipe dos Santos — UTFPR [dissertação]
+   http://repositorio.utfpr.edu.br/jspui/handle/1/26270
+
+7. Desenvolvimento e usabilidade da plataforma digital Apneia Conecte para acompanhamento da funcionalidade de indivíduos com apneia obstrutiva do sono tratados com CPAP no Sistema Único de Saúde do Estado do Ceará (2024)
+   Dias, Ekaterine Araújo — UFC [dissertação]
+   http://repositorio.ufc.br/handle/riufc/79630
+
+8. Gifflar: um framework para geração de contratos inteligentes em tempo de execução. (2023)
+   Santiago, Levy Marlon Souza — UFBA [dissertação]
+   https://repositorio.ufba.br/handle/ri/37864
+
+9. LinDCQ : uma linguagem para descrição de circuitos quânticos que possibilita o cálculo das operações na GPU utilizando JOCL (2015)
+   GOMES, Mouglas Eugênio Nasário — UFRPE [dissertação]
+   http://www.tede2.ufrpe.br:8080/tede2/handle/tede2/6237
+
+10. OpenMLPerf - graphical domain-specific modeling language for performance testing in web systems (2023)
+   Carbonell, João Batista Pedroso — UNIPAMPA [dissertação]
+   https://repositorio.unipampa.edu.br/jspui/handle/riu/9184
+
+11. [pt] DESENVOLVIMENTO DE UMA APLICAÇÃO WEB PARA MODELAGEM COLABORATIVA (2022)
+   RODRIGO LUCAS SOARES — PUC_RIO [tese]
+   https://www.maxwell.vrac.puc-rio.br/colecao.php?strSecao=resultado&nrSeq=58721&idi=1
+
+12. A PWA na gestão de informação: um exemplo de protótipo sobre a realidade aumentada (2020)
+   Bermejo, Ewerton da Silva [UNESP] — UNESP [dissertação]
+   http://hdl.handle.net/11449/192665
+
+13. Transforming ontology-based conceptual models into relational schemas (2023)
+   Guidoni, Gustavo Ludovico — UFES [tese]
+   http://repositorio.ufes.br/handle/10/16883
+
+14. Easing the benchmarking of parallel stream processing on multi-cores (2023)
+   Garcia, Adriano Marques — PUC_RS [tese]
+   https://tede2.pucrs.br/tede2/handle/tede/10884
+
+15. Novo Pac-English: jogo educacional para o desenvolvimento da pronúncia de palavras em inglês / (2025)
+   Barbosa, Cléber Pimentel — CEFET [tese]
+   https://repositorio.cefetmg.br//handle/123456789/1263
+
+16. Plataforma automatizada e normatizada de monitoração, verificação e gestão de índices de energia (2014)
+   Castro, Renato Ely — UFRGS [dissertação]
+   http://hdl.handle.net/10183/96660
+
+17. AVAVOZ - mediando as relações de navegabilidade e interação de pessoas com deficiência visual e o moodle. (2015)
+   Araújo, Jaciane Ferreira — SENAI CIMATEC [dissertação]
+   http://repositoriosenaiba.fieb.org.br/handle/fieb/772
+
+18. Reflexões acerca do roleplaying game (RPG) na educação: revisão de literatura e outros desdobramentos (2019)
+   Oliveira, Arthur Barbosa de — UFT [dissertação]
+   http://hdl.handle.net/11612/2414
+
+19. Transforming Ontology-Based Conceptual Models into Relational Schemas (2023)
+   Guidoni, Gustavo Ludovico — IFES [tese]
+   https://repositorio.ifes.edu.br/handle/123456789/3280
+

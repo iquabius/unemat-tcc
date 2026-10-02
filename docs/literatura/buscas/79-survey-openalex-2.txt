@@ -1,0 +1,202 @@
+# Busca: 'reactive programming systematic' — 1994 resultados no OpenAlex (mostrando 50, ordem: relevancia)
+
+1. Do workplace-based mindfulness meditation programs improve physiological indices of stress? A systematic review and meta-analysis (2018)
+   Rachael A. Heckenberg, Pennie J. Eddy, Stephen Kent et al. — Journal of Psychosomatic Research [review]
+   DOI: 10.1016/j.jpsychores.2018.09.010 | citações: 236 | https://openalex.org/W2894477010
+
+2. Sex differences in early-life programming of the hypothalamic–pituitary–adrenal axis in humans suggest increased vulnerability in females: a systematic review (2017)
+   Trevor K. Carpenter, Sheila M. Grecian, Rebecca M. Reynolds — Journal of Developmental Origins of Health and Disease [review]
+   DOI: 10.1017/s204017441600074x | citações: 197 | https://openalex.org/W2574374105
+
+3. Open-access bacterial population genomics: BIGSdb software, the PubMLST.org website and their applications (2018)
+   Keith A. Jolley, James E. Bray, Martin C. J. Maiden — Wellcome Open Research [article]
+   DOI: 10.12688/wellcomeopenres.14826.1 | citações: 3733 | https://openalex.org/W2891078715
+
+4. The effect of exercise training programs with aerobic components on C‐reactive protein, erythrocyte sedimentation rate and self‐assessed disease activity in people with ankylosing spondylitis: A systematic review and meta‐analysis (2022)
+   Conrad Harpham, Quillon Harpham, ALAN ROBERT BARKER — International Journal of Rheumatic Diseases [review]
+   DOI: 10.1111/1756-185x.14315 | citações: 20 | https://openalex.org/W4221085730
+
+5. Study of high density polyethylene (HDPE) pyrolysis with reactive molecular dynamics (2014)
+   Xiaolong Liu, Xiaoxia Li, Jian Liu et al. — Polymer Degradation and Stability [article]
+   DOI: 10.1016/j.polymdegradstab.2014.03.022 | citações: 200 | https://openalex.org/W1968413265
+
+6. Portfolio Dietary Pattern and Cardiovascular Disease: A Systematic Review and Meta-analysis of Controlled Trials (2018)
+   Laura Chiavaroli, Stephanie K. Nishi, Tauseef Ahmad Khan et al. — Progress in Cardiovascular Diseases [review]
+   DOI: 10.1016/j.pcad.2018.05.004 | citações: 234 | https://openalex.org/W2804293659
+
+7. Systematic testing of asynchronous reactive systems (2015)
+   Ankush Desai, Shaz Qadeer, Sanjit A. Seshia — — [conference-paper]
+   DOI: 10.1145/2786805.2786861 | citações: 30 | https://openalex.org/W2087019828
+
+8. Selecting Therapeutic Targets in Inflammatory Bowel Disease (STRIDE): Determining Therapeutic Goals for Treat-to-Target (2015)
+   Laurent Peyrin‐Biroulet, William J. Sandborn, Bruce E. Sands et al. — The American Journal of Gastroenterology [article]
+   DOI: 10.1038/ajg.2015.233 | citações: 1864 | https://openalex.org/W2149170290
+
+9. A Review of Agent-Based Programming for Multi-Agent Systems (2021)
+   Rafael Cauê Cardoso, Angelo Ferrando — Computers [article]
+   DOI: 10.3390/computers10020016 | citações: 133 | https://openalex.org/W3121694942
+
+10. Effect of Different Exercise Modalities on Oxidative Stress: A Systematic Review (2021)
+   Anand Thirupathi, Meizi Wang, Ji Kai Lin et al. — BioMed Research International [review]
+   DOI: 10.1155/2021/1947928 | citações: 151 | https://openalex.org/W3129027105
+
+11. Associations Between Measures of Balance and Lower-Extremity Muscle Strength/Power in Healthy Individuals Across the Lifespan: A Systematic Review and Meta-Analysis (2015)
+   Thomas Muehlbauer, Albert Gollhofer, Urs Granacher — Sports Medicine [review]
+   DOI: 10.1007/s40279-015-0390-z | citações: 290 | https://openalex.org/W2180018327
+
+12. Top 10 Research Questions Related to Assessing Physical Activity and Its Contexts Using Systematic Observation (2015)
+   Thomas L. McKenzie, Hans van der Mars — Research Quarterly for Exercise and Sport [article]
+   DOI: 10.1080/02701367.2015.991264 | citações: 140 | https://openalex.org/W1976550290
+
+13. Influence of reactive balance training program characteristics on reactive balance control and fall risk: a systematic review and meta-analysis (2025)
+   Hadas Nachmani, Laura Kathleen Langer, Augustine Joshua Devasahayam et al. — medRxiv [preprint]
+   DOI: 10.1101/2025.08.01.25332828 | citações: 2 | https://openalex.org/W4413030617
+
+14. Viatra 3: A Reactive Model Transformation Platform (2015)
+   Gábor Bergmann, István Dávid, Ábel Hegedüs et al. — Lecture notes in computer science [conference-paper]
+   DOI: 10.1007/978-3-319-21155-8_8 | citações: 60 | https://openalex.org/W948185142
+
+15. An immunogenic personal neoantigen vaccine for patients with melanoma (2017)
+   Patrick Alexander Ott, Zhuting Hu, Derin B. Keskin et al. — Nature [article]
+   DOI: 10.1038/nature22991 | citações: 3034 | https://openalex.org/W2728365508
+
+16. Effect of Running Exercise on Oxidative Stress Biomarkers: A Systematic Review (2021)
+   Anand Thirupathi, Ricardo A. Pinho, Ukadike Chris Ugbolue et al. — Frontiers in Physiology [review]
+   DOI: 10.3389/fphys.2020.610112 | citações: 86 | https://openalex.org/W3121926018
+
+17. Programmable High-Throughput Platform for the Rapid and Scalable Synthesis of Polyester and Polycarbonate Libraries (2019)
+   Binhong Lin, James L. Hedrick, Nathaniel H. Park et al. — Journal of the American Chemical Society [article]
+   DOI: 10.1021/jacs.9b02450 | citações: 112 | https://openalex.org/W2946620032
+
+18. Childhood socioeconomic status and inflammation: A systematic review and meta-analysis (2019)
+   Izabela Milaniak, Sara R. Jaffee — Brain Behavior and Immunity [review]
+   DOI: 10.1016/j.bbi.2019.01.018 | citações: 92 | https://openalex.org/W2912175989
+
+19. Programmed death-ligand 1 (PD-L1) is expressed in a significant number of the uterine cervical carcinomas (2017)
+   Opal L. Reddy, Peter I. Shintaku, Neda A. Moatamed — Diagnostic Pathology [article]
+   DOI: 10.1186/s13000-017-0631-6 | citações: 128 | https://openalex.org/W2626715571
+
+20. How to Improve the Reactive Strength Index among Male Athletes? A Systematic Review with Meta-Analysis (2022)
+   André Rebelo, João R. Pereira, Diogo V. Martinho et al. — Healthcare [review]
+   DOI: 10.3390/healthcare10040593 | citações: 31 | https://openalex.org/W4220936964
+
+21. Systematic identification of anticancer drug targets reveals a nucleus-to-mitochondria ROS-sensing pathway (2023)
+   Junbing Zhang, Claire M. Simpson, Jacqueline Berner et al. — Cell [article]
+   DOI: 10.1016/j.cell.2023.04.026 | citações: 150 | https://openalex.org/W4376604832
+
+22. Does C-reactive Protein Have a Predictive Role in the Early Diagnosis of Postoperative Complications After Bariatric Surgery? Systematic Review and Bayesian Meta-analysis (2019)
+   Davide Bona, Giancarlo Micheletto, Gianluca Bonitta et al. — Obesity Surgery [review]
+   DOI: 10.1007/s11695-019-04013-0 | citações: 53 | https://openalex.org/W2954337411
+
+23. Strength, rate of force development, power and reactive strength in adult male athletic populations post anterior cruciate ligament reconstruction - A systematic review and meta-analysis (2020)
+   Luca Maestroni, Paul James Read, Anthony Nicholas Turner et al. — Physical Therapy in Sport [review]
+   DOI: 10.1016/j.ptsp.2020.11.024 | citações: 49 | https://openalex.org/W3100165760
+
+24. Acidity-Reactivity Relationships in Catalytic Esterification over Ammonium Sulfate-Derived Sulfated Zirconia (2017)
+   Abdallah I.M. Rabee, Gamal A. H. Mekhemer, Amin Osatiashtiani et al. — Catalysts [article]
+   DOI: 10.3390/catal7070204 | citações: 65 | https://openalex.org/W2727972823
+
+25. Systemic Inflammation, Oxidative Stress and Cardiovascular Health in Children and Adolescents: A Systematic Review (2022)
+   Tjaša Hertiš Petek, Tjaša Hertiš Petek, Mirjam Močnik et al. — Antioxidants [review]
+   DOI: 10.3390/antiox11050894 | citações: 83 | https://openalex.org/W4225254841
+
+26. Optimal planning of static and dynamic reactive power resources (2014)
+   Haifeng Liu, Venkat Kumar Krishnan, James D. McCalley et al. — IET Generation Transmission & Distribution [article]
+   DOI: 10.1049/iet-gtd.2014.0081 | citações: 47 | https://openalex.org/W2316748625
+
+27. Prognostic factors and outcomes in metastatic uveal melanoma treated with programmed cell death-1 or combined PD-1/cytotoxic T-lymphocyte antigen-4 inhibition (2017)
+   Markus Vincent Heppt, Lucie Heinzerling, Katharina Charlotte Kähler et al. — European Journal of Cancer [article]
+   DOI: 10.1016/j.ejca.2017.05.038 | citações: 205 | https://openalex.org/W2650204451
+
+28. Influence of Reactive Balance Training Program Characteristics on Reactive Balance Control and Fall Risk: A Systematic Review and Meta-Regression (2026)
+   Hadas Nachmani, Laura Kathleen Langer, Augustine Joshua Devasahayam et al. — Gerontology [review]
+   DOI: 10.1159/000552354 | citações: 1 | https://openalex.org/W7160612175
+
+29. Prognostic value of circulating C-reactive protein levels in patients with non-small cell lung cancer: A systematic review with meta-analysis (2014)
+   Xinmin Yu, Ying Jin, Yan Sun et al. — Journal of Cancer Research and Therapeutics [article]
+   DOI: 10.4103/0973-1482.145854 | citações: 38 | https://openalex.org/W2039208706
+
+30. Mixture Optimization of Green Reactive Powder Concrete with Recycled Powder (2019)
+   XinQi Mao, Wenjun Qu, Peng Zhu — Journal of Materials in Civil Engineering [article]
+   DOI: 10.1061/(asce)mt.1943-5533.0002663 | citações: 45 | https://openalex.org/W2916813843
+
+31. Design strategies for physical-stimuli-responsive programmable nanotherapeutics (2018)
+   Fitsum Feleke Sahle, Muhammad Gulfam, Tao Lu Lowe — Drug Discovery Today [article]
+   DOI: 10.1016/j.drudis.2018.04.003 | citações: 101 | https://openalex.org/W2798129475
+
+32. The anti-inflammatory effects of exercise on autoimmune diseases: A 20-year systematic review (2024)
+   Beibei Luo, Dao Xiang, Xiaorong Ji et al. — Journal of sport and health science/Journal of Sport and Health Science [review]
+   DOI: 10.1016/j.jshs.2024.02.002 | citações: 70 | https://openalex.org/W4391691305
+
+33. Reactive Oxygen Species Across Death Pathways: Gatekeepers of Apoptosis, Ferroptosis, Pyroptosis, Paraptosis, and Beyond (2025)
+   Noah Sendtner, Rebecca Seitz, Noah Brandl et al. — International Journal of Molecular Sciences [article]
+   DOI: 10.3390/ijms262010240 | citações: 58 | https://openalex.org/W4415401938
+
+34. Predicting Outcomes in Pediatric Ulcerative Colitis for Management Optimization: Systematic Review and Consensus Statements From the Pediatric Inflammatory Bowel Disease–Ahead Program (2020)
+   Esther Orlanski‐Meyer, Martine A. Aardoom, Amanda Ricciuto et al. — Gastroenterology [review]
+   DOI: 10.1053/j.gastro.2020.07.066 | citações: 64 | https://openalex.org/W3137851134
+
+35. Toxicity of engineered nanomaterials to aquatic and land snails: A scientometric and systematic review (2020)
+   Maxwell Batista Caixeta, Paula Sampaio Araújo, Bruno Bastos Gonçalves et al. — Chemosphere [review]
+   DOI: 10.1016/j.chemosphere.2020.127654 | citações: 94 | https://openalex.org/W3040701080
+
+36. Thermodynamic Stability, Redox Properties, and Reactivity of Mn3O4, Fe3O4, and Co3O4 Model Catalysts for N2O Decomposition: Resolving the Origins of Steady Turnover (2016)
+   Jan Kaczmarczyk, Filip Zasada, Janusz Janas et al. — ACS Catalysis [article]
+   DOI: 10.1021/acscatal.5b02642 | citações: 137 | https://openalex.org/W2265284740
+
+37. Reactive Oxygen Species and Their Consequences on the Structure and Function of Mammalian Spermatozoa (2021)
+   Joël R. Drevet, Jorge Hallak, Mohammad-Hossein Nasr-Esfahani et al. — Antioxidants and Redox Signaling [article]
+   DOI: 10.1089/ars.2021.0235 | citações: 44 | https://openalex.org/W4200442544
+
+38. Plyometric-Jump Training Effects on Physical Fitness and Sport-Specific Performance According to Maturity: A Systematic Review with Meta-analysis (2023)
+   Rodrigo Ramírez‐Campillo, Andrew Sortwell, Jason Moran et al. — Sports Medicine - Open [review]
+   DOI: 10.1186/s40798-023-00568-6 | citações: 89 | https://openalex.org/W4363646669
+
+39. Effects of different dietary approaches on inflammatory markers in patients with metabolic syndrome: A systematic review and meta-analysis (2015)
+   Nico Steckhan, Christoph-Daniel Hohmann, Christian S. Keßler et al. — Nutrition [review]
+   DOI: 10.1016/j.nut.2015.09.010 | citações: 113 | https://openalex.org/W1877993211
+
+40. Risk Management and Patient Safety in the Artificial Intelligence Era: A Systematic Review (2024)
+   Michela Ferrara, Giuseppe Bertozzi, Nicola Di Fazio et al. — Healthcare [review]
+   DOI: 10.3390/healthcare12050549 | citações: 51 | https://openalex.org/W4392198021
+
+41. Effectiveness of online mindfulness interventions on medical students’ mental health: a systematic review (2021)
+   Vaidehi Yogeswaran, Christo El Morr — BMC Public Health [review]
+   DOI: 10.1186/s12889-021-12341-z | citações: 54 | https://openalex.org/W4200422771
+
+42. Programmed Death-Ligand 1, C-reactive Protein, and Neutrophil/Lymphocyte Ratio as Lymphangiogenesis Markers of Metastasis in Penile Cancer – A Systematic Review (2023)
+   ⁠I Wayan Yudiana, Stacia Novia Marta, Ronald Sugianto et al. — Forum of Clinical Oncology [review]
+   DOI: 10.2478/fco-2023-0010 | citações: 1 | https://openalex.org/W4390482742
+
+43. Variation in Behavioral Reactivity Is Associated with Cooperative Restraint Training Efficiency. (2016)
+   Eliza Bliss‐Moreau, Gilda Moadab — PubMed [article]
+   DOI: sem DOI | citações: 26 | https://openalex.org/W2473768667
+
+44. A systematic review of equine personality (2020)
+   Ellen M. Rankins, Carissa  Lee Wickens — Applied Animal Behaviour Science [review]
+   DOI: 10.1016/j.applanim.2020.105076 | citações: 39 | https://openalex.org/W3042906918
+
+45. The tissue-resident regulatory T cell pool is shaped by transient multi-tissue migration and a conserved residency program (2024)
+   Oliver T. Burton, Orian Bricard, Samar Hayat Khan Tareen et al. — Immunity [article]
+   DOI: 10.1016/j.immuni.2024.05.023 | citações: 118 | https://openalex.org/W4399775270
+
+46. Design strategies for chemical-stimuli-responsive programmable nanotherapeutics (2018)
+   Muhammad Gulfam, Fitsum Feleke Sahle, Tao Lu Lowe — Drug Discovery Today [article]
+   DOI: 10.1016/j.drudis.2018.09.019 | citações: 62 | https://openalex.org/W4211159420
+
+47. Systematic Study of the Reaction Kinetics for HMX (2015)
+   Yao Long, Jun Chen — The Journal of Physical Chemistry A [article]
+   DOI: 10.1021/jp509144v | citações: 39 | https://openalex.org/W2315304024
+
+48. Emerging mechanisms and targeted therapy of ferroptosis in cancer (2021)
+   Haiyan Wang, Yan Cheng, Chao Mao et al. — Molecular Therapy [article]
+   DOI: 10.1016/j.ymthe.2021.03.022 | citações: 325 | https://openalex.org/W3147852499
+
+49. Insights on the reactivity of ordered porous carbons exposed to different fluorinating agents and conditions (2014)
+   Camélia Matei Ghimbeu, Katia Guérin, Marc Dubois et al. — Carbon [article]
+   DOI: 10.1016/j.carbon.2014.12.034 | citações: 31 | https://openalex.org/W2093840587
+
+50. Comparative effectiveness of exercise interventions for preventing falls in older adults: A secondary analysis of a systematic review with network meta-analysis (2020)
+   Kathryn M. Sibley, Sonia M. Thomas, Areti Angeliki Veroniki et al. — Experimental Gerontology [review]
+   DOI: 10.1016/j.exger.2020.111151 | citações: 58 | https://openalex.org/W3104551890
+

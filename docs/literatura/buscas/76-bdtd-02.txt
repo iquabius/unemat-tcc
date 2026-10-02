@@ -1,0 +1,47 @@
+# BDTD: 'programação funcional reativa' — 11 resultados (mostrando 11)
+# A BDTD não filtra por área aqui: descarte o que for de outro campo.
+
+1. ASYNCRFJ: uma abordagem assíncrona à programação orientada a objeto reativa (2018)
+   Cardoso, Diogo João — UFSM [dissertação]
+   http://repositorio.ufsm.br/handle/1/16315
+
+2. [pt] PROGRAMANDO REDES DE SENSORES SEM FIO COM SCRIPTS SOBRE COMPONENTES CUSTOMIZADOS (2016)
+   ADRIANO FRANCISCO BRANCO — PUC_RIO [tese]
+   https://www.maxwell.vrac.puc-rio.br/colecao.php?strSecao=resultado&nrSeq=26573&idi=1
+
+3. Programação perinatal : estudo do possível papel neuroprotetor do azeite de oliva sobre o comportamento e o metabolismo da prole adulta submetida à separação materna (2022)
+   Machado, Alessandra Gonçalves — UFRGS [tese]
+   http://hdl.handle.net/10183/249890
+
+4. Investigação funcional inflamatória da linhagem microglial C20 em resposta a TNF&#945; e ATP e do papel do receptor P2Y12 (2024)
+   Silva, Jean Bezerra — USP [dissertação]
+   —
+
+5. Influência das vesículas extracelulares liberadas por células tumorais de mama na modulação fenotípica e funcional de monócitos humanos (2025)
+   Almeida, Palloma Porto — UERJ [tese]
+   http://www.bdtd.uerj.br/handle/1/24981
+
+6. Efeito do óleo de peixe sobre a modulação de depósitos de gorduras viscerais, estresse oxidativo e funcionalidade de macrófagos peritoneais de ratos wistar induzidos à obesidade (2022)
+   Comotti Oliveira, B. — UFPR [tese]
+   https://hdl.handle.net/1884/90315
+
+7. Restrição calórica materna no último terço gestacional e as consequências de curto e longo prazo sobre o metabolismo da prole (2021)
+   Parrela, Jocemara Patricia Silva de Souza — UFMT [dissertação]
+   —
+
+8. Impacto do estresse precoce por separação materna no eixo intestino-cérebro : modulação de marcadores inflamatórios e potencial neuroprotetor do óleo de linhaça (2025)
+   Smaniotto, Thiago Ângelo — UFRGS [tese]
+   http://hdl.handle.net/10183/298892
+
+9. Identificação de alvos oncogênicos na próstata de ratos expostos a misturas de ftalatos durante o desenvolvimento perinatal: estudo transgeracional (2023)
+   Ariana Musa de Aquino [UNESP] — UNESP [tese]
+   https://hdl.handle.net/11449/251282
+
+10. Migração de redes tradicionais para SDN (2018)
+   Barbosa, Renan Rodrigo — USP [dissertação]
+   —
+
+11. Estratégias para aumentar a eficiência reprodutiva em fêmeas bovinas submetidas à IATF (2022)
+   Couto, Samuel Rodrigues Bonamichi do — UFRRJ [tese]
+   https://rima.ufrrj.br/jspui/handle/20.500.14407/17644
+

@@ -1,0 +1,203 @@
+# BDTD: 'desenvolvimento web declarativo' — 74 resultados (mostrando 50)
+# A BDTD não filtra por área aqui: descarte o que for de outro campo.
+
+1. Web-REFlex: uma solução para evitar Context Tunneling na execução de processos de negócio declarativos (2017)
+   COÊLHO, Rafael Isaias Rodrigues — UFPE [dissertação]
+   https://repositorio.ufpe.br/handle/123456789/27690
+
+2. O conhecimento enciclopédico colaborativo e suas influências no desenvolvimento da Web Pragmática (2024)
+   Decarli, Gian Carlo — UEL [dissertação]
+   https://repositorio.uel.br/handle/123456789/15970
+
+3. Aplicação de recomendações de acessibilidade digital na web no site www.uai-online.com: em busca da redução das barreiras de acesso para pessoas com deficiência (2021)
+   LOMONACO JUNIOR, Fabiano Gonçalves — UNIFEI [dissertação]
+   https://repositorio.unifei.edu.br/jspui/handle/123456789/2295
+
+4. Medindo um envolvimento paterno multidimensional: validação brasileira do inventory of father involvement (2016)
+   Santis, Ligia de — UFSCAR [dissertação]
+   https://repositorio.ufscar.br/handle/20.500.14289/10404
+
+5. Objetos de aprendizagem multimídia provenientes da captura ubíqua de apresentações multimodais: produção, interação e análise (2013)
+   Viel, Caio César — UFSCAR [dissertação]
+   https://repositorio.ufscar.br/handle/20.500.14289/535
+
+6. Desenvolvimento de um sistema de avaliação de habilidades específicas para o futebol (2023)
+   Menegassi, Vanessa Menezes — UEM [tese]
+   http://repositorio.uem.br:8080/jspui/handle/1/8208
+
+7. Desenvolvimento e validação do MAFMINE v3.1 : estimativas paramétricas de CAPEX e OPEX para projetos de mineração (2026)
+   D'Arrigo, Rafael Freitas — UFRGS [tese]
+   http://hdl.handle.net/10183/312896
+
+8. Software aplicativo Nitdown responde: dúvidas jurídicas sobre Direito das Pessoas com Deficiência (2023)
+   Silva, Daniele Sant anna da — UFF [dissertação]
+   http://app.uff.br/riuff/handle/1/29948
+
+9. Habilidades culinárias: impacto de seu desenvolvimento e estudo de fatores associados em universitários (2025)
+   Andrade, Eva Débora de Oliveira — UFRN [tese]
+   https://repositorio.ufrn.br/handle/123456789/65750
+
+10. O ICMS Ecológico e o desenvolvimento territorial sustentável em ambientes de montanha – O caso de Petrópolis (RJ) (2018)
+   Ferreira, Antonio Francisco Ritter — UFRRJ [tese]
+   https://rima.ufrrj.br/jspui/handle/20.500.14407/9862
+
+11. Comportamento de busca e recuperação da informação em serviços de descoberta em rede no contexto acadêmico (2014)
+   Pavão, Caterina Marta Groposo — UFRGS [tese]
+   http://hdl.handle.net/10183/96705
+
+12. Seleção de coleções de livros digitais nas universidades públicas brasileiras (2013)
+   Magalhães, Carolina de Souza Santana — UFBA [dissertação]
+   http://repositorio.ufba.br/ri/handle/ri/15021
+
+13. Um estudo sobre o desenvolvimento de produtos digitais acessíveis dos pontos de vista gerencial e estratégico das organizações (2023)
+   Silveira, Luis Andre da — USP [dissertação]
+   —
+
+14. A evolução das habilidades cognitivas de raciocínio lógico em tecnologia da informação (2017)
+   Regebe, Fernanda — UFBA [tese]
+   http://repositorio.ufba.br/ri/handle/ri/24943
+
+15. A valorização das patentes na área de Química (2018)
+   FERREIRA, Valéria Vitor Resende — UFTM [dissertação]
+   http://bdtd.uftm.edu.br/handle/tede/617
+
+16. Aprendizagem para a sustentabilidade: análise das ações de educação corporativa de uma empresa brasileira de engenharia (2018)
+   Cunha, Danielle Serieiro Alberto — UFF [dissertação]
+   https://app.uff.br/riuff/handle/1/9156
+
+17. Seleção de coleções de livros digitais nas universidades públicas brasileiras (2013)
+   Magalhães, Carolina de Souza Santana — UFBA [dissertação]
+   http://repositorio.ufba.br/ri/handle/ri/18940
+
+18. Controvérsias entre produção agrícola e meio ambiente: a coprodução entre ciência e política na formulação e implementação do Novo Código Florestal. (2024)
+   Amstel, Jay Marinus Nalini Van — UFRRJ [tese]
+   https://rima.ufrrj.br/jspui/handle/20.500.14407/23515
+
+19. Desenvolvimento de um banco de fotografias e vídeos de expressões emocionais de crianças brasileiras de quatro a seis anos. Facial Affective Brazilian Set - children image and vídeo database (FABS) (2019)
+   Negrão, Juliana Gioia — MACKENZIE [tese]
+   http://dspace.mackenzie.br/handle/10899/24577
+
+20. Avaliação da proposta de readaptação e otimização dos contratos de concessão de rodovias federais como alternativa para solução de projetos com amplo descumprimento contratual (2024)
+   autoria não informada — BNDES [tese]
+   http://web.bndes.gov.br/bib/jspui/handle/1408/26907
+
+21. Autorregulação da saúde na educação física escolar: uma proposta de ensino na educação de jovens e adultos (2018)
+   Rocha, Italo dos Santos — CP2 [dissertação]
+   https://petrus.cp2.g12.br/handle/123456789/1940
+
+22. Acessibilidade na aquisição e implantação de sistemas de governo digital (2021)
+   Cordeiro, Aline Couto Oliveira — UFLA [dissertação]
+   —
+
+23. Produção de ciência e tecnologia dos inventores de uma universidade tecnológica: insights sobre a presença da ecoinovação na tecnologia (2017)
+   Queiroz, Dayane Cristina de — UTFPR [dissertação]
+   http://repositorio.utfpr.edu.br/jspui/handle/1/2579
+
+24. Futuro esperado da atenção ao câncer: um estudo de technology foresight baseado em expectativas de especialistas (2018)
+   Cabral, Bernardo Pereira — UFBA [tese]
+   https://repositorio.ufba.br/handle/ri/43299
+
+25. Sistema informatizado de mineração para obtenção de dados referentes a ocorrências de tempestades de granizo na região sul e estado de São Paulo (2023)
+   Guerra, Marcos Paulo Guimarães — UTFPR [dissertação]
+   http://repositorio.utfpr.edu.br/jspui/handle/1/32431
+
+26. Identificação de conhecimento e práticas na avaliação de acessibilidade digital no mercado de software brasileiro (2024)
+   Mendes, Isabel Francine — USP [dissertação]
+   —
+
+27. Modelo de avaliação de maturidade de sistemas de informação em saúde baseada em representação conceitual de requisitos de segurança da informação (2016)
+   Carvalho Junior, Marcelo Antonio de [UNIFESP] — UNIFESP [dissertação]
+   http://repositorio.unifesp.br/handle/11600/47896
+
+28. Ações coletivas em saúde bucal - como organizá-las em tempos de covid19 (2020)
+   Peruchini, Luis Fernando Dahmer — SLMANDIC [tese]
+   https://biblioteca.slmandic.edu.br/TerminalWebRI/acervo/detalhe/206602
+
+29. Evidências de validade e fidedignidade da escala de gratidão (G-20) na população de adultos brasileiros (2021)
+   Deluca, Victoria — PUC_RS [dissertação]
+   http://tede2.pucrs.br/tede2/handle/tede/9648
+
+30. Educação em tempos de pandemia : impactos e desafios para professores (2022)
+   Campos, Fabiano Mota — SLMANDIC [dissertação]
+   https://biblioteca.slmandic.edu.br/TerminalWebRI/acervo/detalhe/168812
+
+31. Acessibilidade do catálogo em linha para usuário com deficiência visual (2018)
+   Teixeira, Laysse Noleto Balbino — UNB [dissertação]
+   http://repositorio.unb.br/handle/10482/32325
+
+32. Análise de acessibilidade de ilustrações estáticas em objetos de aprendizagem adequados às diretrizes de Macedo (2010) (2016)
+   Teixeira Neto, Oscar Marcelino — UFPR [dissertação]
+   https://hdl.handle.net/1884/58027
+
+33. O uso das tecnologias digitais de informação e comunicação no processo de letramento digital de professores: uma proposta de intervenção (2016)
+   Montes, Maria Suely de Souza — UFJF [dissertação]
+   https://repositorio.ufjf.br/jspui/handle/ufjf/5766
+
+34. A negociação na alocação de uso dos recursos hídricos em áreas de conflito mineiras (2024)
+   IASBIK, Elias Nascimento de Aquino — UNIFEI [dissertação]
+   https://repositorio.unifei.edu.br/jspui/handle/123456789/4207
+
+35. Avaliação dos conhecimentos e práticas de saúde bucal de gestantes atendidas pela estratégia saúde da família e sua relação com história de cárie e doença periodontal no município de Picos-PI (2013)
+   Sousa, Luciana Luz Araújo de — SLMANDIC [dissertação]
+   https://biblioteca.slmandic.edu.br/TerminalWebRI/acervo/detalhe/59556
+
+36. A percepção do farmacêutico no processo de implantação de serviços clínicos farmacêuticos (2015)
+   Dosea, Aline Santana — UFS [dissertação]
+   https://ri.ufs.br/handle/riufs/3935
+
+37. Cartografia do corpo em estudantes universitárias vítimas de viôlencia sexual (2021)
+   Pincheira Navarro, Giselle Alejandra — UFSCAR [dissertação]
+   https://repositorio.ufscar.br/handle/20.500.14289/15592
+
+38. [pt] O PÚBLICO E O PLURAL: SOBRE A IMPORTÂNCIA DO JUÍZO SE FAZER PÚBLICO NA ARTE (2018)
+   ALEXANDRA DE ALMEIDA — PUC_RIO [tese]
+   https://www.maxwell.vrac.puc-rio.br/colecao.php?strSecao=resultado&nrSeq=34512&idi=1
+
+39. A percepção gastronômica dos alimentos orgânicos e agroecológicos - um estudo exploratório sobre os perfis de produção e cons (2022)
+   Branco, Camila da Silva Vaz — UFRRJ [dissertação]
+   https://rima.ufrrj.br/jspui/handle/20.500.14407/10378
+
+40. Colaboração científica brasileira em Emergências de Saúde Pública de Importância Internacional : um estudo a partir dos casos do Zika vírus e da Covid-19 (2022)
+   Cintra, Paulo Roberto, 1989- — UNICAMP [tese]
+   https://hdl.handle.net/20.500.12733/3610
+
+41. Percepções de professores do ensino médio: as forças coercitivas no ambiente escolar e a relação com o mal-estar docente (2017)
+   Pereira, Juliana Martins [UNESP] — UNESP [tese]
+   http://hdl.handle.net/11449/152210
+
+42. "Hanseníase: o que está sendo "eliminado"?" (2018)
+   Alves, Natália Lopes — UEG [dissertação]
+   http://www.bdtd.ueg.br/handle/tede/126
+
+43. Análise do conceito comportamento de perda de peso em adolescentes (2016)
+   Araújo, Anne Karoline Cândido — UFRN [dissertação]
+   https://repositorio.ufrn.br/jspui/handle/123456789/22606
+
+44. Estilos de aprendizagem e materiais didáticos digitais nos cursos de Licenciatura em Matemática a distância (2014)
+   Silva, Isaías Pessoa da — UEPB [dissertação]
+   https://repositorio.uepb.edu.br/handle/123456789/73776
+
+45. Gerenciamento integrado de projetos como suporte ao ecossistema de saúde para entrega de serviços aos pacientes (2024)
+   Geraidine, Ricardo Santos — UNINOVE [dissertação]
+   http://bibliotecatede.uninove.br/handle/tede/3593
+
+46. Vaginose bacteriana, infecção cervical pelo Papilomavírus humano (HPV) e anormalidades citológicas cervicais em mulheres adultas (2022)
+   Martins, Bruno César Teodoro — UFG [tese]
+   http://repositorio.bc.ufg.br/tede/handle/tede/12533
+
+47. A dimensão cultural das sementes tradicionais e a necessidade de proteção pelo sistema jurídico (2015)
+   Buriol, Fabiano — UEA [dissertação]
+   https://ri.uea.edu.br/handle/riuea/2434
+
+48. A percepção dos estudantes concluintes do ensino médio sobre o modo jesuíta de gestão em organizações escolares (2018)
+   Mairink, Agripa da Silva — UNISINOS [dissertação]
+   http://www.repositorio.jesuita.org.br/handle/UNISINOS/8693
+
+49. Desfechos clínicos em pacientes com doenças cardiovasculares preexistentes e COVID-19: uma revisão sistemática e meta-análise (2023)
+   Favoretto, Carolina [UNESP] — UNESP [dissertação]
+   http://hdl.handle.net/11449/243813
+
+50. Formação continuada online de professores de educação física para a inclusão: forjando uma pedagogia descapacitista (2022)
+   Alvernaz, Aline — UFRRJ [tese]
+   https://rima.ufrrj.br/jspui/handle/20.500.14407/9938
+
