@@ -15,10 +15,12 @@ multitoque.
 
 Para coordenar eventos é comum usar o /callback/: um bloco de código executado
 sempre que um dado evento ocorrer, p. ex., clique em um botão.
-O /callback/ é criticado por tornar o programa complexo: a ordem de
-execução[fn:control_flow] é imprevisível, é definida por eventos externos, e
-não pela sequência especificada pelo programador
-cite:edwards2009,fischer2007,maier2010.
+O /callback/ é criticado por dificultar a manutenção e a compreensão do
+programa, porque fragmenta cada fluxo de controle[fn:control_flow] em vários
+/callbacks/ independentes [[cite:fischer2007][p. 134]].
+Numa rede de /callbacks/, a ordem em que os eventos chegam pode depender da
+ordem em que os /callbacks/ foram registrados, o que a torna difícil de prever
+[[cite:blackheath2016][p. 8]].
 “Coordenar alterações ao estado compartilhado em meio a esse caos pode ser
 desconcertante, e está longe de ser modular. A definição coloquial é /Inferno
 de Callbacks/[fn:callback_hell].” [[cite:edwards2009][p. 926; tradução nossa]].
@@ -375,8 +377,8 @@ desenvolvimento de software em larga escala.
 própria do problema, da acidental, todo o resto, e sustentam que a maior parte
 da que resta nos sistemas é acidental.
 
-[fn:control_flow] A ordem de execução de um programa também é denominada /fluxo
-de controle/.
+[fn:control_flow] O fluxo de controle é a ordem em que as instruções de um
+programa são executadas.
 
 [fn:callback_hell] Tradução literal do inglês /‘Callback Hell’/: expressão
  popular na comunidade de programação.

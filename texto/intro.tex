@@ -14,11 +14,13 @@ multitoque.
 
 Para coordenar eventos é comum usar o \emph{callback}: um bloco de código executado
 sempre que um dado evento ocorrer, p. ex., clique em um botão.
-O \emph{callback} é criticado por tornar o programa complexo: a ordem de
-execução\footnote{A ordem de execução de um programa também é denominada \emph{fluxo
-de controle}.} é imprevisível, é definida por eventos externos, e
-não pela sequência especificada pelo programador
-\cite{edwards2009,fischer2007,maier2010}.
+O \emph{callback} é criticado por dificultar a manutenção e a compreensão do
+programa, porque fragmenta cada fluxo de controle\footnote{O fluxo de controle é a ordem em que as instruções de um
+programa são executadas.} em vários
+\emph{callbacks} independentes \cite[p. 134]{fischer2007}.
+Numa rede de \emph{callbacks}, a ordem em que os eventos chegam pode depender da
+ordem em que os \emph{callbacks} foram registrados, o que a torna difícil de prever
+\cite[p. 8]{blackheath2016}.
 “Coordenar alterações ao estado compartilhado em meio a esse caos pode ser
 desconcertante, e está longe de ser modular. A definição coloquial é \emph{Inferno
 de Callbacks}\footnote{Tradução literal do inglês \emph{‘Callback Hell’}: expressão
