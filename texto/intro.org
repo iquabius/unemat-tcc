@@ -46,6 +46,14 @@ Mas as /promises/ têm semântica complexa, e o fluxo de controle e de dados do
 código que as usa dificulta a compreensão e leva facilmente a erros
 [[cite:alimadadi2018][p. 162:1]].
 
+A preocupação explícita com o fluxo de controle é, para
+[[textcite:moseley2006][p. 1]], uma das causas da complexidade dos sistemas de
+grande porte, ao lado do volume de código e, sobretudo, do tratamento do
+estado[fn:complexity].
+Eles propõem reduzi-la com uma abordagem baseada em programação funcional e no
+modelo relacional de dados.
+Conceitos de programação declarativa podem, assim, diminuir essa complexidade.
+
 Outra alternativa é a /programação reativa/ (PR), proposta para aplicações
 orientadas a eventos cite:bainomugisha2013 e aplicada a interfaces gráficas,
 animações, aplicações web, robótica e redes de sensores cite:salvaneschi2017.
@@ -78,14 +86,6 @@ acertos em dez), e não levou mais tempo para responder.
 Além disso, no grupo do /Observer Pattern/ os acertos acompanharam o nível de
 habilidade de programação dos participantes, o que não se observou no grupo da
 PR cite:salvaneschi2017.
-
-Para [[textcite:moseley2006][p. 1]], o que mais contribui para a complexidade
-dos sistemas grandes é o tratamento do estado, ao lado do volume de código e
-da preocupação explícita com o fluxo de controle[fn:complexity].
-Eles propõem reduzi-la com uma abordagem baseada em programação funcional e no
-modelo relacional de dados.
-Conceitos de programação declarativa podem, assim, mitigar problemas do
-desenvolvimento de software em larga escala.
 
   Na programação de interfaces gráficas, a coordenação entre evento, estado e
   tela se escreve, nas tecnologias mais usadas, em três notações, e duas delas
