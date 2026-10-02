@@ -180,7 +180,8 @@
   url=false,
   doi=true,
   eprint=false,
-  maxcitenames=2,
+  maxcitenames=3,           % ABNT: até três autores, todos; quatro ou mais, et al.
+  uniquelist=false,         % não desambigua "Autor; Coautor et al." entre obras do mesmo primeiro autor
   maxbibnames=100,
   uniquename=allinit,
   block        = space,   % Use spaces between blocks, making the text justified
