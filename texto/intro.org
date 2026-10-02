@@ -12,6 +12,11 @@ programas assim parecem mais difíceis de organizar e modularizar
 Para gerenciar interações na programação de interfaces, é necessário coordenar
 os eventos gerados pelas ações do usuário no teclado, no mouse ou na tela
 multitoque.
+Essa coordenação é o tema deste trabalho, porque é nela que a programação de
+interfaces se afasta dos outros programas.
+Além disso, ao escolher uma tecnologia de interface, o programador escolhe
+também a forma de escrevê-la, e essa forma afeta a compreensão e a manutenção
+do programa.
 
 Para coordenar eventos é comum usar o /callback/: um bloco de código executado
 sempre que um dado evento ocorrer, p. ex., clique em um botão.
@@ -24,12 +29,15 @@ ordem em que os /callbacks/ foram registrados, o que a torna difícil de prever
 “Coordenar alterações ao estado compartilhado em meio a esse caos pode ser
 desconcertante, e está longe de ser modular. A definição coloquial é /Inferno
 de Callbacks/[fn:callback_hell].” [[cite:edwards2009][p. 926; tradução nossa]].
+
+Dois estudos medem o peso do tratamento de eventos e dos /callbacks/ no código.
 Uma análise das aplicações /desktop/ da Adobe concluiu que a lógica de
 tratamento de eventos era um terço do código e continha metade dos /bugs/
 relatados [[cite:edwards2009][p. 926]].
 Em JavaScript, os /callbacks/ são frequentes: num estudo de 138 programas, uma
 em cada dez definições de função recebe um /callback/, e a maioria dos
 /callbacks/ é aninhada [[cite:gallaba2015][p. 1]].
+
 O JavaScript ganhou alternativas ao /callback/: as /promises/, que encadeiam
 computações assíncronas cite:madsen2017, e as palavras-chave /async/ e
 /await/, que permitem escrever esse código num estilo linear
@@ -37,10 +45,8 @@ computações assíncronas cite:madsen2017, e as palavras-chave /async/ e
 Mas as /promises/ têm semântica complexa, e o fluxo de controle e de dados do
 código que as usa dificulta a compreensão e leva facilmente a erros
 [[cite:alimadadi2018][p. 162:1]].
-Na /programação orientada a objetos/ (POO), o /callback/ aparece no /Observer
-Pattern/[fn:observer_pattern] cite:blackheath2016,maier2010.
 
-Uma alternativa é a /programação reativa/ (PR), proposta para aplicações
+Outra alternativa é a /programação reativa/ (PR), proposta para aplicações
 orientadas a eventos cite:bainomugisha2013 e aplicada a interfaces gráficas,
 animações, aplicações web, robótica e redes de sensores cite:salvaneschi2017.
 Na PR, o programador declara as relações entre os valores, e o ambiente de
@@ -52,6 +58,8 @@ A PR descende da /programação funcional/ (PF): a maior parte da pesquisa na
 área vem do Fran, uma linguagem funcional do fim dos anos 1990
 [[cite:bainomugisha2013][p. 2]].
 
+Na /programação orientada a objetos/ (POO), o /callback/ aparece no /Observer
+Pattern/[fn:observer_pattern] cite:blackheath2016,maier2010.
 Argumenta-se há tempos que a PR torna os programas mais fáceis de compreender
 que o /Observer Pattern/, mas faltava evidência empírica
 cite:salvaneschi2017.

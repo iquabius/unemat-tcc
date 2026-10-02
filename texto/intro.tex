@@ -11,6 +11,11 @@ programas assim parecem mais difíceis de organizar e modularizar
 Para gerenciar interações na programação de interfaces, é necessário coordenar
 os eventos gerados pelas ações do usuário no teclado, no mouse ou na tela
 multitoque.
+Essa coordenação é o tema deste trabalho, porque é nela que a programação de
+interfaces se afasta dos outros programas.
+Além disso, ao escolher uma tecnologia de interface, o programador escolhe
+também a forma de escrevê-la, e essa forma afeta a compreensão e a manutenção
+do programa.
 
 Para coordenar eventos é comum usar o \emph{callback}: um bloco de código executado
 sempre que um dado evento ocorrer, p. ex., clique em um botão.
@@ -25,12 +30,15 @@ ordem em que os \emph{callbacks} foram registrados, o que a torna difícil de pr
 desconcertante, e está longe de ser modular. A definição coloquial é \emph{Inferno
 de Callbacks}\footnote{Tradução literal do inglês \emph{‘Callback Hell’}: expressão
 popular na comunidade de programação.}.” \cite[p. 926; tradução nossa]{edwards2009}.
+
+Dois estudos medem o peso do tratamento de eventos e dos \emph{callbacks} no código.
 Uma análise das aplicações \emph{desktop} da Adobe concluiu que a lógica de
 tratamento de eventos era um terço do código e continha metade dos \emph{bugs}
 relatados \cite[p. 926]{edwards2009}.
 Em JavaScript, os \emph{callbacks} são frequentes: num estudo de 138 programas, uma
 em cada dez definições de função recebe um \emph{callback}, e a maioria dos
 \emph{callbacks} é aninhada \cite[p. 1]{gallaba2015}.
+
 O JavaScript ganhou alternativas ao \emph{callback}: as \emph{promises}, que encadeiam
 computações assíncronas \cite{madsen2017}, e as palavras-chave \emph{async} e
 \emph{await}, que permitem escrever esse código num estilo linear
@@ -38,12 +46,8 @@ computações assíncronas \cite{madsen2017}, e as palavras-chave \emph{async} e
 Mas as \emph{promises} têm semântica complexa, e o fluxo de controle e de dados do
 código que as usa dificulta a compreensão e leva facilmente a erros
 \cite[p. 162:1]{alimadadi2018}.
-Na \emph{programação orientada a objetos} (POO), o \emph{callback} aparece no \emph{Observer
-Pattern}\footnote{O \emph{Observer Pattern} é usado para coordenar eventos em
-linguagens orientadas a objetos, e \emph{callback} às vezes é chamado de \emph{event
-handler}, \emph{event listener} ou \emph{observer}, mas em essência o conceito é o mesmo.} \cite{blackheath2016,maier2010}.
 
-Uma alternativa é a \emph{programação reativa} (PR), proposta para aplicações
+Outra alternativa é a \emph{programação reativa} (PR), proposta para aplicações
 orientadas a eventos \cite{bainomugisha2013} e aplicada a interfaces gráficas,
 animações, aplicações web, robótica e redes de sensores \cite{salvaneschi2017}.
 Na PR, o programador declara as relações entre os valores, e o ambiente de
@@ -55,6 +59,10 @@ A PR descende da \emph{programação funcional} (PF): a maior parte da pesquisa 
 área vem do Fran, uma linguagem funcional do fim dos anos 1990
 \cite[p. 2]{bainomugisha2013}.
 
+Na \emph{programação orientada a objetos} (POO), o \emph{callback} aparece no \emph{Observer
+Pattern}\footnote{O \emph{Observer Pattern} é usado para coordenar eventos em
+linguagens orientadas a objetos, e \emph{callback} às vezes é chamado de \emph{event
+handler}, \emph{event listener} ou \emph{observer}, mas em essência o conceito é o mesmo.} \cite{blackheath2016,maier2010}.
 Argumenta-se há tempos que a PR torna os programas mais fáceis de compreender
 que o \emph{Observer Pattern}, mas faltava evidência empírica
 \cite{salvaneschi2017}.
