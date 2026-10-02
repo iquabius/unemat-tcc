@@ -145,6 +145,13 @@ desenvolvimento de software em larga escala.
   re-renderização e a reativa fina com /signals/, se comparam quanto à
   usabilidade, segundo as Dimensões Cognitivas de Notações?
 
+  A comparação pode ajudar quem programa interfaces a escolher uma tecnologia
+  sabendo o que a notação dela facilita e o que dificulta em cada problema de
+  coordenação.
+  A pesquisa pode também gerar hipóteses para experimentos controlados com
+  programadores, como o de textcite:salvaneschi2017.
+  @@latex:\todo{A originalidade entra aqui, junto da lacuna, depois da segunda rodada de buscas.}@@
+
    O objetivo geral é comparar a usabilidade das três notações segundo as
    Dimensões Cognitivas de Notações, na programação de interfaces típicas da
    web, em TypeScript, com replicação no Android, em Kotlin. Especificamente:
