@@ -141,8 +141,8 @@ PR cite:salvaneschi2017.
   qualquer página dele cite:w3techs2026a, o que favorece o jQuery e nada diz
   das aplicações novas.
 
-  Trabalhos anteriores compararam parte dessas notações pelas Dimensões
-  Cognitivas de Notações.
+  Trabalhos anteriores compararam pelas Dimensões Cognitivas de Notações
+  paradigmas, linguagens e bibliotecas de programação de interfaces.
   textcite:mernik2009 compararam, com 36 programadores, uma linguagem de
   domínio específico para descrever interfaces gráficas, o XAML, e uma
   biblioteca de aplicação, o C# Forms.
@@ -164,8 +164,9 @@ PR cite:salvaneschi2017.
   re-renderização e a reativa fina com /signals/, se comparam quanto à
   usabilidade, segundo as Dimensões Cognitivas de Notações?
 
-  Este trabalho faz, para as tecnologias web mais usadas, a comparação que
-  textcite:kiss2014 deixou como trabalho futuro.
+  Este trabalho avalia pelas Dimensões Cognitivas a notação de coordenação
+  do React e a do Solid e do Angular com /signals/, que os trabalhos
+  encontrados na revisão bibliográfica não avaliam.
   A comparação pode ajudar quem programa interfaces a escolher uma tecnologia
   sabendo o que a notação dela facilita e o que dificulta em cada problema de
   coordenação.

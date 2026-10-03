@@ -14,7 +14,10 @@ um valor derivado, quem atualiza a tela). As três do trabalho: imperativa
 com *callbacks*, declarativa por re-renderização e reativa fina com
 *signals*. Os sinais de coordenação escritos dentro da estrutura da tela,
 como o `{contador()}` do Solid, contam nela. Solid e Angular com *signals*
-são a mesma notação, React e Solid são duas (ADR 0019).
+são a mesma notação, React e Solid são duas (ADR 0019). Na mesma linguagem,
+a notação muda com as abstrações de cada tecnologia, e cada notação aplica
+conceitos de um ou mais paradigmas (ADR 0020). Biblioteca, *framework* e
+*toolkit* só descrevem uma tecnologia.
 _Avoid_: sintaxe; paradigma (reservado para PF, PR e POO no capítulo de
 programação), estilo, abordagem; "notação de interface gráfica" (a notação é
 do código que programa a interface, não da tela)
