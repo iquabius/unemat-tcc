@@ -873,3 +873,104 @@ para a análise.
 | Grolaux et al. 2026 (`grolaux2026`) | laços de eventos, *callbacks* e PR "mix and match different paradigms. This leads to steep learning curves and difficult-to-maintain code bases" | p. 7 (resumo) | conferido | custo de aprendizado; tcc-t1a (uso de "paradigm") |
 | Grolaux et al. 2026 | "popular UI frameworks for the web are currently based on the concept of reactive components"; as funções reativas "are called implicitly and the templates are updated" | p. 13 | conferido | notações declarativas na web |
 | Grolaux et al. 2026 | "With popular reactive frameworks, a reactive function is called implicitly when deemed necessary. Hidden execution can make understanding the actual execution flow quite hard." | p. 14 | conferido | análise: dependências ocultas |
+
+## 14. Trabalhos sugeridos sem resumo lido (lidos a partir de 2026-10-03)
+
+Conclusão: Zimmerle e Gama (2025) são a versão em periódico do estudo com
+usuários da tese de Lima (2024): as mesmas duas bibliotecas (RxJS e
+Bacon.js), as mesmas cinco tarefas de requisições HTTP e o mesmo
+questionário de DCs com 12 respondentes, mais as métricas estruturais
+(UAX) e entrevistas. Nenhuma interface gráfica, nenhuma comparação com
+*callbacks* ou com re-renderização; as DCs vêm por questionário dos
+participantes, não por análise do autor. O UAX (Zimmerle e Gama, SBES
+2024) saiu sem leitura, por decisão do autor em 2026-10-03: mede a
+usabilidade de APIs TypeScript por métricas, não notações de interface; o
+artigo de 2025 o cita como a ferramenta das métricas ([50], p. 1511).
+Krishnamurthi e Fisler (2019) saíram para tcc-2b0, por servirem só ao
+`prog.org`. "Conferido": trecho achado por subagente Sonnet e lido no PDF
+pelo agente principal. Cópias em `tmp/fontes/`, fora do git.
+
+### 14.1 Zimmerle e Gama 2025 (`zimmerle2025`)
+
+Texto completo, 33 p., lido em 2026-10-03. Página impressa = página do PDF
+mais 1505.
+
+| Trecho | Onde | Leitura | Uso |
+|---|---|---|---|
+| "This study investigates the usability of two prominent JavaScript RP libraries, RxJS and Bacon.js" | p. 1506 (resumo) | conferido | trabalhos relacionados; lacuna |
+| "First, objective structural metrics were applied to assess the libraries' design. Then, a user-centered study was performed involving programming tasks, a post-task questionnaire based on the Cognitive Dimensions of Notation (CDN) framework, and follow-up interviews" | p. 1506 (resumo) | conferido | método: DCs por questionário, contra a análise pelo autor |
+| "Both libraries exhibited moderate usability"; aprendizado, tratamento de erros e documentação como problemas | p. 1506 (resumo) | conferido | resultados |
+| RQ1 a RQ4: "To what extent are popular RP APIs usable?", aprendizado, programas sem erro, reúso | p. 1507 | conferido | desenho |
+| "The first study, to the best of our knowledge, to directly comprehend the usability offered by RP APIs" | p. 1507 | conferido | originalidade: o TCC não disputa essa primazia |
+| PR "as an alternative to callbacks and the well-known Observer pattern" | p. 1507 | conferido | só contexto; o artigo não compara com *callbacks* |
+| "we focus on Bacon.js and RxJS in the present work" | p. 1510 | conferido | lacuna (o mesmo que Lima, p. 71) |
+| Amostra: "students who were taking the course on introduction to distributed applications", em três semestres, "17, 8, and 27 students enrolled" | p. 1512 | conferido | desenho |
+| Questionário de DCs "in which we adapted to our needs": estrutura de López-Fernández et al., que partiu de Piccioni et al.; mapeado às dimensões de Blackwell e Green; "containing 24 assertions" | p. 1512-1513 | conferido | método: cadeia do questionário |
+| Cinco dimensões agrupadas: "understandability, abstraction, expressiveness, reusability, and learnability" | p. 1513 | conferido | não são as DCs originais; o TCC usa as originais |
+| "five tasks [...] all revolving HTTP requests" | p. 1513 | conferido | lacuna (o mesmo que Lima, p. 80) |
+| 18 entregaram as tarefas ("P[1-18]") | p. 1514 | conferido | desenho |
+| Conclusão das tarefas: "more than 60% on average"; RxJS cerca de 50%, Bacon.js 80% | p. 1516 | conferido | resultados |
+| "12 participants, who did the tasks, made themselves available to answer the questionnaire", quatro com Bacon.js e oito com RxJS | p. 1519 | conferido | o 12 da tese é o do questionário |
+| Entrevistas: "From the eight, six accepted the invitation" | p. 1520 | conferido | desenho |
+| A dimensão mais baixa nas duas: "expressiveness" | p. 1520 | conferido | resultados |
+| "Documentation was the category most cited by the participants" | p. 1521 | conferido | resultados |
+| Um participante "has recently worked with Vue.js, a front-end framework that includes reactive ideas" | p. 1524 | conferido | única menção a *framework* de UI, fora do desenho |
+| Métricas dizem usabilidade excelente, mas isso "did not reflect in an excellent level of usability from the users' point of view, but a moderate one"; média 3,07 | p. 1527 | conferido | métricas × usuários |
+| Na documentação do RxJS, "Many scenarios seemed to focus in UI", o que confundiu um usuário sobre o que é reativo | p. 1529 | conferido | curiosidade: PR associada a UI |
+| Ameaça interna: "chance of bias in the participants' selection given the closeness of many of them with the second author" | p. 1531 | conferido | limitações |
+| Futuro: "other contexts, besides distributed applications, may as well be beneficial" | p. 1531 | conferido | abre espaço a interfaces gráficas |
+| Externa: "we do not try to make a generalizable comparison between the APIs" | p. 1532 | conferido | limitações |
+| "more studies should be executed with different metrics, developers, scenarios, and RP APIs" | p. 1533 | conferido | trabalhos futuros |
+
+Não aparecem no texto: React, Angular, Svelte, GUI, DOM (busca por palavra
+inteira em 2026-10-03). O artigo não cita a tese de Lima (2024); cita o
+estudo de mineração (MSR 2022, [18]) e o UAX ([50]).
+
+### 14.2 Blackwell, Petre e Church 2019 (`blackwell2019`)
+
+Lidas em 2026-10-03 só as partes sobre as DCs, a avaliação de notações e
+os paradigmas (o artigo inteiro foi varrido pelo subagente). Página impressa
+= página do PDF mais 51. Não falam de *callbacks*, eventos nem PR (busca por
+"reactive", "callback" e "event-driven" sem resultado); não usam "discussion
+tools", a expressão de Blackwell e Green (2003).
+
+| Trecho | Onde | Leitura | Uso |
+|---|---|---|---|
+| "the first empirical studies emerged to compare procedural and declarative paradigms (Gilmore and Green, 1984)" | p. 53 | conferido | comparar paradigmas é tema antigo da área |
+| Estudos comparativos "extending beyond the vogue for object-oriented programming to include logic and functional programming paradigms" | p. 54 | conferido | idem |
+| Green et al. (1991) contra o "superlativism", "in favour of a 'match-mismatch' position that takes account of information accessibility for a given task" | p. 54 | conferido | nenhuma notação é melhor em tudo: base do "o que facilita e o que dificulta em cada problema" |
+| Na fase da programação visual, a área "relied mainly on theories of pop psychology, folk wisdom, or personal subjective intuition" | p. 57 | conferido | contexto |
+| Revisitar os experimentos "to counter the claims of 'superlativism' by those who imagined that any particular language or language feature would be universally superior" | p. 58 | conferido | origem das DCs |
+| As DCs relacionam os recursos das ferramentas "to the particular kinds of tasks for which they were beneficial or not (with associated tradeoffs)"; Green e Petre (1996) "has become the most widely cited work in the field" | p. 58 | conferido | origem e alcance das DCs |
+| O legado está na teoria de uso de notações e nos métodos "employed for formative and summative critique", embora a parte "cognitive" da teoria "is not nearly so relevant as the implicit theory of design that it embodies" | p. 58 | conferido | método: as DCs como crítica de projeto, não como teoria cognitiva |
+| A psicologia da programação dá "'tools for thinking with', rather than a search for a universal language" (atribuído a Clarke) | p. 60 | conferido | método; ecoa "discussion tools" |
+| "Clarke's application of Cognitive Dimensions of Notations to the design of languages (Clarke, 2006) and APIs (Stylos et al., 2001) at Microsoft" | p. 60 | conferido | precedente de DCs aplicadas a linguagens e APIs; o trecho não diz se houve usuários |
+| O apelo por "randomised control trials" (Stefik e Hanenberg 2017) e o ceticismo (Lewis 2017) "about the appropriateness of underpinning a complex design process with this naive empiricism" | p. 60 | conferido | limitações: por que análise e não experimento, com as duas posições |
+
+### 14.3 Zampetti et al. 2025 (fora do `refs.bib`)
+
+ZAMPETTI, F.; ZID, C.; ANTONIOL, G.; DI PENTA, M. The downside of
+functional constructs: a quantitative and qualitative analysis of their
+fix-inducing effects. *Empirical Software Engineering*, v. 30, art. 9,
+2025 (online em 2024-10-22). DOI 10.1007/s10664-024-10568-z. Lidos em
+2026-10-03 o resumo, as RQs, o desenho, os resultados, as ameaças e as
+implicações, na versão do editor (43 p., "Page N of 43" igual à página do
+PDF). Só Python; JavaScript e TypeScript só aparecem numa tabela de
+trabalhos relacionados (p. 35). Mede commits que induzem correção, não
+compreensão.
+
+| Trecho | Onde | Leitura | Uso |
+|---|---|---|---|
+| Se "lambdas, comprehensions, and map/reduce/filter functions, have higher chances to induce fixes than other changes" | p. 1 (resumo) | conferido | contraponto às vantagens da PF |
+| "200 open-source Python projects accounting for ≃ 630k commits"; "633,803 commits" | p. 1, 3 | conferido | desenho |
+| Correções achadas por "a lightweight version of the SZZ algorithm", pela mensagem do commit, o que pega "any type of fixes" | p. 8, 31 | conferido | limite da medida |
+| Mudanças em construções funcionais: OR 2,23 por *churn*, 1,15 por linha (Tabela 4); 1,80 controlado pelo tamanho; "only e0.14 = 1.15 times" controlado também pelo autor | p. 13-14 | conferido | o efeito encolhe com os controles |
+| Introduzir uma construção nova: "3.16 times the odds" | p. 16 | conferido | resultados |
+| "Changes dealing with lambdas have the highest odds of inducing a fix" (OR 2,66), depois *comprehensions* (1,93) e map/reduce/filter (1,32) | p. 17-18 | conferido (2,66 e a ordem); 1,93 e 1,32 subagente | map/filter/reduce, os do capítulo de listas, têm o menor efeito |
+| Desenvolvedores Python usam lambdas e *comprehensions* "while only rarely introducing map/reduce/filter functions" | p. 18 | conferido | idem |
+| Amostra qualitativa de "340 out of 2,442 fixes"; em "265 cases (78%)" a correção mexeu na construção e mudou a semântica | p. 24-25 | conferido | resultados |
+| "we cannot claim causation"; "We do not know whether the obtained results would generalize to other programming languages" | p. 31 | conferido | ressalvas para citar |
+| Na análise qualitativa, "we did not find any explicit cause-effect relationship" entre o tipo de construção e a sobrevida | p. 37 | conferido | idem |
+| Não mandam evitar: "Developers who should not underestimate the likelihood of inducing fixes"; "Educators who should give proper emphasis" à sintaxe e aos maus usos | p. 38 | conferido | implicações |
+| Resumem Zid et al. (2024b), mais de 200 participantes: "No significant evidence was found for map/reduce/filter functions"; "Overall, functional constructs are perceived as more difficult to understand than their procedural counterparts" | p. 33 | conferido | compreensão: fonte a ler, não a citar daqui |
+| Resumem Mehlhorn e Hanenberg (2022, `mehlhorn2022`): "the Stream API caused fewer errors" | p. 33 | conferido | já no `.bib` |
