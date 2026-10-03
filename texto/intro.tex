@@ -68,39 +68,35 @@ Eles propõem reduzi-la com uma abordagem baseada em programação funcional e n
 modelo relacional de dados.
 Conceitos de programação declarativa podem, assim, diminuir essa complexidade.
 
-Outra alternativa é a \emph{programação reativa} (PR), proposta para aplicações
-orientadas a eventos \cite{bainomugisha2013} e aplicada a interfaces gráficas,
-animações, aplicações web, robótica e redes de sensores \cite{salvaneschi2017}.
-Na PR, o programador declara as relações entre os valores, e o ambiente de
-execução faz todas as atualizações que elas exigem \cite{salvaneschi2017}.
-Esse comportamento é o das planilhas eletrônicas, como o \emph{Google Sheets} e o
-\emph{Microsoft Excel}, “possivelmente a linguagem de programação mais utilizada
-por usuários finais” \cite[p. 2; tradução nossa]{bainomugisha2013}.
-A PR descende da \emph{programação funcional} (PF): a maior parte da pesquisa na
-área vem do Fran, uma linguagem funcional do fim dos anos 1990
-\cite[p. 2]{bainomugisha2013}.
+Outra alternativa ao \emph{callback} é a \emph{programação reativa} (PR).
+Segundo \textcite[p. 1125-1126]{salvaneschi2017}, nela o programador
+declara as relações entre os valores, e o ambiente de execução faz as
+atualizações que elas exigem.
+Eles a registram em interfaces gráficas, animações, aplicações web, robótica
+e redes de sensores.
+Para \textcite[p. 1-2]{bainomugisha2013}, a PR serve às aplicações
+orientadas a eventos e interativas e leva às linguagens de programação o
+modelo das planilhas eletrônicas, como o \emph{Google Sheets} e o \emph{Microsoft
+Excel}.
+Eles chamam as planilhas de “possivelmente a linguagem de programação mais
+utilizada por usuários finais” (tradução nossa).
+A maior parte da pesquisa em PR, dizem ainda, descende do Fran, uma
+linguagem da \emph{programação funcional} (PF) do fim dos anos 1990.
 
-Na \emph{programação orientada a objetos} (POO), o \emph{Observer Pattern} é o estilo
-tradicional de tratar eventos
-\cites[p.~564]{salvaneschi2014}[p.~1]{maier2010}.
-Argumenta-se há tempos que a PR torna os programas mais fáceis de compreender
-que o \emph{Observer Pattern}, mas faltava evidência empírica
-\cite{salvaneschi2017}.
-Um experimento controlado comparou a compreensão de programas escritos com PR
-e com o \emph{Observer Pattern}, primeiro com 38 participantes
-\cite{salvaneschi2014} e depois com mais 89, num total de 127
-\cite{salvaneschi2017}.
-Os participantes eram estudantes do quarto ano de Ciência da Computação,
-divididos ao acaso em dois grupos.
+\textcite[p. 1125-1134]{salvaneschi2017} testaram uma afirmação antiga,
+até então sem evidência empírica, de que a PR torna os programas mais fáceis
+de compreender que o \emph{Observer Pattern}, estilo tradicional da \emph{programação
+orientada a objetos} (POO).
+Num experimento controlado em duas rodadas, 127 estudantes do quarto ano de Ciência da Computação
+foram divididos ao acaso em dois grupos.
 Um grupo leu dez programas em Scala escritos com PR, e o outro, os mesmos
-programas escritos com o \emph{Observer Pattern}.
+programas com o \emph{Observer Pattern}.
 Para cada programa, os participantes respondiam a uma pergunta de múltipla
 escolha sobre o comportamento dele.
-O grupo da PR acertou mais, com diferença significativa (médias de 8,13 e 7,05
-acertos em dez), e não levou mais tempo para responder.
-Além disso, no grupo do \emph{Observer Pattern} os acertos acompanharam o nível de
-habilidade de programação dos participantes, o que não se observou no grupo da
-PR \cite{salvaneschi2017}.
+O grupo da PR acertou mais, com diferença significativa (médias de 8,13 e
+7,05 acertos em dez), e não levou mais tempo.
+Só no grupo do \emph{Observer Pattern} os acertos acompanharam o nível de
+habilidade de programação dos participantes.
 
 Na programação de interfaces gráficas, a \emph{notação de coordenação} é a forma
 de escrever como evento, estado e tela se coordenam: onde vive o estado,

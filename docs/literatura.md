@@ -856,3 +856,20 @@ fora do git.
 | Leal 2011 | A justificativa pode explicar "as possíveis contribuições" e "os aspectos inovadores do estudo, se for esse o caso" | p. 62 | conferido |
 | Wazlawick 2014 | "A justificativa vai dizer por que vale a pena buscar esse objetivo" (p. 38); o problema com "referência direta à bibliografia" de que não foi tratado, citando Chinneck (p. 39) | p. 38-39 | conferido |
 
+### 13.3 Trechos guardados para a fundamentação (2026-10-03)
+
+Trechos conferidos no PDF na revisão da introdução (tcc-71d) que saíram
+do texto ou não couberam nele, guardados para o capítulo de programação e
+para a análise.
+
+| Fonte | Trecho | Onde | Leitura | Uso |
+|---|---|---|---|---|
+| Bainomugisha et al. 2013 (`bainomugisha2013`) | PR "well-suited for developing event-driven and interactive applications", com "abstractions to express time-varying values and automatically managing dependencies between such values" | p. 1 (resumo) | conferido | definição de PR na fundamentação; saiu da versão rejeitada do § da PR da introdução |
+| Bainomugisha et al. 2013 | "Reactive programming is essentially about embedding the spreadsheet-like model in programming languages" | p. 2 | conferido | planilhas (usado na introdução) |
+| Bainomugisha et al. 2013 | "FRP allows programmers to express reactive programs in a declarative style" | p. 13 | conferido | PFR declarativa |
+| Salvaneschi et al. 2017 (`salvaneschi2017`) | *signals*: "a language concept for expressing functional dependencies among values in a declarative way" | p. 1126 (p. 2 da cópia) | conferido | PR declarativa; *signals* |
+| Salvaneschi et al. 2014 (`salvaneschi2014`) | "the traditional object-oriented style with the Observer design pattern" | p. 564 (resumo; a cópia não traz número) | conferido | saiu da introdução em 2026-10-03 |
+| Maier, Rompf e Odersky 2010 (`maier2010`) | "the usual abstractions that are employed in event handling code are callbacks such as in the observer pattern" | p. 1 | conferido | saiu da introdução em 2026-10-03 |
+| Grolaux et al. 2026 (`grolaux2026`) | laços de eventos, *callbacks* e PR "mix and match different paradigms. This leads to steep learning curves and difficult-to-maintain code bases" | p. 7 (resumo) | conferido | custo de aprendizado; tcc-t1a (uso de "paradigm") |
+| Grolaux et al. 2026 | "popular UI frameworks for the web are currently based on the concept of reactive components"; as funções reativas "are called implicitly and the templates are updated" | p. 13 | conferido | notações declarativas na web |
+| Grolaux et al. 2026 | "With popular reactive frameworks, a reactive function is called implicitly when deemed necessary. Hidden execution can make understanding the actual execution flow quite hard." | p. 14 | conferido | análise: dependências ocultas |
