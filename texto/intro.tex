@@ -19,10 +19,16 @@ do programa.
 
 Para coordenar eventos é comum usar o \emph{callback}: um bloco de código executado
 sempre que um dado evento ocorrer, p. ex., clique em um botão.
+Também chamado de \emph{listener}, o \emph{callback} é a forma dominante de propagar
+eventos, e registrá-lo num produtor de eventos, que o chama de volta a cada
+evento, é o \emph{Observer Pattern} \cite[p. 7]{blackheath2016}.
 O \emph{callback} é criticado por dificultar a manutenção e a compreensão do
 programa, porque fragmenta cada fluxo de controle\footnote{O fluxo de controle é a ordem em que as instruções de um
 programa são executadas.} em vários
 \emph{callbacks} independentes \cite[p. 134]{fischer2007}.
+Em 2026, o tratamento de eventos nas interfaces ainda se apoia em
+\emph{callbacks} ou \emph{listeners}, que tornam difíceis de exprimir e de manter os
+fluxos de interação complexos \cite[p. 8]{grolaux2026}.
 Numa rede de \emph{callbacks}, a ordem em que os eventos chegam pode depender da
 ordem em que os \emph{callbacks} foram registrados, o que a torna difícil de prever
 \cite[p. 8]{blackheath2016}.
@@ -31,10 +37,13 @@ desconcertante, e está longe de ser modular. A definição coloquial é \emph{I
 de Callbacks}\footnote{Tradução literal do inglês \emph{‘Callback Hell’}: expressão
 popular na comunidade de programação.}.” \cite[p. 926; tradução nossa]{edwards2009}.
 
-Dois estudos medem o peso do tratamento de eventos e dos \emph{callbacks} no código.
+Três estudos medem o peso do tratamento de eventos e dos \emph{callbacks} no código.
 Uma análise das aplicações \emph{desktop} da Adobe concluiu que a lógica de
 tratamento de eventos era um terço do código e continha metade dos \emph{bugs}
 relatados \cite[p. 926]{edwards2009}.
+Em quatro sistemas de grande porte feitos com a mesma biblioteca de
+interface, \textcite[p. 770]{mijailovic2014} contaram de 1.221 a 31.285
+tratadores de eventos.
 Em JavaScript, os \emph{callbacks} são frequentes: num estudo de 138 programas, uma
 em cada dez definições de função recebe um \emph{callback}, e a maioria dos
 \emph{callbacks} é aninhada \cite[p. 1]{gallaba2015}.
@@ -43,7 +52,9 @@ O JavaScript ganhou alternativas ao \emph{callback}: as \emph{promises}, que enc
 computações assíncronas \cite{madsen2017}, e as palavras-chave \emph{async} e
 \emph{await}, que permitem escrever esse código num estilo linear
 \cite[p. 362]{gallaba2017}.
-Mas as \emph{promises} têm semântica complexa, e o fluxo de controle e de dados do
+As \emph{promises} achatam o aninhamento dos \emph{callbacks}, mas a lógica complexa
+continua presa em cadeias de \emph{callbacks} \cite[p. 9]{grolaux2026}.
+Elas têm ainda semântica complexa, e o fluxo de controle e de dados do
 código que as usa dificulta a compreensão e leva facilmente a erros
 \cite[p. 162:1]{alimadadi2018}.
 
@@ -69,10 +80,9 @@ A PR descende da \emph{programação funcional} (PF): a maior parte da pesquisa 
 área vem do Fran, uma linguagem funcional do fim dos anos 1990
 \cite[p. 2]{bainomugisha2013}.
 
-Na \emph{programação orientada a objetos} (POO), o \emph{callback} aparece no \emph{Observer
-Pattern}\footnote{O \emph{Observer Pattern} é usado para coordenar eventos em
-linguagens orientadas a objetos, e \emph{callback} às vezes é chamado de \emph{event
-handler}, \emph{event listener} ou \emph{observer}, mas em essência o conceito é o mesmo.} \cite{blackheath2016,maier2010}.
+Na \emph{programação orientada a objetos} (POO), o \emph{Observer Pattern} é o estilo
+tradicional de tratar eventos
+\cites[p.~564]{salvaneschi2014}[p.~1]{maier2010}.
 Argumenta-se há tempos que a PR torna os programas mais fáceis de compreender
 que o \emph{Observer Pattern}, mas faltava evidência empírica
 \cite{salvaneschi2017}.

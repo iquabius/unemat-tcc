@@ -20,9 +20,15 @@ do programa.
 
 Para coordenar eventos é comum usar o /callback/: um bloco de código executado
 sempre que um dado evento ocorrer, p. ex., clique em um botão.
+Também chamado de /listener/, o /callback/ é a forma dominante de propagar
+eventos, e registrá-lo num produtor de eventos, que o chama de volta a cada
+evento, é o /Observer Pattern/ [[cite:blackheath2016][p. 7]].
 O /callback/ é criticado por dificultar a manutenção e a compreensão do
 programa, porque fragmenta cada fluxo de controle[fn:control_flow] em vários
 /callbacks/ independentes [[cite:fischer2007][p. 134]].
+Em 2026, o tratamento de eventos nas interfaces ainda se apoia em
+/callbacks/ ou /listeners/, que tornam difíceis de exprimir e de manter os
+fluxos de interação complexos [[cite:grolaux2026][p. 8]].
 Numa rede de /callbacks/, a ordem em que os eventos chegam pode depender da
 ordem em que os /callbacks/ foram registrados, o que a torna difícil de prever
 [[cite:blackheath2016][p. 8]].
@@ -30,10 +36,13 @@ ordem em que os /callbacks/ foram registrados, o que a torna difícil de prever
 desconcertante, e está longe de ser modular. A definição coloquial é /Inferno
 de Callbacks/[fn:callback_hell].” [[cite:edwards2009][p. 926; tradução nossa]].
 
-Dois estudos medem o peso do tratamento de eventos e dos /callbacks/ no código.
+Três estudos medem o peso do tratamento de eventos e dos /callbacks/ no código.
 Uma análise das aplicações /desktop/ da Adobe concluiu que a lógica de
 tratamento de eventos era um terço do código e continha metade dos /bugs/
 relatados [[cite:edwards2009][p. 926]].
+Em quatro sistemas de grande porte feitos com a mesma biblioteca de
+interface, [[textcite:mijailovic2014][p. 770]] contaram de 1.221 a 31.285
+tratadores de eventos.
 Em JavaScript, os /callbacks/ são frequentes: num estudo de 138 programas, uma
 em cada dez definições de função recebe um /callback/, e a maioria dos
 /callbacks/ é aninhada [[cite:gallaba2015][p. 1]].
@@ -42,7 +51,9 @@ O JavaScript ganhou alternativas ao /callback/: as /promises/, que encadeiam
 computações assíncronas cite:madsen2017, e as palavras-chave /async/ e
 /await/, que permitem escrever esse código num estilo linear
 [[cite:gallaba2017][p. 362]].
-Mas as /promises/ têm semântica complexa, e o fluxo de controle e de dados do
+As /promises/ achatam o aninhamento dos /callbacks/, mas a lógica complexa
+continua presa em cadeias de /callbacks/ [[cite:grolaux2026][p. 9]].
+Elas têm ainda semântica complexa, e o fluxo de controle e de dados do
 código que as usa dificulta a compreensão e leva facilmente a erros
 [[cite:alimadadi2018][p. 162:1]].
 
@@ -66,8 +77,9 @@ A PR descende da /programação funcional/ (PF): a maior parte da pesquisa na
 área vem do Fran, uma linguagem funcional do fim dos anos 1990
 [[cite:bainomugisha2013][p. 2]].
 
-Na /programação orientada a objetos/ (POO), o /callback/ aparece no /Observer
-Pattern/[fn:observer_pattern] cite:blackheath2016,maier2010.
+Na /programação orientada a objetos/ (POO), o /Observer Pattern/ é o estilo
+tradicional de tratar eventos
+@@latex:\cites[p.~564]{salvaneschi2014}[p.~1]{maier2010}@@.
 Argumenta-se há tempos que a PR torna os programas mais fáceis de compreender
 que o /Observer Pattern/, mas faltava evidência empírica
 cite:salvaneschi2017.
@@ -456,10 +468,6 @@ programa são executadas.
 
 [fn:callback_hell] Tradução literal do inglês /‘Callback Hell’/: expressão
  popular na comunidade de programação.
-
-[fn:observer_pattern] O /Observer Pattern/ é usado para coordenar eventos em
-linguagens orientadas a objetos, e /callback/ às vezes é chamado de /event
-handler/, /event listener/ ou /observer/, mas em essência o conceito é o mesmo.
 
 [fn:infoArtifactis] As DCs se aplicam a todo tipo de artefato de informação,
 mas ganharam destaque nas linguagens e nos ambientes de programação visual
