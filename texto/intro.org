@@ -153,8 +153,9 @@ habilidade de programação dos participantes.
   das aplicações novas.
 
   As /Dimensões Cognitivas de Notações/ (DCs), do inglês /Cognitive
-  Dimensions of Notations/ cite:green1989, são um vocabulário para discutir
-  a usabilidade de artefatos de informação[fn:infoArtifactis].
+  Dimensions of Notations/, propostas por textcite:green1989, são um
+  vocabulário para discutir a usabilidade de notações e de outros
+  artefatos de informação [[cite:blackwell2001][p. 326]].
   Trabalhos anteriores compararam por elas paradigmas, linguagens e
   bibliotecas de programação de interfaces.
   textcite:mernik2009 compararam, com 36 programadores, uma linguagem de
@@ -464,11 +465,6 @@ programa são executadas.
 
 [fn:callback_hell] Tradução literal do inglês /‘Callback Hell’/: expressão
  popular na comunidade de programação.
-
-[fn:infoArtifactis] As DCs se aplicam a todo tipo de artefato de informação,
-mas ganharam destaque nas linguagens e nos ambientes de programação visual
-cite:blackwell2003. Mais informações no sítio de recursos sobre as DCs
-cite:blackwell2026.
 
 [fn:kotlin] O Kotlin é a linguagem que a documentação do Android recomenda
 desde 2019 cite:android2026a, e o compilador do Compose é um /plugin/ do
