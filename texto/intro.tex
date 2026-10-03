@@ -92,8 +92,10 @@ Além disso, no grupo do \emph{Observer Pattern} os acertos acompanharam o níve
 habilidade de programação dos participantes, o que não se observou no grupo da
 PR \cite{salvaneschi2017}.
 
-Na programação de interfaces gráficas, a coordenação entre evento, estado e
-tela se escreve, nas tecnologias mais usadas, em três notações, e duas delas
+Na programação de interfaces gráficas, a \emph{notação de coordenação} é a forma
+de escrever como evento, estado e tela se coordenam: onde vive o estado,
+como se declara um valor derivado, quem atualiza a tela.
+Nas tecnologias mais usadas, há três notações de coordenação, e duas delas
 são declarativas.
 Na \emph{imperativa com callbacks}, cada \emph{callback} altera o estado e a tela
 diretamente, como no jQuery \cite{openjs2026} e nos Web Components sem
@@ -134,9 +136,9 @@ O Solid é usado por 10\% dos respondentes do State of JS 2025
 Por isso, o uso da notação reativa fina se apoia no Angular, que também a
 adota, embora o número do Angular não separe quem usa \emph{signals}.
 Da mesma forma, o uso da notação imperativa se apoia no jQuery.
-O Web Component entra por ser o modelo de componente do próprio navegador,
-sem biblioteca \cite{mozilla2026}, e nele a notação é o \texttt{addEventListener}
-cujo \emph{callback} altera a tela.
+O Web Component entra por ser o modelo de componente do próprio navegador
+\cite{mozilla2026}, e nele a notação é o \texttt{addEventListener} cujo \emph{callback}
+altera a tela.
 Essas medidas têm ainda limites de amostra.
 O Stack Overflow recruta os respondentes sobretudo pelos próprios canais, o
 que favorece os usuários mais ativos do site \cite{stackoverflow2025}.
@@ -209,9 +211,9 @@ as tarefas da prática e servem para comparar técnicas alternativas
 \cite{sim2003}.
 Aqui, as técnicas são as três notações, e as tarefas, cinco interfaces
 típicas da web.
-\textcite[p. 11]{kiss2014} compara assim programação orientada a objetos
-e funcional em interfaces gráficas, pela usabilidade do código, e não por
-tempo de execução e memória, como num \emph{benchmark} tradicional.
+\textcite[p. 11]{kiss2014} também compara as implementações pela
+usabilidade do código, e não por tempo de execução e memória, como num
+\emph{benchmark} tradicional.
 \todo[inline]{O projeto classificava o trabalho, quanto aos meios, como estudo de casos múltiplos (Leal 2011; Yin 2001). As definições reunidas por Runeson e Höst (2009, p. 134 e 139) pedem um fenômeno contemporâneo no seu contexto real e excluem os programas de exemplo. Por isso a classificação saiu, e as interfaces implementadas passaram a se chamar tarefas, como no 7GUIs (Kiss 2014) e em Sim et al. (2003). Registrar essa mudança no texto?}
 
 A avaliação cabe ao autor, que examina o código das implementações critério
@@ -249,15 +251,11 @@ Os números de cada etapa estão no Apêndice \ref{apend:2}.
 A revisão não viu os citantes de \textcite{kiss2014}, que o OpenAlex não
 indexa, e julgou só pelo título 280 registros sem resumo.
 
-Cada implementação escreve numa notação a coordenação entre evento, estado
-e tela, e é essa notação que se compara.
+Na comparação, conta só a notação de coordenação.
 As Dimensões Cognitivas admitem várias notações num mesmo sistema
 \cite[p. 328]{blackwell2001}, e o código de uma interface tem pelo menos duas.
-A \emph{notação de coordenação} escreve a coordenação entre evento, estado e
-tela: onde vive o estado, como se declara um valor derivado, quem atualiza
-a tela.
-A \emph{notação da estrutura da tela} escreve quais elementos a tela tem, em que
-hierarquia e com que textos, como o HTML ou o JSX.
+A outra, a \emph{notação da estrutura da tela}, escreve quais elementos a tela
+tem, em que hierarquia e com que textos, como o HTML ou o JSX.
 O JSX é uma extensão do JavaScript que escreve marcação parecida com HTML
 dentro do código \cite{meta2026c}.
 Quando o texto diz só notação, é a de coordenação.
@@ -268,8 +266,7 @@ O trabalho se divide em duas partes.
 Na primeira, programas de \emph{processamento de listas} demonstram conceitos
 de PF, como descrever o resultado de uma transformação em vez dos passos
 do laço que a executa.
-As duas notações declarativas aplicam essa ideia à tela, que o código
-descreve em função do estado \cite{meta2026a}.
+As duas notações declarativas aplicam essa ideia à tela.
 Na segunda, as cinco tarefas são implementadas nas três notações e comparadas.
 
 As cinco tarefas exercitam cinco \emph{problemas de coordenação}, isto é, cinco
