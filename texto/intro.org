@@ -134,7 +134,8 @@ PR cite:salvaneschi2017.
   O Web Component entra por ser o modelo de componente do próprio navegador
   cite:mozilla2026, e nele a notação é o =addEventListener= cujo /callback/
   altera a tela.
-  Essas medidas têm ainda limites de amostra.
+
+  As três medidas de uso têm limites de amostra.
   O Stack Overflow recruta os respondentes sobretudo pelos próprios canais, o
   que favorece os usuários mais ativos do site cite:stackoverflow2025.
   O State of JS é aberto a quem quiser responder e se declara o retrato de um
@@ -274,7 +275,8 @@ PR cite:salvaneschi2017.
   ordem e cancelamento).
   A Lista filtrável exercita a lista derivada por busca, filtro e ordenação,
   e o Carrinho, o estado compartilhado entre componentes.
-  Três delas partem do 7GUIs, as sete tarefas de interface propostas na
+
+  Três das cinco tarefas partem do 7GUIs, as sete tarefas de interface propostas na
   dissertação de textcite:kiss2014.
   O Contador é a tarefa /Counter/, e o Formulário amplia a /Flight Booker/
   com os campos de um formulário real [[cite:kiss2014][p. 17 e 25]].
@@ -355,10 +357,11 @@ PR cite:salvaneschi2017.
   Seis são as que [[textcite:kiss2014][p. 12-14]] usou: nível de
   abstração, proximidade de descrição, dependências ocultas, propensão a
   erros, concisão e viscosidade.
-  As outras duas, expressividade e operações mentais difíceis, vêm do
-  grupo que ele deixou de fora e que, a seu ver, teria sido útil se as
-  linguagens e os /toolkits/ comparados fossem muito mais diferentes
-  [[cite:kiss2014][p. 15]].
+
+  As outras duas, expressividade e operações mentais difíceis, vêm do grupo
+  que [[textcite:kiss2014][p. 15]] deixou de fora e que, a seu ver, teria
+  sido útil se as linguagens e os /toolkits/ comparados fossem muito mais
+  diferentes.
   Na comparação principal dele, o ScalaFX envolve o próprio JavaFX, e o
   Scala foi escolhido por ser sintaticamente próximo do Java
   [[cite:kiss2014][p. 11-12]].
