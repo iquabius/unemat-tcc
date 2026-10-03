@@ -244,7 +244,7 @@ PR cite:salvaneschi2017.
   Cada implementação escreve numa notação a coordenação entre evento, estado
   e tela, e é essa notação que se compara.
   As Dimensões Cognitivas admitem várias notações num mesmo sistema
-  [[cite:blackwell2001][p. N]], e o código de uma interface tem pelo menos duas.
+  [[cite:blackwell2001][p. 328]], e o código de uma interface tem pelo menos duas.
   A /notação de coordenação/ escreve a coordenação entre evento, estado e
   tela: onde vive o estado, como se declara um valor derivado, quem atualiza
   a tela.

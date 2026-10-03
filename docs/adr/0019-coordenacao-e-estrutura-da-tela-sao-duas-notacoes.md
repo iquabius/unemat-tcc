@@ -49,3 +49,8 @@ sub-notations such as menu bars, dialogs"); Green e Blackwell, tutorial
 de 1998 (p. 9: *Layers*); Blackwell e Green (2003, p. 8 da cópia 4.3:
 subdispositivos com "their own notations"); o Contador em
 `casos/contador/`.
+
+Errata 2026-10-02: a página publicada de Blackwell et al. (2001), que o
+Custo dá como a conferir, é a p. 328; nela estão "multiple notations" e
+"generic sub-notations such as menu bars, dialogs", que as Fontes situam
+na p. 3 da cópia de 11 páginas.
