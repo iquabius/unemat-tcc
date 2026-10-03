@@ -143,8 +143,11 @@ PR cite:salvaneschi2017.
   qualquer página dele cite:w3techs2026a, o que favorece o jQuery e nada diz
   das aplicações novas.
 
-  Trabalhos anteriores compararam pelas Dimensões Cognitivas de Notações
-  paradigmas, linguagens e bibliotecas de programação de interfaces.
+  As /Dimensões Cognitivas de Notações/ (DCs), do inglês /Cognitive
+  Dimensions of Notations/ cite:green1989, são um vocabulário para discutir
+  a usabilidade de artefatos de informação[fn:infoArtifactis].
+  Trabalhos anteriores compararam por elas paradigmas, linguagens e
+  bibliotecas de programação de interfaces.
   textcite:mernik2009 compararam, com 36 programadores, uma linguagem de
   domínio específico para descrever interfaces gráficas, o XAML, e uma
   biblioteca de aplicação, o C# Forms.
@@ -342,15 +345,12 @@ PR cite:salvaneschi2017.
   As versões de linguagens, bibliotecas e ferramentas ficam
   fixadas[fn:versoes], para que as implementações possam ser reproduzidas.
 
-  A avaliação usa as /Dimensões Cognitivas de Notações/ (DCs), do inglês
-  /Cognitive Dimensions of Notations/ cite:green1989, um vocabulário para
-  discutir a usabilidade de artefatos de informação[fn:infoArtifactis].
-  textcite:blackwell2003 as chamam de ferramentas de discussão, para quem
-  projeta ou avalia esses artefatos, e não de método analítico.
+  A avaliação usa as DCs, que textcite:blackwell2003 chamam de ferramentas
+  de discussão, para quem projeta ou avalia artefatos de informação, e não
+  de método analítico.
   As DCs já foram usadas para avaliar APIs (/Application Programming
-  Interfaces/) cite:clarke2003, recursos de linguagens de programação
-  cite:sadowski2011 e paradigmas de programação de interfaces gráficas
-  cite:kiss2014.
+  Interfaces/) cite:clarke2003 e recursos de linguagens de programação
+  cite:sadowski2011.
   O trabalho usa oito das catorze dimensões.
   Seis são as que [[textcite:kiss2014][p. 12-14]] usou: nível de
   abstração, proximidade de descrição, dependências ocultas, propensão a
