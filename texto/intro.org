@@ -156,32 +156,33 @@ habilidade de programação dos participantes.
   Dimensions of Notations/, propostas por textcite:green1989, são um
   vocabulário para discutir a usabilidade de notações e de outros
   artefatos de informação [[cite:blackwell2001][p. 326]].
+  Uma revisão sistemática de 2017 analisou mais de 1.600 publicações que
+  citam as referências centrais das DCs cite:hadhrawi2017.
   Trabalhos anteriores compararam por elas paradigmas, linguagens e
   bibliotecas de programação de interfaces.
   textcite:mernik2009 compararam, com 36 programadores, uma linguagem de
   domínio específico para descrever interfaces gráficas, o XAML, e uma
   biblioteca de aplicação, o C# Forms.
-  [[textcite:kiss2014][p. v]] comparou a programação orientada a objetos e a
-  funcional em sete tarefas de interface, com JavaFX, ScalaFX, Scala.Rx,
-  ReactFX e Elm.
-  Ele deixou como trabalho futuro comparar os /frameworks/ de interface do
-  navegador [[cite:kiss2014][p. 104]].
+  [[textcite:kiss2014][p. v e 104]] comparou a programação orientada a
+  objetos e a funcional em sete tarefas de interface, com JavaFX, ScalaFX,
+  Scala.Rx, ReactFX e Elm, e deixou como trabalho futuro comparar os
+  /frameworks/ de interface do navegador.
   [[textcite:lima2024][p. 71 e 80]] avaliou com usuários duas bibliotecas de PR
   para JavaScript, RxJS e Bacon.js, em tarefas de requisições HTTP.
   Fora das Dimensões Cognitivas, [[textcite:grolaux2026][p. 15]] compararam
   conceitualmente, numa prova de conceito em JavaScript, o async/await com
   /listeners/, barramento de eventos, /streams/ funcionais e PR no tratamento
   dos eventos de interface.
+
   Nenhum desses trabalhos compara, sobre as mesmas tarefas, as três notações
   como as escrevem as tecnologias web mais usadas.
-  Pergunta-se, então: como as notações mais usadas na prática para programar
-  interfaces gráficas, a imperativa com /callbacks/, a declarativa por
+  Os trabalhos encontrados na revisão bibliográfica também não avaliam pelas
+  DCs a notação de coordenação do React nem a do Solid e do Angular com
+  /signals/.
+  Pergunta-se, então: na programação de interfaces gráficas, como as três
+  notações de coordenação, a imperativa com /callbacks/, a declarativa por
   re-renderização e a reativa fina com /signals/, se comparam quanto à
-  usabilidade, segundo as Dimensões Cognitivas de Notações?
-
-  Este trabalho avalia pelas Dimensões Cognitivas a notação de coordenação
-  do React e a do Solid e do Angular com /signals/, que os trabalhos
-  encontrados na revisão bibliográfica não avaliam.
+  usabilidade, segundo as DCs?
   A comparação pode ajudar quem programa interfaces a escolher uma tecnologia
   sabendo o que a notação dela facilita e o que dificulta em cada problema de
   coordenação.
