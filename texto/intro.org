@@ -129,29 +129,26 @@ habilidade de programação dos participantes.
 
   As pesquisas de uso medem tecnologias, não notações, e por isso o uso de
   cada notação se afere pelas tecnologias que a adotam.
-  No Stack Overflow Developer Survey 2025, React, jQuery e Angular estão entre
-  as sete tecnologias web mais usadas pelos respondentes, com 44,7%, 23,4% e
-  18,2% cite:stackoverflow2025.
-  O jQuery está ainda em 65,5% dos /sites/ que o W3Techs monitora
-  cite:w3techs2026.
-  Nenhuma das duas listas traz o Solid ou os Web Components.
-  O Solid é usado por 10% dos respondentes do State of JS 2025
-  cite:devographics2026.
+  Três medidas dão esse uso, cada uma com um limite de amostra:
+
+  - Stack Overflow Developer Survey 2025 :: React, jQuery e Angular estão
+    entre as sete tecnologias web mais usadas, com 44,7%, 23,4% e 18,2% dos
+    respondentes, recrutados sobretudo pelos próprios canais do site, o que
+    favorece os usuários mais ativos cite:stackoverflow2025;
+  - W3Techs :: o jQuery está em 65,5% dos /sites/ monitorados, mas basta
+    achá-lo em qualquer página para o /site/ contar, o que o favorece e nada
+    diz das aplicações novas cite:w3techs2026,w3techs2026a;
+  - State of JS 2025 :: o Solid é usado por 10% dos respondentes, num
+    levantamento aberto a quem quiser responder, que se declara o retrato
+    de um subconjunto de desenvolvedores cite:devographics2026.
+
+  Nenhuma das duas primeiras traz o Solid ou os Web Components.
   Por isso, o uso da notação reativa fina se apoia no Angular, que também a
   adota, embora o número do Angular não separe quem usa /signals/.
   Da mesma forma, o uso da notação imperativa se apoia no jQuery.
   O Web Component entra por ser o modelo de componente do próprio navegador
   cite:mozilla2026, e nele a notação é o =addEventListener= cujo /callback/
   altera a tela.
-
-  As três medidas de uso têm limites de amostra.
-  O Stack Overflow recruta os respondentes sobretudo pelos próprios canais, o
-  que favorece os usuários mais ativos do site cite:stackoverflow2025.
-  O State of JS é aberto a quem quiser responder e se declara o retrato de um
-  subconjunto de desenvolvedores cite:devographics2026.
-  O W3Techs conta uma biblioteca como usada por um /site/ se a achar em
-  qualquer página dele cite:w3techs2026a, o que favorece o jQuery e nada diz
-  das aplicações novas.
 
   As /Dimensões Cognitivas de Notações/ (DCs), do inglês /Cognitive
   Dimensions of Notations/, propostas por textcite:green1989, são um
@@ -283,21 +280,24 @@ habilidade de programação dos participantes.
   Na segunda, as cinco tarefas são implementadas nas três notações e comparadas.
 
   As cinco tarefas exercitam cinco /problemas de coordenação/, isto é, cinco
-  exigências que a interface faz à notação.
-  O Contador exercita o caminho mais simples, do evento ao estado e à tela, e o
-  Formulário com validação, o estado derivado e os campos que dependem uns dos
-  outros.
-  A Busca com sugestões exercita a assincronia (espera, respostas fora de
-  ordem e cancelamento).
-  A Lista filtrável exercita a lista derivada por busca, filtro e ordenação,
-  e o Carrinho, o estado compartilhado entre componentes.
+  exigências que a interface faz à notação:
 
-  Três das cinco tarefas partem do 7GUIs, as sete tarefas de interface propostas na
-  dissertação de textcite:kiss2014.
-  O Contador é a tarefa /Counter/, e o Formulário amplia a /Flight Booker/
-  com os campos de um formulário real [[cite:kiss2014][p. 17 e 25]].
-  A Lista toma o filtro por prefixo da tarefa /CRUD/
-  [[cite:kiss2014][p. 34]].
+  - Contador :: o caminho mais simples, do evento ao estado e à tela;
+  - Formulário com validação :: o estado derivado e os campos que dependem
+    uns dos outros;
+  - Busca com sugestões :: a assincronia (espera, respostas fora de ordem e
+    cancelamento);
+  - Lista filtrável :: a lista derivada por busca, filtro e ordenação;
+  - Carrinho :: o estado compartilhado entre componentes.
+
+  Três das cinco tarefas partem do 7GUIs, as sete tarefas de interface
+  propostas na dissertação de [[textcite:kiss2014][p. 17, 25 e 34]]:
+
+  - Contador :: a tarefa /Counter/;
+  - Formulário com validação :: a /Flight Booker/, ampliada com os campos de
+    um formulário real;
+  - Lista filtrável :: o filtro por prefixo da tarefa /CRUD/.
+
   A Busca e o Carrinho não têm tarefa equivalente.
   O /Timer/ trata da concorrência entre um relógio e o usuário, mas nenhuma
   das sete tarefas faz uma requisição cujas respostas chegam fora de ordem ou
@@ -372,11 +372,11 @@ habilidade de programação dos participantes.
   As DCs já foram usadas para avaliar APIs cite:clarke2003 e recursos de linguagens de programação
   cite:sadowski2011.
   O trabalho usa oito das catorze dimensões.
-  Seis são as que [[textcite:kiss2014][p. 12-14]] usou: nível de
-  abstração, proximidade de descrição, dependências ocultas, propensão a
-  erros, concisão e viscosidade.
+  Seis são as que [[textcite:kiss2014][p. 12-14]] usou: /nível de
+  abstração/, /proximidade de descrição/, /dependências ocultas/,
+  /propensão a erros/, /concisão/ e /viscosidade/.
 
-  As outras duas, expressividade e operações mentais difíceis, vêm do grupo
+  As outras duas, /expressividade/ e /operações mentais difíceis/, vêm do grupo
   que [[textcite:kiss2014][p. 15]] deixou de fora e que, a seu ver, teria
   sido útil se as linguagens e os /toolkits/ comparados fossem muito mais
   diferentes.
