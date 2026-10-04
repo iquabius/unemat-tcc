@@ -82,3 +82,8 @@ reactivity* ("Components […] will only run once"), em
 `docs/literatura.md`, seção 8.1 (2026-09-26); react.dev, *Reacting to
 Input with State* (2026-09-28): "you declare what you want to show";
 ADRs 0011, 0013 e 0014.
+
+Errata 2026-10-04: a p. 22 da pré-publicação de Green e Petre (1996),
+citada no texto e nas Fontes, é a p. 150 da versão publicada (JVLC 7,
+p. 131-174), onde está "at the notational level, not solely at the
+semantic level".

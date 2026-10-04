@@ -723,7 +723,7 @@ agente principal, e "subagente", só pela leitura do subagente. Cópias em
 | idem, cap. 4 (Scala.Rx, ReactFX, Elm) | Custo mental sem dimensão própria: "mental effort", "higher conceptual costs" (p. 97), "rethinking effort" (p. 98); a explicação do Elm "worsens the Abstraction Level drastically" (p. 87). "Restricted expressivity" (p. 98) é poder de expressão, não role-expressiveness | p. 87, 97, 98 | conferido |
 | MERNIK, M. et al. INForum 2009 (`mernik2009`) | XAML (declarativo) × C# Forms (imperativo), 36 programadores: RE e HMO entre as mais influentes na compreensão; diferenças RE 0,296, HMO 0,105, imposed guess-ahead 0,146, consistency 0,028, secondary notation 0,018 | Tabela 6 | conferido |
 | Green 1989 (`green1989`) | HMO não é questão da relação entre notação e ambiente | p. 11 da cópia | conferido |
-| Green e Petre 1996 (`green1996d`) | HMO "at the notational level, not solely at the semantic level" (p. 22); RE = "what is this bit for?" (p. 30); HMO: "resort to fingers or pencilled annotation" (p. 11); compromisso prematuro vem do ambiente que "constrains the order" (p. 28), mas também da escolha de construção, "while should be changed to for" (p. 29-30); consistência é "guessability", avaliada por introspecção (p. 20); notação secundária é "idiosyncratic and private" (p. 32) | páginas da pré-publicação | conferido |
+| Green e Petre 1996 (`green1996d`) | HMO "at the notational level, not solely at the semantic level" (p. 150); RE = "what is this bit for?" (p. 158); HMO: "resort to fingers or pencilled annotation" (p. 138); compromisso prematuro vem do ambiente que "constrains the order" (p. 155), mas também da escolha de construção, "while should be changed to for" (p. 157); consistência é "guessability", avaliada por introspecção (p. 147); notação secundária é "idiosyncratic and private" (p. 159) | versão publicada (conferida em 2026-10-04) | conferido |
 | Blackwell e Green 2003 (`blackwell2003`) | "not an analytic method"; "discussion tools" (p. 3); aplica-se a todo artefato de informação, com destaque na programação visual (p. 6) | páginas da cópia | conferido |
 | Britton e Kutar 2001, PPIG 13 (`britton2001`) | Um perfil com só um subconjunto das DCs pode deixar de fora aspectos importantes; o perfil de compreensão incluía RE e HMO, mas também consistência e notação secundária. Citados pela escolha das duas na metodologia desde 2026-10-04 | p. 265 (resumo); p. 267 (p. 3 da cópia) | conferido |
 | Blackwell et al. 2001 (`blackwell2001`, fora do refs.bib) | Relata o mesmo estudo: "prior selection of a subset of CDs may be unhelpful" | p. 5 da cópia | conferido |
@@ -992,7 +992,7 @@ por WebFetch na data indicada. Cópias em `tmp/fontes/`, fora do git.
 
 Páginas: Van Roy 2009, impressa = PDF + 8; Van Roy e Haridi 2004 (CTM),
 impressa = PDF − 31 (prefácio: PDF 14 = p. xiii); Van Roy et al. 2020,
-83:PDF; Green e Petre 1996, página do PDF da pré-publicação; Sperber e
+83:PDF; Green e Petre 1996, página impressa da versão publicada (2026-10-04); Sperber e
 Schlegel 2025, impressa = PDF + 26; Grolaux et al. 2026, impressa = PDF + 6;
 Madsen et al. 2020, 12:PDF; Mernik et al. 2005, impressa = PDF + 315;
 Mernik et al. 2009 e Hudak 1996, página da cópia.
@@ -1029,8 +1029,8 @@ Mernik et al. 2009 e Hudak 1996, página da cópia.
 | Green e Blackwell 1998 (tutorial) | "the notation is the language itself" | p. 8 | letra das DCs |
 | Green e Blackwell 1998 | a linguagem visual de fluxo de dados "exposes the data dependencies as the central feature of the notation, a different paradigm that accepts an entirely different set of trade-off positions from say, a C version" | p. 20 | paradigma visto na notação |
 | Green e Blackwell 1998 | a abstração "changes the notation", quase sempre "by expansion – a new term is added" | p. 24 | base de "notação" (ADR 0021) |
-| Green e Petre 1996 (`green1996`) | "Designers of VPLs obviously need to choose a computational model and some type of visual 'language' [...] in which to represent that model. The cognitive dimensions framework has little to say about these high-level choices"; Prograph e LabVIEW, mesmo modelo e mesma representação, com "surface differences that greatly affect their assessment" | p. 12 do PDF | modelo × notação; precedente do desenho |
-| Green e Petre 1996 | o mesmo modelo como "the dataflow paradigm" | p. 21 do PDF | modelo e paradigma como sinônimos |
+| Green e Petre 1996 (`green1996d`) | "Designers of VPLs obviously need to choose a computational model and some type of visual 'language' [...] in which to represent that model. The cognitive dimensions framework has little to say about these high-level choices"; Prograph e LabVIEW, mesmo modelo e mesma representação, com "surface differences that greatly affect their assessment" | p. 139 | modelo × notação; precedente do desenho |
+| Green e Petre 1996 | o mesmo modelo como "the dataflow paradigm" | p. 149 | modelo e paradigma como sinônimos |
 
 ### 15.3 Como as fontes de interface nomeiam as três formas
 

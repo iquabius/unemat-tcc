@@ -58,3 +58,8 @@ Sperber e Schlegel (2025, p. 27, 32); Grolaux et al. (2026, p. 7, 10, 13);
 legacy.reactjs.org, *JSX In Depth*, e README de solidjs/solid (lidos em
 2026-10-03); `casos/formulario` e `casos/busca-com-sugestoes` em `857f49b`.
 Trechos com página em `docs/literatura.md`, seção 15.
+
+Errata 2026-10-04: a p. 12 de Green e Petre (1996), citada três vezes,
+é a página do PDF da pré-publicação; na versão publicada (JVLC 7,
+p. 131-174), "little to say about these high-level choices" está na
+p. 139.
