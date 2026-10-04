@@ -63,7 +63,10 @@ sobra passa pela rodada por bloco. As técnicas e as fontes estão em
    pergunta → objetivos → método. Cada parágrafo recebe um rótulo:
    **manter**, **condensar**, **mover** (com destino) ou **cortar**, e uma
    frase sobre o que a cadeia perde sem ele.
-   - Uma fonte fica se sustenta um elo da cadeia.
+   - Uma fonte fica se sustenta um elo da cadeia, e não se só mostra que
+     a pesquisa foi feita.
+   - Desconfie do parágrafo que o autor defenderia por gosto, e não pelo
+     elo que sustenta: os queridinhos de King.
    - Duas fontes para a mesma afirmação: fica a mais forte. Ganha a
      publicada sobre a cinza, a com dado sobre a de opinião, a citada na
      lacuna sobre a de passagem.
