@@ -68,3 +68,6 @@ Compose ser Kotlin-only, não por maioria de uso. O Stack Overflow 2025
 confirma os 29,4% contra 10,8% e mostra o Kotlin mais admirado (51% contra
 41,8%) e menos desejado (12% contra 15,8%) que o Java. Fontes e cálculo em
 `docs/literatura.md`, seção 7.
+
+Errata 2026-10-03: na primeira frase, o Android é a plataforma móvel mais
+comum, não a "interface móvel".

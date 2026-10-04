@@ -40,8 +40,8 @@ Três estudos medem o peso do tratamento de eventos e dos /callbacks/ no código
 Uma análise das aplicações /desktop/ da Adobe concluiu que a lógica de
 tratamento de eventos era um terço do código e continha metade dos /bugs/
 relatados [[cite:edwards2009][p. 926]].
-Em quatro sistemas de grande porte feitos com a mesma biblioteca de
-interface, [[textcite:mijailovic2014][p. 770]] contaram de 1.221 a 31.285
+Em quatro sistemas de grande porte com as interfaces gráficas feitas na
+mesma API (/Application Programming Interface/), [[textcite:mijailovic2014][p. 770]] contaram de 1.221 a 31.285
 tratadores de eventos.
 Em JavaScript, os /callbacks/ são frequentes: num estudo de 138 programas, uma
 em cada dez definições de função recebe um /callback/, e a maioria dos
@@ -110,8 +110,8 @@ habilidade de programação dos participantes.
   Na /reativa fina com signals/, cada /signal/ avisa os valores e trechos da
   tela que dependem dele, e só esses são recalculados, como no Solid e no
   Angular com /signals/ cite:solidjs2026,google2026.
-  A notação reativa fina aplica conceitos da PR, como os valores que variam no
-  tempo, chamados /signals/, e a propagação automática de alterações
+  A notação reativa fina usa as abstrações da PR: os valores que variam no
+  tempo, chamados /signals/, cujas alterações se propagam automaticamente
   cite:salvaneschi2015.
 
   Cada tecnologia fica na notação em que escreve a maior parte da
@@ -245,9 +245,10 @@ habilidade de programação dos participantes.
   Biblioteca Digital Brasileira de Teses e Dissertações.
   Entram trabalhos revisados por pares, em inglês ou português, de três
   tipos.
-  Os primeiros tratam de PR ou de interfaces declarativas, e os segundos
-  comparam a compreensão e a usabilidade dessas abordagens com as dos
-  /callbacks/ ou do /Observer Pattern/.
+  Os primeiros tratam de PR ou da programação declarativa de interfaces
+  gráficas.
+  Os segundos comparam a compreensão e a usabilidade de uma ou de outra com
+  as dos /callbacks/ ou do /Observer Pattern/.
   Os terceiros aplicam as Dimensões Cognitivas a linguagens e bibliotecas.
   O /snowballing/ para a frente parte de dez trabalhos centrais e, na
   segunda rodada, percorre todos os citantes de quatro deles, até que uma
@@ -257,13 +258,16 @@ habilidade de programação dos participantes.
   A revisão não viu os citantes de textcite:kiss2014, que o OpenAlex não
   indexa, e julgou só pelo título 280 registros sem resumo.
 
-  Na comparação, conta só a notação de coordenação.
   As Dimensões Cognitivas admitem várias notações num mesmo sistema
-  [[cite:blackwell2001][p. 328]], e o código de uma interface tem pelo menos duas.
-  A outra, a /notação da estrutura da tela/, escreve quais elementos a tela
+  [[cite:blackwell2001][p. 328]], e o código de uma interface gráfica tem pelo menos
+  duas.
+  Além da de coordenação, a /notação da estrutura da tela/ escreve quais elementos a tela
   tem, em que hierarquia e com que textos, como o HTML ou o JSX.
-  O JSX é uma extensão do JavaScript que escreve marcação parecida com HTML
-  dentro do código cite:meta2026c.
+  O JSX é uma extensão de sintaxe do JavaScript que permite escrever
+  marcação parecida com HTML dentro de um arquivo JavaScript cite:meta2026c.
+  A comparação principal é a da notação de coordenação, e a da estrutura da
+  tela é um segundo eixo, que o par Solid e Angular faz variar.
+  @@latex:\todo{A estrutura da tela passa a ser um segundo eixo da comparação. Se a análise a cobre, isso se decide nas primeiras análises.}@@
   Quando o texto diz só notação, é a de coordenação.
   Ela inclui os sinais de coordenação escritos dentro da estrutura da tela,
   como a leitura de um /signal/ no JSX.
@@ -309,13 +313,14 @@ habilidade de programação dos participantes.
   estado em /signals/ e derivam valores de outros /signals/
   cite:solidjs2026a,google2026.
   Diferem na notação da estrutura da tela, que o Solid escreve em JSX dentro
-  de uma função, e o Angular num /template/ em HTML cite:google2026a.
+  de uma função, e o Angular num /template/ baseado em HTML, com construtos
+  próprios cite:google2026a.
   Esse par, porém, não difere só nisso: o Angular escreve o componente como
   classe, com decorador e injeção de dependências.
   A análise precisa separar o que vem do /template/ do que vem desse modelo
   de componente.
-  A notação imperativa entra com duas tecnologias, o Web Component, só com a
-  API do navegador, e o jQuery, uma biblioteca.
+  A notação imperativa entra com duas tecnologias, o Web Component, da
+  própria plataforma web, e o jQuery, uma biblioteca.
 
   No Android, o Formulário e a Lista formam uma /replicação/, que confere se
   as conclusões tiradas na web se repetem em outra plataforma e outra
@@ -359,8 +364,7 @@ habilidade de programação dos participantes.
   A avaliação usa as DCs, que textcite:blackwell2003 chamam de ferramentas
   de discussão, para quem projeta ou avalia artefatos de informação, e não
   de método analítico.
-  As DCs já foram usadas para avaliar APIs (/Application Programming
-  Interfaces/) cite:clarke2003 e recursos de linguagens de programação
+  As DCs já foram usadas para avaliar APIs cite:clarke2003 e recursos de linguagens de programação
   cite:sadowski2011.
   O trabalho usa oito das catorze dimensões.
   Seis são as que [[textcite:kiss2014][p. 12-14]] usou: nível de
@@ -374,8 +378,8 @@ habilidade de programação dos participantes.
   Na comparação principal dele, o ScalaFX envolve o próprio JavaFX, e o
   Scala foi escolhido por ser sintaticamente próximo do Java
   [[cite:kiss2014][p. 11-12]].
-  Aqui, as tecnologias diferem no /toolkit/ e na forma de escrever a
-  coordenação.
+  Aqui, cada tecnologia traz as próprias abstrações, e as três notações
+  diferem na forma de escrever a coordenação.
   E, ao avaliar bibliotecas reativas, ele próprio descreve o esforço
   mental de cada uma sem uma dimensão para isso
   [[cite:kiss2014][p. 87 e 97]].
@@ -414,9 +418,10 @@ habilidade de programação dos participantes.
   Nas seções em que o Formulário ou a Lista mostram diferença entre Views e
   Compose, a replicação diz se a conclusão da web se repete no Android.
   A concisão tem ainda o apoio de uma contagem das linhas de cada
-  implementação, com a marcação da tela, esteja ela no código-fonte ou no
-  arquivo HTML da página, e sem linhas vazias, comentários, domínio e
-  estilo.
+  implementação, sem linhas vazias, comentários, domínio e estilo.
+  A contagem inclui a estrutura da tela, esteja ela no mesmo arquivo da
+  coordenação ou num arquivo à parte, como o HTML da página no jQuery e o
+  layout XML nas Views.
   @@latex:\todo[inline]{Termos: \enquote{comparar} fica para o objetivo, \enquote{avaliação} para a aplicação das DCs ao código e \enquote{análise} para a parte que apresenta os resultados. Considerar um termo só, \enquote{avaliação}, para a atividade toda. A favor: uma palavra por conceito, sem o leitor se perguntar se são três atividades. Contra: mudam mais frases, e o objetivo geral perde o verbo \enquote{comparar}, que diz o que se faz entre as notações.}@@
 
   O desenho tem limitações em três pontos: quem avalia, o instrumento e o
