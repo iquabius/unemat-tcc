@@ -85,6 +85,12 @@ a proposta aplicada na árvore com o `bin/diff-ao-vivo.sh` rodando contra
 HEAD e, na resposta, um bloco que abre o Evince na página de cada alteração
 (`bin/pagina-no-pdf.py`). O commit espera o aprovo.
 
+Bloco acima do orçamento passa antes pela rodada de corte da mesma skill
+(ADR 0022). O orçamento da introdução é de 2.500 palavras, medido com
+`metricas_texto.py --orcamento`. Cada parágrafo e cada fonte recebe um
+rótulo: manter, condensar, mover ou cortar. O autor aprova o corte por
+movimento, e a frase que costura o corte volta à rodada frase a frase.
+
 - Decisão de método, rótulo, recorte ou critério é do autor: perguntar,
   com as alternativas, antes de escrever.
 - O `.tex` sai só da exportação body only do Emacs, no host

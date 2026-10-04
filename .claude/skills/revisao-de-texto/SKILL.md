@@ -1,6 +1,6 @@
 ---
 name: revisao-de-texto
-description: Passo a passo de uma rodada de revisão do texto do TCC (texto/*.org) — rascunho em tmp/, fonte lida no PDF com página, métricas, aprovo do autor frase a frase, proposta aplicada na árvore com o diff ao vivo no Evince, links para a página, exportação e compilação no host, commit. Use sempre que for escrever, reescrever ou corrigir uma frase de texto/*.org, aplicar uma proposta de texto já discutida, acrescentar entrada ao refs.bib para citar no texto, ou quando o autor pedir para "revisar pelo processo", "mostrar no PDF" ou "abrir no Evince".
+description: Passo a passo de uma rodada de revisão do texto do TCC (texto/*.org) — rodada de corte contra um orçamento de palavras, com aprovo por movimento; depois rascunho em tmp/, fonte lida no PDF com página, métricas, aprovo do autor frase a frase, proposta aplicada na árvore com o diff ao vivo no Evince, links para a página, exportação e compilação no host, commit. Use sempre que for escrever, reescrever ou corrigir uma frase de texto/*.org, aplicar uma proposta de texto já discutida, acrescentar entrada ao refs.bib para citar no texto, cortar ou encurtar um bloco do texto, ou quando o autor pedir para "revisar pelo processo", "cortar", "mostrar no PDF" ou "abrir no Evince".
 ---
 
 # Rodada de revisão de texto no TCC
@@ -43,6 +43,51 @@ Evince estão só no host: tudo que os usa vai por `distrobox-host-exec`.
    bin/diff-ao-vivo.sh ...`), o `pkill` mata o shell da própria sessão.
    Sem edição, o PDF não tem marcas: não há diferença a mostrar.
 
+## Rodada de corte, antes da rodada da frase
+
+Por que existe: ADR 0022. Revisar com fonte e página uma frase que depois
+sai é trabalho perdido. Por isso o bloco é cortado antes, e só o que
+sobra passa pela rodada por bloco. As técnicas e as fontes estão em
+`references/processo-e-corte.md` da `escrita-academica`.
+
+1. **Orçamento.** O autor fixa o tamanho-alvo do bloco em palavras; a
+   introdução tem 2.500 (ADR 0022). Meça antes e depois com
+   `metricas_texto.py --orcamento N`, que imprime palavras e fontes por
+   parágrafo. Cada rodada corta pelo menos 10%, até o orçamento.
+2. **Mapa invertido** em `tmp/estrutura-<bloco>-<data>.md`, como o
+   `tmp/estrutura-introducao-2026-10-04.md`. Dê uma linha por parágrafo,
+   com a função, as fontes e as palavras. Depois, o teste de Garcia: só
+   as primeiras frases de cada parágrafo já contam o argumento?
+3. **Teste do silêncio**, por parágrafo e por fonte. Escreva a cadeia que
+   o bloco sustenta, numa linha; na introdução, problema → lacuna →
+   pergunta → objetivos → método. Cada parágrafo recebe um rótulo:
+   **manter**, **condensar**, **mover** (com destino) ou **cortar**, e uma
+   frase sobre o que a cadeia perde sem ele.
+   - Uma fonte fica se sustenta um elo da cadeia.
+   - Duas fontes para a mesma afirmação: fica a mais forte. Ganha a
+     publicada sobre a cinza, a com dado sobre a de opinião, a citada na
+     lacuna sobre a de passagem.
+   - Dado que só ilustra sai.
+   - Antes de cortar uma fonte, `grep` a chave no capítulo: a mesma fonte
+     pode apoiar outra afirmação.
+4. **Proposta por movimento**: uma decisão por mensagem, no formato
+   riscado dos rascunhos (`~~sai~~`, `*[o quê → destino]*`). Para cada
+   parágrafo ou fonte, mostre o rótulo, o que a cadeia perde e quantas
+   palavras saem. O autor aprova o movimento inteiro.
+5. **Costura.** Frase reescrita para ligar o que ficou, como uma
+   transição nova ou a fusão de dois parágrafos, passa pela rodada por
+   bloco abaixo, com fonte e aprovo frase a frase (ADR 0018).
+6. **Aplicar e conferir.** Aplique o corte aprovado na árvore com o diff
+   ao vivo e meça de novo contra o orçamento. Depois:
+   - `auditar_bib.py`: a entrada que saiu do texto aparece como nunca
+     citada; decida com o autor se sai do `refs.bib`;
+   - releia a cadeia inteira, porque um corte pode deixar uma afirmação
+     sem o elo anterior.
+7. **Quarentena.** O bloco commitado só volta a ser lido no PDF numa
+   sessão seguinte, e não na mesma do corte. Primeiro se procura o que
+   falta e o que sobra; só então a frase. O autor lê em voz alta no
+   aprovo do PDF (passo 8 da rodada por bloco).
+
 ## A rodada, por bloco
 
 1. **Rascunho** em `tmp/rascunho-<bloco>.org`, versão numerada, com a fonte
@@ -78,8 +123,9 @@ Evince estão só no host: tudo que os usa vai por `distrobox-host-exec`.
    `-p` é o número impresso, o que o autor vê no topo da página; `-i`, o
    índice físico, fica um à frente e confunde. Com a janela aberta, o
    Evince só pula para a página.
-8. **Aprovo no PDF.** Correções do autor voltam ao passo 5; as que valem
-   para o texto todo entram nas preferências do `AGENTS.md`.
+8. **Aprovo no PDF.** O autor lê o trecho em voz alta no PDF. Correções
+   dele voltam ao passo 5; as que valem para o texto todo entram nas
+   preferências do `AGENTS.md`.
 
 ## Fechar e commitar
 
