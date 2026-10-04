@@ -87,3 +87,7 @@ Errata 2026-10-04: a p. 22 da pré-publicação de Green e Petre (1996),
 citada no texto e nas Fontes, é a p. 150 da versão publicada (JVLC 7,
 p. 131-174), onde está "at the notational level, not solely at the
 semantic level".
+
+Errata 2026-10-04: a p. 7 da cópia de Blackwell e Green (2003), nas
+Fontes, é a p. 114 do capítulo publicado (p. 103-133), onde está "what
+the user sees and edits".

@@ -56,3 +56,8 @@ Errata 2026-10-02: a página publicada de Blackwell et al. (2001), que o
 Custo dá como a conferir, é a p. 328; nela estão "multiple notations" e
 "generic sub-notations such as menu bars, dialogs", que as Fontes situam
 na p. 3 da cópia de 11 páginas.
+
+Errata 2026-10-04: a p. 8 da cópia de Blackwell e Green (2003), nas
+Fontes, é a p. 115 do capítulo publicado (p. 103-133), onde os
+subdispositivos têm "their own notations or interaction languages that
+are separate from the main notation of the system".
