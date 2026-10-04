@@ -378,7 +378,7 @@ habilidade de programação dos participantes.
   Nele, as versões de linguagens, bibliotecas e ferramentas ficam
   fixadas[fn:versoes], para que as implementações possam ser reproduzidas.
 
-  A avaliação usa as DCs, que textcite:blackwell2003 chamam de ferramentas
+  A avaliação usa as DCs, que [[textcite:blackwell2003][p. 106]] chamam de ferramentas
   de discussão, para quem projeta ou avalia artefatos de informação, e não
   de método analítico.
   As DCs já foram usadas para avaliar APIs cite:clarke2003 e recursos de linguagens de programação
