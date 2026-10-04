@@ -104,6 +104,11 @@ HEAD e, na resposta, um bloco que abre o Evince na página de cada alteração
   nas referências; aspas em `\enquote{...}`, porque o `"` cru é atalho do
   babel e cola na palavra seguinte. A versão entregue desliga todas com
   `\usepackage[disable]{todonotes}` no `tcc.tex`.
+- Nota de rodapé só para o que, no texto, quebraria a leitura, como uma
+  lista de versões (NBR 10520:2023, pelos guias da UFV e da UNESP; Garcia
+  2010, Preparação dos originais, 1.2.9). Termo corrente da área não ganha
+  definição em nota; o termo de uma citação traduzida fica no original
+  dentro dela; a citação que sustenta a frase vai na própria frase.
 - Preferências do autor: "uma pessoa só", não "uma só pessoa"; nenhum autor
   citado duas vezes na mesma frase (`[[textcite:chave][p. N]]` imprime
   "Autor (ano, p. N)"); quem sugeriu uma decisão, como o orientador, fica

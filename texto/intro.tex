@@ -23,9 +23,8 @@ Também chamado de \emph{listener}, o \emph{callback} é a forma dominante de pr
 eventos, e registrá-lo num produtor de eventos, que o chama de volta a cada
 evento, é o \emph{Observer Pattern} \cite[p. 7]{blackheath2016}.
 Para \textcite[p. 134]{fischer2007}, o \emph{callback} dificulta a manutenção
-e a compreensão do programa, porque fragmenta cada fluxo de
-controle\footnote{O fluxo de controle é a ordem em que as instruções de um
-programa são executadas.} em vários \emph{callbacks} independentes.
+e a compreensão do programa, porque fragmenta cada fluxo de controle em
+vários \emph{callbacks} independentes.
 Em 2026, o tratamento de eventos nas interfaces ainda se apoia em
 \emph{callbacks} ou \emph{listeners}, que tornam difíceis de exprimir e de manter os
 fluxos de interação complexos \cite[p. 8]{grolaux2026}.
@@ -33,9 +32,8 @@ Numa rede de \emph{callbacks}, a ordem em que os eventos chegam pode depender da
 ordem em que os \emph{callbacks} foram registrados, o que a torna difícil de prever
 \cite[p. 8]{blackheath2016}.
 “Coordenar alterações ao estado compartilhado em meio a esse caos pode ser
-desconcertante, e está longe de ser modular. A definição coloquial é \emph{Inferno
-de Callbacks}\footnote{Tradução literal do inglês \emph{‘Callback Hell’}: expressão
-popular na comunidade de programação.}.” \cite[p. 926; tradução nossa]{edwards2009}.
+desconcertante, e está longe de ser modular. A definição coloquial é \emph{Callback
+Hell}.” \cite[p. 926; tradução nossa]{edwards2009}.
 
 Três estudos medem o peso do tratamento de eventos e dos \emph{callbacks} no código.
 Uma análise das aplicações \emph{desktop} da Adobe concluiu que a lógica de
@@ -59,12 +57,11 @@ código que as usa dificulta a compreensão e leva facilmente a erros
 \cite[p. 162:1]{alimadadi2018}.
 
 A preocupação explícita com o fluxo de controle é, para
-\textcite[p. 1]{moseley2006}, uma das causas da complexidade dos sistemas de
-grande porte, ao lado do volume de código e, sobretudo, do tratamento do
-estado\footnote{\textcite{moseley2006} distinguem a complexidade essencial,
-própria do problema, da acidental, todo o resto, e sustentam que a maior parte
-da que resta nos sistemas é acidental.}.
-Eles propõem reduzi-la com uma abordagem baseada em programação funcional e no
+\textcite[p. 1 e 21]{moseley2006}, uma das causas da complexidade dos
+sistemas de grande porte, ao lado do volume de código e, sobretudo, do
+tratamento do estado.
+Eles distinguem a complexidade essencial, própria do problema, da acidental,
+todo o resto, e propõem reduzir a acidental com programação funcional e o
 modelo relacional de dados.
 Conceitos de programação declarativa podem, assim, diminuir essa complexidade.
 
@@ -337,9 +334,7 @@ re-renderização, porque chama de novo as funções da tela quando o estado
 muda \cite{android2026}.
 A replicação fica, assim, entre essas duas notações.
 As duas variantes são escritas em Kotlin, a linguagem que o Android
-recomenda e a única em que o Compose se escreve\footnote{O Kotlin é a linguagem que a documentação do Android recomenda
-desde 2019 \cite{android2026a}, e o compilador do Compose é um \emph{plugin} do
-compilador Kotlin.}.
+recomenda e a única em que o Compose se escreve \cite{android2026a}.
 O Contador também é implementado no Android, como introdução à sintaxe,
 sem análise própria.
 
@@ -367,13 +362,15 @@ automaticamente, denunciam desvios de comportamento ou de aparência,
 porque devem sair idênticas entre as tecnologias web.
 Entre Views e Compose, a única diferença admitida é a de poucos pixels na
 renderização do texto.
-As versões de linguagens, bibliotecas e ferramentas ficam
-fixadas\footnote{Fixadas no \texttt{package-lock.json} e no \texttt{libs.versions.toml} do
-repositório: na web, TypeScript 6.0.3, jQuery 4.0.0, React 19.3.0, Solid
-1.9.15 e Angular 22.2.0, com Vite 8.3.1 para o \emph{build} (no Angular, o
-\texttt{@angular/build} 22.2.0) e Playwright 1.63.0 para as capturas; no Android,
-Kotlin 2.4.20, Jetpack Compose pela BOM 2026.09.00 e, para as capturas,
-Robolectric 4.17 com Roborazzi 1.75.0.}, para que as implementações possam ser reproduzidas.
+As implementações, os roteiros e as capturas ficam num repositório público,
+em \url{https://github.com/iquabius/unemat-tcc}.
+Nele, as versões de linguagens, bibliotecas e ferramentas ficam
+fixadas\footnote{No \texttt{package-lock.json} e no \texttt{libs.versions.toml}.
+Na web, TypeScript 6.0.3, jQuery 4.0.0, React 19.3.0, Solid 1.9.15 e Angular
+22.2.0, com Vite 8.3.1 para o \emph{build} (no Angular, o \texttt{@angular/build} 22.2.0)
+e Playwright 1.63.0 para as capturas.
+No Android, Kotlin 2.4.20, Jetpack Compose pela BOM (\emph{Bill of Materials})
+2026.09.00 e, para as capturas, Robolectric 4.17 com Roborazzi 1.75.0.}, para que as implementações possam ser reproduzidas.
 
 A avaliação usa as DCs, que \textcite{blackwell2003} chamam de ferramentas
 de discussão, para quem projeta ou avalia artefatos de informação, e não
