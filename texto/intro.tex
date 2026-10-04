@@ -128,24 +128,36 @@ paradigma do React” \cite[tradução nossa]{meta2026d}.
 
 As pesquisas de uso medem tecnologias, não notações, e por isso o uso de
 cada notação se afere pelas tecnologias que a adotam.
-Três medidas dão esse uso, cada uma com um limite de amostra:
+Quatro medidas dão esse uso, cada uma com um limite de amostra:
 
 \begin{description}
 \item[{Stack Overflow Developer Survey 2025}] React, jQuery e Angular estão
 entre as sete tecnologias web mais usadas, com 44,7\%, 23,4\% e 18,2\% dos
 respondentes, recrutados sobretudo pelos próprios canais do site, o que
 favorece os usuários mais ativos \cite{stackoverflow2025};
-\item[{W3Techs}] o jQuery está em 65,5\% dos \emph{sites} monitorados, mas basta
-achá-lo em qualquer página para o \emph{site} contar, o que o favorece e nada
-diz das aplicações novas \cite{w3techs2026,w3techs2026a};
+\item[{W3Techs}] o jQuery está em 65,5\% dos \emph{sites} monitorados, o React em
+6,0\% e o Angular em 0,2\%, mas basta achar a biblioteca em qualquer
+página para o \emph{site} contar, o que favorece o jQuery e nada diz das
+aplicações novas \cite{w3techs2026,w3techs2026a};
 \item[{State of JS 2025}] o Solid é usado por 10\% dos respondentes, num
 levantamento aberto a quem quiser responder, que se declara o retrato
-de um subconjunto de desenvolvedores \cite{devographics2026}.
+de um subconjunto de desenvolvedores \cite{devographics2026};
+\item[{Pesquisa Código Fonte TV 2026}] a única sobre o Brasil, põe React,
+Angular e jQuery como a ferramenta mais usada no dia a dia por 7,6\%,
+3,3\% e 0,3\% dos participantes, mas cada um escolhe uma só, entre 130
+de todas as áreas, o que encolhe as fatias, e a audiência do canal que
+a divulga tende a estar super-representada \cite{codigofonte2026}.
 \end{description}
 
-Nenhuma das duas primeiras traz o Solid ou os Web Components.
+Só o State of JS dá número ao Solid, que tem uma resposta na Pesquisa
+Código Fonte TV, e nenhuma das quatro mede os Web Components sem
+biblioteca.
 Por isso, o uso da notação reativa fina se apoia no Angular, que também a
-adota, embora o número do Angular não separe quem usa \emph{signals}.
+adota, embora nenhum número do Angular separe quem usa \emph{signals}.
+O W3Techs nem separa o Angular do AngularJS, antecessor dele e sem
+suporte desde 2022 \cite{thompson2022}; a Pesquisa Código Fonte TV os
+separa e dá 571 participantes ao Angular e 78 ao AngularJS
+\cite{codigofonte2026}.
 Da mesma forma, o uso da notação imperativa se apoia no jQuery.
 O Web Component entra por ser o modelo de componente do próprio navegador
 \cite{mozilla2026}, e nele a notação é o \texttt{addEventListener} cujo \emph{callback}
