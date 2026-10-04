@@ -27,7 +27,8 @@ Evince estão só no host: tudo que os usa vai por `distrobox-host-exec`.
    lá é livre. Ao fechar uma sessão em worktree, diga ao autor quais
    rascunhos guardar antes de remover a worktree.
 4. Diff ao vivo rodando no host contra HEAD. Conferir e, se não estiver,
-   iniciar (ele mesmo abre o Evince):
+   iniciar (ele mesmo abre o Evince e, a cada PDF novo, o leva à última
+   edição salva):
 
    ```bash
    distrobox-host-exec pgrep -af '[b]in/diff-ao-vivo.sh'

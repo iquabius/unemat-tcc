@@ -106,7 +106,17 @@
    bin/diff-ao-vivo.sh            # compara com HEAD: só o que não foi commitado
    bin/diff-ao-vivo.sh . 7975f81  # compara com um commit: o trabalho inteiro
    VIEW=none bin/diff-ao-vivo.sh  # sem abrir o Evince
+   SEGUIR=none bin/diff-ao-vivo.sh  # sem levar o Evince à última edição
    #+end_src
+
+   A cada PDF novo, o Evince vai sozinho até a última edição salva e a
+   destaca: o script compila com SyncTeX, acha a primeira linha do diff que
+   mudou desde o PDF anterior e a passa ao Evince pelo D-Bus (=SyncView=, com
+   o =gdbus=). Na comparação não entram os comentários, porque o cabeçalho do
+   =latexdiff= traz a hora dos arquivos, nem os rótulos que o Org sorteia a
+   cada exportação (=sec:org1a2b3c4=). O salto espera 1,5 s pela recarga do
+   PDF; com várias edições entre dois PDFs, vai para a primeira (testado em
+   2026-10-04).
 
    Rode no host, num terminal próprio; Ctrl-C para. De outro terminal, ou do
    container por =distrobox-host-exec=, pare com

@@ -52,10 +52,11 @@ Em outra distro só muda o gerenciador — os nomes CTAN são os mesmos.
 
   A revisão do texto (ADR 0018) usa mais três, opcionais: =poppler-tools=
   (=pdftotext=, para ler as fontes e achar a página no PDF do diff),
-  =pdfgrep= e =evince=, que o =bin/diff-ao-vivo.sh= abre e recarrega:
+  =pdfgrep= e =evince=, que o =bin/diff-ao-vivo.sh= abre, recarrega e leva
+  à última edição pelo =gdbus= (=glib2-tools=, que o GNOME já traz):
 
   #+begin_src sh
-  sudo zypper install -y poppler-tools pdfgrep evince
+  sudo zypper install -y poppler-tools pdfgrep evince glib2-tools
   #+end_src
 
   Em outra distro, pergunte ao próprio documento o que ele carrega:
