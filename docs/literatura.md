@@ -622,7 +622,7 @@ Cópias locais em `tmp/fontes/`, fora do git.
   programação de interfaces, simples e baseados em exemplos existentes
   (p. 11).
 - Contador = *Counter* (§3.3, p. 17); Formulário parte do *Flight Booker*
-  (§3.5, p. 25); a Lista toma o filtro por prefixo do *CRUD* (§3.7, p. 34).
+  (§3.5, p. 25); a Lista toma o filtro por prefixo do *Crud* (§3.7, p. 34).
 - Assincronia: o *Timer* (§3.6, p. 30) trata de concorrência entre o
   relógio e o usuário; nenhuma tarefa tem requisição com respostas fora de
   ordem e cancelamento, como a Busca.

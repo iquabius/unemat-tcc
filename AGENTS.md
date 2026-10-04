@@ -92,7 +92,12 @@ HEAD e, na resposta, um bloco que abre o Evince na página de cada alteração
   indefinidas.
 - No `refs.bib`, escapar `%`, `#` e `&` fora de `url` e `doi`, inclusive em
   `annotation`: sem escape, quebram o `.bbl`.
-- Siglas conferidas contra a primeira definição no capítulo.
+- Siglas conferidas contra a primeira definição no capítulo: definida na
+  primeira ocorrência do termo e usada sempre depois, inclusive no objetivo
+  geral. Forma "/nome em português/ (sigla), do inglês /nome em inglês/"
+  quando o texto usa o nome em português (DC); senão, "sigla (/nome em
+  inglês/)" (API). Sigla corrente da área (HTTP, HTML, XML) e sigla
+  dentro de nome próprio (State of JS, IEEE Xplore) ficam sem definição.
 - Notas `\todo` (todonotes) servem à orientação e ficam no `.org`, senão
   somem na próxima exportação. Nota de uma ou duas frases vai na margem,
   `@@latex:\todo{...}@@` junto da frase ou do parágrafo a que se refere,

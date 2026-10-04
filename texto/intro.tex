@@ -61,7 +61,7 @@ A preocupação explícita com o fluxo de controle é, para
 sistemas de grande porte, ao lado do volume de código e, sobretudo, do
 tratamento do estado.
 Eles distinguem a complexidade essencial, própria do problema, da acidental,
-todo o resto, e propõem reduzir a acidental com programação funcional e o
+todo o resto, e propõem reduzir a acidental com \emph{programação funcional} (PF) e o
 modelo relacional de dados.
 Conceitos de programação declarativa podem, assim, diminuir essa complexidade.
 
@@ -78,7 +78,7 @@ Excel}.
 Eles chamam as planilhas de “possivelmente a linguagem de programação mais
 utilizada por usuários finais” (tradução nossa).
 A maior parte da pesquisa em PR, dizem ainda, descende do Fran, uma
-linguagem da \emph{programação funcional} (PF) do fim dos anos 1990.
+linguagem da PF do fim dos anos 1990.
 
 \textcite[p. 1125-1134]{salvaneschi2017} testaram uma afirmação antiga,
 até então sem evidência empírica, de que a PR torna os programas mais fáceis
@@ -172,16 +172,17 @@ citam as referências centrais das DCs \cite{hadhrawi2017}.
 Trabalhos anteriores compararam por elas paradigmas, linguagens e
 bibliotecas de programação de interfaces.
 \textcite{mernik2009} compararam, com 36 programadores, uma linguagem de
-domínio específico para descrever interfaces gráficas, o XAML, e uma
-biblioteca de aplicação, o C\# Forms.
-\textcite[p. v e 104]{kiss2014} comparou a programação orientada a
-objetos e a funcional em sete tarefas de interface, com JavaFX, ScalaFX,
+domínio específico para descrever interfaces gráficas, o XAML
+(\emph{Extensible Application Markup Language}), e uma biblioteca de
+aplicação, o C\# Forms.
+\textcite[p. v e 104]{kiss2014} comparou a POO e a PF
+em sete tarefas de interface, com JavaFX, ScalaFX,
 Scala.Rx, ReactFX e Elm, e deixou como trabalho futuro comparar os
 \emph{frameworks} de interface do navegador.
 \textcite[p. 1510 e 1513]{zimmerle2025} avaliaram com usuários duas
 bibliotecas de PR para JavaScript, RxJS e Bacon.js, em tarefas de
 requisições HTTP.
-Fora das Dimensões Cognitivas, \textcite[p. 15]{grolaux2026} compararam
+Fora das DCs, \textcite[p. 15]{grolaux2026} compararam
 conceitualmente, numa prova de conceito em JavaScript, o async/await com
 \emph{listeners}, barramento de eventos, \emph{streams} funcionais e PR no tratamento
 dos eventos de interface.
@@ -202,7 +203,7 @@ A pesquisa pode também gerar hipóteses para experimentos controlados com
 programadores, como o de \textcite{salvaneschi2017}.
 
 O objetivo geral é comparar a usabilidade das três notações segundo as
-Dimensões Cognitivas de Notações, na programação de interfaces típicas da
+DCs, na programação de interfaces típicas da
 web, em TypeScript, com replicação no Android, em Kotlin. Especificamente:
 
 \begin{itemize}
@@ -212,7 +213,7 @@ apoiam as notações declarativas;
 Busca com sugestões, Lista filtrável e Carrinho) com Web Component,
 jQuery, React, Solid e Angular com \emph{signals}, e o Contador, o Formulário e
 a Lista no Android, com Views e Jetpack Compose;
-\item Avaliar as implementações por oito Dimensões Cognitivas;
+\item Avaliar as implementações por oito DCs;
 \item Sintetizar as vantagens e desvantagens de cada notação por problema de
 coordenação, como estado derivado e assincronia.
 \end{itemize}
@@ -225,8 +226,8 @@ A pergunta de pesquisa, como as notações se comparam, é do tipo que
 perguntas exploratórias.
 \todo[inline]{Em relação ao projeto de 2017: a pergunta deixa de comparar paradigmas, PF e PR frente à POO com callbacks, e passa a comparar três notações de coordenação, com as DCs como critério explícito. A demonstração de PR e callbacks dá lugar a cinco tarefas de interface, implementadas em cinco tecnologias web e replicadas no Android. O JavaScript passa a TypeScript, e entra o Kotlin. A classificação quanto aos meios também muda (nota adiante). A natureza aplicada sai, e a classificação exploratória passa a se apoiar em Runeson e Höst (2009) e em Easterbrook et al. (2008), no lugar de Leal (2011).}
 
-Quanto aos meios, o trabalho é uma avaliação qualitativa, pelas Dimensões
-Cognitivas, de implementações de um mesmo conjunto de tarefas.
+Quanto aos meios, o trabalho é uma avaliação qualitativa, pelas DCs, de
+implementações de um mesmo conjunto de tarefas.
 O conjunto de tarefas segue a ideia de \emph{benchmark}: testes que representam
 as tarefas da prática e servem para comparar técnicas alternativas
 \cite{sim2003}.
@@ -239,8 +240,8 @@ usabilidade do código, e não por tempo de execução e memória, como num
 
 A avaliação cabe ao autor, que examina o código das implementações critério
 a critério, sem participantes.
-\textcite[p. 8]{kiss2014} chama de analítica a avaliação pelas Dimensões
-Cognitivas e a adota como alternativa aos experimentos com programadores,
+\textcite[p. 8]{kiss2014} chama de analítica a avaliação pelas DCs
+e a adota como alternativa aos experimentos com programadores,
 muitas vezes caros e de resultados necessariamente restritos.
 Para \textcite[p. 12]{kitchenham1996}, o juízo subjetivo de como cada
 alternativa atende a um conjunto de critérios é uma análise de
@@ -264,7 +265,7 @@ Os primeiros tratam de PR ou da programação declarativa de interfaces
 gráficas.
 Os segundos comparam a compreensão e a usabilidade de uma ou de outra com
 as dos \emph{callbacks} ou do \emph{Observer Pattern}.
-Os terceiros aplicam as Dimensões Cognitivas a linguagens e bibliotecas.
+Os terceiros aplicam as DCs a linguagens e bibliotecas.
 O \emph{snowballing} para a frente parte de dez trabalhos centrais e, na
 segunda rodada, percorre todos os citantes de quatro deles, até que uma
 iteração não traga trabalho novo, o que acontece na terceira.
@@ -273,7 +274,7 @@ Os números de cada etapa estão no Apêndice \ref{apend:2}.
 A revisão não viu os citantes de \textcite{kiss2014}, que o OpenAlex não
 indexa, e julgou só pelo título 280 registros sem resumo.
 
-As Dimensões Cognitivas admitem várias notações num mesmo sistema
+As DCs admitem várias notações num mesmo sistema
 \cite[p. 328]{blackwell2001}, e o código de uma interface gráfica tem pelo menos
 duas.
 Além da de coordenação, a \emph{notação da estrutura da tela} escreve quais elementos a tela
@@ -314,7 +315,7 @@ propostas na dissertação de \textcite[p. 17, 25 e 34]{kiss2014}:
 \item[{Contador}] a tarefa \emph{Counter};
 \item[{Formulário com validação}] a \emph{Flight Booker}, ampliada com os campos de
 um formulário real;
-\item[{Lista filtrável}] o filtro por prefixo da tarefa \emph{CRUD}.
+\item[{Lista filtrável}] o filtro por prefixo da tarefa \emph{Crud}.
 \end{description}
 
 A Busca e o Carrinho não têm tarefa equivalente.
