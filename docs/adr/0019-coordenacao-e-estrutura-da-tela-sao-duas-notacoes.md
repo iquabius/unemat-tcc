@@ -1,5 +1,7 @@
 # 0019. O código de uma interface tem duas notações, a de coordenação e a da estrutura da tela, e o trabalho compara a de coordenação
 
+Substituído por 0021 em 2026-10-03.
+
 Substitui o ADR 0016.
 
 2026-09-29. O ADR 0016 opôs a notação, a escrita da coordenação entre

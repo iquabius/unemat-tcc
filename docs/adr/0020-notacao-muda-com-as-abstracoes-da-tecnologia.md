@@ -1,5 +1,7 @@
 # 0020. A notação de coordenação muda com as abstrações da tecnologia, não com a linguagem, e aplica conceitos de paradigmas
 
+Substituído por 0021 em 2026-10-03.
+
 2026-10-03. Nas DCs, a notação de um programa é "the language itself"
 (Green e Blackwell 1998, p. 8), mas as cinco tecnologias web do trabalho se
 escrevem na mesma linguagem, o TypeScript; e as fontes chamam de paradigma o
