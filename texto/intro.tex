@@ -22,10 +22,10 @@ sempre que um dado evento ocorrer, p. ex., clique em um botão.
 Também chamado de \emph{listener}, o \emph{callback} é a forma dominante de propagar
 eventos, e registrá-lo num produtor de eventos, que o chama de volta a cada
 evento, é o \emph{Observer Pattern} \cite[p. 7]{blackheath2016}.
-O \emph{callback} é criticado por dificultar a manutenção e a compreensão do
-programa, porque fragmenta cada fluxo de controle\footnote{O fluxo de controle é a ordem em que as instruções de um
-programa são executadas.} em vários
-\emph{callbacks} independentes \cite[p. 134]{fischer2007}.
+Para \textcite[p. 134]{fischer2007}, o \emph{callback} dificulta a manutenção
+e a compreensão do programa, porque fragmenta cada fluxo de
+controle\footnote{O fluxo de controle é a ordem em que as instruções de um
+programa são executadas.} em vários \emph{callbacks} independentes.
 Em 2026, o tratamento de eventos nas interfaces ainda se apoia em
 \emph{callbacks} ou \emph{listeners}, que tornam difíceis de exprimir e de manter os
 fluxos de interação complexos \cite[p. 8]{grolaux2026}.
@@ -389,9 +389,9 @@ As outras duas, expressividade e operações mentais difíceis, vêm do grupo
 que \textcite[p. 15]{kiss2014} deixou de fora e que, a seu ver, teria
 sido útil se as linguagens e os \emph{toolkits} comparados fossem muito mais
 diferentes.
-Na comparação principal dele, o ScalaFX envolve o próprio JavaFX, e o
-Scala foi escolhido por ser sintaticamente próximo do Java
-\cite[p. 11-12]{kiss2014}.
+Na comparação principal, \textcite[p. 11-12]{kiss2014} escolheu o
+ScalaFX porque este envolve o próprio JavaFX e porque o Scala é
+sintaticamente próximo do Java.
 Aqui, cada tecnologia traz as próprias abstrações, e as três notações
 diferem na forma de escrever a coordenação.
 E, ao avaliar bibliotecas reativas, ele próprio descreve o esforço

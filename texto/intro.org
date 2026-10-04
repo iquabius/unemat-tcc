@@ -23,9 +23,9 @@ sempre que um dado evento ocorrer, p. ex., clique em um botão.
 Também chamado de /listener/, o /callback/ é a forma dominante de propagar
 eventos, e registrá-lo num produtor de eventos, que o chama de volta a cada
 evento, é o /Observer Pattern/ [[cite:blackheath2016][p. 7]].
-O /callback/ é criticado por dificultar a manutenção e a compreensão do
-programa, porque fragmenta cada fluxo de controle[fn:control_flow] em vários
-/callbacks/ independentes [[cite:fischer2007][p. 134]].
+Para [[textcite:fischer2007][p. 134]], o /callback/ dificulta a manutenção
+e a compreensão do programa, porque fragmenta cada fluxo de
+controle[fn:control_flow] em vários /callbacks/ independentes.
 Em 2026, o tratamento de eventos nas interfaces ainda se apoia em
 /callbacks/ ou /listeners/, que tornam difíceis de exprimir e de manter os
 fluxos de interação complexos [[cite:grolaux2026][p. 8]].
@@ -377,9 +377,9 @@ habilidade de programação dos participantes.
   que [[textcite:kiss2014][p. 15]] deixou de fora e que, a seu ver, teria
   sido útil se as linguagens e os /toolkits/ comparados fossem muito mais
   diferentes.
-  Na comparação principal dele, o ScalaFX envolve o próprio JavaFX, e o
-  Scala foi escolhido por ser sintaticamente próximo do Java
-  [[cite:kiss2014][p. 11-12]].
+  Na comparação principal, [[textcite:kiss2014][p. 11-12]] escolheu o
+  ScalaFX porque este envolve o próprio JavaFX e porque o Scala é
+  sintaticamente próximo do Java.
   Aqui, cada tecnologia traz as próprias abstrações, e as três notações
   diferem na forma de escrever a coordenação.
   E, ao avaliar bibliotecas reativas, ele próprio descreve o esforço
