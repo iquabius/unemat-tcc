@@ -28,17 +28,43 @@ As tarefas vivem no [Beads](https://github.com/gastownhall/beads) (`bd`
 - Criar: `bd create "Título" -p 2 --body-file -`, com o corpo pela entrada
   padrão. Id `tcc-` mais um hash que o `bd` gera; tipo `task` (padrão),
   `bug` ou `epic`.
-- Toda tarefa nova entra num épico (`bd list -t epic`): numa das fases,
-  que andam em sequência (a fase N depende da N−1, e o bloqueio passa às
-  filhas, então `bd ready` só mostra a fase em curso), ou num dos épicos
-  fora das fases. Crie sem `--parent` e pendure com
-  `bd update <id> --parent <épico>`: com `--parent` na criação, o `bd` dá
-  um id hierárquico (`tcc-e2e.1`), que engana se a tarefa mudar de épico.
+- Toda tarefa nova entra num épico (`bd list -t epic`). As fases andam em
+  sequência: a fase N depende da N−1, e o bloqueio passa às filhas, então
+  `bd ready` só mostra a fase em curso. Os épicos fora das fases cuidam
+  do que as fases consomem. Escolha pelo artefato que a tarefa muda:
+
+  | A tarefa muda | Épico |
+  |---|---|
+  | `texto/intro.org`, a pauta ou uma decisão da orientação | Fase 1: introdução (`tcc-e2e`) |
+  | `texto/cases.org`, `texto/results.org`, a análise por DC | Fase 2: análise dos casos (`tcc-d40`) |
+  | `texto/prog.org`, trabalhos relacionados | Fase 3: capítulo de programação (`tcc-2o8`) |
+  | `texto/conclusion.org`, o título, o texto do resumo | Fase 4: fechamento (`tcc-y8x`) |
+  | `casos/`: código, especificação, roteiros, capturas | Código dos casos (`tcc-3jg`) |
+  | `refs.bib`, `tmp/fontes/`, `docs/literatura.md` | Bibliografia (`tcc-bkm`) |
+  | `tcc.tex`, `tex/`, pré-textuais, margens, legendas | Formatação do documento (`tcc-juu`) |
+  | `bin/`, skills, Beads, PDFs, `AGENTS.md`, `readme.org` | Ferramentas e processo (`tcc-qko`) |
+
+  A descrição de cada épico diz o que entra e o que não entra; leia-a
+  quando a tabela não decidir. Tarefa que muda dois artefatos vai para o
+  épico do que ela entrega: ler uma fonte para citar em `prog.org` é da
+  Fase 3, e não da Bibliografia. Se ainda houver dúvida entre dois épicos,
+  pergunte ao autor na hora, com as opções e o que cada uma implica
+  (ferramenta de pergunta ao usuário quando houver), antes de criar: não
+  escolha em silêncio nem crie épico novo sem ele pedir.
+- Crie sem `--parent` e pendure com `bd update <id> --parent <épico>`: com
+  `--parent` na criação, o `bd` dá um id hierárquico (`tcc-e2e.1`), que
+  engana se a tarefa mudar de épico.
+- Prazo: a tarefa nova recebe o prazo do épico (`--due AAAA-MM-DD`), que é o da fase;
+  o épico fora das fases tem o prazo da fase que consome o trabalho dele.
+  Prazo menor só quando a tarefa vence antes, como as da semana da
+  orientação. Investigação sem fase que precise dela fica `deferred`.
+- Rótulo `orientacao`: as tarefas que precisam estar prontas na próxima
+  reunião de orientação (no painel, filtre pelo rótulo). Depois da reunião,
+  tire o rótulo das que ficaram abertas e dê a elas o prazo do épico.
 - Prioridade: `1` alta, `2` normal, `3` baixa. `0` e `4` não se usam.
 - Status: `open`, `in_progress`, `closed`, e `deferred` para o que fica
   para depois (o Backlog do Scotty). Tarefa que espera outra não muda de
   status: `bd dep add <id> --blocked-by <outro>`.
-- Prazo, quando houver: `--due AAAA-MM-DD` no `create` ou no `update`.
 - O corpo diz o que decide a tarefa: `arquivo:linha`, o ADR ou o commit de
   origem, o critério de pronto. Datas absolutas; nada de "hoje" ou "atual".
   Mudar: `bd update <id> --body-file -`.
