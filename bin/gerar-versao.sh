@@ -8,10 +8,10 @@
 #         bin/gerar-versao.sh HEAD          # tcc-<hash>.pdf e diff-v0.9..<hash>.pdf
 #   BASE  padrão: a tag anterior a REF (git describe); sem tag anterior,
 #         só o PDF do texto.
-#   PDFs: versoes_pdf/versoes/tcc-<nome>.pdf e diff-<base>..<nome>.pdf, em que
+#   PDFs: pdf/versoes/tcc-<nome>.pdf e diff-<base>..<nome>.pdf, em que
 #         <nome> é a tag, se REF for exatamente uma, ou o hash curto.
 #
-# Cada versão é extraída com git archive em versoes_pdf/build/<nome>/fonte/ e
+# Cada versão é extraída com git archive em pdf/build/<nome>/fonte/ e
 # compilada ali, com os auxiliares do latexmk em build/<nome>/aux-*/. Os .tex
 # dos capítulos vêm do próprio commit, como foram exportados na época: o
 # Emacs não entra. O diff é o latexdiff com as opções do readme.org, entre os
@@ -33,8 +33,8 @@ if [ "${1:-}" = --sem-diff ]; then diff=; shift; fi
 [ $# -ge 1 ] && [ $# -le 2 ] || { echo "uso: $0 [--sem-diff] REF [BASE]" >&2; exit 2; }
 
 cd "$(git rev-parse --show-toplevel)"
-SAIDA=versoes_pdf/versoes
-BUILD=versoes_pdf/build
+SAIDA=pdf/versoes
+BUILD=pdf/build
 PICT='PICTUREENV=(?:picture|DIFnomarkup|minted)[\w\d*@]*'
 # Só o que a compilação lê: casos/, docs/ e .beads/ ficam de fora.
 CAMINHOS=(tcc.tex tex texto pos fig refs.bib)

@@ -6,7 +6,7 @@
     "isto foi registrado em 2026-09-23, para referência, não como mínimo exigido.",
     "O passo a passo está em setup.org.",
     "A lista saiu do que a compilação realmente carrega (os .sty/.cls/.bbx do",
-    "versoes_pdf/tcc.fls, mapeados de volta para os pacotes que os fornecem)."
+    "pdf/build/arvore/tcc.fls, mapeados de volta para os pacotes que os fornecem)."
   ],
   "projeto": "unemat-tcc",
   "registrado_em": "2026-09-23",

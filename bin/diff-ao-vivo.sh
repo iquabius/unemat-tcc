@@ -8,7 +8,7 @@
 #          ainda não foi commitado; um commit mais antigo mostra o trabalho
 #          de um bloco, tarefa ou branch inteiros.
 #   parar: Ctrl-C, ou de outro terminal: pkill -f '[b]in/diff-ao-vivo.sh'
-#   PDF:   REPO/versoes_pdf/ao-vivo/diff-ao-vivo.pdf, aberto no Evince
+#   PDF:   REPO/pdf/ao-vivo/diff-ao-vivo.pdf, aberto no Evince
 #   VIEW=none diff-ao-vivo.sh  não abre o Evince (abra o PDF à mão)
 #   SEGUIR=none diff-ao-vivo.sh  não leva o Evince à última edição
 #
@@ -18,13 +18,13 @@
 # Compila em ao-vivo/build/ e só copia o PDF para diff-ao-vivo.pdf quando a
 # compilação termina sem erro: um .org no meio de uma edição ou um refs.bib
 # quebrado deixam no Evince o último PDF bom. Não escreve nada fora de
-# versoes_pdf/ao-vivo/: os .tex exportados vão para ao-vivo/novo/texto/, e os
+# pdf/ao-vivo/: os .tex exportados vão para ao-vivo/novo/texto/, e os
 # texto/*.tex da árvore ficam intocados.
 set -euo pipefail
 
 REPO=$(realpath "${1:-$PWD}")
 BASE=$(git -C "$REPO" rev-parse --short "${2:-HEAD}")
-OUT=versoes_pdf/ao-vivo
+OUT=pdf/ao-vivo
 BUILD=$OUT/build
 JOB=diff-ao-vivo
 PDF=$OUT/$JOB.pdf

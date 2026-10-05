@@ -34,7 +34,7 @@ Evince estão só no host: tudo que os usa vai por `distrobox-host-exec`.
 
    ```bash
    distrobox-host-exec pgrep -af '[b]in/diff-ao-vivo.sh'
-   distrobox-host-exec bash -lc 'cd "<checkout>" && setsid bin/diff-ao-vivo.sh . HEAD >versoes_pdf/diff-ao-vivo.out 2>&1 &'
+   distrobox-host-exec bash -lc 'cd "<checkout>" && setsid bin/diff-ao-vivo.sh . HEAD >pdf/diff-ao-vivo.out 2>&1 &'
    ```
 
    A BASE fica fixa na partida: depois de um commit, reinicie para
@@ -156,14 +156,14 @@ numa linha e deixe para a porta aberta.
    ("Texto"); confira no `pdftotext` do diff ao vivo que ela saiu inteira,
    com as aspas no lugar.
 7. **Links para o trecho.** Espere o "PDF atualizado" do diff ao vivo
-   (`versoes_pdf/diff-ao-vivo.out`, uns 10 s; "compilação falhou" deixa
+   (`pdf/diff-ao-vivo.out`, uns 10 s; "compilação falhou" deixa
    o PDF anterior e aponta o log). Para cada alteração, rode
    `bin/pagina-no-pdf.py "poucas palavras do texto novo"` e ponha na
    resposta a página que ele dá (`# p. 9`) e um bloco `bash` com a linha
    que ele imprime:
 
    ```bash
-   <checkout>/bin/evince-na-linha.sh <checkout>/versoes_pdf/ao-vivo/diff-ao-vivo.pdf 433
+   <checkout>/bin/evince-na-linha.sh <checkout>/pdf/ao-vivo/diff-ao-vivo.pdf 433
    ```
 
    O script leva o Evince à linha do `diff-ao-vivo.tex` pelo SyncTeX e
@@ -192,7 +192,7 @@ numa linha e deixe para a porta aberta.
    log é latin-1; `readme.org`, "Gerar PDF com LatexMk"):
 
    ```bash
-   distrobox-host-exec bash -lc 'cd "<checkout>" && latexmk -outdir=versoes_pdf -pvc- -view=none -interaction=nonstopmode tcc.tex'
+   distrobox-host-exec bash -lc 'cd "<checkout>" && latexmk -outdir=pdf/build/arvore -pvc- -view=none -interaction=nonstopmode tcc.tex'
    ```
 
 4. Commit pela skill `commit-message`, depois do aprovo do autor, com

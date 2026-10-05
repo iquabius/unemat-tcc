@@ -5,7 +5,7 @@ tem ao lado o .tex e o .synctex.gz, como o do diff ao vivo; senão, à página,
 pelo número impresso (evince -p N).
 
     uso: bin/pagina-no-pdf.py "trecho" ["outro trecho" ...] [--pdf ARQUIVO]
-         padrão: versoes_pdf/ao-vivo/diff-ao-vivo.pdf da raiz do repositório
+         padrão: pdf/ao-vivo/diff-ao-vivo.pdf da raiz do repositório
 
 Compara sem pontuação, sem maiúsculas e com os hífens de fim de linha
 desfeitos, então o trecho pode vir do .org. No PDF do diff, o texto apagado
@@ -71,7 +71,7 @@ def main():
                           capture_output=True, text=True).stdout.strip() or "."
     ap = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     ap.add_argument("trechos", nargs="+")
-    ap.add_argument("--pdf", default=str(Path(raiz, "versoes_pdf/ao-vivo/diff-ao-vivo.pdf")))
+    ap.add_argument("--pdf", default=str(Path(raiz, "pdf/ao-vivo/diff-ao-vivo.pdf")))
     args = ap.parse_args()
     pdf = str(Path(args.pdf).resolve())
 

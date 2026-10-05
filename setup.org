@@ -78,7 +78,7 @@ Em outra distro só muda o gerenciador — os nomes CTAN são os mesmos.
 * 2. Compilar
 
   #+begin_src sh
-  latexmk -outdir=versoes_pdf -pvc- -view=none tcc.tex
+  latexmk -outdir=pdf/build/arvore -pvc- -view=none tcc.tex
   #+end_src
 
   O =-pvc-= desliga o modo contínuo, ligado por padrão no
@@ -86,10 +86,10 @@ Em outra distro só muda o gerenciador — os nomes CTAN são os mesmos.
   =--shell-escape= ao pdflatex, que o *minted exige*. Sem latexmkrc:
 
   #+begin_src sh
-  latexmk -pdf -pdflatex='pdflatex --shell-escape %O %S' -outdir=versoes_pdf tcc.tex
+  latexmk -pdf -pdflatex='pdflatex --shell-escape %O %S' -outdir=pdf/build/arvore tcc.tex
   #+end_src
 
-  Limpar: =latexmk -c -outdir=versoes_pdf=.
+  Limpar: =latexmk -c -outdir=pdf/build/arvore=.
 
 * 3. Exportar os capítulos (só se for editar o texto)
 
@@ -121,18 +121,18 @@ Em outra distro só muda o gerenciador — os nomes CTAN são os mesmos.
 * 4. Conferir
 
   #+begin_src sh
-  pdfinfo versoes_pdf/tcc.pdf | grep Pages                          # 30
-  tr -d '\n' < versoes_pdf/tcc.log | grep -c undefined              # 0
-  ls versoes_pdf/tcc.bbl                                            # o biber rodou
-  ls versoes_pdf/_minted | head -3                                  # o Pygments rodou
-  pdftotext versoes_pdf/tcc.pdf - | grep -c "REFER"                 # a lista de referências saiu
+  pdfinfo pdf/build/arvore/tcc.pdf | grep Pages                          # 30
+  tr -d '\n' < pdf/build/arvore/tcc.log | grep -c undefined              # 0
+  ls pdf/build/arvore/tcc.bbl                                            # o biber rodou
+  ls pdf/build/arvore/_minted | head -3                                  # o Pygments rodou
+  pdftotext pdf/build/arvore/tcc.pdf - | grep -c "REFER"                 # a lista de referências saiu
   #+end_src
 
 * Armadilhas
 
   - *O log do TeX quebra linha em 79 colunas.* =grep= por ~Citation ... undefined~
     não acha nada mesmo quando está lá. Achate antes:
-    =tr -d '\n' < versoes_pdf/tcc.log | grep ...=
+    =tr -d '\n' < pdf/build/arvore/tcc.log | grep ...=
   - *O latexmk pode sair com 0 e mesmo assim ter falhado.* Já aconteceu aqui: PDF
     gerado, 24 páginas, sem capítulos e sem nenhuma citação resolvida. PDF
     existir não prova nada — confira o número de páginas e as citações.
