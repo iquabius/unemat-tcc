@@ -2,7 +2,7 @@
 
 Cada caso é uma interface implementada em várias tecnologias, para comparação
 no TCC. As decisões de escopo (casos, tecnologias, Android) estão em
-`docs/adr/0001` a `0007`; os termos, em `CONTEXT.md` na raiz; instalação e
+`docs/adr/`; os termos, em `CONTEXT.md` na raiz; instalação e
 uso, em `casos/README.org`.
 
 ## Conferir as capturas a cada alteração

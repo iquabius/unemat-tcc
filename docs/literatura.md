@@ -351,7 +351,7 @@ imprime os dois valores.
 
 ## 8. Tecnologias web: Web Component, jQuery, React, Solid e Angular com RxJS (literatura cinzenta, consultada em 2026-09-26)
 
-Sustenta o ADR 0003. As pesquisas de uso são de amostra autosselecionada
+Sustenta o ADR 0013. As pesquisas de uso são de amostra autosselecionada
 (o State of JS diz de si mesmo: "not meant to speak for the entire
 ecosystem"); o W3Techs conta *sites*, não aplicações; a explicação mais
 citada dos *signals* é do autor do Solid, parte interessada; e os números
@@ -490,7 +490,7 @@ tecnologias.
 | WILLISON, T. (equipe jQuery) | blog.jquery.com, *jQuery 4.0.0*, 2026-01-17 | Vinte anos depois de 2006-01-14; abandona IE ≤ 10; ESM | mais de 3 kB gzip a menos; *slim* com cerca de 19,5 kB gzip |
 | HAHNEKAMP, R. | LinkedIn, 2024-02-19 | "the Angular team will make RxJs optional" | sem fonte citada; não usar como fato |
 
-### 8.4 Prós e contras de cada escolha do ADR 0003
+### 8.4 Prós e contras de cada escolha do ADR 0013
 
 | Escolha | Direção | Argumento | Fontes | Evidência |
 |---|---|---|---|---|
@@ -525,9 +525,9 @@ tecnologias.
 3. **Partes interessadas.** A literatura dos *signals* é escrita por
    autores de Solid, Qwik, Preact, Svelte e Angular; a posição do React é
    um comentário de blog e dois textos sobre o compilador.
-4. **Rótulo *push*.** O ADR 0003 chamava a notação reativa fina de
-   *push* (errata de 2026-09-26); a proposta TC39 e Carniato (2024-01-19)
-   a chamam de *push-pull*: notifica (marca sujo) por *push* e recalcula
+4. **Rótulo *push*.** Até 2026-09-26 o trabalho chamava a notação
+   reativa fina de *push*; a proposta TC39 e Carniato (2024-01-19) a
+   chamam de *push-pull* (ADR 0013): notifica (marca sujo) por *push* e recalcula
    por *pull*. O texto deve usar o híbrido ao aplicar a dimensão de
    `bainomugisha2013`; e a documentação do Solid não usa as palavras
    *push* e *pull*.

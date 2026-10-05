@@ -38,7 +38,7 @@ a que Dimensão Cognitiva (DC) parece servir; a classificação é provisória.
   escrever o alinhamento nos arquivos de estilo, como a web faz com
   `place-items: center`; no Views isso exige
   `android:baselineAligned="false"`.
-- **Seleção de estilo** (ADR 0009): o Views seleciona por estilo nomeado,
+- **Seleção de estilo** (ADR 0008): o Views seleciona por estilo nomeado,
   como o CSS por classe; o Compose não tem seletores, e cada elemento cita o
   estilo, o que leva a componentes estilizados.
 - **Domínio Kotlin × JavaScript em entradas-limite** (ADR 0010): anos de 0

@@ -5,7 +5,7 @@ description: Passo a passo da escrita e da revisão do texto do TCC (texto/*.org
 
 # Rodada de revisão de texto no TCC
 
-Por que existe: ADR 0023, que substituiu o 0018. O rascunho é a árvore de
+Por que existe: ADR 0023. O rascunho é a árvore de
 trabalho do `texto/*.org` no checkout principal, e o HEAD é o texto
 aprovado. Nenhuma frase entra no commit sem a fonte lida e o aprovo do
 autor. As regras curtas estão no `AGENTS.md` (seção "Texto"), e o método

@@ -91,3 +91,6 @@ Errata 2026-09-29: a linha "Tecnologias" da tabela da seção 2 atribui ao
 projeto o RxJS 5 e o xstream, mas o projeto não nomeia biblioteca
 (`seções/método.org`); o RxJS e o xstream entraram no `cases.org` em 2020
 (commits `17fa011` e `6eb671c`).
+
+Errata 2026-10-05: os ADRs 0003, 0004, 0006 e 0011 citados acima foram
+absorvidos pelos ADRs 0013, 0012, 0001 e 0014.

@@ -1,45 +1,60 @@
-# 0013. O Angular entra na análise com *signals*, como segunda tecnologia da notação reativa fina; o Angular com RxJS continua de apoio
+# 0013. Na web entram Web Component, jQuery, React, Solid e Angular com *signals*; o Angular com RxJS fica de apoio; sem bibliotecas de formulário
 
-Substitui os ADRs 0003 e 0007.
-
-2026-09-26. O ADR 0003 deixava o Angular fora do texto, só com RxJS, mas
-o Angular é o terceiro *framework* mais usado na web (Stack Overflow 2025:
-React 44,7%, jQuery 23,4%, Angular 18,2%), documenta *signals* como
-reatividade central desde a versão 17 (2023-11) e escreve a tela em
-*template* com componentes em classe com decorador, diferente do JSX de
-React e Solid. Cada caso ganha a tecnologia Angular com *signals*
-(`angular-signals`), escrita para espelhar a implementação em Solid:
-`signal`, `computed`, `effect` e `resource()`, *debounce* por
-`setTimeout`, sem RxJS. A análise passa a ter duas comparações
-controladas: React × Solid, mesma sintaxe e modelo de reatividade
-diferente, e Solid × Angular, mesmo modelo e sintaxe diferente. Web
-Component, jQuery, React e Solid continuam na análise pelas razões do
-ADR 0003; o Angular com RxJS continua de apoio, com os exemplos de RxJS
+2026-09-26. As notações a comparar são a imperativa com *callbacks*, a
+declarativa por re-renderização (*pull*) e a reativa fina com *signals*
+(*push-pull*: notifica por *push* e recalcula por *pull*, como descrevem
+a proposta TC39 Signals e Carniato, 2024-01-19). O RxJS, centro do
+projeto de 2017, é pouco escrito fora do Angular, que documenta *signals*
+como reatividade central desde a versão 17 (2023-11). Cada caso é
+implementado em Web Component (DOM puro com classe, imperativa sem
+biblioteca), jQuery (imperativa legada, a mais reconhecível), React e
+Solid (mesmo JSX, só muda o modelo de reatividade) e Angular com
+*signals* (`angular-signals`), escrito para espelhar o Solid: `signal`,
+`computed`, `effect` e `resource()`, *debounce* por `setTimeout`, sem
+RxJS. Isso dá duas comparações controladas: React × Solid (mesma sintaxe,
+modelo diferente) e Solid × Angular (mesmo modelo, sintaxe diferente). O
+Angular com RxJS (`angular-rxjs`) não entra no texto: dá exemplos de RxJS
 para o capítulo de programação e para a comparação com Zimmerle e Gama
-(2025). Cada implementação usa só o que o *framework* traz, sem
-bibliotecas de formulário (ADR 0007): o Angular com RxJS usa os Reactive
-Forms, e o Angular com *signals* não usa nem eles nem os *Signal Forms*.
+(2025), usando RxJS de propósito (`Observable`, *pipe* `async`,
+`valueChanges`, `debounceTime`, `switchMap`). Cada implementação usa só o
+que o *framework* traz, sem bibliotecas de formulário: o `angular-rxjs`
+usa os Reactive Forms, que são do Angular; o `angular-signals` não usa
+nem eles nem os *Signal Forms*.
 
+Em vez de: Angular só de apoio (decisão de 2026-09-25); menos trabalho,
+mas a notação reativa fina ficaria com uma tecnologia só, e o Angular é o
+terceiro *framework* mais usado (Stack Overflow 2025: React 44,7%, jQuery
+23,4%, Angular 18,2%).
 Em vez de: Angular com RxJS como quarta notação, a reativa por fluxos;
-retomaria a PR do projeto de 2017 sem código novo, mas usar RxJS para
-estado vai contra a documentação do Angular e mudaria a pergunta do ADR
-0011.
-Em vez de: o Angular idiomático, *signals* para o estado e RxJS para
-eventos no tempo; é o que a indústria escreve, mas mistura duas notações
-numa implementação.
-Em vez de: *Signal Forms* no Formulário; é a API de formulário baseada em
+retomaria a PR de 2017 sem código novo, mas usar RxJS para estado vai
+contra a documentação do Angular e mudaria a pergunta (ADR 0014).
+Em vez de: o Angular idiomático, *signals* para estado e RxJS para eventos
+no tempo; é o que a indústria escreve, mas mistura duas notações numa
+implementação.
+Em vez de: *Signal Forms* no Formulário; é a API de formulário com
 *signals* do Angular 22 (2026-06), mas mediria uma API que o Solid não
-tem, e o guia oficial (angular.dev, 2026-09-26) ainda indica os Reactive
-Forms a quem precisa de garantia de estabilidade.
-Em vez de: manter o Angular só de apoio (ADR 0003); menos trabalho, mas a
-notação reativa fina ficaria com uma tecnologia só, e a análise sem o
-*framework* de *signals* mais usado.
-Custo: seis tecnologias por caso na web, 30 implementações, cinco delas
-novas, com cenas e capturas; a diferença entre Solid e Angular mistura a
-sintaxe com o modelo de componente (classe, decorador, injeção de
-dependências), o que a análise precisa separar.
+tem, e o guia oficial (2026-09-26) ainda indica os Reactive Forms a quem
+quer estabilidade.
+Em vez de: a biblioteca de formulário mais comum de cada tecnologia
+(react-hook-form no React); mais próxima da produção, mas mediria as
+bibliotecas, não as notações.
+Em vez de: Svelte no lugar do Solid; mais popular (7,2% no Stack Overflow
+2025), mas com sintaxe e compilador próprios, e a comparação com o React
+mudaria duas variáveis.
+Em vez de: RxJS ou xstream sem *framework*, como o `cases.org` de
+2026-09-25; pouco acessível, e o xstream não teve versão depois de
+2020-10.
+Em vez de: Vue e Preact Signals; não pedidos; o Vue (17,6%) pode entrar se
+a banca pedir.
+Custo: seis tecnologias por caso, 30 implementações com cenas e capturas;
+a diferença entre Solid e Angular mistura a sintaxe com o modelo de
+componente (classe, decorador, injeção de dependências), que a análise
+precisa separar; o Formulário fica mais longo nas tecnologias sem apoio.
 
-Fontes: Stack Overflow Developer Survey 2025 e o CHANGELOG do Angular
-(17.0.0, 2023-11-08; 22.0.0, 2026-06-03) em `docs/literatura.md`, seção
-8; angular.dev, guias de *signals*, `resource` e *Signal Forms*
-(2026-09-26); ADRs 0003 e 0007.
+Fontes: Stack Overflow 2025; CHANGELOG do Angular (17.0.0, 2023-11-08;
+22.0.0, 2026-06-03); angular.dev, guias de *signals*, `resource` e
+*Signal Forms* (2026-09-26); `@angular/core` 22.2.0 com `rxjs` como
+*peer dependency* (npm, 2026-09-25); *Design Principles* do React
+(legacy.reactjs.org), modelo *pull*; taxonomia *push/pull* de
+`bainomugisha2013`; `docs/literatura.md`, seção 8; commits `25cf4dd` e
+`7126e77`.
