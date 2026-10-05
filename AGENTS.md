@@ -35,7 +35,8 @@ As tarefas vivem no [Beads](https://github.com/gastownhall/beads) (`bd`
 
   | A tarefa muda | Épico |
   |---|---|
-  | `texto/intro.org`, a pauta ou uma decisão da orientação | Fase 1: introdução (`tcc-e2e`) |
+  | `texto/intro.org` | Fase 1: introdução (`tcc-e2e`) |
+  | a pauta de uma orientação | a fase em curso, a primeira ainda aberta |
   | `texto/cases.org`, `texto/results.org`, a análise por DC | Fase 2: análise dos casos (`tcc-d40`) |
   | `texto/prog.org`, trabalhos relacionados | Fase 3: capítulo de programação (`tcc-2o8`) |
   | `texto/conclusion.org`, o título, o texto do resumo | Fase 4: fechamento (`tcc-y8x`) |
@@ -58,9 +59,22 @@ As tarefas vivem no [Beads](https://github.com/gastownhall/beads) (`bd`
   o épico fora das fases tem o prazo da fase que consome o trabalho dele.
   Prazo menor só quando a tarefa vence antes, como as da semana da
   orientação. Investigação sem fase que precise dela fica `deferred`.
-- Rótulo `orientacao`: as tarefas que precisam estar prontas na próxima
-  reunião de orientação (no painel, filtre pelo rótulo). Depois da reunião,
-  tire o rótulo das que ficaram abertas e dê a elas o prazo do épico.
+- Orientações: quinzenais, a data muda quando a reunião é remarcada. O
+  rótulo `orientacao` marca sempre as tarefas da **próxima** reunião (no
+  painel, filtre por ele).
+  - Sempre há uma pauta aberta, a da próxima reunião: "Pauta da
+    orientação de AAAA-MM-DD", com prazo na data e o rótulo. Pontos novos
+    entram nas notas dela, com a decisão pedida, a proposta e a fonte.
+  - Reunião remarcada: atualize a data no título e no prazo da pauta e no
+    prazo das tarefas com o rótulo.
+  - Depois da reunião:
+    - cada decisão sai da pauta para um ADR, uma tarefa ou o texto;
+    - a pauta fecha dizendo o que foi decidido e para onde foi;
+    - as tarefas com o rótulo que ficaram abertas perdem o rótulo e
+      voltam ao prazo do épico, a não ser que o autor as passe para a
+      próxima reunião;
+    - nasce a pauta da próxima, com a data duas semanas depois, a não ser
+      que o autor diga outra.
 - Prioridade: `1` alta, `2` normal, `3` baixa. `0` e `4` não se usam.
 - Status: `open`, `in_progress`, `closed`, e `deferred` para o que fica
   para depois (o Backlog do Scotty). Tarefa que espera outra não muda de
