@@ -46,8 +46,9 @@ CAMINHOS=(latex texto tcc.tex tex pos fig refs.bib)
 # existe, para "rrt"; sem ele, o minted para a compilação de 2020.
 CONSERTOS=(e45ecd1)
 # A capa e a folha de rosto mostram, no lugar do ano, o prefixo, a versão (ou
-# o intervalo, no diff) e o nome do marco. O ano entra só na versão aceita
-# pela banca: as tags v1.x e seguintes ficam com o \ano do tcc.tex.
+# o intervalo, no diff), o nome do marco e a data dele (DD/MM/AAAA). O ano
+# entra só na versão aceita pela banca: as tags v1.x e seguintes ficam com o
+# \ano do tcc.tex.
 PREFIXO="U Boneque"
 
 nome() {  # a tag exata do commit, ou o hash curto
@@ -66,6 +67,11 @@ extrair() {  # extrai o commit $1 em $BUILD/<nome>/fonte, se ainda não estiver
   local commit dir
   commit=$(git rev-parse "$1^{commit}")
   dir=$BUILD/$(nome "$1")/fonte
+  mkdir -p "$BUILD"
+  # Com várias versões em paralelo, a base do diff de uma é a versão nova de
+  # outra: a trava impede que as duas extraiam na mesma pasta ao mesmo tempo.
+  exec 9>"$BUILD/.$(nome "$1").lock"
+  flock 9
   if [ "$(cat "$dir/.commit" 2>/dev/null)" != "$commit" ]; then
     rm -rf "$dir" && mkdir -p "$dir"
     local presentes=()
@@ -79,15 +85,20 @@ extrair() {  # extrai o commit $1 em $BUILD/<nome>/fonte, se ainda não estiver
     done
     echo "$commit" >"$dir/.commit"
   fi
+  flock -u 9
   echo "$dir"
 }
 
-capa() {  # capa VERSÃO: o código que põe "PREFIXO VERSÃO --- nome" no lugar do ano
-  local rotulo="$PREFIXO $1" marco
+capa() {  # capa VERSÃO: o código que põe "PREFIXO VERSÃO --- nome --- data" no lugar do ano
+  local rotulo="$PREFIXO $1" marco data
   case $REF_NOME in v[1-9]*) return 0 ;; esac
   marco=$(git tag -l --format='%(contents:subject)' "$REF_NOME" 2>/dev/null |
     sed 's/[\\{}$&#^_%~]/\\&/g')
+  # A data da tag, que é a do commit que ela marca (ADR 0024), ou a do commit.
+  data=$(git for-each-ref --format='%(taggerdate:format:%d/%m/%Y)' "refs/tags/$REF_NOME")
+  [ -n "$data" ] || data=$(git log -1 --format=%cd --date=format:%d/%m/%Y "$REF_NOME")
   [ -z "$marco" ] || rotulo+=" --- $marco"
+  rotulo+=" --- $data"
   printf '\\AtBeginDocument{\\def\\ano#1{}\\expandafter\\def\\csname @ano\\endcsname{%s}}' "$rotulo"
 }
 

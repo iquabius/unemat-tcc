@@ -13,7 +13,7 @@ desde a tag anterior e o mesmo diff só com o resumo dos commits, as
 páginas que têm alteração e a bibliografia, cortado pelo `qpdf`, que mantém os links do
 resumo; o corpo diz as páginas alteradas por seção. Até a banca aceitar,
 a capa e a folha de rosto dizem "U Boneque", a versão (ou o intervalo, no
-diff) e o nome do marco, no lugar do ano.
+diff), o nome do marco e a data da tag (DD/MM/AAAA), no lugar do ano.
 
 Em vez de: nomes descritivos (`retomada`, `recorte`, `fase-1`); leem-se
 sem consulta, mas sem ordem própria e destoando da `v0.1`.

@@ -213,8 +213,9 @@
    A capa continua na página 1, como no PDF do texto.
 
    No lugar do ano, a capa e a folha de rosto dos dois PDFs dizem
-   =U Boneque=, a versão (no diff, o intervalo) e o nome do marco, como
-   "U Boneque v0.9 --- Dois eixos, antes do corte da intro". O script passa
+   =U Boneque=, a versão (no diff, o intervalo), o nome do marco e a data
+   da tag, como "U Boneque v0.9 --- Dois eixos, antes do corte da intro ---
+   04/10/2026". O script passa
    isso ao =latexmk -usepretex=, sem mexer no =tcc.tex= de cada versão, e
    compila com =-g=, porque o =latexmk= não vê mudança no código de
    pré-TeX. As tags =v1.x= ficam com o =\ano= do =tcc.tex=, que até a banca
@@ -245,8 +246,18 @@
    bin/gerar-versao.sh v0.9 && bin/preparar-release.sh v0.9
    #+end_src
 
-   Em 2026-10-05, as oito tags da =v0.2= à =v0.9= compilaram assim, cada uma
-   em cerca de 40 s.
+   Várias versões compilam em paralelo; dentro de cada uma, o texto, o diff
+   e o diff só das páginas saem em sequência. A base do diff de uma versão é
+   a versão nova de outra, e uma trava (=flock=) por versão impede que as
+   duas extraiam na mesma pasta ao mesmo tempo:
+
+   #+begin_src fish
+   printf '%s\n' v0.2 v0.3 v0.4 v0.5 v0.6 v0.7 v0.8 v0.9 | xargs -P 8 -n 1 bin/gerar-versao.sh
+   #+end_src
+
+   Em 2026-10-05, as oito tags da =v0.2= à =v0.9= compilaram em 41 s assim,
+   nos 8 núcleos do host, contra uns 5 min uma depois da outra (cerca de
+   40 s cada). Subir os oito rascunhos leva 1 min 30 s.
 
 * Setup numa máquina nova
 
