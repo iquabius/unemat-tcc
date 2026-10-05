@@ -153,6 +153,14 @@ def ancorar(repo, base, ref, dir_, main="tcc.tex"):
         for m in re.finditer(r"\\input\{([^}]+)\}", l):
             arq = os.path.normpath(pasta_main / m.group(1).removesuffix(".tex"))
             capitulos[arq + ".tex"] = ultimo_cap
+    # O caminho em BASE de cada arquivo que mudou de pasta no intervalo, como
+    # texto/intro.tex, que virou latex/capitulos/intro.tex (ADR 0025). O
+    # blame segue o arquivo pelo nome antigo também no --reverse.
+    renomes = {}
+    for linha in git(repo, "diff", "-M", "--name-status", base, ref).splitlines():
+        partes = linha.split("\t")
+        if partes[0].startswith("R"):
+            renomes[partes[2]] = partes[1]
     ancoras, n = [], 0
     for arq in arquivos:
         caminho = Path(dir_) / arq
@@ -186,13 +194,15 @@ def ancorar(repo, base, ref, dir_, main="tcc.tex"):
             anterior = c
 
         # O que saiu: linhas de BASE que não estão em REF.
+        velho = renomes.get(arq, arq)
         try:
-            antigas = git(repo, "show", f"{base}:{arq}").splitlines(keepends=True)
+            antigas = git(repo, "show", f"{base}:{velho}").splitlines(keepends=True)
         except subprocess.CalledProcessError:
             antigas = []
         if antigas:
-            ultimo, _ = blame(repo, f"{base}..{ref}", arq, reverso=True)
-            tocaram = git(repo, "rev-list", "--reverse", f"{base}..{ref}", "--", arq).split()
+            ultimo, _ = blame(repo, f"{base}..{ref}", velho, reverso=True)
+            tocaram = git(repo, "rev-list", "--reverse", f"{base}..{ref}", "--",
+                          *dict.fromkeys((velho, arq))).split()
             sm = SequenceMatcher(None, antigas, linhas, autojunk=False)
             for op, i1, i2, j1, _j2 in sm.get_opcodes():
                 if op not in ("delete", "replace"):

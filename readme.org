@@ -207,8 +207,10 @@
    =git blame= do =.tex= (o que saiu, pelo =git blame --reverse=) e põe uma
    âncora no lado novo, que o =latexdiff= deixa fora do =\DIFadd=; a página e
    a seção saem do =.aux= da primeira compilação. O trecho reescrito por um
-   commit posterior fica com o commit posterior. A capa continua na página
-   1, como no PDF do texto.
+   commit posterior fica com o commit posterior. Num capítulo que mudou de
+   pasta no intervalo, como os de =texto/= para =latex/capitulos/= (ADR
+   0025), o que saiu se procura pelo caminho que ele tinha na versão base.
+   A capa continua na página 1, como no PDF do texto.
 
    Em 2026-10-04, as oito tags da =v0.2= à =v0.9= compilaram assim, cada uma
    em cerca de 25 s.
