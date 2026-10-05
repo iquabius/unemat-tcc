@@ -14,7 +14,7 @@ inclui o código de `casos/<caso>/<tecnologia>/`, o `estilo.css`, o
 Gradle em `casos/android/` e as dependências (`package.json`,
 `package-lock.json`, `casos/android/gradle/libs.versions.toml`).
 
-1. Rode, da raiz do repositório:
+1. Rode, de `casos/`, onde está o `package.json` dos *workspaces*:
 
    ```sh
    npm run capturas -- --conferir <caso>

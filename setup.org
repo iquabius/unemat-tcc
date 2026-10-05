@@ -12,10 +12,10 @@ Em outra distro só muda o gerenciador — os nomes CTAN são os mesmos.
 
   | Metade | O que faz | Precisa de |
   |--------+-----------+------------|
-  | Org -> LaTeX | exporta =texto/*.org= para =texto/*.tex= | Emacs + org-ref |
-  | LaTeX -> PDF | compila =tcc.tex=, que inclui os =texto/*.tex= | TeX Live + Pygments |
+  | Org -> LaTeX | exporta =texto/*.org= para =latex/capitulos/*.tex= | Emacs + org-ref |
+  | LaTeX -> PDF | compila =latex/tcc.tex=, que inclui os =latex/capitulos/*.tex= | TeX Live + Pygments |
 
-  Os =texto/*.tex= estão versionados, então quem só quer o PDF não precisa de
+  Os =latex/capitulos/*.tex= estão versionados, então quem só quer o PDF não precisa de
   Emacs nenhum.
 
 * 1. Pacotes do sistema
@@ -62,7 +62,7 @@ Em outra distro só muda o gerenciador — os nomes CTAN são os mesmos.
   Em outra distro, pergunte ao próprio documento o que ele carrega:
 
   #+begin_src sh
-  grep -hoE '\\(usepackage|RequirePackage)(\[[^]]*\])?\{[^}]*\}' tex/*.cls tex/*.sty *.tex
+  grep -hoE '\\(usepackage|RequirePackage)(\[[^]]*\])?\{[^}]*\}' latex/*.cls latex/*.sty latex/tcc.tex
   zypper se --provides 'tex(texnames.sty)'   # no openSUSE cada pacote declara o que fornece
   #+end_src
 
@@ -78,18 +78,19 @@ Em outra distro só muda o gerenciador — os nomes CTAN são os mesmos.
 * 2. Compilar
 
   #+begin_src sh
-  latexmk -outdir=pdf/build/arvore -pvc- -view=none tcc.tex
+  latexmk -cd -outdir=../pdf/build/arvore -pvc- -view=none latex/tcc.tex
   #+end_src
 
-  O =-pvc-= desliga o modo contínuo, ligado por padrão no
+  O =-cd= compila em =latex/=, onde os caminhos do documento são relativos,
+  e o =-outdir= conta a partir dali. O =-pvc-= desliga o modo contínuo, ligado por padrão no
   =~/.config/latexmk/latexmkrc= desta máquina — o mesmo arquivo que passa
   =--shell-escape= ao pdflatex, que o *minted exige*. Sem latexmkrc:
 
   #+begin_src sh
-  latexmk -pdf -pdflatex='pdflatex --shell-escape %O %S' -outdir=pdf/build/arvore tcc.tex
+  latexmk -cd -pdf -pdflatex='pdflatex --shell-escape %O %S' -outdir=../pdf/build/arvore latex/tcc.tex
   #+end_src
 
-  Limpar: =latexmk -c -outdir=pdf/build/arvore=.
+  Limpar: =latexmk -cd -c -outdir=../pdf/build/arvore latex/tcc.tex=.
 
 * 3. Exportar os capítulos (só se for editar o texto)
 
@@ -107,8 +108,9 @@ Em outra distro só muda o gerenciador — os nomes CTAN são os mesmos.
 
   Exportar *body-only*: =C-c C-e= , =C-b= para ligar "body only", depois =l l=.
   Pelo terminal, um ou mais capítulos: =bin/exportar-org.sh texto/intro.org=
-  (=readme.org=, "Exportar pelo terminal").
-  Os =texto/*.tex= são fragmentos que o =tcc.tex= puxa com =\input=; uma
+  (=readme.org=, "Exportar pelo terminal"). No Emacs, o =#+EXPORT_FILE_NAME=
+  de cada capítulo manda o =.tex= para =latex/capitulos/=.
+  Os =latex/capitulos/*.tex= são fragmentos que o =tcc.tex= puxa com =\input=; uma
   exportação normal escreveria um documento completo, com preâmbulo próprio, e
   a compilação quebraria.
 

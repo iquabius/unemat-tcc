@@ -25,7 +25,7 @@
       "texlive-biber-bin": { "versao": "2026.20260301.svn75738-120.4", "porque": "biber — a classe usa backend=biber" }
     },
     "classe_do_documento": {
-      "$comment": "A classe é tex/unemat-comp.cls, versionada aqui; estes são os pacotes que ela carrega.",
+      "$comment": "A classe é latex/unemat-comp.cls, versionada aqui; estes são os pacotes que ela carrega.",
       "texlive-beebe": { "versao": "2026.226.svn77590-61.3", "porque": "texnames.sty — o nome do pacote não aparece em busca por 'texnames'" },
       "texlive-amsmath": { "versao": "2026.226.svn78101-61.3", "porque": "amsmath" },
       "texlive-amsfonts": { "versao": "2026.226.3.04svn77682-61.3", "porque": "amssymb, amsfonts" },
@@ -49,9 +49,9 @@
       "texlive-algorithm2e": { "versao": "2026.226.5.2svn77682-61.3", "porque": "algorithm2e" },
       "texlive-titlesec": { "versao": "2026.226.2.17svn77682-59.2", "porque": "titlesec" },
       "texlive-fancyhdr": { "versao": "2026.226.5.2svn78101-59.2", "porque": "fancyhdr" },
-      "texlive-tocloft": { "versao": "2026.226.2.3jsvn77682-59.2", "porque": "tocloft — há uma cópia em tex/tocloft.sty, mas o pacote da distro é o que carrega" },
+      "texlive-tocloft": { "versao": "2026.226.2.3jsvn77682-59.2", "porque": "tocloft — há uma cópia em latex/tocloft.sty, mas o pacote da distro é o que carrega" },
       "texlive-etoolbox": { "versao": "2026.226.2.5msvn77682-59.2", "porque": "etoolbox" },
-      "texlive-todonotes": { "versao": "2026.226.1.1.7svn77682-59.2", "porque": "todonotes, carregado no tcc.tex" },
+      "texlive-todonotes": { "versao": "2026.226.1.1.7svn77682-59.2", "porque": "todonotes, carregado no latex/tcc.tex" },
       "texlive-collection-fontsrecommended": { "versao": "2026.222.svn54074-68.2", "porque": "fontes URW que o pslatex usa" }
     },
     "bibliografia": {
@@ -60,7 +60,7 @@
       "texlive-csquotes": { "versao": "2026.226.5.2osvn77682-61.2", "porque": "exigido pelo biblatex; fornece \\textelp{}" }
     },
     "listagens_de_codigo": {
-      "texlive-minted": { "versao": "2026.226.3.7.0svn77682-61.2", "porque": "minted, em tex/src_code.sty" },
+      "texlive-minted": { "versao": "2026.226.3.7.0svn77682-61.2", "porque": "minted, em latex/src_code.sty" },
       "texlive-minted-bin": { "versao": "2026.20260301.svn72375-120.4", "porque": "latexminted — o minted 3 chama esse binário" },
       "python313-Pygments": { "versao": "2.21.0-1.1", "porque": "o colorizador do minted; vem do zypper, não do pip" }
     },
@@ -86,7 +86,7 @@
   },
 
   "emacs": {
-    "$comment": "Só é necessário para EXPORTAR os texto/*.org. Os texto/*.tex estão versionados: para compilar, nada disto é preciso.",
+    "$comment": "Só é necessário para EXPORTAR os texto/*.org. Os latex/capitulos/*.tex estão versionados: para compilar, nada disto é preciso.",
     "sistema": {
       "emacs": { "versao": "31.1-3.1", "porque": "Org 9.8.7 vem embutido" },
       "emacs-auctex": { "versao": "14.1.0-3.2", "porque": "modo LaTeX e o comando LaTeXMk; entrou como dependência ao instalar o TeX Live" }
@@ -106,7 +106,7 @@
     "configuracao_local": [
       "O .dir-locals.el deste repo já traz dicionário pt_BR, headline-levels e",
       "caption-above. Diferente do unemat-projeto-tcc, aqui NÃO é preciso entrada",
-      "no org-latex-classes: os texto/*.tex são fragmentos incluídos pelo tcc.tex,",
+      "no org-latex-classes: os latex/capitulos/*.tex são fragmentos incluídos pelo latex/tcc.tex,",
       "exportados com body-only."
     ]
   },
@@ -114,7 +114,7 @@
   "nao_usado": {
     "$comment": "Registrado para evitar reinstalações por engano.",
     "pip_npm": "nenhum pacote veio de pip ou npm — o Pygments é o do zypper",
-    "abntex2": "este projeto NÃO usa a classe abntex2 nem o abntex2cite (isso é o unemat-projeto-tcc); aqui é tex/unemat-comp.cls + biblatex-abnt",
+    "abntex2": "este projeto NÃO usa a classe abntex2 nem o abntex2cite (isso é o unemat-projeto-tcc); aqui é latex/unemat-comp.cls + biblatex-abnt",
     "ripgrep": "não instalado nesta máquina; só afeta o atalho do deadgrep no Emacs, não a compilação"
   }
 }

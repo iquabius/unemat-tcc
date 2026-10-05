@@ -52,7 +52,7 @@ decisão está no ADR 0015.
   `issues.jsonl` depois de `merge` e `checkout`.
 - `bd metrics off` desligou, por usuário, as métricas de uso que o `bd`
   envia por padrão. O Scotty roda com `POSTHOG_KEY=` vazio
-  (`npm run tarefas`).
+  (`bin/tarefas`).
 
 ## Sincronização com o GitHub
 

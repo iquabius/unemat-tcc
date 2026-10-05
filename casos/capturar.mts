@@ -189,8 +189,8 @@ try {
       continue;
     }
 
-    execFileSync("npm", ["run", "build", "-w", path.relative(RAIZ, projeto)], {
-      cwd: RAIZ,
+    execFileSync("npm", ["run", "build", "-w", path.relative(CASOS, projeto)], {
+      cwd: CASOS,  // o package.json dos workspaces fica em casos/
       stdio: "ignore",
       env: { ...process.env, NG_CLI_ANALYTICS: "false" },
     });

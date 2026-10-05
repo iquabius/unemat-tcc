@@ -1,4 +1,5 @@
 #+PROPERTY: header-args:js  :exports code
+#+EXPORT_FILE_NAME: ../latex/capitulos/cases
 
 # header-args is needed to use src_js{} for inline source code
 

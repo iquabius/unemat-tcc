@@ -1,8 +1,8 @@
 # Instruções para agentes: TCC (`unemat-tcc`)
 
 Trabalho de conclusão em Ciência da Computação (UNEMAT), em português: o
-texto em `texto/*.org` (exportado para `.tex`), a bibliografia em
-`refs.bib`, o código dos casos em `casos/` (instruções próprias em
+texto em `texto/*.org` (exportado para `latex/capitulos/`), a bibliografia
+em `texto/refs.bib`, o código dos casos em `casos/` (instruções próprias em
 `casos/AGENTS.md`). Os termos do projeto estão em `CONTEXT.md`; use-os.
 
 ## Onde cada coisa vive
@@ -41,8 +41,8 @@ As tarefas vivem no [Beads](https://github.com/gastownhall/beads) (`bd`
   | `texto/prog.org`, trabalhos relacionados | Fase 3: capítulo de programação (`tcc-2o8`) |
   | `texto/conclusion.org`, o título, o texto do resumo | Fase 4: fechamento (`tcc-y8x`) |
   | `casos/`: código, especificação, roteiros, capturas | Código dos casos (`tcc-3jg`) |
-  | `refs.bib`, `tmp/fontes/`, `docs/literatura.md` | Bibliografia (`tcc-bkm`) |
-  | `tcc.tex`, `tex/`, pré-textuais, margens, legendas | Formatação do documento (`tcc-juu`) |
+  | `texto/refs.bib`, `tmp/fontes/`, `docs/literatura.md` | Bibliografia (`tcc-bkm`) |
+  | `latex/`, pré-textuais, margens, legendas | Formatação do documento (`tcc-juu`) |
   | `bin/`, skills, Beads, PDFs, `AGENTS.md`, `readme.org` | Ferramentas e processo (`tcc-qko`) |
 
   A descrição de cada épico diz o que entra e o que não entra; leia-a
@@ -110,7 +110,7 @@ As tarefas vivem no [Beads](https://github.com/gastownhall/beads) (`bd`
 - Não rode `bd dolt push`, `bd sync` nem `bd init` sem o autor pedir: o
   push grava `refs/dolt/data` no GitHub e força o ramo
   `__dolt_remote_info__`.
-- Painel: `npm run tarefas`, da raiz, abre o Bead Me Up, Scotty v0.3.0 no
+- Painel: `bin/tarefas` abre o Bead Me Up, Scotty v0.3.0 no
   quadro deste repositório, com o envio de uso ao PostHog desligado. O
   Scotty fica instalado e compilado fora do repositório, em
   `~/.local/share/bead-me-up-scotty` (ou em `$SCOTTY_HOME`), e não entra no
@@ -165,7 +165,7 @@ movimento, e a frase que costura o corte passa pela porta aberta.
   de skill; fonte por autor e ano, sem chave de citação, para não entrar
   nas referências; aspas em `\enquote{...}`, porque o `"` cru é atalho do
   babel e cola na palavra seguinte. A versão entregue desliga todas com
-  `\usepackage[disable]{todonotes}` no `tcc.tex`.
+  `\usepackage[disable]{todonotes}` no `latex/tcc.tex`.
 - Nota de rodapé só para o que, no texto, quebraria a leitura, como uma
   lista de versões (NBR 10520:2023, pelos guias da UFV e da UNESP; Garcia
   2010, Preparação dos originais, 1.2.9). Termo corrente da área não ganha

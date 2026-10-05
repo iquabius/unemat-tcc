@@ -3,8 +3,7 @@
 Cada caso tem uma pasta, e cada tecnologia uma subpasta:
 =casos/<caso>/<tecnologia>/=. Cada subpasta é um projeto completo, com o
 próprio =package.json=, e pode ser lida sozinha. O escopo (casos e
-tecnologias) está nas decisões em [[file:../docs/adr/][docs/adr/]], da 0001 à
-0007.
+tecnologias) está nas decisões em [[file:../docs/adr/][docs/adr/]].
 
 * Pré-requisitos: Node.js e JDK
 
@@ -23,12 +22,13 @@ tecnologias) está nas decisões em [[file:../docs/adr/][docs/adr/]], da 0001 à
 * Instalar e rodar (web)
 
   Os projetos web são /workspaces/ do npm, todos em TypeScript: um único
-  =npm install= na raiz instala todos. O =build= confere os tipos com =tsc=
+  =npm install= em =casos/=, onde está o =package.json= dos /workspaces/,
+  instala todos. Os comandos =npm= abaixo rodam de =casos/=. O =build= confere os tipos com =tsc=
   antes de empacotar.
 
   #+begin_src sh
   npm install
-  npm run dev -w casos/contador/react
+  npm run dev -w contador/react
   #+end_src
 
   Troque o caminho pelo do exemplo desejado. O Vite serve em

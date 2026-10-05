@@ -6,7 +6,7 @@ para servidor e desktop. O trabalho fica em interfaces gráficas, onde as
 notações imperativa, declarativa e reativa aparecem no dia a dia e as
 Dimensões Cognitivas de Notações (DCs) têm o que medir, com implementações
 na web e no Android. Na web, todas as tecnologias usam TypeScript em modo
-`strict` (`tsconfig.base.json` na raiz), porque o Angular o exige e a
+`strict` (`tsconfig.base.json` em `casos/`), porque o Angular o exige e a
 linguagem igual deixa a diferença só na notação; no Android, Kotlin (ADR
 0005).
 

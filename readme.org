@@ -5,15 +5,31 @@
   Trabalho de conclusão a ser apresentado ao curso de Ciência da Computação da
   Universidade do Estado de Mato Grosso.
 
+* Leiaute
+
+  | Pasta | O que tem |
+  |-------+-----------|
+  | =texto/= | o que o autor escreve: os capítulos =.org=, =fontes/=, =refs.bib= e =fig/= |
+  | =latex/= | o que o =latexmk= lê: =tcc.tex=, classe, estilos, brasões, =apendices/= e os =capitulos/= exportados |
+  | =pdf/= | o que sai, fora do git: =build/=, =versoes/= e =ao-vivo/= |
+  | =casos/= | o código dos casos, com o =package.json= dos =workspaces= |
+  | =docs/= | decisões (=adr/=) e notas |
+  | =bin/= | scripts |
+
+  Os caminhos dentro de =latex/= são relativos a ela, e o =latexmk= compila
+  ali (=-cd=). Na raiz ficam este readme, o =AGENTS.md=, o =CONTEXT.md=, o
+  =setup.org=, o =dependencies.json= e a configuração sem pasta própria.
+
 * Emacs Org-mode & LaTeX
 
-  Para iniciar o LaTeX, abra o arquivo =tcc.tex= e execute o
+  Para iniciar o LaTeX, abra o arquivo =latex/tcc.tex= e execute o
   =TeX-command-master= Ctrl-c Ctrl-c. Escolha a opção “LatexMk”.
 
   Para escrever edite os arquivos =.org= em =./texto=. Para os arquivos =.tex=
   correspondentes basta exportar executando o comando =org-export-dispatch=,
   ligar a opção “Body only” (=Ctrl-b=) e depois escolher “Export to LaTex” ->
-  “As LaTeX file”. Atalho: =Ctrl-c Ctrl-e Ctrl-b l l=.
+  “As LaTeX file”. Atalho: =Ctrl-c Ctrl-e Ctrl-b l l=. O =#+EXPORT_FILE_NAME=
+  de cada capítulo manda o =.tex= para =latex/capitulos/=.
 
   O “Body only” é obrigatório: o =tcc.tex= inclui cada capítulo com =\input=,
   e sem essa opção o arquivo exportado vem com =\documentclass=, preâmbulo e
@@ -22,7 +38,7 @@
 ** Gerar PDF com LatexMk
 
    #+begin_src fish
-   latexmk -outdir=pdf/build/arvore -pvc- -view=none tcc.tex
+   latexmk -cd -outdir=../pdf/build/arvore -pvc- -view=none latex/tcc.tex
    #+end_src
 
    Confira depois que nenhuma citação ficou indefinida (uma chave errada ou
@@ -37,7 +53,7 @@
    trás:
 
    #+begin_src fish
-   latexmk -c -outdir=pdf/build/arvore
+   latexmk -cd -c -outdir=../pdf/build/arvore latex/tcc.tex
    #+end_src
 
 ** Gerar PDF com git-latexdiff
@@ -55,17 +71,17 @@
 
    Duas opções são necessárias:
 
-   - =--main tcc.tex=: sem ela o =git-latexdiff= tenta adivinhar o arquivo
+   - =--main latex/tcc.tex=: sem ela o =git-latexdiff= tenta adivinhar o arquivo
      principal e desiste quando encontra mais de um candidato.
    - =--packages=biblatex=: o =biblatex= é carregado pela classe
-     =tex/unemat-comp.cls=, que o =latexdiff= não lê. Sem o modo biblatex, um
+     =latex/unemat-comp.cls=, que o =latexdiff= não lê. Sem o modo biblatex, um
      =\textcite= cujo argumento opcional mudou (p. ex., =[p. 2]= →
      =[p. 2; tradução nossa]=) é marcado com as chaves desbalanceadas, e o
      =pdflatex= para com “File ended while scanning use of \DIFdel”.
 
    #+begin_src fish
    git latexdiff \
-     --main tcc.tex \
+     --main latex/tcc.tex \
      --packages=biblatex \
      --config="PICTUREENV=(?:picture|DIFnomarkup|minted)[\w\d*@]*" \
      --no-view \
@@ -84,7 +100,7 @@
    chamada só do Emacs, com o init do usuário e o =org-ref=:
 
    #+begin_src fish
-   bin/exportar-org.sh texto/intro.org             # escreve texto/intro.tex
+   bin/exportar-org.sh texto/intro.org             # escreve latex/capitulos/intro.tex
    bin/exportar-org.sh texto/intro.org texto/cases.org
    bin/exportar-org.sh -o /tmp/saida texto/*.org   # .tex noutro diretório
    #+end_src
@@ -96,7 +112,7 @@
 
    O =bin/diff-ao-vivo.sh= mantém um PDF com o =latexdiff= de um commit
    contra a árvore de trabalho e o refaz a cada mudança em =texto/*.org=,
-   =refs.bib= ou =tcc.tex=: espera 2 s sem mudança, exporta os =.org= que
+   =texto/refs.bib= ou =latex/tcc.tex=: espera 2 s sem mudança, exporta os =.org= que
    mudaram com o =bin/exportar-org.sh=, gera o diff com
    =latexdiff --flatten=, compila com o =latexmk= e o Evince recarrega o
    PDF sozinho. Da edição ao PDF novo, cerca de 9 s (medido em
@@ -129,7 +145,7 @@
 
    Tudo fica em =pdf/ao-vivo/=, fora do git: o PDF =diff-ao-vivo.pdf=,
    a compilação em =build/= e os logs =emacs.log=, =latexdiff.log= e
-   =latexmk.log=. Os =texto/*.tex= da árvore não são tocados: capítulo cujo
+   =latexmk.log=. Os =latex/capitulos/*.tex= da árvore não são tocados: capítulo cujo
    =.org= não mudou entra pelo =.tex= da árvore. A compilação roda em =build/=
    e o PDF só é copiado para =diff-ao-vivo.pdf= quando ela termina sem erro;
    um =.org= no meio de uma edição ou um =refs.bib= quebrado deixam no Evince
@@ -161,7 +177,9 @@
 
    Cada marco tem uma tag =v0.N= (ADR 0024). O =bin/gerar-versao.sh= gera,
    dos fontes commitados, o PDF do texto da tag e o PDF do diff desde a tag
-   anterior, os dois que vão para a release:
+   anterior, os dois que vão para a release. As tags até a =v0.9= têm o
+   =tcc.tex= na raiz, e o script compila cada versão no diretório do
+   =tcc.tex= dela:
 
    #+begin_src fish
    bin/gerar-versao.sh v0.9          # tcc-v0.9.pdf e diff-v0.8..v0.9.pdf

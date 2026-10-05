@@ -1,3 +1,4 @@
+#+EXPORT_FILE_NAME: ../latex/capitulos/conclusion
 Blá blá blá…
 
 # TODO: Comentar que em linguagem com tipagem forte há um balanço entre

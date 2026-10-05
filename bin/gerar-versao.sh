@@ -12,12 +12,13 @@
 #         <nome> é a tag, se REF for exatamente uma, ou o hash curto.
 #
 # Cada versão é extraída com git archive em pdf/build/<nome>/fonte/ e
-# compilada ali, com os auxiliares do latexmk em build/<nome>/aux-*/. Os .tex
-# dos capítulos vêm do próprio commit, como foram exportados na época: o
-# Emacs não entra. O diff é o latexdiff com as opções do readme.org, entre os
-# tcc.tex achatados das duas versões, compilado na árvore de REF (refs.bib,
-# figuras e classe de REF). SOURCE_DATE_EPOCH é a data do commit de REF, que
-# vai para os metadados do PDF.
+# compilada ali, no diretório do tcc.tex dela (latex/, ou a raiz nas versões
+# até a v0.9), com os auxiliares do latexmk em aux-*/. Os .tex dos capítulos
+# vêm do próprio commit, como foram exportados na época: o Emacs não entra.
+# O diff é o latexdiff com as opções do readme.org, entre os tcc.tex
+# achatados das duas versões, compilado na árvore de REF (refs.bib, figuras
+# e classe de REF). SOURCE_DATE_EPOCH é a data do commit de REF, que vai
+# para os metadados do PDF.
 #
 # O TeX Live fica no host: de dentro do container (distrobox), o script se
 # chama de novo pelo distrobox-host-exec.
@@ -36,8 +37,9 @@ cd "$(git rev-parse --show-toplevel)"
 SAIDA=pdf/versoes
 BUILD=pdf/build
 PICT='PICTUREENV=(?:picture|DIFnomarkup|minted)[\w\d*@]*'
-# Só o que a compilação lê: casos/, docs/ e .beads/ ficam de fora.
-CAMINHOS=(tcc.tex tex texto pos fig refs.bib)
+# Só o que a compilação lê: casos/, docs/ e .beads/ ficam de fora. Os quatro
+# últimos são do leiaute até a v0.9, com o tcc.tex na raiz (ADR 0025).
+CAMINHOS=(latex texto tcc.tex tex pos fig refs.bib)
 # Commits que só consertam a compilação, aplicados às versões anteriores a
 # eles: o texto não muda. e45ecd1: o estilo "rtt" do Pygments, que não
 # existe, para "rrt"; sem ele, o minted para a compilação de 2020.
@@ -45,6 +47,14 @@ CONSERTOS=(e45ecd1)
 
 nome() {  # a tag exata do commit, ou o hash curto
   git describe --tags --exact-match "$1" 2>/dev/null || git rev-parse --short "$1"
+}
+
+principal() {  # o tcc.tex do commit $1: latex/tcc.tex, ou tcc.tex até a v0.9
+  if git cat-file -e "$1:latex/tcc.tex" 2>/dev/null; then echo latex/tcc.tex; else echo tcc.tex; fi
+}
+
+bib() {  # o refs.bib do commit $1
+  if git cat-file -e "$1:texto/refs.bib" 2>/dev/null; then echo texto/refs.bib; else echo refs.bib; fi
 }
 
 extrair() {  # extrai o commit $1 em $BUILD/<nome>/fonte, se ainda não estiver
@@ -68,7 +78,8 @@ extrair() {  # extrai o commit $1 em $BUILD/<nome>/fonte, se ainda não estiver
 }
 
 compilar() {  # compilar DIR ARQUIVO.tex AUX: compila DIR/ARQUIVO.tex com saída em DIR/AUX
-  local dir=$1 tex=$2 aux=$3 job=${2%.tex}
+  local dir=$1 tex=$2 aux=$3 job
+  job=$(basename "${2%.tex}")
   if ! (cd "$dir" && latexmk -pdf -pvc- -view=none -shell-escape \
           -interaction=nonstopmode -halt-on-error -outdir="$aux" "$tex" \
           >"$aux.latexmk.log" 2>&1 </dev/null); then
@@ -86,8 +97,10 @@ SOURCE_DATE_EPOCH=$(git log -1 --format=%ct "$1")
 mkdir -p "$SAIDA"
 
 novo=$(extrair "$1")
-compilar "$novo" tcc.tex aux-tcc
-cp "$novo/aux-tcc/tcc.pdf" "$SAIDA/tcc-$REF_NOME.pdf"
+REF_MAIN=$(principal "$1")
+novo_tex=$novo/$(dirname "$REF_MAIN")  # onde o tcc.tex de REF está
+compilar "$novo_tex" tcc.tex aux-tcc
+cp "$novo_tex/aux-tcc/tcc.pdf" "$SAIDA/tcc-$REF_NOME.pdf"
 echo "texto: $SAIDA/tcc-$REF_NOME.pdf"
 
 [ -n "$diff" ] || exit 0
@@ -106,24 +119,25 @@ job=diff-$BASE_NOME..$REF_NOME
 dir=$BUILD/$REF_NOME/$job
 rm -rf "$dir" && mkdir -p "$dir"
 (cd "$novo" && cp -r "${CAMINHOS[@]}" "$OLDPWD/$dir/" 2>/dev/null) || true
-bin/anotar-diff.py ancorar . "$base_ref" "$1" "$dir"
+dir_tex=$dir/$(dirname "$REF_MAIN")  # o diff se compila ao lado do tcc.tex
+bin/anotar-diff.py ancorar . "$base_ref" "$1" "$dir" "$REF_MAIN"
 # latexdiff --flatten resolve os \input pelo diretório de cada tcc.tex.
 latexdiff --flatten --packages=biblatex --config="$PICT" \
-  "$base/tcc.tex" "$dir/tcc.tex" >"$dir/$job.tex" 2>"$dir/latexdiff.log" ||
+  "$base/$(principal "$base_ref")" "$dir/$REF_MAIN" >"$dir_tex/$job.tex" 2>"$dir/latexdiff.log" ||
   { echo "latexdiff falhou: $dir/latexdiff.log" >&2; exit 1; }
-bin/anotar-diff.py montar "$dir/$job.tex"
+bin/anotar-diff.py montar "$dir_tex/$job.tex"
 # A citação apagada continua no diff, riscada, mas a chave pode ter saído do
 # refs.bib de REF: o refs.bib de BASE entra como segundo arquivo, e o biber
 # fica com a primeira entrada de cada chave repetida.
-cp "$base/refs.bib" "$dir/refs-$BASE_NOME.bib"
-sed -i "s|^\\\\addbibresource{refs.bib}|&\\\\addbibresource{refs-$BASE_NOME.bib}|" "$dir/$job.tex"
+cp "$base/$(bib "$base_ref")" "$dir_tex/refs-$BASE_NOME.bib"
+sed -i "s|^\\\\addbibresource{[^}]*}|&\\\\addbibresource{refs-$BASE_NOME.bib}|" "$dir_tex/$job.tex"
 # Duas compilações: a primeira grava a página e a seção de cada âncora no
 # .aux; com elas, o resumo agrupa os links por página e seção. O resumo tem
 # numeração romana e devolve a página 1 à capa, então as páginas não mudam
 # da primeira para a segunda.
-bin/anotar-diff.py resumo "$dir" aux "$job" "$BASE_NOME" "$REF_NOME"
-compilar "$dir" "$job.tex" aux
-bin/anotar-diff.py resumo "$dir" aux "$job" "$BASE_NOME" "$REF_NOME"
-compilar "$dir" "$job.tex" aux
-cp "$dir/aux/$job.pdf" "$SAIDA/$job.pdf"
+bin/anotar-diff.py resumo "$dir_tex" aux "$job" "$BASE_NOME" "$REF_NOME"
+compilar "$dir_tex" "$job.tex" aux
+bin/anotar-diff.py resumo "$dir_tex" aux "$job" "$BASE_NOME" "$REF_NOME"
+compilar "$dir_tex" "$job.tex" aux
+cp "$dir_tex/aux/$job.pdf" "$SAIDA/$job.pdf"
 echo "diff:  $SAIDA/$job.pdf"

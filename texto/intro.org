@@ -1,3 +1,4 @@
+#+EXPORT_FILE_NAME: ../latex/capitulos/intro
 
 Interfaces gráficas mediam a maioria das nossas interações com computadores,
 seja em celulares e /notebooks/, seja no navegador web.

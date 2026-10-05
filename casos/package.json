@@ -1,0 +1,22 @@
+{
+  "name": "casos-tcc",
+  "private": true,
+  "description": "Exemplos de interfaces gráficas do TCC, um projeto por caso e tecnologia",
+  "workspaces": [
+    "*/web-component",
+    "*/jquery",
+    "*/react",
+    "*/solid",
+    "*/angular-signals",
+    "*/angular-rxjs"
+  ],
+  "scripts": {
+    "capturas": "node capturar.mts"
+  },
+  "engines": {
+    "node": ">=22.22.3"
+  },
+  "devDependencies": {
+    "playwright": "^1.63.0"
+  }
+}

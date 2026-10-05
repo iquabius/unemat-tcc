@@ -179,7 +179,7 @@ numa linha e deixe para a porta aberta.
 
 1. `refs.bib`, se ganhou entrada: `%`, `#` e `&` escapados fora de `url` e
    `doi`, inclusive em `annotation`; confira com
-   `python3 ~/.claude/skills/escrita-academica/scripts/auditar_bib.py refs.bib texto/`.
+   `python3 ~/.claude/skills/escrita-academica/scripts/auditar_bib.py texto/refs.bib texto/`.
 2. Exportar pelo Emacs, body only, cada capítulo que a rodada mudou,
    nunca por conversor próprio (`readme.org`, "Exportar pelo terminal"; o
    script passa sozinho pelo `distrobox-host-exec`):
@@ -192,11 +192,11 @@ numa linha e deixe para a porta aberta.
    log é latin-1; `readme.org`, "Gerar PDF com LatexMk"):
 
    ```bash
-   distrobox-host-exec bash -lc 'cd "<checkout>" && latexmk -outdir=pdf/build/arvore -pvc- -view=none -interaction=nonstopmode tcc.tex'
+   distrobox-host-exec bash -lc 'cd "<checkout>" && latexmk -cd -outdir=../pdf/build/arvore -pvc- -view=none -interaction=nonstopmode latex/tcc.tex'
    ```
 
 4. Commit pela skill `commit-message`, depois do aprovo do autor, com
-   `texto/*.org`, `texto/*.tex`, `texto/fontes/*.org`, `refs.bib` e, se
+   `texto/*.org`, `latex/capitulos/*.tex`, `texto/fontes/*.org`, `texto/refs.bib` e, se
    a rodada fecha ou muda tarefa, o `.beads/issues.jsonl`. Nomeie os
    arquivos no próprio commit (`git commit -- <arquivos>`), para não levar
    o que outra sessão deixou no índice. A mensagem termina com uma linha

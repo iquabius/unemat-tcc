@@ -5,7 +5,8 @@
 #   uso:  bin/exportar-org.sh [-o DIR] ARQUIVO.org...
 #         bin/exportar-org.sh texto/intro.org texto/cases.org
 #         bin/exportar-org.sh texto/*.org
-#   -o DIR  escreve DIR/<nome>.tex em vez do .tex ao lado de cada .org
+#   -o DIR  escreve DIR/<nome>.tex em vez de latex/capitulos/<nome>.tex do
+#           repositório de cada .org (o mesmo destino do #+EXPORT_FILE_NAME)
 #
 # Body only (6º argumento do org-export-to-file) porque o tcc.tex puxa cada
 # capítulo com \input; o package-initialize vem antes do init.el, que sem ele
@@ -30,7 +31,9 @@ for f; do
   org=$(realpath "$f")
   [ -f "$org" ] || { echo "não existe: $f" >&2; exit 2; }
   tex=${saida:+$saida/$(basename "${org%.org}").tex}
-  tex=${tex:-${org%.org}.tex}
+  if [ -z "$tex" ]; then
+    tex=$(git -C "$(dirname "$org")" rev-parse --show-toplevel)/latex/capitulos/$(basename "${org%.org}").tex
+  fi
   lista+=" (\"$org\" . \"$tex.tmp\")"
   destinos+=("$tex")
 done

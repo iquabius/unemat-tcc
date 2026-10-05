@@ -281,7 +281,7 @@
  \tocfile{\listalgorithmcfname}{loa}
  \endgroup}
 
-\usepackage{tex/src_code}
+\usepackage{src_code}
 
 %% Code lists
 %% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -434,7 +434,7 @@
 %% table of contents
 %% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 \RequirePackage[nottoc]{tocbibind}
-\RequirePackage[titles]{tex/tocloft}
+\RequirePackage[titles]{tocloft}
 \RequirePackage{titletoc}
 \setcounter{tocdepth}{3}
 \setcounter{lofdepth}{2}
@@ -514,10 +514,10 @@
  \singlespacing%
  \begin{titlepage}%
    \begin{textblock}{5}(14.95,5.5)
-     \includegraphics[height=3cm,width=2.8cm]{tex/img/brasao/unemat_cor.png}
+     \includegraphics[height=3cm,width=2.8cm]{img/brasao/unemat_cor.png}
    \end{textblock}
    \begin{textblock}{5}(1.6,5.6)
-     \includegraphics[height=2.5cm,width=2.73cm]{tex/img/brasao/mt_cor.png}
+     \includegraphics[height=2.5cm,width=2.73cm]{img/brasao/mt_cor.png}
    \end{textblock}
 % 
 %   \vspace*{30pt}

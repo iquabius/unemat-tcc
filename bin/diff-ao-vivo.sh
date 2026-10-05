@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # diff-ao-vivo.sh — PDF com o latexdiff de BASE contra a árvore de trabalho,
-# refeito a cada mudança em texto/*.org, refs.bib ou tcc.tex. Roda no host
-# (Emacs + TeX Live).
+# refeito a cada mudança em texto/*.org, texto/refs.bib ou latex/tcc.tex.
+# Roda no host (Emacs + TeX Live).
 #
 #   uso:   bin/diff-ao-vivo.sh [REPO] [BASE]  (padrão: diretório atual, HEAD)
 #          BASE é o commit contra o qual se compara: HEAD mostra só o que
@@ -18,13 +18,13 @@
 # Compila em ao-vivo/build/ e só copia o PDF para diff-ao-vivo.pdf quando a
 # compilação termina sem erro: um .org no meio de uma edição ou um refs.bib
 # quebrado deixam no Evince o último PDF bom. Não escreve nada fora de
-# pdf/ao-vivo/: os .tex exportados vão para ao-vivo/novo/texto/, e os
-# texto/*.tex da árvore ficam intocados.
+# pdf/ao-vivo/: os .tex exportados vão para ao-vivo/novo/latex/capitulos/,
+# e os latex/capitulos/*.tex da árvore ficam intocados.
 set -euo pipefail
 
 REPO=$(realpath "${1:-$PWD}")
 BASE=$(git -C "$REPO" rev-parse --short "${2:-HEAD}")
-OUT=pdf/ao-vivo
+OUT=$REPO/pdf/ao-vivo
 BUILD=$OUT/build
 JOB=diff-ao-vivo
 PDF=$OUT/$JOB.pdf
@@ -32,39 +32,44 @@ ANTERIOR=$OUT/$JOB.tex.anterior  # o diff do último PDF bom, para seguir()
 PICT='PICTUREENV=(?:picture|DIFnomarkup|minted)[\w\d*@]*'
 
 cd "$REPO"
-VIGIADOS=(texto/*.org refs.bib tcc.tex)
+VIGIADOS=(texto/*.org texto/refs.bib latex/tcc.tex)
+CAPITULOS=$OUT/novo/latex/capitulos
 rm -rf "$OUT/base" "$OUT/novo" "$ANTERIOR"
-mkdir -p "$OUT/base" "$OUT/novo/texto" "$BUILD"
+mkdir -p "$OUT/base" "$OUT/novo" "$BUILD"
 
-# Versão antiga: os fontes TeX do commit BASE, extraídos uma vez.
-git archive "$BASE" tcc.tex texto pos | tar -x -C "$OUT/base"
+# Versão antiga: os fontes TeX do commit BASE, extraídos uma vez. O latexdiff
+# --flatten resolve os \input pelo diretório de cada tcc.tex, por isso base e
+# novo reproduzem o latex/ inteiro.
+git archive "$BASE" latex | tar -x -C "$OUT/base"
 
 hora() { date +%T; }
 
 exportar() {
-  # Os .org dados vão para ao-vivo/novo/texto/, não para o texto/ da árvore.
-  "$REPO/bin/exportar-org.sh" -o "$OUT/novo/texto" "$@" >"$OUT/emacs.log" 2>&1
+  # Os .org dados vão para ao-vivo/novo/latex/capitulos/, não para o
+  # latex/capitulos/ da árvore.
+  "$REPO/bin/exportar-org.sh" -o "$CAPITULOS" "$@" >"$OUT/emacs.log" 2>&1
 }
 
 montar() {
   # Versão nova: os fontes da árvore, com os .tex exportados por exportar().
-  cp tcc.tex "$OUT/novo/"
-  cp -r pos "$OUT/novo/"
+  cp latex/tcc.tex "$OUT/novo/latex/"
+  cp -r latex/apendices "$OUT/novo/latex/"
   latexdiff --flatten --packages=biblatex --config="$PICT" \
-    "$OUT/base/tcc.tex" "$OUT/novo/tcc.tex" >"$OUT/$JOB.tex.tmp" 2>"$OUT/latexdiff.log" &&
+    "$OUT/base/latex/tcc.tex" "$OUT/novo/latex/tcc.tex" >"$OUT/$JOB.tex.tmp" 2>"$OUT/latexdiff.log" &&
   mv "$OUT/$JOB.tex.tmp" "$OUT/$JOB.tex"
 }
 
 falhou=
 compilar() {
-  # Compila da raiz do repositório: tex/, refs.bib, fig/ e casos/ resolvem
-  # pelo diretório corrente. -pvc- desliga o modo contínuo do latexmkrc do
-  # autor, que também passa --shell-escape. Depois de uma falha, -g força a
-  # compilação inteira, para o latexmk não dar por feito o que parou no meio.
-  # O .synctex.gz vai antes do PDF: o Evince o relê quando o PDF muda.
-  if latexmk -pvc- -view=none -synctex=1 ${falhou:+-g} -outdir="$BUILD" \
+  # Compila em latex/ da árvore: a classe, os estilos, os brasões e os
+  # caminhos ../texto/ do preâmbulo resolvem pelo diretório corrente. -pvc-
+  # desliga o modo contínuo do latexmkrc do autor, que também passa
+  # --shell-escape. Depois de uma falha, -g força a compilação inteira, para
+  # o latexmk não dar por feito o que parou no meio. O .synctex.gz vai antes
+  # do PDF: o Evince o relê quando o PDF muda.
+  if (cd "$REPO/latex" && latexmk -pvc- -view=none -synctex=1 ${falhou:+-g} -outdir="$BUILD" \
        -interaction=nonstopmode -halt-on-error "$OUT/$JOB.tex" \
-       >"$OUT/latexmk.log" 2>&1 </dev/null; then
+       >"$OUT/latexmk.log" 2>&1 </dev/null); then
     cp "$BUILD/$JOB.synctex.gz" "$OUT/$JOB.synctex.gz"
     cp "$BUILD/$JOB.pdf" "$PDF.tmp" && mv "$PDF.tmp" "$PDF"
     falhou=
@@ -108,10 +113,10 @@ estado() { stat -c '%n %.9Y' "${VIGIADOS[@]}" 2>/dev/null || true; }
 
 # Os .tex da árvore servem para os capítulos que não mudaram; exporta só o .org
 # mais novo que o próprio .tex, para não pôr no diff diferenças de exportação.
-cp texto/*.tex "$OUT/novo/texto/"
+cp -r latex "$OUT/novo/"
 novos=()
 for f in texto/*.org; do
-  if [ "$f" -nt "${f%.org}.tex" ]; then novos+=("$f"); fi
+  if [ "$f" -nt "latex/capitulos/$(basename "${f%.org}").tex" ]; then novos+=("$f"); fi
 done
 ultimo=$(estado)
 gerar "${novos[@]}" || true
@@ -121,7 +126,7 @@ if [ "${VIEW:-pdf}" != none ] && [ -f "$PDF" ]; then
   visor=1
 fi
 trap 'pkill -P $$ 2>/dev/null; exit' INT TERM
-echo "vigiando texto/*.org, refs.bib e tcc.tex contra $BASE; Ctrl-C para parar"
+echo "vigiando texto/*.org, texto/refs.bib e latex/tcc.tex contra $BASE; Ctrl-C para parar"
 
 while sleep 1; do
   agora=$(estado)

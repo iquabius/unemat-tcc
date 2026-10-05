@@ -1,7 +1,7 @@
 /pdf
 # o nome antigo de pdf/, que as worktrees de antes de 2026-10-04 ainda usam
 /versoes_pdf
-/_minted*
+_minted*
 
 # com template abntex
 *.aux
@@ -46,3 +46,4 @@ local.properties
 
 # Material local: PDFs baixados, textos extraídos e relatórios (não versionar)
 /tmp/
+__pycache__/

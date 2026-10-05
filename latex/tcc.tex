@@ -1,4 +1,4 @@
-\documentclass[relatorio]{tex/unemat-comp}
+\documentclass[relatorio]{unemat-comp}
 % Opções da classe inf-ufg (ao usar mais de uma, separe por vírgulas)
 %   [tese]         -> Tese de doutorado.
 %   [dissertacao]  -> Dissertação de mestrado (padrão).
@@ -16,7 +16,8 @@
 \setlength{\marginparwidth}{3cm}
 \reversemarginpar{}
 
-\addbibresource{refs.bib}
+\addbibresource{../texto/refs.bib}
+\graphicspath{{../texto/}}  % as figuras citadas nos capítulos como ./fig/...
 
 %----------------------------------------------------- INICIO DO DOCUMENTO %
 \begin{document}
@@ -84,22 +85,22 @@
 % Remover a numeração quebrou o link pro capítulo no sumário
 \chapter*{Introdução}\label{chap:intro}
 \addcontentsline{toc}{chapter}{Introdução}
-\input{texto/intro}
+\input{capitulos/intro}
 
 % Revisão da Literatura ----------------------------------------------------
 \chapter{Programação de Computadores}\label{chap:prog}
-\input{texto/prog}
+\input{capitulos/prog}
 
 % Estudos de Casos ---------------------------------------------------------
 \chapter{Estudos de Casos}\label{chap:cases}
-\input{texto/cases}
+\input{capitulos/cases}
 
 \chapter{Resultados}\label{chap:results}
-\input{texto/results}
+\input{capitulos/results}
 
 % Conclusão ----------------------------------------------------------------
 \chapter{Conclusão}\label{chap:conclusion}
-\input{texto/conclusion}
+\input{capitulos/conclusion}
 
 
 %------------------------------------------------------------- REFERÊNCIAS %
@@ -116,8 +117,8 @@
 % --------------------------------------------------------------- APÊNDICES %
 \apendices{}
 
-\input{./pos/apend_I}
-\input{./pos/apend_II}
+\input{apendices/apend_I}
+\input{apendices/apend_II}
 
 
 %------------------------------------------------------------------------- %

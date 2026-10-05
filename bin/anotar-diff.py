@@ -3,14 +3,17 @@
 intervalo e links para os trechos que ele mudou. Chamado pelo
 bin/gerar-versao.sh, em três passos:
 
-  ancorar REPO BASE REF DIR   antes do latexdiff: põe \\difancora{N} nos .tex
+  ancorar REPO BASE REF DIR [MAIN]
+                              antes do latexdiff: põe \\difancora{N} nos .tex
                               de DIR (cópia da árvore de REF) e grava
-                              DIR/difancoras.json
+                              difancoras.json ao lado de MAIN, o tcc.tex
+                              (latex/tcc.tex; tcc.tex até a v0.9)
   montar DIFF.tex             depois do latexdiff: define \\difancora no
                               preâmbulo e abre o documento com difresumo.tex
   resumo DIR AUX JOB BASE_NOME REF_NOME
                               entre as compilações: escreve DIR/difresumo.tex
-                              a partir dos rótulos em DIR/AUX/JOB.aux
+                              a partir dos rótulos em DIR/AUX/JOB.aux; DIR é
+                              o diretório do tcc.tex
 
 O trecho que entrou é atribuído pelo git blame BASE..REF do .tex de REF; o
 que saiu, pelo git blame --reverse do .tex de BASE, ao commit seguinte ao
@@ -29,11 +32,17 @@ biblatex). Commits cujo trecho foi refeito depois, ou que só mudaram rótulos, 
 sem link.
 """
 import json
+import os
 import re
 import subprocess
 import sys
 from difflib import SequenceMatcher
 from pathlib import Path
+
+# Onde ficam os .tex dos capítulos e apêndices, e o refs.bib: o leiaute do
+# ADR 0025 e o anterior, até a v0.9.
+PASTAS_TEX = ("latex/capitulos/", "latex/apendices/", "texto/", "pos/")
+BIBS = ("texto/refs.bib", "refs.bib")
 
 VERB = {"minted", "verbatim", "Verbatim", "lstlisting", "comment"}
 BLOQUEADOS = VERB | {
@@ -123,24 +132,27 @@ def blame(repo, intervalo, arquivo, reverso=False):
     return saida, limites
 
 
-def ancorar(repo, base, ref, dir_):
+def ancorar(repo, base, ref, dir_, main="tcc.tex"):
     base = git(repo, "rev-parse", base + "^{commit}").strip()
     ref = git(repo, "rev-parse", ref + "^{commit}").strip()
     ordem = git(repo, "rev-list", "--reverse", f"{base}..{ref}").split()
     pos = {c: k for k, c in enumerate(ordem)}
     pos[base] = -1
-    arquivos = [p for p in git(repo, "ls-tree", "--name-only", ref, "texto/", "pos/").split()
-                if p.endswith(".tex")]
+    arquivos = [p for p in git(repo, "ls-tree", "-r", "--name-only", ref).split()
+                if p.endswith(".tex") and p.startswith(PASTAS_TEX)]
     # O capítulo de cada arquivo: o \chapter de dentro dele (apêndices) ou o
     # último do tcc.tex antes do \input dele, como o da introdução, que não
-    # tem número e por isso não dá título ao \nameref.
+    # tem número e por isso não dá título ao \nameref. Os \input são
+    # relativos ao diretório do tcc.tex.
     capitulos, ultimo_cap = {}, ""
-    for l in (Path(dir_) / "tcc.tex").read_text().splitlines():
+    pasta_main = Path(main).parent
+    for l in (Path(dir_) / main).read_text().splitlines():
         l = sem_comentario(l)
         if m := re.match(r"\s*\\chapter\*?\{([^{}]*)\}", l):
             ultimo_cap = m.group(1)
-        for m in re.finditer(r"\\input\{(?:\./)?([^}]+)\}", l):
-            capitulos[m.group(1).removesuffix(".tex") + ".tex"] = ultimo_cap
+        for m in re.finditer(r"\\input\{([^}]+)\}", l):
+            arq = os.path.normpath(pasta_main / m.group(1).removesuffix(".tex"))
+            capitulos[arq + ".tex"] = ultimo_cap
     ancoras, n = [], 0
     for arq in arquivos:
         caminho = Path(dir_) / arq
@@ -204,8 +216,8 @@ def ancorar(repo, base, ref, dir_):
     # refs.bib que cada um mudou.
     commits = []
     for linha in git(repo, "log", "--reverse", "--format=%H%x09%as%x09%s",
-                     f"{base}..{ref}", "--", ":(glob)texto/*.tex", ":(glob)pos/*.tex",
-                     "refs.bib").splitlines():
+                     f"{base}..{ref}", "--", *[f":(glob){p}*.tex" for p in PASTAS_TEX],
+                     *BIBS).splitlines():
         h, data, assunto = linha.split("\t", 2)
         commits.append({"commit": h, "data": data, "assunto": assunto,
                         "chaves": chaves_mudadas(repo, h)})
@@ -215,14 +227,18 @@ def ancorar(repo, base, ref, dir_):
         nome = git(repo, "tag", "-l", "--format=%(contents:subject)", tag).strip()
         corpo = git(repo, "tag", "-l", "--format=%(contents:body)", tag).strip()
     json.dump({"ancoras": ancoras, "commits": commits, "nome": nome, "corpo": corpo},
-              open(Path(dir_) / "difancoras.json", "w"), ensure_ascii=False, indent=1)
+              open(Path(dir_) / pasta_main / "difancoras.json", "w"), ensure_ascii=False, indent=1)
 
 
 def chaves_mudadas(repo, h):
     """Chaves das entradas do refs.bib que o commit h acrescentou, mudou ou tirou."""
-    try:
-        bib = git(repo, "show", f"{h}:refs.bib").splitlines()
-    except subprocess.CalledProcessError:
+    for caminho in BIBS:
+        try:
+            bib = git(repo, "show", f"{h}:{caminho}").splitlines()
+            break
+        except subprocess.CalledProcessError:
+            continue
+    else:
         return []
     inicio = [(k, m.group(1)) for k, l in enumerate(bib)
               if (m := re.match(r"\s*@\w+\s*\{\s*([^,\s]+)\s*,", l))]
@@ -230,7 +246,7 @@ def chaves_mudadas(repo, h):
     pais = git(repo, "rev-list", "--parents", "-n1", h).split()
     if len(pais) < 2:
         return []
-    for linha in git(repo, "diff", "-U0", pais[1], h, "--", "refs.bib").splitlines():
+    for linha in git(repo, "diff", "-U0", "-M", pais[1], h, "--", *BIBS).splitlines():
         m = re.match(r"@@ -\d+(?:,\d+)? \+(\d+)(?:,(\d+))? @@", linha)
         if m:
             a, q = int(m.group(1)) - 1, int(m.group(2) or 1)

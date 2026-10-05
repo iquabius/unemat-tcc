@@ -4,4 +4,4 @@
          (org-latex-prefer-user-labels . t)
          (org-latex-src-block-backend . minted)
          (org-ref-cite-insert-version . 2)))
- ("texto" . ((org-mode . ((bibtex-completion-bibliography . ("../refs.bib")))))))
+ ("texto" . ((org-mode . ((bibtex-completion-bibliography . ("refs.bib")))))))
