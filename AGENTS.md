@@ -161,6 +161,15 @@ Nota nova só quando o conteúdo não cabe num ADR, numa tarefa nem no texto.
 Todo texto de nota, tarefa ou ADR: conclusão primeiro, datas absolutas, uma
 palavra por conceito (`CONTEXT.md`), sem alusão à conversa que o gerou.
 
+## Versões
+
+Cada marco ganha uma tag anotada `v0.N` (ADR 0024). A primeira linha da
+mensagem é o nome do marco, e o resto diz o que mudou no texto. A data é
+a do commit: `GIT_COMMITTER_DATE="$(git log -1 --format=%cI <commit>)"
+git tag -a v0.N -F <mensagem> <commit>`. A próxima tag sai quando uma
+fase fecha. `git tag -n1 --sort=v:refname` lista os marcos. Push de tag
+e release só a pedido do autor.
+
 ## Commits
 
 Mensagens em português, no imperativo, sem prefixo, explicando o problema
