@@ -6,13 +6,12 @@
 #
 # Título: "v0.N: <nome do marco>", a primeira linha da mensagem da tag.
 # Corpo: o resto da mensagem, com cada parágrafo numa linha (a página da
-#   release mostra as quebras de linha da tag), e a galeria das páginas do
-#   diff que têm alteração, cada uma com a página e a seção. As imagens são
-#   arquivos da própria release e só aparecem no corpo depois de publicada:
-#   no rascunho, o endereço /releases/download/<tag>/ ainda não existe.
-# Arquivos: o PDF do texto, o do diff desde a tag anterior e um PNG por
-#   página alterada. Numa release que já existe, os arquivos são trocados, e
-#   os PNGs de páginas que deixaram de mudar saem.
+#   release mostra as quebras de linha da tag), e uma linha com as páginas
+#   que mudaram, por seção.
+# Arquivos: o PDF do texto, o do diff desde a tag anterior e o mesmo diff só
+#   com o resumo e as páginas alteradas. Numa release que já existe, os
+#   arquivos são trocados, e os que não são mais gerados (os PNGs de uma
+#   versão anterior deste script) saem.
 #
 # Não publica: o autor confere o rascunho e publica no GitHub. A tag precisa
 # estar no GitHub antes. O gh com login fica no host: de dentro do container
@@ -39,12 +38,11 @@ for tag; do
   texto=pdf/versoes/tcc-$tag.pdf
   diff=pdf/versoes/$job.pdf
   paginas=pdf/versoes/$job-paginas
-  [ -f "$texto" ] && [ -f "$diff" ] && [ -f "$paginas/paginas.json" ] ||
-    { echo "$tag: faltam os PDFs ou as páginas; rode bin/gerar-versao.sh $tag" >&2; exit 1; }
+  [ -f "$texto" ] && [ -f "$diff" ] ||
+    { echo "$tag: faltam os PDFs; rode bin/gerar-versao.sh $tag" >&2; exit 1; }
 
   notas=$(mktemp)
-  bin/anotar-diff.py galeria "$paginas" "$tag" "$base" "$REPO" >"$notas"
-
+  bin/anotar-diff.py corpo "$paginas" "$tag" "$base" >"$notas"
   if gh release view "$tag" >/dev/null 2>&1; then
     gh release edit "$tag" --title "$tag: $nome" --notes-file "$notas" >/dev/null
   else
@@ -52,16 +50,16 @@ for tag; do
   fi
   rm -f "$notas"
 
-  # O GitHub tira o ".." do nome do diff (diff-v0.8.v0.9.pdf); o rótulo diz o intervalo.
+  # O GitHub tira o ".." dos nomes (diff-v0.8.v0.9.pdf); o rótulo diz o intervalo.
   arquivos=("$texto#Texto ($tag)" "$diff#Diff desde $base")
-  mapfile -t -O 2 arquivos < <(bin/anotar-diff.py arquivos "$paginas")
+  [ ! -f "$paginas.pdf" ] || arquivos+=("$paginas.pdf#Diff desde $base, só as páginas alteradas")
   gh release upload "$tag" --clobber "${arquivos[@]}"
 
-  # PNGs de uma geração anterior cuja página deixou de ter alteração.
-  atuais=$(bin/anotar-diff.py arquivos "$paginas" | sed 's|#.*||; s|.*/||')
-  gh release view "$tag" --json assets -q '.assets[].name' | grep -E "^$tag-p[0-9]+\.png$" |
-    grep -vxF -f <(printf '%s\n' "$atuais") | while read -r velho; do
+  # Fica só o que acabou de subir, com o nome que o GitHub deu a cada um.
+  manter=$(for a in "${arquivos[@]}"; do basename "${a%%#*}" | sed 's/\.\././g'; done)
+  gh release view "$tag" --json assets -q '.assets[].name' | grep -vxF -f <(printf '%s\n' "$manter") |
+    while read -r velho; do
       gh release delete-asset "$tag" "$velho" --yes
     done || true
-  echo "$tag: rascunho com $((${#arquivos[@]})) arquivos"
+  echo "$tag: rascunho com ${#arquivos[@]} arquivos"
 done

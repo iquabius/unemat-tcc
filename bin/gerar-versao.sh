@@ -8,7 +8,8 @@
 #         bin/gerar-versao.sh HEAD          # tcc-<hash>.pdf e diff-v0.9..<hash>.pdf
 #   BASE  padrão: a tag anterior a REF (git describe); sem tag anterior,
 #         só o PDF do texto.
-#   PDFs: pdf/versoes/tcc-<nome>.pdf e diff-<base>..<nome>.pdf, em que
+#   PDFs: pdf/versoes/tcc-<nome>.pdf, diff-<base>..<nome>.pdf e o mesmo diff
+#         só com as páginas alteradas, diff-<base>..<nome>-paginas.pdf, em que
 #         <nome> é a tag, se REF for exatamente uma, ou o hash curto.
 #
 # Cada versão é extraída com git archive em pdf/build/<nome>/fonte/ e
@@ -157,6 +158,6 @@ bin/anotar-diff.py resumo "$dir_tex" aux "$job" "$BASE_NOME" "$REF_NOME"
 compilar "$dir_tex" "$job.tex" aux "$pre"
 cp "$dir_tex/aux/$job.pdf" "$SAIDA/$job.pdf"
 echo "diff:  $SAIDA/$job.pdf"
-# Cada página com marca do latexdiff vira um PNG, para a release mostrar só
-# o que mudou sem baixar o diff inteiro.
-bin/anotar-diff.py paginas "$dir_tex" aux "$job" "$SAIDA/$job.pdf" "$SAIDA/$job-paginas" "$REF_NOME"
+# Um terceiro PDF, só com o resumo e as páginas com marca do latexdiff, para
+# ler o que mudou sem rolar o diff inteiro; os links do resumo continuam.
+bin/anotar-diff.py paginas "$dir_tex" aux "$job" "$SAIDA/$job.pdf" "$SAIDA/$job-paginas"

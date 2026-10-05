@@ -14,14 +14,13 @@ bin/gerar-versao.sh, em quatro passos:
                               entre as compilações: escreve DIR/difresumo.tex
                               a partir dos rótulos em DIR/AUX/JOB.aux; DIR é
                               o diretório do tcc.tex
-  paginas DIR AUX JOB PDF SAIDA REF_NOME
-                              depois da última compilação: cada página do
-                              PDF com marca do latexdiff vira SAIDA/<REF>-pNNN.png,
-                              em 150 dpi e sem a margem da folha,
-                              e SAIDA/paginas.json diz a página e a seção
-  galeria PASTA TAG BASE REPO o corpo da release: a mensagem da tag e as
-                              imagens das páginas (bin/preparar-release.sh)
-  arquivos PASTA              os PNGs, com o rótulo de cada um, para o upload
+  paginas DIR AUX JOB PDF SAIDA
+                              depois da última compilação: SAIDA.pdf, o diff
+                              só com o resumo e as páginas com marca do
+                              latexdiff (qpdf), e SAIDA.json com a página e a
+                              seção de cada uma
+  corpo SAIDA TAG BASE        o corpo da release: a mensagem da tag e as
+                              páginas alteradas (bin/preparar-release.sh)
 
 O trecho que entrou é atribuído pelo git blame BASE..REF do .tex de REF; o
 que saiu, pelo git blame --reverse do .tex de BASE, ao commit seguinte ao
@@ -42,7 +41,6 @@ sem link.
 import json
 import os
 import re
-import shutil
 import subprocess
 import sys
 from difflib import SequenceMatcher
@@ -291,6 +289,11 @@ PREAMBULO = r"""
 \DeclareRobustCommand*\dif@pagina{\@bsphack\protected@write\@auxout{}{\string\difpagina
   {\noexpand\the\ReadonlyShipoutCounter}{\thepage}%
   {\expandafter\detokenize\expandafter{\@currentlabelname}}}\@esphack}
+% O começo e o fim da bibliografia, para o diff só das páginas alteradas
+% levar junto as referências a que as citações e o resumo levam.
+\providecommand*\difbiblio[1]{}
+\newcommand*\difbibmarca{\@bsphack\protected@write\@auxout{}{\string\difbiblio
+  {\noexpand\the\ReadonlyShipoutCounter}}\@esphack}
 % Robustos, porque o latexdiff também os põe em títulos de seção e de
 % capítulo, que vão para o sumário e o cabeçalho.
 \let\dif@DIFadd\DIFadd \DeclareRobustCommand\DIFadd[1]{\dif@pagina\dif@DIFadd{#1}}
@@ -308,6 +311,8 @@ PREAMBULO = r"""
 def montar(diff_tex):
     t = Path(diff_tex).read_text()
     t = t.replace("\\begin{document}", PREAMBULO + "\\begin{document}\n\\input{difresumo}\n", 1)
+    t = re.sub(r"\\printbibliography(\[[^\]]*\])?",
+               lambda m: "\\difbibmarca" + m.group(0) + "\\difbibmarca", t, count=1)
     Path(diff_tex).write_text(t)
 
 
@@ -323,8 +328,8 @@ def sem_marcas(titulo):
     """O título de seção como ficou em REF, sem as marcas do latexdiff."""
     arg = r"\{((?:[^{}]|\{[^{}]*\})*)\}"
     t = re.sub(r"\\DIF(?:add|del)(?:begin|end)(?:FL)?\s*", "", titulo)
-    t = re.sub(r"\\DIFdel(?:FL)?" + arg, "", t)
-    t = re.sub(r"\\DIFadd(?:FL)?" + arg, r"\1", t)
+    t = re.sub(r"\\DIFdel(?:FL)?\s*" + arg, "", t)
+    t = re.sub(r"\\DIFadd(?:FL)?\s*" + arg, r"\1", t)
     return t.strip()
 
 
@@ -387,9 +392,11 @@ def resumo(dir_, aux, job, base_nome, ref_nome):
     (Path(dir_) / "difresumo.tex").write_text("\n".join(out) + "\n")
 
 
-def paginas(dir_, aux, job, pdf, saida, ref_nome):
-    """As páginas do diff com marca do latexdiff, fora do resumo, em PNG, e
-    saida/paginas.json com a página impressa e a seção de cada uma."""
+def paginas(dir_, aux, job, pdf, saida):
+    """O diff só com o resumo e as páginas que têm marca do latexdiff, em
+    SAIDA.pdf, e SAIDA.json com a página impressa e a seção de cada uma.
+    O qpdf mantém os objetos das páginas, e os links do resumo continuam
+    levando ao trecho; o pdfunite, o pdfjam e o Ghostscript os perdem."""
     d = json.load(open(Path(dir_) / "difancoras.json"))
     texto = (Path(dir_) / aux / f"{job}.aux").read_text(errors="replace")
     marcas = {}  # página física -> (impressa, seção)
@@ -407,62 +414,66 @@ def paginas(dir_, aux, job, pdf, saida, ref_nome):
         rotulos[int(m.group(1))] = (int(m.group(2)), sem_marcas(m.group(3)))
     ancoras = sorted((rotulos[a["n"]][0], rotulos[a["n"]][1] or a["capitulo"])
                      for a in d["ancoras"] if a["n"] in rotulos)
-    pasta = Path(saida)
-    pasta.mkdir(parents=True, exist_ok=True)
-    for velho in pasta.glob("*.png"):
-        velho.unlink()
     lista = []
     for fisica, (impressa, secao) in sorted(marcas.items()):
         if not secao:
             antes = [s for p, s in ancoras if p <= int(impressa)]
-            secao = antes[-1] if antes else ""
-        nome = f"{ref_nome}-p{int(impressa):03d}"
-        png = pasta / (nome + ".png")
-        subprocess.run(["pdftoppm", "-png", "-r", "150", "-f", str(fisica), "-l", str(fisica),
-                        "-singlefile", pdf, str(pasta / nome)], check=True)
-        # Sem a margem da folha A4, a página cabe na largura de um celular com
-        # o texto legível; sem o ImageMagick, fica a página inteira.
-        if shutil.which("magick"):
-            subprocess.run(["magick", str(png), "-fuzz", "3%", "-trim", "+repage",
-                            "-bordercolor", "white", "-border", "24", str(png)], check=True)
-        lista.append({"arquivo": nome + ".png", "pagina": impressa, "fisica": fisica,
-                      "secao": re.sub(r"\\[a-zA-Z]+\*?|[{}]", "", secao).strip()})
-    json.dump(lista, open(pasta / "paginas.json", "w"), ensure_ascii=False, indent=1)
-    print(f"páginas: {len(lista)} em {pasta}")
-
-
-def rotulo_pagina(p):
-    return f"p. {p['pagina']}" + (f" · {p['secao']}" if p["secao"] else "")
-
-
-def galeria(pasta, tag, base, repo):
-    """O corpo da release: a mensagem da tag sem a primeira linha, com cada
-    parágrafo numa linha, e as imagens das páginas alteradas, que são
-    arquivos da própria release."""
-    corpo = git(".", "tag", "-l", "--format=%(contents:body)", tag).strip()
-    print("\n\n".join(" ".join(p.split()) for p in re.split(r"\n\s*\n", corpo)))
-    paginas = json.load(open(Path(pasta) / "paginas.json"))
-    if not paginas:
+            # Antes da primeira âncora só há as pré-textuais, como o sumário.
+            secao = antes[-1] if antes else "pré-textuais"
+        secao = " ".join(re.sub(r"\\[a-zA-Z]+\*?|[{}]", "", secao).split()).rstrip(".:;")
+        lista.append({"pagina": impressa, "fisica": fisica, "secao": secao})
+    for velho in (Path(saida + ".pdf"), Path(saida + ".json")):
+        velho.unlink(missing_ok=True)
+    if not lista:
+        print("páginas: nenhuma com alteração")
         return
-    url = f"https://github.com/{repo}/releases/download/{tag}"
-    plural = "s" if len(paginas) > 1 else ""
-    print(f"\n## Páginas com alteração\n\n<details open>\n"
-          f"<summary>{len(paginas)} página{plural} do diff desde {base}</summary>\n")
-    for p in paginas:
-        titulo = rotulo_pagina(p).replace(f"p. {p['pagina']}", f"**p. {p['pagina']}**", 1)
-        print(f"{titulo}\n\n<img src=\"{url}/{p['arquivo']}\" "
-              f"alt=\"p. {p['pagina']} do diff\" width=\"640\">\n")
-    print("</details>")
+    # O resumo são as páginas antes da capa, que é a página 1 impressa.
+    resumo = lista[0]["fisica"] - int(lista[0]["pagina"])
+    paginas_pdf = list(range(1, resumo + 1)) + [p["fisica"] for p in lista]
+    biblio = [int(n) for n in re.findall(r"\\difbiblio\{(\d+)\}", texto)]
+    if len(biblio) == 2:
+        paginas_pdf += range(biblio[0], biblio[1] + 1)
+    paginas_pdf = sorted(set(paginas_pdf))
+    subprocess.run(["qpdf", pdf, "--pages", ".", ",".join(map(str, paginas_pdf)), "--",
+                    saida + ".pdf"], check=True)
+    json.dump(lista, open(saida + ".json", "w"), ensure_ascii=False, indent=1)
+    print(f"páginas: {len(lista)} em {saida}.pdf")
 
 
-def arquivos(pasta):
-    """Uma linha por imagem: o caminho e o rótulo, como o gh release upload
-    os recebe (arquivo#rótulo)."""
-    for p in json.load(open(Path(pasta) / "paginas.json")):
-        print(f"{Path(pasta) / p['arquivo']}#{rotulo_pagina(p)}")
+def intervalos(numeros):
+    """[5, 6, 7, 9] -> "pp. 5–7, 9"."""
+    partes, i = [], 0
+    while i < len(numeros):
+        j = i
+        while j + 1 < len(numeros) and numeros[j + 1] == numeros[j] + 1:
+            j += 1
+        partes.append(str(numeros[i]) if i == j else f"{numeros[i]}–{numeros[j]}")
+        i = j + 1
+    return ("p. " if len(numeros) == 1 else "pp. ") + ", ".join(partes)
+
+
+def resumo_paginas(lista):
+    """As páginas alteradas por seção, na ordem do documento."""
+    secoes = {}
+    for p in lista:
+        secoes.setdefault(p["secao"], []).append(int(p["pagina"]))
+    return "; ".join((f"{s}, " if s else "") + intervalos(ns) for s, ns in secoes.items())
+
+
+def corpo(saida, tag, base):
+    """O corpo da release: a mensagem da tag sem a primeira linha, com cada
+    parágrafo numa linha, e as páginas que mudaram desde a base."""
+    texto = git(".", "tag", "-l", "--format=%(contents:body)", tag).strip()
+    print("\n\n".join(" ".join(p.split()) for p in re.split(r"\n\s*\n", texto)))
+    if Path(saida + ".json").exists():
+        lista = json.load(open(saida + ".json"))
+        plural = "s" if len(lista) > 1 else ""
+        print(f"\n**{len(lista)} página{plural} com alteração desde {base}:** "
+              f"{resumo_paginas(lista)}. Estão no diff só das páginas alteradas, "
+              "com o resumo dos commits na frente.")
 
 
 if __name__ == "__main__":
     cmd, *args = sys.argv[1:]
     {"ancorar": ancorar, "montar": montar, "resumo": resumo, "paginas": paginas,
-     "galeria": galeria, "arquivos": arquivos}[cmd](*args)
+     "corpo": corpo}[cmd](*args)

@@ -221,29 +221,29 @@
    aceitar o trabalho também diz =U Boneque= (ADR 0024).
 
    Cada marca do =latexdiff= grava no =.aux= a página física, a impressa e a
-   seção em que caiu, e cada página com marca, fora do resumo, vira um PNG
-   de 150 dpi, sem a margem da folha (com o =magick=, para caber na largura
-   de um celular), em =pdf/versoes/diff-<base>..<tag>-paginas/=, com um
-   =paginas.json= que diz a página e a seção.
+   seção em que caiu. Com elas, o script gera um terceiro PDF,
+   =diff-<base>..<tag>-paginas.pdf=, só com o resumo, as páginas que têm
+   marca e a bibliografia (a que as citações e as chaves do resumo levam), e um =.json= ao lado com a página e a seção de cada uma. O corte é
+   do =qpdf=, que mantém os objetos das páginas: os links do resumo
+   continuam levando ao trecho. O =pdfunite=, o =pdfjam= e o Ghostscript
+   (=gs -sPageList=) perdem esses links ou os mandam para a página errada
+   (testado em 2026-10-05). Links para páginas que ficaram de fora, como os
+   do sumário, só funcionam no diff completo.
 
 ** Preparar a release
 
    O =bin/preparar-release.sh= cria ou atualiza a release de cada tag como
    rascunho, com o que o =bin/gerar-versao.sh= deixou em =pdf/versoes/=: o
-   título pelo nome do marco, o corpo pela mensagem da tag e, embaixo, as
-   imagens das páginas alteradas, e como arquivos o PDF do texto, o do diff
-   e os PNGs. Numa release que já existe, troca os arquivos e tira os PNGs
-   de páginas que deixaram de mudar. Não publica: o autor confere o
-   rascunho e publica no GitHub. A tag precisa estar no GitHub antes, e o
-   =gh= precisa de login (=gh auth login=, no host).
+   título pelo nome do marco, o corpo pela mensagem da tag e uma linha com
+   as páginas alteradas por seção, e como arquivos o PDF do texto, o diff
+   completo e o diff só das páginas alteradas. Numa release que já existe,
+   troca os arquivos e tira os que não são mais gerados. Não publica: o
+   autor confere o rascunho e publica no GitHub. A tag precisa estar no
+   GitHub antes, e o =gh= precisa de login (=gh auth login=, no host).
 
    #+begin_src fish
    bin/gerar-versao.sh v0.9 && bin/preparar-release.sh v0.9
    #+end_src
-
-   As imagens são arquivos da própria release: no rascunho, o endereço
-   =/releases/download/<tag>/= ainda não existe, e elas só aparecem no corpo
-   depois de publicada.
 
    Em 2026-10-05, as oito tags da =v0.2= à =v0.9= compilaram assim, cada uma
    em cerca de 40 s.
