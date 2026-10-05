@@ -44,6 +44,10 @@ CAMINHOS=(latex texto tcc.tex tex pos fig refs.bib)
 # eles: o texto não muda. e45ecd1: o estilo "rtt" do Pygments, que não
 # existe, para "rrt"; sem ele, o minted para a compilação de 2020.
 CONSERTOS=(e45ecd1)
+# A capa e a folha de rosto mostram, no lugar do ano, o prefixo, a versão (ou
+# o intervalo, no diff) e o nome do marco. O ano entra só na versão aceita
+# pela banca: as tags v1.x e seguintes ficam com o \ano do tcc.tex.
+PREFIXO="U Boneque"
 
 nome() {  # a tag exata do commit, ou o hash curto
   git describe --tags --exact-match "$1" 2>/dev/null || git rev-parse --short "$1"
@@ -77,10 +81,21 @@ extrair() {  # extrai o commit $1 em $BUILD/<nome>/fonte, se ainda não estiver
   echo "$dir"
 }
 
-compilar() {  # compilar DIR ARQUIVO.tex AUX: compila DIR/ARQUIVO.tex com saída em DIR/AUX
-  local dir=$1 tex=$2 aux=$3 job
+capa() {  # capa VERSÃO: o código que põe "PREFIXO VERSÃO --- nome" no lugar do ano
+  local rotulo="$PREFIXO $1" marco
+  case $REF_NOME in v[1-9]*) return 0 ;; esac
+  marco=$(git tag -l --format='%(contents:subject)' "$REF_NOME" 2>/dev/null |
+    sed 's/[\\{}$&#^_%~]/\\&/g')
+  [ -z "$marco" ] || rotulo+=" --- $marco"
+  printf '\\AtBeginDocument{\\def\\ano#1{}\\expandafter\\def\\csname @ano\\endcsname{%s}}' "$rotulo"
+}
+
+compilar() {  # compilar DIR ARQUIVO.tex AUX [PRETEX]: compila DIR/ARQUIVO.tex com saída em DIR/AUX
+  local dir=$1 tex=$2 aux=$3 pre=${4:-} job
   job=$(basename "${2%.tex}")
-  if ! (cd "$dir" && latexmk -pdf -pvc- -view=none -shell-escape \
+  # -g: o latexmk não vê mudança no -usepretex e daria a versão por feita.
+  if ! (cd "$dir" && latexmk -pdf -g -pvc- -view=none -shell-escape \
+          ${pre:+"-usepretex=$pre"} \
           -interaction=nonstopmode -halt-on-error -outdir="$aux" "$tex" \
           >"$aux.latexmk.log" 2>&1 </dev/null); then
     echo "compilação falhou: $dir/$aux.latexmk.log e $dir/$aux/$job.log" >&2
@@ -99,7 +114,7 @@ mkdir -p "$SAIDA"
 novo=$(extrair "$1")
 REF_MAIN=$(principal "$1")
 novo_tex=$novo/$(dirname "$REF_MAIN")  # onde o tcc.tex de REF está
-compilar "$novo_tex" tcc.tex aux-tcc
+compilar "$novo_tex" tcc.tex aux-tcc "$(capa "$REF_NOME")"
 cp "$novo_tex/aux-tcc/tcc.pdf" "$SAIDA/tcc-$REF_NOME.pdf"
 echo "texto: $SAIDA/tcc-$REF_NOME.pdf"
 
@@ -136,8 +151,12 @@ sed -i "s|^\\\\addbibresource{[^}]*}|&\\\\addbibresource{refs-$BASE_NOME.bib}|" 
 # numeração romana e devolve a página 1 à capa, então as páginas não mudam
 # da primeira para a segunda.
 bin/anotar-diff.py resumo "$dir_tex" aux "$job" "$BASE_NOME" "$REF_NOME"
-compilar "$dir_tex" "$job.tex" aux
+pre=$(capa "$BASE_NOME..$REF_NOME")
+compilar "$dir_tex" "$job.tex" aux "$pre"
 bin/anotar-diff.py resumo "$dir_tex" aux "$job" "$BASE_NOME" "$REF_NOME"
-compilar "$dir_tex" "$job.tex" aux
+compilar "$dir_tex" "$job.tex" aux "$pre"
 cp "$dir_tex/aux/$job.pdf" "$SAIDA/$job.pdf"
 echo "diff:  $SAIDA/$job.pdf"
+# Cada página com marca do latexdiff vira um PNG, para a release mostrar só
+# o que mudou sem baixar o diff inteiro.
+bin/anotar-diff.py paginas "$dir_tex" aux "$job" "$SAIDA/$job.pdf" "$SAIDA/$job-paginas" "$REF_NOME"

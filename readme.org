@@ -212,8 +212,41 @@
    0025), o que saiu se procura pelo caminho que ele tinha na versão base.
    A capa continua na página 1, como no PDF do texto.
 
-   Em 2026-10-04, as oito tags da =v0.2= à =v0.9= compilaram assim, cada uma
-   em cerca de 25 s.
+   No lugar do ano, a capa e a folha de rosto dos dois PDFs dizem
+   =U Boneque=, a versão (no diff, o intervalo) e o nome do marco, como
+   "U Boneque v0.9 --- Dois eixos, antes do corte da intro". O script passa
+   isso ao =latexmk -usepretex=, sem mexer no =tcc.tex= de cada versão, e
+   compila com =-g=, porque o =latexmk= não vê mudança no código de
+   pré-TeX. As tags =v1.x= ficam com o =\ano= do =tcc.tex=, que até a banca
+   aceitar o trabalho também diz =U Boneque= (ADR 0024).
+
+   Cada marca do =latexdiff= grava no =.aux= a página física, a impressa e a
+   seção em que caiu, e cada página com marca, fora do resumo, vira um PNG
+   de 150 dpi, sem a margem da folha (com o =magick=, para caber na largura
+   de um celular), em =pdf/versoes/diff-<base>..<tag>-paginas/=, com um
+   =paginas.json= que diz a página e a seção.
+
+** Preparar a release
+
+   O =bin/preparar-release.sh= cria ou atualiza a release de cada tag como
+   rascunho, com o que o =bin/gerar-versao.sh= deixou em =pdf/versoes/=: o
+   título pelo nome do marco, o corpo pela mensagem da tag e, embaixo, as
+   imagens das páginas alteradas, e como arquivos o PDF do texto, o do diff
+   e os PNGs. Numa release que já existe, troca os arquivos e tira os PNGs
+   de páginas que deixaram de mudar. Não publica: o autor confere o
+   rascunho e publica no GitHub. A tag precisa estar no GitHub antes, e o
+   =gh= precisa de login (=gh auth login=, no host).
+
+   #+begin_src fish
+   bin/gerar-versao.sh v0.9 && bin/preparar-release.sh v0.9
+   #+end_src
+
+   As imagens são arquivos da própria release: no rascunho, o endereço
+   =/releases/download/<tag>/= ainda não existe, e elas só aparecem no corpo
+   depois de publicada.
+
+   Em 2026-10-05, as oito tags da =v0.2= à =v0.9= compilaram assim, cada uma
+   em cerca de 40 s.
 
 * Setup numa máquina nova
 

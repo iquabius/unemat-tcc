@@ -210,6 +210,12 @@ git tag -a v0.N -F <mensagem> <commit>`. A próxima tag sai quando uma
 fase fecha. `git tag -n1 --sort=v:refname` lista os marcos. Push de tag
 e release só a pedido do autor.
 
+Os PDFs e as páginas alteradas saem do `bin/gerar-versao.sh <tag>`, e a
+release, como rascunho, do `bin/preparar-release.sh <tag>`; publicar é do
+autor. Até a banca aceitar o trabalho, a capa diz "U Boneque" no lugar do
+ano, sempre assim, no gênero neutro: o `\ano` do `latex/tcc.tex` e o
+`PREFIXO` do `gerar-versao.sh`.
+
 ## Commits
 
 Mensagens em português, no imperativo, sem prefixo, explicando o problema
