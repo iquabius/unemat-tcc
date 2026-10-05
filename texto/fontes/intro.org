@@ -1,0 +1,47 @@
+#+title: Fontes da introdução
+#+startup: overview
+
+Matriz das afirmações de [[file:../intro.org][texto/intro.org]] que se apoiam numa fonte, com o
+trecho conferido no PDF (ADR 0023). Não entra no PDF do TCC: o
+diff ao vivo e a exportação só leem =texto/*.org=, e este arquivo fica num
+subdiretório.
+
+Formato:
+
+- Um título por parágrafo, com o link de busca para o começo dele.
+  No Emacs, =C-c C-o= no link leva ao parágrafo, e o link continua valendo
+  quando as linhas mudam.
+- Um subtítulo por afirmação, com a chave e a página da publicação.
+- Embaixo do subtítulo:
+  - a frase do texto, ou o trecho dela que faz a afirmação;
+  - o trecho da fonte, curto, na língua original, com a página da
+    publicação;
+  - onde foi lido: o PDF em =tmp/fontes/= e a página do PDF, quando difere;
+  - a data da conferência.
+- A frase que sai do texto sai daqui no mesmo commit.
+
+* §2 [[file:../intro.org::Para coordenar eventos é comum usar o][Para coordenar eventos é comum usar o callback]]
+** edwards2009, p. 926
+- Frase: “Coordenar alterações ao estado compartilhado em meio a esse caos
+  pode ser desconcertante, e está longe de ser modular. A definição
+  coloquial é /Callback Hell/.” (citação direta, tradução nossa)
+- Trecho: “Coordinating changes to communal state amidst this chaos can be
+  baffling, and is far from modular. The colloquial description is
+  Callback Hell.”
+- Lido em: =tmp/fontes/edwards2009-coherent-reaction.pdf=, p. 2 do PDF,
+  sem paginação impressa; p. 926 calculada pelo início dos anais (925).
+- Conferido: 2026-10-01; de novo em 2026-10-04.
+
+* §3 [[file:../intro.org::Três estudos medem o peso do tratamento][Três estudos medem o peso do tratamento de eventos]]
+** edwards2009, p. 926
+- Frase: “Uma análise das aplicações /desktop/ da Adobe concluiu que a
+  lógica de tratamento de eventos era um terço do código e continha
+  metade dos /bugs/ relatados.”
+- Trecho: “An analysis [21] of Adobe’s desktop applications indicated that
+  event handling logic comprised a third of the code and contained half of
+  the reported bugs.”
+- Lido em: =tmp/fontes/edwards2009-coherent-reaction.pdf=, p. 2 do PDF.
+- Observação: o [21] de Edwards é jarvi2008 (p. 90), que diz "mais da
+  metade" e não nomeia a Adobe; a fonte primária é a palestra de Parent
+  (LCSD '06), fora do refs.bib.
+- Conferido: 2026-10-01; de novo em 2026-10-04.

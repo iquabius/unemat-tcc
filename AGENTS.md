@@ -15,7 +15,8 @@ texto em `texto/*.org` (exportado para `.tex`), a bibliografia em
 | Nota de referência ou histórico que o texto ainda vai absorver | `docs/*.md` | seção abaixo |
 | Convenção de código, pastas ou ambiente | `casos/AGENTS.md` | |
 | Feedback de escrita e revisão bibliográfica | não vai para o repositório | skill `escrita-academica`; o que sobra vira tarefa no `bd` ou nota em `docs/` |
-| Frase nova ou alterada em `texto/*.org` | rascunho em `tmp/`, depois o texto | seção "Texto" abaixo e skill do projeto `revisao-de-texto` (ADR 0018) |
+| Frase nova ou alterada em `texto/*.org` | direto no `.org` do checkout principal; o commit espera a revisão | seção "Texto" abaixo e skill do projeto `revisao-de-texto` (ADR 0023) |
+| Trecho de fonte que sustenta uma frase do texto | `texto/fontes/<capítulo>.org` | um título por parágrafo, chave, página, trecho e data da conferência |
 
 ## Tarefas: Beads (`bd`)
 
@@ -77,19 +78,29 @@ As tarefas vivem no [Beads](https://github.com/gastownhall/beads) (`bd`
 
 ## Texto
 
-Nenhuma frase nova ou alterada entra em `texto/*.org` sem a rodada da skill
-`revisao-de-texto` (ADR 0018): rascunho em `tmp/`, cada afirmação com o
-trecho lido no PDF e a página, `metricas_texto.py` e leitura com as
-referências da `escrita-academica` (Modo 3), aprovo do autor frase a frase,
-a proposta aplicada na árvore com o `bin/diff-ao-vivo.sh` rodando contra
-HEAD e, na resposta, um bloco que leva o Evince ao trecho de cada alteração
-(`bin/pagina-no-pdf.py`). O commit espera o aprovo.
+O rascunho é a árvore de trabalho do `texto/*.org` no checkout principal,
+e o HEAD é o texto aprovado (ADR 0023, skill `revisao-de-texto`).
+
+- **Porta fechada.** O autor escreve no Emacs, ou pede edições pelo chat,
+  e o agente edita direto o `.org` e mostra o diff em palavras. Nada passa
+  por `tmp/`.
+- **Porta aberta.** Nenhuma frase nova ou alterada entra num commit sem a
+  rodada sobre o `git diff HEAD -- texto/`:
+  - o rascunho do autor vai para o índice, e as correções do agente ficam
+    por cima, no `git diff`;
+  - cada afirmação apoiada numa fonte é conferida no PDF, com o trecho e a
+    página, e entra em `texto/fontes/<capítulo>.org`;
+  - `metricas_texto.py` e a leitura com as referências da
+    `escrita-academica`;
+  - o diff ao vivo leva o Evince ao trecho de cada alteração
+    (`bin/pagina-no-pdf.py`);
+  - o commit espera o aprovo do autor.
 
 Bloco acima do orçamento passa antes pela rodada de corte da mesma skill
 (ADR 0022). O orçamento da introdução é de 2.500 palavras, medido com
 `metricas_texto.py --orcamento`. Cada parágrafo e cada fonte recebe um
 rótulo: manter, condensar, mover ou cortar. O autor aprova o corte por
-movimento, e a frase que costura o corte volta à rodada frase a frase.
+movimento, e a frase que costura o corte passa pela porta aberta.
 
 - Decisão de método, rótulo, recorte ou critério é do autor: perguntar,
   com as alternativas, antes de escrever.
@@ -128,9 +139,11 @@ movimento, e a frase que costura o corte volta à rodada frase a frase.
   específico. A metodologia fica no presente por escolha do autor, contra
   o pretérito que a `escrita-academica` recomenda, até a reunião com o
   orientador (tcc-y4q, item 6).
-- Sessão que edita texto usa worktree própria; os rascunhos dela ficam no
-  `tmp/` da worktree, e as fontes em PDF, no `tmp/fontes/` do checkout
-  principal.
+- A sessão que edita o texto roda no checkout principal, o mesmo do
+  Emacs, uma por vez; código e tarefas podem seguir em worktrees. O que
+  houver no `git diff HEAD -- texto/` é rascunho do autor e não se apaga
+  nem se reescreve sem ele pedir. As fontes em PDF ficam em `tmp/fontes/`
+  do checkout principal.
 
 ## Notas em `docs/`
 
@@ -155,4 +168,7 @@ antes da solução (skill `commit-message`). O commit que resolve uma tarefa
 fecha a tarefa e leva o `.beads/issues.jsonl`; o que altera um exemplo
 inclui as capturas (`casos/AGENTS.md`). Com outra sessão no mesmo
 checkout, prepare só os próprios arquivos, por índice temporário
-(`GIT_INDEX_FILE`) se o índice compartilhado tiver mudanças alheias.
+(`GIT_INDEX_FILE`) se o índice compartilhado tiver mudanças alheias. No
+checkout principal, todo commit nomeia os arquivos
+(`git commit -- <arquivos>`), porque o índice pode guardar o rascunho do
+texto que o autor ainda não aprovou.

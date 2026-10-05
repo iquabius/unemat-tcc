@@ -1,13 +1,16 @@
 ---
 name: revisao-de-texto
-description: Passo a passo de uma rodada de revisão do texto do TCC (texto/*.org) — rodada de corte contra um orçamento de palavras, com aprovo por movimento; depois rascunho em tmp/, fonte lida no PDF com página, métricas, aprovo do autor frase a frase, proposta aplicada na árvore com o diff ao vivo no Evince, links para a página, exportação e compilação no host, commit. Use sempre que for escrever, reescrever ou corrigir uma frase de texto/*.org, aplicar uma proposta de texto já discutida, acrescentar entrada ao refs.bib para citar no texto, cortar ou encurtar um bloco do texto, ou quando o autor pedir para "revisar pelo processo", "cortar", "mostrar no PDF" ou "abrir no Evince".
+description: Passo a passo da escrita e da revisão do texto do TCC (texto/*.org) — porta fechada (o autor escreve no .org, ou pede edições pelo chat, sem checagem) e porta aberta (rodada sobre o git diff contra HEAD, com o rascunho do autor no índice e as correções do agente por cima, fonte lida no PDF, matriz de fontes, métricas, aprovo, diff ao vivo no Evince, exportação, compilação e commit); antes, a rodada de corte contra um orçamento de palavras. Use sempre que for escrever, reescrever, editar ou corrigir uma frase de texto/*.org, inclusive a pedido do autor pelo chat ou pelo celular, revisar o que o autor escreveu, aplicar uma proposta de texto já discutida, acrescentar entrada ao refs.bib para citar no texto, cortar ou encurtar um bloco do texto, ou quando o autor pedir para "revisar pelo processo", "cortar", "mostrar no PDF" ou "abrir no Evince".
 ---
 
 # Rodada de revisão de texto no TCC
 
-Por que existe: ADR 0018. As regras curtas estão no `AGENTS.md` (seção
-"Texto"); o método de escrita, no Modo 3 da skill `escrita-academica`, que
-esta rodada aplica. Carregue a `escrita-academica` antes de começar.
+Por que existe: ADR 0023, que substituiu o 0018. O rascunho é a árvore de
+trabalho do `texto/*.org` no checkout principal, e o HEAD é o texto
+aprovado. Nenhuma frase entra no commit sem a fonte lida e o aprovo do
+autor. As regras curtas estão no `AGENTS.md` (seção "Texto"), e o método
+de escrita, nos Modos 1 e 3 da skill `escrita-academica`. Carregue a
+`escrita-academica` antes de começar.
 
 A sessão do Claude roda num container (distrobox). Emacs, TeX Live e
 Evince estão só no host: tudo que os usa vai por `distrobox-host-exec`.
@@ -17,15 +20,14 @@ Evince estão só no host: tudo que os usa vai por `distrobox-host-exec`.
 
 1. `bd ready` e a tarefa da rodada (`bd show`); `bd update <id> --status
    in_progress`.
-2. Sessão que edita texto trabalha numa worktree própria, ou commita por
-   índice temporário (`GIT_INDEX_FILE`) só com os próprios arquivos: outras
-   sessões usam o mesmo checkout.
-3. Rascunhos em `tmp/` do checkout em que a sessão roda (numa worktree, o
-   `tmp/` dela; ignorado pelo git nos dois). As fontes em PDF ficam em
-   `tmp/fontes/` do checkout principal
-   (`$(git worktree list | head -1 | cut -d' ' -f1)/tmp/fontes/`); ler de
-   lá é livre. Ao fechar uma sessão em worktree, diga ao autor quais
-   rascunhos guardar antes de remover a worktree.
+2. A sessão que edita o texto roda no checkout principal, o mesmo do
+   Emacs do autor, e uma por vez. Numa worktree, o rascunho do autor não
+   aparece. Antes de mexer, `git status --short texto/` e
+   `git diff --stat HEAD -- texto/`: o que houver ali é o rascunho do
+   autor, e não se apaga nem se reescreve sem ele pedir.
+3. As fontes em PDF ficam em `tmp/fontes/` do checkout principal. Mapas
+   de estrutura e anotações de trabalho ficam em `tmp/`, que o git ignora.
+   O texto não passa mais por `tmp/rascunho-*.org`.
 4. Diff ao vivo rodando no host contra HEAD. Conferir e, se não estiver,
    iniciar (ele mesmo abre o Evince e, a cada PDF novo, o leva à última
    edição salva):
@@ -78,9 +80,9 @@ sobra passa pela rodada por bloco. As técnicas e as fontes estão em
    riscado dos rascunhos (`~~sai~~`, `*[o quê → destino]*`). Para cada
    parágrafo ou fonte, mostre o rótulo, o que a cadeia perde e quantas
    palavras saem. O autor aprova o movimento inteiro.
-5. **Costura.** Frase reescrita para ligar o que ficou, como uma
-   transição nova ou a fusão de dois parágrafos, passa pela rodada por
-   bloco abaixo, com fonte e aprovo frase a frase (ADR 0018).
+5. **Costura.** A frase reescrita para ligar o que ficou, como uma
+   transição nova ou a fusão de dois parágrafos, passa pela porta aberta
+   abaixo, com fonte e aprovo.
 6. **Aplicar e conferir.** Aplique o corte aprovado na árvore com o diff
    ao vivo e meça de novo contra o orçamento. Depois:
    - `auditar_bib.py`: a entrada que saiu do texto aparece como nunca
@@ -90,36 +92,75 @@ sobra passa pela rodada por bloco. As técnicas e as fontes estão em
 7. **Quarentena.** O bloco commitado só volta a ser lido no PDF numa
    sessão seguinte, e não na mesma do corte. Primeiro se procura o que
    falta e o que sobra; só então a frase. O autor lê em voz alta no
-   aprovo do PDF (passo 8 da rodada por bloco).
+   aprovo do PDF (passo 8 da porta aberta).
 
-## A rodada, por bloco
+## Porta fechada: o autor escreve
 
-1. **Rascunho** em `tmp/rascunho-<bloco>.org`, versão numerada, com a fonte
-   e a página abaixo de cada frase.
-2. **Fonte lida.** `pdftotext -layout tmp/fontes/<chave>.pdf - | less`,
-   `pdfgrep -n "termo" tmp/fontes/<chave>.pdf`. Cite na conversa o trecho e
-   a página da publicação (não a do PDF, quando diferem: `abnt.md` da
-   skill). Fonte que só um subagente leu não entra sem conferir. Sem PDF,
-   diga ao autor e deixe `p. N`.
-3. **Decisões** de método, rótulo, recorte ou critério: pergunte com as
-   alternativas antes de escrever. Cara de reverter vira ADR (skill `adr`).
-4. **Métricas** no rascunho:
-   `python3 ~/.claude/skills/escrita-academica/scripts/metricas_texto.py tmp/rascunho-<bloco>.org`,
-   e leitura com `principios-escrita.md` e `portugues-academico.md`.
-   Confira siglas contra a primeira definição no capítulo e as preferências
-   do autor (`AGENTS.md`, "Texto").
-5. **Proposta ao autor**: frase a frase, cada uma com fonte, página e o que
-   o relatório diz dela. Espere o aprovo na conversa.
-6. **Aplicar na árvore**, sem commit: edite `texto/*.org` e espere o
-   "PDF atualizado" do diff ao vivo (`versoes_pdf/diff-ao-vivo.out`, uns
-   10 s; "compilação falhou" deixa o PDF anterior e aponta o log).
+O autor escreve no Emacs, direto no `texto/*.org`. Não há métrica, fonte
+conferida nem agente: é o rascunho, e o `git diff HEAD -- texto/` o
+mostra. Pode ficar dias sem commit.
+
+Pelo chat, inclusive no celular, o autor pede edições, e o agente edita
+direto o `.org`, sem `tmp/`. Na resposta vai o trecho do diff em
+palavras, que se lê no celular:
+
+```bash
+git diff --word-diff=plain HEAD -- texto/intro.org
+```
+
+Mostre só os hunks da edição, num bloco `diff`, com a linha do `.org`.
+Nessa fase o agente faz o que o autor pediu e não "melhora" o resto do
+rascunho por conta própria. Se notar um problema fora do pedido, diga
+numa linha e deixe para a porta aberta.
+
+## Porta aberta: a rodada sobre o diff
+
+1. **Rascunho no índice.** Com o autor de acordo, `git add texto/<capítulo>.org`.
+   Daí em diante, `git diff --cached` mostra o texto do autor, e
+   `git diff` mostra só as correções do agente por cima. Para desfazer
+   uma correção recusada, use `git restore -p texto/<capítulo>.org` no
+   hunk dela, ou `git restore` no arquivo para voltar ao rascunho.
+2. **Fonte lida.** Para cada frase nova ou alterada (`git diff --cached
+   --word-diff`) que se apoia numa fonte:
+   - `pdftotext -layout tmp/fontes/<chave>.pdf - | less` ou
+     `pdfgrep -n "termo" tmp/fontes/<chave>.pdf`;
+   - na conversa, o trecho e a página da publicação, não a do PDF quando
+     diferem (`abnt.md` da skill);
+   - fonte que só um subagente leu não entra sem conferir; sem PDF, diga
+     ao autor e deixe `p. N` no texto.
+
+   Justificativa que é do agente não se apresenta como da fonte.
+3. **Matriz de fontes.** O trecho conferido entra em
+   `texto/fontes/<capítulo>.org`, no formato que o próprio arquivo
+   descreve: um título por parágrafo, com link de busca para a frase, e,
+   por afirmação, a chave, a página, o trecho curto e a data da
+   conferência. A frase que sai do texto sai da matriz.
+4. **Decisões** de método, rótulo, recorte ou critério são do autor:
+   pergunte com as alternativas antes de corrigir. Decisão cara de
+   reverter vira ADR (skill `adr`).
+5. **Métricas** nos parágrafos tocados:
+   `python3 ~/.claude/skills/escrita-academica/scripts/metricas_texto.py texto/<capítulo>.org`,
+   e leitura com `principios-escrita.md`, `portugues-academico.md` e
+   `processo-e-corte.md`. Confira as siglas contra a primeira definição
+   no capítulo e as preferências do autor (`AGENTS.md`, "Texto").
+6. **Correções por cima.** O agente aplica no `.org` as correções que
+   propõe, sem commit. Na resposta, para cada parágrafo tocado:
+   - o hunk de `git diff --word-diff=plain` da correção;
+   - o motivo, com o princípio e a fonte (Modo 1 da `escrita-academica`);
+   - o que o relatório de métricas diz dele;
+   - a fonte conferida, se a frase cita uma.
+
+   Uma decisão por mensagem, como nos rascunhos de antes. O autor aprova,
+   pede outra versão ou recusa, e a recusa volta com `git restore -p`.
    Nota `\todo` para a orientação segue a forma e o leitor do `AGENTS.md`
    ("Texto"); confira no `pdftotext` do diff ao vivo que ela saiu inteira,
    com as aspas no lugar.
-7. **Links para o trecho.** Para cada alteração, rode
+7. **Links para o trecho.** Espere o "PDF atualizado" do diff ao vivo
+   (`versoes_pdf/diff-ao-vivo.out`, uns 10 s; "compilação falhou" deixa
+   o PDF anterior e aponta o log). Para cada alteração, rode
    `bin/pagina-no-pdf.py "poucas palavras do texto novo"` e ponha na
-   resposta, por alteração, a página que ele dá (`# p. 9`) e um bloco
-   `bash` com a linha que ele imprime:
+   resposta a página que ele dá (`# p. 9`) e um bloco `bash` com a linha
+   que ele imprime:
 
    ```bash
    <checkout>/bin/evince-na-linha.sh <checkout>/versoes_pdf/ao-vivo/diff-ao-vivo.pdf 433
@@ -127,11 +168,11 @@ sobra passa pela rodada por bloco. As técnicas e as fontes estão em
 
    O script leva o Evince à linha do `diff-ao-vivo.tex` pelo SyncTeX e
    destaca o trecho; abre o PDF se a janela estiver fechada. Mais de uma
-   linha impressa quer dizer que o trecho se repete: use mais palavras. Sem
-   `.synctex.gz`, ele imprime o `evince -p` da página, pelo número
+   linha impressa quer dizer que o trecho se repete: use mais palavras.
+   Sem `.synctex.gz`, ele imprime o `evince -p` da página, pelo número
    impresso.
 8. **Aprovo no PDF.** O autor lê o trecho em voz alta no PDF. Correções
-   dele voltam ao passo 5; as que valem para o texto todo entram nas
+   dele voltam ao passo 6; as que valem para o texto todo entram nas
    preferências do `AGENTS.md`.
 
 ## Fechar e commitar
@@ -154,9 +195,12 @@ sobra passa pela rodada por bloco. As técnicas e as fontes estão em
    distrobox-host-exec bash -lc 'cd "<checkout>" && latexmk -outdir=versoes_pdf -pvc- -view=none -interaction=nonstopmode tcc.tex'
    ```
 
-4. Commit pela skill `commit-message`, com `texto/*.org`, `texto/*.tex`,
-   `refs.bib` e, se a rodada fecha ou muda tarefa, o `.beads/issues.jsonl`
-   (numa worktree, `bd export -o .beads/issues.jsonl` antes). Mostre a
-   mensagem e commite na mesma resposta. Nada de push.
+4. Commit pela skill `commit-message`, depois do aprovo do autor, com
+   `texto/*.org`, `texto/*.tex`, `texto/fontes/*.org`, `refs.bib` e, se
+   a rodada fecha ou muda tarefa, o `.beads/issues.jsonl`. Nomeie os
+   arquivos no próprio commit (`git commit -- <arquivos>`), para não levar
+   o que outra sessão deixou no índice. A mensagem termina com uma linha
+   `Fontes conferidas:` com chave e página de cada fonte lida na rodada.
+   Mostre a mensagem e commite na mesma resposta. Nada de push.
 5. Pendências que sobraram viram tarefa no `bd`; achado de implementação,
    nota em `docs/achados-das-implementacoes.md`.

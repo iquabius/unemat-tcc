@@ -1,5 +1,7 @@
 # 0018. Frase entra no texto só com a fonte lida, revisada e aprovada pelo autor, vista no diff ao vivo
 
+Substituído por 0023 em 2026-10-04.
+
 2026-09-29. A metodologia escrita em 2026-09-27 (tcc-8m2k) entrou no
 `master` sem nenhuma frase revisada: afirmações sobre Yin e o 7GUIs vieram
 de memória, uma delas errada; a justificativa das seis DCs era do agente e
