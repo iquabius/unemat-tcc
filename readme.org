@@ -157,6 +157,44 @@
    apagado fica intercalado com o novo. O comando impresso roda no host ou no
    container, onde cai para o =distrobox-host-exec=.
 
+** Gerar os PDFs de uma versão
+
+   Cada marco tem uma tag =v0.N= (ADR 0024). O =bin/gerar-versao.sh= gera,
+   dos fontes commitados, o PDF do texto da tag e o PDF do diff desde a tag
+   anterior, os dois que vão para a release:
+
+   #+begin_src fish
+   bin/gerar-versao.sh v0.9          # tcc-v0.9.pdf e diff-v0.8..v0.9.pdf
+   bin/gerar-versao.sh v0.9 v0.5     # diff de um intervalo maior
+   bin/gerar-versao.sh HEAD          # tcc-<hash>.pdf e diff-v0.9..<hash>.pdf
+   bin/gerar-versao.sh --sem-diff v0.2
+   #+end_src
+
+   Os PDFs ficam em =versoes_pdf/versoes/=, fora do git, e cada versão é
+   extraída com =git archive= e compilada em =versoes_pdf/build/<tag>/=, com
+   os auxiliares do =latexmk= à parte: a árvore de trabalho não é tocada e o
+   Emacs não entra, porque os =.tex= dos capítulos vêm do próprio commit. A
+   data nos metadados do PDF é a do commit. Às versões anteriores a
+   =e45ecd1= o script aplica esse commit, que só conserta o nome do estilo
+   do Pygments; sem ele, o =minted= para a compilação de 2020. O diff carrega
+   também o =refs.bib= da versão base, para a citação riscada de uma
+   referência que saiu não ficar indefinida.
+
+   O diff abre com uma página, em numeração romana, com o nome e a descrição
+   do marco (a mensagem da tag) e os commits do intervalo que mudaram os
+   =.tex= dos capítulos e apêndices ou o =refs.bib=. Em cada commit, as
+   páginas onde o texto entrou (azul) e onde saiu (vermelho), agrupadas por
+   seção, são links para o trecho, e as chaves do =refs.bib= levam à entrada
+   nas referências. O =bin/anotar-diff.py= atribui cada trecho pelo
+   =git blame= do =.tex= (o que saiu, pelo =git blame --reverse=) e põe uma
+   âncora no lado novo, que o =latexdiff= deixa fora do =\DIFadd=; a página e
+   a seção saem do =.aux= da primeira compilação. O trecho reescrito por um
+   commit posterior fica com o commit posterior. A capa continua na página
+   1, como no PDF do texto.
+
+   Em 2026-10-04, as oito tags da =v0.2= à =v0.9= compilaram assim, cada uma
+   em cerca de 25 s.
+
 * Setup numa máquina nova
 
   As dependências externas e o passo a passo estão em [[file:setup.org][setup.org]] e
