@@ -306,9 +306,6 @@
 
    A implementação do contador usando classes poder ser observado em
    ref:code:contadorComPOO.
-   # Para o autocomplete do ref funcionar a label precisa ser declarada da
-   # seguinte forma: 'label:códigoDoRótulo'. Na vdd é só trocar "#+label:" por
-   # "#+name:" e usar o comando "org-ref-insert-ref-link".
 
    #+caption: Contador com POO.
    #+name: code:contadorComPOO
