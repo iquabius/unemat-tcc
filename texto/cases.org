@@ -207,7 +207,7 @@
   depuração.
 
   #+caption: Percorrendo uma coleção com o laço src_js{for}
-  #+label: code:forLoopTraverse
+  #+name: code:forLoopTraverse
   #+BEGIN_SRC js
   var people = ["Alan Turing", "Alonzo Church", "Kurt Gödel"];
   var count  = 0;
@@ -227,7 +227,7 @@
    # Esse processo de transformação é chamado de projeção
 
    #+caption: Função pra formatar um preço
-   #+label: code:formatPriceFunction
+   #+name: code:formatPriceFunction
    #+BEGIN_SRC js
    function formatPrice(price) {
      return 'R$' + price.toFixed(2);
@@ -238,7 +238,7 @@
    src_js{for}.
 
    #+caption: Formatação de preços com laço src_js{for}
-   #+label: code:formatPricesFor
+   #+name: code:formatPricesFor
    #+BEGIN_SRC js
    const prices = [50.45, 47, 20.99, 3.44, 1];
    let formatedPrices = [];
@@ -252,7 +252,7 @@
    src_js{map}.
 
    #+caption: Formatação de preços com laço src_js{for}
-   #+label: code:formatPricesMap
+   #+name: code:formatPricesMap
    #+BEGIN_SRC js
    const prices = [50.45, 47, 20.99, 3.44, 1];
 

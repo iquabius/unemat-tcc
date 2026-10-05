@@ -1,6 +1,5 @@
-
 \section{Dimensões de Avaliação}
-\label{sec:org050f7e0}
+\label{sec:orgfe369d3}
 As dimensões utilizadas neste trabalho são baseadas nas DCs de
 \textcite{green1989}. Assim usamos critérios estabelecidos, o que facilita a
 comparação de nossos resultados com trabalhos baseados nas DCs. O \emph{framework}
@@ -146,18 +145,14 @@ momento}
 \item Provisoriedade\todo{'momentaneidade' ou 'transitoriedade'}: \emph{grau
 de comprometimento com uma ação ou marco}
 \end{itemize}
-
-
 \section{*Revisão do JavaScript}
-\label{sec:org393daf3}
+\label{sec:orgb07ad46}
 Talvez devêssemos colocar uma seção de revisão das ferramentas utilizadas na
 implementação dos estudos de caso? Poderíamos descrever os recursos relevantes
 para nossa análise.
 \todo[noline]{Berndt disse p/ colocar como apêndice}
-
-
 \section{Processamento de Listas}
-\label{sec:org369cfb2}
+\label{sec:org3c19642}
 
 Uma coleção é um agrupamento com uma quantidade variável de itens, que (1)
 compartilham algum significado ao problema a se resolver e (2) precisam ser
@@ -193,9 +188,8 @@ for (count = 0; count < people.length; count++) {
 }
 \end{minted}
 \end{listing}
-
 \subsection{Formatação de preços}
-\label{sec:org3d46859}
+\label{sec:org3d1e2dc}
 
 Nesta seção veremos como formatar uma lista preços para serem mostrados na
 tela, p. ex., transformando um valor numérico \mintinline{js}{50.45} em uma \emph{string}
@@ -247,15 +241,13 @@ Outras ideias:
 \item Transformar palavras com letras minúsculas de uma lista em palavras com
 letras maiúsculas
 \end{itemize}
-
 \subsection{Seleção de valores com \texttt{filter()}}
-\label{sec:orgdf5bd0e}
+\label{sec:orgb155416}
 Remover nomes que não começam com ‘S’
-
 \subsection{Nivelamento de valores com \texttt{concatAll()}}
-\label{sec:org32929f0}
+\label{sec:org81b4986}
 \subsection{Redução de valores com \texttt{reduce()}}
-\label{sec:org5461138}
+\label{sec:org86f2d66}
 
 O método \mintinline{js}{reduce()} executa uma função \textbf{reducer} para cada item da
 lista, resultando num único valor. Em \ref{code:somaDePreçosComReduce} é
@@ -271,14 +263,12 @@ const somar = (a, b) => a + b;
 const total = preços.reduce(somar);
 \end{minted}
 \end{listing}
-
 \subsection{Agrupamento de valores com \texttt{zip()}}
-\label{sec:org4004e7d}
-
+\label{sec:orgde3de35}
 \section{Coordenação de Eventos}
-\label{sec:org27de126}
+\label{sec:org949f4dc}
 \subsection{Contador}
-\label{sec:org8ed5085}
+\label{sec:orga3f6633}
 
 \begin{description}
 \item[{Problema}] entender os conceitos essenciais da linguagem e a estrutura
@@ -367,14 +357,12 @@ const Contador = props => {
 Contador({ valorInicial: 0 });
 \end{minted}
 \end{listing}
-
 \subsubsection{Análise}
-\label{sec:org81db0a6}
+\label{sec:org5e27f42}
 
 Essa primeira análise é focada no básico.
-
 \paragraph{Nível de abstração}
-\label{sec:org00357e4}
+\label{sec:orgf164747}
 Na solução com POO os conceitos da linguagem que deve-se entender são:
 classes, construtor, objetos, propriedades, métodos, \emph{callbacks} na forma
 de método, e conhecimento da API do objeto do documento do HTML ---
@@ -401,20 +389,17 @@ objetos, etc.).
 Níveis mais altos de abstração não são necessários, então a solução com PR
 é igualmente boa ou um pouco melhor que a solução com POO quanto ao Nível
 de Abstração.
-
 \paragraph{Proximidade de descrição}
-\label{sec:orgc9c6145}
+\label{sec:orga7cb9f9}
 Essa dimensão/critério faz mais sentido para análise de apresentação do que
 comportamento (coordenação de eventos).
-
 \paragraph{Dependências ocultas}
-\label{sec:orgc129516}
+\label{sec:orgcbbd9d8}
 \todo[noline]{Acredito que o HTML só não está situado no mesmo local que o código JavaScript, que é diferente de “oculto”.}
 As únicas dependências que podem ser consideradas ocultas são os elementos
 HTML buscados pelo identificador com \texttt{document.getElementById("id")}.
-
 \paragraph{Propensão a erros}
-\label{sec:org610ef5a}
+\label{sec:orgd0b96d3}
 Na solução com POO, esquecer de vincular a instância do contador à função
 \texttt{tratarClique()} resultará no erro “TypeError: this.renderizar is not a
 function”.
@@ -424,7 +409,7 @@ Pois o valor do \texttt{this} estará vinculado ao objeto que chamou
 Isso se deve ao fato de a palavra chave \texttt{this} se comportar de forma
 diferente no JavaScript quando comparado com outras linguagens.
 
-\begin{citacao}
+\begin{quote}
 In most cases, the value of this is determined by how a function is called
 (runtime binding). It can't be set by assignment during execution, and it
 may be different each time the function is called. ES5 introduced the
@@ -432,7 +417,7 @@ bind() method to set the value of a function's this regardless of how it's
 called, and ES2015 introduced arrow functions which don't provide their own
 this binding (it retains the this value of the enclosing lexical context).
 \cite{This2020}.
-\end{citacao}
+\end{quote}
 
 \todo[inline]{Nos próximos exemplos acredito que podemos usar as funções de seta
   como callback no lugar dos métodos, pois possuem o valor do this vinculado
@@ -446,9 +431,8 @@ Na solução com PR, esquecer de definir o observador fará com que a
 Pois ela não será renderizada, apesar de toda a lógica do contador
 funcionar.
 Apesar de tudo, essas possibilidades de erros não são críticas.
-
 \paragraph{Concisão}
-\label{sec:org3a4cb87}
+\label{sec:org5f355ae}
 Na solução com POO o método \mintinline{js}{tratarClique()}, usado como \emph{callback},
 poderia ser substituído por uma função de seta.
 Além de poupar algumas linhas o uso do \mintinline{js}{.bind(this)} se torna
@@ -464,14 +448,12 @@ sentido, pois o resultado da expressão não inclui apenas os eventos de clique.
 De qualquer forma, a PR evita a verbosidade da declaração da classe e dos
 métodos, além da repetição do \mintinline{js}{this}.
 Então em termos de Concisão a PR está à frente da POO.
-
 \paragraph{Viscosidade}
-\label{sec:orgcb6d0e7}
+\label{sec:org5576235}
 Num caso tão simples como o do Contador a única resistência a alteração
 está em renomear atributos no caso da POO, e variáveis na PR.
 No entanto isso é inevitável ao renomear termos.
 Além disso o IDE pode ajudar através de uma funcionalidade de refatoração.
 \todo{Talves seja interessante analisar a viscosidade da alteração pra colocar um botão de decremento (-1) do Contador.}
-
 \subsection{Reserva de voo}
-\label{sec:org0b7dd7a}
+\label{sec:orgc441a63}
