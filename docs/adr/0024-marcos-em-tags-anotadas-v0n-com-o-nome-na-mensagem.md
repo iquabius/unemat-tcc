@@ -7,8 +7,9 @@ commits. Cada marco ganha uma tag anotada `v0.N`, em ordem: de `v0.2`
 antes do corte do ADR 0022), depois uma por fase fechada, e `v1.0` é a
 versão depositada para a banca. A primeira linha da mensagem é o nome do
 marco, título da release (`gh release create v0.N --title "v0.N: <nome>"
---notes-from-tag`), e o resto, o corpo; cada release leva o PDF do texto
-e o do diff desde a tag anterior. A tag leva a data do commit que marca.
+--verify-tag`), e o resto, o corpo, com cada parágrafo numa linha
+(`--notes-file`); cada release leva o PDF do texto e o do diff desde a
+tag anterior. A tag leva a data do commit que marca.
 
 Em vez de: nomes descritivos (`retomada`, `recorte`, `fase-1`); leem-se
 sem consulta, mas sem ordem própria e destoando da `v0.1`.
@@ -20,8 +21,11 @@ sem ponto fixo.
 Em vez de: a data de criação da tag; as oito empatariam em 2026-10-04.
 Custo: o nome só se lê na mensagem (`git tag -n1`); depois do push, mover
 ou renumerar quebra quem já buscou, e os PDFs de uma release não mudam;
-`v0.10` só ordena com `--sort=v:refname`; `--notes-from-tag` exige a tag
-no GitHub antes da release.
+`v0.10` só ordena com `--sort=v:refname`; a release exige a tag no GitHub
+antes; o `--notes-from-tag` não serve, porque repete o nome no corpo e
+mantém as quebras de 72 colunas, que a página da release mostra; e o
+GitHub troca o `..` do nome do arquivo do diff por um ponto só
+(`diff-v0.8.v0.9.pdf`), o que só o rótulo do arquivo desfaz.
 
 Fontes: `gh release create --help`, `gh` 2.100.0 (2026-10-04); tarefas
 tcc-8kw e tcc-6ah.
