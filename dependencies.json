@@ -80,8 +80,8 @@
       "texlive-git-latexdiff": { "versao": "2026.226.1.7.1svn75878-60.2", "porque": "o PDF de diff entre revisões descrito no readme.org", "opcional": true },
       "poppler-tools": { "versao": "26.09.0-1.1", "porque": "pdftotext: ler as fontes e achar a página no PDF do diff (bin/pagina-no-pdf.py; ADR 0018)", "opcional": true },
       "pdfgrep": { "versao": null, "porque": "buscar um termo nas fontes em PDF (ADR 0018)", "opcional": true, "nota": "ausente no host em 2026-09-29; a sessão do agente usa o do container" },
-      "evince": { "versao": "48.4-2.1", "porque": "mostra e recarrega o PDF do bin/diff-ao-vivo.sh e salta para a última edição (SyncView pelo D-Bus); evince -p abre na página impressa", "opcional": true },
-      "glib2-tools": { "versao": "2.88.3-2.1", "porque": "gdbus: o bin/diff-ao-vivo.sh leva o Evince à última edição", "opcional": true }
+      "evince": { "versao": "48.4-2.1", "porque": "mostra e recarrega o PDF do bin/diff-ao-vivo.sh e salta para a última edição ou para um trecho (SyncView pelo D-Bus, bin/evince-na-linha.sh)", "opcional": true },
+      "glib2-tools": { "versao": "2.88.3-2.1", "porque": "gdbus: o bin/evince-na-linha.sh leva o Evince a uma linha do .tex", "opcional": true }
     }
   },
 

@@ -82,7 +82,7 @@ Nenhuma frase nova ou alterada entra em `texto/*.org` sem a rodada da skill
 trecho lido no PDF e a página, `metricas_texto.py` e leitura com as
 referências da `escrita-academica` (Modo 3), aprovo do autor frase a frase,
 a proposta aplicada na árvore com o `bin/diff-ao-vivo.sh` rodando contra
-HEAD e, na resposta, um bloco que abre o Evince na página de cada alteração
+HEAD e, na resposta, um bloco que leva o Evince ao trecho de cada alteração
 (`bin/pagina-no-pdf.py`). O commit espera o aprovo.
 
 Bloco acima do orçamento passa antes pela rodada de corte da mesma skill

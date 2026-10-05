@@ -116,17 +116,20 @@ sobra passa pela rodada por bloco. As técnicas e as fontes estão em
    Nota `\todo` para a orientação segue a forma e o leitor do `AGENTS.md`
    ("Texto"); confira no `pdftotext` do diff ao vivo que ela saiu inteira,
    com as aspas no lugar.
-7. **Links para a página.** Para cada alteração, rode
+7. **Links para o trecho.** Para cada alteração, rode
    `bin/pagina-no-pdf.py "poucas palavras do texto novo"` e ponha na
-   resposta, por alteração, um bloco `bash` com a linha que ele imprime:
+   resposta, por alteração, a página que ele dá (`# p. 9`) e um bloco
+   `bash` com a linha que ele imprime:
 
    ```bash
-   f=<checkout>/versoes_pdf/ao-vivo/diff-ao-vivo.pdf; command -v evince >/dev/null && evince -p 9 "$f" || distrobox-host-exec evince -p 9 "$f"
+   <checkout>/bin/evince-na-linha.sh <checkout>/versoes_pdf/ao-vivo/diff-ao-vivo.pdf 433
    ```
 
-   `-p` é o número impresso, o que o autor vê no topo da página; `-i`, o
-   índice físico, fica um à frente e confunde. Com a janela aberta, o
-   Evince só pula para a página.
+   O script leva o Evince à linha do `diff-ao-vivo.tex` pelo SyncTeX e
+   destaca o trecho; abre o PDF se a janela estiver fechada. Mais de uma
+   linha impressa quer dizer que o trecho se repete: use mais palavras. Sem
+   `.synctex.gz`, ele imprime o `evince -p` da página, pelo número
+   impresso.
 8. **Aprovo no PDF.** O autor lê o trecho em voz alta no PDF. Correções
    dele voltam ao passo 5; as que valem para o texto todo entram nas
    preferências do `AGENTS.md`.

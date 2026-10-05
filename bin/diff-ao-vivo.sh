@@ -83,9 +83,8 @@ seguir() {
   # Não contam os comentários, porque o cabeçalho do latexdiff traz a hora
   # dos arquivos, nem os rótulos que o Org sorteia a cada exportação
   # (sec:org1a2b3c4). A primeira compilação não tem com o que comparar e só
-  # guarda o diff. Com a janela fechada, o FindDocument devolve '' e nada
-  # acontece.
-  local linha dono
+  # guarda o diff. Com a janela fechada, nada acontece.
+  local linha
   if [ "${SEGUIR:-sim}" != none ] && [ -f "$ANTERIOR" ]; then
     linha=$(diff --unchanged-line-format= --old-line-format= \
       --new-line-format='%dn:%L' "$ANTERIOR" <(sem_rotulos "$OUT/$JOB.tex") |
@@ -93,15 +92,8 @@ seguir() {
   fi
   sem_rotulos "$OUT/$JOB.tex" >"$ANTERIOR"
   [ -n "${linha:-}" ] || return 0
-  dono=$(gdbus call --session --dest org.gnome.evince.Daemon \
-    --object-path /org/gnome/evince/Daemon \
-    --method org.gnome.evince.Daemon.FindDocument "file://$REPO/$PDF" false \
-    2>/dev/null | sed -n "s/^('\(.\+\)',)$/\1/p")
-  [ -n "$dono" ] || return 0
   sleep 1.5  # o Evince recarrega o PDF antes do salto
-  gdbus call --session --dest "$dono" --object-path /org/gnome/evince/Window/0 \
-    --method org.gnome.evince.Window.SyncView "$REPO/$OUT/$JOB.tex" "($linha, 1)" 0 \
-    >/dev/null 2>&1 || true
+  "$REPO/bin/evince-na-linha.sh" --se-aberto "$PDF" "$linha" >/dev/null 2>&1 || true
 }
 
 gerar() {

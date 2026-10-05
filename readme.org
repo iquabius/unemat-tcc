@@ -138,19 +138,24 @@
    acrescente =-pdflatex='pdflatex --shell-escape %O %S'= à linha do =latexmk=
    no script.
 
-   Para abrir o Evince na página de um trecho, o =bin/pagina-no-pdf.py= acha
-   a página com o =pdftotext= e imprime o comando, pelo número impresso
-   (=evince -p=, o mesmo que aparece no topo da página; o índice físico
-   =-i= fica um à frente, porque a capa não tem número):
+   Para levar o Evince a um trecho, o =bin/pagina-no-pdf.py= acha a página com
+   o =pdftotext= e a linha no =diff-ao-vivo.tex=, e imprime um comando por
+   ocorrência:
 
    #+begin_src fish
    bin/pagina-no-pdf.py "duas partes" "as oito DCs"
    #+end_src
 
+   O comando chama o =bin/evince-na-linha.sh=, que leva o Evince à linha pelo
+   SyncTeX e destaca o trecho. Com a janela aberta, só manda a janela pular,
+   sem o aviso "Evince está pronto" que o =evince -p= dá; fechada, abre o PDF
+   e pula (testado em 2026-10-04). Num PDF sem =.tex= e =.synctex.gz= ao lado,
+   o comando cai para o =evince -p=, pelo número impresso no topo da página
+   (o índice físico =-i= fica um à frente, porque a capa não tem número).
+
    Use poucas palavras seguidas que o diff não mudou: no PDF do diff, o texto
    apagado fica intercalado com o novo. O comando impresso roda no host ou no
-   container, onde cai para o =distrobox-host-exec evince=; com a janela já
-   aberta, o Evince só pula para a página.
+   container, onde cai para o =distrobox-host-exec=.
 
 * Setup numa máquina nova
 
