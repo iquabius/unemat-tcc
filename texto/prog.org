@@ -17,7 +17,7 @@ sequência de forma explícita.
 Tais linguagens são baseadas no modelo /imperativo/ de computação, e são
 denominadas /linguagens imperativas/.
 
-* Linguagens de Programação
+* Linguagens de programação
   <<sec:langs>>
 
   Linguagens de programação são mais simples que linguagens naturais, no
@@ -53,7 +53,7 @@ denominadas /linguagens imperativas/.
   lembrar de eventos anteriores ou de interações com o usuário.
   A informação recordada é denominada o estado do programa cite:rouse2005.
 
-* Paradigmas de Programação
+* Paradigmas de programação
   Programação é uma disciplina extensa, e linguagens práticas de programação
   geralmente são bastante complicadas.
   Felizmente, as ideias importantes de linguagens de programação são simples
@@ -135,7 +135,7 @@ denominadas /linguagens imperativas/.
 
 # Falta o item “6.1.3 Programação de Interfaces Gráficas” do pré-projeto
 
-* Programação de Interfaces Gráficas
+* Programação de interfaces gráficas
 
   Conforme é notado por textcite:blackheath2016, a maioria das aplicações que
   interagem com o ambiente externo são arquitetadas em torno de dois modelos de
@@ -155,8 +155,8 @@ denominadas /linguagens imperativas/.
   em /threads/. No entanto textcite:blackheath2016 afirmam que a
   abordagem com eventos geralmente é a melhor escolha.
 
-* Programação Funcional
-  Programação Funcional (PF) é assim chamada porque sua operação básica é a
+* Programação funcional
+  [[Gls:pf]] é assim chamada porque sua operação básica é a
   aplicação de funções à argumentos cite:hughes1990.
   Lisp foi a primeira linguagem de programação funcional.
   Criada em 1958 originalmente como uma notação matemática para programas de
@@ -173,7 +173,7 @@ denominadas /linguagens imperativas/.
   seu quadrado, ou transforma $x$ em seu quadrado.
   A expressão em Elm define uma função src_elm{quadrado} que transforma o
   parâmetro src_elm{x} em seu quadrado.
-  textcite:roy2009 descreve uma função no contexto da PF:
+  textcite:roy2009 descreve uma função no contexto da [[gls:pf]]:
 
   #+BEGIN_EXPORT latex
   \begin{citacao}
@@ -235,7 +235,7 @@ denominadas /linguagens imperativas/.
   \end{listing}
   #+END_EXPORT
 
-** Porque Programação Funcional é Relevante
+** Porque programação funcional é relevante
    Muitas das vezes as características e vantagens da programação funcional são
    resumidas com declarações do tipo ‘programas funcionais não contêm
    atribuições’, ‘não contêm efeitos colaterais’, e ‘não necessitam preescrever
@@ -274,7 +274,7 @@ denominadas /linguagens imperativas/.
    # programming. This explains why functional programs are so much smaller
    # and easier to write than conventional ones.”
 
-* Programação Reativa
+* Programação reativa
   Programação reativa abrange um leque enorme de conceitos de programação.
   Isso se deve pela escolha da palavra ‘reativa’, que diz mais sobre uma
   /propriedade do que se programa/ do que sobre um /conceito de programação/.
@@ -316,15 +316,14 @@ denominadas /linguagens imperativas/.
   - /propagação automática de alterações/: o modelo de execução automaticamente
     repercuti alterações nos dados;
 
-  PR é compartilha muitos conceitos com o paradigma de /Programação Funcional
-  Reativa (PFR)/.
+  [[Gls:pr]] é compartilha muitos conceitos com o paradigma de [[gls:pfr]].
   Os dois geralmente são confundidos na comunidade de praticantes.
-  PFR possui dois conceitos importantes que o diferencia da PR.
-  O primeiro é o conceito de /tempo contínuo/ — na PR o tempo é discreto.
+  [[Gls:pfr]] possui dois conceitos importantes que o diferencia da [[gls:pr]].
+  O primeiro é o conceito de /tempo contínuo/ — na [[gls:pr]] o tempo é discreto.
   O segundo é o conceito de /semântica denotacional/.
-  PFR é mais indicada para domínios que precisam representar tempo contínuo,
+  [[Gls:pfr]] é mais indicada para domínios que precisam representar tempo contínuo,
   como simulações físicas.
-  PR é mais indicada para sistemas reativos, como é explicado por
+  [[Gls:pr]] é mais indicada para sistemas reativos, como é explicado por
   textcite:roy2009:
 
   #+BEGIN_EXPORT latex

@@ -3,10 +3,10 @@
 
 # header-args is needed to use src_js{} for inline source code
 
-* Dimensões de Avaliação
-  As dimensões utilizadas neste trabalho são baseadas nas DCs de
+* Dimensões de avaliação
+  As dimensões utilizadas neste trabalho são baseadas nas [[glspl:dc]] de
   textcite:green1989. Assim usamos critérios estabelecidos, o que facilita a
-  comparação de nossos resultados com trabalhos baseados nas DCs. O /framework/
+  comparação de nossos resultados com trabalhos baseados nas [[glspl:dc]]. O /framework/
   completo possui 14 dimensões, mas os autores recomendam usar um subconjunto
   apropriado para o artefato em mãos.
 
@@ -100,7 +100,7 @@
 
        Em muitas linguagens dinâmicas com definições implícitas de
        variáveis[fn:var_implicit_def], um erro de tipagem em uma variável pode
-       de repente causar erros difíceis de encontrar já que o IDE nem sempre
+       de repente causar erros difíceis de encontrar já que o [[gls:ide]] nem sempre
        pode apontar tal erro devido a dinamicidade na linguagem. A inicialização
        implícita de variáveis com valor =null= pode levar a uma exceção de
        ponteiro nulo se o programador esquecer de inicializar as variáveis
@@ -135,7 +135,7 @@
        Num sistema viscoso o usuário precisa realizar várias passos para
        concluir uma tarefa. Alterar o tipo de retorno de uma função pode causar
        erros em várias partes do código onde a função é chamada. Nesses casos um
-       IDE pode ajudar muito.
+       [[gls:ide]] pode ajudar muito.
 
 
   Outras dimensões que ficaram de fora são:
@@ -183,7 +183,7 @@
   \todo[noline]{Berndt disse p/ colocar como apêndice}
 
 
-* Processamento de Listas
+* Processamento de listas
 
   Uma coleção é um agrupamento com uma quantidade variável de itens, que (1)
   compartilham algum significado ao problema a se resolver e (2) precisam ser
@@ -290,7 +290,7 @@
 
 ** Agrupamento de valores com ~zip()~
 
-* Coordenação de Eventos
+* Coordenação de eventos
 ** Contador
 
    # estrutura mínima
@@ -391,21 +391,21 @@
     Essa primeira análise é focada no básico.
 
 **** Nível de abstração
-     Na solução com POO os conceitos da linguagem que deve-se entender são:
+     Na solução com [[gls:poo]] os conceitos da linguagem que deve-se entender são:
      classes, construtor, objetos, propriedades, métodos, /callbacks/ na forma
-     de método, e conhecimento da API do objeto do documento do HTML ---
-     /Document Object Model (DOM)/.
+     de método, e conhecimento da [[gls:api]] do objeto do documento do [[gls:html]] ---
+     [[gls:dom]].
      Além do caso do src_js{this} específico do JavaScript:
      src_js{this.tratarClique.bind(this)}.
      Embora sejam conceitos básicos para um programador experiente em JavaScript
-     e POO, o número é grande.
+     e [[gls:poo]], o número é grande.
      Abstrações mais sofisticadas não são necessários pelo Contador e o sistema
      não insiste em abstrações especiais.
      Apesar da solução usar uma quantidade considerável de conceitos, eles são
      básicos, então observamos que o Nível de Abstração é baixo, ou seja, bom.
 
-     Em contrapartida, na solução com PR os conceitos usados são: funções,
-     variáveis, fluxos e eventos, callbacks, e a API do DOM.
+     Em contrapartida, na solução com [[gls:pr]] os conceitos usados são: funções,
+     variáveis, fluxos e eventos, callbacks, e a [[gls:api]] do [[gls:dom]].
      A abstração mais sofisticada é o método src_js{fold()} do fluxo de evento,
      que nada mais é que uma versão assíncrona do src_js{Array.reduce()}
      nativo --- veja a soma de preços em ref:code:somaDePreçosComReduce.
@@ -414,8 +414,8 @@
      No segundo a lista é síncrona, com valores escales (números, /strings/,
      objetos, etc.).
      \todo{Paralelo entre métodos assíncronos e síncronos em outra seção?}
-     Níveis mais altos de abstração não são necessários, então a solução com PR
-     é igualmente boa ou um pouco melhor que a solução com POO quanto ao Nível
+     Níveis mais altos de abstração não são necessários, então a solução com [[gls:pr]]
+     é igualmente boa ou um pouco melhor que a solução com [[gls:poo]] quanto ao Nível
      de Abstração.
 
 **** Proximidade de descrição
@@ -425,10 +425,10 @@
 **** Dependências ocultas
      \todo[noline]{Acredito que o HTML só não está situado no mesmo local que o código JavaScript, que é diferente de “oculto”.}
      As únicas dependências que podem ser consideradas ocultas são os elementos
-     HTML buscados pelo identificador com =document.getElementById("id")=.
+     [[gls:html]] buscados pelo identificador com =document.getElementById("id")=.
 
 **** Propensão a erros
-     Na solução com POO, esquecer de vincular a instância do contador à função
+     Na solução com [[gls:poo]], esquecer de vincular a instância do contador à função
      =tratarClique()= resultará no erro “TypeError: this.renderizar is not a
      function”.
      Pois o valor do =this= estará vinculado ao objeto que chamou
@@ -457,33 +457,33 @@
        JavaScript}.
      #+end_export
 
-     Na solução com PR, esquecer de definir o observador fará com que a
+     Na solução com [[gls:pr]], esquecer de definir o observador fará com que a
      =caixaDoValor= não seja atualizada.
      Pois ela não será renderizada, apesar de toda a lógica do contador
      funcionar.
      Apesar de tudo, essas possibilidades de erros não são críticas.
 
 **** Concisão
-     Na solução com POO o método src_js{tratarClique()}, usado como /callback/,
+     Na solução com [[gls:poo]] o método src_js{tratarClique()}, usado como /callback/,
      poderia ser substituído por uma função de seta.
      Além de poupar algumas linhas o uso do src_js{.bind(this)} se torna
      desnecessário.
-     Veja o código do Contador com POO e função de seta em
+     Veja o código do Contador com [[gls:poo]] e função de seta em
      ref:code:contadorComPOOeFuncDeSeta no apêndice.
-     Na solução com PR a variável intermediária src_js{contadorStream} poderia ser
+     Na solução com [[gls:pr]] a variável intermediária src_js{contadorStream} poderia ser
      removida, encadeando a chamada do src_js{fromEvent} com o src_js{fold()}:
      src_js{const cliqueStream = fromEvent().fold()}.
      No entanto essa manobra diminuiria a legibilidade do
      código[fn:encadeamento].
-     De qualquer forma, a PR evita a verbosidade da declaração da classe e dos
+     De qualquer forma, a [[gls:pr]] evita a verbosidade da declaração da classe e dos
      métodos, além da repetição do src_js{this}.
-     Então em termos de Concisão a PR está à frente da POO.
+     Então em termos de Concisão a [[gls:pr]] está à frente da [[gls:poo]].
 
 **** Viscosidade
      Num caso tão simples como o do Contador a única resistência a alteração
-     está em renomear atributos no caso da POO, e variáveis na PR.
+     está em renomear atributos no caso da [[gls:poo]], e variáveis na [[gls:pr]].
      No entanto isso é inevitável ao renomear termos.
-     Além disso o IDE pode ajudar através de uma funcionalidade de refatoração.
+     Além disso o [[gls:ide]] pode ajudar através de uma funcionalidade de refatoração.
      \todo{Talves seja interessante analisar a viscosidade da alteração pra colocar um botão de decremento (-1) do Contador.}
 
 ** Reserva de voo

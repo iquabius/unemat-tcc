@@ -42,7 +42,7 @@ Uma análise das aplicações /desktop/ da Adobe concluiu que a lógica de
 tratamento de eventos era um terço do código e continha metade dos /bugs/
 relatados [[cite:edwards2009][p. 926]].
 Em quatro sistemas de grande porte com as interfaces gráficas feitas na
-mesma API (/Application Programming Interface/), [[textcite:mijailovic2014][p. 770]] contaram de 1.221 a 31.285
+mesma [[gls:api]], [[textcite:mijailovic2014][p. 770]] contaram de 1.221 a 31.285
 tratadores de eventos.
 Em JavaScript, os /callbacks/ são frequentes: num estudo de 138 programas, uma
 em cada dez definições de função recebe um /callback/, e a maioria dos
@@ -63,36 +63,35 @@ A preocupação explícita com o fluxo de controle é, para
 sistemas de grande porte, ao lado do volume de código e, sobretudo, do
 tratamento do estado.
 Eles distinguem a complexidade essencial, própria do problema, da acidental,
-todo o resto, e propõem reduzir a acidental com /programação funcional/ (PF) e o
+todo o resto, e propõem reduzir a acidental com [[gls:pf]] e o
 modelo relacional de dados.
 Conceitos de programação declarativa podem, assim, diminuir essa complexidade.
 
-Outra alternativa ao /callback/ é a /programação reativa/ (PR).
+Outra alternativa ao /callback/ é a [[gls:pr]].
 Segundo [[textcite:salvaneschi2017][p. 1125-1126]], nela o programador
 declara as relações entre os valores, e o ambiente de execução faz as
 atualizações que elas exigem.
 Eles a registram em interfaces gráficas, animações, aplicações web, robótica
 e redes de sensores.
-Para [[textcite:bainomugisha2013][p. 1-2]], a PR serve às aplicações
+Para [[textcite:bainomugisha2013][p. 1-2]], a [[gls:pr]] serve às aplicações
 orientadas a eventos e interativas e leva às linguagens de programação o
 modelo das planilhas eletrônicas, como o /Google Sheets/ e o /Microsoft
 Excel/.
 Eles chamam as planilhas de “possivelmente a linguagem de programação mais
 utilizada por usuários finais” (tradução nossa).
-A maior parte da pesquisa em PR, dizem ainda, descende do Fran, uma
-linguagem da PF do fim dos anos 1990.
+A maior parte da pesquisa em [[gls:pr]], dizem ainda, descende do Fran, uma
+linguagem da [[gls:pf]] do fim dos anos 1990.
 
 [[textcite:salvaneschi2017][p. 1125-1134]] testaram uma afirmação antiga,
-até então sem evidência empírica, de que a PR torna os programas mais fáceis
-de compreender que o /Observer Pattern/, estilo tradicional da /programação
-orientada a objetos/ (POO).
+até então sem evidência empírica, de que a [[gls:pr]] torna os programas mais fáceis
+de compreender que o /Observer Pattern/, estilo tradicional da [[gls:poo]].
 Num experimento controlado em duas rodadas, 127 estudantes do quarto ano de Ciência da Computação
 foram divididos ao acaso em dois grupos.
-Um grupo leu dez programas em Scala escritos com PR, e o outro, os mesmos
+Um grupo leu dez programas em Scala escritos com [[gls:pr]], e o outro, os mesmos
 programas com o /Observer Pattern/.
 Para cada programa, os participantes respondiam a uma pergunta de múltipla
 escolha sobre o comportamento dele.
-O grupo da PR acertou mais, com diferença significativa (médias de 8,13 e
+O grupo da [[gls:pr]] acertou mais, com diferença significativa (médias de 8,13 e
 7,05 acertos em dez), e não levou mais tempo.
 Só no grupo do /Observer Pattern/ os acertos acompanharam o nível de
 habilidade de programação dos participantes.
@@ -112,7 +111,7 @@ habilidade de programação dos participantes.
   Na /reativa fina com signals/, cada /signal/ avisa os valores e trechos da
   tela que dependem dele, e só esses são recalculados, como no Solid e no
   Angular com /signals/ cite:solidjs2026,google2026.
-  A notação reativa fina usa as abstrações da PR: os valores que variam no
+  A notação reativa fina usa as abstrações da [[gls:pr]]: os valores que variam no
   tempo, chamados /signals/, cujas alterações se propagam automaticamente
   cite:salvaneschi2015.
 
@@ -122,7 +121,7 @@ habilidade de programação dos participantes.
   [[cite:roy2009][p. 10]], e as implementações deste trabalho também os
   misturam.
   O jQuery e o Web Component derivam a Lista filtrável com =filter=, =sort= e
-  =map=, funções de PF.
+  =map=, funções de [[gls:pf]].
   E o React e o Solid recorrem a efeitos para sincronizar o componente com
   sistemas externos, como o armazenamento do navegador no Carrinho.
   A documentação do React chama os efeitos de “uma saída de emergência do
@@ -163,39 +162,37 @@ habilidade de programação dos participantes.
   cite:mozilla2026, e nele a notação é o =addEventListener= cujo /callback/
   altera a tela.
 
-  As /Dimensões Cognitivas de Notações/ (DCs), do inglês /Cognitive
-  Dimensions of Notations/, propostas por textcite:green1989, são um
+  As [[glspl:dc]], propostas por textcite:green1989, são um
   vocabulário para discutir a usabilidade de notações e de outros
   artefatos de informação [[cite:blackwell2001][p. 326]].
   Uma revisão sistemática de 2017 analisou mais de 1.600 publicações que
-  citam as referências centrais das DCs cite:hadhrawi2017.
+  citam as referências centrais das [[glspl:dc]] cite:hadhrawi2017.
   Trabalhos anteriores compararam por elas paradigmas, linguagens e
   bibliotecas de programação de interfaces.
   textcite:mernik2009 compararam, com 36 programadores, uma linguagem de
-  domínio específico para descrever interfaces gráficas, o XAML
-  (/Extensible Application Markup Language/), e uma biblioteca de
+  domínio específico para descrever interfaces gráficas, o [[gls:xaml]], e uma biblioteca de
   aplicação, o C# Forms.
-  [[textcite:kiss2014][p. v e 104]] comparou a POO e a PF
+  [[textcite:kiss2014][p. v e 104]] comparou a [[gls:poo]] e a [[gls:pf]]
   em sete tarefas de interface, com JavaFX, ScalaFX,
   Scala.Rx, ReactFX e Elm, e deixou como trabalho futuro comparar os
   /frameworks/ de interface do navegador.
   [[textcite:zimmerle2025][p. 1510 e 1513]] avaliaram com usuários duas
-  bibliotecas de PR para JavaScript, RxJS e Bacon.js, em tarefas de
-  requisições HTTP.
-  Fora das DCs, [[textcite:grolaux2026][p. 15]] compararam
+  bibliotecas de [[gls:pr]] para JavaScript, RxJS e Bacon.js, em tarefas de
+  requisições [[gls:http]].
+  Fora das [[glspl:dc]], [[textcite:grolaux2026][p. 15]] compararam
   conceitualmente, numa prova de conceito em JavaScript, o async/await com
-  /listeners/, barramento de eventos, /streams/ funcionais e PR no tratamento
+  /listeners/, barramento de eventos, /streams/ funcionais e [[gls:pr]] no tratamento
   dos eventos de interface.
 
   Nenhum desses trabalhos compara, sobre as mesmas tarefas, as três notações
   como as escrevem as tecnologias web mais usadas.
   Os trabalhos encontrados na revisão bibliográfica também não avaliam pelas
-  DCs a notação de coordenação do React nem a do Solid e do Angular com
+  [[glspl:dc]] a notação de coordenação do React nem a do Solid e do Angular com
   /signals/.
   Pergunta-se, então: na programação de interfaces gráficas, como as três
   notações de coordenação, a imperativa com /callbacks/, a declarativa por
   re-renderização e a reativa fina com /signals/, se comparam quanto à
-  usabilidade, segundo as DCs?
+  usabilidade, segundo as [[glspl:dc]]?
   A comparação pode ajudar quem programa interfaces a escolher uma tecnologia
   sabendo o que a notação dela facilita e o que dificulta em cada problema de
   coordenação.
@@ -203,17 +200,17 @@ habilidade de programação dos participantes.
   programadores, como o de textcite:salvaneschi2017.
 
    O objetivo geral é comparar a usabilidade das três notações segundo as
-   DCs, na programação de interfaces típicas da
+   [[glspl:dc]], na programação de interfaces típicas da
    web, em TypeScript, com replicação no Android, em Kotlin. Especificamente:
 
-   - Demonstrar, com processamento de listas, os conceitos de PF em que se
+   - demonstrar, com processamento de listas, os conceitos de [[gls:pf]] em que se
      apoiam as notações declarativas;
-   - Implementar cinco tarefas de interface (Contador, Formulário com validação,
+   - implementar cinco tarefas de interface (Contador, Formulário com validação,
      Busca com sugestões, Lista filtrável e Carrinho) com Web Component,
      jQuery, React, Solid e Angular com /signals/, e o Contador, o Formulário e
      a Lista no Android, com Views e Jetpack Compose;
-   - Avaliar as implementações por oito DCs;
-   - Sintetizar as vantagens e desvantagens de cada notação por problema de
+   - avaliar as implementações por oito [[glspl:dc]];
+   - sintetizar as vantagens e desvantagens de cada notação por problema de
      coordenação, como estado derivado e assincronia.
 
   Quanto aos objetivos, a pesquisa é /exploratória/: busca compreensão nova
@@ -224,7 +221,7 @@ habilidade de programação dos participantes.
   perguntas exploratórias.
   @@latex:\todo[inline]{Em relação ao projeto de 2017: a pergunta deixa de comparar paradigmas, PF e PR frente à POO com callbacks, e passa a comparar três notações de coordenação, com as DCs como critério explícito. A demonstração de PR e callbacks dá lugar a cinco tarefas de interface, implementadas em cinco tecnologias web e replicadas no Android. O JavaScript passa a TypeScript, e entra o Kotlin. A classificação quanto aos meios também muda (nota adiante). A natureza aplicada sai, e a classificação exploratória passa a se apoiar em Runeson e Höst (2009) e em Easterbrook et al. (2008), no lugar de Leal (2011).}@@
 
-  Quanto aos meios, o trabalho é uma avaliação qualitativa, pelas DCs, de
+  Quanto aos meios, o trabalho é uma avaliação qualitativa, pelas [[glspl:dc]], de
   implementações de um mesmo conjunto de tarefas.
   O conjunto de tarefas segue a ideia de /benchmark/: testes que representam
   as tarefas da prática e servem para comparar técnicas alternativas
@@ -238,7 +235,7 @@ habilidade de programação dos participantes.
 
   A avaliação cabe ao autor, que examina o código das implementações critério
   a critério, sem participantes.
-  [[textcite:kiss2014][p. 8]] chama de analítica a avaliação pelas DCs
+  [[textcite:kiss2014][p. 8]] chama de analítica a avaliação pelas [[glspl:dc]]
   e a adota como alternativa aos experimentos com programadores,
   muitas vezes caros e de resultados necessariamente restritos.
   Para [[textcite:kitchenham1996][p. 12]], o juízo subjetivo de como cada
@@ -259,11 +256,11 @@ habilidade de programação dos participantes.
   Biblioteca Digital Brasileira de Teses e Dissertações.
   Entram trabalhos revisados por pares, em inglês ou português, de três
   tipos.
-  Os primeiros tratam de PR ou da programação declarativa de interfaces
+  Os primeiros tratam de [[gls:pr]] ou da programação declarativa de interfaces
   gráficas.
   Os segundos comparam a compreensão e a usabilidade de uma ou de outra com
   as dos /callbacks/ ou do /Observer Pattern/.
-  Os terceiros aplicam as DCs a linguagens e bibliotecas.
+  Os terceiros aplicam as [[glspl:dc]] a linguagens e bibliotecas.
   O /snowballing/ para a frente parte de dez trabalhos centrais e, na
   segunda rodada, percorre todos os citantes de quatro deles, até que uma
   iteração não traga trabalho novo, o que acontece na terceira.
@@ -272,13 +269,13 @@ habilidade de programação dos participantes.
   A revisão não viu os citantes de textcite:kiss2014, que o OpenAlex não
   indexa, e julgou só pelo título 280 registros sem resumo.
 
-  As DCs admitem várias notações num mesmo sistema
+  As [[glspl:dc]] admitem várias notações num mesmo sistema
   [[cite:blackwell2001][p. 328]], e o código de uma interface gráfica tem pelo menos
   duas.
   Além da de coordenação, a /notação da estrutura da tela/ escreve quais elementos a tela
-  tem, em que hierarquia e com que textos, como o HTML ou o JSX.
+  tem, em que hierarquia e com que textos, como o [[gls:html]] ou o JSX.
   O JSX é uma extensão de sintaxe do JavaScript que permite escrever
-  marcação parecida com HTML dentro de um arquivo JavaScript cite:meta2026c.
+  marcação parecida com [[gls:html]] dentro de um arquivo JavaScript cite:meta2026c.
   A comparação principal é a da notação de coordenação, e a da estrutura da
   tela é um segundo eixo, que o par Solid e Angular faz variar.
   @@latex:\todo{A estrutura da tela passa a ser um segundo eixo da comparação. Se a análise a cobre, isso se decide nas primeiras análises.}@@
@@ -288,7 +285,7 @@ habilidade de programação dos participantes.
 
   O trabalho se divide em duas partes.
   Na primeira, programas de /processamento de listas/ demonstram conceitos
-  de PF, como descrever o resultado de uma transformação em vez dos passos
+  de [[gls:pf]], como descrever o resultado de uma transformação em vez dos passos
   do laço que a executa.
   As duas notações declarativas aplicam essa ideia à tela.
   Na segunda, as cinco tarefas são implementadas nas três notações e comparadas.
@@ -330,7 +327,7 @@ habilidade de programação dos participantes.
   estado em /signals/ e derivam valores de outros /signals/
   cite:solidjs2026a,google2026.
   Diferem na notação da estrutura da tela, que o Solid escreve em JSX dentro
-  de uma função, e o Angular num /template/ baseado em HTML, com construtos
+  de uma função, e o Angular num /template/ baseado em [[gls:html]], com construtos
   próprios cite:google2026a.
   Esse par, porém, não difere só nisso: o Angular escreve o componente como
   classe, com decorador e injeção de dependências.
@@ -380,10 +377,10 @@ habilidade de programação dos participantes.
   Nele, as versões de linguagens, bibliotecas e ferramentas ficam
   fixadas[fn:versoes], para que as implementações possam ser reproduzidas.
 
-  A avaliação usa as DCs, que [[textcite:blackwell2003][p. 106]] chamam de ferramentas
+  A avaliação usa as [[glspl:dc]], que [[textcite:blackwell2003][p. 106]] chamam de ferramentas
   de discussão, para quem projeta ou avalia artefatos de informação, e não
   de método analítico.
-  As DCs já foram usadas para avaliar APIs cite:clarke2003 e recursos de linguagens de programação
+  As [[glspl:dc]] já foram usadas para avaliar [[glspl:api]] cite:clarke2003 e recursos de linguagens de programação
   cite:sadowski2011.
   O trabalho usa oito das catorze dimensões.
   Seis são as que [[textcite:kiss2014][p. 12-14]] usou: /nível de
@@ -410,7 +407,7 @@ habilidade de programação dos participantes.
   Ao avaliar se quem lê entende uma especificação,
   [[textcite:britton2001][p. 267]] também as incluíram entre as dimensões
   especialmente úteis.
-  Na comparação de textcite:mernik2009 entre o XAML e o C# Forms, as duas
+  Na comparação de textcite:mernik2009 entre o [[gls:xaml]] e o C# Forms, as duas
   estiveram entre as dimensões que mais pesaram na compreensão dos
   programas.
 
@@ -430,11 +427,11 @@ habilidade de programação dos participantes.
   código pronto.
 
   O resultado da avaliação vai para a análise, que compara as notações e
-  abre com uma tabela-síntese, com uma linha por DC e uma coluna por notação.
+  abre com uma tabela-síntese, com uma linha por [[gls:dc]] e uma coluna por notação.
   Cada célula traz um juízo curto e a tarefa de que vem a evidência.
-  Quando o Solid e o Angular com /signals/ divergem numa DC, a célula o
+  Quando o Solid e o Angular com /signals/ divergem numa [[gls:dc]], a célula o
   registra.
-  Segue uma seção por DC, com os trechos de uma tarefa escolhida antes da avaliação pelo problema de coordenação que a dimensão mais toca.
+  Segue uma seção por [[gls:dc]], com os trechos de uma tarefa escolhida antes da avaliação pelo problema de coordenação que a dimensão mais toca.
   A seção cita as outras tarefas quando contradizem a escolhida, e a tabela
   diz "sem diferença" quando nenhuma tarefa mostra uma.
   Nas seções em que o Formulário ou a Lista mostram diferença entre Views e
@@ -442,8 +439,8 @@ habilidade de programação dos participantes.
   A concisão tem ainda o apoio de uma contagem das linhas de cada
   implementação, sem linhas vazias, comentários, domínio e estilo.
   A contagem inclui a estrutura da tela, esteja ela no mesmo arquivo da
-  coordenação ou num arquivo à parte, como o HTML da página no jQuery e o
-  layout XML nas Views.
+  coordenação ou num arquivo à parte, como o [[gls:html]] da página no jQuery e o
+  layout [[gls:xml]] nas Views.
   @@latex:\todo[inline]{Termos: \enquote{comparar} fica para o objetivo, \enquote{avaliação} para a aplicação das DCs ao código e \enquote{análise} para a parte que apresenta os resultados. Considerar um termo só, \enquote{avaliação}, para a atividade toda. A favor: uma palavra por conceito, sem o leitor se perguntar se são três atividades. Contra: mudam mais frases, e o objetivo geral perde o verbo \enquote{comparar}, que diz o que se faz entre as notações.}@@
 
   O desenho tem limitações em três pontos: quem avalia, o instrumento e o
@@ -457,21 +454,21 @@ habilidade de programação dos participantes.
   Outra forma é colher o juízo dos usuários, como no estudo de
   [[textcite:zimmerle2025][p. 1512-1513 e 1519]], em que 12 estudantes
   responderam, depois das tarefas, a 24 afirmações agrupadas em cinco
-  dimensões derivadas das DCs.
+  dimensões derivadas das [[glspl:dc]].
   A familiaridade do autor com as tecnologias é desigual, maior com o React.
   Na escrita das implementações, esse desnível pesa menos, porque elas seguem
   a mesma especificação e são padronizadas entre as tecnologias.
   No juízo da avaliação, que é subjetivo, o desnível continua e pode favorecer
   uma notação.
 
-  A avaliação pelas DCs é analítica, e não um experimento com programadores.
+  A avaliação pelas [[glspl:dc]] é analítica, e não um experimento com programadores.
   [[textcite:blackwell2019][p. 58 e 60]] registram, na psicologia da
   programação, o pedido por ensaios controlados randomizados no estudo do
   projeto de linguagens e o ceticismo sobre apoiar nesse empirismo um
   processo de projeto complexo.
-  Para eles, a parte cognitiva das DCs importa bem menos que a teoria de
+  Para eles, a parte cognitiva das [[glspl:dc]] importa bem menos que a teoria de
   projeto implícita nelas.
-  O trabalho escolheu as oito DCs antes da avaliação, e usar um subconjunto
+  O trabalho escolheu as oito [[glspl:dc]] antes da avaliação, e usar um subconjunto
   pode deixar de fora propriedades importantes da notação cite:britton2001.
   Para [[textcite:green2006][p. 334]], duas delas, a expressividade e as
   operações mentais difíceis, sempre foram mal descritas.
@@ -485,13 +482,13 @@ habilidade de programação dos participantes.
   criado por um pesquisador só e pouco usado tende a ter menos impacto que
   um adotado por uma comunidade cite:sim2003.
 
-  Além desta introdução, o texto tem quatro capítulos.
-  O capítulo ref:chap:prog reúne os conceitos de programação em que o
-  trabalho se apoia, da programação de interfaces gráficas à PF e à PR.
-  O capítulo ref:chap:cases descreve as DCs da avaliação, os programas de
+  Além desta introdução, o texto tem quatro seções.
+  A seção ref:chap:prog reúne os conceitos de programação em que o
+  trabalho se apoia, da programação de interfaces gráficas à [[gls:pf]] e à [[gls:pr]].
+  A seção ref:chap:cases descreve as [[glspl:dc]] da avaliação, os programas de
   processamento de listas e as implementações das cinco tarefas.
-  O capítulo ref:chap:results compara as três notações pelas DCs, e o
-  capítulo ref:chap:conclusion responde à pergunta de pesquisa.
+  A seção ref:chap:results compara as três notações pelas [[glspl:dc]], e a
+  seção ref:chap:conclusion responde à pergunta de pesquisa.
   @@latex:\todo{Os capítulos ainda seguem o projeto de 2017 e mudam com a seção de trabalhos relacionados; este parágrafo se revê no fechamento.}@@
 
 * Footnotes
@@ -500,6 +497,6 @@ habilidade de programação dos participantes.
 Na web, TypeScript 6.0.3, jQuery 4.0.0, React 19.3.0, Solid 1.9.15 e Angular
 22.2.0, com Vite 8.3.1 para o /build/ (no Angular, o =@angular/build= 22.2.0)
 e Playwright 1.63.0 para as capturas.
-No Android, Kotlin 2.4.20, Jetpack Compose pela BOM (/Bill of Materials/)
+No Android, Kotlin 2.4.20, Jetpack Compose pela [[gls:bom]]
 2026.09.00 e, para as capturas, Robolectric 4.17 com Roborazzi 1.75.0.
 

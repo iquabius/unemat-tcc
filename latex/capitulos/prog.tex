@@ -14,8 +14,8 @@ Tradicionalmente, as sentenças de uma linguagem de programação denotam essa
 sequência de forma explícita.
 Tais linguagens são baseadas no modelo \emph{imperativo} de computação, e são
 denominadas \emph{linguagens imperativas}.
-\section{Linguagens de Programação}
-\label{sec:orgfaa6327}
+\section{Linguagens de programação}
+\label{sec:org113f35b}
 \label{sec:langs}
 
 Linguagens de programação são mais simples que linguagens naturais, no
@@ -45,8 +45,8 @@ interno — ou \emph{memória}, o que um programa se lembra enquanto está ‘ro
 Programas com estado interno, ou \emph{statefull} em inglês, são projetados para
 lembrar de eventos anteriores ou de interações com o usuário.
 A informação recordada é denominada o estado do programa \cite{rouse2005}.
-\section{Paradigmas de Programação}
-\label{sec:orgad95f21}
+\section{Paradigmas de programação}
+\label{sec:org93e273d}
 Programação é uma disciplina extensa, e linguagens práticas de programação
 geralmente são bastante complicadas.
 Felizmente, as ideias importantes de linguagens de programação são simples
@@ -117,8 +117,8 @@ programa também irá calcular o resultado de saída incrementalmente.”
 Esses paradigmas não possuem condições de corrida, \emph{‘race conditions’} em
 inglês.
 \todo{Esses últimos dois parágrafos parecem estar deslocados.}
-\section{Programação de Interfaces Gráficas}
-\label{sec:orgd07e721}
+\section{Programação de interfaces gráficas}
+\label{sec:orgb1bdd59}
 
 Conforme é notado por \textcite{blackheath2016}, a maioria das aplicações que
 interagem com o ambiente externo são arquitetadas em torno de dois modelos de
@@ -139,9 +139,9 @@ games.
 Alguns problemas de computação são melhor resolvidos com o modelo baseado
 em \emph{threads}. No entanto \textcite{blackheath2016} afirmam que a
 abordagem com eventos geralmente é a melhor escolha.
-\section{Programação Funcional}
-\label{sec:org1632044}
-Programação Funcional (PF) é assim chamada porque sua operação básica é a
+\section{Programação funcional}
+\label{sec:orgc2c6773}
+\Gls{pf} é assim chamada porque sua operação básica é a
 aplicação de funções à argumentos \cite{hughes1990}.
 Lisp foi a primeira linguagem de programação funcional.
 Criada em 1958 originalmente como uma notação matemática para programas de
@@ -158,7 +158,7 @@ A expressão algébrica denota uma função \(f\) que relaciona um número \(x\)
 seu quadrado, ou transforma \(x\) em seu quadrado.
 A expressão em Elm define uma função \mintinline{elm}{quadrado} que transforma o
 parâmetro \mintinline{elm}{x} em seu quadrado.
-\textcite{roy2009} descreve uma função no contexto da PF:
+\textcite{roy2009} descreve uma função no contexto da \gls{pf}:
 
 \begin{citacao}
   Funções são funções matemáticas: quando chamadas com os mesmos argumentos,
@@ -205,8 +205,8 @@ expressão \texttt{tres inc 2} resulta no valor \texttt{5} \cite{noble1994}.
   \small Fonte: Adaptado de \textcite{noble1994}.
   \label{code:currying}
 \end{listing}
-\subsection{Porque Programação Funcional é Relevante}
-\label{sec:org777b953}
+\subsection{Porque programação funcional é relevante}
+\label{sec:orgbc1969c}
 Muitas das vezes as características e vantagens da programação funcional são
 resumidas com declarações do tipo ‘programas funcionais não contêm
 atribuições’, ‘não contêm efeitos colaterais’, e ‘não necessitam preescrever
@@ -237,8 +237,8 @@ contribuir significativamente para a modularização de programas:
   explica porque programas funcionais são menores e mais fáceis de escrever do
   que os convencionais. \cite[p.~22; tradução nossa]{hughes1990}
 \end{citacao}
-\section{Programação Reativa}
-\label{sec:orgcf8c27c}
+\section{Programação reativa}
+\label{sec:org0e792e8}
 Programação reativa abrange um leque enorme de conceitos de programação.
 Isso se deve pela escolha da palavra ‘reativa’, que diz mais sobre uma
 \emph{propriedade do que se programa} do que sobre um \emph{conceito de programação}.
@@ -285,15 +285,14 @@ discretas;
 repercuti alterações nos dados;
 \end{itemize}
 
-PR é compartilha muitos conceitos com o paradigma de \emph{Programação Funcional
-Reativa (PFR)}.
+\Gls{pr} é compartilha muitos conceitos com o paradigma de \gls{pfr}.
 Os dois geralmente são confundidos na comunidade de praticantes.
-PFR possui dois conceitos importantes que o diferencia da PR.
-O primeiro é o conceito de \emph{tempo contínuo} — na PR o tempo é discreto.
+\Gls{pfr} possui dois conceitos importantes que o diferencia da \gls{pr}.
+O primeiro é o conceito de \emph{tempo contínuo} — na \gls{pr} o tempo é discreto.
 O segundo é o conceito de \emph{semântica denotacional}.
-PFR é mais indicada para domínios que precisam representar tempo contínuo,
+\Gls{pfr} é mais indicada para domínios que precisam representar tempo contínuo,
 como simulações físicas.
-PR é mais indicada para sistemas reativos, como é explicado por
+\Gls{pr} é mais indicada para sistemas reativos, como é explicado por
 \textcite{roy2009}:
 
 \begin{citacao}
