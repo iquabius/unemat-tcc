@@ -1,0 +1,69 @@
+% Siglas do TCC (ADR 0027), carregadas pelo \loadglsentries do tcc.tex.
+%
+% No .org, a sigla se escreve [[gls:rotulo]] ([[glspl:rotulo]] no plural,
+% [[Gls:rotulo]] no começo de frase). A primeira ocorrência imprime o campo
+% first (firstplural no plural), e as seguintes, o text (plural). As duas
+% formas de definição do AGENTS.md:
+%   - nome em português: "\emph{nome} (SIGLA), do inglês \emph{name}";
+%   - nome só em inglês: "SIGLA (\emph{name})".
+% Sigla corrente da área (HTTP, HTML, XML) tem first igual a text: entra na
+% lista, mas não se define no texto.
+%
+% A description é o que sai na lista de siglas; sort, a ordem alfabética.
+
+\newglossaryentry{api}{type=\acronymtype, name={API}, sort={API},
+  text={API}, plural={APIs},
+  first={API (\emph{Application Programming Interface})},
+  firstplural={APIs (\emph{Application Programming Interfaces})},
+  description={\emph{Application Programming Interface}}}
+
+\newglossaryentry{bom}{type=\acronymtype, name={BOM}, sort={BOM},
+  text={BOM}, first={BOM (\emph{Bill of Materials})},
+  description={\emph{Bill of Materials}}}
+
+\newglossaryentry{dc}{type=\acronymtype, name={DC}, sort={DC},
+  text={DC}, plural={DCs},
+  first={\emph{Dimensão Cognitiva de Notações} (DC), do inglês \emph{Cognitive Dimension of Notations}},
+  firstplural={\emph{Dimensões Cognitivas de Notações} (DCs), do inglês \emph{Cognitive Dimensions of Notations}},
+  description={Dimensões Cognitivas de Notações, do inglês \emph{Cognitive Dimensions of Notations}}}
+
+\newglossaryentry{dom}{type=\acronymtype, name={DOM}, sort={DOM},
+  text={DOM}, first={DOM (\emph{Document Object Model})},
+  description={\emph{Document Object Model}}}
+
+\newglossaryentry{pf}{type=\acronymtype, name={PF}, sort={PF},
+  text={PF}, first={\emph{programação funcional} (PF)},
+  description={Programação funcional}}
+
+\newglossaryentry{pfr}{type=\acronymtype, name={PFR}, sort={PFR},
+  text={PFR}, first={\emph{programação funcional reativa} (PFR)},
+  description={Programação funcional reativa}}
+
+\newglossaryentry{poo}{type=\acronymtype, name={POO}, sort={POO},
+  text={POO}, first={\emph{programação orientada a objetos} (POO)},
+  description={Programação orientada a objetos}}
+
+\newglossaryentry{pr}{type=\acronymtype, name={PR}, sort={PR},
+  text={PR}, first={\emph{programação reativa} (PR)},
+  description={Programação reativa}}
+
+\newglossaryentry{xaml}{type=\acronymtype, name={XAML}, sort={XAML},
+  text={XAML}, first={XAML (\emph{Extensible Application Markup Language})},
+  description={\emph{Extensible Application Markup Language}}}
+
+% Correntes da área: sem definição no texto, só na lista.
+\newglossaryentry{html}{type=\acronymtype, name={HTML}, sort={HTML},
+  text={HTML}, first={HTML},
+  description={\emph{HyperText Markup Language}}}
+
+\newglossaryentry{http}{type=\acronymtype, name={HTTP}, sort={HTTP},
+  text={HTTP}, first={HTTP},
+  description={\emph{Hypertext Transfer Protocol}}}
+
+\newglossaryentry{ide}{type=\acronymtype, name={IDE}, sort={IDE},
+  text={IDE}, first={IDE},
+  description={\emph{Integrated Development Environment}}}
+
+\newglossaryentry{xml}{type=\acronymtype, name={XML}, sort={XML},
+  text={XML}, first={XML},
+  description={\emph{Extensible Markup Language}}}

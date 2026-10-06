@@ -256,6 +256,19 @@
     urlbordercolor=0 1 1,
 }}
 
+% Siglas (ADR 0027): glossaries, depois do hyperref, ordenado pelo próprio
+% TeX (\makenoidxglossaries), sem makeglossaries nem regra no latexmk.
+% Sem hyperlink da sigla para a lista: no PDF, a sigla sai como texto comum.
+\RequirePackage[acronym, nonumberlist, nopostdot, nogroupskip, toc=false,
+  nohypertypes={acronym}]{glossaries}
+\makenoidxglossaries
+\setlength{\glsdescwidth}{.78\textwidth}
+\newglossarystyle{siglas}{%
+  \setglossarystyle{long}%
+  \renewenvironment{theglossary}%
+    {\begin{longtable}[l]{@{}p{.18\textwidth}p{\glsdescwidth}@{}}}%
+    {\end{longtable}}}
+
 % Figures
 % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 %\ifpdf
@@ -283,6 +296,20 @@
 
 \usepackage{src_code}
 
+% Legendas (NBR 14724:2024, 5.8 e 5.9): nome, número de ordem no texto,
+% travessão e título, em espaço simples. A numeração é corrida, como nos
+% modelos do curso, e não reinicia a cada seção primária.
+\RequirePackage{caption}
+\captionsetup{labelsep=endash, font={stretch=1}, position=top}
+\DeclareCaptionListFormat{figura}{\figurename~#2~--}
+\DeclareCaptionListFormat{tabela}{\tablename~#2~--}
+\DeclareCaptionListFormat{codigo}{\listingname~#2~--}
+\captionsetup[figure]{listformat=figura}
+\captionsetup[table]{listformat=tabela}
+\captionsetup[listing]{listformat=codigo}
+\counterwithout{figure}{chapter}
+\counterwithout{table}{chapter}
+
 %% Code lists
 %% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 %\RequirePackage{float}
@@ -303,26 +330,14 @@
 
 %% Page layout
 %% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-\setlength{\textwidth}{15cm}
-\setlength{\oddsidemargin}{4.0cm}
-\addtolength{\oddsidemargin}{-1in}
-\addtolength{\oddsidemargin}{-\hoffset}
-\addtolength{\oddsidemargin}{-\marginparsep}
-
-\setlength{\headheight}{22.5pt}
-\setlength{\voffset}{-1in}
-\setlength{\headsep}{3cm}
-\addtolength{\headsep}{-1in}
-\addtolength{\headsep}{-\voffset}
-\addtolength{\headsep}{-\topmargin}
-\addtolength{\headsep}{-\headheight}
-\setlength{\textheight}{\paperheight}
-\addtolength{\textheight}{-\headsep}
-\addtolength{\textheight}{-1in}
-\addtolength{\textheight}{-\voffset}
-\addtolength{\textheight}{-\topmargin}
-\addtolength{\textheight}{-\headheight}
-\addtolength{\textheight}{-2.5cm}
+% Margens de 3 cm em cima e à esquerda e de 2 cm embaixo e à direita, como os
+% modelos do curso (w:pgMar 1701/1134), dentro do limite do regimento (Anexo
+% II, item 5). O número da página fica a 2 cm da borda superior, como o
+% cabeçalho dos modelos (w:header 1134). As notas \todo vão na margem
+% esquerda, com 2,4 cm de largura, nas versões com e sem notas.
+\RequirePackage[a4paper, left=3cm, right=2cm, top=3cm, bottom=2cm,
+  headheight=14pt, headsep=0.64cm,
+  marginparwidth=2.4cm, marginparsep=0.3cm]{geometry}
 \setlength{\parindent}{1.5cm}
 \addtolength{\skip\footins}{15pt}
 
@@ -364,17 +379,17 @@
 %% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 % \def\mghrulefill#1{\leavevmode\leaders\hrule\@height #1\hfill\kern\z@}
 
+% Seção primária (\chapter): no alto da mancha, à esquerda, 12 pt, negrito e
+% caixa alta, o indicativo separado do título por um espaço e a segunda linha
+% sob a primeira letra do título (regimento, Anexo II, XI; NBR 6024:2012);
+% uma linha em branco de 1,5 antes do texto (NBR 14724:2024, 5.2).
 \def\@makechapterhead#1{%
-  \vspace*{20\p@}%
-   {\interlinepenalty\@M
-    \raggedleft
-    % \mghrulefill{0.5pt}
-    % \Large\sf\mdseries\MakeUppercase{\@chapapp}\space\Huge\thechapter
-    % \par\nobreak
-    \raggedright\large\rm\bfseries \thechapter{} \MakeUppercase{#1} \par\nobreak\vskip -10\p@
-    % \mghrulefill{0.5pt}\par\nobreak
-    \vskip 40\p@
-  }}
+  {\parindent\z@ \raggedright \interlinepenalty\@M
+   \normalfont\normalsize\bfseries
+   \settowidth{\@tempdima}{\thechapter\space}%
+   \hangindent\@tempdima \hangafter\@ne
+   \thechapter\space\MakeUppercase{#1}\par\nobreak}%
+  \vskip\baselineskip}
 
 \def\@schapter#1{\if@twocolumn
                    \@topnewpage[\@makeschapterhead{#1}]%
@@ -383,21 +398,27 @@
                    \@afterheading
                  \fi}
 
+% Títulos sem indicativo (sumário, listas, resumos, referências): centrados,
+% com o destaque da seção primária (NBR 6024:2012).
 \def\@makeschapterhead#1{%
-   \vspace*{20\p@}%
-  { \parindent \z@ \raggedright
-    \interlinepenalty\@M
-    % \mghrulefill{0.5pt}\par\nobreak
-    \centering\large\rm\bfseries \MakeUppercase{#1} \par\nobreak \vskip -10\p@
-    % \mghrulefill{0.5pt}\par\nobreak
-    \vskip 40\p@
-  }}
+  {\parindent\z@ \centering \interlinepenalty\@M
+   \normalfont\normalsize\bfseries \MakeUppercase{#1}\par\nobreak}%
+  \vskip\baselineskip}
 
-% https://latex.org/forum/viewtopic.php?t=3245
-% https://en.wikibooks.org/wiki/LaTeX/Fonts#Sizing_text
+% Destaque gradual do regimento (Anexo II, XI) e do modelo
+% Monografia_final_EXEMPLO.docx: secundária em negrito, terciária em negrito e
+% itálico; a quaternária em itálico e a quinária sem destaque seguem a
+% gradação. Numeradas até a quinária, todas no sumário (NBR 6024 e 6027).
 \usepackage{titlesec}
-\titleformat{\section}{\normalsize\bfseries}{\thesection}{1em}{}
-\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{1em}{}
+\setcounter{secnumdepth}{4}
+\titleformat{\section}[hang]{\normalfont\normalsize\bfseries}{\thesection}{\wordsep}{}
+\titleformat{\subsection}[hang]{\normalfont\normalsize\bfseries\itshape}{\thesubsection}{\wordsep}{}
+\titleformat{\subsubsection}[hang]{\normalfont\normalsize\itshape}{\thesubsubsection}{\wordsep}{}
+\titleformat{\paragraph}[hang]{\normalfont\normalsize}{\theparagraph}{\wordsep}{}
+\titlespacing*{\section}{0pt}{\baselineskip}{\baselineskip}
+\titlespacing*{\subsection}{0pt}{\baselineskip}{\baselineskip}
+\titlespacing*{\subsubsection}{0pt}{\baselineskip}{\baselineskip}
+\titlespacing*{\paragraph}{0pt}{\baselineskip}{\baselineskip}
 
 %% header and footer
 %% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -407,21 +428,33 @@
 \fancyhead[R]{\footnotesize \thepage}
 \renewcommand{\headrulewidth}{0pt}
 
-% The pages where a chapter begins are typeset differently. Refer to section 7
-% of the fancyhdr manual to learn how to change the plain style.
-\fancypagestyle{plain}{%
-  \fancyhf{}%
-  \fancyhead[R]{\footnotesize \thepage}%
-}
+% As páginas pré-textuais são contadas, mas não numeradas (NBR 14724:2024,
+% 5.3): o estilo plain, que o \chapter* do sumário e das listas usa, fica
+% vazio até o \sumario, que liga o número a partir da Introdução.
+\fancypagestyle{plain}{\fancyhf{}}
+\newcommand{\@numerarpaginas}{%
+  \fancypagestyle{plain}{\fancyhf{}\fancyhead[R]{\footnotesize\thepage}}%
+  \pagestyle{fancy}}
 
 % Remove o recuo do parágrafo nos rodapés
 \usepackage[hang,flushmargin]{footmisc}
 
-\newcommand{\apendices}{
-\cleardoublepage
-\rm
-\appendix
-\fancyhead[L]{\footnotesize \nouppercase{\@chapapp}\space\thechapter}
+\RequirePackage{etoolbox}
+
+% Apêndices: "APÊNDICE A – TÍTULO", centrado e com o destaque da seção
+% primária, no texto e no sumário (NBR 14724:2024, 4.2.3.3).
+\newcommand{\apendices}{%
+  \cleardoublepage
+  \appendix
+  \def\@makechapterhead##1{%
+    {\parindent\z@ \centering \interlinepenalty\@M
+     \normalfont\normalsize\bfseries
+     \MakeUppercase{\appendixname}\space\thechapter\space--\space\MakeUppercase{##1}\par\nobreak}%
+    \vskip\baselineskip}%
+  \addtocontents{toc}{%
+    \protect\renewcommand*{\protect\cftchappresnum}{\protect\MakeUppercase{\appendixname}\space}%
+    \protect\renewcommand*{\protect\cftchapaftersnum}{\space--}%
+    \protect\settowidth{\protect\cftchapnumwidth}{\protect\bfseries\protect\MakeUppercase{\appendixname}\space M\space--\space}}%
 }
 
 \renewcommand\chapter{\if@openright\cleardoublepage\else\clearpage\fi
@@ -429,38 +462,51 @@
   \thispagestyle{plain}
   \global\@topnum\z@
   \@afterindentfalse
-  \secdef\@chapter\@schapter}
+  \secdef\@capitulo\@schapter}
+
+% A linha de cada seção primária no sumário sai em caixa alta, como o título
+% no texto (NBR 6027:2012): o título curto, que vai para o sumário, chega ao
+% \@chapter já em caixa alta; nos marcadores do PDF, como foi escrito.
+% Cada seção primária define de novo as siglas na primeira ocorrência
+% (\glsresetall), pela regra do AGENTS.md (ADR 0027).
+\def\@capitulo[#1]#2{\glsresetall
+  \@chapter[\texorpdfstring{\MakeUppercase{#1}}{#1}]{#2}}
 
 %% table of contents
 %% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-\RequirePackage[nottoc]{tocbibind}
-\RequirePackage[titles]{tocloft}
-\RequirePackage{titletoc}
-\setcounter{tocdepth}{3}
-\setcounter{lofdepth}{2}
-\setcounter{lotdepth}{2}
-\renewcommand\cfttoctitlefont{\large \arial \bfseries}
-\renewcommand\cftloftitlefont{\large \arial \bfseries}
-\renewcommand\cftlottitlefont{\large \arial \bfseries}
-\setlength{\cftbeforetoctitleskip}{0pt}
-\setlength{\cftbeforeloftitleskip}{0pt}
-\setlength{\cftbeforelottitleskip}{0pt}
-\renewcommand{\@dotsep}{\cftnodots}
-\renewcommand{\cftdot}{}
-\renewcommand\cftsecfont{}
-\setlength{\cftbeforesecskip}{\parskip}
-% \setlength{\cftbeforesubsecskip}{\parskip}
-% \setlength{\cftbeforesubsubsecskip}{\parskip}
-\setlength{\cftbeforesubsecskip}{0pt}
-\renewcommand{\cftchapindent}{0pt}
-\renewcommand{\cftsecindent}{18pt}
-\renewcommand{\cftsubsecindent}{46pt}
-\renewcommand{\cftchapfont}{\arial}
-\renewcommand{\cftsecfont}{\arial\small}
-\renewcommand{\cftsubsecfont}{\arial\footnotesize}
-\renewcommand{\cftsubsubsecfont}{\arial\footnotesize}
-\renewcommand{\cftfigfont}{\arial}
-\renewcommand{\cfttabfont}{\arial}
+% Sumário (NBR 6027:2012): os indicativos alinhados à esquerda, os títulos
+% alinhados pela margem do indicativo mais extenso e com o destaque que têm
+% no texto. Os elementos pré-textuais ficam fora dele.
+\RequirePackage[titles,subfigure]{tocloft}
+\setcounter{tocdepth}{4}
+\newlength{\@indicativo}
+\settowidth{\@indicativo}{\normalsize\bfseries 0.0.0.0.0\space}
+\renewcommand{\cftdotsep}{2}
+\renewcommand{\cftchapleader}{\normalfont\cftdotfill{\cftdotsep}}
+\renewcommand{\cftchappagefont}{\normalfont}
+\setlength{\cftbeforechapskip}{0pt}
+\renewcommand{\cftchapfont}{\bfseries}
+\renewcommand{\cftsecfont}{\bfseries}
+\renewcommand{\cftsubsecfont}{\bfseries\itshape}
+\renewcommand{\cftsubsubsecfont}{\itshape}
+\renewcommand{\cftparafont}{}
+\cftsetindents{chapter}{0pt}{\@indicativo}
+\cftsetindents{section}{0pt}{\@indicativo}
+\cftsetindents{subsection}{0pt}{\@indicativo}
+\cftsetindents{subsubsection}{0pt}{\@indicativo}
+\cftsetindents{paragraph}{0pt}{\@indicativo}
+
+% Listas de ilustrações e de tabelas (NBR 14724:2024, 4.2.1.9): cada linha
+% com o nome, o número, o travessão e o título. O nome entra pelo listformat
+% do caption, e a coluna cabe "Código 99 –".
+\newlength{\@nomenalista}
+\settowidth{\@nomenalista}{Código 99 --\space}
+\cftsetindents{figure}{0pt}{\@nomenalista}
+\cftsetindents{table}{0pt}{\@nomenalista}
+\setlength{\cftbeforefigskip}{0pt}
+\setlength{\cftbeforetabskip}{0pt}
+% A lista de códigos (newfloat, do minted) usa o mesmo formato da de figuras.
+\AtBeginDocument{\let\l@listing\l@figure}
 
 %% theorems environments
 %% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -476,10 +522,14 @@
 %% itemize environment
 %% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 \RequirePackage{enumitem}
+% Listas como as alíneas da NBR 6024:2012 e de Garcia (2010): o marcador ou
+% o rótulo recuado da margem, como o parágrafo, e a segunda linha do item
+% sob a primeira letra do texto dele.
 \setlist{noitemsep}
-\setitemize{noitemsep}
-\setenumerate{noitemsep}
-\setdescription{noitemsep}
+\setlist[itemize]{labelindent=\parindent, leftmargin=*}
+\setlist[enumerate]{labelindent=\parindent, leftmargin=*}
+\setlist[description]{labelindent=\parindent, leftmargin=\parindent,
+  itemindent=0pt, labelwidth=0pt, labelsep=0.5em, style=standard}
 
 \renewcommand{\cleardoublepage}{
  \clearpage\if@twoside \ifodd\c@page\else
@@ -499,6 +549,8 @@
 
 %% Capa
 %% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+% Fonte de 12 pt em toda a capa (regimento, Anexo II, item 3); só os itens
+% do Anexo II, I: instituição, autor, título, subtítulo, local e ano.
 \newcommand{\capa}{%
  \ifpdf
   \pdfbookmark[0]{Elementos Pré-Textuais}{pretexto}
@@ -519,28 +571,22 @@
    \begin{textblock}{5}(1.6,5.6)
      \includegraphics[height=2.5cm,width=2.73cm]{img/brasao/mt_cor.png}
    \end{textblock}
-% 
-%   \vspace*{30pt}
-  \textoC{1}{\normalsize \MakeUppercase{\@universidade \normalsize}}%
-
+  \textoC{1}{\MakeUppercase{\@universidade}}%
   \vspace*{\stretch{-0.8}}%
-  \textoC{1}{\normalsize \MakeUppercase{Campus Universitário de \@cidade\relax \normalsize}}
-  
+  \textoC{1}{\MakeUppercase{Campus Universitário de \@cidade}}%
   \vspace*{\stretch{-0.8}}%
-  \textoC{1}{\normalsize \MakeUppercase{\@unidade \normalsize}}%
-
+  \textoC{1}{\MakeUppercase{\@unidade}}%
   \ifthenelse{\equal{\@departamento}{}}{}{%
    \vspace*{\stretch{-0.8}}%
-   \textoC{1}{\normalsize \MakeUppercase{\@departamento\relax \normalsize}} }%
-
+   \textoC{1}{\MakeUppercase{\@departamento}}}%
   \vspace*{\stretch{3}}%
-  \textoC{1}{\Large \MakeUppercase{\@autor} \normalsize}%
+  \textoC{1}{\MakeUppercase{\@autor}}%
   \vspace*{\stretch{4}}%
-  \textoC{1.8}{\Large \textbf{\MakeUppercase{\@titulo}\relax} \normalsize}%
+  \textoC{1}{\textbf{\MakeUppercase{\@titulo}}}%
   \ifthenelse{\equal{\@subtitulo}{}}{}{%
-   \textoC{1.3}{\Large \textbf{\@subtitulo\relax} \normalsize} }%
+   \textoC{1}{\textbf{\MakeUppercase{\@subtitulo}}}}%
   \vspace*{\stretch{9}}%
-  \textoC{1}{\@cidade \\ \@ano}%
+  \textoC{1}{\MakeUppercase{\@cidade} \\ \@ano}%
  \end{titlepage}%
  \onehalfspacing%
  \normalfont%
@@ -551,117 +597,97 @@
 %% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 \newcommand{\publica}{\includepdf[pages={1},templatesize={250mm}{297mm}]{./pre/AutorizacaoPublicacao.pdf}}
 
+%% Natureza do trabalho
+%% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+% Tipo, objetivo, instituição e área de concentração, em espaço simples, do
+% meio da mancha até a margem direita (NBR 14724:2024, 5.2), na folha de
+% rosto e na de aprovação.
+\newcommand{\@natureza}{%
+ \par\hfill\begin{minipage}[t]{.5\textwidth}%
+  \singlespacing\raggedright
+  Trabalho de Conclus\~ao de Curso apresentado ao Curso de \@programa\ da
+  \@unidade\ da \@universidade, como requisito parcial para obten\c c\~ao
+  do t\'itulo de Bacharel em \@programa.%
+  \ifthenelse{\equal{\@concentracao}{}}{}{%
+   \par\medskip \'Area de concentra\c c\~ao: \@concentracao.}%
+ \end{minipage}\par}
+
 %% Folha de rosto
 %% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+% Na ordem e na forma do regimento (Anexo II, II): autor em negrito e caixa
+% alta no alto da mancha, a 3 cm da borda; título e subtítulo em negrito e
+% caixa alta; natureza; orientador centrado; local em caixa alta e ano.
 \newcommand{\rosto}{%
  \ifpdf
   \pdfbookmark[1]{Folha de Rosto}{pretexto.3}
  \fi
  \singlespacing%
- \textoC{1}{\Large \MakeUppercase{\@autor} \normalsize}%
+ \textoC{1}{\textbf{\MakeUppercase{\@autor}}}%
  \vspace*{\stretch{3}}%
- \textoC{1.7}{\Large \textbf{\MakeUppercase{\@titulo}\relax} \normalsize}%
+ \textoC{1}{\textbf{\MakeUppercase{\@titulo}}}%
  \ifthenelse{\equal{\@subtitulo}{}}{}{%
-  \textoC{1.2}{\Large \textbf{\@subtitulo} \normalsize \relax} }%
- \vspace*{\stretch{4}}%
- \par%
- \margemD{%
-  \ifthenelse{\boolean{tese}}%
-   {Tese apresentada ao Programa de P\'os--Gradua\c c\~ao %
-    do \@unidade\ da \@universidade, como requisito parcial %
-    para obten\c c\~ao do t\'itulo de Doutor em \@programa.}{%
-  \ifthenelse{\boolean{diss}}%
-   {Disserta\c{c}\~{a}o apresentada ao Programa de Gradua\c c\~ao\ %
-    do \@unidade\ da \@universidade, como requisito final para %
-    obten\c c\~ao do t\'itulo de Mestre em \@programa.}{%
-  \ifthenelse{\boolean{mngr}}%
-   {Monografia apresentada ao Programa de Gradua\c c\~ao %
-    do \@unidade\ da \@universidade, como requisito final para\ %
-    obten\c c\~ao do Certificado de Bacharel em \@programa.}%
-   {Trabalho de Conclus\~ao apresentado \`a Coordena\c c\~ao do Curso de \@programa\ da\ %
-    \@unidade\ da\ \@universidade, como requisito parcial para obten\c c\~ao do\ %
-    t\'itulo de Bacharel em \@programa.}}}}%
- \vspace*{\stretch{.2}}%
- \par%
-% \margemD{\textbf{\'Area de concentra\c c\~ao:} \@concentracao}%
- \vspace*{\stretch{.2}}%
- \par%
+  \vspace*{1cm}%
+  \textoC{1}{\textbf{\MakeUppercase{\@subtitulo}}}}%
+ \vspace*{\stretch{3}}%
+ \@natureza
+ \vspace*{\stretch{1}}%
  \ifthenelse{\equal{\@orientador}{}}
-  {\margemD{\textbf{Orientadora:} Profa. \@orientadora}}%
-  {\margemD{\textbf{Orientador:} Prof. \@orientador}}%
+  {\textoC{1}{Orientadora: Profa. \@orientadora}}%
+  {\textoC{1}{Orientador: Prof. \@orientador}}%
  \ifthenelse{\equal{\@coorientador}{}}
   {\ifthenelse{\equal{\@coorientadora}{}}
    {}
-   {\vspace*{\stretch{.2}}%
-    \par%
-    \margemD{\textbf{Co-Orientadora:} Profa. \@coorientadora}}%
-  }
-  {\vspace*{\stretch{.2}}%
-   \par%
-   \margemD{\textbf{Co-Orientador:} Prof. \@coorientador}}%
+   {\textoC{1}{Coorientadora: Profa. \@coorientadora}}}
+  {\textoC{1}{Coorientador: Prof. \@coorientador}}%
  \vspace*{\stretch{6}}%
- \par%
- \textoC{1}{\@cidade \\ \@ano}%
+ \textoC{1}{\MakeUppercase{\@cidade} \\ \@ano}%
  \onehalfspacing%
  \normalfont%
  \clearpage%
 }
 
-%% Termo de aprovação
+%% Folha de aprovação
 %% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-%\newcommand{\banca}[2]{\textoC{1}{\rule{.7\textwidth}{0.5pt}\\ \small \textbf{Prof. #1}\\#2} \vspace*{\stretch{0.5}}\par}
-%\newcommand{\profa}[2]{\textoC{1}{\rule{.7\textwidth}{0.5pt}\\ \small \textbf{Profa. #1}\\#2} \vspace*{\stretch{0.5}}\par}
-%
-%\newenvironment{aprovacao}{
-% \ifpdf
-%  \pdfbookmark[1]{Aprovação}{pretexto.4}
-% \fi
-% \singlespacing
-% \par
-% \textoC{1}{\Large \scshape \@autor \normalsize \upshape}
-% \vspace*{\stretch{2}}
-% \par
-% \textoC{1.7}{\huge \textbf{\@titulo\relax} \normalsize}
-% \ifthenelse{\equal{\@subtitulo}{}}{}{
-%  \textoC{1.2}{\Large \textbf{\@subtitulo\relax} \normalsize}}
-% \vspace*{\stretch{1.0}}
-% \par
-% \textoF{
-%  \ifthenelse{\boolean{tese}}%
-%   {Tese defendida no Programa de P\'os--Gradua\c c\~ao %
-%    do \@unidade\ da \@universidade\ como requisito parcial %
-%    para obten\c c\~ao do t\'itulo de Doutor em \@programa, aprovada em %
-%    \@dia\ de\@mesP\ de \@ano, pela Banca Examinadora constitu\'{i}da pelos professores:}{%
-%  \ifthenelse{\boolean{diss}}%
-%   {Disserta\c{c}\~{a}o defendida no Programa de P\'os--Gradua\c c\~ao %
-%    do \@unidade\ da \@universidade\ como requisito parcial %
-%    para obten\c c\~ao do t\'itulo de Mestre em \@programa, aprovada em %
-%    \@dia\ de\@mesP\ de \@ano, pela Banca Examinadora constitu\'{i}da pelos professores:}{%
-%  \ifthenelse{\boolean{mngr}}%
-%   {Monografia apresentada no Programa de P\'os--Gradua\c c\~ao %
-%    do \@unidade\ da \@universidade\ como requisito parcial %
-%    para obten\c c\~ao do Certificado de Especializa\c{c}\~ao em \@programa, aprovada em %
-%    \@dia\ de\@mesP\ de \@ano, pela Banca Examinadora constitu\'{i}da pelos professores:}%
-%   {Trabalho de Conclus\~ao apresentado \`a Coordena\c c\~ao do Curso de \@programa\ do\ %
-%    \@unidade\ da\ \@universidade\ como requisito parcial para obten\c c\~ao do\ %
-%    t\'itulo de Bacharel em \@programa, aprovada em \@dia\ de\@mesP\ de \@ano, %
-%    pela Banca Examinadora constitu\'{i}da pelos professores:}%
-%    }}}
-% \vspace*{\stretch{1.5}}
-% \par
-% \ifthenelse{\equal{\@orientador}{}}
-%  {\profa{\@orientadora}{\@unidade\ -- \@uni\\Presidente da Banca}}
-%  {\banca{\@orientador}{\@unidade\ -- \@uni\\Presidente da Banca}}
-% \ifthenelse{\equal{\@coorientador}{}}
-%  {\ifthenelse{\equal{\@coorientadora}{}}
-%   {}
-%   {\profa{\@coorientadora}{\@unidadeco\ -- \@unico}}
-%  }
-%  {\banca{\@coorientador}{\@unidadeco\ -- \@unico}}
-%}
-%{%
-% \clearpage%
-%}
+% Regimento, Art. 26 e Anexo II, III: título e subtítulo, local e data da
+% aprovação, nome, assinatura e instituição de cada membro da banca. A banca
+% vem de \examinadorUm e \examinadorDois no tcc.tex; sem nome, a linha
+% fica para preencher.
+\def\examinadorUm#1#2{\def\@examinadorUm{#1}\def\@instexaminadorUm{#2}}
+\def\examinadorDois#1#2{\def\@examinadorDois{#1}\def\@instexaminadorDois{#2}}
+\examinadorUm{}{}
+\examinadorDois{}{}
+\newcommand{\@assinatura}[3]{%
+ \vspace*{\stretch{1}}%
+ \textoC{1}{\rule{.7\textwidth}{0.5pt}\\
+  \ifthenelse{\equal{#1}{}}{\phantom{Prof.}}{#1}\\
+  \ifthenelse{\equal{#2}{}}{}{#2\\}%
+  #3}}
+\newcommand{\aprovacao}{%
+ \ifpdf
+  \pdfbookmark[1]{Folha de Aprovação}{pretexto.4}
+ \fi
+ \singlespacing%
+ \textoC{1}{\textbf{\MakeUppercase{\@autor}}}%
+ \vspace*{\stretch{1}}%
+ \textoC{1}{\textbf{\MakeUppercase{\@titulo}}}%
+ \ifthenelse{\equal{\@subtitulo}{}}{}{%
+  \textoC{1}{\textbf{\MakeUppercase{\@subtitulo}}}}%
+ \vspace*{\stretch{1}}%
+ \@natureza
+ \vspace*{\stretch{1}}%
+ \textoC{1}{\@cidade, \rule{1cm}{0.5pt} de \rule{3cm}{0.5pt} de \rule{1.5cm}{0.5pt}.}%
+ \vspace*{\stretch{1}}%
+ \textoC{1}{\textbf{BANCA EXAMINADORA}}%
+ \ifthenelse{\equal{\@orientador}{}}
+  {\@assinatura{Profa. \@orientadora}{Orientadora e presidente da banca}{\@universidade}}
+  {\@assinatura{Prof. \@orientador}{Orientador e presidente da banca}{\@universidade}}%
+ \@assinatura{\@examinadorUm}{}{\@instexaminadorUm}%
+ \@assinatura{\@examinadorDois}{}{\@instexaminadorDois}%
+ \vspace*{\stretch{1}}%
+ \onehalfspacing%
+ \normalfont%
+ \clearpage%
+}
 
 %% Direitos autorais
 %% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -700,83 +726,38 @@
  \@makeschapterhead{Agradecimentos}
 }{\clearpage}
 
-%% Resumo
+%% Resumo e abstract
 %% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+% NBR 6028:2021: parágrafo único e, logo abaixo, "Palavras-chave:" com os
+% termos separados por ponto e vírgula e terminados por ponto, que o
+% ambiente acrescenta. Espaço 1,5 (regimento, Anexo II, VII). Sem a
+% referência do trabalho no topo, opcional quando o resumo está no próprio
+% documento.
 \newenvironment{resumo}{%
  \ifpdf
   \pdfbookmark[1]{Resumo}{pretexto.8}
  \fi
-
- \@makeschapterhead{Resumo}
- \begin{minipage}{13.5cm}
-  \singlespacing%
-  \@autorR.
-  \textbf{\@titulo}.
-  \@cidade, \@ano.
-  \pageref{LastPage}p.
-  \ifthenelse{\boolean{tese}}{Tese de Doutorado}
- {\ifthenelse{\boolean{diss}}{Disserta\c{c}\~{a}o de Mestrado}}
- {\ifthenelse{\boolean{mngr}}{Monografia de Especializa\c{c}\~{a}o}
-                             {Relat\'{o}rio de Gradua\c{c}\~{a}o}}.
-  \ifthenelse{\equal{\@departamento}{}}{}{\@departamento,}
-  \ifthenelse{\equal{\@unidade}{}}{}{\@unidade,} \@universidade.%
- \end{minipage}
-% \onehalfspacing%
-% \vspace*{\stretch{1}}%
-% \par%
- \par\nobreak\vspace{\baselineskip}
- \noindent\begin{minipage}{15cm}%
-}
-{%
- \end{minipage}%
-% \vspace*{\stretch{3}}%
-% \par%
- \par\nobreak\vspace{\baselineskip}
- \noindent \arial \textbf{Palavras--chave} \normalfont \normalsize%
- \par%
- \indent \@chaves%
-% \vspace*{\stretch{4}}%
-% \par%
- \par\nobreak\vspace{\baselineskip}
- \clearpage%
+ \@makeschapterhead{Resumo}%
+ \onehalfspacing\noindent\ignorespaces
+}{%
+ \par\vspace{\baselineskip}%
+ \noindent Palavras-chave: \@chaves.%
+ \clearpage
 }
 
-%% Abstract
-%% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-\renewenvironment{abstract}[1]{%
+\renewenvironment{abstract}{%
  \ifpdf
-  \pdfbookmark[1]{Abstract}{pretexto.9} % Sets a PDF bookmark for the abstract
+  \pdfbookmark[1]{Abstract}{pretexto.9}
  \fi
-  \@makeschapterhead{Abstract}
-  \begin{minipage}{13.5cm}
-   \singlespacing%
-   \@autorR.
-   \textbf{#1}.
-   \@cidade, \@ano.
-   \pageref{LastPage}p.
-  \ifthenelse{\boolean{tese}}{PhD. Thesis}
- {\ifthenelse{\boolean{diss}}{MSc. Dissertation}}
- {\ifthenelse{\boolean{mngr}}{Monografia de Especializa\c{c}\~{a}o}
-                             {Relat\'{o}rio de Gradua\c{c}\~{a}o}}.
-  \ifthenelse{\equal{\@departamento}{}}{}{\@departamento,}
-  \ifthenelse{\equal{\@unidade}{}}{}{\@unidade,} \@universidade.%
-
-  \end{minipage}\onehalfspacing%
-  \vspace*{\stretch{1}}%
-  \par%
-  \noindent\begin{minipage}{15cm}%
-  }
-  {%
-  \end{minipage}%
-  \vspace*{\stretch{3}}%
-  \par%
-  \noindent \arial \textbf{Keywords} \normalfont \normalsize%
-  \par%
-  \indent \@keys%
-  \vspace*{\stretch{4}}%
-  \par%
-  \clearpage%
-  }
+ \begin{otherlanguage}{english}%
+ \@makeschapterhead{Abstract}%
+ \onehalfspacing\noindent\ignorespaces
+}{%
+ \par\vspace{\baselineskip}%
+ \noindent Keywords: \@keys.%
+ \end{otherlanguage}%
+ \clearpage
+}
 
 %% Epígrafe
 %% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -829,14 +810,14 @@
   \su@compare#2#1\@nil
 }
 %%
-\newcommand{\tabelas}[1][opt]
+% Listas de ilustrações e de tabelas, nesta ordem e sem número de página
+% (NBR 14724:2024, 4.2.1). Opções: fig, tab, alg e cod, em qualquer
+% combinação. A lista de siglas vem depois, pelo \siglas, e o sumário por
+% último, pelo \sumario.
+\newcommand{\tabelas}[1][]
 {
-\ifpdf
- \pdfbookmark[0]{Sumário}{sumario}
-\fi
-\clearpage\singlespacing%
-\tableofcontents%
-\clearpage%
+\begingroup\hypersetup{linkcolor=black}%
+\singlespacing%
 \IfSubStringInString{fig}{#1}
  {\listoffigures\clearpage
  }{}
@@ -849,9 +830,29 @@
 \IfSubStringInString{cod}{#1}
  {\listoflistings\clearpage
  }{}
-
-\normalfont\pagestyle{fancy}%
+\endgroup
 \onehalfspacing
+}
+
+% Lista de siglas: as siglas marcadas no texto com \gls, \glspl ou \acrshort
+% (glossaries, entradas em latex/siglas.tex), em ordem alfabética.
+\newcommand{\siglas}{%
+ \printnoidxglossary[type=\acronymtype, style=siglas, title={Lista de siglas}]%
+ \clearpage}
+
+% Sumário, o último elemento pré-textual (NBR 6027:2012). Depois dele, a
+% página passa a mostrar o número, e as siglas voltam a expandir na primeira
+% ocorrência, caso o resumo tenha usado alguma.
+\newcommand{\sumario}{%
+ \ifpdf
+  \pdfbookmark[0]{Sumário}{sumario}
+ \fi
+ \clearpage\singlespacing%
+ {\hypersetup{linkcolor=black}\tableofcontents}%
+ \clearpage%
+ \normalfont\onehalfspacing
+ \glsresetall
+ \@numerarpaginas
 }
 
 \makeatother

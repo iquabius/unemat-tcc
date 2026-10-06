@@ -149,12 +149,18 @@ movimento, e a frase que costura o corte passa pela porta aberta.
   indefinidas.
 - No `refs.bib`, escapar `%`, `#` e `&` fora de `url` e `doi`, inclusive em
   `annotation`: sem escape, quebram o `.bbl`.
-- Siglas conferidas contra a primeira definição no capítulo: definida na
-  primeira ocorrência do termo e usada sempre depois, inclusive no objetivo
-  geral. Forma "/nome em português/ (sigla), do inglês /nome em inglês/"
-  quando o texto usa o nome em português (DC); senão, "sigla (/nome em
-  inglês/)" (API). Sigla corrente da área (HTTP, HTML, XML) e sigla
-  dentro de nome próprio (State of JS, IEEE Xplore) ficam sem definição.
+- Siglas pelo glossaries (ADR 0027): no `.org`, `[[gls:pr]]`,
+  `[[glspl:dc]]` no plural e `[[Gls:pf]]` no começo de frase, nunca a
+  definição escrita à mão; cada sigla tem entrada em `latex/siglas.tex`. O
+  pacote define na primeira ocorrência de cada seção primária, na forma
+  "/nome em português/ (sigla), do inglês /nome em inglês/" quando o texto
+  usa o nome em português (DC), senão "sigla (/nome em inglês/)" (API).
+  Sigla corrente da área (HTTP, HTML, XML) entra na lista sem definição;
+  sigla dentro de nome próprio (State of JS, IEEE Xplore) fica sem link.
+  Sem link em nota `\todo`, título e legenda, onde a definição cairia
+  fora do texto. Na revisão, conferir no PDF onde a definição caiu: a
+  primeira sigla da seção pode estar numa frase que não foi escrita para
+  definir.
 - Notas `\todo` (todonotes) servem à orientação e ficam no `.org`, senão
   somem na próxima exportação. Nota de uma ou duas frases vai na margem,
   `@@latex:\todo{...}@@` junto da frase ou do parágrafo a que se refere,

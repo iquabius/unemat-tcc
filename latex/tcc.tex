@@ -12,12 +12,13 @@
 % This package is useful for adding todo notes to the side of the text.
 % Use 'disable' option to remove all todo notes from output.
 % Run 'texdoc todonotes' in the terminal for help.
+% As notas vão na margem esquerda, com a largura que a classe dá a ela.
 \usepackage[textsize=scriptsize]{todonotes}
-\setlength{\marginparwidth}{3cm}
 \reversemarginpar{}
 
 \addbibresource{../texto/refs.bib}
 \graphicspath{{../texto/}}  % as figuras citadas nos capítulos como ./fig/...
+\loadglsentries{siglas}     % as siglas do texto (ADR 0027)
 
 %----------------------------------------------------- INICIO DO DOCUMENTO %
 \begin{document}
@@ -41,6 +42,12 @@
 \orientador{Me. Alexandre Berndt}
 \orientadorR{Berndt, Alexandre}
 
+%------------------------------------------------------- BANCA EXAMINADORA %
+% Nome com o título (Prof. Me., Profa. Dra.) e instituição; sem nome, a
+% folha de aprovação deixa a linha em branco.
+\examinadorUm{}{}
+\examinadorDois{}{}
+
 
 %-------------------------------------------------- INSTITUIÇÃO E PROGRAMA %
 \universidade{Universidade do Estado de Mato Grosso}
@@ -49,44 +56,34 @@
 \departamento{Curso de Ciência da Computação} % Unidades com mais de um departamento.
 
 \programa{Ciência da Computação}
-\concentracao{Ciência da Computação}
+\concentracao{Linguagens de Programação}
 
 %-------------------------------------------------- ELEMENTOS PRÉ-TEXTUAIS %
 \capa    % Gera o modelo da capa externa do trabalho
 %\publica % Gera a autorização para publicação em formato eletrônico
 \rosto   % Primeira folha interna do trabalho
 
-%\input{./pre/pre_aprovacao}
+\aprovacao % Folha de aprovação
 %\input{./pre/pre_direitos}
 %\input{./pre/pre_dedicatoria}
 %\input{./pre/pre_agradecimentos}
 %\input{./pre/pre_epigrafe}
+% O resumo e o abstract: \begin{resumo} ... \end{resumo}, com \chaves{a; b; c}
+% (sem o ponto final, que o ambiente põe), e \begin{abstract} ... \end{abstract},
+% com \keys{a; b; c}.
 %\input{./pre/pre_resumo}
 %\input{./pre/pre_abstract}
 
-\tabelas [figcod]
-
-%Opções:
-%nada [] -> Gera apenas o sumário
-%fig     -> Gera o sumário e a lista de figuras
-%tab     -> Sumário e lista de tabelas
-%alg     -> Sumário e lista de algoritmos
-%cod     -> Sumário e lista de códigos de programas
-%
-% Pode-se usar qualquer combinação dessas opções.
-% Por exemplo:
-%  figtab       -> Sumário e listas de figuras e tabelas
-%  figtabcod    -> Sumário e listas de figuras, tabelas e
-%                  códigos de programas
-%  figtabalg    -> Sumário e listas de figuras, tabelas e algoritmos
-%  figtabalgcod -> Sumário e listas de figuras, tabelas, algoritmos e
-%                  códigos de programas
+% Listas de ilustrações e de tabelas: fig, tab, alg e cod, em qualquer
+% combinação; depois a de siglas e, por último, o sumário (NBR 14724:2024).
+\tabelas[figtabcod]
+\siglas
+\sumario
 
 %--------------------------------------------------------------- CAPÍTULOS %
 % Introdução ---------------------------------------------------------------
-% Remover a numeração quebrou o link pro capítulo no sumário
-\chapter*{Introdução}\label{chap:intro}
-\addcontentsline{toc}{chapter}{Introdução}
+% Numerada como as outras seções primárias (NBR 14724:2024, 4.2.2; ADR 0026)
+\chapter{Introdução}\label{chap:intro}
 \input{capitulos/intro}
 
 % Revisão da Literatura ----------------------------------------------------
@@ -111,8 +108,7 @@
 
 %\nocite{*}                  % para incluir referências não citadas no texto
 
-\arial
-\printbibliography[heading=bibintoc,title=\refname]
+\printbibliography[heading=bibintoc,title=REFERÊNCIAS]
 
 
 % https://www.diferenca.com/anexo-e-apendice/
