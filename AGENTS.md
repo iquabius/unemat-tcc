@@ -128,8 +128,14 @@ e o HEAD é o texto aprovado (ADR 0023, skill `revisao-de-texto`).
   a frase, que o agente copia letra por letra.
 - **Porta aberta.** Nenhuma frase nova ou alterada entra num commit sem a
   rodada sobre o `git diff HEAD -- texto/`:
-  - o rascunho do autor vai para o índice, e as correções do agente ficam
-    por cima, no `git diff`;
+  - o rascunho do autor vai para o índice antes de qualquer correção, e
+    o agente aplica todas as correções da rodada por cima, no `git diff`:
+    as mecânicas (página, ano, grafia, link, sigla, norma culta) numa
+    linha cada, as de sentido com o motivo e a fonte;
+  - o autor revisa no diff (Magit, Cursor ou PDF ao vivo) e desfaz o hunk
+    que recusar; uma decisão por mensagem só quando ele escreve ou edita
+    frases uma a uma; antes de aplicar, pergunta-se a decisão de método,
+    a correção que derruba uma conclusão e o corte;
   - cada afirmação apoiada numa fonte é conferida no PDF, com o trecho e a
     página, e entra em `texto/fontes/<capítulo>.org`;
   - `metricas_texto.py` e a leitura com as referências da

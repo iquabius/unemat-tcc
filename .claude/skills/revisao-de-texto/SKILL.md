@@ -91,8 +91,8 @@ sobra passa pela rodada por bloco. As técnicas e as fontes estão em
      sem o elo anterior.
 7. **Quarentena.** O bloco commitado só volta a ser lido no PDF numa
    sessão seguinte, e não na mesma do corte. Primeiro se procura o que
-   falta e o que sobra; só então a frase. O autor lê em voz alta no
-   aprovo do PDF (passo 8 da porta aberta).
+   falta e o que sobra; só então a frase. No aprovo do diff (passo 8 da
+   porta aberta), o autor lê em voz alta os trechos de sentido.
 
 ## Porta fechada: o autor escreve
 
@@ -133,11 +133,14 @@ perguntas, e então o autor dá o rótulo.
 
 ## Porta aberta: a rodada sobre o diff
 
-1. **Rascunho no índice.** Com o autor de acordo, `git add texto/<capítulo>.org`.
-   Daí em diante, `git diff --cached` mostra o texto do autor, e
-   `git diff` mostra só as correções do agente por cima. Para desfazer
-   uma correção recusada, use `git restore -p texto/<capítulo>.org` no
-   hunk dela, ou `git restore` no arquivo para voltar ao rascunho.
+1. **Rascunho no índice.** Com o autor de acordo, `git add texto/<capítulo>.org`,
+   antes de qualquer correção do agente. Daí em diante, `git diff --cached`
+   mostra o texto do autor, e `git diff` mostra só as correções do agente
+   por cima. Sem esse passo, desfazer um hunk do agente pode levar junto
+   palavras do autor. Para desfazer uma correção recusada: `k` no hunk
+   não preparado do Magit, "Discard" no Cursor ou
+   `git restore -p texto/<capítulo>.org`; `git restore` no arquivo volta
+   ao rascunho.
 2. **Fonte lida.** Para cada frase nova ou alterada (`git diff --cached
    --word-diff`) que se apoia numa fonte:
    - `pdftotext -layout tmp/fontes/<chave>.pdf - | less` ou
@@ -153,29 +156,43 @@ perguntas, e então o autor dá o rótulo.
    descreve: um título por parágrafo, com link de busca para a frase, e,
    por afirmação, a chave, a página, o trecho curto e a data da
    conferência. A frase que sai do texto sai da matriz.
-4. **Decisões** de método, rótulo, recorte ou critério são do autor:
-   pergunte com as alternativas antes de corrigir. Decisão cara de
-   reverter vira ADR (skill `adr`).
+4. **O que se pergunta antes de aplicar**, com as alternativas, uma
+   decisão por mensagem:
+   - decisão de método, rótulo, recorte ou critério, que é do autor;
+   - correção que derruba uma premissa ou uma conclusão do texto;
+   - corte de parágrafo ou de fonte, que segue a rodada de corte (ADR
+     0022).
+
+   Frase sem fonte ganha o marcador (`p. N`, "precisa de fonte") e o aviso,
+   e não some. Decisão cara de reverter vira ADR (skill `adr`).
 5. **Métricas** nos parágrafos tocados:
    `python3 ~/.claude/skills/escrita-academica/scripts/metricas_texto.py texto/<capítulo>.org`,
    e leitura com `principios-escrita.md`, `portugues-academico.md` e
    `processo-e-corte.md`. Confira as siglas contra a primeira definição
    no capítulo e as preferências do autor (`AGENTS.md`, "Texto").
-6. **Correções por cima.** O agente aplica no `.org` as correções que
-   propõe, sem commit. Na resposta, para cada parágrafo tocado:
-   - o hunk de `git diff --word-diff=plain` da correção;
-   - o motivo, com o princípio e a fonte (Modo 1 da `escrita-academica`);
-   - o que o relatório de métricas diz dele;
-   - a fonte conferida, se a frase cita uma.
+6. **Correções por cima, todas de uma vez.** O agente aplica no `.org`
+   todas as correções da rodada, sem commit, com a entrada de cada fonte
+   conferida já na matriz. O autor revisa no diff, e não no chat (ADR
+   0023). A resposta separa as duas classes:
+   - **mecânicas**, que não mudam o que a frase afirma: página, ano,
+     grafia de nome, chave, DOI ou link, sigla sem link, concordância,
+     crase, pontuação, preferência já registrada no `AGENTS.md`. Uma linha
+     cada: `arquivo:linha`, o que mudou e por quê;
+   - **de sentido**, que mudam o que a frase afirma ou como afirma: verbo
+     de força, ressalva, fonte trocada, frase reescrita, ordem. Para cada
+     uma, `arquivo:linha`, o motivo com o princípio e a fonte (Modo 1 da
+     `escrita-academica`), a fonte conferida se a frase cita uma, e o link
+     do passo 7.
 
-   Uma decisão por mensagem, como nos rascunhos de antes. O autor aprova,
-   pede outra versão ou recusa, e a recusa volta com `git restore -p`.
-   Nota `\todo` para a orientação segue a forma e o leitor do `AGENTS.md`
+   Na dúvida entre as classes, a correção é de sentido. Uma decisão por
+   mensagem só quando o autor escreve ou edita frases uma a uma, parágrafo
+   por parágrafo, ou pede assim (Modo 3 da `escrita-academica`). Nota
+   `\todo` para a orientação segue a forma e o leitor do `AGENTS.md`
    ("Texto"); confira no `pdftotext` do diff ao vivo que ela saiu inteira,
    com as aspas no lugar.
 7. **Links para o trecho.** Espere o "PDF atualizado" do diff ao vivo
    (`pdf/diff-ao-vivo.out`, uns 10 s; "compilação falhou" deixa
-   o PDF anterior e aponta o log). Para cada alteração, rode
+   o PDF anterior e aponta o log). Para cada correção de sentido, rode
    `bin/pagina-no-pdf.py "poucas palavras do texto novo"` e ponha na
    resposta a página que ele dá (`# p. 9`) e um bloco `bash` com a linha
    que ele imprime:
@@ -189,8 +206,12 @@ perguntas, e então o autor dá o rótulo.
    linha impressa quer dizer que o trecho se repete: use mais palavras.
    Sem `.synctex.gz`, ele imprime o `evince -p` da página, pelo número
    impresso.
-8. **Aprovo no PDF.** O autor lê o trecho em voz alta no PDF. Correções
-   dele voltam ao passo 6; as que valem para o texto todo entram nas
+8. **Aprovo no diff.** O autor lê o diff inteiro de uma vez, no Magit,
+   no Cursor ou no PDF do diff ao vivo, que compara com o HEAD e por isso
+   mostra o rascunho e as correções juntos, e lê em voz alta os trechos
+   de sentido. Desfaz o hunk que recusar (passo 1), e o agente tira da
+   matriz a entrada da correção desfeita. Pedido de outra versão volta ao
+   passo 6; correção dele que vale para o texto todo entra nas
    preferências do `AGENTS.md`.
 
 ## Fechar e commitar
