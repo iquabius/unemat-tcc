@@ -21,6 +21,26 @@ Formato:
 - A frase que sai do texto sai daqui no mesmo commit.
 
 * §2 [[file:../intro.org::Para coordenar eventos é comum usar o][Para coordenar eventos é comum usar o callback]]
+** gallaba2015, p. 1
+- Frase: “Em JavaScript, os /callbacks/ são frequentes: num estudo de 138
+  programas, uma em cada dez definições de função recebe um /callback/, e
+  a maioria dos /callbacks/ é aninhada.”
+- Trecho: “a representative corpus of 138 JavaScript programs […] every
+  10th function definition takes a callback argument […] the majority of
+  callbacks are nested” (resumo).
+- Lido em: =tmp/fontes/gallaba2015.pdf=, p. 1.
+- Conferido: 2026-10-06.
+** edwards2009, p. 926 (estado compartilhado)
+- Frase: “Como não se sabe em que ordem os /callbacks/ serão chamados,
+  coordenar as alterações ao estado compartilhado é desconcertante e está
+  longe de ser modular.”
+- Trecho: “You don’t know when you will be called back by your
+  subscriptions, what callbacks have already been called, what callbacks
+  will be subsequently called […]. Coordinating changes to communal state
+  amidst this chaos can be baffling, and is far from modular.”
+- Lido em: =tmp/fontes/edwards2009-coherent-reaction.pdf=, p. 2 do PDF;
+  p. 926 calculada pelo início dos anais (925).
+- Conferido: 2026-10-06.
 ** edwards2009, p. 926
 - Frase: “Uma análise das aplicações /desktop/ da Adobe concluiu que a
   lógica de tratamento de eventos era um terço do código e continha
@@ -122,4 +142,33 @@ Formato:
 - Trecho: “Solid may only be used by 10% of respondents”
 - Lido em: =tmp/fontes/devographics2026.txt=, l. 49 (página salva em
   2026-09-29); a tabela dá 1.269 de 12.030 (10,55%).
+- Conferido: 2026-10-06.
+
+* §1 [[file:../intro.org::Interfaces gráficas mediam a maioria][Interfaces gráficas mediam a maioria]]
+** myers1994, p. 79
+- Frase: “Essa coordenação é o tema deste trabalho, porque é nela que a
+  programação de interfaces se afasta dos outros programas (Myers, 1994,
+  p. 79).”
+- Trecho: “One big difference is that modern user interfaces must be
+  written ‘inside-out.’ Rather than structuring the code so that the
+  application is in control, as is usually taught in computer science
+  classes, the application must instead be structured as many subroutines
+  which are called by the user interface tool kit when the user does
+  something. This is sometimes called ‘event-based programming.’”
+- Lido em: =tmp/fontes/myers1994.pdf=, p. 7 do PDF (páginas 73 a 83 na
+  publicação, sem número impresso por página).
+- Observação: a explicação da inversão de controle foi para prog.org na
+  rodada 2 do corte; rever na rodada 3 se volta à introdução.
+- Conferido: 2026-10-06.
+
+* §16 [[file:../intro.org::A avaliação cabe ao autor][A avaliação cabe ao autor]]
+** kitchenham1996, p. 15
+- Frase: “Feita por uma pessoa só, que escolhe os critérios e os aplica,
+  ela é uma triagem (/screening/).”
+- Trecho: “Qualitative screening: A feature-based evaluation done by a
+  single individual who not only determines the features to be assessed
+  and their rating scale but also does the assessment.”
+- Lido em: =tmp/fontes/kitchenham1996a.pdf=, p. 5 do PDF (p. 15 impressa).
+- Observação: a frase perdeu a citação quando a frase seguinte, com
+  Kitchenham p. 15, foi para cases.org na rodada 2 do corte.
 - Conferido: 2026-10-06.

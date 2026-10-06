@@ -6,7 +6,7 @@ Para gerenciar interações na programação de interfaces, é necessário coord
 os eventos gerados pelas ações do usuário no teclado, no mouse ou na tela
 multitoque.
 Essa coordenação é o tema deste trabalho, porque é nela que a programação de
-interfaces se afasta dos outros programas.
+interfaces se afasta dos outros programas \cite[p. 79]{myers1994}.
 Além disso, ao escolher uma tecnologia de interface, o programador escolhe
 também a forma de escrevê-la, e essa forma afeta a compreensão e a manutenção
 do programa.
@@ -19,12 +19,15 @@ evento, é o \emph{Observer Pattern} \cite[p. 7]{blackheath2016}.
 Para \textcite[p. 134]{fischer2007}, o \emph{callback} dificulta a manutenção
 e a compreensão do programa, porque fragmenta cada fluxo de controle em
 vários \emph{callbacks} independentes.
-Em 2026, o tratamento de eventos nas interfaces ainda se apoia em
-\emph{callbacks} ou \emph{listeners}, que tornam difíceis de exprimir e de manter os
-fluxos de interação complexos \cite[p. 8]{grolaux2026}.
+Como não se sabe em que ordem os \emph{callbacks} serão chamados, coordenar as
+alterações ao estado compartilhado é desconcertante e está longe de ser
+modular \cite[p. 926]{edwards2009}.
 Uma análise das aplicações \emph{desktop} da Adobe concluiu que a lógica de
 tratamento de eventos era um terço do código e continha metade dos \emph{bugs}
 relatados \cite[p. 926]{edwards2009}.
+Em JavaScript, os \emph{callbacks} são frequentes: num estudo de 138 programas, uma
+em cada dez definições de função recebe um \emph{callback}, e a maioria dos
+\emph{callbacks} é aninhada \cite[p. 1]{gallaba2015}.
 
 O JavaScript ganhou alternativas ao \emph{callback}: as \emph{promises}, que encadeiam
 computações assíncronas \cite{madsen2017}, e as palavras-chave \emph{async} e
@@ -175,11 +178,11 @@ a critério, sem participantes.
 \textcite[p. 8]{kiss2014} chama de analítica a avaliação pelas \glspl{dc}
 e a adota como alternativa aos experimentos com programadores,
 muitas vezes caros e de resultados necessariamente restritos.
-Para \textcite[p. 12]{kitchenham1996}, o juízo subjetivo de como cada
+Para \textcite[p. 12]{kitchenham1996}, a avaliação subjetiva de como cada
 alternativa atende a um conjunto de critérios é uma análise de
 características (\emph{feature analysis}).
 Feita por uma pessoa só, que escolhe os critérios e os aplica, ela é uma
-triagem (\emph{screening}).
+triagem (\emph{screening}) \cite[p. 15]{kitchenham1996}.
 
 As \glspl{dc} admitem várias notações num mesmo sistema
 \cite[p. 328]{blackwell2001}, e o código de uma interface gráfica tem pelo menos
@@ -233,6 +236,7 @@ Esse par, porém, não difere só nisso: o Angular escreve o componente como
 classe, com decorador e injeção de dependências.
 A análise precisa separar o que vem do \emph{template} do que vem desse modelo
 de componente.
+A notação imperativa entra com o Web Component e o jQuery.
 
 No Android, o Formulário e a Lista formam uma \emph{replicação}, que confere se
 as conclusões tiradas na web se repetem em outra plataforma e outra
@@ -287,8 +291,12 @@ tratam das ferramentas e do processo de escrita, a visibilidade, a
 análise progressiva e a provisoriedade, porque o objeto da avaliação é o
 código pronto.
 
-O resultado da avaliação vai para a análise, que compara as notações e
-abre com uma tabela-síntese, com uma linha por \gls{dc} e uma coluna por notação.
+A seção \ref{chap:results} compara as notações a partir das conclusões da
+avaliação e abre com uma tabela-síntese, com uma linha por \gls{dc} e uma
+coluna por notação.
+Cada célula resume a conclusão e indica de que tarefa vem a evidência.
+Como cada tarefa exercita um problema de coordenação, a síntese por
+problema sai da mesma tabela.
 Segue uma seção por \gls{dc}, com os trechos de uma tarefa escolhida antes da avaliação pelo problema de coordenação que a dimensão mais toca.
 Nas seções em que o Formulário ou a Lista mostram diferença entre Views e
 Compose, a replicação diz se a conclusão da web se repete no Android.
@@ -298,17 +306,17 @@ implementação.
 
 O desenho tem limitações em três pontos: quem avalia, o instrumento e o
 objeto.
-Como a avaliação cabe ao autor, nenhum outro avaliador confere o juízo em
-cada dimensão.
+Como a avaliação cabe ao autor, nenhum outro avaliador confere as conclusões
+em cada dimensão.
 Em métodos de inspeção, avaliadores diferentes acham problemas bem
 diferentes na mesma interface \cite{hertzum2003}.
 Além disso, quem avalia o que escreveu pode trazer um viés implícito
 \cite{ledo2018}.
 A familiaridade do autor com as tecnologias é desigual, maior com o React.
-No juízo da avaliação, que é subjetivo, esse desnível pode favorecer uma
-notação.
+Na avaliação, que é subjetiva, esse desnível pode favorecer uma notação.
 
-A avaliação pelas \glspl{dc} é analítica, e não um experimento com programadores.
+Por ser analítica, e não um experimento com programadores, a avaliação
+pelas \glspl{dc} aponta diferenças que ainda precisam ser testadas com eles.
 O trabalho escolheu as oito \glspl{dc} antes da avaliação, e usar um subconjunto
 pode deixar de fora propriedades importantes da notação \cite{britton2001}.
 Para \textcite[p. 334]{green2006}, duas delas, a expressividade e as

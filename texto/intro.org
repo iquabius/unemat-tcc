@@ -8,7 +8,7 @@ Para gerenciar interações na programação de interfaces, é necessário coord
 os eventos gerados pelas ações do usuário no teclado, no mouse ou na tela
 multitoque.
 Essa coordenação é o tema deste trabalho, porque é nela que a programação de
-interfaces se afasta dos outros programas.
+interfaces se afasta dos outros programas [[cite:myers1994][p. 79]].
 Além disso, ao escolher uma tecnologia de interface, o programador escolhe
 também a forma de escrevê-la, e essa forma afeta a compreensão e a manutenção
 do programa.
@@ -21,12 +21,15 @@ evento, é o /Observer Pattern/ [[cite:blackheath2016][p. 7]].
 Para [[textcite:fischer2007][p. 134]], o /callback/ dificulta a manutenção
 e a compreensão do programa, porque fragmenta cada fluxo de controle em
 vários /callbacks/ independentes.
-Em 2026, o tratamento de eventos nas interfaces ainda se apoia em
-/callbacks/ ou /listeners/, que tornam difíceis de exprimir e de manter os
-fluxos de interação complexos [[cite:grolaux2026][p. 8]].
+Como não se sabe em que ordem os /callbacks/ serão chamados, coordenar as
+alterações ao estado compartilhado é desconcertante e está longe de ser
+modular [[cite:edwards2009][p. 926]].
 Uma análise das aplicações /desktop/ da Adobe concluiu que a lógica de
 tratamento de eventos era um terço do código e continha metade dos /bugs/
 relatados [[cite:edwards2009][p. 926]].
+Em JavaScript, os /callbacks/ são frequentes: num estudo de 138 programas, uma
+em cada dez definições de função recebe um /callback/, e a maioria dos
+/callbacks/ é aninhada [[cite:gallaba2015][p. 1]].
 
 O JavaScript ganhou alternativas ao /callback/: as /promises/, que encadeiam
 computações assíncronas cite:madsen2017, e as palavras-chave /async/ e
@@ -175,11 +178,11 @@ significativa) e não levou mais tempo.
   [[textcite:kiss2014][p. 8]] chama de analítica a avaliação pelas [[glspl:dc]]
   e a adota como alternativa aos experimentos com programadores,
   muitas vezes caros e de resultados necessariamente restritos.
-  Para [[textcite:kitchenham1996][p. 12]], o juízo subjetivo de como cada
+  Para [[textcite:kitchenham1996][p. 12]], a avaliação subjetiva de como cada
   alternativa atende a um conjunto de critérios é uma análise de
   características (/feature analysis/).
   Feita por uma pessoa só, que escolhe os critérios e os aplica, ela é uma
-  triagem (/screening/).
+  triagem (/screening/) [[cite:kitchenham1996][p. 15]].
 
   As [[glspl:dc]] admitem várias notações num mesmo sistema
   [[cite:blackwell2001][p. 328]], e o código de uma interface gráfica tem pelo menos
@@ -231,6 +234,7 @@ significativa) e não levou mais tempo.
   classe, com decorador e injeção de dependências.
   A análise precisa separar o que vem do /template/ do que vem desse modelo
   de componente.
+  A notação imperativa entra com o Web Component e o jQuery.
 
   No Android, o Formulário e a Lista formam uma /replicação/, que confere se
   as conclusões tiradas na web se repetem em outra plataforma e outra
@@ -280,8 +284,12 @@ significativa) e não levou mais tempo.
   análise progressiva e a provisoriedade, porque o objeto da avaliação é o
   código pronto.
 
-  O resultado da avaliação vai para a análise, que compara as notações e
-  abre com uma tabela-síntese, com uma linha por [[gls:dc]] e uma coluna por notação.
+  A seção ref:chap:results compara as notações a partir das conclusões da
+  avaliação e abre com uma tabela-síntese, com uma linha por [[gls:dc]] e uma
+  coluna por notação.
+  Cada célula resume a conclusão e indica de que tarefa vem a evidência.
+  Como cada tarefa exercita um problema de coordenação, a síntese por
+  problema sai da mesma tabela.
   Segue uma seção por [[gls:dc]], com os trechos de uma tarefa escolhida antes da avaliação pelo problema de coordenação que a dimensão mais toca.
   Nas seções em que o Formulário ou a Lista mostram diferença entre Views e
   Compose, a replicação diz se a conclusão da web se repete no Android.
@@ -291,17 +299,17 @@ significativa) e não levou mais tempo.
 
   O desenho tem limitações em três pontos: quem avalia, o instrumento e o
   objeto.
-  Como a avaliação cabe ao autor, nenhum outro avaliador confere o juízo em
-  cada dimensão.
+  Como a avaliação cabe ao autor, nenhum outro avaliador confere as conclusões
+  em cada dimensão.
   Em métodos de inspeção, avaliadores diferentes acham problemas bem
   diferentes na mesma interface cite:hertzum2003.
   Além disso, quem avalia o que escreveu pode trazer um viés implícito
   cite:ledo2018.
   A familiaridade do autor com as tecnologias é desigual, maior com o React.
-  No juízo da avaliação, que é subjetivo, esse desnível pode favorecer uma
-  notação.
+  Na avaliação, que é subjetiva, esse desnível pode favorecer uma notação.
 
-  A avaliação pelas [[glspl:dc]] é analítica, e não um experimento com programadores.
+  Por ser analítica, e não um experimento com programadores, a avaliação
+  pelas [[glspl:dc]] aponta diferenças que ainda precisam ser testadas com eles.
   O trabalho escolheu as oito [[glspl:dc]] antes da avaliação, e usar um subconjunto
   pode deixar de fora propriedades importantes da notação cite:britton2001.
   Para [[textcite:green2006][p. 334]], duas delas, a expressividade e as
