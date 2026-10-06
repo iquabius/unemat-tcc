@@ -56,7 +56,10 @@ sobra passa pela rodada por bloco. As técnicas e as fontes estão em
 1. **Orçamento.** O autor fixa o tamanho-alvo do bloco em palavras; a
    introdução tem 2.500 (ADR 0022). Meça antes e depois com
    `metricas_texto.py --orcamento N`, que imprime palavras e fontes por
-   parágrafo. Cada rodada corta pelo menos 10%, até o orçamento.
+   parágrafo. Cada rodada corta pelo menos 10%, até o orçamento. Na
+   introdução, rode também `--parte problema --parte objetivos --parte
+   metodologia --parte justificativa` antes e depois: um ✓ que vira ⚠
+   aponta um elo da cadeia que perdeu o marcador.
 2. **Mapa invertido** em `tmp/estrutura-<bloco>-<data>.md`, como o
    `tmp/estrutura-introducao-2026-10-04.md`. Dê uma linha por parágrafo,
    com a função, as fontes e as palavras. Depois, o teste de Garcia: só
