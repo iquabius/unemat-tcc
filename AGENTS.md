@@ -123,7 +123,9 @@ e o HEAD é o texto aprovado (ADR 0023, skill `revisao-de-texto`).
 
 - **Porta fechada.** O autor escreve no Emacs, ou pede edições pelo chat,
   e o agente edita direto o `.org` e mostra o diff em palavras. Nada passa
-  por `tmp/`.
+  por `tmp/`. No meio-termo, o Modo 4 da `escrita-academica`, o agente só
+  pergunta, uma pergunta por vez, e o autor escreve: no Emacs, ou ditando
+  a frase, que o agente copia letra por letra.
 - **Porta aberta.** Nenhuma frase nova ou alterada entra num commit sem a
   rodada sobre o `git diff HEAD -- texto/`:
   - o rascunho do autor vai para o índice, e as correções do agente ficam

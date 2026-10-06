@@ -1,6 +1,6 @@
 ---
 name: revisao-de-texto
-description: Passo a passo da escrita e da revisão do texto do TCC (texto/*.org) — porta fechada (o autor escreve no .org, ou pede edições pelo chat, sem checagem) e porta aberta (rodada sobre o git diff contra HEAD, com o rascunho do autor no índice e as correções do agente por cima, fonte lida no PDF, matriz de fontes, métricas, aprovo, diff ao vivo no Evince, exportação, compilação e commit); antes, a rodada de corte contra um orçamento de palavras. Use sempre que for escrever, reescrever, editar ou corrigir uma frase de texto/*.org, inclusive a pedido do autor pelo chat ou pelo celular, revisar o que o autor escreveu, aplicar uma proposta de texto já discutida, acrescentar entrada ao refs.bib para citar no texto, cortar ou encurtar um bloco do texto, ou quando o autor pedir para "revisar pelo processo", "cortar", "mostrar no PDF" ou "abrir no Evince".
+description: Passo a passo da escrita e da revisão do texto do TCC (texto/*.org) — porta fechada (o autor escreve no .org, pede edições pelo chat, sem checagem, ou responde a perguntas socráticas e escreve ele mesmo) e porta aberta (rodada sobre o git diff contra HEAD, com o rascunho do autor no índice e as correções do agente por cima, fonte lida no PDF, matriz de fontes, métricas, aprovo, diff ao vivo no Evince, exportação, compilação e commit); antes, a rodada de corte contra um orçamento de palavras. Use sempre que for escrever, reescrever, editar ou corrigir uma frase de texto/*.org, inclusive a pedido do autor pelo chat ou pelo celular, revisar o que o autor escreveu, aplicar uma proposta de texto já discutida, acrescentar entrada ao refs.bib para citar no texto, cortar ou encurtar um bloco do texto, ou quando o autor pedir para "revisar pelo processo", "me pergunte", "não reescreva por mim", "cortar", "mostrar no PDF" ou "abrir no Evince".
 ---
 
 # Rodada de revisão de texto no TCC
@@ -9,7 +9,7 @@ Por que existe: ADR 0023. O rascunho é a árvore de
 trabalho do `texto/*.org` no checkout principal, e o HEAD é o texto
 aprovado. Nenhuma frase entra no commit sem a fonte lida e o aprovo do
 autor. As regras curtas estão no `AGENTS.md` (seção "Texto"), e o método
-de escrita, nos Modos 1 e 3 da skill `escrita-academica`. Carregue a
+de escrita, nos Modos 1, 3 e 4 da skill `escrita-academica`. Carregue a
 `escrita-academica` antes de começar.
 
 A sessão do Claude roda num container (distrobox). Emacs, TeX Live e
@@ -112,6 +112,24 @@ Mostre só os hunks da edição, num bloco `diff`, com a linha do `.org`.
 Nessa fase o agente faz o que o autor pediu e não "melhora" o resto do
 rascunho por conta própria. Se notar um problema fora do pedido, diga
 numa linha e deixe para a porta aberta.
+
+Entre escrever sozinho e pedir a edição há o meio-termo: o agente
+pergunta e o autor escreve, no Modo 4 da `escrita-academica`. Ele entra
+quando o autor pede ("me pergunte", "socrático", "não reescreva por
+mim"). Num pedido de ajuda vago, sem dizer o que mudar, o agente oferece
+o modo numa linha. Pedido de edição concreto continua sendo edição. No
+modo:
+
+- uma pergunta por mensagem, de `references/perguntas-por-parte.md`,
+  com a fonte e as palavras do rascunho a que se refere, com a linha;
+- nenhuma frase proposta, nem alternativa de redação;
+- o autor escreve no Emacs ou dita a frase no chat, e o agente a copia
+  letra por letra no `.org` e mostra o diff em palavras;
+- o pedido de ajuda vira pergunta; se o autor pedir que o agente
+  escreva, o modo acaba, e a frase passa pela porta aberta.
+
+Na rodada de corte, o teste do silêncio do passo 3 também se faz em
+perguntas, e então o autor dá o rótulo.
 
 ## Porta aberta: a rodada sobre o diff
 
