@@ -15,7 +15,7 @@ sequência de forma explícita.
 Tais linguagens são baseadas no modelo \emph{imperativo} de computação, e são
 denominadas \emph{linguagens imperativas}.
 \section{Linguagens de programação}
-\label{sec:org3c1a3e4}
+\label{sec:orgc8d1a50}
 \label{sec:langs}
 
 Linguagens de programação são mais simples que linguagens naturais, no
@@ -46,7 +46,7 @@ Programas com estado interno, ou \emph{statefull} em inglês, são projetados pa
 lembrar de eventos anteriores ou de interações com o usuário.
 A informação recordada é denominada o estado do programa \cite{rouse2005}.
 \section{Paradigmas de programação}
-\label{sec:org080c67a}
+\label{sec:orga707887}
 Programação é uma disciplina extensa, e linguagens práticas de programação
 geralmente são bastante complicadas.
 Felizmente, as ideias importantes de linguagens de programação são simples
@@ -118,9 +118,19 @@ Esses paradigmas não possuem condições de corrida, \emph{‘race conditions�
 inglês.
 \todo{Esses últimos dois parágrafos parecem estar deslocados.}
 \section{Programação de interfaces gráficas}
-\label{sec:org4581a4e}
+\label{sec:org41f14ba}
 
 \todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}
+Na implementação, a aplicação deixa de controlar a execução e se divide em
+sub-rotinas que o \emph{toolkit} da interface chama quando o usuário age, e
+programas assim parecem mais difíceis de organizar e modularizar
+\cite[p. 79]{myers1994}.
+Numa rede de \emph{callbacks}, a ordem em que os eventos chegam pode depender da
+ordem em que os \emph{callbacks} foram registrados, o que a torna difícil de prever
+\cite[p. 8]{blackheath2016}.
+“Coordenar alterações ao estado compartilhado em meio a esse caos pode ser
+desconcertante, e está longe de ser modular. A definição coloquial é \emph{Callback
+Hell}.” \cite[p. 926; tradução nossa]{edwards2009}.
 Em quatro sistemas de grande porte com as interfaces gráficas feitas na
 mesma \gls{api}, \textcite[p. 770]{mijailovic2014} contaram de 1.221 a 31.285
 tratadores de eventos.
@@ -151,7 +161,7 @@ Alguns problemas de computação são melhor resolvidos com o modelo baseado
 em \emph{threads}. No entanto \textcite{blackheath2016} afirmam que a
 abordagem com eventos geralmente é a melhor escolha.
 \section{Programação funcional}
-\label{sec:orgff49715}
+\label{sec:org9b06fac}
 \Gls{pf} é assim chamada porque sua operação básica é a
 aplicação de funções à argumentos \cite{hughes1990}.
 Lisp foi a primeira linguagem de programação funcional.
@@ -217,7 +227,7 @@ expressão \texttt{tres inc 2} resulta no valor \texttt{5} \cite{noble1994}.
   \label{code:currying}
 \end{listing}
 \subsection{Porque programação funcional é relevante}
-\label{sec:orgd3d510c}
+\label{sec:orgdd354d9}
 Muitas das vezes as características e vantagens da programação funcional são
 resumidas com declarações do tipo ‘programas funcionais não contêm
 atribuições’, ‘não contêm efeitos colaterais’, e ‘não necessitam preescrever
@@ -249,7 +259,7 @@ contribuir significativamente para a modularização de programas:
   que os convencionais. \cite[p.~22; tradução nossa]{hughes1990}
 \end{citacao}
 \section{Programação reativa}
-\label{sec:org6d722a6}
+\label{sec:org2ada68a}
 \todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}
 \textcite[p. 1-2]{bainomugisha2013} chamam as planilhas de “possivelmente a
 linguagem de programação mais utilizada por usuários finais” (tradução nossa).

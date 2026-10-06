@@ -5,6 +5,10 @@
 
 * Dimensões de avaliação
   @@latex:\todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}@@
+  A avaliação usa as [[glspl:dc]], que [[textcite:blackwell2003][p. 106]] chamam de ferramentas
+  de discussão, para quem projeta ou avalia artefatos de informação, e não
+  de método analítico.
+
   [[textcite:blackwell2019][p. 58 e 60]] registram, na psicologia da
   programação, o pedido por ensaios controlados randomizados no estudo do
   projeto de linguagens e o ceticismo sobre apoiar nesse empirismo um
@@ -334,6 +338,27 @@
 
 * Coordenação de eventos
   @@latex:\todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}@@
+  A triagem em geral se apoia no que se escreveu sobre as alternativas, e não
+  no uso delas [[cite:kitchenham1996][p. 15]].
+  Aqui, ela se apoia também no uso de duas das notações, porque o autor
+  escreveu implementações de referência em React e em JavaScript com
+  /callbacks/.
+
+  Na Pesquisa Código Fonte TV 2026, a única sobre o Brasil, React, Angular e
+  jQuery são a ferramenta mais usada no dia a dia por 7,6%, 3,3% e 0,3% dos
+  participantes cite:codigofonte2026.
+  No W3Techs, o React está em 6,0% dos /sites/ e o Angular em 0,2%
+  cite:w3techs2026,w3techs2026a.
+  Só o State of JS dá número ao Solid, que tem uma resposta na Pesquisa
+  Código Fonte TV.
+  Na escrita das implementações, a familiaridade desigual do autor pesa
+  menos, porque elas seguem a mesma especificação e são padronizadas entre
+  as tecnologias.
+
+  [[textcite:kiss2014][p. 11]] também compara as implementações pela
+  usabilidade do código, e não por tempo de execução e memória, como num
+  /benchmark/ tradicional.
+
   Cada pesquisa de uso tem um limite de amostra.
   Os respondentes do Stack Overflow Developer Survey 2025 são recrutados
   sobretudo pelos próprios canais do site, o que favorece os usuários mais

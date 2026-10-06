@@ -1,6 +1,10 @@
 \section{Dimensões de avaliação}
-\label{sec:org428c1d5}
+\label{sec:org27d7e79}
 \todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}
+A avaliação usa as \glspl{dc}, que \textcite[p. 106]{blackwell2003} chamam de ferramentas
+de discussão, para quem projeta ou avalia artefatos de informação, e não
+de método analítico.
+
 \textcite[p. 58 e 60]{blackwell2019} registram, na psicologia da
 programação, o pedido por ensaios controlados randomizados no estudo do
 projeto de linguagens e o ceticismo sobre apoiar nesse empirismo um
@@ -188,13 +192,13 @@ momento}
 de comprometimento com uma ação ou marco}
 \end{itemize}
 \section{*Revisão do JavaScript}
-\label{sec:org8b6f50e}
+\label{sec:orgc191e4d}
 Talvez devêssemos colocar uma seção de revisão das ferramentas utilizadas na
 implementação dos estudos de caso? Poderíamos descrever os recursos relevantes
 para nossa análise.
 \todo[noline]{Berndt disse p/ colocar como apêndice}
 \section{Processamento de listas}
-\label{sec:org59a4e3e}
+\label{sec:org7a25d5e}
 
 Uma coleção é um agrupamento com uma quantidade variável de itens, que (1)
 compartilham algum significado ao problema a se resolver e (2) precisam ser
@@ -231,7 +235,7 @@ for (count = 0; count < people.length; count++) {
 \end{minted}
 \end{listing}
 \subsection{Formatação de preços}
-\label{sec:org83eb487}
+\label{sec:orgaf15f58}
 
 Nesta seção veremos como formatar uma lista preços para serem mostrados na
 tela, p. ex., transformando um valor numérico \mintinline{js}{50.45} em uma \emph{string}
@@ -284,12 +288,12 @@ Outras ideias:
 letras maiúsculas
 \end{itemize}
 \subsection{Seleção de valores com \texttt{filter()}}
-\label{sec:org21851ae}
+\label{sec:org72503cf}
 Remover nomes que não começam com ‘S’
 \subsection{Nivelamento de valores com \texttt{concatAll()}}
-\label{sec:orgc1e2101}
+\label{sec:org7b31baa}
 \subsection{Redução de valores com \texttt{reduce()}}
-\label{sec:orgd381346}
+\label{sec:org19635ec}
 
 O método \mintinline{js}{reduce()} executa uma função \textbf{reducer} para cada item da
 lista, resultando num único valor. Em \ref{code:somaDePreçosComReduce} é
@@ -306,10 +310,31 @@ const total = preços.reduce(somar);
 \end{minted}
 \end{listing}
 \subsection{Agrupamento de valores com \texttt{zip()}}
-\label{sec:orgdaad8c5}
+\label{sec:orgc88c54f}
 \section{Coordenação de eventos}
-\label{sec:org66d03a1}
+\label{sec:orgdf48c53}
 \todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}
+A triagem em geral se apoia no que se escreveu sobre as alternativas, e não
+no uso delas \cite[p. 15]{kitchenham1996}.
+Aqui, ela se apoia também no uso de duas das notações, porque o autor
+escreveu implementações de referência em React e em JavaScript com
+\emph{callbacks}.
+
+Na Pesquisa Código Fonte TV 2026, a única sobre o Brasil, React, Angular e
+jQuery são a ferramenta mais usada no dia a dia por 7,6\%, 3,3\% e 0,3\% dos
+participantes \cite{codigofonte2026}.
+No W3Techs, o React está em 6,0\% dos \emph{sites} e o Angular em 0,2\%
+\cite{w3techs2026,w3techs2026a}.
+Só o State of JS dá número ao Solid, que tem uma resposta na Pesquisa
+Código Fonte TV.
+Na escrita das implementações, a familiaridade desigual do autor pesa
+menos, porque elas seguem a mesma especificação e são padronizadas entre
+as tecnologias.
+
+\textcite[p. 11]{kiss2014} também compara as implementações pela
+usabilidade do código, e não por tempo de execução e memória, como num
+\emph{benchmark} tradicional.
+
 Cada pesquisa de uso tem um limite de amostra.
 Os respondentes do Stack Overflow Developer Survey 2025 são recrutados
 sobretudo pelos próprios canais do site, o que favorece os usuários mais
@@ -361,7 +386,7 @@ anos de 0 a 99, e cada diferença conhecida fica registrada num teste.
 Entre Views e Compose, a única diferença admitida nas capturas é a de
 poucos pixels na renderização do texto.
 \subsection{Contador}
-\label{sec:org06896ae}
+\label{sec:orgd665b5d}
 
 \begin{description}
 \item[{Problema}] entender os conceitos essenciais da linguagem e a estrutura
@@ -451,11 +476,11 @@ Contador({ valorInicial: 0 });
 \end{minted}
 \end{listing}
 \subsubsection{Análise}
-\label{sec:org7c53d47}
+\label{sec:orgc509b90}
 
 Essa primeira análise é focada no básico.
 \paragraph{Nível de abstração}
-\label{sec:org6eb73aa}
+\label{sec:org04d998c}
 Na solução com \gls{poo} os conceitos da linguagem que deve-se entender são:
 classes, construtor, objetos, propriedades, métodos, \emph{callbacks} na forma
 de método, e conhecimento da \gls{api} do objeto do documento do \gls{html} ---
@@ -483,16 +508,16 @@ Níveis mais altos de abstração não são necessários, então a solução com
 é igualmente boa ou um pouco melhor que a solução com \gls{poo} quanto ao Nível
 de Abstração.
 \paragraph{Proximidade de descrição}
-\label{sec:org0e2e10a}
+\label{sec:org6a579e5}
 Essa dimensão/critério faz mais sentido para análise de apresentação do que
 comportamento (coordenação de eventos).
 \paragraph{Dependências ocultas}
-\label{sec:orgf171659}
+\label{sec:org662cf2f}
 \todo[noline]{Acredito que o HTML só não está situado no mesmo local que o código JavaScript, que é diferente de “oculto”.}
 As únicas dependências que podem ser consideradas ocultas são os elementos
 \gls{html} buscados pelo identificador com \texttt{document.getElementById("id")}.
 \paragraph{Propensão a erros}
-\label{sec:org63ff66f}
+\label{sec:orgef3f2af}
 Na solução com \gls{poo}, esquecer de vincular a instância do contador à função
 \texttt{tratarClique()} resultará no erro “TypeError: this.renderizar is not a
 function”.
@@ -525,7 +550,7 @@ Pois ela não será renderizada, apesar de toda a lógica do contador
 funcionar.
 Apesar de tudo, essas possibilidades de erros não são críticas.
 \paragraph{Concisão}
-\label{sec:org785ebc6}
+\label{sec:org1125051}
 Na solução com \gls{poo} o método \mintinline{js}{tratarClique()}, usado como \emph{callback},
 poderia ser substituído por uma função de seta.
 Além de poupar algumas linhas o uso do \mintinline{js}{.bind(this)} se torna
@@ -542,11 +567,11 @@ De qualquer forma, a \gls{pr} evita a verbosidade da declaração da classe e do
 métodos, além da repetição do \mintinline{js}{this}.
 Então em termos de Concisão a \gls{pr} está à frente da \gls{poo}.
 \paragraph{Viscosidade}
-\label{sec:org7ca5a61}
+\label{sec:org402e396}
 Num caso tão simples como o do Contador a única resistência a alteração
 está em renomear atributos no caso da \gls{poo}, e variáveis na \gls{pr}.
 No entanto isso é inevitável ao renomear termos.
 Além disso o \gls{ide} pode ajudar através de uma funcionalidade de refatoração.
 \todo{Talves seja interessante analisar a viscosidade da alteração pra colocar um botão de decremento (-1) do Contador.}
 \subsection{Reserva de voo}
-\label{sec:orgd294180}
+\label{sec:org9aa5e82}

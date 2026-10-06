@@ -9,6 +9,7 @@ Quando o Solid e o Angular com /signals/ divergem numa [[gls:dc]], a célula o
 registra.
 A seção de cada [[gls:dc]] cita as outras tarefas quando contradizem a escolhida, e a tabela
 diz "sem diferença" quando nenhuma tarefa mostra uma.
-A contagem de linhas inclui a estrutura da tela, esteja ela no mesmo arquivo da
+A contagem de linhas deixa de fora as linhas vazias, os comentários, o
+domínio e o estilo, e inclui a estrutura da tela, esteja ela no mesmo arquivo da
 coordenação ou num arquivo à parte, como o [[gls:html]] da página no jQuery e o
 layout [[gls:xml]] nas Views.

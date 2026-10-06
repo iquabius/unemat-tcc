@@ -4,10 +4,6 @@ Interfaces gráficas mediam a maioria das nossas interações com computadores,
 seja em celulares e /notebooks/, seja no navegador web.
 Projetá-las e implementá-las é difícil por natureza, e deve continuar sendo
 [[cite:myers1994][p. 73]].
-Na implementação, a aplicação deixa de controlar a execução e se divide em
-sub-rotinas que o /toolkit/ da interface chama quando o usuário age, e
-programas assim parecem mais difíceis de organizar e modularizar
-[[cite:myers1994][p. 79]].
 Para gerenciar interações na programação de interfaces, é necessário coordenar
 os eventos gerados pelas ações do usuário no teclado, no mouse ou na tela
 multitoque.
@@ -28,12 +24,6 @@ vários /callbacks/ independentes.
 Em 2026, o tratamento de eventos nas interfaces ainda se apoia em
 /callbacks/ ou /listeners/, que tornam difíceis de exprimir e de manter os
 fluxos de interação complexos [[cite:grolaux2026][p. 8]].
-Numa rede de /callbacks/, a ordem em que os eventos chegam pode depender da
-ordem em que os /callbacks/ foram registrados, o que a torna difícil de prever
-[[cite:blackheath2016][p. 8]].
-“Coordenar alterações ao estado compartilhado em meio a esse caos pode ser
-desconcertante, e está longe de ser modular. A definição coloquial é /Callback
-Hell/.” [[cite:edwards2009][p. 926; tradução nossa]].
 Uma análise das aplicações /desktop/ da Adobe concluiu que a lógica de
 tratamento de eventos era um terço do código e continha metade dos /bugs/
 relatados [[cite:edwards2009][p. 926]].
@@ -58,12 +48,9 @@ Outra alternativa ao /callback/ é a [[gls:pr]].
 Segundo [[textcite:salvaneschi2017][p. 1125-1126]], nela o programador
 declara as relações entre os valores, e o ambiente de execução faz as
 atualizações que elas exigem.
-Eles a registram em interfaces gráficas, animações, aplicações web, robótica
-e redes de sensores.
 Para [[textcite:bainomugisha2013][p. 1-2]], a [[gls:pr]] serve às aplicações
 orientadas a eventos e interativas e leva às linguagens de programação o
-modelo das planilhas eletrônicas, como o /Google Sheets/ e o /Microsoft
-Excel/.
+modelo das planilhas eletrônicas.
 
 [[textcite:salvaneschi2017][p. 1125-1134]] testaram uma afirmação antiga,
 até então sem evidência empírica, de que a [[gls:pr]] torna os programas mais fáceis
@@ -100,25 +87,16 @@ significativa) e não levou mais tempo.
 
   As pesquisas de uso medem tecnologias, não notações, e por isso o uso de
   cada notação se afere pelas tecnologias que a adotam.
-  Quatro medidas dão esse uso:
-
-  - Stack Overflow Developer Survey 2025 :: React, jQuery e Angular estão
-    entre as sete tecnologias web mais usadas, com 44,7%, 23,4% e 18,2% dos
-    respondentes cite:stackoverflow2025;
-  - W3Techs :: o jQuery está em 65,5% dos /sites/ monitorados, o React em
-    6,0% e o Angular em 0,2% cite:w3techs2026,w3techs2026a;
-  - State of JS 2025 :: o Solid é usado por 10% dos respondentes
-    cite:devographics2026;
-  - Pesquisa Código Fonte TV 2026 :: a única sobre o Brasil, põe React,
-    Angular e jQuery como a ferramenta mais usada no dia a dia por 7,6%,
-    3,3% e 0,3% dos participantes cite:codigofonte2026.
-
-  Só o State of JS dá número ao Solid, que tem uma resposta na Pesquisa
-  Código Fonte TV, e nenhuma das quatro mede os Web Components sem
-  biblioteca.
+  No Stack Overflow Developer Survey 2025, React, jQuery e Angular estão
+  entre as sete tecnologias web mais usadas, com 44,7%, 23,4% e 18,2% dos
+  respondentes cite:stackoverflow2025, e o jQuery está em 65,5% dos /sites/
+  que o W3Techs monitora cite:w3techs2026.
+  O Solid é usado por 10% dos respondentes do State of JS 2025
+  cite:devographics2026.
+  Nenhuma dessas pesquisas mede os Web Components sem biblioteca nem separa,
+  no Angular, quem usa /signals/.
   Por isso, o uso da notação reativa fina se apoia no Angular, que também a
-  adota, embora nenhum número do Angular separe quem usa /signals/.
-  Da mesma forma, o uso da notação imperativa se apoia no jQuery.
+  adota, e o da imperativa, no jQuery.
   O Web Component entra por ser o modelo de componente do próprio navegador
   cite:mozilla2026, e nele a notação é o =addEventListener= cujo /callback/
   altera a tela.
@@ -190,9 +168,6 @@ significativa) e não levou mais tempo.
   cite:sim2003.
   Aqui, as técnicas são as três notações, e as tarefas, cinco interfaces
   típicas da web.
-  [[textcite:kiss2014][p. 11]] também compara as implementações pela
-  usabilidade do código, e não por tempo de execução e memória, como num
-  /benchmark/ tradicional.
   @@latex:\todo[inline]{O projeto classificava o trabalho, quanto aos meios, como estudo de casos múltiplos (Leal 2011; Yin 2001). As definições reunidas por Runeson e Höst (2009, p. 134 e 139) pedem um fenômeno contemporâneo no seu contexto real e excluem os programas de exemplo. Por isso a classificação saiu, e as interfaces implementadas passaram a se chamar tarefas, como no 7GUIs (Kiss 2014) e em Sim et al. (2003). Registrar essa mudança no texto?}@@
 
   A avaliação cabe ao autor, que examina o código das implementações critério
@@ -205,11 +180,6 @@ significativa) e não levou mais tempo.
   características (/feature analysis/).
   Feita por uma pessoa só, que escolhe os critérios e os aplica, ela é uma
   triagem (/screening/).
-  A triagem em geral se apoia no que se escreveu sobre as alternativas, e não
-  no uso delas [[cite:kitchenham1996][p. 15]].
-  Aqui, ela se apoia também no uso de duas das notações, porque o autor
-  escreveu implementações de referência em React e em JavaScript com
-  /callbacks/.
 
   As [[glspl:dc]] admitem várias notações num mesmo sistema
   [[cite:blackwell2001][p. 328]], e o código de uma interface gráfica tem pelo menos
@@ -261,8 +231,6 @@ significativa) e não levou mais tempo.
   classe, com decorador e injeção de dependências.
   A análise precisa separar o que vem do /template/ do que vem desse modelo
   de componente.
-  A notação imperativa entra com duas tecnologias, o Web Component, da
-  própria plataforma web, e o jQuery, uma biblioteca.
 
   No Android, o Formulário e a Lista formam uma /replicação/, que confere se
   as conclusões tiradas na web se repetem em outra plataforma e outra
@@ -270,15 +238,13 @@ significativa) e não levou mais tempo.
   As Views ficam na notação imperativa, e o Compose, na declarativa por
   re-renderização, porque chama de novo as funções da tela quando o estado
   muda cite:android2026.
-  A replicação fica, assim, entre essas duas notações.
   O Contador também é implementado no Android, como introdução à sintaxe,
   sem análise própria.
 
   Para que as diferenças entre as implementações venham da notação, o
   desenho controla o resto.
   A linguagem é uma só em cada plataforma: Kotlin no Android e, na web,
-  /TypeScript/, que acrescenta ao JavaScript uma sintaxe de tipos
-  cite:microsoft2026.
+  /TypeScript/.
   O Angular exige TypeScript cite:google2026b, e as demais tecnologias web
   também o usam.
   Todas as implementações de uma tarefa seguem a mesma especificação, com os
@@ -299,10 +265,7 @@ significativa) e não levou mais tempo.
   Nele, as versões de linguagens, bibliotecas e ferramentas ficam
   fixadas[fn:versoes], para que as implementações possam ser reproduzidas.
 
-  A avaliação usa as [[glspl:dc]], que [[textcite:blackwell2003][p. 106]] chamam de ferramentas
-  de discussão, para quem projeta ou avalia artefatos de informação, e não
-  de método analítico.
-  O trabalho usa oito das catorze dimensões.
+  A avaliação usa oito das catorze [[glspl:dc]].
   Seis são as que [[textcite:kiss2014][p. 12-14]] usou: /nível de
   abstração/, /proximidade de descrição/, /dependências ocultas/,
   /propensão a erros/, /concisão/ e /viscosidade/.
@@ -323,7 +286,7 @@ significativa) e não levou mais tempo.
   Nas seções em que o Formulário ou a Lista mostram diferença entre Views e
   Compose, a replicação diz se a conclusão da web se repete no Android.
   A concisão tem ainda o apoio de uma contagem das linhas de cada
-  implementação, sem linhas vazias, comentários, domínio e estilo.
+  implementação.
   @@latex:\todo[inline]{Termos: \enquote{comparar} fica para o objetivo, \enquote{avaliação} para a aplicação das DCs ao código e \enquote{análise} para a parte que apresenta os resultados. Considerar um termo só, \enquote{avaliação}, para a atividade toda. A favor: uma palavra por conceito, sem o leitor se perguntar se são três atividades. Contra: mudam mais frases, e o objetivo geral perde o verbo \enquote{comparar}, que diz o que se faz entre as notações.}@@
 
   O desenho tem limitações em três pontos: quem avalia, o instrumento e o
@@ -335,10 +298,8 @@ significativa) e não levou mais tempo.
   Além disso, quem avalia o que escreveu pode trazer um viés implícito
   cite:ledo2018.
   A familiaridade do autor com as tecnologias é desigual, maior com o React.
-  Na escrita das implementações, esse desnível pesa menos, porque elas seguem
-  a mesma especificação e são padronizadas entre as tecnologias.
-  No juízo da avaliação, que é subjetivo, o desnível continua e pode favorecer
-  uma notação.
+  No juízo da avaliação, que é subjetivo, esse desnível pode favorecer uma
+  notação.
 
   A avaliação pelas [[glspl:dc]] é analítica, e não um experimento com programadores.
   O trabalho escolheu as oito [[glspl:dc]] antes da avaliação, e usar um subconjunto

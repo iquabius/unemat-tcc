@@ -22,17 +22,6 @@ Formato:
 
 * §2 [[file:../intro.org::Para coordenar eventos é comum usar o][Para coordenar eventos é comum usar o callback]]
 ** edwards2009, p. 926
-- Frase: “Coordenar alterações ao estado compartilhado em meio a esse caos
-  pode ser desconcertante, e está longe de ser modular. A definição
-  coloquial é /Callback Hell/.” (citação direta, tradução nossa)
-- Trecho: “Coordinating changes to communal state amidst this chaos can be
-  baffling, and is far from modular. The colloquial description is
-  Callback Hell.”
-- Lido em: =tmp/fontes/edwards2009-coherent-reaction.pdf=, p. 2 do PDF,
-  sem paginação impressa; p. 926 calculada pelo início dos anais (925).
-- Conferido: 2026-10-01; de novo em 2026-10-04.
-
-** edwards2009, p. 926 (Adobe)
 - Frase: “Uma análise das aplicações /desktop/ da Adobe concluiu que a
   lógica de tratamento de eventos era um terço do código e continha
   metade dos /bugs/ relatados.”
@@ -62,7 +51,7 @@ Formato:
   PDF.
 - Conferido: 2026-10-06.
 
-* §24 [[file:../intro.org::O Contador, o Formulário e a Lista partem][O Contador, o Formulário e a Lista partem]]
+* §21 [[file:../intro.org::O Contador, o Formulário e a Lista partem][O Contador, o Formulário e a Lista partem]]
 ** kiss2014, p. 11, 17, 25 e 34
 - Frase: “O Contador, o Formulário e a Lista partem de três das sete
   tarefas do 7GUIs, propostas na dissertação de Kiss (2014, p. 17, 25 e
@@ -74,7 +63,7 @@ Formato:
 - Observação: “sete” vem da p. 11, que o texto não cita.
 - Conferido: 2026-10-06.
 
-* §29 [[file:../intro.org::A avaliação usa as][A avaliação usa as DCs]]
+* §26 [[file:../intro.org::A avaliação usa oito][A avaliação usa oito das catorze]]
 ** kiss2014, p. 15
 - Frase: “As outras duas, /expressividade/ e /operações mentais difíceis/,
   vêm do grupo de cinco que Kiss (2014, p. 15) deixou de fora e que, a seu
@@ -97,7 +86,7 @@ Formato:
   ali, e não exemplos; por isso o “como” saiu.
 - Conferido: 2026-10-06.
 
-* §13 [[file:../intro.org::Nenhum desses trabalhos compara][Nenhum desses trabalhos compara]]
+* §11 [[file:../intro.org::Nenhum desses trabalhos compara][Nenhum desses trabalhos compara]]
 ** wohlin2014, p. 3-4
 - Frase: “A lacuna se apoia nessa revisão, feita por palavras-chave e
   /snowballing/ (Wohlin, 2014, p. 3-4) em duas rodadas, em setembro e
@@ -109,4 +98,28 @@ Formato:
   impressa (EASE '14).
 - Observação: a frase já citava Wohlin p. 3-4 antes do corte; as rodadas e
   as datas são do próprio trabalho (Apêndice B).
+- Conferido: 2026-10-06.
+
+* §9 [[file:../intro.org::As pesquisas de uso medem][As pesquisas de uso medem]]
+** stackoverflow2025
+- Frase: “No Stack Overflow Developer Survey 2025, React, jQuery e Angular
+  estão entre as sete tecnologias web mais usadas, com 44,7%, 23,4% e
+  18,2% dos respondentes”
+- Trecho: “2. React: 44.7%”, “3. jQuery: 23.4%”, “7. Angular: 18.2%”
+  (Web frameworks and technologies, todos os respondentes).
+- Lido em: =tmp/fontes/stackoverflow2025.txt=, l. 15-20 (página salva em
+  2026-09-29).
+- Conferido: 2026-10-06.
+** w3techs2026
+- Frase: “o jQuery está em 65,5% dos /sites/ que o W3Techs monitora”
+- Trecho: “jQuery is used by 65.5% of all the websites”
+- Lido em: =tmp/fontes/w3techs2026.txt=, l. 98 (página salva em
+  2026-09-29); o universo é o dos sites que o W3Techs monitora
+  (=w3techs2026-metodologia.txt=).
+- Conferido: 2026-10-06.
+** devographics2026
+- Frase: “O Solid é usado por 10% dos respondentes do State of JS 2025.”
+- Trecho: “Solid may only be used by 10% of respondents”
+- Lido em: =tmp/fontes/devographics2026.txt=, l. 49 (página salva em
+  2026-09-29); a tabela dá 1.269 de 12.030 (10,55%).
 - Conferido: 2026-10-06.

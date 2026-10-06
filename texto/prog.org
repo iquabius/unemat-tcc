@@ -138,6 +138,16 @@ denominadas /linguagens imperativas/.
 * Programação de interfaces gráficas
 
   @@latex:\todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}@@
+  Na implementação, a aplicação deixa de controlar a execução e se divide em
+  sub-rotinas que o /toolkit/ da interface chama quando o usuário age, e
+  programas assim parecem mais difíceis de organizar e modularizar
+  [[cite:myers1994][p. 79]].
+  Numa rede de /callbacks/, a ordem em que os eventos chegam pode depender da
+  ordem em que os /callbacks/ foram registrados, o que a torna difícil de prever
+  [[cite:blackheath2016][p. 8]].
+  “Coordenar alterações ao estado compartilhado em meio a esse caos pode ser
+  desconcertante, e está longe de ser modular. A definição coloquial é /Callback
+  Hell/.” [[cite:edwards2009][p. 926; tradução nossa]].
   Em quatro sistemas de grande porte com as interfaces gráficas feitas na
   mesma [[gls:api]], [[textcite:mijailovic2014][p. 770]] contaram de 1.221 a 31.285
   tratadores de eventos.
