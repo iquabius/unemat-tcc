@@ -131,8 +131,23 @@ sobra passa pela rodada por bloco. As técnicas e as fontes estão em
      cortada deixa na matriz uma entrada sem citação, e o parágrafo
      cortado ou fundido, um link quebrado; ambos saem ou se corrigem na
      matriz no mesmo commit do corte;
-   - releia a cadeia inteira, porque um corte pode deixar uma afirmação
-     sem o elo anterior.
+   - releia a cadeia inteira, do primeiro ao último parágrafo, antes do
+     commit de toda rodada, mesmo quando o bloco ainda está acima do
+     orçamento. A releitura local do passo 5 não a substitui, nem o
+     `--parte`, que só acha a palavra-marcador de cada elo. O mapa da
+     cadeia vai para o `tmp/estrutura-<bloco>-<data>.md`, uma linha por
+     parágrafo: o elo que ele sustenta, os eixos da pesquisa que ele
+     carrega (os da pergunta e dos objetivos) e se segue do anterior.
+     Depois, confira cada eixo: o objetivo que não tem etapa no método, a
+     afirmação que perdeu a fonte ou o antecedente, o eixo que aparece no
+     desenho e some da análise. O que a rodada causou se corrige antes do
+     commit; o que tira ou enfraquece um elo se pergunta antes (passo 4);
+     o que já estava no texto vira pendência no mapa ou tarefa no `bd`.
+     Exemplo de 2026-10-06: as rodadas 1 e 2 da introdução foram
+     commitadas sem essa releitura, e só depois apareceram a frase
+     "é nela que a programação de interfaces se afasta dos outros
+     programas" sem a fonte, que tinha ido para `prog.org`, e a notação
+     imperativa fora do parágrafo do desenho.
 7. **Quarentena.** O bloco commitado só volta a ser lido no PDF numa
    sessão seguinte, e não na mesma do corte. Primeiro se procura o que
    falta e o que sobra; só então a frase. No aprovo do diff (passo 8 da
@@ -277,6 +292,10 @@ perguntas, e então o autor dá o rótulo.
    preferências do `AGENTS.md`.
 
 ## Fechar e commitar
+
+Na rodada de corte, o commit espera a releitura da cadeia inteira do
+passo 6, feita e mostrada ao autor, com o que ela achou corrigido ou
+decidido.
 
 1. `refs.bib`, se ganhou entrada: `%`, `#` e `&` escapados fora de `url` e
    `doi`, inclusive em `annotation`; confira com
