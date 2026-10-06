@@ -258,3 +258,53 @@ perguntas, e então o autor dá o rótulo.
    Mostre a mensagem e commite na mesma resposta. Nada de push.
 5. Pendências que sobraram viram tarefa no `bd`; achado de implementação,
    nota em `docs/achados-das-implementacoes.md`.
+
+## Checagem adversarial, antes de cada tag de fase
+
+Por que existe: a porta aberta confere a fonte só das frases do diff
+(ADR 0023). Afirmação antiga sem fonte, número errado, contradição entre
+seções e salto causal passam enquanto ninguém mexer na frase. Antes da
+tag de uma fase (ADR 0024; `AGENTS.md`, "Versões"), cada capítulo que a
+fase mudou é lido inteiro por um crítico hostil de fatos e de lógica. O
+método, os vereditos, a escada de fontes, a instrução dos subagentes e o
+formato do relatório estão em `references/checagem-adversarial.md` da
+`escrita-academica`; leia-o antes.
+
+1. **Texto aprovado.** A checagem lê o HEAD. Rascunho do autor em
+   `git diff HEAD -- texto/` passa antes pela porta aberta e pelo commit.
+   Roda no checkout principal, porque as correções são no texto. Anote o
+   commit lido.
+2. **Extração e mapa**, pelo agente principal, em
+   `tmp/checagem-<capítulo>-<data>/passada-1.md`. Onde a verdade deve
+   estar: a chave e a página citadas, o PDF em `tmp/fontes/`, a entrada
+   de `texto/fontes/<capítulo>.org`; para o próprio trabalho (casos,
+   tecnologias, implementações), `casos/` e `CONTEXT.md`. A cadeia do
+   mapa é a da rodada de corte, passo 3. As contradições se procuram
+   também nos outros capítulos e contra os termos do `CONTEXT.md`.
+3. **Passada 1.** Um subagente por lote, todos na mesma mensagem, com a
+   instrução da referência e os caminhos absolutos dos PDFs em
+   `tmp/fontes/` do checkout principal. Enquanto rodam, a auditoria
+   lógica. O relatório vai para o arquivo do passo 2, e o resumo, para a
+   conversa.
+4. **Correções como na porta aberta.** Com `texto/` igual ao HEAD, o
+   `git diff` mostra só as correções do agente. Aplique de uma vez, nas
+   duas classes do passo 6 da porta aberta, com os links do passo 7.
+   - Correção que só o subagente leu é conferida pelo agente no PDF, com
+     trecho e página, e entra na matriz antes de ir para o texto.
+   - Frase sem fonte ganha o marcador e o aviso e não some.
+   - Afirmação que sustenta uma conclusão e caiu, correção que derruba
+     uma premissa e correção que tira um elo se perguntam antes, uma por
+     mensagem, sem frase nova (passo 4 da porta aberta).
+
+   O autor revisa no diff e desfaz o que recusar; o commit segue "Fechar
+   e commitar", com a linha `Fontes conferidas:` e a lista das correções
+   aprovadas na mensagem.
+5. **Passada 2**, só depois do commit da primeira, de preferência numa
+   sessão nova, que lê o texto e a referência e não o relatório da
+   primeira. A extração se refaz sobre o texto corrigido, com subagentes
+   novos, em `tmp/checagem-<capítulo>-<data>/passada-2.md`. A lista do
+   commit da passada 1 serve só para conferir que cada correção aprovada
+   está no HEAD. As correções seguem o passo 4.
+6. **Tag.** Sai depois do commit da segunda passada. O que ficou com
+   marcador ou sem PDF vira tarefa no `bd`, no épico que a tabela do
+   `AGENTS.md` der.
