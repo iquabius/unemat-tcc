@@ -80,6 +80,9 @@ sobra passa pela rodada por bloco. As técnicas e as fontes estão em
    - Dado que só ilustra sai.
    - Antes de cortar uma fonte, `grep` a chave no capítulo: a mesma fonte
      pode apoiar outra afirmação.
+   - Antes de mover ou cortar uma frase, procure no capítulo as frases que
+     a retomam: um "desse grupo", um "das três", um número, um "por isso".
+     Elas entram na linha do rótulo e na costura do passo 5.
 4. **O que se pergunta antes** (ADR 0022): o movimento que tira ou
    enfraquece um elo da cadeia, como a única fonte de uma afirmação da
    justificativa, um objetivo, uma etapa do método ou uma limitação. Um
@@ -92,10 +95,31 @@ sobra passa pela rodada por bloco. As técnicas e as fontes estão em
    ficou, como uma transição nova ou a fusão de dois parágrafos. A
    costura é correção de sentido da porta aberta, com fonte conferida e
    as marcas de texto gerado por IA checadas (`references/marcas-de-ia.md`
-   da `escrita-academica`). Na resposta:
+   da `escrita-academica`).
+
+   Toda frase que entra ou sai de um parágrafo pede uma releitura antes
+   de aplicar:
+   - o parágrafo inteiro de onde ela sai ou onde entra; a frase ao redor
+     que perdeu o antecedente, a conta ou a razão se reescreve na costura;
+   - o parágrafo anterior e o seguinte, quando o movimento funde
+     parágrafos, move um parágrafo inteiro ou mexe em mais de uma frase:
+     a transição tem de seguir, e o tamanho dos parágrafos, razoável;
+   - as frases do capítulo que retomam o que saiu, mesmo longe (passo 3).
+
+   Exemplo de 2026-10-06: a escolha das DCs foi para `texto/cases.org`, e
+   o parágrafo que ficou na introdução ("A avaliação usa as") trazia a
+   condição de Kiss (2014, p. 15) sem resposta, uma conta de 6 + 2 + 3
+   que não dava as 14 dimensões e um "como" que fazia da lista inteira
+   um exemplo. Mais adiante, "A exclusão mais discutível é a do
+   compromisso prematuro" tinha perdido o antecedente e pediu a costura
+   "Das três que não entram".
+
+   Na resposta:
    - o mapa dos rótulos, uma linha por parágrafo ou fonte: o rótulo, o
-     que a cadeia perde e quantas palavras saem;
-   - as costuras, com o motivo;
+     que a cadeia perde e quantas palavras saem; por movimento, também o
+     que foi relido (o parágrafo, os vizinhos, as frases que retomavam o
+     que saiu) e o que a costura mudou, ou "sem costura";
+   - as costuras, com o texto e o motivo;
    - o total contra o orçamento.
 
    O autor revisa no diff e desfaz o movimento que recusar, com a costura
@@ -132,6 +156,15 @@ Mostre só os hunks da edição, num bloco `diff`, com a linha do `.org`.
 Nessa fase o agente faz o que o autor pediu e não "melhora" o resto do
 rascunho por conta própria. Se notar um problema fora do pedido, diga
 numa linha e deixe para a porta aberta.
+
+A exceção é a releitura do passo 5 da rodada de corte. Quando a edição
+pedida põe ou tira uma frase, o agente relê o parágrafo e, na edição
+maior, os vizinhos e as frases do capítulo que retomavam o que saiu, e
+reescreve junto as frases que perderam o antecedente, a conta ou a
+razão. Na resposta, essas frases vêm separadas do pedido, cada uma com
+o motivo numa linha. Como todo o resto da porta fechada, nada disso vai
+para commit: o autor confere e edita no `.org`, e a fonte e o aprovo
+ficam para a porta aberta.
 
 Entre escrever sozinho e pedir a edição há o meio-termo: o agente
 pergunta e o autor escreve, no Modo 4 da `escrita-academica`. Ele entra
@@ -203,6 +236,12 @@ perguntas, e então o autor dá o rótulo.
      uma, `arquivo:linha`, o motivo com o princípio e a fonte (Modo 1 da
      `escrita-academica`), a fonte conferida se a frase cita uma, e o link
      do passo 7.
+
+   Correção que acrescenta, tira ou move uma frase pede a releitura do
+   passo 5 da rodada de corte antes de aplicar: o parágrafo inteiro, os
+   vizinhos na edição maior e as frases do capítulo que retomavam o que
+   saiu. A frase ao redor que a releitura reescreve é correção de
+   sentido, e a linha dela diz o que foi relido.
 
    Na dúvida entre as classes, a correção é de sentido. Uma decisão por
    mensagem só quando o autor escreve ou edita frases uma a uma, parágrafo
