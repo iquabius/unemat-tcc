@@ -299,7 +299,14 @@ formato do relatório estão em `references/checagem-adversarial.md` da
    `tmp/fontes/` do checkout principal. Enquanto rodam, a auditoria
    lógica. O relatório vai para o arquivo do passo 2, e o resumo, para a
    conversa.
-4. **Correções como na porta aberta.** Com `texto/` igual ao HEAD, o
+4. **Perguntas socráticas antes das correções.** Salto causal, premissa
+   não dita e elo sem apoio não viram frase do agente: cada um vira uma
+   pergunta do Modo 4 da `escrita-academica`, uma por mensagem, com o
+   princípio, a fonte dele e as palavras do texto com a linha, sem frase
+   proposta (seção 7 da referência). O autor escreve o elo no Emacs ou
+   dita a frase, que o agente copia letra por letra. O que ele escreve
+   vai para o índice (passo 1 da porta aberta) antes das correções.
+5. **Correções como na porta aberta.** Com o texto do autor no índice, o
    `git diff` mostra só as correções do agente. Aplique de uma vez, nas
    duas classes do passo 6 da porta aberta, com os links do passo 7.
    - Correção que só o subagente leu é conferida pelo agente no PDF, com
@@ -312,12 +319,21 @@ formato do relatório estão em `references/checagem-adversarial.md` da
    O autor revisa no diff e desfaz o que recusar; o commit segue "Fechar
    e commitar", com a linha `Fontes conferidas:` e a lista das correções
    aprovadas na mensagem.
-5. **Passada 2**, só depois do commit da primeira, de preferência numa
+6. **Passada 2**, só depois do commit da primeira, de preferência numa
    sessão nova, que lê o texto e a referência e não o relatório da
    primeira. A extração se refaz sobre o texto corrigido, com subagentes
    novos, em `tmp/checagem-<capítulo>-<data>/passada-2.md`. A lista do
    commit da passada 1 serve só para conferir que cada correção aprovada
-   está no HEAD. As correções seguem o passo 4.
-6. **Tag.** Sai depois do commit da segunda passada. O que ficou com
+   está no HEAD. Antes do diff, além das socráticas do passo 4, uma
+   mensagem só com as perguntas numeradas, que o autor responde por
+   número:
+   - de informação, para a afirmação sem fonte: de onde ela veio, antes
+     do marcador;
+   - de decisão, com as alternativas e sempre "manter como está", para o
+     enganoso, a contradição e o achado que desfaz ou refaz uma correção
+     aprovada na passada 1, que nunca entra direto no diff.
+
+   O resto, mecânico ou fato novo, segue o passo 5.
+7. **Tag.** Sai depois do commit da segunda passada. O que ficou com
    marcador ou sem PDF vira tarefa no `bd`, no épico que a tabela do
    `AGENTS.md` der.
