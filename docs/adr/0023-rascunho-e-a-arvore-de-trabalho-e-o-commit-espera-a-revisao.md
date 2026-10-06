@@ -24,9 +24,10 @@ Cursor ou no PDF do diff ao vivo (`bin/diff-ao-vivo.sh`), e desfaz o hunk
 que recusar antes do commit. Uma decisão por mensagem fica para quando o
 autor escreve ou edita frases uma a uma, parágrafo por parágrafo. Antes
 de aplicar, o agente pergunta: decisão de método, rótulo, recorte ou
-critério; correção que derruba uma premissa ou conclusão; corte, que
-segue o ADR 0022. Cada afirmação apoiada em fonte é conferida no PDF
-antes de a correção entrar, com trecho e página, que vão para a matriz
+critério; correção que derruba uma premissa ou conclusão; movimento de
+corte que tira um elo da cadeia (ADR 0022). Cada afirmação apoiada em
+fonte é conferida no PDF antes de a correção entrar, com trecho e
+página, que vão para a matriz
 `texto/fontes/<capítulo>.org` e, resumidos, para a mensagem do commit;
 frase sem fonte ganha o marcador e não some; métricas e leitura com a
 `escrita-academica`. O commit espera o aprovo do autor. A sessão que

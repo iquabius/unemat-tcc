@@ -135,7 +135,7 @@ e o HEAD é o texto aprovado (ADR 0023, skill `revisao-de-texto`).
   - o autor revisa no diff (Magit, Cursor ou PDF ao vivo) e desfaz o hunk
     que recusar; uma decisão por mensagem só quando ele escreve ou edita
     frases uma a uma; antes de aplicar, pergunta-se a decisão de método,
-    a correção que derruba uma conclusão e o corte;
+    a correção que derruba uma conclusão e o corte que tira um elo;
   - cada afirmação apoiada numa fonte é conferida no PDF, com o trecho e a
     página, e entra em `texto/fontes/<capítulo>.org`;
   - `metricas_texto.py` e a leitura com as referências da
@@ -147,8 +147,11 @@ e o HEAD é o texto aprovado (ADR 0023, skill `revisao-de-texto`).
 Bloco acima do orçamento passa antes pela rodada de corte da mesma skill
 (ADR 0022). O orçamento da introdução é de 2.500 palavras, medido com
 `metricas_texto.py --orcamento`. Cada parágrafo e cada fonte recebe um
-rótulo: manter, condensar, mover ou cortar. O autor aprova o corte por
-movimento, e a frase que costura o corte passa pela porta aberta.
+rótulo: manter, condensar, mover ou cortar. O agente aplica de uma vez os
+movimentos que deixam de pé a cadeia do bloco (na introdução, problema,
+justificativa, pergunta, objetivos, método e limitações), com a costura,
+e o autor os revisa no diff; o movimento que tira ou enfraquece um elo se
+pergunta antes.
 
 - Decisão de método, rótulo, recorte ou critério é do autor: perguntar,
   com as alternativas, antes de escrever.

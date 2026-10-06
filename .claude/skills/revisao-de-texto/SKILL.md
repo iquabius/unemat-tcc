@@ -62,8 +62,9 @@ sobra passa pela rodada por bloco. As técnicas e as fontes estão em
    com a função, as fontes e as palavras. Depois, o teste de Garcia: só
    as primeiras frases de cada parágrafo já contam o argumento?
 3. **Teste do silêncio**, por parágrafo e por fonte. Escreva a cadeia que
-   o bloco sustenta, numa linha; na introdução, problema → lacuna →
-   pergunta → objetivos → método. Cada parágrafo recebe um rótulo:
+   o bloco sustenta, numa linha; na introdução, problema → justificativa
+   (porquê, relevância, originalidade) → pergunta → objetivos → método →
+   limitações. Cada parágrafo recebe um rótulo:
    **manter**, **condensar**, **mover** (com destino) ou **cortar**, e uma
    frase sobre o que a cadeia perde sem ele.
    - Uma fonte fica se sustenta um elo da cadeia, e não se só mostra que
@@ -76,15 +77,26 @@ sobra passa pela rodada por bloco. As técnicas e as fontes estão em
    - Dado que só ilustra sai.
    - Antes de cortar uma fonte, `grep` a chave no capítulo: a mesma fonte
      pode apoiar outra afirmação.
-4. **Proposta por movimento**: uma decisão por mensagem, no formato
-   riscado dos rascunhos (`~~sai~~`, `*[o quê → destino]*`). Para cada
-   parágrafo ou fonte, mostre o rótulo, o que a cadeia perde e quantas
-   palavras saem. O autor aprova o movimento inteiro.
-5. **Costura.** A frase reescrita para ligar o que ficou, como uma
-   transição nova ou a fusão de dois parágrafos, passa pela porta aberta
-   abaixo, com fonte e aprovo.
-6. **Aplicar e conferir.** Aplique o corte aprovado na árvore com o diff
-   ao vivo e meça de novo contra o orçamento. Depois:
+4. **O que se pergunta antes** (ADR 0022): o movimento que tira ou
+   enfraquece um elo da cadeia, como a única fonte de uma afirmação da
+   justificativa, um objetivo, uma etapa do método ou uma limitação. Um
+   por mensagem, no formato riscado dos rascunhos (`~~sai~~`,
+   `*[o quê → destino]*`), com o elo afetado e as alternativas. Na dúvida
+   se um movimento enfraquece um elo, pergunte.
+5. **Aplicar de uma vez, com a costura.** Com o rascunho do autor no
+   índice (passo 1 da porta aberta), aplique na árvore todos os
+   movimentos que deixam os elos de pé, com as frases que costuram o que
+   ficou, como uma transição nova ou a fusão de dois parágrafos. A
+   costura é correção de sentido da porta aberta, com fonte conferida.
+   Na resposta:
+   - o mapa dos rótulos, uma linha por parágrafo ou fonte: o rótulo, o
+     que a cadeia perde e quantas palavras saem;
+   - as costuras, com o motivo;
+   - o total contra o orçamento.
+
+   O autor revisa no diff e desfaz o movimento que recusar, com a costura
+   dele.
+6. **Conferir.** Meça de novo contra o orçamento. Depois:
    - `auditar_bib.py`: a entrada que saiu do texto aparece como nunca
      citada; decida com o autor se sai do `refs.bib`;
    - releia a cadeia inteira, porque um corte pode deixar uma afirmação
@@ -160,8 +172,8 @@ perguntas, e então o autor dá o rótulo.
    decisão por mensagem:
    - decisão de método, rótulo, recorte ou critério, que é do autor;
    - correção que derruba uma premissa ou uma conclusão do texto;
-   - corte de parágrafo ou de fonte, que segue a rodada de corte (ADR
-     0022).
+   - movimento de corte que tira ou enfraquece um elo da cadeia (ADR
+     0022, passo 4 da rodada de corte).
 
    Frase sem fonte ganha o marcador (`p. N`, "precisa de fonte") e o aviso,
    e não some. Decisão cara de reverter vira ADR (skill `adr`).
