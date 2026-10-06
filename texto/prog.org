@@ -137,6 +137,17 @@ denominadas /linguagens imperativas/.
 
 * Programação de interfaces gráficas
 
+  @@latex:\todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}@@
+  Em quatro sistemas de grande porte com as interfaces gráficas feitas na
+  mesma [[gls:api]], [[textcite:mijailovic2014][p. 770]] contaram de 1.221 a 31.285
+  tratadores de eventos.
+  Em JavaScript, os /callbacks/ são frequentes: num estudo de 138 programas, uma
+  em cada dez definições de função recebe um /callback/, e a maioria dos
+  /callbacks/ é aninhada [[cite:gallaba2015][p. 1]].
+  As /promises/ têm semântica complexa, e o fluxo de controle e de dados do
+  código que as usa dificulta a compreensão e leva facilmente a erros
+  [[cite:alimadadi2018][p. 162:1]].
+
   Conforme é notado por textcite:blackheath2016, a maioria das aplicações que
   interagem com o ambiente externo são arquitetadas em torno de dois modelos de
   programaçao, ou uma mistura dos dois:
@@ -275,6 +286,22 @@ denominadas /linguagens imperativas/.
    # and easier to write than conventional ones.”
 
 * Programação reativa
+  @@latex:\todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}@@
+  [[textcite:bainomugisha2013][p. 1-2]] chamam as planilhas de “possivelmente a
+  linguagem de programação mais utilizada por usuários finais” (tradução nossa).
+  A maior parte da pesquisa em [[gls:pr]], dizem ainda, descende do Fran, uma
+  linguagem da [[gls:pf]] do fim dos anos 1990.
+
+  No experimento de [[textcite:salvaneschi2017][p. 1125-1134]], 127 estudantes
+  do quarto ano de Ciência da Computação foram divididos ao acaso em dois
+  grupos, em duas rodadas.
+  Um grupo leu dez programas em Scala escritos com [[gls:pr]], e o outro, os mesmos
+  programas com o /Observer Pattern/.
+  Para cada programa, os participantes respondiam a uma pergunta de múltipla
+  escolha sobre o comportamento dele.
+  Só no grupo do /Observer Pattern/ os acertos acompanharam o nível de
+  habilidade de programação dos participantes.
+
   Programação reativa abrange um leque enorme de conceitos de programação.
   Isso se deve pela escolha da palavra ‘reativa’, que diz mais sobre uma
   /propriedade do que se programa/ do que sobre um /conceito de programação/.

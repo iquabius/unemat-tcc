@@ -4,6 +4,48 @@
 # header-args is needed to use src_js{} for inline source code
 
 * Dimensões de avaliação
+  @@latex:\todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}@@
+  [[textcite:blackwell2019][p. 58 e 60]] registram, na psicologia da
+  programação, o pedido por ensaios controlados randomizados no estudo do
+  projeto de linguagens e o ceticismo sobre apoiar nesse empirismo um
+  processo de projeto complexo.
+  Para eles, a parte cognitiva das [[glspl:dc]] importa bem menos que a teoria de
+  projeto implícita nelas.
+
+  As outras duas, /expressividade/ e /operações mentais difíceis/, vêm do grupo
+  que [[textcite:kiss2014][p. 15]] deixou de fora e que, a seu ver, teria
+  sido útil se as linguagens e os /toolkits/ comparados fossem muito mais
+  diferentes.
+  Na comparação principal, [[textcite:kiss2014][p. 11-12]] escolheu o
+  ScalaFX porque este envolve o próprio JavaFX e porque o Scala é
+  sintaticamente próximo do Java.
+  Aqui, cada tecnologia traz as próprias abstrações, e as três notações
+  diferem na forma de escrever a coordenação.
+  E, ao avaliar bibliotecas reativas, ele próprio descreve o esforço
+  mental de cada uma sem uma dimensão para isso
+  [[cite:kiss2014][p. 87 e 97]].
+
+  As duas tratam da leitura do código.
+  A expressividade é a facilidade de reconhecer o propósito de cada
+  trecho, e as operações mentais difíceis obrigam quem lê a contar nos
+  dedos ou anotar à parte para acompanhar o que acontece cite:green1996d.
+  Ao avaliar se quem lê entende uma especificação,
+  [[textcite:britton2001][p. 267]] também as incluíram entre as dimensões
+  especialmente úteis.
+  Na comparação de textcite:mernik2009 entre o [[gls:xaml]] e o C# Forms, as duas
+  estiveram entre as dimensões que mais pesaram na compreensão dos
+  programas.
+
+  As outras três do grupo ficam de fora.
+  O compromisso prematuro nasce da ordem em que o ambiente obriga a
+  construir o programa, e o código pronto não guarda essa ordem
+  cite:green1996d.
+  A consistência mede o quanto quem aprende consegue adivinhar da notação,
+  e só se avalia por introspecção cite:green1996d.
+  Já a notação secundária (comentários, indentação e nomes) é própria de
+  quem escreve cite:green1996d.
+  Aqui, ela é padronizada entre as tecnologias, e por isso não distingue
+  uma notação da outra.
   As dimensões utilizadas neste trabalho são baseadas nas [[glspl:dc]] de
   textcite:green1989. Assim usamos critérios estabelecidos, o que facilita a
   comparação de nossos resultados com trabalhos baseados nas [[glspl:dc]]. O /framework/
@@ -291,6 +333,56 @@
 ** Agrupamento de valores com ~zip()~
 
 * Coordenação de eventos
+  @@latex:\todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}@@
+  Cada pesquisa de uso tem um limite de amostra.
+  Os respondentes do Stack Overflow Developer Survey 2025 são recrutados
+  sobretudo pelos próprios canais do site, o que favorece os usuários mais
+  ativos cite:stackoverflow2025.
+  No W3Techs, basta achar a biblioteca em qualquer página para o /site/
+  contar, o que favorece o jQuery e nada diz das aplicações novas
+  cite:w3techs2026,w3techs2026a.
+  O State of JS 2025 é um levantamento aberto a quem quiser responder, que se
+  declara o retrato de um subconjunto de desenvolvedores cite:devographics2026.
+  Na Pesquisa Código Fonte TV 2026, cada participante escolhe uma só
+  ferramenta, entre 130 de todas as áreas, o que encolhe as fatias, e a
+  audiência do canal que a divulga tende a estar super-representada
+  cite:codigofonte2026.
+  O W3Techs nem separa o Angular do AngularJS, antecessor dele e sem
+  suporte desde 2022 cite:thompson2022; a Pesquisa Código Fonte TV os
+  separa e dá 571 participantes ao Angular e 78 ao AngularJS
+  cite:codigofonte2026.
+
+  O jQuery e o Web Component derivam a Lista filtrável com =filter=, =sort= e
+  =map=, funções de [[gls:pf]].
+  E o React e o Solid recorrem a efeitos para sincronizar o componente com
+  sistemas externos, como o armazenamento do navegador no Carrinho.
+  A documentação do React chama os efeitos de “uma saída de emergência do
+  paradigma do React” [[cite:meta2026b][tradução nossa]].
+
+  Três das cinco tarefas partem do 7GUIs [[cite:kiss2014][p. 17, 25 e 34]]:
+
+  - Contador :: a tarefa /Counter/;
+  - Formulário com validação :: a /Flight Booker/, ampliada com os campos de
+    um formulário real;
+  - Lista filtrável :: o filtro por prefixo da tarefa /Crud/.
+
+  O /Timer/ trata da concorrência entre um relógio e o usuário, mas nenhuma
+  das sete tarefas faz uma requisição cujas respostas chegam fora de ordem ou
+  são canceladas [[cite:kiss2014][p. 30]].
+  E nenhuma põe três componentes independentes para ler e alterar o mesmo
+  estado, como os do Carrinho.
+
+  No React, um valor derivado é uma expressão comum, recalculada a cada
+  execução do componente cite:meta2026b.
+  No Solid, é uma função que lê o /signal/ cite:solidjs2026a.
+
+  No Android, as duas variantes são escritas em Kotlin, a linguagem que o
+  Android recomenda e a única em que o Compose se escreve cite:android2026a.
+  O porte do domínio para Kotlin responde diferente em entradas-limite, como
+  anos de 0 a 99, e cada diferença conhecida fica registrada num teste.
+  Entre Views e Compose, a única diferença admitida nas capturas é a de
+  poucos pixels na renderização do texto.
+
 ** Contador
 
    # estrutura mínima

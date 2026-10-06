@@ -5,3 +5,8 @@ Blá blá blá…
 # usabilidade e _________ (não encontrei a palavra).
 
 * Considerações finais
+  @@latex:\todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}@@
+  Uma forma de conferir o juízo de quem avalia é colher o dos usuários, como no
+  estudo de [[textcite:zimmerle2025][p. 1512-1513 e 1519]], em que 12 estudantes
+  responderam, depois das tarefas, a 24 afirmações agrupadas em cinco
+  dimensões derivadas das [[glspl:dc]].

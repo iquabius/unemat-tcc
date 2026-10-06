@@ -1,5 +1,47 @@
 \section{Dimensões de avaliação}
-\label{sec:org40379cc}
+\label{sec:org428c1d5}
+\todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}
+\textcite[p. 58 e 60]{blackwell2019} registram, na psicologia da
+programação, o pedido por ensaios controlados randomizados no estudo do
+projeto de linguagens e o ceticismo sobre apoiar nesse empirismo um
+processo de projeto complexo.
+Para eles, a parte cognitiva das \glspl{dc} importa bem menos que a teoria de
+projeto implícita nelas.
+
+As outras duas, \emph{expressividade} e \emph{operações mentais difíceis}, vêm do grupo
+que \textcite[p. 15]{kiss2014} deixou de fora e que, a seu ver, teria
+sido útil se as linguagens e os \emph{toolkits} comparados fossem muito mais
+diferentes.
+Na comparação principal, \textcite[p. 11-12]{kiss2014} escolheu o
+ScalaFX porque este envolve o próprio JavaFX e porque o Scala é
+sintaticamente próximo do Java.
+Aqui, cada tecnologia traz as próprias abstrações, e as três notações
+diferem na forma de escrever a coordenação.
+E, ao avaliar bibliotecas reativas, ele próprio descreve o esforço
+mental de cada uma sem uma dimensão para isso
+\cite[p. 87 e 97]{kiss2014}.
+
+As duas tratam da leitura do código.
+A expressividade é a facilidade de reconhecer o propósito de cada
+trecho, e as operações mentais difíceis obrigam quem lê a contar nos
+dedos ou anotar à parte para acompanhar o que acontece \cite{green1996d}.
+Ao avaliar se quem lê entende uma especificação,
+\textcite[p. 267]{britton2001} também as incluíram entre as dimensões
+especialmente úteis.
+Na comparação de \textcite{mernik2009} entre o \gls{xaml} e o C\# Forms, as duas
+estiveram entre as dimensões que mais pesaram na compreensão dos
+programas.
+
+As outras três do grupo ficam de fora.
+O compromisso prematuro nasce da ordem em que o ambiente obriga a
+construir o programa, e o código pronto não guarda essa ordem
+\cite{green1996d}.
+A consistência mede o quanto quem aprende consegue adivinhar da notação,
+e só se avalia por introspecção \cite{green1996d}.
+Já a notação secundária (comentários, indentação e nomes) é própria de
+quem escreve \cite{green1996d}.
+Aqui, ela é padronizada entre as tecnologias, e por isso não distingue
+uma notação da outra.
 As dimensões utilizadas neste trabalho são baseadas nas \glspl{dc} de
 \textcite{green1989}. Assim usamos critérios estabelecidos, o que facilita a
 comparação de nossos resultados com trabalhos baseados nas \glspl{dc}. O \emph{framework}
@@ -146,13 +188,13 @@ momento}
 de comprometimento com uma ação ou marco}
 \end{itemize}
 \section{*Revisão do JavaScript}
-\label{sec:org25aa8b0}
+\label{sec:org8b6f50e}
 Talvez devêssemos colocar uma seção de revisão das ferramentas utilizadas na
 implementação dos estudos de caso? Poderíamos descrever os recursos relevantes
 para nossa análise.
 \todo[noline]{Berndt disse p/ colocar como apêndice}
 \section{Processamento de listas}
-\label{sec:org01e8fa4}
+\label{sec:org59a4e3e}
 
 Uma coleção é um agrupamento com uma quantidade variável de itens, que (1)
 compartilham algum significado ao problema a se resolver e (2) precisam ser
@@ -189,7 +231,7 @@ for (count = 0; count < people.length; count++) {
 \end{minted}
 \end{listing}
 \subsection{Formatação de preços}
-\label{sec:orgdcdefbb}
+\label{sec:org83eb487}
 
 Nesta seção veremos como formatar uma lista preços para serem mostrados na
 tela, p. ex., transformando um valor numérico \mintinline{js}{50.45} em uma \emph{string}
@@ -242,12 +284,12 @@ Outras ideias:
 letras maiúsculas
 \end{itemize}
 \subsection{Seleção de valores com \texttt{filter()}}
-\label{sec:orgc6b8eff}
+\label{sec:org21851ae}
 Remover nomes que não começam com ‘S’
 \subsection{Nivelamento de valores com \texttt{concatAll()}}
-\label{sec:org45ffd72}
+\label{sec:orgc1e2101}
 \subsection{Redução de valores com \texttt{reduce()}}
-\label{sec:org5afbf78}
+\label{sec:orgd381346}
 
 O método \mintinline{js}{reduce()} executa uma função \textbf{reducer} para cada item da
 lista, resultando num único valor. Em \ref{code:somaDePreçosComReduce} é
@@ -264,11 +306,62 @@ const total = preços.reduce(somar);
 \end{minted}
 \end{listing}
 \subsection{Agrupamento de valores com \texttt{zip()}}
-\label{sec:org4300ddf}
+\label{sec:orgdaad8c5}
 \section{Coordenação de eventos}
-\label{sec:orge9bad43}
+\label{sec:org66d03a1}
+\todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}
+Cada pesquisa de uso tem um limite de amostra.
+Os respondentes do Stack Overflow Developer Survey 2025 são recrutados
+sobretudo pelos próprios canais do site, o que favorece os usuários mais
+ativos \cite{stackoverflow2025}.
+No W3Techs, basta achar a biblioteca em qualquer página para o \emph{site}
+contar, o que favorece o jQuery e nada diz das aplicações novas
+\cite{w3techs2026,w3techs2026a}.
+O State of JS 2025 é um levantamento aberto a quem quiser responder, que se
+declara o retrato de um subconjunto de desenvolvedores \cite{devographics2026}.
+Na Pesquisa Código Fonte TV 2026, cada participante escolhe uma só
+ferramenta, entre 130 de todas as áreas, o que encolhe as fatias, e a
+audiência do canal que a divulga tende a estar super-representada
+\cite{codigofonte2026}.
+O W3Techs nem separa o Angular do AngularJS, antecessor dele e sem
+suporte desde 2022 \cite{thompson2022}; a Pesquisa Código Fonte TV os
+separa e dá 571 participantes ao Angular e 78 ao AngularJS
+\cite{codigofonte2026}.
+
+O jQuery e o Web Component derivam a Lista filtrável com \texttt{filter}, \texttt{sort} e
+\texttt{map}, funções de \gls{pf}.
+E o React e o Solid recorrem a efeitos para sincronizar o componente com
+sistemas externos, como o armazenamento do navegador no Carrinho.
+A documentação do React chama os efeitos de “uma saída de emergência do
+paradigma do React” \cite[tradução nossa]{meta2026b}.
+
+Três das cinco tarefas partem do 7GUIs \cite[p. 17, 25 e 34]{kiss2014}:
+
+\begin{description}
+\item[{Contador}] a tarefa \emph{Counter};
+\item[{Formulário com validação}] a \emph{Flight Booker}, ampliada com os campos de
+um formulário real;
+\item[{Lista filtrável}] o filtro por prefixo da tarefa \emph{Crud}.
+\end{description}
+
+O \emph{Timer} trata da concorrência entre um relógio e o usuário, mas nenhuma
+das sete tarefas faz uma requisição cujas respostas chegam fora de ordem ou
+são canceladas \cite[p. 30]{kiss2014}.
+E nenhuma põe três componentes independentes para ler e alterar o mesmo
+estado, como os do Carrinho.
+
+No React, um valor derivado é uma expressão comum, recalculada a cada
+execução do componente \cite{meta2026b}.
+No Solid, é uma função que lê o \emph{signal} \cite{solidjs2026a}.
+
+No Android, as duas variantes são escritas em Kotlin, a linguagem que o
+Android recomenda e a única em que o Compose se escreve \cite{android2026a}.
+O porte do domínio para Kotlin responde diferente em entradas-limite, como
+anos de 0 a 99, e cada diferença conhecida fica registrada num teste.
+Entre Views e Compose, a única diferença admitida nas capturas é a de
+poucos pixels na renderização do texto.
 \subsection{Contador}
-\label{sec:orge716675}
+\label{sec:org06896ae}
 
 \begin{description}
 \item[{Problema}] entender os conceitos essenciais da linguagem e a estrutura
@@ -358,11 +451,11 @@ Contador({ valorInicial: 0 });
 \end{minted}
 \end{listing}
 \subsubsection{Análise}
-\label{sec:org17ec42e}
+\label{sec:org7c53d47}
 
 Essa primeira análise é focada no básico.
 \paragraph{Nível de abstração}
-\label{sec:org339f162}
+\label{sec:org6eb73aa}
 Na solução com \gls{poo} os conceitos da linguagem que deve-se entender são:
 classes, construtor, objetos, propriedades, métodos, \emph{callbacks} na forma
 de método, e conhecimento da \gls{api} do objeto do documento do \gls{html} ---
@@ -390,16 +483,16 @@ Níveis mais altos de abstração não são necessários, então a solução com
 é igualmente boa ou um pouco melhor que a solução com \gls{poo} quanto ao Nível
 de Abstração.
 \paragraph{Proximidade de descrição}
-\label{sec:org464446d}
+\label{sec:org0e2e10a}
 Essa dimensão/critério faz mais sentido para análise de apresentação do que
 comportamento (coordenação de eventos).
 \paragraph{Dependências ocultas}
-\label{sec:org5785d5f}
+\label{sec:orgf171659}
 \todo[noline]{Acredito que o HTML só não está situado no mesmo local que o código JavaScript, que é diferente de “oculto”.}
 As únicas dependências que podem ser consideradas ocultas são os elementos
 \gls{html} buscados pelo identificador com \texttt{document.getElementById("id")}.
 \paragraph{Propensão a erros}
-\label{sec:org2eaab2d}
+\label{sec:org63ff66f}
 Na solução com \gls{poo}, esquecer de vincular a instância do contador à função
 \texttt{tratarClique()} resultará no erro “TypeError: this.renderizar is not a
 function”.
@@ -432,7 +525,7 @@ Pois ela não será renderizada, apesar de toda a lógica do contador
 funcionar.
 Apesar de tudo, essas possibilidades de erros não são críticas.
 \paragraph{Concisão}
-\label{sec:orge8d80a6}
+\label{sec:org785ebc6}
 Na solução com \gls{poo} o método \mintinline{js}{tratarClique()}, usado como \emph{callback},
 poderia ser substituído por uma função de seta.
 Além de poupar algumas linhas o uso do \mintinline{js}{.bind(this)} se torna
@@ -449,11 +542,11 @@ De qualquer forma, a \gls{pr} evita a verbosidade da declaração da classe e do
 métodos, além da repetição do \mintinline{js}{this}.
 Então em termos de Concisão a \gls{pr} está à frente da \gls{poo}.
 \paragraph{Viscosidade}
-\label{sec:org4488831}
+\label{sec:org7ca5a61}
 Num caso tão simples como o do Contador a única resistência a alteração
 está em renomear atributos no caso da \gls{poo}, e variáveis na \gls{pr}.
 No entanto isso é inevitável ao renomear termos.
 Além disso o \gls{ide} pode ajudar através de uma funcionalidade de refatoração.
 \todo{Talves seja interessante analisar a viscosidade da alteração pra colocar um botão de decremento (-1) do Contador.}
 \subsection{Reserva de voo}
-\label{sec:org5453411}
+\label{sec:orgd294180}

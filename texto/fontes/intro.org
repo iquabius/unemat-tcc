@@ -32,8 +32,7 @@ Formato:
   sem paginação impressa; p. 926 calculada pelo início dos anais (925).
 - Conferido: 2026-10-01; de novo em 2026-10-04.
 
-* §3 [[file:../intro.org::Três estudos medem o peso do tratamento][Três estudos medem o peso do tratamento de eventos]]
-** edwards2009, p. 926
+** edwards2009, p. 926 (Adobe)
 - Frase: “Uma análise das aplicações /desktop/ da Adobe concluiu que a
   lógica de tratamento de eventos era um terço do código e continha
   metade dos /bugs/ relatados.”
@@ -45,3 +44,69 @@ Formato:
   metade" e não nomeia a Adobe; a fonte primária é a palestra de Parent
   (LCSD '06), fora do refs.bib.
 - Conferido: 2026-10-01; de novo em 2026-10-04.
+
+* §6 [[file:../intro.org::testaram uma afirmação antiga][testaram uma afirmação antiga]]
+** salvaneschi2017, p. 1125-1134
+- Frase: “Num experimento controlado com 127 estudantes, quem leu os
+  programas escritos com PR acertou mais perguntas sobre eles do que quem
+  os leu com o /Observer Pattern/ (médias de 8,13 e 7,05 acertos em dez,
+  com diferença significativa) e não levou mais tempo.”
+- Trecho: “The study involves 127 subjects and compares reactive
+  programming to the traditional object-oriented style with the Observer
+  design pattern.” (resumo, p. 1125); “The mean score for the OO group and
+  the RP group are µ(score,OO) = 7.05 and µ(score,RP) = 8.13” (PDF p. 7);
+  “Finding 2: Comprehending programs in the RP style does not require more
+  time than comprehending their OO equivalent.” (PDF p. 9)
+- Lido em: =tmp/fontes/salvaneschi2017.pdf=, p. 1, 7 e 9 do PDF; as páginas
+  publicadas (1125 a 1141) se contam do início, sem paginação impressa no
+  PDF.
+- Conferido: 2026-10-06.
+
+* §24 [[file:../intro.org::O Contador, o Formulário e a Lista partem][O Contador, o Formulário e a Lista partem]]
+** kiss2014, p. 11, 17, 25 e 34
+- Frase: “O Contador, o Formulário e a Lista partem de três das sete
+  tarefas do 7GUIs, propostas na dissertação de Kiss (2014, p. 17, 25 e
+  34), e a Busca e o Carrinho não têm tarefa equivalente.”
+- Trecho: “seven case studies in increasing complexity are presented”
+  (p. 11); sumário: “3.3 Counter … 17”, “3.5 Flight Booker … 25”, “3.7
+  Crud … 34”.
+- Lido em: =tmp/fontes/kiss2014.pdf=, p. 17 do PDF para a p. 11 impressa.
+- Observação: “sete” vem da p. 11, que o texto não cita.
+- Conferido: 2026-10-06.
+
+* §29 [[file:../intro.org::A avaliação usa as][A avaliação usa as DCs]]
+** kiss2014, p. 15
+- Frase: “As outras duas, /expressividade/ e /operações mentais difíceis/,
+  vêm do grupo de cinco que Kiss (2014, p. 15) deixou de fora e que, a seu
+  ver, teria sido útil se as linguagens e os /toolkits/ comparados fossem
+  muito mais diferentes […]. Também ficam de fora, como em Kiss (2014,
+  p. 15), as três que tratam das ferramentas e do processo de escrita, a
+  visibilidade, a análise progressiva e a provisoriedade, porque o objeto
+  da avaliação é o código pronto.”
+- Trecho: “The other dimensions from CDs that were considered but
+  ultimately did not bring much weight were: Premature Commitment […] Role
+  Expressiveness […] Consistency […] Hard Mental Operations […] Secondary
+  Notation […]. If the languages and toolkits were much more different than
+  in our case the above dimensions would probably have been useful as well.
+  If we had focused more on the tooling and the process of the creation of
+  our case studies than on a comparison of the end results the following
+  remaining dimensions would have probably been useful: Visibility […]
+  Progressive Evaluation […] Provisionality”
+- Lido em: =tmp/fontes/kiss2014.pdf=, p. 21 do PDF.
+- Observação: as três de ferramenta e processo são todas as que Kiss lista
+  ali, e não exemplos; por isso o “como” saiu.
+- Conferido: 2026-10-06.
+
+* §13 [[file:../intro.org::Nenhum desses trabalhos compara][Nenhum desses trabalhos compara]]
+** wohlin2014, p. 3-4
+- Frase: “A lacuna se apoia nessa revisão, feita por palavras-chave e
+  /snowballing/ (Wohlin, 2014, p. 3-4) em duas rodadas, em setembro e
+  outubro de 2026, e descrita no Apêndice B.”
+- Trecho: “The start set ought to be formulated from keywords in the
+  research question” e “3.2.2 Forward Snowballing” (p. 3); “backward and
+  forward snowballing, the loop is ended” (p. 4).
+- Lido em: =tmp/fontes/wohlin2014.pdf=, p. 3 e 4 do PDF, sem paginação
+  impressa (EASE '14).
+- Observação: a frase já citava Wohlin p. 3-4 antes do corte; as rodadas e
+  as datas são do próprio trabalho (Apêndice B).
+- Conferido: 2026-10-06.
