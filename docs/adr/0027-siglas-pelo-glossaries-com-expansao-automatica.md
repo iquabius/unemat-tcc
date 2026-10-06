@@ -64,7 +64,13 @@ contornarem.
   expande, e nada avisa; link sem entrada em `latex/siglas.tex` para a
   compilação com erro.
 - L8 (observada): depende do org-ref no Emacs do host; LaTeX cru
-  (`#+BEGIN_EXPORT latex`) precisa do `\gls` escrito direto.
+  (`#+BEGIN_EXPORT latex`) precisa do `\gls` escrito direto. O org-ref só
+  procura a entrada no próprio `.org` e nos arquivos de `#+INCLUDE`: sem
+  ajuda, todo link `gls:` dizia "This is not defined in this file" e nada
+  completava depois de `gls:`. Contornado em 2026-10-05 no `init.el` do
+  autor, que lê o arquivo apontado por `my/org-ref-glossary-files` no
+  `.dir-locals.el` (aqui, `latex/siglas.tex`): a dica, o clique até a
+  entrada e o completar funcionam; sem esse `init.el`, voltam a faltar.
 
 Critério de saída: se L1, L2 ou L5 não se contornarem nas rodadas de
 revisão, troca-se para `acrshort`, a primeira alternativa: um `sed` de
