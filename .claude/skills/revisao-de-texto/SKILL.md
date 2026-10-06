@@ -103,6 +103,10 @@ sobra passa pela rodada por bloco. As técnicas e as fontes estão em
 6. **Conferir.** Meça de novo contra o orçamento. Depois:
    - `auditar_bib.py`: a entrada que saiu do texto aparece como nunca
      citada; decida com o autor se sai do `refs.bib`;
+   - `bin/conferir-fontes.py --desde HEAD texto/<capítulo>.org`: a frase
+     cortada deixa na matriz uma entrada sem citação, e o parágrafo
+     cortado ou fundido, um link quebrado; ambos saem ou se corrigem na
+     matriz no mesmo commit do corte;
    - releia a cadeia inteira, porque um corte pode deixar uma afirmação
      sem o elo anterior.
 7. **Quarentena.** O bloco commitado só volta a ser lido no PDF numa
@@ -238,7 +242,12 @@ perguntas, e então o autor dá o rótulo.
 1. `refs.bib`, se ganhou entrada: `%`, `#` e `&` escapados fora de `url` e
    `doi`, inclusive em `annotation`; confira com
    `python3 ~/.claude/skills/escrita-academica/scripts/auditar_bib.py texto/refs.bib texto/`.
-2. Exportar pelo Emacs, body only, cada capítulo que a rodada mudou,
+2. Matriz de fontes: `bin/conferir-fontes.py --desde HEAD` sai com zero.
+   Ele aponta a citação de um parágrafo alterado sem entrada sob o título
+   dele, a entrada que o parágrafo não cita mais e o link de busca que não
+   casa com o começo de um parágrafo. Sem `--desde`, lista também as
+   citações de antes da matriz.
+3. Exportar pelo Emacs, body only, cada capítulo que a rodada mudou,
    nunca por conversor próprio (`readme.org`, "Exportar pelo terminal"; o
    script passa sozinho pelo `distrobox-host-exec`):
 
@@ -246,21 +255,21 @@ perguntas, e então o autor dá o rótulo.
    bin/exportar-org.sh texto/<capítulo>.org [texto/<outro>.org ...]
    ```
 
-3. Compilar no host e conferir zero erros e zero citações indefinidas (o
+4. Compilar no host e conferir zero erros e zero citações indefinidas (o
    log é latin-1; `readme.org`, "Gerar PDF com LatexMk"):
 
    ```bash
    distrobox-host-exec bash -lc 'cd "<checkout>" && latexmk -cd -outdir=../pdf/build/arvore -pvc- -view=none -interaction=nonstopmode latex/tcc.tex'
    ```
 
-4. Commit pela skill `commit-message`, depois do aprovo do autor, com
+5. Commit pela skill `commit-message`, depois do aprovo do autor, com
    `texto/*.org`, `latex/capitulos/*.tex`, `texto/fontes/*.org`, `texto/refs.bib` e, se
    a rodada fecha ou muda tarefa, o `.beads/issues.jsonl`. Nomeie os
    arquivos no próprio commit (`git commit -- <arquivos>`), para não levar
    o que outra sessão deixou no índice. A mensagem termina com uma linha
    `Fontes conferidas:` com chave e página de cada fonte lida na rodada.
    Mostre a mensagem e commite na mesma resposta. Nada de push.
-5. Pendências que sobraram viram tarefa no `bd`; achado de implementação,
+6. Pendências que sobraram viram tarefa no `bd`; achado de implementação,
    nota em `docs/achados-das-implementacoes.md`.
 
 ## Checagem adversarial, antes de cada tag de fase
