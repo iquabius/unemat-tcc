@@ -90,8 +90,9 @@ sobra passa pela rodada por bloco. As técnicas e as fontes estão em
    índice (passo 1 da porta aberta), aplique na árvore todos os
    movimentos que deixam os elos de pé, com as frases que costuram o que
    ficou, como uma transição nova ou a fusão de dois parágrafos. A
-   costura é correção de sentido da porta aberta, com fonte conferida.
-   Na resposta:
+   costura é correção de sentido da porta aberta, com fonte conferida e
+   as marcas de texto gerado por IA checadas (`references/marcas-de-ia.md`
+   da `escrita-academica`). Na resposta:
    - o mapa dos rótulos, uma linha por parágrafo ou fonte: o rótulo, o
      que a cadeia perde e quantas palavras saem;
    - as costuras, com o motivo;
@@ -204,7 +205,10 @@ perguntas, e então o autor dá o rótulo.
    por parágrafo, ou pede assim (Modo 3 da `escrita-academica`). Nota
    `\todo` para a orientação segue a forma e o leitor do `AGENTS.md`
    ("Texto"); confira no `pdftotext` do diff ao vivo que ela saiu inteira,
-   com as aspas no lugar.
+   com as aspas no lugar. Antes de responder, cheque nas correções de
+   sentido e nas notas `\todo` as marcas de texto gerado por IA
+   (`references/marcas-de-ia.md` da `escrita-academica`); a lista vale
+   para o que o agente escreve, e não para o rascunho do autor.
 7. **Links para o trecho.** Espere o "PDF atualizado" do diff ao vivo
    (`pdf/diff-ao-vivo.out`, uns 10 s; "compilação falhou" deixa
    o PDF anterior e aponta o log). Para cada correção de sentido, rode
