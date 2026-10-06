@@ -125,7 +125,7 @@ habilidade de programação dos participantes.
   E o React e o Solid recorrem a efeitos para sincronizar o componente com
   sistemas externos, como o armazenamento do navegador no Carrinho.
   A documentação do React chama os efeitos de “uma saída de emergência do
-  paradigma do React” [[cite:meta2026d][tradução nossa]].
+  paradigma do React” [[cite:meta2026b][tradução nossa]].
 
   As pesquisas de uso medem tecnologias, não notações, e por isso o uso de
   cada notação se afere pelas tecnologias que a adotam.
