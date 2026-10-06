@@ -185,6 +185,8 @@
   maxbibnames=100,
   uniquename=allinit,
   block        = space,   % Use spaces between blocks, making the text justified
+  extradate,              % a letra de "2026a" também na referência (NBR 10520:2023)
+  sortcites,              % várias obras numa chamada, na ordem da lista
   hyperref,               % Turn citations into links
 ]{biblatex}
 
@@ -196,8 +198,6 @@
 %\RequirePackage{amsfonts}
 \RequirePackage{pslatex}
 \newcommand{\arial}{\sf}
-\usepackage[EULERGREEK]{sansmath}
-\sansmath
 
 %% Verbatim
 %% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -244,8 +244,10 @@
 \ifthenelse{\boolean{link}}
 {}
 {\hypersetup{
-    % por padrão o hyperref usa um retângulo colorido ao redor dos links 
-    colorlinks=true,            % Colori o texto e remove retângulos
+    % Texto em preto (NBR 14724, 5.1): os links continuam clicáveis, sem cor
+    % nem retângulo.
+    hidelinks,
+    colorlinks=false,
     linkcolor=blue,             % Cor para links internos.
     citecolor=blue,             % Cor para citações referênciais no texto.
     urlcolor=blue,              % Cor para links URL da Internet.
@@ -267,7 +269,7 @@
   \setglossarystyle{long}%
   \renewenvironment{theglossary}%
     {\begin{longtable}[l]{@{}p{.18\textwidth}p{\glsdescwidth}@{}}}%
-    {\end{longtable}}}
+    {\end{longtable}\addtocounter{table}{-1}}}% a longtable conta como tabela
 
 % Figures
 % - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -300,6 +302,12 @@
 % travessão e título, em espaço simples. A numeração é corrida, como nos
 % modelos do curso, e não reinicia a cada seção primária.
 \RequirePackage{caption}
+% Referências separadas entre si por uma linha em branco de espaço simples
+% (NBR 14724:2024, 5.2), e não de 1,5.
+\AtBeginBibliography{\setlength{\bibitemsep}{14.5pt}}
+% Hifenização de nomes que o padrão quebra errado.
+\hyphenation{Type-Script Java-Script}
+
 \captionsetup{labelsep=endash, font={stretch=1}, position=top}
 \DeclareCaptionListFormat{figura}{\figurename~#2~--}
 \DeclareCaptionListFormat{tabela}{\tablename~#2~--}
@@ -370,10 +378,12 @@
        \setlength{\listparindent}{0cm}%
        \setlength{\itemindent}{\listparindent}%
        \setlength{\rightmargin}{0cm}%
-       \setlength{\leftmargin}{4cm}%
+       \setlength{\leftmargin}{\dimexpr4cm-\@totalleftmargin\relax}%
        \setlength{\parsep}{0pt}}%
     \item\relax}%
   {\end{list}\end{spacing}}
+% O #+begin_quote do Org exporta quote: mesma forma da citação longa.
+\renewenvironment{quote}{\begin{citacao}}{\end{citacao}}
 
 %% Section titles
 %% - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -405,16 +415,15 @@
    \normalfont\normalsize\bfseries \MakeUppercase{#1}\par\nobreak}%
   \vskip\baselineskip}
 
-% Destaque gradual do regimento (Anexo II, XI) e do modelo
-% Monografia_final_EXEMPLO.docx: secundária em negrito, terciária em negrito e
-% itálico; a quaternária em itálico e a quinária sem destaque seguem a
-% gradação. Numeradas até a quinária, todas no sumário (NBR 6024 e 6027).
+% Destaque do regimento (Anexo II, XI) e do modelo
+% Monografia_final_EXEMPLO.docx: secundária em negrito; da terciária em
+% diante, negrito e itálico. Numeradas até a quinária, todas no sumário (NBR 6024 e 6027).
 \usepackage{titlesec}
 \setcounter{secnumdepth}{4}
 \titleformat{\section}[hang]{\normalfont\normalsize\bfseries}{\thesection}{\wordsep}{}
 \titleformat{\subsection}[hang]{\normalfont\normalsize\bfseries\itshape}{\thesubsection}{\wordsep}{}
-\titleformat{\subsubsection}[hang]{\normalfont\normalsize\itshape}{\thesubsubsection}{\wordsep}{}
-\titleformat{\paragraph}[hang]{\normalfont\normalsize}{\theparagraph}{\wordsep}{}
+\titleformat{\subsubsection}[hang]{\normalfont\normalsize\bfseries\itshape}{\thesubsubsection}{\wordsep}{}
+\titleformat{\paragraph}[hang]{\normalfont\normalsize\bfseries\itshape}{\theparagraph}{\wordsep}{}
 \titlespacing*{\section}{0pt}{\baselineskip}{\baselineskip}
 \titlespacing*{\subsection}{0pt}{\baselineskip}{\baselineskip}
 \titlespacing*{\subsubsection}{0pt}{\baselineskip}{\baselineskip}
@@ -488,8 +497,8 @@
 \renewcommand{\cftchapfont}{\bfseries}
 \renewcommand{\cftsecfont}{\bfseries}
 \renewcommand{\cftsubsecfont}{\bfseries\itshape}
-\renewcommand{\cftsubsubsecfont}{\itshape}
-\renewcommand{\cftparafont}{}
+\renewcommand{\cftsubsubsecfont}{\bfseries\itshape}
+\renewcommand{\cftparafont}{\bfseries\itshape}
 \cftsetindents{chapter}{0pt}{\@indicativo}
 \cftsetindents{section}{0pt}{\@indicativo}
 \cftsetindents{subsection}{0pt}{\@indicativo}
@@ -810,7 +819,7 @@
   \su@compare#2#1\@nil
 }
 %%
-% Listas de ilustrações e de tabelas, nesta ordem e sem número de página
+% Listas de ilustrações (figuras, códigos, algoritmos) e de tabelas, nesta ordem e sem número de página
 % (NBR 14724:2024, 4.2.1). Opções: fig, tab, alg e cod, em qualquer
 % combinação. A lista de siglas vem depois, pelo \siglas, e o sumário por
 % último, pelo \sumario.
@@ -818,17 +827,19 @@
 {
 \begingroup\hypersetup{linkcolor=black}%
 \singlespacing%
+% Com a numeração corrida, sem o espaço que cada \chapter põe nas listas.
+\renewcommand{\addvspace}[1]{}%
 \IfSubStringInString{fig}{#1}
  {\listoffigures\clearpage
  }{}
-\IfSubStringInString{tab}{#1}
- {\listoftables\clearpage
+\IfSubStringInString{cod}{#1}
+ {\listoflistings\clearpage
  }{}
 \IfSubStringInString{alg}{#1}
  {\listofalgorithmes\clearpage
  }{}
-\IfSubStringInString{cod}{#1}
- {\listoflistings\clearpage
+\IfSubStringInString{tab}{#1}
+ {\listoftables\clearpage
  }{}
 \endgroup
 \onehalfspacing
@@ -837,7 +848,9 @@
 % Lista de siglas: as siglas marcadas no texto com \gls, \glspl ou \acrshort
 % (glossaries, entradas em latex/siglas.tex), em ordem alfabética.
 \newcommand{\siglas}{%
+ \begingroup\singlespacing
  \printnoidxglossary[type=\acronymtype, style=siglas, title={Lista de siglas}]%
+ \endgroup
  \clearpage}
 
 % Sumário, o último elemento pré-textual (NBR 6027:2012). Depois dele, a
