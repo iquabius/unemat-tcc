@@ -93,6 +93,9 @@
    # https://tex.stackexchange.com/a/73649/103967
    # https://tex.stackexchange.com/a/305562/103967
 
+   O =git latexdiff= não passa pelo =bin/latexdiff-tcc.sh=: no texto
+   apagado, as siglas do glossaries somem.
+
 ** Exportar pelo terminal
 
    O mesmo export “Body only”, sem abrir o Emacs, útil para quem edita o =.org=
@@ -142,6 +145,11 @@
    Contra =HEAD=, o PDF sai sem marcas enquanto a árvore não difere do último
    commit: não há diferença a mostrar. As marcas aparecem na primeira edição
    salva.
+
+   As opções do =latexdiff= ficam no =bin/latexdiff-tcc.sh=, o mesmo do
+   =bin/gerar-versao.sh=. Ele também troca =\gls=, =\glspl=, =\Gls= e
+   =\Glspl= por versões próprias, para a sigla aparecer no texto apagado
+   sem gastar a primeira ocorrência (ADR 0027, L5).
 
    Tudo fica em =pdf/ao-vivo/=, fora do git: o PDF =diff-ao-vivo.pdf=,
    a compilação em =build/= e os logs =emacs.log=, =latexdiff.log= e

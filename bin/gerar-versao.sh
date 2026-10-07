@@ -16,10 +16,10 @@
 # compilada ali, no diretório do tcc.tex dela (latex/, ou a raiz nas versões
 # até a v0.9), com os auxiliares do latexmk em aux-*/. Os .tex dos capítulos
 # vêm do próprio commit, como foram exportados na época: o Emacs não entra.
-# O diff é o latexdiff com as opções do readme.org, entre os tcc.tex
-# achatados das duas versões, compilado na árvore de REF (refs.bib, figuras
-# e classe de REF). SOURCE_DATE_EPOCH é a data do commit de REF, que vai
-# para os metadados do PDF.
+# O diff é o do bin/latexdiff-tcc.sh, entre os tcc.tex achatados das duas
+# versões, compilado na árvore de REF (refs.bib, figuras e classe de REF).
+# SOURCE_DATE_EPOCH é a data do commit de REF, que vai para os metadados do
+# PDF.
 #
 # O TeX Live fica no host: de dentro do container (distrobox), o script se
 # chama de novo pelo distrobox-host-exec.
@@ -37,7 +37,6 @@ if [ "${1:-}" = --sem-diff ]; then diff=; shift; fi
 cd "$(git rev-parse --show-toplevel)"
 SAIDA=pdf/versoes
 BUILD=pdf/build
-PICT='PICTUREENV=(?:picture|DIFnomarkup|minted)[\w\d*@]*'
 # Só o que a compilação lê: casos/, docs/ e .beads/ ficam de fora. Os quatro
 # últimos são do leiaute até a v0.9, com o tcc.tex na raiz (ADR 0025).
 CAMINHOS=(latex texto tcc.tex tex pos fig refs.bib)
@@ -148,9 +147,8 @@ rm -rf "$dir" && mkdir -p "$dir"
 (cd "$novo" && cp -r "${CAMINHOS[@]}" "$OLDPWD/$dir/" 2>/dev/null) || true
 dir_tex=$dir/$(dirname "$REF_MAIN")  # o diff se compila ao lado do tcc.tex
 bin/anotar-diff.py ancorar . "$base_ref" "$1" "$dir" "$REF_MAIN"
-# latexdiff --flatten resolve os \input pelo diretório de cada tcc.tex.
-latexdiff --flatten --packages=biblatex --config="$PICT" \
-  "$base/$(principal "$base_ref")" "$dir/$REF_MAIN" >"$dir_tex/$job.tex" 2>"$dir/latexdiff.log" ||
+bin/latexdiff-tcc.sh "$base/$(principal "$base_ref")" "$dir/$REF_MAIN" \
+  >"$dir_tex/$job.tex" 2>"$dir/latexdiff.log" ||
   { echo "latexdiff falhou: $dir/latexdiff.log" >&2; exit 1; }
 bin/anotar-diff.py montar "$dir_tex/$job.tex"
 # A citação apagada continua no diff, riscada, mas a chave pode ter saído do
