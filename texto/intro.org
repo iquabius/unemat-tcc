@@ -14,7 +14,7 @@ também a forma de escrever a interface, e essa forma afeta a compreensão e a m
 do programa.
 
 Para coordenar eventos é comum usar o /callback/: um bloco de código executado
-sempre que um dado evento ocorrer, p. ex., clique em um botão.
+sempre que um dado evento ocorrer, por exemplo, o clique em um botão.
 Também chamado de /listener/, o /callback/ é a forma dominante de propagar
 eventos, e registrá-lo num produtor de eventos, que o chama de volta a cada
 evento, é o /Observer Pattern/ [[cite:blackheath2016][p. 7]].
@@ -24,9 +24,10 @@ vários /callbacks/ independentes.
 Como não se sabe em que ordem os /callbacks/ serão chamados, coordenar as
 alterações ao estado compartilhado é desconcertante e está longe de ser
 modular [[cite:edwards2009][p. 926]].
-Uma análise das aplicações /desktop/ da Adobe concluiu que a lógica de
-tratamento de eventos era um terço do código e continha metade dos /bugs/
-relatados [[cite:edwards2009][p. 926]].
+Em aplicações /desktop/ de grande porte, cerca de um terço do código e mais
+da metade dos defeitos relatados estavam no código que coordena o
+tratamento de eventos, os /widgets/ e outros componentes da interface
+[[cite:jarvi2008][p. 89-90]].
 Em JavaScript, os /callbacks/ são frequentes: num estudo de 138 programas, uma
 em cada dez definições de função recebe um /callback/, e a maioria dos
 /callbacks/ é aninhada [[cite:gallaba2015][p. 1]].
@@ -94,16 +95,16 @@ Conceitos de programação declarativa podem, assim, diminuir essa complexidade.
   cada notação se afere pelas tecnologias que a adotam.
   No Stack Overflow Developer Survey 2025, React, jQuery e Angular estão
   entre as sete tecnologias web mais usadas, com 44,7%, 23,4% e 18,2% dos
-  respondentes cite:stackoverflow2025, e o jQuery está em 65,5% dos /sites/
-  que o W3Techs monitora cite:w3techs2026.
-  O Solid é usado por 10% dos respondentes do State of JS 2025
-  cite:devographics2026.
-  Nenhuma dessas pesquisas mede os Web Components sem biblioteca nem separa,
-  no Angular, quem usa /signals/.
-  Por isso, o uso da notação por atualização granular se apoia no Angular,
-  que também a adota, e o da imperativa, no jQuery.
-  O Web Component entra por ser o modelo de componente do próprio navegador
-  cite:mozilla2026, e nele a coordenação se escreve com o =addEventListener=,
+  respondentes cite:stackoverflow2025.
+  Assim, o uso da notação declarativa por re-renderização se afere pelo
+  React, e o da imperativa, pelo jQuery, que também está em 65,5% dos
+  /sites/ que o W3Techs monitora cite:w3techs2026.
+  O da declarativa por atualização granular se afere pelo Angular, embora o
+  Stack Overflow não separe quem o usa com /signals/, e pelo Solid, usado por 10%
+  dos respondentes do State of JS 2025 cite:devographics2026.
+  Nenhuma dessas pesquisas mede o uso de Web Components sem biblioteca.
+  Eles entram por ser o modelo de componente do próprio navegador
+  cite:mozilla2026, e neles a coordenação se escreve com o =addEventListener=,
   cujo /callback/ altera a tela.
 
   Para discutir o quanto uma notação facilita a compreensão e a
@@ -183,9 +184,9 @@ Conceitos de programação declarativa podem, assim, diminuir essa complexidade.
     da montagem dos itens na tela;
   - Carrinho :: o estado compartilhado entre componentes.
 
-  O Contador, o Formulário e a Lista partem de três das sete tarefas do
-  7GUIs, propostas na dissertação de [[textcite:kiss2014][p. 17, 25 e 34]], e a
-  Busca e o Carrinho não têm tarefa equivalente.
+  O Contador, o Formulário e a Lista adaptam o /Counter/, o /Flight Booker/ e
+  o /CRUD/, três das sete tarefas do 7GUIs, de [[textcite:kiss2014][p. 17, 25 e 34]].
+  A Busca e o Carrinho não têm equivalente no 7GUIs.
   @@latex:\todo[inline]{O projeto classificava o trabalho, quanto aos meios, como estudo de casos múltiplos (Leal 2011; Yin 2001). As definições reunidas por Runeson e Höst (2009, p. 134 e 139) pedem um fenômeno contemporâneo no seu contexto real e excluem os programas de exemplo. Por isso a classificação saiu, e as interfaces implementadas passaram a se chamar tarefas, como no 7GUIs (Kiss 2014) e em Sim et al. (2003). Registrar essa mudança no texto?}@@
 
   Na web, a notação imperativa entra com o Web Component e o jQuery, e o
@@ -275,7 +276,8 @@ Conceitos de programação declarativa podem, assim, diminuir essa complexidade.
   diferença vem da montagem da tela, do modelo de componente ou da [[gls:api]].
   Como cada tarefa exercita um problema de coordenação, a síntese por
   problema reúne as células que vêm da tarefa dele.
-  Segue uma seção por [[gls:dc]], com os trechos de uma tarefa escolhida antes da avaliação pelo problema de coordenação que a dimensão mais toca.
+  Segue uma seção por [[gls:dc]], com os trechos de uma tarefa escolhida,
+  antes da avaliação, pelo problema de coordenação que a dimensão mais toca.
   Em cada seção, a análise aponta se a diferença está na coordenação, na
   montagem da tela ou na ligação entre as duas.
   Nas seções em que o Formulário ou a Lista mostram diferença entre Views e
@@ -307,9 +309,9 @@ Conceitos de programação declarativa podem, assim, diminuir essa complexidade.
 
   As tarefas são pequenas, e o que só aparece em programas grandes ou ao
   longo da manutenção fica de fora.
-  Foram criadas pelo autor para este trabalho, e um conjunto de tarefas
-  criado por um pesquisador só e pouco usado tende a ter menos impacto que
-  um adotado por uma comunidade cite:sim2003.
+  O autor definiu o conjunto de tarefas para este trabalho.
+  Um conjunto criado por um pesquisador só e pouco usado tende a ter menos
+  impacto que um adotado por uma comunidade cite:sim2003.
   No Android, a replicação confere só a notação imperativa e a declarativa
   por re-renderização.
 

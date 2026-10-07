@@ -60,18 +60,22 @@ Formato:
 - Lido em: =tmp/fontes/edwards2009-coherent-reaction.pdf=, p. 2 do PDF;
   p. 926 calculada pelo início dos anais (925).
 - Conferido: 2026-10-06.
-** edwards2009, p. 926
-- Frase: “Uma análise das aplicações /desktop/ da Adobe concluiu que a
-  lógica de tratamento de eventos era um terço do código e continha
-  metade dos /bugs/ relatados.”
-- Trecho: “An analysis [21] of Adobe’s desktop applications indicated that
-  event handling logic comprised a third of the code and contained half of
-  the reported bugs.”
-- Lido em: =tmp/fontes/edwards2009-coherent-reaction.pdf=, p. 2 do PDF.
-- Observação: o [21] de Edwards é jarvi2008 (p. 90), que diz "mais da
-  metade" e não nomeia a Adobe; a fonte primária é a palestra de Parent
-  (LCSD '06), fora do refs.bib.
-- Conferido: 2026-10-01; de novo em 2026-10-04.
+** jarvi2008, p. 89-90
+- Frase: “Em aplicações /desktop/ de grande porte, cerca de um terço do
+  código e mais da metade dos defeitos relatados estavam no código que
+  coordena o tratamento de eventos, os /widgets/ e outros componentes da
+  interface.”
+- Trecho: “approximately one third of the code, and more than half of the
+  reported defects, were in code that coordinates event handling logic,
+  widgets, and other Graphical User Interface (GUI) components (Parent
+  2006)” (p. 90); “by our measurements command parameter synthesis
+  comprises roughly one third of the code and notably more of the defects
+  in desktop applications” (resumo, p. 89).
+- Lido em: =tmp/fontes/jarvi2008.pdf=, p. 1 e 2 do PDF (p. 89 e 90).
+- Observação: substitui Edwards (2009, p. 926), que citava este artigo
+  como [21] e nomeava a Adobe; a medição é da palestra de Parent (2006),
+  coautor de Järvi et al.
+- Conferido: 2026-10-07.
 
 * §4 [[file:../intro.org::Outra alternativa ao /callback/ é a][Outra alternativa ao callback é a PR]]
 ** salvaneschi2017, p. 1125-1126
@@ -117,14 +121,18 @@ Formato:
   PDF.
 - Conferido: 2026-10-06.
 
-* §17 [[file:../intro.org::O Contador, o Formulário e a Lista partem][O Contador, o Formulário e a Lista partem]]
+* §17 [[file:../intro.org::O Contador, o Formulário e a Lista adaptam][O Contador, o Formulário e a Lista adaptam]]
 ** kiss2014, p. 11, 17, 25 e 34
-- Frase: “O Contador, o Formulário e a Lista partem de três das sete
-  tarefas do 7GUIs, propostas na dissertação de Kiss (2014, p. 17, 25 e
-  34), e a Busca e o Carrinho não têm tarefa equivalente.”
+- Frase: “O Contador, o Formulário e a Lista adaptam o /Counter/, o
+  /Flight Booker/ e o /CRUD/, três das sete tarefas do 7GUIs, de Kiss
+  (2014, p. 17, 25 e 34). A Busca e o Carrinho não têm equivalente no
+  7GUIs.”
 - Trecho: “seven case studies in increasing complexity are presented”
   (p. 11); sumário: “3.3 Counter … 17”, “3.5 Flight Booker … 25”, “3.7
-  Crud … 34”.
+  Crud … 34”; o nome 7GUIs é o do repositório da dissertação, “The
+  repository containing all the code listings can be found at the
+  following URL: https://github.com/eugenkiss/7guis” (Apêndice A, p. 114,
+  p. 120 do PDF).
 - Lido em: =tmp/fontes/kiss2014.pdf=, p. 17 do PDF para a p. 11 impressa.
 - Observação: “sete” vem da p. 11, que o texto não cita.
 - Conferido: 2026-10-06.
@@ -170,29 +178,31 @@ Formato:
 ** stackoverflow2025
 - Frase: “No Stack Overflow Developer Survey 2025, React, jQuery e Angular
   estão entre as sete tecnologias web mais usadas, com 44,7%, 23,4% e
-  18,2% dos respondentes”
+  18,2% dos respondentes.”
 - Trecho: “2. React: 44.7%”, “3. jQuery: 23.4%”, “7. Angular: 18.2%”
   (Web frameworks and technologies, todos os respondentes).
 - Lido em: =tmp/fontes/stackoverflow2025.txt=, l. 15-20 (página salva em
   2026-09-29).
 - Conferido: 2026-10-06.
 ** w3techs2026
-- Frase: “o jQuery está em 65,5% dos /sites/ que o W3Techs monitora”
+- Frase: “o da imperativa, pelo jQuery, que também está em 65,5% dos
+  /sites/ que o W3Techs monitora”
 - Trecho: “jQuery is used by 65.5% of all the websites”
 - Lido em: =tmp/fontes/w3techs2026.txt=, l. 98 (página salva em
   2026-09-29); o universo é o dos sites que o W3Techs monitora
   (=w3techs2026-metodologia.txt=).
 - Conferido: 2026-10-06.
 ** devographics2026
-- Frase: “O Solid é usado por 10% dos respondentes do State of JS 2025.”
+- Frase: “e pelo Solid, usado por 10% dos respondentes do State of JS
+  2025”
 - Trecho: “Solid may only be used by 10% of respondents”
 - Lido em: =tmp/fontes/devographics2026.txt=, l. 49 (página salva em
   2026-09-29); a tabela dá 1.269 de 12.030 (10,55%).
 - Conferido: 2026-10-06.
 ** mozilla2026
-- Frase: “O Web Component entra por ser o modelo de componente do próprio
-  navegador, e nele a coordenação se escreve com o =addEventListener=,
-  cujo /callback/ altera a tela.”
+- Frase: “Eles entram por ser o modelo de componente do próprio navegador,
+  e neles a coordenação se escreve com o =addEventListener=, cujo
+  /callback/ altera a tela.”
 - Trecho: o guia descreve elementos personalizados como classes que
   estendem =HTMLElement=, e o exemplo registra um /callback/ que altera o
   DOM, =newSpan.addEventListener("click", onClick);=
@@ -535,9 +545,11 @@ Formato:
 
 * §28 [[file:../intro.org::As tarefas são pequenas][As tarefas são pequenas]]
 ** sim2003
-- Frase: “Foram criadas pelo autor para este trabalho, e um conjunto de
-  tarefas criado por um pesquisador só e pouco usado tende a ter menos
-  impacto que um adotado por uma comunidade.”
+- Frase: “Um conjunto criado por um pesquisador só e pouco usado tende a
+  ter menos impacto que um adotado por uma comunidade.”
+- Observação: a frase anterior, “O autor definiu o conjunto de tarefas
+  para este trabalho”, é do próprio trabalho; o 7GUIs, de onde vêm
+  três tarefas (§17), também é de um pesquisador só (Kiss, 2014).
 - Trecho: “Benchmarks that are created by a single individual or
   laboratory and are not used widely tend not to have the same impact on
   the community and research results.” (3.1 Scope)
