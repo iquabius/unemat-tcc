@@ -71,7 +71,7 @@ Formato:
   PDF.
 - Conferido: 2026-10-06.
 
-* §20 [[file:../intro.org::O Contador, o Formulário e a Lista partem][O Contador, o Formulário e a Lista partem]]
+* §17 [[file:../intro.org::O Contador, o Formulário e a Lista partem][O Contador, o Formulário e a Lista partem]]
 ** kiss2014, p. 11, 17, 25 e 34
 - Frase: “O Contador, o Formulário e a Lista partem de três das sete
   tarefas do 7GUIs, propostas na dissertação de Kiss (2014, p. 17, 25 e
@@ -83,7 +83,7 @@ Formato:
 - Observação: “sete” vem da p. 11, que o texto não cita.
 - Conferido: 2026-10-06.
 
-* §26 [[file:../intro.org::A avaliação usa oito][A avaliação usa oito das catorze]]
+* §24 [[file:../intro.org::A avaliação usa oito][A avaliação usa oito das catorze]]
 ** kiss2014, p. 15
 - Frase: “As outras duas, /expressividade/ e /operações mentais difíceis/,
   vêm do grupo de cinco que Kiss (2014, p. 15) deixou de fora e que, a seu
@@ -180,7 +180,7 @@ Formato:
   rodada 2 do corte; rever na rodada 3 se volta à introdução.
 - Conferido: 2026-10-06.
 
-* §16 [[file:../intro.org::A avaliação cabe ao autor][A avaliação cabe ao autor]]
+* §23 [[file:../intro.org::A avaliação cabe ao autor][A avaliação cabe ao autor]]
 ** kiss2014, p. 8
 - Frase: “Kiss (2014, p. 8) chama de analítica a avaliação pelas DCs e a
   adota como alternativa aos experimentos com programadores, muitas vezes
@@ -261,6 +261,15 @@ Formato:
 - Lido em: https://react.dev/learn/reacting-to-input-with-state, em
   2026-10-06.
 - Conferido: 2026-10-06.
+** solidjs2026 (as declarativas)
+- Frase: “Nas declarativas, o programador descreve a tela em função do
+  estado, e o ambiente de execução a mantém atualizada.” (o Solid)
+- Trecho: “Reactivity ensures automatic responses to data changes,
+  eliminating the need for manual updates to the user interface (UI). By
+  connecting UI elements to the underlying data, updates become
+  automated.”
+- Lido em: =tmp/fontes/solidjs2026.txt=, l. 8 (página salva).
+- Conferido: 2026-10-06.
 ** meta2026
 - Frase: “Na /declarativa por re-renderização/, cada mudança de estado
   reexecuta o componente, como no React.”
@@ -319,7 +328,7 @@ Formato:
   mudou (“notações de coordenação” passou a “notações”).
 - Conferido: 2026-10-06.
 
-* §21 [[file:../intro.org::Na web, a notação imperativa entra][Na web, a notação imperativa entra]]
+* §18 [[file:../intro.org::Na web, a notação imperativa entra][Na web, a notação imperativa entra]]
 ** meta2026c
 - Frase: “React e Solid montam a tela em JSX, uma extensão de sintaxe do
   JavaScript que permite escrever marcação parecida com HTML dentro de um
@@ -341,7 +350,7 @@ Formato:
 - Lido em: =tmp/fontes/solidjs2026.txt=, l. 10 (página salva).
 - Conferido: 2026-10-06.
 
-* §22 [[file:../intro.org::Solid e Angular com /signals/, ao contrário][Solid e Angular com signals, ao contrário]]
+* §19 [[file:../intro.org::Solid e Angular com /signals/, ao contrário][Solid e Angular com signals, ao contrário]]
 ** solidjs2026a
 - Frase: “Solid e Angular com /signals/, ao contrário, coordenam do mesmo
   modo: os dois guardam o estado em /signals/ e derivam valores de outros
@@ -367,4 +376,92 @@ Formato:
   character has a special meaning to Angular for adding dynamic behavior,
   such as control flow, to templates.”
 - Lido em: https://angular.dev/guide/templates, em 2026-10-06.
+- Conferido: 2026-10-06.
+
+* §10 [[file:../intro.org::Para discutir o quanto uma notação facilita][Para discutir o quanto uma notação facilita]]
+** green1989
+- Frase: “há as DCs, propostas por Green (1989)”.
+- Trecho: “‘Cognitive dimensions’ are features of computer languages
+  considered purely as information structures or notations.” (resumo,
+  p. 443)
+- Lido em: =tmp/fontes/green1989.pdf=, p. 1 do PDF (p. 443).
+- Conferido: 2026-10-06.
+** blackwell2001, p. 326
+- Frase: “Elas são um vocabulário para a usabilidade de notações e de
+  outros artefatos de informação.”
+- Trecho: “The Cognitive Dimensions of Notations are such a vocabulary.”;
+  “Cognitive Dimensions of Notations (CDs) is a framework for describing
+  the usability of notational systems [...] and information artifacts”
+- Lido em: =tmp/fontes/blackwell2001.pdf=, p. 2 do PDF (p. 326; o
+  capítulo vai de 325 a 341).
+- Conferido: 2026-10-06.
+** mernik2009
+- Frase: “Mernik et al. (2009) compararam, com 36 programadores, uma
+  linguagem de domínio específico para descrever interfaces gráficas, o
+  XAML, e uma biblioteca de aplicação, o C# Forms.”
+- Trecho: “The experiment was conducted with 36 programmers [...] the same
+  problem domain has been used – construction of graphical user
+  interfaces. In terms of domain-specific language, XAML has been used and
+  C# Forms for application library.” (resumo)
+- Lido em: =tmp/fontes/mernik2009.pdf=, p. 1 do PDF (p. 180).
+- Conferido: 2026-10-06.
+** kiss2014, p. v e 104
+- Frase: “Kiss (2014, p. v e 104) comparou a POO e a PF em sete tarefas de
+  interface, com JavaFX, ScalaFX, Scala.Rx, ReactFX e Elm, e deixou como
+  trabalho futuro comparar os /frameworks/ de interface do navegador.”
+- Trecho: “The languages and libraries which serve as a practical testbed
+  for the comparison are Java/JavaFX on the object-oriented side, and
+  Scala/ScalaFX, Scala.Rx, ReactFX and Elm on the functional side.”
+  (p. v); “there is much activity in the web development world with
+  respect to browser-based GUI frameworks. It would be interesting to
+  create some kind of taxonomy of these frameworks and systematically
+  compare their viability.” (p. 104)
+- Lido em: =tmp/fontes/kiss2014.pdf=, p. 6 e 110 do PDF.
+- Observação: as sete tarefas estão na p. 11 (entrada do §17).
+- Conferido: 2026-10-06.
+** zimmerle2025, p. 1510 e 1513
+- Frase: “Zimmerle e Gama (2025, p. 1510 e 1513) avaliaram com usuários
+  duas bibliotecas de PR para JavaScript, RxJS e Bacon.js, em tarefas de
+  requisições HTTP.”
+- Trecho: “we focus on Bacon.js and RxJS in the present work” (p. 1510);
+  “In total, we defined five tasks [...], all revolving HTTP requests”
+  (p. 1513); “a user-centered study was performed involving programming
+  tasks” (resumo, p. 1506).
+- Lido em: =tmp/fontes/zimmerle2025.pdf=, p. 5 e 8 do PDF.
+- Conferido: 2026-10-06.
+** grolaux2026, p. 15
+- Frase: “Fora das DCs, Grolaux et al. (2026, p. 15) compararam
+  conceitualmente, numa prova de conceito em JavaScript, o async/await com
+  /listeners/, barramento de eventos, /streams/ funcionais e PR no
+  tratamento dos eventos de interface.”
+- Trecho: “Through conceptual comparisons with other paradigms, including
+  synchronous scripts, event listeners, event-bus architectures, animation
+  loops, functional streams, and reactive programming” (p. 15); “Through
+  an implemented proof-of-concept” (resumo, p. 7); “the AsyncIterable
+  interface of modern JavaScript” (p. 9).
+- Lido em: =tmp/fontes/grolaux2026.pdf=, p. 1, 3 e 9 do PDF (p. 7 a 16).
+- Conferido: 2026-10-06.
+
+* §15 [[file:../intro.org::Quanto aos meios, o trabalho é][Quanto aos meios, o trabalho é uma avaliação qualitativa]]
+** sim2003
+- Frase: “O conjunto de tarefas segue a ideia de /benchmark/: testes que
+  representam as tarefas da prática e servem para comparar técnicas
+  alternativas.”
+- Trecho: “We define a benchmark as a test or set of tests used to compare
+  the performance of alternative tools or techniques.”; “Task Sample. The
+  tests in the benchmark should be a representative sample of the tasks
+  that the tool or technique is expected to solve in actual practice.”
+- Lido em: =tmp/fontes/sim2003.pdf=, p. 3 do PDF (p. 76; o artigo vai de
+  74 a 83).
+- Conferido: 2026-10-06.
+
+* §28 [[file:../intro.org::As tarefas são pequenas][As tarefas são pequenas]]
+** sim2003
+- Frase: “Foram criadas pelo autor para este trabalho, e um conjunto de
+  tarefas criado por um pesquisador só e pouco usado tende a ter menos
+  impacto que um adotado por uma comunidade.”
+- Trecho: “Benchmarks that are created by a single individual or
+  laboratory and are not used widely tend not to have the same impact on
+  the community and research results.” (3.1 Scope)
+- Lido em: =tmp/fontes/sim2003.pdf=, p. 3 do PDF (p. 76).
 - Conferido: 2026-10-06.

@@ -1,5 +1,5 @@
 \section{Dimensões de avaliação}
-\label{sec:org27d7e79}
+\label{sec:orga895129}
 \todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}
 A avaliação usa as \glspl{dc}, que \textcite[p. 106]{blackwell2003} chamam de ferramentas
 de discussão, para quem projeta ou avalia artefatos de informação, e não
@@ -37,7 +37,7 @@ estiveram entre as dimensões que mais pesaram na compreensão dos
 programas.
 
 As outras três do grupo ficam de fora.
-O compromisso prematuro nasce da ordem em que o ambiente obriga a
+O compromisso prematuro nasce da ordem em que o ambiente de edição obriga a
 construir o programa, e o código pronto não guarda essa ordem
 \cite{green1996d}.
 A consistência mede o quanto quem aprende consegue adivinhar da notação,
@@ -192,13 +192,13 @@ momento}
 de comprometimento com uma ação ou marco}
 \end{itemize}
 \section{*Revisão do JavaScript}
-\label{sec:orgc191e4d}
+\label{sec:orgd51e9d7}
 Talvez devêssemos colocar uma seção de revisão das ferramentas utilizadas na
 implementação dos estudos de caso? Poderíamos descrever os recursos relevantes
 para nossa análise.
 \todo[noline]{Berndt disse p/ colocar como apêndice}
 \section{Processamento de listas}
-\label{sec:org7a25d5e}
+\label{sec:org3eb809f}
 
 Uma coleção é um agrupamento com uma quantidade variável de itens, que (1)
 compartilham algum significado ao problema a se resolver e (2) precisam ser
@@ -235,7 +235,7 @@ for (count = 0; count < people.length; count++) {
 \end{minted}
 \end{listing}
 \subsection{Formatação de preços}
-\label{sec:orgaf15f58}
+\label{sec:orgcd1ffb7}
 
 Nesta seção veremos como formatar uma lista preços para serem mostrados na
 tela, p. ex., transformando um valor numérico \mintinline{js}{50.45} em uma \emph{string}
@@ -288,12 +288,12 @@ Outras ideias:
 letras maiúsculas
 \end{itemize}
 \subsection{Seleção de valores com \texttt{filter()}}
-\label{sec:org72503cf}
+\label{sec:org8c34840}
 Remover nomes que não começam com ‘S’
 \subsection{Nivelamento de valores com \texttt{concatAll()}}
-\label{sec:org7b31baa}
+\label{sec:org2a30b20}
 \subsection{Redução de valores com \texttt{reduce()}}
-\label{sec:org19635ec}
+\label{sec:orgacdd2bd}
 
 O método \mintinline{js}{reduce()} executa uma função \textbf{reducer} para cada item da
 lista, resultando num único valor. Em \ref{code:somaDePreçosComReduce} é
@@ -310,9 +310,9 @@ const total = preços.reduce(somar);
 \end{minted}
 \end{listing}
 \subsection{Agrupamento de valores com \texttt{zip()}}
-\label{sec:orgc88c54f}
+\label{sec:org4070a8e}
 \section{Coordenação de eventos}
-\label{sec:orgdf48c53}
+\label{sec:org68125f2}
 \todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}
 A triagem em geral se apoia no que se escreveu sobre as alternativas, e não
 no uso delas \cite[p. 15]{kitchenham1996}.
@@ -386,7 +386,7 @@ anos de 0 a 99, e cada diferença conhecida fica registrada num teste.
 Entre Views e Compose, a única diferença admitida nas capturas é a de
 poucos pixels na renderização do texto.
 \subsection{Contador}
-\label{sec:orgd665b5d}
+\label{sec:org7df9ee6}
 
 \begin{description}
 \item[{Problema}] entender os conceitos essenciais da linguagem e a estrutura
@@ -476,11 +476,11 @@ Contador({ valorInicial: 0 });
 \end{minted}
 \end{listing}
 \subsubsection{Análise}
-\label{sec:orgc509b90}
+\label{sec:org5066c67}
 
 Essa primeira análise é focada no básico.
 \paragraph{Nível de abstração}
-\label{sec:org04d998c}
+\label{sec:orgfe1cc59}
 Na solução com \gls{poo} os conceitos da linguagem que deve-se entender são:
 classes, construtor, objetos, propriedades, métodos, \emph{callbacks} na forma
 de método, e conhecimento da \gls{api} do objeto do documento do \gls{html} ---
@@ -508,16 +508,16 @@ Níveis mais altos de abstração não são necessários, então a solução com
 é igualmente boa ou um pouco melhor que a solução com \gls{poo} quanto ao Nível
 de Abstração.
 \paragraph{Proximidade de descrição}
-\label{sec:org6a579e5}
+\label{sec:orgdd7da02}
 Essa dimensão/critério faz mais sentido para análise de apresentação do que
 comportamento (coordenação de eventos).
 \paragraph{Dependências ocultas}
-\label{sec:org662cf2f}
+\label{sec:org6928343}
 \todo[noline]{Acredito que o HTML só não está situado no mesmo local que o código JavaScript, que é diferente de “oculto”.}
 As únicas dependências que podem ser consideradas ocultas são os elementos
 \gls{html} buscados pelo identificador com \texttt{document.getElementById("id")}.
 \paragraph{Propensão a erros}
-\label{sec:orgef3f2af}
+\label{sec:org118369c}
 Na solução com \gls{poo}, esquecer de vincular a instância do contador à função
 \texttt{tratarClique()} resultará no erro “TypeError: this.renderizar is not a
 function”.
@@ -550,7 +550,7 @@ Pois ela não será renderizada, apesar de toda a lógica do contador
 funcionar.
 Apesar de tudo, essas possibilidades de erros não são críticas.
 \paragraph{Concisão}
-\label{sec:org1125051}
+\label{sec:org8bb513c}
 Na solução com \gls{poo} o método \mintinline{js}{tratarClique()}, usado como \emph{callback},
 poderia ser substituído por uma função de seta.
 Além de poupar algumas linhas o uso do \mintinline{js}{.bind(this)} se torna
@@ -567,11 +567,11 @@ De qualquer forma, a \gls{pr} evita a verbosidade da declaração da classe e do
 métodos, além da repetição do \mintinline{js}{this}.
 Então em termos de Concisão a \gls{pr} está à frente da \gls{poo}.
 \paragraph{Viscosidade}
-\label{sec:org402e396}
+\label{sec:org0e8b1fa}
 Num caso tão simples como o do Contador a única resistência a alteração
 está em renomear atributos no caso da \gls{poo}, e variáveis na \gls{pr}.
 No entanto isso é inevitável ao renomear termos.
 Além disso o \gls{ide} pode ajudar através de uma funcionalidade de refatoração.
 \todo{Talves seja interessante analisar a viscosidade da alteração pra colocar um botão de decremento (-1) do Contador.}
 \subsection{Reserva de voo}
-\label{sec:org9aa5e82}
+\label{sec:orga508886}

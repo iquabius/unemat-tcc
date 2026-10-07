@@ -4,13 +4,12 @@ Interfaces gráficas mediam a maioria das nossas interações com computadores,
 seja em celulares e /notebooks/, seja no navegador web.
 Projetá-las e implementá-las é difícil por natureza, e deve continuar sendo
 [[cite:myers1994][p. 73]].
-Para gerenciar interações na programação de interfaces, é necessário coordenar
-os eventos gerados pelas ações do usuário no teclado, no mouse ou na tela
-multitoque.
+Programar interfaces exige coordenar os eventos gerados pelas ações do usuário
+com o estado do programa e com o que a tela mostra.
 Essa coordenação é o tema deste trabalho, porque é nela que a programação de
 interfaces se afasta dos outros programas [[cite:myers1994][p. 79]].
-Além disso, ao escolher uma tecnologia de interface, o programador escolhe
-também a forma de escrevê-la, e essa forma afeta a compreensão e a manutenção
+Além disso, ao escolher uma tecnologia, o programador escolhe
+também a forma de escrever a interface, e essa forma afeta a compreensão e a manutenção
 do programa.
 
 Para coordenar eventos é comum usar o /callback/: um bloco de código executado
@@ -73,7 +72,7 @@ Conceitos de programação declarativa podem, assim, diminuir essa complexidade.
   diretamente, como no jQuery cite:openjs2026 e nos Web Components sem
   biblioteca cite:mozilla2026.
   Nas declarativas, o programador descreve a tela em função do estado, e o
-  ambiente de execução a mantém atualizada cite:meta2026a.
+  ambiente de execução a mantém atualizada cite:meta2026a,solidjs2026.
   Na /declarativa por re-renderização/, cada mudança de estado reexecuta o
   componente, como no React cite:meta2026.
   Na /declarativa por atualização granular/, cada /signal/ avisa os valores
@@ -105,8 +104,9 @@ Conceitos de programação declarativa podem, assim, diminuir essa complexidade.
   cite:mozilla2026, e nele a coordenação se escreve com o =addEventListener=,
   cujo /callback/ altera a tela.
 
-  As [[glspl:dc]], propostas por textcite:green1989, são um
-  vocabulário para discutir a usabilidade de notações e de outros
+  Para discutir o quanto uma notação facilita a compreensão e a
+  manutenção, há as [[glspl:dc]], propostas por textcite:green1989.
+  Elas são um vocabulário para a usabilidade de notações e de outros
   artefatos de informação [[cite:blackwell2001][p. 326]].
   Trabalhos anteriores compararam por elas paradigmas, linguagens e
   bibliotecas de programação de interfaces.
@@ -137,8 +137,8 @@ Conceitos de programação declarativa podem, assim, diminuir essa complexidade.
   a declarativa por atualização granular, se comparam quanto à usabilidade,
   segundo as [[glspl:dc]]?
   A comparação pode ajudar quem programa interfaces a escolher uma tecnologia
-  sabendo o que a notação dela facilita e o que dificulta em cada problema de
-  coordenação.
+  sabendo o que a notação dela facilita e o que dificulta em cada /problema
+  de coordenação/, isto é, em cada exigência que a interface faz à notação.
   A pesquisa pode também gerar hipóteses para experimentos controlados com
   programadores, como o de textcite:salvaneschi2017.
 
@@ -168,22 +168,7 @@ Conceitos de programação declarativa podem, assim, diminuir essa complexidade.
   as tarefas da prática e servem para comparar técnicas alternativas
   cite:sim2003.
   Aqui, as técnicas são as três notações, e as tarefas, cinco interfaces
-  típicas da web.
-  @@latex:\todo[inline]{O projeto classificava o trabalho, quanto aos meios, como estudo de casos múltiplos (Leal 2011; Yin 2001). As definições reunidas por Runeson e Höst (2009, p. 134 e 139) pedem um fenômeno contemporâneo no seu contexto real e excluem os programas de exemplo. Por isso a classificação saiu, e as interfaces implementadas passaram a se chamar tarefas, como no 7GUIs (Kiss 2014) e em Sim et al. (2003). Registrar essa mudança no texto?}@@
-
-  A avaliação cabe ao autor, que examina o código das implementações dimensão
-  a dimensão, sem participantes.
-  [[textcite:kiss2014][p. 8]] chama de analítica a avaliação pelas [[glspl:dc]]
-  e a adota como alternativa aos experimentos com programadores,
-  muitas vezes caros e de resultados necessariamente restritos.
-  Para [[textcite:kitchenham1996][p. 12]], a avaliação subjetiva de quanto
-  cada alternativa oferece as características exigidas é uma análise de
-  características (/feature analysis/).
-  Feita por uma pessoa só, que as escolhe e as avalia, ela é
-  uma triagem (/screening/) [[cite:kitchenham1996][p. 15]].
-
-  As cinco tarefas exercitam cinco /problemas de coordenação/, isto é, cinco
-  exigências que a interface faz à notação:
+  típicas da web, que exercitam cinco problemas de coordenação:
 
   - Contador :: o caminho mais simples, do evento ao estado e à tela;
   - Formulário com validação :: o estado derivado e os campos que dependem
@@ -197,6 +182,7 @@ Conceitos de programação declarativa podem, assim, diminuir essa complexidade.
   O Contador, o Formulário e a Lista partem de três das sete tarefas do
   7GUIs, propostas na dissertação de [[textcite:kiss2014][p. 17, 25 e 34]], e a
   Busca e o Carrinho não têm tarefa equivalente.
+  @@latex:\todo[inline]{O projeto classificava o trabalho, quanto aos meios, como estudo de casos múltiplos (Leal 2011; Yin 2001). As definições reunidas por Runeson e Höst (2009, p. 134 e 139) pedem um fenômeno contemporâneo no seu contexto real e excluem os programas de exemplo. Por isso a classificação saiu, e as interfaces implementadas passaram a se chamar tarefas, como no 7GUIs (Kiss 2014) e em Sim et al. (2003). Registrar essa mudança no texto?}@@
 
   Na web, a notação imperativa entra com o Web Component e o jQuery, e o
   desenho compara dois pares de tecnologias próximas.
@@ -218,8 +204,6 @@ Conceitos de programação declarativa podem, assim, diminuir essa complexidade.
   dependências.
   E as [[glspl:api]] dos dois diferem no que vai além do /signal/ e do valor
   derivado, como o cancelamento das requisições na Busca.
-  A análise diz de qual desses três pontos vem cada diferença entre o Solid
-  e o Angular.
 
   No Android, o Formulário e a Lista formam uma /replicação/, que confere se
   as conclusões tiradas na web se repetem em outra plataforma e outra
@@ -254,6 +238,17 @@ Conceitos de programação declarativa podem, assim, diminuir essa complexidade.
   Nele, as versões de linguagens, bibliotecas e ferramentas ficam
   fixadas[fn:versoes], para que as implementações possam ser reproduzidas.
 
+  A avaliação cabe ao autor, que examina o código das implementações dimensão
+  a dimensão, sem participantes.
+  [[textcite:kiss2014][p. 8]] chama de analítica a avaliação pelas [[glspl:dc]]
+  e a adota como alternativa aos experimentos com programadores,
+  muitas vezes caros e de resultados necessariamente restritos.
+  Para [[textcite:kitchenham1996][p. 12]], a avaliação subjetiva de quanto
+  cada alternativa oferece as características exigidas é uma análise de
+  características (/feature analysis/).
+  Feita por uma pessoa só, que as escolhe e as avalia, ela é
+  uma triagem (/screening/) [[cite:kitchenham1996][p. 15]].
+
   A avaliação usa oito das catorze [[glspl:dc]].
   Seis são as que [[textcite:kiss2014][p. 12-14]] usou: /nível de
   abstração/, /proximidade de descrição/, /dependências ocultas/,
@@ -273,7 +268,8 @@ Conceitos de programação declarativa podem, assim, diminuir essa complexidade.
   avaliação e abre com uma tabela-síntese, com uma linha por [[gls:dc]] e uma
   coluna por notação.
   Cada célula resume a conclusão, indica de que tarefa vem a evidência e
-  registra quando o Solid e o Angular com /signals/ divergem.
+  registra quando o Solid e o Angular com /signals/ divergem e se a
+  diferença vem da montagem da tela, do modelo de componente ou da [[gls:api]].
   Como cada tarefa exercita um problema de coordenação, a síntese por
   problema reúne as células que vêm da tarefa dele.
   Segue uma seção por [[gls:dc]], com os trechos de uma tarefa escolhida antes da avaliação pelo problema de coordenação que a dimensão mais toca.
@@ -311,6 +307,8 @@ Conceitos de programação declarativa podem, assim, diminuir essa complexidade.
   Foram criadas pelo autor para este trabalho, e um conjunto de tarefas
   criado por um pesquisador só e pouco usado tende a ter menos impacto que
   um adotado por uma comunidade cite:sim2003.
+  No Android, a replicação confere só a notação imperativa e a declarativa
+  por re-renderização.
 
   Além desta introdução, o texto tem quatro seções.
   A seção ref:chap:prog reúne os conceitos de programação em que o

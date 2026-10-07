@@ -41,7 +41,7 @@
   programas.
 
   As outras três do grupo ficam de fora.
-  O compromisso prematuro nasce da ordem em que o ambiente obriga a
+  O compromisso prematuro nasce da ordem em que o ambiente de edição obriga a
   construir o programa, e o código pronto não guarda essa ordem
   cite:green1996d.
   A consistência mede o quanto quem aprende consegue adivinhar da notação,

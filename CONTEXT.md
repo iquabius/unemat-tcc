@@ -45,6 +45,12 @@ assincronia, lista derivada (com a montagem dos itens na tela), estado
 compartilhado (ADR 0002).
 _Avoid_: padrão de interface
 
+**Ambiente de execução**:
+A parte da tecnologia que, em tempo de execução, faz as atualizações que o
+código declara (o *runtime*).
+_Avoid_: ambiente sozinho; ambiente para o sistema de edição das DCs
+(ambiente de edição, Green e Blackwell, 1998)
+
 **Tecnologia**:
 Uma forma de implementar uma tarefa na web: Web Component (a plataforma),
 jQuery, React, Solid, Angular com *signals*, Angular com RxJS. Biblioteca
