@@ -14,6 +14,7 @@ em `texto/refs.bib`, o código dos casos em `casos/` (instruções próprias em
 | Tarefa aberta | Beads (`bd`), exportado em `.beads/issues.jsonl` | seção abaixo |
 | Nota de referência ou histórico que o texto ainda vai absorver | `docs/*.md` | seção abaixo |
 | Convenção de código, pastas ou ambiente | `casos/AGENTS.md` | |
+| Mudança em código (`casos/`, `bin/`, scripts), ferramentas ou `AGENTS.md` | numa worktree, em ramo próprio, que chega ao `master` revisado | seção "Código: ramo, revisão, merge" abaixo |
 | Feedback de escrita e revisão bibliográfica | não vai para o repositório | skill `escrita-academica`; o que sobra vira tarefa no `bd` ou nota em `docs/` |
 | Frase nova ou alterada em `texto/*.org` | direto no `.org` do checkout principal; o commit espera a revisão | seção "Texto" abaixo e skill do projeto `revisao-de-texto` (ADR 0023) |
 | Trecho de fonte que sustenta uma frase do texto | `texto/fontes/<capítulo>.org` | um título por parágrafo, chave, página, trecho e data da conferência |
@@ -200,7 +201,8 @@ pergunta antes.
   o pretérito que a `escrita-academica` recomenda, até a reunião com o
   orientador (tcc-y4q, item 6).
 - A sessão que edita o texto roda no checkout principal, o mesmo do
-  Emacs, uma por vez; código e tarefas podem seguir em worktrees. O que
+  Emacs, uma por vez; código, ferramentas e instruções de agente seguem
+  numa worktree, em ramo próprio (seção seguinte). O que
   houver no `git diff HEAD -- texto/` é rascunho do autor e não se apaga
   nem se reescreve sem ele pedir. As fontes em PDF ficam em `tmp/fontes/`
   do checkout principal.
@@ -235,6 +237,60 @@ alteradas) saem do `bin/gerar-versao.sh <tag>`, e a release, como
 rascunho, do `bin/preparar-release.sh <tag>`; publicar é do autor. Até a banca aceitar o trabalho, a capa diz "U Boneque" no lugar do
 ano, sempre assim, no gênero neutro: o `\ano` do `latex/tcc.tex` e o
 `PREFIXO` do `gerar-versao.sh`.
+
+## Código: ramo, revisão, merge
+
+O texto fica no `master` do checkout principal, com a revisão da seção
+"Texto". Todo o resto que muda código, ferramenta ou instrução de agente
+chega ao `master` por um ramo revisado (decisão de 2026-10-07, a mesma
+dos dotfiles). O histórico é registro: o que foi revisado não se
+reescreve.
+
+1. **Worktree em ramo próprio**, a partir do `master`:
+   `git worktree add -b <tarefa> .claude/worktrees/<tarefa> master`. Uma
+   tarefa por ramo, com um nome que a diga. A worktree usa o banco do
+   `bd` do checkout principal (seção "Tarefas").
+2. **Primeira versão commitada** assim que roda e as conferências passam
+   (as capturas de `casos/AGENTS.md`, os testes de `bin/`).
+3. **Revisão do ramo inteiro.** Quando o ramo muda código (os caminhos de
+   `.config/revisao`: `bin/`, scripts, `casos/` menos capturas, `.org` e
+   `.md`), rode a skill `linus-review` sobre
+   `$(git merge-base master HEAD)...HEAD`. Ramo só de documentação
+   (`AGENTS.md`, `readme.org`, ADR, nota) dispensa a revisão, mas não o
+   ramo.
+4. **Cada achado vira commit novo** no ramo, que nomeia o achado que
+   responde. Revise de novo até o veredito **Ready to merge**. Nada de
+   `--amend` depois da revisão, `fixup!` com `--autosquash`, rebase ou
+   squash.
+5. **Marque a ponta**: `git revisao pronto`. Achado que o autor decide
+   deixar de pé: `git revisao excecao -m "<motivo do autor>"`, que só o
+   autor decide.
+6. **Merge**, montado na worktree e levado ao `master` por fast-forward,
+   porque o índice do checkout principal pode guardar o rascunho do texto
+   e o `git merge --no-ff` recusa índice com mudança (o fast-forward o
+   preserva, testado em 2026-10-07):
+
+   ```sh
+   # na worktree
+   git switch --detach master
+   git merge --ff-only <tarefa> || git merge --no-ff <tarefa>
+   git -C <checkout principal> merge --ff-only "$(git rev-parse HEAD)"
+   # no checkout principal
+   git revisao pendente   # tem de dizer "nada pendente"
+   git worktree remove .claude/worktrees/<tarefa>
+   git branch -d <tarefa>
+   ```
+
+   Se o ramo mexe em `texto/`, pare e pergunte ao autor: o fast-forward
+   cairia sobre o rascunho dele.
+7. **O push é do autor.** O agente não faz push.
+
+Portões: o pre-push (`git-revisao`, hook global da camada privada dos
+dotfiles) recusa commit de código no `master` sem a marca que o cubra; a
+marca é uma nota local em `refs/notes/revisao`, que não vai para o GitHub.
+O pre-commit recusa commit de agente no `master` que mexa no código. O
+hook do Claude recusa `--no-verify`, mexer em `core.hooksPath` ou `hook.*`
+e o merge pelo GitHub (`gh pr merge`).
 
 ## Commits
 
