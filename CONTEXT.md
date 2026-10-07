@@ -8,24 +8,26 @@ código em `casos/`, decisões em `docs/adr/`.
 ## Language
 
 **Notação**:
-Abreviação de notação de coordenação: a forma de escrever, no código, a
-coordenação entre evento, estado e tela (onde vive o estado, como se declara
-um valor derivado, quem atualiza a tela). As três: imperativa com
-*callbacks*, declarativa por re-renderização e reativa fina com *signals*.
-Solid e Angular com *signals* são uma; React e Solid, duas. Os sinais de
-coordenação dentro da estrutura da tela, como `{contador()}`, contam nela.
-Muda com as abstrações da tecnologia, não com a linguagem, e aplica
-conceitos de um ou mais paradigmas (ADR 0021).
-_Avoid_: sintaxe; paradigma (só PF, PR e POO); estilo; abordagem; "notação
-de interface gráfica" (é do código, não da tela)
+A forma de escrever, no código, o estado, os valores derivados dele e a
+tela que os mostra. As três (imperativa com *callbacks*, declarativa por
+re-renderização e reativa fina com *signals*) se distinguem pelo modo de
+coordenar evento, estado e tela. Solid e Angular com *signals* são uma,
+que varia na montagem da tela, no modelo de componente e na API; React e
+Solid, duas. Muda com as abstrações da tecnologia, não com a linguagem, e
+aplica conceitos de um ou mais paradigmas (ADR 0021).
+_Avoid_: notação de coordenação e notação da estrutura da tela (os dois
+eixos de 2026-10-03, ADR 0021); sintaxe; paradigma (só PF, PR e POO);
+estilo; abordagem; "notação de interface gráfica" (é do código, não da
+tela)
 
-**Notação da estrutura da tela**:
-A forma de escrever quais elementos a tela tem, em que hierarquia e com que
-textos: HTML (jQuery, Web Component), JSX (React, Solid), *template*
-(Angular), layout XML (Views), funções (Compose). Segundo eixo da
-comparação, que Solid × Angular faz variar; se a análise o cobre se decide
-nas primeiras análises (ADR 0021).
-_Avoid_: sintaxe da tela; marcação (não cobre `createElement` nem Compose)
+**Montagem da tela**:
+A parte da notação que escreve quais elementos a tela tem, em que
+hierarquia e com que textos: HTML (jQuery, Web Component), JSX (React,
+Solid), *template* (Angular), layout XML (Views), funções (Compose). A
+análise aponta, em cada DC, se a diferença está na coordenação, na
+montagem da tela ou na ligação entre as duas (ADR 0021).
+_Avoid_: estrutura da tela como notação à parte; sintaxe da tela;
+marcação (não cobre `createElement` nem Compose)
 
 **Tarefa**:
 Uma interface especificada, que todas as implementações seguem: Contador,
@@ -37,7 +39,8 @@ Beads (tarefa do bd)
 
 **Problema de coordenação**:
 O que uma tarefa exige da notação: evento → estado → tela, estado derivado,
-assincronia, lista derivada, estado compartilhado (ADR 0002).
+assincronia, lista derivada (com a montagem dos itens na tela), estado
+compartilhado (ADR 0002).
 _Avoid_: padrão de interface
 
 **Tecnologia**:
@@ -96,7 +99,7 @@ _Avoid_: critério, métrica
 
 **Avaliação**:
 O ato de aplicar as DCs ao código das implementações, feito pelo autor,
-critério a critério: a avaliação subjetiva de Kitchenham (1996), na forma
+dimensão a dimensão: a avaliação subjetiva de Kitchenham (1996), na forma
 de triagem.
 _Avoid_: juízo; análise (a seção que compara as notações); avaliação para
 o que ela conclui (conclusão)

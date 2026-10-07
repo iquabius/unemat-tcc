@@ -54,7 +54,7 @@ Formato:
   (LCSD '06), fora do refs.bib.
 - Conferido: 2026-10-01; de novo em 2026-10-04.
 
-* §6 [[file:../intro.org::testaram uma afirmação antiga][testaram uma afirmação antiga]]
+* §5 [[file:../intro.org::testaram uma afirmação antiga][testaram uma afirmação antiga]]
 ** salvaneschi2017, p. 1125-1134
 - Frase: “Num experimento controlado com 127 estudantes, quem leu os
   programas escritos com PR acertou mais perguntas sobre eles do que quem
@@ -71,7 +71,7 @@ Formato:
   PDF.
 - Conferido: 2026-10-06.
 
-* §21 [[file:../intro.org::O Contador, o Formulário e a Lista partem][O Contador, o Formulário e a Lista partem]]
+* §20 [[file:../intro.org::O Contador, o Formulário e a Lista partem][O Contador, o Formulário e a Lista partem]]
 ** kiss2014, p. 11, 17, 25 e 34
 - Frase: “O Contador, o Formulário e a Lista partem de três das sete
   tarefas do 7GUIs, propostas na dissertação de Kiss (2014, p. 17, 25 e
@@ -119,6 +119,15 @@ Formato:
 - Observação: a frase já citava Wohlin p. 3-4 antes do corte; as rodadas e
   as datas são do próprio trabalho (Apêndice B).
 - Conferido: 2026-10-06.
+** salvaneschi2017
+- Frase: “A pesquisa pode também gerar hipóteses para experimentos
+  controlados com programadores, como o de Salvaneschi et al. (2017).”
+- Trecho: “The study involves 127 subjects and compares reactive
+  programming to the traditional object-oriented style with the Observer
+  design pattern.” (resumo, p. 1125)
+- Lido em: =tmp/fontes/salvaneschi2017.pdf=, p. 1 do PDF; o desenho
+  controlado está na entrada do §5.
+- Conferido: 2026-10-06.
 
 * §9 [[file:../intro.org::As pesquisas de uso medem][As pesquisas de uso medem]]
 ** stackoverflow2025
@@ -143,6 +152,16 @@ Formato:
 - Lido em: =tmp/fontes/devographics2026.txt=, l. 49 (página salva em
   2026-09-29); a tabela dá 1.269 de 12.030 (10,55%).
 - Conferido: 2026-10-06.
+** mozilla2026
+- Frase: “O Web Component entra por ser o modelo de componente do próprio
+  navegador, e nele a coordenação se escreve com o =addEventListener=,
+  cujo /callback/ altera a tela.”
+- Trecho: o guia descreve elementos personalizados como classes que
+  estendem =HTMLElement=, e o exemplo registra um /callback/ que altera o
+  DOM, =newSpan.addEventListener("click", onClick);=
+- Lido em: =tmp/fontes/mozilla2026.txt=, l. 606 (página salva; MDN,
+  modificada em 2026-09-01).
+- Conferido: 2026-10-06.
 
 * §1 [[file:../intro.org::Interfaces gráficas mediam a maioria][Interfaces gráficas mediam a maioria]]
 ** myers1994, p. 79
@@ -162,13 +181,190 @@ Formato:
 - Conferido: 2026-10-06.
 
 * §16 [[file:../intro.org::A avaliação cabe ao autor][A avaliação cabe ao autor]]
+** kiss2014, p. 8
+- Frase: “Kiss (2014, p. 8) chama de analítica a avaliação pelas DCs e a
+  adota como alternativa aos experimentos com programadores, muitas vezes
+  caros e de resultados necessariamente restritos.”
+- Trecho: “Such studies have high meaningfulness but are often expensive
+  and their results are by necessity rather narrow. An alternative is an
+  analytical approach. The Cognitive Dimensions of Notations framework
+  (CDs) [43] is a set of standardized criteria for analyzing the
+  usability of ‘information artifacts’”
+- Lido em: =tmp/fontes/kiss2014.pdf=, p. 14 do PDF (p. 8 impressa).
+- Conferido: 2026-10-06.
+** kitchenham1996, p. 12
+- Frase: “a avaliação subjetiva de quanto cada alternativa oferece as
+  características exigidas é uma análise de características (/feature
+  analysis/).”
+- Trecho: “Evaluators assess the extent to which the method/tool provides
+  the required features in a usable and effective manner based (usually)
+  on personal opinion. DESMET refers to this type of evaluation as feature
+  analysis and identifies such an evaluation as a qualitative or
+  subjective evaluation.”
+- Lido em: =tmp/fontes/kitchenham1996a.pdf=, p. 2 do PDF (p. 12 impressa).
+- Observação: até 2026-10-06 a frase dizia “critérios”, onde a fonte diz
+  /features/.
+- Conferido: 2026-10-06.
 ** kitchenham1996, p. 15
-- Frase: “Feita por uma pessoa só, que escolhe os critérios e os aplica,
-  ela é uma triagem (/screening/).”
+- Frase: “Feita por uma pessoa só, que as escolhe e as avalia, ela é uma
+  triagem (/screening/).”
 - Trecho: “Qualitative screening: A feature-based evaluation done by a
   single individual who not only determines the features to be assessed
   and their rating scale but also does the assessment.”
 - Lido em: =tmp/fontes/kitchenham1996a.pdf=, p. 5 do PDF (p. 15 impressa).
-- Observação: a frase perdeu a citação quando a frase seguinte, com
-  Kitchenham p. 15, foi para cases.org na rodada 2 do corte.
+- Conferido: 2026-10-06.
+
+* §6 [[file:../intro.org::O /callback/ fragmenta o fluxo de controle][O callback fragmenta o fluxo de controle]]
+** fischer2007, p. 134
+- Frase: “O /callback/ fragmenta o fluxo de controle.”
+- Trecho: “the event-driven style severely complicates program maintenance
+  and understanding, as it requires each logical flow of control to be
+  fragmented across multiple independent callbacks.” (resumo)
+- Lido em: =tmp/fontes/fischer2007.pdf=, p. 1 do PDF (p. 134 impressa).
+- Observação: retoma a frase do §2, para a preocupação com o fluxo de
+  controle, de Moseley e Marks, não parecer falar do /callback/.
+- Conferido: 2026-10-06.
+** moseley2006, p. 1 e 21
+- Frase: “A preocupação explícita com esse fluxo é, para Moseley e Marks,
+  uma das causas da complexidade dos sistemas de grande porte, ao lado do
+  volume de código e, sobretudo, do tratamento do estado. Eles distinguem a
+  complexidade essencial, própria do problema, da acidental, todo o resto,
+  e propõem reduzir a acidental com PF e o modelo relacional de dados.”
+- Trecho: “Other closely related contributors are code volume, and
+  explicit concern with the flow of control through the system.” e o
+  resumo, que propõe reduzir a complexidade com “functional programming
+  and Codd’s relational model of data” (p. 1); “Essential Complexity is
+  inherent in, and the essence of, the problem” (p. 21).
+- Lido em: =tmp/fontes/moseley2006.pdf=, p. 1 e 21.
+- Conferido: 2026-10-06.
+
+* §7 [[file:../intro.org::Na programação de interfaces gráficas, a /notação/][Na programação de interfaces gráficas, a notação]]
+** openjs2026
+- Frase: “Na /imperativa com callbacks/, cada /callback/ altera o estado e a
+  tela diretamente, como no jQuery.”
+- Trecho: “It makes things like HTML document traversal and manipulation,
+  event handling, animation, and Ajax much simpler”
+- Lido em: =tmp/fontes/openjs2026.txt=, l. 94 (página salva).
+- Conferido: 2026-10-06.
+** mozilla2026
+- Frase: “e nos Web Components sem biblioteca.”
+- Trecho: o exemplo registra um /callback/ que altera o DOM,
+  =newSpan.addEventListener("click", onClick);=
+- Lido em: =tmp/fontes/mozilla2026.txt=, l. 606 (página salva; MDN,
+  modificada em 2026-09-01).
+- Conferido: 2026-10-06.
+** meta2026a
+- Frase: “Nas declarativas, o programador descreve a tela em função do
+  estado, e o ambiente de execução a mantém atualizada.”
+- Trecho: “Instead, you declare what you want to show, and React figures
+  out how to update the UI.”
+- Lido em: https://react.dev/learn/reacting-to-input-with-state, em
+  2026-10-06.
+- Conferido: 2026-10-06.
+** meta2026
+- Frase: “Na /declarativa por re-renderização/, cada mudança de estado
+  reexecuta o componente, como no React.”
+- Trecho: “you can trigger further renders by updating its state with the
+  set function. Updating your component’s state automatically queues a
+  render.”
+- Lido em: =tmp/fontes/meta2026.txt=, l. 75 (página salva).
+- Conferido: 2026-10-06.
+** solidjs2026
+- Frase: “Na /reativa fina com signals/, cada /signal/ avisa os valores e
+  trechos da tela que dependem dele, e só esses são recalculados, como no
+  Solid.”
+- Trecho: “data entities (signals) will maintain a list of their
+  subscribers (effects). This is a way to notify subscribers whenever a
+  signal they observe changes.” (l. 70); “In Solid, updates are made to the
+  targeted attribute that needs to be changed […] React would re-execute an
+  entire component for a change in the single attribute” (l. 10)
+- Lido em: =tmp/fontes/solidjs2026.txt= (página salva).
+- Conferido: 2026-10-06.
+** google2026
+- Frase: “e no Angular com /signals/.”
+- Trecho: “Angular Signals is a system that granularly tracks how and where
+  your state is used throughout an application, allowing the framework to
+  optimize rendering updates.”
+- Lido em: =tmp/fontes/google2026.txt=, l. 11 (página salva).
+- Conferido: 2026-10-06.
+** salvaneschi2015, p. 953
+- Frase: “A notação reativa fina usa as abstrações da PR: os valores que
+  variam no tempo, chamados /signals/, cujas alterações se propagam
+  automaticamente.”
+- Trecho: “It is based on concepts like time-varying values (a.k.a.
+  signals or behaviors), events streams to model discrete updates,
+  automatic tracking of dependencies, and automated propagation of
+  change.”
+- Lido em: =tmp/fontes/salvaneschi2015.pdf=, p. 1 do PDF (p. 953).
+- Conferido: 2026-10-06.
+
+* §14 [[file:../intro.org::Quanto aos objetivos, a pesquisa é][Quanto aos objetivos, a pesquisa é exploratória]]
+** runeson2009, p. 135
+- Frase: “Quanto aos objetivos, a pesquisa é /exploratória/: busca
+  compreensão nova e gera ideias e hipóteses para outras pesquisas.”
+- Trecho: “Exploratory—finding out what is happening, seeking new insights
+  and generating ideas and hypotheses for new research.”
+- Lido em: =tmp/fontes/runeson2009.pdf=, p. 5 do PDF (p. 135).
+- Conferido: 2026-10-06.
+** easterbrook2008
+- Frase: “A pergunta de pesquisa, como as notações se comparam, é do tipo
+  que Easterbrook et al. chamam de descritivo-comparativo e põem entre as
+  perguntas exploratórias.”
+- Trecho: “In the early stages of a research program, we usually need to
+  ask exploratory questions […] such as: […] Descriptive-Comparative
+  questions of the form, ‘How does X differ from Y?’”
+- Lido em: =tmp/fontes/easterbrook2008.pdf=, p. 3 do PDF (pré-publicação;
+  a página do livro, 285-311, não se confere nela).
+- Observação: o parágrafo só entrou na matriz porque a nota \todo dele
+  mudou (“notações de coordenação” passou a “notações”).
+- Conferido: 2026-10-06.
+
+* §21 [[file:../intro.org::Na web, a notação imperativa entra][Na web, a notação imperativa entra]]
+** meta2026c
+- Frase: “React e Solid montam a tela em JSX, uma extensão de sintaxe do
+  JavaScript que permite escrever marcação parecida com HTML dentro de um
+  arquivo JavaScript.”
+- Trecho: “JSX is a syntax extension for JavaScript that lets you write
+  HTML-like markup inside a JavaScript file.”
+- Lido em: https://react.dev/learn/writing-markup-with-jsx, em 2026-10-06.
+- Observação: a glosa veio do antigo parágrafo da estrutura da tela, que
+  saiu em 2026-10-06.
+- Conferido: 2026-10-06.
+** solidjs2026
+- Frase: “a cada mudança de estado, o React reexecuta o componente
+  inteiro, e o Solid atualiza só os trechos da tela que dependem do
+  /signal/ alterado.”
+- Trecho: “In Solid, updates are made to the targeted attribute that needs
+  to be changed, avoiding broader and, sometimes unnecessary, updates. In
+  contrast, React would re-execute an entire component for a change in the
+  single attribute”
+- Lido em: =tmp/fontes/solidjs2026.txt=, l. 10 (página salva).
+- Conferido: 2026-10-06.
+
+* §22 [[file:../intro.org::Solid e Angular com /signals/, ao contrário][Solid e Angular com signals, ao contrário]]
+** solidjs2026a
+- Frase: “Solid e Angular com /signals/, ao contrário, coordenam do mesmo
+  modo: os dois guardam o estado em /signals/ e derivam valores de outros
+  /signals/.”
+- Trecho: “Derived signals are functions that rely on one or more signals
+  to produce a value.”
+- Lido em: https://docs.solidjs.com/concepts/derived-values/derived-signals,
+  em 2026-10-06.
+- Conferido: 2026-10-06.
+** google2026
+- Frase: a mesma, para o Angular.
+- Trecho: “A signal is a wrapper around a value that notifies interested
+  consumers when that value changes.” (l. 21); “Computed signals are
+  read-only signals that derive their value from other signals.” (l. 80)
+- Lido em: =tmp/fontes/google2026.txt= (página salva).
+- Conferido: 2026-10-06.
+** google2026a
+- Frase: “O Solid monta a tela em JSX numa função, e o Angular, num
+  /template/ baseado em HTML, com construtos próprios.”
+- Trecho: “In Angular, a template is a chunk of HTML.”; “Templates are
+  based on HTML syntax, with additional features such as built-in template
+  functions, data binding, event listening, variables, and more.”; “The @
+  character has a special meaning to Angular for adding dynamic behavior,
+  such as control flow, to templates.”
+- Lido em: https://angular.dev/guide/templates, em 2026-10-06.
 - Conferido: 2026-10-06.

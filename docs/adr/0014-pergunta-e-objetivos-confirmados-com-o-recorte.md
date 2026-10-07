@@ -7,8 +7,8 @@ na prática para programar interfaces gráficas, a imperativa com
 *callbacks*, a declarativa por re-renderização e a reativa fina com
 *signals*, se comparam quanto à usabilidade, segundo as Dimensões
 Cognitivas de Notações? A notação é a do código que programa a interface,
-não a da tela. "Larga escala" fica só na motivação. O objetivo geral é
-comparar, segundo as DCs, a usabilidade das três notações na programação
+e não o que o usuário vê na tela. "Larga escala" fica só na motivação. O
+objetivo geral é comparar, segundo as DCs, a usabilidade das três notações na programação
 de interfaces típicas da web (TypeScript), com replicação no Android
 (Kotlin); os específicos: demonstrar com processamento de listas os
 conceitos de PF em que se apoiam as notações declarativas; implementar os

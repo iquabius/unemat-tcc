@@ -36,15 +36,6 @@ computações assíncronas \cite{madsen2017}, e as palavras-chave \emph{async} e
 As \emph{promises} achatam o aninhamento dos \emph{callbacks}, mas a lógica complexa
 continua presa em cadeias de \emph{callbacks} \cite[p. 9]{grolaux2026}.
 
-A preocupação explícita com o fluxo de controle é, para
-\textcite[p. 1 e 21]{moseley2006}, uma das causas da complexidade dos
-sistemas de grande porte, ao lado do volume de código e, sobretudo, do
-tratamento do estado.
-Eles distinguem a complexidade essencial, própria do problema, da acidental,
-todo o resto, e propõem reduzir a acidental com \gls{pf} e o
-modelo relacional de dados.
-Conceitos de programação declarativa podem, assim, diminuir essa complexidade.
-
 Outra alternativa ao \emph{callback} é a \gls{pr}.
 Segundo \textcite[p. 1125-1126]{salvaneschi2017}, nela o programador
 declara as relações entre os valores, e o ambiente de execução faz as
@@ -61,11 +52,21 @@ com \gls{pr} acertou mais perguntas sobre eles do que quem os leu com o
 \emph{Observer Pattern} (médias de 8,13 e 7,05 acertos em dez, com diferença
 significativa) e não levou mais tempo.
 
-Na programação de interfaces gráficas, a \emph{notação de coordenação} é a forma
-de escrever como evento, estado e tela se coordenam: onde vive o estado,
-como se declara um valor derivado, quem atualiza a tela.
-Nas tecnologias mais usadas, há três notações de coordenação, e duas delas
-são declarativas.
+O \emph{callback} fragmenta o fluxo de controle \cite[p. 134]{fischer2007}.
+A preocupação explícita com esse fluxo é, para
+\textcite[p. 1 e 21]{moseley2006}, uma das causas da complexidade dos
+sistemas de grande porte, ao lado do volume de código e, sobretudo, do
+tratamento do estado.
+Eles distinguem a complexidade essencial, própria do problema, da acidental,
+todo o resto, e propõem reduzir a acidental com \gls{pf} e o
+modelo relacional de dados.
+Conceitos de programação declarativa podem, assim, diminuir essa complexidade.
+
+Na programação de interfaces gráficas, a \emph{notação} é a forma de escrever
+no código o estado, os valores derivados dele e a tela que os mostra.
+\todo{A estrutura da tela deixa de ser um segundo eixo e passa a fazer parte da notação; Solid e Angular passam a ser uma notação só, que varia na montagem da tela, no modelo de componente e na API.}
+Nas tecnologias mais usadas, há três notações, duas delas declarativas.
+Elas se distinguem pelo modo de coordenar evento, estado e tela.
 Na \emph{imperativa com callbacks}, cada \emph{callback} altera o estado e a tela
 diretamente, como no jQuery \cite{openjs2026} e nos Web Components sem
 biblioteca \cite{mozilla2026}.
@@ -99,8 +100,8 @@ no Angular, quem usa \emph{signals}.
 Por isso, o uso da notação reativa fina se apoia no Angular, que também a
 adota, e o da imperativa, no jQuery.
 O Web Component entra por ser o modelo de componente do próprio navegador
-\cite{mozilla2026}, e nele a notação é o \texttt{addEventListener} cujo \emph{callback}
-altera a tela.
+\cite{mozilla2026}, e nele a coordenação se escreve com o \texttt{addEventListener},
+cujo \emph{callback} altera a tela.
 
 As \glspl{dc}, propostas por \textcite{green1989}, são um
 vocabulário para discutir a usabilidade de notações e de outros
@@ -125,15 +126,14 @@ dos eventos de interface.
 Nenhum desses trabalhos compara, sobre as mesmas tarefas, as três notações
 como as escrevem as tecnologias web mais usadas.
 Os trabalhos encontrados na revisão bibliográfica também não avaliam pelas
-\glspl{dc} a notação de coordenação do React nem a do Solid e do Angular com
-\emph{signals}.
+\glspl{dc} a notação do React nem a do Solid e do Angular com \emph{signals}.
 A lacuna se apoia nessa revisão, feita por palavras-chave e \emph{snowballing}
 \cite[p. 3-4]{wohlin2014} em duas rodadas, em setembro e outubro de 2026,
 e descrita no Apêndice \ref{apend:2}.
 Pergunta-se, então: na programação de interfaces gráficas, como as três
-notações de coordenação, a imperativa com \emph{callbacks}, a declarativa por
-re-renderização e a reativa fina com \emph{signals}, se comparam quanto à
-usabilidade, segundo as \glspl{dc}?
+notações, a imperativa com \emph{callbacks}, a declarativa por re-renderização e
+a reativa fina com \emph{signals}, se comparam quanto à usabilidade, segundo as
+\glspl{dc}?
 A comparação pode ajudar quem programa interfaces a escolher uma tecnologia
 sabendo o que a notação dela facilita e o que dificulta em cada problema de
 coordenação.
@@ -162,7 +162,7 @@ e gera ideias e hipóteses para outras pesquisas
 A pergunta de pesquisa, como as notações se comparam, é do tipo que
 \textcite{easterbrook2008} chamam de descritivo-comparativo e põem entre as
 perguntas exploratórias.
-\todo[inline]{Em relação ao projeto de 2017: a pergunta deixa de comparar paradigmas, PF e PR frente à POO com callbacks, e passa a comparar três notações de coordenação, com as DCs como critério explícito. A demonstração de PR e callbacks dá lugar a cinco tarefas de interface, implementadas em cinco tecnologias web e replicadas no Android. O JavaScript passa a TypeScript, e entra o Kotlin. A classificação quanto aos meios também muda (nota adiante). A natureza aplicada sai, e a classificação exploratória passa a se apoiar em Runeson e Höst (2009) e em Easterbrook et al. (2008), no lugar de Leal (2011).}
+\todo[inline]{Em relação ao projeto de 2017: a pergunta deixa de comparar paradigmas, PF e PR frente à POO com callbacks, e passa a comparar três notações, com as DCs como critério explícito. A demonstração de PR e callbacks dá lugar a cinco tarefas de interface, implementadas em cinco tecnologias web e replicadas no Android. O JavaScript passa a TypeScript, e entra o Kotlin. A classificação quanto aos meios também muda (nota adiante). A natureza aplicada sai, e a classificação exploratória passa a se apoiar em Runeson e Höst (2009) e em Easterbrook et al. (2008), no lugar de Leal (2011).}
 
 Quanto aos meios, o trabalho é uma avaliação qualitativa, pelas \glspl{dc}, de
 implementações de um mesmo conjunto de tarefas.
@@ -173,30 +173,16 @@ Aqui, as técnicas são as três notações, e as tarefas, cinco interfaces
 típicas da web.
 \todo[inline]{O projeto classificava o trabalho, quanto aos meios, como estudo de casos múltiplos (Leal 2011; Yin 2001). As definições reunidas por Runeson e Höst (2009, p. 134 e 139) pedem um fenômeno contemporâneo no seu contexto real e excluem os programas de exemplo. Por isso a classificação saiu, e as interfaces implementadas passaram a se chamar tarefas, como no 7GUIs (Kiss 2014) e em Sim et al. (2003). Registrar essa mudança no texto?}
 
-A avaliação cabe ao autor, que examina o código das implementações critério
-a critério, sem participantes.
+A avaliação cabe ao autor, que examina o código das implementações dimensão
+a dimensão, sem participantes.
 \textcite[p. 8]{kiss2014} chama de analítica a avaliação pelas \glspl{dc}
 e a adota como alternativa aos experimentos com programadores,
 muitas vezes caros e de resultados necessariamente restritos.
-Para \textcite[p. 12]{kitchenham1996}, a avaliação subjetiva de como cada
-alternativa atende a um conjunto de critérios é uma análise de
+Para \textcite[p. 12]{kitchenham1996}, a avaliação subjetiva de quanto
+cada alternativa oferece as características exigidas é uma análise de
 características (\emph{feature analysis}).
-Feita por uma pessoa só, que escolhe os critérios e os aplica, ela é uma
-triagem (\emph{screening}) \cite[p. 15]{kitchenham1996}.
-
-As \glspl{dc} admitem várias notações num mesmo sistema
-\cite[p. 328]{blackwell2001}, e o código de uma interface gráfica tem pelo menos
-duas.
-Além da de coordenação, a \emph{notação da estrutura da tela} escreve quais elementos a tela
-tem, em que hierarquia e com que textos, como o \gls{html} ou o JSX.
-O JSX é uma extensão de sintaxe do JavaScript que permite escrever
-marcação parecida com \gls{html} dentro de um arquivo JavaScript \cite{meta2026c}.
-A comparação principal é a da notação de coordenação, e a da estrutura da
-tela é um segundo eixo, que o par Solid e Angular faz variar.
-\todo{A estrutura da tela passa a ser um segundo eixo da comparação. Se a análise a cobre, isso se decide nas primeiras análises.}
-Quando o texto diz só notação, é a de coordenação.
-Ela inclui os sinais de coordenação escritos dentro da estrutura da tela,
-como a leitura de um \emph{signal} no JSX.
+Feita por uma pessoa só, que as escolhe e as avalia, ela é
+uma triagem (\emph{screening}) \cite[p. 15]{kitchenham1996}.
 
 O trabalho se divide em duas partes.
 Na primeira, programas de \emph{processamento de listas} demonstram conceitos
@@ -214,7 +200,8 @@ exigências que a interface faz à notação:
 uns dos outros;
 \item[{Busca com sugestões}] a assincronia (espera, respostas fora de ordem e
 cancelamento);
-\item[{Lista filtrável}] a lista derivada por busca, filtro e ordenação;
+\item[{Lista filtrável}] a lista derivada por busca, filtro e ordenação, além
+da montagem dos itens na tela;
 \item[{Carrinho}] o estado compartilhado entre componentes.
 \end{description}
 
@@ -222,21 +209,28 @@ O Contador, o Formulário e a Lista partem de três das sete tarefas do
 7GUIs, propostas na dissertação de \textcite[p. 17, 25 e 34]{kiss2014}, e a
 Busca e o Carrinho não têm tarefa equivalente.
 
-Na web, o desenho tem duas comparações controladas, entre pares de
-tecnologias escolhidos para diferir num ponto só.
-React e Solid escrevem a estrutura da tela no mesmo JSX e diferem na
-notação de coordenação.
-Solid e Angular com \emph{signals} são a mesma notação: os dois guardam o
-estado em \emph{signals} e derivam valores de outros \emph{signals}
+Na web, a notação imperativa entra com o Web Component e o jQuery, e o
+desenho compara dois pares de tecnologias próximas.
+React e Solid montam a tela em JSX, uma extensão de sintaxe do JavaScript
+que permite escrever marcação parecida com \gls{html} dentro de um
+arquivo JavaScript \cite{meta2026c}.
+O que os separa, sobretudo, é o modo de coordenar: a cada mudança de
+estado, o React reexecuta o componente inteiro, e o Solid atualiza só os
+trechos da tela que dependem do \emph{signal} alterado \cite{solidjs2026}.
+
+Solid e Angular com \emph{signals}, ao contrário, coordenam do mesmo modo: os
+dois guardam o estado em \emph{signals} e derivam valores de outros \emph{signals}
 \cite{solidjs2026a,google2026}.
-Diferem na notação da estrutura da tela, que o Solid escreve em JSX dentro
-de uma função, e o Angular num \emph{template} baseado em \gls{html}, com construtos
-próprios \cite{google2026a}.
-Esse par, porém, não difere só nisso: o Angular escreve o componente como
-classe, com decorador e injeção de dependências.
-A análise precisa separar o que vem do \emph{template} do que vem desse modelo
-de componente.
-A notação imperativa entra com o Web Component e o jQuery.
+Por isso ficam na mesma notação, e o par mostra como ela varia entre
+tecnologias em três pontos.
+O Solid monta a tela em JSX numa função, e o Angular, num \emph{template}
+baseado em \gls{html}, com construtos próprios \cite{google2026a}.
+O Angular escreve o componente como classe, com decorador e injeção de
+dependências.
+E as \glspl{api} dos dois diferem no que vai além do \emph{signal} e do valor
+derivado, como o cancelamento das requisições na Busca.
+A análise diz de qual desses três pontos vem cada diferença entre o Solid
+e o Angular.
 
 No Android, o Formulário e a Lista formam uma \emph{replicação}, que confere se
 as conclusões tiradas na web se repetem em outra plataforma e outra
@@ -294,10 +288,13 @@ código pronto.
 A seção \ref{chap:results} compara as notações a partir das conclusões da
 avaliação e abre com uma tabela-síntese, com uma linha por \gls{dc} e uma
 coluna por notação.
-Cada célula resume a conclusão e indica de que tarefa vem a evidência.
+Cada célula resume a conclusão, indica de que tarefa vem a evidência e
+registra quando o Solid e o Angular com \emph{signals} divergem.
 Como cada tarefa exercita um problema de coordenação, a síntese por
-problema sai da mesma tabela.
+problema reúne as células que vêm da tarefa dele.
 Segue uma seção por \gls{dc}, com os trechos de uma tarefa escolhida antes da avaliação pelo problema de coordenação que a dimensão mais toca.
+Em cada seção, a análise aponta se a diferença está na coordenação, na
+montagem da tela ou na ligação entre as duas.
 Nas seções em que o Formulário ou a Lista mostram diferença entre Views e
 Compose, a replicação diz se a conclusão da web se repete no Android.
 A concisão tem ainda o apoio de uma contagem das linhas de cada
