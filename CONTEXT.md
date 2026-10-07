@@ -130,6 +130,42 @@ Programação funcional, reativa e funcional reativa, os paradigmas do
 capítulo de programação. PFR é a de Elliott e Hudak (1997), com tempo
 contínuo; PR cobre também o tempo discreto.
 
+**Fluxo de controle**:
+A ordem em que os passos de um programa são executados (Moseley e Marks,
+2006). O *callback* a parte em vários trechos; na PR, o ambiente de
+execução a deriva das dependências declaradas.
+_Avoid_: fluxo sozinho; fluxo de controle para o fluxo de eventos (é um
+valor, não uma ordem)
+
+**Síncrono, assíncrono**:
+Síncrona é a chamada em que quem chama espera o resultado; assíncrona, a
+que devolve o controle na hora e entrega o resultado depois, por
+*callback*, *promise* ou evento (Adya et al., 2002; Gallaba et al., 2015).
+_Avoid_: síncrono sozinho no sentido de Esterel e Lustre (programação
+síncrona, de instantes lógicos); assíncrono por paralelo ou por várias
+*threads*; não bloqueante por assíncrono (Van Roy e Haridi, 2004)
+
+**Concorrente**:
+Diz-se das partes de um programa sem ordem dada entre si, logicamente
+independentes (Van Roy e Haridi, 2004). Operações assíncronas pendentes
+são concorrentes mesmo numa *thread* só.
+_Avoid_: paralelo (execução simultânea no *hardware*); independente como
+termo à parte; concorrente como oposto de assíncrono
+
+**Inversão de controle**:
+O *toolkit* ou o *framework* chama o código do programa quando um evento
+ocorre, em vez de o programa chamá-lo (Myers, 1994).
+_Avoid_: inversão de controle para a inversão de dependência do *Observer
+Pattern*, em que o observador se registra no observável (Salvaneschi et
+al., 2017)
+
+**Fluxo de eventos**:
+Sequência de valores que chegam com o tempo, empurrados pela fonte; os
+operadores de coleção, como filtrar e transformar, aplicam-se a ela
+(Meijer, 2012).
+_Avoid_: *stream* sem tradução; fluxo de dados (é a computação guiada
+pelos valores, não o valor)
+
 **Tarefa do bd**:
 Um item de trabalho no Beads (`bd`); não é decisão (ADR) nem achado para a
 análise.
