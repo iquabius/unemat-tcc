@@ -127,6 +127,11 @@ class Matriz(unittest.TestCase):
         capitulo = CAPITULO.replace("Três estudos", "  - Três estudos")
         self.assertEqual(conferir(capitulo), [])
 
+    def test_link_depois_da_citacao_que_abre_o_paragrafo(self):
+        for abertura in ("[[textcite:edwards2009][p. 926]]", "textcite:edwards2009"):
+            capitulo = CAPITULO.replace("Três estudos", abertura + " Três estudos")
+            self.assertEqual(conferir(capitulo), [], abertura)
+
     def test_titulo_sem_link_ou_para_outro_arquivo(self):
         matriz = MATRIZ.replace("[[file:../intro.org::Três estudos medem]"
                                 "[Três estudos]]", "Três estudos")

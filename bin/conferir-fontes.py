@@ -13,7 +13,8 @@ Lista três problemas, e sai com código 1 se houver algum:
 - entrada sem citação: a matriz registra, sob o título de um parágrafo, uma
   chave que o parágrafo não cita mais;
 - link quebrado: o link de busca do título (file:../<capítulo>.org::começo
-  do parágrafo) não casa com o texto, ou casa no meio de um parágrafo.
+  do parágrafo) não casa com o texto, ou casa no meio de um parágrafo; o
+  começo vale depois do marcador de item e da citação que abre a frase.
 
 O link se procura como o Org procura um link de texto: sem diferença de
 maiúsculas e com qualquer espaço ou quebra de linha entre as palavras, na
@@ -43,7 +44,13 @@ TITULO_ORG = re.compile(r"\*+\s")
 COMENTARIO = re.compile(r"\s*#(\s|$)")
 PALAVRA_CHAVE = re.compile(r"\s*#\+")
 BLOCO_IGNORADO = re.compile(r"\s*#\+begin_(comment|src|example)\b", re.I)
-MARCADOR = re.compile(r"\s*(?:[-+]|\d+[.)])\s+")
+# O começo de um parágrafo, antes da primeira palavra: o marcador de item e
+# a citação que abre a frase ([[textcite:chave][p. N]] ou textcite:chave),
+# que não cabe num link de busca do Org.
+ABERTURA = re.compile(
+    r"\s*(?:(?:[-+]|\d+[.)])\s+)?"
+    r"(?:(?:\[\[[a-z]*cite[a-z]*\*?:[^]]+\](?:\[[^]]*\])?\]"
+    r"|[a-z]*cite[a-z]*\*?:[\w,;&-]+)\s+)?")
 LINK = re.compile(r"\[\[file:([^]:]+)::([^]]+)\](?:\[[^]]*\])?\]")
 
 
@@ -139,8 +146,7 @@ def localizar(busca, partes):
     for trecho in partes:
         i = trecho.texto.find(alvo)
         if i >= 0:
-            m = MARCADOR.match(trecho.texto)
-            return trecho, i <= (m.end() if m else 0)
+            return trecho, i <= ABERTURA.match(trecho.texto).end()
     return None, False
 
 
