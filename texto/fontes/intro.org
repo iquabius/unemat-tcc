@@ -30,6 +30,25 @@ Formato:
   callbacks are nested” (resumo).
 - Lido em: =tmp/fontes/gallaba2015.pdf=, p. 1.
 - Conferido: 2026-10-06.
+** blackheath2016, p. 7
+- Frase: “Também chamado de /listener/, o /callback/ é a forma dominante de
+  propagar eventos, e registrá-lo num produtor de eventos, que o chama de
+  volta a cada evento, é o /Observer Pattern/.”
+- Trecho: “Listeners or callbacks—also called the observer pattern—are the
+  dominant way of propagating events in software today.”; “register a new
+  consumer (or listener) with it, and from then on, that consumer is called
+  back whenever an event occurs.” (p. 7)
+- Lido em: =tmp/fontes/blackheath2016-cap1.pdf=, p. 10 do PDF (p. 7).
+- Conferido: 2026-10-07.
+** fischer2007, p. 134
+- Frase: “Para Fischer et al. (2007, p. 134), o /callback/ dificulta a
+  manutenção e a compreensão do programa, porque fragmenta cada fluxo de
+  controle em vários /callbacks/ independentes.”
+- Trecho: “the event-driven style severely complicates program maintenance
+  and understanding, as it requires each logical flow of control to be
+  fragmented across multiple independent callbacks.” (resumo)
+- Lido em: =tmp/fontes/fischer2007.pdf=, p. 1 do PDF (p. 134 impressa).
+- Conferido: 2026-10-07.
 ** edwards2009, p. 926 (estado compartilhado)
 - Frase: “Como não se sabe em que ordem os /callbacks/ serão chamados,
   coordenar as alterações ao estado compartilhado é desconcertante e está
@@ -53,6 +72,33 @@ Formato:
   metade" e não nomeia a Adobe; a fonte primária é a palestra de Parent
   (LCSD '06), fora do refs.bib.
 - Conferido: 2026-10-01; de novo em 2026-10-04.
+
+* §4 [[file:../intro.org::Outra alternativa ao /callback/ é a][Outra alternativa ao callback é a PR]]
+** salvaneschi2017, p. 1125-1126
+- Frase: “Segundo Salvaneschi et al. (2017, p. 1125-1126), nela o
+  programador declara as relações entre os valores, e o ambiente de
+  execução faz as atualizações que elas exigem.”
+- Trecho: “the programmer states which relations should be enforced among
+  the variables that compose a reactive program and the RP runtime takes
+  care of performing all the required updates” (p. 1125); “the language
+  runtime takes care of change propagation” (p. 1125).
+- Lido em: =tmp/fontes/salvaneschi2017.pdf=, p. 1 do PDF (p. 1125).
+- Conferido: 2026-10-07.
+** bainomugisha2013, p. 1-2
+- Frase: “Ela serve às aplicações orientadas a eventos e interativas e
+  leva às linguagens de programação o modelo das planilhas eletrônicas, em
+  que mudar o valor de uma célula recalcula as fórmulas que dependem dela
+  (Bainomugisha et al., 2013, p. 1-2).”
+- Trecho: “Reactive programming has recently gained popularity as a
+  paradigm that is well-suited for developing event-driven and
+  interactive applications.” (resumo, p. 52:1); “Reactive programming is
+  essentially about embedding the spreadsheet-like model in programming
+  languages.”; “automatic management of data dependencies can be
+  observed in spreadsheet systems [...] If a value of a cell changes then
+  the formulas are automatically recalculated.” (p. 52:2)
+- Lido em: =tmp/fontes/bainomugisha2013.pdf=, p. 1 e 2 do PDF (p. 52:1 e
+  52:2).
+- Conferido: 2026-10-07.
 
 * §5 [[file:../intro.org::testaram uma afirmação antiga][testaram uma afirmação antiga]]
 ** salvaneschi2017, p. 1125-1134
@@ -118,15 +164,6 @@ Formato:
   impressa (EASE '14).
 - Observação: a frase já citava Wohlin p. 3-4 antes do corte; as rodadas e
   as datas são do próprio trabalho (Apêndice B).
-- Conferido: 2026-10-06.
-** salvaneschi2017
-- Frase: “A pesquisa pode também gerar hipóteses para experimentos
-  controlados com programadores, como o de Salvaneschi et al. (2017).”
-- Trecho: “The study involves 127 subjects and compares reactive
-  programming to the traditional object-oriented style with the Observer
-  design pattern.” (resumo, p. 1125)
-- Lido em: =tmp/fontes/salvaneschi2017.pdf=, p. 1 do PDF; o desenho
-  controlado está na entrada do §5.
 - Conferido: 2026-10-06.
 
 * §9 [[file:../intro.org::As pesquisas de uso medem][As pesquisas de uso medem]]
@@ -327,18 +364,28 @@ Formato:
 - Observação: o parágrafo só entrou na matriz porque a nota \todo dele
   mudou (“notações de coordenação” passou a “notações”).
 - Conferido: 2026-10-06.
+** salvaneschi2017
+- Frase: “As hipóteses desta pesquisa servem a experimentos controlados
+  como o de Salvaneschi et al. (2017).”
+- Trecho: “The study involves 127 subjects and compares reactive
+  programming to the traditional object-oriented style with the Observer
+  design pattern.” (resumo, p. 1125)
+- Lido em: =tmp/fontes/salvaneschi2017.pdf=, p. 1 do PDF; o desenho
+  controlado está na entrada do §5.
+- Observação: a frase saiu do §11 em 2026-10-07, para o §14 ligar as
+  hipóteses da pesquisa exploratória ao experimento.
+- Conferido: 2026-10-07.
 
 * §18 [[file:../intro.org::Na web, a notação imperativa entra][Na web, a notação imperativa entra]]
 ** meta2026c
-- Frase: “React e Solid montam a tela em JSX, uma extensão de sintaxe do
-  JavaScript que permite escrever marcação parecida com HTML dentro de um
-  arquivo JavaScript.”
+- Frase: “React e Solid montam a tela em JSX, marcação parecida com HTML
+  escrita dentro do JavaScript.”
 - Trecho: “JSX is a syntax extension for JavaScript that lets you write
   HTML-like markup inside a JavaScript file.”
-- Lido em: https://react.dev/learn/writing-markup-with-jsx, em 2026-10-06.
-- Observação: a glosa veio do antigo parágrafo da estrutura da tela, que
-  saiu em 2026-10-06.
-- Conferido: 2026-10-06.
+- Lido em: https://react.dev/learn/writing-markup-with-jsx, em 2026-10-07.
+- Observação: a definição por extenso está no prog.org, seção de
+  programação de interfaces gráficas.
+- Conferido: 2026-10-07.
 ** solidjs2026
 - Frase: “a cada mudança de estado, o React reexecuta o componente
   inteiro, e o Solid atualiza só os trechos da tela que dependem do
@@ -387,8 +434,8 @@ Formato:
 - Lido em: =tmp/fontes/green1989.pdf=, p. 1 do PDF (p. 443).
 - Conferido: 2026-10-06.
 ** blackwell2001, p. 326
-- Frase: “Elas são um vocabulário para a usabilidade de notações e de
-  outros artefatos de informação.”
+- Frase: “Elas são um vocabulário para descrever a usabilidade de notações
+  e de outros artefatos de informação.”
 - Trecho: “The Cognitive Dimensions of Notations are such a vocabulary.”;
   “Cognitive Dimensions of Notations (CDs) is a framework for describing
   the usability of notational systems [...] and information artifacts”
@@ -454,6 +501,37 @@ Formato:
 - Lido em: =tmp/fontes/sim2003.pdf=, p. 3 do PDF (p. 76; o artigo vai de
   74 a 83).
 - Conferido: 2026-10-06.
+
+* §27 [[file:../intro.org::Por ser analítica][Por ser analítica]]
+** britton2001
+- Frase: “O trabalho escolheu as oito DCs antes da avaliação, e usar um
+  subconjunto pode deixar de fora propriedades importantes da notação.”
+- Trecho: “The results of the second study indicate that if only a subset
+  of the dimensions is used in the creation of a profile important aspects
+  may be overlooked.” (resumo)
+- Lido em: =tmp/fontes/britton2001.pdf=, p. 1 do PDF.
+- Conferido: 2026-10-07.
+** green2006, p. 334
+- Frase: “Para Green et al. (2006, p. 334), duas delas, a expressividade e
+  as operações mentais difíceis, sempre foram mal descritas.”
+- Trecho: “Examples here are the ‘hard mental operations’ and the
+  ‘role-expressiveness’ dimensions, which have always been poorly
+  described” (p. 334)
+- Lido em: =tmp/fontes/green2006-cognitive-dimensions-achievements-new-directions-and-open-questions.pdf=,
+  p. 7 do PDF (p. 334).
+- Conferido: 2026-10-07.
+** green1996d, p. 157
+- Frase: “a exclusão mais discutível é a do compromisso prematuro, que
+  também aparece na própria notação, quando um trecho escrito numa
+  construção pede outra e mudar custa caro.”
+- Trecho: “Commitment to choice of construct: When a programmer chooses a
+  syntactic construct and then adds code to the construct, it may turn out
+  subsequently that the construct is the wrong one (e.g. while should be
+  changed to for).” (p. 157)
+- Lido em: =tmp/fontes/green1996-usability-analysis-of-visual-programming-environments-a-cognitive-dimensions-framework.pdf=,
+  p. 27 do PDF (p. 157).
+- Observação: o texto cita green1996d sem página; a p. 157 é a do trecho.
+- Conferido: 2026-10-07.
 
 * §28 [[file:../intro.org::As tarefas são pequenas][As tarefas são pequenas]]
 ** sim2003

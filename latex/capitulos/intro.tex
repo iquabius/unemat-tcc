@@ -2,8 +2,9 @@ Interfaces gráficas mediam a maioria das nossas interações com computadores,
 seja em celulares e \emph{notebooks}, seja no navegador web.
 Projetá-las e implementá-las é difícil por natureza, e deve continuar sendo
 \cite[p. 73]{myers1994}.
-Programar interfaces exige coordenar os eventos gerados pelas ações do usuário
-com o estado do programa e com o que a tela mostra.
+Cada clique, tecla ou toque do usuário gera um evento.
+Programar interfaces exige coordenar esses eventos com o estado do programa e
+com o que a tela mostra.
 Essa coordenação é o tema deste trabalho, porque é nela que a programação de
 interfaces se afasta dos outros programas \cite[p. 79]{myers1994}.
 Além disso, ao escolher uma tecnologia, o programador escolhe
@@ -39,9 +40,10 @@ Outra alternativa ao \emph{callback} é a \gls{pr}.
 Segundo \textcite[p. 1125-1126]{salvaneschi2017}, nela o programador
 declara as relações entre os valores, e o ambiente de execução faz as
 atualizações que elas exigem.
-Para \textcite[p. 1-2]{bainomugisha2013}, a \gls{pr} serve às aplicações
-orientadas a eventos e interativas e leva às linguagens de programação o
-modelo das planilhas eletrônicas.
+Ela serve às aplicações orientadas a eventos e interativas e leva às
+linguagens de programação o modelo das planilhas eletrônicas, em que mudar
+o valor de uma célula recalcula as fórmulas que dependem dela
+\cite[p. 1-2]{bainomugisha2013}.
 
 \textcite[p. 1125-1134]{salvaneschi2017} testaram uma afirmação antiga,
 até então sem evidência empírica, de que a \gls{pr} torna os programas mais fáceis
@@ -104,7 +106,7 @@ cujo \emph{callback} altera a tela.
 
 Para discutir o quanto uma notação facilita a compreensão e a
 manutenção, há as \glspl{dc}, propostas por \textcite{green1989}.
-Elas são um vocabulário para a usabilidade de notações e de outros
+Elas são um vocabulário para descrever a usabilidade de notações e de outros
 artefatos de informação \cite[p. 326]{blackwell2001}.
 Trabalhos anteriores compararam por elas paradigmas, linguagens e
 bibliotecas de programação de interfaces.
@@ -137,8 +139,6 @@ segundo as \glspl{dc}?
 A comparação pode ajudar quem programa interfaces a escolher uma tecnologia
 sabendo o que a notação dela facilita e o que dificulta em cada \emph{problema
 de coordenação}, isto é, em cada exigência que a interface faz à notação.
-A pesquisa pode também gerar hipóteses para experimentos controlados com
-programadores, como o de \textcite{salvaneschi2017}.
 
 O objetivo geral é comparar a usabilidade das três notações segundo as
 \glspl{dc}, na programação de interfaces típicas da
@@ -162,6 +162,8 @@ e gera ideias e hipóteses para outras pesquisas
 A pergunta de pesquisa, como as notações se comparam, é do tipo que
 \textcite{easterbrook2008} chamam de descritivo-comparativo e põem entre as
 perguntas exploratórias.
+As hipóteses desta pesquisa servem a experimentos controlados como o de
+\textcite{salvaneschi2017}.
 \todo[inline]{Em relação ao projeto de 2017: a pergunta deixa de comparar paradigmas, PF e PR frente à POO com callbacks, e passa a comparar três notações, com as DCs como critério explícito. A demonstração de PR e callbacks dá lugar a cinco tarefas de interface, implementadas em cinco tecnologias web e replicadas no Android. O JavaScript passa a TypeScript, e entra o Kotlin. A classificação quanto aos meios também muda (nota adiante). A natureza aplicada sai, e a classificação exploratória passa a se apoiar em Runeson e Höst (2009) e em Easterbrook et al. (2008), no lugar de Leal (2011).}
 
 Quanto aos meios, o trabalho é uma avaliação qualitativa, pelas \glspl{dc}, de
@@ -190,9 +192,8 @@ Busca e o Carrinho não têm tarefa equivalente.
 
 Na web, a notação imperativa entra com o Web Component e o jQuery, e o
 desenho compara dois pares de tecnologias próximas.
-React e Solid montam a tela em JSX, uma extensão de sintaxe do JavaScript
-que permite escrever marcação parecida com \gls{html} dentro de um
-arquivo JavaScript \cite{meta2026c}.
+React e Solid montam a tela em JSX, marcação parecida com \gls{html}
+escrita dentro do JavaScript \cite{meta2026c}.
 O que os separa, sobretudo, é o modo de coordenar: a cada mudança de
 estado, o React reexecuta o componente inteiro, e o Solid atualiza só os
 trechos da tela que dependem do \emph{signal} alterado \cite{solidjs2026}.
@@ -301,8 +302,8 @@ Além disso, quem avalia o que escreveu pode trazer um viés implícito
 A familiaridade do autor com as tecnologias é desigual, maior com o React.
 Na avaliação, que é subjetiva, esse desnível pode favorecer uma notação.
 
-Por ser analítica, e não um experimento com programadores, a avaliação
-pelas \glspl{dc} aponta diferenças que ainda precisam ser testadas com eles.
+Por ser analítica, e não um experimento, a avaliação pelas \glspl{dc} aponta
+diferenças que ainda precisam ser testadas com programadores.
 O trabalho escolheu as oito \glspl{dc} antes da avaliação, e usar um subconjunto
 pode deixar de fora propriedades importantes da notação \cite{britton2001}.
 Para \textcite[p. 334]{green2006}, duas delas, a expressividade e as

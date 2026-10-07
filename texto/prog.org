@@ -158,6 +158,11 @@ denominadas /linguagens imperativas/.
   código que as usa dificulta a compreensão e leva facilmente a erros
   [[cite:alimadadi2018][p. 162:1]].
 
+  @@latex:\todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}@@
+  O JSX, em que o React e o Solid montam a tela, é uma extensão de sintaxe do
+  JavaScript que permite escrever marcação parecida com [[gls:html]] dentro de
+  um arquivo JavaScript cite:meta2026c.
+
   Conforme é notado por textcite:blackheath2016, a maioria das aplicações que
   interagem com o ambiente externo são arquitetadas em torno de dois modelos de
   programaçao, ou uma mistura dos dois:
