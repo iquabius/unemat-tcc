@@ -13,7 +13,13 @@ declarativas, se distinguem pelo modo de coordenar evento, estado e tela,
 porque o modelo de reatividade aparece nos sinais escritos: no React o
 componente reexecuta a cada mudança e o derivado é uma expressão comum; no
 Solid o componente executa uma vez e o derivado é uma função que lê o
-*signal* (`const dobro = n() * 2` nunca atualizaria). A notação muda com
+*signal* (`const dobro = n() * 2` nunca atualizaria). Os rótulos nomeiam
+o mecanismo de cada uma: imperativa com *callbacks*, declarativa por
+re-renderização e declarativa por atualização granular; as duas
+declarativas formam um par mínimo, o contraste de React × Solid, e
+"reativo" fica para os termos das fontes revisadas por pares e das
+dissertações, como a PR, com que a terceira se liga pela frase sobre as
+abstrações da PR (Salvaneschi et al. 2015, p. 953). A notação muda com
 as abstrações de cada tecnologia (o *callback* registrado, o componente
 reexecutado, o *signal*), não com a linguagem, porque uma abstração
 "changes the notation" (Green e Blackwell 1998, p. 24, sobre as
@@ -75,9 +81,21 @@ frouxos da palavra; Kiss registra, no Temperature Converter, que "the
 toolkit dominated this evaluation and the paradigms did not come into
 play" (p. 23), e no veredito atribui o *layout* do CRUD a "language/
 paradigm differences" (p. 56).
-Custo: a definição inclui a tela e a classificação a ignora: Solid e
-Angular escrevem a tela com marcas diferentes e contam como uma notação,
-afastamento da letra das DCs que o texto declara uma vez, com fonte, fora
+Em vez de: "reativa fina com *signals*" (2026-09-26, ADRs 0013 e 0014);
+liga a notação à PR pelo adjetivo, mas traduz mal *fine-grained
+reactivity*, termo da documentação do Solid (`solidjs2026`), que nenhuma
+fonte revisada por pares usa em português, e põe "reativo" num rótulo
+próprio do trabalho.
+Em vez de: "reativa granular com *signals*"; troca uma palavra e se
+apoia no "granularly tracks" do Angular (`google2026`), mas mantém
+"reativo" num rótulo próprio.
+Em vez de: "declarativa por reatividade granular"; diz que as duas
+últimas são declarativas, mas o mecanismo continua nomeado por
+"reatividade".
+Custo: "atualização granular" é rótulo do trabalho, sem fonte que use a
+expressão, e "*signals*" sai do rótulo e fica na definição; a definição
+inclui a tela e a classificação a ignora: Solid e Angular escrevem a
+tela com marcas diferentes e contam como uma notação, afastamento da letra das DCs que o texto declara uma vez, com fonte, fora
 da introdução (tcc-k1y); a introdução perde a ponte com as DCs que o
 parágrafo das duas notações fazia (Blackwell et al. 2001, p. 328); a
 análise diz, em cada DC, de que lado está o sinal e, no par Solid ×

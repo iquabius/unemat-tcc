@@ -1,8 +1,8 @@
 # 0013. Na web entram Web Component, jQuery, React, Solid e Angular com *signals*; o Angular com RxJS fica de apoio; sem bibliotecas de formulário
 
 2026-09-26. As notações a comparar são a imperativa com *callbacks*, a
-declarativa por re-renderização (*pull*) e a reativa fina com *signals*
-(*push-pull*: notifica por *push* e recalcula por *pull*, como descrevem
+declarativa por re-renderização (*pull*) e a declarativa por
+atualização granular, com *signals* (*push-pull*: notifica por *push* e recalcula por *pull*, como descrevem
 a proposta TC39 Signals e Carniato, 2024-01-19). O RxJS, centro do
 projeto de 2017, é pouco escrito fora do Angular, que documenta *signals*
 como reatividade central desde a versão 17 (2023-11). Cada caso é
@@ -22,7 +22,7 @@ usa os Reactive Forms, que são do Angular; o `angular-signals` não usa
 nem eles nem os *Signal Forms*.
 
 Em vez de: Angular só de apoio (decisão de 2026-09-25); menos trabalho,
-mas a notação reativa fina ficaria com uma tecnologia só, e o Angular é o
+mas a notação por atualização granular ficaria com uma tecnologia só, e o Angular é o
 terceiro *framework* mais usado (Stack Overflow 2025: React 44,7%, jQuery
 23,4%, Angular 18,2%).
 Em vez de: Angular com RxJS como quarta notação, a reativa por fluxos;

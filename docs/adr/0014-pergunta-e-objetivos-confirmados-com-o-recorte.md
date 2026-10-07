@@ -4,8 +4,8 @@
 uma sobre software em larga escala, que casos pequenos não respondem, e
 um objetivo geral sem critério. A pergunta: como as notações mais usadas
 na prática para programar interfaces gráficas, a imperativa com
-*callbacks*, a declarativa por re-renderização e a reativa fina com
-*signals*, se comparam quanto à usabilidade, segundo as Dimensões
+*callbacks*, a declarativa por re-renderização e a declarativa por
+atualização granular, se comparam quanto à usabilidade, segundo as Dimensões
 Cognitivas de Notações? A notação é a do código que programa a interface,
 e não o que o usuário vê na tela. "Larga escala" fica só na motivação. O
 objetivo geral é comparar, segundo as DCs, a usabilidade das três notações na programação
@@ -20,7 +20,7 @@ vantagens e desvantagens por problema de coordenação.
 Em vez de: manter a comparação de 2017, PF e PR contra POO com
 *callbacks*; continuidade com o projeto aprovado, mas o lado declarativo
 de 2026 se divide em dois modelos, a re-renderização (*pull*) e a
-reatividade fina (*push-pull*), que 2017 não distinguia, e a pergunta
+atualização granular (*push-pull*), que 2017 não distinguia, e a pergunta
 tripla não era verificável.
 Em vez de: quatro notações, com o RxJS como a reativa por fluxos;
 retomaria a PR de 2017, mas pelas razões do ADR 0013 o RxJS fica de

@@ -76,11 +76,11 @@ Conceitos de programação declarativa podem, assim, diminuir essa complexidade.
   ambiente de execução a mantém atualizada cite:meta2026a.
   Na /declarativa por re-renderização/, cada mudança de estado reexecuta o
   componente, como no React cite:meta2026.
-  Na /reativa fina com signals/, cada /signal/ avisa os valores e trechos da
-  tela que dependem dele, e só esses são recalculados, como no Solid e no
-  Angular com /signals/ cite:solidjs2026,google2026.
-  A notação reativa fina usa as abstrações da [[gls:pr]]: os valores que variam no
-  tempo, chamados /signals/, cujas alterações se propagam automaticamente
+  Na /declarativa por atualização granular/, cada /signal/ avisa os valores
+  e trechos da tela que dependem dele, e só esses são recalculados, como no
+  Solid e no Angular com /signals/ cite:solidjs2026,google2026.
+  A notação por atualização granular usa as abstrações da [[gls:pr]]: os
+  valores que variam no tempo, chamados /signals/, cujas alterações se propagam automaticamente
   cite:salvaneschi2015.
 
   Cada tecnologia fica na notação em que escreve a maior parte da
@@ -99,8 +99,8 @@ Conceitos de programação declarativa podem, assim, diminuir essa complexidade.
   cite:devographics2026.
   Nenhuma dessas pesquisas mede os Web Components sem biblioteca nem separa,
   no Angular, quem usa /signals/.
-  Por isso, o uso da notação reativa fina se apoia no Angular, que também a
-  adota, e o da imperativa, no jQuery.
+  Por isso, o uso da notação por atualização granular se apoia no Angular,
+  que também a adota, e o da imperativa, no jQuery.
   O Web Component entra por ser o modelo de componente do próprio navegador
   cite:mozilla2026, e nele a coordenação se escreve com o =addEventListener=,
   cujo /callback/ altera a tela.
@@ -134,8 +134,8 @@ Conceitos de programação declarativa podem, assim, diminuir essa complexidade.
   e descrita no Apêndice ref:apend:2.
   Pergunta-se, então: na programação de interfaces gráficas, como as três
   notações, a imperativa com /callbacks/, a declarativa por re-renderização e
-  a reativa fina com /signals/, se comparam quanto à usabilidade, segundo as
-  [[glspl:dc]]?
+  a declarativa por atualização granular, se comparam quanto à usabilidade,
+  segundo as [[glspl:dc]]?
   A comparação pode ajudar quem programa interfaces a escolher uma tecnologia
   sabendo o que a notação dela facilita e o que dificulta em cada problema de
   coordenação.

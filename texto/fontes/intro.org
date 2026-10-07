@@ -270,7 +270,7 @@ Formato:
 - Lido em: =tmp/fontes/meta2026.txt=, l. 75 (página salva).
 - Conferido: 2026-10-06.
 ** solidjs2026
-- Frase: “Na /reativa fina com signals/, cada /signal/ avisa os valores e
+- Frase: “Na /declarativa por atualização granular/, cada /signal/ avisa os valores e
   trechos da tela que dependem dele, e só esses são recalculados, como no
   Solid.”
 - Trecho: “data entities (signals) will maintain a list of their
@@ -288,7 +288,7 @@ Formato:
 - Lido em: =tmp/fontes/google2026.txt=, l. 11 (página salva).
 - Conferido: 2026-10-06.
 ** salvaneschi2015, p. 953
-- Frase: “A notação reativa fina usa as abstrações da PR: os valores que
+- Frase: “A notação por atualização granular usa as abstrações da PR: os valores que
   variam no tempo, chamados /signals/, cujas alterações se propagam
   automaticamente.”
 - Trecho: “It is based on concepts like time-varying values (a.k.a.

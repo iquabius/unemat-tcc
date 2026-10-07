@@ -193,7 +193,10 @@ pergunta antes.
   "Autor (ano, p. N)"); quem sugeriu uma decisão, como o orientador, fica
   no ADR e fora do texto; "seguem a mesma especificação"; "sem
   bibliotecas de formulário", não "bibliotecas auxiliares", por ser mais
-  específico. A metodologia fica no presente por escolha do autor, contra
+  específico; "reativo" só para termos sustentados por fontes revisadas
+  por pares e dissertações, como a PR, e nunca num rótulo próprio do
+  trabalho (a terceira notação é a "declarativa por atualização
+  granular", ADR 0021). A metodologia fica no presente por escolha do autor, contra
   o pretérito que a `escrita-academica` recomenda, até a reunião com o
   orientador (tcc-y4q, item 6).
 - A sessão que edita o texto roda no checkout principal, o mesmo do

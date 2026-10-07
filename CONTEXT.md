@@ -10,13 +10,15 @@ código em `casos/`, decisões em `docs/adr/`.
 **Notação**:
 A forma de escrever, no código, o estado, os valores derivados dele e a
 tela que os mostra. As três (imperativa com *callbacks*, declarativa por
-re-renderização e reativa fina com *signals*) se distinguem pelo modo de
-coordenar evento, estado e tela. Solid e Angular com *signals* são uma,
+re-renderização e declarativa por atualização granular) se distinguem pelo
+modo de coordenar evento, estado e tela. Solid e Angular com *signals* são uma,
 que varia na montagem da tela, no modelo de componente e na API; React e
 Solid, duas. Muda com as abstrações da tecnologia, não com a linguagem, e
 aplica conceitos de um ou mais paradigmas (ADR 0021).
 _Avoid_: notação de coordenação e notação da estrutura da tela (os dois
-eixos de 2026-10-03, ADR 0021); sintaxe; paradigma (só PF, PR e POO);
+eixos de 2026-10-03, ADR 0021); reativa fina, reativa granular ("reativo"
+só nomeia termos das fontes revisadas por pares e das dissertações, como
+a PR); sintaxe; paradigma (só PF, PR e POO);
 estilo; abordagem; "notação de interface gráfica" (é do código, não da
 tela)
 

@@ -235,7 +235,7 @@ Situação em 2026-10-02, depois da segunda rodada (seção 5.1):
 - **Nicho.** Não se encontrou análise pelas DCs de React nem dos *signals*
   das bibliotecas web atuais (Solid, Angular), nem comparação das três
   notações (imperativa com *callbacks*, declarativa por re-renderização,
-  reativa fina com *signals*) nos mesmos casos. As DCs já foram aplicadas
+  declarativa por atualização granular) nos mesmos casos. As DCs já foram aplicadas
   à PR por Kiss (2014), com Scala.Rx, ReactFX e Elm (seção 9), e por
   Zimmerle & Gama (2025), com RxJS e Bacon.js por questionário (seção 3);
   "nenhuma análise de *signals* pelas DCs" não se sustenta. O mais perto de
@@ -500,7 +500,7 @@ tecnologias.
 | | contra | A menos admirada (31,5%) e a menos desejada (9,0%) da tabela; uso medido em *sites* legados, não em aplicações novas; sem linha no js-framework-benchmark; leitores podem tomá-la como "espantalho" do imperativo | SO 2025; Bhattacharyea 2025; Krause | número; opinião |
 | React como a declarativa por re-renderização | pró | A mais usada em todas as medidas (44,7% SO; 85% State of JS; 204 M downloads por semana); modelo *pull* declarado na própria documentação; o compilador não muda o modelo, o que mantém a notação estável para o texto | SO 2025; State of JS 2025; npm; *Design Principles*; React Compiler 1.0 | número; fato oficial |
 | | contra | *Admired* caiu de 62,2% para 52,1% e a retenção de 75% para 72%; a página que diz "pull" é legada e sem data; a posição da equipe sobre *signals* é um comentário de Abramov, não documento | SO 2024 e 2025; State of JS; Abramov 2023 | número; lacuna de fonte |
-| Solid como a reativa fina, com a mesma JSX do React | pró | Controla a variável sintaxe: só o modelo de reatividade muda entre React e Solid (componente roda uma vez; sem DOM virtual); maior retenção do State of JS por cinco anos (89%); inspiração declarada do Angular e do Vapor Mode do Vue; entre as implementações mais rápidas do *benchmark* (1,13 contra 1,58 do React) | docs Solid; State of JS 2025; RFC Angular 2023; Vue docs; Krause 2026 | fato; número |
+| Solid como a declarativa por atualização granular, com a mesma JSX do React | pró | Controla a variável sintaxe: só o modelo de reatividade muda entre React e Solid (componente roda uma vez; sem DOM virtual); maior retenção do State of JS por cinco anos (89%); inspiração declarada do Angular e do Vapor Mode do Vue; entre as implementações mais rápidas do *benchmark* (1,13 contra 1,58 do React) | docs Solid; State of JS 2025; RFC Angular 2023; Vue docs; Krause 2026 | fato; número |
 | | contra | Uso pequeno (10% State of JS; 0,03% escrito à mão no SO 2025; 6,2 M downloads contra 204 M); 2.0 em *release candidate* durante a escrita (rc.9 em 2026-09-18), com 1.9.15 fixado; a literatura explicativa dos *signals* é sobretudo do autor do Solid | State of JS; SO; npm; Carniato | número; parte interessada |
 | Angular com RxJS só de apoio | pró | Único *framework* grande com `rxjs` como *peer dependency*; documenta a interoperação (`toSignal`, `toObservable`); a RFC reserva o RxJS a "streams of events over time", que é o uso do projeto de 2017 | npm; angular.dev; RFC 2023 | fato oficial |
 | | contra | O Angular não renderiza com RxJS, e desde a 17 (2023-11) a direção é *signals*, *zoneless* por padrão (21, 2025-11) e *signal forms* (22, 2026-06): usar RxJS para estado vai contra a documentação; o RxJS 8 nunca saiu; Angular é o que mais perde retenção (54% → 48%) | CHANGELOG; npm; State of JS | fato; número |
@@ -518,15 +518,16 @@ tecnologias.
    Código Fonte é de salário, de resposta única e de audiência de um canal:
    serve para a ordem (React > Angular > Vue > jQuery > Svelte > Solid) no
    Brasil, não para a magnitude.
-2. **Representatividade do Solid.** A notação reativa fina é representada
+2. **Representatividade do Solid.** A notação por atualização granular é representada
    por uma tecnologia com 10% de uso; o argumento de generalidade apoia-se
    em Angular, Vue, Svelte 5, Preact e na proposta TC39 usarem o mesmo
    primitivo, não no Solid.
 3. **Partes interessadas.** A literatura dos *signals* é escrita por
    autores de Solid, Qwik, Preact, Svelte e Angular; a posição do React é
    um comentário de blog e dois textos sobre o compilador.
-4. **Rótulo *push*.** Até 2026-09-26 o trabalho chamava a notação
-   reativa fina de *push*; a proposta TC39 e Carniato (2024-01-19) a
+4. **Rótulo *push*.** Até 2026-09-26 o trabalho chamava de *push* a
+   notação reativa fina, que desde 2026-10-06 é a declarativa por
+   atualização granular (ADR 0021); a proposta TC39 e Carniato (2024-01-19) a
    chamam de *push-pull* (ADR 0013): notifica (marca sujo) por *push* e recalcula
    por *pull*. O texto deve usar o híbrido ao aplicar a dimensão de
    `bainomugisha2013`; e a documentação do Solid não usa as palavras

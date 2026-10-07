@@ -40,11 +40,11 @@ problema, a justificativa, os objetivos e o método do projeto.
 | Item | Projeto (2017) | Decidido (2026-09-25) | Tipo de mudança |
 |---|---|---|---|
 | Tema e delimitação | Conceitos de programação para interfaces gráficas | O mesmo | Mantido |
-| Pergunta | Três formulações; a central: declarativa é adequada a GUIs e quais vantagens e desvantagens frente à imperativa? | Uma: como as notações mais usadas na prática para programar GUIs (imperativa com *callbacks*, declarativa por re-renderização e reativa fina com *signals*) se comparam quanto à usabilidade, segundo as DCs? (ADR 0011) | Refinada: mesma comparação, com critério explícito e as notações de 2026 |
+| Pergunta | Três formulações; a central: declarativa é adequada a GUIs e quais vantagens e desvantagens frente à imperativa? | Uma: como as notações mais usadas na prática para programar GUIs (imperativa com *callbacks*, declarativa por re-renderização e declarativa por atualização granular) se comparam quanto à usabilidade, segundo as DCs? (ADR 0011) | Refinada: mesma comparação, com critério explícito e as notações de 2026 |
 | "Larga escala" | Parte da pergunta | Só motivação | Recortada: os casos não permitem concluir sobre larga escala |
 | Objetivo geral | Demonstrar e analisar conceitos declarativos de PF e PR | Comparar, segundo as DCs, a usabilidade das três notações na programação de interfaces típicas, na web e no Android | Refinado: verificável (objeto, critério e escopo) |
 | Objetivos específicos | (1) PF com listas; (2) PR e *callbacks*; (3) analisar e comparar | (1) mantido; (2) ampliado: casos de interfaces típicas nas tecnologias de 2026; (3) mantido; (4) novo: sintetizar vantagens e desvantagens por problema de coordenação | Mantidos e ampliados |
-| O que se compara | Paradigmas: PF e PR (declarativos) × POO com *callbacks* (imperativo) | Notações: imperativa com *callbacks* × declarativa por re-renderização (React, Compose) × reativa fina (*signals*); PF continua como base | Refinado: o lado declarativo se divide em dois modelos |
+| O que se compara | Paradigmas: PF e PR (declarativos) × POO com *callbacks* (imperativo) | Notações: imperativa com *callbacks* × declarativa por re-renderização (React, Compose) × declarativa por atualização granular (*signals*); PF continua como base | Refinado: o lado declarativo se divide em dois modelos |
 | Áreas de aplicação | Interfaces gráficas (implicitamente web) | Web e Android; servidor e desktop avaliados e descartados (ADR 0001) | Ampliado dentro do tema |
 | Linguagem | JavaScript | TypeScript (web) e Kotlin (Android) (ADRs 0005, 0006) | Trocada, com continuidade: TypeScript é JavaScript com tipos |
 | Tecnologias | RxJS 5 e xstream | Web Components, jQuery, React e Solid; Views e Jetpack Compose; Angular com RxJS só de apoio (ADR 0003) | Atualizado |
@@ -94,3 +94,8 @@ projeto o RxJS 5 e o xstream, mas o projeto não nomeia biblioteca
 
 Errata 2026-10-05: os ADRs 0003, 0004, 0006 e 0011 citados acima foram
 absorvidos pelos ADRs 0013, 0012, 0001 e 0014.
+
+Errata 2026-10-06: a coluna de 2026 das linhas "Pergunta" e "O que se
+compara" dizia "reativa fina com *signals*", rótulo trocado por
+"declarativa por atualização granular" (ADR 0021); "reativo" fica para os
+termos das fontes revisadas por pares e das dissertações.
