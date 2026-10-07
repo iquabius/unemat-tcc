@@ -254,7 +254,7 @@ reescreve.
    (as capturas de `casos/AGENTS.md`, os testes de `bin/`).
 3. **Revisão do ramo inteiro.** Quando o ramo muda código (os caminhos de
    `.config/revisao`: `bin/`, scripts, `casos/` menos capturas, `.org` e
-   `.md`), rode a skill `linus-review` sobre
+   `.md`, e o `.tool-versions`), rode a skill `linus-review` sobre
    `$(git merge-base master HEAD)...HEAD`. Ramo só de instrução ou
    documentação de ferramenta (`AGENTS.md`, `readme.org`) dispensa a
    revisão, mas não o ramo. ADR, nota de `docs/` e tarefa seguem o
