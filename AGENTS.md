@@ -255,9 +255,10 @@ reescreve.
 3. **Revisão do ramo inteiro.** Quando o ramo muda código (os caminhos de
    `.config/revisao`: `bin/`, scripts, `casos/` menos capturas, `.org` e
    `.md`), rode a skill `linus-review` sobre
-   `$(git merge-base master HEAD)...HEAD`. Ramo só de documentação
-   (`AGENTS.md`, `readme.org`, ADR, nota) dispensa a revisão, mas não o
-   ramo.
+   `$(git merge-base master HEAD)...HEAD`. Ramo só de instrução ou
+   documentação de ferramenta (`AGENTS.md`, `readme.org`) dispensa a
+   revisão, mas não o ramo. ADR, nota de `docs/` e tarefa seguem o
+   trabalho que as gera: com o texto, no `master`; com o código, no ramo.
 4. **Cada achado vira commit novo** no ramo, que nomeia o achado que
    responde. Revise de novo até o veredito **Ready to merge**. Nada de
    `--amend` depois da revisão, `fixup!` com `--autosquash`, rebase ou
@@ -281,16 +282,39 @@ reescreve.
    git branch -d <tarefa>
    ```
 
-   Se o ramo mexe em `texto/`, pare e pergunte ao autor: o fast-forward
-   cairia sobre o rascunho dele.
+   - O fast-forward recusa quando um arquivo que o ramo muda está
+     modificado no checkout principal, mesmo com o conteúdo igual. O
+     `.beads/issues.jsonl` cai sempre nisso, porque o `bd` exporta para
+     lá: se ele for igual ao do ramo (`git -C <checkout principal> diff
+     --quiet <tarefa> -- .beads/issues.jsonl`), restaure-o com `git -C
+     <checkout principal> checkout -- .beads/issues.jsonl`, que o
+     fast-forward traz de volta igual; se for diferente, rode `bd export
+     -o .beads/issues.jsonl` na worktree, commite no ramo e recomece o
+     merge. Qualquer outro arquivo modificado lá é do autor: pare e
+     pergunte.
+   - Conflito no `.beads/issues.jsonl` durante o `--no-ff`: `bd export -o
+     .beads/issues.jsonl`, `git add` e conclua o merge. Conflito em
+     código pede a marca do merge também (`git revisao pronto`).
+   - Se o `master` andou entre o merge na worktree e o fast-forward ("Not
+     possible to fast-forward"), refaça o passo desde o `git switch
+     --detach master`.
+   - O ramo não mexe em `texto/`; se mexer, pare e pergunte ao autor.
+   - Commit marcado que for reescrito perde a marca (o sha muda): marque
+     de novo, com `git revisao excecao -m` dizendo o que mudou.
 7. **O push é do autor.** O agente não faz push.
 
 Portões: o pre-push (`git-revisao`, hook global da camada privada dos
 dotfiles) recusa commit de código no `master` sem a marca que o cubra; a
 marca é uma nota local em `refs/notes/revisao`, que não vai para o GitHub.
-O pre-commit recusa commit de agente no `master` que mexa no código. O
-hook do Claude recusa `--no-verify`, mexer em `core.hooksPath` ou `hook.*`
-e o merge pelo GitHub (`gh pr merge`).
+O pre-commit recusa commit de agente no `master` que mexa no código; o
+git não o chama em `cherry-pick`, `revert` nem `am`, e o que eles
+levarem ao `master` só o pre-push pega. Os hooks do Claude da camada
+privada recusam as formas diretas de pular os hooks (`--no-verify`,
+`core.hooksPath`, `hook.*`, a configuração global trocada pelo
+ambiente), escrever as notas da revisão à mão e o merge pelo GitHub, e
+perguntam ao autor antes de `git revisao excecao`. Os outros hooks da
+camada privada têm regras próprias: siga a mensagem de cada um e nunca
+os pule.
 
 ## Commits
 
