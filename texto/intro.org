@@ -56,8 +56,13 @@ com [[gls:pr]] acertou mais perguntas sobre eles do que quem os leu com o
 /Observer Pattern/ (médias de 8,13 e 7,05 acertos em dez, com diferença
 significativa) e não levou mais tempo.
 
-O /callback/ fragmenta o fluxo de controle [[cite:fischer2007][p. 134]].
-A preocupação explícita com esse fluxo é, para
+O /callback/ fragmenta o fluxo de controle: a sequência de passos que o
+programador tem em mente para uma operação fica dividida entre vários
+/callbacks/ [[cite:fischer2007][p. 134-135]].
+No código sequencial, o problema é o inverso: a linguagem obriga a fixar a
+ordem de execução mesmo quando ela não importa, e quem lê precisa supor que
+importa [[cite:moseley2006][p. 8-9]].
+Essa preocupação explícita com o fluxo de controle é, para
 [[textcite:moseley2006][p. 1 e 21]], uma das causas da complexidade dos
 sistemas de grande porte, ao lado do volume de código e, sobretudo, do
 tratamento do estado.

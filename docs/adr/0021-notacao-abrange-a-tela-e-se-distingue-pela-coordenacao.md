@@ -31,9 +31,8 @@ uma notação, que varia em três pontos: a montagem da tela (JSX numa
 função, *template* com construtos próprios), o modelo de componente
 (classe, decorador, injeção de dependências) e a API além do *signal* e
 do valor derivado (`resource`, *store*, `batch`). Os pares de tecnologias
-são próximos, e não controlados num ponto só: React e Solid diferem
-também no dialeto do JSX (`className` e `class`) e em `&&` e `.map`
-contra `<Show>` e `<For>`. Em cada DC, a análise aponta se a diferença
+são próximos: React e Solid diferem também no dialeto do JSX (`className`
+e `class`) e em `&&` e `.map` contra `<Show>` e `<For>`. Em cada DC, a análise aponta se a diferença
 está na coordenação, na montagem da tela ou na ligação entre as duas,
 como Kiss (2014, p. 56) atribui a causas diferentes a parte do *layout* e
 o resto, e como Green et al. (2006, p. 342) acham dependências ocultas no
