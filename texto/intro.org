@@ -146,8 +146,6 @@ Conceitos de programação declarativa podem, assim, diminuir essa complexidade.
    [[glspl:dc]], na programação de interfaces típicas da
    web, em TypeScript, com replicação no Android, em Kotlin. Especificamente:
 
-   - demonstrar, com processamento de listas, os conceitos de [[gls:pf]] em que se
-     apoiam as notações declarativas;
    - implementar cinco tarefas de interface (Contador, Formulário com validação,
      Busca com sugestões, Lista filtrável e Carrinho) com Web Component,
      jQuery, React, Solid e Angular com /signals/, e o Contador, o Formulário e
@@ -162,7 +160,7 @@ Conceitos de programação declarativa podem, assim, diminuir essa complexidade.
   A pergunta de pesquisa, como as notações se comparam, é do tipo que
   textcite:easterbrook2008 chamam de descritivo-comparativo e põem entre as
   perguntas exploratórias.
-  @@latex:\todo[inline]{Em relação ao projeto de 2017: a pergunta deixa de comparar paradigmas, PF e PR frente à POO com callbacks, e passa a comparar três notações, com as DCs como critério explícito. A demonstração de PR e callbacks dá lugar a cinco tarefas de interface, implementadas em cinco tecnologias web e replicadas no Android. O JavaScript passa a TypeScript, e entra o Kotlin. A classificação quanto aos meios também muda (nota adiante). A natureza aplicada sai, e a classificação exploratória passa a se apoiar em Runeson e Höst (2009) e em Easterbrook et al. (2008), no lugar de Leal (2011).}@@
+  @@latex:\todo[inline]{Em relação ao projeto de 2017: a pergunta deixa de comparar paradigmas, PF e PR frente à POO com callbacks, e passa a comparar três notações, com as DCs como critério explícito. A demonstração de PR e callbacks dá lugar a cinco tarefas de interface, implementadas em cinco tecnologias web e replicadas no Android. Os programas de processamento de listas deixam os objetivos e passam à fundamentação da PF. O JavaScript passa a TypeScript, e entra o Kotlin. A classificação quanto aos meios também muda (nota adiante). A natureza aplicada sai, e a classificação exploratória passa a se apoiar em Runeson e Höst (2009) e em Easterbrook et al. (2008), no lugar de Leal (2011).}@@
 
   Quanto aos meios, o trabalho é uma avaliação qualitativa, pelas [[glspl:dc]], de
   implementações de um mesmo conjunto de tarefas.
@@ -183,13 +181,6 @@ Conceitos de programação declarativa podem, assim, diminuir essa complexidade.
   características (/feature analysis/).
   Feita por uma pessoa só, que as escolhe e as avalia, ela é
   uma triagem (/screening/) [[cite:kitchenham1996][p. 15]].
-
-  O trabalho se divide em duas partes.
-  Na primeira, programas de /processamento de listas/ demonstram conceitos
-  de [[gls:pf]], como descrever o resultado de uma transformação em vez dos passos
-  do laço que a executa.
-  As duas notações declarativas aplicam essa ideia à tela.
-  Na segunda, as cinco tarefas são implementadas nas três notações e comparadas.
 
   As cinco tarefas exercitam cinco /problemas de coordenação/, isto é, cinco
   exigências que a interface faz à notação:
@@ -324,8 +315,8 @@ Conceitos de programação declarativa podem, assim, diminuir essa complexidade.
   Além desta introdução, o texto tem quatro seções.
   A seção ref:chap:prog reúne os conceitos de programação em que o
   trabalho se apoia, da programação de interfaces gráficas à [[gls:pf]] e à [[gls:pr]].
-  A seção ref:chap:cases descreve as [[glspl:dc]] da avaliação, os programas de
-  processamento de listas e as implementações das cinco tarefas.
+  A seção ref:chap:cases apresenta as [[glspl:dc]] da avaliação e descreve as
+  implementações das cinco tarefas.
   A seção ref:chap:results compara as três notações pelas [[glspl:dc]], e a
   seção ref:chap:conclusion responde à pergunta de pesquisa.
   @@latex:\todo{Os capítulos ainda seguem o projeto de 2017 e mudam com a seção de trabalhos relacionados; este parágrafo se revê no fechamento.}@@

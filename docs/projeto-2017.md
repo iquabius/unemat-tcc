@@ -48,7 +48,7 @@ problema, a justificativa, os objetivos e o método do projeto.
 | Áreas de aplicação | Interfaces gráficas (implicitamente web) | Web e Android; servidor e desktop avaliados e descartados (ADR 0001) | Ampliado dentro do tema |
 | Linguagem | JavaScript | TypeScript (web) e Kotlin (Android) (ADRs 0005, 0006) | Trocada, com continuidade: TypeScript é JavaScript com tipos |
 | Tecnologias | RxJS 5 e xstream | Web Components, jQuery, React e Solid; Views e Jetpack Compose; Angular com RxJS só de apoio (ADR 0003) | Atualizado |
-| Casos | Processamento de listas; Contador; Reserva de voo (só o título) | Listas (mantido); Contador; Formulário com validação (a Reserva de voo ampliada); Lista filtrável; Busca com sugestões; Carrinho (ADR 0002) | Ampliado; Contador e Reserva de voo mantidos, do 7GUIs (`kiss2014`, já citado no projeto) |
+| Casos | Processamento de listas; Contador; Reserva de voo (só o título) | Listas (na fundamentação de PF, fora dos objetivos); Contador; Formulário com validação (a Reserva de voo ampliada); Lista filtrável; Busca com sugestões; Carrinho (ADR 0002) | Ampliado; Contador e Reserva de voo mantidos, do 7GUIs (`kiss2014`, já citado no projeto) |
 | Método | Aplicada, exploratória, casos múltiplos, DCs | O mesmo, com procedimentos de controle: especificação comum, domínio compartilhado, roteiros, capturas idênticas, versões fixadas (ADRs 0008, 0010) | Mantido e detalhado |
 
 ## 3. Argumentos para a justificativa
@@ -99,3 +99,7 @@ Errata 2026-10-06: a coluna de 2026 das linhas "Pergunta" e "O que se
 compara" dizia "reativa fina com *signals*", rótulo trocado por
 "declarativa por atualização granular" (ADR 0021); "reativo" fica para os
 termos das fontes revisadas por pares e das dissertações.
+
+Errata 2026-10-06: na linha "Casos" da tabela da seção 2, a coluna de
+2026 dizia "Listas (mantido)"; os programas de processamento de listas
+saíram dos objetivos e passam à fundamentação de PF (ADR 0014).
