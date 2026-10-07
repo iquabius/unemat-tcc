@@ -50,8 +50,8 @@ contornarem.
   mão, e o plural da forma longa precisa de `firstplural` escrito.
 - L4 (prevista, a conferir): a contagem de palavras do
   `metricas_texto.py` lê o `.org`, onde `[[glspl:dc]]` conta uma palavra e
-  o PDF imprime oito na primeira ocorrência; o orçamento de 2.500 palavras
-  da introdução (ADR 0022) fica subcontado. Contorno possível: expandir os
+  o PDF imprime oito na primeira ocorrência; a contagem de palavras da
+  introdução (ADR 0022) fica subcontada. Contorno possível: expandir os
   links no script.
 - L5 (prevista, a conferir): no latexdiff (`bin/diff-ao-vivo.sh` e os PDFs
   de diff do `bin/gerar-versao.sh`), um `\gls` apagado continua composto,

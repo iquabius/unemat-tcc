@@ -144,10 +144,11 @@ e o HEAD é o texto aprovado (ADR 0023, skill `revisao-de-texto`).
     (`bin/pagina-no-pdf.py`);
   - o commit espera o aprovo do autor.
 
-Bloco acima do orçamento passa antes pela rodada de corte da mesma skill
-(ADR 0022). O orçamento da introdução é de 2.500 palavras, medido com
-`metricas_texto.py --orcamento`. Cada parágrafo e cada fonte recebe um
-rótulo: manter, condensar, mover ou cortar. O agente aplica de uma vez os
+Para simplificar a leitura, o bloco passa antes pela rodada de corte da
+mesma skill (ADR 0022), sem meta de palavras: `metricas_texto.py
+--orcamento` só mede antes e depois. Cada parágrafo, frase e fonte recebe
+um rótulo: manter, condensar, mover ou cortar. A frase que ilustra fica
+quando torna concreto um elo, e sai quando só enfeita. O agente aplica de uma vez os
 movimentos que deixam de pé a cadeia do bloco (na introdução, problema,
 justificativa, pergunta, objetivos, método e limitações), com a costura,
 e o autor os revisa no diff; o movimento que tira ou enfraquece um elo se
@@ -196,7 +197,11 @@ pergunta antes.
   específico; "reativo" só para termos sustentados por fontes revisadas
   por pares e dissertações, como a PR, e nunca num rótulo próprio do
   trabalho (a terceira notação é a "declarativa por atualização
-  granular", ADR 0021). A metodologia fica no presente por escolha do autor, contra
+  granular", ADR 0021); na frase revisada, a citação narrativa com página
+  ("Para Autor (ano, p. N), ...") é candidata a ir para o fim
+  (`[[cite:chave][p. N]]`), para a frase abrir pelo tópico, salvo quando a
+  atribuição marca a opinião da fonte: propor ao autor, com as duas
+  versões. A metodologia fica no presente por escolha do autor, contra
   o pretérito que a `escrita-academica` recomenda, até a reunião com o
   orientador (tcc-y4q, item 6).
 - A sessão que edita o texto roda no checkout principal, o mesmo do

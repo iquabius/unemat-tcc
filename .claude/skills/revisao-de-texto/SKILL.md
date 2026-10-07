@@ -1,6 +1,6 @@
 ---
 name: revisao-de-texto
-description: Passo a passo da escrita e da revisão do texto do TCC (texto/*.org) — porta fechada (o autor escreve no .org, pede edições pelo chat, sem checagem, ou responde a perguntas socráticas e escreve ele mesmo) e porta aberta (rodada sobre o git diff contra HEAD, com o rascunho do autor no índice e as correções do agente por cima, fonte lida no PDF, matriz de fontes, métricas, aprovo, diff ao vivo no Evince, exportação, compilação e commit); antes, a rodada de corte contra um orçamento de palavras; antes de cada tag de fase, a checagem adversarial de fatos e de lógica do capítulo inteiro. Use sempre que for escrever, reescrever, editar ou corrigir uma frase de texto/*.org, inclusive a pedido do autor pelo chat ou pelo celular, revisar o que o autor escreveu, aplicar uma proposta de texto já discutida, acrescentar entrada ao refs.bib para citar no texto, cortar ou encurtar um bloco do texto, fechar uma fase com tag, ou quando o autor pedir para "revisar pelo processo", "me pergunte", "não reescreva por mim", "cortar", "checar os fatos", "mostrar no PDF" ou "abrir no Evince".
+description: Passo a passo da escrita e da revisão do texto do TCC (texto/*.org) — porta fechada (o autor escreve no .org, pede edições pelo chat, sem checagem, ou responde a perguntas socráticas e escreve ele mesmo) e porta aberta (rodada sobre o git diff contra HEAD, com o rascunho do autor no índice e as correções do agente por cima, fonte lida no PDF, matriz de fontes, métricas, aprovo, diff ao vivo no Evince, exportação, compilação e commit); antes, a rodada de corte, que simplifica a leitura; antes de cada tag de fase, a checagem adversarial de fatos e de lógica do capítulo inteiro. Use sempre que for escrever, reescrever, editar ou corrigir uma frase de texto/*.org, inclusive a pedido do autor pelo chat ou pelo celular, revisar o que o autor escreveu, aplicar uma proposta de texto já discutida, acrescentar entrada ao refs.bib para citar no texto, cortar ou encurtar um bloco do texto, fechar uma fase com tag, ou quando o autor pedir para "revisar pelo processo", "me pergunte", "não reescreva por mim", "cortar", "checar os fatos", "mostrar no PDF" ou "abrir no Evince".
 ---
 
 # Rodada de revisão de texto no TCC
@@ -53,11 +53,10 @@ sai é trabalho perdido. Por isso o bloco é cortado antes, e só o que
 sobra passa pela rodada por bloco. As técnicas e as fontes estão em
 `references/processo-e-corte.md` da `escrita-academica`.
 
-1. **Orçamento.** O autor fixa o tamanho-alvo do bloco em palavras; a
-   introdução tem 2.500 (ADR 0022). Meça antes e depois com
+1. **Medida.** O corte serve para simplificar a leitura, sem meta de
+   palavras (ADR 0022). Meça antes e depois com
    `metricas_texto.py --orcamento N`, que imprime palavras e fontes por
-   parágrafo. Cada rodada corta pelo menos 10%, até o orçamento. Na
-   introdução, rode também `--parte problema --parte objetivos --parte
+   parágrafo; o N só ancora a tabela. Na introdução, rode também `--parte problema --parte objetivos --parte
    metodologia --parte justificativa` antes e depois: um ✓ que vira ⚠
    aponta um elo da cadeia que perdeu o marcador.
 2. **Mapa invertido** em `tmp/estrutura-<bloco>-<data>.md`, como o
@@ -77,7 +76,9 @@ sobra passa pela rodada por bloco. As técnicas e as fontes estão em
    - Duas fontes para a mesma afirmação: fica a mais forte. Ganha a
      publicada sobre a cinza, a com dado sobre a de opinião, a citada na
      lacuna sobre a de passagem.
-   - Dado que só ilustra sai.
+   - O dado citado que nenhum elo usa sai. A frase que ilustra fica
+     quando torna concreto um elo, como o problema ou um mecanismo, e sai
+     quando só enfeita (ADR 0022).
    - Antes de cortar uma fonte, `grep` a chave no capítulo: a mesma fonte
      pode apoiar outra afirmação.
    - Antes de mover ou cortar uma frase, procure no capítulo as frases que
@@ -120,11 +121,11 @@ sobra passa pela rodada por bloco. As técnicas e as fontes estão em
      que foi relido (o parágrafo, os vizinhos, as frases que retomavam o
      que saiu) e o que a costura mudou, ou "sem costura";
    - as costuras, com o texto e o motivo;
-   - o total contra o orçamento.
+   - o total de palavras antes e depois.
 
    O autor revisa no diff e desfaz o movimento que recusar, com a costura
    dele.
-6. **Conferir.** Meça de novo contra o orçamento. Depois:
+6. **Conferir.** Meça de novo. Depois:
    - `auditar_bib.py`: a entrada que saiu do texto aparece como nunca
      citada; decida com o autor se sai do `refs.bib`;
    - `bin/conferir-fontes.py --desde HEAD texto/<capítulo>.org`: a frase
@@ -132,8 +133,7 @@ sobra passa pela rodada por bloco. As técnicas e as fontes estão em
      cortado ou fundido, um link quebrado; ambos saem ou se corrigem na
      matriz no mesmo commit do corte;
    - releia a cadeia inteira, do primeiro ao último parágrafo, antes do
-     commit de toda rodada, mesmo quando o bloco ainda está acima do
-     orçamento. A releitura local do passo 5 não a substitui, nem o
+     commit de toda rodada. A releitura local do passo 5 não a substitui, nem o
      `--parte`, que só acha a palavra-marcador de cada elo. O mapa da
      cadeia vai para o `tmp/estrutura-<bloco>-<data>.md`, uma linha por
      parágrafo: o elo que ele sustenta, os eixos da pesquisa que ele
