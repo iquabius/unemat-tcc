@@ -285,16 +285,19 @@ reescreve.
    - O fast-forward recusa quando um arquivo que o ramo muda está
      modificado no checkout principal, mesmo com o conteúdo igual. O
      `.beads/issues.jsonl` cai sempre nisso, porque o `bd` exporta para
-     lá: se ele for igual ao do ramo (`git -C <checkout principal> diff
-     --quiet <tarefa> -- .beads/issues.jsonl`), restaure-o com `git -C
-     <checkout principal> checkout -- .beads/issues.jsonl`, que o
+     lá: se ele for igual ao do merge montado na worktree (`git -C
+     <checkout principal> diff --quiet "$(git rev-parse HEAD)" --
+     .beads/issues.jsonl`, rodado na worktree), restaure-o com `git -C
+     <checkout principal> checkout HEAD -- .beads/issues.jsonl`, que o
      fast-forward traz de volta igual; se for diferente, rode `bd export
      -o .beads/issues.jsonl` na worktree, commite no ramo e recomece o
      merge. Qualquer outro arquivo modificado lá é do autor: pare e
      pergunte.
    - Conflito no `.beads/issues.jsonl` durante o `--no-ff`: `bd export -o
      .beads/issues.jsonl`, `git add` e conclua o merge. Conflito em
-     código pede a marca do merge também (`git revisao pronto`).
+     código é código novo que ninguém revisou: rode a `linus-review` sobre
+     a resolução (`git show --cc HEAD`) e só marque o merge com `git
+     revisao pronto` com o Ready dela; senão, pare e pergunte ao autor.
    - Se o `master` andou entre o merge na worktree e o fast-forward ("Not
      possible to fast-forward"), refaça o passo desde o `git switch
      --detach master`.
