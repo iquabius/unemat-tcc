@@ -16,10 +16,11 @@ fechava, como as palavras. O leiaute do latexdiff não muda: as quebras
 velhas e as novas continuam todas no PDF do diff, e o ¶ diz qual delas
 mudou, como a linha em branco inserida ou apagada no diff do git.
 
-Em vez de: as opções do latexdiff; não há uma que marque a quebra, porque
-o token `\PAR` nunca entra em `\DIFadd` nem em `\DIFdel`, e o estilo
-CHANGEBAR (`--type=CULINECHBAR`) só põe barra nesses dois comandos
-(testado em 2026-10-08).
+Em vez de: uma opção do latexdiff, sem código próprio nem dependência de
+rastro interno; não há uma que marque a quebra, porque o token `\PAR`
+nunca entra em `\DIFadd` nem em `\DIFdel`, e o estilo CHANGEBAR
+(`--type=CULINECHBAR`) só põe barra nesses dois comandos (testado em
+2026-10-08).
 Em vez de: uma palavra invisível no fim de cada parágrafo dos `.tex` de
 entrada, que o latexdiff marcaria como palavra inserida ou apagada;
 usa só o comportamento documentado do latexdiff, mas pede uma cópia das
@@ -35,6 +36,6 @@ dois rastros, que os testes do `bin/test_marcar_quebras.py` fixam com
 trechos da saída do latexdiff 1.4.0; uma versão que mudar o rastro deixa
 de marcar, sem erro.
 
-Fontes: `bin/marcar-quebras.py`; latexdiff 1.4.0, `sub preprocess`
-("mark all first empty line ... with \PAR tokens") e `sub postprocess`
-("remove all \PAR tokens"); tarefa tcc-vgl.
+Fontes: latexdiff 1.4.0, `sub preprocess` ("mark all first empty line
+... with \PAR tokens") e `sub postprocess` ("remove all \PAR tokens");
+tarefa tcc-vgl.
