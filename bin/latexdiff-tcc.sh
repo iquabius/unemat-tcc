@@ -16,8 +16,9 @@
 # primeira ocorrência, que o texto novo perderia. O CUSTOMDIFCMD os troca
 # por \DELgls... no texto apagado e \ADDgls... no acrescentado, definidos no
 # fim do preâmbulo: o apagado mostra a forma curta, riscada, sem gastar a
-# primeira ocorrência; o acrescentado mostra a forma que o \gls mostraria,
-# com a marca do texto novo, e a gasta.
+# primeira ocorrência; o acrescentado é o próprio \gls, que define e gasta
+# a primeira ocorrência, na cor do texto novo e sem a onda do \uwave, que
+# não deixaria a definição se dividir entre linhas.
 set -euo pipefail
 [ $# -eq 2 ] || { echo "uso: $0 VELHO.tex NOVO.tex >diff.tex" >&2; exit 2; }
 
@@ -27,11 +28,10 @@ SIGLAS='CUSTOMDIFCMD=[gG]ls(?:pl)?(?![a-zA-Z])'
 latexdiff --flatten --packages=biblatex --config="$PICT" --config="$SIGLAS" "$1" "$2" |
   awk '/^\\begin\{document\}/ && !feito {
     print "%DIF SIGLAS DO GLOSSARIES (bin/latexdiff-tcc.sh)"
-    print "\\providecommand{\\DIFglsadd}[3]{\\ifglsused{#3}{\\DIFadd{#2{#3}}}{\\DIFadd{#1{#3}}}\\glsunset{#3}\\glsadd{#3}}"
-    print "\\providecommand{\\ADDgls}[2][]{\\DIFglsadd\\glsentryfirst\\glsentrytext{#2}}"
-    print "\\providecommand{\\ADDglspl}[2][]{\\DIFglsadd\\glsentryfirstplural\\glsentryplural{#2}}"
-    print "\\providecommand{\\ADDGls}[2][]{\\DIFglsadd\\Glsentryfirst\\Glsentrytext{#2}}"
-    print "\\providecommand{\\ADDGlspl}[2][]{\\DIFglsadd\\Glsentryfirstplural\\Glsentryplural{#2}}"
+    print "\\providecommand{\\ADDgls}[2][]{{\\protect\\color{blue}\\gls[#1]{#2}}}"
+    print "\\providecommand{\\ADDglspl}[2][]{{\\protect\\color{blue}\\glspl[#1]{#2}}}"
+    print "\\providecommand{\\ADDGls}[2][]{{\\protect\\color{blue}\\Gls[#1]{#2}}}"
+    print "\\providecommand{\\ADDGlspl}[2][]{{\\protect\\color{blue}\\Glspl[#1]{#2}}}"
     print "\\providecommand{\\DELgls}[2][]{\\DIFdel{\\glsentrytext{#2}}}"
     print "\\providecommand{\\DELglspl}[2][]{\\DIFdel{\\glsentryplural{#2}}}"
     print "\\providecommand{\\DELGls}[2][]{\\DIFdel{\\Glsentrytext{#2}}}"

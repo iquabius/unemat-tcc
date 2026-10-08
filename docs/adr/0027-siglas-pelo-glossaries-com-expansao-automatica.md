@@ -61,9 +61,10 @@ contornarem.
   gastaria a primeira ocorrência, e a definição sairia riscada. Contorno:
   o `bin/latexdiff-tcc.sh`, comum aos dois scripts, troca os comandos por
   versões que mostram a sigla curta riscada sem gastar a primeira
-  ocorrência, e no texto novo a forma do `\gls`, marcada; a definição
-  cai onde cai no PDF sem diff (conferido em 2026-10-07 nos dois
-  sentidos, com a sigla apagada e acrescentada antes da primeira
+  ocorrência, e no texto novo o próprio `\gls`, na cor do texto novo e
+  sem a onda, que não deixaria a definição se dividir entre linhas; a
+  definição cai onde cai no PDF sem diff (conferido em 2026-10-07 nos
+  dois sentidos, com a sigla apagada e acrescentada antes da primeira
   ocorrência).
 - L6 (observada): no `.org` e no diff em palavras a frase mostra
   `[[gls:pr]]`, e não "programação reativa (PR)"; a revisão da porta
