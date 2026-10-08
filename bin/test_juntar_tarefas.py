@@ -153,11 +153,67 @@ class Juntar(unittest.TestCase):
         self.assertEqual(feito, {"n": "nova"})
         self.assertEqual(conflito, [])
 
-    def test_so_com_tarefa_que_nao_mudou_avisa(self):
-        head = self.arquivo("head", tarefa("a"))
-        p = self.rodar("--so", "zz", head, head)
-        self.assertEqual(p.returncode, 0)
-        self.assertIn("zz não mudou", p.stderr)
+    def test_so_com_tarefa_que_nao_mudou_para_com_3_e_nao_grava(self):
+        # Duas sessões no checkout principal: a de A regravou o arquivo com
+        # HEAD mais a tarefa dela, e a de B, sem novo export, não acha b ali.
+        head = self.arquivo("head", tarefa("a"), tarefa("b"))
+        arquivo_de_a = self.arquivo("de_a", tarefa("a", status="closed"), tarefa("b"))
+        p = self.rodar("--so", "a,b", head, arquivo_de_a, "-o", arquivo_de_a)
+        self.assertEqual(p.returncode, 3)
+        self.assertIn("não mudou, e nada foi gravado: b", p.stderr)
+        self.assertEqual(Path(arquivo_de_a).read_text(),
+                         jsonl(tarefa("a", status="closed"), tarefa("b")))
+
+    def test_banco_decide_o_conflito_pelo_lado_igual_a_ele(self):
+        base = self.arquivo("base", tarefa("a"), tarefa("b"))
+        nosso = self.arquivo("nosso", tarefa("a", status="closed"), tarefa("b", status="closed"))
+        deles = self.arquivo("deles", tarefa("a", status="deferred"), tarefa("b", status="deferred"))
+        banco = self.arquivo("banco", tarefa("a", status="deferred"), tarefa("b", notes="outro"))
+        p = self.rodar("--banco", banco, base, nosso, deles)
+        self.assertEqual(p.returncode, 1)
+        self.assertTrue(p.stderr.rstrip().endswith(": b"), p.stderr)
+        self.assertIn("a fica como no deles, igual ao banco", p.stderr)
+        p = self.rodar("--banco", banco, "--nosso", "b", base, nosso, deles)
+        self.assertEqual(p.returncode, 0, p.stderr)
+        self.assertEqual(p.stdout, jsonl(tarefa("a", status="deferred"),
+                                         tarefa("b", status="closed")))
+
+    def test_decisao_para_tarefa_sem_conflito_avisa(self):
+        base = self.arquivo("base", tarefa("a"))
+        deles = self.arquivo("deles", tarefa("a", status="closed"))
+        p = self.rodar("--nosso", "a", base, base, deles)
+        self.assertEqual(p.returncode, 0, p.stderr)
+        self.assertIn("a não está em conflito", p.stderr)
+        self.assertEqual(p.stdout, jsonl(tarefa("a", status="closed")))
+
+    def test_ids_com_espaco_na_lista_valem(self):
+        head = self.arquivo("head", tarefa("a"), tarefa("b"))
+        export = self.arquivo("export", tarefa("a", status="closed"), tarefa("b", status="closed"))
+        p = self.rodar("--so", "a, b", head, export)
+        self.assertEqual(p.returncode, 0, p.stderr)
+        self.assertEqual(p.stdout, jsonl(tarefa("a", status="closed"), tarefa("b", status="closed")))
+
+    def test_texto_que_nao_e_utf8_id_que_nao_e_texto_e_saida_sem_lugar_saem_com_2(self):
+        ruim = Path(self.dir.name, "latin1")
+        ruim.write_bytes(b'{"id": "a", "title": "\xe7"}\n')
+        p = self.rodar(str(ruim), str(ruim))
+        self.assertEqual(p.returncode, 2)
+        self.assertIn("não é utf-8", p.stderr)
+        lista = self.arquivo("lista", json.dumps({"id": ["a"]}))
+        self.assertEqual(self.rodar(lista, lista).returncode, 2)
+        ok = self.arquivo("ok", tarefa("a"))
+        p = self.rodar(ok, ok, "-o", str(Path(self.dir.name, "nao", "existe")))
+        self.assertEqual(p.returncode, 2)
+        self.assertIn("não gravei", p.stderr)
+
+    def test_saida_padrao_em_utf8_mesmo_com_locale_c(self):
+        t = json.dumps({"id": "a", "title": "ação"}, ensure_ascii=False)
+        ok = self.arquivo("ok", t)
+        p = subprocess.run([sys.executable, str(SCRIPT), ok, ok], capture_output=True,
+                           env={**os.environ, "LC_ALL": "C", "PYTHONIOENCODING": "",
+                                "PYTHONUTF8": "0", "PYTHONCOERCECLOCALE": "0"})
+        self.assertEqual(p.returncode, 0, p.stderr)
+        self.assertEqual(p.stdout.decode("utf-8"), t + "\n")
 
     def test_le_objeto_do_git_e_grava_por_cima_da_propria_entrada(self):
         repo = Path(self.dir.name, "repo")
