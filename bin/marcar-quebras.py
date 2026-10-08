@@ -12,7 +12,8 @@ dentro do bloco \\DIFdelbegin...\\DIFdelend; o inserido sai como linha em
 branco dentro do bloco \\DIFaddbegin...\\DIFaddend. Os dois quebram o
 parágrafo no PDF, e nenhum dos dois ganha marca.
 
-Este filtro põe, antes de cada linha em branco desses blocos,
+Este filtro põe, antes da primeira linha em branco de cada sequência
+delas nesses blocos (o LaTeX lê a sequência como uma quebra só),
 \\ifhmode\\DIFadd{\\P}\\fi ou \\ifhmode\\DIFdel{\\P}\\fi, também nos blocos FL
 dos floats, porque o estilo UNDERLINE define \\DIFaddFL como \\DIFadd: o ¶
 sai no fim do parágrafo que a quebra fecha, azul e sublinhado na quebra
