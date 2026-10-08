@@ -1078,3 +1078,24 @@ Mernik et al. 2009 e Hudak 1996, página da cópia.
 | MDN, *Web Components* (modificado em 2026-09-01) | "Web Components is a suite of different technologies" | tecnologia da plataforma |
 | developer.android.com/compose e /jetpack | Compose, "Android's recommended modern toolkit for building native UI"; "Jetpack is a suite of libraries" | biblioteca; "nativo" no Android |
 | developer.android.com, *Layouts* | layouts com objetos `View` e `ViewGroup`, "an XML vocabulary"; "The Android framework" | plataforma Android |
+
+## 16. Programas de brinquedo: isolar uma escolha e o limite do tamanho (lidos em 2026-10-08)
+
+Conclusão: o programa pequeno serve para isolar uma escolha de projeto e
+comparar as versões (Green e Blackwell 1998), mas é artificial e não
+mostra o que só aparece em programa grande (Stol e Fitzgerald 2018;
+Runeson e Höst 2009), e fora do brinquedo o programa pede abstrações
+acima dos conceitos da linguagem núcleo (Van Roy e Haridi 2004). Achados
+na checagem adversarial da introdução, ao procurar "toy" nas fontes de
+`tmp/fontes/`. Todos os trechos lidos no PDF pelo agente principal; a
+página é a impressa.
+
+| Fonte | Trecho | Onde | Uso |
+|---|---|---|---|
+| Green e Blackwell 1998 (tutorial, fora do `.bib`) | "Toy applications (widgets) have been used for several reasons: a single design choice can be isolated and its consequences compared in alternative versions; [...] exploring and analysing a full-scale application would take too long for class use." | p. 62 | método: tarefas pequenas isolam a notação (intro.org, §16 e §21); candidata depois da checagem de 2026-10-08 |
+| Green e Blackwell 1998 | a parte 3 traz "interactive toy examples, designed to illustrate differences between design decisions and how one cognitive dimension can be traded against another" | p. 2 | idem |
+| Stol e Fitzgerald 2018 (fora do `.bib`; seção 9) | a artificialidade situacional "refers to the elements of the experimental design, such as the subjects (e.g., the use of students) and tasks and settings (e.g., toy systems)" | p. 11:10 | limitações: "As tarefas são pequenas" (intro.org, §29); candidata |
+| Runeson e Höst 2009 (`runeson2009`) | os estudos "range from very ambitious and well organized studies in the field, to small toy examples that claim to be case studies" | p. 132 | por que o trabalho não é estudo de caso |
+| Runeson e Höst 2009 | "Studies on 'toy programs' or similarly are of course excluded due to its lack of real-life context." | p. 139 | idem; já na nota \todo de intro.org sobre a classificação quanto aos meios |
+| Van Roy e Haridi 2004 (`roy2004`) | "This approach, defining new concepts and their proof rules, is the way to go for practical reasoning about stateful programs. Always staying at the kernel language level is much too verbose for all but toy programs." | p. 448 | abstração acima dos conceitos; o CTM chama aqui de "new concepts" as construções que na p. 38-40 são abstrações linguísticas (seção 15.1) |
+| Van Roy 2009 (`roy2009`) | "All but the smallest toy problems require different sets of concepts for different parts." | p. 10 | já citado em intro.org (§9) |
