@@ -141,16 +141,21 @@ valor, não uma ordem)
 Síncrona é a chamada em que quem chama espera o resultado; assíncrona, a
 que devolve o controle na hora e entrega o resultado depois, por
 *callback*, *promise* ou evento (Adya et al., 2002; Gallaba et al., 2015).
-_Avoid_: síncrono sozinho no sentido de Esterel e Lustre (programação
-síncrona, de instantes lógicos); assíncrono por paralelo ou por várias
-*threads*; não bloqueante por assíncrono (Van Roy e Haridi, 2004)
+_Avoid_: síncrono sem o objeto: a chamada síncrona não é a reação
+síncrona do tratador que roda até o fim (Berry e Serrano, 2020) nem a
+programação síncrona de Esterel e Lustre, de instantes lógicos;
+assíncrono por paralelo ou por várias *threads*; não bloqueante por
+assíncrono (Van Roy e Haridi, 2004)
 
 **Concorrente**:
 Diz-se das partes de um programa sem ordem dada entre si, logicamente
 independentes (Van Roy e Haridi, 2004). Operações assíncronas pendentes
-são concorrentes mesmo numa *thread* só.
+são concorrentes mesmo numa *thread* só (Berry e Serrano, 2020).
 _Avoid_: paralelo (execução simultânea no *hardware*); independente como
-termo à parte; concorrente como oposto de assíncrono
+termo à parte; concorrente como oposto de assíncrono; concorrência sem
+qualificador onde o leitor possa entender *threads*: "concorrência
+lógica" para a ausência de ordem, "concorrência com *threads*" para a da
+linguagem (Gokhale et al., 2021, dizem que o JavaScript não tem esta)
 
 **Inversão de controle**:
 O *toolkit* ou o *framework* chama o código do programa quando um evento
