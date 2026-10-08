@@ -14,7 +14,7 @@
 # \glspl, \Gls e \Glspl dentro do \DIFdel e os comentava, e a sigla sumia do
 # texto apagado. Como comandos seguros, iriam para dentro do \sout e do
 # \uwave, onde quebram a divisão das linhas, e o \gls apagado gastaria a
-# primeira ocorrência, que o texto novo perderia. O CUSTOMDIFCMD os troca
+# primeira ocorrência, que a versão nova perderia. O CUSTOMDIFCMD os troca
 # por \DELgls... no texto apagado e \ADDgls... no acrescentado, definidos no
 # fim do preâmbulo: o apagado mostra a forma curta, riscada, sem gastar a
 # primeira ocorrência; o acrescentado é o próprio \gls, que define e gasta
