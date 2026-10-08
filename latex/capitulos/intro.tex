@@ -92,11 +92,13 @@ Conceitos de programação declarativa podem, assim, diminuir essa complexidade.
 Na programação de interfaces gráficas, a \emph{notação} é a forma de escrever
 no código o estado, os valores derivados dele e a tela que os mostra.
 \todo{A estrutura da tela deixa de ser um segundo eixo e passa a fazer parte da notação; Solid e Angular passam a ser uma notação só, que varia na montagem da tela, no modelo de componente e na API.}
-Nas tecnologias mais usadas, há três notações, duas delas declarativas.
+Nas tecnologias que este trabalho compara, há três notações, duas delas
+declarativas.
 Elas se distinguem pelo modo de coordenar evento, estado e tela.
 Na \emph{imperativa com callbacks}, cada \emph{callback} altera o estado e a tela
 diretamente, como no jQuery \cite{openjs2026} e nos Web Components sem
 biblioteca \cite{mozilla2026}.
+
 Nas declarativas, o programador descreve a tela em função do estado, e o
 ambiente de execução a mantém atualizada \cite{meta2026a,solidjs2026}.
 Na \emph{declarativa por re-renderização}, cada mudança de estado reexecuta o
@@ -107,7 +109,6 @@ Solid e no Angular com \emph{signals} \cite{solidjs2026,google2026}.
 A notação por atualização granular usa as abstrações da \gls{pr}: os
 valores que variam no tempo, chamados \emph{signals}, cujas alterações se propagam automaticamente
 \cite{salvaneschi2015}.
-
 Cada tecnologia fica na notação em que escreve a maior parte da
 coordenação, mas a classificação não é exclusiva.
 Em quase todo problema, cada parte pede o seu conjunto de conceitos
@@ -127,8 +128,7 @@ Stack Overflow não separe quem o usa com \emph{signals}, e pelo Solid, usado po
 dos respondentes do State of JS 2025 \cite{devographics2026}.
 Nenhuma dessas pesquisas mede o uso de Web Components sem biblioteca.
 Eles entram por ser o modelo de componente do próprio navegador
-\cite{mozilla2026}, e neles a coordenação se escreve com o \texttt{addEventListener},
-cujo \emph{callback} altera a tela.
+\cite{mozilla2026}.
 
 Para discutir o quanto uma notação facilita a compreensão e a
 manutenção, há as \glspl{dc}, propostas por \textcite{green1989}.
@@ -164,7 +164,8 @@ a declarativa por atualização granular, se comparam quanto à usabilidade,
 segundo as \glspl{dc}?
 A comparação pode ajudar quem programa interfaces a escolher uma tecnologia
 sabendo o que a notação dela facilita e o que dificulta em cada \emph{problema
-de coordenação}, isto é, em cada exigência que a interface faz à notação.
+de coordenação}.
+Um problema de coordenação é uma exigência que a interface faz à notação.
 
 O objetivo geral é comparar a usabilidade das três notações segundo as
 \glspl{dc}, na programação de interfaces típicas da

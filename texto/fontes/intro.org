@@ -310,15 +310,14 @@ Formato:
   2026-09-29); a tabela dá 1.269 de 12.030 (10,55%).
 - Conferido: 2026-10-06.
 ** mozilla2026
-- Frase: “Eles entram por ser o modelo de componente do próprio navegador,
-  e neles a coordenação se escreve com o =addEventListener=, cujo
-  /callback/ altera a tela.”
-- Trecho: o guia descreve elementos personalizados como classes que
-  estendem =HTMLElement=, e o exemplo registra um /callback/ que altera o
-  DOM, =newSpan.addEventListener("click", onClick);=
-- Lido em: =tmp/fontes/mozilla2026.txt=, l. 606 (página salva; MDN,
+- Frase: “Eles entram por ser o modelo de componente do próprio navegador.”
+- Trecho: “A custom element is implemented as a class which extends
+  HTMLElement [...]. This class will not be called by you, but will be
+  called by the browser. Immediately after defining the class, you should
+  register the custom element”.
+- Lido em: =tmp/fontes/mozilla2026.txt=, l. 49 (página salva; MDN,
   modificada em 2026-09-01).
-- Conferido: 2026-10-06.
+- Conferido: 2026-10-08.
 
 * §1 [[file:../intro.org::Interfaces gráficas mediam a maioria][Interfaces gráficas mediam a maioria]]
 ** myers1994, p. 79
@@ -430,6 +429,8 @@ Formato:
 - Lido em: =tmp/fontes/mozilla2026.txt=, l. 606 (página salva; MDN,
   modificada em 2026-09-01).
 - Conferido: 2026-10-06.
+
+* §9 [[file:../intro.org::Nas declarativas, o programador descreve a tela][Nas declarativas, o programador descreve a tela]]
 ** meta2026a
 - Frase: “Nas declarativas, o programador descreve a tela em função do
   estado, e o ambiente de execução a mantém atualizada.”
@@ -483,6 +484,17 @@ Formato:
   change.”
 - Lido em: =tmp/fontes/salvaneschi2015.pdf=, p. 1 do PDF (p. 953).
 - Conferido: 2026-10-06.
+** roy2009, p. 10
+- Frase: “Em quase todo problema, cada parte pede o seu conjunto de conceitos
+  (Van Roy, 2009, p. 10), e as implementações deste trabalho também os
+  misturam.”
+- Trecho: “Solving a programming problem requires choosing the right
+  concepts. All but the smallest toy problems require different sets of
+  concepts for different parts. This is why programming languages should
+  support many paradigms.” (p. 10)
+- Lido em: =tmp/fontes/vanroy2009-programming-paradigms-for-dummies.pdf=,
+  p. 2 do PDF (p. 10).
+- Conferido: 2026-10-08.
 
 * §15 [[file:../intro.org::Quanto aos objetivos, a pesquisa é][Quanto aos objetivos, a pesquisa é exploratória]]
 ** runeson2009, p. 135
