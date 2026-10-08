@@ -11,14 +11,28 @@ Além disso, ao escolher uma tecnologia, o programador escolhe
 também a forma de escrever a interface, e essa forma afeta a compreensão e a manutenção
 do programa.
 
-Para coordenar eventos é comum usar o \emph{callback}: um bloco de código executado
-sempre que um dado evento ocorrer, por exemplo, o clique em um botão.
-Também chamado de \emph{listener}, o \emph{callback} é a forma dominante de propagar
-eventos, e registrá-lo num produtor de eventos, que o chama de volta a cada
-evento, é o \emph{Observer Pattern} \cite[p. 7]{blackheath2016}.
-Para \textcite[p. 134]{fischer2007}, o \emph{callback} dificulta a manutenção
-e a compreensão do programa, porque fragmenta cada fluxo de controle em
-vários \emph{callbacks} independentes.
+O recurso predominante para propagar eventos é o \emph{callback}, também chamado
+de \emph{listener}: um bloco de código que roda sempre que um dado evento ocorre,
+como o clique em um botão \cite[p. 7]{blackheath2016}.
+Registrá-lo num produtor, que o chama de volta a cada ocorrência, é o
+\emph{Observer Pattern} \cite[p. 7]{blackheath2016}.
+O \emph{callback} é síncrono quando a função que o recebe o chama antes de
+retornar, e assíncrono quando o chama algum tempo depois, ao fim da operação
+que ele espera \cite[p. 2]{gallaba2015}.
+O navegador executa a aplicação numa \emph{thread} só, e, para que ela continue
+respondendo ao usuário, os programadores recorrem às operações assíncronas
+\cite[p. 368-369]{alimadadi2014}.
+O \emph{callback} de um clique é desse tipo: registrado quando a tela é montada,
+só roda quando o usuário clica, e os eventos do \gls{dom} estão entre as
+operações assíncronas do navegador \cite[p. 5]{gallaba2015}.
+
+\emph{Threads} exprimem sequência, e eventos exprimem dependência, e muitos
+problemas vêm de escrever uma com o recurso da outra
+\cite[p. 16]{blackheath2016}.
+O \emph{callback} fragmenta o fluxo de controle: a sequência de passos que o
+programador tem em mente para uma operação fica dividida entre vários
+\emph{callbacks}, o que dificulta a manutenção e a compreensão do programa
+\cite[p. 134-135]{fischer2007}.
 Como não se sabe em que ordem os \emph{callbacks} serão chamados, coordenar as
 alterações ao estado compartilhado é desconcertante e está longe de ser
 modular \cite[p. 926]{edwards2009}.
@@ -31,17 +45,22 @@ em cada dez definições de função recebe um \emph{callback}, e a maioria dos
 \emph{callbacks} é aninhada \cite[p. 1]{gallaba2015}.
 
 O JavaScript ganhou alternativas ao \emph{callback}: as \emph{promises}, que encadeiam
-computações assíncronas \cite{madsen2017}, e as palavras-chave \emph{async} e
-\emph{await}, que permitem escrever esse código num estilo linear
-\cite[p. 362]{gallaba2017}.
+computações assíncronas \cite[p. 86:1]{madsen2017}, e as palavras-chave
+\emph{async} e \emph{await}, que permitem escrever o tratamento assíncrono dos eventos
+em estilo sequencial, com as estruturas de controle comuns
+\cite[p. 8]{grolaux2026}.
 As \emph{promises} achatam o aninhamento dos \emph{callbacks}, mas a lógica complexa
 continua presa em cadeias de \emph{callbacks} \cite[p. 9]{grolaux2026}.
+O estado da aplicação, que o JavaScript guarda em variáveis globais, o
+\emph{async} e \emph{await} não ajudam a coordenar \cite[p. 538]{berry2020}.
 
 Outra alternativa ao \emph{callback} é a \gls{pr}.
 Segundo \textcite[p. 1125-1126]{salvaneschi2017}, nela o programador
 declara as relações entre os valores, e o ambiente de execução faz as
 atualizações que elas exigem.
-Ela serve às aplicações orientadas a eventos e interativas e leva às
+Assim, o programador não precisa cuidar da ordem dos eventos nem das
+dependências entre as computações \cite[p. 2]{bainomugisha2013}.
+A \gls{pr} serve às aplicações orientadas a eventos e interativas e leva às
 linguagens de programação o modelo das planilhas eletrônicas, em que mudar
 o valor de uma célula recalcula as fórmulas que dependem dela
 \cite[p. 1-2]{bainomugisha2013}.
@@ -52,21 +71,22 @@ de compreender que o \emph{Observer Pattern}, estilo tradicional da \gls{poo}.
 Num experimento controlado com 127 estudantes, quem leu os programas escritos
 com \gls{pr} acertou mais perguntas sobre eles do que quem os leu com o
 \emph{Observer Pattern} (médias de 8,13 e 7,05 acertos em dez, com diferença
-significativa) e não levou mais tempo.
+significativa).
+Também respondeu mais rápido em seis das dez tarefas, sem diferença
+significativa nas outras quatro.
 
-O \emph{callback} fragmenta o fluxo de controle: a sequência de passos que o
-programador tem em mente para uma operação fica dividida entre vários
-\emph{callbacks} \cite[p. 134-135]{fischer2007}.
-No código sequencial, o problema é o inverso: a linguagem obriga a fixar a
-ordem de execução mesmo quando ela não importa, e quem lê precisa supor que
-importa \cite[p. 8-9]{moseley2006}.
-Essa preocupação explícita com o fluxo de controle é, para
-\textcite[p. 1 e 21]{moseley2006}, uma das causas da complexidade dos
-sistemas de grande porte, ao lado do volume de código e, sobretudo, do
+O código sequencial tem o problema oposto ao do \emph{callback}: a linguagem
+obriga a fixar a ordem de execução mesmo quando ela não importa, e quem lê
+precisa supor que importa \cite[p. 8-9]{moseley2006}.
+Essa preocupação explícita com o fluxo de controle é uma das causas da
+complexidade dos sistemas de grande porte \cite[p. 1]{moseley2006}.
+As outras causas, para eles, são o volume de código e, sobretudo, o
 tratamento do estado.
 Eles distinguem a complexidade essencial, própria do problema, da acidental,
 todo o resto, e propõem reduzir a acidental com \gls{pf} e o
-modelo relacional de dados.
+modelo relacional de dados \cite[p. 1 e 21]{moseley2006}.
+\textcite[p. 929]{edwards2009} chama de acidental, no mesmo sentido, boa
+parte do sequenciamento manual das ações que a programação imperativa exige.
 Conceitos de programação declarativa podem, assim, diminuir essa complexidade.
 
 Na programação de interfaces gráficas, a \emph{notação} é a forma de escrever

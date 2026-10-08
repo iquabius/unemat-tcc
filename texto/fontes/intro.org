@@ -20,34 +20,83 @@ Formato:
   - a data da conferência.
 - A frase que sai do texto sai daqui no mesmo commit.
 
-* §2 [[file:../intro.org::Para coordenar eventos é comum usar o][Para coordenar eventos é comum usar o callback]]
-** gallaba2015, p. 1
-- Frase: “Em JavaScript, os /callbacks/ são frequentes: num estudo de 138
-  programas, uma em cada dez definições de função recebe um /callback/, e
-  a maioria dos /callbacks/ é aninhada.”
-- Trecho: “a representative corpus of 138 JavaScript programs […] every
-  10th function definition takes a callback argument […] the majority of
-  callbacks are nested” (resumo).
-- Lido em: =tmp/fontes/gallaba2015.pdf=, p. 1.
-- Conferido: 2026-10-06.
+* §2 [[file:../intro.org::O recurso predominante para propagar eventos][O recurso predominante para propagar eventos é o callback]]
 ** blackheath2016, p. 7
-- Frase: “Também chamado de /listener/, o /callback/ é a forma dominante de
-  propagar eventos, e registrá-lo num produtor de eventos, que o chama de
-  volta a cada evento, é o /Observer Pattern/.”
+- Frase: “O recurso predominante para propagar eventos é o /callback/,
+  também chamado de /listener/: um bloco de código que roda sempre que um
+  dado evento ocorre, como o clique em um botão (Blackheath e Jones, 2016,
+  p. 7). Registrá-lo num produtor, que o chama de volta a cada ocorrência,
+  é o /Observer Pattern/ (Blackheath e Jones, 2016, p. 7).”
 - Trecho: “Listeners or callbacks—also called the observer pattern—are the
   dominant way of propagating events in software today.”; “register a new
   consumer (or listener) with it, and from then on, that consumer is called
   back whenever an event occurs.” (p. 7)
 - Lido em: =tmp/fontes/blackheath2016-cap1.pdf=, p. 10 do PDF (p. 7).
 - Conferido: 2026-10-07.
-** fischer2007, p. 134
-- Frase: “Para Fischer et al. (2007, p. 134), o /callback/ dificulta a
-  manutenção e a compreensão do programa, porque fragmenta cada fluxo de
-  controle em vários /callbacks/ independentes.”
+** gallaba2015, p. 2
+- Frase: “O /callback/ é síncrono quando a função que o recebe o chama
+  antes de retornar, e assíncrono quando o chama algum tempo depois, ao
+  fim da operação que ele espera.”
+- Trecho: “A callback passed to a function f can be invoked synchronously
+  before f returns, or it can be deferred to execute asynchronously some
+  time after f returns.”; “the desired non-blocking operation is scheduled
+  as a callback and the main thread continues its synchronous execution.
+  When the operation completes, a message is enqueued into a task queue
+  along with the provided callback.” (p. 2)
+- Lido em: =tmp/fontes/gallaba2015.pdf=, p. 2.
+- Conferido: 2026-10-07.
+** alimadadi2014, p. 368-369
+- Frase: “O navegador executa a aplicação numa /thread/ só, e, para que ela
+  continue respondendo ao usuário, os programadores recorrem às operações
+  assíncronas.”
+- Trecho: “Web browsers provide a single thread for web application
+  execution. To circumvent this limitation and build rich responsive web
+  applications, developers take advantage of the asynchronous capabilities
+  offered by modern browsers, such as timeouts and XMLHttpRequest (XHR)
+  calls.” (p. 368-369)
+- Lido em: =tmp/fontes/alimadadi2014.pdf=, p. 2 e 3 do PDF (p. 368 e 369).
+- Conferido: 2026-10-07.
+** gallaba2015, p. 5
+- Frase: “O /callback/ de um clique é desse tipo: registrado quando a tela é
+  montada, só roda quando o usuário clica, e os eventos do DOM estão entre
+  as operações assíncronas do navegador.”
+- Trecho: “Asynchronous callbacks. A callback passed into a function can be
+  deferred and invoked at a later time. [...] Our analysis detects a variety
+  of APIs, including DOM events, network calls, timers, and I/O.”; Tabela
+  II, “Example asynchronous APIs available to JavaScript programs”: “DOM
+  events: addEventListener, onclick (Browser)”; a Listagem 5 registra um
+  =$('.restart').on('click', function() {...})=. (p. 5)
+- Lido em: =tmp/fontes/gallaba2015.pdf=, p. 5.
+- Observação: a primeira metade da frase (registrado na montagem da tela,
+  roda no clique) é ilustração do autor; a fonte sustenta que o evento do
+  DOM é API assíncrona.
+- Conferido: 2026-10-07.
+
+* §3 [[file:../intro.org::/Threads/ exprimem sequência][Threads exprimem sequência]]
+** blackheath2016, p. 16
+- Frase: “/Threads/ exprimem sequência, e eventos exprimem dependência, e
+  muitos problemas vêm de escrever uma com o recurso da outra.”
+- Trecho: “Threads allow you to express sequence; events allow you to
+  express dependency. In different situations, both are needed. A lot of
+  problems come from trying to express dependency with threads, or
+  sequences with events.” (p. 16)
+- Lido em: =tmp/fontes/blackheath2016-cap1.pdf=, p. 19 do PDF (p. 16).
+- Conferido: 2026-10-07.
+** fischer2007, p. 134-135
+- Frase: “O /callback/ fragmenta o fluxo de controle: a sequência de passos
+  que o programador tem em mente para uma operação fica dividida entre
+  vários /callbacks/, o que dificulta a manutenção e a compreensão do
+  programa.”
 - Trecho: “the event-driven style severely complicates program maintenance
   and understanding, as it requires each logical flow of control to be
-  fragmented across multiple independent callbacks.” (resumo)
-- Lido em: =tmp/fontes/fischer2007.pdf=, p. 1 do PDF (p. 134 impressa).
+  fragmented across multiple independent callbacks.” (resumo, p. 134);
+  “the violence that the event-driven style does to a program’s natural
+  flow of control. The code in restOfRun logically follows the buffer
+  write, but they must be unnaturally separated” (p. 135).
+- Lido em: =tmp/fontes/fischer2007.pdf=, p. 1 e 2 do PDF (p. 134 e 135).
+- Observação: é o primeiro erro da regra de Blackheath e Jones (sequência
+  escrita com eventos); o segundo, o código sequencial, está no §7 com
+  Moseley e Marks (relatório em tmp/fluxo-de-controle-2026-10-07/).
 - Conferido: 2026-10-07.
 ** edwards2009, p. 926 (estado compartilhado)
 - Frase: “Como não se sabe em que ordem os /callbacks/ serão chamados,
@@ -77,7 +126,54 @@ Formato:
   coautor de Järvi et al.
 - Conferido: 2026-10-07.
 
-* §4 [[file:../intro.org::Outra alternativa ao /callback/ é a][Outra alternativa ao callback é a PR]]
+** gallaba2015, p. 1
+- Frase: “Em JavaScript, os /callbacks/ são frequentes: num estudo de 138
+  programas, uma em cada dez definições de função recebe um /callback/, e
+  a maioria dos /callbacks/ é aninhada.”
+- Trecho: “a representative corpus of 138 JavaScript programs […] every
+  10th function definition takes a callback argument […] the majority of
+  callbacks are nested” (resumo).
+- Lido em: =tmp/fontes/gallaba2015.pdf=, p. 1.
+- Conferido: 2026-10-06.
+
+* §4 [[file:../intro.org::O JavaScript ganhou alternativas ao][O JavaScript ganhou alternativas ao callback]]
+** madsen2017, p. 86:1
+- Frase: “as /promises/, que encadeiam computações assíncronas”
+- Trecho: “promises, an alternative mechanism for managing asynchrony that
+  enables programmers to chain asynchronous computations while supporting
+  proper error handling” (resumo, p. 86:1).
+- Lido em: =tmp/fontes/madsen2017.pdf=, p. 1 do PDF (p. 86:1).
+- Conferido: 2026-10-07.
+** grolaux2026, p. 8
+- Frase: “as palavras-chave /async/ e /await/, que permitem escrever o
+  tratamento assíncrono dos eventos em estilo sequencial, com as estruturas
+  de controle comuns”
+- Trecho: “Async/Await enables asynchronous event processing to be written
+  in a sequential style, allowing developers to use conventional
+  control-flow constructs while preserving the responsiveness required in
+  GUIs” (p. 8).
+- Lido em: =tmp/fontes/grolaux2026.pdf=, p. 2 do PDF (p. 8).
+- Observação: substitui Gallaba et al. (2017, p. 362, “These allow a linear
+  programming style”), que dizia o mesmo; fica a fonte que fala dos eventos
+  de interface.
+- Conferido: 2026-10-07.
+** grolaux2026, p. 9
+- Frase: “As /promises/ achatam o aninhamento dos /callbacks/, mas a lógica
+  complexa continua presa em cadeias de /callbacks/.”
+- Trecho: “Promises [34] improved this by flattening the structure (Listing
+  2), yet complex logic remains trapped in callback chains.” (p. 9)
+- Lido em: =tmp/fontes/grolaux2026.pdf=, p. 3 do PDF (p. 9).
+- Conferido: 2026-10-07.
+** berry2020, p. 538
+- Frase: “O estado da aplicação, que o JavaScript guarda em variáveis
+  globais, o /async/ e /await/ não ajudam a coordenar.”
+- Trecho: “Control. JavaScript uses global variables to represent the state
+  of the application; note that the ES6 async/await extensions do not help
+  with this respect.” (p. 538)
+- Lido em: =tmp/fontes/berry2020.pdf=, p. 6 do PDF (p. 538).
+- Conferido: 2026-10-07.
+
+* §5 [[file:../intro.org::Outra alternativa ao /callback/ é a][Outra alternativa ao callback é a PR]]
 ** salvaneschi2017, p. 1125-1126
 - Frase: “Segundo Salvaneschi et al. (2017, p. 1125-1126), nela o
   programador declara as relações entre os valores, e o ambiente de
@@ -88,8 +184,17 @@ Formato:
   runtime takes care of change propagation” (p. 1125).
 - Lido em: =tmp/fontes/salvaneschi2017.pdf=, p. 1 do PDF (p. 1125).
 - Conferido: 2026-10-07.
+** bainomugisha2013, p. 2
+- Frase: “Assim, o programador não precisa cuidar da ordem dos eventos nem
+  das dependências entre as computações.”
+- Trecho: “having the language automatically manage the flow of time (by
+  conceptually supporting simultaneity), and data and computation
+  dependencies. This yields the advantage that programmers need not to
+  worry about the order of events and computation dependencies.” (p. 52:2)
+- Lido em: =tmp/fontes/bainomugisha2013.pdf=, p. 2 do PDF (p. 52:2).
+- Conferido: 2026-10-07.
 ** bainomugisha2013, p. 1-2
-- Frase: “Ela serve às aplicações orientadas a eventos e interativas e
+- Frase: “A PR serve às aplicações orientadas a eventos e interativas e
   leva às linguagens de programação o modelo das planilhas eletrônicas, em
   que mudar o valor de uma célula recalcula as fórmulas que dependem dela
   (Bainomugisha et al., 2013, p. 1-2).”
@@ -104,24 +209,29 @@ Formato:
   52:2).
 - Conferido: 2026-10-07.
 
-* §5 [[file:../intro.org::testaram uma afirmação antiga][testaram uma afirmação antiga]]
+* §6 [[file:../intro.org::testaram uma afirmação antiga][testaram uma afirmação antiga]]
 ** salvaneschi2017, p. 1125-1134
 - Frase: “Num experimento controlado com 127 estudantes, quem leu os
   programas escritos com PR acertou mais perguntas sobre eles do que quem
   os leu com o /Observer Pattern/ (médias de 8,13 e 7,05 acertos em dez,
-  com diferença significativa) e não levou mais tempo.”
+  com diferença significativa). Também respondeu mais rápido em seis das
+  dez tarefas, sem diferença significativa nas outras quatro.”
 - Trecho: “The study involves 127 subjects and compares reactive
   programming to the traditional object-oriented style with the Observer
   design pattern.” (resumo, p. 1125); “The mean score for the OO group and
   the RP group are µ(score,OO) = 7.05 and µ(score,RP) = 8.13” (PDF p. 7);
-  “Finding 2: Comprehending programs in the RP style does not require more
-  time than comprehending their OO equivalent.” (PDF p. 9)
+  tempo: “tasks 1-2-3-4-6-7, H0 can be rejected with high significance. In
+  all those cases, the rank sum indicates that times for the OO group are
+  higher than times for the RP group (Table 3 [...]), i.e., the RP group is
+  faster. For the tasks 5-8-9-10, H0 cannot be rejected.”; “Finding 2:
+  Comprehending programs in the RP style does not require more time than
+  comprehending their OO equivalent.” (PDF p. 9, p. 1133)
 - Lido em: =tmp/fontes/salvaneschi2017.pdf=, p. 1, 7 e 9 do PDF; as páginas
   publicadas (1125 a 1141) se contam do início, sem paginação impressa no
   PDF.
-- Conferido: 2026-10-06.
+- Conferido: 2026-10-06; o tempo, em 2026-10-08.
 
-* §17 [[file:../intro.org::O Contador, o Formulário e a Lista adaptam][O Contador, o Formulário e a Lista adaptam]]
+* §18 [[file:../intro.org::O Contador, o Formulário e a Lista adaptam][O Contador, o Formulário e a Lista adaptam]]
 ** kiss2014, p. 11, 17, 25 e 34
 - Frase: “O Contador, o Formulário e a Lista adaptam o /Counter/, o
   /Flight Booker/ e o /CRUD/, três das sete tarefas do 7GUIs, de Kiss
@@ -137,7 +247,7 @@ Formato:
 - Observação: “sete” vem da p. 11, que o texto não cita.
 - Conferido: 2026-10-06.
 
-* §24 [[file:../intro.org::A avaliação usa oito][A avaliação usa oito das catorze]]
+* §25 [[file:../intro.org::A avaliação usa oito][A avaliação usa oito das catorze]]
 ** kiss2014, p. 15
 - Frase: “As outras duas, /expressividade/ e /operações mentais difíceis/,
   vêm do grupo de cinco que Kiss (2014, p. 15) deixou de fora e que, a seu
@@ -160,7 +270,7 @@ Formato:
   ali, e não exemplos; por isso o “como” saiu.
 - Conferido: 2026-10-06.
 
-* §11 [[file:../intro.org::Nenhum desses trabalhos compara][Nenhum desses trabalhos compara]]
+* §12 [[file:../intro.org::Nenhum desses trabalhos compara][Nenhum desses trabalhos compara]]
 ** wohlin2014, p. 3-4
 - Frase: “A lacuna se apoia nessa revisão, feita por palavras-chave e
   /snowballing/ (Wohlin, 2014, p. 3-4) em duas rodadas, em setembro e
@@ -174,7 +284,7 @@ Formato:
   as datas são do próprio trabalho (Apêndice B).
 - Conferido: 2026-10-06.
 
-* §9 [[file:../intro.org::As pesquisas de uso medem][As pesquisas de uso medem]]
+* §10 [[file:../intro.org::As pesquisas de uso medem][As pesquisas de uso medem]]
 ** stackoverflow2025
 - Frase: “No Stack Overflow Developer Survey 2025, React, jQuery e Angular
   estão entre as sete tecnologias web mais usadas, com 44,7%, 23,4% e
@@ -227,7 +337,7 @@ Formato:
   rodada 2 do corte; rever na rodada 3 se volta à introdução.
 - Conferido: 2026-10-06.
 
-* §23 [[file:../intro.org::A avaliação cabe ao autor][A avaliação cabe ao autor]]
+* §24 [[file:../intro.org::A avaliação cabe ao autor][A avaliação cabe ao autor]]
 ** kiss2014, p. 8
 - Frase: “Kiss (2014, p. 8) chama de analítica a avaliação pelas DCs e a
   adota como alternativa aos experimentos com programadores, muitas vezes
@@ -261,26 +371,11 @@ Formato:
 - Lido em: =tmp/fontes/kitchenham1996a.pdf=, p. 5 do PDF (p. 15 impressa).
 - Conferido: 2026-10-06.
 
-* §6 [[file:../intro.org::O /callback/ fragmenta o fluxo de controle][O callback fragmenta o fluxo de controle]]
-** fischer2007, p. 134-135
-- Frase: “O /callback/ fragmenta o fluxo de controle: a sequência de
-  passos que o programador tem em mente para uma operação fica dividida
-  entre vários /callbacks/.”
-- Trecho: “the event-driven style severely complicates program maintenance
-  and understanding, as it requires each logical flow of control to be
-  fragmented across multiple independent callbacks.” (resumo, p. 134);
-  “the violence that the event-driven style does to a program’s natural
-  flow of control. The code in restOfRun logically follows the buffer
-  write, but they must be unnaturally separated” (p. 135).
-- Lido em: =tmp/fontes/fischer2007.pdf=, p. 1 e 2 do PDF (p. 134 e 135).
-- Observação: retoma o §2 e abre o contraste com o código sequencial de
-  Moseley e Marks; as duas fontes falam da ordem de execução, com queixas
-  opostas (relatório em tmp/fluxo-de-controle-2026-10-07/).
-- Conferido: 2026-10-07.
+* §7 [[file:../intro.org::O código sequencial tem o problema oposto][O código sequencial tem o problema oposto]]
 ** moseley2006, p. 8-9
-- Frase: “No código sequencial, o problema é o inverso: a linguagem obriga
-  a fixar a ordem de execução mesmo quando ela não importa, e quem lê
-  precisa supor que importa.”
+- Frase: “O código sequencial tem o problema oposto ao do /callback/: a
+  linguagem obriga a fixar a ordem de execução mesmo quando ela não
+  importa, e quem lê precisa supor que importa.”
 - Trecho: “the ordering in which things will happen is controlled by the
   order in which the statements of the programming language are written
   in the textual form of the program.” (p. 8); “Effectively they are being
@@ -288,22 +383,39 @@ Formato:
   assumption that the ordering specified is significant” (p. 9).
 - Lido em: =tmp/fontes/moseley2006.pdf=, p. 8 e 9.
 - Conferido: 2026-10-07.
+** moseley2006, p. 1
+- Frase: “Essa preocupação explícita com o fluxo de controle é uma das
+  causas da complexidade dos sistemas de grande porte (Moseley e Marks,
+  2006, p. 1). As outras causas, para eles, são o volume de código e,
+  sobretudo, o tratamento do estado.”
+- Trecho: “we believe that the major contributor to this complexity in many
+  systems is the handling of state [...]. Other closely related
+  contributors are code volume, and explicit concern with the flow of
+  control through the system.” (p. 1)
+- Lido em: =tmp/fontes/moseley2006.pdf=, p. 1.
+- Conferido: 2026-10-07.
 ** moseley2006, p. 1 e 21
-- Frase: “Essa preocupação explícita com o fluxo de controle é, para
-  Moseley e Marks, uma das causas da complexidade dos sistemas de grande
-  porte, ao lado do volume de código e, sobretudo, do tratamento do estado.
-  Eles distinguem a complexidade essencial, própria do problema, da
+- Frase: “Eles distinguem a complexidade essencial, própria do problema, da
   acidental, todo o resto, e propõem reduzir a acidental com PF e o modelo
   relacional de dados.”
-- Trecho: “Other closely related contributors are code volume, and
-  explicit concern with the flow of control through the system.” e o
-  resumo, que propõe reduzir a complexidade com “functional programming
-  and Codd’s relational model of data” (p. 1); “Essential Complexity is
-  inherent in, and the essence of, the problem” (p. 21).
+- Trecho: o resumo propõe reduzir a complexidade com “functional
+  programming and Codd’s relational model of data” (p. 1); “Essential
+  Complexity is inherent in, and the essence of, the problem”; “Accidental
+  Complexity is all the rest” (p. 21).
 - Lido em: =tmp/fontes/moseley2006.pdf=, p. 1 e 21.
 - Conferido: 2026-10-07.
+** edwards2009, p. 929
+- Frase: “Edwards (2009, p. 929) chama de acidental, no mesmo sentido, boa
+  parte do sequenciamento manual das ações que a programação imperativa
+  exige.”
+- Trecho: “This paper suggests that much of the manual sequencing of
+  actions that is the crux of imperative programming is an accidental
+  complexity [2]”, em que [2] é Brooks (p. 929).
+- Lido em: =tmp/fontes/edwards2009-coherent-reaction.pdf=, p. 5 do PDF;
+  p. 929 calculada pelo início dos anais (925).
+- Conferido: 2026-10-07.
 
-* §7 [[file:../intro.org::Na programação de interfaces gráficas, a /notação/][Na programação de interfaces gráficas, a notação]]
+* §8 [[file:../intro.org::Na programação de interfaces gráficas, a /notação/][Na programação de interfaces gráficas, a notação]]
 ** openjs2026
 - Frase: “Na /imperativa com callbacks/, cada /callback/ altera o estado e a
   tela diretamente, como no jQuery.”
@@ -372,7 +484,7 @@ Formato:
 - Lido em: =tmp/fontes/salvaneschi2015.pdf=, p. 1 do PDF (p. 953).
 - Conferido: 2026-10-06.
 
-* §14 [[file:../intro.org::Quanto aos objetivos, a pesquisa é][Quanto aos objetivos, a pesquisa é exploratória]]
+* §15 [[file:../intro.org::Quanto aos objetivos, a pesquisa é][Quanto aos objetivos, a pesquisa é exploratória]]
 ** runeson2009, p. 135
 - Frase: “Quanto aos objetivos, a pesquisa é /exploratória/: busca
   compreensão nova e gera ideias e hipóteses para outras pesquisas.”
@@ -404,7 +516,7 @@ Formato:
   hipóteses da pesquisa exploratória ao experimento.
 - Conferido: 2026-10-07.
 
-* §18 [[file:../intro.org::Na web, a notação imperativa entra][Na web, a notação imperativa entra]]
+* §19 [[file:../intro.org::Na web, a notação imperativa entra][Na web, a notação imperativa entra]]
 ** meta2026c
 - Frase: “React e Solid montam a tela em JSX, marcação parecida com HTML
   escrita dentro do JavaScript.”
@@ -425,7 +537,7 @@ Formato:
 - Lido em: =tmp/fontes/solidjs2026.txt=, l. 10 (página salva).
 - Conferido: 2026-10-06.
 
-* §19 [[file:../intro.org::Solid e Angular com /signals/, ao contrário][Solid e Angular com signals, ao contrário]]
+* §20 [[file:../intro.org::Solid e Angular com /signals/, ao contrário][Solid e Angular com signals, ao contrário]]
 ** solidjs2026a
 - Frase: “Solid e Angular com /signals/, ao contrário, coordenam do mesmo
   modo: os dois guardam o estado em /signals/ e derivam valores de outros
@@ -453,7 +565,7 @@ Formato:
 - Lido em: https://angular.dev/guide/templates, em 2026-10-06.
 - Conferido: 2026-10-06.
 
-* §10 [[file:../intro.org::Para discutir o quanto uma notação facilita][Para discutir o quanto uma notação facilita]]
+* §11 [[file:../intro.org::Para discutir o quanto uma notação facilita][Para discutir o quanto uma notação facilita]]
 ** green1989
 - Frase: “há as DCs, propostas por Green (1989)”.
 - Trecho: “‘Cognitive dimensions’ are features of computer languages
@@ -517,7 +629,7 @@ Formato:
 - Lido em: =tmp/fontes/grolaux2026.pdf=, p. 1, 3 e 9 do PDF (p. 7 a 16).
 - Conferido: 2026-10-06.
 
-* §15 [[file:../intro.org::Quanto aos meios, o trabalho é][Quanto aos meios, o trabalho é uma avaliação qualitativa]]
+* §16 [[file:../intro.org::Quanto aos meios, o trabalho é][Quanto aos meios, o trabalho é uma avaliação qualitativa]]
 ** sim2003
 - Frase: “O conjunto de tarefas segue a ideia de /benchmark/: testes que
   representam as tarefas da prática e servem para comparar técnicas
@@ -530,7 +642,7 @@ Formato:
   74 a 83).
 - Conferido: 2026-10-06.
 
-* §27 [[file:../intro.org::Por ser analítica][Por ser analítica]]
+* §28 [[file:../intro.org::Por ser analítica][Por ser analítica]]
 ** britton2001
 - Frase: “O trabalho escolheu as oito DCs antes da avaliação, e usar um
   subconjunto pode deixar de fora propriedades importantes da notação.”
@@ -561,7 +673,7 @@ Formato:
 - Observação: o texto cita green1996d sem página; a p. 157 é a do trecho.
 - Conferido: 2026-10-07.
 
-* §28 [[file:../intro.org::As tarefas são pequenas][As tarefas são pequenas]]
+* §29 [[file:../intro.org::As tarefas são pequenas][As tarefas são pequenas]]
 ** sim2003
 - Frase: “Um conjunto criado por um pesquisador só e pouco usado tende a
   ter menos impacto que um adotado por uma comunidade.”
