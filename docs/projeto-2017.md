@@ -103,3 +103,21 @@ termos das fontes revisadas por pares e das dissertações.
 Errata 2026-10-06: na linha "Casos" da tabela da seção 2, a coluna de
 2026 dizia "Listas (mantido)"; os programas de processamento de listas
 saíram dos objetivos e passam à fundamentação de PF (ADR 0014).
+
+Errata 2026-10-07: o projeto entregue não nomeia programas. Os `.org`
+incluídos em `projeto.org` e o PDF falam só de "programas concretos", de
+processamento de listas e de coordenação de eventos. Na linha "Casos" da
+seção 2, o "Contador; Reserva de voo (só o título)" atribuído ao projeto
+não está nele. As implementações do Contador, do Conversor de
+temperatura, da Reserva de voo e do Cronômetro foram escritas depois, no
+CodeSandbox, e estão em `docs/implementacoes-de-referencia.md`; a menção
+mais antiga no repositório é de 2020-03-04 (commit `09d0a2b`).
+
+Errata 2026-10-07: na linha "Tema e delimitação" da seção 2, "O mesmo"
+vale para o tema, programação de computadores, mas não para a
+delimitação. Ela passa de conceitos de programação para interfaces
+gráficas a notações para programar interfaces gráficas, a forma de
+escrever no código o estado, os valores derivados dele e a tela (ADR
+0021). A tela, que o projeto deixou de fora (comentário em
+`seções/tema.org`), entra como montagem da tela. Se isso conta como
+mudança de tema é pergunta da orientação de 2026-10-09 (tcc-y4q, C1).
