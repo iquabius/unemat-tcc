@@ -29,7 +29,6 @@ BUILD=$OUT/build
 JOB=diff-ao-vivo
 PDF=$OUT/$JOB.pdf
 ANTERIOR=$OUT/$JOB.tex.anterior  # o diff do último PDF bom, para seguir()
-PICT='PICTUREENV=(?:picture|DIFnomarkup|minted)[\w\d*@]*'
 
 cd "$REPO"
 VIGIADOS=(texto/*.org texto/refs.bib latex/tcc.tex)
@@ -54,8 +53,8 @@ montar() {
   # Versão nova: os fontes da árvore, com os .tex exportados por exportar().
   cp latex/tcc.tex "$OUT/novo/latex/"
   cp -r latex/apendices "$OUT/novo/latex/"
-  latexdiff --flatten --packages=biblatex --config="$PICT" \
-    "$OUT/base/latex/tcc.tex" "$OUT/novo/latex/tcc.tex" >"$OUT/$JOB.tex.tmp" 2>"$OUT/latexdiff.log" &&
+  "$REPO/bin/latexdiff-tcc.sh" "$OUT/base/latex/tcc.tex" "$OUT/novo/latex/tcc.tex" \
+    >"$OUT/$JOB.tex.tmp" 2>"$OUT/latexdiff.log" &&
   mv "$OUT/$JOB.tex.tmp" "$OUT/$JOB.tex"
 }
 

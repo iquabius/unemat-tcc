@@ -53,10 +53,19 @@ contornarem.
   o PDF imprime oito na primeira ocorrência; a contagem de palavras da
   introdução (ADR 0022) fica subcontada. Contorno possível: expandir os
   links no script.
-- L5 (prevista, a conferir): no latexdiff (`bin/diff-ao-vivo.sh` e os PDFs
-  de diff do `bin/gerar-versao.sh`), um `\gls` apagado continua composto,
-  riscado, e consome a primeira ocorrência; a definição pode sair no
-  trecho riscado e faltar no texto novo.
+- L5 (observada em 2026-10-06, contornada em 2026-10-07): no latexdiff
+  (`bin/diff-ao-vivo.sh` e os PDFs de diff do `bin/gerar-versao.sh`), a
+  sigla apagada sumia do texto apagado ("As admitem várias notações"),
+  porque o latexdiff comenta `\gls`, `\glspl` e `\Gls` como comandos
+  inseguros. Como comandos seguros, voltariam, mas o `\gls` apagado
+  gastaria a primeira ocorrência, e a definição sairia riscada. Contorno:
+  o `bin/latexdiff-tcc.sh`, comum aos dois scripts, troca os comandos por
+  versões que mostram a sigla curta riscada sem gastar a primeira
+  ocorrência, e no texto acrescentado o próprio `\gls`, na cor do texto
+  acrescentado e sem a onda, que não deixaria a definição se dividir
+  entre linhas; a definição cai onde cai no PDF sem diff (conferido em
+  2026-10-07 nos dois sentidos, com a sigla apagada e acrescentada antes
+  da primeira ocorrência).
 - L6 (observada): no `.org` e no diff em palavras a frase mostra
   `[[gls:pr]]`, e não "programação reativa (PR)"; a revisão da porta
   aberta (ADR 0023) precisa do PDF para ver a definição.
