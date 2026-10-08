@@ -35,7 +35,7 @@ def marcar(linhas):
             corpo = linha.startswith("\\begin{document}")
         elif not linha.strip():
             if aberto and not branca:
-                yield "\\DIF%s{\\P}\n" % aberto
+                yield f"\\DIF{aberto}{{\\P}}\n"
             branca = True
         else:
             branca = False
