@@ -70,8 +70,65 @@ class Juntar(unittest.TestCase):
         saida = self.arquivo("saida", "intocado")
         p = self.rodar(base, nosso, deles, "-o", saida)
         self.assertEqual(p.returncode, 1)
-        self.assertIn("a", p.stderr.split(":")[-1])
+        self.assertTrue(p.stderr.rstrip().endswith("(--nosso ou --deles): a"), p.stderr)
         self.assertEqual(Path(saida).read_text(), "intocado\n")
+
+    def test_conflito_se_decide_com_nosso_ou_deles(self):
+        base = self.arquivo("base", tarefa("a"), tarefa("b"))
+        nosso = self.arquivo("nosso", tarefa("a", status="closed"), tarefa("b", status="closed"))
+        deles = self.arquivo("deles", tarefa("a", status="deferred"), tarefa("b", status="deferred"))
+        p = self.rodar(base, nosso, deles, "--nosso", "a", "--deles", "b")
+        self.assertEqual(p.returncode, 0, p.stderr)
+        self.assertEqual(p.stdout, jsonl(tarefa("a", status="closed"),
+                                         tarefa("b", status="deferred")))
+        p = self.rodar(base, nosso, deles, "--nosso", "a", "--deles", "a")
+        self.assertNotEqual(p.returncode, 0)
+
+    def test_apagada_de_um_lado_e_mudada_do_outro_e_conflito(self):
+        base = self.arquivo("base", tarefa("a"))
+        apagada = self.arquivo("apagada")
+        mudada = self.arquivo("mudada", tarefa("a", status="closed"))
+        self.assertEqual(self.rodar(base, apagada, mudada).returncode, 1)
+        self.assertEqual(self.rodar(base, mudada, apagada).returncode, 1)
+
+    def test_criada_diferente_dos_dois_lados_e_conflito(self):
+        base = self.arquivo("base")
+        nosso = self.arquivo("nosso", tarefa("a", title="um"))
+        deles = self.arquivo("deles", tarefa("a", title="outro"))
+        self.assertEqual(self.rodar(base, nosso, deles).returncode, 1)
+
+    def test_entrada_ruim_sai_com_2_e_diz_arquivo_e_linha(self):
+        for nome, linhas, msg in [("ruim", ["{nada"], "ruim:1:"),
+                                  ("semid", [json.dumps({"title": "x"})], "semid:1:"),
+                                  ("repetida", [tarefa("a"), tarefa("a")], "tarefa a repetida")]:
+            p = self.rodar(self.arquivo(nome, *linhas), self.arquivo("ok", tarefa("a")))
+            self.assertEqual(p.returncode, 2, nome)
+            self.assertIn(msg, p.stderr)
+
+    def test_separador_unicode_dentro_da_descricao_nao_quebra_a_linha(self):
+        t = json.dumps({"id": "a", "description": "um dois\x85tres"}, ensure_ascii=False)
+        nosso = self.arquivo("nosso", t)
+        p = self.rodar(nosso, nosso)
+        self.assertEqual(p.returncode, 0, p.stderr)
+        self.assertEqual(p.stdout, jsonl(t))
+
+    def test_so_com_tres_entradas_avisa_o_que_deixou_de_fora(self):
+        base = self.arquivo("base", tarefa("a"))
+        deles = self.arquivo("deles", tarefa("a", status="closed"), tarefa("x"))
+        p = self.rodar("--so", "x", base, base, deles)
+        self.assertEqual(p.returncode, 0, p.stderr)
+        self.assertEqual(p.stdout, jsonl(tarefa("a"), tarefa("x")))
+        self.assertIn("deixou de fora mudanças do deles: a", p.stderr)
+
+    def test_so_vazio_e_recusado(self):
+        head = self.arquivo("head", tarefa("a"))
+        self.assertNotEqual(self.rodar("--so", "", head, head).returncode, 0)
+
+    def test_tarefa_nova_que_e_a_primeira_do_ramo_entra_no_comeco(self):
+        nosso = [("b", tarefa("b"))]
+        deles = [("n", tarefa("n")), ("b", tarefa("b"))]
+        linhas, _, _ = jt.juntar(nosso, nosso, deles)
+        self.assertEqual([json.loads(l)["id"] for l in linhas], ["n", "b"])
 
     def test_mesma_mudanca_dos_dois_lados_nao_e_conflito(self):
         base = self.arquivo("base", tarefa("a"))
@@ -84,6 +141,7 @@ class Juntar(unittest.TestCase):
         base = self.arquivo("base", tarefa("a"), tarefa("b"))
         deles = self.arquivo("deles", tarefa("b"))
         p = self.rodar(base, base, deles)
+        self.assertEqual(p.returncode, 0, p.stderr)
         self.assertEqual(p.stdout, jsonl(tarefa("b")))
         self.assertIn("a apagada", p.stderr)
 
@@ -121,10 +179,13 @@ class Juntar(unittest.TestCase):
         self.assertEqual(p.returncode, 0, p.stderr)
         self.assertEqual((repo / "issues.jsonl").read_text(), jsonl(tarefa("h"), tarefa("x")))
 
-    def test_entrada_que_nao_existe_nem_no_git_para_com_mensagem(self):
+    def test_entrada_que_nao_existe_sai_com_2_e_mensagem(self):
         p = self.rodar("/nao/existe", "/nao/existe")
-        self.assertNotEqual(p.returncode, 0)
+        self.assertEqual(p.returncode, 2)
         self.assertIn("não li /nao/existe", p.stderr)
+        p = self.rodar("HEAD:nao-existe.jsonl", "HEAD:nao-existe.jsonl")
+        self.assertEqual(p.returncode, 2)
+        self.assertIn("não li HEAD:nao-existe.jsonl", p.stderr)
 
 
 if __name__ == "__main__":
