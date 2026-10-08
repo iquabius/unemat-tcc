@@ -38,8 +38,10 @@ mudou, sinal de que o export não a trouxe. Diz no stderr o que aplicou.
 
 import argparse
 import json
+import os
 import subprocess
 import sys
+import tempfile
 
 
 class EntradaRuim(Exception):
@@ -166,6 +168,8 @@ def main(argv=None):
         ap.error("são duas ou três entradas")
     if set(a.nosso) & set(a.deles):
         ap.error("a mesma tarefa em --nosso e em --deles")
+    if a.banco and len(a.entradas) == 2:
+        ap.error("--banco só decide conflito, que pede três entradas")
     try:
         lidas = [ler(e) for e in a.entradas]
         banco = ler(a.banco) if a.banco else None
@@ -175,9 +179,13 @@ def main(argv=None):
     if len(lidas) == 2:
         lidas.insert(0, lidas[0])
     em_conflito = conflitos(*lidas, so=a.so)
-    fica = pelo_banco(lidas[1], lidas[2], banco, em_conflito) if banco else {}
+    decididas = set(a.nosso) | set(a.deles)
+    fica = pelo_banco(lidas[1], lidas[2], banco, em_conflito - decididas) if banco else {}
     for i, lado in sorted(fica.items()):
         print(f"juntar-tarefas: {i} fica como no {lado}, igual ao banco", file=sys.stderr)
+    for i in sorted(decididas & em_conflito):
+        lado = "nosso" if i in a.nosso else "deles"
+        print(f"juntar-tarefas: {i} fica como no {lado}, por decisão", file=sys.stderr)
     fica.update({i: "nosso" for i in a.nosso})
     fica.update({i: "deles" for i in a.deles})
     for i in sorted(set(a.nosso) | set(a.deles)):
@@ -204,10 +212,18 @@ def main(argv=None):
             return 3
     texto = "".join(l + "\n" for l in linhas).encode("utf-8")
     if a.saida:
+        # Num arquivo ao lado e depois rename: a falha no meio da gravação
+        # não deixa o jsonl pela metade.
+        tmp = None
         try:
-            with open(a.saida, "wb") as f:
+            fd, tmp = tempfile.mkstemp(dir=os.path.dirname(os.path.abspath(a.saida)),
+                                       prefix=".juntar-tarefas-")
+            with os.fdopen(fd, "wb") as f:
                 f.write(texto)
+            os.replace(tmp, a.saida)
         except OSError as e:
+            if tmp and os.path.exists(tmp):
+                os.unlink(tmp)
             print(f"juntar-tarefas: não gravei {a.saida}: {e.strerror}", file=sys.stderr)
             return 2
     else:

@@ -178,6 +178,29 @@ class Juntar(unittest.TestCase):
         self.assertEqual(p.stdout, jsonl(tarefa("a", status="deferred"),
                                          tarefa("b", status="closed")))
 
+    def test_decisao_do_autor_vence_o_banco_e_o_stderr_diz_a_que_ficou(self):
+        base = self.arquivo("base", tarefa("a"))
+        nosso = self.arquivo("nosso", tarefa("a", status="closed"))
+        deles = self.arquivo("deles", tarefa("a", status="deferred"))
+        p = self.rodar("--banco", deles, "--nosso", "a", base, nosso, deles)
+        self.assertEqual(p.returncode, 0, p.stderr)
+        self.assertEqual(p.stdout, jsonl(tarefa("a", status="closed")))
+        self.assertIn("a fica como no nosso, por decisão", p.stderr)
+        self.assertNotIn("igual ao banco", p.stderr)
+
+    def test_banco_com_duas_entradas_e_recusado(self):
+        head = self.arquivo("head", tarefa("a"))
+        self.assertEqual(self.rodar("--banco", head, head, head).returncode, 2)
+
+    def test_gravacao_que_falha_nao_deixa_arquivo_pela_metade(self):
+        ok = self.arquivo("ok", tarefa("a"))
+        alvo = Path(self.dir.name, "alvo")
+        alvo.mkdir()  # um diretório no lugar do arquivo: o rename falha
+        p = self.rodar(ok, ok, "-o", str(alvo))
+        self.assertEqual(p.returncode, 2)
+        self.assertEqual([x.name for x in Path(self.dir.name).iterdir()
+                          if x.name.startswith(".juntar-tarefas-")], [])
+
     def test_decisao_para_tarefa_sem_conflito_avisa(self):
         base = self.arquivo("base", tarefa("a"))
         deles = self.arquivo("deles", tarefa("a", status="closed"))
