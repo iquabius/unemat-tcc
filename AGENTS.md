@@ -325,11 +325,12 @@ reescreve.
      bd export -o .beads/issues.jsonl &&
          bin/juntar-tarefas.py --banco .beads/issues.jsonl \
              :1:.beads/issues.jsonl :2:.beads/issues.jsonl \
-             :3:.beads/issues.jsonl -o .beads/issues.jsonl
+             :3:.beads/issues.jsonl -o .beads/issues.jsonl &&
+         git add .beads/issues.jsonl
      ```
 
-     Confira no stderr que só entram as tarefas do ramo, `git add` e
-     conclua o merge. A tarefa que mudou dos dois lados sem lado igual ao
+     Confira no stderr que só entram as tarefas do ramo e conclua o merge;
+     para refazer, `git checkout -m .beads/issues.jsonl` volta ao conflito. A tarefa que mudou dos dois lados sem lado igual ao
      banco o script recusa e lista: pergunte ao autor qual fica e repita
      com `--nosso <id>` (o `master`) ou `--deles <id>` (o ramo). Conflito em
      código é código novo que ninguém revisou: rode a `linus-review` sobre

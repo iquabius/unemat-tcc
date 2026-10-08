@@ -326,9 +326,9 @@ decidido.
    tarefas da rodada: ele é o banco inteiro, e leva as tarefas que outras
    sessões mudaram e não commitaram, então o commit é o comando único da
    seção "Tarefas" do AGENTS.md: `bd export`, `bin/juntar-tarefas.py --so
-   <ids>` e o `git commit`, ligados por `&&`. Nomeie os arquivos no próprio commit
-   (`git commit -- <arquivos>`), para não levar o que outra sessão deixou
-   no índice. A mensagem termina com uma linha
+   <ids>` e o `git commit`, ligados por `&&`. Nomeie os arquivos no
+   próprio commit (`git commit -- <arquivos>`), para não levar o que
+   outra sessão deixou no índice. A mensagem termina com uma linha
    `Fontes conferidas:` com chave e página de cada fonte lida na rodada.
    Mostre a mensagem e commite na mesma resposta. Nada de push.
 6. Pendências que sobraram viram tarefa no `bd`; achado de implementação,
