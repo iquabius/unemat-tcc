@@ -28,7 +28,8 @@
 #
 # Quebra de parágrafo inserida ou removida: o latexdiff a trata como comando
 # e não a marca. O bin/marcar-quebras.py, no fim, põe um ¶ na cor da mudança
-# no fim do parágrafo que a quebra fecha.
+# no fim do parágrafo que a quebra fecha, e pula as listagens: a lista de
+# ambientes dele (LITERAL) repete o minted do PICTUREENV daqui.
 set -euo pipefail
 [ $# -eq 2 ] || { echo "uso: $0 VELHO.tex NOVO.tex >diff.tex" >&2; exit 2; }
 
