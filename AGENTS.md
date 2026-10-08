@@ -97,10 +97,22 @@ As tarefas vivem no [Beads](https://github.com/gastownhall/beads) (`bd`
   cada escrita, inclusive as feitas no Scotty (`export.auto` e
   `export.interval: 1ms` em `.beads/config.yaml`). Todo commit que cria,
   muda ou fecha uma tarefa leva esse arquivo, e o commit que resolve uma
-  tarefa a fecha. Numa worktree, rode `bd export -o .beads/issues.jsonl`
-  antes de commitar, porque a exportação automática grava no checkout
-  principal. O arquivo é só um retrato, para ler no git: nunca se edita à
-  mão nem se importa de volta.
+  tarefa a fecha. O arquivo é só um retrato, para ler no git: nunca se
+  edita à mão nem se importa de volta.
+- O retrato leva o banco inteiro, inclusive as tarefas que outras sessões
+  mudaram e ainda não commitaram; o commit leva só as dele. Numa worktree
+  (a exportação automática grava no checkout principal) e no checkout
+  principal, antes de commitar:
+
+  ```sh
+  bd export -o .beads/issues.jsonl   # só na worktree
+  bin/juntar-tarefas.py --so <id>[,<id>...] HEAD:.beads/issues.jsonl \
+      .beads/issues.jsonl -o .beads/issues.jsonl
+  ```
+
+  O script diz no stderr cada tarefa que aplicou; confira que são só as
+  do commit. As outras continuam no banco, e o próximo `bd` as regrava no
+  checkout principal.
 - Listar: `bd ready` (abertas e sem bloqueio); `bd list -p 1` (altas);
   `bd list --all -n 0` (todas, com as fechadas); `bd show <id>`.
 - Ao começar uma sessão de trabalho no texto ou no código, leia
@@ -290,16 +302,23 @@ reescreve.
    - O fast-forward recusa quando um arquivo que o ramo muda está
      modificado no checkout principal, mesmo com o conteúdo igual. O
      `.beads/issues.jsonl` cai sempre nisso, porque o `bd` exporta para
-     lá: se ele for igual ao do merge montado na worktree (`git -C
-     <checkout principal> diff --quiet "$(git rev-parse HEAD)" --
-     .beads/issues.jsonl`, rodado na worktree), restaure-o com `git -C
-     <checkout principal> checkout HEAD -- .beads/issues.jsonl`, que o
-     fast-forward traz de volta igual; se for diferente, rode `bd export
-     -o .beads/issues.jsonl` na worktree, commite no ramo e recomece o
-     merge. Qualquer outro arquivo modificado lá é do autor: pare e
-     pergunte.
-   - Conflito no `.beads/issues.jsonl` durante o `--no-ff`: `bd export -o
-     .beads/issues.jsonl`, `git add` e conclua o merge. Conflito em
+     lá. As tarefas do ramo já estão nos commits dele (seção "Tarefas");
+     o que difere no checkout principal é de outras sessões e continua no
+     banco. Restaure-o com `git -C <checkout principal> checkout HEAD --
+     .beads/issues.jsonl` e faça o fast-forward; o próximo `bd` o regrava.
+     Qualquer outro arquivo modificado lá é do autor: pare e pergunte.
+   - Conflito no `.beads/issues.jsonl` durante o `--no-ff`, tarefa por
+     tarefa, e não com `bd export`, que levaria ao `master` as tarefas de
+     outras sessões:
+
+     ```sh
+     bin/juntar-tarefas.py :1:.beads/issues.jsonl :2:.beads/issues.jsonl \
+         :3:.beads/issues.jsonl -o .beads/issues.jsonl
+     ```
+
+     Confira no stderr que só entram as tarefas do ramo, `git add` e
+     conclua o merge. Tarefa que mudou dos dois lados o script recusa:
+     pergunte ao autor. Conflito em
      código é código novo que ninguém revisou: rode a `linus-review` sobre
      a resolução (`git show --cc HEAD`) e só marque o merge com `git
      revisao pronto` com o Ready dela; senão, pare e pergunte ao autor.
@@ -328,7 +347,8 @@ os pule.
 
 Mensagens em português, no imperativo, sem prefixo, explicando o problema
 antes da solução (skill `commit-message`). O commit que resolve uma tarefa
-fecha a tarefa e leva o `.beads/issues.jsonl`; o que altera um exemplo
+fecha a tarefa e leva do `.beads/issues.jsonl` só as tarefas dele
+(`bin/juntar-tarefas.py --so`, seção "Tarefas"); o que altera um exemplo
 inclui as capturas (`casos/AGENTS.md`). Com outra sessão no mesmo
 checkout, prepare só os próprios arquivos, por índice temporário
 (`GIT_INDEX_FILE`) se o índice compartilhado tiver mudanças alheias. No
