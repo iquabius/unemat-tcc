@@ -94,7 +94,8 @@
    # https://tex.stackexchange.com/a/305562/103967
 
    O =git latexdiff= não passa pelo =bin/latexdiff-tcc.sh=: no texto
-   apagado, as siglas do glossaries somem.
+   apagado, as siglas do glossaries somem, e a quebra de parágrafo
+   inserida ou removida sai sem o ¶.
 
 ** Exportar pelo terminal
 

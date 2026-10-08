@@ -8,7 +8,7 @@
 # --flatten resolve os \input pelo diretório de cada tcc.tex;
 # --packages=biblatex, porque a classe carrega o biblatex e o latexdiff não a
 # lê; o PICTUREENV deixa o minted fora da marcação. O git latexdiff do
-# readme.org repete as duas últimas, sem as siglas.
+# readme.org repete as duas últimas, sem as siglas nem o ¶ das quebras.
 #
 # Siglas do glossaries (ADR 0027, L5): o latexdiff não sabe compor \gls,
 # \glspl, \Gls e \Glspl dentro do \DIFdel e os comentava, e a sigla sumia do
