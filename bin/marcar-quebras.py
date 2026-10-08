@@ -29,13 +29,16 @@ def marcar(linhas):
     """Gera as linhas do diff com os marcadores de quebra de parágrafo."""
     corpo = False
     aberto = None  # "add", "del", "addFL" ou "delFL": o bloco em que a linha anterior terminou
+    branca = False  # se a linha anterior era em branco: a sequência é uma quebra só
     for linha in linhas:
         if not corpo:
             corpo = linha.startswith("\\begin{document}")
         elif not linha.strip():
-            if aberto:
+            if aberto and not branca:
                 yield "\\DIF%s{\\P}\n" % aberto
+            branca = True
         else:
+            branca = False
             for m in BLOCO.finditer(linha):
                 aberto = m.group(1) + (m.group(3) or "") if m.group(2) == "begin" else None
         yield linha

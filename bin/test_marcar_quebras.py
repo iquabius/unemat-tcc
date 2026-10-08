@@ -92,6 +92,25 @@ Cinco.
 """
         self.assertEqual(marcar(diff), diff)
 
+    def test_sequencia_de_linhas_em_branco_e_uma_quebra_so(self):
+        # O latexdiff deixa as linhas em branco extras junto do \\PAR, dentro
+        # do bloco; o LaTeX as lê como uma quebra só.
+        diff = PREAMBULO + """A b c.
+\\DIFaddbegin 
+
+
+
+\\DIFaddend D e f.
+"""
+        self.assertEqual(marcar(diff), PREAMBULO + """A b c.
+\\DIFaddbegin 
+\\DIFadd{\\P}
+
+
+
+\\DIFaddend D e f.
+""")
+
     def test_dentro_de_float_usa_os_comandos_FL(self):
         diff = PREAMBULO + """\\begin{figure}
 \\DIFaddbeginFL 
