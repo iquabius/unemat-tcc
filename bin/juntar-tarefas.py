@@ -39,6 +39,7 @@ mudou, sinal de que o export não a trouxe. Diz no stderr o que aplicou.
 import argparse
 import json
 import os
+import stat
 import subprocess
 import sys
 import tempfile
@@ -188,7 +189,7 @@ def main(argv=None):
         print(f"juntar-tarefas: {i} fica como no {lado}, por decisão", file=sys.stderr)
     fica.update({i: "nosso" for i in a.nosso})
     fica.update({i: "deles" for i in a.deles})
-    for i in sorted(set(a.nosso) | set(a.deles)):
+    for i in sorted(decididas):
         if i not in em_conflito:
             print(f"juntar-tarefas: aviso: {i} não está em conflito; a decisão não vale",
                   file=sys.stderr)
@@ -213,14 +214,22 @@ def main(argv=None):
     texto = "".join(l + "\n" for l in linhas).encode("utf-8")
     if a.saida:
         # Num arquivo ao lado e depois rename: a falha no meio da gravação
-        # não deixa o jsonl pela metade.
+        # não deixa o jsonl pela metade. O link se segue até o alvo, e o
+        # arquivo novo fica com o modo do velho (o mkstemp o cria 0600).
+        alvo = os.path.realpath(a.saida)
         tmp = None
         try:
-            fd, tmp = tempfile.mkstemp(dir=os.path.dirname(os.path.abspath(a.saida)),
-                                       prefix=".juntar-tarefas-")
+            if os.path.exists(alvo):
+                modo = stat.S_IMODE(os.stat(alvo).st_mode)
+            else:
+                mascara = os.umask(0)
+                os.umask(mascara)
+                modo = 0o666 & ~mascara
+            fd, tmp = tempfile.mkstemp(dir=os.path.dirname(alvo), prefix=".juntar-tarefas-")
+            os.fchmod(fd, modo)
             with os.fdopen(fd, "wb") as f:
                 f.write(texto)
-            os.replace(tmp, a.saida)
+            os.replace(tmp, alvo)
         except OSError as e:
             if tmp and os.path.exists(tmp):
                 os.unlink(tmp)

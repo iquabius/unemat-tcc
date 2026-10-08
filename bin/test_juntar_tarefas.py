@@ -201,6 +201,18 @@ class Juntar(unittest.TestCase):
         self.assertEqual([x.name for x in Path(self.dir.name).iterdir()
                           if x.name.startswith(".juntar-tarefas-")], [])
 
+    def test_gravacao_mantem_o_modo_e_segue_o_link(self):
+        alvo = self.arquivo("alvo", tarefa("a"))
+        os.chmod(alvo, 0o644)
+        link = Path(self.dir.name, "link")
+        link.symlink_to("alvo")
+        export = self.arquivo("export", tarefa("a", status="closed"))
+        p = self.rodar("--so", "a", alvo, export, "-o", str(link))
+        self.assertEqual(p.returncode, 0, p.stderr)
+        self.assertTrue(link.is_symlink())
+        self.assertEqual(Path(alvo).read_text(), jsonl(tarefa("a", status="closed")))
+        self.assertEqual(os.stat(alvo).st_mode & 0o777, 0o644)
+
     def test_decisao_para_tarefa_sem_conflito_avisa(self):
         base = self.arquivo("base", tarefa("a"))
         deles = self.arquivo("deles", tarefa("a", status="closed"))

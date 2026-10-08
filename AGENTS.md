@@ -330,9 +330,10 @@ reescreve.
      ```
 
      Confira no stderr que só entram as tarefas do ramo e conclua o merge;
-     para refazer, `git checkout -m .beads/issues.jsonl` volta ao conflito. A tarefa que mudou dos dois lados sem lado igual ao
-     banco o script recusa e lista: pergunte ao autor qual fica e repita
-     com `--nosso <id>` (o `master`) ou `--deles <id>` (o ramo). Conflito em
+     para refazer, `git checkout -m .beads/issues.jsonl` volta ao
+     conflito. A tarefa que mudou dos dois lados sem lado igual ao banco o
+     script recusa e lista: pergunte ao autor qual fica e repita com
+     `--nosso <id>` (o `master`) ou `--deles <id>` (o ramo). Conflito em
      código é código novo que ninguém revisou: rode a `linus-review` sobre
      a resolução (`git show --cc HEAD`) e só marque o merge com `git
      revisao pronto` com o Ready dela; senão, pare e pergunte ao autor.
