@@ -12,8 +12,10 @@ dentro do bloco \\DIFdelbegin...\\DIFdelend; o inserido sai como linha em
 branco dentro do bloco \\DIFaddbegin...\\DIFaddend. Os dois quebram o
 parágrafo no PDF, e nenhum dos dois ganha marca.
 
-Este filtro põe, antes da primeira linha em branco de cada sequência
-delas nesses blocos (o LaTeX lê a sequência como uma quebra só),
+Os dois rastros têm em comum a linha em branco dentro de um bloco, e é só
+ela que este filtro procura: o \\PAR é a única fonte de linha em branco
+num bloco. Ele põe, antes da primeira linha em branco de cada sequência
+delas (o LaTeX lê a sequência como uma quebra só),
 \\ifhmode\\DIFadd{\\P}\\fi ou \\ifhmode\\DIFdel{\\P}\\fi, também nos blocos FL
 dos floats, porque o estilo UNDERLINE define \\DIFaddFL como \\DIFadd: o ¶
 sai no fim do parágrafo que a quebra fecha, azul e sublinhado na quebra
@@ -25,7 +27,9 @@ do \\begin{document}, onde o preâmbulo do latexdiff define os próprios
 comandos, ficam como estão, e também as de dentro de uma listagem minted ou
 de um verbatim, em que a linha em branco é texto do código: a inserida
 inteira, e a apagada inteira, cujas linhas o latexdiff comenta uma a uma
-com "%DIFDELCMD < ", menos a em branco, que sai crua entre elas.
+com "%DIFDELCMD < ", menos a em branco, que sai crua entre elas. Esses
+ambientes não se aninham aqui (um minted dentro de um DIFnomarkup perderia
+a proteção no \\end{minted}); o TCC só usa o minted.
 """
 import re
 import sys

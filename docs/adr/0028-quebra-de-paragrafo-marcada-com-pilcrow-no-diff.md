@@ -6,10 +6,10 @@ a inserida sai como linha em branco, as duas sem marca, e a divisão de um
 parágrafo em dois ou a fusão de dois num só não aparece no PDF do diff
 ao vivo (`bin/diff-ao-vivo.sh`) nem no diff das versões
 (`bin/gerar-versao.sh`). O `bin/latexdiff-tcc.sh`, comum aos dois, passa
-a saída do latexdiff pelo `bin/marcar-quebras.py`, que reconhece os dois
-rastros (a linha em branco dentro de `\DIFaddbegin...\DIFaddend`, e a
-linha em branco entre `%DIFDELCMD < ` e `%DIFDELCMD < %%%` dentro de
-`\DIFdelbegin...\DIFdelend`) e põe antes dela `\ifhmode\DIFadd{\P}\fi`
+a saída do latexdiff pelo `bin/marcar-quebras.py`, que procura o que os
+dois rastros têm em comum, a linha em branco dentro de um bloco
+`\DIFaddbegin...\DIFaddend` ou `\DIFdelbegin...\DIFdelend` (na removida,
+entre `%DIFDELCMD < ` e `%DIFDELCMD < %%%`), e põe antes dela `\ifhmode\DIFadd{\P}\fi`
 ou `\ifhmode\DIFdel{\P}\fi`: um ¶ azul e sublinhado no fim do parágrafo
 que a quebra nova fecha, um ¶ vermelho e riscado no fim do que a quebra
 removida fechava, como as palavras. O `\ifhmode` deixa ao TeX dizer se a
