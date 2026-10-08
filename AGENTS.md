@@ -12,7 +12,7 @@ em `texto/refs.bib`, o código dos casos em `casos/` (instruções próprias em
 | Decisão cara de reverter, com alternativa real | `docs/adr/NNNN-slug.md` | skill `adr`: um parágrafo, data absoluta, "Em vez de" e "Custo" obrigatórios. Decisão que muda reescreve o ADR no lugar, com a data nova e a decisão anterior num "Em vez de"; errata se corrige no texto; ADR absorvido por outro se apaga. O git guarda as versões, e a numeração tem lacunas |
 | Termo do projeto | `CONTEXT.md` | skill `domain-modeling`: definição de uma ou duas frases e o que evitar |
 | Tarefa aberta | Beads (`bd`), exportado em `.beads/issues.jsonl` | seção abaixo |
-| Nota de referência ou histórico que o texto ainda vai absorver | `docs/*.md` | seção abaixo |
+| Nota de referência ou achado que o texto ainda vai absorver | `docs/*.md` | seção abaixo |
 | Convenção de código, pastas ou ambiente | `casos/AGENTS.md` | |
 | Mudança em código (`casos/`, `bin/`, scripts), ferramentas ou `AGENTS.md` | numa worktree, em ramo próprio, que chega ao `master` revisado | seção "Código: ramo, revisão, merge" abaixo |
 | Feedback de escrita e revisão bibliográfica | não vai para o repositório | skill `escrita-academica`; o que sobra vira tarefa no `bd` ou nota em `docs/` |
@@ -236,8 +236,6 @@ Cada nota é de um tipo só, dito na primeira linha depois do título:
 - **Referência** (`docs/literatura.md`): tabelas e listas para consulta,
   atualizadas quando o fato muda; cada afirmação sobre ferramenta ou versão
   leva a data em que foi observada.
-- **Histórico** (`docs/projeto-2017.md`): registro de um estado passado;
-  não se reescreve, só ganha erratas datadas.
 - **Achados** (`docs/achados-das-implementacoes.md`): observações feitas ao
   implementar, com data e commit, à espera de entrar na análise do texto.
 
