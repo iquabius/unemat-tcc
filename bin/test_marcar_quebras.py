@@ -113,6 +113,29 @@ Cinco.
 \\DIFaddend D e f.
 """)
 
+    def test_linha_em_branco_dentro_de_minted_inserido_e_codigo(self):
+        # O PICTUREENV do latexdiff-tcc.sh faz o latexdiff inserir a listagem
+        # inteira, sem marcação por dentro.
+        diff = PREAMBULO + """Antes.
+\\DIFaddbegin \\begin{minted}{js}
+let a = 1;
+
+let b = 2;
+\\end{minted}
+
+\\DIFadd{Depois.}\\DIFaddend
+"""
+        self.assertEqual(marcar(diff), PREAMBULO + """Antes.
+\\DIFaddbegin \\begin{minted}{js}
+let a = 1;
+
+let b = 2;
+\\end{minted}
+\\ifhmode\\DIFadd{\\P}\\fi
+
+\\DIFadd{Depois.}\\DIFaddend
+""")
+
     def test_dentro_de_float_usa_os_comandos_FL(self):
         diff = PREAMBULO + """\\begin{figure}
 \\DIFaddbeginFL 

@@ -20,12 +20,17 @@ palavras. O \\ifhmode o cala onde a linha em branco não fecha parágrafo
 algum, depois de um título, de uma tabela ou de uma lista, em que o TeX
 está em modo vertical e o ¶ sairia sozinho numa linha. As linhas em branco
 fora dos blocos e tudo antes do \\begin{document}, onde o preâmbulo do
-latexdiff define os próprios comandos, ficam como estão.
+latexdiff define os próprios comandos, ficam como estão, e também as de
+dentro de uma listagem minted ou de um verbatim inseridos inteiros, em que
+a linha em branco é texto do código.
 """
 import re
 import sys
 
 BLOCO = re.compile(r"\\DIF(add|del)(begin|end)(FL)?(?![A-Za-z])")
+# Ambientes em que a linha em branco é texto: o minted do PICTUREENV do
+# bin/latexdiff-tcc.sh e os VERBATIMENV do latexdiff.
+LITERAL = re.compile(r"\\(begin|end)\{(?:minted|verbatim\*?|lstlisting|DIFnomarkup)\}")
 
 
 def marcar(linhas):
@@ -33,17 +38,20 @@ def marcar(linhas):
     corpo = False
     aberto = None  # "add", "del", "addFL" ou "delFL": o bloco em que a linha anterior terminou
     branca = False  # se a linha anterior era em branco: a sequência é uma quebra só
+    literal = False  # dentro de um ambiente em que a linha em branco é texto
     for linha in linhas:
         if not corpo:
             corpo = linha.startswith("\\begin{document}")
         elif not linha.strip():
-            if aberto and not branca:
+            if aberto and not branca and not literal:
                 yield f"\\ifhmode\\DIF{aberto}{{\\P}}\\fi\n"
             branca = True
         else:
             branca = False
             for m in BLOCO.finditer(linha):
                 aberto = m.group(1) + (m.group(3) or "") if m.group(2) == "begin" else None
+            for m in LITERAL.finditer(linha):
+                literal = m.group(1) == "begin"
         yield linha
 
 
