@@ -94,7 +94,8 @@
    # https://tex.stackexchange.com/a/305562/103967
 
    O =git latexdiff= não passa pelo =bin/latexdiff-tcc.sh=: no texto
-   apagado, as siglas do glossaries somem.
+   apagado, as siglas do glossaries somem, e a quebra de parágrafo
+   inserida ou removida sai sem o ¶.
 
 ** Exportar pelo terminal
 
@@ -149,7 +150,13 @@
    As opções do =latexdiff= ficam no =bin/latexdiff-tcc.sh=, o mesmo do
    =bin/gerar-versao.sh=. Ele também troca =\gls=, =\glspl=, =\Gls= e
    =\Glspl= por versões próprias, para a sigla aparecer no texto apagado
-   sem gastar a primeira ocorrência (ADR 0027, L5).
+   sem gastar a primeira ocorrência (ADR 0027, L5). A quebra de parágrafo
+   inserida ou removida, que o =latexdiff= não marca, sai como um ¶ no fim
+   do parágrafo que ela fecha, azul e sublinhado na inserida, vermelho e
+   riscado na removida, pelo =bin/marcar-quebras.py= (ADR 0028); as duas
+   quebras continuam no PDF, como no diff do git. Depois de um título, de
+   uma tabela ou de uma lista, onde a linha em branco não fecha parágrafo,
+   nada sai.
 
    Tudo fica em =pdf/ao-vivo/=, fora do git: o PDF =diff-ao-vivo.pdf=,
    a compilação em =build/= e os logs =emacs.log=, =latexdiff.log= e

@@ -8,7 +8,7 @@
 # --flatten resolve os \input pelo diretório de cada tcc.tex;
 # --packages=biblatex, porque a classe carrega o biblatex e o latexdiff não a
 # lê; o PICTUREENV deixa o minted fora da marcação. O git latexdiff do
-# readme.org repete as duas últimas, sem as siglas.
+# readme.org repete as duas últimas, sem as siglas nem o ¶ das quebras.
 #
 # Siglas do glossaries (ADR 0027, L5): o latexdiff não sabe compor \gls,
 # \glspl, \Gls e \Glspl dentro do \DIFdel e os comentava, e a sigla sumia do
@@ -25,6 +25,11 @@
 # indefinido para o pdflatex. O argumento opcional de opções passa ao \gls
 # acrescentado; o de inserção depois do rótulo (\gls{pr}[s]) não é tratado
 # e sairia como texto, mas a exportação do org-ref não o produz.
+#
+# Quebra de parágrafo inserida ou removida: o latexdiff a trata como comando
+# e não a marca. O bin/marcar-quebras.py, no fim, põe um ¶ na cor da mudança
+# no fim do parágrafo que a quebra fecha, e pula as listagens: a lista de
+# ambientes dele (LITERAL) repete o minted do PICTUREENV daqui.
 set -euo pipefail
 [ $# -eq 2 ] || { echo "uso: $0 VELHO.tex NOVO.tex >diff.tex" >&2; exit 2; }
 
@@ -46,4 +51,5 @@ latexdiff --flatten --packages=biblatex --config="$PICT" --config="$SIGLAS" "$1"
     feito = 1
   }
   { print }
-  END { if (!feito) { print "latexdiff-tcc.sh: sem \\begin{document} na saída do latexdiff" > "/dev/stderr"; exit 1 } }'
+  END { if (!feito) { print "latexdiff-tcc.sh: sem \\begin{document} na saída do latexdiff" > "/dev/stderr"; exit 1 } }' |
+  "$(dirname "$0")/marcar-quebras.py"
