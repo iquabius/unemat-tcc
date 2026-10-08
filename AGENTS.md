@@ -107,12 +107,16 @@ As tarefas vivem no [Beads](https://github.com/gastownhall/beads) (`bd`
   ```sh
   bd export -o .beads/issues.jsonl   # só na worktree
   bin/juntar-tarefas.py --so <id>[,<id>...] HEAD:.beads/issues.jsonl \
-      .beads/issues.jsonl -o .beads/issues.jsonl
+      .beads/issues.jsonl -o .beads/issues.jsonl &&
+      git commit -- <arquivos> .beads/issues.jsonl
   ```
 
-  O script diz no stderr cada tarefa que aplicou; confira que são só as
-  do commit. As outras continuam no banco, e o próximo `bd` as regrava no
-  checkout principal.
+  No checkout principal, o script e o commit vão no mesmo comando, como
+  acima: qualquer escrita do `bd` ou do Scotty entre os dois regravaria o
+  arquivo com o banco inteiro. O script diz no stderr cada tarefa que
+  aplicou; confira que são só as do commit, e depois do commit, com `git
+  show HEAD -- .beads/issues.jsonl`. As outras continuam no banco, e o
+  próximo `bd` as regrava no checkout principal.
 - Listar: `bd ready` (abertas e sem bloqueio); `bd list -p 1` (altas);
   `bd list --all -n 0` (todas, com as fechadas); `bd show <id>`.
 - Ao começar uma sessão de trabalho no texto ou no código, leia
@@ -303,8 +307,11 @@ reescreve.
      modificado no checkout principal, mesmo com o conteúdo igual. O
      `.beads/issues.jsonl` cai sempre nisso, porque o `bd` exporta para
      lá. As tarefas do ramo já estão nos commits dele (seção "Tarefas");
-     o que difere no checkout principal é de outras sessões e continua no
-     banco. Restaure-o com `git -C <checkout principal> checkout HEAD --
+     o que difere no checkout principal, fora do índice, é exportação do
+     banco, que continua lá. Se o jsonl estiver no índice (`git -C
+     <checkout principal> diff --cached --quiet -- .beads/issues.jsonl`
+     falha), ele é de um commit que espera o autor: pare e pergunte. Se
+     não, restaure-o com `git -C <checkout principal> checkout HEAD --
      .beads/issues.jsonl` e faça o fast-forward; o próximo `bd` o regrava.
      Qualquer outro arquivo modificado lá é do autor: pare e pergunte.
    - Conflito no `.beads/issues.jsonl` durante o `--no-ff`, tarefa por
@@ -317,8 +324,11 @@ reescreve.
      ```
 
      Confira no stderr que só entram as tarefas do ramo, `git add` e
-     conclua o merge. Tarefa que mudou dos dois lados o script recusa:
-     pergunte ao autor. Conflito em
+     conclua o merge. Tarefa que mudou dos dois lados o script recusa e
+     lista. Compare os dois lados com o banco (`bd show <id>`): o lado
+     igual ao banco é o mais novo, e fica com `--nosso <id>` (o `master`)
+     ou `--deles <id>` (o ramo); se nenhum for igual, pergunte ao autor
+     qual fica. Conflito em
      código é código novo que ninguém revisou: rode a `linus-review` sobre
      a resolução (`git show --cc HEAD`) e só marque o merge com `git
      revisao pronto` com o Ready dela; senão, pare e pergunte ao autor.
