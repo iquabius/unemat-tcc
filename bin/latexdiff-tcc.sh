@@ -5,9 +5,10 @@
 #
 #   uso:  bin/latexdiff-tcc.sh VELHO.tex NOVO.tex >diff.tex
 #
-# --flatten resolve os \input pelo diretório de cada tcc.tex. As opções vêm
-# do readme.org: --packages=biblatex, porque a classe carrega o biblatex e o
-# latexdiff não a lê; o PICTUREENV deixa o minted fora da marcação.
+# --flatten resolve os \input pelo diretório de cada tcc.tex;
+# --packages=biblatex, porque a classe carrega o biblatex e o latexdiff não a
+# lê; o PICTUREENV deixa o minted fora da marcação. O git latexdiff do
+# readme.org repete as duas últimas, sem as siglas.
 #
 # Siglas do glossaries (ADR 0027, L5): o latexdiff não sabe compor \gls,
 # \glspl, \Gls e \Glspl dentro do \DIFdel e os comentava, e a sigla sumia do
@@ -18,7 +19,10 @@
 # fim do preâmbulo: o apagado mostra a forma curta, riscada, sem gastar a
 # primeira ocorrência; o acrescentado é o próprio \gls, que define e gasta
 # a primeira ocorrência, na cor do texto novo e sem a onda do \uwave, que
-# não deixaria a definição se dividir entre linhas.
+# não deixaria a definição se dividir entre linhas. O argumento opcional de
+# opções passa ao \gls acrescentado; o de inserção depois do rótulo
+# (\gls{pr}[s]) não é tratado e sairia como texto, mas a exportação do
+# org-ref não o produz.
 set -euo pipefail
 [ $# -eq 2 ] || { echo "uso: $0 VELHO.tex NOVO.tex >diff.tex" >&2; exit 2; }
 
