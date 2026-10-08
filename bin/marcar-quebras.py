@@ -23,8 +23,9 @@ de uma tabela ou de uma lista, em que o TeX está em modo vertical e o ¶
 sairia sozinho numa linha. As linhas em branco fora dos blocos e tudo antes
 do \\begin{document}, onde o preâmbulo do latexdiff define os próprios
 comandos, ficam como estão, e também as de dentro de uma listagem minted ou
-de um verbatim inseridos inteiros, em que a linha em branco é texto do
-código.
+de um verbatim, em que a linha em branco é texto do código: a inserida
+inteira, e a apagada inteira, cujas linhas o latexdiff comenta uma a uma
+com "%DIFDELCMD < ", menos a em branco, que sai crua entre elas.
 """
 import re
 import sys

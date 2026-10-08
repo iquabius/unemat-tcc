@@ -136,6 +136,38 @@ let b = 2;
 \\DIFadd{Depois.}\\DIFaddend
 """)
 
+    def test_linha_em_branco_dentro_de_minted_apagado_e_codigo(self):
+        # O latexdiff comenta a listagem apagada linha a linha, menos a linha
+        # em branco, que sai crua; o \\begin{minted} comentado basta para
+        # reconhecê-la como código. A quebra de depois da listagem leva o ¶.
+        diff = PREAMBULO + """Quatro cinco.
+
+\\DIFdelbegin %DIFDELCMD < \\begin{minted}{js}
+%DIFDELCMD < let a = 1;
+%DIFDELCMD < 
+
+%DIFDELCMD < let b = 2;
+%DIFDELCMD < \\end{minted}
+%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\\DIFdelend \\begin{table}[h]
+"""
+        self.assertEqual(marcar(diff), PREAMBULO + """Quatro cinco.
+
+\\DIFdelbegin %DIFDELCMD < \\begin{minted}{js}
+%DIFDELCMD < let a = 1;
+%DIFDELCMD < 
+
+%DIFDELCMD < let b = 2;
+%DIFDELCMD < \\end{minted}
+%DIFDELCMD < 
+\\ifhmode\\DIFdel{\\P}\\fi
+
+%DIFDELCMD < %%%
+\\DIFdelend \\begin{table}[h]
+""")
+
     def test_bloco_FL_de_float_recebe_o_mesmo_marcador(self):
         diff = PREAMBULO + """\\begin{figure}
 \\DIFaddbeginFL 
