@@ -13,10 +13,10 @@ branco dentro do bloco \\DIFaddbegin...\\DIFaddend. Os dois quebram o
 parágrafo no PDF, e nenhum dos dois ganha marca.
 
 Este filtro põe, antes de cada linha em branco desses blocos,
-\\ifhmode\\DIFadd{\\P}\\fi ou \\ifhmode\\DIFdel{\\P}\\fi (\\DIFaddFL e \\DIFdelFL
-dentro de um float): o ¶ sai no fim do parágrafo que a quebra fecha, azul
-e sublinhado na quebra inserida, vermelho e riscado na removida, como as
-palavras. O \\ifhmode o cala onde a linha em branco não fecha parágrafo
+\\ifhmode\\DIFadd{\\P}\\fi ou \\ifhmode\\DIFdel{\\P}\\fi, também nos blocos FL
+dos floats, porque o estilo UNDERLINE define \\DIFaddFL como \\DIFadd: o ¶
+sai no fim do parágrafo que a quebra fecha, azul e sublinhado na quebra
+inserida, vermelho e riscado na removida, como as palavras. O \\ifhmode o cala onde a linha em branco não fecha parágrafo
 algum, depois de um título, de uma tabela ou de uma lista, em que o TeX
 está em modo vertical e o ¶ sairia sozinho numa linha. As linhas em branco
 fora dos blocos e tudo antes do \\begin{document}, onde o preâmbulo do
@@ -27,7 +27,7 @@ a linha em branco é texto do código.
 import re
 import sys
 
-BLOCO = re.compile(r"\\DIF(add|del)(begin|end)(FL)?(?![A-Za-z])")
+BLOCO = re.compile(r"\\DIF(add|del)(begin|end)(?:FL)?(?![A-Za-z])")
 # Ambientes em que a linha em branco é texto: o minted do PICTUREENV do
 # bin/latexdiff-tcc.sh e os VERBATIMENV do latexdiff.
 LITERAL = re.compile(r"\\(begin|end)\{(?:minted|verbatim\*?|lstlisting|DIFnomarkup)\}")
@@ -36,7 +36,7 @@ LITERAL = re.compile(r"\\(begin|end)\{(?:minted|verbatim\*?|lstlisting|DIFnomark
 def marcar(linhas):
     """Gera as linhas do diff com os marcadores de quebra de parágrafo."""
     corpo = False
-    aberto = None  # "add", "del", "addFL" ou "delFL": o bloco em que a linha anterior terminou
+    aberto = None  # "add" ou "del": o bloco em que a linha anterior terminou
     branca = False  # se a linha anterior era em branco: a sequência é uma quebra só
     literal = False  # dentro de um ambiente em que a linha em branco é texto
     for linha in linhas:
@@ -49,7 +49,7 @@ def marcar(linhas):
         else:
             branca = False
             for m in BLOCO.finditer(linha):
-                aberto = m.group(1) + (m.group(3) or "") if m.group(2) == "begin" else None
+                aberto = m.group(1) if m.group(2) == "begin" else None
             for m in LITERAL.finditer(linha):
                 literal = m.group(1) == "begin"
         yield linha

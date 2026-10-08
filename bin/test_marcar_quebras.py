@@ -136,7 +136,7 @@ let b = 2;
 \\DIFadd{Depois.}\\DIFaddend
 """)
 
-    def test_dentro_de_float_usa_os_comandos_FL(self):
+    def test_bloco_FL_de_float_recebe_o_mesmo_marcador(self):
         diff = PREAMBULO + """\\begin{figure}
 \\DIFaddbeginFL 
 
@@ -148,10 +148,10 @@ let b = 2;
 """
         self.assertEqual(marcar(diff), PREAMBULO + """\\begin{figure}
 \\DIFaddbeginFL 
-\\ifhmode\\DIFaddFL{\\P}\\fi
+\\ifhmode\\DIFadd{\\P}\\fi
 
 \\DIFaddendFL \\DIFdelbeginFL %DIFDELCMD < 
-\\ifhmode\\DIFdelFL{\\P}\\fi
+\\ifhmode\\DIFdel{\\P}\\fi
 
 %DIFDELCMD < %%%
 \\DIFdelendFL
