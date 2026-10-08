@@ -341,13 +341,15 @@ reescreve.
    - Se `git log --oneline master..<tarefa>` listar commits além dos do
      ramo, o merge os levaria ao `master`, com conflito em arquivos que o
      ramo não muda, como os de `texto/`. Não faça o merge (`git merge
-     --abort`, se ele já começou). Com `<base>` como o pai do primeiro
-     commit do ramo, confira que os arquivos do ramo não mudaram no
+     --abort`, se ele já começou). Ache a `<base>`, o commit de onde o
+     ramo saiu, na última linha do reflog dele (`<base> branch: Created
+     from master`), confira que os arquivos do ramo não mudaram no
      `master` desde ela, reaplique só os commits do ramo e leve-os por
      fast-forward:
 
      ```sh
      # na worktree
+     git reflog show --format='%h %gs' <tarefa> | tail -1
      git diff <base> master -- $(git diff --name-only <base> <tarefa>)  # vazio
      git switch --detach master
      git cherry-pick <base>..<tarefa>
