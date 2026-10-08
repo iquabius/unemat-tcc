@@ -18,11 +18,13 @@
 # por \DELgls... no texto apagado e \ADDgls... no acrescentado, definidos no
 # fim do preâmbulo: o apagado mostra a forma curta, riscada, sem gastar a
 # primeira ocorrência; o acrescentado é o próprio \gls, que define e gasta
-# a primeira ocorrência, na cor do texto novo e sem a onda do \uwave, que
-# não deixaria a definição se dividir entre linhas. O argumento opcional de
-# opções passa ao \gls acrescentado; o de inserção depois do rótulo
-# (\gls{pr}[s]) não é tratado e sairia como texto, mas a exportação do
-# org-ref não o produz.
+# a primeira ocorrência, no azul do \DIFadd do estilo padrão do latexdiff
+# (UNDERLINE, o único que este script usa) e sem a onda do \uwave, que não
+# deixaria a definição se dividir entre linhas. Sem a linha do
+# \begin{document} na saída, o script falha, em vez de deixar o \DELgls
+# indefinido para o pdflatex. O argumento opcional de opções passa ao \gls
+# acrescentado; o de inserção depois do rótulo (\gls{pr}[s]) não é tratado
+# e sairia como texto, mas a exportação do org-ref não o produz.
 set -euo pipefail
 [ $# -eq 2 ] || { echo "uso: $0 VELHO.tex NOVO.tex >diff.tex" >&2; exit 2; }
 
@@ -43,4 +45,5 @@ latexdiff --flatten --packages=biblatex --config="$PICT" --config="$SIGLAS" "$1"
     print "%DIF FIM DAS SIGLAS"
     feito = 1
   }
-  { print }'
+  { print }
+  END { if (!feito) { print "latexdiff-tcc.sh: sem \\begin{document} na saída do latexdiff" > "/dev/stderr"; exit 1 } }'
