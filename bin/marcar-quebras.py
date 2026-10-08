@@ -16,13 +16,14 @@ Este filtro põe, antes de cada linha em branco desses blocos,
 \\ifhmode\\DIFadd{\\P}\\fi ou \\ifhmode\\DIFdel{\\P}\\fi, também nos blocos FL
 dos floats, porque o estilo UNDERLINE define \\DIFaddFL como \\DIFadd: o ¶
 sai no fim do parágrafo que a quebra fecha, azul e sublinhado na quebra
-inserida, vermelho e riscado na removida, como as palavras. O \\ifhmode o cala onde a linha em branco não fecha parágrafo
-algum, depois de um título, de uma tabela ou de uma lista, em que o TeX
-está em modo vertical e o ¶ sairia sozinho numa linha. As linhas em branco
-fora dos blocos e tudo antes do \\begin{document}, onde o preâmbulo do
-latexdiff define os próprios comandos, ficam como estão, e também as de
-dentro de uma listagem minted ou de um verbatim inseridos inteiros, em que
-a linha em branco é texto do código.
+inserida, vermelho e riscado na removida, como as palavras. O \\ifhmode o
+cala onde a linha em branco não fecha parágrafo algum, depois de um título,
+de uma tabela ou de uma lista, em que o TeX está em modo vertical e o ¶
+sairia sozinho numa linha. As linhas em branco fora dos blocos e tudo antes
+do \\begin{document}, onde o preâmbulo do latexdiff define os próprios
+comandos, ficam como estão, e também as de dentro de uma listagem minted ou
+de um verbatim inseridos inteiros, em que a linha em branco é texto do
+código.
 """
 import re
 import sys
