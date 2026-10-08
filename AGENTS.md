@@ -338,6 +338,26 @@ reescreve.
    - Se o `master` andou entre o merge na worktree e o fast-forward ("Not
      possible to fast-forward"), refaça o passo desde o `git switch
      --detach master`.
+   - Se `git log --oneline master..<tarefa>` listar commits além dos do
+     ramo, o merge os levaria ao `master`, com conflito em arquivos que o
+     ramo não muda, como os de `texto/`. Não faça o merge (`git merge
+     --abort`, se ele já começou). Com `<base>` como o pai do primeiro
+     commit do ramo, confira que os arquivos do ramo não mudaram no
+     `master` desde ela, reaplique só os commits do ramo e leve-os por
+     fast-forward:
+
+     ```sh
+     # na worktree
+     git diff <base> master -- $(git diff --name-only <base> <tarefa>)  # vazio
+     git switch --detach master
+     git cherry-pick <base>..<tarefa>
+     git branch -f <tarefa> HEAD
+     git -C <checkout principal> merge --ff-only "$(git rev-parse HEAD)"
+     ```
+
+     Se o `git diff` não sair vazio, o cherry-pick pode dar conflito, que
+     se resolve como no `--no-ff` acima. Os commits reaplicados ganham
+     sha novo, e a marca de revisão não os acompanha (último item).
    - O ramo não mexe em `texto/`; se mexer, pare e pergunte ao autor.
    - Commit marcado que for reescrito perde a marca (o sha muda): marque
      de novo, com `git revisao excecao -m` dizendo o que mudou.
