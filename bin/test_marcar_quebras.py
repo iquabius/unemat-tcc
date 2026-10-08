@@ -1,7 +1,11 @@
 #!/usr/bin/env python3
 """Testes do bin/marcar-quebras.py, sem o latexdiff: os trechos de diff vêm
-da saída do latexdiff 1.4.0 para dois parágrafos fundidos, um dividido, um
-apagado inteiro e um inserido inteiro.
+da saída do latexdiff 1.4.0 (2026-10-08) para dois parágrafos fundidos, um
+dividido, um apagado inteiro e um inserido inteiro, uma sequência de linhas
+em branco inserida e uma listagem minted inserida e outra apagada. O trecho
+do float é construído: o latexdiff abre a tabela com \\DIFaddbegin, sem FL,
+e usa \\DIFaddFL só no conteúdo; o teste cobre os blocos FL dos diffs
+antigos (v0.1..v0.4).
 
     python3 -m unittest discover -s bin -p 'test_*.py'
 """
