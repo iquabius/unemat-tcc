@@ -30,6 +30,8 @@ def marcar(texto):
 
 class Marcar(unittest.TestCase):
     def test_quebra_removida_ganha_pilcrow_riscado_antes_da_linha_em_branco(self):
+        # O \\ifhmode cala o ¶ depois de título, tabela ou lista, onde a linha
+        # em branco não fecha parágrafo: o TeX decide, não o filtro.
         diff = PREAMBULO + """Alfa beta gama.
 \\DIFdelbegin %DIFDELCMD < 
 
@@ -38,7 +40,7 @@ class Marcar(unittest.TestCase):
 """
         self.assertEqual(marcar(diff), PREAMBULO + """Alfa beta gama.
 \\DIFdelbegin %DIFDELCMD < 
-\\DIFdel{\\P}
+\\ifhmode\\DIFdel{\\P}\\fi
 
 %DIFDELCMD < %%%
 \\DIFdelend Delta epsilon zeta.
@@ -52,7 +54,7 @@ class Marcar(unittest.TestCase):
 """
         self.assertEqual(marcar(diff), PREAMBULO + """Eta teta
 \\DIFaddbegin 
-\\DIFadd{\\P}
+\\ifhmode\\DIFadd{\\P}\\fi
 
 \\DIFaddend iota kapa.
 """)
@@ -73,12 +75,12 @@ class Marcar(unittest.TestCase):
 
 \\DIFdelbegin \\DIFdel{Tres quatro.
 }%DIFDELCMD < 
-\\DIFdel{\\P}
+\\ifhmode\\DIFdel{\\P}\\fi
 
 %DIFDELCMD < %%%
 \\DIFdel{Cinco seis}\\DIFdelend \\DIFaddbegin \\DIFadd{Cinco seis.
 }
-\\DIFadd{\\P}
+\\ifhmode\\DIFadd{\\P}\\fi
 
 \\DIFadd{Sete oito}\\DIFaddend .
 """)
@@ -104,7 +106,7 @@ Cinco.
 """
         self.assertEqual(marcar(diff), PREAMBULO + """A b c.
 \\DIFaddbegin 
-\\DIFadd{\\P}
+\\ifhmode\\DIFadd{\\P}\\fi
 
 
 
@@ -123,10 +125,10 @@ Cinco.
 """
         self.assertEqual(marcar(diff), PREAMBULO + """\\begin{figure}
 \\DIFaddbeginFL 
-\\DIFaddFL{\\P}
+\\ifhmode\\DIFaddFL{\\P}\\fi
 
 \\DIFaddendFL \\DIFdelbeginFL %DIFDELCMD < 
-\\DIFdelFL{\\P}
+\\ifhmode\\DIFdelFL{\\P}\\fi
 
 %DIFDELCMD < %%%
 \\DIFdelendFL

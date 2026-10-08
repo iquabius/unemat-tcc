@@ -154,7 +154,9 @@
    inserida ou removida, que o =latexdiff= não marca, sai como um ¶ no fim
    do parágrafo que ela fecha, azul e sublinhado na inserida, vermelho e
    riscado na removida, pelo =bin/marcar-quebras.py= (ADR 0028); as duas
-   quebras continuam no PDF, como no diff do git.
+   quebras continuam no PDF, como no diff do git. Depois de um título, de
+   uma tabela ou de uma lista, onde a linha em branco não fecha parágrafo,
+   nada sai.
 
    Tudo fica em =pdf/ao-vivo/=, fora do git: o PDF =diff-ao-vivo.pdf=,
    a compilação em =build/= e os logs =emacs.log=, =latexdiff.log= e

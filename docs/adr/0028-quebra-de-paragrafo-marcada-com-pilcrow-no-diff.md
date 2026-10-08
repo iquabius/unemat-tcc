@@ -9,10 +9,13 @@ ao vivo (`bin/diff-ao-vivo.sh`) nem no diff das versões
 a saída do latexdiff pelo `bin/marcar-quebras.py`, que reconhece os dois
 rastros (a linha em branco dentro de `\DIFaddbegin...\DIFaddend`, e a
 linha em branco entre `%DIFDELCMD < ` e `%DIFDELCMD < %%%` dentro de
-`\DIFdelbegin...\DIFdelend`) e põe antes dela `\DIFadd{\P}` ou
-`\DIFdel{\P}`: um ¶ azul e sublinhado no fim do parágrafo que a quebra
-nova fecha, um ¶ vermelho e riscado no fim do que a quebra removida
-fechava, como as palavras. O leiaute do latexdiff não muda: as quebras
+`\DIFdelbegin...\DIFdelend`) e põe antes dela `\ifhmode\DIFadd{\P}\fi`
+ou `\ifhmode\DIFdel{\P}\fi`: um ¶ azul e sublinhado no fim do parágrafo
+que a quebra nova fecha, um ¶ vermelho e riscado no fim do que a quebra
+removida fechava, como as palavras. O `\ifhmode` deixa ao TeX dizer se a
+linha em branco fechou um parágrafo: depois de um título, de uma tabela
+ou de uma lista, em modo vertical, ela não muda nada, e o ¶ sairia
+sozinho numa linha. O leiaute do latexdiff não muda: as quebras
 velhas e as novas continuam todas no PDF do diff, e o ¶ diz qual delas
 mudou, como a linha em branco inserida ou apagada no diff do git.
 

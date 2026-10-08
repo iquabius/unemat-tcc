@@ -12,12 +12,15 @@ dentro do bloco \\DIFdelbegin...\\DIFdelend; o inserido sai como linha em
 branco dentro do bloco \\DIFaddbegin...\\DIFaddend. Os dois quebram o
 parágrafo no PDF, e nenhum dos dois ganha marca.
 
-Este filtro põe, antes de cada linha em branco desses blocos, \\DIFadd{\\P}
-ou \\DIFdel{\\P} (\\DIFaddFL e \\DIFdelFL dentro de um float): o ¶ sai no fim
-do parágrafo que a quebra fecha, azul e sublinhado na quebra inserida,
-vermelho e riscado na removida, como as palavras. As linhas em branco fora
-dos blocos e tudo antes do \\begin{document}, onde o preâmbulo do latexdiff
-define os próprios comandos, ficam como estão.
+Este filtro põe, antes de cada linha em branco desses blocos,
+\\ifhmode\\DIFadd{\\P}\\fi ou \\ifhmode\\DIFdel{\\P}\\fi (\\DIFaddFL e \\DIFdelFL
+dentro de um float): o ¶ sai no fim do parágrafo que a quebra fecha, azul
+e sublinhado na quebra inserida, vermelho e riscado na removida, como as
+palavras. O \\ifhmode o cala onde a linha em branco não fecha parágrafo
+algum, depois de um título, de uma tabela ou de uma lista, em que o TeX
+está em modo vertical e o ¶ sairia sozinho numa linha. As linhas em branco
+fora dos blocos e tudo antes do \\begin{document}, onde o preâmbulo do
+latexdiff define os próprios comandos, ficam como estão.
 """
 import re
 import sys
@@ -35,7 +38,7 @@ def marcar(linhas):
             corpo = linha.startswith("\\begin{document}")
         elif not linha.strip():
             if aberto and not branca:
-                yield f"\\DIF{aberto}{{\\P}}\n"
+                yield f"\\ifhmode\\DIF{aberto}{{\\P}}\\fi\n"
             branca = True
         else:
             branca = False
