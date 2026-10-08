@@ -324,9 +324,9 @@ decidido.
    `texto/*.org`, `latex/capitulos/*.tex`, `texto/fontes/*.org`, `texto/refs.bib` e, se
    a rodada fecha ou muda tarefa, o `.beads/issues.jsonl` com só as
    tarefas da rodada: ele é o banco inteiro, e leva as tarefas que outras
-   sessões mudaram e não commitaram, então passe antes pelo
-   `bin/juntar-tarefas.py --so <ids>`, no mesmo comando do commit
-   (AGENTS.md, seção "Tarefas"). Nomeie os arquivos no próprio commit
+   sessões mudaram e não commitaram, então o commit é o comando único da
+   seção "Tarefas" do AGENTS.md: `bd export`, `bin/juntar-tarefas.py --so
+   <ids>` e o `git commit`, ligados por `&&`. Nomeie os arquivos no próprio commit
    (`git commit -- <arquivos>`), para não levar o que outra sessão deixou
    no índice. A mensagem termina com uma linha
    `Fontes conferidas:` com chave e página de cada fonte lida na rodada.
