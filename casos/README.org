@@ -116,7 +116,7 @@ tecnologias) está nas decisões em [[file:../docs/adr/][docs/adr/]].
   #+end_src
 
   O =ctest= roda, de cada caso, o teste do domínio (=dominio-cpp/test/=)
-  e o roteiro de cada tecnologia (=<subpasta>/test/RoteiroTest.cpp=), com
+  e a rotina de cada tecnologia (=<subpasta>/test/RoteiroTest.cpp=), com
   as mesmas verificações e nomes do =roteiro-de-teste.js=, sem janela na
   tela.
 

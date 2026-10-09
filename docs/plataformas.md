@@ -183,7 +183,7 @@ já, capturas só se o par entrar; o Qt Widgets monta a tela num `.ui` e
 coordena por `connect`, sem propriedades *bindable*; a QML guarda o
 estado nas próprias propriedades, com os derivados em *bindings*, e não
 num `QObject` com `NOTIFY`. As rotinas, em Qt Test, repetem as 19 e as 11
-verificações dos roteiros da web, e passam nas quatro implementações com
+verificações das rotinas da web, e passam nas quatro implementações com
 o Qt 6.10.2, no Linux.
 
 ### Pré-análise por problema de coordenação (2026-10-09)

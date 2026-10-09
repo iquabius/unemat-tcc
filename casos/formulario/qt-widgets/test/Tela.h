@@ -7,7 +7,7 @@
 
 enum class Campo { Nome, Email, Ida, Volta };
 
-// Ações e leituras usadas pelo roteiro, como as funções do
+// Ações e leituras usadas pela rotina, como as funções do
 // roteiro-de-teste.js e a Tela dos testes do Android. A Tela da QML tem os
 // mesmos nomes. Os campos são achados pelo nome que têm no Janela.ui, como o
 // Views os acha pelo id.
@@ -26,10 +26,10 @@ public:
         QApplication::processEvents();
     }
 
-    // Como o setter + evento "input" do roteiro: muda o texto sem mudar o foco.
+    // Como o setter + evento "input" do roteiro-de-teste.js: muda o texto sem mudar o foco.
     void digitar(Campo campo, const QString &texto) { entrada(campo)->setText(texto); }
 
-    // Como o blur do roteiro: o foco passa para outro campo.
+    // Como o blur do roteiro-de-teste.js: o foco passa para outro campo.
     void sair(Campo campo)
     {
         focar(campo);

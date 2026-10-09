@@ -138,7 +138,7 @@ Gradle em `casos/android/` e as dependências (`package.json`,
 - Rotinas em Qt Test, uma `Tela` por tecnologia com a mesma API e o
   `RoteiroTest.cpp` igual entre as duas. Sem marcas só para teste: o
   Widgets acha os controles pelo nome do `.ui`; a QML, pelo tipo e pela
-  ordem. Confira que o roteiro pega um defeito antes de dar por pronto.
+  ordem. Confira que a rotina pega um defeito antes de dar por pronto.
 - Rode com `QT_QPA_PLATFORM=offscreen ctest --test-dir build` de
   `casos/qt/`. Depois de restaurar um arquivo com `cp` ou `mv`, dê `touch`:
   o Ninja não recompila um arquivo com data antiga.

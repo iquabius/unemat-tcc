@@ -5,7 +5,7 @@
 using lista::Ordem;
 
 // As 11 verificações de casos/lista-filtravel/roteiro-de-teste.js, na mesma
-// ordem e com os mesmos nomes, como o RoteiroTest.kt e o do Qt Widgets. Falha listando todas as
+// ordem e com os mesmos nomes, como o RoteiroTest.kt. Falha listando todas as
 // que não passaram.
 class RoteiroTest : public QObject {
     Q_OBJECT

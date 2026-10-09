@@ -13,7 +13,7 @@ Q_IMPORT_QML_PLUGIN(FormularioPlugin)
 
 enum class Campo { Nome, Email, Ida, Volta };
 
-// Ações e leituras usadas pelo roteiro, como as funções do
+// Ações e leituras usadas pela rotina, como as funções do
 // roteiro-de-teste.js e a Tela dos testes do Android. A Tela do Qt Widgets
 // tem os mesmos nomes. Os itens são achados pelo tipo e pela ordem (nome,
 // e-mail, ida, volta), sem marcas só para teste, como o Compose os acha pela
@@ -35,10 +35,10 @@ public:
         QCoreApplication::processEvents();
     }
 
-    // Como o setter + evento "input" do roteiro: muda o texto sem mudar o foco.
+    // Como o setter + evento "input" do roteiro-de-teste.js: muda o texto sem mudar o foco.
     void digitar(Campo campo, const QString &texto) { entrada(campo)->setProperty("text", texto); }
 
-    // Como o blur do roteiro: o foco passa para outro campo.
+    // Como o blur do roteiro-de-teste.js: o foco passa para outro campo.
     void sair(Campo campo)
     {
         focar(campo);

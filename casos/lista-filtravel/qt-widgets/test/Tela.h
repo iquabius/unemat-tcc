@@ -5,7 +5,7 @@
 
 #include <QTest>
 
-// Ações e leituras usadas pelo roteiro, como as funções do
+// Ações e leituras usadas pela rotina, como as funções do
 // roteiro-de-teste.js e a Tela dos testes do Android. A Tela da QML tem os
 // mesmos nomes. Os controles são achados pelo nome que têm no Janela.ui, como
 // o Views os acha pelo id.
@@ -37,7 +37,7 @@ public:
 
     QStringList nomes() { return textos("nome"); }
 
-    // Com espaço comum no lugar do não separável, como o roteiro da web.
+    // Com espaço comum no lugar do não separável, como o roteiro-de-teste.js.
     QString primeiroPreco() { return textos("preco").value(0).replace(QChar(0x00A0), ' '); }
 
     QString contagem() { return janela.findChild<QLabel *>("contagem")->text(); }
