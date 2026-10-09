@@ -56,8 +56,10 @@ class Tela {
         naTela(() -> campo(campo).setText(texto));
     }
 
-    // Como o blur do roteiro, que dispara o evento em vez de mover o foco: sem
-    // janela, o Swing não tem foco para mover.
+    // Como o blur do roteiro-de-teste.js, que dispara o evento em vez de mover
+    // o foco: sem janela, o Swing não tem foco para mover. Todos os listeners
+    // de foco do campo recebem o evento, os da tela e os do próprio Swing
+    // (o do cursor), como no dispatchEvent da web.
     void sair(Campo campo) {
         naTela(() -> {
             JTextField alvo = campo(campo);

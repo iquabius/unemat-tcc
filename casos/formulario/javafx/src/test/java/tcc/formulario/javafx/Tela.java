@@ -52,11 +52,14 @@ class Tela {
         naTela(() -> campo(campo).setText(texto));
     }
 
-    // Como o blur do roteiro: o foco entra no campo e passa para outro.
+    // Como o blur do roteiro-de-teste.js: o foco entra no campo e passa para
+    // o tipo de voo, que não é campo de texto, para que só este campo fique
+    // tocado. (A Tela do Android passa o foco a outro campo, que também fica
+    // tocado se o tinha antes.)
     void sair(Campo campo) {
         naTela(() -> {
             campo(campo).requestFocus();
-            campo(campo == Campo.NOME ? Campo.EMAIL : Campo.NOME).requestFocus();
+            rotulado("Tipo de voo").requestFocus();
         });
     }
 
