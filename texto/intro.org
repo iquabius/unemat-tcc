@@ -193,7 +193,7 @@ mesma interface [[cite:lee2025][289:1]].
   usada não indexa, e a lacuna vale para o que ela encontrou.
   Pergunta-se, então: pelas [[glspl:dc]], como difere a usabilidade da
   notação com que se programam interfaces gráficas em cada tecnologia entre
-  os três modelos de programação\nbsp{}--- o imperativo com /callbacks/, o
+  os três modelos de programação~--- o imperativo com /callbacks/, o
   declarativo por re-renderização e o declarativo por atualização granular?
   Conhecer essas diferenças pode ajudar quem programa interfaces a escolher uma tecnologia
   sabendo o que o modelo de programação dela facilita e o que dificulta em
@@ -331,7 +331,7 @@ mesma interface [[cite:lee2025][289:1]].
   cinco que [[textcite:kiss2014][p. 15]] considerou e deixou de fora por terem
   pesado pouco.
   A seu ver, elas provavelmente teriam sido úteis se as linguagens e os
-  /toolkits/ comparados fossem muito mais diferentes\nbsp{}--- aqui, cada
+  /toolkits/ comparados fossem muito mais diferentes~--- aqui, cada
   tecnologia traz as próprias abstrações.
   Não entram as outras três dessas cinco, pelas razões discutidas
   na seção ref:chap:cases.
