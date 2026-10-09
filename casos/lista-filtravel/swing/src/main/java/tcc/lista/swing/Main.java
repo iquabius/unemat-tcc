@@ -13,6 +13,8 @@ public class Main {
             JFrame janela = new JFrame("Lista filtrável");
             janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             janela.setContentPane(catalogo);
+            // A largura das capturas da web e do Android; a altura mostra uns dez
+            // produtos.
             janela.setSize(480, 720);
             janela.setVisible(true);
         });

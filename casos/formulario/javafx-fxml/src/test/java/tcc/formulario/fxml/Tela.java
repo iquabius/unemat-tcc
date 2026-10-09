@@ -17,8 +17,8 @@ import tcc.formulario.TipoDeVoo;
 
 // Ações e leituras usadas pelo roteiro, como as funções do
 // roteiro-de-teste.js. As Telas do Swing e do JavaFX montado em código têm os
-// mesmos nomes. Acha os campos pelo rótulo (setLabelFor), os erros e a confirmação
-// pela classe de estilo.
+// mesmos nomes. Acha os campos pelo rótulo (setLabelFor), os erros e a
+// confirmação pela classe de estilo.
 class Tela {
     private final Parent formulario;
 

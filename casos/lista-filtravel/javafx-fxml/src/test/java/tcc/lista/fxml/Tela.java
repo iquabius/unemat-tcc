@@ -21,8 +21,8 @@ import tcc.lista.Produto;
 
 // Ações e leituras usadas pelo roteiro, como as funções do
 // roteiro-de-teste.js. As Telas do Swing e do JavaFX montado em código têm os
-// mesmos nomes. Acha os controles pelo rótulo (setLabelFor) e os textos pela classe
-// de estilo.
+// mesmos nomes. Acha os controles pelo rótulo (setLabelFor) e os textos pela
+// classe de estilo.
 class Tela {
     private final Parent catalogo;
 

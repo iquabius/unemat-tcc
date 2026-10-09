@@ -13,6 +13,8 @@ public class Main {
             JFrame janela = new JFrame("Formulário com validação");
             janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             janela.setContentPane(formulario);
+            // O tamanho da tela das capturas do Android: a coluna de 384 da web
+            // mais as margens de 16.
             janela.setSize(416, 560);
             janela.setVisible(true);
         });

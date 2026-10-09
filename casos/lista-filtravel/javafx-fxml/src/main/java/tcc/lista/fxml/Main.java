@@ -11,6 +11,8 @@ import javafx.stage.Stage;
 public class Main extends Application {
     @Override
     public void start(Stage janela) throws IOException {
+        // A largura das capturas da web e do Android; a altura mostra uns dez
+        // produtos.
         Scene cena = new Scene(FXMLLoader.load(Main.class.getResource("CatalogoDeProdutos.fxml")), 480, 720);
         cena.getStylesheets().add(Main.class.getResource("/estilo.css").toExternalForm());
         janela.setTitle("Lista filtrável");

@@ -11,6 +11,8 @@ import javafx.stage.Stage;
 public class Main extends Application {
     @Override
     public void start(Stage janela) throws IOException {
+        // O tamanho da tela das capturas do Android: a coluna de 384 da web
+        // mais as margens de 16.
         Scene cena = new Scene(FXMLLoader.load(Main.class.getResource("FormularioDeReserva.fxml")), 416, 560);
         cena.getStylesheets().add(Main.class.getResource("/estilo.css").toExternalForm());
         janela.setTitle("Formulário com validação");
