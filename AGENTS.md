@@ -180,10 +180,11 @@ pergunta antes.
 - No `refs.bib`, escapar `%`, `#` e `&` fora de `url` e `doi`, inclusive em
   `annotation`: sem escape, quebram o `.bbl`.
 - Duas ou mais fontes na mesma citação, com a página de cada uma:
-  `[[cites:&disch2025 p. 93;&oney2012 p. 229]]`, em ordem alfabética, que
-  exporta `\cites` e imprime um parêntese só, com as fontes separadas por
-  ponto e vírgula (NBR 10520); dois links `[[cite:a][p. N]]` seguidos
-  imprimem dois parênteses.
+  `[[cites:&disch2025 p. 93;&oney2012 p. 229]]`, na ordem alfabética do
+  sobrenome do primeiro autor, que exporta `\cites` e imprime um
+  parêntese só, com as fontes separadas por ponto e vírgula (NBR
+  10520:2023, pelos guias da UFSCar e da Unicamp); dois links
+  `[[cite:a][p. N]]` seguidos imprimem dois parênteses.
 - Siglas pelo glossaries (ADR 0027): no `.org`, `[[gls:pr]]`,
   `[[glspl:dc]]` no plural e `[[Gls:pf]]` no começo de frase, nunca a
   definição escrita à mão; cada sigla tem entrada em `latex/siglas.tex`. O
