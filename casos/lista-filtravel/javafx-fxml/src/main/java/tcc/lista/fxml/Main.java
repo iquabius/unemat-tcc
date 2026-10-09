@@ -12,7 +12,7 @@ public class Main extends Application {
     @Override
     public void start(Stage janela) throws IOException {
         Scene cena = new Scene(FXMLLoader.load(Main.class.getResource("CatalogoDeProdutos.fxml")), 480, 720);
-        cena.getStylesheets().add(Main.class.getResource("estilo.css").toExternalForm());
+        cena.getStylesheets().add(Main.class.getResource("/estilo.css").toExternalForm());
         janela.setTitle("Lista filtrável");
         janela.setScene(cena);
         janela.show();

@@ -132,8 +132,8 @@ tecnologias) está nas decisões em [[file:../docs/adr/][docs/adr/]].
   =roteiro-de-teste.js= do caso, na mesma ordem e com os mesmos nomes, e
   uma classe =Tela= com a mesma API nas três tecnologias, como no Android.
   Não há capturas nem cenas: na pré-análise, a aparência só reproduz de
-  longe o =estilo.css=, fora da tela (=Estilo.java= no Swing, =estilo.css=
-  no JavaFX). Os campos não têm o texto de exemplo (=placeholder=) da web,
+  longe o =estilo.css=, fora da tela (=Estilo.java= no Swing,
+  =javafx-estilo/estilo.css= no JavaFX, comum às duas montagens). Os campos não têm o texto de exemplo (=placeholder=) da web,
   que o Swing não tem.
 
 * Capturas de tela

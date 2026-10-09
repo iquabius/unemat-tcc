@@ -140,8 +140,9 @@ Gradle em `casos/android/` e as dependências (`package.json`,
 - Aparência fora da tela: `Estilo.java` no Swing, que percorre os
   componentes e escolhe pela propriedade `"classe"` (o `class` do HTML) e
   repinta o campo quando a tela muda `"invalido"` (o `aria-invalid`);
-  `estilo.css` no JavaFX, com classes de estilo e a pseudoclasse
-  `:invalido`. Sem capturas por enquanto.
+  `casos/<caso>/javafx-estilo/estilo.css` no JavaFX, o mesmo nas duas
+  montagens, com classes de estilo e a pseudoclasse `:invalido`. Sem
+  capturas por enquanto.
 - `RoteiroTest.java` com as verificações do `roteiro-de-teste.js`, na
   mesma ordem e com os mesmos nomes, e uma `Tela` de teste por tecnologia,
   com a mesma API. O que as `Tela` têm em comum (rodar na thread da

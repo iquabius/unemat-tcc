@@ -10,7 +10,7 @@ public class Main extends Application {
     @Override
     public void start(Stage janela) {
         Scene cena = new Scene(new CatalogoDeProdutos(), 480, 720);
-        cena.getStylesheets().add(Main.class.getResource("estilo.css").toExternalForm());
+        cena.getStylesheets().add(Main.class.getResource("/estilo.css").toExternalForm());
         janela.setTitle("Lista filtrável");
         janela.setScene(cena);
         janela.show();

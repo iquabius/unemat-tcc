@@ -1,17 +1,14 @@
-/* Aparência da Lista no JavaFX, a do estilo.css da web; fora da análise. */
+/* Aparência do Formulário no JavaFX, a do estilo.css da web, comum ao javafx
+   e ao javafx-fxml; fora da análise. */
 .root {
   -fx-background-color: #2b2b2b;
   -fx-font-size: 16px;
 }
 
-.catalogo {
+.formulario {
   -fx-padding: 16px;
   -fx-spacing: 12px;
-  -fx-max-width: 448px;
-}
-
-.filtros {
-  -fx-spacing: 8px;
+  -fx-max-width: 384px;
 }
 
 .rotulo {
@@ -32,11 +29,6 @@
   -fx-max-width: infinity;
 }
 
-.contagem,
-.vazio {
-  -fx-text-fill: #aaaaaa;
-}
-
 /* O texto da opção escolhida é uma célula de lista dentro do ComboBox. */
 .combo-box > .list-cell {
   -fx-text-fill: #eeeeee;
@@ -44,22 +36,35 @@
   -fx-padding: 0;
 }
 
-.catalogo > .list-view {
-  -fx-background-color: #444444;
-  -fx-padding: 0;
+.text-field:disabled {
+  -fx-opacity: 0.5;
 }
 
-.catalogo > .list-view .list-cell {
-  -fx-background-color: #333333;
-  -fx-background-insets: 0 0 1 0;
-  -fx-padding: 8px;
+.text-field:invalido {
+  -fx-background-color: #e05555, #4a2a2a;
 }
 
-.categoria {
-  -fx-text-fill: #999999;
+.erro {
+  -fx-text-fill: #ff8a8a;
   -fx-font-size: 14px;
 }
 
-.preco {
+.button {
+  -fx-background-color: #555555, #2e4d24;
+  -fx-background-insets: 0, 1;
+  -fx-background-radius: 0;
+  -fx-text-fill: #eeeeee;
+  -fx-padding: 8px;
+  -fx-max-width: infinity;
+}
+
+.button:disabled {
+  -fx-background-color: #555555, #3a3a3a;
+  -fx-opacity: 1;
+  -fx-text-fill: #888888;
+}
+
+.confirmacao {
   -fx-text-fill: #9fd88a;
+  -fx-wrap-text: true;
 }

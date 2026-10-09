@@ -12,7 +12,7 @@ public class Main extends Application {
     @Override
     public void start(Stage janela) throws IOException {
         Scene cena = new Scene(FXMLLoader.load(Main.class.getResource("FormularioDeReserva.fxml")), 416, 560);
-        cena.getStylesheets().add(Main.class.getResource("estilo.css").toExternalForm());
+        cena.getStylesheets().add(Main.class.getResource("/estilo.css").toExternalForm());
         janela.setTitle("Formulário com validação");
         janela.setScene(cena);
         janela.show();

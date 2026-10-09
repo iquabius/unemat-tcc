@@ -25,6 +25,15 @@ subprojects {
         }
     }
 
+    // Aparência do JavaFX (casos/<caso>/javafx-estilo/estilo.css), a mesma
+    // nas duas montagens, como o estilo.css da web.
+    val estilo = projectDir.resolveSibling("javafx-estilo")
+    if (estilo.isDirectory && !name.endsWith("-swing")) {
+        extensions.configure<SourceSetContainer> {
+            getByName("main").resources.srcDir(estilo)
+        }
+    }
+
     // Apoio das Telas de teste (casos/desktop/teste/), um por tecnologia,
     // como o casos/android/captura/.
     val apoio = rootDir.resolve("teste").resolve(if (name.endsWith("-swing")) "swing" else "javafx")
