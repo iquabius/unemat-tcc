@@ -44,7 +44,8 @@ private slots:
     }
 
     // Entradas-limite em que o porte responde como o dominio.ts, rodado no
-    // Node: as mesmas do DominioTest.kt.
+    // Node: dez das entradas do igualAoDaWeb do DominioTest.kt, que lá fica
+    // pulado; as outras sete estão em diferenteDaWeb.
     void igualAoDaWeb()
     {
         QVERIFY(parsearData("01/01/0100"));
