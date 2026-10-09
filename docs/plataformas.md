@@ -257,15 +257,17 @@ coordenação (C++), como o Views e o jQuery; a QML junta as duas no mesmo
 arquivo, como o JSX. O par, portanto, muda a montagem da tela junto com
 o modelo de programação, como Views × Compose, e não a isola. O `.ui` é
 o formato que o Qt Designer grava: cada propriedade ocupa três ou mais
-linhas de XML. Contagem provisória (linhas não vazias e sem comentário,
-sem domínio, estilo nem a ponte do domínio para a QML; ainda sem o
-script do ADR 0012): Formulário, Qt Widgets 310 (227 do `.ui`), QML 91;
-Lista, Qt Widgets 225 (174 dos dois `.ui`), QML 51. Para comparar, pela
-mesma regra: Formulário, Views 162, Compose 121, jQuery 107, Solid 127;
-Lista, Views 138, Compose 65, jQuery 77, Solid 79. Leitura nossa: a
-diferença de concisão vem sobretudo do formato do `.ui`, e não do modelo
-de programação; o C++ da coordenação (83 e 51 linhas) fica perto do
-Kotlin do Views (79 e 77).
+linhas de XML. Contagem provisória, feita em 2026-10-09 sobre o código
+do fim do ramo da tcc-jhl (linhas não vazias e sem comentário, sem
+domínio, estilo, a ponte do domínio para a QML nem o `main.cpp`, que só
+abre a janela; o `MainActivity.kt` do Android entra, porque nele está a
+coordenação; ainda sem o script do ADR 0012): Formulário, Qt Widgets 307
+(224 do `.ui`), QML 91; Lista, Qt Widgets 226 (174 dos dois `.ui`), QML
+51. Para comparar, pela mesma regra: Formulário, Views 162, Compose 121,
+jQuery 107, Solid 127; Lista, Views 138, Compose 65, jQuery 77, Solid 79.
+Leitura nossa: a diferença de concisão vem sobretudo do formato do
+`.ui`, e não do modelo de programação. O C++ da coordenação tem 83
+linhas no Formulário e 52 na Lista, contra 79 e 77 do Kotlin do Views.
 
 **Achados que pesam em propensão a erros e dependências ocultas.**
 
