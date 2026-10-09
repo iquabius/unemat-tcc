@@ -36,10 +36,10 @@ public:
     // Como o ordens da web: [{ valor, rotulo }].
     QVariantList ordens() const
     {
-        QVariantList lista;
+        QVariantList opcoes;
         for (const auto ordem : lista::ordens)
-            lista << QVariantMap{{"valor", QVariant::fromValue(ordem)}, {"rotulo", lista::rotulo(ordem)}};
-        return lista;
+            opcoes << QVariantMap{{"valor", QVariant::fromValue(ordem)}, {"rotulo", lista::rotulo(ordem)}};
+        return opcoes;
     }
 
     Q_INVOKABLE bool correspondeABusca(const lista::Produto &produto, const QString &busca) const
@@ -50,11 +50,11 @@ public:
     {
         return lista::daCategoria(produto, categoria);
     }
-    // O sort do JavaScript pede um número, e não uma função que diga "antes".
+    // O comparador(ordem) da web devolve uma função; daqui, a QML recebe o
+    // resultado dela para um par de produtos.
     Q_INVOKABLE int comparar(lista::Ordem ordem, const lista::Produto &a, const lista::Produto &b) const
     {
-        const auto antes = lista::comparador(ordem);
-        return antes(a, b) ? -1 : antes(b, a) ? 1 : 0;
+        return lista::comparador(ordem)(a, b);
     }
     Q_INVOKABLE QString formatarPreco(double preco) const { return lista::formatarPreco(preco); }
     Q_INVOKABLE QString textoDaContagem(int visiveis) const { return lista::textoDaContagem(visiveis); }

@@ -35,7 +35,8 @@ void Janela::atualizarLista()
     std::ranges::copy_if(produtos, std::back_inserter(visiveis), [&](const Produto &produto) {
         return correspondeABusca(produto, busca) && daCategoria(produto, categoria);
     });
-    std::ranges::stable_sort(visiveis, comparador(ordem));
+    const auto comparar = comparador(ordem);
+    std::ranges::stable_sort(visiveis, [&](const Produto &a, const Produto &b) { return comparar(a, b) < 0; });
 
     // Como o .empty().append(...): troca todos os itens de uma vez. Cada item
     // da lista mostra um widget montado do ItemProduto.ui, como o Adapter do

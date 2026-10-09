@@ -16,18 +16,19 @@ class DominioTest : public QObject {
     static QList<int> ids(Ordem ordem)
     {
         auto ordenados = produtos;
-        std::ranges::stable_sort(ordenados, comparador(ordem));
-        QList<int> lista;
-        for (const auto &produto : ordenados) lista << produto.id;
-        return lista;
+        const auto comparar = comparador(ordem);
+        std::ranges::stable_sort(ordenados, [&](const Produto &a, const Produto &b) { return comparar(a, b) < 0; });
+        QList<int> encontrados;
+        for (const auto &produto : ordenados) encontrados << produto.id;
+        return encontrados;
     }
 
     static QList<int> busca(const QString &texto)
     {
-        QList<int> lista;
+        QList<int> encontrados;
         for (const auto &produto : produtos)
-            if (correspondeABusca(produto, texto)) lista << produto.id;
-        return lista;
+            if (correspondeABusca(produto, texto)) encontrados << produto.id;
+        return encontrados;
     }
 
 private slots:

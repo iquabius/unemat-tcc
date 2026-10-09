@@ -46,8 +46,8 @@ QString rotulo(Ordem ordem);
 bool correspondeABusca(const Produto &produto, const QString &busca);
 /** Categoria vazia significa "Todas". */
 bool daCategoria(const Produto &produto, const QString &categoria);
-/** Diz se a vem antes de b, como o comparador do sort. */
-std::function<bool(const Produto &, const Produto &)> comparador(Ordem ordem);
+/** Negativo se a vem antes de b, como a função do sort da web e o Comparator do Kotlin. */
+std::function<int(const Produto &, const Produto &)> comparador(Ordem ordem);
 QString formatarPreco(double preco);
 QString textoDaContagem(qsizetype visiveis);
 

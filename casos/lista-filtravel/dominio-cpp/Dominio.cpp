@@ -49,11 +49,11 @@ static int compararTextos(const QString &a, const QString &b)
 }
 
 const QStringList categorias = [] {
-    QStringList lista;
+    QStringList nomes;
     for (const auto &produto : produtos)
-        if (!lista.contains(produto.categoria)) lista << produto.categoria;
-    std::ranges::sort(lista, [](const QString &a, const QString &b) { return compararTextos(a, b) < 0; });
-    return lista;
+        if (!nomes.contains(produto.categoria)) nomes << produto.categoria;
+    std::ranges::sort(nomes, [](const QString &a, const QString &b) { return compararTextos(a, b) < 0; });
+    return nomes;
 }();
 
 const QList<Ordem> ordens = {Ordem::Nome, Ordem::MenorPreco, Ordem::MaiorPreco};
@@ -87,14 +87,14 @@ bool daCategoria(const Produto &produto, const QString &categoria)
     return categoria.isEmpty() || produto.categoria == categoria;
 }
 
-std::function<bool(const Produto &, const Produto &)> comparador(Ordem ordem)
+std::function<int(const Produto &, const Produto &)> comparador(Ordem ordem)
 {
     if (ordem == Ordem::Nome)
-        return [](const Produto &a, const Produto &b) { return compararTextos(a.nome, b.nome) < 0; };
+        return [](const Produto &a, const Produto &b) { return compararTextos(a.nome, b.nome); };
     const int sentido = ordem == Ordem::MenorPreco ? 1 : -1;
     return [sentido](const Produto &a, const Produto &b) {
-        if (a.preco != b.preco) return sentido * (a.preco - b.preco) < 0;
-        return compararTextos(a.nome, b.nome) < 0;
+        if (a.preco != b.preco) return a.preco < b.preco ? -sentido : sentido;
+        return compararTextos(a.nome, b.nome);
     };
 }
 
