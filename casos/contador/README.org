@@ -30,7 +30,8 @@ implementação.
   atributo =valor-inicial= no Web Component, a /prop/ =valorInicial= no
   React e no Solid e o parâmetro =valorInicial= no Compose; no Angular, é
   um campo da classe, porque o componente raiz não recebe /inputs/. No
-  jQuery e no Views, o 0 é o valor inicial da variável.
+  jQuery, o 0 é o valor inicial da variável; no Views, o da propriedade da
+  =Activity=.
 
 * Teste
 
@@ -39,11 +40,6 @@ implementação.
   capturas de uma cena são idênticas entre as implementações web.
 
   No Android, as mesmas cenas estão em =CenasTest.kt=, nos testes de cada
-  variante, e rodam com o =npm run capturas= (ou com
+  tecnologia, e rodam com o =npm run capturas= (ou com
   =./gradlew testDebugUnitTest= em =casos/android/=). Entre Views e
-  Compose, as capturas diferem só em poucos pixels do desenho dos
-  algarismos.
-
-  O Contador ainda não tem =roteiro-de-teste.js= nem =RoteiroTest.kt=. A
-  rotina terá três verificações: o valor começa em 0; cada clique soma 1;
-  o botão tem o nome acessível "Incrementar" e o texto "+".
+  Compose, as capturas diferem só em poucos pixels do desenho do texto.

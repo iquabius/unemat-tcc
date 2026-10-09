@@ -45,7 +45,8 @@ object Estilo {
     val celula = Modifier.padding(8.dp).height(48.dp)
 }
 
-// .contador output
+// .contador output. O modifier vai para o Text, e não para a célula, porque
+// a semântica que ele traz (a live region) é a do texto anunciado.
 @Composable
 fun RowScope.Valor(texto: String, modifier: Modifier = Modifier) {
     Box(
