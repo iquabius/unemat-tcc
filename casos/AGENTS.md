@@ -29,7 +29,7 @@ Gradle em `casos/android/` e as dependências (`package.json`,
    imagens idênticas.
    No Android, o aviso `(android)` pode vir só do desenho do texto: Views e
    Compose desenham os mesmos glifos com diferenças de poucos pixels (no
-   Contador, 0,15% da imagem, só na faixa dos algarismos). Abra as duas
+   Contador, 0,15% da imagem, só nos algarismos e no "+"). Abra as duas
    imagens: se posições, tamanhos, cores e conteúdo batem, siga; se não,
    corrija o arquivo de estilo da variante. **Nunca acrescente código de
    aparência na tela para igualar as imagens**: no TCC, o código da tela
