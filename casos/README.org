@@ -17,7 +17,7 @@ tecnologias) está nas decisões em [[file:../docs/adr/][docs/adr/]].
   #+end_src
 
   O Angular 22 exige Node 22.22.3 ou mais novo. O JDK (Temurin 25) só é
-  preciso para os casos Android.
+  preciso para os casos Android e de desktop.
 
 * Instalar e rodar (web)
 
@@ -88,6 +88,53 @@ tecnologias) está nas decisões em [[file:../docs/adr/][docs/adr/]].
   A compatibilidade entre Kotlin, Gradle e AGP segue a tabela de
   [[https://kotlinlang.org/docs/gradle-configure-project.html][kotlinlang.org/docs/gradle-configure-project.html]]; havia Gradle 9.8 e AGP
   9.4 mais novos, fora dela.
+
+* Instalar e rodar (desktop, em pré-análise)
+
+  Formulário com validação e Lista filtrável também existem no desktop, em
+  Java, para a pré-análise do par Swing × JavaFX (tarefa "Implementar o par
+  Swing × JavaFX e pré-analisá-lo por modelo de programação"; a comparação
+  dos pares de desktop está em [[file:../docs/plataformas.md][docs/plataformas.md]]). O desktop ainda não é
+  plataforma do TCC: entra na análise só se a tarefa "Representar uma
+  plataforma desktop" decidir assim.
+
+  | Subpasta      | Tecnologia                                              |
+  |---------------+---------------------------------------------------------|
+  | =swing=       | Swing: /listeners/, estado na classe da tela            |
+  | =javafx=      | JavaFX (OpenJFX) com a tela montada em código Java      |
+  | =javafx-fxml= | JavaFX com a tela em FXML e o comportamento no controlador |
+
+  O =javafx= monta a tela com as mesmas chamadas do =swing= (criar o
+  controle, pôr o rótulo, adicionar ao painel), para que o par difira só no
+  modelo de programação; o =javafx-fxml= muda só a montagem da tela, e o
+  código dos /bindings/ é o mesmo do =javafx=.
+
+  Todos formam um único projeto Gradle, com raiz em =casos/desktop/=,
+  separado do Android; cada subpasta é um módulo, =:<caso>-<tecnologia>=.
+  O domínio é o mesmo do Android: o =dominio-kotlin/main/Dominio.kt= de
+  cada caso, compilado pela JVM e chamado do Java (=DominioKt.erroDoNome=,
+  =getProdutos()=).
+
+  #+begin_src sh
+  cd casos/desktop
+  ./gradlew test                            # as rotinas das seis implementações
+  ./gradlew :formulario-javafx-fxml:run     # abre uma janela
+  #+end_src
+
+  | Peça    | Versão | Por quê                                                  |
+  |---------+--------+----------------------------------------------------------|
+  | JavaFX  | 27     | a última estável; a plataforma Headless roda os testes sem janela |
+  | Plugin do OpenJFX | 0.1.0 | põe o JavaFX no /module path/ do =run=; obriga a desligar o cache de configuração do Gradle |
+  | Kotlin  | 2.4.20 | o do Android, só para compilar o domínio                  |
+  | JUnit   | 4.13.2 | o do Android, para reaproveitar a regra =DataFixa=        |
+
+  Cada módulo tem um =RoteiroTest.java= com as verificações do
+  =roteiro-de-teste.js= do caso, na mesma ordem e com os mesmos nomes, e
+  uma classe =Tela= com a mesma API nas três tecnologias, como no Android.
+  Não há capturas nem cenas: na pré-análise, a aparência só reproduz de
+  longe o =estilo.css=, fora da tela (=Estilo.java= no Swing, =estilo.css=
+  no JavaFX). Os campos não têm o texto de exemplo (=placeholder=) da web,
+  que o Swing não tem.
 
 * Capturas de tela
 

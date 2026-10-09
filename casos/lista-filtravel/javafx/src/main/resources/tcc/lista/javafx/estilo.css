@@ -1,0 +1,65 @@
+/* Aparência da Lista no JavaFX, a do estilo.css da web; fora da análise. */
+.root {
+  -fx-background-color: #2b2b2b;
+  -fx-font-size: 16px;
+}
+
+.catalogo {
+  -fx-padding: 16px;
+  -fx-spacing: 12px;
+  -fx-max-width: 448px;
+}
+
+.filtros {
+  -fx-spacing: 8px;
+}
+
+.rotulo {
+  -fx-spacing: 4px;
+}
+
+.label {
+  -fx-text-fill: #eeeeee;
+}
+
+.text-field,
+.combo-box {
+  -fx-background-color: #555555, #3a3a3a;
+  -fx-background-insets: 0, 1;
+  -fx-background-radius: 0;
+  -fx-text-fill: #eeeeee;
+  -fx-padding: 6px;
+  -fx-max-width: infinity;
+}
+
+.contagem,
+.vazio {
+  -fx-text-fill: #aaaaaa;
+}
+
+/* O texto da opção escolhida é uma célula de lista dentro do ComboBox. */
+.combo-box > .list-cell {
+  -fx-text-fill: #eeeeee;
+  -fx-background-color: transparent;
+  -fx-padding: 0;
+}
+
+.catalogo > .list-view {
+  -fx-background-color: #444444;
+  -fx-padding: 0;
+}
+
+.catalogo > .list-view .list-cell {
+  -fx-background-color: #333333;
+  -fx-background-insets: 0 0 1 0;
+  -fx-padding: 8px;
+}
+
+.categoria {
+  -fx-text-fill: #999999;
+  -fx-font-size: 14px;
+}
+
+.preco {
+  -fx-text-fill: #9fd88a;
+}

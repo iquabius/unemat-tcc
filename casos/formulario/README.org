@@ -61,3 +61,8 @@ compartilhado por =android-views= e =android-compose=.
   =./gradlew testDebugUnitTest= em =casos/android/=). O =DominioTest.kt=
   confere os casos-limite do porte do domínio (31/02, e-mail, ordem das
   datas).
+
+  No desktop, em pré-análise, as mesmas 19 verificações estão em
+  =RoteiroTest.java=, nos módulos =swing=, =javafx= e =javafx-fxml=, e rodam
+  com =./gradlew test= em =casos/desktop/=. Lá o domínio é o mesmo
+  =dominio-kotlin=, chamado do Java.

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- A estrutura da tela, como o index.html do jQuery; o comportamento fica no
+     controlador, FormularioDeReserva.java, e a aparência em estilo.css. -->
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="tcc.formulario.fxml.FormularioDeReserva"
+      styleClass="formulario">
+
+    <!-- Como o <label>: o texto e o campo que ele nomeia. O campo nasce
+         dentro do labelFor e entra no VBox pela referência. -->
+    <VBox styleClass="rotulo">
+        <Label text="Nome do passageiro">
+            <labelFor><TextField fx:id="nome"/></labelFor>
+        </Label>
+        <fx:reference source="nome"/>
+    </VBox>
+    <Label fx:id="mensagemNome" styleClass="erro"/>
+
+    <VBox styleClass="rotulo">
+        <Label text="E-mail">
+            <labelFor><TextField fx:id="email"/></labelFor>
+        </Label>
+        <fx:reference source="email"/>
+    </VBox>
+    <Label fx:id="mensagemEmail" styleClass="erro"/>
+
+    <!-- Como o <select>: a posição da opção é a do TipoDeVoo. -->
+    <VBox styleClass="rotulo">
+        <Label text="Tipo de voo">
+            <labelFor>
+                <ComboBox fx:id="tipo">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="Só ida"/>
+                            <String fx:value="Ida e volta"/>
+                        </FXCollections>
+                    </items>
+                </ComboBox>
+            </labelFor>
+        </Label>
+        <fx:reference source="tipo"/>
+    </VBox>
+
+    <VBox styleClass="rotulo">
+        <Label text="Data de ida">
+            <labelFor><TextField fx:id="ida"/></labelFor>
+        </Label>
+        <fx:reference source="ida"/>
+    </VBox>
+    <Label fx:id="mensagemIda" styleClass="erro"/>
+
+    <VBox styleClass="rotulo">
+        <Label text="Data de volta">
+            <labelFor><TextField fx:id="volta"/></labelFor>
+        </Label>
+        <fx:reference source="volta"/>
+    </VBox>
+    <Label fx:id="mensagemVolta" styleClass="erro"/>
+
+    <!-- Como o onSubmit: o clique chama o método reservar do controlador. -->
+    <Button fx:id="reservar" text="Reservar" onAction="#reservar"/>
+
+    <Label fx:id="confirmacao" styleClass="confirmacao"/>
+</VBox>

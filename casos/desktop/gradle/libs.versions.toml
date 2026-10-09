@@ -1,0 +1,14 @@
+# Versões do projeto desktop (Swing e JavaFX). O Kotlin só compila o domínio
+# do caso, o mesmo do Android, na versão do casos/android/.
+[versions]
+kotlin = "2.4.20"
+javafx = "27"
+javafxPlugin = "0.1.0"
+junit = "4.13.2"
+
+[libraries]
+junit = { module = "junit:junit", version.ref = "junit" }
+
+[plugins]
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+javafx = { id = "org.openjfx.javafxplugin", version.ref = "javafxPlugin" }

@@ -8,7 +8,8 @@ derivados e a tela. Serve à tarefa "Representar uma plataforma desktop"
 JavaFX (tcc-dwg), Windows Forms × WPF (tcc-74m) e Qt Widgets × QML
 (tcc-jhl). Os números de uso estão em
 `tmp/pesquisa-desktop-java/devlog.md` (coletados em 2026-10-08); a
-pré-análise de cada par entra aqui quando as implementações existirem.
+pré-análise de cada par entra aqui quando as implementações existirem
+(a de Swing × JavaFX, em 2026-10-09).
 
 Os termos seguem o `CONTEXT.md` e o ADR 0021, com as definições e as
 fontes em `docs/paradigma-modelo-e-notacao.md`: o que se compara são três
@@ -41,7 +42,9 @@ Leitura:
   tecnologia desse modelo.
 - A célula "granular" dos três pares é hipótese a conferir na
   pré-análise: o que separa as três tecnologias declarativas é quem
-  mantém as dependências (seção "O que comparar dentro do granular").
+  mantém as dependências (seção "O que comparar dentro do granular"). No
+  JavaFX, a pré-análise de 2026-10-09 sustenta o mecanismo granular, com
+  as dependências escritas à mão (seção "Swing × JavaFX").
 - Cada par compara o imperativo com *callbacks* e um declarativo na
   mesma linguagem e plataforma, o par controlado que a web não tem (tarefa
   "Decidir como a análise atribui as diferenças entre o imperativo e os
@@ -93,7 +96,8 @@ olhar (dependências ocultas, propensão a erros, viscosidade):
 - JavaFX: dependências explícitas, na API fluente ou listadas em
   `super.bind(...)` e `createXBinding` (tutorial da Oracle, Release 8;
   Kiss 2014, p. 28-29, vê nisso dependências visíveis, mas viscosidade e
-  difusão piores);
+  difusão piores); na implementação, a dependência esquecida compila e
+  passa na rotina (seção "Swing × JavaFX");
 - WPF: o caminho do *binding* vai numa *string* do XAML, resolvida por
   reflexão em tempo de execução, e a fonte notifica à mão pelo
   `INotifyPropertyChanged` (Microsoft, "Data binding overview" e "XAML
@@ -113,16 +117,140 @@ como "sibling" ou "cousin" seria inferência do TCC.
 | Tecnologia | Modelo de programação | Coordenação | Montagem da tela | Fontes |
 |---|---|---|---|---|
 | Swing | imperativo com *callbacks* | `addActionListener` e afins | código Java | tutorial "Writing Event Listeners" (Oracle) |
-| JavaFX | declarativo por atualização granular (hipótese) | *properties* e *bindings*, dependências explícitas | código Java ou FXML (a decidir) | tutorial "Using JavaFX Properties and Binding" (Oracle); Kiss (2014); Kruk et al. (2017, ICALEPCS) |
+| JavaFX | declarativo por atualização granular, com as dependências escritas à mão (pré-análise abaixo) | *properties* e *bindings*, dependências explícitas | código Java (`javafx`) e FXML (`javafx-fxml`) | tutorial "Using JavaFX Properties and Binding" (Oracle, Release 8); "Introduction to FXML" (OpenJFX); Kiss (2014); Kruk et al. (2017, ICALEPCS) |
 
 - Uso (2026-10-08): o Swing tem mais perguntas e aplicativos
   distribuídos; o JavaFX, mais dependentes e repositórios; o desktop Java
   é menor que o Android em todas as medidas indiretas.
-- Roda no Linux; o domínio pode vir do Kotlin do Android, pela JVM (a
-  conferir). Rotinas: AssertJ Swing, TestFX. Estilo fora da tela: CSS no
-  JavaFX; Look and Feel no Swing.
+- Implementação (2026-10-09): Formulário e Lista em três tecnologias,
+  `casos/<caso>/swing/`, `javafx/` e `javafx-fxml/`, num projeto Gradle
+  em `casos/desktop/` (instruções em `casos/README.org`). Decisões do
+  autor em 2026-10-09: as duas tarefas da replicação; rotinas sem
+  capturas; o JavaFX em código e em FXML; o domínio do Android, em Kotlin,
+  pela JVM. As rotinas (19 verificações no Formulário, 11 na Lista)
+  passam nas seis, no Linux, com o JavaFX 27 na plataforma Headless.
 - Cuidado: o "JavaFX" de Maier, Rompf e Odersky (2010) é o JavaFX
   Script, com `bind` na linguagem, não a API Java atual.
+
+### Pré-análise por modelo de programação (2026-10-09)
+
+Fontes lidas em 2026-10-09: Oracle, "Writing Event Listeners" (The Java
+Tutorials, escritos para o JDK 8), páginas "Introduction to Event
+Listeners" e "General Information about Writing Event Listeners";
+Oracle, "Using JavaFX Properties and Binding" (Release 8); OpenJFX,
+"Introduction to FXML" e javadoc de `Bindings` (JavaFX 25); Kiss (2014,
+p. 28-29 e 38-39), conferido no PDF. O que não vem delas está marcado
+como leitura nossa, a conferir pelo autor.
+
+**Evento → estado → tela e estado derivado (Formulário).**
+
+- Swing: cada *listener* chama `validar()`, que recalcula todos os erros
+  e escreve na tela (`setText`, `setVisible`, `setEnabled`), como o
+  `MainActivity` do Views e o jQuery. O tutorial registra os *listeners*
+  com `addXListener` e explica que interfaces com vários métodos obrigam a
+  implementar todos, salvo quando a API traz uma classe *adapter*. O
+  `DocumentListener`, que avisa a mudança do texto, tem três métodos e
+  nenhum *adapter* no JDK 25: a tela escreve uma classe anônima com três
+  corpos iguais (leitura nossa: difusão e viscosidade, sem equivalente no
+  `.on("input")` do jQuery nem no `doAfterTextChanged` do Android, que
+  vem de uma biblioteca).
+- JavaFX: não há `validar()`. Cada erro é um
+  `Bindings.createStringBinding(cálculo, dependências...)`, e a tela se
+  liga a eles (`textProperty().bind`, `visibleProperty().bind`,
+  `disableProperty().bind`); o construtor roda uma vez, como o componente
+  do Solid. O tutorial descreve a avaliação preguiçosa: a mudança só
+  invalida, e o valor se recalcula quando lido. O estado são as
+  propriedades dos próprios controles (`nome.textProperty()`), sem o par
+  `value={nome()}` e `onInput` do Solid (leitura nossa).
+- Dependências: Kiss (2014, p. 28) vê as dependências de um
+  `createXBinding` "listed explicitly", o que as torna visíveis, e (p. 28-29)
+  a repetição delas, já lidas dentro da função, piora a viscosidade: numa
+  mudança de requisito, a dependência nova "could be forgotten". A
+  implementação confirma: tirar `ida.textProperty()` da lista do
+  `erroOrdem` compila, e as 19 verificações da rotina passam, porque o
+  roteiro nunca muda a ida depois de escolher "Ida e volta"; o erro só
+  aparece ao mudar a ida com a volta já preenchida. Leitura nossa: é o
+  mesmo tipo de erro da lista de dependências do `useMemo` e do
+  `useEffect` no React, que o Solid e o Angular com *signals* não têm,
+  porque rastreiam sozinhos o que a função lê. O
+  JavaFX fica, assim, com o mecanismo do granular (só o *binding* que lê
+  a propriedade invalidada se recalcula) e a notação de dependências do
+  React.
+- Os *callbacks* ficam no JavaFX onde o evento entra no estado: o foco
+  (`focusedProperty().addListener`, que marca o campo tocado), o clique
+  (`setOnAction`) e a pseudoclasse `:invalido`, que não tem propriedade
+  para ligar e precisa de um *listener* para acompanhar o erro (leitura
+  nossa: o Solid liga `aria-invalid={...}` direto). Os dois primeiros têm
+  par no Solid (`onBlur`, `onSubmit`); o terceiro é lacuna da notação.
+
+**Lista derivada (Lista).**
+
+- Swing: `atualizarLista()` filtra e ordena com *streams* e troca o
+  conteúdo do `DefaultListModel` (`clear` e `addAll`), como o `.empty()`
+  e `.append()` do jQuery; os três *listeners* a chamam.
+- JavaFX: a lista visível são dois objetos, `FilteredList` e
+  `SortedList`, com `predicateProperty` e `comparatorProperty` ligados a
+  `createObjectBinding` sobre os controles; a contagem e o aviso de vazio
+  se ligam à lista. Não há função que refaça a lista. Kiss (2014, p. 38)
+  descreve as coleções observáveis e filtradas como "a small change
+  propagation", e (p. 39) a dependência criada num *callback* como não
+  expressa, só estabelecida no corpo dele; aqui nenhum *callback* liga as
+  listas. Leitura nossa: o derivado que o Solid escreve num `createMemo`
+  com `filter` e `sort` se divide em dois objetos, cada um com a sua lista
+  de dependências.
+- Montagem dos itens: igual nas três. A `JList` desenha cada item com um
+  *renderer* reaproveitado, e a `ListView`, com células de uma fábrica
+  que as reaproveita (`updateItem`), no papel do *adapter* do Views. O
+  FXML não tem como repetir um trecho por item, e a célula do
+  `javafx-fxml` também é código Java (leitura nossa).
+
+**Montagem da tela: código Java × FXML.**
+
+- `swing` e `javafx` montam a tela com as mesmas chamadas e na mesma
+  ordem (criar o controle, `setLabelFor`, adicionar ao painel vertical): o
+  par isola o modelo de programação, o contraste controlado entre o
+  imperativo e um declarativo que a web não tem (tarefa "Decidir como a
+  análise atribui as diferenças entre o imperativo e os declarativos, sem
+  par controlado na web", tcc-4ie).
+- `javafx` e `javafx-fxml` têm os mesmos *bindings*, com os mesmos nomes,
+  e o `diff` entre eles mostra só a montagem: os campos com `@FXML`, o
+  `initialize` no lugar do construtor e o tratador ligado por nome
+  (`onAction="#reservar"`). É um segundo contraste, o mesmo modelo de
+  programação com duas montagens, como Solid × Angular com *signals*.
+- O FXML é, pela documentação, "a scriptable, XML-based markup language
+  for constructing Java object graphs". Na implementação, o rótulo que
+  nomeia o campo exige o campo declarado dentro do `labelFor` e trazido
+  ao painel com `<fx:reference>`, porque a referência por `$nome` não
+  enxerga um elemento declarado depois (leitura nossa); o nome do
+  tratador e os `fx:id` ligam o XML ao controlador por *strings*,
+  conferidas só ao carregar (leitura nossa: dependência oculta). Kiss
+  (2014, p. 38, nota 19) não usou FXML porque pioraria o nível de
+  abstração e não melhoraria a difusão, pela verbosidade do XML.
+
+**Linhas da tela.** Contagem preliminar, linhas não vazias e sem
+comentários, com os *imports*, do arquivo da tela (sem domínio, estilo
+nem `Main`); o script do ADR 0012 ainda não existe:
+
+| Tarefa | Swing | JavaFX (código) | JavaFX (FXML: Java + XML) | Views (Kotlin + layout) | Compose |
+|---|---|---|---|---|---|
+| Formulário | 127 | 117 | 100 + 57 | 79 + 83 | 121 |
+| Lista | 123 | 104 | 84 + 33 | 77 + 61 | 65 |
+
+**O que o par acrescenta.**
+
+- O par mais controlado do desenho: Swing e JavaFX em código diferem só
+  na coordenação, na mesma linguagem, plataforma e montagem da tela.
+- Uma tecnologia do declarativo por atualização granular fora da web,
+  com uma diferença que a web não mostra: a dependência escrita à mão,
+  visível e esquecível, contra o rastreamento automático do Solid e do
+  Angular com *signals*.
+- Um segundo par de montagens dentro de um modelo de programação (código
+  Java × FXML), com os *bindings* idênticos.
+- Custos vistos: o domínio Kotlin chamado do Java aparece na tela como
+  `DominioKt` e `getProdutos()`; o plugin do OpenJFX (0.1.0, de 2023)
+  obriga a desligar o cache de configuração do Gradle 9; as capturas
+  idênticas do ADR 0008 não foram tentadas; o Swing não tem *placeholder*
+  nos campos.
 
 ## Windows Forms × WPF (C#)
 

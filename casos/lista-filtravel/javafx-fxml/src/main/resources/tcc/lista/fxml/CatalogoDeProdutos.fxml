@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- A estrutura da tela, como o index.html do jQuery; o comportamento fica no
+     controlador, CatalogoDeProdutos.java, e a aparência em estilo.css. As
+     opções e os itens vêm do domínio, e o controlador os preenche. -->
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="tcc.lista.fxml.CatalogoDeProdutos"
+      styleClass="catalogo">
+
+    <VBox styleClass="filtros">
+        <!-- Como o <label>: o texto e o controle que ele nomeia. O controle
+             nasce dentro do labelFor e entra no VBox pela referência. -->
+        <VBox styleClass="rotulo">
+            <Label text="Buscar">
+                <labelFor><TextField fx:id="busca"/></labelFor>
+            </Label>
+            <fx:reference source="busca"/>
+        </VBox>
+        <VBox styleClass="rotulo">
+            <Label text="Categoria">
+                <labelFor><ComboBox fx:id="categoria"/></labelFor>
+            </Label>
+            <fx:reference source="categoria"/>
+        </VBox>
+        <VBox styleClass="rotulo">
+            <Label text="Ordenar por">
+                <labelFor><ComboBox fx:id="ordem"/></labelFor>
+            </Label>
+            <fx:reference source="ordem"/>
+        </VBox>
+    </VBox>
+
+    <Label fx:id="contagem" styleClass="contagem"/>
+    <ListView fx:id="lista" VBox.vgrow="ALWAYS"/>
+    <Label fx:id="vazio" styleClass="vazio" text="Nenhum produto encontrado."/>
+</VBox>

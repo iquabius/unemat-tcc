@@ -31,7 +31,7 @@ _minted*
 node_modules/
 dist/
 .angular/
-# Gradle (projeto Android dos casos, em casos/android/)
+# Gradle (projetos Android e desktop dos casos, em casos/android/ e casos/desktop/)
 .gradle/
 .kotlin/
 build/

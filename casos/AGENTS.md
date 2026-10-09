@@ -118,6 +118,42 @@ Gradle em `casos/android/` e as dependências (`package.json`,
 - Para rodar num emulador ou abrir no Android Studio, use a pasta
   `casos/android/`.
 
+## Desktop (Java, em pré-análise)
+
+- Formulário e Lista em `casos/<caso>/swing/`, `javafx/` (tela montada em
+  código Java) e `javafx-fxml/` (tela em FXML, comportamento no
+  controlador), para a pré-análise do par Swing × JavaFX
+  (`docs/plataformas.md`). Fora da análise até a tarefa "Representar uma
+  plataforma desktop" decidir.
+- Um projeto Gradle em `casos/desktop/`, separado do Android; o
+  `settings.gradle.kts` inclui sozinho as pastas `swing`, `javafx` e
+  `javafx-fxml` com `build.gradle.kts`, com o nome `:<caso>-<tecnologia>`.
+  O cache de configuração fica desligado, porque o plugin do OpenJFX não o
+  suporta.
+- O domínio é o `dominio-kotlin/main/Dominio.kt` do caso, o mesmo do
+  Android, chamado do Java com `import static tcc.<caso>.DominioKt.*`; não
+  há porte em Java.
+- O `javafx` monta a tela com as mesmas chamadas e na mesma ordem do
+  `swing` (controle, rótulo com `setLabelFor`, painel vertical), e o
+  `javafx-fxml` tem os mesmos *bindings* do `javafx`, com os mesmos nomes:
+  o `diff` entre os dois mostra só a montagem da tela. Mantenha assim.
+- Aparência fora da tela: `Estilo.java` no Swing, que percorre os
+  componentes e escolhe pela propriedade `"classe"` (o `class` do HTML) e
+  repinta o campo quando a tela muda `"invalido"` (o `aria-invalid`);
+  `estilo.css` no JavaFX, com classes de estilo e a pseudoclasse
+  `:invalido`. Sem capturas por enquanto.
+- `RoteiroTest.java` com as verificações do `roteiro-de-teste.js`, na
+  mesma ordem e com os mesmos nomes, e uma `Tela` de teste por tecnologia,
+  com a mesma API. A `Tela` acha os campos pelo rótulo (`getLabelFor`) e os
+  textos pela classe, sem marcas só para teste. No Swing, `sair` dispara o
+  `focusLost` nos *listeners*, como o roteiro web dispara o `blur`, porque
+  os testes rodam sem tela; no JavaFX, o foco passa de fato de um campo a
+  outro, na plataforma Headless.
+- Confira que a rotina pega erros: introduza um defeito numa regra e veja
+  o `RoteiroTest` falhar. Uma dependência esquecida na lista de um
+  `createXBinding` passa na rotina do Formulário (achado de 2026-10-09,
+  `docs/plataformas.md`).
+
 ## Ambiente
 
 - Node e JDK pelo asdf, nas versões do `.tool-versions` da raiz. Se `node`

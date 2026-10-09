@@ -43,3 +43,8 @@ recalculá-la: é isso que se compara.
   de cada variante. O =DominioTest.kt= compara o porte com respostas do
   próprio =dominio.ts=, rodado no Node: as três ordens, os 30 preços, as
   categorias e as buscas.
+
+  No desktop, em pré-análise, as mesmas 11 verificações estão em
+  =RoteiroTest.java=, nos módulos =swing=, =javafx= e =javafx-fxml=, e rodam
+  com =./gradlew test= em =casos/desktop/=. Lá o domínio é o mesmo
+  =dominio-kotlin=, chamado do Java.
