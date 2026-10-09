@@ -75,7 +75,8 @@ coluna divergem numa DC, Solid e Angular ou Web Component e jQuery
 (`createElement` e `innerHTML` contra seletores), a célula da
 tabela-síntese registra a divergência (ADR 0017). O imperativo com
 *callbacks* entra contra os dois declarativos sem par controlado
-(`docs/paradigma-modelo-e-notacao.md`, seção 3).
+(`docs/paradigma-modelo-e-notacao.md`, seção 3). O quadro do que o delineamento
+controla está em `docs/delineamento.md`.
 
 ## Android
 
@@ -251,7 +252,7 @@ nem `Main`); o script do ADR 0012 ainda não existe:
 
 **O que o par acrescenta** (leitura nossa, sobre as fontes acima).
 
-- O par mais controlado do desenho: Swing e JavaFX em código diferem só
+- O par mais controlado do delineamento: Swing e JavaFX em código diferem só
   na coordenação, na mesma linguagem, plataforma e montagem da tela.
 - Uma tecnologia do declarativo por atualização granular fora da web,
   com uma diferença que a web não mostra: a dependência escrita à mão,

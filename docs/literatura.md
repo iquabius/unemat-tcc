@@ -668,7 +668,7 @@ Cópias locais em `tmp/fontes/`, fora do git.
 |---|---|---|
 | SIM, S. E.; EASTERBROOK, S.; HOLT, R. C. *Using benchmarking to advance research: a challenge to software engineering*. ICSE 2003, p. 74-83. DOI 10.1109/icse.2003.1201189 | *Benchmark* é "um teste ou conjunto de testes usado para comparar o desempenho de ferramentas ou técnicas alternativas", com três componentes: comparação motivadora, amostra de tarefas ("representativa" das tarefas da prática, como substitutas) e medidas de desempenho, que "podem ser quantitativas ou qualitativas", feitas "por um computador ou por uma pessoa". Um conjunto de testes sem medida de desempenho é um proto-*benchmark*, às vezes chamado de "estudos de caso ou exemplares" | §3.2; a cópia do autor (cs.toronto.edu) e a do ResearchGate são o mesmo arquivo, sem a paginação dos anais (p. 74-83), que continua a conferir |
 | idem | **Ressalva a declarar nas limitações:** a teoria trata de *benchmarks* criados e usados por uma comunidade de pesquisa; os "criados por um único indivíduo ou laboratório e pouco usados" tendem a não ter o mesmo impacto. Os cinco casos do TCC são de um só autor; três partem do 7GUIs, que tem implementações de terceiros, e dois não | §3.1 |
-| STOL, K.-J.; FITZGERALD, B. *The ABC of software engineering research*. ACM TOSEM, v. 27, n. 3, art. 11, 2018. DOI 10.1145/3241743 | Estudos de *benchmarking* que comparam técnicas por critérios predefinidos pertencem à estratégia de experimento de laboratório, porque o pesquisador monta um ambiente artificial (*contrived*); limitações inerentes: contexto abstrato ou irreal e validade interna à custa da externa. Serve para enquadrar o desenho e as limitações, não como rótulo: os autores pensam em dados quantitativos | p. 11:15 e Tabela 5, p. 11:13-14 (versão publicada; na aceita, p. 1:13 e 1:15-16) |
+| STOL, K.-J.; FITZGERALD, B. *The ABC of software engineering research*. ACM TOSEM, v. 27, n. 3, art. 11, 2018. DOI 10.1145/3241743 | Estudos de *benchmarking* que comparam técnicas por critérios predefinidos pertencem à estratégia de experimento de laboratório, porque o pesquisador monta um ambiente artificial (*contrived*); limitações inerentes: contexto abstrato ou irreal e validade interna à custa da externa. Serve para enquadrar o delineamento e as limitações, não como rótulo: os autores pensam em dados quantitativos | p. 11:15 e Tabela 5, p. 11:13-14 (versão publicada; na aceita, p. 1:13 e 1:15-16) |
 | RUNESON, P.; HÖST, M. *Guidelines for conducting and reporting case study research in software engineering*. Empirical Software Engineering, v. 14, n. 2, 2009. DOI 10.1007/s10664-008-9102-8 | As definições de estudo de caso que reúnem (Robson, Yin, Benbasat et al.) concordam em método empírico sobre fenômeno contemporâneo no seu contexto; estudos com "*toy programs*" ficam excluídos "por falta de contexto real" | p. 134 (§2.1) e p. 139 |
 | KITCHENHAM, B. A. *Evaluating software engineering methods and tool, part 1: the evaluation context and evaluation methods*. ACM SIGSOFT Software Engineering Notes, v. 21, n. 1, p. 11-15, 1996. DOI 10.1145/381790.381795 | Na DESMET, toda avaliação é comparativa (p. 11). *Benchmarking* é rodar testes padronizados com ferramentas alternativas e medir o desempenho relativo; a escolha dos testes é subjetiva, as medidas costumam ser objetivas, e é mais útil quando a ferramenta "não exige perícia humana" (p. 14). Por esse critério, o TCC não é *benchmarking*. A avaliação qualitativa ou subjetiva (p. 12), característica por característica, é a *feature analysis*, que "pode ser feita por uma única pessoa" (p. 14); nessa forma é a triagem (*qualitative screening*): um só indivíduo escolhe as características e a escala e avalia, em geral com base na literatura sobre as ferramentas, e não no uso delas (p. 15). O TCC fica entre a triagem e o estudo de caso qualitativo, feito após o uso num projeto real (p. 15): o avaliador usa as notações, mas em casos pequenos | p. 11, 12, 14 e 15; partes 2 e 3 (v. 21, n. 2 e n. 4) tratam da escolha do método |
 | TICHY, W. F. *Where's the science in software engineering?* Ubiquity, mar. 2014. DOI 10.1145/2590528.2590529 | *Benchmarks* "consistem de um ou mais problemas de amostra com uma métrica de sucesso" e podem ser testados "sem exigir participantes humanos" (p. 5): sentido objetivo, como a DESMET | p. 5 |
@@ -676,7 +676,7 @@ Cópias locais em `tmp/fontes/`, fora do git.
 | CHARPENTIER, A. et al. *Raters' reliability in clone benchmarks construction*. Empirical Software Engineering, v. 22, n. 1, p. 235-258, 2017. DOI 10.1007/s10664-015-9419-z | *Benchmark* construído com julgamento humano: avaliadores sem conhecimento do código raramente concordam entre si e com o especialista, e seus juízos nem sempre se repetem (resumo). Sustenta a limitação do juízo de uma pessoa, não o rótulo | resumo (manuscrito do HAL, sem a paginação publicada) |
 | DE SOUZA, C. S. et al. *Can inspection methods generate valid new knowledge in HCI?* International Journal of Human-Computer Studies, v. 68, p. 22-40, 2010. DOI 10.1016/j.ijhcs.2009.08.006 | Métodos de inspeção podem gerar conhecimento científico válido, sob condições (p. 22); a inspeção pode ser feita por um inspetor ou por um grupo, e a validação é por triangulação (p. 26); resultados qualitativos não se generalizam, mas a triangulação os torna amplamente aplicáveis (p. 38). Sustenta a triangulação como mitigação do avaliador único (tcc-y4q, item 2) | p. 22, 26 e 38 |
 | BLACKWELL, A.; GREEN, T. (2003), `blackwell2003` | O arcabouço das DCs "*is not an analytic method*", e sim um conjunto de "*discussion tools*"; oferece avaliação *broad-brush* | p. 106 (versão publicada, conferida em 2026-10-04) |
-| GREEN, T. R. G.; PETRE, M. (1996), JVLC 7, p. 131-174. DOI 10.1006/jvlc.1996.0009 | As DCs são uma "*broad-brush evaluation technique*"; precedente do desenho (seção 10.2) | p. 3 da pré-publicação; conferir na publicada |
+| GREEN, T. R. G.; PETRE, M. (1996), JVLC 7, p. 131-174. DOI 10.1006/jvlc.1996.0009 | As DCs são uma "*broad-brush evaluation technique*"; precedente do delineamento (seção 10.2) | p. 3 da pré-publicação; conferir na publicada |
 | KISS, E. *Comparison of object-oriented and functional programming for GUI development*. Dissertação (mestrado), Leibniz Universität Hannover, 2014 (`kiss2014`) | Chama o método de "abordagem analítica" pelas DCs, em oposição a experimentos, "caros" e de resultado "estreito" (p. 8); compara implementações pela usabilidade do código, e não por tempo e memória, como num *benchmark* tradicional (p. 11) | p. 8 e 11; o PDF saiu do ar e está no Wayback Machine (captura de 2018-05-06) |
 
 ### 9.1 O 7GUIs e os casos
@@ -715,7 +715,7 @@ Org.
 
 Lista para a seção de trabalhos relacionados ou para a fundamentação, que
 ainda não existe no texto (a busca da segunda rodada está na seção 5.1; a
-tarefa de escrita aponta para esta seção). Nenhum trabalho encontrado repete o desenho do TCC (mesmas
+tarefa de escrita aponta para esta seção). Nenhum trabalho encontrado repete o delineamento do TCC (mesmas
 tarefas de interface, várias tecnologias, avaliação pelas DCs); os mais
 próximos estão na primeira tabela. "Lido" diz quem leu e quanto: TC é texto
 completo, R é só o resumo; "subagente" quer dizer que o autor ainda não
@@ -732,7 +732,7 @@ conferiu no PDF.
 | MAIA, R. D. et al. *A qualitative human-centric evaluation of flexibility in middleware implementations*. Empirical Software Engineering, v. 17, p. 166-199, 2011. DOI 10.1007/s10664-011-9167-7 | PUC-Rio; a conferir se compara implementações e com que rótulo | ? | não lido (pago) |
 | Citados por Cavalcante (2025) como comparações anteriores: Almeida et al. (2022); Ferreira e Zuchi (2018) | a localizar | ? | não lidos |
 
-### 10.2 Internacionais mais próximos do desenho
+### 10.2 Internacionais mais próximos do delineamento
 
 | Trabalho | O que compara e como | Lido |
 |---|---|---|
@@ -749,7 +749,7 @@ Relatórios completos das buscas, com os links bloqueados: `tmp/pesquisa-*.md`
 
 ### 10.3 Da segunda rodada (2026-10-02)
 
-Nenhum repete o desenho do TCC. "R" é o resumo, relido no OpenAlex ou no
+Nenhum repete o delineamento do TCC. "R" é o resumo, relido no OpenAlex ou no
 Crossref; "TC", o texto completo, lido em 2026-10-02 nas cópias de
 `tmp/fontes/`.
 
@@ -988,21 +988,21 @@ mais 1505.
 | "This study investigates the usability of two prominent JavaScript RP libraries, RxJS and Bacon.js" | p. 1506 (resumo) | conferido | trabalhos relacionados; lacuna |
 | "First, objective structural metrics were applied to assess the libraries' design. Then, a user-centered study was performed involving programming tasks, a post-task questionnaire based on the Cognitive Dimensions of Notation (CDN) framework, and follow-up interviews" | p. 1506 (resumo) | conferido | método: DCs por questionário, contra a análise pelo autor |
 | "Both libraries exhibited moderate usability"; aprendizado, tratamento de erros e documentação como problemas | p. 1506 (resumo) | conferido | resultados |
-| RQ1 a RQ4: "To what extent are popular RP APIs usable?", aprendizado, programas sem erro, reúso | p. 1507 | conferido | desenho |
+| RQ1 a RQ4: "To what extent are popular RP APIs usable?", aprendizado, programas sem erro, reúso | p. 1507 | conferido | delineamento |
 | "The first study, to the best of our knowledge, to directly comprehend the usability offered by RP APIs" | p. 1507 | conferido | originalidade: o TCC não disputa essa primazia |
 | PR "as an alternative to callbacks and the well-known Observer pattern" | p. 1507 | conferido | só contexto; o artigo não compara com *callbacks* |
 | "we focus on Bacon.js and RxJS in the present work" | p. 1510 | conferido | lacuna (o mesmo que Lima, p. 71) |
-| Amostra: "students who were taking the course on introduction to distributed applications", em três semestres, "17, 8, and 27 students enrolled" | p. 1512 | conferido | desenho |
+| Amostra: "students who were taking the course on introduction to distributed applications", em três semestres, "17, 8, and 27 students enrolled" | p. 1512 | conferido | delineamento |
 | Questionário de DCs "in which we adapted to our needs": estrutura de López-Fernández et al., que partiu de Piccioni et al.; mapeado às dimensões de Blackwell e Green; "containing 24 assertions" | p. 1512-1513 | conferido | método: cadeia do questionário |
 | Cinco dimensões agrupadas: "understandability, abstraction, expressiveness, reusability, and learnability" | p. 1513 | conferido | não são as DCs originais; o TCC usa as originais |
 | "five tasks [...] all revolving HTTP requests" | p. 1513 | conferido | lacuna (o mesmo que Lima, p. 80) |
-| 18 entregaram as tarefas ("P[1-18]") | p. 1514 | conferido | desenho |
+| 18 entregaram as tarefas ("P[1-18]") | p. 1514 | conferido | delineamento |
 | Conclusão das tarefas: "more than 60% on average"; RxJS cerca de 50%, Bacon.js 80% | p. 1516 | conferido | resultados |
 | "12 participants, who did the tasks, made themselves available to answer the questionnaire", quatro com Bacon.js e oito com RxJS | p. 1519 | conferido | o 12 da tese é o do questionário |
-| Entrevistas: "From the eight, six accepted the invitation" | p. 1520 | conferido | desenho |
+| Entrevistas: "From the eight, six accepted the invitation" | p. 1520 | conferido | delineamento |
 | A dimensão mais baixa nas duas: "expressiveness" | p. 1520 | conferido | resultados |
 | "Documentation was the category most cited by the participants" | p. 1521 | conferido | resultados |
-| Um participante "has recently worked with Vue.js, a front-end framework that includes reactive ideas" | p. 1524 | conferido | única menção a *framework* de UI, fora do desenho |
+| Um participante "has recently worked with Vue.js, a front-end framework that includes reactive ideas" | p. 1524 | conferido | única menção a *framework* de UI, fora do delineamento |
 | Métricas dizem usabilidade excelente, mas isso "did not reflect in an excellent level of usability from the users' point of view, but a moderate one"; média 3,07 | p. 1527 | conferido | métricas × usuários |
 | Na documentação do RxJS, "Many scenarios seemed to focus in UI", o que confundiu um usuário sobre o que é reativo | p. 1529 | conferido | curiosidade: PR associada a UI |
 | Ameaça interna: "chance of bias in the participants' selection given the closeness of many of them with the second author" | p. 1531 | conferido | limitações |
@@ -1041,7 +1041,7 @@ ZAMPETTI, F.; ZID, C.; ANTONIOL, G.; DI PENTA, M. The downside of
 functional constructs: a quantitative and qualitative analysis of their
 fix-inducing effects. *Empirical Software Engineering*, v. 30, art. 9,
 2025 (online em 2024-10-22). DOI 10.1007/s10664-024-10568-z. Lidos em
-2026-10-03 o resumo, as RQs, o desenho, os resultados, as ameaças e as
+2026-10-03 o resumo, as RQs, o delineamento, os resultados, as ameaças e as
 implicações, na versão do editor (43 p., "Page N of 43" igual à página do
 PDF). Só Python; JavaScript e TypeScript só aparecem numa tabela de
 trabalhos relacionados (p. 35). Mede commits que induzem correção, não
@@ -1050,7 +1050,7 @@ compreensão.
 | Trecho | Onde | Leitura | Uso |
 |---|---|---|---|
 | Se "lambdas, comprehensions, and map/reduce/filter functions, have higher chances to induce fixes than other changes" | p. 1 (resumo) | conferido | contraponto às vantagens da PF |
-| "200 open-source Python projects accounting for ≃ 630k commits"; "633,803 commits" | p. 1, 3 | conferido | desenho |
+| "200 open-source Python projects accounting for ≃ 630k commits"; "633,803 commits" | p. 1, 3 | conferido | delineamento |
 | Correções achadas por "a lightweight version of the SZZ algorithm", pela mensagem do commit, o que pega "any type of fixes" | p. 8, 31 | conferido | limite da medida |
 | Mudanças em construções funcionais: OR 2,23 por *churn*, 1,15 por linha (Tabela 4); 1,80 controlado pelo tamanho; "only e0.14 = 1.15 times" controlado também pelo autor | p. 13-14 | conferido | o efeito encolhe com os controles |
 | Introduzir uma construção nova: "3.16 times the odds" | p. 16 | conferido | resultados |

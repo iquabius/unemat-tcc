@@ -73,7 +73,7 @@ entre dois modelos de programação só conta quando aparece no que se
 escreve (Green e Petre 1996, p. 150, critério definido para as operações
 mentais difíceis e estendido pelo TCC a todas as DCs).
 
-Com isso, o desenho **se afasta da forma usual** das comparações pelas
+Com isso, o delineamento **se afasta da forma usual** das comparações pelas
 DCs. Nos precedentes, cada coluna é um artefato que se abre e se lê:
 LabVIEW e Prograph (Green e Petre 1996, p. 139), JavaFX e ScalaFX, o
 *system* de cada um (Kiss 2014, p. 12, nota 2), XAML e C# Forms (Mernik
@@ -122,7 +122,9 @@ derivado (ADR 0021). Os pares de *desktop* candidatos estão em
 
 Os pares controlam a comparação entre os dois modelos de programação
 declarativos; o imperativo com *callbacks* entra contra os dois sem par
-controlado na web, e Views × Compose é o par mais próximo no Android.
+controlado na web, e Views × Compose é o par mais próximo no Android. O quadro
+do que o delineamento controla, isola e deixa sem controle está em
+`docs/delineamento.md`.
 
 O exemplo que separa React e Solid, com o mesmo JSX: no React,
 `const dobro = n * 2` se recalcula porque o componente reexecuta; no
@@ -511,7 +513,7 @@ Mernik et al. 2009 e Hudak 1996, página da cópia.
 | Green e Blackwell 1998 (tutorial) | "the notation is the language itself" | p. 8 | letra das DCs |
 | Green e Blackwell 1998 | a linguagem visual de fluxo de dados "exposes the data dependencies as the central feature of the notation, a different paradigm that accepts an entirely different set of trade-off positions from say, a C version" | p. 20 | paradigma visto na notação |
 | Green e Blackwell 1998 | a abstração "changes the notation", quase sempre "by expansion – a new term is added" | p. 24 | base de "notação" (ADR 0021) |
-| Green e Petre 1996 (`green1996d`) | "Designers of VPLs obviously need to choose a computational model and some type of visual 'language' [...] in which to represent that model. The cognitive dimensions framework has little to say about these high-level choices"; Prograph e LabVIEW, mesmo modelo e mesma representação, com "surface differences that greatly affect their assessment" | p. 139 | modelo × notação; precedente do desenho |
+| Green e Petre 1996 (`green1996d`) | "Designers of VPLs obviously need to choose a computational model and some type of visual 'language' [...] in which to represent that model. The cognitive dimensions framework has little to say about these high-level choices"; Prograph e LabVIEW, mesmo modelo e mesma representação, com "surface differences that greatly affect their assessment" | p. 139 | modelo × notação; precedente do delineamento |
 | Green e Petre 1996 | o mesmo modelo como "the dataflow paradigm" | p. 149 | modelo e paradigma como sinônimos |
 
 ### 9.3 Como as fontes de interface nomeiam as três formas

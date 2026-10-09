@@ -96,7 +96,7 @@ reactivity*, termo da documentação do Solid (`solidjs2026`), que nenhuma
 fonte revisada por pares usa em português, e põe "reativo" num rótulo
 próprio do trabalho; pelo mesmo motivo, "reativa granular com *signals*"
 e "declarativa por reatividade granular".
-Custo: o desenho se afasta da forma usual das DCs, porque cada coluna é
+Custo: o delineamento se afasta da forma usual das DCs, porque cada coluna é
 uma categoria que agrupa tecnologias, e não um artefato que se lê; a
 conclusão sobre um modelo de programação generaliza a partir de uma ou
 duas tecnologias (só o React no declarativo por re-renderização na web),

@@ -56,6 +56,13 @@ _Avoid_: caso e estudo de caso (só no sentido metodológico de Yin, que o
 trabalho não adota); exemplo; cenário; tarefa sozinha para o item do
 Beads (tarefa do bd)
 
+**Delineamento**:
+O planejamento da pesquisa, com as formas de controle das variáveis
+(Prodanov e Freitas, 2013): o que fica fixo, o que os pares de tecnologias
+isolam e o que fica sem controle (`docs/delineamento.md`).
+_Avoid_: desenho (confunde-se com o desenho da tela); projeto (o projeto de
+pesquisa é o documento de 2017)
+
 **Problema de coordenação**:
 O que uma tarefa exige do modelo de programação: evento → estado → tela, estado derivado,
 assincronia, lista derivada (com a montagem dos itens na tela), estado
