@@ -60,6 +60,13 @@ class Citacoes(unittest.TestCase):
         self.assertEqual(list(cf.chaves(texto)),
                          list("abcdefghij"))
 
+    def test_forma_do_org_ref_3_com_pagina_de_cada_chave(self):
+        texto = ("[[cites:&disch2025 p. 93;&oney2012 p. 229]], como no "
+                 "jQuery cite:openjs2026; [[cite:&a;&b]] e [[cite:c,d]]")
+        self.assertEqual(list(cf.chaves(texto)),
+                         ["disch2025", "oney2012", "openjs2026", "a", "b",
+                          "c", "d"])
+
     def test_nao_confunde_outros_links(self):
         texto = "ref:chap:results, [[gls:pr]], excite:x, file:a.org::cite"
         self.assertEqual(list(cf.chaves(texto)), [])

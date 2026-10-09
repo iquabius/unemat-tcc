@@ -21,7 +21,8 @@ maiúsculas e com qualquer espaço ou quebra de linha entre as palavras, na
 primeira ocorrência. Parágrafo é o trecho entre linhas em branco, sem os
 títulos, as linhas #+ e os comentários; conta-se de 1, como o §N da matriz.
 Valem as citações do org-ref (cite:, textcite:, [[cite:chave][p. N]],
-várias chaves separadas por vírgula ou ponto e vírgula), fora de
+várias chaves separadas por vírgula ou ponto e vírgula, e a forma do
+org-ref 3 com a página de cada chave, [[cites:&a p. N;&b p. M]]), fora de
 comentários.
 
 Com --desde REV, a citação sem entrada só se aponta nos parágrafos novos ou
@@ -37,8 +38,12 @@ import subprocess
 import sys
 from pathlib import Path
 
+# A primeira alternativa é a forma do org-ref 3 com texto depois da chave
+# ([[cites:&a p. 93;&b p. 229]]), que a segunda cortaria no primeiro espaço:
+# as chaves são as palavras com &.
 CITACAO = re.compile(
-    r"(?<![\w-])(?:(?:[Tt]ext|[Pp]aren|[Aa]uto|[Ff]oot|[Ss]mart|[Ff]ull|no)?"
+    r"\[\[[A-Za-z]*[Cc]ite[a-z]*\*?:([^]]*&[^]]*)\]\]"
+    r"|(?<![\w-])(?:(?:[Tt]ext|[Pp]aren|[Aa]uto|[Ff]oot|[Ss]mart|[Ff]ull|no)?"
     r"[Cc]ite[a-z]*)\*?:(&?[\w-]+(?:[,;]&?[\w-]+)*)")
 TITULO_ORG = re.compile(r"\*+\s")
 COMENTARIO = re.compile(r"\s*#(\s|$)")
@@ -61,7 +66,10 @@ def normalizar(texto):
 
 def chaves(texto):
     for m in CITACAO.finditer(texto):
-        for chave in re.split(r"[,;]", m.group(1)):
+        if m.group(1):
+            yield from re.findall(r"&([\w-]+)", m.group(1))
+            continue
+        for chave in re.split(r"[,;]", m.group(2)):
             yield chave.lstrip("&")
 
 
