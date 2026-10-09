@@ -90,8 +90,9 @@ Custos que o texto precisa declarar:
   tem Solid e Angular com *signals*, e o imperativo com *callbacks* tem
   Web Component e jQuery; o Android acrescenta Views e Compose a dois dos
   três;
-- **divergência dentro da coluna**: quando Solid e Angular divergem numa
-  DC, a célula registra a divergência (ADR 0017);
+- **divergência dentro da coluna**: quando as duas tecnologias de uma
+  coluna divergem numa DC, Solid e Angular ou Web Component e jQuery, a
+  célula registra a divergência (ADR 0017);
 - **escolha de alto nível**: as DCs "have little to say about these
   high-level choices; its relevance starts as the details are worked out"
   (Green e Petre 1996, p. 139). O TCC avalia a escolha do modelo de

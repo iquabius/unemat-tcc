@@ -100,7 +100,8 @@ Custo: o desenho se afasta da forma usual das DCs, porque cada coluna é
 uma categoria que agrupa tecnologias, e não um artefato que se lê; a
 conclusão sobre um modelo de programação generaliza a partir de uma ou
 duas tecnologias (só o React no declarativo por re-renderização na web),
-e a célula registra quando Solid e Angular divergem (ADR 0017); as DCs
+e a célula registra quando as duas tecnologias da coluna divergem,
+Solid e Angular ou Web Component e jQuery (ADR 0017); as DCs
 "have little to say about these high-level choices" (Green e Petre 1996,
 p. 139), e o trabalho compara os modelos de programação pelos detalhes
 com que as tecnologias os escrevem, o que o método declara uma vez, com
