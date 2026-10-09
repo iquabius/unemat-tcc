@@ -155,6 +155,11 @@ Gradle em `casos/android/` e as dependências (`package.json`,
   passa de fato do campo ao tipo de voo, que não é campo de texto, e a
   janela abre com o foco na raiz, como o navegador abre sem campo focado:
   assim só fica tocado o campo de que a rotina sai.
+- Às vezes (2 de 8 execuções em 2026-10-09), o `./gradlew test` imprime
+  um `RejectedExecutionException` do `QuantumRenderer` do JavaFX: a JVM do
+  teste encerra com uma pintura pendente, depois de o teste passar. Não
+  muda o resultado; confira a saída do Gradle e os relatórios em
+  `build/test-results/`, não a presença de exceção no console.
 - Confira que a rotina pega erros: introduza um defeito numa regra e veja
   o `RoteiroTest` falhar. Uma dependência esquecida na lista de um
   `createXBinding` passa na rotina do Formulário (achado de 2026-10-09,
