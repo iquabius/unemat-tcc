@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- A estrutura da tela, como o index.html do jQuery e o layout XML do Views.
+     A aparência fica em estilo.qss, como o estilo.css; só o espaçamento
+     entre os elementos fica aqui, porque o QSS não alcança os layouts. -->
+<ui version="4.0">
+ <class>Janela</class>
+ <widget class="QWidget" name="Janela">
+  <property name="windowTitle">
+   <string>Lista filtrável</string>
+  </property>
+  <layout class="QVBoxLayout" name="catalogo">
+   <property name="spacing">
+    <number>12</number>
+   </property>
+   <property name="leftMargin">
+    <number>16</number>
+   </property>
+   <property name="topMargin">
+    <number>16</number>
+   </property>
+   <property name="rightMargin">
+    <number>16</number>
+   </property>
+   <property name="bottomMargin">
+    <number>16</number>
+   </property>
+   <item>
+    <layout class="QVBoxLayout" name="filtros">
+     <property name="spacing">
+      <number>8</number>
+     </property>
+     <!-- Como o <label>: o texto e o controle que ele nomeia (buddy). -->
+     <item>
+      <layout class="QVBoxLayout" name="rotuloBusca">
+       <property name="spacing">
+        <number>4</number>
+       </property>
+       <item>
+        <widget class="QLabel" name="textoBusca">
+         <property name="text">
+          <string>Buscar</string>
+         </property>
+         <property name="buddy">
+          <cstring>busca</cstring>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="busca">
+         <property name="placeholderText">
+          <string>Nome do produto</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="rotuloCategoria">
+       <property name="spacing">
+        <number>4</number>
+       </property>
+       <item>
+        <widget class="QLabel" name="textoCategoria">
+         <property name="text">
+          <string>Categoria</string>
+         </property>
+         <property name="buddy">
+          <cstring>categoria</cstring>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QComboBox" name="categoria">
+         <item>
+          <property name="text">
+           <string>Todas</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="rotuloOrdem">
+       <property name="spacing">
+        <number>4</number>
+       </property>
+       <item>
+        <widget class="QLabel" name="textoOrdem">
+         <property name="text">
+          <string>Ordenar por</string>
+         </property>
+         <property name="buddy">
+          <cstring>ordem</cstring>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QComboBox" name="ordem"/>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QLabel" name="contagem">
+     <property name="papel" stdset="0">
+      <string>contagem</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <!-- Como o <ul>: os itens vêm de ItemProduto.ui. -->
+    <widget class="QListWidget" name="produtos"/>
+   </item>
+   <item>
+    <widget class="QLabel" name="vazio">
+     <property name="papel" stdset="0">
+      <string>vazio</string>
+     </property>
+     <property name="text">
+      <string>Nenhum produto encontrado.</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

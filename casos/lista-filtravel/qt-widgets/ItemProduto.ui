@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Um produto da lista, como o <li> com os três <span>: nome e categoria
+     à esquerda, preço à direita, nas duas linhas. -->
+<ui version="4.0">
+ <class>ItemProduto</class>
+ <widget class="QWidget" name="ItemProduto">
+  <layout class="QGridLayout" name="grade" columnstretch="1,0">
+   <property name="leftMargin">
+    <number>8</number>
+   </property>
+   <property name="topMargin">
+    <number>8</number>
+   </property>
+   <property name="rightMargin">
+    <number>8</number>
+   </property>
+   <property name="bottomMargin">
+    <number>8</number>
+   </property>
+   <property name="horizontalSpacing">
+    <number>16</number>
+   </property>
+   <property name="verticalSpacing">
+    <number>0</number>
+   </property>
+   <item row="0" column="0">
+    <widget class="QLabel" name="nome">
+     <property name="papel" stdset="0">
+      <string>nome</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0">
+    <widget class="QLabel" name="categoria">
+     <property name="papel" stdset="0">
+      <string>categoria</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="1" rowspan="2">
+    <widget class="QLabel" name="preco">
+     <property name="papel" stdset="0">
+      <string>preco</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
