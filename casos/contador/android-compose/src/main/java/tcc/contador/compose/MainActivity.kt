@@ -11,7 +11,9 @@ import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.semantics.LiveRegionMode
 import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.liveRegion
 import androidx.compose.ui.semantics.semantics
 
 class MainActivity : ComponentActivity() {
@@ -31,7 +33,9 @@ fun Contador(valorInicial: Int) {
     var contador by remember { mutableIntStateOf(valorInicial) }
 
     Row(Estilo.contador) {
-        Valor("$contador")
+        // Como o <output> da web, que tem o papel status: o leitor de tela
+        // anuncia a mudança.
+        Valor("$contador", Modifier.semantics { liveRegion = LiveRegionMode.Polite })
         Botao(
             onClick = { contador = contador + 1 },
             // Como o aria-label do botão na web.

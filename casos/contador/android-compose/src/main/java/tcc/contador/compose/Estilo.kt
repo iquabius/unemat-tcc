@@ -47,12 +47,12 @@ object Estilo {
 
 // .contador output
 @Composable
-fun RowScope.Valor(texto: String) {
+fun RowScope.Valor(texto: String, modifier: Modifier = Modifier) {
     Box(
         Modifier.weight(1f).then(Estilo.celula).background(Color(0xFF2E4D24)),
         contentAlignment = Alignment.Center,
     ) {
-        Text(texto, color = Color(0xFFEEEEEE), fontSize = 24.sp)
+        Text(texto, modifier, color = Color(0xFFEEEEEE), fontSize = 24.sp)
     }
 }
 
