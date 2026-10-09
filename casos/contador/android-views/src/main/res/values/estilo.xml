@@ -3,7 +3,7 @@
      os estilos pelo nome (style="@style/..."), como o class do HTML. -->
 <resources>
     <!-- body: o tema da tela inteira, aplicado no AndroidManifest.xml. -->
-    <style name="Tema" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Tema" parent="Theme.Material3.Dark.NoActionBar">
         <item name="android:windowBackground">@color/fundo</item>
     </style>
 
