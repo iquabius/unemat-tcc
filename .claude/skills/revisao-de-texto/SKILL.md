@@ -66,7 +66,8 @@ corte, o passo 4 da porta aberta e o passo 5 da checagem adversarial.
 4. Cada alternativa com um título que se entende sozinho ("Opção A: sai
    só 'sem biblioteca'"), o texto inteiro abaixo e uma frase do que ela
    implica. Com o texto na mesma mensagem, o autor responde pelo código.
-5. Depois, as fontes, com trecho e página, e a recomendação, dita como do
+5. Depois, as fontes, com trecho e página, as métricas de cada
+   alternativa (`metricas_texto.py`) e a recomendação, dita como do
    agente quando não tem fonte.
 6. Depois de aplicar, o texto como ficou, em citação, e o bloco `bash` do
    `bin/pagina-no-pdf.py` (passo 7 da porta aberta).
