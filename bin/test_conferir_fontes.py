@@ -67,6 +67,11 @@ class Citacoes(unittest.TestCase):
                          ["disch2025", "oney2012", "openjs2026", "a", "b",
                           "c", "d"])
 
+    def test_forma_do_org_ref_3_so_le_as_chaves(self):
+        texto = ("[[cites:veja R&D &a p. 3;&b p. 4]] [[excite:&x p. 1]] "
+                 "[[cite:c,&d]] [[cites:&e p. 1;&f p. 2][descrição]]")
+        self.assertEqual(list(cf.chaves(texto)), list("abcdef"))
+
     def test_nao_confunde_outros_links(self):
         texto = "ref:chap:results, [[gls:pr]], excite:x, file:a.org::cite"
         self.assertEqual(list(cf.chaves(texto)), [])

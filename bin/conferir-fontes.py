@@ -38,13 +38,18 @@ import subprocess
 import sys
 from pathlib import Path
 
-# A primeira alternativa é a forma do org-ref 3 com texto depois da chave
-# ([[cites:&a p. 93;&b p. 229]]), que a segunda cortaria no primeiro espaço:
-# as chaves são as palavras com &.
+TIPO_CITACAO = (r"(?:(?:[Tt]ext|[Pp]aren|[Aa]uto|[Ff]oot|[Ss]mart|[Ff]ull|no)?"
+                r"[Cc]ite[a-z]*)\*?")
+# A primeira alternativa é a forma do org-ref 3 com espaço dentro do link
+# ([[cites:&a p. 93;&b p. 229]]), que a segunda cortaria no primeiro espaço;
+# sem espaço ([[cite:&a;&b]], [[cite:a,&b]]), a segunda lê o link inteiro.
 CITACAO = re.compile(
-    r"\[\[[A-Za-z]*[Cc]ite[a-z]*\*?:([^]]*&[^]]*)\]\]"
-    r"|(?<![\w-])(?:(?:[Tt]ext|[Pp]aren|[Aa]uto|[Ff]oot|[Ss]mart|[Ff]ull|no)?"
-    r"[Cc]ite[a-z]*)\*?:(&?[\w-]+(?:[,;]&?[\w-]+)*)")
+    r"\[\[" + TIPO_CITACAO + r":((?=[^]]*&)[^]]*\s[^]]*)\](?:\[[^]]*\])?\]"
+    r"|(?<![\w-])" + TIPO_CITACAO + r":(&?[\w-]+(?:[,;]&?[\w-]+)*)")
+# Na forma do org-ref 3, a chave é o & no começo do trecho entre pontos e
+# vírgulas ou depois do pré-texto (&a, ver &a); o & colado a uma palavra
+# (P&D) é texto.
+CHAVE_ORG_REF_3 = re.compile(r"(?:^|(?<=[\s;]))&([\w-]+)")
 TITULO_ORG = re.compile(r"\*+\s")
 COMENTARIO = re.compile(r"\s*#(\s|$)")
 PALAVRA_CHAVE = re.compile(r"\s*#\+")
@@ -64,13 +69,20 @@ def normalizar(texto):
     return " ".join(texto.split()).casefold()
 
 
-def chaves(texto):
+def citacoes(texto):
+    """(posição, chave) de cada chave citada no texto, na ordem."""
     for m in CITACAO.finditer(texto):
-        if m.group(1):
-            yield from re.findall(r"&([\w-]+)", m.group(1))
+        if m.group(1) is not None:
+            for k in CHAVE_ORG_REF_3.finditer(m.group(1)):
+                yield m.start(1) + k.start(), k.group(1)
             continue
         for chave in re.split(r"[,;]", m.group(2)):
-            yield chave.lstrip("&")
+            yield m.start(2), chave.lstrip("&")
+
+
+def chaves(texto):
+    for _, chave in citacoes(texto):
+        yield chave
 
 
 class Trecho:
