@@ -177,6 +177,10 @@ pergunta antes.
 - O `.tex` sai só da exportação body only do Emacs, no host
   (`bin/exportar-org.sh`, `readme.org`); compilar e conferir zero citações
   indefinidas.
+- Travessão com espaço inquebrável antes: `~---` no `.org`, ou
+  `\nbsp{}---`. O `~` só vira espaço inquebrável antes de `---`, por um
+  ajuste da exportação no init do Emacs; antes de qualquer outra coisa
+  sai como til no PDF, e o espaço inquebrável ali se escreve `\nbsp{}`.
 - No `refs.bib`, escapar `%`, `#` e `&` fora de `url` e `doi`, inclusive em
   `annotation`: sem escape, quebram o `.bbl`.
 - Duas ou mais fontes na mesma citação, com a página de cada uma:
