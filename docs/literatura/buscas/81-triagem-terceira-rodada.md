@@ -1,0 +1,412 @@
+# Triagem da iteração 1 da terceira rodada (tcc-lf9, 2026-10-09)
+
+Critérios: os do Apêndice II e de `69-criterios-segunda-rodada.md` (I1 a I5, E, NICHO).
+Registros: os citantes de 2013 em diante, de `80-citantes-terceira-rodada.txt`, ainda não vistos nas rodadas anteriores.
+Total: 374 (75 sem resumo, julgados pelo título); incluídos: 2.
+
+Salvo nota, excluído pelo título e pelo resumo: visualização de dados, modelagem e notações diagramáticas, música e *live coding*, ensino, programação pelo usuário final, IHC geral e capítulos de livro-texto de IHC (2025). Os registros com nota tiveram o resumo lido, e os incluídos e o Bluefish, o texto completo.
+
+- 2022 | (sem título) | — | 10.18293/jvlc2022-n2
+  - excluído: geovisualização.
+- 2024 | "I'm Getting Information that I Can Act on Now": Exploring the Level of Actionable Information in Tool-generated Threat Reports | European Symposium on Usable Security (EuroUSEC) | 10.1145/3688459.3688467
+- 2015 | A CAPTURE AND ACCESS TECHNOLOGY TO SUPPORT DOCUMENTATION AND TRACKING OF QUALITATIVE RESEARCH APPLIED TO HCI | — | 10.17771/pucrio.acad.25837
+- 2021 | A Detailed Item Response Theory Analysis of Algorithms and Programming Concepts in App Inventor Projects | Revista Brasileira de Informática na Educação | 10.5753/rbie.2021.2097
+- 2021 | A Framework for Assessing Organizational User Experience (UX) Capacity | International Journal of Human-Computer Interaction | 10.1080/10447318.2021.1979811
+- 2015 | A Framework for Evaluating the Implementers’ Experience in Making Existing Products Accessible: The Prosperity4all Approach | Lecture notes in computer science | 10.1007/978-3-319-20892-3_38
+- 2020 | A Generative Approach for Android Sensor-based Applications | Brazilian Symposium on Multimedia and the Web | 10.1145/3428658.3430976
+  - excluído (E-DC-outra): ferramenta visual para regras de contexto no Android.
+- 2024 | A Human Information Processing Theory of the Interpretation of Visualizations: Demonstrating Its Utility | CHI Conference on Human Factors in Computing Systems | 10.1145/3613904.3642276
+- 2025 | A Model-Based Framework for Exploring Human-Machine Teaming Requirements in Cyber-Physical Systems | — | 10.1109/cbi68102.2025.00016
+- 2020 | A Probabilistic Grammar of Graphics | CHI Conference on Human Factors in Computing Systems | 10.1145/3313831.3376466
+- 2020 | A Probabilistic Grammar of Graphics | — | 10.31219/osf.io/dy8qv
+- 2020 | A Sketch of a Theory and Modelling Notation for Elucidating the Structure of Representations | Lecture notes in computer science | 10.1007/978-3-030-54249-8_8
+- 2013 | A Taxonomy and Mapping of Computer-Based Critiquing Tools | IEEE Transactions on Software Engineering | 10.1109/tse.2013.32
+  - excluído: ferramentas de crítica.
+- 2019 | A User Study on the Usefulness of Visualization Support for Requirements Monitoring | IEEE Working Conference on Software Visualization (VISSOFT) | 10.1109/vissoft.2019.00015
+- 2021 | A User Study to Evaluate the Customization of Automatically Generated GUIs | Lecture notes in networks and systems | 10.1007/978-3-030-74614-8_85
+- 2013 | A User Study with GUIs Tailored for Smartphones | Lecture notes in computer science | 10.1007/978-3-642-40480-1_34
+- 2013 | A User Study with GUIs Tailored for Smartphones and Tablet PCs | Conference proceedings/Conference proceedings - IEEE International Conference on Systems, Man, and Cybernetics | 10.1109/smc.2013.635
+- 2017 | A User-Defined Gesture Set for Music Interaction in Immersive Virtual Environment | — | 10.1145/3077343.3077348
+- 2013 | A Visual Language for the Collaborative Visualization of Integrated Conceptual Models in Product Development Scenarios | Lecture notes in production engineering | 10.1007/978-3-642-30817-8_79
+- 2013 | A Vocabulary to Access Users’ Cultural Perspectives in Human-Computer Interaction | Lecture notes in computer science | 10.1007/978-3-642-40498-6_24
+- 2021 | A domain specific language notation for a language learning activity generation tool | Multimedia Tools and Applications | 10.1007/s11042-021-11296-y
+- 2020 | A domain-specific language for filtering in application-level gateways | ACM SIGPLAN International Conference on Generative Programming: Concepts and Experiences (GPCE) | 10.1145/3425898.3426955
+- 2013 | A language for end-user web augmentation | ACM Transactions on the Web | 10.1145/2460383.2460388
+- 2020 | A modern approach to supporting program visualization: from a 2D notation to 3D representations using augmented reality | Multimedia Tools and Applications | 10.1007/s11042-020-09611-0
+- 2016 | A study on user-friendly formal specification languages for requirements formalization | 2022 IEEE 20th International Conference on Industrial Informatics (INDIN) | 10.1109/indin.2016.7819246
+- 2016 | A text-based visual notation for the unit testing of model-driven tools | Computer Languages | 10.1016/j.cl.2016.08.004
+- 2014 | A user study on tailoring GUIs for smartphones | ACM Symposium on Applied Computing | 10.1145/2554850.2555085
+- 2020 | A user-centered Perspective on Interactive Data Visualization. A digital flâneries into the documentation of the Historical Italian Mind Science Archive. | Vicerrectorado de Docencia. Universidad de La Laguna. Servicio de Publicaciones de la Universidad de La Laguna eBooks | 10.25145/b.2cocommunicating.2020.013
+- 2013 | A web-centred approach to end-user software engineering | ACM Transactions on Software Engineering and Methodology | 10.1145/2522920.2522929
+- 2023 | Addressing the data bottleneck in medical deep learning models using a human-in-the-loop machine learning approach | Neural Computing and Applications | 10.1007/s00521-023-09197-2
+- 2026 | Adjacency-driven floor plan generation with Pix2Pix: a hybrid user-centered workflow | Architectural Intelligence | 10.1007/s44223-026-00123-9
+- 2020 | AeroVR: An immersive visualisation system for aerospace design and digital twinning in virtual reality | The Aeronautical Journal | 10.1017/aer.2020.49
+- 2019 | AeroVR: Immersive Visualization System for Aerospace Design | arXiv (Cornell University) | 10.48550/arxiv.1910.09800
+- 2019 | AlgoMixer: Explorando designs para interface tangível de algoritmos sonoros | Anais ... Workshops do Congresso Brasileiro de Informática na Educação | 10.5753/cbie.wcbie.2019.465
+  - excluído: interface tangível para música.
+- 2013 | An Analysis and Evaluation of Security Aspects in the Business Process Model and Notation | International Conference on Availability, Reliability and Security (ARES) | 10.1109/ares.2013.34
+- 2015 | An Argument for More User-Centric Analysis of Modeling Languages’ Visual Notation Quality | Lecture notes in business information processing | 10.1007/978-3-319-19243-7_12
+- 2022 | An Experiment Description Language for Supporting Mobile IoT Applications | River Publishers eBooks | 10.1201/9781003337447-18
+- 2013 | An Experimental Study on the Design and Modeling of Security Concepts in Business Processes | Lecture notes in business information processing | 10.1007/978-3-642-41641-5_17
+- 2017 | An Overview of Semiotic Engineering Epistemic Tools for the Design of Collaborative Systems | Springer eBooks | 10.1007/978-3-319-56291-9_9
+- 2014 | An experimental study on UML Modeling errors and their causes in the education of model driven PLC programming | IEEE Global Engineering Education Conference (EDUCON) | 10.1109/educon.2014.6826078
+- 2021 | An exploration of novice compilation behaviour in BlueJ | Kent Academic Repository (University of Kent) | 10.22024/unikent/01.02.86458
+- 2022 | An extension to iStar framework as alternative to support design decisions in the task analysis performed in the Human Computer Interaction Area (HCI) | Inge CUC | 10.17981/ingecuc.18.2.2022.05
+- 2013 | An eye-tracking study of notational, informational, and emotional aspects of learning analytics representations | International Conference on Learning Analytics and Knowledge (LAK) | 10.1145/2460296.2460321
+- 2025 | Analytical evaluation methods | — | 10.1093/oso/9780192864543.003.0041
+- 2019 | Analytics and Visualization of Spatial Models as a Service | — | 10.13140/rg.2.2.33547.21281
+- 2022 | Ascending the Ladder to Self-Sustainability: Achieving Open Evolution in an Interactive Graphical System | ACM SIGPLAN International Symposium on New Ideas, New Paradigms, and Reflections on Programming and Software (Onward!) | 10.1145/3563835.3568736
+- 2016 | Assessing the usefulness of a requirements monitoring tool | — | 10.1145/2889160.2889234
+- 2014 | Authoring Adaptive 3D Virtual Learning Environments | International Journal of Virtual and Personal Learning Environments | 10.4018/ijvple.2014010101
+- 2025 | Automated Pipeline for Detecting and Analyzing Misleading Visual Elements | IEEE Pacific Visualization Conference (PacificVis) | 10.1109/pacificvis64226.2025.00041
+- 2021 | Automated driver management for Selenium WebDriver | Empirical Software Engineering | 10.1007/s10664-021-09975-3
+- 2018 | Automatic production of end user documentation for DSLs | Computer Languages | 10.1016/j.cl.2018.07.006
+- 2025 | Automation | — | 10.1093/oso/9780192864543.003.0020
+- 2026 | Avoiding the Automation Trap: Designing Human-Centred AI Workflows for Dental Manufacturing | Nordic Conference on Human-Computer Interaction | 10.1145/3821402.3830184
+- 2022 | Between Principle and Pragmatism: Reflections on Prototyping Computational Media with Webstrates | ACM Transactions on Computer-Human Interaction | 10.1145/3569895
+- 2025 | Beyond Charts: A Conceptual Framework for Sketch-based Data Visualisations | — | 10.1145/3765712.3765722
+- 2017 | Beyond Tasks: An Activity Typology for Visual Analytics | IEEE Transactions on Visualization and Computer Graphics | 10.1109/tvcg.2017.2745180
+- 2024 | Bluefish: Composing Diagrams with Declarative Relations | ACM Symposium on User Interface Software and Technology (UIST) | 10.1145/3654777.3676465
+  - excluído (E-DC-outra): framework de diagramas em SolidJS; cita as DCs só pelo mapeamento próximo (texto completo, arXiv 2307.00146), sem avaliar o Solid.
+- 2025 | Bridging the Technical Gap: A Unified Representation Framework for Voice-based Community Engagement Platforms | Proceedings of the ACM on Human-Computer Interaction | 10.1145/3757458
+- 2017 | CAMBRIA: Interacting with Multiple CAD Alternatives | Communications in computer and information science | 10.1007/978-981-10-5197-5_5
+- 2021 | CFGConf: Supporting high level requirements for visualizing Control Flow Graphs | arXiv (Cornell University) | W3188012545
+- 2015 | COMUNICAÇÃO ATRAVÉS DE MODELOS NO CONTEXTO DO DESENVOLVIMENTO DE SOFTWARE | — | 10.17771/pucrio.acad.27084
+- 2014 | Capturing Security Requirements Using Essential Use Cases (EUCs) | Communications in computer and information science | 10.1007/978-3-662-43610-3_2
+- 2022 | Causette | IEEE/ACM International Conference on Program Comprehension (ICPC) | 10.1145/3524610.3527885
+  - excluído: técnicas de editor para ler cadeias causais no código de interação; experimento com o editor, não com notações. Pista para dependências ocultas.
+- 2016 | Cesar: Visual representation of source code vulnerabilities | IEEE Symposium on Visualization for Cyber Security (VIZSEC) | 10.1109/vizsec.2016.7739576
+- 2025 | Challenges & Opportunities with LLM-Assisted Visualization Retargeting | IEEE Visualization and Visual Analytics (VIS) | 10.1109/vis60296.2025.00034
+- 2021 | Characterizing Visual Programming Approaches for End-User Developers: A Systematic Review | IEEE Access | 10.1109/access.2021.3051043
+- 2025 | Cognition | — | 10.1093/oso/9780192864543.003.0005
+- 2022 | Cognition in Software Engineering: A Taxonomy and Survey of a Half-Century of Research | ACM Computing Surveys | 10.1145/3508359
+- 2015 | Cognitive dimensions of notation tailored to environments for visualization and insights | Brazilian Symposium on Human Factors in Computing Systems (IHC) | 10.1145/3148456.3148507
+- 2025 | Collaboration | — | 10.1093/oso/9780192864543.003.0008
+- 2023 | Collaborative Machine Learning Model Building with Families Using Co-ML | ACM Interaction Design and Children Conference (IDC) | 10.1145/3585088.3589356
+- 2015 | Collaborative annotations for large touchscreen web Applications | — | 10.1145/2824823.2824827
+- 2013 | Collaborative sensemaking on a digital tabletop and personal tablets | ACM SIGCHI Conference on Human Factors in Computing Systems (CHI) | 10.1145/2470654.2466458
+- 2025 | Commands and navigation | — | 10.1093/oso/9780192864543.003.0027
+- 2013 | Communicating Ideas in Computer-Supported Modeling Tasks: A Case Study with BPMN | Lecture notes in computer science | 10.1007/978-3-642-39232-0_36
+- 2025 | Communication | — | 10.1093/oso/9780192864543.003.0009
+- 2026 | Comparing Diagrams With an Immersive Virtual World for Visual Conceptual Modelling in Systems Engineering: An Exploratory Mixed-Methods Study | International Journal of Human-Computer Interaction | 10.1080/10447318.2026.2667476
+- 2015 | Comparison of a textual versus a graphical notation for the maintainability of MDE domain models: an empirical pilot study | Software Quality Journal | 10.1007/s11219-015-9299-x
+- 2018 | Compositional Relational Programming with Name Projection and Compositional Synthesis | Lecture notes in computer science | 10.1007/978-3-319-74313-4_22
+- 2014 | Computation as Material in Live Coding | Computer Music Journal | 10.1162/comj_a_00228
+- 2025 | Computational representations and models | — | 10.1093/oso/9780192864543.003.0039
+- 2020 | Concepts of variation control systems | Journal of Systems and Software | 10.1016/j.jss.2020.110796
+- 2021 | Considerations in Representation Selection for Problem Solving: A Review | Lecture notes in computer science | 10.1007/978-3-030-86062-2_4
+  - excluído: escolha de representações.
+- 2025 | Copyright Page | — | 10.1093/oso/9780192864543.002.0003
+- 2017 | Creative Travel Idea Generation Based on Semantic Web and Lateral Thinking | — | 10.1109/ispan-fcst-iscc.2017.91
+- 2013 | Creativity support in authoring and backtracking | — | W2907472896
+- 2019 | Critical Reflections on Visualization Authoring Systems | IEEE Transactions on Visualization and Computer Graphics | 10.1109/tvcg.2019.2934281
+- 2024 | CrossGAI | Proceedings of the ACM on Interactive Mobile Wearable and Ubiquitous Technologies | 10.1145/3643542
+- 2023 | Cyberattack Graph Modeling for Visual Analytics | IEEE Access | 10.1109/access.2023.3304640
+- 2025 | DashSpace: A Live Collaborative Platform for Immersive and Ubiquitous Analytics | IEEE Transactions on Visualization and Computer Graphics | 10.1109/tvcg.2025.3537679
+- 2015 | Deadmau5, Derek Bailey, and the Laptop Instrument -- Improvisation, Composition, and Liveness in Live Coding | Goldsmiths (University of London) | 10.5281/zenodo.19350
+- 2023 | Deimos: A Grammar of Dynamic Embodied Immersive Visualisation Morphs and Transitions | CHI Conference on Human Factors in Computing Systems | 10.1145/3544548.3580754
+- 2021 | Demonstration + Natural Language: Multimodal Interfaces for GUI-Based Interactive Task Learning Agents | Human-computer interaction series | 10.1007/978-3-030-82681-9_15
+- 2025 | Denicek: Computational Substrate for Document-Oriented End-User Programming | ACM Symposium on User Interface Software and Technology (UIST) | 10.1145/3746059.3747646
+- 2025 | Design Space Exploration in the Shape Machine Interface | Mathematics and the built environment | 10.1007/978-3-031-81623-9_17
+- 2019 | Design and Implementation of End-User Programming Tools for Web Mashups | ERA: Education and Research Archive (University of Alberta) | 10.7939/r3-b7jt-c108
+- 2025 | Design and development of asymmetric VR environment supporting collaborative interaction of physicians and patients with MRI data | Computers & Graphics | 10.1016/j.cag.2025.104479
+- 2025 | Design cognition | — | 10.1093/oso/9780192864543.003.0031
+- 2025 | Design engineering | — | 10.1093/oso/9780192864543.003.0036
+- 2022 | Design guidelines for improving user experience in industrial domain-specific modelling languages | — | 10.1145/3550356.3561595
+- 2025 | Design practice | — | 10.1093/oso/9780192864543.003.0032
+- 2025 | Design processes | — | 10.1093/oso/9780192864543.003.0033
+- 2025 | Designing Progressive Model Elicitation Tools to Support Complex Cognitive Activities | Extended Abstracts of the CHI Conference on Human Factors in Computing Systems (CHI EA) | 10.1145/3706599.3719925
+- 2016 | Designing for Appropriation: A Theoretical Account | Human-Computer Interaction | 10.1080/07370024.2016.1203263
+- 2017 | Developing a Creative Travel Management System Based on Software Reuse and Abstraction Techniques | IEEE Annual Computer Software and Applications Conference (COMPSAC) | 10.1109/compsac.2017.107
+- 2014 | Development of a Robot-Based Environment for Training Children with Autism | Lecture notes in computer science | 10.1007/978-3-319-07446-7_58
+  - excluído: robôs e autismo.
+- 2022 | Dialogo: A Controlled Portuguese for Developing Agroecological Information Systems | Lecture notes in networks and systems | 10.1007/978-3-031-04819-7_34
+- 2025 | Dialogue | — | 10.1093/oso/9780192864543.003.0018
+- 2019 | Digital Expression and Representation of Rhythm | — | 10.1145/3356590.3356843
+- 2025 | Displays | — | 10.1093/oso/9780192864543.003.0025
+- 2020 | Dissecting Representations | Lecture notes in computer science | 10.1007/978-3-030-54249-8_11
+- 2013 | Eliciting People’s Conceptual Models of Activities and Systems | International Journal of Conceptual Structures and Smart Applications | 10.4018/ijcssa.2013010101
+- 2014 | Enabling the Development of Cognitive Effective Visual DSLs | Lecture notes in computer science | 10.1007/978-3-319-11653-2_33
+- 2019 | Encoding Design Process Using Interactive Data Visualization | Communications in computer and information science | 10.1007/978-981-13-8410-3_17
+- 2021 | End-user programming in multiple languages | — | 10.48456/tr-651
+  - excluído: programação pelo usuário final em várias representações.
+- 2021 | Enhancing spatial deformation for virtual sculpting | — | 10.48456/tr-499
+- 2013 | Enterprise imaging: representing complex multi‐organizational service enterprises | International Journal of Operations & Production Management | 10.1108/01443571311295617
+- 2017 | Error messages are classifiers: a process to design and evaluate error messages | ACM SIGPLAN International Symposium on New Ideas, New Paradigms, and Reflections on Programming and Software (Onward!) | 10.1145/3133850.3133862
+- 2018 | Establishing Design Principles for Augmented Reality for Older Adults | Sheffield Hallam University | 10.7190/shu-thesis-00137
+- 2021 | Evaluación de un modelo de progresión de captura de información para requisitos de software | Ingeniare. Revista chilena de ingeniería | 10.4067/s0718-33052021000300505
+- 2020 | Evaluating a SysML-based Graphical Notation for Modeling Internet of Things System Architectures | IEEE World Forum on Internet of Things (WF-IoT) | 10.1109/wf-iot48130.2020.9221497
+- 2020 | Evaluating an Interactive Memory Analysis Tool: Findings from a Cognitive Walkthrough and a User Study | Proceedings of the ACM on Human-Computer Interaction | 10.1145/3394977
+- 2014 | Evaluating and Improving the Visualisation of CHOOSE, an Enterprise Architecture Approach for SMEs | Lecture notes in business information processing | 10.1007/978-3-662-45501-2_7
+- 2018 | Evaluation Strategies for HCI Toolkit Research | CHI Conference on Human Factors in Computing Systems | 10.1145/3173574.3173610
+- 2016 | Evaluation of Model Driven Architecture-Based Instruction for Understanding Phase Transitions in Object-Oriented Analysis and Design | ACM Transactions on Computing Education | 10.1145/2914797
+- 2015 | Evidence-based programming language design : a philosophical and methodological exploration | Jyväskylä University Digital Archive (University of Jyväskylä) | W2174731364
+- 2022 | Examining the canvas as a domain-independent artifact | Information Systems and e-Business Management | 10.1007/s10257-022-00556-5
+- 2025 | Experience | — | 10.1093/oso/9780192864543.003.0007
+- 2025 | Experiments | — | 10.1093/oso/9780192864543.003.0043
+- 2019 | Exploring Aerospace Design in Virtual Reality with Dimension Reduction | AIAA SciTech Forum | 10.2514/6.2019-2206
+- 2025 | Exploring Bridges Between Algorithmic and AI-Generated Art | Lecture notes in computer science | 10.1007/978-3-031-90167-6_15
+- 2013 | Exploring Design for Country-specific Customisation | NORA - Norwegian Open Research Archives | W75813078
+- 2022 | Exploring Team-Sourced Hyperlinks to Address Navigation Challenges for Low-Vision Readers of Scientific Papers | Proceedings of the ACM on Human-Computer Interaction | 10.1145/3555629
+- 2024 | Exploring the Potential of Virtual Reality for Model-Based Systems Architecting | — | 10.70675/f74147ccz8761z487azb5f1z125c1f8027e4
+- 2026 | Extensible Data Types with Ad-Hoc Polymorphism | Proceedings of the ACM on Programming Languages | 10.1145/3776662
+- 2023 | FFL: A Language and Live Runtime for Styling and Labeling Typeset Math Formulas | ACM Symposium on User Interface Software and Technology (UIST) | 10.1145/3586183.3606731
+- 2025 | Field evaluations | — | 10.1093/oso/9780192864543.003.0044
+- 2025 | Field research | — | 10.1093/oso/9780192864543.003.0012
+- 2017 | Financial information description language and visualization/analysis tools | Computer Languages | 10.1016/j.cl.2017.05.005
+- 2022 | First-Class Concepts: Reified Architectural Knowledge Beyond Dominant Decompositions. | The Journal of Object Technology | 10.5381/jot.2022.21.2.a6
+- 2021 | First-class concepts: reifying architectural knowledge beyond the dominant decomposition | — | 10.1145/3464970.3468413
+- 2018 | Formal representation of ambulatory assessment protocols in HTML5 for human readability and computer execution | Behavior Research Methods | 10.3758/s13428-018-1148-y
+- 2013 | Formative Evaluation for Complex Interactive Systems | Lecture notes in computer science | 10.1007/978-3-319-03068-5_10
+- 2019 | Fortunettes | Proceedings of the ACM on Human-Computer Interaction | 10.1145/3331162
+  - excluído: feedforward em widgets; estudo com usuários finais.
+- 2017 | Frame-Based Editing | Journal of Visual Languages and Sentient Systems | 10.18293/vlss2017-009
+- 2023 | Freeform Templates: Combining Freeform Curation with Structured Templates | Creativity and Cognition | 10.1145/3591196.3593337
+- 2018 | Fusing Modeling and Programming into Language-Oriented Programming | Lecture notes in computer science | 10.1007/978-3-030-03418-4_19
+- 2015 | GEM-NI | — | 10.1145/2702123.2702398
+- 2021 | Getting grammars into shape for block-based editors | ACM SIGPLAN International Conference on Software Language Engineering (SLE) | 10.1145/3486608.3486908
+- 2017 | Gitsubmit and VeCVL: Integrating Version Control in Introductory Computer Science Education | Proceedings | 10.18293/dms2017-005
+- 2021 | Gosling: A Grammar-based Toolkit for Scalable and Interactive Genomics Data Visualization | IEEE Transactions on Visualization and Computer Graphics | 10.1109/tvcg.2021.3114876
+- 2016 | Gradual structuring in the spreadsheet paradigm | Proceedings/Proceedings -- IEEE Symposium on Visual Languages and Human-Centric Computing | 10.1109/vlhcc.2016.7739696
+- 2026 | Graphical Retrieval and Analysis of Temporal Information Systems (GRATIS) | Elsevier eBooks | 10.1016/b978-0-443-21961-0.00002-4
+- 2023 | Graphical Retrieval and Analysis of Temporal Information Systems (GRATIS): An Integrative Mixed Methodology and Open-Access Software to Analyze the (Non-)Linear Chronological Evolution of Information Embedded in Textual/Qualitative Data | Journal of Mixed Methods Research | 10.1177/15586898231166968
+- 2025 | Graphical user interfaces | — | 10.1093/oso/9780192864543.003.0028
+- 2020 | Gridlets: Reusing Spreadsheet Grids | Extended Abstracts of the CHI Conference on Human Factors in Computing Systems (CHI EA) | 10.1145/3334480.3382806
+- 2025 | Growing into the HCI discipline | — | 10.1093/oso/9780192864543.003.0045
+- 2021 | Guided Exploration | Proceedings of the ACM on Human-Computer Interaction | 10.1145/3461731
+- 2026 | Guiding End Users Towards Software Reuse: An Evaluation of Automated Assistance in Block-Based Programming | ACM SIGCHI Symposium on Engineering Interactive Computing Systems (EICS) | 10.1145/3807968.3816098
+- 2021 | Hacking the Medium: Shaping the creative constraints of network architectures in multiplicitous media artworks | Organised Sound | 10.1017/s135577182100039x
+- 2023 | How Data Analysts Use a Visualization Grammar in Practice | — | 10.31219/osf.io/eqw3f
+- 2023 | How Domain Experts Use an Embedded DSL | Proceedings of the ACM on Programming Languages | 10.1145/3622851
+- 2026 | How Notations Evolve: A Historical Analysis with Implications for Supporting User-Defined Abstractions | CHI Conference on Human Factors in Computing Systems | 10.1145/3772318.3790264
+  - excluído: história das notações em geral, sem notação de interface.
+- 2017 | How Project-management-tools are used in Agile Practice | International Database Engineering & Applications Symposium (IDEAS) | 10.1145/3105831.3105865
+- 2025 | How Scientists Use Jupyter Notebooks: Goals, Quality Attributes, and Opportunities | IEEE/ACM International Conference on Software Engineering (ICSE) | 10.1109/icse55347.2025.00232
+- 2021 | How the Analyzer can Help the User Help the Analyzer | Electronic Proceedings in Theoretical Computer Science | 10.4204/eptcs.338.12
+- 2020 | How to (Re)represent it? | Proceedings - International Conference on Tools with Artificial Intelligence, TAI | 10.1109/ictai50040.2020.00185
+- 2013 | Human Computer Interaction | Lecture notes in computer science | 10.1007/978-3-319-03068-5
+- 2019 | Human-Centric Program Synthesis | arXiv (Cornell University) | 10.48550/arxiv.1909.12281
+- 2020 | Imperative versus declarative constraint specification languages: a controlled experiment | Software & Systems Modeling | 10.1007/s10270-020-00796-4
+- 2017 | Improving Quality Assurance in Multidisciplinary Engineering Environments with Semantic Technologies | InTech eBooks | 10.5772/66222
+- 2025 | Improving the understandability of declarative process discovery results using easyDeclare | Information Systems | 10.1016/j.is.2025.102667
+- 2022 | Indicators in Super Mario Maker 2: Evolution and Rhetorical Signification in Visual Languages | — | 10.18293/jvlc2022-n2-020
+- 2025 | Information and control | — | 10.1093/oso/9780192864543.003.0017
+- 2025 | Input devices | — | 10.1093/oso/9780192864543.003.0024
+- 2019 | Inspection and Selection of Representations | Lecture notes in computer science | 10.1007/978-3-030-23250-4_16
+- 2015 | Interaction History Support for Web Applications | — | 10.22215/etd/2015-11131
+  - excluído: biblioteca JavaScript de histórico de interação; estudo de usabilidade com usuários finais.
+- 2014 | Interaction in the Visualization of Multivariate Networks | Lecture notes in computer science | 10.1007/978-3-319-06793-3_6
+- 2024 | Interaction substrates and instruments for interaction histories | — | 10.70675/bf8ce304z8686z4cffza70dzc23000f86c46
+- 2025 | Interaction techniques | — | 10.1093/oso/9780192864543.003.0026
+- 2026 | Interactive Data Analysis with Lively Typed Tables | Proceedings of the ACM on Programming Languages | 10.1145/3839501
+- 2020 | Interactive Parallel Coordinates for Parametric Design Space Exploration | Extended Abstracts of the CHI Conference on Human Factors in Computing Systems (CHI EA) | 10.1145/3334480.3383101
+- 2017 | Interactive Transitions for Map Applications | — | 10.70675/510517f0z71f3z4588zb5fdzeb54480989fc
+- 2025 | Interviews | — | 10.1093/oso/9780192864543.003.0011
+- 2018 | Introducing Different Levels of Reuse to a Hypermedia Authoring Language with Macros and Templates | Brazilian Symposium on Multimedia and the Web | 10.1145/3243082.3243117
+- 2016 | Introduction | Springer eBooks | 10.1007/978-3-319-42831-4_1
+- 2025 | Introduction to Human-Computer Interaction | — | 10.1093/oso/9780192864543.001.0001
+- 2025 | Introduction to design | — | 10.1093/oso/9780192864543.003.0030
+- 2025 | Introduction to engineering | — | 10.1093/oso/9780192864543.003.0034
+- 2025 | Introduction to evaluation | — | 10.1093/oso/9780192864543.003.0040
+- 2025 | Introduction to human–computer interaction | — | 10.1093/oso/9780192864543.003.0001
+- 2025 | Introduction to interaction | — | 10.1093/oso/9780192864543.003.0016
+- 2025 | Introduction to understanding people | — | 10.1093/oso/9780192864543.003.0002
+- 2025 | Introduction to user interfaces | — | 10.1093/oso/9780192864543.003.0023
+- 2025 | Introduction to user research | — | 10.1093/oso/9780192864543.003.0010
+- 2021 | Investigation 4. Technology Affordances for Intersubjective Meaning Making: A Research Agenda for CSCL | Springer eBooks | 10.1007/978-3-030-49157-4_4
+- 2025 | JavaWiz: A Trace-Based Graphical Debugger for Software Development Education | IEEE/ACM International Conference on Program Comprehension (ICPC) | 10.1109/icpc66645.2025.00023
+- 2024 | Just Counting – a tool ecology for personal numeric information | International Conference on Advanced Visual Interfaces (AVI) | 10.1145/3656650.3656658
+- 2014 | Lc: A New Computer Music Programming Language With Three Core Features | University of Michigan Library Repository | 10.5281/zenodo.850922
+  - excluído: linguagem de música.
+- 2017 | Learnable Programming: Blocks and Beyond | arXiv (Cornell University) | 10.48550/arxiv.1705.09413
+- 2017 | Learnable programming | Communications of the ACM | 10.1145/3015455
+- 2018 | Learn‐CIAN: A visual language for the modelling of group learning processes | British Journal of Educational Technology | 10.1111/bjet.12680
+- 2013 | Let's Play Our Way: Designing Flexibility into Card Game Systems | ResearchWorks at the University of Washington (University of Washington) | W2567521291
+- 2025 | Libra: An Interaction Model for Data Visualization | CHI Conference on Human Factors in Computing Systems | 10.1145/3706598.3713769
+- 2026 | Linting Style and Substance in READMEs | CHI Conference on Human Factors in Computing Systems | 10.1145/3772318.3791597
+- 2026 | Literate Exploratory Programming for Asynchronous Collaboration | — | 10.1145/3801119.3801129
+- 2024 | Live Coding Melody and Harmony in JavaScript | — | 10.1145/3678299.3678336
+- 2016 | Live Coding, Live Notation, Live Performance | Electronic workshops in computing | 10.14236/ewic/eva2016.8
+- 2013 | Live Music-Making: A Rich Open Task Requires a Rich Open Interface | Springer series on cultural computing | 10.1007/978-1-4471-2990-5_8
+- 2022 | Lotse: A Practical Framework for Guidance in Visual Analytics | IEEE Transactions on Visualization and Computer Graphics | 10.1109/tvcg.2022.3209393
+- 2015 | Luzzu Quality Metric Language -- A DSL for Linked Data Quality Assessment | arXiv (Cornell University) | 10.48550/arxiv.1504.07758
+- 2014 | MEReq: A Tool to Capture and Validate Multi-Lingual Requirements | Frontiers in artificial intelligence and applications | 10.3233/978-1-61499-434-3-231
+- 2017 | Manufacturing processes in the textile industry. Expert Systems for fabrics production | ADCAIJ ADVANCES IN DISTRIBUTED COMPUTING AND ARTIFICIAL INTELLIGENCE JOURNAL | 10.14201/adcaij2017641523
+- 2017 | Manufacturing processes in the textile industry. Expert Systems for fabrics production | ADCAIJ ADVANCES IN DISTRIBUTED COMPUTING AND ARTIFICIAL INTELLIGENCE JOURNAL | 10.14201/adcaij2017614150
+- 2016 | MaramaAIC: tool support for consistency management and validation of requirements | Automated Software Engineering | 10.1007/s10515-016-0192-z
+- 2013 | Matching Application Requirements with Dynamic Graph Visualization Profiles | Proceedings | 10.1109/iv.2013.2
+  - excluído: visualização de grafos dinâmicos.
+- 2014 | Media Supported Workspaces in Agile Software Development: Doctoral Symposium Paper | IEEE Annual Computer Software and Applications Conference (COMPSAC) | 10.1109/compsac.2014.46
+- 2021 | Mental Models and Interpretability in AI Fairness Tools and Code Environments | Lecture notes in computer science | 10.1007/978-3-030-90963-5_43
+- 2025 | Meridian: A Design Framework for Malleable Overview-Detail Interfaces | ACM Symposium on User Interface Software and Technology (UIST) | 10.1145/3746059.3747654
+- 2017 | Metacommunication between programmers through an application programming interface: A semiotic analysis of date and time APIs | Proceedings/Proceedings -- IEEE Symposium on Visual Languages and Human-Centric Computing | 10.1109/vlhcc.2017.8103470
+- 2021 | Method content theory: Towards a new understanding of methods in design | Design Studies | 10.1016/j.destud.2021.101018
+  - excluído: teoria de métodos de design.
+- 2013 | Methodological Dimensions | Springer eBooks | 10.1007/978-1-4614-8960-3_2
+- 2014 | Methodology II: Cognitive Dimensions and the Gulfs | Springer eBooks | 10.1007/978-1-4471-5134-0_12
+- 2018 | Migrating business logic to an incremental computing DSL: a case study | ACM SIGPLAN International Conference on Software Language Engineering (SLE) | 10.1145/3276604.3276617
+- 2023 | Mirrorverse: Live Tailoring of Video Conferencing Interfaces | ACM Symposium on User Interface Software and Technology (UIST) | 10.1145/3586183.3606767
+- 2013 | Model Assisted Creativity Sessions for the Design of Mixed Interactive Systems: A Protocol Analysis | Lecture notes in computer science | 10.1007/978-3-642-40477-1_8
+- 2019 | Modeling Moods | ACM/IEEE International Conference on Model Driven Engineering Languages and Systems Companion (MODELS-C) | 10.1109/models-c.2019.00075
+- 2019 | Modeling SOA-Based IoT Applications with SoaML4IoT | IEEE World Forum on Internet of Things (WF-IoT) | 10.1109/wf-iot.2019.8767218
+- 2022 | Modelling human-centric aspects of end-users with iStar | Journal of Computer Languages | 10.1016/j.cola.2022.101091
+- 2013 | Modelo visual para el mapeo y análisis de referentes morfológicos: aplicación educativa en el diseño industrial | Ingeniare. Revista chilena de ingeniería | 10.4067/s0718-33052013000200003
+- 2025 | Motor control | — | 10.1093/oso/9780192864543.003.0004
+- 2020 | Multi-Modal Repairs of Conversational Breakdowns in Task-Oriented Dialogs | ACM Symposium on User Interface Software and Technology (UIST) | 10.1145/3379337.3415820
+- 2013 | Music Interaction: Understanding Music and Human-Computer Interaction | Springer series on cultural computing | 10.1007/978-1-4471-2990-5_1
+- 2015 | Natural Notation for the Domestic Internet of Things | Lecture notes in computer science | 10.1007/978-3-319-18425-8_3
+- 2021 | Nebula: A Coordinating Grammar of Graphics | IEEE Transactions on Visualization and Computer Graphics | 10.1109/tvcg.2021.3076222
+- 2025 | Needs and motivations | — | 10.1093/oso/9780192864543.003.0006
+- 2016 | NetFork | International Working Conference on Advanced Visual Interfaces (AVI) | 10.1145/2909132.2909245
+  - excluído: visualização de redes dinâmicas.
+- 2022 | No Grammar to Rule Them All: A Survey of JSON-style DSLs for Visualization | IEEE Transactions on Visualization and Computer Graphics | 10.1109/tvcg.2022.3209460
+- 2018 | Non-Native English Speakers Learning Computer Programming | CHI Conference on Human Factors in Computing Systems | 10.1145/3173574.3173970
+- 2022 | Notes | The MIT Press eBooks | 10.7551/mitpress/13770.003.0013
+- 2024 | Nuwa: An Authoring Tool for Graph Visualizations | IEEE Pacific Visualization Conference (PacificVis) | 10.1109/pacificvis60374.2024.00024
+- 2025 | On Making Humans Human: Engaging Affective, Cognitive, and Spiritual Dimensions within Instructional Design | Journal of Pedagogy and Education Science | 10.56741/iistr.jpes.001073
+- 2024 | On the Complementarity between CMMN and iStar in Complex Domain Modeling | Complex Systems Informatics and Modeling Quarterly | 10.7250/csimq.2024-39.01
+- 2022 | On the Notion of Naturalness in Formal Modeling | Lecture notes in computer science | 10.1007/978-3-031-08166-8_13
+- 2013 | Opening up the collaborative problem-solving process to solvers | ProQuest LLC eBooks | W2253942232
+  - excluído: resolução colaborativa de problemas.
+- 2023 | Operational Research: methods and applications | Journal of the Operational Research Society | 10.1080/01605682.2023.2253852
+- 2020 | PROMOTING CONVERSATIONAL APIS: A CONCEPTUAL FRAMEWORK AND A METHOD FOR API DESIGN | — | 10.17771/pucrio.acad.49982
+- 2020 | Pen-based Interaction with Spreadsheets in Mobile Virtual Reality | IEEE International Symposium on Mixed and Augmented Reality (ISMAR) | 10.1109/ismar50242.2020.00063
+- 2025 | Perception | — | 10.1093/oso/9780192864543.003.0003
+- 2014 | Polyglot software development | PubMed | 10.6092/polito/porto/2537697
+- 2024 | Positioning Map: a Visual Technique to Improve the Layout of Diagram Contextual Information | PubMed | 10.14279/tuj.eceasst.13.169
+- 2025 | Practice | — | 10.1093/oso/9780192864543.003.0022
+- 2013 | Predictive Modelling for HCI Problems in Novice Program Editors | Electronic workshops in computing | 10.14236/ewic/hci2013.44
+- 2013 | Predictive modelling for HCI problems in novice program editors | — | 10.5555/2578048.2578092
+- 2015 | Proceedings Second International Workshop on Formal Integrated Development Environment | Electronic Proceedings in Theoretical Computer Science | 10.4204/eptcs.187
+- 2022 | Proceedings of the 28th International Conference on Distributed Multimedia Systems | Proceedings | 10.18293/dmsviva2022
+- 2023 | Proceedings of the 8th ACM SIGPLAN International Workshop on Type-Driven Development | — | 10.1145/3609027
+- 2025 | Process Query Language: A Domain-Specific Language for Querying Event Logs of Business Processes | Foundations of Computing and Decision Sciences | 10.2478/fcds-2025-0010
+- 2019 | Programação para Arquitetura: linguagens visuais e textuais em Projeto Orientado ao Desempenho | — | 10.11606/d.102.2019.tde-09092019-100632
+- 2024 | Programming Languages for the Future of Design Computation | ACM SIGPLAN International Symposium on New Ideas, New Paradigms, and Reflections on Programming and Software (Onward!) | 10.1145/3689492.3689812
+- 2023 | Projectional Editors for JSON-Based DSLs | Proceedings/Proceedings -- IEEE Symposium on Visual Languages and Human-Centric Computing | 10.1109/vl-hcc57772.2023.00015
+- 2024 | ProvenanceWidgets: A Library of UI Control Elements to Track and Dynamically Overlay Analytic Provenance | IEEE Transactions on Visualization and Computer Graphics | 10.1109/tvcg.2024.3456144
+  - INCLUÍDO (I3): autoavaliação pelas DCs da própria biblioteca de controles, feita em Angular, com consistência, difusão, operações mentais difíceis e viscosidade (seção 4.3, p. 7 da cópia do arXiv 2407.17431). Não avalia a notação do Angular nem os signals. Segue para a iteração 2.
+- 2023 | Rapid Development of Compositional AI | IEEE/ACM International Conference on Software Engineering: New Ideas and Emerging Results (ICSE-NIER) | 10.1109/icse-nier58687.2023.00020
+- 2025 | Rationality | — | 10.1093/oso/9780192864543.003.0021
+- 2015 | Real-Time Reflexion Modelling in architecture reconciliation: A multi case study | Information and Software Technology | 10.1016/j.infsof.2015.01.011
+- 2025 | Reality-based interaction | — | 10.1093/oso/9780192864543.003.0029
+- 2018 | Reasonably programmable literal notation | Proceedings of the ACM on Programming Languages | 10.1145/3236801
+- 2020 | Refactoring operations Grounded in manual code changes | ACM/IEEE International Conference on Software Engineering: Companion Proceedings (ICSE-Companion) | 10.1145/3377812.3381395
+- 2021 | Refining Case Models Using Cardinality Constraints | Lecture notes in computer science | 10.1007/978-3-030-79382-1_18
+- 2024 | Relevancy and Outlook of the Technology-Enhanced Education within Digital Contents, Resources and Tools | International Journal of Middle Eastern Research | 10.32996/ijmer.2024.3.1.4
+  - excluído: educação.
+- 2018 | Rendre agile les tests d'intégration des systèmes avioniques par des langages dédiés | — | 10.70675/0435f9c3za2d5z4d58z874ez2d8339db018f
+- 2025 | Representations of user research | — | 10.1093/oso/9780192864543.003.0015
+- 2017 | Representing Complex Problems: A Representational Epistemic Approach | Routledge eBooks | 10.4324/9781315091938-5
+- 2020 | Requirements for a dynamic interface model of IEC 61499 Function Blocks | IEEE International Conference on Emerging Technologies and Factory Automation (ETFA) | 10.1109/etfa46521.2020.9212107
+- 2022 | Rigel: Transforming Tabular Data by Declarative Mapping | IEEE Transactions on Visualization and Computer Graphics | 10.1109/tvcg.2022.3209385
+- 2025 | Safety and risk | — | 10.1093/oso/9780192864543.003.0037
+- 2014 | Scaffolding School Students’ Scientific Argumentation in Inquiry-Based Learning with Evidence Maps | Advanced information and knowledge processing | 10.1007/978-1-4471-6470-8_7
+- 2025 | Scenario-Based Design Tools: From End-User Reflections to Requirements | Lecture notes in computer science | 10.1007/978-3-031-95452-8_20
+- 2026 | Sci-Fi Spark: A Human-AI Co-Creation System for Science Fiction Ideation | CHI Conference on Human Factors in Computing Systems | 10.1145/3772318.3791950
+- 2020 | Smart Block: A visual block language and its programming environment for IoT | Journal of Computer Languages | 10.1016/j.cola.2020.100999
+- 2021 | Sociocultural and Design Perspectives on AI-Based Music Production: Why Do We Make Music and What Changes if AI Makes It for Us? | Springer eBooks | 10.1007/978-3-030-72116-9_1
+- 2025 | Software | — | 10.1093/oso/9780192864543.003.0038
+- 2016 | Some Trouble with Transparency | ACM Conference on International Computing Education Research (ICER) | 10.1145/2960310.2960327
+- 2020 | SpecEdit: Projectional Editing for TLA+ Specifications | — | 10.1109/formreq51202.2020.00008
+- 2021 | Spreadsheet Comprehension: Guesswork, Giving Up and Going Back to the Author | CHI Conference on Human Factors in Computing Systems | 10.1145/3411764.3445634
+- 2025 | Steering Semantic Data Processing With DocWrangler | ACM Symposium on User Interface Software and Technology (UIST) | 10.1145/3746059.3747625
+- 2021 | Stepwise Refactoring Tools | IEEE International Conference on Software Maintenance and Evolution (ICSME) | 10.1109/icsme52107.2021.00070
+  - excluído: ferramentas de refatoração.
+- 2023 | Structured Editing for All: Deriving Usable Structured Editors from Grammars | CHI Conference on Human Factors in Computing Systems | 10.1145/3544548.3580785
+- 2025 | Summary: HCI principles | — | 10.1093/oso/9780192864543.003.0046
+- 2026 | SuperProvenanceWidgets: Tracking and Visualizing Analytic Provenance Across UI Control Elements | Extended Abstracts of the CHI Conference on Human Factors in Computing Systems (CHI EA) | 10.1145/3772363.3798409
+  - INCLUÍDO (I3): autoavaliação pelas DCs da extensão da mesma biblioteca, em React; diz que a notação é "consistent with the framework it has been implemented in (i.e. React.js)" (seção 4, p. 6 da cópia do arXiv 2604.15342). Não avalia a notação do React. Segue para a iteração 2.
+- 2017 | Support for learning while debugging in a distributed visual programming language | Proceedings/Proceedings -- IEEE Symposium on Visual Languages and Human-Centric Computing | 10.1109/vlhcc.2017.8103477
+- 2013 | Support for quality metrics in metamodelling | — | 10.1145/2489820.2489825
+- 2015 | Supporting "what-if" in touch-screen web Applications | — | 10.1145/2824823.2824826
+  - excluído: a mesma biblioteca (Ra); sem avaliação da notação.
+- 2021 | Supporting Creative Practice in Wireless Distributed Sound Installations Given Technical Constraints | Journal of the Audio Engineering Society | 10.17743/jaes.2021.0039
+- 2018 | Supporting Diagnosis of Requirements Violations in Systems of Systems | IEEE International Requirements Engineering Conference (RE) | 10.1109/re.2018.00040
+- 2014 | Supporting the creative game design process with exertion cards | ACM SIGCHI Conference on Human Factors in Computing Systems (CHI) | 10.1145/2556288.2557272
+- 2016 | Surface Applications for Security Analysis | Springer eBooks | 10.1007/978-3-319-45853-3_17
+- 2025 | Survey research | — | 10.1093/oso/9780192864543.003.0013
+- 2018 | Synthèse d'applications de réalité virtuelle à partir de modèles | — | 10.70675/9e0a2a5ezb0e0z42a3zbd3cz8ba5719c9f6b
+- 2020 | Systematic literature review of empirical studies on mental representations of programs | Journal of Systems and Software | 10.1016/j.jss.2020.110565
+- 2025 | Systems | — | 10.1093/oso/9780192864543.003.0035
+- 2014 | TESLA | European Conference on Computer Systems | 10.1145/2592798.2592801
+  - excluído: asserções temporais em sistemas operacionais.
+- 2021 | Tangible user interfaces for peripheral interaction | CL Technical Reports | 10.48456/tr-733
+  - excluído: interfaces tangíveis.
+- 2020 | Technical Report: Refining Case Models Using Cardinality Constraints | arXiv (Cornell University) | 10.48550/arxiv.2012.02245
+- 2022 | Terminals All the Way Down | IEEE/ACM International Conference on Software Engineering: New Ideas and Emerging Results (ICSE-NIER) | 10.1109/icse-nier55298.2022.9793527
+  - excluído: o terminal como interface.
+- 2020 | The Design Space of Computational Notebooks: An Analysis of 60 Systems in Academia and Industry | Proceedings/Proceedings -- IEEE Symposium on Visual Languages and Human-Centric Computing | 10.1109/vl/hcc50065.2020.9127201
+- 2018 | The Human Dimension of Software Security and Factors Affecting Security Processes | — | 10.22215/etd/2018-13347
+- 2017 | The KeYmaera X Proof IDE - Concepts on Usability in Hybrid Systems Theorem Proving | Electronic Proceedings in Theoretical Computer Science | 10.4204/eptcs.240.5
+- 2015 | The Microsound Synthesis Framework in the LC Computer Music Programming Language | Computer Music Journal | 10.1162/comj_a_00331
+- 2020 | The Physical World as an Abstract Interface | Taylor & Francis eBooks | 10.1201/9781003072072-54
+- 2025 | The Proxy-Object Mediated Unified Control Architecture: A Visualization-Inspired Framework for Managing Complex Interactions in Virtual Environments | SSRN Electronic Journal | 10.2139/ssrn.5917567
+- 2016 | The Role of Ethnographic Studies in Empirical Software Engineering | IEEE Transactions on Software Engineering | 10.1109/tse.2016.2519887
+- 2021 | The Role of Working Memory in Program Tracing | CHI Conference on Human Factors in Computing Systems | 10.1145/3411764.3445257
+- 2016 | The SigniFYI Suite | Springer eBooks | 10.1007/978-3-319-42831-4_3
+- 2013 | The Support of Higher-level Cognition in the Context of Ill-structured Process Knowledge | Figshare | W1582686285
+- 2019 | The Usage of Constraint Specification Languages: A Controlled Experiment | Lecture notes in business information processing | 10.1007/978-3-030-20618-5_22
+- 2017 | The Uses of Interactive Explorers for Web APIs | — | W2789954752
+- 2014 | The extent of empirical evidence that could inform evidence-based design of programming languages : a systematic mapping study | Jyväskylä University Digital Archive (University of Jyväskylä) | W2204097169
+- 2016 | The role of semiotic engineering in software engineering | — | 10.1145/2897134.2897136
+- 2018 | The visual inheritance structure to support the design of visual notations. | White Rose Research Online (University of Leeds, The University of Sheffield, University of York) | W2902866505
+- 2025 | Think-aloud studies | — | 10.1093/oso/9780192864543.003.0042
+- 2018 | Tool Support for Restricted Use Case Specification: Findings from a Controlled Experiment | Proceedings - Asia Pacific Software Engineering Conference/Proceedings | 10.1109/apsec.2018.00016
+- 2025 | Tool use | — | 10.1093/oso/9780192864543.003.0019
+- 2017 | Towards Model Quality Assurance for Multi-Disciplinary Engineering | Springer eBooks | 10.1007/978-3-319-56345-9_16
+- 2014 | Towards User-Friendly Projectional Editors | Lecture notes in computer science | 10.1007/978-3-319-11245-9_3
+- 2016 | Towards a Conceptual Model for Cognitive-Intensive Practices | IEEE International Symposium on Multimedia (ISM) | 10.1109/ism.2016.0036
+- 2022 | Towards facilitating software engineering for production systems in Industry 4.0 with behavior models | IEEE/ACM International Conference on Software Engineering: Companion Proceedings (ICSE-Companion) | 10.1109/icse-companion55297.2022.9793804
+- 2022 | Towards facilitating software engineering for production systems in industry 4.0 with behavior models | ACM/IEEE International Conference on Software Engineering: Companion Proceedings (ICSE-Companion) | 10.1145/3510454.3517070
+- 2015 | Towards improving software security using language engineering and mbeddr C | — | 10.1145/2846696.2846698
+- 2020 | Towards making formal methods normal: meeting developers where they are | arXiv (Cornell University) | 10.48550/arxiv.2010.16345
+- 2019 | Towards the Next Generation of Scenario Walkthrough Tools – A Research Preview | Lecture notes in computer science | 10.1007/978-3-030-15538-4_21
+- 2023 | Trustworthy and Robust AI Deployment by Design: A framework to inject best practice support into AI deployment pipelines | IEEE/ACM International Conference on AI Engineering – Software Engineering for AI (CAIN) | 10.1109/cain58948.2023.00030
+- 2015 | Twenty Years on: Reflections on “Supporting the Use of External Representations in Problem Solving”… | International Journal of Artificial Intelligence in Education | 10.1007/s40593-015-0054-z
+- 2024 | Umwelt: Accessible Structured Editing of Multi-Modal Data Representations | CHI Conference on Human Factors in Computing Systems | 10.1145/3613904.3641996
+- 2022 | Understanding Barriers to Network Exploration With Visualization: A Report from the Trenches | IEEE Transactions on Visualization and Computer Graphics | 10.1109/tvcg.2022.3209487
+- 2021 | Understanding Scholarly Neural Network System Diagrams Through Application of VisDNA | Lecture notes in computer science | 10.1007/978-3-030-86062-2_39
+- 2023 | Understanding and Enhancing JSON-based DSL Interfaces for Visualization | — | 10.31219/osf.io/fy246
+- 2014 | Unifying Textual and Visual | — | 10.1145/2661136.2661138
+- 2016 | Unlocking Visual Understanding: Towards Effective Keys for Diagrams | Lecture notes in computer science | 10.1007/978-3-319-46397-1_39
+- 2025 | Unobtrusive research | — | 10.1093/oso/9780192864543.003.0014
+- 2017 | Usability Insights for Requirements Engineering Tools: A User Study with Practitioners in Aeronautics | IEEE International Requirements Engineering Conference (RE) | 10.1109/re.2017.20
+- 2020 | Usability implications in software architecture: The case study of a mobile app | Software Practice and Experience | 10.1002/spe.2883
+- 2016 | Usability of Programming Languages | — | 10.1145/2851581.2886434
+  - excluído: chamada de SIG do CHI 2016 sobre usabilidade de linguagens.
+- 2014 | Usability requirements for requirement engineering tools | Conference on l'Interaction Homme-Machine (IHM) | 10.1145/2670444.2670458
+- 2020 | Usable and Accessible Robot Programming System for People Who Are Visually Impaired | Lecture notes in computer science | 10.1007/978-3-030-49282-3_32
+- 2014 | Use the Difficulty through Schwierigkeit: Antiusability as Value-driven Design | Journal of the Association for Information Systems | W132664619
+- 2022 | User-Friendly MIDI in the Web Browser | — | 10.21428/92fbeb44.388e4764
+  - excluído: API de MIDI no navegador; usabilidade da API sem relação com interface gráfica.
+- 2015 | Using C language extensions for developing embedded software: a case study | — | 10.1145/2814270.2814276
+- 2023 | Using Music Features for Managing Revisions and Variants of Musical Scores | Computer Music Journal | 10.1162/comj_a_00691
+- 2015 | Using software changes to understand the test driven development process | — | W603877580
+- 2014 | Using the Physics of Notations Theory to Evaluate the Visual Notation of SEAM | IEEE Conference on Business Informatics | 10.1109/cbi.2014.21
+- 2024 | VMC: A Grammar for Visualizing Statistical Model Checks | IEEE Transactions on Visualization and Computer Graphics | 10.1109/tvcg.2024.3456402
+- 2020 | VisuaLint: Sketchy In Situ Annotations of Chart Construction Errors | Computer Graphics Forum | 10.1111/cgf.13975
+- 2022 | VisuaLint: Sketchy, In Situ Annotations for Chart Construction Errors | OSF Preprints (OSF Preprints) | W7160729763
+- 2015 | Visual Decision Support for Policy Making: Advancing Policy Analysis with Visualization | Public administration and information technology | 10.1007/978-3-319-12784-2_15
+- 2013 | Visual dimensions of modeling languages in interdisciplinary perspective | Conference on Human System Interactions | 10.1109/hsi.2013.6577859
+- 2015 | VisualCues: Visually explaining source code in computer science education | Proceedings/Proceedings -- IEEE Symposium on Visual Languages and Human-Centric Computing | 10.1109/vlhcc.2015.7357202
+- 2016 | Visualising Formula Structures to Support Exploratory Modelling | International Conference on Computer Supported Education | 10.5220/0005812303830390
+- 2017 | Visualization support for requirements monitoring in systems of systems | IEEE/ACM International Conference on Automated Software Engineering (ASE) | 10.1109/ase.2017.8115700
+- 2023 | Visualizing Errors and Inconsistencies in the DSML IEC 61499 | International Conference on Model-Based Software and Systems Engineering (MODELSWARD) | 10.5220/0011683800003402
+- 2020 | Visualizing Feature-Level Evolution in Product Lines: A Research Preview | Lecture notes in computer science | 10.1007/978-3-030-44429-7_21
+- 2016 | WHAT IS COGNITIVE ERGONOMICS | — | W59816131
+- 2022 | Webstrates, Codestrates v2, and Varv: A Software Stack for Computational Media | — | 10.1145/3547522.3547714
+  - excluído: demonstração do Webstrates, do Codestrates v2 e do Varv, sem avaliação.
+- 2016 | What Constitutes an Effective Representation? | Lecture notes in computer science | 10.1007/978-3-319-42333-3_2
+  - excluído: representações em geral.
+- 2016 | What Is a Library? | The MIT Press eBooks | 10.7551/mitpress/9780262529082.003.0010
+- 2016 | What makes a design pattern language? | European Conference on Pattern Languages of Programs | 10.1145/3011784.3011793
+- 2026 | When Layout Matters: Characterizing Layout-Sensitive Notations and Their Cognitive Trade-offs | ACM/IEEE International Conference on Model Driven Engineering Languages and Systems (MODELS) | 10.1145/3837062.3838681
+  - excluído (E-DC-outra): notações de modelagem sensíveis ao layout.
+- 2024 | Whispering Through Walls: Towards Inclusive Backchannel Communication in Hybrid Meetings | CHI Conference on Human Factors in Computing Systems | 10.1145/3613904.3642419
+- 2023 | multiverse: Multiplexing Alternative Data Analyses in R Notebooks | CHI Conference on Human Factors in Computing Systems | 10.1145/3544548.3580726
+- 2021 | multiverse: Multiplexing Alternative Data Analyses in R Notebooks | — | 10.31219/osf.io/yfbwm
+- 2023 | multiverse: Multiplexing Alternative Data Analyses in R Notebooks | — | 10.31219/osf.io/4esf5
+- 2024 | touchBase: A Tangible Programming Language for Physical Computing | Creativity and Cognition | 10.1145/3635636.3664253
+- 2024 | “Customization is Key”: Reconfigurable Textual Tokens for Accessible Data Visualizations | CHI Conference on Human Factors in Computing Systems | 10.1145/3613904.3641970
+- 2022 | ”I don’t want to feel like I’m working in a 1960s factory”: The Practitioner Perspective on Creativity Support Tool Adoption | CHI Conference on Human Factors in Computing Systems | 10.1145/3491102.3501933

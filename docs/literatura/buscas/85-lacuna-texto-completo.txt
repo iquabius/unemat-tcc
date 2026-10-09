@@ -1,0 +1,230 @@
+# Busca direta pela lacuna no texto completo do OpenAlex (tcc-lf9, 2026-10-09)
+
+Os termos aparecem em qualquer parte do texto, inclusive nas referências; "React" casa com o verbo e "Angular" e "signals" com outras áreas. Os de 2013 em diante cujo título tem termo de programação ou de interface foram triados pelo título; os marcados, pelo resumo ou pelo texto completo.
+
+## fulltext.search:"cognitive dimensions" React: 3424 (115 de 2013 em diante com termo no título)
+- Lotse: A Practical Framework for Guidance in Visual Analytics (2022) | arXiv (Cornell University) | 10.48550/arxiv.2208.04434
+- ReactJS and Accessibility: Designing Inclusive Web Applications for Broader Social Impact (2025) | European Journal of Computer Science and Information Technology | 10.37745/ejcsit.2013/vol13n3199109
+  - resumo: acessibilidade com React, sem DCs; periódico sem revisão identificável
+- Designing and Evaluating the Usability of a Machine Learning API for Rapid Prototyping Music Technology (2020) | Frontiers in Artificial Intelligence | 10.3389/frai.2020.00013
+- SuperProvenanceWidgets: Tracking and Visualizing Analytic Provenance Across UI Control Elements (2026) | Extended Abstracts of the CHI Conference on Human Factors in Computing Systems (CHI EA) | 10.1145/3772363.3798409
+  - incluído na iteração 1 (ver 81)
+- Being in-sync: A multimodal framework on the emotional and cognitive synchronization of collaborative learners (2022) | Frontiers in Education | 10.3389/feduc.2022.867186
+- EduGage: A Multimodal Dataset and Benchmark for Sensor-Based Momentary Assessment of Engagement in Self-Guided Video Learning (2026) | arXiv (Cornell University) | 10.48550/arxiv.2605.01238
+- Strengthening API Security: Behavioral Authentication and Intelligent Threat Mitigation with Data-Driven Models (2023) | International Journal of Advanced Research in Science Communication and Technology | 10.48175/ijarsct-14000w
+- Ethical Frameworks and the Dialectic of Human Autonomy and Artificial Intelligence in Industrial Product Design (2025) | Online Journal of Art and Design | 10.30935/ojad/2513033
+- Exploring Programming Paradigms with IoT and Tiles for End-Users (2017) | BIBSYS Brage (BIBSYS (Norway)) | W2764108503
+- Multicriteria Decision and Machine Learning Algorithms for Component Security Evaluation: Library-Based Overview (2020) | Security and Communication Networks | 10.1155/2020/8886877
+- Visual Programming Environments for End-User Development of intelligent and social robots, a systematic review (2020) | Journal of Computer Languages | 10.1016/j.cola.2020.100970
+- Learner Cognitive Behavior and Influencing Factors in Web-based Learning Environment (2018) | International Journal of Advanced Computer Science and Applications | 10.14569/ijacsa.2018.090868
+- Bluefish: Composing Diagrams with Declarative Relations (2024) | ACM Symposium on User Interface Software and Technology (UIST) | 10.1145/3654777.3676465
+  - texto completo: Bluefish, em SolidJS; DCs só pelo mapeamento próximo (ver 81)
+- The effect of peer feedback on students’ argumentative essay: A quasi experimental method at the fifth semester students of the English education department, educational sciences faculty Uin Syarif Hidayatullah Jakarta 2016 (2018) | International Journal of Engineering & Technology | 10.14419/ijet.v7i4.28.22568
+- Librarian Knowledge Sharing Behavior in University Library (2018) | Lincoln (University of Nebraska) | W2966175913
+- Heuristic Evaluation for Novice Programming Systems (2016) | ACM Transactions on Computing Education | 10.1145/2872521
+- The decentering component of mindfulness reduces reactions to mental imagery. (2019) | Motivation Science | 10.1037/mot0000137
+- Towards Explainable User Interfaces (2025) | Electronic workshops in computing | 10.14236/ewic/bcshci2025.24
+- A framework informing the interplay of physical, digital and social spaces in supporting an environment for active learning (2024) | Asia Pacific Journal of Education | 10.1080/02188791.2024.2309222
+- Discovering hidden dependencies in constraint-based declarative process models for improving understandability (2018) | Information Systems | 10.1016/j.is.2018.01.001
+- Lc: A New Computer Music Programming Language With Three Core Features (2014) | University of Michigan Library Repository | 10.5281/zenodo.850922
+- A Survey on End-User Robot Programming (2021) | ACM Computing Surveys | 10.1145/3466819
+- Tracing a standard language in Austria using methodological microvariations of Verbal and Matched Guise Technique (2020) | Linguistik Online | 10.13092/lo.102.6816
+- User-Friendly MIDI in the Web Browser (2022) | None | 10.21428/92fbeb44.388e4764
+- From chat to change: a neuroinclusive framework for cognitive empowerment and daily living skills in autism (2026) | Frontiers in Child and Adolescent Psychiatry | 10.3389/frcha.2026.1769862
+- Cognitive Architecture: The Intersection Of UI Design, Mental Models, And Digital Sustainability (2025) | Journal of International Crisis and Risk Communication Research | 10.63278/jicrcr.vi.3359
+- Block-based or graph-based? Why not both? Designing a hybrid programming environment for end-users (2025) | Interacting with Computers | 10.1093/iwc/iwaf028
+- The Institutional Organizational Theory As A New Research Framework For Understanding Contemporary Organizations (2014) | Economic Themes | 10.1515/ethemes-2014-0016
+- OmniGUI: Benchmarking GUI Agents in Omni-Modal Smartphone Environments (2026) | arXiv (Cornell University) | 10.48550/arxiv.2605.18758
+- Followers, fans, friends, or haters? A typology of the online interactions and relationships between social media influencers and their audiences based on a social capital framework (2024) | New Media & Society | 10.1177/14614448241253770
+- Redesigning Android Development: Using Reactive Programming to Retrofit REST APIs and Concurrency (2024) | INTERANTIONAL JOURNAL OF SCIENTIFIC RESEARCH IN ENGINEERING AND MANAGEMENT | 10.55041/ijsrem30623
+  - resumo: tutorial de Retrofit no Android; periódico sem revisão identificável
+- Towards enhanced performance: an integrated framework of emotional valence, arousal, and task demand (2024) | Ergonomics | 10.1080/00140139.2024.2370440
+- Modeling users' web search behavior and their cognitive styles (2014) | Journal of the Association for Information Science and Technology | 10.1002/asi.23053
+- TIEboard: Developing Kids Geometric Thinking through Tangible User Interface (2021) | SIGGRAPH Asia Posters | 10.1145/3476124.3488623
+- Retrieving spatial datasets with ease through an application programming interface (API) (2019) | New University of Lisbon's Repository (New University of Lisbon) | W2944901459
+- A managers’ work engagement framework for the digital tasks (2023) | Frontiers in Psychology | 10.3389/fpsyg.2023.1009459
+- Technical Dimensions of Programming Systems (2023) | The Art Science and Engineering of Programming | 10.22152/programming-journal.org/2023/7/13
+  - Jakubovic et al. (2023), já visto
+- Building Scalable Cloud UI Applications: 5 Key Architectural Principles (2025) | International Journal of Computational and Experimental Science and Engineering | 10.22399/ijcesen.4173
+  - resumo: princípios de arquitetura de UI, sem DCs; periódico sem revisão identificável
+- INVESTIGATING THE ATTITUDES TOWARDS LEARNING CALCULUS AMONG SCIENCE AND TECHNOLOGY STUDENTS: A CASE STUDY IN UITM JOHOR, MALAYSIA (2023) | International Journal of Modern Education | 10.35631/ijmoe.518006
+- Varv: Reprogrammable Interactive Software as a Declarative Data Structure (2022) | CHI Conference on Human Factors in Computing Systems | 10.1145/3491102.3502064
+  - Varv, já visto
+- RoboScene: Notation for Formal Verification of Human-Robot Interaction (2025) | Lecture notes in computer science | 10.1007/978-3-031-90900-9_9
+- Scaffolding agency in cultural policy: a capabilities framework for evaluating cultural interventions (2026) | Humanities and Social Sciences Communications | 10.1057/s41599-026-08440-0
+- Interaction History Support for Web Applications (2015) | None | 10.22215/etd/2015-11131
+- Perceptions of LIS Professionals on ACRL Framework: Understanding and Fostering Concepts, Skills and Attitudes in Academic Students (2024) | Communications in computer and information science | 10.1007/978-3-031-52998-6_8
+- Conceptualising Inclusive Innovation: Modifying Systems of Innovation Frameworks to Understand Diffusion of New Technology to Low-Income Consumers (2013) | European Journal of Development Research | 10.1057/ejdr.2013.7
+- Simplifying the use of event-based systems with context mediation and declarative descriptions (2015) | Technischen Universität Darmstadt | 10.26083/tuprints-00005131
+  - resumo: tese sobre sistemas de eventos em sistemas ciberfísicos, sem GUI
+- BIO-INSPIRED ARCHITECTURE FOR PARSIMONIOUS CONVERSATIONAL INTELLIGENCE : THE S-AI-GPT FRAMEWORK (2025) | International Journal of Artificial Intelligence & Applications | 10.5121/ijaia.2025.16403
+- Should Computers Be Easy To Use? Questioning the Doctrine of Simplicity in User Interface Design (2023) | Extended Abstracts of the CHI Conference on Human Factors in Computing Systems (CHI EA) | 10.1145/3544549.3582741
+- Contextual Religious Education Framework in Familial and Volunteer Social Engagements (2026) | Proceeding International Conference of Community Service | W7220617564
+- Bridging technology adoption and consumer behavior with predictive machine learning: An integrated UTAUT-EKB analytical framework (2026) | Ho Chi Minh City Open University Journal of Science- Economics and Business Administration | 10.46223/hcmcoujs.econ.en.16.10.5047.2026
+- Exploring the impact of innovation guidance on user participation in online communities: A mixed methods investigation of cognitive and affective perspectives (2022) | Frontiers in Psychology | 10.3389/fpsyg.2022.1011837
+- Evaluating entrepreneurship framework through perceived institutional quality (2020) | Economicus | 10.58944/qxda6807
+- How Notations Evolve: A Historical Analysis with Implications for Supporting User-Defined Abstractions (2026) | arXiv (Cornell University) | W7127541878
+- BlocklyVR: Exploring Block-based Programming in Virtual Reality (2023) | International Conference on Mobile and Ubiquitous Multimedia (MUM) | 10.1145/3626705.3627779
+- Components of Design Thinking in Spatial Design Education and a Model Proposal (2025) | Iconarp International J of Architecture and Planning | 10.15320/iconarp.2025.331
+- Quantifying the Fluency Illusion in AI-Augmented Design Education: A Behavioral Soft-Sensor Framework for Decoding Human–AI Collaboration Patterns (2026) | Applied System Innovation | 10.3390/asi9070144
+- "Operationalizing collaborative problem-solving skills: A framework for assessment and development in the digital age" (2023) | Studia Universitatis Babeș-Bolyai Psychologia-Paedagogia | 10.24193/subbpsyped.2023.1.04
+- Understanding the Meaningfulness of Vocal and Instrumental Music Teachers' Hand Gestures Through the Teacher Behavior and Gesture Framework (2019) | Frontiers in Education | 10.3389/feduc.2019.00141
+- Animal Ethics and Tourism: Deepening a Stimulus–Organism–Response (S-O-R) Framework (2023) | Journal of Travel Research | 10.1177/00472875231175079
+- A Component of Mindfulness: Attention (2024) | Psikiyatride Guncel Yaklasimlar - Current Approaches in Psychiatry | 10.18863/pgy.1371368
+- Defining Bhāvanā through the PAL framework: grounded theory insights from long-term IAM®-35 practitioners (2025) | Humanities and Social Sciences Communications | 10.1057/s41599-025-05783-y
+- Ethics by Design in Autonomous Driving: Developing a Model-Based Liability Determination Framework (2025) | ACM/IEEE International Conference on Cyber-Physical Systems (ICCPS) | 10.1145/3716550.3722025
+- Industry 5.0: A new strategy framework for sustainability management and beyond (2024) | Journal of Cleaner Production | 10.1016/j.jclepro.2024.142271
+- A multi-dimensional transformer encoder framework for modeling fine-grained student programming behavior (2026) | Discover Computing | 10.1007/s10791-026-10095-z
+- Responsible Innovation in AI-Driven Operations and Supply Chain Management: An Institutional Theory Framework (2025) | None | 10.31224/5723
+- Revisiting negative experiences: A sociocultural cognitive framework (2023) | Social and Personality Psychology Compass | 10.1111/spc3.12811
+- LXA v1.0: A Framework to Embrace Agentic AI in Mobile Learning for Industry 5.0 Readiness (2025) | International Journal of Interactive Mobile Technologies (iJIM) | 10.3991/ijim.v19i23.58635
+- Examining components of attitudes towards mathematics among senior secondary school students in Nigeria (2022) | International Journal on Teaching and Learning Mathematics | 10.18860/ijtlm.v3i2.9496
+- Designing the digitalized guest experience: A comprehensive framework and research agenda (2023) | Psychology and Marketing | 10.1002/mar.21929
+- Entrepreneurial Competencies Factors Influencing SMEs Entrepreneurial Performance in Malaysia: A Conceptual Framework (2023) | International Journal of Business and Technology Management | 10.55057/ijbtm.2023.5.1.22
+- A Virtual Instructor‐Led System for Assessing and Guiding Middle School Physics Experiments (2026) | Computer Animation and Virtual Worlds | 10.1002/cav.70090
+- Homo Hecmateus and the Ontology of Post-Human Responsibility: A Philosophical Framework Beyond Homo Sapiens and Homo Noeticus (2025) | Preprints.org | 10.20944/preprints202506.0819.v1
+- AI-guided self-training in virtual reality for social anxiety disorder (SAD) (2025) | KeiO Associated Repository of Academic Resources (Keio University) | W7112286750
+- Components of driving competency measurement in the elderly: A scoping review (2021) | Medical Journal of the Islamic Republic of Iran | 10.47176/mjiri.35.2
+- The Relationship Between Sex Guilt and Sex Anxiety on Sexual Function in Sexually Active Adult Women (2025) | None | 10.4087/umls7561
+- Webactivism and the dynamics of consumerist resistance : Analytical framework and experimental study (2016) | RIMHE Revue Interdisciplinaire Management Homme(s) & Entreprise | 10.3917/rimhe.024.0003
+- Exploring the Therapy Experience of Adults Who Stutter as it Relates to Inclusion of Cognitive Therapy Components in Stuttering Therapy (2021) | Minds at UW (University of Wisconsin) | W3193667933
+- Graphical Flow-based Spark Programming (2020) | Journal Of Big Data | 10.1186/s40537-019-0273-5
+- Association between Internal Control and Sustainability: A Literature Review Based on the SOX Act Framework (2022) | Sustainability | 10.3390/su14159706
+- A Study on Deriving Experiential Attributes of Online Guided Tours: A Convergent Approach Using Participant Reviews and the Experience Economy Theory (2026) | Tourism and Hospitality | 10.3390/tourhosp7020044
+- Mathematical Framework for Airport as Cognitive Digital Twin of Aviation Ecosystem (2026) | Mathematics | 10.3390/math14030558
+- Designing Engaging Learning Experiences in Programming (2018) | Communications in computer and information science | 10.1007/978-3-319-94640-5_12
+- Cognitive Attack Topology (CAT): A Topological Framework for Modeling and Detecting Human-Centric Cyber Attacks (2026) | Preprints.org | 10.20944/preprints202603.2402.v1
+- Unveiling the role of hope in guiding behavior (2019) | None | 10.35662/unine-thesis-2784
+- Flow and automata programming inspired approach to human-readable VR training content logic modeling : View-Unit-Task-Step Unified Training Structure (2019) | Työväentutkimus Vuosikirja | W3004455915
+- User-centered multi-layer programming approach to model scenarios on driving simulators (2014) | Thèses en ligne de l'Université Toulouse III (Université Toulouse III) | W2180867257
+- Improving Agility and Reactive Agility in Basketball Players U14 and U16 by Implementing Fitlight Technology in the Sports Training Process (2024) | Applied Sciences | 10.3390/app14093597
+- Linking decision-making styles and entrepreneurial competences: Insights from the EntreComp framework (2025) | Strategic Management | 10.5937/straman2500004c
+- Guiding community discussions on human–water challenges by serious gaming in the upper Ewaso Ngiro River basin, Kenya (2024) | Hydrology and earth system sciences | 10.5194/hess-28-3495-2024
+- Local anaesthesia and pain management in image-guided breast interventions: Empathy in action (2025) | European Journal of Radiology | 10.1016/j.ejrad.2025.112176
+- A Rule-based Engine to support a Framework for the Experimental Validation of Domain Specific Languages (2017) | New University of Lisbon's Repository (New University of Lisbon) | W2924353126
+- Exploring science teacher adaptive expertise through the framework of pedagogical content knowledge (2026) | International Journal of Science Education | 10.1080/09500693.2026.2714190
+- Enhancing Neuroplasticity in Science Learning through Reflective Inquiry Learning in Preschool Children in the Indonesia-Papua New Guinea Border (2026) | AMPLITUDO Journal of Science & Technology Innovation | 10.56566/amplitudo.v5i2.685
+- Learning Through Meaningful Experiences with Self, Others, and the Environment: A Curriculum Framework Tailored to the Needs of English Language Learners (2016) | JMU Scholoraly Commons (James Madison University) | W2574084899
+- Distinguishing Moral Outrage and Empathetic Anger: Advancing the Triadic Appraisal Framework of Situational Crisis Communication Theory (2026) | Journal of Public Relations Research | 10.1080/1062726x.2026.2667179
+- Haptic Interaction with a Guide Robot in Zero Visibility (2018) | Sheffield Hallam University | 10.7190/shu-thesis-00132
+- MNEs Entry Strategies through a Distance Framework: A New Perspective (2020) | SPOUDAI Journal of Economics and Business | W3124010218
+- Virtue’s Web: The Virtue of Empathic Attunement and the Need for a Relational Foundation (2016) | CUNY Academic Works (City University of New York) | W2563104738
+- Exploring situation-specific emotional episodes among nurses :|bapplication of the componential emotion approach (2016) | Boloka Institutional Repository (North-west University) | W2581804715
+- Gamified Therapy as Applied Game Design: A Conceptual Framework Linking Cognitive Functions and Game Mechanics (2026) | Theseus (Ammattikorkeakoulujen) | W7162352539
+- The usability of a visual, flow-based programming environment for non-programmers (2021) | None | 10.32920/ryerson.14668389
+- Augmented Studio: mediating architectural communication through Tangible Interfaces and Web-AR (2026) | Lund University Publications Student Papers (Lund University) | W7164773133
+- Affective costs of Whiteness: Examining the role of White Guilt and White Shame (2018) | None | 10.7916/d80s168d
+- PROMOTING CONVERSATIONAL APIS: A CONCEPTUAL FRAMEWORK AND A METHOD FOR API DESIGN (2020) | None | 10.17771/pucrio.acad.49982
+- DYNAMIC NEGOTIATION FLEXIBILITY IN GREENFIELD MINING PROJECTS: A FRAMEWORK FOR CONFLICT DE-ESCALATION, ORGANIZATIONAL ADAPTATION, AND LEGITIMACY (2026) | None | 10.69980/reej0k04
+- Purpose and Meaning at the Subconscious Level: An Integrative Review Comparing the SGE Model with Contemporary Frameworks for Inner Transformation and Fundamental Peace (2026) | Preprints.org | 10.20944/preprints202602.1864.v1
+- The extent of empirical evidence that could inform evidence-based design of programming languages : a systematic mapping study (2014) | Jyväskylä University Digital Archive (University of Jyväskylä) | W2204097169
+- Unfreezing the Organizational Culture of the Catholic Church: A Case Study of Pope Francis' Organizational Culture Change Initiative Using the Transformational Leadership Theoretical Framework (2015) | University of Minnesota Digital Conservancy (University of Minnesota) | W2282555234
+- A Library for the Crown: Charles Albert of Savoy and the Foundation of the Biblioteca Reale of Turin (2022) | Institutional Research Information System University of Turin (University of Turin) | W7217638265
+- Morally Injurious Experiences, Trauma-Related Guilt, and Substance Use among Iraq and Afghanistan Combat Veterans (2020) | ODU Digital Commons (Old Dominion University) | 10.25777/hhes-at24
+- An Investigation of the Correlation Between Mental Workload and Web User’s Interaction (2017) | Arrow - TU Dublin (Technological University Dublin) | W2626553465
+- Tobacco use and digital dependency in adolescents: A school-centered framework for prevention (2025) | International e-Conference on Studies in Humanities and Social Sciences | 10.32591/coas.e-conf.11.17185o
+- The community informatics of an aging society: a comparative case study of senior centers and public libraries (2016) | Illinois Digital Environment for Access to Learning and Scholarship (University of Illinois at Urbana-Champaign) | W2606891683
+- Developing critical thinking in auditing students through technology-based educational interventions : a conceptual framework (2018) | Unisa Institutional Repository (University of South Africa) | W2986331595
+- Improving languages and software libraries for programming interaction (2019) | theses.fr (ABES) | W4395959447
+  - resumo (HAL tel-04369360): Raffaillac (2019), tese em francês; entrevistas, questionário e o framework Polyphony; não avalia o React pelas DCs; PDF atrás de verificação anti-robô
+
+## fulltext.search:"cognitive dimensions" SolidJS: 1
+- Bluefish: Composing Diagrams with Declarative Relations (2024) | ACM Symposium on User Interface Software and Technology (UIST) | 10.1145/3654777.3676465
+  - texto completo: Bluefish, em SolidJS; DCs só pelo mapeamento próximo (ver 81)
+
+## fulltext.search:"cognitive dimensions" "Angular": 335 (18 de 2013 em diante com termo no título)
+- Lotse: A Practical Framework for Guidance in Visual Analytics (2022) | arXiv (Cornell University) | 10.48550/arxiv.2208.04434
+- Cognitive dimensions of talim: evaluating weaving notation through cognitive dimensions (CDs) framework (2016) | Cognitive Processing | 10.1007/s10339-016-0788-z
+- Linking somatic and symbolic representation in semantic memory: the dynamic multilevel reactivation framework (2016) | Psychonomic Bulletin & Review | 10.3758/s13423-015-0824-5
+- Book Review: Vademecum of English, a Complete Reference Guide for Teachers and Learners (2025) | Nexus | 10.63182/nexus-2025-1.3.03
+- ReactJS and Accessibility: Designing Inclusive Web Applications for Broader Social Impact (2025) | European Journal of Computer Science and Information Technology | 10.37745/ejcsit.2013/vol13n3199109
+  - resumo: acessibilidade com React, sem DCs; periódico sem revisão identificável
+- Measuring Developers’ Web Security Awareness from Attack and Defense Perspectives (2022) | IEEE Security and Privacy Workshops (SPW) | 10.1109/spw54247.2022.9833858
+- Identifying and Characterizing Risk Areas in Public API Support: An Integrated Analysis of YouTube APIs (2026) | Research Square | 10.21203/rs.3.rs-10483642/v1
+- A two-tier model of abduction: a unified framework for perception and emotion (2025) | Frontiers in Psychology | 10.3389/fpsyg.2025.1732693
+- Building Scalable Cloud UI Applications: 5 Key Architectural Principles (2025) | International Journal of Computational and Experimental Science and Engineering | 10.22399/ijcesen.4173
+  - resumo: princípios de arquitetura de UI, sem DCs; periódico sem revisão identificável
+- Graph Drawing and Analysis Library and Its Domain-Specific Language for Graphs’ Layout Specifications (2018) | Scientific Programming | 10.1155/2018/7264060
+- Programming Languages for the Future of Design Computation (2024) | ACM SIGPLAN International Symposium on New Ideas, New Paradigms, and Reflections on Programming and Software (Onward!) | 10.1145/3689492.3689812
+- Designing Engaging Learning Experiences in Programming (2018) | Communications in computer and information science | 10.1007/978-3-319-94640-5_12
+- Problem Formatting, Domain Specificity, and Arithmetic Processing: The Promise of a Factor Analytic Framework (2022) | Digital Archive @ GSU | 10.57709/7344679
+- TIEboard: Developing Kids Geometric Thinking through Tangible User Interface (2021) | SIGGRAPH Asia Posters | 10.1145/3476124.3488623
+- Haptic Interaction with a Guide Robot in Zero Visibility (2018) | Sheffield Hallam University | 10.7190/shu-thesis-00132
+- Driving-Related Cognitive Abilities Prediction Based on Transformer’s Multimodal Fusion Framework (2024) | Sensors | 10.3390/s25010174
+- Beyond Reality: Unified Design Frameworks for XR in Healthcare Serious Games (2025) | Özgür Yayınları eBooks | 10.58830/ozgur.pub753.c3086
+- Fantasia on a Theme of Purpose: Using a Music-Guided Scribble Technique to Support Meaning-Making in Older Adult Retiree Musicians (2023) | None | 10.33015/dominican.edu/2024.at.03
+
+## fulltext.search:"cognitive dimensions" signals JavaScript: 92 (34 de 2013 em diante com termo no título)
+- Inclusive Virtual Worlds for Differentiating Programming Language Syntax: An Action Research Approach (2026) | International Journal of Emerging Technologies in Learning (iJET) | 10.3991/ijet.v21i02.61361
+- Designing and Evaluating the Usability of a Machine Learning API for Rapid Prototyping Music Technology (2020) | Frontiers in Artificial Intelligence | 10.3389/frai.2020.00013
+- Building a three-level multimodal emotion recognition framework (2022) | Multimedia Tools and Applications | 10.1007/s11042-022-13254-8
+- Programming For Music: Explorations in Abstraction (2019) | University of Huddersfield Repository (University of Huddersfield) | W3014527674
+- UAX: Measuring the Usability of TypeScript APIs (2024) | None | 10.5753/sbes.2024.3658
+  - UAX (SBES 2024), na base (seção 3.2)
+- Metrics-Based Evaluation and Comparison of Visualization Notations (2023) | arXiv (Cornell University) | 10.48550/arxiv.2308.16353
+  - kruchten2023, na base
+- Automated Detection of Deceptive Design Patterns on University Websites: A Comparative Analysis of Browser-Based Tools and LLM-Based Approaches (2026) | Applied Sciences | 10.3390/app16094543
+- Designing and evaluating the usability of an API for real-time multimedia services in the Internet (2016) | Multimedia Tools and Applications | 10.1007/s11042-016-3729-z
+- Technical Dimensions of Programming Systems (2023) | The Art Science and Engineering of Programming | 10.22152/programming-journal.org/2023/7/13
+  - Jakubovic et al. (2023), já visto
+- Measuring Developers’ Web Security Awareness from Attack and Defense Perspectives (2022) | IEEE Security and Privacy Workshops (SPW) | 10.1109/spw54247.2022.9833858
+- Exploring Programming Paradigms with IoT and Tiles for End-Users (2017) | BIBSYS Brage (BIBSYS (Norway)) | W2764108503
+- Identifying and Characterizing Risk Areas in Public API Support: An Integrated Analysis of YouTube APIs (2026) | Research Square | 10.21203/rs.3.rs-10483642/v1
+- SLR: From Saltzer and Schroeder to 2021…47 Years of Research on the Development and Validation of Security API Recommendations (2022) | ACM Transactions on Software Engineering and Methodology | 10.1145/3561383
+- How Notations Evolve: A Historical Analysis with Implications for Supporting User-Defined Abstractions (2026) | arXiv (Cornell University) | W7127541878
+- Bridging the digital skills gap in ICT labour markets: A socio-technical framework for hybrid ICT competencies via market intelligence (2026) | Social Sciences & Humanities Open | 10.1016/j.ssaho.2026.103373
+- Aesthetic semantics: Affect rating of atomic visual web aesthetics for use in affective user experience design (2022) | International Journal of Human-Computer Studies | 10.1016/j.ijhcs.2022.102978
+- Building a cross-platform WebXR heritage application from a drone survey using a language model (2026) | Research Square | 10.21203/rs.3.rs-11062255/v1
+- openHTML: Assessing Barriers and Designing Tools for Learning Web Development (2014) | iDEA - Drexel University Institutional Repository | 10.17918/etd-6098
+- An Investigation of the Correlation Between Mental Workload and Web User’s Interaction (2017) | Arrow - TU Dublin (Technological University Dublin) | W2626553465
+- Case Study: Design Strategies for Enabling Visual Application Blocks of Bluetooth Library (2022) | IEEE Access | 10.1109/access.2022.3175316
+- Comparison of flow-based versus block-based programming for naive programmers (2022) | None | 10.32920/ryerson.14652246.v2
+- Comparison of flow-based versus block-based programming for naive programmers (2021) | None | 10.32920/ryerson.14652246.v1
+- PROMOTING CONVERSATIONAL APIS: A CONCEPTUAL FRAMEWORK AND A METHOD FOR API DESIGN (2020) | None | 10.17771/pucrio.acad.49982
+- GLIDE: Developing a Usability-Driven Programming Environment for Young Learners to Bridge Block-Based and Text-Based Modalities (2025) | University of North Texas Digital Library (University of North Texas) | W7128128386
+- Bluefish: Composing Diagrams with Declarative Relations (2024) | ACM Symposium on User Interface Software and Technology (UIST) | 10.1145/3654777.3676465
+  - texto completo: Bluefish, em SolidJS; DCs só pelo mapeamento próximo (ver 81)
+- Improving languages and software libraries for programming interaction (2019) | theses.fr (ABES) | W4395959447
+  - resumo (HAL tel-04369360): Raffaillac (2019), tese em francês; entrevistas, questionário e o framework Polyphony; não avalia o React pelas DCs; PDF atrás de verificação anti-robô
+- Empirical Formal Methods: Guidelines for Performing Empirical Studies on Formal Methods (2022) | Software | 10.3390/software1040017
+- To Search or To Gen? Design Dimensions Integrating Web Search and Generative AI in Programmers' Information-Seeking Process (2025) | ACM Designing Interactive Systems Conference (DIS) | 10.1145/3715336.3735752
+- An Evaluation Framework and Comparative Analysis of the Widely Used First Programming Languages (2014) | PLoS ONE | 10.1371/journal.pone.0088941
+- User-centered multi-layer programming approach to model scenarios on driving simulators (2014) | Thèses en ligne de l'Université Toulouse III (Université Toulouse III) | W2180867257
+- The usability of a visual, flow-based programming environment for non-programmers (2021) | None | 10.32920/ryerson.14668389
+- Digitization of Museum and Art Gallery: A Framework for Enhancing User Interactivity and Personalization in On-site Environments (2015) | Griffith Research Online | 10.25904/1912/129
+- Un framework formel pour les architectures logicielles dynamiques (2016) | HAL (Le Centre pour la Communication Scientifique Directe) | W7062546029
+- Adaptation to Exogenous Shocks: Community, Team, and Individual Perspectives on the Social Web (2023) | Deep Blue (University of Michigan) | 10.7302/8593
+
+## fulltext.search:"cognitive dimensions" Svelte: 6
+- Varv: Reprogrammable Interactive Software as a Declarative Data Structure (2022) | CHI Conference on Human Factors in Computing Systems | 10.1145/3491102.3502064
+  - Varv, já visto
+- Animated Vega-Lite: Unifying Animation with a Grammar of Interactive Graphics (2022) | arXiv (Cornell University) | 10.48550/arxiv.2208.03869
+- EVM: Incorporating Model Checking into Exploratory Visual Analysis (2023) | arXiv (Cornell University) | 10.48550/arxiv.2308.13024
+- Hitchcock’s Appetites (2016) | None | 10.5040/9781501311642
+- Reconsidering writing across the curriculum: language as a contested site in the discipline of dance / (1994) | OhioLink ETD Center (Ohio Library and Information Network) | W2603695118
+- The image of Turkey and the Turks as "The Other" in al-Khiyārī's Tuḥfat al-'Udabā' wa Salwat al-Ghurabā' : a travelogue from the seventeenth century (2013) | White Rose eTheses Online (University of Leeds, The University of Sheffield, University of York) | W2462540493
+
+## fulltext.search:"cognitive dimensions" "Jetpack Compose": 2
+- Bluefish: Composing Diagrams with Declarative Relations (2024) | ACM Symposium on User Interface Software and Technology (UIST) | 10.1145/3654777.3676465
+  - texto completo: Bluefish, em SolidJS; DCs só pelo mapeamento próximo (ver 81)
+- Comparing Java with Python and Kotlin: A Comprehensive Analysis of Performance, Syntax, and Usability (2021) | International Journal of Artificial Intelligence Data Science and Machine Learning | 10.63282/3050-9262.ijaidsml-v2i2p104
+
+## fulltext.search:"cognitive dimensions" Elm: 276 (8 de 2013 em diante com termo no título)
+- Revisiting Tourism Livestreaming Features: A Conceptual Framework Linking Interactivity, Authenticity, Flow, and Playfulness to Travel Intention among Generation Z in China (2024) | Lex localis - Journal of Local Self-Government | 10.52152/22.3.66-712024)
+- Technical Dimensions of Programming Systems (2023) | The Art Science and Engineering of Programming | 10.22152/programming-journal.org/2023/7/13
+  - Jakubovic et al. (2023), já visto
+- PuzzleBench: A Fully Dynamic Evaluation Framework for Large Multimodal Models on Puzzle Solving (2025) | arXiv (Cornell University) | 10.48550/arxiv.2504.10885
+- Probing the Design Space: Parallel Versions for Exploratory Programming (2025) | The Art Science and Engineering of Programming | 10.22152/programming-journal.org/2025/10/5
+- Probing the Design Space: Parallel Versions for Exploratory Programming (2025) | The Art Science and Engineering of Programming | 10.22152/programming-journal.org/2026/10/5
+- Recommendations for Cancer Related Fatigue in Survivorship Care: A cross-sectional analysis of guidelines (2025) | Research Square | 10.21203/rs.3.rs-6455754/v1
+- Measuring the perceived e-retailing websites innovativeness and their effects on supply chain performance (2020) | Uncertain Supply Chain Management | 10.5267/j.uscm.2020.7.003
+- Engagement responsive pedagogy with the PRISM framework for inclusive and adaptive learning (2026) | Discover Education | 10.1007/s44217-026-01798-y
+
+## fulltext.search:"cognitive dimensions" RxJS: 3
+- On the Usability of Reactive Programming APIs: A Mixed Evaluation (2025) | Software Practice and Experience | 10.1002/spe.3435
+  - zimmerle2025, na base
+- UAX: Measuring the Usability of TypeScript APIs (2024) | None | 10.5753/sbes.2024.3658
+  - UAX (SBES 2024), na base (seção 3.2)
+- Distributed cognition in game development: influence of sociotechnical environment on collaboration and communication (2008) | None | 10.22215/etd/2008-07473
+
+Resultado: fora Zimmerle e Gama (2025), já na base, que avaliam o RxJS, nenhum trabalho avalia pelas DCs a notação do React, do Solid, do Angular, do Svelte, do Elm ou do Compose. O mais perto são as autoavaliações de duas bibliotecas de controles feitas em Angular e em React (Narechania et al., 2025; Verma, Odak e Narechania, 2026), que avaliam a notação da própria biblioteca.

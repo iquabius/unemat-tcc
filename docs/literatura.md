@@ -217,7 +217,64 @@ incluído marginal e a terceira, nenhum; nada do que entrou muda o nicho
 Limitações: o número de incluídos é o dos subagentes, de critério largo; o
 corte que vale para o texto é o da seção 10.3. 280 registros sem resumo
 foram julgados pelo título; dissertações em francês saíram pelo idioma;
-os citantes de Kiss (2014) não foram vistos.
+os citantes de Kiss (2014) não foram vistos (vistos em parte na terceira
+rodada, seção 5.2).
+
+### 5.2 Terceira rodada (2026-10-09)
+
+A rodada não achou trabalho que avalie pelas DCs a notação do React, do
+Solid ou do Angular com *signals*, nem que compare as três notações nos
+mesmos casos: o nicho da seção 6 se mantém. Os dois incluídos novos
+avaliam pelas DCs, pelos próprios autores, a notação de bibliotecas de
+controles de interface feitas em Angular e em React (Narechania et al.,
+2025; Verma, Odak e Narechania, 2026), e não a das bibliotecas de base. Dos
+citantes de Kiss (2014), a rodada viu os que o texto completo do OpenAlex
+e a web acham; o Google Acadêmico pediu verificação anti-robô e não foi
+consultado.
+
+- **Motivo.** O que a checagem adversarial de 2026-10-08 (tcc-kh1) deixou
+  aberto: os citantes de Kiss (2014), fora do OpenAlex; os de Green (1989)
+  e de Blackwell e Green (2003), não vistos; a iteração 3 da segunda
+  rodada, parcial.
+- **Critérios.** Os do Apêndice II e de `buscas/69-criterios-segunda-rodada.md`
+  (I1 a I5). Segue para a iteração seguinte, nos dois sentidos (Wohlin,
+  2014, p. 3-4), o incluído que aplica as DCs a notação, linguagem ou
+  biblioteca de interface ou de PR, ou que compara notações de interface
+  nos mesmos casos (N1 e N2). Citantes de 2013 em diante.
+- **Conjunto inicial (15 sementes).** Os que aplicam as DCs a notações de
+  interface: Kiss (2014), Mernik et al. (2009) e Zimmerle e Gama (2025),
+  mais a tese de Zimmerle (2024) para trás. Os textos que apresentam as
+  DCs: Green (1989), Green e Blackwell (1998, o tutorial), Blackwell et al.
+  (2001), Blackwell e Green (2003) e Green et al. (2006), mais Green e
+  Petre (1996), refeito para os citantes desde 2026-10-02. No lugar dos
+  citantes de Kiss, os trabalhos que citam o 7GUIs ou Kiss: Lu, Greenman e
+  Krishnamurthi (2021), Wiersdorf et al. (2024), Disch, Heegaard e Bahr
+  (2025), Borowski et al. (2022), Nielsen et al. (2026), Bahr e Møgelberg
+  (2026) e Vidal (2018).
+- **Bases.** OpenAlex (citantes, referências e texto completo); Semantic
+  Scholar pelo site (a API respondeu HTTP 429 às 13 tentativas); busca na
+  web (11 consultas); GitHub (busca de repositórios). Google Acadêmico,
+  ACM DL e CORE pediram verificação anti-robô ao navegador do agente.
+- **Saídas.** `buscas/80` a `buscas/85`.
+
+| Etapa | Registros |
+|---|---|
+| Iteração 1, para a frente: citantes das 15 sementes no OpenAlex | 2376 com sobreposição (Green e Petre 1251, Green 470, Blackwell e Green 255, Blackwell et al. 197, tutorial 105, Green et al. 67, Varv 21, Mernik et al. 4, Lu et al. 3, Zimmerle e Gama 2, Disch et al. 1, os outros 0); 1956 únicos; 1009 desde 2013, 635 já vistos |
+| Iteração 1, triagem por título e resumo | 374 novos (75 sem resumo, julgados pelo título); 2 incluídos (Narechania et al. 2025; Verma, Odak e Narechania 2026) |
+| Iteração 1, para trás | Kiss 60 referências, Mernik et al. 15, Zimmerle (2024) 23 de cerca de 140 (as com termos de interface, PR ou DCs); nenhum incluído |
+| Iteração 2: os 2 incluídos, nos dois sentidos | 10 citantes e 97 referências, de visualização e proveniência; nenhum incluído: o laço fecha |
+| Citantes de Kiss e do 7GUIs fora dos citantes do OpenAlex | texto completo do OpenAlex: 5 com "7GUIs" (um novo, Bahr e Møgelberg 2026); web: Wiersdorf et al. (2024), que escreve "7GUI" e escapa do OpenAlex, e uma monografia de graduação; Semantic Scholar sem Kiss e sem "7GUIs"; GitHub: 315 repositórios, implementações sem artigo; nenhum incluído |
+| Busca direta pela lacuna, texto completo do OpenAlex (8 consultas) | "cognitive dimensions" com React 3424, Angular 335, Elm 276, "signals JavaScript" 92, Svelte 6, RxJS 3, Jetpack Compose 2, SolidJS 1; triados pelo título os de 2013 em diante com termo de programação ou interface; nenhum incluído novo |
+| Textos completos lidos | Narechania et al. (2025, seção 4.3), Verma, Odak e Narechania (2026, seção 4), Pollock et al. (2024, Bluefish, em SolidJS: as DCs só pelo mapeamento próximo) e Wiersdorf et al. (2024, o 7GUI nas p. 44:6-44:7) |
+
+Limitações: o Google Acadêmico não foi consultado, e o texto completo do
+OpenAlex é parcial (não acha Wiersdorf et al., 2024); 75 registros sem
+resumo foram julgados pelo título; três teses fora da BDTD ficaram fora
+pelo critério, sem o texto completo lido: Raffaillac (2019, HAL
+tel-04369360, em francês; pelo resumo, entrevistas, questionário e o
+*framework* Polyphony, sem avaliar o React), Dékány (2025, Masaryk,
+graduação; React, Vue e Svelte por desempenho, pelo resumo) e uma tese
+sueca sobre DCs (DiVA diva2:1632735), cuja página recusou a conexão.
 
 ## 6. Lacunas em 2026-09-24
 
@@ -261,6 +318,13 @@ Situação em 2026-10-02, depois da segunda rodada (seção 5.1):
 - **Lacuna 4** continua: *signals* no front-end aparecem em Nishizu &
   Kamina (2022), Zhuang & Chiba (2016) e dois trabalhos sobre *signals*
   persistentes (SignalJ, 2022; JavaScript, 2023), nenhum sobre a notação.
+
+Situação em 2026-10-09, depois da terceira rodada (seção 5.2): o nicho
+continua sem trabalho. O mais perto são duas autoavaliações pelas DCs de
+bibliotecas de controles feitas em Angular e em React (Narechania et al.,
+2025; Verma, Odak e Narechania, 2026), que avaliam a notação da própria
+biblioteca; a de Verma et al. só diz que ela é "consistent with the
+framework it has been implemented in (i.e. React.js)" (p. 6 da cópia).
 
 ## 7. Kotlin × Java no Android (literatura cinzenta, consultada em 2026-09-26)
 
@@ -703,6 +767,17 @@ Crossref; "TC", o texto completo, lido em 2026-10-02 nas cópias de
 | NAVES, T. D. *Comparação dos modelos ReactiveX e programação reativa estruturada em aplicações soft real time*. PUC-Rio, 2021 (a BDTD diz tese; o OpenAlex, *dissertation*). DOI 10.17771/pucrio.acad.53553 | PR estruturada × ReactiveX em aplicações em Lua de tempo real brando | Brasileiro; mesma aplicação em dois modelos, sem GUI | R (BDTD) |
 | SAEED, M. S. *Traditional view system vs. Kotlin-driven Jetpack Compose in native Android development*. Dissertação (mestrado), University of Helsinki, 2024 | Views (imperativo, orientado a eventos) × Compose (declarativo) | Replicação no Android; literatura cinzenta | R |
 | SUAREZ-CARVAJAL, F.-E. et al. *MVVM in the era of modern Android: a systematic literature review and taxonomy of architectural trade-offs*. CLEI Electronic Journal, v. 29, n. 2, 2026. DOI 10.19153/cleiej.29.2.8 | Revisão sistemática de 78 estudos (2017-2025) sobre MVVM e UI declarativa no Android | Replicação no Android | R, só o início |
+
+### 10.4 Da terceira rodada (2026-10-09)
+
+Os dois avaliam pelas DCs a notação da própria biblioteca, e não a do
+Angular ou a do React; no `refs.bib` desde a rodada, com as cópias do
+arXiv em `tmp/fontes/`. "TC" é o texto completo, lido nessas cópias.
+
+| Trabalho | O que faz | Para que serve | Lido |
+|---|---|---|---|
+| NARECHANIA, A.; ODAK, K.; EL-ASSADY, M.; ENDERT, A. *ProvenanceWidgets: a library of UI control elements to track and dynamically overlay analytic provenance*. IEEE TVCG, v. 31, n. 1, p. 1235-1245, 2025. DOI 10.1109/tvcg.2024.3456144 (`narechania2025`) | Biblioteca de controles de interface em Angular (p. 4 da cópia). "We self-assess our library from a developer standpoint based on the Cognitive Dimensions of Notation": consistência, difusão, operações mentais difíceis e viscosidade, contra o Trrack (seção 4.3, p. 7 da cópia); depois, estudos de caso com quatro desenvolvedores | Precedente de DCs aplicadas pelo próprio autor a uma notação de interface; o mais perto da lacuna, sem avaliar o Angular | TC (arXiv 2407.17431; página da publicada não conferida) |
+| VERMA, A.; ODAK, K.; NARECHANIA, A. *SuperProvenanceWidgets: tracking and visualizing analytic provenance across UI control elements*. CHI EA '26, 2026. DOI 10.1145/3772363.3798409 (`verma2026`) | Extensão da mesma biblioteca, em React. "We present a technical self-assessment of SuperProvenanceWidgets using the Cognitive Dimensions of Notations"; a notação "is also consistent with the framework it has been implemented in (i.e. React.js)" (seção 4, p. 6 da cópia) | Idem; a única frase sobre o React é a da consistência | TC (arXiv 2604.15342, no formato da ACM) |
 
 ## 11. Expressividade e operações mentais difíceis nas fontes (lidas em 2026-09-28)
 

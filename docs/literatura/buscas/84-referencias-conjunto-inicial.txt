@@ -1,0 +1,33 @@
+# Terceira rodada (tcc-lf9, 2026-10-09): referências do conjunto inicial (snowballing para trás)
+
+- Kiss (2014): 60 referências (lista lida em tmp/fontes/kiss2014.txt, p. 106-111), todas de 2014 ou antes. As que aplicam DCs (Clarke e Becker 2003; Kutar, Britton e Wilson; Sadowski e Kurniawan 2011; Green, "Instructions and descriptions") e as de PFR para GUIs (Courtney; Czaplicki; Maier e Odersky; REScala; InterState; Salvaneschi et al. 2014) já estavam na base ou em tmp/pesquisa-precedentes.md. Nenhum incluído novo.
+- Mernik et al. (2009): 15 referências (tmp/fontes/mernik2009.txt), de 1987 a 2009. Nenhum incluído novo.
+- Zimmerle (2024, tese, `lima2024`): bibliografia de cerca de 140 entradas; lidas as 23 com termos de interface, PR, *callback*, Observer ou DCs (abaixo). Todas já na base ou fora do recorte (servidor, IoT, CEP). Nenhum incluído novo.
+- Zimmerle e Gama (2025): referências vistas na primeira rodada (30-referencias-zimmerle2025.txt).
+- Green (1989), Blackwell e Green (2003), Blackwell et al. (2001) e Green et al. (2006): textos de fundação, anteriores ao período; para trás, não se percorreram.
+
+## Entradas de Zimmerle (2024) lidas
+
+- ABDELLATIF, A.; COSTA, D.; BADRAN, K.; ABDALKAREEM, R.; SHIHAB, E. Challenges in chatbot development: A study of stack overflow posts. In: Proceedings of the 17th International Conference on Mining Software Repositories. [S.l.: s.n.], 2020. p. 174–185. AGRAWAL, A.; FU, W.; MENZIES, T. What is wrong 
+- BONÉR, J.; KLANG, V. Reactive programming versus reactive systems. Dosegljivo: https://www. lightbend. com/reactiveprogramming-versus-reactive-systems.[Dostopano: 23. 08. 2017], 2017.
+- BRUNSFELD, M.; QURESHI, A.; HLYNSKYI, A.; THOMSON, P.; OBSERVEROFTIME; VERA, J.; DUNDARGOC; TURNBULL, P.; CLEM, T.; CREAGER, D.; HELWER, A.; RIX, R.; KAVOLIS, D.; ANTWERPEN, H. van; DAVIS, M.; LILLIS, W.; IKA; YAHYAABADI, A.; ÊN, T.-A. N.; KOLJA. tree-sitter/tree-sitter: v0.24.4. Zenodo, 2024. Avail
+- CLARKE, S. Describing and measuring api usability with the cognitive dimensions. In: CITESEER. Cognitive Dimensions of Notations 10th Anniversary Workshop. [S.l.], 2005. v. 16.
+- DIAS, J. P.; FARIA, J. P.; FERREIRA, H. S. A reactive and model-based approach for developing internet-of-things systems. In: IEEE. 2018 11th International Conference on the Quality of Information and Communications Technology (QUATIC). [S.l.], 2018. p. 276–281. DIPROSE, J.; MACDONALD, B.; HOSKING, 
+- KAMBONA, K.; BOIX, E. G.; MEUTER, W. D. An evaluation of reactive programming and promises for structuring collaborative web applications. In: ACM. Proceedings of the 7th Workshop on Dynamic Languages and Applications. [S.l.], 2013. p. 1–9.
+- LÓPEZ-FERNÁNDEZ, L.; GARCÍA, B.; GALLEGO, M.; GORTÁZAR, F. Designing and evaluating the usability of an api for real-time multimedia services in the internet. Multimedia Tools and Applications, Springer, v. 76, n. 12, p. 14247–14304, 2017. MACEFIELD, R. How to specify the participant group size for 
+- PEREIRA, A.; GAMA, K.; ZIMMERLE, C.; CASTOR, F. Reactive programming with swift combine: An analysis of problems faced by developers on stack overflow. In: Proceedings of the XXXVII Brazilian Symposium on Software Engineering. [S.l.: s.n.], 2023. p. 109–115.
+- PROENÇA, J.; BAQUERO, C. Quality-aware reactive programming for the internet of things. In: SPRINGER. International Conference on Fundamentals of Software Engineering. [S.l.], 2017. p. 180–195.
+- SALVANESCHI, G.; AMANN, S.; PROKSCH, S.; MEZINI, M. An empirical study on program comprehension with reactive programming. In: ACM. Proceedings of the 22nd ACM SIGSOFT International Symposium on Foundations of Software Engineering. [S.l.], 2014. p. 564–575.
+- SALVANESCHI, G.; DRECHSLER, J.; MEZINI, M. Towards distributed reactive programming. In: SPRINGER. Coordination Models and Languages: 15th International Conference, COORDINATION 2013, Held as Part of the 8th International Federated Conference on Distributed Computing Techniques, DisCoTec 2013, Flore
+- SALVANESCHI, G.; HINTZ, G.; MEZINI, M. Rescala: Bridging between object-oriented and functional style in reactive applications. In: ACM. Proceedings of the 13th international conference on Modularity. [S.l.], 2014. p. 25–36. 162
+- SALVANESCHI, G.; MARGARA, A.; TAMBURRELLI, G. Reactive programming: A walkthrough. In: IEEE. 2015 IEEE/ACM 37th IEEE International Conference on Software Engineering. [S.l.], 2015. v. 2, p. 953–954.
+- SALVANESCHI, G.; MEZINI, M. Debugging for reactive programming. In: IEEE. 2016 IEEE/ACM 38th International Conference on Software Engineering (ICSE). [S.l.], 2016. p. 796–807.
+- SALVANESCHI, G.; PROKSCH, S.; AMANN, S.; NADI, S.; MEZINI, M. On the positive effect of reactive programming on software comprehension: An empirical study. IEEE Transactions on Software Engineering, IEEE, v. 43, n. 12, p. 1125–1143, 2017.
+- SHNEIDERMAN, B.; PLAISANT, C. Designing the user interface: strategies for effective human-computer interaction. [S.l.]: Pearson Education India, 2010.
+- SOKOLOWSKI, D.; MARTENS, P.; SALVANESCHI, G. Multitier reactive programming in high performance computing. In: ACM. 6th Workshop on Reactive and Event-based Languages & Systems. [S.l.], 2019.
+- STERZ, A.; EICHHOLZ, M.; MOGK, R.; BAUMGÄRTNER, L.; GRAUBNER, P.; HOLLICK, M.; MEZINI, M.; FREISLEBEN, B. Reactifi: Reactive programming of wi-fi firmware on mobile devices. Art Sci. Eng. Program., v. 5, n. 2, p. 4, 2021.
+- WIJAYARATHNA, C.; ARACHCHILAGE, N. A.; SLAY, J. A generic cognitive dimensions questionnaire to evaluate the usability of security apis. In: SPRINGER. International Conference on Human Aspects of Information Security, Privacy, and Trust. [S.l.], 2017. p. 160–173.
+- ZIMMERLE, C.; GAMA, K. Reactive cep: Integrating complex event processing into web reactive languages. In: ACM. Proceedings of the 24th Brazilian Symposium on Multimedia and the Web. [S.l.], 2018. p. 69–72.
+- ZIMMERLE, C.; GAMA, K. A web-based approach using reactive programming for complex event processing in internet of things applications. In: ACM. Proceedings of the 33rd Annual ACM Symposium on Applied Computing. [S.l.], 2018. p. 2167–2174.
+- ZIMMERLE, C.; GAMA, K. On the usability of reactive programming apis: A combined approach. Under evaluation. 2025.
+- ZIMMERLE, C.; GAMA, K.; CASTOR, F.; FILHO, J. M. M. Mining the usage of reactive programming apis: a study on github and stack overflow. In: ACM. Proceedings of the 19th International Conference on Mining Software Repositories. [S.l.], 2022. p. 203–214. 165

@@ -2,9 +2,9 @@
 \label{apend:2}
 
 A revisão bibliográfica, por palavras-chave e \textit{snowballing}
-\cite[p.~3-4]{wohlin2014}, teve duas rodadas, em setembro e outubro de
-2026, no OpenAlex, no Crossref, na ACM Digital Library, na IEEE Xplore, na
-SBC-OpenLib e na \gls{bdtd}.
+\cite[p.~3-4]{wohlin2014}, teve três rodadas, em setembro e outubro de
+2026, no OpenAlex, no Crossref, no Semantic Scholar, na ACM Digital
+Library, na IEEE Xplore, na SBC-OpenLib e na \gls{bdtd}.
 Entram trabalhos revisados por pares e, da \gls{bdtd}, dissertações e
 teses, em inglês ou português, de três tipos.
 Os primeiros tratam de \gls{pr} ou da programação declarativa de interfaces
@@ -17,21 +17,33 @@ segunda rodada, percorre todos os citantes de quatro deles em duas
 iterações; uma terceira, parcial, vê as referências de um trabalho e os que
 citam o 7GUIs, e não traz trabalho novo.
 Para trás, percorre as referências de dois trabalhos.
-A revisão não viu os citantes de \textcite{kiss2014}, que o OpenAlex não
-indexa, e julgou só pelo título 280 registros sem resumo.
+A terceira rodada parte dos trabalhos que aplicam as \glspl{dc} a notações
+de interface, dos textos que apresentam as \glspl{dc} e dos trabalhos que
+citam o 7GUIs, no lugar dos citantes de \textcite{kiss2014}, que o
+OpenAlex não indexa, e segue nos dois sentidos até nenhum trabalho novo: a
+primeira iteração inclui dois trabalhos, e a segunda, nenhum.
+Dos citantes de Kiss, a revisão viu só os que o texto completo do OpenAlex
+e a busca na web acham; o Google Acadêmico, que pediu verificação
+anti-robô, não foi consultado.
+As três rodadas julgaram só pelo título 355 registros sem resumo.
 
 Entre os trabalhos incluídos, os mais próximos deste aplicam as \glspl{dc}
 a linguagens e bibliotecas de interface ou de \gls{pr}:
 \textcite{mernik2009} comparam o \gls{xaml} e o Windows Forms em C\#,
 \textcite{kiss2014} compara JavaFX, ScalaFX, Scala.Rx, ReactFX e Elm, e
 \textcite{zimmerle2025} avaliam o RxJS e o Bacon.js.
+\textcite{narechania2025} avaliam pelas \glspl{dc} a notação de uma
+biblioteca de controles de interface que fizeram em Angular.
+A extensão dela, feita em React, passou pela mesma autoavaliação
+\cite{verma2026}; nas duas, o que se avalia é a notação da biblioteca, e
+não a do Angular ou a do React.
 \textcite{grolaux2026} comparam, sem as \glspl{dc}, o \textit{async} e
 \textit{await} com outras formas de tratar os eventos de interface.
 Nenhum trabalho incluído avalia pelas \glspl{dc} a notação do React nem a
 do Solid e do Angular com \textit{signals}, nem compara as três notações
 nas mesmas tarefas; essa é a lacuna que a introdução declara.
 
-As tabelas a seguir dão os números de cada etapa das duas rodadas.
+As tabelas a seguir dão os números de cada etapa das três rodadas.
 
 \begin{table}[htbp]
 \centering
@@ -69,6 +81,27 @@ Iteração 3: referências de 1 trabalho e trabalhos que citam o 7GUIs & 18; nen
 \gls{bdtd} (14 consultas) e SBC-OpenLib (10) & 508 títulos únicos; 2 incluídos, já na base \\
 Buscas pela lacuna e por revisões de \gls{pr} no OpenAlex, no Crossref e na ACM DL & 1.528 títulos; nenhuma revisão nova \\
 Candidatos novos & 12 \\
+\hline
+\end{tabular}
+
+Fonte: o autor.
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{\label{tab:revisaoRodada3}Terceira rodada (9 de outubro de 2026).}
+\small
+\begin{tabular}{p{0.55\textwidth}p{0.35\textwidth}}
+\hline
+Etapa & Registros \\
+\hline
+Iteração 1, para a frente: citantes de 15 trabalhos & 1.956 únicos; 1.009 desde 2013, dos quais 635 já vistos \\
+Iteração 1, triagem por título e resumo & 374 novos, dos quais 75 sem resumo; 2 incluídos \\
+Iteração 1, para trás: referências de 3 trabalhos & cerca de 215, das quais 98 lidas; nenhum incluído \\
+Iteração 2: citantes e referências dos 2 incluídos & 107; nenhum incluído \\
+Trabalhos que citam o 7GUIs, no texto completo do OpenAlex e na web & 8; nenhum incluído novo \\
+Buscas pela lacuna no texto completo do OpenAlex (8 consultas) & 4.139 resultados; nenhum incluído novo \\
+Candidatos novos & 2 \\
 \hline
 \end{tabular}
 

@@ -1,0 +1,110 @@
+# Terceira rodada (tcc-lf9, 2026-10-09), iteração 2: os incluídos da iteração 1, nos dois sentidos
+
+## Citantes de ProvenanceWidgets (Narechania et al., 2025, TVCG): 10
+- Composable Prompting Workspaces for Creative Writing: Exploration and Iteration Using Dynamic Widgets (2025) | Extended Abstracts of the CHI Conference on Human Factors in Computing Systems (CHI EA) | 10.1145/3706599.3720243
+- Utilizing Provenance as an Attribute for Visual Data Analysis: A Design Probe With ProvenanceLens (2025) | IEEE Transactions on Visualization and Computer Graphics | 10.1109/tvcg.2025.3571708
+- TraVIS: A User Trace Analyzer to Support User-Centered Design of Visual Analytics Solutions (2025) | IEEE Transactions on Visualization and Computer Graphics | 10.1109/tvcg.2025.3546863
+- Fluidly Revealing Information: A Survey of Un/foldable Data Visualizations (2025) | Computer Graphics Forum | 10.1111/cgf.70152
+- Narrative Scaffolding: A Narrative-First Framework for Data-Driven Sensemaking (2026) | ACM International Conference on Intelligent User Interfaces (IUI) | 10.1145/3742413.3789062
+- Real-Time Interventions (2026) | Synthesis lectures on visualization | 10.1007/978-3-032-09307-3_7
+- SuperProvenanceWidgets: Tracking and Visualizing Analytic Provenance Across UI Control Elements (2026) | Extended Abstracts of the CHI Conference on Human Factors in Computing Systems (CHI EA) | 10.1145/3772363.3798409
+- Engineering Sentient UI: Bridging Emotion, Behavior, and Context for Dynamic UI Adaptation (2025) | None | 10.1109/engitek68245.2025.11567670
+- Revealing the Dark Matter: Connecting Tacit and System Knowledge in Human-AI Collaborations (2026) | IEEE/ACM International Conference on Software Engineering (ICSE) | 10.1145/3786582.3786833
+- Towards informed process exploration: better previews, reviews, and views beyond (2026) | Process Science | 10.1007/s44311-026-00057-5
+
+## Referências de ProvenanceWidgets (Narechania et al., 2025, TVCG), no OpenAlex: 51
+- The magical number seven, plus or minus two: Some limits on our capacity for processing information. (1994) | Psychological Review | 10.1037/0033-295x.101.2.343
+- The eyes have it: a task by data type taxonomy for information visualizations (2002) | IEEE Symposium on Visual Languages | 10.1109/vl.1996.545307
+- Information visualization and visual data mining (2002) | IEEE Transactions on Visualization and Computer Graphics | 10.1109/2945.981847
+- Vega-Lite: A Grammar of Interactive Graphics (2016) | IEEE Transactions on Visualization and Computer Graphics | 10.1109/tvcg.2016.2599030
+- Dynamic queries for visual information seeking (1994) | IEEE Software | 10.1109/52.329404
+- Edit wear and read wear (1992) | ACM SIGCHI Conference on Human Factors in Computing Systems (CHI) | 10.1145/142750.142751
+- VisTrails (2006) | Proceedings - ACM-SIGMOD International Conference on Management of Data | 10.1145/1142473.1142574
+- The Effects of Interactive Latency on Exploratory Visual Analysis (2014) | IEEE Transactions on Visualization and Computer Graphics | 10.1109/tvcg.2014.2346452
+- Graphical Histories for Visualization: Supporting Analysis, Communication, and Evaluation (2008) | IEEE Transactions on Visualization and Computer Graphics | 10.1109/tvcg.2008.137
+- The dynamic HomeFinder (1992) | International ACM SIGIR Conference on Research and Development in Information Retrieval (SIGIR) | 10.1145/133160.133216
+- Scented Widgets: Improving Navigation Cues with Embedded Visualizations (2007) | IEEE Transactions on Visualization and Computer Graphics | 10.1109/tvcg.2007.70589
+- Characterizing Provenance in Visualization and Data Analysis: An Organizational Framework of Provenance Types and Purposes (2015) | IEEE Transactions on Visualization and Computer Graphics | 10.1109/tvcg.2015.2467551
+- Cognitive Dimensions of Notations: Design Tools for Cognitive Technology (2001) | Lecture notes in computer science | 10.1007/3-540-44617-6_31
+- VisTrails: Enabling Interactive Multiple-View Visualizations (2006) | None | 10.1109/visual.2005.1532788
+- Usability tool for analysis of web designs using mouse tracks (2006) | CHI Conference Extended Abstracts on Human Factors in Computing Systems (CHI EA) | 10.1145/1125451.1125557
+- GraphTrail (2012) | ACM SIGCHI Conference on Human Factors in Computing Systems (CHI) | 10.1145/2207676.2208293
+- Game Analytics – The Basics (2013) | Springer eBooks | 10.1007/978-1-4471-4769-5_2
+- Phosphor (2006) | ACM Symposium on User Interface Software and Technology (UIST) | 10.1145/1166253.1166280
+- Analytic provenance (2011) | CHI Conference Extended Abstracts on Human Factors in Computing Systems (CHI EA) | 10.1145/1979742.1979570
+- Revisiting read wear (2009) | ACM SIGCHI Conference on Human Factors in Computing Systems (CHI) | 10.1145/1518701.1518957
+- Generalized selection via interactive query relaxation (2008) | ACM SIGCHI Conference on Human Factors in Computing Systems (CHI) | 10.1145/1357054.1357203
+- Trrack: A Library for Provenance-Tracking in Web-Based Visualizations (2020) | IEEE Visualization Conference (VIS) | 10.1109/vis47514.2020.00030
+- HindSight: Encouraging Exploration through Direct Encoding of Personal Interaction History (2016) | IEEE Transactions on Visualization and Computer Graphics | 10.1109/tvcg.2016.2599058
+- Using VisTrails and Provenance for Teaching Scientific Visualization (2010) | Computer Graphics Forum | 10.1111/j.1467-8659.2010.01830.x
+- A Deeper Look at the Use of Telemetry for Analysis of Player Behavior in RTS Games (2011) | Lecture notes in computer science | 10.1007/978-3-642-24500-8_26
+- Smart Brushing for Parallel Coordinates (2018) | IEEE Transactions on Visualization and Computer Graphics | 10.1109/tvcg.2018.2808969
+- Left, Right, and Gender: Exploring Interaction Traces to Mitigate Human Biases (2021) | IEEE Transactions on Visualization and Computer Graphics | 10.1109/tvcg.2021.3114862
+- Analytic Provenance in Practice: The Role of Provenance in Real-World Visualization and Data Analysis Environments (2019) | IEEE Computer Graphics and Applications | 10.1109/mcg.2019.2933419
+- VITALITY: Promoting Serendipitous Discovery of Academic Literature with Transformers & Visual Analytics (2021) | IEEE Transactions on Visualization and Computer Graphics | 10.1109/tvcg.2021.3114820
+- Co-adaptive visual data analysis and guidance processes (2021) | Computers & Graphics | 10.1016/j.cag.2021.06.016
+- Lumos: Increasing Awareness of Analytic Behavior during Visual Data Analysis (2021) | IEEE Transactions on Visualization and Computer Graphics | 10.1109/tvcg.2021.3114827
+- GraphUnit: Evaluating Interactive Graph Visualizations Using Crowdsourcing (2015) | Computer Graphics Forum | 10.1111/cgf.12657
+- Leveraging Analysis History for Improved In Situ Visualization Recommendation (2022) | Computer Graphics Forum | 10.1111/cgf.14529
+- reVISit: Supporting Scalable Evaluation of Interactive Visualizations (2023) | IEEE Visualization and Visual Analytics (VIS) | 10.1109/vis54172.2023.00015
+- Awareness support in a groupware widget toolkit (2003) | None | 10.1145/958160.958201
+- Improving revisitation in fisheye views with visit wear (2005) | ACM SIGCHI Conference on Human Factors in Computing Systems (CHI) | 10.1145/1054972.1055079
+- EvalBench: A Software Library for Visualization Evaluation (2013) | Computer Graphics Forum | 10.1111/cgf.12091
+- Guidelines for the Design and Implementation of Game Telemetry for Serious Games Analytics (2015) | Springer eBooks | 10.1007/978-3-319-05834-4_3
+- Capturing Game Telemetry with Provenance (2017) | Brazilian Symposium on Computer Games and Digital Entertainment (SBGames) | 10.1109/sbgames.2017.00016
+- reVISit: Looking Under the Hood of Interactive Visualization Studies (2021) | CHI Conference on Human Factors in Computing Systems | 10.1145/3411764.3445382
+- Behavioral Telemetry in Games User Research (2015) | Human-computer interaction series | 10.1007/978-3-319-15985-0_7
+- Understanding game sessions through provenance (2018) | Entertainment Computing | 10.1016/j.entcom.2018.05.001
+- Emotion scents: a method of representing user emotions on GUI widgets (2013) | Proceedings of SPIE, the International Society for Optical Engineering/Proceedings of SPIE | 10.1117/12.2001261
+- Player Behavior Profiling through Provenance Graphs and Representation Learning (2020) | International Conference on the Foundations of Digital Games (FDG) | 10.1145/3402942.3402961
+- Toward Telemetry-driven Analytics for Understanding Players and their Avatars in Videogames (2015) | None | 10.1145/2702613.2732783
+- The Influence of Visual Provenance Representations on Strategies in a Collaborative Hand-off Data Analysis Scenario (2022) | IEEE Transactions on Visualization and Computer Graphics | 10.1109/tvcg.2022.3209495
+- Provchastic: Understanding and Predicting Game Events Using Provenance (2020) | Lecture notes in computer science | 10.1007/978-3-030-65736-9_7
+- Oh Gosh!! Why is this game so hard? Identifying cycle patterns in 2D platform games using provenance data (2016) | Entertainment Computing | 10.1016/j.entcom.2016.12.002
+- Back to Basics with Qualitative Research: Made You Think! (2020) | None | 10.4135/9781529719000
+- DynaVis: Dynamically Synthesized UI Widgets for Visualization Editing (2024) | CHI Conference on Human Factors in Computing Systems | 10.1145/3613904.3642639
+- BiasBuzz: Combining Visual Guidance with Haptic Feedback to Increase Awareness of Analytic Behavior during Visual Data Analysis (2024) | Extended Abstracts of the CHI Conference on Human Factors in Computing Systems (CHI EA) | 10.1145/3613905.3651064
+
+## Citantes de SuperProvenanceWidgets (Verma; Odak; Narechania, 2026, CHI EA): 0
+
+## Referências de SuperProvenanceWidgets (Verma; Odak; Narechania, 2026, CHI EA), no OpenAlex: 38
+- The magical number seven, plus or minus two: Some limits on our capacity for processing information. (1994) | Psychological Review | 10.1037/0033-295x.101.2.343
+- VisTrails (2006) | Proceedings - ACM-SIGMOD International Conference on Management of Data | 10.1145/1142473.1142574
+- On the Role of Scientific Thought (1982) | Springer eBooks | 10.1007/978-1-4612-5695-3_12
+- The Effects of Interactive Latency on Exploratory Visual Analysis (2014) | IEEE Transactions on Visualization and Computer Graphics | 10.1109/tvcg.2014.2346452
+- Scented Widgets: Improving Navigation Cues with Embedded Visualizations (2007) | IEEE Transactions on Visualization and Computer Graphics | 10.1109/tvcg.2007.70589
+- Characterizing Provenance in Visualization and Data Analysis: An Organizational Framework of Provenance Types and Purposes (2015) | IEEE Transactions on Visualization and Computer Graphics | 10.1109/tvcg.2015.2467551
+- The Science of Interaction (2009) | Information Visualization | 10.1057/ivs.2009.22
+- Cognitive Dimensions of Notations: Design Tools for Cognitive Technology (2001) | Lecture notes in computer science | 10.1007/3-540-44617-6_31
+- VisTrails: Enabling Interactive Multiple-View Visualizations (2006) | None | 10.1109/visual.2005.1532788
+- Learning Visual Importance for Graphic Designs and Data Visualizations (2017) | ACM Symposium on User Interface Software and Technology (UIST) | 10.1145/3126594.3126653
+- Semantic Interaction for Sensemaking: Inferring Analytical Reasoning for Model Steering (2012) | IEEE Transactions on Visualization and Computer Graphics | 10.1109/tvcg.2012.260
+- GraphTrail (2012) | ACM SIGCHI Conference on Human Factors in Computing Systems (CHI) | 10.1145/2207676.2208293
+- Phosphor (2006) | ACM Symposium on User Interface Software and Technology (UIST) | 10.1145/1166253.1166280
+- Analytic provenance (2011) | CHI Conference Extended Abstracts on Human Factors in Computing Systems (CHI EA) | 10.1145/1979742.1979570
+- From Visual Exploration to Storytelling and Back Again (2016) | Computer Graphics Forum | 10.1111/cgf.12925
+- Click2Annotate: Automated Insight Externalization with rich semantics (2010) | IEEE Symposium on Visual Analytics Science and Technology (VAST) | 10.1109/vast.2010.5652885
+- Trrack: A Library for Provenance-Tracking in Web-Based Visualizations (2020) | IEEE Visualization Conference (VIS) | 10.1109/vis47514.2020.00030
+- HindSight: Encouraging Exploration through Direct Encoding of Personal Interaction History (2016) | IEEE Transactions on Visualization and Computer Graphics | 10.1109/tvcg.2016.2599058
+- SenseMap: Supporting browser-based online sensemaking through analytic provenance (2016) | IEEE Conference on Visual Analytics Science and Technology (VAST) | 10.1109/vast.2016.7883515
+- Left, Right, and Gender: Exploring Interaction Traces to Mitigate Human Biases (2021) | IEEE Transactions on Visualization and Computer Graphics | 10.1109/tvcg.2021.3114862
+- Analytic Provenance in Practice: The Role of Provenance in Real-World Visualization and Data Analysis Environments (2019) | IEEE Computer Graphics and Applications | 10.1109/mcg.2019.2933419
+- Lumos: Increasing Awareness of Analytic Behavior during Visual Data Analysis (2021) | IEEE Transactions on Visualization and Computer Graphics | 10.1109/tvcg.2021.3114827
+- reVISit: Supporting Scalable Evaluation of Interactive Visualizations (2023) | IEEE Visualization and Visual Analytics (VIS) | 10.1109/vis54172.2023.00015
+- ProvenanceWidgets: A Library of UI Control Elements to Track and Dynamically Overlay Analytic Provenance (2024) | IEEE Transactions on Visualization and Computer Graphics | 10.1109/tvcg.2024.3456144
+- Utilizing Provenance as an Attribute for Visual Data Analysis: A Design Probe With ProvenanceLens (2025) | IEEE Transactions on Visualization and Computer Graphics | 10.1109/tvcg.2025.3571708
+- Improving revisitation in fisheye views with visit wear (2005) | ACM SIGCHI Conference on Human Factors in Computing Systems (CHI) | 10.1145/1054972.1055079
+- Connecting the dots in visual analysis (2009) | IEEE Symposium on Visual Analytics Science and Technology (VAST) | 10.1109/vast.2009.5333023
+- EvalBench: A Software Library for Visualization Evaluation (2013) | Computer Graphics Forum | 10.1111/cgf.12091
+- Modeling task performance for a crowd of users from interaction histories (2012) | ACM SIGCHI Conference on Human Factors in Computing Systems (CHI) | 10.1145/2207676.2208412
+- Capturing Game Telemetry with Provenance (2017) | Brazilian Symposium on Computer Games and Digital Entertainment (SBGames) | 10.1109/sbgames.2017.00016
+- Behavioral Telemetry in Games User Research (2015) | Human-computer interaction series | 10.1007/978-3-319-15985-0_7
+- Persist: Persistent and Reusable Interactions in Computational Notebooks (2024) | Computer Graphics Forum | 10.1111/cgf.15092
+- Using Provenance to Support Real-Time Collaborative Design of Workflows (2008) | Lecture notes in computer science | 10.1007/978-3-540-89965-5_27
+- Enhancing Web-based Analytics Applications through Provenance (2018) | IEEE Transactions on Visualization and Computer Graphics | 10.1109/tvcg.2018.2865039
+- LightGuider: Guiding Interactive Lighting Design using Suggestions, Provenance, and Quality Visualization (2019) | IEEE Transactions on Visualization and Computer Graphics | 10.1109/tvcg.2019.2934658
+- The Influence of Visual Provenance Representations on Strategies in a Collaborative Hand-off Data Analysis Scenario (2022) | IEEE Transactions on Visualization and Computer Graphics | 10.1109/tvcg.2022.3209495
+- BiasBuzz: Combining Visual Guidance with Haptic Feedback to Increase Awareness of Analytic Behavior during Visual Data Analysis (2024) | Extended Abstracts of the CHI Conference on Human Factors in Computing Systems (CHI EA) | 10.1145/3613905.3651064
+- Loops: Leveraging Provenance and Visualization to Support Exploratory Data Analysis in Notebooks (2023) | None | 10.31219/osf.io/79eyn
+
+Triagem: todos de visualização, proveniência analítica, telemetria de jogos ou IHC geral; o único citante com DCs é SuperProvenanceWidgets, já incluído. Nenhum incluído novo: a iteração 2 fecha o laço.

@@ -1,0 +1,65 @@
+# Citantes de Kiss (2014) e do 7GUIs por fora do OpenAlex (tcc-lf9, 2026-10-09)
+
+Kiss (2014) não tem DOI e não está no OpenAlex nem no Semantic Scholar; os citantes só se acham pelo texto completo de quem o cita.
+
+## OpenAlex, fulltext.search:7GUIs: 5
+- [W7113712827] Разработка GUI библиотеки на языке C++ (2024) | Электронный архив ЮУрГУ (South Ural State University) | —
+- [W7122691329] Property-Based Testing for Asynchronous Functional Reactive Programming Using Linear Temporal Logic (2026) | Lecture notes in computer science | 10.1007/978-3-032-15981-6_3
+- [W4225145334] Varv: Reprogrammable Interactive Software as a Declarative Data Structure (2022) | CHI Conference on Human Factors in Computing Systems | 10.1145/3491102.3502064
+- [W7140356395] Asynchronous modal FRP: Ticking all the boxes (2026) | Journal of Functional Programming | 10.46298/jfp.17791
+- [W7148627132] Programmation web réactive (2018) | None | 10.70675/613c15e0z2505z47e1zbfb4zd60c657fda74
+
+## OpenAlex, fulltext.search:eugenkiss: 5
+- [W7122691329] Property-Based Testing for Asynchronous Functional Reactive Programming Using Linear Temporal Logic (2026) | Lecture notes in computer science | 10.1007/978-3-032-15981-6_3
+- [W4225145334] Varv: Reprogrammable Interactive Software as a Declarative Data Structure (2022) | CHI Conference on Human Factors in Computing Systems | 10.1145/3491102.3502064
+- [W2753786857] User experience with mobile security and privacy mechanisms (2017) | DepositOnce | 10.14279/depositonce-6029
+- [W7140356395] Asynchronous modal FRP: Ticking all the boxes (2026) | Journal of Functional Programming | 10.46298/jfp.17791
+- [W7148627132] Programmation web réactive (2018) | None | 10.70675/613c15e0z2505z47e1zbfb4zd60c657fda74
+
+## OpenAlex, fulltext.search:"eugen kiss": 7
+- [W3125914095] Transcranial Photobiomodulation to Improve Cognition in Gulf War Illness (2021) | Frontiers in Neurology | 10.3389/fneur.2020.574386
+- [W4225145334] Varv: Reprogrammable Interactive Software as a Declarative Data Structure (2022) | CHI Conference on Human Factors in Computing Systems | 10.1145/3491102.3502064
+- [W2753786857] User experience with mobile security and privacy mechanisms (2017) | DepositOnce | 10.14279/depositonce-6029
+- [W4364347483] The potential of nanotechnologies in agriculture (2021) | Zenodo (CERN European Organization for Nuclear Research) | 10.5281/zenodo.7816754
+- [W4363682545] Nanotechnology in food production (2021) | Zenodo (CERN European Organization for Nuclear Research) | 10.5281/zenodo.7816947
+- [W7140356395] Asynchronous modal FRP: Ticking all the boxes (2026) | Journal of Functional Programming | 10.46298/jfp.17791
+- [W3108445261] Élettudományi kutatások Erdélyben (2002) | Erdélyi tudományos füzetek | 10.36240/etf-237
+
+## OpenAlex, fulltext.search:"GUI programming benchmark": 3
+- [W7122691329] Property-Based Testing for Asynchronous Functional Reactive Programming Using Linear Temporal Logic (2026) | Lecture notes in computer science | 10.1007/978-3-032-15981-6_3
+- [W7113712827] Разработка GUI библиотеки на языке C++ (2024) | Электронный архив ЮУрГУ (South Ural State University) | —
+- [W7140356395] Asynchronous modal FRP: Ticking all the boxes (2026) | Journal of Functional Programming | 10.46298/jfp.17791
+
+## OpenAlex, fulltext.search:"comparison of object-oriented and functional programming": 2
+- [W3201520730] COMPARISON OF OBJECT-ORIENTED AND FUNCTIONAL PROGRAMMING PARADIGMS IN SOFTWARE DESIGN (2021) | Herald of Khmelnytskyi National University Technical sciences | 10.31891/2307-5732-2021-297-3-34-38
+- [W2747121153] Proposed UML Class Diagram for Object Functional Language (SCALA) (2017) | International Journal of Computer Applications | 10.5120/ijca2017914953
+
+## OpenAlex, fulltext.search:"functional programming for GUI development": 0
+
+## OpenAlex, fulltext.search:7GUI e "7GUI": 47 cada, todos ruído (o índice separa "7" de "GUI"); "7 GUIs" e "seven GUIs": 812 e 19, ruído.
+
+Wiersdorf et al. (2024), que escreve "7GUI" e cita Kiss (2014) e o site do 7GUIs (referências 53 e 54, texto completo em tmp/fontes/wiersdorf2024.pdf), não aparece em nenhuma dessas buscas: o índice de texto completo do OpenAlex é parcial.
+
+## Semantic Scholar
+- API (graph/v1/paper/search e snippet/search, "7GUIs" e "Eugen Kiss GUI programming benchmark"): 13 tentativas, todas HTTP 429.
+- Site, pelo navegador: "Comparison of object-oriented and functional programming for GUI development": nenhum resultado; "7GUIs": nenhum resultado. Controle: "Functional Reactive GUI Programming with Modal Types" acha Disch et al. (2025).
+
+## Google Acadêmico, ACM DL (busca no texto completo, "7GUIs") e CORE
+- Verificação anti-robô nos três, pelo navegador do agente; não consultados pelo agente.
+
+## GitHub
+- API de busca de repositórios, "7guis": 315 repositórios (300 listados). São implementações; nenhuma descrição aponta artigo ou tese, salvo o próprio repositório do Kiss (thesis.pdf).
+
+## Busca na web (11 consultas)
+- "7GUIs" com benchmark, paper, arXiv, ACM, Springer, thesis, dissertation, cognitive dimensions, React, Solid, signals; o título da dissertação entre aspas; "Wiersdorf 2024 7GUIs".
+- Achados: Disch et al. (2025) e Nielsen et al. (2026), já vistos; uma monografia de graduação de Masaryk (Dékány, 2025: React, Vue e Svelte por desempenho e experiência do desenvolvedor, sem DCs; is.muni.cz/th/gjz8s); uma tese sueca sobre DCs (diva2:1632735), cujo PDF e cuja página recusaram a conexão.
+- Type Tailoring (Wiersdorf et al., 2024) achado pela busca do título na web e conferido no PDF.
+
+## Trabalhos conhecidos que citam Kiss (2014) ou o 7GUIs, e o que fazem
+- Lu, Greenman e Krishnamurthi (2021, `lu2021`): benchmark de tipos para tabelas; cita o 7GUIs numa lista de benchmarks (8:20). Fora (sem GUI).
+- Wiersdorf et al. (2024, ECOOP, DOI 10.4230/LIPIcs.ECOOP.2024.44): Type Tailoring; usa a implementação do 7GUI de Felleisen em Typed Racket como exemplo de tipos de subclasses (44:6-44:7). Fora (sistema de tipos).
+- Disch, Heegaard e Bahr (2025, `disch2025`): Counter e Timer em Widget Rattus. I1, já na base.
+- Borowski et al. (2022, Varv), Nielsen et al. (2026), Bahr e Møgelberg (2026, JFP, DOI 10.46298/jfp.17791), Vidal (2018, HAL tel-01900619) e a monografia russa de 2024 (W7113712827): achados no texto completo do OpenAlex. Nenhum avalia notações pelas DCs. Vidal é o Hiphop.js, em francês; Bahr e Møgelberg, semântica de PFR assíncrona.
+
+## Citantes, no OpenAlex, dos trabalhos que citam o 7GUIs (em 80-citantes-terceira-rodada.txt)
+- Lu et al. 3; Disch et al. 1; Varv 21; Nielsen et al. 0; Bahr e Møgelberg 0; Vidal 0; Wiersdorf et al. 0.
