@@ -1,21 +1,18 @@
 package tcc.lista.swing;
 
+import static tcc.desktop.Swing.componentes;
+import static tcc.desktop.Swing.naTela;
 import static tcc.lista.DominioKt.getCategorias;
 
 import java.awt.Component;
 import java.awt.Container;
-import java.lang.reflect.InvocationTargetException;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicReference;
-import java.util.function.Supplier;
 import java.util.stream.IntStream;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JTextField;
 import javax.swing.ListModel;
-import javax.swing.SwingUtilities;
 import tcc.lista.Ordem;
 import tcc.lista.Produto;
 
@@ -27,35 +24,6 @@ class Tela {
 
     Tela() {
         catalogo = naTela(CatalogoDeProdutos::new);
-    }
-
-    // Como a thread da interface do navegador: tudo roda na EDT do Swing.
-    private static <T> T naTela(Supplier<T> bloco) {
-        AtomicReference<T> resultado = new AtomicReference<>();
-        try {
-            SwingUtilities.invokeAndWait(() -> resultado.set(bloco.get()));
-        } catch (InterruptedException | InvocationTargetException e) {
-            throw new RuntimeException(e);
-        }
-        return resultado.get();
-    }
-
-    private static void naTela(Runnable bloco) {
-        naTela(() -> {
-            bloco.run();
-            return null;
-        });
-    }
-
-    private static List<Component> componentes(Container pai) {
-        List<Component> todos = new ArrayList<>();
-        for (Component filho : pai.getComponents()) {
-            todos.add(filho);
-            if (filho instanceof Container container) {
-                todos.addAll(componentes(container));
-            }
-        }
-        return todos;
     }
 
     private Component rotulado(String rotulo) {

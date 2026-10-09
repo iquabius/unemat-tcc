@@ -25,6 +25,13 @@ subprojects {
         }
     }
 
+    // Apoio das Telas de teste (casos/desktop/teste/), um por tecnologia,
+    // como o casos/android/captura/.
+    val apoio = rootDir.resolve("teste").resolve(if (name.endsWith("-swing")) "swing" else "javafx")
+    extensions.configure<SourceSetContainer> {
+        getByName("test").java.srcDir(apoio)
+    }
+
     dependencies {
         "testImplementation"(rootProject.libs.junit)
     }

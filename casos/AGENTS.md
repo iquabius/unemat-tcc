@@ -144,7 +144,9 @@ Gradle em `casos/android/` e as dependências (`package.json`,
   `:invalido`. Sem capturas por enquanto.
 - `RoteiroTest.java` com as verificações do `roteiro-de-teste.js`, na
   mesma ordem e com os mesmos nomes, e uma `Tela` de teste por tecnologia,
-  com a mesma API. A `Tela` acha os campos pelo rótulo (`getLabelFor`) e os
+  com a mesma API. O que as `Tela` têm em comum (rodar na thread da
+  interface, mostrar a janela, percorrer os componentes) fica em
+  `casos/desktop/teste/`, um apoio para o Swing e outro para o JavaFX. A `Tela` acha os campos pelo rótulo (`getLabelFor`) e os
   textos pela classe, sem marcas só para teste. No Swing, `sair` dispara o
   `focusLost` nos *listeners*, como o roteiro web dispara o `blur`, porque
   os testes rodam sem tela; no JavaFX, o foco passa de fato de um campo a

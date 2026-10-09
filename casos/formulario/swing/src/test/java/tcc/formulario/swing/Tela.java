@@ -1,20 +1,17 @@
 package tcc.formulario.swing;
 
+import static tcc.desktop.Swing.componentes;
+import static tcc.desktop.Swing.naTela;
+
 import java.awt.Component;
-import java.awt.Container;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
-import java.lang.reflect.InvocationTargetException;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicReference;
-import java.util.function.Supplier;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
-import javax.swing.SwingUtilities;
 import tcc.formulario.TipoDeVoo;
 
 // Ações e leituras usadas pelo roteiro, como as funções do
@@ -25,35 +22,6 @@ class Tela {
 
     Tela() {
         formulario = naTela(FormularioDeReserva::new);
-    }
-
-    // Como a thread da interface do navegador: tudo roda na EDT do Swing.
-    private static <T> T naTela(Supplier<T> bloco) {
-        AtomicReference<T> resultado = new AtomicReference<>();
-        try {
-            SwingUtilities.invokeAndWait(() -> resultado.set(bloco.get()));
-        } catch (InterruptedException | InvocationTargetException e) {
-            throw new RuntimeException(e);
-        }
-        return resultado.get();
-    }
-
-    private static void naTela(Runnable bloco) {
-        naTela(() -> {
-            bloco.run();
-            return null;
-        });
-    }
-
-    private static List<Component> componentes(Container pai) {
-        List<Component> todos = new ArrayList<>();
-        for (Component filho : pai.getComponents()) {
-            todos.add(filho);
-            if (filho instanceof Container container) {
-                todos.addAll(componentes(container));
-            }
-        }
-        return todos;
     }
 
     private Component rotulado(String rotulo) {

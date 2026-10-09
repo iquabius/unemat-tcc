@@ -1,26 +1,21 @@
 package tcc.lista.fxml;
 
+import static tcc.desktop.JavaFX.mostrar;
+import static tcc.desktop.JavaFX.naTela;
 import static tcc.lista.DominioKt.getCategorias;
 
 import java.io.IOException;
 import java.io.UncheckedIOException;
 import java.util.List;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.FutureTask;
-import java.util.function.Supplier;
 import java.util.stream.IntStream;
-import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 import tcc.lista.Ordem;
 import tcc.lista.Produto;
 
@@ -32,14 +27,7 @@ class Tela {
     private final Parent catalogo;
 
     Tela() {
-        iniciarPlataforma();
-        catalogo = naTela(() -> {
-            Parent raiz = carregar();
-            Stage janela = new Stage();
-            janela.setScene(new Scene(raiz, 480, 720));
-            janela.show();
-            return raiz;
-        });
+        catalogo = mostrar(Tela::carregar);
     }
 
     private static Parent carregar() {
@@ -48,34 +36,6 @@ class Tela {
         } catch (IOException e) {
             throw new UncheckedIOException(e);
         }
-    }
-
-    private static void iniciarPlataforma() {
-        CompletableFuture<Void> pronta = new CompletableFuture<>();
-        try {
-            Platform.startup(() -> pronta.complete(null));
-            pronta.join();
-        } catch (IllegalStateException jaIniciada) {
-            // Outro teste da mesma JVM já iniciou o JavaFX.
-        }
-    }
-
-    // Como a thread da interface do navegador: tudo roda na thread do JavaFX.
-    private static <T> T naTela(Supplier<T> bloco) {
-        FutureTask<T> tarefa = new FutureTask<>(bloco::get);
-        Platform.runLater(tarefa);
-        try {
-            return tarefa.get();
-        } catch (InterruptedException | ExecutionException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    private static void naTela(Runnable bloco) {
-        naTela(() -> {
-            bloco.run();
-            return null;
-        });
     }
 
     private Node rotulado(String rotulo) {
