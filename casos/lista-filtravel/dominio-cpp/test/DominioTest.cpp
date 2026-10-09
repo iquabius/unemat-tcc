@@ -50,7 +50,7 @@ private slots:
                                      "149,90", "199,90", "24,90", "15,90", "54,90",  "19,90", "9,90",  "32,90",
                                      "99,90",  "139,90", "44,90", "59,90", "119,00", "69,90"};
         QStringList esperados, obtidos;
-        for (const auto &numero : numeros) esperados << u"R$ "_s + numero;
+        for (const auto &numero : numeros) esperados << u"R$\u00A0"_s + numero;
         for (const auto &produto : produtos) obtidos << formatarPreco(produto.preco);
         QCOMPARE(obtidos, esperados);
         QCOMPARE(categorias, (QStringList{"Casa", "Cozinha", "Eletrônicos", "Mercearia", "Papelaria"}));
@@ -70,8 +70,24 @@ private slots:
         QCOMPARE(busca(""), todos);
         QCOMPARE(busca("chá"), (QList<int>{3, 9}));
         QCOMPARE(busca("CHA"), (QList<int>{3, 9}));
-        QCOMPARE(busca(u"ﬁ"_s), QList<int>{});
-        QCOMPARE(busca(u"ß"_s), QList<int>{});
+        QCOMPARE(busca(u"\uFB01"_s), QList<int>{});
+        QCOMPARE(busca(u"\u00DF"_s), QList<int>{});
+    }
+
+    // Documenta a diferença conhecida em relação à web, sem executar, como
+    // o diferenteDaWeb do Formulário (ADR 0010): a web tira os caracteres
+    // \p{Diacritic}, que incluem acentos soltos como ^ e `, e a busca por um
+    // deles mostra o catálogo inteiro; o C++ só tira as marcas combinantes, e
+    // não acha nada. O dominio-kotlin faz o mesmo que o C++.
+    void diferenteDaWeb()
+    {
+        QSKIP("diferença conhecida em relação à web; só documenta");
+        QList<int> todos(30);
+        std::iota(todos.begin(), todos.end(), 1);
+        QCOMPARE(busca("^"), todos);
+        QCOMPARE(busca("`"), todos);
+        QCOMPARE(busca(u"\u00B4"_s), todos);
+        QCOMPARE(busca(u"\u00A8"_s), todos);
     }
 };
 

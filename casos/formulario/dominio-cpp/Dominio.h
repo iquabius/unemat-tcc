@@ -3,8 +3,9 @@
 // Regras de domínio do Formulário, iguais no Qt Widgets e na QML: o porte do
 // dominio.ts da web, com os mesmos nomes, regras e mensagens, como o
 // dominio-kotlin do Android. Nada aqui depende de interface: cada
-// implementação decide quando chamar. Difere da web nos mesmos pontos que o
-// Kotlin (anos de 0 a 99, espaços fora do ASCII): ver DominioTest.
+// implementação decide quando chamar. Difere da web em anos de 0 a 99 e em
+// alguns espaços fora do ASCII, não todos os do Kotlin: ver
+// DominioTest::diferenteDaWeb.
 
 #include <QDate>
 #include <QObject>

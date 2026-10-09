@@ -3,7 +3,8 @@
 // Catálogo e regras da Lista filtrável, iguais no Qt Widgets e na QML: o
 // porte do dominio.ts da web, com os mesmos dados, nomes e regras, como o
 // dominio-kotlin do Android. Nada aqui depende de interface: cada
-// implementação decide quando chamar.
+// implementação decide quando chamar. Difere da web na busca por acentos
+// soltos (^, `): ver DominioTest::diferenteDaWeb.
 
 #include <QList>
 #include <QObject>
