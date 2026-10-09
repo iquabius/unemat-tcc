@@ -146,7 +146,8 @@ public class FormularioDeReserva extends VBox {
         // Como o hidden: invisível e fora do layout.
         paragrafo.visibleProperty().bind(erro.isNotNull());
         paragrafo.managedProperty().bind(paragrafo.visibleProperty());
-        // A pseudoclasse não tem propriedade para ligar: um listener a acompanha.
-        erro.addListener((propriedade, antes, agora) -> campo.pseudoClassStateChanged(INVALIDO, agora != null));
+        // A pseudoclasse não tem propriedade para ligar: uma assinatura a
+        // acompanha, chamada já com o valor atual e depois a cada mudança.
+        erro.subscribe(valor -> campo.pseudoClassStateChanged(INVALIDO, valor != null));
     }
 }

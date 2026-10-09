@@ -179,7 +179,7 @@ como leitura nossa, a conferir pelo autor.
 - Os *callbacks* ficam no JavaFX onde o evento entra no estado: o foco
   (`focusedProperty().addListener`, que marca o campo tocado), o clique
   (`setOnAction`) e a pseudoclasse `:invalido`, que não tem propriedade
-  para ligar e precisa de um *listener* para acompanhar o erro (leitura
+  para ligar e acompanha o erro por uma assinatura (`subscribe`) (leitura
   nossa: o Solid liga `aria-invalid={...}` direto). Os dois primeiros têm
   par no Solid (`onBlur`, `onSubmit`); o terceiro é lacuna da notação.
 
