@@ -149,7 +149,7 @@ Gradle em `casos/android/` e as dependências (`package.json`,
   interface, mostrar a janela, percorrer os componentes) fica em
   `casos/desktop/teste/`, um apoio para o Swing e outro para o JavaFX. A `Tela` acha os campos pelo rótulo (`getLabelFor`) e os
   textos pela classe, sem marcas só para teste. No Swing, `sair` dispara o
-  `focusLost` nos *listeners*, como o roteiro web dispara o `blur`, porque
+  `focusLost` nos *listeners*, como a rotina web dispara o `blur`, porque
   os testes rodam sem tela; no JavaFX, o foco passa de fato de um campo a
   outro, na plataforma Headless.
 - Confira que a rotina pega erros: introduza um defeito numa regra e veja

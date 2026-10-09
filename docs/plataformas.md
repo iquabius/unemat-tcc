@@ -129,6 +129,11 @@ como "sibling" ou "cousin" seria inferência do TCC.
   capturas; o JavaFX em código e em FXML; o domínio do Android, em Kotlin,
   pela JVM. As rotinas (19 verificações no Formulário, 11 na Lista)
   passam nas seis, no Linux, com o JavaFX 27 na plataforma Headless.
+- Rotinas sem AssertJ Swing nem TestFX: cada tecnologia tem uma `Tela` de
+  teste escrita à mão, com a mesma API das do Android, que acha os campos
+  pelo rótulo e dispensa robô de mouse e teclado. Bastou para as
+  verificações das duas rotinas, e as duas bibliotecas não foram
+  testadas; voltam à mesa se as capturas entrarem.
 - Cuidado: o "JavaFX" de Maier, Rompf e Odersky (2010) é o JavaFX
   Script, com `bind` na linguagem, não a API Java atual.
 
@@ -142,7 +147,8 @@ Oracle, "Using JavaFX Properties and Binding" (Release 8); OpenJFX,
 p. 28-29 e 38-39), conferido no PDF. O que não vem delas está marcado
 como leitura nossa, a conferir pelo autor.
 
-**Evento → estado → tela e estado derivado (Formulário).**
+**Problemas de coordenação evento → estado → tela e estado derivado
+(Formulário).**
 
 - Swing: cada *listener* chama `validar()`, que recalcula todos os erros
   e escreve na tela (`setText`, `setVisible`, `setEnabled`), como o
@@ -158,7 +164,7 @@ como leitura nossa, a conferir pelo autor.
   `Bindings.createStringBinding(cálculo, dependências...)`, e a tela se
   liga a eles (`textProperty().bind`, `visibleProperty().bind`,
   `disableProperty().bind`); o construtor roda uma vez, como o componente
-  do Solid. O tutorial descreve a avaliação preguiçosa: a mudança só
+  do Solid (leitura nossa). O tutorial descreve a avaliação preguiçosa: a mudança só
   invalida, e o valor se recalcula quando lido. O estado são as
   propriedades dos próprios controles (`nome.textProperty()`), sem o par
   `value={nome()}` e `onInput` do Solid (leitura nossa).
@@ -168,7 +174,7 @@ como leitura nossa, a conferir pelo autor.
   mudança de requisito, a dependência nova "could be forgotten". A
   implementação confirma: tirar `ida.textProperty()` da lista do
   `erroOrdem` compila, e as 19 verificações da rotina passam, porque o
-  roteiro nunca muda a ida depois de escolher "Ida e volta"; o erro só
+  rotina nunca muda a ida depois de escolher "Ida e volta"; o erro só
   aparece ao mudar a ida com a volta já preenchida. Leitura nossa: é o
   mesmo tipo de erro da lista de dependências do `useMemo` e do
   `useEffect` no React, que o Solid e o Angular com *signals* não têm,
@@ -183,7 +189,7 @@ como leitura nossa, a conferir pelo autor.
   nossa: o Solid liga `aria-invalid={...}` direto). Os dois primeiros têm
   par no Solid (`onBlur`, `onSubmit`); o terceiro é lacuna da notação.
 
-**Lista derivada (Lista).**
+**Problema de coordenação lista derivada (Lista).**
 
 - Swing: `atualizarLista()` filtra e ordena com *streams* e troca o
   conteúdo do `DefaultListModel` (`clear` e `addAll`), como o `.empty()`
@@ -192,9 +198,9 @@ como leitura nossa, a conferir pelo autor.
   `SortedList`, com `predicateProperty` e `comparatorProperty` ligados a
   `createObjectBinding` sobre os controles; a contagem e o aviso de vazio
   se ligam à lista. Não há função que refaça a lista. Kiss (2014, p. 38)
-  descreve as coleções observáveis e filtradas como "a small change
-  propagation", e (p. 39) a dependência criada num *callback* como não
-  expressa, só estabelecida no corpo dele; aqui nenhum *callback* liga as
+  descreve o processo que as coleções observáveis e filtradas põem em
+  marcha como "a small change propagation", e (p. 38-39) a dependência
+  criada num *callback* como não expressa, só estabelecida no corpo dele; aqui nenhum *callback* liga as
   listas. Leitura nossa: o derivado que o Solid escreve num `createMemo`
   com `filter` e `sort` se divide em dois objetos, cada um com a sua lista
   de dependências.
@@ -216,7 +222,8 @@ como leitura nossa, a conferir pelo autor.
   e o `diff` entre eles mostra só a montagem: os campos com `@FXML`, o
   `initialize` no lugar do construtor e o tratador ligado por nome
   (`onAction="#reservar"`). É um segundo contraste, o mesmo modelo de
-  programação com duas montagens, como Solid × Angular com *signals*.
+  programação com duas montagens, como Solid × Angular com *signals*
+  (leitura nossa).
 - O FXML é, pela documentação, "a scriptable, XML-based markup language
   for constructing Java object graphs". Na implementação, o rótulo que
   nomeia o campo exige o campo declarado dentro do `labelFor` e trazido
@@ -236,7 +243,7 @@ nem `Main`); o script do ADR 0012 ainda não existe:
 | Formulário | 127 | 117 | 100 + 57 | 79 + 83 | 121 |
 | Lista | 123 | 104 | 84 + 33 | 77 + 61 | 65 |
 
-**O que o par acrescenta.**
+**O que o par acrescenta** (leitura nossa, sobre as fontes acima).
 
 - O par mais controlado do desenho: Swing e JavaFX em código diferem só
   na coordenação, na mesma linguagem, plataforma e montagem da tela.
