@@ -858,7 +858,7 @@ fora do git.
 | Leal 2011 | A justificativa pode explicar "as possíveis contribuições" e "os aspectos inovadores do estudo, se for esse o caso" | p. 62 | conferido |
 | Wazlawick 2014 | "A justificativa vai dizer por que vale a pena buscar esse objetivo" (p. 38); o problema com "referência direta à bibliografia" de que não foi tratado, citando Chinneck (p. 39) | p. 38-39 | conferido |
 
-### 13.3 Trechos guardados para a fundamentação (2026-10-03)
+### 13.3 Trechos guardados para a fundamentação (desde 2026-10-03)
 
 Trechos conferidos no PDF na revisão da introdução (tcc-71d) que saíram
 do texto ou não couberam nele, guardados para o capítulo de programação e
@@ -877,6 +877,8 @@ para a análise.
 | Grolaux et al. 2026 | "With popular reactive frameworks, a reactive function is called implicitly when deemed necessary. Hidden execution can make understanding the actual execution flow quite hard." | p. 14 | conferido | análise: dependências ocultas |
 | Blackwell e Green 2003 (`blackwell2003`) | "Despite being applicable to all types of information artifacts, this framework has come to prominence [...] in visual programming languages and environments" | p. 112 | conferido; era a nota fn:infoArtifactis | fundamentação das DCs; saiu da introdução em 2026-10-03 |
 | Blackwell 2026 (`blackwell2026`) | sítio de recursos sobre as DCs | — | — | saiu da nota fn:infoArtifactis em 2026-10-03 |
+| Edwards 2009 (`edwards2009`) | "Side effects are both the essence and bane of imperative programming. The programmer must carefully coordinate actions to manage their side effects upon each other." | p. 925 (resumo) | conferido em 2026-10-09 | efeito colateral e coordenação no imperativo; a introdução define o termo por Hudak (1989, p. 361) |
+| Edwards 2009 | "Coordinating side effects is a major problem for interactive applications, for two reasons. Firstly, interaction is a side effect. The whole purpose of user input is to change the persistent state of the application." | p. 925 | conferido em 2026-10-09 | por que a interface não escapa do efeito colateral |
 
 ## 14. Trabalhos sugeridos sem resumo lido (lidos a partir de 2026-10-03)
 

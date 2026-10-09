@@ -2,16 +2,21 @@
 
 Interfaces gráficas mediam a maioria das nossas interações com computadores,
 seja em celulares e /notebooks/, seja no navegador web.
-Projetá-las e implementá-las é difícil por natureza, e deve continuar sendo
-[[cite:myers1994][p. 73]].
+@@latex:\todo{Precisa de fonte para \enquote{a maioria}.}@@
+Para [[textcite:myers1994][p. 73]], projetá-las e implementá-las é difícil por
+natureza e continuaria sendo.
 Cada clique, tecla ou toque do usuário gera um evento.
 Programar interfaces exige coordenar esses eventos com o estado do programa e
 com o que a tela mostra.
-Essa coordenação é o tema deste trabalho, porque é nela que a programação de
-interfaces se afasta dos outros programas [[cite:myers1994][p. 79]].
+Essa coordenação é o tema deste trabalho.
+Uma das diferenças da programação de interfaces para a dos outros programas
+é o código escrito do avesso (/inside-out/), dividido em sub-rotinas que o
+/toolkit/ chama quando ocorrem ações do usuário [[cite:myers1994][p. 79]].
+Outra é o estado da aplicação, que determina a aparência e o comportamento da
+tela [[cite:oney2012][p. 230]].
 Além disso, ao escolher uma tecnologia, o programador escolhe
 também a forma de escrever a interface, e essa forma afeta a compreensão e a manutenção
-do programa.
+do programa [[cite:fischer2007][p. 134]].
 
 O recurso predominante para propagar eventos é o /callback/, também chamado
 de /listener/: um bloco de código que roda sempre que um dado evento ocorre,
@@ -19,8 +24,8 @@ como o clique em um botão [[cite:blackheath2016][p. 7]].
 Registrá-lo num produtor, que o chama de volta a cada ocorrência, é o
 /Observer Pattern/ [[cite:blackheath2016][p. 7]].
 O /callback/ é síncrono quando a função que o recebe o chama antes de
-retornar, e assíncrono quando o chama algum tempo depois, ao fim da operação
-que ele espera [[cite:gallaba2015][p. 2]].
+retornar, e assíncrono quando sua execução fica para algum tempo depois de a
+função retornar [[cite:gallaba2015][p. 2]].
 O navegador executa a aplicação numa /thread/ só, e, para que ela continue
 respondendo ao usuário, os programadores recorrem às operações assíncronas
 [[cite:alimadadi2014][p. 368-369]].
@@ -36,25 +41,26 @@ programador tem em mente para uma operação fica dividida entre vários
 /callbacks/, o que dificulta a manutenção e a compreensão do programa
 [[cite:fischer2007][p. 134-135]].
 Como não se sabe em que ordem os /callbacks/ serão chamados, coordenar as
-alterações ao estado compartilhado é desconcertante e está longe de ser
+alterações ao estado compartilhado pode ser desconcertante e está longe de ser
 modular [[cite:edwards2009][p. 926]].
-Em aplicações /desktop/ de grande porte, cerca de um terço do código e mais
-da metade dos defeitos relatados estavam no código que coordena o
-tratamento de eventos, os /widgets/ e outros componentes da interface
-[[cite:jarvi2008][p. 89-90]].
-Em JavaScript, os /callbacks/ são frequentes: num estudo de 138 programas, uma
-em cada dez definições de função recebe um /callback/, e a maioria dos
+Essas alterações são efeitos colaterais: as modificações que um comando, como a
+atribuição, faz no estado do programa [[cite:hudak1989][p. 361]].
+Os /callbacks/ que alteram o [[gls:dom]] por efeitos colaterais muitas vezes
+levam a um código interdependente, opaco e propenso a erros, o chamado código
+espaguete [[cite:oney2012][p. 229]].
+Em JavaScript, os /callbacks/ são frequentes: num estudo de 138 programas, em
+média uma em cada dez definições de função recebe um /callback/, e a maioria dos
 /callbacks/ é aninhada [[cite:gallaba2015][p. 1]].
 
 O JavaScript ganhou alternativas ao /callback/: as /promises/, que encadeiam
 computações assíncronas [[cite:madsen2017][p. 86:1]], e as palavras-chave
-/async/ e /await/, que permitem escrever o tratamento assíncrono dos eventos
-em estilo sequencial, com as estruturas de controle comuns
-[[cite:grolaux2026][p. 8]].
+/async/ e /await/, que permitem escrever operações assíncronas em estilo
+sequencial [[cite:grolaux2026][p. 9]].
 As /promises/ achatam o aninhamento dos /callbacks/, mas a lógica complexa
 continua presa em cadeias de /callbacks/ [[cite:grolaux2026][p. 9]].
-O estado da aplicação, que o JavaScript guarda em variáveis globais, o
-/async/ e /await/ não ajudam a coordenar [[cite:berry2020][p. 538]].
+Numa implementação em JavaScript que guarda o estado da aplicação em variáveis
+globais, o /async/ e o /await/ não ajudam a coordenar esse estado
+[[cite:berry2020][p. 535 e 538]].
 
 Outra alternativa ao /callback/ é a [[gls:pr]].
 Segundo [[textcite:salvaneschi2017][p. 1125-1126]], nela o programador
@@ -67,9 +73,10 @@ linguagens de programação o modelo das planilhas eletrônicas, em que mudar
 o valor de uma célula recalcula as fórmulas que dependem dela
 [[cite:bainomugisha2013][p. 1-2]].
 
-[[textcite:salvaneschi2017][p. 1125-1134]] testaram uma afirmação antiga,
-até então sem evidência empírica, de que a [[gls:pr]] torna os programas mais fáceis
-de compreender que o /Observer Pattern/, estilo tradicional da [[gls:poo]].
+[[textcite:salvaneschi2017][p. 1125-1134]] testaram uma afirmação repetida,
+ainda sem evidência empírica suficiente, de que a [[gls:pr]] torna os programas
+mais fáceis de compreender que o /Observer Pattern/, o padrão tradicional da
+[[gls:poo]] para aplicações interativas.
 Num experimento controlado com 127 estudantes, quem leu os programas escritos
 com [[gls:pr]] acertou mais perguntas sobre eles do que quem os leu com o
 /Observer Pattern/ (médias de 8,13 e 7,05 acertos em dez, com diferença
@@ -80,16 +87,18 @@ significativa nas outras quatro.
 O código sequencial tem o problema oposto ao do /callback/: a linguagem
 obriga a fixar a ordem de execução mesmo quando ela não importa, e quem lê
 precisa supor que importa [[cite:moseley2006][p. 8-9]].
-Essa preocupação explícita com o fluxo de controle é uma das causas da
-complexidade dos sistemas de grande porte [[cite:moseley2006][p. 1]].
-As outras causas, para eles, são o volume de código e, sobretudo, o
-tratamento do estado.
-Eles distinguem a complexidade essencial, própria do problema, da acidental,
-todo o resto, e propõem reduzir a acidental com [[gls:pf]] e o
-modelo relacional de dados [[cite:moseley2006][p. 1 e 21]].
-[[textcite:edwards2009][p. 929]] chama de acidental, no mesmo sentido, boa
-parte do sequenciamento manual das ações que a programação imperativa exige.
-Conceitos de programação declarativa podem, assim, diminuir essa complexidade.
+Para [[textcite:moseley2006][p. 1]], essa preocupação com o fluxo de controle
+está, ao lado do volume de código e do tratamento do estado, entre as
+principais causas da complexidade dos sistemas de grande porte.
+[[textcite:edwards2009][p. 929]] sugere que boa parte do sequenciamento manual
+das ações que a programação imperativa exige pode ser feita automaticamente,
+ao menos nas aplicações interativas.
+A programação declarativa expressa o que se computa, e não como, embora isso
+seja questão de grau, e suas linguagens não têm estado implícito
+[[cite:hudak1989][p. 361]].
+Nas interfaces, o componente do React é uma função que especifica a tela de
+forma declarativa e que, chamada com os mesmos argumentos, deve exibir a
+mesma interface [[cite:lee2025][289:1]].
 
   Na programação de interfaces gráficas, a /notação/ é a forma de escrever
   no código o estado, os valores derivados dele e a tela que os mostra.
@@ -97,31 +106,38 @@ Conceitos de programação declarativa podem, assim, diminuir essa complexidade.
   Nas tecnologias que este trabalho compara, há três notações, duas delas
   declarativas.
   Elas se distinguem pelo modo de coordenar evento, estado e tela.
-  Na /imperativa com callbacks/, cada /callback/ altera o estado e a tela
-  diretamente, como no jQuery cite:openjs2026 e nos Web Components sem
-  biblioteca cite:mozilla2026.
+  Na /imperativa com callbacks/, o programador escreve /callbacks/ que
+  mudam o estado e a tela por efeitos colaterais
+  [[cites:&disch2025 p. 93;&oney2012 p. 229]], como no jQuery
+  cite:openjs2026 e nos Web Components sem biblioteca cite:mozilla2026.
 
   Nas declarativas, o programador descreve a tela em função do estado, e o
   ambiente de execução a mantém atualizada cite:meta2026a,solidjs2026.
   Na /declarativa por re-renderização/, cada mudança de estado reexecuta o
   componente, como no React cite:meta2026.
   Na /declarativa por atualização granular/, cada /signal/ avisa os valores
-  e trechos da tela que dependem dele, e só esses são recalculados, como no
-  Solid e no Angular com /signals/ cite:solidjs2026,google2026.
-  A notação por atualização granular usa as abstrações da [[gls:pr]]: os
-  valores que variam no tempo, chamados /signals/, cujas alterações se propagam automaticamente
-  cite:salvaneschi2015.
-  Cada tecnologia fica na notação em que escreve a maior parte da
-  coordenação, mas a classificação não é exclusiva.
+  e trechos da tela que dependem dele, como no Solid e no Angular com
+  /signals/ cite:solidjs2026,google2026.
+  No Solid, só esses são recalculados cite:solidjs2026; no Angular, quando o
+  /signal/ muda, o /template/ do componente que o lê volta a ser renderizado
+  em algum momento cite:google2026.
+  A notação por atualização granular usa as abstrações da [[gls:pr]], os
+  valores que variam no tempo, chamados /signals/, cujas alterações se propagam
+  automaticamente [[cite:salvaneschi2015][p. 953]].
+  O Angular acrescentou essa abstração à sua [[gls:api]] [[cite:lima2024][p. 18]],
+  e o Solid e o Angular com /signals/ aparecem entre as implementações da
+  [[gls:pr]] [[cite:tsukanova2026][p. 57]].
+  Cada tecnologia impõe um modelo de programação, e cada modelo de
+  programação aplica conceitos de um ou mais paradigmas.
   Em quase todo problema, cada parte pede o seu conjunto de conceitos
   [[cite:roy2009][p. 10]], e as implementações deste trabalho também os
   misturam.
 
   As pesquisas de uso medem tecnologias, não notações, e por isso o uso de
   cada notação se afere pelas tecnologias que a adotam.
-  No Stack Overflow Developer Survey 2025, React, jQuery e Angular estão
-  entre as sete tecnologias web mais usadas, com 44,7%, 23,4% e 18,2% dos
-  respondentes cite:stackoverflow2025.
+  Na questão sobre tecnologias web do Stack Overflow Developer Survey 2025,
+  React, jQuery e Angular estão entre as sete mais usadas, com 44,7%, 23,4% e
+  18,2% dos que a responderam cite:stackoverflow2025.
   Assim, o uso da notação declarativa por re-renderização se afere pelo
   React, e o da imperativa, pelo jQuery, que também está em 65,5% dos
   /sites/ que o W3Techs monitora cite:w3techs2026.
@@ -129,20 +145,20 @@ Conceitos de programação declarativa podem, assim, diminuir essa complexidade.
   Stack Overflow não separe quem o usa com /signals/, e pelo Solid, usado por 10%
   dos respondentes do State of JS 2025 cite:devographics2026.
   Nenhuma dessas pesquisas mede o uso de Web Components sem biblioteca.
-  Eles entram por ser o modelo de componente do próprio navegador
-  cite:mozilla2026.
+  Eles entram por ser a forma do próprio navegador de criar elementos
+  personalizados cite:mozilla2026.
 
   Para discutir o quanto uma notação facilita a compreensão e a
   manutenção, há as [[glspl:dc]], propostas por textcite:green1989.
   Elas são um vocabulário para descrever a usabilidade de notações e de outros
-  artefatos de informação [[cite:blackwell2001][p. 326]].
-  Trabalhos anteriores compararam por elas paradigmas, linguagens e
-  bibliotecas de programação de interfaces.
-  textcite:mernik2009 compararam, com 36 programadores, uma linguagem de
+  artefatos de informação [[cite:blackwell2001][p. 327]].
+  Trabalhos anteriores compararam por elas paradigmas e linguagens de
+  programação de interfaces e bibliotecas de [[gls:pr]].
+  textcite:mernik2009 compararam, com 36 estudantes de graduação, uma linguagem de
   domínio específico para descrever interfaces gráficas, o [[gls:xaml]], e uma biblioteca de
-  aplicação, o C# Forms.
-  [[textcite:kiss2014][p. v e 104]] comparou a [[gls:poo]] e a [[gls:pf]]
-  em sete tarefas de interface, com JavaFX, ScalaFX,
+  aplicação, o Windows Forms em C#.
+  [[textcite:kiss2014][p. v, 11 e 104]] comparou a [[gls:poo]] e a [[gls:pf]]
+  em sete tarefas de interface, com JavaFX e ScalaFX, e em parte delas com
   Scala.Rx, ReactFX e Elm, e deixou como trabalho futuro comparar os
   /frameworks/ de interface do navegador.
   [[textcite:zimmerle2025][p. 1510 e 1513]] avaliaram com usuários duas
@@ -157,17 +173,23 @@ Conceitos de programação declarativa podem, assim, diminuir essa complexidade.
   como as escrevem as tecnologias web mais usadas.
   Os trabalhos encontrados na revisão bibliográfica também não avaliam pelas
   [[glspl:dc]] a notação do React nem a do Solid e do Angular com /signals/.
-  A lacuna se apoia nessa revisão, feita por palavras-chave e /snowballing/
-  [[cite:wohlin2014][p. 3-4]] em duas rodadas, em setembro e outubro de 2026,
-  e descrita no Apêndice ref:apend:2.
+  A lacuna se apoia nessa revisão, feita por palavras-chave e por
+  /snowballing/ [[cite:wohlin2014][p. 3-4]], sobretudo para a frente, em duas
+  rodadas, em setembro e outubro de 2026, e descrita no Apêndice ref:apend:2.
+  A revisão não viu os trabalhos que citam textcite:kiss2014, que a base
+  usada não indexa, e a lacuna vale para o que ela encontrou.
   Pergunta-se, então: na programação de interfaces gráficas, como as três
   notações, a imperativa com /callbacks/, a declarativa por re-renderização e
   a declarativa por atualização granular, se comparam quanto à usabilidade,
   segundo as [[glspl:dc]]?
   A comparação pode ajudar quem programa interfaces a escolher uma tecnologia
-  sabendo o que a notação dela facilita e o que dificulta em cada /problema
-  de coordenação/.
-  Um problema de coordenação é uma exigência que a interface faz à notação.
+  sabendo o que o modelo de programação dela facilita e o que dificulta em
+  cada /problema de coordenação/.
+  Dentro de um mesmo modelo de programação, a notação também muda de uma
+  tecnologia para outra, como entre o Solid e o Angular com /signals/, e a
+  comparação registra quando essa diferença muda a conclusão.
+  Um problema de coordenação é uma exigência que a interface faz ao modelo de
+  programação.
 
    O objetivo geral é comparar a usabilidade das três notações segundo as
    [[glspl:dc]], na programação de interfaces típicas da
@@ -195,9 +217,14 @@ Conceitos de programação declarativa podem, assim, diminuir essa complexidade.
 
   Quanto aos meios, o trabalho é uma avaliação qualitativa, pelas [[glspl:dc]], de
   implementações de um mesmo conjunto de tarefas.
-  O conjunto de tarefas segue a ideia de /benchmark/: testes que representam
-  as tarefas da prática e servem para comparar técnicas alternativas
-  cite:sim2003.
+  O conjunto de tarefas é um /benchmark/ de notação: testes que representam
+  as tarefas da prática e servem para comparar técnicas alternativas por
+  medidas de desempenho, que podem ser qualitativas e feitas por uma pessoa
+  [[cite:sim2003][p. 76]].
+  A medida, neste trabalho, é a avaliação pelas [[glspl:dc]], como nos
+  /benchmarks/ de resultado qualitativo do projeto de linguagens
+  [[cite:erdweg2015][p. 35]], entre os quais está o 7GUIs
+  [[cite:lu2021][8:20]].
   Aqui, as técnicas são as três notações, e as tarefas, cinco interfaces
   típicas da web, que exercitam cinco problemas de coordenação:
 
@@ -211,7 +238,7 @@ Conceitos de programação declarativa podem, assim, diminuir essa complexidade.
   - Carrinho :: o estado compartilhado entre componentes.
 
   O Contador, o Formulário e a Lista adaptam o /Counter/, o /Flight Booker/ e
-  o /CRUD/, três das sete tarefas do 7GUIs, de [[textcite:kiss2014][p. 17, 25 e 34]].
+  o /CRUD/, três das sete tarefas do 7GUIs, de [[textcite:kiss2014][p. 11, 17, 25 e 34]].
   A Busca e o Carrinho não têm equivalente no 7GUIs.
   @@latex:\todo[inline]{O projeto classificava o trabalho, quanto aos meios, como estudo de casos múltiplos (Leal 2011; Yin 2001). As definições reunidas por Runeson e Höst (2009, p. 134 e 139) pedem um fenômeno contemporâneo no seu contexto real e excluem os programas de exemplo. Por isso a classificação saiu, e as interfaces implementadas passaram a se chamar tarefas, como no 7GUIs (Kiss 2014) e em Sim et al. (2003). Registrar essa mudança no texto?}@@
 
@@ -230,8 +257,9 @@ Conceitos de programação declarativa podem, assim, diminuir essa complexidade.
   tecnologias em três pontos.
   O Solid monta a tela em JSX numa função, e o Angular, num /template/
   baseado em [[gls:html]], com construtos próprios cite:google2026a.
-  O Angular escreve o componente como classe, com decorador e injeção de
-  dependências.
+  O Angular escreve o componente como classe, com decorador
+  cite:google2026b, e o componente participa da injeção de dependências
+  cite:google2026c.
   E as [[glspl:api]] dos dois diferem no que vai além do /signal/ e do valor
   derivado, como o cancelamento das requisições na Busca.
 
@@ -244,23 +272,22 @@ Conceitos de programação declarativa podem, assim, diminuir essa complexidade.
   O Contador também é implementado no Android, como introdução à sintaxe,
   sem análise própria.
 
-  Para que as diferenças entre as implementações venham da notação, o
-  desenho controla o resto.
-  A linguagem é uma só em cada plataforma: Kotlin no Android e, na web,
-  /TypeScript/.
-  O Angular exige TypeScript cite:google2026b, e as demais tecnologias web
-  também o usam.
-  Todas as implementações de uma tarefa seguem a mesma especificação, com os
-  mesmos textos, regras e dados.
-  Cada uma usa só o que a própria tecnologia traz, sem bibliotecas de
-  formulário.
+  O desenho mantém fixo o que não pertence ao modelo de programação nem à
+  notação.
+  A linguagem é uma só em cada plataforma: na web, o /TypeScript/, que o
+  Angular exige cite:google2026b e as demais tecnologias também usam, e, no
+  Android, o Kotlin.
+  As implementações de uma tarefa seguem a mesma especificação, com os mesmos
+  textos, regras e dados, e cada uma usa só o que a própria tecnologia traz,
+  sem bibliotecas de formulário.
   As regras que não dependem da interface, como o formato das datas, a
   validação do e-mail e o catálogo de produtos, ficam num /domínio/ comum
   às implementações web, portado para Kotlin no Android.
+  O porte difere da web só em entradas-limite, registradas em teste.
 
   Uma /rotina/ de teste por tarefa executa as verificações da especificação
-  contra cada implementação.
-  /Capturas/ de tela de cada estado previsto da interface, geradas
+  contra cada implementação; na web, ela roda no console do navegador.
+  /Capturas/ de tela dos estados escolhidos de cada tarefa, geradas
   automaticamente, denunciam desvios de comportamento ou de aparência,
   porque devem sair idênticas entre as tecnologias web.
   As implementações, as rotinas e as capturas ficam num repositório público,
@@ -270,24 +297,26 @@ Conceitos de programação declarativa podem, assim, diminuir essa complexidade.
 
   A avaliação cabe ao autor, que examina o código das implementações dimensão
   a dimensão, sem participantes.
-  [[textcite:kiss2014][p. 8]] chama de analítica a avaliação pelas [[glspl:dc]]
-  e a adota como alternativa aos experimentos com programadores,
-  muitas vezes caros e de resultados necessariamente restritos.
-  Para [[textcite:kitchenham1996][p. 12]], a avaliação subjetiva de quanto
-  cada alternativa oferece as características exigidas é uma análise de
-  características (/feature analysis/).
-  Feita por uma pessoa só, que as escolhe e as avalia, ela é
-  uma triagem (/screening/) [[cite:kitchenham1996][p. 15]].
+  É uma avaliação analítica, feita por especialista, sem a participação de
+  usuários cite:blandford2008, como a de [[textcite:kiss2014][p. 8]] pelas
+  [[glspl:dc]].
+  Ela serve de alternativa aos estudos com programadores, que comparam
+  linguagens a custo alto e com resultados muitas vezes inconclusivos
+  [[cite:sadowski2011][p. 9]], e as [[glspl:dc]] pedem menos tempo que eles
+  cite:dagit2006.
 
-  A avaliação usa oito das catorze [[glspl:dc]].
-  Seis são as que [[textcite:kiss2014][p. 12-14]] usou: /nível de
+  A avaliação usa oito das catorze [[glspl:dc]] da lista de
+  [[textcite:kiss2014][p. 12]].
+  Seis são as que ele usou [[cite:kiss2014][p. 12-14]]: /nível de
   abstração/, /proximidade de descrição/, /dependências ocultas/,
   /propensão a erros/, /concisão/ e /viscosidade/.
-  As outras duas, /expressividade/ e /operações mentais difíceis/, vêm do grupo
-  de cinco que [[textcite:kiss2014][p. 15]] deixou de fora e que, a seu ver, teria
-  sido útil se as linguagens e os /toolkits/ comparados fossem muito mais
-  diferentes~--- aqui, cada tecnologia traz as próprias abstrações.
-  Não entram as outras três desse grupo, pelas razões discutidas
+  As outras duas, /expressividade/ e /operações mentais difíceis/, vêm das
+  cinco que [[textcite:kiss2014][p. 15]] considerou e deixou de fora por terem
+  pesado pouco.
+  A seu ver, elas provavelmente teriam sido úteis se as linguagens e os
+  /toolkits/ comparados fossem muito mais diferentes~--- aqui, cada
+  tecnologia traz as próprias abstrações.
+  Não entram as outras três dessas cinco, pelas razões discutidas
   na seção ref:chap:cases.
   Também ficam de fora, como em [[textcite:kiss2014][p. 15]], as três que
   tratam das ferramentas e do processo de escrita, a visibilidade, a
@@ -317,29 +346,34 @@ Conceitos de programação declarativa podem, assim, diminuir essa complexidade.
   Como a avaliação cabe ao autor, nenhum outro avaliador confere as conclusões
   em cada dimensão.
   Em métodos de inspeção, avaliadores diferentes acham problemas bem
-  diferentes na mesma interface cite:hertzum2003.
-  Além disso, quem avalia o que escreveu pode trazer um viés implícito
-  cite:ledo2018.
+  diferentes na mesma interface [[cite:hertzum2003][p. 183]].
+  Além disso, quem avalia pelas [[glspl:dc]] o que construiu tem conflito de
+  interesse e tende a não ver os problemas que se acostumou a contornar
+  cite:dagit2006.
   A familiaridade do autor com as tecnologias é desigual, maior com o React.
   Na avaliação, que é subjetiva, esse desnível pode favorecer uma notação.
 
   Por ser analítica, e não um experimento, a avaliação pelas [[glspl:dc]] aponta
   diferenças que ainda precisam ser testadas com programadores.
-  O trabalho escolheu as oito [[glspl:dc]] antes da avaliação, e usar um subconjunto
-  pode deixar de fora propriedades importantes da notação cite:britton2001.
+  O trabalho escolheu as oito [[glspl:dc]] antes da avaliação, e escolher um
+  subconjunto pela relevância para a atividade pode deixar de fora
+  propriedades importantes da notação [[cite:britton2001][p. 265]].
   Para [[textcite:green2006][p. 334]], duas delas, a expressividade e as
   operações mentais difíceis, sempre foram mal descritas.
   Das três que não entram, a exclusão mais discutível é a do compromisso
   prematuro, que também aparece na própria notação, quando um trecho escrito
-  numa construção pede outra e mudar custa caro cite:green1996d.
+  numa construção pede outra e mudar custa caro [[cite:green1996d][p. 155 e 157]].
 
-  As tarefas são pequenas, e o que só aparece em programas grandes ou ao
+  As tarefas são pequenas, e o que só aparece em programas de grande porte ou ao
   longo da manutenção fica de fora.
   O autor definiu o conjunto de tarefas para este trabalho.
   Um conjunto criado por um pesquisador só e pouco usado tende a ter menos
-  impacto que um adotado por uma comunidade cite:sim2003.
-  No Android, a replicação confere só a notação imperativa e a declarativa
-  por re-renderização.
+  impacto que um adotado por uma comunidade [[cite:sim2003][p. 76]].
+  Na web, o imperativo com /callbacks/ difere dos declarativos em mais de um
+  ponto ao mesmo tempo, e nenhum par isola o modelo de programação dele.
+  No Android, Views e Compose são o par mais próximo, mas mudam também a
+  montagem da tela, e a replicação confere só a notação imperativa e a
+  declarativa por re-renderização.
 
   Além desta introdução, o texto tem quatro seções.
   A seção ref:chap:prog reúne os conceitos de programação em que o

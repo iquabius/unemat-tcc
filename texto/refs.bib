@@ -761,11 +761,11 @@
 }
 
 @inproceedings{lloyd1994,
-  title = {Practical {{Advtanages}} of {{Declarative Programming}}},
+  title = {Practical {{Advantages}} of {{Declarative Programming}}},
   booktitle = {{{GULP}}-{{PRODE}} (1)},
   author = {Lloyd, John W.},
   date = {1994},
-  pages = {18--30},
+  pages = {3--17},
   url = {ftp://cliplab.org/pub/papers/PARFORCE/second_review/D.WP3.1.M2.3.ps.Z}
 }
 
@@ -924,9 +924,9 @@
   urldate = {2017-01-24},
 }
 
-@inproceedings{moseley2006,
+@unpublished{moseley2006,
   title = {Out of the {{Tar Pit}}},
-  booktitle = {Software {{Practice Advancement}} ({{SPA}}’06)},
+  note = {Manuscrito de 2006-02-06, que acompanhou o \emph{workshop} \enquote{Functional Relational Programming} do BCS SPA 2006},
   author = {Moseley, Ben and Marks, Peter},
   date = {2006},
   pagetotal = {66},
@@ -1777,4 +1777,132 @@ More is not better (or worse) than less, just different.
   doi = {10.1145/120782.120805},
   langid = {english},
   annotation = {Toolkits exigem callbacks para quase todo widget, a maioria com tarefas triviais, o que torna a manutenção um pesadelo; o Gilt elimina a maior parte deles (resumo). Lido na cópia do autor (PostScript do projeto Garnet), sem a paginação dos anais. Conferido em 2026-10-07.}
+}
+
+@inproceedings{oney2012,
+  title = {{{ConstraintJS}}: Programming Interactive Behaviors for the Web by Integrating Constraints and States},
+  booktitle = {Proceedings of the 25th Annual {{ACM}} Symposium on User Interface Software and Technology},
+  author = {Oney, Stephen and Myers, Brad and Brandt, Joel},
+  date = {2012},
+  pages = {229--238},
+  publisher = {{ACM}},
+  doi = {10.1145/2380116.2380146},
+  series = {{{UIST}} '12},
+  langid = {english},
+  annotation = {"One of the main differentiators of interactive behaviors from general programming is that GUIs are often stateful [9] – the application state determines its appearance and behavior" (p. 230, conferido no PDF em 2026-10-08). Complementa Myers (1994, p. 79) no tema da introdução.}
+}
+
+@article{tsukanova2026,
+  title = {Reactive Programming as an Evolution of Architectural Trade-offs in Managing Changes},
+  author = {Tsukanova, Darya and Zabrodin, Andrey},
+  date = {2026},
+  journaltitle = {Intellectual Technologies on Transport},
+  number = {2},
+  pages = {54--63},
+  doi = {10.20295/2413-2527-2026-246-54-63},
+  langid = {russian},
+  annotation = {Em russo, com resumo em inglês. Põe SolidJS e Angular Signals entre as implementações do modelo pull da PR (p. 57, tabela) e diz que eles atualizam só os nós do DOM que dependem dos signals alterados (p. 59). Ressalva: periódico de uma universidade de transportes, primeira autora na graduação, aceito quatro dias depois de recebido, e o que diz do Solid e do Angular vem da documentação deles. Única fonte revisada achada em 2026-10-08 que liga o Solid à PR.}
+}
+
+@inproceedings{disch2025,
+  title = {Functional Reactive {{GUI}} Programming with Modal Types},
+  author = {Disch, Jean-Claude and Heegaard, Asger and Bahr, Patrick},
+  date = {2025},
+  booktitle = {Trends in Functional Programming},
+  series = {Lecture Notes in Computer Science},
+  publisher = {Springer},
+  location = {Cham},
+  pages = {93--114},
+  doi = {10.1007/978-3-031-99751-8_5},
+  langid = {english},
+  annotation = {"Most modern GUI frameworks use an imperative programming model that is based on shared mutable state that is read and updated via callback functions" (p. 1 da pré-publicação, logo depois do resumo; p. 93 provável na versão do LNCS, não conferida). Definição do imperativo com callbacks na introdução (2026-10-09).}
+}
+
+@article{hudak1989,
+  title = {Conception, Evolution, and Application of Functional Programming Languages},
+  author = {Hudak, Paul},
+  date = {1989},
+  journaltitle = {ACM Computing Surveys},
+  volume = {21},
+  number = {3},
+  pages = {359--411},
+  doi = {10.1145/72551.72554},
+  langid = {english},
+  annotation = {"Functional (in general, declarative) programming is often described as expressing what is being computed rather than how, although this is really a matter of degree"; linguagens declarativas "characterized as having no implicit state" (p. 361, conferido no PDF em 2026-10-09).}
+}
+
+@article{lee2025,
+  title = {{{React-tRace}}: A Semantics for Understanding {{React Hooks}}: An Operational Semantics and a Visualizer for Clarifying {{React Hooks}}},
+  author = {Lee, Jay and Ahn, Joongwon and Yi, Kwangkeun},
+  date = {2025},
+  journaltitle = {Proceedings of the ACM on Programming Languages},
+  volume = {9},
+  number = {OOPSLA2},
+  eid = {289},
+  doi = {10.1145/3763067},
+  langid = {english},
+  annotation = {"A React component is a function that serves as a declarative specification of a UI"; "Ideally, when a component is called with the same arguments, it should render the same interface" (289:1, cópia do arXiv com a paginação da ACM, conferida em 2026-10-09). Ponte entre o declarativo de Hudak e o das interfaces.}
+}
+
+@article{erdweg2015,
+  title = {Evaluating and Comparing Language Workbenches: Existing Results and Benchmarks for the Future},
+  author = {Erdweg, Sebastian and van der Storm, Tijs and Völter, Markus and Tratt, Laurence and Bosman, Remi and Cook, William R. and Gerritsen, Albert and Hulshout, Angelo and Kelly, Steven and Loh, Alex and Konat, Gabriël and Molina, Pedro J. and Palatnik, Martin and Pohjonen, Risto and Schindler, Eugen and Schindler, Klemens and Solmi, Riccardo and Vergu, Vlad and Visser, Eelco and van der Vlist, Kevin and Wachsmuth, Guido and van der Woning, Jimi},
+  date = {2015},
+  journaltitle = {Computer Languages, Systems \& Structures},
+  volume = {44},
+  pages = {24--47},
+  doi = {10.1016/j.cl.2015.08.007},
+  langid = {english},
+  annotation = {"Not all benchmark problems address performance concerns"; "most [...] are partly or wholly qualitative: their results are captured in a structured description" (p. 35, conferido no PDF em 2026-10-09). Benchmark com medida qualitativa.}
+}
+
+@article{lu2021,
+  title = {Types for Tables: A Language Design Benchmark},
+  author = {Lu, Kuang-Chen and Greenman, Ben and Krishnamurthi, Shriram},
+  date = {2021-11-15},
+  journaltitle = {The Art, Science, and Engineering of Programming},
+  volume = {6},
+  number = {2},
+  eid = {8},
+  doi = {10.22152/programming-journal.org/2022/6/8},
+  langid = {english},
+  annotation = {Na lista de "benchmarks for aspects of language design": "7GUIs [34] presents seven tasks for GUI toolkits to express succinctly" (8:20, conferido no PDF em 2026-10-09). Data da publicação no Crossref; o DOI traz 2022, o ano do volume.}
+}
+
+@incollection{blandford2008,
+  title = {Methodological Development},
+  booktitle = {Research Methods for Human-Computer Interaction},
+  author = {Blandford, Ann and Green, Thomas},
+  editor = {Cairns, Paul and Cox, Anna L.},
+  date = {2008},
+  pages = {158--174},
+  publisher = {{Cambridge University Press}},
+  location = {{Cambridge}},
+  doi = {10.1017/CBO9780511814570.009},
+  langid = {english},
+  annotation = {Métodos "which do not require the active involvement of users, being applied, rather, by HCI experts"; "These methods are usually referred to as either 'analytical' or 'inspection'"; lista as DCs entre os métodos dos autores (p. 1-2 da cópia da UCL, conferida em 2026-10-09; página impressa a conferir, tcc-wg7).}
+}
+
+@article{dagit2006,
+  title = {Using Cognitive Dimensions: Advice from the Trenches},
+  author = {Dagit, Jason and Lawrance, Joseph and Neumann, Christoph and Burnett, Margaret and Metoyer, Ronald and Adams, Sam},
+  date = {2006},
+  journaltitle = {Journal of Visual Languages \& Computing},
+  volume = {17},
+  number = {4},
+  pages = {302--327},
+  doi = {10.1016/j.jvlc.2006.04.006},
+  langid = {english},
+  annotation = {"CDs are more practical in terms of designer time than other alternatives such as empirical user studies"; ao avaliar o próprio sistema "a conflict of interest arises", e "it becomes very difficult to see the errors, in part because the designers have accustomed themselves to working around them" (p. 2 e 4 da pré-publicação de 2006-03-12, conferida em 2026-10-09; página impressa a conferir, tcc-wg7).}
+}
+
+@online{google2026c,
+  title = {Dependency Injection: Overview},
+  author = {{Google}},
+  date = {2026},
+  journaltitle = {Angular},
+  url = {https://angular.dev/guide/di},
+  urldate = {2026-10-09},
+  langid = {english},
+  annotation = {"Angular components and directives automatically participate in DI, meaning that you can inject dependencies into them and make them available for injection" (lido em 2026-10-09).}
 }

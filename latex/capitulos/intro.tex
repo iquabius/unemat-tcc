@@ -1,15 +1,20 @@
 Interfaces gráficas mediam a maioria das nossas interações com computadores,
 seja em celulares e \emph{notebooks}, seja no navegador web.
-Projetá-las e implementá-las é difícil por natureza, e deve continuar sendo
-\cite[p. 73]{myers1994}.
+\todo{Precisa de fonte para \enquote{a maioria}.}
+Para \textcite[p. 73]{myers1994}, projetá-las e implementá-las é difícil por
+natureza e continuaria sendo.
 Cada clique, tecla ou toque do usuário gera um evento.
 Programar interfaces exige coordenar esses eventos com o estado do programa e
 com o que a tela mostra.
-Essa coordenação é o tema deste trabalho, porque é nela que a programação de
-interfaces se afasta dos outros programas \cite[p. 79]{myers1994}.
+Essa coordenação é o tema deste trabalho.
+Uma das diferenças da programação de interfaces para a dos outros programas
+é o código escrito do avesso (\emph{inside-out}), dividido em sub-rotinas que o
+\emph{toolkit} chama quando ocorrem ações do usuário \cite[p. 79]{myers1994}.
+Outra é o estado da aplicação, que determina a aparência e o comportamento da
+tela \cite[p. 230]{oney2012}.
 Além disso, ao escolher uma tecnologia, o programador escolhe
 também a forma de escrever a interface, e essa forma afeta a compreensão e a manutenção
-do programa.
+do programa \cite[p. 134]{fischer2007}.
 
 O recurso predominante para propagar eventos é o \emph{callback}, também chamado
 de \emph{listener}: um bloco de código que roda sempre que um dado evento ocorre,
@@ -17,8 +22,8 @@ como o clique em um botão \cite[p. 7]{blackheath2016}.
 Registrá-lo num produtor, que o chama de volta a cada ocorrência, é o
 \emph{Observer Pattern} \cite[p. 7]{blackheath2016}.
 O \emph{callback} é síncrono quando a função que o recebe o chama antes de
-retornar, e assíncrono quando o chama algum tempo depois, ao fim da operação
-que ele espera \cite[p. 2]{gallaba2015}.
+retornar, e assíncrono quando sua execução fica para algum tempo depois de a
+função retornar \cite[p. 2]{gallaba2015}.
 O navegador executa a aplicação numa \emph{thread} só, e, para que ela continue
 respondendo ao usuário, os programadores recorrem às operações assíncronas
 \cite[p. 368-369]{alimadadi2014}.
@@ -34,25 +39,26 @@ programador tem em mente para uma operação fica dividida entre vários
 \emph{callbacks}, o que dificulta a manutenção e a compreensão do programa
 \cite[p. 134-135]{fischer2007}.
 Como não se sabe em que ordem os \emph{callbacks} serão chamados, coordenar as
-alterações ao estado compartilhado é desconcertante e está longe de ser
+alterações ao estado compartilhado pode ser desconcertante e está longe de ser
 modular \cite[p. 926]{edwards2009}.
-Em aplicações \emph{desktop} de grande porte, cerca de um terço do código e mais
-da metade dos defeitos relatados estavam no código que coordena o
-tratamento de eventos, os \emph{widgets} e outros componentes da interface
-\cite[p. 89-90]{jarvi2008}.
-Em JavaScript, os \emph{callbacks} são frequentes: num estudo de 138 programas, uma
-em cada dez definições de função recebe um \emph{callback}, e a maioria dos
+Essas alterações são efeitos colaterais: as modificações que um comando, como a
+atribuição, faz no estado do programa \cite[p. 361]{hudak1989}.
+Os \emph{callbacks} que alteram o \gls{dom} por efeitos colaterais muitas vezes
+levam a um código interdependente, opaco e propenso a erros, o chamado código
+espaguete \cite[p. 229]{oney2012}.
+Em JavaScript, os \emph{callbacks} são frequentes: num estudo de 138 programas, em
+média uma em cada dez definições de função recebe um \emph{callback}, e a maioria dos
 \emph{callbacks} é aninhada \cite[p. 1]{gallaba2015}.
 
 O JavaScript ganhou alternativas ao \emph{callback}: as \emph{promises}, que encadeiam
 computações assíncronas \cite[p. 86:1]{madsen2017}, e as palavras-chave
-\emph{async} e \emph{await}, que permitem escrever o tratamento assíncrono dos eventos
-em estilo sequencial, com as estruturas de controle comuns
-\cite[p. 8]{grolaux2026}.
+\emph{async} e \emph{await}, que permitem escrever operações assíncronas em estilo
+sequencial \cite[p. 9]{grolaux2026}.
 As \emph{promises} achatam o aninhamento dos \emph{callbacks}, mas a lógica complexa
 continua presa em cadeias de \emph{callbacks} \cite[p. 9]{grolaux2026}.
-O estado da aplicação, que o JavaScript guarda em variáveis globais, o
-\emph{async} e \emph{await} não ajudam a coordenar \cite[p. 538]{berry2020}.
+Numa implementação em JavaScript que guarda o estado da aplicação em variáveis
+globais, o \emph{async} e o \emph{await} não ajudam a coordenar esse estado
+\cite[p. 535 e 538]{berry2020}.
 
 Outra alternativa ao \emph{callback} é a \gls{pr}.
 Segundo \textcite[p. 1125-1126]{salvaneschi2017}, nela o programador
@@ -65,9 +71,10 @@ linguagens de programação o modelo das planilhas eletrônicas, em que mudar
 o valor de uma célula recalcula as fórmulas que dependem dela
 \cite[p. 1-2]{bainomugisha2013}.
 
-\textcite[p. 1125-1134]{salvaneschi2017} testaram uma afirmação antiga,
-até então sem evidência empírica, de que a \gls{pr} torna os programas mais fáceis
-de compreender que o \emph{Observer Pattern}, estilo tradicional da \gls{poo}.
+\textcite[p. 1125-1134]{salvaneschi2017} testaram uma afirmação repetida,
+ainda sem evidência empírica suficiente, de que a \gls{pr} torna os programas
+mais fáceis de compreender que o \emph{Observer Pattern}, o padrão tradicional da
+\gls{poo} para aplicações interativas.
 Num experimento controlado com 127 estudantes, quem leu os programas escritos
 com \gls{pr} acertou mais perguntas sobre eles do que quem os leu com o
 \emph{Observer Pattern} (médias de 8,13 e 7,05 acertos em dez, com diferença
@@ -78,16 +85,18 @@ significativa nas outras quatro.
 O código sequencial tem o problema oposto ao do \emph{callback}: a linguagem
 obriga a fixar a ordem de execução mesmo quando ela não importa, e quem lê
 precisa supor que importa \cite[p. 8-9]{moseley2006}.
-Essa preocupação explícita com o fluxo de controle é uma das causas da
-complexidade dos sistemas de grande porte \cite[p. 1]{moseley2006}.
-As outras causas, para eles, são o volume de código e, sobretudo, o
-tratamento do estado.
-Eles distinguem a complexidade essencial, própria do problema, da acidental,
-todo o resto, e propõem reduzir a acidental com \gls{pf} e o
-modelo relacional de dados \cite[p. 1 e 21]{moseley2006}.
-\textcite[p. 929]{edwards2009} chama de acidental, no mesmo sentido, boa
-parte do sequenciamento manual das ações que a programação imperativa exige.
-Conceitos de programação declarativa podem, assim, diminuir essa complexidade.
+Para \textcite[p. 1]{moseley2006}, essa preocupação com o fluxo de controle
+está, ao lado do volume de código e do tratamento do estado, entre as
+principais causas da complexidade dos sistemas de grande porte.
+\textcite[p. 929]{edwards2009} sugere que boa parte do sequenciamento manual
+das ações que a programação imperativa exige pode ser feita automaticamente,
+ao menos nas aplicações interativas.
+A programação declarativa expressa o que se computa, e não como, embora isso
+seja questão de grau, e suas linguagens não têm estado implícito
+\cite[p. 361]{hudak1989}.
+Nas interfaces, o componente do React é uma função que especifica a tela de
+forma declarativa e que, chamada com os mesmos argumentos, deve exibir a
+mesma interface \cite[289:1]{lee2025}.
 
 Na programação de interfaces gráficas, a \emph{notação} é a forma de escrever
 no código o estado, os valores derivados dele e a tela que os mostra.
@@ -95,31 +104,38 @@ no código o estado, os valores derivados dele e a tela que os mostra.
 Nas tecnologias que este trabalho compara, há três notações, duas delas
 declarativas.
 Elas se distinguem pelo modo de coordenar evento, estado e tela.
-Na \emph{imperativa com callbacks}, cada \emph{callback} altera o estado e a tela
-diretamente, como no jQuery \cite{openjs2026} e nos Web Components sem
-biblioteca \cite{mozilla2026}.
+Na \emph{imperativa com callbacks}, o programador escreve \emph{callbacks} que
+mudam o estado e a tela por efeitos colaterais
+\cites[][ p. 93]{disch2025}[][ p. 229]{oney2012}, como no jQuery
+\cite{openjs2026} e nos Web Components sem biblioteca \cite{mozilla2026}.
 
 Nas declarativas, o programador descreve a tela em função do estado, e o
 ambiente de execução a mantém atualizada \cite{meta2026a,solidjs2026}.
 Na \emph{declarativa por re-renderização}, cada mudança de estado reexecuta o
 componente, como no React \cite{meta2026}.
 Na \emph{declarativa por atualização granular}, cada \emph{signal} avisa os valores
-e trechos da tela que dependem dele, e só esses são recalculados, como no
-Solid e no Angular com \emph{signals} \cite{solidjs2026,google2026}.
-A notação por atualização granular usa as abstrações da \gls{pr}: os
-valores que variam no tempo, chamados \emph{signals}, cujas alterações se propagam automaticamente
-\cite{salvaneschi2015}.
-Cada tecnologia fica na notação em que escreve a maior parte da
-coordenação, mas a classificação não é exclusiva.
+e trechos da tela que dependem dele, como no Solid e no Angular com
+\emph{signals} \cite{solidjs2026,google2026}.
+No Solid, só esses são recalculados \cite{solidjs2026}; no Angular, quando o
+\emph{signal} muda, o \emph{template} do componente que o lê volta a ser renderizado
+em algum momento \cite{google2026}.
+A notação por atualização granular usa as abstrações da \gls{pr}, os
+valores que variam no tempo, chamados \emph{signals}, cujas alterações se propagam
+automaticamente \cite[p. 953]{salvaneschi2015}.
+O Angular acrescentou essa abstração à sua \gls{api} \cite[p. 18]{lima2024},
+e o Solid e o Angular com \emph{signals} aparecem entre as implementações da
+\gls{pr} \cite[p. 57]{tsukanova2026}.
+Cada tecnologia impõe um modelo de programação, e cada modelo de
+programação aplica conceitos de um ou mais paradigmas.
 Em quase todo problema, cada parte pede o seu conjunto de conceitos
 \cite[p. 10]{roy2009}, e as implementações deste trabalho também os
 misturam.
 
 As pesquisas de uso medem tecnologias, não notações, e por isso o uso de
 cada notação se afere pelas tecnologias que a adotam.
-No Stack Overflow Developer Survey 2025, React, jQuery e Angular estão
-entre as sete tecnologias web mais usadas, com 44,7\%, 23,4\% e 18,2\% dos
-respondentes \cite{stackoverflow2025}.
+Na questão sobre tecnologias web do Stack Overflow Developer Survey 2025,
+React, jQuery e Angular estão entre as sete mais usadas, com 44,7\%, 23,4\% e
+18,2\% dos que a responderam \cite{stackoverflow2025}.
 Assim, o uso da notação declarativa por re-renderização se afere pelo
 React, e o da imperativa, pelo jQuery, que também está em 65,5\% dos
 \emph{sites} que o W3Techs monitora \cite{w3techs2026}.
@@ -127,20 +143,20 @@ O da declarativa por atualização granular se afere pelo Angular, embora o
 Stack Overflow não separe quem o usa com \emph{signals}, e pelo Solid, usado por 10\%
 dos respondentes do State of JS 2025 \cite{devographics2026}.
 Nenhuma dessas pesquisas mede o uso de Web Components sem biblioteca.
-Eles entram por ser o modelo de componente do próprio navegador
-\cite{mozilla2026}.
+Eles entram por ser a forma do próprio navegador de criar elementos
+personalizados \cite{mozilla2026}.
 
 Para discutir o quanto uma notação facilita a compreensão e a
 manutenção, há as \glspl{dc}, propostas por \textcite{green1989}.
 Elas são um vocabulário para descrever a usabilidade de notações e de outros
-artefatos de informação \cite[p. 326]{blackwell2001}.
-Trabalhos anteriores compararam por elas paradigmas, linguagens e
-bibliotecas de programação de interfaces.
-\textcite{mernik2009} compararam, com 36 programadores, uma linguagem de
+artefatos de informação \cite[p. 327]{blackwell2001}.
+Trabalhos anteriores compararam por elas paradigmas e linguagens de
+programação de interfaces e bibliotecas de \gls{pr}.
+\textcite{mernik2009} compararam, com 36 estudantes de graduação, uma linguagem de
 domínio específico para descrever interfaces gráficas, o \gls{xaml}, e uma biblioteca de
-aplicação, o C\# Forms.
-\textcite[p. v e 104]{kiss2014} comparou a \gls{poo} e a \gls{pf}
-em sete tarefas de interface, com JavaFX, ScalaFX,
+aplicação, o Windows Forms em C\#.
+\textcite[p. v, 11 e 104]{kiss2014} comparou a \gls{poo} e a \gls{pf}
+em sete tarefas de interface, com JavaFX e ScalaFX, e em parte delas com
 Scala.Rx, ReactFX e Elm, e deixou como trabalho futuro comparar os
 \emph{frameworks} de interface do navegador.
 \textcite[p. 1510 e 1513]{zimmerle2025} avaliaram com usuários duas
@@ -155,17 +171,23 @@ Nenhum desses trabalhos compara, sobre as mesmas tarefas, as três notações
 como as escrevem as tecnologias web mais usadas.
 Os trabalhos encontrados na revisão bibliográfica também não avaliam pelas
 \glspl{dc} a notação do React nem a do Solid e do Angular com \emph{signals}.
-A lacuna se apoia nessa revisão, feita por palavras-chave e \emph{snowballing}
-\cite[p. 3-4]{wohlin2014} em duas rodadas, em setembro e outubro de 2026,
-e descrita no Apêndice \ref{apend:2}.
+A lacuna se apoia nessa revisão, feita por palavras-chave e por
+\emph{snowballing} \cite[p. 3-4]{wohlin2014}, sobretudo para a frente, em duas
+rodadas, em setembro e outubro de 2026, e descrita no Apêndice \ref{apend:2}.
+A revisão não viu os trabalhos que citam \textcite{kiss2014}, que a base
+usada não indexa, e a lacuna vale para o que ela encontrou.
 Pergunta-se, então: na programação de interfaces gráficas, como as três
 notações, a imperativa com \emph{callbacks}, a declarativa por re-renderização e
 a declarativa por atualização granular, se comparam quanto à usabilidade,
 segundo as \glspl{dc}?
 A comparação pode ajudar quem programa interfaces a escolher uma tecnologia
-sabendo o que a notação dela facilita e o que dificulta em cada \emph{problema
-de coordenação}.
-Um problema de coordenação é uma exigência que a interface faz à notação.
+sabendo o que o modelo de programação dela facilita e o que dificulta em
+cada \emph{problema de coordenação}.
+Dentro de um mesmo modelo de programação, a notação também muda de uma
+tecnologia para outra, como entre o Solid e o Angular com \emph{signals}, e a
+comparação registra quando essa diferença muda a conclusão.
+Um problema de coordenação é uma exigência que a interface faz ao modelo de
+programação.
 
 O objetivo geral é comparar a usabilidade das três notações segundo as
 \glspl{dc}, na programação de interfaces típicas da
@@ -195,9 +217,14 @@ As hipóteses desta pesquisa servem a experimentos controlados como o de
 
 Quanto aos meios, o trabalho é uma avaliação qualitativa, pelas \glspl{dc}, de
 implementações de um mesmo conjunto de tarefas.
-O conjunto de tarefas segue a ideia de \emph{benchmark}: testes que representam
-as tarefas da prática e servem para comparar técnicas alternativas
-\cite{sim2003}.
+O conjunto de tarefas é um \emph{benchmark} de notação: testes que representam
+as tarefas da prática e servem para comparar técnicas alternativas por
+medidas de desempenho, que podem ser qualitativas e feitas por uma pessoa
+\cite[p. 76]{sim2003}.
+A medida, neste trabalho, é a avaliação pelas \glspl{dc}, como nos
+\emph{benchmarks} de resultado qualitativo do projeto de linguagens
+\cite[p. 35]{erdweg2015}, entre os quais está o 7GUIs
+\cite[8:20]{lu2021}.
 Aqui, as técnicas são as três notações, e as tarefas, cinco interfaces
 típicas da web, que exercitam cinco problemas de coordenação:
 
@@ -213,7 +240,7 @@ da montagem dos itens na tela;
 \end{description}
 
 O Contador, o Formulário e a Lista adaptam o \emph{Counter}, o \emph{Flight Booker} e
-o \emph{CRUD}, três das sete tarefas do 7GUIs, de \textcite[p. 17, 25 e 34]{kiss2014}.
+o \emph{CRUD}, três das sete tarefas do 7GUIs, de \textcite[p. 11, 17, 25 e 34]{kiss2014}.
 A Busca e o Carrinho não têm equivalente no 7GUIs.
 \todo[inline]{O projeto classificava o trabalho, quanto aos meios, como estudo de casos múltiplos (Leal 2011; Yin 2001). As definições reunidas por Runeson e Höst (2009, p. 134 e 139) pedem um fenômeno contemporâneo no seu contexto real e excluem os programas de exemplo. Por isso a classificação saiu, e as interfaces implementadas passaram a se chamar tarefas, como no 7GUIs (Kiss 2014) e em Sim et al. (2003). Registrar essa mudança no texto?}
 
@@ -232,8 +259,9 @@ Por isso ficam na mesma notação, e o par mostra como ela varia entre
 tecnologias em três pontos.
 O Solid monta a tela em JSX numa função, e o Angular, num \emph{template}
 baseado em \gls{html}, com construtos próprios \cite{google2026a}.
-O Angular escreve o componente como classe, com decorador e injeção de
-dependências.
+O Angular escreve o componente como classe, com decorador
+\cite{google2026b}, e o componente participa da injeção de dependências
+\cite{google2026c}.
 E as \glspl{api} dos dois diferem no que vai além do \emph{signal} e do valor
 derivado, como o cancelamento das requisições na Busca.
 
@@ -246,23 +274,22 @@ muda \cite{android2026}.
 O Contador também é implementado no Android, como introdução à sintaxe,
 sem análise própria.
 
-Para que as diferenças entre as implementações venham da notação, o
-desenho controla o resto.
-A linguagem é uma só em cada plataforma: Kotlin no Android e, na web,
-\emph{TypeScript}.
-O Angular exige TypeScript \cite{google2026b}, e as demais tecnologias web
-também o usam.
-Todas as implementações de uma tarefa seguem a mesma especificação, com os
-mesmos textos, regras e dados.
-Cada uma usa só o que a própria tecnologia traz, sem bibliotecas de
-formulário.
+O desenho mantém fixo o que não pertence ao modelo de programação nem à
+notação.
+A linguagem é uma só em cada plataforma: na web, o \emph{TypeScript}, que o
+Angular exige \cite{google2026b} e as demais tecnologias também usam, e, no
+Android, o Kotlin.
+As implementações de uma tarefa seguem a mesma especificação, com os mesmos
+textos, regras e dados, e cada uma usa só o que a própria tecnologia traz,
+sem bibliotecas de formulário.
 As regras que não dependem da interface, como o formato das datas, a
 validação do e-mail e o catálogo de produtos, ficam num \emph{domínio} comum
 às implementações web, portado para Kotlin no Android.
+O porte difere da web só em entradas-limite, registradas em teste.
 
 Uma \emph{rotina} de teste por tarefa executa as verificações da especificação
-contra cada implementação.
-\emph{Capturas} de tela de cada estado previsto da interface, geradas
+contra cada implementação; na web, ela roda no console do navegador.
+\emph{Capturas} de tela dos estados escolhidos de cada tarefa, geradas
 automaticamente, denunciam desvios de comportamento ou de aparência,
 porque devem sair idênticas entre as tecnologias web.
 As implementações, as rotinas e as capturas ficam num repositório público,
@@ -277,24 +304,26 @@ No Android, Kotlin 2.4.20, Jetpack Compose pela \gls{bom}
 
 A avaliação cabe ao autor, que examina o código das implementações dimensão
 a dimensão, sem participantes.
-\textcite[p. 8]{kiss2014} chama de analítica a avaliação pelas \glspl{dc}
-e a adota como alternativa aos experimentos com programadores,
-muitas vezes caros e de resultados necessariamente restritos.
-Para \textcite[p. 12]{kitchenham1996}, a avaliação subjetiva de quanto
-cada alternativa oferece as características exigidas é uma análise de
-características (\emph{feature analysis}).
-Feita por uma pessoa só, que as escolhe e as avalia, ela é
-uma triagem (\emph{screening}) \cite[p. 15]{kitchenham1996}.
+É uma avaliação analítica, feita por especialista, sem a participação de
+usuários \cite{blandford2008}, como a de \textcite[p. 8]{kiss2014} pelas
+\glspl{dc}.
+Ela serve de alternativa aos estudos com programadores, que comparam
+linguagens a custo alto e com resultados muitas vezes inconclusivos
+\cite[p. 9]{sadowski2011}, e as \glspl{dc} pedem menos tempo que eles
+\cite{dagit2006}.
 
-A avaliação usa oito das catorze \glspl{dc}.
-Seis são as que \textcite[p. 12-14]{kiss2014} usou: \emph{nível de
+A avaliação usa oito das catorze \glspl{dc} da lista de
+\textcite[p. 12]{kiss2014}.
+Seis são as que ele usou \cite[p. 12-14]{kiss2014}: \emph{nível de
 abstração}, \emph{proximidade de descrição}, \emph{dependências ocultas},
 \emph{propensão a erros}, \emph{concisão} e \emph{viscosidade}.
-As outras duas, \emph{expressividade} e \emph{operações mentais difíceis}, vêm do grupo
-de cinco que \textcite[p. 15]{kiss2014} deixou de fora e que, a seu ver, teria
-sido útil se as linguagens e os \emph{toolkits} comparados fossem muito mais
-diferentes\textasciitilde{}--- aqui, cada tecnologia traz as próprias abstrações.
-Não entram as outras três desse grupo, pelas razões discutidas
+As outras duas, \emph{expressividade} e \emph{operações mentais difíceis}, vêm das
+cinco que \textcite[p. 15]{kiss2014} considerou e deixou de fora por terem
+pesado pouco.
+A seu ver, elas provavelmente teriam sido úteis se as linguagens e os
+\emph{toolkits} comparados fossem muito mais diferentes\textasciitilde{}--- aqui, cada
+tecnologia traz as próprias abstrações.
+Não entram as outras três dessas cinco, pelas razões discutidas
 na seção \ref{chap:cases}.
 Também ficam de fora, como em \textcite[p. 15]{kiss2014}, as três que
 tratam das ferramentas e do processo de escrita, a visibilidade, a
@@ -324,29 +353,34 @@ objeto.
 Como a avaliação cabe ao autor, nenhum outro avaliador confere as conclusões
 em cada dimensão.
 Em métodos de inspeção, avaliadores diferentes acham problemas bem
-diferentes na mesma interface \cite{hertzum2003}.
-Além disso, quem avalia o que escreveu pode trazer um viés implícito
-\cite{ledo2018}.
+diferentes na mesma interface \cite[p. 183]{hertzum2003}.
+Além disso, quem avalia pelas \glspl{dc} o que construiu tem conflito de
+interesse e tende a não ver os problemas que se acostumou a contornar
+\cite{dagit2006}.
 A familiaridade do autor com as tecnologias é desigual, maior com o React.
 Na avaliação, que é subjetiva, esse desnível pode favorecer uma notação.
 
 Por ser analítica, e não um experimento, a avaliação pelas \glspl{dc} aponta
 diferenças que ainda precisam ser testadas com programadores.
-O trabalho escolheu as oito \glspl{dc} antes da avaliação, e usar um subconjunto
-pode deixar de fora propriedades importantes da notação \cite{britton2001}.
+O trabalho escolheu as oito \glspl{dc} antes da avaliação, e escolher um
+subconjunto pela relevância para a atividade pode deixar de fora
+propriedades importantes da notação \cite[p. 265]{britton2001}.
 Para \textcite[p. 334]{green2006}, duas delas, a expressividade e as
 operações mentais difíceis, sempre foram mal descritas.
 Das três que não entram, a exclusão mais discutível é a do compromisso
 prematuro, que também aparece na própria notação, quando um trecho escrito
-numa construção pede outra e mudar custa caro \cite{green1996d}.
+numa construção pede outra e mudar custa caro \cite[p. 155 e 157]{green1996d}.
 
-As tarefas são pequenas, e o que só aparece em programas grandes ou ao
+As tarefas são pequenas, e o que só aparece em programas de grande porte ou ao
 longo da manutenção fica de fora.
 O autor definiu o conjunto de tarefas para este trabalho.
 Um conjunto criado por um pesquisador só e pouco usado tende a ter menos
-impacto que um adotado por uma comunidade \cite{sim2003}.
-No Android, a replicação confere só a notação imperativa e a declarativa
-por re-renderização.
+impacto que um adotado por uma comunidade \cite[p. 76]{sim2003}.
+Na web, o imperativo com \emph{callbacks} difere dos declarativos em mais de um
+ponto ao mesmo tempo, e nenhum par isola o modelo de programação dele.
+No Android, Views e Compose são o par mais próximo, mas mudam também a
+montagem da tela, e a replicação confere só a notação imperativa e a
+declarativa por re-renderização.
 
 Além desta introdução, o texto tem quatro seções.
 A seção \ref{chap:prog} reúne os conceitos de programação em que o

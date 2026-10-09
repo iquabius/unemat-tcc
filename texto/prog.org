@@ -262,6 +262,11 @@ denominadas /linguagens imperativas/.
   #+END_EXPORT
 
 ** Porque programação funcional é relevante
+   @@latex:\todo{Trecho vindo da introdução na checagem de outubro de 2026, ainda por integrar a esta seção.}@@
+   [[textcite:moseley2006][p. 1 e 21]] distinguem a complexidade essencial,
+   própria do problema, da acidental, todo o resto, e propõem reduzir a
+   acidental com a [[gls:pf]] e o modelo relacional de dados.
+
    Muitas das vezes as características e vantagens da programação funcional são
    resumidas com declarações do tipo ‘programas funcionais não contêm
    atribuições’, ‘não contêm efeitos colaterais’, e ‘não necessitam preescrever

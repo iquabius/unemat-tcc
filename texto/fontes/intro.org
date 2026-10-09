@@ -100,7 +100,7 @@ Formato:
 - Conferido: 2026-10-07.
 ** edwards2009, p. 926 (estado compartilhado)
 - Frase: “Como não se sabe em que ordem os /callbacks/ serão chamados,
-  coordenar as alterações ao estado compartilhado é desconcertante e está
+  coordenar as alterações ao estado compartilhado pode ser desconcertante e está
   longe de ser modular.”
 - Trecho: “You don’t know when you will be called back by your
   subscriptions, what callbacks have already been called, what callbacks
@@ -109,29 +109,41 @@ Formato:
 - Lido em: =tmp/fontes/edwards2009-coherent-reaction.pdf=, p. 2 do PDF;
   p. 926 calculada pelo início dos anais (925).
 - Conferido: 2026-10-06.
-** jarvi2008, p. 89-90
-- Frase: “Em aplicações /desktop/ de grande porte, cerca de um terço do
-  código e mais da metade dos defeitos relatados estavam no código que
-  coordena o tratamento de eventos, os /widgets/ e outros componentes da
-  interface.”
-- Trecho: “approximately one third of the code, and more than half of the
-  reported defects, were in code that coordinates event handling logic,
-  widgets, and other Graphical User Interface (GUI) components (Parent
-  2006)” (p. 90); “by our measurements command parameter synthesis
-  comprises roughly one third of the code and notably more of the defects
-  in desktop applications” (resumo, p. 89).
-- Lido em: =tmp/fontes/jarvi2008.pdf=, p. 1 e 2 do PDF (p. 89 e 90).
-- Observação: substitui Edwards (2009, p. 926), que citava este artigo
-  como [21] e nomeava a Adobe; a medição é da palestra de Parent (2006),
-  coautor de Järvi et al.
-- Conferido: 2026-10-07.
-
+** hudak1989, p. 361 (efeito colateral)
+- Frase: “Essas alterações são efeitos colaterais: as modificações que um
+  comando, como a atribuição, faz no estado do programa (Hudak, 1989,
+  p. 361).”
+- Trecho: “Imperative languages are characterized as having an implicit
+  state that is modified (i.e., side effected) by constructs (i.e.,
+  commands) in the source language.”; “the assignment statement is a (very
+  common) command, since its effect is to alter the underlying implicit
+  store so as to yield a different binding for a particular variable.”
+  (p. 361)
+- Lido em: =tmp/fontes/hudak1989.pdf=, p. 3 do PDF (p. 361).
+- Observação: define o termo no primeiro uso, antes de Oney, Myers e
+  Brandt (2012) e do §8, que o usam para os /callbacks/.
+- Conferido: 2026-10-09.
+** oney2012, p. 229
+- Frase: “Os /callbacks/ que alteram o DOM por efeitos colaterais muitas
+  vezes levam a um código interdependente, opaco e propenso a erros, o
+  chamado código espaguete (Oney; Myers; Brandt, 2012, p. 229).”
+- Trecho: “JavaScript code defines interactive behaviors with callbacks
+  that modify the DOM using side effects — a paradigm used by most GUI
+  frameworks. However, this paradigm of using callbacks and side effects
+  often results in developers writing interdependent, opaque, and
+  error-prone “spaghetti-code,” a problem that was identified over 20
+  years ago [13].” (p. 229)
+- Lido em: =tmp/fontes/oney2012.pdf=, p. 1 do PDF (versão da ACM).
+- Observação: entra no lugar do dado da Adobe (Parent, 2006, slides de
+  palestra), que saiu em 2026-10-09; repõe o custo em defeitos com fonte
+  revisada por pares.
+- Conferido: 2026-10-09.
 ** gallaba2015, p. 1
 - Frase: “Em JavaScript, os /callbacks/ são frequentes: num estudo de 138
-  programas, uma em cada dez definições de função recebe um /callback/, e
-  a maioria dos /callbacks/ é aninhada.”
-- Trecho: “a representative corpus of 138 JavaScript programs […] every
-  10th function definition takes a callback argument […] the majority of
+  programas, em média uma em cada dez definições de função recebe um
+  /callback/, e a maioria dos /callbacks/ é aninhada.”
+- Trecho: “a representative corpus of 138 JavaScript programs […] on
+  average, every 10th function definition takes a callback argument […] the majority of
   callbacks are nested” (resumo).
 - Lido em: =tmp/fontes/gallaba2015.pdf=, p. 1.
 - Conferido: 2026-10-06.
@@ -144,19 +156,6 @@ Formato:
   proper error handling” (resumo, p. 86:1).
 - Lido em: =tmp/fontes/madsen2017.pdf=, p. 1 do PDF (p. 86:1).
 - Conferido: 2026-10-07.
-** grolaux2026, p. 8
-- Frase: “as palavras-chave /async/ e /await/, que permitem escrever o
-  tratamento assíncrono dos eventos em estilo sequencial, com as estruturas
-  de controle comuns”
-- Trecho: “Async/Await enables asynchronous event processing to be written
-  in a sequential style, allowing developers to use conventional
-  control-flow constructs while preserving the responsiveness required in
-  GUIs” (p. 8).
-- Lido em: =tmp/fontes/grolaux2026.pdf=, p. 2 do PDF (p. 8).
-- Observação: substitui Gallaba et al. (2017, p. 362, “These allow a linear
-  programming style”), que dizia o mesmo; fica a fonte que fala dos eventos
-  de interface.
-- Conferido: 2026-10-07.
 ** grolaux2026, p. 9
 - Frase: “As /promises/ achatam o aninhamento dos /callbacks/, mas a lógica
   complexa continua presa em cadeias de /callbacks/.”
@@ -164,14 +163,29 @@ Formato:
   2), yet complex logic remains trapped in callback chains.” (p. 9)
 - Lido em: =tmp/fontes/grolaux2026.pdf=, p. 3 do PDF (p. 9).
 - Conferido: 2026-10-07.
-** berry2020, p. 538
-- Frase: “O estado da aplicação, que o JavaScript guarda em variáveis
-  globais, o /async/ e /await/ não ajudam a coordenar.”
-- Trecho: “Control. JavaScript uses global variables to represent the state
-  of the application; note that the ES6 async/await extensions do not help
-  with this respect.” (p. 538)
-- Lido em: =tmp/fontes/berry2020.pdf=, p. 6 do PDF (p. 538).
-- Conferido: 2026-10-07.
+** berry2020, p. 535 e 538
+- Frase: “Numa implementação em JavaScript que guarda o estado da aplicação
+  em variáveis globais, o /async/ e o /await/ não ajudam a coordenar esse
+  estado.”
+- Trecho: “We use global variables (registers) to model the application’s
+  states.” (p. 535); “Control. JavaScript uses global variables to
+  represent the state of the application; note that the ES6 async/await
+  extensions do not help with this respect.” (p. 538)
+- Lido em: =tmp/fontes/berry2020.pdf=, p. 3 e 6 do PDF (p. 535 e 538; a
+  p. 1 do PDF é a 533).
+- Observação: as variáveis globais são do exemplo de Berry e Serrano, e não
+  da linguagem; corrigido na checagem de 2026-10-08.
+- Conferido: 2026-10-07; a p. 535, em 2026-10-09.
+** grolaux2026, p. 9 (async e await)
+- Frase: “[...] e as palavras-chave /async/ e /await/, que permitem escrever
+  operações assíncronas em estilo sequencial (Grolaux et al., 2026, p. 9).”
+- Trecho: “async/await [14] solves this by allowing asynchronous operations
+  to be written in a synchronous-like style”.
+- Lido em: =tmp/fontes/grolaux2026.pdf=, p. 3 do PDF.
+- Observação: a p. 8 dizia o tratamento dos eventos de interface em estilo
+  sequencial, que é a proposta do artigo (StreamAsync), e não um recurso do
+  JavaScript; corrigido na checagem de 2026-10-08.
+- Conferido: 2026-10-09.
 
 * §5 [[file:../intro.org::Outra alternativa ao /callback/ é a][Outra alternativa ao callback é a PR]]
 ** salvaneschi2017, p. 1125-1126
@@ -209,7 +223,7 @@ Formato:
   52:2).
 - Conferido: 2026-10-07.
 
-* §6 [[file:../intro.org::testaram uma afirmação antiga][testaram uma afirmação antiga]]
+* §6 [[file:../intro.org::testaram uma afirmação repetida][testaram uma afirmação repetida]]
 ** salvaneschi2017, p. 1125-1134
 - Frase: “Num experimento controlado com 127 estudantes, quem leu os
   programas escritos com PR acertou mais perguntas sobre eles do que quem
@@ -230,6 +244,21 @@ Formato:
   publicadas (1125 a 1141) se contam do início, sem paginação impressa no
   PDF.
 - Conferido: 2026-10-06; o tempo, em 2026-10-08.
+** salvaneschi2017, p. 1125 (afirmação repetida)
+- Frase: “Salvaneschi et al. (2017, p. 1125-1134) testaram uma afirmação
+  repetida, ainda sem evidência empírica suficiente, de que a PR torna os
+  programas mais fáceis de compreender que o /Observer Pattern/, o padrão
+  tradicional da POO para aplicações interativas.”
+- Trecho: “it has been repeatedly argued that RP greatly improves over the
+  traditional Observer pattern used in Object-oriented (OO) programming
+  [...]. However, there has not been enough empirical evidence to support
+  these claimed advantages of RP.” Na p. 1127: “In OO languages, reactive
+  applications are usually developed using the Observer design pattern”.
+  Na p. 1125, as aplicações reativas incluem “user-interactive software,
+  like GUIs and Web applications”: as interativas são parte delas.
+- Lido em: =tmp/fontes/salvaneschi2017.pdf=, p. 1 e 3 do PDF (manuscrito;
+  publicada = 1124 + página do PDF).
+- Conferido: 2026-10-09.
 
 * §18 [[file:../intro.org::O Contador, o Formulário e a Lista adaptam][O Contador, o Formulário e a Lista adaptam]]
 ** kiss2014, p. 11, 17, 25 e 34
@@ -283,17 +312,29 @@ Formato:
 - Observação: a frase já citava Wohlin p. 3-4 antes do corte; as rodadas e
   as datas são do próprio trabalho (Apêndice B).
 - Conferido: 2026-10-06.
+** kiss2014 (ressalva da lacuna)
+- Frase: “A revisão não viu os trabalhos que citam Kiss (2014), que a base
+  usada não indexa, e a lacuna vale para o que ela encontrou.”
+- Trecho: não se apoia em trecho de Kiss; a ressalva vem do Apêndice II
+  (=latex/apendices/apend_II.tex=) e de =docs/literatura.md=, seção 5.1.
+- Observação: tarefa tcc-lf9 para buscar os citantes.
+- Conferido: 2026-10-09.
 
 * §10 [[file:../intro.org::As pesquisas de uso medem][As pesquisas de uso medem]]
 ** stackoverflow2025
-- Frase: “No Stack Overflow Developer Survey 2025, React, jQuery e Angular
-  estão entre as sete tecnologias web mais usadas, com 44,7%, 23,4% e
-  18,2% dos respondentes.”
-- Trecho: “2. React: 44.7%”, “3. jQuery: 23.4%”, “7. Angular: 18.2%”
-  (Web frameworks and technologies, todos os respondentes).
-- Lido em: =tmp/fontes/stackoverflow2025.txt=, l. 15-20 (página salva em
-  2026-09-29).
-- Conferido: 2026-10-06.
+- Frase: “Na questão sobre tecnologias web do Stack Overflow Developer
+  Survey 2025, React, jQuery e Angular estão entre as sete mais usadas, com
+  44,7%, 23,4% e 18,2% dos que a responderam.”
+- Trecho: a questão, “Which web frameworks and web technologies have you
+  done extensive development work in over the past year [...]?”; “2. React:
+  44.7%”, “3. jQuery: 23.4%”, “7. Angular: 18.2%” (All Respondents);
+  “Responses: 23,678 (48.3%)”.
+- Lido em: =tmp/fontes/stackoverflow2025.txt=, l. 11, 15-20 e 42 (página
+  salva em 2026-09-29).
+- Observação: os porcentuais são dos 23.678 que responderam à questão, e
+  não dos 49.009 respondentes da pesquisa (checagem adversarial de
+  2026-10-08).
+- Conferido: 2026-10-06; a questão e o total, em 2026-10-09.
 ** w3techs2026
 - Frase: “o da imperativa, pelo jQuery, que também está em 65,5% dos
   /sites/ que o W3Techs monitora”
@@ -321,9 +362,11 @@ Formato:
 
 * §1 [[file:../intro.org::Interfaces gráficas mediam a maioria][Interfaces gráficas mediam a maioria]]
 ** myers1994, p. 79
-- Frase: “Essa coordenação é o tema deste trabalho, porque é nela que a
-  programação de interfaces se afasta dos outros programas (Myers, 1994,
-  p. 79).”
+- Frase: “Uma das diferenças da programação de interfaces para a dos outros
+  programas é o código escrito do avesso (/inside-out/), dividido em
+  sub-rotinas que o /toolkit/ chama quando ocorrem ações do usuário (Myers,
+  1994, p. 79).” (reescrita na checagem adversarial de 2026-10-08: Myers diz "one
+  big difference", não a diferença, e não fala de estado nem de tela)
 - Trecho: “One big difference is that modern user interfaces must be
   written ‘inside-out.’ Rather than structuring the code so that the
   application is in control, as is usually taught in computer science
@@ -335,6 +378,34 @@ Formato:
 - Observação: a explicação da inversão de controle foi para prog.org na
   rodada 2 do corte; rever na rodada 3 se volta à introdução.
 - Conferido: 2026-10-06.
+** myers1994, p. 73
+- Frase: “Para Myers (1994, p. 73), projetá-las e implementá-las é difícil
+  por natureza e continuaria sendo.” (o condicional marca a previsão de
+  1994; a citação narrativa, a opinião da fonte)
+- Trecho: “user interface design and implementation are inherently
+  difficult tasks and will remain so for the foreseeable future.”
+- Lido em: =tmp/fontes/myers1994.pdf=, p. 1 do PDF (resumo).
+- Conferido: 2026-10-09.
+
+** oney2012, p. 230
+- Frase: “[...] e o estado da aplicação, que determina a aparência e o
+  comportamento da tela (Oney; Myers; Brandt, 2012, p. 230).”
+- Trecho: “One of the main differentiators of interactive behaviors from
+  general programming is that GUIs are often stateful [9] – the application
+  state determines its appearance and behavior.”
+- Lido em: =tmp/fontes/oney2012.pdf=, p. 2 do PDF (versão da ACM).
+- Conferido: 2026-10-09.
+
+** fischer2007, p. 134
+- Frase: “[...] e essa forma afeta a compreensão e a manutenção do programa
+  (Fischer; Majumdar; Millstein, 2007, p. 134).”
+- Trecho: “the event-driven style severely complicates program maintenance
+  and understanding”.
+- Lido em: =tmp/fontes/fischer2007-tasks-language-support-for-event-driven-programming.pdf=,
+  p. 1 do PDF.
+- Observação: afirmação dos autores, sem medição; a medição da compreensão
+  está em Salvaneschi et al. (2017), no §6.
+- Conferido: 2026-10-09.
 
 * §24 [[file:../intro.org::A avaliação cabe ao autor][A avaliação cabe ao autor]]
 ** kiss2014, p. 8
@@ -348,27 +419,37 @@ Formato:
   usability of ‘information artifacts’”
 - Lido em: =tmp/fontes/kiss2014.pdf=, p. 14 do PDF (p. 8 impressa).
 - Conferido: 2026-10-06.
-** kitchenham1996, p. 12
-- Frase: “a avaliação subjetiva de quanto cada alternativa oferece as
-  características exigidas é uma análise de características (/feature
-  analysis/).”
-- Trecho: “Evaluators assess the extent to which the method/tool provides
-  the required features in a usable and effective manner based (usually)
-  on personal opinion. DESMET refers to this type of evaluation as feature
-  analysis and identifies such an evaluation as a qualitative or
-  subjective evaluation.”
-- Lido em: =tmp/fontes/kitchenham1996a.pdf=, p. 2 do PDF (p. 12 impressa).
-- Observação: até 2026-10-06 a frase dizia “critérios”, onde a fonte diz
-  /features/.
-- Conferido: 2026-10-06.
-** kitchenham1996, p. 15
-- Frase: “Feita por uma pessoa só, que as escolhe e as avalia, ela é uma
-  triagem (/screening/).”
-- Trecho: “Qualitative screening: A feature-based evaluation done by a
-  single individual who not only determines the features to be assessed
-  and their rating scale but also does the assessment.”
-- Lido em: =tmp/fontes/kitchenham1996a.pdf=, p. 5 do PDF (p. 15 impressa).
-- Conferido: 2026-10-06.
+** blandford2008
+- Frase: “É uma avaliação analítica, feita por especialista, sem a
+  participação de usuários (Blandford; Green, 2008) [...].”
+- Trecho: métodos “which do not require the active involvement of users,
+  being applied, rather, by HCI experts”; “These methods are usually
+  referred to as either ‘analytical’ or ‘inspection’.” As DCs estão na lista
+  de métodos dos autores (p. 2 da cópia).
+- Lido em: =tmp/fontes/blandford2008.pdf=, cópia da UCL
+  (discovery.ucl.ac.uk/id/eprint/14793), p. 1-2; página impressa (158-174)
+  a conferir (tcc-wg7).
+- Observação: resolve a tensão com Blackwell e Green (2003, p. 106), para
+  quem as DCs não são "an analytic method": lá é o modelo formal (GOMS),
+  aqui a inspeção sem usuários, no sentido de IHC, e do próprio Green.
+- Conferido: 2026-10-09.
+
+** sadowski2011, p. 9
+- Frase: “Ela serve de alternativa aos estudos com programadores, que
+  comparam linguagens a custo alto e com resultados muitas vezes
+  inconclusivos (Sadowski; Kurniawan, 2011, p. 9) [...].”
+- Trecho: “user studies which compare programming languages or systems are
+  often very expensive and typically inconclusive.”
+- Lido em: =tmp/fontes/sadowski2011.pdf=, p. 1 do PDF (resumo).
+- Conferido: 2026-10-09.
+
+** dagit2006 (custo)
+- Frase: “[...] e as DCs pedem menos tempo que eles (Dagit et al., 2006).”
+- Trecho: “CDs are more practical in terms of designer time than other
+  alternatives such as empirical user studies.”
+- Lido em: =tmp/fontes/dagit2006.pdf=, pré-publicação de 2006-03-12, p. 4
+  do PDF; página impressa a conferir (tcc-wg7).
+- Conferido: 2026-10-09.
 
 * §7 [[file:../intro.org::O código sequencial tem o problema oposto][O código sequencial tem o problema oposto]]
 ** moseley2006, p. 8-9
@@ -382,7 +463,7 @@ Formato:
   assumption that the ordering specified is significant” (p. 9).
 - Lido em: =tmp/fontes/moseley2006.pdf=, p. 8 e 9.
 - Conferido: 2026-10-07.
-** moseley2006, p. 1
+** moseley2006, p. 1 (causas da complexidade)
 - Frase: “Essa preocupação explícita com o fluxo de controle é uma das
   causas da complexidade dos sistemas de grande porte (Moseley e Marks,
   2006, p. 1). As outras causas, para eles, são o volume de código e,
@@ -392,16 +473,6 @@ Formato:
   contributors are code volume, and explicit concern with the flow of
   control through the system.” (p. 1)
 - Lido em: =tmp/fontes/moseley2006.pdf=, p. 1.
-- Conferido: 2026-10-07.
-** moseley2006, p. 1 e 21
-- Frase: “Eles distinguem a complexidade essencial, própria do problema, da
-  acidental, todo o resto, e propõem reduzir a acidental com PF e o modelo
-  relacional de dados.”
-- Trecho: o resumo propõe reduzir a complexidade com “functional
-  programming and Codd’s relational model of data” (p. 1); “Essential
-  Complexity is inherent in, and the essence of, the problem”; “Accidental
-  Complexity is all the rest” (p. 21).
-- Lido em: =tmp/fontes/moseley2006.pdf=, p. 1 e 21.
 - Conferido: 2026-10-07.
 ** edwards2009, p. 929
 - Frase: “Edwards (2009, p. 929) chama de acidental, no mesmo sentido, boa
@@ -413,11 +484,33 @@ Formato:
 - Lido em: =tmp/fontes/edwards2009-coherent-reaction.pdf=, p. 5 do PDF;
   p. 929 calculada pelo início dos anais (925).
 - Conferido: 2026-10-07.
+** hudak1989, p. 361
+- Frase: “A programação declarativa expressa o que se computa, e não como,
+  embora isso seja questão de grau, e suas linguagens não têm estado
+  implícito (Hudak, 1989, p. 361).”
+- Trecho: “Functional (in general, declarative) programming is often
+  described as expressing what is being computed rather than how, although
+  this is really a matter of degree.” Na mesma página: “characterized as
+  having no implicit state”.
+- Lido em: =tmp/fontes/hudak1989.pdf=, ACM Computing Surveys.
+- Conferido: 2026-10-09.
+
+** lee2025, 289:1
+- Frase: “Nas interfaces, o componente do React é uma função que especifica a
+  tela de forma declarativa e que, chamada com os mesmos argumentos, deve
+  exibir a mesma interface (Lee; Ahn; Yi, 2025, 289:1).”
+- Trecho: “A React component is a function that serves as a declarative
+  specification of a UI [...]. Ideally, when a component is called with the
+  same arguments, it should render the same interface”.
+- Lido em: =tmp/fontes/lee2025.pdf=, cópia do arXiv com a paginação da ACM.
+- Observação: faz a ponte entre o declarativo de Hudak (sem estado) e o das
+  interfaces (a tela descrita em função do estado); Moseley e Marks (2006)
+  usam "declarativo" sem definição (checagem de 2026-10-08).
+- Conferido: 2026-10-09.
 
 * §8 [[file:../intro.org::Na programação de interfaces gráficas, a /notação/][Na programação de interfaces gráficas, a notação]]
 ** openjs2026
-- Frase: “Na /imperativa com callbacks/, cada /callback/ altera o estado e a
-  tela diretamente, como no jQuery.”
+- Frase: “[...] como no jQuery”, exemplo da imperativa com /callbacks/.
 - Trecho: “It makes things like HTML document traversal and manipulation,
   event handling, animation, and Ajax much simpler”
 - Lido em: =tmp/fontes/openjs2026.txt=, l. 94 (página salva).
@@ -429,6 +522,30 @@ Formato:
 - Lido em: =tmp/fontes/mozilla2026.txt=, l. 606 (página salva; MDN,
   modificada em 2026-09-01).
 - Conferido: 2026-10-06.
+** disch2025, p. 93
+- Frase: “Na /imperativa com callbacks/, o programador escreve /callbacks/
+  que mudam o estado e a tela por efeitos colaterais (Disch; Heegaard;
+  Bahr, 2025, p. 93; Oney; Myers; Brandt, 2012, p. 229) [...]” (Disch
+  sustenta o estado)
+- Trecho: “Most modern GUI frameworks use an imperative programming model
+  that is based on shared mutable state that is read and updated via
+  callback functions.” (introdução, logo depois do resumo)
+- Lido em: =tmp/fontes/disch2025.pdf=, p. 1 da pré-publicação. Cópia: o
+  Crossref dá p. 93-114 no LNCS, e a pré-publicação já está no formato do
+  LNCS, então a frase deve estar na p. 93; a versão publicada não foi
+  conferida.
+- Observação: substitui Meta (2026a), documentação do React, na definição
+  do imperativo (pedido do autor em 2026-10-09).
+- Conferido: 2026-10-09.
+** oney2012, p. 229 (o imperativo)
+- Frase: a mesma do disch2025 acima, na mesma citação; Oney, Myers e
+  Brandt sustentam a tela e os efeitos colaterais, como no jQuery e nos
+  Web Components sem biblioteca.
+- Trecho: “JavaScript code defines interactive behaviors with callbacks
+  that modify the DOM using side effects — a paradigm used by most GUI
+  frameworks.” (p. 229)
+- Lido em: =tmp/fontes/oney2012.pdf=, p. 1 do PDF (versão da ACM).
+- Conferido: 2026-10-09.
 
 * §9 [[file:../intro.org::Nas declarativas, o programador descreve a tela][Nas declarativas, o programador descreve a tela]]
 ** meta2026a
@@ -495,6 +612,28 @@ Formato:
 - Lido em: =tmp/fontes/vanroy2009-programming-paradigms-for-dummies.pdf=,
   p. 2 do PDF (p. 10).
 - Conferido: 2026-10-08.
+** lima2024, p. 18
+- Frase: “O Angular acrescentou essa abstração à sua API (Lima, 2024,
+  p. 18) [...].”
+- Trecho: “Angular, on the hand, has RxJS (Rx for JavaScript) as an integral
+  part of its components since early versions, and, more recently, it added
+  the Signal (behavior) abstraction to its API.”
+- Lido em: =tmp/fontes/lima2024-unveiling-the-usability-of-reactive-programming-apis.pdf=,
+  p. 19 do PDF.
+- Conferido: 2026-10-09.
+
+** tsukanova2026, p. 57
+- Frase: “[...] e o Solid e o Angular com /signals/ aparecem entre as
+  implementações da PR (Tsukanova; Zabrodin, 2026, p. 57).”
+- Trecho: tabela “Сравнение push- и pull-моделей”, linha “Примеры
+  реализации”, coluna pull: “SolidJS, MobX, Knockout, Svelte, Vue 3
+  (реактивные ref/effect), Angular Signals”.
+- Lido em: =tmp/fontes/tsukanova2026.pdf=, p. 4 do PDF.
+- Observação: veículo de uma universidade de transportes, aceito quatro dias
+  depois de recebido; única fonte revisada achada que liga o Solid à PR. Na
+  p. 59, diz que o Angular atualiza só os nós do DOM dependentes, o que a
+  documentação do Angular não sustenta; essa frase não foi usada.
+- Conferido: 2026-10-09.
 
 * §15 [[file:../intro.org::Quanto aos objetivos, a pesquisa é][Quanto aos objetivos, a pesquisa é exploratória]]
 ** runeson2009, p. 135
@@ -577,6 +716,26 @@ Formato:
 - Lido em: https://angular.dev/guide/templates, em 2026-10-06.
 - Conferido: 2026-10-06.
 
+** google2026b (classe e decorador)
+- Frase: “O Angular escreve o componente como classe, com decorador (Google,
+  2026b), e o componente participa da injeção de dependências (Google,
+  2026c).”
+- Trecho: “Every component must have: A TypeScript class with behaviors such
+  as handling user input and fetching data from a server”; “You provide
+  Angular-specific information for a component by adding a @Component
+  decorator on top of the TypeScript class”.
+- Lido em: https://angular.dev/guide/components, em 2026-10-09.
+- Conferido: 2026-10-09.
+
+** google2026c
+- Frase: a mesma de google2026b, acima.
+- Trecho: “Angular components and directives automatically participate in
+  DI, meaning that you can inject dependencies into them and make them
+  available for injection.”
+- Lido em: https://angular.dev/guide/di, em 2026-10-09.
+- Observação: a frase não tinha fonte até a checagem de 2026-10-08 (K05).
+- Conferido: 2026-10-09.
+
 * §11 [[file:../intro.org::Para discutir o quanto uma notação facilita][Para discutir o quanto uma notação facilita]]
 ** green1989
 - Frase: “há as DCs, propostas por Green (1989)”.
@@ -653,6 +812,25 @@ Formato:
 - Lido em: =tmp/fontes/sim2003.pdf=, p. 3 do PDF (p. 76; o artigo vai de
   74 a 83).
 - Conferido: 2026-10-06.
+** erdweg2015, p. 35
+- Frase: “A medida, neste trabalho, é a avaliação pelas DCs, como nos
+  /benchmarks/ de resultado qualitativo do projeto de linguagens (Erdweg et
+  al., 2015, p. 35) [...].”
+- Trecho: “Not all benchmark problems address performance concerns,
+  however.” “most – including those introduced in this paper – are partly
+  or wholly qualitative: their results are captured in a structured
+  description.”
+- Lido em: =tmp/fontes/erdweg2015.pdf=, p. 12 do PDF (cópia da editora).
+- Conferido: 2026-10-09.
+
+** lu2021, 8:20
+- Frase: “[...] entre os quais está o 7GUIs (Lu; Greenman; Krishnamurthi,
+  2021, 8:20).”
+- Trecho: “We are aware of a few other benchmarks for aspects of language
+  design. [...] Finally, 7GUIs [34] presents seven tasks for GUI toolkits to
+  express succinctly.”
+- Lido em: =tmp/fontes/lu2021.pdf=, versão publicada (acesso aberto).
+- Conferido: 2026-10-09.
 
 * §28 [[file:../intro.org::Por ser analítica][Por ser analítica]]
 ** britton2001
@@ -697,3 +875,41 @@ Formato:
   the community and research results.” (3.1 Scope)
 - Lido em: =tmp/fontes/sim2003.pdf=, p. 3 do PDF (p. 76).
 - Conferido: 2026-10-06.
+
+* §27 [[file:../intro.org::O desenho tem limitações em três pontos][O desenho tem limitações em três pontos]]
+** hertzum2003, p. 183
+- Frase: “Em métodos de inspeção, avaliadores diferentes acham problemas bem
+  diferentes na mesma interface (Hertzum; Jacobsen, 2003, p. 183).”
+- Trecho: “multiple evaluators evaluating the same interface with the same
+  UEM detect markedly different sets of problems”.
+- Lido em: =tmp/fontes/hertzum2003.pdf=, pré-publicação, resumo; p. 183 pelo
+  cabeçalho da pré-publicação (v. 15, n. 1, p. 183-204).
+- Conferido: 2026-10-09.
+
+** dagit2006 (conflito de interesse)
+- Frase: “Além disso, quem avalia pelas DCs o que construiu tem conflito de
+  interesse e tende a não ver os problemas que se acostumou a contornar
+  (Dagit et al., 2006).”
+- Trecho: “a conflict of interest arises: the designer has a strong
+  incentive to decide that the system has no usability issues”; “when
+  evaluating one’s own system after it has been extensively implemented
+  over time, it becomes very difficult to see the errors, in part because
+  the designers have accustomed themselves to working around them.”
+- Lido em: =tmp/fontes/dagit2006.pdf=, p. 2 e 4 do PDF; página impressa a
+  conferir (tcc-wg7).
+- Observação: substitui Ledo et al. (2018), cujo sujeito são os autores de
+  um /toolkit/ avaliando o próprio /toolkit/. Em Dagit et al., é o projetista
+  de uma linguagem visual; aqui, o autor das implementações.
+- Conferido: 2026-10-09.
+
+* §21 [[file:../intro.org::O desenho mantém fixo o que não pertence][O desenho mantém fixo o que não pertence]]
+** google2026b (TypeScript)
+- Frase: “A linguagem é uma só em cada plataforma: na web, o /TypeScript/,
+  que o Angular exige (Google, 2026b) e as demais tecnologias também usam
+  [...].”
+- Trecho: “Every component must have: A TypeScript class with behaviors such
+  as handling user input and fetching data from a server”.
+- Lido em: https://angular.dev/guide/components, em 2026-10-09; o uso do TypeScript
+  pelas outras tecnologias se confere em =casos/= (só =.ts= e =.tsx= nas
+  implementações, achado L03 da checagem de 2026-10-08).
+- Conferido: 2026-10-09.

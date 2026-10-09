@@ -387,6 +387,18 @@ rótulo cai dos dois lados da classificação:
 - Kiss (2014, p. 59-60): o quanto uma linguagem é reativa depende de quão
   conveniente é definir construções reativas.
 
+O mesmo vale para a aplicação: o TCC diz "aplicação interativa", e não
+"aplicação reativa" (decisão do autor de 2026-10-09). Para Salvaneschi et
+al. (2017, p. 1125), as "reactive applications" respondem "continuously
+and interactively" a estímulos internos ou externos, com exemplos que
+incluem "user-interactive software, like GUIs and Web applications"; na
+p. 1127, elas "are usually developed using the Observer design pattern".
+As interativas são parte das reativas, e o termo mais estreito basta,
+porque as interfaces gráficas estão entre os exemplos. Bainomugisha et
+al. (2013, p. 1, cópia) e Edwards (2009) dizem "interactive
+applications". A relação entre aplicação reativa e PR fica para a seção
+da PR no capítulo de programação.
+
 ## 8. Tensões que o texto precisa enfrentar
 
 - **O mesmo texto, outra semântica.** O problema da ordem "is not in the

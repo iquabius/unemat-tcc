@@ -197,6 +197,13 @@ Programação funcional, reativa e funcional reativa, os paradigmas do
 capítulo de programação. PFR é a de Elliott e Hudak (1997), com tempo
 contínuo; PR cobre também o tempo discreto.
 
+**Aplicação interativa**:
+A que responde continuamente às ações do usuário, como a interface
+gráfica e a aplicação web. Para Salvaneschi et al. (2017), é parte das
+aplicações reativas, que respondem a estímulos internos ou externos.
+_Avoid_: aplicação reativa (o nome da aplicação se confunde com a PR e a
+PFR; a relação entre as duas fica no capítulo de programação)
+
 **Fluxo de controle**:
 A ordem em que os passos de um programa são executados (Moseley e Marks,
 2006). O *callback* a parte em vários trechos; na PR, o ambiente de
