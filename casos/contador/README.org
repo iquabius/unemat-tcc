@@ -23,8 +23,6 @@ implementação.
   1. O valor começa em 0.
   2. Cada clique no botão soma 1 ao valor, e a tela mostra o valor novo.
   3. Não há outro controle: o valor não diminui nem volta a 0.
-  4. O valor não é salvo: recarregar a página, ou, no Android, recriar a
-     tela (girar o aparelho, por exemplo), recomeça do 0.
 
   O 0 inicial tem nome onde a tecnologia recebe o valor de fora: o
   atributo =valor-inicial= no Web Component, a /prop/ =valorInicial= no
