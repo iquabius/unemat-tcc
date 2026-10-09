@@ -114,3 +114,38 @@ que o Angular obrigou a escrever diferente.
   instala mesmo sem nenhum `import` dele. O Angular 22 também traz
   `debounced()` no `@angular/core`; as implementações usam `setTimeout`,
   como o Solid.
+
+## 2026-10-09, desktop em pré-análise (commits `0704352` a `04b5995`)
+
+Swing, JavaFX montado em código e JavaFX com FXML, no Formulário e na
+Lista; o desktop ainda não é plataforma do TCC (`docs/plataformas.md`,
+seção "Swing × JavaFX").
+
+- **A dependência esquecida passa na rotina** (dependências ocultas,
+  propensão a erros, viscosidade): no JavaFX, tirar `ida.textProperty()`
+  da lista do `createStringBinding` do erro de ordem das datas compila, e
+  as 19 verificações do Formulário passam, porque a rotina nunca muda a
+  ida depois de escolher "Ida e volta"; o erro só aparece ao mudar a ida
+  com a volta preenchida. Kiss (2014, p. 29) prevê que a dependência nova
+  "could be forgotten". O Swing não tem a lista: `validar()` recalcula
+  tudo a cada evento.
+- **A pseudoclasse não tem propriedade** (expressividade): o JavaFX liga
+  texto, visibilidade e habilitação por `bind`, mas a pseudoclasse
+  `:invalido`, no papel do `aria-invalid`, só muda por
+  `pseudoClassStateChanged`, e a tela a acompanha com um `subscribe`. O
+  `addListener` da primeira versão não rodava com o valor inicial.
+- **O `DocumentListener` não tem *adapter*** (difusão, viscosidade): o
+  Swing avisa a mudança do texto por uma interface de três métodos, sem
+  classe *adapter* no JDK 25, e a tela escreve os três corpos iguais.
+- **O FXML não enxerga o que vem depois** (propensão a erros): o rótulo
+  que nomeia o campo (`labelFor="$nome"`) não acha um campo declarado
+  depois dele, e o campo nasce dentro do `labelFor` e entra no painel por
+  `<fx:reference>`. Os `fx:id` e o `onAction="#reservar"` ligam o XML ao
+  controlador por nome, conferido só ao carregar.
+- **O FXML não repete trecho por item** (expressividade): a célula da
+  lista do `javafx-fxml` é a mesma classe Java do `javafx`, criada pela
+  fábrica de células.
+- **Foco ao abrir a janela** (propensão a erros, nos testes): o JavaFX foca
+  o primeiro campo ao abrir a janela, e o navegador não foca nenhum; a
+  `Tela` de teste passa o foco à raiz para que nenhum campo saia tocado
+  sem a rotina pedir.

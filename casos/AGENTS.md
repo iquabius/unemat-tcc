@@ -158,7 +158,7 @@ Gradle em `casos/android/` e as dependências (`package.json`,
 - Confira que a rotina pega erros: introduza um defeito numa regra e veja
   o `RoteiroTest` falhar. Uma dependência esquecida na lista de um
   `createXBinding` passa na rotina do Formulário (achado de 2026-10-09,
-  `docs/plataformas.md`).
+  `docs/achados-das-implementacoes.md`).
 
 ## Ambiente
 

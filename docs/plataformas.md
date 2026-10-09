@@ -145,7 +145,10 @@ Listeners" e "General Information about Writing Event Listeners";
 Oracle, "Using JavaFX Properties and Binding" (Release 8); OpenJFX,
 "Introduction to FXML" e javadoc de `Bindings` (JavaFX 25); Kiss (2014,
 p. 28-29 e 38-39), conferido no PDF. O que não vem delas está marcado
-como leitura nossa, a conferir pelo autor.
+como leitura nossa, a conferir pelo autor. As observações feitas ao
+implementar, com data e commit, estão em
+`docs/achados-das-implementacoes.md` (2026-10-09), e aqui aparecem
+resumidas.
 
 **Problemas de coordenação evento → estado → tela e estado derivado
 (Formulário).**
