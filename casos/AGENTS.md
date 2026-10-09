@@ -128,8 +128,9 @@ Gradle em `casos/android/` e as dependências (`package.json`,
 - Qt Widgets: estrutura no `.ui` (como o layout XML), coordenação por
   `connect` em C++, sem propriedades *bindable* do Qt 6; aparência no
   `estilo.qss`, que seleciona por tipo e por propriedade dinâmica
-  (`papel`, `invalido`). O espaçamento dos layouts fica no `.ui`, porque o
-  QSS não o alcança.
+  (`papel`, `invalido`); propriedades de aparência dos widgets, como a
+  quebra de linha, vão por `qproperty-*`. Só o espaçamento dos layouts
+  fica no `.ui`, porque o QSS não o alcança.
 - QML: estado nas propriedades da própria QML e derivados em *bindings*;
   o domínio chega pela ponte `dominio-cpp/DominioQml.h` (singleton
   `Dominio`, fora da análise). Aparência nos componentes de `qml/estilo/`,

@@ -35,6 +35,7 @@ QLineEdit[invalido="true"] {
 QLabel[papel="erro"] {
   color: #ff8a8a;
   font-size: 14px;
+  qproperty-wordWrap: true;
 }
 
 QPushButton {
@@ -59,4 +60,5 @@ QLabel[papel="confirmacao"] {
   margin: 0 16px;
   max-width: 384px;
   color: #9fd88a;
+  qproperty-wordWrap: true;
 }
