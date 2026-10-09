@@ -165,6 +165,31 @@ Gradle em `casos/android/` e as dependências (`package.json`,
   `createXBinding` passa na rotina do Formulário (achado de 2026-10-09,
   `docs/achados-das-implementacoes.md`).
 
+## Qt (pré-análise do par Qt Widgets × QML)
+
+- Formulário e Lista em `casos/<caso>/qt-widgets/` e `casos/<caso>/qml/`,
+  com o domínio em `casos/<caso>/dominio-cpp/` (porte do `dominio.ts`,
+  mesmos nomes, como o `dominio-kotlin`). Projeto CMake único em
+  `casos/qt/`, que inclui sozinho toda pasta dessas com `CMakeLists.txt`.
+  Fora da análise e sem capturas até a decisão do *desktop* (tcc-a0w).
+- Qt Widgets: estrutura no `.ui` (como o layout XML), coordenação por
+  `connect` em C++, sem propriedades *bindable* do Qt 6; aparência no
+  `estilo.qss`, que seleciona por tipo e por propriedade dinâmica
+  (`papel`, `invalido`); propriedades de aparência dos widgets, como a
+  quebra de linha, vão por `qproperty-*`. Só o espaçamento dos layouts
+  fica no `.ui`, porque o QSS não o alcança.
+- QML: estado nas propriedades da própria QML e derivados em *bindings*;
+  o domínio chega pela ponte `dominio-cpp/DominioQml.h` (singleton
+  `Dominio`, fora da análise). Aparência nos componentes de `qml/estilo/`,
+  como o `Estilo.kt` do Compose; a tela só os cita.
+- Rotinas em Qt Test, uma `Tela` por tecnologia com a mesma API e o
+  `RoteiroTest.cpp` igual entre as duas. Sem marcas só para teste: o
+  Widgets acha os controles pelo nome do `.ui`; a QML, pelo tipo e pela
+  ordem. Confira que a rotina pega um defeito antes de dar por pronto.
+- Rode com `QT_QPA_PLATFORM=offscreen ctest --test-dir build` de
+  `casos/qt/`. Depois de restaurar um arquivo com `cp` ou `mv`, dê `touch`:
+  o Ninja não recompila um arquivo com data antiga.
+
 ## Ambiente
 
 - Node e JDK pelo asdf, nas versões do `.tool-versions` da raiz. Se `node`

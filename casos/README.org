@@ -136,6 +136,39 @@ tecnologias) está nas decisões em [[file:../docs/adr/][docs/adr/]].
   =javafx-estilo/estilo.css= no JavaFX, comum às duas montagens). Os campos
   não têm o texto de exemplo (=placeholder=) da web, que o Swing não tem.
 
+* Instalar e rodar (Qt, pré-análise)
+
+  Formulário com validação e Lista filtrável também existem no Qt 6, em
+  duas tecnologias, para a pré-análise do par Qt Widgets × QML (tarefa do
+  bd tcc-jhl). Ficam fora da análise até a decisão sobre o /desktop/
+  (tcc-a0w), e ainda sem capturas.
+
+  | Subpasta       | Tecnologia                                                   |
+  |----------------+--------------------------------------------------------------|
+  | =qt-widgets=   | Qt Widgets: tela em =.ui=, /signals/ e /slots/ em C++        |
+  | =qml=          | QML: tela e /property bindings/ em QML, expressões em JavaScript |
+  | =dominio-cpp=  | o porte do =dominio.ts= para C++, compartilhado pelas duas  |
+
+  Todos formam um único projeto CMake, com raiz em =casos/qt/=. Cada alvo
+  se chama =<caso>-<subpasta>= (=formulario-qml=, por exemplo). Precisa do
+  Qt 6.5 ou mais novo, de CMake e de um compilador C++20; no Ubuntu 26.04,
+  onde foi testado com o Qt 6.10.2:
+
+  #+begin_src sh
+  sudo apt install build-essential cmake ninja-build qt6-base-dev \
+      qt6-declarative-dev qml6-module-qtquick-controls \
+      qml6-module-qtquick-layouts qml6-module-qttest
+  cd casos/qt
+  cmake -S . -B build -G Ninja && cmake --build build
+  ./build/formulario-qml/formulario-qml                       # abre uma tela
+  QT_QPA_PLATFORM=offscreen ctest --test-dir build --output-on-failure
+  #+end_src
+
+  O =ctest= roda, de cada caso, o teste do domínio (=dominio-cpp/test/=)
+  e a rotina de cada tecnologia (=<subpasta>/test/RoteiroTest.cpp=), com
+  as mesmas verificações e nomes do =roteiro-de-teste.js=, sem janela na
+  tela.
+
 * Capturas de tela
 
   Cada caso guarda capturas versionadas em =casos/<caso>/capturas/=, uma

@@ -10,7 +10,8 @@ Os produtos e as regras (normalização da busca, comparação, formato do
 preço) ficam em =dominio.ts=, compartilhado pelos projetos web. No Android, o
 mesmo catálogo e as mesmas regras estão portados para Kotlin em
 =dominio-kotlin/main/Dominio.kt=, compartilhado por =android-views= e
-=android-compose=. Cada
+=android-compose=; no Qt, para C++ em =dominio-cpp/Dominio.cpp=,
+compartilhado por =qt-widgets= e =qml=. Cada
 implementação compõe a lista visível com =filter= e =sort= e decide quando
 recalculá-la: é isso que se compara.
 
@@ -48,3 +49,9 @@ recalculá-la: é isso que se compara.
   =RoteiroTest.java=, nos módulos =swing=, =javafx= e =javafx-fxml=, e rodam
   com =./gradlew test= em =casos/desktop/=. Lá o domínio é o mesmo
   =dominio-kotlin=, chamado do Java.
+
+  No Qt, as mesmas 11 verificações estão em =RoteiroTest.cpp=, nos testes
+  de cada tecnologia, e rodam com o =ctest= em =casos/qt/=; o
+  =dominio-cpp/test/DominioTest.cpp= repete as respostas do Node e
+  documenta, num teste pulado, a busca por acentos soltos, que difere da
+  web.

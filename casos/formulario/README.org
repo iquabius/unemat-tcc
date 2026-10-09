@@ -6,7 +6,8 @@ esta especificação; as regras de domínio (formato de data, e-mail, mensagens)
 ficam em =dominio.ts=, compartilhado pelos projetos web, para que as
 implementações só difiram na coordenação da interface. No Android, as mesmas
 regras estão portadas para Kotlin em =dominio-kotlin/main/Dominio.kt=,
-compartilhado por =android-views= e =android-compose=.
+compartilhado por =android-views= e =android-compose=; no Qt, para C++ em
+=dominio-cpp/Dominio.cpp=, compartilhado por =qt-widgets= e =qml=.
 
 * Campos
 
@@ -66,3 +67,8 @@ compartilhado por =android-views= e =android-compose=.
   =RoteiroTest.java=, nos módulos =swing=, =javafx= e =javafx-fxml=, e rodam
   com =./gradlew test= em =casos/desktop/=. Lá o domínio é o mesmo
   =dominio-kotlin=, chamado do Java.
+
+  No Qt, as mesmas 19 verificações estão em =RoteiroTest.cpp=, nos testes
+  de cada tecnologia, e rodam com o =ctest= em =casos/qt/=; o
+  =dominio-cpp/test/DominioTest.cpp= confere o porte em C++, com as
+  diferenças em relação à web documentadas num teste pulado.
