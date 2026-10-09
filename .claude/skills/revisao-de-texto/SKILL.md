@@ -46,6 +46,36 @@ Evince estão só no host: tudo que os usa vai por `distrobox-host-exec`.
    bin/diff-ao-vivo.sh ...`), o `pkill` mata o shell da própria sessão.
    Sem edição, o PDF não tem marcas: não há diferença a mostrar.
 
+## Alternativas no chat
+
+Tudo que se mostra ao autor sobre o texto vai em markdown no chat,
+legível no celular: nunca widget, nem caminho de arquivo para abrir; o
+Emacs do host, só a pedido. As correções da porta aberta vão todas
+de uma vez no diff (passo 6 da porta aberta). O formato abaixo vale para
+as alternativas a escolher antes de editar: o passo 4 da rodada de
+corte, o passo 4 da porta aberta e o passo 5 da checagem adversarial.
+
+1. Legenda numa linha, no topo: ~~riscado~~ sai; **[+ texto]** entra;
+   **[⇠ texto]** vem de outro lugar; *[o quê → destino]* na origem.
+2. Uma decisão por mensagem: uma frase, uma repetição ou um movimento,
+   nunca duas perguntas juntas.
+3. Cada trecho em citação (`>`), com o lugar e a linha antes ("§ das três
+   notações, l. 90"). A citação traz o parágrafo inteiro em volta da
+   frase que muda, e não só a frase; quando a decisão envolve outro
+   parágrafo, ele também.
+4. Cada alternativa com um título que se entende sozinho ("Opção A: sai
+   só 'sem biblioteca'"), o texto inteiro abaixo e uma frase do que ela
+   implica. Com o texto na mesma mensagem, o autor responde pelo código.
+5. Depois, as fontes, com trecho e página, e a recomendação, dita como do
+   agente quando não tem fonte.
+6. Depois de aplicar, o texto como ficou, em citação, e o bloco `bash` do
+   `bin/pagina-no-pdf.py` (passo 7 da porta aberta).
+7. No fim, "Próxima ação:" com uma ação só.
+
+Exemplo de 2026-10-09: a decisão de método sobre replicação e porte, na
+introdução, saiu como lista resumida, sem a legenda e sem os parágrafos
+inteiros.
+
 ## Rodada de corte, antes da rodada da frase
 
 Por que existe: ADR 0022. Revisar com fonte e página uma frase que depois
@@ -86,10 +116,9 @@ sobra passa pela rodada por bloco. As técnicas e as fontes estão em
      Elas entram na linha do rótulo e na costura do passo 5.
 4. **O que se pergunta antes** (ADR 0022): o movimento que tira ou
    enfraquece um elo da cadeia, como a única fonte de uma afirmação da
-   justificativa, um objetivo, uma etapa do método ou uma limitação. Um
-   por mensagem, no formato riscado dos rascunhos (`~~sai~~`,
-   `*[o quê → destino]*`), com o elo afetado e as alternativas. Na dúvida
-   se um movimento enfraquece um elo, pergunte.
+   justificativa, um objetivo, uma etapa do método ou uma limitação. No
+   formato de "Alternativas no chat", com o elo afetado. Na dúvida se um
+   movimento enfraquece um elo, pergunte.
 5. **Aplicar de uma vez, com a costura.** Com o rascunho do autor no
    índice (passo 1 da porta aberta), aplique na árvore todos os
    movimentos que deixam os elos de pé, com as frases que costuram o que
@@ -224,8 +253,8 @@ perguntas, e então o autor dá o rótulo.
    descreve: um título por parágrafo, com link de busca para a frase, e,
    por afirmação, a chave, a página, o trecho curto e a data da
    conferência. A frase que sai do texto sai da matriz.
-4. **O que se pergunta antes de aplicar**, com as alternativas, uma
-   decisão por mensagem:
+4. **O que se pergunta antes de aplicar**, no formato de "Alternativas
+   no chat":
    - decisão de método, rótulo, recorte ou critério, que é do autor;
    - correção que derruba uma premissa ou uma conclusão do texto;
    - movimento de corte que tira ou enfraquece um elo da cadeia (ADR
@@ -375,8 +404,9 @@ formato do relatório estão em `references/checagem-adversarial.md` da
      trecho e página, e entra na matriz antes de ir para o texto.
    - Frase sem fonte ganha o marcador e o aviso e não some.
    - Afirmação que sustenta uma conclusão e caiu, correção que derruba
-     uma premissa e correção que tira um elo se perguntam antes, uma por
-     mensagem, sem frase nova (passo 4 da porta aberta).
+     uma premissa e correção que tira um elo se perguntam antes, no
+     formato de "Alternativas no chat", sem frase nova (passo 4 da porta
+     aberta).
 
    O autor revisa no diff e desfaz o que recusar; o commit segue "Fechar
    e commitar", com a linha `Fontes conferidas:` e a lista das correções
