@@ -80,11 +80,6 @@ def citacoes(texto):
             yield m.start(2), chave.lstrip("&")
 
 
-def chaves(texto):
-    for _, chave in citacoes(texto):
-        yield chave
-
-
 class Trecho:
     """Um parágrafo (numero >= 1) ou um título do Org (numero None)."""
 
@@ -93,9 +88,11 @@ class Trecho:
         self.numero = numero
         self.texto = normalizar(" ".join(linhas))
         self.citacoes = {}  # chave -> primeira linha em que aparece
-        for i, l in enumerate(linhas):
-            for chave in chaves(l):
-                self.citacoes.setdefault(chave, linha + i)
+        # O parágrafo inteiro, e não linha a linha: o link do org-ref 3, com
+        # espaços, pode quebrar de linha no meio.
+        bruto = "\n".join(linhas)
+        for pos, chave in citacoes(bruto):
+            self.citacoes.setdefault(chave, linha + bruto.count("\n", 0, pos))
 
     @property
     def rotulo(self):

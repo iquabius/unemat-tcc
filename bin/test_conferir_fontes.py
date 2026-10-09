@@ -16,6 +16,11 @@ spec = importlib.util.spec_from_file_location("conferir_fontes", SCRIPT)
 cf = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(cf)
 
+
+def chaves(texto):
+    return [chave for _, chave in cf.citacoes(texto)]
+
+
 CAPITULO = textwrap.dedent("""\
     #+EXPORT_FILE_NAME: ../latex/capitulos/intro
 
@@ -57,24 +62,24 @@ class Citacoes(unittest.TestCase):
     def test_formas_do_org_ref(self):
         texto = ("cite:a. textcite:b, [[cite:c][p. 1]] [[textcite:d][p. 2]] "
                  "cite:e,f; cite:&g;&h Textcite:i: citeauthor:j")
-        self.assertEqual(list(cf.chaves(texto)),
+        self.assertEqual(chaves(texto),
                          list("abcdefghij"))
 
     def test_forma_do_org_ref_3_com_pagina_de_cada_chave(self):
         texto = ("[[cites:&disch2025 p. 93;&oney2012 p. 229]], como no "
                  "jQuery cite:openjs2026; [[cite:&a;&b]] e [[cite:c,d]]")
-        self.assertEqual(list(cf.chaves(texto)),
+        self.assertEqual(chaves(texto),
                          ["disch2025", "oney2012", "openjs2026", "a", "b",
                           "c", "d"])
 
     def test_forma_do_org_ref_3_so_le_as_chaves(self):
         texto = ("[[cites:veja R&D &a p. 3;&b p. 4]] [[excite:&x p. 1]] "
                  "[[cite:c,&d]] [[cites:&e p. 1;&f p. 2][descrição]]")
-        self.assertEqual(list(cf.chaves(texto)), list("abcdef"))
+        self.assertEqual(chaves(texto), list("abcdef"))
 
     def test_nao_confunde_outros_links(self):
         texto = "ref:chap:results, [[gls:pr]], excite:x, file:a.org::cite"
-        self.assertEqual(list(cf.chaves(texto)), [])
+        self.assertEqual(chaves(texto), [])
 
     def test_comentarios_ficam_de_fora(self):
         texto = textwrap.dedent("""\
@@ -91,6 +96,11 @@ class Citacoes(unittest.TestCase):
         # o bloco separa parágrafos, como no Org
         self.assertEqual([t.numero for t in partes], [1, 2])
         self.assertEqual([set(t.citacoes) for t in partes], [{"a"}, set()])
+
+    def test_citacao_que_quebra_de_linha(self):
+        texto = "Texto [[cites:&a p. 93;\n&b p. 229]] fim.\n"
+        partes = cf.trechos(texto)
+        self.assertEqual(partes[0].citacoes, {"a": 1, "b": 2})
 
 
 class Paragrafos(unittest.TestCase):
