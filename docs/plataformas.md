@@ -143,7 +143,7 @@ Fontes lidas em 2026-10-09: Oracle, "Writing Event Listeners" (The Java
 Tutorials, escritos para o JDK 8), páginas "Introduction to Event
 Listeners" e "General Information about Writing Event Listeners";
 Oracle, "Using JavaFX Properties and Binding" (Release 8); OpenJFX,
-"Introduction to FXML" e javadoc de `Bindings` (JavaFX 25); Kiss (2014,
+"Introduction to FXML" e javadoc de `Bindings` (JavaFX 27); Kiss (2014,
 p. 28-29 e 38-39), conferido no PDF. O que não vem delas está marcado
 como leitura nossa, a conferir pelo autor. As observações feitas ao
 implementar, com data e commit, estão em
@@ -176,7 +176,7 @@ resumidas.
   a repetição delas, já lidas dentro da função, piora a viscosidade: numa
   mudança de requisito, a dependência nova "could be forgotten". A
   implementação confirma: tirar `ida.textProperty()` da lista do
-  `erroOrdem` compila, e as 19 verificações da rotina passam, porque o
+  `erroOrdem` compila, e as 19 verificações da rotina passam, porque a
   rotina nunca muda a ida depois de escolher "Ida e volta"; o erro só
   aparece ao mudar a ida com a volta já preenchida. Leitura nossa: é o
   mesmo tipo de erro da lista de dependências do `useMemo` e do
@@ -190,7 +190,8 @@ resumidas.
   (`setOnAction`) e a pseudoclasse `:invalido`, que não tem propriedade
   para ligar e acompanha o erro por uma assinatura (`subscribe`) (leitura
   nossa: o Solid liga `aria-invalid={...}` direto). Os dois primeiros têm
-  par no Solid (`onBlur`, `onSubmit`); o terceiro é lacuna da notação.
+  par no Solid (`onBlur`, `onSubmit`); o terceiro é lacuna da notação
+  (leitura nossa).
 
 **Problema de coordenação lista derivada (Lista).**
 
