@@ -108,7 +108,9 @@ tecnologias) está nas decisões em [[file:../docs/adr/][docs/adr/]].
   onde foi testado com o Qt 6.10.2:
 
   #+begin_src sh
-  sudo apt install build-essential cmake ninja-build qt6-base-dev       qt6-declarative-dev qml6-module-qtquick-controls       qml6-module-qtquick-layouts qml6-module-qttest
+  sudo apt install build-essential cmake ninja-build qt6-base-dev \
+      qt6-declarative-dev qml6-module-qtquick-controls \
+      qml6-module-qtquick-layouts qml6-module-qttest
   cd casos/qt
   cmake -S . -B build -G Ninja && cmake --build build
   ./build/formulario-qml/formulario-qml                       # abre uma tela
