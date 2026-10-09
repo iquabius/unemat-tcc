@@ -1,4 +1,4 @@
-# A tela numa biblioteca, que o aplicativo e o roteiro ligam.
+# A tela numa biblioteca, que o aplicativo e a rotina ligam.
 qt_add_library(${CASO}-qt-widgets-tela STATIC Janela.h Janela.cpp Janela.ui ItemProduto.ui)
 # O ui_Janela.h e o ui_ItemProduto.h que o uic gera ficam na pasta do autogen da biblioteca.
 target_include_directories(${CASO}-qt-widgets-tela PUBLIC .

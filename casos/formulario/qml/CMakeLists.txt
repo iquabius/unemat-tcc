@@ -1,4 +1,4 @@
-# A tela num módulo QML estático, que o aplicativo e o roteiro ligam.
+# A tela num módulo QML estático, que o aplicativo e a rotina ligam.
 qt_add_library(${CASO}-qml-tela STATIC)
 qt_add_qml_module(${CASO}-qml-tela
   URI Formulario
