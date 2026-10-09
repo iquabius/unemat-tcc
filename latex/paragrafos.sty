@@ -1,0 +1,64 @@
+% Número de cada parágrafo na margem direita, para a orientação apontar o
+% trecho: §1, §2... no capítulo sem seções e antes da primeira seção, §2.1,
+% §2.2... dentro da seção 2 do capítulo, com as subseções na conta da seção.
+% A contagem recomeça a cada capítulo e a cada seção. A margem esquerda é das
+% notas \todo. A versão entregue desliga a numeração com a opção disable.
+\NeedsTeXFormat{LaTeX2e}[2021/06/01] % ganchos de parágrafo
+\ProvidesPackage{paragrafos}[2026/10/09 Numeração dos parágrafos na margem]
+
+\newif\ifparagrafos@ativo \paragrafos@ativotrue
+\DeclareOption{disable}{\paragrafos@ativofalse}
+\ProcessOptions\relax
+
+\ifparagrafos@ativo
+\RequirePackage{xcolor}
+\newcounter{paragrafo}
+\counterwithin*{paragrafo}{chapter}
+\counterwithin*{paragrafo}{section}
+\renewcommand{\theparagrafo}{%
+  \ifnum\value{section}=0 \else\arabic{section}.\fi\arabic{paragrafo}}
+
+% Conta o parágrafo de texto com recuo (o título e o \noindent não têm) e,
+% numa lista de definição, como a das DCs, cada item e cada parágrafo dele,
+% onde o recuo é nulo mas existe. Ficam de fora os outros itens e a citação
+% longa, que são listas e fazem parte do parágrafo que as introduz; o que
+% continua o parágrafo depois de uma lista (\@endpe); o que está numa caixa
+% (legenda, rodapé, nota \todo); e os pré-textuais, no capítulo 0. O \ifinner
+% só se lê no modo vertical, antes de o parágrafo começar.
+\newif\ifparagrafos@dentro
+\AddToHook{para/before}{%
+  \ifinner\paragrafos@dentrotrue\else\paragrafos@dentrofalse\fi}
+\ExplSyntaxOn
+\prg_new_conditional:Nnn \__paragrafos_conta: { p }
+  {
+    \bool_lazy_any:nTF
+      {
+        { \legacy_if_p:n { paragrafos@dentro } }
+        { \legacy_if_p:n { @endpe } }
+        { \int_compare_p:n { \value{chapter} = 0 } }
+      }
+      { \prg_return_false: }
+      {
+        \int_compare:nNnTF { \@listdepth } = { 0 }
+          {
+            \dim_compare:nNnTF { \box_wd:N \g_para_indent_box } > { 0pt }
+              { \prg_return_true: } { \prg_return_false: }
+          }
+          {
+            \bool_lazy_and:nnTF
+              { \str_if_eq_p:Vn \@currenvir { description } }
+              { ! \box_if_empty_p:N \g_para_indent_box }
+              { \prg_return_true: } { \prg_return_false: }
+          }
+      }
+  }
+\AddToHook{para/begin}{%
+  \bool_if:nT { \__paragrafos_conta_p: }
+    {
+      \stepcounter{paragrafo}
+      \rlap{\hskip\linewidth\hskip\marginparsep
+        \normalfont\footnotesize\textcolor{gray}{\S\theparagrafo}}
+    }
+}
+\ExplSyntaxOff
+\fi
