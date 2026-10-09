@@ -1,0 +1,49 @@
+#+TITLE: Contador
+
+Um número e um botão "+": cada clique soma 1 ao número. É a tarefa
+/Counter/ do [[https://eugenkiss.github.io/7guis/tasks/][7GUIs]] (=kiss2014=), o caminho mais simples do evento ao
+estado e à tela, que mostra o mínimo de código que cada tecnologia exige
+para uma interface. Todas as implementações seguem esta especificação,
+inclusive =android-views= e =android-compose=. Não há =dominio.ts= nem
+=dominio-kotlin=: a única regra, somar 1, fica no código de cada
+implementação.
+
+* Tela
+
+  | Elemento | Conteúdo                                                     |
+  |----------+--------------------------------------------------------------|
+  | Valor    | o número, sem formatação; o leitor de tela anuncia cada      |
+  |          | mudança (na web, o =<output>=, que tem o papel /status/)     |
+  | Botão    | o texto "+", com o nome acessível "Incrementar"              |
+
+  Os dois ficam lado a lado, em duas colunas iguais, o valor à esquerda.
+
+* Comportamento
+
+  1. O valor começa em 0.
+  2. Cada clique no botão soma 1 ao valor, e a tela mostra o valor novo.
+  3. Não há outro controle: o valor não diminui nem volta a 0.
+  4. O valor não é salvo: recarregar a página, ou, no Android, recriar a
+     tela (girar o aparelho, por exemplo), recomeça do 0.
+
+  O 0 inicial tem nome onde a tecnologia recebe o valor de fora: o
+  atributo =valor-inicial= no Web Component, a /prop/ =valorInicial= no
+  React e no Solid e o parâmetro =valorInicial= no Compose; no Angular, é
+  um campo da classe, porque o componente raiz não recebe /inputs/. No
+  jQuery e no Views, o 0 é o valor inicial da variável.
+
+* Teste
+
+  As cenas das capturas ficam em =cenas.mts=: =inicial= (o valor 0) e
+  =tres-cliques= (três cliques no botão "Incrementar", o valor 3). As
+  capturas de uma cena são idênticas entre as implementações web.
+
+  No Android, as mesmas cenas estão em =CenasTest.kt=, nos testes de cada
+  variante, e rodam com o =npm run capturas= (ou com
+  =./gradlew testDebugUnitTest= em =casos/android/=). Entre Views e
+  Compose, as capturas diferem só em poucos pixels do desenho dos
+  algarismos.
+
+  O Contador ainda não tem =roteiro-de-teste.js= nem =RoteiroTest.kt=. A
+  rotina terá três verificações: o valor começa em 0; cada clique soma 1;
+  o botão tem o nome acessível "Incrementar" e o texto "+".
