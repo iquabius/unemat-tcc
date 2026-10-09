@@ -124,6 +124,9 @@ def trechos(texto):
             fechar()
             saida.append(Trecho(n, [linha.lstrip("*")], None))
         elif COMENTARIO.match(linha) or PALAVRA_CHAVE.match(linha):
+            # Linha vazia no lugar, para a contagem das linhas do Trecho.
+            if atual:
+                atual.append("")
             continue
         else:
             if not atual:

@@ -102,6 +102,11 @@ class Citacoes(unittest.TestCase):
         partes = cf.trechos(texto)
         self.assertEqual(partes[0].citacoes, {"a": 1, "b": 2})
 
+    def test_linha_da_chave_depois_de_um_comentario(self):
+        texto = "Um\n# comentário\nlinha [[cites:&a p. 1;\n&b p. 2]] fim.\n"
+        partes = cf.trechos(texto)
+        self.assertEqual(partes[0].citacoes, {"a": 3, "b": 4})
+
 
 class Paragrafos(unittest.TestCase):
     def test_numera_como_a_matriz(self):
