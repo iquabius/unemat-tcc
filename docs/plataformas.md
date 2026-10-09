@@ -258,7 +258,7 @@ arquivo, como o JSX. O par, portanto, muda a montagem da tela junto com
 o modelo de programação, como Views × Compose, e não a isola. O `.ui` é
 o formato que o Qt Designer grava: cada propriedade ocupa três ou mais
 linhas de XML. Contagem provisória, feita em 2026-10-09 sobre o código
-do fim do ramo da tcc-jhl (linhas não vazias e sem comentário, sem
+de `29b9994` (linhas não vazias e sem comentário, sem
 domínio, estilo, a ponte do domínio para a QML nem o `main.cpp`, que só
 abre a janela; o `MainActivity.kt` do Android entra, porque nele está a
 coordenação; ainda sem o script do ADR 0012): Formulário, Qt Widgets 307
