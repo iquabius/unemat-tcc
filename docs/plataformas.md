@@ -166,11 +166,12 @@ resumidas.
 - JavaFX: não há `validar()`. Cada erro é um
   `Bindings.createStringBinding(cálculo, dependências...)`, e a tela se
   liga a eles (`textProperty().bind`, `visibleProperty().bind`,
-  `disableProperty().bind`); o construtor roda uma vez, como o componente
-  do Solid (leitura nossa). O tutorial descreve a avaliação preguiçosa: a mudança só
-  invalida, e o valor se recalcula quando lido. O estado são as
-  propriedades dos próprios controles (`nome.textProperty()`), sem o par
-  `value={nome()}` e `onInput` do Solid (leitura nossa).
+  `disableProperty().bind`); o construtor roda uma vez, como o
+  componente do Solid (leitura nossa). O tutorial descreve a avaliação
+  preguiçosa: a mudança só invalida, e o valor se recalcula quando lido.
+  O estado são as propriedades dos próprios controles
+  (`nome.textProperty()`), sem o par `value={nome()}` e `onInput` do
+  Solid (leitura nossa).
 - Dependências: Kiss (2014, p. 28) vê as dependências de um
   `createXBinding` "listed explicitly", o que as torna visíveis, e (p. 28-29)
   a repetição delas, já lidas dentro da função, piora a viscosidade: numa
@@ -200,14 +201,14 @@ resumidas.
   e `.append()` do jQuery; os três *listeners* a chamam.
 - JavaFX: a lista visível são dois objetos, `FilteredList` e
   `SortedList`, com `predicateProperty` e `comparatorProperty` ligados a
-  `createObjectBinding` sobre os controles; a contagem e o aviso de vazio
-  se ligam à lista. Não há função que refaça a lista. Kiss (2014, p. 38)
-  descreve o processo que as coleções observáveis e filtradas põem em
-  marcha como "a small change propagation", e (p. 38-39) a dependência
-  criada num *callback* como não expressa, só estabelecida no corpo dele; aqui nenhum *callback* liga as
-  listas. Leitura nossa: o derivado que o Solid escreve num `createMemo`
-  com `filter` e `sort` se divide em dois objetos, cada um com a sua lista
-  de dependências.
+  `createObjectBinding` sobre os controles; a contagem e o aviso de
+  vazio se ligam à lista. Não há função que refaça a lista. Kiss (2014,
+  p. 38) descreve o processo que as coleções observáveis e filtradas
+  põem em marcha como "a small change propagation", e (p. 38-39) a
+  dependência criada num *callback* como não expressa, só estabelecida
+  no corpo dele; aqui nenhum *callback* liga as listas. Leitura nossa: o
+  derivado que o Solid escreve num `createMemo` com `filter` e `sort` se
+  divide em dois objetos, cada um com a sua lista de dependências.
 - Montagem dos itens: igual nas três. A `JList` desenha cada item com um
   *renderer* reaproveitado, e a `ListView`, com células de uma fábrica
   que as reaproveita (`updateItem`), no papel do *adapter* do Views. O
