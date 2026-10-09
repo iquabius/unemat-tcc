@@ -5,7 +5,7 @@ tecnologia mostram melhor cada DC, e analisar cada caso em todas as DCs
 multiplicaria o texto por casos, DCs e tecnologias. Todos os casos são
 implementados em todas as tecnologias (decidido em 2026-09-25), e o
 recorte se escolhe com o código e as capturas prontos. A análise abre com
-uma tabela-síntese, DC por notação, com o caso de onde vem cada
+uma tabela-síntese, DC por modelo de programação, com o caso de onde vem cada
 evidência, e segue com uma seção por DC, com os trechos do caso que
 melhor a mostra (o caso de cada DC: ADR 0017). Entram os cinco casos,
 cada um com uma especificação curta, e oito DCs: as seis de `cases.org`
@@ -29,7 +29,7 @@ Em vez de: só as seis DCs de 2017; menos trabalho, mas sem operações
 mentais difíceis, onde a assincronia da Busca mais pesa sobre os
 *callbacks*.
 Em vez de: o Android como segunda plataforma em todos os casos em que
-existe; dobraria a análise, e no Android só há duas das três notações.
+existe; dobraria a análise, e no Android só há dois dos três modelos de programação.
 Em vez de: contar *tokens*; depende menos da formatação, mas exige um
 analisador por linguagem.
 Custo: 30 implementações na web e 6 no Android, a maioria fora do texto; o

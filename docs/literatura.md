@@ -979,105 +979,11 @@ compreensão.
 | Resumem Zid et al. (2024b), mais de 200 participantes: "No significant evidence was found for map/reduce/filter functions"; "Overall, functional constructs are perceived as more difficult to understand than their procedural counterparts" | p. 33 | conferido | compreensão: fonte a ler, não a citar daqui |
 | Resumem Mehlhorn e Hanenberg (2022, `mehlhorn2022`): "the Stream API caused fewer errors" | p. 33 | conferido | já no `.bib` |
 
-## 15. Conceito, paradigma, modelo e notação (lidos em 2026-10-03)
+## 15. Conceito, paradigma, modelo e notação
 
-Conclusão: as fontes separam o paradigma ou modelo de computação, um
-conjunto de conceitos, da notação em que se escreve (Van Roy 2009; Green e
-Petre 1996), e a ponte entre os dois é a abstração, que cria linguagem ou
-notação nova sobre a existente (Van Roy 2009, p. 11; Green e Blackwell
-1998, p. 24; Hudak 1996). As fontes de interface usam "paradigm" ao lado de
-"approach", "pattern" e "architecture", sem distinção. Base do ADR 0021 e
-dos verbetes Conceito, Notação, Tecnologia e Variante do `CONTEXT.md`.
-Todos os trechos lidos no PDF pelo agente principal; documentações lidas
-por WebFetch na data indicada. Cópias em `tmp/fontes/`, fora do git.
-
-Páginas: Van Roy 2009, impressa = PDF + 8; Van Roy e Haridi 2004 (CTM),
-impressa = PDF − 31 (prefácio: PDF 14 = p. xiii); Van Roy et al. 2020,
-83:PDF; Green e Petre 1996, página impressa da versão publicada (2026-10-04); Sperber e
-Schlegel 2025, impressa = PDF + 26; Grolaux et al. 2026, impressa = PDF + 6;
-Madsen et al. 2020, 12:PDF; Mernik et al. 2005, impressa = PDF + 315;
-Mernik et al. 2009 e Hudak 1996, página da cópia.
-
-### 15.1 Van Roy: conceito, paradigma, modelo
-
-| Fonte | Trecho | Onde | Uso |
-|---|---|---|---|
-| Van Roy 2009 (`roy2009`) | "A programming paradigm is an approach to programming a computer based on a mathematical theory or a coherent set of principles" | p. 10 | definição de paradigma |
-| Van Roy 2009 | "Oz has the advantage that it supports multiple paradigms well, so that we do not have to introduce more than one notation" | p. 10 | notação como escrita, separada do paradigma |
-| Van Roy 2009 | a abstração de dados "allows to increase a language's expressiveness by defining new languages on top of the existing language" | p. 11 | abstração cria linguagem |
-| Van Roy 2009 | "Each paradigm is defined by a set of programming concepts, organized into a simple core language called the paradigm's kernel language" | p. 12 | paradigma por conceitos |
-| Van Roy 2009 | os conceitos são "the basic primitive elements used to construct the paradigms" | p. 13 | verbete Conceito |
-| Van Roy 2009 | "It is not enough that libraries have been written in the language to support the paradigm. The language's kernel language should support the paradigm" | p. 14 | biblioteca não faz paradigma; tensão com p. 18 ("The first paradigm is a solver library") e 2020, 83:4 |
-| Van Roy 2009 | os quatro conceitos mais importantes: registros, *closures* com escopo léxico, independência (concorrência) e estado nomeado | p. 23 | verbete Conceito |
-| Van Roy 2009 | a citação usada em `texto/prog.org` (l. 326-336) é sobre a programação síncrona discreta (Esterel, Lustre, Signal), não sobre a PR | p. 35-36 | erro a corrigir no capítulo de programação |
-| Van Roy 2009 | não usa "computation model" nem "programming model"; "model" só solto ("a concurrent model", p. 11 e 37) | texto inteiro | sem contradição com o CTM: troca de termo |
-| Van Roy 2003 | "programming should be taught in terms of concepts, not paradigms"; paradigmas são "styles of programming based on particular mathematical theories or schools of thought" | p. 269, 270 | contexto |
-| Van Roy e Haridi 2004 (`roy2004`) | "The term computation model makes precise the imprecise notion of 'programming paradigm.'"; "programming model": "the programming techniques and design principles made possible by the computation model" | p. xiii | modelo × paradigma |
-| Van Roy e Haridi 2004 | "Each computation model is based on a simple core language called its kernel language" | p. xiv | a mesma definição que o paradigma de 2009 |
-| Van Roy e Haridi 2004 | modelo de computação: "a formal system that defines a language and how sentences of the language [...] are executed by an abstract machine"; "A programming model is always built on top of a computation model" | p. 29 | critério para "modelo" |
-| Van Roy e Haridi 2004 | abstração linguística: "There are two phases [...]. First, define a new grammatical construct. Second, define its translation into the kernel language"; açúcar sintático "does not provide a new abstraction"; uma abstração começa sem "linguistic support" | p. 38-40 | JSX (açúcar no React) e *signals* (abstração sem sintaxe) |
-| Van Roy e Haridi 2004 | "The Java computation model is close to the shared-state concurrent model" | p. 551 | modelos são de linguagens |
-| Van Roy e Haridi 2004 | as formas de programar interfaces são "approaches", e nenhuma satisfaz porque "each is limited to a single computation model"; o QTk como "programming with concepts instead of programming in models" | p. 679-680 | abordagem; combinação de modelos |
-| Van Roy et al. 2020 | a mesma definição de paradigma, com exemplos (PF no cálculo λ, POO em abstração de dados, polimorfismo e herança) | 83:3 | definição de paradigma |
-| Van Roy et al. 2020 | programas combinam paradigmas "either inside a language, with libraries, or by combining several languages" | 83:4 | tensão com 2009, p. 14 |
-| Van Roy et al. 2020 | QTk, "user interface toolkit": "A user interface is defined by a combination of declarative and imperative paradigms" | 83:33 | interface como combinação de paradigmas |
-| Van Roy et al. 2020 | "A linguistic abstraction is a construct that defines a syntax for an abstraction, i.e., a new programmer concept" | 83:38 | abstração linguística |
-
-### 15.2 DCs: notação, modelo e paradigma
-
-| Fonte | Trecho | Onde | Uso |
-|---|---|---|---|
-| Green e Blackwell 1998 (tutorial) | "the notation is the language itself" | p. 8 | letra das DCs |
-| Green e Blackwell 1998 | a linguagem visual de fluxo de dados "exposes the data dependencies as the central feature of the notation, a different paradigm that accepts an entirely different set of trade-off positions from say, a C version" | p. 20 | paradigma visto na notação |
-| Green e Blackwell 1998 | a abstração "changes the notation", quase sempre "by expansion – a new term is added" | p. 24 | base de "notação" (ADR 0021) |
-| Green e Petre 1996 (`green1996d`) | "Designers of VPLs obviously need to choose a computational model and some type of visual 'language' [...] in which to represent that model. The cognitive dimensions framework has little to say about these high-level choices"; Prograph e LabVIEW, mesmo modelo e mesma representação, com "surface differences that greatly affect their assessment" | p. 139 | modelo × notação; precedente do desenho |
-| Green e Petre 1996 | o mesmo modelo como "the dataflow paradigm" | p. 149 | modelo e paradigma como sinônimos |
-
-### 15.3 Como as fontes de interface nomeiam as três formas
-
-| Fonte | Trecho | Onde | Uso |
-|---|---|---|---|
-| Sperber e Schlegel 2025 (`sperber2025`) | "Functional paradigms for user-interface (UI) programming have undergone significant evolution, from early stream-based approaches, monad-based toolkits [...] to modern model-view-update frameworks" | p. 27 | uso frouxo de "paradigm" |
-| Sperber e Schlegel 2025 | "UI toolkits, libraries that provide the conceptual elements of a UI [...]. Each toolkit dictates or at least constrains the organization of the" programa | p. 27 | definição de *toolkit* |
-| Sperber e Schlegel 2025 | "MVC is the ancestor of most contemporary UI paradigms and frameworks. The original goal of this pattern" | p. 28 | idem |
-| Sperber e Schlegel 2025 | React "based on a variation of the Model-View-Update paradigm"; "React's model of reactivity is different from Elm's"; "re-renders the entire UI on each interaction" | p. 32 | re-renderização |
-| Sperber e Schlegel 2025 | "Modern OO toolkits like Angular, Svelte, and Vue.js" atualizam "specific parts of the UI corresponding to specific changes in the model", sem "(conceptually) re-constructing the UI on every change" | p. 32 | atualização fina, pelo critério da arquitetura (MVU × MVC) |
-| Sperber e Schlegel 2025 | "the native DOM" | p. 36 | "nativo" na web |
-| Grolaux et al. 2026 (`grolaux2026`) | "native platform features"; "paradigms like event loops, callbacks, or reactive programming" | p. 7 | "nativo" na web; uso frouxo de "paradigm" |
-| Grolaux et al. 2026 | bibliotecas que "reimplement features already existing in the underlying platform"; React, "a popular library for web and native user interfaces", e "this technology"; "leverage existing features of the web platform" | p. 8 | plataforma; tecnologia |
-| Grolaux et al. 2026 | "Other Event Management Paradigms"; os *callbacks* como "Traditional approaches" | p. 10 | idem |
-| Grolaux et al. 2026 | "Common reactive systems like React or Vue rely on a virtual DOM mechanism"; "This approach" | p. 13 | re-renderização como abordagem |
-| Grolaux et al. 2026 | "standard WebComponents" para não impor "a complete technology switch" | p. 14 | tecnologia |
-| Madsen, Lhoták e Tip 2020 (`madsen2020`) | "a small-step operational semantics that captures the essence of React"; "React applications are written in a declarative and object-oriented style" | 12:1 | modelo formal do React |
-| Madsen et al. 2020 | λreact, "an extension of the λjs calculus"; "React merges a form of declarative and object-oriented programming" | 12:6 | combinação de estilos, não paradigma novo |
-| Madsen et al. 2020 | "In React, the programmer cannot use these terms directly; they are part of the internals"; componentes de classe; "We omit lifecycle hooks" | 12:7 | o modelo fica abaixo da notação; sem *hooks* |
-| Madsen et al. 2020 | "the 'React model'"; "React Native lets programmers write native mobile applications" | 12:24 | "modelo" solto; "nativo" no celular |
-
-### 15.4 Linguagem embutida e biblioteca
-
-| Fonte | Trecho | Onde | Uso |
-|---|---|---|---|
-| Hudak 1996 (fora do `.bib`) | "domain-specific embedded language (DSEL)"; "The resulting notation is not only easy to design, it's also easy to use and reason about"; uma DSEL "has the 'look and feel' of syntax. In some sense it is just a notation" | p. 1-2 | biblioteca como notação |
-| Mernik, Heering e Sloane 2005 (fora do `.bib`) | "In combination with an application library, any GPL can act as a DSL. The library's Application Programmers Interface (API) constitutes a domain-specific vocabulary" | p. 317 | API como vocabulário |
-| Mernik et al. 2005 | "most DSLs never get beyond the application library stage. These are sometimes called domain-specific embedded languages (DSELs)"; "component technologies such as COM and CORBA" | p. 318 | DSEL |
-| Mernik et al. 2005 | "Add user-friendly notation to an existing API or turn an API into a DSL" | p. 321, 323 | contra: a notação como acréscimo à API |
-| Mernik et al. 2005 | Tabela IX: "Preprocessor", "Compiler/application generator" e "Embedding: [...] Application libraries are the basic form of embedding" | p. 329 | JSX do React (*preprocessor*), do Solid e *template* do Angular (*compiler*), *signals* e *hooks* (*embedding*), classificação do autor do TCC |
-| Mernik et al. 2005 | "syntax is far from optimal because most languages do not allow arbitrary syntax extension" | p. 331 | custo do embutido |
-| Mernik et al. 2009 (`mernik2009`) | XAML ("domain specific notation") × C# Forms ("application library"), "both notations", avaliadas pelas DCs | p. 4-5 da cópia | uma notação por tecnologia (alternativa do ADR 0021) |
-
-### 15.5 Documentações (lidas em 2026-10-03)
-
-| Fonte | Trecho | Uso |
-|---|---|---|
-| legacy.reactjs.org, *JSX In Depth* | "Fundamentally, JSX just provides syntactic sugar for the `React.createElement(component, props, ...children)` function" | JSX como açúcar sintático |
-| react.dev, *Writing Markup with JSX* | "JSX is a syntax extension, while React is a JavaScript library" | biblioteca |
-| README de solidjs/solid | "Instead of using a Virtual DOM, it compiles its templates to real DOM nodes and updates them with fine-grained reactions" | JSX compilado |
-| docs.solidjs.com (atualizado em 2026-04-28) | "Solid is a modern JavaScript framework" | *framework* |
-| angular.dev, *Overview* e *Signals* | "Angular is a web framework"; "When you read a signal within an `OnPush` component's template, Angular tracks the signal as a dependency of that component" | *framework*; *template* |
-| jquery.com | "jQuery is a fast, small, and feature-rich JavaScript library" | biblioteca |
-| MDN, *Web Components* (modificado em 2026-09-01) | "Web Components is a suite of different technologies" | tecnologia da plataforma |
-| developer.android.com/compose e /jetpack | Compose, "Android's recommended modern toolkit for building native UI"; "Jetpack is a suite of libraries" | biblioteca; "nativo" no Android |
-| developer.android.com, *Layouts* | layouts com objetos `View` e `ViewGroup`, "an XML vocabulary"; "The Android framework" | plataforma Android |
+Seção movida em 2026-10-08 para `docs/paradigma-modelo-e-notacao.md`,
+seção 9, com as mesmas tabelas (15.1 a 15.5 viraram 9.1 a 9.5). O número
+fica para não mudar as referências às seções seguintes.
 
 ## 16. Programas de brinquedo: isolar uma escolha e o limite do tamanho (lidos em 2026-10-08)
 
@@ -1097,5 +1003,5 @@ página é a impressa.
 | Stol e Fitzgerald 2018 (fora do `.bib`; seção 9) | a artificialidade situacional "refers to the elements of the experimental design, such as the subjects (e.g., the use of students) and tasks and settings (e.g., toy systems)" | p. 11:10 | limitações: "As tarefas são pequenas" (intro.org, §29); candidata |
 | Runeson e Höst 2009 (`runeson2009`) | os estudos "range from very ambitious and well organized studies in the field, to small toy examples that claim to be case studies" | p. 132 | por que o trabalho não é estudo de caso |
 | Runeson e Höst 2009 | "Studies on 'toy programs' or similarly are of course excluded due to its lack of real-life context." | p. 139 | idem; já na nota \todo de intro.org sobre a classificação quanto aos meios |
-| Van Roy e Haridi 2004 (`roy2004`) | "This approach, defining new concepts and their proof rules, is the way to go for practical reasoning about stateful programs. Always staying at the kernel language level is much too verbose for all but toy programs." | p. 448 | abstração acima dos conceitos; o CTM chama aqui de "new concepts" as construções que na p. 38-40 são abstrações linguísticas (seção 15.1) |
+| Van Roy e Haridi 2004 (`roy2004`) | "This approach, defining new concepts and their proof rules, is the way to go for practical reasoning about stateful programs. Always staying at the kernel language level is much too verbose for all but toy programs." | p. 448 | abstração acima dos conceitos; o CTM chama aqui de "new concepts" as construções que na p. 38-40 são abstrações linguísticas (`docs/paradigma-modelo-e-notacao.md`, seção 9.1) |
 | Van Roy 2009 (`roy2009`) | "All but the smallest toy problems require different sets of concepts for different parts." | p. 10 | já citado em intro.org (§9) |

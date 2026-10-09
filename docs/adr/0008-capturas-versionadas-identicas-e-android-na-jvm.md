@@ -13,12 +13,12 @@ estilizados; a tela só cita nomes, como o JSX cita `className`.
 
 Em vez de: conferir a olho no navegador e no emulador; sem registro, e o
 emulador não roda no ambiente de desenvolvimento.
-Em vez de: o tema padrão de cada variante, sem código de estilo (o
+Em vez de: o tema padrão de cada tecnologia, sem código de estilo (o
 primeiro Contador, commit `58277f3`); as capturas não eram comparáveis, e
 a diferença visual se misturava à de notação.
 Custo: imagens binárias no repositório; o texto no Android difere por
 poucos pixels entre Views e Compose, o que obriga a olhar as imagens em
-vez de confiar só no aviso; um arquivo de estilo a mais por variante; e
+vez de confiar só no aviso; um arquivo de estilo a mais por tecnologia; e
 uma diferença que vai para a análise: o Views seleciona por estilo
 nomeado, como o CSS por classe, e o Compose, sem seletores, leva a
 componentes estilizados.

@@ -1,10 +1,10 @@
-# 0001. O TCC compara notações para programar interfaces gráficas, na web em TypeScript e no Android em Kotlin
+# 0001. O TCC compara modelos de programação de interfaces gráficas, na web em TypeScript e no Android em Kotlin
 
 2026-09-25. O projeto de 2017 comparava paradigmas, PF e PR frente à POO
 com *callbacks*, em JavaScript, sem nomear bibliotecas; o RxJS 5 e o
 xstream, que entraram no `cases.org` em 2020, eram pouco usados em 2025, e
 a pré-pesquisa de 2026 cogitou ampliar para servidor e desktop. O trabalho
-fica em interfaces gráficas, onde as três notações (ADR 0021) aparecem no
+fica em interfaces gráficas, onde os três modelos de programação (ADR 0021) aparecem no
 dia a dia e as Dimensões Cognitivas de Notações (DCs) têm o que medir, com
 implementações na web e no Android. Na web, todas as tecnologias usam
 TypeScript em modo `strict` (`tsconfig.base.json` em `casos/`), porque o
