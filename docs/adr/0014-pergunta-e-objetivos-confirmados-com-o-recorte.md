@@ -1,28 +1,47 @@
 # 0014. A pergunta e os objetivos comparam três modelos de programação pela usabilidade das notações, segundo as Dimensões Cognitivas, e "larga escala" vira motivação
 
-2026-10-08. A introdução de 2017 trazia a pergunta em três formulações,
+2026-10-09. A introdução de 2017 trazia a pergunta em três formulações,
 uma sobre software em larga escala, que casos pequenos não respondem, e
 um objetivo geral sem critério. A pergunta: na programação de interfaces
-gráficas, como os três modelos de programação, o imperativo com
-*callbacks*, o declarativo por re-renderização e o declarativo por
-atualização granular, se comparam quanto à usabilidade das notações com
-que se escrevem, segundo as Dimensões Cognitivas de Notações? A pergunta
+pelas Dimensões Cognitivas de Notações, como difere a usabilidade da
+notação com que se programam interfaces gráficas em cada tecnologia entre
+os três modelos de programação — o imperativo com *callbacks*, o
+declarativo por re-renderização e o declarativo por atualização granular?
+A pergunta tem a forma descritivo-comparativa de Easterbrook et al.
+(2008), "How does X differ from Y?", e pede diferenças, e não um juízo de
+qual é melhor, como as próprias DCs, que "are not good or bad in
+themselves" (Blackwell e Green 2003, cópia). A pergunta
 diz a unidade comparada, o modelo de programação, e onde se observa a
 evidência, a notação de cada tecnologia (ADR 0021); a notação é a do
 código que programa a interface, e não o que o usuário vê na tela.
 "Larga escala" fica só na motivação. O objetivo geral é comparar,
 segundo as DCs, a usabilidade das notações dos três modelos de
-programação, na programação de interfaces típicas da web, em TypeScript,
-com replicação no Android, em Kotlin; os específicos: implementar as
+programação em interfaces típicas da web, em TypeScript, e em parte delas
+no Android, em Kotlin (cada plataforma pelo nome, ADR
+0012, 2026-10-09); os específicos: implementar as
 cinco tarefas com Web Component, jQuery, React, Solid e Angular com
 *signals*, e Contador, Formulário e Lista no Android com Views e Compose;
-avaliar as implementações pelas oito DCs do ADR 0012; sintetizar
-vantagens e desvantagens de cada modelo de programação por problema de
-coordenação. Os programas de processamento de listas, que demonstram os
+avaliar as implementações pelas oito DCs do ADR 0012; sintetizar,
+por problema de coordenação, o que cada modelo de programação facilita e
+o que dificulta. Os programas de processamento de listas, que demonstram os
 conceitos de PF, vão para a fundamentação (`prog.org`): fundamentar
 conceitos é função de uma seção do texto, e não um passo para o objetivo
 geral.
 
+Em vez de: "como os três modelos de programação [...] se comparam
+quanto à usabilidade das notações com que se escrevem, segundo as DCs?"
+(decisão de 2026-10-08); "comparar" também serve à forma
+descritivo-comparativa, mas "com que se escrevem" não dizia o que se
+escreve nem de quem é a notação, a pergunta repetia "programação" e
+"segundo as DCs" do objetivo geral, e o critério ficava longe do verbo;
+o terceiro objetivo específico, "sintetizar as vantagens e desvantagens",
+pedia um juízo que as DCs não fazem e passou a "o que cada modelo de
+programação facilita e o que dificulta" (decisões do autor em
+2026-10-09).
+Em vez de: "avaliar" no lugar de "comparar"; diria a atividade com o
+termo do CONTEXT.md, mas avaliar é atribuir valor, o objetivo geral se
+confundiria com o segundo específico ("avaliar as implementações por
+oito DCs"), e os pares e as colunas da síntese perderiam o verbo.
 Em vez de: "como as três notações [...] se comparam quanto à
 usabilidade" (decisão de 2026-10-06); a palavra das DCs, mas com
 "notação" no sentido que o ADR 0021 trocou por modelo de programação.

@@ -26,12 +26,13 @@ fontes revisadas por pares e das dissertações, como a PR); notação de
 coordenação e notação da estrutura da tela (os dois eixos de 2026-10-03)
 
 **Notação**:
-A forma escrita de um modelo de programação numa tecnologia: os sinais com
-que o código escreve o estado, os valores derivados dele e a tela que os
-mostra. É o que as DCs avaliam (Green e Blackwell, 1998; Blackwell e
-Green, 2003), e uma diferença entre modelos de programação só conta numa
-DC quando aparece nela. Cada tecnologia tem a sua; muda com as abstrações
-da tecnologia, não com a linguagem (ADR 0021).
+A forma escrita de um modelo de programação numa tecnologia: as palavras e
+os sinais com que o programador escreve, no código-fonte da aplicação, o
+estado, os valores derivados dele e a tela que os mostra. É o que as DCs
+avaliam (Green e Blackwell, 1998; Blackwell e Green, 2003), e uma
+diferença entre modelos de programação só conta numa DC quando aparece
+nela. Cada tecnologia tem a sua; muda com as abstrações da tecnologia, não
+com a linguagem (ADR 0021).
 _Avoid_: notação para o modelo de programação (Solid e Angular são um
 modelo e duas notações); sintaxe (a notação inclui a estrutura que a
 forma deixa à vista); "notação de interface gráfica" (é do código, não da
@@ -69,9 +70,13 @@ _Avoid_: ambiente sozinho; ambiente para o sistema de edição das DCs
 
 **Plataforma**:
 O ambiente em que a interface roda e cujas APIs uma tecnologia usa: a web
-(TypeScript) e o Android (Kotlin). A análise se faz na web, e o Android é
-a replicação.
-_Avoid_: plataforma para o *framework*; segunda plataforma (é replicação)
+(TypeScript), o Android (Kotlin) e, se entrar, um par de *desktop*. Cada
+par se classifica pela plataforma: a análise se faz na web, e cada outra
+plataforma confere, no Formulário e na Lista, se as conclusões da web se
+repetem (ADR 0012).
+_Avoid_: plataforma para o *framework*; replicação para o Android (rótulo
+de 2026-09-26, trocado em 2026-10-09); porte para o domínio de outra
+plataforma (é o domínio dela, na linguagem dela)
 
 **Tecnologia**:
 Uma forma de implementar uma tarefa numa plataforma: na web, Web Component
@@ -108,11 +113,6 @@ _Avoid_: *toolkit* como sinônimo de biblioteca; kit de ferramentas
 Uma tarefa numa tecnologia: 30 na web, 6 no Android.
 _Avoid_: versão, exemplo
 
-**Replicação**:
-A análise do Formulário e da Lista no Android, que confere se as conclusões
-da web se repetem com Views e Compose (ADR 0012).
-_Avoid_: segunda plataforma
-
 **Apoio**:
 Implementação que o autor consulta ao escrever e não entra na análise: o
 Angular com RxJS.
@@ -147,16 +147,20 @@ _Avoid_: critério, métrica
 
 **Avaliação**:
 O ato de aplicar as DCs ao código das implementações, feito pelo autor,
-dimensão a dimensão: a avaliação subjetiva de Kitchenham (1996), na forma
-de triagem.
+dimensão a dimensão, sem participantes: uma avaliação analítica, feita por
+especialista (Blandford e Green, 2008), como a de Kiss (2014). Descreve o
+que cada notação facilita e o que dificulta, sem dizer qual é melhor,
+porque as dimensões "are not good or bad in themselves" (Blackwell e
+Green, 2003). Comparar fica para o objetivo e para a análise.
 _Avoid_: juízo; análise (a seção que compara os modelos de programação); avaliação para
-o que ela conclui (conclusão)
+o que ela conclui (conclusão); avaliar no lugar de comparar (ADR 0014);
+*feature analysis* e triagem de Kitchenham (1996), que saíram em
+2026-10-08
 
 **Conclusão**:
 O que a avaliação diz de um modelo de programação numa DC, pela notação de
 cada tecnologia, com a tarefa de onde vem a
-evidência; é o que a tabela-síntese registra e o que a replicação confere
-no Android.
+evidência; é o que a tabela-síntese registra e o que o Android confere.
 _Avoid_: juízo; resultado (nome do capítulo 4)
 
 **Conceito**:

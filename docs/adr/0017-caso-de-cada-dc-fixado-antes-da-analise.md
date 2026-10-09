@@ -11,7 +11,7 @@ tabela-síntese diz "sem diferença" quando nenhum caso mostra uma. A
 tabela tem uma coluna por modelo de programação, e a célula registra
 quando as duas tecnologias da coluna divergem: Solid e Angular com
 *signals*, um modelo de programação com duas notações (ADR 0021), e Web
-Component e jQuery, as duas do imperativo com *callbacks*; a replicação
+Component e jQuery, as duas do imperativo com *callbacks*; a conferência
 no Android aparece dentro das seções de DC em que o Formulário ou a Lista
 mostram diferença entre Views e Compose.
 
@@ -26,7 +26,7 @@ Em vez de: os cinco casos em cada DC; sem escolha a defender, mas
 multiplica o texto, o que o ADR 0012 recusou.
 Em vez de: uma coluna por tecnologia; mostraria Solid e Angular separados,
 mas pesa a tabela e contradiz o modelo de programação como unidade.
-Em vez de: a replicação numa seção própria; mais simples de ler, mas
+Em vez de: a conferência no Android numa seção própria; mais simples de ler, mas
 repete os trechos e afasta cada conclusão da sua conferência no Android.
 Custo: o caso fixado pode mostrar pouca diferença numa DC; duas das três
 células de cada DC podem precisar de duas leituras, uma por tecnologia; o mapa DC →

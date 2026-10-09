@@ -34,7 +34,7 @@ Leitura:
   eventos e outra que liga propriedades. Nenhum cobre o declarativo por
   re-renderização, que o Android já cobre com o Compose.
 - Com o Android e um par de *desktop*, cada modelo de programação passa
-  a ter uma replicação fora da web. Hoje o declarativo por atualização
+  a ter uma plataforma fora da web que confere as conclusões da web. Hoje o declarativo por atualização
   granular não tem nenhuma.
 - Se o Solid sair da web (tarefa "Avaliar React × Angular na web, com o
   Solid só como menção", tcc-qti), o modelo granular fica com o Angular
@@ -84,7 +84,7 @@ tabela-síntese registra a divergência (ADR 0017). O imperativo com
 | Views | imperativo com *callbacks* | layout XML | `res/values/estilo.xml` |
 | Jetpack Compose | declarativo por re-renderização | funções | `Estilo.kt` |
 
-Kotlin nas duas (ADR 0005). Replicação do Formulário e da Lista (ADR
+Kotlin nas duas (ADR 0005). Conferem a web no Formulário e na Lista (ADR
 0012); capturas pelo Robolectric com Roborazzi, na JVM, idênticas às da
 web (ADR 0008).
 
@@ -126,7 +126,7 @@ como "sibling" ou "cousin" seria inferência do TCC.
 - Implementação (2026-10-09): Formulário e Lista em três tecnologias,
   `casos/<caso>/swing/`, `javafx/` e `javafx-fxml/`, num projeto Gradle
   em `casos/desktop/` (instruções em `casos/README.org`). Decisões do
-  autor em 2026-10-09: as duas tarefas da replicação; rotinas sem
+  autor em 2026-10-09: as duas tarefas que conferem a web; rotinas sem
   capturas; o JavaFX em código e em FXML; o domínio do Android, em Kotlin,
   pela JVM. As rotinas (19 verificações no Formulário, 11 na Lista)
   passam nas seis, no Linux, com o JavaFX 27 na plataforma Headless.
@@ -316,9 +316,9 @@ atualização granular, que é o que a pré-análise tem de mostrar.
 ### Implementações (2026-10-09, commit `73a9a11`)
 
 Formulário e Lista, em `casos/<caso>/qt-widgets/` e `casos/<caso>/qml/`,
-com o domínio portado para C++ em `casos/<caso>/dominio-cpp/` e um
+com o domínio em C++ em `casos/<caso>/dominio-cpp/` e um
 projeto CMake único em `casos/qt/` (instalação em `casos/README.org`).
-Decisões do autor em 2026-10-09: as duas tarefas da replicação; rotinas
+Decisões do autor em 2026-10-09: as duas tarefas que conferem a web; rotinas
 já, capturas só se o par entrar; o Qt Widgets monta a tela num `.ui` e
 coordena por `connect`, sem propriedades *bindable*; a QML guarda o
 estado nas próprias propriedades, com os derivados em *bindings*, e não
@@ -451,7 +451,7 @@ linhas no Formulário e 52 na Lista, contra 79 e 77 do Kotlin do Views.
 - Uma tecnologia do declarativo por atualização granular fora da web, com
   o mesmo mecanismo do Solid (rastreamento automático do que a expressão
   lê), noutra plataforma e noutro ambiente de execução. JavaFX e WPF
-  replicariam a coluna com outro mecanismo (dependências listadas ou
+  confeririam a coluna com outro mecanismo (dependências listadas ou
   notificadas à mão).
 - Uma tecnologia imperativa com *callbacks* que confirma a coluna: o
   Qt Widgets coordena como o jQuery e o Views, e os *signals* e *slots*

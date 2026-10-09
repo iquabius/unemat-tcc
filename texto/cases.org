@@ -403,7 +403,7 @@
 
   No Android, as duas variantes são escritas em Kotlin, a linguagem que o
   Android recomenda e a única em que o Compose se escreve cite:android2026a.
-  O porte do domínio para Kotlin responde diferente em entradas-limite, como
+  O domínio em Kotlin responde diferente do da web em entradas-limite, como
   anos de 0 a 99, e cada diferença conhecida fica registrada num teste.
   Entre Views e Compose, a única diferença admitida nas capturas é a de
   poucos pixels na renderização do texto.

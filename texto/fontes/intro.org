@@ -260,7 +260,7 @@ Formato:
   publicada = 1124 + página do PDF).
 - Conferido: 2026-10-09.
 
-* §18 [[file:../intro.org::O Contador, o Formulário e a Lista adaptam][O Contador, o Formulário e a Lista adaptam]]
+* §19 [[file:../intro.org::O Contador, o Formulário e a Lista adaptam][O Contador, o Formulário e a Lista adaptam]]
 ** kiss2014, p. 11, 17, 25 e 34
 - Frase: “O Contador, o Formulário e a Lista adaptam o /Counter/, o
   /Flight Booker/ e o /CRUD/, três das sete tarefas do 7GUIs, de Kiss
@@ -276,7 +276,7 @@ Formato:
 - Observação: “sete” vem da p. 11, que o texto não cita.
 - Conferido: 2026-10-06.
 
-* §25 [[file:../intro.org::A avaliação usa oito][A avaliação usa oito das catorze]]
+* §26 [[file:../intro.org::A avaliação usa oito][A avaliação usa oito das catorze]]
 ** kiss2014, p. 15
 - Frase: “As outras duas, /expressividade/ e /operações mentais difíceis/,
   vêm do grupo de cinco que Kiss (2014, p. 15) deixou de fora e que, a seu
@@ -336,7 +336,7 @@ Formato:
   2026-10-08).
 - Conferido: 2026-10-06; a questão e o total, em 2026-10-09.
 ** w3techs2026
-- Frase: “o da imperativa, pelo jQuery, que também está em 65,5% dos
+- Frase: “e o do imperativo, pelo jQuery, que também está em 65,5% dos
   /sites/ que o W3Techs monitora”
 - Trecho: “jQuery is used by 65.5% of all the websites”
 - Lido em: =tmp/fontes/w3techs2026.txt=, l. 98 (página salva em
@@ -407,7 +407,7 @@ Formato:
   está em Salvaneschi et al. (2017), no §6.
 - Conferido: 2026-10-09.
 
-* §24 [[file:../intro.org::A avaliação cabe ao autor][A avaliação cabe ao autor]]
+* §25 [[file:../intro.org::A avaliação cabe ao autor][A avaliação cabe ao autor]]
 ** kiss2014, p. 8
 - Frase: “Kiss (2014, p. 8) chama de analítica a avaliação pelas DCs e a
   adota como alternativa aos experimentos com programadores, muitas vezes
@@ -508,9 +508,47 @@ Formato:
   usam "declarativo" sem definição (checagem de 2026-10-08).
 - Conferido: 2026-10-09.
 
-* §8 [[file:../intro.org::Na programação de interfaces gráficas, a /notação/][Na programação de interfaces gráficas, a notação]]
+* §8 [[file:../intro.org::Este trabalho compara /modelos de programação/][Este trabalho compara modelos de programação]]
+** roy2004, p. xiii e 29
+- Frase: “Este trabalho compara /modelos de programação/: as técnicas e os
+  princípios de projeto que um modelo de computação torna possíveis (Van
+  Roy; Haridi, 2004, p. xiii e 29).”
+- Trecho: “Sometimes we use the phrase “programming model.” This refers to
+  what the programmer needs: the programming techniques and design
+  principles made possible by the computation model.” (p. xiii); “We will
+  sometimes call this a programming model. A programming model is always
+  built on top of a computation model.” (p. 29)
+- Lido em:
+  =tmp/fontes/vanroy2004-concepts-techniques-and-models-of-computer-programming.pdf=,
+  p. 14 do PDF (prefácio, p. xiii pelo índice) e p. 60 do PDF (abertura do
+  capítulo 2, p. 29 pelo índice: “programming model, xiii, 29”).
+- Observação: a primeira menção apresenta o termo por contraste com
+  paradigma, biblioteca e /framework/ (ADR 0021; nota de referência
+  docs/paradigma-modelo-e-notacao.md, seção 4).
+- Conferido: 2026-10-09.
+** roy2004, p. xiii (paradigma)
+- Frase: “Ele não é o paradigma, noção imprecisa que o modelo de
+  computação torna precisa (Van Roy; Haridi, 2004, p. xiii) [...]”
+- Trecho: “The term computation model makes precise the imprecise notion
+  of “programming paradigm.”” (p. xiii)
+- Lido em: o mesmo PDF, p. 14.
+- Conferido: 2026-10-09.
+** openjs2026 (biblioteca)
+- Frase: “o jQuery se diz biblioteca (OpenJS Foundation, 2026)”
+- Trecho: “jQuery is a fast, small, and feature-rich JavaScript library.”
+- Lido em: =tmp/fontes/openjs2026.txt=, l. 94 (página salva).
+- Conferido: 2026-10-09.
+** mozilla2026 (recurso do navegador)
+- Frase: “o Web Component é recurso do próprio navegador (Mozilla, 2026)”
+- Trecho: “custom elements: that is, HTML elements whose behavior is defined
+  by the web developer, that extend the set of elements available in the
+  browser.”; “This class will not be called by you, but will be called by
+  the browser.”
+- Lido em: =tmp/fontes/mozilla2026.txt=, l. 7 e 49 (página salva; MDN,
+  modificada em 2026-09-01).
+- Conferido: 2026-10-09.
 ** openjs2026
-- Frase: “[...] como no jQuery”, exemplo da imperativa com /callbacks/.
+- Frase: “[...] como no jQuery”, exemplo do imperativo com /callbacks/.
 - Trecho: “It makes things like HTML document traversal and manipulation,
   event handling, animation, and Ajax much simpler”
 - Lido em: =tmp/fontes/openjs2026.txt=, l. 94 (página salva).
@@ -523,7 +561,7 @@ Formato:
   modificada em 2026-09-01).
 - Conferido: 2026-10-06.
 ** disch2025, p. 93
-- Frase: “Na /imperativa com callbacks/, o programador escreve /callbacks/
+- Frase: “No /imperativo com callbacks/, o programador escreve /callbacks/
   que mudam o estado e a tela por efeitos colaterais (Disch; Heegaard;
   Bahr, 2025, p. 93; Oney; Myers; Brandt, 2012, p. 229) [...]” (Disch
   sustenta o estado)
@@ -547,17 +585,25 @@ Formato:
 - Lido em: =tmp/fontes/oney2012.pdf=, p. 1 do PDF (versão da ACM).
 - Conferido: 2026-10-09.
 
-* §9 [[file:../intro.org::Nas declarativas, o programador descreve a tela][Nas declarativas, o programador descreve a tela]]
-** meta2026a
-- Frase: “Nas declarativas, o programador descreve a tela em função do
-  estado, e o ambiente de execução a mantém atualizada.”
-- Trecho: “Instead, you declare what you want to show, and React figures
-  out how to update the UI.”
-- Lido em: https://react.dev/learn/reacting-to-input-with-state, em
-  2026-10-06.
-- Conferido: 2026-10-06.
+* §9 [[file:../intro.org::Nos declarativos, o programador descreve a tela][Nos declarativos, o programador descreve a tela]]
+** sperber2025, p. 32
+- Frase: “Nos declarativos, o programador descreve a tela em função do
+  estado, e o ambiente de execução a mantém atualizada (SolidJS, 2026b;
+  Sperber; Schlegel, 2025, p. 32).” (o React e o Angular)
+- Trecho: “Model-View-Update solves the Update challenge: A single function
+  describes view construction, no separate logic for view update is
+  needed.”; “Modern OO toolkits like Angular, Svelte, and Vue.js have also
+  attempted to solve the Update challenge [...]. However, instead of
+  requiring the programmer to implement the update logic manually, these
+  toolkits feature a pre-processor that generates the update code
+  automatically from the construction code.” (p. 32)
+- Lido em: =tmp/fontes/sperber2025.pdf=, p. 6 do PDF (p. 32 impressa).
+- Observação: substitui Meta (2026a), documentação do React (decisão do
+  autor em 2026-10-09). O Solid não aparece em Sperber e Schlegel e fica
+  com a documentação dele.
+- Conferido: 2026-10-09.
 ** solidjs2026 (as declarativas)
-- Frase: “Nas declarativas, o programador descreve a tela em função do
+- Frase: “Nos declarativos, o programador descreve a tela em função do
   estado, e o ambiente de execução a mantém atualizada.” (o Solid)
 - Trecho: “Reactivity ensures automatic responses to data changes,
   eliminating the need for manual updates to the user interface (UI). By
@@ -565,16 +611,23 @@ Formato:
   automated.”
 - Lido em: =tmp/fontes/solidjs2026.txt=, l. 8 (página salva).
 - Conferido: 2026-10-06.
-** meta2026
-- Frase: “Na /declarativa por re-renderização/, cada mudança de estado
-  reexecuta o componente, como no React.”
-- Trecho: “you can trigger further renders by updating its state with the
-  set function. Updating your component’s state automatically queues a
-  render.”
-- Lido em: =tmp/fontes/meta2026.txt=, l. 75 (página salva).
-- Conferido: 2026-10-06.
+** lee2025, 289:2 e 289:6
+- Frase: “No /declarativo por re-renderização/, cada mudança de estado
+  reexecuta o componente, como no React (Lee; Ahn; Yi, 2025, 289:2 e
+  289:6).”
+- Trecho: “the same component is called for both creating a new view and
+  updating an existing view” (289:2); “setting state within an Effect
+  triggers the runtime to Check if the state has changed, which is
+  implemented by invoking the component body again. If the state whose
+  setter function is called is actually modified, the component
+  re-renders” (289:6).
+- Lido em: =tmp/fontes/lee2025.pdf=, p. 2 e 6 do PDF (paginação da ACM
+  impressa na cópia do arXiv).
+- Observação: substitui Meta (2026b), documentação do React (decisão do
+  autor em 2026-10-09).
+- Conferido: 2026-10-09.
 ** solidjs2026
-- Frase: “Na /declarativa por atualização granular/, cada /signal/ avisa os valores e
+- Frase: “No /declarativo por atualização granular/, cada /signal/ avisa os valores e
   trechos da tela que dependem dele, e só esses são recalculados, como no
   Solid.”
 - Trecho: “data entities (signals) will maintain a list of their
@@ -592,7 +645,7 @@ Formato:
 - Lido em: =tmp/fontes/google2026.txt=, l. 11 (página salva).
 - Conferido: 2026-10-06.
 ** salvaneschi2015, p. 953
-- Frase: “A notação por atualização granular usa as abstrações da PR: os valores que
+- Frase: “O modelo de programação por atualização granular usa as abstrações da PR: os valores que
   variam no tempo, chamados /signals/, cujas alterações se propagam
   automaticamente.”
 - Trecho: “It is based on concepts like time-varying values (a.k.a.
@@ -635,7 +688,7 @@ Formato:
   documentação do Angular não sustenta; essa frase não foi usada.
 - Conferido: 2026-10-09.
 
-* §15 [[file:../intro.org::Quanto aos objetivos, a pesquisa é][Quanto aos objetivos, a pesquisa é exploratória]]
+* §16 [[file:../intro.org::Quanto aos objetivos, a pesquisa é][Quanto aos objetivos, a pesquisa é exploratória]]
 ** runeson2009, p. 135
 - Frase: “Quanto aos objetivos, a pesquisa é /exploratória/: busca
   compreensão nova e gera ideias e hipóteses para outras pesquisas.”
@@ -644,17 +697,23 @@ Formato:
 - Lido em: =tmp/fontes/runeson2009.pdf=, p. 5 do PDF (p. 135).
 - Conferido: 2026-10-06.
 ** easterbrook2008
-- Frase: “A pergunta de pesquisa, como as notações se comparam, é do tipo
-  que Easterbrook et al. chamam de descritivo-comparativo e põem entre as
-  perguntas exploratórias.”
+- Frase: “A pergunta de pesquisa, como a usabilidade difere entre os
+  modelos de programação, é do tipo que Easterbrook et al. (2008) chamam de
+  descritivo-comparativo, das perguntas sobre como uma coisa difere de
+  outra, e põem entre as perguntas exploratórias.”
 - Trecho: “In the early stages of a research program, we usually need to
   ask exploratory questions […] such as: […] Descriptive-Comparative
-  questions of the form, ‘How does X differ from Y?’”
+  questions of the form, ‘How does X differ from Y?’ investigate
+  similarities and differences between two or more phenomena.” No mesmo
+  trecho, a primeira pergunta de Jane, “Is a fisheye-view file navigator
+  more efficient than the traditional view for file navigation?”, vira
+  “How do fisheye views differ from conventional views?”.
 - Lido em: =tmp/fontes/easterbrook2008.pdf=, p. 3 do PDF (pré-publicação;
   a página do livro, 285-311, não se confere nela).
-- Observação: o parágrafo só entrou na matriz porque a nota \todo dele
-  mudou (“notações de coordenação” passou a “notações”).
-- Conferido: 2026-10-06.
+- Observação: a pergunta da introdução passou a “como difere” na forma
+  de Easterbrook et al. em 2026-10-09 (decisão do autor).
+- Conferido: 2026-10-06; o trecho das diferenças e o de Jane, em
+  2026-10-09.
 ** salvaneschi2017
 - Frase: “As hipóteses desta pesquisa servem a experimentos controlados
   como o de Salvaneschi et al. (2017).”
@@ -667,7 +726,7 @@ Formato:
   hipóteses da pesquisa exploratória ao experimento.
 - Conferido: 2026-10-07.
 
-* §19 [[file:../intro.org::Na web, a notação imperativa entra][Na web, a notação imperativa entra]]
+* §20 [[file:../intro.org::Na web, o modelo de programação imperativo][Na web, o modelo de programação imperativo]]
 ** meta2026c
 - Frase: “React e Solid montam a tela em JSX, marcação parecida com HTML
   escrita dentro do JavaScript.”
@@ -687,8 +746,18 @@ Formato:
   single attribute”
 - Lido em: =tmp/fontes/solidjs2026.txt=, l. 10 (página salva).
 - Conferido: 2026-10-06.
+** lee2025, 289:38
+- Frase: “a cada mudança de estado, o React reexecuta o componente
+  inteiro, e o Solid atualiza só os trechos da tela que dependem do
+  /signal/ alterado (Lee; Ahn; Yi, 2025, 289:38; SolidJS, 2026b).”
+- Trecho: Tabela 2, “Comparison of reactive UI frameworks”: “Re-read
+  Spec.” é “Yes” no React e “No” no Solid e no Angular; a propriedade é
+  “whether they re-read component specifications for re-rendering”
+  (289:38).
+- Lido em: =tmp/fontes/lee2025.pdf=, p. 38 do PDF (apêndice C).
+- Conferido: 2026-10-09.
 
-* §20 [[file:../intro.org::Solid e Angular com /signals/, ao contrário][Solid e Angular com signals, ao contrário]]
+* §21 [[file:../intro.org::Solid e Angular com /signals/, ao contrário][Solid e Angular com signals, ao contrário]]
 ** solidjs2026a
 - Frase: “Solid e Angular com /signals/, ao contrário, coordenam do mesmo
   modo: os dois guardam o estado em /signals/ e derivam valores de outros
@@ -800,7 +869,7 @@ Formato:
 - Lido em: =tmp/fontes/grolaux2026.pdf=, p. 1, 3 e 9 do PDF (p. 7 a 16).
 - Conferido: 2026-10-06.
 
-* §16 [[file:../intro.org::Quanto aos meios, o trabalho é][Quanto aos meios, o trabalho é uma avaliação qualitativa]]
+* §17 [[file:../intro.org::Quanto aos meios, o trabalho é][Quanto aos meios, o trabalho é uma avaliação qualitativa]]
 ** sim2003
 - Frase: “O conjunto de tarefas segue a ideia de /benchmark/: testes que
   representam as tarefas da prática e servem para comparar técnicas
@@ -832,7 +901,7 @@ Formato:
 - Lido em: =tmp/fontes/lu2021.pdf=, versão publicada (acesso aberto).
 - Conferido: 2026-10-09.
 
-* §28 [[file:../intro.org::Por ser analítica][Por ser analítica]]
+* §29 [[file:../intro.org::Por ser analítica][Por ser analítica]]
 ** britton2001
 - Frase: “O trabalho escolheu as oito DCs antes da avaliação, e usar um
   subconjunto pode deixar de fora propriedades importantes da notação.”
@@ -863,7 +932,7 @@ Formato:
 - Observação: o texto cita green1996d sem página; a p. 157 é a do trecho.
 - Conferido: 2026-10-07.
 
-* §29 [[file:../intro.org::As tarefas são pequenas][As tarefas são pequenas]]
+* §30 [[file:../intro.org::As tarefas são pequenas][As tarefas são pequenas]]
 ** sim2003
 - Frase: “Um conjunto criado por um pesquisador só e pouco usado tende a
   ter menos impacto que um adotado por uma comunidade.”
@@ -875,8 +944,25 @@ Formato:
   the community and research results.” (3.1 Scope)
 - Lido em: =tmp/fontes/sim2003.pdf=, p. 3 do PDF (p. 76).
 - Conferido: 2026-10-06.
+** green1996d, p. 139
+- Frase: “As DCs também dizem pouco das escolhas de alto nível, como o
+  modelo de computação, e a relevância delas começa quando se definem os
+  detalhes (Green; Petre, 1996, p. 139). Por isso, a avaliação compara os
+  modelos de programação pelos detalhes que a notação de cada tecnologia
+  exige no código-fonte.”
+- Trecho: “Designers of VPLs obviously need to choose a computational
+  model and some type of visual ‘language’ [...]. The cognitive dimensions
+  framework has little to say about these high-level choices; its
+  relevance starts as the details are worked out.” (p. 139)
+- Lido em:
+  =tmp/fontes/green1996-usability-analysis-of-visual-programming-environments-a-cognitive-dimensions-framework.pdf=,
+  p. 9 do PDF (p. 139 impressa).
+- Observação: limitação que o ADR 0021 (Custo) manda declarar uma vez,
+  com fonte; a de categorias, e não artefatos, é da nota de referência
+  docs/paradigma-modelo-e-notacao.md, seção 2.
+- Conferido: 2026-10-09.
 
-* §27 [[file:../intro.org::O desenho tem limitações em três pontos][O desenho tem limitações em três pontos]]
+* §28 [[file:../intro.org::O desenho tem limitações em três pontos][O desenho tem limitações em três pontos]]
 ** hertzum2003, p. 183
 - Frase: “Em métodos de inspeção, avaliadores diferentes acham problemas bem
   diferentes na mesma interface (Hertzum; Jacobsen, 2003, p. 183).”
@@ -902,7 +988,18 @@ Formato:
   de uma linguagem visual; aqui, o autor das implementações.
 - Conferido: 2026-10-09.
 
-* §21 [[file:../intro.org::O desenho mantém fixo o que não pertence][O desenho mantém fixo o que não pertence]]
+* §22 [[file:../intro.org::No Android, o Formulário e a Lista são][No Android, o Formulário e a Lista são]]
+** android2026
+- Frase: “As Views ficam no imperativo com /callbacks/, e o Compose, no
+  declarativo por re-renderização, porque chama de novo as funções da tela
+  quando o estado muda (Google, 2026).”
+- Trecho: “Recomposition is the process of calling your composable
+  functions again when inputs change.”
+- Lido em: =tmp/fontes/android2026.txt=, l. 966 (página salva em
+  2026-10-09; atualizada em 2026-10-01).
+- Conferido: 2026-10-09.
+
+* §23 [[file:../intro.org::O desenho mantém fixo o que não pertence][O desenho mantém fixo o que não pertence]]
 ** google2026b (TypeScript)
 - Frase: “A linguagem é uma só em cada plataforma: na web, o /TypeScript/,
   que o Angular exige (Google, 2026b) e as demais tecnologias também usam
