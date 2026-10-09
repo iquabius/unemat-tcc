@@ -2,8 +2,8 @@
 
 2026-10-09. A introdução de 2017 trazia a pergunta em três formulações,
 uma sobre software em larga escala, que casos pequenos não respondem, e
-um objetivo geral sem critério. A pergunta: na programação de interfaces
-pelas Dimensões Cognitivas de Notações, como difere a usabilidade da
+um objetivo geral sem critério. A pergunta: pelas Dimensões Cognitivas
+de Notações, como difere a usabilidade da
 notação com que se programam interfaces gráficas em cada tecnologia entre
 os três modelos de programação — o imperativo com *callbacks*, o
 declarativo por re-renderização e o declarativo por atualização granular?

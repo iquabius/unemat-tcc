@@ -66,8 +66,9 @@ comparada**, que vira coluna na tabela-síntese e de que fala a
 conclusão, e **onde se observa a evidência**, que nas DCs é sempre a
 notação. No TCC, a unidade é o modelo de programação (três colunas) e a
 evidência está na notação de cada tecnologia (cinco na web). Daí a
-pergunta (ADR 0014): como os três modelos de programação se comparam
-"quanto à usabilidade das notações com que se escrevem". Uma diferença
+pergunta (ADR 0014): pelas DCs, "como difere a usabilidade da notação com
+que se programam interfaces gráficas em cada tecnologia entre os três
+modelos de programação". Uma diferença
 entre dois modelos de programação só conta quando aparece no que se
 escreve (Green e Petre 1996, p. 150, critério definido para as operações
 mentais difíceis e estendido pelo TCC a todas as DCs).
