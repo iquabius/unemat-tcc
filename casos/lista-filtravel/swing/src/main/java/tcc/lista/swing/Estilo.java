@@ -20,6 +20,8 @@ import javax.swing.JViewport;
 // estiliza o painel que desenha os itens, que não está na árvore. Fica fora
 // da análise.
 final class Estilo {
+    // O max-width da coluna na web (28rem).
+    private static final int LARGURA = 448;
     private static final Color FUNDO = new Color(0x2b2b2b);
     private static final Color TEXTO = new Color(0xeeeeee);
     private static final Color FUNDO_DA_ENTRADA = new Color(0x3a3a3a);
@@ -106,6 +108,6 @@ final class Estilo {
 
     // O BoxLayout estica na altura o que não tiver tamanho máximo.
     private static void limitarAltura(JComponent componente) {
-        componente.setMaximumSize(new Dimension(448, componente.getPreferredSize().height));
+        componente.setMaximumSize(new Dimension(LARGURA, componente.getPreferredSize().height));
     }
 }
