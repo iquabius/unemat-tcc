@@ -82,8 +82,9 @@ def marcar(texto):
             continue
         fim = fecha(texto, m.end())
         if fim is None:
+            n = texto.count("\n", 0, k) + 1
             linha = texto[k:].split("\n", 1)[0]
-            raise ValueError(f"\\realce sem a chave que fecha: {linha!r}")
+            raise ValueError(f"{n}: \\realce sem a chave que fecha: {linha!r}")
         partes += [texto[i:k], INICIO, texto[m.end():fim], FIM]
         i = k = fim + 1
     partes.append(texto[i:])
@@ -104,7 +105,7 @@ def main():
             try:
                 novo = marcar(texto)
             except ValueError as erro:
-                sys.exit(f"realce-no-diff.py: {nome}: {erro}")
+                sys.exit(f"realce-no-diff.py: {nome}:{erro}")
             if novo != texto:
                 with open(nome, "w", encoding="utf-8", errors="surrogateescape") as f:
                     f.write(novo)
