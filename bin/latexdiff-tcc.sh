@@ -47,7 +47,7 @@ set -euo pipefail
 PICT='PICTUREENV=(?:picture|DIFnomarkup|minted)[\w\d*@]*'
 SIGLAS='CUSTOMDIFCMD=[gG]ls(?:pl)?(?![a-zA-Z])'
 
-BIN=$(dirname "$0")
+BIN=$(cd "$(dirname "$0")" && pwd)
 TMP=$(mktemp -d)
 trap 'rm -rf "$TMP"' EXIT
 copiar() {  # os .tex do diretório de $1 em $2, com os subdiretórios
@@ -57,7 +57,9 @@ copiar() {  # os .tex do diretório de $1 em $2, com os subdiretórios
 }
 copiar "$1" "$TMP/velho"
 copiar "$2" "$TMP/novo"
-find "$TMP" -name '*.tex' -exec "$BIN/realce-no-diff.py" antes {} +
+# De dentro do temporário, que o trap apaga, para o erro dizer o arquivo
+# como ./velho/... ou ./novo/..., relativo ao tcc.tex de cada lado.
+(cd "$TMP" && find . -name '*.tex' -exec "$BIN/realce-no-diff.py" antes {} +)
 
 latexdiff --flatten --packages=biblatex --config="$PICT" --config="$SIGLAS" \
     "$TMP/velho/$(basename "$1")" "$TMP/novo/$(basename "$2")" |
