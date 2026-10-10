@@ -106,11 +106,49 @@ nos controles".
 
 - `\todo` e os comandos de nota de um argumento só entram no
   `\DIFaddbegin`, fora do `\DIFadd`, e compilam.
-- O `\realce` às vezes cai dentro do `\DIFadd`, que é um `\uwave` do ulem,
-  e o `\hl` ali não compila ("Leaders not followed by proper glue"). Por
-  isso o `tcc.tex` o troca por texto simples quando o `\DIFadd` existe: no
-  PDF do diff, o trecho realçado aparece como apagado e reescrito, em
-  azul, sem a cor.
+- O trecho que só ganhou o realce sai no diff sem marca de mudança e em
+  laranja, salvo o de uma ou duas palavras (abaixo). O
+  `bin/latexdiff-tcc.sh` troca cada `\realce{X}` por dois marcadores antes
+  do latexdiff (`bin/realce-no-diff.py`), e as palavras de X entram no diff
+  como palavras; depois, devolve `\realce{X}` onde X saiu sem marca. Se uma
+  palavra de X mudou, o trecho sai com as marcas do diff e sem o laranja: o
+  `\hl` não aceita o `\DIFadd` dentro. Isso inclui a frase nova que já entra
+  realçada, que só ganha o laranja no diff depois do commit, e o realce que
+  cresce sobre palavras que já estavam no texto. Escolha do autor em
+  2026-10-10. O realce que sai do texto não deixa marca, salvo o de uma ou
+  duas palavras, porque tirá-lo não muda as palavras, e o diff só marca
+  palavras. O trecho com um comentário (`%`) dentro também sai sem o
+  laranja, porque o `\hl` não aceita o comentário.
+- O realce de uma ou duas palavras que entra ou sai do texto aparece apagado
+  e reescrito, sem o laranja: o latexdiff 1.4.0 junta à mudança vizinha o
+  trecho igual com menos de três palavras (`MINWORDSBLOCK=3`), e os
+  marcadores contam como mudança. Baixar o `MINWORDSBLOCK` resolveria, mas
+  picotaria o diff inteiro em blocos menores (2026-10-10).
+- O `git latexdiff` do `readme.org` não passa pelo `bin/latexdiff-tcc.sh` e
+  usa `--exclude-safecmd=realce`, que deixa o `\realce` fora do `\DIFadd`:
+  compila, e o trecho que só ganhou o realce sai apagado e reescrito, em
+  laranja.
+- Por que o realce precisa disso: o latexdiff compara o `\realce{X}` como
+  um token só, diferente das palavras de X, e marcava o trecho como
+  apagado (vermelho riscado) e reescrito (azul). E o latexdiff 1.4.0 (sub
+  `add_safe_commands`) põe na lista de comandos seguros todo
+  `\newcommand` do preâmbulo novo cujo corpo só tem comandos seguros: o
+  `\newcommand{\realce}[1]{#1}` do ramo `[disable]` passa, e o `\realce`
+  caía dentro do `\DIFadd`, um `\uwave` do ulem, onde o `\hl` não compila
+  ("Leaders not followed by proper glue"). Nas amostras de 2026-10-09, o
+  `\realce` ficou fora do `\DIFadd` só onde o preâmbulo não o definia
+  como `{#1}`.
+- Alternativas descartadas em 2026-10-10: nenhuma opção do latexdiff faz
+  um envoltório contar como texto igual (`--append-textcmd=realce` dá
+  `\realce{\DIFadd{X}}`, e o seguro vence o de texto);
+  `--exclude-safecmd=realce` deixa o `\realce` fora do `\DIFadd` e mostra o
+  laranja, mas o trecho segue apagado e reescrito; um realce feito com o
+  ulem (`\markoverwith`) compila dentro do `\uwave`, mas não quebra a
+  linha e passa da margem, e o trecho segue apagado e reescrito; tirar o
+  `\realce` das duas versões sem devolvê-lo deixa o trecho sem marca de
+  mudança e perde o laranja.
+- O negrito dentro da nota sai no diff: a nota fica fora do `\DIFadd`
+  (2026-10-10).
 - Um comando com dois argumentos obrigatórios, como o `\hlfix` da
   documentação do todonotes (1.8.13), realce e nota numa chamada só, cai
   inteiro no `\DIFadd`, e o `\todo` dentro do ulem não compila. Por isso

@@ -8,7 +8,9 @@
 # --flatten resolve os \input pelo diretório de cada tcc.tex;
 # --packages=biblatex, porque a classe carrega o biblatex e o latexdiff não a
 # lê; o PICTUREENV deixa o minted fora da marcação. O git latexdiff do
-# readme.org repete as duas últimas, sem as siglas nem o ¶ das quebras.
+# readme.org repete as duas últimas, sem as siglas, o ¶ das quebras e os
+# marcadores do realce; lá, o --exclude-safecmd=realce deixa o \realce fora
+# do \DIFadd, e o trecho que só ganhou o realce sai apagado e reescrito.
 #
 # Siglas do glossaries (ADR 0027, L5): o latexdiff não sabe compor \gls,
 # \glspl, \Gls e \Glspl dentro do \DIFdel e os comentava, e a sigla sumia do
@@ -26,6 +28,15 @@
 # acrescentado; o de inserção depois do rótulo (\gls{pr}[s]) não é tratado
 # e sairia como texto, mas a exportação do org-ref não o produz.
 #
+# Realce das notas para o orientador (\realce, no latex/tcc.tex): o latexdiff
+# marcaria o trecho que só ganhou o realce como apagado e reescrito, e o
+# levaria para dentro do \DIFadd, onde o \hl não compila. O
+# bin/realce-no-diff.py troca o \realce por dois marcadores nas cópias dos
+# .tex, em VELHO e NOVO, antes do latexdiff, e o devolve depois, onde o
+# trecho saiu sem marca. As cópias são dos .tex dos diretórios dos dois
+# tcc.tex, onde o --flatten resolve os \input, sem os auxiliares aux-*/ do
+# bin/gerar-versao.sh, que outra versão pode estar compilando ao mesmo tempo.
+#
 # Quebra de parágrafo inserida ou removida: o latexdiff a trata como comando
 # e não a marca. O bin/marcar-quebras.py, no fim, põe um ¶ na cor da mudança
 # no fim do parágrafo que a quebra fecha, e pula as listagens: a lista de
@@ -36,7 +47,23 @@ set -euo pipefail
 PICT='PICTUREENV=(?:picture|DIFnomarkup|minted)[\w\d*@]*'
 SIGLAS='CUSTOMDIFCMD=[gG]ls(?:pl)?(?![a-zA-Z])'
 
-latexdiff --flatten --packages=biblatex --config="$PICT" --config="$SIGLAS" "$1" "$2" |
+BIN=$(cd "$(dirname "$0")" && pwd)
+TMP=$(mktemp -d)
+trap 'rm -rf "$TMP"' EXIT
+copiar() {  # os .tex do diretório de $1 em $2, com os subdiretórios
+  mkdir -p "$2"
+  (cd "$(dirname "$1")" &&
+    find . -path './aux-*' -prune -o -name '*.tex' -exec cp --parents -t "$2" {} +)
+}
+copiar "$1" "$TMP/velho"
+copiar "$2" "$TMP/novo"
+# De dentro do temporário, para o erro dar o arquivo como ./velho/... ou
+# ./novo/...: o lado do diff, e depois dele o caminho a partir do tcc.tex.
+(cd "$TMP" && find . -name '*.tex' -exec "$BIN/realce-no-diff.py" antes {} +)
+
+latexdiff --flatten --packages=biblatex --config="$PICT" --config="$SIGLAS" \
+    "$TMP/velho/$(basename "$1")" "$TMP/novo/$(basename "$2")" |
+  "$BIN/realce-no-diff.py" depois |
   awk '/^\\begin\{document\}/ && !feito {
     print "%DIF SIGLAS DO GLOSSARIES (bin/latexdiff-tcc.sh)"
     print "\\providecommand{\\ADDgls}[2][]{{\\protect\\color{blue}\\gls[#1]{#2}}}"
@@ -52,4 +79,4 @@ latexdiff --flatten --packages=biblatex --config="$PICT" --config="$SIGLAS" "$1"
   }
   { print }
   END { if (!feito) { print "latexdiff-tcc.sh: sem \\begin{document} na saída do latexdiff" > "/dev/stderr"; exit 1 } }' |
-  "$(dirname "$0")/marcar-quebras.py"
+  "$BIN/marcar-quebras.py"
