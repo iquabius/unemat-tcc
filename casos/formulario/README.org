@@ -4,9 +4,10 @@ Reserva de voo baseada na tarefa /Flight Booker/ do [[https://eugenkiss.github.i
 ampliada com os campos de um formulário real. Todas as implementações seguem
 esta especificação; as regras de domínio (formato de data, e-mail, mensagens)
 ficam em =dominio.ts=, compartilhado pelos projetos web, para que as
-implementações só difiram na coordenação da interface. No Android, as mesmas
-regras estão portadas para Kotlin em =dominio-kotlin/main/Dominio.kt=,
-compartilhado por =android-views= e =android-compose=; no Qt, para C++ em
+implementações só difiram na coordenação da interface. No Android e no
+desktop, as mesmas regras estão portadas para Kotlin em
+=dominio-kotlin/main/Dominio.kt=, compartilhado por =android-views=,
+=android-compose=, =swing=, =javafx= e =javafx-fxml=; no Qt, para C++ em
 =dominio-cpp/Dominio.cpp=, compartilhado por =qt-widgets= e =qml=.
 
 * Campos
