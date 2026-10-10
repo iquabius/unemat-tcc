@@ -135,10 +135,11 @@ nos controles".
   um envoltório contar como texto igual (`--append-textcmd=realce` dá
   `\realce{\DIFadd{X}}`, e o seguro vence o de texto);
   `--exclude-safecmd=realce` deixa o `\realce` fora do `\DIFadd` e mostra o
-  laranja, mas o riscado continua; um realce feito com o ulem
-  (`\markoverwith`) compila dentro do `\uwave`, mas não quebra a linha e
-  passa da margem, e o riscado continua; tirar o `\realce` das duas versões
-  sem devolvê-lo resolve o riscado e perde o laranja.
+  laranja, mas o trecho segue apagado e reescrito; um realce feito com o
+  ulem (`\markoverwith`) compila dentro do `\uwave`, mas não quebra a
+  linha e passa da margem, e o trecho segue apagado e reescrito; tirar o
+  `\realce` das duas versões sem devolvê-lo deixa o trecho sem marca de
+  mudança e perde o laranja.
 - O negrito dentro da nota sai no diff: a nota fica fora do `\DIFadd`
   (2026-10-10).
 - Um comando com dois argumentos obrigatórios, como o `\hlfix` da
