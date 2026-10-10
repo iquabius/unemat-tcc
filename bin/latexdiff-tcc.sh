@@ -53,7 +53,7 @@ trap 'rm -rf "$TMP"' EXIT
 copiar() {  # os .tex do diretório de $1 em $2, com os subdiretórios
   mkdir -p "$2"
   (cd "$(dirname "$1")" &&
-    find . -path './aux-*' -prune -o -name '*.tex' -exec cp --parents {} "$2" \;)
+    find . -path './aux-*' -prune -o -name '*.tex' -exec cp --parents -t "$2" {} +)
 }
 copiar "$1" "$TMP/velho"
 copiar "$2" "$TMP/novo"
