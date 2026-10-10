@@ -59,19 +59,24 @@ class Marcar(unittest.TestCase):
             rd.marcar("\\realce{a \\realce{b} c}"),
             "\\REALCEinicio{}a \\realce{b} c\\REALCEfim{}")
 
-    def test_antes_reescreve_o_arquivo_e_para_no_realce_sem_par_com_o_nome(self):
-        with tempfile.TemporaryDirectory() as pasta:
-            bom, ruim = Path(pasta, "bom.tex"), Path(pasta, "ruim.tex")
-            bom.write_text("a \\realce{b} c\n", encoding="utf-8")
-            ruim.write_text("a\n\\realce{b\n", encoding="utf-8")
-            argv = ["realce-no-diff.py", "antes", str(bom), str(ruim)]
-            with mock.patch.object(sys, "argv", argv):
-                with self.assertRaises(SystemExit) as erro:
-                    rd.main()
-            self.assertEqual(bom.read_text(encoding="utf-8"),
-                             "a \\REALCEinicio{}b\\REALCEfim{} c\n")
-            self.assertTrue(str(erro.exception.code).startswith(
-                f"realce-no-diff.py: {ruim}:2: \\realce sem a chave que fecha"))
+    def antes(self, nome, texto):
+        """Roda o main() do "antes" sobre um .tex com texto; devolve o .tex."""
+        arq = Path(self.enterContext(tempfile.TemporaryDirectory()), nome)
+        arq.write_text(texto, encoding="utf-8")
+        with mock.patch.object(sys, "argv", ["realce-no-diff.py", "antes", str(arq)]):
+            rd.main()
+        return arq
+
+    def test_antes_reescreve_o_arquivo_no_lugar(self):
+        arq = self.antes("bom.tex", "a \\realce{b} c\n")
+        self.assertEqual(arq.read_text(encoding="utf-8"),
+                         "a \\REALCEinicio{}b\\REALCEfim{} c\n")
+
+    def test_antes_para_no_realce_sem_par_com_o_arquivo_e_a_linha(self):
+        with self.assertRaises(SystemExit) as erro:
+            self.antes("ruim.tex", "a\n\\realce{b\n")
+        self.assertRegex(str(erro.exception.code), r"^realce-no-diff\.py: .*ruim\.tex:2: "
+                         r"\\realce sem a chave que fecha")
 
     def test_antes_sem_arquivo_para(self):
         with mock.patch.object(sys, "argv", ["realce-no-diff.py", "antes"]):
