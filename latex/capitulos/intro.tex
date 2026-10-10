@@ -1,6 +1,7 @@
+\notalegenda{Em azul, o que mudou desde o projeto de 2017; em laranja, uma pergunta, junto do trecho realçado.}
+
 Interfaces gráficas mediam a maioria das nossas interações com computadores,
 seja em celulares e \emph{notebooks}, seja no navegador web.
-\todo{Precisa de fonte para \enquote{a maioria}.}
 Para \textcite[p. 73]{myers1994}, projetá-las e implementá-las é difícil por
 natureza e continuaria sendo.
 Cada clique, tecla ou toque do usuário gera um evento.
@@ -101,7 +102,7 @@ mesma interface \cite[289:1]{lee2025}.
 Este trabalho compara \emph{modelos de programação}: as técnicas e os
 princípios de projeto que um modelo de computação torna possíveis
 \cite[p. xiii e 29]{roy2004}.
-\todo{O que se compara passa a se chamar modelo de programação, e \enquote{notação} fica no sentido das DCs, a forma escrita de cada tecnologia. Solid e Angular com signals são um modelo de programação com duas notações, que variam na montagem da tela, no modelo de componente e na API.}
+\notamudou[list,prepend,caption={\textbf{1. Mudanças desde o projeto de 2017}}]{o projeto comparava paradigmas, a PF e a PR frente à POO com \emph{callbacks}; \textbf{agora se comparam modelos de programação}.}
 Na programação de interfaces gráficas, o modelo de programação é o modo
 de coordenar evento, estado e tela que uma tecnologia impõe.
 Ele não é o paradigma, noção imprecisa que o modelo de computação torna
@@ -114,6 +115,7 @@ A \emph{notação} é a forma escrita de um modelo de programação numa
 tecnologia: as palavras e os sinais com que o programador escreve, no
 código-fonte da aplicação, o estado, os valores derivados dele e a tela
 que os mostra.
+\notamudou{A montagem da tela, que o projeto deixou de fora, \textbf{passa a fazer parte da notação}.}
 Nas tecnologias que este trabalho compara, há três modelos de
 programação, dois deles declarativos.
 No \emph{imperativo com callbacks}, o programador escreve \emph{callbacks} que
@@ -193,6 +195,7 @@ Pergunta-se, então: pelas \glspl{dc}, como difere a usabilidade da
 notação com que se programam interfaces gráficas em cada tecnologia entre
 os três modelos de programação~--- o imperativo com \emph{callbacks}, o
 declarativo por re-renderização e o declarativo por atualização granular?
+\notamudou{O projeto perguntava \enquote{Quais os conceitos apropriados para programação de interfaces gráficas?} e se a programação declarativa é adequada a elas.}
 Conhecer essas diferenças pode ajudar quem programa interfaces a escolher uma tecnologia
 sabendo o que o modelo de programação dela facilita e o que dificulta em
 cada \emph{problema de coordenação}.
@@ -218,9 +221,10 @@ programação facilita e o que dificulta, como no estado derivado e na
 assincronia.
 \end{itemize}
 
-\todo[inline]{Saiu o objetivo de demonstrar a PF com processamento de listas, herdado de 2017: fundamentar conceitos cabe à seção 2, e não é passo para o objetivo geral. Os outros mudam com a pergunta, que deixou de comparar paradigmas e passou a comparar três modelos de programação pela usabilidade das notações, segundo as DCs.}
+\notamudou[inline]{No projeto, o objetivo geral era demonstrar e analisar conceitos declarativos de PF e PR, e o primeiro objetivo específico, demonstrar a programação declarativa com a PF, se cumpria com programas de processamento de listas. \textbf{Esse objetivo sai} e vai para a seção 2, porque fundamentar conceitos não responde à pergunta. Os \enquote{programas concretos} passam a cinco tarefas, o JavaScript passa a TypeScript na web, com Kotlin no Android, e as DCs, que o projeto não listava, passam a oito.}
 
 Quanto aos objetivos, a pesquisa é \emph{exploratória}: busca compreensão nova
+\notamudou{O projeto também classificava a pesquisa como exploratória, com Leal (2011), e de natureza aplicada; \textbf{a natureza sai}.}
 e gera ideias e hipóteses para outras pesquisas
 \cite[p. 135]{runeson2009}.
 A pergunta de pesquisa, como a usabilidade difere entre os modelos de
@@ -229,9 +233,8 @@ descritivo-comparativo, das perguntas sobre como uma coisa difere de outra,
 e põem entre as perguntas exploratórias.
 As hipóteses desta pesquisa servem a experimentos controlados como o de
 \textcite{salvaneschi2017}.
-\todo[inline]{Em relação ao projeto de 2017: a pergunta deixa de comparar paradigmas, PF e PR frente à POO com callbacks, e passa a comparar três modelos de programação pelas notações, com as DCs como critério explícito. A demonstração de PR e callbacks dá lugar a cinco tarefas de interface, implementadas em cinco tecnologias web, e três delas também no Android. O JavaScript passa a TypeScript, e entra o Kotlin. A classificação quanto aos meios também muda (nota adiante). A natureza aplicada sai, e a classificação exploratória passa a se apoiar em Runeson e Höst (2009) e em Easterbrook et al. (2008), no lugar de Leal (2011).}
 
-Quanto aos meios, o trabalho é uma avaliação qualitativa, pelas \glspl{dc}, de
+Quanto aos meios, o trabalho é \realce{uma avaliação qualitativa}\notapergunta[list,prepend,caption={\textbf{2. Classificação do método}}]{no projeto, estudo de casos múltiplos (Yin 2001). \textbf{Fica o rótulo novo?} A troca se explica no texto ou só no pedido à coordenação?}, pelas \glspl{dc}, de
 implementações de um mesmo conjunto de tarefas.
 O conjunto de tarefas é um \emph{benchmark} de notação: testes que representam
 as tarefas da prática e servem para comparar técnicas alternativas por
@@ -258,7 +261,6 @@ da montagem dos itens na tela;
 O Contador, o Formulário e a Lista adaptam o \emph{Counter}, o \emph{Flight Booker} e
 o \emph{CRUD}, três das sete tarefas do 7GUIs, de \textcite[p. 11, 17, 25 e 34]{kiss2014}.
 A Busca e o Carrinho não têm equivalente no 7GUIs.
-\todo[inline]{O projeto classificava o trabalho, quanto aos meios, como estudo de casos múltiplos (Leal 2011; Yin 2001). As definições reunidas por Runeson e Höst (2009, p. 134 e 139) pedem um fenômeno contemporâneo no seu contexto real e excluem os programas de exemplo. Por isso a classificação saiu, e as interfaces implementadas passaram a se chamar tarefas, como no 7GUIs (Kiss 2014) e em Sim et al. (2003). Registrar essa mudança no texto?}
 
 Na web, o modelo de programação imperativo com \emph{callbacks} entra com o Web
 Component e o jQuery, e o delineamento compara dois pares de tecnologias próximas.
@@ -365,18 +367,18 @@ Nas seções em que o Formulário ou a Lista mostram diferença entre Views e
 Compose, a análise diz se a conclusão da web se repete no Android.
 A concisão tem ainda o apoio de uma contagem das linhas de cada
 implementação.
-\todo[inline]{Termos: \enquote{comparar} fica para o objetivo, \enquote{avaliação} para a aplicação das DCs ao código e \enquote{análise} para a parte que apresenta os resultados. Considerar um termo só, \enquote{avaliação}, para a atividade toda. A favor: uma palavra por conceito, sem o leitor se perguntar se são três atividades. Contra: mudam mais frases, e o objetivo geral perde o verbo \enquote{comparar}, que diz o que se faz entre os modelos de programação.}
+\notaproxima[inline]{Termos: \enquote{comparar} fica para o objetivo, \enquote{avaliação} para a aplicação das DCs ao código e \enquote{análise} para a parte que apresenta os resultados. Considerar um termo só, \enquote{avaliação}, para a atividade toda. A favor: uma palavra por conceito, sem o leitor se perguntar se são três atividades. Contra: mudam mais frases, e o objetivo geral perde o verbo \enquote{comparar}, que diz o que se faz entre os modelos de programação.}
 
 O delineamento tem limitações em três pontos: quem avalia, o instrumento e o
 objeto.
-Como a avaliação cabe ao autor, nenhum outro avaliador confere as conclusões
+\realce{Como a avaliação cabe ao autor, nenhum outro avaliador confere as conclusões}\notapergunta[list,prepend,caption={\textbf{4. Avaliador único}}]{o texto só declara o risco. \textbf{Entra um avaliador externo}, que aplique duas DCs a parte das implementações para comparar as leituras?}
 em cada dimensão.
 Em métodos de inspeção, avaliadores diferentes acham problemas bem
 diferentes na mesma interface \cite[p. 183]{hertzum2003}.
 Além disso, quem avalia pelas \glspl{dc} o que construiu tem conflito de
 interesse e tende a não ver os problemas que se acostumou a contornar
 \cite{dagit2006}.
-A familiaridade do autor com as tecnologias é desigual, maior com o React.
+\realce{A familiaridade do autor com as tecnologias é desigual, maior com o React.}\notapergunta[list,prepend,caption={\textbf{5. IA nas implementações}}]{as versões atuais foram geradas com agentes de IA a partir de implementações de referência escritas pelo autor, e o texto não diz isso. \textbf{Declarar nas limitações e nos controles do delineamento?}}
 Na avaliação, que é subjetiva, esse desnível pode favorecer a notação do
 React.
 
@@ -418,4 +420,4 @@ implementações das cinco tarefas.
 A seção \ref{chap:results} compara os três modelos de programação pelas
 \glspl{dc}, e a
 seção \ref{chap:conclusion} responde à pergunta de pesquisa.
-\todo{Os capítulos ainda seguem o projeto de 2017 e mudam com a seção de trabalhos relacionados; este parágrafo se revê no fechamento.}
+\notaproxima{Os capítulos ainda seguem o projeto de 2017 e mudam com a seção de trabalhos relacionados; este parágrafo se revê no fechamento.}
