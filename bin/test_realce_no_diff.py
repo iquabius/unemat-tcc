@@ -75,7 +75,8 @@ class Marcar(unittest.TestCase):
     def test_antes_para_no_realce_sem_par_com_o_arquivo_e_a_linha(self):
         with self.assertRaises(SystemExit) as erro:
             self.antes("ruim.tex", "a\n\\realce{b\n")
-        self.assertRegex(str(erro.exception.code), r"^realce-no-diff\.py: .*ruim\.tex:2: "
+        self.assertRegex(str(erro.exception.code),
+                         r"^realce-no-diff\.py: .*ruim\.tex:2: "
                          r"\\realce sem a chave que fecha")
 
     def test_antes_sem_arquivo_para(self):
