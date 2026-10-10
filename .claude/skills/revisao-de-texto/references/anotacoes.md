@@ -106,11 +106,35 @@ nos controles".
 
 - `\todo` e os comandos de nota de um argumento só entram no
   `\DIFaddbegin`, fora do `\DIFadd`, e compilam.
-- O `\realce` às vezes cai dentro do `\DIFadd`, que é um `\uwave` do ulem,
-  e o `\hl` ali não compila ("Leaders not followed by proper glue"). Por
-  isso o `tcc.tex` o troca por texto simples quando o `\DIFadd` existe: no
-  PDF do diff, o trecho realçado aparece como apagado e reescrito, em
-  azul, sem a cor.
+- O trecho que só ganhou o realce sai no diff sem marca de mudança e em
+  laranja. O `bin/latexdiff-tcc.sh` troca cada `\realce{X}` por dois
+  marcadores antes do latexdiff (`bin/realce-no-diff.py`), e as palavras
+  de X entram no diff como palavras; depois, devolve `\realce{X}` onde X
+  saiu sem marca. Se uma palavra de X mudou, o trecho sai com as marcas
+  do diff e sem o laranja: o `\hl` não aceita o `\DIFadd` dentro. O realce
+  que sai do texto não deixa marca. Escolha do autor em 2026-10-10.
+- Por que o realce precisa disso: o latexdiff compara o `\realce{X}` como
+  um token só, diferente das palavras de X, e marcava o trecho como
+  apagado (vermelho riscado) e reescrito (azul). E o latexdiff 1.4.0 (sub
+  `add_safe_commands`) põe na lista de comandos seguros todo
+  `\newcommand` do preâmbulo novo cujo corpo só tem comandos seguros: o
+  `\newcommand{\realce}[1]{#1}` do ramo `[disable]` passa, e o `\realce`
+  caía dentro do `\DIFadd`, um `\uwave` do ulem, onde o `\hl` não compila
+  ("Leaders not followed by proper glue"). Nas amostras de 2026-10-09, o
+  `\realce` ficou fora do `\DIFadd` só onde o preâmbulo não o definia
+  como `{#1}`. Até 2026-10-10, o `tcc.tex` o trocava por texto simples
+  no diff, sem a cor.
+- Alternativas descartadas em 2026-10-10: nenhuma opção do latexdiff faz
+  um envoltório contar como texto igual (`--append-textcmd=realce` dá
+  `\realce{\DIFadd{X}}`, e o seguro vence o de texto);
+  `--exclude-safecmd=realce` deixa o `\realce` fora do `\DIFadd` e mostra o
+  laranja, mas o riscado continua; um realce feito com o ulem
+  (`\markoverwith`) compila dentro do `\uwave`, mas não quebra a linha e
+  passa da margem, e o riscado continua; tirar o `\realce` das duas versões
+  sem devolvê-lo resolve o riscado e perde o laranja.
+- O negrito dentro da nota sai no diff: a nota fica fora do `\DIFadd`.
+  Conferido em 2026-10-10 na nota "2. Classificação do método", que saíra
+  sem negrito num PDF do diff ao vivo anterior à mudança do `.org`.
 - Um comando com dois argumentos obrigatórios, como o `\hlfix` da
   documentação do todonotes (1.8.13), realce e nota numa chamada só, cai
   inteiro no `\DIFadd`, e o `\todo` dentro do ulem não compila. Por isso

@@ -26,6 +26,14 @@
 # acrescentado; o de inserção depois do rótulo (\gls{pr}[s]) não é tratado
 # e sairia como texto, mas a exportação do org-ref não o produz.
 #
+# Realce das notas para o orientador (\realce, no latex/tcc.tex): o latexdiff
+# marcaria o trecho que só ganhou o realce como apagado e reescrito, e o
+# levaria para dentro do \DIFadd, onde o \hl não compila. O
+# bin/realce-no-diff.py troca o \realce por dois marcadores nas cópias dos
+# .tex, em VELHO e NOVO, antes do latexdiff, e o devolve depois, onde o
+# trecho saiu sem marca. As cópias são dos diretórios dos dois tcc.tex
+# inteiros, porque o --flatten resolve os \input por eles.
+#
 # Quebra de parágrafo inserida ou removida: o latexdiff a trata como comando
 # e não a marca. O bin/marcar-quebras.py, no fim, põe um ¶ na cor da mudança
 # no fim do parágrafo que a quebra fecha, e pula as listagens: a lista de
@@ -36,7 +44,16 @@ set -euo pipefail
 PICT='PICTUREENV=(?:picture|DIFnomarkup|minted)[\w\d*@]*'
 SIGLAS='CUSTOMDIFCMD=[gG]ls(?:pl)?(?![a-zA-Z])'
 
-latexdiff --flatten --packages=biblatex --config="$PICT" --config="$SIGLAS" "$1" "$2" |
+BIN=$(dirname "$0")
+TMP=$(mktemp -d)
+trap 'rm -rf "$TMP"' EXIT
+cp -r "$(dirname "$1")" "$TMP/velho"
+cp -r "$(dirname "$2")" "$TMP/novo"
+find "$TMP" -name '*.tex' -exec "$BIN/realce-no-diff.py" antes {} +
+
+latexdiff --flatten --packages=biblatex --config="$PICT" --config="$SIGLAS" \
+    "$TMP/velho/$(basename "$1")" "$TMP/novo/$(basename "$2")" |
+  "$BIN/realce-no-diff.py" depois |
   awk '/^\\begin\{document\}/ && !feito {
     print "%DIF SIGLAS DO GLOSSARIES (bin/latexdiff-tcc.sh)"
     print "\\providecommand{\\ADDgls}[2][]{{\\protect\\color{blue}\\gls[#1]{#2}}}"
@@ -52,4 +69,4 @@ latexdiff --flatten --packages=biblatex --config="$PICT" --config="$SIGLAS" "$1"
   }
   { print }
   END { if (!feito) { print "latexdiff-tcc.sh: sem \\begin{document} na saída do latexdiff" > "/dev/stderr"; exit 1 } }' |
-  "$(dirname "$0")/marcar-quebras.py"
+  "$BIN/marcar-quebras.py"

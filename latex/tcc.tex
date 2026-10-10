@@ -31,8 +31,9 @@
 \newcommand{\notaproxima}[2][]{\todo[disable,#1]{#2}}
 % O realce do trecho a que a nota se refere, na cor da pergunta. O \hl do
 % soul quebra com \cite e \gls dentro: só trecho sem citação nem sigla.
-% Sai com o [disable] do todonotes e no PDF do latexdiff, onde o \hl
-% dentro do \DIFadd (ulem) não compila.
+% Sai com o [disable] do todonotes. No PDF do latexdiff, o
+% bin/latexdiff-tcc.sh o deixa fora do \DIFadd (ulem), onde o \hl não
+% compila, e o tira do trecho realçado que mudou por dentro.
 \usepackage{soul}
 \sethlcolor{notapergunta}
 \makeatletter
@@ -42,7 +43,6 @@
   \newcommand{\realce}[1]{\hl{#1}}
 \fi
 \makeatother
-\AtBeginDocument{\ifdefined\DIFadd\renewcommand{\realce}[1]{#1}\fi}
 
 % O número de cada parágrafo na margem direita, para a orientação; a versão
 % entregue o desliga com \usepackage[disable]{paragrafos}.
