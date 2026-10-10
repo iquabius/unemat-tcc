@@ -114,7 +114,8 @@ nos controles".
   do diff e sem o laranja: o `\hl` não aceita o `\DIFadd` dentro. Isso
   inclui a frase nova que já entra realçada, que só ganha o laranja no
   diff depois do commit, e o realce que cresce sobre palavras que já
-  estavam no texto. O realce que sai do texto não deixa marca. Escolha do
+  estavam no texto. O trecho com um comentário (`%`) dentro também sai
+  sem o laranja. O realce que sai do texto não deixa marca. Escolha do
   autor em 2026-10-10.
 - O `git latexdiff` do `readme.org` não passa pelo `bin/latexdiff-tcc.sh` e
   usa `--exclude-safecmd=realce`, que deixa o `\realce` fora do `\DIFadd`:
