@@ -1,6 +1,7 @@
-// Projeto Gradle único dos casos Android. Cada caso e variante é um módulo
-// em casos/<caso>/android-<variante>/, ao lado das implementações web, e se
-// chama :<caso>-android-<variante> (por exemplo, :contador-android-compose).
+// Projeto Gradle único dos casos Android. Cada tecnologia de cada caso é um
+// módulo em casos/<caso>/android-<tecnologia>/, ao lado das implementações
+// web, e se chama :<caso>-android-<tecnologia> (por exemplo,
+// :contador-android-compose).
 pluginManagement {
     repositories {
         google()
@@ -21,11 +22,11 @@ rootProject.name = "casos-android"
 
 val casos = rootDir.parentFile
 casos.listFiles().orEmpty().sorted().forEach { caso ->
-    listOf("android-views", "android-compose").forEach { variante ->
-        val pasta = caso.resolve(variante)
+    listOf("android-views", "android-compose").forEach { subpasta ->
+        val pasta = caso.resolve(subpasta)
         if (pasta.resolve("build.gradle.kts").exists()) {
-            include(":${caso.name}-$variante")
-            project(":${caso.name}-$variante").projectDir = pasta
+            include(":${caso.name}-$subpasta")
+            project(":${caso.name}-$subpasta").projectDir = pasta
         }
     }
 }

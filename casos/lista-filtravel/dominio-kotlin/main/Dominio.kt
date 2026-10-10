@@ -5,8 +5,8 @@ import java.text.Normalizer
 import java.text.NumberFormat
 import java.util.Locale
 
-// Catálogo e regras da Lista filtrável, iguais nas duas variantes Android: o
-// porte do dominio.ts da web, com os mesmos dados, nomes e regras.
+// Catálogo e regras da Lista filtrável, iguais nas duas tecnologias do
+// Android: o porte do dominio.ts da web, com os mesmos dados, nomes e regras.
 // Nada aqui depende de interface: cada implementação decide quando chamar.
 
 // Como o type Ordem da web, com o rótulo de cada uma (o ordens da web).

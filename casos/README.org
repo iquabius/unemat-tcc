@@ -50,7 +50,7 @@ tecnologias) está nas decisões em [[file:../docs/adr/][docs/adr/]].
 * Instalar e rodar (Android)
 
   Contador, Formulário com validação e Lista filtrável também existem no
-  Android, em Kotlin, em duas variantes:
+  Android, em Kotlin, em duas tecnologias:
 
   | Subpasta           | Tecnologia                                         |
   |--------------------+----------------------------------------------------|
@@ -59,7 +59,7 @@ tecnologias) está nas decisões em [[file:../docs/adr/][docs/adr/]].
 
   Todos formam um único projeto Gradle, com raiz em =casos/android/=, onde
   ficam o /wrapper/ e as versões (=gradle/libs.versions.toml=). Cada
-  subpasta é um módulo, chamado =:<caso>-android-<variante>=.
+  subpasta é um módulo, chamado =:<caso>-android-<tecnologia>=.
 
   Precisa do Android SDK (o Android Studio o instala em =~/Android/Sdk=),
   com a plataforma =android-37= e as /build-tools/ 36.0.0. Para compilar

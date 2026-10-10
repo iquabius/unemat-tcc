@@ -58,7 +58,7 @@ compartilhado por =android-views= e =android-compose=; no Qt, para C++ em
   Com um exemplo aberto no navegador, cole o arquivo no console.
 
   No Android, as mesmas 19 verificações estão em =RoteiroTest.kt=, nos testes
-  de cada variante, e rodam com o =npm run capturas= (ou com
+  de cada tecnologia, e rodam com o =npm run capturas= (ou com
   =./gradlew testDebugUnitTest= em =casos/android/=). O =DominioTest.kt=
   confere os casos-limite do porte do domínio (31/02, e-mail, ordem das
   datas).

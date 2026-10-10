@@ -41,7 +41,7 @@ recalculá-la: é isso que se compara.
   das capturas ficam em =cenas.mts=.
 
   No Android, as mesmas 11 verificações estão em =RoteiroTest.kt=, nos testes
-  de cada variante. O =DominioTest.kt= compara o porte com respostas do
+  de cada tecnologia. O =DominioTest.kt= compara o porte com respostas do
   próprio =dominio.ts=, rodado no Node: as três ordens, os 30 preços, as
   categorias e as buscas.
 
