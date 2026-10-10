@@ -183,7 +183,7 @@ tema. "Conferido": lido no PDF pelo agente principal. Cópias em
 | Anthony 1999 (IEEE TPC 42(1)) | Introduções de engenharia de software são longas e alternam território e nicho "piece by piece"; definições e exemplos depois do movimento 1 | p. 42-44 | conferido |
 | Anthony 1999 | Passo "Evaluation of Research" no movimento 3, em todas as 12 introduções: aplicabilidade (58% do passo) e novidade (24%, em 7 das 12), dita como "differs from", "unique", "extends" | p. 44 | conferido |
 | Posteguillo 1999 (ESP 18(2)) | Em 40 artigos de computação: lacuna (1B) em 57,5%, contra-argumento (1A) em 2,5%, movimento 2 cíclico em 75%; estrutura do artigo bem-vinda | p. 142-144 | conferido |
-| Motta-Roth e Hendges 2010 | Justificativa do projeto: "demonstrar a relevância, a originalidade e/ou a aplicabilidade"; não prometer demais | p. 104 (PDF = página + 49) | conferido |
+| Motta-Roth e Hendges 2010 | Justificativa do projeto: "demonstrar a relevância, a originalidade e/ou a aplicabilidade"; não prometer demais | p. 104 (PDF = página − 49) | conferido |
 | Motta-Roth e Hendges 2010 | CARS de Swales (1990, p. 141) em português: território, nicho, ocupar o nicho | p. 131-132 | conferido |
 | Motta-Roth e Hendges 2010 | Razões pessoais, como preferência pelo tema, "não vêm ao caso" | p. 133 | conferido |
 | Prodanov e Freitas 2013 | Introdução da monografia: "o tema da monografia e a justificativa de sua escolha; a relevância e as contribuições para a área", e "as partes que compõem o trabalho" | p. 252 | conferido |
