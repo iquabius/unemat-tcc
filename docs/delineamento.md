@@ -63,5 +63,5 @@ no texto; o que cada um acrescenta e os custos estão em
 | Divergência dentro da coluna | Solid e Angular, ou Web Component e jQuery, podem divergir numa DC | a célula da tabela-síntese registra a divergência | ADR 0017 |
 | Avaliador | uma pessoa só, o autor, que construiu o que avalia, com familiaridade desigual, maior com o React | limitações (Hertzum e Jacobsen 2003, p. 183; Dagit et al. 2006) | — |
 | Origem das implementações | as atuais foram geradas com agentes de IA a partir de implementações de referência do autor, e não se sabe de quais | ainda não | `docs/implementacoes-de-referencia.md`; "Escrever a declaração de uso de IA do TCC a partir do histórico do repositório" (tcc-gjw); pauta da orientação de 2026-10-09, ponto A4 |
-| Tamanho das tarefas | pequenas, e o que só aparece em programa grande ou na manutenção fica de fora | limitações | Stol e Fitzgerald (2018, p. 11:10) e Green e Blackwell (1998, p. 62), candidatas (`docs/literatura.md`, seção 16) |
+| Tamanho das tarefas | pequenas, e o que só aparece em programa grande ou na manutenção fica de fora | limitações | Stol e Fitzgerald (2018, p. 11:10) e Green e Blackwell (1998, p. 62), candidatas (`docs/metodo-da-avaliacao.md`, seção 5) |
 | Origem do conjunto de tarefas | definido pelo autor; três adaptam o 7GUIs, duas não | limitações (Sim et al. 2003, p. 76) | — |

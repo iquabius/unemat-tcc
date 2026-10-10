@@ -56,5 +56,5 @@ Fontes: Stack Overflow 2025; CHANGELOG do Angular (17.0.0, 2023-11-08;
 *Signal Forms* (2026-09-26); `@angular/core` 22.2.0 com `rxjs` como
 *peer dependency* (npm, 2026-09-25); *Design Principles* do React
 (legacy.reactjs.org), modelo *pull*; taxonomia *push/pull* de
-`bainomugisha2013`; `docs/literatura.md`, seção 8; commits `25cf4dd` e
-`7126e77`.
+`bainomugisha2013`; `docs/tecnologias-web.md`, seções 2 a 6; commits
+`25cf4dd` e `7126e77`.

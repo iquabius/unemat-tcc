@@ -122,7 +122,8 @@ objetivos, a introdução, o `CONTEXT.md` e a pauta da orientação de
 
 Fontes: `docs/paradigma-modelo-e-notacao.md`, com as definições, os
 contrastes, as tensões e os trechos com página (seção 9, que veio de
-`docs/literatura.md`, seção 15); `docs/literatura.md`, seção 8.1;
+`docs/literatura.md`, seção 15, dividida em 2026-10-10);
+`docs/tecnologias-web.md`, seção 2;
 conferência no PDF de 2026-10-08 em `tmp/buscas-2026-10-08/` (fora do
 git); Van Roy e Haridi (2004, p. xiii, 29, 406, 679); Van Roy (2009,
 p. 10, 14); Green e Blackwell (1998, p. 8, 24); Green e Petre (1996, JVLC

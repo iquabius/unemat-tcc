@@ -316,7 +316,7 @@ Formato:
 - Frase: “A revisão não viu os trabalhos que citam Kiss (2014), que a base
   usada não indexa, e a lacuna vale para o que ela encontrou.”
 - Trecho: não se apoia em trecho de Kiss; a ressalva vem do Apêndice II
-  (=latex/apendices/apend_II.tex=) e de =docs/literatura.md=, seção 5.1.
+  (=latex/apendices/apend_II.tex=) e de =docs/revisao-bibliografica.md=, seção 2.
 - Observação: tarefa tcc-lf9 para buscar os citantes.
 - Conferido: 2026-10-09.
 
@@ -813,14 +813,16 @@ Formato:
   p. 443)
 - Lido em: =tmp/fontes/green1989.pdf=, p. 1 do PDF (p. 443).
 - Conferido: 2026-10-06.
-** blackwell2001, p. 326
+** blackwell2001, p. 327
 - Frase: “Elas são um vocabulário para descrever a usabilidade de notações
   e de outros artefatos de informação.”
-- Trecho: “The Cognitive Dimensions of Notations are such a vocabulary.”;
-  “Cognitive Dimensions of Notations (CDs) is a framework for describing
-  the usability of notational systems [...] and information artifacts”
-- Lido em: =tmp/fontes/blackwell2001.pdf=, p. 2 do PDF (p. 326; o
-  capítulo vai de 325 a 341).
+- Trecho: “The Cognitive Dimensions of Notations are such a vocabulary.”
+  (p. 326); “Cognitive Dimensions of Notations (CDs) is a framework for
+  describing the usability of notational systems [...] and information
+  artifacts” (p. 327)
+- Lido em: =tmp/fontes/blackwell2001-springer.pdf=, p. 2-3 do PDF
+  (p. 326-327; o capítulo vai de 325 a 341), em 2026-10-10; antes, na
+  cópia dos autores, =tmp/fontes/blackwell2001.pdf=, sem paginação.
 - Conferido: 2026-10-06.
 ** mernik2009
 - Frase: “Mernik et al. (2009) compararam, com 36 programadores, uma

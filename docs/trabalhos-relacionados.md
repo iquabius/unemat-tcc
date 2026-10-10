@@ -3,8 +3,8 @@
 Referência. Lista os candidatos à seção de trabalhos relacionados, que
 ainda não existe no texto (tarefa tcc-iku), com o que cada um compara e
 como, e os trechos conferidos dos mais próximos. Veio de
-`docs/literatura.md`, seções 3.2 (Lima 2024 e UAX), 10, 13.1 e 14.1, em
-2026-10-10. A busca que os achou está em
+`docs/literatura.md` (índice até `ff620ad`), seções 3.2 (Lima 2024 e
+UAX), 10, 13.1 e 14.1, em 2026-10-10. A busca que os achou está em
 `docs/revisao-bibliografica.md`.
 
 **Conclusão.** Em 2026-10-09, nenhum trabalho encontrado repete o

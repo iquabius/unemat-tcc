@@ -5,8 +5,9 @@ Component, jQuery, React, Solid e Angular com RxJS) e as descartadas
 (Svelte, Vue): o que mudou de 2016 a 2026, o modelo de reatividade
 segundo a documentação oficial, as medidas de uso, os artigos não
 acadêmicos e os prós e contras de cada escolha. Sustenta o ADR 0013.
-Veio de `docs/literatura.md`, seções 4 e 8, em 2026-10-10. Cada
-afirmação sobre ferramenta ou versão leva a data em que foi observada.
+Veio de `docs/literatura.md` (índice até `ff620ad`), seções 4 e 8, em
+2026-10-10. Cada afirmação sobre ferramenta ou versão leva a data em que
+foi observada.
 
 **Conclusão.** A PR virou o modelo padrão de reatividade das principais
 bibliotecas de UI, com os *signals* (seção 1). Em 2026-09-26, o React é

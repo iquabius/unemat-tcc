@@ -219,8 +219,8 @@ atualização granular não tem correspondente no Android, e o mais perto
 são as *properties* e os *bindings* do JavaFX (tutorial da Oracle, Java
 8), em que a relação se declara uma vez e se mantém sozinha, mas a tela
 continua montada por objetos ou FXML. Tutoriais consultados em
-2026-10-08; o uso do Java e do Kotlin está em `docs/literatura.md`,
-seção 7.
+2026-10-08; o uso do Java e do Kotlin está em
+`docs/kotlin-e-java-no-android.md`.
 
 ### Fora da academia, e pontes para a primeira menção
 

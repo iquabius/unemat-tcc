@@ -4,8 +4,9 @@ Referência. Reúne as fontes que sustentam como a metodologia da
 introdução descreve a avaliação: o rótulo do método, o 7GUIs como origem
 de três tarefas, as oito DCs e o limite das tarefas pequenas, com o
 trecho e a página; no fim, as fontes sobre a escrita da introdução. Veio
-de `docs/literatura.md`, seções 9, 11, 13.2, 14.2 e 16, em 2026-10-10. O
-que o delineamento controla está em `docs/delineamento.md`.
+de `docs/literatura.md` (índice até `ff620ad`), seções 9, 11, 13.2, 14.2
+e 16, em 2026-10-10. O que o delineamento controla está em
+`docs/delineamento.md`.
 
 **Conclusão.** Em 2026-10-10, quanto aos meios, o trabalho é uma
 avaliação qualitativa, pelas DCs, de implementações de um mesmo conjunto
@@ -110,7 +111,7 @@ agente principal, e "subagente", só pela leitura do subagente. Cópias em
 | Green e Petre 1996 (`green1996d`) | HMO "at the notational level, not solely at the semantic level" (p. 150); RE = "what is this bit for?" (p. 158); HMO: "resort to fingers or pencilled annotation" (p. 138); compromisso prematuro vem do ambiente que "constrains the order" (p. 155), mas também da escolha de construção, "while should be changed to for" (p. 157); consistência é "guessability", avaliada por introspecção (p. 147); notação secundária é "idiosyncratic and private" (p. 159) | versão publicada (conferida em 2026-10-04) | conferido |
 | Blackwell e Green 2003 (`blackwell2003`) | "not an analytic method" (p. 106, seção 1); aplica-se a todo artefato de informação, com destaque na programação visual (p. 112) | versão publicada (conferida em 2026-10-04) | conferido |
 | Britton e Kutar 2001, PPIG 13 (`britton2001`) | Um perfil com só um subconjunto das DCs pode deixar de fora aspectos importantes; o perfil de compreensão incluía RE e HMO, mas também consistência e notação secundária. Citados pela escolha das duas na metodologia desde 2026-10-04 | p. 265 (resumo); p. 267 (p. 3 da cópia) | conferido |
-| Blackwell et al. 2001 (`blackwell2001`) | Relata o mesmo estudo: "prior selection of a subset of CDs may be unhelpful" | p. 5 da cópia | conferido |
+| Blackwell et al. 2001 (`blackwell2001`) | Relata o mesmo estudo: "prior selection of a subset of CDs may be unhelpful" | p. 332 (p. 5 da cópia dos autores; conferida na versão publicada em 2026-10-10) | conferido |
 | Ledo et al. 2018 (`ledo2018`) | Avaliações feitas pelos autores "may have an implicit bias"; omitir heurísticas sem razão clara parece "cherry picking" | p. 9 (o artigo ocupa p. 1-17) | conferido |
 | Hertzum e Jacobsen 2003 (`hertzum2003`) | Efeito do avaliador: concordância entre dois avaliadores de 5% a 65% | resumo (pré-publicação) | conferido |
 | Clarke e Becker 2003 (`clarke2003`) | Usa as DCs para avaliar uma API orientada a objetos: "using the Cognitive Dimensions framework to evaluate the usability of an object oriented (OO) application programming interface (API)", adaptado ao caso | p. 359 (resumo) | conferido |

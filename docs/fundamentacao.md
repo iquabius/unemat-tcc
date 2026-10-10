@@ -5,12 +5,13 @@ de programação (`texto/prog.org`), com o que cada uma sustenta e, quando
 lido, o trecho conferido: a matriz tema × referência, os candidatos da
 revisão de 2026-09-24, as fontes sobre *callbacks*, eventos e
 *promises*, os trechos que saíram da introdução e Zampetti et al.
-(2025). Veio de `docs/literatura.md`, seções 2, 3.1, 3.2, 4 (o item da
-literatura revisada por pares), 12, 13.3 e 14.3, em 2026-10-10.
+(2025). Veio de `docs/literatura.md` (índice até `ff620ad`), seções 2,
+3.1, 3.2, 4 (o item da literatura revisada por pares), 12, 13.3 e 14.3,
+em 2026-10-10.
 
 **Conclusão.** Em 2026-10-10, os 12 candidatos de prioridade alta estão
-no `refs.bib` desde 2026-09-25 (seção 2), e dos complementares entraram
-`lee2025`, `berry2020` e `salvaneschi2016` (seção 3). Os trechos que
+no `refs.bib` desde 2026-09-25 (seção 2), e dos complementares estão lá
+`lee2025`, `berry2020` e `salvaneschi2016` (seção 3), este desde 2020. Os trechos que
 sustentam a crítica ao *callback* da introdução estão em
 `texto/fontes/intro.org`; aqui ficam as fontes que saíram do texto ou
 servem só à fundamentação (seções 4 e 5).
@@ -26,7 +27,7 @@ acrescentar, não o estado do `refs.bib`.
 | Paradigmas | roy2009 | + krishnamurthi2019 (+ krishnamurthi2008) |
 | Estado | rouse2005 (WhatIs.com) | roy2004 ou abelson1996, com página |
 | GUIs, eventos, *callbacks* | blackheath2016; na intro: maier2010, edwards2009, fischer2007, jarvi2008, myers1994 | + blouin2022 + madsen2020 + (nishizu2022, lee2025) + literatura cinzenta sobre *signals* |
-| PF | hughes1990, noble1994, roy2009 | + mehlhorn2022 + (zampetti2024, contraponto) |
+| PF | hughes1990, noble1994, roy2009 | + mehlhorn2022 + (Zampetti et al. 2025, contraponto) |
 | PR / programas reativos | berry1989, salvaneschi2015, roy2009; na intro: bainomugisha2013 | + zimmerle2022 + (oeyen2024, berry2020) |
 | PR × PFR (tempo) | roy2009 | + elliott1997 + perez2023 + czaplicki2013 + (graulund2021) |
 | Evidência empírica PR × Observer | salvaneschi2014 (na intro) | + salvaneschi2017 + zimmerle2025 + farias2024 + (banken2018) |
@@ -82,11 +83,11 @@ o UAX estão em `docs/trabalhos-relacionados.md`, seção 6.
 | BERRY, G.; SERRANO, M. HipHop.js: (a)synchronous reactive web programming. PLDI 2020. DOI 10.1145/3385412.3385984 | O Berry de 1989 levando a programação síncrona para a web | Liga `berry1989` e `prog.org:121-124` à web |
 | PEREIRA, A. M. et al. Reactive programming with Swift Combine: an analysis of problems faced by developers on Stack Overflow. SBES 2023. DOI 10.1145/3613372.3613381 | Problemas práticos de PR em UI móvel | Discussão |
 | BANKEN, H.; MEIJER, E.; GOUSIOS, G. Debugging data flows in reactive programs. ICSE 2018. DOI 10.1145/3180155.3180156 | Depurar PR é difícil; desenvolvedores recorrem a *log* | Desvantagens da PR (DC dependências ocultas) |
-| SALVANESCHI, G.; MEZINI, M. Debugging for reactive programming. ICSE 2016. DOI 10.1145/2884781.2884815 | Idem, do grupo que o TCC cita. Ler antes de citar | Desvantagens da PR |
+| SALVANESCHI, G.; MEZINI, M. Debugging for reactive programming. ICSE 2016. DOI 10.1145/2884781.2884815 | Idem, do grupo que o TCC cita. No `refs.bib` desde 2020, sem DOI nem anotação; só o resumo, lido por subagente (seção 4.3). Ler o PDF antes de citar | Desvantagens da PR |
 | KÖHLER, M.; SALVANESCHI, G. Automated refactoring to reactive programming. ASE 2019. DOI 10.1109/ASE.2019.00082 | Cita "important industrial adoption" da ReactiveX | Adoção da PR |
 | OEYEN, B.; DE KOSTER, J.; DE MEUTER, W. Reactive programming without functions. *The Art, Science, and Engineering of Programming*, v. 8, 2024. DOI 10.22152/programming-journal.org/2024/8/11 | Do grupo de `bainomugisha2013` (VUB) | Seção de PR |
 | FOWLER, S. Model-View-Update-Communicate: session types meet the Elm Architecture. ECOOP 2020. DOI 10.4230/LIPIcs.ECOOP.2020.14 | Formaliza o MVU, que substituiu os *signals* no Elm | Elm pós-2016 |
-| ZAMPETTI, F. et al. The downside of functional constructs: a quantitative and qualitative analysis of their fix-inducing effects. *Empirical Software Engineering*, 2024. DOI 10.1007/s10664-024-10568-z | Contraponto às vantagens da PF; lido em 2026-10-03 (seção 6) | "Porque PF é relevante" |
+| ZAMPETTI, F. et al. The downside of functional constructs: a quantitative and qualitative analysis of their fix-inducing effects. *Empirical Software Engineering*, v. 30, n. 1, art. 9, 2025 (online em 2024-10-22). DOI 10.1007/s10664-024-10568-z | Contraponto às vantagens da PF; lido em 2026-10-03 (seção 6) | "Porque PF é relevante" |
 | CHARLAK; BRZEZIŃSKI; KOZIEŁ. Comparative analysis of reactive programming and Java virtual threads. 2026. DOI 10.35784/jcsi.9409 | Único achado sobre PR no servidor; trata de desempenho | Justifica deixar o servidor fora (ADR 0001) |
 
 Sobre Jetpack Compose só apareceu literatura sem revisão por pares em
@@ -100,7 +101,7 @@ versão em periódico do experimento citado; a linha da UFPE (Zimmerle,
 Gama e colaboradores) avalia PR com DCs; PFR para GUIs continuou na
 teoria (Graulund 2021, Bahr & Møgelberg 2023); semântica formal do React
 (Madsen 2020, Lee 2025); declarativo × imperativo em listas (Mehlhorn &
-Hanenberg 2022; contraponto Zampetti 2024).
+Hanenberg 2022; contraponto Zampetti et al. 2025).
 
 ## 4. *Callbacks*, eventos e *promises*: fontes da justificativa (levantadas em 2026-10-02)
 
@@ -204,8 +205,8 @@ para a análise.
 
 ZAMPETTI, F.; ZID, C.; ANTONIOL, G.; DI PENTA, M. The downside of
 functional constructs: a quantitative and qualitative analysis of their
-fix-inducing effects. *Empirical Software Engineering*, v. 30, art. 9,
-2025 (online em 2024-10-22). DOI 10.1007/s10664-024-10568-z. Lidos em
+fix-inducing effects. *Empirical Software Engineering*, v. 30, n. 1, art.
+9, 2025 (online em 2024-10-22). DOI 10.1007/s10664-024-10568-z. Lidos em
 2026-10-03 o resumo, as RQs, o delineamento, os resultados, as ameaças e
 as implicações, na versão do editor (43 p., "Page N of 43" igual à
 página do PDF). Só Python; JavaScript e TypeScript só aparecem numa

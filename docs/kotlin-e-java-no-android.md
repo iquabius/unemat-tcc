@@ -2,9 +2,9 @@
 
 Referência. Literatura cinzenta sobre Kotlin × Java no Android, que
 sustenta o ADR 0005: os argumentos a favor e contra, as fontes e a
-conferência dos números de adoção. Veio de `docs/literatura.md`, seção
-7, em 2026-10-10 (consultada em 2026-09-26). Cada afirmação sobre
-ferramenta ou versão leva a data em que foi observada.
+conferência dos números de adoção. Veio de `docs/literatura.md` (índice
+até `ff620ad`), seção 7, em 2026-10-10 (consultada em 2026-09-26). Cada
+afirmação sobre ferramenta ou versão leva a data em que foi observada.
 
 **Conclusão.** O Compose é Kotlin-only, e o Google recomenda o Kotlin
 para projetos novos. Os números de adoção vêm do Google e da JetBrains,

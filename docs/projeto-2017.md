@@ -84,7 +84,7 @@ Kiss (2014) como precedente; a pesquisa exploratória.
    viraram o modelo de reatividade do Angular, do Solid, do Preact e do
    Svelte 5 (2024), com proposta de padronização no JavaScript (TC39). A
    re-renderização e a atualização granular são dois modelos de
-   programação que 2017 não distinguia (`docs/literatura.md`, seção 4).
+   programação que 2017 não distinguia (`docs/tecnologias-web.md`, seção 1).
 2. **Paradigma não é o que as DCs medem.** Kiss (2014, p. 23) registra,
    no *Temperature Converter*, que "the toolkit dominated this evaluation
    and the paradigms did not come into play"; as DCs avaliam o que se

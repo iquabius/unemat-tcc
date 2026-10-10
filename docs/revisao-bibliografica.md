@@ -4,8 +4,9 @@ Referência. Diz como a revisão bibliográfica do TCC foi feita, nas três
 rodadas, com os números de cada etapa, e o estado da lacuna que ela
 sustenta; serve à metodologia da revisão, que o Apêndice II
 (`latex/apendices/apend_II.tex`) resume, e à lacuna da introdução. Veio
-de `docs/literatura.md`, seções 1, 3.3, 5 e 6, em 2026-10-10. Cada
-afirmação sobre ferramenta leva a data em que foi observada.
+de `docs/literatura.md` (índice até `ff620ad`), seções 1, 3.3, 5 e 6, em
+2026-10-10. Cada afirmação sobre ferramenta leva a data em que foi
+observada.
 
 **Conclusão.** Em 2026-10-09, depois da terceira rodada, nenhum trabalho
 encontrado avalia pelas DCs a notação do React, do Solid ou do Angular
