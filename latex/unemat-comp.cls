@@ -190,6 +190,11 @@
   hyperref,               % Turn citations into links
 ]{biblatex}
 
+% O dois-pontos conta como parte do número, para as páginas por artigo
+% (pages = {86:1--86:24}, da PACMPL) ganharem o "p." do \mkpageprefix, que
+% só o põe quando o campo passa no \ifnumerals
+\DeclareNumChars*{:}
+
 % fornece o comando \textelp{} -> […]
 \usepackage[autostyle]{csquotes}
 
