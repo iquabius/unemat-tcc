@@ -65,7 +65,7 @@ Gradle em `casos/android/` e as dependências (`package.json`,
   Os dois em Kotlin.
 - Um único projeto Gradle em `casos/android/`: o `settings.gradle.kts`
   inclui sozinho toda pasta `android-views` ou `android-compose` que tenha
-  `build.gradle.kts`, com o nome `:<caso>-android-<tecnologia>`. O
+  `build.gradle.kts`, com o nome `:<caso>-<tecnologia>`. O
   `build.gradle.kts` da raiz traz a configuração comum; o de cada módulo,
   só plugins, `namespace` e dependências.
 - Mesma especificação do `README.org` do caso: mesmos textos, mensagens,
