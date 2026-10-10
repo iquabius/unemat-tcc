@@ -139,9 +139,8 @@ nos controles".
   (`\markoverwith`) compila dentro do `\uwave`, mas não quebra a linha e
   passa da margem, e o riscado continua; tirar o `\realce` das duas versões
   sem devolvê-lo resolve o riscado e perde o laranja.
-- O negrito dentro da nota sai no diff: a nota fica fora do `\DIFadd`.
-  Conferido em 2026-10-10 na nota "2. Classificação do método", que saíra
-  sem negrito num PDF do diff ao vivo anterior à mudança do `.org`.
+- O negrito dentro da nota sai no diff: a nota fica fora do `\DIFadd`
+  (2026-10-10).
 - Um comando com dois argumentos obrigatórios, como o `\hlfix` da
   documentação do todonotes (1.8.13), realce e nota numa chamada só, cai
   inteiro no `\DIFadd`, e o `\todo` dentro do ulem não compila. Por isso
