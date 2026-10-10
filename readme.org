@@ -69,7 +69,7 @@
    latexdiff para o minted com a configuração =PICTUREENV=. Além disso
    desativamos a visualização do PDF depois da compilação do =latexmk=.
 
-   Duas opções são necessárias:
+   Três opções são necessárias:
 
    - =--main latex/tcc.tex=: sem ela o =git-latexdiff= tenta adivinhar o arquivo
      principal e desiste quando encontra mais de um candidato.
@@ -78,11 +78,18 @@
      =\textcite= cujo argumento opcional mudou (p. ex., =[p. 2]= →
      =[p. 2; tradução nossa]=) é marcado com as chaves desbalanceadas, e o
      =pdflatex= para com “File ended while scanning use of \DIFdel”.
+   - =--exclude-safecmd=realce=: o =latexdiff= põe o =\realce= das notas para
+     o orientador na lista de comandos seguros, porque o =latex/tcc.tex= o
+     define como ={#1}= com o todonotes desligado, e o leva para dentro do
+     =\DIFadd=, onde o =\hl= do soul para com “Leaders not followed by proper
+     glue”. Fora da lista, o trecho realçado compila, mas sai apagado e
+     reescrito, mesmo quando só ganhou o realce.
 
    #+begin_src fish
    git latexdiff \
      --main latex/tcc.tex \
      --packages=biblatex \
+     --exclude-safecmd=realce \
      --config="PICTUREENV=(?:picture|DIFnomarkup|minted)[\w\d*@]*" \
      --no-view \
      --output pdf/diff.pdf \
@@ -94,8 +101,9 @@
    # https://tex.stackexchange.com/a/305562/103967
 
    O =git latexdiff= não passa pelo =bin/latexdiff-tcc.sh=: no texto
-   apagado, as siglas do glossaries somem, e a quebra de parágrafo
-   inserida ou removida sai sem o ¶.
+   apagado, as siglas do glossaries somem, a quebra de parágrafo inserida
+   ou removida sai sem o ¶, e o trecho que só ganhou o realce sai apagado
+   e reescrito.
 
 ** Exportar pelo terminal
 
@@ -156,7 +164,9 @@
    riscado na removida, pelo =bin/marcar-quebras.py= (ADR 0028); as duas
    quebras continuam no PDF, como no diff do git. Depois de um título, de
    uma tabela ou de uma lista, onde a linha em branco não fecha parágrafo,
-   nada sai.
+   nada sai. O trecho que só ganhou o =\realce= de uma nota sai sem marca
+   de mudança e realçado, pelo =bin/realce-no-diff.py=; o trecho realçado em
+   que uma palavra mudou sai com as marcas do diff e sem o realce.
 
    Tudo fica em =pdf/ao-vivo/=, fora do git: o PDF =diff-ao-vivo.pdf=,
    a compilação em =build/= e os logs =emacs.log=, =latexdiff.log= e

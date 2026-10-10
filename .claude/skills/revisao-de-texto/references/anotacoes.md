@@ -111,8 +111,15 @@ nos controles".
   marcadores antes do latexdiff (`bin/realce-no-diff.py`), e as palavras
   de X entram no diff como palavras; depois, devolve `\realce{X}` onde X
   saiu sem marca. Se uma palavra de X mudou, o trecho sai com as marcas
-  do diff e sem o laranja: o `\hl` não aceita o `\DIFadd` dentro. O realce
-  que sai do texto não deixa marca. Escolha do autor em 2026-10-10.
+  do diff e sem o laranja: o `\hl` não aceita o `\DIFadd` dentro. Isso
+  inclui a frase nova que já entra realçada, que só ganha o laranja no
+  diff depois do commit, e o realce que cresce sobre palavras que já
+  estavam no texto. O realce que sai do texto não deixa marca. Escolha do
+  autor em 2026-10-10.
+- O `git latexdiff` do `readme.org` não passa pelo `bin/latexdiff-tcc.sh` e
+  usa `--exclude-safecmd=realce`, que deixa o `\realce` fora do `\DIFadd`:
+  compila, e o trecho que só ganhou o realce sai riscado e repetido em
+  laranja.
 - Por que o realce precisa disso: o latexdiff compara o `\realce{X}` como
   um token só, diferente das palavras de X, e marcava o trecho como
   apagado (vermelho riscado) e reescrito (azul). E o latexdiff 1.4.0 (sub

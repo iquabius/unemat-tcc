@@ -2,13 +2,16 @@
 """Testes do bin/realce-no-diff.py, sem o latexdiff: os trechos de diff vêm
 da saída do latexdiff 1.4.0 (2026-10-10) para um realce acrescentado em
 volta de um trecho igual, um realce que ficou, um trecho realçado com uma
-palavra nova dentro e um realce que saiu.
+palavra nova dentro e um realce que saiu. Os de comentário e de realce
+aninhado são construídos.
 
     python3 -m unittest discover -s bin -p 'test_*.py'
 """
 import importlib.util
 import os
+import sys
 import unittest
+from unittest import mock
 from pathlib import Path
 
 SCRIPT = Path(os.environ.get("REALCE_NO_DIFF_SCRIPT",
@@ -38,27 +41,52 @@ class Marcar(unittest.TestCase):
         with self.assertRaises(SystemExit):
             rd.marcar("\\realce{a {b}")
 
+    def test_chave_em_comentario_dentro_do_trecho_nao_conta(self):
+        self.assertEqual(
+            rd.marcar("\\realce{a % um } {\n b} c"),
+            "\\REALCEinicio{}a % um } {\n b\\REALCEfim{} c")
+
+    def test_realce_em_comentario_fica(self):
+        texto = "a % \\realce{b\nc \\% \\realce{d}\n"
+        self.assertEqual(rd.marcar(texto), texto.replace(
+            "\\realce{d}", "\\REALCEinicio{}d\\REALCEfim{}"))
+
+    def test_realce_aninhado_fica_dentro_do_de_fora(self):
+        self.assertEqual(
+            rd.marcar("\\realce{a \\realce{b} c}"),
+            "\\REALCEinicio{}a \\realce{b} c\\REALCEfim{}")
+
+    def test_antes_sem_arquivo_para(self):
+        with mock.patch.object(sys, "argv", ["realce-no-diff.py", "antes"]):
+            with self.assertRaises(SystemExit) as erro:
+                rd.main()
+        self.assertNotEqual(erro.exception.code, 0)
+
 
 class Devolver(unittest.TestCase):
     def test_realce_acrescentado_volta_sem_marca_de_troca(self):
-        diff = ("Quanto aos meios, o trabalho é \\DIFaddbegin \\REALCEinicio{}\\DIFaddend "
-                "uma avaliação qualitativa\\DIFaddbegin \\REALCEfim{}\\notapergunta[list]"
-                "{nota \\textbf{x}?}\\DIFaddend , pelas DCs, de\n")
+        diff = ("o trabalho é \\DIFaddbegin \\REALCEinicio{}\\DIFaddend "
+                "uma avaliação qualitativa"
+                "\\DIFaddbegin \\REALCEfim{}\\notapergunta[list]{nota \\textbf{x}?}"
+                "\\DIFaddend , pelas DCs, de\n")
         self.assertEqual(rd.devolver(diff), (
-            "Quanto aos meios, o trabalho é \\DIFaddbegin \\DIFaddend "
-            "\\realce{uma avaliação qualitativa}\\DIFaddbegin \\notapergunta[list]"
-            "{nota \\textbf{x}?}\\DIFaddend , pelas DCs, de\n"))
+            "o trabalho é \\DIFaddbegin \\DIFaddend "
+            "\\realce{uma avaliação qualitativa}"
+            "\\DIFaddbegin \\notapergunta[list]{nota \\textbf{x}?}"
+            "\\DIFaddend , pelas DCs, de\n"))
 
     def test_realce_que_ficou_volta(self):
         self.assertEqual(
-            rd.devolver("Três: igual \\REALCEinicio{}nada 10\\% muda\naqui\\REALCEfim{} fim.\n"),
+            rd.devolver("Três: igual \\REALCEinicio{}nada 10\\% muda\n"
+                        "aqui\\REALCEfim{} fim.\n"),
             "Três: igual \\realce{nada 10\\% muda\naqui} fim.\n")
 
     def test_trecho_mudado_por_dentro_sai_sem_realce(self):
         self.assertEqual(
-            rd.devolver("é \\REALCEinicio{}uma avaliação \\DIFaddbegin \\DIFadd{só }"
-                        "\\DIFaddend qualitativa\\REALCEfim{}, pelas DCs.\n"),
-            "é uma avaliação \\DIFaddbegin \\DIFadd{só }\\DIFaddend qualitativa, pelas DCs.\n")
+            rd.devolver("é \\REALCEinicio{}uma avaliação \\DIFaddbegin "
+                        "\\DIFadd{só }\\DIFaddend qualitativa\\REALCEfim{}, pelas.\n"),
+            "é uma avaliação \\DIFaddbegin \\DIFadd{só }\\DIFaddend "
+            "qualitativa, pelas.\n")
 
     def test_realce_que_saiu_perde_os_marcadores_comentados(self):
         diff = ("Dois: \\DIFdelbegin %DIFDELCMD < \\REALCEinicio{}%%%\n"
@@ -68,6 +96,11 @@ class Devolver(unittest.TestCase):
             "Dois: \\DIFdelbegin %DIFDELCMD < %%%\n"
             "\\DIFdelend Como a avaliação cabe ao autor\\DIFdelbegin "
             "%DIFDELCMD < %%%\n\\DIFdelend , fim.\n"))
+
+    def test_trecho_com_comentario_sai_sem_realce(self):
+        self.assertEqual(
+            rd.devolver("\\REALCEinicio{}a\\\\% um\n b\\REALCEfim{} c"),
+            "a\\\\% um\n b c")
 
     def test_volta_cada_realce_do_paragrafo_por_si(self):
         self.assertEqual(

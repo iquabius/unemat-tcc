@@ -14,12 +14,14 @@ dentro do \\DIFadd, um \\uwave do ulem, onde o \\hl do soul não compila.
 O passo "antes" troca cada \\realce{X} por \\REALCEinicio{}X\\REALCEfim{}, nas
 cópias dos .tex que o bin/latexdiff-tcc.sh passa ao latexdiff: as palavras
 de X entram no diff como palavras, e os marcadores, comandos que o latexdiff
-não conhece, ficam fora do \\DIFadd. O passo "depois" devolve \\realce{X}
-quando X sai sem marca do diff, tirando de dentro o \\DIFaddend que fecha o
-marcador de início acrescentado e o \\DIFaddbegin que abre o de fim. Quando
-uma palavra de X mudou, o trecho sai com as marcas do diff e sem o realce,
-e os marcadores somem: o \\hl não aceita o \\DIFadd dentro. Também somem os
-marcadores de um realce que saiu, que o latexdiff deixa comentados.
+não conhece, ficam fora do \\DIFadd. O \\realce num comentário fica. Um
+\\realce dentro de outro, que o \\hl não aceita, fica dentro de X como está.
+
+O passo "depois" devolve \\realce{X} quando X sai sem marca do diff. Quando
+uma palavra de X mudou, ou X tem um comentário, o trecho sai com as marcas
+do diff e sem o realce, e os marcadores somem: o \\hl não aceita o \\DIFadd
+nem o comentário dentro. Também somem os marcadores de um realce que saiu,
+que o latexdiff deixa comentados, e o realce que sai não deixa marca.
 """
 import re
 import sys
@@ -27,28 +29,42 @@ import sys
 REALCE = re.compile(r"\\realce(?![A-Za-z@])\s*\{")
 INICIO = r"\REALCEinicio{}"
 FIM = r"\REALCEfim{}"
-# X sem marca do diff: nem \DIF..., nem outro marcador, nem comentário do
-# latexdiff (o "%DIFDELCMD <" de um comando apagado). O \% do texto passa.
+# X sem marca do diff: cada \ com o caractere seguinte, menos \DIF... e
+# outro marcador, ou um caractere que não abre comentário (o \% passa, e o
+# \\% da quebra de linha seguida de comentário, não). Quando o realce é
+# novo, o latexdiff põe os marcadores em blocos \DIFaddbegin...\DIFaddend
+# próprios, colados em X: o \DIFaddend depois do marcador de início e o
+# \DIFaddbegin antes do de fim ficam fora do \realce, onde estavam.
 DEVOLVER = re.compile(
     r"\\REALCEinicio\{\}((?:\\DIFaddend\s*)?)"
-    r"((?:(?!\\DIF|\\REALCE|(?<!\\)%).)*?)"
+    r"((?:\\(?!DIF|REALCE).|[^\\%])*?)"
     r"((?:\\DIFaddbegin\s*)?)\\REALCEfim\{\}",
     re.S,
 )
 SOBRA = re.compile(r"\\REALCE(?:inicio|fim)\{\}")
 
 
+def pula(texto, i):
+    """Índice depois do escape ou do comentário que começa em texto[i], ou i."""
+    if texto[i] == "\\":
+        return i + 2  # \{, \}, \% e \\ não contam
+    if texto[i] == "%":
+        fim = texto.find("\n", i)
+        return len(texto) if fim < 0 else fim
+    return i
+
+
 def fecha(texto, i):
     """Índice da chave que fecha a aberta em texto[i - 1], ou None."""
     nivel = 1
     while i < len(texto):
-        c = texto[i]
-        if c == "\\":
-            i += 2  # \{, \} e \\ não contam
+        j = pula(texto, i)
+        if j != i:
+            i = j
             continue
-        if c == "{":
+        if texto[i] == "{":
             nivel += 1
-        elif c == "}":
+        elif texto[i] == "}":
             nivel -= 1
             if nivel == 0:
                 return i
@@ -57,16 +73,19 @@ def fecha(texto, i):
 
 
 def marcar(texto):
-    """Troca cada \\realce{X} por \\REALCEinicio{}X\\REALCEfim{}."""
-    partes, i = [], 0
-    for m in REALCE.finditer(texto):
-        if m.start() < i:
-            continue  # \realce dentro de outro: já foi junto
+    """Troca cada \\realce{X} fora de comentário por \\REALCEinicio{}X\\REALCEfim{}."""
+    partes, i, k = [], 0, 0  # i: início do que falta copiar; k: cursor
+    while k < len(texto):
+        m = REALCE.match(texto, k)
+        if m is None:
+            k = max(pula(texto, k), k + 1)
+            continue
         fim = fecha(texto, m.end())
         if fim is None:
-            sys.exit(f"realce-no-diff.py: \\realce sem a chave que fecha: {texto[m.start():m.start() + 60]!r}")
-        partes += [texto[i:m.start()], INICIO, marcar(texto[m.end():fim]), FIM]
-        i = fim + 1
+            trecho = texto[k:k + 60]
+            sys.exit(f"realce-no-diff.py: \\realce sem a chave que fecha: {trecho!r}")
+        partes += [texto[i:k], INICIO, texto[m.end():fim], FIM]
+        i = k = fim + 1
     partes.append(texto[i:])
     return "".join(partes)
 
@@ -78,7 +97,7 @@ def devolver(texto):
 
 
 def main():
-    if len(sys.argv) >= 2 and sys.argv[1] == "antes":
+    if len(sys.argv) > 2 and sys.argv[1] == "antes":
         for nome in sys.argv[2:]:
             with open(nome, encoding="utf-8", errors="surrogateescape") as f:
                 texto = f.read()
@@ -89,7 +108,8 @@ def main():
     elif sys.argv[1:] == ["depois"]:
         sys.stdout.write(devolver(sys.stdin.read()))
     else:
-        sys.exit("uso: realce-no-diff.py antes ARQ.tex... | realce-no-diff.py depois <diff.tex")
+        sys.exit("uso: realce-no-diff.py antes ARQ.tex... "
+                 "| realce-no-diff.py depois <diff.tex")
 
 
 if __name__ == "__main__":

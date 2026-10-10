@@ -31,8 +31,9 @@
 # levaria para dentro do \DIFadd, onde o \hl não compila. O
 # bin/realce-no-diff.py troca o \realce por dois marcadores nas cópias dos
 # .tex, em VELHO e NOVO, antes do latexdiff, e o devolve depois, onde o
-# trecho saiu sem marca. As cópias são dos diretórios dos dois tcc.tex
-# inteiros, porque o --flatten resolve os \input por eles.
+# trecho saiu sem marca. As cópias são dos .tex dos diretórios dos dois
+# tcc.tex, onde o --flatten resolve os \input, sem os auxiliares aux-*/ do
+# bin/gerar-versao.sh, que outra versão pode estar compilando ao mesmo tempo.
 #
 # Quebra de parágrafo inserida ou removida: o latexdiff a trata como comando
 # e não a marca. O bin/marcar-quebras.py, no fim, põe um ¶ na cor da mudança
@@ -47,8 +48,13 @@ SIGLAS='CUSTOMDIFCMD=[gG]ls(?:pl)?(?![a-zA-Z])'
 BIN=$(dirname "$0")
 TMP=$(mktemp -d)
 trap 'rm -rf "$TMP"' EXIT
-cp -r "$(dirname "$1")" "$TMP/velho"
-cp -r "$(dirname "$2")" "$TMP/novo"
+copiar() {  # os .tex do diretório de $1 em $2, com os subdiretórios
+  mkdir -p "$2"
+  (cd "$(dirname "$1")" &&
+    find . -path './aux-*' -prune -o -name '*.tex' -exec cp --parents {} "$2" \;)
+}
+copiar "$1" "$TMP/velho"
+copiar "$2" "$TMP/novo"
 find "$TMP" -name '*.tex' -exec "$BIN/realce-no-diff.py" antes {} +
 
 latexdiff --flatten --packages=biblatex --config="$PICT" --config="$SIGLAS" \
