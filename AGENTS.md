@@ -245,6 +245,15 @@ pergunta antes.
   versões. A metodologia fica no presente por escolha do autor, contra
   o pretérito que a `escrita-academica` recomenda, até a reunião com o
   orientador (tcc-y4q, item 6).
+- "o quê" e "o como" vão sempre entre aspas, no texto e nos docs:
+  `"o quê" contra "o como"`, nunca `o quê contra o como`. O declarativo
+  diz "o quê", o resultado e as relações entre as partes; o imperativo
+  diz "o como", os passos em ordem. Blackheath e Jones (2016, p. 17-18)
+  ilustram com a lasanha: a receita que manda aquecer o óleo e fritar a
+  cebola é a definição operacional, "o como"; dizer que a lasanha são
+  camadas de massa, molho à bolonhesa e molho de queijo, assadas por 45
+  minutos, é a definição conceitual, "o quê", com as dependências
+  escritas e a ordem derivada delas.
 - A sessão que edita o texto roda no checkout principal, o mesmo do
   Emacs, uma por vez; código, ferramentas e instruções de agente seguem
   numa worktree, em ramo próprio (seção seguinte). O que
