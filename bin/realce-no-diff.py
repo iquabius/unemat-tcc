@@ -47,8 +47,8 @@ SOBRA = re.compile(r"\\REALCE(?:inicio|fim)\{\}")
 
 
 class RealceSemPar(Exception):
-    """\\realce sem a chave que fecha: n, a linha dele (de 1); linha, o texto dela
-    a partir do \\realce."""
+    """\\realce sem a chave que fecha: n, o número da linha (de 1); linha, o
+    texto dela a partir do \\realce."""
 
     def __init__(self, n, linha):
         super().__init__(n, linha)
