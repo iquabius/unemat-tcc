@@ -57,8 +57,8 @@ copiar() {  # os .tex do diretório de $1 em $2, com os subdiretórios
 }
 copiar "$1" "$TMP/velho"
 copiar "$2" "$TMP/novo"
-# De dentro do temporário, que o trap apaga, para o erro dizer o arquivo
-# como ./velho/... ou ./novo/..., relativo ao tcc.tex de cada lado.
+# De dentro do temporário, para o erro dar o arquivo como ./velho/... ou
+# ./novo/...: o lado do diff, e depois dele o caminho a partir do tcc.tex.
 (cd "$TMP" && find . -name '*.tex' -exec "$BIN/realce-no-diff.py" antes {} +)
 
 latexdiff --flatten --packages=biblatex --config="$PICT" --config="$SIGLAS" \
