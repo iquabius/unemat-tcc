@@ -222,3 +222,63 @@ ou página inacessível: *Comparison of adoption and performance of Svelte
 and React* (Tampere, 2023, trepo.tuni.fi/handle/10024/145840), os do
 Theseus (Runeberg, 2013; Dorato, 2026; Vu) e a tese sueca sobre DCs do
 DiVA (diva2:1632735).
+
+## 8. Dissertações e teses que contrapõem Kiss (2014) (levantadas em 2026-10-10)
+
+Dissertações e teses, e alguns trabalhos de graduação, que respondem à
+pergunta de Kiss (2014) por outro método, levam o objeto dele à web,
+propõem outra saída para o Observer da orientação a objetos ou tratam da
+interface declarativa no Brasil. Vieram de 24 buscas na BDTD
+(2026-10-10, além das 14 da segunda rodada), de 15 buscas no OpenAlex por
+`type:dissertation` de 2008 a 2026 e dos que a base já tinha. Kiss avalia
+pelas DCs, sozinho e analiticamente, descarta experimentos e desempenho
+(`docs/metodo-da-avaliacao.md`) e fica na JVM e no Elm; nenhum trabalho
+daqui aplica as DCs a três notações de interface nas mesmas tarefas.
+Grau ainda aberto, inclusive o bacharelado, para restringir depois:
+"Grau" diz de onde ele vem, e "não confirmado" é página que recusou a
+consulta. "R" é o resumo, lido no OpenAlex, na BDTD ou no repositório;
+nenhum texto completo foi lido.
+
+Os que mais contrapõem: Grov (2015) e Grešak (2018) fazem a pergunta de
+Kiss na web; Mendonça (2019) e Lima (2024) fazem com desenvolvedores o
+que ele fez sozinho; Perez Dominguez (2018) contesta a promessa da PFR
+que ele defende.
+
+### 8.1 A mesma pergunta, por outro método
+
+| Trabalho | Contraste com Kiss | Grau | Lido |
+|---|---|---|---|
+| MENDONÇA, W. L. M. de. *Análise do impacto na compreensão de programas Java com a introdução de expressões lambda*. Dissertação (Mestrado em Informática), UnB, 2019. riunbtainacan.unb.br/teses-e-dissertacoes/analise-do-impacto-na-compreensao-de-programas-java-com-a-introducao-de-expressoes-lambda | Orientação a objetos contra um recurso funcional, por questionário com desenvolvedores e métricas de código; acha cenários em que a compreensão melhora e outros em que não | mestrado, página da UnB | R |
+| LIMA (2024), `lima2024` (seção 6) | DCs aplicadas por questionário a desenvolvedores, não analiticamente | doutorado, na base | seção 6 |
+| KONTOS, G. *Cognitive dimensions usability assessment of textual and visual VHDL environments*. RIT, 2008. repository.rit.edu/theses/6933 | DCs comparando uma notação textual e uma visual que os mesmos projetistas usam para os mesmos problemas | *Master's project*, página do RIT | R |
+| SINGH, P. K. *Programming web applications declaratively: a qualitative study*. Texas A&M University, 2016. hdl.handle.net/1969.1/158078 | Estudo qualitativo de uma aplicação web de porte médio com *property models* (HotDrink, restrições de fluxo de dados), comparada com *frameworks* web existentes | não confirmado | R (OpenAlex) |
+| AFONSO, L. M. *Communicative dimensions of application programming interfaces (APIs)*. Tese (Doutorado), PUC-Rio, 2016. maxwell.vrac.puc-rio.br, nrSeq=27060 | A engenharia semiótica no lugar das DCs para avaliar APIs | doutorado, BDTD | R (BDTD) |
+
+### 8.2 O objeto de Kiss na web e no Android
+
+| Trabalho | Contraste com Kiss | Grau | Lido |
+|---|---|---|---|
+| GROV, M. *Building user interfaces using virtual DOM: a comparison against dirty checking and KVO*. Universitetet i Oslo, 2015. hdl.handle.net/10852/45209 | DOM virtual (React) contra *dirty checking* (AngularJS) e observação de valores (KVO), por desempenho, questionário com estudantes e dez entrevistas; o mais perto das três notações do TCC | não confirmado | R (OpenAlex) |
+| GREŠAK, M. *Assessing the suitability of Elm language for developing web applications*. Univerza v Ljubljani (FRI), 2018. eprints.fri.uni-lj.si/4111 | Elm contra React na mesma aplicação: a pergunta de Kiss com o React no lugar do JavaFX | não confirmado | R (OpenAlex) |
+| LEVLIN, M. *DOM benchmark comparison of the front-end JavaScript frameworks React, Angular, Vue, and Svelte*. 2020. doria.fi/handle/10024/177433 | Velocidade de operações no DOM, o desempenho que Kiss descarta | não confirmado | R (OpenAlex) |
+| BELLINCANTA FILHO, N. *AgDataBox-Map 5.0: modernização do front-end – migração de Angular para React com foco em desempenho, manutenibilidade e paridade funcional*. UNIOESTE, 2025. tede.unioeste.br/handle/tede/8291 | Migração de Angular para React avaliada antes e depois, de forma controlada | "tese" pela BDTD, a conferir | R (BDTD) |
+| SAEED (2024), Helsinki (seção 3) | Views contra Compose no Android | mestrado, na base | R |
+
+### 8.3 Outras saídas para o Observer da orientação a objetos
+
+| Trabalho | Contraste com Kiss | Grau | Lido |
+|---|---|---|---|
+| MIJAČ, M. *Design and evaluation of software framework that improves the management of reactive dependencies in development of object-oriented applications*. Sveučilište u Zagrebu (FOI), 2021. dr.nsk.hr/islandora/object/foi:6575 | Dependências reativas tratadas dentro da orientação a objetos, sem trocar de paradigma; os artigos (`mijac2021`, `mijac2023`) estão na base | provável doutorado, não confirmado | R (OpenAlex) |
+| PEREZ DOMINGUEZ, I. *Extensible and robust functional reactive programming*. University of Nottingham, 2018. eprints.nottingham.ac.uk/50348 | Contra a PFR: toolkits de GUI puramente funcionais "have enormous maintenance costs", e a PFR impõe restrições estruturais "at the cost of modularity and separation of concerns" (resumo) | provável doutorado, não confirmado | R (OpenAlex) |
+| XAVIER (2014), UTFPR (seção 1) | Eventos contra notificações (PON) | mestrado, na base | TC da seção 1.4 |
+| CARDOSO (2018), UFSM, `cardoso2018` | Programação reativa orientada a objetos (AsyncRFJ) | mestrado, na base | — |
+| COURTNEY, A. *Modeling user interfaces in a functional language*. Tese (Doutorado), Yale University, 2004. antonycourtney.com/pubs/ac-thesis.pdf | O Fruit, uma das bases funcionais de que Kiss parte | doutorado, OpenAlex (orientação de Hudak) | só título |
+| COOPER, G. H. *Integrating dataflow evaluation into a practical higher-order call-by-value language*. Brown University, 2008. DOI 10.7301/z0d50k84 | O FrTime, outra base da PFR | doutorado, repositório da Brown | só título |
+
+### 8.4 Interface declarativa e móvel no Brasil
+
+| Trabalho | Contraste com Kiss | Grau | Lido |
+|---|---|---|---|
+| LOUREIRO JUNIOR, J. *Linguagens declarativas e tecnologias da web no desenvolvimento de interfaces de usuário de dispositivos portáteis*. Tese (Doutorado), UNICAMP, 2005. hdl.handle.net/20.500.12733/1608205 | Interface declarativa antes do React, vista pela IHC (orientação de Baranauskas) | doutorado, BDTD | só título (a página deu HTTP 503) |
+| SANTANA JÚNIOR, B. de M. *Explorando frameworks multiplataforma para desenvolvimento Android: uma investigação sobre o consumo de recursos*. Dissertação (Mestrado), UFPE, 2024. repositorio.ufpe.br/handle/123456789/58168 | Consumo de recursos dos frameworks multiplataforma | mestrado, BDTD | R (BDTD) |
+| AFONSO, F. M. *Critérios para adoção de soluções de desenvolvimento multiplataforma móvel na perspectiva de desenvolvedores de software*. Dissertação (Mestrado), UFSCar, 2020. repositorio.ufscar.br/handle/20.500.14289/13266 | Critérios de adoção pelos desenvolvedores, e não pela notação | mestrado, BDTD | R (BDTD) |
