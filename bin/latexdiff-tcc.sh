@@ -8,7 +8,9 @@
 # --flatten resolve os \input pelo diretório de cada tcc.tex;
 # --packages=biblatex, porque a classe carrega o biblatex e o latexdiff não a
 # lê; o PICTUREENV deixa o minted fora da marcação. O git latexdiff do
-# readme.org repete as duas últimas, sem as siglas nem o ¶ das quebras.
+# readme.org repete as duas últimas, sem as siglas, o ¶ das quebras e os
+# marcadores do realce; lá, o --exclude-safecmd=realce deixa o \realce fora
+# do \DIFadd, e o trecho que só ganhou o realce sai riscado e repetido.
 #
 # Siglas do glossaries (ADR 0027, L5): o latexdiff não sabe compor \gls,
 # \glspl, \Gls e \Glspl dentro do \DIFdel e os comentava, e a sigla sumia do
