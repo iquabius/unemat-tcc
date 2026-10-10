@@ -37,9 +37,10 @@ class Marcar(unittest.TestCase):
                      "\\renewcommand{\\realce}[1]{#1}\n\\realcex{a}\n")
         self.assertEqual(rd.marcar(preambulo), preambulo)
 
-    def test_realce_sem_a_chave_que_fecha_para(self):
-        with self.assertRaises(SystemExit):
-            rd.marcar("\\realce{a {b}")
+    def test_realce_sem_a_chave_que_fecha_para_com_a_linha(self):
+        with self.assertRaises(ValueError) as erro:
+            rd.marcar("\\realce{a {b}\nc")
+        self.assertIn(repr("\\realce{a {b}"), str(erro.exception))
 
     def test_chave_em_comentario_dentro_do_trecho_nao_conta(self):
         self.assertEqual(
