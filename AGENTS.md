@@ -214,7 +214,9 @@ pergunta antes.
   número e o título do assunto nas mensagens ao orientador. A pergunta
   sobre uma frase pode realçá-la, `@@latex:\realce{@@trecho@@latex:}@@`,
   só em trecho sem citação nem sigla, que o `\hl` do soul não aceita. O
-  PDF não diz data nem "orientação". O leitor é o orientador: prosa curta
+  núcleo da nota, o que muda ou a decisão pedida, vai em negrito, e cada
+  nota criada ou alterada passa pela leitura de copy e de escrita da
+  skill. O PDF não diz data nem "orientação". O leitor é o orientador: prosa curta
   que diz o que mudou ou o que se pergunta, sem id de tarefa, caminho,
   commit nem nome de skill; fonte por autor e ano, sem chave de citação,
   para não entrar nas referências; aspas em `\enquote{...}`, porque o `"`

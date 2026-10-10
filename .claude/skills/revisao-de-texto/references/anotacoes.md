@@ -37,6 +37,48 @@ mapa, os testes e o que conferir no PDF.
 - A versão entregue (`\usepackage[disable]{todonotes}`) tira as notas, a
   lista e o realce; testado em 2026-10-09.
 
+## O texto da nota: copy e ênfase
+
+A nota é lida fria, na margem, longe da frase, por quem leu o projeto de
+2017 e nenhuma versão intermediária. Cada nota criada ou alterada passa
+por duas leituras antes de ir ao diff, e o que elas acham se corrige na
+mesma rodada:
+
+- **Copy** (skill `design-review`, `references/copy.md` e
+  `references/heuristics.md`): leia a nota em voz alta como o orientador,
+  sem o resto da conversa, e anote cada ponto em que ele para, adivinha
+  ou acha duas leituras: um pronome sem antecedente na nota ("a dizia",
+  "o das listas", "aqui"), um termo que só a pauta explica, uma frase que
+  descreve onde ele precisa de uma pergunta. A nota de pergunta termina
+  numa decisão que se responde com sim ou não, ou entre opções nomeadas.
+  Corte metade das palavras e depois metade do que sobrou (terceira lei
+  de Krug), sem tirar o que ele precisa para decidir.
+- **Escrita** (skill `escrita-academica`): tópico no início e o novo no
+  fim, na posição de ênfase (`references/principios-escrita.md`, Gopen e
+  Swan); as marcas de texto gerado por IA (`references/marcas-de-ia.md`);
+  as preferências do `AGENTS.md`.
+
+Ênfase, para o olho achar o núcleo da nota na margem:
+
+- **negrito** (`\textbf{...}`) no núcleo: o que muda, na nota azul ("a
+  natureza sai"), e a decisão pedida, na laranja ("Entra um avaliador
+  externo"). Uma expressão por nota, duas no máximo, de preferência no
+  fim da frase. O rótulo da lista já sai em negrito no começo; mais de
+  dois pontos de negrito na mesma caixa achatam a hierarquia (lente de
+  ergonomia do `design-review`, peso e teste de apertar os olhos);
+- *itálico* (`\emph{...}`) como no texto: estrangeirismo (\emph{callbacks},
+  \emph{signals}) e termo do trabalho na definição, e não para ênfase;
+- citação entre aspas (`\enquote{...}`) para as palavras do projeto ou de
+  uma fonte, que já se destacam por isso;
+- sem sublinhado: o `\ul` do soul tem a limitação do `\hl` (não aceita
+  citação nem sigla), e o sublinhado disputa com o realce, que já marca o
+  trecho do texto.
+
+Exemplos de 2026-10-09: "O projeto a dizia exploratória" pedia o
+antecedente ("a pesquisa"); "O das listas sai" se referia a um objetivo
+que a frase anterior não nomeava; "Declarar aqui" virou "nas limitações e
+nos controles".
+
 ## O que conferir no PDF
 
 - Notas de margem a menos de umas cinco linhas uma da outra se empilham e
@@ -53,6 +95,12 @@ mapa, os testes e o que conferir no PDF.
   realçar só a parte da frase sem citação.
 - A lista "Assuntos" tem um item por assunto, cada um com o link para a
   nota certa.
+- O parágrafo não abre com o realce. O link de busca da matriz de fontes
+  (`texto/fontes/<capítulo>.org`) casa com as primeiras palavras do
+  parágrafo no `.org`, e um `@@latex:\realce{@@` no começo o quebra:
+  `bin/conferir-fontes.py --desde HEAD` acusa "cai no meio do parágrafo"
+  e as citações dele ficam sem entrada. Realce a partir da segunda ou
+  terceira palavra (2026-10-09, §15 da introdução).
 
 ## No diff ao vivo e no diff das versões
 

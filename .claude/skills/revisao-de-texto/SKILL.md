@@ -293,8 +293,11 @@ perguntas, e então o autor dá o rótulo.
    por parágrafo, ou pede assim (Modo 3 da `escrita-academica`). Nota
    para o orientador segue a forma e o leitor do `AGENTS.md` ("Texto"); o
    comando de cada função, o realce, a lista de assuntos e o que conferir
-   no PDF estão em `references/anotacoes.md`. Confira no `pdftotext` do
-   diff ao vivo que ela saiu inteira, com as aspas no lugar. Antes de responder, cheque nas correções de
+   no PDF estão em `references/anotacoes.md`. Cada nota criada ou alterada
+   passa pela leitura de copy da `design-review` e pela de escrita da
+   `escrita-academica`, com o núcleo em negrito (mesma referência, "O
+   texto da nota"). Confira no `pdftotext` do diff ao vivo que ela saiu
+   inteira, com as aspas no lugar. Antes de responder, cheque nas correções de
    sentido e nas notas `\todo` as marcas de texto gerado por IA
    (`references/marcas-de-ia.md` da `escrita-academica`); a lista vale
    para o que o agente escreve, e não para o rascunho do autor.
