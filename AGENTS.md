@@ -326,7 +326,8 @@ reescreve.
    ```sh
    # na worktree
    git switch --detach master
-   git merge --ff-only <tarefa> || git merge --no-ff <tarefa>
+   git merge --ff-only <tarefa> ||
+       git merge --no-ff -m "Junta o ramo <tarefa>: <o que o ramo traz>" <tarefa>
    git -C <checkout principal> merge --ff-only "$(git rev-parse HEAD)"
    # no checkout principal
    git revisao pendente   # tem de dizer "nada pendente"
