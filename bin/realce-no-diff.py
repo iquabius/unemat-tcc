@@ -44,6 +44,10 @@ DEVOLVER = re.compile(
 SOBRA = re.compile(r"\\REALCE(?:inicio|fim)\{\}")
 
 
+class RealceSemPar(Exception):
+    pass
+
+
 def pula(texto, i):
     """Índice depois do escape ou do comentário que começa em texto[i], ou i."""
     if texto[i] == "\\":
@@ -84,7 +88,7 @@ def marcar(texto):
         if fim is None:
             n = texto.count("\n", 0, k) + 1
             linha = texto[k:].split("\n", 1)[0]
-            raise ValueError(f"{n}: \\realce sem a chave que fecha: {linha!r}")
+            raise RealceSemPar(f"{n}: \\realce sem a chave que fecha: {linha!r}")
         partes += [texto[i:k], INICIO, texto[m.end():fim], FIM]
         i = k = fim + 1
     partes.append(texto[i:])
@@ -104,7 +108,7 @@ def main():
                 texto = f.read()
             try:
                 novo = marcar(texto)
-            except ValueError as erro:
+            except RealceSemPar as erro:
                 sys.exit(f"realce-no-diff.py: {nome}:{erro}")
             if novo != texto:
                 with open(nome, "w", encoding="utf-8", errors="surrogateescape") as f:

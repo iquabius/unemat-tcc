@@ -38,7 +38,7 @@ class Marcar(unittest.TestCase):
         self.assertEqual(rd.marcar(preambulo), preambulo)
 
     def test_realce_sem_a_chave_que_fecha_para_com_a_linha(self):
-        with self.assertRaises(ValueError) as erro:
+        with self.assertRaises(rd.RealceSemPar) as erro:
             rd.marcar("x\n\\realce{a {b}\nc")
         self.assertEqual(str(erro.exception),
                          "2: \\realce sem a chave que fecha: " + repr("\\realce{a {b}"))
