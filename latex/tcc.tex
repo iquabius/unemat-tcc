@@ -13,8 +13,36 @@
 % Use 'disable' option to remove all todo notes from output.
 % Run 'texdoc todonotes' in the terminal for help.
 % As notas vão na margem esquerda, com a largura que a classe dá a ela.
-\usepackage[textsize=scriptsize]{todonotes}
+\usepackage[textsize=scriptsize,colorinlistoftodos]{todonotes}
 \reversemarginpar{}
+
+% Notas para o orientador: a cor diz a função da nota, e a lista de assuntos,
+% antes da introdução, traz só a primeira nota de cada assunto, a que passa
+% [list,prepend,caption={\textbf{N. Assunto}}]. O mapa das formas de anotar
+% está na skill revisao-de-texto (references/anotacoes.md).
+\setuptodonotes{nolist}
+\definecolor{notamudou}{HTML}{CFE2F3}     % o que mudou desde o projeto
+\definecolor{notapergunta}{HTML}{FCE5CD}  % a decisão pedida
+\definecolor{notalegenda}{HTML}{EEEEEE}   % o que cada cor quer dizer
+\newcommand{\notamudou}[2][]{\todo[color=notamudou,#1]{#2}}
+\newcommand{\notapergunta}[2][]{\todo[color=notapergunta,#1]{#2}}
+\newcommand{\notalegenda}[1]{\todo[inline,color=notalegenda]{#1}}
+% A nota de uma reunião seguinte fica no .org e não sai no PDF.
+\newcommand{\notaproxima}[2][]{\todo[disable,#1]{#2}}
+% O realce do trecho a que a nota se refere, na cor da pergunta. O \hl do
+% soul quebra com \cite e \gls dentro: só trecho sem citação nem sigla.
+% Sai com o [disable] do todonotes e no PDF do latexdiff, onde o \hl
+% dentro do \DIFadd (ulem) não compila.
+\usepackage{soul}
+\sethlcolor{notapergunta}
+\makeatletter
+\if@todonotes@disabled
+  \newcommand{\realce}[1]{#1}
+\else
+  \newcommand{\realce}[1]{\hl{#1}}
+\fi
+\makeatother
+\AtBeginDocument{\ifdefined\DIFadd\renewcommand{\realce}[1]{#1}\fi}
 
 % O número de cada parágrafo na margem direita, para a orientação; a versão
 % entregue o desliga com \usepackage[disable]{paragrafos}.
@@ -83,6 +111,7 @@
 \tabelas[figtabcod]
 \siglas
 \sumario
+\listoftodos[Assuntos] % some com o [disable] do todonotes
 
 %--------------------------------------------------------------- CAPÍTULOS %
 % Introdução ---------------------------------------------------------------

@@ -291,9 +291,10 @@ perguntas, e então o autor dá o rótulo.
    Na dúvida entre as classes, a correção é de sentido. Uma decisão por
    mensagem só quando o autor escreve ou edita frases uma a uma, parágrafo
    por parágrafo, ou pede assim (Modo 3 da `escrita-academica`). Nota
-   `\todo` para a orientação segue a forma e o leitor do `AGENTS.md`
-   ("Texto"); confira no `pdftotext` do diff ao vivo que ela saiu inteira,
-   com as aspas no lugar. Antes de responder, cheque nas correções de
+   para o orientador segue a forma e o leitor do `AGENTS.md` ("Texto"); o
+   comando de cada função, o realce, a lista de assuntos e o que conferir
+   no PDF estão em `references/anotacoes.md`. Confira no `pdftotext` do
+   diff ao vivo que ela saiu inteira, com as aspas no lugar. Antes de responder, cheque nas correções de
    sentido e nas notas `\todo` as marcas de texto gerado por IA
    (`references/marcas-de-ia.md` da `escrita-academica`); a lista vale
    para o que o agente escreve, e não para o rascunho do autor.

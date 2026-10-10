@@ -201,17 +201,28 @@ pergunta antes.
   fora do texto. Na revisão, conferir no PDF onde a definição caiu: a
   primeira sigla da seção pode estar numa frase que não foi escrita para
   definir.
-- Notas `\todo` (todonotes) servem à orientação e ficam no `.org`, senão
-  somem na próxima exportação. Nota de uma ou duas frases vai na margem,
-  `@@latex:\todo{...}@@` junto da frase ou do parágrafo a que se refere,
-  mesmo quando é pergunta ou marca de mudança de parágrafo; só a mais
-  longa vai no corpo, `@@latex:\todo[inline]{...}@@` (`#+LATEX:
-  \todo{...}` em linha própria também sobrevive). O leitor é o orientador: prosa curta que diz o que
-  mudou ou o que se pergunta, sem id de tarefa, caminho, commit nem nome
-  de skill; fonte por autor e ano, sem chave de citação, para não entrar
-  nas referências; aspas em `\enquote{...}`, porque o `"` cru é atalho do
-  babel e cola na palavra seguinte. A versão entregue desliga todas com
-  `\usepackage[disable]{todonotes}` no `latex/tcc.tex`.
+- Notas para o orientador (todonotes) ficam no `.org`, senão somem na
+  próxima exportação, num comando do `latex/tcc.tex` por função:
+  `\notamudou` (azul), o que mudou desde o projeto de 2017;
+  `\notapergunta` (laranja), a decisão pedida; `\notaproxima`, a nota de
+  uma reunião seguinte, que fica no `.org` e não sai no PDF. Nota de uma
+  ou duas frases vai na margem, `@@latex:\notapergunta{...}@@` junto da
+  frase ou do parágrafo a que se refere; só a mais longa vai no corpo,
+  com `[inline]` (`#+LATEX: ...` em linha própria também sobrevive). A
+  primeira nota de cada assunto entra na lista "Assuntos", antes da
+  introdução, com `[list,prepend,caption={\textbf{N. Assunto}}]`: o
+  número e o título do assunto nas mensagens ao orientador. A pergunta
+  sobre uma frase pode realçá-la, `@@latex:\realce{@@trecho@@latex:}@@`,
+  só em trecho sem citação nem sigla, que o `\hl` do soul não aceita. O
+  PDF não diz data nem "orientação". O leitor é o orientador: prosa curta
+  que diz o que mudou ou o que se pergunta, sem id de tarefa, caminho,
+  commit nem nome de skill; fonte por autor e ano, sem chave de citação,
+  para não entrar nas referências; aspas em `\enquote{...}`, porque o `"`
+  cru é atalho do babel e cola na palavra seguinte. A versão entregue
+  desliga as notas, a lista e o realce com
+  `\usepackage[disable]{todonotes}` no `latex/tcc.tex`. O mapa das formas
+  de anotar está na skill `revisao-de-texto`
+  (`references/anotacoes.md`).
 - Nota de rodapé só para o que, no texto, quebraria a leitura, como uma
   lista de versões (NBR 10520:2023, pelos guias da UFV e da UNESP; Garcia
   2010, Preparação dos originais, 1.2.9). Termo corrente da área não ganha
