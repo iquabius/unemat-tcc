@@ -31,7 +31,7 @@ Gradle em `casos/android/` e as dependências (`package.json`,
    Compose desenham os mesmos glifos com diferenças de poucos pixels (no
    Contador, 0,15% da imagem, só nos algarismos e no "+"). Abra as duas
    imagens: se posições, tamanhos, cores e conteúdo batem, siga; se não,
-   corrija o arquivo de estilo da variante. **Nunca acrescente código de
+   corrija o arquivo de estilo da tecnologia. **Nunca acrescente código de
    aparência na tela para igualar as imagens**: no TCC, o código da tela
    com a menor variação possível entre as implementações importa mais que
    o resultado visual.
@@ -65,14 +65,14 @@ Gradle em `casos/android/` e as dependências (`package.json`,
   Os dois em Kotlin.
 - Um único projeto Gradle em `casos/android/`: o `settings.gradle.kts`
   inclui sozinho toda pasta `android-views` ou `android-compose` que tenha
-  `build.gradle.kts`, com o nome `:<caso>-android-<variante>`. O
+  `build.gradle.kts`, com o nome `:<caso>-<tecnologia>`. O
   `build.gradle.kts` da raiz traz a configuração comum; o de cada módulo,
   só plugins, `namespace` e dependências.
 - Mesma especificação do `README.org` do caso: mesmos textos, mensagens,
   regras e dados. Regras do `dominio.ts` portadas para Kotlin com o mesmo
   comportamento, em `casos/<caso>/dominio-kotlin/main/Dominio.kt` (pacote
   `tcc.<caso>`), com os mesmos nomes de funções. O `build.gradle.kts` da
-  raiz inclui essa pasta nas duas variantes quando ela existe; os testes do
+  raiz inclui essa pasta nas duas tecnologias quando ela existe; os testes do
   porte e as regras JUnit do caso (como a `DataFixa`, que fixa "hoje" em
   26/09/2026) ficam em `dominio-kotlin/test/`.
 - O leitor conhece React, não Kotlin: comentários curtos em português que
@@ -92,7 +92,7 @@ Gradle em `casos/android/` e as dependências (`package.json`,
     esses nomes.
   - Os arquivos de estilo ficam fora da análise, como o `estilo.css`.
 - Alinhamento sempre explícito no arquivo de estilo, nunca deixado ao
-  padrão de cada variante, porque eles diferem: o `LinearLayout` alinha os
+  padrão de cada tecnologia, porque eles diferem: o `LinearLayout` alinha os
   filhos pela linha de base do texto (desligue com
   `android:baselineAligned="false"`), e a `Row` do Compose, pelo topo.
 - As cenas ficam em `src/test/.../CenasTest.kt` de cada módulo (Robolectric
@@ -101,8 +101,8 @@ Gradle em `casos/android/` e as dependências (`package.json`,
   `SemAnimacoes()` (ambos em `casos/android/captura/Captura.kt`). No
   Compose, chame `regra.waitForIdle()` antes de capturar.
 - Quando o caso tem `roteiro-de-teste.js`, as mesmas verificações vão para
-  `RoteiroTest.kt` em cada variante, na mesma ordem e com os mesmos nomes.
-  As ações e leituras ficam numa classe `Tela` de teste por variante, com
+  `RoteiroTest.kt` em cada tecnologia, na mesma ordem e com os mesmos nomes.
+  As ações e leituras ficam numa classe `Tela` de teste por tecnologia, com
   a mesma API nas duas (`digitar`, `sair`, `erros()`...), para que
   `CenasTest` e `RoteiroTest` fiquem iguais entre Views e Compose. Nada de
   marcas só para teste no código da tela: o Views acha as views pelo `id`;

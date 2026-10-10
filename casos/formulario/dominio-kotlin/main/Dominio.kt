@@ -4,8 +4,9 @@ import java.time.Clock
 import java.time.DateTimeException
 import java.time.LocalDate
 
-// Regras de domínio do Formulário, iguais nas duas variantes Android: o
-// porte do dominio.ts da web, com os mesmos nomes, regras e mensagens.
+// Regras de domínio do Formulário, iguais nas tecnologias do Android e do
+// desktop: o porte do dominio.ts da web, com os mesmos nomes, regras e
+// mensagens.
 // Nada aqui depende de interface: cada implementação decide quando chamar.
 // Difere da web em anos de 0 a 99 e espaços fora do ASCII: ver DominioTest.igualAoDaWeb.
 
