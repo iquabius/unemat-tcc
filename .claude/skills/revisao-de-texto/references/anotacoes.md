@@ -118,6 +118,11 @@ nos controles".
   texto não deixa marca, porque tirá-lo não muda as palavras, e o diff só
   marca palavras. O trecho com um comentário (`%`) dentro também sai sem
   o laranja, porque o `\hl` não aceita o comentário.
+- O realce de uma ou duas palavras que entra ou sai do texto sai apagado
+  e reescrito, sem o laranja: o latexdiff 1.4.0 junta à mudança vizinha
+  o trecho igual com menos de três palavras (`MINWORDSBLOCK=3`), e os
+  marcadores contam como mudança. Baixar o `MINWORDSBLOCK` resolveria, mas
+  picotaria o diff inteiro em blocos menores (2026-10-10).
 - O `git latexdiff` do `readme.org` não passa pelo `bin/latexdiff-tcc.sh` e
   usa `--exclude-safecmd=realce`, que deixa o `\realce` fora do `\DIFadd`:
   compila, e o trecho que só ganhou o realce sai apagado e reescrito, em

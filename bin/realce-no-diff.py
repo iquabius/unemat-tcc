@@ -21,7 +21,9 @@ O passo "depois" devolve \\realce{X} quando X sai sem marca do diff. Quando
 uma palavra de X mudou, ou X tem um comentário, o trecho sai com as marcas
 do diff e sem o realce, e os marcadores somem: o \\hl não aceita o \\DIFadd
 nem o comentário dentro. Também somem os marcadores de um realce que saiu,
-que o latexdiff deixa comentados, e o realce que sai não deixa marca.
+que o latexdiff deixa comentados, e o realce que sai não deixa marca. Com
+uma ou duas palavras em X, o latexdiff junta X aos marcadores, que contam
+como mudança (MINWORDSBLOCK=3), e o trecho sai como mudado.
 """
 import re
 import sys
