@@ -330,15 +330,15 @@ Onde as DCs param:
 ## 7. Declarativo, imperativo e reativo
 
 "Declarativo" é questão de grau: "not an absolute property, but a matter
-of degree", e os nomes declarativo e imperativo "are not quite right"
-(Van Roy e Haridi 2004, p. 406); a literatura "does not provide a
+of degree", e os rótulos declarativo e imperativo "are not quite right"
+(Van Roy e Haridi 2004, p. 406). A literatura "does not provide a
 concrete notion" de programação declarativa (Borowski et al. 2022, seção
 7.1). As fontes usam quatro critérios, que não coincidem:
 
 - **a ordem**: o imperativo orquestra a ordem das ações (Edwards 2009,
   p. 928); o declarativo deixa à linguagem "when to do it" (Bainomugisha
   et al. 2013, p. 3, cópia). Por ele, React e Solid ficam do mesmo lado;
-- **o quê contra o como**: "what needs to be done rather than exactly how"
+- **"o quê" contra "o como"**: "what needs to be done rather than exactly how"
   (Moseley e Marks 2006, p. 19); as dependências declaradas no lugar dos
   passos (Salvaneschi et al. 2017, p. 2, cópia);
 - **o sentido operacional**: nas declarativas, como SQL e Prolog, o

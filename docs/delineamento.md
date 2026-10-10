@@ -12,10 +12,10 @@ não se controla nas limitações.
 de computação em cada plataforma, a especificação de cada tarefa, o
 domínio e as dependências. Do lado declarativo, dois pares isolam uma
 variável cada: React × Solid, o modelo de programação; Solid × Angular
-com *signals*, a notação, como um todo. Na web, o imperativo com *callbacks* difere dos
-declarativos em mais de uma variável ao mesmo tempo, sem par que o isole;
-o par mais próximo é Views × Compose no Android, e o mais controlado é
-Swing × JavaFX em código, no *desktop*. Ficam sem controle o avaliador,
+com *signals*, a notação, como um todo. Na web, o imperativo com
+*callbacks* difere dos declarativos em mais de uma variável ao mesmo
+tempo, sem par que o isole; o par mais próximo é Views × Compose no
+Android, e o mais controlado é Swing × JavaFX em código, no *desktop*. Ficam sem controle o avaliador,
 que é o autor, a origem das implementações, geradas com agentes de IA, e
 o número de tecnologias por modelo de programação.
 
@@ -44,7 +44,7 @@ que se confunde com o desenho da tela (`CONTEXT.md`, Delineamento).
 |---|---|---|---|---|---|
 | React × Solid | web | JSX, linguagem, especificação | modelo de programação; também o dialeto do JSX (`className` e `class`) e `&&` e `.map` contra `<Show>` e `<For>` | o modelo de programação, entre os dois declarativos | ADR 0021; [`plataformas.md`, Web](plataformas.md#web) |
 | Solid × Angular com *signals* | web | modelo de programação (`signal`, `computed`, leitura por chamada) | notação: montagem da tela (JSX numa função, *template*), modelo de componente (classe, decorador, injeção de dependências) e API além do *signal* | a notação como um todo, contra o modelo de programação; os três pontos variam juntos, e a análise os separa pelo sinal escrito | ADR 0021; [`plataformas.md`, Web](plataformas.md#web) |
-| Views × Compose | Android | linguagem, plataforma, especificação | modelo de programação e montagem da tela (layout XML, funções) | nenhuma variável sozinha; é o contraste mais próximo entre o imperativo e um declarativo | [`plataformas.md`, Android](plataformas.md#android); tcc-4ie |
+| Views × Compose | Android | linguagem, plataforma, especificação | modelo de programação e montagem da tela (*layout* XML, funções) | nenhuma variável sozinha; é o contraste mais próximo entre o imperativo e um declarativo | [`plataformas.md`, Android](plataformas.md#android); tcc-4ie |
 | Swing × JavaFX em código | *desktop* | linguagem, plataforma, montagem da tela em código Java | coordenação | o modelo de programação entre o imperativo e um declarativo; o par mais controlado | [`plataformas.md`, Swing × JavaFX](plataformas.md#swing--javafx-java); implementado no Formulário e na Lista (tcc-dwg, fechada) |
 | JavaFX em código × JavaFX com FXML | *desktop* | modelo de programação e *bindings* | montagem da tela | a montagem da tela | [`plataformas.md`, Swing × JavaFX](plataformas.md#swing--javafx-java) |
 | Qt Widgets × QML | *desktop* | plataforma | coordenação e montagem da tela (C++, QML) | nenhuma variável sozinha | [`plataformas.md`, Qt Widgets × QML](plataformas.md#qt-widgets--qml-c-e-qml); implementado no Formulário e na Lista (tcc-jhl, fechada) |

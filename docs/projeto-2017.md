@@ -1,14 +1,14 @@
 # O projeto de TCC de 2017 e o que mudou em 2026
 
 Referência. Compara o projeto entregue em agosto de 2017 com o TCC em
-2026-10-07, para a justificativa das mudanças ao curso (tcc-gtgw).
+2026-10-10, para a justificativa das mudanças ao curso (tcc-gtgw).
 Atualizada quando o recorte muda.
 
 **Conclusão.** O tema, programação de computadores, e a área do problema
 continuam: o código que coordena eventos com *callbacks*, frente a
 alternativas declarativas, avaliado pelas DCs. Mudou o objeto da
-comparação, de conceitos de paradigmas para notações. Com ele mudaram a
-pergunta, os objetivos, as tecnologias, os programas e o rótulo do
+comparação, de conceitos de paradigmas para modelos de programação,
+avaliados pela notação de cada tecnologia. Com ele mudaram a pergunta, os objetivos, as tecnologias, os programas e o rótulo do
 método. Se isso conta como mudança de tema, que o regimento só permite
 com autorização prévia da Coordenação (Anexo III, item 3, p. 17), é
 pergunta da orientação de 2026-10-09 (tcc-y4q, C1).
@@ -57,13 +57,13 @@ no `cases.org` em 2020.
 
 ## 2. O que mudou
 
-| Item | Projeto de 2017 | TCC em 2026-10-07 |
+| Item | Projeto de 2017 | TCC em 2026-10-10 |
 |---|---|---|
-| Delimitação | Conceitos de programação para interfaces gráficas | Notações para programar interfaces gráficas: a forma de escrever no código o estado, os valores derivados dele e a tela (ADR 0021) |
-| O que se compara | Conceitos declarativos de PF e PR × imperativos de POO com *callbacks* | Três notações: imperativa com *callbacks*, declarativa por re-renderização e declarativa por atualização granular. PF, PR e POO ficam na fundamentação, e cada notação aplica conceitos de um ou mais paradigmas (ADR 0021) |
-| Pergunta | Quais conceitos são apropriados; se a declarativa é adequada | Como as três notações se comparam quanto à usabilidade, segundo as DCs (ADR 0014) |
-| Objetivo geral | Demonstrar e analisar conceitos declarativos de PF e PR | Comparar a usabilidade das três notações segundo as DCs, na web, com replicação no Android (ADR 0014) |
-| Objetivos específicos | Demonstrar PF; demonstrar PR e POO com *callbacks*; analisar e comparar | Implementar as cinco tarefas; avaliá-las por oito DCs; sintetizar vantagens e desvantagens por problema de coordenação |
+| Delimitação | Conceitos de programação para interfaces gráficas | Modelos de programação de interfaces gráficas, avaliados pela notação: a forma de escrever no código o estado, os valores derivados dele e a tela (ADR 0021) |
+| O que se compara | Conceitos declarativos de PF e PR × imperativos de POO com *callbacks* | Três modelos de programação: o imperativo com *callbacks*, o declarativo por re-renderização e o declarativo por atualização granular, pela notação de cada tecnologia. PF, PR e POO ficam na fundamentação, e cada modelo de programação aplica conceitos de um ou mais paradigmas (ADR 0021) |
+| Pergunta | Quais conceitos são apropriados; se a declarativa é adequada | Pelas DCs, como difere a usabilidade da notação de cada tecnologia entre os três modelos de programação (ADR 0014) |
+| Objetivo geral | Demonstrar e analisar conceitos declarativos de PF e PR | Comparar, segundo as DCs, a usabilidade das notações dos três modelos de programação, na web, em TypeScript, e em parte das tarefas no Android, em Kotlin (ADR 0014) |
+| Objetivos específicos | Demonstrar PF; demonstrar PR e POO com *callbacks*; analisar e comparar | Implementar as cinco tarefas; avaliá-las por oito DCs; sintetizar, por problema de coordenação, o que cada modelo de programação facilita e o que dificulta (ADR 0014) |
 | Processamento de listas | Primeira parte do método | Fora dos objetivos, na fundamentação de PF (ADR 0014) |
 | Tela | Fora | Dentro da notação, como montagem da tela (ADR 0021) |
 | Programas | Não nomeados | Cinco tarefas: Contador, Formulário com validação, Busca com sugestões, Lista filtrável e Carrinho; as três primeiras adaptam o *Counter*, o *Flight Booker* e o *CRUD* do 7GUIs (Kiss 2014) (ADR 0002) |
@@ -83,13 +83,14 @@ Kiss (2014) como precedente; a pesquisa exploratória.
    os *hooks* (2019), o Elm abandonou os *signals* (2016), e os *signals*
    viraram o modelo de reatividade do Angular, do Solid, do Preact e do
    Svelte 5 (2024), com proposta de padronização no JavaScript (TC39). A
-   re-renderização e a atualização granular são dois modelos que 2017 não
-   distinguia (`docs/literatura.md`, seção 4).
+   re-renderização e a atualização granular são dois modelos de
+   programação que 2017 não distinguia (`docs/literatura.md`, seção 4).
 2. **Paradigma não é o que as DCs medem.** Kiss (2014, p. 23) registra,
    no *Temperature Converter*, que "the toolkit dominated this evaluation
    and the paradigms did not come into play"; as DCs avaliam o que se
-   escreve, e a notação muda com as abstrações de cada tecnologia (ADR
-   0021).
+   escreve, e a notação muda com as abstrações de cada tecnologia. O que
+   se compara passa a ser o modelo de programação, observado na notação
+   (ADR 0021).
 3. **A pergunta e o objetivo não eram verificáveis.** O problema vinha em
    três formulações, uma sobre larga escala, que tarefas pequenas não
    respondem, e o objetivo geral não tinha critério (ADR 0014).

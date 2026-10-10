@@ -7,7 +7,7 @@ a que Dimensão Cognitiva (DC) parece servir; a classificação é provisória.
 ## 2026-09-26, Android (commits `58277f3` a `274f7e9`)
 
 - **Lista, o que cada notação exige** (nível de abstração, concisão): no
-  Views, `RecyclerView`, um `Adapter` com `ViewHolder` e um layout por
+  Views, `RecyclerView`, um `Adapter` com `ViewHolder` e um *layout* por
   item, e o código avisa a mudança com `notifyDataSetChanged()`, que refaz
   tudo como o `.empty().append()` do jQuery (`ListAdapter` com `DiffUtil`
   fica como alternativa). No Compose, a `LazyColumn` recebe a lista derivada
@@ -15,7 +15,7 @@ a que Dimensão Cognitiva (DC) parece servir; a classificação é provisória.
   opções do `Spinner` que vêm do domínio precisam de um `ArrayAdapter` no
   código.
 - **`fitsSystemWindows` apagou o `padding`** (propensão a erros, dependências
-  ocultas): na Lista do Views, o atributo trocou o padding de 16dp da mesma
+  ocultas): na Lista do Views, o atributo trocou o `padding` de 16dp da mesma
   view pelo espaço das barras do sistema, sem aviso. A comparação com a
   captura do Compose mostrou o erro; a correção foi usar margem.
 - **Formulário, o que cada notação traz pronto** (nível de abstração): o
@@ -27,14 +27,14 @@ a que Dimensão Cognitiva (DC) parece servir; a classificação é provisória.
   `isActivated`, e o seletor de estilo o pinta de vermelho, no papel do
   `aria-invalid`. O `Spinner` avisa a seleção inicial ao aparecer, como se
   o usuário tivesse escolhido.
-- **Alinhamento implícito** (dependências ocultas, propensão a
-  erros): no Contador, o mesmo layout de duas colunas, sem opção de
-  alinhamento escrita, saía diferente nas duas variantes. O `LinearLayout`
+- **Alinhamento implícito** (dependências ocultas, propensão a erros):
+  no Contador, o mesmo *layout* de duas colunas, sem opção de alinhamento
+  escrita, saía diferente nas duas variantes. O `LinearLayout`
   do Views alinha os filhos pela linha de base do texto por padrão
   (`mBaselineAligned = true`), e o número parecia centralizado porque
   acompanhava o "+" do botão; a `Row` do Compose alinha pelo topo
-  (`verticalAlignment = Alignment.Top` na assinatura). No Views o valor padrão não
-  aparece no XML; no Compose fica na assinatura da função. A correção foi
+  (`verticalAlignment = Alignment.Top` na assinatura). No Views o valor
+  padrão não aparece no XML; no Compose fica na assinatura da função. A correção foi
   escrever o alinhamento nos arquivos de estilo, como a web faz com
   `place-items: center`; no Views isso exige
   `android:baselineAligned="false"`.
@@ -44,9 +44,9 @@ a que Dimensão Cognitiva (DC) parece servir; a classificação é provisória.
 - **Domínio Kotlin × JavaScript em entradas-limite** (ADR 0010): anos de 0
   a 99 (o `Date` do JavaScript lê como 1900 a 1999; o `LocalDate` aceita);
   espaços fora do ASCII (o `\s` e o `trim()` do JavaScript reconhecem o
-  espaço não separável, o ` ` e o `﻿`; na JVM o `\s` só conhece
+  espaço não separável, o `\u2028` e o `\uFEFF`; na JVM o `\s` só conhece
   os do ASCII, e o `trim()` do Kotlin apara `\u001C` a `\u001F` e não apara
-  o `﻿`). Teste `igualAoDaWeb` em `DominioTest.kt`, com `@Ignore`.
+  o `\uFEFF`). Teste `igualAoDaWeb` em `DominioTest.kt`, com `@Ignore`.
 
 ## 2026-09-26, web (commit `b7ddafb`)
 
@@ -57,7 +57,7 @@ a que Dimensão Cognitiva (DC) parece servir; a classificação é provisória.
   declarativas não renderizam a lista e não caem nisso. Correção:
   `[hidden] { display: none !important; }` no `estilo.css` do caso.
 
-## 2026-09-26, Angular com signals (commits `2fc6a3a` a `ccc4db6`)
+## 2026-09-26, Angular com *signals* (commits `2fc6a3a` a `ccc4db6`)
 
 As cinco implementações espelham as do Solid (ADR 0013); cada item diz em
 que o Angular obrigou a escrever diferente.
@@ -115,10 +115,10 @@ que o Angular obrigou a escrever diferente.
   `debounced()` no `@angular/core`; as implementações usam `setTimeout`,
   como o Solid.
 
-## 2026-10-09, desktop em pré-análise (commits `0704352` a `04b5995`)
+## 2026-10-09, *desktop* em pré-análise (commits `0704352` a `04b5995`)
 
 Swing, JavaFX montado em código e JavaFX com FXML, no Formulário e na
-Lista; o desktop ainda não é plataforma do TCC (`docs/plataformas.md`,
+Lista; o *desktop* ainda não é plataforma do TCC (`docs/plataformas.md`,
 seção "Swing × JavaFX").
 
 - **A dependência esquecida passa na rotina** (dependências ocultas,
