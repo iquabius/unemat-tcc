@@ -720,7 +720,7 @@ Formato:
 - Trecho: “The study involves 127 subjects and compares reactive
   programming to the traditional object-oriented style with the Observer
   design pattern.” (resumo, p. 1125)
-- Lido em: =tmp/fontes/salvaneschi2017.pdf=, p. 1 do PDF; o desenho
+- Lido em: =tmp/fontes/salvaneschi2017.pdf=, p. 1 do PDF; o delineamento
   controlado está na entrada do §5.
 - Observação: a frase saiu do §11 em 2026-10-07, para o §14 ligar as
   hipóteses da pesquisa exploratória ao experimento.
@@ -962,7 +962,7 @@ Formato:
   docs/paradigma-modelo-e-notacao.md, seção 2.
 - Conferido: 2026-10-09.
 
-* §28 [[file:../intro.org::O desenho tem limitações em três pontos][O desenho tem limitações em três pontos]]
+* §28 [[file:../intro.org::O delineamento tem limitações em três pontos][O delineamento tem limitações em três pontos]]
 ** hertzum2003, p. 183
 - Frase: “Em métodos de inspeção, avaliadores diferentes acham problemas bem
   diferentes na mesma interface (Hertzum; Jacobsen, 2003, p. 183).”
@@ -999,7 +999,7 @@ Formato:
   2026-10-09; atualizada em 2026-10-01).
 - Conferido: 2026-10-09.
 
-* §23 [[file:../intro.org::O desenho mantém fixo o que não pertence][O desenho mantém fixo o que não pertence]]
+* §23 [[file:../intro.org::O delineamento mantém fixo o que não pertence][O delineamento mantém fixo o que não pertence]]
 ** google2026b (TypeScript)
 - Frase: “A linguagem é uma só em cada plataforma: na web, o /TypeScript/,
   que o Angular exige (Google, 2026b) e as demais tecnologias também usam
