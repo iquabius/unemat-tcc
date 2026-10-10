@@ -130,8 +130,7 @@ nos controles".
   caía dentro do `\DIFadd`, um `\uwave` do ulem, onde o `\hl` não compila
   ("Leaders not followed by proper glue"). Nas amostras de 2026-10-09, o
   `\realce` ficou fora do `\DIFadd` só onde o preâmbulo não o definia
-  como `{#1}`. Até 2026-10-10, o `tcc.tex` o trocava por texto simples
-  no diff, sem a cor.
+  como `{#1}`.
 - Alternativas descartadas em 2026-10-10: nenhuma opção do latexdiff faz
   um envoltório contar como texto igual (`--append-textcmd=realce` dá
   `\realce{\DIFadd{X}}`, e o seguro vence o de texto);
