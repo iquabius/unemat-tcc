@@ -10,6 +10,7 @@ aninhado são construídos.
 import importlib.util
 import os
 import sys
+import tempfile
 import unittest
 from unittest import mock
 from pathlib import Path
@@ -57,6 +58,20 @@ class Marcar(unittest.TestCase):
         self.assertEqual(
             rd.marcar("\\realce{a \\realce{b} c}"),
             "\\REALCEinicio{}a \\realce{b} c\\REALCEfim{}")
+
+    def test_antes_reescreve_o_arquivo_e_para_no_realce_sem_par_com_o_nome(self):
+        with tempfile.TemporaryDirectory() as pasta:
+            bom, ruim = Path(pasta, "bom.tex"), Path(pasta, "ruim.tex")
+            bom.write_text("a \\realce{b} c\n", encoding="utf-8")
+            ruim.write_text("a\n\\realce{b\n", encoding="utf-8")
+            argv = ["realce-no-diff.py", "antes", str(bom), str(ruim)]
+            with mock.patch.object(sys, "argv", argv):
+                with self.assertRaises(SystemExit) as erro:
+                    rd.main()
+            self.assertEqual(bom.read_text(encoding="utf-8"),
+                             "a \\REALCEinicio{}b\\REALCEfim{} c\n")
+            self.assertTrue(str(erro.exception.code).startswith(
+                f"realce-no-diff.py: {ruim}:2: \\realce sem a chave que fecha"))
 
     def test_antes_sem_arquivo_para(self):
         with mock.patch.object(sys, "argv", ["realce-no-diff.py", "antes"]):
