@@ -119,7 +119,7 @@ nos controles".
   autor em 2026-10-10.
 - O `git latexdiff` do `readme.org` não passa pelo `bin/latexdiff-tcc.sh` e
   usa `--exclude-safecmd=realce`, que deixa o `\realce` fora do `\DIFadd`:
-  compila, e o trecho que só ganhou o realce sai riscado e repetido em
+  compila, e o trecho que só ganhou o realce sai apagado e reescrito, em
   laranja.
 - Por que o realce precisa disso: o latexdiff compara o `\realce{X}` como
   um token só, diferente das palavras de X, e marcava o trecho como
