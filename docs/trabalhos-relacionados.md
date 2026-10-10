@@ -185,3 +185,40 @@ PDF pelo agente principal. Cópias em `tmp/fontes/`, fora do git.
 Não aparecem no texto: React, Angular, Svelte, GUI, DOM (busca por palavra
 inteira em 2026-10-03). O artigo não cita a tese de Lima (2024); cita o
 estudo de mineração (MSR 2022, [18]) e o UAX ([50]).
+
+## 7. Trabalhos de conclusão de bacharelado (levantados em 2026-10-10)
+
+Os trabalhos de conclusão de bacharelado em computação no tema do TCC,
+em português e em inglês, que uma busca rápida na web achou em
+2026-10-10, mais os que as fontes já tinham. Os brasileiros comparam
+React, Angular e Vue por popularidade e desempenho; nenhum usa as DCs nem
+trata dos *signals*. Não são revisados por pares e ficam fora dos
+critérios da revisão (Apêndice II), que só admitem, além dos revisados,
+dissertações e teses da BDTD: servem de contraste com o delineamento do
+TCC e de modelo do gênero. "Grau" diz de onde vem o bacharelado: da folha
+de rosto, da página do repositório ou de uma referência.
+
+| Trabalho | O que faz | Grau | Lido |
+|---|---|---|---|
+| CAVALCANTE (2025), UFC (seção 1) | React, Angular e Vue numa lista de tarefas, por curva de aprendizado e desempenho | bacharelado em Ciência da Computação, folha de rosto ("Projeto de Pesquisa") | TC |
+| HOFFMANN; PINTO; URIARTE (2023), IFC (seção 1) | Popularidade e desempenho de React, Angular e Vue | artigo de duas graduandas em Ciência da Computação; o PDF não diz se é o TCC delas | R (conferido no PDF) |
+| CZAPLICKI, E. *Elm: concurrent FRP for functional GUIs*. Senior thesis, Harvard University, 2012 (`czaplicki2012`) | Cria o Elm | *senior thesis* (graduação), `refs.bib` | substituído por `czaplicki2013` |
+| DÉKÁNY, M. *Comparative analysis of React, Vue.js, and Svelte: technical evaluation, performance, and developer experience*. Bakalářská práce, Masarykova univerzita, 2025. is.muni.cz/th/gjz8s | React, Vue e Svelte num sistema de *build* comum (Vite), por arquitetura, estado, renderização e experiência do desenvolvedor, com protótipos; sem DCs | bacharelado, página do repositório; em inglês | R (página; o PDF não abriu) |
+| MARTINS FILHO, F. R. F. *Análise comparativa de tecnologias JavaScript focadas no front-end para desenvolvimento web*. TCC (Engenharia de Computação), UFC, Quixadá, 2023. repositorio.ufc.br/bitstream/riufc/75925/1/2023_tcc_frfmartinsfilho.pdf | Angular, React e Vue, pelo desempenho de renderização | bacharelado em Engenharia de Computação, folha de rosto | folha de rosto |
+| AMARANTE, P. P. *Análise comparativa entre as ferramentas front-end JavaScript para o desenvolvimento de aplicações de página única (SPA): Angular, React e Vue*. TCC, IFMG, Formiga, 2023. repositorio.ifmg.edu.br/items/a48a5f91-6f46-432a-8191-8f60c68375e0 | Angular, React e Vue por popularidade, maturidade e estabilidade, curva de aprendizado e desempenho, em tabelas comparativas | TC pelo repositório; o curso (Ciência da Computação) só pelo resumo da busca | R (metadados; o PDF deu HTTP 503) |
+| QUEIROZ, P. C. G. de. *Conhecendo a programação funcional*. TCC (Ciência da Computação), UFC, Fortaleza, 2024. repositorio.ufc.br/bitstream/riufc/78403/3/2024_tcc_pcgqueiroz.pdf | Introdução à programação funcional | bacharelado em Ciência da Computação, folha de rosto | folha de rosto |
+| MOTA FILHO, J. M. S. da. *Um estudo sobre a utilização de operadores de bibliotecas reativas em projetos de código aberto*. Trabalho de Graduação (Ciência da Computação), CIn/UFPE, 2020. cin.ufpe.br/~tg/2020-2/tgs_CC/tg_jmsmf.pdf | Mineração do uso dos operadores do ReactiveX em projetos de código aberto | graduação em Ciência da Computação, pela pasta do CIn; o PDF, em formato de artigo, não diz o grau | resumo |
+| NASCIMENTO, T. da S. *Avaliação de desempenho de renderização de páginas web: um estudo de caso com tecnologia JavaScript*. Monografia (Ciência da Computação), UFMA, 2018 | Desempenho de renderização | bacharelado, pela referência em Hoffmann, Pinto e Uriarte (2023) | não lido |
+| SCHNEIDER, A. H. *Desenvolvimento web com Client Side Rendering: combinando Single Page Application e serviços de backend*. Monografia (Ciência da Computação), UFRGS, 2016 | SPA e serviços de *backend* | bacharelado, pela mesma referência | não lido |
+| LUXEMBURK, J. *Functional programming for web frontend*. Bachelor's thesis, České vysoké učení technické v Praze, 2017. dspace.cvut.cz/entities/publication/fbc1c3c8-b379-4e23-9bd9-767fcfbfc939 | Elm contra JavaScript, pelas ferramentas e bibliotecas, com uma aplicação de exemplo | bacharelado, página do repositório; em inglês | R (página) |
+
+Ficaram de fora: os de mestrado (Hassan, VŠE, 2024; um do Politecnico
+di Torino, 2024; um da Universidad de Alcalá; Kiss, 2014; Saeed,
+Helsinki, 2024); o de tecnólogo (Soares, IFPI, Análise e
+Desenvolvimento de Sistemas, 2026); os em tcheco (Géryk, VŠE, 2022, que
+compara React, Angular, Vue, Svelte e Solid com JavaScript puro, e dois da
+UTB Zlín, 2023 e 2024). Sem o grau confirmado, por verificação anti-robô
+ou página inacessível: *Comparison of adoption and performance of Svelte
+and React* (Tampere, 2023, trepo.tuni.fi/handle/10024/145840), os do
+Theseus (Runeberg, 2013; Dorato, 2026; Vu) e a tese sueca sobre DCs do
+DiVA (diva2:1632735).
