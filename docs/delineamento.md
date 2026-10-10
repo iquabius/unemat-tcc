@@ -42,17 +42,17 @@ que se confunde com o desenho da tela (`CONTEXT.md`, Delineamento).
 
 | Par | Plataforma | Igual nos dois | Diferente | O que isola | De onde vem |
 |---|---|---|---|---|---|
-| React × Solid | web | JSX, linguagem, especificação | modelo de programação; também o dialeto do JSX (`className` e `class`) e `&&` e `.map` contra `<Show>` e `<For>` | o modelo de programação, entre os dois declarativos | ADR 0021 |
-| Solid × Angular com *signals* | web | modelo de programação (`signal`, `computed`, leitura por chamada) | notação: montagem da tela (JSX numa função, *template*), modelo de componente (classe, decorador, injeção de dependências) e API além do *signal* | a notação, dentro do declarativo por atualização granular | ADR 0021 |
-| Views × Compose | Android | linguagem, plataforma, especificação | modelo de programação e montagem da tela (layout XML, funções) | nenhuma variável sozinha; é o contraste mais próximo entre o imperativo e um declarativo | `docs/plataformas.md`; tcc-4ie |
-| Swing × JavaFX em código | *desktop* | linguagem, plataforma, montagem da tela em código Java | coordenação | o modelo de programação entre o imperativo e um declarativo; o par mais controlado | `docs/plataformas.md`; implementado no Formulário e na Lista (tcc-dwg, fechada) |
-| JavaFX em código × JavaFX com FXML | *desktop* | modelo de programação e *bindings* | montagem da tela | a montagem da tela | `docs/plataformas.md` |
-| Qt Widgets × QML | *desktop* | plataforma | coordenação e montagem da tela (C++, QML) | nenhuma variável sozinha | implementado no Formulário e na Lista (tcc-jhl, fechada) |
-| Windows Forms × WPF | *desktop* | linguagem e plataforma | coordenação e montagem da tela (código C#, XAML) | nenhuma variável sozinha | tcc-74m, aberta |
+| React × Solid | web | JSX, linguagem, especificação | modelo de programação; também o dialeto do JSX (`className` e `class`) e `&&` e `.map` contra `<Show>` e `<For>` | o modelo de programação, entre os dois declarativos | ADR 0021; [`plataformas.md`, Web](plataformas.md#web) |
+| Solid × Angular com *signals* | web | modelo de programação (`signal`, `computed`, leitura por chamada) | notação: montagem da tela (JSX numa função, *template*), modelo de componente (classe, decorador, injeção de dependências) e API além do *signal* | a notação, dentro do declarativo por atualização granular | ADR 0021; [`plataformas.md`, Web](plataformas.md#web) |
+| Views × Compose | Android | linguagem, plataforma, especificação | modelo de programação e montagem da tela (layout XML, funções) | nenhuma variável sozinha; é o contraste mais próximo entre o imperativo e um declarativo | [`plataformas.md`, Android](plataformas.md#android); tcc-4ie |
+| Swing × JavaFX em código | *desktop* | linguagem, plataforma, montagem da tela em código Java | coordenação | o modelo de programação entre o imperativo e um declarativo; o par mais controlado | [`plataformas.md`, Swing × JavaFX](plataformas.md#swing--javafx-java); implementado no Formulário e na Lista (tcc-dwg, fechada) |
+| JavaFX em código × JavaFX com FXML | *desktop* | modelo de programação e *bindings* | montagem da tela | a montagem da tela | [`plataformas.md`, Swing × JavaFX](plataformas.md#swing--javafx-java) |
+| Qt Widgets × QML | *desktop* | plataforma | coordenação e montagem da tela (C++, QML) | nenhuma variável sozinha | [`plataformas.md`, Qt Widgets × QML](plataformas.md#qt-widgets--qml-c-e-qml); implementado no Formulário e na Lista (tcc-jhl, fechada) |
+| Windows Forms × WPF | *desktop* | linguagem e plataforma | coordenação e montagem da tela (código C#, XAML) | nenhuma variável sozinha | [`plataformas.md`, Windows Forms × WPF](plataformas.md#windows-forms--wpf-c); tcc-74m, aberta |
 
 Os pares de *desktop* ainda não entraram na pergunta, nos objetivos nem
 no texto; o que cada um acrescenta e os custos estão em
-`docs/plataformas.md`.
+[`plataformas.md`](plataformas.md).
 
 ## 3. O que fica sem controle
 
