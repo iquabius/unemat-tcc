@@ -611,9 +611,9 @@ Formato:
   automated.”
 - Lido em: =tmp/fontes/solidjs2026.txt=, l. 8 (página salva).
 - Conferido: 2026-10-06.
-** lee2025, 289:2 e 289:6
+** lee2025, p. 289:2 e 289:6
 - Frase: “No /declarativo por re-renderização/, cada mudança de estado
-  reexecuta o componente, como no React (Lee; Ahn; Yi, 2025, 289:2 e
+  reexecuta o componente, como no React (Lee; Ahn; Yi, 2025, p. 289:2 e
   289:6).”
 - Trecho: “the same component is called for both creating a new view and
   updating an existing view” (289:2); “setting state within an Effect

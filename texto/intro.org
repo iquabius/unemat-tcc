@@ -127,7 +127,7 @@ mesma interface [[cite:lee2025][289:1]].
   ambiente de execução a mantém atualizada
   [[cites:&solidjs2026;&sperber2025 p. 32]].
   No /declarativo por re-renderização/, cada mudança de estado reexecuta o
-  componente, como no React [[cite:lee2025][289:2 e 289:6]].
+  componente, como no React [[cite:lee2025][p. 289:2 e 289:6]].
   No /declarativo por atualização granular/, cada /signal/ avisa os valores
   e trechos da tela que dependem dele, como no Solid e no Angular com
   /signals/ cite:solidjs2026,google2026.
