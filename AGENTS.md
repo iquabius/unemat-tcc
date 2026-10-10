@@ -36,10 +36,10 @@ As tarefas vivem no [Beads](https://github.com/gastownhall/beads) (`bd`
 
   | A tarefa muda | Épico |
   |---|---|
-  | `texto/intro.org` | Fase 1: introdução (`tcc-e2e`) |
+  | `texto/intro.org`, `docs/metodo-da-avaliacao.md` | Fase 1: introdução (`tcc-e2e`) |
   | a pauta de uma orientação | a fase em curso, a primeira ainda aberta |
   | `texto/cases.org`, `texto/results.org`, a análise por DC | Fase 2: análise dos casos (`tcc-d40`) |
-  | `texto/prog.org`, trabalhos relacionados, `docs/fundamentacao.md`, `docs/trabalhos-relacionados.md` | Fase 3: capítulo de programação (`tcc-2o8`) |
+  | `texto/prog.org`, `docs/fundamentacao.md`, `docs/trabalhos-relacionados.md` | Fase 3: capítulo de programação (`tcc-2o8`) |
   | `texto/conclusion.org`, o título, o texto do resumo | Fase 4: fechamento (`tcc-y8x`) |
   | `casos/`: código, especificação, roteiros, capturas | Código dos casos (`tcc-3jg`) |
   | `texto/refs.bib`, `tmp/fontes/`, `docs/revisao-bibliografica.md` | Bibliografia (`tcc-bkm`) |
@@ -265,9 +265,9 @@ pergunta antes.
 
 Cada nota é de um tipo só, dito na primeira linha depois do título:
 
-- **Referência** (`docs/paradigma-modelo-e-notacao.md`): tabelas e
-  listas para consulta, atualizadas quando o fato muda; cada afirmação
-  sobre ferramenta ou versão leva a data em que foi observada.
+- **Referência** (`docs/tecnologias-web.md`): tabelas e listas para
+  consulta, atualizadas quando o fato muda; cada afirmação sobre
+  ferramenta ou versão leva a data em que foi observada.
 - **Achados** (`docs/achados-das-implementacoes.md`): observações feitas ao
   implementar, com data e commit, à espera de entrar na análise do texto.
 
