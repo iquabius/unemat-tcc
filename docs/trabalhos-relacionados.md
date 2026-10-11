@@ -197,7 +197,7 @@ critérios da revisão (Apêndice II), que só admitem, além dos revisados,
 dissertações e teses da BDTD: servem de contraste com o delineamento do
 TCC e de modelo do gênero. "Grau" diz de onde vem o bacharelado: da folha
 de rosto, da página do repositório ou de uma referência. Cópias em
-`tmp/fontes/trabalhos-de-conclusao/`, fora do git, com o texto extraído
+`tmp/fontes/tccs/`, fora do git, com o texto extraído
 ao lado de cada PDF.
 
 Nenhum dos comparativos diz, na introdução, o que falta nas comparações
