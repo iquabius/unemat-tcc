@@ -4,8 +4,9 @@ Referência. Reúne as fontes guardadas para a fundamentação, no capítulo
 de programação (`texto/prog.org`), com o que cada uma sustenta e, quando
 lido, o trecho conferido: a matriz tema × referência, os candidatos da
 revisão de 2026-09-24, as fontes sobre *callbacks*, eventos e
-*promises*, os trechos que saíram da introdução e Zampetti et al.
-(2025). Veio de `docs/literatura.md` (índice até `ff620ad`), seções 2,
+*promises*, os trechos que saíram da introdução, Zampetti et al.
+(2025) e a revisão sobre aplicação interativa e aplicação reativa
+(seção 7, de 2026-10-10). Veio de `docs/literatura.md` (índice até `ff620ad`), seções 2,
 3.1, 3.2, 4 (o item da literatura revisada por pares), 12, 13.3 e 14.3,
 em 2026-10-10.
 
@@ -230,3 +231,121 @@ fora do git.
 | Não mandam evitar: "Developers who should not underestimate the likelihood of inducing fixes"; "Educators who should give proper emphasis" à sintaxe e aos maus usos | p. 38 | conferido | implicações |
 | Resumem Zid et al. (2024b), mais de 200 participantes: "No significant evidence was found for map/reduce/filter functions"; "Overall, functional constructs are perceived as more difficult to understand than their procedural counterparts" | p. 33 | conferido | compreensão: fonte a ler, não a citar daqui |
 | Resumem Mehlhorn e Hanenberg (2022, `mehlhorn2022`): "the Stream API caused fewer errors" | p. 33 | conferido | já no `.bib` |
+
+## 7. Aplicação interativa e aplicação reativa (revisão de 2026-10-10)
+
+**Conclusão.** Não há consenso. A linhagem das linguagens síncronas, a
+PR e parte da IHC chamam de reativo o software de interface; o
+interativo ora é outra categoria (o sistema que dita o próprio ritmo,
+como o sistema operacional), ora o gênero de que o reativo é espécie,
+ora a espécie, ora sinônimo. O que sustenta "aplicação interativa" no
+TCC são três coisas:
+
+- o critério da restrição de tempo: a IHC chama de sistema interativo o
+  aplicativo com tela, que reage sem prazo imposto pelo ambiente, e diz
+  que segue a distinção da linhagem síncrona (Martin, Magnaudet e
+  Conversy 2023, p. 2 e 10-11, cópia);
+- a norma de IHC, que chama de sistema interativo os sites, os
+  aplicativos da web e os telefones celulares (ABNT NBR ISO
+  9241-210:2024, p. 1 e 3);
+- a polissemia de "reativo", que nomeia pelo menos três coisas em
+  pesquisa (Myter, Scholliers e De Meuter 2019, 5:1-5:2) e já nomeia um
+  dos modelos de programação comparados ("Common reactive systems like
+  React or Vue", Grolaux et al. 2026, p. 13).
+
+O texto precisa reconhecer que a linhagem síncrona chamaria essas
+aplicações de reativas (Harel e Pnueli 1985, p. 479; Berry 1989; Berry
+2000, p. 9-10; Halbwachs 1993, p. 1 e 6), e que a PR as põe entre as reativas (Salvaneschi et al. 2017,
+p. 1125; Kiss 2014, p. 5).
+
+Método: tarefa tcc-cfm. Quatro lotes de busca, um por comunidade
+(OpenAlex, Crossref, BDTD, SOL e *snowballing* das sementes), com os
+relatórios e os PDFs em `tmp/revisao-interativo-reativo-2026-10-10/`,
+fora do git. Só entram aqui os trechos conferidos no PDF pelo agente
+principal em 2026-10-10 (`conferencia.md` da mesma pasta); as 45 fontes
+sem acesso estão em `sem-acesso.md`. "Cópia" marca a página da versão
+do autor ou do preprint, e não a publicada.
+
+### 7.1 Por comunidade
+
+Linguagens síncronas e métodos formais:
+
+| Fonte | O que diz | Critério | A interface gráfica | Onde |
+|---|---|---|---|---|
+| Harel e Pnueli 1985 (sem entrada) | "Our proposed distinction is between what we call transformational and reactive systems"; os reativos "are repeatedly prompted by the outside world and their role is to continuously respond to external inputs", de fornos de micro-ondas a "man/machine based software systems" e "computer operating systems"; "reactive systems can be required to respond in real-time or not" | responder continuamente ao ambiente, contra transformar entrada em saída | reativa; não há categoria "interativo", e o sistema operacional também é reativo | NATO ASI F13, p. 479-480, digitalização do autor |
+| Berry 1989 (`berry1989`) | "Interactive programs interact at their own speed with users or with other programs [...]. Reactive programs also maintain a continuous interaction with their environment, but at a speed which is determined by the environment"; os "man-machine interface handlers" são reativos sem ser de tempo real; menus e barras de rolagem são "reactive devices" que servem ao "interactive operating system" | quem dita o ritmo | reativa | relatório INRIA, cópia HAL sem paginação, p. 7 do PDF |
+| Berry 2000 (manual do Esterel v5, sem entrada) | interativos: "the computers can be viewed as the masters of the interaction", como os sistemas operacionais, os bancos de dados e a Internet; reativos: "purely input-driven", no ritmo do ambiente; um banco tem "reactive automatic teller machines and graphical user interfaces" | quem manda na interação | reativa | p. 9-10 |
+| Halbwachs 1993 (livro, sem entrada) | reativos se distinguem "from interactive systems, which continuously interact with their environment, but at their own rate (e.g., operating systems)"; exemplos de reativos incluem "man-machine interfaces"; "a reactive interface (keyboard, mouse, scrollbar) to call interactive services of the operating system" | ritmo e determinismo (p. 2) | reativa | p. 1, 2 e 6, cópia do autor |
+| Boussinot 1991 (sem entrada) | "Reactive systems are interactive programs that react continuously to sequences of activations coming from the external world"; "man–machine interface handlers or computer games fall into the category of reactive systems" | reação contínua | reativa, e o reativo é espécie do interativo | p. 401 |
+| Mandel e Pouzet 2005 (sem entrada) | ReactiveML serve "complex reactive systems as found in graphical user interfaces, video games or simulation problems"; o modelo reativo de Boussinot serviu a "complex interactive systems as found in graphical user interfaces, video-games or simulation problems"; "Synchronous languages are restricted to the domain of real-time systems" | o tempo real separa as linguagens síncronas estritas do modelo reativo, e não o reativo do interativo | reativa e interativa, sinônimos | PPDP, p. 82 |
+| Berry e Serrano 2020 (`berry2020`) | a tripartição revista: a programação web em JavaScript fica nos "asynchronous concurrent programs", e o reativo é o síncrono; aplicações em que "reactive aspects are as important as interactive ones" | sincronia e determinismo | a web fica fora do reativo síncrono | p. 533 |
+
+Linguagens de programação e PR:
+
+| Fonte | O que diz | Critério | A interface gráfica | Onde |
+|---|---|---|---|---|
+| Salvaneschi et al. 2017 (`salvaneschi2017`) | "Reactive applications represent a wide class of software that needs to continuously and interactively respond to internal or external stimuli", com "user-interactive software, like GUIs and Web applications"; "reactive applications are usually developed using the Observer design pattern" | resposta contínua a estímulos | reativa; o interativo é subconjunto | p. 1125 e 1127 |
+| Salvaneschi, Margara e Tamburrelli 2015 (`salvaneschi2015`) | a PR "supports the development of reactive applications"; a PFR nasceu "to support interactive animations" | | reativa | p. 953 |
+| Bainomugisha et al. 2013 (`bainomugisha2013`) | a PR serve a "event-driven and interactive applications"; "Such event-driven applications maintain continuous interaction with their environment" | interação contínua | interativa, sem contraste | 52:1-52:2, cópia |
+| Kiss 2014 (`kiss2014`) | "general challenges of reactive systems of which GUIs are a particular instance" | | reativa | p. 5-7 |
+| Krishnaswami 2013 (sem entrada) | "Interactive programs engage in an ongoing dialogue with the environment", de controladores embarcados a "graphical user interfaces"; o resumo diz "reactive systems" | diálogo contínuo | interativa e reativa, sinônimos | ICFP, p. 221 |
+| Bahr, Graulund e Møgelberg 2019 (sem entrada) | "Reactive programs are programs that engage in an ongoing dialogue with their environment [...]. Examples include GUIs, servers" | diálogo contínuo | reativa | PACMPL 3 (ICFP), p. 1 da cópia |
+| Lima 2024 (`lima2024`) | "event-driven applications, also called interactive or reactive applications (e.g., graphical user interface apps)"; "Reactive applications, also called interactive or event-driven" | | sinônimos | p. 17 e 25 |
+| Goldin e Wegner 2008 (sem entrada) | "graphical user interfaces, are interactive rather than algorithmic; their job is to provide ongoing services over time" | serviço contínuo contra o algoritmo que termina | interativa, por oposição ao algoritmo | *Minds and Machines* 18(1), p. 3 do manuscrito |
+| Van Roy e Haridi 2004 (`roy2004`) | "high-performance interactive systems"; "An interactive system, such as a computer game, should have a uniform reaction time" | | interativa | p. 174 |
+| Edwards 2009 (`edwards2009`) | "interactive applications (such as word processors or commercial web sites)"; "interaction is a side effect" | | interativa | p. 925 |
+
+IHC e normas:
+
+| Fonte | O que diz | Critério | A interface gráfica | Onde |
+|---|---|---|---|---|
+| ABNT NBR ISO 9241-210:2024 (sem entrada) | "sistema interativo: combinação de hardware e/ou software e/ou serviços e/ou pessoas com as quais os usuários interagem para alcançar objetivos específicos"; exemplos: "sites e aplicativos da web [...] telefones celulares" | o usuário interage para alcançar objetivos | interativa; a norma não usa "reativo" | p. 1 e 3 |
+| Martin, Magnaudet e Conversy 2023 (sem entrada) | "An interactive system reacts to events in the environment without time constraints, whereas reactive systems [react within a time limit set by the environment]"; "When we talk about interaction from the perspective of HCI, we refer to "interactive system" following that distinction"; Fig. 1: "Example of an interactive system: a drawing app" | restrição de tempo | interativa, por escolha declarada | *Minds and Machines*, p. 2 e 10-11, cópia |
+| Myers 1994 (`myers1994`) | interfaces são difíceis porque "they are reactive and must be programmed from the "inside-out""; seção "Reactive Programming"; "user interface software is reactive and often requires multiprocessing" | reage ao usuário | reativa | *interactions* 1(1), p. 75, 79 e 81 |
+| Béger, Leriche e Prun 2020 (sem entrada) | "Interactive systems are reactive computer systems that process information (mouse clicks, data entries, etc.) from their environment" | | interativa, como espécie de reativo | FMIS 2019, p. 1 da cópia |
+| Magnaudet et al. 2018 (sem entrada) | "Interactive software is widespread, from our daily-used smartphone's applications [...]. All these systems share a common feature: the need to continuously react" | | interativa, que reage | PACMHCI 2 (EICS), p. 1 da cópia |
+| Stehling e Liesenberg 1999 (sem entrada) | o Xchart descreve "o controle de diálogo da interface de um sistema interativo"; as instâncias "interagem entre si (subsistema reativo)" | | o sistema é interativo; o controle de diálogo, reativo | SBES, p. 172 e 176 |
+| Butterworth e Cooke 1996 (sem entrada) | "reactive" só no título; o texto fala de "interactive systems" | | interativa | BCS-FACS, p. 1 |
+
+Arquitetura de sistemas:
+
+| Fonte | O que diz | A interface gráfica | Onde |
+|---|---|---|---|
+| Bonér et al. 2014, *Reactive Manifesto* 2.0 (literatura cinza) | "Responsive, Resilient, Elastic and Message Driven. We call these Reactive Systems."; no glossário, o "user" é "any consumer of a service, be that a human or another service" | não fala da tela | página e glossário, acesso em 2026-10-10 |
+| Bonér et al. 2013, *Reactive Manifesto* 1.0 (literatura cinza) | "We call these Reactive Applications", com "highly interactive user experiences"; "Interactive" era um dos traços | a experiência do usuário entra como traço | PDF |
+| Myter, Scholliers e De Meuter 2019 (sem entrada) | "The term reactivity is popular in two areas of research: programming languages and distributed systems"; o desencontro das definições é um "mismatch" | a "mouse position" fica do lado da PR | *Programming* 3(3), 5:1-5:2 |
+| Lohstroh et al. 2020 (sem entrada) | Harel e Pnueli definem os reativos pela "ongoing interaction with their environments"; o Manifesto é "a revival of the concepts behind the Actor model"; a comunidade de PR cuida de "event-driven and interactive applications" | | LNCS, p. 1 e 20 da cópia |
+
+### 7.2 As relações entre os dois termos
+
+- Reativo contém interativo: Salvaneschi et al. (2017), Béger, Leriche e
+  Prun (2020), Magnaudet et al. (2018).
+- Interativo contém reativo: Boussinot (1991).
+- Disjuntos, por quem dita o ritmo ou pela restrição de tempo: Berry
+  (1989; 2000), Halbwachs (1993), Martin, Magnaudet e Conversy (2023).
+- Sinônimos: Lima (2024), Krishnaswami (2013), Mandel e Pouzet (2005).
+- Interativo contra algorítmico, sem o reativo no meio: Goldin e Wegner
+  (2008).
+- "Reativo" fora do eixo da tela, como propriedade da arquitetura do
+  servidor: o Manifesto 2.0 e Myter, Scholliers e De Meuter (2019).
+
+### 7.3 Pendências
+
+- Martin, Magnaudet e Conversy (2023, nota 4) atribuem a distinção entre
+  reativo e interativo, pelo tempo real, a Harel e Pnueli (1985) e a
+  Mandel e Pouzet (2005). Harel e Pnueli não a fazem: a dicotomia deles
+  é transformacional × reativo, o sistema operacional é reativo, e o
+  tempo real não é critério ("reactive systems can be required to respond
+  in real-time or not", p. 480; lido na digitalização em 2026-10-10). A
+  distinção com "interativo" vem de Berry (1989). Mandel e Pouzet (2005,
+  p. 82) também não a fazem: chamam as GUIs, os jogos e as simulações de
+  "complex reactive systems" no resumo e de "complex interactive systems"
+  na introdução, e o tempo real, para eles, separa as linguagens
+  síncronas estritas do modelo reativo de Boussinot. Citar a distinção
+  por Berry (1989), e o critério do tempo por Martin, Magnaudet e
+  Conversy (2023), como escolha deles.
+- Páginas publicadas por conferir: Bainomugisha et al. (2013), Bahr,
+  Graulund e Møgelberg (2019), Béger, Leriche e Prun (2020), Magnaudet
+  et al. (2018), Martin, Magnaudet e Conversy (2023), Lohstroh et al.
+  (2020), Goldin e Wegner (2008), Halbwachs (1993).
+- O `refs.bib` ganha entrada só para a fonte que o texto citar.
