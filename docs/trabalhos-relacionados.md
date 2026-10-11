@@ -201,13 +201,14 @@ de rosto, da página do repositório ou de uma referência. Cópias em
 ao lado de cada PDF.
 
 Nenhum dos comparativos diz, na introdução, o que falta nas comparações
-que já existem: dos 12 lidos no tema, 9 têm a introdução *explorativa*,
-sem lacuna, e os dois que dizem uma lacuna (Cavalcante e Martins Filho)
-a deixam para um capítulo seguinte. Os dois *focados*, com a lacuna dita
-cedo e a pergunta logo depois, são curtos: Mota Filho e van Dis. A
-introdução mediana do tema tem 606 palavras e 2 páginas (faixa de 145 a
-1.371 palavras); 17 TCCs de bacharelado em computação fora do tema,
-lidos do mesmo jeito, têm mediana de 1.107 palavras, e as introduções
+que já existem: dos 14 lidos no tema, 10 têm a introdução *explorativa*,
+sem lacuna, e os dois comparativos que dizem uma lacuna (Cavalcante e
+Martins Filho) a deixam para um capítulo seguinte. Os três *focados*, com
+a lacuna dita cedo e as contribuições ou a pergunta logo depois, são
+curtos: Mota Filho, van Dis e Vos. A introdução mediana do tema tem 582
+palavras e 2 páginas (faixa de 145 a 1.371 palavras); 19 TCCs de
+bacharelado em computação fora do tema, lidos do mesmo jeito, têm
+mediana de 1.047 palavras, e as introduções
 *dispersas* são as mais longas. Lidos e medidos em 2026-10-10 (palavras
 do capítulo de introdução, páginas físicas); a classificação é de um
 leitor só, e cada categoria tem poucos casos. As categorias:
@@ -233,6 +234,8 @@ leitor só, e cada categoria tem poucos casos. As categorias:
 | SCHNEIDER, A. H. *Desenvolvimento web com Client Side Rendering: combinando Single Page Application e serviços de backend*. Monografia (Ciência da Computação), UFRGS, 2016. lume.ufrgs.br/bitstream/handle/10183/150910/001009680.pdf | SPA e serviços de *backend* | bacharelado, folha de rosto | TC | 613 palavras, 1,9 p.; explorativa e demonstrativa: "apontar os benefícios do modelo de Client Side Rendering" (p. 11) |
 | LUXEMBURK, J. *Functional programming for web frontend*. Bachelor's thesis, České vysoké učení technické v Praze, 2017. dspace.cvut.cz/entities/publication/fbc1c3c8-b379-4e23-9bd9-767fcfbfc939 | Elm contra JavaScript, pelas ferramentas e bibliotecas, com uma aplicação de exemplo | bacharelado, folha de rosto ("Assignment of bachelor's thesis") e metadados do repositório; em inglês | TC | 145 palavras, 1 p. (343 com o cap. 1, de objetivos e perguntas); explorativa: "to perform a review of functional programming, its languages" (p. 3) |
 | VAN DIS, S. *Integrating the principles of Responsive Web Design into iTasks*. Bachelor's thesis (Computing Science), Radboud Universiteit, 2025. cs.ru.nl, página "Bachelor's theses" | Leva o design responsivo ao iTasks, que gera interfaces web a partir de uma linguagem de domínio feita em Clean, linguagem funcional | bacharelado, folha de rosto; em inglês | TC | 420 palavras, 2 p.; focada: "these still only respond well to the screen-sizes of desktops" (p. 3), seguida da pergunta de pesquisa em destaque (p. 4) |
+| VOS, S. *Running iTasks tasks in the browser: reducing server dependencies and communication overhead*. Bachelor's thesis (Computing Science), Radboud Universiteit, 2025. cs.ru.nl, página "Bachelor's theses" | Roda no navegador as tarefas e os editores do iTasks, que hoje dependem do servidor para gerar a interface | bacharelado, folha de rosto; em inglês | TC | 432 palavras, 2 p.; focada, em funil: "managing multiple UIs from the server introduces communication overhead" (p. 3), no 3.º de 5 parágrafos, com a solução anterior abandonada e quatro contribuições verificáveis |
+| HORA, M. *Grafting dynamic editor trees: recycling children and modular selector adding for Dynamic Editors in iTasks*. Bachelor's thesis (Computing Science), Radboud Universiteit, 2025. cs.ru.nl, página "Bachelor's theses" | Estende os Dynamic Editors do iTasks, editores de interface para compor consultas, para reaproveitar partes já preenchidas | bacharelado, folha de rosto; em inglês | TC | 303 palavras, 1 p.; explorativa: nenhuma frase diz o que falta; o problema (digitar de novo a consulta) fica implícito no objetivo, "we aim to minimize re-entering as much as possible" (p. 3) |
 | GREŠAK (2018), Ljubljana (seção 8.2) | Elm contra React na mesma aplicação | bacharelado, folha de rosto ("diplomsko delo", programa de primeiro ciclo); em esloveno | TC | cerca de 670 palavras (em esloveno), 4 p.; explorativa: a ideia nasce do desejo de conhecer o Elm (p. 1); cita um trabalho anterior sem dizer o que falta nele (p. 2) |
 
 Ficaram de fora: os de mestrado (Hassan, VŠE, 2024; um do Politecnico
