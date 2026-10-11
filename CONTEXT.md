@@ -127,6 +127,10 @@ Angular com RxJS.
 **Domínio**:
 As regras de uma tarefa que não dependem da interface (datas, e-mail,
 mensagens, catálogo), compartilhadas pelas implementações.
+_Avoid_: lógica de negócio e regras de negócio, que pressupõem um negócio:
+o Contador tem estado e tela e nenhum domínio, e a validação de datas e de
+e-mail do Formulário não é regra de negócio de ninguém (a *business
+logic* de Karagkasidis, 2008, é o domínio aqui)
 
 **Rotina**:
 As verificações da especificação de uma tarefa, executadas contra cada
