@@ -152,6 +152,13 @@ dependências ocultas, propensão a erros, concisão, viscosidade,
 expressividade e operações mentais difíceis.
 _Avoid_: critério, métrica
 
+***Affordance***:
+A possibilidade de ação que o usuário percebe num elemento da interface,
+como o botão que se deixa apertar (Norman, 2013). Fica em inglês, em
+itálico, e na prosa pode alternar com "convite ao uso".
+_Avoid_: afordância; pista, indicação ou sinalizador de uso para a
+*affordance* (são o *signifier* de Norman, o sinal que a mostra)
+
 **Avaliação**:
 O ato de aplicar as DCs ao código das implementações, feito pelo autor,
 dimensão a dimensão, sem participantes: uma avaliação analítica, feita por
