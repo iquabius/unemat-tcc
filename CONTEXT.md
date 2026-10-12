@@ -3,7 +3,7 @@
 Trabalho de conclusão que compara três modelos de programação de interfaces
 gráficas pelas Dimensões Cognitivas de Notações, aplicadas à notação com
 que cada tecnologia os escreve, com as mesmas tarefas implementadas em
-várias tecnologias na web e no Android. Texto em `texto/`, código em
+várias tecnologias na web, no Android e no desktop, em três rodadas. Texto em `texto/`, código em
 `casos/`, decisões em `docs/adr/`, definições e fontes dos termos em
 `docs/paradigma-modelo-e-notacao.md`.
 
@@ -40,8 +40,9 @@ tela)
 
 **Montagem da tela**:
 A parte da notação que escreve quais elementos a tela tem, em que
-hierarquia e com que textos: HTML (jQuery, Web Component), JSX (React,
-Solid), *template* (Angular), layout XML (Views), funções (Compose). Solid
+hierarquia e com que textos: HTML (Web Component), *template* `html`
+(Lit), JSX (React, Solid), *template* (Angular), layout XML (Views),
+funções (Compose), código C# (Windows Forms), XAML (WPF). Solid
 e Angular diferem nela dentro do mesmo modelo de programação. A
 análise aponta, em cada DC, se a diferença está na coordenação, na
 montagem da tela ou na ligação entre as duas (ADR 0021).
@@ -64,10 +65,50 @@ _Avoid_: desenho (confunde-se com o desenho da tela); projeto (o projeto de
 pesquisa é o documento de 2017)
 
 **Problema de coordenação**:
-O que uma tarefa exige do modelo de programação: evento → estado → tela, estado derivado,
-assincronia, lista derivada (com a montagem dos itens na tela), estado
-compartilhado (ADR 0002).
-_Avoid_: padrão de interface
+O que uma tarefa exige do modelo de programação, em dois eixos, a
+orquestração de eventos e o gerenciamento de estado: evento → estado →
+tela, estado derivado, assincronia, lista derivada (com a montagem dos
+itens na tela), estado compartilhado (ADR 0002).
+_Avoid_: padrão de interface; tratamento de eventos (é o vocabulário do
+imperativo, e mediria os três modelos de programação com a régua de um)
+
+**Orquestração de eventos**:
+O eixo do problema de coordenação que combina no tempo eventos de várias
+fontes: a espera depois da última tecla, o cancelamento, a ordem das
+respostas, a nova tentativa (Meijer, 2012).
+_Avoid_: coordenação de eventos (coordenar cobre também o estado, Edwards,
+2009); orquestração para o estado
+
+**Gerenciamento de estado**:
+O eixo do problema de coordenação que propaga cada mudança de estado aos
+valores derivados e à tela (*change propagation*, Bainomugisha et al.,
+2013; *state management*, State of JS).
+_Avoid_: gestão de estado; gerência de estado
+
+**Rodada**:
+Uma das três etapas da avaliação, cada uma mais estreita que a anterior:
+P1, as cinco tarefas em todas as tecnologias; P2, funcionalidades e
+requisitos de orquestração acrescentados ao Formulário e à Busca; P3, o
+Formulário reescrito com a biblioteca de formulário do ecossistema (ADR
+0029).
+_Avoid_: fase (é do roteiro); iteração; rodada sozinha onde puder ser a
+rodada de corte ou a de revisão do texto (ADRs 0022 e 0023)
+
+**Funcionalidade**:
+Mudança acrescentada a uma tarefa na P2 que muda o que o usuário vê, como
+o assistente em três passos do Formulário.
+_Avoid_: *feature*; recurso
+
+**Requisito de orquestração**:
+Mudança acrescentada a uma tarefa na P2 que deixa as cenas iguais e muda
+como se combinam eventos de várias fontes, como a espera de 300 ms da
+Busca.
+_Avoid_: requisito não funcional (a mudança é de comportamento)
+
+**Ecossistema**:
+As bibliotecas que a comunidade de uma tecnologia usa junto dela, como as
+de formulário da P3.
+_Avoid_: ecossistema para as ferramentas de *build*, teste ou edição
 
 **Ambiente de execução**:
 A parte da tecnologia que, em tempo de execução, faz as atualizações que o
@@ -77,18 +118,19 @@ _Avoid_: ambiente sozinho; ambiente para o sistema de edição das DCs
 
 **Plataforma**:
 O ambiente em que a interface roda e cujas APIs uma tecnologia usa: a web
-(TypeScript), o Android (Kotlin) e, se entrar, um par de *desktop*. Cada
-par se classifica pela plataforma: a análise se faz na web, e cada outra
-plataforma confere, no Formulário e na Lista, se as conclusões da web se
-repetem (ADR 0012).
+(TypeScript), o Android (Kotlin) e o desktop (C#). Cada par se classifica
+pela plataforma: a análise se faz na web, e o Android e o desktop
+conferem, no Formulário e na Lista, se as conclusões da web se repetem
+(ADR 0012).
 _Avoid_: plataforma para o *framework*; replicação para o Android (rótulo
 de 2026-09-26, trocado em 2026-10-09); porte para o domínio de outra
 plataforma (é o domínio dela, na linguagem dela)
 
 **Tecnologia**:
 Uma forma de implementar uma tarefa numa plataforma: na web, Web Component
-(a plataforma), jQuery, React, Solid, Angular com *signals* e Angular com
-RxJS; no Android, Views (a plataforma) e Jetpack Compose. Cada uma impõe
+(a plataforma), React, Lit, Solid, Angular com *signals* e Angular com
+RxJS; no Android, Views (a plataforma) e Jetpack Compose; no desktop,
+Windows Forms e WPF. Cada uma impõe
 um modelo de programação e se escreve numa notação própria; a
 documentação a chama de biblioteca, *framework*, *toolkit* ou plataforma,
 e o texto usa esses nomes só para descrevê-la.
@@ -98,8 +140,8 @@ nativa (no Android, nativa é a interface do sistema, e as duas são)
 
 **Biblioteca**:
 Código reutilizável que a aplicação chama, sem lhe ceder o controle
-(Fayad e Schmidt, 1997): o jQuery e o React, como a documentação de cada
-um se chama. O critério falha quando a biblioteca recebe funções da
+(Fayad e Schmidt, 1997): o React e o Lit, como a documentação de cada um
+se chama, e as bibliotecas de formulário da P3. O critério falha quando a biblioteca recebe funções da
 aplicação: o React chama os componentes.
 _Avoid_: biblioteca para o que se compara (modelo de programação) ou como
 nome genérico das tecnologias
@@ -117,7 +159,8 @@ o Compose se apresenta assim.
 _Avoid_: *toolkit* como sinônimo de biblioteca; kit de ferramentas
 
 **Implementação**:
-Uma tarefa numa tecnologia: 30 na web, 6 no Android.
+Uma tarefa numa tecnologia: na P1, 25 na web, 4 no Android e 4 no
+desktop; na P3, o Formulário reescrito em cada uma das nove tecnologias.
 _Avoid_: versão, exemplo
 
 **Apoio**:
@@ -132,15 +175,16 @@ o Contador tem estado e tela e nenhum domínio, e a validação de datas e de
 e-mail do Formulário não é regra de negócio de ninguém (a *business
 logic* de Karagkasidis, 2008, é o domínio aqui)
 
-**Rotina**:
+**Teste de conformidade**:
 As verificações da especificação de uma tarefa, executadas contra cada
-implementação.
-_Avoid_: roteiro (é o plano de trabalho)
+implementação; cada item é uma verificação.
+_Avoid_: rotina (o nome até 2026-10-11); roteiro e roteiro de teste (o
+roteiro é o plano de trabalho)
 
 **Roteiro**:
 O plano de trabalho do TCC no Beads: as fases, os épicos e as tarefas do bd.
 _Avoid_: roadmap; beads como nome do plano (Beads é a ferramenta); roteiro
-para as verificações de uma tarefa (rotina)
+para as verificações de uma tarefa (teste de conformidade)
 
 **Cena**:
 Um estado da interface a capturar, com o mesmo nome na web e no Android.
@@ -151,10 +195,13 @@ _Avoid_: screenshot, print
 
 **DC**:
 Dimensão Cognitiva de Notações (Green, 1989; Blackwell e Green, 2003). O
-trabalho usa oito (ADR 0012): nível de abstração, proximidade de descrição,
-dependências ocultas, propensão a erros, concisão, viscosidade,
-expressividade e operações mentais difíceis.
-_Avoid_: critério, métrica
+trabalho percorre as 14 canônicas em cada rodada (ADR 0012): nível de
+abstração, proximidade de descrição, consistência, concisão, operações
+mentais difíceis, dependências ocultas, expressividade de papel, notação
+secundária, viscosidade, propensão a erros, compromisso prematuro,
+avaliação progressiva, visibilidade e provisoriedade.
+_Avoid_: critério, métrica; expressividade sozinha (confunde-se com o
+poder de expressão da linguagem, Kiss, 2014, p. 98)
 
 **Usabilidade**:
 A da notação: o quanto ela facilita ou dificulta ao programador entender
@@ -166,7 +213,7 @@ ergonomia
 
 **Avaliação**:
 O ato de aplicar as DCs ao código das implementações, feito pelo autor,
-dimensão a dimensão, sem participantes: uma avaliação analítica, feita por
+dimensão a dimensão e em cada rodada, sem participantes: uma avaliação analítica, feita por
 especialista (Blandford e Green, 2008), como a de Kiss (2014). Descreve o
 que cada notação facilita e o que dificulta, sem dizer qual é melhor,
 porque as dimensões "are not good or bad in themselves" (Blackwell e
@@ -179,8 +226,12 @@ o que ela conclui (conclusão); avaliar no lugar de comparar (ADR 0014);
 **Conclusão**:
 O que a avaliação diz de um modelo de programação numa DC, pela notação de
 cada tecnologia, com a tarefa de onde vem a
-evidência; é o que a tabela-síntese registra e o que o Android confere.
-_Avoid_: juízo; resultado (nome do capítulo 4)
+evidência; é o que a tabela-síntese registra e o que o Android e o desktop
+conferem. Da P1 para a P2 e a P3, a conclusão aumenta, diminui ou fica
+igual, e a diferença entre os modelos na DC fica mantida, ampliada,
+reduzida, anulada, invertida ou surgida (ADR 0017).
+_Avoid_: juízo; resultado (nome do capítulo 4); interação para a mudança
+entre rodadas (termo da estatística, que o trabalho não testa)
 
 **Conceito**:
 Elemento primitivo de programação de que se compõem os paradigmas (Van Roy,

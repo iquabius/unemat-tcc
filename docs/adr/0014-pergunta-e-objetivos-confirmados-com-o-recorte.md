@@ -1,6 +1,6 @@
-# 0014. A pergunta e os objetivos comparam três modelos de programação pela usabilidade das notações, segundo as Dimensões Cognitivas, e "larga escala" vira motivação
+# 0014. A pergunta e os objetivos comparam três modelos de programação pela usabilidade das notações, segundo as Dimensões Cognitivas, com uma subpergunta para a P2 e outra para a P3, e "larga escala" vira motivação
 
-2026-10-09. A introdução de 2017 trazia a pergunta em três formulações,
+2026-10-11. A introdução de 2017 trazia a pergunta em três formulações,
 uma sobre software em larga escala, que casos pequenos não respondem, e
 um objetivo geral sem critério. A pergunta: pelas Dimensões Cognitivas
 de Notações, como difere a usabilidade da
@@ -14,20 +14,33 @@ themselves" (Blackwell e Green 2003, cópia). A pergunta
 diz a unidade comparada, o modelo de programação, e onde se observa a
 evidência, a notação de cada tecnologia (ADR 0021); a notação é a do
 código que programa a interface, e não o que o usuário vê na tela.
-"Larga escala" fica só na motivação. O objetivo geral é comparar,
+A pergunta principal tem duas subperguntas, uma por rodada estreita
+(ADR 0029): como a diferença entre os modelos de programação muda quando
+a mesma funcionalidade ou o mesmo requisito de orquestração se acrescenta
+a todas as implementações (P2), e quando cada tecnologia usa a biblioteca
+de formulário do seu ecossistema (P3); a redação é do autor, na
+introdução (tcc-xep). "Larga escala" fica só na motivação. O objetivo geral é comparar,
 segundo as DCs, a usabilidade das notações dos três modelos de
 programação em interfaces típicas da web, em TypeScript, e em parte delas
-no Android, em Kotlin (cada plataforma pelo nome, ADR
-0012, 2026-10-09); os específicos: implementar as
-cinco tarefas com Web Component, jQuery, React, Solid e Angular com
-*signals*, e Contador, Formulário e Lista no Android com Views e Compose;
-avaliar as implementações pelas oito DCs do ADR 0012; sintetizar,
+no Android, em Kotlin, e no desktop, em C# (cada plataforma pelo nome, ADR
+0012); os específicos: implementar as cinco tarefas com Web Component,
+React, Lit, Solid e Angular com *signals*, e Formulário e Lista com Views
+e Compose no Android e com Windows Forms e WPF no desktop, e estendê-las
+na P2 e na P3; avaliar as implementações pelas 14 DCs em cada rodada
+(ADR 0012); sintetizar,
 por problema de coordenação, o que cada modelo de programação facilita e
 o que dificulta. Os programas de processamento de listas, que demonstram os
 conceitos de PF, vão para a fundamentação (`prog.org`): fundamentar
 conceitos é função de uma seção do texto, e não um passo para o objetivo
 geral.
 
+Em vez de: uma pergunta só, sem subperguntas (decisão de 2026-10-09);
+mais curta, mas a P2 e a P3 ficariam sem pergunta a que responder, e a
+conclusão da P3, que mede bibliotecas, se misturaria com a do modelo de
+programação.
+Em vez de: três perguntas paralelas, uma por rodada; dá às rodadas o
+mesmo peso, mas a P3 não responde sobre o modelo de programação sozinho,
+e a subpergunta a deixa subordinada à principal.
 Em vez de: "como os três modelos de programação [...] se comparam
 quanto à usabilidade das notações com que se escrevem, segundo as DCs?"
 (decisão de 2026-10-08); "comparar" também serve à forma
@@ -71,11 +84,13 @@ fluxos; retomaria a PR de 2017, mas pelas razões do ADR 0013 o RxJS fica
 de apoio.
 Custo: a pergunta restringe o alcance: diferenças de modelo de
 programação que não aparecem no código, como o desempenho, ficam fora da
-resposta; a introdução, o título ("Demonstração e Análise de Programação
+resposta; as subperguntas pedem que a introdução e a conclusão respondam
+a três perguntas, e a da P3 só se responde no ecossistema típico; a
+introdução, o título ("Demonstração e Análise de Programação
 Funcional e Reativa") e a análise do Contador em `cases.org` precisam ser
 reescritos; os programas de listas mudam do `cases.org` para o
 `prog.org`; a mudança deve ser justificada ao curso e aos orientadores.
 
 Fontes: revisão da introdução de 2026-09-23 (Wazlawick);
-`docs/projeto-2017.md`; ADRs 0012, 0013 e 0021, que fecharam o recorte e
+`docs/projeto-2017.md`; ADRs 0012, 0013, 0021 e 0029, que fecharam o recorte e
 o vocabulário; `docs/paradigma-modelo-e-notacao.md`, seção 2.

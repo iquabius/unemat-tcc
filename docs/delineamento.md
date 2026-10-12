@@ -8,16 +8,19 @@ fechada. O texto resume isto em dois lugares de `texto/intro.org`: os
 controles no parágrafo que abre por "O delineamento mantém fixo" e o que
 não se controla nas limitações.
 
-**Conclusão (2026-10-09).** O delineamento fixa a linguagem e o modelo
+**Conclusão (2026-10-11).** O delineamento fixa a linguagem e o modelo
 de computação em cada plataforma, a especificação de cada tarefa, o
-domínio e as dependências. Do lado declarativo, dois pares isolam uma
-variável cada: React × Solid, o modelo de programação; Solid × Angular
-com *signals*, a notação, como um todo. Na web, o imperativo com
-*callbacks* difere dos declarativos em mais de uma variável ao mesmo
-tempo, sem par que o isole; o par mais próximo é Views × Compose no
-Android, e o mais controlado é Swing × JavaFX em código, no *desktop*. Ficam sem controle o avaliador,
-que é o autor, a origem das implementações, geradas com agentes de IA, e
-o número de tecnologias por modelo de programação.
+domínio e, na P1 e na P2, as dependências; na P3, cada tecnologia usa a
+biblioteca de formulário do seu ecossistema, sem controle (ADR 0029). Na
+web, três pares mudam pouco de um lado para o outro: Web Component × Lit,
+o imperativo contra a re-renderização, com a ligação com a tela junto;
+React × Solid, os dois declarativos; e Solid × Angular com *signals*, a
+notação, como um todo; React × Lit é a segunda notação do declarativo por
+re-renderização. Fora da web, Views × Compose e Windows Forms × WPF mudam
+a coordenação e a montagem da tela juntas; o par mais controlado, Swing ×
+JavaFX em código, ficou fora (ADR 0001). Ficam sem controle o avaliador,
+que é o autor, a origem das implementações, geradas com agentes de IA, o
+número de tecnologias por modelo de programação e as bibliotecas da P3.
 
 O termo segue Prodanov e Freitas (2013, p. 54, `prodanov2013`): o
 *design* "pode ser traduzido como delineamento", que "refere-se ao
@@ -29,39 +32,43 @@ que se confunde com o desenho da tela (`CONTEXT.md`, Delineamento).
 
 | Variável | Como se controla | De onde vem | Estado em 2026-10-09 |
 |---|---|---|---|
-| Linguagem e modelo de computação | uma linguagem por plataforma: TypeScript na web, Kotlin no Android | ADR 0021; `CONTEXT.md`, Modelo de computação | controlado |
+| Linguagem e modelo de computação | uma linguagem por plataforma: TypeScript na web, Kotlin no Android, C# no desktop | ADRs 0001 e 0021; `CONTEXT.md`, Modelo de computação | controlado |
 | Especificação | as implementações de uma tarefa seguem o mesmo `README.org`, com os mesmos textos, regras e dados | ADRs 0002 e 0012; `casos/AGENTS.md` | controlado; a especificação do Contador foi escrita em 2026-10-09 (`1239f26`) |
-| Rotina | as mesmas verificações, na mesma ordem, contra cada implementação; na web, colada no console | `casos/AGENTS.md` | falta a do Contador ("Escrever a rotina do Contador", tcc-d24) |
-| Dependências | cada implementação usa só o que a própria tecnologia traz, sem bibliotecas de formulário; o Angular com *signals* não usa Reactive Forms nem Signal Forms | ADR 0013 | controlado |
+| Teste de conformidade | as mesmas verificações, na mesma ordem, contra cada implementação; na web, colado no console | `casos/AGENTS.md` | falta o do Contador ("Escrever a rotina do Contador", tcc-d24); o nome mudou de "rotina" em 2026-10-11 |
+| Dependências | na P1 e na P2, cada implementação usa só o que a própria tecnologia traz, sem bibliotecas de formulário; o Angular com *signals* não usa Reactive Forms nem Signal Forms; na P3, livres | ADRs 0013 e 0029 | controlado na P1 e na P2 |
 | Domínio | as regras que não dependem da interface (datas, e-mail, mensagens, catálogo) ficam num domínio comum por plataforma | ADR 0010 | controlado; o porte em Kotlin difere em entradas-limite (anos de 0 a 99, espaços fora do ASCII), com teste `@Ignore` |
 | Aparência e comportamento | capturas de cada cena, idênticas entre as tecnologias web | ADR 0008 | controlado na web; no *desktop*, as capturas idênticas não foram tentadas (`docs/plataformas.md`) |
 | Versões | fixadas no `package-lock.json` e no `libs.versions.toml` | nota de rodapé de `texto/intro.org` | controlado |
-| DCs | as oito, fixadas antes da avaliação, e a tarefa de cada DC também | ADRs 0012 e 0017 | controlado; a escolha prévia é limitação do instrumento (Britton e Kutar 2001, p. 265) |
+| DCs | as 14, percorridas em cada rodada, e a tarefa de cada DC fixada antes da análise da P1 | ADRs 0012 e 0017 | controlado desde 2026-10-11; até ali eram oito, escolhidas antes |
+| Mudança da P2 | a mesma funcionalidade ou o mesmo requisito de orquestração, um por commit, na mesma ordem em todas as tecnologias; latências, tentativas e intervalo fixos no domínio | ADR 0029 | a fazer |
 
 ## 2. O que um par isola
 
 | Par | Plataforma | Igual nos dois | Diferente | O que isola | De onde vem |
 |---|---|---|---|---|---|
+| Web Component × Lit | web | linguagem, modelo de componente (classe que estende `HTMLElement`), tela escrita em HTML num texto | modelo de programação e a ligação com a tela (`innerHTML` ou `createElement` contra o *template* `html`) | o imperativo contra o declarativo por re-renderização, com a ligação junto | ADR 0013; Lit a implementar |
+| React × Lit | web | modelo de programação (o componente reexecuta) | notação: montagem da tela (JSX numa função, *template* `html` numa classe) e modelo de componente | a notação, dentro da re-renderização | ADR 0013 |
 | React × Solid | web | JSX, linguagem, especificação | modelo de programação; também o dialeto do JSX (`className` e `class`) e `&&` e `.map` contra `<Show>` e `<For>` | o modelo de programação, entre os dois declarativos | ADR 0021; [`plataformas.md`, Web](plataformas.md#web) |
 | Solid × Angular com *signals* | web | modelo de programação (`signal`, `computed`, leitura por chamada) | notação: montagem da tela (JSX numa função, *template*), modelo de componente (classe, decorador, injeção de dependências) e API além do *signal* | a notação como um todo, contra o modelo de programação; os três pontos variam juntos, e a análise os separa pelo sinal escrito | ADR 0021; [`plataformas.md`, Web](plataformas.md#web) |
 | Views × Compose | Android | linguagem, plataforma, especificação | modelo de programação e montagem da tela (*layout* XML, funções) | nenhuma variável sozinha; é o contraste mais próximo entre o imperativo e um declarativo | [`plataformas.md`, Android](plataformas.md#android); tcc-4ie |
-| Swing × JavaFX em código | *desktop* | linguagem, plataforma, montagem da tela em código Java | coordenação | o modelo de programação entre o imperativo e um declarativo; o par mais controlado | [`plataformas.md`, Swing × JavaFX](plataformas.md#swing--javafx-java); implementado no Formulário e na Lista (tcc-dwg, fechada) |
+| Swing × JavaFX em código | *desktop* | linguagem, plataforma, montagem da tela em código Java | coordenação | o modelo de programação entre o imperativo e um declarativo; o par mais controlado | [`plataformas.md`, Swing × JavaFX](plataformas.md#swing--javafx-java); implementado no Formulário e na Lista (tcc-dwg, fechada); fora da análise (ADR 0001) |
 | JavaFX em código × JavaFX com FXML | *desktop* | modelo de programação e *bindings* | montagem da tela | a montagem da tela | [`plataformas.md`, Swing × JavaFX](plataformas.md#swing--javafx-java) |
-| Qt Widgets × QML | *desktop* | plataforma | coordenação e montagem da tela (C++, QML) | nenhuma variável sozinha | [`plataformas.md`, Qt Widgets × QML](plataformas.md#qt-widgets--qml-c-e-qml); implementado no Formulário e na Lista (tcc-jhl, fechada) |
-| Windows Forms × WPF | *desktop* | linguagem e plataforma | coordenação e montagem da tela (código C#, XAML) | nenhuma variável sozinha | [`plataformas.md`, Windows Forms × WPF](plataformas.md#windows-forms--wpf-c); tcc-74m, aberta |
+| Qt Widgets × QML | *desktop* | plataforma | coordenação e montagem da tela (C++, QML) | nenhuma variável sozinha | [`plataformas.md`, Qt Widgets × QML](plataformas.md#qt-widgets--qml-c-e-qml); implementado no Formulário e na Lista (tcc-jhl, fechada); fora da análise (ADR 0001) |
+| Windows Forms × WPF | *desktop* | linguagem e plataforma | coordenação e montagem da tela (código C#, XAML) | nenhuma variável sozinha | [`plataformas.md`, Windows Forms × WPF](plataformas.md#windows-forms--wpf-c); o par do desktop desde 2026-10-11 (ADR 0001); tcc-74m, aberta |
 
-Os pares de *desktop* ainda não entraram na pergunta, nos objetivos nem
-no texto; o que cada um acrescenta e os custos estão em
+O par de *desktop* entrou em 2026-10-11 (ADR 0001) e ainda não está no
+texto; o que cada par candidato acrescentava e os custos estão em
 [`plataformas.md`](plataformas.md).
 
 ## 3. O que fica sem controle
 
 | Variável | Por que não se controla | Onde o texto diz | Em aberto |
 |---|---|---|---|
-| Imperativo × declarativos na web | Web Component e jQuery diferem do React e do Solid na coordenação, na montagem da tela e na organização em componentes ao mesmo tempo; a diferença se atribui pelo sinal escrito (coordenação, montagem ou ligação entre as duas) | limitações de `texto/intro.org` | "Decidir como a análise atribui as diferenças entre o imperativo e os declarativos, sem par controlado na web" (tcc-4ie) |
-| Representantes por modelo de programação | uma ou duas tecnologias por coluna na web, e a conclusão generaliza a partir delas | limitações; `docs/paradigma-modelo-e-notacao.md`, seção 2 | "Avaliar React × Angular na web, com o Solid só como menção" (tcc-qti, adiada) tiraria o par que isola o modelo de programação |
-| Divergência dentro da coluna | Solid e Angular, ou Web Component e jQuery, podem divergir numa DC | a célula da tabela-síntese registra a divergência | ADR 0017 |
+| Imperativo × declarativos na web | o Web Component difere do React e do Solid na coordenação, na montagem da tela e na organização em componentes ao mesmo tempo; do Lit, só na coordenação e na ligação com a tela; a diferença se atribui pelo sinal escrito (coordenação, montagem ou ligação entre as duas) | limitações de `texto/intro.org` | "Decidir como a análise atribui as diferenças entre o imperativo e os declarativos, sem par controlado na web" (tcc-4ie), que o par Web Component × Lit responde em parte |
+| Representantes por modelo de programação | duas tecnologias por coluna declarativa e uma, o Web Component, na imperativa, na web; a conclusão generaliza a partir delas | limitações; `docs/paradigma-modelo-e-notacao.md`, seção 2 | "Avaliar React × Angular na web, com o Solid só como menção" (tcc-qti, adiada) tiraria o par que isola o modelo de programação |
+| Bibliotecas da P3 | cada tecnologia usa a biblioteca de formulário do seu ecossistema, e a conclusão se lê como "no ecossistema típico", sem atribuição só ao modelo de programação | ainda não | ADR 0029; tcc-di3a |
+| Divergência dentro da coluna | React e Lit, ou Solid e Angular, podem divergir numa DC | a célula da tabela-síntese registra a divergência | ADR 0017 |
 | Avaliador | uma pessoa só, o autor, que construiu o que avalia, com familiaridade desigual, maior com o React | limitações (Hertzum e Jacobsen 2003, p. 183; Dagit et al. 2006) | — |
 | Origem das implementações | as atuais foram geradas com agentes de IA a partir de implementações de referência do autor, e não se sabe de quais | ainda não | `docs/implementacoes-de-referencia.md`; "Escrever a declaração de uso de IA do TCC a partir do histórico do repositório" (tcc-gjw); pauta da orientação de 2026-10-09, ponto A4 |
-| Tamanho das tarefas | pequenas, e o que só aparece em programa grande ou na manutenção fica de fora | limitações | Stol e Fitzgerald (2018, p. 11:10) e Green e Blackwell (1998, p. 62), candidatas (`docs/metodo-da-avaliacao.md`, seção 5) |
+| Tamanho das tarefas | pequenas; a P2 as faz crescer por mudanças acrescentadas (ADR 0029), mas o que só aparece em programa grande continua de fora | limitações | Stol e Fitzgerald (2018, p. 11:10) e Green e Blackwell (1998, p. 62), candidatas (`docs/metodo-da-avaliacao.md`, seção 5) |
 | Origem do conjunto de tarefas | definido pelo autor; três adaptam o 7GUIs, duas não | limitações (Sim et al. 2003, p. 76) | — |

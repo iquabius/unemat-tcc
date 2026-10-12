@@ -23,8 +23,8 @@ em programa grande (seção 5).
 Em 2026-10-11, o autor decidiu avaliar em três rodadas (P1 todas as
 tarefas; P2 requisitos acrescentados a duas; P3 bibliotecas do
 ecossistema, sem controle de variáveis) e percorrer as 14 DCs, e não oito;
-as fontes estão nas seções 8 a 11, e os ADRs esperam a orientação de
-2026-10-13 (tcc-y4q, ponto A5).
+as fontes estão nas seções 8 a 11, e as decisões, nos ADRs 0012, 0017 e
+0029.
 
 ## 1. O rótulo do método: avaliação de um conjunto de tarefas, não estudo de caso (fontes lidas em 2026-09-28)
 
