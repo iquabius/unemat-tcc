@@ -59,7 +59,7 @@ dobraria a análise, e fora da web cada plataforma só tem dois dos três
 modelos de programação.
 Em vez de: contar *tokens*; depende menos da formatação, mas exige um
 analisador por linguagem.
-Custo: 28 implementações na P1, 20 na web, 4 no Android e 4 no desktop, a
+Custo: 29 implementações na P1, 21 na web, 4 no Android e 4 no desktop, a
 maioria fora do texto; 14 seções de DC, algumas curtas quando a DC não
 mostra diferença ("sem diferença", ADR 0017), e as quatro do ambiente de
 edição podem render pouco no código; o leitor precisa conhecer as cinco

@@ -40,7 +40,8 @@ tela)
 
 **Montagem da tela**:
 A parte da notação que escreve quais elementos a tela tem, em que
-hierarquia e com que textos: HTML (Web Component), JSX (React, Solid), *template* (Angular), layout XML (Views),
+hierarquia e com que textos: HTML (Web Component), *template* `html`
+(Lit), JSX (React, Solid), *template* (Angular), layout XML (Views),
 funções (Compose), código C# (Windows Forms), XAML (WPF). Solid
 e Angular diferem nela dentro do mesmo modelo de programação. A
 análise aponta, em cada DC, se a diferença está na coordenação, na
@@ -127,8 +128,8 @@ plataforma (é o domínio dela, na linguagem dela)
 
 **Tecnologia**:
 Uma forma de implementar uma tarefa numa plataforma: na web, Web Component
-(a plataforma), React, Solid, Angular com *signals* (só na P1) e
-Angular com RxJS; no Android, Views (a plataforma) e Jetpack Compose; no desktop,
+(a plataforma), React, Lit (só na Busca), Solid, Angular com *signals*
+(só na P1) e Angular com RxJS; no Android, Views (a plataforma) e Jetpack Compose; no desktop,
 Windows Forms e WPF. Cada uma impõe
 um modelo de programação e se escreve numa notação própria; a
 documentação a chama de biblioteca, *framework*, *toolkit* ou plataforma,
@@ -158,7 +159,7 @@ o Compose se apresenta assim.
 _Avoid_: *toolkit* como sinônimo de biblioteca; kit de ferramentas
 
 **Implementação**:
-Uma tarefa numa tecnologia: na P1, 20 na web, 4 no Android e 4 no
+Uma tarefa numa tecnologia: na P1, 21 na web, 4 no Android e 4 no
 desktop; na P3, o Formulário reescrito em cada uma de sete tecnologias.
 _Avoid_: versão, exemplo
 
