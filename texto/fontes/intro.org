@@ -20,7 +20,7 @@ Formato:
   - a data da conferência.
 - A frase que sai do texto sai daqui no mesmo commit.
 
-* §2 [[file:../intro.org::O recurso predominante para propagar eventos][O recurso predominante para propagar eventos é o callback]]
+* §3 [[file:../intro.org::O recurso predominante para propagar eventos][O recurso predominante para propagar eventos é o callback]]
 ** blackheath2016, p. 7
 - Frase: “O recurso predominante para propagar eventos é o /callback/,
   também chamado de /listener/: um bloco de código que roda sempre que um
@@ -72,7 +72,7 @@ Formato:
   DOM é API assíncrona.
 - Conferido: 2026-10-07.
 
-* §3 [[file:../intro.org::/Threads/ exprimem sequência][Threads exprimem sequência]]
+* §4 [[file:../intro.org::/Threads/ exprimem sequência][Threads exprimem sequência]]
 ** blackheath2016, p. 16
 - Frase: “/Threads/ exprimem sequência, e eventos exprimem dependência, e
   muitos problemas vêm de escrever uma com o recurso da outra.”
@@ -148,7 +148,7 @@ Formato:
 - Lido em: =tmp/fontes/gallaba2015.pdf=, p. 1.
 - Conferido: 2026-10-06.
 
-* §4 [[file:../intro.org::O JavaScript ganhou alternativas ao][O JavaScript ganhou alternativas ao callback]]
+* §5 [[file:../intro.org::O JavaScript ganhou alternativas ao][O JavaScript ganhou alternativas ao callback]]
 ** madsen2017, p. 86:1
 - Frase: “as /promises/, que encadeiam computações assíncronas”
 - Trecho: “promises, an alternative mechanism for managing asynchrony that
@@ -187,7 +187,7 @@ Formato:
   JavaScript; corrigido na checagem de 2026-10-08.
 - Conferido: 2026-10-09.
 
-* §5 [[file:../intro.org::Outra alternativa ao /callback/ é a][Outra alternativa ao callback é a PR]]
+* §6 [[file:../intro.org::Outra alternativa ao /callback/ é a][Outra alternativa ao callback é a PR]]
 ** salvaneschi2017, p. 1125-1126
 - Frase: “Segundo Salvaneschi et al. (2017, p. 1125-1126), nela o
   programador declara as relações entre os valores, e o ambiente de
@@ -222,8 +222,35 @@ Formato:
 - Lido em: =tmp/fontes/bainomugisha2013.pdf=, p. 1 e 2 do PDF (p. 52:1 e
   52:2).
 - Conferido: 2026-10-07.
+** salvaneschi2017, p. 1125 (aplicações reativas)
+- Frase: “Na literatura de PR, essas aplicações também se chamam reativas
+  (Salvaneschi et al., 2017, p. 1125) [...]”
+- Trecho: “Reactive applications represent a wide class of software that
+  needs to continuously and interactively respond to internal or external
+  stimuli”; exemplos incluem “user-interactive software, like GUIs and Web
+  applications” (p. 1125).
+- Lido em: =tmp/fontes/salvaneschi2017.pdf=, p. 1 do PDF.
+- Conferido: 2026-10-09.
+** myter2019, 5:1
+- Frase: “[...] mas a palavra tem sentidos diferentes em linguagens de
+  programação e em sistemas distribuídos (Myter; Scholliers; De Meuter,
+  2019, 5:1) [...]”
+- Trecho: “The term reactivity is popular in two areas of research:
+  programming languages and distributed systems. On one hand, reactive
+  programming is a paradigm [...]. On the other hand, reactive distributed
+  systems handle client requests in a timely fashion regardless of load or
+  failures.” (resumo, 5:1)
+- Lido em: =tmp/fontes/myter2019.pdf=, p. 1 do PDF.
+- Conferido: 2026-10-10.
+** grolaux2026, p. 13
+- Frase: “[...] e já nomeia tecnologias como o React (Grolaux;
+  Nguyen; Vanderdonckt, 2026, p. 13).”
+- Trecho: “Common reactive systems like React or Vue rely on a virtual DOM
+  mechanism” (p. 13).
+- Lido em: =tmp/fontes/grolaux2026.pdf=, p. 7 do PDF (p. 13).
+- Conferido: 2026-10-12.
 
-* §6 [[file:../intro.org::testaram uma afirmação repetida][testaram uma afirmação repetida]]
+* §7 [[file:../intro.org::testaram uma afirmação repetida][testaram uma afirmação repetida]]
 ** salvaneschi2017, p. 1125-1134
 - Frase: “Num experimento controlado com 127 estudantes, quem leu os
   programas escritos com PR acertou mais perguntas sobre eles do que quem
@@ -260,7 +287,7 @@ Formato:
   publicada = 1124 + página do PDF).
 - Conferido: 2026-10-09.
 
-* §19 [[file:../intro.org::O Contador, o Formulário e a Lista adaptam][O Contador, o Formulário e a Lista adaptam]]
+* §20 [[file:../intro.org::O Contador, o Formulário e a Lista adaptam][O Contador, o Formulário e a Lista adaptam]]
 ** kiss2014, p. 11, 17, 25 e 34
 - Frase: “O Contador, o Formulário e a Lista adaptam o /Counter/, o
   /Flight Booker/ e o /CRUD/, três das sete tarefas do 7GUIs, de Kiss
@@ -276,7 +303,7 @@ Formato:
 - Observação: “sete” vem da p. 11, que o texto não cita.
 - Conferido: 2026-10-06.
 
-* §26 [[file:../intro.org::A avaliação usa oito][A avaliação usa oito das catorze]]
+* §27 [[file:../intro.org::A avaliação usa oito][A avaliação usa oito das catorze]]
 ** kiss2014, p. 15
 - Frase: “As outras duas, /expressividade/ e /operações mentais difíceis/,
   vêm do grupo de cinco que Kiss (2014, p. 15) deixou de fora e que, a seu
@@ -299,7 +326,7 @@ Formato:
   ali, e não exemplos; por isso o “como” saiu.
 - Conferido: 2026-10-06.
 
-* §12 [[file:../intro.org::Nenhum desses trabalhos compara][Nenhum desses trabalhos compara]]
+* §13 [[file:../intro.org::Nenhum desses trabalhos compara][Nenhum desses trabalhos compara]]
 ** wohlin2014, p. 3-4
 - Frase: “A lacuna se apoia nessa revisão, feita por palavras-chave e
   /snowballing/ (Wohlin, 2014, p. 3-4) em duas rodadas, em setembro e
@@ -320,7 +347,7 @@ Formato:
 - Observação: tarefa tcc-lf9 para buscar os citantes.
 - Conferido: 2026-10-09.
 
-* §10 [[file:../intro.org::As pesquisas de uso medem][As pesquisas de uso medem]]
+* §11 [[file:../intro.org::As pesquisas de uso medem][As pesquisas de uso medem]]
 ** stackoverflow2025
 - Frase: “Na questão sobre tecnologias web do Stack Overflow Developer
   Survey 2025, React, jQuery e Angular estão entre as sete mais usadas, com
@@ -361,6 +388,69 @@ Formato:
 - Conferido: 2026-10-08.
 
 * §1 [[file:../intro.org::Interfaces gráficas mediam a maioria][Interfaces gráficas mediam a maioria]]
+** myers1994, p. 73
+- Frase: “Para Myers (1994, p. 73), projetá-las e implementá-las é difícil
+  por natureza e continuaria sendo.” (o condicional marca a previsão de
+  1994; a citação narrativa, a opinião da fonte)
+- Trecho: “user interface design and implementation are inherently
+  difficult tasks and will remain so for the foreseeable future.”
+- Lido em: =tmp/fontes/myers1994.pdf=, p. 1 do PDF (resumo).
+- Conferido: 2026-10-09.
+** abnt2024, p. 1
+- Frase: “Neste trabalho, /aplicação interativa/ é o programa com tela que
+  responde às ações do usuário sem prazo imposto pelo ambiente, como os
+  /sites/, os aplicativos da web e os de telefone celular (Associação
+  Brasileira de Normas Técnicas, 2024, p. 1; Martin; Magnaudet; Conversy,
+  2023).” (a norma sustenta os exemplos)
+- Trecho: “Os sistemas interativos baseados em computador variam em escala e
+  complexidade. Exemplos incluem [...] sites e aplicativos da web e produtos
+  de consumo, como máquinas automáticas de venda, telefones celulares e
+  televisão digital.” (seção 1, Escopo, p. 1); 3.8, sistema interativo:
+  “combinação de hardware e/ou software e/ou serviços e/ou pessoas com as
+  quais os usuários interagem para alcançar objetivos específicos” (p. 3)
+- Lido em: =tmp/fontes/abnt2024.pdf=, p. 9 e 11 do PDF (ABNT NBR ISO
+  9241-210:2024, 2.ª edição; cópia licenciada ao autor, que não se
+  distribui).
+- Conferido: 2026-10-10.
+** martin2023 (critério do tempo)
+- Frase: a mesma; Martin, Magnaudet e Conversy sustentam o critério “sem
+  prazo imposto pelo ambiente” e o nome “interativo” para o programa com
+  tela.
+- Trecho: “An interactive system reacts to events in the environment
+  without time constraints, whereas reactive systems [react within a time
+  limit set by the environment]”; “When we talk about interaction from the
+  perspective of HCI, we refer to “interactive system” following that
+  distinction.” (nota 4); Fig. 1: “Example of an interactive system: a
+  drawing app”.
+- Lido em: =tmp/fontes/martin2023.pdf=, preprint do HAL (hal-04030798),
+  p. 3, 11 e 12 do PDF (p. 2 e 10-11 da cópia). A página publicada (p.
+  83-112) não foi conferida, e por isso o texto cita sem página.
+- Observação: os autores atribuem a distinção a Harel e Pnueli (1985) e a
+  Mandel e Pouzet (2005), que não a fazem (lidos em 2026-10-10); ela é de
+  Berry (1989). Revisão em docs/fundamentacao.md, seção 7.
+- Conferido: 2026-10-10.
+** benveniste2003, p. 64
+- Frase: “A literatura das linguagens síncronas, feitas para os sistemas
+  embarcados de tempo real (Benveniste et al., 2003, p. 64), [...]”
+- Trecho: “synchronous languages have been established as a technology of
+  choice for modeling, specifying, validating, and implementing real-time
+  embedded applications” (resumo e introdução, p. 64)
+- Lido em: =tmp/fontes/benveniste2003.pdf=, p. 1 do PDF (p. 64).
+- Observação: “síncrona” aqui é a programação síncrona de Esterel e Lustre,
+  e não a chamada síncrona (CONTEXT.md, verbete Síncrono, assíncrono).
+- Conferido: 2026-10-12.
+** berry1989
+- Frase: “[...] chama esses programas de reativos (Berry, 1989).”
+- Trecho: “Reactive programs also maintain a continuous interaction with
+  their environment, but at a speed which is determined by the
+  environment, not by the program itself.”; “there are reactive programs
+  that are not usually considered as being real-time, such as protocols,
+  system drivers, or man-machine interface handlers”.
+- Lido em: =tmp/revisao-interativo-reativo-2026-10-10/pdfs/berry1989.pdf=,
+  p. 7 do PDF (relatório do INRIA, cópia do HAL sem paginação impressa).
+- Conferido: 2026-10-10.
+
+* §2 [[file:../intro.org::Cada clique, tecla ou toque do usuário][Cada clique, tecla ou toque do usuário]]
 ** myers1994, p. 79
 - Frase: “Uma das diferenças da programação de interfaces para a dos outros
   programas é o código escrito do avesso (/inside-out/), dividido em
@@ -378,15 +468,6 @@ Formato:
 - Observação: a explicação da inversão de controle foi para prog.org na
   rodada 2 do corte; rever na rodada 3 se volta à introdução.
 - Conferido: 2026-10-06.
-** myers1994, p. 73
-- Frase: “Para Myers (1994, p. 73), projetá-las e implementá-las é difícil
-  por natureza e continuaria sendo.” (o condicional marca a previsão de
-  1994; a citação narrativa, a opinião da fonte)
-- Trecho: “user interface design and implementation are inherently
-  difficult tasks and will remain so for the foreseeable future.”
-- Lido em: =tmp/fontes/myers1994.pdf=, p. 1 do PDF (resumo).
-- Conferido: 2026-10-09.
-
 ** oney2012, p. 230
 - Frase: “[...] e o estado da aplicação, que determina a aparência e o
   comportamento da tela (Oney; Myers; Brandt, 2012, p. 230).”
@@ -407,7 +488,7 @@ Formato:
   está em Salvaneschi et al. (2017), no §6.
 - Conferido: 2026-10-09.
 
-* §25 [[file:../intro.org::A avaliação cabe ao autor][A avaliação cabe ao autor]]
+* §26 [[file:../intro.org::A avaliação cabe ao autor][A avaliação cabe ao autor]]
 ** kiss2014, p. 8
 - Frase: “Kiss (2014, p. 8) chama de analítica a avaliação pelas DCs e a
   adota como alternativa aos experimentos com programadores, muitas vezes
@@ -451,7 +532,7 @@ Formato:
   do PDF; página impressa a conferir (tcc-wg7).
 - Conferido: 2026-10-09.
 
-* §7 [[file:../intro.org::O código sequencial tem o problema oposto][O código sequencial tem o problema oposto]]
+* §8 [[file:../intro.org::O código sequencial tem o problema oposto][O código sequencial tem o problema oposto]]
 ** moseley2006, p. 8-9
 - Frase: “O código sequencial tem o problema oposto ao do /callback/: a
   linguagem obriga a fixar a ordem de execução mesmo quando ela não
@@ -508,7 +589,7 @@ Formato:
   usam "declarativo" sem definição (checagem de 2026-10-08).
 - Conferido: 2026-10-09.
 
-* §8 [[file:../intro.org::Este trabalho compara /modelos de programação/][Este trabalho compara modelos de programação]]
+* §9 [[file:../intro.org::Este trabalho compara /modelos de programação/][Este trabalho compara modelos de programação]]
 ** roy2004, p. xiii e 29
 - Frase: “Este trabalho compara /modelos de programação/: as técnicas e os
   princípios de projeto que um modelo de computação torna possíveis (Van
@@ -585,7 +666,7 @@ Formato:
 - Lido em: =tmp/fontes/oney2012.pdf=, p. 1 do PDF (versão da ACM).
 - Conferido: 2026-10-09.
 
-* §9 [[file:../intro.org::Nos declarativos, o programador descreve a tela][Nos declarativos, o programador descreve a tela]]
+* §10 [[file:../intro.org::Nos declarativos, o programador descreve a tela][Nos declarativos, o programador descreve a tela]]
 ** sperber2025, p. 32
 - Frase: “Nos declarativos, o programador descreve a tela em função do
   estado, e o ambiente de execução a mantém atualizada (SolidJS, 2026b;
@@ -688,7 +769,7 @@ Formato:
   documentação do Angular não sustenta; essa frase não foi usada.
 - Conferido: 2026-10-09.
 
-* §16 [[file:../intro.org::Quanto aos objetivos, a pesquisa é][Quanto aos objetivos, a pesquisa é exploratória]]
+* §17 [[file:../intro.org::Quanto aos objetivos, a pesquisa é][Quanto aos objetivos, a pesquisa é exploratória]]
 ** runeson2009, p. 135
 - Frase: “Quanto aos objetivos, a pesquisa é /exploratória/: busca
   compreensão nova e gera ideias e hipóteses para outras pesquisas.”
@@ -726,7 +807,7 @@ Formato:
   hipóteses da pesquisa exploratória ao experimento.
 - Conferido: 2026-10-07.
 
-* §20 [[file:../intro.org::Na web, o modelo de programação imperativo][Na web, o modelo de programação imperativo]]
+* §21 [[file:../intro.org::Na web, o modelo de programação imperativo][Na web, o modelo de programação imperativo]]
 ** meta2026c
 - Frase: “React e Solid montam a tela em JSX, marcação parecida com HTML
   escrita dentro do JavaScript.”
@@ -757,7 +838,7 @@ Formato:
 - Lido em: =tmp/fontes/lee2025.pdf=, p. 38 do PDF (apêndice C).
 - Conferido: 2026-10-09.
 
-* §21 [[file:../intro.org::Solid e Angular com /signals/, ao contrário][Solid e Angular com signals, ao contrário]]
+* §22 [[file:../intro.org::Solid e Angular com /signals/, ao contrário][Solid e Angular com signals, ao contrário]]
 ** solidjs2026a
 - Frase: “Solid e Angular com /signals/, ao contrário, coordenam do mesmo
   modo: os dois guardam o estado em /signals/ e derivam valores de outros
@@ -805,7 +886,7 @@ Formato:
 - Observação: a frase não tinha fonte até a checagem de 2026-10-08 (K05).
 - Conferido: 2026-10-09.
 
-* §11 [[file:../intro.org::Para discutir o quanto uma notação facilita][Para discutir o quanto uma notação facilita]]
+* §12 [[file:../intro.org::Para discutir o quanto uma notação facilita][Para discutir o quanto uma notação facilita]]
 ** green1989
 - Frase: “há as DCs, propostas por Green (1989)”.
 - Trecho: “‘Cognitive dimensions’ are features of computer languages
@@ -871,7 +952,7 @@ Formato:
 - Lido em: =tmp/fontes/grolaux2026.pdf=, p. 1, 3 e 9 do PDF (p. 7 a 16).
 - Conferido: 2026-10-06.
 
-* §17 [[file:../intro.org::Quanto aos meios, o trabalho é][Quanto aos meios, o trabalho é uma avaliação qualitativa]]
+* §18 [[file:../intro.org::Quanto aos meios, o trabalho é][Quanto aos meios, o trabalho é uma avaliação qualitativa]]
 ** sim2003
 - Frase: “O conjunto de tarefas segue a ideia de /benchmark/: testes que
   representam as tarefas da prática e servem para comparar técnicas
@@ -903,7 +984,7 @@ Formato:
 - Lido em: =tmp/fontes/lu2021.pdf=, versão publicada (acesso aberto).
 - Conferido: 2026-10-09.
 
-* §29 [[file:../intro.org::Por ser analítica][Por ser analítica]]
+* §30 [[file:../intro.org::Por ser analítica][Por ser analítica]]
 ** britton2001
 - Frase: “O trabalho escolheu as oito DCs antes da avaliação, e usar um
   subconjunto pode deixar de fora propriedades importantes da notação.”
@@ -934,7 +1015,7 @@ Formato:
 - Observação: o texto cita green1996d sem página; a p. 157 é a do trecho.
 - Conferido: 2026-10-07.
 
-* §30 [[file:../intro.org::As tarefas são pequenas][As tarefas são pequenas]]
+* §31 [[file:../intro.org::As tarefas são pequenas][As tarefas são pequenas]]
 ** sim2003
 - Frase: “Um conjunto criado por um pesquisador só e pouco usado tende a
   ter menos impacto que um adotado por uma comunidade.”
@@ -964,7 +1045,7 @@ Formato:
   docs/paradigma-modelo-e-notacao.md, seção 2.
 - Conferido: 2026-10-09.
 
-* §28 [[file:../intro.org::O delineamento tem limitações em três pontos][O delineamento tem limitações em três pontos]]
+* §29 [[file:../intro.org::O delineamento tem limitações em três pontos][O delineamento tem limitações em três pontos]]
 ** hertzum2003, p. 183
 - Frase: “Em métodos de inspeção, avaliadores diferentes acham problemas bem
   diferentes na mesma interface (Hertzum; Jacobsen, 2003, p. 183).”
@@ -990,7 +1071,7 @@ Formato:
   de uma linguagem visual; aqui, o autor das implementações.
 - Conferido: 2026-10-09.
 
-* §22 [[file:../intro.org::No Android, o Formulário e a Lista são][No Android, o Formulário e a Lista são]]
+* §23 [[file:../intro.org::No Android, o Formulário e a Lista são][No Android, o Formulário e a Lista são]]
 ** android2026
 - Frase: “As Views ficam no imperativo com /callbacks/, e o Compose, no
   declarativo por re-renderização, porque chama de novo as funções da tela
@@ -1001,7 +1082,7 @@ Formato:
   2026-10-09; atualizada em 2026-10-01).
 - Conferido: 2026-10-09.
 
-* §23 [[file:../intro.org::O delineamento mantém fixo o que não pertence][O delineamento mantém fixo o que não pertence]]
+* §24 [[file:../intro.org::O delineamento mantém fixo o que não pertence][O delineamento mantém fixo o que não pertence]]
 ** google2026b (TypeScript)
 - Frase: “A linguagem é uma só em cada plataforma: na web, o /TypeScript/,
   que o Angular exige (Google, 2026b) e as demais tecnologias também usam

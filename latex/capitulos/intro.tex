@@ -4,6 +4,13 @@ Interfaces gráficas mediam a maioria das nossas interações com computadores,
 seja em celulares e \emph{notebooks}, seja no navegador web.
 Para \textcite[p. 73]{myers1994}, projetá-las e implementá-las é difícil por
 natureza e continuaria sendo.
+Neste trabalho, \emph{aplicação interativa} é o programa com tela que responde às
+ações do usuário sem prazo imposto pelo ambiente, como os \emph{sites}, os
+aplicativos da web e os de telefone celular \cites[][ p. 1]{abnt2024}{martin2023}.
+A literatura das linguagens síncronas, feitas para os sistemas embarcados de
+tempo real \cite[p. 64]{benveniste2003}, chama esses programas de reativos
+\cite{berry1989}.
+
 Cada clique, tecla ou toque do usuário gera um evento.
 Programar interfaces exige coordenar esses eventos com o estado do programa e
 com o que a tela mostra.
@@ -71,6 +78,12 @@ A \gls{pr} serve às aplicações orientadas a eventos e interativas e leva às
 linguagens de programação o modelo das planilhas eletrônicas, em que mudar
 o valor de uma célula recalcula as fórmulas que dependem dela
 \cite[p. 1-2]{bainomugisha2013}.
+Na literatura de \gls{pr}, essas aplicações também se chamam reativas
+\cite[p. 1125]{salvaneschi2017}, mas a palavra tem sentidos diferentes em
+linguagens de programação e em sistemas distribuídos \cite[5:1]{myter2019} e
+já nomeia tecnologias como o React \cite[p. 13]{grolaux2026}.
+Por isso, este trabalho as chama de interativas e reserva “reativo” para a
+\gls{pr}.
 
 \textcite[p. 1125-1134]{salvaneschi2017} testaram uma afirmação repetida,
 ainda sem evidência empírica suficiente, de que a \gls{pr} torna os programas
