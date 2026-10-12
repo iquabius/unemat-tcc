@@ -5,8 +5,7 @@
       "files": "*.xml",
       "options": {
         "singleAttributePerLine": true,
-        "bracketSameLine": true,
-        "xmlWhitespaceSensitivity": "ignore"
+        "bracketSameLine": true
       }
     }
   ]

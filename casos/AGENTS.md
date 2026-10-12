@@ -74,12 +74,8 @@ quebrado à mão, e 80 colunas cabem numa coluna do PDF em 8 pt.
   tem efeito; se a expressão passar de 80 colunas, quebre-a uma vez dentro
   do `${...}`, e o Prettier a formata.
 - XML do Android: Prettier com o `@prettier/plugin-xml`, também fixado, e
-  quatro exceções ao padrão. Três imitam o Android Studio: recuo de 4, um
-  atributo por linha e o fim da tag na linha do último atributo. A quarta,
-  `xmlWhitespaceSensitivity: "ignore"`, deixa o Prettier mudar o espaço
-  entre as tags, que no padrão (`"strict"`) ele preserva e por isso quase
-  não reformata o arquivo; nos layouts e recursos do Android esse espaço
-  não chega à tela, o que as capturas conferem.
+  três exceções ao padrão, que imitam o Android Studio: recuo de 4, um
+  atributo por linha e o fim da tag na linha do último atributo.
 - Kotlin (`.kt` e `.kts` do Android e dos `dominio-kotlin`): ktfmt 0.64 com
   `--kotlinlang-style`, fixado em `casos/android/gradle/libs.versions.toml`
   e rodado pela tarefa `formatarKotlin` do Gradle.
