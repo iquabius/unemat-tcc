@@ -67,7 +67,10 @@ diff da P2 (ADRs 0012 e 0029) não podem depender de como o código foi
 quebrado à mão, e 80 colunas cabem numa coluna do PDF em 8 pt.
 
 - Web (TS, TSX, HTML, CSS, JSON): Prettier 3.9.10, fixado em
-  `casos/package.json`.
+  `casos/package.json`. O HTML do Web Component, num *template literal*,
+  leva o comentário `/* HTML */` antes da crase, a marca com que o
+  Prettier o reconhece e formata, como o *template* do Angular e o `html`
+  do Lit.
 - XML do Android: Prettier com o `@prettier/plugin-xml`, também fixado, e
   as exceções ao padrão que imitam o Android Studio: recuo de 4, um
   atributo por linha e o fim da tag na linha do último atributo.

@@ -9,7 +9,7 @@ import {
 } from "../../dominio";
 import "../../estilo.css";
 
-const modelo = `
+const modelo = /* HTML */ `
   <form class="formulario" novalidate>
     <label>
       Nome do passageiro

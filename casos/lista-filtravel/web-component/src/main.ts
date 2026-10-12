@@ -12,7 +12,7 @@ import {
 } from "../../dominio";
 import "../../estilo.css";
 
-const modelo = `
+const modelo = /* HTML */ `
   <main class="catalogo">
     <div class="filtros">
       <label>

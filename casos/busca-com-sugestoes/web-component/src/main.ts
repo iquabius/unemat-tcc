@@ -9,7 +9,7 @@ import {
 } from "../../dominio";
 import "../../estilo.css";
 
-const modelo = `
+const modelo = /* HTML */ `
   <main class="busca">
     <label>
       Cidade de destino

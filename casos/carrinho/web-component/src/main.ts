@@ -61,7 +61,7 @@ abstract class ComponenteDaLoja extends HTMLElement {
 
 class Cabecalho extends ComponenteDaLoja {
   protected renderizar() {
-    this.innerHTML = `
+    this.innerHTML = /* HTML */ `
       <header class="cabecalho">
         <strong>Minha loja</strong>
         <span class="resumo">${textoDoCabecalho(resumir(loja.estado.itens))}</span>
@@ -79,18 +79,18 @@ class Catalogo extends ComponenteDaLoja {
     const itens = produtos
       .map((p) => {
         const quantidade = quantidadeNoCarrinho(loja.estado.itens, p.id);
-        return `
+        return /* HTML */ `
           <li>
             <span class="nome">${p.nome}</span>
             <span class="preco">${formatarPreco(p.preco)}</span>
             <button type="button" data-acao="adicionar" data-id="${p.id}"
                     aria-label="Adicionar ${p.nome}">Adicionar</button>
-            ${quantidade > 0 ? `<span class="no-carrinho">${quantidade} no carrinho</span>` : ""}
+            ${quantidade > 0 ? /* HTML */ `<span class="no-carrinho">${quantidade} no carrinho</span>` : ""}
           </li>
         `;
       })
       .join("");
-    this.innerHTML = `
+    this.innerHTML = /* HTML */ `
       <section class="catalogo">
         <h2>Produtos</h2>
         <ul>${itens}</ul>
@@ -110,13 +110,13 @@ class PainelDoCarrinho extends ComponenteDaLoja {
   protected renderizar() {
     const { itens, confirmacao } = loja.estado;
     if (itens.length === 0) {
-      this.innerHTML = `
+      this.innerHTML = /* HTML */ `
         <section class="carrinho">
           <h2>Carrinho</h2>
           ${
             confirmacao
-              ? `<p class="confirmacao">${confirmacao}</p>`
-              : `<p class="aviso">${MENSAGENS.vazio}</p>`
+              ? /* HTML */ `<p class="confirmacao">${confirmacao}</p>`
+              : /* HTML */ `<p class="aviso">${MENSAGENS.vazio}</p>`
           }
         </section>
       `;
@@ -126,7 +126,7 @@ class PainelDoCarrinho extends ComponenteDaLoja {
     const linhas = itens
       .map(({ id, quantidade }) => {
         const p = produto(id);
-        return `
+        return /* HTML */ `
           <li>
             <span class="nome">${p.nome}</span>
             <span class="quantidade">
@@ -143,7 +143,7 @@ class PainelDoCarrinho extends ComponenteDaLoja {
         `;
       })
       .join("");
-    this.innerHTML = `
+    this.innerHTML = /* HTML */ `
       <section class="carrinho">
         <h2>Carrinho</h2>
         <ul class="itens">${linhas}</ul>
