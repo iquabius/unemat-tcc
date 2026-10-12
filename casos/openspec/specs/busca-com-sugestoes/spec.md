@@ -30,8 +30,8 @@ quando ela termina.
 ### Requirement: Termo
 
 O termo deve ser o texto do campo sem espaços nas pontas. Se o termo for
-igual ao da última busca, nada deve mudar e nenhuma requisição deve sair:
-"rio" e "rio " são o mesmo termo.
+igual ao último termo, buscado ou curto, nada deve mudar e nenhuma
+requisição deve sair: "rio" e "rio " são o mesmo termo.
 
 #### Scenario: 5 termo repetido não busca
 
@@ -42,8 +42,9 @@ igual ao da última busca, nada deve mudar e nenhuma requisição deve sair:
 
 ### Requirement: Termo curto
 
-Com termo de menos de 2 letras, o que estiver na tela deve sumir, e
-nenhuma requisição deve sair.
+Com termo de menos de 2 letras, a requisição em andamento deve ser
+cancelada, a situação e as sugestões devem sumir, e nenhuma requisição
+nova deve sair.
 
 #### Scenario: 2 termo curto não busca
 
@@ -52,8 +53,8 @@ nenhuma requisição deve sair.
 
 ### Requirement: Busca
 
-A busca deve apagar o que estiver na tela, mostrar "Buscando…" e cancelar
-pelo `AbortSignal` a requisição anterior, se houver: a resposta de uma
+A busca deve apagar a situação e as sugestões, mostrar "Buscando…" e
+cancelar pelo `AbortSignal` a requisição anterior, se houver: a resposta de uma
 busca antiga nunca aparece. A API simulada (`buscarCidades` do domínio)
 responde em 800 ms a termos de até 2 letras e em 200 ms aos demais.
 
@@ -108,9 +109,9 @@ devem funcionar normalmente.
 
 ### Requirement: Esc
 
-Esc no campo deve cancelar a espera e a requisição em andamento e limpar a
-tela. O termo continua sendo o da última busca, então digitar o mesmo termo
-não reabre as sugestões.
+Esc no campo deve cancelar a espera e a requisição em andamento e apagar a
+situação e as sugestões. O último termo continua o mesmo, então digitar o
+mesmo termo não reabre as sugestões.
 
 #### Scenario: 6 buscando antes do Esc
 

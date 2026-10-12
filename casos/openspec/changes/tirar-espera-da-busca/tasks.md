@@ -5,7 +5,11 @@
 - [ ] 1.1 Tirar de `busca-com-sugestoes/roteiro-de-teste.js` a verificação
   "3 nada durante a espera" e as pausas que contavam com a espera, com os
   cenários deste delta; verificar lendo o diff contra os cenários.
-- [ ] 1.2 Arquivar a mudança no mesmo commit do teste
+- [ ] 1.2 Tirar a espera da apresentação em
+  `busca-com-sugestoes/README.org` ("esperar o usuário parar de
+  digitar"); verificar com `grep -n espera busca-com-sugestoes/README.org`,
+  que não acha nada.
+- [ ] 1.3 Arquivar a mudança no mesmo commit do teste
   (`npm run openspec -- archive tirar-espera-da-busca --yes`); verificar
   com `npm run conferir-especificacao`, que tem de passar com 14 cenários
   na Busca.
