@@ -62,8 +62,10 @@ const TIPOS: Record<string, string> = {
 async function implementacoes(filtros: string[]): Promise<[string, string][]> {
   const lista: [string, string][] = [];
   for (const caso of (await readdir(CASOS)).sort()) {
-    // node_modules/jquery é o pacote do jQuery, não uma implementação.
-    if (caso === "node_modules") continue;
+    // Toda tarefa tem a especificação no README.org; as outras pastas
+    // (node_modules, android, desktop, qt) não são tarefas, e
+    // node_modules/jquery, o pacote do jQuery, pareceria uma implementação.
+    if (!existsSync(path.join(CASOS, caso, "README.org"))) continue;
     for (const tecnologia of TECNOLOGIAS) {
       const projeto = ANDROID.includes(tecnologia)
         ? "build.gradle.kts"
