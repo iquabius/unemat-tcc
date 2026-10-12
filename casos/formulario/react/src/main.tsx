@@ -29,10 +29,13 @@ function FormularioDeReserva() {
   const erroIda = erroDaData(ida);
   const erroVolta = idaEVolta ? erroDaData(volta) : null;
   const erroOrdem = idaEVolta ? erroDaOrdem(ida, volta) : null;
-  const temErro = [erroNome, erroEmail, erroIda, erroVolta, erroOrdem].some(Boolean);
+  const temErro = [erroNome, erroEmail, erroIda, erroVolta, erroOrdem].some(
+    Boolean,
+  );
 
   const tocado = (campo: Campo) => tocados.has(campo);
-  const tocar = (campo: Campo) => setTocados((anteriores) => new Set(anteriores).add(campo));
+  const tocar = (campo: Campo) =>
+    setTocados((anteriores) => new Set(anteriores).add(campo));
 
   const erroVisivel: Record<Campo, string | null> = {
     nome: tocado("nome") ? erroNome : null,

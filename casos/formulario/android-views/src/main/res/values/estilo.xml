@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <!-- Aparência do Formulário, no papel do estilo.css da web: o layout só cita
      os estilos pelo nome (style="@style/..."), como o class do HTML. Os
      estados (desabilitado, inválido) ficam nos seletores de res/drawable/ e
@@ -7,7 +7,9 @@
     <color name="fundo">#2b2b2b</color>
 
     <!-- body: o tema da tela inteira, aplicado no AndroidManifest.xml. -->
-    <style name="Tema" parent="Theme.Material3.Dark.NoActionBar">
+    <style
+        name="Tema"
+        parent="Theme.Material3.Dark.NoActionBar">
         <item name="android:windowBackground">@color/fundo</item>
     </style>
 
@@ -26,14 +28,18 @@
     <!-- .formulario: uma coluna com 0.75rem entre os itens e 1rem de margem.
          O LinearLayout não tem max-width (24rem na web); a captura usa uma
          tela de 416dp, em que a coluna fica com os mesmos 384dp. -->
-    <style name="Formulario" parent="Coluna">
+    <style
+        name="Formulario"
+        parent="Coluna">
         <item name="android:padding">16dp</item>
         <item name="android:divider">@drawable/espaco_de_12dp</item>
         <item name="android:showDividers">middle</item>
     </style>
 
     <!-- .formulario label: o texto e o campo, com 0.25rem entre eles. -->
-    <style name="Rotulo" parent="Coluna">
+    <style
+        name="Rotulo"
+        parent="Coluna">
         <item name="android:divider">@drawable/espaco_de_4dp</item>
         <item name="android:showDividers">middle</item>
     </style>
@@ -48,7 +54,9 @@
 
     <!-- .formulario input, com :disabled e [aria-invalid="true"] no fundo
          (drawable/entrada.xml) e na cor do texto (color/texto_da_entrada.xml). -->
-    <style name="Entrada" parent="Texto">
+    <style
+        name="Entrada"
+        parent="Texto">
         <item name="android:background">@drawable/entrada</item>
         <item name="android:textColor">@color/texto_da_entrada</item>
         <item name="android:textColorHint">#999999</item>
@@ -68,7 +76,9 @@
     </style>
 
     <!-- .formulario .erro (escondido até haver erro). -->
-    <style name="Erro" parent="Texto">
+    <style
+        name="Erro"
+        parent="Texto">
         <item name="android:textColor">#ff8a8a</item>
         <item name="android:textSize">14sp</item>
         <item name="android:visibility">gone</item>
@@ -77,7 +87,9 @@
     <!-- .formulario button, com :disabled nas cores (color/fundo_do_botao.xml
          e color/texto_do_botao.xml). Sem os cantos arredondados, as margens
          internas e o texto em negrito do botão do Material. -->
-    <style name="Botao" parent="Widget.Material3.Button">
+    <style
+        name="Botao"
+        parent="Widget.Material3.Button">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">16sp</item>
@@ -95,7 +107,9 @@
     </style>
 
     <!-- .confirmacao -->
-    <style name="Confirmacao" parent="Texto">
+    <style
+        name="Confirmacao"
+        parent="Texto">
         <item name="android:layout_marginHorizontal">16dp</item>
         <item name="android:textColor">#9fd88a</item>
     </style>

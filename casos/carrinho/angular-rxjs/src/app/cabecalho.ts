@@ -1,11 +1,11 @@
-import { AsyncPipe } from '@angular/common';
-import { Component, inject } from '@angular/core';
-import { map } from 'rxjs';
-import { textoDoCabecalho } from '../../../dominio';
-import { CarrinhoService } from './carrinho.service';
+import { AsyncPipe } from "@angular/common";
+import { Component, inject } from "@angular/core";
+import { map } from "rxjs";
+import { textoDoCabecalho } from "../../../dominio";
+import { CarrinhoService } from "./carrinho.service";
 
 @Component({
-  selector: 'app-cabecalho',
+  selector: "app-cabecalho",
   imports: [AsyncPipe],
   template: `
     <header class="cabecalho">
@@ -15,5 +15,7 @@ import { CarrinhoService } from './carrinho.service';
   `,
 })
 export class Cabecalho {
-  protected readonly texto$ = inject(CarrinhoService).resumo$.pipe(map(textoDoCabecalho));
+  protected readonly texto$ = inject(CarrinhoService).resumo$.pipe(
+    map(textoDoCabecalho),
+  );
 }

@@ -20,6 +20,7 @@ dependencyResolutionManagement {
 rootProject.name = "casos-android"
 
 val casos = rootDir.parentFile
+
 casos.listFiles().orEmpty().sorted().forEach { caso ->
     listOf("android-views", "android-compose").forEach { tecnologia ->
         val pasta = caso.resolve(tecnologia)

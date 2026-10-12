@@ -35,11 +35,15 @@ fun Contador(valorInicial: Int) {
     Row(Estilo.contador) {
         // Como o <output> da web, que tem o papel status: o leitor de tela
         // anuncia a mudança.
-        Valor("$contador", Modifier.semantics { liveRegion = LiveRegionMode.Polite })
+        Valor(
+            "$contador",
+            Modifier.semantics { liveRegion = LiveRegionMode.Polite },
+        )
         Botao(
             onClick = { contador = contador + 1 },
             // Como o aria-label do botão na web.
-            modifier = Modifier.semantics { contentDescription = "Incrementar" },
+            modifier =
+                Modifier.semantics { contentDescription = "Incrementar" },
         ) {
             Text("+")
         }

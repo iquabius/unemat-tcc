@@ -41,8 +41,11 @@ abstract class ComponenteDaLoja extends HTMLElement {
   connectedCallback() {
     loja.addEventListener("mudou", this.aoMudar);
     this.addEventListener("click", (evento) => {
-      const botao = (evento.target as Element).closest<HTMLButtonElement>("button[data-acao]");
-      if (botao) this.tratarClique(botao.dataset.acao!, Number(botao.dataset.id));
+      const botao = (evento.target as Element).closest<HTMLButtonElement>(
+        "button[data-acao]",
+      );
+      if (botao)
+        this.tratarClique(botao.dataset.acao!, Number(botao.dataset.id));
     });
     this.renderizar();
   }

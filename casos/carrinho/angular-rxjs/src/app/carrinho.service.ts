@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import { BehaviorSubject, distinctUntilChanged, map } from 'rxjs';
+import { Injectable } from "@angular/core";
+import { BehaviorSubject, distinctUntilChanged, map } from "rxjs";
 import {
   carregarCarrinho,
   reduzir,
@@ -7,14 +7,16 @@ import {
   salvarCarrinho,
   type Acao,
   type EstadoDoCarrinho,
-} from '../../../dominio';
+} from "../../../dominio";
 
 // O serviço guarda o estado num BehaviorSubject: quem assina recebe o valor
 // atual na hora e cada mudança depois. Todos os componentes injetam a mesma
 // instância.
-@Injectable({ providedIn: 'root' })
+@Injectable({ providedIn: "root" })
 export class CarrinhoService {
-  private readonly estado = new BehaviorSubject<EstadoDoCarrinho>(carregarCarrinho());
+  private readonly estado = new BehaviorSubject<EstadoDoCarrinho>(
+    carregarCarrinho(),
+  );
 
   readonly estado$ = this.estado.asObservable();
   readonly itens$ = this.estado$.pipe(

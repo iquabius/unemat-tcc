@@ -23,13 +23,16 @@ subprojects {
                 versionName = "1.0"
             }
             // Auxiliar de captura (casos/android/captura/) nos testes de todos.
-            sourceSets.getByName("test").kotlin.directories += rootDir.resolve("captura").path
+            sourceSets.getByName("test").kotlin.directories +=
+                rootDir.resolve("captura").path
             // Domínio do caso (casos/<caso>/dominio-kotlin/), o equivalente do
             // dominio.ts da web, compartilhado pelas duas tecnologias.
             val dominio = projectDir.resolveSibling("dominio-kotlin")
             if (dominio.isDirectory) {
-                sourceSets.getByName("main").kotlin.directories += dominio.resolve("main").path
-                sourceSets.getByName("test").kotlin.directories += dominio.resolve("test").path
+                sourceSets.getByName("main").kotlin.directories +=
+                    dominio.resolve("main").path
+                sourceSets.getByName("test").kotlin.directories +=
+                    dominio.resolve("test").path
             }
             testOptions.unitTests {
                 isIncludeAndroidResources = true
@@ -52,7 +55,13 @@ subprojects {
                     teste.systemProperty("capturas.tecnologia", projectDir.name)
                     teste.systemProperty(
                         "capturas.destino",
-                        destinoDasCapturas.getOrElse(layout.buildDirectory.dir("capturas").get().asFile.path),
+                        destinoDasCapturas.getOrElse(
+                            layout.buildDirectory
+                                .dir("capturas")
+                                .get()
+                                .asFile
+                                .path
+                        ),
                     )
                 }
             }
@@ -82,6 +91,7 @@ val ktfmt by configurations.creating {
         attribute(Bundling.BUNDLING_ATTRIBUTE, objects.named(Bundling.SHADOWED))
     }
 }
+
 dependencies { ktfmt(libs.ktfmt) }
 
 val arquivosKotlin =
@@ -106,6 +116,7 @@ fun ktfmtTask(nome: String, descricao: String, vararg opcoes: String) =
     }
 
 ktfmtTask("formatarKotlin", "Formata o Kotlin de casos/ com o ktfmt.")
+
 ktfmtTask(
     "conferirFormatacaoKotlin",
     "Falha se algum arquivo Kotlin de casos/ não estiver formatado.",

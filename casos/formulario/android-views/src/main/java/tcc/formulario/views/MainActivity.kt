@@ -47,8 +47,14 @@ class MainActivity : AppCompatActivity() {
         // inicial, quando aparece na tela.
         findViewById<Spinner>(R.id.tipo).onItemSelectedListener =
             object : AdapterView.OnItemSelectedListener {
-                override fun onItemSelected(pai: AdapterView<*>?, item: View?, posicao: Int, id: Long) {
-                    campo(R.id.volta).isEnabled = tipo() == TipoDeVoo.IDA_E_VOLTA
+                override fun onItemSelected(
+                    pai: AdapterView<*>?,
+                    item: View?,
+                    posicao: Int,
+                    id: Long,
+                ) {
+                    campo(R.id.volta).isEnabled =
+                        tipo() == TipoDeVoo.IDA_E_VOLTA
                     validar()
                 }
 
@@ -57,9 +63,16 @@ class MainActivity : AppCompatActivity() {
 
         // Como .on("submit"): o botão só fica habilitado sem erros.
         findViewById<Button>(R.id.reservar).setOnClickListener {
-            findViewById<TextView>(R.id.confirmacao).text = mensagemDeConfirmacao(
-                Reserva(texto(R.id.nome), texto(R.id.email), tipo(), texto(R.id.ida), texto(R.id.volta)),
-            )
+            findViewById<TextView>(R.id.confirmacao).text =
+                mensagemDeConfirmacao(
+                    Reserva(
+                        texto(R.id.nome),
+                        texto(R.id.email),
+                        tipo(),
+                        texto(R.id.ida),
+                        texto(R.id.volta),
+                    )
+                )
         }
 
         validar()
@@ -71,7 +84,8 @@ class MainActivity : AppCompatActivity() {
     // Como $("#id").val().
     private fun texto(id: Int) = campo(id).text.toString()
 
-    private fun tipo() = TipoDeVoo.entries[findViewById<Spinner>(R.id.tipo).selectedItemPosition]
+    private fun tipo() =
+        TipoDeVoo.entries[findViewById<Spinner>(R.id.tipo).selectedItemPosition]
 
     private fun mostrarErro(id: Int, idDoErro: Int, erro: String?) {
         // Como o aria-invalid: o estilo pinta de vermelho o campo ativado.
@@ -89,19 +103,37 @@ class MainActivity : AppCompatActivity() {
         val erroEmail = erroDoEmail(texto(R.id.email))
         val erroIda = erroDaData(texto(R.id.ida))
         val erroVolta = if (idaEVolta) erroDaData(texto(R.id.volta)) else null
-        val erroOrdem = if (idaEVolta) erroDaOrdem(texto(R.id.ida), texto(R.id.volta)) else null
+        val erroOrdem =
+            if (idaEVolta) erroDaOrdem(texto(R.id.ida), texto(R.id.volta))
+            else null
 
-        mostrarErro(R.id.nome, R.id.erro_nome, if (R.id.nome in tocados) erroNome else null)
-        mostrarErro(R.id.email, R.id.erro_email, if (R.id.email in tocados) erroEmail else null)
-        mostrarErro(R.id.ida, R.id.erro_ida, if (R.id.ida in tocados) erroIda else null)
+        mostrarErro(
+            R.id.nome,
+            R.id.erro_nome,
+            if (R.id.nome in tocados) erroNome else null,
+        )
+        mostrarErro(
+            R.id.email,
+            R.id.erro_email,
+            if (R.id.email in tocados) erroEmail else null,
+        )
+        mostrarErro(
+            R.id.ida,
+            R.id.erro_ida,
+            if (R.id.ida in tocados) erroIda else null,
+        )
         mostrarErro(
             R.id.volta,
             R.id.erro_volta,
             (if (R.id.volta in tocados) erroVolta else null)
-                ?: (if (R.id.ida in tocados || R.id.volta in tocados) erroOrdem else null),
+                ?: (if (R.id.ida in tocados || R.id.volta in tocados) erroOrdem
+                else null),
         )
 
-        val temErro = listOf(erroNome, erroEmail, erroIda, erroVolta, erroOrdem).any { it != null }
+        val temErro =
+            listOf(erroNome, erroEmail, erroIda, erroVolta, erroOrdem).any {
+                it != null
+            }
         findViewById<Button>(R.id.reservar).isEnabled = !temErro
     }
 }

@@ -15,17 +15,16 @@ import tcc.formulario.TipoDeVoo
 @RunWith(AndroidJUnit4::class)
 @Config(qualifiers = "w416dp-h560dp-xhdpi")
 class RoteiroTest {
-    @get:Rule(order = 0)
-    val dataFixa = DataFixa()
+    @get:Rule(order = 0) val dataFixa = DataFixa()
 
-    @get:Rule(order = 1)
-    val regra = createAndroidComposeRule<MainActivity>()
+    @get:Rule(order = 1) val regra = createAndroidComposeRule<MainActivity>()
 
     private val tela by lazy { Tela(regra) }
     private val falhas = mutableListOf<String>()
 
     private fun conferir(nome: String, obtido: Any?, esperado: Any?) {
-        if (obtido != esperado) falhas += "$nome: obtido $obtido, esperado $esperado"
+        if (obtido != esperado)
+            falhas += "$nome: obtido $obtido, esperado $esperado"
     }
 
     @Test
@@ -37,36 +36,76 @@ class RoteiroTest {
 
         conferir("1 botão começa desabilitado", tela.botaoHabilitado(), false)
         conferir("1 nenhum erro visível", tela.erros(), emptyList<String>())
-        conferir("1 datas começam hoje", listOf(tela.valor(Campo.IDA), tela.valor(Campo.VOLTA)), listOf("26/09/2026", "26/09/2026"))
-        conferir("1 volta começa desabilitada", tela.habilitado(Campo.VOLTA), false)
+        conferir(
+            "1 datas começam hoje",
+            listOf(tela.valor(Campo.IDA), tela.valor(Campo.VOLTA)),
+            listOf("26/09/2026", "26/09/2026"),
+        )
+        conferir(
+            "1 volta começa desabilitada",
+            tela.habilitado(Campo.VOLTA),
+            false,
+        )
 
         tela.sair(Campo.NOME)
-        conferir("2 nome tocado e vazio", listOf(tela.erros(), tela.invalido(Campo.NOME)), listOf(listOf(nome), true))
+        conferir(
+            "2 nome tocado e vazio",
+            listOf(tela.erros(), tela.invalido(Campo.NOME)),
+            listOf(listOf(nome), true),
+        )
         tela.digitar(Campo.NOME, "Maria")
         conferir("3 nome preenchido", tela.erros(), emptyList<String>())
 
         tela.digitar(Campo.EMAIL, "maria@")
-        conferir("4 e-mail inválido antes de tocar", tela.erros(), emptyList<String>())
+        conferir(
+            "4 e-mail inválido antes de tocar",
+            tela.erros(),
+            emptyList<String>(),
+        )
         tela.sair(Campo.EMAIL)
-        conferir("4 e-mail inválido depois de tocar", tela.erros(), listOf(email))
+        conferir(
+            "4 e-mail inválido depois de tocar",
+            tela.erros(),
+            listOf(email),
+        )
         tela.digitar(Campo.EMAIL, "maria@exemplo.com")
         conferir("4 e-mail corrigido", tela.erros(), emptyList<String>())
         conferir("5 botão habilitado (só ida)", tela.botaoHabilitado(), true)
 
         tela.digitar(Campo.IDA, "31/02/2026")
         tela.sair(Campo.IDA)
-        conferir("6 data inexistente", listOf(tela.erros(), tela.botaoHabilitado()), listOf(listOf(data), false))
+        conferir(
+            "6 data inexistente",
+            listOf(tela.erros(), tela.botaoHabilitado()),
+            listOf(listOf(data), false),
+        )
         tela.digitar(Campo.IDA, "10/10/2099")
-        conferir("6 data corrigida", listOf(tela.erros(), tela.botaoHabilitado()), listOf(emptyList<String>(), true))
+        conferir(
+            "6 data corrigida",
+            listOf(tela.erros(), tela.botaoHabilitado()),
+            listOf(emptyList<String>(), true),
+        )
 
         tela.escolherTipo(TipoDeVoo.IDA_E_VOLTA)
         conferir("7 volta habilitada", tela.habilitado(Campo.VOLTA), true)
-        conferir("7 volta antes da ida", listOf(tela.erros(), tela.botaoHabilitado()), listOf(listOf(ordem), false))
+        conferir(
+            "7 volta antes da ida",
+            listOf(tela.erros(), tela.botaoHabilitado()),
+            listOf(listOf(ordem), false),
+        )
         tela.digitar(Campo.VOLTA, "1/1/2100")
         tela.sair(Campo.VOLTA)
-        conferir("8 volta mal formatada", listOf(tela.erros(), tela.botaoHabilitado()), listOf(listOf(data), false))
+        conferir(
+            "8 volta mal formatada",
+            listOf(tela.erros(), tela.botaoHabilitado()),
+            listOf(listOf(data), false),
+        )
         tela.digitar(Campo.VOLTA, "15/10/2099")
-        conferir("8 volta corrigida", listOf(tela.erros(), tela.botaoHabilitado()), listOf(emptyList<String>(), true))
+        conferir(
+            "8 volta corrigida",
+            listOf(tela.erros(), tela.botaoHabilitado()),
+            listOf(emptyList<String>(), true),
+        )
 
         tela.reservar()
         conferir(
@@ -80,7 +119,11 @@ class RoteiroTest {
         tela.escolherTipo(TipoDeVoo.IDA)
         conferir(
             "10 volta desabilitada não conta",
-            listOf(tela.habilitado(Campo.VOLTA), tela.erros(), tela.botaoHabilitado()),
+            listOf(
+                tela.habilitado(Campo.VOLTA),
+                tela.erros(),
+                tela.botaoHabilitado(),
+            ),
             listOf(false, emptyList<String>(), true),
         )
         tela.reservar()

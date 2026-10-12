@@ -1,13 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <!-- A estrutura da tela, como o index.html do jQuery. A aparência fica em
      res/values/estilo.xml, como o estilo.css. -->
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     style="@style/Pagina">
-
     <LinearLayout style="@style/Coluna">
-
         <LinearLayout style="@style/Formulario">
-
             <!-- Como o <label>: o texto e o campo que ele nomeia. -->
             <LinearLayout style="@style/Rotulo">
                 <TextView

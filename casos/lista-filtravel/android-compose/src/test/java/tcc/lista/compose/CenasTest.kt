@@ -17,16 +17,13 @@ import tcc.lista.Ordem
 @RunWith(AndroidJUnit4::class)
 @Config(qualifiers = "w480dp-h1950dp-xhdpi")
 class CenasTest {
-    @get:Rule(order = 0)
-    val semAnimacoes = SemAnimacoes()
+    @get:Rule(order = 0) val semAnimacoes = SemAnimacoes()
 
-    @get:Rule(order = 1)
-    val regra = createAndroidComposeRule<MainActivity>()
+    @get:Rule(order = 1) val regra = createAndroidComposeRule<MainActivity>()
 
     private val tela by lazy { Tela(regra) }
 
-    @Test
-    fun inicial() = capturar("inicial")
+    @Test fun inicial() = capturar("inicial")
 
     // Busca sem acento e em maiúsculas acha nomes com acento.
     @Test

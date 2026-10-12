@@ -27,7 +27,12 @@ import tcc.formulario.hoje
 import tcc.formulario.mensagemDeConfirmacao
 
 // Os campos que podem ser tocados, como o type Campo do React.
-enum class Campo { NOME, EMAIL, IDA, VOLTA }
+enum class Campo {
+    NOME,
+    EMAIL,
+    IDA,
+    VOLTA,
+}
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -58,27 +63,34 @@ fun FormularioDeReserva() {
     val erroIda = erroDaData(ida)
     val erroVolta = if (idaEVolta) erroDaData(volta) else null
     val erroOrdem = if (idaEVolta) erroDaOrdem(ida, volta) else null
-    val temErro = listOf(erroNome, erroEmail, erroIda, erroVolta, erroOrdem).any { it != null }
+    val temErro =
+        listOf(erroNome, erroEmail, erroIda, erroVolta, erroOrdem).any {
+            it != null
+        }
 
     fun tocado(campo: Campo) = campo in tocados
     fun tocar(campo: Campo) {
         tocados = tocados + campo
     }
 
-    val erroVisivel = mapOf(
-        Campo.NOME to if (tocado(Campo.NOME)) erroNome else null,
-        Campo.EMAIL to if (tocado(Campo.EMAIL)) erroEmail else null,
-        Campo.IDA to if (tocado(Campo.IDA)) erroIda else null,
-        Campo.VOLTA to ((if (tocado(Campo.VOLTA)) erroVolta else null)
-            ?: (if (tocado(Campo.IDA) || tocado(Campo.VOLTA)) erroOrdem else null)),
-    )
+    val erroVisivel =
+        mapOf(
+            Campo.NOME to if (tocado(Campo.NOME)) erroNome else null,
+            Campo.EMAIL to if (tocado(Campo.EMAIL)) erroEmail else null,
+            Campo.IDA to if (tocado(Campo.IDA)) erroIda else null,
+            Campo.VOLTA to
+                ((if (tocado(Campo.VOLTA)) erroVolta else null)
+                    ?: (if (tocado(Campo.IDA) || tocado(Campo.VOLTA)) erroOrdem
+                    else null)),
+        )
 
     // O Compose não tem onBlur. O onFocusChanged avisa toda mudança de foco,
     // inclusive o estado inicial, sem foco; por isso só conta como saída
     // quando o campo já teve foco.
     val focados = remember { mutableSetOf<Campo>() }
     fun Modifier.aoSair(campo: Campo) = onFocusChanged {
-        if (it.isFocused) focados += campo else if (campo in focados) tocar(campo)
+        if (it.isFocused) focados += campo
+        else if (campo in focados) tocar(campo)
     }
 
     Formulario {
@@ -86,7 +98,9 @@ fun FormularioDeReserva() {
             Entrada(
                 nome,
                 { nome = it },
-                Modifier.aoSair(Campo.NOME).semantics { contentType = ContentType.PersonFullName },
+                Modifier.aoSair(Campo.NOME).semantics {
+                    contentType = ContentType.PersonFullName
+                },
                 invalida = erroVisivel[Campo.NOME] != null,
             )
         }
@@ -96,7 +110,9 @@ fun FormularioDeReserva() {
             Entrada(
                 email,
                 { email = it },
-                Modifier.aoSair(Campo.EMAIL).semantics { contentType = ContentType.EmailAddress },
+                Modifier.aoSair(Campo.EMAIL).semantics {
+                    contentType = ContentType.EmailAddress
+                },
                 invalida = erroVisivel[Campo.EMAIL] != null,
                 teclado = KeyboardType.Email,
             )
@@ -105,7 +121,11 @@ fun FormularioDeReserva() {
 
         Rotulo("Tipo de voo") {
             Selecao(
-                opcoes = listOf(TipoDeVoo.IDA to "Só ida", TipoDeVoo.IDA_E_VOLTA to "Ida e volta"),
+                opcoes =
+                    listOf(
+                        TipoDeVoo.IDA to "Só ida",
+                        TipoDeVoo.IDA_E_VOLTA to "Ida e volta",
+                    ),
                 escolhida = tipo,
                 aoEscolher = { tipo = it },
             )
@@ -135,12 +155,20 @@ fun FormularioDeReserva() {
         erroVisivel[Campo.VOLTA]?.let { Erro(it) }
 
         Botao(
-            onClick = { confirmacao = mensagemDeConfirmacao(Reserva(nome, email, tipo, ida, volta)) },
+            onClick = {
+                confirmacao =
+                    mensagemDeConfirmacao(
+                        Reserva(nome, email, tipo, ida, volta)
+                    )
+            },
             habilitado = !temErro,
         ) {
             Text("Reservar")
         }
     }
     // Como o role="status": o leitor de tela anuncia a mudança.
-    Confirmacao(confirmacao, Modifier.semantics { liveRegion = LiveRegionMode.Polite })
+    Confirmacao(
+        confirmacao,
+        Modifier.semantics { liveRegion = LiveRegionMode.Polite },
+    )
 }

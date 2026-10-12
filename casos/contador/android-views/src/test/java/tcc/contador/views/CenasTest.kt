@@ -16,18 +16,17 @@ import tcc.captura.capturar
 @RunWith(AndroidJUnit4::class)
 @Config(qualifiers = "w480dp-h200dp-xhdpi")
 class CenasTest {
-    @get:Rule
-    val semAnimacoes = SemAnimacoes()
+    @get:Rule val semAnimacoes = SemAnimacoes()
 
-    @get:Rule
-    val regra = ActivityScenarioRule(MainActivity::class.java)
+    @get:Rule val regra = ActivityScenarioRule(MainActivity::class.java)
 
-    @Test
-    fun inicial() = capturar("inicial")
+    @Test fun inicial() = capturar("inicial")
 
     @Test
     fun tresCliques() {
-        repeat(3) { onView(withContentDescription("Incrementar")).perform(click()) }
+        repeat(3) {
+            onView(withContentDescription("Incrementar")).perform(click())
+        }
         capturar("tres-cliques")
     }
 }

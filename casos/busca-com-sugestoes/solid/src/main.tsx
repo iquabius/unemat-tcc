@@ -61,7 +61,8 @@ function BuscaDeDestino() {
   const mensagem = () => {
     if (!visivel()) return null;
     if (cidades.loading) return MENSAGENS.buscando;
-    if (cidades.error) return foiCancelada(cidades.error) ? null : MENSAGENS.falha;
+    if (cidades.error)
+      return foiCancelada(cidades.error) ? null : MENSAGENS.falha;
     return cidades()?.length === 0 ? MENSAGENS.nenhuma : null;
   };
   const sugestoes = () =>
@@ -105,7 +106,9 @@ function BuscaDeDestino() {
           </For>
         </ul>
       </Show>
-      <Show when={escolha()}>{(e) => <p class="escolha">Destino: {e()}</p>}</Show>
+      <Show when={escolha()}>
+        {(e) => <p class="escolha">Destino: {e()}</p>}
+      </Show>
     </main>
   );
 }

@@ -1,6 +1,6 @@
-import { AsyncPipe } from '@angular/common';
-import { Component } from '@angular/core';
-import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { AsyncPipe } from "@angular/common";
+import { Component } from "@angular/core";
+import { FormControl, ReactiveFormsModule } from "@angular/forms";
 import {
   Observable,
   Subject,
@@ -13,7 +13,7 @@ import {
   switchMap,
   takeUntil,
   timer,
-} from 'rxjs';
+} from "rxjs";
 import {
   ESPERA_MS,
   MENSAGENS,
@@ -21,16 +21,16 @@ import {
   buscarCidades,
   rotulo,
   type Cidade,
-} from '../../../dominio';
+} from "../../../dominio";
 
 type Estado =
-  | { tipo: 'vazio' }
-  | { tipo: 'buscando' }
-  | { tipo: 'sugestoes'; cidades: Cidade[] }
-  | { tipo: 'nenhuma' }
-  | { tipo: 'falha' };
+  | { tipo: "vazio" }
+  | { tipo: "buscando" }
+  | { tipo: "sugestoes"; cidades: Cidade[] }
+  | { tipo: "nenhuma" }
+  | { tipo: "falha" };
 
-const VAZIO: Estado = { tipo: 'vazio' };
+const VAZIO: Estado = { tipo: "vazio" };
 
 // A API simulada como Observable: cancelar a assinatura aborta a requisição.
 function buscar$(termo: string): Observable<Cidade[]> {
@@ -50,7 +50,7 @@ function buscar$(termo: string): Observable<Cidade[]> {
 // RxJS de propósito: este é o caso em que ele mais se destaca (switchMap,
 // distinctUntilChanged), embora o Angular atual recomende signals.
 @Component({
-  selector: 'app-busca',
+  selector: "app-busca",
   imports: [ReactiveFormsModule, AsyncPipe],
   template: `
     <main class="busca">
@@ -68,11 +68,13 @@ function buscar$(termo: string): Observable<Cidade[]> {
       @if (mensagem(atual); as texto) {
         <p class="situacao" role="status">{{ texto }}</p>
       }
-      @if (atual.tipo === 'sugestoes') {
+      @if (atual.tipo === "sugestoes") {
         <ul class="sugestoes">
           @for (cidade of atual.cidades; track rotulo(cidade)) {
             <li>
-              <button type="button" (click)="escolher(cidade)">{{ rotulo(cidade) }}</button>
+              <button type="button" (click)="escolher(cidade)">
+                {{ rotulo(cidade) }}
+              </button>
             </li>
           }
         </ul>
@@ -86,7 +88,7 @@ function buscar$(termo: string): Observable<Cidade[]> {
 export class BuscaDeDestino {
   protected readonly rotulo = rotulo;
   protected readonly vazio = VAZIO;
-  protected readonly texto = new FormControl('', { nonNullable: true });
+  protected readonly texto = new FormControl("", { nonNullable: true });
 
   // Esc e a escolha de uma sugestão cancelam a espera e a requisição
   protected readonly cancelamentos = new Subject<void>();
@@ -108,10 +110,12 @@ export class BuscaDeDestino {
           ? of(VAZIO)
           : buscar$(termo).pipe(
               map((cidades): Estado =>
-                cidades.length === 0 ? { tipo: 'nenhuma' } : { tipo: 'sugestoes', cidades },
+                cidades.length === 0
+                  ? { tipo: "nenhuma" }
+                  : { tipo: "sugestoes", cidades },
               ),
-              catchError(() => of<Estado>({ tipo: 'falha' })),
-              startWith<Estado>({ tipo: 'buscando' }),
+              catchError(() => of<Estado>({ tipo: "falha" })),
+              startWith<Estado>({ tipo: "buscando" }),
               takeUntil(this.cancelamentos),
             ),
       ),
@@ -130,11 +134,11 @@ export class BuscaDeDestino {
 
   protected mensagem(estado: Estado): string | null {
     switch (estado.tipo) {
-      case 'buscando':
+      case "buscando":
         return MENSAGENS.buscando;
-      case 'nenhuma':
+      case "nenhuma":
         return MENSAGENS.nenhuma;
-      case 'falha':
+      case "falha":
         return MENSAGENS.falha;
       default:
         return null;

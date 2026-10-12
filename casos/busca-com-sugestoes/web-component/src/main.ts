@@ -51,7 +51,10 @@ class BuscaDeDestino extends HTMLElement {
 
   private agendarBusca() {
     clearTimeout(this.espera);
-    this.espera = window.setTimeout(() => this.buscar(this.campo.value.trim()), ESPERA_MS);
+    this.espera = window.setTimeout(
+      () => this.buscar(this.campo.value.trim()),
+      ESPERA_MS,
+    );
   }
 
   private buscar(termo: string) {

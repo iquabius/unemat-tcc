@@ -1,4 +1,11 @@
-import { Component, computed, effect, inject, Injectable, signal } from '@angular/core';
+import {
+  Component,
+  computed,
+  effect,
+  inject,
+  Injectable,
+  signal,
+} from "@angular/core";
 import {
   carregarCarrinho,
   formatarPreco,
@@ -13,7 +20,7 @@ import {
   textoDoFrete,
   type Acao,
   type EstadoDoCarrinho,
-} from '../../../dominio';
+} from "../../../dominio";
 
 // O estado mora num serviço que a Loja fornece; os componentes o recebem
 // por injeção, e cada ponto da tela se atualiza só quando o dado que ele lê
@@ -32,11 +39,13 @@ export class Carrinho {
 }
 
 @Component({
-  selector: 'app-cabecalho',
+  selector: "app-cabecalho",
   template: `
     <header class="cabecalho">
       <strong>Minha loja</strong>
-      <span class="resumo">{{ textoDoCabecalho(resumir(carrinho.estado().itens)) }}</span>
+      <span class="resumo">{{
+        textoDoCabecalho(resumir(carrinho.estado().itens))
+      }}</span>
     </header>
   `,
 })
@@ -47,7 +56,7 @@ export class Cabecalho {
 }
 
 @Component({
-  selector: 'app-catalogo',
+  selector: "app-catalogo",
   template: `
     <section class="catalogo">
       <h2>Produtos</h2>
@@ -81,7 +90,7 @@ export class Catalogo {
 }
 
 @Component({
-  selector: 'app-painel',
+  selector: "app-painel",
   template: `
     <section class="carrinho">
       <h2>Carrinho</h2>
@@ -95,7 +104,13 @@ export class Catalogo {
                 <button
                   type="button"
                   aria-label="Diminuir {{ p.nome }}"
-                  (click)="carrinho.despachar({ tipo: 'alterar', id: item.id, delta: -1 })"
+                  (click)="
+                    carrinho.despachar({
+                      tipo: 'alterar',
+                      id: item.id,
+                      delta: -1,
+                    })
+                  "
                 >
                   −
                 </button>
@@ -103,12 +118,20 @@ export class Catalogo {
                 <button
                   type="button"
                   aria-label="Aumentar {{ p.nome }}"
-                  (click)="carrinho.despachar({ tipo: 'alterar', id: item.id, delta: 1 })"
+                  (click)="
+                    carrinho.despachar({
+                      tipo: 'alterar',
+                      id: item.id,
+                      delta: 1,
+                    })
+                  "
                 >
                   +
                 </button>
               </span>
-              <span class="subtotal">{{ formatarPreco(p.preco * item.quantidade) }}</span>
+              <span class="subtotal">{{
+                formatarPreco(p.preco * item.quantidade)
+              }}</span>
               <button
                 type="button"
                 class="remover"
@@ -127,14 +150,20 @@ export class Catalogo {
           </p>
           <p>
             <span>Frete</span>
-            <span>{{ resumo().frete === 0 ? 'Grátis' : formatarPreco(resumo().frete) }}</span>
+            <span>{{
+              resumo().frete === 0 ? "Grátis" : formatarPreco(resumo().frete)
+            }}</span>
           </p>
           <p class="total">
             <span>Total</span>
             <span>{{ formatarPreco(resumo().total) }}</span>
           </p>
         </div>
-        <button type="button" class="finalizar" (click)="carrinho.despachar({ tipo: 'finalizar' })">
+        <button
+          type="button"
+          class="finalizar"
+          (click)="carrinho.despachar({ tipo: 'finalizar' })"
+        >
           Finalizar compra
         </button>
         <p class="frete">{{ textoDoFrete(resumo()) }}</p>
@@ -148,7 +177,9 @@ export class Catalogo {
 })
 export class PainelDoCarrinho {
   protected readonly carrinho = inject(Carrinho);
-  protected readonly resumo = computed(() => resumir(this.carrinho.estado().itens));
+  protected readonly resumo = computed(() =>
+    resumir(this.carrinho.estado().itens),
+  );
   protected readonly mensagens = MENSAGENS;
   protected readonly produto = produto;
   protected readonly formatarPreco = formatarPreco;
@@ -156,7 +187,7 @@ export class PainelDoCarrinho {
 }
 
 @Component({
-  selector: 'app-loja',
+  selector: "app-loja",
   imports: [Cabecalho, Catalogo, PainelDoCarrinho],
   providers: [Carrinho],
   template: `

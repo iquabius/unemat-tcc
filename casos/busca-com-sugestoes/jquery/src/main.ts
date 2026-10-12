@@ -73,13 +73,18 @@ $(function () {
     limpar();
     // Mudar o valor por código não dispara "input": nenhuma busca nova.
     $("#destino").val(rotulo(cidade));
-    $("#escolha").text(`Destino: ${rotulo(cidade)}`).prop("hidden", false);
+    $("#escolha")
+      .text(`Destino: ${rotulo(cidade)}`)
+      .prop("hidden", false);
   }
 
   $("#destino")
     .on("input", function () {
       clearTimeout(espera);
-      espera = window.setTimeout(() => buscar(String($(this).val()).trim()), ESPERA_MS);
+      espera = window.setTimeout(
+        () => buscar(String($(this).val()).trim()),
+        ESPERA_MS,
+      );
     })
     .on("keydown", function (evento) {
       if (evento.key === "Escape") {

@@ -2,7 +2,11 @@
 // implementações web. As funções de transição são puras; carregar e salvar
 // tocam o localStorage, mas cada implementação decide quando chamá-las.
 
-import { formatarPreco, produtos as catalogo, type Produto } from "../lista-filtravel/dominio";
+import {
+  formatarPreco,
+  produtos as catalogo,
+  type Produto,
+} from "../lista-filtravel/dominio";
 
 export { formatarPreco, type Produto };
 
@@ -74,7 +78,10 @@ export function resumir(itens: readonly ItemDoCarrinho[]): Resumo {
 
 const plural = (n: number) => `${n} ${n === 1 ? "item" : "itens"}`;
 
-export function reduzir(estado: EstadoDoCarrinho, acao: Acao): EstadoDoCarrinho {
+export function reduzir(
+  estado: EstadoDoCarrinho,
+  acao: Acao,
+): EstadoDoCarrinho {
   const { itens } = estado;
   switch (acao.tipo) {
     case "adicionar": {
@@ -82,7 +89,9 @@ export function reduzir(estado: EstadoDoCarrinho, acao: Acao): EstadoDoCarrinho 
       return {
         itens: existe
           ? itens.map((item) =>
-              item.id === acao.id ? { ...item, quantidade: item.quantidade + 1 } : item,
+              item.id === acao.id
+                ? { ...item, quantidade: item.quantidade + 1 }
+                : item,
             )
           : [...itens, { id: acao.id, quantidade: 1 }],
         confirmacao: null,
@@ -93,7 +102,9 @@ export function reduzir(estado: EstadoDoCarrinho, acao: Acao): EstadoDoCarrinho 
         ...estado,
         itens: itens
           .map((item) =>
-            item.id === acao.id ? { ...item, quantidade: item.quantidade + acao.delta } : item,
+            item.id === acao.id
+              ? { ...item, quantidade: item.quantidade + acao.delta }
+              : item,
           )
           .filter((item) => item.quantidade > 0),
       };
@@ -110,7 +121,10 @@ export function reduzir(estado: EstadoDoCarrinho, acao: Acao): EstadoDoCarrinho 
   }
 }
 
-export function quantidadeNoCarrinho(itens: readonly ItemDoCarrinho[], id: number): number {
+export function quantidadeNoCarrinho(
+  itens: readonly ItemDoCarrinho[],
+  id: number,
+): number {
   return itens.find((item) => item.id === id)?.quantidade ?? 0;
 }
 
@@ -137,12 +151,18 @@ export function carregarCarrinho(): EstadoDoCarrinho {
           item.quantidade > 0 &&
           IDS_DOS_PRODUTOS.includes(item.id),
       );
-    return { itens: valido ? (salvo as ItemDoCarrinho[]) : [], confirmacao: null };
+    return {
+      itens: valido ? (salvo as ItemDoCarrinho[]) : [],
+      confirmacao: null,
+    };
   } catch {
     return { itens: [], confirmacao: null };
   }
 }
 
 export function salvarCarrinho(itens: readonly ItemDoCarrinho[]): void {
-  localStorage.setItem(CHAVE, JSON.stringify(itens.map(({ id, quantidade }) => ({ id, quantidade }))));
+  localStorage.setItem(
+    CHAVE,
+    JSON.stringify(itens.map(({ id, quantidade }) => ({ id, quantidade }))),
+  );
 }

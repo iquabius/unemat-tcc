@@ -8,9 +8,9 @@ import android.widget.Spinner
 import android.widget.TextView
 import androidx.core.view.isVisible
 import androidx.test.core.app.ActivityScenario
+import java.time.Duration
 import org.robolectric.Shadows.shadowOf
 import tcc.formulario.TipoDeVoo
-import java.time.Duration
 
 enum class Campo(val id: Int) {
     NOME(R.id.nome),
@@ -30,12 +30,14 @@ class Tela(private val cenario: ActivityScenario<MainActivity>) {
         return resultado as T
     }
 
-    private fun campo(atividade: MainActivity, campo: Campo): EditText = atividade.findViewById(campo.id)
+    private fun campo(atividade: MainActivity, campo: Campo): EditText =
+        atividade.findViewById(campo.id)
 
     fun focar(campo: Campo) = naTela { campo(it, campo).requestFocus() }
 
     // Como o setter + evento "input" do roteiro: muda o texto sem mudar o foco.
-    // O cursor vai para o fim, como depois de digitar (o setText o põe no início).
+    // O cursor vai para o fim, como depois de digitar (o setText o põe no
+    // início).
     fun digitar(campo: Campo, texto: String) = naTela {
         campo(it, campo).setText(texto)
         campo(it, campo).setSelection(texto.length)
@@ -53,11 +55,17 @@ class Tela(private val cenario: ActivityScenario<MainActivity>) {
         focar(if (campo == Campo.NOME) Campo.EMAIL else Campo.NOME)
     }
 
-    fun escolherTipo(tipo: TipoDeVoo) = naTela { it.findViewById<Spinner>(R.id.tipo).setSelection(tipo.ordinal) }
+    fun escolherTipo(tipo: TipoDeVoo) = naTela {
+        it.findViewById<Spinner>(R.id.tipo).setSelection(tipo.ordinal)
+    }
 
-    fun reservar() = naTela { it.findViewById<Button>(R.id.reservar).performClick() }
+    fun reservar() = naTela {
+        it.findViewById<Button>(R.id.reservar).performClick()
+    }
 
-    fun botaoHabilitado() = naTela { it.findViewById<Button>(R.id.reservar).isEnabled }
+    fun botaoHabilitado() = naTela {
+        it.findViewById<Button>(R.id.reservar).isEnabled
+    }
 
     fun habilitado(campo: Campo) = naTela { campo(it, campo).isEnabled }
 
@@ -73,5 +81,7 @@ class Tela(private val cenario: ActivityScenario<MainActivity>) {
             .map { it.text.toString() }
     }
 
-    fun confirmacao() = naTela { it.findViewById<TextView>(R.id.confirmacao).text.toString() }
+    fun confirmacao() = naTela {
+        it.findViewById<TextView>(R.id.confirmacao).text.toString()
+    }
 }

@@ -1,4 +1,12 @@
-import { createContext, createEffect, createMemo, For, Show, useContext, type JSX } from "solid-js";
+import {
+  createContext,
+  createEffect,
+  createMemo,
+  For,
+  Show,
+  useContext,
+  type JSX,
+} from "solid-js";
 import { createStore, reconcile } from "solid-js/store";
 import { render } from "solid-js/web";
 import {
@@ -28,7 +36,8 @@ const ContextoDoCarrinho = createContext<{
 function ProvedorDoCarrinho(props: { children: JSX.Element }) {
   const [estado, setEstado] = createStore<EstadoDoCarrinho>(carregarCarrinho());
   // reconcile compara o estado novo com o atual e só altera o que mudou.
-  const despachar = (acao: Acao) => setEstado(reconcile(reduzir(estado, acao), { key: "id" }));
+  const despachar = (acao: Acao) =>
+    setEstado(reconcile(reduzir(estado, acao), { key: "id" }));
 
   createEffect(() => salvarCarrinho(estado.itens));
 
@@ -97,7 +106,10 @@ function PainelDoCarrinho() {
       <Show
         when={estado.itens.length > 0}
         fallback={
-          <Show when={estado.confirmacao} fallback={<p class="aviso">{MENSAGENS.vazio}</p>}>
+          <Show
+            when={estado.confirmacao}
+            fallback={<p class="aviso">{MENSAGENS.vazio}</p>}
+          >
             {(confirmacao) => <p class="confirmacao">{confirmacao()}</p>}
           </Show>
         }
@@ -113,7 +125,9 @@ function PainelDoCarrinho() {
                     <button
                       type="button"
                       aria-label={`Diminuir ${p.nome}`}
-                      onClick={() => despachar({ tipo: "alterar", id: item.id, delta: -1 })}
+                      onClick={() =>
+                        despachar({ tipo: "alterar", id: item.id, delta: -1 })
+                      }
                     >
                       −
                     </button>
@@ -121,12 +135,16 @@ function PainelDoCarrinho() {
                     <button
                       type="button"
                       aria-label={`Aumentar ${p.nome}`}
-                      onClick={() => despachar({ tipo: "alterar", id: item.id, delta: 1 })}
+                      onClick={() =>
+                        despachar({ tipo: "alterar", id: item.id, delta: 1 })
+                      }
                     >
                       +
                     </button>
                   </span>
-                  <span class="subtotal">{formatarPreco(p.preco * item.quantidade)}</span>
+                  <span class="subtotal">
+                    {formatarPreco(p.preco * item.quantidade)}
+                  </span>
                   <button
                     type="button"
                     class="remover"
@@ -147,14 +165,20 @@ function PainelDoCarrinho() {
           </p>
           <p>
             <span>Frete</span>
-            <span>{resumo().frete === 0 ? "Grátis" : formatarPreco(resumo().frete)}</span>
+            <span>
+              {resumo().frete === 0 ? "Grátis" : formatarPreco(resumo().frete)}
+            </span>
           </p>
           <p class="total">
             <span>Total</span>
             <span>{formatarPreco(resumo().total)}</span>
           </p>
         </div>
-        <button type="button" class="finalizar" onClick={() => despachar({ tipo: "finalizar" })}>
+        <button
+          type="button"
+          class="finalizar"
+          onClick={() => despachar({ tipo: "finalizar" })}
+        >
           Finalizar compra
         </button>
         <p class="frete">{textoDoFrete(resumo())}</p>

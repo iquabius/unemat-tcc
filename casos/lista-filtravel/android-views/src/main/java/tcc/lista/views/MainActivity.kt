@@ -33,22 +33,39 @@ class MainActivity : AppCompatActivity() {
 
         // Como os $("<option>") do jQuery: as opções dos dois <select>.
         findViewById<Spinner>(R.id.categoria).adapter =
-            ArrayAdapter(this, android.R.layout.simple_spinner_item, listOf("Todas") + categorias)
+            ArrayAdapter(
+                this,
+                android.R.layout.simple_spinner_item,
+                listOf("Todas") + categorias,
+            )
         findViewById<Spinner>(R.id.ordem).adapter =
-            ArrayAdapter(this, android.R.layout.simple_spinner_item, Ordem.entries.map { it.rotulo })
+            ArrayAdapter(
+                this,
+                android.R.layout.simple_spinner_item,
+                Ordem.entries.map { it.rotulo },
+            )
         findViewById<RecyclerView>(R.id.produtos).adapter = adaptador
 
         // Como .on("input") e .on("change"). O Spinner também avisa a seleção
         // inicial, quando aparece na tela.
-        findViewById<EditText>(R.id.busca).doAfterTextChanged { atualizarLista() }
-        val aoEscolher = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(pai: AdapterView<*>?, item: View?, posicao: Int, id: Long) {
-                atualizarLista()
-            }
-
-            override fun onNothingSelected(pai: AdapterView<*>?) {}
+        findViewById<EditText>(R.id.busca).doAfterTextChanged {
+            atualizarLista()
         }
-        findViewById<Spinner>(R.id.categoria).onItemSelectedListener = aoEscolher
+        val aoEscolher =
+            object : AdapterView.OnItemSelectedListener {
+                override fun onItemSelected(
+                    pai: AdapterView<*>?,
+                    item: View?,
+                    posicao: Int,
+                    id: Long,
+                ) {
+                    atualizarLista()
+                }
+
+                override fun onNothingSelected(pai: AdapterView<*>?) {}
+            }
+        findViewById<Spinner>(R.id.categoria).onItemSelectedListener =
+            aoEscolher
         findViewById<Spinner>(R.id.ordem).onItemSelectedListener = aoEscolher
 
         atualizarLista()
@@ -60,16 +77,22 @@ class MainActivity : AppCompatActivity() {
         val busca = findViewById<EditText>(R.id.busca).text.toString()
         val posicao = findViewById<Spinner>(R.id.categoria).selectedItemPosition
         val categoria = if (posicao == 0) "" else categorias[posicao - 1]
-        val ordem = Ordem.entries[findViewById<Spinner>(R.id.ordem).selectedItemPosition]
+        val ordem =
+            Ordem.entries[
+                    findViewById<Spinner>(R.id.ordem).selectedItemPosition]
 
-        val visiveis = produtos
-            .filter { correspondeABusca(it, busca) && daCategoria(it, categoria) }
-            .sortedWith(comparador(ordem))
+        val visiveis =
+            produtos
+                .filter {
+                    correspondeABusca(it, busca) && daCategoria(it, categoria)
+                }
+                .sortedWith(comparador(ordem))
 
         // Como o .empty().append(...): troca todos os itens de uma vez.
         adaptador.produtos = visiveis
         adaptador.notifyDataSetChanged()
-        findViewById<TextView>(R.id.contagem).text = textoDaContagem(visiveis.size)
+        findViewById<TextView>(R.id.contagem).text =
+            textoDaContagem(visiveis.size)
         findViewById<TextView>(R.id.vazio).isVisible = visiveis.isEmpty()
     }
 }
@@ -89,7 +112,10 @@ class AdaptadorDeProdutos : RecyclerView.Adapter<AdaptadorDeProdutos.Item>() {
     override fun getItemCount() = produtos.size
 
     override fun onCreateViewHolder(pai: ViewGroup, tipo: Int) =
-        Item(LayoutInflater.from(pai.context).inflate(R.layout.item_produto, pai, false))
+        Item(
+            LayoutInflater.from(pai.context)
+                .inflate(R.layout.item_produto, pai, false)
+        )
 
     override fun onBindViewHolder(item: Item, posicao: Int) {
         val produto = produtos[posicao]

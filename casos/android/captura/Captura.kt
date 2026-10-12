@@ -27,7 +27,8 @@ class SemAnimacoes : ExternalResource() {
     override fun after() = escala(1f)
 
     private fun escala(valor: Float) {
-        ValueAnimator::class.java
+        ValueAnimator::class
+            .java
             .getMethod("setDurationScale", Float::class.javaPrimitiveType)
             .invoke(null, valor)
     }

@@ -1,10 +1,15 @@
-import { AsyncPipe } from '@angular/common';
-import { Component, inject } from '@angular/core';
-import { formatarPreco, MENSAGENS, produto, textoDoFrete } from '../../../dominio';
-import { CarrinhoService } from './carrinho.service';
+import { AsyncPipe } from "@angular/common";
+import { Component, inject } from "@angular/core";
+import {
+  formatarPreco,
+  MENSAGENS,
+  produto,
+  textoDoFrete,
+} from "../../../dominio";
+import { CarrinhoService } from "./carrinho.service";
 
 @Component({
-  selector: 'app-painel',
+  selector: "app-painel",
   imports: [AsyncPipe],
   template: `
     <section class="carrinho">
@@ -25,35 +30,66 @@ import { CarrinhoService } from './carrinho.service';
                   <button
                     type="button"
                     [attr.aria-label]="'Diminuir ' + produto(item.id).nome"
-                    (click)="carrinho.despachar({ tipo: 'alterar', id: item.id, delta: -1 })"
-                  >−</button>
+                    (click)="
+                      carrinho.despachar({
+                        tipo: 'alterar',
+                        id: item.id,
+                        delta: -1,
+                      })
+                    "
+                  >
+                    −
+                  </button>
                   <span class="valor">{{ item.quantidade }}</span>
                   <button
                     type="button"
                     [attr.aria-label]="'Aumentar ' + produto(item.id).nome"
-                    (click)="carrinho.despachar({ tipo: 'alterar', id: item.id, delta: 1 })"
-                  >+</button>
+                    (click)="
+                      carrinho.despachar({
+                        tipo: 'alterar',
+                        id: item.id,
+                        delta: 1,
+                      })
+                    "
+                  >
+                    +
+                  </button>
                 </span>
-                <span class="subtotal">{{ formatarPreco(produto(item.id).preco * item.quantidade) }}</span>
+                <span class="subtotal">{{
+                  formatarPreco(produto(item.id).preco * item.quantidade)
+                }}</span>
                 <button
                   type="button"
                   class="remover"
                   [attr.aria-label]="'Remover ' + produto(item.id).nome"
                   (click)="carrinho.despachar({ tipo: 'remover', id: item.id })"
-                >Remover</button>
+                >
+                  Remover
+                </button>
               </li>
             }
           </ul>
           @if (carrinho.resumo$ | async; as resumo) {
             <div class="totais">
-              <p><span>Subtotal</span><span>{{ formatarPreco(resumo.subtotal) }}</span></p>
+              <p>
+                <span>Subtotal</span
+                ><span>{{ formatarPreco(resumo.subtotal) }}</span>
+              </p>
               <p>
                 <span>Frete</span>
-                <span>{{ resumo.frete === 0 ? 'Grátis' : formatarPreco(resumo.frete) }}</span>
+                <span>{{
+                  resumo.frete === 0 ? "Grátis" : formatarPreco(resumo.frete)
+                }}</span>
               </p>
-              <p class="total"><span>Total</span><span>{{ formatarPreco(resumo.total) }}</span></p>
+              <p class="total">
+                <span>Total</span><span>{{ formatarPreco(resumo.total) }}</span>
+              </p>
             </div>
-            <button type="button" class="finalizar" (click)="carrinho.despachar({ tipo: 'finalizar' })">
+            <button
+              type="button"
+              class="finalizar"
+              (click)="carrinho.despachar({ tipo: 'finalizar' })"
+            >
               Finalizar compra
             </button>
             <p class="frete">{{ textoDoFrete(resumo) }}</p>

@@ -28,14 +28,21 @@ function FormularioDeReserva() {
   const erroNome = createMemo(() => erroDoNome(nome()));
   const erroEmail = createMemo(() => erroDoEmail(email()));
   const erroIda = createMemo(() => erroDaData(ida()));
-  const erroVolta = createMemo(() => (idaEVolta() ? erroDaData(volta()) : null));
-  const erroOrdem = createMemo(() => (idaEVolta() ? erroDaOrdem(ida(), volta()) : null));
+  const erroVolta = createMemo(() =>
+    idaEVolta() ? erroDaData(volta()) : null,
+  );
+  const erroOrdem = createMemo(() =>
+    idaEVolta() ? erroDaOrdem(ida(), volta()) : null,
+  );
   const temErro = createMemo(() =>
-    [erroNome(), erroEmail(), erroIda(), erroVolta(), erroOrdem()].some(Boolean),
+    [erroNome(), erroEmail(), erroIda(), erroVolta(), erroOrdem()].some(
+      Boolean,
+    ),
   );
 
   const tocado = (campo: Campo) => tocados().has(campo);
-  const tocar = (campo: Campo) => setTocados((anteriores) => new Set(anteriores).add(campo));
+  const tocar = (campo: Campo) =>
+    setTocados((anteriores) => new Set(anteriores).add(campo));
 
   const erroVisivel: Record<Campo, () => string | null> = {
     nome: () => (tocado("nome") ? erroNome() : null),
@@ -73,7 +80,9 @@ function FormularioDeReserva() {
             onBlur={() => tocar("nome")}
           />
         </label>
-        <Show when={erroVisivel.nome()}>{(erro) => <p class="erro">{erro()}</p>}</Show>
+        <Show when={erroVisivel.nome()}>
+          {(erro) => <p class="erro">{erro()}</p>}
+        </Show>
 
         <label>
           E-mail
@@ -87,7 +96,9 @@ function FormularioDeReserva() {
             onBlur={() => tocar("email")}
           />
         </label>
-        <Show when={erroVisivel.email()}>{(erro) => <p class="erro">{erro()}</p>}</Show>
+        <Show when={erroVisivel.email()}>
+          {(erro) => <p class="erro">{erro()}</p>}
+        </Show>
 
         <label>
           Tipo de voo
@@ -112,7 +123,9 @@ function FormularioDeReserva() {
             onBlur={() => tocar("ida")}
           />
         </label>
-        <Show when={erroVisivel.ida()}>{(erro) => <p class="erro">{erro()}</p>}</Show>
+        <Show when={erroVisivel.ida()}>
+          {(erro) => <p class="erro">{erro()}</p>}
+        </Show>
 
         <label>
           Data de volta
@@ -126,7 +139,9 @@ function FormularioDeReserva() {
             onBlur={() => tocar("volta")}
           />
         </label>
-        <Show when={erroVisivel.volta()}>{(erro) => <p class="erro">{erro()}</p>}</Show>
+        <Show when={erroVisivel.volta()}>
+          {(erro) => <p class="erro">{erro()}</p>}
+        </Show>
 
         <button type="submit" disabled={temErro()}>
           Reservar

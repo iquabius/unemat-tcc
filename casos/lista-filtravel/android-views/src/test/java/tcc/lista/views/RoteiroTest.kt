@@ -15,42 +15,98 @@ import tcc.lista.Ordem
 @RunWith(AndroidJUnit4::class)
 @Config(qualifiers = "w480dp-h1950dp-xhdpi")
 class RoteiroTest {
-    @get:Rule
-    val regra = ActivityScenarioRule(MainActivity::class.java)
+    @get:Rule val regra = ActivityScenarioRule(MainActivity::class.java)
 
     private val tela by lazy { Tela(regra.scenario) }
     private val falhas = mutableListOf<String>()
 
     private fun conferir(nome: String, obtido: Any?, esperado: Any?) {
-        if (obtido != esperado) falhas += "$nome: obtido $obtido, esperado $esperado"
+        if (obtido != esperado)
+            falhas += "$nome: obtido $obtido, esperado $esperado"
     }
 
     @Test
     fun roteiro() {
         conferir("1 contagem inicial", tela.contagem(), "30 de 30 produtos")
-        conferir("1 ordem por nome", tela.nomes().take(3), listOf("Açúcar mascavo 1 kg", "Agenda 2027", "Azeite extravirgem 500 ml"))
-        conferir("1 categorias", tela.opcoesDeCategoria(), listOf("Todas", "Casa", "Cozinha", "Eletrônicos", "Mercearia", "Papelaria"))
+        conferir(
+            "1 ordem por nome",
+            tela.nomes().take(3),
+            listOf(
+                "Açúcar mascavo 1 kg",
+                "Agenda 2027",
+                "Azeite extravirgem 500 ml",
+            ),
+        )
+        conferir(
+            "1 categorias",
+            tela.opcoesDeCategoria(),
+            listOf(
+                "Todas",
+                "Casa",
+                "Cozinha",
+                "Eletrônicos",
+                "Mercearia",
+                "Papelaria",
+            ),
+        )
         conferir("1 sem aviso de vazio", tela.vazio(), false)
         conferir("1 preço formatado", tela.primeiroPreco(), "R$ 12,50")
 
         tela.buscar("CAFE")
-        conferir("2 busca sem acento e em maiúsculas", listOf(tela.contagem(), tela.nomes()), listOf("2 de 30 produtos", listOf("Café em grãos 500 g", "Cafeteira italiana")))
+        conferir(
+            "2 busca sem acento e em maiúsculas",
+            listOf(tela.contagem(), tela.nomes()),
+            listOf(
+                "2 de 30 produtos",
+                listOf("Café em grãos 500 g", "Cafeteira italiana"),
+            ),
+        )
         tela.buscar("  cerâmica ")
-        conferir("3 busca com acento e espaços", tela.nomes(), listOf("Caneca de cerâmica", "Vaso de cerâmica"))
+        conferir(
+            "3 busca com acento e espaços",
+            tela.nomes(),
+            listOf("Caneca de cerâmica", "Vaso de cerâmica"),
+        )
 
         tela.buscar("")
         tela.escolherCategoria("Cozinha")
         tela.escolherOrdem(Ordem.MAIOR_PRECO)
-        conferir("4 cozinha por maior preço", tela.nomes(), listOf("Chaleira elétrica", "Cafeteira italiana", "Frigideira antiaderente", "Faca do chef", "Tábua de corte", "Caneca de cerâmica"))
+        conferir(
+            "4 cozinha por maior preço",
+            tela.nomes(),
+            listOf(
+                "Chaleira elétrica",
+                "Cafeteira italiana",
+                "Frigideira antiaderente",
+                "Faca do chef",
+                "Tábua de corte",
+                "Caneca de cerâmica",
+            ),
+        )
 
         tela.escolherCategoria("")
         tela.escolherOrdem(Ordem.MENOR_PRECO)
-        conferir("5 todas por menor preço", listOf(tela.contagem(), tela.nomes().take(2)), listOf("30 de 30 produtos", listOf("Chá de camomila", "Bloco de notas adesivas")))
+        conferir(
+            "5 todas por menor preço",
+            listOf(tela.contagem(), tela.nomes().take(2)),
+            listOf(
+                "30 de 30 produtos",
+                listOf("Chá de camomila", "Bloco de notas adesivas"),
+            ),
+        )
 
         tela.buscar("xyz")
-        conferir("6 nenhum resultado", listOf(tela.contagem(), tela.nomes().size, tela.vazio()), listOf("0 de 30 produtos", 0, true))
+        conferir(
+            "6 nenhum resultado",
+            listOf(tela.contagem(), tela.nomes().size, tela.vazio()),
+            listOf("0 de 30 produtos", 0, true),
+        )
         tela.buscar("")
-        conferir("7 volta ao catálogo inteiro", listOf(tela.contagem(), tela.vazio()), listOf("30 de 30 produtos", false))
+        conferir(
+            "7 volta ao catálogo inteiro",
+            listOf(tela.contagem(), tela.vazio()),
+            listOf("30 de 30 produtos", false),
+        )
 
         assertTrue(falhas.joinToString("\n"), falhas.isEmpty())
     }

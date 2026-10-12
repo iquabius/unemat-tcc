@@ -15,19 +15,19 @@ import tcc.captura.capturar
 @RunWith(AndroidJUnit4::class)
 @Config(qualifiers = "w480dp-h200dp-xhdpi")
 class CenasTest {
-    @get:Rule
-    val semAnimacoes = SemAnimacoes()
+    @get:Rule val semAnimacoes = SemAnimacoes()
 
-    @get:Rule
-    val regra = createAndroidComposeRule<MainActivity>()
+    @get:Rule val regra = createAndroidComposeRule<MainActivity>()
 
-    @Test
-    fun inicial() = capturar("inicial")
+    @Test fun inicial() = capturar("inicial")
 
     @Test
     fun tresCliques() {
-        repeat(3) { regra.onNodeWithContentDescription("Incrementar").performClick() }
-        // Espera a recomposição do último clique (o Espresso do Views já espera).
+        repeat(3) {
+            regra.onNodeWithContentDescription("Incrementar").performClick()
+        }
+        // Espera a recomposição do último clique (o Espresso do Views já
+        // espera).
         regra.waitForIdle()
         capturar("tres-cliques")
     }

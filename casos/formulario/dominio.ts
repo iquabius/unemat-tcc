@@ -22,7 +22,9 @@ export function parsearData(texto: string): Date | null {
   const data = new Date(ano, mes - 1, dia);
   // Rejeita datas que o Date "corrige", como 31/02 virando 03/03.
   const real =
-    data.getFullYear() === ano && data.getMonth() === mes - 1 && data.getDate() === dia;
+    data.getFullYear() === ano &&
+    data.getMonth() === mes - 1 &&
+    data.getDate() === dia;
   return real ? data : null;
 }
 
@@ -41,11 +43,15 @@ export function erroDoNome(nome: string): string | null {
 }
 
 export function erroDoEmail(email: string): string | null {
-  return FORMATO_DE_EMAIL.test(email.trim()) ? null : "Informe um e-mail válido.";
+  return FORMATO_DE_EMAIL.test(email.trim())
+    ? null
+    : "Informe um e-mail válido.";
 }
 
 export function erroDaData(texto: string): string | null {
-  return parsearData(texto) ? null : "Use uma data válida no formato DD/MM/AAAA.";
+  return parsearData(texto)
+    ? null
+    : "Use uma data válida no formato DD/MM/AAAA.";
 }
 
 /** Erro de ordem entre as datas; `null` se alguma delas for inválida. */

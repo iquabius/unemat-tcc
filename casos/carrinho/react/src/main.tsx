@@ -1,4 +1,10 @@
-import { createContext, useContext, useEffect, useReducer, type ReactNode } from "react";
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useReducer,
+  type ReactNode,
+} from "react";
 import { createRoot } from "react-dom/client";
 import {
   carregarCarrinho,
@@ -32,7 +38,9 @@ function ProvedorDoCarrinho({ children }: { children: ReactNode }) {
   }, [estado.itens]);
 
   return (
-    <ContextoDoCarrinho.Provider value={{ estado, despachar }}>{children}</ContextoDoCarrinho.Provider>
+    <ContextoDoCarrinho.Provider value={{ estado, despachar }}>
+      {children}
+    </ContextoDoCarrinho.Provider>
   );
 }
 
@@ -71,7 +79,9 @@ function Catalogo() {
               >
                 Adicionar
               </button>
-              {quantidade > 0 && <span className="no-carrinho">{`${quantidade} no carrinho`}</span>}
+              {quantidade > 0 && (
+                <span className="no-carrinho">{`${quantidade} no carrinho`}</span>
+              )}
             </li>
           );
         })}
@@ -124,7 +134,9 @@ function PainelDoCarrinho() {
                   +
                 </button>
               </span>
-              <span className="subtotal">{formatarPreco(p.preco * quantidade)}</span>
+              <span className="subtotal">
+                {formatarPreco(p.preco * quantidade)}
+              </span>
               <button
                 type="button"
                 className="remover"
@@ -144,14 +156,20 @@ function PainelDoCarrinho() {
         </p>
         <p>
           <span>Frete</span>
-          <span>{resumo.frete === 0 ? "Grátis" : formatarPreco(resumo.frete)}</span>
+          <span>
+            {resumo.frete === 0 ? "Grátis" : formatarPreco(resumo.frete)}
+          </span>
         </p>
         <p className="total">
           <span>Total</span>
           <span>{formatarPreco(resumo.total)}</span>
         </p>
       </div>
-      <button type="button" className="finalizar" onClick={() => despachar({ tipo: "finalizar" })}>
+      <button
+        type="button"
+        className="finalizar"
+        onClick={() => despachar({ tipo: "finalizar" })}
+      >
         Finalizar compra
       </button>
       <p className="frete">{textoDoFrete(resumo)}</p>
