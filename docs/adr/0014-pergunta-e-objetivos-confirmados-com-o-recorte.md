@@ -24,9 +24,9 @@ segundo as DCs, a usabilidade das notações dos três modelos de
 programação em interfaces típicas da web, em TypeScript, e em parte delas
 no Android, em Kotlin, e no desktop, em C# (cada plataforma pelo nome, ADR
 0012); os específicos: implementar as cinco tarefas com Web Component,
-React, Lit, Solid e Angular com *signals*, e Formulário e Lista com Views
-e Compose no Android e com Windows Forms e WPF no desktop, e estendê-las
-na P2 e na P3; avaliar as implementações pelas 14 DCs em cada rodada
+React, Solid e Angular com *signals*, e Formulário e Lista com Views e
+Compose no Android e com Windows Forms e WPF no desktop, e estendê-las na
+P2 e na P3, sem o Angular (ADR 0013); avaliar as implementações pelas 14 DCs em cada rodada
 (ADR 0012); sintetizar,
 por problema de coordenação, o que cada modelo de programação facilita e
 o que dificulta. Os programas de processamento de listas, que demonstram os

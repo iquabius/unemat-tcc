@@ -3,7 +3,7 @@
 2026-10-11. Escolher antes o que analisar exigiria prever qual tarefa e
 qual tecnologia mostram melhor cada DC, e analisar cada tarefa em todas as
 DCs multiplicaria o texto por tarefas, DCs e tecnologias. Todas as
-tarefas são implementadas em todas as tecnologias (decidido em
+tarefas são implementadas em todas as tecnologias da P1 (decidido em
 2026-09-25), e o recorte se escolhe com o código e as capturas prontos. A
 análise abre com uma tabela-síntese, DC por modelo de programação, com a
 tarefa de onde vem cada evidência, e segue com uma seção por DC, com os
@@ -59,7 +59,7 @@ dobraria a análise, e fora da web cada plataforma só tem dois dos três
 modelos de programação.
 Em vez de: contar *tokens*; depende menos da formatação, mas exige um
 analisador por linguagem.
-Custo: 33 implementações na P1, 25 na web, 4 no Android e 4 no desktop, a
+Custo: 28 implementações na P1, 20 na web, 4 no Android e 4 no desktop, a
 maioria fora do texto; 14 seções de DC, algumas curtas quando a DC não
 mostra diferença ("sem diferença", ADR 0017), e as quatro do ambiente de
 edição podem render pouco no código; o leitor precisa conhecer as cinco

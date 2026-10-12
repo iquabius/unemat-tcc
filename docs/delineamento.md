@@ -12,11 +12,11 @@ não se controla nas limitações.
 de computação em cada plataforma, a especificação de cada tarefa, o
 domínio e, na P1 e na P2, as dependências; na P3, cada tecnologia usa a
 biblioteca de formulário do seu ecossistema, sem controle (ADR 0029). Na
-web, três pares mudam pouco de um lado para o outro: Web Component × Lit,
-o imperativo contra a re-renderização, com a ligação com a tela junto;
-React × Solid, os dois declarativos; e Solid × Angular com *signals*, a
-notação, como um todo; React × Lit é a segunda notação do declarativo por
-re-renderização. Fora da web, Views × Compose e Windows Forms × WPF mudam
+web, dois pares do lado declarativo isolam uma variável cada: React ×
+Solid, o modelo de programação; Solid × Angular com *signals*, a notação,
+como um todo, só na P1 (ADR 0013). O imperativo com *callbacks* difere
+dos declarativos em mais de uma variável ao mesmo tempo, sem par que o
+isole na web. Fora da web, Views × Compose e Windows Forms × WPF mudam
 a coordenação e a montagem da tela juntas; o par mais controlado, Swing ×
 JavaFX em código, ficou fora (ADR 0001). Ficam sem controle o avaliador,
 que é o autor, a origem das implementações, geradas com agentes de IA, o
@@ -46,8 +46,6 @@ que se confunde com o desenho da tela (`CONTEXT.md`, Delineamento).
 
 | Par | Plataforma | Igual nos dois | Diferente | O que isola | De onde vem |
 |---|---|---|---|---|---|
-| Web Component × Lit | web | linguagem, modelo de componente (classe que estende `HTMLElement`), tela escrita em HTML num texto | modelo de programação e a ligação com a tela (`innerHTML` ou `createElement` contra o *template* `html`) | o imperativo contra o declarativo por re-renderização, com a ligação junto | ADR 0013; Lit a implementar |
-| React × Lit | web | modelo de programação (o componente reexecuta) | notação: montagem da tela (JSX numa função, *template* `html` numa classe) e modelo de componente | a notação, dentro da re-renderização | ADR 0013 |
 | React × Solid | web | JSX, linguagem, especificação | modelo de programação; também o dialeto do JSX (`className` e `class`) e `&&` e `.map` contra `<Show>` e `<For>` | o modelo de programação, entre os dois declarativos | ADR 0021; [`plataformas.md`, Web](plataformas.md#web) |
 | Solid × Angular com *signals* | web | modelo de programação (`signal`, `computed`, leitura por chamada) | notação: montagem da tela (JSX numa função, *template*), modelo de componente (classe, decorador, injeção de dependências) e API além do *signal* | a notação como um todo, contra o modelo de programação; os três pontos variam juntos, e a análise os separa pelo sinal escrito | ADR 0021; [`plataformas.md`, Web](plataformas.md#web) |
 | Views × Compose | Android | linguagem, plataforma, especificação | modelo de programação e montagem da tela (*layout* XML, funções) | nenhuma variável sozinha; é o contraste mais próximo entre o imperativo e um declarativo | [`plataformas.md`, Android](plataformas.md#android); tcc-4ie |
@@ -64,10 +62,10 @@ texto; o que cada par candidato acrescentava e os custos estão em
 
 | Variável | Por que não se controla | Onde o texto diz | Em aberto |
 |---|---|---|---|
-| Imperativo × declarativos na web | o Web Component difere do React e do Solid na coordenação, na montagem da tela e na organização em componentes ao mesmo tempo; do Lit, só na coordenação e na ligação com a tela; a diferença se atribui pelo sinal escrito (coordenação, montagem ou ligação entre as duas) | limitações de `texto/intro.org` | "Decidir como a análise atribui as diferenças entre o imperativo e os declarativos, sem par controlado na web" (tcc-4ie), que o par Web Component × Lit responde em parte |
-| Representantes por modelo de programação | duas tecnologias por coluna declarativa e uma, o Web Component, na imperativa, na web; a conclusão generaliza a partir delas | limitações; `docs/paradigma-modelo-e-notacao.md`, seção 2 | "Avaliar React × Angular na web, com o Solid só como menção" (tcc-qti, adiada) tiraria o par que isola o modelo de programação |
+| Imperativo × declarativos na web | o Web Component difere do React e do Solid na coordenação, na montagem da tela e na organização em componentes ao mesmo tempo; a diferença se atribui pelo sinal escrito (coordenação, montagem ou ligação entre as duas) | limitações de `texto/intro.org` | "Decidir como a análise atribui as diferenças entre o imperativo e os declarativos, sem par controlado na web" (tcc-4ie); o Lit, que faria par com o Web Component, ficou fora em 2026-10-12 (ADR 0013) |
+| Representantes por modelo de programação | na web, uma tecnologia por coluna, e duas no declarativo por atualização granular na P1 (Solid e Angular); a conclusão generaliza a partir delas, e cada coluna tem outra tecnologia fora da web | limitações; `docs/paradigma-modelo-e-notacao.md`, seção 2 | "Avaliar React × Angular na web, com o Solid só como menção" (tcc-qti, adiada) tiraria o par que isola o modelo de programação |
 | Bibliotecas da P3 | cada tecnologia usa a biblioteca de formulário do seu ecossistema, e a conclusão se lê como "no ecossistema típico", sem atribuição só ao modelo de programação | ainda não | ADR 0029; tcc-di3a |
-| Divergência dentro da coluna | React e Lit, ou Solid e Angular, podem divergir numa DC | a célula da tabela-síntese registra a divergência | ADR 0017 |
+| Divergência dentro da coluna | Solid e Angular podem divergir numa DC, na P1 | a célula da tabela-síntese registra a divergência | ADR 0017 |
 | Avaliador | uma pessoa só, o autor, que construiu o que avalia, com familiaridade desigual, maior com o React | limitações (Hertzum e Jacobsen 2003, p. 183; Dagit et al. 2006) | — |
 | Origem das implementações | as atuais foram geradas com agentes de IA a partir de implementações de referência do autor, e não se sabe de quais | ainda não | `docs/implementacoes-de-referencia.md`; "Escrever a declaração de uso de IA do TCC a partir do histórico do repositório" (tcc-gjw); pauta da orientação de 2026-10-09, ponto A4 |
 | Tamanho das tarefas | pequenas; a P2 as faz crescer por mudanças acrescentadas (ADR 0029), mas o que só aparece em programa grande continua de fora | limitações | Stol e Fitzgerald (2018, p. 11:10) e Green e Blackwell (1998, p. 62), candidatas (`docs/metodo-da-avaliacao.md`, seção 5) |

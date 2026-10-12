@@ -10,26 +10,21 @@ registrada num ADR; na P2 e na P3, que têm só o Formulário e a Busca, e
 depois só o Formulário (ADR 0029), todas as DCs se leem nelas. A seção de
 cada DC cita as outras tarefas quando contradizem a escolhida, e a
 tabela-síntese diz "sem diferença" quando nenhuma tarefa mostra uma. A
-tabela tem uma coluna por modelo de programação, e a célula registra
-quando as duas tecnologias web da coluna divergem: React e Lit, no
-declarativo por re-renderização, e Solid e Angular com *signals*, um
-modelo de programação com duas notações (ADR 0021); o imperativo tem na
-web só o Web Component. A conferência no Android e no desktop aparece
-dentro das seções de DC em que o Formulário ou a Lista mostram diferença
+tabela tem uma coluna por modelo de programação, e a célula registra,
+na P1, quando Solid e Angular com *signals*, um modelo de programação com
+duas notações (ADR 0021), divergem; as outras colunas têm na web uma
+tecnologia só, e o Angular não segue para a P2 e a P3 (ADR 0013). A
+conferência no Android e no desktop aparece dentro das seções de DC em que o Formulário ou a Lista mostram diferença
 entre as duas tecnologias da plataforma. Da P1 para a P2 e a P3, a linha
 de cada DC diz se a diferença entre os modelos de programação fica
 mantida, ampliada, reduzida, anulada, invertida ou surgida, e a célula,
 se a conclusão do modelo aumenta, diminui ou fica igual.
 
 Em vez de: registrar na célula a divergência de Web Component e jQuery,
-as duas do imperativo (decisão de 2026-10-08); podiam divergir na
-montagem da tela e no que a biblioteca traz pronto, mas o jQuery saiu
-(ADR 0013), e a segunda tecnologia de coluna na web passou a ser a do
-declarativo por re-renderização.
-Em vez de: registrar na célula só a divergência de Solid e Angular
-(decisão de 2026-09-29); era o único par declarado da mesma coluna, mas
-React e Lit também são uma coluna e podem divergir na montagem da tela
-(JSX contra o *template* `html`) e no modelo de componente.
+as duas do imperativo (decisão de 2026-10-08), ou a de React e Lit, as
+duas da re-renderização (decisão de 2026-10-11); podiam divergir na
+montagem da tela e no modelo de componente, mas o jQuery e o Lit ficaram
+fora (ADR 0013).
 Em vez de: dizer na célula que a conclusão persiste, cresce, encolhe,
 desaparece, se inverte ou surge (proposta de 2026-10-11); usava as
 palavras do autor para a mudança, mas o que se amplia ou se inverte é a
@@ -48,12 +43,12 @@ simples de ler, mas repete os trechos e afasta cada conclusão da sua
 conferência.
 Custo: a tarefa fixada pode mostrar pouca diferença numa DC, e as quatro
 DCs que pesam no ambiente de edição podem não ter tarefa que as mostre;
-duas das três células de cada DC podem precisar de duas leituras, uma por
-tecnologia; o mapa DC → tarefa, com 14 linhas, precisa ser decidido
+na P1, a célula do declarativo por atualização granular pode precisar de
+duas leituras, uma por tecnologia; o mapa DC → tarefa, com 14 linhas, precisa ser decidido
 antes da fase 2 (tcc-7jc); "sem diferença", "anulada" e "surgida" são
 juízos do mesmo avaliador; os seis valores da linha não vêm de fonte
-(`docs/metodo-da-avaliacao.md`, seção 11); a coluna do imperativo fica
-sem segunda tecnologia na web.
+(`docs/metodo-da-avaliacao.md`, seção 11); na web, as outras colunas
+não têm segunda tecnologia que mostre uma divergência.
 
 Fontes: ADRs 0002, 0012, 0013 e 0029; Ledo et al. (2018, CHI, p. 9 do
 PDF): omitir sem razão clara "could lead readers to believe that the

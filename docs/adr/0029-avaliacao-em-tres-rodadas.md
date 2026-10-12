@@ -1,15 +1,16 @@
 # 0029. A avaliação se faz em três rodadas: todas as tarefas, requisitos acrescentados a duas delas e o Formulário com a biblioteca do ecossistema
 
-2026-10-11. Tarefas pequenas isolam uma escolha de projeto, mas não
+2026-10-12. Tarefas pequenas isolam uma escolha de projeto, mas não
 mostram o que só aparece quando o programa cresce (Stol e Fitzgerald
 2018, p. 11:10; Green et al. 2006, p. 334), e Kiss (2014) avaliou cada
 tarefa num tamanho só, deixando como trabalho futuro estendê-las com
 requisitos novos (p. 103-104). A avaliação se faz em três rodadas, cada
 uma mais estreita que a anterior, como as de Kiss (p. 3). Na P1, as cinco
-tarefas em todas as tecnologias (ADRs 0002, 0012 e 0013): 33
-implementações, 25 na web, 4 no Android e 4 no desktop. Na P2, o
-Formulário e a Busca recebem, um por commit e na mesma ordem em todas as
-tecnologias em que existem, funcionalidades, que mudam o que o usuário
+tarefas em todas as tecnologias (ADRs 0002, 0012 e 0013): 28
+implementações, 20 na web, 4 no Android e 4 no desktop. Na P2, o
+Formulário e a Busca recebem, um por commit e na mesma ordem em Web
+Component, React e Solid na web e nas tecnologias das outras plataformas
+em que a tarefa existe, funcionalidades, que mudam o que o usuário
 vê, e requisitos de orquestração, que deixam as cenas iguais e mudam como
 se combinam eventos de várias fontes, sem bibliotecas: no Formulário, 1)
 um assistente em três passos, o controle de diálogo de Karagkasidis
@@ -17,9 +18,9 @@ um assistente em três passos, o controle de diálogo de Karagkasidis
 simulado; na Busca, 3) a espera de 300 ms depois da última tecla, que sai
 da P1 para voltar aqui, 4) uma nova tentativa depois de falha e 5) as
 respostas guardadas; latências, tentativas e intervalo ficam fixos no
-domínio, e a P2 soma 33 commits. Na P3, o Formulário estendido da P2 é
-reescrito nas nove tecnologias (Web Component, React, Lit, Solid, Angular
-com *signals*, Views, Compose, Windows Forms e WPF) com a biblioteca de
+domínio, e a P2 soma 23 commits. Na P3, o Formulário estendido da P2 é
+reescrito em sete tecnologias (Web Component, React, Solid, Views,
+Compose, Windows Forms e WPF) com a biblioteca de
 formulário mais usada no ecossistema de cada uma, pela medida pública do
 registro de pacotes, ou com a API da plataforma quando não houver
 (tcc-di3a); a P3 deixa o controle das dependências para se aproximar do
@@ -36,8 +37,14 @@ fica mantida, ampliada, reduzida, anulada, invertida ou surgida, e na
 célula a conclusão aumenta, diminui ou fica igual (ADR 0017). A análise
 fica na notação, e "ecossistema" são as bibliotecas, e não as
 ferramentas. Se o prazo apertar, o autor tira pares de tecnologias da
-análise (decisão de 2026-10-12).
+análise; o Angular com *signals* fica só na P1, e o Lit, fora (ADR
+0013), o que deixa uma tecnologia por modelo de programação na web na P2
+e na P3 (decisões de 2026-10-12).
 
+Em vez de: as três rodadas com cinco tecnologias web, Lit e Angular com
+*signals* inclusive (decisão de 2026-10-11); duas tecnologias por coluna
+declarativa em todas as rodadas, mas 75 exemplos a analisar (33
+implementações, 33 commits e 9 reescritas), contra 58.
 Em vez de: uma rodada só, as cinco tarefas no tamanho da P1 (ADR 0012,
 2026-10-09), como Kiss num tamanho dado; mais barata e já implementada,
 mas não mostra se a diferença entre os modelos de programação se mantém
@@ -60,9 +67,10 @@ Em vez de: nomear a mudança entre rodadas como interação entre modelo e
 rodada, cruzada ou não (Gail e Simon 1985); dá nome a "invertida" e a
 "ampliada", mas é bioestatística de ensaio clínico que propõe um teste,
 e o trabalho não testa (decisão de 2026-10-12).
-Custo: o prazo, com a P1, já com o Lit, até 2026-10-30, junto da Fase 2, e
-a P2 e a P3 em novembro, antes do fechamento em 2026-11-20; 33
-implementações, 33 commits e 9 reescritas; os requisitos da P2 foram
+Custo: o prazo, com a P1 até 2026-10-30, junto da Fase 2, e a P2 e a P3
+em novembro, antes do fechamento em 2026-11-20; 28 implementações, 23
+commits e 7 reescritas; na P2 e na P3, a conclusão de cada modelo de
+programação na web vem de uma tecnologia só; os requisitos da P2 foram
 escolhidos com as implementações da P1 prontas, embora antes da análise,
 e Kiss (p. 96) mostra o risco de o prazo escolher as tarefas da rodada
 estreita ("The time unfortunately ran out"); a P3 mede bibliotecas, e a
