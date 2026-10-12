@@ -81,22 +81,28 @@ pelo `npm run openspec -- <comando>`, que desliga a telemetria; o
 - Cenário não é cena: a cena é um estado a capturar (`cenas.mts`).
 
 `npm run conferir-especificacao`, de `casos/`, roda o `openspec validate
---all` e confere, em cada arquivo de teste de `casos/<tarefa>/`, que os
-nomes das verificações são os dos cenários da especificação viva, na
-ordem do teste da web. Rode-o antes de cada commit que mexa numa
-especificação ou num teste de conformidade.
+--all` e confere, em todo arquivo de `casos/<tarefa>/` que chama
+`conferir(...)`, que os nomes das verificações são os dos cenários da
+especificação viva, na ordem do teste da web. O código que sair de
+`casos/<tarefa>/` para `casos/fora-da-analise/` (tcc-xc2y) deixa de ser
+conferido. Rode-o antes de cada commit que mexa numa especificação ou num
+teste de conformidade.
 
 ### Tarefa nova
 
-Para o Login, o Quadro, os Dados ao vivo e outra que vier:
+O Login, o Quadro, os Dados ao vivo e outra que vier entram como mudança
+(abaixo), para a especificação ser revisada antes do código:
 
-1. Escreva direto `casos/openspec/specs/<tarefa>/spec.md` (não há
-   especificação anterior para um delta mudar), com o `## Purpose` em uma
-   ou duas frases, e o `README.org` da tarefa.
-2. No mesmo commit, o `dominio.ts` e o teste de conformidade da web, com
-   um `conferir` por cenário; o `conferir-especificacao` falha com spec sem
-   teste.
-3. Depois, um commit por tecnologia, com cenas e capturas (seção acima).
+1. `npm run openspec -- new change especificar-<tarefa>`. O delta, em
+   `specs/<tarefa>/spec.md`, tem o `## Purpose` (uma ou duas frases, com
+   50 caracteres ou mais) e só `## ADDED Requirements`; o `proposal.md`
+   põe a tarefa em `### New Capabilities`.
+2. Commit da proposta, que o autor revisa.
+3. Um commit com o `dominio.ts`, o teste de conformidade da web (um
+   `conferir` por cenário), o `README.org` da tarefa e o arquivamento, que
+   cria `casos/openspec/specs/<tarefa>/spec.md`; troque o título que o
+   `archive` escreve (`# <tarefa> Specification`) pelo nome da tarefa.
+4. Um commit por tecnologia, com cenas e capturas (seção acima).
 
 ### Mudança numa especificação
 
@@ -108,9 +114,10 @@ orquestração da P2.
 1. `npm run openspec -- new change <nome>`, com o nome em português, em
    *kebab-case*, verbo e objeto (`tirar-espera-da-busca`). Na pasta
    `casos/openspec/changes/<nome>/`:
-   - `proposal.md`: o porquê, com o ADR de origem; o que muda; a
-     capacidade modificada; o impacto, com as tecnologias e a tarefa do
-     bd;
+   - `proposal.md`: o porquê, com o ADR de origem; o que muda; a tarefa
+     modificada, em `### Modified Capabilities`; o impacto, com as
+     tecnologias, os arquivos da tarefa que citam a regra (como o
+     `README.org`) e a tarefa do bd;
    - `specs/<tarefa>/spec.md`, o delta: `ADDED` com requisito e cenários
      inteiros; `MODIFIED` com o requisito inteiro copiado da especificação
      viva, todos os cenários dele, e editado (o que ficar de fora some);
@@ -124,19 +131,25 @@ orquestração da P2.
 2. `npm run conferir-especificacao` e commit da proposta, que o autor
    revisa antes do resto.
 3. Um commit que muda o teste de conformidade em todas as plataformas que
-   o têm e arquiva a mudança: `npm run openspec -- archive <nome> --yes`
+   o têm em `casos/<tarefa>/`, inclusive as fora da análise que ainda
+   estejam lá (Swing, JavaFX, Qt), porque o `conferir-especificacao`
+   confere todos, e arquiva a mudança: `npm run openspec -- archive <nome> --yes`
    funde o delta em `specs/` e move a pasta para
    `changes/archive/AAAA-MM-DD-<nome>/`. Assim a especificação viva diz
    sempre o que os testes conferem, e as implementações ainda não mudadas
    falham no teste até o commit delas.
 4. Um commit por tecnologia, na mesma ordem em todas (ADR 0029), cada um
-   passando no teste de conformidade e com as capturas conferidas.
+   passando no teste de conformidade e com as capturas conferidas. As
+   implementações fora da análise que ainda estejam em `casos/<tarefa>/`
+   (jQuery, Angular com RxJS, Swing, JavaFX, Qt) mudam por último, para
+   as capturas web seguirem idênticas e os testes delas passarem.
 
 ## Exemplo ou caso novo
 
 - Cada tarefa tem a especificação em `casos/openspec/specs/<tarefa>/`
   (seção acima) e um `README.org` com a apresentação. Regras de domínio
-  compartilhadas pelas implementações web ficam num `dominio.ts` do caso.
+  compartilhadas pelas implementações web ficam num `dominio.ts` da
+  tarefa.
 - Crie o `cenas.mts` do caso (estados a capturar), gere as capturas com
   `npm run capturas -- <caso>` e versione-as no mesmo commit.
 - Exemplos web em TypeScript, sem bibliotecas além do que cada framework
@@ -156,7 +169,7 @@ orquestração da P2.
   `build.gradle.kts`, com o nome `:<caso>-<tecnologia>`. O
   `build.gradle.kts` da raiz traz a configuração comum; o de cada módulo,
   só plugins, `namespace` e dependências.
-- Mesma especificação do `spec.md` do caso: mesmos textos, mensagens,
+- Mesma especificação do `spec.md` da tarefa: mesmos textos, mensagens,
   regras e dados. Regras do `dominio.ts` portadas para Kotlin com o mesmo
   comportamento, em `casos/<caso>/dominio-kotlin/main/Dominio.kt` (pacote
   `tcc.<caso>`), com os mesmos nomes de funções. O `build.gradle.kts` da

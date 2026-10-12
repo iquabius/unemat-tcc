@@ -227,8 +227,8 @@ _Avoid_: cena (o estado a capturar); cenário como sinônimo de tarefa;
 caso de teste
 
 **Mudança**:
-Alteração da especificação de uma tarefa já especificada, proposta e
-arquivada no OpenSpec (*change*): cada funcionalidade e requisito de
+Alteração da especificação, proposta e arquivada no OpenSpec (*change*):
+a especificação de uma tarefa nova, cada funcionalidade e requisito de
 orquestração da P2, e as correções da P1, como a retirada da espera da
 Busca.
 _Avoid_: proposta para a mudança inteira (a proposta é o documento do
