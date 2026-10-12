@@ -64,7 +64,9 @@ class Cabecalho extends ComponenteDaLoja {
     this.innerHTML = /* HTML */ `
       <header class="cabecalho">
         <strong>Minha loja</strong>
-        <span class="resumo">${textoDoCabecalho(resumir(loja.estado.itens))}</span>
+        <span class="resumo"
+          >${textoDoCabecalho(resumir(loja.estado.itens))}</span
+        >
       </header>
     `;
   }
@@ -83,8 +85,14 @@ class Catalogo extends ComponenteDaLoja {
           <li>
             <span class="nome">${p.nome}</span>
             <span class="preco">${formatarPreco(p.preco)}</span>
-            <button type="button" data-acao="adicionar" data-id="${p.id}"
-                    aria-label="Adicionar ${p.nome}">Adicionar</button>
+            <button
+              type="button"
+              data-acao="adicionar"
+              data-id="${p.id}"
+              aria-label="Adicionar ${p.nome}"
+            >
+              Adicionar
+            </button>
             ${quantidade > 0 ? /* HTML */ `<span class="no-carrinho">${quantidade} no carrinho</span>` : ""}
           </li>
         `;
@@ -93,7 +101,9 @@ class Catalogo extends ComponenteDaLoja {
     this.innerHTML = /* HTML */ `
       <section class="catalogo">
         <h2>Produtos</h2>
-        <ul>${itens}</ul>
+        <ul>
+          ${itens}
+        </ul>
       </section>
     `;
   }
@@ -130,15 +140,34 @@ class PainelDoCarrinho extends ComponenteDaLoja {
           <li>
             <span class="nome">${p.nome}</span>
             <span class="quantidade">
-              <button type="button" data-acao="diminuir" data-id="${id}"
-                      aria-label="Diminuir ${p.nome}">−</button>
+              <button
+                type="button"
+                data-acao="diminuir"
+                data-id="${id}"
+                aria-label="Diminuir ${p.nome}"
+              >
+                −
+              </button>
               <span class="valor">${quantidade}</span>
-              <button type="button" data-acao="aumentar" data-id="${id}"
-                      aria-label="Aumentar ${p.nome}">+</button>
+              <button
+                type="button"
+                data-acao="aumentar"
+                data-id="${id}"
+                aria-label="Aumentar ${p.nome}"
+              >
+                +
+              </button>
             </span>
             <span class="subtotal">${formatarPreco(p.preco * quantidade)}</span>
-            <button type="button" class="remover" data-acao="remover" data-id="${id}"
-                    aria-label="Remover ${p.nome}">Remover</button>
+            <button
+              type="button"
+              class="remover"
+              data-acao="remover"
+              data-id="${id}"
+              aria-label="Remover ${p.nome}"
+            >
+              Remover
+            </button>
           </li>
         `;
       })
@@ -146,13 +175,26 @@ class PainelDoCarrinho extends ComponenteDaLoja {
     this.innerHTML = /* HTML */ `
       <section class="carrinho">
         <h2>Carrinho</h2>
-        <ul class="itens">${linhas}</ul>
+        <ul class="itens">
+          ${linhas}
+        </ul>
         <div class="totais">
-          <p><span>Subtotal</span><span>${formatarPreco(resumo.subtotal)}</span></p>
-          <p><span>Frete</span><span>${resumo.frete === 0 ? "Grátis" : formatarPreco(resumo.frete)}</span></p>
-          <p class="total"><span>Total</span><span>${formatarPreco(resumo.total)}</span></p>
+          <p>
+            <span>Subtotal</span><span>${formatarPreco(resumo.subtotal)}</span>
+          </p>
+          <p>
+            <span>Frete</span
+            ><span
+              >${resumo.frete === 0 ? "Grátis" : formatarPreco(resumo.frete)}</span
+            >
+          </p>
+          <p class="total">
+            <span>Total</span><span>${formatarPreco(resumo.total)}</span>
+          </p>
         </div>
-        <button type="button" class="finalizar" data-acao="finalizar">Finalizar compra</button>
+        <button type="button" class="finalizar" data-acao="finalizar">
+          Finalizar compra
+        </button>
         <p class="frete">${textoDoFrete(resumo)}</p>
       </section>
     `;

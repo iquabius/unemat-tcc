@@ -13,7 +13,11 @@ const modelo = /* HTML */ `
   <main class="busca">
     <label>
       Cidade de destino
-      <input name="destino" autocomplete="off" placeholder="Digite ao menos 2 letras" />
+      <input
+        name="destino"
+        autocomplete="off"
+        placeholder="Digite ao menos 2 letras"
+      />
     </label>
     <p class="situacao" role="status" hidden></p>
     <ul class="sugestoes" hidden></ul>
