@@ -110,7 +110,7 @@ fun ktfmtTask(nome: String, descricao: String, vararg opcoes: String) =
         // O compilador do Kotlin dentro do ktfmt usa o sun.misc.Unsafe, que o
         // JDK 25 avisa a cada execução.
         jvmArgs("--sun-misc-unsafe-memory-access=allow")
-        args("--kotlinlang-style", "--enable-editorconfig", *opcoes)
+        args("--kotlinlang-style", "--enable-editorconfig", "--quiet", *opcoes)
         // A lista sai quando a tarefa é configurada, só se ela for pedida.
         args(arquivosKotlin.files.map { it.path }.sorted())
     }
