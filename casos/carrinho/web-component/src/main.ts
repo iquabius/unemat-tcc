@@ -95,7 +95,9 @@ class Catalogo extends ComponenteDaLoja {
             </button>
             ${
               quantidade > 0
-                ? `<span class="no-carrinho">${quantidade} no carrinho</span>`
+                ? /* HTML */ `<span class="no-carrinho"
+                    >${quantidade} no carrinho</span
+                  >`
                 : ""
             }
           </li>
@@ -129,8 +131,8 @@ class PainelDoCarrinho extends ComponenteDaLoja {
           <h2>Carrinho</h2>
           ${
             confirmacao
-              ? `<p class="confirmacao">${confirmacao}</p>`
-              : `<p class="aviso">${MENSAGENS.vazio}</p>`
+              ? /* HTML */ `<p class="confirmacao">${confirmacao}</p>`
+              : /* HTML */ `<p class="aviso">${MENSAGENS.vazio}</p>`
           }
         </section>
       `;

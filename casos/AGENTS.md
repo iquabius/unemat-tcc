@@ -70,9 +70,9 @@ quebrado à mão, e 80 colunas cabem numa coluna do PDF em 8 pt.
   `casos/package.json`. O HTML do Web Component, num *template literal*,
   leva o comentário `/* HTML */` antes da crase, a marca com que o
   Prettier o reconhece e formata, como o *template* do Angular e o `html`
-  do Lit. O *template* aninhado num `${...}` fica sem a marca, que ali não
-  tem efeito; se a expressão passar de 80 colunas, quebre-a uma vez dentro
-  do `${...}`, e o Prettier a formata.
+  do Lit, inclusive o *template* aninhado num `${...}`. O Prettier só
+  formata a expressão de um `${...}` escrita em mais de uma linha: se ela
+  passar de 80 colunas, quebre-a uma vez dentro do `${...}`.
 - XML do Android: Prettier com o `@prettier/plugin-xml`, também fixado, e
   três exceções ao padrão, que imitam o Android Studio: recuo de 4, um
   atributo por linha e o fim da tag na linha do último atributo.
