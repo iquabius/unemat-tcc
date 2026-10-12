@@ -201,9 +201,44 @@ logic* de Karagkasidis, 2008, é o domínio aqui)
 
 **Teste de conformidade**:
 As verificações da especificação de uma tarefa, executadas contra cada
-implementação; cada item é uma verificação.
+implementação; cada item é uma verificação, com o nome de um cenário.
 _Avoid_: rotina (o nome até 2026-10-11); roteiro e roteiro de teste (o
 roteiro é o plano de trabalho)
+
+**Especificação**:
+O que todas as implementações de uma tarefa seguem, escrito em requisitos
+e cenários no OpenSpec (*spec*); a viva é a de agora, com as mudanças já
+arquivadas (ADR 0030).
+_Avoid_: capacidade (*capability*, o nome do OpenSpec para o que a
+especificação descreve, que aqui é sempre uma tarefa); README como
+especificação (é a apresentação da tarefa)
+
+**Requisito**:
+Uma regra da especificação, que a tarefa deve cumprir, com um ou mais
+cenários.
+_Avoid_: requisito sozinho para o que a P2 acrescenta (funcionalidade ou
+requisito de orquestração); restrição, que só o 7GUIs usa
+
+**Cenário**:
+Um exemplo de um requisito, com o estado de partida, a ação e o
+resultado, que o teste de conformidade confere numa verificação de mesmo
+nome.
+_Avoid_: cena (o estado a capturar); cenário como sinônimo de tarefa;
+caso de teste
+
+**Mudança**:
+Alteração da especificação de uma tarefa já especificada, proposta e
+arquivada no OpenSpec (*change*): cada funcionalidade e requisito de
+orquestração da P2, e as correções da P1, como a retirada da espera da
+Busca.
+_Avoid_: proposta para a mudança inteira (a proposta é o documento do
+porquê); versão; mudança para o diff de uma tecnologia (é o commit dela)
+
+**Delta spec**:
+A parte de uma mudança que diz, requisito a requisito, o que se
+acrescenta, muda, retira ou renomeia na especificação viva; arquivada, ela
+se funde na especificação.
+_Avoid_: diff da especificação; especificação parcial
 
 **Roteiro**:
 O plano de trabalho do TCC no Beads: as fases, os épicos e as tarefas do bd.
@@ -212,6 +247,7 @@ para as verificações de uma tarefa (teste de conformidade)
 
 **Cena**:
 Um estado da interface a capturar, com o mesmo nome na web e no Android.
+_Avoid_: cenário (o exemplo de um requisito, que o teste confere)
 
 **Captura**:
 A imagem de uma cena numa implementação, idêntica entre as tecnologias.

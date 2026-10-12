@@ -44,11 +44,99 @@ Gradle em `casos/android/` e as dependências (`package.json`,
      imagens.
 4. Relate o resultado da conferência ao usuário.
 
+## Especificação: OpenSpec
+
+A especificação de cada tarefa é `casos/openspec/specs/<tarefa>/spec.md`,
+no esquema *spec-driven* do OpenSpec 1.14.1, fixado em `package.json`
+(ADR 0030). `<tarefa>` é o nome da pasta da tarefa em `casos/`
+(`formulario`, `busca-com-sugestoes`), a "capacidade" do OpenSpec. O
+`README.org` da tarefa fica com a apresentação (a origem, onde está o
+domínio, como rodar os testes) e aponta para o `spec.md`, sem repetir
+regra nem mensagem. O fluxo de agente do OpenSpec fica de fora: nada de
+`/opsx:*`, e `openspec init` ou `update` só com `--tools none`. Rode o CLI
+pelo `npm run openspec -- <comando>`, que desliga a telemetria; o
+`openspec` direto a envia.
+
+### Formato
+
+- Os cabeçalhos que o OpenSpec lê ficam em inglês, e todo o resto em
+  português: `## Purpose`, `## Requirements`, `### Requirement: <nome>`,
+  `#### Scenario: <nome>`, as seções `## ADDED Requirements` (e
+  `MODIFIED`, `REMOVED`, `RENAMED`), `**Reason**` e `**Migration**` no
+  delta, e `## Why`, `## What Changes`, `## Capabilities` e `## Impact` no
+  `proposal.md`.
+- Requisito: um parágrafo de até 500 caracteres, com "deve", e as
+  mensagens da tela entre aspas, letra por letra. O `openspec validate`
+  avisa que falta SHALL ou MUST; o `npm run conferir-especificacao`
+  esconde só esse aviso.
+- Cenário: `**DADO**` quando o estado anterior importa, `**QUANDO**`,
+  `**ENTÃO**` e `**E**`, com os dados que o teste usa.
+- **O nome do cenário é o nome de uma verificação** do teste de
+  conformidade, letra por letra: `#### Scenario: 2 nome tocado e vazio`
+  é o `conferir("2 nome tocado e vazio", ...)` da web, do Android e do
+  desktop. Um cenário por verificação, sem sobra dos dois lados; o número
+  do nome é o passo do teste, não o do requisito. Regra que nenhuma
+  verificação confere (uma latência, um termo do domínio) entra no texto
+  do requisito que a usa, ou ganha verificação.
+- Cenário não é cena: a cena é um estado a capturar (`cenas.mts`).
+
+`npm run conferir-especificacao`, de `casos/`, roda o `openspec validate
+--all` e confere, em cada arquivo de teste de `casos/<tarefa>/`, que os
+nomes das verificações são os dos cenários da especificação viva, na
+ordem do teste da web. Rode-o antes de cada commit que mexa numa
+especificação ou num teste de conformidade.
+
+### Tarefa nova
+
+Para o Login, o Quadro, os Dados ao vivo e outra que vier:
+
+1. Escreva direto `casos/openspec/specs/<tarefa>/spec.md` (não há
+   especificação anterior para um delta mudar), com o `## Purpose` em uma
+   ou duas frases, e o `README.org` da tarefa.
+2. No mesmo commit, o `dominio.ts` e o teste de conformidade da web, com
+   um `conferir` por cenário; o `conferir-especificacao` falha com spec sem
+   teste.
+3. Depois, um commit por tecnologia, com cenas e capturas (seção acima).
+
+### Mudança numa especificação
+
+Toda mudança na especificação de uma tarefa já especificada entra como
+*delta spec*: as da P1 (a retirada da espera da Busca, as regras comuns,
+o envio que ignora o reenvio) e cada funcionalidade e requisito de
+orquestração da P2.
+
+1. `npm run openspec -- new change <nome>`, com o nome em português, em
+   *kebab-case*, verbo e objeto (`tirar-espera-da-busca`). Na pasta
+   `casos/openspec/changes/<nome>/`:
+   - `proposal.md`: o porquê, com o ADR de origem; o que muda; a
+     capacidade modificada; o impacto, com as tecnologias e a tarefa do
+     bd;
+   - `specs/<tarefa>/spec.md`, o delta: `ADDED` com requisito e cenários
+     inteiros; `MODIFIED` com o requisito inteiro copiado da especificação
+     viva, todos os cenários dele, e editado (o que ficar de fora some);
+     `REMOVED` só com o nome, `**Reason**` e `**Migration**`; `RENAMED`
+     com `FROM:`/`TO:`, só para o nome do requisito. Uma regra que muda
+     várias tarefas é uma mudança só, com um delta por tarefa;
+   - `tasks.md`: só o teste de conformidade e o arquivamento, com a
+     conferência de cada item; as tecnologias ficam na tarefa do bd e na
+     seção `## Workflow follow-up`;
+   - sem `design.md`: decisão de método vai para um ADR.
+2. `npm run conferir-especificacao` e commit da proposta, que o autor
+   revisa antes do resto.
+3. Um commit que muda o teste de conformidade em todas as plataformas que
+   o têm e arquiva a mudança: `npm run openspec -- archive <nome> --yes`
+   funde o delta em `specs/` e move a pasta para
+   `changes/archive/AAAA-MM-DD-<nome>/`. Assim a especificação viva diz
+   sempre o que os testes conferem, e as implementações ainda não mudadas
+   falham no teste até o commit delas.
+4. Um commit por tecnologia, na mesma ordem em todas (ADR 0029), cada um
+   passando no teste de conformidade e com as capturas conferidas.
+
 ## Exemplo ou caso novo
 
-- Cada caso tem um `README.org` com a especificação que todas as
-  implementações seguem. Regras de domínio compartilhadas pelas
-  implementações web ficam num `dominio.ts` do caso.
+- Cada tarefa tem a especificação em `casos/openspec/specs/<tarefa>/`
+  (seção acima) e um `README.org` com a apresentação. Regras de domínio
+  compartilhadas pelas implementações web ficam num `dominio.ts` do caso.
 - Crie o `cenas.mts` do caso (estados a capturar), gere as capturas com
   `npm run capturas -- <caso>` e versione-as no mesmo commit.
 - Exemplos web em TypeScript, sem bibliotecas além do que cada framework
@@ -68,7 +156,7 @@ Gradle em `casos/android/` e as dependências (`package.json`,
   `build.gradle.kts`, com o nome `:<caso>-<tecnologia>`. O
   `build.gradle.kts` da raiz traz a configuração comum; o de cada módulo,
   só plugins, `namespace` e dependências.
-- Mesma especificação do `README.org` do caso: mesmos textos, mensagens,
+- Mesma especificação do `spec.md` do caso: mesmos textos, mensagens,
   regras e dados. Regras do `dominio.ts` portadas para Kotlin com o mesmo
   comportamento, em `casos/<caso>/dominio-kotlin/main/Dominio.kt` (pacote
   `tcc.<caso>`), com os mesmos nomes de funções. O `build.gradle.kts` da
