@@ -90,9 +90,8 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:background">#444444</item>
-        <item name="layoutManager">
-            androidx.recyclerview.widget.LinearLayoutManager
-        </item>
+        <item
+            name="layoutManager">androidx.recyclerview.widget.LinearLayoutManager</item>
     </style>
 
     <!-- .produtos li: uma grade de duas colunas; o nome e a categoria na
