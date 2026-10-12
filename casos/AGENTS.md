@@ -57,6 +57,32 @@ Gradle em `casos/android/` e as dependências (`package.json`,
   RxJS nem formulários do Angular), e `angular-rxjs`, de apoio, que usa
   RxJS e Reactive Forms de propósito.
 
+## Formatação
+
+Todo o código de `casos/` que entra na análise passa pelo formatador da
+plataforma, com 80 colunas (`casos/.editorconfig`) e o resto no padrão da
+ferramenta (tcc-6wha, 2026-10-12). Duas razões: a contagem de linhas da
+concisão e o diff da P2 (ADRs 0012 e 0029) não podem depender de como o
+código foi quebrado à mão, e 80 colunas cabem numa coluna do PDF em 8 pt.
+
+- Web (TS, TSX, HTML, CSS, JSON) e XML do Android: Prettier 3.9.10 com o
+  `@prettier/plugin-xml` (um atributo por linha), fixados em
+  `casos/package.json`.
+- Kotlin (`.kt` e `.kts` do Android e dos `dominio-kotlin`): ktfmt 0.64 com
+  `--kotlinlang-style`, fixado em `casos/android/gradle/libs.versions.toml`
+  e rodado pela tarefa `formatarKotlin` do Gradle.
+- C# e XAML (Windows Forms e WPF): CSharpier, com a mesma largura, a
+  instalar e fixar com o primeiro código do desktop (tcc-74m).
+- Ficam de fora o cronômetro de 2017, os pares de desktop recusados (Java e
+  Qt) e os documentos (`casos/.prettierignore` e o `build.gradle.kts` de
+  `casos/android/`).
+
+De `casos/`, `npm run formatar` formata tudo, e `npm run
+conferir-formatacao` falha se algum arquivo estiver fora do padrão. Rode o
+`formatar` antes de cada commit de código. Uma mudança que é só de
+formatação vai num commit à parte, sem lógica, com as capturas
+conferidas.
+
 ## Android (Kotlin)
 
 - Casos no Android: Contador, Formulário com validação e Lista filtrável,

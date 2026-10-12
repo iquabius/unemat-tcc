@@ -1,0 +1,25 @@
+# Saídas de build e dependências (o Prettier só lê o .gitignore de casos/).
+node_modules/
+dist/
+.angular/
+build/
+.gradle/
+.kotlin/
+package-lock.json
+capturas/
+
+# Documentos, revisados com o texto.
+*.md
+
+# Código que o Prettier não formata ou que sai da análise (tcc-xc2y): o
+# cronômetro de 2017 e os pares de desktop recusados.
+cronometro-com-rxjs-5/
+desktop/
+qt/
+*/swing/
+*/javafx/
+*/javafx-fxml/
+*/javafx-estilo/
+*/qt-widgets/
+*/qml/
+*/dominio-cpp/

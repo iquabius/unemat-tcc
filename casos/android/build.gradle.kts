@@ -68,3 +68,47 @@ subprojects {
         }
     }
 }
+
+// Formatação do Kotlin de casos/ pelo ktfmt, no estilo das convenções do
+// Kotlin (4 espaços) e com a largura do casos/.editorconfig (tcc-6wha). O
+// npm run formatar e o npm run conferir-formatacao, em casos/, chamam estas
+// tarefas depois do Prettier. Ficam de fora o desktop e o cronômetro, que
+// saem da análise.
+val ktfmt by configurations.creating {
+    // O ktfmt publica também um jar com as dependências dentro, que evita
+    // escolher a variante do Guava num projeto Android.
+    attributes {
+        attribute(Usage.USAGE_ATTRIBUTE, objects.named(Usage.JAVA_RUNTIME))
+        attribute(Bundling.BUNDLING_ATTRIBUTE, objects.named(Bundling.SHADOWED))
+    }
+}
+dependencies { ktfmt(libs.ktfmt) }
+
+val arquivosKotlin =
+    fileTree(rootDir.parentFile) {
+        include("android/*.kts", "android/captura/**/*.kt")
+        include("*/android-*/**/*.kt", "*/android-*/**/*.kts")
+        include("*/dominio-kotlin/**/*.kt")
+        exclude("**/build/**")
+    }
+
+fun ktfmtTask(nome: String, descricao: String, vararg opcoes: String) =
+    tasks.register<JavaExec>(nome) {
+        description = descricao
+        classpath = ktfmt
+        mainClass = "com.facebook.ktfmt.cli.Main"
+        // O compilador do Kotlin dentro do ktfmt usa o sun.misc.Unsafe, que o
+        // JDK 25 avisa a cada execução.
+        jvmArgs("--sun-misc-unsafe-memory-access=allow")
+        args("--kotlinlang-style", "--enable-editorconfig", *opcoes)
+        // A lista sai quando a tarefa é configurada, só se ela for pedida.
+        args(arquivosKotlin.files.map { it.path }.sorted())
+    }
+
+ktfmtTask("formatarKotlin", "Formata o Kotlin de casos/ com o ktfmt.")
+ktfmtTask(
+    "conferirFormatacaoKotlin",
+    "Falha se algum arquivo Kotlin de casos/ não estiver formatado.",
+    "--dry-run",
+    "--set-exit-if-changed",
+)
