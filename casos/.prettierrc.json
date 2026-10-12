@@ -1,10 +1,13 @@
 {
-  "plugins": ["@prettier/plugin-xml"],
+  "plugins": [
+    "@prettier/plugin-xml"
+  ],
   "overrides": [
     {
       "files": "*.xml",
       "options": {
         "singleAttributePerLine": true,
+        "bracketSameLine": true,
         "xmlWhitespaceSensitivity": "ignore"
       }
     }
