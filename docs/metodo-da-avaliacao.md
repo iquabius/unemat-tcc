@@ -20,6 +20,12 @@ do próprio Kiss e por Mernik et al. (2009) (seção 4). As tarefas
 pequenas isolam uma escolha de projeto, mas não mostram o que só aparece
 em programa grande (seção 5).
 
+Em 2026-10-11, o autor decidiu avaliar em três rodadas (P1 todas as
+tarefas; P2 requisitos acrescentados a duas; P3 bibliotecas do
+ecossistema, sem controle de variáveis) e percorrer as 14 DCs, e não oito;
+as fontes estão nas seções 8 a 11, e os ADRs esperam a orientação de
+2026-10-13 (tcc-y4q, ponto A5).
+
 ## 1. O rótulo do método: avaliação de um conjunto de tarefas, não estudo de caso (fontes lidas em 2026-09-28)
 
 "*Benchmark*" só explica o conjunto de tarefas (Sim, Easterbrook e Holt
@@ -190,3 +196,118 @@ tema. "Conferido": lido no PDF pelo agente principal. Cópias em
 | Prodanov e Freitas 2013 | Justificativa: "Razões de ordem teórica e os motivos de ordem prática"; "Mostrar a originalidade" | p. 82 | conferido |
 | Leal 2011 | A justificativa pode explicar "as possíveis contribuições" e "os aspectos inovadores do estudo, se for esse o caso" | p. 62 | conferido |
 | Wazlawick 2014 | "A justificativa vai dizer por que vale a pena buscar esse objetivo" (p. 38); o problema com "referência direta à bibliografia" de que não foi tratado, citando Chinneck (p. 39) | p. 38-39 | conferido |
+
+## 8. Rodadas e crescimento do código (lidas em 2026-10-11)
+
+Conclusão: o desenho em rodadas tem precedente direto em Kiss (2014), que
+avaliou em três rodadas e propôs, como trabalho futuro, estender as
+tarefas com requisitos novos; e o teste de viscosidade de Green e Petre
+(1996) é o 1.º passo da P2 em miniatura: a mesma mudança, preparada
+antes, em cada versão. Trechos conferidos no PDF; página impressa.
+
+| Fonte | Trecho | Onde | Uso |
+|---|---|---|---|
+| Kiss 2014 | método em rodadas: cap. 3, JavaFX × ScalaFX; cap. 4, "extending the solutions for the case studies in ScalaFX with Scala.Rx and ReactFX"; depois o Elm numa "selection of the case studies" | p. 3 | precedente das rodadas |
+| Kiss 2014 | a lacuna da 2.ª rodada abre o capítulo dela: a FRP é jovem, e "not enough experience applying it to GUI programming has been gathered" | p. 58 | onde fica a lacuna de cada rodada |
+| Kiss 2014 | "The time unfortunately ran out for the other case studies" | p. 96 | risco: o prazo escolhe as tarefas da rodada estreita |
+| Kiss 2014 | trabalho futuro: requisito assíncrono, animações, arrastar e soltar; "the difficulty lies in incorporating these additional aspects [...] without bloating them up too much"; tarefas maiores "would not be examined comprehensively in detail" | p. 103-104 | precedente da P2 e o limite dela |
+| Kiss 2014 | "none of them really tests such an asynchronous behavior which is a fair criticism"; propõe trocar o Timer | p. 77, nota 26 | a Busca e a troca de tarefas |
+| Kiss 2014 | "the toolkit in general played the most crucial role"; "A good toolkit can cover potential deficits in the paradigm and/or language"; o *toolkit* dominou Counter, Temperature Converter, Flight Booker e Timer, o paradigma o Circle Drawer | p. 56 | contraste: Kiss mede num tamanho dado; o TCC acompanha o crescimento |
+| Kiss 2014 | os construtos especiais do *toolkit* "would probably not sustain more complex interactions" | p. 57 | hipótese da P2 |
+| Kiss 2014 | EasyBind evitado, porque "we would have needed to introduce another library" | p. 55, nota 32 | controle das dependências (ADR 0013) |
+| Kiss 2014 | interações "from sensors and remote internet services court for the GUI's attention" | p. 2-3 | requisito de orquestração |
+| Green e Petre 1996 | "As a straw test of viscosity, we made the same change to each version"; a mudança foi preparada antes, para medir a edição | p. 162 | método da P2 |
+| Green e Petre 1996 | "if the programs were larger we would expect them to increase proportionately (i.e. to increase faster for LabVIEW; slower for Basic)" | p. 162 | a diferença que se amplia |
+| Green e Petre 1996 | "Nobody can do big, hard problems in their heads [...] those are the ones where the effects of viscosity will be most apparent" | p. 161 | por que crescer o código |
+| Green e Petre 1996 | dependência oculta: "the dependency is not fully visible"; a planilha; o fluxo de dados "makes the dependencies visible but increases the viscosity" | p. 153-154 | por que não contar arestas; a troca com a viscosidade |
+| Blackwell e Green 2003 | "A viscous system needs many user actions to accomplish one goal"; viscosidade de repetição e de efeito dominó, "where further actions are required to restore consistency" | p. 115 | contagem dos trechos do diff |
+| Blackwell e Green 2003 | o redesenho que "would lower the viscosity but could readily introduce problems such as hidden dependencies" | p. 109 | a troca a observar na P2 |
+| Blackwell e Green 2003 | seis atividades: incrementação, transcrição, modificação, *design* exploratório, busca, compreensão exploratória (tabela 5.1) | p. 113 | a P1 lê; a P2 e a P3 modificam |
+| Berry e Serrano 2020 | quarentena acrescentada ao login; em JavaScript, "Almost all the initial implementation components need to be modified and re-tested" | p. 539 | um requisito de orquestração acrescentado depois |
+
+## 9. As 14 DCs canônicas (levantadas em 2026-10-11)
+
+Conclusão: o conjunto canônico tem 14 DCs, as 13 de Green e Petre (1996,
+p. 138-139) mais a provisoriedade, do tutorial de 1998 (p. 11); o "13"
+sobrevive em Green (2000, p. 3) e no "13 or so" do tutorial (p. 10), e
+nenhuma fonte conta visibilidade e justaposição como duas. As fontes
+primárias pedem todas, e não um subconjunto escolhido antes: "prior
+selection of a subset of CDs may be unhelpful" (Blackwell et al. 2001,
+p. 332, conferido); Blackwell e Green (2003, p. 107-108) mandam perguntar
+por todas a cada passo. **Erro a corrigir:** `texto/cases.org:56` diz que
+"os autores recomendam usar um subconjunto", frase de Kiss (2014, p. 12)
+sem fonte primária; o mais próximo é um "CDs-lite" para iniciantes
+(Blackwell et al. 2001, p. 336-337). Contagens conferidas; o resto por
+subagente.
+
+- Da notação: nível de abstração, proximidade de descrição, consistência,
+  concisão, operações mentais difíceis, dependências ocultas,
+  expressividade de papel (*role-expressiveness*, nome decidido em
+  2026-10-12) e notação secundária.
+- Do sistema, que o ambiente agrava ou protege: viscosidade (só o sistema
+  inteiro é viscoso, Green e Blackwell 1998, p. 8) e propensão a erros
+  (Blackwell e Green 2003, p. 116).
+- Com peso no ambiente e face notacional citada: compromisso prematuro
+  (a escolha de construção, Green e Petre 1996, p. 157), avaliação
+  progressiva (a regra que impede executar código incompleto, p. 157),
+  visibilidade (a dispersão do código, p. 162), provisoriedade (a marca de
+  provisório na notação, Green et al. 2006, p. 332). A divisão entre
+  notação e ambiente "não é limpa" (Green et al. 2006, p. 356-357).
+- Candidatas propostas depois, todas declaradas candidatas: *creative
+  ambiguity*, *specificity*, *detail in context*, *indexing*, *synopsie*,
+  *free rides*, *lability*, *permissiveness* (Blackwell et al. 2001,
+  p. 335-336); *penetrability* (Green et al. 2006, p. 336-337).
+
+## 10. Requisitos típicos de interface para a P2 (pesquisa de 2026-10-11)
+
+Conclusão: literatura, repositórios e comunidades convergem nos
+requisitos de orquestração da Busca: esperar a pausa, cancelar a
+requisição em curso, mostrar só a resposta mais recente, tratar falha e
+nova tentativa e guardar respostas. O desfazer e o controle de diálogo
+têm apoio na literatura e nos repositórios, e pouco nas comunidades. Três
+subagentes; os números de repositórios e comunidades não foram
+reconferidos.
+
+- Literatura: Meijer (2012, p. 72), *dictionary suggest* com `Throttle` e
+  `Switch`; Kiss (2014, p. 77-78); Oney e Myers (2012, p. 231); controle de
+  diálogo em Karagkasidis (2008, PDF p. 7) e Kiss (2014, p. 6, 40); arrastar
+  e soltar em Maier et al. (2010) e Kiss (2014, p. 47, 103); desfazer em
+  Kiss (2014, p. 56-57) e Myers (1994, p. 75).
+- Repositórios (API do GitHub e do npm, 2026-10-11): o próprio 7GUIs admite
+  que não trata assincronia (página "More"); Kiss (2018, "Towards a better
+  GUI programming benchmark", Hackernoon, literatura cinzenta) lista API
+  lenta e instável, atualização otimista, assistentes, paginação; TanStack
+  Query (cancelamento, tentativas, deduplicação, paginação); React Hook
+  Form ("Wizard Form / Funnel"); a *issue* de tipagem dos Reactive Forms do
+  Angular, 1.189 reações.
+- Comunidades: "State Management", 34,3% no State of JS 2025; "abortar
+  Ajax" no jQuery, 2.006 votos no Stack Overflow; 86,6% usam biblioteca de
+  formulário (State of React 2025); combobox/autocompletar, 32,1% no State
+  of HTML 2025; desfazer, no máximo 35 votos.
+
+## 11. O que muda entre rodadas: vocabulário (levantado em 2026-10-12)
+
+Conclusão: nenhuma fonte do TCC tem uma palavra só para "o resultado
+mudou entre condições", e por isso o trabalho descreve, com particípios:
+na linha de cada DC, a diferença entre os modelos fica mantida, ampliada,
+reduzida, anulada, invertida ou surgida; na célula, a conclusão do modelo
+aumenta, diminui ou fica igual (decisão do autor em 2026-10-12). Os três
+primeiros valores da lista original ("persiste, encolhe ou desaparece")
+são do autor; "cresce", "se inverte" e "surge" foram acrescentados na
+discussão, e nenhuma fonte define a lista.
+
+- Nas fontes: "still holds" (Salvaneschi et al. 2014); "still true today"
+  e "can cover potential deficits" (Kiss 2014, p. 56); "would probably not
+  sustain" (p. 57); "made a difference" (p. 100); "increase
+  proportionately" (Green e Petre 1996, p. 162); "grows with the
+  complexity of the problem" (Berry e Serrano 2020, p. 535); "did not
+  yield the same result" (Kutar et al. 2002). Nada para "se inverte".
+- Fora: a interação cruzada e não cruzada da estatística nomeia "se
+  inverte" e "cresce ou encolhe", mas a fonte achada é bioestatística de
+  ensaio clínico com teste estatístico (Gail e Simon 1985), e fica de
+  fora; "interação entre modelo e rodada" só entra com fonte de
+  experimentação em engenharia de software lida (candidatas não lidas:
+  Wohlin et al. 2012; Juristo e Moreno 2001). "Convergência" e
+  "divergência" colidem com os *reflexion models* (Murphy, Notkin e
+  Sullivan 1995). A replicação em engenharia de software só tem
+  "confirma", "confirma em parte" e "não confirma".

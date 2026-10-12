@@ -260,6 +260,14 @@ versão revisada. Burtic & Burtic (2024, Springer Proc. in Business and
 Economics) e Tsukanova & Zabrodin (2026): veículos fora da área; o resumo do
 segundo parece relevante, conferir o veículo. Donvir et al. (2024, arXiv):
 preprint. Estudos de desempenho de WebFlux e serverless: lado servidor.
+Jain & Mittal (2024, *The rise of component-driven development in modern
+frontend frameworks*, IJFMR, `tmp/fontes/jain2024.pdf`), lido em 2026-10-11:
+veículo multidisciplinar fora da área, sem método nem dados, com os
+"case studies" como afirmações e dez referências de blogs e palestras;
+descartado como o IJEECS acima. A lista de práticas (contêiner e
+apresentação, §4.2; *context* no lugar de propriedades em cascata, §4.9)
+serve só como ideia de abstrações para a P2; para citar componente como
+abstração, a candidata é Van Roy e Haridi (2004, seção 3.9), a ler.
 
 ## 6. A base antes da revisão (2026-09-24)
 

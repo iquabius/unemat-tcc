@@ -561,3 +561,34 @@ Mernik et al. 2009 e Hudak 1996, página da cópia.
 | MDN, *Web Components* (modificado em 2026-09-01) | "Web Components is a suite of different technologies" | tecnologia da plataforma |
 | developer.android.com/compose e /jetpack | Compose, "Android's recommended modern toolkit for building native UI"; "Jetpack is a suite of libraries" | biblioteca; "nativo" no Android |
 | developer.android.com, *Layouts* | layouts com objetos `View` e `ViewGroup`, "an XML vocabulary"; "The Android framework" | plataforma Android |
+
+## 10. Coordenação, orquestração e estado nas fontes (levantados em 2026-10-11)
+
+Conclusão: "coordenar" cobre, nas fontes de interface gráfica, tanto os
+eventos quanto o estado, e por isso serve de guarda-chuva; "orquestrar" é
+sempre sobre eventos; o estado tem dois nomes, "change propagation" ou
+"management of state changes" nos artigos de PR, e "state management" nos
+estudos sobre React, RxJS e Redux. Decisão do autor em 2026-10-11, para o
+`CONTEXT.md` depois da orientação: o problema de coordenação é o
+guarda-chuva, com dois eixos, a orquestração de eventos e o gerenciamento
+de estado; "tratamento de eventos" não serve de eixo, porque é
+vocabulário do imperativo (relatório do autor em
+`tmp/relatorio-termos-e-coordenacao.md`). Conferidos no PDF: Meijer,
+Bainomugisha et al. e Kiss; o resto por subagente.
+
+| Fonte | Trecho ou termo | Onde | Eixo |
+|---|---|---|---|
+| Meijer 2012 | "coordinate and orchestrate event-based and asynchronous computations" | p. 67 | eventos |
+| Bainomugisha et al. 2013 | "coordinate multiple events"; "coordinating callbacks [...] numerous isolated code fragments can be manipulating the same data"; "management of state changes and data dependencies" | p. 2 | os dois, lado a lado |
+| Edwards 2009 | "carefully coordinate actions to manage their side effects upon each other" | p. 925 | os dois |
+| Edwards 2009 | o imperativo obriga a "orchestrate" a ordem exata dos eventos | p. 928 | eventos |
+| Kiss 2014 | os *callbacks* trazem a inversão de controle e a gestão manual das mudanças de estado e das dependências | p. 59 | os dois |
+| Kiss 2014 | "uncoordinated state changes" | p. 101 | estado |
+| Salvaneschi et al. 2017 | "Abstraction over change propagation"; "Favoring data flow over control flow" | p. 2 | estado; os dois |
+| Berry e Serrano 2020 | as linguagens de fluxo de dados não resolvem as "control-based orchestration issues"; "managing the states of web applications" é o objetivo de Flux e Redux | p. 544 | separa os dois |
+| Moseley e Marks 2006 | estado e controle como as duas causas de complexidade | p. 8, 11 | os dois, fora de interface |
+| Adya et al. 2002 | "two-axis space" (*task* × *stack management*) | PDF p. 2-3 | eixos cruzados, fora de interface |
+
+Nenhuma fonte de interface gráfica diz que um eixo atravessa o outro;
+chamar os dois de cruzados é síntese do trabalho, com Moseley e Marks e
+Adya et al. como precedentes de fora.
