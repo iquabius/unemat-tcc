@@ -149,3 +149,30 @@ seção "Swing × JavaFX").
   o primeiro campo ao abrir a janela, e o navegador não foca nenhum; a
   `Tela` de teste passa o foco à raiz para que nenhum campo saia tocado
   sem a rotina pedir.
+
+## 2026-10-12, leitura do código para o redesenho das tarefas (commits `7abf5e1` e `19ab817`)
+
+Leitura de subagentes durante a revisão do conjunto de tarefas, sem teste
+que a confirme. As medidas dos protótipos estão em
+`docs/metodo-da-avaliacao.md`, seção 12.
+
+- **A rotação perde o estado de modos diferentes no Android**
+  (dependências ocultas, propensão a erros): no Compose, o Formulário
+  guarda todos os campos com `remember`
+  (`casos/formulario/android-compose/src/main/java/tcc/formulario/compose/MainActivity.kt:46-50`),
+  que não sobrevive à recriação da `Activity`, e a rotação apagaria o
+  formulário inteiro; o `rememberSaveable` sobreviveria. No Views, os
+  campos com `android:id` guardam o próprio texto, mas o conjunto
+  `tocados`
+  (`casos/formulario/android-views/src/main/java/tcc/formulario/views/MainActivity.kt:25`)
+  se perde, e a restauração do texto provavelmente dispara o
+  `doAfterTextChanged` com `tocados` vazio, escondendo os erros que
+  estavam à vista. Falta confirmar com `ActivityScenario.recreate()` e
+  `StateRestorationTester`.
+- **A espera de 300 ms continua na Busca da P1**: o ADR 0002
+  (2026-10-11) a tirou da P1 para acrescentá-la na P2, mas o item 1 do
+  `casos/busca-com-sugestoes/README.org` e as implementações ainda a têm
+  (por exemplo, `casos/busca-com-sugestoes/react/src/main.tsx:29-58`, onde
+  o estado `pedido` existe por causa dela). Ela ocupa cerca de 4 linhas de
+  coordenação no Web Component, 9 no React e 5 no Solid; tirá-la muda a
+  linha de base da P1 e o diff da P2.

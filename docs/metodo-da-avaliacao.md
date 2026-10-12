@@ -20,11 +20,12 @@ do próprio Kiss e por Mernik et al. (2009) (seção 4). As tarefas
 pequenas isolam uma escolha de projeto, mas não mostram o que só aparece
 em programa grande (seção 5).
 
-Em 2026-10-11, o autor decidiu avaliar em três rodadas (P1 todas as
-tarefas; P2 requisitos acrescentados a duas; P3 bibliotecas do
-ecossistema, sem controle de variáveis) e percorrer as 14 DCs, e não oito;
-as fontes estão nas seções 8 a 11, e as decisões, nos ADRs 0012, 0017 e
-0029.
+Em 2026-10-11, o autor decidiu avaliar em três rodadas (P1, P2 com
+requisitos acrescentados, P3 com as bibliotecas do ecossistema, sem
+controle de variáveis) e percorrer as 14 DCs, e não oito; em 2026-10-12,
+trocou o conjunto de tarefas e levou a P2 às cinco, pela realidade de
+cada uma (seção 12). As fontes estão nas seções 8 a 12, e as decisões,
+nos ADRs 0002, 0012, 0017 e 0029.
 
 ## 1. O rótulo do método: avaliação de um conjunto de tarefas, não estudo de caso (fontes lidas em 2026-09-28)
 
@@ -311,3 +312,47 @@ discussão, e nenhuma fonte define a lista.
   "divergência" colidem com os *reflexion models* (Murphy, Notkin e
   Sullivan 1995). A replicação em engenharia de software só tem
   "confirma", "confirma em parte" e "não confirma".
+
+## 12. Conjunto de tarefas e requisitos da P2 (protótipos de 2026-10-12)
+
+Conclusão: o conjunto antigo deixava a orquestração de eventos só na
+Busca, e o Contador e a Lista não traziam problema próprio; protótipos em
+Web Component, React e Solid, medidos pelo mesmo critério de linhas
+(montagem da tela, coordenação, ligação), sustentaram a troca por Login
+com quarentena, Quadro de tarefas e Dados ao vivo, e a escolha de 11
+requisitos da P2 pela realidade de cada tarefa (ADRs 0002 e 0029). Medidas
+de subagentes, com `tsc` estrito e testes em Playwright passando; os
+trechos de fonte com página foram conferidos por eles e não reconferidos.
+Código e números em `tmp/mergulho-tarefas-2026-10-12/`,
+`tmp/prototipos-tarefas-2026-10-12/` e `tmp/prototipos-p2-2026-10-12/`
+(fora do git).
+
+| Achado | Medida | Uso |
+|---|---|---|
+| Densidade de coordenação nas tarefas antigas (coordenação / total) | Busca 0,52; Formulário 0,29; Contador 0,24; Carrinho 0,22; Lista 0,12 | o Contador e a Lista saem (ADR 0002) |
+| Assistente do Formulário, acréscimo em Web Component e React | montagem +22 e +25, coordenação +13 e +11, ligação +21 e +18; o React reindenta 67 linhas | a montagem é o maior balde, mas não domina |
+| *Timer* do 7GUIs | coordenação de 6 a 9 linhas contra montagem de 15 e 16; a pausa da P2 não separa React de Solid | descartado |
+| Login com quarentena (Berry e Serrano 2020, p. 534-539) | a quarentena custa +20 a +21 linhas nos três; o diff tem o mesmo tamanho, e muda o tipo: o Web Component repete, os declarativos acrescentam uma condição | desmente em parte "Almost all the initial implementation components need to be modified" (p. 539) |
+| Dados ao vivo (Meijer 2012, p. 66-67) | sem a limpeza, o vazamento é silencioso no Web Component e aparece na tela, ou nem ocorre, nos declarativos | a regra comum "nada vivo depois de sair da tela" |
+| Quadro com desfazer, contra o desfazer no Carrinho | +43/+79/+64 contra +36/+57/+50; no Carrinho, "Finalizar compra" teve de apagar o histórico; no Solid, guardar o próprio *store* no histórico falhou em 8 verificações | o Quadro entra no lugar do Carrinho; o contraste de Kiss entre comando e cópia do estado some quando as transições ficam no domínio |
+| Carteira nos Dados ao vivo | +27/+23/+23; 10 linhas da P1 mudam no Web Component, nenhuma no React e no Solid; nenhum *glitch* no sentido de Kiss (2014, p. 104) com a fonte por ativo | entra na P2 |
+| Atualização otimista no Quadro | +32/+51/+40 sobre a P1; o `useOptimistic` do React aplica as respostas na ordem em que chegam | entra na P2; as regras da fila são do protótipo |
+| Passageiros dinâmicos no Formulário | +55/+61/+61; uma armadilha de identidade diferente por notação, invisível ao `tsc` | fica fora (ADR 0029) |
+| Filtro no Quadro | +25/+30/+24; não interfere no desfazer | fica fora (ADR 0029) |
+
+Acessibilidade: os três requisitos de acessibilidade da P2 e a regra das
+mensagens de status vêm da WCAG 2.2 (W3C, 2024-12-12): 2.4.3 e 3.3.1 no
+assistente com foco gerenciado, 2.1.1 e o padrão *Combobox* do WAI-ARIA
+APG na Busca, 2.2.2 na frequência controlável dos Dados ao vivo e 4.1.3
+nas mensagens de status. O foco é o ponto em que os declarativos voltam
+ao imperativo (`useRef` com `useEffect`, `ref` com `createEffect`,
+`FocusRequester` com `LaunchedEffect`).
+
+Demonstração: o capítulo 4 de Kiss (2014) não é só demonstração; avalia
+Scala.Rx, ReactFX e Elm pelas mesmas dimensões do capítulo 3, o Elm em 4
+das 7 tarefas (p. 80-96), e fecha com um veredito por dimensão (p. 97:
+nível de abstração mais exigente, difusão e viscosidade "slightly
+higher", dependências ocultas e propensão a erros "reduced"). Foi
+considerado e recusado como molde para tirar tecnologias da análise
+principal (ADR 0013).
+
