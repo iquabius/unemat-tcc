@@ -11,8 +11,8 @@ capturas/
 # Documentos, revisados com o texto.
 *.md
 
-# Código que o Prettier não formata ou que sai da análise (tcc-xc2y): o
-# cronômetro de 2017 e os pares de desktop recusados.
+# Código fora da análise que não se formata: o cronômetro de 2017 e o Java,
+# o C++ e o QML dos pares de desktop fora da análise (tcc-xc2y).
 cronometro-com-rxjs-5/
 desktop/
 qt/
