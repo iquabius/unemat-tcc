@@ -11,7 +11,7 @@ não se controla nas limitações.
 **Conclusão (2026-10-12).** O delineamento fixa a linguagem e o modelo
 de computação em cada plataforma, a especificação de cada tarefa, o
 domínio, as duas regras comuns da P1 (mensagens de status anunciadas;
-nada vivo depois de sair da tela) e, na P1 e na P2, as dependências; na
+limpeza ao sair da tela) e, na P1 e na P2, as dependências; na
 P3, cada tecnologia usa a biblioteca de formulário do seu ecossistema,
 sem controle (ADR 0029). Na web, cada contraste tem um par: Web Component
 × Lit, o imperativo contra a re-renderização, pela ligação do estado com
@@ -40,7 +40,7 @@ que se confunde com o desenho da tela (`CONTEXT.md`, Delineamento).
 | Linguagem e modelo de computação | uma linguagem por plataforma: TypeScript na web, Kotlin no Android, C# no desktop | ADRs 0001 e 0021; `CONTEXT.md`, Modelo de computação | controlado |
 | Especificação | as implementações de uma tarefa seguem o mesmo `README.org`, com os mesmos textos, regras e dados | ADRs 0002 e 0012; `casos/AGENTS.md` | controlado no Formulário e na Busca; o Login, o Quadro e os Dados ao vivo só têm a especificação dos protótipos de 2026-10-12 (`tmp/`, fora do git) |
 | Teste de conformidade | as mesmas verificações, na mesma ordem, contra cada implementação; na web, colado no console | `casos/AGENTS.md` | faltam os das três tarefas novas; o nome mudou de "rotina" em 2026-10-11 |
-| Regras comuns da P1 | em todas as tarefas, as mensagens de status ficam numa região anunciada (`role="status"`, WCAG 2.2, 4.1.3), e nada fica vivo depois que a tarefa sai da tela; o teste de conformidade confere as duas, a segunda contando no domínio os relógios, as assinaturas e as requisições abertas | ADR 0029 | a fazer; os Dados ao vivo já contam as assinaturas no protótipo |
+| Regras comuns da P1 | em todas as tarefas, as mensagens de status ficam numa região anunciada (`role="status"`, WCAG 2.2, 4.1.3), e vale a limpeza ao sair da tela (a tela encerra o que iniciou); o teste de conformidade confere as duas, a segunda contando no domínio os relógios, as assinaturas e as requisições abertas | ADR 0029 | a fazer; os Dados ao vivo já contam as assinaturas no protótipo |
 | Dependências | na P1 e na P2, cada implementação usa só o que a própria tecnologia traz, sem bibliotecas de formulário; o Angular com *signals* não usa Reactive Forms nem Signal Forms; na P3, livres | ADRs 0013 e 0029 | controlado na P1 e na P2 |
 | Domínio | as regras que não dependem da interface (datas, e-mail, mensagens, servidores simulados, fontes de dados, transições do quadro) ficam num domínio comum por plataforma | ADR 0010 | controlado; o porte em Kotlin difere em entradas-limite (anos de 0 a 99, espaços fora do ASCII), com teste `@Ignore` |
 | Aparência e comportamento | capturas de cada cena, idênticas entre as tecnologias web | ADR 0008 | controlado na web; no *desktop*, as capturas idênticas não foram tentadas (`docs/plataformas.md`) |

@@ -13,9 +13,10 @@ Views × Compose, o Quadro e os Dados ao vivo (ADR 0005); Windows Forms ×
 WPF, o Quadro e o Login (ADR 0001). São 33 implementações, 21 na web, 6
 no Android e 6 no desktop, e todas seguem duas regras comuns, conferidas
 pelo teste de conformidade de cada tarefa: as mensagens de status são
-anunciadas sem receber o foco (WCAG 2.2, critério 4.1.3), e nada fica vivo
-depois que a tarefa sai da tela (temporizador, requisição, assinatura,
-ouvinte). Na P2, cada tarefa recebe, um por commit e na mesma ordem em
+anunciadas sem receber o foco (WCAG 2.2, critério 4.1.3), e vale a
+limpeza ao sair da tela: a tela encerra o que iniciou (temporizador,
+requisição, assinatura, ouvinte), sem vazamento de recursos (Lima,
+Giusti e Dias-Neto 2020). Na P2, cada tarefa recebe, um por commit e na mesma ordem em
 todas as tecnologias em que existe, funcionalidades, que mudam o que o
 usuário percebe ou pode fazer, e requisitos de orquestração, que deixam
 as cenas iguais e mudam como se combinam eventos de várias fontes, sem
@@ -82,6 +83,10 @@ que identificam as linhas de modos diferentes na P3) e o filtro no
 Quadro (+24 a +30 linhas); reais e baratos, mas somariam commits em
 tarefas que já têm os dois eixos, e o filtro repete a lista derivada da
 Busca.
+Em vez de: chamar a regra de "nada vivo depois de sair da tela" (nome
+de 2026-10-12, mais cedo); diz o efeito, mas decalca o *alive* do inglês,
+e "limpeza" é o termo das documentações em português do React e do
+Android.
 Em vez de: tirar pares inteiros se o prazo apertar (decisão do começo de
 2026-10-12); mais simples, mas perderia de uma vez um contraste
 controlado; a ordem fixada protege o par Web Component × Lit, o único que
@@ -119,8 +124,8 @@ o prazo escolher as tarefas da rodada estreita ("The time unfortunately
 ran out"); com os eixos desiguais entre as tarefas, a conclusão sobre
 cada eixo vem de duas ou três tarefas; a P3 mede bibliotecas, e a
 hipótese de que o ecossistema rebalanceia o trabalho cognitivo fica como
-desejável, sem teste; os seis valores da linha não vêm de fonte; a regra
-"nada vivo ao sair" se apoia no ciclo de vida de cada tecnologia, que o
+desejável, sem teste; os seis valores da linha não vêm de fonte; a limpeza
+ao sair da tela se apoia no ciclo de vida de cada tecnologia, que o
 Web Component tem e as outras escrevem de outro modo; a acessibilidade se
 verifica pelos atributos e pelo foco, e não com um leitor de tela real;
 a ordem de corte, se usada, encolhe primeiro o par Solid × Angular; a
@@ -130,6 +135,10 @@ reestrutura (tcc-xep).
 Fontes: `docs/metodo-da-avaliacao.md`, seções 8 a 11, com os trechos e as
 páginas; WCAG 2.2 (W3C, 2024-12-12) e o padrão *Combobox* do WAI-ARIA APG
 (w3.org, lidos em 2026-10-12); Berry e Serrano (2020, p. 534-539);
+pt-br.react.dev, *Sincronizando com Efeitos*, e
+developer.android.com/develop/ui/compose/side-effects?hl=pt-br
+(2026-10-12), para "limpeza"; Lima, Giusti e Dias-Neto (2020, SBQS,
+WTDQS), para "vazamento de recursos";
 protótipos e medidas de 2026-10-12 em `tmp/mergulho-tarefas-2026-10-12/`,
 `tmp/prototipos-tarefas-2026-10-12/` e `tmp/prototipos-p2-2026-10-12/`
 (fora do git); ADRs 0001, 0002, 0005, 0012, 0013, 0014 e 0017;

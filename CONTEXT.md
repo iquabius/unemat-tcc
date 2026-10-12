@@ -118,6 +118,15 @@ como se combinam eventos de várias fontes, como a espera de 300 ms da
 Busca.
 _Avoid_: requisito não funcional (a mudança é de comportamento)
 
+**Limpeza ao sair da tela**:
+Regra comum da P1: quando a tarefa sai da tela, ela encerra o que
+iniciou (relógios, assinaturas, requisições, ouvintes), e o teste de
+conformidade confere que nada sobrou. Quem a viola deixa um vazamento de
+recursos (Lima, Giusti e Dias-Neto, 2020).
+_Avoid_: "nada vivo depois de sair da tela" (decalque de *alive*);
+descarte (tradução automática de *dispose*); desmontar sozinho
+(vocabulário do React); tarefa órfã (tarefa é a interface)
+
 **Ecossistema**:
 As bibliotecas que a comunidade de uma tecnologia usa junto dela, como as
 de formulário da P3.
