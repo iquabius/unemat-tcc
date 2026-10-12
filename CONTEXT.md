@@ -1,10 +1,11 @@
 # TCC: modelos de programação de interfaces gráficas
 
-Trabalho de conclusão que compara três modelos de programação de interfaces
-gráficas pelas Dimensões Cognitivas de Notações, aplicadas à notação com
-que cada tecnologia os escreve, com as mesmas tarefas implementadas em
-várias tecnologias na web, no Android e no desktop, em três rodadas. Texto em `texto/`, código em
-`casos/`, decisões em `docs/adr/`, definições e fontes dos termos em
+Trabalho de conclusão que compara três modelos de programação de
+interfaces gráficas pelas Dimensões Cognitivas de Notações, aplicadas à
+notação com que cada tecnologia os escreve, com as mesmas tarefas
+implementadas em várias tecnologias na web, no Android e no desktop, em
+três rodadas. Texto em `texto/`, código em `casos/`, decisões em
+`docs/adr/`, definições e fontes dos termos em
 `docs/paradigma-modelo-e-notacao.md`.
 
 ## Language
@@ -50,12 +51,18 @@ _Avoid_: estrutura da tela como notação à parte; sintaxe da tela;
 marcação (não cobre `createElement` nem Compose)
 
 **Tarefa**:
-Uma interface especificada, que todas as implementações seguem: Contador,
-Formulário com validação, Busca com sugestões, Lista filtrável, Carrinho.
-O nome segue o 7GUIs (Kiss, 2014) e o *benchmark* de Sim et al. (2003).
+Uma interface especificada, que todas as implementações seguem:
+Formulário com validação, Busca com sugestões, Login com quarentena,
+Quadro de tarefas e Dados ao vivo (ADR 0002). O nome segue o 7GUIs (Kiss,
+2014) e o *benchmark* de Sim et al. (2003).
 _Avoid_: caso e estudo de caso (só no sentido metodológico de Yin, que o
 trabalho não adota); exemplo; cenário; tarefa sozinha para o item do
 Beads (tarefa do bd)
+
+**Tarefa base**:
+A tarefa que todas as tecnologias implementam, o Formulário, e que a P3
+reescreve com a biblioteca de formulário de cada ecossistema (ADR 0029).
+_Avoid_: tarefa principal; caso base
 
 **Delineamento**:
 O planejamento da pesquisa, com as formas de controle das variáveis
@@ -67,8 +74,10 @@ pesquisa é o documento de 2017)
 **Problema de coordenação**:
 O que uma tarefa exige do modelo de programação, em dois eixos, a
 orquestração de eventos e o gerenciamento de estado: evento → estado →
-tela, estado derivado, assincronia, lista derivada (com a montagem dos
-itens na tela), estado compartilhado (ADR 0002).
+tela, estado derivado, assincronia, tempo de vida de relógios e
+assinaturas, lista derivada (com a montagem dos itens na tela), estado
+compartilhado, histórico (ADR 0002). Cada tarefa tem uma proporção
+própria dos dois eixos, como a interface real que ela reproduz.
 _Avoid_: padrão de interface; tratamento de eventos (é o vocabulário do
 imperativo, e mediria os três modelos de programação com a régua de um)
 
@@ -87,17 +96,21 @@ _Avoid_: gestão de estado; gerência de estado
 
 **Rodada**:
 Uma das três etapas da avaliação, cada uma mais estreita que a anterior:
-P1, as cinco tarefas em todas as tecnologias; P2, funcionalidades e
-requisitos de orquestração acrescentados ao Formulário e à Busca; P3, o
-Formulário reescrito com a biblioteca de formulário do ecossistema (ADR
-0029).
+P1, as cinco tarefas em Web Component, React e Solid, e a tarefa base e
+mais duas em cada outro par; P2, funcionalidades e requisitos de
+orquestração acrescentados a cada tarefa; P3, o Formulário reescrito com
+a biblioteca de formulário do ecossistema (ADR 0029).
 _Avoid_: fase (é do roteiro); iteração; rodada sozinha onde puder ser a
 rodada de corte ou a de revisão do texto (ADRs 0022 e 0023)
 
 **Funcionalidade**:
-Mudança acrescentada a uma tarefa na P2 que muda o que o usuário vê, como
-o assistente em três passos do Formulário.
-_Avoid_: *feature*; recurso
+Mudança acrescentada a uma tarefa na P2 que muda o que o usuário percebe
+ou pode fazer, por qualquer sentido ou tecnologia assistiva: o assistente
+em três passos do Formulário, mas também o foco que se move ou a mensagem
+anunciada ao leitor de tela (requisito de acessibilidade, com o critério
+da WCAG).
+_Avoid_: *feature*; recurso; "o que o usuário vê" (exclui quem não vê a
+tela); requisito não funcional para a acessibilidade
 
 **Requisito de orquestração**:
 Mudança acrescentada a uma tarefa na P2 que deixa as cenas iguais e muda
@@ -120,7 +133,7 @@ _Avoid_: ambiente sozinho; ambiente para o sistema de edição das DCs
 O ambiente em que a interface roda e cujas APIs uma tecnologia usa: a web
 (TypeScript), o Android (Kotlin) e o desktop (C#). Cada par se classifica
 pela plataforma: a análise se faz na web, e o Android e o desktop
-conferem, no Formulário e na Lista, se as conclusões da web se repetem
+conferem, nas tarefas que implementam, se as conclusões da web se repetem
 (ADR 0012).
 _Avoid_: plataforma para o *framework*; replicação para o Android (rótulo
 de 2026-09-26, trocado em 2026-10-09); porte para o domínio de outra
@@ -128,9 +141,9 @@ plataforma (é o domínio dela, na linguagem dela)
 
 **Tecnologia**:
 Uma forma de implementar uma tarefa numa plataforma: na web, Web Component
-(a plataforma), React, Lit (só na Busca), Solid, Angular com *signals*
-(só na P1) e Angular com RxJS; no Android, Views (a plataforma) e Jetpack Compose; no desktop,
-Windows Forms e WPF. Cada uma impõe
+(a plataforma), React, Solid, Lit e Angular com *signals* (estes dois em
+três tarefas cada) e Angular com RxJS; no Android, Views (a plataforma) e
+Jetpack Compose; no desktop, Windows Forms e WPF. Cada uma impõe
 um modelo de programação e se escreve numa notação própria; a
 documentação a chama de biblioteca, *framework*, *toolkit* ou plataforma,
 e o texto usa esses nomes só para descrevê-la.
@@ -140,9 +153,9 @@ nativa (no Android, nativa é a interface do sistema, e as duas são)
 
 **Biblioteca**:
 Código reutilizável que a aplicação chama, sem lhe ceder o controle
-(Fayad e Schmidt, 1997): o React, como a documentação dele se chama, e as
-bibliotecas de formulário da P3. O critério falha quando a biblioteca recebe funções da
-aplicação: o React chama os componentes.
+(Fayad e Schmidt, 1997): o React, como a documentação dele se chama, e
+as bibliotecas de formulário da P3. O critério falha quando a biblioteca
+recebe funções da aplicação: o React chama os componentes.
 _Avoid_: biblioteca para o que se compara (modelo de programação) ou como
 nome genérico das tecnologias
 
@@ -159,8 +172,9 @@ o Compose se apresenta assim.
 _Avoid_: *toolkit* como sinônimo de biblioteca; kit de ferramentas
 
 **Implementação**:
-Uma tarefa numa tecnologia: na P1, 21 na web, 4 no Android e 4 no
-desktop; na P3, o Formulário reescrito em cada uma de sete tecnologias.
+Uma tarefa numa tecnologia: na P1, 33, sendo 21 na web, 6 no Android e 6
+no desktop; na P3, o Formulário reescrito em cada uma das nove
+tecnologias que o têm.
 _Avoid_: versão, exemplo
 
 **Apoio**:
@@ -169,10 +183,11 @@ Angular com RxJS.
 
 **Domínio**:
 As regras de uma tarefa que não dependem da interface (datas, e-mail,
-mensagens, catálogo), compartilhadas pelas implementações.
+mensagens, servidores simulados, fontes de dados, transições do quadro),
+compartilhadas pelas implementações.
 _Avoid_: lógica de negócio e regras de negócio, que pressupõem um negócio:
-o Contador tem estado e tela e nenhum domínio, e a validação de datas e de
-e-mail do Formulário não é regra de negócio de ninguém (a *business
+a validação de datas e de e-mail do Formulário não é regra de negócio de
+ninguém (a *business
 logic* de Karagkasidis, 2008, é o domínio aqui)
 
 **Teste de conformidade**:
@@ -213,15 +228,16 @@ ergonomia
 
 **Avaliação**:
 O ato de aplicar as DCs ao código das implementações, feito pelo autor,
-dimensão a dimensão e em cada rodada, sem participantes: uma avaliação analítica, feita por
-especialista (Blandford e Green, 2008), como a de Kiss (2014). Descreve o
-que cada notação facilita e o que dificulta, sem dizer qual é melhor,
-porque as dimensões "are not good or bad in themselves" (Blackwell e
-Green, 2003). Comparar fica para o objetivo e para a análise.
-_Avoid_: juízo; análise (a seção que compara os modelos de programação); avaliação para
-o que ela conclui (conclusão); avaliar no lugar de comparar (ADR 0014);
-*feature analysis* e triagem de Kitchenham (1996), que saíram em
-2026-10-08
+dimensão a dimensão e em cada rodada, sem participantes: uma avaliação
+analítica, feita por especialista (Blandford e Green, 2008), como a de
+Kiss (2014). Descreve o que cada notação facilita e o que dificulta, sem
+dizer qual é melhor, porque as dimensões "are not good or bad in
+themselves" (Blackwell e Green, 2003). Comparar fica para o objetivo e
+para a análise.
+_Avoid_: juízo; análise (a seção que compara os modelos de programação);
+avaliação para o que ela conclui (conclusão); avaliar no lugar de
+comparar (ADR 0014); *feature analysis* e triagem de Kitchenham (1996),
+que saíram em 2026-10-08
 
 **Conclusão**:
 O que a avaliação diz de um modelo de programação numa DC, pela notação de

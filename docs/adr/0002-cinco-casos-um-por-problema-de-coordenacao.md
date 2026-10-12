@@ -1,33 +1,66 @@
-# 0002. Cinco tarefas, uma por problema de coordenação, e a espera da Busca passa à P2
+# 0002. Cinco tarefas tiradas de interfaces reais: Formulário, Busca, Login com quarentena, Quadro de tarefas e Dados ao vivo
 
-2026-10-11. O projeto de 2017 tinha processamento de listas, um Contador e
-uma Reserva de voo, nenhum assíncrono. Cada tarefa exercita um problema
-de coordenação entre evento, estado e tela, tirado de interfaces reais, e
-o problema de coordenação tem dois eixos, a orquestração de eventos e o
-gerenciamento de estado (`CONTEXT.md`): Contador (evento → estado →
-tela), Formulário com validação (o *Flight Booker* do 7GUIs mais nome e
-e-mail: estado derivado e campos dependentes), Busca com sugestões
-(assincronia: respostas fora de ordem e cancelamento), Lista filtrável
-(lista derivada com `map`, `filter` e `sort`, ligada ao capítulo de
-listas) e Carrinho (estado compartilhado entre componentes). A espera de
-300 ms antes da busca (*debounce*) sai da P1 e volta na P2 como requisito
-de orquestração acrescentado, com a nova tentativa e as respostas
-guardadas; o controle de diálogo entra na P2 como assistente do
-Formulário, e não como sexta tarefa (ADR 0029).
+2026-10-12. O projeto de 2017 tinha processamento de listas, um Contador e
+uma Reserva de voo, nenhum assíncrono. Cada tarefa reproduz uma interface
+real com os problemas de coordenação que ela costuma ter, nos dois eixos,
+a orquestração de eventos e o gerenciamento de estado (`CONTEXT.md`), sem
+a mesma quantidade de cada eixo em cada tarefa, e com cada eixo forte em
+pelo menos duas:
 
-Em vez de: a Busca com a espera desde a P1 (decisão de 2026-09-25);
-exercita a assincronia inteira desde o começo, mas tira da P2 o requisito
-de orquestração mais típico da Busca (Meijer 2012, p. 72, com
-`Throttle`), que na P2 se mede como mudança acrescentada a um código que
-já existe.
+- Formulário com validação, o *Flight Booker* do 7GUIs mais nome e
+  e-mail: campos dependentes, estado derivado e o "tocado", no
+  gerenciamento de estado; e, já na P1, o envio que ignora o reenvio
+  enquanto espera a resposta, na orquestração (a política que o
+  `exhaustMap` do RxJS nomeia e o `useFormStatus` do React documenta);
+- Busca com sugestões: o termo repetido, o cancelamento e a resposta
+  antiga que nunca aparece, na orquestração; os estados da requisição e a
+  lista derivada, no gerenciamento de estado; a espera de 300 ms só volta
+  na P2;
+- Login com quarentena, o painel de Berry e Serrano (2020, p. 534-538): a
+  tentativa nova que cancela a anterior e o relógio da sessão, que vive
+  só enquanto a sessão vive, na orquestração;
+- Quadro de tarefas, um *kanban*: o estado compartilhado entre o
+  cabeçalho e três colunas, o limite de "Fazendo", que cruza colunas, e a
+  persistência, no gerenciamento de estado;
+- Dados ao vivo com pausa, cotações empurradas por uma fonte (Meijer
+  2012, p. 66-67): a assinatura presa à tela e a pausa, na orquestração.
+
+A orquestração é forte na Busca, no Login e nos Dados ao vivo; o
+gerenciamento de estado, no Formulário e no Quadro. O Contador, a Lista
+filtrável e o Carrinho saem da análise e ficam no repositório: o
+Contador não tem problema próprio, porque evento → estado → tela aparece
+em todas; a Lista é a menos densa em coordenação (a coordenação é 0,12
+das linhas, medido em 2026-10-12) e cabe quase toda no Carrinho; e o
+Carrinho dá lugar a um quadro em que desfazer existe de verdade (o
+Trello desfaz com Z e refaz com Shift+Z), mantendo o estado
+compartilhado e a persistência. Os requisitos da P2 estão no ADR 0029.
+
+Em vez de: Contador, Formulário, Busca, Lista filtrável e Carrinho, um
+por problema de coordenação (decisões de 2026-09-25 e 2026-10-11); já
+implementados em seis tecnologias, mas a orquestração vivia só na Busca,
+o Contador e a Lista somavam exemplos sem problema próprio, e o desfazer
+no Carrinho é forçado (no protótipo, "Finalizar compra" teve de apagar o
+histórico).
+Em vez de: o *Timer* do 7GUIs; barato e com precedente, mas no protótipo
+a coordenação ficou abaixo da montagem da tela (6 a 9 linhas contra 15 e
+16), a pausa acrescentada não separou React de Solid, e o próprio Kiss
+sugere trocá-lo por uma tarefa assíncrona (2014, p. 77, nota 26), que é a
+Busca.
+Em vez de: o *Circle Drawer* e o *Cells* do 7GUIs; o desfazer e o grafo
+de dependências dinâmico, mas o desenho e a grade dominariam o código nas
+três plataformas, e o *Cells* fica para as limitações.
 Em vez de: só Contador e Reserva de voo; mais barato, mas sem tarefa
 assíncrona, onde os *callbacks* mais sofrem.
-Em vez de: Contador, Formulário e Busca, com lista e carrinho opcionais; o
-autor pediu os cinco, pelo estado compartilhado e pela ligação com o
-capítulo de listas.
-Custo: cinco especificações, testes de conformidade e conjuntos de cenas a
-manter, e cada requisito da P2 muda a especificação e o teste da tarefa;
-a Busca da P1 fica com menos assincronia que a de interfaces reais.
+Custo: três tarefas novas a especificar, testar e implementar em várias
+tecnologias, com cenas e capturas; o código do Contador, da Lista e do
+Carrinho fica fora da análise, e com ele a Lista do Android (`RecyclerView`
+contra `LazyColumn`), cujo contraste passa ao Quadro; a introdução e o
+`cases.org` citam as tarefas antigas; com os eixos desiguais, a conclusão
+sobre cada eixo vem de duas ou três tarefas; a Busca, o Login e os Dados
+ao vivo se sobrepõem no cancelamento, que cada um faz com uma política
+diferente.
 
-Fontes: 7GUIs (`kiss2014`); `docs/metodo-da-avaliacao.md`, seção 10;
-commit `25cf4dd`.
+Fontes: 7GUIs (`kiss2014`, p. 56 e 77); Berry e Serrano (2020); Meijer
+(2012); protótipos e medidas de 2026-10-12 em
+`tmp/mergulho-tarefas-2026-10-12/` e `tmp/prototipos-tarefas-2026-10-12/`
+(fora do git); `docs/metodo-da-avaliacao.md`, seção 10; commit `25cf4dd`.

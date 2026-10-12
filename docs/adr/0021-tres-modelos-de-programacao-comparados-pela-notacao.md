@@ -99,8 +99,8 @@ e "declarativa por reatividade granular".
 Custo: o delineamento se afasta da forma usual das DCs, porque cada coluna é
 uma categoria que agrupa tecnologias, e não um artefato que se lê; a
 conclusão sobre um modelo de programação generaliza a partir de uma ou
-duas tecnologias (no declarativo por re-renderização na web, o React e,
-só na Busca, o Lit, ADR 0013), e a célula registra quando Solid e
+duas tecnologias (na web, cada declarativo tem a segunda tecnologia em
+três das cinco tarefas, ADR 0013), e a célula registra quando Solid e
 Angular, ou React e Lit, divergem (ADR 0017); as DCs
 "have little to say about these high-level choices" (Green e Petre 1996,
 p. 139), e o trabalho compara os modelos de programação pelos detalhes

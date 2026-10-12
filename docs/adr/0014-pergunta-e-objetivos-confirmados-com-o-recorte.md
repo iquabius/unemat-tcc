@@ -1,39 +1,37 @@
 # 0014. A pergunta e os objetivos comparam três modelos de programação pela usabilidade das notações, segundo as Dimensões Cognitivas, com uma subpergunta para a P2 e outra para a P3, e "larga escala" vira motivação
 
-2026-10-11. A introdução de 2017 trazia a pergunta em três formulações,
+2026-10-12. A introdução de 2017 trazia a pergunta em três formulações,
 uma sobre software em larga escala, que casos pequenos não respondem, e
 um objetivo geral sem critério. A pergunta: pelas Dimensões Cognitivas
-de Notações, como difere a usabilidade da
-notação com que se programam interfaces gráficas em cada tecnologia entre
-os três modelos de programação — o imperativo com *callbacks*, o
-declarativo por re-renderização e o declarativo por atualização granular?
-A pergunta tem a forma descritivo-comparativa de Easterbrook et al.
-(2008), "How does X differ from Y?", e pede diferenças, e não um juízo de
-qual é melhor, como as próprias DCs, que "are not good or bad in
-themselves" (Blackwell e Green 2003, cópia). A pergunta
-diz a unidade comparada, o modelo de programação, e onde se observa a
-evidência, a notação de cada tecnologia (ADR 0021); a notação é a do
-código que programa a interface, e não o que o usuário vê na tela.
-A pergunta principal tem duas subperguntas, uma por rodada estreita
-(ADR 0029): como a diferença entre os modelos de programação muda quando
-a mesma funcionalidade ou o mesmo requisito de orquestração se acrescenta
-a todas as implementações (P2), e quando cada tecnologia usa a biblioteca
-de formulário do seu ecossistema (P3); a redação é do autor, na
-introdução (tcc-xep). "Larga escala" fica só na motivação. O objetivo geral é comparar,
-segundo as DCs, a usabilidade das notações dos três modelos de
-programação em interfaces típicas da web, em TypeScript, e em parte delas
-no Android, em Kotlin, e no desktop, em C# (cada plataforma pelo nome, ADR
-0012); os específicos: implementar as cinco tarefas com Web Component,
-React, Solid e Angular com *signals*, a Busca também em Lit, e
-Formulário e Lista com Views e
-Compose no Android e com Windows Forms e WPF no desktop, e estendê-las na
-P2 e na P3, sem o Angular (ADR 0013); avaliar as implementações pelas 14 DCs em cada rodada
-(ADR 0012); sintetizar,
-por problema de coordenação, o que cada modelo de programação facilita e
-o que dificulta. Os programas de processamento de listas, que demonstram os
-conceitos de PF, vão para a fundamentação (`prog.org`): fundamentar
-conceitos é função de uma seção do texto, e não um passo para o objetivo
-geral.
+de Notações, como difere a usabilidade da notação com que se programam
+interfaces gráficas em cada tecnologia entre os três modelos de
+programação — o imperativo com *callbacks*, o declarativo por
+re-renderização e o declarativo por atualização granular? A pergunta tem
+a forma descritivo-comparativa de Easterbrook et al. (2008), "How does X
+differ from Y?", e pede diferenças, e não um juízo de qual é melhor,
+como as próprias DCs, que "are not good or bad in themselves" (Blackwell
+e Green 2003, cópia). A pergunta diz a unidade comparada, o modelo de
+programação, e onde se observa a evidência, a notação de cada tecnologia
+(ADR 0021); a notação é a do código que programa a interface, e não o
+que o usuário vê na tela. A pergunta principal tem duas subperguntas,
+uma por rodada estreita (ADR 0029): como a diferença entre os modelos de
+programação muda quando a mesma funcionalidade ou o mesmo requisito de
+orquestração se acrescenta a todas as implementações (P2), e quando cada
+tecnologia usa a biblioteca de formulário do seu ecossistema (P3); a
+redação é do autor, na introdução (tcc-xep). "Larga escala" fica só na
+motivação. O objetivo geral é comparar, segundo as DCs, a usabilidade
+das notações dos três modelos de programação em interfaces típicas da
+web, em TypeScript, e em parte delas no Android, em Kotlin, e no
+desktop, em C# (cada plataforma pelo nome, ADR 0012); os específicos:
+implementar as cinco tarefas com Web Component, React e Solid, três
+delas também em Lit e em Angular com *signals*, e três no Android, com
+Views e Compose, e no desktop, com Windows Forms e WPF, e estendê-las na
+P2 e na P3 (ADRs 0013 e 0029); avaliar as implementações pelas 14 DCs em
+cada rodada (ADR 0012); sintetizar, por problema de coordenação, o que
+cada modelo de programação facilita e o que dificulta. Os programas de
+processamento de listas, que demonstram os conceitos de PF, vão para a
+fundamentação (`prog.org`): fundamentar conceitos é função de uma seção
+do texto, e não um passo para o objetivo geral.
 
 Em vez de: uma pergunta só, sem subperguntas (decisão de 2026-10-09);
 mais curta, mas a P2 e a P3 ficariam sem pergunta a que responder, e a
