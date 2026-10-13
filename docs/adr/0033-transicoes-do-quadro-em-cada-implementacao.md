@@ -31,11 +31,11 @@ Web Component e do Solid pede uma cópia para guardar o histórico; o
 limite de "Fazendo" passa a se garantir só pelos botões desabilitados,
 sem a guarda que o `reduzir` tinha; e a coluna de onde a tarefa sai vem
 do componente que desenha o botão, e não de uma busca em todas as
-colunas, como no `reduzir`, de modo que uma coluna errada apagaria outra
-tarefa no Web Component e no Solid (`splice` com o índice -1) e
-duplicaria a tarefa no React e no Angular; o tipo do quadro deixa de ser
-só de leitura nas quatro, e o React e o Angular perdem o aviso do
-compilador contra alterá-lo no lugar.
+colunas, como no `reduzir`: com uma coluna errada, a tarefa ficaria onde
+está, e apareceria também no destino ao mover, e no Web Component e no
+Solid o `splice` com o índice -1 ainda tiraria a última tarefa da coluna
+errada; o tipo do quadro deixa de ser só de leitura nas quatro, e o React
+e o Angular perdem o aviso do compilador contra alterá-lo no lugar.
 
 Fontes: `docs/metodo-da-avaliacao.md`, linha do Quadro com desfazer;
 ADRs 0002, 0010 e 0013; tarefas tcc-2ui8 e tcc-i7qx.
