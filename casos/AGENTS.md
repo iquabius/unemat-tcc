@@ -170,8 +170,8 @@ autor em 2026-10-12): a tarefa do bd depende da tcc-xc2y.
   DOM*, para o `estilo.css` valer), e o que a tarefa abre no
   `connectedCallback` e fecha no `disconnectedCallback` herdados, que
   chamam o `super`. O estado da tela leva `@state() accessor`; o da
-  coordenação (a assinatura, o `AbortController`) fica em campo comum. O
-  `@click` recebe o método, que o Lit chama com o elemento como `this`.
+  coordenação (a assinatura, o `AbortController`) fica em campo comum. Um
+  método passado ao `@click` roda com o elemento como `this`, sem `bind`.
 - Os decoradores do Lit são os padrão do TypeScript, com `@customElement`
   no lugar do `customElements.define`. A Vite 8 os deixa sem converter, e
   o navegador ainda não os entende: o `vite.config.ts` do Lit os converte
@@ -179,8 +179,10 @@ autor em 2026-10-12): a tarefa do bd depende da tcc-xc2y.
   (decisão do autor em 2026-10-13, contra os decoradores legados do
   `experimentalDecorators`, que rodam sem Babel, e contra o `static
   properties`, sem decoradores). O `@babel/core` do Lit aceita a versão que
-  o `@angular/build` fixa, para o Lit não subir o Babel do Angular no
-  `package-lock.json`.
+  o `@angular/build` fixa, para o `package-lock.json` não ganhar um segundo
+  `@babel/core`; o plugin dos decoradores ainda sobe o `@babel/parser` e o
+  `@babel/traverse` que o Angular usa (de 8.0.6 para 8.0.7 em 2026-10-13),
+  e por isso a mudança no Babel confere as capturas do Angular.
 
 ## Teste de conformidade na web
 
