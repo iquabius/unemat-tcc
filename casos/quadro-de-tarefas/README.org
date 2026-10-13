@@ -4,8 +4,7 @@ Quadro de tarefas (/kanban/) com quatro componentes que leem e alteram o
 mesmo quadro: o cabeçalho e três colunas, instâncias do mesmo componente.
 É a tarefa do estado compartilhado entre componentes, com um limite que
 cruza colunas e o quadro salvo no =localStorage=, que acompanha as outras
-abas. O desfazer e a atualização
-otimista entram na P2.
+abas. O desfazer e a atualização otimista entram na P2.
 
 As regras que não dependem de interface ficam em =dominio.ts=: as
 tarefas, as colunas, a transição do quadro (=reduzir=), os textos e o
@@ -27,5 +26,5 @@ viva (OpenSpec); uma mudança entra como /delta spec/ em
   confere a ligação. Com uma implementação aberta no navegador, cole o
   arquivo no console. Ele apaga o quadro salvo no começo; para abrir a
   tarefa de novo usa o botão que a esconde e a mostra, e para simular
-  outra aba dispara o evento =storage=. As cenas das capturas ficam
-  em =cenas.mts=.
+  outra aba dispara o evento =storage=. As cenas das capturas ficam em
+  =cenas.mts=.
