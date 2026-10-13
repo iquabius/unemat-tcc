@@ -15,7 +15,7 @@ export const INTERVALO_MS = 1000;
 
 export const ATIVOS: readonly Ativo[] = [
   { codigo: "PETR4", base: 38, limite: 38.5 },
-  { codigo: "VALE3", base: 61, limite: 62 },
+  { codigo: "VALE3", base: 61, limite: 62.34 },
   { codigo: "ITUB4", base: 34, limite: 34.5 },
   { codigo: "WEGE3", base: 52, limite: 53 },
 ];

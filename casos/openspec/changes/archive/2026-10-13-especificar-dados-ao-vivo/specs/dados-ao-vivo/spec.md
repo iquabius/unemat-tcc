@@ -11,7 +11,7 @@ página e cancela a assinatura ao pausar e ao sair dela.
 A tarefa deve abrir com o painel na página e o botão "Esconder painel". O
 painel assina a fonte ao entrar na página e mostra uma linha por ativo, na
 ordem PETR4, VALE3, ITUB4 e WEGE3, com o código, o preço, a variação e o
-limite ("R$ 38,50", "R$ 62,00", "R$ 34,50" e "R$ 53,00"). Antes do primeiro
+limite ("R$ 38,50", "R$ 62,34", "R$ 34,50" e "R$ 53,00"). Antes do primeiro
 lote, o preço e a variação mostram "—", a situação mostra "Aguardando
 cotações…" e o botão de pausa diz "Pausar".
 
@@ -62,7 +62,7 @@ destacada, e só enquanto o preço ficar lá.
 
 - **DADO** o painel mostrado às 10:00:00, sem lote
 - **QUANDO** chega o primeiro lote
-- **ENTÃO** só a linha do VALE3, a "R$ 62,34" com o limite "R$ 62,00", está destacada
+- **ENTÃO** só a linha do VALE3, a "R$ 62,34", igual ao limite, está destacada
 
 #### Scenario: 5 ativo que volta abaixo do limite perde o destaque
 
