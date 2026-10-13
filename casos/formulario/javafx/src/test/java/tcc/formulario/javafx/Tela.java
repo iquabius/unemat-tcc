@@ -52,10 +52,10 @@ class Tela {
         naTela(() -> campo(campo).setText(texto));
     }
 
-    // Como o blur da web: o foco entra no campo e passa para
-    // o tipo de voo, que não é campo de texto, para que só este campo fique
-    // tocado. (A Tela do Android passa o foco a outro campo, que também fica
-    // tocado se o tinha antes.)
+    // Como o blur da web: o foco entra no campo e passa para o tipo de voo,
+    // que não é campo de texto, para que só este campo fique tocado. (A Tela
+    // do Android passa o foco a outro campo, que também fica tocado se o
+    // tinha antes.)
     void sair(Campo campo) {
         naTela(() -> {
             campo(campo).requestFocus();

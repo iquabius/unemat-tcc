@@ -37,7 +37,7 @@ public:
 
     QStringList nomes() { return textos("nome"); }
 
-    // Com espaço comum no lugar do não separável, como o teste da web.
+    // Com espaço comum no lugar do não separável, como o texto() da web.
     QString primeiroPreco() { return textos("preco").value(0).replace(QChar(0x00A0), ' '); }
 
     QString contagem() { return janela.findChild<QLabel *>("contagem")->text(); }
