@@ -193,8 +193,10 @@ Angular com RxJS, congelado em `casos/fora-da-analise/` com as regras de
 
 **Domínio**:
 As regras de uma tarefa que não dependem da interface (datas, e-mail,
-mensagens, servidores simulados, fontes de dados, transições do quadro),
-compartilhadas pelas implementações.
+mensagens, servidores simulados, fontes de dados, o limite do quadro),
+compartilhadas pelas implementações. Mover e arquivar no Quadro ficam em
+cada implementação, porque escrever uma mudança de estado é parte da
+notação (ADR 0033).
 _Avoid_: lógica de negócio e regras de negócio, que pressupõem um negócio:
 a validação de datas e de e-mail do Formulário não é regra de negócio de
 ninguém (a *business
