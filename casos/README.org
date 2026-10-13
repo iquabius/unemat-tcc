@@ -216,3 +216,25 @@ tecnologias) está nas decisões em [[file:../docs/adr/][docs/adr/]].
   As imagens web dependem das fontes instaladas: geradas noutra máquina,
   podem mudar sem que o código tenha mudado. As do Android usam as fontes
   que o Robolectric traz.
+
+* Especificação das tarefas (OpenSpec)
+
+  A especificação de cada tarefa fica em
+  =casos/openspec/specs/<tarefa>/spec.md=, no esquema /spec-driven/ do
+  [[https://openspec.dev][OpenSpec]] (1.14.1, fixado em =package.json=): requisitos e cenários,
+  em português, com os cabeçalhos que o OpenSpec lê em inglês. Cada
+  mudança na especificação é uma pasta em =casos/openspec/changes/=, com a
+  proposta e o /delta spec/; arquivada, ela se funde na especificação viva
+  e vai para =changes/archive/=. A convenção está no
+  [[file:AGENTS.md][casos/AGENTS.md]].
+
+  #+begin_src sh
+  npm run conferir-especificacao          # validate e cenários × testes
+  npm run openspec -- new change <nome>   # cria a pasta de uma mudança
+  npm run openspec -- show <nome>         # mostra uma spec ou mudança
+  npm run openspec -- archive <nome> --yes
+  #+end_src
+
+  O =npm run openspec= desliga a telemetria do OpenSpec
+  (~OPENSPEC_TELEMETRY=0~), que vem ligada; o comando =openspec= direto a
+  envia.
