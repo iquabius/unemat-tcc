@@ -1,0 +1,32 @@
+#+TITLE: Dados ao vivo com pausa
+
+Painel de cotações que uma fonte atualiza sozinha, sem o usuário pedir: o
+caso /push/ de Meijer (2012, p. 66-67), que cita as cotações de bolsa
+empurradas ao cliente e os /WebSockets/ entre as fontes. É a tarefa da assinatura presa à tela: o painel assina a
+fonte ao entrar na página e cancela a assinatura ao pausar e ao sair dela.
+A reconexão, a carteira e a frequência de atualização entram na P2.
+
+A fonte é simulada em =dominio.ts=, com a forma de um /WebSocket/ ou de um
+=EventSource=: =assinarCotacoes(aoReceber)= empurra um lote a cada segundo
+e devolve a função que cancela a assinatura, o =Closable= de Meijer. O
+preço depende só do segundo do relógio em que o lote sai, como num servidor
+real, para os testes e as capturas se repetirem. =contarAssinantes()= diz
+quantas assinaturas estão abertas, para a limpeza ao sair da tela se
+conferir pela contagem.
+
+As regras, as mensagens e os cenários que o teste de conformidade confere
+estão em =casos/openspec/specs/dados-ao-vivo/spec.md=, a especificação viva
+(OpenSpec); uma mudança entra como /delta spec/ em =casos/openspec/changes/=
+(=casos/AGENTS.md=).
+
+* Teste
+
+  O =teste-de-conformidade.js= percorre a especificação: cada verificação
+  tem o nome de um cenário do =spec.md=, e =npm run conferir-especificacao=
+  confere a ligação. Com uma implementação aberta no navegador, cole o
+  arquivo no console. O teste troca os temporizadores e o =Date.now= da
+  página por um relógio falso, que só anda quando ele manda, e por isso
+  roda em menos de um segundo; como a assinatura da abertura usa os
+  temporizadores de verdade, ele começa escondendo o painel e o mostrando
+  de novo. Depois do teste, recarregue a página para os lotes voltarem. As
+  cenas das capturas ficam em =cenas.mts=.

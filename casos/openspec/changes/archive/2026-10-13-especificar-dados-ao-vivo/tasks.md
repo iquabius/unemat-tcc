@@ -2,17 +2,17 @@
 
 ## 1. Domínio, teste de conformidade e especificação viva
 
-- [ ] 1.1 Escrever `dados-ao-vivo/dominio.ts` com os ativos, as mensagens,
+- [x] 1.1 Escrever `dados-ao-vivo/dominio.ts` com os ativos, as mensagens,
   a fonte simulada (`assinarCotacoes`, um lote a cada 1 s, preço pelo
   segundo do relógio), a formatação do preço e da variação, a regra do
   destaque e `contarAssinantes()` em `globalThis`; verificar com `tsc` numa
   implementação.
-- [ ] 1.2 Escrever `dados-ao-vivo/teste-de-conformidade.js`, um `conferir`
+- [x] 1.2 Escrever `dados-ao-vivo/teste-de-conformidade.js`, um `conferir`
   por cenário deste delta, com o relógio falso do Login acrescido do
   `Date.now`; verificar com `npm run conferir-especificacao`.
-- [ ] 1.3 Escrever `dados-ao-vivo/README.org` com a apresentação, apontando
+- [x] 1.3 Escrever `dados-ao-vivo/README.org` com a apresentação, apontando
   para o `spec.md`, sem repetir regra nem mensagem.
-- [ ] 1.4 Arquivar a mudança no mesmo commit
+- [x] 1.4 Arquivar a mudança no mesmo commit
   (`npm run openspec -- archive especificar-dados-ao-vivo --yes`) e trocar
   o título do `spec.md` pelo nome da tarefa; verificar com
   `npm run conferir-especificacao`, que tem de passar com 15 cenários nos
