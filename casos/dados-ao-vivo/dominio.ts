@@ -27,14 +27,16 @@ export const MENSAGENS = {
 
 // Variação sobre a base, em %, que cada ativo percorre com o relógio, num
 // ciclo de 8 s: o preço depende só do segundo em que o lote sai, como num
-// servidor real.
+// servidor real. Cada ativo anda 2 s à frente do anterior no ciclo, para
+// os quatro não subirem e descerem juntos.
 const PERCENTUAIS = [0, 0.6, 1.4, 2.2, 1.0, -0.4, -1.2, -0.6];
+const DEFASAGEM_S = 2;
 
 export function precosEm(instante: number): Lote {
   const segundo = Math.floor(instante / 1000);
   const lote: Record<string, number> = {};
   ATIVOS.forEach((ativo, i) => {
-    const p = PERCENTUAIS[(segundo + 2 * i) % PERCENTUAIS.length];
+    const p = PERCENTUAIS[(segundo + DEFASAGEM_S * i) % PERCENTUAIS.length];
     lote[ativo.codigo] = Math.round(ativo.base * (100 + p)) / 100;
   });
   return lote;
