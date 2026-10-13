@@ -334,5 +334,5 @@ cada pasta, por que saiu e como rodá-la no commit anterior ao movimento.
   `npm run conferir-especificacao` não o alcançam, e a contagem de linhas
   da concisão (ADR 0012), quando for escrita, também o deixa de fora.
 - Código que sai da análise vai para lá com `git mv`, num commit só de
-  movimento, com as capturas da tecnologia, e entra na tabela do
-  `README.org` de lá com o ADR que o tirou.
+  movimento, com as capturas da tecnologia, e ganha um item na lista do
+  `README.org` de lá, com o ADR que o tirou.
