@@ -124,25 +124,30 @@ orquestração da P2.
      `REMOVED` só com o nome, `**Reason**` e `**Migration**`; `RENAMED`
      com `FROM:`/`TO:`, só para o nome do requisito. Uma regra que muda
      várias tarefas é uma mudança só, com um delta por tarefa;
-   - `tasks.md`: só o teste de conformidade e o arquivamento, com a
+   - `tasks.md`: só o teste de conformidade, os arquivos da tarefa que
+     citam a regra (como o `README.org`) e o arquivamento, com a
      conferência de cada item; as tecnologias ficam na tarefa do bd e na
      seção `## Workflow follow-up`;
    - sem `design.md`: decisão de método vai para um ADR.
 2. `npm run conferir-especificacao` e commit da proposta, que o autor
    revisa antes do resto.
 3. Um commit que muda o teste de conformidade em todas as plataformas que
-   o têm em `casos/<tarefa>/`, inclusive as fora da análise que ainda
-   estejam lá (Swing, JavaFX, Qt), porque o `conferir-especificacao`
-   confere todos, e arquiva a mudança: `npm run openspec -- archive <nome> --yes`
+   o têm em `casos/<tarefa>/`, e os arquivos da tarefa que citam a regra,
+   e arquiva a mudança: `npm run openspec -- archive <nome> --yes`
    funde o delta em `specs/` e move a pasta para
    `changes/archive/AAAA-MM-DD-<nome>/`. Assim a especificação viva diz
    sempre o que os testes conferem, e as implementações ainda não mudadas
    falham no teste até o commit delas.
 4. Um commit por tecnologia, na mesma ordem em todas (ADR 0029), cada um
    passando no teste de conformidade e com as capturas conferidas. As
-   implementações fora da análise que ainda estejam em `casos/<tarefa>/`
-   (jQuery, Angular com RxJS, Swing, JavaFX, Qt) mudam por último, para
-   as capturas web seguirem idênticas e os testes delas passarem.
+   implementações web fora da análise que ainda estejam em
+   `casos/<tarefa>/` (jQuery, Angular com RxJS) mudam por último, para as
+   capturas web seguirem idênticas.
+
+Mudança que muda um teste de conformidade que também existe fora da
+análise (o Formulário em Swing, JavaFX e Qt) espera a tcc-xc2y tirar esse
+código de `casos/<tarefa>/`, em vez de portá-la para ele (decisão do
+autor em 2026-10-12): a tarefa do bd depende da tcc-xc2y.
 
 ## Exemplo ou caso novo
 
