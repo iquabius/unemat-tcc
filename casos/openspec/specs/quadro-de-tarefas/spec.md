@@ -18,10 +18,11 @@ Sem quadro salvo, o quadro deve abrir com as seis tarefas do domínio:
 #### Scenario: 1 abre com o quadro inicial
 
 - **DADO** nada salvo no `localStorage`
-- **QUANDO** a tarefa abre
+- **QUANDO** o quadro abre
 - **ENTÃO** as colunas mostram "A fazer (3)", "Fazendo (1/2)" e "Feito (2)", com as tarefas nessa ordem
 - **E** o cabeçalho mostra "Meu quadro" e "Quadro: 6 tarefas · 2 feitas"
 - **E** a situação está vazia
+- **E** o `localStorage` guarda `{"a-fazer":[1,2,3],"fazendo":[4],"feito":[5,6]}` na chave `quadro`
 
 ### Requirement: Mover
 
@@ -158,12 +159,12 @@ arquivada.".
 
 ### Requirement: Salvar
 
-Ao abrir e a cada mudança, a tarefa deve gravar o quadro no
-`localStorage`, na chave `quadro`, com os ids das tarefas de cada coluna,
-na ordem: `{"a-fazer":[2,3],"fazendo":[1],"feito":[5,6,4]}`. Ao abrir, ela
-mostra o quadro salvo; conteúdo inválido (JSON quebrado, coluna ausente, id
-repetido ou desconhecido, "Fazendo" acima do limite) vira o quadro
-inicial, que ela grava no lugar.
+Ao abrir e a cada mudança, o quadro deve ser gravado no `localStorage`,
+na chave `quadro`, com os ids das tarefas de cada coluna, na ordem:
+`{"a-fazer":[2,3],"fazendo":[1],"feito":[5,6,4]}`. Ao abrir, aparece o
+quadro salvo; conteúdo inválido (JSON quebrado, coluna ausente, id repetido
+ou desconhecido, "Fazendo" acima do limite) vira o quadro inicial, gravado
+no lugar.
 
 #### Scenario: 5 salva no localStorage
 
@@ -181,7 +182,7 @@ inicial, que ela grava no lugar.
 #### Scenario: 10 conteúdo salvo inválido vira o inicial
 
 - **DADO** no `localStorage`, um de cada vez, `{`, `{"a-fazer":[1,1],"fazendo":[],"feito":[]}`, `{"a-fazer":[1,9],"fazendo":[],"feito":[]}`, `{"a-fazer":[1],"fazendo":[]}` e `{"a-fazer":[],"fazendo":[1,2,3],"feito":[]}`
-- **QUANDO** a tarefa abre, pelo "Esconder quadro" e o "Mostrar quadro"
+- **QUANDO** o quadro abre de novo, pelo "Esconder quadro" e o "Mostrar quadro"
 - **ENTÃO** o cabeçalho mostra "Quadro: 6 tarefas · 2 feitas" nas cinco vezes
 - **E** o `localStorage` guarda `{"a-fazer":[1,2,3],"fazendo":[4],"feito":[5,6]}` nas cinco vezes
 
@@ -202,7 +203,7 @@ ouvinte do evento é do domínio, `ouvirOutrasAbas`.
 #### Scenario: 8 limpeza do localStorage em outra aba volta ao inicial
 
 - **DADO** o quadro que outra aba gravou, com "Gerar as capturas" em "Fazendo"
-- **QUANDO** outra aba limpa o `localStorage` (`localStorage.clear()`, evento com a chave nula)
+- **QUANDO** outra aba limpa o `localStorage`, e o evento chega com a chave nula
 - **ENTÃO** as colunas mostram as tarefas do quadro inicial
 
 #### Scenario: 8 conteúdo inválido de outra aba vira o inicial

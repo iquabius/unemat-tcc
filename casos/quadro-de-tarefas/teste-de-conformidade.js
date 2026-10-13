@@ -65,7 +65,9 @@
     await escoar();
   }
   async function limparEmOutraAba() {
-    localStorage.clear();
+    // Só a chave do quadro: o clear() de verdade apagaria as de outras
+    // tarefas servidas na mesma origem.
+    localStorage.removeItem("quadro");
     window.dispatchEvent(
       new StorageEvent("storage", {
         key: null,
@@ -102,6 +104,7 @@
       texto($(".cabecalho strong")),
       resumo(),
       situacao(),
+      localStorage.getItem("quadro"),
     ],
     [
       ["A fazer (3)", "Fazendo (1/2)", "Feito (2)"],
@@ -111,6 +114,7 @@
       "Meu quadro",
       "Quadro: 6 tarefas · 2 feitas",
       "",
+      '{"a-fazer":[1,2,3],"fazendo":[4],"feito":[5,6]}',
     ],
   );
 
