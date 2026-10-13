@@ -186,6 +186,18 @@ Não aparecem no texto: React, Angular, Svelte, GUI, DOM (busca por palavra
 inteira em 2026-10-03). O artigo não cita a tese de Lima (2024); cita o
 estudo de mineração (MSR 2022, [18]) e o UAX ([50]).
 
+### 6.2 As DCs aplicadas a APIs: cada biblioteca como notação (tcc-fua, lidas em 2026-10-13)
+
+Clarke e Becker (2003, p. 359 e 364-365), Clarke (2004; 2005) e Stylos,
+Clarke e Myers (2006, p. 137-138) tratam cada API como uma notação, com
+dimensões reescritas para ela; Zimmerle e Gama (2025, p. 1508) tomam a
+premissa e medem por questionário. Nenhuma avalia *framework* de
+interface gráfica. Dá precedente à alternativa "uma notação por
+tecnologia", que o ADR 0021 recusou. Os trechos com página, conferidos
+no PDF, e o erro nas referências de Blackwell, Petre e Church (2019,
+p. 60) estão em `docs/metodo-da-avaliacao.md`, seção 13.2; onde entram
+no texto é decisão do autor.
+
 ## 7. Trabalhos de conclusão de bacharelado (levantados em 2026-10-10)
 
 Os trabalhos de conclusão de bacharelado em computação no tema do TCC,
