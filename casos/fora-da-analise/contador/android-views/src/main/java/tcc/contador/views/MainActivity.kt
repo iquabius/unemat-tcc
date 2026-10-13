@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
         val valor = findViewById<TextView>(R.id.valor)
         valor.text = contador.toString()
 
-        // Como $("#incrementar").on("click", ...): altera o estado e a tela.
+        // Como $("#incrementar").on("click", ...): altera o estado e atualiza a tela.
         findViewById<Button>(R.id.incrementar).setOnClickListener {
             contador = contador + 1
             valor.text = contador.toString()
