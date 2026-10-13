@@ -125,7 +125,7 @@ class ColunaDoQuadro extends ComponenteDoQuadro {
       const id = Number(botao.dataset.id);
       if (botao.dataset.acao === "arquivar") {
         this.loja.despachar({ tipo: "arquivar", id });
-      } else {
+      } else if (botao.dataset.acao === "mover") {
         const para = botao.dataset.para as Coluna;
         this.loja.despachar({ tipo: "mover", id, para });
       }
