@@ -1,7 +1,8 @@
 // Tarefas, colunas, regras, textos e o quadro salvo do Quadro de tarefas,
-// iguais em todas as implementações web. A transição do quadro (reduzir) é
-// pura; carregar, salvar e ouvir as outras abas tocam o localStorage, e cada
-// implementação decide quando chamá-los.
+// iguais em todas as implementações web. Mover e arquivar ficam em cada
+// implementação, no idioma da tecnologia (ADR 0033); carregar, salvar e
+// ouvir as outras abas tocam o localStorage, e cada implementação decide
+// quando chamá-los.
 
 export type Coluna = "a-fazer" | "fazendo" | "feito";
 
@@ -43,13 +44,9 @@ export const tarefas: readonly Tarefa[] = [
  */
 export type EstadoDoQuadro = Record<Coluna, number[]>;
 
-export type Acao =
-  | { tipo: "mover"; id: number; para: Coluna }
-  | { tipo: "arquivar"; id: number }
-  | { tipo: "outra-aba"; quadro: EstadoDoQuadro };
-
-// Um objeto novo a cada chamada: o store do Solid altera no lugar o objeto
-// que recebe, e uma constante compartilhada deixaria de ser o inicial.
+// Um objeto novo a cada chamada: a loja do Web Component e o store do Solid
+// alteram no lugar o quadro que recebem, e uma constante compartilhada
+// deixaria de ser o inicial.
 const inicial = (): EstadoDoQuadro => ({
   "a-fazer": [1, 2, 3],
   fazendo: [4],
@@ -76,38 +73,6 @@ export function vizinhas(coluna: Coluna): {
 /** Uma tarefa pode entrar na coluna se ela não for "Fazendo" cheia. */
 export function cabeEm(estado: EstadoDoQuadro, coluna: Coluna): boolean {
   return coluna !== "fazendo" || estado.fazendo.length < LIMITE_FAZENDO;
-}
-
-const semA = (estado: EstadoDoQuadro, id: number): EstadoDoQuadro => ({
-  "a-fazer": estado["a-fazer"].filter((t) => t !== id),
-  fazendo: estado.fazendo.filter((t) => t !== id),
-  feito: estado.feito.filter((t) => t !== id),
-});
-
-export function reduzir(estado: EstadoDoQuadro, acao: Acao): EstadoDoQuadro {
-  switch (acao.tipo) {
-    case "mover": {
-      if (!cabeEm(estado, acao.para)) return estado;
-      const sem = semA(estado, acao.id);
-      return { ...sem, [acao.para]: [...sem[acao.para], acao.id] };
-    }
-    case "arquivar":
-      return semA(estado, acao.id);
-    case "outra-aba":
-      return acao.quadro;
-  }
-}
-
-/** O texto da situação depois da ação. */
-export function anunciar(acao: Acao): string {
-  switch (acao.tipo) {
-    case "mover":
-      return anunciarMovimento(acao.id, acao.para);
-    case "arquivar":
-      return anunciarArquivamento(acao.id);
-    case "outra-aba":
-      return MENSAGENS.outraAba;
-  }
 }
 
 /** A situação depois de mover a tarefa para a coluna. */

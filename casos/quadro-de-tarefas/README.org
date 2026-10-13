@@ -7,12 +7,13 @@ cruza colunas e o quadro salvo no =localStorage=, que acompanha as outras
 abas. O desfazer e a atualização otimista entram na P2.
 
 As regras que não dependem de interface ficam em =dominio.ts=: as
-tarefas, as colunas, a transição do quadro (=reduzir=), os textos e o
-quadro salvo. O ouvinte das outras abas também fica no domínio,
-=ouvirOutrasAbas(despachar)=, que devolve a função que o fecha, para a
-limpeza ao sair da tela se conferir pela contagem: =contarAbertos()= diz
-quantos ouvintes estão abertos. Cada implementação decide onde o quadro
-mora, como os componentes são avisados das alterações e quando salvar.
+tarefas, as colunas, o limite, os textos e o quadro salvo. O ouvinte das
+outras abas também fica no domínio, =ouvirOutrasAbas(aoGravar)=, que
+devolve a função que o fecha, para a limpeza ao sair da tela se conferir
+pela contagem: =contarAbertos()= diz quantos ouvintes estão abertos. Cada
+implementação decide onde o quadro mora, como mover e arquivar o alteram,
+no lugar ou por cópia (ADR 0033), como os componentes são avisados das
+alterações e quando salvar.
 
 As regras, as mensagens e os cenários que o teste de conformidade confere
 estão em =casos/openspec/specs/quadro-de-tarefas/spec.md=, a especificação
