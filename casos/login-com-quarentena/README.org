@@ -1,0 +1,29 @@
+#+TITLE: Login com quarentena
+
+Painel de login com nome, senha, "Entrar" e "Sair", cuja sessão expira
+sozinha (o /login panel/ de Berry e Serrano, 2020, p. 534-538). É a tarefa
+das atividades que se cancelam: uma tentativa nova encerra a anterior e a
+sessão em curso, e o relógio da sessão vive só enquanto ela vive. A
+quarentena depois de falhas seguidas (o "Login Panel 2.0", p. 539) entra
+na P2.
+
+O servidor é simulado em =dominio.ts=, com a forma de uma chamada =fetch=:
+=autenticar(nome, senha, sinal)= devolve uma /Promise/ e aceita um
+=AbortSignal=, com latência fixa, para os testes e as capturas se
+repetirem. O relógio da sessão também fica no domínio,
+=iniciarRelogio(aoTique)=, que devolve a função que o para, e
+=contarAbertos()= diz quantas requisições e relógios estão abertos.
+
+As regras, as mensagens e os cenários que o teste de conformidade confere
+estão em =casos/openspec/specs/login-com-quarentena/spec.md=, a
+especificação viva (OpenSpec); uma mudança entra como /delta spec/ em
+=casos/openspec/changes/= (=casos/AGENTS.md=).
+
+* Teste
+
+  O =teste-de-conformidade.js= percorre a especificação: cada verificação
+  tem o nome de um cenário do =spec.md=, e =npm run conferir-especificacao=
+  confere a ligação. Com um exemplo aberto no navegador, cole o arquivo no
+  console. O teste troca os temporizadores da página por um relógio falso,
+  que só anda quando ele manda, e por isso roda em menos de um segundo. As
+  cenas das capturas ficam em =cenas.mts=.
