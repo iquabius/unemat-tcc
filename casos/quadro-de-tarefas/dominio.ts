@@ -180,6 +180,9 @@ let abertos = 0;
 export function ouvirOutrasAbas(despachar: (acao: Acao) => void): () => void {
   abertos++;
   const aoGravar = (evento: StorageEvent) => {
+    // O sessionStorage mudado num iframe da mesma origem também dispara
+    // storage, até com a chave nula do clear(); só o localStorage é o quadro.
+    if (evento.storageArea !== localStorage) return;
     if (evento.key === CHAVE || evento.key === null) {
       despachar({ tipo: "outra-aba", quadro: lerQuadro(evento.newValue) });
     }
