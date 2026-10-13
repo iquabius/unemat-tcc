@@ -171,22 +171,6 @@ mesma interface [[cite:lee2025][289:1]].
   [[cite:roy2009][p. 10]], e as implementações deste trabalho também os
   misturam.
 
-  As pesquisas de uso medem tecnologias, não modelos de programação, e por
-  isso o uso de cada modelo de programação se afere pelas tecnologias que o
-  adotam.
-  Na questão sobre tecnologias web do Stack Overflow Developer Survey 2025,
-  React, jQuery e Angular estão entre as sete mais usadas, com 44,7%, 23,4% e
-  18,2% dos que a responderam cite:stackoverflow2025.
-  Assim, o uso do declarativo por re-renderização se afere pelo React, e o
-  do imperativo, pelo jQuery, que também está em 65,5% dos
-  /sites/ que o W3Techs monitora cite:w3techs2026.
-  O do declarativo por atualização granular se afere pelo Angular, embora o
-  Stack Overflow não separe quem o usa com /signals/, e pelo Solid, usado por 10%
-  dos respondentes do State of JS 2025 cite:devographics2026.
-  Nenhuma dessas pesquisas mede o uso de Web Components sem biblioteca.
-  Eles entram por ser a forma do próprio navegador de criar elementos
-  personalizados cite:mozilla2026.
-
   Para discutir o quanto uma notação facilita a compreensão e a
   manutenção, há as [[glspl:dc]], propostas por textcite:green1989.
   Elas são um vocabulário para descrever a usabilidade de notações e de outros
@@ -209,7 +193,7 @@ mesma interface [[cite:lee2025][289:1]].
   dos eventos de interface.
 
   Nenhum desses trabalhos compara, sobre as mesmas tarefas, os três modelos
-  de programação nas tecnologias web mais usadas.
+  de programação em tecnologias web.
   Os trabalhos encontrados na revisão bibliográfica também não avaliam pelas
   [[glspl:dc]] a notação do React nem a do Solid e do Angular com /signals/.
   A lacuna se apoia nessa revisão, feita por palavras-chave e por
@@ -284,8 +268,10 @@ mesma interface [[cite:lee2025][289:1]].
   o /CRUD/, três das sete tarefas do 7GUIs, de [[textcite:kiss2014][p. 11, 17, 25 e 34]].
   A Busca e o Carrinho não têm equivalente no 7GUIs.
 
-  Na web, o modelo de programação imperativo com /callbacks/ entra com o Web
-  Component e o jQuery, e o delineamento compara dois pares de tecnologias próximas.
+  Na web, o modelo de programação imperativo com /callbacks/ entra com o
+  jQuery e com o Web Component, a forma do próprio navegador de criar
+  elementos personalizados cite:mozilla2026.
+  O delineamento compara dois pares de tecnologias próximas.
   React e Solid montam a tela em JSX, marcação parecida com [[gls:html]]
   escrita dentro do JavaScript cite:meta2026c.
   O que os separa, sobretudo, é o modo de coordenar: a cada mudança de

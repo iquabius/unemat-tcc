@@ -350,46 +350,6 @@ Formato:
 - Observação: tarefa tcc-lf9 para buscar os citantes.
 - Conferido: 2026-10-09.
 
-* §12 [[file:../intro.org::As pesquisas de uso medem][As pesquisas de uso medem]]
-** stackoverflow2025
-- Frase: “Na questão sobre tecnologias web do Stack Overflow Developer
-  Survey 2025, React, jQuery e Angular estão entre as sete mais usadas, com
-  44,7%, 23,4% e 18,2% dos que a responderam.”
-- Trecho: a questão, “Which web frameworks and web technologies have you
-  done extensive development work in over the past year [...]?”; “2. React:
-  44.7%”, “3. jQuery: 23.4%”, “7. Angular: 18.2%” (All Respondents);
-  “Responses: 23,678 (48.3%)”.
-- Lido em: =tmp/fontes/stackoverflow2025.txt=, l. 11, 15-20 e 42 (página
-  salva em 2026-09-29).
-- Observação: os porcentuais são dos 23.678 que responderam à questão, e
-  não dos 49.009 respondentes da pesquisa (checagem adversarial de
-  2026-10-08).
-- Conferido: 2026-10-06; a questão e o total, em 2026-10-09.
-** w3techs2026
-- Frase: “e o do imperativo, pelo jQuery, que também está em 65,5% dos
-  /sites/ que o W3Techs monitora”
-- Trecho: “jQuery is used by 65.5% of all the websites”
-- Lido em: =tmp/fontes/w3techs2026.txt=, l. 98 (página salva em
-  2026-09-29); o universo é o dos sites que o W3Techs monitora
-  (=w3techs2026-metodologia.txt=).
-- Conferido: 2026-10-06.
-** devographics2026
-- Frase: “e pelo Solid, usado por 10% dos respondentes do State of JS
-  2025”
-- Trecho: “Solid may only be used by 10% of respondents”
-- Lido em: =tmp/fontes/devographics2026.txt=, l. 49 (página salva em
-  2026-09-29); a tabela dá 1.269 de 12.030 (10,55%).
-- Conferido: 2026-10-06.
-** mozilla2026
-- Frase: “Eles entram por ser o modelo de componente do próprio navegador.”
-- Trecho: “A custom element is implemented as a class which extends
-  HTMLElement [...]. This class will not be called by you, but will be
-  called by the browser. Immediately after defining the class, you should
-  register the custom element”.
-- Lido em: =tmp/fontes/mozilla2026.txt=, l. 49 (página salva; MDN,
-  modificada em 2026-09-01).
-- Conferido: 2026-10-08.
-
 * §1 [[file:../intro.org::O desenvolvimento de interfaces gráficas é difícil][O desenvolvimento de interfaces gráficas é difícil]]
 ** myers1994, p. 73
 - Frase: “O desenvolvimento de interfaces gráficas é difícil por natureza
@@ -870,6 +830,21 @@ Formato:
   (289:38).
 - Lido em: =tmp/fontes/lee2025.pdf=, p. 38 do PDF (apêndice C).
 - Conferido: 2026-10-09.
+
+** mozilla2026 (escolha do Web Component)
+- Frase: “Na web, o modelo de programação imperativo com /callbacks/ entra
+  com o jQuery e com o Web Component, a forma do próprio navegador de criar
+  elementos personalizados.”
+- Trecho: “custom elements: that is, HTML elements whose behavior is
+  defined by the web developer, that extend the set of elements available
+  in the browser.”; “This class will not be called by you, but will be
+  called by the browser.”
+- Lido em: =tmp/fontes/mozilla2026.txt=, l. 7 e 49 (página salva; MDN,
+  modificada em 2026-09-01).
+- Observação: a razão vinha do parágrafo das pesquisas de uso, que foi
+  para o prog.org em 2026-10-13; fica aqui, onde se escolhem as
+  tecnologias.
+- Conferido: 2026-10-13.
 
 * §23 [[file:../intro.org::Solid e Angular com /signals/, ao contrário][Solid e Angular com signals, ao contrário]]
 ** solidjs2026a
