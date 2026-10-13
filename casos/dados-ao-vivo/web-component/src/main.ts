@@ -49,17 +49,17 @@ class PainelDeCotacoes extends HTMLElement {
     this.pausa = this.querySelector(".pausa")!;
     const corpo = this.querySelector("tbody")!;
     for (const ativo of ATIVOS) {
-      const linha = document.createElement("tr");
-      const [codigo, preco, variacao, limite] = [1, 2, 3, 4].map(() =>
-        document.createElement("td"),
-      );
-      codigo.textContent = ativo.codigo;
-      preco.textContent = formatarPreco(undefined);
-      variacao.textContent = "—";
-      limite.textContent = formatarPreco(ativo.limite);
-      linha.append(codigo, preco, variacao, limite);
-      corpo.append(linha);
-      this.celulas.set(ativo.codigo, { linha, preco, variacao });
+      const linha = corpo.insertRow();
+      linha.insertCell().textContent = ativo.codigo;
+      const celulas = {
+        linha,
+        preco: linha.insertCell(),
+        variacao: linha.insertCell(),
+      };
+      celulas.preco.textContent = formatarPreco(undefined);
+      celulas.variacao.textContent = variacao(undefined, undefined);
+      linha.insertCell().textContent = formatarPreco(ativo.limite);
+      this.celulas.set(ativo.codigo, celulas);
     }
 
     this.pausa.addEventListener("click", () => this.alternarPausa());
