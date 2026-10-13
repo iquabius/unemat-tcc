@@ -246,14 +246,13 @@ conferidas.
   com os mesmos nomes. As ações e leituras ficam numa classe `Tela` de
   teste por tecnologia, com a mesma API nas duas (`digitar`, `sair`,
   `erros()`...), para que `CenasTest` e `TesteDeConformidade` fiquem iguais
-  entre Views e Compose. Nada de
-  marcas só para teste no código da tela: o Views acha as views pelo `id`;
-  o Compose, pela semântica (texto, ordem dos campos, papel).
+  entre Views e Compose. Nada de marcas só para teste no código da tela: o
+  Views acha as views pelo `id`; o Compose, pela semântica (texto, ordem
+  dos campos, papel).
 - Confira que o teste de conformidade pega erros: introduza um defeito numa
-  regra e veja o `TesteDeConformidade` falhar antes de dar o caso por
-  pronto. Rode um módulo por
-  vez: com duas tarefas e `--tests` na mesma linha do Gradle, o resultado
-  do primeiro módulo não foi atualizado.
+  regra e veja o `TesteDeConformidade` falhar antes de dar a tarefa por
+  pronta. Rode um módulo por vez: com duas tarefas e `--tests` na mesma
+  linha do Gradle, o resultado do primeiro módulo não foi atualizado.
 - Nas cenas, só foque um campo quando a cena depende do foco (como o
   "tocado" do Formulário). Na Lista, um teste do Compose que focava a busca
   fez o teste seguinte capturar a tela anterior à mudança; sem foco, as
@@ -287,17 +286,17 @@ conferidas.
   montagens, com classes de estilo e a pseudoclasse `:invalido`. Sem
   capturas por enquanto.
 - `TesteDeConformidade.java` com as verificações do
-  `teste-de-conformidade.js`, na mesma ordem e com os mesmos nomes, e uma `Tela` de teste por tecnologia,
-  com a mesma API. O que as `Tela` têm em comum (rodar na thread da
-  interface, mostrar a janela, percorrer os componentes) fica em
-  `casos/desktop/teste/`, um apoio para o Swing e outro para o JavaFX. A
-  `Tela` acha os campos pelo rótulo (`getLabelFor`) e os textos pela
-  classe, sem marcas só para teste. No Swing, `sair` dispara o
-  `focusLost` nos *listeners*, como o teste da web dispara o `blur`, porque
-  os testes rodam sem tela. No JavaFX, na plataforma Headless, o foco
-  passa de fato do campo ao tipo de voo, que não é campo de texto, e a
-  janela abre com o foco na raiz, como o navegador abre sem campo focado:
-  assim só fica tocado o campo de que o teste sai.
+  `teste-de-conformidade.js`, na mesma ordem e com os mesmos nomes, e uma
+  `Tela` de teste por tecnologia, com a mesma API. O que as `Tela` têm em
+  comum (rodar na thread da interface, mostrar a janela, percorrer os
+  componentes) fica em `casos/desktop/teste/`, um apoio para o Swing e
+  outro para o JavaFX. A `Tela` acha os campos pelo rótulo (`getLabelFor`)
+  e os textos pela classe, sem marcas só para teste. No Swing, `sair`
+  dispara o `focusLost` nos *listeners*, como o teste da web dispara o
+  `blur`, porque os testes rodam sem tela. No JavaFX, na plataforma
+  Headless, o foco passa de fato do campo ao tipo de voo, que não é campo
+  de texto, e a janela abre com o foco na raiz, como o navegador abre sem
+  campo focado: assim só fica tocado o campo de que o teste sai.
 - Às vezes (2 de 8 execuções em 2026-10-09), o `./gradlew test` imprime
   um `RejectedExecutionException` do `QuantumRenderer` do JavaFX: a JVM do
   teste encerra com uma pintura pendente, depois de o teste passar. Não
@@ -305,8 +304,8 @@ conferidas.
   `build/test-results/`, não a presença de exceção no console.
 - Confira que o teste de conformidade pega erros: introduza um defeito numa
   regra e veja o `TesteDeConformidade` falhar. Uma dependência esquecida na
-  lista de um `createXBinding` passa no teste do Formulário (achado de 2026-10-09,
-  `docs/achados-das-implementacoes.md`).
+  lista de um `createXBinding` passa no teste do Formulário (achado de
+  2026-10-09, `docs/achados-das-implementacoes.md`).
 
 ## Qt (pré-análise do par Qt Widgets × QML)
 

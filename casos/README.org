@@ -130,7 +130,7 @@ tecnologias) está nas decisões em [[file:../docs/adr/][docs/adr/]].
   | JUnit   | 4.13.2 | o do Android, para reaproveitar a regra =DataFixa=        |
 
   Cada módulo tem um =TesteDeConformidade.java= com as verificações do
-  =teste-de-conformidade.js= do caso, na mesma ordem e com os mesmos nomes,
+  =teste-de-conformidade.js= da tarefa, na mesma ordem e com os mesmos nomes,
   e uma classe =Tela= com a mesma API nas três tecnologias, como no Android.
   Não há capturas nem cenas: na pré-análise, a aparência só reproduz de
   longe o =estilo.css=, fora da tela (=Estilo.java= no Swing,
