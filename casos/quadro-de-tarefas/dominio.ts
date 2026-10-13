@@ -45,7 +45,7 @@ export type Acao =
   | { tipo: "arquivar"; id: number }
   | { tipo: "outra-aba"; quadro: EstadoDoQuadro };
 
-// Um objeto novo a cada chamada: o store do Solid muda no lugar o objeto
+// Um objeto novo a cada chamada: o store do Solid altera no lugar o objeto
 // que recebe, e uma constante compartilhada deixaria de ser o inicial.
 const inicial = (): EstadoDoQuadro => ({
   "a-fazer": [1, 2, 3],

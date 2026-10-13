@@ -116,7 +116,7 @@ class BuscaDeDestino extends HTMLElement {
   private escolher(cidade: Cidade) {
     this.cancelar();
     this.limpar();
-    // Mudar o valor por código não dispara "input": nenhuma busca nova.
+    // Alterar o valor por código não dispara "input": nenhuma busca nova.
     this.campo.value = rotulo(cidade);
     this.escolha.textContent = `Destino: ${rotulo(cidade)}`;
     this.escolha.hidden = false;

@@ -35,7 +35,7 @@ const ContextoDoCarrinho = createContext<{
 
 function ProvedorDoCarrinho(props: { children: JSX.Element }) {
   const [estado, setEstado] = createStore<EstadoDoCarrinho>(carregarCarrinho());
-  // reconcile compara o estado novo com o atual e só altera o que mudou.
+  // reconcile compara o estado novo com o atual e só altera o que difere.
   const despachar = (acao: Acao) =>
     setEstado(reconcile(reduzir(estado, acao), { key: "id" }));
 

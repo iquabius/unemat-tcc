@@ -71,7 +71,7 @@ $(function () {
   function escolher(cidade: Cidade) {
     cancelar();
     limpar();
-    // Mudar o valor por código não dispara "input": nenhuma busca nova.
+    // Alterar o valor por código não dispara "input": nenhuma busca nova.
     $("#destino").val(rotulo(cidade));
     $("#escolha")
       .text(`Destino: ${rotulo(cidade)}`)

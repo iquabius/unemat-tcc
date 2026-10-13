@@ -49,8 +49,8 @@ export class BuscaDeDestino {
   protected readonly rotulo = rotulo;
 
   protected readonly texto = signal("");
-  // Termo da última busca. Um signal só notifica quando o valor muda, então
-  // um termo repetido não dispara nova requisição.
+  // Termo da última busca. Um signal só notifica quando o valor se altera,
+  // então um termo repetido não dispara nova requisição.
   private readonly termo = signal("");
   private readonly aberta = signal(false);
   protected readonly escolha = signal<string | null>(null);

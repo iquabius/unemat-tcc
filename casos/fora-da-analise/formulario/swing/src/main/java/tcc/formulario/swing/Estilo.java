@@ -15,7 +15,7 @@ import javax.swing.border.Border;
 // Aparência do Formulário, fora da tela, como o estilo.css: o Swing não tem
 // seletores, então o Estilo percorre os componentes e escolhe pela classe
 // (a propriedade "classe", no papel do class do HTML) ou pelo tipo, e
-// repinta o campo quando a tela muda a propriedade "invalido" (o
+// repinta o campo quando a tela altera a propriedade "invalido" (o
 // aria-invalid). Fica fora da análise.
 final class Estilo {
     // O max-width da coluna na web (24rem).

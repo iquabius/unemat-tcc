@@ -29,7 +29,7 @@ class MainActivity : ComponentActivity() {
 // A aparência fica em Estilo.kt.
 @Composable
 fun Contador(valorInicial: Int) {
-    // Como o useState: mudar o valor faz a função rodar de novo.
+    // Como o useState: alterar o valor faz a função rodar de novo.
     var contador by remember { mutableIntStateOf(valorInicial) }
 
     Row(Estilo.contador) {

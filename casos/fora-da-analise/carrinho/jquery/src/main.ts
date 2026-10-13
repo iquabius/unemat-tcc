@@ -16,7 +16,7 @@ import {
 import "../../estilo.css";
 
 $(function () {
-  // Estado compartilhado. Cada mudança dispara o evento customizado
+  // Estado compartilhado. Cada alteração dispara o evento customizado
   // "carrinho:mudou" no document, e cada parte da tela o escuta.
   let estado = carregarCarrinho();
 

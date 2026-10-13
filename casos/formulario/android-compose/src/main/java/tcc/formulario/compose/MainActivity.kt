@@ -47,7 +47,7 @@ class MainActivity : ComponentActivity() {
 // A aparência fica em Estilo.kt.
 @Composable
 fun FormularioDeReserva() {
-    // Como os useState: mudar um valor faz a função rodar de novo.
+    // Como os useState: alterar um valor faz a função rodar de novo.
     var nome by remember { mutableStateOf("") }
     var email by remember { mutableStateOf("") }
     var tipo by remember { mutableStateOf(TipoDeVoo.IDA) }

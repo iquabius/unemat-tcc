@@ -13,8 +13,8 @@ import "../../estilo.css";
 
 function BuscaDeDestino() {
   const [texto, setTexto] = createSignal("");
-  // Termo da última busca. Um sinal só notifica quando o valor muda, então
-  // um termo repetido não dispara nova requisição.
+  // Termo da última busca. Um sinal só notifica quando o valor se altera,
+  // então um termo repetido não dispara nova requisição.
   const [termo, setTermo] = createSignal("");
   const [aberta, setAberta] = createSignal(false);
   const [escolha, setEscolha] = createSignal<string | null>(null);

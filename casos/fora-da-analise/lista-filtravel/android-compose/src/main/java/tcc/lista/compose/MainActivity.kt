@@ -35,7 +35,7 @@ class MainActivity : ComponentActivity() {
 // A aparência fica em Estilo.kt.
 @Composable
 fun CatalogoDeProdutos() {
-    // Como os useState: mudar um valor faz a função rodar de novo.
+    // Como os useState: alterar um valor faz a função rodar de novo.
     var busca by remember { mutableStateOf("") }
     var categoria by remember { mutableStateOf("") }
     var ordem by remember { mutableStateOf(Ordem.NOME) }
