@@ -1079,7 +1079,7 @@ Formato:
   de uma linguagem visual; aqui, o autor das implementações.
 - Conferido: 2026-10-09.
 
-* §24 [[file:../intro.org::No Android, o Formulário e a Lista são][No Android, o Formulário e a Lista são]]
+* §24 [[file:../intro.org::No Android, o Formulário e a Lista têm][No Android, o Formulário e a Lista têm]]
 ** android2026
 - Frase: “As Views ficam no imperativo com /callbacks/, e o Compose, no
   declarativo por re-renderização, porque chama de novo as funções da tela

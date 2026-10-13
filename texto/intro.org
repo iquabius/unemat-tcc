@@ -292,13 +292,14 @@ mesma interface [[cite:lee2025][289:1]].
   E as [[glspl:api]] dos dois diferem no que vai além do /signal/ e do valor
   derivado, como o cancelamento das requisições na Busca.
 
-  No Android, o Formulário e a Lista são implementados com Views e Compose,
-  e a comparação dos dois diz se as conclusões tiradas na web se repetem em outra plataforma e outra
+  No Android, o Formulário e a Lista têm duas implementações, uma com Views e
+  outra com Compose, e a comparação das duas diz se as conclusões tiradas na web se repetem em outra plataforma e outra
   linguagem.
   As Views ficam no imperativo com /callbacks/, e o Compose, no declarativo
   por re-renderização, porque chama de novo as funções da tela quando o estado
   muda cite:android2026.
-  O Contador também é implementado no Android, como introdução à sintaxe,
+  O Contador também tem as duas implementações no Android, como introdução à
+  sintaxe,
   sem análise própria.
 
   O delineamento mantém fixo o que não pertence ao modelo de programação nem à
