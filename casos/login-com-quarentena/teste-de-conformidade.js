@@ -1,14 +1,14 @@
 // Teste de conformidade do Login com quarentena, igual para as três
-// implementações web. Cole no console do navegador com o exemplo aberto; a
-// última linha devolve o resultado de cada verificação ("ok" ou "FALHOU").
-// Segue a especificação, com latência de 1 s e sessão de 10 s; cada
-// verificação é um cenário de
+// implementações web. Cole no console do navegador com a implementação
+// aberta; a última linha devolve o resultado de cada verificação ("ok" ou
+// "FALHOU"). Segue a especificação, com latência de 1 s e sessão de 10 s;
+// cada verificação é um cenário de
 // casos/openspec/specs/login-com-quarentena/spec.md.
 //
 // O tempo é de um relógio falso: o teste troca setTimeout e setInterval da
 // página pelos dele e só os faz andar com avancar(ms), para não esperar os
 // 10 s da sessão. Entre um disparo e outro, deixa rodar as promises e as
-// tarefas que o React agenda por MessageChannel, fora do relógio falso.
+// mensagens que o React agenda por MessageChannel, fora do relógio falso.
 (async () => {
   function instalarRelogioFalso() {
     const originais = { setTimeout, clearTimeout, setInterval, clearInterval };
@@ -31,16 +31,18 @@
       clearTimeout: cancelar,
       clearInterval: cancelar,
     });
-    const tarefa = () =>
+    const mensagem = () =>
       new Promise((r) => {
         const canal = new MessageChannel();
         canal.port1.onmessage = () => r();
         canal.port2.postMessage(0);
       });
-    // O React faz a tela numa tarefa e roda os efeitos (e a limpeza deles)
-    // noutra, agendada só depois da primeira: quatro tarefas dão folga.
+    // O React faz a tela numa mensagem e roda os efeitos (e a limpeza
+    // deles) noutra, agendada só depois da primeira: com o React 19.3, o
+    // teste falha com duas voltas e passa com três (medido em 2026-10-12);
+    // quatro dão folga.
     const escoar = async () => {
-      for (let i = 0; i < 4; i++) await tarefa();
+      for (let i = 0; i < 4; i++) await mensagem();
     };
     return {
       escoar,
