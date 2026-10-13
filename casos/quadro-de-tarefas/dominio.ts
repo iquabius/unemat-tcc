@@ -126,20 +126,31 @@ export function textoDaColuna(estado: EstadoDoQuadro, coluna: Coluna): string {
 
 /** O quadro de um texto salvo; ausente ou inválido, o inicial. */
 function lerQuadro(texto: string | null): EstadoDoQuadro {
+  let salvo: unknown;
   try {
-    const salvo: unknown = JSON.parse(texto ?? "null");
-    if (typeof salvo !== "object" || salvo === null) return inicial();
-    const colunas = COLUNAS.map((c) => (salvo as Record<string, unknown>)[c]);
-    if (!colunas.every(Array.isArray)) return inicial();
-    const ids = colunas.flat();
-    const valido =
-      ids.every((id) => tarefas.some((t) => t.id === id)) &&
-      new Set(ids).size === ids.length &&
-      colunas[1].length <= LIMITE_FAZENDO;
-    return valido ? (salvo as EstadoDoQuadro) : inicial();
+    salvo = JSON.parse(texto ?? "null");
   } catch {
     return inicial();
   }
+  if (typeof salvo !== "object" || salvo === null) return inicial();
+  // Só as três colunas, pelas chaves: o que mais vier no texto fica de fora.
+  const {
+    "a-fazer": aFazer,
+    fazendo,
+    feito,
+  } = salvo as Record<string, unknown>;
+  if (
+    !Array.isArray(aFazer) ||
+    !Array.isArray(fazendo) ||
+    !Array.isArray(feito)
+  )
+    return inicial();
+  const ids: unknown[] = [...aFazer, ...fazendo, ...feito];
+  const valido =
+    ids.every((id) => tarefas.some((t) => t.id === id)) &&
+    new Set(ids).size === ids.length &&
+    fazendo.length <= LIMITE_FAZENDO;
+  return valido ? { "a-fazer": aFazer, fazendo, feito } : inicial();
 }
 
 export function carregarQuadro(): EstadoDoQuadro {
