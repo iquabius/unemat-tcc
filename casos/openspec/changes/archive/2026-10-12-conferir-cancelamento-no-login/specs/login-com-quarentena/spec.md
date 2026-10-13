@@ -22,7 +22,7 @@ senha "segredo".
 
 #### Scenario: 5 resposta da tentativa substituída não aparece
 
-- **DADO** a tentativa com a senha "errada" substituída por outra há pouco
+- **DADO** a tentativa com a senha "errada" substituída agora por outra, com a senha "segredo"
 - **QUANDO** passam 600 ms, quando a primeira tentativa teria respondido
 - **ENTÃO** a situação mostra "Conectando…"
 

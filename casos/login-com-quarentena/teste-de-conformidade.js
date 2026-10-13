@@ -131,6 +131,7 @@
     await relogio.avancar(500);
     await digitar("senha", "segredo");
     await clicar(".entrar");
+    conferir("5 tentativa nova cancela a anterior", abertos(), 1);
     await relogio.avancar(600);
     conferir(
       "5 resposta da tentativa substituída não aparece",
@@ -167,8 +168,8 @@
     await relogio.avancar(900);
     conferir(
       "8 relógio da sessão encerrada não volta",
-      [situacao(), tempo()],
-      ["Conectando…", null],
+      [situacao(), tempo(), abertos()],
+      ["Conectando…", null, 1],
     );
     await relogio.avancar(100);
     conferir(

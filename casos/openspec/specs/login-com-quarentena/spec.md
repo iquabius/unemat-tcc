@@ -55,10 +55,16 @@ senha "segredo".
 - **QUANDO** o usuário clica no "Entrar"
 - **ENTÃO** a situação mostra "Conectando…"
 
+#### Scenario: 5 tentativa nova cancela a anterior
+
+- **DADO** a tentativa com a senha "errada" em curso há 500 ms, com a requisição aberta
+- **QUANDO** o usuário digita a senha "segredo" e clica no "Entrar"
+- **ENTÃO** `contarAbertos()` dá 1, a requisição da tentativa nova
+
 #### Scenario: 5 resposta da tentativa substituída não aparece
 
-- **DADO** a tentativa com a senha "errada" em curso há 500 ms
-- **QUANDO** o usuário digita a senha "segredo", clica no "Entrar" e passam 600 ms, quando a primeira tentativa teria respondido
+- **DADO** a tentativa com a senha "errada" substituída agora por outra, com a senha "segredo"
+- **QUANDO** passam 600 ms, quando a primeira tentativa teria respondido
 - **ENTÃO** a situação mostra "Conectando…"
 
 #### Scenario: 8 Entrar na sessão a encerra
@@ -73,6 +79,7 @@ senha "segredo".
 - **DADO** a sessão encerrada por uma tentativa nova
 - **QUANDO** passam 900 ms, antes da resposta
 - **ENTÃO** a situação continua "Conectando…", sem tempo de sessão
+- **E** `contarAbertos()` dá 1, a requisição da tentativa
 
 ### Requirement: Falha
 
