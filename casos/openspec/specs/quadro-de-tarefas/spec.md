@@ -32,17 +32,17 @@ há "←", e em "Feito" não há "→".
 
 #### Scenario: 2 A fazer só move para a direita
 
-- **QUANDO** a tarefa abre com o quadro inicial
+- **QUANDO** o quadro abre com as tarefas iniciais
 - **ENTÃO** os botões de mover de "A fazer" são "Mover Revisar a introdução para Fazendo", "Mover Conferir as referências para Fazendo" e "Mover Gerar as capturas para Fazendo"
 
 #### Scenario: 2 Fazendo move para os dois lados
 
-- **QUANDO** a tarefa abre com o quadro inicial
+- **QUANDO** o quadro abre com as tarefas iniciais
 - **ENTÃO** os botões de mover de "Fazendo" são "Mover Implementar o Carrinho para A fazer" e "Mover Implementar o Carrinho para Feito"
 
 #### Scenario: 2 Feito só move para a esquerda
 
-- **QUANDO** a tarefa abre com o quadro inicial
+- **QUANDO** o quadro abre com as tarefas iniciais
 - **ENTÃO** os botões de mover de "Feito" são "Mover Escrever o método para Fazendo" e "Mover Marcar a orientação para Fazendo"
 
 #### Scenario: 3 mover põe no fim da coluna
@@ -174,7 +174,7 @@ no lugar.
 
 #### Scenario: 7 mostrar abre o quadro salvo
 
-- **DADO** o quadro salvo com "Conferir as referências" e "Gerar as capturas" em "A fazer", "Fazendo" vazia e "Escrever o método", "Marcar a orientação" e "Implementar o Carrinho" em "Feito", e a tarefa escondida
+- **DADO** o quadro salvo com "Conferir as referências" e "Gerar as capturas" em "A fazer", "Fazendo" vazia e "Escrever o método", "Marcar a orientação" e "Implementar o Carrinho" em "Feito", e o quadro escondido
 - **QUANDO** o usuário clica em "Mostrar quadro"
 - **ENTÃO** as colunas mostram esse quadro, e a situação está vazia
 - **E** o botão diz "Esconder quadro"
@@ -189,7 +189,7 @@ no lugar.
 ### Requirement: Outras abas
 
 Quando outra aba grava o quadro (o evento `storage` da chave `quadro`, ou o
-da limpeza do `localStorage`), a tarefa deve mostrar o quadro gravado, com a
+da limpeza do `localStorage`), o quadro deve mostrar o que ela gravou, com a
 validação da abertura, e a situação "Quadro atualizado em outra aba.". O
 ouvinte do evento é do domínio, `ouvirOutrasAbas`.
 
@@ -214,14 +214,14 @@ ouvinte do evento é do domínio, `ouvirOutrasAbas`.
 
 ### Requirement: Limpeza ao sair da tela
 
-O botão "Esconder quadro" deve tirar a tarefa da página e passar a dizer
-"Mostrar quadro", que a põe de volta como se ela abrisse, com o quadro
-salvo e a situação vazia. Fora da página, a tarefa não deixa ouvinte
+O botão "Esconder quadro" deve tirar o quadro da página e passar a dizer
+"Mostrar quadro", que o põe de volta como se ele abrisse, com o que estiver
+salvo e a situação vazia. Fora da página, o quadro não deixa ouvinte
 aberto: `contarAbertos()`, do domínio, dá 0.
 
 #### Scenario: 7 esconder fecha o ouvinte de outras abas
 
-- **DADO** a tarefa na página, com o ouvinte de outras abas aberto
+- **DADO** o quadro na página, com o ouvinte de outras abas aberto
 - **QUANDO** o usuário clica em "Esconder quadro"
-- **ENTÃO** a tarefa não está na página, e o botão diz "Mostrar quadro"
+- **ENTÃO** o quadro não está na página, e o botão diz "Mostrar quadro"
 - **E** `contarAbertos()` dá 0
