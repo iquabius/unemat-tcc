@@ -11,8 +11,9 @@ O servidor é simulado em =dominio.ts=, com a forma de uma chamada =fetch=:
 =autenticar(nome, senha, sinal)= devolve uma /Promise/ e aceita um
 =AbortSignal=, com latência fixa, para os testes e as capturas se
 repetirem. O relógio da sessão também fica no domínio,
-=iniciarRelogio(aoTique)=, que devolve a função que o para, e
-=contarAbertos()= diz quantas requisições e relógios estão abertos.
+=iniciarRelogio(aoTique)=, que devolve a função que o para, para a limpeza
+ao sair da tela se conferir pela contagem: =contarAbertos()= diz quantas
+requisições e relógios estão abertos.
 
 As regras, as mensagens e os cenários que o teste de conformidade confere
 estão em =casos/openspec/specs/login-com-quarentena/spec.md=, a
@@ -21,14 +22,13 @@ especificação viva (OpenSpec); uma mudança entra como /delta spec/ em
 
 * Adaptações a Berry e Serrano
 
-  - Textos em português e situação inicial "Desconectado." no lugar de
-    =disconn=.
+  - Textos em português, e a situação inicial da especificação no lugar
+    de =disconn=.
   - =AbortSignal= no lugar do contador =Rconn= (p. 535, linha 13), como
     na Busca; o efeito na tela é o mesmo.
-  - A sessão dura 10 s, e não "mais que =MAX_SESSION_TIME=" (p. 535,
-    linha 22; p. 538, linha 35).
-  - O relógio da sessão fica no domínio, como o servidor, para a limpeza
-    ao sair da tela se conferir pela contagem.
+  - A sessão expira num prazo fixo, o da especificação, e não "mais que
+    =MAX_SESSION_TIME=" (p. 535, linha 22; p. 538, linha 35).
+  - O relógio da sessão fica no domínio, como o servidor (acima).
 
 * Teste
 
