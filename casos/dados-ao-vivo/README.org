@@ -11,9 +11,8 @@ A fonte é simulada em =dominio.ts=, com a forma de um /WebSocket/ ou de um
 =EventSource=: =assinarCotacoes(aoReceber)= empurra os lotes e devolve a
 função que cancela a assinatura, o =Closable= de Meijer. O preço depende só
 do relógio, como num servidor real, para os testes e as capturas se
-repetirem. =contarAssinantes()= diz
-quantas assinaturas estão abertas, para a limpeza ao sair da tela se
-conferir pela contagem.
+repetirem. =contarAssinantes()= diz quantas assinaturas estão abertas,
+para a limpeza ao sair da tela se conferir pela contagem.
 
 As regras, as mensagens e os cenários que o teste de conformidade confere
 estão em =casos/openspec/specs/dados-ao-vivo/spec.md=, a especificação viva
