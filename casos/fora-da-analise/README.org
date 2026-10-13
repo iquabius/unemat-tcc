@@ -36,12 +36,14 @@ gerou, com o mesmo nome de antes (=<tecnologia>-<cena>.png=).
 
 * Rodar
 
-  Tudo roda no commit anterior ao que criou esta pasta, com as instruções
-  do =casos/README.org= de lá:
+  Cada pasta roda no commit anterior ao que a trouxe para cá, com as
+  instruções do =casos/README.org= de lá. De qualquer pasta do
+  repositório, com o caminho dela a partir daqui:
 
   #+begin_src sh
-  git switch --detach \
-      "$(git log --format=%H --reverse -- casos/fora-da-analise | head -1)~1"
+  pasta=formulario/jquery
+  git switch --detach "$(git log --format=%H --reverse \
+      -- ":/casos/fora-da-analise/$pasta" | head -1)~1"
   #+end_src
 
   Ali, de =casos/=:
