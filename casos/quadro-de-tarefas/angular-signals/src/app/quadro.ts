@@ -41,7 +41,9 @@ export class LojaDoQuadro {
     // O serviço vive enquanto o componente que o provê; sem isto, o
     // ouvinte das outras abas continua fora da página.
     inject(DestroyRef).onDestroy(
-      ouvirOutrasAbas((acao) => this.despachar(acao)),
+      ouvirOutrasAbas((quadro) =>
+        this.despachar({ tipo: "outra-aba", quadro }),
+      ),
     );
   }
 

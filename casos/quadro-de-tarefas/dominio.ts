@@ -37,8 +37,11 @@ export const tarefas: readonly Tarefa[] = [
   { id: 6, titulo: "Marcar a orientação" },
 ];
 
-/** Os ids das tarefas de cada coluna, na ordem em que aparecem. */
-export type EstadoDoQuadro = Readonly<Record<Coluna, readonly number[]>>;
+/**
+ * Os ids das tarefas de cada coluna, na ordem em que aparecem. Cada
+ * implementação decide se o altera no lugar ou o troca por uma cópia.
+ */
+export type EstadoDoQuadro = Record<Coluna, number[]>;
 
 export type Acao =
   | { tipo: "mover"; id: number; para: Coluna }
@@ -99,13 +102,21 @@ export function reduzir(estado: EstadoDoQuadro, acao: Acao): EstadoDoQuadro {
 export function anunciar(acao: Acao): string {
   switch (acao.tipo) {
     case "mover":
-      return `“${tarefa(acao.id).titulo}” foi para ${tituloDa(acao.para)}.`;
+      return anunciarMovimento(acao.id, acao.para);
     case "arquivar":
-      return `“${tarefa(acao.id).titulo}” foi arquivada.`;
+      return anunciarArquivamento(acao.id);
     case "outra-aba":
       return MENSAGENS.outraAba;
   }
 }
+
+/** A situação depois de mover a tarefa para a coluna. */
+export const anunciarMovimento = (id: number, para: Coluna) =>
+  `“${tarefa(id).titulo}” foi para ${tituloDa(para)}.`;
+
+/** A situação depois de arquivar a tarefa. */
+export const anunciarArquivamento = (id: number) =>
+  `“${tarefa(id).titulo}” foi arquivada.`;
 
 const plural = (n: number, um: string, varios: string) =>
   `${n} ${n === 1 ? um : varios}`;
@@ -173,27 +184,29 @@ let abertos = 0;
 
 /**
  * Ouve o quadro que outra aba grava (o evento storage da chave, ou o da
- * limpeza do localStorage) e o entrega a despachar como a ação "outra-aba",
- * com a validação da abertura. Devolve a função que para de ouvir; chamá-la
- * de novo não faz nada.
+ * limpeza do localStorage) e o entrega a aoGravar, com a validação da
+ * abertura. Devolve a função que para de ouvir; chamá-la de novo não faz
+ * nada.
  */
-export function ouvirOutrasAbas(despachar: (acao: Acao) => void): () => void {
+export function ouvirOutrasAbas(
+  aoGravar: (quadro: EstadoDoQuadro) => void,
+): () => void {
   abertos++;
-  const aoGravar = (evento: StorageEvent) => {
+  const aoMudar = (evento: StorageEvent) => {
     // O sessionStorage alterado num iframe da mesma origem também dispara
     // storage, até com a chave nula do clear(); só o localStorage é o quadro.
     if (evento.storageArea !== localStorage) return;
     if (evento.key === CHAVE || evento.key === null) {
-      despachar({ tipo: "outra-aba", quadro: lerQuadro(evento.newValue) });
+      aoGravar(lerQuadro(evento.newValue));
     }
   };
-  window.addEventListener("storage", aoGravar);
+  window.addEventListener("storage", aoMudar);
   let ouvindo = true;
   return () => {
     if (!ouvindo) return;
     ouvindo = false;
     abertos--;
-    window.removeEventListener("storage", aoGravar);
+    window.removeEventListener("storage", aoMudar);
   };
 }
 

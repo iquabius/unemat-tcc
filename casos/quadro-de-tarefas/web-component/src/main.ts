@@ -53,7 +53,9 @@ class Quadro extends HTMLElement {
   private pararDeOuvir?: () => void;
 
   connectedCallback() {
-    this.pararDeOuvir = ouvirOutrasAbas((acao) => this.loja.despachar(acao));
+    this.pararDeOuvir = ouvirOutrasAbas((quadro) =>
+      this.loja.despachar({ tipo: "outra-aba", quadro }),
+    );
     this.innerHTML = /* HTML */ `
       <div class="quadro">
         <quadro-cabecalho></quadro-cabecalho>

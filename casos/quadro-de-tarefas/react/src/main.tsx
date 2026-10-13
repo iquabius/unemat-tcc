@@ -55,7 +55,10 @@ function ProvedorDoQuadro({ children }: { children: ReactNode }) {
 
   // Sem a limpeza que o efeito devolve, o ouvinte das outras abas continua
   // fora da página.
-  useEffect(() => ouvirOutrasAbas(despachar), [despachar]);
+  useEffect(
+    () => ouvirOutrasAbas((quadro) => despachar({ tipo: "outra-aba", quadro })),
+    [despachar],
+  );
 
   return (
     <ContextoDoQuadro.Provider value={{ estado, situacao, despachar }}>

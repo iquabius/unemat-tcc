@@ -51,7 +51,9 @@ function ProvedorDoQuadro(props: { children: JSX.Element }) {
   createEffect(() => salvarQuadro(estado));
 
   // Sem isto, o ouvinte das outras abas continua fora da página.
-  onCleanup(ouvirOutrasAbas(despachar));
+  onCleanup(
+    ouvirOutrasAbas((quadro) => despachar({ tipo: "outra-aba", quadro })),
+  );
 
   return (
     <ContextoDoQuadro.Provider value={{ estado, situacao, despachar }}>
