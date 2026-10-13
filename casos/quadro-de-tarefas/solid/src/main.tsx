@@ -42,9 +42,9 @@ const ContextoDoQuadro = createContext<{
 function ProvedorDoQuadro(props: { children: JSX.Element }) {
   const [estado, setEstado] = createStore<EstadoDoQuadro>(carregarQuadro());
   const [situacao, setSituacao] = createSignal("");
-  // O store se altera pelo caminho: produce altera as duas listas como se
-  // fossem arrays comuns, e o setter com a chave, só a da coluna; cada ponto
-  // da tela que lê uma lista alterada se atualiza.
+  // O store se altera pelo caminho: produce altera as listas como se fossem
+  // arrays comuns, e cada ponto da tela que lê uma lista alterada se
+  // atualiza.
   const moverTarefa = (id: number, de: Coluna, para: Coluna) => {
     setEstado(
       produce((quadro) => {
@@ -55,7 +55,11 @@ function ProvedorDoQuadro(props: { children: JSX.Element }) {
     setSituacao(anunciarMovimento(id, para));
   };
   const arquivarTarefa = (id: number, de: Coluna) => {
-    setEstado(de, (ids) => ids.filter((t) => t !== id));
+    setEstado(
+      produce((quadro) => {
+        quadro[de].splice(quadro[de].indexOf(id), 1);
+      }),
+    );
     setSituacao(anunciarArquivamento(id));
   };
 
