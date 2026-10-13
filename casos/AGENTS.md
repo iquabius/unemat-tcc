@@ -150,6 +150,14 @@ A mudança não se porta para o código da tarefa em `casos/fora-da-analise/`
   (seção acima) e um `README.org` com a apresentação. Regras de domínio
   compartilhadas pelas implementações web ficam num `dominio.ts` da
   tarefa.
+- Cada problema de coordenação que se descreve de uma tarefa, no
+  `README.org`, na especificação ou no texto do TCC, vem com o que ele dá
+  ao usuário final, no papel do **ENTÃO** que os cenários já usam
+  (*Given-When-Then*, do BDD): a exigência técnica e, em seguida, "para o
+  usuário ...", como em "o quadro gravado no navegador, para o usuário
+  reencontrá-lo como deixou ao voltar à página". A frase técnica diz o que
+  o programa faz, e a ilustrativa, por que a interface real o pede; a
+  rodada de revisão do texto confere as duas (skill `revisao-de-texto`).
 - Crie o `cenas.mts` do caso (estados a capturar), gere as capturas com
   `npm run capturas -- <caso>` e versione-as no mesmo commit.
 - Exemplos web em TypeScript, sem bibliotecas além do que cada framework
