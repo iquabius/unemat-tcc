@@ -11,19 +11,19 @@ import {
 import {
   COLUNAS,
   MENSAGENS,
-  anunciar,
+  anunciarArquivamento,
+  anunciarMovimento,
   cabeEm,
   carregarQuadro,
   ouvirOutrasAbas,
-  reduzir,
   salvarQuadro,
   tarefa,
   textoDaColuna,
   textoDoCabecalho,
   tituloDa,
   vizinhas,
-  type Acao,
   type Coluna,
+  type EstadoDoQuadro,
 } from "../../../dominio";
 
 // O quadro e a situação moram num serviço; o componente Quadro o provê, e
@@ -41,15 +41,32 @@ export class LojaDoQuadro {
     // O serviço vive enquanto o componente que o provê; sem isto, o
     // ouvinte das outras abas continua fora da página.
     inject(DestroyRef).onDestroy(
-      ouvirOutrasAbas((quadro) =>
-        this.despachar({ tipo: "outra-aba", quadro }),
-      ),
+      ouvirOutrasAbas((quadro) => this.trocar(quadro)),
     );
   }
 
-  despachar(acao: Acao) {
-    this.quadro.update((quadro) => reduzir(quadro, acao));
-    this.texto.set(anunciar(acao));
+  // O signal só avisa quando recebe outro valor: cada transição troca o
+  // quadro por uma cópia, sem alterar as listas do anterior.
+  mover(id: number, de: Coluna, para: Coluna) {
+    this.quadro.update((quadro) => ({
+      ...quadro,
+      [de]: quadro[de].filter((t) => t !== id),
+      [para]: [...quadro[para], id],
+    }));
+    this.texto.set(anunciarMovimento(id, para));
+  }
+
+  arquivar(id: number, de: Coluna) {
+    this.quadro.update((quadro) => ({
+      ...quadro,
+      [de]: quadro[de].filter((t) => t !== id),
+    }));
+    this.texto.set(anunciarArquivamento(id));
+  }
+
+  private trocar(quadro: EstadoDoQuadro) {
+    this.quadro.set(quadro);
+    this.texto.set(MENSAGENS.outraAba);
   }
 }
 
@@ -80,7 +97,7 @@ export class Cabecalho {
             tituloDa(para)
           }}"
           [disabled]="!cabeEm(loja.estado(), para)"
-          (click)="loja.despachar({ tipo: 'mover', id: id, para: para })"
+          (click)="loja.mover(id, coluna(), para)"
         >
           {{ sinal }}
         </button>
@@ -119,7 +136,7 @@ export class Cabecalho {
                 type="button"
                 class="arquivar"
                 attr.aria-label="Arquivar {{ tarefa(id).titulo }}"
-                (click)="loja.despachar({ tipo: 'arquivar', id: id })"
+                (click)="loja.arquivar(id, coluna())"
               >
                 Arquivar
               </button>
