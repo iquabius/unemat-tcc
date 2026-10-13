@@ -99,7 +99,7 @@ olhar (dependências ocultas, propensão a erros, viscosidade):
   `super.bind(...)` e `createXBinding` (tutorial da Oracle, Release 8;
   Kiss 2014, p. 28-29, vê nisso dependências visíveis, mas viscosidade e
   difusão piores); na implementação, a dependência esquecida compila e
-  passa na rotina (seção "Swing × JavaFX");
+  passa no teste de conformidade (seção "Swing × JavaFX");
 - **WPF**: o caminho do *binding* vai numa *string* do XAML, resolvida por
   reflexão em tempo de execução, e a fonte notifica à mão pelo
   `INotifyPropertyChanged` (Microsoft, "Data binding overview" e "XAML
@@ -127,15 +127,16 @@ como "sibling" ou "cousin" seria inferência do TCC.
 - **Implementação** (2026-10-09): Formulário e Lista em três tecnologias,
   `casos/<caso>/swing/`, `javafx/` e `javafx-fxml/`, num projeto Gradle
   em `casos/desktop/` (instruções em `casos/README.org`). Decisões do
-  autor em 2026-10-09: as duas tarefas que conferem a web; rotinas sem
-  capturas; o JavaFX em código e em FXML; o domínio do Android, em Kotlin,
-  pela JVM. As rotinas (19 verificações no Formulário, 11 na Lista)
-  passam nas seis, no Linux, com o JavaFX 27 na plataforma Headless.
-- **Rotinas sem AssertJ Swing nem TestFX**: cada tecnologia tem uma `Tela` de
-  teste escrita à mão, com a mesma API das do Android, que acha os campos
-  pelo rótulo e dispensa robô de mouse e teclado. Bastou para as
-  verificações das duas rotinas, e as duas bibliotecas não foram
-  testadas; voltam à mesa se as capturas entrarem.
+  autor em 2026-10-09: as duas tarefas que conferem a web; testes de
+  conformidade sem capturas; o JavaFX em código e em FXML; o domínio do
+  Android, em Kotlin, pela JVM. Os testes de conformidade (19 verificações
+  no Formulário, 11 na Lista) passam nas seis, no Linux, com o JavaFX 27
+  na plataforma Headless.
+- **Testes de conformidade sem AssertJ Swing nem TestFX**: cada tecnologia
+  tem uma `Tela` de teste escrita à mão, com a mesma API das do Android,
+  que acha os campos pelo rótulo e dispensa robô de mouse e teclado.
+  Bastou para as verificações dos dois testes, e as duas bibliotecas não
+  foram testadas; voltam à mesa se as capturas entrarem.
 - **Cuidado**: o "JavaFX" de Maier, Rompf e Odersky (2010) é o JavaFX
   Script, com `bind` na linguagem, não a API Java atual.
 
@@ -179,9 +180,10 @@ resumidas.
   (p. 28-29) a repetição delas, já lidas dentro da função, piora a viscosidade: numa
   mudança de requisito, a dependência nova "could be forgotten". A
   implementação confirma: tirar `ida.textProperty()` da lista do
-  `erroOrdem` compila, e as 19 verificações da rotina passam, porque a
-  rotina nunca muda a ida depois de escolher "Ida e volta"; o erro só
-  aparece ao mudar a ida com a volta já preenchida. Leitura nossa: é o
+  `erroOrdem` compila, e as 19 verificações do teste de conformidade
+  passam, porque o teste nunca muda a ida depois de escolher "Ida e
+  volta"; o erro só aparece ao mudar a ida com a volta já preenchida.
+  Leitura nossa: é o
   mesmo tipo de erro da lista de dependências do `useMemo` e do
   `useEffect` no React, que o Solid e o Angular com *signals* não têm,
   porque rastreiam sozinhos o que a função lê. O JavaFX fica, assim, com o mecanismo do granular (só o *binding* que lê
@@ -320,13 +322,13 @@ atualização granular, que é o que a pré-análise tem de mostrar.
 Formulário e Lista, em `casos/<caso>/qt-widgets/` e `casos/<caso>/qml/`,
 com o domínio em C++ em `casos/<caso>/dominio-cpp/` e um projeto CMake
 único em `casos/qt/` (instalação em `casos/README.org`). Decisões do
-autor em 2026-10-09: as duas tarefas que conferem a web; rotinas já,
-capturas só se o par entrar; o Qt Widgets monta a tela num `.ui` e
-coordena por `connect`, sem propriedades *bindable*; a QML guarda o
-estado nas próprias propriedades, com os derivados em *bindings*, e não
-num `QObject` com `NOTIFY`. As rotinas, em Qt Test, repetem as 19 e as 11
-verificações das rotinas da web, e passam nas quatro implementações com
-o Qt 6.10.2, no Linux.
+autor em 2026-10-09: as duas tarefas que conferem a web; testes de
+conformidade já, capturas só se o par entrar; o Qt Widgets monta a tela
+num `.ui` e coordena por `connect`, sem propriedades *bindable*; a QML
+guarda o estado nas próprias propriedades, com os derivados em
+*bindings*, e não num `QObject` com `NOTIFY`. Os testes de conformidade,
+em Qt Test, repetem as 19 e as 11 verificações dos testes da web, e
+passam nas quatro implementações com o Qt 6.10.2, no Linux.
 
 ### Pré-análise por problema de coordenação (2026-10-09)
 
@@ -389,9 +391,9 @@ ligada à expressão `Dominio.produtos.filter(...).sort(...)`, que lê o
 texto da busca e as duas seleções, e o `ListView` a usa como modelo, com
 um `delegate` por item, como o `map` do JSX. O `ListView` só monta os
 itens que cabem na janela, como o `RecyclerView` e a `LazyColumn`
-(observado nas rotinas). Leitura nossa: a lista derivada se escreve
-como no Solid, um valor derivado; o que acontece com os itens quando o
-modelo muda (se o `ListView` refaz todos) fica a conferir na
+(observado nos testes de conformidade). Leitura nossa: a lista derivada
+se escreve como no Solid, um valor derivado; o que acontece com os itens
+quando o modelo muda (se o `ListView` refaz todos) fica a conferir na
 documentação.
 
 **Montagem da tela.** O Qt Widgets separa a estrutura (`.ui`) da
