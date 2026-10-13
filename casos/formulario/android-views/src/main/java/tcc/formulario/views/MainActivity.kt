@@ -21,7 +21,7 @@ import tcc.formulario.mensagemDeConfirmacao
 
 class MainActivity : AppCompatActivity() {
     // Ids dos campos já tocados (que perderam o foco uma vez), como o Set do
-    // jQuery. O estado fica na Activity.
+    // Web Component. O estado fica na Activity.
     private val tocados = mutableSetOf<Int>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         campo(R.id.ida).setText(hoje())
         campo(R.id.volta).setText(hoje())
 
-        // Como .on("input", validar).on("blur", ...) do jQuery. O
+        // Como os addEventListener("input") e ("blur") do Web Component. O
         // doAfterTextChanged é um TextWatcher que só usa o "depois".
         for (id in listOf(R.id.nome, R.id.email, R.id.ida, R.id.volta)) {
             campo(id).doAfterTextChanged { validar() }

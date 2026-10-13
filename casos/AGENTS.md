@@ -268,7 +268,7 @@ conferidas.
   26/09/2026) ficam em `dominio-kotlin/test/`.
 - O leitor conhece React, não Kotlin: comentários curtos em português que
   apontem o equivalente nas implementações web (como o `useState`, como o
-  `$("#id")`).
+  `addEventListener`).
 - Aparência igual à da web, reproduzindo o `estilo.css` do caso (cores,
   medidas em dp e sp com os mesmos números dos px, alinhamentos), e
   separada da tela, como o CSS fica separado do JSX:
