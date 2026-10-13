@@ -81,8 +81,8 @@ subprojects {
 // Formatação do Kotlin de casos/ pelo ktfmt, no estilo das convenções do
 // Kotlin (4 espaços) e com a largura do casos/.editorconfig (tcc-6wha). O
 // npm run formatar e o npm run conferir-formatacao, em casos/, chamam estas
-// tarefas depois do Prettier. Fica de fora casos/fora-da-analise/, que os
-// padrões não alcançam: o * de cada um desce um nível só.
+// tarefas depois do Prettier. Fica de fora casos/fora-da-analise/,
+// congelado.
 val ktfmt by configurations.creating {
     // O ktfmt publica também um jar com as dependências dentro, que evita
     // escolher a variante do Guava num projeto Android.
@@ -99,7 +99,7 @@ val arquivosKotlin =
         include("android/*.kts", "android/captura/**/*.kt")
         include("*/android-*/**/*.kt", "*/android-*/**/*.kts")
         include("*/dominio-kotlin/**/*.kt")
-        exclude("**/build/**")
+        exclude("**/build/**", "fora-da-analise/**")
     }
 
 fun ktfmtTask(nome: String, descricao: String, vararg opcoes: String) =
