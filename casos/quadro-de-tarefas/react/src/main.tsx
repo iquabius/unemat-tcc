@@ -1,6 +1,5 @@
 import {
   createContext,
-  useCallback,
   useContext,
   useEffect,
   useReducer,
@@ -11,22 +10,55 @@ import { createRoot } from "react-dom/client";
 import {
   COLUNAS,
   MENSAGENS,
-  anunciar,
+  anunciarArquivamento,
+  anunciarMovimento,
   cabeEm,
   carregarQuadro,
   ouvirOutrasAbas,
-  reduzir,
   salvarQuadro,
   tarefa,
   textoDaColuna,
   textoDoCabecalho,
   tituloDa,
   vizinhas,
-  type Acao,
   type Coluna,
   type EstadoDoQuadro,
 } from "../../dominio";
 import "../../estilo.css";
+
+type Acao =
+  | { tipo: "mover"; id: number; de: Coluna; para: Coluna }
+  | { tipo: "arquivar"; id: number; de: Coluna }
+  | { tipo: "trocar"; quadro: EstadoDoQuadro };
+
+// O redutor devolve o quadro e a situação novos sem alterar os anteriores:
+// é a cópia que avisa o React de que o estado se alterou.
+function reduzir(
+  { estado }: { estado: EstadoDoQuadro; situacao: string },
+  acao: Acao,
+) {
+  switch (acao.tipo) {
+    case "mover":
+      return {
+        estado: {
+          ...estado,
+          [acao.de]: estado[acao.de].filter((id) => id !== acao.id),
+          [acao.para]: [...estado[acao.para], acao.id],
+        },
+        situacao: anunciarMovimento(acao.id, acao.para),
+      };
+    case "arquivar":
+      return {
+        estado: {
+          ...estado,
+          [acao.de]: estado[acao.de].filter((id) => id !== acao.id),
+        },
+        situacao: anunciarArquivamento(acao.id),
+      };
+    case "trocar":
+      return { estado: acao.quadro, situacao: MENSAGENS.outraAba };
+  }
+}
 
 // O quadro e a situação moram no provedor; os componentes os leem pelo
 // contexto, e o React renderiza de novo os que usam o contexto quando ele
@@ -38,16 +70,11 @@ const ContextoDoQuadro = createContext<{
 } | null>(null);
 
 function ProvedorDoQuadro({ children }: { children: ReactNode }) {
-  const [estado, despacharNoQuadro] = useReducer(
+  const [{ estado, situacao }, despachar] = useReducer(
     reduzir,
     undefined,
-    carregarQuadro,
+    () => ({ estado: carregarQuadro(), situacao: "" }),
   );
-  const [situacao, setSituacao] = useState("");
-  const despachar = useCallback((acao: Acao) => {
-    despacharNoQuadro(acao);
-    setSituacao(anunciar(acao));
-  }, []);
 
   useEffect(() => {
     salvarQuadro(estado);
@@ -56,8 +83,8 @@ function ProvedorDoQuadro({ children }: { children: ReactNode }) {
   // Sem a limpeza que o efeito devolve, o ouvinte das outras abas continua
   // fora da página.
   useEffect(
-    () => ouvirOutrasAbas((quadro) => despachar({ tipo: "outra-aba", quadro })),
-    [despachar],
+    () => ouvirOutrasAbas((quadro) => despachar({ tipo: "trocar", quadro })),
+    [],
   );
 
   return (
@@ -97,7 +124,7 @@ function ColunaDoQuadro({ coluna }: { coluna: Coluna }) {
         type="button"
         aria-label={`Mover ${tarefa(id).titulo} para ${tituloDa(para)}`}
         disabled={!cabeEm(estado, para)}
-        onClick={() => despachar({ tipo: "mover", id, para })}
+        onClick={() => despachar({ tipo: "mover", id, de: coluna, para })}
       >
         {sinal}
       </button>
@@ -119,7 +146,7 @@ function ColunaDoQuadro({ coluna }: { coluna: Coluna }) {
                 type="button"
                 className="arquivar"
                 aria-label={`Arquivar ${tarefa(id).titulo}`}
-                onClick={() => despachar({ tipo: "arquivar", id })}
+                onClick={() => despachar({ tipo: "arquivar", id, de: coluna })}
               >
                 Arquivar
               </button>
