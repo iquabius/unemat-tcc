@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<!-- A estrutura da tela, como o index.html do jQuery. A aparência fica em
+<!-- A estrutura da tela, como o HTML do Web Component. A aparência fica em
      res/values/estilo.xml, como o estilo.css. -->
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"

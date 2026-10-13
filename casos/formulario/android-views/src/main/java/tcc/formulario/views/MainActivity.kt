@@ -78,10 +78,10 @@ class MainActivity : AppCompatActivity() {
         validar()
     }
 
-    // Como $("#id"): busca a view pelo id do layout.
+    // Como o querySelector do Web Component: busca a view pelo id do layout.
     private fun campo(id: Int): EditText = findViewById(id)
 
-    // Como $("#id").val().
+    // Como o .value do campo no Web Component.
     private fun texto(id: Int) = campo(id).text.toString()
 
     private fun tipo() =
