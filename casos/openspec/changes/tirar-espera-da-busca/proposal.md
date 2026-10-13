@@ -10,7 +10,7 @@ antiga que nunca aparece, sem misturá-los com o relógio da espera.
 
 - Sai o requisito "Espera depois da última tecla", e com ele a verificação
   "3 nada durante a espera".
-- Cada tecla com termo de 2 letras ou mais, diferente do da última busca,
+- Cada tecla com termo de 2 letras ou mais, diferente do último termo,
   começa a busca na hora e cancela a anterior.
 - O Esc cancela só a requisição em andamento, porque não há espera.
 - Os cenários do termo, do termo curto, da busca e do Esc deixam de esperar
