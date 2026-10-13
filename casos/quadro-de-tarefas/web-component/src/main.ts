@@ -24,6 +24,12 @@ class LojaDoQuadro extends EventTarget {
   private quadro: EstadoDoQuadro = carregarQuadro();
   private texto = "";
 
+  // Grava ao abrir, como a cada mudança: o quadro inválido vira o inicial.
+  constructor() {
+    super();
+    salvarQuadro(this.quadro);
+  }
+
   get estado(): EstadoDoQuadro {
     return this.quadro;
   }
