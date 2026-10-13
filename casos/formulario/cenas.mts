@@ -2,7 +2,7 @@ import type { Page } from "playwright";
 import type { Cenas } from "../capturar.mts";
 
 const campo = (pagina: Page, nome: string) =>
-  pagina.locator(`[name="${nome}"], [formcontrolname="${nome}"]`);
+  pagina.locator(`[name="${nome}"]`);
 
 export const cenas: Cenas = {
   inicial: async () => {},
