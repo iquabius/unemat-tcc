@@ -1,7 +1,7 @@
 #+TITLE: Login com quarentena
 
 Painel de login com nome, senha, "Entrar" e "Sair", cuja sessão expira
-sozinha (o /login panel/ de Berry e Serrano, 2020, p. 534-538). É a tarefa
+sozinha (o /login panel/ de Berry e Serrano, 2020, p. 534-535). É a tarefa
 das atividades que se cancelam: uma tentativa nova encerra a anterior e a
 sessão em curso, e o relógio da sessão vive só enquanto ela vive. A
 quarentena depois de falhas seguidas (o "Login Panel 2.0", p. 539) entra
@@ -18,6 +18,17 @@ As regras, as mensagens e os cenários que o teste de conformidade confere
 estão em =casos/openspec/specs/login-com-quarentena/spec.md=, a
 especificação viva (OpenSpec); uma mudança entra como /delta spec/ em
 =casos/openspec/changes/= (=casos/AGENTS.md=).
+
+* Adaptações a Berry e Serrano
+
+  - Textos em português e situação inicial "Desconectado." no lugar de
+    =disconn=.
+  - =AbortSignal= no lugar do contador =Rconn= (p. 535, linha 13), como
+    na Busca; o efeito na tela é o mesmo.
+  - A sessão dura 10 s, e não "mais que =MAX_SESSION_TIME=" (p. 535,
+    linha 22; p. 538, linha 35).
+  - O relógio da sessão fica no domínio, como o servidor, para a limpeza
+    ao sair da tela se conferir pela contagem.
 
 * Teste
 
