@@ -1,32 +1,43 @@
 \notalegenda{Em azul, o que mudou desde o projeto de 2017; em laranja, uma pergunta, junto do trecho realçado.}
 
-Interfaces gráficas mediam a maioria das nossas interações com computadores,
-seja em celulares e \emph{notebooks}, seja no navegador web.
-Para \textcite[p. 73]{myers1994}, projetá-las e implementá-las é difícil por
-natureza e continuaria sendo.
-Neste trabalho, \emph{aplicação interativa} é o programa com tela que responde às
-ações do usuário sem prazo imposto pelo ambiente, como os \emph{sites}, os
-aplicativos da web e os de telefone celular \cites[][ p. 1]{abnt2024}{martin2023}.
-A literatura das linguagens síncronas, feitas para os sistemas embarcados de
-tempo real \cite[p. 64]{benveniste2003}, chama esses programas de reativos
-\cite{berry1989}.
+O desenvolvimento de interfaces gráficas é difícil por natureza
+\cite[p. 73]{myers1994}.
+No projeto, além dos problemas comuns a todo sistema de software complexo, os
+\emph{designers} lidam com tarefas e domínios complexos e têm dificuldade de pensar
+como o usuário \cite[p. 75]{myers1994}.
+Na implementação, o programa precisa aceitar os eventos de entrada a qualquer
+momento, mesmo enquanto executa outros comandos \cite[p. 79]{myers1994}.
+Também precisa ser robusto: tratar qualquer entrada sem parar de funcionar e,
+como o usuário espera, permitir que ele cancele e desfaça a maioria das ações
+\cite[p. 75, 79 e 80]{myers1994}.
+Como \textcite[p. 5]{kiss2014}, este trabalho deixa de lado, apesar da
+importância, o projeto da interface e a usabilidade dela para quem a usa, e
+trata de como programá-la.
 
-Cada clique, tecla ou toque do usuário gera um evento.
-Programar interfaces exige coordenar esses eventos com o estado do programa e
-com o que a tela mostra.
+Cada toque num aplicativo de celular, clique num programa de computador ou
+tecla digitada num \emph{site} gera um evento, que o programa precisa tratar sem
+deixar de responder ao usuário.
+Programar interfaces exige montar os elementos gráficos na tela e
+coordená-los com o resto do programa.
+É preciso orquestrar eventos de diferentes fontes, como as teclas digitadas e
+as respostas de uma busca, e levar cada alteração de estado aos valores que
+dependem dela e à tela.
 Essa coordenação é o tema deste trabalho.
-Uma das diferenças da programação de interfaces para a dos outros programas
-é o código escrito do avesso (\emph{inside-out}), dividido em sub-rotinas que o
-\emph{toolkit} chama quando ocorrem ações do usuário \cite[p. 79]{myers1994}.
-Outra é o estado da aplicação, que determina a aparência e o comportamento da
+
+As interfaces gráficas costumam ter estado: lembram informações, como o que o
+usuário já fez \cites[][ p. 79]{myers1994}[][ p. 14]{roy2009}.
+Uma das principais diferenças entre a programação de interfaces e a dos outros
+programas é que o estado da aplicação determina a aparência e o comportamento da
 tela \cite[p. 230]{oney2012}.
-Além disso, ao escolher uma tecnologia, o programador escolhe
-também a forma de escrever a interface, e essa forma afeta a compreensão e a manutenção
-do programa \cite[p. 134]{fischer2007}.
+Outra é o código escrito do avesso (\emph{inside-out}), dividido em sub-rotinas que
+o \emph{toolkit} chama quando ocorrem ações do usuário \cite[p. 79]{myers1994}.
+Além disso, ao escolher uma tecnologia, o programador escolhe também a forma de
+escrever a interface, e essa forma afeta a compreensão e a manutenção do
+programa \cite[p. 134]{fischer2007}.
 
 O recurso predominante para propagar eventos é o \emph{callback}, também chamado
-de \emph{listener}: um bloco de código que roda sempre que um dado evento ocorre,
-como o clique em um botão \cite[p. 7]{blackheath2016}.
+de \emph{listener}: um bloco de código que roda sempre que um dado evento ocorre
+\cite[p. 7]{blackheath2016}.
 Registrá-lo num produtor, que o chama de volta a cada ocorrência, é o
 \emph{Observer Pattern} \cite[p. 7]{blackheath2016}.
 O \emph{callback} é síncrono quando a função que o recebe o chama antes de
