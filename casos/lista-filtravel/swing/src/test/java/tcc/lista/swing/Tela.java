@@ -16,8 +16,8 @@ import javax.swing.ListModel;
 import tcc.lista.Ordem;
 import tcc.lista.Produto;
 
-// Ações e leituras usadas pelo roteiro, como as funções do
-// roteiro-de-teste.js. As Telas do JavaFX têm os mesmos nomes. Acha os
+// Ações e leituras usadas pelo teste, como as funções do
+// teste-de-conformidade.js. As Telas do JavaFX têm os mesmos nomes. Acha os
 // controles pelo rótulo (setLabelFor) e os textos pela classe.
 class Tela {
     private final CatalogoDeProdutos catalogo;
@@ -47,7 +47,7 @@ class Tela {
                 .orElseThrow();
     }
 
-    // Como o setter + evento "input" do roteiro.
+    // Como o setter + evento "input" da web.
     void buscar(String texto) {
         naTela(() -> ((JTextField) rotulado("Buscar")).setText(texto));
     }
@@ -91,7 +91,7 @@ class Tela {
         return itens().stream().map(item -> item.get(0)).toList();
     }
 
-    // Como o texto() do roteiro, que troca o espaço não separável do preço.
+    // Como o texto() da web, que troca o espaço não separável do preço.
     String primeiroPreco() {
         return itens().get(0).get(2).replace(' ', ' ');
     }

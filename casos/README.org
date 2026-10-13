@@ -118,7 +118,7 @@ tecnologias) está nas decisões em [[file:../docs/adr/][docs/adr/]].
 
   #+begin_src sh
   cd casos/desktop
-  ./gradlew test                            # as rotinas das seis implementações
+  ./gradlew test                            # os testes das seis implementações
   ./gradlew :formulario-javafx-fxml:run     # abre uma janela
   #+end_src
 
@@ -129,9 +129,9 @@ tecnologias) está nas decisões em [[file:../docs/adr/][docs/adr/]].
   | Kotlin  | 2.4.20 | o do Android, só para compilar o domínio                  |
   | JUnit   | 4.13.2 | o do Android, para reaproveitar a regra =DataFixa=        |
 
-  Cada módulo tem um =RoteiroTest.java= com as verificações do
-  =roteiro-de-teste.js= do caso, na mesma ordem e com os mesmos nomes, e
-  uma classe =Tela= com a mesma API nas três tecnologias, como no Android.
+  Cada módulo tem um =TesteDeConformidade.java= com as verificações do
+  =teste-de-conformidade.js= do caso, na mesma ordem e com os mesmos nomes,
+  e uma classe =Tela= com a mesma API nas três tecnologias, como no Android.
   Não há capturas nem cenas: na pré-análise, a aparência só reproduz de
   longe o =estilo.css=, fora da tela (=Estilo.java= no Swing,
   =javafx-estilo/estilo.css= no JavaFX, comum às duas montagens). Os campos
@@ -166,9 +166,9 @@ tecnologias) está nas decisões em [[file:../docs/adr/][docs/adr/]].
   #+end_src
 
   O =ctest= roda, de cada caso, o teste do domínio (=dominio-cpp/test/=)
-  e a rotina de cada tecnologia (=<subpasta>/test/RoteiroTest.cpp=), com
-  as mesmas verificações e nomes do =roteiro-de-teste.js=, sem janela na
-  tela.
+  e o teste de conformidade de cada tecnologia
+  (=<subpasta>/test/TesteDeConformidade.cpp=), com as mesmas verificações
+  e nomes do =teste-de-conformidade.js=, sem janela na tela.
 
 * Capturas de tela
 

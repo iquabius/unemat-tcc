@@ -12,8 +12,8 @@ import org.robolectric.Shadows.shadowOf
 import tcc.lista.Ordem
 import tcc.lista.categorias
 
-// Ações e leituras usadas pelas cenas e pelo roteiro, como as funções do
-// roteiro-de-teste.js. A Tela do Compose tem os mesmos nomes.
+// Ações e leituras usadas pelas cenas e pelo teste, como as funções do
+// teste-de-conformidade.js. A Tela do Compose tem os mesmos nomes.
 class Tela(private val cenario: ActivityScenario<MainActivity>) {
     private fun <T> naTela(bloco: (MainActivity) -> T): T {
         var resultado: Any? = null
@@ -23,7 +23,7 @@ class Tela(private val cenario: ActivityScenario<MainActivity>) {
         return resultado as T
     }
 
-    // Como o setter + evento "input" do roteiro; o cursor vai para o fim.
+    // Como o setter + evento "input" da web; o cursor vai para o fim.
     fun buscar(texto: String) = naTela {
         val busca = it.findViewById<EditText>(R.id.busca)
         busca.setText(texto)
@@ -59,7 +59,7 @@ class Tela(private val cenario: ActivityScenario<MainActivity>) {
 
     fun nomes() = itens().map { it[0] }
 
-    // Como o texto() do roteiro, que troca o espaço não separável do preço.
+    // Como o texto() da web, que troca o espaço não separável do preço.
     fun primeiroPreco() = itens().first()[2].replace(' ', ' ')
 
     fun contagem() = naTela {

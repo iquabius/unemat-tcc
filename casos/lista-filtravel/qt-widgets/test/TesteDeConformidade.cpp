@@ -4,9 +4,9 @@
 
 using lista::Ordem;
 
-// As 11 verificações de casos/lista-filtravel/roteiro-de-teste.js, na mesma
-// ordem e com os mesmos nomes, como o TesteDeConformidade.kt. Falha listando todas as
-// que não passaram.
+// As 11 verificações de casos/lista-filtravel/teste-de-conformidade.js, na
+// mesma ordem e com os mesmos nomes, como o TesteDeConformidade.kt. Falha
+// listando todas as que não passaram.
 class TesteDeConformidade : public QObject {
     Q_OBJECT
     QStringList falhas;

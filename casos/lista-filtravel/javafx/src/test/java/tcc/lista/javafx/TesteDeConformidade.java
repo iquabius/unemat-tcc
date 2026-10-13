@@ -8,8 +8,8 @@ import java.util.Objects;
 import org.junit.Test;
 import tcc.lista.Ordem;
 
-// As 11 verificações de casos/lista-filtravel/roteiro-de-teste.js, na mesma
-// ordem e com os mesmos nomes. Falha listando todas as que não passaram.
+// As 11 verificações de casos/lista-filtravel/teste-de-conformidade.js, na
+// mesma ordem e com os mesmos nomes. Falha listando todas as que não passaram.
 public class TesteDeConformidade {
     private final List<String> falhas = new ArrayList<>();
 

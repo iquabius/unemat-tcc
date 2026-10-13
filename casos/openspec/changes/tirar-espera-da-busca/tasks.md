@@ -2,7 +2,7 @@
 
 ## 1. Teste de conformidade e especificação viva
 
-- [ ] 1.1 Tirar de `busca-com-sugestoes/roteiro-de-teste.js` a verificação
+- [ ] 1.1 Tirar de `busca-com-sugestoes/teste-de-conformidade.js` a verificação
   "3 nada durante a espera" e as pausas que contavam com a espera, com os
   cenários deste delta; verificar lendo o diff contra os cenários.
 - [ ] 1.2 Tirar a espera da apresentação em

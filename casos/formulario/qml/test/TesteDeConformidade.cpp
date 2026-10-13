@@ -5,9 +5,9 @@
 
 using formulario::TipoDeVoo;
 
-// As 19 verificações de casos/formulario/roteiro-de-teste.js, na mesma ordem
-// e com os mesmos nomes, como o TesteDeConformidade.kt. Falha listando todas as que
-// não passaram.
+// As 19 verificações de casos/formulario/teste-de-conformidade.js, na mesma
+// ordem e com os mesmos nomes, como o TesteDeConformidade.kt. Falha listando
+// todas as que não passaram.
 class TesteDeConformidade : public QObject {
     Q_OBJECT
     QStringList falhas;
@@ -83,7 +83,7 @@ private slots:
         QVERIFY2(falhas.isEmpty(), qPrintable(falhas.join('\n')));
     }
 
-    // Fora da rotina da web: fechar a tela com um campo focado não pode
+    // Fora do teste da web: fechar a tela com um campo focado não pode
     // chamar o código da tela já destruída. Com campos já tocados, o Qt
     // Widgets sem o disconnect do ~Janela caía com std::bad_alloc.
     void fecharComCampoFocado()

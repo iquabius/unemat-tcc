@@ -12,8 +12,8 @@
 
 Q_IMPORT_QML_PLUGIN(ListaFiltravelPlugin)
 
-// Ações e leituras usadas pela rotina, como as funções do
-// roteiro-de-teste.js e a Tela dos testes do Android. A Tela do Qt Widgets
+// Ações e leituras usadas pelo teste, como as funções do
+// teste-de-conformidade.js e a Tela dos testes do Android. A Tela do Qt Widgets
 // tem os mesmos nomes. Os itens são achados pelo tipo e pela ordem (busca,
 // categoria, ordem; contagem antes da lista, aviso depois), sem marcas só
 // para teste, como o Compose os acha pela semântica.
@@ -57,7 +57,7 @@ public:
 
     QStringList nomes() { return textos("nome"); }
 
-    // Com espaço comum no lugar do não separável, como o roteiro-de-teste.js.
+    // Com espaço comum no lugar do não separável, como o teste da web.
     QString primeiroPreco() { return textos("preco").value(0).replace(QChar(0x00A0), ' '); }
 
     QString contagem() { return rotulosForaDaLista().value(0)->property("text").toString(); }
@@ -91,7 +91,7 @@ private:
     }
 
     // Uma propriedade de cada produto montado, de cima para baixo. O ListView
-    // só monta os itens que cabem na janela, como o RecyclerView; a rotina
+    // só monta os itens que cabem na janela, como o RecyclerView; o teste
     // confere os primeiros e a lista vazia.
     QStringList textos(const char *campo)
     {

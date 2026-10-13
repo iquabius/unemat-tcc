@@ -19,8 +19,8 @@ enum class Campo(val id: Int) {
     VOLTA(R.id.volta),
 }
 
-// Ações e leituras usadas pelas cenas e pelo roteiro, como as funções do
-// roteiro-de-teste.js. A Tela do Compose tem os mesmos nomes.
+// Ações e leituras usadas pelas cenas e pelo teste, como as funções do
+// teste-de-conformidade.js. A Tela do Compose tem os mesmos nomes.
 class Tela(private val cenario: ActivityScenario<MainActivity>) {
     private fun <T> naTela(bloco: (MainActivity) -> T): T {
         var resultado: Any? = null
@@ -35,7 +35,7 @@ class Tela(private val cenario: ActivityScenario<MainActivity>) {
 
     fun focar(campo: Campo) = naTela { campo(it, campo).requestFocus() }
 
-    // Como o setter + evento "input" do roteiro: muda o texto sem mudar o foco.
+    // Como o setter + evento "input" da web: muda o texto sem mudar o foco.
     // O cursor vai para o fim, como depois de digitar (o setText o põe no
     // início).
     fun digitar(campo: Campo, texto: String) = naTela {
@@ -49,7 +49,7 @@ class Tela(private val cenario: ActivityScenario<MainActivity>) {
         digitar(campo, texto)
     }
 
-    // Como o blur do roteiro: o foco passa para outro campo.
+    // Como o blur da web: o foco passa para outro campo.
     fun sair(campo: Campo) {
         focar(campo)
         focar(if (campo == Campo.NOME) Campo.EMAIL else Campo.NOME)

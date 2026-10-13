@@ -1,4 +1,4 @@
-# A tela num módulo QML estático, que o aplicativo e a rotina ligam.
+# A tela num módulo QML estático, que o aplicativo e o teste ligam.
 qt_add_library(${CASO}-qml-tela STATIC)
 qt_add_qml_module(${CASO}-qml-tela
   URI ListaFiltravel

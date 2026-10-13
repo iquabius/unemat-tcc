@@ -24,9 +24,9 @@ private val LISTA =
     SemanticsMatcher.keyIsDefined(SemanticsProperties.CollectionInfo)
 private val CONTAGEM = Regex("""\d+ de \d+ produtos""")
 
-// Ações e leituras usadas pelas cenas e pelo roteiro, como as funções do
-// roteiro-de-teste.js. A Tela do Views tem os mesmos nomes. Os controles são
-// achados pela semântica (papel, texto), sem marcas só para teste.
+// Ações e leituras usadas pelas cenas e pelo teste, como as funções do
+// teste-de-conformidade.js. A Tela do Views tem os mesmos nomes. Os controles
+// são achados pela semântica (papel, texto), sem marcas só para teste.
 class Tela(private val regra: AndroidComposeTestRule<*, *>) {
     private var categoria = "Todas"
     private var ordem = Ordem.NOME.rotulo
@@ -35,7 +35,7 @@ class Tela(private val regra: AndroidComposeTestRule<*, *>) {
         config.getOrNull(SemanticsProperties.Text)?.map { it.text }
             ?: emptyList()
 
-    // Como o setter + evento "input" do roteiro: muda o texto sem mudar o foco.
+    // Como o setter + evento "input" da web: muda o texto sem mudar o foco.
     fun buscar(texto: String) {
         regra.onNode(hasSetTextAction()).performSemanticsAction(
             SemanticsActions.SetText
@@ -86,7 +86,7 @@ class Tela(private val regra: AndroidComposeTestRule<*, *>) {
 
     fun nomes() = itens().map { it[0] }
 
-    // Como o texto() do roteiro, que troca o espaço não separável do preço.
+    // Como o texto() da web, que troca o espaço não separável do preço.
     fun primeiroPreco() = itens().first()[2].replace(' ', ' ')
 
     fun contagem() =

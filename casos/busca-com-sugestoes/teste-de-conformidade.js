@@ -1,8 +1,9 @@
-// Roteiro de teste da Busca com sugestões, igual para as seis implementações
-// web. Cole no console do navegador com o exemplo aberto; a última linha
-// devolve o resultado de cada verificação ("ok" ou "FALHOU"). Segue a
-// especificação do README.org, com espera de 300 ms e latência de 800 ms
-// (até 2 letras) ou 200 ms (3 ou mais).
+// Teste de conformidade da Busca com sugestões, igual para as seis
+// implementações web. Cole no console do navegador com o exemplo aberto; a
+// última linha devolve o resultado de cada verificação ("ok" ou "FALHOU").
+// Cada verificação é um cenário de
+// casos/openspec/specs/busca-com-sugestoes/spec.md, com espera de 300 ms e
+// latência de 800 ms (até 2 letras) ou 200 ms (3 ou mais).
 (async () => {
   const dormir = (ms) => new Promise((r) => setTimeout(r, ms));
   const campo = () => document.querySelector('[name="destino"]');

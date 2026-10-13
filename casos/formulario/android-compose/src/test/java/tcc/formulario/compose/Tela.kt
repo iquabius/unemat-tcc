@@ -27,8 +27,8 @@ private val MENSAGENS_DE_ERRO =
         "A volta não pode ser antes da ida.",
     )
 
-// Ações e leituras usadas pelas cenas e pelo roteiro, como as funções do
-// roteiro-de-teste.js. A Tela do Views tem os mesmos nomes. Os campos são
+// Ações e leituras usadas pelas cenas e pelo teste, como as funções do
+// teste-de-conformidade.js. A Tela do Views tem os mesmos nomes. Os campos são
 // achados pela ordem (nome, e-mail, ida, volta), sem marcas só para teste.
 class Tela(private val regra: AndroidComposeTestRule<*, *>) {
     private var tipo = TipoDeVoo.IDA
@@ -48,7 +48,7 @@ class Tela(private val regra: AndroidComposeTestRule<*, *>) {
         regra.waitForIdle()
     }
 
-    // Como o setter + evento "input" do roteiro: muda o texto sem mudar o foco.
+    // Como o setter + evento "input" da web: muda o texto sem mudar o foco.
     // (O performTextReplacement foca o campo antes de escrever.)
     fun digitar(campo: Campo, texto: String) {
         no(campo).performSemanticsAction(SemanticsActions.SetText) {
@@ -63,7 +63,7 @@ class Tela(private val regra: AndroidComposeTestRule<*, *>) {
         digitar(campo, texto)
     }
 
-    // Como o blur do roteiro: o foco passa para outro campo.
+    // Como o blur da web: o foco passa para outro campo.
     fun sair(campo: Campo) {
         focar(campo)
         focar(if (campo == Campo.NOME) Campo.EMAIL else Campo.NOME)

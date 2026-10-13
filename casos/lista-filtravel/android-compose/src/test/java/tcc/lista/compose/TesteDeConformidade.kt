@@ -9,8 +9,8 @@ import org.junit.runner.RunWith
 import org.robolectric.annotation.Config
 import tcc.lista.Ordem
 
-// As 11 verificações de casos/lista-filtravel/roteiro-de-teste.js, na mesma
-// ordem e com os mesmos nomes. A tela é alta para caber a lista inteira.
+// As 11 verificações de casos/lista-filtravel/teste-de-conformidade.js, na
+// mesma ordem e com os mesmos nomes. A tela é alta para caber a lista inteira.
 // Falha listando todas as que não passaram.
 @RunWith(AndroidJUnit4::class)
 @Config(qualifiers = "w480dp-h1950dp-xhdpi")
