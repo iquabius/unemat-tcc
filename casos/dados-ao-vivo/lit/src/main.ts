@@ -110,7 +110,11 @@ class DadosAoVivo extends LitElement {
         >
           ${this.visivel ? "Esconder painel" : "Mostrar painel"}
         </button>
-        ${this.visivel ? html`<painel-de-cotacoes></painel-de-cotacoes>` : nothing}
+        ${
+          this.visivel
+            ? html`<painel-de-cotacoes></painel-de-cotacoes>`
+            : nothing
+        }
       </main>
     `;
   }
