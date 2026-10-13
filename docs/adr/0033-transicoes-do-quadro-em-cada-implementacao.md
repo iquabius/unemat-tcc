@@ -7,10 +7,9 @@ domínio, uma função pura `reduzir(quadro, ação)` que devolve o quadro
 novo, as quatro implementações web despachavam ações e trocavam o quadro
 inteiro, o formato do `useReducer` do React, e o Solid, em vez de mudar o
 *store* pelo caminho, recalculava o quadro e o comparava com o anterior
-(`reconcile`), um encaixe que ainda escondeu um defeito
-(`docs/achados-das-implementacoes.md`, 2026-10-13). Mover, arquivar e
-trocar pelo quadro de outra aba passam a ser escritos em cada
-implementação, no idioma da tecnologia: o Web Component muda no lugar as
+(`reconcile`). Mover, arquivar e trocar pelo quadro de outra aba passam
+a ser escritos em cada implementação, no idioma da tecnologia: o Web
+Component muda no lugar as
 listas da loja, o React escreve o redutor no próprio arquivo, o Solid muda
 o *store* pelo caminho com `produce`, e o Angular troca o valor do
 *signal* por uma cópia. O domínio fica com as tarefas, as colunas, o
@@ -31,7 +30,13 @@ delas só o teste de conformidade pega; o desfazer da P2 (tcc-buku) volta
 a depender de como cada tecnologia muda o estado, e a mudança no lugar do
 Web Component e do Solid pede uma cópia para guardar o histórico; o
 limite de "Fazendo" passa a se garantir só pelos botões desabilitados,
-sem a guarda que o `reduzir` tinha.
+sem a guarda que o `reduzir` tinha; e a coluna de onde a tarefa sai vem
+do componente que desenha o botão, e não de uma busca em todas as
+colunas, como no `reduzir`, de modo que uma coluna errada apagaria outra
+tarefa no Web Component e no Solid (`splice` com o índice -1) e
+duplicaria a tarefa no React e no Angular; o tipo do quadro deixa de ser
+só de leitura nas quatro, e o React e o Angular perdem o aviso do
+compilador contra alterá-lo no lugar.
 
 Fontes: `docs/metodo-da-avaliacao.md`, linha do Quadro com desfazer;
 ADRs 0002, 0010 e 0013; tarefas tcc-2ui8 e tcc-i7qx.
