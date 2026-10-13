@@ -146,6 +146,10 @@ for (const tarefa of tarefas) {
     testes.push({ arquivo: relativo, nomes });
   }
 
+  const completo = (nomes: string[]) =>
+    nomes.length === cenarios.length &&
+    cenarios.every((c) => nomes.includes(c));
+
   // A referência da ordem é o teste da web, o arquivo na pasta da tarefa.
   const web = testes.find((t) => path.dirname(t.arquivo) === tarefa);
   if (!web) {
@@ -165,11 +169,11 @@ for (const tarefa of tarefas) {
     for (const nome of repetidos(nomes)) {
       problemas.push(`${arquivo}: verificação repetida: "${nome}"`);
     }
-    // A ordem só se compara entre testes com os mesmos nomes.
+    // A ordem só se compara entre testes que têm cada cenário uma vez.
     if (
       web &&
-      faltam.length === 0 &&
-      sobram.length === 0 &&
+      completo(nomes) &&
+      completo(web.nomes) &&
       nomes.join("\n") !== web.nomes.join("\n")
     ) {
       problemas.push(`${arquivo}: ordem diferente da de ${web.arquivo}`);
