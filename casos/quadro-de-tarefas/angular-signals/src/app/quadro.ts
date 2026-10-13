@@ -1,8 +1,8 @@
+import { NgTemplateOutlet } from "@angular/common";
 import {
   Component,
   DestroyRef,
   Injectable,
-  computed,
   effect,
   inject,
   input,
@@ -56,61 +56,68 @@ export class LojaDoQuadro {
   template: `
     <header class="cabecalho">
       <strong>Meu quadro</strong>
-      <span class="resumo">{{ resumo() }}</span>
+      <span class="resumo">{{ textoDoCabecalho(loja.estado()) }}</span>
       <p class="situacao" role="status">{{ loja.situacao() }}</p>
     </header>
   `,
 })
 export class Cabecalho {
   protected readonly loja = inject(LojaDoQuadro);
-  protected readonly resumo = computed(() =>
-    textoDoCabecalho(this.loja.estado()),
-  );
+  protected readonly textoDoCabecalho = textoDoCabecalho;
 }
 
 @Component({
   selector: "app-coluna",
+  imports: [NgTemplateOutlet],
   template: `
+    <ng-template #mover let-para="para" let-sinal="sinal" let-id="id">
+      @if (para) {
+        <button
+          type="button"
+          attr.aria-label="Mover {{ tarefa(id).titulo }} para {{
+            tituloDa(para)
+          }}"
+          [disabled]="!cabeEm(loja.estado(), para)"
+          (click)="loja.despachar({ tipo: 'mover', id: id, para: para })"
+        >
+          {{ sinal }}
+        </button>
+      } @else {
+        <span></span>
+      }
+    </ng-template>
     <section class="coluna">
-      <h2>{{ titulo() }}</h2>
-      @if (ids().length > 0) {
+      <h2>{{ textoDaColuna(loja.estado(), coluna()) }}</h2>
+      @if (loja.estado()[coluna()].length > 0) {
         <ul>
-          @for (id of ids(); track id) {
+          @for (id of loja.estado()[coluna()]; track id) {
             <li>
               <span class="titulo">{{ tarefa(id).titulo }}</span>
-              @if (vizinhas().anterior; as para) {
-                <button
-                  type="button"
-                  attr.aria-label="Mover {{ tarefa(id).titulo }} para {{
-                    tituloDa(para)
-                  }}"
-                  [disabled]="!cabe(para)"
-                  (click)="mover(id, para)"
-                >
-                  ←
-                </button>
-              } @else {
-                <span></span>
-              }
-              @if (vizinhas().proxima; as para) {
-                <button
-                  type="button"
-                  attr.aria-label="Mover {{ tarefa(id).titulo }} para {{
-                    tituloDa(para)
-                  }}"
-                  [disabled]="!cabe(para)"
-                  (click)="mover(id, para)"
-                >
-                  →
-                </button>
-              } @else {
-                <span></span>
-              }
+              <ng-container
+                *ngTemplateOutlet="
+                  mover;
+                  context: {
+                    para: vizinhas(coluna()).anterior,
+                    sinal: '←',
+                    id: id,
+                  }
+                "
+              />
+              <ng-container
+                *ngTemplateOutlet="
+                  mover;
+                  context: {
+                    para: vizinhas(coluna()).proxima,
+                    sinal: '→',
+                    id: id,
+                  }
+                "
+              />
               <button
                 type="button"
                 class="arquivar"
                 attr.aria-label="Arquivar {{ tarefa(id).titulo }}"
-                (click)="arquivar(id)"
+                (click)="loja.despachar({ tipo: 'arquivar', id: id })"
               >
                 Arquivar
               </button>
@@ -118,35 +125,21 @@ export class Cabecalho {
           }
         </ul>
       } @else {
-        <p class="aviso">{{ colunaVazia }}</p>
+        <p class="aviso">{{ MENSAGENS.colunaVazia }}</p>
       }
     </section>
   `,
 })
 export class ColunaDoQuadro {
-  protected readonly tarefa = tarefa;
-  protected readonly tituloDa = tituloDa;
-  protected readonly colunaVazia = MENSAGENS.colunaVazia;
-
   readonly coluna = input.required<Coluna>();
-  private readonly loja = inject(LojaDoQuadro);
-  protected readonly ids = computed(() => this.loja.estado()[this.coluna()]);
-  protected readonly titulo = computed(() =>
-    textoDaColuna(this.loja.estado(), this.coluna()),
-  );
-  protected readonly vizinhas = computed(() => vizinhas(this.coluna()));
-
-  protected cabe(para: Coluna) {
-    return cabeEm(this.loja.estado(), para);
-  }
-
-  protected mover(id: number, para: Coluna) {
-    this.loja.despachar({ tipo: "mover", id, para });
-  }
-
-  protected arquivar(id: number) {
-    this.loja.despachar({ tipo: "arquivar", id });
-  }
+  protected readonly loja = inject(LojaDoQuadro);
+  // O template só alcança o que a classe expõe: o domínio entra por aqui.
+  protected readonly MENSAGENS = MENSAGENS;
+  protected readonly cabeEm = cabeEm;
+  protected readonly tarefa = tarefa;
+  protected readonly textoDaColuna = textoDaColuna;
+  protected readonly tituloDa = tituloDa;
+  protected readonly vizinhas = vizinhas;
 }
 
 // O quadro: provê a loja que os componentes de dentro compartilham, uma
