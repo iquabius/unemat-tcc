@@ -16,21 +16,18 @@ import tcc.formulario.TipoDeVoo
 @RunWith(AndroidJUnit4::class)
 @Config(qualifiers = "w416dp-h560dp-xhdpi")
 class CenasTest {
-    @get:Rule(order = 0)
-    val dataFixa = DataFixa()
+    @get:Rule(order = 0) val dataFixa = DataFixa()
 
-    @get:Rule(order = 1)
-    val semAnimacoes = SemAnimacoes()
+    @get:Rule(order = 1) val semAnimacoes = SemAnimacoes()
 
-    @get:Rule(order = 2)
-    val regra = createAndroidComposeRule<MainActivity>()
+    @get:Rule(order = 2) val regra = createAndroidComposeRule<MainActivity>()
 
     private val tela by lazy { Tela(regra) }
 
-    @Test
-    fun inicial() = capturar("inicial")
+    @Test fun inicial() = capturar("inicial")
 
-    // Erros visíveis: nome tocado e vazio, e-mail mal formatado, volta antes da ida.
+    // Erros visíveis: nome tocado e vazio, e-mail mal formatado, volta antes da
+    // ida.
     @Test
     fun erros() {
         tela.focar(Campo.NOME)

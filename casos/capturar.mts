@@ -35,7 +35,14 @@ export type Cenas = Record<string, (pagina: Page) => Promise<void>>;
 
 const RAIZ = path.resolve(import.meta.dirname, "..");
 const CASOS = path.join(RAIZ, "casos");
-const WEB = ["web-component", "jquery", "react", "solid", "angular-signals", "angular-rxjs"];
+const WEB = [
+  "web-component",
+  "jquery",
+  "react",
+  "solid",
+  "angular-signals",
+  "angular-rxjs",
+];
 const ANDROID = ["android-views", "android-compose"];
 const TECNOLOGIAS = [...WEB, ...ANDROID];
 const GRADLEW = path.join(CASOS, "android", "gradlew");
@@ -55,8 +62,14 @@ const TIPOS: Record<string, string> = {
 async function implementacoes(filtros: string[]): Promise<[string, string][]> {
   const lista: [string, string][] = [];
   for (const caso of (await readdir(CASOS)).sort()) {
+    // Toda tarefa tem a especificação no README.org; as outras pastas
+    // (node_modules, android, desktop, qt) não são tarefas, e
+    // node_modules/jquery, o pacote do jQuery, pareceria uma implementação.
+    if (!existsSync(path.join(CASOS, caso, "README.org"))) continue;
     for (const tecnologia of TECNOLOGIAS) {
-      const projeto = ANDROID.includes(tecnologia) ? "build.gradle.kts" : "package.json";
+      const projeto = ANDROID.includes(tecnologia)
+        ? "build.gradle.kts"
+        : "package.json";
       if (!existsSync(path.join(CASOS, caso, tecnologia, projeto))) continue;
       const escolhido =
         filtros.length === 0 ||
@@ -80,38 +93,59 @@ async function pastaDoBuild(projeto: string): Promise<string> {
 
 function servir(pasta: string): Promise<Server> {
   const servidor = createServer(async (pedido, resposta) => {
-    const url = decodeURIComponent(new URL(pedido.url ?? "/", "http://x").pathname);
+    const url = decodeURIComponent(
+      new URL(pedido.url ?? "/", "http://x").pathname,
+    );
     let arquivo = path.join(pasta, url);
-    if (!arquivo.startsWith(pasta) || !existsSync(arquivo) || url.endsWith("/")) {
+    if (
+      !arquivo.startsWith(pasta) ||
+      !existsSync(arquivo) ||
+      url.endsWith("/")
+    ) {
       arquivo = path.join(pasta, "index.html");
     }
     try {
       const conteudo = await readFile(arquivo);
-      resposta.writeHead(200, { "content-type": TIPOS[path.extname(arquivo)] ?? "application/octet-stream" });
+      resposta.writeHead(200, {
+        "content-type":
+          TIPOS[path.extname(arquivo)] ?? "application/octet-stream",
+      });
       resposta.end(conteudo);
     } catch {
       resposta.writeHead(404).end();
     }
   });
-  return new Promise((resolve) => servidor.listen(0, "127.0.0.1", () => resolve(servidor)));
+  return new Promise((resolve) =>
+    servidor.listen(0, "127.0.0.1", () => resolve(servidor)),
+  );
 }
 
 // Roda os testes de captura do módulo Android, que gravam
 // <tecnologia>-<cena>.png na pasta dada, e devolve os nomes gerados.
-async function capturarAndroid(caso: string, tecnologia: string, pasta: string): Promise<string[]> {
+async function capturarAndroid(
+  caso: string,
+  tecnologia: string,
+  pasta: string,
+): Promise<string[]> {
   const tarefa = `:${caso}-${tecnologia}:testDebugUnitTest`;
   try {
-    execFileSync(GRADLEW, ["-q", tarefa, "--rerun", `-Pcapturas.destino=${pasta}`], {
-      cwd: path.dirname(GRADLEW),
-      encoding: "utf8",
-      stdio: "pipe",
-    });
+    execFileSync(
+      GRADLEW,
+      ["-q", tarefa, "--rerun", `-Pcapturas.destino=${pasta}`],
+      {
+        cwd: path.dirname(GRADLEW),
+        encoding: "utf8",
+        stdio: "pipe",
+      },
+    );
   } catch (erro) {
     const { stdout, stderr } = erro as { stdout?: string; stderr?: string };
     console.error(`Falhou: ${tarefa}\n${stdout ?? ""}${stderr ?? ""}`);
     throw erro;
   }
-  return (await readdir(pasta)).filter((a) => a.startsWith(`${tecnologia}-`) && a.endsWith(".png")).sort();
+  return (await readdir(pasta))
+    .filter((a) => a.startsWith(`${tecnologia}-`) && a.endsWith(".png"))
+    .sort();
 }
 
 async function cenasDo(caso: string): Promise<Cenas> {
@@ -129,7 +163,9 @@ if (lista.length === 0) {
   process.exit(1);
 }
 
-const temporaria = conferir ? await mkdtemp(path.join(tmpdir(), "capturas-")) : null;
+const temporaria = conferir
+  ? await mkdtemp(path.join(tmpdir(), "capturas-"))
+  : null;
 
 // caso/cena → tecnologia → hash da imagem
 const hashes = new Map<string, Map<string, string>>();
@@ -140,13 +176,25 @@ const sumiram: string[] = [];
 
 // Registra uma imagem gerada: hash para o aviso entre tecnologias e, no
 // --conferir, comparação com a versionada.
-async function registrar(caso: string, tecnologia: string, cena: string, imagem: Buffer) {
+async function registrar(
+  caso: string,
+  tecnologia: string,
+  cena: string,
+  imagem: Buffer,
+) {
   const plataforma = ANDROID.includes(tecnologia) ? "android" : "web";
   const chave = `${caso}/${cena} (${plataforma})`;
   if (!hashes.has(chave)) hashes.set(chave, new Map());
-  hashes.get(chave)!.set(tecnologia, createHash("sha256").update(imagem).digest("hex"));
+  hashes
+    .get(chave)!
+    .set(tecnologia, createHash("sha256").update(imagem).digest("hex"));
 
-  const versionada = path.join(CASOS, caso, "capturas", `${tecnologia}-${cena}.png`);
+  const versionada = path.join(
+    CASOS,
+    caso,
+    "capturas",
+    `${tecnologia}-${cena}.png`,
+  );
   if (!conferir) {
     console.log(path.relative(RAIZ, versionada));
   } else if (!existsSync(versionada)) {
@@ -157,12 +205,20 @@ async function registrar(caso: string, tecnologia: string, cena: string, imagem:
 }
 
 // Capturas versionadas desta tecnologia que nenhuma cena gerou.
-async function procurarSumidas(caso: string, tecnologia: string, cenas: string[]) {
+async function procurarSumidas(
+  caso: string,
+  tecnologia: string,
+  cenas: string[],
+) {
   const versionadas = path.join(CASOS, caso, "capturas");
   if (!conferir || !existsSync(versionadas)) return;
   for (const arquivo of await readdir(versionadas)) {
     const cena = arquivo.slice(tecnologia.length + 1, -".png".length);
-    if (arquivo.startsWith(`${tecnologia}-`) && arquivo.endsWith(".png") && !cenas.includes(cena)) {
+    if (
+      arquivo.startsWith(`${tecnologia}-`) &&
+      arquivo.endsWith(".png") &&
+      !cenas.includes(cena)
+    ) {
       sumiram.push(path.relative(RAIZ, path.join(versionadas, arquivo)));
     }
   }
@@ -178,19 +234,28 @@ try {
 
     if (ANDROID.includes(tecnologia)) {
       // O Gradle grava numa pasta só deste módulo; daqui vão para o destino.
-      const pasta = await mkdtemp(path.join(tmpdir(), `capturas-${tecnologia}-`));
+      const pasta = await mkdtemp(
+        path.join(tmpdir(), `capturas-${tecnologia}-`),
+      );
       const arquivos = await capturarAndroid(caso, tecnologia, pasta);
-      const cenas = arquivos.map((a) => a.slice(tecnologia.length + 1, -".png".length));
+      const cenas = arquivos.map((a) =>
+        a.slice(tecnologia.length + 1, -".png".length),
+      );
       for (const [i, arquivo] of arquivos.entries()) {
         await copyFile(path.join(pasta, arquivo), path.join(destino, arquivo));
-        await registrar(caso, tecnologia, cenas[i], await readFile(path.join(pasta, arquivo)));
+        await registrar(
+          caso,
+          tecnologia,
+          cenas[i],
+          await readFile(path.join(pasta, arquivo)),
+        );
       }
       await procurarSumidas(caso, tecnologia, cenas);
       continue;
     }
 
     execFileSync("npm", ["run", "build", "-w", path.relative(CASOS, projeto)], {
-      cwd: CASOS,  // o package.json dos workspaces fica em casos/
+      cwd: CASOS, // o package.json dos workspaces fica em casos/
       stdio: "ignore",
       env: { ...process.env, NG_CLI_ANALYTICS: "false" },
     });
@@ -211,7 +276,10 @@ try {
       await agir(pagina);
       await pagina.waitForTimeout(100);
       const nome = `${tecnologia}-${cena}.png`;
-      const imagem = await pagina.screenshot({ path: path.join(destino, nome), fullPage: true });
+      const imagem = await pagina.screenshot({
+        path: path.join(destino, nome),
+        fullPage: true,
+      });
       await contexto.close();
       await registrar(caso, tecnologia, cena, imagem);
     }
@@ -236,7 +304,9 @@ for (const [chave, porTecnologia] of hashes) {
   }
 }
 if (divergentes === 0) {
-  console.log(`As ${hashes.size} cenas saíram idênticas em todas as tecnologias de cada caso e plataforma.`);
+  console.log(
+    `As ${hashes.size} cenas saíram idênticas em todas as tecnologias de cada caso e plataforma.`,
+  );
 }
 
 if (conferir) {
@@ -253,7 +323,9 @@ if (conferir) {
     console.log("\nCapturas em dia: todas iguais às versionadas.");
   } else {
     console.log(`\nAs imagens geradas agora estão em ${temporaria}.`);
-    console.log("Se a mudança é intencional, rode npm run capturas e inclua as imagens no commit.");
+    console.log(
+      "Se a mudança é intencional, rode npm run capturas e inclua as imagens no commit.",
+    );
     process.exitCode = 1;
   }
 }

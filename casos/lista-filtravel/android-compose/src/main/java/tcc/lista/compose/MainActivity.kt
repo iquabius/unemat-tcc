@@ -41,9 +41,12 @@ fun CatalogoDeProdutos() {
     var ordem by remember { mutableStateOf(Ordem.NOME) }
 
     // A lista visível é derivada do estado a cada recomposição.
-    val visiveis = produtos
-        .filter { correspondeABusca(it, busca) && daCategoria(it, categoria) }
-        .sortedWith(comparador(ordem))
+    val visiveis =
+        produtos
+            .filter {
+                correspondeABusca(it, busca) && daCategoria(it, categoria)
+            }
+            .sortedWith(comparador(ordem))
 
     Catalogo {
         Filtros {
@@ -52,7 +55,8 @@ fun CatalogoDeProdutos() {
             }
             Rotulo("Categoria") {
                 Selecao(
-                    opcoes = listOf("" to "Todas") + categorias.map { it to it },
+                    opcoes =
+                        listOf("" to "Todas") + categorias.map { it to it },
                     escolhida = categoria,
                     aoEscolher = { categoria = it },
                 )
@@ -66,12 +70,19 @@ fun CatalogoDeProdutos() {
             }
         }
         // Como o role="status": o leitor de tela anuncia a mudança.
-        Contagem(textoDaContagem(visiveis.size), Modifier.semantics { liveRegion = LiveRegionMode.Polite })
+        Contagem(
+            textoDaContagem(visiveis.size),
+            Modifier.semantics { liveRegion = LiveRegionMode.Polite },
+        )
         // Como o map com key do React: a LazyColumn só compõe os itens que
         // aparecem na tela.
         Produtos {
             items(visiveis, key = { it.id }) { produto ->
-                Produto(produto.nome, produto.categoria, formatarPreco(produto.preco))
+                Produto(
+                    produto.nome,
+                    produto.categoria,
+                    formatarPreco(produto.preco),
+                )
             }
         }
         if (visiveis.isEmpty()) Contagem("Nenhum produto encontrado.")

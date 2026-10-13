@@ -11,12 +11,16 @@
     "*/angular-rxjs"
   ],
   "scripts": {
-    "capturas": "node capturar.mts"
+    "capturas": "node capturar.mts",
+    "formatar": "prettier --write . && android/gradlew -q -p android formatarKotlin",
+    "conferir-formatacao": "prettier --check . && android/gradlew -q -p android conferirFormatacaoKotlin"
   },
   "engines": {
     "node": ">=22.22.3"
   },
   "devDependencies": {
-    "playwright": "^1.63.0"
+    "@prettier/plugin-xml": "3.4.2",
+    "playwright": "^1.63.0",
+    "prettier": "3.9.10"
   }
 }

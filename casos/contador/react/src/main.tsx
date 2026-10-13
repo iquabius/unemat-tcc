@@ -8,11 +8,16 @@ function Contador({ valorInicial }: { valorInicial: number }) {
   return (
     <main className="contador">
       <output>{contador}</output>
-      <button aria-label="Incrementar" onClick={() => setContador(contador + 1)}>
+      <button
+        aria-label="Incrementar"
+        onClick={() => setContador(contador + 1)}
+      >
         +
       </button>
     </main>
   );
 }
 
-createRoot(document.getElementById("raiz")!).render(<Contador valorInicial={0} />);
+createRoot(document.getElementById("raiz")!).render(
+  <Contador valorInicial={0} />,
+);

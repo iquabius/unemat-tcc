@@ -18,13 +18,19 @@ import androidx.compose.ui.semantics.Role
 // (DropdownMenu) com as opções. Na web e no Views (Spinner), a plataforma
 // traz o componente inteiro; aqui ele é montado, com o próprio estado.
 @Composable
-fun <T> Selecao(opcoes: List<Pair<T, String>>, escolhida: T, aoEscolher: (T) -> Unit) {
+fun <T> Selecao(
+    opcoes: List<Pair<T, String>>,
+    escolhida: T,
+    aoEscolher: (T) -> Unit,
+) {
     var aberta by remember { mutableStateOf(false) }
 
     Box {
         Text(
             opcoes.first { it.first == escolhida }.second,
-            Modifier.fillMaxWidth().clickable(role = Role.DropdownList) { aberta = true }.caixa(),
+            Modifier.fillMaxWidth()
+                .clickable(role = Role.DropdownList) { aberta = true }
+                .caixa(),
         )
         DropdownMenu(expanded = aberta, onDismissRequest = { aberta = false }) {
             for ((valor, rotulo) in opcoes) {

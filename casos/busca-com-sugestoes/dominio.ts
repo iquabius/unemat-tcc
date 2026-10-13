@@ -88,7 +88,11 @@ const compararTextos = new Intl.Collator("pt-BR").compare;
 
 /** Minúsculas e sem acentos, para comparar textos como o usuário espera. */
 function normalizar(texto: string): string {
-  return texto.normalize("NFD").replace(/\p{Diacritic}/gu, "").toLowerCase().trim();
+  return texto
+    .normalize("NFD")
+    .replace(/\p{Diacritic}/gu, "")
+    .toLowerCase()
+    .trim();
 }
 
 export function rotulo(cidade: Cidade): string {
@@ -104,7 +108,10 @@ function sugerir(termo: string): Cidade[] {
     else if (nome.includes(termo)) contem.push(cidade);
   }
   const porNome = (a: Cidade, b: Cidade) => compararTextos(a.nome, b.nome);
-  return [...comecam.sort(porNome), ...contem.sort(porNome)].slice(0, MAXIMO_DE_SUGESTOES);
+  return [...comecam.sort(porNome), ...contem.sort(porNome)].slice(
+    0,
+    MAXIMO_DE_SUGESTOES,
+  );
 }
 
 /**
@@ -112,7 +119,10 @@ function sugerir(termo: string): Cidade[] {
  * aceita um AbortSignal. Termos de até 2 letras levam 800 ms; os demais,
  * 200 ms. O termo "erro" faz a busca falhar.
  */
-export function buscarCidades(termo: string, sinal?: AbortSignal): Promise<Cidade[]> {
+export function buscarCidades(
+  termo: string,
+  sinal?: AbortSignal,
+): Promise<Cidade[]> {
   const normalizado = normalizar(termo);
   const latencia = normalizado.length <= 2 ? 800 : 200;
   return new Promise((resolve, reject) => {

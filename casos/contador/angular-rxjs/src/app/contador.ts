@@ -1,11 +1,11 @@
-import { AsyncPipe } from '@angular/common';
-import { Component } from '@angular/core';
-import { Subject, scan, startWith } from 'rxjs';
+import { AsyncPipe } from "@angular/common";
+import { Component } from "@angular/core";
+import { Subject, scan, startWith } from "rxjs";
 
 // RxJS de propósito: o Angular atual recomenda signals, mas este exemplo
 // existe para comparar com RxJS.
 @Component({
-  selector: 'app-contador',
+  selector: "app-contador",
   imports: [AsyncPipe],
   template: `
     <main class="contador">

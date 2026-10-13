@@ -8,7 +8,10 @@ function Contador(props: { valorInicial: number }) {
   return (
     <main class="contador">
       <output>{contador()}</output>
-      <button aria-label="Incrementar" onClick={() => setContador(contador() + 1)}>
+      <button
+        aria-label="Incrementar"
+        onClick={() => setContador(contador() + 1)}
+      >
         +
       </button>
     </main>

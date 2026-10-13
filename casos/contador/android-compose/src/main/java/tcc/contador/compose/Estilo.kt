@@ -32,7 +32,11 @@ import androidx.compose.ui.unit.sp
 @Composable
 fun Tema(conteudo: @Composable () -> Unit) {
     MaterialTheme(colorScheme = darkColorScheme()) {
-        Surface(Modifier.fillMaxSize(), color = Color(0xFF2B2B2B), content = conteudo)
+        Surface(
+            Modifier.fillMaxSize(),
+            color = Color(0xFF2B2B2B),
+            content = conteudo,
+        )
     }
 }
 
@@ -71,10 +75,11 @@ fun RowScope.Botao(
         modifier = Modifier.weight(1f).then(Estilo.celula).then(modifier),
         shape = RectangleShape,
         border = BorderStroke(1.dp, Color(0xFF555555)),
-        colors = ButtonDefaults.buttonColors(
-            containerColor = Color(0xFF3A3A3A),
-            contentColor = Color(0xFFF5D33B),
-        ),
+        colors =
+            ButtonDefaults.buttonColors(
+                containerColor = Color(0xFF3A3A3A),
+                contentColor = Color(0xFFF5D33B),
+            ),
         contentPadding = PaddingValues(0.dp),
     ) {
         ProvideTextStyle(TextStyle(fontSize = 40.sp), conteudo)

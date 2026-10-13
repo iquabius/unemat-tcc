@@ -22,7 +22,10 @@ export const cenas: Cenas = {
   // O carrinho salvo no localStorage volta ao abrir a página.
   restaurado: async (pagina) => {
     await pagina.evaluate(() =>
-      localStorage.setItem("carrinho", '[{"id":8,"quantidade":1},{"id":27,"quantidade":2}]'),
+      localStorage.setItem(
+        "carrinho",
+        '[{"id":8,"quantidade":1},{"id":27,"quantidade":2}]',
+      ),
     );
     await pagina.reload();
     await pagina.waitForLoadState("networkidle");

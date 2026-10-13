@@ -40,10 +40,17 @@ private val texto = Color(0xFFEEEEEE)
 @Composable
 fun Tema(conteudo: @Composable () -> Unit) {
     MaterialTheme(colorScheme = darkColorScheme()) {
-        Surface(Modifier.fillMaxSize().safeDrawingPadding(), color = Color(0xFF2B2B2B), contentColor = texto) {
+        Surface(
+            Modifier.fillMaxSize().safeDrawingPadding(),
+            color = Color(0xFF2B2B2B),
+            contentColor = texto,
+        ) {
             // Substitui o texto do Material (com espaçamento entre letras e
             // entrelinha próprios) pelo texto comum, como o do body.
-            CompositionLocalProvider(LocalTextStyle provides TextStyle(fontSize = 16.sp), content = conteudo)
+            CompositionLocalProvider(
+                LocalTextStyle provides TextStyle(fontSize = 16.sp),
+                content = conteudo,
+            )
         }
     }
 }
@@ -52,7 +59,11 @@ fun Tema(conteudo: @Composable () -> Unit) {
 // filtros ficam parados e só a lista rola (na web, rola a página).
 @Composable
 fun Catalogo(conteudo: @Composable ColumnScope.() -> Unit) {
-    Column(Modifier.padding(16.dp), Arrangement.spacedBy(12.dp), content = conteudo)
+    Column(
+        Modifier.padding(16.dp),
+        Arrangement.spacedBy(12.dp),
+        content = conteudo,
+    )
 }
 
 // .filtros: 0.5rem entre os controles.
@@ -71,10 +82,10 @@ fun Rotulo(texto: String, controle: @Composable () -> Unit) {
 }
 
 // Fundo e borda de .filtros input e select.
-internal fun Modifier.caixa() = this
-    .border(1.dp, Color(0xFF555555))
-    .background(Color(0xFF3A3A3A))
-    .padding(6.4.dp)
+internal fun Modifier.caixa() =
+    this.border(1.dp, Color(0xFF555555))
+        .background(Color(0xFF3A3A3A))
+        .padding(6.4.dp)
 
 // .filtros input
 @Composable
@@ -116,7 +127,10 @@ fun Produtos(itens: LazyListScope.() -> Unit) {
 @Composable
 fun Produto(nome: String, categoria: String, preco: String) {
     Row(
-        Modifier.fillMaxWidth().background(Color(0xFF333333)).padding(8.dp).semantics(mergeDescendants = true) {},
+        Modifier.fillMaxWidth()
+            .background(Color(0xFF333333))
+            .padding(8.dp)
+            .semantics(mergeDescendants = true) {},
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Column(Modifier.weight(1f)) {

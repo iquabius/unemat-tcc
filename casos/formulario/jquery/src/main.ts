@@ -32,7 +32,9 @@ $(function () {
     const erroEmail = erroDoEmail(valor("email"));
     const erroIda = erroDaData(valor("ida"));
     const erroVolta = idaEVolta ? erroDaData(valor("volta")) : null;
-    const erroOrdem = idaEVolta ? erroDaOrdem(valor("ida"), valor("volta")) : null;
+    const erroOrdem = idaEVolta
+      ? erroDaOrdem(valor("ida"), valor("volta"))
+      : null;
 
     mostrarErro("nome", tocados.has("nome") ? erroNome : null);
     mostrarErro("email", tocados.has("email") ? erroEmail : null);
@@ -43,7 +45,9 @@ $(function () {
         (tocados.has("ida") || tocados.has("volta") ? erroOrdem : null),
     );
 
-    const temErro = [erroNome, erroEmail, erroIda, erroVolta, erroOrdem].some(Boolean);
+    const temErro = [erroNome, erroEmail, erroIda, erroVolta, erroOrdem].some(
+      Boolean,
+    );
     $("#reservar").prop("disabled", temErro);
   }
 

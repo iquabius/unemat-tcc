@@ -16,14 +16,16 @@ import androidx.compose.ui.test.requestFocus
 import androidx.compose.ui.text.AnnotatedString
 import tcc.formulario.TipoDeVoo
 
-private val ROTULOS = mapOf(TipoDeVoo.IDA to "Só ida", TipoDeVoo.IDA_E_VOLTA to "Ida e volta")
+private val ROTULOS =
+    mapOf(TipoDeVoo.IDA to "Só ida", TipoDeVoo.IDA_E_VOLTA to "Ida e volta")
 
-private val MENSAGENS_DE_ERRO = setOf(
-    "Informe o nome do passageiro.",
-    "Informe um e-mail válido.",
-    "Use uma data válida no formato DD/MM/AAAA.",
-    "A volta não pode ser antes da ida.",
-)
+private val MENSAGENS_DE_ERRO =
+    setOf(
+        "Informe o nome do passageiro.",
+        "Informe um e-mail válido.",
+        "Use uma data válida no formato DD/MM/AAAA.",
+        "A volta não pode ser antes da ida.",
+    )
 
 // Ações e leituras usadas pelas cenas e pelo roteiro, como as funções do
 // roteiro-de-teste.js. A Tela do Views tem os mesmos nomes. Os campos são
@@ -34,7 +36,10 @@ class Tela(private val regra: AndroidComposeTestRule<*, *>) {
     // Todo campo tem texto editável, mesmo desabilitado (quando perde a ação
     // de editar).
     private fun no(campo: Campo) =
-        regra.onAllNodes(SemanticsMatcher.keyIsDefined(SemanticsProperties.EditableText))[campo.ordinal]
+        regra
+            .onAllNodes(
+                SemanticsMatcher.keyIsDefined(SemanticsProperties.EditableText)
+            )[campo.ordinal]
 
     private fun config(campo: Campo) = no(campo).fetchSemanticsNode().config
 
@@ -46,7 +51,9 @@ class Tela(private val regra: AndroidComposeTestRule<*, *>) {
     // Como o setter + evento "input" do roteiro: muda o texto sem mudar o foco.
     // (O performTextReplacement foca o campo antes de escrever.)
     fun digitar(campo: Campo, texto: String) {
-        no(campo).performSemanticsAction(SemanticsActions.SetText) { it(AnnotatedString(texto)) }
+        no(campo).performSemanticsAction(SemanticsActions.SetText) {
+            it(AnnotatedString(texto))
+        }
         regra.waitForIdle()
     }
 
@@ -66,7 +73,11 @@ class Tela(private val regra: AndroidComposeTestRule<*, *>) {
     fun escolherTipo(novo: TipoDeVoo) {
         if (novo == tipo) return
         regra.onNodeWithText(ROTULOS.getValue(tipo)).performClick()
-        regra.onNode(hasText(ROTULOS.getValue(novo)) and hasAnyAncestor(isPopup())).performClick()
+        regra
+            .onNode(
+                hasText(ROTULOS.getValue(novo)) and hasAnyAncestor(isPopup())
+            )
+            .performClick()
         regra.waitForIdle()
         tipo = novo
     }
@@ -77,26 +88,40 @@ class Tela(private val regra: AndroidComposeTestRule<*, *>) {
     }
 
     fun botaoHabilitado() =
-        SemanticsProperties.Disabled !in regra.onNodeWithText("Reservar").fetchSemanticsNode().config
+        SemanticsProperties.Disabled !in
+            regra.onNodeWithText("Reservar").fetchSemanticsNode().config
 
-    fun habilitado(campo: Campo) = SemanticsProperties.Disabled !in config(campo)
+    fun habilitado(campo: Campo) =
+        SemanticsProperties.Disabled !in config(campo)
 
-    fun valor(campo: Campo) = config(campo)[SemanticsProperties.EditableText].text
+    fun valor(campo: Campo) =
+        config(campo)[SemanticsProperties.EditableText].text
 
     fun invalido(campo: Campo) = SemanticsProperties.Error in config(campo)
 
     // Mensagens de erro visíveis, de cima para baixo.
     fun erros(): List<String> =
-        regra.onAllNodes(SemanticsMatcher("mensagem de erro") { textoDe(it.config) in MENSAGENS_DE_ERRO })
+        regra
+            .onAllNodes(
+                SemanticsMatcher("mensagem de erro") {
+                    textoDe(it.config) in MENSAGENS_DE_ERRO
+                }
+            )
             .fetchSemanticsNodes()
             .map { textoDe(it.config) }
 
     fun confirmacao(): String =
-        regra.onAllNodes(SemanticsMatcher("confirmação") { textoDe(it.config).startsWith("Voo ") })
+        regra
+            .onAllNodes(
+                SemanticsMatcher("confirmação") {
+                    textoDe(it.config).startsWith("Voo ")
+                }
+            )
             .fetchSemanticsNodes()
             .map { textoDe(it.config) }
             .singleOrNull() ?: ""
 
     private fun textoDe(config: SemanticsConfiguration) =
-        config.getOrNull(SemanticsProperties.Text)?.joinToString("") { it.text } ?: ""
+        config.getOrNull(SemanticsProperties.Text)?.joinToString("") { it.text }
+            ?: ""
 }

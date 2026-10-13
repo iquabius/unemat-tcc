@@ -15,12 +15,13 @@ import androidx.compose.ui.test.junit4.AndroidComposeTestRule
 import androidx.compose.ui.test.onChildren
 import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.performSemanticsAction
-import androidx.compose.ui.test.requestFocus
 import androidx.compose.ui.text.AnnotatedString
 import tcc.lista.Ordem
 
-private val SELECAO = SemanticsMatcher.expectValue(SemanticsProperties.Role, Role.DropdownList)
-private val LISTA = SemanticsMatcher.keyIsDefined(SemanticsProperties.CollectionInfo)
+private val SELECAO =
+    SemanticsMatcher.expectValue(SemanticsProperties.Role, Role.DropdownList)
+private val LISTA =
+    SemanticsMatcher.keyIsDefined(SemanticsProperties.CollectionInfo)
 private val CONTAGEM = Regex("""\d+ de \d+ produtos""")
 
 // Ações e leituras usadas pelas cenas e pelo roteiro, como as funções do
@@ -31,11 +32,16 @@ class Tela(private val regra: AndroidComposeTestRule<*, *>) {
     private var ordem = Ordem.NOME.rotulo
 
     private fun textos(config: SemanticsConfiguration) =
-        config.getOrNull(SemanticsProperties.Text)?.map { it.text } ?: emptyList()
+        config.getOrNull(SemanticsProperties.Text)?.map { it.text }
+            ?: emptyList()
 
     // Como o setter + evento "input" do roteiro: muda o texto sem mudar o foco.
     fun buscar(texto: String) {
-        regra.onNode(hasSetTextAction()).performSemanticsAction(SemanticsActions.SetText) { it(AnnotatedString(texto)) }
+        regra.onNode(hasSetTextAction()).performSemanticsAction(
+            SemanticsActions.SetText
+        ) {
+            it(AnnotatedString(texto))
+        }
         regra.waitForIdle()
     }
 
@@ -62,22 +68,41 @@ class Tela(private val regra: AndroidComposeTestRule<*, *>) {
     fun opcoesDeCategoria(): List<String> {
         regra.onNode(SELECAO and hasText(categoria)).performClick()
         val menu = hasAnyAncestor(isPopup()) and hasClickAction()
-        val opcoes = regra.onAllNodes(menu).fetchSemanticsNodes().flatMap { textos(it.config) }
+        val opcoes =
+            regra.onAllNodes(menu).fetchSemanticsNodes().flatMap {
+                textos(it.config)
+            }
         regra.onNode(menu and hasText(categoria)).performClick()
         regra.waitForIdle()
         return opcoes
     }
 
-    // Os textos de cada item da lista, na ordem da tela: nome, categoria, preço.
-    private fun itens() = regra.onNode(LISTA).onChildren().fetchSemanticsNodes().map { textos(it.config) }
+    // Os textos de cada item da lista, na ordem da tela: nome, categoria,
+    // preço.
+    private fun itens() =
+        regra.onNode(LISTA).onChildren().fetchSemanticsNodes().map {
+            textos(it.config)
+        }
 
     fun nomes() = itens().map { it[0] }
 
     // Como o texto() do roteiro, que troca o espaço não separável do preço.
     fun primeiroPreco() = itens().first()[2].replace(' ', ' ')
 
-    fun contagem() = regra.onAllNodes(SemanticsMatcher("contagem") { textos(it.config).any(CONTAGEM::matches) })
-        .fetchSemanticsNodes().single().let { textos(it.config).single() }
+    fun contagem() =
+        regra
+            .onAllNodes(
+                SemanticsMatcher("contagem") {
+                    textos(it.config).any(CONTAGEM::matches)
+                }
+            )
+            .fetchSemanticsNodes()
+            .single()
+            .let { textos(it.config).single() }
 
-    fun vazio() = regra.onAllNodes(hasText("Nenhum produto encontrado.")).fetchSemanticsNodes().isNotEmpty()
+    fun vazio() =
+        regra
+            .onAllNodes(hasText("Nenhum produto encontrado."))
+            .fetchSemanticsNodes()
+            .isNotEmpty()
 }

@@ -20,7 +20,10 @@ function CatalogoDeProdutos() {
 
   // A lista visível é derivada do estado a cada renderização.
   const visiveis = produtos
-    .filter((produto) => correspondeABusca(produto, busca) && daCategoria(produto, categoria))
+    .filter(
+      (produto) =>
+        correspondeABusca(produto, busca) && daCategoria(produto, categoria),
+    )
     .sort(comparador(ordem));
 
   return (
@@ -38,7 +41,11 @@ function CatalogoDeProdutos() {
         </label>
         <label>
           Categoria
-          <select name="categoria" value={categoria} onChange={(e) => setCategoria(e.target.value)}>
+          <select
+            name="categoria"
+            value={categoria}
+            onChange={(e) => setCategoria(e.target.value)}
+          >
             <option value="">Todas</option>
             {categorias.map((c) => (
               <option key={c} value={c}>
@@ -49,7 +56,11 @@ function CatalogoDeProdutos() {
         </label>
         <label>
           Ordenar por
-          <select name="ordem" value={ordem} onChange={(e) => setOrdem(e.target.value as Ordem)}>
+          <select
+            name="ordem"
+            value={ordem}
+            onChange={(e) => setOrdem(e.target.value as Ordem)}
+          >
             {ordens.map((o) => (
               <option key={o.valor} value={o.valor}>
                 {o.rotulo}
@@ -70,7 +81,9 @@ function CatalogoDeProdutos() {
           </li>
         ))}
       </ul>
-      {visiveis.length === 0 && <p className="vazio">Nenhum produto encontrado.</p>}
+      {visiveis.length === 0 && (
+        <p className="vazio">Nenhum produto encontrado.</p>
+      )}
     </main>
   );
 }

@@ -39,12 +39,19 @@ $(function () {
           const item = $("<li>").append(
             $("<span>").addClass("nome").text(p.nome),
             $("<span>").addClass("preco").text(formatarPreco(p.preco)),
-            $("<button>", { type: "button", "aria-label": `Adicionar ${p.nome}` })
+            $("<button>", {
+              type: "button",
+              "aria-label": `Adicionar ${p.nome}`,
+            })
               .text("Adicionar")
               .data("id", p.id),
           );
           if (quantidade > 0) {
-            item.append($("<span>").addClass("no-carrinho").text(`${quantidade} no carrinho`));
+            item.append(
+              $("<span>")
+                .addClass("no-carrinho")
+                .text(`${quantidade} no carrinho`),
+            );
           }
           return item;
         }),
@@ -54,7 +61,9 @@ $(function () {
   function atualizarPainel() {
     const { itens, confirmacao } = estado;
     const vazio = itens.length === 0;
-    $("#aviso").text(MENSAGENS.vazio).prop("hidden", !vazio || confirmacao !== null);
+    $("#aviso")
+      .text(MENSAGENS.vazio)
+      .prop("hidden", !vazio || confirmacao !== null);
     $("#confirmacao")
       .text(confirmacao ?? "")
       .prop("hidden", !vazio || confirmacao === null);
@@ -74,23 +83,36 @@ $(function () {
               $("<span>")
                 .addClass("quantidade")
                 .append(
-                  $("<button>", { type: "button", "aria-label": `Diminuir ${p.nome}` })
+                  $("<button>", {
+                    type: "button",
+                    "aria-label": `Diminuir ${p.nome}`,
+                  })
                     .addClass("diminuir")
                     .text("−"),
                   $("<span>").addClass("valor").text(quantidade),
-                  $("<button>", { type: "button", "aria-label": `Aumentar ${p.nome}` })
+                  $("<button>", {
+                    type: "button",
+                    "aria-label": `Aumentar ${p.nome}`,
+                  })
                     .addClass("aumentar")
                     .text("+"),
                 ),
-              $("<span>").addClass("subtotal").text(formatarPreco(p.preco * quantidade)),
-              $("<button>", { type: "button", "aria-label": `Remover ${p.nome}` })
+              $("<span>")
+                .addClass("subtotal")
+                .text(formatarPreco(p.preco * quantidade)),
+              $("<button>", {
+                type: "button",
+                "aria-label": `Remover ${p.nome}`,
+              })
                 .addClass("remover")
                 .text("Remover"),
             );
         }),
       );
     $("#subtotal").text(formatarPreco(resumo.subtotal));
-    $("#valor-do-frete").text(resumo.frete === 0 ? "Grátis" : formatarPreco(resumo.frete));
+    $("#valor-do-frete").text(
+      resumo.frete === 0 ? "Grátis" : formatarPreco(resumo.frete),
+    );
     $("#total").text(formatarPreco(resumo.total));
     $("#frete").text(textoDoFrete(resumo));
   }
@@ -104,8 +126,10 @@ $(function () {
   });
   $("#itens").on("click", "button", function () {
     const id: number = $(this).closest("li").data("id");
-    if ($(this).hasClass("diminuir")) despachar({ tipo: "alterar", id, delta: -1 });
-    if ($(this).hasClass("aumentar")) despachar({ tipo: "alterar", id, delta: 1 });
+    if ($(this).hasClass("diminuir"))
+      despachar({ tipo: "alterar", id, delta: -1 });
+    if ($(this).hasClass("aumentar"))
+      despachar({ tipo: "alterar", id, delta: 1 });
     if ($(this).hasClass("remover")) despachar({ tipo: "remover", id });
   });
   $("#finalizar").on("click", () => despachar({ tipo: "finalizar" }));

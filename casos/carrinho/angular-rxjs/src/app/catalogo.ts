@@ -1,10 +1,14 @@
-import { AsyncPipe } from '@angular/common';
-import { Component, inject } from '@angular/core';
-import { formatarPreco, produtos, quantidadeNoCarrinho } from '../../../dominio';
-import { CarrinhoService } from './carrinho.service';
+import { AsyncPipe } from "@angular/common";
+import { Component, inject } from "@angular/core";
+import {
+  formatarPreco,
+  produtos,
+  quantidadeNoCarrinho,
+} from "../../../dominio";
+import { CarrinhoService } from "./carrinho.service";
 
 @Component({
-  selector: 'app-catalogo',
+  selector: "app-catalogo",
   imports: [AsyncPipe],
   template: `
     <section class="catalogo">

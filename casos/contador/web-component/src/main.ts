@@ -17,7 +17,9 @@ class ContadorElemento extends HTMLElement {
 
     // Arrow function para que `this` continue sendo o elemento dentro do
     // callback, sem precisar de `bind(this)`.
-    this.botaoDeIncrementar.addEventListener("click", () => this.tratarClique());
+    this.botaoDeIncrementar.addEventListener("click", () =>
+      this.tratarClique(),
+    );
 
     this.renderizar();
   }

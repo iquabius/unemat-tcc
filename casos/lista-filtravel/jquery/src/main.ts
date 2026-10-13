@@ -27,7 +27,10 @@ $(function () {
     const ordem = String($("#ordem").val()) as Ordem;
 
     const visiveis = produtos
-      .filter((produto) => correspondeABusca(produto, busca) && daCategoria(produto, categoria))
+      .filter(
+        (produto) =>
+          correspondeABusca(produto, busca) && daCategoria(produto, categoria),
+      )
       .sort(comparador(ordem));
 
     $("#produtos")

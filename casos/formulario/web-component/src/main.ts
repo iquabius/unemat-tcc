@@ -9,7 +9,7 @@ import {
 } from "../../dominio";
 import "../../estilo.css";
 
-const modelo = `
+const modelo = /* HTML */ `
   <form class="formulario" novalidate>
     <label>
       Nome do passageiro
@@ -74,7 +74,10 @@ class FormularioDeReserva extends HTMLElement {
     this.campos.ida.value = hoje();
     this.campos.volta.value = hoje();
 
-    for (const [nome, campo] of Object.entries(this.campos) as [Campo, HTMLInputElement][]) {
+    for (const [nome, campo] of Object.entries(this.campos) as [
+      Campo,
+      HTMLInputElement,
+    ][]) {
       campo.addEventListener("input", () => this.validar());
       campo.addEventListener("blur", () => {
         this.tocados.add(nome);
@@ -82,7 +85,9 @@ class FormularioDeReserva extends HTMLElement {
       });
     }
     this.tipo.addEventListener("change", () => this.tratarMudancaDeTipo());
-    this.formulario.addEventListener("submit", (evento) => this.tratarEnvio(evento));
+    this.formulario.addEventListener("submit", (evento) =>
+      this.tratarEnvio(evento),
+    );
 
     this.validar();
   }
@@ -124,16 +129,24 @@ class FormularioDeReserva extends HTMLElement {
     this.mostrarErro(
       "volta",
       (this.tocados.has("volta") ? erroVolta : null) ??
-        (this.tocados.has("ida") || this.tocados.has("volta") ? erroOrdem : null),
+        (this.tocados.has("ida") || this.tocados.has("volta")
+          ? erroOrdem
+          : null),
     );
 
-    this.botaoDeReservar.disabled = [erroNome, erroEmail, erroIda, erroVolta, erroOrdem].some(
-      Boolean,
-    );
+    this.botaoDeReservar.disabled = [
+      erroNome,
+      erroEmail,
+      erroIda,
+      erroVolta,
+      erroOrdem,
+    ].some(Boolean);
   }
 
   private mostrarErro(campo: Campo, erro: string | null) {
-    const paragrafo = this.querySelector<HTMLParagraphElement>(`[data-erro="${campo}"]`)!;
+    const paragrafo = this.querySelector<HTMLParagraphElement>(
+      `[data-erro="${campo}"]`,
+    )!;
     this.campos[campo].setAttribute("aria-invalid", erro ? "true" : "false");
     paragrafo.textContent = erro ?? "";
     paragrafo.hidden = !erro;

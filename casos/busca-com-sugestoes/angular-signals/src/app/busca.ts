@@ -1,4 +1,4 @@
-import { Component, resource, signal } from '@angular/core';
+import { Component, resource, signal } from "@angular/core";
 import {
   ESPERA_MS,
   MENSAGENS,
@@ -6,10 +6,10 @@ import {
   buscarCidades,
   rotulo,
   type Cidade,
-} from '../../../dominio';
+} from "../../../dominio";
 
 @Component({
-  selector: 'app-busca',
+  selector: "app-busca",
   template: `
     <main class="busca">
       <label>
@@ -19,7 +19,9 @@ import {
           autocomplete="off"
           placeholder="Digite ao menos 2 letras"
           [value]="texto()"
-          (input)="texto.set($event.target.value); agendarBusca($event.target.value)"
+          (input)="
+            texto.set($event.target.value); agendarBusca($event.target.value)
+          "
           (keydown.escape)="cancelar()"
         />
       </label>
@@ -30,7 +32,9 @@ import {
         <ul class="sugestoes">
           @for (cidade of sugestoes(); track cidade) {
             <li>
-              <button type="button" (click)="escolher(cidade)">{{ rotulo(cidade) }}</button>
+              <button type="button" (click)="escolher(cidade)">
+                {{ rotulo(cidade) }}
+              </button>
             </li>
           }
         </ul>
@@ -44,10 +48,10 @@ import {
 export class BuscaDeDestino {
   protected readonly rotulo = rotulo;
 
-  protected readonly texto = signal('');
+  protected readonly texto = signal("");
   // Termo da última busca. Um signal só notifica quando o valor muda, então
   // um termo repetido não dispara nova requisição.
-  private readonly termo = signal('');
+  private readonly termo = signal("");
   private readonly aberta = signal(false);
   protected readonly escolha = signal<string | null>(null);
   private espera: number | undefined;
@@ -55,7 +59,8 @@ export class BuscaDeDestino {
   // O recurso refaz a requisição quando o termo muda, expõe isLoading e
   // error, e descarta a resposta de uma requisição que já foi substituída.
   private readonly cidades = resource({
-    params: () => (this.termo().length >= MINIMO_DE_LETRAS ? this.termo() : undefined),
+    params: () =>
+      this.termo().length >= MINIMO_DE_LETRAS ? this.termo() : undefined,
     loader: ({ params, abortSignal }) => buscarCidades(params, abortSignal),
   });
 

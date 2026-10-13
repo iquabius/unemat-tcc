@@ -1,11 +1,13 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal } from "@angular/core";
 
 @Component({
-  selector: 'app-contador',
+  selector: "app-contador",
   template: `
     <main class="contador">
       <output>{{ contador() }}</output>
-      <button aria-label="Incrementar" (click)="contador.set(contador() + 1)">+</button>
+      <button aria-label="Incrementar" (click)="contador.set(contador() + 1)">
+        +
+      </button>
     </main>
   `,
 })

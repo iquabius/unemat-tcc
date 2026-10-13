@@ -8,10 +8,14 @@ import java.time.LocalDate
 // desktop: o porte do dominio.ts da web, com os mesmos nomes, regras e
 // mensagens.
 // Nada aqui depende de interface: cada implementação decide quando chamar.
-// Difere da web em anos de 0 a 99 e espaços fora do ASCII: ver DominioTest.igualAoDaWeb.
+// Difere da web em anos de 0 a 99 e espaços fora do ASCII: ver
+// DominioTest.igualAoDaWeb.
 
 // Como o type TipoDeVoo = "ida" | "ida-e-volta".
-enum class TipoDeVoo { IDA, IDA_E_VOLTA }
+enum class TipoDeVoo {
+    IDA,
+    IDA_E_VOLTA,
+}
 
 // Como a interface Reserva.
 data class Reserva(
@@ -30,7 +34,9 @@ private val FORMATO_DE_EMAIL = Regex("""^[^\s@]+@[^\s@]+\.[^\s@]+$""")
 // de capturas fixa na web.
 var relogio: Clock = Clock.systemDefaultZone()
 
-/** Converte "DD/MM/AAAA" numa data, ou `null` se o texto não for uma data real. */
+/**
+ * Converte "DD/MM/AAAA" numa data, ou `null` se o texto não for uma data real.
+ */
 fun parsearData(texto: String): LocalDate? {
     val partes = FORMATO_DE_DATA.matchEntire(texto.trim()) ?: return null
     val (dia, mes, ano) = partes.destructured
@@ -52,16 +58,19 @@ fun erroDoNome(nome: String): String? =
     if (nome.trim().isEmpty()) "Informe o nome do passageiro." else null
 
 fun erroDoEmail(email: String): String? =
-    if (FORMATO_DE_EMAIL.matches(email.trim())) null else "Informe um e-mail válido."
+    if (FORMATO_DE_EMAIL.matches(email.trim())) null
+    else "Informe um e-mail válido."
 
 fun erroDaData(texto: String): String? =
-    if (parsearData(texto) != null) null else "Use uma data válida no formato DD/MM/AAAA."
+    if (parsearData(texto) != null) null
+    else "Use uma data válida no formato DD/MM/AAAA."
 
 /** Erro de ordem entre as datas; `null` se alguma delas for inválida. */
 fun erroDaOrdem(ida: String, volta: String): String? {
     val dataDeIda = parsearData(ida) ?: return null
     val dataDeVolta = parsearData(volta) ?: return null
-    return if (dataDeVolta < dataDeIda) "A volta não pode ser antes da ida." else null
+    return if (dataDeVolta < dataDeIda) "A volta não pode ser antes da ida."
+    else null
 }
 
 fun mensagemDeConfirmacao(reserva: Reserva): String {

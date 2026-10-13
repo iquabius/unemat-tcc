@@ -12,7 +12,7 @@ import {
 } from "../../dominio";
 import "../../estilo.css";
 
-const modelo = `
+const modelo = /* HTML */ `
   <main class="catalogo">
     <div class="filtros">
       <label>
@@ -77,7 +77,9 @@ class CatalogoDeProdutos extends HTMLElement {
       )
       .sort(comparador(this.ordem.value as Ordem));
 
-    this.lista.replaceChildren(...visiveis.map((produto) => this.criarItem(produto)));
+    this.lista.replaceChildren(
+      ...visiveis.map((produto) => this.criarItem(produto)),
+    );
     this.contagem.textContent = textoDaContagem(visiveis.length);
     this.vazio.hidden = visiveis.length > 0;
   }

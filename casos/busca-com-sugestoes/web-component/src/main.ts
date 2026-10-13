@@ -9,11 +9,15 @@ import {
 } from "../../dominio";
 import "../../estilo.css";
 
-const modelo = `
+const modelo = /* HTML */ `
   <main class="busca">
     <label>
       Cidade de destino
-      <input name="destino" autocomplete="off" placeholder="Digite ao menos 2 letras" />
+      <input
+        name="destino"
+        autocomplete="off"
+        placeholder="Digite ao menos 2 letras"
+      />
     </label>
     <p class="situacao" role="status" hidden></p>
     <ul class="sugestoes" hidden></ul>
@@ -51,7 +55,10 @@ class BuscaDeDestino extends HTMLElement {
 
   private agendarBusca() {
     clearTimeout(this.espera);
-    this.espera = window.setTimeout(() => this.buscar(this.campo.value.trim()), ESPERA_MS);
+    this.espera = window.setTimeout(
+      () => this.buscar(this.campo.value.trim()),
+      ESPERA_MS,
+    );
   }
 
   private buscar(termo: string) {

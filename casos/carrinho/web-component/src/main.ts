@@ -41,8 +41,11 @@ abstract class ComponenteDaLoja extends HTMLElement {
   connectedCallback() {
     loja.addEventListener("mudou", this.aoMudar);
     this.addEventListener("click", (evento) => {
-      const botao = (evento.target as Element).closest<HTMLButtonElement>("button[data-acao]");
-      if (botao) this.tratarClique(botao.dataset.acao!, Number(botao.dataset.id));
+      const botao = (evento.target as Element).closest<HTMLButtonElement>(
+        "button[data-acao]",
+      );
+      if (botao)
+        this.tratarClique(botao.dataset.acao!, Number(botao.dataset.id));
     });
     this.renderizar();
   }
@@ -58,10 +61,12 @@ abstract class ComponenteDaLoja extends HTMLElement {
 
 class Cabecalho extends ComponenteDaLoja {
   protected renderizar() {
-    this.innerHTML = `
+    this.innerHTML = /* HTML */ `
       <header class="cabecalho">
         <strong>Minha loja</strong>
-        <span class="resumo">${textoDoCabecalho(resumir(loja.estado.itens))}</span>
+        <span class="resumo"
+          >${textoDoCabecalho(resumir(loja.estado.itens))}</span
+        >
       </header>
     `;
   }
@@ -76,21 +81,35 @@ class Catalogo extends ComponenteDaLoja {
     const itens = produtos
       .map((p) => {
         const quantidade = quantidadeNoCarrinho(loja.estado.itens, p.id);
-        return `
+        return /* HTML */ `
           <li>
             <span class="nome">${p.nome}</span>
             <span class="preco">${formatarPreco(p.preco)}</span>
-            <button type="button" data-acao="adicionar" data-id="${p.id}"
-                    aria-label="Adicionar ${p.nome}">Adicionar</button>
-            ${quantidade > 0 ? `<span class="no-carrinho">${quantidade} no carrinho</span>` : ""}
+            <button
+              type="button"
+              data-acao="adicionar"
+              data-id="${p.id}"
+              aria-label="Adicionar ${p.nome}"
+            >
+              Adicionar
+            </button>
+            ${
+              quantidade > 0
+                ? /* HTML */ `<span class="no-carrinho"
+                    >${quantidade} no carrinho</span
+                  >`
+                : ""
+            }
           </li>
         `;
       })
       .join("");
-    this.innerHTML = `
+    this.innerHTML = /* HTML */ `
       <section class="catalogo">
         <h2>Produtos</h2>
-        <ul>${itens}</ul>
+        <ul>
+          ${itens}
+        </ul>
       </section>
     `;
   }
@@ -107,13 +126,13 @@ class PainelDoCarrinho extends ComponenteDaLoja {
   protected renderizar() {
     const { itens, confirmacao } = loja.estado;
     if (itens.length === 0) {
-      this.innerHTML = `
+      this.innerHTML = /* HTML */ `
         <section class="carrinho">
           <h2>Carrinho</h2>
           ${
             confirmacao
-              ? `<p class="confirmacao">${confirmacao}</p>`
-              : `<p class="aviso">${MENSAGENS.vazio}</p>`
+              ? /* HTML */ `<p class="confirmacao">${confirmacao}</p>`
+              : /* HTML */ `<p class="aviso">${MENSAGENS.vazio}</p>`
           }
         </section>
       `;
@@ -123,33 +142,67 @@ class PainelDoCarrinho extends ComponenteDaLoja {
     const linhas = itens
       .map(({ id, quantidade }) => {
         const p = produto(id);
-        return `
+        return /* HTML */ `
           <li>
             <span class="nome">${p.nome}</span>
             <span class="quantidade">
-              <button type="button" data-acao="diminuir" data-id="${id}"
-                      aria-label="Diminuir ${p.nome}">−</button>
+              <button
+                type="button"
+                data-acao="diminuir"
+                data-id="${id}"
+                aria-label="Diminuir ${p.nome}"
+              >
+                −
+              </button>
               <span class="valor">${quantidade}</span>
-              <button type="button" data-acao="aumentar" data-id="${id}"
-                      aria-label="Aumentar ${p.nome}">+</button>
+              <button
+                type="button"
+                data-acao="aumentar"
+                data-id="${id}"
+                aria-label="Aumentar ${p.nome}"
+              >
+                +
+              </button>
             </span>
             <span class="subtotal">${formatarPreco(p.preco * quantidade)}</span>
-            <button type="button" class="remover" data-acao="remover" data-id="${id}"
-                    aria-label="Remover ${p.nome}">Remover</button>
+            <button
+              type="button"
+              class="remover"
+              data-acao="remover"
+              data-id="${id}"
+              aria-label="Remover ${p.nome}"
+            >
+              Remover
+            </button>
           </li>
         `;
       })
       .join("");
-    this.innerHTML = `
+    this.innerHTML = /* HTML */ `
       <section class="carrinho">
         <h2>Carrinho</h2>
-        <ul class="itens">${linhas}</ul>
+        <ul class="itens">
+          ${linhas}
+        </ul>
         <div class="totais">
-          <p><span>Subtotal</span><span>${formatarPreco(resumo.subtotal)}</span></p>
-          <p><span>Frete</span><span>${resumo.frete === 0 ? "Grátis" : formatarPreco(resumo.frete)}</span></p>
-          <p class="total"><span>Total</span><span>${formatarPreco(resumo.total)}</span></p>
+          <p>
+            <span>Subtotal</span><span>${formatarPreco(resumo.subtotal)}</span>
+          </p>
+          <p>
+            <span>Frete</span
+            ><span
+              >${
+                resumo.frete === 0 ? "Grátis" : formatarPreco(resumo.frete)
+              }</span
+            >
+          </p>
+          <p class="total">
+            <span>Total</span><span>${formatarPreco(resumo.total)}</span>
+          </p>
         </div>
-        <button type="button" class="finalizar" data-acao="finalizar">Finalizar compra</button>
+        <button type="button" class="finalizar" data-acao="finalizar">
+          Finalizar compra
+        </button>
         <p class="frete">${textoDoFrete(resumo)}</p>
       </section>
     `;

@@ -1,4 +1,4 @@
-import { Component, computed, signal } from '@angular/core';
+import { Component, computed, signal } from "@angular/core";
 import {
   categorias,
   comparador,
@@ -9,10 +9,10 @@ import {
   produtos,
   textoDaContagem,
   type Ordem,
-} from '../../../dominio';
+} from "../../../dominio";
 
 @Component({
-  selector: 'app-catalogo',
+  selector: "app-catalogo",
   template: `
     <main class="catalogo">
       <div class="filtros">
@@ -41,14 +41,20 @@ import {
         </label>
         <label>
           Ordenar por
-          <select name="ordem" [value]="ordem()" (change)="ordem.set($any($event.target).value)">
+          <select
+            name="ordem"
+            [value]="ordem()"
+            (change)="ordem.set($any($event.target).value)"
+          >
             @for (o of ordens; track o.valor) {
               <option [value]="o.valor">{{ o.rotulo }}</option>
             }
           </select>
         </label>
       </div>
-      <p class="contagem" role="status">{{ textoDaContagem(visiveis().length) }}</p>
+      <p class="contagem" role="status">
+        {{ textoDaContagem(visiveis().length) }}
+      </p>
       <ul class="produtos">
         @for (produto of visiveis(); track produto.id) {
           <li>
@@ -72,16 +78,18 @@ export class CatalogoDeProdutos {
   protected readonly formatarPreco = formatarPreco;
   protected readonly textoDaContagem = textoDaContagem;
 
-  protected readonly busca = signal('');
-  protected readonly categoria = signal('');
-  protected readonly ordem = signal<Ordem>('nome');
+  protected readonly busca = signal("");
+  protected readonly categoria = signal("");
+  protected readonly ordem = signal<Ordem>("nome");
 
   // A lista visível é um valor derivado: recalcula só quando busca,
   // categoria ou ordem mudam.
   protected readonly visiveis = computed(() =>
     produtos
       .filter(
-        (produto) => correspondeABusca(produto, this.busca()) && daCategoria(produto, this.categoria()),
+        (produto) =>
+          correspondeABusca(produto, this.busca()) &&
+          daCategoria(produto, this.categoria()),
       )
       .sort(comparador(this.ordem())),
   );

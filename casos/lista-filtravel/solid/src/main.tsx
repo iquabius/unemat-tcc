@@ -22,7 +22,11 @@ function CatalogoDeProdutos() {
   // categoria ou ordem mudam.
   const visiveis = createMemo(() =>
     produtos
-      .filter((produto) => correspondeABusca(produto, busca()) && daCategoria(produto, categoria()))
+      .filter(
+        (produto) =>
+          correspondeABusca(produto, busca()) &&
+          daCategoria(produto, categoria()),
+      )
       .sort(comparador(ordem())),
   );
 
@@ -57,7 +61,9 @@ function CatalogoDeProdutos() {
             value={ordem()}
             onChange={(e) => setOrdem(e.currentTarget.value as Ordem)}
           >
-            <For each={ordens}>{(o) => <option value={o.valor}>{o.rotulo}</option>}</For>
+            <For each={ordens}>
+              {(o) => <option value={o.valor}>{o.rotulo}</option>}
+            </For>
           </select>
         </label>
       </div>

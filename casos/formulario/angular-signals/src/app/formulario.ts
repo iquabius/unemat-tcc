@@ -1,4 +1,4 @@
-import { Component, computed, signal } from '@angular/core';
+import { Component, computed, signal } from "@angular/core";
 import {
   erroDaData,
   erroDaOrdem,
@@ -7,12 +7,12 @@ import {
   hoje,
   mensagemDeConfirmacao,
   type TipoDeVoo,
-} from '../../../dominio';
+} from "../../../dominio";
 
-type Campo = 'nome' | 'email' | 'ida' | 'volta';
+type Campo = "nome" | "email" | "ida" | "volta";
 
 @Component({
-  selector: 'app-formulario',
+  selector: "app-formulario",
   template: `
     <form class="formulario" novalidate (submit)="reservar($event)">
       <label>
@@ -48,7 +48,11 @@ type Campo = 'nome' | 'email' | 'ida' | 'volta';
 
       <label>
         Tipo de voo
-        <select name="tipo" [value]="tipo()" (change)="tipo.set($any($event.target).value)">
+        <select
+          name="tipo"
+          [value]="tipo()"
+          (change)="tipo.set($any($event.target).value)"
+        >
           <option value="ida">Só ida</option>
           <option value="ida-e-volta">Ida e volta</option>
         </select>
@@ -91,30 +95,36 @@ type Campo = 'nome' | 'email' | 'ida' | 'volta';
   `,
 })
 export class FormularioDeReserva {
-  protected readonly nome = signal('');
-  protected readonly email = signal('');
-  protected readonly tipo = signal<TipoDeVoo>('ida');
+  protected readonly nome = signal("");
+  protected readonly email = signal("");
+  protected readonly tipo = signal<TipoDeVoo>("ida");
   protected readonly ida = signal(hoje());
   protected readonly volta = signal(hoje());
   private readonly tocados = signal<ReadonlySet<Campo>>(new Set());
-  protected readonly confirmacao = signal('');
+  protected readonly confirmacao = signal("");
 
   // Cada erro é um valor derivado: recalcula só quando os sinais que ele lê
   // mudam, e atualiza só os pontos da tela que o leem.
   protected idaEVolta() {
-    return this.tipo() === 'ida-e-volta';
+    return this.tipo() === "ida-e-volta";
   }
   private readonly erroNome = computed(() => erroDoNome(this.nome()));
   private readonly erroEmail = computed(() => erroDoEmail(this.email()));
   private readonly erroIda = computed(() => erroDaData(this.ida()));
-  private readonly erroVolta = computed(() => (this.idaEVolta() ? erroDaData(this.volta()) : null));
+  private readonly erroVolta = computed(() =>
+    this.idaEVolta() ? erroDaData(this.volta()) : null,
+  );
   private readonly erroOrdem = computed(() =>
     this.idaEVolta() ? erroDaOrdem(this.ida(), this.volta()) : null,
   );
   protected readonly temErro = computed(() =>
-    [this.erroNome(), this.erroEmail(), this.erroIda(), this.erroVolta(), this.erroOrdem()].some(
-      Boolean,
-    ),
+    [
+      this.erroNome(),
+      this.erroEmail(),
+      this.erroIda(),
+      this.erroVolta(),
+      this.erroOrdem(),
+    ].some(Boolean),
   );
 
   private tocado(campo: Campo) {
@@ -125,12 +135,12 @@ export class FormularioDeReserva {
   }
 
   protected readonly erroVisivel: Record<Campo, () => string | null> = {
-    nome: () => (this.tocado('nome') ? this.erroNome() : null),
-    email: () => (this.tocado('email') ? this.erroEmail() : null),
-    ida: () => (this.tocado('ida') ? this.erroIda() : null),
+    nome: () => (this.tocado("nome") ? this.erroNome() : null),
+    email: () => (this.tocado("email") ? this.erroEmail() : null),
+    ida: () => (this.tocado("ida") ? this.erroIda() : null),
     volta: () =>
-      (this.tocado('volta') ? this.erroVolta() : null) ??
-      (this.tocado('ida') || this.tocado('volta') ? this.erroOrdem() : null),
+      (this.tocado("volta") ? this.erroVolta() : null) ??
+      (this.tocado("ida") || this.tocado("volta") ? this.erroOrdem() : null),
   };
 
   protected reservar(evento: SubmitEvent) {

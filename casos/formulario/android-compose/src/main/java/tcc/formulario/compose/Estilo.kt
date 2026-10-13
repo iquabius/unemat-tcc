@@ -47,12 +47,19 @@ private val texto = Color(0xFFEEEEEE)
 @Composable
 fun Tema(conteudo: @Composable ColumnScope.() -> Unit) {
     MaterialTheme(colorScheme = darkColorScheme()) {
-        Surface(Modifier.fillMaxSize(), color = Color(0xFF2B2B2B), contentColor = texto) {
+        Surface(
+            Modifier.fillMaxSize(),
+            color = Color(0xFF2B2B2B),
+            contentColor = texto,
+        ) {
             // Substitui o texto do Material (com espaçamento entre letras e
             // entrelinha próprios) pelo texto comum, como o do body.
-            CompositionLocalProvider(LocalTextStyle provides TextStyle(fontSize = 16.sp)) {
+            CompositionLocalProvider(
+                LocalTextStyle provides TextStyle(fontSize = 16.sp)
+            ) {
                 Column(
-                    Modifier.safeDrawingPadding().verticalScroll(rememberScrollState()),
+                    Modifier.safeDrawingPadding()
+                        .verticalScroll(rememberScrollState()),
                     content = conteudo,
                 )
             }
@@ -64,7 +71,11 @@ fun Tema(conteudo: @Composable ColumnScope.() -> Unit) {
 // max-width de 24rem, como no Views; a captura usa uma tela de 416dp.
 @Composable
 fun Formulario(conteudo: @Composable ColumnScope.() -> Unit) {
-    Column(Modifier.padding(16.dp), Arrangement.spacedBy(12.dp), content = conteudo)
+    Column(
+        Modifier.padding(16.dp),
+        Arrangement.spacedBy(12.dp),
+        content = conteudo,
+    )
 }
 
 // .formulario label: o texto e o campo, com 0.25rem entre eles.
@@ -77,10 +88,10 @@ fun Rotulo(texto: String, campo: @Composable () -> Unit) {
 }
 
 // Fundo e borda de .formulario input e select; vermelhos quando inválido.
-internal fun Modifier.caixa(invalida: Boolean = false) = this
-    .border(1.dp, if (invalida) Color(0xFFE05555) else Color(0xFF555555))
-    .background(if (invalida) Color(0xFF4A2A2A) else Color(0xFF3A3A3A))
-    .padding(6.4.dp)
+internal fun Modifier.caixa(invalida: Boolean = false) =
+    this.border(1.dp, if (invalida) Color(0xFFE05555) else Color(0xFF555555))
+        .background(if (invalida) Color(0xFF4A2A2A) else Color(0xFF3A3A3A))
+        .padding(6.4.dp)
 
 // .formulario input, com :disabled (opacity: 0.5) e [aria-invalid="true"].
 @Composable
@@ -96,12 +107,13 @@ fun Entrada(
     BasicTextField(
         value = valor,
         onValueChange = aoMudar,
-        modifier = modifier
-            .fillMaxWidth()
-            .alpha(if (habilitada) 1f else 0.5f)
-            // Como o aria-invalid, para o leitor de tela.
-            .semantics { if (invalida) error("inválido") }
-            .caixa(invalida),
+        modifier =
+            modifier
+                .fillMaxWidth()
+                .alpha(if (habilitada) 1f else 0.5f)
+                // Como o aria-invalid, para o leitor de tela.
+                .semantics { if (invalida) error("inválido") }
+                .caixa(invalida),
         enabled = habilitada,
         singleLine = true,
         textStyle = TextStyle(color = texto, fontSize = 16.sp),
@@ -124,27 +136,39 @@ fun Erro(mensagem: String) {
 
 // .formulario button, com :disabled nas cores.
 @Composable
-fun Botao(onClick: () -> Unit, habilitado: Boolean, conteudo: @Composable () -> Unit) {
+fun Botao(
+    onClick: () -> Unit,
+    habilitado: Boolean,
+    conteudo: @Composable () -> Unit,
+) {
     Button(
         onClick = onClick,
         modifier = Modifier.fillMaxWidth(),
         enabled = habilitado,
         shape = RectangleShape,
         border = BorderStroke(1.dp, Color(0xFF555555)),
-        colors = ButtonDefaults.buttonColors(
-            containerColor = Color(0xFF2E4D24),
-            contentColor = texto,
-            disabledContainerColor = Color(0xFF3A3A3A),
-            disabledContentColor = Color(0xFF888888),
-        ),
+        colors =
+            ButtonDefaults.buttonColors(
+                containerColor = Color(0xFF2E4D24),
+                contentColor = texto,
+                disabledContainerColor = Color(0xFF3A3A3A),
+                disabledContentColor = Color(0xFF888888),
+            ),
         contentPadding = PaddingValues(8.dp),
     ) {
-        CompositionLocalProvider(LocalTextStyle provides TextStyle(fontSize = 16.sp), content = conteudo)
+        CompositionLocalProvider(
+            LocalTextStyle provides TextStyle(fontSize = 16.sp),
+            content = conteudo,
+        )
     }
 }
 
 // .confirmacao
 @Composable
 fun Confirmacao(mensagem: String, modifier: Modifier = Modifier) {
-    Text(mensagem, modifier.padding(horizontal = 16.dp), color = Color(0xFF9FD88A))
+    Text(
+        mensagem,
+        modifier.padding(horizontal = 16.dp),
+        color = Color(0xFF9FD88A),
+    )
 }

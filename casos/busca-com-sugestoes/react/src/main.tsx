@@ -50,7 +50,11 @@ function BuscaDeDestino() {
       setEstado({ tipo: "buscando" });
       buscarCidades(termo, atual.signal).then(
         (cidades) =>
-          setEstado(cidades.length === 0 ? { tipo: "nenhuma" } : { tipo: "sugestoes", cidades }),
+          setEstado(
+            cidades.length === 0
+              ? { tipo: "nenhuma" }
+              : { tipo: "sugestoes", cidades },
+          ),
         (erro) => {
           if (!foiCancelada(erro)) setEstado({ tipo: "falha" });
         },
