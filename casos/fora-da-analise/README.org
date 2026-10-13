@@ -9,16 +9,32 @@ Em =casos/= ficam só as tarefas e as tecnologias analisadas.
 A estrutura é a de =casos/=: =<tarefa>/<tecnologia>/=, mais os projetos que
 reuniam o desktop e o Qt.
 
-| Pasta                                                               | O que é                                                    | Por que saiu                                                                                              | ADR  |
-|---------------------------------------------------------------------+------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+------|
-| =contador/=                                                         | o Contador, na web (seis tecnologias) e no Android         | não tem problema de coordenação próprio: evento → estado → tela aparece em todas as tarefas               | 0002 |
-| =lista-filtravel/=                                                  | a Lista filtrável, na web, no Android, em Java e no Qt     | é a menos densa em coordenação e cabe quase toda no Carrinho                                              | 0002 |
-| =carrinho/=                                                         | o Carrinho, na web                                         | dá lugar ao Quadro de tarefas, em que desfazer existe de verdade                                          | 0002 |
-| =formulario/jquery/=, =busca-com-sugestoes/jquery/=                 | o jQuery (o das tarefas acima está na pasta de cada uma)   | o imperativo com /callbacks/ fica com o Web Component, que tem modelo de componente e par controlado (Lit) | 0013 |
-| =formulario/angular-rxjs/=, =busca-com-sugestoes/angular-rxjs/=     | o Angular com RxJS, apoio à escrita do capítulo de programação | é apoio, e não entra no texto; congelado por decisão do autor em 2026-10-13, com as regras desta data   | 0013 |
-| =formulario/swing/=, =javafx/=, =javafx-fxml/=, =javafx-estilo/=; =desktop/= | o par Swing × JavaFX, em Java, e o projeto Gradle que o reunia | o desktop da análise é Windows Forms × WPF, em C#                                                  | 0001 |
-| =formulario/qt-widgets/=, =qml/=, =dominio-cpp/=; =qt/=             | o par Qt Widgets × QML, em C++ e QML, e o projeto CMake que o reunia | idem                                                                                                | 0001 |
-| =cronometro-com-rxjs-5/=                                            | o cronômetro em RxJS 5 do projeto de 2017                  | registro do projeto de 2017, anterior à organização em tarefas                                            | 0012 |
+Cada pasta, o que é, por que saiu e o ADR:
+
+- =contador/=: o Contador, na web (seis tecnologias) e no Android. Não tem
+  problema de coordenação próprio: evento → estado → tela aparece em todas
+  as tarefas (ADR 0002).
+- =lista-filtravel/=: a Lista filtrável, na web, no Android, em Java e no
+  Qt. É a menos densa em coordenação e cabe quase toda no Carrinho (ADR
+  0002).
+- =carrinho/=: o Carrinho, na web. Dá lugar ao Quadro de tarefas, em que
+  desfazer existe de verdade (ADR 0002).
+- =formulario/jquery/= e =busca-com-sugestoes/jquery/=: o jQuery (o das
+  tarefas acima está na pasta de cada uma). O imperativo com /callbacks/
+  fica com o Web Component, que tem modelo de componente e par controlado,
+  o Lit (ADR 0013).
+- =formulario/angular-rxjs/= e =busca-com-sugestoes/angular-rxjs/=: o
+  Angular com RxJS, apoio à escrita do capítulo de programação. Não entra
+  no texto, e fica congelado com as regras de 2026-10-13, por decisão do
+  autor nessa data (ADR 0013).
+- =formulario/swing/=, =javafx/=, =javafx-fxml/= e =javafx-estilo/=, com
+  =desktop/=, o projeto Gradle que os reunia: o par Swing × JavaFX, em
+  Java. O desktop da análise é Windows Forms × WPF, em C# (ADR 0001).
+- =formulario/qt-widgets/=, =qml/= e =dominio-cpp/=, com =qt/=, o projeto
+  CMake que os reunia: o par Qt Widgets × QML, em C++ e QML. Sai pelo
+  mesmo motivo (ADR 0001).
+- =cronometro-com-rxjs-5/=: o cronômetro em RxJS 5 do projeto de 2017,
+  anterior à organização em tarefas (ADR 0012).
 
 Cada =capturas/= tem as imagens da última vez que o =npm run capturas= as
 gerou, com o mesmo nome de antes (=<tecnologia>-<cena>.png=).
