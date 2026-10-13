@@ -14,7 +14,7 @@ import tcc.lista.Ordem
 // Falha listando todas as que não passaram.
 @RunWith(AndroidJUnit4::class)
 @Config(qualifiers = "w480dp-h1950dp-xhdpi")
-class RoteiroTest {
+class TesteDeConformidade {
     @get:Rule val regra = createAndroidComposeRule<MainActivity>()
 
     private val tela by lazy { Tela(regra) }
@@ -26,7 +26,7 @@ class RoteiroTest {
     }
 
     @Test
-    fun roteiro() {
+    fun verificacoes() {
         conferir("1 contagem inicial", tela.contagem(), "30 de 30 produtos")
         conferir(
             "1 ordem por nome",

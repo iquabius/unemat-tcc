@@ -18,7 +18,7 @@ target_link_libraries(${CASO}-qml PRIVATE ${CASO}-qml-tela ${CASO}-qml-telaplugi
 # execução, sem a busca de importações que um Qt estático pede.
 set_target_properties(${CASO}-qml PROPERTIES QT_QML_MODULE_NO_IMPORT_SCAN TRUE)
 
-qt_add_executable(${CASO}-qml-test test/RoteiroTest.cpp test/Tela.h)
+qt_add_executable(${CASO}-qml-test test/TesteDeConformidade.cpp test/Tela.h)
 target_link_libraries(${CASO}-qml-test PRIVATE ${CASO}-qml-tela ${CASO}-qml-telaplugin Qt6::Test)
 set_target_properties(${CASO}-qml-test PROPERTIES QT_QML_MODULE_NO_IMPORT_SCAN TRUE)
 add_test(NAME ${CASO}-qml COMMAND ${CASO}-qml-test)

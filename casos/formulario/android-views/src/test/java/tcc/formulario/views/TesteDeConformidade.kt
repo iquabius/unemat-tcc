@@ -14,7 +14,7 @@ import tcc.formulario.TipoDeVoo
 // e com os mesmos nomes. Falha listando todas as que não passaram.
 @RunWith(AndroidJUnit4::class)
 @Config(qualifiers = "w416dp-h560dp-xhdpi")
-class RoteiroTest {
+class TesteDeConformidade {
     @get:Rule(order = 0) val dataFixa = DataFixa()
 
     @get:Rule(order = 1)
@@ -29,7 +29,7 @@ class RoteiroTest {
     }
 
     @Test
-    fun roteiro() {
+    fun verificacoes() {
         val nome = "Informe o nome do passageiro."
         val email = "Informe um e-mail válido."
         val data = "Use uma data válida no formato DD/MM/AAAA."
