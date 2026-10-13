@@ -56,11 +56,6 @@ dado de interesse, sem papel de justificativa.
   salva em 2026-09-29); o universo é o dos sites que o W3Techs monitora
   (=w3techs2026-metodologia.txt=).
 - Conferido: 2026-10-13.
-** w3techs2026a
-- Frase: a mesma.
-- Trecho: não conferido; a página geral do W3Techs não foi salva em
-  =tmp/fontes/=. A chave vem da frase aprovada em 2026-10-04 (tarefa
-  "Ampliar as medidas de uso da introdução").
 ** codigofonte2026
 - Frase: “Na Pesquisa Código Fonte TV 2026, a única sobre o Brasil, React,
   Angular e jQuery são a ferramenta mais usada no dia a dia por 7,6%, 3,3%
@@ -91,17 +86,33 @@ Seção “Uso das tecnologias web”. Parágrafo vindo dos estudos de casos em
 ** w3techs2026
 - Frase: “No W3Techs, basta achar a biblioteca em qualquer página para o
   /site/ contar, o que favorece o jQuery e nada diz das aplicações novas.”
-- Trecho: “If we find a technology on any of the pages, it is considered
-  to be used by the website.”
-- Lido em: =tmp/fontes/w3techs2026-metodologia.txt=, l. 70.
-- Observação: que isso favoreça o jQuery e nada diga das aplicações novas
-  é inferência do texto, e não da fonte.
+- Trecho: “jQuery is used by 65.5% of all the websites”
+- Lido em: =tmp/fontes/w3techs2026.txt=, l. 98 (página salva em
+  2026-09-29).
+- Observação: que a regra de contagem favoreça o jQuery e nada diga das
+  aplicações novas é inferência do texto, e não da fonte.
 - Conferido: 2026-10-13.
 ** w3techs2026a
-- Frase: as duas sobre o W3Techs.
-- Trecho: não conferido; a página geral não foi salva. Também não se
-  achou nas páginas salvas onde o W3Techs diz que a linha “Angular” junta o
-  AngularJS: a ressalva vem da frase aprovada em 2026-10-04.
+- Frase: “No W3Techs, basta achar a biblioteca em qualquer página para o
+  /site/ contar”
+- Trecho: “If we find a technology on any of the pages, it is considered
+  to be used by the website.”
+- Lido em: =tmp/fontes/w3techs2026-metodologia.txt=, l. 70 (a página
+  “Technologies Overview”, salva em 2026-09-29; a de 2026-10-13 traz a
+  mesma frase).
+- Conferido: 2026-10-13.
+** w3techs2026b
+- Frase: “O W3Techs nem separa o Angular do AngularJS”
+- Trecho: “Usage statistics and market share of Angular for websites”;
+  “Angular is a JavaScript library for building web applications,
+  developed by Google. Website: angular.dev”.
+- Lido em: =tmp/fontes/w3techs2026b.txt=, l. 118 e 193-198 (página salva
+  em 2026-10-13).
+- Observação: a página do Angular fica no endereço =js-angularjs=; não há
+  página =js-angular= (404 em 2026-10-13) nem outra entrada para o
+  AngularJS. Que a linha junte os dois é inferência do texto: o W3Techs
+  não o diz com essas palavras.
+- Conferido: 2026-10-13.
 ** devographics2026
 - Frase: “O State of JS 2025 é um levantamento aberto a quem quiser
   responder, que se declara o retrato de um subconjunto de
@@ -125,8 +136,9 @@ Seção “Uso das tecnologias web”. Parágrafo vindo dos estudos de casos em
 - Conferido: 2026-10-13.
 ** thompson2022
 - Frase: “o AngularJS, antecessor dele e sem suporte desde 2022”
-- Trecho: não há cópia do blog do Angular em =tmp/fontes/=; a página do
-  AngularJS salva diz “AngularJS support has officially ended as of January
-  2022.”
-- Lido em: =tmp/fontes/angularjs2026.html=.
-- Conferido: 2026-10-13, pela página do AngularJS, e não pela fonte citada.
+- Trecho: “we extended the LTS due to the global pandemic until December
+  31, 2021. Well, friends, the time has come and we’re no longer supporting
+  AngularJS.”; “the way it evolved into its successor, Angular”.
+- Lido em: =tmp/fontes/thompson2022.txt= (post de 2022-01-11, salvo em
+  2026-10-13 pelo navegador).
+- Conferido: 2026-10-13.

@@ -398,7 +398,7 @@ denominadas /linguagens imperativas/.
   Stack Overflow não separe quem o usa com /signals/, e pelo Solid, usado por 10%
   dos respondentes do State of JS 2025 cite:devographics2026.
   No W3Techs, o jQuery está em 65,5% dos /sites/ monitorados, o React em
-  6,0% e o Angular em 0,2% cite:w3techs2026,w3techs2026a.
+  6,0% e o Angular em 0,2% cite:w3techs2026.
   Na Pesquisa Código Fonte TV 2026, a única sobre o Brasil, React, Angular e
   jQuery são a ferramenta mais usada no dia a dia por 7,6%, 3,3% e 0,3% dos
   participantes cite:codigofonte2026.
@@ -419,7 +419,7 @@ denominadas /linguagens imperativas/.
   ferramenta só, entre 130 de todas as áreas, o que encolhe as fatias, e a
   audiência do canal que a divulga tende a estar super-representada
   cite:codigofonte2026.
-  O W3Techs nem separa o Angular do AngularJS, antecessor dele e sem
+  O W3Techs nem separa o Angular do AngularJS cite:w3techs2026b, antecessor dele e sem
   suporte desde 2022 cite:thompson2022; a Pesquisa Código Fonte TV os
   separa e dá 571 participantes ao Angular e 78 ao AngularJS
   cite:codigofonte2026.
