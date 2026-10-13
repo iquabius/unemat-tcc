@@ -1,0 +1,19 @@
+{
+  "name": "quadro-de-tarefas-solid",
+  "private": true,
+  "type": "module",
+  "description": "Quadro de tarefas em Solid (declarativo por atualização granular, com signals)",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -p . && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "solid-js": "^1.9.15"
+  },
+  "devDependencies": {
+    "typescript": "~6.0.3",
+    "vite": "^8.3.1",
+    "vite-plugin-solid": "^2.11.14"
+  }
+}

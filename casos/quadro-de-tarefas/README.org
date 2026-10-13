@@ -1,0 +1,30 @@
+#+TITLE: Quadro de tarefas
+
+Quadro de tarefas (/kanban/) com quatro componentes que leem e alteram o
+mesmo quadro: o cabeçalho e três colunas, instâncias do mesmo componente.
+É a tarefa do estado compartilhado entre componentes, com um limite que
+cruza colunas e o quadro salvo no =localStorage=, que acompanha as outras
+abas. O desfazer e a atualização otimista entram na P2.
+
+As regras que não dependem de interface ficam em =dominio.ts=: as
+tarefas, as colunas, a transição do quadro (=reduzir=), os textos e o
+quadro salvo. O ouvinte das outras abas também fica no domínio,
+=ouvirOutrasAbas(despachar)=, que devolve a função que o fecha, para a
+limpeza ao sair da tela se conferir pela contagem: =contarAbertos()= diz
+quantos ouvintes estão abertos. Cada implementação decide onde o quadro
+mora, como os componentes são avisados das mudanças e quando salvar.
+
+As regras, as mensagens e os cenários que o teste de conformidade confere
+estão em =casos/openspec/specs/quadro-de-tarefas/spec.md=, a especificação
+viva (OpenSpec); uma mudança entra como /delta spec/ em
+=casos/openspec/changes/= (=casos/AGENTS.md=).
+
+* Teste
+
+  O =teste-de-conformidade.js= percorre a especificação: cada verificação
+  tem o nome de um cenário do =spec.md=, e =npm run conferir-especificacao=
+  confere a ligação. Com uma implementação aberta no navegador, cole o
+  arquivo no console. Ele apaga o quadro salvo no começo; para abrir a
+  tarefa de novo usa o botão que a esconde e a mostra, e para simular
+  outra aba dispara o evento =storage=. As cenas das capturas ficam em
+  =cenas.mts=.

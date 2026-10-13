@@ -176,3 +176,16 @@ que a confirme. As medidas dos protótipos estão em
   o estado `pedido` existe por causa dela). Ela ocupa cerca de 4 linhas de
   coordenação no Web Component, 9 no React e 5 no Solid; tirá-la muda a
   linha de base da P1 e o diff da P2.
+
+## 2026-10-13, Quadro de tarefas na web (commits `39d85b9` e seguinte)
+
+- **O store do Solid muda no lugar o objeto que recebe** (dependências
+  ocultas, propensão a erros): `createStore(carregarQuadro())` adota o
+  objeto e o altera a cada `setEstado`. Sem quadro salvo, o domínio
+  devolvia a constante do quadro inicial, que o store foi mudando; o
+  conteúdo inválido vindo de outra aba, que volta ao inicial, deixava o
+  quadro como estava, e só o teste de conformidade, que reabre a tarefa
+  sem recarregar a página, mostrou o erro. No React, o `useReducer` só
+  guarda o objeto, e no Angular o `signal` também; nada na chamada do
+  Solid diz que o argumento passa a ser do store. A correção ficou no
+  domínio, que devolve um objeto novo a cada leitura.
