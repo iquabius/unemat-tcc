@@ -45,11 +45,13 @@ export type Acao =
   | { tipo: "arquivar"; id: number }
   | { tipo: "outra-aba"; quadro: EstadoDoQuadro };
 
-const INICIAL: EstadoDoQuadro = {
+// Um objeto novo a cada chamada: o store do Solid muda no lugar o objeto
+// que recebe, e uma constante compartilhada deixaria de ser o inicial.
+const inicial = (): EstadoDoQuadro => ({
   "a-fazer": [1, 2, 3],
   fazendo: [4],
   feito: [5, 6],
-};
+});
 
 export function tarefa(id: number): Tarefa {
   const encontrada = tarefas.find((t) => t.id === id);
@@ -126,17 +128,17 @@ export function textoDaColuna(estado: EstadoDoQuadro, coluna: Coluna): string {
 function lerQuadro(texto: string | null): EstadoDoQuadro {
   try {
     const salvo: unknown = JSON.parse(texto ?? "null");
-    if (typeof salvo !== "object" || salvo === null) return INICIAL;
+    if (typeof salvo !== "object" || salvo === null) return inicial();
     const colunas = COLUNAS.map((c) => (salvo as Record<string, unknown>)[c]);
-    if (!colunas.every(Array.isArray)) return INICIAL;
+    if (!colunas.every(Array.isArray)) return inicial();
     const ids = colunas.flat();
     const valido =
       ids.every((id) => tarefas.some((t) => t.id === id)) &&
       new Set(ids).size === ids.length &&
       colunas[1].length <= LIMITE_FAZENDO;
-    return valido ? (salvo as EstadoDoQuadro) : INICIAL;
+    return valido ? (salvo as EstadoDoQuadro) : inicial();
   } catch {
-    return INICIAL;
+    return inicial();
   }
 }
 
