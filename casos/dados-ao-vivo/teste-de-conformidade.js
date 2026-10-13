@@ -135,8 +135,13 @@
   try {
     conferir(
       "1 abre com o painel e uma assinatura",
-      [texto($(".alternar")), $(".painel") !== null, assinantes()],
-      ["Esconder painel", true, 1],
+      [
+        texto($(".alternar")),
+        $(".painel") !== null,
+        texto($(".pausa")),
+        assinantes(),
+      ],
+      ["Esconder painel", true, "Pausar", 1],
     );
 
     await clicar(".alternar");

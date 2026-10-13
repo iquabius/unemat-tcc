@@ -19,6 +19,7 @@ cotações…" e o botão de pausa diz "Pausar".
 
 - **QUANDO** a tarefa abre
 - **ENTÃO** o painel está na página, e o botão diz "Esconder painel"
+- **E** o botão de pausa diz "Pausar"
 - **E** `contarAssinantes()` dá 1
 
 #### Scenario: 3 mostrar começa aguardando
