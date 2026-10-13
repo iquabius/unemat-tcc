@@ -117,9 +117,12 @@ class ColunaDoQuadro extends ComponenteDoQuadro {
       );
       if (!botao) return;
       const id = Number(botao.dataset.id);
-      const acao = botao.dataset.acao!;
-      if (acao === "arquivar") this.loja.despachar({ tipo: "arquivar", id });
-      else this.loja.despachar({ tipo: "mover", id, para: acao as Coluna });
+      if (botao.dataset.acao === "arquivar") {
+        this.loja.despachar({ tipo: "arquivar", id });
+      } else {
+        const para = botao.dataset.para as Coluna;
+        this.loja.despachar({ tipo: "mover", id, para });
+      }
     });
   }
 
@@ -134,7 +137,8 @@ class ColunaDoQuadro extends ComponenteDoQuadro {
       para
         ? /* HTML */ `<button
             type="button"
-            data-acao="${para}"
+            data-acao="mover"
+            data-para="${para}"
             data-id="${id}"
             aria-label="Mover ${tarefa(id).titulo} para ${tituloDa(para)}"
             ${cabeEm(estado, para) ? "" : "disabled"}
