@@ -2,6 +2,7 @@
 // quarentena, iguais em todas as implementações web. Nada aqui depende de
 // interface.
 
+/** Nome e senha mais curtos que isso deixam o "Entrar" desabilitado. */
 export const MINIMO_DE_CARACTERES = 2;
 /** Latência fixa do servidor simulado. */
 export const LATENCIA_MS = 1000;
