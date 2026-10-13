@@ -1,25 +1,24 @@
 import {
   MENSAGENS,
-  anunciar,
+  anunciarArquivamento,
+  anunciarMovimento,
   cabeEm,
   carregarQuadro,
   ouvirOutrasAbas,
-  reduzir,
   salvarQuadro,
   tarefa,
   textoDaColuna,
   textoDoCabecalho,
   tituloDa,
   vizinhas,
-  type Acao,
   type Coluna,
   type EstadoDoQuadro,
 } from "../../dominio";
 import "../../estilo.css";
 
 // A loja é o "sujeito" do Observer Pattern: guarda o quadro e a situação,
-// aplica as ações, salva e avisa os componentes inscritos com um evento
-// "mudou".
+// altera as listas no lugar, salva e avisa os componentes inscritos com um
+// evento "mudou".
 class LojaDoQuadro extends EventTarget {
   private quadro: EstadoDoQuadro = carregarQuadro();
   private texto = "";
@@ -38,9 +37,24 @@ class LojaDoQuadro extends EventTarget {
     return this.texto;
   }
 
-  despachar(acao: Acao) {
-    this.quadro = reduzir(this.quadro, acao);
-    this.texto = anunciar(acao);
+  mover(id: number, de: Coluna, para: Coluna) {
+    this.quadro[de].splice(this.quadro[de].indexOf(id), 1);
+    this.quadro[para].push(id);
+    this.avisar(anunciarMovimento(id, para));
+  }
+
+  arquivar(id: number, de: Coluna) {
+    this.quadro[de].splice(this.quadro[de].indexOf(id), 1);
+    this.avisar(anunciarArquivamento(id));
+  }
+
+  trocar(quadro: EstadoDoQuadro) {
+    this.quadro = quadro;
+    this.avisar(MENSAGENS.outraAba);
+  }
+
+  private avisar(situacao: string) {
+    this.texto = situacao;
     salvarQuadro(this.quadro);
     this.dispatchEvent(new Event("mudou"));
   }
@@ -53,9 +67,7 @@ class Quadro extends HTMLElement {
   private pararDeOuvir?: () => void;
 
   connectedCallback() {
-    this.pararDeOuvir = ouvirOutrasAbas((quadro) =>
-      this.loja.despachar({ tipo: "outra-aba", quadro }),
-    );
+    this.pararDeOuvir = ouvirOutrasAbas((quadro) => this.loja.trocar(quadro));
     this.innerHTML = /* HTML */ `
       <div class="quadro">
         <quadro-cabecalho></quadro-cabecalho>
@@ -126,10 +138,9 @@ class ColunaDoQuadro extends ComponenteDoQuadro {
       if (!botao) return;
       const id = Number(botao.dataset.id);
       if (botao.dataset.acao === "arquivar") {
-        this.loja.despachar({ tipo: "arquivar", id });
+        this.loja.arquivar(id, this.coluna);
       } else if (botao.dataset.acao === "mover") {
-        const para = botao.dataset.para as Coluna;
-        this.loja.despachar({ tipo: "mover", id, para });
+        this.loja.mover(id, this.coluna, botao.dataset.para as Coluna);
       }
     });
   }
