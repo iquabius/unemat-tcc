@@ -64,6 +64,23 @@
     );
     await escoar();
   }
+  async function limparEmOutraAba() {
+    localStorage.clear();
+    window.dispatchEvent(
+      new StorageEvent("storage", {
+        key: null,
+        newValue: null,
+        storageArea: localStorage,
+      }),
+    );
+    await escoar();
+  }
+  const tarefas = () => [titulos(0), titulos(1), titulos(2)];
+  const INICIAL = [
+    ["Revisar a introdução", "Conferir as referências", "Gerar as capturas"],
+    ["Implementar o Carrinho"],
+    ["Escrever o método", "Marcar a orientação"],
+  ];
   const r = [];
   const conferir = (nome, obtido, esperado) =>
     r.push(
@@ -226,12 +243,19 @@
       "Quadro atualizado em outra aba.",
     ],
   );
+  await limparEmOutraAba();
+  conferir(
+    "8 limpeza do localStorage em outra aba volta ao inicial",
+    tarefas(),
+    INICIAL,
+  );
+  await outraAba('{"a-fazer":[2],"fazendo":[3],"feito":[5,6,4]}');
   await outraAba('{"a-fazer":[1,1],"fazendo":[],"feito":[]}');
-  conferir("8 conteúdo inválido de outra aba vira o inicial", cabecalhos(), [
-    "A fazer (3)",
-    "Fazendo (1/2)",
-    "Feito (2)",
-  ]);
+  conferir(
+    "8 conteúdo inválido de outra aba vira o inicial",
+    tarefas(),
+    INICIAL,
+  );
 
   for (const titulo of [
     "Revisar a introdução",
@@ -253,17 +277,20 @@
     '{"a-fazer":[1],"fazendo":[]}',
     '{"a-fazer":[],"fazendo":[1,2,3],"feito":[]}',
   ];
-  const resumos = [];
+  const aberturas = [];
   for (const invalido of invalidos) {
     await alternar();
     localStorage.setItem("quadro", invalido);
     await alternar();
-    resumos.push(resumo());
+    aberturas.push([resumo(), localStorage.getItem("quadro")]);
   }
   conferir(
     "10 conteúdo salvo inválido vira o inicial",
-    resumos,
-    invalidos.map(() => "Quadro: 6 tarefas · 2 feitas"),
+    aberturas,
+    invalidos.map(() => [
+      "Quadro: 6 tarefas · 2 feitas",
+      '{"a-fazer":[1,2,3],"fazendo":[4],"feito":[5,6]}',
+    ]),
   );
 
   return r.join("\n");
