@@ -163,6 +163,42 @@ autor em 2026-10-12): a tarefa do bd depende da tcc-xc2y.
   RxJS nem formulários do Angular), e `angular-rxjs`, de apoio, que usa
   RxJS e Reactive Forms de propósito.
 
+## Teste de conformidade na web
+
+O `teste-de-conformidade.js` da tarefa se cola no console do navegador,
+com a implementação aberta, e devolve uma linha por verificação, sem
+Playwright nem biblioteca.
+
+- **Relógio falso.** Na tarefa com prazos de segundos (a sessão do Login,
+  os lotes dos Dados ao vivo), o teste não espera em tempo real: no
+  começo, troca `setTimeout`, `setInterval`, `clearTimeout` e
+  `clearInterval` da página por um relógio falso, que só anda com
+  `avancar(ms)`, e o desinstala num `finally`. Copie o
+  `instalarRelogioFalso` de `login-com-quarentena/teste-de-conformidade.js`
+  (decisão do autor em 2026-10-12, contra o `page.clock` do Playwright,
+  que tiraria o teste do console, e contra o tempo real, que no Login
+  esperaria 27,5 s). Ele só controla os temporizadores criados depois de
+  instalado, e não troca o `Date.now`: a tarefa que lê a hora (o preço
+  dos Dados ao vivo) acrescenta o `Date.now` ao relógio falso.
+- **Escoar.** O React faz a tela e roda os efeitos em mensagens de
+  `MessageChannel`, fora do relógio falso: entre um disparo e outro, e
+  depois de cada clique ou digitação, o teste espera quatro voltas do
+  `MessageChannel`. Com o React 19.3, o teste falha com duas e passa com
+  três (medido em 2026-10-12). Se uma versão nova do React falhar só em
+  verificações logo depois de um efeito, meça de novo.
+- **Limpeza ao sair da tela.** O `dominio.ts` conta o que está aberto
+  (requisições, relógios, assinaturas) numa função em `globalThis`, como
+  o `contarAbertos()` do Login, e cada implementação tem um botão que
+  esconde e mostra a tarefa. O teste esconde a tarefa e confere zero
+  **antes** de avançar o relógio: uma requisição esquecida terminaria
+  sozinha na latência, e a conferência depois dela passaria (achado da
+  revisão do Login, 2026-10-12). Pelo mesmo motivo, confira a contagem
+  logo depois da ação que deve cancelar, como a tentativa nova do
+  Login.
+- Confira que o teste pega erros: introduza na implementação um defeito
+  de cada regra (sem o `abort()`, sem a limpeza do efeito, sem o
+  `disconnectedCallback`) e veja a verificação certa falhar.
+
 ## Formatação
 
 Todo o código de `casos/`, menos o que a lista de exclusões abaixo deixa de
