@@ -18,7 +18,10 @@
     });
   // O React faz a tela e roda os efeitos em mensagens de MessageChannel
   // (quatro voltas, como no Login); o Angular sem zone.js faz a tela num
-  // setTimeout ou num requestAnimationFrame, o que vier antes.
+  // setTimeout ou num requestAnimationFrame, o que vier antes. O setTimeout
+  // do fim, agendado depois do dele, dispara depois: sem ele, o teste passou
+  // no Angular em 2026-10-13, mas por uma ordem entre mensagens e
+  // temporizadores que o navegador não garante.
   async function escoar() {
     for (let i = 0; i < 4; i++) await mensagem();
     await new Promise((r) => setTimeout(r, 0));
