@@ -85,8 +85,8 @@ pelo `npm run openspec -- <comando>`, que desliga a telemetria; o
 --all` e confere, em todo arquivo de `casos/<tarefa>/` que chama
 `conferir(...)`, que os nomes das verificações são os dos cenários da
 especificação viva, na ordem do teste da web; o de
-`casos/fora-da-analise/` não é conferido. Rode-o antes de cada commit que mexa numa especificação ou num
-teste de conformidade.
+`casos/fora-da-analise/` não é conferido. Rode-o antes de cada commit que
+mexa numa especificação ou num teste de conformidade.
 
 ### Tarefa nova
 
@@ -142,7 +142,7 @@ orquestração da P2.
    passando no teste de conformidade e com as capturas conferidas.
 
 A mudança não se porta para o código da tarefa em `casos/fora-da-analise/`
-(decisão do autor em 2026-10-12).
+(decisões do autor em 2026-10-12 e 2026-10-13).
 
 ## Exemplo ou caso novo
 
@@ -250,10 +250,10 @@ conferidas.
 
 ## Android (Kotlin)
 
-- Casos no Android: o Formulário com validação, em
-  `casos/<caso>/android-views/` (Views clássico: *listeners*, estado na
-  `Activity`) e `casos/<caso>/android-compose/` (Jetpack Compose). Os dois
-  em Kotlin.
+- Tarefas no Android: o Formulário com validação, em
+  `casos/<tarefa>/android-views/` (Views clássico: *listeners*, estado na
+  `Activity`) e `casos/<tarefa>/android-compose/` (Jetpack Compose). Os
+  dois em Kotlin.
 - Um único projeto Gradle em `casos/android/`: o `settings.gradle.kts`
   inclui sozinho toda pasta `android-views` ou `android-compose` que tenha
   `build.gradle.kts`, com o nome `:<caso>-<tecnologia>`. O
@@ -331,7 +331,8 @@ cada pasta, por que saiu e como rodá-la no commit anterior ao movimento.
 - É registro congelado (decisão do autor em 2026-10-13): não se edita,
   não compila, não se testa, não se formata nem se captura. Os
   *workspaces*, o projeto Gradle do Android, o `npm run capturas` e o
-  `npm run conferir-especificacao` não o alcançam.
+  `npm run conferir-especificacao` não o alcançam, e a contagem de linhas
+  da concisão (ADR 0012), quando for escrita, também o deixa de fora.
 - Código que sai da análise vai para lá com `git mv`, num commit só de
   movimento, com as capturas da tecnologia, e entra na tabela do
   `README.org` de lá com o ADR que o tirou.

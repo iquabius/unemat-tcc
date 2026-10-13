@@ -3,10 +3,12 @@
 Cada caso tem uma pasta, e cada tecnologia uma subpasta:
 =casos/<caso>/<tecnologia>/=. Cada subpasta é um projeto completo, com o
 próprio =package.json=, e pode ser lida sozinha. O escopo (casos e
-tecnologias) está nas decisões em [[file:../docs/adr/][docs/adr/]]. O código que saiu da análise
-(o Contador, a Lista filtrável, o Carrinho, o jQuery, o Angular com RxJS,
-os pares de desktop em Java e no Qt e o cronômetro de 2017) fica
-congelado em [[file:fora-da-analise/README.org][fora-da-analise/]], fora dos comandos abaixo.
+tecnologias) está nas decisões em [[file:../docs/adr/][docs/adr/]].
+O código que saiu da análise (o Contador, a Lista filtrável, o Carrinho,
+o jQuery, o Angular com RxJS, os pares de desktop em Java e no Qt e o
+cronômetro de 2017) fica congelado em
+[[file:fora-da-analise/README.org][fora-da-analise/]], fora dos comandos
+abaixo.
 
 * Pré-requisitos: Node.js e JDK
 
