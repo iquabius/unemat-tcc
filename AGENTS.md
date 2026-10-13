@@ -254,6 +254,15 @@ pergunta antes.
   camadas de massa, molho à bolonhesa e molho de queijo, assadas por 45
   minutos, é a definição conceitual, "o quê", com as dependências
   escritas e a ordem derivada delas.
+- A tecnologia é sujeito só do que ela faz em tempo de execução: "React
+  e Solid montam a tela", "o React reexecuta o componente", "o Solid
+  atualiza só os trechos". O que se escreve no código vai para a passiva
+  sintética ou para um sujeito que seja o código: "no Lit, a orquestração
+  se escreve como no Web Component", "o tratador chama…", e nunca "o Lit
+  escreve" nem "o Lit escreve igual a". A diferença entre modelos de
+  programação só conta no sinal escrito (ADR 0021), e o verbo de execução
+  com a tecnologia de sujeito atribuiria a ela o que o programador
+  escreve (ADR 0032, passiva sintética).
 - A sessão que edita o texto roda no checkout principal, o mesmo do
   Emacs, uma por vez; código, ferramentas e instruções de agente seguem
   numa worktree, em ramo próprio (seção seguinte). O que
