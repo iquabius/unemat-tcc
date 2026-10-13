@@ -26,10 +26,12 @@ function PainelDeLogin() {
   createEffect(() => {
     if (situacao() !== "conectado") return;
     setSegundos(0);
+    let decorridos = 0;
     onCleanup(
       iniciarRelogio(() => {
-        if (segundos() + 1 >= DURACAO_DA_SESSAO) setSituacao("desconectado");
-        else setSegundos(segundos() + 1);
+        decorridos += 1;
+        if (decorridos >= DURACAO_DA_SESSAO) setSituacao("desconectado");
+        else setSegundos(decorridos);
       }),
     );
   });
