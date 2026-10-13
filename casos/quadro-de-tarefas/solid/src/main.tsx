@@ -8,23 +8,22 @@ import {
   useContext,
   type JSX,
 } from "solid-js";
-import { createStore, reconcile } from "solid-js/store";
+import { createStore, produce, reconcile } from "solid-js/store";
 import { render } from "solid-js/web";
 import {
   COLUNAS,
   MENSAGENS,
-  anunciar,
+  anunciarArquivamento,
+  anunciarMovimento,
   cabeEm,
   carregarQuadro,
   ouvirOutrasAbas,
-  reduzir,
   salvarQuadro,
   tarefa,
   textoDaColuna,
   textoDoCabecalho,
   tituloDa,
   vizinhas,
-  type Acao,
   type Coluna,
   type EstadoDoQuadro,
 } from "../../dominio";
@@ -36,27 +35,46 @@ import "../../estilo.css";
 const ContextoDoQuadro = createContext<{
   estado: EstadoDoQuadro;
   situacao: () => string;
-  despachar: (acao: Acao) => void;
+  moverTarefa: (id: number, de: Coluna, para: Coluna) => void;
+  arquivarTarefa: (id: number, de: Coluna) => void;
 }>();
 
 function ProvedorDoQuadro(props: { children: JSX.Element }) {
   const [estado, setEstado] = createStore<EstadoDoQuadro>(carregarQuadro());
   const [situacao, setSituacao] = createSignal("");
-  // reconcile compara o quadro novo com o atual e só altera o que difere.
-  const despachar = (acao: Acao) => {
-    setEstado(reconcile(reduzir(estado, acao)));
-    setSituacao(anunciar(acao));
+  // O store se altera pelo caminho: produce altera as duas listas como se
+  // fossem arrays comuns, e o setter com a chave, só a da coluna; cada ponto
+  // da tela que lê uma lista alterada se atualiza.
+  const moverTarefa = (id: number, de: Coluna, para: Coluna) => {
+    setEstado(
+      produce((quadro) => {
+        quadro[de].splice(quadro[de].indexOf(id), 1);
+        quadro[para].push(id);
+      }),
+    );
+    setSituacao(anunciarMovimento(id, para));
+  };
+  const arquivarTarefa = (id: number, de: Coluna) => {
+    setEstado(de, (ids) => ids.filter((t) => t !== id));
+    setSituacao(anunciarArquivamento(id));
   };
 
   createEffect(() => salvarQuadro(estado));
 
   // Sem isto, o ouvinte das outras abas continua fora da página.
+  // O quadro de outra aba chega inteiro; reconcile o compara com o atual e
+  // só altera o que difere.
   onCleanup(
-    ouvirOutrasAbas((quadro) => despachar({ tipo: "outra-aba", quadro })),
+    ouvirOutrasAbas((quadro) => {
+      setEstado(reconcile(quadro));
+      setSituacao(MENSAGENS.outraAba);
+    }),
   );
 
   return (
-    <ContextoDoQuadro.Provider value={{ estado, situacao, despachar }}>
+    <ContextoDoQuadro.Provider
+      value={{ estado, situacao, moverTarefa, arquivarTarefa }}
+    >
       {props.children}
     </ContextoDoQuadro.Provider>
   );
@@ -82,7 +100,7 @@ function Cabecalho() {
 }
 
 function ColunaDoQuadro(props: { coluna: Coluna }) {
-  const { estado, despachar } = useQuadro();
+  const { estado, moverTarefa, arquivarTarefa } = useQuadro();
   const { anterior, proxima } = vizinhas(props.coluna);
 
   const mover = (para: Coluna | undefined, sinal: string, id: number) =>
@@ -91,7 +109,7 @@ function ColunaDoQuadro(props: { coluna: Coluna }) {
         type="button"
         aria-label={`Mover ${tarefa(id).titulo} para ${tituloDa(para)}`}
         disabled={!cabeEm(estado, para)}
-        onClick={() => despachar({ tipo: "mover", id, para })}
+        onClick={() => moverTarefa(id, props.coluna, para)}
       >
         {sinal}
       </button>
@@ -117,7 +135,7 @@ function ColunaDoQuadro(props: { coluna: Coluna }) {
                   type="button"
                   class="arquivar"
                   aria-label={`Arquivar ${tarefa(id).titulo}`}
-                  onClick={() => despachar({ tipo: "arquivar", id })}
+                  onClick={() => arquivarTarefa(id, props.coluna)}
                 >
                   Arquivar
                 </button>
