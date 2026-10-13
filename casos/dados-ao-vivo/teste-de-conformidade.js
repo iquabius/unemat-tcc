@@ -18,7 +18,8 @@
     const inicio = Date.UTC(2026, 9, 12, 10);
     const pendentes = new Map(); // id → { quando, repetir, chamar }
     let agora = 0;
-    let ultimoId = 0;
+    // Longe dos ids do navegador, para cancelar não confundir os dois.
+    let ultimoId = 1e9;
     function agendar(chamar, ms, repetir) {
       const atraso = Math.max(0, Number(ms) || 0);
       pendentes.set(++ultimoId, {
@@ -28,7 +29,11 @@
       });
       return ultimoId;
     }
-    const cancelar = (id) => pendentes.delete(id);
+    // A assinatura da abertura nasce antes do relógio falso, com o
+    // setInterval de verdade: o id que não é dele vai ao clearInterval
+    // original, senão o intervalo seguiria disparando fora da página.
+    const cancelar = (id) =>
+      pendentes.delete(id) || originais.clearInterval.call(window, id);
     Object.assign(window, {
       setTimeout: (fn, ms, ...args) => agendar(() => fn(...args), ms, false),
       setInterval: (fn, ms, ...args) => agendar(() => fn(...args), ms, true),
