@@ -64,7 +64,7 @@ class PainelDeLogin extends HTMLElement {
 
   private tentar() {
     this.controlador?.abort();
-    this.encerrarSessao();
+    this.pararSessao();
     const controlador = new AbortController();
     this.controlador = controlador;
     this.situacao.textContent = MENSAGENS.conectando;
@@ -90,10 +90,16 @@ class PainelDeLogin extends HTMLElement {
     });
   }
 
-  private encerrarSessao() {
+  // Sem mexer na situação: a tentativa nova escreve a dela, e a região
+  // anunciada não recebe "Desconectado." antes de "Conectando…".
+  private pararSessao() {
     this.pararRelogio?.();
     this.relogio.hidden = true;
     this.sair.hidden = true;
+  }
+
+  private encerrarSessao() {
+    this.pararSessao();
     this.situacao.textContent = MENSAGENS.desconectado;
   }
 }
@@ -116,10 +122,13 @@ class LoginComQuarentena extends HTMLElement {
       alternar.textContent = "Esconder login";
     };
     alternar.addEventListener("click", () => {
-      if (!this.painel) return mostrar();
-      this.painel.remove();
-      this.painel = undefined;
-      alternar.textContent = "Mostrar login";
+      if (this.painel) {
+        this.painel.remove();
+        this.painel = undefined;
+        alternar.textContent = "Mostrar login";
+      } else {
+        mostrar();
+      }
     });
     mostrar();
   }
