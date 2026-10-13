@@ -12,7 +12,7 @@ quadro salvo. O ouvinte das outras abas também fica no domínio,
 =ouvirOutrasAbas(despachar)=, que devolve a função que o fecha, para a
 limpeza ao sair da tela se conferir pela contagem: =contarAbertos()= diz
 quantos ouvintes estão abertos. Cada implementação decide onde o quadro
-mora, como os componentes são avisados das mudanças e quando salvar.
+mora, como os componentes são avisados das alterações e quando salvar.
 
 As regras, as mensagens e os cenários que o teste de conformidade confere
 estão em =casos/openspec/specs/quadro-de-tarefas/spec.md=, a especificação

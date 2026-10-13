@@ -18,7 +18,7 @@ Janela::Janela(QWidget *pai) : QWidget(pai)
         connect(campo, &QLineEdit::textChanged, this, &Janela::validar);
 
     // Como .on("blur"). O QLineEdit não tem signal de saída (o
-    // editingFinished só sai se o texto mudou), e a aplicação avisa toda
+    // editingFinished só sai se o texto foi alterado), e a aplicação avisa toda
     // troca de foco: conta como saída a de um dos campos.
     connect(qApp, &QApplication::focusChanged, this, [this](QWidget *anterior, QWidget *) {
         for (auto *campo : {ui.nome, ui.email, ui.ida, ui.volta}) {

@@ -35,7 +35,7 @@ class Tela(private val cenario: ActivityScenario<MainActivity>) {
 
     fun focar(campo: Campo) = naTela { campo(it, campo).requestFocus() }
 
-    // Como o setter + evento "input" da web: muda o texto sem mudar o foco.
+    // Como o setter + evento "input" da web: altera o texto sem mover o foco.
     // O cursor vai para o fim, como depois de digitar (o setText o põe no
     // início).
     fun digitar(campo: Campo, texto: String) = naTela {

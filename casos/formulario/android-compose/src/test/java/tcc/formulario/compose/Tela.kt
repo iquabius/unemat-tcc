@@ -48,7 +48,7 @@ class Tela(private val regra: AndroidComposeTestRule<*, *>) {
         regra.waitForIdle()
     }
 
-    // Como o setter + evento "input" da web: muda o texto sem mudar o foco.
+    // Como o setter + evento "input" da web: altera o texto sem mover o foco.
     // (O performTextReplacement foca o campo antes de escrever.)
     fun digitar(campo: Campo, texto: String) {
         no(campo).performSemanticsAction(SemanticsActions.SetText) {

@@ -44,7 +44,7 @@
         </LinearLayout>
     </LinearLayout>
 
-    <!-- Como o role="status": o leitor de tela anuncia a mudança. -->
+    <!-- Como o role="status": o leitor de tela anuncia a atualização. -->
     <TextView
         android:id="@+id/contagem"
         style="@style/Contagem"

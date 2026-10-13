@@ -27,7 +27,7 @@ const MENSAGEM_DO_ESTADO: Partial<Record<Estado["tipo"], string>> = {
 function BuscaDeDestino() {
   const [texto, setTexto] = useState("");
   // Cada tecla cria um pedido novo (outro objeto), o que reinicia a espera
-  // mesmo que o termo não mude; null é "nada agendado".
+  // mesmo que o termo não se altere; null é "nada agendado".
   const [pedido, setPedido] = useState<{ termo: string } | null>(null);
   const [estado, setEstado] = useState<Estado>({ tipo: "vazio" });
   const [escolha, setEscolha] = useState<string | null>(null);
@@ -73,7 +73,7 @@ function BuscaDeDestino() {
 
   function escolher(cidade: Cidade) {
     cancelar();
-    // Muda o texto sem criar pedido: nenhuma busca nova.
+    // Altera o texto sem criar pedido: nenhuma busca nova.
     setTexto(rotulo(cidade));
     setEscolha(rotulo(cidade));
   }

@@ -63,7 +63,7 @@ public class FormularioDeReserva extends JPanel {
         volta.setEnabled(false);
 
         // Como .on("input", validar): o DocumentListener avisa as três formas
-        // de mudança do texto, e as três revalidam.
+        // de alteração do texto, e as três revalidam.
         DocumentListener validarAoMudar = new DocumentListener() {
             @Override
             public void insertUpdate(DocumentEvent e) {

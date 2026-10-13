@@ -28,7 +28,7 @@ import {
 
 // O quadro e a situação moram num serviço; o componente Quadro o provê, e
 // os componentes de dentro recebem a mesma instância por injeção. Cada
-// ponto da tela se atualiza quando o signal que ele lê muda.
+// ponto da tela se atualiza quando o signal que ele lê se altera.
 @Injectable()
 export class LojaDoQuadro {
   private readonly quadro = signal(carregarQuadro());

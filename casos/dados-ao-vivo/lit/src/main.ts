@@ -13,7 +13,7 @@ import "../../estilo.css";
 
 @customElement("painel-de-cotacoes")
 class PainelDeCotacoes extends LitElement {
-  // Estado da tela: mudar reagenda render(). Os dois últimos lotes: o atual
+  // Estado da tela: alterá-lo reagenda render(). Os dois últimos lotes: o atual
   // dá o preço, o anterior, a variação.
   @state() accessor pausado = false;
   @state() accessor anterior: Lote | undefined;

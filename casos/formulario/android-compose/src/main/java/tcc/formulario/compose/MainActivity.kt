@@ -166,7 +166,7 @@ fun FormularioDeReserva() {
             Text("Reservar")
         }
     }
-    // Como o role="status": o leitor de tela anuncia a mudança.
+    // Como o role="status": o leitor de tela anuncia a atualização.
     Confirmacao(
         confirmacao,
         Modifier.semantics { liveRegion = LiveRegionMode.Polite },

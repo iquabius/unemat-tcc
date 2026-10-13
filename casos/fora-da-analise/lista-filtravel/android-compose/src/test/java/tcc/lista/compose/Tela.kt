@@ -35,7 +35,7 @@ class Tela(private val regra: AndroidComposeTestRule<*, *>) {
         config.getOrNull(SemanticsProperties.Text)?.map { it.text }
             ?: emptyList()
 
-    // Como o setter + evento "input" da web: muda o texto sem mudar o foco.
+    // Como o setter + evento "input" da web: altera o texto sem mover o foco.
     fun buscar(texto: String) {
         regra.onNode(hasSetTextAction()).performSemanticsAction(
             SemanticsActions.SetText

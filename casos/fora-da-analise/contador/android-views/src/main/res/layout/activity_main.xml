@@ -5,7 +5,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     style="@style/Contador">
     <!-- Como o <output> da web, que tem o papel status: o leitor de tela
-         anuncia a mudança. -->
+         anuncia a atualização. -->
     <TextView
         android:id="@+id/valor"
         style="@style/Valor"

@@ -69,7 +69,7 @@ fun CatalogoDeProdutos() {
                 )
             }
         }
-        // Como o role="status": o leitor de tela anuncia a mudança.
+        // Como o role="status": o leitor de tela anuncia a atualização.
         Contagem(
             textoDaContagem(visiveis.size),
             Modifier.semantics { liveRegion = LiveRegionMode.Polite },

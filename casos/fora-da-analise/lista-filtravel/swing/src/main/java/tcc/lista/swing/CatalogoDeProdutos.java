@@ -58,7 +58,7 @@ public class CatalogoDeProdutos extends JPanel {
         vazio.putClientProperty("classe", "vazio");
         lista.setCellRenderer(new ItemDeProduto());
 
-        // Como .on("input") e .on("change"): qualquer mudança refaz a lista.
+        // Como .on("input") e .on("change"): qualquer alteração refaz a lista.
         busca.getDocument().addDocumentListener(new DocumentListener() {
             @Override
             public void insertUpdate(DocumentEvent e) {
@@ -99,7 +99,7 @@ public class CatalogoDeProdutos extends JPanel {
         return painel;
     }
 
-    // Refaz a lista inteira a cada mudança num dos controles.
+    // Refaz a lista inteira a cada alteração num dos controles.
     private void atualizarLista() {
         String texto = busca.getText();
         int posicao = categoria.getSelectedIndex();

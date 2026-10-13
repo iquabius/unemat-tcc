@@ -80,7 +80,7 @@ export class CatalogoDeProdutos {
     ordem: new FormControl<Ordem>("nome", { nonNullable: true }),
   });
 
-  // Fluxo da lista visível: recalcula a cada mudança num dos controles
+  // Fluxo da lista visível: recalcula a cada alteração num dos controles
   protected readonly visiveis$ = this.filtros.valueChanges.pipe(
     startWith(this.filtros.getRawValue()),
     map(() => {

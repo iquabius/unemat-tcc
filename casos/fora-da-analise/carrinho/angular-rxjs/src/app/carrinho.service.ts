@@ -10,7 +10,7 @@ import {
 } from "../../../dominio";
 
 // O serviço guarda o estado num BehaviorSubject: quem assina recebe o valor
-// atual na hora e cada mudança depois. Todos os componentes injetam a mesma
+// atual na hora e cada alteração depois. Todos os componentes injetam a mesma
 // instância.
 @Injectable({ providedIn: "root" })
 export class CarrinhoService {

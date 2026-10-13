@@ -16,7 +16,7 @@ function PainelDeCotacoes() {
   // Os dois últimos lotes: o atual dá o preço, o anterior, a variação.
   const [lotes, setLotes] = createSignal<{ anterior?: Lote; atual?: Lote }>({});
 
-  // O efeito roda de novo quando pausado muda; o onCleanup cancela a
+  // O efeito roda de novo quando pausado se altera; o onCleanup cancela a
   // assinatura antes disso e quando o painel sai da tela.
   createEffect(() => {
     if (pausado()) return;

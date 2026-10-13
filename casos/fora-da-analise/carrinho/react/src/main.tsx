@@ -24,7 +24,7 @@ import {
 import "../../estilo.css";
 
 // O estado mora no provedor; os componentes o leem pelo contexto, e o React
-// renderiza de novo os que usam o contexto quando ele muda.
+// renderiza de novo os que usam o contexto quando ele se altera.
 const ContextoDoCarrinho = createContext<{
   estado: EstadoDoCarrinho;
   despachar: (acao: Acao) => void;

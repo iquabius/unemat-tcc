@@ -24,7 +24,7 @@ class LojaDoQuadro extends EventTarget {
   private quadro: EstadoDoQuadro = carregarQuadro();
   private texto = "";
 
-  // Grava ao abrir, como a cada mudança: o quadro inválido vira o inicial.
+  // Grava ao abrir, como a cada alteração: o quadro inválido vira o inicial.
   constructor() {
     super();
     salvarQuadro(this.quadro);
@@ -93,7 +93,7 @@ abstract class ComponenteDoQuadro extends HTMLElement {
   protected abstract atualizar(): void;
 }
 
-// Monta uma vez e depois só muda os textos: a situação é a mesma região
+// Monta uma vez e depois só atualiza os textos: a situação é a mesma região
 // anunciada desde a abertura.
 class Cabecalho extends ComponenteDoQuadro {
   protected montar() {

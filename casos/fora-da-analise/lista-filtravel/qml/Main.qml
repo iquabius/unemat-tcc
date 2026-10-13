@@ -1,10 +1,10 @@
 import QtQuick
 
-// A tela da Lista. A lista visível é um property binding: o motor da QML
-// anota o que a expressão lê (o texto da busca, a categoria e a ordem
-// escolhidas) e a recalcula quando um deles muda, como o createMemo do Solid.
-// A aparência fica nos componentes de estilo/ (Janela, Entrada, Produto...),
-// como o estilo.css.
+// A tela da Lista. A lista visível é um property binding: o motor da QML anota
+// o que a expressão lê (o texto da busca, a categoria e a ordem escolhidas) e a
+// recalcula quando um deles se altera, como o createMemo do Solid. A aparência
+// fica nos componentes de estilo/ (Janela, Entrada, Produto...), como o
+// estilo.css.
 Janela {
     id: tela
     title: "Lista filtrável"
@@ -47,7 +47,7 @@ Janela {
     Contagem { text: Dominio.textoDaContagem(tela.visiveis.length) }
 
     // Como o <ul> com o map: o ListView monta um Produto por item do modelo
-    // e o refaz quando o modelo muda.
+    // e o refaz quando o modelo se altera.
     Produtos {
         model: tela.visiveis
         delegate: Produto {

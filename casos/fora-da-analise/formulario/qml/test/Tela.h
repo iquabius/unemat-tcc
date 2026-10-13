@@ -35,7 +35,7 @@ public:
         QCoreApplication::processEvents();
     }
 
-    // Como o setter + evento "input" da web: muda o texto sem mudar o foco.
+    // Como o setter + evento "input" da web: altera o texto sem mover o foco.
     void digitar(Campo campo, const QString &texto) { entrada(campo)->setProperty("text", texto); }
 
     // Como o blur da web: o foco passa para outro campo.

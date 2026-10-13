@@ -19,7 +19,7 @@ function CatalogoDeProdutos() {
   const [ordem, setOrdem] = createSignal<Ordem>("nome");
 
   // A lista visível é um valor derivado: recalcula só quando busca,
-  // categoria ou ordem mudam.
+  // categoria ou ordem se alteram.
   const visiveis = createMemo(() =>
     produtos
       .filter(

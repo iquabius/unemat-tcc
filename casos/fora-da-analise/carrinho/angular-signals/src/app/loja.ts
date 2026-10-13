@@ -24,7 +24,7 @@ import {
 
 // O estado mora num serviço que a Loja fornece; os componentes o recebem
 // por injeção, e cada ponto da tela se atualiza só quando o dado que ele lê
-// muda.
+// se altera.
 @Injectable()
 export class Carrinho {
   readonly estado = signal<EstadoDoCarrinho>(carregarCarrinho());

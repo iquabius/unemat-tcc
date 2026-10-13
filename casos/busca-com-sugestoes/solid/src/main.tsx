@@ -21,8 +21,8 @@ function BuscaDeDestino() {
   let espera: number | undefined;
   let controlador: AbortController | undefined;
 
-  // O recurso refaz a requisição quando o termo muda, expõe loading e error,
-  // e descarta a resposta de uma requisição que já foi substituída.
+  // O recurso refaz a requisição quando o termo se altera, expõe loading e
+  // error, e descarta a resposta de uma requisição que já foi substituída.
   const [cidades] = createResource(
     () => (termo().length >= MINIMO_DE_LETRAS ? termo() : false),
     (termoValido) => {
@@ -52,7 +52,7 @@ function BuscaDeDestino() {
 
   function escolher(cidade: Cidade) {
     cancelar();
-    // Muda o texto sem agendar busca: nenhuma busca nova.
+    // Altera o texto sem agendar busca: nenhuma busca nova.
     setTexto(rotulo(cidade));
     setEscolha(rotulo(cidade));
   }

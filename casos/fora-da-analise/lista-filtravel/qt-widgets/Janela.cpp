@@ -24,7 +24,7 @@ Janela::Janela(QWidget *pai) : QWidget(pai)
     atualizarLista();
 }
 
-// Refaz a lista inteira a cada mudança num dos controles.
+// Refaz a lista inteira a cada alteração num dos controles.
 void Janela::atualizarLista()
 {
     const QString busca = ui.busca->text();

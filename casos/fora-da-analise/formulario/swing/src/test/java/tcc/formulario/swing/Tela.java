@@ -51,7 +51,7 @@ class Tela {
                 .orElseThrow();
     }
 
-    // Como o setter + evento "input" da web: muda o texto sem mudar o foco.
+    // Como o setter + evento "input" da web: altera o texto sem mover o foco.
     void digitar(Campo campo, String texto) {
         naTela(() -> campo(campo).setText(texto));
     }

@@ -13,7 +13,7 @@ implementação.
   | Elemento | Conteúdo                                                     |
   |----------+--------------------------------------------------------------|
   | Valor    | o número, sem formatação; o leitor de tela anuncia cada      |
-  |          | mudança (na web, o =<output>=, que tem o papel /status/)     |
+  |          | atualização (na web, o =<output>=, que tem o papel /status/) |
   | Botão    | o texto "+", com o nome acessível "Incrementar"              |
 
   Os dois ficam lado a lado, em duas colunas iguais, o valor à esquerda.

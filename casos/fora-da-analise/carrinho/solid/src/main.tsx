@@ -27,7 +27,7 @@ import {
 import "../../estilo.css";
 
 // O estado mora num store do provedor; os componentes o leem pelo contexto,
-// e cada ponto da tela se atualiza só quando o dado que ele lê muda.
+// e cada ponto da tela se atualiza só quando o dado que ele lê se altera.
 const ContextoDoCarrinho = createContext<{
   estado: EstadoDoCarrinho;
   despachar: (acao: Acao) => void;

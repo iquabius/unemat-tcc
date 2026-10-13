@@ -71,7 +71,7 @@ class MainActivity : AppCompatActivity() {
         atualizarLista()
     }
 
-    // Refaz a lista inteira a cada mudança num dos controles.
+    // Refaz a lista inteira a cada alteração num dos controles.
     @SuppressLint("NotifyDataSetChanged")
     private fun atualizarLista() {
         val busca = findViewById<EditText>(R.id.busca).text.toString()

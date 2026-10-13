@@ -20,7 +20,7 @@ $(function () {
     $("#ordem").append($("<option>").val(ordem.valor).text(ordem.rotulo));
   }
 
-  // Refaz a lista inteira a cada mudança num dos controles.
+  // Refaz a lista inteira a cada alteração num dos controles.
   function atualizarLista() {
     const busca = String($("#busca").val());
     const categoria = String($("#categoria").val());

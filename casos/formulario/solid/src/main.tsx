@@ -23,7 +23,7 @@ function FormularioDeReserva() {
   const [confirmacao, setConfirmacao] = createSignal("");
 
   // Cada erro é um valor derivado: recalcula só quando os sinais que ele lê
-  // mudam, e atualiza só os pontos da tela que o leem.
+  // se alteram, e atualiza só os pontos da tela que o leem.
   const idaEVolta = () => tipo() === "ida-e-volta";
   const erroNome = createMemo(() => erroDoNome(nome()));
   const erroEmail = createMemo(() => erroDoEmail(email()));

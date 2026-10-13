@@ -56,7 +56,7 @@ export class BuscaDeDestino {
   protected readonly escolha = signal<string | null>(null);
   private espera: number | undefined;
 
-  // O recurso refaz a requisição quando o termo muda, expõe isLoading e
+  // O recurso refaz a requisição quando o termo se altera, expõe isLoading e
   // error, e descarta a resposta de uma requisição que já foi substituída.
   private readonly cidades = resource({
     params: () =>
@@ -89,7 +89,7 @@ export class BuscaDeDestino {
 
   protected escolher(cidade: Cidade) {
     this.cancelar();
-    // Muda o texto sem agendar busca: nenhuma busca nova.
+    // Altera o texto sem agendar busca: nenhuma busca nova.
     this.texto.set(rotulo(cidade));
     this.escolha.set(rotulo(cidade));
   }

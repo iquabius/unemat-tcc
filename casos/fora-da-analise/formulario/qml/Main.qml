@@ -3,7 +3,7 @@ import Formulario
 
 // A tela do Formulário. Cada valor derivado é um property binding: o motor da
 // QML anota as propriedades que a expressão lê e a reavalia quando uma delas
-// muda, como o createMemo do Solid. A aparência fica nos componentes de
+// se altera, como o createMemo do Solid. A aparência fica nos componentes de
 // estilo/ (Janela, Entrada, Erro...), como o estilo.css.
 Janela {
     id: tela

@@ -67,7 +67,7 @@ class CatalogoDeProdutos extends HTMLElement {
     this.atualizarLista();
   }
 
-  // Refaz a lista inteira a cada mudança num dos controles.
+  // Refaz a lista inteira a cada alteração num dos controles.
   private atualizarLista() {
     const visiveis = produtos
       .filter(

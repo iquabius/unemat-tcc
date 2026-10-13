@@ -104,7 +104,7 @@ export class FormularioDeReserva {
   protected readonly confirmacao = signal("");
 
   // Cada erro é um valor derivado: recalcula só quando os sinais que ele lê
-  // mudam, e atualiza só os pontos da tela que o leem.
+  // se alteram, e atualiza só os pontos da tela que o leem.
   protected idaEVolta() {
     return this.tipo() === "ida-e-volta";
   }

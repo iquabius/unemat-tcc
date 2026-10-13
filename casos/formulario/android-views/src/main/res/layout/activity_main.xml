@@ -95,7 +95,7 @@
                 android:text="Reservar" />
         </LinearLayout>
 
-        <!-- Como o role="status": o leitor de tela anuncia a mudança. -->
+        <!-- Como o role="status": o leitor de tela anuncia a atualização. -->
         <TextView
             android:id="@+id/confirmacao"
             style="@style/Confirmacao"

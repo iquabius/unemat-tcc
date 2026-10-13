@@ -126,7 +126,8 @@ export class BuscaDeDestino {
   protected readonly escolha$ = this.escolhas.pipe(map(rotulo));
 
   protected escolher(cidade: Cidade) {
-    // emitEvent: false muda o texto sem passar por valueChanges: nenhuma busca nova
+    // emitEvent: false altera o texto sem passar por valueChanges: nenhuma
+    // busca nova
     this.texto.setValue(rotulo(cidade), { emitEvent: false });
     this.cancelamentos.next();
     this.escolhas.next(cidade);

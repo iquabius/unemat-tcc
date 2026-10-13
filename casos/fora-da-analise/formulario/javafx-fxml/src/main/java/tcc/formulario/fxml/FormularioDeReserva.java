@@ -107,7 +107,8 @@ public class FormularioDeReserva {
         }
     }
 
-    // Como o onSubmit: a confirmação muda só no clique, não acompanha os campos.
+    // Como o onSubmit: a confirmação se atualiza só no clique, não acompanha os
+    // campos.
     @FXML
     private void reservar() {
         confirmacao.setText(mensagemDeConfirmacao(new Reserva(
@@ -125,7 +126,7 @@ public class FormularioDeReserva {
         paragrafo.visibleProperty().bind(erro.isNotNull());
         paragrafo.managedProperty().bind(paragrafo.visibleProperty());
         // A pseudoclasse não tem propriedade para ligar: uma assinatura a
-        // acompanha, chamada já com o valor atual e depois a cada mudança.
+        // acompanha, chamada já com o valor atual e depois a cada alteração.
         erro.subscribe(valor -> campo.pseudoClassStateChanged(INVALIDO, valor != null));
     }
 }

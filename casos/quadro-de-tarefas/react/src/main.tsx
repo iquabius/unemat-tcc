@@ -30,7 +30,7 @@ import "../../estilo.css";
 
 // O quadro e a situação moram no provedor; os componentes os leem pelo
 // contexto, e o React renderiza de novo os que usam o contexto quando ele
-// muda.
+// se altera.
 const ContextoDoQuadro = createContext<{
   estado: EstadoDoQuadro;
   situacao: string;

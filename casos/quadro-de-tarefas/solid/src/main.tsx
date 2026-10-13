@@ -32,7 +32,7 @@ import "../../estilo.css";
 
 // O quadro mora num store do provedor, e a situação num signal; os
 // componentes os leem pelo contexto, e cada ponto da tela se atualiza só
-// quando o dado que ele lê muda.
+// quando o dado que ele lê se altera.
 const ContextoDoQuadro = createContext<{
   estado: EstadoDoQuadro;
   situacao: () => string;
@@ -42,7 +42,7 @@ const ContextoDoQuadro = createContext<{
 function ProvedorDoQuadro(props: { children: JSX.Element }) {
   const [estado, setEstado] = createStore<EstadoDoQuadro>(carregarQuadro());
   const [situacao, setSituacao] = createSignal("");
-  // reconcile compara o quadro novo com o atual e só altera o que mudou.
+  // reconcile compara o quadro novo com o atual e só altera o que difere.
   const despachar = (acao: Acao) => {
     setEstado(reconcile(reduzir(estado, acao)));
     setSituacao(anunciar(acao));

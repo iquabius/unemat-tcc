@@ -25,10 +25,10 @@ import tcc.formulario.Reserva;
 import tcc.formulario.TipoDeVoo;
 
 // O formulário de reserva em JavaFX, montado em código como o do Swing. O
-// estado são as propriedades dos próprios controles (textProperty), e cada
-// erro é um binding que lista as propriedades de que depende: muda sozinho
-// quando uma delas muda, como o createMemo do Solid, mas com as dependências
-// escritas à mão.
+// estado são as propriedades dos próprios controles (textProperty), e cada erro
+// é um binding que lista as propriedades de que depende: se atualiza sozinho
+// quando uma delas se altera, como o createMemo do Solid, mas com as
+// dependências escritas à mão.
 public class FormularioDeReserva extends VBox {
     // Como o aria-invalid: o estilo pinta de vermelho o campo com :invalido.
     private static final PseudoClass INVALIDO = PseudoClass.getPseudoClass("invalido");
@@ -116,7 +116,8 @@ public class FormularioDeReserva extends VBox {
             });
         }
 
-        // Como o onSubmit: a confirmação muda só no clique, não acompanha os campos.
+        // Como o onSubmit: a confirmação se atualiza só no clique, não
+        // acompanha os campos.
         reservar.setOnAction(e -> confirmacao.setText(mensagemDeConfirmacao(new Reserva(
                 nome.getText(), email.getText(), tipo(), ida.getText(), volta.getText()))));
     }
@@ -147,7 +148,7 @@ public class FormularioDeReserva extends VBox {
         paragrafo.visibleProperty().bind(erro.isNotNull());
         paragrafo.managedProperty().bind(paragrafo.visibleProperty());
         // A pseudoclasse não tem propriedade para ligar: uma assinatura a
-        // acompanha, chamada já com o valor atual e depois a cada mudança.
+        // acompanha, chamada já com o valor atual e depois a cada alteração.
         erro.subscribe(valor -> campo.pseudoClassStateChanged(INVALIDO, valor != null));
     }
 }

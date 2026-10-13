@@ -83,7 +83,7 @@ export class CatalogoDeProdutos {
   protected readonly ordem = signal<Ordem>("nome");
 
   // A lista visível é um valor derivado: recalcula só quando busca,
-  // categoria ou ordem mudam.
+  // categoria ou ordem se alteram.
   protected readonly visiveis = computed(() =>
     produtos
       .filter(

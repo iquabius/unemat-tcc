@@ -34,7 +34,7 @@ fun Contador(valorInicial: Int) {
 
     Row(Estilo.contador) {
         // Como o <output> da web, que tem o papel status: o leitor de tela
-        // anuncia a mudança.
+        // anuncia a atualização.
         Valor(
             "$contador",
             Modifier.semantics { liveRegion = LiveRegionMode.Polite },
