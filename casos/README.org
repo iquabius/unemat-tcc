@@ -22,7 +22,7 @@ abaixo.
   #+end_src
 
   O Angular 22 exige Node 22.22.3 ou mais novo. O JDK (Temurin 25) só é
-  preciso para os casos Android.
+  preciso para o Android.
 
 * Instalar e rodar (web)
 
