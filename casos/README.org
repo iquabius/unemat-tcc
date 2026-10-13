@@ -40,6 +40,7 @@ tecnologias) está nas decisões em [[file:../docs/adr/][docs/adr/]].
   | =jquery=           | jQuery                                            |
   | =react=            | React                                             |
   | =solid=            | Solid (/signals/)                                 |
+  | =lit=              | Lit (sobre o /custom element/)                    |
   | =angular-signals=  | Angular com /signals/                             |
   | =angular-rxjs=     | Angular com RxJS (apoio à escrita; fora do texto) |
 

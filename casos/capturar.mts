@@ -40,6 +40,7 @@ const WEB = [
   "jquery",
   "react",
   "solid",
+  "lit",
   "angular-signals",
   "angular-rxjs",
 ];

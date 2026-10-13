@@ -162,6 +162,25 @@ autor em 2026-10-12): a tarefa do bd depende da tcc-xc2y.
   que espelha a do Solid (`signal`, `computed`, `effect`, `resource`, sem
   RxJS nem formulários do Angular), e `angular-rxjs`, de apoio, que usa
   RxJS e Reactive Forms de propósito.
+- O Lit (ADR 0013: Formulário, Busca e Dados ao vivo) fica em
+  `casos/<tarefa>/lit/`, com o Lit 3 e o *template* `html`, sem
+  `@lit-labs/signals` nem `@lit/task`. Escreve-se como o Web Component da
+  tarefa, para o par isolar a ligação do estado com a tela: os mesmos
+  elementos e classes, `createRenderRoot()` devolvendo `this` (sem *shadow
+  DOM*, para o `estilo.css` valer), e o que a tarefa abre no
+  `connectedCallback` e fecha no `disconnectedCallback` herdados, que
+  chamam o `super`. O estado da tela leva `@state() accessor`; o da
+  coordenação (a assinatura, o `AbortController`) fica em campo comum. O
+  `@click` recebe o método, que o Lit chama com o elemento como `this`.
+- Os decoradores do Lit são os padrão do TypeScript, com `@customElement`
+  no lugar do `customElements.define`. A Vite 8 os deixa sem converter, e
+  o navegador ainda não os entende: o `vite.config.ts` do Lit os converte
+  com o `@rolldown/plugin-babel` e o `@babel/plugin-proposal-decorators`
+  (decisão do autor em 2026-10-13, contra os decoradores legados do
+  `experimentalDecorators`, que rodam sem Babel, e contra o `static
+  properties`, sem decoradores). O `@babel/core` do Lit aceita a versão que
+  o `@angular/build` fixa, para o Lit não subir o Babel do Angular no
+  `package-lock.json`.
 
 ## Teste de conformidade na web
 
