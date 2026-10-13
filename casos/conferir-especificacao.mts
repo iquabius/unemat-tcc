@@ -10,7 +10,7 @@
 //
 // O nome do cenário (#### Scenario: <nome> em openspec/specs/<tarefa>/spec.md)
 // é o nome da verificação (conferir("<nome>", ...)) nos testes de
-// casos/<tarefa>/, em JS, Kotlin, Java ou C++. Cada arquivo de teste tem de
+// casos/<tarefa>/, em JS ou Kotlin. Cada arquivo de teste tem de
 // ter todos os cenários e só eles; e, como as outras plataformas repetem o
 // teste da web, na mesma ordem do arquivo que fica na pasta da tarefa. Sai
 // com erro e lista as diferenças.
@@ -27,7 +27,7 @@ import path from "node:path";
 const CASOS = import.meta.dirname;
 const SPECS = path.join(CASOS, "openspec", "specs");
 const OPENSPEC = path.join(CASOS, "node_modules", ".bin", "openspec");
-const EXTENSOES = new Set([".js", ".ts", ".mts", ".kt", ".java", ".cpp"]);
+const EXTENSOES = new Set([".js", ".ts", ".mts", ".kt"]);
 const FORA = new Set([
   "node_modules",
   "build",
@@ -40,9 +40,9 @@ const FORA = new Set([
 const semShallNemMust = /should contain SHALL or MUST/;
 const cenario = /^####\s+Scenario:\s*(.+?)\s*$/gm;
 const verificacao = /\bconferir\(\s*"((?:[^"\\]|\\.)*)"/g;
-// Toda chamada, e as definições (fun e void), que não são chamadas.
+// Toda chamada, e as definições (fun, no Kotlin), que não são chamadas.
 const chamada = /\bconferir\(/g;
-const definicao = /\b(?:fun|void)\s+conferir\(/g;
+const definicao = /\bfun\s+conferir\(/g;
 
 type Validacao = {
   items: {
