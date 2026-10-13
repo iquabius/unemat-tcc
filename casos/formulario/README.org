@@ -4,11 +4,9 @@ Reserva de voo baseada na tarefa /Flight Booker/ do [[https://eugenkiss.github.i
 ampliada com os campos de um formulário real. Todas as implementações seguem a
 mesma especificação; as regras de domínio (formato de data, e-mail, mensagens)
 ficam em =dominio.ts=, compartilhado pelos projetos web, para que as
-implementações só difiram na coordenação da interface. No Android e no
-desktop, as mesmas regras estão portadas para Kotlin em
-=dominio-kotlin/main/Dominio.kt=, compartilhado por =android-views=,
-=android-compose=, =swing=, =javafx= e =javafx-fxml=; no Qt, para C++ em
-=dominio-cpp/Dominio.cpp=, compartilhado por =qt-widgets= e =qml=.
+implementações só difiram na coordenação da interface. No Android, as
+mesmas regras estão portadas para Kotlin em =dominio-kotlin/main/Dominio.kt=,
+compartilhado por =android-views= e =android-compose=.
 
 As regras, as mensagens e os cenários que o teste de conformidade confere
 estão em =casos/openspec/specs/formulario/spec.md=, a especificação viva
@@ -29,12 +27,3 @@ estão em =casos/openspec/specs/formulario/spec.md=, a especificação viva
   confere os casos-limite do porte do domínio (31/02, e-mail, ordem das
   datas).
 
-  No desktop, em pré-análise, as mesmas 19 verificações estão em
-  =TesteDeConformidade.java=, nos módulos =swing=, =javafx= e =javafx-fxml=,
-  e rodam com =./gradlew test= em =casos/desktop/=. Lá o domínio é o mesmo
-  =dominio-kotlin=, chamado do Java.
-
-  No Qt, as mesmas 19 verificações estão em =TesteDeConformidade.cpp=, nos
-  testes de cada tecnologia, e rodam com o =ctest= em =casos/qt/=; o
-  =dominio-cpp/test/DominioTest.cpp= confere o porte em C++, com as
-  diferenças em relação à web documentadas num teste pulado.

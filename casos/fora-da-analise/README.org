@@ -1,0 +1,78 @@
+#+TITLE: Fora da análise: código que saiu do conjunto analisado
+
+Esta pasta guarda o código de =casos/= que o texto não analisa, congelado
+como estava ao sair da análise, em 2026-10-13. Nada aqui compila, testa,
+formata nem captura pelos comandos de =casos/=, e as mudanças na
+especificação das tarefas (=casos/openspec/=) não são portadas para cá.
+Em =casos/= ficam só as tarefas e as tecnologias analisadas.
+
+A estrutura é a de =casos/=: =<tarefa>/<tecnologia>/=, mais os projetos que
+reuniam o desktop e o Qt.
+
+| Pasta                                                               | O que é                                                    | Por que saiu                                                                                              | ADR  |
+|---------------------------------------------------------------------+------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------+------|
+| =contador/=                                                         | o Contador, na web (seis tecnologias) e no Android         | não tem problema de coordenação próprio: evento → estado → tela aparece em todas as tarefas               | 0002 |
+| =lista-filtravel/=                                                  | a Lista filtrável, na web, no Android, em Java e no Qt     | é a menos densa em coordenação e cabe quase toda no Carrinho                                              | 0002 |
+| =carrinho/=                                                         | o Carrinho, na web                                         | dá lugar ao Quadro de tarefas, em que desfazer existe de verdade                                          | 0002 |
+| =formulario/jquery/=, =busca-com-sugestoes/jquery/=                 | o jQuery (o das tarefas acima está na pasta de cada uma)   | o imperativo com /callbacks/ fica com o Web Component, que tem modelo de componente e par controlado (Lit) | 0013 |
+| =formulario/angular-rxjs/=, =busca-com-sugestoes/angular-rxjs/=     | o Angular com RxJS, apoio à escrita do capítulo de programação | é apoio, e não entra no texto; congelado por decisão do autor em 2026-10-13, com as regras desta data   | 0013 |
+| =formulario/swing/=, =javafx/=, =javafx-fxml/=, =javafx-estilo/=; =desktop/= | o par Swing × JavaFX, em Java, e o projeto Gradle que o reunia | o desktop da análise é Windows Forms × WPF, em C#                                                  | 0001 |
+| =formulario/qt-widgets/=, =qml/=, =dominio-cpp/=; =qt/=             | o par Qt Widgets × QML, em C++ e QML, e o projeto CMake que o reunia | idem                                                                                                | 0001 |
+| =cronometro-com-rxjs-5/=                                            | o cronômetro em RxJS 5 do projeto de 2017                  | registro do projeto de 2017, anterior à organização em tarefas                                            | 0012 |
+
+Cada =capturas/= tem as imagens da última vez que o =npm run capturas= as
+gerou, com o mesmo nome de antes (=<tecnologia>-<cena>.png=).
+
+* Os caminhos relativos
+
+  O código importa o que tinha ao lado em =casos/=: o =dominio.ts= e o
+  =estilo.css= da tarefa, o =tsconfig.base.json= de =casos/=, o
+  =dominio-kotlin= do Android. No Contador, na Lista e no Carrinho, que
+  saíram inteiros, o que fica na pasta da tarefa veio junto, menos o
+  =tsconfig.base.json= e o =casos/android/=. No Formulário e na Busca, o
+  domínio, o estilo e o teste de conformidade ficaram em
+  =casos/<tarefa>/= e continuam mudando com a especificação: o código
+  daqui se lê contra a versão deles do commit anterior ao movimento.
+
+* Rodar
+
+  Tudo roda no commit anterior ao que criou esta pasta, com as instruções
+  do =casos/README.org= de lá:
+
+  #+begin_src sh
+  git switch --detach \
+      "$(git log --format=%H --reverse -- casos/fora-da-analise | head -1)~1"
+  #+end_src
+
+  Ali, de =casos/=:
+
+  #+begin_src sh
+  npm install
+  npm run capturas -- contador                  # web e Android
+  npm run dev -w formulario/jquery              # uma implementação web
+  (cd desktop && ./gradlew test)                # Swing e JavaFX
+  (cd qt && cmake -S . -B build -G Ninja && cmake --build build &&
+      QT_QPA_PLATFORM=offscreen ctest --test-dir build --output-on-failure)
+  #+end_src
+
+  O =cronometro-com-rxjs-5= nunca foi /workspace/: tem instalação própria
+  (=npm install= e =npm start= na pasta dele, com o Parcel 1).
+
+* Os pares de desktop
+
+  O par Swing × JavaFX (Formulário e Lista, 2026-10-09) montava a tela do
+  =javafx= com as mesmas chamadas e na mesma ordem do =swing=, e o
+  =javafx-fxml= tinha os mesmos /bindings/ do =javafx=, com a tela em FXML:
+  o =diff= entre os dois mostra só a montagem da tela. O domínio era o
+  =dominio-kotlin= do Android, chamado do Java. Cada módulo tem um
+  =TesteDeConformidade.java= com as verificações do teste da web, sem
+  capturas; o JavaFX 27 rodava os testes na plataforma Headless.
+
+  O par Qt Widgets × QML (Formulário e Lista, 2026-10-09, Qt 6.10.2) tinha
+  a tela do Widgets num =.ui=, com a coordenação por =connect=, e a QML com
+  o estado nas próprias propriedades e os derivados em /bindings/; o
+  domínio é o porte do =dominio.ts= em =dominio-cpp/=. Os testes de
+  conformidade, em Qt Test, repetem as verificações da web, sem capturas.
+
+  A comparação dos pares de desktop e a pré-análise de cada um estão em
+  =docs/plataformas.md=.

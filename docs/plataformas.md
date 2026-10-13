@@ -126,7 +126,8 @@ como "sibling" ou "cousin" seria inferência do TCC.
   Java é menor que o Android em todas as medidas indiretas.
 - **Implementação** (2026-10-09): Formulário e Lista em três tecnologias,
   `casos/<caso>/swing/`, `javafx/` e `javafx-fxml/`, num projeto Gradle
-  em `casos/desktop/` (instruções em `casos/README.org`). Decisões do
+  em `casos/desktop/`; desde 2026-10-13, em `casos/fora-da-analise/`, com
+  as instruções no `README.org` de lá. Decisões do
   autor em 2026-10-09: as duas tarefas que conferem a web; testes de
   conformidade sem capturas; o JavaFX em código e em FXML; o domínio do
   Android, em Kotlin, pela JVM. Os testes de conformidade (19 verificações
@@ -321,7 +322,8 @@ atualização granular, que é o que a pré-análise tem de mostrar.
 
 Formulário e Lista, em `casos/<caso>/qt-widgets/` e `casos/<caso>/qml/`,
 com o domínio em C++ em `casos/<caso>/dominio-cpp/` e um projeto CMake
-único em `casos/qt/` (instalação em `casos/README.org`). Decisões do
+único em `casos/qt/`; desde 2026-10-13, em `casos/fora-da-analise/`, com
+a instalação no `README.org` de lá. Decisões do
 autor em 2026-10-09: as duas tarefas que conferem a web; testes de
 conformidade já, capturas só se o par entrar; o Qt Widgets monta a tela
 num `.ui` e coordena por `connect`, sem propriedades *bindable*; a QML

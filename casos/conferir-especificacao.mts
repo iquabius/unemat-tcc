@@ -17,8 +17,7 @@
 //
 // Teste é todo arquivo da pasta da tarefa que chama conferir(...); cada
 // chamada tem de ter o nome como texto literal entre aspas duplas, senão o
-// script acusa. O código fora da análise que sair de casos/<tarefa>/ (para
-// casos/fora-da-analise/, tcc-xc2y) deixa de ser conferido.
+// script acusa. O código de casos/fora-da-analise/ não é conferido.
 
 import { spawnSync } from "node:child_process";
 import { existsSync } from "node:fs";

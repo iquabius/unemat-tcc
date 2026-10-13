@@ -3,7 +3,8 @@
 Cada caso é uma interface implementada em várias tecnologias, para comparação
 no TCC. As decisões de escopo (casos, tecnologias, Android) estão em
 `docs/adr/`; os termos, em `CONTEXT.md` na raiz; instalação e
-uso, em `casos/README.org`.
+uso, em `casos/README.org`. O código que saiu da análise fica congelado em
+`casos/fora-da-analise/` (última seção).
 
 ## Conferir as capturas a cada alteração
 
@@ -83,9 +84,8 @@ pelo `npm run openspec -- <comando>`, que desliga a telemetria; o
 `npm run conferir-especificacao`, de `casos/`, roda o `openspec validate
 --all` e confere, em todo arquivo de `casos/<tarefa>/` que chama
 `conferir(...)`, que os nomes das verificações são os dos cenários da
-especificação viva, na ordem do teste da web. O código que sair de
-`casos/<tarefa>/` para `casos/fora-da-analise/` (tcc-xc2y) deixa de ser
-conferido. Rode-o antes de cada commit que mexa numa especificação ou num
+especificação viva, na ordem do teste da web; o de
+`casos/fora-da-analise/` não é conferido. Rode-o antes de cada commit que mexa numa especificação ou num
 teste de conformidade.
 
 ### Tarefa nova
@@ -139,15 +139,10 @@ orquestração da P2.
    sempre o que os testes conferem, e as implementações ainda não mudadas
    falham no teste até o commit delas.
 4. Um commit por tecnologia, na mesma ordem em todas (ADR 0029), cada um
-   passando no teste de conformidade e com as capturas conferidas. As
-   implementações web fora da análise que ainda estejam em
-   `casos/<tarefa>/` (jQuery, Angular com RxJS) mudam por último, para as
-   capturas web seguirem idênticas.
+   passando no teste de conformidade e com as capturas conferidas.
 
-Mudança que muda um teste de conformidade que também existe fora da
-análise (o Formulário em Swing, JavaFX e Qt) espera a tcc-xc2y tirar esse
-código de `casos/<tarefa>/`, em vez de portá-la para ele (decisão do
-autor em 2026-10-12): a tarefa do bd depende da tcc-xc2y.
+A mudança não se porta para o código da tarefa em `casos/fora-da-analise/`
+(decisão do autor em 2026-10-12).
 
 ## Exemplo ou caso novo
 
@@ -158,10 +153,10 @@ autor em 2026-10-12): a tarefa do bd depende da tcc-xc2y.
 - Crie o `cenas.mts` do caso (estados a capturar), gere as capturas com
   `npm run capturas -- <caso>` e versione-as no mesmo commit.
 - Exemplos web em TypeScript, sem bibliotecas além do que cada framework
-  traz. O Angular tem duas implementações (ADR 0013): `angular-signals`,
-  que espelha a do Solid (`signal`, `computed`, `effect`, `resource`, sem
-  RxJS nem formulários do Angular), e `angular-rxjs`, de apoio, que usa
-  RxJS e Reactive Forms de propósito.
+  traz. O Angular é o `angular-signals` (ADR 0013), que espelha o Solid
+  (`signal`, `computed`, `effect`, `resource`, sem RxJS nem formulários do
+  Angular); o `angular-rxjs`, de apoio, com RxJS e Reactive Forms de
+  propósito, ficou congelado em `casos/fora-da-analise/`.
 - O Lit (ADR 0013: Formulário, Busca e Dados ao vivo) fica em
   `casos/<tarefa>/lit/`, com o Lit 3 e o *template* `html`, sem
   `@lit-labs/signals` nem `@lit/task`. Escreve-se como o Web Component da
@@ -244,10 +239,8 @@ quebrado à mão, e 80 colunas cabem numa coluna do PDF em 8 pt.
   e rodado pela tarefa `formatarKotlin` do Gradle.
 - C# e XAML (Windows Forms e WPF): CSharpier, com a mesma largura, a
   instalar e fixar com o primeiro código do desktop (tcc-74m).
-- Ficam de fora o cronômetro de 2017, o código em Java, C++ e QML dos pares
-  de desktop fora da análise e os documentos (`casos/.prettierignore` e o
-  `build.gradle.kts` de `casos/android/`). O jQuery, o Contador, a Lista e
-  o Carrinho, também fora da análise, são formatados como os demais.
+- Ficam de fora `casos/fora-da-analise/` e os documentos
+  (`casos/.prettierignore` e o `build.gradle.kts` de `casos/android/`).
 
 De `casos/`, `npm run formatar` formata tudo, e `npm run
 conferir-formatacao` falha se algum arquivo estiver fora do padrão. Rode o
@@ -257,10 +250,10 @@ conferidas.
 
 ## Android (Kotlin)
 
-- Casos no Android: Contador, Formulário com validação e Lista filtrável,
-  cada um em `casos/<caso>/android-views/` (Views clássico: *listeners*,
-  estado na `Activity`) e `casos/<caso>/android-compose/` (Jetpack Compose).
-  Os dois em Kotlin.
+- Casos no Android: o Formulário com validação, em
+  `casos/<caso>/android-views/` (Views clássico: *listeners*, estado na
+  `Activity`) e `casos/<caso>/android-compose/` (Jetpack Compose). Os dois
+  em Kotlin.
 - Um único projeto Gradle em `casos/android/`: o `settings.gradle.kts`
   inclui sozinho toda pasta `android-views` ou `android-compose` que tenha
   `build.gradle.kts`, com o nome `:<caso>-<tecnologia>`. O
@@ -283,11 +276,10 @@ conferidas.
     aplicado no `AndroidManifest.xml`) e um estilo nomeado por regra do
     CSS. O layout só tem estrutura, `id`, textos e acessibilidade, e cita
     a aparência com `style="@style/..."`, como o `class`.
-  - **Compose:** `Estilo.kt`, com o `Tema { }`, o objeto `Estilo`
-    (`Modifier`s nomeados, como `Estilo.contador`) e componentes já
-    estilizados no papel das regras por elemento (`Valor` para
-    `.contador output`, `Botao` para `.contador button`). A tela só usa
-    esses nomes.
+  - **Compose:** `Estilo.kt`, com o `Tema { }` e componentes já
+    estilizados no papel das regras do CSS (`Formulario` para
+    `.formulario`, `Erro` para `.formulario .erro`, `Botao` para
+    `.formulario button`). A tela só usa esses nomes.
   - Os arquivos de estilo ficam fora da análise, como o `estilo.css`.
 - Alinhamento sempre explícito no arquivo de estilo, nunca deixado ao
   padrão de cada tecnologia, porque eles diferem: o `LinearLayout` alinha os
@@ -317,79 +309,6 @@ conferidas.
 - Para rodar num emulador ou abrir no Android Studio, use a pasta
   `casos/android/`.
 
-## Desktop (Java, em pré-análise)
-
-- Formulário e Lista em `casos/<caso>/swing/`, `javafx/` (tela montada em
-  código Java) e `javafx-fxml/` (tela em FXML, comportamento no
-  controlador), para a pré-análise do par Swing × JavaFX
-  (`docs/plataformas.md`). Fora da análise até a tarefa "Representar uma
-  plataforma desktop" decidir.
-- Um projeto Gradle em `casos/desktop/`, separado do Android; o
-  `settings.gradle.kts` inclui sozinho as pastas `swing`, `javafx` e
-  `javafx-fxml` com `build.gradle.kts`, com o nome `:<caso>-<tecnologia>`.
-  O cache de configuração fica desligado, porque o plugin do OpenJFX não o
-  suporta.
-- O domínio é o `dominio-kotlin/main/Dominio.kt` do caso, o mesmo do
-  Android, chamado do Java com `import static tcc.<caso>.DominioKt.*`; não
-  há porte em Java.
-- O `javafx` monta a tela com as mesmas chamadas e na mesma ordem do
-  `swing` (controle, rótulo com `setLabelFor`, painel vertical), e o
-  `javafx-fxml` tem os mesmos *bindings* do `javafx`, com os mesmos nomes:
-  o `diff` entre os dois mostra só a montagem da tela. Mantenha assim.
-- Aparência fora da tela: `Estilo.java` no Swing, que percorre os
-  componentes e escolhe pela propriedade `"classe"` (o `class` do HTML) e
-  repinta o campo quando a tela muda `"invalido"` (o `aria-invalid`);
-  `casos/<caso>/javafx-estilo/estilo.css` no JavaFX, o mesmo nas duas
-  montagens, com classes de estilo e a pseudoclasse `:invalido`. Sem
-  capturas por enquanto.
-- `TesteDeConformidade.java` com as verificações do
-  `teste-de-conformidade.js`, na mesma ordem e com os mesmos nomes, e uma
-  `Tela` de teste por tecnologia, com a mesma API. O que as `Tela` têm em
-  comum (rodar na thread da interface, mostrar a janela, percorrer os
-  componentes) fica em `casos/desktop/teste/`, um apoio para o Swing e
-  outro para o JavaFX. A `Tela` acha os campos pelo rótulo (`getLabelFor`)
-  e os textos pela classe, sem marcas só para teste. No Swing, `sair`
-  dispara o `focusLost` nos *listeners*, como o teste da web dispara o
-  `blur`, porque os testes rodam sem tela. No JavaFX, na plataforma
-  Headless, o foco passa de fato do campo ao tipo de voo, que não é campo
-  de texto, e a janela abre com o foco na raiz, como o navegador abre sem
-  campo focado: assim só fica tocado o campo de que o teste sai.
-- Às vezes (2 de 8 execuções em 2026-10-09), o `./gradlew test` imprime
-  um `RejectedExecutionException` do `QuantumRenderer` do JavaFX: a JVM do
-  teste encerra com uma pintura pendente, depois de o teste passar. Não
-  muda o resultado; confira a saída do Gradle e os relatórios em
-  `build/test-results/`, não a presença de exceção no console.
-- Confira que o teste de conformidade pega erros: introduza um defeito numa
-  regra e veja o `TesteDeConformidade` falhar. Uma dependência esquecida na
-  lista de um `createXBinding` passa no teste do Formulário (achado de
-  2026-10-09, `docs/achados-das-implementacoes.md`).
-
-## Qt (pré-análise do par Qt Widgets × QML)
-
-- Formulário e Lista em `casos/<caso>/qt-widgets/` e `casos/<caso>/qml/`,
-  com o domínio em `casos/<caso>/dominio-cpp/` (porte do `dominio.ts`,
-  mesmos nomes, como o `dominio-kotlin`). Projeto CMake único em
-  `casos/qt/`, que inclui sozinho toda pasta dessas com `CMakeLists.txt`.
-  Fora da análise e sem capturas até a decisão do *desktop* (tcc-a0w).
-- Qt Widgets: estrutura no `.ui` (como o layout XML), coordenação por
-  `connect` em C++, sem propriedades *bindable* do Qt 6; aparência no
-  `estilo.qss`, que seleciona por tipo e por propriedade dinâmica
-  (`papel`, `invalido`); propriedades de aparência dos widgets, como a
-  quebra de linha, vão por `qproperty-*`. Só o espaçamento dos layouts
-  fica no `.ui`, porque o QSS não o alcança.
-- QML: estado nas propriedades da própria QML e derivados em *bindings*;
-  o domínio chega pela ponte `dominio-cpp/DominioQml.h` (singleton
-  `Dominio`, fora da análise). Aparência nos componentes de `qml/estilo/`,
-  como o `Estilo.kt` do Compose; a tela só os cita.
-- Testes de conformidade em Qt Test, uma `Tela` por tecnologia com a
-  mesma API e o `TesteDeConformidade.cpp` igual entre as duas. Sem marcas
-  só para teste: o Widgets acha os controles pelo nome do `.ui`; a QML,
-  pelo tipo e pela ordem. Confira que o teste pega um defeito antes de dar
-  por pronto.
-- Rode com `QT_QPA_PLATFORM=offscreen ctest --test-dir build` de
-  `casos/qt/`. Depois de restaurar um arquivo com `cp` ou `mv`, dê `touch`:
-  o Ninja não recompila um arquivo com data antiga.
-
 ## Ambiente
 
 - Node e JDK pelo asdf, nas versões do `.tool-versions` da raiz. Se `node`
@@ -399,3 +318,20 @@ conferidas.
   do SDK são aceitas pelo usuário, nunca pelo agente: se o Gradle pedir um
   pacote novo, diga o comando `sdkmanager` e peça que ele rode.
 - Na primeira vez, `npx playwright install chromium-headless-shell`.
+
+## Fora da análise
+
+`casos/fora-da-analise/` guarda, com a estrutura de `casos/`
+(`<tarefa>/<tecnologia>/`), o código que saiu da análise: o Contador, a
+Lista filtrável e o Carrinho (ADR 0002), o jQuery e o Angular com RxJS
+(ADR 0013), os pares de desktop Swing × JavaFX e Qt Widgets × QML (ADR
+0001) e o cronômetro de 2017 (ADR 0012). O `README.org` de lá diz o que é
+cada pasta, por que saiu e como rodá-la no commit anterior ao movimento.
+
+- É registro congelado (decisão do autor em 2026-10-13): não se edita,
+  não compila, não se testa, não se formata nem se captura. Os
+  *workspaces*, o projeto Gradle do Android, o `npm run capturas` e o
+  `npm run conferir-especificacao` não o alcançam.
+- Código que sai da análise vai para lá com `git mv`, num commit só de
+  movimento, com as capturas da tecnologia, e entra na tabela do
+  `README.org` de lá com o ADR que o tirou.

@@ -3,7 +3,7 @@
 // Uso: npm run capturas [-- [--conferir] <caso>[/<tecnologia>] ...]
 //   npm run capturas                      todos os casos e tecnologias
 //   npm run capturas -- formulario        um caso
-//   npm run capturas -- contador/react    uma implementação
+//   npm run capturas -- formulario/react  uma implementação
 //   npm run capturas -- --conferir        não grava: compara com as versionadas
 //
 // Com --conferir, as imagens vão para uma pasta temporária e são comparadas
@@ -35,15 +35,7 @@ export type Cenas = Record<string, (pagina: Page) => Promise<void>>;
 
 const RAIZ = path.resolve(import.meta.dirname, "..");
 const CASOS = path.join(RAIZ, "casos");
-const WEB = [
-  "web-component",
-  "jquery",
-  "react",
-  "solid",
-  "lit",
-  "angular-signals",
-  "angular-rxjs",
-];
+const WEB = ["web-component", "react", "solid", "lit", "angular-signals"];
 const ANDROID = ["android-views", "android-compose"];
 const TECNOLOGIAS = [...WEB, ...ANDROID];
 const GRADLEW = path.join(CASOS, "android", "gradlew");
@@ -63,10 +55,10 @@ const TIPOS: Record<string, string> = {
 async function implementacoes(filtros: string[]): Promise<[string, string][]> {
   const lista: [string, string][] = [];
   for (const caso of (await readdir(CASOS)).sort()) {
-    // Toda tarefa tem a especificação no README.org; as outras pastas
-    // (node_modules, android, desktop, qt) não são tarefas, e
-    // node_modules/jquery, o pacote do jQuery, pareceria uma implementação.
-    if (!existsSync(path.join(CASOS, caso, "README.org"))) continue;
+    // Toda tarefa tem a especificação em openspec/specs/<tarefa>/; as outras
+    // pastas (node_modules, android, openspec e fora-da-analise, que não se
+    // captura) não são tarefas.
+    if (!existsSync(path.join(CASOS, "openspec", "specs", caso))) continue;
     for (const tecnologia of TECNOLOGIAS) {
       const projeto = ANDROID.includes(tecnologia)
         ? "build.gradle.kts"

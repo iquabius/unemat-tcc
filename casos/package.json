@@ -4,12 +4,10 @@
   "description": "Exemplos de interfaces gráficas do TCC, um projeto por caso e tecnologia",
   "workspaces": [
     "*/web-component",
-    "*/jquery",
     "*/react",
     "*/solid",
     "*/lit",
-    "*/angular-signals",
-    "*/angular-rxjs"
+    "*/angular-signals"
   ],
   "scripts": {
     "capturas": "node capturar.mts",

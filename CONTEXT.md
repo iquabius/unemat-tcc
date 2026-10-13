@@ -188,7 +188,8 @@ _Avoid_: versão, exemplo
 
 **Apoio**:
 Implementação que o autor consulta ao escrever e não entra na análise: o
-Angular com RxJS.
+Angular com RxJS, congelado em `casos/fora-da-analise/` com as regras de
+2026-10-13.
 
 **Domínio**:
 As regras de uma tarefa que não dependem da interface (datas, e-mail,

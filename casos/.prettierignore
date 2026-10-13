@@ -11,15 +11,5 @@ capturas/
 # Documentos, revisados com o texto.
 *.md
 
-# Código fora da análise que não se formata: o cronômetro de 2017 e o Java,
-# o C++ e o QML dos pares de desktop fora da análise (tcc-xc2y).
-cronometro-com-rxjs-5/
-desktop/
-qt/
-*/swing/
-*/javafx/
-*/javafx-fxml/
-*/javafx-estilo/
-*/qt-widgets/
-*/qml/
-*/dominio-cpp/
+# Código fora da análise, congelado como saiu dela.
+fora-da-analise/

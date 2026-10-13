@@ -34,7 +34,7 @@ no repositório é o link do Contador com POO em `texto/cases.org`, de
 | Reserva de voo | [reserva-de-voo-com-poo](https://codesandbox.io/p/sandbox/reserva-de-voo-com-poo-w9jei) | Formulário com validação |
 | Reserva de voo | [reserva-de-voo-com-rxjs-5](https://codesandbox.io/p/sandbox/reserva-de-voo-com-rxjs-5-f9svq) | Formulário com validação |
 | Reserva de voo | [reserva-de-voo-com-xstream](https://codesandbox.io/p/sandbox/reserva-de-voo-com-xstream-6vucn) | Formulário com validação |
-| Cronômetro | [cronometro-com-rxjs-5](https://codesandbox.io/p/sandbox/cronometro-com-rxjs-5-zg544) | nenhuma; há uma cópia em `casos/cronometro-com-rxjs-5` (commit `6eb671c`, 2020-03-27), fora da análise (ADR 0012) e não comparada com o CodeSandbox |
+| Cronômetro | [cronometro-com-rxjs-5](https://codesandbox.io/p/sandbox/cronometro-com-rxjs-5-zg544) | nenhuma; há uma cópia em `casos/fora-da-analise/cronometro-com-rxjs-5` (commit `6eb671c`, 2020-03-27), fora da análise (ADR 0012) e não comparada com o CodeSandbox |
 
 O Contador, o Conversor de temperatura e a Reserva de voo têm os nomes de
 três tarefas do 7GUIs (*Counter*, *Temperature Converter* e *Flight

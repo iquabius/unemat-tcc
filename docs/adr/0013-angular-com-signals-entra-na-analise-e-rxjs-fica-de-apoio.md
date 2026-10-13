@@ -1,6 +1,6 @@
 # 0013. Na web entram Web Component, React e Solid nas cinco tarefas, o Lit e o Angular com *signals* em três cada, até a P3; o jQuery fica fora; o Angular com RxJS fica de apoio; sem bibliotecas de formulário até a P2
 
-2026-10-12. Os modelos de programação a comparar são o imperativo com
+2026-10-13. Os modelos de programação a comparar são o imperativo com
 *callbacks*, o declarativo por re-renderização (*pull*) e o declarativo
 por atualização granular, com *signals* (*push-pull*: notifica por *push*
 e recalcula por *pull*, como descrevem a proposta TC39 Signals e
@@ -35,10 +35,13 @@ Component na web, o Views no Android e o Windows Forms no desktop. O
 Angular com RxJS (`angular-rxjs`) não entra no texto: dá exemplos de RxJS
 para o capítulo de programação e para a comparação com Zimmerle e Gama
 (2025), usando RxJS de propósito (`Observable`, *pipe* `async`,
-`valueChanges`, `debounceTime`, `switchMap`). Na P1 e na P2, cada
-implementação usa só o que a tecnologia traz, sem bibliotecas de
-formulário: o `angular-rxjs` usa os Reactive Forms, que são do Angular; o
-`angular-signals` não usa nem eles nem os *Signal Forms*. Na P3, cada
+`valueChanges`, `debounceTime`, `switchMap`), e fica congelado em
+`casos/fora-da-analise/` com as regras de 2026-10-13, como o jQuery, para
+que `casos/` tenha só o que se analisa e as mudanças da especificação não
+se portem para ele. Na P1 e na P2, cada implementação usa só o que a
+tecnologia traz, sem bibliotecas de formulário: o `angular-rxjs` usa os
+Reactive Forms, que são do Angular; o `angular-signals` não usa nem eles
+nem os *Signal Forms*. Na P3, cada
 tecnologia usa a biblioteca de formulário mais usada no seu ecossistema,
 ou a API da plataforma quando nenhuma domina, como no Web Component e no
 Lit, que assim continuam um par controlado (ADR 0029).
@@ -74,6 +77,11 @@ Em vez de: Angular só de apoio (decisão de 2026-09-25); menos trabalho,
 mas o modelo de programação declarativo por atualização granular ficaria
 com uma tecnologia só, e o Angular é o terceiro *framework* mais usado
 (Stack Overflow 2025: React 44,7%, jQuery 23,4%, Angular 18,2%).
+Em vez de: o `angular-rxjs` em `casos/<tarefa>/`, seguindo a
+especificação viva com cenas e capturas (decisão de 2026-10-12); os
+exemplos de RxJS acompanhariam as regras da P1, como o envio que ignora o
+reenvio, que o `exhaustMap` nomeia, mas cada mudança da especificação
+teria de ser portada para uma tecnologia que o texto não analisa.
 Em vez de: Angular com RxJS como quarto modelo de programação, o reativo
 por fluxos; retomaria a PR de 2017 sem código novo, mas usar RxJS para
 estado vai contra a documentação do Angular e mudaria a pergunta (ADR
@@ -97,10 +105,12 @@ Em vez de: RxJS ou xstream sem *framework*, como o `cases.org` de
 2020-10.
 Em vez de: Vue e Preact Signals; não pedidos; o Vue (17,6%) pode entrar se
 a banca pedir.
-Custo: 21 implementações na P1 com cenas e capturas, mais o `angular-rxjs`
-de apoio, e 46 commits na P2; o Lit e o Angular aparecem em três tarefas
-cada, e as células das outras duas ficam com uma tecnologia da coluna, o
-que a análise declara; o par Web Component × Lit isola a ligação com a
+Custo: 21 implementações na P1 com cenas e capturas, e 46 commits na P2;
+os exemplos de RxJS ficam nas regras de 2026-10-13 (a Busca com a espera
+de 300 ms, o Formulário sem o envio que ignora o reenvio); o Lit e o
+Angular aparecem em três tarefas cada, e as células das outras duas
+ficam com uma tecnologia da coluna, o que a análise declara; o par Web
+Component × Lit isola a ligação com a
 tela, e não a orquestração, que o Lit não muda; a diferença entre Solid e
 Angular mistura a sintaxe com o modelo de componente (classe, decorador,
 injeção de dependências), que a análise precisa separar; o Formulário

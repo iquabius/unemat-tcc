@@ -17,7 +17,7 @@
 ## Workflow follow-up
 
 - Um commit por tecnologia, na ordem Web Component, React, Solid e Angular
-  com signals, e depois jQuery e Angular com RxJS, acompanhados na tarefa
-  do bd tcc-z2jq; cada um passa no teste de conformidade.
+  com signals, acompanhados na tarefa do bd tcc-z2jq; cada um passa no
+  teste de conformidade.
 - O `cenas.mts` sem as pausas da espera e as capturas conferidas com
   `npm run capturas -- --conferir busca-com-sugestoes`.

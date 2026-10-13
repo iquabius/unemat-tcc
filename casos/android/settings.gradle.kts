@@ -1,6 +1,7 @@
 // Projeto Gradle único dos casos Android. Cada caso e tecnologia é um módulo
 // em casos/<caso>/<tecnologia>/, ao lado das implementações web, e se chama
-// :<caso>-<tecnologia> (por exemplo, :contador-android-compose).
+// :<caso>-<tecnologia> (por exemplo, :formulario-android-compose). O código
+// em casos/fora-da-analise/ fica de fora: a busca desce um nível só.
 pluginManagement {
     repositories {
         google()
