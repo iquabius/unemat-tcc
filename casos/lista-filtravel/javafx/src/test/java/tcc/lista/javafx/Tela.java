@@ -16,10 +16,10 @@ import javafx.scene.control.TextField;
 import tcc.lista.Ordem;
 import tcc.lista.Produto;
 
-// Ações e leituras usadas pelo roteiro, como as funções do
-// roteiro-de-teste.js. As Telas do Swing e do JavaFX com FXML têm os mesmos
-// nomes. Acha os controles pelo rótulo (setLabelFor) e os textos pela classe
-// de estilo.
+// Ações e leituras usadas pelo teste, como as funções do
+// teste-de-conformidade.js. As Telas do Swing e do JavaFX com FXML têm os
+// mesmos nomes. Acha os controles pelo rótulo (setLabelFor) e os textos pela
+// classe de estilo.
 class Tela {
     private final Parent catalogo;
 
@@ -44,7 +44,7 @@ class Tela {
         return (Label) pai.lookup("." + classe);
     }
 
-    // Como o setter + evento "input" do roteiro.
+    // Como o setter + evento "input" da web.
     void buscar(String texto) {
         naTela(() -> ((TextField) rotulado("Buscar")).setText(texto));
     }
@@ -87,7 +87,7 @@ class Tela {
         return itens().stream().map(item -> item.get(0)).toList();
     }
 
-    // Como o texto() do roteiro, que troca o espaço não separável do preço.
+    // Como o texto() da web, que troca o espaço não separável do preço.
     String primeiroPreco() {
         return itens().get(0).get(2).replace(' ', ' ');
     }

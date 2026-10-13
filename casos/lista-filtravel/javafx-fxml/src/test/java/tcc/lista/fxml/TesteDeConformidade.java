@@ -1,4 +1,4 @@
-package tcc.lista.swing;
+package tcc.lista.fxml;
 
 import static org.junit.Assert.assertTrue;
 
@@ -8,9 +8,9 @@ import java.util.Objects;
 import org.junit.Test;
 import tcc.lista.Ordem;
 
-// As 11 verificações de casos/lista-filtravel/roteiro-de-teste.js, na mesma
-// ordem e com os mesmos nomes. Falha listando todas as que não passaram.
-public class RoteiroTest {
+// As 11 verificações de casos/lista-filtravel/teste-de-conformidade.js, na
+// mesma ordem e com os mesmos nomes. Falha listando todas as que não passaram.
+public class TesteDeConformidade {
     private final List<String> falhas = new ArrayList<>();
 
     private void conferir(String nome, Object obtido, Object esperado) {
@@ -20,7 +20,7 @@ public class RoteiroTest {
     }
 
     @Test
-    public void roteiro() {
+    public void verificacoes() {
         Tela tela = new Tela();
 
         conferir("1 contagem inicial", tela.contagem(), "30 de 30 produtos");

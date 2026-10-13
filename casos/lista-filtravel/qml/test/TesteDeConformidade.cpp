@@ -4,10 +4,10 @@
 
 using lista::Ordem;
 
-// As 11 verificações de casos/lista-filtravel/roteiro-de-teste.js, na mesma
-// ordem e com os mesmos nomes, como o RoteiroTest.kt. Falha listando todas as
-// que não passaram.
-class RoteiroTest : public QObject {
+// As 11 verificações de casos/lista-filtravel/teste-de-conformidade.js, na
+// mesma ordem e com os mesmos nomes, como o TesteDeConformidade.kt. Falha
+// listando todas as que não passaram.
+class TesteDeConformidade : public QObject {
     Q_OBJECT
     QStringList falhas;
 
@@ -20,7 +20,7 @@ class RoteiroTest : public QObject {
     }
 
 private slots:
-    void roteiro()
+    void verificacoes()
     {
         Tela tela;
         using Par = std::pair<QString, QStringList>;
@@ -62,5 +62,5 @@ private slots:
     }
 };
 
-QTEST_MAIN(RoteiroTest)
-#include "RoteiroTest.moc"
+QTEST_MAIN(TesteDeConformidade)
+#include "TesteDeConformidade.moc"

@@ -1,7 +1,7 @@
-// Roteiro de teste do Formulário, igual para as seis implementações web.
-// Cole no console do navegador com o exemplo aberto; a última linha devolve
-// o resultado de cada verificação ("ok" ou "FALHOU"). Segue a especificação
-// do README.org.
+// Teste de conformidade do Formulário, igual para as seis implementações
+// web. Cole no console do navegador com o exemplo aberto; a última linha
+// devolve o resultado de cada verificação ("ok" ou "FALHOU"). Cada
+// verificação é um cenário de casos/openspec/specs/formulario/spec.md.
 (async () => {
   const esperar = () => new Promise((r) => setTimeout(r, 80));
   const campo = (n) =>

@@ -241,17 +241,18 @@ conferidas.
   Cada cena termina com `capturar("<cena>")`, e a classe usa a regra
   `SemAnimacoes()` (ambos em `casos/android/captura/Captura.kt`). No
   Compose, chame `regra.waitForIdle()` antes de capturar.
-- Quando o caso tem `roteiro-de-teste.js`, as mesmas verificações vão para
-  `RoteiroTest.kt` em cada tecnologia, na mesma ordem e com os mesmos nomes.
-  As ações e leituras ficam numa classe `Tela` de teste por tecnologia, com
-  a mesma API nas duas (`digitar`, `sair`, `erros()`...), para que
-  `CenasTest` e `RoteiroTest` fiquem iguais entre Views e Compose. Nada de
-  marcas só para teste no código da tela: o Views acha as views pelo `id`;
-  o Compose, pela semântica (texto, ordem dos campos, papel).
-- Confira que o roteiro pega erros: introduza um defeito numa regra e veja
-  o `RoteiroTest` falhar antes de dar o caso por pronto. Rode um módulo por
-  vez: com duas tarefas e `--tests` na mesma linha do Gradle, o resultado
-  do primeiro módulo não foi atualizado.
+- Quando a tarefa tem `teste-de-conformidade.js`, as mesmas verificações
+  vão para `TesteDeConformidade.kt` em cada tecnologia, na mesma ordem e
+  com os mesmos nomes. As ações e leituras ficam numa classe `Tela` de
+  teste por tecnologia, com a mesma API nas duas (`digitar`, `sair`,
+  `erros()`...), para que `CenasTest` e `TesteDeConformidade` fiquem iguais
+  entre Views e Compose. Nada de marcas só para teste no código da tela: o
+  Views acha as views pelo `id`; o Compose, pela semântica (texto, ordem
+  dos campos, papel).
+- Confira que o teste de conformidade pega erros: introduza um defeito numa
+  regra e veja o `TesteDeConformidade` falhar antes de dar a tarefa por
+  pronta. Rode um módulo por vez: com duas tarefas e `--tests` na mesma
+  linha do Gradle, o resultado do primeiro módulo não foi atualizado.
 - Nas cenas, só foque um campo quando a cena depende do foco (como o
   "tocado" do Formulário). Na Lista, um teste do Compose que focava a busca
   fez o teste seguinte capturar a tela anterior à mudança; sem foco, as
@@ -284,27 +285,27 @@ conferidas.
   `casos/<caso>/javafx-estilo/estilo.css` no JavaFX, o mesmo nas duas
   montagens, com classes de estilo e a pseudoclasse `:invalido`. Sem
   capturas por enquanto.
-- `RoteiroTest.java` com as verificações do `roteiro-de-teste.js`, na
-  mesma ordem e com os mesmos nomes, e uma `Tela` de teste por tecnologia,
-  com a mesma API. O que as `Tela` têm em comum (rodar na thread da
-  interface, mostrar a janela, percorrer os componentes) fica em
-  `casos/desktop/teste/`, um apoio para o Swing e outro para o JavaFX. A
-  `Tela` acha os campos pelo rótulo (`getLabelFor`) e os textos pela
-  classe, sem marcas só para teste. No Swing, `sair` dispara o
-  `focusLost` nos *listeners*, como a rotina web dispara o `blur`, porque
-  os testes rodam sem tela. No JavaFX, na plataforma Headless, o foco
-  passa de fato do campo ao tipo de voo, que não é campo de texto, e a
-  janela abre com o foco na raiz, como o navegador abre sem campo focado:
-  assim só fica tocado o campo de que a rotina sai.
+- `TesteDeConformidade.java` com as verificações do
+  `teste-de-conformidade.js`, na mesma ordem e com os mesmos nomes, e uma
+  `Tela` de teste por tecnologia, com a mesma API. O que as `Tela` têm em
+  comum (rodar na thread da interface, mostrar a janela, percorrer os
+  componentes) fica em `casos/desktop/teste/`, um apoio para o Swing e
+  outro para o JavaFX. A `Tela` acha os campos pelo rótulo (`getLabelFor`)
+  e os textos pela classe, sem marcas só para teste. No Swing, `sair`
+  dispara o `focusLost` nos *listeners*, como o teste da web dispara o
+  `blur`, porque os testes rodam sem tela. No JavaFX, na plataforma
+  Headless, o foco passa de fato do campo ao tipo de voo, que não é campo
+  de texto, e a janela abre com o foco na raiz, como o navegador abre sem
+  campo focado: assim só fica tocado o campo de que o teste sai.
 - Às vezes (2 de 8 execuções em 2026-10-09), o `./gradlew test` imprime
   um `RejectedExecutionException` do `QuantumRenderer` do JavaFX: a JVM do
   teste encerra com uma pintura pendente, depois de o teste passar. Não
   muda o resultado; confira a saída do Gradle e os relatórios em
   `build/test-results/`, não a presença de exceção no console.
-- Confira que a rotina pega erros: introduza um defeito numa regra e veja
-  o `RoteiroTest` falhar. Uma dependência esquecida na lista de um
-  `createXBinding` passa na rotina do Formulário (achado de 2026-10-09,
-  `docs/achados-das-implementacoes.md`).
+- Confira que o teste de conformidade pega erros: introduza um defeito numa
+  regra e veja o `TesteDeConformidade` falhar. Uma dependência esquecida na
+  lista de um `createXBinding` passa no teste do Formulário (achado de
+  2026-10-09, `docs/achados-das-implementacoes.md`).
 
 ## Qt (pré-análise do par Qt Widgets × QML)
 
@@ -323,10 +324,11 @@ conferidas.
   o domínio chega pela ponte `dominio-cpp/DominioQml.h` (singleton
   `Dominio`, fora da análise). Aparência nos componentes de `qml/estilo/`,
   como o `Estilo.kt` do Compose; a tela só os cita.
-- Rotinas em Qt Test, uma `Tela` por tecnologia com a mesma API e o
-  `RoteiroTest.cpp` igual entre as duas. Sem marcas só para teste: o
-  Widgets acha os controles pelo nome do `.ui`; a QML, pelo tipo e pela
-  ordem. Confira que a rotina pega um defeito antes de dar por pronto.
+- Testes de conformidade em Qt Test, uma `Tela` por tecnologia com a
+  mesma API e o `TesteDeConformidade.cpp` igual entre as duas. Sem marcas
+  só para teste: o Widgets acha os controles pelo nome do `.ui`; a QML,
+  pelo tipo e pela ordem. Confira que o teste pega um defeito antes de dar
+  por pronto.
 - Rode com `QT_QPA_PLATFORM=offscreen ctest --test-dir build` de
   `casos/qt/`. Depois de restaurar um arquivo com `cp` ou `mv`, dê `touch`:
   o Ninja não recompila um arquivo com data antiga.

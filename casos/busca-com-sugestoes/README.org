@@ -17,7 +17,7 @@ especificação viva (OpenSpec); uma mudança entra como /delta spec/ em
 
 * Teste
 
-  O =roteiro-de-teste.js= percorre a especificação: cada verificação tem o
-  nome de um cenário do =spec.md=, e =npm run conferir-especificacao=
+  O =teste-de-conformidade.js= percorre a especificação: cada verificação
+  tem o nome de um cenário do =spec.md=, e =npm run conferir-especificacao=
   confere a ligação. Com um exemplo aberto no navegador, cole o arquivo no
   console. As cenas das capturas ficam em =cenas.mts=.

@@ -14,9 +14,9 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import tcc.formulario.TipoDeVoo;
 
-// Ações e leituras usadas pelo roteiro, como as funções do
-// roteiro-de-teste.js. As Telas do JavaFX têm os mesmos nomes. Acha os campos
-// pelo rótulo (setLabelFor), os erros e a confirmação pela classe.
+// Ações e leituras usadas pelo teste, como as funções do
+// teste-de-conformidade.js. As Telas do JavaFX têm os mesmos nomes. Acha os
+// campos pelo rótulo (setLabelFor), os erros e a confirmação pela classe.
 class Tela {
     private final FormularioDeReserva formulario;
 
@@ -51,15 +51,15 @@ class Tela {
                 .orElseThrow();
     }
 
-    // Como o setter + evento "input" do roteiro: muda o texto sem mudar o foco.
+    // Como o setter + evento "input" da web: muda o texto sem mudar o foco.
     void digitar(Campo campo, String texto) {
         naTela(() -> campo(campo).setText(texto));
     }
 
-    // Como o blur do roteiro-de-teste.js, que dispara o evento em vez de mover
-    // o foco: sem janela, o Swing não tem foco para mover. Todos os listeners
-    // de foco do campo recebem o evento, os da tela e os do próprio Swing
-    // (o do cursor), como no dispatchEvent da web.
+    // Como o blur da web, que dispara o evento em vez de mover o foco: sem
+    // janela, o Swing não tem foco para mover. Todos os listeners de foco do
+    // campo recebem o evento, os da tela e os do próprio Swing (o do cursor),
+    // como no dispatchEvent da web.
     void sair(Campo campo) {
         naTela(() -> {
             JTextField alvo = campo(campo);

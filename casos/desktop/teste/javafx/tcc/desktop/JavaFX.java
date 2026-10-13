@@ -48,7 +48,7 @@ public final class JavaFX {
     // Mostra a tela numa janela, para que o foco possa ir do campo ao tipo
     // de voo; na plataforma Headless, a janela não aparece. O JavaFX foca o
     // primeiro campo ao abrir a janela, e o navegador não foca nenhum: o foco
-    // vai para a raiz, para que nenhum campo saia tocado sem a rotina pedir.
+    // vai para a raiz, para que nenhum campo saia tocado sem o teste pedir.
     public static <T extends Parent> T mostrar(Supplier<T> montar) {
         return naTela(() -> {
             T raiz = montar.get();

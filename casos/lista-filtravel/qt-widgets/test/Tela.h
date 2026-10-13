@@ -5,8 +5,8 @@
 
 #include <QTest>
 
-// Ações e leituras usadas pela rotina, como as funções do
-// roteiro-de-teste.js e a Tela dos testes do Android. A Tela da QML tem os
+// Ações e leituras usadas pelo teste, como as funções do
+// teste-de-conformidade.js e a Tela dos testes do Android. A Tela da QML tem os
 // mesmos nomes. Os controles são achados pelo nome que têm no Janela.ui, como
 // o Views os acha pelo id.
 class Tela {
@@ -37,7 +37,7 @@ public:
 
     QStringList nomes() { return textos("nome"); }
 
-    // Com espaço comum no lugar do não separável, como o roteiro-de-teste.js.
+    // Com espaço comum no lugar do não separável, como o texto() da web.
     QString primeiroPreco() { return textos("preco").value(0).replace(QChar(0x00A0), ' '); }
 
     QString contagem() { return janela.findChild<QLabel *>("contagem")->text(); }

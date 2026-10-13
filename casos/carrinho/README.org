@@ -42,6 +42,6 @@ mora, como os componentes são avisados das mudanças e quando salvar.
 
 * Teste
 
-  O =roteiro-de-teste.js= percorre estas regras. Com um exemplo aberto no
+  O =teste-de-conformidade.js= percorre estas regras. Com um exemplo aberto no
   navegador, cole o arquivo no console. A restauração ao abrir a página é
   conferida pela cena =restaurado= das capturas (=cenas.mts=).

@@ -10,9 +10,9 @@ import org.junit.Test;
 import tcc.formulario.DataFixa;
 import tcc.formulario.TipoDeVoo;
 
-// As 19 verificações de casos/formulario/roteiro-de-teste.js, na mesma ordem
-// e com os mesmos nomes. Falha listando todas as que não passaram.
-public class RoteiroTest {
+// As 19 verificações de casos/formulario/teste-de-conformidade.js, na mesma
+// ordem e com os mesmos nomes. Falha listando todas as que não passaram.
+public class TesteDeConformidade {
     @Rule
     public final DataFixa dataFixa = new DataFixa();
 
@@ -25,7 +25,7 @@ public class RoteiroTest {
     }
 
     @Test
-    public void roteiro() {
+    public void verificacoes() {
         Tela tela = new Tela();
         String nome = "Informe o nome do passageiro.";
         String email = "Informe um e-mail válido.";

@@ -1,4 +1,4 @@
-# A tela num módulo QML estático, que o aplicativo e a rotina ligam.
+# A tela num módulo QML estático, que o aplicativo e o teste ligam.
 qt_add_library(${CASO}-qml-tela STATIC)
 qt_add_qml_module(${CASO}-qml-tela
   URI Formulario
@@ -18,7 +18,7 @@ target_link_libraries(${CASO}-qml PRIVATE ${CASO}-qml-tela ${CASO}-qml-telaplugi
 # execução, sem a busca de importações que um Qt estático pede.
 set_target_properties(${CASO}-qml PROPERTIES QT_QML_MODULE_NO_IMPORT_SCAN TRUE)
 
-qt_add_executable(${CASO}-qml-test test/RoteiroTest.cpp test/Tela.h)
+qt_add_executable(${CASO}-qml-test test/TesteDeConformidade.cpp test/Tela.h)
 target_include_directories(${CASO}-qml-test PRIVATE ../dominio-cpp/test)
 target_link_libraries(${CASO}-qml-test PRIVATE ${CASO}-qml-tela ${CASO}-qml-telaplugin Qt6::Test)
 set_target_properties(${CASO}-qml-test PROPERTIES QT_QML_MODULE_NO_IMPORT_SCAN TRUE)

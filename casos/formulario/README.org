@@ -17,23 +17,24 @@ estão em =casos/openspec/specs/formulario/spec.md=, a especificação viva
 
 * Teste
 
-  O =roteiro-de-teste.js= percorre a especificação: cada verificação tem o
-  nome de um cenário do =spec.md= (19), e =npm run conferir-especificacao=
-  confere a ligação em todas as tecnologias. Com um exemplo aberto no
-  navegador, cole o arquivo no console.
+  O =teste-de-conformidade.js= percorre a especificação: cada verificação
+  tem o nome de um cenário do =spec.md= (19), e
+  =npm run conferir-especificacao= confere a ligação em todas as
+  tecnologias. Com um exemplo aberto no navegador, cole o arquivo no
+  console.
 
-  No Android, as mesmas 19 verificações estão em =RoteiroTest.kt=, nos testes
-  de cada tecnologia, e rodam com o =npm run capturas= (ou com
+  No Android, as mesmas 19 verificações estão em =TesteDeConformidade.kt=,
+  nos testes de cada tecnologia, e rodam com o =npm run capturas= (ou com
   =./gradlew testDebugUnitTest= em =casos/android/=). O =DominioTest.kt=
   confere os casos-limite do porte do domínio (31/02, e-mail, ordem das
   datas).
 
   No desktop, em pré-análise, as mesmas 19 verificações estão em
-  =RoteiroTest.java=, nos módulos =swing=, =javafx= e =javafx-fxml=, e rodam
-  com =./gradlew test= em =casos/desktop/=. Lá o domínio é o mesmo
+  =TesteDeConformidade.java=, nos módulos =swing=, =javafx= e =javafx-fxml=,
+  e rodam com =./gradlew test= em =casos/desktop/=. Lá o domínio é o mesmo
   =dominio-kotlin=, chamado do Java.
 
-  No Qt, as mesmas 19 verificações estão em =RoteiroTest.cpp=, nos testes
-  de cada tecnologia, e rodam com o =ctest= em =casos/qt/=; o
+  No Qt, as mesmas 19 verificações estão em =TesteDeConformidade.cpp=, nos
+  testes de cada tecnologia, e rodam com o =ctest= em =casos/qt/=; o
   =dominio-cpp/test/DominioTest.cpp= confere o porte em C++, com as
   diferenças em relação à web documentadas num teste pulado.

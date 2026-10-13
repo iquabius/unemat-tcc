@@ -1,6 +1,6 @@
-package tcc.formulario.compose
+package tcc.formulario.views
 
-import androidx.compose.ui.test.junit4.createAndroidComposeRule
+import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import org.junit.Assert.assertTrue
 import org.junit.Rule
@@ -10,16 +10,17 @@ import org.robolectric.annotation.Config
 import tcc.formulario.DataFixa
 import tcc.formulario.TipoDeVoo
 
-// As 19 verificações de casos/formulario/roteiro-de-teste.js, na mesma ordem
-// e com os mesmos nomes. Falha listando todas as que não passaram.
+// As 19 verificações de casos/formulario/teste-de-conformidade.js, na mesma
+// ordem e com os mesmos nomes. Falha listando todas as que não passaram.
 @RunWith(AndroidJUnit4::class)
 @Config(qualifiers = "w416dp-h560dp-xhdpi")
-class RoteiroTest {
+class TesteDeConformidade {
     @get:Rule(order = 0) val dataFixa = DataFixa()
 
-    @get:Rule(order = 1) val regra = createAndroidComposeRule<MainActivity>()
+    @get:Rule(order = 1)
+    val regra = ActivityScenarioRule(MainActivity::class.java)
 
-    private val tela by lazy { Tela(regra) }
+    private val tela by lazy { Tela(regra.scenario) }
     private val falhas = mutableListOf<String>()
 
     private fun conferir(nome: String, obtido: Any?, esperado: Any?) {
@@ -28,7 +29,7 @@ class RoteiroTest {
     }
 
     @Test
-    fun roteiro() {
+    fun verificacoes() {
         val nome = "Informe o nome do passageiro."
         val email = "Informe um e-mail válido."
         val data = "Use uma data válida no formato DD/MM/AAAA."

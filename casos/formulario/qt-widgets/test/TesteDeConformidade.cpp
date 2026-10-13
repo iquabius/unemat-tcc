@@ -5,10 +5,10 @@
 
 using formulario::TipoDeVoo;
 
-// As 19 verificações de casos/formulario/roteiro-de-teste.js, na mesma ordem
-// e com os mesmos nomes, como o RoteiroTest.kt. Falha listando todas as que
-// não passaram.
-class RoteiroTest : public QObject {
+// As 19 verificações de casos/formulario/teste-de-conformidade.js, na mesma
+// ordem e com os mesmos nomes, como o TesteDeConformidade.kt. Falha listando
+// todas as que não passaram.
+class TesteDeConformidade : public QObject {
     Q_OBJECT
     QStringList falhas;
 
@@ -21,7 +21,7 @@ class RoteiroTest : public QObject {
     }
 
 private slots:
-    void roteiro()
+    void verificacoes()
     {
         DataFixa dataFixa;
         Tela tela;
@@ -83,7 +83,7 @@ private slots:
         QVERIFY2(falhas.isEmpty(), qPrintable(falhas.join('\n')));
     }
 
-    // Fora da rotina da web: fechar a tela com um campo focado não pode
+    // Fora do teste da web: fechar a tela com um campo focado não pode
     // chamar o código da tela já destruída. Com campos já tocados, o Qt
     // Widgets sem o disconnect do ~Janela caía com std::bad_alloc.
     void fecharComCampoFocado()
@@ -95,5 +95,5 @@ private slots:
     }
 };
 
-QTEST_MAIN(RoteiroTest)
-#include "RoteiroTest.moc"
+QTEST_MAIN(TesteDeConformidade)
+#include "TesteDeConformidade.moc"

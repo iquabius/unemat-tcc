@@ -9,12 +9,12 @@ import org.junit.runner.RunWith
 import org.robolectric.annotation.Config
 import tcc.lista.Ordem
 
-// As 11 verificações de casos/lista-filtravel/roteiro-de-teste.js, na mesma
-// ordem e com os mesmos nomes. A tela é alta para caber a lista inteira.
+// As 11 verificações de casos/lista-filtravel/teste-de-conformidade.js, na
+// mesma ordem e com os mesmos nomes. A tela é alta para caber a lista inteira.
 // Falha listando todas as que não passaram.
 @RunWith(AndroidJUnit4::class)
 @Config(qualifiers = "w480dp-h1950dp-xhdpi")
-class RoteiroTest {
+class TesteDeConformidade {
     @get:Rule val regra = createAndroidComposeRule<MainActivity>()
 
     private val tela by lazy { Tela(regra) }
@@ -26,7 +26,7 @@ class RoteiroTest {
     }
 
     @Test
-    fun roteiro() {
+    fun verificacoes() {
         conferir("1 contagem inicial", tela.contagem(), "30 de 30 produtos")
         conferir(
             "1 ordem por nome",

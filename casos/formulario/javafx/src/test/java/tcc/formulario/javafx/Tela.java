@@ -12,10 +12,10 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import tcc.formulario.TipoDeVoo;
 
-// Ações e leituras usadas pelo roteiro, como as funções do
-// roteiro-de-teste.js. As Telas do Swing e do JavaFX com FXML têm os mesmos
-// nomes. Acha os campos pelo rótulo (setLabelFor), os erros e a confirmação
-// pela classe de estilo.
+// Ações e leituras usadas pelo teste, como as funções do
+// teste-de-conformidade.js. As Telas do Swing e do JavaFX com FXML têm os
+// mesmos nomes. Acha os campos pelo rótulo (setLabelFor), os erros e a
+// confirmação pela classe de estilo.
 class Tela {
     private final Parent formulario;
 
@@ -47,15 +47,15 @@ class Tela {
                 .orElseThrow();
     }
 
-    // Como o setter + evento "input" do roteiro: muda o texto sem mudar o foco.
+    // Como o setter + evento "input" da web: muda o texto sem mudar o foco.
     void digitar(Campo campo, String texto) {
         naTela(() -> campo(campo).setText(texto));
     }
 
-    // Como o blur do roteiro-de-teste.js: o foco entra no campo e passa para
-    // o tipo de voo, que não é campo de texto, para que só este campo fique
-    // tocado. (A Tela do Android passa o foco a outro campo, que também fica
-    // tocado se o tinha antes.)
+    // Como o blur da web: o foco entra no campo e passa para o tipo de voo,
+    // que não é campo de texto, para que só este campo fique tocado. (A Tela
+    // do Android passa o foco a outro campo, que também fica tocado se o
+    // tinha antes.)
     void sair(Campo campo) {
         naTela(() -> {
             campo(campo).requestFocus();
