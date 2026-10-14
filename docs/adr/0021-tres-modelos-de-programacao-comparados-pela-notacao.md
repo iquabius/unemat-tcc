@@ -40,8 +40,9 @@ a diferença está na coordenação, na montagem da tela ou na ligação entre
 as duas, como Kiss (2014, p. 56) atribui a causas diferentes a parte do
 *layout* e o resto, e como Green et al. (2006, p. 342) acham dependências
 ocultas no "joint system" HTML/CSS. "Paradigma" fica para PF, PR e POO,
-de cujos conceitos cada modelo de programação aplica um ou mais; os
-rótulos nomeiam como a alteração de estado chega à tela: o programador
+de cujos conceitos cada modelo de programação aplica um ou mais; cada
+modelo de programação é uma categoria de tecnologias, e os nomes dos três
+dizem como a alteração de estado chega à tela: o programador
 escreve a atualização, o ambiente de execução reexecuta o componente, ou
 avisa só o que depende de cada *signal*, o eixo em que Sperber e Schlegel
 (2025, p. 28 e 32) descrevem o MVC ("mutating the view upon calls to
@@ -117,7 +118,7 @@ alteração, a palavra do estado.
 Em vez de: "reativa fina com *signals*" (2026-09-26, ADRs 0013 e 0014);
 liga o terceiro à PR pelo adjetivo, mas traduz mal *fine-grained
 reactivity*, termo da documentação do Solid (`solidjs2026`), que nenhuma
-fonte revisada por pares usa em português, e põe "reativo" num rótulo
+fonte revisada por pares usa em português, e põe "reativo" num nome
 próprio do trabalho; pelo mesmo motivo, "reativa granular com *signals*"
 e "declarativa por reatividade granular".
 Custo: o delineamento se afasta da forma usual das DCs, porque cada coluna é
@@ -135,7 +136,7 @@ nas documentações, que dizem *mental model*, *reactivity model* ou
 contraste com paradigma, biblioteca e *framework*; Van Roy (2009, p. 14)
 exige que a linguagem núcleo suporte o paradigma, e os modelos de
 programação do trabalho se constroem em bibliotecas sobre o mesmo modelo
-de computação; "atualização manual" e "atualização granular" são rótulos
+de computação; "atualização manual" e "atualização granular" são nomes
 do trabalho, sem fonte que use as expressões, e os três adjetivos dizem
 coisas diferentes da atualização (quem a faz, por que mecanismo, em que
 unidade); o Windows Forms também tem *data binding*, e o imperativo por

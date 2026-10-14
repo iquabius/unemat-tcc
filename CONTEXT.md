@@ -26,7 +26,7 @@ paradigma; abordagem; estilo; arquitetura (MVC e MVU organizam a
 aplicação); reativo fino, reativo granular ("reativo" só nomeia termos das
 fontes revisadas por pares e das dissertações, como a PR); notação de
 coordenação e notação da estrutura da tela (os dois eixos de 2026-10-03);
-imperativo com *callbacks* (rótulo até 2026-10-14: nomeava o mecanismo do
+imperativo com *callbacks* (nome até 2026-10-14: designava o mecanismo do
 evento, que o React também usa, Sperber e Schlegel, 2025); imperativo
 sozinho (lê-se como o paradigma)
 
@@ -173,7 +173,7 @@ O ambiente em que a interface roda e cujas APIs uma tecnologia usa: a web
 pela plataforma: a análise se faz na web, e o Android e o desktop
 conferem, nas tarefas que implementam, se as posições da web se repetem
 (ADR 0012).
-_Avoid_: plataforma para o *framework*; replicação para o Android (rótulo
+_Avoid_: plataforma para o *framework*; replicação para o Android (nome
 de 2026-09-26, trocado em 2026-10-09); porte para o domínio de outra
 plataforma (é o domínio dela, na linguagem dela)
 
@@ -183,11 +183,26 @@ Uma forma de implementar uma tarefa numa plataforma: na web, Web Component
 três tarefas cada) e Angular com RxJS; no Android, Views (a plataforma) e
 Jetpack Compose; no desktop, Windows Forms e WPF. Cada uma impõe
 um modelo de programação e se escreve numa notação própria; a
-documentação a chama de biblioteca, *framework*, *toolkit* ou plataforma,
-e o texto usa esses nomes só para descrevê-la.
+documentação a classifica como biblioteca, *framework*, *toolkit* ou
+plataforma, e o texto usa essas categorias só para descrevê-la.
 _Avoid_: biblioteca, *framework* ou *toolkit* como nome genérico;
 variante (as do Android são tecnologias como as da web); tecnologia
 nativa (no Android, nativa é a interface do sistema, e as duas são)
+
+**Categoria**:
+A classe em que se põe uma tecnologia por um critério. O trabalho usa dois
+critérios, independentes: o modo de coordenar evento, estado e tela, que dá
+o modelo de programação, o que se compara (cada coluna da tabela-síntese é
+uma categoria, e não um artefato); e o controle entre a aplicação e o
+código reutilizado, que dá biblioteca, *framework* ou *toolkit* (Fayad e
+Schmidt, 1997), com que a documentação classifica o produto. Essas
+palavras classificam a tecnologia, e não a nomeiam: o nome é React ou
+Solid.
+_Avoid_: nomear para a categoria (o nome é o da tecnologia, ou o que o
+trabalho dá a cada modelo de programação: "imperativo por atualização
+manual" é o nome de uma categoria); rotular para a categoria ou para o
+nome dela (o rótulo é o valor que se atribui a um item, como /mantida/ na
+tabela-síntese ou a classificação do método)
 
 **Biblioteca**:
 Código reutilizável que a aplicação chama, sem lhe ceder o controle
