@@ -1,0 +1,27 @@
+#+title: hudak1989: Hudak (1989), Conception, Evolution, and Application of Functional Programming Languages
+#+startup: overview
+
+* [[file:../intro.org::sugere que boa parte do sequenciamento][intro: sugere que boa parte do sequenciamento]], p. 361
+- Frase: “A programação declarativa expressa o que se computa, e não como,
+  embora isso seja questão de grau, e suas linguagens não têm estado
+  implícito (Hudak, 1989, p. 361).”
+- Trecho: “Functional (in general, declarative) programming is often
+  described as expressing what is being computed rather than how, although
+  this is really a matter of degree.” Na mesma página: “characterized as
+  having no implicit state”.
+- Lido em: =tmp/fontes/hudak1989.pdf=, ACM Computing Surveys.
+- Conferido: 2026-10-09.
+* [[file:../prog.org::Essas alterações são efeitos colaterais: as][prog: Essas alterações são efeitos colaterais: as]], p. 361 (efeito colateral)
+- Frase: “Essas alterações são efeitos colaterais: as modificações que um
+  comando, como a atribuição, faz no estado do programa (Hudak, 1989,
+  p. 361).”
+- Trecho: “Imperative languages are characterized as having an implicit
+  state that is modified (i.e., side effected) by constructs (i.e.,
+  commands) in the source language.”; “the assignment statement is a (very
+  common) command, since its effect is to alter the underlying implicit
+  store so as to yield a different binding for a particular variable.”
+  (p. 361)
+- Lido em: =tmp/fontes/hudak1989.pdf=, p. 3 do PDF (p. 361).
+- Observação: define o termo no primeiro uso, antes de Oney, Myers e
+  Brandt (2012) e do §8, que o usam para os /callbacks/.
+- Conferido: 2026-10-09.

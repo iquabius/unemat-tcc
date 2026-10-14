@@ -1,0 +1,11 @@
+#+title: lu2021: Lu et al. (2021), Types for Tables: A Language Design Benchmark
+#+startup: overview
+
+* [[file:../cases.org::O conjunto de interfaces é um][cases: O conjunto de interfaces é um]], 8:20
+- Frase: “[...] entre os quais está o 7GUIs (Lu; Greenman; Krishnamurthi,
+  2021, 8:20).”
+- Trecho: “We are aware of a few other benchmarks for aspects of language
+  design. [...] Finally, 7GUIs [34] presents seven tasks for GUI toolkits to
+  express succinctly.”
+- Lido em: =tmp/fontes/lu2021.pdf=, versão publicada (acesso aberto).
+- Conferido: 2026-10-09.

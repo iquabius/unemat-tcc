@@ -27,8 +27,8 @@ de aplicar, o agente pergunta: decisão de método, rótulo, recorte ou
 critério; correção que derruba uma premissa ou conclusão; movimento de
 corte que tira um elo da cadeia (ADR 0022). Cada afirmação apoiada em
 fonte é conferida no PDF antes de a correção entrar, com trecho e
-página, que vão para a matriz
-`texto/fontes/<capítulo>.org` e, resumidos, para a mensagem do commit;
+página, que vão para a matriz de fontes (`texto/fontes/`, ADR 0035) e,
+resumidos, para a mensagem do commit;
 frase sem fonte ganha o marcador e não some; métricas e leitura com a
 `escrita-academica`. O commit espera o aprovo do autor. A sessão que
 edita o texto roda no checkout principal, uma por vez.
@@ -67,8 +67,8 @@ caminhos levaria o rascunho do índice, por isso os commits nesse checkout
 nomeiam os arquivos ou usam índice temporário; sessões em worktree não
 veem o rascunho; diff ao vivo, exportação e compilação dependem do host
 (Emacs, TeX Live, Evince) por `distrobox-host-exec`; as fontes em PDF
-ficam em `tmp/fontes/`, fora do git; a matriz de fontes se mantém à mão
-até um script a conferir (tcc-e35).
+ficam em `tmp/fontes/`, fora do git; a matriz de fontes se mantém à mão,
+e o `bin/conferir-fontes.py` só a confere contra as citações.
 
 Fontes: `bin/diff-ao-vivo.sh` (commits `b846bfd` e `858d488`); tarefas
 tcc-8m2k, tcc-0b4 e tcc-pkw; `.claude/skills/revisao-de-texto/SKILL.md`,

@@ -1,0 +1,13 @@
+#+title: google2026a: Google (2026), Template Syntax
+#+startup: overview
+
+* [[file:../cases.org::Solid e Angular com /signals/, ao contrário][cases: Solid e Angular com signals, ao contrário]]
+- Frase: “No Solid, a tela se monta em JSX numa função, e, no Angular, num
+  /template/ baseado em HTML, com construtos próprios.”
+- Trecho: “In Angular, a template is a chunk of HTML.”; “Templates are
+  based on HTML syntax, with additional features such as built-in template
+  functions, data binding, event listening, variables, and more.”; “The @
+  character has a special meaning to Angular for adding dynamic behavior,
+  such as control flow, to templates.”
+- Lido em: https://angular.dev/guide/templates, em 2026-10-06.
+- Conferido: 2026-10-06.

@@ -1,0 +1,29 @@
+#+title: green2006: Green et al. (2006), Cognitive Dimensions: Achievements, New Directions, and Open Questions
+#+startup: overview
+
+* [[file:../intro.org::Por ser analítica][intro: Por ser analítica]], p. 334
+- Frase: “Para Green et al. (2006, p. 334), duas das outras, a
+  expressividade de papel e as operações mentais difíceis, sempre foram
+  mal descritas.”
+- Trecho: “Examples here are the ‘hard mental operations’ and the
+  ‘role-expressiveness’ dimensions, which have always been poorly
+  described” (p. 334)
+- Lido em: =tmp/fontes/green2006-cognitive-dimensions-achievements-new-directions-and-open-questions.pdf=,
+  p. 7 do PDF (p. 334).
+- Conferido: 2026-10-07.
+* [[file:../cases.org::Em cada rodada, a avaliação percorre][cases: Em cada rodada, a avaliação percorre]], p. 357
+- Frase: “Destas, a avaliação lê a face que aparece na notação, porque os
+  próprios autores suspeitam que há uma zona cinzenta entre as dimensões da
+  notação e as do ambiente (Green et al., 2006, p. 357).”
+- Trecho: “Should we, then, divide the dimensions into groups? Would that
+  simplify things? Unfortunately we suspect that with the current list and
+  their definitions, the division is not clean.” (p. 357)
+- Lido em: =tmp/fontes/green2006-cognitive-dimensions-achievements-new-directions-and-open-questions.pdf=,
+  p. 30 do PDF (p. 357).
+- Observação: o ADR 0012 dizia p. 356-357; a frase está na p. 357. O
+  que não se divide são as dimensões, em grupos, e é suspeita dos autores
+  (“we suspect”), daí “os próprios autores suspeitam”; a viscosidade, logo
+  depois, é o exemplo do que fica no meio (“Is that structural or
+  cognitive?”). Até 2026-10-13, o texto dizia “a divisão [...] não é
+  limpa”, decalque de “not clean”.
+- Conferido: 2026-10-13; frase revista no mesmo dia.

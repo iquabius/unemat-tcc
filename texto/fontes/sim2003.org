@@ -1,0 +1,30 @@
+#+title: sim2003: Sim et al. (2003), Using Benchmarking to Advance Research: A Challenge to Software Engineering
+#+startup: overview
+
+* [[file:../intro.org::Quanto aos meios, o trabalho é][intro: Quanto aos meios, o trabalho é uma avaliação qualitativa]]
+- Frase: a mesma, na parte de Sim et al.; antes de 2026-10-14, “O
+  conjunto de tarefas segue a ideia de /benchmark/: testes que
+  representam as tarefas da prática e servem para comparar técnicas
+  alternativas.” “Amostra representativa das tarefas da prática” traduz o
+  /representative sample of the tasks/ da /Task Sample/, e a frase
+  seguinte, “Aqui, as técnicas são os três modelos de programação, e a
+  amostra, cinco interfaces gráficas”, liga as interfaces a ela
+  (2026-10-14).
+- Trecho: “We define a benchmark as a test or set of tests used to compare
+  the performance of alternative tools or techniques.”; “Task Sample. The
+  tests in the benchmark should be a representative sample of the tasks
+  that the tool or technique is expected to solve in actual practice.”
+- Lido em: =tmp/fontes/sim2003.pdf=, p. 3 do PDF (p. 76; o artigo vai de
+  74 a 83); em 2026-10-14, também em =tmp/fontes/sim2003-ieee.pdf=, p. 3.
+- Conferido: 2026-10-14.
+* [[file:../intro.org::Mesmo na segunda rodada, as implementações continuam pequenas][intro: Mesmo na segunda rodada, as implementações continuam pequenas]]
+- Frase: “Um conjunto criado por um pesquisador só e pouco usado tende a
+  ter menos impacto que um adotado por uma comunidade.”
+- Observação: a frase anterior, “O autor definiu o conjunto de interfaces
+  para este trabalho”, é do próprio trabalho; o 7GUIs, de onde vem o
+  Formulário (§20), também é de um pesquisador só (Kiss, 2014).
+- Trecho: “Benchmarks that are created by a single individual or
+  laboratory and are not used widely tend not to have the same impact on
+  the community and research results.” (3.1 Scope)
+- Lido em: =tmp/fontes/sim2003.pdf=, p. 3 do PDF (p. 76).
+- Conferido: 2026-10-06.

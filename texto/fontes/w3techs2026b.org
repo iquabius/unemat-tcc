@@ -1,0 +1,16 @@
+#+title: w3techs2026b: W3Techs (2026), Usage Statistics and Market Share of Angular for Websites
+#+startup: overview
+
+* [[file:../prog.org::Cada pesquisa de uso tem um limite][prog: Cada pesquisa de uso tem um limite de amostra]]
+- Frase: “O W3Techs nem separa o Angular do AngularJS”
+- Trecho: “Usage statistics and market share of Angular for websites”;
+  “Angular is a JavaScript library for building web applications,
+  developed by Google. Website: angular.dev”.
+- Lido em: =tmp/fontes/w3techs2026b.txt=, l. 118 e 193-198 (página salva
+  em 2026-10-13).
+- Observação: Seção “Uso das tecnologias web”. Parágrafo vindo dos estudos
+  de casos em 2026-10-13. A página do Angular fica no endereço
+  =js-angularjs=; não há página =js-angular= (404 em 2026-10-13) nem outra
+  entrada para o AngularJS. Que a linha junte os dois é inferência do texto:
+  o W3Techs não o diz com essas palavras.
+- Conferido: 2026-10-13.

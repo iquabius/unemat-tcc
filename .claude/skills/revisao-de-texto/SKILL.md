@@ -162,7 +162,8 @@ sobra passa pela rodada por bloco. As técnicas e as fontes estão em
    - `bin/conferir-fontes.py --desde HEAD texto/<capítulo>.org`: a frase
      cortada deixa na matriz uma entrada sem citação, e o parágrafo
      cortado ou fundido, um link quebrado; ambos saem ou se corrigem na
-     matriz no mesmo commit do corte;
+     matriz no mesmo commit do corte. A frase movida de capítulo só troca
+     o link das afirmações dela;
    - releia a cadeia inteira, do primeiro ao último parágrafo, antes do
      commit de toda rodada. A releitura local do passo 5 não a substitui, nem o
      `--parte`, que só acha a palavra-marcador de cada elo. O mapa da
@@ -251,10 +252,26 @@ perguntas, e então o autor dá o rótulo.
 
    Justificativa que é do agente não se apresenta como da fonte.
 3. **Matriz de fontes.** O trecho conferido entra em
-   `texto/fontes/<capítulo>.org`, no formato que o próprio arquivo
-   descreve: um título por parágrafo, com link de busca para a frase, e,
-   por afirmação, a chave, a página, o trecho curto e a data da
-   conferência. A frase que sai do texto sai da matriz.
+   `texto/fontes/<chave>.org`, um arquivo por chave do `refs.bib` (ADR
+   0035); no Emacs, o org-ref o abre pela citação e, quando a chave ainda
+   não tem arquivo, começa um com a chave no título, à espera da
+   referência curta. No arquivo:
+   - `#+title: <chave>: <Autor> (<ano>), <título>` e `#+startup: overview`;
+   - um título por afirmação, com o link de busca para o começo do
+     parágrafo e a página da publicação, sem o §N:
+     `* [[file:../<capítulo>.org::<começo>][<capítulo>: <começo>]], p. N`,
+     e um rótulo entre parênteses quando a mesma fonte sustenta duas
+     afirmações do mesmo parágrafo;
+   - embaixo, uma linha `- Rótulo:` por campo: `Frase` (a frase do texto,
+     ou o trecho dela que faz a afirmação), `Trecho` (curto, na língua
+     original, com a página da publicação), `Lido em` (o PDF em
+     `tmp/fontes/` e a página do PDF, quando difere), `Observação`, se
+     houver, e `Conferido` (a data).
+
+   A frase que sai do texto sai da matriz; a que muda de capítulo ou de
+   parágrafo só troca o link. Para ler a rodada parágrafo por parágrafo,
+   `bin/conferir-fontes.py --paragrafos --desde HEAD texto/<capítulo>.org`
+   junta, na ordem do texto, as afirmações de cada parágrafo alterado.
 4. **O que se pergunta antes de aplicar**, no formato de "Alternativas
    no chat":
    - decisão de método, rótulo, recorte ou critério, que é do autor;
@@ -341,10 +358,11 @@ decidido.
    `url` e `doi`, inclusive em `annotation`; confira com
    `python3 ~/.claude/skills/escrita-academica/scripts/auditar_bib.py texto/refs.bib texto/`.
 2. Matriz de fontes: `bin/conferir-fontes.py --desde HEAD` sai com zero.
-   Ele aponta a citação de um parágrafo alterado sem entrada sob o título
-   dele, a entrada que o parágrafo não cita mais e o link de busca que não
-   casa com o começo de um parágrafo. Sem `--desde`, lista também as
-   citações de antes da matriz.
+   Ele aponta a citação de um parágrafo alterado sem afirmação com o link
+   para ele no arquivo da chave, a afirmação cujo parágrafo não cita mais
+   a chave e o link de busca que não casa com o começo de um parágrafo.
+   Sem `--desde`, a citação sem entrada se aponta nos parágrafos que já
+   têm afirmação; com `--todas`, também nos de antes da matriz.
 3. Exportar pelo Emacs, body only, cada capítulo que a rodada mudou,
    nunca por conversor próprio (`readme.org`, "Exportar pelo terminal"; o
    script passa sozinho pelo `distrobox-host-exec`):
@@ -391,12 +409,13 @@ formato do relatório estão em `references/checagem-adversarial.md` da
    commit lido.
 2. **Extração e mapa**, pelo agente principal, em
    `tmp/checagem-<capítulo>-<data>/passada-1.md`. Onde a verdade deve
-   estar: a chave e a página citadas, o PDF em `tmp/fontes/`, a entrada de
-   `texto/fontes/<capítulo>.org`; para o próprio trabalho (interfaces,
-   tecnologias, implementações), `implementacoes/` e `CONTEXT.md`. A
-   cadeia do mapa é a da rodada de corte, passo 3. As contradições se
-   procuram também nos outros capítulos e contra os termos do
-   `CONTEXT.md`.
+   estar: a chave e a página citadas, o PDF em `tmp/fontes/`, a
+   afirmação em `texto/fontes/<chave>.org` (`bin/conferir-fontes.py
+   --paragrafos texto/<capítulo>.org` junta as afirmações na ordem do
+   capítulo); para o próprio trabalho (interfaces, tecnologias,
+   implementações), `implementacoes/` e `CONTEXT.md`. A cadeia do mapa
+   é a da rodada de corte, passo 3. As contradições se procuram também
+   nos outros capítulos e contra os termos do `CONTEXT.md`.
 3. **Passada 1.** Um subagente por lote, todos na mesma mensagem, com a
    instrução da referência e os caminhos absolutos dos PDFs em
    `tmp/fontes/` do checkout principal. Enquanto rodam, a auditoria

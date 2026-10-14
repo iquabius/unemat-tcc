@@ -1,0 +1,27 @@
+#+title: vanroy2004: Van Roy e Haridi (2004), Concepts, Techniques, and Models of Computer Programming
+#+startup: overview
+
+* [[file:../intro.org::Este trabalho compara /modelos de programação/][intro: Este trabalho compara modelos de programação]], p. xiii e 29
+- Frase: “Este trabalho compara /modelos de programação/: as técnicas e os
+  princípios de projeto que um modelo de computação torna possíveis (Van
+  Roy; Haridi, 2004, p. xiii e 29).”
+- Trecho: “Sometimes we use the phrase “programming model.” This refers to
+  what the programmer needs: the programming techniques and design
+  principles made possible by the computation model.” (p. xiii); “We will
+  sometimes call this a programming model. A programming model is always
+  built on top of a computation model.” (p. 29)
+- Lido em:
+  =tmp/fontes/vanroy2004-concepts-techniques-and-models-of-computer-programming.pdf=,
+  p. 14 do PDF (prefácio, p. xiii pelo índice) e p. 60 do PDF (abertura do
+  capítulo 2, p. 29 pelo índice: “programming model, xiii, 29”).
+- Observação: a primeira menção apresenta o termo por contraste com
+  paradigma, biblioteca e /framework/ (ADR 0021; nota de referência
+  docs/paradigma-modelo-e-notacao.md, seção 4).
+- Conferido: 2026-10-09.
+* [[file:../prog.org::O modelo de programação não é][prog: O modelo de programação não é]], p. xiii (paradigma)
+- Frase: “Ele não é o paradigma, noção imprecisa que o modelo de
+  computação torna precisa (Van Roy; Haridi, 2004, p. xiii) [...]”
+- Trecho: “The term computation model makes precise the imprecise notion
+  of “programming paradigm.”” (p. xiii)
+- Lido em: o mesmo PDF, p. 14.
+- Conferido: 2026-10-09.

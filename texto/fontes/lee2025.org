@@ -1,0 +1,40 @@
+#+title: lee2025: Lee et al. (2025), React-tRace: A Semantics for Understanding React Hooks: An Operational Semantics and a Visualizer for Clarifying React Hooks
+#+startup: overview
+
+* [[file:../intro.org::sugere que boa parte do sequenciamento][intro: sugere que boa parte do sequenciamento]], 289:1
+- Frase: “Nas interfaces, o componente do React é uma função que especifica a
+  tela de forma declarativa e que, chamada com os mesmos argumentos, deve
+  exibir a mesma interface (Lee; Ahn; Yi, 2025, 289:1).”
+- Trecho: “A React component is a function that serves as a declarative
+  specification of a UI [...]. Ideally, when a component is called with the
+  same arguments, it should render the same interface”.
+- Lido em: =tmp/fontes/lee2025.pdf=, cópia do arXiv com a paginação da ACM.
+- Observação: faz a ponte entre o declarativo de Hudak (sem estado) e o das
+  interfaces (a tela descrita em função do estado); Moseley e Marks (2006)
+  usam "declarativo" sem definição (checagem de 2026-10-08).
+- Conferido: 2026-10-09.
+* [[file:../intro.org::Nos declarativos, o programador descreve a tela][intro: Nos declarativos, o programador descreve a tela]], p. 289:2 e 289:6
+- Frase: “No /declarativo por re-renderização/, cada alteração de estado
+  reexecuta o componente, como no React (Lee; Ahn; Yi, 2025, p. 289:2 e
+  289:6).”
+- Trecho: “the same component is called for both creating a new view and
+  updating an existing view” (289:2); “setting state within an Effect
+  triggers the runtime to Check if the state has changed, which is
+  implemented by invoking the component body again. If the state whose
+  setter function is called is actually modified, the component
+  re-renders” (289:6).
+- Lido em: =tmp/fontes/lee2025.pdf=, p. 2 e 6 do PDF (paginação da ACM
+  impressa na cópia do arXiv).
+- Observação: substitui Meta (2026b), documentação do React (decisão do
+  autor em 2026-10-09).
+- Conferido: 2026-10-09.
+* [[file:../cases.org::No React e no Solid, a tela se monta][cases: No React e no Solid, a tela se monta em JSX]], 289:38
+- Frase: “a cada alteração de estado, o React reexecuta o componente
+  inteiro, e o Solid atualiza só os trechos da tela que dependem do
+  /signal/ alterado (Lee; Ahn; Yi, 2025, 289:38; SolidJS, 2026b).”
+- Trecho: Tabela 2, “Comparison of reactive UI frameworks”: “Re-read
+  Spec.” é “Yes” no React e “No” no Solid e no Angular; a propriedade é
+  “whether they re-read component specifications for re-rendering”
+  (289:38).
+- Lido em: =tmp/fontes/lee2025.pdf=, p. 38 do PDF (apêndice C).
+- Conferido: 2026-10-09.

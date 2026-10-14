@@ -1,0 +1,11 @@
+#+title: hertzum2003: Hertzum e Jacobsen (2003), The Evaluator Effect: A Chilling Fact About Usability Evaluation Methods
+#+startup: overview
+
+* [[file:../intro.org::O delineamento tem limitações em três pontos][intro: O delineamento tem limitações em três pontos]], p. 183
+- Frase: “Em métodos de inspeção, avaliadores diferentes acham problemas bem
+  diferentes na mesma interface (Hertzum; Jacobsen, 2003, p. 183).”
+- Trecho: “multiple evaluators evaluating the same interface with the same
+  UEM detect markedly different sets of problems”.
+- Lido em: =tmp/fontes/hertzum2003.pdf=, pré-publicação, resumo; p. 183 pelo
+  cabeçalho da pré-publicação (v. 15, n. 1, p. 183-204).
+- Conferido: 2026-10-09.

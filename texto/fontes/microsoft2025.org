@@ -1,0 +1,17 @@
+#+title: microsoft2025: Microsoft (2025), Data Binding Overview: WPF
+#+startup: overview
+
+* [[file:../cases.org::Fora da web, cada plataforma tem um par][cases: Fora da web, cada plataforma tem um par]]
+- Frase: “e o WPF, no declarativo por atualização granular, porque,
+  quando um dado se altera, os elementos ligados a ele se atualizam sozinhos
+  (Microsoft, 2025).”
+- Trecho: “If the binding has the correct settings and the data provides
+  the proper notifications, when the data changes its value, the elements
+  that are bound to the data reflect changes automatically.”
+- Lido em: =tmp/fontes/microsoft2025-wpf-data-binding.html= (página salva
+  em 2026-10-13; atualizada em 2025-08-27).
+- Observação: a fonte sustenta a atualização só dos elementos ligados; pôr
+  o WPF no declarativo por atualização granular é hipótese do trabalho
+  (docs/plataformas.md, seção Windows Forms × WPF), a conferir no código
+  (tcc-74m).
+- Conferido: 2026-10-13.

@@ -1,0 +1,12 @@
+#+title: solidjs2026a: SolidJS (2026), Derived Signals
+#+startup: overview
+
+* [[file:../cases.org::Solid e Angular com /signals/, ao contrário][cases: Solid e Angular com signals, ao contrário]]
+- Frase: “Solid e Angular com /signals/, ao contrário, coordenam do mesmo
+  modo: os dois guardam o estado em /signals/ e derivam valores de outros
+  /signals/.”
+- Trecho: “Derived signals are functions that rely on one or more signals
+  to produce a value.”
+- Lido em: https://docs.solidjs.com/concepts/derived-values/derived-signals,
+  em 2026-10-06.
+- Conferido: 2026-10-06.

@@ -1,0 +1,82 @@
+#+title: salvaneschi2017: Salvaneschi et al. (2017), On the Positive Effect of Reactive Programming on Software Comprehension: An Empirical Study
+#+startup: overview
+
+* [[file:../intro.org::Uma alternativa ao /callback/ é a][intro: Uma alternativa ao /callback/ é a]], p. 1125-1126
+- Frase: “Segundo Salvaneschi et al. (2017, p. 1125-1126), nela o
+  programador declara as relações entre os valores, e o ambiente de
+  execução faz as atualizações que elas exigem.”
+- Trecho: “the programmer states which relations should be enforced among
+  the variables that compose a reactive program and the RP runtime takes
+  care of performing all the required updates” (p. 1125); “the language
+  runtime takes care of change propagation” (p. 1125).
+- Lido em: =tmp/fontes/salvaneschi2017.pdf=, p. 1 do PDF (p. 1125).
+- Conferido: 2026-10-07.
+* [[file:../intro.org::Uma alternativa ao /callback/ é a][intro: Uma alternativa ao /callback/ é a]], p. 1125-1134 (o experimento)
+- Frase: “Num experimento controlado com 127 estudantes, quem leu programas
+  escritos com PR os compreendeu melhor do que quem leu as versões dos
+  mesmos programas com o /Observer Pattern/ (Salvaneschi et al., 2017,
+  p. 1125-1134).”
+- Trecho: “The study involves 127 subjects and compares reactive
+  programming to the traditional object-oriented style with the Observer
+  design pattern. Our findings show that program comprehension is
+  significantly enhanced by the reactive-programming paradigm” (resumo,
+  p. 1125); “Each program is implemented in two versions.” (p. 1128).
+- Lido em: =tmp/fontes/salvaneschi2017.pdf=, p. 1 e 4 do PDF (p. 1125 e 1128).
+- Observação: os números do experimento (médias, tempo de resposta) foram
+  com o parágrafo inteiro para a seção 2.4 (texto/fontes/prog.org).
+- Conferido: 2026-10-14.
+* [[file:../intro.org::Quanto aos objetivos, a pesquisa é][intro: Quanto aos objetivos, a pesquisa é exploratória]]
+- Frase: “As hipóteses desta pesquisa servem a experimentos controlados
+  como o de Salvaneschi et al. (2017).”
+- Trecho: “The study involves 127 subjects and compares reactive
+  programming to the traditional object-oriented style with the Observer
+  design pattern.” (resumo, p. 1125)
+- Lido em: =tmp/fontes/salvaneschi2017.pdf=, p. 1 do PDF; o delineamento
+  controlado está na entrada do §5.
+- Observação: a frase saiu do §11 em 2026-10-07, para o §14 ligar as
+  hipóteses da pesquisa exploratória ao experimento.
+- Conferido: 2026-10-07.
+* [[file:../prog.org::As aplicações orientadas a eventos e][prog: As aplicações orientadas a eventos e]], p. 1125 (aplicações reativas)
+- Frase: “Na literatura de PR, essas aplicações também se chamam reativas
+  (Salvaneschi et al., 2017, p. 1125) [...]”
+- Trecho: “Reactive applications represent a wide class of software that
+  needs to continuously and interactively respond to internal or external
+  stimuli”; exemplos incluem “user-interactive software, like GUIs and Web
+  applications” (p. 1125).
+- Lido em: =tmp/fontes/salvaneschi2017.pdf=, p. 1 do PDF.
+- Conferido: 2026-10-09.
+* [[file:../prog.org::testaram uma afirmação repetida][prog: testaram uma afirmação repetida]], p. 1125-1134
+- Frase: “Num experimento controlado com 127 estudantes, quem leu os
+  programas escritos com PR acertou mais perguntas sobre eles do que quem
+  os leu com o /Observer Pattern/ (médias de 8,13 e 7,05 acertos em dez,
+  com diferença significativa). Também respondeu mais rápido em seis das
+  dez tarefas, sem diferença significativa nas outras quatro.”
+- Trecho: “The study involves 127 subjects and compares reactive
+  programming to the traditional object-oriented style with the Observer
+  design pattern.” (resumo, p. 1125); “The mean score for the OO group and
+  the RP group are µ(score,OO) = 7.05 and µ(score,RP) = 8.13” (PDF p. 7);
+  tempo: “tasks 1-2-3-4-6-7, H0 can be rejected with high significance. In
+  all those cases, the rank sum indicates that times for the OO group are
+  higher than times for the RP group (Table 3 [...]), i.e., the RP group is
+  faster. For the tasks 5-8-9-10, H0 cannot be rejected.”; “Finding 2:
+  Comprehending programs in the RP style does not require more time than
+  comprehending their OO equivalent.” (PDF p. 9, p. 1133)
+- Lido em: =tmp/fontes/salvaneschi2017.pdf=, p. 1, 7 e 9 do PDF; as páginas
+  publicadas (1125 a 1141) se contam do início, sem paginação impressa no
+  PDF.
+- Conferido: 2026-10-06; o tempo, em 2026-10-08.
+* [[file:../prog.org::testaram uma afirmação repetida][prog: testaram uma afirmação repetida]], p. 1125 (afirmação repetida)
+- Frase: “Salvaneschi et al. (2017, p. 1125-1134) testaram uma afirmação
+  repetida, ainda sem evidência empírica suficiente, de que a PR torna os
+  programas mais fáceis de compreender que o /Observer Pattern/, o padrão
+  tradicional da POO para aplicações interativas.”
+- Trecho: “it has been repeatedly argued that RP greatly improves over the
+  traditional Observer pattern used in Object-oriented (OO) programming
+  [...]. However, there has not been enough empirical evidence to support
+  these claimed advantages of RP.” Na p. 1127: “In OO languages, reactive
+  applications are usually developed using the Observer design pattern”.
+  Na p. 1125, as aplicações reativas incluem “user-interactive software,
+  like GUIs and Web applications”: as interativas são parte delas.
+- Lido em: =tmp/fontes/salvaneschi2017.pdf=, p. 1 e 3 do PDF (manuscrito;
+  publicada = 1124 + página do PDF).
+- Conferido: 2026-10-09.

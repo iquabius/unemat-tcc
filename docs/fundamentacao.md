@@ -14,9 +14,9 @@ em 2026-10-10.
 **Conclusão.** Em 2026-10-10, os 12 candidatos de prioridade alta estão
 no `refs.bib` desde 2026-09-25 (seção 2), e dos complementares estão lá
 `lee2025`, `berry2020` e `salvaneschi2016` (seção 3), este desde 2020. Os trechos que
-sustentam a crítica ao *callback* da introdução estão em
-`texto/fontes/intro.org`; aqui ficam as fontes que saíram do texto ou
-servem só à fundamentação (seções 4 e 5).
+sustentam a crítica ao *callback* da introdução estão na matriz de
+fontes, `texto/fontes/<chave>.org`; aqui ficam as fontes que saíram do
+texto ou servem só à fundamentação (seções 4 e 5).
 
 ## 1. Matriz tema × referência
 
@@ -110,7 +110,7 @@ Hanenberg 2022; contraponto Zampetti et al. 2025).
 Estado em 2026-10-10: `texto/intro.org` cita Myers (1994), Fischer,
 Majumdar e Millstein (2007), Blackheath e Jones (2016), Edwards (2009),
 Gallaba, Mesbah e Beschastnikh (2015) e Madsen, Lhoták e Tip (2017), com
-os trechos que sustentam as frases em `texto/fontes/intro.org`. Maier,
+os trechos que sustentam as frases em `texto/fontes/<chave>.org`. Maier,
 Rompf e Odersky (2010), Gallaba et al. (2017), Alimadadi et al. (2018) e
 o dado da Adobe (seção 4.2) saíram do texto e ficam aqui para a
 fundamentação.
@@ -156,7 +156,7 @@ de repositórios institucionais e do Internet Archive; a de Mijač et al.
 
 O dado da Adobe saiu da introdução em 2026-10-09, e Oney, Myers e Brandt
 (2012, p. 229) entraram no lugar, com fonte revisada por pares
-(`texto/fontes/intro.org`). Até então o texto citava Edwards
+(`texto/fontes/oney2012.org`). Até então o texto citava Edwards
 (2009, p. 926), que diz "Adobe", sem o ano (decisão do autor em
 2026-10-01). O
 "ciclo do produto" do texto antigo vinha dos slides de Parent, que

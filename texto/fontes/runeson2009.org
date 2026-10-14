@@ -1,0 +1,10 @@
+#+title: runeson2009: Runeson e Höst (2009), Guidelines for Conducting and Reporting Case Study Research in Software Engineering
+#+startup: overview
+
+* [[file:../intro.org::Quanto aos objetivos, a pesquisa é][intro: Quanto aos objetivos, a pesquisa é exploratória]], p. 135
+- Frase: “Quanto aos objetivos, a pesquisa é /exploratória/: busca
+  compreensão nova e gera ideias e hipóteses para outras pesquisas.”
+- Trecho: “Exploratory—finding out what is happening, seeking new insights
+  and generating ideas and hypotheses for new research.”
+- Lido em: =tmp/fontes/runeson2009.pdf=, p. 5 do PDF (p. 135).
+- Conferido: 2026-10-06.

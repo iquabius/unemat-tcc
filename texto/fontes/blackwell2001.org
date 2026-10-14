@@ -1,0 +1,23 @@
+#+title: blackwell2001: Blackwell et al. (2001), Cognitive Dimensions of Notations: Design Tools for Cognitive Technology
+#+startup: overview
+
+* [[file:../intro.org::Para discutir o quanto uma notação facilita][intro: Para discutir o quanto uma notação facilita]], p. 327
+- Frase: “Elas são um vocabulário para descrever a usabilidade de notações
+  e de outros artefatos de informação.”
+- Trecho: “The Cognitive Dimensions of Notations are such a vocabulary.”
+  (p. 326); “Cognitive Dimensions of Notations (CDs) is a framework for
+  describing the usability of notational systems [...] and information
+  artifacts” (p. 327)
+- Lido em: =tmp/fontes/blackwell2001-springer.pdf=, p. 2-3 do PDF
+  (p. 326-327; o capítulo vai de 325 a 341), em 2026-10-10; antes, na
+  cópia dos autores, =tmp/fontes/blackwell2001.pdf=, sem paginação.
+- Conferido: 2026-10-06.
+* [[file:../cases.org::Em cada rodada, a avaliação percorre][cases: Em cada rodada, a avaliação percorre]], p. 332
+- Frase: “e não um subconjunto escolhido antes, porque a escolha prévia
+  pode atrapalhar, e o conjunto inteiro traz resultados inesperados e
+  úteis (Blackwell et al., 2001, p. 332).”
+- Trecho: “prior selection of a subset of CDs may be unhelpful. Using the
+  full set of dimensions can produce some unexpected, but useful results”
+  (p. 332)
+- Lido em: =tmp/fontes/blackwell2001-springer.pdf=, p. 8 do PDF (p. 332).
+- Conferido: 2026-10-13.

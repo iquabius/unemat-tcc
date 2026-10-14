@@ -1,0 +1,13 @@
+#+title: thompson2022: Thompson (2022), Discontinued Long Term Support for AngularJS
+#+startup: overview
+
+* [[file:../prog.org::Cada pesquisa de uso tem um limite][prog: Cada pesquisa de uso tem um limite de amostra]]
+- Frase: “o AngularJS, antecessor dele e sem suporte desde 2022”
+- Trecho: “we extended the LTS due to the global pandemic until December
+  31, 2021. Well, friends, the time has come and we’re no longer supporting
+  AngularJS.”; “the way it evolved into its successor, Angular”.
+- Lido em: =tmp/fontes/thompson2022.txt= (post de 2022-01-11, salvo em
+  2026-10-13 pelo navegador).
+- Observação: Seção “Uso das tecnologias web”. Parágrafo vindo dos estudos
+  de casos em 2026-10-13.
+- Conferido: 2026-10-13.

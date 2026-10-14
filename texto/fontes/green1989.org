@@ -1,0 +1,10 @@
+#+title: green1989: Green (1989), Cognitive Dimensions of Notations
+#+startup: overview
+
+* [[file:../intro.org::Para discutir o quanto uma notação facilita][intro: Para discutir o quanto uma notação facilita]]
+- Frase: “há as DCs, propostas por Green (1989)”.
+- Trecho: “‘Cognitive dimensions’ are features of computer languages
+  considered purely as information structures or notations.” (resumo,
+  p. 443)
+- Lido em: =tmp/fontes/green1989.pdf=, p. 1 do PDF (p. 443).
+- Conferido: 2026-10-06.

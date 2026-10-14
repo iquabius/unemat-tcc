@@ -1,0 +1,50 @@
+#+title: grolaux2026: Grolaux et al. (2026), Async/Await Is an Effective Paradigm for Event Management of User Interfaces
+#+startup: overview
+
+* [[file:../intro.org::Para discutir o quanto uma notação facilita][intro: Para discutir o quanto uma notação facilita]], p. 15
+- Frase: “Fora das DCs, Grolaux et al. (2026, p. 15) compararam conceitualmente
+  o async/await com outras formas de tratar os eventos de interface, entre
+  elas a PR.”
+- Trecho: “Through conceptual comparisons with other paradigms, including
+  synchronous scripts, event listeners, event-bus architectures, animation
+  loops, functional streams, and reactive programming” (p. 15); “Through
+  an implemented proof-of-concept” (resumo, p. 7); “the AsyncIterable
+  interface of modern JavaScript” (p. 9).
+- Lido em: =tmp/fontes/grolaux2026.pdf=, p. 1, 3 e 9 do PDF (p. 7 a 16).
+- Conferido: 2026-10-06.
+* [[file:../prog.org::As aplicações orientadas a eventos e][prog: As aplicações orientadas a eventos e]], p. 13
+- Frase: “[...] e já nomeia tecnologias como o React (Grolaux;
+  Nguyen; Vanderdonckt, 2026, p. 13).”
+- Trecho: “Common reactive systems like React or Vue rely on a virtual DOM
+  mechanism” (p. 13).
+- Lido em: =tmp/fontes/grolaux2026.pdf=, p. 7 do PDF (p. 13).
+- Conferido: 2026-10-12.
+* [[file:../prog.org::O JavaScript ganhou alternativas ao][prog: O JavaScript ganhou alternativas ao callback]], p. 9
+- Frase: “As /promises/ achatam o aninhamento dos /callbacks/, mas a lógica
+  complexa continua presa em cadeias de /callbacks/.”
+- Trecho: “Promises [34] improved this by flattening the structure (Listing
+  2), yet complex logic remains trapped in callback chains.” (p. 9)
+- Lido em: =tmp/fontes/grolaux2026.pdf=, p. 3 do PDF (p. 9).
+- Conferido: 2026-10-07.
+* [[file:../prog.org::O JavaScript ganhou alternativas ao][prog: O JavaScript ganhou alternativas ao callback]], p. 9 (async e await)
+- Frase: “[...] e as palavras-chave /async/ e /await/, que permitem escrever
+  operações assíncronas em estilo sequencial (Grolaux et al., 2026, p. 9).”
+- Trecho: “async/await [14] solves this by allowing asynchronous operations
+  to be written in a synchronous-like style”.
+- Lido em: =tmp/fontes/grolaux2026.pdf=, p. 3 do PDF.
+- Observação: a p. 8 dizia o tratamento dos eventos de interface em estilo
+  sequencial, que é a proposta do artigo (StreamAsync), e não um recurso do
+  JavaScript; corrigido na checagem de 2026-10-08.
+- Conferido: 2026-10-09.
+* [[file:../prog.org::compararam, com 36 estudantes de graduação,][prog: compararam, com 36 estudantes de graduação,]], p. 15
+- Frase: “Fora das DCs, Grolaux et al. (2026, p. 15) compararam
+  conceitualmente, numa prova de conceito em JavaScript, o async/await com
+  /listeners/, barramento de eventos, /streams/ funcionais e PR no
+  tratamento dos eventos de interface.”
+- Trecho: “Through conceptual comparisons with other paradigms, including
+  synchronous scripts, event listeners, event-bus architectures, animation
+  loops, functional streams, and reactive programming” (p. 15); “Through
+  an implemented proof-of-concept” (resumo, p. 7); “the AsyncIterable
+  interface of modern JavaScript” (p. 9).
+- Lido em: =tmp/fontes/grolaux2026.pdf=, p. 1, 3 e 9 do PDF (p. 7 a 16).
+- Conferido: 2026-10-06.

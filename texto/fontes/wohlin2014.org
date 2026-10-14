@@ -1,0 +1,19 @@
+#+title: wohlin2014: Wohlin (2014), Guidelines for Snowballing in Systematic Literature Studies and a Replication in Software Engineering
+#+startup: overview
+
+* [[file:../intro.org::Nenhum desses trabalhos compara, sobre as mesmas interfaces][intro: Nenhum desses trabalhos compara, sobre as mesmas interfaces]], p. 3-4
+- Frase: “A lacuna se apoia nessa revisão, feita por palavras-chave e por
+  /snowballing/ (Wohlin, 2014, p. 3-4), sobretudo para a frente, em três
+  rodadas de busca, em setembro e outubro de 2026, e descrita no Apêndice
+  B; a lacuna vale para o que ela encontrou.”
+- Trecho: “The start set ought to be formulated from keywords in the
+  research question” e “3.2.2 Forward Snowballing” (p. 3); “backward and
+  forward snowballing, the loop is ended” (p. 4).
+- Lido em: =tmp/fontes/wohlin2014.pdf=, p. 3 e 4 do PDF, sem paginação
+  impressa (EASE '14).
+- Observação: a frase já citava Wohlin p. 3-4 antes do corte; as rodadas e
+  as datas são do próprio trabalho (Apêndice B, tabelas 1 a 3). Em
+  2026-10-14 passou de duas a três rodadas e perdeu a ressalva sobre os
+  citantes de Kiss (2014), vistos na terceira rodada (Apêndice B;
+  =docs/revisao-bibliografica.md=, seção 3); o trecho de Wohlin não muda.
+- Conferido: 2026-10-06.

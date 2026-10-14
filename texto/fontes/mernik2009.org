@@ -1,0 +1,21 @@
+#+title: mernik2009: Mernik et al. (2009), Comparison of XAML and C# Forms Using Cognitive Dimension Framework
+#+startup: overview
+
+* [[file:../intro.org::Para discutir o quanto uma notação facilita][intro: Para discutir o quanto uma notação facilita]]
+- Frase: “Mernik et al. (2009) compararam o XAML e o Windows Forms em C#.”
+- Trecho: “The experiment was conducted with 36 programmers [...] the same
+  problem domain has been used – construction of graphical user
+  interfaces. In terms of domain-specific language, XAML has been used and
+  C# Forms for application library.” (resumo)
+- Lido em: =tmp/fontes/mernik2009.pdf=, p. 1 do PDF (p. 180).
+- Conferido: 2026-10-06.
+* [[file:../prog.org::compararam, com 36 estudantes de graduação,][prog: compararam, com 36 estudantes de graduação,]]
+- Frase: “Mernik et al. (2009) compararam, com 36 programadores, uma
+  linguagem de domínio específico para descrever interfaces gráficas, o
+  XAML, e uma biblioteca de aplicação, o C# Forms.”
+- Trecho: “The experiment was conducted with 36 programmers [...] the same
+  problem domain has been used – construction of graphical user
+  interfaces. In terms of domain-specific language, XAML has been used and
+  C# Forms for application library.” (resumo)
+- Lido em: =tmp/fontes/mernik2009.pdf=, p. 1 do PDF (p. 180).
+- Conferido: 2026-10-06.

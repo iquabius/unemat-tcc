@@ -1,0 +1,14 @@
+#+title: microsoft2025b: Microsoft (2025), Overview of Data Binding and Windows Forms
+#+startup: overview
+
+* [[file:../cases.org::Fora da web, cada plataforma tem um par][cases: Fora da web, cada plataforma tem um par]]
+- Frase: a mesma, “sem o /data binding/ que ele também oferece”.
+- Trecho: “Essentially, data binding is an automatic way of setting any
+  run-time accessible property of any control on a form.”
+- Lido em: =tmp/fontes/microsoft2025b-winforms-data-binding.html= (página
+  salva em 2026-10-14; atualizada em 2025-08-27).
+- Observação: que as implementações não usam o /binding/ é decisão do
+  autor em 2026-10-14 (ADR 0001; tarefa “Implementar o par Windows Forms ×
+  WPF”); sem ele, o código atribui as propriedades dos controles, o que dá
+  o rótulo.
+- Conferido: 2026-10-14.
