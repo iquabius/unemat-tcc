@@ -5,4 +5,5 @@
          (org-latex-src-block-backend . minted)
          (org-ref-cite-insert-version . 2)))
  ("texto" . ((org-mode . ((bibtex-completion-bibliography . ("refs.bib"))
+                           (bibtex-completion-additional-search-fields . ("peso"))
                            (my/org-ref-glossary-files . ("../latex/siglas.tex")))))))
