@@ -36,55 +36,6 @@ Formato:
   exemplo da fonte, na p. 7, é a seleção de um item numa /list box/, e o
   clique fica no fim do parágrafo, com Gallaba et al. (2015, p. 5).
 - Conferido: 2026-10-07; de novo em 2026-10-10.
-** gallaba2015, p. 2
-- Frase: “O /callback/ é síncrono quando a função que o recebe o chama
-  antes de retornar, e assíncrono quando o chama algum tempo depois, ao
-  fim da operação que ele espera.”
-- Trecho: “A callback passed to a function f can be invoked synchronously
-  before f returns, or it can be deferred to execute asynchronously some
-  time after f returns.”; “the desired non-blocking operation is scheduled
-  as a callback and the main thread continues its synchronous execution.
-  When the operation completes, a message is enqueued into a task queue
-  along with the provided callback.” (p. 2)
-- Lido em: =tmp/fontes/gallaba2015.pdf=, p. 2.
-- Conferido: 2026-10-07.
-** alimadadi2014, p. 368-369
-- Frase: “O navegador executa a aplicação numa /thread/ só, e, para que ela
-  continue respondendo ao usuário, os programadores recorrem às operações
-  assíncronas.”
-- Trecho: “Web browsers provide a single thread for web application
-  execution. To circumvent this limitation and build rich responsive web
-  applications, developers take advantage of the asynchronous capabilities
-  offered by modern browsers, such as timeouts and XMLHttpRequest (XHR)
-  calls.” (p. 368-369)
-- Lido em: =tmp/fontes/alimadadi2014.pdf=, p. 2 e 3 do PDF (p. 368 e 369).
-- Conferido: 2026-10-07.
-** gallaba2015, p. 5
-- Frase: “O /callback/ de um clique é desse tipo: registrado quando a tela é
-  montada, só roda quando o usuário clica, e os eventos do DOM estão entre
-  as operações assíncronas do navegador.”
-- Trecho: “Asynchronous callbacks. A callback passed into a function can be
-  deferred and invoked at a later time. [...] Our analysis detects a variety
-  of APIs, including DOM events, network calls, timers, and I/O.”; Tabela
-  II, “Example asynchronous APIs available to JavaScript programs”: “DOM
-  events: addEventListener, onclick (Browser)”; a Listagem 5 registra um
-  =$('.restart').on('click', function() {...})=. (p. 5)
-- Lido em: =tmp/fontes/gallaba2015.pdf=, p. 5.
-- Observação: a primeira metade da frase (registrado na montagem da tela,
-  roda no clique) é ilustração do autor; a fonte sustenta que o evento do
-  DOM é API assíncrona.
-- Conferido: 2026-10-07.
-
-* §5 [[file:../intro.org::/Threads/ exprimem sequência][Threads exprimem sequência]]
-** blackheath2016, p. 16
-- Frase: “/Threads/ exprimem sequência, e eventos exprimem dependência, e
-  muitos problemas vêm de escrever uma com o recurso da outra.”
-- Trecho: “Threads allow you to express sequence; events allow you to
-  express dependency. In different situations, both are needed. A lot of
-  problems come from trying to express dependency with threads, or
-  sequences with events.” (p. 16)
-- Lido em: =tmp/fontes/blackheath2016-cap1.pdf=, p. 19 do PDF (p. 16).
-- Conferido: 2026-10-07.
 ** fischer2007, p. 134-135
 - Frase: “O /callback/ fragmenta o fluxo de controle: a sequência de passos
   que o programador tem em mente para uma operação fica dividida entre
@@ -112,20 +63,6 @@ Formato:
 - Lido em: =tmp/fontes/edwards2009-coherent-reaction.pdf=, p. 2 do PDF;
   p. 926 calculada pelo início dos anais (925).
 - Conferido: 2026-10-06.
-** hudak1989, p. 361 (efeito colateral)
-- Frase: “Essas alterações são efeitos colaterais: as modificações que um
-  comando, como a atribuição, faz no estado do programa (Hudak, 1989,
-  p. 361).”
-- Trecho: “Imperative languages are characterized as having an implicit
-  state that is modified (i.e., side effected) by constructs (i.e.,
-  commands) in the source language.”; “the assignment statement is a (very
-  common) command, since its effect is to alter the underlying implicit
-  store so as to yield a different binding for a particular variable.”
-  (p. 361)
-- Lido em: =tmp/fontes/hudak1989.pdf=, p. 3 do PDF (p. 361).
-- Observação: define o termo no primeiro uso, antes de Oney, Myers e
-  Brandt (2012) e do §8, que o usam para os /callbacks/.
-- Conferido: 2026-10-09.
 ** oney2012, p. 229
 - Frase: “Os /callbacks/ que alteram o DOM por efeitos colaterais muitas
   vezes levam a um código interdependente, opaco e propenso a erros, o
@@ -141,275 +78,6 @@ Formato:
   palestra), que saiu em 2026-10-09; repõe o custo em defeitos com fonte
   revisada por pares.
 - Conferido: 2026-10-09.
-** gallaba2015, p. 1
-- Frase: “Em JavaScript, os /callbacks/ são frequentes: num estudo de 138
-  programas, em média uma em cada dez definições de função recebe um
-  /callback/, e a maioria dos /callbacks/ é aninhada.”
-- Trecho: “a representative corpus of 138 JavaScript programs […] on
-  average, every 10th function definition takes a callback argument […] the majority of
-  callbacks are nested” (resumo).
-- Lido em: =tmp/fontes/gallaba2015.pdf=, p. 1.
-- Conferido: 2026-10-06.
-
-* §6 [[file:../intro.org::O JavaScript ganhou alternativas ao][O JavaScript ganhou alternativas ao callback]]
-** madsen2017, p. 86:1
-- Frase: “as /promises/, que encadeiam computações assíncronas”
-- Trecho: “promises, an alternative mechanism for managing asynchrony that
-  enables programmers to chain asynchronous computations while supporting
-  proper error handling” (resumo, p. 86:1).
-- Lido em: =tmp/fontes/madsen2017.pdf=, p. 1 do PDF (p. 86:1).
-- Conferido: 2026-10-07.
-** grolaux2026, p. 9
-- Frase: “As /promises/ achatam o aninhamento dos /callbacks/, mas a lógica
-  complexa continua presa em cadeias de /callbacks/.”
-- Trecho: “Promises [34] improved this by flattening the structure (Listing
-  2), yet complex logic remains trapped in callback chains.” (p. 9)
-- Lido em: =tmp/fontes/grolaux2026.pdf=, p. 3 do PDF (p. 9).
-- Conferido: 2026-10-07.
-** berry2020, p. 535 e 538
-- Frase: “Numa implementação em JavaScript que guarda o estado da aplicação
-  em variáveis globais, o /async/ e o /await/ não ajudam a coordenar esse
-  estado.”
-- Trecho: “We use global variables (registers) to model the application’s
-  states.” (p. 535); “Control. JavaScript uses global variables to
-  represent the state of the application; note that the ES6 async/await
-  extensions do not help with this respect.” (p. 538)
-- Lido em: =tmp/fontes/berry2020.pdf=, p. 3 e 6 do PDF (p. 535 e 538; a
-  p. 1 do PDF é a 533).
-- Observação: as variáveis globais são do exemplo de Berry e Serrano, e não
-  da linguagem; corrigido na checagem de 2026-10-08.
-- Conferido: 2026-10-07; a p. 535, em 2026-10-09.
-** grolaux2026, p. 9 (async e await)
-- Frase: “[...] e as palavras-chave /async/ e /await/, que permitem escrever
-  operações assíncronas em estilo sequencial (Grolaux et al., 2026, p. 9).”
-- Trecho: “async/await [14] solves this by allowing asynchronous operations
-  to be written in a synchronous-like style”.
-- Lido em: =tmp/fontes/grolaux2026.pdf=, p. 3 do PDF.
-- Observação: a p. 8 dizia o tratamento dos eventos de interface em estilo
-  sequencial, que é a proposta do artigo (StreamAsync), e não um recurso do
-  JavaScript; corrigido na checagem de 2026-10-08.
-- Conferido: 2026-10-09.
-
-* §7 [[file:../intro.org::Outra alternativa ao /callback/ é a][Outra alternativa ao callback é a PR]]
-** salvaneschi2017, p. 1125-1126
-- Frase: “Segundo Salvaneschi et al. (2017, p. 1125-1126), nela o
-  programador declara as relações entre os valores, e o ambiente de
-  execução faz as atualizações que elas exigem.”
-- Trecho: “the programmer states which relations should be enforced among
-  the variables that compose a reactive program and the RP runtime takes
-  care of performing all the required updates” (p. 1125); “the language
-  runtime takes care of change propagation” (p. 1125).
-- Lido em: =tmp/fontes/salvaneschi2017.pdf=, p. 1 do PDF (p. 1125).
-- Conferido: 2026-10-07.
-** bainomugisha2013, p. 2
-- Frase: “Assim, o programador não precisa cuidar da ordem dos eventos nem
-  das dependências entre as computações.”
-- Trecho: “having the language automatically manage the flow of time (by
-  conceptually supporting simultaneity), and data and computation
-  dependencies. This yields the advantage that programmers need not to
-  worry about the order of events and computation dependencies.” (p. 52:2)
-- Lido em: =tmp/fontes/bainomugisha2013.pdf=, p. 2 do PDF (p. 52:2).
-- Conferido: 2026-10-07.
-** bainomugisha2013, p. 1-2
-- Frase: “A PR serve às aplicações orientadas a eventos e interativas e
-  leva às linguagens de programação o modelo das planilhas eletrônicas, em
-  que alterar o valor de uma célula recalcula as fórmulas que dependem dela
-  (Bainomugisha et al., 2013, p. 1-2).”
-- Trecho: “Reactive programming has recently gained popularity as a
-  paradigm that is well-suited for developing event-driven and
-  interactive applications.” (resumo, p. 52:1); “Reactive programming is
-  essentially about embedding the spreadsheet-like model in programming
-  languages.”; “automatic management of data dependencies can be
-  observed in spreadsheet systems [...] If a value of a cell changes then
-  the formulas are automatically recalculated.” (p. 52:2)
-- Lido em: =tmp/fontes/bainomugisha2013.pdf=, p. 1 e 2 do PDF (p. 52:1 e
-  52:2).
-- Conferido: 2026-10-07.
-** salvaneschi2017, p. 1125 (aplicações reativas)
-- Frase: “Na literatura de PR, essas aplicações também se chamam reativas
-  (Salvaneschi et al., 2017, p. 1125) [...]”
-- Trecho: “Reactive applications represent a wide class of software that
-  needs to continuously and interactively respond to internal or external
-  stimuli”; exemplos incluem “user-interactive software, like GUIs and Web
-  applications” (p. 1125).
-- Lido em: =tmp/fontes/salvaneschi2017.pdf=, p. 1 do PDF.
-- Conferido: 2026-10-09.
-** myter2019, 5:1
-- Frase: “[...] mas a palavra tem sentidos diferentes em linguagens de
-  programação e em sistemas distribuídos (Myter; Scholliers; De Meuter,
-  2019, 5:1) [...]”
-- Trecho: “The term reactivity is popular in two areas of research:
-  programming languages and distributed systems. On one hand, reactive
-  programming is a paradigm [...]. On the other hand, reactive distributed
-  systems handle client requests in a timely fashion regardless of load or
-  failures.” (resumo, 5:1)
-- Lido em: =tmp/fontes/myter2019.pdf=, p. 1 do PDF.
-- Conferido: 2026-10-10.
-** grolaux2026, p. 13
-- Frase: “[...] e já nomeia tecnologias como o React (Grolaux;
-  Nguyen; Vanderdonckt, 2026, p. 13).”
-- Trecho: “Common reactive systems like React or Vue rely on a virtual DOM
-  mechanism” (p. 13).
-- Lido em: =tmp/fontes/grolaux2026.pdf=, p. 7 do PDF (p. 13).
-- Conferido: 2026-10-12.
-
-* §8 [[file:../intro.org::testaram uma afirmação repetida][testaram uma afirmação repetida]]
-** salvaneschi2017, p. 1125-1134
-- Frase: “Num experimento controlado com 127 estudantes, quem leu os
-  programas escritos com PR acertou mais perguntas sobre eles do que quem
-  os leu com o /Observer Pattern/ (médias de 8,13 e 7,05 acertos em dez,
-  com diferença significativa). Também respondeu mais rápido em seis das
-  dez tarefas, sem diferença significativa nas outras quatro.”
-- Trecho: “The study involves 127 subjects and compares reactive
-  programming to the traditional object-oriented style with the Observer
-  design pattern.” (resumo, p. 1125); “The mean score for the OO group and
-  the RP group are µ(score,OO) = 7.05 and µ(score,RP) = 8.13” (PDF p. 7);
-  tempo: “tasks 1-2-3-4-6-7, H0 can be rejected with high significance. In
-  all those cases, the rank sum indicates that times for the OO group are
-  higher than times for the RP group (Table 3 [...]), i.e., the RP group is
-  faster. For the tasks 5-8-9-10, H0 cannot be rejected.”; “Finding 2:
-  Comprehending programs in the RP style does not require more time than
-  comprehending their OO equivalent.” (PDF p. 9, p. 1133)
-- Lido em: =tmp/fontes/salvaneschi2017.pdf=, p. 1, 7 e 9 do PDF; as páginas
-  publicadas (1125 a 1141) se contam do início, sem paginação impressa no
-  PDF.
-- Conferido: 2026-10-06; o tempo, em 2026-10-08.
-** salvaneschi2017, p. 1125 (afirmação repetida)
-- Frase: “Salvaneschi et al. (2017, p. 1125-1134) testaram uma afirmação
-  repetida, ainda sem evidência empírica suficiente, de que a PR torna os
-  programas mais fáceis de compreender que o /Observer Pattern/, o padrão
-  tradicional da POO para aplicações interativas.”
-- Trecho: “it has been repeatedly argued that RP greatly improves over the
-  traditional Observer pattern used in Object-oriented (OO) programming
-  [...]. However, there has not been enough empirical evidence to support
-  these claimed advantages of RP.” Na p. 1127: “In OO languages, reactive
-  applications are usually developed using the Observer design pattern”.
-  Na p. 1125, as aplicações reativas incluem “user-interactive software,
-  like GUIs and Web applications”: as interativas são parte delas.
-- Lido em: =tmp/fontes/salvaneschi2017.pdf=, p. 1 e 3 do PDF (manuscrito;
-  publicada = 1124 + página do PDF).
-- Conferido: 2026-10-09.
-
-* §20 [[file:../intro.org::A orquestração pesa mais na Busca][A orquestração pesa mais na Busca]]
-** kiss2014, p. 11 e 25
-- Frase: “O Formulário adapta o /Flight Booker/, uma das sete tarefas do
-  7GUIs, de Kiss (2014, p. 11 e 25), e acrescenta os campos de nome e de
-  e-mail.”
-- Trecho: “seven case studies in increasing complexity are presented”
-  (p. 11); sumário: “3.5 Flight Booker … 25”; o nome 7GUIs é o do
-  repositório da dissertação, “https://github.com/eugenkiss/7guis”
-  (Apêndice A, p. 114, p. 120 do PDF).
-- Lido em: =tmp/fontes/kiss2014.pdf=, p. 17 do PDF para a p. 11 impressa.
-- Observação: até 2026-10-13, o Contador e a Lista adaptavam também o
-  /Counter/ (p. 17) e o /CRUD/ (p. 34); saíram da análise (ADR 0002).
-- Conferido: 2026-10-06; de novo em 2026-10-13.
-** berry2020, p. 534
-- Frase: “O Login segue o painel de Berry e Serrano (2020, p. 534)”.
-- Trecho: “We introduce HipHop.js with a simple login panel as used by
-  many web applications. When both the user name and password are filled
-  with at least two characters, a login button is activated.” (p. 534)
-- Lido em: =tmp/fontes/berry2020.pdf=, p. 2 do PDF (p. 534).
-- Observação: a quarentena é o “Login Panel 2.0” da p. 539 e entra na segunda
-  rodada (ADR 0029); o nome da tarefa já a traz.
-- Conferido: 2026-10-13.
-** meijer2012, p. 66
-- Frase: “e os Dados ao vivo, as cotações que uma fonte empurra aos
-  clientes, em Meijer (2012, p. 66).”
-- Trecho: “source asynchronously pushing data to its clients”; “push-based
-  streams of stock quotes” (p. 66)
-- Lido em: =tmp/fontes/meijer2012-cacm.pdf=, p. 1 do PDF (p. 66).
-- Conferido: 2026-10-13.
-
-* §21 [[file:../intro.org::Na web, Web Component, React e Solid][Na web, Web Component, React e Solid]]
-** mozilla2026 (escolha do Web Component)
-- Frase: “O imperativo por atualização manual entra com o Web Component, a forma
-  do próprio navegador de criar elementos personalizados (Mozilla, 2026).”
-- Trecho: “custom elements: that is, HTML elements whose behavior is
-  defined by the web developer, that extend the set of elements available
-  in the browser.”; “This class will not be called by you, but will be
-  called by the browser.”
-- Lido em: =tmp/fontes/mozilla2026.txt=, l. 7 e 49 (página salva; MDN,
-  modificada em 2026-09-01).
-- Observação: o jQuery, que dividia a frase, saiu do texto (ADR 0013).
-- Conferido: 2026-10-13.
-** google2026d
-- Frase: “O Lit se constrói sobre o Web Component: seus componentes são
-  elementos personalizados do navegador, mas cada alteração de estado chama
-  de novo o método que monta a tela (Google, 2026d).”
-- Trecho: “Lit components are standard custom elements and inherit the
-  custom element lifecycle methods.”; “The reactive update cycle is
-  triggered when a reactive property changes or when the requestUpdate()
-  method is explicitly called.”; “The component’s render method is called
-  to update its internal DOM.”
-- Lido em: =tmp/fontes/lit2026-lifecycle.html= (página salva em
-  2026-10-13; lit.dev/docs/components/lifecycle/).
-- Observação: que o par Web Component e Lit mantém o modelo de componente
-  e a orquestração é do próprio delineamento (ADR 0013), e não da fonte.
-- Conferido: 2026-10-13.
-
-* §29 [[file:../intro.org::Em cada rodada, a avaliação percorre][Em cada rodada, a avaliação percorre]]
-** blackwell2003, p. 115-118
-- Frase: “Em cada rodada, a avaliação percorre as 14 DCs da lista completa
-  (Blackwell; Green, 2003, p. 115-118)”.
-- Trecho: “The full list is currently 14 (although several more have been
-  proposed, as will be discussed later)” (p. 115); as dimensões vêm nas
-  p. 115-118.
-- Lido em:
-  =tmp/fontes/blackwell2003-notational-systems—the-cognitive-dimensions-of-notations-framework.pdf=,
-  p. 13 a 16 do PDF (p. 115 a 118).
-- Observação: os nomes em português e a expressividade de papel
-  (/role-expressiveness/) seguem o CONTEXT.md; o agrupamento em oito, duas
-  e quatro é do trabalho (ADR 0012), e não da fonte.
-- Conferido: 2026-10-13.
-** blackwell2001, p. 332
-- Frase: “e não um subconjunto escolhido antes, porque a escolha prévia
-  pode atrapalhar, e o conjunto inteiro traz resultados inesperados e
-  úteis (Blackwell et al., 2001, p. 332).”
-- Trecho: “prior selection of a subset of CDs may be unhelpful. Using the
-  full set of dimensions can produce some unexpected, but useful results”
-  (p. 332)
-- Lido em: =tmp/fontes/blackwell2001-springer.pdf=, p. 8 do PDF (p. 332).
-- Conferido: 2026-10-13.
-** green2006, p. 357
-- Frase: “Destas, a avaliação lê a face que aparece na notação, porque os
-  próprios autores suspeitam que há uma zona cinzenta entre as dimensões da
-  notação e as do ambiente (Green et al., 2006, p. 357).”
-- Trecho: “Should we, then, divide the dimensions into groups? Would that
-  simplify things? Unfortunately we suspect that with the current list and
-  their definitions, the division is not clean.” (p. 357)
-- Lido em: =tmp/fontes/green2006-cognitive-dimensions-achievements-new-directions-and-open-questions.pdf=,
-  p. 30 do PDF (p. 357).
-- Observação: o ADR 0012 dizia p. 356-357; a frase está na p. 357. O
-  que não se divide são as dimensões, em grupos, e é suspeita dos autores
-  (“we suspect”), daí “os próprios autores suspeitam”; a viscosidade, logo
-  depois, é o exemplo do que fica no meio (“Is that structural or
-  cognitive?”). Até 2026-10-13, o texto dizia “a divisão [...] não é
-  limpa”, decalque de “not clean”.
-- Conferido: 2026-10-13; frase revista no mesmo dia.
-** blackwell2003, p. 115 (atividade)
-- Frase: “Nenhuma dimensão é boa ou má em si, e a avaliação sempre leva em
-  conta a atividade a apoiar (Blackwell; Green, 2003, p. 115).”
-- Trecho: “Important: None of these dimensions is evaluative when
-  considered on its own. Evaluation must always take into account the
-  activities to be supported.” (p. 115)
-- Lido em: o mesmo PDF, p. 13 (p. 115).
-- Conferido: 2026-10-13.
-** blackwell2003, p. 113
-- Frase: “Na primeira rodada, as atividades são a busca e a compreensão
-  exploratória do código pronto, e, na segunda e na terceira, a modificação
-  (Blackwell; Green, 2003,
-  p. 113).”
-- Trecho: tabela 5.1, “Six generic types of notation-use activity”:
-  “modification: [...] modifying a spreadsheet or program for a different
-  problem”; “searching: hunting for a known target, such as where a
-  function is called”; “exploratory understanding: discovering structure
-  or algorithm”; “the analyst should decide which ones are required”
-  (p. 113)
-- Lido em: o mesmo PDF, p. 11 (p. 113).
-- Observação: a fonte dá as seis atividades; a escolha de três e a divisão
-  por rodada são do trabalho (docs/metodo-da-avaliacao.md, seção 8;
-  tmp/relatorio-termos-e-coordenacao.md, seção 5.1).
-- Conferido: 2026-10-13.
 
 * §14 [[file:../intro.org::Nenhum desses trabalhos compara, sobre as mesmas tarefas][Nenhum desses trabalhos compara, sobre as mesmas tarefas]]
 ** wohlin2014, p. 3-4
@@ -454,19 +122,6 @@ Formato:
   difficult tasks and will remain so for the foreseeable future.”
 - Lido em: =tmp/fontes/myers1994.pdf=, p. 1 do PDF (resumo).
 - Conferido: 2026-10-09; de novo em 2026-10-12.
-** myers1994, p. 75 (projeto)
-- Frase: “No projeto, além dos problemas comuns a todo sistema de software
-  complexo, os /designers/ lidam com tarefas e domínios complexos e têm
-  dificuldade de pensar como o usuário (Myers, 1994, p. 75).”
-- Trecho: “in addition to the difficulties associated with designing any
-  complex software system, user interfaces add the following problems:
-  designers have difficulty thinking like users; tasks and domains are
-  complex” (seção “No Silver Bullet”, p. 75)
-- Lido em: =tmp/fontes/myers1994.pdf=, p. 3 do PDF (p. 75).
-- Observação: é o contraste entre projeto e implementação que Kiss (2014,
-  p. 5) faz citando o relatório técnico de Myers de 1993, a versão
-  anterior deste artigo.
-- Conferido: 2026-10-12.
 ** myers1994, p. 79 (eventos a qualquer momento)
 - Frase: “Na implementação, o programa precisa aceitar os eventos de
   entrada a qualquer momento, mesmo enquanto executa outros comandos
@@ -478,24 +133,6 @@ Formato:
   75 sai como “a qualquer momento”, porque “tempo real” tem no texto o
   sentido estrito dos sistemas embarcados.
 - Conferido: 2026-10-12; dividida em duas frases em 2026-10-13.
-** myers1994, p. 75, 79 e 80 (robustez)
-- Frase: “Também precisa ser robusto: tratar qualquer entrada sem parar de
-  funcionar e, como o usuário espera, permitir que ele cancele e desfaça a
-  maioria das ações (Myers, 1994, p. 75, 79 e 80).”
-- Trecho: “the software must be especially robust while supporting
-  aborting and undoing of most actions” (p. 75); “Users expect to be able
-  to abort and undo actions (for example, by typing control-C or
-  Command-dot).” (p. 79); “the software that handles the users’ inputs has
-  especially stringent requirements because all inputs must be gracefully
-  handled. [...] the user interface must always accept any possible input,
-  and continue to operate. [...] user interfaces should allow the user to
-  abort and undo operations.” (seção “Need for Robustness”, p. 80)
-- Lido em: =tmp/fontes/myers1994.pdf=, p. 3, 7 e 8 do PDF (p. 75, 79 e
-  80).
-- Observação: Myers põe o desfazer ao lado da robustez, e não como
-  consequência dela; o porquê do desfazer, na p. 79, é a expectativa do
-  usuário.
-- Conferido: 2026-10-13.
 ** kiss2014, p. 5
 - Frase: “Como Kiss (2014, p. 5), este trabalho deixa de lado, apesar da
   importância, o projeto da interface e a usabilidade dela para quem a
@@ -575,107 +212,6 @@ Formato:
   está em Salvaneschi et al. (2017), no §6.
 - Conferido: 2026-10-09.
 
-* §27 [[file:../intro.org::A avaliação cabe ao autor][A avaliação cabe ao autor]]
-** kiss2014, p. 8
-- Frase: “Kiss (2014, p. 8) chama de analítica a avaliação pelas DCs e a
-  adota como alternativa aos experimentos com programadores, muitas vezes
-  caros e de resultados necessariamente restritos.”
-- Trecho: “Such studies have high meaningfulness but are often expensive
-  and their results are by necessity rather narrow. An alternative is an
-  analytical approach. The Cognitive Dimensions of Notations framework
-  (CDs) [43] is a set of standardized criteria for analyzing the
-  usability of ‘information artifacts’”
-- Lido em: =tmp/fontes/kiss2014.pdf=, p. 14 do PDF (p. 8 impressa).
-- Conferido: 2026-10-06.
-** blandford2008
-- Frase: “É uma avaliação analítica, feita por especialista, sem a
-  participação de usuários (Blandford; Green, 2008) [...].”
-- Trecho: métodos “which do not require the active involvement of users,
-  being applied, rather, by HCI experts”; “These methods are usually
-  referred to as either ‘analytical’ or ‘inspection’.” As DCs estão na lista
-  de métodos dos autores (p. 2 da cópia).
-- Lido em: =tmp/fontes/blandford2008.pdf=, cópia da UCL
-  (discovery.ucl.ac.uk/id/eprint/14793), p. 1-2; página impressa (158-174)
-  a conferir (tcc-wg7).
-- Observação: resolve a tensão com Blackwell e Green (2003, p. 106), para
-  quem as DCs não são "an analytic method": lá é o modelo formal (GOMS),
-  aqui a inspeção sem usuários, no sentido de IHC, e do próprio Green.
-- Conferido: 2026-10-09.
-
-** sadowski2011, p. 9
-- Frase: “Ela serve de alternativa aos estudos com programadores, que
-  comparam linguagens a custo alto e com resultados muitas vezes
-  inconclusivos (Sadowski; Kurniawan, 2011, p. 9) [...].”
-- Trecho: “user studies which compare programming languages or systems are
-  often very expensive and typically inconclusive.”
-- Lido em: =tmp/fontes/sadowski2011.pdf=, p. 1 do PDF (resumo).
-- Conferido: 2026-10-09.
-
-** dagit2006 (custo)
-- Frase: “[...] e as DCs pedem menos tempo que eles (Dagit et al., 2006).”
-- Trecho: “CDs are more practical in terms of designer time than other
-  alternatives such as empirical user studies.”
-- Lido em: =tmp/fontes/dagit2006.pdf=, pré-publicação de 2006-03-12, p. 4
-  do PDF; página impressa a conferir (tcc-wg7).
-- Conferido: 2026-10-09.
-
-* §9 [[file:../intro.org::O código sequencial tem o problema oposto][O código sequencial tem o problema oposto]]
-** moseley2006, p. 8-9
-- Frase: “O código sequencial tem o problema oposto ao do /callback/: a
-  linguagem obriga a fixar a ordem de execução mesmo quando ela não
-  importa, e quem lê precisa supor que importa.”
-- Trecho: “the ordering in which things will happen is controlled by the
-  order in which the statements of the programming language are written
-  in the textual form of the program.” (p. 8); “Effectively they are being
-  forced to over-specify the problem.”; quem lê “must [...] start with the
-  assumption that the ordering specified is significant” (p. 9).
-- Lido em: =tmp/fontes/moseley2006.pdf=, p. 8 e 9.
-- Conferido: 2026-10-07.
-** moseley2006, p. 1 (causas da complexidade)
-- Frase: “Essa preocupação explícita com o fluxo de controle é uma das
-  causas da complexidade dos sistemas de grande porte (Moseley e Marks,
-  2006, p. 1). As outras causas, para eles, são o volume de código e,
-  sobretudo, o tratamento do estado.”
-- Trecho: “we believe that the major contributor to this complexity in many
-  systems is the handling of state [...]. Other closely related
-  contributors are code volume, and explicit concern with the flow of
-  control through the system.” (p. 1)
-- Lido em: =tmp/fontes/moseley2006.pdf=, p. 1.
-- Conferido: 2026-10-07.
-** edwards2009, p. 929
-- Frase: “Edwards (2009, p. 929) chama de acidental, no mesmo sentido, boa
-  parte do sequenciamento manual das ações que a programação imperativa
-  exige.”
-- Trecho: “This paper suggests that much of the manual sequencing of
-  actions that is the crux of imperative programming is an accidental
-  complexity [2]”, em que [2] é Brooks (p. 929).
-- Lido em: =tmp/fontes/edwards2009-coherent-reaction.pdf=, p. 5 do PDF;
-  p. 929 calculada pelo início dos anais (925).
-- Conferido: 2026-10-07.
-** hudak1989, p. 361
-- Frase: “A programação declarativa expressa o que se computa, e não como,
-  embora isso seja questão de grau, e suas linguagens não têm estado
-  implícito (Hudak, 1989, p. 361).”
-- Trecho: “Functional (in general, declarative) programming is often
-  described as expressing what is being computed rather than how, although
-  this is really a matter of degree.” Na mesma página: “characterized as
-  having no implicit state”.
-- Lido em: =tmp/fontes/hudak1989.pdf=, ACM Computing Surveys.
-- Conferido: 2026-10-09.
-
-** lee2025, 289:1
-- Frase: “Nas interfaces, o componente do React é uma função que especifica a
-  tela de forma declarativa e que, chamada com os mesmos argumentos, deve
-  exibir a mesma interface (Lee; Ahn; Yi, 2025, 289:1).”
-- Trecho: “A React component is a function that serves as a declarative
-  specification of a UI [...]. Ideally, when a component is called with the
-  same arguments, it should render the same interface”.
-- Lido em: =tmp/fontes/lee2025.pdf=, cópia do arXiv com a paginação da ACM.
-- Observação: faz a ponte entre o declarativo de Hudak (sem estado) e o das
-  interfaces (a tela descrita em função do estado); Moseley e Marks (2006)
-  usam "declarativo" sem definição (checagem de 2026-10-08).
-- Conferido: 2026-10-09.
-
 * §10 [[file:../intro.org::Este trabalho compara /modelos de programação/][Este trabalho compara modelos de programação]]
 ** roy2004, p. xiii e 29
 - Frase: “Este trabalho compara /modelos de programação/: as técnicas e os
@@ -694,26 +230,6 @@ Formato:
   paradigma, biblioteca e /framework/ (ADR 0021; nota de referência
   docs/paradigma-modelo-e-notacao.md, seção 4).
 - Conferido: 2026-10-09.
-** roy2004, p. xiii (paradigma)
-- Frase: “Ele não é o paradigma, noção imprecisa que o modelo de
-  computação torna precisa (Van Roy; Haridi, 2004, p. xiii) [...]”
-- Trecho: “The term computation model makes precise the imprecise notion
-  of “programming paradigm.”” (p. xiii)
-- Lido em: o mesmo PDF, p. 14.
-- Conferido: 2026-10-09.
-** mozilla2026 (recurso do navegador)
-- Frase: “o Web Component, recurso do próprio navegador (Mozilla, 2026),
-  não é nenhum dos dois e tem um modelo de programação como as outras
-  tecnologias.”
-- Trecho: “custom elements: that is, HTML elements whose behavior is defined
-  by the web developer, that extend the set of elements available in the
-  browser.”; “This class will not be called by you, but will be called by
-  the browser.”
-- Lido em: =tmp/fontes/mozilla2026.txt=, l. 7 e 49 (página salva; MDN,
-  modificada em 2026-09-01).
-- Observação: até 2026-10-13, a frase contrapunha o jQuery, que se diz
-  biblioteca; o jQuery saiu do texto (ADR 0013).
-- Conferido: 2026-10-09; frase revista em 2026-10-13.
 ** mozilla2026
 - Frase: “e nos Web Components sem biblioteca.”
 - Trecho: o exemplo registra um /callback/ que altera o DOM,
@@ -821,22 +337,6 @@ Formato:
   optimize rendering updates.”
 - Lido em: =tmp/fontes/google2026.txt=, l. 11 (página salva).
 - Conferido: 2026-10-06.
-** google2026 (o Angular atualiza o componente)
-- Frase: “o Angular, quando o /signal/ se altera, marca o componente que o
-  lê e o atualiza na próxima detecção de alterações (Google, 2026).”
-- Trecho: “When you read a signal within an OnPush component's template,
-  Angular tracks the signal as a dependency of that component. When the
-  value of that signal changes, Angular automatically marks the component
-  to ensure it gets updated the next time change detection runs.”
-- Lido em: =tmp/fontes/google2026.txt=, l. 222 (página salva).
-- Observação: a frase dizia que o /template/ “volta a ser renderizado”, o
-  que colidia com o rótulo do React; a unidade da atualização no Angular é
-  o componente (Lee et al., 2025, p. 289:24 e 289:38, reexecução do
-  componente: React “Yes”, Solid e Angular “No”). “Detecção de
-  alterações” traduz /change detection/ sem “mudança”, que o CONTEXT.md
-  reserva ao OpenSpec. O trecho fala do componente OnPush; o texto não
-  distingue a estratégia.
-- Conferido: 2026-10-14.
 ** salvaneschi2015, p. 953
 - Frase: “O modelo de programação por atualização granular usa as abstrações da PR: os valores que
   variam no tempo, chamados /signals/, cujas alterações se propagam
@@ -847,39 +347,6 @@ Formato:
   change.”
 - Lido em: =tmp/fontes/salvaneschi2015.pdf=, p. 1 do PDF (p. 953).
 - Conferido: 2026-10-06.
-** roy2009, p. 10
-- Frase: “Em quase todo problema, cada parte pede o seu conjunto de conceitos
-  (Van Roy, 2009, p. 10), e as implementações deste trabalho também os
-  misturam.”
-- Trecho: “Solving a programming problem requires choosing the right
-  concepts. All but the smallest toy problems require different sets of
-  concepts for different parts. This is why programming languages should
-  support many paradigms.” (p. 10)
-- Lido em: =tmp/fontes/vanroy2009-programming-paradigms-for-dummies.pdf=,
-  p. 2 do PDF (p. 10).
-- Conferido: 2026-10-08.
-** lima2024, p. 18
-- Frase: “O Angular acrescentou essa abstração à sua API (Lima, 2024,
-  p. 18) [...].”
-- Trecho: “Angular, on the hand, has RxJS (Rx for JavaScript) as an integral
-  part of its components since early versions, and, more recently, it added
-  the Signal (behavior) abstraction to its API.”
-- Lido em: =tmp/fontes/lima2024-unveiling-the-usability-of-reactive-programming-apis.pdf=,
-  p. 19 do PDF.
-- Conferido: 2026-10-09.
-
-** tsukanova2026, p. 57
-- Frase: “[...] e o Solid e o Angular com /signals/ aparecem entre as
-  implementações da PR (Tsukanova; Zabrodin, 2026, p. 57).”
-- Trecho: tabela “Сравнение push- и pull-моделей”, linha “Примеры
-  реализации”, coluna pull: “SolidJS, MobX, Knockout, Svelte, Vue 3
-  (реактивные ref/effect), Angular Signals”.
-- Lido em: =tmp/fontes/tsukanova2026.pdf=, p. 4 do PDF.
-- Observação: veículo de uma universidade de transportes, aceito quatro dias
-  depois de recebido; única fonte revisada achada que liga o Solid à PR. Na
-  p. 59, diz que o Angular atualiza só os nós do DOM dependentes, o que a
-  documentação do Angular não sustenta; essa frase não foi usada.
-- Conferido: 2026-10-09.
 
 * §18 [[file:../intro.org::Quanto aos objetivos, a pesquisa é][Quanto aos objetivos, a pesquisa é exploratória]]
 ** runeson2009, p. 135
@@ -919,84 +386,6 @@ Formato:
   hipóteses da pesquisa exploratória ao experimento.
 - Conferido: 2026-10-07.
 
-* §22 [[file:../intro.org::No React e no Solid, a tela se monta][No React e no Solid, a tela se monta em JSX]]
-** meta2026c
-- Frase: “No React e no Solid, a tela se monta em JSX, marcação parecida com HTML
-  escrita dentro do JavaScript.”
-- Trecho: “JSX is a syntax extension for JavaScript that lets you write
-  HTML-like markup inside a JavaScript file.”
-- Lido em: https://react.dev/learn/writing-markup-with-jsx, em 2026-10-07.
-- Observação: a definição por extenso está no prog.org, seção de
-  programação de interfaces gráficas.
-- Conferido: 2026-10-07.
-** solidjs2026
-- Frase: “a cada alteração de estado, o React reexecuta o componente
-  inteiro, e o Solid atualiza só os trechos da tela que dependem do
-  /signal/ alterado.”
-- Trecho: “In Solid, updates are made to the targeted attribute that needs
-  to be changed, avoiding broader and, sometimes unnecessary, updates. In
-  contrast, React would re-execute an entire component for a change in the
-  single attribute”
-- Lido em: =tmp/fontes/solidjs2026.txt=, l. 10 (página salva).
-- Conferido: 2026-10-06.
-** lee2025, 289:38
-- Frase: “a cada alteração de estado, o React reexecuta o componente
-  inteiro, e o Solid atualiza só os trechos da tela que dependem do
-  /signal/ alterado (Lee; Ahn; Yi, 2025, 289:38; SolidJS, 2026b).”
-- Trecho: Tabela 2, “Comparison of reactive UI frameworks”: “Re-read
-  Spec.” é “Yes” no React e “No” no Solid e no Angular; a propriedade é
-  “whether they re-read component specifications for re-rendering”
-  (289:38).
-- Lido em: =tmp/fontes/lee2025.pdf=, p. 38 do PDF (apêndice C).
-- Conferido: 2026-10-09.
-
-* §23 [[file:../intro.org::Solid e Angular com /signals/, ao contrário][Solid e Angular com signals, ao contrário]]
-** solidjs2026a
-- Frase: “Solid e Angular com /signals/, ao contrário, coordenam do mesmo
-  modo: os dois guardam o estado em /signals/ e derivam valores de outros
-  /signals/.”
-- Trecho: “Derived signals are functions that rely on one or more signals
-  to produce a value.”
-- Lido em: https://docs.solidjs.com/concepts/derived-values/derived-signals,
-  em 2026-10-06.
-- Conferido: 2026-10-06.
-** google2026
-- Frase: a mesma, para o Angular.
-- Trecho: “A signal is a wrapper around a value that notifies interested
-  consumers when that value changes.” (l. 21); “Computed signals are
-  read-only signals that derive their value from other signals.” (l. 80)
-- Lido em: =tmp/fontes/google2026.txt= (página salva).
-- Conferido: 2026-10-06.
-** google2026a
-- Frase: “No Solid, a tela se monta em JSX numa função, e, no Angular, num
-  /template/ baseado em HTML, com construtos próprios.”
-- Trecho: “In Angular, a template is a chunk of HTML.”; “Templates are
-  based on HTML syntax, with additional features such as built-in template
-  functions, data binding, event listening, variables, and more.”; “The @
-  character has a special meaning to Angular for adding dynamic behavior,
-  such as control flow, to templates.”
-- Lido em: https://angular.dev/guide/templates, em 2026-10-06.
-- Conferido: 2026-10-06.
-
-** google2026b (classe e decorador)
-- Frase: “O componente do Angular é uma classe com decorador (Google,
-  2026b), e participa da injeção de dependências (Google, 2026c).”
-- Trecho: “Every component must have: A TypeScript class with behaviors such
-  as handling user input and fetching data from a server”; “You provide
-  Angular-specific information for a component by adding a @Component
-  decorator on top of the TypeScript class”.
-- Lido em: https://angular.dev/guide/components, em 2026-10-09.
-- Conferido: 2026-10-09.
-
-** google2026c
-- Frase: a mesma de google2026b, acima.
-- Trecho: “Angular components and directives automatically participate in
-  DI, meaning that you can inject dependencies into them and make them
-  available for injection.”
-- Lido em: https://angular.dev/guide/di, em 2026-10-09.
-- Observação: a frase não tinha fonte até a checagem de 2026-10-08 (K05).
-- Conferido: 2026-10-09.
-
 * §13 [[file:../intro.org::Para discutir o quanto uma notação facilita][Para discutir o quanto uma notação facilita]]
 ** green1989
 - Frase: “há as DCs, propostas por Green (1989)”.
@@ -1017,9 +406,7 @@ Formato:
   cópia dos autores, =tmp/fontes/blackwell2001.pdf=, sem paginação.
 - Conferido: 2026-10-06.
 ** mernik2009
-- Frase: “Mernik et al. (2009) compararam, com 36 programadores, uma
-  linguagem de domínio específico para descrever interfaces gráficas, o
-  XAML, e uma biblioteca de aplicação, o C# Forms.”
+- Frase: “Mernik et al. (2009) compararam o XAML e o Windows Forms em C#.”
 - Trecho: “The experiment was conducted with 36 programmers [...] the same
   problem domain has been used – construction of graphical user
   interfaces. In terms of domain-specific language, XAML has been used and
@@ -1027,9 +414,9 @@ Formato:
 - Lido em: =tmp/fontes/mernik2009.pdf=, p. 1 do PDF (p. 180).
 - Conferido: 2026-10-06.
 ** kiss2014, p. v e 104
-- Frase: “Kiss (2014, p. v e 104) comparou a POO e a PF em sete tarefas de
-  interface, com JavaFX, ScalaFX, Scala.Rx, ReactFX e Elm, e deixou como
-  trabalho futuro comparar os /frameworks/ de interface do navegador.”
+- Frase: “Kiss (2014, p. v, 11 e 104) comparou a POO e a PF em sete tarefas de
+  interface, com JavaFX e ScalaFX, e deixou como trabalho futuro comparar
+  os /frameworks/ de interface do navegador.”
 - Trecho: “The languages and libraries which serve as a practical testbed
   for the comparison are Java/JavaFX on the object-oriented side, and
   Scala/ScalaFX, Scala.Rx, ReactFX and Elm on the functional side.”
@@ -1041,9 +428,8 @@ Formato:
 - Observação: as sete tarefas estão na p. 11 (entrada do §17).
 - Conferido: 2026-10-06.
 ** zimmerle2025, p. 1510 e 1513
-- Frase: “Zimmerle e Gama (2025, p. 1510 e 1513) avaliaram com usuários
-  duas bibliotecas de PR para JavaScript, RxJS e Bacon.js, em tarefas de
-  requisições HTTP.”
+- Frase: “Zimmerle e Gama (2025, p. 1510 e 1513) avaliaram com usuários duas
+  bibliotecas de PR para JavaScript.”
 - Trecho: “we focus on Bacon.js and RxJS in the present work” (p. 1510);
   “In total, we defined five tasks [...], all revolving HTTP requests”
   (p. 1513); “a user-centered study was performed involving programming
@@ -1051,10 +437,9 @@ Formato:
 - Lido em: =tmp/fontes/zimmerle2025.pdf=, p. 5 e 8 do PDF.
 - Conferido: 2026-10-06.
 ** grolaux2026, p. 15
-- Frase: “Fora das DCs, Grolaux et al. (2026, p. 15) compararam
-  conceitualmente, numa prova de conceito em JavaScript, o async/await com
-  /listeners/, barramento de eventos, /streams/ funcionais e PR no
-  tratamento dos eventos de interface.”
+- Frase: “Fora das DCs, Grolaux et al. (2026, p. 15) compararam conceitualmente
+  o async/await com outras formas de tratar os eventos de interface, entre
+  elas a PR.”
 - Trecho: “Through conceptual comparisons with other paradigms, including
   synchronous scripts, event listeners, event-bus architectures, animation
   loops, functional streams, and reactive programming” (p. 15); “Through
@@ -1075,25 +460,6 @@ Formato:
 - Lido em: =tmp/fontes/sim2003.pdf=, p. 3 do PDF (p. 76; o artigo vai de
   74 a 83).
 - Conferido: 2026-10-06.
-** erdweg2015, p. 35
-- Frase: “A medida, neste trabalho, é a avaliação pelas DCs, como nos
-  /benchmarks/ de resultado qualitativo do projeto de linguagens (Erdweg et
-  al., 2015, p. 35) [...].”
-- Trecho: “Not all benchmark problems address performance concerns,
-  however.” “most – including those introduced in this paper – are partly
-  or wholly qualitative: their results are captured in a structured
-  description.”
-- Lido em: =tmp/fontes/erdweg2015.pdf=, p. 12 do PDF (cópia da editora).
-- Conferido: 2026-10-09.
-
-** lu2021, 8:20
-- Frase: “[...] entre os quais está o 7GUIs (Lu; Greenman; Krishnamurthi,
-  2021, 8:20).”
-- Trecho: “We are aware of a few other benchmarks for aspects of language
-  design. [...] Finally, 7GUIs [34] presents seven tasks for GUI toolkits to
-  express succinctly.”
-- Lido em: =tmp/fontes/lu2021.pdf=, versão publicada (acesso aberto).
-- Conferido: 2026-10-09.
 
 * §31 [[file:../intro.org::Por ser analítica][Por ser analítica]]
 ** green2006, p. 334
@@ -1136,6 +502,20 @@ Formato:
   com fonte; a de categorias, e não artefatos, é da nota de referência
   docs/paradigma-modelo-e-notacao.md, seção 2.
 - Conferido: 2026-10-09.
+** google2026d
+- Frase: “Os pares isolam pouco: na web, só o Web Component e o Lit, ambos
+  com componentes que são elementos personalizados do navegador (Google,
+  2026d), separam o imperativo de um declarativo [...]”
+- Trecho: “Lit components are standard custom elements and inherit the
+  custom element lifecycle methods.”; “The reactive update cycle is
+  triggered when a reactive property changes or when the requestUpdate()
+  method is explicitly called.”; “The component’s render method is called
+  to update its internal DOM.”
+- Lido em: =tmp/fontes/lit2026-lifecycle.html= (página salva em
+  2026-10-13; lit.dev/docs/components/lifecycle/).
+- Observação: que o par Web Component e Lit mantém o modelo de componente
+  e a orquestração é do próprio delineamento (ADR 0013), e não da fonte.
+- Conferido: 2026-10-13.
 
 * §30 [[file:../intro.org::O delineamento tem limitações em três pontos][O delineamento tem limitações em três pontos]]
 ** hertzum2003, p. 183
@@ -1163,132 +543,88 @@ Formato:
   de uma linguagem visual; aqui, o autor das implementações.
 - Conferido: 2026-10-09.
 
-* §24 [[file:../intro.org::Fora da web, cada plataforma tem um par][Fora da web, cada plataforma tem um par]]
-** android2026
-- Frase: “As Views ficam no imperativo por atualização manual, e o Compose, no
-  declarativo por re-renderização, porque chama de novo as funções da tela
-  quando o estado se altera (Google, 2026).”
-- Trecho: “Recomposition is the process of calling your composable
-  functions again when inputs change.”
-- Lido em: =tmp/fontes/android2026.txt=, l. 966 (página salva em
-  2026-10-09; atualizada em 2026-10-01).
-- Conferido: 2026-10-09.
-** microsoft2026a
-- Frase: “O Windows Forms fica no imperativo por atualização manual, porque
-  o tratador de cada evento atribui os valores aos controles, sem o /data
-  binding/ que ele também oferece (Microsoft, 2025b; Microsoft, 2026a)”.
-  Microsoft (2026a) sustenta o tratador; a atribuição aos controles é o
-  que sobra sem o /binding/ (microsoft2025b, abaixo).
-- Trecho: “If one of these events is raised and there's an associated
-  event handler, the handler is invoked and code is run.”
-- Lido em: =tmp/fontes/microsoft2026a-winforms-events.html= (página salva
-  em 2026-10-13; atualizada em 2026-02-20).
-- Conferido: 2026-10-13.
-** microsoft2025b
-- Frase: a mesma, “sem o /data binding/ que ele também oferece”.
-- Trecho: “Essentially, data binding is an automatic way of setting any
-  run-time accessible property of any control on a form.”
-- Lido em: =tmp/fontes/microsoft2025b-winforms-data-binding.html= (página
-  salva em 2026-10-14; atualizada em 2025-08-27).
-- Observação: que as implementações não usam o /binding/ é decisão do
-  autor em 2026-10-14 (ADR 0001; tarefa “Implementar o par Windows Forms ×
-  WPF”); sem ele, o código atribui as propriedades dos controles, o que dá
-  o rótulo.
+* §5 [[file:../intro.org::Uma alternativa ao /callback/ é a][Uma alternativa ao /callback/ é a]]
+** salvaneschi2017, p. 1125-1126
+- Frase: “Segundo Salvaneschi et al. (2017, p. 1125-1126), nela o
+  programador declara as relações entre os valores, e o ambiente de
+  execução faz as atualizações que elas exigem.”
+- Trecho: “the programmer states which relations should be enforced among
+  the variables that compose a reactive program and the RP runtime takes
+  care of performing all the required updates” (p. 1125); “the language
+  runtime takes care of change propagation” (p. 1125).
+- Lido em: =tmp/fontes/salvaneschi2017.pdf=, p. 1 do PDF (p. 1125).
+- Conferido: 2026-10-07.
+** bainomugisha2013, p. 2
+- Frase: “Assim, o programador não precisa cuidar da ordem dos eventos nem
+  das dependências entre as computações.”
+- Trecho: “having the language automatically manage the flow of time (by
+  conceptually supporting simultaneity), and data and computation
+  dependencies. This yields the advantage that programmers need not to
+  worry about the order of events and computation dependencies.” (p. 52:2)
+- Lido em: =tmp/fontes/bainomugisha2013.pdf=, p. 2 do PDF (p. 52:2).
+- Conferido: 2026-10-07.
+** salvaneschi2017, p. 1125-1134 (o experimento)
+- Frase: “Num experimento controlado com 127 estudantes, quem leu programas
+  escritos com PR os compreendeu melhor do que quem leu as versões dos
+  mesmos programas com o /Observer Pattern/ (Salvaneschi et al., 2017,
+  p. 1125-1134).”
+- Trecho: “The study involves 127 subjects and compares reactive
+  programming to the traditional object-oriented style with the Observer
+  design pattern. Our findings show that program comprehension is
+  significantly enhanced by the reactive-programming paradigm” (resumo,
+  p. 1125); “Each program is implemented in two versions.” (p. 1128).
+- Lido em: =tmp/fontes/salvaneschi2017.pdf=, p. 1 e 4 do PDF (p. 1125 e 1128).
+- Observação: os números do experimento (médias, tempo de resposta) foram
+  com o parágrafo inteiro para a seção 2.4 (texto/fontes/prog.org).
 - Conferido: 2026-10-14.
-** microsoft2025
-- Frase: “e o WPF, no declarativo por atualização granular, porque,
-  quando um dado se altera, os elementos ligados a ele se atualizam sozinhos
-  (Microsoft, 2025).”
-- Trecho: “If the binding has the correct settings and the data provides
-  the proper notifications, when the data changes its value, the elements
-  that are bound to the data reflect changes automatically.”
-- Lido em: =tmp/fontes/microsoft2025-wpf-data-binding.html= (página salva
-  em 2026-10-13; atualizada em 2025-08-27).
-- Observação: a fonte sustenta a atualização só dos elementos ligados; pôr
-  o WPF no declarativo por atualização granular é hipótese do trabalho
-  (docs/plataformas.md, seção Windows Forms × WPF), a conferir no código
-  (tcc-74m).
-- Conferido: 2026-10-13.
+** bainomugisha2013, p. 1-2
+- Frase: “A PR serve às aplicações orientadas a eventos e interativas e
+  leva às linguagens de programação o modelo das planilhas eletrônicas, em
+  que alterar o valor de uma célula recalcula as fórmulas que dependem dela
+  (Bainomugisha et al., 2013, p. 1-2).”
+- Trecho: “Reactive programming has recently gained popularity as a
+  paradigm that is well-suited for developing event-driven and
+  interactive applications.” (resumo, p. 52:1); “Reactive programming is
+  essentially about embedding the spreadsheet-like model in programming
+  languages.”; “automatic management of data dependencies can be
+  observed in spreadsheet systems [...] If a value of a cell changes then
+  the formulas are automatically recalculated.” (p. 52:2)
+- Lido em: =tmp/fontes/bainomugisha2013.pdf=, p. 1 e 2 do PDF (p. 52:1 e
+  52:2).
+- Conferido: 2026-10-07.
 
-* §25 [[file:../intro.org::A avaliação se faz em três rodadas][A avaliação se faz em três rodadas]]
-** kiss2014, p. 3
-- Frase: “A avaliação se faz em três rodadas, cada uma mais estreita que
-  a anterior, como as de Kiss (2014, p. 3): a primeira responde à P1, e a
-  segunda e a terceira, à P1.1 e à P1.2.” A ligação de cada rodada a uma
-  pergunta é do trabalho; Kiss sustenta só a sequência de etapas.
-- Trecho: “Chapter 3 [...] implementations in both Java/JavaFX and
-  Scala/ScalaFX of representative case studies are compared [...]. Chapter
-  4 [...] the potential additional benefits of FRP are examined by
-  extending the solutions for the case studies in ScalaFX with Scala.Rx
-  and ReactFX. Afterwards, [...] by providing implementations of a
-  selection of the case studies in Elm.” (p. 3)
-- Lido em: =tmp/fontes/kiss2014.pdf=, p. 9 do PDF (p. 3).
-- Conferido: 2026-10-13.
-** green1996d, p. 161
-- Frase: “A segunda rodada faz o código crescer porque é nos problemas grandes que os
-  efeitos da viscosidade mais aparecem (Green; Petre, 1996, p. 161).”
-- Trecho: “Nobody can do big, hard problems in their heads. Which is a
-  pity, because those are the ones where the effects of viscosity will be
-  most apparent.” (p. 161)
-- Lido em: =tmp/fontes/green1996-usability-analysis-of-visual-programming-environments-a-cognitive-dimensions-framework.pdf=,
-  p. 31 do PDF (p. 161).
-- Conferido: 2026-10-13.
-
-* §30 [[file:../intro.org::A seção ref:chap:results compara os modelos][A seção ref:chap:results compara os modelos]]
-** blackwell2003, p. 106 e 112
-- Frase: “A seção 4 compara os modelos de programação pelo perfil de cada
-  um nas DCs (Blackwell; Green, 2003, p. 106 e 112) [...]. Cada célula dá
-  a posição do modelo na DC [...]”
-- Trecho: “for each step in each task, ask whether the user can choose
-  where to start; [...] and so on, for the other dimensions. This will
-  generate an observed profile.” (p. 106); “the second step is to
-  scrutinise the system and determine how it lies on each dimension. If
-  the two profiles match, all is well.” (p. 112)
-- Lido em: =tmp/fontes/blackwell2003.pdf=, p. 4 e 10 do PDF (p. 106 e 112).
-- Observação: “posição” e “perfil” vêm daí (decisão do autor em
-  2026-10-14; CONTEXT.md, Posição e Perfil); a fonte compara o perfil
-  observado com o que cada atividade pede, e o trabalho compara os perfis
-  dos modelos entre si.
-- Conferido: 2026-10-14.
-** green1996d, p. 162
-- Frase: “a mesma mudança, preparada antes e feita em cada implementação,
-  como no teste de Green e Petre (1996, p. 162)”.
-- Trecho: “As a straw test of viscosity, we made the same change to each
-  version of the rocket program”; “our straw test was conducted in two
-  stages. First one author (TG) constructed a modification” (p. 162)
-- Lido em: o mesmo PDF, p. 32 (p. 162).
-- Conferido: 2026-10-13.
-** blackwell2003, p. 115 (viscosidade)
-- Frase: “mostra quantas ações ela pede, e quantas outras restauram a
-  consistência (Blackwell; Green, 2003, p. 115).”
-- Trecho: “A viscous system needs many user actions to accomplish one
-  goal. [...] We distinguish repetition viscosity, many actions of the
-  same type, from knock-on (or "domino") viscosity, where further actions
-  are required to restore consistency.” (p. 115)
-- Lido em: o PDF publicado de Blackwell e Green (2003), p. 13 (p. 115).
-- Conferido: 2026-10-13.
-
-* §26 [[file:../intro.org::Quatro coisas poderiam diferenciar as implementações][Quatro coisas poderiam diferenciar as implementações]]
-** prodanov2013, p. 54
-- Frase: “Esse controle das variáveis é parte do planejamento da
-  pesquisa, o delineamento (Prodanov; Freitas, 2013, p. 54).”
-- Trecho: “[...] denominado de design, que pode ser traduzido como
-  delineamento [...]. O delineamento refere-se ao planejamento da pesquisa
-  em sua dimensão mais ampla, envolvendo diagramação, previsão de análise e
-  interpretação de coleta de dados, considerando o ambiente em que são
-  coletados e as formas de controle das variáveis envolvidas.” (p. 54)
-- Lido em: =tmp/fontes/prodanov2013.pdf=, p. 54 do PDF (p. 54).
-- Observação: primeira menção de “delineamento” no capítulo, no fim do
-  parágrafo que mostra o controle; o termo segue o CONTEXT.md, contra
-  “desenho”.
-- Conferido: 2026-10-13.
-** google2026b (TypeScript)
-- Frase: “A linguagem é uma só em cada plataforma: na web, o /TypeScript/,
-  que o Angular exige (Google, 2026b) e as demais tecnologias também usam
-  [...].”
-- Trecho: “Every component must have: A TypeScript class with behaviors such
-  as handling user input and fetching data from a server”.
-- Lido em: https://angular.dev/guide/components, em 2026-10-09; o uso do TypeScript
-  pelas outras tecnologias se confere em =casos/= (só =.ts= e =.tsx= nas
-  implementações, achado L03 da checagem de 2026-10-08).
+* §6 [[file:../intro.org::sugere que boa parte do sequenciamento][sugere que boa parte do sequenciamento]]
+** edwards2009, p. 929
+- Frase: “Edwards (2009, p. 929) chama de acidental, no mesmo sentido, boa
+  parte do sequenciamento manual das ações que a programação imperativa
+  exige.”
+- Trecho: “This paper suggests that much of the manual sequencing of
+  actions that is the crux of imperative programming is an accidental
+  complexity [2]”, em que [2] é Brooks (p. 929).
+- Lido em: =tmp/fontes/edwards2009-coherent-reaction.pdf=, p. 5 do PDF;
+  p. 929 calculada pelo início dos anais (925).
+- Conferido: 2026-10-07.
+** hudak1989, p. 361
+- Frase: “A programação declarativa expressa o que se computa, e não como,
+  embora isso seja questão de grau, e suas linguagens não têm estado
+  implícito (Hudak, 1989, p. 361).”
+- Trecho: “Functional (in general, declarative) programming is often
+  described as expressing what is being computed rather than how, although
+  this is really a matter of degree.” Na mesma página: “characterized as
+  having no implicit state”.
+- Lido em: =tmp/fontes/hudak1989.pdf=, ACM Computing Surveys.
 - Conferido: 2026-10-09.
+
+** lee2025, 289:1
+- Frase: “Nas interfaces, o componente do React é uma função que especifica a
+  tela de forma declarativa e que, chamada com os mesmos argumentos, deve
+  exibir a mesma interface (Lee; Ahn; Yi, 2025, 289:1).”
+- Trecho: “A React component is a function that serves as a declarative
+  specification of a UI [...]. Ideally, when a component is called with the
+  same arguments, it should render the same interface”.
+- Lido em: =tmp/fontes/lee2025.pdf=, cópia do arXiv com a paginação da ACM.
+- Observação: faz a ponte entre o declarativo de Hudak (sem estado) e o das
+  interfaces (a tela descrita em função do estado); Moseley e Marks (2006)
+  usam "declarativo" sem definição (checagem de 2026-10-08).
+- Conferido: 2026-10-09.
+

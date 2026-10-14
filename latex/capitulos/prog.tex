@@ -15,7 +15,7 @@ sequência de forma explícita.
 Tais linguagens são baseadas no modelo \emph{imperativo} de computação, e são
 denominadas \emph{linguagens imperativas}.
 \section{Linguagens de programação}
-\label{sec:org6862136}
+\label{sec:org3fe7b7f}
 \label{sec:langs}
 
 Linguagens de programação são mais simples que linguagens naturais, no
@@ -45,8 +45,30 @@ interno — ou \emph{memória}, o que um programa se lembra enquanto está ‘ro
 Programas com estado interno, ou \emph{statefull} em inglês, são projetados para
 lembrar de eventos anteriores ou de interações com o usuário.
 A informação recordada é denominada o estado do programa \cite{rouse2005}.
-\section{Paradigmas de programação}
-\label{sec:org64c4a5c}
+\section{Paradigmas e modelos de programação}
+\label{sec:org9cd95a2}
+\todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}
+
+O modelo de programação não é o paradigma, noção imprecisa que o modelo
+de computação torna precisa \cite[p. xiii]{roy2004}.
+Também não é a biblioteca nem o \emph{framework}, que classificam o produto: o
+Web Component, recurso do próprio navegador \cite{mozilla2026}, não é
+nenhum dos dois e tem um modelo de programação como as outras
+tecnologias.
+
+Cada modelo de programação aplica conceitos de um ou mais paradigmas.
+Em quase todo problema, cada parte pede o seu conjunto de conceitos
+\cite[p. 10]{roy2009}, e as implementações deste trabalho também os
+misturam.
+
+As aplicações orientadas a eventos e interativas, na literatura de
+\gls{pr}, também se chamam reativas \cite[p. 1125]{salvaneschi2017}, mas
+a palavra tem sentidos diferentes em linguagens de programação e em sistemas
+distribuídos \cite[5:1]{myter2019} e já nomeia tecnologias como o React
+\cite[p. 13]{grolaux2026}.
+Por isso, este trabalho as chama de interativas e reserva “reativo” para a
+\gls{pr}.
+
 Programação é uma disciplina extensa, e linguagens práticas de programação
 geralmente são bastante complicadas.
 Felizmente, as ideias importantes de linguagens de programação são simples
@@ -118,7 +140,57 @@ Esses paradigmas não possuem condições de corrida, \emph{‘race conditions�
 inglês.
 \todo{Esses últimos dois parágrafos parecem estar deslocados.}
 \section{Programação de interfaces gráficas}
-\label{sec:org0ccb883}
+\label{sec:orge743e6d}
+\todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}
+
+No projeto da interface, além dos problemas comuns a todo sistema de
+software complexo, os \emph{designers} lidam com tarefas e domínios complexos e
+têm dificuldade de pensar como o usuário \cite[p. 75]{myers1994}.
+Na implementação, o programa também precisa ser robusto: tratar qualquer
+entrada sem parar de funcionar e, como o usuário espera, permitir que ele
+cancele e desfaça a maioria das ações \cite[p. 75, 79 e 80]{myers1994}.
+
+O \emph{callback} é síncrono quando a função que o recebe o chama antes de
+retornar, e assíncrono quando sua execução fica para algum tempo depois de a
+função retornar \cite[p. 2]{gallaba2015}.
+O navegador executa a aplicação numa \emph{thread} só, e, para que ela continue
+respondendo ao usuário, os programadores recorrem às operações assíncronas
+\cite[p. 368-369]{alimadadi2014}.
+O \emph{callback} de um clique é desse tipo: registrado quando a tela é montada,
+só roda quando o usuário clica, e os eventos do \gls{dom} estão entre as
+operações assíncronas do navegador \cite[p. 5]{gallaba2015}.
+
+\emph{Threads} exprimem sequência, e eventos exprimem dependência, e muitos
+problemas vêm de escrever uma com o recurso da outra
+\cite[p. 16]{blackheath2016}.
+
+Essas alterações são efeitos colaterais: as modificações que um comando, como a
+atribuição, faz no estado do programa \cite[p. 361]{hudak1989}.
+
+Em JavaScript, os \emph{callbacks} são frequentes: num estudo de 138 programas, em
+média uma em cada dez definições de função recebe um \emph{callback}, e a maioria dos
+\emph{callbacks} é aninhada \cite[p. 1]{gallaba2015}.
+
+O JavaScript ganhou alternativas ao \emph{callback}: as \emph{promises}, que encadeiam
+computações assíncronas \cite[p. 86:1]{madsen2017}, e as palavras-chave
+\emph{async} e \emph{await}, que permitem escrever operações assíncronas em estilo
+sequencial \cite[p. 9]{grolaux2026}.
+As \emph{promises} achatam o aninhamento dos \emph{callbacks}, mas a lógica complexa
+continua presa em cadeias de \emph{callbacks} \cite[p. 9]{grolaux2026}.
+Numa implementação em JavaScript que guarda o estado da aplicação em variáveis
+globais, o \emph{async} e o \emph{await} não ajudam a coordenar esse estado
+\cite[p. 535 e 538]{berry2020}.
+
+O código sequencial tem o problema oposto ao do \emph{callback}: a linguagem
+obriga a fixar a ordem de execução mesmo quando ela não importa, e quem lê
+precisa supor que importa \cite[p. 8-9]{moseley2006}.
+Para \textcite[p. 1]{moseley2006}, essa preocupação com o fluxo de controle
+está, ao lado do volume de código e do tratamento do estado, entre as
+principais causas da complexidade dos sistemas de grande porte.
+
+O Angular acrescentou os \emph{signals} à sua \gls{api} \cite[p. 18]{lima2024},
+e o Solid e o Angular com \emph{signals} aparecem entre as implementações da
+\gls{pr} \cite[p. 57]{tsukanova2026}.
 
 \todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}
 Na implementação, a aplicação deixa de controlar a execução e se divide em
@@ -166,7 +238,7 @@ Alguns problemas de computação são melhor resolvidos com o modelo baseado
 em \emph{threads}. No entanto \textcite{blackheath2016} afirmam que a
 abordagem com eventos geralmente é a melhor escolha.
 \section{Programação funcional}
-\label{sec:orgf19a4ef}
+\label{sec:org0b6cc2b}
 \Gls{pf} é assim chamada porque sua operação básica é a
 aplicação de funções à argumentos \cite{hughes1990}.
 Lisp foi a primeira linguagem de programação funcional.
@@ -232,7 +304,7 @@ expressão \texttt{tres inc 2} resulta no valor \texttt{5} \cite{noble1994}.
   \label{code:currying}
 \end{listing}
 \subsection{Porque programação funcional é relevante}
-\label{sec:orgb9d0047}
+\label{sec:org28295cd}
 \todo{Trecho vindo da introdução na checagem de outubro de 2026, ainda por integrar a esta seção.}
 \textcite[p. 1 e 21]{moseley2006} distinguem a complexidade essencial,
 própria do problema, da acidental, todo o resto, e propõem reduzir a
@@ -269,7 +341,7 @@ contribuir significativamente para a modularização de programas:
   que os convencionais. \cite[p.~22; tradução nossa]{hughes1990}
 \end{citacao}
 \section{Programação reativa}
-\label{sec:org3e33dba}
+\label{sec:orgd0e668d}
 \todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}
 \textcite[p. 1-2]{bainomugisha2013} chamam as planilhas de “possivelmente a
 linguagem de programação mais utilizada por usuários finais” (tradução nossa).
@@ -349,8 +421,37 @@ como simulações físicas.
   disponíveis como eventos de entrada para outros subcomponentes.
   (p. 36; tradução nossa)
 \end{citacao}
+\section{Trabalhos relacionados}
+\label{sec:orgb69d45e}
+\todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}
+
+\textcite{mernik2009} compararam, com 36 estudantes de graduação, uma linguagem de
+domínio específico para descrever interfaces gráficas, o \gls{xaml}, e uma biblioteca de
+aplicação, o Windows Forms em C\#.
+\textcite[p. v, 11 e 104]{kiss2014} comparou a \gls{poo} e a \gls{pf}
+em sete tarefas de interface, com JavaFX e ScalaFX, e em parte delas com
+Scala.Rx, ReactFX e Elm, e deixou como trabalho futuro comparar os
+\emph{frameworks} de interface do navegador.
+\textcite[p. 1510 e 1513]{zimmerle2025} avaliaram com usuários duas
+bibliotecas de \gls{pr} para JavaScript, RxJS e Bacon.js, em tarefas de
+requisições \gls{http}.
+Fora das \glspl{dc}, \textcite[p. 15]{grolaux2026} compararam
+conceitualmente, numa prova de conceito em JavaScript, o async/await com
+\emph{listeners}, barramento de eventos, \emph{streams} funcionais e \gls{pr} no tratamento
+dos eventos de interface.
+
+\textcite[p. 1125-1134]{salvaneschi2017} testaram uma afirmação repetida,
+ainda sem evidência empírica suficiente, de que a \gls{pr} torna os programas
+mais fáceis de compreender que o \emph{Observer Pattern}, o padrão tradicional da
+\gls{poo} para aplicações interativas.
+Num experimento controlado com 127 estudantes, quem leu os programas escritos
+com \gls{pr} acertou mais perguntas sobre eles do que quem os leu com o
+\emph{Observer Pattern} (médias de 8,13 e 7,05 acertos em dez, com diferença
+significativa).
+Também respondeu mais rápido em seis das dez tarefas, sem diferença
+significativa nas outras quatro.
 \section{Uso das tecnologias web}
-\label{sec:org05116be}
+\label{sec:org156270f}
 
 As pesquisas de uso medem tecnologias, não modelos de programação, e por
 isso o uso de cada modelo de programação se afere pelas tecnologias que o

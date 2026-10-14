@@ -3,6 +3,231 @@
 
 # header-args is needed to use src_js{} for inline source code
 
+* Delineamento
+** As tarefas e os problemas de coordenação
+  @@latex:\todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}@@
+
+  O conjunto de tarefas é um /benchmark/ de notação, como os /benchmarks/
+  de resultado qualitativo do projeto de linguagens
+  [[cite:erdweg2015][p. 35]], entre os quais está o 7GUIs
+  [[cite:lu2021][8:20]].
+
+  - Formulário com validação: :: os campos que dependem uns dos outros, o
+    estado derivado e o envio que, enquanto espera a resposta, ignora um
+    novo clique em Reservar, para o usuário não reservar o mesmo voo duas
+    vezes;
+  - Busca com sugestões: :: o cancelamento da busca já requisitada, a resposta
+    anterior que nunca aparece e a lista derivada das sugestões, para o
+    usuário ver só as cidades correspondentes ao texto que está no campo;
+  - Login com quarentena: :: a tentativa nova que cancela a anterior, para
+    o usuário que errou a senha tentar de novo sem esperar a resposta da
+    primeira, e o relógio da sessão, que para quando a sessão se encerra;
+  - Quadro de tarefas: :: o estado compartilhado entre o cabeçalho e três
+    colunas, o limite de duas tarefas em "Fazendo", que desabilita os
+    botões das outras colunas, e o quadro gravado no navegador, para o
+    usuário achar cada tarefa na coluna em que a deixou, ao voltar à página
+    ou em outra aba;
+  - Dados ao vivo: :: valores que uma fonte envia sem o usuário pedir, como
+    o placar de um jogo, a assinatura presa à tela e a pausa, para quem
+    acompanha o painel ler os valores sem que a tabela se atualize.
+
+  A orquestração pesa mais na Busca, no Login e nos Dados ao vivo, e o
+  gerenciamento de estado, no Formulário e no Quadro.
+  O Formulário adapta o /Flight Booker/, uma das sete tarefas do 7GUIs, de
+  [[textcite:kiss2014][p. 11 e 25]], e acrescenta os campos de nome e de
+  e-mail.
+  O Login segue o painel de [[textcite:berry2020][p. 534]], e os Dados ao
+  vivo, as cotações que uma fonte empurra aos clientes, em
+  [[textcite:meijer2012][p. 66]].
+
+** As tecnologias e os pares
+  @@latex:\todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}@@
+
+  Na web, Web Component, React e Solid, uma tecnologia por modelo de
+  programação, implementam as cinco tarefas.
+  O imperativo por atualização manual entra com o Web Component, a forma do
+  próprio navegador de criar elementos personalizados cite:mozilla2026.
+  Lit e Angular com /signals/ implementam três tarefas cada, em pares de
+  tecnologias próximas: o Lit com o Web Component, e o Angular com o Solid.
+  O Lit se constrói sobre o Web Component: seus componentes são elementos
+  personalizados do navegador, mas cada alteração de estado chama de novo o
+  método que monta a tela cite:google2026d.
+  Por isso fica no declarativo por re-renderização, como o React, com
+  outra notação.
+  O par Web Component e Lit, no Formulário, na Busca e nos Dados ao vivo,
+  mantém o modelo de componente e a orquestração.
+  Muda só a ligação do estado com a tela, escrita à mão no primeiro e
+  refeita pelo /template/ a cada alteração de estado no segundo.
+
+  No React e no Solid, a tela se monta em JSX, marcação parecida com [[gls:html]]
+  escrita dentro do JavaScript cite:meta2026c.
+  O que os separa, sobretudo, é o modo de coordenar: a cada alteração de
+  estado, o React reexecuta o componente inteiro, e o Solid atualiza só os
+  trechos da tela que dependem do /signal/ alterado
+  [[cites:&lee2025 289:38;&solidjs2026]].
+
+  Solid e Angular com /signals/, ao contrário, coordenam do mesmo modo: os
+  dois guardam o estado em /signals/ e derivam valores de outros /signals/
+  cite:solidjs2026a,google2026.
+  Por isso ficam no mesmo modelo de programação, e o par, no Formulário,
+  na Busca e no Quadro, mostra como a notação varia entre tecnologias em
+  três pontos.
+  No Solid, a tela se monta em JSX numa função, e, no Angular, num /template/
+  baseado em [[gls:html]], com construtos próprios cite:google2026a.
+  O componente do Angular é uma classe com decorador cite:google2026b, e
+  participa da injeção de dependências cite:google2026c.
+  E as [[glspl:api]] dos dois diferem no que vai além do /signal/ e do valor
+  derivado, como o cancelamento das requisições na Busca.
+  Quando o /signal/ se altera, o Solid recalcula só os valores e trechos da
+  tela que dependem dele cite:solidjs2026; o Angular marca o componente que o
+  lê e o atualiza na próxima detecção de alterações cite:google2026.
+
+  Dentro de um mesmo modelo de programação, a notação também muda de uma
+  tecnologia para outra, como entre o Solid e o Angular com /signals/ ou
+  entre o React e o Lit, e a avaliação registra quando essa diferença muda
+  a posição.
+
+  Fora da web, cada plataforma tem um par de tecnologias, que confere se
+  as posições encontradas na web se repetem em outra plataforma e outra
+  linguagem.
+  No Android, Views e Compose implementam o Formulário, o Quadro e os
+  Dados ao vivo.
+  As Views ficam no imperativo por atualização manual, e o Compose, no declarativo
+  por re-renderização, porque chama de novo as funções da tela quando o estado
+  se altera cite:android2026.
+  No /desktop/, Windows Forms e WPF implementam o Formulário, o Quadro e o
+  Login.
+  O Windows Forms fica no imperativo por atualização manual, porque o
+  tratador de cada evento atribui os valores aos controles, sem o /data
+  binding/ que ele também oferece [[cites:&microsoft2025b;&microsoft2026a]],
+  e o WPF, no declarativo por atualização granular, porque, quando um dado se altera, os elementos ligados a
+  ele se atualizam sozinhos cite:microsoft2025.
+
+  Na web, só o par Web Component e Lit isola o imperativo por
+  atualização manual, e só em três tarefas.
+  Ele isola a ligação do estado com a tela, e não a orquestração, que no
+  Lit se escreve como no Web Component.
+  Fora da web, os dois pares mudam também a montagem da tela, e cada
+  plataforma confere só dois dos três modelos de programação: o Android
+  fica sem o declarativo por atualização granular, e o /desktop/, sem o
+  declarativo por re-renderização.
+
+** As rodadas
+  @@latex:\todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}@@
+
+  A avaliação se faz em três rodadas, cada uma mais estreita que a
+  anterior, como as de [[textcite:kiss2014][p. 3]]: a primeira responde à
+  P1, e a segunda e a terceira, à P1.1 e à P1.2.
+  Na primeira rodada, as tecnologias implementam as tarefas descritas acima.
+  Na segunda, cada tarefa recebe funcionalidades, como o assistente
+  em três passos do Formulário, e requisitos de orquestração, como a
+  espera de 300 ms depois da última tecla na Busca.
+  Uma funcionalidade muda o que o usuário percebe ou pode fazer, e um
+  requisito de orquestração deixa a tela igual e muda só como se combinam
+  os eventos.
+  São onze mudanças, feitas uma por /commit/ e na mesma ordem em
+  todas as tecnologias que implementam a tarefa.
+  A segunda rodada faz o código crescer porque é nos problemas grandes que os efeitos
+  da viscosidade mais aparecem [[cite:green1996d][p. 161]].
+  Na terceira, o Formulário estendido é reescrito em cada tecnologia
+  com a biblioteca de formulário mais usada no ecossistema dela, ou com a
+  [[gls:api]] da plataforma quando nenhuma predomina.
+  Como as bibliotecas variam de uma tecnologia para outra, a conclusão da
+  terceira rodada vale para o ecossistema típico de cada tecnologia, e não só
+  para o modelo de programação.
+
+** Os controles e o teste de conformidade
+  @@latex:\todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}@@
+
+  Quatro coisas poderiam diferenciar as implementações sem ser o modelo de
+  programação nem a notação, e as quatro ficam fixas: a linguagem, a
+  especificação, as bibliotecas e o domínio.
+  A linguagem é uma só em cada plataforma: na web, o /TypeScript/, que o
+  Angular exige cite:google2026b e as demais tecnologias também usam; no
+  Android, o Kotlin; e, no /desktop/, o C#.
+  As implementações de uma tarefa seguem a mesma especificação, com os mesmos
+  textos, regras e dados, e, nas duas primeiras rodadas, cada uma usa só o que a própria
+  tecnologia traz, sem bibliotecas de formulário.
+  As regras que não dependem da interface, como o formato das datas, a
+  validação do e-mail e as transições do quadro, ficam num /domínio/ comum
+  às implementações de cada plataforma, na linguagem dela.
+  Esse controle das variáveis é parte do planejamento da pesquisa, o
+  delineamento [[cite:prodanov2013][p. 54]].
+
+  Um /teste de conformidade/ por tarefa executa as verificações da
+  especificação contra cada implementação; na web, ele roda no console do
+  navegador.
+  /Capturas/ de tela dos estados escolhidos de cada tarefa, geradas
+  automaticamente, denunciam desvios de comportamento ou de aparência,
+  porque devem sair idênticas entre as tecnologias web.
+  As implementações, os testes de conformidade e as capturas ficam num repositório público,
+  em https://github.com/iquabius/unemat-tcc.
+  Nele, as versões de linguagens, bibliotecas e ferramentas ficam
+  fixadas[fn:versoes], para que as implementações possam ser reproduzidas.
+
+** A avaliação
+  @@latex:\todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}@@
+
+  A avaliação cabe ao autor, que examina o código das implementações dimensão
+  a dimensão, sem participantes.
+  É uma avaliação analítica, feita por especialista, sem a participação de
+  usuários cite:blandford2008, como a de [[textcite:kiss2014][p. 8]] pelas
+  [[glspl:dc]].
+  Ela serve de alternativa aos estudos com programadores, que comparam
+  linguagens a custo alto e com resultados muitas vezes inconclusivos
+  [[cite:sadowski2011][p. 9]], e as [[glspl:dc]] pedem menos tempo que eles
+  cite:dagit2006.
+
+  Em cada rodada, a avaliação percorre as 14 [[glspl:dc]] da lista
+  completa [[cite:blackwell2003][p. 115-118]], e não um subconjunto
+  escolhido antes, porque a escolha prévia pode atrapalhar, e o conjunto
+  inteiro traz resultados inesperados e úteis [[cite:blackwell2001][p. 332]].
+  Para a análise, o trabalho as agrupa pelo que descrevem.
+  Oito tratam da notação: /nível de abstração/, /proximidade de
+  descrição/, /consistência/, /concisão/, /operações mentais difíceis/,
+  /dependências ocultas/, /expressividade de papel/ e /notação secundária/.
+  Duas são do sistema, que o ambiente de edição agrava ou atenua: a
+  /viscosidade/ e a /propensão a erros/.
+  As outras quatro pesam no ambiente de edição: o /compromisso
+  prematuro/, a /avaliação progressiva/, a /visibilidade/ e a
+  /provisoriedade/.
+  Destas, a avaliação lê a face que aparece na notação, porque os próprios
+  autores suspeitam que há uma zona cinzenta entre as dimensões da notação e as
+  do ambiente [[cite:green2006][p. 357]].
+  Nenhuma dimensão é boa ou má em si, e a avaliação sempre leva em conta a
+  atividade a apoiar [[cite:blackwell2003][p. 115]].
+  Na primeira rodada, as atividades são a busca e a compreensão exploratória
+  do código pronto, e, na segunda e na terceira, a modificação [[cite:blackwell2003][p. 113]].
+
+  A análise compara os modelos de programação pelo perfil
+  de cada um nas [[glspl:dc]] [[cite:blackwell2003][p. 106 e 112]] e abre
+  com uma tabela-síntese, com uma linha por
+  [[gls:dc]] e uma coluna por modelo de programação.
+  Cada célula dá a posição do modelo na [[gls:dc]], indica de que tarefa vem a evidência e
+  registra quando as duas tecnologias web da coluna divergem, o Solid e o
+  Angular com /signals/ ou o React e o Lit.
+  No primeiro par, ela diz também se a diferença vem da montagem da tela,
+  do modelo de componente ou da [[gls:api]].
+  Como cada tarefa exercita problemas de coordenação próprios, a síntese
+  por problema reúne as células que vêm das tarefas dele.
+  Da primeira rodada para as outras duas, a linha de cada [[gls:dc]] diz se a diferença
+  entre os modelos de programação fica /mantida/, /ampliada/, /reduzida/,
+  /anulada/, /invertida/ ou /surgida/, e a célula diz se a posição do
+  modelo /sobe/, /desce/ ou /fica igual/.
+  Segue uma seção por [[gls:dc]], com os trechos de uma tarefa escolhida,
+  antes da avaliação, pelo problema de coordenação que a dimensão mais toca.
+  Em cada seção, a análise aponta se a diferença está na coordenação, na
+  montagem da tela ou na ligação entre as duas.
+  Nas seções em que as tarefas do Android ou do /desktop/ mostram
+  diferença entre as duas tecnologias da plataforma, a análise diz se a
+  posição da web se repete nela.
+  A concisão tem ainda o apoio de uma contagem das linhas de cada
+  implementação.
+  Na segunda e na terceira rodada, o /diff/ de cada mudança apoia a viscosidade: a mesma
+  mudança, preparada antes e feita em cada implementação, como no teste
+  de [[textcite:green1996d][p. 162]], mostra quantas ações ela pede, e
+  quantas outras restauram a consistência [[cite:blackwell2003][p. 115]].
+
 * Dimensões de avaliação
   @@latex:\todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}@@
   A avaliação usa as [[glspl:dc]], que [[textcite:blackwell2003][p. 106]] chamam de ferramentas
@@ -581,6 +806,13 @@
 
 
 * Footnotes
+
+[fn:versoes] No =package-lock.json= e no =libs.versions.toml=.
+Na web, TypeScript 6.0.3, React 19.3.0, Solid 1.9.15, Lit 3.3.3 e Angular
+22.2.0, com Vite 8.3.1 para o /build/ (no Angular, o =@angular/build= 22.2.0)
+e Playwright 1.63.0 para as capturas.
+No Android, Kotlin 2.4.20, Jetpack Compose pela [[gls:bom]]
+2026.09.00 e, para as capturas, Robolectric 4.17 com Roborazzi 1.75.0.
 
 [fn:encadeamento] Note que o nome da variável src_js{cliqueStream} já nem faz mais
 sentido, pois o resultado da expressão não inclui apenas os eventos de clique.

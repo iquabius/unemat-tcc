@@ -53,7 +53,29 @@ denominadas /linguagens imperativas/.
   lembrar de eventos anteriores ou de interações com o usuário.
   A informação recordada é denominada o estado do programa cite:rouse2005.
 
-* Paradigmas de programação
+* Paradigmas e modelos de programação
+  @@latex:\todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}@@
+
+  O modelo de programação não é o paradigma, noção imprecisa que o modelo
+  de computação torna precisa [[cite:roy2004][p. xiii]].
+  Também não é a biblioteca nem o /framework/, que classificam o produto: o
+  Web Component, recurso do próprio navegador cite:mozilla2026, não é
+  nenhum dos dois e tem um modelo de programação como as outras
+  tecnologias.
+
+  Cada modelo de programação aplica conceitos de um ou mais paradigmas.
+  Em quase todo problema, cada parte pede o seu conjunto de conceitos
+  [[cite:roy2009][p. 10]], e as implementações deste trabalho também os
+  misturam.
+
+  As aplicações orientadas a eventos e interativas, na literatura de
+  [[gls:pr]], também se chamam reativas [[cite:salvaneschi2017][p. 1125]], mas
+  a palavra tem sentidos diferentes em linguagens de programação e em sistemas
+  distribuídos [[cite:myter2019][5:1]] e já nomeia tecnologias como o React
+  [[cite:grolaux2026][p. 13]].
+  Por isso, este trabalho as chama de interativas e reserva “reativo” para a
+  [[gls:pr]].
+
   Programação é uma disciplina extensa, e linguagens práticas de programação
   geralmente são bastante complicadas.
   Felizmente, as ideias importantes de linguagens de programação são simples
@@ -136,6 +158,56 @@ denominadas /linguagens imperativas/.
 # Falta o item “6.1.3 Programação de Interfaces Gráficas” do pré-projeto
 
 * Programação de interfaces gráficas
+  @@latex:\todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}@@
+
+  No projeto da interface, além dos problemas comuns a todo sistema de
+  software complexo, os /designers/ lidam com tarefas e domínios complexos e
+  têm dificuldade de pensar como o usuário [[cite:myers1994][p. 75]].
+  Na implementação, o programa também precisa ser robusto: tratar qualquer
+  entrada sem parar de funcionar e, como o usuário espera, permitir que ele
+  cancele e desfaça a maioria das ações [[cite:myers1994][p. 75, 79 e 80]].
+
+  O /callback/ é síncrono quando a função que o recebe o chama antes de
+  retornar, e assíncrono quando sua execução fica para algum tempo depois de a
+  função retornar [[cite:gallaba2015][p. 2]].
+  O navegador executa a aplicação numa /thread/ só, e, para que ela continue
+  respondendo ao usuário, os programadores recorrem às operações assíncronas
+  [[cite:alimadadi2014][p. 368-369]].
+  O /callback/ de um clique é desse tipo: registrado quando a tela é montada,
+  só roda quando o usuário clica, e os eventos do [[gls:dom]] estão entre as
+  operações assíncronas do navegador [[cite:gallaba2015][p. 5]].
+
+  /Threads/ exprimem sequência, e eventos exprimem dependência, e muitos
+  problemas vêm de escrever uma com o recurso da outra
+  [[cite:blackheath2016][p. 16]].
+
+  Essas alterações são efeitos colaterais: as modificações que um comando, como a
+  atribuição, faz no estado do programa [[cite:hudak1989][p. 361]].
+
+  Em JavaScript, os /callbacks/ são frequentes: num estudo de 138 programas, em
+  média uma em cada dez definições de função recebe um /callback/, e a maioria dos
+  /callbacks/ é aninhada [[cite:gallaba2015][p. 1]].
+
+  O JavaScript ganhou alternativas ao /callback/: as /promises/, que encadeiam
+  computações assíncronas [[cite:madsen2017][p. 86:1]], e as palavras-chave
+  /async/ e /await/, que permitem escrever operações assíncronas em estilo
+  sequencial [[cite:grolaux2026][p. 9]].
+  As /promises/ achatam o aninhamento dos /callbacks/, mas a lógica complexa
+  continua presa em cadeias de /callbacks/ [[cite:grolaux2026][p. 9]].
+  Numa implementação em JavaScript que guarda o estado da aplicação em variáveis
+  globais, o /async/ e o /await/ não ajudam a coordenar esse estado
+  [[cite:berry2020][p. 535 e 538]].
+
+  O código sequencial tem o problema oposto ao do /callback/: a linguagem
+  obriga a fixar a ordem de execução mesmo quando ela não importa, e quem lê
+  precisa supor que importa [[cite:moseley2006][p. 8-9]].
+  Para [[textcite:moseley2006][p. 1]], essa preocupação com o fluxo de controle
+  está, ao lado do volume de código e do tratamento do estado, entre as
+  principais causas da complexidade dos sistemas de grande porte.
+
+  O Angular acrescentou os /signals/ à sua [[gls:api]] [[cite:lima2024][p. 18]],
+  e o Solid e o Angular com /signals/ aparecem entre as implementações da
+  [[gls:pr]] [[cite:tsukanova2026][p. 57]].
 
   @@latex:\todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}@@
   Na implementação, a aplicação deixa de controlar a execução e se divide em
@@ -382,6 +454,36 @@ denominadas /linguagens imperativas/.
     (p. 36; tradução nossa)
   \end{citacao}
   #+END_EXPORT
+
+
+* Trabalhos relacionados
+  @@latex:\todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}@@
+
+  textcite:mernik2009 compararam, com 36 estudantes de graduação, uma linguagem de
+  domínio específico para descrever interfaces gráficas, o [[gls:xaml]], e uma biblioteca de
+  aplicação, o Windows Forms em C#.
+  [[textcite:kiss2014][p. v, 11 e 104]] comparou a [[gls:poo]] e a [[gls:pf]]
+  em sete tarefas de interface, com JavaFX e ScalaFX, e em parte delas com
+  Scala.Rx, ReactFX e Elm, e deixou como trabalho futuro comparar os
+  /frameworks/ de interface do navegador.
+  [[textcite:zimmerle2025][p. 1510 e 1513]] avaliaram com usuários duas
+  bibliotecas de [[gls:pr]] para JavaScript, RxJS e Bacon.js, em tarefas de
+  requisições [[gls:http]].
+  Fora das [[glspl:dc]], [[textcite:grolaux2026][p. 15]] compararam
+  conceitualmente, numa prova de conceito em JavaScript, o async/await com
+  /listeners/, barramento de eventos, /streams/ funcionais e [[gls:pr]] no tratamento
+  dos eventos de interface.
+
+  [[textcite:salvaneschi2017][p. 1125-1134]] testaram uma afirmação repetida,
+  ainda sem evidência empírica suficiente, de que a [[gls:pr]] torna os programas
+  mais fáceis de compreender que o /Observer Pattern/, o padrão tradicional da
+  [[gls:poo]] para aplicações interativas.
+  Num experimento controlado com 127 estudantes, quem leu os programas escritos
+  com [[gls:pr]] acertou mais perguntas sobre eles do que quem os leu com o
+  /Observer Pattern/ (médias de 8,13 e 7,05 acertos em dez, com diferença
+  significativa).
+  Também respondeu mais rápido em seis das dez tarefas, sem diferença
+  significativa nas outras quatro.
 
 
 * Uso das tecnologias web

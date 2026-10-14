@@ -4,14 +4,8 @@
 
 O desenvolvimento de interfaces gráficas é difícil por natureza
 [[cite:myers1994][p. 73]].
-No projeto, além dos problemas comuns a todo sistema de software complexo, os
-/designers/ lidam com tarefas e domínios complexos e têm dificuldade de pensar
-como o usuário [[cite:myers1994][p. 75]].
-Na implementação, o programa precisa aceitar os eventos de entrada a qualquer
+O programa precisa aceitar os eventos de entrada a qualquer
 momento, mesmo enquanto executa outros comandos [[cite:myers1994][p. 79]].
-Também precisa ser robusto: tratar qualquer entrada sem parar de funcionar e,
-como o usuário espera, permitir que ele cancele e desfaça a maioria das ações
-[[cite:myers1994][p. 75, 79 e 80]].
 Como [[textcite:kiss2014][p. 5]], este trabalho deixa de lado, apesar da
 importância, o projeto da interface e a usabilidade dela para quem a usa, e
 trata de como programá-la.
@@ -42,19 +36,6 @@ de /listener/: um bloco de código que roda sempre que um dado evento ocorre
 [[cite:blackheath2016][p. 7]].
 Registrá-lo num produtor, que o chama de volta a cada ocorrência, é o
 /Observer Pattern/ [[cite:blackheath2016][p. 7]].
-O /callback/ é síncrono quando a função que o recebe o chama antes de
-retornar, e assíncrono quando sua execução fica para algum tempo depois de a
-função retornar [[cite:gallaba2015][p. 2]].
-O navegador executa a aplicação numa /thread/ só, e, para que ela continue
-respondendo ao usuário, os programadores recorrem às operações assíncronas
-[[cite:alimadadi2014][p. 368-369]].
-O /callback/ de um clique é desse tipo: registrado quando a tela é montada,
-só roda quando o usuário clica, e os eventos do [[gls:dom]] estão entre as
-operações assíncronas do navegador [[cite:gallaba2015][p. 5]].
-
-/Threads/ exprimem sequência, e eventos exprimem dependência, e muitos
-problemas vêm de escrever uma com o recurso da outra
-[[cite:blackheath2016][p. 16]].
 O /callback/ fragmenta o fluxo de controle: a sequência de passos que o
 programador tem em mente para uma operação fica dividida entre vários
 /callbacks/, o que dificulta a manutenção e a compreensão do programa
@@ -62,26 +43,11 @@ programador tem em mente para uma operação fica dividida entre vários
 Como não se sabe em que ordem os /callbacks/ serão chamados, coordenar as
 alterações ao estado compartilhado pode ser desconcertante e está longe de ser
 modular [[cite:edwards2009][p. 926]].
-Essas alterações são efeitos colaterais: as modificações que um comando, como a
-atribuição, faz no estado do programa [[cite:hudak1989][p. 361]].
 Os /callbacks/ que alteram o [[gls:dom]] por efeitos colaterais muitas vezes
 levam a um código interdependente, opaco e propenso a erros, o chamado código
 espaguete [[cite:oney2012][p. 229]].
-Em JavaScript, os /callbacks/ são frequentes: num estudo de 138 programas, em
-média uma em cada dez definições de função recebe um /callback/, e a maioria dos
-/callbacks/ é aninhada [[cite:gallaba2015][p. 1]].
 
-O JavaScript ganhou alternativas ao /callback/: as /promises/, que encadeiam
-computações assíncronas [[cite:madsen2017][p. 86:1]], e as palavras-chave
-/async/ e /await/, que permitem escrever operações assíncronas em estilo
-sequencial [[cite:grolaux2026][p. 9]].
-As /promises/ achatam o aninhamento dos /callbacks/, mas a lógica complexa
-continua presa em cadeias de /callbacks/ [[cite:grolaux2026][p. 9]].
-Numa implementação em JavaScript que guarda o estado da aplicação em variáveis
-globais, o /async/ e o /await/ não ajudam a coordenar esse estado
-[[cite:berry2020][p. 535 e 538]].
-
-Outra alternativa ao /callback/ é a [[gls:pr]].
+Uma alternativa ao /callback/ é a [[gls:pr]].
 Segundo [[textcite:salvaneschi2017][p. 1125-1126]], nela o programador
 declara as relações entre os valores, e o ambiente de execução faz as
 atualizações que elas exigem.
@@ -91,30 +57,10 @@ A [[gls:pr]] serve às aplicações orientadas a eventos e interativas e leva à
 linguagens de programação o modelo das planilhas eletrônicas, em que alterar
 o valor de uma célula recalcula as fórmulas que dependem dela
 [[cite:bainomugisha2013][p. 1-2]].
-Na literatura de [[gls:pr]], essas aplicações também se chamam reativas
-[[cite:salvaneschi2017][p. 1125]], mas a palavra tem sentidos diferentes em
-linguagens de programação e em sistemas distribuídos [[cite:myter2019][5:1]] e
-já nomeia tecnologias como o React [[cite:grolaux2026][p. 13]].
-Por isso, este trabalho as chama de interativas e reserva “reativo” para a
-[[gls:pr]].
+Num experimento controlado com 127 estudantes, quem leu programas escritos
+com [[gls:pr]] os compreendeu melhor do que quem leu as versões dos mesmos
+programas com o /Observer Pattern/ [[cite:salvaneschi2017][p. 1125-1134]].
 
-[[textcite:salvaneschi2017][p. 1125-1134]] testaram uma afirmação repetida,
-ainda sem evidência empírica suficiente, de que a [[gls:pr]] torna os programas
-mais fáceis de compreender que o /Observer Pattern/, o padrão tradicional da
-[[gls:poo]] para aplicações interativas.
-Num experimento controlado com 127 estudantes, quem leu os programas escritos
-com [[gls:pr]] acertou mais perguntas sobre eles do que quem os leu com o
-/Observer Pattern/ (médias de 8,13 e 7,05 acertos em dez, com diferença
-significativa).
-Também respondeu mais rápido em seis das dez tarefas, sem diferença
-significativa nas outras quatro.
-
-O código sequencial tem o problema oposto ao do /callback/: a linguagem
-obriga a fixar a ordem de execução mesmo quando ela não importa, e quem lê
-precisa supor que importa [[cite:moseley2006][p. 8-9]].
-Para [[textcite:moseley2006][p. 1]], essa preocupação com o fluxo de controle
-está, ao lado do volume de código e do tratamento do estado, entre as
-principais causas da complexidade dos sistemas de grande porte.
 [[textcite:edwards2009][p. 929]] sugere que boa parte do sequenciamento manual
 das ações que a programação imperativa exige pode ser feita automaticamente,
 ao menos nas aplicações interativas.
@@ -131,12 +77,6 @@ mesma interface [[cite:lee2025][289:1]].
   @@latex:\notamudou[list,prepend,caption={\textbf{1. Mudanças desde o projeto de 2017}}]{o projeto comparava paradigmas, a PF e a PR frente à POO com \emph{callbacks}; \textbf{agora se comparam modelos de programação}.}@@
   Na programação de interfaces gráficas, o modelo de programação é o modo
   de coordenar evento, estado e tela que uma tecnologia impõe.
-  Ele não é o paradigma, noção imprecisa que o modelo de computação torna
-  precisa [[cite:roy2004][p. xiii]].
-  Também não é a biblioteca nem o /framework/, que nomeiam o produto: o
-  Web Component, recurso do próprio navegador cite:mozilla2026, não é
-  nenhum dos dois e tem um modelo de programação como as outras
-  tecnologias.
   A /notação/ é a forma escrita de um modelo de programação numa
   tecnologia: as palavras e os sinais com que o programador escreve, no
   código-fonte da aplicação, o estado, os valores derivados dele e a tela
@@ -157,19 +97,9 @@ mesma interface [[cite:lee2025][289:1]].
   No /declarativo por atualização granular/, cada /signal/ avisa os valores
   e trechos da tela que dependem dele, como no Solid e no Angular com
   /signals/ cite:solidjs2026,google2026.
-  O Solid recalcula só esses cite:solidjs2026; o Angular, quando o /signal/
-  se altera, marca o componente que o lê e o atualiza na próxima detecção
-  de alterações cite:google2026.
   O modelo de programação por atualização granular usa as abstrações da [[gls:pr]], os
   valores que variam no tempo, chamados /signals/, cujas alterações se propagam
   automaticamente [[cite:salvaneschi2015][p. 953]].
-  O Angular acrescentou essa abstração à sua [[gls:api]] [[cite:lima2024][p. 18]],
-  e o Solid e o Angular com /signals/ aparecem entre as implementações da
-  [[gls:pr]] [[cite:tsukanova2026][p. 57]].
-  Cada modelo de programação aplica conceitos de um ou mais paradigmas.
-  Em quase todo problema, cada parte pede o seu conjunto de conceitos
-  [[cite:roy2009][p. 10]], e as implementações deste trabalho também os
-  misturam.
 
   Para discutir o quanto uma notação facilita a compreensão e a
   manutenção, há as [[glspl:dc]], propostas por textcite:green1989.
@@ -177,20 +107,15 @@ mesma interface [[cite:lee2025][289:1]].
   artefatos de informação [[cite:blackwell2001][p. 327]].
   Trabalhos anteriores compararam por elas paradigmas e linguagens de
   programação de interfaces e bibliotecas de [[gls:pr]].
-  textcite:mernik2009 compararam, com 36 estudantes de graduação, uma linguagem de
-  domínio específico para descrever interfaces gráficas, o [[gls:xaml]], e uma biblioteca de
-  aplicação, o Windows Forms em C#.
+  textcite:mernik2009 compararam o [[gls:xaml]] e o Windows Forms em C#.
   [[textcite:kiss2014][p. v, 11 e 104]] comparou a [[gls:poo]] e a [[gls:pf]]
-  em sete tarefas de interface, com JavaFX e ScalaFX, e em parte delas com
-  Scala.Rx, ReactFX e Elm, e deixou como trabalho futuro comparar os
-  /frameworks/ de interface do navegador.
+  em sete tarefas de interface, com JavaFX e ScalaFX, e deixou como
+  trabalho futuro comparar os /frameworks/ de interface do navegador.
   [[textcite:zimmerle2025][p. 1510 e 1513]] avaliaram com usuários duas
-  bibliotecas de [[gls:pr]] para JavaScript, RxJS e Bacon.js, em tarefas de
-  requisições [[gls:http]].
+  bibliotecas de [[gls:pr]] para JavaScript.
   Fora das [[glspl:dc]], [[textcite:grolaux2026][p. 15]] compararam
-  conceitualmente, numa prova de conceito em JavaScript, o async/await com
-  /listeners/, barramento de eventos, /streams/ funcionais e [[gls:pr]] no tratamento
-  dos eventos de interface.
+  conceitualmente o async/await com outras formas de tratar os eventos de
+  interface, entre elas a [[gls:pr]].
 
   Nenhum desses trabalhos compara, sobre as mesmas tarefas e em tecnologias
   web, os três modelos de programação.
@@ -216,10 +141,6 @@ mesma interface [[cite:lee2025][289:1]].
   Conhecer essas diferenças pode ajudar quem programa interfaces a escolher uma tecnologia
   sabendo o que o modelo de programação dela facilita e o que dificulta em
   cada /problema de coordenação/.
-  Dentro de um mesmo modelo de programação, a notação também muda de uma
-  tecnologia para outra, como entre o Solid e o Angular com /signals/ ou
-  entre o React e o Lit, e a avaliação registra quando essa diferença muda
-  a posição.
   Um problema de coordenação é uma exigência que a interface faz ao modelo de
   programação.
 
@@ -259,204 +180,35 @@ mesma interface [[cite:lee2025][289:1]].
   as tarefas da prática e servem para comparar técnicas alternativas por
   medidas de desempenho, que podem ser qualitativas e feitas por uma pessoa
   [[cite:sim2003][p. 76]].
-  A medida, neste trabalho, é a avaliação pelas [[glspl:dc]], como nos
-  /benchmarks/ de resultado qualitativo do projeto de linguagens
-  [[cite:erdweg2015][p. 35]], entre os quais está o 7GUIs
-  [[cite:lu2021][8:20]].
+  A medida, neste trabalho, é a avaliação pelas [[glspl:dc]].
   Aqui, as técnicas são os três modelos de programação, e as tarefas, cinco
   interfaces gráficas.
   Cada uma traz os problemas de coordenação que a interface real costuma ter, nos dois
   eixos da programação de interfaces: a orquestração de eventos e o
   gerenciamento de estado.
 
-  - Formulário com validação: :: os campos que dependem uns dos outros, o
-    estado derivado e o envio que, enquanto espera a resposta, ignora um
-    novo clique em Reservar, para o usuário não reservar o mesmo voo duas
-    vezes;
-  - Busca com sugestões: :: o cancelamento da busca já requisitada, a resposta
-    anterior que nunca aparece e a lista derivada das sugestões, para o
-    usuário ver só as cidades correspondentes ao texto que está no campo;
-  - Login com quarentena: :: a tentativa nova que cancela a anterior, para
-    o usuário que errou a senha tentar de novo sem esperar a resposta da
-    primeira, e o relógio da sessão, que para quando a sessão se encerra;
-  - Quadro de tarefas: :: o estado compartilhado entre o cabeçalho e três
-    colunas, o limite de duas tarefas em "Fazendo", que desabilita os
-    botões das outras colunas, e o quadro gravado no navegador, para o
-    usuário achar cada tarefa na coluna em que a deixou, ao voltar à página
-    ou em outra aba;
-  - Dados ao vivo: :: valores que uma fonte envia sem o usuário pedir, como
-    o placar de um jogo, a assinatura presa à tela e a pausa, para quem
-    acompanha o painel ler os valores sem que a tabela se atualize.
-
-  A orquestração pesa mais na Busca, no Login e nos Dados ao vivo, e o
-  gerenciamento de estado, no Formulário e no Quadro.
-  O Formulário adapta o /Flight Booker/, uma das sete tarefas do 7GUIs, de
-  [[textcite:kiss2014][p. 11 e 25]], e acrescenta os campos de nome e de
-  e-mail.
-  O Login segue o painel de [[textcite:berry2020][p. 534]], e os Dados ao
-  vivo, as cotações que uma fonte empurra aos clientes, em
-  [[textcite:meijer2012][p. 66]].
-
-  Na web, Web Component, React e Solid, uma tecnologia por modelo de
-  programação, implementam as cinco tarefas.
-  O imperativo por atualização manual entra com o Web Component, a forma do
-  próprio navegador de criar elementos personalizados cite:mozilla2026.
-  Lit e Angular com /signals/ implementam três tarefas cada, em pares de
-  tecnologias próximas: o Lit com o Web Component, e o Angular com o Solid.
-  O Lit se constrói sobre o Web Component: seus componentes são elementos
-  personalizados do navegador, mas cada alteração de estado chama de novo o
-  método que monta a tela cite:google2026d.
-  Por isso fica no declarativo por re-renderização, como o React, com
-  outra notação.
-  O par Web Component e Lit, no Formulário, na Busca e nos Dados ao vivo,
-  mantém o modelo de componente e a orquestração.
-  Muda só a ligação do estado com a tela, escrita à mão no primeiro e
-  refeita pelo /template/ a cada alteração de estado no segundo.
-
-  No React e no Solid, a tela se monta em JSX, marcação parecida com [[gls:html]]
-  escrita dentro do JavaScript cite:meta2026c.
-  O que os separa, sobretudo, é o modo de coordenar: a cada alteração de
-  estado, o React reexecuta o componente inteiro, e o Solid atualiza só os
-  trechos da tela que dependem do /signal/ alterado
-  [[cites:&lee2025 289:38;&solidjs2026]].
-
-  Solid e Angular com /signals/, ao contrário, coordenam do mesmo modo: os
-  dois guardam o estado em /signals/ e derivam valores de outros /signals/
-  cite:solidjs2026a,google2026.
-  Por isso ficam no mesmo modelo de programação, e o par, no Formulário,
-  na Busca e no Quadro, mostra como a notação varia entre tecnologias em
-  três pontos.
-  No Solid, a tela se monta em JSX numa função, e, no Angular, num /template/
-  baseado em [[gls:html]], com construtos próprios cite:google2026a.
-  O componente do Angular é uma classe com decorador cite:google2026b, e
-  participa da injeção de dependências cite:google2026c.
-  E as [[glspl:api]] dos dois diferem no que vai além do /signal/ e do valor
-  derivado, como o cancelamento das requisições na Busca.
-
-  Fora da web, cada plataforma tem um par de tecnologias, que confere se
-  as posições encontradas na web se repetem em outra plataforma e outra
-  linguagem.
-  No Android, Views e Compose implementam o Formulário, o Quadro e os
-  Dados ao vivo.
-  As Views ficam no imperativo por atualização manual, e o Compose, no declarativo
-  por re-renderização, porque chama de novo as funções da tela quando o estado
-  se altera cite:android2026.
-  No /desktop/, Windows Forms e WPF implementam o Formulário, o Quadro e o
-  Login.
-  O Windows Forms fica no imperativo por atualização manual, porque o
-  tratador de cada evento atribui os valores aos controles, sem o /data
-  binding/ que ele também oferece [[cites:&microsoft2025b;&microsoft2026a]],
-  e o WPF, no declarativo por atualização granular, porque, quando um dado se altera, os elementos ligados a
-  ele se atualizam sozinhos cite:microsoft2025.
-
-  A avaliação se faz em três rodadas, cada uma mais estreita que a
-  anterior, como as de [[textcite:kiss2014][p. 3]]: a primeira responde à
-  P1, e a segunda e a terceira, à P1.1 e à P1.2.
+  As tarefas são implementadas na web por uma tecnologia de cada modelo de
+  programação, Web Component, React e Solid, e três delas também pelo Lit,
+  no declarativo por re-renderização, e pelo Angular com /signals/, no
+  declarativo por atualização granular.
+  No Android e no /desktop/, um par de tecnologias confere se as posições
+  encontradas na web se repetem.
+  A avaliação se faz em três rodadas: a primeira responde à P1; a segunda
+  acrescenta as mesmas funcionalidades e os mesmos requisitos de
+  orquestração a todas as implementações e responde à P1.1; a terceira
+  reescreve o Formulário com a biblioteca de formulário do ecossistema de
+  cada tecnologia e responde à P1.2.
   @@latex:\notamudou{\textbf{As três rodadas são novas}; o projeto não as previa.}@@
-  Na primeira rodada, as tecnologias implementam as tarefas descritas acima.
-  Na segunda, cada tarefa recebe funcionalidades, como o assistente
-  em três passos do Formulário, e requisitos de orquestração, como a
-  espera de 300 ms depois da última tecla na Busca.
-  Uma funcionalidade muda o que o usuário percebe ou pode fazer, e um
-  requisito de orquestração deixa a tela igual e muda só como se combinam
-  os eventos.
-  São onze mudanças, feitas uma por /commit/ e na mesma ordem em
-  todas as tecnologias que implementam a tarefa.
-  A segunda rodada faz o código crescer porque é nos problemas grandes que os efeitos
-  da viscosidade mais aparecem [[cite:green1996d][p. 161]].
-  Na terceira, o Formulário estendido é reescrito em cada tecnologia
-  com a biblioteca de formulário mais usada no ecossistema dela, ou com a
-  [[gls:api]] da plataforma quando nenhuma predomina.
-  Como as bibliotecas variam de uma tecnologia para outra, a conclusão da
-  terceira rodada vale para o ecossistema típico de cada tecnologia, e não só
-  para o modelo de programação.
-
-  Quatro coisas poderiam diferenciar as implementações sem ser o modelo de
-  programação nem a notação, e as quatro ficam fixas: a linguagem, a
-  especificação, as bibliotecas e o domínio.
-  A linguagem é uma só em cada plataforma: na web, o /TypeScript/, que o
-  Angular exige cite:google2026b e as demais tecnologias também usam; no
-  Android, o Kotlin; e, no /desktop/, o C#.
-  As implementações de uma tarefa seguem a mesma especificação, com os mesmos
-  textos, regras e dados, e, nas duas primeiras rodadas, cada uma usa só o que a própria
-  tecnologia traz, sem bibliotecas de formulário.
-  As regras que não dependem da interface, como o formato das datas, a
-  validação do e-mail e as transições do quadro, ficam num /domínio/ comum
-  às implementações de cada plataforma, na linguagem dela.
-  Esse controle das variáveis é parte do planejamento da pesquisa, o
-  delineamento [[cite:prodanov2013][p. 54]].
-
-  Um /teste de conformidade/ por tarefa executa as verificações da
-  especificação contra cada implementação; na web, ele roda no console do
-  navegador.
-  /Capturas/ de tela dos estados escolhidos de cada tarefa, geradas
-  automaticamente, denunciam desvios de comportamento ou de aparência,
-  porque devem sair idênticas entre as tecnologias web.
-  As implementações, os testes de conformidade e as capturas ficam num repositório público,
-  em https://github.com/iquabius/unemat-tcc.
-  Nele, as versões de linguagens, bibliotecas e ferramentas ficam
-  fixadas[fn:versoes], para que as implementações possam ser reproduzidas.
-
-  A avaliação cabe ao autor, que examina o código das implementações dimensão
-  a dimensão, sem participantes.
-  É uma avaliação analítica, feita por especialista, sem a participação de
-  usuários cite:blandford2008, como a de [[textcite:kiss2014][p. 8]] pelas
-  [[glspl:dc]].
-  Ela serve de alternativa aos estudos com programadores, que comparam
-  linguagens a custo alto e com resultados muitas vezes inconclusivos
-  [[cite:sadowski2011][p. 9]], e as [[glspl:dc]] pedem menos tempo que eles
-  cite:dagit2006.
-
-  Em cada rodada, a avaliação percorre as 14 [[glspl:dc]] da lista
-  completa [[cite:blackwell2003][p. 115-118]], e não um subconjunto
-  escolhido antes, porque a escolha prévia pode atrapalhar, e o conjunto
-  inteiro traz resultados inesperados e úteis [[cite:blackwell2001][p. 332]].
-  Para a análise, o trabalho as agrupa pelo que descrevem.
-  Oito tratam da notação: /nível de abstração/, /proximidade de
-  descrição/, /consistência/, /concisão/, /operações mentais difíceis/,
-  /dependências ocultas/, /expressividade de papel/ e /notação secundária/.
-  Duas são do sistema, que o ambiente de edição agrava ou atenua: a
-  /viscosidade/ e a /propensão a erros/.
-  As outras quatro pesam no ambiente de edição: o /compromisso
-  prematuro/, a /avaliação progressiva/, a /visibilidade/ e a
-  /provisoriedade/.
-  Destas, a avaliação lê a face que aparece na notação, porque os próprios
-  autores suspeitam que há uma zona cinzenta entre as dimensões da notação e as
-  do ambiente [[cite:green2006][p. 357]].
-  Nenhuma dimensão é boa ou má em si, e a avaliação sempre leva em conta a
-  atividade a apoiar [[cite:blackwell2003][p. 115]].
-  Na primeira rodada, as atividades são a busca e a compreensão exploratória
-  do código pronto, e, na segunda e na terceira, a modificação [[cite:blackwell2003][p. 113]].
+  A linguagem, a especificação e as regras de domínio ficam fixas, as duas
+  primeiras rodadas não usam bibliotecas de formulário, e um teste de
+  conformidade confere que as implementações de uma tarefa fazem o mesmo.
+  Em cada rodada, o autor percorre as 14 [[glspl:dc]] no código, e a análise
+  compara o perfil de cada modelo de programação numa tabela-síntese, que
+  também se lê por problema de coordenação.
   @@latex:\notamudou{\textbf{As DCs passam às 14}, e não oito, em cada rodada.}@@
-
-  A seção ref:chap:results compara os modelos de programação pelo perfil
-  de cada um nas [[glspl:dc]] [[cite:blackwell2003][p. 106 e 112]] e abre
-  com uma tabela-síntese, com uma linha por
-  [[gls:dc]] e uma coluna por modelo de programação.
-  Cada célula dá a posição do modelo na [[gls:dc]], indica de que tarefa vem a evidência e
-  registra quando as duas tecnologias web da coluna divergem, o Solid e o
-  Angular com /signals/ ou o React e o Lit.
-  No primeiro par, ela diz também se a diferença vem da montagem da tela,
-  do modelo de componente ou da [[gls:api]].
-  Como cada tarefa exercita problemas de coordenação próprios, a síntese
-  por problema reúne as células que vêm das tarefas dele.
-  Da primeira rodada para as outras duas, a linha de cada [[gls:dc]] diz se a diferença
-  entre os modelos de programação fica /mantida/, /ampliada/, /reduzida/,
-  /anulada/, /invertida/ ou /surgida/, e a célula diz se a posição do
-  modelo /sobe/, /desce/ ou /fica igual/.
-  Segue uma seção por [[gls:dc]], com os trechos de uma tarefa escolhida,
-  antes da avaliação, pelo problema de coordenação que a dimensão mais toca.
-  Em cada seção, a análise aponta se a diferença está na coordenação, na
-  montagem da tela ou na ligação entre as duas.
-  Nas seções em que as tarefas do Android ou do /desktop/ mostram
-  diferença entre as duas tecnologias da plataforma, a análise diz se a
-  posição da web se repete nela.
-  A concisão tem ainda o apoio de uma contagem das linhas de cada
-  implementação.
-  Na segunda e na terceira rodada, o /diff/ de cada mudança apoia a viscosidade: a mesma
-  mudança, preparada antes e feita em cada implementação, como no teste
-  de [[textcite:green1996d][p. 162]], mostra quantas ações ela pede, e
-  quantas outras restauram a consistência [[cite:blackwell2003][p. 115]].
+  A seção ref:chap:cases detalha o delineamento, e as implementações, os
+  testes de conformidade e as capturas ficam em
+  https://github.com/iquabius/unemat-tcc.
   @@latex:\notaproxima[inline]{Termos: \enquote{comparar} fica para o objetivo, \enquote{avaliação} para a aplicação das DCs ao código e \enquote{análise} para a parte que apresenta os resultados. Considerar um termo só, \enquote{avaliação}, para a atividade toda. A favor: uma palavra por conceito, sem o leitor se perguntar se são três atividades. Contra: mudam mais frases, e o objetivo geral perde o verbo \enquote{comparar}, que diz o que se faz entre os modelos de programação.}@@
 
   O delineamento tem limitações em três pontos: quem avalia, o instrumento e o
@@ -474,12 +226,13 @@ mesma interface [[cite:lee2025][289:1]].
 
   Por ser analítica, e não um experimento, a avaliação pelas [[glspl:dc]] aponta
   diferenças que ainda precisam ser testadas com programadores.
-  As quatro [[glspl:dc]] que pesam no ambiente de edição se leem só pela face
-  que aparece na notação e podem mostrar pouca diferença no código.
+  Quatro das 14 [[glspl:dc]] pesam no ambiente de edição, se leem só pela
+  face que aparece na notação e podem mostrar pouca diferença no código.
   Para [[textcite:green2006][p. 334]], duas das outras, a expressividade de
   papel e as operações mentais difíceis, sempre foram mal descritas.
-  Na tabela, os rótulos do que acontece com a diferença de uma rodada a outra, de
-  mantida a surgida, são deste trabalho, e não de uma fonte.
+  Na tabela-síntese, os rótulos do que acontece com a diferença de uma
+  rodada a outra, /mantida/, /ampliada/, /reduzida/, /anulada/,
+  /invertida/ ou /surgida/, são deste trabalho, e não de uma fonte.
 
   Mesmo na segunda rodada, as tarefas continuam pequenas, e o que só aparece em
   programas de grande porte ou ao longo da manutenção fica de fora.
@@ -496,31 +249,20 @@ mesma interface [[cite:lee2025][289:1]].
   detalhes [[cite:green1996d][p. 139]].
   Por isso, a avaliação compara os modelos de programação pelos detalhes que
   a notação de cada tecnologia exige no código-fonte.
-  Na web, só o par Web Component e Lit isola o imperativo por
-  atualização manual, e só em três tarefas.
-  Ele isola a ligação do estado com a tela, e não a orquestração, que no
-  Lit se escreve como no Web Component.
-  Fora da web, os dois pares mudam também a montagem da tela, e cada
-  plataforma confere só dois dos três modelos de programação: o Android
-  fica sem o declarativo por atualização granular, e o /desktop/, sem o
-  declarativo por re-renderização.
+  Os pares isolam pouco: na web, só o Web Component e o Lit, ambos com
+  componentes que são elementos personalizados do navegador
+  cite:google2026d, separam o imperativo de um declarativo, em três
+  tarefas e só na ligação do estado com a tela; fora da web, cada
+  plataforma confere dois dos três modelos de programação.
 
-  Além desta introdução, o texto tem quatro seções.
-  A seção ref:chap:prog reúne os conceitos de programação em que o
-  trabalho se apoia, da programação de interfaces gráficas à [[gls:pf]] e à [[gls:pr]].
-  A seção ref:chap:cases apresenta as [[glspl:dc]] da avaliação e descreve as
-  implementações das cinco tarefas.
-  A seção ref:chap:results compara os três modelos de programação pelas
-  [[glspl:dc]], e a
-  seção ref:chap:conclusion responde à pergunta de pesquisa.
+  Além desta introdução, o texto tem três seções.
+  A seção ref:chap:prog reúne os conceitos em que o trabalho se apoia, dos
+  modelos de programação às [[glspl:dc]], e os trabalhos relacionados.
+  A seção ref:chap:cases detalha o delineamento, apresenta as tarefas e as
+  implementações e compara os modelos de programação pelas [[glspl:dc]].
+  A seção ref:chap:conclusion responde à pergunta de pesquisa.
   @@latex:\notaproxima{Os capítulos ainda seguem o projeto de 2017 e mudam com a seção de trabalhos relacionados; este parágrafo se revê no fechamento.}@@
 
 * Footnotes
 
-[fn:versoes] No =package-lock.json= e no =libs.versions.toml=.
-Na web, TypeScript 6.0.3, React 19.3.0, Solid 1.9.15, Lit 3.3.3 e Angular
-22.2.0, com Vite 8.3.1 para o /build/ (no Angular, o =@angular/build= 22.2.0)
-e Playwright 1.63.0 para as capturas.
-No Android, Kotlin 2.4.20, Jetpack Compose pela [[gls:bom]]
-2026.09.00 e, para as capturas, Robolectric 4.17 com Roborazzi 1.75.0.
 
