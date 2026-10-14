@@ -137,6 +137,14 @@ as subperguntas passaram a P1.1 e P1.2 e "a rodada da P1" ficou ambígua
 com a avaliação inteira); R1, R2 e R3 (rótulos de 2026-10-13, desfeitos no
 mesmo dia)
 
+**Estado**:
+O que o programa guarda entre um evento e outro e consulta, junto com o
+evento, para decidir o que fazer: todo programa é uma máquina de estados
+(Blackheath e Jones, 2016, p. 6). No imperativo vive em variáveis que o
+programa lê na ordem dos passos; no declarativo, em células que o
+ambiente de execução mantém em dia (p. 10).
+_Avoid_: memória (é a do computador); *statefull*
+
 **Alteração de estado**:
 O que um evento faz ao estado da interface: o *callback*, o *setter* ou o
 *signal* grava um valor novo. Os valores derivados e a tela se atualizam

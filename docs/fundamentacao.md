@@ -6,7 +6,8 @@ lido, o trecho conferido: a matriz tema × referência, os candidatos da
 revisão de 2026-09-24, as fontes sobre *callbacks*, eventos e
 *promises*, os trechos que saíram da introdução, Zampetti et al.
 (2025) e a revisão sobre aplicação interativa e aplicação reativa
-(seção 7, de 2026-10-10). Veio de `docs/literatura.md` (índice até `ff620ad`), seções 2,
+(seção 7, de 2026-10-10) e o estado em Blackheath e Jones (seção 8, de
+2026-10-14). Veio de `docs/literatura.md` (índice até `ff620ad`), seções 2,
 3.1, 3.2, 4 (o item da literatura revisada por pares), 12, 13.3 e 14.3,
 em 2026-10-10.
 
@@ -26,7 +27,7 @@ acrescentar, não o estado do `refs.bib`.
 |---|---|---|
 | Modelos de computação / linguagens | roy2004 | |
 | Paradigmas | roy2009 | + krishnamurthi2019 (+ krishnamurthi2008) |
-| Estado | rouse2005 (WhatIs.com) | roy2004 ou abelson1996, com página |
+| Estado | rouse2005 (WhatIs.com) | blackheath2016, p. 6 e 9-10 (seção 8, decisão de 2026-10-14); roy2004 como complemento formal |
 | GUIs, eventos, *callbacks* | blackheath2016; na intro: maier2010, edwards2009, fischer2007, jarvi2008, myers1994 | + blouin2022 + madsen2020 + (nishizu2022, lee2025) + literatura cinzenta sobre *signals* |
 | PF | hughes1990, noble1994, roy2009 | + mehlhorn2022 + (Zampetti et al. 2025, contraponto) |
 | PR / programas reativos | berry1989, salvaneschi2015, roy2009; na intro: bainomugisha2013 | + zimmerle2022 + (oeyen2024, berry2020) |
@@ -349,3 +350,64 @@ Arquitetura de sistemas:
   et al. (2018), Martin, Magnaudet e Conversy (2023), Lohstroh et al.
   (2020), Goldin e Wegner (2008), Halbwachs (1993).
 - O `refs.bib` ganha entrada só para a fonte que o texto citar.
+
+## 8. Estado e o contraste entre imperativo e declarativo (2026-10-14)
+
+Blackheath e Jones (2016) são a referência principal sobre o que é estado
+e sobre como o imperativo e o declarativo o tratam, no lugar de Rouse
+(2005, WhatIs.com), que `texto/prog.org` cita na definição de estado. O
+mesmo par dá a explicação coloquial (a lasanha, no `AGENTS.md`) e a
+definição: todo programa é uma máquina de estados, em que a lógica decide
+pelo evento de entrada e pelo estado corrente e altera esse estado (p. 6);
+no imperativo, o estado vive em variáveis mutáveis, que o programa lê
+antes ou depois de cada alteração conforme a ordem dos passos; no
+declarativo, vive em células, que mantêm o valor em dia e avisam quem
+depende delas (p. 9-10). A lasanha (p. 17-19) é a porta de entrada: a
+receita em passos é "o como" e a definição em camadas é "o quê", com as
+dependências escritas e a ordem derivada delas.
+
+### 8.1 Explicação coloquial, pela cozinha
+
+- Imperativo, "o como": a receita manda aquecer o óleo, fritar a cebola,
+  juntar a carne. O estado é a panela: o que há nela depende de quantos
+  passos já correram, e quem a olha antes do passo 3 vê outra coisa do
+  que quem a olha depois. É o erro de sequência do par: ler a variável
+  antes ou depois de alterada, ao contrário do que se queria (p. 10).
+- Declarativo, "o quê": a lasanha são camadas de massa, bolonhesa e molho
+  de queijo, assadas por 45 minutos; a bolonhesa é cebola frita com carne
+  e tomate. Ninguém diz se o molho de queijo sai antes ou depois da
+  bolonhesa: a ordem sai das dependências (p. 18-19). O estado continua a
+  existir, mas cada parte se define pelas de que depende, e a que muda
+  leva consigo as que dependem dela, como a célula, que está sempre em
+  dia (p. 10).
+- Máquina de estados, o elo entre os dois: o pedido chega (evento), a
+  cozinha decide pelo pedido e pelo que já está no fogo (estado corrente),
+  muda o que está no fogo (alteração de estado) e às vezes serve um prato
+  (saída) (p. 6). Os dois estilos escrevem a mesma máquina; muda quem
+  escreve a ordem das alterações, o programador ou o ambiente de execução
+  (`CONTEXT.md`, "Atualização").
+
+### 8.2 Trechos conferidos
+
+Lidos em `tmp/fontes/blackheath2016-cap1.pdf`, a amostra oficial da
+Manning (só o capítulo 1; página do PDF = página do livro + 3), em
+2026-10-14.
+
+| Página | Trecho | Sustenta |
+|---|---|---|
+| 6 | "2 The program logic makes decisions based on the input event and the current program state. 3 The program logic changes the program state." | a definição de estado pela máquina de estados |
+| 6 | "We argue that all programs are state machines, and state machines are inherently difficult to reason about" | por que o estado é o difícil de programar |
+| 10 | "we don't use normal mutable variables because they're sensitive to changes in execution sequence" | o estado no imperativo depende da ordem dos passos |
+| 10 | "FRP keeps state in containers called cells. [...] the state is always up-to-date." | o estado no declarativo, mantido em dia pelo ambiente de execução |
+| 17 | "you tell the machine what the program is, not what it does" | "o quê" contra "o como" |
+| 18 | "it's an operational definition of lasagna, defined in terms of the steps needed to create it" | a receita como definição operacional |
+| 19 | "We express dependencies directly. The sequence is derived from them." | a ordem derivada das dependências |
+
+### 8.3 Pendências
+
+- O par não é revisado por pares (livro da Manning, 2016). Se a banca
+  pedir definição formal de estado, o complemento é Van Roy e Haridi
+  (2004), a citar com a página, sem trocar a referência principal.
+- A definição de célula vem no capítulo 2, que não está em `tmp/fontes/`.
+- `texto/prog.org` (parágrafo "-> estado") troca rouse2005 por
+  blackheath2016, p. 6, na rodada de revisão do texto.
