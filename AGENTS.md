@@ -184,6 +184,14 @@ pergunta antes.
   sai como til no PDF, e o espaço inquebrável ali se escreve `\nbsp{}`.
 - No `refs.bib`, escapar `%`, `#` e `&` fora de `url` e `doi`, inclusive em
   `annotation`: sem escape, quebram o `.bbl`.
+- Cada entrada do `refs.bib` abre com `peso`, o quanto a fonte pesa no
+  argumento: `central` (sustenta a pergunta, os objetivos ou o método),
+  `apoio` (sustenta uma afirmação de passagem) ou `periferico` (contexto,
+  ou leitura que não entrou no texto). A fonte citada no texto é ao menos
+  `apoio`, e a não citada é `periferico`, salvo a central ainda por citar.
+  O peso é decisão do autor, e mudá-lo é trocar a palavra, sem mudar a
+  entrada de lugar. O biber descarta o campo, que não chega ao `.bbl`; no
+  `C-c ]` do Emacs, digitar `central` filtra as centrais.
 - Duas ou mais fontes na mesma citação, com a página de cada uma:
   `[[cites:&disch2025 p. 93;&oney2012 p. 229]]`. O link exporta `\cites`
   e imprime um parêntese só, com as fontes separadas por ponto e vírgula,

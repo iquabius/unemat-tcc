@@ -157,7 +157,8 @@ sobra passa pela rodada por bloco. As técnicas e as fontes estão em
    dele.
 6. **Conferir.** Meça de novo. Depois:
    - `auditar_bib.py`: a entrada que saiu do texto aparece como nunca
-     citada; decida com o autor se sai do `refs.bib`;
+     citada; decida com o autor se sai do `refs.bib` ou se fica, com o
+     `peso` que passa a ter (`AGENTS.md`, seção "Texto");
    - `bin/conferir-fontes.py --desde HEAD texto/<capítulo>.org`: a frase
      cortada deixa na matriz uma entrada sem citação, e o parágrafo
      cortado ou fundido, um link quebrado; ambos saem ou se corrigem na
@@ -335,8 +336,9 @@ Na rodada de corte, o commit espera a releitura da cadeia inteira do
 passo 6, feita e mostrada ao autor, com o que ela achou corrigido ou
 decidido.
 
-1. `refs.bib`, se ganhou entrada: `%`, `#` e `&` escapados fora de `url` e
-   `doi`, inclusive em `annotation`; confira com
+1. `refs.bib`, se ganhou entrada: o `peso` na primeira linha, proposto ao
+   autor (`AGENTS.md`, seção "Texto"); `%`, `#` e `&` escapados fora de
+   `url` e `doi`, inclusive em `annotation`; confira com
    `python3 ~/.claude/skills/escrita-academica/scripts/auditar_bib.py texto/refs.bib texto/`.
 2. Matriz de fontes: `bin/conferir-fontes.py --desde HEAD` sai com zero.
    Ele aponta a citação de um parágrafo alterado sem entrada sob o título
