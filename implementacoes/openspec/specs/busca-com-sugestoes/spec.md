@@ -3,18 +3,18 @@
 ## Purpose
 
 Campo "Cidade de destino" que sugere cidades enquanto o usuário digita (o
-*typeahead* de sites de viagem e de entrega), a tarefa assíncrona: cancelar
-a requisição anterior e nunca mostrar uma resposta atrasada.
+*typeahead* de sites de viagem e de entrega), a interface assíncrona:
+cancelar a requisição anterior e nunca mostrar uma resposta atrasada.
 
 ## Requirements
 
 ### Requirement: Começa sem busca
 
-A tarefa deve abrir sem situação, sem sugestões e sem destino escolhido.
+A interface deve abrir sem situação, sem sugestões e sem destino escolhido.
 
 #### Scenario: 1 começa vazio
 
-- **QUANDO** a tarefa abre
+- **QUANDO** a interface abre
 - **ENTÃO** não há situação, sugestão nem destino na tela
 
 ### Requirement: Espera depois da última tecla

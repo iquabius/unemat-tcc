@@ -22,7 +22,7 @@ no repositório é o link do Contador com POO em `texto/cases.org`, de
 
 ## Lista
 
-| Interface | Implementação no CodeSandbox | Tarefa atual |
+| Interface | Implementação no CodeSandbox | Interface atual |
 |---|---|---|
 | Contador | [contador-com-callback](https://codesandbox.io/p/sandbox/contador-com-callback-m66fh?file=%2Fsrc%2Findex.js) | Contador |
 | Contador | [contador-com-oop-callbacks](https://codesandbox.io/p/sandbox/contador-com-oop-callbacks-nst9y), citada num comentário de `texto/cases.org` | Contador |

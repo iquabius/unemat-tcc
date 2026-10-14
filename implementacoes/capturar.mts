@@ -1,23 +1,23 @@
-// Captura a tela dos exemplos em
-// implementacoes/<caso>/capturas/<tecnologia>-<cena>.png.
+// Captura a tela das implementações em
+// implementacoes/<interface>/capturas/<tecnologia>-<cena>.png.
 //
-// Uso: npm run capturas [-- [--conferir] <caso>[/<tecnologia>] ...]
-//   npm run capturas                      todos os casos e tecnologias
-//   npm run capturas -- formulario        um caso
+// Uso: npm run capturas [-- [--conferir] <interface>[/<tecnologia>] ...]
+//   npm run capturas                      todas as interfaces e tecnologias
+//   npm run capturas -- formulario        uma interface
 //   npm run capturas -- formulario/react  uma implementação
 //   npm run capturas -- --conferir        não grava: compara com as versionadas
 //
 // Com --conferir, as imagens vão para uma pasta temporária e são comparadas
-// com as de implementacoes/<caso>/capturas/; o script lista as que mudaram,
-// as novas e as que sumiram, e sai com erro se houver alguma.
+// com as de implementacoes/<interface>/capturas/; o script lista as que
+// mudaram, as novas e as que sumiram, e sai com erro se houver alguma.
 //
-// Web: cada caso pode ter um cenas.mts com as cenas a capturar (ações do
+// Web: cada interface pode ter um cenas.mts com as cenas a capturar (ações do
 // Playwright antes da captura); sem ele, captura só o estado inicial.
 // Android: as cenas ficam nos testes de cada módulo (src/test/.../CenasTest.kt),
 // que o Gradle roda com Robolectric e Roborazzi, sem emulador; o projeto
 // Gradle fica em implementacoes/android/.
 // No fim, avisa quando a mesma cena sai diferente entre as tecnologias de
-// um caso na mesma plataforma: na web, as implementações seguem a mesma
+// uma interface na mesma plataforma: na web, as implementações seguem a mesma
 // especificação e a mesma aparência, então as imagens deveriam ser
 // idênticas; no Android, Views e Compose reproduzem o mesmo estilo, mas
 // desenham o texto com diferenças de poucos pixels, e o aviso pede só
@@ -41,7 +41,8 @@ const ANDROID = ["android-views", "android-compose"];
 const TECNOLOGIAS = [...WEB, ...ANDROID];
 const GRADLEW = path.join(IMPLEMENTACOES, "android", "gradlew");
 
-// Data fixa para que exemplos que mostram "hoje" gerem sempre a mesma imagem.
+// Data fixa para que as implementações que mostram "hoje" gerem sempre a
+// mesma imagem.
 const DATA_FIXA = new Date("2026-09-26T12:00:00");
 
 const TIPOS: Record<string, string> = {
@@ -55,22 +56,22 @@ const TIPOS: Record<string, string> = {
 
 async function implementacoes(filtros: string[]): Promise<[string, string][]> {
   const lista: [string, string][] = [];
-  for (const caso of (await readdir(IMPLEMENTACOES)).sort()) {
-    // Toda tarefa tem a especificação em openspec/specs/<tarefa>/; as outras
-    // pastas (node_modules, android, openspec e fora-da-analise, que não se
-    // captura) não são tarefas.
-    if (!existsSync(path.join(IMPLEMENTACOES, "openspec", "specs", caso)))
+  for (const gui of (await readdir(IMPLEMENTACOES)).sort()) {
+    // Toda interface tem a especificação em openspec/specs/<interface>/; as
+    // outras pastas (node_modules, android, openspec e fora-da-analise, que
+    // não se captura) não são interfaces.
+    if (!existsSync(path.join(IMPLEMENTACOES, "openspec", "specs", gui)))
       continue;
     for (const tecnologia of TECNOLOGIAS) {
       const projeto = ANDROID.includes(tecnologia)
         ? "build.gradle.kts"
         : "package.json";
-      if (!existsSync(path.join(IMPLEMENTACOES, caso, tecnologia, projeto)))
+      if (!existsSync(path.join(IMPLEMENTACOES, gui, tecnologia, projeto)))
         continue;
       const escolhido =
         filtros.length === 0 ||
-        filtros.some((f) => f === caso || f === `${caso}/${tecnologia}`);
-      if (escolhido) lista.push([caso, tecnologia]);
+        filtros.some((f) => f === gui || f === `${gui}/${tecnologia}`);
+      if (escolhido) lista.push([gui, tecnologia]);
     }
   }
   return lista;
@@ -119,11 +120,11 @@ function servir(pasta: string): Promise<Server> {
 // Roda os testes de captura do módulo Android, que gravam
 // <tecnologia>-<cena>.png na pasta dada, e devolve os nomes gerados.
 async function capturarAndroid(
-  caso: string,
+  gui: string,
   tecnologia: string,
   pasta: string,
 ): Promise<string[]> {
-  const tarefa = `:${caso}-${tecnologia}:testDebugUnitTest`;
+  const tarefa = `:${gui}-${tecnologia}:testDebugUnitTest`;
   try {
     execFileSync(
       GRADLEW,
@@ -144,8 +145,8 @@ async function capturarAndroid(
     .sort();
 }
 
-async function cenasDo(caso: string): Promise<Cenas> {
-  const arquivo = path.join(IMPLEMENTACOES, caso, "cenas.mts");
+async function cenasDo(gui: string): Promise<Cenas> {
+  const arquivo = path.join(IMPLEMENTACOES, gui, "cenas.mts");
   if (!existsSync(arquivo)) return { inicial: async () => {} };
   return (await import(arquivo)).cenas;
 }
@@ -163,7 +164,7 @@ const temporaria = conferir
   ? await mkdtemp(path.join(tmpdir(), "capturas-"))
   : null;
 
-// caso/cena → tecnologia → hash da imagem
+// interface/cena → tecnologia → hash da imagem
 const hashes = new Map<string, Map<string, string>>();
 // Resultado da conferência, em caminhos relativos à raiz
 const mudaram: string[] = [];
@@ -173,13 +174,13 @@ const sumiram: string[] = [];
 // Registra uma imagem gerada: hash para o aviso entre tecnologias e, no
 // --conferir, comparação com a versionada.
 async function registrar(
-  caso: string,
+  gui: string,
   tecnologia: string,
   cena: string,
   imagem: Buffer,
 ) {
   const plataforma = ANDROID.includes(tecnologia) ? "android" : "web";
-  const chave = `${caso}/${cena} (${plataforma})`;
+  const chave = `${gui}/${cena} (${plataforma})`;
   if (!hashes.has(chave)) hashes.set(chave, new Map());
   hashes
     .get(chave)!
@@ -187,7 +188,7 @@ async function registrar(
 
   const versionada = path.join(
     IMPLEMENTACOES,
-    caso,
+    gui,
     "capturas",
     `${tecnologia}-${cena}.png`,
   );
@@ -202,11 +203,11 @@ async function registrar(
 
 // Capturas versionadas desta tecnologia que nenhuma cena gerou.
 async function procurarSumidas(
-  caso: string,
+  gui: string,
   tecnologia: string,
   cenas: string[],
 ) {
-  const versionadas = path.join(IMPLEMENTACOES, caso, "capturas");
+  const versionadas = path.join(IMPLEMENTACOES, gui, "capturas");
   if (!conferir || !existsSync(versionadas)) return;
   for (const arquivo of await readdir(versionadas)) {
     const cena = arquivo.slice(tecnologia.length + 1, -".png".length);
@@ -222,10 +223,10 @@ async function procurarSumidas(
 
 const navegador = await chromium.launch();
 try {
-  for (const [caso, tecnologia] of lista) {
-    const projeto = path.join(IMPLEMENTACOES, caso, tecnologia);
-    const versionadas = path.join(IMPLEMENTACOES, caso, "capturas");
-    const destino = temporaria ? path.join(temporaria, caso) : versionadas;
+  for (const [gui, tecnologia] of lista) {
+    const projeto = path.join(IMPLEMENTACOES, gui, tecnologia);
+    const versionadas = path.join(IMPLEMENTACOES, gui, "capturas");
+    const destino = temporaria ? path.join(temporaria, gui) : versionadas;
     await mkdir(destino, { recursive: true });
 
     if (ANDROID.includes(tecnologia)) {
@@ -233,20 +234,20 @@ try {
       const pasta = await mkdtemp(
         path.join(tmpdir(), `capturas-${tecnologia}-`),
       );
-      const arquivos = await capturarAndroid(caso, tecnologia, pasta);
+      const arquivos = await capturarAndroid(gui, tecnologia, pasta);
       const cenas = arquivos.map((a) =>
         a.slice(tecnologia.length + 1, -".png".length),
       );
       for (const [i, arquivo] of arquivos.entries()) {
         await copyFile(path.join(pasta, arquivo), path.join(destino, arquivo));
         await registrar(
-          caso,
+          gui,
           tecnologia,
           cenas[i],
           await readFile(path.join(pasta, arquivo)),
         );
       }
-      await procurarSumidas(caso, tecnologia, cenas);
+      await procurarSumidas(gui, tecnologia, cenas);
       continue;
     }
 
@@ -263,7 +264,7 @@ try {
     const servidor = await servir(await pastaDoBuild(projeto));
     const endereco = servidor.address();
     const porta = typeof endereco === "object" && endereco ? endereco.port : 0;
-    const cenas = await cenasDo(caso);
+    const cenas = await cenasDo(gui);
     for (const [cena, agir] of Object.entries(cenas)) {
       const contexto = await navegador.newContext({
         viewport: { width: 480, height: 200 },
@@ -282,10 +283,10 @@ try {
         fullPage: true,
       });
       await contexto.close();
-      await registrar(caso, tecnologia, cena, imagem);
+      await registrar(gui, tecnologia, cena, imagem);
     }
 
-    await procurarSumidas(caso, tecnologia, Object.keys(cenas));
+    await procurarSumidas(gui, tecnologia, Object.keys(cenas));
     servidor.close();
   }
 } finally {
@@ -306,7 +307,7 @@ for (const [chave, porTecnologia] of hashes) {
 }
 if (divergentes === 0) {
   console.log(
-    `As ${hashes.size} cenas saíram idênticas em todas as tecnologias de cada caso e plataforma.`,
+    `As ${hashes.size} cenas saíram idênticas em todas as tecnologias de cada interface e plataforma.`,
   );
 }
 

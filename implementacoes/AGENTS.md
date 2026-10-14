@@ -1,35 +1,37 @@
-# Instruções para agentes: exemplos do TCC (`implementacoes/`)
+# Instruções para agentes: implementações do TCC (`implementacoes/`)
 
-Cada caso é uma interface implementada em várias tecnologias, para
-comparação no TCC. As decisões de escopo (casos, tecnologias, Android)
-estão em `docs/adr/`; os termos, em `CONTEXT.md` na raiz; instalação e uso,
-em `implementacoes/README.org`. O código que saiu da análise fica congelado
-em `implementacoes/fora-da-analise/` (última seção).
+Cada interface do *benchmark* de notação é implementada em várias
+tecnologias, para comparação no TCC. As decisões de escopo (interfaces,
+tecnologias, Android) estão em `docs/adr/`; os termos, em `CONTEXT.md` na
+raiz; instalação e uso, em `implementacoes/README.org`. O código que saiu
+da análise fica congelado em `implementacoes/fora-da-analise/` (última
+seção).
 
 ## Conferir as capturas a cada alteração
 
-Toda alteração que possa mudar a tela ou o comportamento de um exemplo
-exige conferir as capturas antes de dar o trabalho por pronto ou commitar.
-Isso inclui o código de `implementacoes/<caso>/<tecnologia>/`, o
-`estilo.css`, o `dominio.ts` e o `cenas.mts` de cada caso, o
-`implementacoes/capturar.mts`, o projeto Gradle em
-`implementacoes/android/` e as dependências (`package.json`,
-`package-lock.json`, `implementacoes/android/gradle/libs.versions.toml`).
+Toda alteração que possa mudar a tela ou o comportamento de uma
+implementação exige conferir as capturas antes de dar o trabalho por pronto
+ou commitar. Isso inclui o código de
+`implementacoes/<interface>/<tecnologia>/`, o `estilo.css`, o `dominio.ts`
+e o `cenas.mts` de cada interface, o `implementacoes/capturar.mts`, o
+projeto Gradle em `implementacoes/android/` e as dependências
+(`package.json`, `package-lock.json`,
+`implementacoes/android/gradle/libs.versions.toml`).
 
 1. Rode, de `implementacoes/`, onde está o `package.json` dos *workspaces*:
 
    ```sh
-   npm run capturas -- --conferir <caso>
+   npm run capturas -- --conferir <interface>
    ```
 
-   Sem `<caso>`, confere todos, web e Android. O comando não grava nada:
-   compara as imagens geradas agora com as versionadas em
-   `implementacoes/<caso>/capturas/` e sai com erro se alguma mudou, é nova
-   ou sumiu.
-2. Se a saída trouxer `AVISO: <caso>/<cena> (web) difere entre as
-   tecnologias`, alguma implementação web foge da especificação do caso.
-   Corrija antes de seguir: as implementações web de um caso devem gerar
-   imagens idênticas.
+   Sem `<interface>`, confere todas, web e Android. O comando não grava
+   nada: compara as imagens geradas agora com as versionadas em
+   `implementacoes/<interface>/capturas/` e sai com erro se alguma mudou, é
+   nova ou sumiu.
+2. Se a saída trouxer `AVISO: <interface>/<cena> (web) difere entre as
+   tecnologias`, alguma implementação web foge da especificação da
+   interface. Corrija antes de seguir: as implementações web de uma
+   interface devem gerar imagens idênticas.
    No Android, o aviso `(android)` pode vir só do desenho do texto: Views e
    Compose desenham os mesmos glifos com diferenças de poucos pixels (no
    Contador, 0,15% da imagem, só nos algarismos e no "+"). Abra as duas
@@ -41,24 +43,25 @@ Isso inclui o código de `implementacoes/<caso>/<tecnologia>/`, o
 3. Se alguma captura mudou:
    - **mudança intencional:** abra as imagens da pasta temporária que o
      comando indica, confirme que mostram o esperado, rode
-     `npm run capturas -- <caso>` e inclua as imagens no mesmo commit do
-     código;
+     `npm run capturas -- <interface>` e inclua as imagens no mesmo commit
+     do código;
    - **mudança não intencional:** é regressão. Corrija o código, não as
      imagens.
 4. Relate o resultado da conferência ao usuário.
 
 ## Especificação: OpenSpec
 
-A especificação de cada tarefa é
-`implementacoes/openspec/specs/<tarefa>/spec.md`, no esquema *spec-driven*
-do OpenSpec 1.14.1, fixado em `package.json` (ADR 0030). `<tarefa>` é o
-nome da pasta da tarefa em `implementacoes/` (`formulario`,
-`busca-com-sugestoes`), a "capacidade" do OpenSpec. O `README.org` da
-tarefa fica com a apresentação (a origem, onde está o domínio, como rodar
-os testes) e aponta para o `spec.md`, sem repetir regra nem mensagem. O
-fluxo de agente do OpenSpec fica de fora: nada de `/opsx:*`, e `openspec
-init` ou `update` só com `--tools none`. Rode o CLI pelo `npm run openspec
--- <comando>`, que desliga a telemetria; o `openspec` direto a envia.
+A especificação de cada interface é
+`implementacoes/openspec/specs/<interface>/spec.md`, no esquema
+*spec-driven* do OpenSpec 1.14.1, fixado em `package.json` (ADR 0030).
+`<interface>` é o nome da pasta da interface em `implementacoes/`
+(`formulario`, `busca-com-sugestoes`), a "capacidade" do OpenSpec. O
+`README.org` da interface fica com a apresentação (a origem, onde está o
+domínio, como rodar os testes) e aponta para o `spec.md`, sem repetir regra
+nem mensagem. O fluxo de agente do OpenSpec fica de fora: nada de
+`/opsx:*`, e `openspec init` ou `update` só com `--tools none`. Rode o CLI
+pelo `npm run openspec -- <comando>`, que desliga a telemetria; o
+`openspec` direto a envia.
 
 ### Formato
 
@@ -83,32 +86,33 @@ init` ou `update` só com `--tools none`. Rode o CLI pelo `npm run openspec
   do requisito que a usa, ou ganha verificação.
 - Cenário não é cena: a cena é um estado a capturar (`cenas.mts`).
 
-`npm run conferir-especificacao`, de `implementacoes/`, roda o `openspec
-validate --all` e confere, em todo arquivo de `implementacoes/<tarefa>/`
-que chama `conferir(...)`, que os nomes das verificações são os dos
-cenários da especificação viva, na ordem do teste da web; o de
-`implementacoes/fora-da-analise/` não é conferido. Rode-o antes de cada
-commit que mexa numa especificação ou num teste de conformidade.
+`npm run conferir-especificacao`, de `implementacoes/`, roda o
+`openspec validate --all` e confere, em todo arquivo de
+`implementacoes/<interface>/` que chama `conferir(...)`, que os nomes das
+verificações são os dos cenários da especificação viva, na ordem do teste da
+web; o de `implementacoes/fora-da-analise/` não é conferido. Rode-o antes de
+cada commit que mexa numa especificação ou num teste de conformidade.
 
-### Tarefa nova
+### Interface nova
 
 O Login, o Quadro, os Dados ao vivo e outra que vier entram como mudança
 (abaixo), para a especificação ser revisada antes do código:
 
-1. `npm run openspec -- new change especificar-<tarefa>`. O delta, em
-   `specs/<tarefa>/spec.md`, tem o `## Purpose` (uma ou duas frases, com
+1. `npm run openspec -- new change especificar-<interface>`. O delta, em
+   `specs/<interface>/spec.md`, tem o `## Purpose` (uma ou duas frases, com
    50 caracteres ou mais) e só `## ADDED Requirements`; o `proposal.md`
-   põe a tarefa em `### New Capabilities`.
+   põe a interface em `### New Capabilities`.
 2. Commit da proposta, que o autor revisa.
 3. Um commit com o `dominio.ts`, o teste de conformidade da web (um
-   `conferir` por cenário), o `README.org` da tarefa e o arquivamento, que
-   cria `implementacoes/openspec/specs/<tarefa>/spec.md`; troque o título que o
-   `archive` escreve (`# <tarefa> Specification`) pelo nome da tarefa.
+   `conferir` por cenário), o `README.org` da interface e o arquivamento,
+   que cria `implementacoes/openspec/specs/<interface>/spec.md`; troque o
+   título que o `archive` escreve (`# <interface> Specification`) pelo nome
+   da interface.
 4. Um commit por tecnologia, com cenas e capturas (seção acima).
 
 ### Mudança numa especificação
 
-Toda mudança na especificação de uma tarefa já especificada entra como
+Toda mudança na especificação de uma interface já especificada entra como
 *delta spec*: as da P1 (a retirada da espera da Busca, as regras comuns,
 o envio que ignora o reenvio) e cada funcionalidade e requisito de
 orquestração da P2.
@@ -116,17 +120,17 @@ orquestração da P2.
 1. `npm run openspec -- new change <nome>`, com o nome em português, em
    *kebab-case*, verbo e objeto (`tirar-espera-da-busca`). Na pasta
    `implementacoes/openspec/changes/<nome>/`:
-   - `proposal.md`: o porquê, com o ADR de origem; o que muda; a tarefa
+   - `proposal.md`: o porquê, com o ADR de origem; o que muda; a interface
      modificada, em `### Modified Capabilities`; o impacto, com as
-     tecnologias, os arquivos da tarefa que citam a regra (como o
+     tecnologias, os arquivos da interface que citam a regra (como o
      `README.org`) e a tarefa do bd;
-   - `specs/<tarefa>/spec.md`, o delta: `ADDED` com requisito e cenários
+   - `specs/<interface>/spec.md`, o delta: `ADDED` com requisito e cenários
      inteiros; `MODIFIED` com o requisito inteiro copiado da especificação
      viva, todos os cenários dele, e editado (o que ficar de fora some);
      `REMOVED` só com o nome, `**Reason**` e `**Migration**`; `RENAMED`
      com `FROM:`/`TO:`, só para o nome do requisito. Uma regra que muda
-     várias tarefas é uma mudança só, com um delta por tarefa;
-   - `tasks.md`: só o teste de conformidade, os arquivos da tarefa que
+     várias interfaces é uma mudança só, com um delta por interface;
+   - `tasks.md`: só o teste de conformidade, os arquivos da interface que
      citam a regra (como o `README.org`) e o arquivamento, com a
      conferência de cada item; as tecnologias ficam na tarefa do bd e na
      seção `## Workflow follow-up`;
@@ -134,46 +138,46 @@ orquestração da P2.
 2. `npm run conferir-especificacao` e commit da proposta, que o autor
    revisa antes do resto.
 3. Um commit que muda o teste de conformidade em todas as plataformas que o
-   têm em `implementacoes/<tarefa>/`, e os arquivos da tarefa que citam a
-   regra, e arquiva a mudança: `npm run openspec -- archive <nome> --yes`
-   funde o delta em `specs/` e move a pasta para
-   `changes/archive/AAAA-MM-DD-<nome>/`. Assim a especificação viva diz
-   sempre o que os testes conferem, e as implementações ainda não mudadas
-   falham no teste até o commit delas.
+   têm em `implementacoes/<interface>/`, e os arquivos da interface que
+   citam a regra, e arquiva a mudança:
+   `npm run openspec -- archive <nome> --yes` funde o delta em `specs/` e
+   move a pasta para `changes/archive/AAAA-MM-DD-<nome>/`. Assim a
+   especificação viva diz sempre o que os testes conferem, e as
+   implementações ainda não mudadas falham no teste até o commit delas.
 4. Um commit por tecnologia, na mesma ordem em todas (ADR 0029), cada um
    passando no teste de conformidade e com as capturas conferidas.
 
-A mudança não se porta para o código da tarefa em
+A mudança não se porta para o código da interface em
 `implementacoes/fora-da-analise/` (decisões do autor em 2026-10-12 e
 2026-10-13).
 
-## Exemplo ou caso novo
+## Interface ou implementação nova
 
-- Cada tarefa tem a especificação em `implementacoes/openspec/specs/<tarefa>/`
-  (seção acima) e um `README.org` com a apresentação. Regras de domínio
-  compartilhadas pelas implementações web ficam num `dominio.ts` da
-  tarefa.
-- Cada problema de coordenação que se descreve de uma tarefa, no
-  `README.org`, na especificação ou no texto do TCC, vem com o que ele dá
+- Cada interface tem a especificação em
+  `implementacoes/openspec/specs/<interface>/` (seção acima) e um
+  `README.org` com a apresentação. Regras de domínio compartilhadas pelas
+  implementações web ficam num `dominio.ts` da interface.
+- Cada exigência de coordenação que se descreve de uma interface, no
+  `README.org`, na especificação ou no texto do TCC, vem com o que ela dá
   ao usuário final, no papel do **ENTÃO** que os cenários já usam
   (*Given-When-Then*, do BDD): a exigência técnica e, em seguida, "para o
   usuário ...", como em "o quadro gravado no navegador, para o usuário
   reencontrá-lo como deixou ao voltar à página". A frase técnica diz o que
-  o programa faz, e a ilustrativa, por que a interface real o pede; a
+  o programa faz, e a ilustrativa, por que a aplicação real o pede; a
   rodada de revisão do texto confere as duas (skill `revisao-de-texto`).
-- Crie o `cenas.mts` do caso (estados a capturar), gere as capturas com
-  `npm run capturas -- <caso>` e versione-as no mesmo commit.
-- Exemplos web em TypeScript, sem bibliotecas além do que cada framework
-  traz. O Angular é o `angular-signals` (ADR 0013), que espelha o Solid
-  (`signal`, `computed`, `effect`, `resource`, sem RxJS nem formulários do
-  Angular); o `angular-rxjs`, de apoio, com RxJS e Reactive Forms de
-  propósito, ficou congelado em `implementacoes/fora-da-analise/`.
+- Crie o `cenas.mts` da interface (estados a capturar), gere as capturas com
+  `npm run capturas -- <interface>` e versione-as no mesmo commit.
+- Implementações web em TypeScript, sem bibliotecas além do que cada
+  framework traz. O Angular é o `angular-signals` (ADR 0013), que espelha o
+  Solid (`signal`, `computed`, `effect`, `resource`, sem RxJS nem
+  formulários do Angular); o `angular-rxjs`, de apoio, com RxJS e Reactive
+  Forms de propósito, ficou congelado em `implementacoes/fora-da-analise/`.
 - O Lit (ADR 0013: Formulário, Busca e Dados ao vivo) fica em
-  `implementacoes/<tarefa>/lit/`, com o Lit 3 e o *template* `html`, sem
+  `implementacoes/<interface>/lit/`, com o Lit 3 e o *template* `html`, sem
   `@lit-labs/signals` nem `@lit/task`. Escreve-se como o Web Component da
-  tarefa, para o par isolar a ligação do estado com a tela: os mesmos
+  interface, para o par isolar a ligação do estado com a tela: os mesmos
   elementos e classes, `createRenderRoot()` devolvendo `this` (sem *shadow
-  DOM*, para o `estilo.css` valer), e o que a tarefa abre no
+  DOM*, para o `estilo.css` valer), e o que a interface abre no
   `connectedCallback` e fecha no `disconnectedCallback` herdados, que
   chamam o `super`. O estado da tela leva `@state() accessor`; o da
   coordenação (a assinatura, o `AbortController`) fica em campo comum. Um
@@ -192,11 +196,11 @@ A mudança não se porta para o código da tarefa em
 
 ## Teste de conformidade na web
 
-O `teste-de-conformidade.js` da tarefa se cola no console do navegador,
+O `teste-de-conformidade.js` da interface se cola no console do navegador,
 com a implementação aberta, e devolve uma linha por verificação, sem
 Playwright nem biblioteca.
 
-- **Relógio falso.** Na tarefa com prazos de segundos (a sessão do Login,
+- **Relógio falso.** Na interface com prazos de segundos (a sessão do Login,
   os lotes dos Dados ao vivo), o teste não espera em tempo real: no
   começo, troca `setTimeout`, `setInterval`, `clearTimeout` e
   `clearInterval` da página por um relógio falso, que só anda com
@@ -205,7 +209,7 @@ Playwright nem biblioteca.
   (decisão do autor em 2026-10-12, contra o `page.clock` do Playwright,
   que tiraria o teste do console, e contra o tempo real, que no Login
   esperaria 27,5 s). Ele só controla os temporizadores criados depois de
-  instalado, e não troca o `Date.now`: a tarefa que lê a hora (o preço
+  instalado, e não troca o `Date.now`: a interface que lê a hora (o preço
   dos Dados ao vivo) acrescenta o `Date.now` ao relógio falso.
 - **Escoar.** O React faz a tela e roda os efeitos em mensagens de
   `MessageChannel`, fora do relógio falso: entre um disparo e outro, e
@@ -216,7 +220,7 @@ Playwright nem biblioteca.
 - **Limpeza ao sair da tela.** O `dominio.ts` conta o que está aberto
   (requisições, relógios, assinaturas) numa função em `globalThis`, como
   o `contarAbertos()` do Login, e cada implementação tem um botão que
-  esconde e mostra a tarefa. O teste esconde a tarefa e confere zero
+  esconde e mostra a interface. O teste esconde a interface e confere zero
   **antes** de avançar o relógio: uma requisição esquecida terminaria
   sozinha na latência, e a conferência depois dela passaria (achado da
   revisão do Login, 2026-10-12). Pelo mesmo motivo, confira a contagem
@@ -230,10 +234,10 @@ Playwright nem biblioteca.
 
 Todo o código de `implementacoes/`, menos o que a lista de exclusões abaixo
 deixa de fora, passa pelo formatador da plataforma, com 80 colunas
-(`implementacoes/.editorconfig`) e o resto no padrão da ferramenta, salvo
-no XML (tcc-6wha, 2026-10-12). Duas razões: a contagem de linhas da
-concisão e o diff da P2 (ADRs 0012 e 0029) não podem depender de como o
-código foi quebrado à mão, e 80 colunas cabem numa coluna do PDF em 8 pt.
+(`implementacoes/.editorconfig`) e o resto no padrão da ferramenta, salvo no
+XML (tcc-6wha, 2026-10-12). Duas razões: a contagem de linhas da concisão e
+o diff da P2 (ADRs 0012 e 0029) não podem depender de como o código foi
+quebrado à mão, e 80 colunas cabem numa coluna do PDF em 8 pt.
 
 - Web (TS, TSX, HTML, CSS, JSON): Prettier 3.9.10, fixado em
   `implementacoes/package.json`. O HTML do Web Component, num *template
@@ -263,27 +267,27 @@ conferidas.
 
 ## Android (Kotlin)
 
-- Tarefas no Android: o Formulário com validação, em
-  `implementacoes/<tarefa>/android-views/` (Views clássico: *listeners*,
-  estado na `Activity`) e `implementacoes/<tarefa>/android-compose/`
+- Interfaces no Android: o Formulário com validação, em
+  `implementacoes/<interface>/android-views/` (Views clássico: *listeners*,
+  estado na `Activity`) e `implementacoes/<interface>/android-compose/`
   (Jetpack Compose). Os dois em Kotlin.
 - Um único projeto Gradle em `implementacoes/android/`: o `settings.gradle.kts`
   inclui sozinho toda pasta `android-views` ou `android-compose` que tenha
-  `build.gradle.kts`, com o nome `:<caso>-<tecnologia>`. O
+  `build.gradle.kts`, com o nome `:<interface>-<tecnologia>`. O
   `build.gradle.kts` da raiz traz a configuração comum; o de cada módulo,
   só plugins, `namespace` e dependências.
-- Mesma especificação do `spec.md` da tarefa: mesmos textos, mensagens,
+- Mesma especificação do `spec.md` da interface: mesmos textos, mensagens,
   regras e dados. Regras do `dominio.ts` portadas para Kotlin com o mesmo
-  comportamento, em `implementacoes/<caso>/dominio-kotlin/main/Dominio.kt`
-  (pacote `tcc.<caso>`), com os mesmos nomes de funções. O
-  `build.gradle.kts` da raiz inclui essa pasta nas duas tecnologias quando
-  ela existe; os testes do porte e as regras JUnit do caso (como a
-  `DataFixa`, que fixa "hoje" em 26/09/2026) ficam em
-  `dominio-kotlin/test/`.
+  comportamento, em
+  `implementacoes/<interface>/dominio-kotlin/main/Dominio.kt` (pacote
+  `tcc.<interface>`), com os mesmos nomes de funções. O `build.gradle.kts`
+  da raiz inclui essa pasta nas duas tecnologias quando ela existe; os
+  testes do porte e as regras JUnit da interface (como a `DataFixa`, que
+  fixa "hoje" em 26/09/2026) ficam em `dominio-kotlin/test/`.
 - O leitor conhece React, não Kotlin: comentários curtos em português que
   apontem o equivalente nas implementações web (como o `useState`, como o
   `addEventListener`).
-- Aparência igual à da web, reproduzindo o `estilo.css` do caso (cores,
+- Aparência igual à da web, reproduzindo o `estilo.css` da interface (cores,
   medidas em dp e sp com os mesmos números dos px, alinhamentos), e
   separada da tela, como o CSS fica separado do JSX:
   - **Views:** `res/values/estilo.xml`, com o `Tema` (papel do `body`,
@@ -300,11 +304,12 @@ conferidas.
   filhos pela linha de base do texto (desligue com
   `android:baselineAligned="false"`), e a `Row` do Compose, pelo topo.
 - As cenas ficam em `src/test/.../CenasTest.kt` de cada módulo (Robolectric
-  e Roborazzi, sem emulador), com os mesmos nomes do `cenas.mts` do caso.
-  Cada cena termina com `capturar("<cena>")`, e a classe usa a regra
-  `SemAnimacoes()` (ambos em `implementacoes/android/captura/Captura.kt`). No
-  Compose, chame `regra.waitForIdle()` antes de capturar.
-- Quando a tarefa tem `teste-de-conformidade.js`, as mesmas verificações
+  e Roborazzi, sem emulador), com os mesmos nomes do `cenas.mts` da
+  interface. Cada cena termina com `capturar("<cena>")`, e a classe usa a
+  regra `SemAnimacoes()` (ambos em
+  `implementacoes/android/captura/Captura.kt`). No Compose, chame
+  `regra.waitForIdle()` antes de capturar.
+- Quando a interface tem `teste-de-conformidade.js`, as mesmas verificações
   vão para `TesteDeConformidade.kt` em cada tecnologia, na mesma ordem e
   com os mesmos nomes. As ações e leituras ficam numa classe `Tela` de
   teste por tecnologia, com a mesma API nas duas (`digitar`, `sair`,
@@ -337,7 +342,7 @@ conferidas.
 ## Fora da análise
 
 `implementacoes/fora-da-analise/` guarda, com a estrutura de `implementacoes/`
-(`<tarefa>/<tecnologia>/`), o código que saiu da análise: o Contador, a
+(`<interface>/<tecnologia>/`), o código que saiu da análise: o Contador, a
 Lista filtrável e o Carrinho (ADR 0002), o jQuery e o Angular com RxJS
 (ADR 0013), os pares de desktop Swing × JavaFX e Qt Widgets × QML (ADR
 0001) e o cronômetro de 2017 (ADR 0012). O `README.org` de lá diz o que é

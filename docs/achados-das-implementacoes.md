@@ -1,8 +1,9 @@
 # Achados das implementações, à espera da análise
 
-Achados. Observações feitas ao implementar os casos, com data e commit, para
-entrar na análise em `texto/cases.org` (tarefa no `bd`). Cada item diz
-a que Dimensão Cognitiva (DC) parece servir; a classificação é provisória.
+Achados. Observações feitas ao implementar as interfaces, com data e
+commit, para entrar na análise em `texto/cases.org` (tarefa no `bd`). Cada
+item diz a que Dimensão Cognitiva (DC) parece servir; a classificação é
+provisória.
 
 ## 2026-09-26, Android (commits `58277f3` a `274f7e9`)
 
@@ -55,7 +56,7 @@ a que Dimensão Cognitiva (DC) parece servir; a classificação é provisória.
   mas a regra `display: grid` do CSS vence o `display: none` que o navegador
   aplica a `[hidden]`, e a lista vazia ocupava espaço. As versões
   declarativas não renderizam a lista e não caem nisso. Correção:
-  `[hidden] { display: none !important; }` no `estilo.css` do caso.
+  `[hidden] { display: none !important; }` no `estilo.css` da Busca.
 
 ## 2026-09-26, Angular com *signals* (commits `2fc6a3a` a `ccc4db6`)
 
@@ -150,10 +151,10 @@ seção "Swing × JavaFX").
   `Tela` de teste passa o foco à raiz para que nenhum campo saia tocado
   sem a rotina pedir.
 
-## 2026-10-12, leitura do código para o redesenho das tarefas (commits `7abf5e1` e `19ab817`)
+## 2026-10-12, leitura do código para o redesenho das interfaces (commits `7abf5e1` e `19ab817`)
 
-Leitura de subagentes durante a revisão do conjunto de tarefas, sem teste
-que a confirme. As medidas dos protótipos estão em
+Leitura de subagentes durante a revisão do *benchmark* de notação, sem
+teste que a confirme. As medidas dos protótipos estão em
 `docs/metodo-da-avaliacao.md`, seção 12.
 
 - **A rotação perde o estado de modos diferentes no Android**
@@ -184,7 +185,7 @@ que a confirme. As medidas dos protótipos estão em
   objeto e o altera a cada `setEstado`. Sem quadro salvo, o domínio
   devolvia a constante do quadro inicial, que o store foi alterando; o
   conteúdo inválido vindo de outra aba, que volta ao inicial, deixava o
-  quadro como estava, e só o teste de conformidade, que reabre a tarefa
+  quadro como estava, e só o teste de conformidade, que reabre o Quadro
   sem recarregar a página, mostrou o erro. No React, o `useReducer` só
   guarda o objeto, e no Angular o `signal` também; nada na chamada do
   Solid diz que o argumento passa a ser do store. A correção ficou no

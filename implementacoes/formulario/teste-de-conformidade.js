@@ -1,6 +1,6 @@
 // Teste de conformidade do Formulário, igual para todas as implementações
-// web. Cole no console do navegador com o exemplo aberto; a última linha
-// devolve o resultado de cada verificação ("ok" ou "FALHOU"). Cada
+// web. Cole no console do navegador com a implementação aberta; a última
+// linha devolve o resultado de cada verificação ("ok" ou "FALHOU"). Cada
 // verificação é um cenário de implementacoes/openspec/specs/formulario/spec.md.
 (async () => {
   const esperar = () => new Promise((r) => setTimeout(r, 80));

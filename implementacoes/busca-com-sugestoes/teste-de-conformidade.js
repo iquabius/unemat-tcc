@@ -1,6 +1,6 @@
 // Teste de conformidade da Busca com sugestões, igual para todas as
-// implementações web. Cole no console do navegador com o exemplo aberto; a
-// última linha devolve o resultado de cada verificação ("ok" ou "FALHOU").
+// implementações web. Cole no console do navegador com a implementação aberta;
+// a última linha devolve o resultado de cada verificação ("ok" ou "FALHOU").
 // Segue a especificação, com espera de 300 ms e latência de 800 ms (até 2
 // letras) ou 200 ms (3 ou mais); cada verificação é um cenário de
 // implementacoes/openspec/specs/busca-com-sugestoes/spec.md.

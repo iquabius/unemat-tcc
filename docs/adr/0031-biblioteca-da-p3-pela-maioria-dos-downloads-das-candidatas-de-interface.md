@@ -1,6 +1,6 @@
 # 0031. Na P3, cada tecnologia usa a biblioteca de formulário que tem a maioria dos downloads das candidatas de interface no registro, ou a API da plataforma
 
-2026-10-12. O ADR 0029 manda a P3 reescrever a tarefa base com a
+2026-10-12. O ADR 0029 manda a P3 reescrever a interface base com a
 biblioteca de formulário mais usada no ecossistema de cada tecnologia,
 pela medida pública do registro, ou com a API da plataforma quando
 nenhuma domina, sem dizer o que é biblioteca de formulário nem quando

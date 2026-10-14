@@ -11,7 +11,7 @@ observada.
 **Conclusão.** Em 2026-10-09, depois da terceira rodada, nenhum trabalho
 encontrado avalia pelas DCs a notação do React, do Solid ou do Angular
 com *signals*, nem compara os três modelos de programação nas mesmas
-tarefas: a lacuna se mantém (seção 4). O *snowballing* para a frente
+interfaces: a lacuna se mantém (seção 4). O *snowballing* para a frente
 saturou na segunda rodada (seção 2), e a terceira fechou o laço sem
 trabalho novo na segunda iteração; no Google Acadêmico, consultado em
 2026-10-13, os citantes de Kiss (2014) e do 7GUIs não trouxeram
@@ -80,10 +80,10 @@ incluído marginal e a terceira, nenhum; nada do que entrou muda o nicho
   ou declarativo contra *callbacks*, Observer ou imperativo; (I3) DCs
   aplicadas a linguagem, API, biblioteca ou notação textual; (I4)
   *survey* ou revisão de PR, PFR ou *frameworks* de UI; (I5) várias
-  tecnologias de UI nas mesmas tarefas. Na BDTD, dissertações e teses de
-  Computação também entram. Citantes desde 2013, ano de bainomugisha2013
-  e czaplicki2013, para alcançar o nicho; 914 dos 1230 são de 2016 em
-  diante.
+  tecnologias de UI nas mesmas interfaces. Na BDTD, dissertações e teses
+  de Computação também entram. Citantes desde 2013, ano de
+  bainomugisha2013 e czaplicki2013, para alcançar o nicho; 914 dos 1230
+  são de 2016 em diante.
 - **Estratégia.** Iteração 1: todos os citantes, sem filtro de termos,
   de bainomugisha2013, elliott1997, czaplicki2013 e Green & Petre
   (1996). Iteração 2: citantes de 13 incluídos novos ou próximos do
@@ -121,7 +121,7 @@ Limitações:
 
 A rodada não achou trabalho que avalie pelas DCs a notação do React, do
 Solid ou do Angular com *signals*, nem que compare os três modelos de
-programação nas mesmas tarefas: o nicho da seção 4 se mantém. Os dois
+programação nas mesmas interfaces: o nicho da seção 4 se mantém. Os dois
 incluídos novos avaliam pelas DCs, pelos próprios autores, a notação de
 bibliotecas de controles de interface feitas em Angular e em React
 (Narechania et al., 2025; Verma, Odak e Narechania, 2026), e não a das
@@ -140,7 +140,7 @@ citantes deles em 2026-10-13 (`buscas/86`).
   (I1 a I5). Segue para a iteração seguinte, nos dois sentidos (Wohlin,
   2014, p. 3-4), o incluído que aplica as DCs a notação, linguagem ou
   biblioteca de interface ou de PR, ou que compara notações de interface
-  nos mesmos casos (N1 e N2). Citantes de 2013 em diante.
+  nas mesmas interfaces (N1 e N2). Citantes de 2013 em diante.
 - **Conjunto inicial (15 sementes).** Os que aplicam as DCs a notações de
   interface: Kiss (2014), Mernik et al. (2009) e Zimmerle e Gama (2025),
   mais a tese de Zimmerle (2024) para trás. Os textos que apresentam as
@@ -197,7 +197,7 @@ Etapas e registros:
   et al. (2024, o 7GUI nas p. 44:6-44:7), Petricek e Edwards (2025, o
   contador de Kiss como exemplo, p. 18 da cópia) e Martin (2022, tese:
   tipologia conceitual das linguagens de interação, com o React.js na
-  p. 53 e o 7GUIs na p. 120, sem DCs aplicadas nem tarefas comuns)
+  p. 53 e o 7GUIs na p. 120, sem DCs aplicadas nem interfaces comuns)
 
 Limitações:
 
@@ -229,7 +229,7 @@ revistas em 2026-10-02, depois da segunda rodada (seção 2):
   *signals* das bibliotecas web atuais (Solid, Angular), nem comparação
   dos três modelos de programação (imperativo com *callbacks*,
   declarativo por re-renderização, declarativo por atualização granular)
-  nas mesmas tarefas. As DCs já foram aplicadas à PR por Kiss (2014),
+  nas mesmas interfaces. As DCs já foram aplicadas à PR por Kiss (2014),
   com Scala.Rx, ReactFX e Elm (`docs/metodo-da-avaliacao.md`, seção 3),
   e por Zimmerle & Gama (2025), com RxJS e Bacon.js por questionário
   (`docs/trabalhos-relacionados.md`, seção 6); "nenhuma análise de
@@ -238,8 +238,8 @@ revistas em 2026-10-02, depois da segunda rodada (seção 2):
   biblioteca com async/await o essencial de seis práticas, de
   *listeners* e barramento de eventos a RxJS e componentes reativos, e
   as comparam conceitualmente, com exemplos diferentes para cada uma,
-  sem tarefas comuns nem DCs (p. 8, 10, 14-15). A revisão de Hadhrawi et
-  al. (2017), sobre mais de 1600 publicações que citam as DCs, pergunta
+  sem interfaces comuns nem DCs (p. 8, 10, 14-15). A revisão de Hadhrawi
+  et al. (2017), sobre mais de 1600 publicações que citam as DCs, pergunta
   que elementos do *framework* se usam (p. 1-2 da cópia), não a que
   notações, e não confirma a primeira parte.
 - **Lacuna 1, experimento controlado** (continua em 2026-10-02): nenhum

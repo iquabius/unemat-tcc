@@ -14,18 +14,19 @@ capítulos), e compila-se com `latexmk -cd latex/tcc.tex`, porque o
 `latexdiff --flatten` resolve os `\input` pelo diretório do arquivo
 principal. O npm vai para `implementacoes/`, de onde rodam os *workspaces*
 e o `npm run capturas`. A pasta reúne também a especificação
-(`openspec/`), o projeto Android e uma pasta por caso, e o nome diz o que
-ela guarda. O Scotty abre por `bin/tarefas`. Na raiz ficam `readme.org`,
-`AGENTS.md`, `CONTEXT.md`, `setup.org`, `dependencies.json` e a
-configuração sem pasta própria (`.gitignore`, `.tool-versions`,
-`.dir-locals.el`). As tags `v0.2` a `v0.9` ficam no leiaute antigo, e o
-`bin/gerar-versao.sh` compila cada versão no diretório do `tcc.tex` dela.
+(`openspec/`), o projeto Android e uma pasta por interface, e o nome diz o
+que ela guarda, e não o item, que é a interface (ADR 0034). O Scotty abre
+por `bin/tarefas`. Na raiz ficam `readme.org`, `AGENTS.md`, `CONTEXT.md`,
+`setup.org`, `dependencies.json` e a configuração sem pasta própria
+(`.gitignore`, `.tool-versions`, `.dir-locals.el`). As tags `v0.2` a
+`v0.9` ficam no leiaute antigo, e o `bin/gerar-versao.sh` compila cada
+versão no diretório do `tcc.tex` dela.
 
 Em vez de: `casos/`, o nome da pasta até 2026-10-14, herdado dos "casos"
 do projeto de 2017; confunde-se com o estudo de caso como método.
-Em vez de: `tarefas/` ou `interfaces/`; `tarefas/` colide com
-`bin/tarefas` e com a tarefa do bd, e `interfaces/` se lê como o tipo da
-POO no código.
+Em vez de: `tarefas/` ou `interfaces/`; nomeiam o item, mas `tarefas/`
+colide com `bin/tarefas` e com a tarefa do bd, e `interfaces/` se lê como
+o tipo da POO no código.
 Em vez de: `tcc.tex` na raiz, como ponto de entrada; menos mudança nos
 scripts, mas a raiz guarda LaTeX e os caminhos do documento ficam presos a
 ela.

@@ -1,8 +1,8 @@
-# Método da avaliação: rótulo, DCs e tamanho das tarefas
+# Método da avaliação: rótulo, DCs e tamanho das interfaces
 
 Referência. Reúne as fontes que sustentam como a metodologia da
 introdução descreve a avaliação: o rótulo do método, o 7GUIs como origem
-de três tarefas, as oito DCs e o limite das tarefas pequenas, com o
+de três interfaces, as oito DCs e o limite das interfaces pequenas, com o
 trecho e a página; no fim, as fontes sobre a escrita da introdução. Veio
 de `docs/literatura.md` (índice até `ff620ad`), seções 9, 11, 13.2, 14.2
 e 16, em 2026-10-10. O que o delineamento controla está em
@@ -10,28 +10,28 @@ e 16, em 2026-10-10. O que o delineamento controla está em
 
 **Conclusão.** Em 2026-10-10, quanto aos meios, o trabalho é uma
 avaliação qualitativa, pelas DCs, de implementações de um mesmo conjunto
-de tarefas, e não um estudo de caso (seção 1); o rótulo é uma pergunta
+de interfaces, e não um estudo de caso (seção 1); o rótulo é uma pergunta
 ao orientador numa nota de `texto/intro.org`. A avaliação é analítica,
 feita por especialista (Blandford e Green 2008), como a de Kiss (2014):
 o autor aplica as DCs ao código, dimensão a dimensão, sem participantes
 (`CONTEXT.md`, verbete Avaliação). As duas DCs a mais que as de Kiss,
 expressividade e operações mentais difíceis, se justificam pela condição
-do próprio Kiss e por Mernik et al. (2009) (seção 4). As tarefas
+do próprio Kiss e por Mernik et al. (2009) (seção 4). As interfaces
 pequenas isolam uma escolha de projeto, mas não mostram o que só aparece
 em programa grande (seção 5).
 
 Em 2026-10-11, o autor decidiu avaliar em três rodadas (P1, P2 com
 requisitos acrescentados, P3 com as bibliotecas do ecossistema, sem
 controle de variáveis) e percorrer as 14 DCs, e não oito; em 2026-10-12,
-trocou o conjunto de tarefas e levou a P2 às cinco, pela realidade de
+trocou as interfaces e levou a P2 às cinco, pela realidade de
 cada uma (seção 12). As fontes estão nas seções 8 a 12, e as decisões,
 nos ADRs 0002, 0012, 0017 e 0029. Em 2026-10-13, a seção 13 juntou como
 as fontes aplicaram as DCs a código e as armadilhas, que a skill
 `avaliacao-pelas-dcs` usa.
 
-## 1. O rótulo do método: avaliação de um conjunto de tarefas, não estudo de caso (fontes lidas em 2026-09-28)
+## 1. O rótulo do método: avaliação de um conjunto de interfaces, não estudo de caso (fontes lidas em 2026-09-28)
 
-"*Benchmark*" só explica o conjunto de tarefas (Sim, Easterbrook e Holt
+"*Benchmark*" só explica o conjunto de interfaces (Sim, Easterbrook e Holt
 2003; Kiss 2014): fora de Sim et al., *benchmark* é medida objetiva
 (Tichy 2014; Silva-Junior et al. 2023; DESMET). Runeson e Höst (2009)
 sustentam por que não é estudo de caso, no lugar de `yin2001`. Em
@@ -39,6 +39,10 @@ sustentam por que não é estudo de caso, no lugar de `yin2001`. Em
 `refs.bib`, e os dois primeiros em `texto/intro.org`; das demais fontes
 da tabela, só `blackwell2003`, `green1996d` e `kiss2014` estão no
 `refs.bib`.
+
+Em 2026-10-14, cada item do conjunto passou a se chamar interface, e o
+conjunto, *benchmark* de notação, nome que Kiss (2014, p. 114) dá ao
+repositório dele (ADR 0034; linha de Kiss na tabela abaixo).
 
 Histórico: de 2026-09-28 a 2026-10-08, a avaliação de um só avaliador,
 critério a critério, se rotulava como a *feature analysis* da DESMET, na
@@ -51,20 +55,20 @@ coisa. Cópias locais em `tmp/fontes/`, fora do git.
 
 | Fonte | O que sustenta | Onde |
 |---|---|---|
-| SIM, S. E.; EASTERBROOK, S.; HOLT, R. C. *Using benchmarking to advance research: a challenge to software engineering*. ICSE 2003, p. 74-83. DOI 10.1109/icse.2003.1201189 | *Benchmark* é "um teste ou conjunto de testes usado para comparar o desempenho de ferramentas ou técnicas alternativas", com três componentes: comparação motivadora, amostra de tarefas ("representativa" das tarefas da prática, como substitutas) e medidas de desempenho, que "podem ser quantitativas ou qualitativas", feitas "por um computador ou por uma pessoa". Um conjunto de testes sem medida de desempenho é um proto-*benchmark*, às vezes chamado de "estudos de caso ou exemplares" | §3.2; a cópia do autor (cs.toronto.edu) e a do ResearchGate são o mesmo arquivo, sem a paginação dos anais (p. 74-83), que continua a conferir |
-| idem | **Ressalva a declarar nas limitações:** a teoria trata de *benchmarks* criados e usados por uma comunidade de pesquisa; os "criados por um único indivíduo ou laboratório e pouco usados" tendem a não ter o mesmo impacto. As cinco tarefas do TCC são de um só autor; três partem do 7GUIs, que tem implementações de terceiros, e duas não | §3.1 |
+| SIM, S. E.; EASTERBROOK, S.; HOLT, R. C. *Using benchmarking to advance research: a challenge to software engineering*. ICSE 2003, p. 74-83. DOI 10.1109/icse.2003.1201189 | *Benchmark* é "um teste ou conjunto de testes usado para comparar o desempenho de ferramentas ou técnicas alternativas", com três componentes: comparação motivadora, amostra de tarefas ("representativa" das tarefas da prática, como substitutas) e medidas de desempenho, que "podem ser quantitativas ou qualitativas", feitas "por um computador ou por uma pessoa". Um conjunto de testes sem medida de desempenho é um proto-*benchmark*, às vezes chamado de "estudos de caso ou exemplares" | §3.2; a cópia do autor (cs.toronto.edu) e a do ResearchGate são o mesmo arquivo, sem a paginação dos anais (p. 74-83); a do IEEE (`tmp/fontes/sim2003-ieee.pdf`) também não a imprime, mas tem as dez páginas dos anais, e a p. 3 dela, com a *Task Sample*, é a p. 76 (conferido em 2026-10-14) |
+| idem | **Ressalva a declarar nas limitações:** a teoria trata de *benchmarks* criados e usados por uma comunidade de pesquisa; os "criados por um único indivíduo ou laboratório e pouco usados" tendem a não ter o mesmo impacto. As cinco interfaces do TCC são de um só autor; três partem do 7GUIs, que tem implementações de terceiros, e duas não | §3.1 |
 | STOL, K.-J.; FITZGERALD, B. *The ABC of software engineering research*. ACM TOSEM, v. 27, n. 3, art. 11, 2018. DOI 10.1145/3241743 | Estudos de *benchmarking* que comparam técnicas por critérios predefinidos pertencem à estratégia de experimento de laboratório, porque o pesquisador monta um ambiente artificial (*contrived*); limitações inerentes: contexto abstrato ou irreal e validade interna à custa da externa. Serve para enquadrar o delineamento e as limitações, não como rótulo: os autores pensam em dados quantitativos | p. 11:15 e Tabela 5, p. 11:13-14 (versão publicada; na aceita, p. 1:13 e 1:15-16) |
 | RUNESON, P.; HÖST, M. *Guidelines for conducting and reporting case study research in software engineering*. Empirical Software Engineering, v. 14, n. 2, 2009. DOI 10.1007/s10664-008-9102-8 | As definições de estudo de caso que reúnem (Robson, Yin, Benbasat et al.) concordam em método empírico sobre fenômeno contemporâneo no seu contexto; estudos com "*toy programs*" ficam excluídos "por falta de contexto real" | p. 134 (§2.1) e p. 139 |
-| KITCHENHAM, B. A. *Evaluating software engineering methods and tool, part 1: the evaluation context and evaluation methods*. ACM SIGSOFT Software Engineering Notes, v. 21, n. 1, p. 11-15, 1996. DOI 10.1145/381790.381795 | Na DESMET, toda avaliação é comparativa (p. 11). *Benchmarking* é rodar testes padronizados com ferramentas alternativas e medir o desempenho relativo; a escolha dos testes é subjetiva, as medidas costumam ser objetivas, e é mais útil quando a ferramenta "não exige perícia humana" (p. 14). Por esse critério, o TCC não é *benchmarking*. A avaliação qualitativa ou subjetiva (p. 12), característica por característica, é a *feature analysis*, que "pode ser feita por uma única pessoa" (p. 14); nessa forma é a triagem (*qualitative screening*): um só indivíduo escolhe as características e a escala e avalia, em geral com base na literatura sobre as ferramentas, e não no uso delas (p. 15). O TCC fica entre a triagem e o estudo de caso qualitativo, feito após o uso num projeto real (p. 15): o avaliador usa as notações, mas em tarefas pequenas | p. 11, 12, 14 e 15; partes 2 e 3 (v. 21, n. 2 e n. 4) tratam da escolha do método |
+| KITCHENHAM, B. A. *Evaluating software engineering methods and tool, part 1: the evaluation context and evaluation methods*. ACM SIGSOFT Software Engineering Notes, v. 21, n. 1, p. 11-15, 1996. DOI 10.1145/381790.381795 | Na DESMET, toda avaliação é comparativa (p. 11). *Benchmarking* é rodar testes padronizados com ferramentas alternativas e medir o desempenho relativo; a escolha dos testes é subjetiva, as medidas costumam ser objetivas, e é mais útil quando a ferramenta "não exige perícia humana" (p. 14). Por esse critério, o TCC não é *benchmarking*. A avaliação qualitativa ou subjetiva (p. 12), característica por característica, é a *feature analysis*, que "pode ser feita por uma única pessoa" (p. 14); nessa forma é a triagem (*qualitative screening*): um só indivíduo escolhe as características e a escala e avalia, em geral com base na literatura sobre as ferramentas, e não no uso delas (p. 15). O TCC fica entre a triagem e o estudo de caso qualitativo, feito após o uso num projeto real (p. 15): o avaliador usa as notações, mas em interfaces pequenas | p. 11, 12, 14 e 15; partes 2 e 3 (v. 21, n. 2 e n. 4) tratam da escolha do método |
 | TICHY, W. F. *Where's the science in software engineering?* Ubiquity, mar. 2014. DOI 10.1145/2590528.2590529 | *Benchmarks* "consistem de um ou mais problemas de amostra com uma métrica de sucesso" e podem ser testados "sem exigir participantes humanos" (p. 5): sentido objetivo, como a DESMET | p. 5 |
 | SILVA-JUNIOR, D. et al. *A systematic mapping of the proposition of benchmarks in the software testing and debugging domain*. Software (MDPI), v. 2, n. 4, p. 447-475, 2023. DOI 10.3390/software2040021 | *Benchmark* como grupo de programas para comparar técnicas "*according to pre-established parameters*" (p. 447); cita a definição do IBM Dictionary of Computing, ponto de referência para aplicar medidas (p. 450). Sentido objetivo | p. 447 e 450 |
 | CHARPENTIER, A. et al. *Raters' reliability in clone benchmarks construction*. Empirical Software Engineering, v. 22, n. 1, p. 235-258, 2017. DOI 10.1007/s10664-015-9419-z | *Benchmark* construído com julgamento humano: avaliadores sem conhecimento do código raramente concordam entre si e com o especialista, e seus juízos nem sempre se repetem (resumo). Sustenta a limitação do juízo de uma pessoa, não o rótulo | resumo (manuscrito do HAL, sem a paginação publicada) |
 | DE SOUZA, C. S. et al. *Can inspection methods generate valid new knowledge in HCI?* International Journal of Human-Computer Studies, v. 68, p. 22-40, 2010. DOI 10.1016/j.ijhcs.2009.08.006 | Métodos de inspeção podem gerar conhecimento científico válido, sob condições (p. 22); a inspeção pode ser feita por um inspetor ou por um grupo, e a validação é por triangulação (p. 26); resultados qualitativos não se generalizam, mas a triangulação os torna amplamente aplicáveis (p. 38). Sustenta a triangulação como mitigação do avaliador único (tcc-y4q, item 2) | p. 22, 26 e 38 |
 | BLACKWELL, A.; GREEN, T. (2003), `blackwell2003` | O arcabouço das DCs "*is not an analytic method*", e sim um conjunto de "*discussion tools*"; oferece avaliação *broad-brush* | p. 106 (versão publicada, conferida em 2026-10-04) |
 | GREEN, T. R. G.; PETRE, M. (1996), JVLC 7, p. 131-174. DOI 10.1006/jvlc.1996.0009 | As DCs são uma "*broad-brush evaluation technique*"; precedente do delineamento (`docs/trabalhos-relacionados.md`, seção 2) | p. 131 (resumo) da versão publicada, conferida em 2026-10-10; p. 3 da pré-publicação |
-| KISS, E. *Comparison of object-oriented and functional programming for GUI development*. Dissertação (mestrado), Leibniz Universität Hannover, 2014 (`kiss2014`) | Chama o método de "abordagem analítica" pelas DCs, em oposição a experimentos, "caros" e de resultado "estreito" (p. 8); compara implementações pela usabilidade do código, e não por tempo e memória, como num *benchmark* tradicional (p. 11) | p. 8 e 11; o PDF saiu do ar e está no Wayback Machine (captura de 2018-05-06) |
+| KISS, E. *Comparison of object-oriented and functional programming for GUI development*. Dissertação (mestrado), Leibniz Universität Hannover, 2014 (`kiss2014`) | Chama o método de "abordagem analítica" pelas DCs, em oposição a experimentos, "caros" e de resultado "estreito" (p. 8); compara implementações pela usabilidade do código, e não por tempo e memória, como num *benchmark* tradicional (p. 11). Chama cada item de *case study* (p. 11) e o repositório com as soluções de todos de *notational benchmark* ("*is structured in a way as to be a notational benchmark for languages and/or libraries/frameworks/toolkits with respect to GUI programming*", p. 114); na p. 104, o TodoMVC é o *notational benchmark* de um item só ("*a single and bigger one instead of a set of case studies*"). Daí o nome do conjunto, *benchmark* de notação (ADR 0034) | p. 8, 11, 104 e 114 (estas duas conferidas em 2026-10-14, p. 110 e 120 do PDF); o PDF saiu do ar e está no Wayback Machine (captura de 2018-05-06) |
 
-## 2. O 7GUIs e as tarefas
+## 2. O 7GUIs e as interfaces
 
 - O 7GUIs saiu da dissertação (eugenkiss.github.io/7guis, página *More*,
   2026-09-28); na dissertação, as sete tarefas são os *case studies* do
@@ -126,7 +130,7 @@ agente principal, e "subagente", só pela leitura do subagente. Cópias em
 | Clarke e Becker 2003 (`clarke2003`) | Usa as DCs para avaliar uma API orientada a objetos: "using the Cognitive Dimensions framework to evaluate the usability of an object oriented (OO) application programming interface (API)", adaptado ao caso | p. 359 (resumo) | conferido |
 | Sadowski e Kurniawan 2011 (`sadowski2011`) | Avalia recursos de linguagem (anotações atomic e yield) por avaliação heurística; das 11 heurísticas, "the first 7 started with the cognitive dimensions framework" | p. 10 | conferido |
 | Green 2006 (`green2006`) | Vagueza das duas DCs: HMO melhor chamada "potentially-explosive mental processes"; HMO e RE "have always been poorly described". No `refs.bib` desde 2026-10-04, nas limitações da metodologia | p. 334 (p. 8 da pré-publicação) | conferido |
-| Green 2006 | HMO cresce com o tamanho: "small examples are easy, even facile, but [...] the difficulty rises explosively as the examples increase in size" (2026-10-04). Pesa sobre a limitação das tarefas pequenas: as operações mentais difíceis podem aparecer menos nelas | p. 334 | conferido |
+| Green 2006 | HMO cresce com o tamanho: "small examples are easy, even facile, but [...] the difficulty rises explosively as the examples increase in size" (2026-10-04). Pesa sobre a limitação das interfaces pequenas: as operações mentais difíceis podem aparecer menos nelas | p. 334 | conferido |
 | Kutar, Britton e Wilson 2000 (`kutar2000`) | RE depende de quem escreve: "generally dependent on the way in which the specifier uses the notation" | p. ix da cópia | conferido |
 | Green 2000 (`green2000`) | RE como leitura em planos: "how easily the code can be parsed into 'plans' or 'schemas'" | p. 5 da cópia | conferido |
 | Borowski et al. 2022 (`borowski2022`) | Compromisso prematuro no estado de UIs: "introduced a premature commitment by requiring every concept to be reified as an interface element" | p. 4 da cópia | conferido |
@@ -150,7 +154,7 @@ página é a impressa.
 
 | Fonte | Trecho | Onde | Uso |
 |---|---|---|---|
-| Green e Blackwell 1998 (tutorial, fora do `.bib`) | "Toy applications (widgets) have been used for several reasons: a single design choice can be isolated and its consequences compared in alternative versions; [...] exploring and analysing a full-scale application would take too long for class use." | p. 62 | método: tarefas pequenas isolam a notação (intro.org, §16 e §21); candidata depois da checagem de 2026-10-08 |
+| Green e Blackwell 1998 (tutorial, fora do `.bib`) | "Toy applications (widgets) have been used for several reasons: a single design choice can be isolated and its consequences compared in alternative versions; [...] exploring and analysing a full-scale application would take too long for class use." | p. 62 | método: interfaces pequenas isolam a notação (intro.org, §16 e §21); candidata depois da checagem de 2026-10-08 |
 | Green e Blackwell 1998 | a parte 3 traz "interactive toy examples, designed to illustrate differences between design decisions and how one cognitive dimension can be traded against another" | p. 2 | idem |
 | Stol e Fitzgerald 2018 (fora do `.bib`; seção 1) | a artificialidade situacional "refers to the elements of the experimental design, such as the subjects (e.g., the use of students) and tasks and settings (e.g., toy systems)" | p. 11:10 | limitações: "As tarefas são pequenas" (intro.org, §29); candidata |
 | Runeson e Höst 2009 (`runeson2009`) | os estudos "range from very ambitious and well organized studies in the field, to small toy examples that claim to be case studies" | p. 132 | por que o trabalho não é estudo de caso |
@@ -204,7 +208,7 @@ tema. "Conferido": lido no PDF pelo agente principal. Cópias em
 
 Conclusão: o desenho em rodadas tem precedente direto em Kiss (2014), que
 avaliou em três rodadas e propôs, como trabalho futuro, estender as
-tarefas com requisitos novos; e o teste de viscosidade de Green e Petre
+interfaces com requisitos novos; e o teste de viscosidade de Green e Petre
 (1996) é o 1.º passo da P2 em miniatura: a mesma mudança, preparada
 antes, em cada versão. Trechos conferidos no PDF; página impressa.
 
@@ -212,9 +216,9 @@ antes, em cada versão. Trechos conferidos no PDF; página impressa.
 |---|---|---|---|
 | Kiss 2014 | método em rodadas: cap. 3, JavaFX × ScalaFX; cap. 4, "extending the solutions for the case studies in ScalaFX with Scala.Rx and ReactFX"; depois o Elm numa "selection of the case studies" | p. 3 | precedente das rodadas |
 | Kiss 2014 | a lacuna da 2.ª rodada abre o capítulo dela: a FRP é jovem, e "not enough experience applying it to GUI programming has been gathered" | p. 58 | onde fica a lacuna de cada rodada |
-| Kiss 2014 | "The time unfortunately ran out for the other case studies" | p. 96 | risco: o prazo escolhe as tarefas da rodada estreita |
+| Kiss 2014 | "The time unfortunately ran out for the other case studies" | p. 96 | risco: o prazo escolhe as interfaces da rodada estreita |
 | Kiss 2014 | trabalho futuro: requisito assíncrono, animações, arrastar e soltar; "the difficulty lies in incorporating these additional aspects [...] without bloating them up too much"; tarefas maiores "would not be examined comprehensively in detail" | p. 103-104 | precedente da P2 e o limite dela |
-| Kiss 2014 | "none of them really tests such an asynchronous behavior which is a fair criticism"; propõe trocar o Timer | p. 77, nota 26 | a Busca e a troca de tarefas |
+| Kiss 2014 | "none of them really tests such an asynchronous behavior which is a fair criticism"; propõe trocar o Timer | p. 77, nota 26 | a Busca e a troca de interfaces |
 | Kiss 2014 | "the toolkit in general played the most crucial role"; "A good toolkit can cover potential deficits in the paradigm and/or language"; o *toolkit* dominou Counter, Temperature Converter, Flight Booker e Timer, o paradigma o Circle Drawer | p. 56 | contraste: Kiss mede num tamanho dado; o TCC acompanha o crescimento |
 | Kiss 2014 | os construtos especiais do *toolkit* "would probably not sustain more complex interactions" | p. 57 | hipótese da P2 |
 | Kiss 2014 | EasyBind evitado, porque "we would have needed to introduce another library" | p. 55, nota 32 | controle das dependências (ADR 0013) |
@@ -317,23 +321,23 @@ discussão, e nenhuma fonte define a lista.
   Sullivan 1995). A replicação em engenharia de software só tem
   "confirma", "confirma em parte" e "não confirma".
 
-## 12. Conjunto de tarefas e requisitos da P2 (protótipos de 2026-10-12)
+## 12. *Benchmark* de notação e requisitos da P2 (protótipos de 2026-10-12)
 
 Conclusão: o conjunto antigo deixava a orquestração de eventos só na
-Busca, e o Contador e a Lista não traziam problema próprio; protótipos em
+Busca, e o Contador e a Lista não traziam exigência própria; protótipos em
 Web Component, React e Solid, medidos pelo mesmo critério de linhas
 (montagem da tela, coordenação, ligação), sustentaram a troca por Login
 com quarentena, Quadro de tarefas e Dados ao vivo, e a escolha de 11
-requisitos da P2 pela realidade de cada tarefa (ADRs 0002 e 0029). Medidas
-de subagentes, com `tsc` estrito e testes em Playwright passando; os
-trechos de fonte com página foram conferidos por eles e não reconferidos.
-Código e números em `tmp/mergulho-tarefas-2026-10-12/`,
+requisitos da P2 pela realidade de cada interface (ADRs 0002 e 0029).
+Medidas de subagentes, com `tsc` estrito e testes em Playwright passando;
+os trechos de fonte com página foram conferidos por eles e não
+reconferidos. Código e números em `tmp/mergulho-tarefas-2026-10-12/`,
 `tmp/prototipos-tarefas-2026-10-12/` e `tmp/prototipos-p2-2026-10-12/`
 (fora do git).
 
 | Achado | Medida | Uso |
 |---|---|---|
-| Densidade de coordenação nas tarefas antigas (coordenação / total) | Busca 0,52; Formulário 0,29; Contador 0,24; Carrinho 0,22; Lista 0,12 | o Contador e a Lista saem (ADR 0002) |
+| Densidade de coordenação nas interfaces antigas (coordenação / total) | Busca 0,52; Formulário 0,29; Contador 0,24; Carrinho 0,22; Lista 0,12 | o Contador e a Lista saem (ADR 0002) |
 | Assistente do Formulário, acréscimo em Web Component e React | montagem +22 e +25, coordenação +13 e +11, ligação +21 e +18; o React reindenta 67 linhas | a montagem é o maior balde, mas não domina |
 | *Timer* do 7GUIs | coordenação de 6 a 9 linhas contra montagem de 15 e 16; a pausa da P2 não separa React de Solid | descartado |
 | Login com quarentena (Berry e Serrano 2020, p. 534-539) | a quarentena custa +20 a +21 linhas nos três; o diff tem o mesmo tamanho, e muda o tipo: o Web Component repete, os declarativos acrescentam uma condição | desmente em parte "Almost all the initial implementation components need to be modified" (p. 539) |
@@ -367,7 +371,7 @@ Conclusão: nenhuma fonte traz um protocolo para um especialista ler
 código-fonte de interface gráfica dimensão por dimensão. O mais próximo
 é Clarke (2004), que aplica as DCs a amostras de código de uma API, sem
 usuários, com perguntas abertas por dimensão presas a um cenário; Kiss
-(2014) dá o molde por tarefa (critério antes do código, dimensão a
+(2014) dá o molde por interface (critério antes do código, dimensão a
 dimensão, as versões lado a lado); Blackwell e Green (2003) dão os passos
 e a regra de que nenhuma dimensão é boa ou má fora da atividade. O
 procedimento da skill `avaliacao-pelas-dcs` (tcc-4a9) sai daqui, e as
@@ -387,7 +391,7 @@ outra paginação) e `blackwell2003-notational-systems-...pdf` (p. 103-133;
 | idem | a avaliação "em poucas palavras": "classifying the intended activities, analyzing the cognitive dimensions, and deciding whether the requirements of the activities are met" | p. 112 | idem |
 | idem | seis atividades (tabela 5.1); a busca é "hunting for a known target, such as where a function is called", e a compreensão exploratória, "discovering structure or algorithm" | p. 113 | a atividade da primeira rodada (busca e compreensão) e da segunda e da terceira (modificação) |
 | Green e Blackwell 1998 | a figura 19, "desirable profiles of dimensions for each of the types of user activity", cobre só seis dimensões e quatro atividades (transcrição, incrementação, modificação, exploração); na modificação, viscosidade e dependências ocultas "harmful", visibilidade "important" | p. 42 | não há perfil publicado para a busca nem para a compreensão exploratória: a primeira rodada não tem perfil ideal a comparar |
-| Kiss 2014 | critério da boa solução fixado antes do código: "A good solution will have very minimal scaffolding" | p. 17 | a pergunta de cada problema de coordenação, antes da leitura |
+| Kiss 2014 | critério da boa solução fixado antes do código: "A good solution will have very minimal scaffolding" | p. 17 | a pergunta de cada exigência de coordenação, antes da leitura |
 | idem | "this first evaluation is focused on the very basics", para que as seguintes "do not have to repeat these basic observations" | p. 18 | o Contador como primeira leitura |
 | idem | "We concentrate on the behavior related code as the layout and initialization code is in essence similar" | p. 22 | ler a coordenação; a montagem da tela só onde difere |
 | idem | omite a dimensão "when there was nothing particularly worthwhile to mention" | p. 12 | "nenhum trecho achado", dito, e não omitido |
@@ -475,8 +479,8 @@ Leitura do agente, sem fonte que as declare; a skill as lista como do
 trabalho:
 
 - atribuir a uma DC uma diferença sem sinal escrito (ADR 0021);
-- medir a tarefa em vez da notação, como contar dependências que a
-  especificação impõe a todas as tecnologias;
+- medir a interface especificada em vez da notação, como contar
+  dependências que a especificação impõe a todas as tecnologias;
 - misturar na terceira rodada o efeito da biblioteca com o do modelo de
   programação (ADR 0029: a conclusão da terceira rodada é "no
   ecossistema típico");

@@ -10,7 +10,7 @@ têm o que medir, com implementações na web, no Android e no desktop. Na
 web, todas as tecnologias usam TypeScript em modo `strict`
 (`tsconfig.base.json` em `implementacoes/`), porque o Angular o exige e a
 linguagem igual deixa a diferença só na notação; no Android, Kotlin (ADR
-0005); no desktop, C#, com Windows Forms × WPF no Formulário, a tarefa
+0005); no desktop, C#, com Windows Forms × WPF no Formulário, a interface
 base, no Quadro e no Login, até a P3 (ADRs 0012 e 0029). O Quadro traz os
 comandos do WPF (`ApplicationCommands.Undo` e `Redo`, com `CanExecute`
 habilitando os botões) contra o desfazer escrito à mão no Windows Forms; o
@@ -25,7 +25,7 @@ porque XAML × C# Forms já foi comparado pelas DCs (Mernik et al. 2009;
 Kosar et al. 2010); e porque a P3 busca o uso real.
 
 Em vez de: Windows Forms × WPF no Formulário e na Lista (decisão de
-2026-10-11); a Lista saiu do conjunto de tarefas (ADR 0002).
+2026-10-11); a Lista saiu do *benchmark* de notação (ADR 0002).
 Em vez de: o Quadro e os Dados ao vivo no desktop, além do Formulário,
 como no Android; traria a volta dos dados à *thread* da interface
 (`Invoke`, `Dispatcher`), mas deixaria o Login só na web, e a assinatura

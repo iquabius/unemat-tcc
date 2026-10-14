@@ -11,12 +11,12 @@ vive só enquanto ela vive.
 
 ### Requirement: Começa desconectado
 
-A tarefa deve abrir com a situação "Desconectado.", os campos "Nome" e
+A interface deve abrir com a situação "Desconectado.", os campos "Nome" e
 "Senha" vazios, o "Entrar" desabilitado e sem tempo de sessão nem "Sair".
 
 #### Scenario: 1 começa desconectado
 
-- **QUANDO** a tarefa abre
+- **QUANDO** a interface abre
 - **ENTÃO** a situação mostra "Desconectado."
 - **E** não há tempo de sessão nem "Sair" na tela
 - **E** o "Entrar" está desabilitado
@@ -191,21 +191,21 @@ sem que ela receba o foco (WCAG 2.2, critério 4.1.3).
 
 ### Requirement: Limpeza ao sair da tela
 
-O botão "Esconder login" deve tirar a tarefa da página e passar a dizer
+O botão "Esconder login" deve tirar a interface da página e passar a dizer
 "Mostrar login", que a põe de volta como se ela abrisse. Fora da página, a
-tarefa não deixa requisição nem relógio aberto: `contarAbertos()`, do
+interface não deixa requisição nem relógio aberto: `contarAbertos()`, do
 domínio, dá 0.
 
 #### Scenario: 13 esconder na sessão fecha o relógio
 
 - **DADO** uma sessão em curso, com o relógio aberto
 - **QUANDO** o usuário clica no "Esconder login"
-- **ENTÃO** a tarefa não está na página, e o botão diz "Mostrar login"
+- **ENTÃO** a interface não está na página, e o botão diz "Mostrar login"
 - **E** `contarAbertos()` dá 0
 
 #### Scenario: 13 mostrar começa do zero
 
-- **DADO** a tarefa escondida há 2 s
+- **DADO** a interface escondida há 2 s
 - **QUANDO** o usuário clica no "Mostrar login"
 - **ENTÃO** a situação mostra "Desconectado.", com os campos vazios e o "Entrar" desabilitado
 - **E** não há tempo de sessão nem "Sair" na tela

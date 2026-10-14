@@ -1,4 +1,4 @@
-// Configuração comum a todos os módulos (casos e tecnologias), para que o
+// Configuração comum a todos os módulos (interfaces e tecnologias), para que o
 // build.gradle.kts de cada um traga só o que é dele: plugins e dependências.
 import com.android.build.api.dsl.ApplicationExtension
 
@@ -26,9 +26,9 @@ subprojects {
             // testes de todos.
             sourceSets.getByName("test").kotlin.directories +=
                 rootDir.resolve("captura").path
-            // Domínio do caso (implementacoes/<caso>/dominio-kotlin/), o
-            // equivalente do dominio.ts da web, compartilhado pelas duas
-            // tecnologias.
+            // Domínio da interface, o equivalente do dominio.ts da web,
+            // compartilhado pelas duas tecnologias: fica em
+            // implementacoes/<interface>/dominio-kotlin/.
             val dominio = projectDir.resolveSibling("dominio-kotlin")
             if (dominio.isDirectory) {
                 sourceSets.getByName("main").kotlin.directories +=

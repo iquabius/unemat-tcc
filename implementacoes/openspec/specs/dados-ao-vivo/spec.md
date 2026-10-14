@@ -10,7 +10,7 @@ página e cancela a assinatura ao pausar e ao sair dela.
 
 ### Requirement: Abertura
 
-A tarefa deve abrir com o painel na página e o botão "Esconder painel". O
+A interface deve abrir com o painel na página e o botão "Esconder painel". O
 painel assina a fonte ao entrar na página e mostra uma linha por ativo, na
 ordem PETR4, VALE3, ITUB4 e WEGE3, com o código, o preço, a variação e o
 limite ("R$ 38,50", "R$ 62,34", "R$ 34,50" e "R$ 53,00"). Antes do primeiro
@@ -19,7 +19,7 @@ cotações…" e o botão de pausa diz "Pausar".
 
 #### Scenario: 1 abre com o painel e uma assinatura
 
-- **QUANDO** a tarefa abre
+- **QUANDO** a interface abre
 - **ENTÃO** o painel está na página, e o botão diz "Esconder painel"
 - **E** o botão de pausa diz "Pausar"
 - **E** `contarAssinantes()` dá 1
@@ -134,7 +134,7 @@ tela anunciá-la sem que ela receba o foco (WCAG 2.2, critério 4.1.3).
 ### Requirement: Limpeza ao sair da tela
 
 O botão "Esconder painel" deve tirar o painel da página e passar a dizer
-"Mostrar painel", que o põe de volta como se a tarefa abrisse, sem pausa
+"Mostrar painel", que o põe de volta como se a interface abrisse, sem pausa
 nem valores. Fora da página, o painel não deixa assinatura aberta:
 `contarAssinantes()`, do domínio, dá 0.
 

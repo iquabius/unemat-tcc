@@ -2,9 +2,9 @@
 
 Trabalho de conclusão em Ciência da Computação (UNEMAT), em português: o
 texto em `texto/*.org` (exportado para `latex/capitulos/`), a bibliografia
-em `texto/refs.bib`, o código dos casos em `implementacoes/` (instruções
-próprias em `implementacoes/AGENTS.md`). Os termos do projeto estão em
-`CONTEXT.md`; use-os.
+em `texto/refs.bib`, o código das implementações em `implementacoes/`
+(instruções próprias em `implementacoes/AGENTS.md`). Os termos do projeto
+estão em `CONTEXT.md`; use-os.
 
 ## Onde cada coisa vive
 
@@ -14,7 +14,7 @@ próprias em `implementacoes/AGENTS.md`). Os termos do projeto estão em
 | Termo do projeto | `CONTEXT.md` | skill `domain-modeling`: definição de uma ou duas frases e o que evitar |
 | Tarefa aberta | Beads (`bd`), exportado em `.beads/issues.jsonl` | seção abaixo |
 | Nota de referência ou achado que o texto ainda vai absorver | `docs/*.md` | seção abaixo |
-| Plano, guia de leitura e revisão do agente na avaliação pelas DCs | `docs/avaliacao/<rodada>-<tarefa>/` | skill do projeto `avaliacao-pelas-dcs`: o guia sai antes da leitura do autor e sem conclusão, a revisão depois do ditado; cada um num commit no `master`; a origem das conclusões vai numa linha do commit do texto |
+| Plano, guia de leitura e revisão do agente na avaliação pelas DCs | `docs/avaliacao/<rodada>-<interface>/` | skill do projeto `avaliacao-pelas-dcs`: o guia sai antes da leitura do autor e sem conclusão, a revisão depois do ditado; cada um num commit no `master`; a origem das conclusões vai numa linha do commit do texto |
 | Convenção de código, pastas ou ambiente | `implementacoes/AGENTS.md` | |
 | Mudança em código (`implementacoes/`, `bin/`, scripts), ferramentas ou `AGENTS.md` | numa worktree, em ramo próprio, que chega ao `master` revisado | seção "Código: ramo, revisão, merge" abaixo |
 | Feedback de escrita e revisão bibliográfica | não vai para o repositório | skill `escrita-academica`; o que sobra vira tarefa no `bd` ou nota em `docs/` |
@@ -134,7 +134,7 @@ As tarefas vivem no [Beads](https://github.com/gastownhall/beads) (`bd`
   quadro deste repositório, com o envio de uso ao PostHog desligado. O
   Scotty fica instalado e compilado fora do repositório, em
   `~/.local/share/bead-me-up-scotty` (ou em `$SCOTTY_HOME`), e não entra no
-  `package-lock.json` dos casos.
+  `package-lock.json` das implementações.
 
 ## Texto
 
@@ -283,7 +283,7 @@ Cada nota é de um tipo só, dito na primeira linha depois do título:
   ferramenta ou versão leva a data em que foi observada.
 - **Achados** (`docs/achados-das-implementacoes.md`): observações feitas ao
   implementar, com data e commit, à espera de entrar na análise do texto.
-- **Registro da avaliação** (`docs/avaliacao/<rodada>-<tarefa>/`): o
+- **Registro da avaliação** (`docs/avaliacao/<rodada>-<interface>/`): o
   plano, o guia de leitura e a revisão que o agente entrega na avaliação
   pelas DCs, escritos uma vez e não atualizados depois; o que muda vai
   num arquivo novo ou no texto.
@@ -433,10 +433,10 @@ os pule.
 Mensagens em português, no imperativo, sem prefixo, explicando o problema
 antes da solução (skill `commit-message`). O commit que resolve uma tarefa
 fecha a tarefa e leva do `.beads/issues.jsonl` só as tarefas dele
-(`bin/juntar-tarefas.py --so`, seção "Tarefas"); o que altera um exemplo
-inclui as capturas (`implementacoes/AGENTS.md`). Com outra sessão no mesmo
-checkout, prepare só os próprios arquivos, por índice temporário
-(`GIT_INDEX_FILE`) se o índice compartilhado tiver mudanças alheias. No
-checkout principal, todo commit nomeia os arquivos
+(`bin/juntar-tarefas.py --so`, seção "Tarefas"); o que altera uma
+implementação inclui as capturas (`implementacoes/AGENTS.md`). Com outra
+sessão no mesmo checkout, prepare só os próprios arquivos, por índice
+temporário (`GIT_INDEX_FILE`) se o índice compartilhado tiver mudanças
+alheias. No checkout principal, todo commit nomeia os arquivos
 (`git commit -- <arquivos>`), porque o índice pode guardar o rascunho do
 texto que o autor ainda não aprovou.

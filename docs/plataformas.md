@@ -67,11 +67,11 @@ Leitura:
 | Angular com *signals* | declarativo por atualização granular | *template* |
 | Angular com RxJS | apoio, fora da análise (ADR 0013) | *template* |
 
-Cinco tarefas em cada tecnologia (ADRs 0002 e 0012). Dois pares próximos
-(ADR 0021): React × Solid, com a mesma tela em JSX e modelos de
-programação diferentes; Solid × Angular com *signals*, com o mesmo
-modelo de programação e duas notações. Quando as duas tecnologias de uma
-coluna divergem numa DC, Solid e Angular ou Web Component e jQuery
+Cinco interfaces em cada tecnologia (ADRs 0002 e 0012). Dois pares
+próximos (ADR 0021): React × Solid, com a mesma tela em JSX e modelos de
+programação diferentes; Solid × Angular com *signals*, com o mesmo modelo
+de programação e duas notações. Quando as duas tecnologias de uma coluna
+divergem numa DC, Solid e Angular ou Web Component e jQuery
 (`createElement` e `innerHTML` contra seletores), a célula da
 tabela-síntese registra a divergência (ADR 0017). O imperativo com
 *callbacks* entra contra os dois declarativos sem par controlado
@@ -125,14 +125,15 @@ como "sibling" ou "cousin" seria inferência do TCC.
   distribuídos; o JavaFX, mais dependentes e repositórios; o *desktop*
   Java é menor que o Android em todas as medidas indiretas.
 - **Implementação** (2026-10-09): Formulário e Lista em três tecnologias,
-  `casos/<caso>/swing/`, `javafx/` e `javafx-fxml/`, num projeto Gradle em
-  `casos/desktop/`; desde 2026-10-13, em `casos/fora-da-analise/`, desde
-  2026-10-14, `implementacoes/fora-da-analise/`, com as instruções no
-  `README.org` de lá. Decisões do autor em 2026-10-09: as duas tarefas que
-  conferem a web; testes de conformidade sem capturas; o JavaFX em código
-  e em FXML; o domínio do Android, em Kotlin, pela JVM. Os testes de
-  conformidade (19 verificações no Formulário, 11 na Lista) passam nas
-  seis, no Linux, com o JavaFX 27 na plataforma Headless.
+  `casos/<interface>/swing/`, `javafx/` e `javafx-fxml/`, num projeto
+  Gradle em `casos/desktop/`; desde 2026-10-13, em
+  `casos/fora-da-analise/`, desde 2026-10-14,
+  `implementacoes/fora-da-analise/`, com as instruções no `README.org` de
+  lá. Decisões do autor em 2026-10-09: as duas interfaces que conferem a
+  web; testes de conformidade sem capturas; o JavaFX em código e em FXML;
+  o domínio do Android, em Kotlin, pela JVM. Os testes de conformidade (19
+  verificações no Formulário, 11 na Lista) passam nas seis, no Linux, com
+  o JavaFX 27 na plataforma Headless.
 - **Testes de conformidade sem AssertJ Swing nem TestFX**: cada tecnologia
   tem uma `Tela` de teste escrita à mão, com a mesma API das do Android,
   que acha os campos pelo rótulo e dispensa robô de mouse e teclado.
@@ -154,7 +155,7 @@ implementar, com data e commit, estão em
 `docs/achados-das-implementacoes.md` (2026-10-09), e aqui aparecem
 resumidas.
 
-**Problemas de coordenação evento → estado → tela e estado derivado
+**Exigências de coordenação evento → estado → tela e estado derivado
 (Formulário).**
 
 - **Swing**: cada *listener* chama `validar()`, que recalcula todos os erros
@@ -198,7 +199,7 @@ resumidas.
   par no Solid (`onBlur`, `onSubmit`); o terceiro é lacuna da notação
   (leitura nossa).
 
-**Problema de coordenação lista derivada (Lista).**
+**Exigência de coordenação lista derivada (Lista).**
 
 - **Swing**: `atualizarLista()` filtra e ordena com *streams* e troca o
   conteúdo do `DefaultListModel` (`clear` e `addAll`), como o `.empty()`
@@ -247,7 +248,7 @@ resumidas.
 comentários, com os *imports*, do arquivo da tela (sem domínio, estilo
 nem `Main`); o *script* do ADR 0012 ainda não existe:
 
-| Tarefa | Swing | JavaFX (código) | JavaFX (FXML: Java + XML) | Views (Kotlin + *layout*) | Compose |
+| Interface | Swing | JavaFX (código) | JavaFX (FXML: Java + XML) | Views (Kotlin + *layout*) | Compose |
 |---|---|---|---|---|---|
 | Formulário | 127 | 117 | 100 + 57 | 79 + 83 | 121 |
 | Lista | 123 | 104 | 84 + 33 | 77 + 61 | 65 |
@@ -320,20 +321,20 @@ atualização granular, que é o que a pré-análise tem de mostrar.
 
 ### Implementações (2026-10-09, commit `73a9a11`)
 
-Formulário e Lista, em `casos/<caso>/qt-widgets/` e `casos/<caso>/qml/`,
-com o domínio em C++ em `casos/<caso>/dominio-cpp/` e um projeto CMake
-único em `casos/qt/`; desde 2026-10-13, em `casos/fora-da-analise/`, desde
-2026-10-14, `implementacoes/fora-da-analise/`, com a instalação no
-`README.org` de lá. Decisões do autor em 2026-10-09: as duas tarefas que
-conferem a web; testes de conformidade já, capturas só se o par entrar; o
-Qt Widgets monta a tela num `.ui` e coordena por `connect`, sem
-propriedades *bindable*; a QML guarda o estado nas próprias propriedades,
-com os derivados em *bindings*, e não num `QObject` com `NOTIFY`. Os
-testes de conformidade, em Qt Test, repetem as 19 e as 11 verificações dos
-testes da web, e passam nas quatro implementações com o Qt 6.10.2, no
-Linux.
+Formulário e Lista, em `casos/<interface>/qt-widgets/` e
+`casos/<interface>/qml/`, com o domínio em C++ em
+`casos/<interface>/dominio-cpp/` e um projeto CMake único em `casos/qt/`;
+desde 2026-10-13, em `casos/fora-da-analise/`, desde 2026-10-14,
+`implementacoes/fora-da-analise/`, com a instalação no `README.org` de lá.
+Decisões do autor em 2026-10-09: as duas interfaces que conferem a web;
+testes de conformidade já, capturas só se o par entrar; o Qt Widgets monta
+a tela num `.ui` e coordena por `connect`, sem propriedades *bindable*; a
+QML guarda o estado nas próprias propriedades, com os derivados em
+*bindings*, e não num `QObject` com `NOTIFY`. Os testes de conformidade,
+em Qt Test, repetem as 19 e as 11 verificações dos testes da web, e passam
+nas quatro implementações com o Qt 6.10.2, no Linux.
 
-### Pré-análise por problema de coordenação (2026-10-09)
+### Pré-análise por exigência de coordenação (2026-10-09)
 
 O que vem das fontes leva a fonte; o resto é leitura nossa, feita sobre o
 código de `73a9a11`, e está marcado assim.
@@ -412,7 +413,7 @@ domínio para a QML nem o `main.cpp`, que só abre a janela; o
 `MainActivity.kt` do Android entra, porque nele está a coordenação;
 ainda sem o *script* do ADR 0012.
 
-| Tarefa | Qt Widgets (dos quais `.ui`) | QML | Views | Compose | jQuery | Solid |
+| Interface | Qt Widgets (dos quais `.ui`) | QML | Views | Compose | jQuery | Solid |
 |---|---|---|---|---|---|---|
 | Formulário | 307 (224) | 91 | 162 | 121 | 107 | 127 |
 | Lista | 226 (174, dois `.ui`) | 51 | 138 | 65 | 77 | 79 |

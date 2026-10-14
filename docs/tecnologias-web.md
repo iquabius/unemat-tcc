@@ -312,9 +312,9 @@ evidência.
    candidate*; RxJS 9 em beta. As versões fixadas nos `package.json`
    valem para o texto, e uma nota deve dizer que a comparação é da
    versão, não da tecnologia.
-7. **Angular de apoio.** O uso de RxJS para estado nos exemplos de apoio
-   contraria a direção documentada do Angular; serve de referência ao
-   autor e não pode ser citado como "como se escreve Angular em 2026".
+7. **Angular de apoio.** O uso de RxJS para estado nas implementações de
+   apoio contraria a direção documentada do Angular; serve de referência
+   ao autor e não pode ser citado como "como se escreve Angular em 2026".
 8. **Web Component ≠ notação.** A classe com `HTMLElement` é o modelo de
    componente da plataforma, não a notação imperativa; o que representa a
    notação é o `addEventListener` com mutação do DOM dentro dela.

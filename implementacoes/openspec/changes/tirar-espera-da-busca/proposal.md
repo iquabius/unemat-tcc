@@ -30,7 +30,7 @@ Nenhuma.
 ## Impact
 
 - `implementacoes/busca-com-sugestoes/`: o teste de conformidade da web, o
-  `README.org`, que apresenta a tarefa como "esperar o usuário parar de
+  `README.org`, que apresenta a interface como "esperar o usuário parar de
   digitar", o `cenas.mts` e as capturas.
 - As implementações web da Busca: Web Component, React, Solid e Angular com
   *signals*, para as capturas continuarem idênticas. No React, sai o estado

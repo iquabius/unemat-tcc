@@ -27,11 +27,11 @@ _minted*
 *.lot
 *.out
 *.run.xml
-# npm (workspaces dos casos)
+# npm (workspaces das implementações)
 node_modules/
 dist/
 .angular/
-# Gradle (projeto Android dos casos, em implementacoes/android/)
+# Gradle (projeto Android das implementações, em implementacoes/android/)
 .gradle/
 .kotlin/
 build/

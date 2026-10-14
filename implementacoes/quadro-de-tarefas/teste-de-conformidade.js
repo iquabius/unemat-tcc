@@ -5,7 +5,7 @@
 // implementacoes/openspec/specs/quadro-de-tarefas/spec.md.
 //
 // O teste começa apagando o quadro salvo e termina com o quadro inicial.
-// Para abrir a tarefa de novo, sem recarregar a página, usa o "Esconder
+// Para abrir o quadro de novo, sem recarregar a página, usa o "Esconder
 // quadro" e o "Mostrar quadro"; para simular outra aba, grava no
 // localStorage e dispara o evento storage, que o navegador só entrega às
 // outras abas.
@@ -66,7 +66,7 @@
   }
   async function limparEmOutraAba() {
     // Só a chave do quadro: o clear() de verdade apagaria as de outras
-    // tarefas servidas na mesma origem.
+    // interfaces servidas na mesma origem.
     localStorage.removeItem("quadro");
     window.dispatchEvent(
       new StorageEvent("storage", {

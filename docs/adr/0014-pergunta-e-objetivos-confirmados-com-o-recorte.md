@@ -1,39 +1,39 @@
 # 0014. A pergunta e os objetivos comparam três modelos de programação pela usabilidade das notações, segundo as Dimensões Cognitivas, com duas subperguntas, a P1.1 e a P1.2, e "larga escala" vira motivação
 
 2026-10-13. A introdução de 2017 trazia a pergunta em três formulações,
-uma sobre software em larga escala, que casos pequenos não respondem, e
-um objetivo geral sem critério. A pergunta: pelas Dimensões Cognitivas
-de Notações, como difere a usabilidade da notação do código de
+uma sobre software em larga escala, que interfaces pequenas não
+respondem, e um objetivo geral sem critério. A pergunta: pelas Dimensões
+Cognitivas de Notações, como difere a usabilidade da notação do código de
 interfaces gráficas em cada tecnologia entre os três modelos de
 programação — o imperativo com *callbacks*, o declarativo por
 re-renderização e o declarativo por atualização granular? A pergunta tem
 a forma descritivo-comparativa de Easterbrook et al. (2008), "How does X
-differ from Y?", e pede diferenças, e não um juízo de qual é melhor,
-como as próprias DCs, que "are not good or bad in themselves" (Blackwell
-e Green 2003, cópia). A pergunta diz a unidade comparada, o modelo de
+differ from Y?", e pede diferenças, e não um juízo de qual é melhor, como
+as próprias DCs, que "are not good or bad in themselves" (Blackwell e
+Green 2003, cópia). A pergunta diz a unidade comparada, o modelo de
 programação, e onde se observa a evidência, a notação de cada tecnologia
 (ADR 0021); "do código" diz que a notação é a do código que programa a
 interface, e não o que o usuário vê na tela. A pergunta principal tem
 duas subperguntas, uma por rodada estreita (ADR 0029), com rótulos
 hierárquicos, que dizem a subordinação sem uma frase que a anuncie: como
 a diferença entre os modelos de programação muda quando a mesma
-funcionalidade ou o mesmo requisito de orquestração se acrescenta a
-todas as implementações (P1.1, a segunda rodada), e quando cada
-tecnologia usa a biblioteca de formulário do seu ecossistema (P1.2, a
-terceira); a redação é do autor, na introdução (tcc-xep). As rodadas se
-chamam pelo ordinal, e não pela pergunta, porque "a rodada da P1"
-se confundiria com a avaliação inteira, que a P1 cobre. "Larga escala" fica só na
-motivação. O objetivo geral é comparar, segundo as DCs, a usabilidade
-das notações dos três modelos de programação em interfaces típicas da
-web, em TypeScript, e em parte delas no Android, em Kotlin, e no
-desktop, em C# (cada plataforma pelo nome, ADR 0012); os específicos:
-implementar as cinco tarefas com Web Component, React e Solid, três
-delas também em Lit e em Angular com *signals*, e três no Android, com
-Views e Compose, e no desktop, com Windows Forms e WPF, e estendê-las na
-segunda e na terceira rodada (ADRs 0013 e 0029); avaliar as implementações pelas 14 DCs em
-cada rodada (ADR 0012); sintetizar, por problema de coordenação, o que
-cada modelo de programação facilita e o que dificulta. Os programas de
-processamento de listas, que demonstram os conceitos de PF, vão para a
+funcionalidade ou o mesmo requisito de orquestração se acrescenta a todas
+as implementações (P1.1, a segunda rodada), e quando cada tecnologia usa
+a biblioteca de formulário do seu ecossistema (P1.2, a terceira); a
+redação é do autor, na introdução (tcc-xep). As rodadas se chamam pelo
+ordinal, e não pela pergunta, porque "a rodada da P1" se confundiria com
+a avaliação inteira, que a P1 cobre. "Larga escala" fica só na motivação.
+O objetivo geral é comparar, segundo as DCs, a usabilidade das notações
+dos três modelos de programação em interfaces típicas da web, em
+TypeScript, e em parte delas no Android, em Kotlin, e no desktop, em C#
+(cada plataforma pelo nome, ADR 0012); os específicos: implementar as
+cinco interfaces com Web Component, React e Solid, três delas também em
+Lit e em Angular com *signals*, e três no Android, com Views e Compose, e
+no desktop, com Windows Forms e WPF, e estendê-las na segunda e na
+terceira rodada (ADRs 0013 e 0029); avaliar as implementações pelas 14
+DCs em cada rodada (ADR 0012); sintetizar, por exigência de coordenação,
+o que cada modelo de programação facilita e o que dificulta. Os programas
+de processamento de listas, que demonstram os conceitos de PF, vão para a
 fundamentação (`prog.org`): fundamentar conceitos é função de uma seção
 do texto, e não um passo para o objetivo geral.
 

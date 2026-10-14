@@ -1,6 +1,6 @@
-// Confere a especificação das tarefas em openspec/: a estrutura, pelo
+// Confere a especificação das interfaces em openspec/: a estrutura, pelo
 // openspec validate, e a ligação de cada cenário a uma verificação do teste
-// de conformidade da tarefa, em todas as tecnologias.
+// de conformidade da interface, em todas as tecnologias.
 //
 // Uso: npm run conferir-especificacao
 //
@@ -8,14 +8,14 @@
 // MUST: os requisitos são escritos em português, com "deve" (tcc-wlx). Os
 // outros avisos aparecem, e um item inválido faz o script falhar.
 //
-// O nome do cenário (#### Scenario: <nome> em openspec/specs/<tarefa>/spec.md)
-// é o nome da verificação (conferir("<nome>", ...)) nos testes de
-// implementacoes/<tarefa>/, em JS ou Kotlin. Cada arquivo de teste tem de
-// ter todos os cenários e só eles; e, como as outras plataformas repetem o
-// teste da web, na mesma ordem do arquivo que fica na pasta da tarefa. Sai
-// com erro e lista as diferenças.
+// O nome do cenário (#### Scenario: <nome> em
+// openspec/specs/<interface>/spec.md) é o nome da verificação
+// (conferir("<nome>", ...)) nos testes de implementacoes/<interface>/, em JS
+// ou Kotlin. Cada arquivo de teste tem de ter todos os cenários e só eles; e,
+// como as outras plataformas repetem o teste da web, na mesma ordem do
+// arquivo que fica na pasta da interface. Sai com erro e lista as diferenças.
 //
-// Teste é todo arquivo da pasta da tarefa que chama conferir(...); cada
+// Teste é todo arquivo da pasta da interface que chama conferir(...); cada
 // chamada tem de ter o nome como texto literal entre aspas duplas, senão o
 // script acusa. O código de implementacoes/fora-da-analise/ não é conferido.
 
@@ -110,31 +110,26 @@ const repetidos = (nomes: string[]) => [
 const contar = (texto: string, padrao: RegExp) =>
   [...texto.matchAll(padrao)].length;
 
-const tarefas = (await readdir(SPECS, { withFileTypes: true }))
+const guis = (await readdir(SPECS, { withFileTypes: true }))
   .filter((item) => item.isDirectory())
   .map((item) => item.name)
   .sort();
 
-for (const tarefa of tarefas) {
-  const arquivoSpec = path.join(SPECS, tarefa, "spec.md");
-  if (
-    !existsSync(arquivoSpec) ||
-    !existsSync(path.join(IMPLEMENTACOES, tarefa))
-  ) {
-    problemas.push(
-      `${tarefa}: falta o spec.md ou a pasta implementacoes/${tarefa}/`,
-    );
+for (const gui of guis) {
+  const arquivoSpec = path.join(SPECS, gui, "spec.md");
+  if (!existsSync(arquivoSpec) || !existsSync(path.join(IMPLEMENTACOES, gui))) {
+    problemas.push(`${gui}: falta o spec.md ou a pasta implementacoes/${gui}/`);
     continue;
   }
   const spec = await readFile(arquivoSpec, "utf8");
   const cenarios = [...spec.matchAll(cenario)].map((m) => m[1]);
   for (const nome of repetidos(cenarios)) {
-    problemas.push(`${tarefa}: cenário repetido no spec.md: "${nome}"`);
+    problemas.push(`${gui}: cenário repetido no spec.md: "${nome}"`);
   }
 
   const testes: { arquivo: string; nomes: string[] }[] = [];
   for (const arquivo of (
-    await arquivos(path.join(IMPLEMENTACOES, tarefa))
+    await arquivos(path.join(IMPLEMENTACOES, gui))
   ).sort()) {
     const texto = await readFile(arquivo, "utf8");
     const chamadas = contar(texto, chamada) - contar(texto, definicao);
@@ -156,12 +151,10 @@ for (const tarefa of tarefas) {
     nomes.length === cenarios.length &&
     cenarios.every((c) => nomes.includes(c));
 
-  // A referência da ordem é o teste da web, o arquivo na pasta da tarefa.
-  const web = testes.find((t) => path.dirname(t.arquivo) === tarefa);
+  // A referência da ordem é o teste da web, o arquivo na pasta da interface.
+  const web = testes.find((t) => path.dirname(t.arquivo) === gui);
   if (!web) {
-    problemas.push(
-      `${tarefa}: falta o teste de conformidade da web em ${tarefa}/`,
-    );
+    problemas.push(`${gui}: falta o teste de conformidade da web em ${gui}/`);
   }
   for (const { arquivo, nomes } of testes) {
     const faltam = cenarios.filter((c) => !nomes.includes(c));
@@ -187,7 +180,7 @@ for (const tarefa of tarefas) {
   }
 
   console.log(
-    `${tarefa}: ${cenarios.length} cenários, ${testes.length} testes de conformidade`,
+    `${gui}: ${cenarios.length} cenários, ${testes.length} testes de conformidade`,
   );
 }
 

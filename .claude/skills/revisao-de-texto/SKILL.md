@@ -263,16 +263,15 @@ perguntas, e então o autor dá o rótulo.
 
    Frase sem fonte ganha o marcador (`p. N`, "precisa de fonte") e o aviso,
    e não some. Decisão cara de reverter vira ADR (skill `adr`).
-5. **Métricas** nos parágrafos tocados: `python3
-   ~/.claude/skills/escrita-academica/scripts/metricas_texto.py
-   texto/<capítulo>.org`, e leitura com `principios-escrita.md`,
-   `portugues-academico.md` e `processo-e-corte.md`. Confira as siglas
-   contra a primeira definição no capítulo e as preferências do autor
-   (`AGENTS.md`, "Texto"). Em cada tarefa ou problema de coordenação que o
-   trecho descreve, confira se a exigência técnica vem com o que ela dá ao
-   usuário final ("para o usuário ...", o **ENTÃO** do cenário;
-   `implementacoes/AGENTS.md`, "Exemplo ou caso novo"); o que faltar entra
-   como correção de sentido.
+5. **Métricas** nos parágrafos tocados:
+   `python3 ~/.claude/skills/escrita-academica/scripts/metricas_texto.py texto/<capítulo>.org`,
+   e leitura com `principios-escrita.md`, `portugues-academico.md` e
+   `processo-e-corte.md`. Confira as siglas contra a primeira definição no
+   capítulo e as preferências do autor (`AGENTS.md`, "Texto"). Em cada
+   interface ou exigência de coordenação que o trecho descreve, confira se
+   o trecho diz o que ela dá ao usuário final ("para o usuário ...", o
+   **ENTÃO** do cenário; `implementacoes/AGENTS.md`, "Interface ou
+   implementação nova"); o que faltar entra como correção de sentido.
 6. **Correções por cima, todas de uma vez.** O agente aplica no `.org`
    todas as correções da rodada, sem commit, com a entrada de cada fonte
    conferida já na matriz. O autor revisa no diff, e não no chat (ADR
@@ -390,11 +389,12 @@ formato do relatório estão em `references/checagem-adversarial.md` da
    commit lido.
 2. **Extração e mapa**, pelo agente principal, em
    `tmp/checagem-<capítulo>-<data>/passada-1.md`. Onde a verdade deve
-   estar: a chave e a página citadas, o PDF em `tmp/fontes/`, a entrada
-   de `texto/fontes/<capítulo>.org`; para o próprio trabalho (casos,
-   tecnologias, implementações), `implementacoes/` e `CONTEXT.md`. A cadeia do
-   mapa é a da rodada de corte, passo 3. As contradições se procuram
-   também nos outros capítulos e contra os termos do `CONTEXT.md`.
+   estar: a chave e a página citadas, o PDF em `tmp/fontes/`, a entrada de
+   `texto/fontes/<capítulo>.org`; para o próprio trabalho (interfaces,
+   tecnologias, implementações), `implementacoes/` e `CONTEXT.md`. A
+   cadeia do mapa é a da rodada de corte, passo 3. As contradições se
+   procuram também nos outros capítulos e contra os termos do
+   `CONTEXT.md`.
 3. **Passada 1.** Um subagente por lote, todos na mesma mensagem, com a
    instrução da referência e os caminhos absolutos dos PDFs em
    `tmp/fontes/` do checkout principal. Enquanto rodam, a auditoria

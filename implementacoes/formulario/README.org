@@ -18,7 +18,7 @@ viva (OpenSpec); uma mudança entra como /delta spec/ em
   O =teste-de-conformidade.js= percorre a especificação: cada verificação
   tem o nome de um cenário do =spec.md= (19), e
   =npm run conferir-especificacao= confere a ligação em todas as
-  tecnologias. Com um exemplo aberto no navegador, cole o arquivo no
+  tecnologias. Com uma implementação aberta no navegador, cole o arquivo no
   console.
 
   No Android, as mesmas 19 verificações estão em =TesteDeConformidade.kt=, nos

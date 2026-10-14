@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Reserva de voo com nome, e-mail, tipo de voo e duas datas, a tarefa
+Reserva de voo com nome, e-mail, tipo de voo e duas datas, a interface
 *Flight Booker* do 7GUIs ampliada com os campos e o "tocado" de um
 formulário real: campos dependentes e estado derivado, no gerenciamento de
 estado.

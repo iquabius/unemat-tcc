@@ -22,7 +22,8 @@ Em vez de: as transições no domínio (protótipo e `CONTEXT.md`, de
 e o desfazer da P2 se resolveria igual em todas, guardando os quadros
 anteriores, sem o contraste de Kiss (2014) entre guardar o comando e
 copiar o estado; mas o formato do redutor ficaria imposto a três
-tecnologias que não o usam, justo na tarefa do gerenciamento de estado.
+tecnologias que não o usam, justo na interface que mede o gerenciamento
+de estado.
 Custo: as três transições se repetem nas quatro implementações da web e
 nos portes do Android e do desktop (tcc-ysxk, tcc-74m), e um erro numa
 delas só o teste de conformidade pega; o desfazer da P2 (tcc-buku) volta
