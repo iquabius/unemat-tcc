@@ -150,7 +150,7 @@ biblioteca; o *framework* chama a aplicação.
 |---|---|---|
 | Johnson e Foote 1988 (sem entrada) | o *framework* faz o papel do programa principal e chama os métodos que o usuário define; usam "inversion of control", sem reivindicar o termo | seção *White-box vs. Black-box Frameworks*; versão HTML dos autores, sem paginação |
 | Fayad e Schmidt 1997 (sem entrada) | o *framework* é aplicação "semi-complete" (definição que atribuem a Johnson); a biblioteca de classes é passiva, o *framework* é ativo; inversão de controle como *Hollywood Principle* | abertura e item *Class libraries*; versão HTML dos autores (cópia do Internet Archive) |
-| Van Roy e Haridi 2004 (`roy2004`) | define *framework* como sistema de *software* tornado genérico; define também biblioteca, componente e padrão de projeto | p. 492; p. 229 e 453; p. 412; p. 534 |
+| Van Roy e Haridi 2004 (`vanroy2004`) | define *framework* como sistema de *software* tornado genérico; define também biblioteca, componente e padrão de projeto | p. 492; p. 229 e 453; p. 412; p. 534 |
 | Riehle 2000 (sem entrada) | define *framework* como modelo de classes, sem o termo "inversão de controle", mas descreve o mecanismo como *callback* e *upcall* | p. 54; p. 66 e 72 |
 | Myers 1994 (`myers1994`) | os *toolkits* deixam o programa "inside-out": as sub-rotinas da aplicação são chamadas pelo *toolkit* | p. 79 |
 | Myers 1991; Myers e Rosson 1992 | o *toolkit* é a coleção de *widgets*, separado do sistema de janelas, do construtor de interfaces e do sistema de gerenciamento | p. 211; p. 196 |
@@ -485,7 +485,7 @@ Mernik et al. 2009 e Hudak 1996, página da cópia.
 
 | Fonte | Trecho | Onde | Uso |
 |---|---|---|---|
-| Van Roy 2009 (`roy2009`) | "A programming paradigm is an approach to programming a computer based on a mathematical theory or a coherent set of principles" | p. 10 | definição de paradigma |
+| Van Roy 2009 (`vanroy2009`) | "A programming paradigm is an approach to programming a computer based on a mathematical theory or a coherent set of principles" | p. 10 | definição de paradigma |
 | Van Roy 2009 | "Oz has the advantage that it supports multiple paradigms well, so that we do not have to introduce more than one notation" | p. 10 | notação como escrita, separada do paradigma |
 | Van Roy 2009 | a abstração de dados "allows to increase a language's expressiveness by defining new languages on top of the existing language" | p. 11 | abstração cria linguagem |
 | Van Roy 2009 | "Each paradigm is defined by a set of programming concepts, organized into a simple core language called the paradigm's kernel language" | p. 12 | paradigma por conceitos |
@@ -495,7 +495,7 @@ Mernik et al. 2009 e Hudak 1996, página da cópia.
 | Van Roy 2009 | a citação usada em `texto/prog.org` (l. 326-336) é sobre a programação síncrona discreta (Esterel, Lustre, Signal), não sobre a PR | p. 35-36 | erro a corrigir no capítulo de programação |
 | Van Roy 2009 | não usa "computation model" nem "programming model"; "model" só solto ("a concurrent model", p. 11 e 37) | texto inteiro | sem contradição com o CTM: troca de termo |
 | Van Roy 2003 | "programming should be taught in terms of concepts, not paradigms"; paradigmas são "styles of programming based on particular mathematical theories or schools of thought" | p. 269, 270 | contexto |
-| Van Roy e Haridi 2004 (`roy2004`) | "The term computation model makes precise the imprecise notion of 'programming paradigm.'"; "programming model": "the programming techniques and design principles made possible by the computation model" | p. xiii | modelo × paradigma |
+| Van Roy e Haridi 2004 (`vanroy2004`) | "The term computation model makes precise the imprecise notion of 'programming paradigm.'"; "programming model": "the programming techniques and design principles made possible by the computation model" | p. xiii | modelo × paradigma |
 | Van Roy e Haridi 2004 | "Each computation model is based on a simple core language called its kernel language" | p. xiv | a mesma definição que o paradigma de 2009 |
 | Van Roy e Haridi 2004 | modelo de computação: "a formal system that defines a language and how sentences of the language [...] are executed by an abstract machine"; "A programming model is always built on top of a computation model" | p. 29 | critério para "modelo" |
 | Van Roy e Haridi 2004 | abstração linguística: "There are two phases [...]. First, define a new grammatical construct. Second, define its translation into the kernel language"; açúcar sintático "does not provide a new abstraction"; uma abstração começa sem "linguistic support" | p. 38-40 | JSX (açúcar no React) e *signals* (abstração sem sintaxe) |

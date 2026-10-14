@@ -159,8 +159,8 @@ página é a impressa.
 | Stol e Fitzgerald 2018 (fora do `.bib`; seção 1) | a artificialidade situacional "refers to the elements of the experimental design, such as the subjects (e.g., the use of students) and tasks and settings (e.g., toy systems)" | p. 11:10 | limitações: "As tarefas são pequenas" (intro.org, §29); candidata |
 | Runeson e Höst 2009 (`runeson2009`) | os estudos "range from very ambitious and well organized studies in the field, to small toy examples that claim to be case studies" | p. 132 | por que o trabalho não é estudo de caso |
 | Runeson e Höst 2009 | "Studies on 'toy programs' or similarly are of course excluded due to its lack of real-life context." | p. 139 | idem; em 2026-10-10, fora de `texto/intro.org`, que cita Runeson e Höst só na p. 135 |
-| Van Roy e Haridi 2004 (`roy2004`) | "This approach, defining new concepts and their proof rules, is the way to go for practical reasoning about stateful programs. Always staying at the kernel language level is much too verbose for all but toy programs." | p. 448 | abstração acima dos conceitos; o CTM chama aqui de "new concepts" as construções que na p. 38-40 são abstrações linguísticas (`docs/paradigma-modelo-e-notacao.md`, seção 9.1) |
-| Van Roy 2009 (`roy2009`) | "All but the smallest toy problems require different sets of concepts for different parts." | p. 10 | já citado em intro.org (§9) |
+| Van Roy e Haridi 2004 (`vanroy2004`) | "This approach, defining new concepts and their proof rules, is the way to go for practical reasoning about stateful programs. Always staying at the kernel language level is much too verbose for all but toy programs." | p. 448 | abstração acima dos conceitos; o CTM chama aqui de "new concepts" as construções que na p. 38-40 são abstrações linguísticas (`docs/paradigma-modelo-e-notacao.md`, seção 9.1) |
+| Van Roy 2009 (`vanroy2009`) | "All but the smallest toy problems require different sets of concepts for different parts." | p. 10 | já citado em intro.org (§9) |
 
 ## 6. Blackwell, Petre e Church 2019 (`blackwell2019`)
 

@@ -5,7 +5,7 @@ instruções de máquinas.
 Programas consistem de instruções e expressões.
 Uma expressão é um grupo de símbolos que representa um valor.}\todo[fancyline]{Trazer o conteúdo do rodapé pra cá?}.
 A forma como as sentenças de uma linguagem são executadas pelo computador é
-definida por um \emph{modelo de computação} \cite{roy2004}.
+definida por um \emph{modelo de computação} \cite{vanroy2004}.
 
 O código fonte de um programa consiste de uma série de instruções que expressam
 uma sequência de comandos a se seguir durante a execução — esse período é
@@ -23,7 +23,7 @@ entanto, elas ainda podem conter uma sintaxe surpreendentemente rica, um
 conjunto de abstrações, e bibliotecas auxiliares.
 Esse é essencialmente o caso de linguagens usadas para resolver problemas
 reais do dia-a-dia.
-\textcite{roy2004} as chamam de linguagens \emph{práticas}, que são “\textelp{}
+\textcite{vanroy2004} as chamam de linguagens \emph{práticas}, que são “\textelp{}
 como a caixa de ferramentas de um mecânico experiente: há várias ferramentas
 diferentes para finalidades diferentes e todas estão lá por uma razão.” (p.
 33; tradução nossa).
@@ -50,7 +50,7 @@ A informação recordada é denominada o estado do programa \cite{rouse2005}.
 \todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}
 
 O modelo de programação não é o paradigma, noção imprecisa que o modelo
-de computação torna precisa \cite[p. xiii]{roy2004}.
+de computação torna precisa \cite[p. xiii]{vanroy2004}.
 Também não é a biblioteca nem o \emph{framework}, que classificam o produto: o
 Web Component, recurso do próprio navegador \cite{mozilla2026}, não é
 nenhum dos dois e tem um modelo de programação como as outras
@@ -58,7 +58,7 @@ tecnologias.
 
 Cada modelo de programação aplica conceitos de um ou mais paradigmas.
 Em quase todo problema, cada parte pede o seu conjunto de conceitos
-\cite[p. 10]{roy2009}, e as implementações deste trabalho também os
+\cite[p. 10]{vanroy2009}, e as implementações deste trabalho também os
 misturam.
 
 As aplicações orientadas a eventos e interativas, na literatura de
@@ -72,19 +72,19 @@ Por isso, este trabalho as chama de interativas e reserva “reativo” para a
 Programação é uma disciplina extensa, e linguagens práticas de programação
 geralmente são bastante complicadas.
 Felizmente, as ideias importantes de linguagens de programação são simples
-\cite{roy2009}.
+\cite{vanroy2009}.
 Um \emph{paradigma de programação}:
 
 \begin{citacao}
   \textelp{} é uma abordagem para a programação de um computador baseada em
   uma teoria matemática ou um conjunto coerente de princípios.
-  \cite[p.~10; tradução nossa]{roy2009}
+  \cite[p.~10; tradução nossa]{vanroy2009}
 \end{citacao}
 
 É mais interessante focar em paradigmas de programação do que em linguagens,
 porque há muito menos paradigmas que linguagens, como pode-se notar na Figura
-\ref{img:LangsParadigmsConcepts} \cite{roy2009}.
-Segundo \textcite{roy2009}:
+\ref{img:LangsParadigmsConcepts} \cite{vanroy2009}.
+Segundo \textcite{vanroy2009}:
 
 \begin{citacao}
   Os conceitos são os elementos primitivos básicos usados para construir os
@@ -97,7 +97,7 @@ Segundo \textcite{roy2009}:
   \caption{Linguagens, paradigmas, e conceitos de programação.} \centering
   \includegraphics[width=12cm]{./fig/roy2009_languages_paradigms_and_concepts.jpeg}
 
-  \small Fonte: \textcite[p.~12]{roy2009}.
+  \small Fonte: \textcite[p.~12]{vanroy2009}.
   \label{img:LangsParadigmsConcepts}
 \end{figure}
 
@@ -109,9 +109,9 @@ Linguagens tradicionais como Java e C++ dão suporte a um ou dois paradigmas
 diferentes.
 “Isso é lamentável, pois problemas de programação diferentes precisam de
 conceitos diferentes de programação para serem resolvidos claramente.”
-\cite[p. 10]{roy2009}.
+\cite[p. 10]{vanroy2009}.
 
-\textcite{roy2009} defende o uso de um modelo de programação \emph{multiparadigma},
+\textcite{vanroy2009} defende o uso de um modelo de programação \emph{multiparadigma},
 porque:
 
 \begin{citacao}
@@ -124,9 +124,9 @@ porque:
 Apesar de linguagens tradicionais não dar suporte a esse modelo, entender os
 conceitos certos pode melhorar a forma de programação, mesmo em linguagens que
 não dê suporte direto a eles, assim como programação orientada a objetos é
-possível em C com a atitude adequada \cite{roy2009}.
+possível em C com a atitude adequada \cite{vanroy2009}.
 
-\textcite{roy2009} apresenta quatro modelos importantes que simplificam
+\textcite{vanroy2009} apresenta quatro modelos importantes que simplificam
 programação concorrente em relação à linguagens convencionais: \emph{concorrência
 declarativa}, \emph{programação funcional reativa}, \emph{programação síncrona
 discreta}, e \emph{programação com restrições}.
@@ -135,7 +135,7 @@ No modelo declarativo de concorrência o resultado de um programa pode ser
 calculado incrementalmente.
 “Se a entrada de um programa concorrente é dada incrementalmente, então o
 programa também irá calcular o resultado de saída incrementalmente.”
-\cite[p. 238; tradução nossa]{roy2004}.
+\cite[p. 238; tradução nossa]{vanroy2004}.
 Esses paradigmas não possuem condições de corrida, \emph{‘race conditions’} em
 inglês.
 \todo{Esses últimos dois parágrafos parecem estar deslocados.}
@@ -256,7 +256,7 @@ A expressão algébrica denota uma função \(f\) que relaciona um número \(x\)
 seu quadrado, ou transforma \(x\) em seu quadrado.
 A expressão em Elm define uma função \mintinline{elm}{quadrado} que transforma o
 parâmetro \mintinline{elm}{x} em seu quadrado.
-\textcite{roy2009} descreve uma função no contexto da \gls{pf}:
+\textcite{vanroy2009} descreve uma função no contexto da \gls{pf}:
 
 \begin{citacao}
   Funções são funções matemáticas: quando chamadas com os mesmos argumentos,
@@ -362,7 +362,7 @@ Programação reativa abrange um leque enorme de conceitos de programação.
 Isso se deve pela escolha da palavra ‘reativa’, que diz mais sobre uma
 \emph{propriedade do que se programa} do que sobre um \emph{conceito de programação}.
 Vários conceitos e paradigmas diferentes podem ser empregados na programação
-de uma aplicação reativa — ou de qualquer tipo de programa \cite{roy2009}.
+de uma aplicação reativa — ou de qualquer tipo de programa \cite{vanroy2009}.
 Entende-se então o porquê do paradigma abarcar tantos conceitos.
 Portanto, faz sentido descrever \emph{programas reativos} e a propriedade
 \emph{reativa}, antes de discutir os modelos de programação disponíveis para
@@ -412,7 +412,7 @@ O segundo é o conceito de \emph{semântica denotacional}.
 \Gls{pfr} é mais indicada para domínios que precisam representar tempo contínuo,
 como simulações físicas.
 \Gls{pr} é mais indicada para sistemas reativos, como é explicado por
-\textcite{roy2009}:
+\textcite{vanroy2009}:
 
 \begin{citacao}
   Usar tempo discreto simplifica enormemente a programação de sistemas reativos.

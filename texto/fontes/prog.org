@@ -255,7 +255,7 @@ Seção “Uso das tecnologias web”. Parágrafo vindo dos estudos de casos em
 - Conferido: 2026-10-07.
 
 * §10 [[file:../prog.org::Cada modelo de programação aplica conceitos][Cada modelo de programação aplica conceitos]]
-** roy2009, p. 10
+** vanroy2009, p. 10
 - Frase: “Em quase todo problema, cada parte pede o seu conjunto de conceitos
   (Van Roy, 2009, p. 10), e as implementações deste trabalho também os
   misturam.”
@@ -422,7 +422,7 @@ Seção “Uso das tecnologias web”. Parágrafo vindo dos estudos de casos em
 - Conferido: 2026-10-13.
 
 * §9 [[file:../prog.org::O modelo de programação não é][O modelo de programação não é]]
-** roy2004, p. xiii (paradigma)
+** vanroy2004, p. xiii (paradigma)
 - Frase: “Ele não é o paradigma, noção imprecisa que o modelo de
   computação torna precisa (Van Roy; Haridi, 2004, p. xiii) [...]”
 - Trecho: “The term computation model makes precise the imprecise notion

@@ -166,7 +166,7 @@ Formato:
 - Observação: o trecho fala de diálogos simultâneos, sob o intertítulo
   “Reactive Programming”; o estado aparece de passagem.
 - Conferido: 2026-10-13.
-** roy2009, p. 14 (estado)
+** vanroy2009, p. 14 (estado)
 - Frase: a mesma, “lembram informações”.
 - Trecho: “State is the ability to remember information, or more
   precisely, to store a sequence of values in time.” (p. 14)
@@ -215,7 +215,7 @@ Formato:
 - Conferido: 2026-10-09.
 
 * §10 [[file:../intro.org::Este trabalho compara /modelos de programação/][Este trabalho compara modelos de programação]]
-** roy2004, p. xiii e 29
+** vanroy2004, p. xiii e 29
 - Frase: “Este trabalho compara /modelos de programação/: as técnicas e os
   princípios de projeto que um modelo de computação torna possíveis (Van
   Roy; Haridi, 2004, p. xiii e 29).”

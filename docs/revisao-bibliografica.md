@@ -299,7 +299,7 @@ bib-audit, e em `517cad6` saíram as duplicatas e `gammie2009`. Em
 | Publicadas de 2021 a 2026 | 0 |
 | Publicadas de 2016 a 2026 | 8 (11%) |
 | Trabalho acadêmico mais recente | 2016 |
-| Citadas em `prog.org` | roy2009 (×12), hughes1990, noble1994, roy2004, blackheath2016, berry1989, salvaneschi2015, rouse2005 |
+| Citadas em `prog.org` | vanroy2009 (×12), hughes1990, noble1994, vanroy2004, blackheath2016, berry1989, salvaneschi2015, rouse2005 |
 
 Os clássicos (Hughes 1989/1990, Berry 1989, Van Roy 2004/2009, Green 1989)
 sustentam definições. O problema é o estado da arte da PR/PFR em GUIs,

@@ -25,13 +25,13 @@ acrescentar, não o estado do `refs.bib`.
 
 | Tema | Em 2026-09-24 | Com a atualização |
 |---|---|---|
-| Modelos de computação / linguagens | roy2004 | |
-| Paradigmas | roy2009 | + krishnamurthi2019 (+ krishnamurthi2008) |
-| Estado | rouse2005 (WhatIs.com) | blackheath2016, p. 6 e 9-10 (seção 8, decisão de 2026-10-14); roy2004 como complemento formal |
+| Modelos de computação / linguagens | vanroy2004 | |
+| Paradigmas | vanroy2009 | + krishnamurthi2019 (+ krishnamurthi2008) |
+| Estado | rouse2005 (WhatIs.com) | blackheath2016, p. 6 e 9-10 (seção 8, decisão de 2026-10-14); vanroy2004 como complemento formal |
 | GUIs, eventos, *callbacks* | blackheath2016; na intro: maier2010, edwards2009, fischer2007, jarvi2008, myers1994 | + blouin2022 + madsen2020 + (nishizu2022, lee2025) + literatura cinzenta sobre *signals* |
-| PF | hughes1990, noble1994, roy2009 | + mehlhorn2022 + (Zampetti et al. 2025, contraponto) |
-| PR / programas reativos | berry1989, salvaneschi2015, roy2009; na intro: bainomugisha2013 | + zimmerle2022 + (oeyen2024, berry2020) |
-| PR × PFR (tempo) | roy2009 | + elliott1997 + perez2023 + czaplicki2013 + (graulund2021) |
+| PF | hughes1990, noble1994, vanroy2009 | + mehlhorn2022 + (Zampetti et al. 2025, contraponto) |
+| PR / programas reativos | berry1989, salvaneschi2015, vanroy2009; na intro: bainomugisha2013 | + zimmerle2022 + (oeyen2024, berry2020) |
+| PR × PFR (tempo) | vanroy2009 | + elliott1997 + perez2023 + czaplicki2013 + (graulund2021) |
 | Evidência empírica PR × Observer | salvaneschi2014 (na intro) | + salvaneschi2017 + zimmerle2025 + farias2024 + (banken2018) |
 | Dimensões Cognitivas | green1989, clarke2003, sadowski2011, kiss2014 (na intro) | + blackwell2003 + zimmerle2025 + blackwell2019 |
 
@@ -293,7 +293,7 @@ Linguagens de programação e PR:
 | Bahr, Graulund e Møgelberg 2019 (sem entrada) | "Reactive programs are programs that engage in an ongoing dialogue with their environment [...]. Examples include GUIs, servers" | diálogo contínuo | reativa | PACMPL 3 (ICFP), p. 1 da cópia |
 | Lima 2024 (`lima2024`) | "event-driven applications, also called interactive or reactive applications (e.g., graphical user interface apps)"; "Reactive applications, also called interactive or event-driven" | | sinônimos | p. 17 e 25 |
 | Goldin e Wegner 2008 (sem entrada) | "graphical user interfaces, are interactive rather than algorithmic; their job is to provide ongoing services over time" | serviço contínuo contra o algoritmo que termina | interativa, por oposição ao algoritmo | *Minds and Machines* 18(1), p. 3 do manuscrito |
-| Van Roy e Haridi 2004 (`roy2004`) | "high-performance interactive systems"; "An interactive system, such as a computer game, should have a uniform reaction time" | | interativa | p. 174 |
+| Van Roy e Haridi 2004 (`vanroy2004`) | "high-performance interactive systems"; "An interactive system, such as a computer game, should have a uniform reaction time" | | interativa | p. 174 |
 | Edwards 2009 (`edwards2009`) | "interactive applications (such as word processors or commercial web sites)"; "interaction is a side effect" | | interativa | p. 925 |
 
 IHC e normas:

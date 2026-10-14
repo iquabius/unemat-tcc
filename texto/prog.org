@@ -7,7 +7,7 @@
 Um programa de computador é expresso por um conjunto de sentenças em alguma
 linguagem de programação[fn:statement]\todo[fancyline]{Trazer o conteúdo do rodapé pra cá?}.
 A forma como as sentenças de uma linguagem são executadas pelo computador é
-definida por um /modelo de computação/ cite:roy2004.
+definida por um /modelo de computação/ cite:vanroy2004.
 
 O código fonte de um programa consiste de uma série de instruções que expressam
 uma sequência de comandos a se seguir durante a execução — esse período é
@@ -25,7 +25,7 @@ denominadas /linguagens imperativas/.
   conjunto de abstrações, e bibliotecas auxiliares.
   Esse é essencialmente o caso de linguagens usadas para resolver problemas
   reais do dia-a-dia.
-  \textcite{roy2004} as chamam de linguagens /práticas/, que são “\textelp{}
+  \textcite{vanroy2004} as chamam de linguagens /práticas/, que são “\textelp{}
   como a caixa de ferramentas de um mecânico experiente: há várias ferramentas
   diferentes para finalidades diferentes e todas estão lá por uma razão.” (p.
   33; tradução nossa).
@@ -57,7 +57,7 @@ denominadas /linguagens imperativas/.
   @@latex:\todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}@@
 
   O modelo de programação não é o paradigma, noção imprecisa que o modelo
-  de computação torna precisa [[cite:roy2004][p. xiii]].
+  de computação torna precisa [[cite:vanroy2004][p. xiii]].
   Também não é a biblioteca nem o /framework/, que classificam o produto: o
   Web Component, recurso do próprio navegador cite:mozilla2026, não é
   nenhum dos dois e tem um modelo de programação como as outras
@@ -65,7 +65,7 @@ denominadas /linguagens imperativas/.
 
   Cada modelo de programação aplica conceitos de um ou mais paradigmas.
   Em quase todo problema, cada parte pede o seu conjunto de conceitos
-  [[cite:roy2009][p. 10]], e as implementações deste trabalho também os
+  [[cite:vanroy2009][p. 10]], e as implementações deste trabalho também os
   misturam.
 
   As aplicações orientadas a eventos e interativas, na literatura de
@@ -79,21 +79,21 @@ denominadas /linguagens imperativas/.
   Programação é uma disciplina extensa, e linguagens práticas de programação
   geralmente são bastante complicadas.
   Felizmente, as ideias importantes de linguagens de programação são simples
-  cite:roy2009.
+  cite:vanroy2009.
   Um /paradigma de programação/:
 
   #+BEGIN_EXPORT latex
   \begin{citacao}
     \textelp{} é uma abordagem para a programação de um computador baseada em
     uma teoria matemática ou um conjunto coerente de princípios.
-    \cite[p.~10; tradução nossa]{roy2009}
+    \cite[p.~10; tradução nossa]{vanroy2009}
   \end{citacao}
   #+END_EXPORT
 
   É mais interessante focar em paradigmas de programação do que em linguagens,
   porque há muito menos paradigmas que linguagens, como pode-se notar na Figura
-  ref:img:LangsParadigmsConcepts cite:roy2009.
-  Segundo textcite:roy2009:
+  ref:img:LangsParadigmsConcepts cite:vanroy2009.
+  Segundo textcite:vanroy2009:
 
   #+BEGIN_EXPORT latex
   \begin{citacao}
@@ -109,7 +109,7 @@ denominadas /linguagens imperativas/.
     \caption{Linguagens, paradigmas, e conceitos de programação.} \centering
     \includegraphics[width=12cm]{./fig/roy2009_languages_paradigms_and_concepts.jpeg}
 
-    \small Fonte: \textcite[p.~12]{roy2009}.
+    \small Fonte: \textcite[p.~12]{vanroy2009}.
     \label{img:LangsParadigmsConcepts}
   \end{figure}
   #+END_EXPORT
@@ -122,9 +122,9 @@ denominadas /linguagens imperativas/.
   diferentes.
   “Isso é lamentável, pois problemas de programação diferentes precisam de
   conceitos diferentes de programação para serem resolvidos claramente.”
-  [[cite:roy2009][p. 10]].
+  [[cite:vanroy2009][p. 10]].
 
-  textcite:roy2009 defende o uso de um modelo de programação /multiparadigma/,
+  textcite:vanroy2009 defende o uso de um modelo de programação /multiparadigma/,
   porque:
 
   #+BEGIN_EXPORT latex
@@ -139,9 +139,9 @@ denominadas /linguagens imperativas/.
   Apesar de linguagens tradicionais não dar suporte a esse modelo, entender os
   conceitos certos pode melhorar a forma de programação, mesmo em linguagens que
   não dê suporte direto a eles, assim como programação orientada a objetos é
-  possível em C com a atitude adequada cite:roy2009.
+  possível em C com a atitude adequada cite:vanroy2009.
 
-  textcite:roy2009 apresenta quatro modelos importantes que simplificam
+  textcite:vanroy2009 apresenta quatro modelos importantes que simplificam
   programação concorrente em relação à linguagens convencionais: /concorrência
   declarativa/, /programação funcional reativa/, /programação síncrona
   discreta/, e /programação com restrições/.
@@ -150,7 +150,7 @@ denominadas /linguagens imperativas/.
   calculado incrementalmente.
   “Se a entrada de um programa concorrente é dada incrementalmente, então o
   programa também irá calcular o resultado de saída incrementalmente.”
-  [[cite:roy2004][p. 238; tradução nossa]].
+  [[cite:vanroy2004][p. 238; tradução nossa]].
   Esses paradigmas não possuem condições de corrida, /‘race conditions’/ em
   inglês.
   \todo{Esses últimos dois parágrafos parecem estar deslocados.}
@@ -271,7 +271,7 @@ denominadas /linguagens imperativas/.
   seu quadrado, ou transforma $x$ em seu quadrado.
   A expressão em Elm define uma função src_elm{quadrado} que transforma o
   parâmetro src_elm{x} em seu quadrado.
-  textcite:roy2009 descreve uma função no contexto da [[gls:pf]]:
+  textcite:vanroy2009 descreve uma função no contexto da [[gls:pf]]:
 
   #+BEGIN_EXPORT latex
   \begin{citacao}
@@ -398,7 +398,7 @@ denominadas /linguagens imperativas/.
   Isso se deve pela escolha da palavra ‘reativa’, que diz mais sobre uma
   /propriedade do que se programa/ do que sobre um /conceito de programação/.
   Vários conceitos e paradigmas diferentes podem ser empregados na programação
-  de uma aplicação reativa — ou de qualquer tipo de programa cite:roy2009.
+  de uma aplicação reativa — ou de qualquer tipo de programa cite:vanroy2009.
   Entende-se então o porquê do paradigma abarcar tantos conceitos.
   Portanto, faz sentido descrever /programas reativos/ e a propriedade
   /reativa/, antes de discutir os modelos de programação disponíveis para
@@ -443,7 +443,7 @@ denominadas /linguagens imperativas/.
   [[Gls:pfr]] é mais indicada para domínios que precisam representar tempo contínuo,
   como simulações físicas.
   [[Gls:pr]] é mais indicada para sistemas reativos, como é explicado por
-  textcite:roy2009:
+  textcite:vanroy2009:
 
   #+BEGIN_EXPORT latex
   \begin{citacao}
