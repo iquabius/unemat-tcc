@@ -181,7 +181,7 @@ Etapas e registros:
   e uma monografia de graduação; Semantic Scholar sem Kiss e sem
   "7GUIs"; GitHub: 315 repositórios, implementações sem artigo; nenhum
   incluído
-- **Google Acadêmico (2026-10-13)**: 2 citantes da dissertação e 4 e 7
+- **Google Acadêmico (2026-10-13)**: 2 citantes da dissertação e 4 e 6
   dos dois registros do 7GUIs, 10 distintos, 5 novos (Petricek e
   Edwards 2025; Martin 2022; Disch e Heegaard 2024; Klausen, Flyvholm e
   Bahr 2026; Klausen e Flyvholm 2025); nenhum incluído. Com os 8

@@ -4,7 +4,7 @@ O Google Acadêmico tem a dissertação de Kiss e o 7GUIs como registros de
 citação, sem texto. A busca pelo título exato, entre aspas ou não, volta
 vazia; os citantes aparecem pelo "Pesquisar nos artigos de citação" de
 cada registro. Consultado pelo autor, que mandou as capturas de tela em
-2026-10-13, depois da verificação anti-robô; o navegador do agente recebeu
+2026-10-13, com todos os citantes de cada lista, depois da verificação anti-robô; o navegador do agente recebeu
 "tráfego incomum" depois de cinco consultas e não chegou às listas.
 
 ## Registro "Comparison of Object-Oriented and Functional Programming for GUI Development": 2
@@ -17,7 +17,7 @@ cada registro. Consultado pelo autor, que mandou as capturas de tela em
 - Martin, A. Concepts and tool for interactive computing. Tese (Doutorado), Université de Toulouse (ISAE/ENAC), 2022. HAL tel-04030945 [novo]
 - Disch, J. C. S.; Heegaard, A. L. Asynchronous FRP for implementing GUIs. 2024, bahr.io [novo]
 
-## Registro "7GUIs: A GUI programming benchmark" (sem ano): 7 na captura
+## Registro "7GUIs: A GUI programming benchmark" (sem ano): 6
 - Disch; Heegaard; Bahr 2025 [na base]
 - Wiersdorf et al. 2024 [visto em 82]
 - Klausen, L. F.; Flyvholm, P. K. M.; Bahr, P. Push-pull modal functional reactive programming. TFP 2026, trendsfp.github.io [novo]
