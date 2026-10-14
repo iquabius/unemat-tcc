@@ -2,18 +2,24 @@
 
 Quadro de tarefas (/kanban/) com quatro componentes que leem e alteram o
 mesmo quadro: o cabeçalho e três colunas, instâncias do mesmo componente.
-É a tarefa do estado compartilhado entre componentes, com um limite que
-cruza colunas e o quadro salvo no =localStorage=, que acompanha as outras
-abas. O desfazer e a atualização otimista entram na P2.
+É a tarefa do estado compartilhado entre componentes, para o usuário ver o
+resumo do cabeçalho de acordo com as colunas depois de cada clique; de um
+limite que cruza colunas, para o usuário terminar o que começou antes de
+pegar outra tarefa; e do quadro salvo no =localStorage=, que acompanha as
+outras abas, para o usuário achar cada tarefa na coluna em que a deixou,
+ao voltar à página ou em outra aba. O desfazer e a atualização otimista
+entram na P2.
 
-As regras que não dependem de interface ficam em =dominio.ts=: as
-tarefas, as colunas, o limite, os textos e o quadro salvo. O ouvinte das
-outras abas também fica no domínio, =ouvirOutrasAbas(aoGravar)=, que
-devolve a função que o fecha, para a limpeza ao sair da tela se conferir
-pela contagem: =contarAbertos()= diz quantos ouvintes estão abertos. Cada
-implementação decide onde o quadro mora, como mover e arquivar o alteram,
-no lugar ou por cópia (ADR 0033), como os componentes são avisados das
-alterações e quando salvar.
+As regras que não dependem de interface ficam em =dominio.ts=: as tarefas,
+as colunas, o limite, os textos e o quadro salvo. O ouvinte das outras
+abas também fica no domínio, =ouvirOutrasAbas(aoGravar)=, que devolve a
+função que o fecha: o quadro que sai da tela deixa de ouvir, para o
+navegador não seguir trabalhando para uma tela que o usuário já fechou, e
+=contarAbertos()= diz quantos ouvintes estão abertos, para o teste
+conferir essa limpeza pela contagem. Cada implementação decide onde o
+quadro mora, como mover e arquivar o alteram, no lugar ou por cópia
+(ADR 0033), como os componentes são avisados das alterações e quando
+salvar.
 
 As regras, as mensagens e os cenários que o teste de conformidade confere
 estão em =casos/openspec/specs/quadro-de-tarefas/spec.md=, a especificação
