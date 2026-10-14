@@ -13,9 +13,10 @@ três rodadas. Texto em `texto/`, código em `casos/`, decisões em
 **Modelo de programação**:
 O modo de coordenar evento, estado e tela que uma tecnologia impõe: as
 técnicas e os princípios de projeto construídos sobre um modelo de
-computação (Van Roy e Haridi, 2004). São três: o imperativo com
-*callbacks*, o declarativo por re-renderização e o declarativo por
-atualização granular. React e Compose têm o mesmo; React e Solid, dois;
+computação (Van Roy e Haridi, 2004). São três: o imperativo por
+atualização manual, o declarativo por re-renderização e o declarativo por
+atualização granular, nomeados por como a alteração de estado chega à
+tela. React e Compose têm o mesmo; React e Solid, dois;
 Solid e Angular com *signals* são um modelo de programação com duas
 notações. É o que o trabalho compara, pela notação de cada tecnologia, e
 aplica conceitos de um ou mais paradigmas (ADR 0021).
@@ -24,7 +25,10 @@ tecnologia e o de componente são outros); notação para o que se compara;
 paradigma; abordagem; estilo; arquitetura (MVC e MVU organizam a
 aplicação); reativo fino, reativo granular ("reativo" só nomeia termos das
 fontes revisadas por pares e das dissertações, como a PR); notação de
-coordenação e notação da estrutura da tela (os dois eixos de 2026-10-03)
+coordenação e notação da estrutura da tela (os dois eixos de 2026-10-03);
+imperativo com *callbacks* (rótulo até 2026-10-14: nomeava o mecanismo do
+evento, que o React também usa, Sperber e Schlegel, 2025); imperativo
+sozinho (lê-se como o paradigma)
 
 **Notação**:
 A forma escrita de um modelo de programação numa tecnologia: as palavras e
@@ -60,8 +64,8 @@ trabalho não adota); exemplo; cenário; tarefa sozinha para o item do
 Beads (tarefa do bd)
 
 **Tarefa base**:
-A tarefa que todas as tecnologias implementam, o Formulário, e que a P3
-reescreve com a biblioteca de formulário de cada ecossistema (ADR 0029).
+A tarefa que todas as tecnologias implementam, o Formulário, e que a
+terceira rodada reescreve com a biblioteca de formulário de cada ecossistema (ADR 0029).
 _Avoid_: tarefa principal; caso base
 
 **Delineamento**:
@@ -95,17 +99,21 @@ valores derivados e à tela (*change propagation*, Bainomugisha et al.,
 _Avoid_: gestão de estado; gerência de estado
 
 **Rodada**:
-Uma das três etapas da avaliação, cada uma mais estreita que a anterior
-e cada uma para uma pergunta: a P1, a pergunta de pesquisa, e a P2 e a
-P3, as subperguntas (ADR 0014). No texto, "a rodada da P1"; no roteiro e
-nas notas, "a P1" basta. A rodada da P1: as cinco tarefas em Web
-Component, React e Solid, e a tarefa base e mais duas em cada outro par;
-a da P2, funcionalidades e requisitos de orquestração acrescentados a
-cada tarefa; a da P3, o Formulário reescrito com a biblioteca de
-formulário do ecossistema (ADR 0029).
+Uma das três etapas da avaliação, cada uma mais estreita que a anterior,
+chamadas pelo ordinal: a primeira, a segunda e a terceira rodada. A
+primeira responde à pergunta de pesquisa, a P1; a segunda e a terceira,
+às subperguntas, a P1.1 e a P1.2 (ADR 0014). Os rótulos ficam para as
+perguntas, e o ordinal, para as rodadas, em todo lugar. A primeira
+rodada: as cinco tarefas em Web Component, React e Solid, e a tarefa base
+e mais duas em cada outro par; a segunda, funcionalidades e requisitos de
+orquestração acrescentados a cada tarefa; a terceira, o Formulário
+reescrito com a biblioteca de formulário do ecossistema (ADR 0029).
 _Avoid_: fase (é do roteiro); iteração; rodada sozinha onde puder ser a
-rodada de corte ou a de revisão do texto (ADRs 0022 e 0023); R1, R2 e R3
-(rótulos de 2026-10-13, desfeitos no mesmo dia)
+rodada de corte ou a de revisão do texto (ADRs 0022 e 0023); "a rodada da
+P1", "a rodada da P2" e P2 e P3 para as rodadas (até 2026-10-13, quando
+as subperguntas passaram a P1.1 e P1.2 e "a rodada da P1" ficou ambígua
+com a avaliação inteira); R1, R2 e R3 (rótulos de 2026-10-13, desfeitos no
+mesmo dia)
 
 **Alteração de estado**:
 O que um evento faz ao estado da interface: o *callback*, o *setter* ou o
@@ -119,12 +127,13 @@ atividade das DCs)
 **Atualização**:
 O que leva uma alteração de estado aos valores derivados e à tela: no
 imperativo, o programador a escreve; nos declarativos, o ambiente de
-execução a faz. Dá o nome ao declarativo por atualização granular.
+execução a faz. Dá o nome ao imperativo por atualização manual e ao
+declarativo por atualização granular.
 _Avoid_: atualização para o estado (alteração de estado);
 re-renderização para toda atualização (é a do React e do Compose)
 
 **Funcionalidade**:
-Mudança acrescentada a uma tarefa na P2 que muda o que o usuário percebe
+Mudança acrescentada a uma tarefa na segunda rodada que muda o que o usuário percebe
 ou pode fazer, por qualquer sentido ou tecnologia assistiva: o assistente
 em três passos do Formulário, mas também o foco que se move ou a mensagem
 anunciada ao leitor de tela (requisito de acessibilidade, com o critério
@@ -133,13 +142,13 @@ _Avoid_: *feature*; recurso; "o que o usuário vê" (exclui quem não vê a
 tela); requisito não funcional para a acessibilidade
 
 **Requisito de orquestração**:
-Mudança acrescentada a uma tarefa na P2 que deixa as cenas iguais e muda
+Mudança acrescentada a uma tarefa na segunda rodada que deixa as cenas iguais e muda
 como se combinam eventos de várias fontes, como a espera de 300 ms da
 Busca.
 _Avoid_: requisito não funcional (a mudança é de comportamento)
 
 **Limpeza ao sair da tela**:
-Regra comum da P1: quando a tarefa sai da tela, ela encerra o que
+Regra comum da primeira rodada: quando a tarefa sai da tela, ela encerra o que
 iniciou (relógios, assinaturas, requisições, ouvintes), e o teste de
 conformidade confere que nada sobrou. Quem a viola deixa um vazamento de
 recursos (Lima, Giusti e Dias-Neto, 2020).
@@ -149,7 +158,7 @@ descarte (tradução automática de *dispose*); desmontar sozinho
 
 **Ecossistema**:
 As bibliotecas que a comunidade de uma tecnologia usa junto dela, como as
-de formulário da P3.
+de formulário da terceira rodada.
 _Avoid_: ecossistema para as ferramentas de *build*, teste ou edição
 
 **Ambiente de execução**:
@@ -162,7 +171,7 @@ _Avoid_: ambiente sozinho; ambiente para o sistema de edição das DCs
 O ambiente em que a interface roda e cujas APIs uma tecnologia usa: a web
 (TypeScript), o Android (Kotlin) e o desktop (C#). Cada par se classifica
 pela plataforma: a análise se faz na web, e o Android e o desktop
-conferem, nas tarefas que implementam, se as conclusões da web se repetem
+conferem, nas tarefas que implementam, se as posições da web se repetem
 (ADR 0012).
 _Avoid_: plataforma para o *framework*; replicação para o Android (rótulo
 de 2026-09-26, trocado em 2026-10-09); porte para o domínio de outra
@@ -183,7 +192,7 @@ nativa (no Android, nativa é a interface do sistema, e as duas são)
 **Biblioteca**:
 Código reutilizável que a aplicação chama, sem lhe ceder o controle
 (Fayad e Schmidt, 1997): o React, como a documentação dele se chama, e
-as bibliotecas de formulário da P3. O critério falha quando a biblioteca
+as bibliotecas de formulário da terceira rodada. O critério falha quando a biblioteca
 recebe funções da aplicação: o React chama os componentes.
 _Avoid_: biblioteca para o que se compara (modelo de programação) ou como
 nome genérico das tecnologias
@@ -201,8 +210,8 @@ o Compose se apresenta assim.
 _Avoid_: *toolkit* como sinônimo de biblioteca; kit de ferramentas
 
 **Implementação**:
-Uma tarefa numa tecnologia: na P1, 33, sendo 21 na web, 6 no Android e 6
-no desktop; na P3, o Formulário reescrito em cada uma das nove
+Uma tarefa numa tecnologia: na primeira rodada, 33, sendo 21 na web, 6 no Android e 6
+no desktop; na terceira, o Formulário reescrito em cada uma das nove
 tecnologias que o têm.
 _Avoid_: versão, exemplo
 
@@ -239,7 +248,7 @@ especificação (é a apresentação da tarefa)
 **Requisito**:
 Uma regra da especificação, que a tarefa deve cumprir, com um ou mais
 cenários.
-_Avoid_: requisito sozinho para o que a P2 acrescenta (funcionalidade ou
+_Avoid_: requisito sozinho para o que a segunda rodada acrescenta (funcionalidade ou
 requisito de orquestração); restrição, que só o 7GUIs usa
 
 **Cenário**:
@@ -252,14 +261,14 @@ caso de teste
 **Mudança**:
 O que se propõe e se arquiva no OpenSpec para a especificação (*change*):
 a especificação de uma tarefa nova, cada funcionalidade e requisito de
-orquestração da P2, e as correções da P1, como a retirada da espera da
+orquestração da segunda rodada, e as correções da primeira, como a retirada da espera da
 Busca. É o termo da engenharia de software em português para *change*
 (gerência de mudanças, análise de impacto de mudanças) e o da viscosidade,
 "resistência à mudança" (`docs/paradigma-modelo-e-notacao.md`, seção 11).
 _Avoid_: alteração (é a do estado; o Git, o VS Code e o GitHub em
 português chamam assim o que entra num commit, e o trabalho diz commit);
 modificação (a atividade das DCs); acréscimo (não cobre a reescrita da
-P3); proposta para a mudança inteira (a proposta é o documento do
+terceira rodada); proposta para a mudança inteira (a proposta é o documento do
 porquê); versão; mudança para o diff de uma tecnologia (é o commit dela);
 mudança para o que acontece com a diferença entre rodadas. O estranho não
 é o substantivo, e sim o que o cerca: "onze mudanças, acrescentadas uma
@@ -313,20 +322,31 @@ dizer qual é melhor, porque as dimensões "are not good or bad in
 themselves" (Blackwell e Green, 2003). Comparar fica para o objetivo e
 para a análise.
 _Avoid_: juízo; análise (a seção que compara os modelos de programação);
-avaliação para o que ela conclui (conclusão); avaliar no lugar de
+avaliação para o que ela encontra (posição); avaliar no lugar de
 comparar (ADR 0014); *feature analysis* e triagem de Kitchenham (1996),
 que saíram em 2026-10-08
 
-**Conclusão**:
-O que a avaliação diz de um modelo de programação numa DC, pela notação de
-cada tecnologia, com a tarefa de onde vem a
-evidência; é o que a tabela-síntese registra e o que o Android e o desktop
-conferem. Da P1 para a P2 e a P3, a conclusão aumenta, diminui ou fica
-igual, e a diferença entre os modelos na DC fica mantida, ampliada,
-reduzida, anulada, invertida ou surgida (ADR 0017).
-_Avoid_: juízo; resultado (nome do capítulo 4); interação para o que
+**Posição**:
+Onde um modelo de programação fica numa DC, pela notação de cada
+tecnologia, com a tarefa de onde vem a evidência: o que a avaliação diz
+dele na dimensão, "how it lies on each dimension" (Blackwell e Green,
+2003). É a célula da tabela-síntese e o que o Android e o desktop
+conferem. Da primeira rodada para as outras duas, a posição sobe, desce ou
+fica igual, e a diferença entre os modelos na DC fica mantida, ampliada,
+reduzida, anulada, invertida ou surgida (ADR 0017). Subir não é melhorar:
+nenhuma dimensão é boa ou má em si.
+_Avoid_: conclusão (o termo até 2026-10-14; fica para o uso comum e para o
+capítulo); veredito e juízo (dizem qual é melhor); aumenta e diminui para
+a posição (rótulos até 2026-10-14); resultado (nome do capítulo 4); interação para o que
 acontece com a diferença entre rodadas (termo da estatística, que o
 trabalho não testa); mudança entre rodadas (mudança é a do OpenSpec)
+
+**Perfil**:
+O conjunto das posições de um modelo de programação nas 14 DCs, a coluna
+da tabela-síntese; comparável ao perfil que cada atividade pede (Green e
+Petre, 1996; Blackwell e Green, 2003).
+_Avoid_: perfil para uma DC só (posição); perfil do programador (as
+*personas* das DCs, Green et al., 2006)
 
 **Conceito**:
 Elemento primitivo de programação de que se compõem os paradigmas (Van Roy,

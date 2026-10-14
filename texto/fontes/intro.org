@@ -309,8 +309,8 @@ Formato:
   many web applications. When both the user name and password are filled
   with at least two characters, a login button is activated.” (p. 534)
 - Lido em: =tmp/fontes/berry2020.pdf=, p. 2 do PDF (p. 534).
-- Observação: a quarentena é o “Login Panel 2.0” da p. 539 e entra na rodada da P2
-  (ADR 0029); o nome da tarefa já a traz.
+- Observação: a quarentena é o “Login Panel 2.0” da p. 539 e entra na segunda
+  rodada (ADR 0029); o nome da tarefa já a traz.
 - Conferido: 2026-10-13.
 ** meijer2012, p. 66
 - Frase: “e os Dados ao vivo, as cotações que uma fonte empurra aos
@@ -322,7 +322,7 @@ Formato:
 
 * §21 [[file:../intro.org::Na web, Web Component, React e Solid][Na web, Web Component, React e Solid]]
 ** mozilla2026 (escolha do Web Component)
-- Frase: “O imperativo com /callbacks/ entra com o Web Component, a forma
+- Frase: “O imperativo por atualização manual entra com o Web Component, a forma
   do próprio navegador de criar elementos personalizados (Mozilla, 2026).”
 - Trecho: “custom elements: that is, HTML elements whose behavior is
   defined by the web developer, that extend the set of elements available
@@ -395,8 +395,8 @@ Formato:
 - Lido em: o mesmo PDF, p. 13 (p. 115).
 - Conferido: 2026-10-13.
 ** blackwell2003, p. 113
-- Frase: “Na rodada da P1, as atividades são a busca e a compreensão
-  exploratória do código pronto, e, nas da P2 e da P3, a modificação
+- Frase: “Na primeira rodada, as atividades são a busca e a compreensão
+  exploratória do código pronto, e, na segunda e na terceira, a modificação
   (Blackwell; Green, 2003,
   p. 113).”
 - Trecho: tabela 5.1, “Six generic types of notation-use activity”:
@@ -411,7 +411,7 @@ Formato:
   tmp/relatorio-termos-e-coordenacao.md, seção 5.1).
 - Conferido: 2026-10-13.
 
-* §14 [[file:../intro.org::Os trabalhos encontrados na revisão bibliográfica][Os trabalhos encontrados na revisão bibliográfica]]
+* §14 [[file:../intro.org::Nenhum desses trabalhos compara, sobre as mesmas tarefas][Nenhum desses trabalhos compara, sobre as mesmas tarefas]]
 ** wohlin2014, p. 3-4
 - Frase: “A lacuna se apoia nessa revisão, feita por palavras-chave e por
   /snowballing/ (Wohlin, 2014, p. 3-4), sobretudo para a frente, em duas
@@ -725,10 +725,11 @@ Formato:
   modificada em 2026-09-01).
 - Conferido: 2026-10-06.
 ** disch2025, p. 93
-- Frase: “No /imperativo com callbacks/, o programador escreve /callbacks/
-  que alteram o estado e a tela por efeitos colaterais (Disch; Heegaard;
-  Bahr, 2025, p. 93; Oney; Myers; Brandt, 2012, p. 229) [...]” (Disch
-  sustenta o estado)
+- Frase: “No /imperativo por atualização manual/, o programador escreve
+  /callbacks/ que alteram o estado e atualizam a tela por efeitos
+  colaterais (Disch; Heegaard; Bahr, 2025, p. 93; Oney; Myers; Brandt,
+  2012, p. 229; Sperber; Schlegel, 2025, p. 28) [...]” (Disch sustenta o
+  estado)
 - Trecho: “Most modern GUI frameworks use an imperative programming model
   that is based on shared mutable state that is read and updated via
   callback functions.” (introdução, logo depois do resumo)
@@ -748,6 +749,21 @@ Formato:
   frameworks.” (p. 229)
 - Lido em: =tmp/fontes/oney2012.pdf=, p. 1 do PDF (versão da ACM).
 - Conferido: 2026-10-09.
+** sperber2025, p. 28 (o imperativo)
+- Frase: a mesma do disch2025 acima, na mesma citação; Sperber e Schlegel
+  sustentam que, no imperativo, o código do programador atualiza a tela,
+  o que dá nome ao rótulo, ao lado de “update the view manually” e
+  “re-renders the entire UI” (p. 32).
+- Trecho: “Update Keeping the view current with respect to the model
+  involves two tasks: initially constructing the view by creating the
+  various UI widgets, and later mutating the view upon calls to update.”
+  (p. 28, o MVC); “instead of requiring the programmer to implement the
+  update logic manually, these toolkits feature a pre-processor that
+  generates the update code automatically” (p. 32, Angular, Svelte e Vue)
+- Lido em: =tmp/fontes/sperber2025.pdf=, p. 2 e 6 do PDF (p. 28 e 32).
+- Observação: o rótulo “imperativo por atualização manual” é do trabalho
+  (decisão do autor em 2026-10-14); nenhuma fonte usa a expressão.
+- Conferido: 2026-10-14.
 
 * §11 [[file:../intro.org::Nos declarativos, o programador descreve a tela][Nos declarativos, o programador descreve a tela]]
 ** sperber2025, p. 32
@@ -791,9 +807,9 @@ Formato:
   autor em 2026-10-09).
 - Conferido: 2026-10-09.
 ** solidjs2026
-- Frase: “No /declarativo por atualização granular/, cada /signal/ avisa os valores e
-  trechos da tela que dependem dele, e só esses são recalculados, como no
-  Solid.”
+- Frase: “No /declarativo por atualização granular/, cada /signal/ avisa os
+  valores e trechos da tela que dependem dele, como no Solid [...]. O Solid
+  recalcula só esses (SolidJS, 2026)”.
 - Trecho: “data entities (signals) will maintain a list of their
   subscribers (effects). This is a way to notify subscribers whenever a
   signal they observe changes.” (l. 70); “In Solid, updates are made to the
@@ -808,6 +824,22 @@ Formato:
   optimize rendering updates.”
 - Lido em: =tmp/fontes/google2026.txt=, l. 11 (página salva).
 - Conferido: 2026-10-06.
+** google2026 (o Angular atualiza o componente)
+- Frase: “o Angular, quando o /signal/ se altera, marca o componente que o
+  lê e o atualiza na próxima detecção de alterações (Google, 2026).”
+- Trecho: “When you read a signal within an OnPush component's template,
+  Angular tracks the signal as a dependency of that component. When the
+  value of that signal changes, Angular automatically marks the component
+  to ensure it gets updated the next time change detection runs.”
+- Lido em: =tmp/fontes/google2026.txt=, l. 222 (página salva).
+- Observação: a frase dizia que o /template/ “volta a ser renderizado”, o
+  que colidia com o rótulo do React; a unidade da atualização no Angular é
+  o componente (Lee et al., 2025, p. 289:24 e 289:38, reexecução do
+  componente: React “Yes”, Solid e Angular “No”). “Detecção de
+  alterações” traduz /change detection/ sem “mudança”, que o CONTEXT.md
+  reserva ao OpenSpec. O trecho fala do componente OnPush; o texto não
+  distingue a estratégia.
+- Conferido: 2026-10-14.
 ** salvaneschi2015, p. 953
 - Frase: “O modelo de programação por atualização granular usa as abstrações da PR: os valores que
   variam no tempo, chamados /signals/, cujas alterações se propagam
@@ -1078,7 +1110,7 @@ Formato:
   p. 7 do PDF (p. 334).
 - Conferido: 2026-10-07.
 
-* §33 [[file:../intro.org::Mesmo na rodada da P2, as tarefas continuam pequenas][Mesmo na rodada da P2, as tarefas continuam pequenas]]
+* §33 [[file:../intro.org::Mesmo na segunda rodada, as tarefas continuam pequenas][Mesmo na segunda rodada, as tarefas continuam pequenas]]
 ** sim2003
 - Frase: “Um conjunto criado por um pesquisador só e pouco usado tende a
   ter menos impacto que um adotado por uma comunidade.”
@@ -1136,7 +1168,7 @@ Formato:
 
 * §24 [[file:../intro.org::Fora da web, cada plataforma tem um par][Fora da web, cada plataforma tem um par]]
 ** android2026
-- Frase: “As Views ficam no imperativo com /callbacks/, e o Compose, no
+- Frase: “As Views ficam no imperativo por atualização manual, e o Compose, no
   declarativo por re-renderização, porque chama de novo as funções da tela
   quando o estado se altera (Google, 2026).”
 - Trecho: “Recomposition is the process of calling your composable
@@ -1145,13 +1177,27 @@ Formato:
   2026-10-09; atualizada em 2026-10-01).
 - Conferido: 2026-10-09.
 ** microsoft2026a
-- Frase: “O Windows Forms fica no imperativo com /callbacks/, porque
-  executa um tratador a cada evento (Microsoft, 2026a)”.
+- Frase: “O Windows Forms fica no imperativo por atualização manual, porque
+  o tratador de cada evento atribui os valores aos controles, sem o /data
+  binding/ que ele também oferece (Microsoft, 2025b; Microsoft, 2026a)”.
+  Microsoft (2026a) sustenta o tratador; a atribuição aos controles é o
+  que sobra sem o /binding/ (microsoft2025b, abaixo).
 - Trecho: “If one of these events is raised and there's an associated
   event handler, the handler is invoked and code is run.”
 - Lido em: =tmp/fontes/microsoft2026a-winforms-events.html= (página salva
   em 2026-10-13; atualizada em 2026-02-20).
 - Conferido: 2026-10-13.
+** microsoft2025b
+- Frase: a mesma, “sem o /data binding/ que ele também oferece”.
+- Trecho: “Essentially, data binding is an automatic way of setting any
+  run-time accessible property of any control on a form.”
+- Lido em: =tmp/fontes/microsoft2025b-winforms-data-binding.html= (página
+  salva em 2026-10-14; atualizada em 2025-08-27).
+- Observação: que as implementações não usam o /binding/ é decisão do
+  autor em 2026-10-14 (ADR 0001; tarefa “Implementar o par Windows Forms ×
+  WPF”); sem ele, o código atribui as propriedades dos controles, o que dá
+  o rótulo.
+- Conferido: 2026-10-14.
 ** microsoft2025
 - Frase: “e o WPF, no declarativo por atualização granular, porque,
   quando um dado se altera, os elementos ligados a ele se atualizam sozinhos
@@ -1169,8 +1215,10 @@ Formato:
 
 * §25 [[file:../intro.org::A avaliação se faz em três rodadas][A avaliação se faz em três rodadas]]
 ** kiss2014, p. 3
-- Frase: “A avaliação se faz em três rodadas, uma para cada pergunta,
-  cada uma mais estreita que a anterior, como as de Kiss (2014, p. 3).”
+- Frase: “A avaliação se faz em três rodadas, cada uma mais estreita que
+  a anterior, como as de Kiss (2014, p. 3): a primeira responde à P1, e a
+  segunda e a terceira, à P1.1 e à P1.2.” A ligação de cada rodada a uma
+  pergunta é do trabalho; Kiss sustenta só a sequência de etapas.
 - Trecho: “Chapter 3 [...] implementations in both Java/JavaFX and
   Scala/ScalaFX of representative case studies are compared [...]. Chapter
   4 [...] the potential additional benefits of FRP are examined by
@@ -1180,7 +1228,7 @@ Formato:
 - Lido em: =tmp/fontes/kiss2014.pdf=, p. 9 do PDF (p. 3).
 - Conferido: 2026-10-13.
 ** green1996d, p. 161
-- Frase: “A rodada da P2 faz o código crescer porque é nos problemas grandes que os
+- Frase: “A segunda rodada faz o código crescer porque é nos problemas grandes que os
   efeitos da viscosidade mais aparecem (Green; Petre, 1996, p. 161).”
 - Trecho: “Nobody can do big, hard problems in their heads. Which is a
   pity, because those are the ones where the effects of viscosity will be
@@ -1190,6 +1238,21 @@ Formato:
 - Conferido: 2026-10-13.
 
 * §30 [[file:../intro.org::A seção ref:chap:results compara os modelos][A seção ref:chap:results compara os modelos]]
+** blackwell2003, p. 106 e 112
+- Frase: “A seção 4 compara os modelos de programação pelo perfil de cada
+  um nas DCs (Blackwell; Green, 2003, p. 106 e 112) [...]. Cada célula dá
+  a posição do modelo na DC [...]”
+- Trecho: “for each step in each task, ask whether the user can choose
+  where to start; [...] and so on, for the other dimensions. This will
+  generate an observed profile.” (p. 106); “the second step is to
+  scrutinise the system and determine how it lies on each dimension. If
+  the two profiles match, all is well.” (p. 112)
+- Lido em: =tmp/fontes/blackwell2003.pdf=, p. 4 e 10 do PDF (p. 106 e 112).
+- Observação: “posição” e “perfil” vêm daí (decisão do autor em
+  2026-10-14; CONTEXT.md, Posição e Perfil); a fonte compara o perfil
+  observado com o que cada atividade pede, e o trabalho compara os perfis
+  dos modelos entre si.
+- Conferido: 2026-10-14.
 ** green1996d, p. 162
 - Frase: “a mesma mudança, preparada antes e feita em cada implementação,
   como no teste de Green e Petre (1996, p. 162)”.

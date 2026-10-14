@@ -1,6 +1,6 @@
 # 0001. O TCC compara modelos de programação de interfaces gráficas, na web em TypeScript, no Android em Kotlin e no desktop em C#
 
-2026-10-12. O projeto de 2017 comparava paradigmas, PF e PR frente à POO
+2026-10-14. O projeto de 2017 comparava paradigmas, PF e PR frente à POO
 com *callbacks*, em JavaScript, sem nomear bibliotecas; o RxJS 5 e o
 xstream, que entraram no `cases.org` em 2020, eram pouco usados em 2025,
 e a pré-pesquisa de 2026 cogitou ampliar para servidor e desktop. O
@@ -53,14 +53,21 @@ medem, a literatura é escassa (busca no OpenAlex por DCs em Reactive
 Streams vazia em 2026-09-25) e o custo era cerca de três vezes maior.
 Em vez de: JavaScript nas tecnologias web sem Angular, como em 2017;
 evitaria a etapa de tipos, mas misturaria linguagem e notação.
+Em vez de: o Windows Forms com o *data binding* que ele oferece; seria o
+estilo de quem usa *binding* no *desktop*, mas o par perderia o
+imperativo por atualização manual e mediria só a montagem da tela (código
+C# contra XAML), já comparada pelas DCs (Mernik et al. 2009; Kosar et al.
+2010).
 Custo: três ecossistemas de *build* (npm, Gradle e .NET) e duas
 linguagens novas para o autor (Kotlin e C#); o `build` web roda `tsc`
 antes do Vite, que só remove os tipos; o WPF e o Windows Forms só rodam
 no Windows, fora do `npm run capturas`, e capturas idênticas entre
 controles nativos são improváveis (ADR 0008); a fronteira entre os dois é
 de estilo, porque o Windows Forms tem *data binding* e o WPF tem
-*code-behind* com eventos, e o par precisa fixar o estilo de cada lado
-(tcc-74m); o par muda a montagem da tela junto da coordenação (código C#
+*code-behind* com eventos, e o par fixa o estilo de cada lado: o Windows
+Forms usa só eventos, com o tratador atribuindo os valores aos controles,
+o que o põe no imperativo por atualização manual (decisão do autor em
+2026-10-14); o estilo do WPF continua por fixar (tcc-74m); o par muda a montagem da tela junto da coordenação (código C#
 contra XAML); nenhum par de desktop cobre o declarativo por
 re-renderização; o desktop fica sem os Dados ao vivo e sem a Busca; o
 código de Swing × JavaFX e de Qt Widgets × QML fica fora da análise.

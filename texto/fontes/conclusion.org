@@ -1,0 +1,27 @@
+#+title: Fontes da conclusão
+#+startup: overview
+
+Matriz das afirmações de [[file:../conclusion.org][texto/conclusion.org]] que se apoiam numa fonte, com o
+trecho conferido no PDF (ADR 0023). Não entra no PDF do TCC. O formato é o
+de [[file:intro.org][texto/fontes/intro.org]]: um título por parágrafo, com o link de busca
+para o começo dele; um subtítulo por afirmação, com a chave e a página; a
+frase, o trecho, onde foi lido e a data da conferência.
+
+* §2 [[file:../conclusion.org::@@latex:\todo{Trecho vindo da introdução][Uma forma de conferir as conclusões de quem avalia]]
+** zimmerle2025, p. 1512-1513 e 1519
+- Frase: “Uma forma de conferir as conclusões de quem avalia é compará-las
+  com as respostas dos usuários, como no estudo de Zimmerle e Gama (2025,
+  p. 1512-1513 e 1519), em que 12 estudantes responderam, depois das
+  tarefas, a 24 afirmações agrupadas em cinco dimensões derivadas das DCs.”
+- Trecho: “a post-task questionnaire” (p. 1512); “groups the questionnaire
+  items into five distinct dimensions: understandability, abstraction,
+  expressiveness, reusability, and learnability”; “the final result,
+  containing 24 assertions, can be found in Appendix B” (p. 1513); “In
+  total, 12 participants, who did the tasks, made themselves available to
+  answer the questionnaire.” (p. 1519)
+- Lido em: =tmp/fontes/zimmerle2025.pdf=, p. 7, 8 e 14 do PDF.
+- Observação: as cinco dimensões são as de López-Fernández et al., que os
+  autores mapeiam para as DCs de Blackwell e Green (p. 1513). O trecho
+  veio da introdução no corte de outubro de 2026; a frase mudou em
+  2026-10-14 (“juízo” saiu, CONTEXT.md, Avaliação).
+- Conferido: 2026-10-14.

@@ -1,6 +1,6 @@
-# 0021. O TCC compara três modelos de programação pela notação de cada tecnologia; Solid e Angular com *signals* são um modelo com duas notações
+# 0021. O TCC compara três modelos de programação, nomeados por como a tela se atualiza, pela notação de cada tecnologia; Solid e Angular com *signals* são um modelo com duas notações
 
-2026-10-08. As cinco tecnologias web se escrevem na mesma linguagem, o
+2026-10-14. As cinco tecnologias web se escrevem na mesma linguagem, o
 TypeScript, e diferem no modo de coordenar evento, estado e tela; nas DCs
 a notação é "the language itself" (Green e Blackwell 1998, p. 8), o que o
 usuário "sees and edits" (Blackwell e Green 2003, p. 114), e "paradigma"
@@ -10,8 +10,8 @@ programação**: "the programming techniques and design principles made
 possible by the computation model", que é "always built on top of a
 computation model" (Van Roy e Haridi 2004, p. xiii e 29); o modelo de
 computação é o mesmo nas tecnologias web, e o modelo de programação é o
-que muda. Os três são o imperativo com *callbacks*, o declarativo por
-re-renderização e o declarativo por atualização granular, sempre com
+que muda. Os três são o imperativo por atualização manual, o declarativo
+por re-renderização e o declarativo por atualização granular, sempre com
 "modelo de programação" inteiro, porque "modelo" sozinho se confunde com o
 de computação e com o modelo de componente. **Notação** fica no sentido
 das DCs: a forma escrita de um modelo de programação numa tecnologia, o
@@ -41,7 +41,13 @@ as duas, como Kiss (2014, p. 56) atribui a causas diferentes a parte do
 *layout* e o resto, e como Green et al. (2006, p. 342) acham dependências
 ocultas no "joint system" HTML/CSS. "Paradigma" fica para PF, PR e POO,
 de cujos conceitos cada modelo de programação aplica um ou mais; os
-rótulos nomeiam o mecanismo, e "reativo" fica para os termos das fontes
+rótulos nomeiam como a alteração de estado chega à tela: o programador
+escreve a atualização, o ambiente de execução reexecuta o componente, ou
+avisa só o que depende de cada *signal*, o eixo em que Sperber e Schlegel
+(2025, p. 28 e 32) descrevem o MVC ("mutating the view upon calls to
+update", a "update logic" escrita "manually"), o React e o Elm
+("re-renders the entire UI") e o Angular, o Svelte e o Vue ("update
+specific parts of the UI"); e "reativo" fica para os termos das fontes
 revisadas por pares e das dissertações, como a PR, com que o terceiro se
 liga pela frase sobre as abstrações da PR (Salvaneschi et al. 2015,
 p. 953).
@@ -90,6 +96,24 @@ frouxos dela; Krishnamurthi e Fisler (2019, rascunho, p. 1) chamam o
 conceito de "ill-defined", e Kiss registra, no Temperature Converter, que
 "the toolkit dominated this evaluation and the paradigms did not come into
 play" (p. 23).
+Em vez de: "imperativo com *callbacks*" (decisão de 2026-10-08); tem a
+fonte mais literal ("an imperative programming model that is based on
+shared mutable state that is read and updated via callback functions",
+Disch et al. 2025, p. 93) e liga o modelo comparado ao problema da
+introdução, construído sobre o *callback* (Fischer et al. 2007; Edwards
+2009; Oney et al. 2012), mas nomeia o mecanismo do evento, e não a
+atualização da tela como os dois declarativos, e o *callback* não separa
+os modelos: no React, "the UI program attaches imperative callbacks to UI
+components" (Sperber e Schlegel 2025, p. 32); os *callbacks* ficam na
+definição do imperativo, que mantém a ligação com o problema.
+Em vez de: "imperativo" sozinho, porque há um imperativo só; é o mais
+curto, mas se lê como o paradigma imperativo, e o código do React também
+é JavaScript imperativo.
+Em vez de: "imperativo por atualização explícita", contra o "implicit"
+da propagação (Salvaneschi et al. 2017); faz par com a fonte, mas o
+próprio *Observer* é "an imperative implementation of the concept of
+implicit invocation" (Mijač et al. 2023, p. 2), e o par se inverteria; "por mutação direta" (Madsen et al. 2020) disputa com
+alteração, a palavra do estado.
 Em vez de: "reativa fina com *signals*" (2026-09-26, ADRs 0013 e 0014);
 liga o terceiro à PR pelo adjetivo, mas traduz mal *fine-grained
 reactivity*, termo da documentação do Solid (`solidjs2026`), que nenhuma
@@ -111,8 +135,12 @@ nas documentações, que dizem *mental model*, *reactivity model* ou
 contraste com paradigma, biblioteca e *framework*; Van Roy (2009, p. 14)
 exige que a linguagem núcleo suporte o paradigma, e os modelos de
 programação do trabalho se constroem em bibliotecas sobre o mesmo modelo
-de computação; "atualização granular" é rótulo do trabalho, sem fonte que
-use a expressão; o React é reativo para Salvaneschi et al. (2014,
+de computação; "atualização manual" e "atualização granular" são rótulos
+do trabalho, sem fonte que use as expressões, e os três adjetivos dizem
+coisas diferentes da atualização (quem a faz, por que mecanismo, em que
+unidade); o Windows Forms também tem *data binding*, e o imperativo por
+atualização manual descreve o que as implementações escrevem, e não tudo
+o que a tecnologia oferece; o React é reativo para Salvaneschi et al. (2014,
 p. 564), o que o texto precisa enfrentar; a base de "notação" é uma frase
 do tutorial de 1998, repetida em fontes publicadas (Green 2000; Blackwell
 e Green 2003); o Web Component escreve a tela com `createElement` no
@@ -129,8 +157,9 @@ git); Van Roy e Haridi (2004, p. xiii, 29, 406, 679); Van Roy (2009,
 p. 10, 14); Green e Blackwell (1998, p. 8, 24); Green e Petre (1996, JVLC
 7, p. 139 e 150); Green et al. (2006, JVLC 17, p. 342); Blackwell et al.
 (2001, LNAI 2117, p. 328); Blackwell e Green (2003, p. 114 e 115); Kiss
-(2014, p. 12 nota 2, 23, 56); Krishnamurthi e Fisler (2019, rascunho,
-p. 1); Sperber e Schlegel (2025, p. 27, 32); Grolaux et al. (2026, p. 7,
+(2014, p. 12 nota 2, 23, 56); Disch et al. (2025, p. 93); Salvaneschi
+et al. (2014, p. 572); Krishnamurthi e Fisler (2019, rascunho,
+p. 1); Sperber e Schlegel (2025, p. 27, 28, 32); Grolaux et al. (2026, p. 7,
 10); Salvaneschi et al. (2014, p. 564; 2015, p. 953); `casos/contador`,
 `casos/formulario` e `casos/lista-filtravel` em `19ab817`; achados de
 2026-09-26 em `docs/achados-das-implementacoes.md`; tarefas tcc-0ba,

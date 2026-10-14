@@ -144,9 +144,9 @@ mesma interface [[cite:lee2025][289:1]].
   @@latex:\notamudou{A montagem da tela, que o projeto deixou de fora, \textbf{passa a fazer parte da notação}.}@@
   Nas tecnologias que este trabalho compara, há três modelos de
   programação, dois deles declarativos.
-  No /imperativo com callbacks/, o programador escreve /callbacks/ que
-  alteram o estado e a tela por efeitos colaterais
-  [[cites:&disch2025 p. 93;&oney2012 p. 229]], como nos Web Components sem
+  No /imperativo por atualização manual/, o programador escreve /callbacks/
+  que alteram o estado e atualizam a tela por efeitos colaterais
+  [[cites:&disch2025 p. 93;&oney2012 p. 229;&sperber2025 p. 28]], como nos Web Components sem
   biblioteca cite:mozilla2026.
 
   Nos declarativos, o programador descreve a tela em função do estado, e o
@@ -157,9 +157,9 @@ mesma interface [[cite:lee2025][289:1]].
   No /declarativo por atualização granular/, cada /signal/ avisa os valores
   e trechos da tela que dependem dele, como no Solid e no Angular com
   /signals/ cite:solidjs2026,google2026.
-  No Solid, só esses são recalculados cite:solidjs2026; no Angular, quando o
-  /signal/ se altera, o /template/ do componente que o lê volta a ser renderizado
-  em algum momento cite:google2026.
+  O Solid recalcula só esses cite:solidjs2026; o Angular, quando o /signal/
+  se altera, marca o componente que o lê e o atualiza na próxima detecção
+  de alterações cite:google2026.
   O modelo de programação por atualização granular usa as abstrações da [[gls:pr]], os
   valores que variam no tempo, chamados /signals/, cujas alterações se propagam
   automaticamente [[cite:salvaneschi2015][p. 953]].
@@ -192,8 +192,10 @@ mesma interface [[cite:lee2025][289:1]].
   /listeners/, barramento de eventos, /streams/ funcionais e [[gls:pr]] no tratamento
   dos eventos de interface.
 
-  Os trabalhos encontrados na revisão bibliográfica não avaliam pelas [[glspl:dc]] a
-  notação do React nem a do Solid e do Angular com /signals/.
+  Nenhum desses trabalhos compara, sobre as mesmas tarefas e em tecnologias
+  web, os três modelos de programação.
+  Os trabalhos encontrados na revisão bibliográfica também não avaliam pelas
+  [[glspl:dc]] a notação do React nem a do Solid e do Angular com /signals/.
   A lacuna se apoia nessa revisão, feita por palavras-chave e por
   /snowballing/ [[cite:wohlin2014][p. 3-4]], sobretudo para a frente, em duas
   rodadas, em setembro e outubro de 2026, e descrita no Apêndice ref:apend:2.
@@ -202,19 +204,15 @@ mesma interface [[cite:lee2025][289:1]].
   Além disso, [[textcite:kiss2014][p. 103-104]] avaliou cada tarefa num
   tamanho só e propôs, como trabalho futuro, estendê-las com requisitos
   novos.
-  Nenhum dos trabalhos compara, sobre as mesmas tarefas e em tecnologias
-  web, os três modelos de programação.
   Pergunta-se, então (P1): pelas [[glspl:dc]], como difere a usabilidade da
-  notação com que se escrevem interfaces gráficas em cada tecnologia entre
-  os três modelos de programação~--- o imperativo com /callbacks/, o
+  notação do código de interfaces gráficas em cada tecnologia entre
+  os três modelos de programação~--- o imperativo por atualização manual, o
   declarativo por re-renderização e o declarativo por atualização granular?
   @@latex:\notamudou{O projeto perguntava \enquote{Quais os conceitos apropriados para programação de interfaces gráficas?} e se a programação declarativa é adequada a elas.}@@
-  A P1 tem duas subperguntas, uma para cada rodada da avaliação depois da
-  primeira.
-  (P2) Como muda essa diferença quando o código cresce, com as mesmas
+  (P1.1) Como muda essa diferença quando o código cresce, com as mesmas
   funcionalidades e os mesmos requisitos de orquestração acrescentados a
   todas as implementações?
-  (P3) E como ela muda no ecossistema típico de cada tecnologia?
+  (P1.2) E como ela muda no ecossistema típico de cada tecnologia?
   @@latex:\notamudou{\textbf{As duas subperguntas são novas}, como as rodadas a que elas respondem.}@@
   Conhecer essas diferenças pode ajudar quem programa interfaces a escolher uma tecnologia
   sabendo o que o modelo de programação dela facilita e o que dificulta em
@@ -222,7 +220,7 @@ mesma interface [[cite:lee2025][289:1]].
   Dentro de um mesmo modelo de programação, a notação também muda de uma
   tecnologia para outra, como entre o Solid e o Angular com /signals/ ou
   entre o React e o Lit, e a avaliação registra quando essa diferença muda
-  a conclusão.
+  a posição.
   Um problema de coordenação é uma exigência que a interface faz ao modelo de
   programação.
 
@@ -302,7 +300,7 @@ mesma interface [[cite:lee2025][289:1]].
 
   Na web, Web Component, React e Solid, uma tecnologia por modelo de
   programação, implementam as cinco tarefas.
-  O imperativo com /callbacks/ entra com o Web Component, a forma do
+  O imperativo por atualização manual entra com o Web Component, a forma do
   próprio navegador de criar elementos personalizados cite:mozilla2026.
   Lit e Angular com /signals/ implementam três tarefas cada, em pares de
   tecnologias próximas: o Lit com o Web Component, e o Angular com o Solid.
@@ -337,25 +335,27 @@ mesma interface [[cite:lee2025][289:1]].
   derivado, como o cancelamento das requisições na Busca.
 
   Fora da web, cada plataforma tem um par de tecnologias, que confere se
-  as conclusões tiradas na web se repetem em outra plataforma e outra
+  as posições encontradas na web se repetem em outra plataforma e outra
   linguagem.
   No Android, Views e Compose implementam o Formulário, o Quadro e os
   Dados ao vivo.
-  As Views ficam no imperativo com /callbacks/, e o Compose, no declarativo
+  As Views ficam no imperativo por atualização manual, e o Compose, no declarativo
   por re-renderização, porque chama de novo as funções da tela quando o estado
   se altera cite:android2026.
   No /desktop/, Windows Forms e WPF implementam o Formulário, o Quadro e o
   Login.
-  O Windows Forms fica no imperativo com /callbacks/, porque executa um
-  tratador a cada evento cite:microsoft2026a, e o WPF, no declarativo por
-  atualização granular, porque, quando um dado se altera, os elementos ligados a
+  O Windows Forms fica no imperativo por atualização manual, porque o
+  tratador de cada evento atribui os valores aos controles, sem o /data
+  binding/ que ele também oferece [[cites:&microsoft2025b;&microsoft2026a]],
+  e o WPF, no declarativo por atualização granular, porque, quando um dado se altera, os elementos ligados a
   ele se atualizam sozinhos cite:microsoft2025.
 
-  A avaliação se faz em três rodadas, uma para cada pergunta, cada uma
-  mais estreita que a anterior, como as de [[textcite:kiss2014][p. 3]].
+  A avaliação se faz em três rodadas, cada uma mais estreita que a
+  anterior, como as de [[textcite:kiss2014][p. 3]]: a primeira responde à
+  P1, e a segunda e a terceira, à P1.1 e à P1.2.
   @@latex:\notamudou{\textbf{As três rodadas são novas}; o projeto não as previa.}@@
-  Na rodada da P1, as tecnologias implementam as tarefas descritas acima.
-  Na rodada da P2, cada tarefa recebe funcionalidades, como o assistente
+  Na primeira rodada, as tecnologias implementam as tarefas descritas acima.
+  Na segunda, cada tarefa recebe funcionalidades, como o assistente
   em três passos do Formulário, e requisitos de orquestração, como a
   espera de 300 ms depois da última tecla na Busca.
   Uma funcionalidade muda o que o usuário percebe ou pode fazer, e um
@@ -363,13 +363,13 @@ mesma interface [[cite:lee2025][289:1]].
   os eventos.
   São onze mudanças, feitas uma por /commit/ e na mesma ordem em
   todas as tecnologias que implementam a tarefa.
-  A rodada da P2 faz o código crescer porque é nos problemas grandes que os efeitos
+  A segunda rodada faz o código crescer porque é nos problemas grandes que os efeitos
   da viscosidade mais aparecem [[cite:green1996d][p. 161]].
-  Na rodada da P3, o Formulário estendido é reescrito em cada tecnologia
+  Na terceira, o Formulário estendido é reescrito em cada tecnologia
   com a biblioteca de formulário mais usada no ecossistema dela, ou com a
   [[gls:api]] da plataforma quando nenhuma predomina.
   Como as bibliotecas variam de uma tecnologia para outra, a conclusão da
-  rodada da P3 vale para o ecossistema típico de cada tecnologia, e não só
+  terceira rodada vale para o ecossistema típico de cada tecnologia, e não só
   para o modelo de programação.
 
   Quatro coisas poderiam diferenciar as implementações sem ser o modelo de
@@ -379,7 +379,7 @@ mesma interface [[cite:lee2025][289:1]].
   Angular exige cite:google2026b e as demais tecnologias também usam; no
   Android, o Kotlin; e, no /desktop/, o C#.
   As implementações de uma tarefa seguem a mesma especificação, com os mesmos
-  textos, regras e dados, e, nas rodadas da P1 e da P2, cada uma usa só o que a própria
+  textos, regras e dados, e, nas duas primeiras rodadas, cada uma usa só o que a própria
   tecnologia traz, sem bibliotecas de formulário.
   As regras que não dependem da interface, como o formato das datas, a
   validação do e-mail e as transições do quadro, ficam num /domínio/ comum
@@ -426,34 +426,35 @@ mesma interface [[cite:lee2025][289:1]].
   do ambiente [[cite:green2006][p. 357]].
   Nenhuma dimensão é boa ou má em si, e a avaliação sempre leva em conta a
   atividade a apoiar [[cite:blackwell2003][p. 115]].
-  Na rodada da P1, as atividades são a busca e a compreensão exploratória
-  do código pronto, e, nas da P2 e da P3, a modificação [[cite:blackwell2003][p. 113]].
+  Na primeira rodada, as atividades são a busca e a compreensão exploratória
+  do código pronto, e, na segunda e na terceira, a modificação [[cite:blackwell2003][p. 113]].
   @@latex:\notamudou{\textbf{As DCs passam às 14}, e não oito, em cada rodada.}@@
 
-  A seção ref:chap:results compara os modelos de programação a partir das
-  conclusões da avaliação e abre com uma tabela-síntese, com uma linha por
+  A seção ref:chap:results compara os modelos de programação pelo perfil
+  de cada um nas [[glspl:dc]] [[cite:blackwell2003][p. 106 e 112]] e abre
+  com uma tabela-síntese, com uma linha por
   [[gls:dc]] e uma coluna por modelo de programação.
-  Cada célula resume a conclusão, indica de que tarefa vem a evidência e
+  Cada célula dá a posição do modelo na [[gls:dc]], indica de que tarefa vem a evidência e
   registra quando as duas tecnologias web da coluna divergem, o Solid e o
   Angular com /signals/ ou o React e o Lit.
   No primeiro par, ela diz também se a diferença vem da montagem da tela,
   do modelo de componente ou da [[gls:api]].
   Como cada tarefa exercita problemas de coordenação próprios, a síntese
   por problema reúne as células que vêm das tarefas dele.
-  Da rodada da P1 para as da P2 e da P3, a linha de cada [[gls:dc]] diz se a diferença
+  Da primeira rodada para as outras duas, a linha de cada [[gls:dc]] diz se a diferença
   entre os modelos de programação fica /mantida/, /ampliada/, /reduzida/,
-  /anulada/, /invertida/ ou /surgida/, e a célula diz se a conclusão do
-  modelo /aumenta/, /diminui/ ou /fica igual/.
+  /anulada/, /invertida/ ou /surgida/, e a célula diz se a posição do
+  modelo /sobe/, /desce/ ou /fica igual/.
   Segue uma seção por [[gls:dc]], com os trechos de uma tarefa escolhida,
   antes da avaliação, pelo problema de coordenação que a dimensão mais toca.
   Em cada seção, a análise aponta se a diferença está na coordenação, na
   montagem da tela ou na ligação entre as duas.
   Nas seções em que as tarefas do Android ou do /desktop/ mostram
   diferença entre as duas tecnologias da plataforma, a análise diz se a
-  conclusão da web se repete nela.
+  posição da web se repete nela.
   A concisão tem ainda o apoio de uma contagem das linhas de cada
   implementação.
-  Nas rodadas da P2 e da P3, o /diff/ de cada mudança apoia a viscosidade: a mesma
+  Na segunda e na terceira rodada, o /diff/ de cada mudança apoia a viscosidade: a mesma
   mudança, preparada antes e feita em cada implementação, como no teste
   de [[textcite:green1996d][p. 162]], mostra quantas ações ela pede, e
   quantas outras restauram a consistência [[cite:blackwell2003][p. 115]].
@@ -461,7 +462,7 @@ mesma interface [[cite:lee2025][289:1]].
 
   O delineamento tem limitações em três pontos: quem avalia, o instrumento e o
   objeto.
-  @@latex:\realce{@@Como a avaliação cabe ao autor, nenhum outro avaliador confere as conclusões@@latex:}\notapergunta[list,prepend,caption={\textbf{4. Avaliador único}}]{o texto só declara o risco. \textbf{Entra um avaliador externo}, que aplique duas DCs a parte das implementações para comparar as leituras? \textbf{Conhece alguém} que revise o código de uma tecnologia ou faça uma segunda análise de um par?}@@
+  @@latex:\realce{@@Como a avaliação cabe ao autor, nenhum outro avaliador confere as posições@@latex:}\notapergunta[list,prepend,caption={\textbf{4. Avaliador único}}]{o texto só declara o risco. \textbf{Entra um avaliador externo}, que aplique duas DCs a parte das implementações para comparar as leituras? \textbf{Conhece alguém} que revise o código de uma tecnologia ou faça uma segunda análise de um par?}@@
   em cada dimensão.
   Em métodos de inspeção, avaliadores diferentes acham problemas bem
   diferentes na mesma interface [[cite:hertzum2003][p. 183]].
@@ -478,27 +479,26 @@ mesma interface [[cite:lee2025][289:1]].
   que aparece na notação e podem mostrar pouca diferença no código.
   Para [[textcite:green2006][p. 334]], duas das outras, a expressividade de
   papel e as operações mentais difíceis, sempre foram mal descritas.
-  Os rótulos do que acontece com a diferença de uma rodada a outra na tabela, de
-  mantida a surgida, são deste trabalho, e não de uma fonte, e cada um é
-  um juízo do mesmo avaliador.
+  Na tabela, os rótulos do que acontece com a diferença de uma rodada a outra, de
+  mantida a surgida, são deste trabalho, e não de uma fonte.
 
-  Mesmo na rodada da P2, as tarefas continuam pequenas, e o que só aparece em
+  Mesmo na segunda rodada, as tarefas continuam pequenas, e o que só aparece em
   programas de grande porte ou ao longo da manutenção fica de fora.
   O autor definiu o conjunto de tarefas para este trabalho e escolheu as
-  mudanças da rodada da P2 com as implementações da rodada da P1 prontas, embora antes da
+  mudanças da segunda rodada com as implementações da primeira prontas, embora antes da
   avaliação.
   Um conjunto criado por um pesquisador só e pouco usado tende a ter menos
   impacto que um adotado por uma comunidade [[cite:sim2003][p. 76]].
   O delineamento compara categorias, e não artefatos: cada modelo de programação
-  tem uma ou duas tecnologias na web, e a conclusão sobre ele generaliza a
-  partir delas.
+  tem uma ou duas tecnologias na web, e o perfil dele generaliza a partir
+  delas.
   As [[glspl:dc]] também dizem pouco das escolhas de alto nível, como o
   modelo de computação, e a relevância delas começa quando se definem os
   detalhes [[cite:green1996d][p. 139]].
   Por isso, a avaliação compara os modelos de programação pelos detalhes que
   a notação de cada tecnologia exige no código-fonte.
-  Na web, só o par Web Component e Lit isola o imperativo com
-  /callbacks/, e só em três tarefas.
+  Na web, só o par Web Component e Lit isola o imperativo por
+  atualização manual, e só em três tarefas.
   Ele isola a ligação do estado com a tela, e não a orquestração, que no
   Lit se escreve como no Web Component.
   Fora da web, os dois pares mudam também a montagem da tela, e cada
