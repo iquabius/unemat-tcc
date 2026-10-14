@@ -19,9 +19,10 @@ capítulo só troca o link, e as afirmações de uma fonte ficam juntas.
 afirmação (em todos com `--todas`) e, com `--paragrafos`, junta as
 afirmações de um capítulo na ordem do texto, para a rodada da porta
 aberta. O org-ref abre o arquivo pela citação
-(`bibtex-completion-notes-path` no `.dir-locals.el`). As 126 afirmações
-de 63 chaves migraram por script, no commit `5b08f31`, e de novo no
-merge `314d100`, sobre as matrizes que o `master` tinha mudado.
+(`bibtex-completion-notes-path` no `.dir-locals.el`). A passagem foi
+por script: 125 afirmações no commit `5b08f31` e, de novo, 126 de 63
+chaves no merge `314d100`, sobre as matrizes que o `master` tinha
+mudado.
 
 Em vez de: a matriz por capítulo (ADR 0023, de 2026-10-06); a rodada da
 porta aberta lia um arquivo só, na ordem do capítulo, mas a frase movida
