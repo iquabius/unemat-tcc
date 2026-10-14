@@ -3,6 +3,7 @@
 
     python3 -m unittest discover -s docs/literatura/buscas/scripts-terceira-rodada
 """
+import contextlib
 import importlib.util
 import io
 import json
@@ -53,15 +54,15 @@ class Busca(unittest.TestCase):
             ids, prox = paginas[params["cursor"]]
             return {"results": [trabalho(i) for i in ids], "meta": {"next_cursor": prox}}
 
-        r = coleta.buscar("cites:W1", get=get)
+        r = coleta.buscar("cites:W1", obter=get)
         self.assertEqual([x["id"] for x in r], ["W1", "W2", "W3"])
         self.assertEqual(pedidos, ["*", "c2", "c3"])
 
     def test_id_por_doi_ou_direto(self):
         get = mock.Mock(return_value={"id": "https://openalex.org/W99"})
-        self.assertEqual(coleta.id_openalex("W5", get=get), "W5")
+        self.assertEqual(coleta.id_openalex("W5", obter=get), "W5")
         get.assert_not_called()
-        self.assertEqual(coleta.id_openalex("10.1/x", get=get), "W99")
+        self.assertEqual(coleta.id_openalex("10.1/x", obter=get), "W99")
 
 
 class Http(unittest.TestCase):
@@ -87,6 +88,22 @@ class Http(unittest.TestCase):
                 coleta.get("/works", {}, espera=esperas.append)
         self.assertEqual(u.call_count, 5)
         self.assertEqual(esperas, [2, 5, 8, 11, 14])
+
+
+class Saida(unittest.TestCase):
+    def test_json_invalido_da_api_e_falha_da_api(self):
+        resposta = mock.MagicMock()
+        resposta.__enter__.return_value = io.BytesIO(b"<html>")
+        with mock.patch("urllib.request.urlopen", return_value=resposta):
+            with self.assertRaises(RuntimeError):
+                coleta.get("/works", {}, espera=lambda s: None)
+
+    def test_resposta_da_api_sem_campo_sai_com_1(self):
+        with tempfile.TemporaryDirectory() as d:
+            (Path(d) / "s.txt").write_text("a 10.1/x\n", encoding="utf-8")
+            with mock.patch.object(coleta, "get", return_value={}), \
+                    contextlib.redirect_stderr(io.StringIO()):
+                self.assertEqual(coleta.main(["citantes", str(Path(d) / "s.txt"), d]), 1)
 
 
 class Sementes(unittest.TestCase):

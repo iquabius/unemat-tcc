@@ -47,6 +47,7 @@ API = "https://api.openalex.org"
 USER_AGENT = "tcc-revisao"
 ANO_MINIMO = 2013
 BUSCAS = Path(__file__).resolve().parent.parent
+COMANDOS_DA_API = {"citantes", "referencias", "filtro", "doi"}
 
 
 class Limite(Exception):
@@ -60,6 +61,8 @@ def get(caminho, params, tentativas=5, espera=time.sleep):
         try:
             with urllib.request.urlopen(pedido, timeout=60) as r:
                 return json.load(r)
+        except json.JSONDecodeError as e:
+            raise RuntimeError(f"{url}: resposta que não é JSON: {e}") from e
         except urllib.error.HTTPError as e:
             if e.code == 429:
                 raise Limite(url) from e
@@ -98,11 +101,12 @@ def enxuto(w):
     }
 
 
-def buscar(filtro, maximo=10000, get=get):
+def buscar(filtro, maximo=10000, obter=None):
+    obter = obter or get
     """Todos os trabalhos de um filtro, por cursor, de 200 em 200."""
     saida, cursor = [], "*"
     while cursor and len(saida) < maximo:
-        d = get("/works", {"filter": filtro, "per-page": 200, "cursor": cursor})
+        d = obter("/works", {"filter": filtro, "per-page": 200, "cursor": cursor})
         if not d["results"]:
             break
         saida += [enxuto(w) for w in d["results"]]
@@ -110,10 +114,11 @@ def buscar(filtro, maximo=10000, get=get):
     return saida
 
 
-def id_openalex(ref, get=get):
+def id_openalex(ref, obter=None):
+    obter = obter or get
     if re.fullmatch(r"W\d+", ref):
         return ref
-    return get("/works/https://doi.org/" + ref, {})["id"].rsplit("/", 1)[-1]
+    return obter("/works/https://doi.org/" + ref, {})["id"].rsplit("/", 1)[-1]
 
 
 def ler_sementes(arquivo):
@@ -129,25 +134,27 @@ def ler_sementes(arquivo):
     return sementes
 
 
-def citantes(sementes, pasta, get=get):
+def citantes(sementes, pasta, obter=None):
+    obter = obter or get
     for chave, ref in sementes:
-        wid = id_openalex(ref, get)
-        lista = buscar("cites:" + wid, get=get)
+        wid = id_openalex(ref, obter)
+        lista = buscar("cites:" + wid, obter=obter)
         dados = {"seed": chave, "id": wid, "citers": lista}
         (pasta / f"cit-{chave}.json").write_text(
             json.dumps(dados, ensure_ascii=False))
         print(chave, wid, len(lista), flush=True)
 
 
-def referencias(sementes, pasta, get=get):
+def referencias(sementes, pasta, obter=None):
+    obter = obter or get
     for chave, ref in sementes:
         doi = ref if not re.fullmatch(r"W\d+", ref) else None
         caminho = "/works/https://doi.org/" + doi if doi else "/works/" + ref
-        w = get(caminho, {"select": "referenced_works"})
+        w = obter(caminho, {"select": "referenced_works"})
         ids = [r.rsplit("/", 1)[-1] for r in w["referenced_works"]]
         lista = []
         for i in range(0, len(ids), 50):
-            d = get("/works", {"filter": "openalex_id:" + "|".join(ids[i:i + 50]),
+            d = obter("/works", {"filter": "openalex_id:" + "|".join(ids[i:i + 50]),
                                "per-page": 50})
             lista += [enxuto(x) for x in d["results"]]
         (pasta / f"ref-{chave}.json").write_text(
@@ -271,7 +278,15 @@ def main(argv=None):
                 r = enxuto(get("/works/https://doi.org/" + d, {}))
                 r.pop("abstract")
                 print(json.dumps(r, ensure_ascii=False))
-    except (OSError, ValueError, KeyError, json.JSONDecodeError) as e:
+    except KeyError as e:
+        # Campo que falta: na resposta da API, nos comandos que a consultam;
+        # num JSON guardado, nos que só leem arquivos.
+        if a.cmd in COMANDOS_DA_API:
+            print(f"coleta: a API respondeu sem o campo {e}", file=sys.stderr)
+            return 1
+        print(f"coleta: falta o campo {e} num JSON guardado", file=sys.stderr)
+        return 2
+    except (OSError, ValueError) as e:
         print(f"coleta: {e}", file=sys.stderr)
         return 2
     except (Limite, RuntimeError) as e:
