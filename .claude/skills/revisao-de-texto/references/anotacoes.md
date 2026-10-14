@@ -96,7 +96,7 @@ nos controles".
 - A lista "Assuntos" tem um item por assunto, cada um com o link para a
   nota certa.
 - O parágrafo não abre com o realce. O link de busca da matriz de fontes
-  (`texto/fontes/<capítulo>.org`) casa com as primeiras palavras do
+  (`texto/fontes/<chave>.org`) casa com as primeiras palavras do
   parágrafo no `.org`, e um `@@latex:\realce{@@` no começo o quebra:
   `bin/conferir-fontes.py --desde HEAD` acusa "cai no meio do parágrafo"
   e as citações dele ficam sem entrada. Realce a partir da segunda ou

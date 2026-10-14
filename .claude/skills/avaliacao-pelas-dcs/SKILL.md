@@ -284,7 +284,7 @@ declaração de uso de IA (tcc-gjw).
    palavras: a seção de cada DC perde o que não sustenta a conclusão.
 4. Porta aberta da `revisao-de-texto` (ADR 0023): o rascunho no índice,
    as correções por cima, a fonte de cada afirmação conferida no PDF e
-   registrada em `texto/fontes/<capítulo>.org`, o aprovo e o commit, com
+   registrada em `texto/fontes/<chave>.org`, o aprovo e o commit, com
    a linha `Origem das conclusões:`.
 
 A skill não edita o texto por conta própria em nenhum passo: a frase é

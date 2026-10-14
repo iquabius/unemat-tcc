@@ -5,4 +5,16 @@
          (org-latex-src-block-backend . minted)
          (org-ref-cite-insert-version . 2)))
  ("texto" . ((org-mode . ((bibtex-completion-bibliography . ("refs.bib"))
+                           ;; A matriz de fontes, um arquivo por chave (ADR 0034),
+                           ;; para o org-ref abrir pela citação. O caminho é
+                           ;; absoluto: relativo, o bibtex-completion o procura de
+                           ;; novo de dentro de fontes/ e escreve o modelo de notas
+                           ;; por cima do arquivo que já existe.
+                           (eval . (setq-local bibtex-completion-notes-path
+                                               (expand-file-name
+                                                "texto/fontes/"
+                                                (locate-dominating-file
+                                                 default-directory ".dir-locals.el"))))
+                           (bibtex-completion-notes-template-multiple-files
+                            . "#+title: ${=key=}: ${author-or-editor-abbrev} (${year}), ${title}\n#+startup: overview\n\n")
                            (my/org-ref-glossary-files . ("../latex/siglas.tex")))))))

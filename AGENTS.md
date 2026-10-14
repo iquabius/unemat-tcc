@@ -18,7 +18,7 @@ em `texto/refs.bib`, o código dos casos em `casos/` (instruções próprias em
 | Mudança em código (`casos/`, `bin/`, scripts), ferramentas ou `AGENTS.md` | numa worktree, em ramo próprio, que chega ao `master` revisado | seção "Código: ramo, revisão, merge" abaixo |
 | Feedback de escrita e revisão bibliográfica | não vai para o repositório | skill `escrita-academica`; o que sobra vira tarefa no `bd` ou nota em `docs/` |
 | Frase nova ou alterada em `texto/*.org` | direto no `.org` do checkout principal; o commit espera a revisão | seção "Texto" abaixo e skill do projeto `revisao-de-texto` (ADR 0023) |
-| Trecho de fonte que sustenta uma frase do texto | `texto/fontes/<capítulo>.org` | um título por parágrafo, chave, página, trecho e data da conferência |
+| Trecho de fonte que sustenta uma frase do texto | `texto/fontes/<chave>.org` | um arquivo por chave do `refs.bib` (ADR 0034); um título por afirmação, com o link para o parágrafo e a página, e embaixo a frase, o trecho e a data da conferência |
 
 ## Tarefas: Beads (`bd`)
 
@@ -156,7 +156,8 @@ e o HEAD é o texto aprovado (ADR 0023, skill `revisao-de-texto`).
     frases uma a uma; antes de aplicar, pergunta-se a decisão de método,
     a correção que derruba uma conclusão e o corte que tira um elo;
   - cada afirmação apoiada numa fonte é conferida no PDF, com o trecho e a
-    página, e entra em `texto/fontes/<capítulo>.org`;
+    página, e entra em `texto/fontes/<chave>.org` (ADR 0034), que
+    `bin/conferir-fontes.py --desde HEAD` confere contra as citações;
   - `metricas_texto.py` e a leitura com as referências da
     `escrita-academica`;
   - o diff ao vivo leva o Evince ao trecho de cada alteração
