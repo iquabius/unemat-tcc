@@ -4,7 +4,7 @@ Trabalho de conclusão que compara três modelos de programação de
 interfaces gráficas pelas Dimensões Cognitivas de Notações, aplicadas à
 notação com que cada tecnologia os escreve, com as mesmas tarefas
 implementadas em várias tecnologias na web, no Android e no desktop, em
-três rodadas. Texto em `texto/`, código em `casos/`, decisões em
+três rodadas. Texto em `texto/`, código em `implementacoes/`, decisões em
 `docs/adr/`, definições e fontes dos termos em
 `docs/paradigma-modelo-e-notacao.md`.
 
@@ -232,8 +232,8 @@ _Avoid_: versão, exemplo
 
 **Apoio**:
 Implementação que o autor consulta ao escrever e não entra na análise: o
-Angular com RxJS, congelado em `casos/fora-da-analise/` com as regras de
-2026-10-13.
+Angular com RxJS, congelado em `implementacoes/fora-da-analise/` com as
+regras de 2026-10-13.
 
 **Domínio**:
 As regras de uma tarefa que não dependem da interface (datas, e-mail,

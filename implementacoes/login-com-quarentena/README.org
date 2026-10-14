@@ -16,9 +16,9 @@ ao sair da tela se conferir pela contagem: =contarAbertos()= diz quantas
 requisições e relógios estão abertos.
 
 As regras, as mensagens e os cenários que o teste de conformidade confere
-estão em =casos/openspec/specs/login-com-quarentena/spec.md=, a
+estão em =implementacoes/openspec/specs/login-com-quarentena/spec.md=, a
 especificação viva (OpenSpec); uma mudança entra como /delta spec/ em
-=casos/openspec/changes/= (=casos/AGENTS.md=).
+=implementacoes/openspec/changes/= (=implementacoes/AGENTS.md=).
 
 * Adaptações a Berry e Serrano
 

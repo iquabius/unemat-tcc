@@ -22,11 +22,13 @@ subprojects {
                 versionCode = 1
                 versionName = "1.0"
             }
-            // Auxiliar de captura (casos/android/captura/) nos testes de todos.
+            // Auxiliar de captura (implementacoes/android/captura/) nos
+            // testes de todos.
             sourceSets.getByName("test").kotlin.directories +=
                 rootDir.resolve("captura").path
-            // Domínio do caso (casos/<caso>/dominio-kotlin/), o equivalente do
-            // dominio.ts da web, compartilhado pelas duas tecnologias.
+            // Domínio do caso (implementacoes/<caso>/dominio-kotlin/), o
+            // equivalente do dominio.ts da web, compartilhado pelas duas
+            // tecnologias.
             val dominio = projectDir.resolveSibling("dominio-kotlin")
             if (dominio.isDirectory) {
                 sourceSets.getByName("main").kotlin.directories +=
@@ -78,11 +80,11 @@ subprojects {
     }
 }
 
-// Formatação do Kotlin de casos/ pelo ktfmt, no estilo das convenções do
-// Kotlin (4 espaços) e com a largura do casos/.editorconfig (tcc-6wha). O
-// npm run formatar e o npm run conferir-formatacao, em casos/, chamam estas
-// tarefas depois do Prettier. Fica de fora casos/fora-da-analise/,
-// congelado.
+// Formatação do Kotlin de implementacoes/ pelo ktfmt, no estilo das
+// convenções do Kotlin (4 espaços) e com a largura do
+// implementacoes/.editorconfig (tcc-6wha). O npm run formatar e o npm run
+// conferir-formatacao, em implementacoes/, chamam estas tarefas depois do
+// Prettier. Fica de fora implementacoes/fora-da-analise/, congelado.
 val ktfmt by configurations.creating {
     // O ktfmt publica também um jar com as dependências dentro, que evita
     // escolher a variante do Guava num projeto Android.
@@ -115,11 +117,11 @@ fun ktfmtTask(nome: String, descricao: String, vararg opcoes: String) =
         args(arquivosKotlin.files.map { it.path }.sorted())
     }
 
-ktfmtTask("formatarKotlin", "Formata o Kotlin de casos/ com o ktfmt.")
+ktfmtTask("formatarKotlin", "Formata o Kotlin de implementacoes/ com o ktfmt.")
 
 ktfmtTask(
     "conferirFormatacaoKotlin",
-    "Falha se algum arquivo Kotlin de casos/ não estiver formatado.",
+    "Falha se algum arquivo Kotlin de implementacoes/ não estiver formatado.",
     "--dry-run",
     "--set-exit-if-changed",
 )

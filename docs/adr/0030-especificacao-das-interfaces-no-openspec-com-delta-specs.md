@@ -1,22 +1,22 @@
 # 0030. A especificação de cada tarefa fica no OpenSpec, em português, com cada cenário igual a uma verificação do teste de conformidade e cada mudança num delta spec
 
 2026-10-12. A especificação de cada tarefa era um `README.org` em prosa, sem
-forma para dizer o que uma mudança acrescenta, e a P2 e a P3 precisam de
-cada funcionalidade e requisito de orquestração escrito antes de
-implementar, a mesma mudança em todas as tecnologias, como o teste de
-viscosidade de Green e Petre (1996, p. 162) (ADR 0029). A especificação
-viva de cada tarefa passa a ser `casos/openspec/specs/<tarefa>/spec.md`,
-no esquema *spec-driven* do OpenSpec 1.14.1 (npm, 2026-10-05), fixado no
-`package.json` de `casos/` e rodado sem o fluxo de agente dele (`init
---tools none`) e sem telemetria; o `README.org` fica só com a apresentação.
-Requisitos e cenários se escrevem em português ("deve", QUANDO/ENTÃO), com
-os cabeçalhos que o CLI lê em inglês, e o nome de cada cenário é o nome de
-uma verificação do teste de conformidade, conferido em todas as
-tecnologias por `npm run conferir-especificacao`. Cada mudança entra como
-*delta spec* em `casos/openspec/changes/<nome>/`, e o commit que muda o
-teste de conformidade a arquiva, fundindo o delta na especificação viva
-antes do commit de cada tecnologia; o delta arquivado é o que o texto cita
-como a mudança da rodada.
+forma para dizer o que uma mudança acrescenta, e a P2 e a P3 precisam de cada
+funcionalidade e requisito de orquestração escrito antes de implementar, a
+mesma mudança em todas as tecnologias, como o teste de viscosidade de Green e
+Petre (1996, p. 162) (ADR 0029). A especificação viva de cada tarefa passa a
+ser `implementacoes/openspec/specs/<tarefa>/spec.md`, no esquema *spec-driven*
+do OpenSpec 1.14.1 (npm, 2026-10-05), fixado no `package.json` de
+`implementacoes/` e rodado sem o fluxo de agente dele (`init --tools none`) e
+sem telemetria; o `README.org` fica só com a apresentação. Requisitos e
+cenários se escrevem em português ("deve", QUANDO/ENTÃO), com os cabeçalhos
+que o CLI lê em inglês, e o nome de cada cenário é o nome de uma verificação
+do teste de conformidade, conferido em todas as tecnologias por `npm run
+conferir-especificacao`. Cada mudança entra como *delta spec* em
+`implementacoes/openspec/changes/<nome>/`, e o commit que muda o teste de
+conformidade a arquiva, fundindo o delta na especificação viva antes do commit
+de cada tecnologia; o delta arquivado é o que o texto cita como a mudança da
+rodada.
 
 Em vez de: o `README.org` em prosa, com uma seção por mudança; sem
 ferramenta nova, mas sem forma que diga o que foi acrescentado, mudado ou
@@ -52,7 +52,7 @@ tcc-2ui8, tcc-dxdg) e as mudanças da P1 (tcc-z2jq, tcc-v4m7, tcc-32dr)
 esperaram esta decisão.
 
 Fontes: openspec.dev/docs/schemas/spec-driven (lida em 2026-10-11 e
-2026-10-12); o CLI 1.14.1 testado em 2026-10-12 (`init --tools none`, o
-aviso de SHALL/MUST, o `archive` de um delta REMOVED e MODIFIED); ADRs
-0002, 0025 e 0029; tarefa tcc-wlx; `casos/AGENTS.md`, seção "Especificação:
+2026-10-12); o CLI 1.14.1 testado em 2026-10-12 (`init --tools none`, o aviso
+de SHALL/MUST, o `archive` de um delta REMOVED e MODIFIED); ADRs 0002, 0025 e
+0029; tarefa tcc-wlx; `implementacoes/AGENTS.md`, seção "Especificação:
 OpenSpec".

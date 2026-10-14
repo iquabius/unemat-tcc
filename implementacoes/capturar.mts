@@ -1,4 +1,5 @@
-// Captura a tela dos exemplos em casos/<caso>/capturas/<tecnologia>-<cena>.png.
+// Captura a tela dos exemplos em
+// implementacoes/<caso>/capturas/<tecnologia>-<cena>.png.
 //
 // Uso: npm run capturas [-- [--conferir] <caso>[/<tecnologia>] ...]
 //   npm run capturas                      todos os casos e tecnologias
@@ -7,14 +8,14 @@
 //   npm run capturas -- --conferir        não grava: compara com as versionadas
 //
 // Com --conferir, as imagens vão para uma pasta temporária e são comparadas
-// com as de casos/<caso>/capturas/; o script lista as que mudaram, as novas
-// e as que sumiram, e sai com erro se houver alguma.
+// com as de implementacoes/<caso>/capturas/; o script lista as que mudaram,
+// as novas e as que sumiram, e sai com erro se houver alguma.
 //
 // Web: cada caso pode ter um cenas.mts com as cenas a capturar (ações do
 // Playwright antes da captura); sem ele, captura só o estado inicial.
 // Android: as cenas ficam nos testes de cada módulo (src/test/.../CenasTest.kt),
 // que o Gradle roda com Robolectric e Roborazzi, sem emulador; o projeto
-// Gradle fica em casos/android/.
+// Gradle fica em implementacoes/android/.
 // No fim, avisa quando a mesma cena sai diferente entre as tecnologias de
 // um caso na mesma plataforma: na web, as implementações seguem a mesma
 // especificação e a mesma aparência, então as imagens deveriam ser
@@ -34,11 +35,11 @@ import { chromium, type Page } from "playwright";
 export type Cenas = Record<string, (pagina: Page) => Promise<void>>;
 
 const RAIZ = path.resolve(import.meta.dirname, "..");
-const CASOS = path.join(RAIZ, "implementacoes");
+const IMPLEMENTACOES = path.join(RAIZ, "implementacoes");
 const WEB = ["web-component", "react", "solid", "lit", "angular-signals"];
 const ANDROID = ["android-views", "android-compose"];
 const TECNOLOGIAS = [...WEB, ...ANDROID];
-const GRADLEW = path.join(CASOS, "android", "gradlew");
+const GRADLEW = path.join(IMPLEMENTACOES, "android", "gradlew");
 
 // Data fixa para que exemplos que mostram "hoje" gerem sempre a mesma imagem.
 const DATA_FIXA = new Date("2026-09-26T12:00:00");
@@ -54,16 +55,18 @@ const TIPOS: Record<string, string> = {
 
 async function implementacoes(filtros: string[]): Promise<[string, string][]> {
   const lista: [string, string][] = [];
-  for (const caso of (await readdir(CASOS)).sort()) {
+  for (const caso of (await readdir(IMPLEMENTACOES)).sort()) {
     // Toda tarefa tem a especificação em openspec/specs/<tarefa>/; as outras
     // pastas (node_modules, android, openspec e fora-da-analise, que não se
     // captura) não são tarefas.
-    if (!existsSync(path.join(CASOS, "openspec", "specs", caso))) continue;
+    if (!existsSync(path.join(IMPLEMENTACOES, "openspec", "specs", caso)))
+      continue;
     for (const tecnologia of TECNOLOGIAS) {
       const projeto = ANDROID.includes(tecnologia)
         ? "build.gradle.kts"
         : "package.json";
-      if (!existsSync(path.join(CASOS, caso, tecnologia, projeto))) continue;
+      if (!existsSync(path.join(IMPLEMENTACOES, caso, tecnologia, projeto)))
+        continue;
       const escolhido =
         filtros.length === 0 ||
         filtros.some((f) => f === caso || f === `${caso}/${tecnologia}`);
@@ -142,7 +145,7 @@ async function capturarAndroid(
 }
 
 async function cenasDo(caso: string): Promise<Cenas> {
-  const arquivo = path.join(CASOS, caso, "cenas.mts");
+  const arquivo = path.join(IMPLEMENTACOES, caso, "cenas.mts");
   if (!existsSync(arquivo)) return { inicial: async () => {} };
   return (await import(arquivo)).cenas;
 }
@@ -183,7 +186,7 @@ async function registrar(
     .set(tecnologia, createHash("sha256").update(imagem).digest("hex"));
 
   const versionada = path.join(
-    CASOS,
+    IMPLEMENTACOES,
     caso,
     "capturas",
     `${tecnologia}-${cena}.png`,
@@ -203,7 +206,7 @@ async function procurarSumidas(
   tecnologia: string,
   cenas: string[],
 ) {
-  const versionadas = path.join(CASOS, caso, "capturas");
+  const versionadas = path.join(IMPLEMENTACOES, caso, "capturas");
   if (!conferir || !existsSync(versionadas)) return;
   for (const arquivo of await readdir(versionadas)) {
     const cena = arquivo.slice(tecnologia.length + 1, -".png".length);
@@ -220,8 +223,8 @@ async function procurarSumidas(
 const navegador = await chromium.launch();
 try {
   for (const [caso, tecnologia] of lista) {
-    const projeto = path.join(CASOS, caso, tecnologia);
-    const versionadas = path.join(CASOS, caso, "capturas");
+    const projeto = path.join(IMPLEMENTACOES, caso, tecnologia);
+    const versionadas = path.join(IMPLEMENTACOES, caso, "capturas");
     const destino = temporaria ? path.join(temporaria, caso) : versionadas;
     await mkdir(destino, { recursive: true });
 
@@ -247,11 +250,16 @@ try {
       continue;
     }
 
-    execFileSync("npm", ["run", "build", "-w", path.relative(CASOS, projeto)], {
-      cwd: CASOS, // o package.json dos workspaces fica em casos/
-      stdio: "ignore",
-      env: { ...process.env, NG_CLI_ANALYTICS: "false" },
-    });
+    execFileSync(
+      "npm",
+      ["run", "build", "-w", path.relative(IMPLEMENTACOES, projeto)],
+      {
+        // O package.json dos workspaces fica em implementacoes/.
+        cwd: IMPLEMENTACOES,
+        stdio: "ignore",
+        env: { ...process.env, NG_CLI_ANALYTICS: "false" },
+      },
+    );
     const servidor = await servir(await pastaDoBuild(projeto));
     const endereco = servidor.address();
     const porta = typeof endereco === "object" && endereco ? endereco.port : 0;

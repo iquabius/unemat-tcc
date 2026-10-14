@@ -2,7 +2,7 @@
 // implementações web. Cole no console do navegador com a implementação
 // aberta; a última linha devolve o resultado de cada verificação ("ok" ou
 // "FALHOU"). Cada verificação é um cenário de
-// casos/openspec/specs/quadro-de-tarefas/spec.md.
+// implementacoes/openspec/specs/quadro-de-tarefas/spec.md.
 //
 // O teste começa apagando o quadro salvo e termina com o quadro inicial.
 // Para abrir a tarefa de novo, sem recarregar a página, usa o "Esconder

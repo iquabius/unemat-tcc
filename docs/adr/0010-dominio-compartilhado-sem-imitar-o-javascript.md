@@ -15,4 +15,4 @@ na web; ninguém digita isso, mas a análise não pode afirmar que os
 domínios são idênticos.
 
 Fontes: commits `384b7a5` e `ae24a32`;
-`casos/formulario/dominio-kotlin/test/DominioTest.kt`.
+`implementacoes/formulario/dominio-kotlin/test/DominioTest.kt`.

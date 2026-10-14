@@ -12,7 +12,7 @@
   | =texto/= | o que o autor escreve: os capítulos =.org=, =fontes/=, =refs.bib= e =fig/= |
   | =latex/= | o que o =latexmk= lê: =tcc.tex=, classe, estilos, brasões, =apendices/= e os =capitulos/= exportados |
   | =pdf/= | o que sai, fora do git: =build/=, =versoes/= e =ao-vivo/= |
-  | =casos/= | o código dos casos, com o =package.json= dos =workspaces= |
+  | =implementacoes/= | o código dos casos, com o =package.json= dos =workspaces= |
   | =docs/= | decisões (=adr/=) e notas |
   | =bin/= | scripts |
 

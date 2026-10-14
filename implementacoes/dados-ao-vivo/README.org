@@ -15,9 +15,9 @@ repetirem. =contarAssinantes()= diz quantas assinaturas estão abertas,
 para a limpeza ao sair da tela se conferir pela contagem.
 
 As regras, as mensagens e os cenários que o teste de conformidade confere
-estão em =casos/openspec/specs/dados-ao-vivo/spec.md=, a especificação viva
-(OpenSpec); uma mudança entra como /delta spec/ em =casos/openspec/changes/=
-(=casos/AGENTS.md=).
+estão em =implementacoes/openspec/specs/dados-ao-vivo/spec.md=, a
+especificação viva (OpenSpec); uma mudança entra como /delta spec/ em
+=implementacoes/openspec/changes/= (=implementacoes/AGENTS.md=).
 
 * Teste
 

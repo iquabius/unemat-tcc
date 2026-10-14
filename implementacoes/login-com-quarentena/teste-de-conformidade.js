@@ -3,7 +3,7 @@
 // aberta; a última linha devolve o resultado de cada verificação ("ok" ou
 // "FALHOU"). Segue a especificação, com latência de 1 s e sessão de 10 s;
 // cada verificação é um cenário de
-// casos/openspec/specs/login-com-quarentena/spec.md.
+// implementacoes/openspec/specs/login-com-quarentena/spec.md.
 //
 // O tempo é de um relógio falso: o teste troca setTimeout e setInterval da
 // página pelos dele e só os faz andar com avancar(ms), para não esperar os

@@ -8,7 +8,7 @@ import org.junit.rules.ExternalResource
 // Grava a tela inteira em <destino>/<tecnologia>-<cena>.png, com o mesmo
 // esquema de nomes das capturas web. Destino e tecnologia vêm do Gradle
 // (build.gradle.kts da raiz); quem compara com as versionadas é o
-// casos/capturar.mts.
+// implementacoes/capturar.mts.
 @OptIn(ExperimentalRoborazziApi::class)
 fun capturar(cena: String) {
     val destino = System.getProperty("capturas.destino")

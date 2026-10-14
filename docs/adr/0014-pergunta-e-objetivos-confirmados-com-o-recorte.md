@@ -105,7 +105,7 @@ programação que não aparecem no código, como o desempenho, ficam fora da
 resposta; as subperguntas pedem que a introdução e a conclusão respondam
 a três perguntas, e a P1.2 só se responde no ecossistema típico; os
 rótulos hierárquicos obrigam a chamar as rodadas pelo ordinal, e os ADRs,
-as notas de `docs/`, `casos/` e as tarefas que diziam P2 e P3 mudam; a
+as notas de `docs/`, `implementacoes/` e as tarefas que diziam P2 e P3 mudam; a
 introdução, o título ("Demonstração e Análise de Programação
 Funcional e Reativa") e a análise do Contador em `cases.org` precisam ser
 reescritos; os programas de listas mudam do `cases.org` para o

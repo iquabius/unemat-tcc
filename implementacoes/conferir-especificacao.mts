@@ -10,23 +10,23 @@
 //
 // O nome do cenário (#### Scenario: <nome> em openspec/specs/<tarefa>/spec.md)
 // é o nome da verificação (conferir("<nome>", ...)) nos testes de
-// casos/<tarefa>/, em JS ou Kotlin. Cada arquivo de teste tem de
+// implementacoes/<tarefa>/, em JS ou Kotlin. Cada arquivo de teste tem de
 // ter todos os cenários e só eles; e, como as outras plataformas repetem o
 // teste da web, na mesma ordem do arquivo que fica na pasta da tarefa. Sai
 // com erro e lista as diferenças.
 //
 // Teste é todo arquivo da pasta da tarefa que chama conferir(...); cada
 // chamada tem de ter o nome como texto literal entre aspas duplas, senão o
-// script acusa. O código de casos/fora-da-analise/ não é conferido.
+// script acusa. O código de implementacoes/fora-da-analise/ não é conferido.
 
 import { spawnSync } from "node:child_process";
 import { existsSync } from "node:fs";
 import { readFile, readdir } from "node:fs/promises";
 import path from "node:path";
 
-const CASOS = import.meta.dirname;
-const SPECS = path.join(CASOS, "openspec", "specs");
-const OPENSPEC = path.join(CASOS, "node_modules", ".bin", "openspec");
+const IMPLEMENTACOES = import.meta.dirname;
+const SPECS = path.join(IMPLEMENTACOES, "openspec", "specs");
+const OPENSPEC = path.join(IMPLEMENTACOES, "node_modules", ".bin", "openspec");
 const EXTENSOES = new Set([".js", ".ts", ".mts", ".kt"]);
 const FORA = new Set([
   "node_modules",
@@ -59,14 +59,14 @@ const validate = spawnSync(
   OPENSPEC,
   ["validate", "--all", "--json", "--no-interactive"],
   {
-    cwd: CASOS,
+    cwd: IMPLEMENTACOES,
     encoding: "utf8",
     env: { ...process.env, OPENSPEC_TELEMETRY: "0" },
   },
 );
 if (validate.error) {
   console.error(
-    `openspec validate não rodou (${validate.error.message}); rode npm install em casos/`,
+    `openspec validate não rodou (${validate.error.message}); rode npm install em implementacoes/`,
   );
   process.exit(1);
 }
@@ -117,8 +117,13 @@ const tarefas = (await readdir(SPECS, { withFileTypes: true }))
 
 for (const tarefa of tarefas) {
   const arquivoSpec = path.join(SPECS, tarefa, "spec.md");
-  if (!existsSync(arquivoSpec) || !existsSync(path.join(CASOS, tarefa))) {
-    problemas.push(`${tarefa}: falta o spec.md ou a pasta casos/${tarefa}/`);
+  if (
+    !existsSync(arquivoSpec) ||
+    !existsSync(path.join(IMPLEMENTACOES, tarefa))
+  ) {
+    problemas.push(
+      `${tarefa}: falta o spec.md ou a pasta implementacoes/${tarefa}/`,
+    );
     continue;
   }
   const spec = await readFile(arquivoSpec, "utf8");
@@ -128,11 +133,13 @@ for (const tarefa of tarefas) {
   }
 
   const testes: { arquivo: string; nomes: string[] }[] = [];
-  for (const arquivo of (await arquivos(path.join(CASOS, tarefa))).sort()) {
+  for (const arquivo of (
+    await arquivos(path.join(IMPLEMENTACOES, tarefa))
+  ).sort()) {
     const texto = await readFile(arquivo, "utf8");
     const chamadas = contar(texto, chamada) - contar(texto, definicao);
     if (chamadas === 0) continue;
-    const relativo = path.relative(CASOS, arquivo);
+    const relativo = path.relative(IMPLEMENTACOES, arquivo);
     // O escape (\" no JS, \$ no Kotlin) vale o caractere que vem depois.
     const nomes = [...texto.matchAll(verificacao)].map((m) =>
       m[1].replace(/\\(.)/g, "$1"),

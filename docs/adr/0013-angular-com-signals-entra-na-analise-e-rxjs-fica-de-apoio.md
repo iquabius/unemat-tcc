@@ -36,12 +36,12 @@ Angular com RxJS (`angular-rxjs`) não entra no texto: dá exemplos de RxJS
 para o capítulo de programação e para a comparação com Zimmerle e Gama
 (2025), usando RxJS de propósito (`Observable`, *pipe* `async`,
 `valueChanges`, `debounceTime`, `switchMap`), e fica congelado em
-`casos/fora-da-analise/` com as regras de 2026-10-13, como o jQuery, para
-que `casos/` tenha só o que se analisa e as mudanças da especificação não
-se portem para ele. Na P1 e na P2, cada implementação usa só o que a
-tecnologia traz, sem bibliotecas de formulário: o `angular-rxjs` usa os
-Reactive Forms, que são do Angular; o `angular-signals` não usa nem eles
-nem os *Signal Forms*. Na P3, cada
+`implementacoes/fora-da-analise/` com as regras de 2026-10-13, como o
+jQuery, para que `implementacoes/` tenha só o que se analisa e as
+mudanças da especificação não se portem para ele. Na P1 e na P2, cada
+implementação usa só o que a tecnologia traz, sem bibliotecas de
+formulário: o `angular-rxjs` usa os Reactive Forms, que são do Angular; o
+`angular-signals` não usa nem eles nem os *Signal Forms*. Na P3, cada
 tecnologia usa a biblioteca de formulário mais usada no seu ecossistema,
 ou a API da plataforma quando nenhuma domina, como no Web Component e no
 Lit, que assim continuam um par controlado (ADR 0029).
@@ -77,7 +77,7 @@ Em vez de: Angular só de apoio (decisão de 2026-09-25); menos trabalho,
 mas o modelo de programação declarativo por atualização granular ficaria
 com uma tecnologia só, e o Angular é o terceiro *framework* mais usado
 (Stack Overflow 2025: React 44,7%, jQuery 23,4%, Angular 18,2%).
-Em vez de: o `angular-rxjs` em `casos/<tarefa>/`, seguindo a
+Em vez de: o `angular-rxjs` em `implementacoes/<tarefa>/`, seguindo a
 especificação viva com cenas e capturas (decisão de 2026-10-12); os
 exemplos de RxJS acompanhariam as regras da P1, como o envio que ignora o
 reenvio, que o `exhaustMap` nomeia, mas cada mudança da especificação

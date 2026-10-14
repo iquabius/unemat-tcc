@@ -125,14 +125,14 @@ como "sibling" ou "cousin" seria inferência do TCC.
   distribuídos; o JavaFX, mais dependentes e repositórios; o *desktop*
   Java é menor que o Android em todas as medidas indiretas.
 - **Implementação** (2026-10-09): Formulário e Lista em três tecnologias,
-  `casos/<caso>/swing/`, `javafx/` e `javafx-fxml/`, num projeto Gradle
-  em `casos/desktop/`; desde 2026-10-13, em `casos/fora-da-analise/`, com
-  as instruções no `README.org` de lá. Decisões do
-  autor em 2026-10-09: as duas tarefas que conferem a web; testes de
-  conformidade sem capturas; o JavaFX em código e em FXML; o domínio do
-  Android, em Kotlin, pela JVM. Os testes de conformidade (19 verificações
-  no Formulário, 11 na Lista) passam nas seis, no Linux, com o JavaFX 27
-  na plataforma Headless.
+  `casos/<caso>/swing/`, `javafx/` e `javafx-fxml/`, num projeto Gradle em
+  `casos/desktop/`; desde 2026-10-13, em `casos/fora-da-analise/`, desde
+  2026-10-14, `implementacoes/fora-da-analise/`, com as instruções no
+  `README.org` de lá. Decisões do autor em 2026-10-09: as duas tarefas que
+  conferem a web; testes de conformidade sem capturas; o JavaFX em código
+  e em FXML; o domínio do Android, em Kotlin, pela JVM. Os testes de
+  conformidade (19 verificações no Formulário, 11 na Lista) passam nas
+  seis, no Linux, com o JavaFX 27 na plataforma Headless.
 - **Testes de conformidade sem AssertJ Swing nem TestFX**: cada tecnologia
   tem uma `Tela` de teste escrita à mão, com a mesma API das do Android,
   que acha os campos pelo rótulo e dispensa robô de mouse e teclado.
@@ -322,15 +322,16 @@ atualização granular, que é o que a pré-análise tem de mostrar.
 
 Formulário e Lista, em `casos/<caso>/qt-widgets/` e `casos/<caso>/qml/`,
 com o domínio em C++ em `casos/<caso>/dominio-cpp/` e um projeto CMake
-único em `casos/qt/`; desde 2026-10-13, em `casos/fora-da-analise/`, com
-a instalação no `README.org` de lá. Decisões do
-autor em 2026-10-09: as duas tarefas que conferem a web; testes de
-conformidade já, capturas só se o par entrar; o Qt Widgets monta a tela
-num `.ui` e coordena por `connect`, sem propriedades *bindable*; a QML
-guarda o estado nas próprias propriedades, com os derivados em
-*bindings*, e não num `QObject` com `NOTIFY`. Os testes de conformidade,
-em Qt Test, repetem as 19 e as 11 verificações dos testes da web, e
-passam nas quatro implementações com o Qt 6.10.2, no Linux.
+único em `casos/qt/`; desde 2026-10-13, em `casos/fora-da-analise/`, desde
+2026-10-14, `implementacoes/fora-da-analise/`, com a instalação no
+`README.org` de lá. Decisões do autor em 2026-10-09: as duas tarefas que
+conferem a web; testes de conformidade já, capturas só se o par entrar; o
+Qt Widgets monta a tela num `.ui` e coordena por `connect`, sem
+propriedades *bindable*; a QML guarda o estado nas próprias propriedades,
+com os derivados em *bindings*, e não num `QObject` com `NOTIFY`. Os
+testes de conformidade, em Qt Test, repetem as 19 e as 11 verificações dos
+testes da web, e passam nas quatro implementações com o Qt 6.10.2, no
+Linux.
 
 ### Pré-análise por problema de coordenação (2026-10-09)
 

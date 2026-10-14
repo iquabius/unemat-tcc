@@ -481,7 +481,7 @@ trabalho:
   programação (ADR 0029: a conclusão da terceira rodada é "no
   ecossistema típico");
 - tomar os comentários das implementações por notação secundária da
-  tecnologia: são de quem implementou, e o código de `casos/` foi escrito
-  com agentes (Co-Authored-By em quase todos os commits);
+  tecnologia: são de quem implementou, e o código de `implementacoes/` foi
+  escrito com agentes (Co-Authored-By em quase todos os commits);
 - ancoragem: o guia do agente que diz a conclusão antes da leitura do
   autor (decisão de 2026-10-13 na tcc-4a9, a pré-análise em duas etapas).

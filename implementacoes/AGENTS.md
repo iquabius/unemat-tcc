@@ -1,21 +1,22 @@
-# Instruções para agentes: exemplos do TCC (`casos/`)
+# Instruções para agentes: exemplos do TCC (`implementacoes/`)
 
-Cada caso é uma interface implementada em várias tecnologias, para comparação
-no TCC. As decisões de escopo (casos, tecnologias, Android) estão em
-`docs/adr/`; os termos, em `CONTEXT.md` na raiz; instalação e
-uso, em `casos/README.org`. O código que saiu da análise fica congelado em
-`casos/fora-da-analise/` (última seção).
+Cada caso é uma interface implementada em várias tecnologias, para
+comparação no TCC. As decisões de escopo (casos, tecnologias, Android)
+estão em `docs/adr/`; os termos, em `CONTEXT.md` na raiz; instalação e uso,
+em `implementacoes/README.org`. O código que saiu da análise fica congelado
+em `implementacoes/fora-da-analise/` (última seção).
 
 ## Conferir as capturas a cada alteração
 
-Toda alteração que possa mudar a tela ou o comportamento de um exemplo exige
-conferir as capturas antes de dar o trabalho por pronto ou commitar. Isso
-inclui o código de `casos/<caso>/<tecnologia>/`, o `estilo.css`, o
-`dominio.ts` e o `cenas.mts` de cada caso, o `casos/capturar.mts`, o projeto
-Gradle em `casos/android/` e as dependências (`package.json`,
-`package-lock.json`, `casos/android/gradle/libs.versions.toml`).
+Toda alteração que possa mudar a tela ou o comportamento de um exemplo
+exige conferir as capturas antes de dar o trabalho por pronto ou commitar.
+Isso inclui o código de `implementacoes/<caso>/<tecnologia>/`, o
+`estilo.css`, o `dominio.ts` e o `cenas.mts` de cada caso, o
+`implementacoes/capturar.mts`, o projeto Gradle em
+`implementacoes/android/` e as dependências (`package.json`,
+`package-lock.json`, `implementacoes/android/gradle/libs.versions.toml`).
 
-1. Rode, de `casos/`, onde está o `package.json` dos *workspaces*:
+1. Rode, de `implementacoes/`, onde está o `package.json` dos *workspaces*:
 
    ```sh
    npm run capturas -- --conferir <caso>
@@ -23,7 +24,8 @@ Gradle em `casos/android/` e as dependências (`package.json`,
 
    Sem `<caso>`, confere todos, web e Android. O comando não grava nada:
    compara as imagens geradas agora com as versionadas em
-   `casos/<caso>/capturas/` e sai com erro se alguma mudou, é nova ou sumiu.
+   `implementacoes/<caso>/capturas/` e sai com erro se alguma mudou, é nova
+   ou sumiu.
 2. Se a saída trouxer `AVISO: <caso>/<cena> (web) difere entre as
    tecnologias`, alguma implementação web foge da especificação do caso.
    Corrija antes de seguir: as implementações web de um caso devem gerar
@@ -47,16 +49,16 @@ Gradle em `casos/android/` e as dependências (`package.json`,
 
 ## Especificação: OpenSpec
 
-A especificação de cada tarefa é `casos/openspec/specs/<tarefa>/spec.md`,
-no esquema *spec-driven* do OpenSpec 1.14.1, fixado em `package.json`
-(ADR 0030). `<tarefa>` é o nome da pasta da tarefa em `casos/`
-(`formulario`, `busca-com-sugestoes`), a "capacidade" do OpenSpec. O
-`README.org` da tarefa fica com a apresentação (a origem, onde está o
-domínio, como rodar os testes) e aponta para o `spec.md`, sem repetir
-regra nem mensagem. O fluxo de agente do OpenSpec fica de fora: nada de
-`/opsx:*`, e `openspec init` ou `update` só com `--tools none`. Rode o CLI
-pelo `npm run openspec -- <comando>`, que desliga a telemetria; o
-`openspec` direto a envia.
+A especificação de cada tarefa é
+`implementacoes/openspec/specs/<tarefa>/spec.md`, no esquema *spec-driven*
+do OpenSpec 1.14.1, fixado em `package.json` (ADR 0030). `<tarefa>` é o
+nome da pasta da tarefa em `implementacoes/` (`formulario`,
+`busca-com-sugestoes`), a "capacidade" do OpenSpec. O `README.org` da
+tarefa fica com a apresentação (a origem, onde está o domínio, como rodar
+os testes) e aponta para o `spec.md`, sem repetir regra nem mensagem. O
+fluxo de agente do OpenSpec fica de fora: nada de `/opsx:*`, e `openspec
+init` ou `update` só com `--tools none`. Rode o CLI pelo `npm run openspec
+-- <comando>`, que desliga a telemetria; o `openspec` direto a envia.
 
 ### Formato
 
@@ -81,12 +83,12 @@ pelo `npm run openspec -- <comando>`, que desliga a telemetria; o
   do requisito que a usa, ou ganha verificação.
 - Cenário não é cena: a cena é um estado a capturar (`cenas.mts`).
 
-`npm run conferir-especificacao`, de `casos/`, roda o `openspec validate
---all` e confere, em todo arquivo de `casos/<tarefa>/` que chama
-`conferir(...)`, que os nomes das verificações são os dos cenários da
-especificação viva, na ordem do teste da web; o de
-`casos/fora-da-analise/` não é conferido. Rode-o antes de cada commit que
-mexa numa especificação ou num teste de conformidade.
+`npm run conferir-especificacao`, de `implementacoes/`, roda o `openspec
+validate --all` e confere, em todo arquivo de `implementacoes/<tarefa>/`
+que chama `conferir(...)`, que os nomes das verificações são os dos
+cenários da especificação viva, na ordem do teste da web; o de
+`implementacoes/fora-da-analise/` não é conferido. Rode-o antes de cada
+commit que mexa numa especificação ou num teste de conformidade.
 
 ### Tarefa nova
 
@@ -100,7 +102,7 @@ O Login, o Quadro, os Dados ao vivo e outra que vier entram como mudança
 2. Commit da proposta, que o autor revisa.
 3. Um commit com o `dominio.ts`, o teste de conformidade da web (um
    `conferir` por cenário), o `README.org` da tarefa e o arquivamento, que
-   cria `casos/openspec/specs/<tarefa>/spec.md`; troque o título que o
+   cria `implementacoes/openspec/specs/<tarefa>/spec.md`; troque o título que o
    `archive` escreve (`# <tarefa> Specification`) pelo nome da tarefa.
 4. Um commit por tecnologia, com cenas e capturas (seção acima).
 
@@ -113,7 +115,7 @@ orquestração da P2.
 
 1. `npm run openspec -- new change <nome>`, com o nome em português, em
    *kebab-case*, verbo e objeto (`tirar-espera-da-busca`). Na pasta
-   `casos/openspec/changes/<nome>/`:
+   `implementacoes/openspec/changes/<nome>/`:
    - `proposal.md`: o porquê, com o ADR de origem; o que muda; a tarefa
      modificada, em `### Modified Capabilities`; o impacto, com as
      tecnologias, os arquivos da tarefa que citam a regra (como o
@@ -131,9 +133,9 @@ orquestração da P2.
    - sem `design.md`: decisão de método vai para um ADR.
 2. `npm run conferir-especificacao` e commit da proposta, que o autor
    revisa antes do resto.
-3. Um commit que muda o teste de conformidade em todas as plataformas que
-   o têm em `casos/<tarefa>/`, e os arquivos da tarefa que citam a regra,
-   e arquiva a mudança: `npm run openspec -- archive <nome> --yes`
+3. Um commit que muda o teste de conformidade em todas as plataformas que o
+   têm em `implementacoes/<tarefa>/`, e os arquivos da tarefa que citam a
+   regra, e arquiva a mudança: `npm run openspec -- archive <nome> --yes`
    funde o delta em `specs/` e move a pasta para
    `changes/archive/AAAA-MM-DD-<nome>/`. Assim a especificação viva diz
    sempre o que os testes conferem, e as implementações ainda não mudadas
@@ -141,12 +143,13 @@ orquestração da P2.
 4. Um commit por tecnologia, na mesma ordem em todas (ADR 0029), cada um
    passando no teste de conformidade e com as capturas conferidas.
 
-A mudança não se porta para o código da tarefa em `casos/fora-da-analise/`
-(decisões do autor em 2026-10-12 e 2026-10-13).
+A mudança não se porta para o código da tarefa em
+`implementacoes/fora-da-analise/` (decisões do autor em 2026-10-12 e
+2026-10-13).
 
 ## Exemplo ou caso novo
 
-- Cada tarefa tem a especificação em `casos/openspec/specs/<tarefa>/`
+- Cada tarefa tem a especificação em `implementacoes/openspec/specs/<tarefa>/`
   (seção acima) e um `README.org` com a apresentação. Regras de domínio
   compartilhadas pelas implementações web ficam num `dominio.ts` da
   tarefa.
@@ -164,9 +167,9 @@ A mudança não se porta para o código da tarefa em `casos/fora-da-analise/`
   traz. O Angular é o `angular-signals` (ADR 0013), que espelha o Solid
   (`signal`, `computed`, `effect`, `resource`, sem RxJS nem formulários do
   Angular); o `angular-rxjs`, de apoio, com RxJS e Reactive Forms de
-  propósito, ficou congelado em `casos/fora-da-analise/`.
+  propósito, ficou congelado em `implementacoes/fora-da-analise/`.
 - O Lit (ADR 0013: Formulário, Busca e Dados ao vivo) fica em
-  `casos/<tarefa>/lit/`, com o Lit 3 e o *template* `html`, sem
+  `implementacoes/<tarefa>/lit/`, com o Lit 3 e o *template* `html`, sem
   `@lit-labs/signals` nem `@lit/task`. Escreve-se como o Web Component da
   tarefa, para o par isolar a ligação do estado com a tela: os mesmos
   elementos e classes, `createRenderRoot()` devolvendo `this` (sem *shadow
@@ -225,17 +228,17 @@ Playwright nem biblioteca.
 
 ## Formatação
 
-Todo o código de `casos/`, menos o que a lista de exclusões abaixo deixa de
-fora, passa pelo formatador da plataforma, com 80 colunas
-(`casos/.editorconfig`) e o resto no padrão da ferramenta, salvo no XML
-(tcc-6wha, 2026-10-12). Duas razões: a contagem de linhas da concisão e o
-diff da P2 (ADRs 0012 e 0029) não podem depender de como o código foi
-quebrado à mão, e 80 colunas cabem numa coluna do PDF em 8 pt.
+Todo o código de `implementacoes/`, menos o que a lista de exclusões abaixo
+deixa de fora, passa pelo formatador da plataforma, com 80 colunas
+(`implementacoes/.editorconfig`) e o resto no padrão da ferramenta, salvo
+no XML (tcc-6wha, 2026-10-12). Duas razões: a contagem de linhas da
+concisão e o diff da P2 (ADRs 0012 e 0029) não podem depender de como o
+código foi quebrado à mão, e 80 colunas cabem numa coluna do PDF em 8 pt.
 
 - Web (TS, TSX, HTML, CSS, JSON): Prettier 3.9.10, fixado em
-  `casos/package.json`. O HTML do Web Component, num *template literal*,
-  leva o comentário `/* HTML */` antes da crase, a marca com que o
-  Prettier o reconhece e formata, como o *template* do Angular e o `html`
+  `implementacoes/package.json`. O HTML do Web Component, num *template
+  literal*, leva o comentário `/* HTML */` antes da crase, a marca com que
+  o Prettier o reconhece e formata, como o *template* do Angular e o `html`
   do Lit, inclusive o *template* aninhado num `${...}`. O Prettier só
   formata a expressão de um `${...}` escrita em mais de uma linha: se ela
   passar de 80 colunas, quebre-a uma vez dentro do `${...}`.
@@ -243,14 +246,16 @@ quebrado à mão, e 80 colunas cabem numa coluna do PDF em 8 pt.
   três exceções ao padrão, que imitam o Android Studio: recuo de 4, um
   atributo por linha e o fim da tag na linha do último atributo.
 - Kotlin (`.kt` e `.kts` do Android e dos `dominio-kotlin`): ktfmt 0.64 com
-  `--kotlinlang-style`, fixado em `casos/android/gradle/libs.versions.toml`
-  e rodado pela tarefa `formatarKotlin` do Gradle.
+  `--kotlinlang-style`, fixado em
+  `implementacoes/android/gradle/libs.versions.toml` e rodado pela tarefa
+  `formatarKotlin` do Gradle.
 - C# e XAML (Windows Forms e WPF): CSharpier, com a mesma largura, a
   instalar e fixar com o primeiro código do desktop (tcc-74m).
-- Ficam de fora `casos/fora-da-analise/` e os documentos
-  (`casos/.prettierignore` e o `build.gradle.kts` de `casos/android/`).
+- Ficam de fora `implementacoes/fora-da-analise/` e os documentos
+  (`implementacoes/.prettierignore` e o `build.gradle.kts` de
+  `implementacoes/android/`).
 
-De `casos/`, `npm run formatar` formata tudo, e `npm run
+De `implementacoes/`, `npm run formatar` formata tudo, e `npm run
 conferir-formatacao` falha se algum arquivo estiver fora do padrão. Rode o
 `formatar` antes de cada commit de código. Uma mudança que é só de
 formatação vai num commit à parte, sem lógica, com as capturas
@@ -259,21 +264,22 @@ conferidas.
 ## Android (Kotlin)
 
 - Tarefas no Android: o Formulário com validação, em
-  `casos/<tarefa>/android-views/` (Views clássico: *listeners*, estado na
-  `Activity`) e `casos/<tarefa>/android-compose/` (Jetpack Compose). Os
-  dois em Kotlin.
-- Um único projeto Gradle em `casos/android/`: o `settings.gradle.kts`
+  `implementacoes/<tarefa>/android-views/` (Views clássico: *listeners*,
+  estado na `Activity`) e `implementacoes/<tarefa>/android-compose/`
+  (Jetpack Compose). Os dois em Kotlin.
+- Um único projeto Gradle em `implementacoes/android/`: o `settings.gradle.kts`
   inclui sozinho toda pasta `android-views` ou `android-compose` que tenha
   `build.gradle.kts`, com o nome `:<caso>-<tecnologia>`. O
   `build.gradle.kts` da raiz traz a configuração comum; o de cada módulo,
   só plugins, `namespace` e dependências.
 - Mesma especificação do `spec.md` da tarefa: mesmos textos, mensagens,
   regras e dados. Regras do `dominio.ts` portadas para Kotlin com o mesmo
-  comportamento, em `casos/<caso>/dominio-kotlin/main/Dominio.kt` (pacote
-  `tcc.<caso>`), com os mesmos nomes de funções. O `build.gradle.kts` da
-  raiz inclui essa pasta nas duas tecnologias quando ela existe; os testes do
-  porte e as regras JUnit do caso (como a `DataFixa`, que fixa "hoje" em
-  26/09/2026) ficam em `dominio-kotlin/test/`.
+  comportamento, em `implementacoes/<caso>/dominio-kotlin/main/Dominio.kt`
+  (pacote `tcc.<caso>`), com os mesmos nomes de funções. O
+  `build.gradle.kts` da raiz inclui essa pasta nas duas tecnologias quando
+  ela existe; os testes do porte e as regras JUnit do caso (como a
+  `DataFixa`, que fixa "hoje" em 26/09/2026) ficam em
+  `dominio-kotlin/test/`.
 - O leitor conhece React, não Kotlin: comentários curtos em português que
   apontem o equivalente nas implementações web (como o `useState`, como o
   `addEventListener`).
@@ -296,7 +302,7 @@ conferidas.
 - As cenas ficam em `src/test/.../CenasTest.kt` de cada módulo (Robolectric
   e Roborazzi, sem emulador), com os mesmos nomes do `cenas.mts` do caso.
   Cada cena termina com `capturar("<cena>")`, e a classe usa a regra
-  `SemAnimacoes()` (ambos em `casos/android/captura/Captura.kt`). No
+  `SemAnimacoes()` (ambos em `implementacoes/android/captura/Captura.kt`). No
   Compose, chame `regra.waitForIdle()` antes de capturar.
 - Quando a tarefa tem `teste-de-conformidade.js`, as mesmas verificações
   vão para `TesteDeConformidade.kt` em cada tecnologia, na mesma ordem e
@@ -315,21 +321,22 @@ conferidas.
   fez o teste seguinte capturar a tela anterior à mudança; sem foco, as
   imagens saem certas (e sem cursor, como na web).
 - Para rodar num emulador ou abrir no Android Studio, use a pasta
-  `casos/android/`.
+  `implementacoes/android/`.
 
 ## Ambiente
 
 - Node e JDK pelo asdf, nas versões do `.tool-versions` da raiz. Se `node`
   ou `java` não estiverem no `PATH`, use `~/.asdf/shims`.
-- Android SDK em `~/Android/Sdk`, apontado por `casos/android/local.properties`
-  (`sdk.dir=...`, não versionado; o Android Studio cria sozinho). Licenças
-  do SDK são aceitas pelo usuário, nunca pelo agente: se o Gradle pedir um
-  pacote novo, diga o comando `sdkmanager` e peça que ele rode.
+- Android SDK em `~/Android/Sdk`, apontado por
+  `implementacoes/android/local.properties` (`sdk.dir=...`, não versionado;
+  o Android Studio cria sozinho). Licenças do SDK são aceitas pelo usuário,
+  nunca pelo agente: se o Gradle pedir um pacote novo, diga o comando
+  `sdkmanager` e peça que ele rode.
 - Na primeira vez, `npx playwright install chromium-headless-shell`.
 
 ## Fora da análise
 
-`casos/fora-da-analise/` guarda, com a estrutura de `casos/`
+`implementacoes/fora-da-analise/` guarda, com a estrutura de `implementacoes/`
 (`<tarefa>/<tecnologia>/`), o código que saiu da análise: o Contador, a
 Lista filtrável e o Carrinho (ADR 0002), o jQuery e o Angular com RxJS
 (ADR 0013), os pares de desktop Swing × JavaFX e Qt Widgets × QML (ADR

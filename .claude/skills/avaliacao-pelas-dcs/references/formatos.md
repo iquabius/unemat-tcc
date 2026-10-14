@@ -1,11 +1,13 @@
 # Modelos do plano, do guia e da revisão
 
 Os três arquivos ficam em `docs/avaliacao/<rodada>-<tarefa>/`
-(`primeira-rodada-formulario`, `segunda-rodada-busca`, `terceira-rodada-formulario`), versionados, cada um no
-seu commit (SKILL.md, regra 5; a tarefa fora da análise fica em `tmp/`, regra 6). Como toda nota de `docs/`, cada um diz o
-tipo na primeira linha depois do título, e abre com a tarefa, a rodada,
-o sha de `casos/` lido e a data. Markdown que se lê no celular: títulos
-curtos, listas, trechos de até umas 8 linhas.
+(`primeira-rodada-formulario`, `segunda-rodada-busca`,
+`terceira-rodada-formulario`), versionados, cada um no seu commit
+(SKILL.md, regra 5; a tarefa fora da análise fica em `tmp/`, regra 6).
+Como toda nota de `docs/`, cada um diz o tipo na primeira linha depois
+do título, e abre com a tarefa, a rodada, o sha de `implementacoes/`
+lido e a data. Markdown que se lê no celular: títulos curtos, listas,
+trechos de até umas 8 linhas.
 
 ## plano.md
 
@@ -58,7 +60,7 @@ Guia de leitura do agente, entregue antes da leitura do autor (skill
 conclusão: as perguntas são para o autor responder ao ditar. Atividade:
 <a da rodada>.
 
-Arquivos, a partir de `casos/<tarefa>/`:
+Arquivos, a partir de `implementacoes/<tarefa>/`:
 - `WC.ts` = `web-component/src/main.ts`
 - `Views.kt` = `android-views/.../MainActivity.kt`
 - `Views.xml` = `android-views/.../activity_main.xml`

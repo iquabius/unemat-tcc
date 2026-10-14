@@ -22,9 +22,9 @@ quadro mora, como mover e arquivar o alteram, no lugar ou por cópia
 salvar.
 
 As regras, as mensagens e os cenários que o teste de conformidade confere
-estão em =casos/openspec/specs/quadro-de-tarefas/spec.md=, a especificação
-viva (OpenSpec); uma mudança entra como /delta spec/ em
-=casos/openspec/changes/= (=casos/AGENTS.md=).
+estão em =implementacoes/openspec/specs/quadro-de-tarefas/spec.md=, a
+especificação viva (OpenSpec); uma mudança entra como /delta spec/ em
+=implementacoes/openspec/changes/= (=implementacoes/AGENTS.md=).
 
 * Teste
 

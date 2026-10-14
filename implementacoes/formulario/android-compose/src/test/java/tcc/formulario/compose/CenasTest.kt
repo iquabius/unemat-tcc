@@ -11,8 +11,8 @@ import tcc.captura.capturar
 import tcc.formulario.DataFixa
 import tcc.formulario.TipoDeVoo
 
-// Mesmas cenas de casos/formulario/cenas.mts. A tela tem 416dp de largura
-// para a coluna ficar com os 384dp do max-width da web.
+// Mesmas cenas de implementacoes/formulario/cenas.mts. A tela tem 416dp de
+// largura para a coluna ficar com os 384dp do max-width da web.
 @RunWith(AndroidJUnit4::class)
 @Config(qualifiers = "w416dp-h560dp-xhdpi")
 class CenasTest {

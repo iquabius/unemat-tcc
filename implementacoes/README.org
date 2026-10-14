@@ -1,11 +1,11 @@
 #+TITLE: Casos: implementações dos exemplos
 
 Cada caso tem uma pasta, e cada tecnologia uma subpasta:
-=casos/<caso>/<tecnologia>/=. Cada subpasta é um projeto completo, com o
-próprio =package.json=, e pode ser lida sozinha. O escopo (casos e
-tecnologias) está nas decisões em [[file:../docs/adr/][docs/adr/]].
-O código que saiu da análise (o Contador, a Lista filtrável, o Carrinho,
-o jQuery, o Angular com RxJS, os pares de desktop em Java e no Qt e o
+=implementacoes/<caso>/<tecnologia>/=. Cada subpasta é um projeto completo,
+com o próprio =package.json=, e pode ser lida sozinha. O escopo (casos e
+tecnologias) está nas decisões em [[file:../docs/adr/][docs/adr/]]. O
+código que saiu da análise (o Contador, a Lista filtrável, o Carrinho, o
+jQuery, o Angular com RxJS, os pares de desktop em Java e no Qt e o
 cronômetro de 2017) fica congelado em
 [[file:fora-da-analise/README.org][fora-da-analise/]], fora dos comandos
 abaixo.
@@ -27,9 +27,10 @@ abaixo.
 * Instalar e rodar (web)
 
   Os projetos web são /workspaces/ do npm, todos em TypeScript: um único
-  =npm install= em =casos/=, onde está o =package.json= dos /workspaces/,
-  instala todos. Os comandos =npm= abaixo rodam de =casos/=. O =build= confere os tipos com =tsc=
-  antes de empacotar.
+  =npm install= em =implementacoes/=, onde está o =package.json= dos
+  /workspaces/, instala todos. Os comandos =npm= abaixo rodam de
+  =implementacoes/=. O =build= confere os tipos com =tsc= antes de
+  empacotar.
 
   #+begin_src sh
   npm install
@@ -57,24 +58,24 @@ abaixo.
   | =android-views=    | Views clássico: /listeners/, estado na =Activity= |
   | =android-compose=  | Jetpack Compose                                    |
 
-  Todos formam um único projeto Gradle, com raiz em =casos/android/=, onde
-  ficam o /wrapper/ e as versões (=gradle/libs.versions.toml=). Cada
-  subpasta é um módulo, chamado =:<caso>-<tecnologia>= (por exemplo,
-  =:formulario-android-compose=).
+  Todos formam um único projeto Gradle, com raiz em
+  =implementacoes/android/=, onde ficam o /wrapper/ e as versões
+  (=gradle/libs.versions.toml=). Cada subpasta é um módulo, chamado
+  =:<caso>-<tecnologia>= (por exemplo, =:formulario-android-compose=).
 
   Precisa do Android SDK (o Android Studio o instala em =~/Android/Sdk=),
   com a plataforma =android-37= e as /build-tools/ 36.0.0. Para compilar
-  pela linha de comando, crie =casos/android/local.properties= (não é
+  pela linha de comando, crie =implementacoes/android/local.properties= (não é
   versionado; o Android Studio o cria ao abrir o projeto):
 
   #+begin_src sh
-  echo "sdk.dir=$HOME/Android/Sdk" > casos/android/local.properties
-  cd casos/android
+  echo "sdk.dir=$HOME/Android/Sdk" > implementacoes/android/local.properties
+  cd implementacoes/android
   ./gradlew assembleDebug                                   # todos os APKs
   ./gradlew :formulario-android-compose:installDebug         # instala no emulador
   #+end_src
 
-  No Android Studio, abra a pasta =casos/android/=.
+  No Android Studio, abra a pasta =implementacoes/android/=.
 
   | Peça              | Versão     | Por quê                                           |
   |-------------------+------------+---------------------------------------------------|
@@ -92,10 +93,11 @@ abaixo.
 
 * Capturas de tela
 
-  Cada caso guarda capturas versionadas em =casos/<caso>/capturas/=, uma
-  por tecnologia e cena (=react-inicial.png=, =android-compose-erros.png=...). Ao
-  criar ou alterar um exemplo, gere-as de novo e inclua no mesmo commit:
-  o =git diff= mostra o que mudou na tela.
+  Cada caso guarda capturas versionadas em
+  =implementacoes/<caso>/capturas/=, uma por tecnologia e cena
+  (=react-inicial.png=, =android-compose-erros.png=...). Ao criar ou
+  alterar um exemplo, gere-as de novo e inclua no mesmo commit: o =git
+  diff= mostra o que mudou na tela.
 
   #+begin_src sh
   npx playwright install chromium-headless-shell   # só na primeira vez
@@ -111,12 +113,13 @@ abaixo.
   erro se houver alguma. Rode antes de commitar uma alteração num exemplo:
   se algo mudou de propósito, regenere; se não, é regressão.
 
-  As cenas de cada caso ficam em =casos/<caso>/cenas.mts= (ações do
-  Playwright antes da captura); sem ele, só o estado inicial é capturado.
-  O /script/ ([[file:capturar.mts][casos/capturar.mts]]) faz o /build/, serve o resultado, fixa a
-  data em 26/09/2026 (para "hoje" não mudar a imagem) e, no fim, avisa se
-  a mesma cena saiu diferente entre as tecnologias web de um caso, o que
-  indica que alguma implementação foge da especificação.
+  As cenas de cada caso ficam em =implementacoes/<caso>/cenas.mts= (ações
+  do Playwright antes da captura); sem ele, só o estado inicial é
+  capturado. O /script/
+  ([[file:capturar.mts][implementacoes/capturar.mts]]) faz o /build/, serve
+  o resultado, fixa a data em 26/09/2026 (para "hoje" não mudar a imagem)
+  e, no fim, avisa se a mesma cena saiu diferente entre as tecnologias web
+  de um caso, o que indica que alguma implementação foge da especificação.
 
   No Android, as mesmas cenas ficam nos testes de cada módulo
   (=src/test/.../CenasTest.kt=). O /script/ roda esses testes pelo Gradle
@@ -130,8 +133,9 @@ abaixo.
   testes: o efeito de toque (/ripple/) tem um brilho que mudaria a imagem a
   cada execução.
 
-  Agentes de código seguem essas regras pelo [[file:AGENTS.md][casos/AGENTS.md]] (o
-  =CLAUDE.md= ao lado é um /symlink/ para ele).
+  Agentes de código seguem essas regras pelo
+  [[file:AGENTS.md][implementacoes/AGENTS.md]] (o =CLAUDE.md= ao lado é um
+  /symlink/ para ele).
 
   As imagens web dependem das fontes instaladas: geradas noutra máquina,
   podem mudar sem que o código tenha mudado. As do Android usam as fontes
@@ -140,13 +144,14 @@ abaixo.
 * Especificação das tarefas (OpenSpec)
 
   A especificação de cada tarefa fica em
-  =casos/openspec/specs/<tarefa>/spec.md=, no esquema /spec-driven/ do
-  [[https://openspec.dev][OpenSpec]] (1.14.1, fixado em =package.json=): requisitos e cenários,
-  em português, com os cabeçalhos que o OpenSpec lê em inglês. Cada
-  mudança na especificação é uma pasta em =casos/openspec/changes/=, com a
-  proposta e o /delta spec/; arquivada, ela se funde na especificação viva
-  e vai para =changes/archive/=. A convenção está no
-  [[file:AGENTS.md][casos/AGENTS.md]].
+  =implementacoes/openspec/specs/<tarefa>/spec.md=, no esquema
+  /spec-driven/ do [[https://openspec.dev][OpenSpec]] (1.14.1, fixado em
+  =package.json=): requisitos e cenários, em português, com os cabeçalhos
+  que o OpenSpec lê em inglês. Cada mudança na especificação é uma pasta em
+  =implementacoes/openspec/changes/=, com a proposta e o /delta spec/;
+  arquivada, ela se funde na especificação viva e vai para
+  =changes/archive/=. A convenção está no
+  [[file:AGENTS.md][implementacoes/AGENTS.md]].
 
   #+begin_src sh
   npm run conferir-especificacao          # validate e cenários × testes

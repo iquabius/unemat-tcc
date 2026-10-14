@@ -1,5 +1,5 @@
 {
-  "name": "casos-tcc",
+  "name": "implementacoes-tcc",
   "private": true,
   "description": "Exemplos de interfaces gráficas do TCC, um projeto por caso e tecnologia",
   "workspaces": [

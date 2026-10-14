@@ -1,4 +1,5 @@
-# Saídas de build e dependências (o Prettier só lê o .gitignore de casos/).
+# Saídas de build e dependências (o Prettier só lê o .gitignore de
+# implementacoes/).
 node_modules/
 dist/
 .angular/

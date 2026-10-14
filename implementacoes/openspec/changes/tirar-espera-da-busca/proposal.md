@@ -29,13 +29,13 @@ Nenhuma.
 
 ## Impact
 
-- `casos/busca-com-sugestoes/`: o teste de conformidade da web, o
+- `implementacoes/busca-com-sugestoes/`: o teste de conformidade da web, o
   `README.org`, que apresenta a tarefa como "esperar o usuário parar de
   digitar", o `cenas.mts` e as capturas.
 - As implementações web da Busca: Web Component, React, Solid e Angular com
   *signals*, para as capturas continuarem idênticas. No React, sai o estado
   que só existe por causa da espera. O jQuery e o Angular com RxJS, em
-  `casos/fora-da-analise/`, ficam com a espera.
+  `implementacoes/fora-da-analise/`, ficam com a espera.
 - O Lit nasce sem a espera (tcc-9f0k).
 - Tarefa do bd: tcc-z2jq. A espera volta na P2 (tcc-nt0b), como requisito
   acrescentado.
