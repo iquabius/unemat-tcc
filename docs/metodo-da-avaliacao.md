@@ -383,8 +383,8 @@ outra paginação) e `blackwell2003-notational-systems-...pdf` (p. 103-133;
 |---|---|---|---|
 | Blackwell e Green 2003 | os passos: "Get to know your system"; "Decide what the user will be doing with the notation"; "Choose some representative tasks"; para cada passo de cada tarefa, perguntar por todas as dimensões, o que gera "an observed profile"; comparar com o perfil ideal da atividade | p. 107-108 | o plano da rodada (passo 1) |
 | idem | a avaliação "em poucas palavras": "classifying the intended activities, analyzing the cognitive dimensions, and deciding whether the requirements of the activities are met" | p. 112 | idem |
-| idem | seis atividades (tabela 5.1); a busca é "hunting for a known target, such as where a function is called", e a compreensão exploratória, "discovering structure or algorithm" | p. 113 | a atividade da P1 (busca e compreensão) e da P2 e P3 (modificação) |
-| Green e Blackwell 1998 | a figura 19, "desirable profiles of dimensions for each of the types of user activity", cobre só seis dimensões e quatro atividades (transcrição, incrementação, modificação, exploração); na modificação, viscosidade e dependências ocultas "harmful", visibilidade "important" | p. 42 | não há perfil publicado para a busca nem para a compreensão exploratória: a P1 não tem perfil ideal a comparar |
+| idem | seis atividades (tabela 5.1); a busca é "hunting for a known target, such as where a function is called", e a compreensão exploratória, "discovering structure or algorithm" | p. 113 | a atividade da primeira rodada (busca e compreensão) e da segunda e da terceira (modificação) |
+| Green e Blackwell 1998 | a figura 19, "desirable profiles of dimensions for each of the types of user activity", cobre só seis dimensões e quatro atividades (transcrição, incrementação, modificação, exploração); na modificação, viscosidade e dependências ocultas "harmful", visibilidade "important" | p. 42 | não há perfil publicado para a busca nem para a compreensão exploratória: a primeira rodada não tem perfil ideal a comparar |
 | Kiss 2014 | critério da boa solução fixado antes do código: "A good solution will have very minimal scaffolding" | p. 17 | a pergunta de cada problema de coordenação, antes da leitura |
 | idem | "this first evaluation is focused on the very basics", para que as seguintes "do not have to repeat these basic observations" | p. 18 | o Contador como primeira leitura |
 | idem | "We concentrate on the behavior related code as the layout and initialization code is in essence similar" | p. 22 | ler a coordenação; a montagem da tela só onde difere |
@@ -392,7 +392,7 @@ outra paginação) e `blackwell2003-notational-systems-...pdf` (p. 103-133;
 | idem | o "system" é "the amalgamation of paradigm, language, toolkit and IDE" | p. 12, nota 2 | atribuir cada achado: coordenação, montagem, ligação, ou fora da notação |
 | idem | "pretend to have a mostly ideal integration [...] to focus more on conceptual differences" | p. 62 | não fazer: o TCC registra a integração como ela é |
 | idem | as dimensões deram "a stable platform for discussion" | p. 103 | método |
-| Green e Petre 1996 | o teste de viscosidade: a mudança preparada antes e dada a "an experienced user the original program" com o resultado, medindo o tempo de edição | p. 162 | o diff de cada mudança da P2 |
+| Green e Petre 1996 | o teste de viscosidade: a mudança preparada antes e dada a "an experienced user the original program" com o resultado, medindo o tempo de edição | p. 162 | o diff de cada mudança da segunda rodada |
 | Bayrak, Ocker e Vogel-Heuser 2017 | viscosidade de repetição medida como "the length of the minimal action sequence for a program modification"; a de efeito dominó "is harder to examine" | p. 467 | a contagem de trechos do diff, com a regra do menor diff |
 | Clarke 2004 (Dr. Dobb's, espelho sem paginação) | "You can use the framework to analyze a set of code samples before the API has even been implemented"; para o cenário, "we ask a set of questions for each dimension", como "When reading code that uses the API, is it easy to tell what each section of code does? Why?" | sem página | a pergunta de cada DC presa ao trecho, no guia |
 | idem | o que interessa é "the comparison between what developers expect and what the API provides"; alguns achados "require a better understanding of what users expect" | sem página | limite da leitura sem usuários |
@@ -475,8 +475,9 @@ trabalho:
 - atribuir a uma DC uma diferença sem sinal escrito (ADR 0021);
 - medir a tarefa em vez da notação, como contar dependências que a
   especificação impõe a todas as tecnologias;
-- misturar na P3 o efeito da biblioteca com o do modelo de programação
-  (ADR 0029: a conclusão da P3 é "no ecossistema típico");
+- misturar na terceira rodada o efeito da biblioteca com o do modelo de
+  programação (ADR 0029: a conclusão da terceira rodada é "no
+  ecossistema típico");
 - tomar os comentários das implementações por notação secundária da
   tecnologia: são de quem implementou, e o código de `casos/` foi escrito
   com agentes (Co-Authored-By em quase todos os commits);
