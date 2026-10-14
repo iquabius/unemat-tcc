@@ -213,7 +213,7 @@ Formato:
 ** bainomugisha2013, p. 1-2
 - Frase: “A PR serve às aplicações orientadas a eventos e interativas e
   leva às linguagens de programação o modelo das planilhas eletrônicas, em
-  que mudar o valor de uma célula recalcula as fórmulas que dependem dela
+  que alterar o valor de uma célula recalcula as fórmulas que dependem dela
   (Bainomugisha et al., 2013, p. 1-2).”
 - Trecho: “Reactive programming has recently gained popularity as a
   paradigm that is well-suited for developing event-driven and
@@ -290,50 +290,132 @@ Formato:
   publicada = 1124 + página do PDF).
 - Conferido: 2026-10-09.
 
-* §21 [[file:../intro.org::O Contador, o Formulário e a Lista adaptam][O Contador, o Formulário e a Lista adaptam]]
-** kiss2014, p. 11, 17, 25 e 34
-- Frase: “O Contador, o Formulário e a Lista adaptam o /Counter/, o
-  /Flight Booker/ e o /CRUD/, três das sete tarefas do 7GUIs, de Kiss
-  (2014, p. 17, 25 e 34). A Busca e o Carrinho não têm equivalente no
-  7GUIs.”
+* §20 [[file:../intro.org::A orquestração pesa mais na Busca][A orquestração pesa mais na Busca]]
+** kiss2014, p. 11 e 25
+- Frase: “O Formulário adapta o /Flight Booker/, uma das sete tarefas do
+  7GUIs, de Kiss (2014, p. 11 e 25), e acrescenta os campos de nome e de
+  e-mail.”
 - Trecho: “seven case studies in increasing complexity are presented”
-  (p. 11); sumário: “3.3 Counter … 17”, “3.5 Flight Booker … 25”, “3.7
-  Crud … 34”; o nome 7GUIs é o do repositório da dissertação, “The
-  repository containing all the code listings can be found at the
-  following URL: https://github.com/eugenkiss/7guis” (Apêndice A, p. 114,
-  p. 120 do PDF).
+  (p. 11); sumário: “3.5 Flight Booker … 25”; o nome 7GUIs é o do
+  repositório da dissertação, “https://github.com/eugenkiss/7guis”
+  (Apêndice A, p. 114, p. 120 do PDF).
 - Lido em: =tmp/fontes/kiss2014.pdf=, p. 17 do PDF para a p. 11 impressa.
-- Observação: “sete” vem da p. 11, que o texto não cita.
-- Conferido: 2026-10-06.
+- Observação: até 2026-10-13, o Contador e a Lista adaptavam também o
+  /Counter/ (p. 17) e o /CRUD/ (p. 34); saíram da análise (ADR 0002).
+- Conferido: 2026-10-06; de novo em 2026-10-13.
+** berry2020, p. 534
+- Frase: “O Login segue o painel de Berry e Serrano (2020, p. 534)”.
+- Trecho: “We introduce HipHop.js with a simple login panel as used by
+  many web applications. When both the user name and password are filled
+  with at least two characters, a login button is activated.” (p. 534)
+- Lido em: =tmp/fontes/berry2020.pdf=, p. 2 do PDF (p. 534).
+- Observação: a quarentena é o “Login Panel 2.0” da p. 539 e entra na rodada da P2
+  (ADR 0029); o nome da tarefa já a traz.
+- Conferido: 2026-10-13.
+** meijer2012, p. 66
+- Frase: “e os Dados ao vivo, as cotações que uma fonte empurra aos
+  clientes, em Meijer (2012, p. 66).”
+- Trecho: “source asynchronously pushing data to its clients”; “push-based
+  streams of stock quotes” (p. 66)
+- Lido em: =tmp/fontes/meijer2012-cacm.pdf=, p. 1 do PDF (p. 66).
+- Conferido: 2026-10-13.
 
-* §28 [[file:../intro.org::A avaliação usa oito][A avaliação usa oito das catorze]]
-** kiss2014, p. 15
-- Frase: “As outras duas, /expressividade/ e /operações mentais difíceis/,
-  vêm do grupo de cinco que Kiss (2014, p. 15) deixou de fora e que, a seu
-  ver, teria sido útil se as linguagens e os /toolkits/ comparados fossem
-  muito mais diferentes […]. Também ficam de fora, como em Kiss (2014,
-  p. 15), as três que tratam das ferramentas e do processo de escrita, a
-  visibilidade, a análise progressiva e a provisoriedade, porque o objeto
-  da avaliação é o código pronto.”
-- Trecho: “The other dimensions from CDs that were considered but
-  ultimately did not bring much weight were: Premature Commitment […] Role
-  Expressiveness […] Consistency […] Hard Mental Operations […] Secondary
-  Notation […]. If the languages and toolkits were much more different than
-  in our case the above dimensions would probably have been useful as well.
-  If we had focused more on the tooling and the process of the creation of
-  our case studies than on a comparison of the end results the following
-  remaining dimensions would have probably been useful: Visibility […]
-  Progressive Evaluation […] Provisionality”
-- Lido em: =tmp/fontes/kiss2014.pdf=, p. 21 do PDF.
-- Observação: as três de ferramenta e processo são todas as que Kiss lista
-  ali, e não exemplos; por isso o “como” saiu.
-- Conferido: 2026-10-06.
+* §21 [[file:../intro.org::Na web, Web Component, React e Solid][Na web, Web Component, React e Solid]]
+** mozilla2026 (escolha do Web Component)
+- Frase: “O imperativo com /callbacks/ entra com o Web Component, a forma
+  do próprio navegador de criar elementos personalizados (Mozilla, 2026).”
+- Trecho: “custom elements: that is, HTML elements whose behavior is
+  defined by the web developer, that extend the set of elements available
+  in the browser.”; “This class will not be called by you, but will be
+  called by the browser.”
+- Lido em: =tmp/fontes/mozilla2026.txt=, l. 7 e 49 (página salva; MDN,
+  modificada em 2026-09-01).
+- Observação: o jQuery, que dividia a frase, saiu do texto (ADR 0013).
+- Conferido: 2026-10-13.
+** google2026d
+- Frase: “O Lit se constrói sobre o Web Component: seus componentes são
+  elementos personalizados do navegador, mas cada alteração de estado chama
+  de novo o método que monta a tela (Google, 2026d).”
+- Trecho: “Lit components are standard custom elements and inherit the
+  custom element lifecycle methods.”; “The reactive update cycle is
+  triggered when a reactive property changes or when the requestUpdate()
+  method is explicitly called.”; “The component’s render method is called
+  to update its internal DOM.”
+- Lido em: =tmp/fontes/lit2026-lifecycle.html= (página salva em
+  2026-10-13; lit.dev/docs/components/lifecycle/).
+- Observação: que o par Web Component e Lit mantém o modelo de componente
+  e a orquestração é do próprio delineamento (ADR 0013), e não da fonte.
+- Conferido: 2026-10-13.
 
-* §14 [[file:../intro.org::Nenhum desses trabalhos compara][Nenhum desses trabalhos compara]]
+* §29 [[file:../intro.org::Em cada rodada, a avaliação percorre][Em cada rodada, a avaliação percorre]]
+** blackwell2003, p. 115-118
+- Frase: “Em cada rodada, a avaliação percorre as 14 DCs da lista completa
+  (Blackwell; Green, 2003, p. 115-118)”.
+- Trecho: “The full list is currently 14 (although several more have been
+  proposed, as will be discussed later)” (p. 115); as dimensões vêm nas
+  p. 115-118.
+- Lido em:
+  =tmp/fontes/blackwell2003-notational-systems—the-cognitive-dimensions-of-notations-framework.pdf=,
+  p. 13 a 16 do PDF (p. 115 a 118).
+- Observação: os nomes em português e a expressividade de papel
+  (/role-expressiveness/) seguem o CONTEXT.md; o agrupamento em oito, duas
+  e quatro é do trabalho (ADR 0012), e não da fonte.
+- Conferido: 2026-10-13.
+** blackwell2001, p. 332
+- Frase: “e não um subconjunto escolhido antes, porque a escolha prévia
+  pode atrapalhar, e o conjunto inteiro traz resultados inesperados e
+  úteis (Blackwell et al., 2001, p. 332).”
+- Trecho: “prior selection of a subset of CDs may be unhelpful. Using the
+  full set of dimensions can produce some unexpected, but useful results”
+  (p. 332)
+- Lido em: =tmp/fontes/blackwell2001-springer.pdf=, p. 8 do PDF (p. 332).
+- Conferido: 2026-10-13.
+** green2006, p. 357
+- Frase: “Destas, a avaliação lê a face que aparece na notação, porque os
+  próprios autores suspeitam que há uma zona cinzenta entre as dimensões da
+  notação e as do ambiente (Green et al., 2006, p. 357).”
+- Trecho: “Should we, then, divide the dimensions into groups? Would that
+  simplify things? Unfortunately we suspect that with the current list and
+  their definitions, the division is not clean.” (p. 357)
+- Lido em: =tmp/fontes/green2006-cognitive-dimensions-achievements-new-directions-and-open-questions.pdf=,
+  p. 30 do PDF (p. 357).
+- Observação: o ADR 0012 dizia p. 356-357; a frase está na p. 357. O
+  que não se divide são as dimensões, em grupos, e é suspeita dos autores
+  (“we suspect”), daí “os próprios autores suspeitam”; a viscosidade, logo
+  depois, é o exemplo do que fica no meio (“Is that structural or
+  cognitive?”). Até 2026-10-13, o texto dizia “a divisão [...] não é
+  limpa”, decalque de “not clean”.
+- Conferido: 2026-10-13; frase revista no mesmo dia.
+** blackwell2003, p. 115 (atividade)
+- Frase: “Nenhuma dimensão é boa ou má em si, e a avaliação sempre leva em
+  conta a atividade a apoiar (Blackwell; Green, 2003, p. 115).”
+- Trecho: “Important: None of these dimensions is evaluative when
+  considered on its own. Evaluation must always take into account the
+  activities to be supported.” (p. 115)
+- Lido em: o mesmo PDF, p. 13 (p. 115).
+- Conferido: 2026-10-13.
+** blackwell2003, p. 113
+- Frase: “Na rodada da P1, as atividades são a busca e a compreensão
+  exploratória do código pronto, e, nas da P2 e da P3, a modificação
+  (Blackwell; Green, 2003,
+  p. 113).”
+- Trecho: tabela 5.1, “Six generic types of notation-use activity”:
+  “modification: [...] modifying a spreadsheet or program for a different
+  problem”; “searching: hunting for a known target, such as where a
+  function is called”; “exploratory understanding: discovering structure
+  or algorithm”; “the analyst should decide which ones are required”
+  (p. 113)
+- Lido em: o mesmo PDF, p. 11 (p. 113).
+- Observação: a fonte dá as seis atividades; a escolha de três e a divisão
+  por rodada são do trabalho (docs/metodo-da-avaliacao.md, seção 8;
+  tmp/relatorio-termos-e-coordenacao.md, seção 5.1).
+- Conferido: 2026-10-13.
+
+* §14 [[file:../intro.org::Os trabalhos encontrados na revisão bibliográfica][Os trabalhos encontrados na revisão bibliográfica]]
 ** wohlin2014, p. 3-4
-- Frase: “A lacuna se apoia nessa revisão, feita por palavras-chave e
-  /snowballing/ (Wohlin, 2014, p. 3-4) em duas rodadas, em setembro e
-  outubro de 2026, e descrita no Apêndice B.”
+- Frase: “A lacuna se apoia nessa revisão, feita por palavras-chave e por
+  /snowballing/ (Wohlin, 2014, p. 3-4), sobretudo para a frente, em duas
+  rodadas, em setembro e outubro de 2026, e descrita no Apêndice B.”
 - Trecho: “The start set ought to be formulated from keywords in the
   research question” e “3.2.2 Forward Snowballing” (p. 3); “backward and
   forward snowballing, the loop is ended” (p. 4).
@@ -349,6 +431,21 @@ Formato:
   (=latex/apendices/apend_II.tex=) e de =docs/revisao-bibliografica.md=, seção 2.
 - Observação: tarefa tcc-lf9 para buscar os citantes.
 - Conferido: 2026-10-09.
+** kiss2014, p. 103-104
+- Frase: “Além disso, Kiss (2014, p. 103-104) avaliou cada tarefa num
+  tamanho só e propôs, como trabalho futuro, estendê-las com requisitos
+  novos.”
+- Trecho: “The following additional aspects could be taken into
+  consideration for an extended resp. modified set of case studies: • An
+  asynchronous requirement [...]” (p. 103); “Of course, the difficulty
+  lies in incorporating these additional aspects in as self-contained as
+  possible case studies resp. modifying the existing ones without bloating
+  them up too much.” (p. 104)
+- Lido em: =tmp/fontes/kiss2014.pdf=, p. 109 e 110 do PDF.
+- Observação: “num tamanho só” é leitura do método de Kiss (cap. 3), em que
+  cada tarefa tem uma versão por tecnologia; a extensão do cap. 4 troca a
+  biblioteca, e não a tarefa.
+- Conferido: 2026-10-13.
 
 * §1 [[file:../intro.org::O desenvolvimento de interfaces gráficas é difícil][O desenvolvimento de interfaces gráficas é difícil]]
 ** myers1994, p. 73
@@ -607,26 +704,19 @@ Formato:
   of “programming paradigm.”” (p. xiii)
 - Lido em: o mesmo PDF, p. 14.
 - Conferido: 2026-10-09.
-** openjs2026 (biblioteca)
-- Frase: “o jQuery se diz biblioteca (OpenJS Foundation, 2026)”
-- Trecho: “jQuery is a fast, small, and feature-rich JavaScript library.”
-- Lido em: =tmp/fontes/openjs2026.txt=, l. 94 (página salva).
-- Conferido: 2026-10-09.
 ** mozilla2026 (recurso do navegador)
-- Frase: “o Web Component é recurso do próprio navegador (Mozilla, 2026)”
+- Frase: “o Web Component, recurso do próprio navegador (Mozilla, 2026),
+  não é nenhum dos dois e tem um modelo de programação como as outras
+  tecnologias.”
 - Trecho: “custom elements: that is, HTML elements whose behavior is defined
   by the web developer, that extend the set of elements available in the
   browser.”; “This class will not be called by you, but will be called by
   the browser.”
 - Lido em: =tmp/fontes/mozilla2026.txt=, l. 7 e 49 (página salva; MDN,
   modificada em 2026-09-01).
-- Conferido: 2026-10-09.
-** openjs2026
-- Frase: “[...] como no jQuery”, exemplo do imperativo com /callbacks/.
-- Trecho: “It makes things like HTML document traversal and manipulation,
-  event handling, animation, and Ajax much simpler”
-- Lido em: =tmp/fontes/openjs2026.txt=, l. 94 (página salva).
-- Conferido: 2026-10-06.
+- Observação: até 2026-10-13, a frase contrapunha o jQuery, que se diz
+  biblioteca; o jQuery saiu do texto (ADR 0013).
+- Conferido: 2026-10-09; frase revista em 2026-10-13.
 ** mozilla2026
 - Frase: “e nos Web Components sem biblioteca.”
 - Trecho: o exemplo registra um /callback/ que altera o DOM,
@@ -636,7 +726,7 @@ Formato:
 - Conferido: 2026-10-06.
 ** disch2025, p. 93
 - Frase: “No /imperativo com callbacks/, o programador escreve /callbacks/
-  que mudam o estado e a tela por efeitos colaterais (Disch; Heegaard;
+  que alteram o estado e a tela por efeitos colaterais (Disch; Heegaard;
   Bahr, 2025, p. 93; Oney; Myers; Brandt, 2012, p. 229) [...]” (Disch
   sustenta o estado)
 - Trecho: “Most modern GUI frameworks use an imperative programming model
@@ -686,7 +776,7 @@ Formato:
 - Lido em: =tmp/fontes/solidjs2026.txt=, l. 8 (página salva).
 - Conferido: 2026-10-06.
 ** lee2025, p. 289:2 e 289:6
-- Frase: “No /declarativo por re-renderização/, cada mudança de estado
+- Frase: “No /declarativo por re-renderização/, cada alteração de estado
   reexecuta o componente, como no React (Lee; Ahn; Yi, 2025, p. 289:2 e
   289:6).”
 - Trecho: “the same component is called for both creating a new view and
@@ -800,9 +890,9 @@ Formato:
   hipóteses da pesquisa exploratória ao experimento.
 - Conferido: 2026-10-07.
 
-* §22 [[file:../intro.org::Na web, o modelo de programação imperativo][Na web, o modelo de programação imperativo]]
+* §22 [[file:../intro.org::No React e no Solid, a tela se monta][No React e no Solid, a tela se monta em JSX]]
 ** meta2026c
-- Frase: “React e Solid montam a tela em JSX, marcação parecida com HTML
+- Frase: “No React e no Solid, a tela se monta em JSX, marcação parecida com HTML
   escrita dentro do JavaScript.”
 - Trecho: “JSX is a syntax extension for JavaScript that lets you write
   HTML-like markup inside a JavaScript file.”
@@ -811,7 +901,7 @@ Formato:
   programação de interfaces gráficas.
 - Conferido: 2026-10-07.
 ** solidjs2026
-- Frase: “a cada mudança de estado, o React reexecuta o componente
+- Frase: “a cada alteração de estado, o React reexecuta o componente
   inteiro, e o Solid atualiza só os trechos da tela que dependem do
   /signal/ alterado.”
 - Trecho: “In Solid, updates are made to the targeted attribute that needs
@@ -821,7 +911,7 @@ Formato:
 - Lido em: =tmp/fontes/solidjs2026.txt=, l. 10 (página salva).
 - Conferido: 2026-10-06.
 ** lee2025, 289:38
-- Frase: “a cada mudança de estado, o React reexecuta o componente
+- Frase: “a cada alteração de estado, o React reexecuta o componente
   inteiro, e o Solid atualiza só os trechos da tela que dependem do
   /signal/ alterado (Lee; Ahn; Yi, 2025, 289:38; SolidJS, 2026b).”
 - Trecho: Tabela 2, “Comparison of reactive UI frameworks”: “Re-read
@@ -830,21 +920,6 @@ Formato:
   (289:38).
 - Lido em: =tmp/fontes/lee2025.pdf=, p. 38 do PDF (apêndice C).
 - Conferido: 2026-10-09.
-
-** mozilla2026 (escolha do Web Component)
-- Frase: “Na web, o modelo de programação imperativo com /callbacks/ entra
-  com o jQuery e com o Web Component, a forma do próprio navegador de criar
-  elementos personalizados.”
-- Trecho: “custom elements: that is, HTML elements whose behavior is
-  defined by the web developer, that extend the set of elements available
-  in the browser.”; “This class will not be called by you, but will be
-  called by the browser.”
-- Lido em: =tmp/fontes/mozilla2026.txt=, l. 7 e 49 (página salva; MDN,
-  modificada em 2026-09-01).
-- Observação: a razão vinha do parágrafo das pesquisas de uso, que foi
-  para o prog.org em 2026-10-13; fica aqui, onde se escolhem as
-  tecnologias.
-- Conferido: 2026-10-13.
 
 * §23 [[file:../intro.org::Solid e Angular com /signals/, ao contrário][Solid e Angular com signals, ao contrário]]
 ** solidjs2026a
@@ -864,7 +939,7 @@ Formato:
 - Lido em: =tmp/fontes/google2026.txt= (página salva).
 - Conferido: 2026-10-06.
 ** google2026a
-- Frase: “O Solid monta a tela em JSX numa função, e o Angular, num
+- Frase: “No Solid, a tela se monta em JSX numa função, e, no Angular, num
   /template/ baseado em HTML, com construtos próprios.”
 - Trecho: “In Angular, a template is a chunk of HTML.”; “Templates are
   based on HTML syntax, with additional features such as built-in template
@@ -875,9 +950,8 @@ Formato:
 - Conferido: 2026-10-06.
 
 ** google2026b (classe e decorador)
-- Frase: “O Angular escreve o componente como classe, com decorador (Google,
-  2026b), e o componente participa da injeção de dependências (Google,
-  2026c).”
+- Frase: “O componente do Angular é uma classe com decorador (Google,
+  2026b), e participa da injeção de dependências (Google, 2026c).”
 - Trecho: “Every component must have: A TypeScript class with behaviors such
   as handling user input and fetching data from a server”; “You provide
   Angular-specific information for a component by adding a @Component
@@ -993,43 +1067,24 @@ Formato:
 - Conferido: 2026-10-09.
 
 * §31 [[file:../intro.org::Por ser analítica][Por ser analítica]]
-** britton2001
-- Frase: “O trabalho escolheu as oito DCs antes da avaliação, e usar um
-  subconjunto pode deixar de fora propriedades importantes da notação.”
-- Trecho: “The results of the second study indicate that if only a subset
-  of the dimensions is used in the creation of a profile important aspects
-  may be overlooked.” (resumo)
-- Lido em: =tmp/fontes/britton2001.pdf=, p. 1 do PDF.
-- Conferido: 2026-10-07.
 ** green2006, p. 334
-- Frase: “Para Green et al. (2006, p. 334), duas delas, a expressividade e
-  as operações mentais difíceis, sempre foram mal descritas.”
+- Frase: “Para Green et al. (2006, p. 334), duas das outras, a
+  expressividade de papel e as operações mentais difíceis, sempre foram
+  mal descritas.”
 - Trecho: “Examples here are the ‘hard mental operations’ and the
   ‘role-expressiveness’ dimensions, which have always been poorly
   described” (p. 334)
 - Lido em: =tmp/fontes/green2006-cognitive-dimensions-achievements-new-directions-and-open-questions.pdf=,
   p. 7 do PDF (p. 334).
 - Conferido: 2026-10-07.
-** green1996d, p. 157
-- Frase: “a exclusão mais discutível é a do compromisso prematuro, que
-  também aparece na própria notação, quando um trecho escrito numa
-  construção pede outra e mudar custa caro.”
-- Trecho: “Commitment to choice of construct: When a programmer chooses a
-  syntactic construct and then adds code to the construct, it may turn out
-  subsequently that the construct is the wrong one (e.g. while should be
-  changed to for).” (p. 157)
-- Lido em: =tmp/fontes/green1996-usability-analysis-of-visual-programming-environments-a-cognitive-dimensions-framework.pdf=,
-  p. 27 do PDF (p. 157).
-- Observação: o texto cita green1996d sem página; a p. 157 é a do trecho.
-- Conferido: 2026-10-07.
 
-* §32 [[file:../intro.org::As tarefas são pequenas][As tarefas são pequenas]]
+* §33 [[file:../intro.org::Mesmo na rodada da P2, as tarefas continuam pequenas][Mesmo na rodada da P2, as tarefas continuam pequenas]]
 ** sim2003
 - Frase: “Um conjunto criado por um pesquisador só e pouco usado tende a
   ter menos impacto que um adotado por uma comunidade.”
 - Observação: a frase anterior, “O autor definiu o conjunto de tarefas
-  para este trabalho”, é do próprio trabalho; o 7GUIs, de onde vêm
-  três tarefas (§17), também é de um pesquisador só (Kiss, 2014).
+  para este trabalho”, é do próprio trabalho; o 7GUIs, de onde vem o
+  Formulário (§20), também é de um pesquisador só (Kiss, 2014).
 - Trecho: “Benchmarks that are created by a single individual or
   laboratory and are not used widely tend not to have the same impact on
   the community and research results.” (3.1 Scope)
@@ -1079,18 +1134,94 @@ Formato:
   de uma linguagem visual; aqui, o autor das implementações.
 - Conferido: 2026-10-09.
 
-* §24 [[file:../intro.org::No Android, o Formulário e a Lista têm][No Android, o Formulário e a Lista têm]]
+* §24 [[file:../intro.org::Fora da web, cada plataforma tem um par][Fora da web, cada plataforma tem um par]]
 ** android2026
 - Frase: “As Views ficam no imperativo com /callbacks/, e o Compose, no
   declarativo por re-renderização, porque chama de novo as funções da tela
-  quando o estado muda (Google, 2026).”
+  quando o estado se altera (Google, 2026).”
 - Trecho: “Recomposition is the process of calling your composable
   functions again when inputs change.”
 - Lido em: =tmp/fontes/android2026.txt=, l. 966 (página salva em
   2026-10-09; atualizada em 2026-10-01).
 - Conferido: 2026-10-09.
+** microsoft2026a
+- Frase: “O Windows Forms fica no imperativo com /callbacks/, porque
+  executa um tratador a cada evento (Microsoft, 2026a)”.
+- Trecho: “If one of these events is raised and there's an associated
+  event handler, the handler is invoked and code is run.”
+- Lido em: =tmp/fontes/microsoft2026a-winforms-events.html= (página salva
+  em 2026-10-13; atualizada em 2026-02-20).
+- Conferido: 2026-10-13.
+** microsoft2025
+- Frase: “e o WPF, no declarativo por atualização granular, porque,
+  quando um dado se altera, os elementos ligados a ele se atualizam sozinhos
+  (Microsoft, 2025).”
+- Trecho: “If the binding has the correct settings and the data provides
+  the proper notifications, when the data changes its value, the elements
+  that are bound to the data reflect changes automatically.”
+- Lido em: =tmp/fontes/microsoft2025-wpf-data-binding.html= (página salva
+  em 2026-10-13; atualizada em 2025-08-27).
+- Observação: a fonte sustenta a atualização só dos elementos ligados; pôr
+  o WPF no declarativo por atualização granular é hipótese do trabalho
+  (docs/plataformas.md, seção Windows Forms × WPF), a conferir no código
+  (tcc-74m).
+- Conferido: 2026-10-13.
 
-* §25 [[file:../intro.org::O delineamento mantém fixo o que não pertence][O delineamento mantém fixo o que não pertence]]
+* §25 [[file:../intro.org::A avaliação se faz em três rodadas][A avaliação se faz em três rodadas]]
+** kiss2014, p. 3
+- Frase: “A avaliação se faz em três rodadas, uma para cada pergunta,
+  cada uma mais estreita que a anterior, como as de Kiss (2014, p. 3).”
+- Trecho: “Chapter 3 [...] implementations in both Java/JavaFX and
+  Scala/ScalaFX of representative case studies are compared [...]. Chapter
+  4 [...] the potential additional benefits of FRP are examined by
+  extending the solutions for the case studies in ScalaFX with Scala.Rx
+  and ReactFX. Afterwards, [...] by providing implementations of a
+  selection of the case studies in Elm.” (p. 3)
+- Lido em: =tmp/fontes/kiss2014.pdf=, p. 9 do PDF (p. 3).
+- Conferido: 2026-10-13.
+** green1996d, p. 161
+- Frase: “A rodada da P2 faz o código crescer porque é nos problemas grandes que os
+  efeitos da viscosidade mais aparecem (Green; Petre, 1996, p. 161).”
+- Trecho: “Nobody can do big, hard problems in their heads. Which is a
+  pity, because those are the ones where the effects of viscosity will be
+  most apparent.” (p. 161)
+- Lido em: =tmp/fontes/green1996-usability-analysis-of-visual-programming-environments-a-cognitive-dimensions-framework.pdf=,
+  p. 31 do PDF (p. 161).
+- Conferido: 2026-10-13.
+
+* §30 [[file:../intro.org::A seção ref:chap:results compara os modelos][A seção ref:chap:results compara os modelos]]
+** green1996d, p. 162
+- Frase: “a mesma mudança, preparada antes e feita em cada implementação,
+  como no teste de Green e Petre (1996, p. 162)”.
+- Trecho: “As a straw test of viscosity, we made the same change to each
+  version of the rocket program”; “our straw test was conducted in two
+  stages. First one author (TG) constructed a modification” (p. 162)
+- Lido em: o mesmo PDF, p. 32 (p. 162).
+- Conferido: 2026-10-13.
+** blackwell2003, p. 115 (viscosidade)
+- Frase: “mostra quantas ações ela pede, e quantas outras restauram a
+  consistência (Blackwell; Green, 2003, p. 115).”
+- Trecho: “A viscous system needs many user actions to accomplish one
+  goal. [...] We distinguish repetition viscosity, many actions of the
+  same type, from knock-on (or "domino") viscosity, where further actions
+  are required to restore consistency.” (p. 115)
+- Lido em: o PDF publicado de Blackwell e Green (2003), p. 13 (p. 115).
+- Conferido: 2026-10-13.
+
+* §26 [[file:../intro.org::Quatro coisas poderiam diferenciar as implementações][Quatro coisas poderiam diferenciar as implementações]]
+** prodanov2013, p. 54
+- Frase: “Esse controle das variáveis é parte do planejamento da
+  pesquisa, o delineamento (Prodanov; Freitas, 2013, p. 54).”
+- Trecho: “[...] denominado de design, que pode ser traduzido como
+  delineamento [...]. O delineamento refere-se ao planejamento da pesquisa
+  em sua dimensão mais ampla, envolvendo diagramação, previsão de análise e
+  interpretação de coleta de dados, considerando o ambiente em que são
+  coletados e as formas de controle das variáveis envolvidas.” (p. 54)
+- Lido em: =tmp/fontes/prodanov2013.pdf=, p. 54 do PDF (p. 54).
+- Observação: primeira menção de “delineamento” no capítulo, no fim do
+  parágrafo que mostra o controle; o termo segue o CONTEXT.md, contra
+  “desenho”.
+- Conferido: 2026-10-13.
 ** google2026b (TypeScript)
 - Frase: “A linguagem é uma só em cada plataforma: na web, o /TypeScript/,
   que o Angular exige (Google, 2026b) e as demais tecnologias também usam

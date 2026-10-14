@@ -86,7 +86,7 @@ atualizações que elas exigem.
 Assim, o programador não precisa cuidar da ordem dos eventos nem das
 dependências entre as computações \cite[p. 2]{bainomugisha2013}.
 A \gls{pr} serve às aplicações orientadas a eventos e interativas e leva às
-linguagens de programação o modelo das planilhas eletrônicas, em que mudar
+linguagens de programação o modelo das planilhas eletrônicas, em que alterar
 o valor de uma célula recalcula as fórmulas que dependem dela
 \cite[p. 1-2]{bainomugisha2013}.
 Na literatura de \gls{pr}, essas aplicações também se chamam reativas
@@ -132,9 +132,9 @@ de coordenar evento, estado e tela que uma tecnologia impõe.
 Ele não é o paradigma, noção imprecisa que o modelo de computação torna
 precisa \cite[p. xiii]{roy2004}.
 Também não é a biblioteca nem o \emph{framework}, que nomeiam o produto: o
-jQuery se diz biblioteca \cite{openjs2026}, o Web Component é recurso do
-próprio navegador \cite{mozilla2026}, e os dois têm o mesmo modelo de
-programação.
+Web Component, recurso do próprio navegador \cite{mozilla2026}, não é
+nenhum dos dois e tem um modelo de programação como as outras
+tecnologias.
 A \emph{notação} é a forma escrita de um modelo de programação numa
 tecnologia: as palavras e os sinais com que o programador escreve, no
 código-fonte da aplicação, o estado, os valores derivados dele e a tela
@@ -143,20 +143,20 @@ que os mostra.
 Nas tecnologias que este trabalho compara, há três modelos de
 programação, dois deles declarativos.
 No \emph{imperativo com callbacks}, o programador escreve \emph{callbacks} que
-mudam o estado e a tela por efeitos colaterais
-\cites[][ p. 93]{disch2025}[][ p. 229]{oney2012}, como no jQuery
-\cite{openjs2026} e nos Web Components sem biblioteca \cite{mozilla2026}.
+alteram o estado e a tela por efeitos colaterais
+\cites[][ p. 93]{disch2025}[][ p. 229]{oney2012}, como nos Web Components sem
+biblioteca \cite{mozilla2026}.
 
 Nos declarativos, o programador descreve a tela em função do estado, e o
 ambiente de execução a mantém atualizada
 \cites{solidjs2026}[][ p. 32]{sperber2025}.
-No \emph{declarativo por re-renderização}, cada mudança de estado reexecuta o
+No \emph{declarativo por re-renderização}, cada alteração de estado reexecuta o
 componente, como no React \cite[p. 289:2 e 289:6]{lee2025}.
 No \emph{declarativo por atualização granular}, cada \emph{signal} avisa os valores
 e trechos da tela que dependem dele, como no Solid e no Angular com
 \emph{signals} \cite{solidjs2026,google2026}.
 No Solid, só esses são recalculados \cite{solidjs2026}; no Angular, quando o
-\emph{signal} muda, o \emph{template} do componente que o lê volta a ser renderizado
+\emph{signal} se altera, o \emph{template} do componente que o lê volta a ser renderizado
 em algum momento \cite{google2026}.
 O modelo de programação por atualização granular usa as abstrações da \gls{pr}, os
 valores que variam no tempo, chamados \emph{signals}, cujas alterações se propagam
@@ -190,46 +190,60 @@ conceitualmente, numa prova de conceito em JavaScript, o async/await com
 \emph{listeners}, barramento de eventos, \emph{streams} funcionais e \gls{pr} no tratamento
 dos eventos de interface.
 
-Nenhum desses trabalhos compara, sobre as mesmas tarefas, os três modelos
-de programação em tecnologias web.
-Os trabalhos encontrados na revisão bibliográfica também não avaliam pelas
-\glspl{dc} a notação do React nem a do Solid e do Angular com \emph{signals}.
+Os trabalhos encontrados na revisão bibliográfica não avaliam pelas \glspl{dc} a
+notação do React nem a do Solid e do Angular com \emph{signals}.
 A lacuna se apoia nessa revisão, feita por palavras-chave e por
 \emph{snowballing} \cite[p. 3-4]{wohlin2014}, sobretudo para a frente, em duas
 rodadas, em setembro e outubro de 2026, e descrita no Apêndice \ref{apend:2}.
 A revisão não viu os trabalhos que citam \textcite{kiss2014}, que a base
 usada não indexa, e a lacuna vale para o que ela encontrou.
-Pergunta-se, então: pelas \glspl{dc}, como difere a usabilidade da
-notação com que se programam interfaces gráficas em cada tecnologia entre
+Além disso, \textcite[p. 103-104]{kiss2014} avaliou cada tarefa num
+tamanho só e propôs, como trabalho futuro, estendê-las com requisitos
+novos.
+Nenhum dos trabalhos compara, sobre as mesmas tarefas e em tecnologias
+web, os três modelos de programação.
+Pergunta-se, então (P1): pelas \glspl{dc}, como difere a usabilidade da
+notação com que se escrevem interfaces gráficas em cada tecnologia entre
 os três modelos de programação~--- o imperativo com \emph{callbacks}, o
 declarativo por re-renderização e o declarativo por atualização granular?
 \notamudou{O projeto perguntava \enquote{Quais os conceitos apropriados para programação de interfaces gráficas?} e se a programação declarativa é adequada a elas.}
+A P1 tem duas subperguntas, uma para cada rodada da avaliação depois da
+primeira.
+(P2) Como muda essa diferença quando o código cresce, com as mesmas
+funcionalidades e os mesmos requisitos de orquestração acrescentados a
+todas as implementações?
+(P3) E como ela muda no ecossistema típico de cada tecnologia?
+\notamudou{\textbf{As duas subperguntas são novas}, como as rodadas a que elas respondem.}
 Conhecer essas diferenças pode ajudar quem programa interfaces a escolher uma tecnologia
 sabendo o que o modelo de programação dela facilita e o que dificulta em
 cada \emph{problema de coordenação}.
 Dentro de um mesmo modelo de programação, a notação também muda de uma
-tecnologia para outra, como entre o Solid e o Angular com \emph{signals}, e a
-avaliação registra quando essa diferença muda a conclusão.
+tecnologia para outra, como entre o Solid e o Angular com \emph{signals} ou
+entre o React e o Lit, e a avaliação registra quando essa diferença muda
+a conclusão.
 Um problema de coordenação é uma exigência que a interface faz ao modelo de
 programação.
 
 O objetivo geral é comparar, segundo as \glspl{dc}, a usabilidade das
 notações dos três modelos de programação em interfaces típicas da web,
-em TypeScript, e em parte delas no Android, em Kotlin.
+em TypeScript, e em parte delas no Android, em Kotlin, e no
+\emph{desktop}, em C\#.
 Especificamente:
 
 \begin{itemize}
-\item implementar cinco tarefas de interface (Contador, Formulário com validação,
-Busca com sugestões, Lista filtrável e Carrinho) com Web Component,
-jQuery, React, Solid e Angular com \emph{signals}, e o Contador, o Formulário e
-a Lista no Android, com Views e Jetpack Compose;
-\item avaliar as implementações por oito \glspl{dc};
+\item implementar cinco tarefas de interface (Formulário com validação,
+Busca com sugestões, Login com quarentena, Quadro de tarefas e Dados
+ao vivo) com Web Component, React e Solid, três delas também com Lit
+e três com Angular com \emph{signals}, três no Android, com Views e
+Jetpack Compose, e três no \emph{desktop}, com Windows Forms e WPF, e
+estendê-las em duas rodadas;
+\item avaliar as implementações pelas 14 \glspl{dc} em cada rodada;
 \item sintetizar, por problema de coordenação, o que cada modelo de
 programação facilita e o que dificulta, como no estado derivado e na
 assincronia.
 \end{itemize}
 
-\notamudou[inline]{No projeto, o objetivo geral era demonstrar e analisar conceitos declarativos de PF e PR, e o primeiro objetivo específico, demonstrar a programação declarativa com a PF, se cumpria com programas de processamento de listas. \textbf{Esse objetivo sai} e vai para a seção 2, porque fundamentar conceitos não responde à pergunta. Os \enquote{programas concretos} passam a cinco tarefas, o JavaScript passa a TypeScript na web, com Kotlin no Android, e as DCs, que o projeto não listava, passam a oito.}
+\notamudou[inline]{No projeto, o objetivo geral era demonstrar e analisar conceitos declarativos de PF e PR, e o primeiro objetivo específico, demonstrar a programação declarativa com a PF, se cumpria com programas de processamento de listas. \textbf{Esse objetivo sai} e vai para a seção 2, porque fundamentar conceitos não responde à pergunta. Os \enquote{programas concretos} passam a cinco tarefas, avaliadas em três rodadas; o JavaScript passa a TypeScript na web, com Kotlin no Android e C\# no \emph{desktop}; e as DCs, que o projeto não listava, passam às 14 da lista completa.}
 
 Quanto aos objetivos, a pesquisa é \emph{exploratória}: busca compreensão nova
 \notamudou{O projeto também classificava a pesquisa como exploratória, com Leal (2011), e de natureza aplicada; \textbf{a natureza sai}.}
@@ -252,31 +266,61 @@ A medida, neste trabalho, é a avaliação pelas \glspl{dc}, como nos
 \emph{benchmarks} de resultado qualitativo do projeto de linguagens
 \cite[p. 35]{erdweg2015}, entre os quais está o 7GUIs
 \cite[8:20]{lu2021}.
-Aqui, as técnicas são os três modelos de programação, e as tarefas, cinco interfaces
-típicas da web, que exercitam cinco problemas de coordenação:
+Aqui, as técnicas são os três modelos de programação, e as tarefas, cinco
+interfaces gráficas.
+Cada uma traz os problemas de coordenação que a interface real costuma ter, nos dois
+eixos da programação de interfaces: a orquestração de eventos e o
+gerenciamento de estado.
 
 \begin{description}
-\item[{Contador}] o caminho mais simples, do evento ao estado e à tela;
-\item[{Formulário com validação}] o estado derivado e os campos que dependem
-uns dos outros;
-\item[{Busca com sugestões}] a assincronia (espera, respostas fora de ordem e
-cancelamento);
-\item[{Lista filtrável}] a lista derivada por busca, filtro e ordenação, além
-da montagem dos itens na tela;
-\item[{Carrinho}] o estado compartilhado entre componentes.
+\item[{Formulário com validação:}] os campos que dependem uns dos outros, o
+estado derivado e o envio que, enquanto espera a resposta, ignora um
+novo clique em Reservar, para o usuário não reservar o mesmo voo duas
+vezes;
+\item[{Busca com sugestões:}] o cancelamento da busca já requisitada, a resposta
+anterior que nunca aparece e a lista derivada das sugestões, para o
+usuário ver só as cidades correspondentes ao texto que está no campo;
+\item[{Login com quarentena:}] a tentativa nova que cancela a anterior, para
+o usuário que errou a senha tentar de novo sem esperar a resposta da
+primeira, e o relógio da sessão, que para quando a sessão se encerra;
+\item[{Quadro de tarefas:}] o estado compartilhado entre o cabeçalho e três
+colunas, o limite de duas tarefas em "Fazendo", que desabilita os
+botões das outras colunas, e o quadro gravado no navegador, para o
+usuário achar cada tarefa na coluna em que a deixou, ao voltar à página
+ou em outra aba;
+\item[{Dados ao vivo:}] valores que uma fonte envia sem o usuário pedir, como
+o placar de um jogo, a assinatura presa à tela e a pausa, para quem
+acompanha o painel ler os valores sem que a tabela se atualize.
 \end{description}
 
-O Contador, o Formulário e a Lista adaptam o \emph{Counter}, o \emph{Flight Booker} e
-o \emph{CRUD}, três das sete tarefas do 7GUIs, de \textcite[p. 11, 17, 25 e 34]{kiss2014}.
-A Busca e o Carrinho não têm equivalente no 7GUIs.
+A orquestração pesa mais na Busca, no Login e nos Dados ao vivo, e o
+gerenciamento de estado, no Formulário e no Quadro.
+O Formulário adapta o \emph{Flight Booker}, uma das sete tarefas do 7GUIs, de
+\textcite[p. 11 e 25]{kiss2014}, e acrescenta os campos de nome e de
+e-mail.
+O Login segue o painel de \textcite[p. 534]{berry2020}, e os Dados ao
+vivo, as cotações que uma fonte empurra aos clientes, em
+\textcite[p. 66]{meijer2012}.
 
-Na web, o modelo de programação imperativo com \emph{callbacks} entra com o
-jQuery e com o Web Component, a forma do próprio navegador de criar
-elementos personalizados \cite{mozilla2026}.
-O delineamento compara dois pares de tecnologias próximas.
-React e Solid montam a tela em JSX, marcação parecida com \gls{html}
+Na web, Web Component, React e Solid, uma tecnologia por modelo de
+programação, implementam as cinco tarefas.
+O imperativo com \emph{callbacks} entra com o Web Component, a forma do
+próprio navegador de criar elementos personalizados \cite{mozilla2026}.
+Lit e Angular com \emph{signals} implementam três tarefas cada, em pares de
+tecnologias próximas: o Lit com o Web Component, e o Angular com o Solid.
+O Lit se constrói sobre o Web Component: seus componentes são elementos
+personalizados do navegador, mas cada alteração de estado chama de novo o
+método que monta a tela \cite{google2026d}.
+Por isso fica no declarativo por re-renderização, como o React, com
+outra notação.
+O par Web Component e Lit, no Formulário, na Busca e nos Dados ao vivo,
+mantém o modelo de componente e a orquestração.
+Muda só a ligação do estado com a tela, escrita à mão no primeiro e
+refeita pelo \emph{template} a cada alteração de estado no segundo.
+
+No React e no Solid, a tela se monta em JSX, marcação parecida com \gls{html}
 escrita dentro do JavaScript \cite{meta2026c}.
-O que os separa, sobretudo, é o modo de coordenar: a cada mudança de
+O que os separa, sobretudo, é o modo de coordenar: a cada alteração de
 estado, o React reexecuta o componente inteiro, e o Solid atualiza só os
 trechos da tela que dependem do \emph{signal} alterado
 \cites[][ 289:38]{lee2025}{solidjs2026}.
@@ -284,49 +328,78 @@ trechos da tela que dependem do \emph{signal} alterado
 Solid e Angular com \emph{signals}, ao contrário, coordenam do mesmo modo: os
 dois guardam o estado em \emph{signals} e derivam valores de outros \emph{signals}
 \cite{solidjs2026a,google2026}.
-Por isso ficam no mesmo modelo de programação, e o par mostra como a
-notação varia entre tecnologias em três pontos.
-O Solid monta a tela em JSX numa função, e o Angular, num \emph{template}
+Por isso ficam no mesmo modelo de programação, e o par, no Formulário,
+na Busca e no Quadro, mostra como a notação varia entre tecnologias em
+três pontos.
+No Solid, a tela se monta em JSX numa função, e, no Angular, num \emph{template}
 baseado em \gls{html}, com construtos próprios \cite{google2026a}.
-O Angular escreve o componente como classe, com decorador
-\cite{google2026b}, e o componente participa da injeção de dependências
-\cite{google2026c}.
+O componente do Angular é uma classe com decorador \cite{google2026b}, e
+participa da injeção de dependências \cite{google2026c}.
 E as \glspl{api} dos dois diferem no que vai além do \emph{signal} e do valor
 derivado, como o cancelamento das requisições na Busca.
 
-No Android, o Formulário e a Lista têm duas implementações, uma com Views e
-outra com Compose, e a comparação das duas diz se as conclusões tiradas na web se repetem em outra plataforma e outra
+Fora da web, cada plataforma tem um par de tecnologias, que confere se
+as conclusões tiradas na web se repetem em outra plataforma e outra
 linguagem.
+No Android, Views e Compose implementam o Formulário, o Quadro e os
+Dados ao vivo.
 As Views ficam no imperativo com \emph{callbacks}, e o Compose, no declarativo
 por re-renderização, porque chama de novo as funções da tela quando o estado
-muda \cite{android2026}.
-O Contador também tem as duas implementações no Android, como introdução à
-sintaxe,
-sem análise própria.
+se altera \cite{android2026}.
+No \emph{desktop}, Windows Forms e WPF implementam o Formulário, o Quadro e o
+Login.
+O Windows Forms fica no imperativo com \emph{callbacks}, porque executa um
+tratador a cada evento \cite{microsoft2026a}, e o WPF, no declarativo por
+atualização granular, porque, quando um dado se altera, os elementos ligados a
+ele se atualizam sozinhos \cite{microsoft2025}.
 
-O delineamento mantém fixo o que não pertence ao modelo de programação nem à
-notação.
+A avaliação se faz em três rodadas, uma para cada pergunta, cada uma
+mais estreita que a anterior, como as de \textcite[p. 3]{kiss2014}.
+\notamudou{\textbf{As três rodadas são novas}; o projeto não as previa.}
+Na rodada da P1, as tecnologias implementam as tarefas descritas acima.
+Na rodada da P2, cada tarefa recebe funcionalidades, como o assistente
+em três passos do Formulário, e requisitos de orquestração, como a
+espera de 300 ms depois da última tecla na Busca.
+Uma funcionalidade muda o que o usuário percebe ou pode fazer, e um
+requisito de orquestração deixa a tela igual e muda só como se combinam
+os eventos.
+São onze mudanças, feitas uma por \emph{commit} e na mesma ordem em
+todas as tecnologias que implementam a tarefa.
+A rodada da P2 faz o código crescer porque é nos problemas grandes que os efeitos
+da viscosidade mais aparecem \cite[p. 161]{green1996d}.
+Na rodada da P3, o Formulário estendido é reescrito em cada tecnologia
+com a biblioteca de formulário mais usada no ecossistema dela, ou com a
+\gls{api} da plataforma quando nenhuma predomina.
+Como as bibliotecas variam de uma tecnologia para outra, a conclusão da
+rodada da P3 vale para o ecossistema típico de cada tecnologia, e não só
+para o modelo de programação.
+
+Quatro coisas poderiam diferenciar as implementações sem ser o modelo de
+programação nem a notação, e as quatro ficam fixas: a linguagem, a
+especificação, as bibliotecas e o domínio.
 A linguagem é uma só em cada plataforma: na web, o \emph{TypeScript}, que o
-Angular exige \cite{google2026b} e as demais tecnologias também usam, e, no
-Android, o Kotlin.
+Angular exige \cite{google2026b} e as demais tecnologias também usam; no
+Android, o Kotlin; e, no \emph{desktop}, o C\#.
 As implementações de uma tarefa seguem a mesma especificação, com os mesmos
-textos, regras e dados, e cada uma usa só o que a própria tecnologia traz,
-sem bibliotecas de formulário.
+textos, regras e dados, e, nas rodadas da P1 e da P2, cada uma usa só o que a própria
+tecnologia traz, sem bibliotecas de formulário.
 As regras que não dependem da interface, como o formato das datas, a
-validação do e-mail e o catálogo de produtos, ficam num \emph{domínio} comum
-às implementações de cada plataforma, em TypeScript na web e em Kotlin no
-Android.
+validação do e-mail e as transições do quadro, ficam num \emph{domínio} comum
+às implementações de cada plataforma, na linguagem dela.
+Esse controle das variáveis é parte do planejamento da pesquisa, o
+delineamento \cite[p. 54]{prodanov2013}.
 
-Uma \emph{rotina} de teste por tarefa executa as verificações da especificação
-contra cada implementação; na web, ela roda no console do navegador.
+Um \emph{teste de conformidade} por tarefa executa as verificações da
+especificação contra cada implementação; na web, ele roda no console do
+navegador.
 \emph{Capturas} de tela dos estados escolhidos de cada tarefa, geradas
 automaticamente, denunciam desvios de comportamento ou de aparência,
 porque devem sair idênticas entre as tecnologias web.
-As implementações, as rotinas e as capturas ficam num repositório público,
+As implementações, os testes de conformidade e as capturas ficam num repositório público,
 em \url{https://github.com/iquabius/unemat-tcc}.
 Nele, as versões de linguagens, bibliotecas e ferramentas ficam
 fixadas\footnote{No \texttt{package-lock.json} e no \texttt{libs.versions.toml}.
-Na web, TypeScript 6.0.3, jQuery 4.0.0, React 19.3.0, Solid 1.9.15 e Angular
+Na web, TypeScript 6.0.3, React 19.3.0, Solid 1.9.15, Lit 3.3.3 e Angular
 22.2.0, com Vite 8.3.1 para o \emph{build} (no Angular, o \texttt{@angular/build} 22.2.0)
 e Playwright 1.63.0 para as capturas.
 No Android, Kotlin 2.4.20, Jetpack Compose pela \gls{bom}
@@ -342,47 +415,60 @@ linguagens a custo alto e com resultados muitas vezes inconclusivos
 \cite[p. 9]{sadowski2011}, e as \glspl{dc} pedem menos tempo que eles
 \cite{dagit2006}.
 
-A avaliação usa oito das catorze \glspl{dc} da lista de
-\textcite[p. 12]{kiss2014}.
-Seis são as que ele usou \cite[p. 12-14]{kiss2014}: \emph{nível de
-abstração}, \emph{proximidade de descrição}, \emph{dependências ocultas},
-\emph{propensão a erros}, \emph{concisão} e \emph{viscosidade}.
-As outras duas, \emph{expressividade} e \emph{operações mentais difíceis}, vêm das
-cinco que \textcite[p. 15]{kiss2014} considerou e deixou de fora por terem
-pesado pouco.
-A seu ver, elas provavelmente teriam sido úteis se as linguagens e os
-\emph{toolkits} comparados fossem muito mais diferentes~--- aqui, cada
-tecnologia traz as próprias abstrações.
-Não entram as outras três dessas cinco, pelas razões discutidas
-na seção \ref{chap:cases}.
-Também ficam de fora, como em \textcite[p. 15]{kiss2014}, as três que
-tratam das ferramentas e do processo de escrita, a visibilidade, a
-análise progressiva e a provisoriedade, porque o objeto da avaliação é o
-código pronto.
+Em cada rodada, a avaliação percorre as 14 \glspl{dc} da lista
+completa \cite[p. 115-118]{blackwell2003}, e não um subconjunto
+escolhido antes, porque a escolha prévia pode atrapalhar, e o conjunto
+inteiro traz resultados inesperados e úteis \cite[p. 332]{blackwell2001}.
+Para a análise, o trabalho as agrupa pelo que descrevem.
+Oito tratam da notação: \emph{nível de abstração}, \emph{proximidade de
+descrição}, \emph{consistência}, \emph{concisão}, \emph{operações mentais difíceis},
+\emph{dependências ocultas}, \emph{expressividade de papel} e \emph{notação secundária}.
+Duas são do sistema, que o ambiente de edição agrava ou atenua: a
+\emph{viscosidade} e a \emph{propensão a erros}.
+As outras quatro pesam no ambiente de edição: o \emph{compromisso
+prematuro}, a \emph{avaliação progressiva}, a \emph{visibilidade} e a
+\emph{provisoriedade}.
+Destas, a avaliação lê a face que aparece na notação, porque os próprios
+autores suspeitam que há uma zona cinzenta entre as dimensões da notação e as
+do ambiente \cite[p. 357]{green2006}.
+Nenhuma dimensão é boa ou má em si, e a avaliação sempre leva em conta a
+atividade a apoiar \cite[p. 115]{blackwell2003}.
+Na rodada da P1, as atividades são a busca e a compreensão exploratória
+do código pronto, e, nas da P2 e da P3, a modificação \cite[p. 113]{blackwell2003}.
+\notamudou{\textbf{As DCs passam às 14}, e não oito, em cada rodada.}
 
 A seção \ref{chap:results} compara os modelos de programação a partir das
 conclusões da avaliação e abre com uma tabela-síntese, com uma linha por
 \gls{dc} e uma coluna por modelo de programação.
 Cada célula resume a conclusão, indica de que tarefa vem a evidência e
-registra quando as duas tecnologias da coluna divergem, o Solid e o
-Angular com \emph{signals} ou o Web Component e o jQuery.
+registra quando as duas tecnologias web da coluna divergem, o Solid e o
+Angular com \emph{signals} ou o React e o Lit.
 No primeiro par, ela diz também se a diferença vem da montagem da tela,
 do modelo de componente ou da \gls{api}.
-Como cada tarefa exercita um problema de coordenação, a síntese por
-problema reúne as células que vêm da tarefa dele.
+Como cada tarefa exercita problemas de coordenação próprios, a síntese
+por problema reúne as células que vêm das tarefas dele.
+Da rodada da P1 para as da P2 e da P3, a linha de cada \gls{dc} diz se a diferença
+entre os modelos de programação fica \emph{mantida}, \emph{ampliada}, \emph{reduzida},
+\emph{anulada}, \emph{invertida} ou \emph{surgida}, e a célula diz se a conclusão do
+modelo \emph{aumenta}, \emph{diminui} ou \emph{fica igual}.
 Segue uma seção por \gls{dc}, com os trechos de uma tarefa escolhida,
 antes da avaliação, pelo problema de coordenação que a dimensão mais toca.
 Em cada seção, a análise aponta se a diferença está na coordenação, na
 montagem da tela ou na ligação entre as duas.
-Nas seções em que o Formulário ou a Lista mostram diferença entre Views e
-Compose, a análise diz se a conclusão da web se repete no Android.
+Nas seções em que as tarefas do Android ou do \emph{desktop} mostram
+diferença entre as duas tecnologias da plataforma, a análise diz se a
+conclusão da web se repete nela.
 A concisão tem ainda o apoio de uma contagem das linhas de cada
 implementação.
+Nas rodadas da P2 e da P3, o \emph{diff} de cada mudança apoia a viscosidade: a mesma
+mudança, preparada antes e feita em cada implementação, como no teste
+de \textcite[p. 162]{green1996d}, mostra quantas ações ela pede, e
+quantas outras restauram a consistência \cite[p. 115]{blackwell2003}.
 \notaproxima[inline]{Termos: \enquote{comparar} fica para o objetivo, \enquote{avaliação} para a aplicação das DCs ao código e \enquote{análise} para a parte que apresenta os resultados. Considerar um termo só, \enquote{avaliação}, para a atividade toda. A favor: uma palavra por conceito, sem o leitor se perguntar se são três atividades. Contra: mudam mais frases, e o objetivo geral perde o verbo \enquote{comparar}, que diz o que se faz entre os modelos de programação.}
 
 O delineamento tem limitações em três pontos: quem avalia, o instrumento e o
 objeto.
-\realce{Como a avaliação cabe ao autor, nenhum outro avaliador confere as conclusões}\notapergunta[list,prepend,caption={\textbf{4. Avaliador único}}]{o texto só declara o risco. \textbf{Entra um avaliador externo}, que aplique duas DCs a parte das implementações para comparar as leituras?}
+\realce{Como a avaliação cabe ao autor, nenhum outro avaliador confere as conclusões}\notapergunta[list,prepend,caption={\textbf{4. Avaliador único}}]{o texto só declara o risco. \textbf{Entra um avaliador externo}, que aplique duas DCs a parte das implementações para comparar as leituras? \textbf{Conhece alguém} que revise o código de uma tecnologia ou faça uma segunda análise de um par?}
 em cada dimensão.
 Em métodos de inspeção, avaliadores diferentes acham problemas bem
 diferentes na mesma interface \cite[p. 183]{hertzum2003}.
@@ -395,19 +481,20 @@ React.
 
 Por ser analítica, e não um experimento, a avaliação pelas \glspl{dc} aponta
 diferenças que ainda precisam ser testadas com programadores.
-O trabalho escolheu as oito \glspl{dc} antes da avaliação, e escolher um
-subconjunto pela relevância para a atividade pode deixar de fora
-propriedades importantes da notação \cite[p. 265]{britton2001}.
-Para \textcite[p. 334]{green2006}, duas delas, a expressividade e as
-operações mentais difíceis, sempre foram mal descritas.
-Das três que não entram, a exclusão mais discutível é a do compromisso
-prematuro, que também aparece na própria notação, quando um trecho escrito
-numa construção pede outra e mudar custa caro \cite[p. 155 e 157]{green1996d}.
+As quatro \glspl{dc} que pesam no ambiente de edição se leem só pela face
+que aparece na notação e podem mostrar pouca diferença no código.
+Para \textcite[p. 334]{green2006}, duas das outras, a expressividade de
+papel e as operações mentais difíceis, sempre foram mal descritas.
+Os rótulos do que acontece com a diferença de uma rodada a outra na tabela, de
+mantida a surgida, são deste trabalho, e não de uma fonte, e cada um é
+um juízo do mesmo avaliador.
 
-As tarefas são pequenas, e o que só aparece em programas de grande porte ou ao
-longo da manutenção fica de fora.
-O autor definiu o conjunto de tarefas para este trabalho.
-Um conjunto criado por um só pesquisador e pouco usado tende a ter menos
+Mesmo na rodada da P2, as tarefas continuam pequenas, e o que só aparece em
+programas de grande porte ou ao longo da manutenção fica de fora.
+O autor definiu o conjunto de tarefas para este trabalho e escolheu as
+mudanças da rodada da P2 com as implementações da rodada da P1 prontas, embora antes da
+avaliação.
+Um conjunto criado por um pesquisador só e pouco usado tende a ter menos
 impacto que um adotado por uma comunidade \cite[p. 76]{sim2003}.
 O delineamento compara categorias, e não artefatos: cada modelo de programação
 tem uma ou duas tecnologias na web, e a conclusão sobre ele generaliza a
@@ -417,11 +504,14 @@ modelo de computação, e a relevância delas começa quando se definem os
 detalhes \cite[p. 139]{green1996d}.
 Por isso, a avaliação compara os modelos de programação pelos detalhes que
 a notação de cada tecnologia exige no código-fonte.
-Na web, o imperativo com \emph{callbacks} difere dos declarativos em mais de um
-ponto ao mesmo tempo, e nenhum par isola o modelo de programação dele.
-No Android, Views e Compose são o par mais próximo, mas mudam também a
-montagem da tela, e o Android confere só o imperativo com \emph{callbacks} e
-o declarativo por re-renderização.
+Na web, só o par Web Component e Lit isola o imperativo com
+\emph{callbacks}, e só em três tarefas.
+Ele isola a ligação do estado com a tela, e não a orquestração, que no
+Lit se escreve como no Web Component.
+Fora da web, os dois pares mudam também a montagem da tela, e cada
+plataforma confere só dois dos três modelos de programação: o Android
+fica sem o declarativo por atualização granular, e o \emph{desktop}, sem o
+declarativo por re-renderização.
 
 Além desta introdução, o texto tem quatro seções.
 A seção \ref{chap:prog} reúne os conceitos de programação em que o
