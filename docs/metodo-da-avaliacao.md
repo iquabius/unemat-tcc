@@ -25,7 +25,9 @@ requisitos acrescentados, P3 com as bibliotecas do ecossistema, sem
 controle de variáveis) e percorrer as 14 DCs, e não oito; em 2026-10-12,
 trocou o conjunto de tarefas e levou a P2 às cinco, pela realidade de
 cada uma (seção 12). As fontes estão nas seções 8 a 12, e as decisões,
-nos ADRs 0002, 0012, 0017 e 0029.
+nos ADRs 0002, 0012, 0017 e 0029. Em 2026-10-13, a seção 13 juntou como
+as fontes aplicaram as DCs a código e as armadilhas, que a skill
+`avaliacao-pelas-dcs` usa.
 
 ## 1. O rótulo do método: avaliação de um conjunto de tarefas, não estudo de caso (fontes lidas em 2026-09-28)
 
@@ -358,3 +360,128 @@ higher", dependências ocultas e propensão a erros "reduced"). Foi
 considerado e recusado como molde para tirar tecnologias da análise
 principal (ADR 0013).
 
+
+## 13. Como as fontes aplicaram as DCs a código, e as armadilhas (lidas em 2026-10-13)
+
+Conclusão: nenhuma fonte traz um protocolo para um especialista ler
+código-fonte de interface gráfica dimensão por dimensão. O mais próximo
+é Clarke (2004), que aplica as DCs a amostras de código de uma API, sem
+usuários, com perguntas abertas por dimensão presas a um cenário; Kiss
+(2014) dá o molde por tarefa (critério antes do código, dimensão a
+dimensão, as versões lado a lado); Blackwell e Green (2003) dão os passos
+e a regra de que nenhuma dimensão é boa ou má fora da atividade. O
+procedimento da skill `avaliacao-pelas-dcs` (tcc-4a9) sai daqui, e as
+armadilhas dela, das seções 13.3 e 13.4. Levantamento de quatro
+subagentes; todos os trechos da tabela foram conferidos no PDF pelo
+agente principal, com a página impressa. Cópias em `tmp/fontes/`, fora do
+git: as publicadas são `green1996-usability-analysis-...pdf` (JVLC,
+p. 131-174; `greenpetre1996.pdf` e `green1996.pdf` são o manuscrito, com
+outra paginação) e `blackwell2003-notational-systems-...pdf` (p. 103-133;
+`blackwell2003.pdf` é o manuscrito).
+
+### 13.1 Procedimento
+
+| Fonte | Trecho | Onde | Uso na skill |
+|---|---|---|---|
+| Blackwell e Green 2003 | os passos: "Get to know your system"; "Decide what the user will be doing with the notation"; "Choose some representative tasks"; para cada passo de cada tarefa, perguntar por todas as dimensões, o que gera "an observed profile"; comparar com o perfil ideal da atividade | p. 107-108 | o plano da rodada (passo 1) |
+| idem | a avaliação "em poucas palavras": "classifying the intended activities, analyzing the cognitive dimensions, and deciding whether the requirements of the activities are met" | p. 112 | idem |
+| idem | seis atividades (tabela 5.1); a busca é "hunting for a known target, such as where a function is called", e a compreensão exploratória, "discovering structure or algorithm" | p. 113 | a atividade da primeira rodada (busca e compreensão) e da segunda e da terceira (modificação) |
+| Green e Blackwell 1998 | a figura 19, "desirable profiles of dimensions for each of the types of user activity", cobre só seis dimensões e quatro atividades (transcrição, incrementação, modificação, exploração); na modificação, viscosidade e dependências ocultas "harmful", visibilidade "important" | p. 42 | não há perfil publicado para a busca nem para a compreensão exploratória: a primeira rodada não tem perfil ideal a comparar |
+| Kiss 2014 | critério da boa solução fixado antes do código: "A good solution will have very minimal scaffolding" | p. 17 | a pergunta de cada problema de coordenação, antes da leitura |
+| idem | "this first evaluation is focused on the very basics", para que as seguintes "do not have to repeat these basic observations" | p. 18 | o Contador como primeira leitura |
+| idem | "We concentrate on the behavior related code as the layout and initialization code is in essence similar" | p. 22 | ler a coordenação; a montagem da tela só onde difere |
+| idem | omite a dimensão "when there was nothing particularly worthwhile to mention" | p. 12 | "nenhum trecho achado", dito, e não omitido |
+| idem | o "system" é "the amalgamation of paradigm, language, toolkit and IDE" | p. 12, nota 2 | atribuir cada achado: coordenação, montagem, ligação, ou fora da notação |
+| idem | "pretend to have a mostly ideal integration [...] to focus more on conceptual differences" | p. 62 | não fazer: o TCC registra a integração como ela é |
+| idem | as dimensões deram "a stable platform for discussion" | p. 103 | método |
+| Green e Petre 1996 | o teste de viscosidade: a mudança preparada antes e dada a "an experienced user the original program" com o resultado, medindo o tempo de edição | p. 162 | o diff de cada mudança da segunda rodada |
+| Bayrak, Ocker e Vogel-Heuser 2017 | viscosidade de repetição medida como "the length of the minimal action sequence for a program modification"; a de efeito dominó "is harder to examine" | p. 467 | a contagem de trechos do diff, com a regra do menor diff |
+| Clarke 2004 (Dr. Dobb's, espelho sem paginação) | "You can use the framework to analyze a set of code samples before the API has even been implemented"; para o cenário, "we ask a set of questions for each dimension", como "When reading code that uses the API, is it easy to tell what each section of code does? Why?" | sem página | a pergunta de cada DC presa ao trecho, no guia |
+| idem | o que interessa é "the comparison between what developers expect and what the API provides"; alguns achados "require a better understanding of what users expect" | sem página | limite da leitura sem usuários |
+| Clarke e Becker 2003 | "We go through each of the dimensions and describe the major findings from the study in terms of these dimensions" | p. 365 | a revisão por DC; lá sobre dados de participantes gravados ("We videotape each participant", p. 365) |
+| Sadowski e Kurniawan 2011 | cinco avaliadores, "a short lecture on heuristic evaluation" e uma planilha (p. 10); a escala de severidade de Nielsen descartada, porque os avaliadores "did not find the scale to be helpful" (p. 11) | p. 10-11 | a revisão registra apontamentos em texto, sem nota |
+| Mernik et al. 2009 | os autores ligaram depois cada pergunta do questionário de compreensão às dimensões: "The next step was to connect cognitive dimensions with our questions" | p. 188 | o número por dimensão de Mernik não mede a dimensão (seção 4) |
+
+### 13.2 A API como notação (tcc-fua)
+
+Clarke e Becker (2003, p. 359) adaptam as DCs a uma biblioteca de
+classes e reescrevem cada dimensão como pergunta sobre a API (p. 364-365),
+com duas novas, *Work-Step Unit* e *Working Framework*, porque "Many of
+the results from the studies weren t easily described as being artifacts
+of one or more of the cognitive dimensions" (p. 362); a lista "is
+definitely not complete" (p. 365), e os nomes novos não têm dados além
+de "a couple of random straw man polls" (p. 364). Clarke (2005, p. 2 do
+PDF, sem paginação)
+cria para cada persona "a profile that describes the ideal 'measurement'
+of each dimension". Stylos, Clarke e Myers (2006, p. 137) registram que o
+arcabouço "has previously been adapted to evaluate API usability" e
+recusam um conjunto reduzido de dimensões como "too simplistic for our
+purposes" (p. 138). Zimmerle e Gama (2025, p. 1508) tomam a premissa
+numa frase, as DCs valem para "all sorts of notations including APIs",
+mas medem por questionário de cinco dimensões agrupadas (p. 1513), em que
+"higher values indicate better usability" (p. 1520). Narechania et al.
+(2025, p. 7, pré-publicação) e Verma et al. (2026, p. 6 do PDF) fazem uma
+autoavaliação ("self-assess") da própria biblioteca num subconjunto
+escolhido para "comparing our work with existing tools".
+
+Para a tcc-fua: as fontes da família Clarke tratam cada API como uma
+notação com dimensões próprias, o que dá precedente à alternativa "uma
+notação por tecnologia", recusada pelo ADR 0021; nenhuma delas avalia
+*framework* de interface gráfica. Onde isso entra no texto é decisão do
+autor. Blackwell, Petre e Church (2019, p. 60) citam "Clarke, 2006" para
+linguagens e "Stylos et al., 2001" para APIs, mas a lista de referências
+deles dá às duas o título de Clarke (2001), *Evaluating a new programming
+language* (PPIG 13), e as p. 131-139 do PPIG 2006 são de Stylos, Clarke e
+Myers: citar os originais. Clarke (2001), no questionário com usuários de
+C#: "The questionnaire, by its very nature, is task neutral", e os dados
+"cannot be viewed as a list of usability problems" (p. 6 do PDF; o
+cabeçalho diz p. 275-289, e o PDF tem oito páginas).
+
+Nenhuma das fontes lidas usa modelo de linguagem para aplicar as DCs.
+
+### 13.3 Armadilhas declaradas pelas fontes
+
+| Armadilha | Trecho | Onde |
+|---|---|---|
+| ler a dimensão como boa ou má fora da atividade | "None of these dimensions is evaluative when considered on its own"; "Nothing in what follows is good or bad, except with reference to an activity" | Blackwell e Green 2003, p. 115 e 113 |
+| idem | "how good a representation is depends on what you want to use it for" | Green e Petre 1996, p. 134 |
+| tratar a lista como *checklist* ou métrica | "simply as a checklist"; "rough and sketchy evaluation" | Blackwell e Green 2003, p. 109 |
+| idem | evita "overall difficulty measure" | Green e Blackwell 1998, p. 6 |
+| atribuir à notação o que é do sistema | "only a system, comprising all three, can be viscous"; o risco de "analysing the wrong level of interaction" | Green e Blackwell 1998, p. 8 e 9 |
+| esquecer o subdispositivo | as dimensões dos subdispositivos "must be analyzed separately" | Blackwell e Green 2003, p. 115 |
+| operação mental difícil que é do problema, e não da notação | "the problematic mental operations must lie at the notational level"; o teste: "combining two or three of the offending objects" piora muito | Green e Petre 1996, p. 150 |
+| confundir concisão com proximidade de descrição | a concisão "independently of closeness-of-mapping" | Green e Petre 1996, p. 148 |
+| confundir visibilidade com dependência oculta | "Visibility measures the number of steps needed to make a given item visible, hidden dependencies describes whether relationships are manifest" | Green e Petre 1996, p. 162 |
+| confiar na primeira impressão da viscosidade | o fluxo de dados parece pouco viscoso: "That is not so" | Green e Petre 1996, p. 161 |
+| idem | a mudança de baixo nível dá "a misleading impression of low viscosity" | Green e Blackwell 1998, p. 12 |
+| esperar a solução sem troca | "Fixing a problem with one dimension will usually entail a change in some other dimension" | Green e Petre 1996, p. 164 |
+| concluir sem familiaridade ou sem evidência | a análise "requires close familiarity with the device or notation" | Green e Blackwell 1998, p. 46 |
+| idem | a análise do Prograph é "purely speculative"; a consistência se avalia por "introspection" | Green e Petre 1996, p. 152 e 148 |
+| tomar a expressividade de papel por poder de expressão | "restricted expressivity" é poder de expressão | Kiss 2014, p. 98 |
+| idem | a expressividade de papel pede "a reasonable conjecture about cognitive representations" | Blackwell e Green 2003, p. 116 |
+| escolher as dimensões por quem projetou o artefato | o questionário que filtra as dimensões é "particularly dangerous when the questionnaire designer is also the designer of the system" | Blackwell e Green 2003, p. 120 |
+| atribuir ao modelo o que é da tecnologia | "Counter showed that tiny programs are dominated by the toolkit" | Kiss 2014, p. 56 |
+| pesar as dimensões sem dizer o peso | a melhora "depends on which dimensions one places the most value" | Kiss 2014, p. 74 |
+| contar o mesmo fato em várias dimensões | a lista do `createXBinding` "must be listed explicitly which makes them visible" nas dependências ocultas (p. 28) e é a "subtle repition of dependencies" da viscosidade (p. 29) | Kiss 2014, p. 28-29 |
+| tomar o idioma de quem escreveu pelo da notação | a expressividade de papel é "generally dependent on the way in which the specifier uses the notation" | Kutar, Britton e Wilson 2000, p. ix da cópia (seção 4) |
+| a dimensão deixada de fora volta por outra porta | Kiss tira a consistência (p. 15) e depois julga o nível de abstração melhor porque a solução "is more consistent" | Kiss 2014, p. 76 |
+| autoavaliação do próprio artefato | Narechania et al. e Verma et al. avaliam a própria biblioteca num subconjunto que eles escolhem | Narechania et al. 2025, p. 7; Verma et al. 2026, p. 6 do PDF |
+| conclusão pela média de uma pergunta | "can be extremely risky" | Mernik et al. 2009, p. 187 |
+| familiaridade desigual com as notações | "Uneven knowledge on both notations could have influence on comparison results" | Mernik et al. 2009, p. 184 |
+
+### 13.4 Armadilhas do próprio trabalho
+
+Leitura do agente, sem fonte que as declare; a skill as lista como do
+trabalho:
+
+- atribuir a uma DC uma diferença sem sinal escrito (ADR 0021);
+- medir a tarefa em vez da notação, como contar dependências que a
+  especificação impõe a todas as tecnologias;
+- misturar na terceira rodada o efeito da biblioteca com o do modelo de
+  programação (ADR 0029: a conclusão da terceira rodada é "no
+  ecossistema típico");
+- tomar os comentários das implementações por notação secundária da
+  tecnologia: são de quem implementou, e o código de `casos/` foi escrito
+  com agentes (Co-Authored-By em quase todos os commits);
+- ancoragem: o guia do agente que diz a conclusão antes da leitura do
+  autor (decisão de 2026-10-13 na tcc-4a9, a pré-análise em duas etapas).

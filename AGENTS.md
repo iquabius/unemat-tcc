@@ -13,6 +13,7 @@ em `texto/refs.bib`, o código dos casos em `casos/` (instruções próprias em
 | Termo do projeto | `CONTEXT.md` | skill `domain-modeling`: definição de uma ou duas frases e o que evitar |
 | Tarefa aberta | Beads (`bd`), exportado em `.beads/issues.jsonl` | seção abaixo |
 | Nota de referência ou achado que o texto ainda vai absorver | `docs/*.md` | seção abaixo |
+| Plano, guia de leitura e revisão do agente na avaliação pelas DCs | `docs/avaliacao/<rodada>-<tarefa>/` | skill do projeto `avaliacao-pelas-dcs`: o guia sai antes da leitura do autor e sem conclusão, a revisão depois do ditado; cada um num commit no `master`; a origem das conclusões vai numa linha do commit do texto |
 | Convenção de código, pastas ou ambiente | `casos/AGENTS.md` | |
 | Mudança em código (`casos/`, `bin/`, scripts), ferramentas ou `AGENTS.md` | numa worktree, em ramo próprio, que chega ao `master` revisado | seção "Código: ramo, revisão, merge" abaixo |
 | Feedback de escrita e revisão bibliográfica | não vai para o repositório | skill `escrita-academica`; o que sobra vira tarefa no `bd` ou nota em `docs/` |
@@ -281,6 +282,10 @@ Cada nota é de um tipo só, dito na primeira linha depois do título:
   ferramenta ou versão leva a data em que foi observada.
 - **Achados** (`docs/achados-das-implementacoes.md`): observações feitas ao
   implementar, com data e commit, à espera de entrar na análise do texto.
+- **Registro da avaliação** (`docs/avaliacao/<rodada>-<tarefa>/`): o
+  plano, o guia de leitura e a revisão que o agente entrega na avaliação
+  pelas DCs, escritos uma vez e não atualizados depois; o que muda vai
+  num arquivo novo ou no texto.
 
 Nota nova só quando o conteúdo não cabe num ADR, numa tarefa nem no texto.
 Todo texto de nota, tarefa ou ADR: conclusão primeiro, datas absolutas, uma
