@@ -10,7 +10,7 @@ outras abas, para o usuário achar cada tarefa na coluna em que a deixou, ao
 voltar à página ou em outra aba. O desfazer e a atualização otimista entram
 na P2.
 
-As regras que não dependem de interface ficam em =dominio.ts=: as tarefas,
+As regras que não dependem da tela ficam em =dominio.ts=: as tarefas,
 as colunas, o limite, os textos e o quadro salvo. O ouvinte das outras
 abas também fica no domínio, =ouvirOutrasAbas(aoGravar)=, que devolve a
 função que o fecha: o quadro que sai da tela deixa de ouvir, para o

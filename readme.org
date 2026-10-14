@@ -1,9 +1,16 @@
 #+TITLE: Interfaces Gráficas Declarativas
 #+AUTHOR: Josias Duarte Busiquia
 
-* Demonstração e Análise de Programação Funcional e Reativa
+* O trabalho
   Trabalho de conclusão a ser apresentado ao curso de Ciência da Computação da
-  Universidade do Estado de Mato Grosso.
+  Universidade do Estado de Mato Grosso. Compara três modelos de programação
+  de interfaces gráficas, o imperativo por atualização manual, o declarativo
+  por re-renderização e o declarativo por atualização granular, pelas
+  Dimensões Cognitivas de Notações, aplicadas ao código. O /benchmark/ de
+  notação são cinco interfaces (Formulário com validação, Busca com
+  sugestões, Login com quarentena, Quadro de tarefas e Dados ao vivo),
+  implementadas em tecnologias da web, do Android e do /desktop/ e avaliadas
+  em três rodadas. Os termos do projeto estão no =CONTEXT.md=.
 
 * Leiaute
 
@@ -12,7 +19,7 @@
   | =texto/= | o que o autor escreve: os capítulos =.org=, =fontes/=, =refs.bib= e =fig/= |
   | =latex/= | o que o =latexmk= lê: =tcc.tex=, classe, estilos, brasões, =apendices/= e os =capitulos/= exportados |
   | =pdf/= | o que sai, fora do git: =build/=, =versoes/= e =ao-vivo/= |
-  | =implementacoes/= | o código das implementações, com o =package.json= dos =workspaces= |
+  | =implementacoes/= | as implementações de cada interface, a especificação (=openspec/=) e o =package.json= dos =workspaces= |
   | =docs/= | decisões (=adr/=) e notas |
   | =bin/= | scripts |
 
