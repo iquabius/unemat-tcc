@@ -627,3 +627,24 @@ nome do terceiro modelo de programação, o declarativo por atualização
 granular, ler-se também como o estado que se atualiza aos poucos, e
 "mudança de estado" colidiria com a mudança do OpenSpec. O texto já usava
 "alteração" para o estado em cinco frases e "mudança" em três.
+
+*Mismatch* tem duas traduções no projeto, uma por sentido (2026-10-13).
+"Desencontro" é o de duas definições que não coincidem: as de
+"reatividade" em linguagens de programação e em sistemas distribuídos,
+que Myter et al. (2019, p. 5:1) chamam de *mismatch*
+(`docs/fundamentacao.md`). "Descompasso" fica como glosa para o
+*mismatch* de Green et al. (2006, p. 357), em que dois lados que deviam
+andar juntos não se acompanham: "Viscosity can be construed as a
+mismatch between the user's idea of a single action and the ideas built
+into the device", o descompasso entre a ação que o usuário imagina e a
+que o dispositivo pede. Ainda não entrou no texto.
+
+Forma da glosa, transposta do usuário para o programador (decisão do
+autor em 2026-10-13): "o descompasso entre o que o programador espera de
+uma abstração e o que ela faz de fato". A abstração é sujeito de "faz"
+porque fala do que acontece em tempo de execução (`AGENTS.md`, "Texto").
+Exemplo guardado, para quando a frase entrar onde o *signal* já foi
+apresentado: "como no Solid, em que `const dobro = n() * 2` parece
+acompanhar o /signal/, mas guarda só o primeiro valor" (ADR 0021). A
+ligação com uma DC (operações mentais difíceis, dependências ocultas)
+ainda pede fonte conferida.
