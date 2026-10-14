@@ -15,6 +15,9 @@
                                                 "texto/fontes/"
                                                 (locate-dominating-file
                                                  default-directory ".dir-locals.el"))))
+                           ;; Só a chave: os campos do modelo saem no formato da
+                           ;; APA ("Myers, Brad ({1994})"), e a referência curta
+                           ;; se completa à mão.
                            (bibtex-completion-notes-template-multiple-files
-                            . "#+title: ${=key=}: ${author-or-editor-abbrev} (${year}), ${title}\n#+startup: overview\n\n")
+                            . "#+title: ${=key=}: \n#+startup: overview\n\n")
                            (my/org-ref-glossary-files . ("../latex/siglas.tex")))))))

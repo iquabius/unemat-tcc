@@ -252,8 +252,9 @@ perguntas, e então o autor dá o rótulo.
    Justificativa que é do agente não se apresenta como da fonte.
 3. **Matriz de fontes.** O trecho conferido entra em
    `texto/fontes/<chave>.org`, um arquivo por chave do `refs.bib` (ADR
-   0034); no Emacs, o org-ref o abre pela citação, com o título já no
-   formato. No arquivo:
+   0034); no Emacs, o org-ref o abre pela citação e, quando a chave ainda
+   não tem arquivo, começa um com a chave no título, à espera da
+   referência curta. No arquivo:
    - `#+title: <chave>: <Autor> (<ano>), <título>` e `#+startup: overview`;
    - um título por afirmação, com o link de busca para o começo do
      parágrafo e a página da publicação, sem o §N:
@@ -408,7 +409,8 @@ formato do relatório estão em `references/checagem-adversarial.md` da
    `tmp/checagem-<capítulo>-<data>/passada-1.md`. Onde a verdade deve
    estar: a chave e a página citadas, o PDF em `tmp/fontes/`, a
    afirmação em `texto/fontes/<chave>.org` (`bin/conferir-fontes.py
-   --paragrafos texto/<capítulo>.org` as junta na ordem do capítulo); para o próprio trabalho (casos,
+   --paragrafos texto/<capítulo>.org` junta as afirmações na ordem do
+   capítulo); para o próprio trabalho (casos,
    tecnologias, implementações), `casos/` e `CONTEXT.md`. A cadeia do
    mapa é a da rodada de corte, passo 3. As contradições se procuram
    também nos outros capítulos e contra os termos do `CONTEXT.md`.

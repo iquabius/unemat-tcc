@@ -14,8 +14,8 @@ em 2026-10-10.
 no `refs.bib` desde 2026-09-25 (seção 2), e dos complementares estão lá
 `lee2025`, `berry2020` e `salvaneschi2016` (seção 3), este desde 2020. Os trechos que
 sustentam a crítica ao *callback* da introdução estão na matriz de
-fontes, `texto/fontes/<chave>.org`; aqui ficam as fontes que saíram do texto ou
-servem só à fundamentação (seções 4 e 5).
+fontes, `texto/fontes/<chave>.org`; aqui ficam as fontes que saíram do
+texto ou servem só à fundamentação (seções 4 e 5).
 
 ## 1. Matriz tema × referência
 
