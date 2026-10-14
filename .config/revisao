@@ -6,7 +6,7 @@
 bin/
 *.py
 *.sh
-casos/
-:!casos/*/capturas/*
+implementacoes/
+:!implementacoes/*/capturas/*
 :!*.org
 :!*.md

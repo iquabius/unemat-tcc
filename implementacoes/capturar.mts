@@ -34,7 +34,7 @@ import { chromium, type Page } from "playwright";
 export type Cenas = Record<string, (pagina: Page) => Promise<void>>;
 
 const RAIZ = path.resolve(import.meta.dirname, "..");
-const CASOS = path.join(RAIZ, "casos");
+const CASOS = path.join(RAIZ, "implementacoes");
 const WEB = ["web-component", "react", "solid", "lit", "angular-signals"];
 const ANDROID = ["android-views", "android-compose"];
 const TECNOLOGIAS = [...WEB, ...ANDROID];
