@@ -1,14 +1,15 @@
 # 0008. Capturas versionadas e idênticas entre tecnologias, com o Android capturado na JVM e reproduzindo a aparência da web
 
-2026-09-26. As implementações de um caso seguem a mesma especificação e a
-mesma aparência, e um desvio passava despercebido. Cada caso guarda em
-`capturas/` uma imagem por tecnologia e cena, gerada pelo Playwright (web)
-e por Robolectric com Roborazzi (Android, sem emulador) com `npm run
-capturas`; a mesma cena sai idêntica em todas as tecnologias, o comando
-avisa quando não sai, e as imagens entram no commit que altera o exemplo.
-Para isso o Android reproduz o `estilo.css` do caso com o estilo fora da
-tela: `res/values/estilo.xml` no Views, citado com `style="@style/..."`,
-e `Estilo.kt` no Compose, com `Tema`, `Modifier`s nomeados e componentes
+2026-09-26. As implementações de uma interface seguem a mesma
+especificação e a mesma aparência, e um desvio passava despercebido. Cada
+interface guarda em `capturas/` uma imagem por tecnologia e cena, gerada
+pelo Playwright (web) e por Robolectric com Roborazzi (Android, sem
+emulador) com `npm run capturas`; a mesma cena sai idêntica em todas as
+tecnologias, o comando avisa quando não sai, e as imagens entram no
+commit que altera a implementação. Para isso o Android reproduz o
+`estilo.css` da interface com o estilo fora da tela:
+`res/values/estilo.xml` no Views, citado com `style="@style/..."`, e
+`Estilo.kt` no Compose, com `Tema`, `Modifier`s nomeados e componentes
 estilizados; a tela só cita nomes, como o JSX cita `className`.
 
 Em vez de: conferir a olho no navegador e no emulador; sem registro, e o

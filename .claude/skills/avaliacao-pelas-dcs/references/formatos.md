@@ -1,16 +1,18 @@
 # Modelos do plano, do guia e da revisão
 
-Os três arquivos ficam em `docs/avaliacao/<rodada>-<tarefa>/`
-(`primeira-rodada-formulario`, `segunda-rodada-busca`, `terceira-rodada-formulario`), versionados, cada um no
-seu commit (SKILL.md, regra 5; a tarefa fora da análise fica em `tmp/`, regra 6). Como toda nota de `docs/`, cada um diz o
-tipo na primeira linha depois do título, e abre com a tarefa, a rodada,
-o sha de `casos/` lido e a data. Markdown que se lê no celular: títulos
+Os três arquivos ficam em `docs/avaliacao/<rodada>-<interface>/`
+(`primeira-rodada-formulario`, `segunda-rodada-busca`,
+`terceira-rodada-formulario`), versionados, cada um no seu commit
+(SKILL.md, regra 5; a interface fora da análise fica em `tmp/`, regra
+6). Como toda nota de `docs/`, cada um diz o tipo na primeira linha
+depois do título, e abre com a interface, a rodada, o sha de
+`implementacoes/` lido e a data. Markdown que se lê no celular: títulos
 curtos, listas, trechos de até umas 8 linhas.
 
 ## plano.md
 
 ```markdown
-# Plano: <Tarefa>, <rodada>
+# Plano: <Interface>, <rodada>
 
 Plano da avaliação pelas DCs, escrito pelo agente (skill
 `avaliacao-pelas-dcs`).
@@ -25,7 +27,7 @@ Commit lido: <sha> (<data>). Atividade: <busca e compreensão | modificação>
 - ...
 
 ## Perguntas de leitura
-1. <problema de coordenação ou mudança>: onde cada tecnologia escreve
+1. <exigência de coordenação ou mudança>: onde cada tecnologia escreve
    <...>?
 2. ...
 
@@ -34,10 +36,10 @@ Commit lido: <sha> (<data>). Atividade: <busca e compreensão | modificação>
   (<...>), atualização granular (<...>).
 - Células com duas tecnologias: <Solid × Angular | React × Lit>, ou
   nenhuma.
-- Conferência: <Android | desktop>, ou fora desta tarefa.
+- Conferência: <Android | desktop>, ou fora desta interface.
 
-## DCs fixadas nesta tarefa
-<lista do mapa DC → tarefa, ou "mapa ainda não fixado (tcc-7jc)">
+## DCs fixadas nesta interface
+<lista do mapa DC → interface, ou "mapa ainda não fixado (tcc-7jc)">
 ```
 
 ## guia.md
@@ -48,7 +50,7 @@ ordem e na largura da revisão de design de 2026-10-14 (SKILL.md, passo
 2). Nenhuma frase de juízo.
 
 ~~~markdown
-# Guia de leitura: <Tarefa>, <ordinal> rodada
+# Guia de leitura: <Interface>, <ordinal> rodada
 
 DCs: [1](#1-nível-de-abstração) · [2](#2-proximidade-de-descrição) ·
 … · [14](#14-provisoriedade)
@@ -58,7 +60,7 @@ Guia de leitura do agente, entregue antes da leitura do autor (skill
 conclusão: as perguntas são para o autor responder ao ditar. Atividade:
 <a da rodada>.
 
-Arquivos, a partir de `casos/<tarefa>/`:
+Arquivos, a partir de `implementacoes/<interface>/`:
 - `WC.ts` = `web-component/src/main.ts`
 - `Views.kt` = `android-views/.../MainActivity.kt`
 - `Views.xml` = `android-views/.../activity_main.xml`
@@ -139,7 +141,7 @@ Exemplos de frase que o guia não aceita:
 ## revisao.md
 
 ```markdown
-# Revisão: <Tarefa>, <rodada>
+# Revisão: <Interface>, <rodada>
 
 Revisão do agente sobre a análise ditada pelo autor (skill
 `avaliacao-pelas-dcs`).

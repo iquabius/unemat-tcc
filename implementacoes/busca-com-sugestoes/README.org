@@ -1,0 +1,23 @@
+#+TITLE: Busca com sugestões
+
+Campo "Cidade de destino" que sugere cidades enquanto o usuário digita (o
+/typeahead/ de sites de viagem e de entrega). É a interface assíncrona:
+esperar o usuário parar de digitar, cancelar a requisição anterior e nunca
+mostrar uma resposta atrasada. O 7GUIs não tem tarefa equivalente.
+
+A "API" é simulada em =dominio.ts=, com a forma de uma chamada =fetch=:
+=buscarCidades(termo, sinal)= devolve uma /Promise/ e aceita um
+=AbortSignal=, com latência determinística, para os testes e as capturas se
+repetirem.
+
+As regras, as mensagens e os cenários que o teste de conformidade confere
+estão em =implementacoes/openspec/specs/busca-com-sugestoes/spec.md=, a
+especificação viva (OpenSpec); uma mudança entra como /delta spec/ em
+=implementacoes/openspec/changes/= (=implementacoes/AGENTS.md=).
+
+* Teste
+
+  O =teste-de-conformidade.js= percorre a especificação: cada verificação
+  tem o nome de um cenário do =spec.md=, e =npm run conferir-especificacao=
+  confere a ligação. Com uma implementação aberta no navegador, cole o
+  arquivo no console. As cenas das capturas ficam em =cenas.mts=.

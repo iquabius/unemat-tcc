@@ -1,4 +1,4 @@
-# 0013. Na web entram Web Component, React e Solid nas cinco tarefas, o Lit e o Angular com *signals* em três cada, até a P3; o jQuery fica fora; o Angular com RxJS fica de apoio; sem bibliotecas de formulário até a P2
+# 0013. Na web entram Web Component, React e Solid nas cinco interfaces, o Lit e o Angular com *signals* em três cada, até a P3; o jQuery fica fora; o Angular com RxJS fica de apoio; sem bibliotecas de formulário até a P2
 
 2026-10-13. Os modelos de programação a comparar são o imperativo com
 *callbacks*, o declarativo por re-renderização (*pull*) e o declarativo
@@ -8,7 +8,7 @@ Carniato, 2024-01-19). O RxJS, centro do projeto de 2017, é pouco escrito
 fora do Angular, que documenta *signals* como reatividade central desde a
 versão 17 (2023-11). Web Component (DOM puro com classe, imperativa sem
 biblioteca), React e Solid, uma tecnologia por modelo de programação,
-implementam as cinco tarefas. O Lit, sem *signals*, implementa o
+implementam as cinco interfaces. O Lit, sem *signals*, implementa o
 Formulário, a Busca e os Dados ao vivo: ele escreve sobre o Web Component
 (`LitElement` estende `HTMLElement`, a tela num *template* `html`) no
 declarativo por re-renderização, herda dele o `disconnectedCallback` e,
@@ -36,12 +36,12 @@ Angular com RxJS (`angular-rxjs`) não entra no texto: dá exemplos de RxJS
 para o capítulo de programação e para a comparação com Zimmerle e Gama
 (2025), usando RxJS de propósito (`Observable`, *pipe* `async`,
 `valueChanges`, `debounceTime`, `switchMap`), e fica congelado em
-`casos/fora-da-analise/` com as regras de 2026-10-13, como o jQuery, para
-que `casos/` tenha só o que se analisa e as mudanças da especificação não
-se portem para ele. Na P1 e na P2, cada implementação usa só o que a
-tecnologia traz, sem bibliotecas de formulário: o `angular-rxjs` usa os
-Reactive Forms, que são do Angular; o `angular-signals` não usa nem eles
-nem os *Signal Forms*. Na P3, cada
+`implementacoes/fora-da-analise/` com as regras de 2026-10-13, como o
+jQuery, para que `implementacoes/` tenha só o que se analisa e as
+mudanças da especificação não se portem para ele. Na P1 e na P2, cada
+implementação usa só o que a tecnologia traz, sem bibliotecas de
+formulário: o `angular-rxjs` usa os Reactive Forms, que são do Angular; o
+`angular-signals` não usa nem eles nem os *Signal Forms*. Na P3, cada
 tecnologia usa a biblioteca de formulário mais usada no seu ecossistema,
 ou a API da plataforma quando nenhuma domina, como no Web Component e no
 Lit, que assim continuam um par controlado (ADR 0029).
@@ -54,20 +54,20 @@ assinatura.
 Em vez de: o jQuery no lugar do Web Component até a P3, com o Angular no
 lugar do Solid, do Lit ou dos dois, e as tecnologias que saíssem numa
 seção de demonstração, como o capítulo 4 de Kiss (2014), que avalia
-Scala.Rx, ReactFX e Elm pelas mesmas dimensões num subconjunto de tarefas
-(o Elm em 4 das 7) e com veredito próprio (p. 97) (comparação de
-2026-10-12); o jQuery é a mais reconhecível depois do React (Stack
+Scala.Rx, ReactFX e Elm pelas mesmas dimensões num subconjunto de
+interfaces (o Elm em 4 das 7) e com veredito próprio (p. 97) (comparação
+de 2026-10-12); o jQuery é a mais reconhecível depois do React (Stack
 Overflow 2025: 23,4%) e tem uma biblioteca de formulário real para a P3,
-mas não tem modelo de componente, o imperativo ficaria sem par controlado,
-e sem o Solid se perderia o par React × Solid, de que dependem, no todo
-ou em parte, 9 das 14 DCs (leitura de 2026-10-12, `docs/delineamento.md`,
-seção 4).
+mas não tem modelo de componente, o imperativo ficaria sem par
+controlado, e sem o Solid se perderia o par React × Solid, de que
+dependem, no todo ou em parte, 9 das 14 DCs (leitura de 2026-10-12,
+`docs/delineamento.md`, seção 4).
 Em vez de: o Web Component e o Solid até a P3, com o jQuery e o Lit em
 demonstração; mantém o Web Component, mais perto dos declarativos que o
 jQuery, mas o imperativo ficaria sem par controlado na análise principal.
-Em vez de: o Lit e o Angular nas cinco tarefas, ou o Lit nas cinco e o
-Angular em três; isolaria o imperativo em todas as tarefas, mas com 23 a
-25 implementações na P1 e 50 a 55 commits na P2, e no Formulário o
+Em vez de: o Lit e o Angular nas cinco interfaces, ou o Lit nas cinco e o
+Angular em três; isolaria o imperativo em todas as interfaces, mas com 23
+a 25 implementações na P1 e 50 a 55 commits na P2, e no Formulário o
 rascunho em Lit sai quase linha a linha igual ao React.
 Em vez de: o Lit com `@lit-labs/signals` (0.3.0, npm, 2026-05-14); na
 mesma tecnologia daria o contraste entre re-renderização e atualização
@@ -77,7 +77,7 @@ Em vez de: Angular só de apoio (decisão de 2026-09-25); menos trabalho,
 mas o modelo de programação declarativo por atualização granular ficaria
 com uma tecnologia só, e o Angular é o terceiro *framework* mais usado
 (Stack Overflow 2025: React 44,7%, jQuery 23,4%, Angular 18,2%).
-Em vez de: o `angular-rxjs` em `casos/<tarefa>/`, seguindo a
+Em vez de: o `angular-rxjs` em `implementacoes/<interface>/`, seguindo a
 especificação viva com cenas e capturas (decisão de 2026-10-12); os
 exemplos de RxJS acompanhariam as regras da P1, como o envio que ignora o
 reenvio, que o `exhaustMap` nomeia, mas cada mudança da especificação
@@ -108,7 +108,7 @@ a banca pedir.
 Custo: 21 implementações na P1 com cenas e capturas, e 46 commits na P2;
 os exemplos de RxJS ficam nas regras de 2026-10-13 (a Busca com a espera
 de 300 ms, o Formulário sem o envio que ignora o reenvio); o Lit e o
-Angular aparecem em três tarefas cada, e as células das outras duas
+Angular aparecem em três interfaces cada, e as células das outras duas
 ficam com uma tecnologia da coluna, o que a análise declara; o par Web
 Component × Lit isola a ligação com a
 tela, e não a orquestração, que o Lit não muda; a diferença entre Solid e

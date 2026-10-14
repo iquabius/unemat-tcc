@@ -1,0 +1,28 @@
+{
+  "name": "implementacoes-tcc",
+  "private": true,
+  "description": "Implementações das interfaces gráficas do TCC, um projeto por interface e tecnologia",
+  "workspaces": [
+    "*/web-component",
+    "*/react",
+    "*/solid",
+    "*/lit",
+    "*/angular-signals"
+  ],
+  "scripts": {
+    "capturas": "node capturar.mts",
+    "formatar": "prettier --write . && android/gradlew -q -p android formatarKotlin",
+    "conferir-formatacao": "prettier --check . && android/gradlew -q -p android conferirFormatacaoKotlin",
+    "openspec": "OPENSPEC_TELEMETRY=0 openspec",
+    "conferir-especificacao": "node conferir-especificacao.mts"
+  },
+  "engines": {
+    "node": ">=22.22.3"
+  },
+  "devDependencies": {
+    "@fission-ai/openspec": "1.14.1",
+    "@prettier/plugin-xml": "3.4.2",
+    "playwright": "^1.63.0",
+    "prettier": "3.9.10"
+  }
+}

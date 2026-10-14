@@ -28,7 +28,7 @@ Tratar como literatura cinzenta no texto:
   autor do Solid;
 - ***benchmark***: os números vêm de um único mantenedor.
 
-Versões nos `package.json` de `casos/`: React 19.3.0, Solid 1.9.15,
+Versões nos `package.json` de `implementacoes/`: React 19.3.0, Solid 1.9.15,
 Angular 22.2.0 com RxJS 7.8, jQuery 4.0.0 (2026-09-26). As bibliotecas
 de formulário da P3, com as medidas do registro de 2026-10-12, estão em
 `docs/bibliotecas-de-formulario.md` (ADR 0031).
@@ -312,9 +312,9 @@ evidência.
    candidate*; RxJS 9 em beta. As versões fixadas nos `package.json`
    valem para o texto, e uma nota deve dizer que a comparação é da
    versão, não da tecnologia.
-7. **Angular de apoio.** O uso de RxJS para estado nos exemplos de apoio
-   contraria a direção documentada do Angular; serve de referência ao
-   autor e não pode ser citado como "como se escreve Angular em 2026".
+7. **Angular de apoio.** O uso de RxJS para estado nas implementações de
+   apoio contraria a direção documentada do Angular; serve de referência
+   ao autor e não pode ser citado como "como se escreve Angular em 2026".
 8. **Web Component ≠ notação.** A classe com `HTMLElement` é o modelo de
    componente da plataforma, não a notação imperativa; o que representa a
    notação é o `addEventListener` com mutação do DOM dentro dela.

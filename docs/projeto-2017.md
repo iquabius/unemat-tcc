@@ -62,15 +62,15 @@ no `cases.org` em 2020.
 | Delimitação | Conceitos de programação para interfaces gráficas | Modelos de programação de interfaces gráficas, avaliados pela notação: a forma de escrever no código o estado, os valores derivados dele e a tela (ADR 0021) |
 | O que se compara | Conceitos declarativos de PF e PR × imperativos de POO com *callbacks* | Três modelos de programação: o imperativo com *callbacks*, o declarativo por re-renderização e o declarativo por atualização granular, pela notação de cada tecnologia. PF, PR e POO ficam na fundamentação, e cada modelo de programação aplica conceitos de um ou mais paradigmas (ADR 0021) |
 | Pergunta | Quais conceitos são apropriados; se a declarativa é adequada | Pelas DCs, como difere a usabilidade da notação de cada tecnologia entre os três modelos de programação (ADR 0014) |
-| Objetivo geral | Demonstrar e analisar conceitos declarativos de PF e PR | Comparar, segundo as DCs, a usabilidade das notações dos três modelos de programação, na web, em TypeScript, e em parte das tarefas no Android, em Kotlin (ADR 0014) |
-| Objetivos específicos | Demonstrar PF; demonstrar PR e POO com *callbacks*; analisar e comparar | Implementar as cinco tarefas; avaliá-las por oito DCs; sintetizar, por problema de coordenação, o que cada modelo de programação facilita e o que dificulta (ADR 0014) |
+| Objetivo geral | Demonstrar e analisar conceitos declarativos de PF e PR | Comparar, segundo as DCs, a usabilidade das notações dos três modelos de programação, na web, em TypeScript, e em parte das interfaces no Android, em Kotlin (ADR 0014) |
+| Objetivos específicos | Demonstrar PF; demonstrar PR e POO com *callbacks*; analisar e comparar | Implementar as cinco interfaces; avaliá-las por oito DCs; sintetizar, por exigência de coordenação, o que cada modelo de programação facilita e o que dificulta (ADR 0014) |
 | Processamento de listas | Primeira parte do método | Fora dos objetivos, na fundamentação de PF (ADR 0014) |
 | Tela | Fora | Dentro da notação, como montagem da tela (ADR 0021) |
-| Programas | Não nomeados | Cinco tarefas: Contador, Formulário com validação, Busca com sugestões, Lista filtrável e Carrinho; as três primeiras adaptam o *Counter*, o *Flight Booker* e o *CRUD* do 7GUIs (Kiss 2014) (ADR 0002) |
+| Programas | Não nomeados | Cinco interfaces: Contador, Formulário com validação, Busca com sugestões, Lista filtrável e Carrinho; as três primeiras adaptam o *Counter*, o *Flight Booker* e o *CRUD* do 7GUIs (Kiss 2014) (ADR 0002) |
 | Tecnologias | Não nomeadas | Web Component, jQuery, React, Solid e Angular com *signals* na web; Views e Jetpack Compose no Android; Angular com RxJS só de apoio (ADRs 0001, 0005 e 0013) |
 | Linguagem | JavaScript | TypeScript na web e Kotlin no Android (ADRs 0001 e 0005) |
 | Critério | DCs, sem lista | Oito DCs: as seis de Kiss (2014) mais expressividade e operações mentais difíceis (ADR 0012) |
-| Classificação | Aplicada; exploratória (Leal 2011); estudo de casos múltiplos (Yin 2001) | Exploratória (Runeson e Höst 2009; Easterbrook et al. 2008); avaliação qualitativa, pelas DCs, de implementações de um mesmo conjunto de tarefas |
+| Classificação | Aplicada; exploratória (Leal 2011); estudo de casos múltiplos (Yin 2001) | Exploratória (Runeson e Höst 2009; Easterbrook et al. 2008); avaliação qualitativa, pelas DCs, de implementações de um mesmo conjunto de interfaces |
 | "Larga escala" | Na justificativa, como pergunta | Só na motivação (ADR 0014) |
 
 Continuam: interfaces gráficas como objeto; o *callback* como problema,
@@ -92,7 +92,7 @@ Kiss (2014) como precedente; a pesquisa exploratória.
    se compara passa a ser o modelo de programação, observado na notação
    (ADR 0021).
 3. **A pergunta e o objetivo não eram verificáveis.** O problema vinha em
-   três formulações, uma sobre larga escala, que tarefas pequenas não
+   três formulações, uma sobre larga escala, que interfaces pequenas não
    respondem, e o objetivo geral não tinha critério (ADR 0014).
 4. **Estudo de caso não descreve o método.** As definições reunidas por
    Runeson e Höst (2009, p. 134 e 139) pedem um fenômeno contemporâneo no

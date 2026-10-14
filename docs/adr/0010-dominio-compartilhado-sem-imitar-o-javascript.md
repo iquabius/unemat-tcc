@@ -1,8 +1,8 @@
-# 0010. O domínio é compartilhado por caso, e o porte Kotlin não imita as peculiaridades do JavaScript
+# 0010. O domínio de cada interface é compartilhado pelas implementações, e o porte Kotlin não imita as peculiaridades do JavaScript
 
-2026-09-26. As regras de domínio de um caso (datas, e-mail, mensagens)
-ficam num `dominio.ts` compartilhado pelas implementações web, para que
-elas só difiram na coordenação da interface, e são portadas para
+2026-09-26. As regras de domínio de uma interface (datas, e-mail,
+mensagens) ficam num `dominio.ts` compartilhado pelas implementações web,
+para que elas só difiram na coordenação e na tela, e são portadas para
 `dominio-kotlin/` com os mesmos nomes. O porte responde diferente do
 JavaScript em entradas-limite (anos de 0 a 99, espaços fora do ASCII) e
 fica assim, com a diferença num teste `@Ignore` que falha se ativado.
@@ -15,4 +15,4 @@ na web; ninguém digita isso, mas a análise não pode afirmar que os
 domínios são idênticos.
 
 Fontes: commits `384b7a5` e `ae24a32`;
-`casos/formulario/dominio-kotlin/test/DominioTest.kt`.
+`implementacoes/formulario/dominio-kotlin/test/DominioTest.kt`.

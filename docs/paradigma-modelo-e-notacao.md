@@ -434,7 +434,7 @@ da PR no capítulo de programação.
   diz por que o TCC não o chama assim.
 - **A semântica de Madsen et al. (2020) trata os *hooks* como
   opcionais e fica no gerenciamento de estado tradicional** (12:3), e o
-  React das tarefas usa *hooks*.
+  React das implementações usa *hooks*.
 - **Para Van Roy (2009, p. 14), biblioteca não basta para um
   paradigma**: a linguagem núcleo precisa suportá-lo. A frase é sobre
   paradigmas, e a definição de modelo de programação (técnicas e
@@ -569,7 +569,7 @@ eventos quanto o estado, e por isso serve de guarda-chuva; "orquestrar" é
 sempre sobre eventos; o estado tem dois nomes, "change propagation" ou
 "management of state changes" nos artigos de PR, e "state management" nos
 estudos sobre React, RxJS e Redux. Decisão do autor em 2026-10-11, para o
-`CONTEXT.md` depois da orientação: o problema de coordenação é o
+`CONTEXT.md` depois da orientação: a exigência de coordenação é o
 guarda-chuva, com dois eixos, a orquestração de eventos e o gerenciamento
 de estado; "tratamento de eventos" não serve de eixo, porque é
 vocabulário do imperativo (relatório do autor em

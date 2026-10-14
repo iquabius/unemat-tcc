@@ -37,8 +37,9 @@ if [ "${1:-}" = --sem-diff ]; then diff=; shift; fi
 cd "$(git rev-parse --show-toplevel)"
 SAIDA=pdf/versoes
 BUILD=pdf/build
-# Só o que a compilação lê: casos/, docs/ e .beads/ ficam de fora. Os quatro
-# últimos são do leiaute até a v0.9, com o tcc.tex na raiz (ADR 0025).
+# Só o que a compilação lê: implementacoes/, docs/ e .beads/ ficam de fora.
+# Os quatro últimos são do leiaute até a v0.9, com o tcc.tex na raiz (ADR
+# 0025).
 CAMINHOS=(latex texto tcc.tex tex pos fig refs.bib)
 # Commits que só consertam a compilação, aplicados às versões anteriores a
 # eles: o texto não muda. e45ecd1: o estilo "rtt" do Pygments, que não

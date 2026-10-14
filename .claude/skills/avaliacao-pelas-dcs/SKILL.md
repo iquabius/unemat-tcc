@@ -1,6 +1,6 @@
 ---
 name: avaliacao-pelas-dcs
-description: Planeja, pré-analisa e revisa a avaliação do TCC pelas 14 Dimensões Cognitivas (DCs), tarefa por tarefa e rodada por rodada (primeira, segunda e terceira) — o plano da rodada, o guia de leitura do código por DC, factual e sem conclusão, que o agente entrega antes de o autor ler, e a revisão da análise que o autor ditou (Wispr Flow), conferida contra os trechos e as armadilhas, com a origem de cada conclusão registrada. Use sempre que for avaliar, analisar, pré-analisar ou ler uma implementação ou um diff de casos/ pelas DCs, preparar a leitura de uma tecnologia que o autor conhece pouco (Views, Compose, Windows Forms, WPF, Web Component, Lit), revisar uma conclusão por DC, preencher a tabela-síntese ou dizer se a diferença entre os modelos de programação ficou mantida, ampliada, reduzida, anulada, invertida ou surgida — mesmo que o pedido não diga "DC", como "vamos ler o Formulário no Compose", "o que olhar na viscosidade da segunda rodada" ou "confere minha análise da Busca". Não use para escrever ou revisar a frase do texto (revisao-de-texto) nem para implementar uma tarefa.
+description: Planeja, pré-analisa e revisa a avaliação do TCC pelas 14 Dimensões Cognitivas (DCs), interface por interface e rodada por rodada (primeira, segunda e terceira) — o plano da rodada, o guia de leitura do código por DC, factual e sem conclusão, que o agente entrega antes de o autor ler, e a revisão da análise que o autor ditou (Wispr Flow), conferida contra os trechos e as armadilhas, com a origem de cada conclusão registrada. Use sempre que for avaliar, analisar, pré-analisar ou ler uma implementação ou um diff de implementacoes/ pelas DCs, preparar a leitura de uma tecnologia que o autor conhece pouco (Views, Compose, Windows Forms, WPF, Web Component, Lit), revisar uma conclusão por DC, preencher a tabela-síntese ou dizer se a diferença entre os modelos de programação ficou mantida, ampliada, reduzida, anulada, invertida ou surgida — mesmo que o pedido não diga "DC", como "vamos ler o Formulário no Compose", "o que olhar na viscosidade da segunda rodada" ou "confere minha análise da Busca". Não use para escrever ou revisar a frase do texto (revisao-de-texto) nem para implementar uma das interfaces.
 ---
 
 # Avaliação pelas DCs: plano, guia de leitura e revisão
@@ -14,7 +14,7 @@ tcc-4a9): o guia de leitura vem antes e não toma posição, para não
 ancorar a conclusão; a revisão vem depois e confere o que o autor disse.
 
 Leia antes o `CONTEXT.md` (modelo de programação, notação, montagem da
-tela, tarefa, rodada, conclusão) e use os termos dele. As fontes do
+tela, interface, rodada, conclusão) e use os termos dele. As fontes do
 procedimento, com trecho e página, estão em
 `docs/metodo-da-avaliacao.md`, seções 8, 9, 11 e 13.
 
@@ -41,16 +41,17 @@ Referências desta skill:
    comportamento, de desempenho ou de mecanismo interno sem marca no código
    não é sinal.
 3. **Tudo com o commit lido.** Plano, guia e revisão dizem o sha de
-   `casos/` que leram; trecho sem `arquivo:linha` não entra.
+   `implementacoes/` que leram; trecho sem `arquivo:linha` não entra.
 4. **O que não vem do código vem da documentação ou da execução.** A
-   semântica de uma API, da documentação oficial, com a página e a data
-   da leitura; o que o compilador, o teste ou a tela mostram, com o
-   comando e a saída (o `tsc` ou o compilador da tecnologia numa cópia
-   fora de `casos/`, no `tmp/` ou no diretório temporário da sessão,
-   um esquecimento por vez; nunca no código de `casos/`). O resto fica marcado "a conferir". Não explique
-   uma API de memória ao autor.
-5. **Registro versionado em `docs/avaliacao/<rodada>-<tarefa>/`**
-   (`primeira-rodada-formulario`, `segunda-rodada-busca`; as rodadas pelo ordinal, como no `CONTEXT.md`): `plano.md`, `guia.md`, `revisao.md`
+   semântica de uma API, da documentação oficial, com a página e a data da
+   leitura; o que o compilador, o teste ou a tela mostram, com o comando e
+   a saída (o `tsc` ou o compilador da tecnologia numa cópia fora de
+   `implementacoes/`, no `tmp/` ou no diretório temporário da sessão, um
+   esquecimento por vez; nunca no código de `implementacoes/`). O resto
+   fica marcado "a conferir". Não explique uma API de memória ao autor.
+5. **Registro versionado em `docs/avaliacao/<rodada>-<interface>/`**
+   (`primeira-rodada-formulario`, `segunda-rodada-busca`; as rodadas pelo
+   ordinal, como no `CONTEXT.md`): `plano.md`, `guia.md`, `revisao.md`
    (decisão do autor de 2026-10-13). Cada um entra num commit próprio no
    `master`, no checkout principal, assim que é entregue: o guia antes do
    ditado do autor, a revisão depois, para que o histórico mostre o que o
@@ -59,50 +60,52 @@ Referências desta skill:
    que vai para o texto passa pela porta fechada e pela
    `revisao-de-texto`; achado de implementação vai para
    `docs/achados-das-implementacoes.md`.
-6. **Tarefa fora da análise** (o Contador, a Lista e o Carrinho em
-   `casos/fora-da-analise/`), usada para calibrar a leitura, como o
-   primeiro caso de Kiss (2014, p. 18): os mesmos passos, com os arquivos
-   em `tmp/avaliacao/<tarefa>/`, sem commit e sem ir para o texto. O
-   código de lá não compila no `master`; para executar (regra 4), use o
-   commit anterior ao movimento, pelo `casos/fora-da-analise/README.org`,
-   "Rodar". A especificação é o `README.org` da tarefa.
+6. **Interface fora da análise** (o Contador, a Lista e o Carrinho em
+   `implementacoes/fora-da-analise/`), usada para calibrar a leitura, como
+   o primeiro *case study* de Kiss (2014, p. 18): os mesmos passos, com
+   os arquivos em `tmp/avaliacao/<interface>/`, sem commit e sem ir para
+   o texto. O código de lá não compila no `master`; para executar (regra
+   4), use o commit anterior ao movimento, pelo
+   `implementacoes/fora-da-analise/README.org`, "Rodar". A especificação
+   é o `README.org` da interface.
 7. **Celular.** O autor lê o guia e dita no celular: títulos curtos, uma
    DC por seção, listas em vez de tabelas largas, trechos de código curtos
    (até umas 8 linhas, com a linha de começo).
 
 ## 1. Plano da rodada
 
-Entrada: a tarefa e a rodada. Saída: `plano.md` (modelo em
+Entrada: a interface e a rodada. Saída: `plano.md` (modelo em
 `references/formatos.md`).
 
 1. `bd ready` e a tarefa do bd da rodada; o sha do `master` que se lê.
-2. **Implementações.** As tecnologias da tarefa nessa rodada (ADR 0029:
+2. **Implementações.** As tecnologias da interface nessa rodada (ADR 0029:
    Web Component, React e Solid em todas; Lit, Angular com *signals*,
-   Views × Compose e Windows Forms × WPF nas três tarefas de cada par).
+   Views × Compose e Windows Forms × WPF nas três interfaces de cada par).
    Para cada uma, os arquivos da notação e os que ficam fora (domínio,
    estilo, testes, configuração), pelo `references/tecnologias.md`.
 3. **Atividade** (Blackwell e Green 2003, tabela 5.1, p. 113), que diz
    como ler cada DC (`references/dcs.md`, "Atividade da rodada"; só a
    modificação tem perfil publicado):
-   - Primeira rodada: busca e compreensão exploratória. O leitor procura onde o código
-     escreve cada problema de coordenação da tarefa (especificação em
-     `casos/openspec/specs/<tarefa>/spec.md`) e entende como as partes se
-     ligam.
+   - Primeira rodada: busca e compreensão exploratória. O leitor procura
+     onde o código escreve cada exigência de coordenação da interface
+     (especificação em `implementacoes/openspec/specs/<interface>/spec.md`)
+     e entende como as partes se ligam.
    - Segunda e terceira rodadas: modificação. O objeto é o diff de cada mudança, um commit
      por mudança, na mesma ordem em todas as tecnologias; a terceira é a
      reescrita do Formulário com a biblioteca do ecossistema (ADR 0031).
-4. **Perguntas de leitura**, uma por problema de coordenação da tarefa:
+4. **Perguntas de leitura**, uma por exigência de coordenação da interface:
    onde a notação escreve o evento que muda o estado, o derivado, a tela,
    a assincronia e a limpeza ao sair da tela. Na segunda rodada, uma por mudança: que
    trechos o diff toca, quantos e por quê.
 5. **Comparações da rodada**: os três modelos de programação na web; as
    células com duas tecnologias (Solid × Angular no Formulário, na Busca e
    no Quadro; React × Lit no Formulário, na Busca e nos Dados ao vivo, ADR
-   0017); a conferência no Android e no desktop, nas tarefas que eles têm.
-6. **DC da tarefa.** Quais DCs têm esta tarefa como a fixada no mapa DC →
-   tarefa (ADR 0017; tcc-7jc), se o mapa já existir. As 14 se percorrem
-   de qualquer jeito; a fixada só diz onde a seção da DC busca a
-   evidência principal.
+   0017); a conferência no Android e no desktop, nas interfaces que eles
+   têm.
+6. **DC da interface.** Quais DCs têm esta interface como a fixada no
+   mapa DC → interface (ADR 0017; tcc-7jc), se o mapa já existir. As 14
+   se percorrem de qualquer jeito; a fixada só diz onde a seção da DC
+   busca a evidência principal.
 7. **Apoio medido**: linhas por implementação, com o script do ADR 0012
    (tcc-hlh7) quando existir, senão `git diff --stat`/`wc -l` marcados
    como provisórios; na segunda e na terceira, o `git diff --stat` de cada commit da mudança.
@@ -208,7 +211,7 @@ escrita na tela". Contagem é fato: quantos lugares, quantas linhas,
 quantos arquivos. Comparação de contagem entre tecnologias também é fato,
 mas fica numa linha própria, sem adjetivo.
 
-DC sem trecho que a mostre nessa tarefa: diga "nenhum trecho achado" e o
+DC sem trecho que a mostre nessa interface: diga "nenhum trecho achado" e o
 que se procurou. Não force um trecho para preencher a seção: as fontes
 pedem que se pergunte por todas as dimensões, e "sem diferença" também é
 resultado (ADR 0017).
@@ -254,7 +257,7 @@ cada DC do texto ditado:
    `references/dcs.md`; cada uma que a conclusão comete vira um
    apontamento com o trecho do ditado, a linha do `.org`, o trecho do
    código e a fonte da armadilha.
-3. **Contradição**: outra tecnologia do mesmo modelo, outra tarefa ou o
+3. **Contradição**: outra tecnologia do mesmo modelo, outra interface ou o
    Android e o desktop contradizem a conclusão? (ADR 0017.)
 4. **Lacunas**: DC sem conclusão ditada, tecnologia da rodada sem
    menção, célula sem o valor da mudança entre rodadas.

@@ -8,7 +8,7 @@ confira no código da implementação e, para a semântica da tecnologia, na
 documentação oficial, com a data da leitura. O que não vier de uma das
 duas fica marcado "a conferir".
 
-Os seis pontos de cada tecnologia seguem o problema de coordenação
+Os seis pontos de cada tecnologia seguem a exigência de coordenação
 (`CONTEXT.md`): o estado, o valor derivado, o evento que muda o estado, o
 estado que chega à tela, a assincronia com o tempo de vida (limpeza ao
 sair da tela) e a montagem da tela. O que conta é o código da aplicação:
@@ -39,7 +39,7 @@ sinal de nenhuma DC.
   encerramento (`clearInterval`, `AbortController.abort()`, cancelar a
   assinatura) fica escrito no `disconnectedCallback`.
 - Montagem: `createElement` e `append` no Contador; `innerHTML` com
-  *template literal* marcado `/* HTML */` nas outras tarefas (tcc-53w).
+  *template literal* marcado `/* HTML */` nas outras interfaces (tcc-53w).
 - Documentação: developer.mozilla.org, "Using custom elements".
 
 ### Lit (declarativo por re-renderização, par do Web Component)

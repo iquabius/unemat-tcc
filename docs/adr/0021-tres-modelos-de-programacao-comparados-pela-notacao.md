@@ -125,7 +125,7 @@ Custo: o delineamento se afasta da forma usual das DCs, porque cada coluna é
 uma categoria que agrupa tecnologias, e não um artefato que se lê; a
 conclusão sobre um modelo de programação generaliza a partir de uma ou
 duas tecnologias (na web, cada declarativo tem a segunda tecnologia em
-três das cinco tarefas, ADR 0013), e a célula registra quando Solid e
+três das cinco interfaces, ADR 0013), e a célula registra quando Solid e
 Angular, ou React e Lit, divergem (ADR 0017); as DCs
 "have little to say about these high-level choices" (Green e Petre 1996,
 p. 139), e o trabalho compara os modelos de programação pelos detalhes
@@ -145,7 +145,7 @@ o que a tecnologia oferece; o React é reativo para Salvaneschi et al. (2014,
 p. 564), o que o texto precisa enfrentar; a base de "notação" é uma frase
 do tutorial de 1998, repetida em fontes publicadas (Green 2000; Blackwell
 e Green 2003); o Web Component escreve a tela com `createElement` no
-Contador e com `innerHTML` nas outras tarefas (tcc-53w); a pergunta, os
+Contador e com `innerHTML` nas outras interfaces (tcc-53w); a pergunta, os
 objetivos, a introdução, o `CONTEXT.md` e a pauta da orientação de
 2026-10-09 mudam de vocabulário.
 

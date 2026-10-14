@@ -8,9 +8,9 @@ UAX), 10, 13.1 e 14.1, em 2026-10-10. A busca que os achou está em
 `docs/revisao-bibliografica.md`.
 
 **Conclusão.** Em 2026-10-09, nenhum trabalho encontrado repete o
-delineamento do TCC (mesmas tarefas de interface, várias tecnologias,
-avaliação pelas DCs) nem compara os três modelos de programação nas
-tecnologias web mais usadas sobre as mesmas tarefas. Os mais próximos:
+delineamento do TCC (mesmas interfaces, várias tecnologias, avaliação
+pelas DCs) nem compara os três modelos de programação nas tecnologias web
+mais usadas sobre as mesmas interfaces. Os mais próximos:
 
 - **Kiss (2014)** já avaliou *signals* pelas DCs (Scala.Rx e Elm), na
   JVM e no Elm, e deixou a web como trabalho futuro (seções 2 e 5);
@@ -62,7 +62,7 @@ Crossref; "TC", o texto completo, lido em 2026-10-02 nas cópias de
 
 | Trabalho | O que faz | Para que serve | Lido |
 |---|---|---|---|
-| GROLAUX, D.; NGUYEN, T.-D.; VANDERDONCKT, J. *Async/await is an effective paradigm for event management of user interfaces*. EICS '26 Companion, p. 7-16, 2026. DOI 10.1145/3807968.3810928 | Prova de conceito (StreamAsync, JavaScript) que trata eventos de GUI como E/S com async/await. Reproduz nela o essencial de seis práticas (programação síncrona, *listeners*, barramento de eventos, laço de animação, RxJS e afins, componentes reativos) e as compara "conceitualmente", sem tarefas comuns, DCs nem medidas (p. 10, 15); a introdução fala em cinco práticas e lista seis (p. 8). Contra a reatividade implícita, p. 14 (trecho em `docs/fundamentacao.md`, seção 5). Limites declarados: princípios centrais de cada prática, sem desempenho, sem experiência em escala (p. 14) | O mais perto de comparar notações de coordenação; trabalhos relacionados; a frase da p. 14 toca as dependências ocultas | TC |
+| GROLAUX, D.; NGUYEN, T.-D.; VANDERDONCKT, J. *Async/await is an effective paradigm for event management of user interfaces*. EICS '26 Companion, p. 7-16, 2026. DOI 10.1145/3807968.3810928 | Prova de conceito (StreamAsync, JavaScript) que trata eventos de GUI como E/S com async/await. Reproduz nela o essencial de seis práticas (programação síncrona, *listeners*, barramento de eventos, laço de animação, RxJS e afins, componentes reativos) e as compara "conceitualmente", sem interfaces comuns, DCs nem medidas (p. 10, 15); a introdução fala em cinco práticas e lista seis (p. 8). Contra a reatividade implícita, p. 14 (trecho em `docs/fundamentacao.md`, seção 5). Limites declarados: princípios centrais de cada prática, sem desempenho, sem experiência em escala (p. 14) | O mais perto de comparar notações de coordenação; trabalhos relacionados; a frase da p. 14 toca as dependências ocultas | TC |
 | SPERBER, M.; SCHLEGEL, M. *Evolution of functional UI paradigms*. FUNARCH '25, p. 27-38, 2025. DOI 10.1145/3759163.3760429 | Narra a evolução dos *toolkits* funcionais de UI (eXene, Fudgets, Fruit, Haggis, Universe do Racket, Elm, React) pela arquitetura: acoplamento e os desafios de atualizar a tela, de modularidade e de circularidade do MVC (p. 28); inclui os *toolkits* dos autores (Reacl, reacl-c). Não é revisão sistemática nem usa DCs. O React "re-renders the entire UI on each interaction, just like Elm" (p. 32); Angular, Svelte e Vue.js atualizam "specific parts of the UI corresponding to specific changes in the model" (p. 32); o Elm deixou a PFR em 2016 (p. 31) | Visão parcial depois de 2013 (lacuna 2, `docs/revisao-bibliografica.md`, seção 4); a p. 32 sustenta a fronteira entre re-renderização e atualização fina | TC |
 | WIJAYARATHNA, C.; GROBLER, M.; ARACHCHILAGE, N. A. G. *Software developers need help too! Developing a methodology to analyse cognitive dimension-based feedback on usability*. Behaviour & Information Technology, 2019. DOI 10.1080/0144929x.2019.1705393 | Revisão sistemática de 70 estudos que usaram questionários de DCs e diretrizes para analisar as respostas | Método: DCs por questionário, contra a análise feita pelo autor | R; versão submetida aberta na UNSWorks |
 | ZHUANG, Y.; CHIBA, S. *Expanding event systems to support signals by enabling the automation of handler bindings*. Journal of Information Processing, v. 24, n. 4, p. 620-634, 2016. DOI 10.2197/ipsjjip.24.620 | Contrasta a ligação explícita de *handlers* nos eventos com a implícita dos *signals* e estende sistemas de eventos | *Callbacks* × *signals*; o resumo não fala de GUI | R |
@@ -91,7 +91,7 @@ arXiv em `tmp/fontes/`. "TC" é o texto completo, lido nessas cópias.
 Trechos guardados mesmo quando o texto não os usa, para outras seções.
 Em 2026-10-02, eles já sustentavam a conclusão do início desta nota:
 nenhum trabalho lido compara os três modelos de programação nas
-tecnologias web mais usadas sobre as mesmas tarefas.
+tecnologias web mais usadas sobre as mesmas interfaces.
 
 | Fonte | Trecho | Onde | Leitura | Uso |
 |---|---|---|---|---|
@@ -356,7 +356,7 @@ interface declarativa no Brasil. Vieram de 24 buscas na BDTD
 `type:dissertation` de 2008 a 2026 e dos que a base já tinha. Kiss avalia
 pelas DCs, sozinho e analiticamente, descarta experimentos e desempenho
 (`docs/metodo-da-avaliacao.md`) e fica na JVM e no Elm; nenhum trabalho
-daqui aplica as DCs a três notações de interface nas mesmas tarefas.
+daqui aplica as DCs a três notações nas mesmas interfaces.
 Grau ainda aberto, inclusive o bacharelado, para restringir depois:
 "Grau" diz de onde ele vem, e "não confirmado" é página que recusou a
 consulta. "R" é o resumo, lido no OpenAlex, na BDTD ou no repositório;

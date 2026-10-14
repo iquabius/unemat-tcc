@@ -1,0 +1,16 @@
+# Saídas de build e dependências (o Prettier só lê o .gitignore de
+# implementacoes/).
+node_modules/
+dist/
+.angular/
+build/
+.gradle/
+.kotlin/
+package-lock.json
+capturas/
+
+# Documentos, revisados com o texto.
+*.md
+
+# Código fora da análise, congelado como saiu dela.
+fora-da-analise/

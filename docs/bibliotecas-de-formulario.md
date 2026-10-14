@@ -46,13 +46,13 @@ Janelas:
 | React | `react-hook-form` 7.90.0 (2026-10-11) | 255.298.395 downloads, 84,6% das candidatas, 12,6 vezes o `formik` | npm, 2026-09-12 a 2026-10-11 | api.npmjs.org |
 | Solid | `@tanstack/solid-form` 1.33.5 (2026-08-11) | 213.307 downloads, 52,9% das candidatas, 1,74 vez o `@modular-forms/solid` | npm, 2026-09-12 a 2026-10-11 | api.npmjs.org |
 | Lit | API de validação de restrições da plataforma, como no Web Component; Lit 3.3.3 (2026-05-14) | sem maioria: a líder, `@vaadin/hilla-lit-form`, tem 28,5% | npm, 2026-09-12 a 2026-10-11 | api.npmjs.org |
-| Angular com *signals* | `@angular/forms` 22.2.0 (2026-09-23), a mesma do `@angular/core` em `casos/`, com os *Signal Forms* (`form()` de `@angular/forms/signals`) | 23.793.794 downloads, 95,9% das candidatas; a API escolhida pelo ADR 0031, porque a medida não separa as APIs do pacote | npm, 2026-09-12 a 2026-10-11 | api.npmjs.org; `types/_structure-chunk.d.ts` do pacote, `@publicApi 22.0` |
+| Angular com *signals* | `@angular/forms` 22.2.0 (2026-09-23), a mesma do `@angular/core` em `implementacoes/`, com os *Signal Forms* (`form()` de `@angular/forms/signals`) | 23.793.794 downloads, 95,9% das candidatas; a API escolhida pelo ADR 0031, porque a medida não separa as APIs do pacote | npm, 2026-09-12 a 2026-10-11 | api.npmjs.org; `types/_structure-chunk.d.ts` do pacote, `@publicApi 22.0` |
 | Views | API da plataforma: o erro no campo do Material Components (`TextInputLayout.setError`), já em `libs.versions.toml` (`material` 1.14.0) | sem contagem pública | — | developer.android.com, `TextInputLayout` (2026-10-12) |
 | Compose | API da plataforma: `isError` e `supportingText` do `TextField` do Material 3, do BOM 2026.09.00 de `libs.versions.toml` | sem contagem pública | — | `androidx/androidx`, `material3/.../TextField.kt` (ramo `androidx-main`, 2026-10-12) |
 | Windows Forms | API da plataforma: `ErrorProvider` e o evento `Validating` | a maioria das candidatas compatíveis são 177 downloads, sem ecossistema (seção 3.2) | NuGet, seis semanas até 2026-10-12 | learn.microsoft.com, `ErrorProvider` (2026-10-12); `dotnet/winforms`, `ErrorProvider.cs` |
 | WPF | `CommunityToolkit.Mvvm` 8.4.2 (2026-03-25), com o `ObservableValidator` (`INotifyDataErrorInfo`) | 3.329.052 downloads, 98,6% das candidatas | NuGet, seis semanas até 2026-10-12 | nuget.org/stats; learn.microsoft.com, *ObservableValidator* (2026-10-12) |
 
-As versões entram nos arquivos de dependência (`casos/*/package.json`,
+As versões entram nos arquivos de dependência (`implementacoes/*/package.json`,
 os `.csproj` do desktop) quando a P3 começar (tcc-0yjr). A plataforma não
 ganha dependência nova no Android, e no Web Component e no Lit a API é a
 do navegador.
@@ -173,4 +173,4 @@ NUGET, relatórios por pacote (`nuget.org/stats/reports/packages`), busca
 ANDROID, developer.android.com, `TextInputLayout` (2026-10-12);
 `androidx/androidx`, `TextField.kt` do Material 3; angular.dev,
 *Forms* (2026-10-12); `@angular/forms` 22.2.0 instalado em
-`casos/node_modules`.
+`implementacoes/node_modules`.

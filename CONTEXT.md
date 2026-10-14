@@ -2,9 +2,9 @@
 
 Trabalho de conclusão que compara três modelos de programação de
 interfaces gráficas pelas Dimensões Cognitivas de Notações, aplicadas à
-notação com que cada tecnologia os escreve, com as mesmas tarefas
+notação com que cada tecnologia os escreve, com as mesmas interfaces
 implementadas em várias tecnologias na web, no Android e no desktop, em
-três rodadas. Texto em `texto/`, código em `casos/`, decisões em
+três rodadas. Texto em `texto/`, código em `implementacoes/`, decisões em
 `docs/adr/`, definições e fontes dos termos em
 `docs/paradigma-modelo-e-notacao.md`.
 
@@ -54,19 +54,38 @@ montagem da tela ou na ligação entre as duas (ADR 0021).
 _Avoid_: estrutura da tela como notação à parte; sintaxe da tela;
 marcação (não cobre `createElement` nem Compose)
 
-**Tarefa**:
-Uma interface especificada, que todas as implementações seguem:
-Formulário com validação, Busca com sugestões, Login com quarentena,
-Quadro de tarefas e Dados ao vivo (ADR 0002). O nome segue o 7GUIs (Kiss,
-2014) e o *benchmark* de Sim et al. (2003).
-_Avoid_: caso e estudo de caso (só no sentido metodológico de Yin, que o
-trabalho não adota); exemplo; cenário; tarefa sozinha para o item do
-Beads (tarefa do bd)
+**Interface**:
+Uma das cinco interfaces gráficas especificadas que todas as
+implementações seguem: Formulário com validação, Busca com sugestões,
+Login com quarentena, Quadro de tarefas e Dados ao vivo (ADR 0002). Onde
+"a interface" puder ser qualquer interface gráfica, leva o nome ("a
+interface do Formulário") ou o número ("as cinco interfaces"); o domínio
+fica no plural ou com "gráfica" ("programar interfaces gráficas") (ADR
+0034).
+_Avoid_: tarefa (o termo do 7GUIs e de Sim et al., 2003, até 2026-10-14:
+colide com o Quadro de tarefas e com a tarefa do bd); caso e estudo de
+caso (o estudo de caso é um método que o trabalho não adota, embora Kiss,
+2014, chame cada item de *case study*); problema (o de Erdweg et al.,
+2015, e de Nanz et al., 2013: colide com o problema de usabilidade e o de
+pesquisa, e pede "solução" no lugar de implementação); programa;
+exemplo; cenário; interface em texto corrido para o tipo da POO
+(escreve-se a palavra-chave em código: o tipo `Reserva`, declarado com
+`interface`); interface para a API
 
-**Tarefa base**:
-A tarefa que todas as tecnologias implementam, o Formulário, e que a
+***Benchmark* de notação**:
+O conjunto das cinco interfaces, implementadas em cada tecnologia e
+avaliadas pelas DCs: o *notational benchmark* de Kiss (2014, p. 114), na
+definição de *benchmark* de Sim, Easterbrook e Holt (2003, p. 76), em que
+as interfaces são a amostra de tarefas (*task sample*) e a avaliação é a
+medida de desempenho, qualitativa e feita por uma pessoa (ADR 0034).
+_Avoid_: *benchmark* de código; *benchmark* para uma interface só;
+*benchmark* sozinho onde o leitor possa entender medida objetiva de
+desempenho (Tichy, 2014)
+
+**Interface base**:
+A interface que todas as tecnologias implementam, o Formulário, e que a
 terceira rodada reescreve com a biblioteca de formulário de cada ecossistema (ADR 0029).
-_Avoid_: tarefa principal; caso base
+_Avoid_: interface principal; tarefa base (até 2026-10-14); caso base
 
 **Delineamento**:
 O planejamento da pesquisa, com as formas de controle das variáveis
@@ -75,25 +94,28 @@ isolam e o que fica sem controle (`docs/delineamento.md`).
 _Avoid_: desenho (confunde-se com o desenho da tela); projeto (o projeto de
 pesquisa é o documento de 2017)
 
-**Problema de coordenação**:
-O que uma tarefa exige do modelo de programação, em dois eixos, a
+**Exigência de coordenação**:
+O que uma interface exige do modelo de programação, em dois eixos, a
 orquestração de eventos e o gerenciamento de estado: evento → estado →
 tela, estado derivado, assincronia, tempo de vida de relógios e
 assinaturas, lista derivada (com a montagem dos itens na tela), estado
-compartilhado, histórico (ADR 0002). Cada tarefa tem uma proporção
-própria dos dois eixos, como a interface real que ela reproduz.
-_Avoid_: padrão de interface; tratamento de eventos (é o vocabulário do
-imperativo, e mediria os três modelos de programação com a régua de um)
+compartilhado, histórico (ADR 0002). Cada interface tem uma proporção
+própria dos dois eixos, como a aplicação real que ela reproduz.
+_Avoid_: problema de coordenação (até 2026-10-14: "problema" fica para o
+de usabilidade e o de pesquisa); requisito de coordenação (confunde-se com
+o requisito de orquestração); padrão de interface; tratamento de eventos
+(é o vocabulário do imperativo, e mediria os três modelos de programação
+com a régua de um)
 
 **Orquestração de eventos**:
-O eixo do problema de coordenação que combina no tempo eventos de várias
+O eixo da exigência de coordenação que combina no tempo eventos de várias
 fontes: a espera depois da última tecla, o cancelamento, a ordem das
 respostas, a nova tentativa (Meijer, 2012).
 _Avoid_: coordenação de eventos (coordenar cobre também o estado, Edwards,
 2009); orquestração para o estado
 
 **Gerenciamento de estado**:
-O eixo do problema de coordenação que propaga cada alteração de estado aos
+O eixo da exigência de coordenação que propaga cada alteração de estado aos
 valores derivados e à tela (*change propagation*, Bainomugisha et al.,
 2013; *state management*, State of JS).
 _Avoid_: gestão de estado; gerência de estado
@@ -101,12 +123,12 @@ _Avoid_: gestão de estado; gerência de estado
 **Rodada**:
 Uma das três etapas da avaliação, cada uma mais estreita que a anterior,
 chamadas pelo ordinal: a primeira, a segunda e a terceira rodada. A
-primeira responde à pergunta de pesquisa, a P1; a segunda e a terceira,
-às subperguntas, a P1.1 e a P1.2 (ADR 0014). Os rótulos ficam para as
-perguntas, e o ordinal, para as rodadas, em todo lugar. A primeira
-rodada: as cinco tarefas em Web Component, React e Solid, e a tarefa base
-e mais duas em cada outro par; a segunda, funcionalidades e requisitos de
-orquestração acrescentados a cada tarefa; a terceira, o Formulário
+primeira responde à pergunta de pesquisa, a P1; a segunda e a terceira, às
+subperguntas, a P1.1 e a P1.2 (ADR 0014). Os rótulos ficam para as
+perguntas, e o ordinal, para as rodadas, em todo lugar. A primeira rodada:
+as cinco interfaces em Web Component, React e Solid, e a interface base e
+mais duas em cada outro par; a segunda, funcionalidades e requisitos de
+orquestração acrescentados a cada interface; a terceira, o Formulário
 reescrito com a biblioteca de formulário do ecossistema (ADR 0029).
 _Avoid_: fase (é do roteiro); iteração; rodada sozinha onde puder ser a
 rodada de corte ou a de revisão do texto (ADRs 0022 e 0023); "a rodada da
@@ -133,28 +155,28 @@ _Avoid_: atualização para o estado (alteração de estado);
 re-renderização para toda atualização (é a do React e do Compose)
 
 **Funcionalidade**:
-Mudança acrescentada a uma tarefa na segunda rodada que muda o que o usuário percebe
-ou pode fazer, por qualquer sentido ou tecnologia assistiva: o assistente
-em três passos do Formulário, mas também o foco que se move ou a mensagem
-anunciada ao leitor de tela (requisito de acessibilidade, com o critério
-da WCAG).
+Mudança acrescentada a uma interface na segunda rodada que muda o que o
+usuário percebe ou pode fazer, por qualquer sentido ou tecnologia
+assistiva: o assistente em três passos do Formulário, mas também o foco
+que se move ou a mensagem anunciada ao leitor de tela (requisito de
+acessibilidade, com o critério da WCAG).
 _Avoid_: *feature*; recurso; "o que o usuário vê" (exclui quem não vê a
 tela); requisito não funcional para a acessibilidade
 
 **Requisito de orquestração**:
-Mudança acrescentada a uma tarefa na segunda rodada que deixa as cenas iguais e muda
-como se combinam eventos de várias fontes, como a espera de 300 ms da
-Busca.
+Mudança acrescentada a uma interface na segunda rodada que deixa as cenas
+iguais e muda como se combinam eventos de várias fontes, como a espera de
+300 ms da Busca.
 _Avoid_: requisito não funcional (a mudança é de comportamento)
 
 **Limpeza ao sair da tela**:
-Regra comum da primeira rodada: quando a tarefa sai da tela, ela encerra o que
-iniciou (relógios, assinaturas, requisições, ouvintes), e o teste de
-conformidade confere que nada sobrou. Quem a viola deixa um vazamento de
-recursos (Lima, Giusti e Dias-Neto, 2020).
+Regra comum da primeira rodada: quando a interface sai da tela, ela
+encerra o que iniciou (relógios, assinaturas, requisições, ouvintes), e o
+teste de conformidade confere que nada sobrou. Quem a viola deixa um
+vazamento de recursos (Lima, Giusti e Dias-Neto, 2020).
 _Avoid_: "nada vivo depois de sair da tela" (decalque de *alive*);
 descarte (tradução automática de *dispose*); desmontar sozinho
-(vocabulário do React); tarefa órfã (tarefa é a interface)
+(vocabulário do React); tarefa órfã (tarefa é a do bd)
 
 **Ecossistema**:
 As bibliotecas que a comunidade de uma tecnologia usa junto dela, como as
@@ -171,18 +193,18 @@ _Avoid_: ambiente sozinho; ambiente para o sistema de edição das DCs
 O ambiente em que a interface roda e cujas APIs uma tecnologia usa: a web
 (TypeScript), o Android (Kotlin) e o desktop (C#). Cada par se classifica
 pela plataforma: a análise se faz na web, e o Android e o desktop
-conferem, nas tarefas que implementam, se as posições da web se repetem
+conferem, nas interfaces que implementam, se as posições da web se repetem
 (ADR 0012).
 _Avoid_: plataforma para o *framework*; replicação para o Android (nome
 de 2026-09-26, trocado em 2026-10-09); porte para o domínio de outra
 plataforma (é o domínio dela, na linguagem dela)
 
 **Tecnologia**:
-Uma forma de implementar uma tarefa numa plataforma: na web, Web Component
-(a plataforma), React, Solid, Lit e Angular com *signals* (estes dois em
-três tarefas cada) e Angular com RxJS; no Android, Views (a plataforma) e
-Jetpack Compose; no desktop, Windows Forms e WPF. Cada uma impõe
-um modelo de programação e se escreve numa notação própria; a
+Uma forma de implementar uma interface numa plataforma: na web, Web
+Component (a plataforma), React, Solid, Lit e Angular com *signals* (estes
+dois em três interfaces cada) e Angular com RxJS; no Android, Views (a
+plataforma) e Jetpack Compose; no desktop, Windows Forms e WPF. Cada uma
+impõe um modelo de programação e se escreve numa notação própria; a
 documentação a classifica como biblioteca, *framework*, *toolkit* ou
 plataforma, e o texto usa essas categorias só para descrevê-la.
 _Avoid_: biblioteca, *framework* ou *toolkit* como nome genérico;
@@ -225,18 +247,18 @@ o Compose se apresenta assim.
 _Avoid_: *toolkit* como sinônimo de biblioteca; kit de ferramentas
 
 **Implementação**:
-Uma tarefa numa tecnologia: na primeira rodada, 33, sendo 21 na web, 6 no Android e 6
-no desktop; na terceira, o Formulário reescrito em cada uma das nove
-tecnologias que o têm.
-_Avoid_: versão, exemplo
+Uma interface numa tecnologia: na primeira rodada, 33, sendo 21 na web, 6
+no Android e 6 no desktop; na terceira, o Formulário reescrito em cada uma
+das nove tecnologias que o têm.
+_Avoid_: versão, exemplo; solução (pede "problema" para a interface)
 
 **Apoio**:
 Implementação que o autor consulta ao escrever e não entra na análise: o
-Angular com RxJS, congelado em `casos/fora-da-analise/` com as regras de
-2026-10-13.
+Angular com RxJS, congelado em `implementacoes/fora-da-analise/` com as
+regras de 2026-10-13.
 
 **Domínio**:
-As regras de uma tarefa que não dependem da interface (datas, e-mail,
+As regras de uma interface que não dependem da tela (datas, e-mail,
 mensagens, servidores simulados, fontes de dados, o limite do quadro),
 compartilhadas pelas implementações. Mover e arquivar no Quadro ficam em
 cada implementação, porque escrever uma alteração de estado é parte da
@@ -247,21 +269,21 @@ ninguém (a *business
 logic* de Karagkasidis, 2008, é o domínio aqui)
 
 **Teste de conformidade**:
-As verificações da especificação de uma tarefa, executadas contra cada
+As verificações da especificação de uma interface, executadas contra cada
 implementação; cada item é uma verificação, com o nome de um cenário.
 _Avoid_: rotina (o nome até 2026-10-11); roteiro e roteiro de teste (o
 roteiro é o plano de trabalho)
 
 **Especificação**:
-O que todas as implementações de uma tarefa seguem, escrito em requisitos
-e cenários no OpenSpec (*spec*); a viva é a de agora, com as mudanças já
-arquivadas (ADR 0030).
+O que todas as implementações de uma interface seguem, escrito em
+requisitos e cenários no OpenSpec (*spec*); a viva é a de agora, com as
+mudanças já arquivadas (ADR 0030).
 _Avoid_: capacidade (*capability*, o nome do OpenSpec para o que a
-especificação descreve, que aqui é sempre uma tarefa); README como
-especificação (é a apresentação da tarefa)
+especificação descreve, que aqui é sempre uma interface); README como
+especificação (é a apresentação da interface)
 
 **Requisito**:
-Uma regra da especificação, que a tarefa deve cumprir, com um ou mais
+Uma regra da especificação, que a interface deve cumprir, com um ou mais
 cenários.
 _Avoid_: requisito sozinho para o que a segunda rodada acrescenta (funcionalidade ou
 requisito de orquestração); restrição, que só o 7GUIs usa
@@ -270,12 +292,12 @@ requisito de orquestração); restrição, que só o 7GUIs usa
 Um exemplo de um requisito, com o estado de partida, a ação e o
 resultado, que o teste de conformidade confere numa verificação de mesmo
 nome.
-_Avoid_: cena (o estado a capturar); cenário como sinônimo de tarefa;
+_Avoid_: cena (o estado a capturar); cenário como sinônimo de interface;
 caso de teste
 
 **Mudança**:
 O que se propõe e se arquiva no OpenSpec para a especificação (*change*):
-a especificação de uma tarefa nova, cada funcionalidade e requisito de
+a especificação de uma interface nova, cada funcionalidade e requisito de
 orquestração da segunda rodada, e as correções da primeira, como a retirada da espera da
 Busca. É o termo da engenharia de software em português para *change*
 (gerência de mudanças, análise de impacto de mudanças) e o da viscosidade,
@@ -300,7 +322,7 @@ _Avoid_: diff da especificação; especificação parcial
 **Roteiro**:
 O plano de trabalho do TCC no Beads: as fases, os épicos e as tarefas do bd.
 _Avoid_: roadmap; beads como nome do plano (Beads é a ferramenta); roteiro
-para as verificações de uma tarefa (teste de conformidade)
+para as verificações de uma interface (teste de conformidade)
 
 **Cena**:
 Um estado da interface a capturar, com o mesmo nome na web e no Android.
@@ -343,7 +365,7 @@ que saíram em 2026-10-08
 
 **Posição**:
 Onde um modelo de programação fica numa DC, pela notação de cada
-tecnologia, com a tarefa de onde vem a evidência: o que a avaliação diz
+tecnologia, com a interface de onde vem a evidência: o que a avaliação diz
 dele na dimensão, "how it lies on each dimension" (Blackwell e Green,
 2003). É a célula da tabela-síntese e o que o Android e o desktop
 conferem. Da primeira rodada para as outras duas, a posição sobe, desce ou
@@ -456,5 +478,5 @@ pelos valores, não o valor)
 **Tarefa do bd**:
 Um item de trabalho no Beads (`bd`); não é decisão (ADR) nem achado para a
 análise.
-_Avoid_: tarefa sozinha onde puder ser a interface (Tarefa); item do bd
+_Avoid_: tarefa para a interface (o nome até 2026-10-14); item do bd
 serve de sinônimo

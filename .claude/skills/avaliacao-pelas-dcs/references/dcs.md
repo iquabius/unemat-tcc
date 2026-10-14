@@ -23,9 +23,10 @@ implementação, não o exemplo.
 3. **Não é *checklist* nem métrica**: "simply as a checklist" e "rough and
    sketchy evaluation" (Blackwell e Green 2003, p. 109). Linhas e trechos
    do diff são apoio, não a conclusão.
-4. **Medir a tarefa em vez da notação.** O que a especificação impõe a
-   todas as tecnologias (três campos, dois relógios, uma requisição) não
-   diferencia notações. Conte o que muda de uma notação para outra.
+4. **Medir o que a interface exige em vez da notação.** O que a
+   especificação impõe a todas as tecnologias (três campos, dois
+   relógios, uma requisição) não diferencia notações. Conte o que muda
+   de uma notação para outra.
 5. **Atribuir ao modelo de programação o que é da tecnologia**: "tiny
    programs are dominated by the toolkit" (Kiss 2014, p. 56). Diga se o
    sinal está na coordenação, na montagem da tela ou na ligação entre as
@@ -39,8 +40,9 @@ implementação, não o exemplo.
    (p. 29). Pode valer em duas, mas diga que é o mesmo trecho.
 8. **Comentários das implementações não são sinal.** São notação
    secundária de quem implementou, não da tecnologia, e o código de
-   `casos/` foi escrito com agentes. A expressividade de papel depende de
-   quem escreve (Kutar, Britton e Wilson 2000, p. ix da cópia).
+   `implementacoes/` foi escrito com agentes. A expressividade de papel
+   depende de quem escreve (Kutar, Britton e Wilson 2000, p. ix da
+   cópia).
 9. **"Sem diferença" é resultado.** Dito, com o que se procurou; não
    omitido nem forçado (ADR 0017; Kiss 2014, p. 12, omite sem dizer).
 10. **Familiaridade desigual.** A análise "requires close familiarity with
@@ -71,11 +73,11 @@ implementação, não o exemplo.
   fragments be encapsulated?" (Green e Petre 1996, p. 138). Definição:
   "types and availability of abstraction mechanisms" (Blackwell e Green
   2003, p. 116).
-- Sinal: as abstrações que a notação exige antes de escrever a tarefa
-  (classe com ciclo de vida, *hook*, *signal*, decorador, `@Composable`,
-  `INotifyPropertyChanged`) e as que ela permite criar (componente,
-  *hook* próprio, função `@Composable`, `ReactiveController`). Liste-as
-  com a linha em que aparecem.
+- Sinal: as abstrações que a notação exige antes de implementar a
+  interface (classe com ciclo de vida, *hook*, *signal*, decorador,
+  `@Composable`, `INotifyPropertyChanged`) e as que ela permite criar
+  (componente, *hook* próprio, função `@Composable`,
+  `ReactiveController`). Liste-as com a linha em que aparecem.
 - Parte: coordenação, ou montagem da tela quando a abstração é da
   tela (o componente, o decorador com o *template*).
 - Armadilhas: ler "nível baixo" como bom (Kiss 2014, p. 19, "low resp.
@@ -144,7 +146,8 @@ implementação, não o exemplo.
   solely at the semantic level", e o teste é combinar "two or three of
   the offending objects" (Green e Petre 1996, p. 150): se a dificuldade
   é do problema (a especificação), é igual em todas. Cresce com o tamanho
-  (Green et al. 2006, p. 334): nas tarefas pequenas da primeira rodada pode não aparecer.
+  (Green et al. 2006, p. 334): nas implementações pequenas da primeira
+  rodada pode não aparecer.
 
 ## 6. Dependências ocultas
 
@@ -162,7 +165,7 @@ implementação, não o exemplo.
 - Armadilhas: confundir com visibilidade: "Visibility measures the number
   of steps needed to make a given item visible, hidden dependencies
   describes whether relationships are manifest" (Green e Petre 1996,
-  p. 162); contar dependências que a tarefa impõe (armadilha geral 4).
+  p. 162); contar dependências que a interface impõe (armadilha geral 4).
 
 ## 7. Expressividade de papel
 
