@@ -455,8 +455,8 @@ Seção “Uso das tecnologias web”. Parágrafo vindo dos estudos de casos em
 - Lido em: =tmp/fontes/mernik2009.pdf=, p. 1 do PDF (p. 180).
 - Conferido: 2026-10-06.
 ** kiss2014, p. v e 104
-- Frase: “Kiss (2014, p. v e 104) comparou a POO e a PF em sete tarefas de
-  interface, com JavaFX, ScalaFX, Scala.Rx, ReactFX e Elm, e deixou como
+- Frase: “Kiss (2014, p. v e 104) comparou a POO e a PF em sete interfaces
+  gráficas, com JavaFX, ScalaFX, Scala.Rx, ReactFX e Elm, e deixou como
   trabalho futuro comparar os /frameworks/ de interface do navegador.”
 - Trecho: “The languages and libraries which serve as a practical testbed
   for the comparison are Java/JavaFX on the object-oriented side, and
@@ -466,7 +466,8 @@ Seção “Uso das tecnologias web”. Parágrafo vindo dos estudos de casos em
   create some kind of taxonomy of these frameworks and systematically
   compare their viability.” (p. 104)
 - Lido em: =tmp/fontes/kiss2014.pdf=, p. 6 e 110 do PDF.
-- Observação: as sete tarefas estão na p. 11 (entrada do §17).
+- Observação: as sete interfaces estão na p. 11 (entrada do §17); Kiss as
+  chama de /case studies/, e o 7GUIs, de /tasks/.
 - Conferido: 2026-10-06.
 ** zimmerle2025, p. 1510 e 1513
 - Frase: “Zimmerle e Gama (2025, p. 1510 e 1513) avaliaram com usuários

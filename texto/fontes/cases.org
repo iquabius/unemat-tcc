@@ -9,7 +9,7 @@ original.
 
 * §20 [[file:../cases.org::A orquestração pesa mais na Busca][A orquestração pesa mais na Busca]]
 ** kiss2014, p. 11 e 25
-- Frase: “O Formulário adapta o /Flight Booker/, uma das sete tarefas do
+- Frase: “O Formulário adapta o /Flight Booker/, uma das sete interfaces do
   7GUIs, de Kiss (2014, p. 11 e 25), e acrescenta os campos de nome e de
   e-mail.”
 - Trecho: “seven case studies in increasing complexity are presented”
@@ -27,7 +27,7 @@ original.
   with at least two characters, a login button is activated.” (p. 534)
 - Lido em: =tmp/fontes/berry2020.pdf=, p. 2 do PDF (p. 534).
 - Observação: a quarentena é o “Login Panel 2.0” da p. 539 e entra na segunda
-  rodada (ADR 0029); o nome da tarefa já a traz.
+  rodada (ADR 0029); o nome da interface já a traz.
 - Conferido: 2026-10-13.
 ** meijer2012, p. 66
 - Frase: “e os Dados ao vivo, as cotações que uma fonte empurra aos
@@ -369,11 +369,11 @@ original.
 - Trecho: “Every component must have: A TypeScript class with behaviors such
   as handling user input and fetching data from a server”.
 - Lido em: https://angular.dev/guide/components, em 2026-10-09; o uso do TypeScript
-  pelas outras tecnologias se confere em =casos/= (só =.ts= e =.tsx= nas
+  pelas outras tecnologias se confere em =implementacoes/= (só =.ts= e =.tsx= nas
   implementações, achado L03 da checagem de 2026-10-08).
 - Conferido: 2026-10-09.
 
-* §2 [[file:../cases.org::O conjunto de tarefas é um][O conjunto de tarefas é um]]
+* §2 [[file:../cases.org::O conjunto de interfaces é um][O conjunto de interfaces é um]]
 ** erdweg2015, p. 35
 - Frase: “A medida, neste trabalho, é a avaliação pelas DCs, como nos
   /benchmarks/ de resultado qualitativo do projeto de linguagens (Erdweg et

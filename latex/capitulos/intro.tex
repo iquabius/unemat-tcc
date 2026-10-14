@@ -107,7 +107,7 @@ Trabalhos anteriores compararam por elas paradigmas e linguagens de
 programação de interfaces e bibliotecas de \gls{pr}.
 \textcite{mernik2009} compararam o \gls{xaml} e o Windows Forms em C\#.
 \textcite[p. v, 11 e 104]{kiss2014} comparou a \gls{poo} e a \gls{pf}
-em sete tarefas de interface, com JavaFX e ScalaFX, e deixou como
+em sete interfaces gráficas, com JavaFX e ScalaFX, e deixou como
 trabalho futuro comparar os \emph{frameworks} de interface do navegador.
 \textcite[p. 1510 e 1513]{zimmerle2025} avaliaram com usuários duas
 bibliotecas de \gls{pr} para JavaScript.
@@ -115,7 +115,7 @@ Fora das \glspl{dc}, \textcite[p. 15]{grolaux2026} compararam
 conceitualmente o async/await com outras formas de tratar os eventos de
 interface, entre elas a \gls{pr}.
 
-Nenhum desses trabalhos compara, sobre as mesmas tarefas e em tecnologias
+Nenhum desses trabalhos compara, sobre as mesmas interfaces e em tecnologias
 web, os três modelos de programação.
 Os trabalhos encontrados na revisão bibliográfica também não avaliam pelas
 \glspl{dc} a notação do React nem a do Solid e do Angular com \emph{signals}.
@@ -123,7 +123,7 @@ A lacuna se apoia nessa revisão, feita por palavras-chave e por
 \emph{snowballing} \cite[p. 3-4]{wohlin2014}, sobretudo para a frente, em três
 rodadas de busca, em setembro e outubro de 2026, e descrita no Apêndice
 \ref{apend:2}; a lacuna vale para o que ela encontrou.
-Além disso, \textcite[p. 103-104]{kiss2014} avaliou cada tarefa num
+Além disso, \textcite[p. 103-104]{kiss2014} avaliou cada implementação num
 tamanho só e propôs, como trabalho futuro, estendê-las com requisitos
 novos.
 Pergunta-se, então (P1): pelas \glspl{dc}, como difere a usabilidade da
@@ -138,9 +138,9 @@ todas as implementações?
 \notamudou{\textbf{As duas subperguntas são novas}, como as rodadas a que elas respondem.}
 Conhecer essas diferenças pode ajudar quem programa interfaces a escolher uma tecnologia
 sabendo o que o modelo de programação dela facilita e o que dificulta em
-cada \emph{problema de coordenação}.
-Um problema de coordenação é uma exigência que a interface faz ao modelo de
-programação.
+cada \emph{exigência de coordenação}.
+Uma exigência de coordenação é o que uma interface gráfica pede ao modelo
+de programação.
 
 O objetivo geral é comparar, segundo as \glspl{dc}, a usabilidade das
 notações dos três modelos de programação em interfaces típicas da web,
@@ -149,19 +149,19 @@ em TypeScript, e em parte delas no Android, em Kotlin, e no
 Especificamente:
 
 \begin{itemize}
-\item implementar cinco tarefas de interface (Formulário com validação,
+\item implementar cinco interfaces gráficas (Formulário com validação,
 Busca com sugestões, Login com quarentena, Quadro de tarefas e Dados
 ao vivo) com Web Component, React e Solid, três delas também com Lit
 e três com Angular com \emph{signals}, três no Android, com Views e
 Jetpack Compose, e três no \emph{desktop}, com Windows Forms e WPF, e
 estendê-las em duas rodadas;
 \item avaliar as implementações pelas 14 \glspl{dc} em cada rodada;
-\item sintetizar, por problema de coordenação, o que cada modelo de
+\item sintetizar, por exigência de coordenação, o que cada modelo de
 programação facilita e o que dificulta, como no estado derivado e na
 assincronia.
 \end{itemize}
 
-\notamudou[inline]{No projeto, o objetivo geral era demonstrar e analisar conceitos declarativos de PF e PR, e o primeiro objetivo específico, demonstrar a programação declarativa com a PF, se cumpria com programas de processamento de listas. \textbf{Esse objetivo sai} e vai para a seção 2, porque fundamentar conceitos não responde à pergunta. Os \enquote{programas concretos} passam a cinco tarefas, avaliadas em três rodadas; o JavaScript passa a TypeScript na web, com Kotlin no Android e C\# no \emph{desktop}; e as DCs, que o projeto não listava, passam às 14 da lista completa.}
+\notamudou[inline]{No projeto, o objetivo geral era demonstrar e analisar conceitos declarativos de PF e PR, e o primeiro objetivo específico, demonstrar a programação declarativa com a PF, se cumpria com programas de processamento de listas. \textbf{Esse objetivo sai} e vai para a seção 2, porque fundamentar conceitos não responde à pergunta. Os \enquote{programas concretos} passam a cinco interfaces, avaliadas em três rodadas; o JavaScript passa a TypeScript na web, com Kotlin no Android e C\# no \emph{desktop}; e as DCs, que o projeto não listava, passam às 14 da lista completa.}
 
 Quanto aos objetivos, a pesquisa é \emph{exploratória}: busca compreensão nova
 \notamudou{O projeto também classificava a pesquisa como exploratória, com Leal (2011), e de natureza aplicada; \textbf{a natureza sai}.}
@@ -175,19 +175,19 @@ As hipóteses desta pesquisa servem a experimentos controlados como o de
 \textcite{salvaneschi2017}.
 
 Quanto aos meios, o trabalho é \realce{uma avaliação qualitativa}\notapergunta[list,prepend,caption={\textbf{2. Classificação do método}}]{no projeto, estudo de casos múltiplos (Yin 2001). \textbf{Fica o rótulo novo?} A troca se explica no texto ou só no pedido à coordenação?}, pelas \glspl{dc}, de
-implementações de um mesmo conjunto de tarefas.
-O conjunto de tarefas é um \emph{benchmark} de notação: testes que representam
-as tarefas da prática e servem para comparar técnicas alternativas por
-medidas de desempenho, que podem ser qualitativas e feitas por uma pessoa
-\cite[p. 76]{sim2003}.
+implementações de um mesmo conjunto de interfaces.
+O conjunto é um \emph{benchmark} de notação \cite[p. 114]{kiss2014}: testes que formam
+uma amostra representativa das tarefas da prática e servem para comparar
+técnicas alternativas por medidas de desempenho, que podem ser
+qualitativas e feitas por uma pessoa \cite[p. 76]{sim2003}.
 A medida, neste trabalho, é a avaliação pelas \glspl{dc}.
-Aqui, as técnicas são os três modelos de programação, e as tarefas, cinco
+Aqui, as técnicas são os três modelos de programação, e a amostra, cinco
 interfaces gráficas.
-Cada uma traz os problemas de coordenação que a interface real costuma ter, nos dois
+Cada uma traz as exigências de coordenação que a aplicação real costuma ter, nos dois
 eixos da programação de interfaces: a orquestração de eventos e o
 gerenciamento de estado.
 
-As tarefas são implementadas na web por uma tecnologia de cada modelo de
+As cinco interfaces são implementadas na web por uma tecnologia de cada modelo de
 programação, Web Component, React e Solid, e três delas também pelo Lit,
 no declarativo por re-renderização, e pelo Angular com \emph{signals}, no
 declarativo por atualização granular.
@@ -201,10 +201,10 @@ cada tecnologia e responde à P1.2.
 \notamudou{\textbf{As três rodadas são novas}; o projeto não as previa.}
 A linguagem, a especificação e as regras de domínio ficam fixas, as duas
 primeiras rodadas não usam bibliotecas de formulário, e um teste de
-conformidade confere que as implementações de uma tarefa fazem o mesmo.
+conformidade confere que as implementações de uma interface fazem o mesmo.
 Em cada rodada, o autor percorre as 14 \glspl{dc} no código, e a análise
 compara o perfil de cada modelo de programação numa tabela-síntese, que
-também se lê por problema de coordenação.
+também se lê por exigência de coordenação.
 \notamudou{\textbf{As DCs passam às 14}, e não oito, em cada rodada.}
 A seção \ref{chap:cases} detalha o delineamento, e as implementações, os
 testes de conformidade e as capturas ficam em
@@ -234,9 +234,9 @@ Na tabela-síntese, os rótulos do que acontece com a diferença de uma
 rodada a outra, \emph{mantida}, \emph{ampliada}, \emph{reduzida}, \emph{anulada},
 \emph{invertida} ou \emph{surgida}, são deste trabalho, e não de uma fonte.
 
-Mesmo na segunda rodada, as tarefas continuam pequenas, e o que só aparece em
+Mesmo na segunda rodada, as implementações continuam pequenas, e o que só aparece em
 programas de grande porte ou ao longo da manutenção fica de fora.
-O autor definiu o conjunto de tarefas para este trabalho e escolheu as
+O autor definiu o conjunto de interfaces para este trabalho e escolheu as
 mudanças da segunda rodada com as implementações da primeira prontas, embora antes da
 avaliação.
 Um conjunto criado por um pesquisador só e pouco usado tende a ter menos
@@ -252,13 +252,13 @@ a notação de cada tecnologia exige no código-fonte.
 Os pares isolam pouco: na web, só o Web Component e o Lit, ambos com
 componentes que são elementos personalizados do navegador
 \cite{google2026d}, separam o imperativo de um declarativo, em três
-tarefas e só na ligação do estado com a tela; fora da web, cada
+interfaces e só na ligação do estado com a tela; fora da web, cada
 plataforma confere dois dos três modelos de programação.
 
 Além desta introdução, o texto tem três seções.
 A seção \ref{chap:prog} reúne os conceitos em que o trabalho se apoia, dos
 modelos de programação às \glspl{dc}, e os trabalhos relacionados.
-A seção \ref{chap:cases} detalha o delineamento, apresenta as tarefas e as
+A seção \ref{chap:cases} detalha o delineamento, apresenta as interfaces e as
 implementações e compara os modelos de programação pelas \glspl{dc}.
 A seção \ref{chap:conclusion} responde à pergunta de pesquisa.
 \notaproxima{Os capítulos ainda seguem o projeto de 2017 e mudam com a seção de trabalhos relacionados; este parágrafo se revê no fechamento.}

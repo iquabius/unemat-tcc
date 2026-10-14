@@ -1,10 +1,10 @@
 \section{Delineamento}
-\label{sec:orgd116b4d}
-\subsection{As tarefas e os problemas de coordenação}
-\label{sec:org8aaefd6}
+\label{sec:org7568723}
+\subsection{As interfaces e as exigências de coordenação}
+\label{sec:org6a27239}
 \todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}
 
-O conjunto de tarefas é um \emph{benchmark} de notação, como os \emph{benchmarks}
+O conjunto de interfaces é um \emph{benchmark} de notação, como os \emph{benchmarks}
 de resultado qualitativo do projeto de linguagens
 \cite[p. 35]{erdweg2015}, entre os quais está o 7GUIs
 \cite[8:20]{lu2021}.
@@ -32,21 +32,21 @@ acompanha o painel ler os valores sem que a tabela se atualize.
 
 A orquestração pesa mais na Busca, no Login e nos Dados ao vivo, e o
 gerenciamento de estado, no Formulário e no Quadro.
-O Formulário adapta o \emph{Flight Booker}, uma das sete tarefas do 7GUIs, de
+O Formulário adapta o \emph{Flight Booker}, uma das sete interfaces do 7GUIs, de
 \textcite[p. 11 e 25]{kiss2014}, e acrescenta os campos de nome e de
 e-mail.
 O Login segue o painel de \textcite[p. 534]{berry2020}, e os Dados ao
 vivo, as cotações que uma fonte empurra aos clientes, em
 \textcite[p. 66]{meijer2012}.
 \subsection{As tecnologias e os pares}
-\label{sec:orga4f1a70}
+\label{sec:org27f27a3}
 \todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}
 
 Na web, Web Component, React e Solid, uma tecnologia por modelo de
-programação, implementam as cinco tarefas.
+programação, implementam as cinco interfaces.
 O imperativo por atualização manual entra com o Web Component, a forma do
 próprio navegador de criar elementos personalizados \cite{mozilla2026}.
-Lit e Angular com \emph{signals} implementam três tarefas cada, em pares de
+Lit e Angular com \emph{signals} implementam três interfaces cada, em pares de
 tecnologias próximas: o Lit com o Web Component, e o Angular com o Solid.
 O Lit se constrói sobre o Web Component: seus componentes são elementos
 personalizados do navegador, mas cada alteração de estado chama de novo o
@@ -103,7 +103,7 @@ e o WPF, no declarativo por atualização granular, porque, quando um dado se al
 ele se atualizam sozinhos \cite{microsoft2025}.
 
 Na web, só o par Web Component e Lit isola o imperativo por
-atualização manual, e só em três tarefas.
+atualização manual, e só em três interfaces.
 Ele isola a ligação do estado com a tela, e não a orquestração, que no
 Lit se escreve como no Web Component.
 Fora da web, os dois pares mudam também a montagem da tela, e cada
@@ -111,21 +111,21 @@ plataforma confere só dois dos três modelos de programação: o Android
 fica sem o declarativo por atualização granular, e o \emph{desktop}, sem o
 declarativo por re-renderização.
 \subsection{As rodadas}
-\label{sec:org3674dfb}
+\label{sec:org32f51c3}
 \todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}
 
 A avaliação se faz em três rodadas, cada uma mais estreita que a
 anterior, como as de \textcite[p. 3]{kiss2014}: a primeira responde à
 P1, e a segunda e a terceira, à P1.1 e à P1.2.
-Na primeira rodada, as tecnologias implementam as tarefas descritas acima.
-Na segunda, cada tarefa recebe funcionalidades, como o assistente
+Na primeira rodada, as tecnologias implementam as interfaces descritas acima.
+Na segunda, cada interface recebe funcionalidades, como o assistente
 em três passos do Formulário, e requisitos de orquestração, como a
 espera de 300 ms depois da última tecla na Busca.
 Uma funcionalidade muda o que o usuário percebe ou pode fazer, e um
 requisito de orquestração deixa a tela igual e muda só como se combinam
 os eventos.
 São onze mudanças, feitas uma por \emph{commit} e na mesma ordem em
-todas as tecnologias que implementam a tarefa.
+todas as tecnologias que implementam a interface.
 A segunda rodada faz o código crescer porque é nos problemas grandes que os efeitos
 da viscosidade mais aparecem \cite[p. 161]{green1996d}.
 Na terceira, o Formulário estendido é reescrito em cada tecnologia
@@ -135,7 +135,7 @@ Como as bibliotecas variam de uma tecnologia para outra, a conclusão da
 terceira rodada vale para o ecossistema típico de cada tecnologia, e não só
 para o modelo de programação.
 \subsection{Os controles e o teste de conformidade}
-\label{sec:org1c64492}
+\label{sec:orgc9508c7}
 \todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}
 
 Quatro coisas poderiam diferenciar as implementações sem ser o modelo de
@@ -144,19 +144,19 @@ especificação, as bibliotecas e o domínio.
 A linguagem é uma só em cada plataforma: na web, o \emph{TypeScript}, que o
 Angular exige \cite{google2026b} e as demais tecnologias também usam; no
 Android, o Kotlin; e, no \emph{desktop}, o C\#.
-As implementações de uma tarefa seguem a mesma especificação, com os mesmos
+As implementações de uma interface seguem a mesma especificação, com os mesmos
 textos, regras e dados, e, nas duas primeiras rodadas, cada uma usa só o que a própria
 tecnologia traz, sem bibliotecas de formulário.
-As regras que não dependem da interface, como o formato das datas, a
+As regras que não dependem da tela, como o formato das datas, a
 validação do e-mail e as transições do quadro, ficam num \emph{domínio} comum
 às implementações de cada plataforma, na linguagem dela.
 Esse controle das variáveis é parte do planejamento da pesquisa, o
 delineamento \cite[p. 54]{prodanov2013}.
 
-Um \emph{teste de conformidade} por tarefa executa as verificações da
+Um \emph{teste de conformidade} por interface executa as verificações da
 especificação contra cada implementação; na web, ele roda no console do
 navegador.
-\emph{Capturas} de tela dos estados escolhidos de cada tarefa, geradas
+\emph{Capturas} de tela dos estados escolhidos de cada interface, geradas
 automaticamente, denunciam desvios de comportamento ou de aparência,
 porque devem sair idênticas entre as tecnologias web.
 As implementações, os testes de conformidade e as capturas ficam num repositório público,
@@ -169,7 +169,7 @@ e Playwright 1.63.0 para as capturas.
 No Android, Kotlin 2.4.20, Jetpack Compose pela \gls{bom}
 2026.09.00 e, para as capturas, Robolectric 4.17 com Roborazzi 1.75.0.}, para que as implementações possam ser reproduzidas.
 \subsection{A avaliação}
-\label{sec:org63eabaa}
+\label{sec:org0442635}
 \todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}
 
 A avaliação cabe ao autor, que examina o código das implementações dimensão
@@ -207,22 +207,22 @@ A análise compara os modelos de programação pelo perfil
 de cada um nas \glspl{dc} \cite[p. 106 e 112]{blackwell2003} e abre
 com uma tabela-síntese, com uma linha por
 \gls{dc} e uma coluna por modelo de programação.
-Cada célula dá a posição do modelo na \gls{dc}, indica de que tarefa vem a evidência e
+Cada célula dá a posição do modelo na \gls{dc}, indica de que interface vem a evidência e
 registra quando as duas tecnologias web da coluna divergem, o Solid e o
 Angular com \emph{signals} ou o React e o Lit.
 No primeiro par, ela diz também se a diferença vem da montagem da tela,
 do modelo de componente ou da \gls{api}.
-Como cada tarefa exercita problemas de coordenação próprios, a síntese
-por problema reúne as células que vêm das tarefas dele.
+Como cada interface exercita exigências de coordenação próprias, a síntese
+por exigência reúne as células que vêm das interfaces dela.
 Da primeira rodada para as outras duas, a linha de cada \gls{dc} diz se a diferença
 entre os modelos de programação fica \emph{mantida}, \emph{ampliada}, \emph{reduzida},
 \emph{anulada}, \emph{invertida} ou \emph{surgida}, e a célula diz se a posição do
 modelo \emph{sobe}, \emph{desce} ou \emph{fica igual}.
-Segue uma seção por \gls{dc}, com os trechos de uma tarefa escolhida,
-antes da avaliação, pelo problema de coordenação que a dimensão mais toca.
+Segue uma seção por \gls{dc}, com os trechos de uma interface escolhida,
+antes da avaliação, pela exigência de coordenação que a dimensão mais toca.
 Em cada seção, a análise aponta se a diferença está na coordenação, na
 montagem da tela ou na ligação entre as duas.
-Nas seções em que as tarefas do Android ou do \emph{desktop} mostram
+Nas seções em que as implementações do Android ou do \emph{desktop} mostram
 diferença entre as duas tecnologias da plataforma, a análise diz se a
 posição da web se repete nela.
 A concisão tem ainda o apoio de uma contagem das linhas de cada
@@ -232,7 +232,7 @@ mudança, preparada antes e feita em cada implementação, como no teste
 de \textcite[p. 162]{green1996d}, mostra quantas ações ela pede, e
 quantas outras restauram a consistência \cite[p. 115]{blackwell2003}.
 \section{Dimensões de avaliação}
-\label{sec:orgbd22adb}
+\label{sec:orgdb41d95}
 \todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}
 A avaliação usa as \glspl{dc}, que \textcite[p. 106]{blackwell2003} chamam de ferramentas
 de discussão, para quem projeta ou avalia artefatos de informação, e não
@@ -425,13 +425,13 @@ momento}
 de comprometimento com uma ação ou marco}
 \end{itemize}
 \section{*Revisão do JavaScript}
-\label{sec:orga965f6a}
+\label{sec:orgc15e239}
 Talvez devêssemos colocar uma seção de revisão das ferramentas utilizadas na
 implementação dos estudos de caso? Poderíamos descrever os recursos relevantes
 para nossa análise.
 \todo[noline]{Berndt disse p/ colocar como apêndice}
 \section{Processamento de listas}
-\label{sec:org2c421db}
+\label{sec:orgb2d00ff}
 
 Uma coleção é um agrupamento com uma quantidade variável de itens, que (1)
 compartilham algum significado ao problema a se resolver e (2) precisam ser
@@ -468,7 +468,7 @@ for (count = 0; count < people.length; count++) {
 \end{minted}
 \end{listing}
 \subsection{Formatação de preços}
-\label{sec:org88a145a}
+\label{sec:org861aad4}
 
 Nesta seção veremos como formatar uma lista preços para serem mostrados na
 tela, p. ex., transformando um valor numérico \mintinline{js}{50.45} em uma \emph{string}
@@ -521,12 +521,12 @@ Outras ideias:
 letras maiúsculas
 \end{itemize}
 \subsection{Seleção de valores com \texttt{filter()}}
-\label{sec:orga71909e}
+\label{sec:org8424b0e}
 Remover nomes que não começam com ‘S’
 \subsection{Nivelamento de valores com \texttt{concatAll()}}
-\label{sec:org378b379}
+\label{sec:orge4417ec}
 \subsection{Redução de valores com \texttt{reduce()}}
-\label{sec:org4b34d80}
+\label{sec:orgeaa9b43}
 
 O método \mintinline{js}{reduce()} executa uma função \textbf{reducer} para cada item da
 lista, resultando num único valor. Em \ref{code:somaDePreçosComReduce} é
@@ -543,9 +543,9 @@ const total = preços.reduce(somar);
 \end{minted}
 \end{listing}
 \subsection{Agrupamento de valores com \texttt{zip()}}
-\label{sec:org0bf671c}
+\label{sec:org0c7d547}
 \section{Coordenação de eventos}
-\label{sec:org48c8456}
+\label{sec:org319e36a}
 \todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}
 A triagem em geral se apoia no que se escreveu sobre as alternativas, e não
 no uso delas \cite[p. 15]{kitchenham1996}.
@@ -593,7 +593,7 @@ anos de 0 a 99, e cada diferença conhecida fica registrada num teste.
 Entre Views e Compose, a única diferença admitida nas capturas é a de
 poucos pixels na renderização do texto.
 \subsection{Contador}
-\label{sec:org9fb74d8}
+\label{sec:orgc04659a}
 
 \begin{description}
 \item[{Problema}] entender os conceitos essenciais da linguagem e a estrutura
@@ -683,11 +683,11 @@ Contador({ valorInicial: 0 });
 \end{minted}
 \end{listing}
 \subsubsection{Análise}
-\label{sec:org5d44f35}
+\label{sec:org006b621}
 
 Essa primeira análise é focada no básico.
 \paragraph{Nível de abstração}
-\label{sec:orgc19e1d8}
+\label{sec:orgf71b44c}
 Na solução com \gls{poo} os conceitos da linguagem que deve-se entender são:
 classes, construtor, objetos, propriedades, métodos, \emph{callbacks} na forma
 de método, e conhecimento da \gls{api} do objeto do documento do \gls{html} ---
@@ -715,16 +715,16 @@ Níveis mais altos de abstração não são necessários, então a solução com
 é igualmente boa ou um pouco melhor que a solução com \gls{poo} quanto ao Nível
 de Abstração.
 \paragraph{Proximidade de descrição}
-\label{sec:orga47cd1b}
+\label{sec:org8d1fa98}
 Essa dimensão/critério faz mais sentido para análise de apresentação do que
 comportamento (coordenação de eventos).
 \paragraph{Dependências ocultas}
-\label{sec:org9672d36}
+\label{sec:orgbc637dc}
 \todo[noline]{Acredito que o HTML só não está situado no mesmo local que o código JavaScript, que é diferente de “oculto”.}
 As únicas dependências que podem ser consideradas ocultas são os elementos
 \gls{html} buscados pelo identificador com \texttt{document.getElementById("id")}.
 \paragraph{Propensão a erros}
-\label{sec:orgcf1dbd8}
+\label{sec:org9787321}
 Na solução com \gls{poo}, esquecer de vincular a instância do contador à função
 \texttt{tratarClique()} resultará no erro “TypeError: this.renderizar is not a
 function”.
@@ -757,7 +757,7 @@ Pois ela não será renderizada, apesar de toda a lógica do contador
 funcionar.
 Apesar de tudo, essas possibilidades de erros não são críticas.
 \paragraph{Concisão}
-\label{sec:org26eab14}
+\label{sec:org36ddc7a}
 Na solução com \gls{poo} o método \mintinline{js}{tratarClique()}, usado como \emph{callback},
 poderia ser substituído por uma função de seta.
 Além de poupar algumas linhas o uso do \mintinline{js}{.bind(this)} se torna
@@ -774,11 +774,11 @@ De qualquer forma, a \gls{pr} evita a verbosidade da declaração da classe e do
 métodos, além da repetição do \mintinline{js}{this}.
 Então em termos de Concisão a \gls{pr} está à frente da \gls{poo}.
 \paragraph{Viscosidade}
-\label{sec:org1b0eb09}
+\label{sec:orgd9e266f}
 Num caso tão simples como o do Contador a única resistência a alteração
 está em renomear atributos no caso da \gls{poo}, e variáveis na \gls{pr}.
 No entanto isso é inevitável ao renomear termos.
 Além disso o \gls{ide} pode ajudar através de uma funcionalidade de refatoração.
 \todo{Talves seja interessante analisar a viscosidade da alteração pra colocar um botão de decremento (-1) do Contador.}
 \subsection{Reserva de voo}
-\label{sec:orgae3464c}
+\label{sec:org9d22279}

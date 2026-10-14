@@ -79,7 +79,7 @@ Formato:
   revisada por pares.
 - Conferido: 2026-10-09.
 
-* §14 [[file:../intro.org::Nenhum desses trabalhos compara, sobre as mesmas tarefas][Nenhum desses trabalhos compara, sobre as mesmas tarefas]]
+* §14 [[file:../intro.org::Nenhum desses trabalhos compara, sobre as mesmas interfaces][Nenhum desses trabalhos compara, sobre as mesmas interfaces]]
 ** wohlin2014, p. 3-4
 - Frase: “A lacuna se apoia nessa revisão, feita por palavras-chave e por
   /snowballing/ (Wohlin, 2014, p. 3-4), sobretudo para a frente, em três
@@ -97,7 +97,7 @@ Formato:
   =docs/revisao-bibliografica.md=, seção 3); o trecho de Wohlin não muda.
 - Conferido: 2026-10-06.
 ** kiss2014, p. 103-104
-- Frase: “Além disso, Kiss (2014, p. 103-104) avaliou cada tarefa num
+- Frase: “Além disso, Kiss (2014, p. 103-104) avaliou cada implementação num
   tamanho só e propôs, como trabalho futuro, estendê-las com requisitos
   novos.”
 - Trecho: “The following additional aspects could be taken into
@@ -108,8 +108,10 @@ Formato:
   them up too much.” (p. 104)
 - Lido em: =tmp/fontes/kiss2014.pdf=, p. 109 e 110 do PDF.
 - Observação: “num tamanho só” é leitura do método de Kiss (cap. 3), em que
-  cada tarefa tem uma versão por tecnologia; a extensão do cap. 4 troca a
-  biblioteca, e não a tarefa.
+  cada interface tem uma implementação por tecnologia; a extensão do cap. 4
+  troca a biblioteca, e não a interface. Kiss chama cada interface de
+  /case study/; em 2026-10-14, “cada tarefa” passou a “cada implementação”
+  (ADR 0034), e o trecho não muda.
 - Conferido: 2026-10-13.
 
 * §1 [[file:../intro.org::O desenvolvimento de interfaces gráficas é difícil][O desenvolvimento de interfaces gráficas é difícil]]
@@ -414,8 +416,8 @@ Formato:
 - Lido em: =tmp/fontes/mernik2009.pdf=, p. 1 do PDF (p. 180).
 - Conferido: 2026-10-06.
 ** kiss2014, p. v e 104
-- Frase: “Kiss (2014, p. v, 11 e 104) comparou a POO e a PF em sete tarefas de
-  interface, com JavaFX e ScalaFX, e deixou como trabalho futuro comparar
+- Frase: “Kiss (2014, p. v, 11 e 104) comparou a POO e a PF em sete interfaces
+  gráficas, com JavaFX e ScalaFX, e deixou como trabalho futuro comparar
   os /frameworks/ de interface do navegador.”
 - Trecho: “The languages and libraries which serve as a practical testbed
   for the comparison are Java/JavaFX on the object-oriented side, and
@@ -425,7 +427,8 @@ Formato:
   create some kind of taxonomy of these frameworks and systematically
   compare their viability.” (p. 104)
 - Lido em: =tmp/fontes/kiss2014.pdf=, p. 6 e 110 do PDF.
-- Observação: as sete tarefas estão na p. 11 (entrada do §17).
+- Observação: as sete interfaces estão na p. 11 (entrada do §17); Kiss as
+  chama de /case studies/, e o 7GUIs, de /tasks/.
 - Conferido: 2026-10-06.
 ** zimmerle2025, p. 1510 e 1513
 - Frase: “Zimmerle e Gama (2025, p. 1510 e 1513) avaliaram com usuários duas
@@ -449,17 +452,38 @@ Formato:
 - Conferido: 2026-10-06.
 
 * §19 [[file:../intro.org::Quanto aos meios, o trabalho é][Quanto aos meios, o trabalho é uma avaliação qualitativa]]
+** kiss2014, p. 114
+- Frase: “O conjunto é um /benchmark/ de notação (Kiss, 2014, p. 114):
+  testes que formam uma amostra representativa das tarefas da prática e
+  servem para comparar técnicas alternativas por medidas de desempenho,
+  que podem ser qualitativas e feitas por uma pessoa (Sim; Easterbrook;
+  Holt, 2003, p. 76).”
+- Trecho: o repositório com as soluções de todos os /case studies/ “is
+  structured in a way as to be a notational benchmark for languages
+  and/or libraries/frameworks/toolkits with respect to GUI programming”
+  (p. 114, apêndice A).
+- Lido em: =tmp/fontes/kiss2014.txt=, p. 110 e 120 do PDF.
+- Observação: entrou em 2026-10-14, com o vocabulário do ADR 0034. Na p.
+  104, Kiss chama assim o TodoMVC, “a single and bigger one instead of a
+  set of case studies”, um /benchmark/ de um item só; por isso a citação
+  é a p. 114, onde o termo nomeia o conjunto.
+- Conferido: 2026-10-14.
 ** sim2003
-- Frase: “O conjunto de tarefas segue a ideia de /benchmark/: testes que
+- Frase: a mesma, na parte de Sim et al.; antes de 2026-10-14, “O
+  conjunto de tarefas segue a ideia de /benchmark/: testes que
   representam as tarefas da prática e servem para comparar técnicas
-  alternativas.”
+  alternativas.” “Amostra representativa das tarefas da prática” traduz o
+  /representative sample of the tasks/ da /Task Sample/, e a frase
+  seguinte, “Aqui, as técnicas são os três modelos de programação, e a
+  amostra, cinco interfaces gráficas”, liga as interfaces a ela
+  (2026-10-14).
 - Trecho: “We define a benchmark as a test or set of tests used to compare
   the performance of alternative tools or techniques.”; “Task Sample. The
   tests in the benchmark should be a representative sample of the tasks
   that the tool or technique is expected to solve in actual practice.”
 - Lido em: =tmp/fontes/sim2003.pdf=, p. 3 do PDF (p. 76; o artigo vai de
-  74 a 83).
-- Conferido: 2026-10-06.
+  74 a 83); em 2026-10-14, também em =tmp/fontes/sim2003-ieee.pdf=, p. 3.
+- Conferido: 2026-10-14.
 
 * §31 [[file:../intro.org::Por ser analítica][Por ser analítica]]
 ** green2006, p. 334
@@ -473,11 +497,11 @@ Formato:
   p. 7 do PDF (p. 334).
 - Conferido: 2026-10-07.
 
-* §33 [[file:../intro.org::Mesmo na segunda rodada, as tarefas continuam pequenas][Mesmo na segunda rodada, as tarefas continuam pequenas]]
+* §33 [[file:../intro.org::Mesmo na segunda rodada, as implementações continuam pequenas][Mesmo na segunda rodada, as implementações continuam pequenas]]
 ** sim2003
 - Frase: “Um conjunto criado por um pesquisador só e pouco usado tende a
   ter menos impacto que um adotado por uma comunidade.”
-- Observação: a frase anterior, “O autor definiu o conjunto de tarefas
+- Observação: a frase anterior, “O autor definiu o conjunto de interfaces
   para este trabalho”, é do próprio trabalho; o 7GUIs, de onde vem o
   Formulário (§20), também é de um pesquisador só (Kiss, 2014).
 - Trecho: “Benchmarks that are created by a single individual or

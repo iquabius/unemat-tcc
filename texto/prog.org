@@ -463,7 +463,7 @@ denominadas /linguagens imperativas/.
   domínio específico para descrever interfaces gráficas, o [[gls:xaml]], e uma biblioteca de
   aplicação, o Windows Forms em C#.
   [[textcite:kiss2014][p. v, 11 e 104]] comparou a [[gls:poo]] e a [[gls:pf]]
-  em sete tarefas de interface, com JavaFX e ScalaFX, e em parte delas com
+  em sete interfaces gráficas, com JavaFX e ScalaFX, e em parte delas com
   Scala.Rx, ReactFX e Elm, e deixou como trabalho futuro comparar os
   /frameworks/ de interface do navegador.
   [[textcite:zimmerle2025][p. 1510 e 1513]] avaliaram com usuários duas
