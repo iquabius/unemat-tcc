@@ -20,9 +20,8 @@ afirmação (em todos com `--todas`) e, com `--paragrafos`, junta as
 afirmações de um capítulo na ordem do texto, para a rodada da porta
 aberta. O org-ref abre o arquivo pela citação
 (`bibtex-completion-notes-path` no `.dir-locals.el`). As 126 afirmações
-de 63 chaves migraram por script: o `bin/migrar-fontes-por-chave.py`
-entrou no commit `5b08f31`, refez a migração no merge `314d100` e saiu
-do `bin/` depois dele.
+de 63 chaves migraram por script, no commit `5b08f31`, e de novo no
+merge `314d100`, sobre as matrizes que o `master` tinha mudado.
 
 Em vez de: a matriz por capítulo (ADR 0023, de 2026-10-06); a rodada da
 porta aberta lia um arquivo só, na ordem do capítulo, mas a frase movida
