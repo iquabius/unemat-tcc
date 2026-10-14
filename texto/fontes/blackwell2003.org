@@ -1,0 +1,64 @@
+#+title: blackwell2003: Blackwell e Green (2003), Notational Systems: The Cognitive Dimensions of Notations Framework
+#+startup: overview
+
+* [[file:../cases.org::Em cada rodada, a avaliação percorre][cases: Em cada rodada, a avaliação percorre]], p. 115-118
+- Frase: “Em cada rodada, a avaliação percorre as 14 DCs da lista completa
+  (Blackwell; Green, 2003, p. 115-118)”.
+- Trecho: “The full list is currently 14 (although several more have been
+  proposed, as will be discussed later)” (p. 115); as dimensões vêm nas
+  p. 115-118.
+- Lido em:
+  =tmp/fontes/blackwell2003-notational-systems—the-cognitive-dimensions-of-notations-framework.pdf=,
+  p. 13 a 16 do PDF (p. 115 a 118).
+- Observação: os nomes em português e a expressividade de papel
+  (/role-expressiveness/) seguem o CONTEXT.md; o agrupamento em oito, duas
+  e quatro é do trabalho (ADR 0012), e não da fonte.
+- Conferido: 2026-10-13.
+* [[file:../cases.org::Em cada rodada, a avaliação percorre][cases: Em cada rodada, a avaliação percorre]], p. 115 (atividade)
+- Frase: “Nenhuma dimensão é boa ou má em si, e a avaliação sempre leva em
+  conta a atividade a apoiar (Blackwell; Green, 2003, p. 115).”
+- Trecho: “Important: None of these dimensions is evaluative when
+  considered on its own. Evaluation must always take into account the
+  activities to be supported.” (p. 115)
+- Lido em: o mesmo PDF, p. 13 (p. 115).
+- Conferido: 2026-10-13.
+* [[file:../cases.org::Em cada rodada, a avaliação percorre][cases: Em cada rodada, a avaliação percorre]], p. 113
+- Frase: “Na primeira rodada, as atividades são a busca e a compreensão
+  exploratória do código pronto, e, na segunda e na terceira, a modificação
+  (Blackwell; Green, 2003,
+  p. 113).”
+- Trecho: tabela 5.1, “Six generic types of notation-use activity”:
+  “modification: [...] modifying a spreadsheet or program for a different
+  problem”; “searching: hunting for a known target, such as where a
+  function is called”; “exploratory understanding: discovering structure
+  or algorithm”; “the analyst should decide which ones are required”
+  (p. 113)
+- Lido em: o mesmo PDF, p. 11 (p. 113).
+- Observação: a fonte dá as seis atividades; a escolha de três e a divisão
+  por rodada são do trabalho (docs/metodo-da-avaliacao.md, seção 8;
+  tmp/relatorio-termos-e-coordenacao.md, seção 5.1).
+- Conferido: 2026-10-13.
+* [[file:../cases.org::A análise compara os modelos de][cases: A análise compara os modelos de]], p. 106 e 112
+- Frase: “A seção 4 compara os modelos de programação pelo perfil de cada
+  um nas DCs (Blackwell; Green, 2003, p. 106 e 112) [...]. Cada célula dá
+  a posição do modelo na DC [...]”
+- Trecho: “for each step in each task, ask whether the user can choose
+  where to start; [...] and so on, for the other dimensions. This will
+  generate an observed profile.” (p. 106); “the second step is to
+  scrutinise the system and determine how it lies on each dimension. If
+  the two profiles match, all is well.” (p. 112)
+- Lido em: =tmp/fontes/blackwell2003.pdf=, p. 4 e 10 do PDF (p. 106 e 112).
+- Observação: “posição” e “perfil” vêm daí (decisão do autor em
+  2026-10-14; CONTEXT.md, Posição e Perfil); a fonte compara o perfil
+  observado com o que cada atividade pede, e o trabalho compara os perfis
+  dos modelos entre si.
+- Conferido: 2026-10-14.
+* [[file:../cases.org::A análise compara os modelos de][cases: A análise compara os modelos de]], p. 115 (viscosidade)
+- Frase: “mostra quantas ações ela pede, e quantas outras restauram a
+  consistência (Blackwell; Green, 2003, p. 115).”
+- Trecho: “A viscous system needs many user actions to accomplish one
+  goal. [...] We distinguish repetition viscosity, many actions of the
+  same type, from knock-on (or "domino") viscosity, where further actions
+  are required to restore consistency.” (p. 115)
+- Lido em: o PDF publicado de Blackwell e Green (2003), p. 13 (p. 115).
+- Conferido: 2026-10-13.

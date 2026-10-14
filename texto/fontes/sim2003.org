@@ -1,0 +1,25 @@
+#+title: sim2003: Sim et al. (2003), Using Benchmarking to Advance Research: A Challenge to Software Engineering
+#+startup: overview
+
+* [[file:../intro.org::Quanto aos meios, o trabalho é][intro: Quanto aos meios, o trabalho é uma avaliação qualitativa]]
+- Frase: “O conjunto de tarefas segue a ideia de /benchmark/: testes que
+  representam as tarefas da prática e servem para comparar técnicas
+  alternativas.”
+- Trecho: “We define a benchmark as a test or set of tests used to compare
+  the performance of alternative tools or techniques.”; “Task Sample. The
+  tests in the benchmark should be a representative sample of the tasks
+  that the tool or technique is expected to solve in actual practice.”
+- Lido em: =tmp/fontes/sim2003.pdf=, p. 3 do PDF (p. 76; o artigo vai de
+  74 a 83).
+- Conferido: 2026-10-06.
+* [[file:../intro.org::Mesmo na segunda rodada, as tarefas continuam pequenas][intro: Mesmo na segunda rodada, as tarefas continuam pequenas]]
+- Frase: “Um conjunto criado por um pesquisador só e pouco usado tende a
+  ter menos impacto que um adotado por uma comunidade.”
+- Observação: a frase anterior, “O autor definiu o conjunto de tarefas
+  para este trabalho”, é do próprio trabalho; o 7GUIs, de onde vem o
+  Formulário (§20), também é de um pesquisador só (Kiss, 2014).
+- Trecho: “Benchmarks that are created by a single individual or
+  laboratory and are not used widely tend not to have the same impact on
+  the community and research results.” (3.1 Scope)
+- Lido em: =tmp/fontes/sim2003.pdf=, p. 3 do PDF (p. 76).
+- Conferido: 2026-10-06.

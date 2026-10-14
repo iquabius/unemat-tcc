@@ -1,0 +1,38 @@
+#+title: oney2012: Oney et al. (2012), ConstraintJS: Programming Interactive Behaviors for the Web by Integrating Constraints and States
+#+startup: overview
+
+* [[file:../intro.org::As interfaces gráficas costumam ter estado][intro: As interfaces gráficas costumam ter estado]], p. 230
+- Frase: “[...] Uma das principais diferenças entre a
+  programação de interfaces e a dos outros programas é que o estado da
+  aplicação determina a aparência e o comportamento da tela (Oney; Myers;
+  Brandt, 2012, p. 230).” A citação no fim da segunda frase sustenta as
+  duas: “GUIs are often stateful” é o “costumam ter estado”.
+- Trecho: “One of the main differentiators of interactive behaviors from
+  general programming is that GUIs are often stateful [9] – the application
+  state determines its appearance and behavior.”
+- Lido em: =tmp/fontes/oney2012.pdf=, p. 2 do PDF (versão da ACM).
+- Conferido: 2026-10-09.
+* [[file:../intro.org::O recurso predominante para propagar eventos][intro: O recurso predominante para propagar eventos é o callback]], p. 229
+- Frase: “Os /callbacks/ que alteram o DOM por efeitos colaterais muitas
+  vezes levam a um código interdependente, opaco e propenso a erros, o
+  chamado código espaguete (Oney; Myers; Brandt, 2012, p. 229).”
+- Trecho: “JavaScript code defines interactive behaviors with callbacks
+  that modify the DOM using side effects — a paradigm used by most GUI
+  frameworks. However, this paradigm of using callbacks and side effects
+  often results in developers writing interdependent, opaque, and
+  error-prone “spaghetti-code,” a problem that was identified over 20
+  years ago [13].” (p. 229)
+- Lido em: =tmp/fontes/oney2012.pdf=, p. 1 do PDF (versão da ACM).
+- Observação: entra no lugar do dado da Adobe (Parent, 2006, slides de
+  palestra), que saiu em 2026-10-09; repõe o custo em defeitos com fonte
+  revisada por pares.
+- Conferido: 2026-10-09.
+* [[file:../intro.org::Este trabalho compara /modelos de programação/][intro: Este trabalho compara modelos de programação]], p. 229 (o imperativo)
+- Frase: a mesma do disch2025 acima, na mesma citação; Oney, Myers e
+  Brandt sustentam a tela e os efeitos colaterais, como no jQuery e nos
+  Web Components sem biblioteca.
+- Trecho: “JavaScript code defines interactive behaviors with callbacks
+  that modify the DOM using side effects — a paradigm used by most GUI
+  frameworks.” (p. 229)
+- Lido em: =tmp/fontes/oney2012.pdf=, p. 1 do PDF (versão da ACM).
+- Conferido: 2026-10-09.

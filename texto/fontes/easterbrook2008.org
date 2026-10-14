@@ -1,0 +1,21 @@
+#+title: easterbrook2008: Easterbrook et al. (2008), Selecting Empirical Methods for Software Engineering Research
+#+startup: overview
+
+* [[file:../intro.org::Quanto aos objetivos, a pesquisa é][intro: Quanto aos objetivos, a pesquisa é exploratória]]
+- Frase: “A pergunta de pesquisa, como a usabilidade difere entre os
+  modelos de programação, é do tipo que Easterbrook et al. (2008) chamam de
+  descritivo-comparativo, das perguntas sobre como uma coisa difere de
+  outra, e põem entre as perguntas exploratórias.”
+- Trecho: “In the early stages of a research program, we usually need to
+  ask exploratory questions […] such as: […] Descriptive-Comparative
+  questions of the form, ‘How does X differ from Y?’ investigate
+  similarities and differences between two or more phenomena.” No mesmo
+  trecho, a primeira pergunta de Jane, “Is a fisheye-view file navigator
+  more efficient than the traditional view for file navigation?”, vira
+  “How do fisheye views differ from conventional views?”.
+- Lido em: =tmp/fontes/easterbrook2008.pdf=, p. 3 do PDF (pré-publicação;
+  a página do livro, 285-311, não se confere nela).
+- Observação: a pergunta da introdução passou a “como difere” na forma
+  de Easterbrook et al. em 2026-10-09 (decisão do autor).
+- Conferido: 2026-10-06; o trecho das diferenças e o de Jane, em
+  2026-10-09.

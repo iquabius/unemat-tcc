@@ -1,0 +1,27 @@
+#+title: bainomugisha2013: Bainomugisha et al. (2013), A Survey on Reactive Programming
+#+startup: overview
+
+* [[file:../intro.org::Uma alternativa ao /callback/ é a][intro: Uma alternativa ao /callback/ é a]], p. 2
+- Frase: “Assim, o programador não precisa cuidar da ordem dos eventos nem
+  das dependências entre as computações.”
+- Trecho: “having the language automatically manage the flow of time (by
+  conceptually supporting simultaneity), and data and computation
+  dependencies. This yields the advantage that programmers need not to
+  worry about the order of events and computation dependencies.” (p. 52:2)
+- Lido em: =tmp/fontes/bainomugisha2013.pdf=, p. 2 do PDF (p. 52:2).
+- Conferido: 2026-10-07.
+* [[file:../intro.org::Uma alternativa ao /callback/ é a][intro: Uma alternativa ao /callback/ é a]], p. 1-2
+- Frase: “A PR serve às aplicações orientadas a eventos e interativas e
+  leva às linguagens de programação o modelo das planilhas eletrônicas, em
+  que alterar o valor de uma célula recalcula as fórmulas que dependem dela
+  (Bainomugisha et al., 2013, p. 1-2).”
+- Trecho: “Reactive programming has recently gained popularity as a
+  paradigm that is well-suited for developing event-driven and
+  interactive applications.” (resumo, p. 52:1); “Reactive programming is
+  essentially about embedding the spreadsheet-like model in programming
+  languages.”; “automatic management of data dependencies can be
+  observed in spreadsheet systems [...] If a value of a cell changes then
+  the formulas are automatically recalculated.” (p. 52:2)
+- Lido em: =tmp/fontes/bainomugisha2013.pdf=, p. 1 e 2 do PDF (p. 52:1 e
+  52:2).
+- Conferido: 2026-10-07.

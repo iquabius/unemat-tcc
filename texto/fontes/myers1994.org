@@ -1,0 +1,82 @@
+#+title: myers1994: Myers (1994), Challenges of HCI Design and Implementation
+#+startup: overview
+
+* [[file:../intro.org::O desenvolvimento de interfaces gráficas é difícil][intro: O desenvolvimento de interfaces gráficas é difícil]], p. 73
+- Frase: “O desenvolvimento de interfaces gráficas é difícil por natureza
+  (Myers, 1994, p. 73).” Em 2026-10-12, a frase deixou de dizer que
+  “continuaria sendo”: sem a atribuição narrativa, o condicional ficaria
+  como previsão do texto, e não de Myers.
+- Trecho: “user interface design and implementation are inherently
+  difficult tasks and will remain so for the foreseeable future.”
+- Lido em: =tmp/fontes/myers1994.pdf=, p. 1 do PDF (resumo).
+- Conferido: 2026-10-09; de novo em 2026-10-12.
+* [[file:../intro.org::O desenvolvimento de interfaces gráficas é difícil][intro: O desenvolvimento de interfaces gráficas é difícil]], p. 79 (eventos a qualquer momento)
+- Frase: “Na implementação, o programa precisa aceitar os eventos de
+  entrada a qualquer momento, mesmo enquanto executa outros comandos
+  (Myers, 1994, p. 79).”
+- Trecho: “the user interface software must be structured so that it can
+  accept input events at all times, even while executing commands” (p. 79)
+- Lido em: =tmp/fontes/myers1994.pdf=, p. 7 do PDF (p. 79).
+- Observação: o “real-time requirements for handling input events” da p.
+  75 sai como “a qualquer momento”, porque “tempo real” tem no texto o
+  sentido estrito dos sistemas embarcados.
+- Conferido: 2026-10-12; dividida em duas frases em 2026-10-13.
+* [[file:../intro.org::As interfaces gráficas costumam ter estado][intro: As interfaces gráficas costumam ter estado]], p. 79 (o que o usuário fez)
+- Frase: “As interfaces gráficas costumam ter estado: lembram informações,
+  como o que o usuário já fez (Myers, 1994, p. 79; Van Roy, 2009, p.
+  14).” Myers sustenta “o que o usuário já fez”; Van Roy, “lembram
+  informações”; Oney, Myers e Brandt (2012, p. 230), na frase seguinte, o
+  “costumam ter estado” (“GUIs are often stateful”).
+- Trecho: “These dialogs will each need to retain state about what the
+  user has done, and will also interact with each other.” (p. 79)
+- Lido em: =tmp/fontes/myers1994.pdf=, p. 7 do PDF (p. 79).
+- Observação: o trecho fala de diálogos simultâneos, sob o intertítulo
+  “Reactive Programming”; o estado aparece de passagem.
+- Conferido: 2026-10-13.
+* [[file:../intro.org::As interfaces gráficas costumam ter estado][intro: As interfaces gráficas costumam ter estado]], p. 79
+- Frase: “Outra é o código escrito do avesso (/inside-out/), dividido em
+  sub-rotinas que o /toolkit/ chama quando ocorrem ações do usuário (Myers,
+  1994, p. 79).” (“Outra” das principais diferenças, depois do estado, em
+  2026-10-12; Myers diz "one big difference")
+- Trecho: “One big difference is that modern user interfaces must be
+  written ‘inside-out.’ Rather than structuring the code so that the
+  application is in control, as is usually taught in computer science
+  classes, the application must instead be structured as many subroutines
+  which are called by the user interface tool kit when the user does
+  something. This is sometimes called ‘event-based programming.’”
+- Lido em: =tmp/fontes/myers1994.pdf=, p. 7 do PDF (páginas 73 a 83 na
+  publicação, sem número impresso por página).
+- Observação: a explicação da inversão de controle foi para prog.org na
+  rodada 2 do corte; rever na rodada 3 se volta à introdução.
+- Conferido: 2026-10-06.
+* [[file:../prog.org::No projeto da interface, além dos][prog: No projeto da interface, além dos]], p. 75 (projeto)
+- Frase: “No projeto, além dos problemas comuns a todo sistema de software
+  complexo, os /designers/ lidam com tarefas e domínios complexos e têm
+  dificuldade de pensar como o usuário (Myers, 1994, p. 75).”
+- Trecho: “in addition to the difficulties associated with designing any
+  complex software system, user interfaces add the following problems:
+  designers have difficulty thinking like users; tasks and domains are
+  complex” (seção “No Silver Bullet”, p. 75)
+- Lido em: =tmp/fontes/myers1994.pdf=, p. 3 do PDF (p. 75).
+- Observação: é o contraste entre projeto e implementação que Kiss (2014,
+  p. 5) faz citando o relatório técnico de Myers de 1993, a versão
+  anterior deste artigo.
+- Conferido: 2026-10-12.
+* [[file:../prog.org::No projeto da interface, além dos][prog: No projeto da interface, além dos]], p. 75, 79 e 80 (robustez)
+- Frase: “Também precisa ser robusto: tratar qualquer entrada sem parar de
+  funcionar e, como o usuário espera, permitir que ele cancele e desfaça a
+  maioria das ações (Myers, 1994, p. 75, 79 e 80).”
+- Trecho: “the software must be especially robust while supporting
+  aborting and undoing of most actions” (p. 75); “Users expect to be able
+  to abort and undo actions (for example, by typing control-C or
+  Command-dot).” (p. 79); “the software that handles the users’ inputs has
+  especially stringent requirements because all inputs must be gracefully
+  handled. [...] the user interface must always accept any possible input,
+  and continue to operate. [...] user interfaces should allow the user to
+  abort and undo operations.” (seção “Need for Robustness”, p. 80)
+- Lido em: =tmp/fontes/myers1994.pdf=, p. 3, 7 e 8 do PDF (p. 75, 79 e
+  80).
+- Observação: Myers põe o desfazer ao lado da robustez, e não como
+  consequência dela; o porquê do desfazer, na p. 79, é a expectativa do
+  usuário.
+- Conferido: 2026-10-13.

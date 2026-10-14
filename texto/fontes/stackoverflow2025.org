@@ -1,0 +1,30 @@
+#+title: stackoverflow2025: Stack Overflow (2025), 2025 Stack Overflow Developer Survey
+#+startup: overview
+
+* [[file:../prog.org::As pesquisas de uso medem][prog: As pesquisas de uso medem]]
+- Frase: “Na questão sobre tecnologias web do Stack Overflow Developer
+  Survey 2025, React, jQuery e Angular estão entre as sete mais usadas, com
+  44,7%, 23,4% e 18,2% dos que a responderam.”
+- Trecho: a questão, “Which web frameworks and web technologies have you
+  done extensive development work in over the past year [...]?”; “2. React:
+  44.7%”, “3. jQuery: 23.4%”, “7. Angular: 18.2%” (All Respondents);
+  “Responses: 23,678 (48.3%)”.
+- Lido em: =tmp/fontes/stackoverflow2025.txt=, l. 11, 15-20 e 42 (página
+  salva em 2026-09-29).
+- Observação: Seção “Uso das tecnologias web”, nova em 2026-10-13. Parágrafo
+  vindo da introdução e dos estudos de casos, como dado de interesse, sem
+  papel de justificativa. Os porcentuais são dos 23.678 que responderam à
+  questão, e não dos 49.009 respondentes da pesquisa (checagem adversarial
+  de 2026-10-08).
+- Conferido: 2026-10-06; a questão e o total, em 2026-10-09.
+* [[file:../prog.org::Cada pesquisa de uso tem um limite][prog: Cada pesquisa de uso tem um limite de amostra]]
+- Frase: “Os respondentes do Stack Overflow Developer Survey 2025 são
+  recrutados sobretudo pelos próprios canais do site, o que favorece os
+  usuários mais ativos.”
+- Trecho: “Respondents were recruited primarily through channels owned by
+  Stack Overflow. [...] highly-engaged users on Stack Overflow were more
+  likely to notice the prompts to take the survey”
+- Lido em: =tmp/fontes/stackoverflow2025-metodologia.txt=, l. 35.
+- Observação: Seção “Uso das tecnologias web”. Parágrafo vindo dos estudos
+  de casos em 2026-10-13.
+- Conferido: 2026-10-13.

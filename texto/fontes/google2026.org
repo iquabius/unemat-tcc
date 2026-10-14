@@ -1,0 +1,33 @@
+#+title: google2026: Google (2026), Signals
+#+startup: overview
+
+* [[file:../intro.org::Nos declarativos, o programador descreve a tela][intro: Nos declarativos, o programador descreve a tela]]
+- Frase: “e no Angular com /signals/.”
+- Trecho: “Angular Signals is a system that granularly tracks how and where
+  your state is used throughout an application, allowing the framework to
+  optimize rendering updates.”
+- Lido em: =tmp/fontes/google2026.txt=, l. 11 (página salva).
+- Conferido: 2026-10-06.
+* [[file:../cases.org::Solid e Angular com /signals/, ao contrário][cases: Solid e Angular com signals, ao contrário]]
+- Frase: a mesma, para o Angular.
+- Trecho: “A signal is a wrapper around a value that notifies interested
+  consumers when that value changes.” (l. 21); “Computed signals are
+  read-only signals that derive their value from other signals.” (l. 80)
+- Lido em: =tmp/fontes/google2026.txt= (página salva).
+- Conferido: 2026-10-06.
+* [[file:../cases.org::Solid e Angular com /signals/, ao contrário][cases: Solid e Angular com signals, ao contrário]] (o Angular atualiza o componente)
+- Frase: “o Angular, quando o /signal/ se altera, marca o componente que o
+  lê e o atualiza na próxima detecção de alterações (Google, 2026).”
+- Trecho: “When you read a signal within an OnPush component's template,
+  Angular tracks the signal as a dependency of that component. When the
+  value of that signal changes, Angular automatically marks the component
+  to ensure it gets updated the next time change detection runs.”
+- Lido em: =tmp/fontes/google2026.txt=, l. 222 (página salva).
+- Observação: a frase dizia que o /template/ “volta a ser renderizado”, o
+  que colidia com o rótulo do React; a unidade da atualização no Angular é
+  o componente (Lee et al., 2025, p. 289:24 e 289:38, reexecução do
+  componente: React “Yes”, Solid e Angular “No”). “Detecção de
+  alterações” traduz /change detection/ sem “mudança”, que o CONTEXT.md
+  reserva ao OpenSpec. O trecho fala do componente OnPush; o texto não
+  distingue a estratégia.
+- Conferido: 2026-10-14.

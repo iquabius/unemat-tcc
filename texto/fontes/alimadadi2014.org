@@ -1,0 +1,14 @@
+#+title: alimadadi2014: Alimadadi et al. (2014), Understanding JavaScript Event-Based Interactions
+#+startup: overview
+
+* [[file:../prog.org::O /callback/ é síncrono quando a][prog: O /callback/ é síncrono quando a]], p. 368-369
+- Frase: “O navegador executa a aplicação numa /thread/ só, e, para que ela
+  continue respondendo ao usuário, os programadores recorrem às operações
+  assíncronas.”
+- Trecho: “Web browsers provide a single thread for web application
+  execution. To circumvent this limitation and build rich responsive web
+  applications, developers take advantage of the asynchronous capabilities
+  offered by modern browsers, such as timeouts and XMLHttpRequest (XHR)
+  calls.” (p. 368-369)
+- Lido em: =tmp/fontes/alimadadi2014.pdf=, p. 2 e 3 do PDF (p. 368 e 369).
+- Conferido: 2026-10-07.

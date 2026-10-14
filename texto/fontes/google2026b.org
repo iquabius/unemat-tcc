@@ -1,0 +1,22 @@
+#+title: google2026b: Google (2026), Anatomy of a Component
+#+startup: overview
+
+* [[file:../cases.org::Solid e Angular com /signals/, ao contrário][cases: Solid e Angular com signals, ao contrário]] (classe e decorador)
+- Frase: “O componente do Angular é uma classe com decorador (Google,
+  2026b), e participa da injeção de dependências (Google, 2026c).”
+- Trecho: “Every component must have: A TypeScript class with behaviors such
+  as handling user input and fetching data from a server”; “You provide
+  Angular-specific information for a component by adding a @Component
+  decorator on top of the TypeScript class”.
+- Lido em: https://angular.dev/guide/components, em 2026-10-09.
+- Conferido: 2026-10-09.
+* [[file:../cases.org::Quatro coisas poderiam diferenciar as implementações][cases: Quatro coisas poderiam diferenciar as implementações]] (TypeScript)
+- Frase: “A linguagem é uma só em cada plataforma: na web, o /TypeScript/,
+  que o Angular exige (Google, 2026b) e as demais tecnologias também usam
+  [...].”
+- Trecho: “Every component must have: A TypeScript class with behaviors such
+  as handling user input and fetching data from a server”.
+- Lido em: https://angular.dev/guide/components, em 2026-10-09; o uso do TypeScript
+  pelas outras tecnologias se confere em =casos/= (só =.ts= e =.tsx= nas
+  implementações, achado L03 da checagem de 2026-10-08).
+- Conferido: 2026-10-09.

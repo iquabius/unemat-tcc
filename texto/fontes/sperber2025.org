@@ -1,0 +1,34 @@
+#+title: sperber2025: Sperber e Schlegel (2025), Evolution of Functional UI Paradigms
+#+startup: overview
+
+* [[file:../intro.org::Este trabalho compara /modelos de programação/][intro: Este trabalho compara modelos de programação]], p. 28 (o imperativo)
+- Frase: a mesma do disch2025 acima, na mesma citação; Sperber e Schlegel
+  sustentam que, no imperativo, o código do programador atualiza a tela,
+  o que dá nome ao rótulo, ao lado de “update the view manually” e
+  “re-renders the entire UI” (p. 32).
+- Trecho: “Update Keeping the view current with respect to the model
+  involves two tasks: initially constructing the view by creating the
+  various UI widgets, and later mutating the view upon calls to update.”
+  (p. 28, o MVC); “instead of requiring the programmer to implement the
+  update logic manually, these toolkits feature a pre-processor that
+  generates the update code automatically” (p. 32, Angular, Svelte e Vue)
+- Lido em: =tmp/fontes/sperber2025.pdf=, p. 2 e 6 do PDF (p. 28 e 32).
+- Observação: o rótulo “imperativo por atualização manual” é do trabalho
+  (decisão do autor em 2026-10-14); nenhuma fonte usa a expressão.
+- Conferido: 2026-10-14.
+* [[file:../intro.org::Nos declarativos, o programador descreve a tela][intro: Nos declarativos, o programador descreve a tela]], p. 32
+- Frase: “Nos declarativos, o programador descreve a tela em função do
+  estado, e o ambiente de execução a mantém atualizada (SolidJS, 2026b;
+  Sperber; Schlegel, 2025, p. 32).” (o React e o Angular)
+- Trecho: “Model-View-Update solves the Update challenge: A single function
+  describes view construction, no separate logic for view update is
+  needed.”; “Modern OO toolkits like Angular, Svelte, and Vue.js have also
+  attempted to solve the Update challenge [...]. However, instead of
+  requiring the programmer to implement the update logic manually, these
+  toolkits feature a pre-processor that generates the update code
+  automatically from the construction code.” (p. 32)
+- Lido em: =tmp/fontes/sperber2025.pdf=, p. 6 do PDF (p. 32 impressa).
+- Observação: substitui Meta (2026a), documentação do React (decisão do
+  autor em 2026-10-09). O Solid não aparece em Sperber e Schlegel e fica
+  com a documentação dele.
+- Conferido: 2026-10-09.

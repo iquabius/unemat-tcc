@@ -1,0 +1,13 @@
+#+title: erdweg2015: Erdweg et al. (2015), Evaluating and Comparing Language Workbenches: Existing Results and Benchmarks for the Future
+#+startup: overview
+
+* [[file:../cases.org::O conjunto de tarefas é um][cases: O conjunto de tarefas é um]], p. 35
+- Frase: “A medida, neste trabalho, é a avaliação pelas DCs, como nos
+  /benchmarks/ de resultado qualitativo do projeto de linguagens (Erdweg et
+  al., 2015, p. 35) [...].”
+- Trecho: “Not all benchmark problems address performance concerns,
+  however.” “most – including those introduced in this paper – are partly
+  or wholly qualitative: their results are captured in a structured
+  description.”
+- Lido em: =tmp/fontes/erdweg2015.pdf=, p. 12 do PDF (cópia da editora).
+- Conferido: 2026-10-09.

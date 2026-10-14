@@ -1,0 +1,39 @@
+#+title: zimmerle2025: Zimmerle e Gama (2025), On the Usability of Reactive Programming APIs: A Mixed Evaluation
+#+startup: overview
+
+* [[file:../intro.org::Para discutir o quanto uma notação facilita][intro: Para discutir o quanto uma notação facilita]], p. 1510 e 1513
+- Frase: “Zimmerle e Gama (2025, p. 1510 e 1513) avaliaram com usuários duas
+  bibliotecas de PR para JavaScript.”
+- Trecho: “we focus on Bacon.js and RxJS in the present work” (p. 1510);
+  “In total, we defined five tasks [...], all revolving HTTP requests”
+  (p. 1513); “a user-centered study was performed involving programming
+  tasks” (resumo, p. 1506).
+- Lido em: =tmp/fontes/zimmerle2025.pdf=, p. 5 e 8 do PDF.
+- Conferido: 2026-10-06.
+* [[file:../prog.org::compararam, com 36 estudantes de graduação,][prog: compararam, com 36 estudantes de graduação,]], p. 1510 e 1513
+- Frase: “Zimmerle e Gama (2025, p. 1510 e 1513) avaliaram com usuários
+  duas bibliotecas de PR para JavaScript, RxJS e Bacon.js, em tarefas de
+  requisições HTTP.”
+- Trecho: “we focus on Bacon.js and RxJS in the present work” (p. 1510);
+  “In total, we defined five tasks [...], all revolving HTTP requests”
+  (p. 1513); “a user-centered study was performed involving programming
+  tasks” (resumo, p. 1506).
+- Lido em: =tmp/fontes/zimmerle2025.pdf=, p. 5 e 8 do PDF.
+- Conferido: 2026-10-06.
+* [[file:../conclusion.org::@@latex:\todo{Trecho vindo da introdução][conclusion: Uma forma de conferir as conclusões de quem avalia]], p. 1512-1513 e 1519
+- Frase: “Uma forma de conferir as conclusões de quem avalia é compará-las
+  com as respostas dos usuários, como no estudo de Zimmerle e Gama (2025,
+  p. 1512-1513 e 1519), em que 12 estudantes responderam, depois das
+  tarefas, a 24 afirmações agrupadas em cinco dimensões derivadas das DCs.”
+- Trecho: “a post-task questionnaire” (p. 1512); “groups the questionnaire
+  items into five distinct dimensions: understandability, abstraction,
+  expressiveness, reusability, and learnability”; “the final result,
+  containing 24 assertions, can be found in Appendix B” (p. 1513); “In
+  total, 12 participants, who did the tasks, made themselves available to
+  answer the questionnaire.” (p. 1519)
+- Lido em: =tmp/fontes/zimmerle2025.pdf=, p. 7, 8 e 14 do PDF.
+- Observação: as cinco dimensões são as de López-Fernández et al., que os
+  autores mapeiam para as DCs de Blackwell e Green (p. 1513). O trecho
+  veio da introdução no corte de outubro de 2026; a frase mudou em
+  2026-10-14 (“juízo” saiu, CONTEXT.md, Avaliação).
+- Conferido: 2026-10-14.

@@ -1,0 +1,10 @@
+#+title: madsen2017: Madsen et al. (2017), A Model for Reasoning about JavaScript Promises
+#+startup: overview
+
+* [[file:../prog.org::O JavaScript ganhou alternativas ao][prog: O JavaScript ganhou alternativas ao callback]], p. 86:1
+- Frase: “as /promises/, que encadeiam computações assíncronas”
+- Trecho: “promises, an alternative mechanism for managing asynchrony that
+  enables programmers to chain asynchronous computations while supporting
+  proper error handling” (resumo, p. 86:1).
+- Lido em: =tmp/fontes/madsen2017.pdf=, p. 1 do PDF (p. 86:1).
+- Conferido: 2026-10-07.

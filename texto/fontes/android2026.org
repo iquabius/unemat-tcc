@@ -1,0 +1,12 @@
+#+title: android2026: Google (2026), Thinking in Compose
+#+startup: overview
+
+* [[file:../cases.org::Fora da web, cada plataforma tem um par][cases: Fora da web, cada plataforma tem um par]]
+- Frase: “As Views ficam no imperativo por atualização manual, e o Compose, no
+  declarativo por re-renderização, porque chama de novo as funções da tela
+  quando o estado se altera (Google, 2026).”
+- Trecho: “Recomposition is the process of calling your composable
+  functions again when inputs change.”
+- Lido em: =tmp/fontes/android2026.txt=, l. 966 (página salva em
+  2026-10-09; atualizada em 2026-10-01).
+- Conferido: 2026-10-09.

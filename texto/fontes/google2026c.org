@@ -1,0 +1,11 @@
+#+title: google2026c: Google (2026), Dependency Injection: Overview
+#+startup: overview
+
+* [[file:../cases.org::Solid e Angular com /signals/, ao contrário][cases: Solid e Angular com signals, ao contrário]]
+- Frase: a mesma de google2026b, acima.
+- Trecho: “Angular components and directives automatically participate in
+  DI, meaning that you can inject dependencies into them and make them
+  available for injection.”
+- Lido em: https://angular.dev/guide/di, em 2026-10-09.
+- Observação: a frase não tinha fonte até a checagem de 2026-10-08 (K05).
+- Conferido: 2026-10-09.

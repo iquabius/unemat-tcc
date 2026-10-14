@@ -1,0 +1,29 @@
+#+title: fischer2007: Fischer et al. (2007), Tasks: Language Support for Event-Driven Programming
+#+startup: overview
+
+* [[file:../intro.org::As interfaces gráficas costumam ter estado][intro: As interfaces gráficas costumam ter estado]], p. 134
+- Frase: “[...] e essa forma afeta a compreensão e a manutenção do programa
+  (Fischer; Majumdar; Millstein, 2007, p. 134).”
+- Trecho: “the event-driven style severely complicates program maintenance
+  and understanding”.
+- Lido em: =tmp/fontes/fischer2007-tasks-language-support-for-event-driven-programming.pdf=,
+  p. 1 do PDF.
+- Observação: afirmação dos autores, sem medição; a medição da compreensão
+  está em Salvaneschi et al. (2017), no §6.
+- Conferido: 2026-10-09.
+* [[file:../intro.org::O recurso predominante para propagar eventos][intro: O recurso predominante para propagar eventos é o callback]], p. 134-135
+- Frase: “O /callback/ fragmenta o fluxo de controle: a sequência de passos
+  que o programador tem em mente para uma operação fica dividida entre
+  vários /callbacks/, o que dificulta a manutenção e a compreensão do
+  programa.”
+- Trecho: “the event-driven style severely complicates program maintenance
+  and understanding, as it requires each logical flow of control to be
+  fragmented across multiple independent callbacks.” (resumo, p. 134);
+  “the violence that the event-driven style does to a program’s natural
+  flow of control. The code in restOfRun logically follows the buffer
+  write, but they must be unnaturally separated” (p. 135).
+- Lido em: =tmp/fontes/fischer2007.pdf=, p. 1 e 2 do PDF (p. 134 e 135).
+- Observação: é o primeiro erro da regra de Blackheath e Jones (sequência
+  escrita com eventos); o segundo, o código sequencial, está no §7 com
+  Moseley e Marks (relatório em tmp/fluxo-de-controle-2026-10-07/).
+- Conferido: 2026-10-07.

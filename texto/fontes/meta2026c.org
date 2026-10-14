@@ -1,0 +1,12 @@
+#+title: meta2026c: Meta Platforms (2026), Writing Markup with JSX
+#+startup: overview
+
+* [[file:../cases.org::No React e no Solid, a tela se monta][cases: No React e no Solid, a tela se monta em JSX]]
+- Frase: “No React e no Solid, a tela se monta em JSX, marcação parecida com HTML
+  escrita dentro do JavaScript.”
+- Trecho: “JSX is a syntax extension for JavaScript that lets you write
+  HTML-like markup inside a JavaScript file.”
+- Lido em: https://react.dev/learn/writing-markup-with-jsx, em 2026-10-07.
+- Observação: a definição por extenso está no prog.org, seção de
+  programação de interfaces gráficas.
+- Conferido: 2026-10-07.

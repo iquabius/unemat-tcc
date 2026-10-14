@@ -1,0 +1,99 @@
+#+title: kiss2014: Kiss (2014), Comparison of Object-Oriented and Functional Programming for GUI Development
+#+startup: overview
+
+* [[file:../intro.org::O desenvolvimento de interfaces gráficas é difícil][intro: O desenvolvimento de interfaces gráficas é difícil]], p. 5
+- Frase: “Como Kiss (2014, p. 5), este trabalho deixa de lado, apesar da
+  importância, o projeto da interface e a usabilidade dela para quem a
+  usa, e trata de como programá-la.” “O projeto da interface e a
+  usabilidade dela” traduz o “design a usable presentation of and
+  interaction with the resulting graphical application” de Kiss, e o
+  “apesar da importância”, o “admittedly very important aspect”.
+- Trecho: “One of the main challenges in GUI development is to design a
+  usable presentation of and interaction with the resulting graphical
+  application [30]. In the context of this thesis we are not concerned with
+  this admittedly very important aspect. We are instead concerned with GUI
+  development from a programming perspective.” (seção 1.2, “Challenges in
+  GUI Development”, p. 5)
+- Lido em: =tmp/fontes/kiss2014.pdf=, p. 11 do PDF (p. 5).
+- Observação: a referência [30] de Kiss é o relatório técnico de Myers de
+  1993, a versão anterior de Myers (1994).
+- Conferido: 2026-10-12.
+* [[file:../intro.org::Para discutir o quanto uma notação facilita][intro: Para discutir o quanto uma notação facilita]], p. v e 104
+- Frase: “Kiss (2014, p. v, 11 e 104) comparou a POO e a PF em sete tarefas de
+  interface, com JavaFX e ScalaFX, e deixou como trabalho futuro comparar
+  os /frameworks/ de interface do navegador.”
+- Trecho: “The languages and libraries which serve as a practical testbed
+  for the comparison are Java/JavaFX on the object-oriented side, and
+  Scala/ScalaFX, Scala.Rx, ReactFX and Elm on the functional side.”
+  (p. v); “there is much activity in the web development world with
+  respect to browser-based GUI frameworks. It would be interesting to
+  create some kind of taxonomy of these frameworks and systematically
+  compare their viability.” (p. 104)
+- Lido em: =tmp/fontes/kiss2014.pdf=, p. 6 e 110 do PDF.
+- Observação: as sete tarefas estão na p. 11 (entrada do §17).
+- Conferido: 2026-10-06.
+* [[file:../intro.org::Nenhum desses trabalhos compara, sobre as mesmas tarefas][intro: Nenhum desses trabalhos compara, sobre as mesmas tarefas]], p. 103-104
+- Frase: “Além disso, Kiss (2014, p. 103-104) avaliou cada tarefa num
+  tamanho só e propôs, como trabalho futuro, estendê-las com requisitos
+  novos.”
+- Trecho: “The following additional aspects could be taken into
+  consideration for an extended resp. modified set of case studies: • An
+  asynchronous requirement [...]” (p. 103); “Of course, the difficulty
+  lies in incorporating these additional aspects in as self-contained as
+  possible case studies resp. modifying the existing ones without bloating
+  them up too much.” (p. 104)
+- Lido em: =tmp/fontes/kiss2014.pdf=, p. 109 e 110 do PDF.
+- Observação: “num tamanho só” é leitura do método de Kiss (cap. 3), em que
+  cada tarefa tem uma versão por tecnologia; a extensão do cap. 4 troca a
+  biblioteca, e não a tarefa.
+- Conferido: 2026-10-13.
+* [[file:../prog.org::compararam, com 36 estudantes de graduação,][prog: compararam, com 36 estudantes de graduação,]], p. v e 104
+- Frase: “Kiss (2014, p. v e 104) comparou a POO e a PF em sete tarefas de
+  interface, com JavaFX, ScalaFX, Scala.Rx, ReactFX e Elm, e deixou como
+  trabalho futuro comparar os /frameworks/ de interface do navegador.”
+- Trecho: “The languages and libraries which serve as a practical testbed
+  for the comparison are Java/JavaFX on the object-oriented side, and
+  Scala/ScalaFX, Scala.Rx, ReactFX and Elm on the functional side.”
+  (p. v); “there is much activity in the web development world with
+  respect to browser-based GUI frameworks. It would be interesting to
+  create some kind of taxonomy of these frameworks and systematically
+  compare their viability.” (p. 104)
+- Lido em: =tmp/fontes/kiss2014.pdf=, p. 6 e 110 do PDF.
+- Observação: as sete tarefas estão na p. 11 (entrada do §17).
+- Conferido: 2026-10-06.
+* [[file:../cases.org::A orquestração pesa mais na Busca][cases: A orquestração pesa mais na Busca]], p. 11 e 25
+- Frase: “O Formulário adapta o /Flight Booker/, uma das sete tarefas do
+  7GUIs, de Kiss (2014, p. 11 e 25), e acrescenta os campos de nome e de
+  e-mail.”
+- Trecho: “seven case studies in increasing complexity are presented”
+  (p. 11); sumário: “3.5 Flight Booker … 25”; o nome 7GUIs é o do
+  repositório da dissertação, “https://github.com/eugenkiss/7guis”
+  (Apêndice A, p. 114, p. 120 do PDF).
+- Lido em: =tmp/fontes/kiss2014.pdf=, p. 17 do PDF para a p. 11 impressa.
+- Observação: até 2026-10-13, o Contador e a Lista adaptavam também o
+  /Counter/ (p. 17) e o /CRUD/ (p. 34); saíram da análise (ADR 0002).
+- Conferido: 2026-10-06; de novo em 2026-10-13.
+* [[file:../cases.org::A avaliação se faz em três rodadas][cases: A avaliação se faz em três rodadas]], p. 3
+- Frase: “A avaliação se faz em três rodadas, cada uma mais estreita que
+  a anterior, como as de Kiss (2014, p. 3): a primeira responde à P1, e a
+  segunda e a terceira, à P1.1 e à P1.2.” A ligação de cada rodada a uma
+  pergunta é do trabalho; Kiss sustenta só a sequência de etapas.
+- Trecho: “Chapter 3 [...] implementations in both Java/JavaFX and
+  Scala/ScalaFX of representative case studies are compared [...]. Chapter
+  4 [...] the potential additional benefits of FRP are examined by
+  extending the solutions for the case studies in ScalaFX with Scala.Rx
+  and ReactFX. Afterwards, [...] by providing implementations of a
+  selection of the case studies in Elm.” (p. 3)
+- Lido em: =tmp/fontes/kiss2014.pdf=, p. 9 do PDF (p. 3).
+- Conferido: 2026-10-13.
+* [[file:../cases.org::A avaliação cabe ao autor][cases: A avaliação cabe ao autor]], p. 8
+- Frase: “Kiss (2014, p. 8) chama de analítica a avaliação pelas DCs e a
+  adota como alternativa aos experimentos com programadores, muitas vezes
+  caros e de resultados necessariamente restritos.”
+- Trecho: “Such studies have high meaningfulness but are often expensive
+  and their results are by necessity rather narrow. An alternative is an
+  analytical approach. The Cognitive Dimensions of Notations framework
+  (CDs) [43] is a set of standardized criteria for analyzing the
+  usability of ‘information artifacts’”
+- Lido em: =tmp/fontes/kiss2014.pdf=, p. 14 do PDF (p. 8 impressa).
+- Conferido: 2026-10-06.

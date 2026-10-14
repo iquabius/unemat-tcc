@@ -1,0 +1,15 @@
+#+title: tsukanova2026: Tsukanova e Zabrodin (2026), Reactive Programming as an Evolution of Architectural Trade-offs in Managing Changes
+#+startup: overview
+
+* [[file:../prog.org::O Angular acrescentou os /signals/ à][prog: O Angular acrescentou os signals à]], p. 57
+- Frase: “[...] e o Solid e o Angular com /signals/ aparecem entre as
+  implementações da PR (Tsukanova; Zabrodin, 2026, p. 57).”
+- Trecho: tabela “Сравнение push- и pull-моделей”, linha “Примеры
+  реализации”, coluna pull: “SolidJS, MobX, Knockout, Svelte, Vue 3
+  (реактивные ref/effect), Angular Signals”.
+- Lido em: =tmp/fontes/tsukanova2026.pdf=, p. 4 do PDF.
+- Observação: veículo de uma universidade de transportes, aceito quatro dias
+  depois de recebido; única fonte revisada achada que liga o Solid à PR. Na
+  p. 59, diz que o Angular atualiza só os nós do DOM dependentes, o que a
+  documentação do Angular não sustenta; essa frase não foi usada.
+- Conferido: 2026-10-09.

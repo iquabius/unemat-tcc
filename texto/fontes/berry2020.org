@@ -1,0 +1,25 @@
+#+title: berry2020: Berry e Serrano (2020), HipHop.js: (A)Synchronous Reactive Web Programming
+#+startup: overview
+
+* [[file:../prog.org::O JavaScript ganhou alternativas ao][prog: O JavaScript ganhou alternativas ao callback]], p. 535 e 538
+- Frase: “Numa implementação em JavaScript que guarda o estado da aplicação
+  em variáveis globais, o /async/ e o /await/ não ajudam a coordenar esse
+  estado.”
+- Trecho: “We use global variables (registers) to model the application’s
+  states.” (p. 535); “Control. JavaScript uses global variables to
+  represent the state of the application; note that the ES6 async/await
+  extensions do not help with this respect.” (p. 538)
+- Lido em: =tmp/fontes/berry2020.pdf=, p. 3 e 6 do PDF (p. 535 e 538; a
+  p. 1 do PDF é a 533).
+- Observação: as variáveis globais são do exemplo de Berry e Serrano, e não
+  da linguagem; corrigido na checagem de 2026-10-08.
+- Conferido: 2026-10-07; a p. 535, em 2026-10-09.
+* [[file:../cases.org::A orquestração pesa mais na Busca][cases: A orquestração pesa mais na Busca]], p. 534
+- Frase: “O Login segue o painel de Berry e Serrano (2020, p. 534)”.
+- Trecho: “We introduce HipHop.js with a simple login panel as used by
+  many web applications. When both the user name and password are filled
+  with at least two characters, a login button is activated.” (p. 534)
+- Lido em: =tmp/fontes/berry2020.pdf=, p. 2 do PDF (p. 534).
+- Observação: a quarentena é o “Login Panel 2.0” da p. 539 e entra na segunda
+  rodada (ADR 0029); o nome da tarefa já a traz.
+- Conferido: 2026-10-13.

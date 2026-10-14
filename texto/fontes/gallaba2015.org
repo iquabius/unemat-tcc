@@ -1,0 +1,39 @@
+#+title: gallaba2015: Gallaba et al. (2015), Don't Call Us, We'll Call You: Characterizing Callbacks in JavaScript
+#+startup: overview
+
+* [[file:../prog.org::O /callback/ é síncrono quando a][prog: O /callback/ é síncrono quando a]], p. 2
+- Frase: “O /callback/ é síncrono quando a função que o recebe o chama
+  antes de retornar, e assíncrono quando o chama algum tempo depois, ao
+  fim da operação que ele espera.”
+- Trecho: “A callback passed to a function f can be invoked synchronously
+  before f returns, or it can be deferred to execute asynchronously some
+  time after f returns.”; “the desired non-blocking operation is scheduled
+  as a callback and the main thread continues its synchronous execution.
+  When the operation completes, a message is enqueued into a task queue
+  along with the provided callback.” (p. 2)
+- Lido em: =tmp/fontes/gallaba2015.pdf=, p. 2.
+- Conferido: 2026-10-07.
+* [[file:../prog.org::O /callback/ é síncrono quando a][prog: O /callback/ é síncrono quando a]], p. 5
+- Frase: “O /callback/ de um clique é desse tipo: registrado quando a tela é
+  montada, só roda quando o usuário clica, e os eventos do DOM estão entre
+  as operações assíncronas do navegador.”
+- Trecho: “Asynchronous callbacks. A callback passed into a function can be
+  deferred and invoked at a later time. [...] Our analysis detects a variety
+  of APIs, including DOM events, network calls, timers, and I/O.”; Tabela
+  II, “Example asynchronous APIs available to JavaScript programs”: “DOM
+  events: addEventListener, onclick (Browser)”; a Listagem 5 registra um
+  =$('.restart').on('click', function() {...})=. (p. 5)
+- Lido em: =tmp/fontes/gallaba2015.pdf=, p. 5.
+- Observação: a primeira metade da frase (registrado na montagem da tela,
+  roda no clique) é ilustração do autor; a fonte sustenta que o evento do
+  DOM é API assíncrona.
+- Conferido: 2026-10-07.
+* [[file:../prog.org::Em JavaScript, os /callbacks/ são frequentes:][prog: Em JavaScript, os /callbacks/ são frequentes:]], p. 1
+- Frase: “Em JavaScript, os /callbacks/ são frequentes: num estudo de 138
+  programas, em média uma em cada dez definições de função recebe um
+  /callback/, e a maioria dos /callbacks/ é aninhada.”
+- Trecho: “a representative corpus of 138 JavaScript programs […] on
+  average, every 10th function definition takes a callback argument […] the majority of
+  callbacks are nested” (resumo).
+- Lido em: =tmp/fontes/gallaba2015.pdf=, p. 1.
+- Conferido: 2026-10-06.

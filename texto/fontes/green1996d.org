@@ -1,0 +1,37 @@
+#+title: green1996d: Green e Petre (1996), Usability Analysis of Visual Programming Environments: A ‘Cognitive Dimensions’ Framework
+#+startup: overview
+
+* [[file:../intro.org::Mesmo na segunda rodada, as tarefas continuam pequenas][intro: Mesmo na segunda rodada, as tarefas continuam pequenas]], p. 139
+- Frase: “As DCs também dizem pouco das escolhas de alto nível, como o
+  modelo de computação, e a relevância delas começa quando se definem os
+  detalhes (Green; Petre, 1996, p. 139). Por isso, a avaliação compara os
+  modelos de programação pelos detalhes que a notação de cada tecnologia
+  exige no código-fonte.”
+- Trecho: “Designers of VPLs obviously need to choose a computational
+  model and some type of visual ‘language’ [...]. The cognitive dimensions
+  framework has little to say about these high-level choices; its
+  relevance starts as the details are worked out.” (p. 139)
+- Lido em:
+  =tmp/fontes/green1996-usability-analysis-of-visual-programming-environments-a-cognitive-dimensions-framework.pdf=,
+  p. 9 do PDF (p. 139 impressa).
+- Observação: limitação que o ADR 0021 (Custo) manda declarar uma vez,
+  com fonte; a de categorias, e não artefatos, é da nota de referência
+  docs/paradigma-modelo-e-notacao.md, seção 2.
+- Conferido: 2026-10-09.
+* [[file:../cases.org::A avaliação se faz em três rodadas][cases: A avaliação se faz em três rodadas]], p. 161
+- Frase: “A segunda rodada faz o código crescer porque é nos problemas grandes que os
+  efeitos da viscosidade mais aparecem (Green; Petre, 1996, p. 161).”
+- Trecho: “Nobody can do big, hard problems in their heads. Which is a
+  pity, because those are the ones where the effects of viscosity will be
+  most apparent.” (p. 161)
+- Lido em: =tmp/fontes/green1996-usability-analysis-of-visual-programming-environments-a-cognitive-dimensions-framework.pdf=,
+  p. 31 do PDF (p. 161).
+- Conferido: 2026-10-13.
+* [[file:../cases.org::A análise compara os modelos de][cases: A análise compara os modelos de]], p. 162
+- Frase: “a mesma mudança, preparada antes e feita em cada implementação,
+  como no teste de Green e Petre (1996, p. 162)”.
+- Trecho: “As a straw test of viscosity, we made the same change to each
+  version of the rocket program”; “our straw test was conducted in two
+  stages. First one author (TG) constructed a modification” (p. 162)
+- Lido em: o mesmo PDF, p. 32 (p. 162).
+- Conferido: 2026-10-13.

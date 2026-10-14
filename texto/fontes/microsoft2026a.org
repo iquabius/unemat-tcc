@@ -1,0 +1,14 @@
+#+title: microsoft2026a: Microsoft (2026), Events Overview: Windows Forms
+#+startup: overview
+
+* [[file:../cases.org::Fora da web, cada plataforma tem um par][cases: Fora da web, cada plataforma tem um par]]
+- Frase: “O Windows Forms fica no imperativo por atualização manual, porque
+  o tratador de cada evento atribui os valores aos controles, sem o /data
+  binding/ que ele também oferece (Microsoft, 2025b; Microsoft, 2026a)”.
+  Microsoft (2026a) sustenta o tratador; a atribuição aos controles é o
+  que sobra sem o /binding/ (microsoft2025b, abaixo).
+- Trecho: “If one of these events is raised and there's an associated
+  event handler, the handler is invoked and code is run.”
+- Lido em: =tmp/fontes/microsoft2026a-winforms-events.html= (página salva
+  em 2026-10-13; atualizada em 2026-02-20).
+- Conferido: 2026-10-13.

@@ -1,0 +1,31 @@
+#+title: google2026d: Google (2026), Lifecycle
+#+startup: overview
+
+* [[file:../intro.org::Mesmo na segunda rodada, as tarefas continuam pequenas][intro: Mesmo na segunda rodada, as tarefas continuam pequenas]]
+- Frase: “Os pares isolam pouco: na web, só o Web Component e o Lit, ambos
+  com componentes que são elementos personalizados do navegador (Google,
+  2026d), separam o imperativo de um declarativo [...]”
+- Trecho: “Lit components are standard custom elements and inherit the
+  custom element lifecycle methods.”; “The reactive update cycle is
+  triggered when a reactive property changes or when the requestUpdate()
+  method is explicitly called.”; “The component’s render method is called
+  to update its internal DOM.”
+- Lido em: =tmp/fontes/lit2026-lifecycle.html= (página salva em
+  2026-10-13; lit.dev/docs/components/lifecycle/).
+- Observação: que o par Web Component e Lit mantém o modelo de componente
+  e a orquestração é do próprio delineamento (ADR 0013), e não da fonte.
+- Conferido: 2026-10-13.
+* [[file:../cases.org::Na web, Web Component, React e Solid][cases: Na web, Web Component, React e Solid]]
+- Frase: “O Lit se constrói sobre o Web Component: seus componentes são
+  elementos personalizados do navegador, mas cada alteração de estado chama
+  de novo o método que monta a tela (Google, 2026d).”
+- Trecho: “Lit components are standard custom elements and inherit the
+  custom element lifecycle methods.”; “The reactive update cycle is
+  triggered when a reactive property changes or when the requestUpdate()
+  method is explicitly called.”; “The component’s render method is called
+  to update its internal DOM.”
+- Lido em: =tmp/fontes/lit2026-lifecycle.html= (página salva em
+  2026-10-13; lit.dev/docs/components/lifecycle/).
+- Observação: que o par Web Component e Lit mantém o modelo de componente
+  e a orquestração é do próprio delineamento (ADR 0013), e não da fonte.
+- Conferido: 2026-10-13.

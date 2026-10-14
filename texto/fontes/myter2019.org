@@ -1,0 +1,14 @@
+#+title: myter2019: Myter et al. (2019), Distributed Reactive Programming for Reactive Distributed Systems
+#+startup: overview
+
+* [[file:../prog.org::As aplicações orientadas a eventos e][prog: As aplicações orientadas a eventos e]], 5:1
+- Frase: “[...] mas a palavra tem sentidos diferentes em linguagens de
+  programação e em sistemas distribuídos (Myter; Scholliers; De Meuter,
+  2019, 5:1) [...]”
+- Trecho: “The term reactivity is popular in two areas of research:
+  programming languages and distributed systems. On one hand, reactive
+  programming is a paradigm [...]. On the other hand, reactive distributed
+  systems handle client requests in a timely fashion regardless of load or
+  failures.” (resumo, 5:1)
+- Lido em: =tmp/fontes/myter2019.pdf=, p. 1 do PDF.
+- Conferido: 2026-10-10.

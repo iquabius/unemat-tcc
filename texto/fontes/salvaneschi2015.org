@@ -1,0 +1,13 @@
+#+title: salvaneschi2015: Salvaneschi et al. (2015), Reactive Programming: A Walkthrough
+#+startup: overview
+
+* [[file:../intro.org::Nos declarativos, o programador descreve a tela][intro: Nos declarativos, o programador descreve a tela]], p. 953
+- Frase: “O modelo de programação por atualização granular usa as abstrações da PR: os valores que
+  variam no tempo, chamados /signals/, cujas alterações se propagam
+  automaticamente.”
+- Trecho: “It is based on concepts like time-varying values (a.k.a.
+  signals or behaviors), events streams to model discrete updates,
+  automatic tracking of dependencies, and automated propagation of
+  change.”
+- Lido em: =tmp/fontes/salvaneschi2015.pdf=, p. 1 do PDF (p. 953).
+- Conferido: 2026-10-06.
