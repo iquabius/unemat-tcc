@@ -89,19 +89,39 @@ _Avoid_: coordenação de eventos (coordenar cobre também o estado, Edwards,
 2009); orquestração para o estado
 
 **Gerenciamento de estado**:
-O eixo do problema de coordenação que propaga cada mudança de estado aos
+O eixo do problema de coordenação que propaga cada alteração de estado aos
 valores derivados e à tela (*change propagation*, Bainomugisha et al.,
 2013; *state management*, State of JS).
 _Avoid_: gestão de estado; gerência de estado
 
 **Rodada**:
-Uma das três etapas da avaliação, cada uma mais estreita que a anterior:
-P1, as cinco tarefas em Web Component, React e Solid, e a tarefa base e
-mais duas em cada outro par; P2, funcionalidades e requisitos de
-orquestração acrescentados a cada tarefa; P3, o Formulário reescrito com
-a biblioteca de formulário do ecossistema (ADR 0029).
+Uma das três etapas da avaliação, cada uma mais estreita que a anterior
+e cada uma para uma pergunta: a P1, a pergunta de pesquisa, e a P2 e a
+P3, as subperguntas (ADR 0014). No texto, "a rodada da P1"; no roteiro e
+nas notas, "a P1" basta. A rodada da P1: as cinco tarefas em Web
+Component, React e Solid, e a tarefa base e mais duas em cada outro par;
+a da P2, funcionalidades e requisitos de orquestração acrescentados a
+cada tarefa; a da P3, o Formulário reescrito com a biblioteca de
+formulário do ecossistema (ADR 0029).
 _Avoid_: fase (é do roteiro); iteração; rodada sozinha onde puder ser a
-rodada de corte ou a de revisão do texto (ADRs 0022 e 0023)
+rodada de corte ou a de revisão do texto (ADRs 0022 e 0023); R1, R2 e R3
+(rótulos de 2026-10-13, desfeitos no mesmo dia)
+
+**Alteração de estado**:
+O que um evento faz ao estado da interface: o *callback*, o *setter* ou o
+*signal* grava um valor novo. Os valores derivados e a tela se atualizam
+depois, pelo programador ou pelo ambiente de execução: o evento altera o
+estado, e a atualização o leva à tela.
+_Avoid_: mudança de estado (mudança é a do OpenSpec); atualização do
+estado (atualização é a dos derivados e da tela); modificação (a
+atividade das DCs)
+
+**Atualização**:
+O que leva uma alteração de estado aos valores derivados e à tela: no
+imperativo, o programador a escreve; nos declarativos, o ambiente de
+execução a faz. Dá o nome ao declarativo por atualização granular.
+_Avoid_: atualização para o estado (alteração de estado);
+re-renderização para toda atualização (é a do React e do Compose)
 
 **Funcionalidade**:
 Mudança acrescentada a uma tarefa na P2 que muda o que o usuário percebe
@@ -195,7 +215,7 @@ Angular com RxJS, congelado em `casos/fora-da-analise/` com as regras de
 As regras de uma tarefa que não dependem da interface (datas, e-mail,
 mensagens, servidores simulados, fontes de dados, o limite do quadro),
 compartilhadas pelas implementações. Mover e arquivar no Quadro ficam em
-cada implementação, porque escrever uma mudança de estado é parte da
+cada implementação, porque escrever uma alteração de estado é parte da
 notação (ADR 0033).
 _Avoid_: lógica de negócio e regras de negócio, que pressupõem um negócio:
 a validação de datas e de e-mail do Formulário não é regra de negócio de
@@ -230,12 +250,22 @@ _Avoid_: cena (o estado a capturar); cenário como sinônimo de tarefa;
 caso de teste
 
 **Mudança**:
-Alteração da especificação, proposta e arquivada no OpenSpec (*change*):
+O que se propõe e se arquiva no OpenSpec para a especificação (*change*):
 a especificação de uma tarefa nova, cada funcionalidade e requisito de
 orquestração da P2, e as correções da P1, como a retirada da espera da
-Busca.
-_Avoid_: proposta para a mudança inteira (a proposta é o documento do
-porquê); versão; mudança para o diff de uma tecnologia (é o commit dela)
+Busca. É o termo da engenharia de software em português para *change*
+(gerência de mudanças, análise de impacto de mudanças) e o da viscosidade,
+"resistência à mudança" (`docs/paradigma-modelo-e-notacao.md`, seção 11).
+_Avoid_: alteração (é a do estado; o Git, o VS Code e o GitHub em
+português chamam assim o que entra num commit, e o trabalho diz commit);
+modificação (a atividade das DCs); acréscimo (não cobre a reescrita da
+P3); proposta para a mudança inteira (a proposta é o documento do
+porquê); versão; mudança para o diff de uma tecnologia (é o commit dela);
+mudança para o que acontece com a diferença entre rodadas. O estranho não
+é o substantivo, e sim o que o cerca: "onze mudanças, acrescentadas uma
+por commit" (mudança acrescentada), que virou "feitas"; "os nomes da
+mudança entre rodadas", que virou "o que acontece com a diferença de uma
+rodada a outra" (2026-10-13)
 
 **Delta spec**:
 A parte de uma mudança que diz, requisito a requisito, o que se
@@ -294,8 +324,9 @@ evidência; é o que a tabela-síntese registra e o que o Android e o desktop
 conferem. Da P1 para a P2 e a P3, a conclusão aumenta, diminui ou fica
 igual, e a diferença entre os modelos na DC fica mantida, ampliada,
 reduzida, anulada, invertida ou surgida (ADR 0017).
-_Avoid_: juízo; resultado (nome do capítulo 4); interação para a mudança
-entre rodadas (termo da estatística, que o trabalho não testa)
+_Avoid_: juízo; resultado (nome do capítulo 4); interação para o que
+acontece com a diferença entre rodadas (termo da estatística, que o
+trabalho não testa); mudança entre rodadas (mudança é a do OpenSpec)
 
 **Conceito**:
 Elemento primitivo de programação de que se compõem os paradigmas (Van Roy,

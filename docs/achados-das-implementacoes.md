@@ -65,7 +65,7 @@ que o Angular obrigou a escrever diferente.
 - **O `resource` descarta, mas nem sempre aborta** (dependências ocultas,
   propensão a erros, operações mentais difíceis; commit `7e1a4ed`): na
   Busca, o `resource()` aborta pelo `abortSignal` o *loader* anterior quando
-  os `params` mudam para outro termo, mas, quando eles viram `undefined`
+  os `params` se alteram para outro termo, mas, quando eles viram `undefined`
   (termo curto), só descarta a resposta, e a requisição segue até o fim; as
   outras cinco tecnologias a abortam. A tela e o roteiro não mostram a
   diferença: ela só apareceu contando os abortos no navegador. A
@@ -124,8 +124,8 @@ seção "Swing × JavaFX").
 - **A dependência esquecida passa na rotina** (dependências ocultas,
   propensão a erros, viscosidade): no JavaFX, tirar `ida.textProperty()`
   da lista do `createStringBinding` do erro de ordem das datas compila, e
-  as 19 verificações do Formulário passam, porque a rotina nunca muda a
-  ida depois de escolher "Ida e volta"; o erro só aparece ao mudar a ida
+  as 19 verificações do Formulário passam, porque a rotina nunca altera a
+  ida depois de escolher "Ida e volta"; o erro só aparece ao alterar a ida
   com a volta preenchida. Kiss (2014, p. 29) prevê que a dependência nova
   "could be forgotten". O Swing não tem a lista: `validar()` recalcula
   tudo a cada evento.
@@ -135,7 +135,7 @@ seção "Swing × JavaFX").
   `pseudoClassStateChanged`, e a tela a acompanha com um `subscribe`. O
   `addListener` da primeira versão não rodava com o valor inicial.
 - **O `DocumentListener` não tem *adapter*** (difusão, viscosidade): o
-  Swing avisa a mudança do texto por uma interface de três métodos, sem
+  Swing avisa a alteração do texto por uma interface de três métodos, sem
   classe *adapter* no JDK 25, e a tela escreve os três corpos iguais.
 - **O FXML não enxerga o que vem depois** (propensão a erros): o rótulo
   que nomeia o campo (`labelFor="$nome"`) não acha um campo declarado
@@ -179,10 +179,10 @@ que a confirme. As medidas dos protótipos estão em
 
 ## 2026-10-13, Quadro de tarefas na web (commits `39d85b9` e seguinte)
 
-- **O store do Solid muda no lugar o objeto que recebe** (dependências
+- **O store do Solid altera no lugar o objeto que recebe** (dependências
   ocultas, propensão a erros): `createStore(carregarQuadro())` adota o
   objeto e o altera a cada `setEstado`. Sem quadro salvo, o domínio
-  devolvia a constante do quadro inicial, que o store foi mudando; o
+  devolvia a constante do quadro inicial, que o store foi alterando; o
   conteúdo inválido vindo de outra aba, que volta ao inicial, deixava o
   quadro como estava, e só o teste de conformidade, que reabre a tarefa
   sem recarregar a página, mostrou o erro. No React, o `useReducer` só

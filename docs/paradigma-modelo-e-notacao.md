@@ -109,9 +109,9 @@ Angular têm o mesmo modelo de programação e duas notações.
 
 | Modelo de programação | Web | Android | Como coordena | Montagem da tela |
 |---|---|---|---|---|
-| Imperativo com *callbacks* | Web Component, jQuery | Views | o *callback* registrado muda a tela passo a passo | `createElement` e `innerHTML`; HTML com seletores; layout XML |
-| Declarativo por re-renderização | React | Compose | o componente reexecuta a cada mudança, e o derivado é expressão comum | JSX; funções que podem ser compostas |
-| Declarativo por atualização granular | Solid, Angular com *signals* | — | o componente executa uma vez, e o *signal* propaga a mudança aos derivados e à tela | JSX numa função; *template* com construtos próprios |
+| Imperativo com *callbacks* | Web Component, jQuery | Views | o *callback* registrado atualiza a tela passo a passo | `createElement` e `innerHTML`; HTML com seletores; layout XML |
+| Declarativo por re-renderização | React | Compose | o componente reexecuta a cada alteração de estado, e o derivado é expressão comum | JSX; funções que podem ser compostas |
+| Declarativo por atualização granular | Solid, Angular com *signals* | — | o componente executa uma vez, e o *signal* propaga a alteração aos derivados e à tela | JSX numa função; *template* com construtos próprios |
 
 React e Solid diferem também no dialeto do JSX (`className` e `class`) e
 em `&&` e `.map` contra `<Show>` e `<For>`. Solid e Angular variam em três
@@ -582,7 +582,7 @@ Bainomugisha et al. e Kiss; o resto por subagente.
 | Bainomugisha et al. 2013 | "coordinate multiple events"; "coordinating callbacks [...] numerous isolated code fragments can be manipulating the same data"; "management of state changes and data dependencies" | p. 2 | os dois, lado a lado |
 | Edwards 2009 | "carefully coordinate actions to manage their side effects upon each other" | p. 925 | os dois |
 | Edwards 2009 | o imperativo obriga a "orchestrate" a ordem exata dos eventos | p. 928 | eventos |
-| Kiss 2014 | os *callbacks* trazem a inversão de controle e a gestão manual das mudanças de estado e das dependências | p. 59 | os dois |
+| Kiss 2014 | os *callbacks* trazem a inversão de controle e a gestão manual das alterações de estado e das dependências | p. 59 | os dois |
 | Kiss 2014 | "uncoordinated state changes" | p. 101 | estado |
 | Salvaneschi et al. 2017 | "Abstraction over change propagation"; "Favoring data flow over control flow" | p. 2 | estado; os dois |
 | Berry e Serrano 2020 | as linguagens de fluxo de dados não resolvem as "control-based orchestration issues"; "managing the states of web applications" é o objetivo de Flux e Redux | p. 544 | separa os dois |
@@ -592,3 +592,38 @@ Bainomugisha et al. e Kiss; o resto por subagente.
 Nenhuma fonte de interface gráfica diz que um eixo atravessa o outro;
 chamar os dois de cruzados é síntese do trabalho, com Moseley e Marks e
 Adya et al. como precedentes de fora.
+
+## 11. Mudança, alteração e modificação (levantadas em 2026-10-13)
+
+Conclusão: "mudança" é o termo da engenharia de software acadêmica em
+português para *change*, e fica para o que o OpenSpec chama de *change*
+(`CONTEXT.md`, Mudança); "alteração" é o das ferramentas de versão em
+português; os dicionários dão as três palavras como sinônimas. Três
+subagentes, em 2026-10-13; as contagens e os trechos são deles, sem
+reconferência, salvo onde se diz.
+
+| Onde | Termo | Evidência |
+|---|---|---|
+| BDTD, busca exata em título, resumo e palavras-chave | mudança | "gerência de mudanças" 94, "de alterações" 5, "de modificações" 2; "análise de impacto de mudanças" 119, "de alterações" 19, "de modificações" 9; com "software", "mudança de requisitos" 40, 5 e 1; "… no código" 29, 23 e 14 |
+| Costa Neto 2013, tese UFRN (repositorio.ufrn.br/handle/123456789/17954) | mudança para a viscosidade; modificação para a atividade | "Viscosidade: resistência às mudanças" (p. 62); "modificação: alterar uma estrutura existente, sem adicionar novo conteúdo" (p. 61) |
+| Pro Git em pt-BR, VS Code pt-BR, GitHub Docs pt | alteração | "Fazendo o Commit de suas Alterações"; "coloca o diff de sua alteração no editor"; "Staged Changes" → "Alterações Preparadas"; "Confirmar alterações" |
+| Slides de Sommerville em português (UFPE) | mudança | "Gerenciamento de mudanças"; "Formulário de solicitação de mudança" |
+| Fowler, *Refatoração*, 2. ed., Novatec, 2020 | as três, sem distinção | "fazer commit da alteração" (p. 27); "fazer commit após a mudança" (p. 51) |
+| Priberam, Michaelis, Aulete | sinônimas | só "mudança" tem os sentidos de troca e de mudança de casa; só "alteração" tem a acepção editorial, de mexer num texto que já existe |
+| Corpus Brasileiro (AC/DC, Linguateca), teses e artigos | — | mudança 126.799, alteração 91.969, modificação 28.111, acréscimo 7.866; "acréscimo de" vem quase sempre com número ou grandeza; "rodada de" + mudanças 1, alterações 0, modificações 0, acréscimos 0 |
+
+O estranhamento com "mudança" no texto vinha do que a cercava, e não do
+substantivo: "onze mudanças, acrescentadas uma por commit" e "os nomes da
+mudança entre rodadas". A primeira passou a "feitas", a segunda a "o que
+acontece com a diferença de uma rodada a outra" (`texto/intro.org`,
+2026-10-13). O nome das rodadas não usa nenhuma das palavras: "a rodada
+da P2", pela pergunta a que cada uma responde.
+
+Com "mudança" fixada para o OpenSpec, o estado ficou com "alteração", e
+a tela com "atualização" (decisão do autor em 2026-10-13): o evento altera
+o estado, e o ambiente de execução, ou o programador no imperativo,
+atualiza os valores derivados e a tela. "Atualização do estado" faria o
+nome do terceiro modelo de programação, o declarativo por atualização
+granular, ler-se também como o estado que se atualiza aos poucos, e
+"mudança de estado" colidiria com a mudança do OpenSpec. O texto já usava
+"alteração" para o estado em cinco frases e "mudança" em três.

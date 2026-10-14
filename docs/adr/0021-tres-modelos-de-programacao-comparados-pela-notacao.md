@@ -21,7 +21,7 @@ uma DC quando se aponta o sinal escrito, extensão a todas as DCs do
 critério das operações mentais difíceis, "at the notational level, not
 solely at the semantic level" (Green e Petre 1996, p. 150); a pergunta
 diz isso (ADR 0014). O modelo de programação aparece nos sinais escritos:
-no React o componente reexecuta a cada mudança e o derivado é uma
+no React o componente reexecuta a cada alteração de estado e o derivado é uma
 expressão comum; no Solid o componente executa uma vez e o derivado é uma
 função que lê o *signal* (`const dobro = n() * 2` nunca atualizaria). Os
 pares de tecnologias são próximos: React e Solid escrevem a tela no mesmo

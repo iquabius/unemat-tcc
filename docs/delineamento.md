@@ -5,7 +5,7 @@ fixo, o que um par de tecnologias isola e o que fica sem controle, com a
 decisão de onde vem cada linha e a data em que foi observada. Atualizada
 quando um fato muda: uma decisão nova, um par implementado, uma tarefa
 fechada. O texto resume isto em dois lugares de `texto/intro.org`: os
-controles no parágrafo que abre por "O delineamento mantém fixo" e o que
+controles no parágrafo que abre por "Quatro coisas poderiam diferenciar" e o que
 não se controla nas limitações.
 
 **Conclusão (2026-10-12).** O delineamento fixa a linguagem e o modelo

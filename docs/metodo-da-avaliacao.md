@@ -74,7 +74,7 @@ coisa. Cópias locais em `tmp/fontes/`, fora do git.
 - Assincronia: o *Timer* (§3.6, p. 30) trata de concorrência entre o
   relógio e o usuário; nenhuma tarefa tem requisição com respostas fora de
   ordem e cancelamento, como a Busca.
-- Estado compartilhado: o *Cells* (§3.9, p. 49) propaga mudanças entre
+- Estado compartilhado: o *Cells* (§3.9, p. 49) propaga alterações entre
   células; nenhuma tarefa divide o estado entre componentes separados da
   tela, como o Carrinho.
 
@@ -252,8 +252,10 @@ subagente.
   (a escolha de construção, Green e Petre 1996, p. 157), avaliação
   progressiva (a regra que impede executar código incompleto, p. 157),
   visibilidade (a dispersão do código, p. 162), provisoriedade (a marca de
-  provisório na notação, Green et al. 2006, p. 332). A divisão entre
-  notação e ambiente "não é limpa" (Green et al. 2006, p. 356-357).
+  provisório na notação, Green et al. 2006, p. 332). Os próprios
+  autores suspeitam que há uma zona cinzenta entre as dimensões da notação
+  e as do ambiente ("the division is not clean", Green et al. 2006,
+  p. 357).
 - Candidatas propostas depois, todas declaradas candidatas: *creative
   ambiguity*, *specificity*, *detail in context*, *indexing*, *synopsie*,
   *free rides*, *lability*, *permissiveness* (Blackwell et al. 2001,

@@ -96,9 +96,9 @@ tecnologias web mais usadas sobre as mesmas tarefas.
 | Fonte | Trecho | Onde | Leitura | Uso |
 |---|---|---|---|---|
 | Kiss 2014 (`kiss2014`) | "Java/JavaFX on the object-oriented side, and Scala/ScalaFX, Scala.Rx, ReactFX and Elm on the functional side" | p. v | conferido | lacuna |
-| Kiss 2014 | Scala.Rx: `Var` cria um nó de entrada e `Rx`, "a signal expression", um nó interno do grafo; `Obs` executa um efeito quando o valor muda | p. 61 (código na p. 65) | conferido (p. 65); p. 61 subagente | *signals* já avaliados pelas DCs |
+| Kiss 2014 | Scala.Rx: `Var` cria um nó de entrada e `Rx`, "a signal expression", um nó interno do grafo; `Obs` executa um efeito quando o valor se altera | p. 61 (código na p. 65) | conferido (p. 65); p. 61 subagente | *signals* já avaliados pelas DCs |
 | Kiss 2014 | "Signals in Elm combine both the time-varying and change propagation aspect of Rx expressions from Scala.Rx and the event stream concept from ReactFX" | p. 81 | subagente | fundamentação de *signals* |
-| Kiss 2014 | Nota 63: no Elm a tela parece redesenhada inteira a cada mudança, mas "a clever diffing scheme is used to compute the minimal changes", "the approach prominently taken […] by the framework" React | p. 90-91 | conferido | re-renderização |
+| Kiss 2014 | Nota 63: no Elm a tela parece redesenhada inteira a cada alteração de estado, mas "a clever diffing scheme is used to compute the minimal changes", "the approach prominently taken […] by the framework" React | p. 90-91 | conferido | re-renderização |
 | Kiss 2014 | "In the case of ReactFX, and considerably moreso in the case of Elm, the Abstraction Level in general is more demanding […] Hidden Dependencies and Error-Proneness are reduced" | p. 97 | conferido | análise por DC |
 | Kiss 2014 | "much activity in the web development world with respect to browser-based GUI frameworks. It would be interesting to […] systematically compare their viability"; TodoMVC como *benchmark* notacional | p. 104 | conferido | lacuna e originalidade |
 | Lima 2024 (`lima2024`) | "the first appliance of a user-centered evaluation with CDN and RP" | p. 7 (resumo) | conferido | trabalhos relacionados |

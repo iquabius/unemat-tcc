@@ -162,7 +162,7 @@ resumidas.
   `MainActivity` do Views e o jQuery. O tutorial registra os *listeners*
   com `addXListener` e explica que interfaces com vários métodos obrigam a
   implementar todos, salvo quando a API traz uma classe *adapter*. O
-  `DocumentListener`, que avisa a mudança do texto, tem três métodos e
+  `DocumentListener`, que avisa a alteração do texto, tem três métodos e
   nenhum *adapter* no JDK 25: a tela escreve uma classe anônima com três
   corpos iguais (leitura nossa: difusão e viscosidade, sem equivalente no
   `.on("input")` do jQuery nem no `doAfterTextChanged` do Android, que
@@ -172,7 +172,7 @@ resumidas.
   liga a eles (`textProperty().bind`, `visibleProperty().bind`,
   `disableProperty().bind`); o construtor roda uma vez, como o
   componente do Solid (leitura nossa). O tutorial descreve a avaliação
-  preguiçosa: a mudança só invalida, e o valor se recalcula quando lido.
+  preguiçosa: a alteração só invalida, e o valor se recalcula quando lido.
   O estado são as propriedades dos próprios controles
   (`nome.textProperty()`), sem o par `value={nome()}` e `onInput` do
   Solid (leitura nossa).
@@ -371,13 +371,13 @@ granular").
 **Estado derivado e campos dependentes (Formulário).** No Qt Widgets, a
 volta habilitada depende do tipo de voo num *slot* próprio, ligado ao
 `currentIndexChanged` da seleção, separado do `validar`; quem lê o
-`validar` não vê que a volta também muda ali (leitura nossa:
+`validar` não vê que a volta também se altera ali (leitura nossa:
 dependência oculta). Na QML, a regra fica no campo: `enabled:
 tela.idaEVolta`.
 
 O "tocado" mostra os dois modelos de programação lado a lado. O
 `QLineEdit` não tem *signal* de saída do campo (o `editingFinished` só
-sai se o texto mudou), e a implementação liga o `focusChanged` da
+sai se o texto foi alterado), e a implementação liga o `focusChanged` da
 aplicação inteira, filtrando os campos pelo ponteiro. Na QML, cada campo
 tem `property bool tocado` e `onActiveFocusChanged: if (!activeFocus)
 tocado = true`: o evento continua escrito como tratador, e só o que
@@ -395,7 +395,7 @@ um `delegate` por item, como o `map` do JSX. O `ListView` só monta os
 itens que cabem na janela, como o `RecyclerView` e a `LazyColumn`
 (observado nos testes de conformidade). Leitura nossa: a lista derivada
 se escreve como no Solid, um valor derivado; o que acontece com os itens
-quando o modelo muda (se o `ListView` refaz todos) fica a conferir na
+quando o modelo se altera (se o `ListView` refaz todos) fica a conferir na
 documentação.
 
 **Montagem da tela.** O Qt Widgets separa a estrutura (`.ui`) da
@@ -449,8 +449,8 @@ linhas no Formulário e 52 na Lista, contra 79 e 77 do Kotlin do Views.
   (Qt 6, "Property Binding"). Conferido em 2026-10-09, com o Qt 6.10.2:
   `a.text = "digitado"` desfaz `text: "v" + n`, e o aviso sai.
   Observado também, e sem fonte: a edição do campo (`insert`, como a
-  digitação) não desfaz o *binding*, e quando a dependência muda o texto
-  digitado é sobrescrito sem aviso ("xv1" vira "v2"). As implementações
+  digitação) não desfaz o *binding*, e, quando a dependência se altera, o
+  texto digitado é sobrescrito sem aviso ("xv1" vira "v2"). As implementações
   não caem nisso, porque o único *binding* em texto editável, `text:
   Dominio.hoje()`, não lê propriedade nenhuma.
 - **QML, tipos**: os erros são `property var` (texto ou `null`), sem tipo na

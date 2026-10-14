@@ -21,8 +21,8 @@ duas do sistema, que o ambiente agrava ou protege (viscosidade e
 propensão a erros), e quatro pesam no ambiente de edição (compromisso
 prematuro, avaliação progressiva, visibilidade e provisoriedade);
 destas, a análise declara a face notacional que as fontes citam, porque
-a divisão entre notação e ambiente "não é limpa" (Green et al. 2006, p.
-356-357). Cada par se classifica pela plataforma: a análise se faz na
+os próprios autores suspeitam que há uma zona cinzenta entre as dimensões
+da notação e as do ambiente (Green et al. 2006, p. 357). Cada par se classifica pela plataforma: a análise se faz na
 web, e o Android (Views × Compose: Formulário, Quadro e Dados ao vivo) e
 o desktop (Windows Forms × WPF: Formulário, Quadro e Login) conferem se
 as conclusões da web se repetem noutra plataforma e noutra linguagem,
