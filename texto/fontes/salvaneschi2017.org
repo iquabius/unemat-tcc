@@ -23,7 +23,8 @@
   p. 1125); “Each program is implemented in two versions.” (p. 1128).
 - Lido em: =tmp/fontes/salvaneschi2017.pdf=, p. 1 e 4 do PDF (p. 1125 e 1128).
 - Observação: os números do experimento (médias, tempo de resposta) foram
-  com o parágrafo inteiro para a seção 2.4 (texto/fontes/prog.org).
+  com o parágrafo inteiro para a seção 2.4 e estão na afirmação de prog,
+  p. 1125-1134, mais abaixo.
 - Conferido: 2026-10-14.
 * [[file:../intro.org::Quanto aos objetivos, a pesquisa é][intro: Quanto aos objetivos, a pesquisa é exploratória]]
 - Frase: “As hipóteses desta pesquisa servem a experimentos controlados
