@@ -1,0 +1,33 @@
+# Citantes de Kiss (2014) e do 7GUIs no Google Acadêmico (tcc-lf9, 2026-10-13)
+
+O Google Acadêmico tem a dissertação de Kiss e o 7GUIs como registros de
+citação, sem texto. A busca pelo título exato, entre aspas ou não, volta
+vazia; os citantes aparecem pelo "Pesquisar nos artigos de citação" de
+cada registro. Consultado pelo autor, que mandou as capturas de tela em
+2026-10-13, depois da verificação anti-robô; o navegador do agente recebeu
+"tráfego incomum" depois de cinco consultas e não chegou às listas.
+
+## Registro "Comparison of Object-Oriented and Functional Programming for GUI Development": 2
+- Petricek, T.; Edwards, J. Denicek: computational substrate for document-oriented end-user programming. UIST 2025. DOI 10.1145/3746059.3747646 [novo]
+- Wiersdorf, A.; Chang, S.; Felleisen, M.; Greenman, B. Type tailoring. ECOOP 2024. DOI 10.4230/LIPIcs.ECOOP.2024.44 [visto em 82]
+
+## Registro "7GUIs: A GUI programming benchmark (2014)": 4
+- Disch, J.-C.; Heegaard, A.; Bahr, P. Functional reactive GUI programming with modal types. TFP 2025 (`disch2025`) [na base]
+- Nielsen, C. E.; Kristiansen, M. F.; Bahr, P. Property-based testing for asynchronous functional reactive programming using linear temporal logic. 2026. DOI 10.1007/978-3-032-15981-6_3 [visto em 82]
+- Martin, A. Concepts and tool for interactive computing. Tese (Doutorado), Université de Toulouse (ISAE/ENAC), 2022. HAL tel-04030945 [novo]
+- Disch, J. C. S.; Heegaard, A. L. Asynchronous FRP for implementing GUIs. 2024, bahr.io [novo]
+
+## Registro "7GUIs: A GUI programming benchmark" (sem ano): 7 na captura
+- Disch; Heegaard; Bahr 2025 [na base]
+- Wiersdorf et al. 2024 [visto em 82]
+- Klausen, L. F.; Flyvholm, P. K. M.; Bahr, P. Push-pull modal functional reactive programming. TFP 2026, trendsfp.github.io [novo]
+- Lu, K.-C.; Greenman, B.; Krishnamurthi, S. Types for tables: a language design benchmark. 2021 (`lu2021`) [na base]
+- Bahr, P.; Møgelberg, R. E. Asynchronous modal FRP: ticking all the boxes. JFP 2026. DOI 10.46298/jfp.17791 [visto em 82]
+- Klausen, L. F.; Flyvholm, P. Implementation of push-pull based FRP in Widget Rattus. 2025, bahr.io [novo]
+
+## Triagem dos 5 novos
+- Petricek e Edwards (2025): texto completo (cópia do autor, tomasp.net/academic/papers/denicek/uist-2025.pdf). Usa o contador de Kiss como um dos exemplos do Denicek ("Counter App [51]", p. 18 da cópia); não compara notações. Excluído.
+- Martin (2022): texto completo (tmp/fontes/martin2022.pdf). Tipologia conceitual das linguagens de interação pelo modelo de execução; o React.js aparece só na Tabela 1.4 ("Degree 1: Adapting the functional paradigm", p. 53), e a Tabela 4.1 traduz as construções causais de linguagens como JavaFX, Qt, Elm, SwingStates e Smala (p. 122); cita o 7GUIs entre trabalhos sobre expressividade (p. 120); as DCs só de passagem (p. 128). Sem DCs aplicadas e sem tarefas comuns. Fica fora pelo critério (tese fora da BDTD); comparação conceitual, como Grolaux et al. (2026).
+- Disch e Heegaard (2024), Klausen, Flyvholm e Bahr (2026), Klausen e Flyvholm (2025): implementação de PFR modal no Widget Rattus, a linha de Disch et al. (2025), pelo título e pelo resumo nas capturas. Excluídos (teoria e implementação de PFR).
+
+Resultado: 10 trabalhos distintos citam Kiss ou o 7GUIs no Google Acadêmico, 5 deles novos; nenhum incluído. Somados aos 8 de 82, são 13 trabalhos que citam o 7GUIs ou Kiss.

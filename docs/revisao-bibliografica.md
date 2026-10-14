@@ -13,8 +13,9 @@ encontrado avalia pelas DCs a notação do React, do Solid ou do Angular
 com *signals*, nem compara os três modelos de programação nas mesmas
 tarefas: a lacuna se mantém (seção 4). O *snowballing* para a frente
 saturou na segunda rodada (seção 2), e a terceira fechou o laço sem
-trabalho novo na segunda iteração; o Google Acadêmico, que pediu
-verificação anti-robô, não foi consultado (seção 3).
+trabalho novo na segunda iteração; no Google Acadêmico, consultado em
+2026-10-13, os citantes de Kiss (2014) e do 7GUIs não trouxeram
+incluído (seção 3).
 
 Origem: revisão bibliográfica de 2026-09-24 (Modo 2 da skill
 `escrita-academica`, OpenAlex e Crossref), com as 41 saídas brutas em
@@ -23,7 +24,7 @@ contagem de citações ficaram; para reler um resumo,
 `buscar_literatura.py doi`). Os 30 DOIs citados na primeira versão de
 `docs/literatura.md` foram conferidos no Crossref e no `doi.org`. A
 segunda rodada, de 2026-10-02, tem as saídas nos arquivos 69 a 79 da
-mesma pasta (seção 2), e a terceira, de 2026-10-09, nos arquivos 80 a 85
+mesma pasta (seção 2), e a terceira, de 2026-10-09, nos arquivos 80 a 86
 (seção 3). As ações que a revisão pediu estão nas tarefas do `bd`.
 
 ## 1. Protocolo e primeira rodada (2026-09-24)
@@ -125,9 +126,11 @@ incluídos novos avaliam pelas DCs, pelos próprios autores, a notação de
 bibliotecas de controles de interface feitas em Angular e em React
 (Narechania et al., 2025; Verma, Odak e Narechania, 2026), e não a das
 bibliotecas de base (`docs/trabalhos-relacionados.md`, seção 4). Dos
-citantes de Kiss (2014), a rodada viu os que o texto completo do
-OpenAlex e a web acham; o Google Acadêmico pediu verificação anti-robô e
-não foi consultado.
+citantes de Kiss (2014), a rodada viu os que o Google Acadêmico, o
+texto completo do OpenAlex e a web acham: 13 trabalhos que citam a
+dissertação ou o 7GUIs, nenhum incluído. O Google Acadêmico tem a
+dissertação e o 7GUIs só como registros de citação; o autor consultou os
+citantes deles em 2026-10-13 (`buscas/86`).
 
 - **Motivo.** O que a checagem adversarial de 2026-10-08 (tcc-kh1) deixou
   aberto: os citantes de Kiss (2014), fora do OpenAlex; os de Green (1989)
@@ -151,8 +154,10 @@ não foi consultado.
 - **Bases.** OpenAlex (citantes, referências e texto completo); Semantic
   Scholar pelo site (a API respondeu HTTP 429 às 13 tentativas); busca na
   web (11 consultas); GitHub (busca de repositórios). Google Acadêmico,
-  ACM DL e CORE pediram verificação anti-robô ao navegador do agente.
-- **Saídas.** `buscas/80` a `buscas/85`.
+  em 2026-10-13, pelo autor: os citantes dos três registros (a
+  dissertação e dois do 7GUIs). ACM DL e CORE pediram verificação
+  anti-robô ao navegador do agente e não foram consultados.
+- **Saídas.** `buscas/80` a `buscas/86`.
 
 Etapas e registros:
 
@@ -176,6 +181,11 @@ Etapas e registros:
   e uma monografia de graduação; Semantic Scholar sem Kiss e sem
   "7GUIs"; GitHub: 315 repositórios, implementações sem artigo; nenhum
   incluído
+- **Google Acadêmico (2026-10-13)**: 2 citantes da dissertação e 4 e 7
+  dos dois registros do 7GUIs, 10 distintos, 5 novos (Petricek e
+  Edwards 2025; Martin 2022; Disch e Heegaard 2024; Klausen, Flyvholm e
+  Bahr 2026; Klausen e Flyvholm 2025); nenhum incluído. Com os 8
+  anteriores, 13 trabalhos citam o 7GUIs ou Kiss
 - **Busca direta pela lacuna, texto completo do OpenAlex (8
   consultas)**: "cognitive dimensions" com React 3424, Angular 335, Elm
   276, "signals JavaScript" 92, Svelte 6, RxJS 3, Jetpack Compose 2,
@@ -183,13 +193,17 @@ Etapas e registros:
   programação ou interface; nenhum incluído novo
 - **Textos completos lidos**: Narechania et al. (2025, seção 4.3),
   Verma, Odak e Narechania (2026, seção 4), Pollock et al. (2024,
-  Bluefish, em SolidJS: as DCs só pelo mapeamento próximo) e Wiersdorf
-  et al. (2024, o 7GUI nas p. 44:6-44:7)
+  Bluefish, em SolidJS: as DCs só pelo mapeamento próximo), Wiersdorf
+  et al. (2024, o 7GUI nas p. 44:6-44:7), Petricek e Edwards (2025, o
+  contador de Kiss como exemplo, p. 18 da cópia) e Martin (2022, tese:
+  tipologia conceitual das linguagens de interação, com o React.js na
+  p. 53 e o 7GUIs na p. 120, sem DCs aplicadas nem tarefas comuns)
 
 Limitações:
 
-- o Google Acadêmico não foi consultado, e o texto completo do OpenAlex
-  é parcial (não acha Wiersdorf et al., 2024);
+- o texto completo do OpenAlex é parcial (não acha Wiersdorf et al.,
+  2024), e o Google Acadêmico só mostra os citantes pelos registros de
+  citação; a ACM DL e o CORE não foram consultados;
 - 75 registros sem resumo foram julgados pelo título;
 - três teses fora da BDTD ficaram fora pelo critério, sem o texto
   completo lido: Raffaillac (2019, HAL tel-04369360, em francês; pelo
