@@ -155,6 +155,14 @@ class Juntar(unittest.TestCase):
         self.assertIn("2. T2 (2010) [antes de 2013]", texto)
         self.assertIn("3. T1 (2020) [visto]", texto)
 
+    def test_sem_ano_fica_fora_e_e_marcado_sem_ano(self):
+        por = [("s1", "W9", [self.c(1, None), self.c(2, 2010)])]
+        _, rec = coleta.juntar([(k, l) for k, _, l in por], set(), set())
+        self.assertEqual(rec, [])
+        texto = coleta.listar({}, por, rec)
+        self.assertIn("T1 (s.d.) [sem ano]", texto)
+        self.assertIn("T2 (2010) [antes de 2013]", texto)
+
 
 class Arquivos(unittest.TestCase):
     def test_sementes_guardadas_se_leem(self):

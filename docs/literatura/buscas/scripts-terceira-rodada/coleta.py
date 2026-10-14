@@ -101,11 +101,11 @@ def enxuto(w):
     }
 
 
-def buscar(filtro, maximo=10000, obter=None):
-    obter = obter or get
+def buscar(filtro, obter=None):
     """Todos os trabalhos de um filtro, por cursor, de 200 em 200."""
+    obter = obter or get
     saida, cursor = [], "*"
-    while cursor and len(saida) < maximo:
+    while cursor:
         d = obter("/works", {"filter": filtro, "per-page": 200, "cursor": cursor})
         if not d["results"]:
             break
@@ -164,7 +164,7 @@ def referencias(sementes, pasta, obter=None):
 
 def vistos(arquivos):
     """Ids do OpenAlex e DOIs que aparecem nas saídas anteriores."""
-    texto = "".join(Path(a).read_text(errors="ignore") for a in arquivos)
+    texto = "".join(Path(a).read_text(encoding="utf-8") for a in arquivos)
     ids = set(re.findall(r"W\d{5,}", texto))
     dois = {d.lower().rstrip(".,);")
             for d in re.findall(r"10\.\d{4,9}/[^\s|\]]+", texto)}
@@ -172,12 +172,17 @@ def vistos(arquivos):
 
 
 def juntar(por_semente, ids_vistos, dois_vistos, ano_minimo=ANO_MINIMO):
-    """Une os citantes, guarda as sementes de cada um, corta e marca."""
+    """Une os citantes, guarda as sementes de cada um, corta e marca.
+
+    Trabalho sem ano fica fora do recorte, como na coleta de 2026-10-09:
+    sem ano não se sabe se é do período. O listar o marca "[sem ano]".
+    """
     todos = {}
     for chave, lista in por_semente:
         for c in lista:
             todos.setdefault(c["id"], dict(c, seeds=[]))["seeds"].append(chave)
-    recortados = [c for c in todos.values() if (c["year"] or 0) >= ano_minimo]
+    recortados = [c for c in todos.values()
+                  if c["year"] is not None and c["year"] >= ano_minimo]
     for c in recortados:
         c["seen"] = bool(c["id"] in ids_vistos
                          or (c["doi"] and c["doi"].lower() in dois_vistos))
@@ -197,10 +202,14 @@ def listar(nomes, por_semente, recortados, ano_minimo=ANO_MINIMO):
                    f"# Total: {len(lista)}", ""]
         for i, c in enumerate(sorted(lista, key=lambda c: -(c["cited_by"] or 0)), 1):
             r = por_id.get(c["id"])
-            marca = (f"[antes de {ano_minimo}]" if r is None
-                     else "[visto]" if r["seen"] else "")
+            if c["year"] is None:
+                marca = "[sem ano]"
+            elif r is None:
+                marca = f"[antes de {ano_minimo}]"
+            else:
+                marca = "[visto]" if r["seen"] else ""
             autores = ", ".join(c["authors"][:3]) + (" et al." if len(c["authors"]) > 3 else "")
-            linhas += [f"{i}. {c['title']} ({c['year']}) {marca}".rstrip(),
+            linhas += [f"{i}. {c['title']} ({c['year'] or 's.d.'}) {marca}".rstrip(),
                        f"   {autores} — {c['venue']} [{c['type']}]",
                        f"   DOI: {c['doi'] or '—'} | citações: {c['cited_by']}"
                        f" | https://openalex.org/{c['id']}", ""]
