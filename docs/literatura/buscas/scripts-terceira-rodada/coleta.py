@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
 """Coleta da terceira rodada da revisão no OpenAlex (tcc-lf9, 2026-10-09).
 
-Cópia de referência dos scripts que geraram as saídas 80 a 85 de
-docs/literatura/buscas/, recriada em 2026-10-14 (tcc-ds6j). Os originais
-ficaram no rascunho da sessão e se perderam; este módulo refaz o mesmo
-comportamento. O OpenAlex muda com o tempo: rodar de novo dá números
-próximos, não iguais.
+Cópia de referência dos scripts que geraram as saídas 80, 82, 83 e 85
+de docs/literatura/buscas/, recriada em 2026-10-14 (tcc-ds6j): os
+originais não foram guardados no repositório. Este módulo refaz o mesmo
+comportamento da coleta; o texto das saídas 82, 83 e 85 e o cabeçalho
+da 80 saíram de código que não foi recriado (README.md). O OpenAlex muda
+com o tempo: rodar de novo dá números próximos, não iguais.
 
     # iteração 1: citantes de cada semente, um JSON por semente
     ./coleta.py citantes sementes-iteracao1.txt dados/
