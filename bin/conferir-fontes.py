@@ -151,20 +151,20 @@ def trechos(texto):
 class Afirmacao:
     """Um título de texto/fontes/<chave>.org e o corpo embaixo dele."""
 
-    def __init__(self, nome, linha, chave, titulo, pasta="."):
+    def __init__(self, nome, linha, chave, titulo, pasta=None):
         self.nome, self.linha, self.chave = nome, linha, chave
         m = LINK.search(titulo)
         self.arquivo, self.busca = (m.group(1), m.group(2)) if m else (None, None)
         # O capítulo do link, resolvido como o Org o resolve: a partir da
-        # pasta do arquivo da matriz.
+        # pasta do arquivo da matriz; sem a pasta, fica sem destino.
         self.destino = (os.path.realpath(Path(pasta, self.arquivo))
-                        if self.arquivo else None)
+                        if self.arquivo and pasta else None)
         # A página e o rótulo depois do link (", p. 7", " (estado)").
         self.resto = titulo[m.end():].rstrip() if m else titulo
         self.corpo = []
 
 
-def matriz(texto, chave, nome, pasta="."):
+def matriz(texto, chave, nome, pasta=None):
     """As afirmações de um arquivo da matriz, na ordem dele."""
     saida = []
     for n, linha in enumerate(texto.splitlines(), 1):

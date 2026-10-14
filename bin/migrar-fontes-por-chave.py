@@ -41,6 +41,10 @@ SUBTITULO = re.compile(r"\*\*\s+([^\s,]+)(.*)")
 LINHA_CAMPO = re.compile(r"- (\w[^:]*): ")
 
 
+def erro(mensagem):
+    sys.exit(f"migrar-fontes-por-chave: {mensagem}")
+
+
 class Antiga:
     """Uma afirmação da matriz por capítulo."""
 
@@ -63,15 +67,15 @@ def ler_por_capitulo(caminho):
         if re.match(r"\*\s", linha):
             m = cf.LINK.search(linha)
             if not m:
-                sys.exit(f"migrar: {caminho}:{n}: título sem link")
+                erro(f"{caminho}:{n}: título sem link")
             descricao = re.search(r"\]\[([^]]*)\]\]", linha)
             link = (m.group(1), m.group(2),
                     descricao.group(1) if descricao else m.group(2))
             nota, atual = [], None
         elif m := SUBTITULO.match(linha):
             if link is None:
-                sys.exit(f"migrar: {caminho}:{n}: afirmação antes do "
-                         "primeiro título de parágrafo")
+                erro(f"{caminho}:{n}: afirmação antes do primeiro título "
+                     "de parágrafo")
             atual = Antiga(f"{caminho}:{n}", m.group(1), *link,
                            m.group(2).rstrip(), [], " ".join(nota))
             saida.append(atual)
@@ -96,8 +100,8 @@ def com_nota(a):
             campos.append([m.group(1), [linha]])
         elif campos:
             campos[-1][1].append(linha)
-        else:
-            sys.exit(f"migrar: {a.origem}: texto antes do primeiro campo")
+        elif linha.strip():
+            erro(f"{a.origem}: texto antes do primeiro campo")
     for campo in campos:
         if campo[0] == "Observação":
             texto = " ".join(" ".join(campo[1]).split())
@@ -215,16 +219,16 @@ def main():
     outros = sorted(p for p in fontes.glob("*.org")
                     if p.stem not in capitulos)
     if not matrizes:
-        sys.exit(f"migrar: nenhuma matriz por capítulo em {fontes}/")
+        erro(f"nenhuma matriz por capítulo em {fontes}/")
     if outros and not args.substituir:
-        sys.exit(f"migrar: {fontes}/ já tem {len(outros)} arquivos por "
-                 "chave; --substituir os apaga antes")
+        erro(f"{fontes}/ já tem {len(outros)} arquivos por chave; "
+             "--substituir os apaga antes")
 
     antigas = [a for m in matrizes for a in ler_por_capitulo(m)]
     refs = referencias(Path(texto_dir, "refs.bib").read_text())
     faltam = sorted({a.chave for a in antigas} - set(refs))
     if faltam:
-        sys.exit(f"migrar: chaves fora do refs.bib: {', '.join(faltam)}")
+        erro(f"chaves fora do refs.bib: {', '.join(faltam)}")
 
     ordem = ordem_dos_capitulos(texto_dir.parent)
     cache, por_chave = {}, {}

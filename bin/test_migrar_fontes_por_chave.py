@@ -3,12 +3,16 @@
 
     python3 -m unittest discover -s bin -p 'test_*.py'
 """
+import contextlib
+import importlib.util
+import io
 import subprocess
 import sys
 import tempfile
 import textwrap
 import unittest
 from pathlib import Path
+from unittest import mock
 
 SCRIPT = Path(__file__).with_name("migrar-fontes-por-chave.py")
 
@@ -171,6 +175,27 @@ class Migrar(unittest.TestCase):
             self.assertIn("prog.org:", r.stderr)
             self.assertEqual(sorted(p.name for p in self.fontes.iterdir()),
                              ["intro.org", "prog.org"])
+
+    def test_conferencia_com_falha_nao_grava_nada(self):
+        spec = importlib.util.spec_from_file_location("migrar", SCRIPT)
+        migrar = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(migrar)
+        escrever = migrar.escrever
+        # um escrever que perde a última afirmação de cada chave
+        migrar.escrever = lambda chave, ref, lista: escrever(chave, ref,
+                                                             lista[:-1])
+        with mock.patch.object(sys, "argv", ["migrar", str(self.fontes)]), \
+                contextlib.redirect_stderr(io.StringIO()) as saida:
+            self.assertEqual(migrar.main(), 1)
+        self.assertIn("perdida: a2000", saida.getvalue())
+        self.assertEqual(sorted(p.name for p in self.fontes.iterdir()),
+                         ["intro.org", "prog.org"])
+
+    def test_linha_em_branco_antes_do_primeiro_campo(self):
+        (self.fontes / "prog.org").write_text(
+            MATRIZ_PROG.replace("** a2000, p. 9\n", "Nota.\n** a2000, p. 9\n\n"))
+        r = self.rodar()
+        self.assertEqual(r.returncode, 0, r.stderr)
 
     def test_nota_sem_conferido_vai_no_fim(self):
         (self.fontes / "prog.org").write_text(
