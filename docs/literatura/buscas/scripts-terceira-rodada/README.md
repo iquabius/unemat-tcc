@@ -6,7 +6,9 @@ da revisão bibliográfica (tcc-lf9, 2026-10-09), recriada em 2026-10-14
 protocolo e os números estão em `docs/revisao-bibliografica.md`, seção
 3, e no Apêndice II.
 
-O `coleta.py` refaz a coleta: os citantes e as referências de cada
+Os três scripts de então (um auxiliar de acesso à API, um de citantes e
+um de referências) viram um módulo só, o `coleta.py`, com um subcomando
+por passo. Ele refaz a coleta: os citantes e as referências de cada
 semente, a junção que corta em 2013 e marca o que as rodadas anteriores
 já viram, a lista da saída 80, a busca no texto completo e o DOI
 avulso. Não refaz o código que formatou o texto das outras saídas nem a
@@ -48,7 +50,9 @@ cd docs/literatura/buscas/scripts-terceira-rodada
 A pasta `dados/` é de trabalho e fica fora do git. O `juntar` marca como
 visto o que aparece nas saídas 00 a 79 desta pasta, pelo id do OpenAlex
 ou pelo DOI, e deixa fora do recorte os citantes anteriores a 2013 e os
-sem ano. Mais detalhes no cabeçalho do `coleta.py`.
+sem ano. Na lista, o sem ano sai como "(s.d.) [sem ano]", marca que a
+saída 80 guardada não tem: a coleta de 2026-10-09 o rotulava "[antes de
+2013]". Mais detalhes no cabeçalho do `coleta.py`.
 
 Testes, sem rede, e a conferência ao vivo contra a saída 80:
 

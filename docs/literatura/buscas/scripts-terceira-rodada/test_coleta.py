@@ -256,6 +256,7 @@ class Juntar(ComPasta):
         self.assertEqual(rec, [])
         texto = coleta.listar({}, por, rec)
         self.assertIn("T1 (s.d.) [sem ano]", texto)
+        self.assertIn("[sem ano] = fora do recorte", texto)
         self.assertIn("T2 (2010) [antes de 2013]", texto)
 
 

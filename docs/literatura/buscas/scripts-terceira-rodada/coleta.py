@@ -210,6 +210,7 @@ def listar(nomes, por_semente, recortados, ano_minimo=ANO_MINIMO):
         "# Terceira rodada (tcc-lf9), iteração 1: citantes no OpenAlex",
         "# [visto] = já nas saídas anteriores (pelo id do OpenAlex ou pelo"
         f" DOI); [antes de {ano_minimo}] = fora do período;"
+        " [sem ano] = fora do recorte, sem ano no OpenAlex;"
         " sem marca = triado à mão",
         ""]
     for chave, wid, lista in por_semente:
@@ -294,6 +295,7 @@ def main(argv=None):
     try:
         if a.cmd in ("citantes", "referencias", "juntar", "listar"):
             sementes = ler_sementes(a.sementes)
+        if a.cmd in ("citantes", "referencias"):
             a.pasta.mkdir(parents=True, exist_ok=True)
         if a.cmd == "citantes":
             citantes(sementes, a.pasta)
