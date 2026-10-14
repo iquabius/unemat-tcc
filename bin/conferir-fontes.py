@@ -151,21 +151,25 @@ def trechos(texto):
 class Afirmacao:
     """Um título de texto/fontes/<chave>.org e o corpo embaixo dele."""
 
-    def __init__(self, nome, linha, chave, titulo):
+    def __init__(self, nome, linha, chave, titulo, pasta="."):
         self.nome, self.linha, self.chave = nome, linha, chave
         m = LINK.search(titulo)
         self.arquivo, self.busca = (m.group(1), m.group(2)) if m else (None, None)
+        # O capítulo do link, resolvido como o Org o resolve: a partir da
+        # pasta do arquivo da matriz.
+        self.destino = (os.path.realpath(Path(pasta, self.arquivo))
+                        if self.arquivo else None)
         # A página e o rótulo depois do link (", p. 7", " (estado)").
         self.resto = titulo[m.end():].rstrip() if m else titulo
         self.corpo = []
 
 
-def matriz(texto, chave, nome):
+def matriz(texto, chave, nome, pasta="."):
     """As afirmações de um arquivo da matriz, na ordem dele."""
     saida = []
     for n, linha in enumerate(texto.splitlines(), 1):
         if re.match(r"\*\s", linha):
-            saida.append(Afirmacao(nome, n, chave, linha))
+            saida.append(Afirmacao(nome, n, chave, linha, pasta))
         elif saida:
             saida[-1].corpo.append(linha)
     for a in saida:
@@ -185,7 +189,8 @@ def localizar(busca, partes):
 
 
 class Capitulo:
-    """O resultado da conferência de um capítulo."""
+    """O resultado da conferência de um capítulo, com as afirmações cujo
+    link aponta para ele."""
 
     def __init__(self, nome, texto, afirmacoes, anterior=None, todas=False):
         self.nome = nome
@@ -226,7 +231,14 @@ class Capitulo:
         self.problemas.append((tipo, afirmacao.nome, afirmacao.linha,
                                mensagem))
 
-    def na_conferencia(self, trecho, todas=False):
+    @property
+    def n_alterados(self):
+        """Os parágrafos alterados desde --desde, ou None sem ele."""
+        if self.alterados is None:
+            return None
+        return sum(id(t) in self.alterados for t in self.paragrafos)
+
+    def na_conferencia(self, trecho, todas):
         if self.alterados is not None:
             return id(trecho) in self.alterados
         return todas or id(trecho) in self.do_trecho
@@ -251,23 +263,10 @@ class Capitulo:
 
 
 def ler_matriz(pasta, nomear=str):
-    """Todas as afirmações de pasta/*.org, com o capítulo de cada link."""
-    saida = []
-    for caminho in sorted(Path(pasta).glob("*.org")):
-        for a in matriz(caminho.read_text(), caminho.stem, nomear(caminho)):
-            a.destino = (os.path.realpath(Path(pasta, a.arquivo))
-                         if a.arquivo else None)
-            saida.append(a)
-    return saida
-
-
-def conferir(nome, texto, afirmacoes, anterior=None, todas=False):
-    """Os problemas do capítulo, como (tipo, arquivo, linha, mensagem), o
-    número de parágrafos e o de alterados (None sem anterior)."""
-    cap = Capitulo(nome, texto, afirmacoes, anterior, todas)
-    alterados = (None if cap.alterados is None else
-                 sum(id(t) in cap.alterados for t in cap.paragrafos))
-    return cap.problemas, len(cap.paragrafos), alterados
+    """Todas as afirmações de pasta/*.org."""
+    return [a for caminho in sorted(Path(pasta).glob("*.org"))
+            for a in matriz(caminho.read_text(), caminho.stem,
+                            nomear(caminho), pasta)]
 
 
 TIPOS = [("citacao", "Citações sem entrada na matriz"),
@@ -337,19 +336,19 @@ def main():
     if not capitulos:
         sys.exit("conferir-fontes: nenhum capítulo em texto/")
 
-    afirmacoes = {}  # pasta da matriz -> [Afirmacao]
+    por_pasta = {}  # pasta da matriz -> [Afirmacao]
     for capitulo in capitulos:
         pasta = os.path.realpath(Path(capitulo).parent / "fontes")
-        if pasta not in afirmacoes:
-            afirmacoes[pasta] = ler_matriz(pasta, relativo)
-    todas = [a for lista in afirmacoes.values() for a in lista]
+        if pasta not in por_pasta:
+            por_pasta[pasta] = ler_matriz(pasta, relativo)
+    afirmacoes = [a for lista in por_pasta.values() for a in lista]
     destinos = {os.path.realpath(c) for c in capitulos}
 
     total = 0
     for capitulo in capitulos:
         nome = relativo(capitulo)
         destino = os.path.realpath(capitulo)
-        deste = [a for a in todas if a.destino == destino]
+        deste = [a for a in afirmacoes if a.destino == destino]
         anterior = texto_em(args.desde, capitulo) if args.desde else None
         cap = Capitulo(nome, Path(capitulo).read_text(), deste, anterior,
                        args.todas)
@@ -357,9 +356,8 @@ def main():
             imprimir_paragrafos(cap)
         total += len(cap.problemas)
         resumo = f"{nome}: {len(cap.paragrafos)} parágrafos"
-        if cap.alterados is not None:
-            alterados = sum(id(t) in cap.alterados for t in cap.paragrafos)
-            resumo += f", {alterados} alterados desde {args.desde}"
+        if cap.n_alterados is not None:
+            resumo += f", {cap.n_alterados} alterados desde {args.desde}"
         resumo += f", {len(deste)} afirmações"
         print(resumo + (f"; {len(cap.problemas)} problemas" if cap.problemas
                         else "; matriz em dia"))
@@ -371,7 +369,7 @@ def main():
     # linha de comando, o link para outro capítulo que existe fica para a
     # conferência dele.
     soltas = []
-    for a in todas:
+    for a in afirmacoes:
         if a.busca is None:
             soltas.append(("link", a.nome, a.linha,
                            "título sem link de busca para o parágrafo"))

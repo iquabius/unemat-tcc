@@ -154,6 +154,33 @@ class Migrar(unittest.TestCase):
         self.assertIn("z2099", r.stderr)
         self.assertTrue((self.fontes / "prog.org").exists())
 
+    def test_matriz_malformada_nao_grava_nada(self):
+        casos = [
+            (MATRIZ_PROG.replace("* §1 [[file:../prog.org::Na programação]"
+                                 "[Na programação]]\n", ""),
+             "afirmação antes do primeiro título de parágrafo"),
+            (MATRIZ_PROG.replace("- Frase:", "solta\n- Frase:")
+                        .replace("** a2000", "Nota.\n** a2000"),
+             "texto antes do primeiro campo"),
+        ]
+        for matriz, erro in casos:
+            (self.fontes / "prog.org").write_text(matriz)
+            r = self.rodar()
+            self.assertNotEqual(r.returncode, 0, erro)
+            self.assertIn(erro, r.stderr)
+            self.assertIn("prog.org:", r.stderr)
+            self.assertEqual(sorted(p.name for p in self.fontes.iterdir()),
+                             ["intro.org", "prog.org"])
+
+    def test_nota_sem_conferido_vai_no_fim(self):
+        (self.fontes / "prog.org").write_text(
+            MATRIZ_PROG.replace("** a2000", "Nota.\n** a2000")
+                       .replace("- Conferido: 2026-10-04.\n", ""))
+        self.assertEqual(self.rodar().returncode, 0)
+        a = (self.fontes / "a2000.org").read_text()
+        self.assertTrue(a.endswith("- Lido em: =tmp/fontes/a2000.pdf=.\n"
+                                   "- Observação: Nota.\n"), a)
+
 
 if __name__ == "__main__":
     unittest.main()

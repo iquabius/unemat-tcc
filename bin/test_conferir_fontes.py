@@ -64,9 +64,9 @@ def afirmacoes(matriz):
 
 
 def conferir(capitulo=CAPITULO, matriz=MATRIZ, anterior=None, todas=False):
-    problemas, _, _ = cf.conferir("intro.org", capitulo, afirmacoes(matriz),
-                                  anterior, todas)
-    return [(tipo, arquivo, linha) for tipo, arquivo, linha, _ in problemas]
+    cap = cf.Capitulo("intro.org", capitulo, afirmacoes(matriz), anterior,
+                      todas)
+    return [(tipo, arquivo, linha) for tipo, arquivo, linha, _ in cap.problemas]
 
 
 def sem(chave, matriz=MATRIZ):
@@ -141,6 +141,13 @@ class Matriz(unittest.TestCase):
         self.assertEqual(a.corpo, ["- Trecho: “Callback Hell.”"])
         self.assertEqual((b.linha, b.busca, b.corpo),
                          (5, "Três estudos medem", []))
+
+    def test_destino_a_partir_da_pasta_da_matriz(self):
+        a, = cf.matriz("* [[file:../intro.org::x]]\n* sem link\n", "k",
+                       "k.org", "/r/texto/fontes")[:1]
+        self.assertEqual(a.destino, "/r/texto/intro.org")
+        b = cf.matriz("* sem link\n", "k", "k.org", "/r")[0]
+        self.assertEqual((b.busca, b.destino), (None, None))
 
     def test_matriz_em_dia(self):
         self.assertEqual(conferir(), [])
