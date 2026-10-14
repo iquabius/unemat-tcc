@@ -28,9 +28,10 @@ cit-<chave>.json e ref-<chave>.json na pasta dada.
 Só a biblioteca padrão. Não manda e-mail nem chave: a API recebe só o
 User-Agent "tcc-revisao". HTTP 429 (o limite diário) e os outros erros
 4xx param na hora; 5xx e falha de rede tentam de novo até cinco vezes
-(os originais tentavam de novo também nos 4xx). As linhas "# chave: nome"
-do arquivo de sementes dão o nome de cada uma na saída 80. Saída 0 se tudo foi
-gravado, 1 se a API falhou, 2 se uma entrada não se lê.
+(os originais tentavam de novo também nos 4xx). As linhas
+"# chave: nome" do arquivo de sementes dão o nome de cada uma na saída
+80. Saída 0 se tudo foi gravado, 1 se a API falhou, 2 se uma entrada não
+se lê.
 """
 
 import argparse
@@ -48,6 +49,7 @@ USER_AGENT = "tcc-revisao"
 ANO_MINIMO = 2013
 BUSCAS = Path(__file__).resolve().parent.parent
 COMANDOS_DA_API = {"citantes", "referencias", "filtro", "doi"}
+LOTE = 50  # ids por consulta ao filtro openalex_id
 
 
 class Limite(Exception):
@@ -75,6 +77,16 @@ def get(caminho, params, tentativas=5, espera=time.sleep):
     raise RuntimeError(f"{url}: {erro}")
 
 
+def curto(url):
+    """O id curto (W...) de uma URL do OpenAlex."""
+    return url.rsplit("/", 1)[-1]
+
+
+def e_id(ref):
+    """A referência da semente é um id do OpenAlex, e não um DOI."""
+    return re.fullmatch(r"W\d+", ref) is not None
+
+
 def resumo(indice):
     """Remonta o resumo a partir do índice invertido do OpenAlex."""
     if not indice:
@@ -87,7 +99,7 @@ def enxuto(w):
     """O registro com os campos que a triagem usa."""
     fonte = (w.get("primary_location") or {}).get("source") or {}
     return {
-        "id": w["id"].rsplit("/", 1)[-1],
+        "id": curto(w["id"]),
         "doi": (w.get("doi") or "").replace("https://doi.org/", ""),
         "title": w.get("display_name"),
         "year": w.get("publication_year"),
@@ -106,7 +118,8 @@ def buscar(filtro, obter=None):
     obter = obter or get
     saida, cursor = [], "*"
     while cursor:
-        d = obter("/works", {"filter": filtro, "per-page": 200, "cursor": cursor})
+        d = obter("/works",
+                  {"filter": filtro, "per-page": 200, "cursor": cursor})
         if not d["results"]:
             break
         saida += [enxuto(w) for w in d["results"]]
@@ -116,14 +129,15 @@ def buscar(filtro, obter=None):
 
 def id_openalex(ref, obter=None):
     obter = obter or get
-    if re.fullmatch(r"W\d+", ref):
+    if e_id(ref):
         return ref
-    return obter("/works/https://doi.org/" + ref, {})["id"].rsplit("/", 1)[-1]
+    return curto(obter("/works/https://doi.org/" + ref, {})["id"])
 
 
 def ler_sementes(arquivo):
     sementes = []
-    for n, linha in enumerate(Path(arquivo).read_text().splitlines(), 1):
+    texto = Path(arquivo).read_text(encoding="utf-8")
+    for n, linha in enumerate(texto.splitlines(), 1):
         linha = linha.split("#", 1)[0].strip()
         if not linha:
             continue
@@ -140,25 +154,23 @@ def citantes(sementes, pasta, obter=None):
         wid = id_openalex(ref, obter)
         lista = buscar("cites:" + wid, obter=obter)
         dados = {"seed": chave, "id": wid, "citers": lista}
-        (pasta / f"cit-{chave}.json").write_text(
-            json.dumps(dados, ensure_ascii=False))
+        gravar_json(pasta / f"cit-{chave}.json", dados)
         print(chave, wid, len(lista), flush=True)
 
 
 def referencias(sementes, pasta, obter=None):
     obter = obter or get
     for chave, ref in sementes:
-        doi = ref if not re.fullmatch(r"W\d+", ref) else None
-        caminho = "/works/https://doi.org/" + doi if doi else "/works/" + ref
+        caminho = "/works/" + (ref if e_id(ref) else "https://doi.org/" + ref)
         w = obter(caminho, {"select": "referenced_works"})
-        ids = [r.rsplit("/", 1)[-1] for r in w["referenced_works"]]
+        ids = [curto(r) for r in w["referenced_works"]]
         lista = []
-        for i in range(0, len(ids), 50):
-            d = obter("/works", {"filter": "openalex_id:" + "|".join(ids[i:i + 50]),
-                               "per-page": 50})
+        for i in range(0, len(ids), LOTE):
+            lote = "|".join(ids[i:i + LOTE])
+            d = obter("/works", {"filter": "openalex_id:" + lote,
+                                 "per-page": LOTE})
             lista += [enxuto(x) for x in d["results"]]
-        (pasta / f"ref-{chave}.json").write_text(
-            json.dumps(lista, ensure_ascii=False))
+        gravar_json(pasta / f"ref-{chave}.json", lista)
         print(chave, len(lista), flush=True)
 
 
@@ -190,17 +202,20 @@ def juntar(por_semente, ids_vistos, dois_vistos, ano_minimo=ANO_MINIMO):
 
 
 def listar(nomes, por_semente, recortados, ano_minimo=ANO_MINIMO):
-    """O texto da saída 80: os citantes de cada semente, mais citados antes."""
+    """O texto da saída 80: os citantes de cada semente, os mais citados
+    antes."""
     por_id = {c["id"]: c for c in recortados}
     linhas = [
         "# Terceira rodada (tcc-lf9), iteração 1: citantes no OpenAlex",
-        f"# [visto] = já nas saídas anteriores (pelo id do OpenAlex ou pelo DOI);"
-        f" [antes de {ano_minimo}] = fora do período; sem marca = triado à mão",
+        "# [visto] = já nas saídas anteriores (pelo id do OpenAlex ou pelo"
+        f" DOI); [antes de {ano_minimo}] = fora do período;"
+        " sem marca = triado à mão",
         ""]
     for chave, wid, lista in por_semente:
         linhas += [f"# Trabalhos que citam: {nomes.get(chave, chave)} [{wid}]",
                    f"# Total: {len(lista)}", ""]
-        for i, c in enumerate(sorted(lista, key=lambda c: -(c["cited_by"] or 0)), 1):
+        mais_citados = sorted(lista, key=lambda c: -(c["cited_by"] or 0))
+        for i, c in enumerate(mais_citados, 1):
             r = por_id.get(c["id"])
             if c["year"] is None:
                 marca = "[sem ano]"
@@ -208,18 +223,41 @@ def listar(nomes, por_semente, recortados, ano_minimo=ANO_MINIMO):
                 marca = f"[antes de {ano_minimo}]"
             else:
                 marca = "[visto]" if r["seen"] else ""
-            autores = ", ".join(c["authors"][:3]) + (" et al." if len(c["authors"]) > 3 else "")
-            linhas += [f"{i}. {c['title']} ({c['year'] or 's.d.'}) {marca}".rstrip(),
+            autores = ", ".join(c["authors"][:3])
+            if len(c["authors"]) > 3:
+                autores += " et al."
+            ano = c["year"] or "s.d."
+            linhas += [f"{i}. {c['title']} ({ano}) {marca}".rstrip(),
                        f"   {autores} — {c['venue']} [{c['type']}]",
-                       f"   DOI: {c['doi'] or '—'} | citações: {c['cited_by']}"
+                       f"   DOI: {c['doi'] or '—'}"
+                       f" | citações: {c['cited_by']}"
                        f" | https://openalex.org/{c['id']}", ""]
     return "\n".join(linhas)
+
+
+def ler_nomes(arquivo):
+    """Os nomes das linhas "# chave: nome" do arquivo de sementes."""
+    nomes = {}
+    for linha in Path(arquivo).read_text(encoding="utf-8").splitlines():
+        m = re.match(r"#\s*(\S+):\s*(.+)", linha)
+        if m:
+            nomes[m.group(1)] = m.group(2)
+    return nomes
+
+
+def ler_json(caminho):
+    return json.loads(Path(caminho).read_text(encoding="utf-8"))
+
+
+def gravar_json(caminho, dados):
+    Path(caminho).write_text(json.dumps(dados, ensure_ascii=False),
+                             encoding="utf-8")
 
 
 def ler_citantes(sementes, pasta):
     saida = []
     for chave, _ in sementes:
-        d = json.loads((pasta / f"cit-{chave}.json").read_text())
+        d = ler_json(pasta / f"cit-{chave}.json")
         saida.append((chave, d["id"], d["citers"]))
     return saida
 
@@ -263,24 +301,23 @@ def main(argv=None):
         elif a.cmd == "juntar":
             ids, dois = vistos(saidas_anteriores())
             lidos = ler_citantes(sementes, a.pasta)
-            todos, recortados = juntar([(k, l) for k, _, l in lidos], ids, dois)
-            a.saida.write_text(json.dumps(recortados, ensure_ascii=False))
+            por_semente = [(chave, lista) for chave, _, lista in lidos]
+            todos, recortados = juntar(por_semente, ids, dois)
+            gravar_json(a.saida, recortados)
             novos = [c for c in recortados if not c["seen"]]
-            print(f"únicos {len(todos)}; desde {ANO_MINIMO} {len(recortados)};"
-                  f" já vistos {len(recortados) - len(novos)}; novos {len(novos)};"
+            print(f"únicos {len(todos)};"
+                  f" desde {ANO_MINIMO} {len(recortados)};"
+                  f" já vistos {len(recortados) - len(novos)};"
+                  f" novos {len(novos)};"
                   f" novos sem resumo {sum(not c['abstract'] for c in novos)}")
         elif a.cmd == "listar":
-            nomes = {}
-            for linha in Path(a.sementes).read_text().splitlines():
-                m = re.match(r"#\s*(\S+):\s*(.+)", linha)
-                if m:
-                    nomes[m.group(1)] = m.group(2)
-            recortados = json.loads(a.juntado.read_text())
-            texto = listar(nomes, ler_citantes(sementes, a.pasta), recortados)
-            a.saida.write_text(texto)
+            texto = listar(ler_nomes(a.sementes),
+                           ler_citantes(sementes, a.pasta),
+                           ler_json(a.juntado))
+            a.saida.write_text(texto, encoding="utf-8")
         elif a.cmd == "filtro":
             lista = buscar(a.filtro)
-            a.saida.write_text(json.dumps(lista, ensure_ascii=False))
+            gravar_json(a.saida, lista)
             print(len(lista))
         elif a.cmd == "doi":
             for d in a.dois:
