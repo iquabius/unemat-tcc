@@ -1,0 +1,34 @@
+# Sementes da iteração 1 da terceira rodada (2026-10-09), na ordem da
+# saída 80. Linha "chave referência"; a referência é um id do OpenAlex
+# (W...) quando o trabalho não tem DOI ou o DOI não está no OpenAlex.
+#
+# green1989: Cognitive dimensions of notations (Green, 1989)
+# green1998tutorial: Cognitive dimensions of information artefacts: a tutorial (Green; Blackwell, 1998)
+# blackwell2001: Cognitive dimensions of notations: design tools for cognitive technology (Blackwell et al., 2001)
+# blackwell2003: Notational systems: the cognitive dimensions of notations framework (Blackwell; Green, 2003)
+# green2006: Cognitive dimensions: achievements, new directions, and open questions (Green et al., 2006)
+# green1996d: Usability analysis of visual programming environments (Green; Petre, 1996), refeito
+# mernik2009: Comparison of XAML and C# Forms using Cognitive Dimension Framework (Mernik et al., 2009; no OpenAlex, "Frorms")
+# zimmerle2025: On the usability of reactive programming APIs: a mixed evaluation (Zimmerle; Gama, 2025)
+# lu2021: Types for tables: a language design benchmark (Lu; Greenman; Krishnamurthi, 2021)
+# disch2025: Functional reactive GUI programming with modal types (Disch; Heegaard; Bahr, 2025)
+# varv2022: Varv (Borowski et al., 2022)
+# nielsen2026: Property-based testing for asynchronous FRP using LTL (Nielsen; Kristiansen; Bahr, 2026)
+# bahr2026jfp: Asynchronous modal FRP: ticking all the boxes (Bahr; Møgelberg, 2026)
+# vidal2018: Programmation web réactive (Vidal, 2018)
+# wiersdorf2024: Type tailoring (Wiersdorf et al., 2024)
+green1989 W2163314677
+green1998tutorial W103334549
+blackwell2001 W1553589896
+blackwell2003 W255410355
+green2006 10.1016/j.jvlc.2006.04.004
+green1996d 10.1006/jvlc.1996.0009
+mernik2009 W2280089439
+zimmerle2025 10.1002/spe.3435
+lu2021 10.22152/programming-journal.org/2022/6/8
+disch2025 10.1007/978-3-031-99751-8_5
+varv2022 10.1145/3491102.3502064
+nielsen2026 10.1007/978-3-032-15981-6_3
+bahr2026jfp 10.46298/jfp.17791
+vidal2018 W7148627132
+wiersdorf2024 10.4230/LIPIcs.ECOOP.2024.44

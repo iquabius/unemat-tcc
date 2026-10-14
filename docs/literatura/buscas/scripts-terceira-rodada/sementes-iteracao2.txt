@@ -1,0 +1,7 @@
+# Sementes da iteração 2 da terceira rodada (2026-10-09): os incluídos da
+# iteração 1, nos dois sentidos (saída 83).
+#
+# narechania2024: ProvenanceWidgets (Narechania et al., 2025, TVCG; a chave da coleta é a de antes do BibTeX)
+# verma2026: SuperProvenanceWidgets (Verma; Odak; Narechania, 2026, CHI EA)
+narechania2024 10.1109/tvcg.2024.3456144
+verma2026 10.1145/3772363.3798409

@@ -1,0 +1,284 @@
+#!/usr/bin/env python3
+"""Coleta da terceira rodada da revisão no OpenAlex (tcc-lf9, 2026-10-09).
+
+Cópia de referência dos scripts que geraram as saídas 80 a 85 de
+docs/literatura/buscas/, recriada em 2026-10-14 (tcc-ds6j). Os originais
+ficaram no rascunho da sessão e se perderam; este módulo refaz o mesmo
+comportamento. O OpenAlex muda com o tempo: rodar de novo dá números
+próximos, não iguais.
+
+    # iteração 1: citantes de cada semente, um JSON por semente
+    ./coleta.py citantes sementes-iteracao1.txt dados/
+    # junta, corta em 2013 e marca o que as rodadas anteriores já viram
+    ./coleta.py juntar sementes-iteracao1.txt dados/ dados/iteracao1.json
+    # a saída 80, a lista dos citantes por semente
+    ./coleta.py listar sementes-iteracao1.txt dados/ dados/iteracao1.json \\
+        -o ../80-citantes-terceira-rodada.txt
+    # iteração 2: citantes e referências dos incluídos
+    ./coleta.py citantes sementes-iteracao2.txt dados/
+    ./coleta.py referencias sementes-iteracao2.txt dados/
+    # texto completo (82 e 85) e um DOI avulso
+    ./coleta.py filtro 'fulltext.search:7GUIs' dados/7guis.json
+    ./coleta.py doi 10.1002/spe.3435
+
+As sementes são linhas "chave referência", em que a referência é um id do
+OpenAlex (W...) ou um DOI; "#" começa comentário. Cada semente gera
+cit-<chave>.json e ref-<chave>.json na pasta dada.
+
+Só a biblioteca padrão. Não manda e-mail nem chave: a API recebe só o
+User-Agent "tcc-revisao". HTTP 429 (o limite diário) e os outros erros
+4xx param na hora; 5xx e falha de rede tentam de novo até cinco vezes
+(os originais tentavam de novo também nos 4xx). As linhas "# chave: nome"
+do arquivo de sementes dão o nome de cada uma na saída 80. Saída 0 se tudo foi
+gravado, 1 se a API falhou, 2 se uma entrada não se lê.
+"""
+
+import argparse
+import json
+import re
+import sys
+import time
+import urllib.error
+import urllib.parse
+import urllib.request
+from pathlib import Path
+
+API = "https://api.openalex.org"
+USER_AGENT = "tcc-revisao"
+ANO_MINIMO = 2013
+BUSCAS = Path(__file__).resolve().parent.parent
+
+
+class Limite(Exception):
+    """HTTP 429: o orçamento diário anônimo do OpenAlex acabou."""
+
+
+def get(caminho, params, tentativas=5, espera=time.sleep):
+    url = API + caminho + "?" + urllib.parse.urlencode(params)
+    pedido = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
+    for i in range(tentativas):
+        try:
+            with urllib.request.urlopen(pedido, timeout=60) as r:
+                return json.load(r)
+        except urllib.error.HTTPError as e:
+            if e.code == 429:
+                raise Limite(url) from e
+            if e.code < 500:
+                raise RuntimeError(f"{url}: {e}") from e
+            erro = e
+        except (urllib.error.URLError, TimeoutError, ConnectionError) as e:
+            erro = e
+        espera(2 + 3 * i)
+    raise RuntimeError(f"{url}: {erro}")
+
+
+def resumo(indice):
+    """Remonta o resumo a partir do índice invertido do OpenAlex."""
+    if not indice:
+        return ""
+    pares = sorted((p, palavra) for palavra, ps in indice.items() for p in ps)
+    return " ".join(palavra for _, palavra in pares)
+
+
+def enxuto(w):
+    """O registro com os campos que a triagem usa."""
+    fonte = (w.get("primary_location") or {}).get("source") or {}
+    return {
+        "id": w["id"].rsplit("/", 1)[-1],
+        "doi": (w.get("doi") or "").replace("https://doi.org/", ""),
+        "title": w.get("display_name"),
+        "year": w.get("publication_year"),
+        "type": w.get("type"),
+        "venue": fonte.get("display_name"),
+        "authors": [a["author"]["display_name"]
+                    for a in w.get("authorships", [])][:6],
+        "abstract": resumo(w.get("abstract_inverted_index")),
+        "cited_by": w.get("cited_by_count"),
+        "lang": w.get("language"),
+    }
+
+
+def buscar(filtro, maximo=10000, get=get):
+    """Todos os trabalhos de um filtro, por cursor, de 200 em 200."""
+    saida, cursor = [], "*"
+    while cursor and len(saida) < maximo:
+        d = get("/works", {"filter": filtro, "per-page": 200, "cursor": cursor})
+        if not d["results"]:
+            break
+        saida += [enxuto(w) for w in d["results"]]
+        cursor = d["meta"].get("next_cursor")
+    return saida
+
+
+def id_openalex(ref, get=get):
+    if re.fullmatch(r"W\d+", ref):
+        return ref
+    return get("/works/https://doi.org/" + ref, {})["id"].rsplit("/", 1)[-1]
+
+
+def ler_sementes(arquivo):
+    sementes = []
+    for n, linha in enumerate(Path(arquivo).read_text().splitlines(), 1):
+        linha = linha.split("#", 1)[0].strip()
+        if not linha:
+            continue
+        partes = linha.split()
+        if len(partes) != 2:
+            raise ValueError(f"{arquivo}:{n}: esperava 'chave referência'")
+        sementes.append(tuple(partes))
+    return sementes
+
+
+def citantes(sementes, pasta, get=get):
+    for chave, ref in sementes:
+        wid = id_openalex(ref, get)
+        lista = buscar("cites:" + wid, get=get)
+        dados = {"seed": chave, "id": wid, "citers": lista}
+        (pasta / f"cit-{chave}.json").write_text(
+            json.dumps(dados, ensure_ascii=False))
+        print(chave, wid, len(lista), flush=True)
+
+
+def referencias(sementes, pasta, get=get):
+    for chave, ref in sementes:
+        doi = ref if not re.fullmatch(r"W\d+", ref) else None
+        caminho = "/works/https://doi.org/" + doi if doi else "/works/" + ref
+        w = get(caminho, {"select": "referenced_works"})
+        ids = [r.rsplit("/", 1)[-1] for r in w["referenced_works"]]
+        lista = []
+        for i in range(0, len(ids), 50):
+            d = get("/works", {"filter": "openalex_id:" + "|".join(ids[i:i + 50]),
+                               "per-page": 50})
+            lista += [enxuto(x) for x in d["results"]]
+        (pasta / f"ref-{chave}.json").write_text(
+            json.dumps(lista, ensure_ascii=False))
+        print(chave, len(lista), flush=True)
+
+
+def vistos(arquivos):
+    """Ids do OpenAlex e DOIs que aparecem nas saídas anteriores."""
+    texto = "".join(Path(a).read_text(errors="ignore") for a in arquivos)
+    ids = set(re.findall(r"W\d{5,}", texto))
+    dois = {d.lower().rstrip(".,);")
+            for d in re.findall(r"10\.\d{4,9}/[^\s|\]]+", texto)}
+    return ids, dois
+
+
+def juntar(por_semente, ids_vistos, dois_vistos, ano_minimo=ANO_MINIMO):
+    """Une os citantes, guarda as sementes de cada um, corta e marca."""
+    todos = {}
+    for chave, lista in por_semente:
+        for c in lista:
+            todos.setdefault(c["id"], dict(c, seeds=[]))["seeds"].append(chave)
+    recortados = [c for c in todos.values() if (c["year"] or 0) >= ano_minimo]
+    for c in recortados:
+        c["seen"] = bool(c["id"] in ids_vistos
+                         or (c["doi"] and c["doi"].lower() in dois_vistos))
+    return todos, recortados
+
+
+def listar(nomes, por_semente, recortados, ano_minimo=ANO_MINIMO):
+    """O texto da saída 80: os citantes de cada semente, mais citados antes."""
+    por_id = {c["id"]: c for c in recortados}
+    linhas = [
+        "# Terceira rodada (tcc-lf9), iteração 1: citantes no OpenAlex",
+        f"# [visto] = já nas saídas anteriores (pelo id do OpenAlex ou pelo DOI);"
+        f" [antes de {ano_minimo}] = fora do período; sem marca = triado à mão",
+        ""]
+    for chave, wid, lista in por_semente:
+        linhas += [f"# Trabalhos que citam: {nomes.get(chave, chave)} [{wid}]",
+                   f"# Total: {len(lista)}", ""]
+        for i, c in enumerate(sorted(lista, key=lambda c: -(c["cited_by"] or 0)), 1):
+            r = por_id.get(c["id"])
+            marca = (f"[antes de {ano_minimo}]" if r is None
+                     else "[visto]" if r["seen"] else "")
+            autores = ", ".join(c["authors"][:3]) + (" et al." if len(c["authors"]) > 3 else "")
+            linhas += [f"{i}. {c['title']} ({c['year']}) {marca}".rstrip(),
+                       f"   {autores} — {c['venue']} [{c['type']}]",
+                       f"   DOI: {c['doi'] or '—'} | citações: {c['cited_by']}"
+                       f" | https://openalex.org/{c['id']}", ""]
+    return "\n".join(linhas)
+
+
+def ler_citantes(sementes, pasta):
+    saida = []
+    for chave, _ in sementes:
+        d = json.loads((pasta / f"cit-{chave}.json").read_text())
+        saida.append((chave, d["id"], d["citers"]))
+    return saida
+
+
+def saidas_anteriores():
+    """As saídas de 00 a 79, das rodadas de 2026-09-24 e 2026-10-02."""
+    return sorted(p for p in BUSCAS.glob("[0-7]*") if p.is_file())
+
+
+def main(argv=None):
+    ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
+    sub = ap.add_subparsers(dest="cmd", required=True)
+    for nome in ("citantes", "referencias"):
+        p = sub.add_parser(nome)
+        p.add_argument("sementes")
+        p.add_argument("pasta", type=Path)
+    p = sub.add_parser("juntar")
+    p.add_argument("sementes")
+    p.add_argument("pasta", type=Path)
+    p.add_argument("saida", type=Path)
+    p = sub.add_parser("listar")
+    p.add_argument("sementes")
+    p.add_argument("pasta", type=Path)
+    p.add_argument("juntado", type=Path)
+    p.add_argument("-o", "--saida", type=Path, required=True)
+    p = sub.add_parser("filtro")
+    p.add_argument("filtro")
+    p.add_argument("saida", type=Path)
+    p = sub.add_parser("doi")
+    p.add_argument("dois", nargs="+")
+    a = ap.parse_args(argv)
+
+    try:
+        if a.cmd in ("citantes", "referencias", "juntar", "listar"):
+            sementes = ler_sementes(a.sementes)
+            a.pasta.mkdir(parents=True, exist_ok=True)
+        if a.cmd == "citantes":
+            citantes(sementes, a.pasta)
+        elif a.cmd == "referencias":
+            referencias(sementes, a.pasta)
+        elif a.cmd == "juntar":
+            ids, dois = vistos(saidas_anteriores())
+            lidos = ler_citantes(sementes, a.pasta)
+            todos, recortados = juntar([(k, l) for k, _, l in lidos], ids, dois)
+            a.saida.write_text(json.dumps(recortados, ensure_ascii=False))
+            novos = [c for c in recortados if not c["seen"]]
+            print(f"únicos {len(todos)}; desde {ANO_MINIMO} {len(recortados)};"
+                  f" já vistos {len(recortados) - len(novos)}; novos {len(novos)};"
+                  f" novos sem resumo {sum(not c['abstract'] for c in novos)}")
+        elif a.cmd == "listar":
+            nomes = {}
+            for linha in Path(a.sementes).read_text().splitlines():
+                m = re.match(r"#\s*(\S+):\s*(.+)", linha)
+                if m:
+                    nomes[m.group(1)] = m.group(2)
+            recortados = json.loads(a.juntado.read_text())
+            texto = listar(nomes, ler_citantes(sementes, a.pasta), recortados)
+            a.saida.write_text(texto)
+        elif a.cmd == "filtro":
+            lista = buscar(a.filtro)
+            a.saida.write_text(json.dumps(lista, ensure_ascii=False))
+            print(len(lista))
+        elif a.cmd == "doi":
+            for d in a.dois:
+                r = enxuto(get("/works/https://doi.org/" + d, {}))
+                r.pop("abstract")
+                print(json.dumps(r, ensure_ascii=False))
+    except (OSError, ValueError, KeyError, json.JSONDecodeError) as e:
+        print(f"coleta: {e}", file=sys.stderr)
+        return 2
+    except (Limite, RuntimeError) as e:
+        print(f"coleta: a API falhou: {e}", file=sys.stderr)
+        return 1
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
