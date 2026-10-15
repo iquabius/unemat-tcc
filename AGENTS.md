@@ -247,8 +247,8 @@ pergunta antes.
   no ADR e fora do texto; "seguem a mesma especificação"; "sem
   bibliotecas de formulário", não "bibliotecas auxiliares", por ser mais
   específico; "reativo" só para termos sustentados por fontes revisadas
-  por pares e dissertações, como a PR, e nunca num rótulo próprio do
-  trabalho (o terceiro modelo de programação é o "declarativo por
+  por pares e dissertações, como a PR, e nunca no nome de um modelo de
+  programação (o terceiro é o "declarativo por
   atualização granular", ADR 0021); na frase revisada, a citação narrativa com página
   ("Para Autor (ano, p. N), ...") é candidata a ir para o fim
   (`[[cite:chave][p. N]]`), para a frase abrir pelo tópico, salvo quando a

@@ -236,8 +236,8 @@ O autor lê o código com o guia e dita a análise pelo Wispr Flow, por DC.
   Erro provável de transcrição (palavra trocada, termo técnico
   deformado, como "use state" por `useState`) vai numa linha à parte da
   resposta, com a linha do `.org`, e não se corrige sem o autor pedir.
-- O autor dita também a célula: a conclusão do modelo de programação na
-  DC e, da segunda rodada em diante, se ela aumenta, diminui ou fica igual, e se a
+- O autor dita também a célula: a posição do modelo de programação na
+  DC e, da segunda rodada em diante, se ela sobe, desce ou fica igual, e se a
   diferença entre os modelos fica mantida, ampliada, reduzida, anulada,
   invertida ou surgida (ADR 0017; `docs/metodo-da-avaliacao.md`, seção
   11).
@@ -262,8 +262,8 @@ cada DC do texto ditado:
 4. **Lacunas**: DC sem conclusão ditada, tecnologia da rodada sem
    menção, célula sem o valor da mudança entre rodadas.
 5. **Termos**: palavras que o `CONTEXT.md` manda evitar ("paradigma"
-   para o que se compara, "expressividade" sozinha, "reativo" num rótulo
-   do trabalho).
+   para o que se compara, "expressividade" sozinha, "reativo" no nome de
+   um modelo de programação).
 
 Cada apontamento é uma pergunta ou uma observação, nunca a frase
 reescrita. O autor responde e reescreve no `.org` (porta fechada); o que
