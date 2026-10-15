@@ -21,8 +21,10 @@ spec.loader.exec_module(fd)
 class Marcar(unittest.TestCase):
     def test_troca_os_quatro_comandos_de_termo_simples(self):
         self.assertEqual(
-            fd.marcar("o \\emph{Observer\nPattern}, \\textbf{a} \\textit{b} \\texttt{c-d}"),
-            "o \\TCCemph{Observer\nPattern}, \\TCCtextbf{a} \\TCCtextit{b} \\TCCtexttt{c-d}")
+            fd.marcar("o \\emph{Observer\nPattern}, \\textbf{a} "
+                      "\\textit{b} \\texttt{c-d}"),
+            "o \\TCCemph{Observer\nPattern}, \\TCCtextbf{a} "
+            "\\TCCtextit{b} \\TCCtexttt{c-d}")
 
     def test_argumento_com_comando_ou_chave_fica(self):
         texto = ("\\emph{fluxos\\footnote{Tradução de \\emph{streams}.}} "

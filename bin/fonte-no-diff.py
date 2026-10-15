@@ -41,7 +41,7 @@ DEVOLVER = re.compile(
 
 
 def marcar(texto):
-    """Troca cada \\emph{termo} de termo simples por \\TCCemph{termo}, e os outros três."""
+    """Troca \\emph{termo}, de termo simples, por \\TCCemph{termo}; e os outros três."""
     return FONTE.sub(r"\\TCC\1{\2}", texto)
 
 

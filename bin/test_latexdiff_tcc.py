@@ -60,12 +60,14 @@ PARAGRAFO = (documento("""\
 
 NOTA = (documento("""\
     \\begin{itemize}
-    \\item \\emph{fluxos de eventos\\footnote{Tradução literal de \\emph{‘event streams’}, em inglês.}}: servem
+    \\item \\emph{fluxos de eventos\\footnote{Tradução literal de
+    \\emph{‘event streams’}, em inglês.}}: servem
     para modelar notificações, em \\textbf{tempo} real.
     \\end{itemize}
     """), documento("""\
     \\begin{itemize}
-    \\item \\emph{fluxos de eventos\\footnote{Tradução de \\emph{‘event streams’}, em inglês.}}: servem
+    \\item \\emph{fluxos de eventos\\footnote{Tradução de
+    \\emph{‘event streams’}, em inglês.}}: servem
     para modelar notificações, em \\textbf{tempo de execução}.
     \\end{itemize}
     """))
@@ -94,7 +96,8 @@ class Diff(unittest.TestCase):
                     str(cls.dir / "novo/tcc.tex")],
             capture_output=True, text=True)
         if diff.returncode != 0:
-            raise RuntimeError(f"{SCRIPT.name} saiu com {diff.returncode}:\n{diff.stderr}")
+            raise RuntimeError(
+                f"{SCRIPT.name} saiu com {diff.returncode}:\n{diff.stderr}")
         cls.diff = diff.stdout
         (cls.dir / "diff.tex").write_text(cls.diff, encoding="utf-8")
 
