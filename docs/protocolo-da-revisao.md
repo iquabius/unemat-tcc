@@ -11,11 +11,12 @@ observada.
 **Conclusão.** Em 2026-10-09, depois da terceira rodada, nenhum trabalho
 encontrado avalia pelas DCs a notação do React, do Solid ou do Angular
 com *signals*, nem compara os três modelos de programação nas mesmas
-interfaces: a lacuna se mantém (seção 4). O *snowballing* para a frente
-saturou na segunda rodada (seção 2), e a terceira fechou o laço sem
-trabalho novo na segunda iteração; no Google Acadêmico, consultado em
-2026-10-13, os citantes de Kiss (2014) e do 7GUIs não trouxeram
-incluído (seção 3).
+interfaces: a lacuna se mantém
+(`docs/trabalhos-relacionados-e-lacuna.md`, seção "A lacuna"). O
+*snowballing* para a frente saturou na segunda rodada (seção "Segunda
+rodada"), e a terceira fechou o laço sem trabalho novo na segunda
+iteração; no Google Acadêmico, consultado em 2026-10-13, os citantes de
+Kiss (2014) e do 7GUIs não trouxeram incluído (seção "Terceira rodada").
 
 Origem: revisão bibliográfica de 2026-09-24 (Modo 2 da skill
 `escrita-academica`, OpenAlex e Crossref), com as 41 saídas brutas em
@@ -24,10 +25,13 @@ contagem de citações ficaram; para reler um resumo,
 `buscar_literatura.py doi`). Os 30 DOIs citados na primeira versão de
 `docs/literatura.md` foram conferidos no Crossref e no `doi.org`. A
 segunda rodada, de 2026-10-02, tem as saídas nos arquivos 69 a 79 da
-mesma pasta (seção 2), e a terceira, de 2026-10-09, nos arquivos 80 a 86
-(seção 3). As ações que a revisão pediu estão nas tarefas do `bd`.
+mesma pasta (seção "Segunda rodada"), e a terceira, de 2026-10-09, nos
+arquivos 80 a 86 (seção "Terceira rodada"). As ações que a revisão pediu
+estão nas tarefas do `bd`.
 
-## 1. Protocolo e primeira rodada (2026-09-24)
+## Protocolo e primeira rodada
+
+Primeira rodada em 2026-09-24.
 
 - **Perguntas.** (P1) Que abordagens de PR/PFR foram propostas ou
   consolidadas para GUIs desde 2016? (P2) Que evidência empírica existe sobre
@@ -63,17 +67,75 @@ traz química e medicina), e nos trabalhos mais citados (Bainomugisha 244
 citantes; Elliott & Hudak 137; Czaplicki & Chong 104; Green & Petre 328) só
 os 60 primeiros foram vistos. Não houve saturação.
 
-## 2. Segunda rodada (2026-10-02)
+### Matriz tema × referência
+
+Retrato de 2026-09-24: a coluna da direita é o que a revisão propôs
+acrescentar, não o estado do `refs.bib`.
+
+| Tema | Em 2026-09-24 | Com a atualização |
+|---|---|---|
+| Modelos de computação / linguagens | vanroy2004 | |
+| Paradigmas | vanroy2009 | + krishnamurthi2019 (+ krishnamurthi2008) |
+| PF | hughes1990, noble1994, vanroy2009 | + mehlhorn2022 + (Zampetti et al. 2025, contraponto) |
+| PR / programas reativos | berry1989, salvaneschi2015, vanroy2009; na intro: bainomugisha2013 | + zimmerle2022 + (oeyen2024, berry2020) |
+| PR × PFR (tempo) | vanroy2009 | + elliott1997 + perez2023 + czaplicki2013 + (graulund2021) |
+| Evidência empírica PR × Observer | salvaneschi2014 (na intro) | + salvaneschi2017 + zimmerle2025 + farias2024 + (banken2018) |
+| Dimensões Cognitivas | green1989, clarke2003, sadowski2011, kiss2014 (na intro) | + blackwell2003 + zimmerle2025 + blackwell2019 |
+
+### Incluídos de prioridade alta
+
+No `refs.bib` desde `99f2a0e`.
+
+Descrições baseadas no resumo (OpenAlex), salvo indicação; ler o texto
+completo antes de afirmar algo além dele.
+
+O porquê e o onde entra de cada uma estão na `annotation` da entrada no
+`refs.bib` (tarefa tcc-3yqt), e a tabela fica só com a referência. Os
+números de linha de `intro.org`, `cases.org` e `prog.org` dessas
+anotações são de 2026-09-25 e estão vencidos.
+
+| Chave | Referência |
+|---|---|
+| salvaneschi2017 | SALVANESCHI, G. et al. On the positive effect of reactive programming on software comprehension: an empirical study. *IEEE TSE*, v. 43, n. 12, p. 1125–1143, 2017. DOI 10.1109/TSE.2017.2655524 |
+| zimmerle2025 | ZIMMERLE, C.; GAMA, K. On the usability of reactive programming APIs: a mixed evaluation. *Software: Practice and Experience*, v. 55, n. 9, p. 1506–1538, 2025. DOI 10.1002/spe.3435 |
+| zimmerle2022 | ZIMMERLE, C. et al. Mining the usage of reactive programming APIs: a study on GitHub and Stack Overflow. MSR '22, p. 203–214. DOI 10.1145/3524842.3527966 |
+| perez2023 | PEREZ, I. The beauty and elegance of functional reactive animation. FARM '23, p. 8–20. DOI 10.1145/3609023.3609806 |
+| czaplicki2013 | CZAPLICKI, E.; CHONG, S. Asynchronous functional reactive programming for GUIs. PLDI '13, p. 411–422. DOI 10.1145/2491956.2462161 |
+| madsen2020 | MADSEN, M.; LHOTÁK, O.; TIP, F. A semantics for the essence of React. ECOOP 2020, LIPIcs 166, 12:1–12:26. DOI 10.4230/LIPIcs.ECOOP.2020.12 |
+| blouin2022 | BLOUIN, A.; JÉZÉQUEL, J.-M. Interacto: a modern user interaction processing model. *IEEE TSE*, v. 48, n. 9, p. 3206–3226, 2022. DOI 10.1109/TSE.2021.3083321 |
+| krishnamurthi2019 | KRISHNAMURTHI, S.; FISLER, K. Programming paradigms and beyond. In: *The Cambridge Handbook of Computing Education Research*, 2019, p. 377–413. DOI 10.1017/9781108654555.014 |
+| blackwell2003 | BLACKWELL, A.; GREEN, T. Notational systems: the cognitive dimensions of notations framework. In: *HCI Models, Theories, and Frameworks*, 2003, p. 103–133. DOI 10.1016/B978-155860808-5/50005-8 |
+| blackwell2019 | BLACKWELL, A. F.; PETRE, M.; CHURCH, L. Fifty years of the psychology of programming. *Int. J. Human-Computer Studies*, v. 131, p. 52–63, 2019. DOI 10.1016/j.ijhcs.2019.06.009 |
+| mehlhorn2022 | MEHLHORN, N.; HANENBERG, S. Imperative versus declarative collection processing: an RCT on the understandability of traditional loops versus the stream API in Java. ICSE '22, p. 1157–1168. DOI 10.1145/3510003.3519016 |
+| farias2024 | FARIAS, E. C.; ZIMMERLE, C.; GAMA, K. Perspectives and challenges of iOS developers in using reactive programming with RxSwift. SBES 2024, p. 609–615. DOI 10.5753/sbes.2024.3569 |
+
+Leituras depois de 2026-09-25:
+
+- **krishnamurthi2019**: resumo não obtido na revisão; saiu para a
+  tarefa tcc-2b0, por servir só ao `prog.org`, e o trecho do rascunho
+  está em `docs/paradigma-modelo-e-notacao.md`, seção "Por que o
+  paradigma não é a unidade de comparação";
+- **blackwell2019**: lido em 2026-10-03 nas partes sobre as DCs
+  (`docs/metodo-da-avaliacao.md`, seção "Blackwell, Petre e Church
+  2019");
+- **zimmerle2025**: lido em 2026-10-03 no texto completo
+  (`docs/trabalhos-relacionados-e-lacuna.md`, seção "Zimmerle e Gama
+  2025").
+
+## Segunda rodada
+
+Em 2026-10-02.
 
 O *snowballing* para a frente saturou: a segunda iteração trouxe um
 incluído marginal e a terceira, nenhum; nada do que entrou muda o nicho
-(seção 4). As bases brasileiras só trouxeram o que a base já tinha.
+(`docs/trabalhos-relacionados-e-lacuna.md`, seção "A lacuna"). As bases
+brasileiras só trouxeram o que a base já tinha.
 
 - **Bases.** OpenAlex (`buscar_literatura.py` e a API direto) e
   Crossref; BDTD (`bdtd`) e SBC-OpenLib (`buscar --sbc`); ACM DL, à mão,
   pelo autor. O Semantic Scholar recusou as consultas (HTTP 429). SciELO
   e Portal CAPES não foram consultados.
-- **Critérios.** Os da seção 1, escritos em
+- **Critérios.** Os da seção "Protocolo e primeira rodada", escritos em
   `buscas/69-criterios-segunda-rodada.md`: entram (I1) PR, PFR,
   *signals* ou UI declarativa para GUIs, web ou apps móveis; (I2) estudo
   empírico de compreensão, usabilidade, manutenção ou defeitos de PR, PF
@@ -91,7 +153,8 @@ incluído marginal e a terceira, nenhum; nada do que entrou muda o nicho
   trabalhos que citam o 7GUIs no texto completo, no lugar dos citantes
   de Kiss (2014), que o OpenAlex não indexa. Triagem por título e resumo
   em seis lotes de cerca de 205 registros, por subagentes; os resumos
-  dos candidatos de `docs/trabalhos-relacionados-e-lacuna.md`, seção 3, foram
+  dos candidatos de `docs/trabalhos-relacionados-e-lacuna.md`, seção
+  "Candidatos sobre eventos, PR e interfaces declarativas", foram
   relidos no OpenAlex ou no Crossref.
 
 | Etapa | Registros |
@@ -105,32 +168,37 @@ incluído marginal e a terceira, nenhum; nada do que entrou muda o nicho
 | Nicho e *survey* no OpenAlex (16 consultas) | 211 exibidos, mais 813 títulos varridos por `title.search` ("reactive programming", "functional reactive") |
 | *Survey* no Crossref (5 consultas) | 500 títulos varridos |
 | ACM DL: "reactive programming" e survey, review, mapping ou overview no título | 4 resultados, nenhuma *survey* além de bainomugisha2013 |
-| Candidatos novos (`docs/trabalhos-relacionados-e-lacuna.md`, seção 3) | 12 |
+| Candidatos novos (`docs/trabalhos-relacionados-e-lacuna.md`, seção "Candidatos sobre eventos, PR e interfaces declarativas") | 12 |
 
 Limitações:
 
 - o número de incluídos é o dos subagentes, de critério largo; o corte
-  que vale para o texto é o de `docs/trabalhos-relacionados-e-lacuna.md`, seção
-  3;
+  que vale para o texto é o de
+  `docs/trabalhos-relacionados-e-lacuna.md`, seção "Candidatos sobre
+  eventos, PR e interfaces declarativas";
 - 280 registros sem resumo foram julgados pelo título;
 - dissertações em francês saíram pelo idioma;
 - os citantes de Kiss (2014) não foram vistos (vistos em parte na
-  terceira rodada, seção 3).
+  terceira rodada, seção "Terceira rodada").
 
-## 3. Terceira rodada (2026-10-09)
+## Terceira rodada
+
+Em 2026-10-09.
 
 A rodada não achou trabalho que avalie pelas DCs a notação do React, do
 Solid ou do Angular com *signals*, nem que compare os três modelos de
-programação nas mesmas interfaces: o nicho da seção 4 se mantém. Os dois
-incluídos novos avaliam pelas DCs, pelos próprios autores, a notação de
-bibliotecas de controles de interface feitas em Angular e em React
-(Narechania et al., 2025; Verma, Odak e Narechania, 2026), e não a das
-bibliotecas de base (`docs/trabalhos-relacionados-e-lacuna.md`, seção 4). Dos
-citantes de Kiss (2014), a rodada viu os que o Google Acadêmico, o
-texto completo do OpenAlex e a web acham: 13 trabalhos que citam a
-dissertação ou o 7GUIs, nenhum incluído. O Google Acadêmico tem a
-dissertação e o 7GUIs só como registros de citação; o autor consultou os
-citantes deles em 2026-10-13 (`buscas/86`).
+programação nas mesmas interfaces: o nicho
+(`docs/trabalhos-relacionados-e-lacuna.md`, seção "A lacuna") se mantém.
+Os dois incluídos novos avaliam pelas DCs, pelos próprios autores, a
+notação de bibliotecas de controles de interface feitas em Angular e em
+React (Narechania et al., 2025; Verma, Odak e Narechania, 2026), e não a
+das bibliotecas de base (`docs/trabalhos-relacionados-e-lacuna.md`,
+seção "Autoavaliações pelas DCs de bibliotecas de controles"). Dos
+citantes de Kiss (2014), a rodada viu os que o Google Acadêmico, o texto
+completo do OpenAlex e a web acham: 13 trabalhos que citam a dissertação
+ou o 7GUIs, nenhum incluído. O Google Acadêmico tem a dissertação e o
+7GUIs só como registros de citação; o autor consultou os citantes deles
+em 2026-10-13 (`buscas/86`).
 
 - **Motivo.** O que a checagem adversarial de 2026-10-08 (tcc-kh1) deixou
   aberto: os citantes de Kiss (2014), fora do OpenAlex; os de Green (1989)
@@ -212,61 +280,7 @@ Limitações:
   Svelte por desempenho, pelo resumo) e uma tese sueca sobre DCs (DiVA
   diva2:1632735), cuja página recusou a conexão.
 
-## 4. A lacuna
-
-Estado em 2026-10-09, depois da terceira rodada (seção 3): o nicho
-continua sem trabalho. O mais perto são duas autoavaliações pelas DCs de
-bibliotecas de controles feitas em Angular e em React (Narechania et
-al., 2025; Verma, Odak e Narechania, 2026), que avaliam a notação da
-própria biblioteca; a de Verma et al. só diz que ela é "consistent with
-the framework it has been implemented in (i.e. React.js)" (p. 6 da
-cópia; `docs/trabalhos-relacionados-e-lacuna.md`, seção 4).
-
-O nicho e as quatro lacunas parciais, levantadas em 2026-09-24 e
-revistas em 2026-10-02, depois da segunda rodada (seção 2):
-
-- **Nicho.** Não se encontrou análise pelas DCs de React nem dos
-  *signals* das bibliotecas web atuais (Solid, Angular), nem comparação
-  dos três modelos de programação (imperativo por atualização manual,
-  declarativo por re-renderização, declarativo por atualização granular)
-  nas mesmas interfaces. As DCs já foram aplicadas à PR por Kiss (2014),
-  com Scala.Rx, ReactFX e Elm (`docs/metodo-da-avaliacao.md`, seção 3),
-  e por Zimmerle & Gama (2025), com RxJS e Bacon.js por questionário
-  (`docs/trabalhos-relacionados-e-lacuna.md`, seção 6); "nenhuma análise de
-  *signals* pelas DCs" não se sustenta. O mais perto de comparar
-  notações de coordenação é Grolaux et al. (2026): reproduzem numa
-  biblioteca com async/await o essencial de seis práticas, de
-  *listeners* e barramento de eventos a RxJS e componentes reativos, e
-  as comparam conceitualmente, com exemplos diferentes para cada uma,
-  sem interfaces comuns nem DCs (p. 8, 10, 14-15). A revisão de Hadhrawi
-  et al. (2017), sobre mais de 1600 publicações que citam as DCs, pergunta
-  que elementos do *framework* se usam (p. 1-2 da cópia), não a que
-  notações, e não confirma a primeira parte.
-- **Lacuna 1, experimento controlado** (continua em 2026-10-02): nenhum
-  experimento controlado comparando *callbacks*, PR (RxJS) e o modelo
-  React/*signals* em GUIs em JavaScript: reforça a justificativa do
-  trabalho. A segunda rodada não achou experimento controlado novo.
-- **Lacuna 2, *survey* de PR** (confirmada em 2026-10-02): nenhuma
-  *survey* de PR revisada por pares com o alcance de Bainomugisha et al.
-  (2013) no OpenAlex, no Crossref nem na ACM DL. Há visões parciais:
-  Salvaneschi et al. (2015, *technical briefing* no ICSE), Sperber &
-  Schlegel (2025, UIs funcionais, *workshop* FUNARCH), Matos & Zuchi
-  (2021, revisão bibliográfica em revista da Fatec) e Tsukanova &
-  Zabrodin (2026, seção 5). "P-FRP task scheduling: a survey" (2016)
-  trata de escalonamento de tempo real.
-- **Lacuna 3, trabalhos brasileiros** (fechada em 2026-10-02):
-  procurados além do grupo da UFPE (SBES, SBLP, WEI, BDTD). Nas bases
-  brasileiras, só o grupo da UFPE trata de PR e usabilidade; Naves
-  (PUC-Rio, 2021) compara dois modelos de PR em aplicações de tempo real
-  brando, sem GUI.
-- **Lacuna 4, *signals* em revisão por pares** (continua em 2026-10-02):
-  em 2026-09-24, pouco além de Nishizu & Kamina (2022), e o fenômeno
-  estava na literatura cinzenta; em 2026-10-02, *signals* no front-end
-  aparecem em Nishizu & Kamina (2022), Zhuang & Chiba (2016) e dois
-  trabalhos sobre *signals* persistentes (SignalJ, 2022; JavaScript,
-  2023), nenhum sobre a notação.
-
-## 5. Vistos e descartados
+## Vistos e descartados
 
 *React: a detailed survey* (IJEECS, 2022): descritivo, veículo fraco. Holst &
 Dobslaw (2021, arXiv) e Alam & Bush (2023, Research Square): preprints sem
@@ -283,11 +297,13 @@ apresentação, §4.2; *context* no lugar de propriedades em cascata, §4.9)
 serve só como ideia de abstrações para a P2; para citar componente como
 abstração, a candidata é Van Roy e Haridi (2004, seção 3.9), a ler.
 
-## 6. A base antes da revisão (2026-09-24)
+## A base antes da revisão
+
+Retrato de 2026-09-24.
 
 Retrato histórico do `refs.bib` no commit `e2a6eda`, que motivou a
 revisão. Desde então, em `99f2a0e` (2026-09-25) entraram os 12 de
-prioridade alta (`docs/fundamentacao.md`, seção 2), conferidos pelo
+prioridade alta (seção "Incluídos de prioridade alta"), conferidos pelo
 bib-audit, e em `517cad6` saíram as duplicatas e `gammie2009`. Em
 2026-10-10 o `refs.bib` tem 162 entradas, 41 delas com data de 2021 a
 2026 (23 são `@online`, de documentação e de pesquisas de uso).

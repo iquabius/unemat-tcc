@@ -75,8 +75,9 @@ divergem numa DC, Solid e Angular ou Web Component e jQuery
 (`createElement` e `innerHTML` contra seletores), a célula da
 tabela-síntese registra a divergência (ADR 0017). O imperativo por
 atualização manual entra contra os dois declarativos sem par controlado
-(`docs/paradigma-modelo-e-notacao.md`, seção 3). O quadro do que o
-delineamento controla está em `docs/delineamento.md`.
+(`docs/paradigma-modelo-e-notacao.md`, seção "As tecnologias por modelo
+de programação"). O quadro do que o delineamento controla está em
+`docs/delineamento.md`.
 
 ## Android
 
@@ -281,11 +282,13 @@ nem `Main`); o *script* do ADR 0012 ainda não existe:
   State of .NET 2025); no Brasil, C# é a 2ª linguagem principal (2.496
   de 17.046, Código Fonte TV 2026).
 - **Precedente pelas DCs**: Mernik et al. (2009, `mernik2009` no
-  `refs.bib`), citado em `docs/paradigma-modelo-e-notacao.md`, seção 2,
-  e Kosar et al. (2010, ComSIS), com Mernik entre os autores, comparam
-  XAML e C# Forms; no de 2010, com 36 programadores, o XAML teve mais
-  acertos (64,34% contra 43,37%), sobretudo nas questões de mudança. Mede a montagem da tela,
-  não o *binding*, e os participantes conheciam pouco o XAML.
+  `refs.bib`), citado em `docs/paradigma-modelo-e-notacao.md`, seção
+  "Unidade comparada e evidência: o TCC compara categorias", e Kosar et
+  al. (2010, ComSIS), com Mernik entre os autores, comparam XAML e C#
+  Forms; no de 2010, com 36 programadores, o XAML teve mais acertos
+  (64,34% contra 43,37%), sobretudo nas questões de mudança. Mede a
+  montagem da tela, não o *binding*, e os participantes conheciam pouco
+  o XAML.
 - **Só no Windows** (o autor tem Windows). O Windows Forms também tem *data
   binding* (Microsoft, 2022; no .NET 8, um motor no estilo do WPF): o
   Windows Forms usa só eventos nas três rodadas (decisões do autor em

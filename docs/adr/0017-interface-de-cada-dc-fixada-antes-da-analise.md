@@ -63,11 +63,12 @@ mostre; a célula com duas tecnologias pode precisar de duas leituras, uma
 por tecnologia; o mapa DC → interface, com 14 linhas, precisa ser decidido
 antes da fase 2 (tcc-7jc); "sem diferença", "anulada" e "surgida" dependem
 da leitura do mesmo avaliador; os seis valores da linha não vêm de fonte
-(`docs/metodo-da-avaliacao.md`, seção 11); no Login, cada coluna tem uma
-tecnologia só na web, no Quadro só a granular tem duas, e nos Dados ao
-vivo só a re-renderização; o mapa DC → interface muda com as interfaces de
-2026-10-12 (ADR 0002); a subseção que repete só o fragmento depende de o
-leitor voltar à listagem da 3.2.
+(`docs/metodo-da-avaliacao.md`, seção "O que muda entre rodadas:
+vocabulário"); no Login, cada coluna tem uma tecnologia só na web, no
+Quadro só a granular tem duas, e nos Dados ao vivo só a re-renderização;
+o mapa DC → interface muda com as interfaces de 2026-10-12 (ADR 0002); a
+subseção que repete só o fragmento depende de o leitor voltar à listagem
+da 3.2.
 
 Fontes: ADRs 0002, 0012, 0013 e 0029; Ledo et al. (2018, CHI, p. 9 do
 PDF): omitir sem razão clara "could lead readers to believe that the

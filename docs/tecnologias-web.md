@@ -62,7 +62,8 @@ resumo do artigo.
   comparação React × Solid na dimensão push/pull de `bainomugisha2013`.
 
 A literatura revisada por pares do mesmo período está em
-`docs/fundamentacao.md`, seção 3.
+`docs/programacao-funcional-e-reativa.md`, seção "Fontes
+complementares".
 
 ## 2. O modelo de reatividade segundo a documentação oficial
 

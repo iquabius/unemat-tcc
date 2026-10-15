@@ -150,16 +150,17 @@ atributos e pelo foco, e não com um leitor de tela real; a ordem de corte,
 se usada, encolhe primeiro o par Solid × Angular; a pergunta ganha duas
 subperguntas (ADR 0014), e a introdução se reestrutura (tcc-xep).
 
-Fontes: `docs/metodo-da-avaliacao.md`, seções 8 a 11, com os trechos e as
-páginas; WCAG 2.2 (W3C, 2024-12-12) e o padrão *Combobox* do WAI-ARIA APG
-(w3.org, lidos em 2026-10-12); Berry e Serrano (2020, p. 534-539);
+Fontes: `docs/metodo-da-avaliacao.md`, seções de "Rodadas e crescimento
+do código" a "O que muda entre rodadas: vocabulário", com os trechos e
+as páginas; WCAG 2.2 (W3C, 2024-12-12) e o padrão *Combobox* do WAI-ARIA
+APG (w3.org, lidos em 2026-10-12); Berry e Serrano (2020, p. 534-539);
 pt-br.react.dev, *Sincronizando com Efeitos*, e
 developer.android.com/develop/ui/compose/side-effects?hl=pt-br
 (2026-10-12), para "limpeza"; Lima, Giusti e Dias-Neto (2020, SBQS,
-WTDQS), para "vazamento de recursos";
-protótipos e medidas de 2026-10-12 em `tmp/mergulho-tarefas-2026-10-12/`,
-`tmp/prototipos-tarefas-2026-10-12/` e `tmp/prototipos-p2-2026-10-12/`, e
-de 2026-10-13 em `tmp/prototipos-placar-2026-10-13/` (fora do git); ADRs
-0001, 0002, 0005, 0012, 0013, 0014 e 0017;
+WTDQS), para "vazamento de recursos"; protótipos e medidas de 2026-10-12
+em `tmp/mergulho-tarefas-2026-10-12/`,
+`tmp/prototipos-tarefas-2026-10-12/` e `tmp/prototipos-p2-2026-10-12/`,
+e de 2026-10-13 em `tmp/prototipos-placar-2026-10-13/` (fora do git);
+ADRs 0001, 0002, 0005, 0012, 0013, 0014 e 0017;
 `docs/tecnologias-web.md`, seção 2; tarefas tcc-cef, tcc-di3a, tcc-xep e
 tcc-dw83.

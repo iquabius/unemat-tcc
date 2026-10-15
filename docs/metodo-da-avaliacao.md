@@ -10,26 +10,34 @@ e 16, em 2026-10-10. O que o delineamento controla está em
 
 **Conclusão.** Em 2026-10-10, quanto aos meios, o trabalho é uma
 avaliação qualitativa, pelas DCs, de implementações de um mesmo conjunto
-de interfaces, e não um estudo de caso (seção 1); o rótulo é uma pergunta
-ao orientador numa nota de `texto/intro.org`. A avaliação é analítica,
-feita por especialista (Blandford e Green 2008), como a de Kiss (2014):
-o autor aplica as DCs ao código, dimensão a dimensão, sem participantes
-(`CONTEXT.md`, verbete Avaliação). As duas DCs a mais que as de Kiss,
-expressividade e operações mentais difíceis, se justificam pela condição
-do próprio Kiss e por Mernik et al. (2009) (seção 4). As interfaces
+de interfaces, e não um estudo de caso (seção "O rótulo do método:
+avaliação de um conjunto de interfaces, não estudo de caso"); o rótulo é
+uma pergunta ao orientador numa nota de `texto/intro.org`. A avaliação é
+analítica, feita por especialista (Blandford e Green 2008), como a de
+Kiss (2014): o autor aplica as DCs ao código, dimensão a dimensão, sem
+participantes (`CONTEXT.md`, verbete Avaliação). As duas DCs a mais que
+as de Kiss, expressividade e operações mentais difíceis, se justificam
+pela condição do próprio Kiss e por Mernik et al. (2009) (seção
+"Expressividade e operações mentais difíceis nas fontes"). As interfaces
 pequenas isolam uma escolha de projeto, mas não mostram o que só aparece
-em programa grande (seção 5).
+em programa grande (seção "Programas de brinquedo: isolar uma escolha e
+o limite do tamanho").
 
 Em 2026-10-11, o autor decidiu avaliar em três rodadas (a primeira; a
 segunda, com requisitos acrescentados; a terceira, com as bibliotecas do
 ecossistema, sem controle de variáveis) e percorrer as 14 DCs, e não oito;
 em 2026-10-12, trocou as interfaces e levou a segunda rodada às cinco,
-pela realidade de cada uma (seção 12). As fontes estão nas seções 8 a 12,
-e as decisões, nos ADRs 0002, 0012, 0017 e 0029. Em 2026-10-13, a seção 13
+pela realidade de cada uma (seção "*Benchmark* de notação e requisitos
+da segunda rodada"). As fontes estão nas seções de "Rodadas e
+crescimento do código" a "*Benchmark* de notação e requisitos da segunda
+rodada", e as decisões, nos ADRs 0002, 0012, 0017 e 0029. Em 2026-10-13,
+a seção "Como as fontes aplicaram as DCs a código, e as armadilhas"
 juntou como as fontes aplicaram as DCs a código e as armadilhas, que a
 skill `avaliacao-pelas-dcs` usa.
 
-## 1. O rótulo do método: avaliação de um conjunto de interfaces, não estudo de caso (fontes lidas em 2026-09-28)
+## O rótulo do método: avaliação de um conjunto de interfaces, não estudo de caso
+
+Fontes lidas em 2026-09-28.
 
 "*Benchmark*" só explica o conjunto de interfaces (Sim, Easterbrook e Holt
 2003; Kiss 2014): fora de Sim et al., *benchmark* é medida objetiva
@@ -65,10 +73,10 @@ coisa. Cópias locais em `tmp/fontes/`, fora do git.
 | CHARPENTIER, A. et al. *Raters' reliability in clone benchmarks construction*. Empirical Software Engineering, v. 22, n. 1, p. 235-258, 2017. DOI 10.1007/s10664-015-9419-z | *Benchmark* construído com julgamento humano: avaliadores sem conhecimento do código raramente concordam entre si e com o especialista, e seus juízos nem sempre se repetem (resumo). Sustenta a limitação do juízo de uma pessoa, não o rótulo | resumo (manuscrito do HAL, sem a paginação publicada) |
 | DE SOUZA, C. S. et al. *Can inspection methods generate valid new knowledge in HCI?* International Journal of Human-Computer Studies, v. 68, p. 22-40, 2010. DOI 10.1016/j.ijhcs.2009.08.006 | Métodos de inspeção podem gerar conhecimento científico válido, sob condições (p. 22); a inspeção pode ser feita por um inspetor ou por um grupo, e a validação é por triangulação (p. 26); resultados qualitativos não se generalizam, mas a triangulação os torna amplamente aplicáveis (p. 38). Sustenta a triangulação como mitigação do avaliador único (tcc-y4q, item 2) | p. 22, 26 e 38 |
 | BLACKWELL, A.; GREEN, T. (2003), `blackwell2003` | O arcabouço das DCs "*is not an analytic method*", e sim um conjunto de "*discussion tools*"; oferece avaliação *broad-brush* | p. 106 (versão publicada, conferida em 2026-10-04) |
-| GREEN, T. R. G.; PETRE, M. (1996), JVLC 7, p. 131-174. DOI 10.1006/jvlc.1996.0009 | As DCs são uma "*broad-brush evaluation technique*"; precedente do delineamento (`docs/trabalhos-relacionados-e-lacuna.md`, seção 2) | p. 131 (resumo) da versão publicada, conferida em 2026-10-10; p. 3 da pré-publicação |
+| GREEN, T. R. G.; PETRE, M. (1996), JVLC 7, p. 131-174. DOI 10.1006/jvlc.1996.0009 | As DCs são uma "*broad-brush evaluation technique*"; precedente do delineamento (`docs/trabalhos-relacionados-e-lacuna.md`, seção "Precedentes internacionais do delineamento") | p. 131 (resumo) da versão publicada, conferida em 2026-10-10; p. 3 da pré-publicação |
 | KISS, E. *Comparison of object-oriented and functional programming for GUI development*. Dissertação (mestrado), Leibniz Universität Hannover, 2014 (`kiss2014`) | Chama o método de "abordagem analítica" pelas DCs, em oposição a experimentos, "caros" e de resultado "estreito" (p. 8); compara implementações pela usabilidade do código, e não por tempo e memória, como num *benchmark* tradicional (p. 11). Chama cada item de *case study* (p. 11) e o repositório com as soluções de todos de *notational benchmark* ("*is structured in a way as to be a notational benchmark for languages and/or libraries/frameworks/toolkits with respect to GUI programming*", p. 114); na p. 104, o TodoMVC é o *notational benchmark* de um item só ("*a single and bigger one instead of a set of case studies*"). Daí o nome do conjunto, *benchmark* de notação (ADR 0034) | p. 8, 11, 104 e 114 (estas duas conferidas em 2026-10-14, p. 110 e 120 do PDF); o PDF saiu do ar e está no Wayback Machine (captura de 2018-05-06) |
 
-## 2. O 7GUIs e as interfaces
+## O 7GUIs e as interfaces
 
 - O 7GUIs saiu da dissertação (eugenkiss.github.io/7guis, página *More*,
   2026-09-28); na dissertação, as sete tarefas são os *case studies* do
@@ -84,7 +92,7 @@ coisa. Cópias locais em `tmp/fontes/`, fora do git.
   células; nenhuma tarefa divide o estado entre componentes separados da
   tela, como o Carrinho.
 
-## 3. As DCs de Kiss e as oito do TCC
+## As DCs de Kiss e as oito do TCC
 
 Seis das oito DCs de `cases.org` são o subconjunto de Kiss (p. 12-14).
 Ele deixou de fora compromisso prematuro, expressividade, consistência,
@@ -97,11 +105,13 @@ escolhido para que a comparação não fosse "dominated by unimportant
 toolkit differences" (p. 11), e o Scala é "syntactically not too distant
 from Java" (p. 12). Errata 2026-09-29: esta seção dizia que "as notações
 do TCC diferem mais que JavaFX e ScalaFX", sem fonte; a razão das duas
-DCs a mais está na seção 4. O texto de `cases.org` sobre as dimensões é
-tradução de Kiss (p. 12-15) sem atribuição impressa, só num comentário
-Org.
+DCs a mais está na seção "Expressividade e operações mentais difíceis
+nas fontes". O texto de `cases.org` sobre as dimensões é tradução de
+Kiss (p. 12-15) sem atribuição impressa, só num comentário Org.
 
-## 4. Expressividade e operações mentais difíceis nas fontes (lidas em 2026-09-28)
+## Expressividade e operações mentais difíceis nas fontes
+
+Lidas em 2026-09-28.
 
 Conclusão: as duas DCs a mais se justificam pela condição do próprio Kiss
 (as cinco que ele deixou de fora serviriam se as notações fossem muito mais
@@ -141,7 +151,9 @@ agente principal, e "subagente", só pela leitura do subagente. Cópias em
 Objeções que o texto enfrenta: a escolha prévia do subconjunto (Britton e
 Kutar; Ledo) e o compromisso prematuro, ambos nas limitações.
 
-## 5. Programas de brinquedo: isolar uma escolha e o limite do tamanho (lidos em 2026-10-08)
+## Programas de brinquedo: isolar uma escolha e o limite do tamanho
+
+Lidos em 2026-10-08.
 
 Conclusão: o programa pequeno serve para isolar uma escolha de projeto e
 comparar as versões (Green e Blackwell 1998), mas é artificial e não
@@ -156,13 +168,13 @@ página é a impressa.
 |---|---|---|---|
 | Green e Blackwell 1998 (tutorial, fora do `.bib`) | "Toy applications (widgets) have been used for several reasons: a single design choice can be isolated and its consequences compared in alternative versions; [...] exploring and analysing a full-scale application would take too long for class use." | p. 62 | método: interfaces pequenas isolam a notação (intro.org, §16 e §21); candidata depois da checagem de 2026-10-08 |
 | Green e Blackwell 1998 | a parte 3 traz "interactive toy examples, designed to illustrate differences between design decisions and how one cognitive dimension can be traded against another" | p. 2 | idem |
-| Stol e Fitzgerald 2018 (fora do `.bib`; seção 1) | a artificialidade situacional "refers to the elements of the experimental design, such as the subjects (e.g., the use of students) and tasks and settings (e.g., toy systems)" | p. 11:10 | limitações: "As tarefas são pequenas" (intro.org, §29); candidata |
+| Stol e Fitzgerald 2018 (fora do `.bib`; seção "O rótulo do método: avaliação de um conjunto de interfaces, não estudo de caso") | a artificialidade situacional "refers to the elements of the experimental design, such as the subjects (e.g., the use of students) and tasks and settings (e.g., toy systems)" | p. 11:10 | limitações: "As tarefas são pequenas" (intro.org, §29); candidata |
 | Runeson e Höst 2009 (`runeson2009`) | os estudos "range from very ambitious and well organized studies in the field, to small toy examples that claim to be case studies" | p. 132 | por que o trabalho não é estudo de caso |
 | Runeson e Höst 2009 | "Studies on 'toy programs' or similarly are of course excluded due to its lack of real-life context." | p. 139 | idem; em 2026-10-10, fora de `texto/intro.org`, que cita Runeson e Höst só na p. 135 |
-| Van Roy e Haridi 2004 (`vanroy2004`) | "This approach, defining new concepts and their proof rules, is the way to go for practical reasoning about stateful programs. Always staying at the kernel language level is much too verbose for all but toy programs." | p. 448 | abstração acima dos conceitos; o CTM chama aqui de "new concepts" as construções que na p. 38-40 são abstrações linguísticas (`docs/paradigma-modelo-e-notacao.md`, seção 9.1) |
+| Van Roy e Haridi 2004 (`vanroy2004`) | "This approach, defining new concepts and their proof rules, is the way to go for practical reasoning about stateful programs. Always staying at the kernel language level is much too verbose for all but toy programs." | p. 448 | abstração acima dos conceitos; o CTM chama aqui de "new concepts" as construções que na p. 38-40 são abstrações linguísticas (`docs/paradigma-modelo-e-notacao.md`, seção "Van Roy: conceito, paradigma, modelo") |
 | Van Roy 2009 (`vanroy2009`) | "All but the smallest toy problems require different sets of concepts for different parts." | p. 10 | já citado em intro.org (§9) |
 
-## 6. Blackwell, Petre e Church 2019 (`blackwell2019`)
+## Blackwell, Petre e Church 2019 (`blackwell2019`)
 
 Lidas em 2026-10-03 só as partes sobre as DCs, a avaliação de notações e
 os paradigmas (o artigo inteiro foi varrido pelo subagente). Página
@@ -185,26 +197,19 @@ agente principal. Cópias em `tmp/fontes/`, fora do git.
 | "Clarke's application of Cognitive Dimensions of Notations to the design of languages (Clarke, 2006) and APIs (Stylos et al., 2001) at Microsoft" | p. 60 | conferido | precedente de DCs aplicadas a linguagens e APIs; o trecho não diz se houve usuários |
 | O apelo por "randomised control trials" (Stefik e Hanenberg 2017) e o ceticismo (Lewis 2017) "about the appropriateness of underpinning a complex design process with this naive empiricism" | p. 60 | conferido | limitações: por que análise e não experimento, com as duas posições |
 
-## 7. Escrita da introdução (lidas em 2026-10-02)
+## O alcance das DCs
 
-Fontes sobre a forma da introdução e da justificativa, e não sobre o
-tema. "Conferido": lido no PDF pelo agente principal. Cópias em
-`tmp/fontes/`, fora do git.
+Trechos que saíram da introdução em 2026-10-03, guardados em
+`docs/fundamentacao.md` até 2026-10-15.
 
-| Fonte | Trecho | Onde | Leitura |
-|---|---|---|---|
-| Anthony 1999 (IEEE TPC 42(1)) | Introduções de engenharia de software são longas e alternam território e nicho "piece by piece"; definições e exemplos depois do movimento 1 | p. 42-44 | conferido |
-| Anthony 1999 | Passo "Evaluation of Research" no movimento 3, em todas as 12 introduções: aplicabilidade (58% do passo) e novidade (24%, em 7 das 12), dita como "differs from", "unique", "extends" | p. 44 | conferido |
-| Posteguillo 1999 (ESP 18(2)) | Em 40 artigos de computação: lacuna (1B) em 57,5%, contra-argumento (1A) em 2,5%, movimento 2 cíclico em 75%; estrutura do artigo bem-vinda | p. 142-144 | conferido |
-| Motta-Roth e Hendges 2010 | Justificativa do projeto: "demonstrar a relevância, a originalidade e/ou a aplicabilidade"; não prometer demais | p. 104 (PDF = página − 49) | conferido |
-| Motta-Roth e Hendges 2010 | CARS de Swales (1990, p. 141) em português: território, nicho, ocupar o nicho | p. 131-132 | conferido |
-| Motta-Roth e Hendges 2010 | Razões pessoais, como preferência pelo tema, "não vêm ao caso" | p. 133 | conferido |
-| Prodanov e Freitas 2013 | Introdução da monografia: "o tema da monografia e a justificativa de sua escolha; a relevância e as contribuições para a área", e "as partes que compõem o trabalho" | p. 252 | conferido |
-| Prodanov e Freitas 2013 | Justificativa: "Razões de ordem teórica e os motivos de ordem prática"; "Mostrar a originalidade" | p. 82 | conferido |
-| Leal 2011 | A justificativa pode explicar "as possíveis contribuições" e "os aspectos inovadores do estudo, se for esse o caso" | p. 62 | conferido |
-| Wazlawick 2014 | "A justificativa vai dizer por que vale a pena buscar esse objetivo" (p. 38); o problema com "referência direta à bibliografia" de que não foi tratado, citando Chinneck (p. 39) | p. 38-39 | conferido |
+| Fonte | Trecho | Onde | Leitura | Uso |
+|---|---|---|---|---|
+| Blackwell e Green 2003 (`blackwell2003`) | "Despite being applicable to all types of information artifacts, this framework has come to prominence [...] in visual programming languages and environments" | p. 112 | conferido; era a nota fn:infoArtifactis | fundamentação das DCs; saiu da introdução em 2026-10-03 |
+| Blackwell 2026 (`blackwell2026`) | sítio de recursos sobre as DCs | — | — | saiu da nota fn:infoArtifactis em 2026-10-03 |
 
-## 8. Rodadas e crescimento do código (lidas em 2026-10-11)
+## Rodadas e crescimento do código
+
+Lidas em 2026-10-11.
 
 Conclusão: o desenho em rodadas tem precedente direto em Kiss (2014), que
 avaliou em três rodadas e propôs, como trabalho futuro, estender as
@@ -232,7 +237,9 @@ antes, em cada versão. Trechos conferidos no PDF; página impressa.
 | Blackwell e Green 2003 | seis atividades: incrementação, transcrição, modificação, *design* exploratório, busca, compreensão exploratória (tabela 5.1) | p. 113 | a primeira rodada lê; a segunda e a terceira rodada modificam |
 | Berry e Serrano 2020 | quarentena acrescentada ao login; em JavaScript, "Almost all the initial implementation components need to be modified and re-tested" | p. 539 | um requisito de orquestração acrescentado depois |
 
-## 9. As 14 DCs canônicas (levantadas em 2026-10-11)
+## As 14 DCs canônicas
+
+Levantadas em 2026-10-11.
 
 Conclusão: o conjunto canônico tem 14 DCs, as 13 de Green e Petre (1996,
 p. 138-139) mais a provisoriedade, do tutorial de 1998 (p. 11); o "13"
@@ -267,7 +274,9 @@ subagente.
   *free rides*, *lability*, *permissiveness* (Blackwell et al. 2001,
   p. 335-336); *penetrability* (Green et al. 2006, p. 336-337).
 
-## 10. Requisitos típicos de interface para a segunda rodada (pesquisa de 2026-10-11)
+## Requisitos típicos de interface para a segunda rodada
+
+Pesquisa de 2026-10-11.
 
 Conclusão: literatura, repositórios e comunidades convergem nos
 requisitos de orquestração da Busca: esperar a pausa, cancelar a
@@ -294,7 +303,9 @@ reconferidos.
   formulário (State of React 2025); combobox/autocompletar, 32,1% no State
   of HTML 2025; desfazer, no máximo 35 votos.
 
-## 11. O que muda entre rodadas: vocabulário (levantado em 2026-10-12)
+## O que muda entre rodadas: vocabulário
+
+Levantado em 2026-10-12.
 
 Conclusão: nenhuma fonte do TCC tem uma palavra só para "o resultado
 mudou entre condições", e por isso o trabalho descreve, com particípios:
@@ -322,7 +333,9 @@ lista.
   Sullivan 1995). A replicação em engenharia de software só tem
   "confirma", "confirma em parte" e "não confirma".
 
-## 12. *Benchmark* de notação e requisitos da segunda rodada (protótipos de 2026-10-12)
+## *Benchmark* de notação e requisitos da segunda rodada
+
+Protótipos de 2026-10-12.
 
 Conclusão: o conjunto antigo deixava a orquestração de eventos só na
 Busca, e o Contador e a Lista não traziam exigência própria; protótipos em
@@ -366,8 +379,9 @@ higher", dependências ocultas e propensão a erros "reduced"). Foi
 considerado e recusado como molde para tirar tecnologias da análise
 principal (ADR 0013).
 
+## Como as fontes aplicaram as DCs a código, e as armadilhas
 
-## 13. Como as fontes aplicaram as DCs a código, e as armadilhas (lidas em 2026-10-13)
+Lidas em 2026-10-13.
 
 Conclusão: nenhuma fonte traz um protocolo para um especialista ler
 código-fonte de interface gráfica dimensão por dimensão. O mais próximo
@@ -377,15 +391,16 @@ usuários, com perguntas abertas por dimensão presas a um cenário; Kiss
 dimensão, as versões lado a lado); Blackwell e Green (2003) dão os passos
 e a regra de que nenhuma dimensão é boa ou má fora da atividade. O
 procedimento da skill `avaliacao-pelas-dcs` (tcc-4a9) sai daqui, e as
-armadilhas dela, das seções 13.3 e 13.4. Levantamento de quatro
-subagentes; todos os trechos da tabela foram conferidos no PDF pelo
-agente principal, com a página impressa. Cópias em `tmp/fontes/`, fora do
-git: as publicadas são `green1996-usability-analysis-...pdf` (JVLC,
-p. 131-174; `greenpetre1996.pdf` e `green1996.pdf` são o manuscrito, com
-outra paginação) e `blackwell2003-notational-systems-...pdf` (p. 103-133;
-`blackwell2003.pdf` é o manuscrito).
+armadilhas dela, das seções "Armadilhas declaradas pelas fontes" e
+"Armadilhas do próprio trabalho". Levantamento de quatro subagentes;
+todos os trechos da tabela foram conferidos no PDF pelo agente
+principal, com a página impressa. Cópias em `tmp/fontes/`, fora do git:
+as publicadas são `green1996-usability-analysis-...pdf` (JVLC, p.
+131-174; `greenpetre1996.pdf` e `green1996.pdf` são o manuscrito, com
+outra paginação) e `blackwell2003-notational-systems-...pdf` (p.
+103-133; `blackwell2003.pdf` é o manuscrito).
 
-### 13.1 Procedimento
+### Procedimento
 
 | Fonte | Trecho | Onde | Uso na skill |
 |---|---|---|---|
@@ -406,9 +421,11 @@ outra paginação) e `blackwell2003-notational-systems-...pdf` (p. 103-133;
 | idem | o que interessa é "the comparison between what developers expect and what the API provides"; alguns achados "require a better understanding of what users expect" | sem página | limite da leitura sem usuários |
 | Clarke e Becker 2003 | "We go through each of the dimensions and describe the major findings from the study in terms of these dimensions" | p. 365 | a revisão por DC; lá sobre dados de participantes gravados ("We videotape each participant", p. 365) |
 | Sadowski e Kurniawan 2011 | cinco avaliadores, "a short lecture on heuristic evaluation" e uma planilha (p. 10); a escala de severidade de Nielsen descartada, porque os avaliadores "did not find the scale to be helpful" (p. 11) | p. 10-11 | a revisão registra apontamentos em texto, sem nota |
-| Mernik et al. 2009 | os autores ligaram depois cada pergunta do questionário de compreensão às dimensões: "The next step was to connect cognitive dimensions with our questions" | p. 188 | o número por dimensão de Mernik não mede a dimensão (seção 4) |
+| Mernik et al. 2009 | os autores ligaram depois cada pergunta do questionário de compreensão às dimensões: "The next step was to connect cognitive dimensions with our questions" | p. 188 | o número por dimensão de Mernik não mede a dimensão (seção "Expressividade e operações mentais difíceis nas fontes") |
 
-### 13.2 A API como notação (tcc-fua)
+### A API como notação
+
+Para a tarefa tcc-fua.
 
 Clarke e Becker (2003, p. 359) adaptam as DCs a uma biblioteca de
 classes e reescrevem cada dimensão como pergunta sobre a API (p. 364-365),
@@ -445,7 +462,7 @@ cabeçalho diz p. 275-289, e o PDF tem oito páginas).
 
 Nenhuma das fontes lidas usa modelo de linguagem para aplicar as DCs.
 
-### 13.3 Armadilhas declaradas pelas fontes
+### Armadilhas declaradas pelas fontes
 
 | Armadilha | Trecho | Onde |
 |---|---|---|
@@ -469,13 +486,13 @@ Nenhuma das fontes lidas usa modelo de linguagem para aplicar as DCs.
 | atribuir ao modelo o que é da tecnologia | "Counter showed that tiny programs are dominated by the toolkit" | Kiss 2014, p. 56 |
 | pesar as dimensões sem dizer o peso | a melhora "depends on which dimensions one places the most value" | Kiss 2014, p. 74 |
 | contar o mesmo fato em várias dimensões | a lista do `createXBinding` "must be listed explicitly which makes them visible" nas dependências ocultas (p. 28) e é a "subtle repition of dependencies" da viscosidade (p. 29) | Kiss 2014, p. 28-29 |
-| tomar o idioma de quem escreveu pelo da notação | a expressividade de papel é "generally dependent on the way in which the specifier uses the notation" | Kutar, Britton e Wilson 2000, p. ix da cópia (seção 4) |
+| tomar o idioma de quem escreveu pelo da notação | a expressividade de papel é "generally dependent on the way in which the specifier uses the notation" | Kutar, Britton e Wilson 2000, p. ix da cópia (seção "Expressividade e operações mentais difíceis nas fontes") |
 | a dimensão deixada de fora volta por outra porta | Kiss tira a consistência (p. 15) e depois julga o nível de abstração melhor porque a solução "is more consistent" | Kiss 2014, p. 76 |
 | autoavaliação do próprio artefato | Narechania et al. e Verma et al. avaliam a própria biblioteca num subconjunto que eles escolhem | Narechania et al. 2025, p. 7; Verma et al. 2026, p. 6 do PDF |
 | conclusão pela média de uma pergunta | "can be extremely risky" | Mernik et al. 2009, p. 187 |
 | familiaridade desigual com as notações | "Uneven knowledge on both notations could have influence on comparison results" | Mernik et al. 2009, p. 184 |
 
-### 13.4 Armadilhas do próprio trabalho
+### Armadilhas do próprio trabalho
 
 Leitura do agente, sem fonte que as declare; a skill as lista como do
 trabalho:

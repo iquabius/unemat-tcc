@@ -86,5 +86,6 @@ Fontes: 7GUIs (`kiss2014`, p. 56 e 77); Berry e Serrano (2020); Meijer
 (2012); protótipos e medidas de 2026-10-12 em
 `tmp/mergulho-tarefas-2026-10-12/` e `tmp/prototipos-tarefas-2026-10-12/`,
 e de 2026-10-13 em `tmp/prototipos-placar-2026-10-13/` (fora do git);
-`docs/metodo-da-avaliacao.md`, seções 10 e 12; commit `25cf4dd`; tarefa
-tcc-dw83.
+`docs/metodo-da-avaliacao.md`, seções "Requisitos típicos de interface
+para a segunda rodada" e "*Benchmark* de notação e requisitos da segunda
+rodada"; commit `25cf4dd`; tarefa tcc-dw83.

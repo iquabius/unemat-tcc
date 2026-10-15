@@ -155,7 +155,8 @@ seção "Swing × JavaFX").
 
 Leitura de subagentes durante a revisão do *benchmark* de notação, sem
 teste que a confirme. As medidas dos protótipos estão em
-`docs/metodo-da-avaliacao.md`, seção 12.
+`docs/metodo-da-avaliacao.md`, seção "*Benchmark* de notação e
+requisitos da segunda rodada".
 
 - **A rotação perde o estado de modos diferentes no Android**
   (dependências ocultas, propensão a erros): no Compose, o Formulário

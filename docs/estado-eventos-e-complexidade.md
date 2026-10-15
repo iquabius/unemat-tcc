@@ -29,9 +29,9 @@ quem mais a gera, está na origem do problema de pesquisa.
 data; "subagente", só pela leitura de um subagente. As cópias ficam em
 `tmp/fontes/`, fora do git.
 
-## 1. Estado
+## Estado
 
-### 1.1 Definição e contraste, revisados por pares
+### Definição e contraste, revisados por pares
 
 | Para quê | Fonte | Página | Trecho | Leitura |
 |---|---|---|---|---|
@@ -53,7 +53,7 @@ esquemas de execução delas: no texto, a definição vale para o programa
 orientado a eventos, e não para todo programa. "Memory" é a palavra
 coloquial da própria figura.
 
-### 1.2 Explicações coloquiais, sem revisão por pares
+### Explicações coloquiais, sem revisão por pares
 
 | Fonte | Página | O que explica | Leitura |
 |---|---|---|---|
@@ -65,9 +65,9 @@ coloquial da própria figura.
 | Van Roy 2009 | 26-27 | o estado introduz o tempo: o organismo cresce e aprende, e o mesmo estímulo, em momentos diferentes, provoca reações diferentes | subagente |
 | Van Roy e Haridi 2004 (`vanroy2004`), MIT Press | 405, 406 e 408 | o estado dá "a long-term memory, a 'sense of history'" (p. 405); por tradição, declarativo é *stateless* e imperativo *stateful* (p. 406); "A state is a sequence of values in time that contains the intermediate results of a desired computation" (p. 408) | subagente |
 | Krishnamurthi e Fisler 2019 (`krishnamurthi2019`), capítulo de *handbook* | versão dos autores, p. 5, 9 e 10 | as variáveis como "boxes"; "State introduces time and ordering"; na planilha, "the program expresses dependencies but the language handles updating the values of variables" | subagente; numeração do livro (377-413) não conferida |
-| Moseley e Marks 2006 (`moseley2006`), manuscrito | 6, 16-17, 23 e 25 | seção 3 | conferido em 2026-10-14 |
+| Moseley e Marks 2006 (`moseley2006`), manuscrito | 6, 16-17, 23 e 25 | seção "Complexidade: Moseley e Marks, e Brooks" | conferido em 2026-10-14 |
 
-### 1.3 Pela cozinha
+### Pela cozinha
 
 Explicação para o leitor que não programa, montada sobre Blackheath e
 Jones (2016) e Benveniste et al. (2003):
@@ -92,9 +92,9 @@ Jones (2016) e Benveniste et al. (2003):
   muda quem escreve a ordem das alterações, o programador ou o ambiente
   de execução (`CONTEXT.md`, "Atualização").
 
-## 2. Eventos
+## Eventos
 
-### 2.1 De onde vêm
+### De onde vêm
 
 | Fonte | Página | Trecho | Leitura |
 |---|---|---|---|
@@ -108,14 +108,17 @@ da UFU) e 19 vezes no MDN em pt-BR, contra nenhuma de "resposta da rede"
 fora de tradução automática (busca de 2026-10-14, por subagentes). A
 tradução do React em pt-BR usa "resposta de rede".
 
-### 2.2 *Callbacks*, eventos e *promises*: fontes da justificativa (levantadas em 2026-10-02)
+### *Callbacks*, eventos e *promises*: fontes da justificativa
+
+Levantadas em 2026-10-02.
 
 Estado em 2026-10-10: `texto/intro.org` cita Myers (1994), Fischer,
 Majumdar e Millstein (2007), Blackheath e Jones (2016), Edwards (2009),
 Gallaba, Mesbah e Beschastnikh (2015) e Madsen, Lhoták e Tip (2017), com
 os trechos que sustentam as frases em `texto/fontes/<chave>.org`. Maier,
 Rompf e Odersky (2010), Gallaba et al. (2017), Alimadadi et al. (2018) e
-o dado da Adobe (seção 2.3) saíram do texto e ficam aqui.
+o dado da Adobe (seção "A cadeia do dado da Adobe") saíram do texto e
+ficam aqui.
 
 Em 2026-10-02, a crítica ao *callback* na introdução se apoiava em quem
 diz cada coisa (Fischer et al. a complexidade, Blackheath e Jones a
@@ -142,7 +145,7 @@ al. 2023 foi baixada pelo autor.
 | Gallaba et al. 2017 (`gallaba2017`) | Async e await "allow a linear programming style"; refatoração de callbacks em promises | p. 362, calculada (cópia sem paginação) | conferido |
 | Alimadadi et al. 2018 (`alimadadi2018`) | Promises evitam o callback hell, mas "the intricate control- and data-flow present in promise-based code hinders program comprehension and can easily lead to bugs" | p. 162:1 (PACMPL, artigo 162) | conferido |
 
-### 2.3 A cadeia do dado da Adobe
+### A cadeia do dado da Adobe
 
 | Fonte | O que diz | Onde | Leitura |
 |---|---|---|---|
@@ -158,7 +161,7 @@ O dado da Adobe saiu da introdução em 2026-10-09, e Oney, Myers e Brandt
 2026-10-01). O "ciclo do produto" do texto antigo vinha dos slides de
 Parent, que Edwards não reproduz.
 
-### 2.4 Outras fontes sobre eventos
+### Outras fontes sobre eventos
 
 | Fonte | O que traz | Leitura |
 |---|---|---|
@@ -170,9 +173,42 @@ Parent, que Edwards não reproduz.
 | Já no `refs.bib`: Kambona et al. 2013, Salvaneschi e Mezini 2016, Zimmerle e Gama 2025 (e a tese de Lima 2024) | PR e promises contra o "asynchronous spaghetti"; falta de depuração para PR; usabilidade de APIs de PR | resumo (subagente) |
 | Berry e Serrano 2020 (`berry2020`), PLDI | num formulário de *login* em JavaScript, as variáveis globais de estado criam "invisible global control states" | p. 535, subagente |
 
-## 3. Complexidade: Moseley e Marks, e Brooks
+## Coordenação, orquestração e estado nas fontes
 
-### 3.1 Moseley e Marks (2006)
+Levantados em 2026-10-11.
+
+Conclusão: "coordenar" cobre, nas fontes de interface gráfica, tanto os
+eventos quanto o estado, e por isso serve de guarda-chuva; "orquestrar" é
+sempre sobre eventos; o estado tem dois nomes, "change propagation" ou
+"management of state changes" nos artigos de PR, e "state management" nos
+estudos sobre React, RxJS e Redux. Decisão do autor em 2026-10-11, para o
+`CONTEXT.md` depois da orientação: a exigência de coordenação é o
+guarda-chuva, com dois eixos, a orquestração de eventos e o gerenciamento
+de estado; "tratamento de eventos" não serve de eixo, porque é
+vocabulário do imperativo (relatório do autor em
+`tmp/relatorio-termos-e-coordenacao.md`). Conferidos no PDF: Meijer,
+Bainomugisha et al. e Kiss; o resto por subagente.
+
+| Fonte | Trecho ou termo | Onde | Eixo |
+|---|---|---|---|
+| Meijer 2012 | "coordinate and orchestrate event-based and asynchronous computations" | p. 67 | eventos |
+| Bainomugisha et al. 2013 | "coordinate multiple events"; "coordinating callbacks [...] numerous isolated code fragments can be manipulating the same data"; "management of state changes and data dependencies" | p. 2 | os dois, lado a lado |
+| Edwards 2009 | "carefully coordinate actions to manage their side effects upon each other" | p. 925 | os dois |
+| Edwards 2009 | o imperativo obriga a "orchestrate" a ordem exata dos eventos | p. 928 | eventos |
+| Kiss 2014 | os *callbacks* trazem a inversão de controle e a gestão manual das alterações de estado e das dependências | p. 59 | os dois |
+| Kiss 2014 | "uncoordinated state changes" | p. 101 | estado |
+| Salvaneschi et al. 2017 | "Abstraction over change propagation"; "Favoring data flow over control flow" | p. 2 | estado; os dois |
+| Berry e Serrano 2020 | as linguagens de fluxo de dados não resolvem as "control-based orchestration issues"; "managing the states of web applications" é o objetivo de Flux e Redux | p. 544 | separa os dois |
+| Moseley e Marks 2006 | estado e controle como as duas causas de complexidade | p. 8, 11 | os dois, fora de interface |
+| Adya et al. 2002 | "two-axis space" (*task* × *stack management*) | PDF p. 2-3 | eixos cruzados, fora de interface |
+
+Nenhuma fonte de interface gráfica diz que um eixo atravessa o outro;
+chamar os dois de cruzados é síntese do trabalho, com Moseley e Marks e
+Adya et al. como precedentes de fora.
+
+## Complexidade: Moseley e Marks, e Brooks
+
+### Moseley e Marks (2006)
 
 "Out of the Tar Pit" é um manuscrito de 2006-02-06 que acompanhou o
 *workshop* "Functional Relational Programming" do BCS SPA 2006, sem
@@ -192,7 +228,7 @@ revisão por pares. O argumento, conferido no PDF em 2026-10-14:
 Os trechos de `prog.org` sobre a ordem fixada pela linguagem (p. 8-9) e
 as causas da complexidade (p. 1) estão em `texto/fontes/moseley2006.org`.
 
-### 3.2 Os dois textos de Brooks
+### Os dois textos de Brooks
 
 Frederick P. Brooks Jr. (1931-2022) gerenciou na IBM, nos anos 1960, o
 System/360 e o sistema operacional dele, o OS/360, fundou o departamento
@@ -231,7 +267,7 @@ O título traduzido que conserva a alusão e o movimento do "out of" é
 del pozo de brea"). Como o artigo não tem tradução publicada, a
 referência fica com o título em inglês.
 
-### 3.3 Uma peça possível para o problema da introdução
+### Uma peça possível para o problema da introdução
 
 A cadeia, com o elo que falta apoio revisado:
 
@@ -251,17 +287,7 @@ A cadeia, com o elo que falta apoio revisado:
    dependência da ordem, e o de Järvi et al., que põe os defeitos no
    código que coordena eventos.
 
-## 4. Lacuna e pergunta
-
-Ficam em `texto/intro.org`, na seção dos trabalhos relacionados: a lacuna
-("Nenhum desses trabalhos compara, sobre as mesmas interfaces e em
-tecnologias web, os três modelos de programação", apoiada na revisão por
-palavras-chave e *snowballing*, Wohlin 2014) e a pergunta P1, sobre como
-difere, pelas DCs, a usabilidade da notação entre os três modelos. Os
-candidatos e os trechos dos trabalhos relacionados estão em
-`docs/trabalhos-relacionados-e-lacuna.md`.
-
-## 5. Pendências
+## Pendências
 
 - Entram no `refs.bib`, se o texto os citar: Mandel e Pouzet (2005),
   Kamina e Aotani (2018), Van Roy (2020, PACMPL, DOI 10.1145/3386333) e

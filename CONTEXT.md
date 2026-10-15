@@ -310,7 +310,8 @@ a especificação de uma interface nova, cada funcionalidade e requisito de
 orquestração da segunda rodada, e as correções da primeira, como a retirada da espera da
 Busca. É o termo da engenharia de software em português para *change*
 (gerência de mudanças, análise de impacto de mudanças) e o da viscosidade,
-"resistência à mudança" (`docs/paradigma-modelo-e-notacao.md`, seção 11).
+"resistência à mudança" (`docs/paradigma-modelo-e-notacao.md`, seção
+"Mudança, alteração e modificação").
 _Avoid_: alteração (é a do estado; o Git, o VS Code e o GitHub em
 português chamam assim o que entra num commit, e o trabalho diz commit);
 modificação (a atividade das DCs); acréscimo (não cobre a reescrita da

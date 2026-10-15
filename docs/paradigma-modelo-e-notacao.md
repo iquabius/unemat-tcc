@@ -20,7 +20,8 @@ tecnologia, e atravessam os modelos de programação.
 
 Estado das fontes. Todas as páginas citadas aqui foram conferidas no PDF
 em 2026-10-08 (relatórios em `tmp/buscas-2026-10-08/conferencia-*.md`,
-fora do git) ou em 2026-10-03 (seção 9), salvo as marcadas:
+fora do git) ou em 2026-10-03 (seção "Trechos das fontes"), salvo as
+marcadas:
 
 - **cópia**: a página é a da versão do autor ou da pré-publicação que
   está em `tmp/fontes/`, e não a da versão publicada (tarefa "Conferir nas
@@ -31,9 +32,9 @@ fora do git) ou em 2026-10-03 (seção 9), salvo as marcadas:
 
 As páginas web das documentações foram consultadas na data indicada. A
 página citada é a impressa; a relação com a página do PDF de cada fonte
-está no início da seção 9.
+está no início da seção "Trechos das fontes".
 
-## 1. As camadas
+## As camadas
 
 Do mais abstrato ao mais concreto:
 
@@ -43,7 +44,7 @@ Do mais abstrato ao mais concreto:
 | Modelo de computação | "a formal system that defines a language and how sentences of the language [...] are executed by an abstract machine" | Van Roy e Haridi 2004, p. 29 | o mesmo nas cinco tecnologias web (TypeScript) |
 | Modelo de programação | "the programming techniques and design principles made possible by the computation model"; "always built on top of a computation model" | Van Roy e Haridi 2004, p. xiii e 29 | o que se compara: o modo de coordenar evento, estado e tela |
 | Arquitetura, padrão | a organização da aplicação (MVC, MVU) ou de uma relação entre objetos (*Observer*) | Sperber e Schlegel 2025, p. 28 e 32; Van Roy e Haridi 2004, p. 534 (padrão de projeto) | vizinho: organiza a aplicação, e não o modo de escrever o estado, os derivados e a tela |
-| Tecnologia | o produto que se instala, que a documentação chama de biblioteca, *framework*, *toolkit* ou plataforma | seção 4 | Web Component, jQuery, React, Solid, Angular; Views e Compose |
+| Tecnologia | o produto que se instala, que a documentação chama de biblioteca, *framework*, *toolkit* ou plataforma | seção "Os vizinhos: biblioteca, *framework*, *toolkit*, documentações" | Web Component, jQuery, React, Solid, Angular; Views e Compose |
 | Notação | "the perceived marks or symbols that are combined to build an information structure"; "what the user sees and edits" | Green e Blackwell 1998, p. 8; Blackwell e Green 2003, p. 114 | a forma escrita de um modelo de programação numa tecnologia |
 | Abstração | o que "changes the notation", quase sempre por expansão; a linguística ganha sintaxe própria, traduzida para a linguagem núcleo | Green e Blackwell 1998, p. 24; Van Roy e Haridi 2004, p. 38-40 | o *callback* registrado, o componente reexecutado, o *signal*, o *hook* |
 
@@ -57,9 +58,10 @@ Regras de vocabulário que decorrem da tabela:
   "notation" no sentido de linguagem, e o TCC a usa só no sentido das
   DCs;
 - "paradigma" não nomeia o que se compara, embora a documentação do
-  Android em português chame assim o declarativo (seção 4).
+  Android em português chame assim o declarativo (seção "Os vizinhos:
+  biblioteca, *framework*, *toolkit*, documentações").
 
-## 2. Unidade comparada e evidência: o TCC compara categorias
+## Unidade comparada e evidência: o TCC compara categorias
 
 Uma pergunta comparativa pelas DCs diz duas coisas: a **unidade
 comparada**, que vira coluna na tabela-síntese e de que fala a
@@ -105,7 +107,7 @@ existem para que a categoria possa ser comparada: React × Solid escrevem
 a tela no mesmo JSX e têm modelos de programação diferentes; Solid ×
 Angular têm o mesmo modelo de programação e duas notações.
 
-## 3. As tecnologias por modelo de programação
+## As tecnologias por modelo de programação
 
 | Modelo de programação | Web | Android | Como coordena | Montagem da tela |
 |---|---|---|---|---|
@@ -135,7 +137,7 @@ listas de dependências do `useEffect` e do `useMemo` e as regras dos
 *hooks* no React; a leitura por chamada, a proibição de desestruturar
 `props`, `<Show>` e `<For>` no Solid.
 
-## 4. Os vizinhos: biblioteca, *framework*, *toolkit*, documentações
+## Os vizinhos: biblioteca, *framework*, *toolkit*, documentações
 
 "Modelo de programação" não é termo corrente nas disciplinas de
 graduação nem nas documentações. Explica-se por contraste com os
@@ -175,7 +177,9 @@ Solid e Angular se dizem *frameworks*. React e Compose são produtos de
 plataformas diferentes e têm o mesmo modelo de programação; React e
 Solid escrevem o mesmo JSX e têm modelos diferentes.
 
-### Como as documentações se chamam (consultadas em 2026-10-08)
+### Como as documentações se chamam
+
+Consultadas em 2026-10-08.
 
 - **React** (pt-br.react.dev, tradução oficial): "A biblioteca para web e
   interfaces de usuário nativas"; diz-se biblioteca porque "não prescreve"
@@ -248,7 +252,7 @@ Pontes possíveis para apresentar o termo:
 4. "arquitetura de interface" (MVC, MVU) para o que organiza a aplicação
    e não é modelo de programação.
 
-## 5. Por que o paradigma não é a unidade de comparação
+## Por que o paradigma não é a unidade de comparação
 
 Quatro argumentos, com as fontes que os afirmam:
 
@@ -263,7 +267,7 @@ Nenhum artigo revisado por pares de 2015 em diante afirma (a) como tese;
 as duas fontes que a afirmam com todas as letras são de Krishnamurthi.
 Para (c) há vários artigos revisados por pares recentes.
 
-## 6. Notação nas DCs: o que conta e onde as DCs param
+## Notação nas DCs: o que conta e onde as DCs param
 
 O que conta como notação:
 
@@ -327,7 +331,7 @@ Onde as DCs param:
   execução, e os autores admitem que com ela a concepção original "has
   been diluted" (Green et al. 2006, p. 351-352).
 
-## 7. Declarativo, imperativo e reativo
+## Declarativo, imperativo e reativo
 
 "Declarativo" é questão de grau: "not an absolute property, but a matter
 of degree", e os rótulos declarativo e imperativo "are not quite right"
@@ -402,7 +406,127 @@ al. (2013, p. 1, cópia) e Edwards (2009) dizem "interactive
 applications". A relação entre aplicação reativa e PR fica para a seção
 da PR no capítulo de programação.
 
-## 8. Tensões que o texto precisa enfrentar
+## Aplicação interativa e aplicação reativa
+
+Revisão de 2026-10-10.
+
+**Conclusão.** Não há consenso. A linhagem das linguagens síncronas, a
+PR e parte da IHC chamam de reativo o software de interface; o
+interativo ora é outra categoria (o sistema que dita o próprio ritmo,
+como o sistema operacional), ora o gênero de que o reativo é espécie,
+ora a espécie, ora sinônimo. O que sustenta "aplicação interativa" no
+TCC são três coisas:
+
+- o critério da restrição de tempo: a IHC chama de sistema interativo o
+  aplicativo com tela, que reage sem prazo imposto pelo ambiente, e diz
+  que segue a distinção da linhagem síncrona (Martin, Magnaudet e
+  Conversy 2023, p. 2 e 10-11, cópia);
+- a norma de IHC, que chama de sistema interativo os sites, os
+  aplicativos da web e os telefones celulares (ABNT NBR ISO
+  9241-210:2024, p. 1 e 3);
+- a polissemia de "reativo", que nomeia pelo menos três coisas em
+  pesquisa (Myter, Scholliers e De Meuter 2019, 5:1-5:2) e já nomeia um
+  dos modelos de programação comparados ("Common reactive systems like
+  React or Vue", Grolaux et al. 2026, p. 13).
+
+O texto precisa reconhecer que a linhagem síncrona chamaria essas
+aplicações de reativas (Harel e Pnueli 1985, p. 479; Berry 1989; Berry
+2000, p. 9-10; Halbwachs 1993, p. 1 e 6), e que a PR as põe entre as reativas (Salvaneschi et al. 2017,
+p. 1125; Kiss 2014, p. 5).
+
+Método: tarefa tcc-cfm. Quatro lotes de busca, um por comunidade
+(OpenAlex, Crossref, BDTD, SOL e *snowballing* das sementes), com os
+relatórios e os PDFs em `tmp/revisao-interativo-reativo-2026-10-10/`,
+fora do git. Só entram aqui os trechos conferidos no PDF pelo agente
+principal em 2026-10-10 (`conferencia.md` da mesma pasta); as 45 fontes
+sem acesso estão em `sem-acesso.md`. "Cópia" marca a página da versão
+do autor ou do preprint, e não a publicada.
+
+### Por comunidade
+
+Linguagens síncronas e métodos formais:
+
+| Fonte | O que diz | Critério | A interface gráfica | Onde |
+|---|---|---|---|---|
+| Harel e Pnueli 1985 (sem entrada) | "Our proposed distinction is between what we call transformational and reactive systems"; os reativos "are repeatedly prompted by the outside world and their role is to continuously respond to external inputs", de fornos de micro-ondas a "man/machine based software systems" e "computer operating systems"; "reactive systems can be required to respond in real-time or not" | responder continuamente ao ambiente, contra transformar entrada em saída | reativa; não há categoria "interativo", e o sistema operacional também é reativo | NATO ASI F13, p. 479-480, digitalização do autor |
+| Berry 1989 (`berry1989`) | "Interactive programs interact at their own speed with users or with other programs [...]. Reactive programs also maintain a continuous interaction with their environment, but at a speed which is determined by the environment"; os "man-machine interface handlers" são reativos sem ser de tempo real; menus e barras de rolagem são "reactive devices" que servem ao "interactive operating system" | quem dita o ritmo | reativa | relatório INRIA, cópia HAL sem paginação, p. 7 do PDF |
+| Berry 2000 (manual do Esterel v5, sem entrada) | interativos: "the computers can be viewed as the masters of the interaction", como os sistemas operacionais, os bancos de dados e a Internet; reativos: "purely input-driven", no ritmo do ambiente; um banco tem "reactive automatic teller machines and graphical user interfaces" | quem manda na interação | reativa | p. 9-10 |
+| Halbwachs 1993 (livro, sem entrada) | reativos se distinguem "from interactive systems, which continuously interact with their environment, but at their own rate (e.g., operating systems)"; exemplos de reativos incluem "man-machine interfaces"; "a reactive interface (keyboard, mouse, scrollbar) to call interactive services of the operating system" | ritmo e determinismo (p. 2) | reativa | p. 1, 2 e 6, cópia do autor |
+| Boussinot 1991 (sem entrada) | "Reactive systems are interactive programs that react continuously to sequences of activations coming from the external world"; "man–machine interface handlers or computer games fall into the category of reactive systems" | reação contínua | reativa, e o reativo é espécie do interativo | p. 401 |
+| Mandel e Pouzet 2005 (sem entrada) | ReactiveML serve "complex reactive systems as found in graphical user interfaces, video games or simulation problems"; o modelo reativo de Boussinot serviu a "complex interactive systems as found in graphical user interfaces, video-games or simulation problems"; "Synchronous languages are restricted to the domain of real-time systems" | o tempo real separa as linguagens síncronas estritas do modelo reativo, e não o reativo do interativo | reativa e interativa, sinônimos | PPDP, p. 82 |
+| Berry e Serrano 2020 (`berry2020`) | a tripartição revista: a programação web em JavaScript fica nos "asynchronous concurrent programs", e o reativo é o síncrono; aplicações em que "reactive aspects are as important as interactive ones" | sincronia e determinismo | a web fica fora do reativo síncrono | p. 533 |
+
+Linguagens de programação e PR:
+
+| Fonte | O que diz | Critério | A interface gráfica | Onde |
+|---|---|---|---|---|
+| Salvaneschi et al. 2017 (`salvaneschi2017`) | "Reactive applications represent a wide class of software that needs to continuously and interactively respond to internal or external stimuli", com "user-interactive software, like GUIs and Web applications"; "reactive applications are usually developed using the Observer design pattern" | resposta contínua a estímulos | reativa; o interativo é subconjunto | p. 1125 e 1127 |
+| Salvaneschi, Margara e Tamburrelli 2015 (`salvaneschi2015`) | a PR "supports the development of reactive applications"; a PFR nasceu "to support interactive animations" | | reativa | p. 953 |
+| Bainomugisha et al. 2013 (`bainomugisha2013`) | a PR serve a "event-driven and interactive applications"; "Such event-driven applications maintain continuous interaction with their environment" | interação contínua | interativa, sem contraste | 52:1-52:2, cópia |
+| Kiss 2014 (`kiss2014`) | "general challenges of reactive systems of which GUIs are a particular instance" | | reativa | p. 5-7 |
+| Krishnaswami 2013 (sem entrada) | "Interactive programs engage in an ongoing dialogue with the environment", de controladores embarcados a "graphical user interfaces"; o resumo diz "reactive systems" | diálogo contínuo | interativa e reativa, sinônimos | ICFP, p. 221 |
+| Bahr, Graulund e Møgelberg 2019 (sem entrada) | "Reactive programs are programs that engage in an ongoing dialogue with their environment [...]. Examples include GUIs, servers" | diálogo contínuo | reativa | PACMPL 3 (ICFP), p. 1 da cópia |
+| Lima 2024 (`lima2024`) | "event-driven applications, also called interactive or reactive applications (e.g., graphical user interface apps)"; "Reactive applications, also called interactive or event-driven" | | sinônimos | p. 17 e 25 |
+| Goldin e Wegner 2008 (sem entrada) | "graphical user interfaces, are interactive rather than algorithmic; their job is to provide ongoing services over time" | serviço contínuo contra o algoritmo que termina | interativa, por oposição ao algoritmo | *Minds and Machines* 18(1), p. 3 do manuscrito |
+| Van Roy e Haridi 2004 (`vanroy2004`) | "high-performance interactive systems"; "An interactive system, such as a computer game, should have a uniform reaction time" | | interativa | p. 174 |
+| Edwards 2009 (`edwards2009`) | "interactive applications (such as word processors or commercial web sites)"; "interaction is a side effect" | | interativa | p. 925 |
+
+IHC e normas:
+
+| Fonte | O que diz | Critério | A interface gráfica | Onde |
+|---|---|---|---|---|
+| ABNT NBR ISO 9241-210:2024 (sem entrada) | "sistema interativo: combinação de hardware e/ou software e/ou serviços e/ou pessoas com as quais os usuários interagem para alcançar objetivos específicos"; exemplos: "sites e aplicativos da web [...] telefones celulares" | o usuário interage para alcançar objetivos | interativa; a norma não usa "reativo" | p. 1 e 3 |
+| Martin, Magnaudet e Conversy 2023 (sem entrada) | "An interactive system reacts to events in the environment without time constraints, whereas reactive systems [react within a time limit set by the environment]"; "When we talk about interaction from the perspective of HCI, we refer to "interactive system" following that distinction"; Fig. 1: "Example of an interactive system: a drawing app" | restrição de tempo | interativa, por escolha declarada | *Minds and Machines*, p. 2 e 10-11, cópia |
+| Myers 1994 (`myers1994`) | interfaces são difíceis porque "they are reactive and must be programmed from the "inside-out""; seção "Reactive Programming"; "user interface software is reactive and often requires multiprocessing" | reage ao usuário | reativa | *interactions* 1(1), p. 75, 79 e 81 |
+| Béger, Leriche e Prun 2020 (sem entrada) | "Interactive systems are reactive computer systems that process information (mouse clicks, data entries, etc.) from their environment" | | interativa, como espécie de reativo | FMIS 2019, p. 1 da cópia |
+| Magnaudet et al. 2018 (sem entrada) | "Interactive software is widespread, from our daily-used smartphone's applications [...]. All these systems share a common feature: the need to continuously react" | | interativa, que reage | PACMHCI 2 (EICS), p. 1 da cópia |
+| Stehling e Liesenberg 1999 (sem entrada) | o Xchart descreve "o controle de diálogo da interface de um sistema interativo"; as instâncias "interagem entre si (subsistema reativo)" | | o sistema é interativo; o controle de diálogo, reativo | SBES, p. 172 e 176 |
+| Butterworth e Cooke 1996 (sem entrada) | "reactive" só no título; o texto fala de "interactive systems" | | interativa | BCS-FACS, p. 1 |
+
+Arquitetura de sistemas:
+
+| Fonte | O que diz | A interface gráfica | Onde |
+|---|---|---|---|
+| Bonér et al. 2014, *Reactive Manifesto* 2.0 (literatura cinza) | "Responsive, Resilient, Elastic and Message Driven. We call these Reactive Systems."; no glossário, o "user" é "any consumer of a service, be that a human or another service" | não fala da tela | página e glossário, acesso em 2026-10-10 |
+| Bonér et al. 2013, *Reactive Manifesto* 1.0 (literatura cinza) | "We call these Reactive Applications", com "highly interactive user experiences"; "Interactive" era um dos traços | a experiência do usuário entra como traço | PDF |
+| Myter, Scholliers e De Meuter 2019 (sem entrada) | "The term reactivity is popular in two areas of research: programming languages and distributed systems"; o desencontro das definições é um "mismatch" | a "mouse position" fica do lado da PR | *Programming* 3(3), 5:1-5:2 |
+| Lohstroh et al. 2020 (sem entrada) | Harel e Pnueli definem os reativos pela "ongoing interaction with their environments"; o Manifesto é "a revival of the concepts behind the Actor model"; a comunidade de PR cuida de "event-driven and interactive applications" | | LNCS, p. 1 e 20 da cópia |
+
+### As relações entre os dois termos
+
+- Reativo contém interativo: Salvaneschi et al. (2017), Béger, Leriche e
+  Prun (2020), Magnaudet et al. (2018).
+- Interativo contém reativo: Boussinot (1991).
+- Disjuntos, por quem dita o ritmo ou pela restrição de tempo: Berry
+  (1989; 2000), Halbwachs (1993), Martin, Magnaudet e Conversy (2023).
+- Sinônimos: Lima (2024), Krishnaswami (2013), Mandel e Pouzet (2005).
+- Interativo contra algorítmico, sem o reativo no meio: Goldin e Wegner
+  (2008).
+- "Reativo" fora do eixo da tela, como propriedade da arquitetura do
+  servidor: o Manifesto 2.0 e Myter, Scholliers e De Meuter (2019).
+
+### Pendências
+
+- Martin, Magnaudet e Conversy (2023, nota 4) atribuem a distinção entre
+  reativo e interativo, pelo tempo real, a Harel e Pnueli (1985) e a
+  Mandel e Pouzet (2005). Harel e Pnueli não a fazem: a dicotomia deles
+  é transformacional × reativo, o sistema operacional é reativo, e o
+  tempo real não é critério ("reactive systems can be required to respond
+  in real-time or not", p. 480; lido na digitalização em 2026-10-10). A
+  distinção com "interativo" vem de Berry (1989). Mandel e Pouzet (2005,
+  p. 82) também não a fazem: chamam as GUIs, os jogos e as simulações de
+  "complex reactive systems" no resumo e de "complex interactive systems"
+  na introdução, e o tempo real, para eles, separa as linguagens
+  síncronas estritas do modelo reativo de Boussinot. Citar a distinção
+  por Berry (1989), e o critério do tempo por Martin, Magnaudet e
+  Conversy (2023), como escolha deles.
+- Páginas publicadas por conferir: Bainomugisha et al. (2013), Bahr,
+  Graulund e Møgelberg (2019), Béger, Leriche e Prun (2020), Magnaudet
+  et al. (2018), Martin, Magnaudet e Conversy (2023), Lohstroh et al.
+  (2020), Goldin e Wegner (2008), Halbwachs (1993).
+- O `refs.bib` ganha entrada só para a fonte que o texto citar.
+
+## Tensões que o texto precisa enfrentar
 
 - **O mesmo texto, outra semântica.** O problema da ordem "is not in the
   text of the program" e está na semântica, e "the exact same program
@@ -416,7 +540,7 @@ da PR no capítulo de programação.
     estranha a operadores familiares, e Coblenz et al. (PLIERS, p. 41,
     cópia) propõem sintaxe distinta quando a semântica não coincide;
   - cada modelo de programação obriga a escrever o que o outro não pede
-    (seção 3);
+    (seção "As tecnologias por modelo de programação");
   - Salvaneschi et al. (2017, p. 15-16, cópia) fixam a linguagem
     hospedeira e separam as diferenças sintáticas das semânticas.
 - **Entre linguagens textuais muito parecidas, as DCs podem descrever o
@@ -463,13 +587,15 @@ al. 2020; Kaijanaho 2015; Nanz e Furia 2015; Sperber e Schlegel 2025;
 Wunder, Das e Gaboardi 2026; Coblenz et al. (PLIERS); du Boulay, O'Shea e
 Monk 1981; Sorva 2013.
 
-## 9. Trechos lidos em 2026-10-03
+## Trechos das fontes
+
+Lidos em 2026-10-03, salvo os da última subseção.
 
 Tabelas vindas de `docs/literatura.md`, seção 15, em 2026-10-08 (as
-subseções 9.1 a 9.5 eram 15.1 a 15.5). Na época, as fontes separavam o
-paradigma ou modelo de computação, um conjunto de conceitos, da notação
-em que se escreve (Van Roy 2009; Green e Petre 1996), com a abstração
-como ponte; as fontes de interface usam "paradigm" ao lado de
+subseções desta seção eram as 15.1 a 15.5 de lá). Na época, as fontes
+separavam o paradigma ou modelo de computação, um conjunto de conceitos,
+da notação em que se escreve (Van Roy 2009; Green e Petre 1996), com a
+abstração como ponte; as fontes de interface usam "paradigm" ao lado de
 "approach", "pattern" e "architecture", sem distinção. Todos os trechos
 lidos no PDF pelo agente principal; documentações lidas por WebFetch na
 data indicada. Cópias em `tmp/fontes/`, fora do git.
@@ -481,7 +607,7 @@ Schlegel 2025, impressa = PDF + 26; Grolaux et al. 2026, impressa = PDF + 6;
 Madsen et al. 2020, 12:PDF; Mernik et al. 2005, impressa = PDF + 315;
 Mernik et al. 2009 e Hudak 1996, página da cópia.
 
-### 9.1 Van Roy: conceito, paradigma, modelo
+### Van Roy: conceito, paradigma, modelo
 
 | Fonte | Trecho | Onde | Uso |
 |---|---|---|---|
@@ -506,7 +632,7 @@ Mernik et al. 2009 e Hudak 1996, página da cópia.
 | Van Roy et al. 2020 | QTk, "user interface toolkit": "A user interface is defined by a combination of declarative and imperative paradigms" | 83:33 | interface como combinação de paradigmas |
 | Van Roy et al. 2020 | "A linguistic abstraction is a construct that defines a syntax for an abstraction, i.e., a new programmer concept" | 83:38 | abstração linguística |
 
-### 9.2 DCs: notação, modelo e paradigma
+### DCs: notação, modelo e paradigma
 
 | Fonte | Trecho | Onde | Uso |
 |---|---|---|---|
@@ -516,7 +642,7 @@ Mernik et al. 2009 e Hudak 1996, página da cópia.
 | Green e Petre 1996 (`green1996d`) | "Designers of VPLs obviously need to choose a computational model and some type of visual 'language' [...] in which to represent that model. The cognitive dimensions framework has little to say about these high-level choices"; Prograph e LabVIEW, mesmo modelo e mesma representação, com "surface differences that greatly affect their assessment" | p. 139 | modelo × notação; precedente do delineamento |
 | Green e Petre 1996 | o mesmo modelo como "the dataflow paradigm" | p. 149 | modelo e paradigma como sinônimos |
 
-### 9.3 Como as fontes de interface nomeiam as três formas
+### Como as fontes de interface nomeiam as três formas
 
 | Fonte | Trecho | Onde | Uso |
 |---|---|---|---|
@@ -536,7 +662,7 @@ Mernik et al. 2009 e Hudak 1996, página da cópia.
 | Madsen et al. 2020 | "In React, the programmer cannot use these terms directly; they are part of the internals"; componentes de classe; "We omit lifecycle hooks" | 12:7 | o modelo fica abaixo da notação; sem *hooks* |
 | Madsen et al. 2020 | "the 'React model'"; "React Native lets programmers write native mobile applications" | 12:24 | "modelo" solto; "nativo" no celular |
 
-### 9.4 Linguagem embutida e biblioteca
+### Linguagem embutida e biblioteca
 
 | Fonte | Trecho | Onde | Uso |
 |---|---|---|---|
@@ -548,7 +674,9 @@ Mernik et al. 2009 e Hudak 1996, página da cópia.
 | Mernik et al. 2005 | "syntax is far from optimal because most languages do not allow arbitrary syntax extension" | p. 331 | custo do embutido |
 | Mernik et al. 2009 (`mernik2009`) | XAML ("domain specific notation") × C# Forms ("application library"), "both notations", avaliadas pelas DCs | p. 4-5 da cópia | uma notação por tecnologia (alternativa do ADR 0021) |
 
-### 9.5 Documentações (lidas em 2026-10-03)
+### Documentações
+
+Lidas em 2026-10-03.
 
 | Fonte | Trecho | Uso |
 |---|---|---|
@@ -562,38 +690,24 @@ Mernik et al. 2009 e Hudak 1996, página da cópia.
 | developer.android.com/compose e /jetpack | Compose, "Android's recommended modern toolkit for building native UI"; "Jetpack is a suite of libraries" | biblioteca; "nativo" no Android |
 | developer.android.com, *Layouts* | layouts com objetos `View` e `ViewGroup`, "an XML vocabulary"; "The Android framework" | plataforma Android |
 
-## 10. Coordenação, orquestração e estado nas fontes (levantados em 2026-10-11)
+### Re-renderização e atualização granular
 
-Conclusão: "coordenar" cobre, nas fontes de interface gráfica, tanto os
-eventos quanto o estado, e por isso serve de guarda-chuva; "orquestrar" é
-sempre sobre eventos; o estado tem dois nomes, "change propagation" ou
-"management of state changes" nos artigos de PR, e "state management" nos
-estudos sobre React, RxJS e Redux. Decisão do autor em 2026-10-11, para o
-`CONTEXT.md` depois da orientação: a exigência de coordenação é o
-guarda-chuva, com dois eixos, a orquestração de eventos e o gerenciamento
-de estado; "tratamento de eventos" não serve de eixo, porque é
-vocabulário do imperativo (relatório do autor em
-`tmp/relatorio-termos-e-coordenacao.md`). Conferidos no PDF: Meijer,
-Bainomugisha et al. e Kiss; o resto por subagente.
+Trechos que saíram da introdução ou não couberam nela, guardados em
+`docs/fundamentacao.md` até 2026-10-15.
 
-| Fonte | Trecho ou termo | Onde | Eixo |
-|---|---|---|---|
-| Meijer 2012 | "coordinate and orchestrate event-based and asynchronous computations" | p. 67 | eventos |
-| Bainomugisha et al. 2013 | "coordinate multiple events"; "coordinating callbacks [...] numerous isolated code fragments can be manipulating the same data"; "management of state changes and data dependencies" | p. 2 | os dois, lado a lado |
-| Edwards 2009 | "carefully coordinate actions to manage their side effects upon each other" | p. 925 | os dois |
-| Edwards 2009 | o imperativo obriga a "orchestrate" a ordem exata dos eventos | p. 928 | eventos |
-| Kiss 2014 | os *callbacks* trazem a inversão de controle e a gestão manual das alterações de estado e das dependências | p. 59 | os dois |
-| Kiss 2014 | "uncoordinated state changes" | p. 101 | estado |
-| Salvaneschi et al. 2017 | "Abstraction over change propagation"; "Favoring data flow over control flow" | p. 2 | estado; os dois |
-| Berry e Serrano 2020 | as linguagens de fluxo de dados não resolvem as "control-based orchestration issues"; "managing the states of web applications" é o objetivo de Flux e Redux | p. 544 | separa os dois |
-| Moseley e Marks 2006 | estado e controle como as duas causas de complexidade | p. 8, 11 | os dois, fora de interface |
-| Adya et al. 2002 | "two-axis space" (*task* × *stack management*) | PDF p. 2-3 | eixos cruzados, fora de interface |
+| Fonte | Trecho | Onde | Leitura | Uso |
+|---|---|---|---|---|
+| Sperber e Schlegel 2025 (`sperber2025`), FUNARCH | "Model-View-Update solves the Update challenge: A single function describes view construction, no separate logic for view update is needed." | p. 32 | conferido em 2026-10-09 | declarativos (intro.org, §9); fundamentação do MVU |
+| Sperber e Schlegel 2025 | "Modern OO toolkits like Angular, Svelte, and Vue.js have also attempted to solve the Update challenge [...]. However, instead of requiring the programmer to implement the update logic manually, these toolkits feature a pre-processor that generates the update code automatically from the construction code." | p. 32 | conferido em 2026-10-09 | declarativos (intro.org, §9); Svelte e Vue como candidatos (tcc-4ie) |
+| Sperber e Schlegel 2025 | "React's render function corresponds to Elm's view: It transforms the model state into a HTML tree."; o React "re-renders the entire UI on each interaction, just like Elm" | p. 32 | conferido em 2026-10-09 | re-renderização, na fundamentação; "a UI inteira" e "conceitualmente": não citar para o componente |
+| Sperber e Schlegel 2025 | o custo do pré-processador: o modelo "cannot be implemented independently of the UI toolkit, and is thus coupled to the view—effectively giving up the Model/View separation" | p. 32 | conferido em 2026-10-09 | análise: dependências ocultas e acoplamento no Angular |
+| Lee, Ahn e Yi 2025 (`lee2025`), OOPSLA | "the same component is called for both creating a new view and updating an existing view" | 289:2 | conferido em 2026-10-09 | re-renderização (intro.org, §9) |
+| Lee, Ahn e Yi 2025 | ao alterar o estado, o React faz o Check "by invoking the component body again. If the state whose setter function is called is actually modified, the component re-renders" | 289:6 | conferido em 2026-10-09 | re-renderização (intro.org, §9); o componente reexecuta, e só re-renderiza se o estado mudou |
+| Lee, Ahn e Yi 2025 | Tabela 2, "Comparison of reactive UI frameworks": "Re-read Spec." é Yes no React, Preact, Dioxus e SwiftUI, e No no Solid, Leptos, Angular, Vue e Svelte; atualização "Queued" no React | 289:38 | conferido em 2026-10-09 | React × Solid (intro.org, §20); Svelte e Vue como candidatos (tcc-4ie) |
 
-Nenhuma fonte de interface gráfica diz que um eixo atravessa o outro;
-chamar os dois de cruzados é síntese do trabalho, com Moseley e Marks e
-Adya et al. como precedentes de fora.
+## Mudança, alteração e modificação
 
-## 11. Mudança, alteração e modificação (levantadas em 2026-10-13)
+Levantadas em 2026-10-13.
 
 Conclusão: "mudança" é o termo da engenharia de software acadêmica em
 português para *change*, e fica para o que o OpenSpec chama de *change*
@@ -632,12 +746,12 @@ granular, ler-se também como o estado que se atualiza aos poucos, e
 "Desencontro" é o de duas definições que não coincidem: as de
 "reatividade" em linguagens de programação e em sistemas distribuídos,
 que Myter et al. (2019, p. 5:1) chamam de *mismatch*
-(`docs/fundamentacao.md`). "Descompasso" fica como glosa para o
-*mismatch* de Green et al. (2006, p. 357), em que dois lados que deviam
-andar juntos não se acompanham: "Viscosity can be construed as a
-mismatch between the user's idea of a single action and the ideas built
-into the device", o descompasso entre a ação que o usuário imagina e a
-que o dispositivo pede. Ainda não entrou no texto.
+(seção "Aplicação interativa e aplicação reativa"). "Descompasso" fica
+como glosa para o *mismatch* de Green et al. (2006, p. 357), em que dois
+lados que deviam andar juntos não se acompanham: "Viscosity can be
+construed as a mismatch between the user's idea of a single action and
+the ideas built into the device", o descompasso entre a ação que o
+usuário imagina e a que o dispositivo pede. Ainda não entrou no texto.
 
 Forma da glosa, transposta do usuário para o programador (decisão do
 autor em 2026-10-13): "o descompasso entre o que o programador espera de

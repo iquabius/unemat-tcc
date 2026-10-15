@@ -16,7 +16,9 @@ ancorar a conclusão; a revisão vem depois e confere o que o autor disse.
 Leia antes o `CONTEXT.md` (modelo de programação, notação, montagem da
 tela, interface, rodada, conclusão) e use os termos dele. As fontes do
 procedimento, com trecho e página, estão em
-`docs/metodo-da-avaliacao.md`, seções 8, 9, 11 e 13.
+`docs/metodo-da-avaliacao.md`, seções "Rodadas e crescimento do código",
+"As 14 DCs canônicas", "O que muda entre rodadas: vocabulário" e "Como
+as fontes aplicaram as DCs a código, e as armadilhas".
 
 Referências desta skill:
 
@@ -240,7 +242,7 @@ O autor lê o código com o guia e dita a análise pelo Wispr Flow, por DC.
   DC e, da segunda rodada em diante, se ela sobe, desce ou fica igual, e se a
   diferença entre os modelos fica mantida, ampliada, reduzida, anulada,
   invertida ou surgida (ADR 0017; `docs/metodo-da-avaliacao.md`, seção
-  11).
+  "O que muda entre rodadas: vocabulário").
 - Se o autor pedir a opinião do agente numa DC, dê-a marcada como do
   agente, depois de ele ter ditado a dele, e registre a origem (passo 4).
 

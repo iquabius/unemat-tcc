@@ -6,9 +6,10 @@ parte da notação em que ele costuma estar, o que a atividade da rodada
 muda e as armadilhas próprias da dimensão. As perguntas são de Green e
 Petre (1996, p. 138-139), e as definições curtas, de Blackwell e Green
 (2003, p. 115-118), versões publicadas; os trechos estão conferidos em
-`docs/metodo-da-avaliacao.md`, seções 9 e 13. Os exemplos são de
-interface gráfica e servem de ponto de partida: o guia aponta o trecho da
-implementação, não o exemplo.
+`docs/metodo-da-avaliacao.md`, seções "As 14 DCs canônicas" e "Como as
+fontes aplicaram as DCs a código, e as armadilhas". Os exemplos são de
+interface gráfica e servem de ponto de partida: o guia aponta o trecho
+da implementação, não o exemplo.
 
 ## Armadilhas que valem para todas
 
@@ -126,7 +127,8 @@ implementação, não o exemplo.
   domínio, estilo e testes (ADR 0012; script da tcc-hlh7), e o trecho que
   concentra a diferença.
 - Parte: separe montagem da tela, coordenação e ligação, como nos
-  protótipos de 2026-10-12 (`docs/metodo-da-avaliacao.md`, seção 12).
+  protótipos de 2026-10-12 (`docs/metodo-da-avaliacao.md`, seção
+  "*Benchmark* de notação e requisitos da segunda rodada").
 - Armadilhas: tomar terseza por virtude, "scanning becomes difficult"
   quando programas diferentes quase não diferem à vista (Green e Petre
   1996, p. 148); contar linhas que a formatação de 80 colunas criou.
@@ -210,8 +212,9 @@ implementação, não o exemplo.
   se...); na segunda e na terceira, os trechos do diff de cada mudança, separados em
   repetição (o mesmo trecho em vários lugares) e efeito dominó (o que
   muda para manter a consistência), com a regra do menor diff.
-- Parte: separe as três; a reindentação do JSX conta à parte (seção 12
-  de `docs/metodo-da-avaliacao.md`).
+- Parte: separe as três; a reindentação do JSX conta à parte (seção
+  "*Benchmark* de notação e requisitos da segunda rodada" de
+  `docs/metodo-da-avaliacao.md`).
 - Armadilhas: só o sistema é viscoso, "only a system, comprising all
   three, can be viscous" (Green e Blackwell 1998, p. 8): diga que a
   medida é da notação, sem ferramenta de refatoração; a primeira
@@ -289,7 +292,7 @@ implementação, não o exemplo.
 - Definição: "degree of commitment to actions or marks", útil para
   "playing 'what-if' games" (Blackwell e Green 2003, p. 117-118); não
   está nas 13 de Green e Petre (1996), entra pelo tutorial de 1998
-  (`docs/metodo-da-avaliacao.md`, seção 9).
+  (`docs/metodo-da-avaliacao.md`, seção "As 14 DCs canônicas").
 - Face notacional: a marca de provisório na própria notação (Green et al.
   2006, p. 332): o que a notação deixa escrever pela metade e ainda rodar
   (o valor fixo no lugar do derivado, o tratador vazio, o componente sem
