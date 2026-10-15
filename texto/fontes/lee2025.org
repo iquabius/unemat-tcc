@@ -1,7 +1,7 @@
 #+title: lee2025: Lee et al. (2025), React-tRace: A Semantics for Understanding React Hooks: An Operational Semantics and a Visualizer for Clarifying React Hooks
 #+startup: overview
 
-* [[file:../intro.org::sugere que boa parte do sequenciamento][intro: sugere que boa parte do sequenciamento]], 289:1
+* [[file:../intro.org::A programação declarativa expressa o que][intro: A programação declarativa expressa o que]], 289:1
 - Frase: “Nas interfaces, o componente do React é uma função que especifica a
   tela de forma declarativa e que, chamada com os mesmos argumentos, deve
   exibir a mesma interface (Lee; Ahn; Yi, 2025, 289:1).”

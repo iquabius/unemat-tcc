@@ -12,10 +12,10 @@
 - Lido em: =tmp/fontes/edwards2009-coherent-reaction.pdf=, p. 2 do PDF;
   p. 926 calculada pelo início dos anais (925).
 - Conferido: 2026-10-06.
-* [[file:../intro.org::sugere que boa parte do sequenciamento][intro: sugere que boa parte do sequenciamento]], p. 929
-- Frase: “Edwards (2009, p. 929) chama de acidental, no mesmo sentido, boa
-  parte do sequenciamento manual das ações que a programação imperativa
-  exige.”
+* [[file:../intro.org::A programação declarativa expressa o que][intro: A programação declarativa expressa o que]], p. 929
+- Frase: “Para Edwards (2009, p. 929), boa parte do sequenciamento manual
+  das ações que a programação imperativa exige pode ser feita
+  automaticamente, ao menos nas aplicações interativas.”
 - Trecho: “This paper suggests that much of the manual sequencing of
   actions that is the crux of imperative programming is an accidental
   complexity [2]”, em que [2] é Brooks (p. 929).

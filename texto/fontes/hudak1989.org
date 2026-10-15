@@ -1,7 +1,7 @@
 #+title: hudak1989: Hudak (1989), Conception, Evolution, and Application of Functional Programming Languages
 #+startup: overview
 
-* [[file:../intro.org::sugere que boa parte do sequenciamento][intro: sugere que boa parte do sequenciamento]], p. 361
+* [[file:../intro.org::A programação declarativa expressa o que][intro: A programação declarativa expressa o que]], p. 361
 - Frase: “A programação declarativa expressa o que se computa, e não como,
   embora isso seja questão de grau, e suas linguagens não têm estado
   implícito (Hudak, 1989, p. 361).”

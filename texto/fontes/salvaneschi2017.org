@@ -26,6 +26,17 @@
   com o parágrafo inteiro para a seção 2.4 e estão na afirmação de prog,
   p. 1125-1134, mais abaixo.
 - Conferido: 2026-10-14.
+* [[file:../intro.org::A programação declarativa expressa o que][intro: A programação declarativa expressa o que]], p. 1125 (declarativo)
+- Frase: “A PR exprime assim um comportamento que, de outro modo, seria
+  complexo (Salvaneschi et al., 2017, p. 1125).”
+- Trecho: “reactive programming (RP) has gained the attention of
+  researchers and practitioners for the potential to express otherwise
+  complex reactive behavior in an intuitive and declarative way.” (p. 1125)
+- Lido em: =tmp/fontes/salvaneschi2017.pdf=, p. 1 do PDF (p. 1125).
+- Observação: ponte entre o parágrafo da PR e o do declarativo
+  (transição pedida pelo autor em 2026-10-14); “assim” retoma a definição
+  de Hudak (1989) na frase anterior.
+- Conferido: 2026-10-14.
 * [[file:../intro.org::Quanto aos objetivos, a pesquisa é][intro: Quanto aos objetivos, a pesquisa é exploratória]]
 - Frase: “As hipóteses desta pesquisa servem a experimentos controlados
   como o de Salvaneschi et al. (2017).”
