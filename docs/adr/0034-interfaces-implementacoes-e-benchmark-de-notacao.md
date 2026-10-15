@@ -49,9 +49,9 @@ docs, os ADRs, as instruções, a especificação no OpenSpec e o código
 trocam "tarefa", "caso" e "problema de coordenação"; o registro da
 avaliação (`docs/avaliacao/`), as mudanças arquivadas do OpenSpec, o
 código congelado em `implementacoes/fora-da-analise/` e as tarefas do bd
-ficam com os nomes antigos; os títulos e corpos das tarefas abertas e os
-dos épicos ("Código dos casos", "Fase 2: análise dos casos") esperam a
-decisão do autor.
+fechadas ficam com os nomes antigos. As abertas e os épicos ("Código das
+interfaces", "Fase 2: análise das implementações") trocaram os títulos e
+os corpos em 2026-10-15, e as notas delas, que são registro, ficaram.
 
 Fontes: `sim2003` (§3.2, p. 76), `kiss2014` (p. 11, 104 e 114),
 `erdweg2015` (§6), `nanz2013` (resumo), `green1996d` (Fig. 1) e o 7GUIs,
