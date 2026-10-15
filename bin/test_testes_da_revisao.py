@@ -129,14 +129,62 @@ class Mudados(unittest.TestCase):
                          [" M implementacoes/openspec/specs/formulario/spec.md",
                           "?? implementacoes/openspec/changes/nova/proposal.md"])
 
-    def test_pronto_recusa_especificacao_solta(self):
-        self.escreve("implementacoes/openspec/specs/formulario/spec.md", "1\n")
-        ambiente = {"GIT_REVISAO_BASE": self.base, "GIT_REVISAO_PONTA": "HEAD"}
-        erro = io.StringIO()
-        with (mock.patch.dict(os.environ, ambiente), mock.patch.object(tr.sys, "argv", ["x"]),
+    def roda(self, *opcoes, ponta="HEAD"):
+        """(saída, stdout, stderr) do main, como o pronto o chama (ou à mão,
+        sem ponta). Só o git roda de verdade; o resto se anota em
+        self.rodados."""
+        ambiente = {"GIT_REVISAO_BASE": self.base}
+        if ponta:
+            ambiente["GIT_REVISAO_PONTA"] = ponta
+        self.rodados = []
+        rodar = subprocess.run
+
+        def falso(argv, **kw):
+            if argv[0] == "git":
+                return rodar(argv, **kw)
+            self.rodados.append(argv)
+            return subprocess.CompletedProcess(argv, 0)
+
+        saida, erro = io.StringIO(), io.StringIO()
+        with (mock.patch.dict(os.environ, ambiente),
+              mock.patch.object(tr.subprocess, "run", falso),
+              mock.patch.object(tr.sys, "argv", ["x", *opcoes]),
+              mock.patch.object(tr.sys, "stdout", saida),
               mock.patch.object(tr.sys, "stderr", erro)):
-            self.assertEqual(tr.main(), 1)
-        self.assertIn("spec.md", erro.getvalue())
+            if not ponta:
+                os.environ.pop("GIT_REVISAO_PONTA", None)
+            return tr.main(), saida.getvalue(), erro.getvalue()
+
+    def test_pronto_recusa_especificacao_solta_quando_a_confere(self):
+        self.commita("implementacoes/openspec/specs/formulario/spec.md")
+        self.escreve("implementacoes/openspec/specs/formulario/spec.md", "2\n")
+        codigo, _, erro = self.roda()
+        self.assertEqual(codigo, 1)
+        self.assertIn("spec.md", erro)
+        self.assertEqual(self.rodados, [])
+
+    def test_pronto_aceita_especificacao_solta_quando_nao_a_confere(self):
+        self.commita("bin/x.py", "bin/test_x.py")
+        self.escreve("implementacoes/openspec/specs/formulario/spec.md", "2\n")
+        codigo, _, erro = self.roda()
+        self.assertEqual(codigo, 0)
+        self.assertNotIn("spec.md", erro)
+        self.assertEqual([argv[argv.index("-s") + 1] for argv in self.rodados], ["bin"])
+
+    def test_mostrar_da_o_plano_e_avisa_da_especificacao_solta(self):
+        self.commita("implementacoes/openspec/specs/formulario/spec.md")
+        self.escreve("implementacoes/openspec/specs/formulario/spec.md", "2\n")
+        codigo, saida, erro = self.roda("--mostrar")
+        self.assertEqual(codigo, 0)
+        self.assertIn("especificação:", saida)
+        self.assertIn("spec.md", erro)
+
+    def test_a_mao_sem_ponta_nao_recusa_a_especificacao_solta(self):
+        self.escreve("implementacoes/openspec/specs/formulario/spec.md", "2\n")
+        codigo, saida, erro = self.roda("--mostrar", ponta=None)
+        self.assertEqual(codigo, 0)
+        self.assertIn("especificação:", saida)
+        self.assertNotIn("fora do commit", erro)
 
     def test_sem_ponta_ve_a_arvore_de_trabalho_e_os_arquivos_novos(self):
         self.escreve("bin/x.py", "1\n")

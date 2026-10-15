@@ -391,7 +391,9 @@ rascunho, e a história dele se condensa antes do merge (passo 5).
    pelo mesmo `git diff` vazio. Com a árvore igual à revisada, só o eixo
    History da `linus-review` roda de novo, sobre a série nova; com outra
    árvore, a revisão do ramo inteiro. Então `git revisao pronto` na ponta
-   nova, na worktree e sem código mudado fora do commit. Ele roda antes o
+   nova, na worktree e sem código mudado fora do commit, nem especificação
+   quando o ramo a confere (`implementacoes/openspec/`, que o
+   `.config/revisao` não conta como código). Ele roda antes o
    `bin/testes-da-revisao.py` (a linha `teste:` do `.config/revisao`),
    que escolhe pelo diff do ramo a `unittest` da pasta mudada, as
    capturas das interfaces mudadas, a especificação e a formatação, e dá

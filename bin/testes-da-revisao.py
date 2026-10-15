@@ -10,9 +10,10 @@ ser .md).
 
 Sem GIT_REVISAO_PONTA, como quando se roda à mão antes do commit, o diff
 vai da base até a árvore de trabalho, com os arquivos novos. Com ela, como
-no pronto, recusa a especificação mudada fora do commit: o git-revisao
-confere só os caminhos de código, e a conferência da especificação leria a
-árvore de trabalho, e não a ponta.
+no pronto, recusa a especificação mudada fora do commit quando o plano a
+confere: o git-revisao confere só os caminhos de código, e a conferência da
+especificação leria a árvore de trabalho, e não a ponta. Com --mostrar, o
+plano sai assim mesmo, e a recusa vira aviso.
 
 O que muda escolhe o que roda:
 
@@ -168,22 +169,24 @@ def main():
     mostrar = "--mostrar" in sys.argv[1:]
     base = os.environ.get("GIT_REVISAO_BASE", "")
     ponta = os.environ.get("GIT_REVISAO_PONTA") or None
-    soltos = especificacao_solta() if ponta else []
-    if soltos:
-        print("testes da revisão: especificação mudada fora do commit; a conferência "
-              "não veria a ponta:", file=sys.stderr)
-        for linha in soltos[:10]:
-            print(f"  {linha}", file=sys.stderr)
-        return 1
     arquivos = mudados(base, ponta) if base else []
     plano = escolher(arquivos, pastas_de_teste(), interfaces(), tudo=not base)
     if not plano:
         print("testes da revisão: nenhum teste confere o que mudou", file=sys.stderr)
         return 0
+    # Só a conferência da especificação lê a de fora do commit.
+    soltos = especificacao_solta() if ponta and ESPECIFICACAO in plano else []
+    if soltos:
+        print("testes da revisão: especificação mudada fora do commit; a conferência "
+              "não veria a ponta:", file=sys.stderr)
+        for linha in soltos[:10]:
+            print(f"  {linha}", file=sys.stderr)
     if mostrar:
         for rotulo, pasta, argv in plano:
             print(f"{rotulo}: (cd {pasta} && {' '.join(argv)})")
         return 0
+    if soltos:
+        return 1
     if any(pasta == IMPL for _, pasta, _ in plano):
         preparar(arquivos, android=any(r.startswith("capturas") for r, _, _ in plano))
     for rotulo, pasta, argv in plano:
