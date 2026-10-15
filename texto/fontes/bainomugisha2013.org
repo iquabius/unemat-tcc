@@ -98,3 +98,19 @@
   programador. Na p. 52:7, /dependents/ são as expressões de que a
   expressão depende, por isso “depois das que ela usa”.
 - Conferido: 2026-10-15.
+* [[file:../prog.org::chamam as planilhas de][prog: chamam as planilhas de]], p. 52:2 (planilhas e Fran)
+- Frase: “Bainomugisha et al. (2013, p. 52:2) chamam as planilhas de
+  “possivelmente a linguagem de programação mais utilizada por usuários
+  finais” (tradução nossa). A maior parte da pesquisa em PR, dizem ainda,
+  descende do Fran, uma linguagem da PF do fim dos anos 1990.”
+- Trecho: “spreadsheet systems, arguably the most widely used end-user
+  programming language”; “Most of the research on reactive programming
+  descends from Fran [Elliott and Hudak 1997];[Wan and Hudak 2000], a
+  functional domain specific language developed in the late 1990s to ease
+  the construction of graphics and interactive media applications.”
+  (p. 52:2)
+- Lido em: =tmp/fontes/bainomugisha2013.pdf=, versão dos autores, p. 2 do
+  PDF (cabeçalho “:2”).
+- Observação: a página era “p. 1-2”, a paginação do /preprint/; os dois
+  trechos estão na folha 52:2, no formato que o resto do texto usa.
+- Conferido: 2026-10-15.
