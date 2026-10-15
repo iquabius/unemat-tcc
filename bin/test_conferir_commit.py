@@ -11,6 +11,7 @@ import subprocess
 import sys
 import tempfile
 import unittest
+import unittest.mock
 from pathlib import Path
 
 SCRIPT = Path(os.environ.get("CONFERIR_COMMIT_SCRIPT",
@@ -46,6 +47,11 @@ class Base(unittest.TestCase):
         repositorio = cc.REPOSITORIO
         cc.REPOSITORIO = Path(self.dir.name)
         self.addCleanup(setattr, cc, "REPOSITORIO", repositorio)
+        # sem o diretório da sessão que o Claude Code põe no ambiente
+        ambiente = unittest.mock.patch.dict(os.environ)
+        ambiente.start()
+        self.addCleanup(ambiente.stop)
+        os.environ.pop("CLAUDE_PROJECT_DIR", None)
         self.transcript([skill()])
 
     def transcript(self, entradas, nome="sessao.jsonl"):
@@ -200,10 +206,45 @@ class Mensagem(Base):
             with self.subTest(cmd=cmd):
                 self.assertIn("prefixo", self.conferir(cmd))
 
+    def test_terminal_do_app(self):
+        Path(self.dir.name, "sub").mkdir()
+        Path(self.dir.name, "sub", "msg").write_text("fix: algo\n", encoding="utf-8")
+        nome = "mcp__terminal__run_in_terminal"
+        self.assertIn("prefixo", self.conferir("git commit -m 'fix: x'", tool_name=nome))
+        self.assertIn("prefixo", cc.conferir({
+            "tool_name": nome, "tool_input": {"command": "git commit -F msg", "cwd": "sub"},
+            "transcript_path": str(self.caminho), "cwd": self.dir.name}))
+        self.assertIsNone(self.conferir("git commit -m 'fix: x'", tool_name="Read"))
+
+    def test_terminal_parte_do_diretorio_da_sessao(self):
+        # o Bash fez cd para fora do repositório; a aba abre no da sessão
+        nome = "mcp__terminal__run_in_terminal"
+        with unittest.mock.patch.dict(os.environ, {"CLAUDE_PROJECT_DIR": self.dir.name}):
+            for entrada in [{"command": "git commit -m 'fix: x'"},
+                            {"command": "git commit -m 'fix: x'", "cwd": "."}]:
+                with self.subTest(entrada=entrada):
+                    self.assertIn("prefixo", cc.conferir({
+                        "tool_name": nome, "tool_input": entrada,
+                        "transcript_path": str(self.caminho), "cwd": "/tmp"}))
+
     def test_comando_que_acaba_no_prefixo(self):
         for cmd in ["git commit -m 'fix: x'; timeout", "git commit -m 'fix: x'; env -u"]:
             with self.subTest(cmd=cmd):
                 self.assertIn("prefixo", self.conferir(cmd))
+
+    def test_terminal_com_til_no_cwd(self):
+        casa = Path(self.dir.name, "casa")
+        subprocess.run(["git", "init", "-q", str(casa)], check=True)
+        cc.REPOSITORIO = casa
+        nome = "mcp__terminal__run_in_terminal"
+        with unittest.mock.patch.dict(os.environ, {"HOME": str(casa.parent)}):
+            for cwd in ["~/casa", "~"]:
+                with self.subTest(cwd=cwd):
+                    r = cc.conferir({"tool_name": nome, "tool_input": {
+                        "command": "cd casa; git commit -m 'fix: x'" if cwd == "~" else
+                                   "git commit -m 'fix: x'", "cwd": cwd},
+                        "transcript_path": str(self.caminho), "cwd": "/"})
+                    self.assertIn("prefixo", r)
 
     def test_arquivo_que_o_comando_grava(self):
         # o msg do disco é velho; vale o que o comando grava antes do commit
@@ -319,6 +360,67 @@ class Mensagem(Base):
     def test_mensagem_reaproveitada_nao_se_confere(self):
         self.assertIsNone(self.conferir("git commit --amend --no-edit"))
         self.assertIsNone(self.conferir("git commit -C HEAD"))
+
+    def test_merge_com_mensagem(self):
+        juncao = "Junta o ramo soma-total: soma que ignora a linha de total do relatório e o total"
+        cmd = f"git merge --ff-only soma-total || git merge --no-ff -m '{juncao}' soma-total"
+        self.assertIsNone(self.conferir(cmd))
+        self.assertIn("prefixo", self.conferir("git merge --no-ff -m 'merge: soma' soma-total"))
+        self.assertIn("banner", self.conferir(
+            f"git merge --no-ff -m '{juncao}' -m 'Generated with Claude Code' soma-total"))
+        self.transcript([skill("adr")])
+        self.assertIn("commit-message", self.conferir(cmd))
+
+    def test_merge_de_ramo_com_fixup(self):
+        d = self.dir.name
+        ambiente = {**os.environ, "GIT_AUTHOR_NAME": "a", "GIT_AUTHOR_EMAIL": "a@a",
+                    "GIT_COMMITTER_NAME": "a", "GIT_COMMITTER_EMAIL": "a@a"}
+
+        def git(*args):
+            subprocess.run(["git", "-C", d, *args], check=True, env=ambiente,
+                           capture_output=True)
+
+        git("symbolic-ref", "HEAD", "refs/heads/master")
+        git("commit", "--allow-empty", "-m", "Base")
+        git("switch", "-c", "limpo")
+        git("commit", "--allow-empty", "-m", "Corrige x")
+        git("switch", "-c", "sujo")
+        git("commit", "--allow-empty", "-m", "fixup! Corrige x")
+        git("switch", "-c", "depois")
+        git("commit", "--allow-empty", "-m", "Corrige y")
+        git("switch", "--detach", "master")
+        juncao = "Junta o ramo {}: soma que ignora a linha de total do relatório"
+        self.assertIsNone(self.conferir("git merge --ff-only limpo"))
+        self.assertIsNone(self.conferir(f"git merge --no-ff -m '{juncao.format('limpo')}' limpo"))
+        for cmd in ["git merge --ff-only sujo",
+                    f"git merge --ff-only sujo || git merge --no-ff -m '{juncao.format('sujo')}' sujo",
+                    "R=sujo && git merge -s ort --ff-only $R"]:
+            with self.subTest(cmd=cmd):
+                self.assertIn("fixup!, squash! ou amend!", self.conferir(cmd))
+        # o cherry-pick do passo 6, que leva os commits sem merge
+        self.assertIn("fixup!, squash! ou amend!", self.conferir("git cherry-pick master..sujo"))
+        self.assertIn("fixup!, squash! ou amend!", self.conferir("git cherry-pick -x sujo"))
+        self.assertIsNone(self.conferir("git cherry-pick master..limpo"))
+        for cmd in ["git cherry-pick master...sujo", "git cherry-pick ^master sujo",
+                    "git cherry-pick -m 1 master..sujo", "git cherry-pick --mainline 1 master..sujo"]:
+            with self.subTest(cmd=cmd):
+                self.assertIn("fixup!, squash! ou amend!", self.conferir(cmd))
+        # o commit avulso limpo passa, mesmo com um fixup! logo antes dele
+        for cmd in ["git cherry-pick depois",
+                    "git cherry-pick -x master...limpo"]:
+            with self.subTest(cmd=cmd):
+                self.assertIsNone(self.conferir(cmd))
+        self.assertIn("o ramo sujo", self.conferir("git merge --ff-only sujo"))
+        # uma recusa por ramo, mesmo com dois merges dele no comando
+        r = self.conferir(f"git merge --ff-only sujo || git merge --no-ff -m '{juncao.format('sujo')}' sujo")
+        self.assertEqual(r.count("fixup!, squash! ou amend!"), 1)
+        # o merge sem mensagem não cria commit, e não pede a skill
+        self.transcript([skill("adr")])
+        self.assertIsNone(self.conferir("git merge --ff-only limpo"))
+
+    def test_merge_squash_nao_e_fixup(self):
+        juncao = "Junta o ramo soma-total: soma que ignora a linha de total do relatório"
+        self.assertIsNone(self.conferir(f"git merge -m '{juncao}' --squash soma-total"))
 
     def test_sem_commit_passa(self):
         for cmd in ["git log --oneline", "echo 'git commit -m x'",

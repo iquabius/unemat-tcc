@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 """Confere o git commit do agente antes de ele rodar (hook PreToolUse).
 
-O Claude Code chama este script antes de cada comando do Bash, pelo
+O Claude Code chama este script antes de cada comando do Bash e do
+terminal do app (mcp__terminal__run_in_terminal), pelo
 .claude/settings.json, com o JSON do hook na entrada padrão. O git
-commit do agente neste repositório, ou numa worktree dele, é recusado
-quando:
+commit do agente neste repositório, ou numa worktree dele, e o git merge
+com a mensagem no comando (-m, -F), que cria o commit da junção, são
+recusados quando:
 
 - a skill commit-message não está no contexto da sessão (ou do subagente
   que commita): não foi carregada, ou foi antes da última compactação e
@@ -34,6 +36,11 @@ quando:
   lidos como estão antes do comando, sem contar um git checkout no mesmo
   comando.
 
+O git merge, com mensagem ou sem, e o git cherry-pick são recusados
+também quando levam um commit fixup!, squash! ou amend!: esses commits
+só existem para o rebase --autosquash que condensa o ramo antes do
+merge.
+
 O resto do eixo History da linus-review (uma mudança lógica por commit,
 nada que um commit seguinte corrija, a mensagem que explica o porquê)
 não se confere aqui: a recusa por falta da skill o lembra, e o AGENTS.md
@@ -43,10 +50,11 @@ Passam sem conferência:
 
 - o commit de outro repositório (um de teste em /tmp, os dotfiles) e o
   de diretório que não se sabe (cd "$(mktemp -d)", GIT_DIR, --git-dir);
-- o git merge, o git revert, o git cherry-pick e o git commit-tree: o
-  revert, o cherry-pick e o commit-tree reaproveitam mensagens de
+- o git revert e o git commit-tree, que reaproveitam mensagens de
   commits que já existem e não fazem parte do processo de commit do
-  agente;
+  agente; e o git cherry-pick cujas revisões vêm da entrada padrão
+  (--stdin), de uma substituição ($(git rev-list ...)) ou de um --not,
+  que o hook não lê;
 - o git atrás de um prefixo que o parser não conhece (eval, xargs, sudo,
   nice, distrobox-host-exec, crase) ou dentro de um script gravado em
   arquivo;
@@ -86,6 +94,9 @@ PONTUACAO = ";&|()\n"
 # O que roda o comando seguinte, e os shells cujo -c se confere também.
 PREFIXOS = {"command", "builtin", "exec", "nohup",
             "if", "then", "else", "elif", "do", "while", "until", "!", "{"}
+# As ferramentas do Claude Code que rodam um comando do shell: o Bash e o
+# terminal do app, que abre a aba no cwd que receber.
+FERRAMENTAS = {"Bash", "mcp__terminal__run_in_terminal"}
 SHELLS = {"sh", "bash", "dash", "zsh"}
 # Opções globais do git que levam argumento na palavra seguinte.
 GIT_COM_ARGUMENTO = {"-C", "-c", "--git-dir", "--work-tree", "--namespace",
@@ -223,7 +234,7 @@ def commits_nas_palavras(ws, corpos, dir_, vars_, escritos):
             elif ws[k].startswith("--chdir="):
                 dir_do_comando = muda_dir(dir_do_comando, [ws[k].split("=", 1)[1]],
                                           vars_do_comando)
-        if nome != "git" or "commit" not in ws[j + 1:fim]:
+        if nome != "git" or not {"commit", "merge", "cherry-pick"} & set(ws[j + 1:fim]):
             registra_escritas(ws[j:fim], corpos, dir_, vars_do_comando, escritos)
         if nome in ("cd", "pushd"):
             dir_ = muda_dir(dir_, ws[j + 1:fim], vars_do_comando)
@@ -356,9 +367,11 @@ def texto_do_c(args):
 
 
 def commit_do_git(args, corpos, dir_, vars_, escritos):
-    """O commit de git args, se o subcomando é commit. O --git-dir, o
-    --work-tree e o GIT_DIR apontam o commit para um repositório que o
-    diretório não diz, e o deixam com 'dir' desconhecido."""
+    """O commit de git args, se o subcomando é commit, ou merge com a
+    mensagem no comando (-m, -F), que cria o commit da junção. O
+    --git-dir, o --work-tree e o GIT_DIR apontam o commit para um
+    repositório que o diretório não diz, e o deixam com 'dir'
+    desconhecido."""
     if "GIT_DIR" in vars_ or "GIT_WORK_TREE" in vars_:
         dir_ = None
     k = 0
@@ -371,8 +384,27 @@ def commit_do_git(args, corpos, dir_, vars_, escritos):
             k += 2
         else:
             k += 1
-    if k < len(args) and args[k] == "commit":
+    if k < len(args) and args[k] == "cherry-pick":
+        # o cherry-pick <base>..<tarefa> do passo 6 leva os commits sem
+        # merge; não cria mensagem nova, e só se confere o fixup!
+        revisoes = [r for r in (expande(r, vars_) for r in alvos(args[k + 1:]))
+                    if r is not None]
+        if any(".." in r or r.startswith("^") for r in revisoes):
+            levados = [("os commits de " + " ".join(revisoes), revisoes)]
+        else:
+            levados = [(f"o commit {r}", ["-1", r]) for r in revisoes]
+        yield {"mensagens": [], "arquivo": None, "heredoc": None, "reusa": True,
+               "fixup": False, "dir": dir_, "cria_commit": False, "juntados": levados}
+        return
+    if k < len(args) and args[k] in ("commit", "merge"):
         c = opcoes_do_commit(args[k + 1:], corpos, vars_)
+        c["juntados"], c["cria_commit"] = [], True
+        if args[k] == "merge":
+            c["juntados"] = [(f"o ramo {r}", [f"HEAD..{r}"]) for r in
+                             (expande(r, vars_) for r in alvos(args[k + 1:]))
+                             if r is not None]
+            c["cria_commit"] = bool(c["mensagens"] or c["arquivo"])
+            c["fixup"] = False  # o --squash do merge não prepara rebase
         c["dir"] = dir_
         if c["arquivo"] and c["arquivo"] not in ENTRADA_PADRAO:
             # sem valor conhecido, o $ fica, e a mensagem não se lê; o
@@ -382,6 +414,27 @@ def commit_do_git(args, corpos, dir_, vars_, escritos):
             if chave in escritos:
                 c["arquivo"], c["heredoc"] = "-", escritos[chave]
         yield c
+
+
+# Opções do git merge e do git cherry-pick que levam argumento na palavra
+# seguinte.
+ALVO_COM_ARGUMENTO = {"-m", "-F", "-s", "-X", "--message", "--file", "--strategy",
+                      "--strategy-option", "--into-name", "--cleanup", "--mainline"}
+
+
+def alvos(args):
+    """O que um git merge ou um git cherry-pick leva: as palavras que não
+    são opção, argumento de opção nem redirecionamento (os ramos do merge,
+    as revisões do cherry-pick, com o ^ das exclusões)."""
+    achados, j = [], 0
+    while j < len(args):
+        p = args[j]
+        j += 1
+        if p in ALVO_COM_ARGUMENTO:
+            j += 1
+        elif not p.startswith("-") and not MARCADOR.match(p) and not REDIRECIONAMENTO.match(p):
+            achados.append(p)
+    return achados
 
 
 def opcoes_do_commit(args, corpos, vars_):
@@ -633,6 +686,14 @@ def no_ramo_principal(dir_):
         for r in RAMOS_PRINCIPAIS)
 
 
+def tem_fixup(dir_, revisoes):
+    """Se os commits de revisoes (argumentos do git log) trazem um fixup!,
+    squash! ou amend! que a condensação não dobrou."""
+    assuntos = git_saida(dir_, "log", "--format=%s", *revisoes, "--")
+    return assuntos is not None and any(
+        re.match(r"(?:fixup|squash|amend)! ", a) for a in assuntos.splitlines())
+
+
 def neste_repositorio(c, cwd):
     """Se o commit c roda neste repositório; não, se o diretório dele não
     se sabe."""
@@ -645,17 +706,34 @@ def neste_repositorio(c, cwd):
 def conferir(dados):
     """A razão da recusa, ou None se o comando passa."""
     entrada = dados.get("tool_input")
-    if dados.get("tool_name") != "Bash" or not isinstance(entrada, dict):
+    if dados.get("tool_name") not in FERRAMENTAS or not isinstance(entrada, dict):
         return None
     cmd = entrada.get("command")
-    if not isinstance(cmd, str) or "commit" not in cmd:
+    if not isinstance(cmd, str) or not any(p in cmd for p in ("commit", "merge", "cherry-pick")):
         return None
     cwd = dados.get("cwd") if isinstance(dados.get("cwd"), str) else os.getcwd()
+    if dados.get("tool_name") != "Bash":
+        # a aba do terminal abre no cwd que receber (absoluto, com ~ ou
+        # relativo) ou no diretório da sessão, o CLAUDE_PROJECT_DIR; o cwd
+        # do hook é o do Bash, que segue os cd das chamadas anteriores
+        cwd = os.environ.get("CLAUDE_PROJECT_DIR") or cwd
+        if isinstance(entrada.get("cwd"), str):
+            aba = caminho(entrada["cwd"])
+            if aba is None:
+                return None
+            cwd = str(Path(cwd, aba))
     cs = [c for c in commits(cmd) if neste_repositorio(c, cwd)]
     if not cs:
         return None
     problemas = []
     for c in cs:
+        for nome, revisoes in c["juntados"]:
+            if tem_fixup(Path(cwd, c["dir"]), revisoes):
+                problemas.append(f"{nome} traz commit fixup!, squash! ou amend!: condense o "
+                                 "ramo antes de levá-lo ao ramo principal (AGENTS.md, passo 5 "
+                                 "de \"Código: ramo, revisão, merge\")")
+        if not c["cria_commit"]:
+            continue
         if c["fixup"] and no_ramo_principal(Path(cwd, c["dir"])):
             problemas.append("git commit --fixup/--squash no ramo principal: o "
                              "fixup! só existe para o rebase --autosquash que "
@@ -665,7 +743,8 @@ def conferir(dados):
         if texto is not None:
             problemas += problemas_da_mensagem(texto)
     problemas = list(dict.fromkeys(problemas))
-    sem_skill = skill_carregada(dados) is False
+    sem_skill = (any(c["cria_commit"] for c in cs)
+                 and skill_carregada(dados) is False)
     if not problemas and not sem_skill:
         return None
     partes = ["Commit recusado pela conferência do repositório (bin/conferir-commit.py)."]
