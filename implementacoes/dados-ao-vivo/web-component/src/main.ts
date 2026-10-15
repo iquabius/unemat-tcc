@@ -1,10 +1,11 @@
 import {
-  ATIVOS,
+  JOGOS,
   MENSAGENS,
-  acimaDoLimite,
-  assinarCotacoes,
-  formatarPreco,
-  variacao,
+  assinarPlacares,
+  formatarPlacar,
+  formatarTempo,
+  golsNovos,
+  noPalpite,
   type Lote,
 } from "../../dominio";
 import "../../estilo.css";
@@ -15,10 +16,11 @@ const modelo = /* HTML */ `
     <table>
       <thead>
         <tr>
-          <th>Ativo</th>
-          <th>Preço</th>
-          <th>Variação</th>
-          <th>Limite</th>
+          <th>Jogo</th>
+          <th>Placar</th>
+          <th>Tempo</th>
+          <th>Gols novos</th>
+          <th>Palpite</th>
         </tr>
       </thead>
       <tbody></tbody>
@@ -29,17 +31,18 @@ const modelo = /* HTML */ `
 
 interface Celulas {
   linha: HTMLTableRowElement;
-  preco: HTMLTableCellElement;
-  variacao: HTMLTableCellElement;
+  placar: HTMLTableCellElement;
+  tempo: HTMLTableCellElement;
+  golsNovos: HTMLTableCellElement;
 }
 
-class PainelDeCotacoes extends HTMLElement {
+class PainelDePlacares extends HTMLElement {
   private situacao!: HTMLParagraphElement;
   private pausa!: HTMLButtonElement;
   private celulas = new Map<string, Celulas>();
 
   // Estado da coordenação: a assinatura aberta (nenhuma em pausa) e o último
-  // lote mostrado, que dá a variação.
+  // lote mostrado, que dá os gols novos.
   private cancelar?: () => void;
   private ultimo?: Lote;
 
@@ -48,18 +51,20 @@ class PainelDeCotacoes extends HTMLElement {
     this.situacao = this.querySelector(".situacao")!;
     this.pausa = this.querySelector(".pausa")!;
     const corpo = this.querySelector("tbody")!;
-    for (const ativo of ATIVOS) {
+    for (const jogo of JOGOS) {
       const linha = corpo.insertRow();
-      linha.insertCell().textContent = ativo.codigo;
+      linha.insertCell().textContent = jogo.codigo;
       const celulas = {
         linha,
-        preco: linha.insertCell(),
-        variacao: linha.insertCell(),
+        placar: linha.insertCell(),
+        tempo: linha.insertCell(),
+        golsNovos: linha.insertCell(),
       };
-      celulas.preco.textContent = formatarPreco(undefined);
-      celulas.variacao.textContent = variacao(undefined, undefined);
-      linha.insertCell().textContent = formatarPreco(ativo.limite);
-      this.celulas.set(ativo.codigo, celulas);
+      celulas.placar.textContent = formatarPlacar(undefined);
+      celulas.tempo.textContent = formatarTempo(undefined);
+      celulas.golsNovos.textContent = golsNovos(undefined, undefined);
+      linha.insertCell().textContent = formatarPlacar(jogo.palpite);
+      this.celulas.set(jogo.codigo, celulas);
     }
 
     this.pausa.addEventListener("click", () => this.alternarPausa());
@@ -73,7 +78,7 @@ class PainelDeCotacoes extends HTMLElement {
   }
 
   private assinar() {
-    this.cancelar = assinarCotacoes((lote) => this.receber(lote));
+    this.cancelar = assinarPlacares((lote) => this.receber(lote));
   }
 
   private alternarPausa() {
@@ -90,15 +95,16 @@ class PainelDeCotacoes extends HTMLElement {
   }
 
   private receber(lote: Lote) {
-    for (const ativo of ATIVOS) {
-      const celulas = this.celulas.get(ativo.codigo)!;
-      const preco = lote[ativo.codigo];
-      celulas.preco.textContent = formatarPreco(preco);
-      celulas.variacao.textContent = variacao(
-        this.ultimo?.[ativo.codigo],
-        preco,
+    for (const jogo of JOGOS) {
+      const celulas = this.celulas.get(jogo.codigo)!;
+      const placar = lote[jogo.codigo];
+      celulas.placar.textContent = formatarPlacar(placar);
+      celulas.tempo.textContent = formatarTempo(placar);
+      celulas.golsNovos.textContent = golsNovos(
+        this.ultimo?.[jogo.codigo],
+        placar,
       );
-      celulas.linha.classList.toggle("alerta", acimaDoLimite(ativo, preco));
+      celulas.linha.classList.toggle("alerta", noPalpite(jogo, placar));
     }
     this.ultimo = lote;
     this.situacao.textContent = "";
@@ -107,11 +113,11 @@ class PainelDeCotacoes extends HTMLElement {
 
 // A página: o botão que tira o painel da página e o põe de volta.
 class DadosAoVivo extends HTMLElement {
-  private painel?: PainelDeCotacoes;
+  private painel?: PainelDePlacares;
 
   connectedCallback() {
     this.innerHTML = /* HTML */ `
-      <main class="cotacoes">
+      <main class="placares">
         <button type="button" class="alternar">Esconder painel</button>
       </main>
     `;
@@ -119,8 +125,8 @@ class DadosAoVivo extends HTMLElement {
     const alternar = this.querySelector<HTMLButtonElement>(".alternar")!;
     const mostrar = () => {
       this.painel = document.createElement(
-        "painel-de-cotacoes",
-      ) as PainelDeCotacoes;
+        "painel-de-placares",
+      ) as PainelDePlacares;
       principal.append(this.painel);
       alternar.textContent = "Esconder painel";
     };
@@ -137,5 +143,5 @@ class DadosAoVivo extends HTMLElement {
   }
 }
 
-customElements.define("painel-de-cotacoes", PainelDeCotacoes);
+customElements.define("painel-de-placares", PainelDePlacares);
 customElements.define("dados-ao-vivo", DadosAoVivo);
