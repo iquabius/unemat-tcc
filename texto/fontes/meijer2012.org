@@ -2,9 +2,12 @@
 #+startup: overview
 
 * [[file:../cases.org::A orquestração pesa mais na Busca][cases: A orquestração pesa mais na Busca]], p. 66
-- Frase: “e os Dados ao vivo, as cotações que uma fonte empurra aos
-  clientes, em Meijer (2012, p. 66).”
+- Frase: “e os Dados ao vivo adaptam a placares de jogos as cotações que
+  uma fonte empurra aos clientes, de Meijer (2012, p. 66).”
 - Trecho: “source asynchronously pushing data to its clients”; “push-based
   streams of stock quotes” (p. 66)
 - Lido em: =tmp/fontes/meijer2012-cacm.pdf=, p. 1 do PDF (p. 66).
-- Conferido: 2026-10-13.
+- Observação: os Dados ao vivo trocaram as cotações por placares
+  (ADR 0002, 2026-10-15); Meijer fica como a origem adaptada, como o
+  /Flight Booker/ de Kiss no Formulário.
+- Conferido: 2026-10-15.

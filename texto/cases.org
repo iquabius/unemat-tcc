@@ -37,8 +37,8 @@
   [[textcite:kiss2014][p. 11 e 25]], e acrescenta os campos de nome e de
   e-mail.
   O Login segue o painel de [[textcite:berry2020][p. 534]], e os Dados ao
-  vivo, as cotações que uma fonte empurra aos clientes, em
-  [[textcite:meijer2012][p. 66]].
+  vivo adaptam a placares de jogos as cotações que uma fonte empurra aos
+  clientes, de [[textcite:meijer2012][p. 66]].
 
 ** As tecnologias e os pares
   @@latex:\todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}@@
