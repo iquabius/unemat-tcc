@@ -732,8 +732,8 @@ O estranhamento com "mudança" no texto vinha do que a cercava, e não do
 substantivo: "onze mudanças, acrescentadas uma por commit" e "os nomes da
 mudança entre rodadas". A primeira passou a "feitas", a segunda a "o que
 acontece com a diferença de uma rodada a outra" (`texto/intro.org`,
-2026-10-13). O nome das rodadas não usa nenhuma das palavras: "a rodada
-da segunda rodada", pela pergunta a que cada uma responde.
+2026-10-13). O nome das rodadas não usa nenhuma das palavras: elas se
+chamam pelo ordinal, "a segunda rodada" (`CONTEXT.md`, Rodada).
 
 Com "mudança" fixada para o OpenSpec, o estado ficou com "alteração", e
 a tela com "atualização" (decisão do autor em 2026-10-13): o evento altera
