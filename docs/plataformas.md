@@ -287,9 +287,14 @@ nem `Main`); o *script* do ADR 0012 ainda não existe:
   acertos (64,34% contra 43,37%), sobretudo nas questões de mudança. Mede a montagem da tela,
   não o *binding*, e os participantes conheciam pouco o XAML.
 - **Só no Windows** (o autor tem Windows). O Windows Forms também tem *data
-  binding* (Microsoft, 2022): decidir que a tecnologia usa só eventos.
-  Decidir também se o WPF usa o CommunityToolkit.Mvvm, que muda a
-  notação.
+  binding* (Microsoft, 2022; no .NET 8, um motor no estilo do WPF): o
+  Windows Forms usa só eventos nas três rodadas (decisões do autor em
+  2026-10-14 e 2026-10-15, ADR 0001). Na primeira e na segunda rodada, o
+  WPF escreve o `INotifyPropertyChanged` e o `ICommand` à mão, com o que o
+  WPF e o .NET trazem, e o CommunityToolkit.Mvvm entra só na terceira
+  (ADR 0031; decisão do autor em 2026-10-15). Não é o caminho mais comum
+  no ecossistema, em que o CommunityToolkit.Mvvm tem 98,6% dos downloads
+  das candidatas (ADR 0031).
 
 ## Qt Widgets × QML (C++ e QML)
 
