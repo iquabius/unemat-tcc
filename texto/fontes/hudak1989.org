@@ -1,24 +1,10 @@
 #+title: hudak1989: Hudak (1989), Conception, Evolution, and Application of Functional Programming Languages
 #+startup: overview
 
-* [[file:../prog.org::Essas alterações são efeitos colaterais: as][prog: Essas alterações são efeitos colaterais: as]], p. 361 (efeito colateral)
-- Frase: “Essas alterações são efeitos colaterais: as modificações que um
-  comando, como a atribuição, faz no estado do programa (Hudak, 1989,
-  p. 361).”
-- Trecho: “Imperative languages are characterized as having an implicit
-  state that is modified (i.e., side effected) by constructs (i.e.,
-  commands) in the source language.”; “the assignment statement is a (very
-  common) command, since its effect is to alter the underlying implicit
-  store so as to yield a different binding for a particular variable.”
-  (p. 361)
-- Lido em: =tmp/fontes/hudak1989.pdf=, p. 3 do PDF (p. 361).
-- Observação: define o termo no primeiro uso, antes de Oney, Myers e
-  Brandt (2012) e do §8, que o usam para os /callbacks/.
-- Conferido: 2026-10-09.
 * [[file:../prog.org::Nas linguagens imperativas, esse estado é][prog: Nas linguagens imperativas, esse estado é]], p. 361 (imperativo)
 - Frase: “Nas linguagens imperativas, esse estado é implícito e muda por
-  comandos, como a atribuição de um valor a uma variável (Hudak, 1989,
-  p. 361).”
+  comandos, como a atribuição de um valor a uma variável, e essas mudanças
+  são os /efeitos colaterais/ dos comandos (Hudak, 1989, p. 361).”
 - Trecho: “Imperative languages are characterized as having an implicit
   state that is modified (i.e., side effected) by constructs (i.e.,
   commands) in the source language.”; “the assignment statement is a (very
@@ -26,7 +12,12 @@
   store so as to yield a different binding for a particular variable.”
   (p. 361)
 - Lido em: =tmp/fontes/hudak1989.pdf=, p. 3 do PDF (p. 361).
-- Conferido: 2026-10-14.
+- Observação: define /efeito colateral/ pelo /side effected/ do trecho. A
+  definição estava num parágrafo solto da seção de interfaces (“Essas
+  alterações são efeitos colaterais”), vindo da introdução sem o
+  antecedente, que saiu em 2026-10-15; o capítulo volta a usar o termo na
+  citação de Hughes, na seção de programação funcional.
+- Conferido: 2026-10-14; efeito colateral em 2026-10-15.
 * [[file:../prog.org::Nas linguagens imperativas, esse estado é][prog: Nas linguagens imperativas, esse estado é]], p. 361 (sequência)
 - Frase: “Por isso, para controlar o estado com precisão e de forma
   determinística, elas costumam fixar a ordem em que os comandos se

@@ -55,7 +55,8 @@ denominadas /linguagens imperativas/.
 
   # -> imperativo e declarativo
   Nas linguagens imperativas, esse estado é implícito e muda por comandos,
-  como a atribuição de um valor a uma variável [[cite:hudak1989][p. 361]].
+  como a atribuição de um valor a uma variável, e essas mudanças são os
+  /efeitos colaterais/ dos comandos [[cite:hudak1989][p. 361]].
   Por isso, para controlar o estado com precisão e de forma determinística,
   elas costumam fixar a ordem em que os comandos se executam
   [[cite:hudak1989][p. 361]].
@@ -206,9 +207,6 @@ denominadas /linguagens imperativas/.
   /Threads/ exprimem sequência, e eventos exprimem dependência, e muitos
   problemas vêm de escrever uma com o recurso da outra
   [[cite:blackheath2016][p. 16]].
-
-  Essas alterações são efeitos colaterais: as modificações que um comando, como a
-  atribuição, faz no estado do programa [[cite:hudak1989][p. 361]].
 
   Em JavaScript, os /callbacks/ são frequentes: num estudo de 138 programas, em
   média uma em cada dez definições de função recebe um /callback/, e a maioria dos

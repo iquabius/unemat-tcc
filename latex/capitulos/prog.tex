@@ -15,7 +15,7 @@ sequência de forma explícita.
 Tais linguagens são baseadas no modelo \emph{imperativo} de computação, e são
 denominadas \emph{linguagens imperativas}.
 \section{Linguagens de programação}
-\label{sec:org6707203}
+\label{sec:org5acfaf8}
 \label{sec:langs}
 
 Linguagens de programação são mais simples que linguagens naturais, no
@@ -47,7 +47,8 @@ trabalho até que o usuário a segure pelo topo, gesto que muda o estado
 dela: a barra se solta e passa a seguir o mouse \cite[p. 230]{oney2012}.
 
 Nas linguagens imperativas, esse estado é implícito e muda por comandos,
-como a atribuição de um valor a uma variável \cite[p. 361]{hudak1989}.
+como a atribuição de um valor a uma variável, e essas mudanças são os
+\emph{efeitos colaterais} dos comandos \cite[p. 361]{hudak1989}.
 Por isso, para controlar o estado com precisão e de forma determinística,
 elas costumam fixar a ordem em que os comandos se executam
 \cite[p. 361]{hudak1989}.
@@ -70,7 +71,7 @@ A programação declarativa costuma ser descrita como a que expressa “o
 quê” e não “o como” da computação, embora a diferença seja de grau
 \cite[p. 361]{hudak1989}.
 \section{Paradigmas e modelos de programação}
-\label{sec:orgdd1f584}
+\label{sec:org7735e05}
 \todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}
 
 O modelo de programação não é o paradigma, noção imprecisa que o modelo
@@ -164,7 +165,7 @@ Esses paradigmas não possuem condições de corrida, \emph{‘race conditions�
 inglês.
 \todo{Esses últimos dois parágrafos parecem estar deslocados.}
 \section{Programação de interfaces gráficas}
-\label{sec:org5c2980e}
+\label{sec:orgb45edc9}
 \todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}
 
 No projeto da interface, além dos problemas comuns a todo sistema de
@@ -187,9 +188,6 @@ operações assíncronas do navegador \cite[p. 5]{gallaba2015}.
 \emph{Threads} exprimem sequência, e eventos exprimem dependência, e muitos
 problemas vêm de escrever uma com o recurso da outra
 \cite[p. 16]{blackheath2016}.
-
-Essas alterações são efeitos colaterais: as modificações que um comando, como a
-atribuição, faz no estado do programa \cite[p. 361]{hudak1989}.
 
 Em JavaScript, os \emph{callbacks} são frequentes: num estudo de 138 programas, em
 média uma em cada dez definições de função recebe um \emph{callback}, e a maioria dos
@@ -262,7 +260,7 @@ Alguns problemas de computação são melhor resolvidos com o modelo baseado
 em \emph{threads}. No entanto \textcite{blackheath2016} afirmam que a
 abordagem com eventos geralmente é a melhor escolha.
 \section{Programação funcional}
-\label{sec:orgbf67547}
+\label{sec:orgfa42560}
 \Gls{pf} é assim chamada porque sua operação básica é a
 aplicação de funções à argumentos \cite{hughes1990}.
 Lisp foi a primeira linguagem de programação funcional.
@@ -328,7 +326,7 @@ expressão \texttt{tres inc 2} resulta no valor \texttt{5} \cite{noble1994}.
   \label{code:currying}
 \end{listing}
 \subsection{Porque programação funcional é relevante}
-\label{sec:org78b75d0}
+\label{sec:orgd75647d}
 \todo{Trecho vindo da introdução na checagem de outubro de 2026, ainda por integrar a esta seção.}
 \textcite[p. 1 e 21]{moseley2006} distinguem a complexidade essencial,
 própria do problema, da acidental, todo o resto, e propõem reduzir a
@@ -365,7 +363,7 @@ contribuir significativamente para a modularização de programas:
   que os convencionais. \cite[p.~22; tradução nossa]{hughes1990}
 \end{citacao}
 \section{Programação reativa}
-\label{sec:org633414e}
+\label{sec:org0bcd118}
 \todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}
 \textcite[p. 1-2]{bainomugisha2013} chamam as planilhas de “possivelmente a
 linguagem de programação mais utilizada por usuários finais” (tradução nossa).
@@ -446,7 +444,7 @@ como simulações físicas.
   (p. 36; tradução nossa)
 \end{citacao}
 \section{Trabalhos relacionados}
-\label{sec:orgba3c3c3}
+\label{sec:orgae61d75}
 \todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}
 
 \textcite{mernik2009} compararam, com 36 estudantes de graduação, uma linguagem de
@@ -475,7 +473,7 @@ significativa).
 Também respondeu mais rápido em seis das dez tarefas, sem diferença
 significativa nas outras quatro.
 \section{Uso das tecnologias web}
-\label{sec:orgd89b012}
+\label{sec:org02a6fbe}
 
 As pesquisas de uso medem tecnologias, não modelos de programação, e por
 isso o uso de cada modelo de programação se afere pelas tecnologias que o
