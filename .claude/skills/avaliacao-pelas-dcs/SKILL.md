@@ -1,6 +1,6 @@
 ---
 name: avaliacao-pelas-dcs
-description: Planeja, pré-analisa e revisa a avaliação do TCC pelas 14 Dimensões Cognitivas (DCs), interface por interface e rodada por rodada (primeira, segunda e terceira) — o plano da rodada, o guia de leitura do código por DC, factual e sem conclusão, que o agente entrega antes de o autor ler, e a revisão da análise que o autor ditou (Wispr Flow), conferida contra os trechos e as armadilhas, com a origem de cada conclusão registrada. Use sempre que for avaliar, analisar, pré-analisar ou ler uma implementação ou um diff de implementacoes/ pelas DCs, preparar a leitura de uma tecnologia que o autor conhece pouco (Views, Compose, Windows Forms, WPF, Web Component, Lit), revisar uma conclusão por DC, preencher a tabela-síntese ou dizer se a diferença entre os modelos de programação ficou mantida, ampliada, reduzida, anulada, invertida ou surgida — mesmo que o pedido não diga "DC", como "vamos ler o Formulário no Compose", "o que olhar na viscosidade da segunda rodada" ou "confere minha análise da Busca". Não use para escrever ou revisar a frase do texto (revisao-de-texto) nem para implementar uma das interfaces.
+description: Planeja, pré-analisa e revisa a avaliação do TCC pelas 14 Dimensões Cognitivas (DCs), interface por interface e rodada por rodada (primeira, segunda e terceira) — o plano da rodada, o guia de leitura do código por DC, factual e sem conclusão, que o agente entrega antes de o autor ler, e a revisão da análise que o autor ditou (Wispr Flow), conferida contra os trechos e as armadilhas, com a origem de cada posição registrada. Use sempre que for avaliar, analisar, pré-analisar ou ler uma implementação ou um diff de implementacoes/ pelas DCs, preparar a leitura de uma tecnologia que o autor conhece pouco (Views, Compose, Windows Forms, WPF, Web Component, Lit), revisar uma conclusão por DC, preencher a tabela-síntese ou dizer se a diferença entre os modelos de programação ficou mantida, ampliada, reduzida, anulada, invertida ou surgida — mesmo que o pedido não diga "DC", como "vamos ler o Formulário no Compose", "o que olhar na viscosidade da segunda rodada" ou "confere minha análise da Busca". Não use para escrever ou revisar a frase do texto (revisao-de-texto) nem para implementar uma das interfaces.
 ---
 
 # Avaliação pelas DCs: plano, guia de leitura e revisão
@@ -269,14 +269,15 @@ Cada apontamento é uma pergunta ou uma observação, nunca a frase
 reescrita. O autor responde e reescreve no `.org` (porta fechada); o que
 ele acatar fica registrado com a origem.
 
-**Origem de cada conclusão.** A revisão termina com a lista das
-conclusões da rodada, uma por DC e tecnologia, com a origem: "autor"
+**Origem de cada posição.** A revisão termina com a lista das posições
+da rodada, uma por DC e modelo de programação, com a origem: "autor"
 quando veio do ditado sem mudança, "autor, depois da revisão (apontamento
 N)" quando ele mudou por um apontamento, "agente, aceito pelo autor"
 quando o autor adotou uma opinião pedida ao agente. A lista vai para o
 `revisao.md`, e o resumo, para a mensagem do commit do texto, numa linha
-`Origem das conclusões:`, ao lado da `Fontes conferidas:` da
-`revisao-de-texto` (decisão do autor de 2026-10-13). Ela alimenta a
+`Origem das posições:`, ao lado da `Fontes conferidas:` da
+`revisao-de-texto` (decisão do autor de 2026-10-13; o nome e a unidade,
+DC e modelo de programação, são de 2026-10-15). Ela alimenta a
 declaração de uso de IA (tcc-gjw).
 
 ## 5. Encadeamento com o texto
@@ -288,7 +289,7 @@ declaração de uso de IA (tcc-gjw).
 4. Porta aberta da `revisao-de-texto` (ADR 0023): o rascunho no índice,
    as correções por cima, a fonte de cada afirmação conferida no PDF e
    registrada em `texto/fontes/<chave>.org`, o aprovo e o commit, com
-   a linha `Origem das conclusões:`.
+   a linha `Origem das posições:`.
 
 A skill não edita o texto por conta própria em nenhum passo: a frase é
 do autor ou passa pela porta aberta.

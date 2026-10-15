@@ -14,7 +14,7 @@ estão em `CONTEXT.md`; use-os.
 | Termo do projeto | `CONTEXT.md` | skill `domain-modeling`: definição de uma ou duas frases e o que evitar |
 | Tarefa aberta | Beads (`bd`), exportado em `.beads/issues.jsonl` | seção abaixo |
 | Nota de referência ou achado que o texto ainda vai absorver | `docs/*.md` | seção abaixo |
-| Plano, guia de leitura e revisão do agente na avaliação pelas DCs | `docs/avaliacao/<rodada>-<interface>/` | skill do projeto `avaliacao-pelas-dcs`: o guia sai antes da leitura do autor e sem conclusão, a revisão depois do ditado; cada um num commit no `master`; a origem das conclusões vai numa linha do commit do texto |
+| Plano, guia de leitura e revisão do agente na avaliação pelas DCs | `docs/avaliacao/<rodada>-<interface>/` | skill do projeto `avaliacao-pelas-dcs`: o guia sai antes da leitura do autor e sem conclusão, a revisão depois do ditado; cada um num commit no `master`; a origem das posições vai numa linha do commit do texto |
 | Convenção de código, pastas ou ambiente | `implementacoes/AGENTS.md` | |
 | Mudança em código (`implementacoes/`, `bin/`, scripts), ferramentas ou `AGENTS.md` | numa worktree, em ramo próprio, que chega ao `master` revisado | seção "Código: ramo, revisão, merge" abaixo |
 | Feedback de escrita e revisão bibliográfica | não vai para o repositório | skill `escrita-academica`; o que sobra vira tarefa no `bd` ou nota em `docs/` |

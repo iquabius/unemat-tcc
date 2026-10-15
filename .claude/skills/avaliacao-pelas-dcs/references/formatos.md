@@ -160,11 +160,11 @@ Commit lido: <sha>. Texto revisado: `texto/<capítulo>.org`, linhas
 
 (DC sem apontamento: "nada a apontar".)
 
-## Origem das conclusões
-- <DC>, <modelo ou tecnologia>: autor | autor, depois da revisão
+## Origem das posições
+- <DC>, <modelo de programação>: autor | autor, depois da revisão
   (apontamento <n>) | agente, aceito pelo autor.
 ```
 
-A linha do commit do texto resume a lista: `Origem das conclusões: autor
+A linha do commit do texto resume a lista: `Origem das posições: autor
 em 12 de 14 DCs; autor depois da revisão em viscosidade (2) e
 visibilidade (1)`.
