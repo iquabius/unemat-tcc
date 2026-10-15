@@ -56,10 +56,13 @@ Streams vazia em 2026-09-25) e o custo era cerca de três vezes maior.
 Em vez de: JavaScript nas tecnologias web sem Angular, como em 2017;
 evitaria a etapa de tipos, mas misturaria linguagem e notação.
 Em vez de: o Windows Forms com o *data binding* que ele oferece; seria o
-estilo de quem usa *binding* no *desktop*, mas o par perderia o
-imperativo por atualização manual e mediria só a montagem da tela (código
-C# contra XAML), já comparada pelas DCs (Mernik et al. 2009; Kosar et al.
-2010).
+estilo de quem usa *binding* no *desktop*, e desde o .NET 8 a própria
+plataforma traz um motor de *binding* "modeled after WPF, which makes it
+easier to implement MVVM design principles", com o `Command` dos botões
+e o `CanExecute`; mas o par perderia o imperativo por atualização manual
+e mediria só a montagem da tela (código C# contra XAML), já comparada
+pelas DCs (Mernik et al. 2009; Kosar et al. 2010). Vale nas três rodadas
+(decisão do autor em 2026-10-15, tcc-74m).
 Custo: três ecossistemas de *build* (npm, Gradle e .NET) e duas
 linguagens novas para o autor (Kotlin e C#); o `build` web roda `tsc`
 antes do Vite, que só remove os tipos; o WPF e o Windows Forms só rodam
@@ -78,4 +81,6 @@ Fontes: Stack Overflow Developer Survey 2025 (React 44,7%, jQuery 23,4%,
 Angular 18,2%); notas de 2026-10-08 a 2026-10-11 na tarefa tcc-a0w;
 `docs/plataformas.md`; JetBrains State of Developer Ecosystem 2022 e
 State of .NET 2025 (Windows Forms 23%, WPF 18%); Pesquisa Código Fonte TV
-2026; commits `25cf4dd` e `534a191`.
+2026; commits `25cf4dd` e `534a191`; "What's new in Windows Forms .NET
+8" (Microsoft, atualizada em 2026-02-10), seção "Data binding
+improvements".
