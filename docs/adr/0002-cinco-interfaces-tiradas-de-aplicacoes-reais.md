@@ -1,6 +1,6 @@
 # 0002. Cinco interfaces gráficas tiradas de aplicações reais: Formulário, Busca, Login com quarentena, Quadro de tarefas e Dados ao vivo
 
-2026-10-12. O projeto de 2017 tinha processamento de listas, um Contador e
+2026-10-15. O projeto de 2017 tinha processamento de listas, um Contador e
 uma Reserva de voo, nenhum assíncrono. Cada interface reproduz a de uma
 aplicação real, com as exigências de coordenação que ela costuma ter, nos
 dois eixos, a orquestração de eventos e o gerenciamento de estado
@@ -22,8 +22,11 @@ cada eixo forte em pelo menos duas:
 - Quadro de tarefas, um *kanban*: o estado compartilhado entre o
   cabeçalho e três colunas, o limite de "Fazendo", que cruza colunas, e a
   persistência, no gerenciamento de estado;
-- Dados ao vivo com pausa, cotações empurradas por uma fonte (Meijer
-  2012, p. 66-67): a assinatura presa à tela e a pausa, na orquestração.
+- Dados ao vivo com pausa, placares de jogos em andamento empurrados por
+  uma fonte, que adaptam as cotações de Meijer (2012, p. 66-67) como o
+  Formulário adapta o *Flight Booker*: a assinatura presa à tela e a
+  pausa, na orquestração. O placar se entende sem contexto, e o palpite
+  de cada jogo faz o papel do limite de cada ativo.
 
 A orquestração é forte na Busca, no Login e nos Dados ao vivo; o
 gerenciamento de estado, no Formulário e no Quadro. O Contador, a Lista
@@ -41,6 +44,20 @@ implementadas em seis tecnologias, mas a orquestração vivia só na Busca,
 o Contador e a Lista somavam implementações sem exigência própria, e o
 desfazer no Carrinho é forçado (no protótipo, "Finalizar compra" teve de
 apagar o histórico).
+Em vez de: as cotações de bolsa de Meijer (PETR4, VALE3, ITUB4 e WEGE3,
+com preço, variação e limite), a decisão de 2026-10-12; fiéis à fonte, e
+o preço de fato muda a cada lote, como num servidor real, mas as
+cotações ficam opacas para o leitor que não acompanha a bolsa. No
+protótipo de 2026-10-13, o placar não muda a coordenação em nenhuma das
+três tecnologias web (+5, +2 e +4 linhas, só montagem e ligação), e o
+teste de conformidade se traduz cenário a cenário.
+Em vez de: o placar com o relógio da partida em tempo real (minutos e
+segundos); mais realista, mas os gols ficariam raros, a tela mudaria
+quase só no relógio, e o teste dependeria de gols marcados em segundos
+arranjados.
+Em vez de: a posse de bola como o valor que muda a cada lote; um número
+que um servidor de fato empurra a todo instante, mas outra tabela, sem
+protótipo.
 Em vez de: o *Timer* do 7GUIs; barato e com precedente, mas no protótipo
 a coordenação ficou abaixo da montagem da tela (6 a 9 linhas contra 15 e
 16), a pausa acrescentada não separou React de Solid, e o próprio Kiss
@@ -58,9 +75,16 @@ contra `LazyColumn`), cujo contraste passa ao Quadro; a introdução e o
 `cases.org` citam as interfaces antigas; com os eixos desiguais, a conclusão
 sobre cada eixo vem de duas ou três interfaces; a Busca, o Login e os Dados
 ao vivo se sobrepõem no cancelamento, que cada um faz com uma política
-diferente.
+diferente; no placar, o que muda a cada lote é o relógio da partida,
+simulado a 1 minuto por segundo, que um aplicativo real costuma contar
+no próprio aparelho, e a fonte simulada o empurra só para manter um lote
+por segundo; o domínio dos Dados ao vivo cresce de 73 para 106 linhas, e
+a troca refaz a especificação, o teste de conformidade, as cenas e as
+quatro implementações web já feitas, com as capturas.
 
 Fontes: 7GUIs (`kiss2014`, p. 56 e 77); Berry e Serrano (2020); Meijer
 (2012); protótipos e medidas de 2026-10-12 em
-`tmp/mergulho-tarefas-2026-10-12/` e `tmp/prototipos-tarefas-2026-10-12/`
-(fora do git); `docs/metodo-da-avaliacao.md`, seção 10; commit `25cf4dd`.
+`tmp/mergulho-tarefas-2026-10-12/` e `tmp/prototipos-tarefas-2026-10-12/`,
+e de 2026-10-13 em `tmp/prototipos-placar-2026-10-13/` (fora do git);
+`docs/metodo-da-avaliacao.md`, seções 10 e 12; commit `25cf4dd`; tarefa
+tcc-dw83.
