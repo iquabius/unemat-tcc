@@ -299,11 +299,12 @@ reconferidos.
 Conclusão: nenhuma fonte do TCC tem uma palavra só para "o resultado
 mudou entre condições", e por isso o trabalho descreve, com particípios:
 na linha de cada DC, a diferença entre os modelos fica mantida, ampliada,
-reduzida, anulada, invertida ou surgida; na célula, a conclusão do modelo
-aumenta, diminui ou fica igual (decisão do autor em 2026-10-12). Os três
-primeiros valores da lista original ("persiste, encolhe ou desaparece")
-são do autor; "cresce", "se inverte" e "surge" foram acrescentados na
-discussão, e nenhuma fonte define a lista.
+reduzida, anulada, invertida ou surgida; na célula, a posição do modelo
+sobe, desce ou fica igual (decisão do autor em 2026-10-12, com os nomes
+de 2026-10-14, ADR 0017). Os três primeiros valores da lista original
+("persiste, encolhe ou desaparece") são do autor; "cresce", "se inverte"
+e "surge" foram acrescentados na discussão, e nenhuma fonte define a
+lista.
 
 - Nas fontes: "still holds" (Salvaneschi et al. 2014); "still true today"
   e "can cover potential deficits" (Kiss 2014, p. 56); "would probably not

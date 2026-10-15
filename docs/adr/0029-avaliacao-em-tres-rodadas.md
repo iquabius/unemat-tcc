@@ -59,8 +59,8 @@ medem a viscosidade de repetição e de efeito dominó (Blackwell e Green
 e feita em cada versão, é o teste de viscosidade de Green e Petre (1996,
 p. 162). Da primeira rodada para a segunda e a terceira, na linha de cada
 DC, a diferença entre os modelos de programação fica mantida, ampliada,
-reduzida, anulada, invertida ou surgida, e na célula a conclusão aumenta,
-diminui ou fica igual (ADR 0017). A análise fica na notação, e
+reduzida, anulada, invertida ou surgida, e na célula a posição sobe,
+desce ou fica igual (ADR 0017). A análise fica na notação, e
 "ecossistema" são as bibliotecas, e não as ferramentas. Se o prazo
 apertar, pulam-se interfaces em alguns pares, nesta ordem, fixada antes da
 análise: 1) a segunda rodada do Angular no Quadro; 2) o Quadro no Angular;
