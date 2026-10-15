@@ -1,6 +1,6 @@
 # 0029. A avaliação se faz em três rodadas: as cinco interfaces, requisitos acrescentados pela realidade de cada uma e o Formulário com a biblioteca do ecossistema
 
-2026-10-12. Interfaces pequenas isolam uma escolha de projeto, mas não
+2026-10-15. Interfaces pequenas isolam uma escolha de projeto, mas não
 mostram o que só aparece quando o programa cresce (Stol e Fitzgerald 2018,
 p. 11:10; Green et al. 2006, p. 334), e Kiss (2014) avaliou cada
 implementação num tamanho só, deixando como trabalho futuro estendê-las
@@ -38,9 +38,9 @@ eixo é forte em pelo menos duas interfaces. São 11 requisitos:
   "Entrar" vale para um nome que chega sem tecla;
 - Quadro: desfazer e refazer, e a atualização otimista com um servidor
   simulado;
-- Dados ao vivo: a reconexão depois de queda, a carteira com o total
-  derivado das cotações e a frequência de atualização controlável (WCAG
-  2.2.2).
+- Dados ao vivo: a reconexão depois de queda, o bolão, com os pontos de
+  cada jogo e o total derivados dos placares e dos palpites que o usuário
+  digita, e a frequência de atualização controlável (WCAG 2.2.2).
 
 Latências, tentativas, prazos e intervalos ficam fixos no domínio, e a
 segunda rodada soma 72 commits, 46 na web. Na terceira rodada, o
@@ -85,6 +85,21 @@ que identificam as linhas de modos diferentes na terceira rodada) e o filtro no
 Quadro (+24 a +30 linhas); reais e baratos, mas somariam commits em
 interfaces que já têm os dois eixos, e o filtro repete a lista derivada da
 Busca.
+Em vez de: a carteira com o total derivado das cotações (decisão de
+2026-10-12), que sai com as cotações (ADR 0002); o bolão tem a mesma
+forma, um valor que o usuário digita e outro que a fonte empurra, que dão
+o valor de cada linha e o total, e no protótipo de 2026-10-13, na mesma
+base formatada, custa +40/+29/+34 linhas contra +45/+33/+38 da carteira
+(Web Component, React e Solid), com a mesma distância entre as
+tecnologias. Muda uma coisa: o palpite editável é o mesmo valor que
+decide o destaque da primeira rodada, e por isso o diff do bolão altera
+linhas da primeira rodada nas três tecnologias (9, 2 e 3), e o da
+carteira, no Web Component (7) e, no Solid, só o import que o Prettier
+quebra (1).
+Em vez de: a classificação derivada dos placares como análogo da
+carteira; uma tabela de pontos que a aplicação real mostra, mas uma lista
+derivada e ordenada, que repete a Busca e o Quadro, e sem um valor que o
+usuário digita.
 Em vez de: chamar a regra de "nada vivo depois de sair da tela" (nome
 de 2026-10-12, mais cedo); diz o efeito, mas decalca o *alive* do inglês,
 e "limpeza" é o termo das documentações em português do React e do
@@ -143,6 +158,8 @@ developer.android.com/develop/ui/compose/side-effects?hl=pt-br
 (2026-10-12), para "limpeza"; Lima, Giusti e Dias-Neto (2020, SBQS,
 WTDQS), para "vazamento de recursos";
 protótipos e medidas de 2026-10-12 em `tmp/mergulho-tarefas-2026-10-12/`,
-`tmp/prototipos-tarefas-2026-10-12/` e `tmp/prototipos-p2-2026-10-12/`
-(fora do git); ADRs 0001, 0002, 0005, 0012, 0013, 0014 e 0017;
-`docs/tecnologias-web.md`, seção 2; tarefas tcc-cef, tcc-di3a e tcc-xep.
+`tmp/prototipos-tarefas-2026-10-12/` e `tmp/prototipos-p2-2026-10-12/`, e
+de 2026-10-13 em `tmp/prototipos-placar-2026-10-13/` (fora do git); ADRs
+0001, 0002, 0005, 0012, 0013, 0014 e 0017;
+`docs/tecnologias-web.md`, seção 2; tarefas tcc-cef, tcc-di3a, tcc-xep e
+tcc-dw83.

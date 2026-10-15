@@ -6,7 +6,7 @@ body {
   color: #eee;
 }
 
-.cotacoes {
+.placares {
   display: grid;
   gap: 0.5rem;
   max-width: 28rem;
@@ -33,6 +33,7 @@ body {
 .painel th {
   padding: 0.2rem 0.6rem;
   text-align: right;
+  white-space: nowrap;
 }
 
 .painel td:first-child,
@@ -45,7 +46,7 @@ body {
   font-weight: bold;
 }
 
-.cotacoes button {
+.placares button {
   padding: 0.4rem;
   font-size: 1rem;
 }

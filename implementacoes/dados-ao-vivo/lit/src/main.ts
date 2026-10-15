@@ -1,20 +1,21 @@
 import { LitElement, html, nothing } from "lit";
 import { customElement, state } from "lit/decorators.js";
 import {
-  ATIVOS,
+  JOGOS,
   MENSAGENS,
-  acimaDoLimite,
-  assinarCotacoes,
-  formatarPreco,
-  variacao,
+  assinarPlacares,
+  formatarPlacar,
+  formatarTempo,
+  golsNovos,
+  noPalpite,
   type Lote,
 } from "../../dominio";
 import "../../estilo.css";
 
-@customElement("painel-de-cotacoes")
-class PainelDeCotacoes extends LitElement {
+@customElement("painel-de-placares")
+class PainelDePlacares extends LitElement {
   // Estado da tela: alterá-lo reagenda render(). Os dois últimos lotes: o atual
-  // dá o preço, o anterior, a variação.
+  // dá o placar, o anterior, os gols novos.
   @state() accessor pausado = false;
   @state() accessor anterior: Lote | undefined;
   @state() accessor atual: Lote | undefined;
@@ -39,7 +40,7 @@ class PainelDeCotacoes extends LitElement {
   }
 
   private assinar() {
-    this.cancelar = assinarCotacoes((lote) => {
+    this.cancelar = assinarPlacares((lote) => {
       this.anterior = this.atual;
       this.atual = lote;
     });
@@ -63,21 +64,23 @@ class PainelDeCotacoes extends LitElement {
         <table>
           <thead>
             <tr>
-              <th>Ativo</th>
-              <th>Preço</th>
-              <th>Variação</th>
-              <th>Limite</th>
+              <th>Jogo</th>
+              <th>Placar</th>
+              <th>Tempo</th>
+              <th>Gols novos</th>
+              <th>Palpite</th>
             </tr>
           </thead>
           <tbody>
-            ${ATIVOS.map((ativo) => {
-              const preco = this.atual?.[ativo.codigo];
+            ${JOGOS.map((jogo) => {
+              const placar = this.atual?.[jogo.codigo];
               return html`
-                <tr class=${acimaDoLimite(ativo, preco) ? "alerta" : nothing}>
-                  <td>${ativo.codigo}</td>
-                  <td>${formatarPreco(preco)}</td>
-                  <td>${variacao(this.anterior?.[ativo.codigo], preco)}</td>
-                  <td>${formatarPreco(ativo.limite)}</td>
+                <tr class=${noPalpite(jogo, placar) ? "alerta" : nothing}>
+                  <td>${jogo.codigo}</td>
+                  <td>${formatarPlacar(placar)}</td>
+                  <td>${formatarTempo(placar)}</td>
+                  <td>${golsNovos(this.anterior?.[jogo.codigo], placar)}</td>
+                  <td>${formatarPlacar(jogo.palpite)}</td>
                 </tr>
               `;
             })}
@@ -102,7 +105,7 @@ class DadosAoVivo extends LitElement {
 
   override render() {
     return html`
-      <main class="cotacoes">
+      <main class="placares">
         <button
           type="button"
           class="alternar"
@@ -112,7 +115,7 @@ class DadosAoVivo extends LitElement {
         </button>
         ${
           this.visivel
-            ? html`<painel-de-cotacoes></painel-de-cotacoes>`
+            ? html`<painel-de-placares></painel-de-placares>`
             : nothing
         }
       </main>

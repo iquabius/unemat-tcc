@@ -6,7 +6,7 @@
 // implementacoes/openspec/specs/dados-ao-vivo/spec.md.
 //
 // O tempo é de um relógio falso: o teste troca setTimeout, setInterval e
-// Date.now da página pelos dele e só os faz andar com avancar(ms). O preço
+// Date.now da página pelos dele e só os faz andar com avancar(ms). O placar
 // depende do segundo do relógio, que começa às 10:00:00 UTC de 2026-10-12.
 // O painel assina a fonte ao abrir a página, com os temporizadores de
 // verdade: por isso o teste o esconde e o mostra antes de conferir lotes.
@@ -109,28 +109,29 @@
     );
 
   const semLote = [
-    "PETR4 | — | — | R$ 38,50",
-    "VALE3 | — | — | R$ 62,34",
-    "ITUB4 | — | — | R$ 34,50",
-    "WEGE3 | — | — | R$ 53,00",
+    "FLA × PAL | — | — | — | 1 × 0",
+    "COR × SAO | — | — | — | 2 × 0",
+    "GRE × INT | — | — | — | 1 × 0",
+    "CAM × CRU | — | — | — | 2 × 1",
   ];
   const primeiroLote = [
-    "PETR4 | R$ 38,23 | — | R$ 38,50",
-    "VALE3 | R$ 62,34 | — | R$ 62,34",
-    "ITUB4 | R$ 33,86 | — | R$ 34,50",
-    "WEGE3 | R$ 51,69 | — | R$ 53,00",
+    "FLA × PAL | 0 × 0 | 1' | — | 1 × 0",
+    "COR × SAO | 1 × 0 | 21' | — | 2 × 0",
+    "GRE × INT | 1 × 0 | 41' | — | 1 × 0",
+    "CAM × CRU | 2 × 0 | 61' | — | 2 × 1",
   ];
   const segundoLote = [
-    "PETR4 | R$ 38,53 | ▲ 0,30 | R$ 38,50",
-    "VALE3 | R$ 61,61 | ▼ 0,73 | R$ 62,34",
-    "ITUB4 | R$ 33,59 | ▼ 0,27 | R$ 34,50",
-    "WEGE3 | R$ 52,00 | ▲ 0,31 | R$ 53,00",
+    "FLA × PAL | 1 × 0 | 2' | +1 × 0 | 1 × 0",
+    "COR × SAO | 1 × 0 | 22' | = | 2 × 0",
+    "GRE × INT | 1 × 1 | 42' | 0 × +1 | 1 × 0",
+    "CAM × CRU | 2 × 0 | 62' | = | 2 × 1",
   ];
-  const segundoLoteRepetido = [
-    "PETR4 | R$ 38,53 | = 0,00 | R$ 38,50",
-    "VALE3 | R$ 61,61 | = 0,00 | R$ 62,34",
-    "ITUB4 | R$ 33,59 | = 0,00 | R$ 34,50",
-    "WEGE3 | R$ 52,00 | = 0,00 | R$ 53,00",
+  // O lote que sai 8 s depois do segundo, com os gols marcados na pausa.
+  const loteDepoisDaPausa = [
+    "FLA × PAL | 1 × 1 | 10' | 0 × +1 | 1 × 0",
+    "COR × SAO | 1 × 0 | 30' | = | 2 × 0",
+    "GRE × INT | 1 × 1 | 50' | = | 1 × 0",
+    "CAM × CRU | 2 × 1 | 70' | 0 × +1 | 2 × 1",
   ];
 
   try {
@@ -162,31 +163,27 @@
         texto($(".alternar")),
         assinantes(),
       ],
-      ["Aguardando cotações…", semLote, "Pausar", "Esconder painel", 1],
+      ["Aguardando placares…", semLote, "Pausar", "Esconder painel", 1],
     );
     const regiao = $(".situacao");
 
     await relogio.avancar(1000);
     conferir(
-      "4 primeiro lote mostra os preços, sem variação",
+      "4 primeiro lote mostra os placares, sem gols novos",
       [situacao(), linhas()],
       ["", primeiroLote],
     );
-    conferir("4 ativo no limite ou acima fica destacado", destacadas(), [
-      "VALE3",
-    ]);
+    conferir("4 jogo no palpite fica destacado", destacadas(), ["GRE × INT"]);
 
     await relogio.avancar(1000);
     conferir(
-      "5 lote seguinte mostra a variação desde o anterior",
+      "5 lote seguinte mostra os gols desde o anterior",
       linhas(),
       segundoLote,
     );
-    conferir(
-      "5 ativo que volta abaixo do limite perde o destaque",
-      destacadas(),
-      ["PETR4"],
-    );
+    conferir("5 jogo que sai do palpite perde o destaque", destacadas(), [
+      "FLA × PAL",
+    ]);
 
     await clicar(".pausa");
     conferir(
@@ -203,12 +200,12 @@
       [situacao(), texto($(".pausa")), assinantes()],
       ["", "Pausar", 1],
     );
-    // O lote sai 8 s depois do segundo, no mesmo ponto do ciclo de preços.
+    // O lote sai 8 s depois do segundo; os gols da pausa contam desde ele.
     await relogio.avancar(1000);
     conferir(
-      "7 variação conta desde o último lote mostrado",
-      linhas(),
-      segundoLoteRepetido,
+      "7 gols novos contam desde o último lote mostrado",
+      [linhas(), destacadas()],
+      [loteDepoisDaPausa, ["CAM × CRU"]],
     );
 
     conferir(
@@ -223,7 +220,7 @@
     conferir(
       "9 mostrar depois de esconder em pausa começa sem pausa",
       [situacao(), texto($(".pausa")), linhas(), assinantes()],
-      ["Aguardando cotações…", "Pausar", semLote, 1],
+      ["Aguardando placares…", "Pausar", semLote, 1],
     );
 
     await clicar(".pausa");
@@ -231,7 +228,7 @@
     conferir(
       "10 retomar antes do primeiro lote volta a aguardar",
       [situacao(), assinantes()],
-      ["Aguardando cotações…", 1],
+      ["Aguardando placares…", 1],
     );
 
     for (let i = 0; i < 3; i++) {

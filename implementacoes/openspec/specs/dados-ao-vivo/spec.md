@@ -2,20 +2,24 @@
 
 ## Purpose
 
-Painel de cotações que uma fonte simulada atualiza sozinha a cada segundo,
-com pausa (Meijer, 2012, p. 66-67): o painel assina a fonte ao entrar na
-página e cancela a assinatura ao pausar e ao sair dela.
+Painel de placares de jogos em andamento que uma fonte simulada atualiza
+sozinha a cada segundo, com pausa, adaptado das cotações de Meijer (2012,
+p. 66-67): o painel assina a fonte ao entrar na página, para o usuário
+seguir os jogos sem pedir, e cancela a assinatura ao pausar, para o
+usuário ler a tabela parada, e ao sair dela, para o usuário não gastar
+rede e bateria com um painel que não vê.
 
 ## Requirements
 
 ### Requirement: Abertura
 
-A interface deve abrir com o painel na página e o botão "Esconder painel". O
-painel assina a fonte ao entrar na página e mostra uma linha por ativo, na
-ordem PETR4, VALE3, ITUB4 e WEGE3, com o código, o preço, a variação e o
-limite ("R$ 38,50", "R$ 62,34", "R$ 34,50" e "R$ 53,00"). Antes do primeiro
-lote, o preço e a variação mostram "—", a situação mostra "Aguardando
-cotações…" e o botão de pausa diz "Pausar".
+A interface deve abrir com o painel na página e o botão "Esconder painel".
+O painel assina a fonte ao entrar na página, para o usuário seguir os
+jogos sem pedir, e mostra uma linha por jogo, na ordem FLA × PAL,
+COR × SAO, GRE × INT e CAM × CRU, com o código, o placar, o tempo, os gols
+novos e o palpite ("1 × 0", "2 × 0", "1 × 0" e "2 × 1"). Antes do primeiro
+lote, o placar, o tempo e os gols novos mostram "—", a situação mostra
+"Aguardando placares…" e o botão de pausa diz "Pausar".
 
 #### Scenario: 1 abre com o painel e uma assinatura
 
@@ -28,55 +32,58 @@ cotações…" e o botão de pausa diz "Pausar".
 
 - **DADO** o painel escondido
 - **QUANDO** o usuário clica no "Mostrar painel"
-- **ENTÃO** a situação mostra "Aguardando cotações…"
-- **E** as quatro linhas mostram o código, "—" no preço e na variação, e o limite
+- **ENTÃO** a situação mostra "Aguardando placares…"
+- **E** as quatro linhas mostram o código, "—" no placar, no tempo e nos gols novos, e o palpite
 - **E** o botão de pausa diz "Pausar", e o outro, "Esconder painel"
 - **E** `contarAssinantes()` dá 1
 
-### Requirement: Lotes
+### Requirement: Lotes da partida
 
-A fonte simulada (`assinarCotacoes` do domínio) deve empurrar um lote a cada
-1 s, com o preço de cada ativo calculado pelo segundo do relógio em que o
-lote sai, num ciclo de 8 s; o teste começa o relógio às 10:00:00 UTC de
-2026-10-12. A cada lote, o painel mostra o preço ("R$ 38,23") e a variação
-desde o lote anterior mostrado ("▲ 0,30", "▼ 0,73" ou "= 0,00", e "—" no
-primeiro), e a situação fica vazia.
+A fonte simulada (`assinarPlacares`) deve empurrar a cada 1 s um lote com
+o minuto e os gols de cada jogo, pelo segundo em que ele sai: a partida
+anda 1 minuto por segundo e recomeça a cada 100 s; o teste começa às
+10:00:00 UTC de 2026-10-12. A cada lote, o painel mostra o placar
+("1 × 0"), o tempo ("41'", "Fim" depois do 90) e os gols novos desde o
+último lote mostrado da mesma partida ("+1 × 0", "=", senão "—"), e a
+situação fica vazia, para o usuário seguir os jogos sem pedir.
 
-#### Scenario: 4 primeiro lote mostra os preços, sem variação
+#### Scenario: 4 primeiro lote mostra os placares, sem gols novos
 
 - **DADO** o painel mostrado às 10:00:00, sem lote
 - **QUANDO** passa 1 s
 - **ENTÃO** a situação fica vazia
-- **E** os preços são "R$ 38,23" (PETR4), "R$ 62,34" (VALE3), "R$ 33,86" (ITUB4) e "R$ 51,69" (WEGE3), com a variação "—"
+- **E** os placares são "0 × 0" (FLA × PAL), "1 × 0" (COR × SAO), "1 × 0" (GRE × INT) e "2 × 0" (CAM × CRU), nos tempos "1'", "21'", "41'" e "61'", com os gols novos "—"
 
-#### Scenario: 5 lote seguinte mostra a variação desde o anterior
+#### Scenario: 5 lote seguinte mostra os gols desde o anterior
 
 - **DADO** o primeiro lote na tela
 - **QUANDO** passa 1 s
-- **ENTÃO** os preços são "R$ 38,53", "R$ 61,61", "R$ 33,59" e "R$ 52,00"
-- **E** as variações são "▲ 0,30", "▼ 0,73", "▼ 0,27" e "▲ 0,31", na mesma ordem
+- **ENTÃO** os placares são "1 × 0", "1 × 0", "1 × 1" e "2 × 0", nos tempos "2'", "22'", "42'" e "62'"
+- **E** os gols novos são "+1 × 0", "=", "0 × +1" e "=", na mesma ordem
 
-### Requirement: Destaque
+### Requirement: Destaque do palpite
 
-A linha do ativo com o preço igual ao limite ou acima dele deve ficar
-destacada, e só enquanto o preço ficar lá.
+A linha do jogo com o placar igual ao palpite deve ficar destacada, e só
+enquanto o placar ficar igual, para o usuário ver de relance os jogos em
+que o palpite está certo.
 
-#### Scenario: 4 ativo no limite ou acima fica destacado
+#### Scenario: 4 jogo no palpite fica destacado
 
 - **DADO** o painel mostrado às 10:00:00, sem lote
 - **QUANDO** chega o primeiro lote
-- **ENTÃO** só a linha do VALE3, a "R$ 62,34", igual ao limite, está destacada
+- **ENTÃO** só a linha do GRE × INT, com "1 × 0", igual ao palpite, está destacada
 
-#### Scenario: 5 ativo que volta abaixo do limite perde o destaque
+#### Scenario: 5 jogo que sai do palpite perde o destaque
 
-- **DADO** o primeiro lote na tela, com o VALE3 destacado
-- **QUANDO** chega o segundo lote
-- **ENTÃO** só a linha do PETR4, a "R$ 38,53" com o limite "R$ 38,50", está destacada
+- **DADO** o primeiro lote na tela, com o GRE × INT destacado
+- **QUANDO** chega o segundo lote, com o gol do INT
+- **ENTÃO** só a linha do FLA × PAL, com "1 × 0", igual ao palpite, está destacada
 
 ### Requirement: Pausa
 
 O "Pausar" deve cancelar a assinatura, deixar na tabela os valores do
-último lote, mostrar "Pausado." na situação e passar a dizer "Retomar".
+último lote, mostrar "Pausado." na situação e passar a dizer "Retomar",
+para o usuário ler a tabela parada.
 
 #### Scenario: 6 pausar cancela a assinatura
 
@@ -89,14 +96,15 @@ O "Pausar" deve cancelar a assinatura, deixar na tabela os valores do
 
 - **DADO** o painel pausado com o segundo lote na tela
 - **QUANDO** passam 7 s
-- **ENTÃO** a tabela mostra os preços e as variações do segundo lote
+- **ENTÃO** a tabela mostra os placares, os tempos e os gols novos do segundo lote
 
-### Requirement: Retomada
+### Requirement: Retomada com os gols da pausa
 
 O "Retomar" deve assinar a fonte de novo e voltar a dizer "Pausar". A
 situação fica vazia se a tabela tem valores, e volta a "Aguardando
-cotações…" se não tem. A variação do lote seguinte conta desde o último
-lote mostrado.
+placares…" se não tem. Os gols novos do lote seguinte contam desde o
+último lote mostrado da mesma partida, para o usuário ver os gols marcados
+durante a pausa.
 
 #### Scenario: 7 retomar assina de novo
 
@@ -105,18 +113,19 @@ lote mostrado.
 - **ENTÃO** a situação fica vazia, e o botão diz "Pausar"
 - **E** `contarAssinantes()` dá 1
 
-#### Scenario: 7 variação conta desde o último lote mostrado
+#### Scenario: 7 gols novos contam desde o último lote mostrado
 
 - **DADO** o painel retomado 7 s depois de pausar, com o segundo lote na tela
-- **QUANDO** passa 1 s, e o lote sai 8 s depois do segundo, com os mesmos preços
-- **ENTÃO** os preços são os do segundo lote
-- **E** as quatro variações são "= 0,00"
+- **QUANDO** passa 1 s, e o lote sai 8 s depois do segundo
+- **ENTÃO** os placares são "1 × 1", "1 × 0", "1 × 1" e "2 × 1", nos tempos "10'", "30'", "50'" e "70'"
+- **E** os gols novos são "0 × +1", "=", "=" e "0 × +1", os gols marcados durante a pausa
+- **E** só a linha do CAM × CRU, com "2 × 1", igual ao palpite, está destacada
 
 #### Scenario: 10 retomar antes do primeiro lote volta a aguardar
 
 - **DADO** o painel que acaba de ser mostrado, pausado antes do primeiro lote
 - **QUANDO** o usuário clica no "Retomar"
-- **ENTÃO** a situação mostra "Aguardando cotações…"
+- **ENTÃO** a situação mostra "Aguardando placares…"
 - **E** `contarAssinantes()` dá 1
 
 ### Requirement: Situação anunciada
@@ -135,7 +144,8 @@ tela anunciá-la sem que ela receba o foco (WCAG 2.2, critério 4.1.3).
 
 O botão "Esconder painel" deve tirar o painel da página e passar a dizer
 "Mostrar painel", que o põe de volta como se a interface abrisse, sem pausa
-nem valores. Fora da página, o painel não deixa assinatura aberta:
+nem valores. Fora da página, o painel não deixa assinatura aberta, para o
+usuário não gastar rede e bateria com um painel que não vê:
 `contarAssinantes()`, do domínio, dá 0.
 
 #### Scenario: 2 esconder cancela a assinatura
@@ -149,8 +159,8 @@ nem valores. Fora da página, o painel não deixa assinatura aberta:
 
 - **DADO** o painel pausado, escondido em seguida
 - **QUANDO** o usuário clica no "Mostrar painel"
-- **ENTÃO** a situação mostra "Aguardando cotações…", e o botão de pausa diz "Pausar"
-- **E** as quatro linhas mostram "—" no preço e na variação
+- **ENTÃO** a situação mostra "Aguardando placares…", e o botão de pausa diz "Pausar"
+- **E** as quatro linhas mostram "—" no placar, no tempo e nos gols novos
 - **E** `contarAssinantes()` dá 1
 
 #### Scenario: 11 esconder e mostrar três vezes deixa uma assinatura

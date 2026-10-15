@@ -1,7 +1,7 @@
 import type { Page } from "playwright";
 import type { Cenas } from "../capturar.mts";
 
-// O preço depende do segundo do relógio, que o capturar.mts fixa. Cada cena
+// O placar depende do segundo do relógio, que o capturar.mts fixa. Cada cena
 // esconde e mostra o painel, para a assinatura começar com a cena, e espera
 // os lotes pela tela, e não pelo tempo: o lote sai 1 s depois de assinar.
 async function mostrarDeNovo(pagina: Page) {
@@ -13,7 +13,8 @@ const celula = (coluna: number) =>
   `.painel tbody tr:first-child td:nth-child(${coluna})`;
 
 // Os dois primeiros lotes da especificação, às 10:00:01 e às 10:00:02 UTC:
-// a variação, o destaque do PETR4 e o VALE3 que perdeu o destaque.
+// os gols novos, o destaque do FLA × PAL e o GRE × INT que perdeu o
+// destaque.
 async function doisLotes(pagina: Page) {
   await pagina.clock.setFixedTime(new Date("2026-10-12T10:00:01Z"));
   await mostrarDeNovo(pagina);
@@ -24,7 +25,7 @@ async function doisLotes(pagina: Page) {
   await pagina.clock.setFixedTime(new Date("2026-10-12T10:00:02Z"));
   await pagina.waitForFunction(
     (seletor) => document.querySelector(seletor)?.textContent?.trim() !== "—",
-    celula(3),
+    celula(4),
   );
 }
 

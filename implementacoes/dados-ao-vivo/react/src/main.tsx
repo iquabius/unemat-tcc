@@ -1,25 +1,26 @@
 import { useEffect, useState } from "react";
 import { createRoot } from "react-dom/client";
 import {
-  ATIVOS,
+  JOGOS,
   MENSAGENS,
-  acimaDoLimite,
-  assinarCotacoes,
-  formatarPreco,
-  variacao,
+  assinarPlacares,
+  formatarPlacar,
+  formatarTempo,
+  golsNovos,
+  noPalpite,
   type Lote,
 } from "../../dominio";
 import "../../estilo.css";
 
-function PainelDeCotacoes() {
+function PainelDePlacares() {
   const [pausado, setPausado] = useState(false);
-  // Os dois últimos lotes: o atual dá o preço, o anterior, a variação.
+  // Os dois últimos lotes: o atual dá o placar, o anterior, os gols novos.
   const [lotes, setLotes] = useState<{ anterior?: Lote; atual?: Lote }>({});
 
   // A limpeza cancela a assinatura ao pausar e ao sair da tela.
   useEffect(() => {
     if (pausado) return;
-    return assinarCotacoes((lote) =>
+    return assinarPlacares((lote) =>
       setLotes(({ atual }) => ({ anterior: atual, atual: lote })),
     );
   }, [pausado]);
@@ -38,24 +39,26 @@ function PainelDeCotacoes() {
       <table>
         <thead>
           <tr>
-            <th>Ativo</th>
-            <th>Preço</th>
-            <th>Variação</th>
-            <th>Limite</th>
+            <th>Jogo</th>
+            <th>Placar</th>
+            <th>Tempo</th>
+            <th>Gols novos</th>
+            <th>Palpite</th>
           </tr>
         </thead>
         <tbody>
-          {ATIVOS.map((ativo) => {
-            const preco = lotes.atual?.[ativo.codigo];
+          {JOGOS.map((jogo) => {
+            const placar = lotes.atual?.[jogo.codigo];
             return (
               <tr
-                key={ativo.codigo}
-                className={acimaDoLimite(ativo, preco) ? "alerta" : undefined}
+                key={jogo.codigo}
+                className={noPalpite(jogo, placar) ? "alerta" : undefined}
               >
-                <td>{ativo.codigo}</td>
-                <td>{formatarPreco(preco)}</td>
-                <td>{variacao(lotes.anterior?.[ativo.codigo], preco)}</td>
-                <td>{formatarPreco(ativo.limite)}</td>
+                <td>{jogo.codigo}</td>
+                <td>{formatarPlacar(placar)}</td>
+                <td>{formatarTempo(placar)}</td>
+                <td>{golsNovos(lotes.anterior?.[jogo.codigo], placar)}</td>
+                <td>{formatarPlacar(jogo.palpite)}</td>
               </tr>
             );
           })}
@@ -76,7 +79,7 @@ function PainelDeCotacoes() {
 function DadosAoVivo() {
   const [visivel, setVisivel] = useState(true);
   return (
-    <main className="cotacoes">
+    <main className="placares">
       <button
         type="button"
         className="alternar"
@@ -84,7 +87,7 @@ function DadosAoVivo() {
       >
         {visivel ? "Esconder painel" : "Mostrar painel"}
       </button>
-      {visivel && <PainelDeCotacoes />}
+      {visivel && <PainelDePlacares />}
     </main>
   );
 }
