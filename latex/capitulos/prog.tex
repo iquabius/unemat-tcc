@@ -15,7 +15,7 @@ sequência de forma explícita.
 Tais linguagens são baseadas no modelo \emph{imperativo} de computação, e são
 denominadas \emph{linguagens imperativas}.
 \section{Linguagens de programação}
-\label{sec:org5316170}
+\label{sec:orgcd9fe36}
 \label{sec:langs}
 
 Linguagens de programação são mais simples que linguagens naturais, no
@@ -38,8 +38,10 @@ Um programa orientado a eventos reage ao que acontece no ambiente externo: o
 clique num botão, a tecla digitada, a mensagem do servidor
 \cite[p. 86:1]{madsen2017}.
 Os eventos entram numa fila, e o programa os trata um de cada vez
-\cite[p. 86:1]{madsen2017}, numa ordem de chegada que o programador não
-escolhe nem pode prever \cite[p. 52:2]{bainomugisha2013}.
+\cite[p. 86:1]{madsen2017}, sem garantia da sequência em que chegam:
+como a interação depende de eventos externos, que podem ocorrer em
+qualquer ordem, entender o programa exige seguir várias cadeias de causa
+e efeito \cite[p. 125]{martin2022}.
 A reação depende também do \emph{estado} da aplicação, que determina a
 aparência e o comportamento dela \cite[p. 230]{oney2012}.
 Uma barra de ferramentas, por exemplo, fica encaixada acima da área de
@@ -71,7 +73,7 @@ A programação declarativa costuma ser descrita como a que expressa “o
 quê” e não “o como” da computação, embora a diferença seja de grau
 \cite[p. 361]{hudak1989}.
 \section{Paradigmas e modelos de programação}
-\label{sec:org8b1c772}
+\label{sec:org019d01e}
 \todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}
 
 O modelo de programação não é o paradigma, noção imprecisa que o modelo
@@ -165,7 +167,7 @@ Esses paradigmas não possuem condições de corrida, \emph{‘race conditions�
 inglês.
 \todo{Esses últimos dois parágrafos parecem estar deslocados.}
 \section{Programação de interfaces gráficas}
-\label{sec:org064d5b0}
+\label{sec:org585b689}
 \todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}
 
 No projeto da interface, além dos problemas comuns a todo sistema de
@@ -260,7 +262,7 @@ Alguns problemas de computação são melhor resolvidos com o modelo baseado
 em \emph{threads}. No entanto \textcite{blackheath2016} afirmam que a
 abordagem com eventos geralmente é a melhor escolha.
 \section{Programação funcional}
-\label{sec:org45a512c}
+\label{sec:org4a256ce}
 \Gls{pf} é assim chamada porque sua operação básica é a
 aplicação de funções à argumentos \cite{hughes1990}.
 Lisp foi a primeira linguagem de programação funcional.
@@ -326,7 +328,7 @@ expressão \texttt{tres inc 2} resulta no valor \texttt{5} \cite{noble1994}.
   \label{code:currying}
 \end{listing}
 \subsection{Porque programação funcional é relevante}
-\label{sec:orgdd626a1}
+\label{sec:org69b7b2a}
 \todo{Trecho vindo da introdução na checagem de outubro de 2026, ainda por integrar a esta seção.}
 \textcite[p. 1 e 21]{moseley2006} distinguem a complexidade essencial,
 própria do problema, da acidental, todo o resto, e propõem reduzir a
@@ -363,7 +365,7 @@ contribuir significativamente para a modularização de programas:
   que os convencionais. \cite[p.~22; tradução nossa]{hughes1990}
 \end{citacao}
 \section{Programação reativa}
-\label{sec:orge70795b}
+\label{sec:orge93b845}
 \todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}
 
 \textcite[p. 52:2]{bainomugisha2013} chamam as planilhas de “possivelmente a
@@ -445,7 +447,7 @@ como simulações físicas.
   (p. 36; tradução nossa)
 \end{citacao}
 \section{Trabalhos relacionados}
-\label{sec:org9ceda2f}
+\label{sec:org589d5e1}
 \todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}
 
 \textcite{mernik2009} compararam, com 36 estudantes de graduação, uma linguagem de
@@ -474,7 +476,7 @@ significativa).
 Também respondeu mais rápido em seis das dez tarefas, sem diferença
 significativa nas outras quatro.
 \section{Uso das tecnologias web}
-\label{sec:org776c807}
+\label{sec:orgc776c13}
 
 As pesquisas de uso medem tecnologias, não modelos de programação, e por
 isso o uso de cada modelo de programação se afere pelas tecnologias que o

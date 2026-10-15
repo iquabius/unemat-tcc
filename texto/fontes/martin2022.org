@@ -1,0 +1,17 @@
+#+title: martin2022: Martin (2022), Concepts et outil pour l'informatique de l'interaction
+#+startup: overview
+
+* [[file:../prog.org::Um programa orientado a eventos reage ao][prog: Um programa orientado a eventos reage ao]], p. 125
+- Frase: “[...] sem garantia da sequência em que chegam: como a interação
+  depende de eventos externos, que podem ocorrer em qualquer ordem,
+  entender o programa exige seguir várias cadeias de causa e efeito
+  (Martin, 2022, p. 125).”
+- Trecho: “Since interaction depends on external events that might occur
+  in any order, understanding an FSM requires considering multiple causal
+  chains.” (p. 125)
+- Lido em: =tmp/fontes/martin2022.pdf=, p. 128 do PDF (p. 125).
+- Observação: substitui Bainomugisha et al. (2013, p. 52:2), que a
+  introdução usa para a ordem de chegada. A fonte fala de entender uma
+  máquina de estados (FSM), e a frase diz “o programa”, porque o
+  capítulo apresenta o estado só na frase seguinte.
+- Conferido: 2026-10-15.

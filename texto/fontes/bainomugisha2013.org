@@ -50,17 +50,6 @@
   sozinha (escolha do autor em
   2026-10-14; docs/problema-lacuna-pergunta.md, seção 1.1).
 - Conferido: 2026-10-14.
-* [[file:../prog.org::Um programa orientado a eventos reage ao][prog: Um programa orientado a eventos reage ao]], p. 52:2 (a ordem de chegada)
-- Frase: “[...] numa ordem de chegada que o programador não escolhe nem
-  pode prever (Bainomugisha et al., 2013, p. 52:2).”
-- Trecho: “it is impossible to predict or control the order of arrival of
-  external events and as such control jumps around event handlers as the
-  outside environment changes unexpectedly (inverted control, i.e., the
-  control flow of a program is driven by external events and not by an
-  order specified by the programmer).” (p. 52:2)
-- Lido em: =tmp/fontes/bainomugisha2013.pdf=, versão dos autores, p. 2 do
-  PDF (cabeçalho “:2”).
-- Conferido: 2026-10-15.
 * [[file:../prog.org::Nas linguagens imperativas, esse estado é][prog: Nas linguagens imperativas, esse estado é]], p. 52:2 (a gestão manual)
 - Frase: “Numa interface, é o programador quem escreve essa ordem: para
   cada mudança de estado, ele precisa escrever a atualização de tudo o que

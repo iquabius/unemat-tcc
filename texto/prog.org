@@ -45,8 +45,10 @@ denominadas /linguagens imperativas/.
   clique num botão, a tecla digitada, a mensagem do servidor
   [[cite:madsen2017][p. 86:1]].
   Os eventos entram numa fila, e o programa os trata um de cada vez
-  [[cite:madsen2017][p. 86:1]], numa ordem de chegada que o programador não
-  escolhe nem pode prever [[cite:bainomugisha2013][p. 52:2]].
+  [[cite:madsen2017][p. 86:1]], sem garantia da sequência em que chegam:
+  como a interação depende de eventos externos, que podem ocorrer em
+  qualquer ordem, entender o programa exige seguir várias cadeias de causa
+  e efeito [[cite:martin2022][p. 125]].
   A reação depende também do /estado/ da aplicação, que determina a
   aparência e o comportamento dela [[cite:oney2012][p. 230]].
   Uma barra de ferramentas, por exemplo, fica encaixada acima da área de
