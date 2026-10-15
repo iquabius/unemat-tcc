@@ -1,10 +1,11 @@
 ## Why
 
-O ADR 0002 passa a espera de 300 ms depois da última tecla para a P2, onde
-ela volta como requisito de orquestração, mas a especificação da Busca e as
-implementações da P1 ainda a têm (`docs/achados-das-implementacoes.md`,
-2026-10-12). Sem ela, a Busca da P1 mostra o cancelamento e a resposta
-antiga que nunca aparece, sem misturá-los com o relógio da espera.
+O ADR 0002 passa a espera de 300 ms depois da última tecla para a segunda
+rodada, onde ela volta como requisito de orquestração, mas a especificação
+da Busca e as implementações da primeira rodada ainda a têm
+(`docs/achados-das-implementacoes.md`, 2026-10-12). Sem ela, a Busca da
+primeira rodada mostra o cancelamento e a resposta antiga que nunca
+aparece, sem misturá-los com o relógio da espera.
 
 ## What Changes
 
@@ -37,5 +38,5 @@ Nenhuma.
   que só existe por causa da espera. O jQuery e o Angular com RxJS, em
   `implementacoes/fora-da-analise/`, ficam com a espera.
 - O Lit nasce sem a espera (tcc-9f0k).
-- Tarefa do bd: tcc-z2jq. A espera volta na P2 (tcc-nt0b), como requisito
-  acrescentado.
+- Tarefa do bd: tcc-z2jq. A espera volta na segunda rodada (tcc-nt0b), como
+  requisito acrescentado.

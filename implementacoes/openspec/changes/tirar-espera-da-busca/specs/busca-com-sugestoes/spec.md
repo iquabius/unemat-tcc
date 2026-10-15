@@ -2,11 +2,12 @@
 
 ### Requirement: Espera depois da última tecla
 
-**Reason**: a espera sai da P1 (ADR 0002), para a Busca da P1 mostrar o
-cancelamento e a resposta antiga sem o relógio da espera.
+**Reason**: a espera sai da primeira rodada (ADR 0002), para a Busca da
+primeira rodada mostrar o cancelamento e a resposta antiga sem o relógio
+da espera.
 
-**Migration**: volta na P2 como requisito de orquestração acrescentado,
-com o mesmo prazo de 300 ms (ADR 0029, tcc-nt0b).
+**Migration**: volta na segunda rodada como requisito de orquestração
+acrescentado, com o mesmo prazo de 300 ms (ADR 0029, tcc-nt0b).
 
 ## MODIFIED Requirements
 

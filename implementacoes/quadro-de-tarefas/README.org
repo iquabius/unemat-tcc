@@ -8,7 +8,7 @@ limite que cruza colunas, para o usuário terminar o que começou antes de
 pegar outra tarefa; e do quadro salvo no =localStorage=, que acompanha as
 outras abas, para o usuário achar cada tarefa na coluna em que a deixou, ao
 voltar à página ou em outra aba. O desfazer e a atualização otimista entram
-na P2.
+na segunda rodada.
 
 As regras que não dependem da tela ficam em =dominio.ts=: as tarefas,
 as colunas, o limite, os textos e o quadro salvo. O ouvinte das outras

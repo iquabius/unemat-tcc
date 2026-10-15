@@ -113,9 +113,9 @@ O Login, o Quadro, os Dados ao vivo e outra que vier entram como mudança
 ### Mudança numa especificação
 
 Toda mudança na especificação de uma interface já especificada entra como
-*delta spec*: as da P1 (a retirada da espera da Busca, as regras comuns,
-o envio que ignora o reenvio) e cada funcionalidade e requisito de
-orquestração da P2.
+*delta spec*: as da primeira rodada (a retirada da espera da Busca, as
+regras comuns, o envio que ignora o reenvio) e cada funcionalidade e
+requisito de orquestração da segunda rodada.
 
 1. `npm run openspec -- new change <nome>`, com o nome em português, em
    *kebab-case*, verbo e objeto (`tirar-espera-da-busca`). Na pasta
@@ -236,8 +236,8 @@ Todo o código de `implementacoes/`, menos o que a lista de exclusões abaixo
 deixa de fora, passa pelo formatador da plataforma, com 80 colunas
 (`implementacoes/.editorconfig`) e o resto no padrão da ferramenta, salvo no
 XML (tcc-6wha, 2026-10-12). Duas razões: a contagem de linhas da concisão e
-o diff da P2 (ADRs 0012 e 0029) não podem depender de como o código foi
-quebrado à mão, e 80 colunas cabem numa coluna do PDF em 8 pt.
+o diff da segunda rodada (ADRs 0012 e 0029) não podem depender de como o
+código foi quebrado à mão, e 80 colunas cabem numa coluna do PDF em 8 pt.
 
 - Web (TS, TSX, HTML, CSS, JSON): Prettier 3.9.10, fixado em
   `implementacoes/package.json`. O HTML do Web Component, num *template

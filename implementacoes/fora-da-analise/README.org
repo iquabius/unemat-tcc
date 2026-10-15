@@ -20,9 +20,9 @@ Cada pasta, o que é, por que saiu e o ADR:
 - =carrinho/=: o Carrinho, na web. Dá lugar ao Quadro de tarefas, em que
   desfazer existe de verdade (ADR 0002).
 - =formulario/jquery/= e =busca-com-sugestoes/jquery/=: o jQuery (o das
-  tarefas acima está na pasta de cada uma). O imperativo com /callbacks/
-  fica com o Web Component, que tem modelo de componente e par controlado,
-  o Lit (ADR 0013).
+  tarefas acima está na pasta de cada uma). O imperativo por atualização
+  manual fica com o Web Component, que tem modelo de componente e par
+  controlado, o Lit (ADR 0013).
 - =formulario/angular-rxjs/= e =busca-com-sugestoes/angular-rxjs/=: o
   Angular com RxJS, apoio à escrita do capítulo de programação. Não entra
   no texto, e fica congelado com as regras de 2026-10-13, por decisão do

@@ -5,7 +5,7 @@ caso /push/ de Meijer (2012, p. 66-67), que cita as cotações de bolsa
 empurradas ao cliente e os /WebSockets/ entre as fontes. É a interface da
 assinatura presa à tela: o painel assina a fonte ao entrar na página e
 cancela a assinatura ao pausar e ao sair dela. A reconexão, a carteira e a
-frequência de atualização entram na P2.
+frequência de atualização entram na segunda rodada.
 
 A fonte é simulada em =dominio.ts=, com a forma de um /WebSocket/ ou de um
 =EventSource=: =assinarCotacoes(aoReceber)= empurra os lotes e devolve a
