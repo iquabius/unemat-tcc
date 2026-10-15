@@ -13,12 +13,19 @@
   p. 926 calculada pelo início dos anais (925).
 - Conferido: 2026-10-06.
 * [[file:../intro.org::A programação declarativa expressa o que][intro: A programação declarativa expressa o que]], p. 929
-- Frase: “Para Edwards (2009, p. 929), boa parte do sequenciamento manual
-  das ações que a programação imperativa exige pode ser feita
-  automaticamente, ao menos nas aplicações interativas.”
+- Frase: “Para Edwards (2009, p. 929), ao menos nas aplicações
+  interativas, boa parte do sequenciamento manual das ações, o cerne da
+  programação imperativa, é complexidade acidental, que o ambiente de
+  execução pode assumir.”
 - Trecho: “This paper suggests that much of the manual sequencing of
   actions that is the crux of imperative programming is an accidental
-  complexity [2]”, em que [2] é Brooks (p. 929).
+  complexity [2], and that coherent execution can handle it automatically,
+  at least in the domain of interactive applications.”, em que [2] é
+  Brooks (p. 929).
 - Lido em: =tmp/fontes/edwards2009-coherent-reaction.pdf=, p. 5 do PDF;
   p. 929 calculada pelo início dos anais (925).
-- Conferido: 2026-10-07.
+- Observação: a “coherent execution” é o modelo de execução da linguagem
+  que Edwards propõe (Coherence); o texto a generaliza como “o ambiente de
+  execução” (CONTEXT.md, Ambiente de execução). Frase reescrita em
+  2026-10-14, para não deixar “interativas” colado a “imperativa”.
+- Conferido: 2026-10-07; o trecho inteiro, em 2026-10-14.

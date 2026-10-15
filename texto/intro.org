@@ -64,11 +64,17 @@ programas com o /Observer Pattern/ [[cite:salvaneschi2017][p. 1125-1134]].
 A programação declarativa expressa o que se computa, e não como, embora isso
 seja questão de grau, e suas linguagens não têm estado implícito
 [[cite:hudak1989][p. 361]].
-A [[gls:pr]] exprime assim um comportamento que, de outro modo, seria
-complexo [[cite:salvaneschi2017][p. 1125]].
-Para [[textcite:edwards2009][p. 929]], boa parte do sequenciamento manual das
-ações que a programação imperativa exige pode ser feita automaticamente, ao
-menos nas aplicações interativas.
+Um exemplo mínimo mostra a diferença: com =var1= igual a 1, =var2= igual a
+2 e =var3 = var1 + var2=, a programação imperativa guarda 3 em =var3= mesmo
+depois que =var1= recebe outro valor, a não ser que o programador atribua a
+soma de novo; na [[gls:pr]], =var3= se recalcula a cada alteração de =var1=
+ou de =var2= [[cite:bainomugisha2013][p. 52:3]].
+A [[gls:pr]] exprime assim, de modo declarativo, um comportamento que, de
+outro modo, seria complexo [[cite:salvaneschi2017][p. 1125]].
+Para [[textcite:edwards2009][p. 929]], ao menos nas aplicações interativas,
+boa parte do sequenciamento manual das ações, o cerne da programação
+imperativa, é complexidade acidental, que o ambiente de execução pode
+assumir.
 Nas interfaces, o componente do React é uma função que especifica a tela de
 forma declarativa e que, chamada com os mesmos argumentos, deve exibir a
 mesma interface [[cite:lee2025][289:1]].

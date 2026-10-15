@@ -25,3 +25,23 @@
 - Lido em: =tmp/fontes/bainomugisha2013.pdf=, p. 1 e 2 do PDF (p. 52:1 e
   52:2).
 - Conferido: 2026-10-07.
+* [[file:../intro.org::A programação declarativa expressa o que][intro: A programação declarativa expressa o que]], p. 52:3 (o exemplo de =var3=)
+- Frase: “Um exemplo mínimo mostra a diferença: com =var1= igual a 1,
+  =var2= igual a 2 e =var3 = var1 + var2=, a programação imperativa guarda
+  3 em =var3= mesmo depois que =var1= recebe outro valor, a não ser que o
+  programador atribua a soma de novo; na PR, =var3= se recalcula a cada
+  alteração de =var1= ou de =var2= (Bainomugisha et al., 2013, p. 52:3).”
+- Trecho: “In conventional sequential imperative programming, the value of
+  the variable var3 will always contain 3, which is the sum of the initial
+  values of variables var1 and var2 even when var1 or var2 is later
+  assigned a new value (unless the programmer explicitly assigns a new
+  value to the variable var3). In reactive programming, the value of the
+  variable var3 is always kept up-to-date. In other words, the value of
+  var3 is automatically recomputed over time whenever the value of var1 or
+  var2 changes.” (p. 52:3)
+- Lido em: =tmp/fontes/bainomugisha2013.pdf=, versão dos autores, p. 3 do
+  PDF (cabeçalho “:3”).
+- Observação: ilustra o estado implícito de Hudak (1989, p. 361), na frase
+  anterior, e a atualização que a PR faz sozinha (escolha do autor em
+  2026-10-14; docs/problema-lacuna-pergunta.md, seção 1.1).
+- Conferido: 2026-10-14.
