@@ -15,5 +15,5 @@
   as datas são do próprio trabalho (Apêndice B, tabelas 1 a 3). Em
   2026-10-14 passou de duas a três rodadas e perdeu a ressalva sobre os
   citantes de Kiss (2014), vistos na terceira rodada (Apêndice B;
-  =docs/revisao-bibliografica.md=, seção 3); o trecho de Wohlin não muda.
+  =docs/protocolo-da-revisao.md=, seção "Terceira rodada"); o trecho de Wohlin não muda.
 - Conferido: 2026-10-06.

@@ -21,7 +21,7 @@
   da /network response/ da fonte: “mensagem” cobre também o que o servidor
   empurra sem pedido, como o /WebSocket/ da interface Dados ao vivo
   (Meijer, 2012, p. 66-67). “Do servidor” é a forma das fontes brasileiras
-  (=docs/problema-lacuna-pergunta.md=, seção 2.1).
+  (=docs/estado-eventos-e-complexidade.md=, seção "De onde vêm").
 - Conferido: 2026-10-14.
 * [[file:../prog.org::Um programa orientado a eventos reage ao][prog: Um programa orientado a eventos reage ao]], p. 86:1 (a fila)
 - Frase: “Os eventos entram numa fila, e o programa os trata um de cada

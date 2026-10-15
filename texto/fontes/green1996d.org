@@ -16,7 +16,7 @@
   p. 9 do PDF (p. 139 impressa).
 - Observação: limitação que o ADR 0021 (Custo) manda declarar uma vez,
   com fonte; a de categorias, e não artefatos, é da nota de referência
-  docs/paradigma-modelo-e-notacao.md, seção 2.
+  docs/paradigma-modelo-e-notacao.md, seção "Unidade comparada e evidência: o TCC compara categorias".
 - Conferido: 2026-10-09.
 * [[file:../cases.org::A avaliação se faz em três rodadas][cases: A avaliação se faz em três rodadas]], p. 161
 - Frase: “A segunda rodada faz o código crescer porque é nos problemas grandes que os

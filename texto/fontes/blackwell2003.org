@@ -35,7 +35,7 @@
   (p. 113)
 - Lido em: o mesmo PDF, p. 11 (p. 113).
 - Observação: a fonte dá as seis atividades; a escolha de três e a divisão
-  por rodada são do trabalho (docs/metodo-da-avaliacao.md, seção 8;
+  por rodada são do trabalho (docs/metodo-da-avaliacao.md, seção "Rodadas e crescimento do código";
   tmp/relatorio-termos-e-coordenacao.md, seção 5.1).
 - Conferido: 2026-10-13.
 * [[file:../cases.org::A análise compara os modelos de][cases: A análise compara os modelos de]], p. 106 e 112
