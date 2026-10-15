@@ -5,7 +5,7 @@ uma sobre software em larga escala, que interfaces pequenas não
 respondem, e um objetivo geral sem critério. A pergunta: pelas Dimensões
 Cognitivas de Notações, como difere a usabilidade da notação do código de
 interfaces gráficas em cada tecnologia entre os três modelos de
-programação — o imperativo com *callbacks*, o declarativo por
+programação — o imperativo por atualização manual, o declarativo por
 re-renderização e o declarativo por atualização granular? A pergunta tem
 a forma descritivo-comparativa de Easterbrook et al. (2008), "How does X
 differ from Y?", e pede diferenças, e não um juízo de qual é melhor, como

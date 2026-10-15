@@ -6,7 +6,7 @@ A decisão está no ADR 0021 (2026-10-08) e os verbetes no `CONTEXT.md`;
 aqui ficam as definições com a página, os contrastes e os trechos.
 
 **Conclusão.** O TCC compara três **modelos de programação**: o
-imperativo com *callbacks*, o declarativo por re-renderização e o
+imperativo por atualização manual, o declarativo por re-renderização e o
 declarativo por atualização granular. Um modelo de programação é o
 conjunto de técnicas e princípios de projeto construído sobre um modelo
 de computação (Van Roy e Haridi 2004, p. xiii e 29). As cinco tecnologias
@@ -88,7 +88,7 @@ Custos que o texto precisa declarar:
 
 - **poucos representantes por categoria**: na web, o declarativo por
   re-renderização tem só o React, o declarativo por atualização granular
-  tem Solid e Angular com *signals*, e o imperativo com *callbacks* tem
+  tem Solid e Angular com *signals*, e o imperativo por atualização manual tem
   Web Component e jQuery; o Android acrescenta Views e Compose a dois dos
   três;
 - **divergência dentro da coluna**: quando as duas tecnologias de uma
@@ -109,7 +109,7 @@ Angular têm o mesmo modelo de programação e duas notações.
 
 | Modelo de programação | Web | Android | Como coordena | Montagem da tela |
 |---|---|---|---|---|
-| Imperativo com *callbacks* | Web Component, jQuery | Views | o *callback* registrado atualiza a tela passo a passo | `createElement` e `innerHTML`; HTML com seletores; layout XML |
+| Imperativo por atualização manual | Web Component, jQuery | Views | o *callback* registrado atualiza a tela passo a passo | `createElement` e `innerHTML`; HTML com seletores; layout XML |
 | Declarativo por re-renderização | React | Compose | o componente reexecuta a cada alteração de estado, e o derivado é expressão comum | JSX; funções que podem ser compostas |
 | Declarativo por atualização granular | Solid, Angular com *signals* | — | o componente executa uma vez, e o *signal* propaga a alteração aos derivados e à tela | JSX numa função; *template* com construtos próprios |
 
@@ -121,7 +121,7 @@ derivado (ADR 0021). Os pares de *desktop* candidatos estão em
 `docs/plataformas.md`.
 
 Os pares controlam a comparação entre os dois modelos de programação
-declarativos; o imperativo com *callbacks* entra contra os dois sem par
+declarativos; o imperativo por atualização manual entra contra os dois sem par
 controlado na web, e Views × Compose é o par mais próximo no Android. O quadro
 do que o delineamento controla, isola e deixa sem controle está em
 `docs/delineamento.md`.
@@ -212,7 +212,7 @@ texto e citam, nas referências, o título oficial "A JavaScript library".
 
 ### Para quem vem do Java
 
-Correspondências do TCC, leitura nossa: o imperativo com *callbacks* é o
+Correspondências do TCC, leitura nossa: o imperativo por atualização manual é o
 Android com Views e o Swing ("Writing Event Listeners", tutorial da
 Oracle); o declarativo por re-renderização é o Compose; o declarativo por
 atualização granular não tem correspondente no Android, e o mais perto
@@ -362,11 +362,11 @@ tecnologia de interface é declarativa numa preocupação e imperativa em
 outra (Mijailović e Milićev 2014, p. 765); o `useEffect` é "an 'escape
 hatch' from the declarative paradigm" (Wunder, Das e Gaboardi 2026, 1:8,
 cópia); a dependência por *signals* é declarativa e a geração de eventos
-imperativa (Kamina e Aotani 2018, 5:2). Para o imperativo com
-*callbacks*: "an imperative programming model that is based on shared
-mutable state that is read and updated via callback functions" (Disch,
-Heegaard e Bahr 2025, p. 1, cópia); o *Observer* como implementação
-imperativa da invocação implícita (Mijač et al. 2023, p. 2).
+imperativa (Kamina e Aotani 2018, 5:2). Para o imperativo por atualização
+manual: "an imperative programming model that is based on shared mutable
+state that is read and updated via callback functions" (Disch, Heegaard e
+Bahr 2025, p. 1, cópia); o *Observer* como implementação imperativa da
+invocação implícita (Mijač et al. 2023, p. 2).
 
 "Reativo" fica para os termos das fontes revisadas por pares e das
 dissertações, como a PR, e nunca entra num rótulo do TCC, porque o
@@ -617,7 +617,7 @@ substantivo: "onze mudanças, acrescentadas uma por commit" e "os nomes da
 mudança entre rodadas". A primeira passou a "feitas", a segunda a "o que
 acontece com a diferença de uma rodada a outra" (`texto/intro.org`,
 2026-10-13). O nome das rodadas não usa nenhuma das palavras: "a rodada
-da P2", pela pergunta a que cada uma responde.
+da segunda rodada", pela pergunta a que cada uma responde.
 
 Com "mudança" fixada para o OpenSpec, o estado ficou com "alteração", e
 a tela com "atualização" (decisão do autor em 2026-10-13): o evento altera

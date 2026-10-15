@@ -19,24 +19,25 @@ entre copiar o estado e alterá-lo no lugar fica à vista da análise.
 
 Em vez de: as transições no domínio (protótipo e `CONTEXT.md`, de
 2026-10-12); o código de cada implementação ficaria só com a coordenação,
-e o desfazer da P2 se resolveria igual em todas, guardando os quadros
-anteriores, sem o contraste de Kiss (2014) entre guardar o comando e
-copiar o estado; mas o formato do redutor ficaria imposto a três
-tecnologias que não o usam, justo na interface que mede o gerenciamento
-de estado.
+e o desfazer da segunda rodada se resolveria igual em todas, guardando os
+quadros anteriores, sem o contraste de Kiss (2014) entre guardar o comando
+e copiar o estado; mas o formato do redutor ficaria imposto a três
+tecnologias que não o usam, justo na interface que mede o gerenciamento de
+estado.
 Custo: as três transições se repetem nas quatro implementações da web e
 nos portes do Android e do desktop (tcc-ysxk, tcc-74m), e um erro numa
-delas só o teste de conformidade pega; o desfazer da P2 (tcc-buku) volta
-a depender de como cada tecnologia altera o estado, e a alteração no lugar do
-Web Component e do Solid pede uma cópia para guardar o histórico; o
-limite de "Fazendo" passa a se garantir só pelos botões desabilitados,
-sem a guarda que o `reduzir` tinha; e a coluna de onde a tarefa sai vem
-do componente que desenha o botão, e não de uma busca em todas as
-colunas, como no `reduzir`: com uma coluna errada, a tarefa ficaria onde
-está, e apareceria também no destino ao mover, e no Web Component e no
-Solid o `splice` com o índice -1 ainda tiraria a última tarefa da coluna
-errada; o tipo do quadro deixa de ser só de leitura nas quatro, e o React
-e o Angular perdem o aviso do compilador contra alterá-lo no lugar.
+delas só o teste de conformidade pega; o desfazer da segunda rodada
+(tcc-buku) volta a depender de como cada tecnologia altera o estado, e a
+alteração no lugar do Web Component e do Solid pede uma cópia para guardar
+o histórico; o limite de "Fazendo" passa a se garantir só pelos botões
+desabilitados, sem a guarda que o `reduzir` tinha; e a coluna de onde a
+tarefa sai vem do componente que desenha o botão, e não de uma busca em
+todas as colunas, como no `reduzir`: com uma coluna errada, a tarefa
+ficaria onde está, e apareceria também no destino ao mover, e no Web
+Component e no Solid o `splice` com o índice -1 ainda tiraria a última
+tarefa da coluna errada; o tipo do quadro deixa de ser só de leitura nas
+quatro, e o React e o Angular perdem o aviso do compilador contra
+alterá-lo no lugar.
 
 Fontes: `docs/metodo-da-avaliacao.md`, linha do Quadro com desfazer;
 ADRs 0002, 0010 e 0013; tarefas tcc-2ui8 e tcc-i7qx.

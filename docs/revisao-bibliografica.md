@@ -227,7 +227,7 @@ revistas em 2026-10-02, depois da segunda rodada (seção 2):
 
 - **Nicho.** Não se encontrou análise pelas DCs de React nem dos
   *signals* das bibliotecas web atuais (Solid, Angular), nem comparação
-  dos três modelos de programação (imperativo com *callbacks*,
+  dos três modelos de programação (imperativo por atualização manual,
   declarativo por re-renderização, declarativo por atualização granular)
   nas mesmas interfaces. As DCs já foram aplicadas à PR por Kiss (2014),
   com Scala.Rx, ReactFX e Elm (`docs/metodo-da-avaliacao.md`, seção 3),

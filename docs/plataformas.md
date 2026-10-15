@@ -13,7 +13,7 @@ pré-análise de cada par entra aqui quando as implementações existirem
 
 Os termos seguem o `CONTEXT.md` e o ADR 0021, com as definições e as
 fontes em `docs/paradigma-modelo-e-notacao.md`: o que se compara são três
-modelos de programação (o imperativo com *callbacks*, o declarativo por
+modelos de programação (o imperativo por atualização manual, o declarativo por
 re-renderização e o declarativo por atualização granular), e a notação é
 a forma escrita de um modelo de programação numa tecnologia. As
 tecnologias dos pares são tecnologias como as da web e do Android; o
@@ -24,7 +24,7 @@ o Android, e entra nele se a tcc-a0w decidir representá-lo.
 
 | Modelo de programação | Web | Android | Swing × JavaFX | Windows Forms × WPF | Qt Widgets × QML |
 |---|---|---|---|---|---|
-| Imperativo com *callbacks* | Web Component, jQuery | Views | Swing | Windows Forms | Qt Widgets |
+| Imperativo por atualização manual | Web Component, jQuery | Views | Swing | Windows Forms | Qt Widgets |
 | Declarativo por re-renderização | React | Compose | — | — | — |
 | Declarativo por atualização granular | Solid, Angular com *signals* | — | JavaFX | WPF | QML |
 
@@ -46,7 +46,7 @@ Leitura:
   JavaFX, a pré-análise de 2026-10-09 sustenta o mecanismo granular, com
   as dependências escritas à mão (seção "Swing × JavaFX"); na QML, a
   confirma, com o rastreamento automático (seção "Qt Widgets × QML").
-- Cada par compara o imperativo com *callbacks* e um declarativo na
+- Cada par compara o imperativo por atualização manual e um declarativo na
   mesma linguagem e plataforma, o par controlado que a web não tem (tarefa
   "Decidir como a análise atribui as diferenças entre o imperativo e os
   declarativos, sem par controlado na web", tcc-4ie). O Views × Compose
@@ -60,8 +60,8 @@ Leitura:
 
 | Tecnologia | Modelo de programação | Montagem da tela |
 |---|---|---|
-| Web Component | imperativo com *callbacks* | HTML e DOM |
-| jQuery | imperativo com *callbacks* | HTML e DOM |
+| Web Component | imperativo por atualização manual | HTML e DOM |
+| jQuery | imperativo por atualização manual | HTML e DOM |
 | React | declarativo por re-renderização | JSX |
 | Solid | declarativo por atualização granular | JSX |
 | Angular com *signals* | declarativo por atualização granular | *template* |
@@ -73,8 +73,8 @@ programação diferentes; Solid × Angular com *signals*, com o mesmo modelo
 de programação e duas notações. Quando as duas tecnologias de uma coluna
 divergem numa DC, Solid e Angular ou Web Component e jQuery
 (`createElement` e `innerHTML` contra seletores), a célula da
-tabela-síntese registra a divergência (ADR 0017). O imperativo com
-*callbacks* entra contra os dois declarativos sem par controlado
+tabela-síntese registra a divergência (ADR 0017). O imperativo por
+atualização manual entra contra os dois declarativos sem par controlado
 (`docs/paradigma-modelo-e-notacao.md`, seção 3). O quadro do que o
 delineamento controla está em `docs/delineamento.md`.
 
@@ -82,7 +82,7 @@ delineamento controla está em `docs/delineamento.md`.
 
 | Tecnologia | Modelo de programação | Montagem da tela | Estilo fora da tela |
 |---|---|---|---|
-| Views | imperativo com *callbacks* | *layout* XML | `res/values/estilo.xml` |
+| Views | imperativo por atualização manual | *layout* XML | `res/values/estilo.xml` |
 | Jetpack Compose | declarativo por re-renderização | funções | `Estilo.kt` |
 
 Kotlin nas duas (ADR 0005). Conferem a web no Formulário e na Lista (ADR
@@ -118,7 +118,7 @@ como "sibling" ou "cousin" seria inferência do TCC.
 
 | Tecnologia | Modelo de programação | Coordenação | Montagem da tela | Fontes |
 |---|---|---|---|---|
-| Swing | imperativo com *callbacks* | `addActionListener` e afins | código Java | tutorial "Writing Event Listeners" (Oracle) |
+| Swing | imperativo por atualização manual | `addActionListener` e afins | código Java | tutorial "Writing Event Listeners" (Oracle) |
 | JavaFX | declarativo por atualização granular, com as dependências escritas à mão (pré-análise abaixo) | *properties* e *bindings*, dependências explícitas | código Java (`javafx`) e FXML (`javafx-fxml`) | tutorial "Using JavaFX Properties and Binding" (Oracle, Release 8); "Introduction to FXML" (OpenJFX); Kiss (2014); Kruk et al. (2017, ICALEPCS) |
 
 - **Uso** (2026-10-08): o Swing tem mais perguntas e aplicativos
@@ -274,7 +274,7 @@ nem `Main`); o *script* do ADR 0012 ainda não existe:
 
 | Tecnologia | Modelo de programação | Coordenação | Montagem da tela | Fontes |
 |---|---|---|---|---|
-| Windows Forms | imperativo com *callbacks* | eventos com tratadores ligados por delegados | código C# (gerado pelo *designer*) | "Events Overview", Windows Forms (Microsoft) |
+| Windows Forms | imperativo por atualização manual | eventos com tratadores ligados por delegados | código C# (gerado pelo *designer*) | "Events Overview", Windows Forms (Microsoft) |
 | WPF | declarativo por atualização granular (hipótese) | *data binding* com `INotifyPropertyChanged`, MVVM | XAML | "Data binding overview" (Microsoft); Gossman (2005), origem do MVVM; Fuksa et al. (2025, LNCS) |
 
 - **Uso**: entre quem programa em C#, Windows Forms 23% e WPF 18% (JetBrains,
@@ -295,7 +295,7 @@ nem `Main`); o *script* do ADR 0012 ainda não existe:
 
 | Tecnologia | Modelo de programação | Coordenação | Montagem da tela | Fontes |
 |---|---|---|---|---|
-| Qt Widgets | imperativo com *callbacks* (*signals* e *slots*) | `QObject::connect` | `.ui` do Qt Designer (XML) | "Signals & Slots", Qt 6; Mijailović e Milićev (2014, IJHCS, p. 764-765) |
+| Qt Widgets | imperativo por atualização manual (*signals* e *slots*) | `QObject::connect` | `.ui` do Qt Designer (XML) | "Signals & Slots", Qt 6; Mijailović e Milićev (2014, IJHCS, p. 764-765) |
 | QML | declarativo por atualização granular | *property bindings* com rastreamento automático | QML, com expressões em JavaScript | "Property Binding", Qt 6; Vander Zanden et al. (2001, TOPLAS); Raffaillac (2019, tese, p. 74); Paimen e Pohjalainen (2011) |
 
 - **Uso**: nenhuma fonte com método separa Widgets de QML; Qt em 28% de

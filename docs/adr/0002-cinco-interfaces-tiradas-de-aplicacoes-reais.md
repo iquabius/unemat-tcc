@@ -7,15 +7,15 @@ dois eixos, a orquestração de eventos e o gerenciamento de estado
 (`CONTEXT.md`), sem a mesma quantidade de cada eixo em cada uma, e com
 cada eixo forte em pelo menos duas:
 
-- Formulário com validação, o *Flight Booker* do 7GUIs mais nome e
-  e-mail: campos dependentes, estado derivado e o "tocado", no
-  gerenciamento de estado; e, já na P1, o envio que ignora o reenvio
-  enquanto espera a resposta, na orquestração (a política que o
-  `exhaustMap` do RxJS nomeia e o `useFormStatus` do React documenta);
+- Formulário com validação, o *Flight Booker* do 7GUIs mais nome e e-mail:
+  campos dependentes, estado derivado e o "tocado", no gerenciamento de
+  estado; e, já na primeira rodada, o envio que ignora o reenvio enquanto
+  espera a resposta, na orquestração (a política que o `exhaustMap` do
+  RxJS nomeia e o `useFormStatus` do React documenta);
 - Busca com sugestões: o termo repetido, o cancelamento e a resposta
   antiga que nunca aparece, na orquestração; os estados da requisição e a
   lista derivada, no gerenciamento de estado; a espera de 300 ms só volta
-  na P2;
+  na segunda rodada;
 - Login com quarentena, o painel de Berry e Serrano (2020, p. 534-538): a
   tentativa nova que cancela a anterior e o relógio da sessão, que vive
   só enquanto a sessão vive, na orquestração;
@@ -27,13 +27,13 @@ cada eixo forte em pelo menos duas:
 
 A orquestração é forte na Busca, no Login e nos Dados ao vivo; o
 gerenciamento de estado, no Formulário e no Quadro. O Contador, a Lista
-filtrável e o Carrinho saem da análise e ficam no repositório: o
-Contador não tem exigência própria, porque evento → estado → tela aparece
-em todas; a Lista é a menos densa em coordenação (a coordenação é 0,12
-das linhas, medido em 2026-10-12) e cabe quase toda no Carrinho; e o
-Carrinho dá lugar a um quadro em que desfazer existe de verdade (o
-Trello desfaz com Z e refaz com Shift+Z), mantendo o estado
-compartilhado e a persistência. Os requisitos da P2 estão no ADR 0029.
+filtrável e o Carrinho saem da análise e ficam no repositório: o Contador
+não tem exigência própria, porque evento → estado → tela aparece em todas;
+a Lista é a menos densa em coordenação (a coordenação é 0,12 das linhas,
+medido em 2026-10-12) e cabe quase toda no Carrinho; e o Carrinho dá lugar
+a um quadro em que desfazer existe de verdade (o Trello desfaz com Z e
+refaz com Shift+Z), mantendo o estado compartilhado e a persistência. Os
+requisitos da segunda rodada estão no ADR 0029.
 
 Em vez de: Contador, Formulário, Busca, Lista filtrável e Carrinho, uma
 por exigência de coordenação (decisões de 2026-09-25 e 2026-10-11); já

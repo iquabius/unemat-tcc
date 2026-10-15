@@ -20,14 +20,14 @@ do próprio Kiss e por Mernik et al. (2009) (seção 4). As interfaces
 pequenas isolam uma escolha de projeto, mas não mostram o que só aparece
 em programa grande (seção 5).
 
-Em 2026-10-11, o autor decidiu avaliar em três rodadas (P1, P2 com
-requisitos acrescentados, P3 com as bibliotecas do ecossistema, sem
-controle de variáveis) e percorrer as 14 DCs, e não oito; em 2026-10-12,
-trocou as interfaces e levou a P2 às cinco, pela realidade de
-cada uma (seção 12). As fontes estão nas seções 8 a 12, e as decisões,
-nos ADRs 0002, 0012, 0017 e 0029. Em 2026-10-13, a seção 13 juntou como
-as fontes aplicaram as DCs a código e as armadilhas, que a skill
-`avaliacao-pelas-dcs` usa.
+Em 2026-10-11, o autor decidiu avaliar em três rodadas (a primeira; a
+segunda, com requisitos acrescentados; a terceira, com as bibliotecas do
+ecossistema, sem controle de variáveis) e percorrer as 14 DCs, e não oito;
+em 2026-10-12, trocou as interfaces e levou a segunda rodada às cinco,
+pela realidade de cada uma (seção 12). As fontes estão nas seções 8 a 12,
+e as decisões, nos ADRs 0002, 0012, 0017 e 0029. Em 2026-10-13, a seção 13
+juntou como as fontes aplicaram as DCs a código e as armadilhas, que a
+skill `avaliacao-pelas-dcs` usa.
 
 ## 1. O rótulo do método: avaliação de um conjunto de interfaces, não estudo de caso (fontes lidas em 2026-09-28)
 
@@ -209,7 +209,7 @@ tema. "Conferido": lido no PDF pelo agente principal. Cópias em
 Conclusão: o desenho em rodadas tem precedente direto em Kiss (2014), que
 avaliou em três rodadas e propôs, como trabalho futuro, estender as
 interfaces com requisitos novos; e o teste de viscosidade de Green e Petre
-(1996) é o 1.º passo da P2 em miniatura: a mesma mudança, preparada
+(1996) é o 1.º passo da segunda rodada em miniatura: a mesma mudança, preparada
 antes, em cada versão. Trechos conferidos no PDF; página impressa.
 
 | Fonte | Trecho | Onde | Uso |
@@ -217,19 +217,19 @@ antes, em cada versão. Trechos conferidos no PDF; página impressa.
 | Kiss 2014 | método em rodadas: cap. 3, JavaFX × ScalaFX; cap. 4, "extending the solutions for the case studies in ScalaFX with Scala.Rx and ReactFX"; depois o Elm numa "selection of the case studies" | p. 3 | precedente das rodadas |
 | Kiss 2014 | a lacuna da 2.ª rodada abre o capítulo dela: a FRP é jovem, e "not enough experience applying it to GUI programming has been gathered" | p. 58 | onde fica a lacuna de cada rodada |
 | Kiss 2014 | "The time unfortunately ran out for the other case studies" | p. 96 | risco: o prazo escolhe as interfaces da rodada estreita |
-| Kiss 2014 | trabalho futuro: requisito assíncrono, animações, arrastar e soltar; "the difficulty lies in incorporating these additional aspects [...] without bloating them up too much"; tarefas maiores "would not be examined comprehensively in detail" | p. 103-104 | precedente da P2 e o limite dela |
+| Kiss 2014 | trabalho futuro: requisito assíncrono, animações, arrastar e soltar; "the difficulty lies in incorporating these additional aspects [...] without bloating them up too much"; tarefas maiores "would not be examined comprehensively in detail" | p. 103-104 | precedente da segunda rodada e o limite dela |
 | Kiss 2014 | "none of them really tests such an asynchronous behavior which is a fair criticism"; propõe trocar o Timer | p. 77, nota 26 | a Busca e a troca de interfaces |
 | Kiss 2014 | "the toolkit in general played the most crucial role"; "A good toolkit can cover potential deficits in the paradigm and/or language"; o *toolkit* dominou Counter, Temperature Converter, Flight Booker e Timer, o paradigma o Circle Drawer | p. 56 | contraste: Kiss mede num tamanho dado; o TCC acompanha o crescimento |
-| Kiss 2014 | os construtos especiais do *toolkit* "would probably not sustain more complex interactions" | p. 57 | hipótese da P2 |
+| Kiss 2014 | os construtos especiais do *toolkit* "would probably not sustain more complex interactions" | p. 57 | hipótese da segunda rodada |
 | Kiss 2014 | EasyBind evitado, porque "we would have needed to introduce another library" | p. 55, nota 32 | controle das dependências (ADR 0013) |
 | Kiss 2014 | interações "from sensors and remote internet services court for the GUI's attention" | p. 2-3 | requisito de orquestração |
-| Green e Petre 1996 | "As a straw test of viscosity, we made the same change to each version"; a mudança foi preparada antes, para medir a edição | p. 162 | método da P2 |
+| Green e Petre 1996 | "As a straw test of viscosity, we made the same change to each version"; a mudança foi preparada antes, para medir a edição | p. 162 | método da segunda rodada |
 | Green e Petre 1996 | "if the programs were larger we would expect them to increase proportionately (i.e. to increase faster for LabVIEW; slower for Basic)" | p. 162 | a diferença que se amplia |
 | Green e Petre 1996 | "Nobody can do big, hard problems in their heads [...] those are the ones where the effects of viscosity will be most apparent" | p. 161 | por que crescer o código |
 | Green e Petre 1996 | dependência oculta: "the dependency is not fully visible"; a planilha; o fluxo de dados "makes the dependencies visible but increases the viscosity" | p. 153-154 | por que não contar arestas; a troca com a viscosidade |
 | Blackwell e Green 2003 | "A viscous system needs many user actions to accomplish one goal"; viscosidade de repetição e de efeito dominó, "where further actions are required to restore consistency" | p. 115 | contagem dos trechos do diff |
-| Blackwell e Green 2003 | o redesenho que "would lower the viscosity but could readily introduce problems such as hidden dependencies" | p. 109 | a troca a observar na P2 |
-| Blackwell e Green 2003 | seis atividades: incrementação, transcrição, modificação, *design* exploratório, busca, compreensão exploratória (tabela 5.1) | p. 113 | a P1 lê; a P2 e a P3 modificam |
+| Blackwell e Green 2003 | o redesenho que "would lower the viscosity but could readily introduce problems such as hidden dependencies" | p. 109 | a troca a observar na segunda rodada |
+| Blackwell e Green 2003 | seis atividades: incrementação, transcrição, modificação, *design* exploratório, busca, compreensão exploratória (tabela 5.1) | p. 113 | a primeira rodada lê; a segunda e a terceira rodada modificam |
 | Berry e Serrano 2020 | quarentena acrescentada ao login; em JavaScript, "Almost all the initial implementation components need to be modified and re-tested" | p. 539 | um requisito de orquestração acrescentado depois |
 
 ## 9. As 14 DCs canônicas (levantadas em 2026-10-11)
@@ -267,7 +267,7 @@ subagente.
   *free rides*, *lability*, *permissiveness* (Blackwell et al. 2001,
   p. 335-336); *penetrability* (Green et al. 2006, p. 336-337).
 
-## 10. Requisitos típicos de interface para a P2 (pesquisa de 2026-10-11)
+## 10. Requisitos típicos de interface para a segunda rodada (pesquisa de 2026-10-11)
 
 Conclusão: literatura, repositórios e comunidades convergem nos
 requisitos de orquestração da Busca: esperar a pausa, cancelar a
@@ -321,16 +321,16 @@ discussão, e nenhuma fonte define a lista.
   Sullivan 1995). A replicação em engenharia de software só tem
   "confirma", "confirma em parte" e "não confirma".
 
-## 12. *Benchmark* de notação e requisitos da P2 (protótipos de 2026-10-12)
+## 12. *Benchmark* de notação e requisitos da segunda rodada (protótipos de 2026-10-12)
 
 Conclusão: o conjunto antigo deixava a orquestração de eventos só na
 Busca, e o Contador e a Lista não traziam exigência própria; protótipos em
 Web Component, React e Solid, medidos pelo mesmo critério de linhas
 (montagem da tela, coordenação, ligação), sustentaram a troca por Login
 com quarentena, Quadro de tarefas e Dados ao vivo, e a escolha de 11
-requisitos da P2 pela realidade de cada interface (ADRs 0002 e 0029).
-Medidas de subagentes, com `tsc` estrito e testes em Playwright passando;
-os trechos de fonte com página foram conferidos por eles e não
+requisitos da segunda rodada pela realidade de cada interface (ADRs 0002 e
+0029). Medidas de subagentes, com `tsc` estrito e testes em Playwright
+passando; os trechos de fonte com página foram conferidos por eles e não
 reconferidos. Código e números em `tmp/mergulho-tarefas-2026-10-12/`,
 `tmp/prototipos-tarefas-2026-10-12/` e `tmp/prototipos-p2-2026-10-12/`
 (fora do git).
@@ -339,21 +339,21 @@ reconferidos. Código e números em `tmp/mergulho-tarefas-2026-10-12/`,
 |---|---|---|
 | Densidade de coordenação nas interfaces antigas (coordenação / total) | Busca 0,52; Formulário 0,29; Contador 0,24; Carrinho 0,22; Lista 0,12 | o Contador e a Lista saem (ADR 0002) |
 | Assistente do Formulário, acréscimo em Web Component e React | montagem +22 e +25, coordenação +13 e +11, ligação +21 e +18; o React reindenta 67 linhas | a montagem é o maior balde, mas não domina |
-| *Timer* do 7GUIs | coordenação de 6 a 9 linhas contra montagem de 15 e 16; a pausa da P2 não separa React de Solid | descartado |
+| *Timer* do 7GUIs | coordenação de 6 a 9 linhas contra montagem de 15 e 16; a pausa da segunda rodada não separa React de Solid | descartado |
 | Login com quarentena (Berry e Serrano 2020, p. 534-539) | a quarentena custa +20 a +21 linhas nos três; o diff tem o mesmo tamanho, e muda o tipo: o Web Component repete, os declarativos acrescentam uma condição | desmente em parte "Almost all the initial implementation components need to be modified" (p. 539) |
 | Dados ao vivo (Meijer 2012, p. 66-67) | sem a limpeza, o vazamento é silencioso no Web Component e aparece na tela, ou nem ocorre, nos declarativos | a regra comum da limpeza ao sair da tela |
 | Quadro com desfazer, contra o desfazer no Carrinho | +43/+79/+64 contra +36/+57/+50; no Carrinho, "Finalizar compra" teve de apagar o histórico; no Solid, guardar o próprio *store* no histórico falhou em 8 verificações | o Quadro entra no lugar do Carrinho; o contraste de Kiss entre comando e cópia do estado some quando as transições ficam no domínio |
-| Carteira nos Dados ao vivo | +27/+23/+23; 10 linhas da P1 mudam no Web Component, nenhuma no React e no Solid; nenhum *glitch* no sentido de Kiss (2014, p. 104) com a fonte por ativo | entra na P2 |
-| Atualização otimista no Quadro | +32/+51/+40 sobre a P1; o `useOptimistic` do React aplica as respostas na ordem em que chegam | entra na P2; as regras da fila são do protótipo |
+| Carteira nos Dados ao vivo | +27/+23/+23; 10 linhas da primeira rodada mudam no Web Component, nenhuma no React e no Solid; nenhum *glitch* no sentido de Kiss (2014, p. 104) com a fonte por ativo | entra na segunda rodada |
+| Atualização otimista no Quadro | +32/+51/+40 sobre a primeira rodada; o `useOptimistic` do React aplica as respostas na ordem em que chegam | entra na segunda rodada; as regras da fila são do protótipo |
 | Passageiros dinâmicos no Formulário | +55/+61/+61; uma armadilha de identidade diferente por notação, invisível ao `tsc` | fica fora (ADR 0029) |
 | Filtro no Quadro | +25/+30/+24; não interfere no desfazer | fica fora (ADR 0029) |
 
-Acessibilidade: os três requisitos de acessibilidade da P2 e a regra das
-mensagens de status vêm da WCAG 2.2 (W3C, 2024-12-12): 2.4.3 e 3.3.1 no
-assistente com foco gerenciado, 2.1.1 e o padrão *Combobox* do WAI-ARIA
-APG na Busca, 2.2.2 na frequência controlável dos Dados ao vivo e 4.1.3
-nas mensagens de status. O foco é o ponto em que os declarativos voltam
-ao imperativo (`useRef` com `useEffect`, `ref` com `createEffect`,
+Acessibilidade: os três requisitos de acessibilidade da segunda rodada e a
+regra das mensagens de status vêm da WCAG 2.2 (W3C, 2024-12-12): 2.4.3 e
+3.3.1 no assistente com foco gerenciado, 2.1.1 e o padrão *Combobox* do
+WAI-ARIA APG na Busca, 2.2.2 na frequência controlável dos Dados ao vivo e
+4.1.3 nas mensagens de status. O foco é o ponto em que os declarativos
+voltam ao imperativo (`useRef` com `useEffect`, `ref` com `createEffect`,
 `FocusRequester` com `LaunchedEffect`).
 
 Demonstração: o capítulo 4 de Kiss (2014) não é só demonstração; avalia

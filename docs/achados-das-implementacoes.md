@@ -170,13 +170,14 @@ teste que a confirme. As medidas dos protótipos estão em
   `doAfterTextChanged` com `tocados` vazio, escondendo os erros que
   estavam à vista. Falta confirmar com `ActivityScenario.recreate()` e
   `StateRestorationTester`.
-- **A espera de 300 ms continua na Busca da P1**: o ADR 0002
-  (2026-10-11) a tirou da P1 para acrescentá-la na P2, mas o item 1 do
-  `casos/busca-com-sugestoes/README.org` e as implementações ainda a têm
-  (por exemplo, `casos/busca-com-sugestoes/react/src/main.tsx:29-58`, onde
-  o estado `pedido` existe por causa dela). Ela ocupa cerca de 4 linhas de
+- **A espera de 300 ms continua na Busca da primeira rodada**: o ADR 0002
+  (2026-10-11) a tirou da primeira rodada para acrescentá-la na segunda
+  rodada, mas o item 1 do `casos/busca-com-sugestoes/README.org` e as
+  implementações ainda a têm (por exemplo,
+  `casos/busca-com-sugestoes/react/src/main.tsx:29-58`, onde o estado
+  `pedido` existe por causa dela). Ela ocupa cerca de 4 linhas de
   coordenação no Web Component, 9 no React e 5 no Solid; tirá-la muda a
-  linha de base da P1 e o diff da P2.
+  linha de base da primeira rodada e o diff da segunda rodada.
 
 ## 2026-10-13, Quadro de tarefas na web (commits `39d85b9` e seguinte)
 

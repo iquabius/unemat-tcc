@@ -1,6 +1,6 @@
-# 0031. Na P3, cada tecnologia usa a biblioteca de formulário que tem a maioria dos downloads das candidatas de interface no registro, ou a API da plataforma
+# 0031. Na terceira rodada, cada tecnologia usa a biblioteca de formulário que tem a maioria dos downloads das candidatas de interface no registro, ou a API da plataforma
 
-2026-10-12. O ADR 0029 manda a P3 reescrever a interface base com a
+2026-10-12. O ADR 0029 manda a terceira rodada reescrever a interface base com a
 biblioteca de formulário mais usada no ecossistema de cada tecnologia,
 pela medida pública do registro, ou com a API da plataforma quando
 nenhuma domina, sem dizer o que é biblioteca de formulário nem quando
@@ -25,7 +25,7 @@ Kimtoo.ValidationProvider 1.0.8 (2022-04-14), são 177 downloads em seis
 semanas, o que não indica ecossistema: é um caso declarado, sem piso
 numérico na regra. A tabela com as medidas está em
 `docs/bibliotecas-de-formulario.md`, e as versões se fixam nos arquivos
-de dependência quando a P3 começar.
+de dependência quando a terceira rodada começar.
 
 Em vez de: contar o validador de objetos como biblioteca de interface; o
 FluentValidation domina o NuGet (55,95 mi de downloads em seis semanas,
@@ -35,8 +35,8 @@ erro à tela ficaria escrita à mão, e pela mesma regra o zod contaria na
 web.
 Em vez de: exigir que a líder tenha o dobro da segunda; mais robusto
 contra a lista de candidatas, mas o Solid (1,74 vez o Modular Forms)
-passaria à API da plataforma, e a P3 do Solid não mostraria o ecossistema
-que ele tem.
+passaria à API da plataforma, e a terceira rodada do Solid não mostraria o
+ecossistema que ele tem.
 Em vez de: exigir uma fração mínima dos downloads da própria tecnologia,
 como 5%; mede a adoção dentro do ecossistema (react-hook-form 31% do
 `react`, `@angular/forms` 87% do `@angular/core`), mas o limiar seria
@@ -51,14 +51,14 @@ regra, mas o piso seria arbitrário e teria de ser conferido em cada
 tecnologia.
 Em vez de: o Kimtoo.ValidationProvider no Windows Forms, pela regra à
 risca; coerente, mas é um pacote comercial sem versão desde 2022-04, e
-a P3 mediria uma biblioteca sem ecossistema.
+a terceira rodada mediria uma biblioteca sem ecossistema.
 Custo: a maioria do Solid é estreita e muda com a lista de candidatas; os
 downloads contam integração contínua e dependências transitivas, e os
 pacotes núcleo (`@tanstack/form-core`, `final-form`) só entram pelo
 resíduo depois de descontados os adaptadores; o download do
 `@angular/forms` não diz qual API se usa, e o do CommunityToolkit.Mvvm
-conta o uso de MVVM sem validação; a janela do NuGet é a que o
-nuget.org publica, sem datas exatas; o React × Solid da P3 compara duas
+conta o uso de MVVM sem validação; a janela do NuGet é a que o nuget.org
+publica, sem datas exatas; o React × Solid da terceira rodada compara duas
 bibliotecas diferentes, e a conclusão se lê como do ecossistema (ADR
 0029); uma medida refeita em outra data pode mudar a escolha, que fica
 fixada pela janela registrada.

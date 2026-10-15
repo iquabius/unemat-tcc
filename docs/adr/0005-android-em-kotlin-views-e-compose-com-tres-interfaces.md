@@ -1,4 +1,4 @@
-# 0005. O Android entra em Kotlin, Views clássico × Jetpack Compose, com Formulário, Quadro e Dados ao vivo até a P3, e a assincronia em corrotinas da linguagem
+# 0005. O Android entra em Kotlin, Views clássico × Jetpack Compose, com Formulário, Quadro e Dados ao vivo até a terceira rodada, e a assincronia em corrotinas da linguagem
 
 2026-10-12. O Android é a plataforma móvel mais comum, e desde 2019 é
 "Kotlin-first": o Java é "suportado, mas não recomendado para projetos
@@ -7,18 +7,18 @@ porque o compilador dele é um *plugin* do compilador Kotlin, distribuído
 com o Kotlin desde a 2.0 (2024-05). As duas tecnologias são Kotlin: o
 Views no estilo clássico (*listeners*, estado na `Activity`), no papel
 imperativo do Web Component, e o Compose como declarativo. A mesma
-linguagem isola a notação; para o autor, que vem de JavaScript, o Kotlin
-é a distância menor, e a concisão dele deixa nas implementações mais
-notação e menos linguagem. Entram o Formulário, a interface base (um
-*listener* por campo, que dispara de novo ao atualizar o campo por
-código, contra validação derivada do estado), o Quadro (três listas,
-`RecyclerView`, `Adapter` e `ViewHolder` contra `LazyColumn`, sobre um
-estado compartilhado, o contraste que a Lista dava) e os Dados ao vivo,
-em que a assinatura presa ao ciclo de vida da tela, o problema típico do
-Android, se escreve em `onStart` e `onStop` contra `DisposableEffect`; as
-três nas três rodadas (ADR 0029). A assincronia chega pelo envio do
-Formulário, já na P1, e pela validação do e-mail, pela atualização
-otimista e pela reconexão na P2, e usa as corrotinas da linguagem nas
+linguagem isola a notação; para o autor, que vem de JavaScript, o Kotlin é
+a distância menor, e a concisão dele deixa nas implementações mais notação
+e menos linguagem. Entram o Formulário, a interface base (um *listener*
+por campo, que dispara de novo ao atualizar o campo por código, contra
+validação derivada do estado), o Quadro (três listas, `RecyclerView`,
+`Adapter` e `ViewHolder` contra `LazyColumn`, sobre um estado
+compartilhado, o contraste que a Lista dava) e os Dados ao vivo, em que a
+assinatura presa ao ciclo de vida da tela, o problema típico do Android,
+se escreve em `onStart` e `onStop` contra `DisposableEffect`; as três nas
+três rodadas (ADR 0029). A assincronia chega pelo envio do Formulário, já
+na primeira rodada, e pela validação do e-mail, pela atualização otimista
+e pela reconexão na segunda rodada, e usa as corrotinas da linguagem nas
 duas tecnologias, sem `ViewModel` nem `Flow`; a fonte dos Dados ao vivo,
 no domínio em Kotlin, entrega por *callback* e fecha por `Closeable`,
 também sem `Flow`. O Contador e a Lista saem da análise (ADR 0002); do
@@ -32,7 +32,7 @@ e Kotlin 33% no uso em 12 meses (n = 3.539), e o Stack Overflow 2025 dá
 contra 41,8%); o que sustenta é a recomendação oficial e o Compose ser só
 Kotlin.
 
-Em vez de: Formulário e Lista, com a assincronia só no e-mail da P2
+Em vez de: Formulário e Lista, com a assincronia só no e-mail da segunda rodada
 (decisão de 2026-10-11); a Lista já estava implementada, mas saiu do
 *benchmark* de notação (ADR 0002), e sem os Dados ao vivo o Android
 ficaria sem o ciclo de vida da assinatura, onde ele mais difere das
@@ -48,9 +48,9 @@ Em vez de: Views em Java; Java de fato, com ecossistema maior e *records*,
 classes seladas e *pattern matching* das versões 16 a 21, mas misturaria
 linguagem e notação, deixaria o Compose fora, e no Android o JDK é um
 subconjunto (API 34 → Java 17, por *desugaring*).
-Em vez de: Views com `ViewModel` e `StateFlow`, e a assincronia da P2 em
-`ViewModel` com `Flow`; é a arquitetura que a documentação do Android
-recomenda, mas já é reativa e tiraria do Views o papel imperativo.
+Em vez de: Views com `ViewModel` e `StateFlow`, e a assincronia da segunda
+rodada em `ViewModel` com `Flow`; é a arquitetura que a documentação do
+Android recomenda, mas já é reativa e tiraria do Views o papel imperativo.
 Em vez de: Busca no Android; a assincronia ficaria em `ViewModel` com
 corrotinas e `Flow` nas duas tecnologias, outra comparação.
 Em vez de: Carrinho no Android; várias telas e navegação, contraste na

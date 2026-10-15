@@ -1,14 +1,14 @@
-# Bibliotecas de formulário da P3
+# Bibliotecas de formulário da terceira rodada
 
-Referência. A biblioteca de formulário de cada tecnologia na P3, com a
-medida pública do registro, a janela e a fonte, pela regra do ADR 0031.
-Cada afirmação sobre ferramenta ou versão leva a data em que foi
-observada; medidas de 2026-10-12, que refazem as de 2026-10-11 com a
+Referência. A biblioteca de formulário de cada tecnologia na terceira
+rodada, com a medida pública do registro, a janela e a fonte, pela regra
+do ADR 0031. Cada afirmação sobre ferramenta ou versão leva a data em que
+foi observada; medidas de 2026-10-12, que refazem as de 2026-10-11 com a
 janela registrada.
 
-**Conclusão.** Quatro das nove tecnologias da P3 ganham biblioteca: o
-React, o react-hook-form; o Solid, o TanStack Solid Form; o Angular com
-*signals*, os *Signal Forms* do `@angular/forms`; o WPF, o
+**Conclusão.** Quatro das nove tecnologias da terceira rodada ganham
+biblioteca: o React, o react-hook-form; o Solid, o TanStack Solid Form; o
+Angular com *signals*, os *Signal Forms* do `@angular/forms`; o WPF, o
 CommunityToolkit.Mvvm. As outras cinco ficam com a API da plataforma: no
 Web Component e no Lit, nenhuma candidata soma a maioria; no Views e no
 Compose, o Maven não publica contagem; no Windows Forms, a maioria das
@@ -52,10 +52,10 @@ Janelas:
 | Windows Forms | API da plataforma: `ErrorProvider` e o evento `Validating` | a maioria das candidatas compatíveis são 177 downloads, sem ecossistema (seção 3.2) | NuGet, seis semanas até 2026-10-12 | learn.microsoft.com, `ErrorProvider` (2026-10-12); `dotnet/winforms`, `ErrorProvider.cs` |
 | WPF | `CommunityToolkit.Mvvm` 8.4.2 (2026-03-25), com o `ObservableValidator` (`INotifyDataErrorInfo`) | 3.329.052 downloads, 98,6% das candidatas | NuGet, seis semanas até 2026-10-12 | nuget.org/stats; learn.microsoft.com, *ObservableValidator* (2026-10-12) |
 
-As versões entram nos arquivos de dependência (`implementacoes/*/package.json`,
-os `.csproj` do desktop) quando a P3 começar (tcc-0yjr). A plataforma não
-ganha dependência nova no Android, e no Web Component e no Lit a API é a
-do navegador.
+As versões entram nos arquivos de dependência
+(`implementacoes/*/package.json`, os `.csproj` do desktop) quando a
+terceira rodada começar (tcc-0yjr). A plataforma não ganha dependência
+nova no Android, e no Web Component e no Lit a API é a do navegador.
 
 ## 3. Candidatas medidas
 

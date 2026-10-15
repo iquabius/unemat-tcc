@@ -1,14 +1,14 @@
 # 0030. A especificação de cada interface fica no OpenSpec, em português, com cada cenário igual a uma verificação do teste de conformidade e cada mudança num delta spec
 
 2026-10-12. A especificação de cada interface era um `README.org` em
-prosa, sem forma para dizer o que uma mudança acrescenta, e a P2 e a P3
-precisam de cada funcionalidade e requisito de orquestração escrito antes
-de implementar, a mesma mudança em todas as tecnologias, como o teste de
-viscosidade de Green e Petre (1996, p. 162) (ADR 0029). A especificação
-viva de cada interface passa a ser
-`implementacoes/openspec/specs/<interface>/spec.md`, no esquema *spec-driven*
-do OpenSpec 1.14.1 (npm, 2026-10-05), fixado no `package.json` de
-`implementacoes/` e rodado sem o fluxo de agente dele
+prosa, sem forma para dizer o que uma mudança acrescenta, e a segunda e a
+terceira rodada precisam de cada funcionalidade e requisito de
+orquestração escrito antes de implementar, a mesma mudança em todas as
+tecnologias, como o teste de viscosidade de Green e Petre (1996, p. 162)
+(ADR 0029). A especificação viva de cada interface passa a ser
+`implementacoes/openspec/specs/<interface>/spec.md`, no esquema
+*spec-driven* do OpenSpec 1.14.1 (npm, 2026-10-05), fixado no
+`package.json` de `implementacoes/` e rodado sem o fluxo de agente dele
 (`init --tools none`) e sem telemetria; o `README.org` fica só com a
 apresentação. Requisitos e cenários se escrevem em português ("deve",
 QUANDO/ENTÃO), com os cabeçalhos que o CLI lê em inglês, e o nome de cada
@@ -48,9 +48,9 @@ falta SHALL ou MUST, e o `--strict` não serve; os cabeçalhos ficam em
 inglês no meio do português; cada verificação nova ou renomeada muda o
 `spec.md` e os testes de todas as plataformas no mesmo commit; entre o
 arquivamento e o último commit de tecnologia, as implementações ainda não
-mudadas falham no teste de conformidade; as três interfaces novas (tcc-t19i,
-tcc-2ui8, tcc-dxdg) e as mudanças da P1 (tcc-z2jq, tcc-v4m7, tcc-32dr)
-esperaram esta decisão.
+mudadas falham no teste de conformidade; as três interfaces novas
+(tcc-t19i, tcc-2ui8, tcc-dxdg) e as mudanças da primeira rodada (tcc-z2jq,
+tcc-v4m7, tcc-32dr) esperaram esta decisão.
 
 Fontes: openspec.dev/docs/schemas/spec-driven (lida em 2026-10-11 e
 2026-10-12); o CLI 1.14.1 testado em 2026-10-12 (`init --tools none`, o
