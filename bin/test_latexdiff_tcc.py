@@ -89,10 +89,13 @@ class Diff(unittest.TestCase):
         for lado, texto in zip(("velho", "novo"), cls.CASO):
             (cls.dir / lado).mkdir()
             (cls.dir / lado / "tcc.tex").write_text(texto, encoding="utf-8")
-        cls.diff = subprocess.run(
+        diff = subprocess.run(
             HOST + [str(SCRIPT), str(cls.dir / "velho/tcc.tex"),
                     str(cls.dir / "novo/tcc.tex")],
-            capture_output=True, text=True, check=True).stdout
+            capture_output=True, text=True)
+        if diff.returncode != 0:
+            raise RuntimeError(f"{SCRIPT.name} saiu com {diff.returncode}:\n{diff.stderr}")
+        cls.diff = diff.stdout
         (cls.dir / "diff.tex").write_text(cls.diff, encoding="utf-8")
 
     def compila(self):
