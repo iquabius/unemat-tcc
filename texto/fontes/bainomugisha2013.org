@@ -50,3 +50,51 @@
   sozinha (escolha do autor em
   2026-10-14; docs/problema-lacuna-pergunta.md, seção 1.1).
 - Conferido: 2026-10-14.
+* [[file:../prog.org::Um programa orientado a eventos reage ao][prog: Um programa orientado a eventos reage ao]], p. 52:2 (a ordem de chegada)
+- Frase: “[...] numa ordem de chegada que o programador não escolhe nem
+  pode prever (Bainomugisha et al., 2013, p. 52:2).”
+- Trecho: “it is impossible to predict or control the order of arrival of
+  external events and as such control jumps around event handlers as the
+  outside environment changes unexpectedly (inverted control, i.e., the
+  control flow of a program is driven by external events and not by an
+  order specified by the programmer).” (p. 52:2)
+- Lido em: =tmp/fontes/bainomugisha2013.pdf=, versão dos autores, p. 2 do
+  PDF (cabeçalho “:2”).
+- Conferido: 2026-10-15.
+* [[file:../prog.org::Nas linguagens imperativas, esse estado é][prog: Nas linguagens imperativas, esse estado é]], p. 52:2 (a gestão manual)
+- Frase: “Numa interface, é o programador quem escreve essa ordem: para
+  cada mudança de estado, ele precisa escrever a atualização de tudo o que
+  depende do valor alterado, e esse código é complexo e propenso a erros, como o que
+  muda o estado na hora errada ou na ordem errada (Bainomugisha et al.,
+  2013, p. 52:2).”
+- Trecho: “when there is a state change in one computation or data, the
+  programmer is required to manually update all the others that depend on
+  it. Such manual management of state changes and data dependencies is
+  complex and error-prone (e.g., performing state changes at a wrong time
+  or in a wrong order)” (p. 52:2)
+- Lido em: =tmp/fontes/bainomugisha2013.pdf=, versão dos autores, p. 2 do
+  PDF (cabeçalho “:2”).
+- Observação: “Numa interface” vem do contexto do trecho, que fala das
+  aplicações interativas e dos eventos externos (mouse, teclado, toques).
+  O /manually update/ sai como “escrever a atualização”, pela regra do
+  AGENTS.md: o programador escreve, e o programa executa.
+- Conferido: 2026-10-15.
+* [[file:../prog.org::Nas linguagens declarativas, não há estado][prog: Nas linguagens declarativas, não há estado]], p. 52:5 e 52:7 (a ordem implícita)
+- Frase: “Na PR, a ordem das atualizações não se escreve: o ambiente de
+  execução propaga a mudança de um valor às computações que dependem dele
+  e as recalcula na ordem do grafo de dependências, cada uma depois das que
+  ela usa (Bainomugisha et al., 2013, p. 52:5 e 52:7).”
+- Trecho: “From the programmer’s point of view, propagation of changes
+  happens automatically. Indeed, this is the essence of reactive
+  programming. A change of a value should be automatically propagated to
+  all dependent computations.” (p. 52:5); a recomputação das expressões
+  “in a topologically sorted graph [...], thus ensuring that an expression
+  is always evaluated after all its dependents have been evaluated” (p.
+  52:7)
+- Lido em: =tmp/fontes/bainomugisha2013.pdf=, versão dos autores, p. 5 e 7
+  do PDF (cabeçalhos “:5” e “:7”).
+- Observação: “a ordem das atualizações não se escreve” é a leitura do
+  texto: o trecho diz que a propagação é automática do ponto de vista do
+  programador. Na p. 52:7, /dependents/ são as expressões de que a
+  expressão depende, por isso “depois das que ela usa”.
+- Conferido: 2026-10-15.

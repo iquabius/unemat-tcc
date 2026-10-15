@@ -40,7 +40,7 @@
   controle” saiu daqui; a introdução o define (=intro.org=, “O /callback/
   fragmenta o fluxo de controle”).
 - Conferido: 2026-10-14.
-* [[file:../prog.org::Nas linguagens imperativas, esse estado é][prog: Nas linguagens imperativas, esse estado é]], p. 361 (declarativo)
+* [[file:../prog.org::Nas linguagens declarativas, não há estado][prog: Nas linguagens declarativas, não há estado]], p. 361 (declarativo)
 - Frase: “Nas linguagens declarativas, não há estado implícito, e o
   programa se escreve com expressões (Hudak, 1989, p. 361).”
 - Trecho: “In contrast, declarative languages are characterized as having
@@ -48,7 +48,7 @@
   programming with expressions (or terms).” (p. 361)
 - Lido em: =tmp/fontes/hudak1989.pdf=, p. 3 do PDF (p. 361).
 - Conferido: 2026-10-14.
-* [[file:../prog.org::Nas linguagens imperativas, esse estado é][prog: Nas linguagens imperativas, esse estado é]], p. 361 ("o quê" e "o como")
+* [[file:../prog.org::Nas linguagens declarativas, não há estado][prog: Nas linguagens declarativas, não há estado]], p. 361 ("o quê" e "o como")
 - Frase: “A programação declarativa costuma ser descrita como a que
   expressa “o quê” e não “o como” da computação, embora a diferença seja de
   grau (Hudak, 1989, p. 361).”

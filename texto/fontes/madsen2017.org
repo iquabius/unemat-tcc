@@ -23,3 +23,14 @@
   (Meijer, 2012, p. 66-67). “Do servidor” é a forma das fontes brasileiras
   (=docs/problema-lacuna-pergunta.md=, seção 2.1).
 - Conferido: 2026-10-14.
+* [[file:../prog.org::Um programa orientado a eventos reage ao][prog: Um programa orientado a eventos reage ao]], p. 86:1 (a fila)
+- Frase: “Os eventos entram numa fila, e o programa os trata um de cada
+  vez (Madsen; Lhoták; Tip, 2017, p. 86:1), [...]”
+- Trecho: “[...] and enqueued for processing. In the main event loop, an
+  event is selected from the queue and its associated callback is invoked
+  and executed until completion.” (p. 86:1)
+- Lido em: =tmp/fontes/madsen2017.pdf=, p. 1 do PDF (p. 86:1).
+- Observação: “um de cada vez” traduz o /executed until completion/, cada
+  /callback/ até o fim antes do seguinte. A frase vem de um rascunho da
+  introdução.
+- Conferido: 2026-10-15.

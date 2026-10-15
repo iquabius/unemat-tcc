@@ -44,6 +44,9 @@ denominadas /linguagens imperativas/.
   Um programa orientado a eventos reage ao que acontece no ambiente externo: o
   clique num botão, a tecla digitada, a mensagem do servidor
   [[cite:madsen2017][p. 86:1]].
+  Os eventos entram numa fila, e o programa os trata um de cada vez
+  [[cite:madsen2017][p. 86:1]], numa ordem de chegada que o programador não
+  escolhe nem pode prever [[cite:bainomugisha2013][p. 52:2]].
   A reação depende também do /estado/ da aplicação, que determina a
   aparência e o comportamento dela [[cite:oney2012][p. 230]].
   Uma barra de ferramentas, por exemplo, fica encaixada acima da área de
@@ -56,10 +59,22 @@ denominadas /linguagens imperativas/.
   Por isso, para controlar o estado com precisão e de forma determinística,
   elas costumam fixar a ordem em que os comandos se executam
   [[cite:hudak1989][p. 361]].
-  Para [[textcite:edwards2009][p. 929]], boa parte desse sequenciamento manual
-  pode ser feita automaticamente, ao menos nas aplicações interativas.
+  Numa interface, é o programador quem escreve essa ordem: para cada mudança
+  de estado, ele precisa escrever a atualização de tudo o que depende do
+  valor alterado, e esse código é complexo e propenso a erros, como o que
+  muda o estado na hora errada ou na ordem errada
+  [[cite:bainomugisha2013][p. 52:2]].
+  Para [[textcite:edwards2009][p. 929]], boa parte da sequência que o
+  programador escreve poderia ficar a cargo da execução, ao menos nas
+  aplicações interativas.
+
+  # -> ordem implícita no declarativo
   Nas linguagens declarativas, não há estado implícito, e o programa se
   escreve com expressões [[cite:hudak1989][p. 361]].
+  Na [[gls:pr]], a ordem das atualizações não se escreve: o ambiente de
+  execução propaga a mudança de um valor às computações que dependem dele
+  e as recalcula na ordem do grafo de dependências, cada uma depois das que
+  ela usa [[cite:bainomugisha2013][p. 52:5 e 52:7]].
   A programação declarativa costuma ser descrita como a que expressa “o
   quê” e não “o como” da computação, embora a diferença seja de grau
   [[cite:hudak1989][p. 361]].
