@@ -1,13 +1,14 @@
 #+TITLE: Fora da análise: código que saiu do conjunto analisado
 
-Esta pasta guarda o código de =casos/= que o texto não analisa, congelado
-como estava ao sair da análise, em 2026-10-13. Nada aqui compila, testa,
-formata nem captura pelos comandos de =casos/=, e as mudanças na
-especificação das tarefas (=casos/openspec/=) não são portadas para cá.
-Em =casos/= ficam só as tarefas e as tecnologias analisadas.
+Esta pasta guarda o código de =implementacoes/= que o texto não analisa,
+congelado como estava ao sair da análise, em 2026-10-13. Nada aqui
+compila, testa, formata nem captura pelos comandos de =implementacoes/=, e
+as mudanças na especificação das tarefas (=implementacoes/openspec/=) não
+são portadas para cá. Em =implementacoes/= ficam só as tarefas e as
+tecnologias analisadas.
 
-A estrutura é a de =casos/=: =<tarefa>/<tecnologia>/=, mais os projetos que
-reuniam o desktop e o Qt.
+A estrutura é a de =implementacoes/=: =<tarefa>/<tecnologia>/=, mais os
+projetos que reuniam o desktop e o Qt.
 
 Cada pasta, o que é, por que saiu e o ADR:
 
@@ -47,14 +48,16 @@ gerou, com o mesmo nome de antes (=<tecnologia>-<cena>.png=).
   saíram inteiros, o que fica na pasta da tarefa veio junto, menos o
   =tsconfig.base.json= e o =casos/android/=. No Formulário e na Busca, o
   domínio, o estilo e o teste de conformidade ficaram em
-  =casos/<tarefa>/= e continuam mudando com a especificação: o código
-  daqui se lê contra a versão deles do commit anterior ao movimento.
+  =implementacoes/<tarefa>/= e continuam mudando com a especificação: o
+  código daqui se lê contra a versão deles do commit anterior ao movimento.
 
 * Rodar
 
   Cada pasta roda no commit anterior ao que a trouxe para cá, com as
   instruções do =casos/README.org= de lá. De qualquer pasta do
-  repositório, com o caminho dela a partir daqui:
+  repositório, com o caminho dela a partir daqui; o =git log= procura pelo
+  caminho de antes de 2026-10-14, quando =implementacoes/= se chamava
+  =casos/=:
 
   #+begin_src sh
   pasta=formulario/jquery
