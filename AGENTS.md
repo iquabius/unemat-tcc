@@ -466,3 +466,30 @@ temporário (`GIT_INDEX_FILE`) se o índice compartilhado tiver mudanças
 alheias. No checkout principal, todo commit nomeia os arquivos
 (`git commit -- <arquivos>`), porque o índice pode guardar o rascunho do
 texto que o autor ainda não aprovou.
+
+Antes de cada commit, o agente carrega a skill `commit-message` e
+confere o commit pelos critérios do eixo History da `linus-review`: uma
+mudança lógica por commit, com mover, renomear ou reformatar num commit
+próprio; nada que um commit seguinte corrija (o que corrige um commit do
+ramo entra nele: `--amend` no último, `--fixup` nos outros, que o passo
+5 de "Código: ramo, revisão, merge" condensa); a mensagem diz o
+problema, o porquê e como foi conferida, sem descrever o diff; nenhum
+banner de IA no assunto nem no corpo, só o trailer `Co-Authored-By`. No
+commit de código, ferramenta ou instrução de agente, o agente mostra a
+mensagem e commita na mesma resposta, sem a confirmação que a skill
+pede: a revisão do ramo e o push, que é do autor, já são os pontos de
+parada, e a skill, exigida em toda sessão, travaria a sessão autônoma a
+cada commit. O commit do texto continua esperando o aprovo do autor
+(seção "Texto").
+
+O hook `bin/conferir-commit.py` (PreToolUse do Bash e do terminal do
+app, em `.claude/settings.json`) recusa o `git commit` do agente neste
+repositório, ou numa worktree dele, e o `git merge` que cria o commit da
+junção, quando a skill não está no contexto da sessão (não foi
+carregada, ou a compactação não a reanexou) e quando a mensagem lida do
+comando quebra uma das regras mecânicas; recusa também o `--fixup` no
+`master` e o `git merge` ou o `git cherry-pick` que levem um `fixup!`
+não condensado. O docstring do script é a lista das regras e do que
+passa sem conferência. O resto do eixo History fica com o agente e com a
+`linus-review` do ramo. Testes:
+`python3 -m unittest discover -s bin -p 'test_*.py'`.
