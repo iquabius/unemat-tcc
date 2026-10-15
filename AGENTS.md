@@ -276,6 +276,23 @@ pergunta antes.
   programação só conta no sinal escrito (ADR 0021), e o verbo de execução
   com a tecnologia de sujeito atribuiria a ela o que o programador
   escreve (ADR 0032, passiva sintética).
+- O programador escreve, e o programa executa. Verbo de execução
+  (atribuir, atualizar, recalcular, chamar) tem de sujeito o programa, o
+  ambiente de execução ou a tecnologia; o programador é sujeito só do que
+  se escreve no código: "o programador escreve a atribuição", "escreve a
+  atualização". "À mão" e "manual" qualificam a escrita, e nunca a
+  execução: "o programador precisa escrever a atualização de tudo o que
+  depende dele", e não "ele precisa atualizar à mão tudo o que depende
+  dele" nem "o programa atualiza manualmente". As fontes juntam os dois e
+  não servem de modelo para a frase: "unless the programmer explicitly
+  assigns a new value to the variable var3" (Bainomugisha et al. 2013,
+  p. 52:3) vira "a não ser que o programador escreva de novo a
+  atribuição", e "the programmer is required to manually update all the
+  others that depend on it" (p. 52:2) vira "o programador precisa escrever
+  a atualização de tudo o que depende dele". Sperber e Schlegel (2025,
+  p. 32) dizem do jeito certo: "implement the update logic manually". É o
+  sentido do nome do imperativo por atualização manual (ADR 0021): manual
+  é a escrita da atualização, e não a execução dela.
 - A sessão que edita o texto roda no checkout principal, o mesmo do
   Emacs, uma por vez; código, ferramentas e instruções de agente seguem
   numa worktree, em ramo próprio (seção seguinte). O que
