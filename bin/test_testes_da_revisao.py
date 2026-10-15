@@ -129,6 +129,13 @@ class Mudados(unittest.TestCase):
                          [" M implementacoes/openspec/specs/formulario/spec.md",
                           "?? implementacoes/openspec/changes/nova/proposal.md"])
 
+    def test_especificacao_renomeada_aparece_inteira(self):
+        self.git("mv", "implementacoes/openspec/specs/formulario/spec.md",
+                 "implementacoes/openspec/specs/formulario/spec antigo.md")
+        self.assertEqual(tr.especificacao_solta(),
+                         ["R  implementacoes/openspec/specs/formulario/spec.md -> "
+                          "implementacoes/openspec/specs/formulario/spec antigo.md"])
+
     def roda(self, *opcoes, ponta="HEAD"):
         """(saída, stdout, stderr) do main, como o pronto o chama (ou à mão,
         sem ponta). Só o git roda de verdade; o resto se anota em

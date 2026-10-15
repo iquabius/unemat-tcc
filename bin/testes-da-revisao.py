@@ -85,10 +85,21 @@ def mudados(base, ponta=None):
 
 
 def especificacao_solta():
-    """A especificação mudada ou nova fora do commit, como o git status a diz."""
-    saida = git("-c", "core.quotePath=false", "status", "--porcelain", "-z",
-                "--untracked-files=all", "--", OPENSPEC)
-    return nomes(saida)
+    """A especificação mudada ou nova fora do commit, uma linha por arquivo.
+
+    Com -z, o git status dá o renomeado ou copiado em dois campos, o destino
+    e depois a origem; a linha junta os dois como o git status sem -z, sem
+    as aspas dele.
+    """
+    campos = nomes(git("status", "--porcelain", "-z", "--untracked-files=all",
+                       "--", OPENSPEC))
+    linhas = []
+    while campos:
+        linha = campos.pop(0)
+        if linha[0] in "RC" or linha[1] in "RC":
+            linha = f"{linha[:3]}{campos.pop(0)} -> {linha[3:]}"
+        linhas.append(linha)
+    return linhas
 
 
 def pastas_de_teste():
