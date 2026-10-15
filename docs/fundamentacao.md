@@ -6,7 +6,7 @@ lido, o trecho conferido: a matriz tema × referência, os candidatos da
 revisão de 2026-09-24, os trechos que saíram da introdução, Zampetti et
 al. (2025) e a revisão sobre aplicação interativa e aplicação reativa
 (seção 6, de 2026-10-10). Estado, eventos e *callbacks* ficam em
-`docs/problema-lacuna-pergunta.md` desde 2026-10-14. Veio de
+`docs/estado-eventos-e-complexidade.md` desde 2026-10-14. Veio de
 `docs/literatura.md` (índice até `ff620ad`), seções 2, 3.1, 3.2, 4 (o
 item da literatura revisada por pares), 12, 13.3 e 14.3, em 2026-10-10.
 
@@ -63,13 +63,13 @@ Leituras depois de 2026-09-25:
 - **blackwell2019**: lido em 2026-10-03 nas partes sobre as DCs
   (`docs/metodo-da-avaliacao.md`, seção 6);
 - **zimmerle2025**: lido em 2026-10-03 no texto completo
-  (`docs/trabalhos-relacionados.md`, seção 6.1).
+  (`docs/trabalhos-relacionados-e-lacuna.md`, seção 6.1).
 
 ## 3. Complementares
 
 Em 2026-10-10, `lee2025`, `berry2020` e `salvaneschi2016` estão no
 `refs.bib`; as demais, fora. A tese de Lima (2024), que também entrou, e
-o UAX estão em `docs/trabalhos-relacionados.md`, seção 6.
+o UAX estão em `docs/trabalhos-relacionados-e-lacuna.md`, seção 6.
 
 | Referência | Por que | Onde |
 |---|---|---|

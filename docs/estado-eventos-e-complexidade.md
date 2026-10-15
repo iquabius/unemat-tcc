@@ -259,7 +259,7 @@ tecnologias web, os três modelos de programação", apoiada na revisão por
 palavras-chave e *snowballing*, Wohlin 2014) e a pergunta P1, sobre como
 difere, pelas DCs, a usabilidade da notação entre os três modelos. Os
 candidatos e os trechos dos trabalhos relacionados estão em
-`docs/trabalhos-relacionados.md`.
+`docs/trabalhos-relacionados-e-lacuna.md`.
 
 ## 5. Pendências
 

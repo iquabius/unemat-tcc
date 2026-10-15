@@ -41,10 +41,10 @@ As tarefas vivem no [Beads](https://github.com/gastownhall/beads) (`bd`
   | `texto/intro.org`, `docs/metodo-da-avaliacao.md` | Fase 1: introdução (`tcc-e2e`) |
   | a pauta de uma orientação | a fase em curso, a primeira ainda aberta |
   | `texto/cases.org`, `texto/results.org`, a análise por DC | Fase 2: análise dos casos (`tcc-d40`) |
-  | `texto/prog.org`, `docs/fundamentacao.md`, `docs/trabalhos-relacionados.md` | Fase 3: capítulo de programação (`tcc-2o8`) |
+  | `texto/prog.org`, `docs/fundamentacao.md`, `docs/trabalhos-relacionados-e-lacuna.md` | Fase 3: capítulo de programação (`tcc-2o8`) |
   | `texto/conclusion.org`, o título, o texto do resumo | Fase 4: fechamento (`tcc-y8x`) |
   | `implementacoes/`: código, especificação, roteiros, capturas | Código dos casos (`tcc-3jg`) |
-  | `texto/refs.bib`, `tmp/fontes/`, `docs/revisao-bibliografica.md` | Bibliografia (`tcc-bkm`) |
+  | `texto/refs.bib`, `tmp/fontes/`, `docs/protocolo-da-revisao.md` | Bibliografia (`tcc-bkm`) |
   | `latex/`, pré-textuais, margens, legendas | Formatação do documento (`tcc-juu`) |
   | `bin/`, skills, Beads, PDFs, `AGENTS.md`, `readme.org` | Ferramentas e processo (`tcc-qko`) |
 

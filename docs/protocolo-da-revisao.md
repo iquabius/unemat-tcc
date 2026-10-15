@@ -91,7 +91,7 @@ incluído marginal e a terceira, nenhum; nada do que entrou muda o nicho
   trabalhos que citam o 7GUIs no texto completo, no lugar dos citantes
   de Kiss (2014), que o OpenAlex não indexa. Triagem por título e resumo
   em seis lotes de cerca de 205 registros, por subagentes; os resumos
-  dos candidatos de `docs/trabalhos-relacionados.md`, seção 3, foram
+  dos candidatos de `docs/trabalhos-relacionados-e-lacuna.md`, seção 3, foram
   relidos no OpenAlex ou no Crossref.
 
 | Etapa | Registros |
@@ -105,12 +105,12 @@ incluído marginal e a terceira, nenhum; nada do que entrou muda o nicho
 | Nicho e *survey* no OpenAlex (16 consultas) | 211 exibidos, mais 813 títulos varridos por `title.search` ("reactive programming", "functional reactive") |
 | *Survey* no Crossref (5 consultas) | 500 títulos varridos |
 | ACM DL: "reactive programming" e survey, review, mapping ou overview no título | 4 resultados, nenhuma *survey* além de bainomugisha2013 |
-| Candidatos novos (`docs/trabalhos-relacionados.md`, seção 3) | 12 |
+| Candidatos novos (`docs/trabalhos-relacionados-e-lacuna.md`, seção 3) | 12 |
 
 Limitações:
 
 - o número de incluídos é o dos subagentes, de critério largo; o corte
-  que vale para o texto é o de `docs/trabalhos-relacionados.md`, seção
+  que vale para o texto é o de `docs/trabalhos-relacionados-e-lacuna.md`, seção
   3;
 - 280 registros sem resumo foram julgados pelo título;
 - dissertações em francês saíram pelo idioma;
@@ -125,7 +125,7 @@ programação nas mesmas interfaces: o nicho da seção 4 se mantém. Os dois
 incluídos novos avaliam pelas DCs, pelos próprios autores, a notação de
 bibliotecas de controles de interface feitas em Angular e em React
 (Narechania et al., 2025; Verma, Odak e Narechania, 2026), e não a das
-bibliotecas de base (`docs/trabalhos-relacionados.md`, seção 4). Dos
+bibliotecas de base (`docs/trabalhos-relacionados-e-lacuna.md`, seção 4). Dos
 citantes de Kiss (2014), a rodada viu os que o Google Acadêmico, o
 texto completo do OpenAlex e a web acham: 13 trabalhos que citam a
 dissertação ou o 7GUIs, nenhum incluído. O Google Acadêmico tem a
@@ -220,7 +220,7 @@ bibliotecas de controles feitas em Angular e em React (Narechania et
 al., 2025; Verma, Odak e Narechania, 2026), que avaliam a notação da
 própria biblioteca; a de Verma et al. só diz que ela é "consistent with
 the framework it has been implemented in (i.e. React.js)" (p. 6 da
-cópia; `docs/trabalhos-relacionados.md`, seção 4).
+cópia; `docs/trabalhos-relacionados-e-lacuna.md`, seção 4).
 
 O nicho e as quatro lacunas parciais, levantadas em 2026-09-24 e
 revistas em 2026-10-02, depois da segunda rodada (seção 2):
@@ -232,7 +232,7 @@ revistas em 2026-10-02, depois da segunda rodada (seção 2):
   nas mesmas interfaces. As DCs já foram aplicadas à PR por Kiss (2014),
   com Scala.Rx, ReactFX e Elm (`docs/metodo-da-avaliacao.md`, seção 3),
   e por Zimmerle & Gama (2025), com RxJS e Bacon.js por questionário
-  (`docs/trabalhos-relacionados.md`, seção 6); "nenhuma análise de
+  (`docs/trabalhos-relacionados-e-lacuna.md`, seção 6); "nenhuma análise de
   *signals* pelas DCs" não se sustenta. O mais perto de comparar
   notações de coordenação é Grolaux et al. (2026): reproduzem numa
   biblioteca com async/await o essencial de seis práticas, de
