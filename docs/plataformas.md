@@ -86,9 +86,9 @@ de programação"). O quadro do que o delineamento controla está em
 | Views | imperativo por atualização manual | *layout* XML | `res/values/estilo.xml` |
 | Jetpack Compose | declarativo por re-renderização | funções | `Estilo.kt` |
 
-Kotlin nas duas (ADR 0005). Conferem a web no Formulário e na Lista (ADR
-0012); capturas pelo Robolectric com Roborazzi, na JVM, idênticas às da
-web (ADR 0008).
+Kotlin nas duas (ADR 0005). Conferem a web no Formulário, no Quadro e nos
+Dados ao vivo (ADR 0029); capturas pelo Robolectric com Roborazzi, na
+JVM, idênticas às da web (ADR 0008).
 
 ## O que comparar dentro do granular
 
