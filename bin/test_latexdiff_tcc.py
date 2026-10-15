@@ -9,6 +9,8 @@ Pattern} reescrita. O latexdiff 1.4.0 casava a abertura do \\emph{inside-out}
 com a do \\emph{Observer Pattern}, e o \\emph passava a cobrir o \\par entre
 eles ("Paragraph ended before \\text@command was complete"). O segundo é o
 \\emph com \\footnote do prog.tex, que não pode ir inteiro para o \\DIFdel.
+O terceiro é um \\emph mais longo que a linha, apagado: dentro do \\sout, ele
+tem de quebrar entre as palavras, sem sair pela margem.
 
     python3 -m unittest discover -s bin -p 'test_*.py'
 """
@@ -24,7 +26,8 @@ from pathlib import Path
 SCRIPT = Path(os.environ.get("LATEXDIFF_TCC_SCRIPT",
                              Path(__file__).with_name("latexdiff-tcc.sh"))).resolve()
 
-HOST = [] if shutil.which("latexdiff") else ["distrobox-host-exec"]
+HOST = [] if shutil.which("latexdiff") and shutil.which("pdflatex") \
+    else ["distrobox-host-exec"]
 try:
     TEX = subprocess.run(HOST + ["sh", "-c", "command -v latexdiff pdflatex"],
                          capture_output=True).returncode == 0
@@ -69,7 +72,8 @@ NOTA = (documento("""\
 
 
 def sem_comentarios(tex):
-    return "\n".join(re.split(r"(?<!\\)%", linha, maxsplit=1)[0]
+    """O texto de cada linha até o primeiro % que não seja \\%."""
+    return "\n".join(re.match(r"(?:[^\\%]|\\.)*", linha)[0]
                      for linha in tex.splitlines())
 
 
@@ -92,12 +96,14 @@ class Diff(unittest.TestCase):
         (cls.dir / "diff.tex").write_text(cls.diff, encoding="utf-8")
 
     def compila(self):
+        """Compila o diff e devolve o .log."""
         pdf = subprocess.run(
             HOST + ["sh", "-c", 'cd "$1" && exec pdflatex -interaction=nonstopmode '
                     '-halt-on-error diff.tex', "sh", str(self.dir)],
             capture_output=True, text=True)
         erros = [linha for linha in pdf.stdout.splitlines() if linha.startswith("!")]
         self.assertEqual(pdf.returncode, 0, erros)
+        return (self.dir / "diff.log").read_text(encoding="utf-8", errors="replace")
 
 
 class EmphEntreParagrafos(Diff):
@@ -109,8 +115,7 @@ class EmphEntreParagrafos(Diff):
     def test_termo_enfatizado_apagado_fica_no_texto(self):
         # O --exclude-textcmd=emph o levaria para um comentário %DIFDELCMD.
         texto = sem_comentarios(self.diff)
-        for termo, vezes in (("inside-out", 1), ("toolkit", 1),
-                             ("Observer Pattern", 2)):
+        for termo, vezes in (("inside-out", 1), ("toolkit", 1), ("Observer", 2)):
             self.assertEqual(texto.count(termo), vezes, termo)
 
 
@@ -120,10 +125,23 @@ class EmphComNota(Diff):
     def test_diff_compila(self):
         self.compila()
 
-    def test_termo_simples_entra_inteiro_na_marca(self):
+    def test_termo_simples_entra_na_marca_sem_dividir_o_comando(self):
         texto = sem_comentarios(self.diff)
         self.assertIn("\\textbf{tempo}", texto)
-        self.assertIn("\\textbf{tempo de execução}", texto)
+        self.assertIn("\\textbf{execução}", texto)
+
+
+class EmphLongoApagado(Diff):
+    CASO = (documento("""\
+        Uma alternativa ao \\emph{callback} é a \\emph{Programação Funcional Reativa,
+        que modela o comportamento do programa como valores que variam no tempo e
+        reagem a eventos}, como mostram os exemplos.
+        """), documento("""\
+        Uma alternativa ao \\emph{callback}, como mostram os exemplos.
+        """))
+
+    def test_diff_compila_sem_sair_pela_margem(self):
+        self.assertNotIn("Overfull \\hbox", self.compila())
 
 
 del Diff

@@ -43,25 +43,17 @@
 # no fim do parágrafo que a quebra fecha, e pula as listagens: a lista de
 # ambientes dele (LITERAL) repete o minted do PICTUREENV daqui.
 #
-# Comandos de fonte (\emph, \textbf, \textit, \texttt): como comandos de
-# texto, o latexdiff divide \emph{termo} em \emph{, as palavras e }, e pode
-# casar a abertura de um \emph apagado com a de outro acrescentado parágrafos
-# adiante; o argumento passa a cobrir o texto apagado entre os dois, e o
-# \par dentro dele não compila ("Paragraph ended before \text@command was
-# complete"). O --exclude-textcmd não serve: com o ulem, o latexdiff tira o
-# \emph e os \text.. dos comandos seguros, e o termo apagado sumiria num
-# comentário. Nas cópias, \emph{termo} vira \TCCemph{termo}, um comando
-# seguro que o latexdiff não divide: o termo entra inteiro no \DIFadd ou no
-# \DIFdel, e o nome volta na saída. Termo trocado sai apagado e reescrito
-# inteiro. Só troca o argumento sem comando nem chave dentro: um \footnote
-# dentro do \DIFdel não compila, e o \cite e o \gls perderiam o tratamento
-# do latexdiff; esses ficam comandos de texto, sujeitos ao casamento.
+# Comandos de fonte (\emph, \textbf, \textit, \texttt): o latexdiff os
+# divide como comandos de texto e pode casar a abertura de um \emph apagado
+# com a de outro acrescentado parágrafos adiante, com um \par dentro do
+# argumento, que não compila. O bin/fonte-no-diff.py, antes do latexdiff,
+# troca o termo simples por \TCCemph{termo}, um comando seguro que o
+# latexdiff não divide (--append-safecmd), e depois devolve o nome.
 set -euo pipefail
 [ $# -eq 2 ] || { echo "uso: $0 VELHO.tex NOVO.tex >diff.tex" >&2; exit 2; }
 
 PICT='PICTUREENV=(?:picture|DIFnomarkup|minted)[\w\d*@]*'
 SIGLAS='CUSTOMDIFCMD=[gG]ls(?:pl)?(?![a-zA-Z])'
-FONTE='emph|textbf|textit|texttt'
 
 BIN=$(cd "$(dirname "$0")" && pwd)
 TMP=$(mktemp -d)
@@ -76,13 +68,12 @@ copiar "$2" "$TMP/novo"
 # De dentro do temporário, para o erro dar o arquivo como ./velho/... ou
 # ./novo/...: o lado do diff, e depois dele o caminho a partir do tcc.tex.
 (cd "$TMP" && find . -name '*.tex' -exec "$BIN/realce-no-diff.py" antes {} +)
-find "$TMP" -name '*.tex' -exec \
-  perl -0pi -e 's/\\('"$FONTE"')\{([^}{\\]*)\}/\\TCC$1\{$2\}/g' {} +
+find "$TMP" -name '*.tex' -exec "$BIN/fonte-no-diff.py" antes {} +
 
 latexdiff --flatten --packages=biblatex --config="$PICT" --config="$SIGLAS" \
-    --append-safecmd="TCC(?:$FONTE)" \
+    --append-safecmd='TCC[a-z]+' \
     "$TMP/velho/$(basename "$1")" "$TMP/novo/$(basename "$2")" |
-  sed -E 's/\\TCC('"$FONTE"')\b/\\\1/g' |
+  "$BIN/fonte-no-diff.py" depois |
   "$BIN/realce-no-diff.py" depois |
   awk '/^\\begin\{document\}/ && !feito {
     print "%DIF SIGLAS DO GLOSSARIES (bin/latexdiff-tcc.sh)"
