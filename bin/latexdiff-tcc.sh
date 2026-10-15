@@ -50,9 +50,12 @@
 # \par dentro dele não compila ("Paragraph ended before \text@command was
 # complete"). O --exclude-textcmd não serve: com o ulem, o latexdiff tira o
 # \emph e os \text.. dos comandos seguros, e o termo apagado sumiria num
-# comentário. Nas cópias, \emph{ vira \TCCemph{, um comando seguro que o
-# latexdiff não divide: o termo entra inteiro no \DIFadd ou no \DIFdel, e
-# o nome volta na saída. Termo trocado sai apagado e reescrito inteiro.
+# comentário. Nas cópias, \emph{termo} vira \TCCemph{termo}, um comando
+# seguro que o latexdiff não divide: o termo entra inteiro no \DIFadd ou no
+# \DIFdel, e o nome volta na saída. Termo trocado sai apagado e reescrito
+# inteiro. Só troca o argumento sem comando nem chave dentro: um \footnote
+# dentro do \DIFdel não compila, e o \cite e o \gls perderiam o tratamento
+# do latexdiff; esses ficam comandos de texto, sujeitos ao casamento.
 set -euo pipefail
 [ $# -eq 2 ] || { echo "uso: $0 VELHO.tex NOVO.tex >diff.tex" >&2; exit 2; }
 
@@ -73,7 +76,8 @@ copiar "$2" "$TMP/novo"
 # De dentro do temporário, para o erro dar o arquivo como ./velho/... ou
 # ./novo/...: o lado do diff, e depois dele o caminho a partir do tcc.tex.
 (cd "$TMP" && find . -name '*.tex' -exec "$BIN/realce-no-diff.py" antes {} +)
-find "$TMP" -name '*.tex' -exec sed -i -E 's/\\('"$FONTE"')\{/\\TCC\1{/g' {} +
+find "$TMP" -name '*.tex' -exec \
+  perl -0pi -e 's/\\('"$FONTE"')\{([^}{\\]*)\}/\\TCC$1\{$2\}/g' {} +
 
 latexdiff --flatten --packages=biblatex --config="$PICT" --config="$SIGLAS" \
     --append-safecmd="TCC(?:$FONTE)" \
