@@ -209,7 +209,7 @@ Playwright nem biblioteca.
   (decisão do autor em 2026-10-12, contra o `page.clock` do Playwright,
   que tiraria o teste do console, e contra o tempo real, que no Login
   esperaria 27,5 s). Ele só controla os temporizadores criados depois de
-  instalado, e não troca o `Date.now`: a interface que lê a hora (o preço
+  instalado, e não troca o `Date.now`: a interface que lê a hora (o placar
   dos Dados ao vivo) acrescenta o `Date.now` ao relógio falso.
 - **Escoar.** O React faz a tela e roda os efeitos em mensagens de
   `MessageChannel`, fora do relógio falso: entre um disparo e outro, e

@@ -2,20 +2,20 @@
 
 ## 1. Domínio, teste de conformidade e especificação viva
 
-- [ ] 1.1 Trocar em `dados-ao-vivo/dominio.ts` os ativos e as cotações
+- [x] 1.1 Trocar em `dados-ao-vivo/dominio.ts` os ativos e as cotações
   pelos jogos e pelos placares do protótipo de 2026-10-13; verificar que
   `placaresEm` dá, às 10:00:01, 10:00:02 e 10:00:10 UTC de 2026-10-12, os
   placares e os tempos dos cenários 4, 5 e 7.
-- [ ] 1.2 Trocar em `dados-ao-vivo/teste-de-conformidade.js` os dados, a
+- [x] 1.2 Trocar em `dados-ao-vivo/teste-de-conformidade.js` os dados, a
   mensagem de espera e os nomes das verificações 4, 5 e 7, e conferir na 7
   também o destaque; verificar com `npm run conferir-especificacao` depois
   do arquivamento.
-- [ ] 1.3 Reescrever a apresentação em `dados-ao-vivo/README.org` (o
+- [x] 1.3 Reescrever a apresentação em `dados-ao-vivo/README.org` (o
   painel de placares, Meijer como adaptação, o bolão no lugar da
   carteira); verificar com `grep -n -i "cotaç\|carteira"
   dados-ao-vivo/README.org`, que só acha a adaptação das cotações de
   Meijer.
-- [ ] 1.4 Arquivar a mudança no mesmo commit do teste
+- [x] 1.4 Arquivar a mudança no mesmo commit do teste
   (`npm run openspec -- archive trocar-cotacoes-por-placares --yes`),
   reescrever à mão o `## Purpose` da especificação viva com o texto do
   `proposal.md` e devolver à ordem de antes os três requisitos que o
