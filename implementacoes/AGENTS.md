@@ -124,12 +124,23 @@ requisito de orquestração da segunda rodada.
      modificada, em `### Modified Capabilities`; o impacto, com as
      tecnologias, os arquivos da interface que citam a regra (como o
      `README.org`) e a tarefa do bd;
-   - `specs/<interface>/spec.md`, o delta: `ADDED` com requisito e cenários
-     inteiros; `MODIFIED` com o requisito inteiro copiado da especificação
-     viva, todos os cenários dele, e editado (o que ficar de fora some);
-     `REMOVED` só com o nome, `**Reason**` e `**Migration**`; `RENAMED`
-     com `FROM:`/`TO:`, só para o nome do requisito. Uma regra que muda
-     várias interfaces é uma mudança só, com um delta por interface;
+   - `specs/<interface>/spec.md`, o delta. Uma regra que muda várias
+     interfaces é uma mudança só, com um delta por interface:
+     - `ADDED` com requisito e cenários inteiros;
+     - `MODIFIED` com o requisito inteiro copiado da especificação viva e
+       editado: o texto do requisito e o de um cenário mudam, e um cenário
+       novo entra, mas nenhum cenário da especificação viva fica de fora.
+       O OpenSpec 1.14.1 recusa o `MODIFIED` que omite um cenário, no
+       `validate` e no `archive`;
+     - renomear ou tirar um cenário: o requisito sai em `REMOVED` e volta
+       em `ADDED`, com outro nome. O mesmo nome nos dois o `validate`
+       recusa, e o `RENAMED` não ajuda, porque o `MODIFIED` com o nome
+       novo é comparado aos cenários do requisito antigo. O `archive` põe
+       o `ADDED` no fim da especificação viva, e o commit do arquivamento
+       o devolve à ordem à mão (a mudança `trocar-cotacoes-por-placares`
+       fez assim com três requisitos dos Dados ao vivo);
+     - `REMOVED` só com o nome, `**Reason**` e `**Migration**`;
+     - `RENAMED` com `FROM:`/`TO:`, só para o nome do requisito;
    - `tasks.md`: só o teste de conformidade, os arquivos da interface que
      citam a regra (como o `README.org`) e o arquivamento, com a
      conferência de cada item; as tecnologias ficam na tarefa do bd e na
