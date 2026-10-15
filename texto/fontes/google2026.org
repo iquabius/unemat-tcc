@@ -29,5 +29,11 @@
   componente: React “Yes”, Solid e Angular “No”). “Detecção de
   alterações” traduz /change detection/ sem “mudança”, que o CONTEXT.md
   reserva ao OpenSpec. O trecho fala do componente OnPush; o texto não
-  distingue a estratégia.
+  distingue a estratégia, e não precisa: no Angular 22.2.0, o das
+  implementações (=implementacoes/node_modules/@angular/core=,
+  2026-10-15), o componente que não declara =changeDetection= é OnPush
+  (“NOTE: OnPush is enabled by default.”, no comentário do
+  =ChangeDetectionStrategy= em =types/_debug_node-chunk.d.ts=; também em
+  next.angular.dev/api/core/ChangeDetectionStrategy), e nenhum componente
+  das implementações declara a estratégia.
 - Conferido: 2026-10-14.
