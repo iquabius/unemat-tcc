@@ -474,10 +474,15 @@ rascunho, e a história dele se condensa antes do merge (passo 5).
 
      Se o `git diff` não sair vazio, o cherry-pick pode dar conflito, que
      se resolve como no `--no-ff` acima. Os commits reaplicados ganham
-     sha novo, e a marca de revisão não os acompanha (último item).
+     sha novo sobre outro pai, e a marca de revisão não os acompanha
+     (último item).
    - O ramo não mexe em `texto/`; se mexer, pare e pergunte ao autor.
-   - Commit marcado que for reescrito perde a marca (o sha muda): marque
-     de novo, com `git revisao excecao -m` dizendo o que mudou.
+   - Commit marcado reescrito com a mesma árvore e as mesmas árvores dos
+     pais (uma mensagem refeita) herda a marca. O que
+     muda algum arquivo, nele ou no pai, como o reaplicado sobre um
+     `master` que andou, a perde: revise de novo e marque com `git revisao
+     pronto`, ou, se o autor decidir, `git revisao excecao -m` dizendo o
+     que mudou.
 7. **O push é do autor.** O agente não faz push.
 
 Portões: o pre-push (`git-revisao`, hook global da camada privada dos
