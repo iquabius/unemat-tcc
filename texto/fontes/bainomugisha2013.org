@@ -116,7 +116,6 @@
   PDF (cabeçalho “:2”).
 - Observação: dá o porquê da “orquestração de eventos” antes do tema, no
   fim do primeiro parágrafo, o dos eventos (pedido do autor em
-  2026-10-15). A seção 2
-  (=prog.org=) usa a mesma passagem; a frase de lá deve variar para não
-  repetir esta.
+  2026-10-15). A seção 2 (=prog.org=) diz a ordem dos eventos com Martin
+  (2022, p. 125) desde 3bf8b08.
 - Conferido: 2026-10-15.

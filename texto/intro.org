@@ -35,8 +35,9 @@ evento a outro [[cite:krishnamurthi2019][p. N]].
 Programar interfaces exige montar os elementos gráficos na tela e
 coordená-los com o resto do programa.
 Essa coordenação, tema desta pesquisa, tem dois eixos: a orquestração de
-eventos de diferentes fontes, como as teclas digitadas e as respostas de uma
-busca, e o gerenciamento de estado, que leva cada alteração aos valores que
+eventos e o gerenciamento de estado.
+O primeiro combina eventos de diferentes fontes, como as teclas digitadas e
+as respostas de uma busca, e o segundo leva cada alteração aos valores que
 dependem dela e à tela.
 
 No navegador, as sub-rotinas desse código do avesso são /callbacks/: funções
@@ -51,7 +52,7 @@ O /callback/ fragmenta o fluxo de controle: a sequência de passos que o
 programador tem em mente para uma operação fica dividida entre vários
 /callbacks/ [[cite:fischer2007][p. 134-135]].
 Como não se sabe em que ordem os /callbacks/ serão chamados, coordenar as
-alterações ao estado compartilhado pode ser desconcertante e está longe de ser
+alterações do estado compartilhado pode ser desconcertante e está longe de ser
 modular [[cite:edwards2009][p. 926]].
 Os /callbacks/ que alteram o [[gls:dom]] muitas vezes levam o programador a
 escrever um código interdependente, opaco e propenso a erros, o chamado código

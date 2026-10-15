@@ -3,8 +3,10 @@
 
 * [[file:../intro.org::No navegador, as sub-rotinas desse código][intro: No navegador, as sub-rotinas desse código]], p. 926 (estado compartilhado)
 - Frase: “Como não se sabe em que ordem os /callbacks/ serão chamados,
-  coordenar as alterações ao estado compartilhado pode ser desconcertante e está
-  longe de ser modular.”
+  coordenar as alterações do estado compartilhado pode ser desconcertante e
+  está longe de ser modular.” Em 2026-10-15, “alterações ao estado” virou
+  “alterações do estado”, a forma do termo do =CONTEXT.md= (“alteração de
+  estado”).
 - Trecho: “You don’t know when you will be called back by your
   subscriptions, what callbacks have already been called, what callbacks
   will be subsequently called […]. Coordinating changes to communal state

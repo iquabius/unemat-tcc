@@ -33,8 +33,9 @@ evento a outro \cite[p. N]{krishnamurthi2019}.
 Programar interfaces exige montar os elementos gráficos na tela e
 coordená-los com o resto do programa.
 Essa coordenação, tema desta pesquisa, tem dois eixos: a orquestração de
-eventos de diferentes fontes, como as teclas digitadas e as respostas de uma
-busca, e o gerenciamento de estado, que leva cada alteração aos valores que
+eventos e o gerenciamento de estado.
+O primeiro combina eventos de diferentes fontes, como as teclas digitadas e
+as respostas de uma busca, e o segundo leva cada alteração aos valores que
 dependem dela e à tela.
 
 No navegador, as sub-rotinas desse código do avesso são \emph{callbacks}: funções
@@ -49,7 +50,7 @@ O \emph{callback} fragmenta o fluxo de controle: a sequência de passos que o
 programador tem em mente para uma operação fica dividida entre vários
 \emph{callbacks} \cite[p. 134-135]{fischer2007}.
 Como não se sabe em que ordem os \emph{callbacks} serão chamados, coordenar as
-alterações ao estado compartilhado pode ser desconcertante e está longe de ser
+alterações do estado compartilhado pode ser desconcertante e está longe de ser
 modular \cite[p. 926]{edwards2009}.
 Os \emph{callbacks} que alteram o \gls{dom} muitas vezes levam o programador a
 escrever um código interdependente, opaco e propenso a erros, o chamado código
