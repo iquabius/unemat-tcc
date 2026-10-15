@@ -1,6 +1,8 @@
 # Caminhos de código: mudar um deles pede a revisão do ramo antes do master
 # (o ciclo está no AGENTS.md). Um pathspec do git por linha; diretório com
 # curinga termina em /*. Esta lista também é código.
+# O teste que o git revisao pronto roda antes de marcar, escolhido pelo diff:
+teste: bin/testes-da-revisao.py
 .config/revisao
 .tool-versions
 bin/

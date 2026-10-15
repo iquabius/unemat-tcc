@@ -360,6 +360,10 @@ rascunho, e a história dele se condensa antes do merge (passo 5).
    `bd` do checkout principal (seção "Tarefas").
 2. **Primeira versão commitada** assim que roda e as conferências passam
    (as capturas de `implementacoes/AGENTS.md`, os testes de `bin/`).
+   `GIT_REVISAO_BASE=$(git merge-base master HEAD)
+   bin/testes-da-revisao.py` roda só as que o ramo pede, contando o que
+   ainda não foi commitado, com a escolha do passo 5; com `--mostrar`, só
+   diz quais.
 3. **Revisão do ramo inteiro.** Quando o ramo muda código (os caminhos de
    `.config/revisao`: `bin/`, scripts, `implementacoes/` menos capturas,
    `.org` e `.md`, e o `.tool-versions`), rode a skill `linus-review`
@@ -387,8 +391,14 @@ rascunho, e a história dele se condensa antes do merge (passo 5).
    pelo mesmo `git diff` vazio. Com a árvore igual à revisada, só o eixo
    History da `linus-review` roda de novo, sobre a série nova; com outra
    árvore, a revisão do ramo inteiro. Então `git revisao pronto` na ponta
-   nova. Achado que o autor decide deixar de pé: `git revisao excecao -m
-   "<motivo do autor>"`, que só o autor decide. Nenhum commit `fixup!`
+   nova, na worktree e sem código mudado fora do commit. Ele roda antes o
+   `bin/testes-da-revisao.py` (a linha `teste:` do `.config/revisao`),
+   que escolhe pelo diff do ramo a `unittest` da pasta mudada, as
+   capturas das interfaces mudadas, a especificação e a formatação, e dá
+   à worktree o `npm ci` e o `android/local.properties` que faltam; se
+   ele falha, a ponta fica sem marca. Achado que o autor decide deixar de
+   pé, ou teste que não dá para rodar: `git revisao excecao -m "<motivo
+   do autor>"`, que só o autor decide. Nenhum commit `fixup!`
    chega ao `master`, e o que já está nele não se reescreve.
 6. **Merge**, montado na worktree e levado ao `master` por fast-forward,
    porque o índice do checkout principal pode guardar o rascunho do texto
