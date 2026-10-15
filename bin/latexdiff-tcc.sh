@@ -8,9 +8,10 @@
 # --flatten resolve os \input pelo diretório de cada tcc.tex;
 # --packages=biblatex, porque a classe carrega o biblatex e o latexdiff não a
 # lê; o PICTUREENV deixa o minted fora da marcação. O git latexdiff do
-# readme.org repete as duas últimas, sem as siglas, o ¶ das quebras e os
-# marcadores do realce; lá, o --exclude-safecmd=realce deixa o \realce fora
-# do \DIFadd, e o trecho que só ganhou o realce sai apagado e reescrito.
+# readme.org repete as duas últimas, sem as siglas, o ¶ das quebras, os
+# marcadores do realce e a troca dos comandos de fonte; lá, o
+# --exclude-safecmd=realce deixa o \realce fora do \DIFadd, e o trecho que
+# só ganhou o realce sai apagado e reescrito.
 #
 # Siglas do glossaries (ADR 0027, L5): o latexdiff não sabe compor \gls,
 # \glspl, \Gls e \Glspl dentro do \DIFdel e os comentava, e a sigla sumia do
@@ -41,6 +42,13 @@
 # e não a marca. O bin/marcar-quebras.py, no fim, põe um ¶ na cor da mudança
 # no fim do parágrafo que a quebra fecha, e pula as listagens: a lista de
 # ambientes dele (LITERAL) repete o minted do PICTUREENV daqui.
+#
+# Comandos de fonte (\emph, \textbf, \textit, \texttt): o latexdiff os
+# divide como comandos de texto e pode casar a abertura de um \emph apagado
+# com a de outro acrescentado parágrafos adiante, com um \par dentro do
+# argumento, que não compila. O bin/fonte-no-diff.py, antes do latexdiff,
+# troca o termo simples por \TCCemph{termo}, um comando seguro que o
+# latexdiff não divide (--append-safecmd), e depois devolve o nome.
 set -euo pipefail
 [ $# -eq 2 ] || { echo "uso: $0 VELHO.tex NOVO.tex >diff.tex" >&2; exit 2; }
 
@@ -60,9 +68,12 @@ copiar "$2" "$TMP/novo"
 # De dentro do temporário, para o erro dar o arquivo como ./velho/... ou
 # ./novo/...: o lado do diff, e depois dele o caminho a partir do tcc.tex.
 (cd "$TMP" && find . -name '*.tex' -exec "$BIN/realce-no-diff.py" antes {} +)
+find "$TMP" -name '*.tex' -exec "$BIN/fonte-no-diff.py" antes {} +
 
 latexdiff --flatten --packages=biblatex --config="$PICT" --config="$SIGLAS" \
+    --append-safecmd='TCC[a-z]+' \
     "$TMP/velho/$(basename "$1")" "$TMP/novo/$(basename "$2")" |
+  "$BIN/fonte-no-diff.py" depois |
   "$BIN/realce-no-diff.py" depois |
   awk '/^\\begin\{document\}/ && !feito {
     print "%DIF SIGLAS DO GLOSSARIES (bin/latexdiff-tcc.sh)"
