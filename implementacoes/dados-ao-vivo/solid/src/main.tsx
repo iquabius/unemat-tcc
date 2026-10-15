@@ -1,19 +1,20 @@
 import { createEffect, createSignal, For, onCleanup, Show } from "solid-js";
 import { render } from "solid-js/web";
 import {
-  ATIVOS,
+  JOGOS,
   MENSAGENS,
-  acimaDoLimite,
-  assinarCotacoes,
-  formatarPreco,
-  variacao,
+  assinarPlacares,
+  formatarPlacar,
+  formatarTempo,
+  golsNovos,
+  noPalpite,
   type Lote,
 } from "../../dominio";
 import "../../estilo.css";
 
-function PainelDeCotacoes() {
+function PainelDePlacares() {
   const [pausado, setPausado] = createSignal(false);
-  // Os dois últimos lotes: o atual dá o preço, o anterior, a variação.
+  // Os dois últimos lotes: o atual dá o placar, o anterior, os gols novos.
   const [lotes, setLotes] = createSignal<{ anterior?: Lote; atual?: Lote }>({});
 
   // O efeito roda de novo quando pausado se altera; o onCleanup cancela a
@@ -21,7 +22,7 @@ function PainelDeCotacoes() {
   createEffect(() => {
     if (pausado()) return;
     onCleanup(
-      assinarCotacoes((lote) =>
+      assinarPlacares((lote) =>
         setLotes(({ atual }) => ({ anterior: atual, atual: lote })),
       ),
     );
@@ -38,22 +39,26 @@ function PainelDeCotacoes() {
       <table>
         <thead>
           <tr>
-            <th>Ativo</th>
-            <th>Preço</th>
-            <th>Variação</th>
-            <th>Limite</th>
+            <th>Jogo</th>
+            <th>Placar</th>
+            <th>Tempo</th>
+            <th>Gols novos</th>
+            <th>Palpite</th>
           </tr>
         </thead>
         <tbody>
-          <For each={ATIVOS}>
-            {(ativo) => {
-              const preco = () => lotes().atual?.[ativo.codigo];
+          <For each={JOGOS}>
+            {(jogo) => {
+              const placar = () => lotes().atual?.[jogo.codigo];
               return (
-                <tr classList={{ alerta: acimaDoLimite(ativo, preco()) }}>
-                  <td>{ativo.codigo}</td>
-                  <td>{formatarPreco(preco())}</td>
-                  <td>{variacao(lotes().anterior?.[ativo.codigo], preco())}</td>
-                  <td>{formatarPreco(ativo.limite)}</td>
+                <tr classList={{ alerta: noPalpite(jogo, placar()) }}>
+                  <td>{jogo.codigo}</td>
+                  <td>{formatarPlacar(placar())}</td>
+                  <td>{formatarTempo(placar())}</td>
+                  <td>
+                    {golsNovos(lotes().anterior?.[jogo.codigo], placar())}
+                  </td>
+                  <td>{formatarPlacar(jogo.palpite)}</td>
                 </tr>
               );
             }}
@@ -75,7 +80,7 @@ function PainelDeCotacoes() {
 function DadosAoVivo() {
   const [visivel, setVisivel] = createSignal(true);
   return (
-    <main class="cotacoes">
+    <main class="placares">
       <button
         type="button"
         class="alternar"
@@ -84,7 +89,7 @@ function DadosAoVivo() {
         {visivel() ? "Esconder painel" : "Mostrar painel"}
       </button>
       <Show when={visivel()}>
-        <PainelDeCotacoes />
+        <PainelDePlacares />
       </Show>
     </main>
   );
