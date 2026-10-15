@@ -21,6 +21,14 @@ estão em `CONTEXT.md`; use-os.
 | Frase nova ou alterada em `texto/*.org` | direto no `.org` do checkout principal; o commit espera a revisão | seção "Texto" abaixo e skill do projeto `revisao-de-texto` (ADR 0023) |
 | Trecho de fonte que sustenta uma frase do texto | `texto/fontes/<chave>.org` | um arquivo por chave do `refs.bib` (ADR 0035); um título por afirmação, com o link para o parágrafo e a página, e embaixo a frase, o trecho e a data da conferência; o trecho que o texto ainda não cita fica na nota de fontes do assunto |
 
+No chat, o ADR se cita pelo número e pelo nome, num link para o arquivo,
+que abre com um clique:
+[ADR 0023: o rascunho é a árvore de trabalho e o commit espera a revisão](docs/adr/0023-rascunho-e-a-arvore-de-trabalho-e-o-commit-espera-a-revisao.md),
+e nunca só "ADR 0023", que não diz do que trata nem se distingue do
+vizinho. O nome é o slug do arquivo em palavras, com os acentos, e o
+caminho é relativo ao diretório de trabalho da sessão. Nos arquivos do
+repositório (este, notas, tarefas, ADRs), a citação continua curta.
+
 ## Tarefas: Beads (`bd`)
 
 As tarefas vivem no [Beads](https://github.com/gastownhall/beads) (`bd`
