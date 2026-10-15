@@ -16,7 +16,8 @@
   capítulo 2, p. 29 pelo índice: “programming model, xiii, 29”).
 - Observação: a primeira menção apresenta o termo por contraste com
   paradigma, biblioteca e /framework/ (ADR 0021; nota de referência
-  docs/paradigma-modelo-e-notacao.md, seção "Os vizinhos: biblioteca, /framework/, /toolkit/, documentações").
+  docs/paradigma-modelo-e-notacao.md, seção "Os vizinhos: biblioteca,
+  framework, toolkit, documentações").
 - Conferido: 2026-10-09.
 * [[file:../prog.org::O modelo de programação não é][prog: O modelo de programação não é]], p. xiii (paradigma)
 - Frase: “Ele não é o paradigma, noção imprecisa que o modelo de
