@@ -1,12 +1,11 @@
-# Revisão bibliográfica: protocolo, rodadas e lacuna
+# Protocolo da revisão: bases, critérios e rodadas
 
-Referência. Diz como a revisão bibliográfica do TCC foi feita, nas três
-rodadas, com os números de cada etapa, e o estado da lacuna que ela
-sustenta; serve à metodologia da revisão, que o Apêndice II
-(`latex/apendices/apend_II.tex`) resume, e à lacuna da introdução. Veio
-de `docs/literatura.md` (índice até `ff620ad`), seções 1, 3.3, 5 e 6, em
-2026-10-10. Cada afirmação sobre ferramenta leva a data em que foi
-observada.
+Fontes. Diz como a revisão bibliográfica do TCC foi feita, nas três
+rodadas, com os números de cada etapa e os incluídos; serve à
+metodologia da revisão, que o Apêndice II (`latex/apendices/apend_II.tex`)
+resume. A lacuna que a revisão sustenta está em
+`docs/trabalhos-relacionados-e-lacuna.md`. Cada afirmação sobre
+ferramenta leva a data em que foi observada.
 
 **Conclusão.** Em 2026-10-09, depois da terceira rodada, nenhum trabalho
 encontrado avalia pelas DCs a notação do React, do Solid ou do Angular
@@ -17,6 +16,10 @@ interfaces: a lacuna se mantém
 rodada"), e a terceira fechou o laço sem trabalho novo na segunda
 iteração; no Google Acadêmico, consultado em 2026-10-13, os citantes de
 Kiss (2014) e do 7GUIs não trouxeram incluído (seção "Terceira rodada").
+
+**Fontes centrais.** Nenhuma: o protocolo se apoia em Wohlin (2014,
+`wohlin2014`, `apoio`), para o *snowballing*. As centrais que a busca
+achou estão em `docs/README.md`, seção "Fontes centrais".
 
 Origem: revisão bibliográfica de 2026-09-24 (Modo 2 da skill
 `escrita-academica`, OpenAlex e Crossref), com as 41 saídas brutas em
@@ -325,3 +328,12 @@ e Blackheath & Jones (2016), e a seção "Programação de Interfaces Gráficas"
 nunca citados no capítulo, e pertinentes: `elliott1997`, `czaplicki2012`,
 `meyerovich2009` (Flapjax), `cooper2006` (FrTime), `salvaneschi2013`,
 `krishnamurthi2008`, `medeiros2014`.
+
+## Histórico
+
+Veio de `docs/literatura.md` (índice até `ff620ad`), seções 1, 3.3, 5 e
+6, em 2026-10-10, como `docs/revisao-bibliografica.md`. Em 2026-10-15,
+ganhou o nome de agora, a lacuna foi para
+`docs/trabalhos-relacionados-e-lacuna.md`, e vieram de
+`docs/fundamentacao.md` a matriz tema × referência e os incluídos de
+prioridade alta da primeira rodada.

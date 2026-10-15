@@ -13,13 +13,13 @@ estão em `CONTEXT.md`; use-os.
 | Decisão cara de reverter, com alternativa real | `docs/adr/NNNN-slug.md` | skill `adr`: um parágrafo, data absoluta, "Em vez de" e "Custo" obrigatórios. Decisão que muda reescreve o ADR no lugar, com a data nova e a decisão anterior num "Em vez de"; errata se corrige no texto; ADR absorvido por outro se apaga. O git guarda as versões, e a numeração tem lacunas |
 | Termo do projeto | `CONTEXT.md` | skill `domain-modeling`: definição de uma ou duas frases e o que evitar |
 | Tarefa aberta | Beads (`bd`), exportado em `.beads/issues.jsonl` | seção abaixo |
-| Nota de referência ou achado que o texto ainda vai absorver | `docs/*.md` | seção abaixo |
+| Fonte, nota de referência ou achado que o texto ainda vai absorver | `docs/*.md`, com entrada em `docs/README.md` | seção abaixo |
 | Plano, guia de leitura e revisão do agente na avaliação pelas DCs | `docs/avaliacao/<rodada>-<interface>/` | skill do projeto `avaliacao-pelas-dcs`: o guia sai antes da leitura do autor e sem conclusão, a revisão depois do ditado; cada um num commit no `master`; a origem das posições vai numa linha do commit do texto |
 | Convenção de código, pastas ou ambiente | `implementacoes/AGENTS.md` | |
 | Mudança em código (`implementacoes/`, `bin/`, scripts), ferramentas ou `AGENTS.md` | numa worktree, em ramo próprio, que chega ao `master` revisado | seção "Código: ramo, revisão, merge" abaixo |
 | Feedback de escrita e revisão bibliográfica | não vai para o repositório | skill `escrita-academica`; o que sobra vira tarefa no `bd` ou nota em `docs/` |
 | Frase nova ou alterada em `texto/*.org` | direto no `.org` do checkout principal; o commit espera a revisão | seção "Texto" abaixo e skill do projeto `revisao-de-texto` (ADR 0023) |
-| Trecho de fonte que sustenta uma frase do texto | `texto/fontes/<chave>.org` | um arquivo por chave do `refs.bib` (ADR 0035); um título por afirmação, com o link para o parágrafo e a página, e embaixo a frase, o trecho e a data da conferência |
+| Trecho de fonte que sustenta uma frase do texto | `texto/fontes/<chave>.org` | um arquivo por chave do `refs.bib` (ADR 0035); um título por afirmação, com o link para o parágrafo e a página, e embaixo a frase, o trecho e a data da conferência; o trecho que o texto ainda não cita fica na nota de fontes do assunto |
 
 ## Tarefas: Beads (`bd`)
 
@@ -38,7 +38,7 @@ As tarefas vivem no [Beads](https://github.com/gastownhall/beads) (`bd`
 
   | A tarefa muda | Épico |
   |---|---|
-  | `texto/intro.org`, `docs/metodo-da-avaliacao.md` | Fase 1: introdução (`tcc-e2e`) |
+  | `texto/intro.org`, `docs/metodo-da-avaliacao.md`, `docs/estado-eventos-e-complexidade.md`, `docs/escrita-da-introducao.md` | Fase 1: introdução (`tcc-e2e`) |
   | a pauta de uma orientação | a fase em curso, a primeira ainda aberta |
   | `texto/cases.org`, `texto/results.org`, a análise por DC | Fase 2: análise dos casos (`tcc-d40`) |
   | `texto/prog.org`, `docs/programacao-funcional-e-reativa.md`, `docs/trabalhos-relacionados-e-lacuna.md` | Fase 3: capítulo de programação (`tcc-2o8`) |
@@ -302,8 +302,17 @@ pergunta antes.
 
 ## Notas em `docs/`
 
-Cada nota é de um tipo só, dito na primeira linha depois do título:
+O ponto de entrada é `docs/README.md`: o mapa das notas pelo elo do
+argumento, as fontes centrais (o `peso` do `refs.bib`), onde guardar um
+trecho novo e a legenda das notas de fontes. Nota nova entra nele, e a
+tabela das centrais muda com o peso. Cada nota é de um tipo só, dito na
+primeira linha depois do título:
 
+- **Fontes** (`docs/estado-eventos-e-complexidade.md`): as fontes de um
+  assunto, com o que cada uma sustenta e o trecho conferido; abre pela
+  conclusão e pelas fontes centrais e fecha pela seção "Histórico", com a
+  origem e as mudanças de lugar. O trecho que o texto passa a citar vai
+  para `texto/fontes/<chave>.org` (ADR 0035), e a nota guarda o link.
 - **Referência** (`docs/tecnologias-web.md`): tabelas e listas para
   consulta, atualizadas quando o fato muda; cada afirmação sobre
   ferramenta ou versão leva a data em que foi observada.
@@ -314,7 +323,10 @@ Cada nota é de um tipo só, dito na primeira linha depois do título:
   pelas DCs, escritos uma vez e não atualizados depois; o que muda vai
   num arquivo novo ou no texto.
 
-Nota nova só quando o conteúdo não cabe num ADR, numa tarefa nem no texto.
+As seções das notas não têm número, e a referência cita o título:
+`docs/x.md`, seção "Título"; a data da busca ou da leitura vai na
+primeira frase da seção. Nota nova só quando o conteúdo não cabe num
+ADR, numa tarefa nem no texto.
 Todo texto de nota, tarefa ou ADR: conclusão primeiro, datas absolutas, uma
 palavra por conceito (`CONTEXT.md`), sem alusão à conversa que o gerou.
 

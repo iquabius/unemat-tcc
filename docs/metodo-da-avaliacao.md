@@ -1,12 +1,11 @@
 # Método da avaliação: rótulo, DCs e tamanho das interfaces
 
-Referência. Reúne as fontes que sustentam como a metodologia da
-introdução descreve a avaliação: o rótulo do método, o 7GUIs como origem
-de três interfaces, as oito DCs e o limite das interfaces pequenas, com o
-trecho e a página; no fim, as fontes sobre a escrita da introdução. Veio
-de `docs/literatura.md` (índice até `ff620ad`), seções 9, 11, 13.2, 14.2
-e 16, em 2026-10-10. O que o delineamento controla está em
-`docs/delineamento.md`.
+Fontes. Reúne as fontes que sustentam como a metodologia da introdução
+descreve a avaliação: o rótulo do método, o 7GUIs como origem de três
+interfaces, as DCs, o limite das interfaces pequenas, as rodadas e como
+aplicar as DCs a código, com o trecho e a página. O que o delineamento
+controla está em `docs/delineamento.md`; a forma da introdução, em
+`docs/escrita-da-introducao.md`.
 
 **Conclusão.** Em 2026-10-10, quanto aos meios, o trabalho é uma
 avaliação qualitativa, pelas DCs, de implementações de um mesmo conjunto
@@ -35,6 +34,16 @@ a seção "Como as fontes aplicaram as DCs a código, e as armadilhas"
 juntou como as fontes aplicaram as DCs a código e as armadilhas, que a
 skill `avaliacao-pelas-dcs` usa.
 
+**Fontes centrais.** Para o rótulo, Sim, Easterbrook e Holt (2003,
+`sim2003`), Runeson e Höst (2009, `runeson2009`) e Kitchenham (1996,
+`kitchenham1996`); para as DCs, Green (1989, `green1989`), Green e Petre
+(1996, `green1996d`), Blackwell et al. (2001, `blackwell2001`) e
+Blackwell e Green (2003, `blackwell2003`); como precedentes, Kiss (2014,
+`kiss2014`) e Mernik et al. (2009, `mernik2009`). Easterbrook et al.
+(2008, `easterbrook2008`), sobre o tipo da pergunta, também é central e
+ainda não tem trecho em nota: está na `annotation` e em
+`texto/fontes/easterbrook2008.org`.
+
 ## O rótulo do método: avaliação de um conjunto de interfaces, não estudo de caso
 
 Fontes lidas em 2026-09-28.
@@ -52,14 +61,8 @@ Em 2026-10-14, cada item do conjunto passou a se chamar interface, e o
 conjunto, *benchmark* de notação, nome que Kiss (2014, p. 114) dá ao
 repositório dele (ADR 0034; linha de Kiss na tabela abaixo).
 
-Histórico: de 2026-09-28 a 2026-10-08, a avaliação de um só avaliador,
-critério a critério, se rotulava como a *feature analysis* da DESMET, na
-forma de triagem (Kitchenham 1996); o rótulo saiu em 2026-10-08
-(`CONTEXT.md`, verbete Avaliação), e `kitchenham1996` não está em
-`texto/intro.org` em 2026-10-10.
-
 As fontes foram lidas no texto completo, salvo onde a tabela diz outra
-coisa. Cópias locais em `tmp/fontes/`, fora do git.
+coisa.
 
 | Fonte | O que sustenta | Onde |
 |---|---|---|
@@ -103,11 +106,8 @@ serviriam se o foco fosse o processo e as ferramentas (p. 15). Na
 comparação principal dele, o ScalaFX "is a wrapper around JavaFX",
 escolhido para que a comparação não fosse "dominated by unimportant
 toolkit differences" (p. 11), e o Scala é "syntactically not too distant
-from Java" (p. 12). Errata 2026-09-29: esta seção dizia que "as notações
-do TCC diferem mais que JavaFX e ScalaFX", sem fonte; a razão das duas
-DCs a mais está na seção "Expressividade e operações mentais difíceis
-nas fontes". O texto de `cases.org` sobre as dimensões é tradução de
-Kiss (p. 12-15) sem atribuição impressa, só num comentário Org.
+from Java" (p. 12). O texto de `cases.org` sobre as dimensões é tradução
+de Kiss (p. 12-15) sem atribuição impressa, só num comentário Org.
 
 ## Expressividade e operações mentais difíceis nas fontes
 
@@ -121,9 +121,7 @@ Mernik et al. (2009), no mesmo domínio. Compromisso prematuro, consistência
 e notação secundária ficam de fora com razões declaradas, e o compromisso
 prematuro é a exclusão mais frágil. É a base do parágrafo das DCs e das
 limitações da metodologia da introdução. Levantamento
-feito por quatro subagentes; "conferido" quer dizer trecho lido no PDF pelo
-agente principal, e "subagente", só pela leitura do subagente. Cópias em
-`tmp/fontes/`, fora do git.
+feito por quatro subagentes.
 
 | Fonte | O que sustenta | Onde | Leitura |
 |---|---|---|---|
@@ -181,8 +179,6 @@ os paradigmas (o artigo inteiro foi varrido pelo subagente). Página
 impressa = página do PDF mais 51. Não falam de *callbacks*, eventos nem
 PR (busca por "reactive", "callback" e "event-driven" sem resultado);
 não usam "discussion tools", a expressão de Blackwell e Green (2003).
-"Conferido": trecho achado por subagente Sonnet e lido no PDF pelo
-agente principal. Cópias em `tmp/fontes/`, fora do git.
 
 | Trecho | Onde | Leitura | Uso |
 |---|---|---|---|
@@ -508,3 +504,22 @@ trabalho:
   escrito com agentes (Co-Authored-By em quase todos os commits);
 - ancoragem: o guia do agente que diz a conclusão antes da leitura do
   autor (decisão de 2026-10-13 na tcc-4a9, a pré-análise em duas etapas).
+
+## Histórico
+
+Veio de `docs/literatura.md` (índice até `ff620ad`), seções 9, 11, 13.2,
+14.2 e 16, em 2026-10-10. Em 2026-10-15, a seção sobre a escrita da
+introdução foi para `docs/escrita-da-introducao.md`, e vieram de
+`docs/fundamentacao.md` os trechos de Blackwell e Green da seção "O
+alcance das DCs".
+
+De 2026-09-28 a 2026-10-08, a avaliação de um só avaliador, critério a
+critério, se rotulava como a *feature analysis* da DESMET, na forma de
+triagem (Kitchenham 1996); o rótulo saiu em 2026-10-08 (`CONTEXT.md`,
+verbete Avaliação), e `kitchenham1996` não está em `texto/intro.org` em
+2026-10-10.
+
+Errata de 2026-09-29: a seção "As DCs de Kiss e as oito do TCC" dizia
+que "as notações do TCC diferem mais que JavaFX e ScalaFX", sem fonte; a
+razão das duas DCs a mais está na seção "Expressividade e operações
+mentais difíceis nas fontes".

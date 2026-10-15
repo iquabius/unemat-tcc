@@ -1,5 +1,25 @@
 # Programação funcional e reativa: definições, evidência e contrapontos
 
+Fontes. As fontes sobre programação funcional e programação reativa que
+o capítulo de programação (`texto/prog.org`) e a análise usam: os
+complementares da primeira rodada da busca, o contraponto de Zampetti et
+al. (2025) às vantagens da PF e os trechos sobre a PR que saíram da
+introdução.
+
+**Conclusão.** Em 2026-10-15, dos complementares só `lee2025`,
+`berry2020` e `salvaneschi2016` estão no `refs.bib`; os outros ficam
+aqui até o texto citá-los. Zampetti et al. (2025), fora do `refs.bib`,
+é o contraponto às vantagens da PF: em Python, as mudanças em
+construções funcionais induzem mais correções, mas o efeito encolhe com
+os controles, e os autores não afirmam causa (seção "Zampetti et al.
+2025").
+
+**Fontes centrais.** Lee, Ahn e Yi (2025, `lee2025`), a semântica dos
+*hooks* do React; os trechos estão em `docs/paradigma-modelo-e-notacao.md`,
+seção "Re-renderização e atualização granular". As definições de PR
+daqui, de Bainomugisha et al. (2013) e Salvaneschi et al. (2017), são
+`apoio`.
+
 ## Fontes complementares
 
 Em 2026-10-10, `lee2025`, `berry2020` e `salvaneschi2016` estão no
@@ -48,9 +68,7 @@ fix-inducing effects. *Empirical Software Engineering*, v. 30, n. 1, art.
 as implicações, na versão do editor (43 p., "Page N of 43" igual à
 página do PDF). Só Python; JavaScript e TypeScript só aparecem numa
 tabela de trabalhos relacionados (p. 35). Mede commits que induzem
-correção, não compreensão. "Conferido": trecho achado por subagente
-Sonnet e lido no PDF pelo agente principal. Cópias em `tmp/fontes/`,
-fora do git.
+correção, não compreensão.
 
 | Trecho | Onde | Leitura | Uso |
 |---|---|---|---|
@@ -81,3 +99,10 @@ para a análise.
 | Bainomugisha et al. 2013 | "FRP allows programmers to express reactive programs in a declarative style" | p. 13 | conferido | PFR declarativa |
 | Salvaneschi et al. 2017 (`salvaneschi2017`) | *signals*: "a language concept for expressing functional dependencies among values in a declarative way" | p. 1126 (p. 2 da cópia) | conferido | PR declarativa; *signals* |
 | Salvaneschi et al. 2014 (`salvaneschi2014`) | "the traditional object-oriented style with the Observer design pattern" | p. 564 (resumo; a cópia não traz número) | conferido | saiu da introdução em 2026-10-03 |
+
+## Histórico
+
+Criada em 2026-10-15 com as seções 3 e 5 de `docs/fundamentacao.md` e,
+da seção 4, os trechos de Bainomugisha et al. e de Salvaneschi et al.
+A fundamentação veio de `docs/literatura.md` (índice até `ff620ad`) em
+2026-10-10.

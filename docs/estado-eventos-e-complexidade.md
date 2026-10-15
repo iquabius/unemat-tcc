@@ -1,15 +1,12 @@
-# Problema, lacuna e pergunta: estado, eventos e complexidade
+# Estado, eventos e complexidade
 
-Referência. Reúne as fontes do cerne da pesquisa, a trinca problema,
-lacuna e pergunta da introdução (`texto/intro.org`): o que é estado e
-evento, como o imperativo e o declarativo os tratam, por que coordená-los
-torna a interface complexa, e onde estão a lacuna e a pergunta. Separa as
-fontes revisadas por pares, que sustentam o texto, das explicações
-coloquiais, que ficam aqui e entram no texto só onde a ilustração torna
-concreto um elo, como a lasanha de Blackheath e Jones (2016, p. 17-19).
-Criada em 2026-10-14 com o que estava nas seções 4 e 8 de
-`docs/fundamentacao.md` e com a busca de 2026-10-14 sobre estado nas 211
-fontes de `tmp/fontes/`.
+Fontes. O que é estado e evento, como o imperativo e o declarativo os
+tratam e por que coordená-los torna a interface complexa: o problema e a
+justificativa da introdução (`texto/intro.org`) e a base do capítulo de
+programação. Separa as fontes revisadas por pares, que sustentam o
+texto, das explicações coloquiais, que entram no texto só onde a
+ilustração torna concreto um elo, como a lasanha de Blackheath e Jones
+(2016, p. 17-19).
 
 **Conclusão.** Em 2026-10-14, o texto apoia a definição de estado em
 Benveniste et al. (2003, p. 65): a cada evento de entrada, o programa
@@ -25,9 +22,10 @@ por pares. Moseley e Marks são `central` no `refs.bib`: a tese deles, de
 que a maior parte da complexidade dos sistemas é acidental e o estado é
 quem mais a gera, está na origem do problema de pesquisa.
 
-"Conferido" quer dizer trecho lido no PDF pelo agente principal, com a
-data; "subagente", só pela leitura de um subagente. As cópias ficam em
-`tmp/fontes/`, fora do git.
+**Fontes centrais.** Moseley e Marks (2006, `moseley2006`), na seção
+"Moseley e Marks (2006)". Van Roy (2009) e Lee, Ahn e Yi (2025), também
+centrais, aparecem aqui só pelo que dizem do estado; a nota deles é
+`docs/paradigma-modelo-e-notacao.md`.
 
 ## Estado
 
@@ -300,3 +298,13 @@ A cadeia, com o elo que falta apoio revisado:
   como "O poço de alcatrão", e o "Citado por" do Google Scholar do
   artigo de Moseley e Marks.
 - Conferir no PDF os trechos marcados "subagente" antes de citá-los.
+
+## Histórico
+
+Criada em 2026-10-14, como `docs/problema-lacuna-pergunta.md`, com o que
+estava nas seções 4 e 8 de `docs/fundamentacao.md` e com a busca de
+2026-10-14 sobre estado nas 211 fontes de `tmp/fontes/`. Em 2026-10-15,
+ganhou o nome de agora, a lacuna passou para
+`docs/trabalhos-relacionados-e-lacuna.md` e a seção "Coordenação,
+orquestração e estado nas fontes" veio de
+`docs/paradigma-modelo-e-notacao.md`.

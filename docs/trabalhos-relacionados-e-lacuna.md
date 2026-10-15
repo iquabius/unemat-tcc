@@ -1,16 +1,17 @@
-# Trabalhos relacionados: candidatos e trechos
+# Trabalhos relacionados e lacuna
 
-Referência. Lista os candidatos à seção de trabalhos relacionados, que
-ainda não existe no texto (tarefa tcc-iku), com o que cada um compara e
-como, e os trechos conferidos dos mais próximos. Veio de
-`docs/literatura.md` (índice até `ff620ad`), seções 3.2 (Lima 2024 e
-UAX), 10, 13.1 e 14.1, em 2026-10-10. A busca que os achou está em
+Fontes. Os candidatos à seção de trabalhos relacionados, que ainda não
+existe no texto (tarefa tcc-iku), e a lacuna que eles deixam: o que cada
+um compara e como, os trechos conferidos dos mais próximos e o estado da
+lacuna depois de cada rodada. Os trabalhos vão dos mais próximos aos mais
+distantes do delineamento; a busca que os achou está em
 `docs/protocolo-da-revisao.md`.
 
 **Conclusão.** Em 2026-10-09, nenhum trabalho encontrado repete o
 delineamento do TCC (mesmas interfaces, várias tecnologias, avaliação
 pelas DCs) nem compara os três modelos de programação nas tecnologias web
-mais usadas sobre as mesmas interfaces. Os mais próximos:
+mais usadas sobre as mesmas interfaces: a lacuna se mantém (seção "A
+lacuna"). Os mais próximos:
 
 - **Kiss (2014)** já avaliou *signals* pelas DCs (Scala.Rx e Elm), na
   JVM e no Elm, e deixou a web como trabalho futuro (seções "Precedentes
@@ -20,18 +21,20 @@ mais usadas sobre as mesmas interfaces. Os mais próximos:
   avaliam bibliotecas de PR, sem interface gráfica (seção "Zimmerle e
   Gama 2025 e a tese de Lima 2024");
 - **Grolaux et al. (2026)** comparam notações de eventos no navegador,
-  mas conceitualmente e sem DCs (seção "Candidatos sobre eventos, PR e
-  interfaces declarativas");
+  mas conceitualmente e sem DCs (seção "Trechos dos trabalhos mais
+  próximos");
 - **Narechania et al. (2025) e Verma, Odak e Narechania (2026)** avaliam
   pelas DCs a notação da própria biblioteca, e não a do Angular ou a do
   React (seção "Autoavaliações pelas DCs de bibliotecas de controles").
 
+**Fontes centrais.** Kiss (2014, `kiss2014`), Zimmerle e Gama (2025,
+`zimmerle2025`), Grolaux et al. (2026, `grolaux2026`) e Mernik et al.
+(2009, `mernik2009`). Moseley e Marks (2006), também central, entra na
+tabela de trechos só pelo parágrafo do Moseley; a nota dele é
+`docs/estado-eventos-e-complexidade.md`.
 
-Legenda. "Lido" diz quem leu e quanto: TC é texto completo, R é só o
-resumo; "subagente" quer dizer que o autor ainda não conferiu no PDF.
-Nas tabelas de trechos, "conferido" é trecho lido no PDF pelo agente
-principal, e "subagente", só pela leitura de um subagente. Cópias em
-`tmp/fontes/`, fora do git.
+Na coluna "Lido", "subagente" quer dizer que o autor ainda não conferiu
+no PDF; o resto da legenda está em `docs/README.md`.
 
 ## A lacuna
 
@@ -173,8 +176,7 @@ Referências achadas em 2026-09-25:
 ### Zimmerle e Gama 2025 (`zimmerle2025`)
 
 Texto completo, 33 p., lido em 2026-10-03. Página impressa = página do
-PDF mais 1505. "Conferido": trecho achado por subagente Sonnet e lido no
-PDF pelo agente principal. Cópias em `tmp/fontes/`, fora do git.
+PDF mais 1505.
 
 | Trecho | Onde | Leitura | Uso |
 |---|---|---|---|
@@ -396,3 +398,15 @@ que ele defende.
 | LOUREIRO JUNIOR, J. *Linguagens declarativas e tecnologias da web no desenvolvimento de interfaces de usuário de dispositivos portáteis*. Tese (Doutorado), UNICAMP, 2005. hdl.handle.net/20.500.12733/1608205 | Interface declarativa antes do React, vista pela IHC (orientação de Baranauskas) | doutorado, BDTD | só título (a página deu HTTP 503) |
 | SANTANA JÚNIOR, B. de M. *Explorando frameworks multiplataforma para desenvolvimento Android: uma investigação sobre o consumo de recursos*. Dissertação (Mestrado), UFPE, 2024. repositorio.ufpe.br/handle/123456789/58168 | Consumo de recursos dos frameworks multiplataforma | mestrado, BDTD | R (BDTD) |
 | AFONSO, F. M. *Critérios para adoção de soluções de desenvolvimento multiplataforma móvel na perspectiva de desenvolvedores de software*. Dissertação (Mestrado), UFSCar, 2020. repositorio.ufscar.br/handle/20.500.14289/13266 | Critérios de adoção pelos desenvolvedores, e não pela notação | mestrado, BDTD | R (BDTD) |
+
+## Histórico
+
+Veio de `docs/literatura.md` (índice até `ff620ad`), seções 3.2 (Lima
+2024 e UAX), 10, 13.1 e 14.1, em 2026-10-10, como
+`docs/trabalhos-relacionados.md`, com as seções na ordem das rodadas da
+busca. Em 2026-10-15, ganhou o nome de agora e a ordem dos mais
+próximos aos mais distantes, e recebeu a lacuna, que estava em
+`docs/revisao-bibliografica.md` (hoje `docs/protocolo-da-revisao.md`) e
+em `docs/problema-lacuna-pergunta.md` (hoje
+`docs/estado-eventos-e-complexidade.md`), e os trechos de Grolaux et
+al. de `docs/fundamentacao.md`.

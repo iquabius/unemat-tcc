@@ -1,8 +1,8 @@
 # Paradigma, modelo de programação e notação
 
-Referência. Diz o que cada termo nomeia no TCC, de que fonte vem, com
-que vizinhos se explica e que tensões o texto ainda precisa enfrentar.
-A decisão está no ADR 0021 (2026-10-08) e os verbetes no `CONTEXT.md`;
+Fontes. Diz o que cada termo nomeia no TCC, de que fonte vem, com que
+vizinhos se explica e que tensões o texto ainda precisa enfrentar. A
+decisão está no ADR 0021 (2026-10-08) e os verbetes no `CONTEXT.md`;
 aqui ficam as definições com a página, os contrastes e os trechos.
 
 **Conclusão.** O TCC compara três **modelos de programação**: o
@@ -18,17 +18,21 @@ programação, porque é noção imprecisa como unidade de comparação.
 **Biblioteca**, ***framework*** e ***toolkit*** descrevem o produto, a
 tecnologia, e atravessam os modelos de programação.
 
+**Fontes centrais.** Van Roy (2009, `vanroy2009`), para paradigma
+(seção "Van Roy: conceito, paradigma, modelo"); Green e Petre (1996,
+`green1996d`), para a notação e a forma usual das comparações (seção
+"Unidade comparada e evidência: o TCC compara categorias"); Lee, Ahn e
+Yi (2025, `lee2025`), para o componente do React que reexecuta (seção
+"Re-renderização e atualização granular"). Kiss (2014), Mernik et al.
+(2009) e Grolaux et al. (2026), também centrais, aparecem aqui como
+exemplos; a nota deles é `docs/trabalhos-relacionados-e-lacuna.md`.
+
 Estado das fontes. Todas as páginas citadas aqui foram conferidas no PDF
 em 2026-10-08 (relatórios em `tmp/buscas-2026-10-08/conferencia-*.md`,
 fora do git) ou em 2026-10-03 (seção "Trechos das fontes"), salvo as
-marcadas:
-
-- **cópia**: a página é a da versão do autor ou da pré-publicação que
-  está em `tmp/fontes/`, e não a da versão publicada (tarefa "Conferir nas
-  versões publicadas as páginas citadas das cópias", tcc-wg7);
-- **sem PDF**: a fonte não está em `tmp/fontes/`, e nada dela foi lido;
-- **leitura nossa**: a fonte não diz isso com essas palavras; é aplicação
-  do TCC.
+marcadas **cópia**, **sem PDF** ou **leitura nossa** (legenda em
+`docs/README.md`). Conferir nas versões publicadas as páginas das cópias
+é a tarefa tcc-wg7.
 
 As páginas web das documentações foram consultadas na data indicada. A
 página citada é a impressa; a relação com a página do PDF de cada fonte
@@ -591,14 +595,12 @@ Monk 1981; Sorva 2013.
 
 Lidos em 2026-10-03, salvo os da última subseção.
 
-Tabelas vindas de `docs/literatura.md`, seção 15, em 2026-10-08 (as
-subseções desta seção eram as 15.1 a 15.5 de lá). Na época, as fontes
-separavam o paradigma ou modelo de computação, um conjunto de conceitos,
-da notação em que se escreve (Van Roy 2009; Green e Petre 1996), com a
-abstração como ponte; as fontes de interface usam "paradigm" ao lado de
-"approach", "pattern" e "architecture", sem distinção. Todos os trechos
-lidos no PDF pelo agente principal; documentações lidas por WebFetch na
-data indicada. Cópias em `tmp/fontes/`, fora do git.
+Na época, as fontes separavam o paradigma ou modelo de computação, um
+conjunto de conceitos, da notação em que se escreve (Van Roy 2009; Green
+e Petre 1996), com a abstração como ponte; as fontes de interface usam
+"paradigm" ao lado de "approach", "pattern" e "architecture", sem
+distinção. Todos os trechos lidos no PDF pelo agente principal;
+documentações lidas por WebFetch na data indicada.
 
 Páginas: Van Roy 2009, impressa = PDF + 8; Van Roy e Haridi 2004 (CTM),
 impressa = PDF − 31 (prefácio: PDF 14 = p. xiii); Van Roy et al. 2020,
@@ -762,3 +764,14 @@ apresentado: "como no Solid, em que `const dobro = n() * 2` parece
 acompanhar o /signal/, mas guarda só o primeiro valor" (ADR 0021). A
 ligação com uma DC (operações mentais difíceis, dependências ocultas)
 ainda pede fonte conferida.
+
+## Histórico
+
+A decisão dos termos é de 2026-10-08 (ADR 0021). As tabelas da seção
+"Trechos das fontes" vieram de `docs/literatura.md`, seção 15, em
+2026-10-08, e as subseções delas eram as 15.1 a 15.5 de lá. Em
+2026-10-15, a seção "Coordenação, orquestração e estado nas fontes" foi
+para `docs/estado-eventos-e-complexidade.md`, e vieram de
+`docs/fundamentacao.md` a seção "Aplicação interativa e aplicação
+reativa", da revisão de 2026-10-10, e os trechos de Sperber e Schlegel
+e de Lee, Ahn e Yi da seção "Re-renderização e atualização granular".

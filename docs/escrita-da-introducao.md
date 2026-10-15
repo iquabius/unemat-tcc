@@ -1,12 +1,30 @@
 # Escrita da introdução: forma, justificativa e ciclos de lacuna
 
+Fontes. A forma da introdução e da justificativa, e não o tema: o que as
+fontes de gênero dizem, como as introduções dos TCCs de bacharelado do
+tema dizem a lacuna e como os ciclos de contexto e lacuna estreitam.
+Serve à escrita de `texto/intro.org`.
+
+**Conclusão.** As introduções de engenharia de software alternam
+território e nicho (Anthony 1999; Posteguillo 1999), e a justificativa
+mostra a relevância, a originalidade e a aplicabilidade sem prometer
+demais (Motta-Roth e Hendges 2010). Dos 14 TCCs lidos no tema, 10 têm a
+introdução explorativa, sem lacuna (seção "As introduções dos TCCs de
+bacharelado no tema"). Um ciclo estreita a lacuna quando a solução do
+ciclo anterior vira o sujeito da lacuna nova (seção "Ciclos de contexto
+e lacuna nas introduções").
+
+**Fontes centrais.** Nenhuma: as fontes de forma (Anthony, Posteguillo,
+Motta-Roth e Hendges, Prodanov e Freitas, Leal, Wazlawick) não sustentam
+o argumento, e os trabalhos relacionados que aparecem aqui como
+exemplares têm a nota deles, `docs/trabalhos-relacionados-e-lacuna.md`.
+
 ## Fontes sobre a forma da introdução
 
 Lidas em 2026-10-02.
 
 Fontes sobre a forma da introdução e da justificativa, e não sobre o
-tema. "Conferido": lido no PDF pelo agente principal. Cópias em
-`tmp/fontes/`, fora do git.
+tema.
 
 | Fonte | Trecho | Onde | Leitura |
 |---|---|---|---|
@@ -131,3 +149,9 @@ As fontes de trabalhos relacionados:
   Kruchten et al. 2023; Mernik et al. 2009). Grolaux et al. (2026) e Green
   e Petre (1996), um ciclo; Sperber e Schlegel (2025) e Kutar et al.
   (2002), nenhum. Saeed (2024) e Grov (2015) não estão em `tmp/fontes/`.
+
+## Histórico
+
+Criada em 2026-10-15 com a seção 7 de `docs/metodo-da-avaliacao.md` e,
+de `docs/trabalhos-relacionados.md`, a seção 7.1 e o parágrafo sobre as
+introduções da seção 7.
