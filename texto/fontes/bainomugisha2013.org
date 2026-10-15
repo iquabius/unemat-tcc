@@ -1,7 +1,7 @@
 #+title: bainomugisha2013: Bainomugisha et al. (2013), A Survey on Reactive Programming
 #+startup: overview
 
-* [[file:../intro.org::Uma alternativa ao /callback/ é a][intro: Uma alternativa ao /callback/ é a]], p. 2
+* [[file:../intro.org::Uma alternativa ao /callback/ é a][intro: Uma alternativa ao /callback/ é a]], p. 52:2
 - Frase: “Assim, o programador não precisa cuidar da ordem dos eventos nem
   das dependências entre as computações.”
 - Trecho: “having the language automatically manage the flow of time (by
@@ -10,11 +10,12 @@
   worry about the order of events and computation dependencies.” (p. 52:2)
 - Lido em: =tmp/fontes/bainomugisha2013.pdf=, p. 2 do PDF (p. 52:2).
 - Conferido: 2026-10-07.
-* [[file:../intro.org::Uma alternativa ao /callback/ é a][intro: Uma alternativa ao /callback/ é a]], p. 1-2
-- Frase: “A PR serve às aplicações orientadas a eventos e interativas e
-  leva às linguagens de programação o modelo das planilhas eletrônicas, em
-  que alterar o valor de uma célula recalcula as fórmulas que dependem dela
-  (Bainomugisha et al., 2013, p. 1-2).”
+* [[file:../intro.org::Uma alternativa ao /callback/ é a][intro: Uma alternativa ao /callback/ é a]], p. 52:1-3 (a planilha)
+- Frase: “Na PR, =var3= se recalcula a cada alteração de =var1= ou de
+  =var2=, como numa planilha eletrônica, em que alterar o valor de uma
+  célula recalcula as fórmulas que dependem dela (Bainomugisha et al.,
+  2013, p. 52:1-3).” O recálculo de =var3= é da p. 52:3 (entrada
+  seguinte); a planilha, das p. 52:1-2.
 - Trecho: “Reactive programming has recently gained popularity as a
   paradigm that is well-suited for developing event-driven and
   interactive applications.” (resumo, p. 52:1); “Reactive programming is
@@ -25,12 +26,15 @@
 - Lido em: =tmp/fontes/bainomugisha2013.pdf=, p. 1 e 2 do PDF (p. 52:1 e
   52:2).
 - Conferido: 2026-10-07.
-* [[file:../intro.org::A programação declarativa expressa o que][intro: A programação declarativa expressa o que]], p. 52:3 (o exemplo de =var3=)
-- Frase: “Um exemplo mínimo mostra a diferença: com =var1= igual a 1,
-  =var2= igual a 2 e =var3 = var1 + var2=, a programação imperativa guarda
-  3 em =var3= mesmo depois que =var1= recebe outro valor, a não ser que o
-  programador atribua a soma de novo; na PR, =var3= se recalcula a cada
-  alteração de =var1= ou de =var2= (Bainomugisha et al., 2013, p. 52:3).”
+* [[file:../intro.org::Uma alternativa ao /callback/ é a][intro: Uma alternativa ao /callback/ é a]], p. 52:3 (o exemplo de =var3=)
+- Frase: “Com =var1= igual a 1, =var2= igual a 2 e =var3 = var1 + var2=,
+  a programação imperativa guarda 3 em =var3= mesmo depois que =var1=
+  recebe outro valor, a não ser que o programador escreva de novo a
+  atribuição da soma~--- a atualização de =var3= é manual (Bainomugisha et
+  al., 2013, p. 52:3).” “Escreva” separa quem escreve a atribuição, o
+  programador, de quem a executa, o programa; “manual” ecoa o nome do
+  imperativo por atualização manual (decisão do autor em 2026-10-14). A metade da PR está na frase
+  seguinte, com a planilha (entrada anterior).
 - Trecho: “In conventional sequential imperative programming, the value of
   the variable var3 will always contain 3, which is the sum of the initial
   values of variables var1 and var2 even when var1 or var2 is later
@@ -41,7 +45,8 @@
   var2 changes.” (p. 52:3)
 - Lido em: =tmp/fontes/bainomugisha2013.pdf=, versão dos autores, p. 3 do
   PDF (cabeçalho “:3”).
-- Observação: ilustra o estado implícito de Hudak (1989, p. 361), na frase
-  anterior, e a atualização que a PR faz sozinha (escolha do autor em
+- Observação: ilustra, no parágrafo da PR, o estado que o programa
+  imperativo só atualiza por atribuição e a atualização que a PR faz
+  sozinha (escolha do autor em
   2026-10-14; docs/problema-lacuna-pergunta.md, seção 1.1).
 - Conferido: 2026-10-14.

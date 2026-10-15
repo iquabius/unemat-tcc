@@ -20,6 +20,12 @@ Essa coordenação é o tema deste trabalho.
 
 As interfaces gráficas costumam ter estado: lembram informações, como o que o
 usuário já fez \cites[][ p. 79]{myers1994}[][ p. 14]{vanroy2009}.
+Num programa orientado a eventos, cada evento, seja a tecla digitada, o
+toque na tela, a requisição web, a chegada de um pacote da rede ou o
+tique do relógio, faz rodar uma parte do programa em resposta
+\cite[p. N]{krishnamurthi2019}.
+O desafio do programador é organizar como o estado passa de um evento a
+outro \cite[p. N]{krishnamurthi2019}.
 Uma das principais diferenças entre a programação de interfaces e a dos outros
 programas é que o estado da aplicação determina a aparência e o comportamento da
 tela \cite[p. 230]{oney2012}.
@@ -49,33 +55,20 @@ Uma alternativa ao \emph{callback} é a \gls{pr}.
 Segundo \textcite[p. 1125-1126]{salvaneschi2017}, nela o programador
 declara as relações entre os valores, e o ambiente de execução faz as
 atualizações que elas exigem.
-Assim, o programador não precisa cuidar da ordem dos eventos nem das
-dependências entre as computações \cite[p. 2]{bainomugisha2013}.
-A \gls{pr} serve às aplicações orientadas a eventos e interativas e leva às
-linguagens de programação o modelo das planilhas eletrônicas, em que alterar
-o valor de uma célula recalcula as fórmulas que dependem dela
-\cite[p. 1-2]{bainomugisha2013}.
+Com \texttt{var1} igual a 1, \texttt{var2} igual a 2 e \texttt{var3 = var1 + var2}, a
+programação imperativa guarda 3 em \texttt{var3} mesmo depois que \texttt{var1} recebe
+outro valor, a não ser que o programador escreva de novo a atribuição da
+soma~--- a atualização de \texttt{var3} é manual \cite[p. 52:3]{bainomugisha2013}.
+Na \gls{pr}, \texttt{var3} se recalcula a cada alteração de \texttt{var1} ou de \texttt{var2},
+como numa planilha eletrônica, em que alterar o valor de uma célula
+recalcula as fórmulas que dependem dela \cite[p. 52:1-3]{bainomugisha2013}.
+A \gls{pr} exprime assim, de modo declarativo, um comportamento que, de
+outro modo, seria complexo \cite[p. 1125]{salvaneschi2017}.
+O programador não precisa cuidar da ordem dos eventos nem das dependências
+entre as computações \cite[p. 52:2]{bainomugisha2013}.
 Num experimento controlado com 127 estudantes, quem leu programas escritos
 com \gls{pr} os compreendeu melhor do que quem leu as versões dos mesmos
 programas com o \emph{Observer Pattern} \cite[p. 1125-1134]{salvaneschi2017}.
-
-A programação declarativa expressa o que se computa, e não como, embora isso
-seja questão de grau, e suas linguagens não têm estado implícito
-\cite[p. 361]{hudak1989}.
-Um exemplo mínimo mostra a diferença: com \texttt{var1} igual a 1, \texttt{var2} igual a
-2 e \texttt{var3 = var1 + var2}, a programação imperativa guarda 3 em \texttt{var3} mesmo
-depois que \texttt{var1} recebe outro valor, a não ser que o programador atribua a
-soma de novo; na \gls{pr}, \texttt{var3} se recalcula a cada alteração de \texttt{var1}
-ou de \texttt{var2} \cite[p. 52:3]{bainomugisha2013}.
-A \gls{pr} exprime assim, de modo declarativo, um comportamento que, de
-outro modo, seria complexo \cite[p. 1125]{salvaneschi2017}.
-Para \textcite[p. 929]{edwards2009}, ao menos nas aplicações interativas,
-boa parte do sequenciamento manual das ações, o cerne da programação
-imperativa, é complexidade acidental, que o ambiente de execução pode
-assumir.
-Nas interfaces, o componente do React é uma função que especifica a tela de
-forma declarativa e que, chamada com os mesmos argumentos, deve exibir a
-mesma interface \cite[289:1]{lee2025}.
 
 Este trabalho compara \emph{modelos de programação}: as técnicas e os
 princípios de projeto que um modelo de computação torna possíveis
@@ -98,8 +91,10 @@ biblioteca \cite{mozilla2026}.
 Nos declarativos, o programador descreve a tela em função do estado, e o
 ambiente de execução a mantém atualizada
 \cites{solidjs2026}[][ p. 32]{sperber2025}.
-No \emph{declarativo por re-renderização}, cada alteração de estado reexecuta o
-componente, como no React \cite[p. 289:2 e 289:6]{lee2025}.
+No \emph{declarativo por re-renderização}, o componente é uma função que
+especifica a tela e que, chamada com os mesmos argumentos, deve exibir a
+mesma interface; cada alteração de estado o reexecuta, como no React
+\cite[289:1, 289:2 e 289:6]{lee2025}.
 No \emph{declarativo por atualização granular}, cada \emph{signal} avisa os valores
 e trechos da tela que dependem dele, como no Solid e no Angular com
 \emph{signals} \cite{solidjs2026,google2026}.

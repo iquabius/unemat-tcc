@@ -1,17 +1,20 @@
 #+title: lee2025: Lee et al. (2025), React-tRace: A Semantics for Understanding React Hooks: An Operational Semantics and a Visualizer for Clarifying React Hooks
 #+startup: overview
 
-* [[file:../intro.org::A programação declarativa expressa o que][intro: A programação declarativa expressa o que]], 289:1
-- Frase: “Nas interfaces, o componente do React é uma função que especifica a
-  tela de forma declarativa e que, chamada com os mesmos argumentos, deve
-  exibir a mesma interface (Lee; Ahn; Yi, 2025, 289:1).”
+* [[file:../intro.org::Nos declarativos, o programador descreve a tela][intro: Nos declarativos, o programador descreve a tela]], 289:1 (o componente é uma função)
+- Frase: “No /declarativo por re-renderização/, o componente é uma função
+  que especifica a tela e que, chamada com os mesmos argumentos, deve
+  exibir a mesma interface; cada alteração de estado o reexecuta, como no
+  React (Lee; Ahn; Yi, 2025, 289:1, 289:2 e 289:6).”
 - Trecho: “A React component is a function that serves as a declarative
   specification of a UI [...]. Ideally, when a component is called with the
   same arguments, it should render the same interface”.
 - Lido em: =tmp/fontes/lee2025.pdf=, cópia do arXiv com a paginação da ACM.
-- Observação: faz a ponte entre o declarativo de Hudak (sem estado) e o das
-  interfaces (a tela descrita em função do estado); Moseley e Marks (2006)
-  usam "declarativo" sem definição (checagem de 2026-10-08).
+- Observação: o “specification of a UI” é a definição do componente no
+  declarativo por re-renderização; a frase saiu do parágrafo do
+  declarativo, que deixou a introdução em 2026-10-14, e se fundiu com a do
+  modelo (Moseley e Marks, 2006, usam “declarativo” sem definição,
+  checagem de 2026-10-08).
 - Conferido: 2026-10-09.
 * [[file:../intro.org::Nos declarativos, o programador descreve a tela][intro: Nos declarativos, o programador descreve a tela]], p. 289:2 e 289:6
 - Frase: “No /declarativo por re-renderização/, cada alteração de estado

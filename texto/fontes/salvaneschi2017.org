@@ -26,16 +26,17 @@
   com o parágrafo inteiro para a seção 2.4 e estão na afirmação de prog,
   p. 1125-1134, mais abaixo.
 - Conferido: 2026-10-14.
-* [[file:../intro.org::A programação declarativa expressa o que][intro: A programação declarativa expressa o que]], p. 1125 (declarativo)
+* [[file:../intro.org::Uma alternativa ao /callback/ é a][intro: Uma alternativa ao /callback/ é a]], p. 1125 (declarativo)
 - Frase: “A PR exprime assim, de modo declarativo, um comportamento que,
   de outro modo, seria complexo (Salvaneschi et al., 2017, p. 1125).”
 - Trecho: “reactive programming (RP) has gained the attention of
   researchers and practitioners for the potential to express otherwise
   complex reactive behavior in an intuitive and declarative way.” (p. 1125)
 - Lido em: =tmp/fontes/salvaneschi2017.pdf=, p. 1 do PDF (p. 1125).
-- Observação: ponte entre o parágrafo da PR e o do declarativo
-  (transição pedida pelo autor em 2026-10-14); “assim” retoma o exemplo
-  de Bainomugisha et al. (2013, p. 52:3) na frase anterior.
+- Observação: liga a PR ao declarativo no parágrafo da PR
+  (pedida pelo autor em 2026-10-14); “assim” retoma o exemplo de =var3= e
+  a planilha de Bainomugisha et al. (2013, p. 52:1-3), nas frases
+  anteriores do mesmo parágrafo.
 - Conferido: 2026-10-14.
 * [[file:../intro.org::Quanto aos objetivos, a pesquisa é][intro: Quanto aos objetivos, a pesquisa é exploratória]]
 - Frase: “As hipóteses desta pesquisa servem a experimentos controlados
