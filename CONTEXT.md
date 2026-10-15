@@ -138,11 +138,12 @@ com a avaliação inteira); R1, R2 e R3 (rótulos de 2026-10-13, desfeitos no
 mesmo dia)
 
 **Estado**:
-O que o programa guarda entre um evento e outro e consulta, junto com o
-evento, para decidir o que fazer: todo programa é uma máquina de estados
-(Blackheath e Jones, 2016, p. 6). No imperativo vive em variáveis que o
-programa lê na ordem dos passos; no declarativo, em células que o
-ambiente de execução mantém em dia (p. 10).
+O que o programa guarda sobre os eventos anteriores e consulta, junto com
+o evento que chega, para calcular a saída; cada evento pode alterá-lo
+(Benveniste et al., 2003, p. 65). No imperativo, é implícito e se altera
+por comandos, e por isso a ordem dos comandos importa; no declarativo,
+não há estado implícito (Hudak, 1989, p. 361). Na interface, determina a
+aparência e o comportamento da tela (Oney, Myers e Brandt, 2012, p. 230).
 _Avoid_: memória (é a do computador); *statefull*
 
 **Alteração de estado**:
