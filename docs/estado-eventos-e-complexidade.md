@@ -20,7 +20,10 @@ Blackheath e Jones (2016), Van Roy (2009), Van Roy e Haridi (2004) e
 Moseley e Marks (2006) explicam o mesmo de forma coloquial, sem revisão
 por pares. Moseley e Marks são `central` no `refs.bib`: a tese deles, de
 que a maior parte da complexidade dos sistemas é acidental e o estado é
-quem mais a gera, está na origem do problema de pesquisa.
+quem mais a gera, está na origem do problema de pesquisa. Em fonte
+revisada, Edwards (2009, p. 929) chama de complexidade acidental a
+sequência das ações que o imperativo obriga a escrever (seção "Uma peça
+possível para o problema da introdução").
 
 **Fontes centrais.** Moseley e Marks (2006, `moseley2006`), na seção
 "Moseley e Marks (2006)". Van Roy (2009) e Lee, Ahn e Yi (2025), também
@@ -36,7 +39,7 @@ centrais, aparecem aqui só pelo que dizem do estado; a nota deles é
 | Definição, com um laço simples | Benveniste et al. 2003 (`benveniste2003`), *Proceedings of the IEEE* | 65 | Fig. 1, o esquema dirigido por eventos: "Initialize Memory / for each input event do / Compute Outputs / Update Memory / end"; no texto, a lógica "computes outputs and the next state as a function of inputs and the current state"; na equação (1), U, X e Y são "input, state, and output" | conferido em 2026-10-14, a figura na página renderizada |
 | Definição curta | Mandel e Pouzet 2005, PPDP (fora do `refs.bib`) | 83 | "a process is a state machine whose behavior depends on the history of its inputs" | conferido em 2026-10-14 |
 | Contraste imperativo × declarativo | Hudak 1989 (`hudak1989`), *ACM Computing Surveys* | 361 | "Imperative languages are characterized as having an implicit state that is modified (i.e., side effected) by constructs (i.e., commands)", daí a noção de sequência dos comandos; "declarative languages are characterized as having no implicit state" | conferido em 2026-10-14 |
-| Estado da interface | Oney, Myers e Brandt 2012 (`oney2012`), UIST | 230 | "GUIs are often stateful [9] – the application state determines its appearance and behavior", com a barra de ferramentas: acoplada, fica acima da área de trabalho; arrastada, segue o mouse | conferido em 2026-10-09 (`texto/fontes/oney2012.org`) |
+| Estado da interface | Oney, Myers e Brandt 2012 (`oney2012`), UIST | 230 | "GUIs are often stateful [9] – the application state determines its appearance and behavior", com a barra de ferramentas: acoplada, fica acima da área de trabalho; arrastada, segue o mouse; a transição: "when the user presses the toolbar header in docked mode, it enters dragging mode" | conferido em 2026-10-09 (`texto/fontes/oney2012.org`); a transição, em 2026-10-15 |
 | Por que a interface altera estado | Edwards 2009 (`edwards2009`), Onward! | 925 | "Firstly, interaction is a side effect. The whole purpose of user input is to change the persistent state of the application." | conferido em 2026-10-09 e 2026-10-14 |
 | Efeito colateral no imperativo | Edwards 2009 | 925 | "Side effects are both the essence and bane of imperative programming. The programmer must carefully coordinate actions to manage their side effects upon each other." | conferido em 2026-10-09 |
 | Estado no React | Madsen, Lhoták e Tip 2020 (`madsen2020`), ECOOP | 12:1 e 12:3 | "a state consisting of values that may vary over time" (12:1); "The state holds time-varying values, e.g., the values of input fields." (12:3) | conferido em 2026-10-14 |
@@ -248,7 +251,9 @@ textos dele:
   produtividade. Moseley e Marks o citam como [Bro86] (p. 2) e aceitam a
   distinção, mas recusam a conclusão: para eles, a maior parte da
   complexidade é acidental, e o estado é quem mais a gera, seguido do
-  volume de código e do fluxo de controle.
+  volume de código e do fluxo de controle. Edwards (2009, p. 929) também
+  o cita, na edição de 1987 da *IEEE Computer* ([2]), para chamar de
+  acidental a sequência das ações no imperativo.
 
 Apresentar a distinção só por Moseley e Marks esconde que ela é de Brooks
 e que a novidade dos dois está na discordância. Num trabalho em
@@ -267,7 +272,7 @@ referência fica com o título em inglês.
 
 ### Uma peça possível para o problema da introdução
 
-A cadeia, com o elo que falta apoio revisado:
+A cadeia, com a fonte de cada elo:
 
 1. A interface gráfica é difícil de programar e ocupa boa parte do
    código: "inherently difficult" (Myers, 1994, p. 73); em média, "48% of
@@ -280,17 +285,26 @@ A cadeia, com o elo que falta apoio revisado:
    da tela (Oney; Myers; Brandt, 2012, p. 230); a entrada do usuário
    existe para alterá-lo (Edwards, 2009, p. 925).
 3. O estado é a maior causa da complexidade acidental (Moseley; Marks,
-   2006, p. 1 e 8): só fonte sem revisão por pares. O elo revisado mais
-   próximo é o de Hudak (1989, p. 361), que liga o estado implícito à
-   dependência da ordem, e o de Järvi et al., que põe os defeitos no
-   código que coordena eventos.
+   2006, p. 1 e 8), em fonte sem revisão por pares. Em fonte revisada,
+   Edwards (2009, p. 929) chama de complexidade acidental, no sentido de
+   Brooks, a sequência das ações que o imperativo obriga a escrever:
+   "much of the manual sequencing of actions that is the crux of
+   imperative programming is an accidental complexity [2]", e a execução
+   coerente a assume "at least in the domain of interactive
+   applications"; [2] é o "No Silver Bullet" de 1987. Com Hudak (1989,
+   p. 361), que liga o estado implícito à sequência dos comandos, a
+   cadeia fica toda em fontes revisadas: estado implícito, sequência
+   escrita pelo programador, complexidade acidental. Järvi et al. põem
+   os defeitos no código que coordena eventos. Conferido em 2026-10-15
+   (`tmp/fontes/edwards2009-coherent-reaction.pdf`, p. 5 do PDF; a p. 1
+   do PDF é a 925).
 
 ## Pendências
 
 - Entram no `refs.bib`, se o texto os citar: Mandel e Pouzet (2005),
   Kamina e Aotani (2018), Van Roy (2020, PACMPL, DOI 10.1145/3386333) e
-  Brooks (qual edição do "No Silver Bullet": a de 1987 na *IEEE Computer*
-  ou o capítulo da edição de 1995 do livro).
+  Brooks (qual edição do "No Silver Bullet": a de 1987 na *IEEE Computer*,
+  que Edwards (2009) cita, ou o capítulo da edição de 1995 do livro).
 - A frase de `texto/prog.org` que distingue a complexidade essencial da
   acidental cita só Moseley e Marks (p. 1 e 21); com Brooks, a distinção
   passa a ser dele e a discordância, dos dois.
