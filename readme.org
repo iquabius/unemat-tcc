@@ -102,8 +102,9 @@
 
    O =git latexdiff= não passa pelo =bin/latexdiff-tcc.sh=: no texto
    apagado, as siglas do glossaries somem, a quebra de parágrafo inserida
-   ou removida sai sem o ¶, e o trecho que só ganhou o realce sai apagado
-   e reescrito.
+   ou removida sai sem o ¶, o trecho que só ganhou o realce sai apagado
+   e reescrito, e um =\emph= apagado pode casar com outro acrescentado
+   parágrafos adiante, num diff que não compila.
 
 ** Exportar pelo terminal
 
