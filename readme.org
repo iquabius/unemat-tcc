@@ -167,7 +167,11 @@
    uma tabela ou de uma lista, onde a linha em branco não fecha parágrafo,
    nada sai. O trecho que só ganhou o =\realce= de uma nota sai sem marca
    de mudança e realçado, pelo =bin/realce-no-diff.py=; o trecho realçado em
-   que uma palavra mudou sai com as marcas do diff e sem o realce.
+   que uma palavra mudou sai com as marcas do diff e sem o realce. O termo
+   simples de =\emph=, =\textbf=, =\textit= ou =\texttt= conta como uma
+   palavra só, pelo =bin/fonte-no-diff.py=: o que mudou sai apagado e
+   reescrito inteiro, e o que não mudou, colado a uma mudança, pode entrar
+   no bloco dela.
 
    Tudo fica em =pdf/ao-vivo/=, fora do git: o PDF =diff-ao-vivo.pdf=,
    a compilação em =build/= e os logs =emacs.log=, =latexdiff.log= e
