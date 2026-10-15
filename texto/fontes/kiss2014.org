@@ -2,9 +2,11 @@
 #+startup: overview
 
 * [[file:../intro.org::O desenvolvimento de interfaces gráficas é difícil][intro: O desenvolvimento de interfaces gráficas é difícil]], p. 5
-- Frase: “Como Kiss (2014, p. 5), este trabalho deixa de lado, apesar da
+- Frase: “Como Kiss (2014, p. 5), este trabalho não aborda, apesar da
   importância, o projeto da interface e a usabilidade dela para quem a
-  usa, e trata de como programá-la.” “O projeto da interface e a
+  usa, e trata do desenvolvimento de interfaces do ponto de vista da
+  programação.” “Do ponto de vista da programação” traduz o “from a
+  programming perspective” (2026-10-14). “O projeto da interface e a
   usabilidade dela” traduz o “design a usable presentation of and
   interaction with the resulting graphical application” de Kiss, e o
   “apesar da importância”, o “admittedly very important aspect”.

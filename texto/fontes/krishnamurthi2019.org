@@ -1,11 +1,10 @@
 #+title: krishnamurthi2019: Krishnamurthi e Fisler (2019), Programming Paradigms and Beyond
 #+startup: overview
 
-* [[file:../intro.org::As interfaces gráficas costumam ter estado][intro: As interfaces gráficas costumam ter estado]], p. N (cada evento roda uma parte do programa)
-- Frase: “Num programa orientado a eventos, cada evento, seja a tecla
-  digitada, o toque na tela, a requisição web, a chegada de um pacote da
-  rede ou o tique do relógio, faz rodar uma parte do programa em resposta
-  (Krishnamurthi; Fisler, 2019, p. N).”
+* [[file:../intro.org::Cada toque num aplicativo de celular, clique][intro: Cada toque num aplicativo de celular, clique]], p. N (eventos que não vêm do usuário)
+- Frase: “Nem todo evento vem do usuário: a chegada de um pacote da rede e
+  o tique do relógio também são eventos, e cada evento faz rodar a parte do
+  programa que responde a ele (Krishnamurthi; Fisler, 2019, p. N).”
 - Trecho: “In contrast, in an event-driven program, it is the operating
   environment that is in charge; each event (whether a keystroke, a screen
   touch, a Web request, a network packet arrival, or the tick of a clock)
@@ -13,20 +12,28 @@
 - Lido em: =tmp/fontes/krishnamurthi2019.pdf=, p. 8 do PDF, a versão dos
   autores (“Draft of a chapter”); a página do livro (p. 377-413) espera a
   versão publicada.
-- Observação: “it is the operating environment that is in charge” fica
-  fora da frase: o “ambiente de execução” do =CONTEXT.md= é só o que faz as
+- Observação: a fonte lista o /keystroke/ e o /screen touch/ junto do
+  pacote e do relógio; a frase fica só com os dois últimos, porque a
+  anterior já traz o toque, o clique e a tecla. A /Web request/ sai: na
+  fonte, é a requisição que chega a um servidor, e não a que a interface
+  faz. “A parte do programa que responde a ele” traduz o /causes some part
+  of the program to run in response/ (2026-10-14). “It is the operating
+  environment that is in charge” fica fora da frase: o “ambiente de execução” do =CONTEXT.md= é só o que faz as
   atualizações que o código declara, e não o /operating environment/ da
   fonte. Substitui Madsen, Lhoták e Tip (2017, 86:1), que fica em
   =prog.org= (decisão do autor em 2026-10-14).
 - Conferido: 2026-10-14.
 * [[file:../intro.org::As interfaces gráficas costumam ter estado][intro: As interfaces gráficas costumam ter estado]], p. N (o estado entre os eventos)
-- Frase: “O desafio do programador é organizar como o estado passa de um
-  evento a outro (Krishnamurthi; Fisler, 2019, p. N).”
+- Frase: “O desafio do programador é escrever, no código, como o estado
+  passa de um evento a outro (Krishnamurthi; Fisler, 2019, p. N).”
 - Trecho: “The programmer’s challenge is to arrange how state is
   transferred between the events.” (seção 3, “Beyond Paradigms”)
 - Lido em: =tmp/fontes/krishnamurthi2019.pdf=, p. 8 do PDF, a versão dos
   autores.
-- Observação: a frase seguinte da fonte diz que isso se faz de vários
+- Observação: “escrever, no código” traduz o /arrange/: o programador
+  escreve como o estado passa, e quem o passa é o programa (=AGENTS.md=,
+  “O programador escreve, e o programa executa”, 2026-10-14). A frase
+  seguinte da fonte diz que isso se faz de vários
   modos, “imperatively, using objects, functionally, reactively”, o que
   liga o estado aos modelos de programação comparados adiante.
 - Conferido: 2026-10-14.

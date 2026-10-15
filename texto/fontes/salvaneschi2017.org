@@ -27,8 +27,11 @@
   p. 1125-1134, mais abaixo.
 - Conferido: 2026-10-14.
 * [[file:../intro.org::Uma alternativa ao /callback/ é a][intro: Uma alternativa ao /callback/ é a]], p. 1125 (declarativo)
-- Frase: “A PR exprime assim, de modo declarativo, um comportamento que,
-  de outro modo, seria complexo (Salvaneschi et al., 2017, p. 1125).”
+- Frase: “Assim, um comportamento que, de outro modo, seria complexo se
+  exprime de modo declarativo (Salvaneschi et al., 2017, p. 1125).” Em
+  2026-10-15, a frase deixou de abrir pela PR, que abria também a anterior,
+  e foi para a passiva sintética: o que se escreve no código não tem a
+  tecnologia de sujeito (=AGENTS.md=, decisão do autor).
 - Trecho: “reactive programming (RP) has gained the attention of
   researchers and practitioners for the potential to express otherwise
   complex reactive behavior in an intuitive and declarative way.” (p. 1125)

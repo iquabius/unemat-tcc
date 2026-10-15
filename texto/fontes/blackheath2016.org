@@ -1,21 +1,6 @@
 #+title: blackheath2016: Blackheath e Jones (2016), Functional Reactive Programming
 #+startup: overview
 
-* [[file:../intro.org::O recurso predominante para propagar eventos][intro: O recurso predominante para propagar eventos é o callback]], p. 7
-- Frase: “O recurso predominante para propagar eventos é o /callback/,
-  também chamado de /listener/: um bloco de código que roda sempre que um
-  dado evento ocorre (Blackheath e Jones, 2016, p. 7). Registrá-lo num
-  produtor, que o chama de volta a cada ocorrência, é o /Observer
-  Pattern/ (Blackheath e Jones, 2016, p. 7).”
-- Trecho: “Listeners or callbacks—also called the observer pattern—are the
-  dominant way of propagating events in software today.”; “register a new
-  consumer (or listener) with it, and from then on, that consumer is called
-  back whenever an event occurs.” (p. 7)
-- Lido em: =tmp/fontes/blackheath2016-cap1.pdf=, p. 10 do PDF (p. 7).
-- Observação: o exemplo do clique em um botão saiu em 2026-10-10; o
-  exemplo da fonte, na p. 7, é a seleção de um item numa /list box/, e o
-  clique fica no fim do parágrafo, com Gallaba et al. (2015, p. 5).
-- Conferido: 2026-10-07; de novo em 2026-10-10.
 * [[file:../prog.org::/Threads/ exprimem sequência][prog: Threads exprimem sequência]], p. 16
 - Frase: “/Threads/ exprimem sequência, e eventos exprimem dependência, e
   muitos problemas vêm de escrever uma com o recurso da outra.”

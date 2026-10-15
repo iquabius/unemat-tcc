@@ -37,3 +37,32 @@
   callbacks are nested” (resumo).
 - Lido em: =tmp/fontes/gallaba2015.pdf=, p. 1.
 - Conferido: 2026-10-06.
+* [[file:../intro.org::No navegador, as sub-rotinas desse código][intro: No navegador, as sub-rotinas desse código]], p. 1-2 (o callback)
+- Frase: “No navegador, as sub-rotinas desse código do avesso são
+  /callbacks/: funções passadas como argumento a outra função, que as chama
+  na hora ou mais tarde (Gallaba; Mesbah; Beschastnikh, 2015, p. 1-2).”
+- Trecho: “JavaScript callbacks are used to responsively handle events on
+  the client-side” (p. 1); “A callback is a function that is passed as an
+  argument to another function, which is expected to invoke it either
+  immediately or at some point in the future” (p. 2).
+- Lido em: =tmp/fontes/gallaba2015.pdf=, p. 1 e 2 do PDF.
+- Observação: substitui Blackheath e Jones (2016, p. 7), livro que sai da
+  introdução por decisão do autor em 2026-10-15; “no navegador” traduz o
+  /client-side/. Que as sub-rotinas do código do avesso de Myers (1994,
+  p. 79) sejam os /callbacks/ é a ponte do texto, sem fonte: Gallaba et al.
+  dizem que os /callbacks/ tratam os eventos no navegador, e Myers, que o
+  /toolkit/ chama as sub-rotinas (“sometimes called ‘event-based
+  programming’”).
+- Conferido: 2026-10-15.
+* [[file:../intro.org::No navegador, as sub-rotinas desse código][intro: No navegador, as sub-rotinas desse código]], p. 1 (a frequência)
+- Frase: “Em média, uma em cada dez funções definidas em programas
+  JavaScript recebe um /callback/ (Gallaba; Mesbah; Beschastnikh, 2015,
+  p. 1).”
+- Trecho: “We find that on average, every 10th function definition takes a
+  callback argument” (resumo, p. 1), num corpus de 138 programas
+  JavaScript com mais de 5 milhões de linhas.
+- Lido em: =tmp/fontes/gallaba2015.pdf=, p. 1 do PDF.
+- Observação: está no lugar do “predominante” de Blackheath e Jones (“the
+  dominant way of propagating events”), que nenhuma fonte revisada por
+  pares lida sustenta.
+- Conferido: 2026-10-15.

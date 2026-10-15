@@ -2,7 +2,10 @@
 #+startup: overview
 
 * [[file:../intro.org::As interfaces gráficas costumam ter estado][intro: As interfaces gráficas costumam ter estado]], p. 14 (estado)
-- Frase: a mesma, “lembram informações”.
+- Frase: “Com ele, elas lembram informações (Van Roy, 2009, p. 14), como
+  os valores digitados nos campos [...]” Em 2026-10-15, Myers (1994,
+  p. 79) saiu desta citação, e “sobre o que o usuário já fez” saiu da
+  frase: o exemplo dos campos traz o usuário (decisão do autor).
 - Trecho: “State is the ability to remember information, or more
   precisely, to store a sequence of values in time.” (p. 14)
 - Lido em: =tmp/fontes/vanroy2009-programming-paradigms-for-dummies.pdf=,

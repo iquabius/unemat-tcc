@@ -1,7 +1,7 @@
 #+title: edwards2009: Edwards (2009), Coherent Reaction
 #+startup: overview
 
-* [[file:../intro.org::O recurso predominante para propagar eventos][intro: O recurso predominante para propagar eventos é o callback]], p. 926 (estado compartilhado)
+* [[file:../intro.org::No navegador, as sub-rotinas desse código][intro: No navegador, as sub-rotinas desse código]], p. 926 (estado compartilhado)
 - Frase: “Como não se sabe em que ordem os /callbacks/ serão chamados,
   coordenar as alterações ao estado compartilhado pode ser desconcertante e está
   longe de ser modular.”

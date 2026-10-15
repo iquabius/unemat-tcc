@@ -1,54 +1,58 @@
 \notalegenda{Em azul, o que mudou desde o projeto de 2017; em laranja, uma pergunta, junto do trecho realçado.}
 
+Cada toque num aplicativo de celular, clique num programa de computador ou
+tecla digitada num \emph{site} gera um evento, que o programa precisa aceitar a
+qualquer momento, mesmo enquanto executa outros comandos
+\cite[p. 79]{myers1994}.
+Nem todo evento vem do usuário: a chegada de um pacote da rede e o tique do
+relógio também são eventos, e cada evento faz rodar a parte do programa que
+responde a ele \cite[p. N]{krishnamurthi2019}.
+Esses eventos chegam numa ordem que o programador não escolhe nem pode
+prever \cite[p. 52:2]{bainomugisha2013}.
+
 O desenvolvimento de interfaces gráficas é difícil por natureza
 \cite[p. 73]{myers1994}.
-O programa precisa aceitar os eventos de entrada a qualquer
-momento, mesmo enquanto executa outros comandos \cite[p. 79]{myers1994}.
-Como \textcite[p. 5]{kiss2014}, este trabalho deixa de lado, apesar da
+Uma das razões é o código escrito do avesso (\emph{inside-out}), dividido em
+sub-rotinas que o \emph{toolkit} chama quando ocorrem ações do usuário
+\cite[p. 75 e 79]{myers1994}.
+Além disso, a forma de escrever a interface, que o programador escolhe junto
+com a tecnologia, afeta a compreensão e a manutenção do programa
+\cite[p. 134]{fischer2007}.
+Como \textcite[p. 5]{kiss2014}, este trabalho não aborda, apesar da
 importância, o projeto da interface e a usabilidade dela para quem a usa, e
-trata de como programá-la.
+trata do desenvolvimento de interfaces do ponto de vista da programação.
 
-Cada toque num aplicativo de celular, clique num programa de computador ou
-tecla digitada num \emph{site} gera um evento, que o programa precisa tratar sem
-deixar de responder ao usuário.
+As interfaces gráficas costumam ter estado, e essa é uma das principais
+diferenças entre a programação de interfaces e a dos outros programas: o
+estado da aplicação determina a aparência e o comportamento da tela
+\cite[p. 230]{oney2012}.
+Com ele, elas lembram informações \cite[p. 14]{vanroy2009}, como os valores
+digitados nos campos \cite[12:3]{madsen2020}.
+O desafio do programador é escrever, no código, como o estado passa de um
+evento a outro \cite[p. N]{krishnamurthi2019}.
 Programar interfaces exige montar os elementos gráficos na tela e
 coordená-los com o resto do programa.
-É preciso orquestrar eventos de diferentes fontes, como as teclas digitadas e
-as respostas de uma busca, e levar cada alteração de estado aos valores que
+Essa coordenação, tema desta pesquisa, tem dois eixos: a orquestração de
+eventos de diferentes fontes, como as teclas digitadas e as respostas de uma
+busca, e o gerenciamento de estado, que leva cada alteração aos valores que
 dependem dela e à tela.
-Essa coordenação é o tema deste trabalho.
 
-As interfaces gráficas costumam ter estado: lembram informações, como o que o
-usuário já fez \cites[][ p. 79]{myers1994}[][ p. 14]{vanroy2009}.
-Num programa orientado a eventos, cada evento, seja a tecla digitada, o
-toque na tela, a requisição web, a chegada de um pacote da rede ou o
-tique do relógio, faz rodar uma parte do programa em resposta
-\cite[p. N]{krishnamurthi2019}.
-O desafio do programador é organizar como o estado passa de um evento a
-outro \cite[p. N]{krishnamurthi2019}.
-Uma das principais diferenças entre a programação de interfaces e a dos outros
-programas é que o estado da aplicação determina a aparência e o comportamento da
-tela \cite[p. 230]{oney2012}.
-Outra é o código escrito do avesso (\emph{inside-out}), dividido em sub-rotinas que
-o \emph{toolkit} chama quando ocorrem ações do usuário \cite[p. 79]{myers1994}.
-Além disso, ao escolher uma tecnologia, o programador escolhe também a forma de
-escrever a interface, e essa forma afeta a compreensão e a manutenção do
-programa \cite[p. 134]{fischer2007}.
-
-O recurso predominante para propagar eventos é o \emph{callback}, também chamado
-de \emph{listener}: um bloco de código que roda sempre que um dado evento ocorre
-\cite[p. 7]{blackheath2016}.
-Registrá-lo num produtor, que o chama de volta a cada ocorrência, é o
-\emph{Observer Pattern} \cite[p. 7]{blackheath2016}.
+No navegador, as sub-rotinas desse código do avesso são \emph{callbacks}: funções
+passadas como argumento a outra função, que as chama na hora ou mais tarde
+\cite[p. 1-2]{gallaba2015}.
+Em média, uma em cada dez funções definidas em programas JavaScript recebe um
+\emph{callback} \cite[p. 1]{gallaba2015}.
+A forma tradicional de implementar programas que reagem a eventos é o
+\emph{Observer Pattern}, que separa os observadores, que consomem os eventos, dos
+observáveis, que os produzem \cite[p. 953]{salvaneschi2015}.
 O \emph{callback} fragmenta o fluxo de controle: a sequência de passos que o
 programador tem em mente para uma operação fica dividida entre vários
-\emph{callbacks}, o que dificulta a manutenção e a compreensão do programa
-\cite[p. 134-135]{fischer2007}.
+\emph{callbacks} \cite[p. 134-135]{fischer2007}.
 Como não se sabe em que ordem os \emph{callbacks} serão chamados, coordenar as
 alterações ao estado compartilhado pode ser desconcertante e está longe de ser
 modular \cite[p. 926]{edwards2009}.
-Os \emph{callbacks} que alteram o \gls{dom} por efeitos colaterais muitas vezes
-levam a um código interdependente, opaco e propenso a erros, o chamado código
+Os \emph{callbacks} que alteram o \gls{dom} muitas vezes levam o programador a
+escrever um código interdependente, opaco e propenso a erros, o chamado código
 espaguete \cite[p. 229]{oney2012}.
 
 Uma alternativa ao \emph{callback} é a \gls{pr}.
@@ -58,12 +62,12 @@ atualizações que elas exigem.
 Com \texttt{var1} igual a 1, \texttt{var2} igual a 2 e \texttt{var3 = var1 + var2}, a
 programação imperativa guarda 3 em \texttt{var3} mesmo depois que \texttt{var1} recebe
 outro valor, a não ser que o programador escreva de novo a atribuição da
-soma~--- a atualização de \texttt{var3} é manual \cite[p. 52:3]{bainomugisha2013}.
+soma \cite[p. 52:3]{bainomugisha2013}.
 Na \gls{pr}, \texttt{var3} se recalcula a cada alteração de \texttt{var1} ou de \texttt{var2},
 como numa planilha eletrônica, em que alterar o valor de uma célula
 recalcula as fórmulas que dependem dela \cite[p. 52:1-3]{bainomugisha2013}.
-A \gls{pr} exprime assim, de modo declarativo, um comportamento que, de
-outro modo, seria complexo \cite[p. 1125]{salvaneschi2017}.
+Assim, um comportamento que, de outro modo, seria complexo se exprime de modo
+declarativo \cite[p. 1125]{salvaneschi2017}.
 O programador não precisa cuidar da ordem dos eventos nem das dependências
 entre as computações \cite[p. 52:2]{bainomugisha2013}.
 Num experimento controlado com 127 estudantes, quem leu programas escritos
@@ -83,10 +87,10 @@ que os mostra.
 \notamudou{A montagem da tela, que o projeto deixou de fora, \textbf{passa a fazer parte da notação}.}
 Nas tecnologias que este trabalho compara, há três modelos de
 programação, dois deles declarativos.
-No \emph{imperativo por atualização manual}, o programador escreve \emph{callbacks}
-que alteram o estado e atualizam a tela por efeitos colaterais
-\cites[][ p. 93]{disch2025}[][ p. 229]{oney2012}[][ p. 28]{sperber2025}, como nos Web Components sem
-biblioteca \cite{mozilla2026}.
+No \emph{imperativo por atualização manual}, o programador escreve, nos
+\emph{callbacks}, a alteração do estado e a atualização da tela
+\cites[][ p. 93]{disch2025}[][ p. 229]{oney2012}[][ p. 28 e 32]{sperber2025}, como
+nos Web Components sem biblioteca \cite{mozilla2026}.
 
 Nos declarativos, o programador descreve a tela em função do estado, e o
 ambiente de execução a mantém atualizada
@@ -187,8 +191,7 @@ A medida, neste trabalho, é a avaliação pelas \glspl{dc}.
 Aqui, as técnicas são os três modelos de programação, e a amostra, cinco
 interfaces gráficas.
 Cada uma traz as exigências de coordenação que a aplicação real costuma ter, nos dois
-eixos da programação de interfaces: a orquestração de eventos e o
-gerenciamento de estado.
+eixos da coordenação.
 
 As cinco interfaces são implementadas na web por uma tecnologia de cada modelo de
 programação, Web Component, React e Solid, e três delas também pelo Lit,

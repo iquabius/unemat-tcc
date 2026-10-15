@@ -1,7 +1,7 @@
 #+title: sperber2025: Sperber e Schlegel (2025), Evolution of Functional UI Paradigms
 #+startup: overview
 
-* [[file:../intro.org::Este trabalho compara /modelos de programação/][intro: Este trabalho compara modelos de programação]], p. 28 (o imperativo)
+* [[file:../intro.org::Este trabalho compara /modelos de programação/][intro: Este trabalho compara modelos de programação]], p. 28 e 32 (o imperativo)
 - Frase: a mesma do disch2025 acima, na mesma citação; Sperber e Schlegel
   sustentam que, no imperativo, o código do programador atualiza a tela,
   o que dá nome ao rótulo, ao lado de “update the view manually” e
@@ -14,7 +14,10 @@
   generates the update code automatically” (p. 32, Angular, Svelte e Vue)
 - Lido em: =tmp/fontes/sperber2025.pdf=, p. 2 e 6 do PDF (p. 28 e 32).
 - Observação: o rótulo “imperativo por atualização manual” é do trabalho
-  (decisão do autor em 2026-10-14); nenhuma fonte usa a expressão.
+  (decisão do autor em 2026-10-14); nenhuma fonte usa a expressão. Em
+  2026-10-15, a citação ganhou a p. 32, que sustenta “o programador
+  escreve [...] a atualização da tela” (“implement the update logic
+  manually”).
 - Conferido: 2026-10-14.
 * [[file:../intro.org::Nos declarativos, o programador descreve a tela][intro: Nos declarativos, o programador descreve a tela]], p. 32
 - Frase: “Nos declarativos, o programador descreve a tela em função do

@@ -2,11 +2,13 @@
 #+startup: overview
 
 * [[file:../intro.org::Este trabalho compara /modelos de programação/][intro: Este trabalho compara modelos de programação]], p. 93
-- Frase: “No /imperativo por atualização manual/, o programador escreve
-  /callbacks/ que alteram o estado e atualizam a tela por efeitos
-  colaterais (Disch; Heegaard; Bahr, 2025, p. 93; Oney; Myers; Brandt,
-  2012, p. 229; Sperber; Schlegel, 2025, p. 28) [...]” (Disch sustenta o
-  estado)
+- Frase: “No /imperativo por atualização manual/, o programador escreve,
+  nos /callbacks/, a alteração do estado e a atualização da tela (Disch;
+  Heegaard; Bahr, 2025, p. 93; Oney; Myers; Brandt, 2012, p. 229; Sperber;
+  Schlegel, 2025, p. 28 e 32) [...]” (Disch sustenta o estado alterado
+  nos /callbacks/). Em 2026-10-15, “por efeitos colaterais” saiu, a pedido
+  do autor, e a frase passou a dizer o que o programador escreve (=AGENTS.md=,
+  “O programador escreve, e o programa executa”).
 - Trecho: “Most modern GUI frameworks use an imperative programming model
   that is based on shared mutable state that is read and updated via
   callback functions.” (introdução, logo depois do resumo)

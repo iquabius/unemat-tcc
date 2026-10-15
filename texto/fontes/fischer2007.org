@@ -1,21 +1,26 @@
 #+title: fischer2007: Fischer et al. (2007), Tasks: Language Support for Event-Driven Programming
 #+startup: overview
 
-* [[file:../intro.org::As interfaces gráficas costumam ter estado][intro: As interfaces gráficas costumam ter estado]], p. 134
-- Frase: “[...] e essa forma afeta a compreensão e a manutenção do programa
-  (Fischer; Majumdar; Millstein, 2007, p. 134).”
+* [[file:../intro.org::O desenvolvimento de interfaces gráficas é difícil][intro: O desenvolvimento de interfaces gráficas é difícil]], p. 134
+- Frase: “Além disso, a forma de escrever a interface, que o programador
+  escolhe junto com a tecnologia, afeta a compreensão e a manutenção do
+  programa (Fischer; Majumdar; Millstein, 2007, p. 134).”
 - Trecho: “the event-driven style severely complicates program maintenance
   and understanding”.
 - Lido em: =tmp/fontes/fischer2007-tasks-language-support-for-event-driven-programming.pdf=,
   p. 1 do PDF.
 - Observação: afirmação dos autores, sem medição; a medição da compreensão
-  está em Salvaneschi et al. (2017), no §6.
+  está em Salvaneschi et al. (2017), no parágrafo da PR. A oração “que o
+  programador escolhe junto com a tecnologia” é do texto, sem fonte. A
+  frase veio do parágrafo do estado para o da dificuldade em 2026-10-14.
 - Conferido: 2026-10-09.
-* [[file:../intro.org::O recurso predominante para propagar eventos][intro: O recurso predominante para propagar eventos é o callback]], p. 134-135
+* [[file:../intro.org::No navegador, as sub-rotinas desse código][intro: No navegador, as sub-rotinas desse código]], p. 134-135
 - Frase: “O /callback/ fragmenta o fluxo de controle: a sequência de passos
   que o programador tem em mente para uma operação fica dividida entre
-  vários /callbacks/, o que dificulta a manutenção e a compreensão do
-  programa.”
+  vários /callbacks/ (Fischer; Majumdar; Millstein, 2007, p. 134-135).” Em
+  2026-10-14, “o que dificulta a manutenção e a compreensão do programa”
+  saiu: a consequência fica no parágrafo da dificuldade, com o mesmo
+  trecho do resumo (p. 134).
 - Trecho: “the event-driven style severely complicates program maintenance
   and understanding, as it requires each logical flow of control to be
   fragmented across multiple independent callbacks.” (resumo, p. 134);

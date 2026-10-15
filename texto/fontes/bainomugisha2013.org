@@ -30,11 +30,14 @@
 - Frase: “Com =var1= igual a 1, =var2= igual a 2 e =var3 = var1 + var2=,
   a programação imperativa guarda 3 em =var3= mesmo depois que =var1=
   recebe outro valor, a não ser que o programador escreva de novo a
-  atribuição da soma~--- a atualização de =var3= é manual (Bainomugisha et
-  al., 2013, p. 52:3).” “Escreva” separa quem escreve a atribuição, o
-  programador, de quem a executa, o programa; “manual” ecoa o nome do
-  imperativo por atualização manual (decisão do autor em 2026-10-14). A metade da PR está na frase
-  seguinte, com a planilha (entrada anterior).
+  atribuição da soma (Bainomugisha et al., 2013, p. 52:3).” “Escreva”
+  separa quem escreve a atribuição, o programador, de quem a executa, o
+  programa. O travessão “a atualização de =var3= é manual” saiu em
+  2026-10-15 (decisão do autor): “manual” qualifica a escrita, e a
+  definição do imperativo por atualização manual já diz que o programador
+  escreve a atualização (=AGENTS.md=, “O programador escreve, e o programa
+  executa”). A metade da PR está na frase seguinte, com a planilha
+  (entrada anterior).
 - Trecho: “In conventional sequential imperative programming, the value of
   the variable var3 will always contain 3, which is the sum of the initial
   values of variables var1 and var2 even when var1 or var2 is later
@@ -102,4 +105,18 @@
   PDF (cabeçalho “:2”).
 - Observação: a página era “p. 1-2”, a paginação do /preprint/; os dois
   trechos estão na folha 52:2, no formato que o resto do texto usa.
+- Conferido: 2026-10-15.
+* [[file:../intro.org::Cada toque num aplicativo de celular, clique][intro: Cada toque num aplicativo de celular, clique]], p. 52:2 (a ordem de chegada)
+- Frase: “Esses eventos chegam numa ordem que o programador não escolhe nem
+  pode prever (Bainomugisha et al., 2013, p. 52:2).”
+- Trecho: “it is impossible to predict or control the order of arrival of
+  external events and as such control jumps around event handlers as the
+  outside environment changes unexpectedly” (p. 52:2)
+- Lido em: =tmp/fontes/bainomugisha2013.pdf=, versão dos autores, p. 2 do
+  PDF (cabeçalho “:2”).
+- Observação: dá o porquê da “orquestração de eventos” antes do tema, no
+  fim do primeiro parágrafo, o dos eventos (pedido do autor em
+  2026-10-15). A seção 2
+  (=prog.org=) usa a mesma passagem; a frase de lá deve variar para não
+  repetir esta.
 - Conferido: 2026-10-15.

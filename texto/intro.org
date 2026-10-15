@@ -2,55 +2,59 @@
 
 #+LATEX: \notalegenda{Em azul, o que mudou desde o projeto de 2017; em laranja, uma pergunta, junto do trecho realçado.}
 
+Cada toque num aplicativo de celular, clique num programa de computador ou
+tecla digitada num /site/ gera um evento, que o programa precisa aceitar a
+qualquer momento, mesmo enquanto executa outros comandos
+[[cite:myers1994][p. 79]].
+Nem todo evento vem do usuário: a chegada de um pacote da rede e o tique do
+relógio também são eventos, e cada evento faz rodar a parte do programa que
+responde a ele [[cite:krishnamurthi2019][p. N]].
+Esses eventos chegam numa ordem que o programador não escolhe nem pode
+prever [[cite:bainomugisha2013][p. 52:2]].
+
 O desenvolvimento de interfaces gráficas é difícil por natureza
 [[cite:myers1994][p. 73]].
-O programa precisa aceitar os eventos de entrada a qualquer
-momento, mesmo enquanto executa outros comandos [[cite:myers1994][p. 79]].
-Como [[textcite:kiss2014][p. 5]], este trabalho deixa de lado, apesar da
+Uma das razões é o código escrito do avesso (/inside-out/), dividido em
+sub-rotinas que o /toolkit/ chama quando ocorrem ações do usuário
+[[cite:myers1994][p. 75 e 79]].
+Além disso, a forma de escrever a interface, que o programador escolhe junto
+com a tecnologia, afeta a compreensão e a manutenção do programa
+[[cite:fischer2007][p. 134]].
+Como [[textcite:kiss2014][p. 5]], este trabalho não aborda, apesar da
 importância, o projeto da interface e a usabilidade dela para quem a usa, e
-trata de como programá-la.
+trata do desenvolvimento de interfaces do ponto de vista da programação.
 
-Cada toque num aplicativo de celular, clique num programa de computador ou
-tecla digitada num /site/ gera um evento, que o programa precisa tratar sem
-deixar de responder ao usuário.
+As interfaces gráficas costumam ter estado, e essa é uma das principais
+diferenças entre a programação de interfaces e a dos outros programas: o
+estado da aplicação determina a aparência e o comportamento da tela
+[[cite:oney2012][p. 230]].
+Com ele, elas lembram informações [[cite:vanroy2009][p. 14]], como os valores
+digitados nos campos [[cite:madsen2020][12:3]].
+O desafio do programador é escrever, no código, como o estado passa de um
+evento a outro [[cite:krishnamurthi2019][p. N]].
 Programar interfaces exige montar os elementos gráficos na tela e
 coordená-los com o resto do programa.
-É preciso orquestrar eventos de diferentes fontes, como as teclas digitadas e
-as respostas de uma busca, e levar cada alteração de estado aos valores que
+Essa coordenação, tema desta pesquisa, tem dois eixos: a orquestração de
+eventos de diferentes fontes, como as teclas digitadas e as respostas de uma
+busca, e o gerenciamento de estado, que leva cada alteração aos valores que
 dependem dela e à tela.
-Essa coordenação é o tema deste trabalho.
 
-As interfaces gráficas costumam ter estado: lembram informações, como o que o
-usuário já fez [[cites:&myers1994 p. 79;&vanroy2009 p. 14]].
-Num programa orientado a eventos, cada evento, seja a tecla digitada, o
-toque na tela, a requisição web, a chegada de um pacote da rede ou o
-tique do relógio, faz rodar uma parte do programa em resposta
-[[cite:krishnamurthi2019][p. N]].
-O desafio do programador é organizar como o estado passa de um evento a
-outro [[cite:krishnamurthi2019][p. N]].
-Uma das principais diferenças entre a programação de interfaces e a dos outros
-programas é que o estado da aplicação determina a aparência e o comportamento da
-tela [[cite:oney2012][p. 230]].
-Outra é o código escrito do avesso (/inside-out/), dividido em sub-rotinas que
-o /toolkit/ chama quando ocorrem ações do usuário [[cite:myers1994][p. 79]].
-Além disso, ao escolher uma tecnologia, o programador escolhe também a forma de
-escrever a interface, e essa forma afeta a compreensão e a manutenção do
-programa [[cite:fischer2007][p. 134]].
-
-O recurso predominante para propagar eventos é o /callback/, também chamado
-de /listener/: um bloco de código que roda sempre que um dado evento ocorre
-[[cite:blackheath2016][p. 7]].
-Registrá-lo num produtor, que o chama de volta a cada ocorrência, é o
-/Observer Pattern/ [[cite:blackheath2016][p. 7]].
+No navegador, as sub-rotinas desse código do avesso são /callbacks/: funções
+passadas como argumento a outra função, que as chama na hora ou mais tarde
+[[cite:gallaba2015][p. 1-2]].
+Em média, uma em cada dez funções definidas em programas JavaScript recebe um
+/callback/ [[cite:gallaba2015][p. 1]].
+A forma tradicional de implementar programas que reagem a eventos é o
+/Observer Pattern/, que separa os observadores, que consomem os eventos, dos
+observáveis, que os produzem [[cite:salvaneschi2015][p. 953]].
 O /callback/ fragmenta o fluxo de controle: a sequência de passos que o
 programador tem em mente para uma operação fica dividida entre vários
-/callbacks/, o que dificulta a manutenção e a compreensão do programa
-[[cite:fischer2007][p. 134-135]].
+/callbacks/ [[cite:fischer2007][p. 134-135]].
 Como não se sabe em que ordem os /callbacks/ serão chamados, coordenar as
 alterações ao estado compartilhado pode ser desconcertante e está longe de ser
 modular [[cite:edwards2009][p. 926]].
-Os /callbacks/ que alteram o [[gls:dom]] por efeitos colaterais muitas vezes
-levam a um código interdependente, opaco e propenso a erros, o chamado código
+Os /callbacks/ que alteram o [[gls:dom]] muitas vezes levam o programador a
+escrever um código interdependente, opaco e propenso a erros, o chamado código
 espaguete [[cite:oney2012][p. 229]].
 
 Uma alternativa ao /callback/ é a [[gls:pr]].
@@ -60,12 +64,12 @@ atualizações que elas exigem.
 Com =var1= igual a 1, =var2= igual a 2 e =var3 = var1 + var2=, a
 programação imperativa guarda 3 em =var3= mesmo depois que =var1= recebe
 outro valor, a não ser que o programador escreva de novo a atribuição da
-soma~--- a atualização de =var3= é manual [[cite:bainomugisha2013][p. 52:3]].
+soma [[cite:bainomugisha2013][p. 52:3]].
 Na [[gls:pr]], =var3= se recalcula a cada alteração de =var1= ou de =var2=,
 como numa planilha eletrônica, em que alterar o valor de uma célula
 recalcula as fórmulas que dependem dela [[cite:bainomugisha2013][p. 52:1-3]].
-A [[gls:pr]] exprime assim, de modo declarativo, um comportamento que, de
-outro modo, seria complexo [[cite:salvaneschi2017][p. 1125]].
+Assim, um comportamento que, de outro modo, seria complexo se exprime de modo
+declarativo [[cite:salvaneschi2017][p. 1125]].
 O programador não precisa cuidar da ordem dos eventos nem das dependências
 entre as computações [[cite:bainomugisha2013][p. 52:2]].
 Num experimento controlado com 127 estudantes, quem leu programas escritos
@@ -85,10 +89,10 @@ programas com o /Observer Pattern/ [[cite:salvaneschi2017][p. 1125-1134]].
   @@latex:\notamudou{A montagem da tela, que o projeto deixou de fora, \textbf{passa a fazer parte da notação}.}@@
   Nas tecnologias que este trabalho compara, há três modelos de
   programação, dois deles declarativos.
-  No /imperativo por atualização manual/, o programador escreve /callbacks/
-  que alteram o estado e atualizam a tela por efeitos colaterais
-  [[cites:&disch2025 p. 93;&oney2012 p. 229;&sperber2025 p. 28]], como nos Web Components sem
-  biblioteca cite:mozilla2026.
+  No /imperativo por atualização manual/, o programador escreve, nos
+  /callbacks/, a alteração do estado e a atualização da tela
+  [[cites:&disch2025 p. 93;&oney2012 p. 229;&sperber2025 p. 28 e 32]], como
+  nos Web Components sem biblioteca cite:mozilla2026.
 
   Nos declarativos, o programador descreve a tela em função do estado, e o
   ambiente de execução a mantém atualizada
@@ -187,8 +191,7 @@ programas com o /Observer Pattern/ [[cite:salvaneschi2017][p. 1125-1134]].
   Aqui, as técnicas são os três modelos de programação, e a amostra, cinco
   interfaces gráficas.
   Cada uma traz as exigências de coordenação que a aplicação real costuma ter, nos dois
-  eixos da programação de interfaces: a orquestração de eventos e o
-  gerenciamento de estado.
+  eixos da coordenação.
 
   As cinco interfaces são implementadas na web por uma tecnologia de cada modelo de
   programação, Web Component, React e Solid, e três delas também pelo Lit,

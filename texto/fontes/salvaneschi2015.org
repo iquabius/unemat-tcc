@@ -11,3 +11,17 @@
   change.”
 - Lido em: =tmp/fontes/salvaneschi2015.pdf=, p. 1 do PDF (p. 953).
 - Conferido: 2026-10-06.
+* [[file:../intro.org::No navegador, as sub-rotinas desse código][intro: No navegador, as sub-rotinas desse código]], p. 953 (o Observer Pattern)
+- Frase: “A forma tradicional de implementar programas que reagem a eventos
+  é o /Observer Pattern/, que separa os observadores, que consomem os
+  eventos, dos observáveis, que os produzem (Salvaneschi; Margara;
+  Tamburrelli, 2015, p. 953).”
+- Trecho: “The traditional approach to implement reactive applications is
+  the Observer design pattern that decouples event consumers (observers)
+  from event producers (observables).” (p. 953)
+- Lido em: =tmp/fontes/salvaneschi2015.pdf=, p. 1 do PDF (p. 953).
+- Observação: “programas que reagem a eventos” traduz /reactive
+  applications/, para não usar “reativo” fora da PR (=AGENTS.md=,
+  preferências do autor). A forma das orações relativas vem da opção que o
+  autor preferiu em 2026-10-15.
+- Conferido: 2026-10-15.
