@@ -40,18 +40,29 @@ denominadas /linguagens imperativas/.
   # processos
   # -> sintaxe
   # -> semântica
-  Linguagens imperativas geralmente oferecem comandos para lidar com estado em
-  tempo de execução, como declaração e atribuição de variáveis, e comandos
-  para controlar o caminho que o programa deve seguir, como os que decidem a
-  ordem de execução das sentenças — na literatura essa ordem é chamada de
-  /fluxo de controle/ de um programa.
-
   # -> estado
-  Durante sua execução o programa segue um caminho de acordo com seu /estado/
-  interno — ou /memória/, o que um programa se lembra enquanto está ‘rodando’.
-  Programas com estado interno, ou /statefull/ em inglês, são projetados para
-  lembrar de eventos anteriores ou de interações com o usuário.
-  A informação recordada é denominada o estado do programa cite:rouse2005.
+  Um programa orientado a eventos reage ao que acontece no ambiente externo: o
+  clique num botão, a tecla digitada, a mensagem do servidor
+  [[cite:madsen2017][p. 86:1]].
+  A reação depende também do /estado/ da aplicação, que determina a
+  aparência e o comportamento dela [[cite:oney2012][p. 230]].
+  Uma barra de ferramentas, por exemplo, fica encaixada acima da área de
+  trabalho até que o usuário a segure pelo topo, gesto que muda o estado
+  dela: a barra se solta e passa a seguir o mouse [[cite:oney2012][p. 230]].
+
+  # -> imperativo e declarativo
+  Nas linguagens imperativas, esse estado é implícito e muda por comandos,
+  como a atribuição de um valor a uma variável [[cite:hudak1989][p. 361]].
+  Por isso, para controlar o estado com precisão e de forma determinística,
+  elas costumam fixar a ordem em que os comandos se executam
+  [[cite:hudak1989][p. 361]].
+  Para [[textcite:edwards2009][p. 929]], boa parte desse sequenciamento manual
+  pode ser feita automaticamente, ao menos nas aplicações interativas.
+  Nas linguagens declarativas, não há estado implícito, e o programa se
+  escreve com expressões [[cite:hudak1989][p. 361]].
+  A programação declarativa costuma ser descrita como a que expressa “o
+  quê” e não “o como” da computação, embora a diferença seja de grau
+  [[cite:hudak1989][p. 361]].
 
 * Paradigmas e modelos de programação
   @@latex:\todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}@@

@@ -8,3 +8,18 @@
   proper error handling” (resumo, p. 86:1).
 - Lido em: =tmp/fontes/madsen2017.pdf=, p. 1 do PDF (p. 86:1).
 - Conferido: 2026-10-07.
+* [[file:../prog.org::Um programa orientado a eventos reage ao][prog: Um programa orientado a eventos reage ao]], p. 86:1 (fontes de eventos)
+- Frase: “Um programa orientado a eventos reage ao que acontece no
+  ambiente externo: o clique num botão, a tecla digitada, a mensagem do
+  servidor (Madsen; Lhoták; Tip, 2017, p. 86:1).”
+- Trecho: “Events are typically emitted in response to some external
+  activity, e.g., a button being clicked by a user, or a network response
+  arriving, and enqueued for processing.” (p. 86:1)
+- Lido em: =tmp/fontes/madsen2017.pdf=, p. 1 do PDF (p. 86:1).
+- Observação: “o que acontece no ambiente externo” traduz /external activity/. A
+  tecla digitada e a mensagem do servidor são exemplos do texto, no lugar
+  da /network response/ da fonte: “mensagem” cobre também o que o servidor
+  empurra sem pedido, como o /WebSocket/ da interface Dados ao vivo
+  (Meijer, 2012, p. 66-67). “Do servidor” é a forma das fontes brasileiras
+  (=docs/problema-lacuna-pergunta.md=, seção 2.1).
+- Conferido: 2026-10-14.

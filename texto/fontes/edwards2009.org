@@ -12,3 +12,19 @@
 - Lido em: =tmp/fontes/edwards2009-coherent-reaction.pdf=, p. 2 do PDF;
   p. 926 calculada pelo início dos anais (925).
 - Conferido: 2026-10-06.
+* [[file:../prog.org::Nas linguagens imperativas, esse estado é][prog: Nas linguagens imperativas, esse estado é]], p. 929
+- Frase: “Para Edwards (2009, p. 929), boa parte desse sequenciamento
+  manual pode ser feita automaticamente, ao menos nas aplicações
+  interativas.”
+- Trecho: “This paper suggests that much of the manual sequencing of
+  actions that is the crux of imperative programming is an accidental
+  complexity [2], and that coherent execution can handle it automatically,
+  at least in the domain of interactive applications.” (p. 929), em que [2]
+  é Brooks, “No silver bullet”, IEEE Computer, 1987.
+- Lido em: =tmp/fontes/edwards2009-coherent-reaction.pdf=, p. 5 do PDF;
+  p. 929 calculada pelo início dos anais (925).
+- Observação: a frase veio da introdução, de onde saiu no corte de
+  2026-10-14. A atribuição narrativa marca a proposta de Edwards (“This
+  paper suggests”). A frase omite a “accidental complexity” de Brooks, que
+  liga o sequenciamento manual à tese de Moseley e Marks (2006).
+- Conferido: 2026-10-14.

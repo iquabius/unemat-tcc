@@ -15,3 +15,47 @@
 - Observação: define o termo no primeiro uso, antes de Oney, Myers e
   Brandt (2012) e do §8, que o usam para os /callbacks/.
 - Conferido: 2026-10-09.
+* [[file:../prog.org::Nas linguagens imperativas, esse estado é][prog: Nas linguagens imperativas, esse estado é]], p. 361 (imperativo)
+- Frase: “Nas linguagens imperativas, esse estado é implícito e muda por
+  comandos, como a atribuição de um valor a uma variável (Hudak, 1989,
+  p. 361).”
+- Trecho: “Imperative languages are characterized as having an implicit
+  state that is modified (i.e., side effected) by constructs (i.e.,
+  commands) in the source language.”; “the assignment statement is a (very
+  common) command, since its effect is to alter the underlying implicit
+  store so as to yield a different binding for a particular variable.”
+  (p. 361)
+- Lido em: =tmp/fontes/hudak1989.pdf=, p. 3 do PDF (p. 361).
+- Conferido: 2026-10-14.
+* [[file:../prog.org::Nas linguagens imperativas, esse estado é][prog: Nas linguagens imperativas, esse estado é]], p. 361 (sequência)
+- Frase: “Por isso, para controlar o estado com precisão e de forma
+  determinística, elas costumam fixar a ordem em que os comandos se
+  executam (Hudak, 1989, p. 361).”
+- Trecho: “As a result, such languages generally have a notion of
+  sequencing (of the commands) to permit precise and deterministic control
+  over the state.” (p. 361)
+- Lido em: =tmp/fontes/hudak1989.pdf=, p. 3 do PDF (p. 361).
+- Observação: “Por isso” traduz o /As a result/, e o propósito, o /to
+  permit precise and deterministic control over the state/. “Fluxo de
+  controle” saiu daqui; a introdução o define (=intro.org=, “O /callback/
+  fragmenta o fluxo de controle”).
+- Conferido: 2026-10-14.
+* [[file:../prog.org::Nas linguagens imperativas, esse estado é][prog: Nas linguagens imperativas, esse estado é]], p. 361 (declarativo)
+- Frase: “Nas linguagens declarativas, não há estado implícito, e o
+  programa se escreve com expressões (Hudak, 1989, p. 361).”
+- Trecho: “In contrast, declarative languages are characterized as having
+  no implicit state, and thus the emphasis is placed entirely on
+  programming with expressions (or terms).” (p. 361)
+- Lido em: =tmp/fontes/hudak1989.pdf=, p. 3 do PDF (p. 361).
+- Conferido: 2026-10-14.
+* [[file:../prog.org::Nas linguagens imperativas, esse estado é][prog: Nas linguagens imperativas, esse estado é]], p. 361 ("o quê" e "o como")
+- Frase: “A programação declarativa costuma ser descrita como a que
+  expressa “o quê” e não “o como” da computação, embora a diferença seja de
+  grau (Hudak, 1989, p. 361).”
+- Trecho: “Functional (in general, declarative) programming is often
+  described as expressing what is being computed rather than how, although
+  this is really a matter of degree.” (p. 361)
+- Lido em: =tmp/fontes/hudak1989.pdf=, p. 3 do PDF (p. 361).
+- Observação: veio da introdução, de onde saiu no corte de 2026-10-14;
+  “costuma ser descrita” traduz o /is often described/.
+- Conferido: 2026-10-14.
