@@ -87,7 +87,7 @@ interfaces que já têm os dois eixos, e o filtro repete a lista derivada da
 Busca.
 Em vez de: a carteira com o total derivado das cotações (decisão de
 2026-10-12), que sai com as cotações (ADR 0002); o bolão tem a mesma
-forma, um valor que o usuário digita e outro que a fonte empurra, que dão
+forma, um valor que o usuário digita e outro que a fonte manda, que dão
 o valor de cada linha e o total, e no protótipo de 2026-10-13, na mesma
 base formatada, custa +40/+29/+34 linhas contra +45/+33/+38 da carteira
 (Web Component, React e Solid), com a mesma distância entre as

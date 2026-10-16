@@ -411,7 +411,7 @@ código de `73a9a11`, e está marcado assim.
 
 **Evento → estado → tela (Formulário).** No Qt Widgets, cada campo liga o
 *signal* `textChanged` ao *slot* `validar`, que relê os textos dos campos,
-recalcula todos os erros e empurra o resultado para a tela
+recalcula todos os erros e manda o resultado para a tela
 (`mostrarErro`, `setEnabled`). É a forma do jQuery e do Views: um
 tratador que revalida o formulário inteiro e escreve em cada elemento. A
 documentação apresenta os *signals* e *slots* como alternativa aos

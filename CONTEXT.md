@@ -479,7 +479,7 @@ Pattern*, em que o observador se registra no observável (Salvaneschi et
 al., 2017)
 
 **Fluxo de eventos**:
-Sequência de valores que chegam com o tempo, empurrados pela fonte; os
+Sequência de valores que chegam com o tempo, mandados pela fonte; os
 operadores de coleção, como filtrar e transformar, aplicam-se a ela
 (Meijer, 2012).
 _Avoid_: *stream* sem tradução; fluxo de dados (é a computação guiada
