@@ -1,4 +1,10 @@
 /* Aparência comum às implementações do Quadro de tarefas, para que só a lógica mude. */
+/* O Web Component esconde elementos com o atributo hidden, mas uma regra
+   de display do autor (como a do .quadro ul) venceria o display: none que
+   o navegador aplica a [hidden]. */
+[hidden] {
+  display: none !important;
+}
 body {
   margin: 0;
   font-family: system-ui, sans-serif;

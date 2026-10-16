@@ -128,73 +128,87 @@ class Cabecalho extends ComponenteDoQuadro {
   }
 }
 
+// Monta a seção uma vez; a cada mudança da loja, troca o título, esvazia
+// a lista e a remonta, e mostra a lista ou o aviso de coluna vazia.
 class ColunaDoQuadro extends ComponenteDoQuadro {
-  constructor() {
-    super();
-    this.addEventListener("click", (evento) => {
-      const botao = (evento.target as Element).closest<HTMLButtonElement>(
-        "button[data-acao]",
-      );
-      if (!botao) return;
-      const id = Number(botao.dataset.id);
-      if (botao.dataset.acao === "arquivar") {
-        this.loja.arquivar(id, this.coluna);
-      } else if (botao.dataset.acao === "mover") {
-        this.loja.mover(id, this.coluna, botao.dataset.para as Coluna);
-      }
-    });
-  }
+  private titulo!: HTMLHeadingElement;
+  private lista!: HTMLUListElement;
+  private aviso!: HTMLParagraphElement;
 
   private get coluna(): Coluna {
     return this.getAttribute("coluna") as Coluna;
   }
 
-  protected atualizar() {
-    const { estado } = this.loja;
-    const { anterior, proxima } = vizinhas(this.coluna);
-    const mover = (para: Coluna | undefined, sinal: string, id: number) =>
-      para
-        ? /* HTML */ `<button
-            type="button"
-            data-acao="mover"
-            data-para="${para}"
-            data-id="${id}"
-            aria-label="Mover ${tarefa(id).titulo} para ${tituloDa(para)}"
-            ${cabeEm(estado, para) ? "" : "disabled"}
-          >
-            ${sinal}
-          </button>`
-        : "<span></span>";
-    const ids = estado[this.coluna];
-    const linhas = ids
-      .map(
-        (id) => /* HTML */ `
-          <li>
-            <span class="titulo">${tarefa(id).titulo}</span>
-            ${mover(anterior, "←", id)} ${mover(proxima, "→", id)}
-            <button
-              type="button"
-              class="arquivar"
-              data-acao="arquivar"
-              data-id="${id}"
-              aria-label="Arquivar ${tarefa(id).titulo}"
-            >
-              Arquivar
-            </button>
-          </li>
-        `,
-      )
-      .join("");
+  protected montar() {
     this.innerHTML = /* HTML */ `
       <section class="coluna">
-        <h2>${textoDaColuna(estado, this.coluna)}</h2>
-        ${
-          ids.length > 0
-            ? `<ul>${linhas}</ul>`
-            : `<p class="aviso">${MENSAGENS.colunaVazia}</p>`
-        }
+        <h2></h2>
+        <ul></ul>
+        <p class="aviso" hidden></p>
       </section>
     `;
+    this.titulo = this.querySelector("h2")!;
+    this.lista = this.querySelector("ul")!;
+    this.aviso = this.querySelector(".aviso")!;
+    this.aviso.textContent = MENSAGENS.colunaVazia;
+  }
+
+  protected atualizar() {
+    const { estado } = this.loja;
+    const ids = estado[this.coluna];
+    const { anterior, proxima } = vizinhas(this.coluna);
+    this.titulo.textContent = textoDaColuna(estado, this.coluna);
+    this.lista.replaceChildren(
+      ...ids.map((id) => this.item(id, anterior, proxima)),
+    );
+    this.lista.hidden = ids.length === 0;
+    this.aviso.hidden = ids.length > 0;
+  }
+
+  private item(
+    id: number,
+    anterior: Coluna | undefined,
+    proxima: Coluna | undefined,
+  ) {
+    const nome = tarefa(id).titulo;
+    const titulo = document.createElement("span");
+    titulo.className = "titulo";
+    titulo.textContent = nome;
+    const arquivar = document.createElement("button");
+    arquivar.type = "button";
+    arquivar.className = "arquivar";
+    arquivar.setAttribute("aria-label", `Arquivar ${nome}`);
+    arquivar.textContent = "Arquivar";
+    arquivar.addEventListener("click", () =>
+      this.loja.arquivar(id, this.coluna),
+    );
+    const item = document.createElement("li");
+    item.append(
+      titulo,
+      this.mover(id, nome, anterior, "←"),
+      this.mover(id, nome, proxima, "→"),
+      arquivar,
+    );
+    return item;
+  }
+
+  // Sem coluna vizinha, um espaço vazio no lugar do botão.
+  private mover(
+    id: number,
+    nome: string,
+    para: Coluna | undefined,
+    sinal: string,
+  ) {
+    if (!para) return document.createElement("span");
+    const botao = document.createElement("button");
+    botao.type = "button";
+    botao.setAttribute("aria-label", `Mover ${nome} para ${tituloDa(para)}`);
+    botao.disabled = !cabeEm(this.loja.estado, para);
+    botao.textContent = sinal;
+    botao.addEventListener("click", () =>
+      this.loja.mover(id, this.coluna, para),
+    );
+    return botao;
   }
 }
 
