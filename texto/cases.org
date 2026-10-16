@@ -28,7 +28,7 @@
     usuário achar cada tarefa na coluna em que a deixou, ao voltar à página
     ou em outra aba;
   - Dados ao vivo: :: valores que uma fonte envia sem o usuário pedir, como
-    o placar de um jogo, a assinatura presa à tela e a pausa, para quem
+    o placar de um jogo, a inscrição presa à tela e a pausa, para quem
     acompanha o painel ler os valores sem que a tabela se atualize.
 
   A orquestração pesa mais na Busca, no Login e nos Dados ao vivo, e o
@@ -37,7 +37,7 @@
   [[textcite:kiss2014][p. 11 e 25]], e acrescenta os campos de nome e de
   e-mail.
   O Login segue o painel de [[textcite:berry2020][p. 534]], e os Dados ao
-  vivo adaptam a placares de jogos as cotações que uma fonte empurra aos
+  vivo adaptam a placares de jogos as cotações que uma fonte manda aos
   clientes, de [[textcite:meijer2012][p. 66]].
 
 ** As tecnologias e os pares

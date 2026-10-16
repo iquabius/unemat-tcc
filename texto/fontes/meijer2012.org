@@ -3,7 +3,7 @@
 
 * [[file:../cases.org::A orquestração pesa mais na Busca][cases: A orquestração pesa mais na Busca]], p. 66
 - Frase: “e os Dados ao vivo adaptam a placares de jogos as cotações que
-  uma fonte empurra aos clientes, de Meijer (2012, p. 66).”
+  uma fonte manda aos clientes, de Meijer (2012, p. 66).”
 - Trecho: “source asynchronously pushing data to its clients”; “push-based
   streams of stock quotes” (p. 66)
 - Lido em: =tmp/fontes/meijer2012-cacm.pdf=, p. 1 do PDF (p. 66).

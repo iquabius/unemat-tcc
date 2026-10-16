@@ -19,7 +19,7 @@
 - Observação: “o que acontece no ambiente externo” traduz /external activity/. A
   tecla digitada e a mensagem do servidor são exemplos do texto, no lugar
   da /network response/ da fonte: “mensagem” cobre também o que o servidor
-  empurra sem pedido, como o /WebSocket/ da interface Dados ao vivo
+  manda sem pedido, como o /WebSocket/ da interface Dados ao vivo
   (Meijer, 2012, p. 66-67). “Do servidor” é a forma das fontes brasileiras
   (=docs/estado-eventos-e-complexidade.md=, seção "De onde vêm").
 - Conferido: 2026-10-14.
