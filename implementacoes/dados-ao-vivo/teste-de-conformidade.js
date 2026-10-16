@@ -8,7 +8,7 @@
 // O tempo é de um relógio falso: o teste troca setTimeout, setInterval e
 // Date.now da página pelos dele e só os faz andar com avancar(ms). O placar
 // depende do segundo do relógio, que começa às 10:00:00 UTC de 2026-10-12.
-// O painel assina a fonte ao abrir a página, com os temporizadores de
+// O painel se inscreve na fonte ao abrir a página, com os temporizadores de
 // verdade: por isso o teste o esconde e o mostra antes de conferir lotes.
 // Entre um disparo e outro, deixa rodar as promises e as mensagens que o
 // React agenda por MessageChannel, fora do relógio falso.
@@ -30,7 +30,7 @@
       });
       return ultimoId;
     }
-    // A assinatura da abertura nasce antes do relógio falso, com o
+    // A inscrição da abertura nasce antes do relógio falso, com o
     // setInterval de verdade: o id que não é dele vai ao clearInterval
     // original, senão o intervalo seguiria disparando fora da página.
     const cancelar = (id) =>
@@ -101,7 +101,7 @@
     [...document.querySelectorAll(".painel tbody tr.alerta")].map((tr) =>
       texto(tr.cells[0]),
     );
-  const assinantes = () => globalThis.contarAssinantes();
+  const inscricoes = () => globalThis.contarInscricoes();
   const r = [];
   const conferir = (nome, obtido, esperado) =>
     r.push(
@@ -136,20 +136,20 @@
 
   try {
     conferir(
-      "1 abre com o painel e uma assinatura",
+      "1 abre com o painel e uma inscrição",
       [
         texto($(".alternar")),
         $(".painel") !== null,
         texto($(".pausa")),
-        assinantes(),
+        inscricoes(),
       ],
       ["Esconder painel", true, "Pausar", 1],
     );
 
     await clicar(".alternar");
     conferir(
-      "2 esconder cancela a assinatura",
-      [$(".painel"), texto($(".alternar")), assinantes()],
+      "2 esconder cancela a inscrição",
+      [$(".painel"), texto($(".alternar")), inscricoes()],
       [null, "Mostrar painel", 0],
     );
 
@@ -161,7 +161,7 @@
         linhas(),
         texto($(".pausa")),
         texto($(".alternar")),
-        assinantes(),
+        inscricoes(),
       ],
       ["Aguardando placares…", semLote, "Pausar", "Esconder painel", 1],
     );
@@ -187,8 +187,8 @@
 
     await clicar(".pausa");
     conferir(
-      "6 pausar cancela a assinatura",
-      [situacao(), texto($(".pausa")), assinantes()],
+      "6 pausar cancela a inscrição",
+      [situacao(), texto($(".pausa")), inscricoes()],
       ["Pausado.", "Retomar", 0],
     );
     await relogio.avancar(7000);
@@ -196,8 +196,8 @@
 
     await clicar(".pausa");
     conferir(
-      "7 retomar assina de novo",
-      [situacao(), texto($(".pausa")), assinantes()],
+      "7 retomar inscreve o painel de novo",
+      [situacao(), texto($(".pausa")), inscricoes()],
       ["", "Pausar", 1],
     );
     // O lote sai 8 s depois do segundo; os gols da pausa contam desde ele.
@@ -219,7 +219,7 @@
     await clicar(".alternar");
     conferir(
       "9 mostrar depois de esconder em pausa começa sem pausa",
-      [situacao(), texto($(".pausa")), linhas(), assinantes()],
+      [situacao(), texto($(".pausa")), linhas(), inscricoes()],
       ["Aguardando placares…", "Pausar", semLote, 1],
     );
 
@@ -227,7 +227,7 @@
     await clicar(".pausa");
     conferir(
       "10 retomar antes do primeiro lote volta a aguardar",
-      [situacao(), assinantes()],
+      [situacao(), inscricoes()],
       ["Aguardando placares…", 1],
     );
 
@@ -236,8 +236,8 @@
       await clicar(".alternar");
     }
     conferir(
-      "11 esconder e mostrar três vezes deixa uma assinatura",
-      assinantes(),
+      "11 esconder e mostrar três vezes deixa uma inscrição",
+      inscricoes(),
       1,
     );
   } finally {

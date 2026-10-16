@@ -3,7 +3,7 @@ import { customElement, state } from "lit/decorators.js";
 import {
   JOGOS,
   MENSAGENS,
-  assinarPlacares,
+  inscreverNosPlacares,
   formatarPlacar,
   formatarTempo,
   golsNovos,
@@ -20,7 +20,7 @@ class PainelDePlacares extends LitElement {
   @state() accessor anterior: Lote | undefined;
   @state() accessor atual: Lote | undefined;
 
-  // Estado da coordenação, fora da tela: a assinatura aberta.
+  // Estado da coordenação, fora da tela: a inscrição aberta.
   private cancelar?: () => void;
 
   // Sem shadow DOM, como o Web Component, para o estilo.css valer.
@@ -30,7 +30,7 @@ class PainelDePlacares extends LitElement {
 
   override connectedCallback() {
     super.connectedCallback();
-    this.assinar();
+    this.inscrever();
   }
 
   // Sem isto, a fonte continua empurrando lotes para um painel fora da página.
@@ -39,15 +39,15 @@ class PainelDePlacares extends LitElement {
     this.cancelar?.();
   }
 
-  private assinar() {
-    this.cancelar = assinarPlacares((lote) => {
+  private inscrever() {
+    this.cancelar = inscreverNosPlacares((lote) => {
       this.anterior = this.atual;
       this.atual = lote;
     });
   }
 
   private alternarPausa() {
-    if (this.pausado) this.assinar();
+    if (this.pausado) this.inscrever();
     else this.cancelar?.();
     this.pausado = !this.pausado;
   }

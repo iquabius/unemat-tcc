@@ -204,7 +204,7 @@ A mudança não se porta para o código da interface em
   DOM*, para o `estilo.css` valer), e o que a interface abre no
   `connectedCallback` e fecha no `disconnectedCallback` herdados, que
   chamam o `super`. O estado da tela leva `@state() accessor`; o da
-  coordenação (a assinatura, o `AbortController`) fica em campo comum. Um
+  coordenação (a inscrição, o `AbortController`) fica em campo comum. Um
   método passado ao `@click` roda com o elemento como `this`, sem `bind`.
 - Os decoradores do Lit são os padrão do TypeScript, com `@customElement`
   no lugar do `customElements.define`. A Vite 8 os deixa sem converter, e
@@ -242,7 +242,7 @@ Playwright nem biblioteca.
   três (medido em 2026-10-12). Se uma versão nova do React falhar só em
   verificações logo depois de um efeito, meça de novo.
 - **Limpeza ao sair da tela.** O `dominio.ts` conta o que está aberto
-  (requisições, relógios, assinaturas) numa função em `globalThis`, como
+  (requisições, relógios, inscrições) numa função em `globalThis`, como
   o `contarAbertos()` do Login, e cada implementação tem um botão que
   esconde e mostra a interface. O teste esconde a interface e confere zero
   **antes** de avançar o relógio: uma requisição esquecida terminaria

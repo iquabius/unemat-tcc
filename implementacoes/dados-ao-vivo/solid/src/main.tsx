@@ -3,7 +3,7 @@ import { render } from "solid-js/web";
 import {
   JOGOS,
   MENSAGENS,
-  assinarPlacares,
+  inscreverNosPlacares,
   formatarPlacar,
   formatarTempo,
   golsNovos,
@@ -18,11 +18,11 @@ function PainelDePlacares() {
   const [lotes, setLotes] = createSignal<{ anterior?: Lote; atual?: Lote }>({});
 
   // O efeito roda de novo quando pausado se altera; o onCleanup cancela a
-  // assinatura antes disso e quando o painel sai da tela.
+  // inscrição antes disso e quando o painel sai da tela.
   createEffect(() => {
     if (pausado()) return;
     onCleanup(
-      assinarPlacares((lote) =>
+      inscreverNosPlacares((lote) =>
         setLotes(({ atual }) => ({ anterior: atual, atual: lote })),
       ),
     );

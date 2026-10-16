@@ -2,8 +2,8 @@ import type { Page } from "playwright";
 import type { Cenas } from "../capturar.mts";
 
 // O placar depende do segundo do relógio, que o capturar.mts fixa. Cada cena
-// esconde e mostra o painel, para a assinatura começar com a cena, e espera
-// os lotes pela tela, e não pelo tempo: o lote sai 1 s depois de assinar.
+// esconde e mostra o painel, para a inscrição começar com a cena, e espera
+// os lotes pela tela, e não pelo tempo: o lote sai 1 s depois da inscrição.
 async function mostrarDeNovo(pagina: Page) {
   await pagina.getByRole("button", { name: "Esconder painel" }).click();
   await pagina.getByRole("button", { name: "Mostrar painel" }).click();

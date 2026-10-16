@@ -1,7 +1,7 @@
 import {
   JOGOS,
   MENSAGENS,
-  assinarPlacares,
+  inscreverNosPlacares,
   formatarPlacar,
   formatarTempo,
   golsNovos,
@@ -41,7 +41,7 @@ class PainelDePlacares extends HTMLElement {
   private pausa!: HTMLButtonElement;
   private celulas = new Map<string, Celulas>();
 
-  // Estado da coordenação: a assinatura aberta (nenhuma em pausa) e o último
+  // Estado da coordenação: a inscrição aberta (nenhuma em pausa) e o último
   // lote mostrado, que dá os gols novos.
   private cancelar?: () => void;
   private ultimo?: Lote;
@@ -69,7 +69,7 @@ class PainelDePlacares extends HTMLElement {
 
     this.pausa.addEventListener("click", () => this.alternarPausa());
     this.situacao.textContent = MENSAGENS.aguardando;
-    this.assinar();
+    this.inscrever();
   }
 
   // Sem isto, a fonte continua empurrando lotes para um painel fora da página.
@@ -77,8 +77,8 @@ class PainelDePlacares extends HTMLElement {
     this.cancelar?.();
   }
 
-  private assinar() {
-    this.cancelar = assinarPlacares((lote) => this.receber(lote));
+  private inscrever() {
+    this.cancelar = inscreverNosPlacares((lote) => this.receber(lote));
   }
 
   private alternarPausa() {
@@ -88,7 +88,7 @@ class PainelDePlacares extends HTMLElement {
       this.pausa.textContent = "Retomar";
       this.situacao.textContent = MENSAGENS.pausado;
     } else {
-      this.assinar();
+      this.inscrever();
       this.pausa.textContent = "Pausar";
       this.situacao.textContent = this.ultimo ? "" : MENSAGENS.aguardando;
     }

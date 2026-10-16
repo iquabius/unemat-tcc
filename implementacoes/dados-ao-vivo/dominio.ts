@@ -83,16 +83,18 @@ export function placaresEm(instante: number): Lote {
   return lote;
 }
 
-// Assinaturas abertas agora, para a limpeza ao sair da tela.
-let assinantes = 0;
+// Inscrições abertas agora, para a limpeza ao sair da tela.
+let inscricoes = 0;
 
 /**
- * Assina a fonte, como quem abre um WebSocket ou um EventSource: a cada
- * INTERVALO_MS a fonte empurra um lote para aoReceber. Devolve a função que
- * cancela a assinatura; chamá-la de novo não faz nada.
+ * Inscreve aoReceber na fonte, como quem abre um WebSocket ou um
+ * EventSource: a cada INTERVALO_MS a fonte empurra um lote para aoReceber.
+ * Devolve a função que cancela a inscrição; chamá-la de novo não faz nada.
  */
-export function assinarPlacares(aoReceber: (lote: Lote) => void): () => void {
-  assinantes++;
+export function inscreverNosPlacares(
+  aoReceber: (lote: Lote) => void,
+): () => void {
+  inscricoes++;
   const intervalo = setInterval(
     () => aoReceber(placaresEm(Date.now())),
     INTERVALO_MS,
@@ -101,16 +103,16 @@ export function assinarPlacares(aoReceber: (lote: Lote) => void): () => void {
   return () => {
     if (!ativa) return;
     ativa = false;
-    assinantes--;
+    inscricoes--;
     clearInterval(intervalo);
   };
 }
 
-/** Assinaturas abertas agora, para o teste de conformidade. */
-export function contarAssinantes(): number {
-  return assinantes;
+/** Inscrições abertas agora, para o teste de conformidade. */
+export function contarInscricoes(): number {
+  return inscricoes;
 }
-Object.assign(globalThis, { contarAssinantes });
+Object.assign(globalThis, { contarInscricoes });
 
 /** "2 × 1", ou "—" antes do primeiro lote. */
 export function formatarPlacar(gols: Gols | undefined): string {

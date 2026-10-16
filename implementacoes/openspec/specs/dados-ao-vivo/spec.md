@@ -4,8 +4,8 @@
 
 Painel de placares de jogos em andamento que uma fonte simulada atualiza
 sozinha a cada segundo, com pausa, adaptado das cotações de Meijer (2012,
-p. 66-67): o painel assina a fonte ao entrar na página, para o usuário
-seguir os jogos sem pedir, e cancela a assinatura ao pausar, para o
+p. 66-67): o painel se inscreve na fonte ao entrar na página, para o usuário
+seguir os jogos sem pedir, e cancela a inscrição ao pausar, para o
 usuário ler a tabela parada, e ao sair dela, para o usuário não gastar
 rede e bateria com um painel que não vê.
 
@@ -14,19 +14,19 @@ rede e bateria com um painel que não vê.
 ### Requirement: Abertura
 
 A interface deve abrir com o painel na página e o botão "Esconder painel".
-O painel assina a fonte ao entrar na página, para o usuário seguir os
+O painel se inscreve na fonte ao entrar na página, para o usuário seguir os
 jogos sem pedir, e mostra uma linha por jogo, na ordem FLA × PAL,
 COR × SAO, GRE × INT e CAM × CRU, com o código, o placar, o tempo, os gols
 novos e o palpite ("1 × 0", "2 × 0", "1 × 0" e "2 × 1"). Antes do primeiro
 lote, o placar, o tempo e os gols novos mostram "—", a situação mostra
 "Aguardando placares…" e o botão de pausa diz "Pausar".
 
-#### Scenario: 1 abre com o painel e uma assinatura
+#### Scenario: 1 abre com o painel e uma inscrição
 
 - **QUANDO** a interface abre
 - **ENTÃO** o painel está na página, e o botão diz "Esconder painel"
 - **E** o botão de pausa diz "Pausar"
-- **E** `contarAssinantes()` dá 1
+- **E** `contarInscricoes()` dá 1
 
 #### Scenario: 3 mostrar começa aguardando
 
@@ -35,12 +35,12 @@ lote, o placar, o tempo e os gols novos mostram "—", a situação mostra
 - **ENTÃO** a situação mostra "Aguardando placares…"
 - **E** as quatro linhas mostram o código, "—" no placar, no tempo e nos gols novos, e o palpite
 - **E** o botão de pausa diz "Pausar", e o outro, "Esconder painel"
-- **E** `contarAssinantes()` dá 1
+- **E** `contarInscricoes()` dá 1
 
 ### Requirement: Lotes da partida
 
-A fonte simulada (`assinarPlacares`) deve empurrar a cada 1 s um lote com
-o minuto e os gols de cada jogo, pelo segundo em que ele sai: a partida
+A fonte simulada (`inscreverNosPlacares`) deve empurrar a cada 1 s um lote
+com o minuto e os gols de cada jogo, pelo segundo em que ele sai: a partida
 anda 1 minuto por segundo e recomeça a cada 100 s; o teste começa às
 10:00:00 UTC de 2026-10-12. A cada lote, o painel mostra o placar
 ("1 × 0"), o tempo ("41'", "Fim" depois do 90) e os gols novos desde o
@@ -81,16 +81,16 @@ que o palpite está certo.
 
 ### Requirement: Pausa
 
-O "Pausar" deve cancelar a assinatura, deixar na tabela os valores do
+O "Pausar" deve cancelar a inscrição, deixar na tabela os valores do
 último lote, mostrar "Pausado." na situação e passar a dizer "Retomar",
 para o usuário ler a tabela parada.
 
-#### Scenario: 6 pausar cancela a assinatura
+#### Scenario: 6 pausar cancela a inscrição
 
 - **DADO** o segundo lote na tela
 - **QUANDO** o usuário clica no "Pausar"
 - **ENTÃO** a situação mostra "Pausado.", e o botão diz "Retomar"
-- **E** `contarAssinantes()` dá 0
+- **E** `contarInscricoes()` dá 0
 
 #### Scenario: 6 em pausa a tabela não muda
 
@@ -100,18 +100,18 @@ para o usuário ler a tabela parada.
 
 ### Requirement: Retomada com os gols da pausa
 
-O "Retomar" deve assinar a fonte de novo e voltar a dizer "Pausar". A
-situação fica vazia se a tabela tem valores, e volta a "Aguardando
-placares…" se não tem. Os gols novos do lote seguinte contam desde o
-último lote mostrado da mesma partida, para o usuário ver os gols marcados
-durante a pausa.
+O "Retomar" deve inscrever o painel de novo na fonte e voltar a dizer
+"Pausar". A situação fica vazia se a tabela tem valores, e volta a
+"Aguardando placares…" se não tem. Os gols novos do lote seguinte contam
+desde o último lote mostrado da mesma partida, para o usuário ver os gols
+marcados durante a pausa.
 
-#### Scenario: 7 retomar assina de novo
+#### Scenario: 7 retomar inscreve o painel de novo
 
 - **DADO** o painel pausado há 7 s, com o segundo lote na tela
 - **QUANDO** o usuário clica no "Retomar"
 - **ENTÃO** a situação fica vazia, e o botão diz "Pausar"
-- **E** `contarAssinantes()` dá 1
+- **E** `contarInscricoes()` dá 1
 
 #### Scenario: 7 gols novos contam desde o último lote mostrado
 
@@ -126,7 +126,7 @@ durante a pausa.
 - **DADO** o painel que acaba de ser mostrado, pausado antes do primeiro lote
 - **QUANDO** o usuário clica no "Retomar"
 - **ENTÃO** a situação mostra "Aguardando placares…"
-- **E** `contarAssinantes()` dá 1
+- **E** `contarInscricoes()` dá 1
 
 ### Requirement: Situação anunciada
 
@@ -144,16 +144,16 @@ tela anunciá-la sem que ela receba o foco (WCAG 2.2, critério 4.1.3).
 
 O botão "Esconder painel" deve tirar o painel da página e passar a dizer
 "Mostrar painel", que o põe de volta como se a interface abrisse, sem pausa
-nem valores. Fora da página, o painel não deixa assinatura aberta, para o
+nem valores. Fora da página, o painel não deixa inscrição aberta, para o
 usuário não gastar rede e bateria com um painel que não vê:
-`contarAssinantes()`, do domínio, dá 0.
+`contarInscricoes()`, do domínio, dá 0.
 
-#### Scenario: 2 esconder cancela a assinatura
+#### Scenario: 2 esconder cancela a inscrição
 
-- **DADO** o painel na página, com a assinatura aberta
+- **DADO** o painel na página, com a inscrição aberta
 - **QUANDO** o usuário clica no "Esconder painel"
 - **ENTÃO** o painel não está na página, e o botão diz "Mostrar painel"
-- **E** `contarAssinantes()` dá 0
+- **E** `contarInscricoes()` dá 0
 
 #### Scenario: 9 mostrar depois de esconder em pausa começa sem pausa
 
@@ -161,10 +161,10 @@ usuário não gastar rede e bateria com um painel que não vê:
 - **QUANDO** o usuário clica no "Mostrar painel"
 - **ENTÃO** a situação mostra "Aguardando placares…", e o botão de pausa diz "Pausar"
 - **E** as quatro linhas mostram "—" no placar, no tempo e nos gols novos
-- **E** `contarAssinantes()` dá 1
+- **E** `contarInscricoes()` dá 1
 
-#### Scenario: 11 esconder e mostrar três vezes deixa uma assinatura
+#### Scenario: 11 esconder e mostrar três vezes deixa uma inscrição
 
 - **DADO** o painel na página
 - **QUANDO** o usuário clica três vezes no "Esconder painel" e no "Mostrar painel"
-- **ENTÃO** `contarAssinantes()` dá 1
+- **ENTÃO** `contarInscricoes()` dá 1

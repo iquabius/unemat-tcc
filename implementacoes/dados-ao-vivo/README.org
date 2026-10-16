@@ -4,19 +4,19 @@ Painel de placares de jogos em andamento que uma fonte atualiza sozinha,
 sem o usuário pedir. Adapta o caso /push/ de Meijer (2012, p. 66-67), que
 cita as cotações de bolsa empurradas ao cliente e os /WebSockets/ entre as
 fontes, como o Formulário adapta o /Flight Booker/ (ADR 0002). É a
-interface da assinatura presa à tela: o painel assina a fonte ao entrar
+interface da inscrição presa à tela: o painel se inscreve na fonte ao entrar
 na página, para o usuário seguir os jogos sem pedir, e cancela a
-assinatura ao pausar, para o usuário ler a tabela parada, e ao sair dela,
+inscrição ao pausar, para o usuário ler a tabela parada, e ao sair dela,
 para o usuário não gastar rede e bateria com um painel que não vê. A
 reconexão, o bolão e a frequência de atualização entram na segunda
 rodada.
 
 A fonte é simulada em =dominio.ts=, com a forma de um /WebSocket/ ou de um
-=EventSource=: =assinarPlacares(aoReceber)= empurra os lotes e devolve a
-função que cancela a assinatura, o =Closable= de Meijer. O placar depende
+=EventSource=: =inscreverNosPlacares(aoReceber)= empurra os lotes e devolve
+a função que cancela a inscrição, o =Closable= de Meijer. O placar depende
 só do relógio, como num servidor real, para os testes e as capturas se
-repetirem. =contarAssinantes()= diz quantas assinaturas estão abertas,
-para a limpeza ao sair da tela se conferir pela contagem.
+repetirem. =contarInscricoes()= diz quantas inscrições estão abertas, para a
+limpeza ao sair da tela se conferir pela contagem.
 
 As regras, as mensagens e os cenários que o teste de conformidade confere
 estão em =implementacoes/openspec/specs/dados-ao-vivo/spec.md=, a
@@ -31,7 +31,7 @@ rodada edita o =spec.md= direto (=implementacoes/AGENTS.md=).
   confere a ligação. Com uma implementação aberta no navegador, cole o
   arquivo no console. O teste troca os temporizadores e o =Date.now= da
   página por um relógio falso, que só anda quando ele manda, e por isso
-  roda em menos de um segundo; como a assinatura da abertura usa os
+  roda em menos de um segundo; como a inscrição da abertura usa os
   temporizadores de verdade, ele começa escondendo o painel e o mostrando
   de novo. Depois do teste, recarregue a página para os lotes voltarem. As
   cenas das capturas ficam em =cenas.mts=.

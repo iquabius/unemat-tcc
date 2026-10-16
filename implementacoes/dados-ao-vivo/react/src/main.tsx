@@ -3,7 +3,7 @@ import { createRoot } from "react-dom/client";
 import {
   JOGOS,
   MENSAGENS,
-  assinarPlacares,
+  inscreverNosPlacares,
   formatarPlacar,
   formatarTempo,
   golsNovos,
@@ -17,10 +17,10 @@ function PainelDePlacares() {
   // Os dois últimos lotes: o atual dá o placar, o anterior, os gols novos.
   const [lotes, setLotes] = useState<{ anterior?: Lote; atual?: Lote }>({});
 
-  // A limpeza cancela a assinatura ao pausar e ao sair da tela.
+  // A limpeza cancela a inscrição ao pausar e ao sair da tela.
   useEffect(() => {
     if (pausado) return;
-    return assinarPlacares((lote) =>
+    return inscreverNosPlacares((lote) =>
       setLotes(({ atual }) => ({ anterior: atual, atual: lote })),
     );
   }, [pausado]);
