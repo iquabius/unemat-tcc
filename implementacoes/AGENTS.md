@@ -131,8 +131,8 @@ commit.
 Passos do *delta spec*:
 
 1. `npm run openspec -- new change <nome>`, com o nome em português, em
-   *kebab-case*, verbo e objeto (`tirar-espera-da-busca`). Na pasta
-   `implementacoes/openspec/changes/<nome>/`:
+   *kebab-case*, verbo e objeto (`acrescentar-quarentena-ao-login`). Na
+   pasta `implementacoes/openspec/changes/<nome>/`:
    - `proposal.md`: o porquê, com o ADR de origem; o que muda; a interface
      modificada, em `### Modified Capabilities`; o impacto, com as
      tecnologias, os arquivos da interface que citam a regra (como o
