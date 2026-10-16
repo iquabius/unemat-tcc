@@ -2,14 +2,12 @@
 
 Referência. Diz, para cada plataforma do TCC e para os três pares
 candidatos a representar o *desktop*, que modelo de programação cada
-tecnologia cobre e como a notação dela escreve a coordenação, os valores
-derivados e a tela. Serve à tarefa "Representar uma plataforma desktop"
-(tcc-a0w) e às três que implementam e pré-analisam os pares: Swing ×
-JavaFX (tcc-dwg), Windows Forms × WPF (tcc-74m) e Qt Widgets × QML
-(tcc-jhl). Os números de uso estão em
-`tmp/pesquisa-desktop-java/devlog.md` (coletados em 2026-10-08); a
-pré-análise de cada par entra em `docs/plataformas/desktop.md` quando as
-implementações existirem (a de Swing × JavaFX, em 2026-10-09).
+tecnologia cobre, e o que comparar dentro do declarativo por atualização
+granular. O detalhe de cada plataforma, com a notação de cada
+tecnologia, está em `docs/plataformas/web.md`,
+`docs/plataformas/android.md` e `docs/plataformas/desktop.md`; as
+bibliotecas de formulário da terceira rodada, em
+`docs/plataformas/bibliotecas-de-formulario.md`.
 
 Os termos seguem o `CONTEXT.md` e o ADR 0021, com as definições e as
 fontes em `docs/paradigma-modelo-e-notacao.md`: o que se compara são três
@@ -83,3 +81,9 @@ O rastreamento automático tem precedente revisado em Vander Zanden et al.
 (2001, TOPLAS, "Automatic Parameter Detection" no Garnet e no Amulet).
 Bainomugisha et al. (2013) não citam JavaFX, WPF nem QML: enquadrá-los
 como "sibling" ou "cousin" seria inferência do TCC.
+
+## Histórico
+
+Até 2026-10-16, esta nota era `docs/plataformas.md` e guardava também as
+seções da web, do Android e dos três pares de *desktop*, que foram para
+as notas de cada plataforma.

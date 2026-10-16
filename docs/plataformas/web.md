@@ -1,13 +1,12 @@
-# Tecnologias web: documentação, uso e opiniões
+# Web: tecnologias, documentação, uso e opiniões
 
-Referência. Literatura cinzenta sobre as tecnologias web do TCC (Web
-Component, jQuery, React, Solid e Angular com RxJS) e as descartadas
-(Svelte, Vue): o que mudou de 2016 a 2026, o modelo de reatividade
-segundo a documentação oficial, as medidas de uso, os artigos não
-acadêmicos e os prós e contras de cada escolha. Sustenta o ADR 0013.
-Veio de `docs/literatura.md` (índice até `ff620ad`), seções 4 e 8, em
-2026-10-10. Cada afirmação sobre ferramenta ou versão leva a data em que
-foi observada.
+Referência. As tecnologias web do TCC e as descartadas (Svelte, Vue): o
+modelo de programação e a montagem da tela, o que mudou de 2016 a 2026,
+o modelo de reatividade segundo a documentação oficial, as medidas de
+uso, os artigos não acadêmicos, os prós e contras de cada escolha e como
+os Web Components sem biblioteca montam a tela; quase tudo é literatura
+cinzenta. Sustenta o ADR 0013. Cada afirmação sobre ferramenta ou versão
+leva a data em que foi observada.
 
 **Conclusão.** A PR virou o modelo padrão de reatividade das principais
 bibliotecas de UI, com os *signals* (seção "O que mudou de 2016 a
@@ -568,3 +567,10 @@ publicado em 2019-04-22 (36 min). Não verificados: o número de
 respondentes da pergunta de *frameworks* no Stack Overflow 2024 e 2025
 (as páginas não o exibem; só nos dados brutos); os *tweets* de Abramov
 sobre *signals* (sem URL registrada; o X exige conta).
+
+## Histórico
+
+Veio de `docs/literatura.md` (índice até `ff620ad`), seções 4 e 8, em
+2026-10-10, como `docs/tecnologias-web.md`. Em 2026-10-16, ganhou o nome
+de agora, paralelo ao das outras plataformas, e a seção "Tecnologias por
+modelo de programação", que estava em `docs/plataformas.md`.

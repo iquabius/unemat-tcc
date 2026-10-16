@@ -1,5 +1,27 @@
 # Desktop: os três pares candidatos
 
+Referência. Os três pares candidatos a representar o *desktop*, Swing ×
+JavaFX, Windows Forms × WPF e Qt Widgets × QML: que modelo de
+programação cada tecnologia cobre, como a notação dela escreve a
+coordenação, os valores derivados e a tela, e a pré-análise de cada par
+implementado. Serve à tarefa "Representar uma plataforma desktop"
+(tcc-a0w) e às três que implementam e pré-analisam os pares: Swing ×
+JavaFX (tcc-dwg), Windows Forms × WPF (tcc-74m) e Qt Widgets × QML
+(tcc-jhl). Os números de uso estão em
+`tmp/pesquisa-desktop-java/devlog.md` (coletados em 2026-10-08).
+
+**Conclusão.** Os três pares repetem a mesma divisão: uma tecnologia de
+eventos, do imperativo por atualização manual, e outra que liga
+propriedades, do declarativo por atualização granular; nenhum cobre o
+declarativo por re-renderização. A célula granular é hipótese a
+conferir: no JavaFX, a pré-análise de 2026-10-09 sustenta o mecanismo
+granular, com as dependências escritas à mão; na QML, a confirma, com o
+rastreamento automático. Só Swing × JavaFX, com a tela do JavaFX montada
+em código Java, mantém a montagem da tela e isola o modelo de
+programação (`docs/plataformas/README.md`, seção "Resumo"). Que tipos de
+exigência de coordenação cada par cobre está em
+`docs/exigencias-de-coordenacao.md`, seção "Cobertura por par".
+
 ## Swing × JavaFX (Java)
 
 | Tecnologia | Modelo de programação | Coordenação | Montagem da tela | Fontes |
@@ -385,3 +407,8 @@ Leitura nossa, de 2026-10-09.
   voltariam a notificar à mão, como no WPF com MVVM; para manter o
   terceiro modelo de programação, ficariam nas expressões da QML. O par
   e o custo são inferência de uma pesquisa de 2026-10-09, não de fonte.
+
+## Histórico
+
+Criada em 2026-10-16 com as seções dos três pares de
+`docs/plataformas.md`, hoje `docs/plataformas/README.md`.

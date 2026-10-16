@@ -1,18 +1,25 @@
-# Kotlin e Java no Android
+# Android: Views, Compose e a linguagem
 
-Referência. Literatura cinzenta sobre Kotlin × Java no Android, que
-sustenta o ADR 0005: os argumentos a favor e contra, as fontes e a
-conferência dos números de adoção. Veio de `docs/literatura.md` (índice
-até `ff620ad`), seção 7, em 2026-10-10 (consultada em 2026-09-26). Cada
-afirmação sobre ferramenta ou versão leva a data em que foi observada.
+Referência. As tecnologias do Android no TCC, Views e Jetpack Compose,
+com o modelo de programação e a montagem da tela de cada uma e a
+hipótese sobre o ambiente de execução do Compose, e a escolha da
+linguagem: a literatura cinzenta sobre Kotlin × Java que sustenta o ADR
+0005, com os argumentos a favor e contra, as fontes e a conferência dos
+números de adoção. Cada afirmação sobre ferramenta ou versão leva a data
+em que foi observada.
 
-**Conclusão.** O Compose é Kotlin-only, e o Google recomenda o Kotlin
-para projetos novos. Os números de adoção vêm do Google e da JetBrains,
-partes interessadas, sem metodologia publicada; "conter código Kotlin"
-não é "escrito em Kotlin". Nos dados brutos da JetBrains de 2025,
-ponderados, o Java ainda é mais usado que o Kotlin entre quem desenvolve
-para Android (55% contra 33% no uso nos últimos 12 meses; seção
-"Conferência dos números"). Tratar como literatura cinzenta no texto.
+**Conclusão.** O Views cobre o imperativo por atualização manual e o
+Compose o declarativo por re-renderização, os dois em Kotlin; pela
+notação, o Compose fica com o React, e pelo ambiente de execução, perto
+do declarativo por atualização granular, hipótese a conferir na
+pré-análise (seção "Hipótese sobre o ambiente de execução do Compose").
+O Compose é Kotlin-only, e o Google recomenda o Kotlin para projetos
+novos. Os números de adoção vêm do Google e da JetBrains, partes
+interessadas, sem metodologia publicada; "conter código Kotlin" não é
+"escrito em Kotlin". Nos dados brutos da JetBrains de 2025, ponderados,
+o Java ainda é mais usado que o Kotlin entre quem desenvolve para
+Android (55% contra 33% no uso nos últimos 12 meses; seção "Conferência
+dos números"). Tratar como literatura cinzenta no texto.
 
 ## Tecnologias por modelo de programação
 
@@ -176,3 +183,13 @@ native tools" em `mobile_target_os`. Sem o peso o Kotlin sobe (36% contra
 da JetBrains por país, linguagem e relação com a empresa. O cálculo está
 em `docs/plataformas/android-jetbrains-2025.py`, que recebe o ZIP ou o
 CSV e imprime os dois valores.
+
+## Histórico
+
+Veio de `docs/literatura.md` (índice até `ff620ad`), seção 7, em
+2026-10-10 (consultada em 2026-09-26), como
+`docs/kotlin-e-java-no-android.md`. Em 2026-10-16, ganhou o nome de
+agora e a seção "Tecnologias por modelo de programação", com a hipótese
+do Compose, que estava em `docs/plataformas.md`; o script que reproduz a
+conferência dos números veio para o lado dela, como
+`docs/plataformas/android-jetbrains-2025.py`.
