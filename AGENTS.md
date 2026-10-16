@@ -41,13 +41,14 @@ As tarefas vivem no [Beads](https://github.com/gastownhall/beads) (`bd`
   `bug` ou `epic`.
 - Toda tarefa nova entra num épico (`bd list -t epic`). As fases andam em
   sequência: a fase N depende da N−1, e o bloqueio passa às filhas, então
-  `bd ready` só mostra a fase em curso. Os épicos fora das fases cuidam
-  do que as fases consomem. Escolha pelo artefato que a tarefa muda:
+  `bd ready` só mostra a fase em andamento. Os épicos fora das fases
+  cuidam do que as fases consomem. Escolha pelo artefato que a tarefa
+  muda:
 
   | A tarefa muda | Épico |
   |---|---|
   | `texto/intro.org`, `docs/metodo-da-avaliacao.md`, `docs/estado-eventos-e-complexidade.md`, `docs/escrita-da-introducao.md` | Fase 1: introdução (`tcc-e2e`) |
-  | a pauta de uma orientação | a fase em curso, a primeira ainda aberta |
+  | a pauta de uma orientação | a fase em andamento, a primeira ainda aberta |
   | `texto/cases.org`, `texto/results.org`, a análise por DC | Fase 2: análise das implementações (`tcc-d40`) |
   | `texto/prog.org`, `docs/programacao-funcional-e-reativa.md`, `docs/trabalhos-relacionados-e-lacuna.md` | Fase 3: capítulo de programação (`tcc-2o8`) |
   | `texto/conclusion.org`, o título, o texto do resumo | Fase 4: fechamento (`tcc-y8x`) |
@@ -131,8 +132,8 @@ As tarefas vivem no [Beads](https://github.com/gastownhall/beads) (`bd`
 - Listar: `bd ready` (abertas e sem bloqueio); `bd list -p 1` (altas);
   `bd list --all -n 0` (todas, com as fechadas); `bd show <id>`.
 - Ao começar uma sessão de trabalho no texto ou no código, leia
-  `bd ready` (a fase em curso e o que está fora das fases) antes de
-  propor o que fazer.
+  `bd ready` (a fase em andamento e o que está fora das fases) antes
+  de propor o que fazer.
 - Worktrees usam o banco do checkout principal; nunca rode `bd init` numa
   worktree. Sessões paralelas esperam a trava do Dolt, sem erro.
 - Não rode `bd dolt push`, `bd sync` nem `bd init` sem o autor pedir: o
