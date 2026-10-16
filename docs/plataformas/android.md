@@ -11,10 +11,10 @@ para projetos novos. Os números de adoção vêm do Google e da JetBrains,
 partes interessadas, sem metodologia publicada; "conter código Kotlin"
 não é "escrito em Kotlin". Nos dados brutos da JetBrains de 2025,
 ponderados, o Java ainda é mais usado que o Kotlin entre quem desenvolve
-para Android (55% contra 33% no uso nos últimos 12 meses; seção 3).
-Tratar como literatura cinzenta no texto.
+para Android (55% contra 33% no uso nos últimos 12 meses; seção
+"Conferência dos números"). Tratar como literatura cinzenta no texto.
 
-## 1. Argumentos
+## Argumentos
 
 | Argumento | Direção | Fontes | Evidência |
 |---|---|---|---|
@@ -38,7 +38,7 @@ Tratar como literatura cinzenta no texto.
 | Várias formas de fazer a mesma coisa (*scope functions*, `it`); curva de aprendizado "moderada" | contra Kotlin | Java Code Geeks 2026-04-08; Koder.ai (s.d.) | opinião |
 | Armadilhas da interoperabilidade: *platform types*, exceções verificadas não verificadas | contra Kotlin em código misto | kotlinlang comparação; Koder.ai | fato |
 
-## 2. Fontes
+## Fontes
 
 Fontes primárias: GOOGLE, *Android's Kotlin-first approach*,
 developer.android.com/kotlin/first (2026-09-22); GOOGLE, *Create a
@@ -66,7 +66,7 @@ TV, *Pesquisa Salarial de Programadores 2026*,
 pesquisa.codigofonte.com.br/2026, /2026/ranking, /2026/area/mobile,
 /2026/linguagem/kotlin e /2026/linguagem/java (2026-09-27; coleta de
 2026-02-23 a 2026-06-09, 17.046 respostas; ressalvas em
-`docs/plataformas/web.md`, seção 3).
+`docs/plataformas/web.md`, seção "Uso").
 
 Artigos de desenvolvedores (opinião, com parcimônia): JACKOWSKI, K.,
 Netguru, 2026-09-23; GIRO, G., Toptal, 2026-05-11; DROSOPOULOU, E., Java
@@ -75,7 +75,7 @@ Code Geeks, 2026-04-08; PARK, D., AndroidDocs, 2026; LOTAREV, I., Adapty,
 Compilation speed*, Keepsafe Engineering (Medium), 2016-09-08 (lido no
 navegador em 2026-09-27; bloqueado para *fetch* em 2026-09-26).
 
-## 3. Conferência dos números (2026-09-26)
+## Conferência dos números
 
 Verificados em 2026-09-26, nos gráficos interativos (valores lidos do
 SVG da página): Stack Overflow 2025, seção "Admired and Desired"

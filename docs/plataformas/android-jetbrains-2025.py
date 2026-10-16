@@ -2,8 +2,9 @@
 """Kotlin × Java entre quem desenvolve para Android, nos dados brutos do
 JetBrains State of Developer Ecosystem 2025.
 
-Reproduz os números da seção 3 de docs/plataformas/android.md e da
-errata de 2026-09-26 no ADR 0005. Só biblioteca padrão.
+Reproduz os números da seção "Conferência dos números" de
+docs/plataformas/android.md e da errata de 2026-09-26 no ADR 0005. Só
+biblioteca padrão.
 
 Fonte: https://resources.jetbrains.com/storage/products/research/DevEco2025/RawData.zip
 (98 MB, CC BY 4.0, arquivos de 2025-10-08; 24.534 respondentes). O

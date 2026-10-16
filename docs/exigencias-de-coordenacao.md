@@ -5,12 +5,12 @@ que as especificações definem nos dois eixos (`CONTEXT.md`), agrupadas em
 tipos, e diz quais tipos cada par de tecnologias cobre na primeira e na
 segunda rodada. Serve de base para comparar outros pares como se comparou
 Views × Compose em `docs/plataformas/README.md`, seção "Hipótese sobre o
-ambiente de execução do Compose (2026-10-15)", e para pesar o equilíbrio
-dos pares. Lido em 2026-10-15 nos `spec.md` de
-`implementacoes/openspec/specs/`, nos ADRs 0002, 0005 e 0029 e nas
-descrições das tarefas da segunda rodada (tcc-32dr, tcc-k9i2, tcc-r29v,
-tcc-buku, tcc-dnk5). Os nomes dos tipos são proposta do agente, revista
-pelo autor em 2026-10-16; nenhum entrou no `CONTEXT.md`.
+ambiente de execução do Compose", e para pesar o equilíbrio dos pares.
+Lido em 2026-10-15 nos `spec.md` de `implementacoes/openspec/specs/`,
+nos ADRs 0002, 0005 e 0029 e nas descrições das tarefas da segunda
+rodada (tcc-32dr, tcc-k9i2, tcc-r29v, tcc-buku, tcc-dnk5). Os nomes dos
+tipos são proposta do agente, revista pelo autor em 2026-10-16; nenhum
+entrou no `CONTEXT.md`.
 
 **Conclusão.** A orquestração de eventos tem sete tipos nas cinco
 interfaces, e o gerenciamento de estado, nove. Nenhum par cobre todos. O
@@ -107,15 +107,17 @@ Leitura nossa, a conferir quando o autor fixar os tipos:
   estado;
 - o Web Component × Lit tem toda a orquestração que a web tem, menos a
   fila, e no estado só o Formulário pesa; o par isola a ligação do estado
-  com a tela (`docs/delineamento.md`, seção 2), e o estado compartilhado
-  fica sem esse contraste;
+  com a tela (`docs/delineamento.md`, seção "O que um par isola"), e o
+  estado compartilhado fica sem esse contraste;
 - o Solid × Angular tem o estado do Formulário e do Quadro e a substituição da
   Busca, mas nenhum relógio nem ciclo de vida preso a um estado; com a
   ordem de corte do ADR 0029, perde primeiro a fila e depois E6 e E9;
 - o Views × Compose cobre o estado nas três interfaces, e a substituição só
   entra se a validação do e-mail a adotar (tcc-k9i2).
 
-## Lacunas nas especificações (2026-10-15)
+## Lacunas nas especificações
+
+Levantadas em 2026-10-15.
 
 - O envio que ignora o reenvio está decidido para a primeira rodada
   (ADRs 0002 e 0005), mas não está no `spec.md` do Formulário; é a

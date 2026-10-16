@@ -15,7 +15,7 @@ Compose, o Maven não publica contagem; no Windows Forms, a maioria das
 candidatas compatíveis são 177 downloads em seis semanas. A única maioria
 estreita é a do Solid (52,9%).
 
-## 1. A regra
+## A regra
 
 Pelo ADR 0031, conta como candidata a biblioteca que guarda o estado do
 formulário ou mostra o erro no campo, compatível com a plataforma da
@@ -38,7 +38,7 @@ Janelas:
   as estatísticas ao publicador); como contexto, os dependentes publicados
   no deps.dev e as estrelas no GitHub.
 
-## 2. Tecnologia → biblioteca e versão
+## Tecnologia → biblioteca e versão
 
 | Tecnologia | Biblioteca e versão (publicação) | Medida | Janela | Fonte |
 |---|---|---|---|---|
@@ -49,7 +49,7 @@ Janelas:
 | Angular com *signals* | `@angular/forms` 22.2.0 (2026-09-23), a mesma do `@angular/core` em `implementacoes/`, com os *Signal Forms* (`form()` de `@angular/forms/signals`) | 23.793.794 downloads, 95,9% das candidatas; a API escolhida pelo ADR 0031, porque a medida não separa as APIs do pacote | npm, 2026-09-12 a 2026-10-11 | api.npmjs.org; `types/_structure-chunk.d.ts` do pacote, `@publicApi 22.0` |
 | Views | API da plataforma: o erro no campo do Material Components (`TextInputLayout.setError`), já em `libs.versions.toml` (`material` 1.14.0) | sem contagem pública | — | developer.android.com, `TextInputLayout` (2026-10-12) |
 | Compose | API da plataforma: `isError` e `supportingText` do `TextField` do Material 3, do BOM 2026.09.00 de `libs.versions.toml` | sem contagem pública | — | `androidx/androidx`, `material3/.../TextField.kt` (ramo `androidx-main`, 2026-10-12) |
-| Windows Forms | API da plataforma: `ErrorProvider` e o evento `Validating` | a maioria das candidatas compatíveis são 177 downloads, sem ecossistema (seção 3.2) | NuGet, seis semanas até 2026-10-12 | learn.microsoft.com, `ErrorProvider` (2026-10-12); `dotnet/winforms`, `ErrorProvider.cs` |
+| Windows Forms | API da plataforma: `ErrorProvider` e o evento `Validating` | a maioria das candidatas compatíveis são 177 downloads, sem ecossistema (seção "NuGet") | NuGet, seis semanas até 2026-10-12 | learn.microsoft.com, `ErrorProvider` (2026-10-12); `dotnet/winforms`, `ErrorProvider.cs` |
 | WPF | `CommunityToolkit.Mvvm` 8.4.2 (2026-03-25), com o `ObservableValidator` (`INotifyDataErrorInfo`) | 3.329.052 downloads, 98,6% das candidatas | NuGet, seis semanas até 2026-10-12 | nuget.org/stats; learn.microsoft.com, *ObservableValidator* (2026-10-12) |
 
 As versões entram nos arquivos de dependência
@@ -57,9 +57,11 @@ As versões entram nos arquivos de dependência
 terceira rodada começar (tcc-0yjr). A plataforma não ganha dependência
 nova no Android, e no Web Component e no Lit a API é a do navegador.
 
-## 3. Candidatas medidas
+## Candidatas medidas
 
-### 3.1 npm, 2026-09-12 a 2026-10-11
+### npm
+
+Janela de 2026-09-12 a 2026-10-11.
 
 Downloads na janela; versão `latest` e data dela no registro em
 2026-10-12. A fração é sobre a soma das candidatas da tecnologia.
@@ -111,7 +113,9 @@ Downloads das tecnologias na mesma janela, para a escala: `react`
 815.576.763 (19.3.0); `@angular/core` 27.227.175 (22.2.2); `solid-js`
 26.673.877 (1.9.17, 2026-10-07); `lit` 31.952.129 (3.3.3).
 
-### 3.2 NuGet, seis semanas até 2026-10-12
+### NuGet
+
+Seis semanas até 2026-10-12.
 
 | Tecnologia | Pacote | Versão | Seis semanas | Total desde a publicação | Fração |
 |---|---|---|---|---|---|
@@ -133,7 +137,7 @@ Kimtoo.ValidationProvider tem a maioria, mas com 177 downloads em seis
 semanas, o que não indica ecossistema; o ADR 0031 declara o caso, e o
 Windows Forms fica com a API da plataforma.
 
-### 3.3 Maven, Android
+### Maven, Android
 
 Sem contagem pública. Dependentes publicados no deps.dev (só pacotes do
 Maven Central, não aplicativos) e repositório no GitHub, em 2026-10-12:
@@ -144,7 +148,7 @@ Maven Central, não aplicativos) e repositório no GitHub, em 2026-10-12:
 | `com.mobsandgeeks:android-saripaar` | anotações nos campos das Views | 2.0.3 (2015-09-18) | 0 | `ragunathjawahar/android-saripaar`, 3.186 estrelas, *push* em 2020-12-03 |
 | `org.valiktor:valiktor-core` | valida objetos | 0.12.0 | 18 (12 diretos) | `valiktor/valiktor`, 446 estrelas, *push* em 2021-12-16 |
 
-## 4. Ressalvas
+## Ressalvas
 
 - **Download não é uso.** O registro conta integração contínua, espelhos e
   dependências transitivas; a medida compara pacotes entre si, não conta
@@ -158,7 +162,7 @@ Maven Central, não aplicativos) e repositório no GitHub, em 2026-10-12:
 - **Janela do NuGet.** São as seis semanas que o nuget.org publica, sem
   datas exatas; a do npm é fixa e se refaz pela mesma URL.
 
-## 5. Fontes
+## Fontes
 
 API de downloads do npm (`api.npmjs.org/downloads/point`) e registro npm
 (`registry.npmjs.org`), consultados em 2026-10-12; busca do npm

@@ -13,7 +13,7 @@ método. Se isso conta como mudança de tema, que o regimento só permite
 com autorização prévia da Coordenação (Anexo III, item 3, p. 17), é
 pergunta da orientação de 2026-10-09 (tcc-y4q, C1).
 
-## 1. O projeto entregue
+## O projeto entregue
 
 Fonte: o repositório `../unemat-projeto-tcc`, com o texto de 2016-04-24 a
 2017-08-07; os commits de 2026-09-23 só consertam a compilação e as
@@ -55,7 +55,7 @@ voo e do Cronômetro vieram depois do projeto, no CodeSandbox
 (`docs/processo/implementacoes-no-codesandbox.md`); as com RxJS e
 xstream entraram no `cases.org` em 2020.
 
-## 2. O que mudou
+## O que mudou
 
 | Item | Projeto de 2017 | TCC em 2026-10-10 |
 |---|---|---|
@@ -77,7 +77,7 @@ Continuam: interfaces gráficas como objeto; o *callback* como problema,
 com as mesmas fontes; a PR como alternativa; as DCs como critério, com
 Kiss (2014) como precedente; a pesquisa exploratória.
 
-## 3. Por que mudou
+## Por que mudou
 
 1. **O lado declarativo se dividiu.** Entre 2017 e 2026, o React adotou
    os *hooks* (2019), o Elm abandonou os *signals* (2016), e os *signals*
@@ -85,7 +85,7 @@ Kiss (2014) como precedente; a pesquisa exploratória.
    Svelte 5 (2024), com proposta de padronização no JavaScript (TC39). A
    re-renderização e a atualização granular são dois modelos de
    programação que 2017 não distinguia (`docs/plataformas/web.md`, seção
-   1).
+   "O que mudou de 2016 a 2026").
 2. **Paradigma não é o que as DCs medem.** Kiss (2014, p. 23) registra,
    no *Temperature Converter*, que "the toolkit dominated this evaluation
    and the paradigms did not come into play"; as DCs avaliam o que se

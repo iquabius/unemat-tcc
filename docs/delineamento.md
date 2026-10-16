@@ -36,7 +36,7 @@ planejamento da pesquisa em sua dimensão mais ampla", incluindo "as
 formas de controle das variáveis envolvidas". O texto não diz "desenho",
 que se confunde com o desenho da tela (`CONTEXT.md`, Delineamento).
 
-## 1. O que fica fixo
+## O que fica fixo
 
 | Variável | Como se controla | De onde vem | Estado em 2026-10-09 |
 |---|---|---|---|
@@ -52,11 +52,11 @@ que se confunde com o desenho da tela (`CONTEXT.md`, Delineamento).
 | Mudança da segunda rodada | a mesma funcionalidade ou o mesmo requisito de orquestração, um por commit, na mesma ordem em todas as tecnologias em que a interface existe; latências, tentativas, prazos e intervalos fixos no domínio | ADR 0029 | a fazer; 11 requisitos, 72 commits |
 | Interfaces por par | Web Component, React e Solid implementam as cinco interfaces; cada outro par, o Formulário e mais duas, fixadas antes, com uma ordem de corte também fixada antes | ADRs 0012 e 0029 | controlado |
 
-## 2. O que um par isola
+## O que um par isola
 
 | Par | Plataforma | Igual nos dois | Diferente | O que isola | De onde vem |
 |---|---|---|---|---|---|
-| Web Component × Lit | web, no Formulário, na Busca e nos Dados ao vivo (nas três rodadas) | modelo de componente (classe que estende `HTMLElement`), esqueleto da tela em HTML num texto, orquestração (`setTimeout` no tratador) | a ligação do estado com a tela: métodos escritos à mão contra `render()` com `${}`; nas partes repetidas e no filho que entra e sai da página, a montagem da tela: `createElement` contra `map` e condicional no *template* | o imperativo contra a re-renderização, na ligação; não a orquestração nem a montagem dessas partes | ADRs 0013 e 0037; seção 4 |
+| Web Component × Lit | web, no Formulário, na Busca e nos Dados ao vivo (nas três rodadas) | modelo de componente (classe que estende `HTMLElement`), esqueleto da tela em HTML num texto, orquestração (`setTimeout` no tratador) | a ligação do estado com a tela: métodos escritos à mão contra `render()` com `${}`; nas partes repetidas e no filho que entra e sai da página, a montagem da tela: `createElement` contra `map` e condicional no *template* | o imperativo contra a re-renderização, na ligação; não a orquestração nem a montagem dessas partes | ADRs 0013 e 0037; seção "O que cada par isola, DC a DC" |
 | React × Solid | web | JSX, linguagem, especificação | modelo de programação; também o dialeto do JSX (`className` e `class`) e `&&` e `.map` contra `<Show>` e `<For>` | o modelo de programação, entre os dois declarativos | ADR 0021; [`plataformas/README.md`, Web](plataformas/README.md#web) |
 | Solid × Angular com *signals* | web, no Formulário, na Busca e no Quadro (nas três rodadas) | modelo de programação (`signal`, `computed`, leitura por chamada) | notação: montagem da tela (JSX numa função, *template*), modelo de componente (classe, decorador, injeção de dependências) e API além do *signal* | a notação como um todo, contra o modelo de programação; os três pontos variam juntos, e a análise os separa pelo sinal escrito | ADR 0021; [`plataformas/README.md`, Web](plataformas/README.md#web) |
 | Views × Compose | Android, no Formulário, no Quadro e nos Dados ao vivo | linguagem, plataforma, especificação | modelo de programação e montagem da tela (*layout* XML, funções) | nenhuma variável sozinha; é o contraste mais próximo entre o imperativo e um declarativo | [`plataformas/README.md`, Android](plataformas/README.md#android); tcc-4ie |
@@ -69,20 +69,22 @@ O par de *desktop* entrou em 2026-10-11 (ADR 0001) e ainda não está no
 texto; o que cada par candidato acrescentava e os custos estão em
 [`plataformas/README.md`](plataformas/README.md).
 
-## 3. O que fica sem controle
+## O que fica sem controle
 
 | Variável | Por que não se controla | Onde o texto diz | Em aberto |
 |---|---|---|---|
-| Imperativo × declarativos na web | o Web Component difere do React e do Solid na coordenação, na montagem da tela e na organização em componentes ao mesmo tempo; a diferença se atribui pelo sinal escrito (coordenação, montagem ou ligação entre as duas) | limitações de `texto/intro.org` | "Decidir como a análise atribui as diferenças entre o imperativo e os declarativos, sem par controlado na web" (tcc-4ie); o par Web Component × Lit cobre o Formulário, a Busca e os Dados ao vivo, e o Login fica sem par (ADR 0013, seção 4) |
-| Representantes por modelo de programação | na web, uma ou duas tecnologias por coluna, conforme a interface: React e Lit no Formulário, na Busca e nos Dados ao vivo; Solid e Angular no Formulário, na Busca e no Quadro; a conclusão generaliza a partir delas, e cada coluna tem outra tecnologia fora da web | limitações; `docs/paradigma-modelo-e-notacao.md`, seção 2 | "Avaliar React × Angular na web, com o Solid só como menção" (tcc-qti, adiada) tiraria o par que isola o modelo de programação |
+| Imperativo × declarativos na web | o Web Component difere do React e do Solid na coordenação, na montagem da tela e na organização em componentes ao mesmo tempo; a diferença se atribui pelo sinal escrito (coordenação, montagem ou ligação entre as duas) | limitações de `texto/intro.org` | "Decidir como a análise atribui as diferenças entre o imperativo e os declarativos, sem par controlado na web" (tcc-4ie); o par Web Component × Lit cobre o Formulário, a Busca e os Dados ao vivo, e o Login fica sem par (ADR 0013; seção "O que cada par isola, DC a DC") |
+| Representantes por modelo de programação | na web, uma ou duas tecnologias por coluna, conforme a interface: React e Lit no Formulário, na Busca e nos Dados ao vivo; Solid e Angular no Formulário, na Busca e no Quadro; a conclusão generaliza a partir delas, e cada coluna tem outra tecnologia fora da web | limitações; `docs/paradigma-modelo-e-notacao.md`, seção "Unidade comparada e evidência: o TCC compara categorias" | "Avaliar React × Angular na web, com o Solid só como menção" (tcc-qti, adiada) tiraria o par que isola o modelo de programação |
 | Bibliotecas da terceira rodada | cada tecnologia usa a biblioteca de formulário do seu ecossistema, e a conclusão se lê como "no ecossistema típico", sem atribuição só ao modelo de programação | ainda não | ADR 0029; tcc-di3a |
 | Divergência dentro da coluna | Solid e Angular, ou React e Lit, nas três interfaces de cada par, podem divergir numa DC | a célula da tabela-síntese registra a divergência | ADR 0017 |
 | Avaliador | uma pessoa só, o autor, que construiu o que avalia, com familiaridade desigual, maior com o React | limitações (Hertzum e Jacobsen 2003, p. 183; Dagit et al. 2006) | — |
 | Origem das implementações | as atuais foram geradas com agentes de IA a partir de implementações de referência do autor, e não se sabe de quais | ainda não | `docs/processo/implementacoes-no-codesandbox.md`; "Escrever a declaração de uso de IA do TCC a partir do histórico do repositório" (tcc-gjw); pauta da orientação de 2026-10-09, ponto A4 |
-| Tamanho das interfaces | pequenas; a segunda rodada as faz crescer por mudanças acrescentadas (ADR 0029), mas o que só aparece em programa grande continua de fora | limitações | Stol e Fitzgerald (2018, p. 11:10) e Green e Blackwell (1998, p. 62), candidatas (`docs/metodo-da-avaliacao.md`, seção 5) |
+| Tamanho das interfaces | pequenas; a segunda rodada as faz crescer por mudanças acrescentadas (ADR 0029), mas o que só aparece em programa grande continua de fora | limitações | Stol e Fitzgerald (2018, p. 11:10) e Green e Blackwell (1998, p. 62), candidatas (`docs/metodo-da-avaliacao.md`, seção "Programas de brinquedo: isolar uma escolha e o limite do tamanho") |
 | Origem do *benchmark* de notação | definido pelo autor em 2026-10-12, com protótipos medidos antes de decidir; o Formulário adapta o 7GUIs, o Login adapta Berry e Serrano (2020), as outras três não têm fonte única | limitações (Sim et al. 2003, p. 76) | o texto ainda descreve as interfaces antigas (tcc-xep) |
 
-## 4. O que cada par isola, DC a DC (leitura de 2026-10-12)
+## O que cada par isola, DC a DC
+
+Leitura de 2026-10-12.
 
 Conclusão: Web Component × Lit e React × Solid pesam o mesmo número de
 DCs, mas isolam contrastes diferentes. Sem o primeiro, os custos dos

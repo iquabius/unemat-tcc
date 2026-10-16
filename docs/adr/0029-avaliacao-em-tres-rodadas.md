@@ -163,5 +163,5 @@ em `tmp/mergulho-tarefas-2026-10-12/`,
 `tmp/prototipos-tarefas-2026-10-12/` e `tmp/prototipos-p2-2026-10-12/`,
 e de 2026-10-13 em `tmp/prototipos-placar-2026-10-13/` (fora do git);
 ADRs 0001, 0002, 0005, 0012, 0013, 0014 e 0017;
-`docs/plataformas/web.md`, seção 2; tarefas tcc-cef, tcc-di3a, tcc-xep e
-tcc-dw83.
+`docs/plataformas/web.md`, seção "O modelo de reatividade segundo a
+documentação oficial"; tarefas tcc-cef, tcc-di3a, tcc-xep e tcc-dw83.

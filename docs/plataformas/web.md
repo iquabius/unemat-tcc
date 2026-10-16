@@ -10,18 +10,19 @@ Veio de `docs/literatura.md` (índice até `ff620ad`), seções 4 e 8, em
 foi observada.
 
 **Conclusão.** A PR virou o modelo padrão de reatividade das principais
-bibliotecas de UI, com os *signals* (seção 1). Em 2026-09-26, o React é
-o mais usado em todas as medidas, e o Solid, que representa o modelo
-declarativo por atualização granular com a mesma JSX do React, tem uso
-pequeno e a maior retenção do State of JS por cinco anos (seções 3 e 5).
-As fontes pedem cuidado no texto: as pesquisas de uso são de amostra
-autosselecionada, e a literatura dos *signals* é escrita por partes
-interessadas (seção 6). Programas reais com Web Components sem
-biblioteca escrevem o esqueleto da tela em HTML (num `<template>` ou num
-texto) e as partes repetidas por `createElement` ou clone de
-`<template>` por item, e quase nunca por HTML num texto com
-`.map().join("")`; nem o MDN nem o web.dev prescrevem uma forma. No
-Web Component do TCC, as partes repetidas se escrevem com
+bibliotecas de UI, com os *signals* (seção "O que mudou de 2016 a
+2026"). Em 2026-09-26, o React é o mais usado em todas as medidas, e o
+Solid, que representa o modelo declarativo por atualização granular com
+a mesma JSX do React, tem uso pequeno e a maior retenção do State of JS
+por cinco anos (seções "Uso" e "Prós e contras de cada escolha do ADR
+0013"). As fontes pedem cuidado no texto: as pesquisas de uso são de
+amostra autosselecionada, e a literatura dos *signals* é escrita por
+partes interessadas (seção "Desvantagens a reconhecer no texto").
+Programas reais com Web Components sem biblioteca escrevem o esqueleto
+da tela em HTML (num `<template>` ou num texto) e as partes repetidas
+por `createElement` ou clone de `<template>` por item, e quase nunca por
+HTML num texto com `.map().join("")`; nem o MDN nem o web.dev prescrevem
+uma forma. No Web Component do TCC, as partes repetidas se escrevem com
 `createElement`, a forma mais comum (seção "Como Web Components sem
 biblioteca montam a tela").
 
@@ -41,7 +42,7 @@ bibliotecas de formulário da terceira rodada, com as medidas do registro
 de 2026-10-12, estão em `docs/plataformas/bibliotecas-de-formulario.md`
 (ADR 0031).
 
-## 1. O que mudou de 2016 a 2026
+## O que mudou de 2016 a 2026
 
 Verificado em fonte primária (documentação oficial, registro npm) ou no
 resumo do artigo.
@@ -60,11 +61,12 @@ resumo do artigo.
   (angular.dev/guide/signals, 2026-09). A PR virou o modelo padrão de
   reatividade das principais bibliotecas de UI.
 - **RxJS e xstream.** RxJS 6 (2018-04), 7 (2021-04), 7.8.2 (2025-02); a
-  *peer dependency* do `@angular/core` está na seção 2. xstream: última
-  versão 11.14.0 em 2020-10, último *commit* em 2022-02.
+  *peer dependency* do `@angular/core` está na seção "O modelo de
+  reatividade segundo a documentação oficial". xstream: última versão
+  11.14.0 em 2020-10, último *commit* em 2022-02.
 - **Uso em 2025.** O React é o mais usado, à frente de jQuery, Angular,
   Vue e Svelte, e o Solid não aparece na tabela do Stack Overflow
-  Developer Survey 2025 (números na seção 3).
+  Developer Survey 2025 (números na seção "Uso").
 - **React é declarativo, mas não totalmente reativo.** *Design Principles*,
   seção *Scheduling* (legacy.reactjs.org): modelo *pull*, o que ancora a
   comparação React × Solid na dimensão push/pull de `bainomugisha2013`.
@@ -73,7 +75,7 @@ A literatura revisada por pares do mesmo período está em
 `docs/bibliografia/programacao-funcional-e-reativa.md`, seção "Fontes
 complementares".
 
-## 2. O modelo de reatividade segundo a documentação oficial
+## O modelo de reatividade segundo a documentação oficial
 
 | Tecnologia | O que a fonte primária diz | Fonte (data de acesso ou de atualização) |
 |---|---|---|
@@ -94,7 +96,7 @@ Datas de versão (registro npm, 2026-09-26): React 18.0.0 2022-03-29,
 opcional; jQuery 3.7.1 2023-08-28, 4.0.0 2026-01-18 (UTC); Svelte 5.0.0
 2024-10-19; Vue 3.5.0 2024-09-03 e 3.6.0-rc.9 (Vapor Mode).
 
-## 3. Uso
+## Uso
 
 Stack Overflow Developer Survey, seção *Web frameworks and technologies*,
 todos os respondentes (2025: 23.678 respostas à pergunta, de mais de
@@ -171,7 +173,7 @@ Outras medidas (2026-09-26):
 | js-framework-benchmark, Chrome 152 (2026), *keyed*, média geométrica ponderada da lentidão em relação à implementação mais rápida (1,00) | vanillajs 1,04; vue-vapor 1,12; solid 1.9.3 1,13; svelte 5.42 1,17; lit 3.2 1,30; vue 3.5 1,31; preact-signals 1,41; angular-cf-signals-nozone 22 1,55; angular-cf 22 1,58; react-hooks 19.2 1,58; react-compiler-hooks 1,63; jQuery não tem implementação | krausest.github.io/js-framework-benchmark; médias recalculadas a partir dos dados brutos da página com os pesos da *wiki* (podem diferir do que o site mostra) |
 | js-framework-benchmark, tamanho comprimido | vanillajs 2,5 kB; solid 4,5; svelte 9,7; vue-vapor 17,6; vue 23,3; angular-cf-signals-nozone 33,9; angular-cf 44,5; react-hooks 51,4 | idem |
 
-## 4. Artigos não acadêmicos mais citados
+## Artigos não acadêmicos mais citados
 
 Com número: dados de medição ou de pesquisa. Sem número: explicação ou
 opinião. Quem escreve é parte interessada quando é autor de uma das
@@ -201,12 +203,12 @@ tecnologias.
 | FRERE, J. | jonathan-frere.com, *Reactivity algorithms*, 2026-03-06 | *Push*, *pull* ("a stack of function calls") e híbrido (marca sujo, recalcula sob demanda); React é *pull* | sem número |
 | TYSON, M. | InfoWorld, 2026-02-12 | No DOM virtual a unidade é o componente; nos *signals*, o valor; O(n) × O(1) | só a afirmação de complexidade |
 | OPENREPLAY | blog.openreplay.com, *SolidJS vs React*, 2025-08-01 | Mesma JSX; componentes do Solid rodam uma vez | "30-40% faster", "2-5x", 40 kB × 7 kB, sem fonte da medição: não citar os números |
-| KRAUSE, S. | GitHub, *js-framework-benchmark* (README e *wiki*, 2026-09-26); *Round 6*, 2017-05-29 | Nove medidas de CPU, memória e tamanho; média geométrica ponderada desde o Chrome 118; jQuery nunca foi implementação oficial (*issue* 126, 2017-02-11) | números na tabela da seção 3; em 2017, React e Angular cerca de 30% acima do vanilla |
+| KRAUSE, S. | GitHub, *js-framework-benchmark* (README e *wiki*, 2026-09-26); *Round 6*, 2017-05-29 | Nove medidas de CPU, memória e tamanho; média geométrica ponderada desde o Chrome 118; jQuery nunca foi implementação oficial (*issue* 126, 2017-02-11) | números na tabela da seção "Uso"; em 2017, React e Angular cerca de 30% acima do vanilla |
 | BHATTACHARYEA, A. | Docker Blog, *Why I still use jQuery in 2025*, 2025-10-17 | jQuery serve a legado e protótipo sem *build*; dentro de React quebra o DOM virtual; a compatibilidade entre navegadores "is no longer relevant" | 77,8% dos 10 milhões de *sites* mais visitados (W3Techs, 2025); em 2023, 59% das instalações desatualizadas (pesquisa com 500 organizações) |
 | WILLISON, T. (equipe jQuery) | blog.jquery.com, *jQuery 4.0.0*, 2026-01-17 | Vinte anos depois de 2006-01-14; abandona IE ≤ 10; ESM | mais de 3 kB gzip a menos; *slim* com cerca de 19,5 kB gzip |
 | HAHNEKAMP, R. | LinkedIn, 2024-02-19 | "the Angular team will make RxJs optional" | sem fonte citada; não usar como fato |
 
-## 5. Prós e contras de cada escolha do ADR 0013
+## Prós e contras de cada escolha do ADR 0013
 
 Cada escolha com o argumento a favor e o contra, as fontes e o tipo de
 evidência.
@@ -289,7 +291,7 @@ evidência.
     mesma sintaxe. Fontes: SO 2025; State of JS 2025; You 2025.
     Evidência: número.
 
-## 6. Desvantagens a reconhecer no texto
+## Desvantagens a reconhecer no texto
 
 1. **Amostra.** Stack Overflow e State of JS são autosselecionados; o
    State of JS diz não falar "for the entire ecosystem" e o Stack Overflow
@@ -504,7 +506,7 @@ Overflow (API, 2026-10-15), das 3.841 perguntas com a etiqueta
   Leatherman, *An Attempted Taxonomy of Web Components* (2023-11-18),
   defendem aprimorar o HTML que já vem da página, sem *shadow DOM*.
 
-## 7. Fontes
+## Fontes
 
 Fontes primárias: MDN, *Web components* e *Using custom elements*
 (2026-09-01), *EventTarget.addEventListener()* (2026-08-31); WHATWG, *HTML
@@ -536,9 +538,10 @@ eisenbergeffect.medium.com, 2024-04-01; as postagens do Angular Blog
 (blog.angular.dev): GECHEV, M., *Angular v16 is here!*, 2023-05-03,
 *Introducing Angular v17*, 2023-11-08, *Announcing Angular v20*,
 2025-05-28; KUEHLERS, J.; THOMPSON, M., *Announcing Angular v21*,
-2025-11-19 (as datas de versão da seção 2 continuam vindo do CHANGELOG);
-HARRIS, R., *Rethinking reactivity*, palestra na You Gotta Love
-Frontend, vídeo publicado em 2019-04-22 (36 min). Não verificados: o
-número de respondentes da pergunta de *frameworks* no Stack Overflow
-2024 e 2025 (as páginas não o exibem; só nos dados brutos); os *tweets*
-de Abramov sobre *signals* (sem URL registrada; o X exige conta).
+2025-11-19 (as datas de versão da seção "O modelo de reatividade segundo
+a documentação oficial" continuam vindo do CHANGELOG); HARRIS, R.,
+*Rethinking reactivity*, palestra na You Gotta Love Frontend, vídeo
+publicado em 2019-04-22 (36 min). Não verificados: o número de
+respondentes da pergunta de *frameworks* no Stack Overflow 2024 e 2025
+(as páginas não o exibem; só nos dados brutos); os *tweets* de Abramov
+sobre *signals* (sem URL registrada; o X exige conta).

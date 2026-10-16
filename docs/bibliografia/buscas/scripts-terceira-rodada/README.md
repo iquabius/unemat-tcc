@@ -3,8 +3,9 @@
 Referência. Cópia do código que consultou o OpenAlex na terceira rodada
 da revisão bibliográfica (tcc-lf9, 2026-10-09), recriada em 2026-10-14
 (tcc-ds6j), porque os originais não foram guardados no repositório. O
-protocolo e os números estão em `docs/bibliografia/protocolo-da-revisao.md`, seção
-3, e no Apêndice II.
+protocolo e os números estão em
+`docs/bibliografia/protocolo-da-revisao.md`, seção "Terceira rodada", e
+no Apêndice II.
 
 Os três scripts de então (um auxiliar de acesso à API, um de citantes e
 um de referências) viram um módulo só, o `coleta.py`, com um subcomando

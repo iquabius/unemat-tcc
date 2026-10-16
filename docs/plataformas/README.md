@@ -90,7 +90,7 @@ Kotlin nas duas (ADR 0005). Conferem a web no Formulário, no Quadro e nos
 Dados ao vivo (ADR 0029); capturas pelo Robolectric com Roborazzi, na
 JVM, idênticas às da web (ADR 0008).
 
-### Hipótese sobre o ambiente de execução do Compose (2026-10-15)
+### Hipótese sobre o ambiente de execução do Compose
 
 Documentação do Android lida em 2026-10-15, nas páginas "Thinking in
 Compose", "State and Jetpack Compose", "Lifecycle of composables" e
@@ -205,7 +205,7 @@ como "sibling" ou "cousin" seria inferência do TCC.
 - **Cuidado**: o "JavaFX" de Maier, Rompf e Odersky (2010) é o JavaFX
   Script, com `bind` na linguagem, não a API Java atual.
 
-### Pré-análise por modelo de programação (2026-10-09)
+### Pré-análise por modelo de programação
 
 Fontes lidas em 2026-10-09: Oracle, "Writing Event Listeners" (The Java
 Tutorials, escritos para o JDK 8), páginas "Introduction to Event
@@ -389,7 +389,9 @@ Android entre as declarativas, que usam linguagem de expressão para o
 coordenação: não basta para pôr o WPF e a QML no declarativo por
 atualização granular, que é o que a pré-análise tem de mostrar.
 
-### Implementações (2026-10-09, commit `73a9a11`)
+### Implementações
+
+Em 2026-10-09, commit `73a9a11`.
 
 Formulário e Lista, em `casos/<interface>/qt-widgets/` e
 `casos/<interface>/qml/`, com o domínio em C++ em
@@ -404,7 +406,9 @@ QML guarda o estado nas próprias propriedades, com os derivados em
 em Qt Test, repetem as 19 e as 11 verificações dos testes da web, e passam
 nas quatro implementações com o Qt 6.10.2, no Linux.
 
-### Pré-análise por exigência de coordenação (2026-10-09)
+### Pré-análise por exigência de coordenação
+
+Em 2026-10-09.
 
 O que vem das fontes leva a fonte; o resto é leitura nossa, feita sobre o
 código de `73a9a11`, e está marcado assim.
@@ -529,7 +533,9 @@ linhas no Formulário e 52 na Lista, contra 79 e 77 do Kotlin do Views.
   notação; o `qmllint` acusou acesso não qualificado até cada leitura
   passar pelo `id` da raiz (`tela.visiveis`).
 
-### O que o par acrescenta à comparação (leitura nossa, 2026-10-09)
+### O que o par acrescenta à comparação
+
+Leitura nossa, de 2026-10-09.
 
 - Uma tecnologia do declarativo por atualização granular fora da web, com
   o mesmo mecanismo do Solid (rastreamento automático do que a expressão

@@ -49,12 +49,13 @@ IJSREM, 2025).
 
 O que mudou de 2016 a 2026 na literatura revisada por pares, verificado
 no resumo do artigo (a linha do tempo das tecnologias está em
-`docs/plataformas/web.md`, seção 1): Salvaneschi et al. (2017) é a
-versão em periódico do experimento citado; a linha da UFPE (Zimmerle,
-Gama e colaboradores) avalia PR com DCs; PFR para GUIs continuou na
-teoria (Graulund 2021, Bahr & Møgelberg 2023); semântica formal do React
-(Madsen 2020, Lee 2025); declarativo × imperativo em listas (Mehlhorn &
-Hanenberg 2022; contraponto Zampetti et al. 2025).
+`docs/plataformas/web.md`, seção "O que mudou de 2016 a 2026"):
+Salvaneschi et al. (2017) é a versão em periódico do experimento citado;
+a linha da UFPE (Zimmerle, Gama e colaboradores) avalia PR com DCs; PFR
+para GUIs continuou na teoria (Graulund 2021, Bahr & Møgelberg 2023);
+semântica formal do React (Madsen 2020, Lee 2025); declarativo ×
+imperativo em listas (Mehlhorn & Hanenberg 2022; contraponto Zampetti et
+al. 2025).
 
 ## Zampetti et al. 2025
 

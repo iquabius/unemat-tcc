@@ -153,18 +153,19 @@ objetivos, a introdução, o `CONTEXT.md` e a pauta da orientação de
 2026-10-09 mudam de vocabulário.
 
 Fontes: `docs/paradigma-modelo-e-notacao.md`, com as definições, os
-contrastes, as tensões e os trechos com página (seção 9, que veio de
-`docs/literatura.md`, seção 15, dividida em 2026-10-10);
-`docs/plataformas/web.md`, seção 2;
-conferência no PDF de 2026-10-08 em `tmp/buscas-2026-10-08/` (fora do
-git); Van Roy e Haridi (2004, p. xiii, 29, 406, 679); Van Roy (2009,
-p. 10, 14); Green e Blackwell (1998, p. 8, 24); Green e Petre (1996, JVLC
-7, p. 139 e 150); Green et al. (2006, JVLC 17, p. 342); Blackwell et al.
-(2001, LNAI 2117, p. 328); Blackwell e Green (2003, p. 114 e 115); Kiss
-(2014, p. 12 nota 2, 23, 56); Disch et al. (2025, p. 93); Salvaneschi
-et al. (2014, p. 572); Krishnamurthi e Fisler (2019, rascunho,
-p. 1); Sperber e Schlegel (2025, p. 27, 28, 32); Grolaux et al. (2026, p. 7,
-10); Salvaneschi et al. (2014, p. 564; 2015, p. 953); `casos/contador`,
-`casos/formulario` e `casos/lista-filtravel` em `19ab817`; achados de
-2026-09-26 em `docs/achados-das-implementacoes.md`; tarefas tcc-0ba,
-tcc-t1a e tcc-6gg.
+contrastes, as tensões e os trechos com página (seção "Trechos das
+fontes", que veio de `docs/literatura.md`, seção 15, dividida em
+2026-10-10); `docs/plataformas/web.md`, seção "O modelo de reatividade
+segundo a documentação oficial"; conferência no PDF de 2026-10-08 em
+`tmp/buscas-2026-10-08/` (fora do git); Van Roy e Haridi (2004, p. xiii,
+29, 406, 679); Van Roy (2009, p. 10, 14); Green e Blackwell (1998, p. 8,
+24); Green e Petre (1996, JVLC 7, p. 139 e 150); Green et al. (2006,
+JVLC 17, p. 342); Blackwell et al. (2001, LNAI 2117, p. 328); Blackwell
+e Green (2003, p. 114 e 115); Kiss (2014, p. 12 nota 2, 23, 56); Disch
+et al. (2025, p. 93); Salvaneschi et al. (2014, p. 572); Krishnamurthi e
+Fisler (2019, rascunho, p. 1); Sperber e Schlegel (2025, p. 27, 28, 32);
+Grolaux et al. (2026, p. 7, 10); Salvaneschi et al. (2014, p. 564; 2015,
+p. 953); `casos/contador`, `casos/formulario` e `casos/lista-filtravel`
+em `19ab817`; achados de 2026-09-26 em
+`docs/achados-das-implementacoes.md`; tarefas tcc-0ba, tcc-t1a e
+tcc-6gg.

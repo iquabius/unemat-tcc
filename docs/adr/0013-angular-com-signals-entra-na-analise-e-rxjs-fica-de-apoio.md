@@ -64,7 +64,7 @@ Overflow 2025: 23,4%) e tem uma biblioteca de formulário real para a
 terceira rodada, mas não tem modelo de componente, o imperativo ficaria
 sem par controlado, e sem o Solid se perderia o par React × Solid, de que
 dependem, no todo ou em parte, 9 das 14 DCs (leitura de 2026-10-12,
-`docs/delineamento.md`, seção 4).
+`docs/delineamento.md`, seção "O que cada par isola, DC a DC").
 Em vez de: o Web Component e o Solid até a terceira rodada, com o jQuery e
 o Lit em demonstração; mantém o Web Component, mais perto dos declarativos
 que o jQuery, mas o imperativo ficaria sem par controlado na análise
@@ -135,6 +135,8 @@ Fontes: Stack Overflow 2025; CHANGELOG do Angular (17.0.0, 2023-11-08;
 *Signals* (2026-10-11); *Design Principles* do React
 (legacy.reactjs.org), modelo *pull*; taxonomia *push/pull* de
 `bainomugisha2013`; Kiss (2014, cap. 4, p. 58-99);
-`docs/plataformas/web.md`, seções 2 a 6; `docs/delineamento.md`, seção
-4; rascunhos em Lit em `tmp/rascunho-lit-2026-10-12/` (fora do git);
-commits `25cf4dd` e `7126e77`.
+`docs/plataformas/web.md`, seções de "O modelo de reatividade segundo a
+documentação oficial" a "Desvantagens a reconhecer no texto";
+`docs/delineamento.md`, seção "O que cada par isola, DC a DC"; rascunhos
+em Lit em `tmp/rascunho-lit-2026-10-12/` (fora do git); commits
+`25cf4dd` e `7126e77`.
