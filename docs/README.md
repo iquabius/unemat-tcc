@@ -96,6 +96,8 @@ Referência:
 
 - `docs/delineamento.md`: o que se controla, o que os pares isolam e o
   que fica sem controle;
+- `docs/exigencias-de-coordenacao.md`: as exigências de coordenação de
+  cada interface, agrupadas em tipos, e os tipos que cada par cobre;
 - `docs/tecnologias-web.md`, `docs/plataformas.md`,
   `docs/kotlin-e-java-no-android.md` e
   `docs/bibliotecas-de-formulario.md`: as tecnologias, as plataformas e
