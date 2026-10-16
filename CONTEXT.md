@@ -98,7 +98,7 @@ pesquisa é o documento de 2017)
 O que uma interface exige do modelo de programação, em dois eixos, a
 orquestração de eventos e o gerenciamento de estado: evento → estado →
 tela, estado derivado, assincronia, ciclo de vida de relógios e
-assinaturas, lista derivada (com a montagem dos itens na tela), estado
+inscrições, lista derivada (com a montagem dos itens na tela), estado
 compartilhado, histórico (ADR 0002). Cada interface tem uma proporção
 própria dos dois eixos, como a aplicação real que ela reproduz.
 _Avoid_: problema de coordenação (até 2026-10-14: "problema" fica para o
@@ -180,7 +180,7 @@ _Avoid_: requisito não funcional (a mudança é de comportamento)
 
 **Limpeza ao sair da tela**:
 Regra comum da primeira rodada: quando a interface sai da tela, ela
-encerra o que iniciou (relógios, assinaturas, requisições, ouvintes), e o
+encerra o que iniciou (relógios, inscrições, requisições, ouvintes), e o
 teste de conformidade confere que nada sobrou. Quem a viola deixa um
 vazamento de recursos (Lima, Giusti e Dias-Neto, 2020).
 _Avoid_: "nada vivo depois de sair da tela" (decalque de *alive*);

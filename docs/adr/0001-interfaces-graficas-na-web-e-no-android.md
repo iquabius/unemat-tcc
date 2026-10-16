@@ -30,7 +30,7 @@ Em vez de: Windows Forms × WPF no Formulário e na Lista (decisão de
 2026-10-11); a Lista saiu do *benchmark* de notação (ADR 0002).
 Em vez de: o Quadro e os Dados ao vivo no desktop, além do Formulário,
 como no Android; traria a volta dos dados à *thread* da interface
-(`Invoke`, `Dispatcher`), mas deixaria o Login só na web, e a assinatura
+(`Invoke`, `Dispatcher`), mas deixaria o Login só na web, e a inscrição
 presa à tela já está no Android (ADR 0005).
 Em vez de: a Busca no desktop; a espera e o cancelamento se escrevem com
 o mesmo `async`/`await` e o mesmo `CancellationTokenSource` nas duas

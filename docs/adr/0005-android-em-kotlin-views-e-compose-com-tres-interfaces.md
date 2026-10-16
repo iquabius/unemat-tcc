@@ -14,7 +14,7 @@ por campo, que dispara de novo ao atualizar o campo por código, contra
 validação derivada do estado), o Quadro (três listas, `RecyclerView`,
 `Adapter` e `ViewHolder` contra `LazyColumn`, sobre um estado
 compartilhado, o contraste que a Lista dava) e os Dados ao vivo, em que a
-assinatura presa ao ciclo de vida da tela, o problema típico do Android,
+inscrição presa ao ciclo de vida da tela, o problema típico do Android,
 se escreve em `onStart` e `onStop` contra `DisposableEffect`; as três nas
 três rodadas (ADR 0029). A assincronia chega pelo envio do Formulário, já
 na primeira rodada, e pela validação do e-mail, pela atualização otimista
@@ -35,7 +35,7 @@ Kotlin.
 Em vez de: Formulário e Lista, com a assincronia só no e-mail da segunda rodada
 (decisão de 2026-10-11); a Lista já estava implementada, mas saiu do
 *benchmark* de notação (ADR 0002), e sem os Dados ao vivo o Android
-ficaria sem o ciclo de vida da assinatura, onde ele mais difere das
+ficaria sem o ciclo de vida da inscrição, onde ele mais difere das
 outras plataformas.
 Em vez de: Dados ao vivo e Login, ou Quadro e Login, além do Formulário;
 o Login traria a preempção com corrotinas, mas o cancelamento

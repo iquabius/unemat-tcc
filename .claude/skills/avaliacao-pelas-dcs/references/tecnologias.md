@@ -37,7 +37,7 @@ sinal de nenhuma DC.
   estado.
 - Ciclo de vida: `connectedCallback` e `disconnectedCallback`; o
   encerramento (`clearInterval`, `AbortController.abort()`, cancelar a
-  assinatura) fica escrito no `disconnectedCallback`.
+  inscrição) fica escrito no `disconnectedCallback`.
 - Montagem: `createElement` e `append` no Contador; `innerHTML` com
   *template literal* marcado `/* HTML */` nas outras interfaces (tcc-53w).
 - Documentação: developer.mozilla.org, "Using custom elements".

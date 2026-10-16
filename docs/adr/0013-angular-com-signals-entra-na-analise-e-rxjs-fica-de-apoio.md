@@ -28,7 +28,7 @@ Lit, os custos dos *hooks* do React na orquestração (o `useEffect` com a
 lista de dependências; na espera de 300 ms, +34/−22 linhas no React contra
 +5/−1 no Lit, no rascunho) iriam para a conta da re-renderização. O Lit
 leva os Dados ao vivo porque ali o imperativo mais sofre na orquestração,
-com o vazamento silencioso da assinatura; o Angular leva o Quadro porque
+com o vazamento silencioso da inscrição; o Angular leva o Quadro porque
 ali o estado compartilhado vira um serviço injetado, o contraste mais
 forte com o Solid. O jQuery fica fora: o imperativo por atualização manual
 fica com o Web Component na web, o Views no Android e o Windows Forms no
@@ -50,7 +50,7 @@ Em vez de: o Angular só na primeira rodada e o Lit só no Formulário e na
 Busca (decisões de 2026-10-12, mais cedo); 20 implementações na primeira
 rodada e 37 commits na segunda rodada, contra 21 e 46, mas o par Solid ×
 Angular não acompanharia o crescimento do código, e o imperativo ficaria
-sem par na orquestração da assinatura.
+sem par na orquestração da inscrição.
 Em vez de: o jQuery no lugar do Web Component até a terceira rodada, com o
 Angular no lugar do Solid, do Lit ou dos dois, e as tecnologias que
 saíssem numa seção de demonstração, como o capítulo 4 de Kiss (2014), que

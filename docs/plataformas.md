@@ -139,7 +139,7 @@ React reativo de Salvaneschi et al. (2014, p. 564).
   leaves the composition", e o `onDispose` do `DisposableEffect` limpa o
   que o efeito abriu quando "the keys change or if the composable leaves
   the Composition" (Side-effects in Compose): o ciclo de vida de relógios e
-  assinaturas fica amarrado à composição. No Views, a assinatura dos Dados
+  inscrições fica amarrado à composição. No Views, a inscrição dos Dados
   ao vivo se escreve em `onStart` e `onStop`; as duas tecnologias usam as
   corrotinas da linguagem, sem `ViewModel` nem `Flow`, e o escopo delas
   difere, a composição contra o ciclo de vida da `Activity` (ADR 0005).
@@ -257,7 +257,7 @@ resumidas.
 - **Os *callbacks* no JavaFX** ficam onde o evento entra no estado: o foco
   (`focusedProperty().addListener`, que marca o campo tocado), o clique
   (`setOnAction`) e a pseudoclasse `:invalido`, que não tem propriedade
-  para ligar e acompanha o erro por uma assinatura (`subscribe`) (leitura
+  para ligar e acompanha o erro por uma inscrição (`subscribe`) (leitura
   nossa: o Solid liga `aria-invalid={...}` direto). Os dois primeiros têm
   par no Solid (`onBlur`, `onSubmit`); o terceiro é lacuna da notação
   (leitura nossa).

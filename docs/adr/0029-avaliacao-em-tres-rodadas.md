@@ -15,7 +15,7 @@ Dados ao vivo (ADR 0005); Windows Forms × WPF, o Quadro e o Login (ADR
 todas seguem duas regras comuns, conferidas pelo teste de conformidade de
 cada interface: as mensagens de status são anunciadas sem receber o foco
 (WCAG 2.2, critério 4.1.3), e vale a limpeza ao sair da tela: a tela
-encerra o que iniciou (temporizador, requisição, assinatura, ouvinte), sem
+encerra o que iniciou (temporizador, requisição, inscrição, ouvinte), sem
 vazamento de recursos (Lima, Giusti e Dias-Neto 2020). Na segunda rodada,
 cada interface recebe, um por commit e na mesma ordem em todas as
 tecnologias em que existe, funcionalidades, que mudam o que o usuário

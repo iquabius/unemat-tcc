@@ -24,7 +24,7 @@ cada eixo forte em pelo menos duas:
   persistência, no gerenciamento de estado;
 - Dados ao vivo com pausa, placares de jogos em andamento empurrados por
   uma fonte, que adaptam as cotações de Meijer (2012, p. 66-67) como o
-  Formulário adapta o *Flight Booker*: a assinatura presa à tela e a
+  Formulário adapta o *Flight Booker*: a inscrição presa à tela e a
   pausa, na orquestração. O placar se entende sem contexto, e o palpite
   de cada jogo faz o papel do limite de cada ativo.
 
