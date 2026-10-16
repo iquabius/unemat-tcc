@@ -20,8 +20,9 @@ para a limpeza ao sair da tela se conferir pela contagem.
 
 As regras, as mensagens e os cenários que o teste de conformidade confere
 estão em =implementacoes/openspec/specs/dados-ao-vivo/spec.md=, a
-especificação viva (OpenSpec); uma mudança entra como /delta spec/ em
-=implementacoes/openspec/changes/= (=implementacoes/AGENTS.md=).
+especificação viva (OpenSpec); a mudança entre rodadas entra como
+/delta spec/ em =implementacoes/openspec/changes/=, e a de dentro de uma
+rodada edita o =spec.md= direto (=implementacoes/AGENTS.md=).
 
 * Teste
 

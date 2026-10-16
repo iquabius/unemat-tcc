@@ -95,8 +95,9 @@ cada commit que mexa numa especificação ou num teste de conformidade.
 
 ### Interface nova
 
-O Login, o Quadro, os Dados ao vivo e outra que vier entram como mudança
-(abaixo), para a especificação ser revisada antes do código:
+O Login, o Quadro, os Dados ao vivo e outra que vier entram como *delta
+spec*, como a mudança entre rodadas ("Mudança numa especificação",
+abaixo), para a especificação ser revisada antes do código:
 
 1. `npm run openspec -- new change especificar-<interface>`. O delta, em
    `specs/<interface>/spec.md`, tem o `## Purpose` (uma ou duas frases, com
@@ -112,10 +113,22 @@ O Login, o Quadro, os Dados ao vivo e outra que vier entram como mudança
 
 ### Mudança numa especificação
 
-Toda mudança na especificação de uma interface já especificada entra como
-*delta spec*: as da primeira rodada (a retirada da espera da Busca, as
-regras comuns, o envio que ignora o reenvio) e cada funcionalidade e
-requisito de orquestração da segunda rodada.
+A mudança entre rodadas, cada funcionalidade e requisito de orquestração
+da segunda rodada, entra como *delta spec*, pelos passos abaixo, e o
+delta arquivado é o que o texto cita como a mudança da rodada (ADR 0030).
+
+A mudança dentro de uma rodada (correção, redação, as regras e os
+controles novos da primeira rodada, como o envio que ignora o reenvio e
+o "Definir Status" do Quadro) edita o `spec.md` direto, sem proposta nem
+arquivamento: um commit que muda a especificação, o teste de conformidade
+em todas as plataformas que o têm e os arquivos da interface que citam a
+regra, com `npm run conferir-especificacao` antes, e depois um commit por
+tecnologia, na mesma ordem em todas (ADR 0029). A troca de um nome do
+domínio vai num commit só, com todas as tecnologias, porque um commit por
+tecnologia quebraria a construção das outras. O porquê vai na mensagem do
+commit.
+
+Passos do *delta spec*:
 
 1. `npm run openspec -- new change <nome>`, com o nome em português, em
    *kebab-case*, verbo e objeto (`tirar-espera-da-busca`). Na pasta

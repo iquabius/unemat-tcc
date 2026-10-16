@@ -1,6 +1,6 @@
-# 0030. A especificação de cada interface fica no OpenSpec, em português, com cada cenário igual a uma verificação do teste de conformidade e cada mudança num delta spec
+# 0030. A especificação de cada interface fica no OpenSpec, em português, com cada cenário igual a uma verificação do teste de conformidade e só a mudança entre rodadas e a interface nova num delta spec
 
-2026-10-12. A especificação de cada interface era um `README.org` em
+2026-10-16. A especificação de cada interface era um `README.org` em
 prosa, sem forma para dizer o que uma mudança acrescenta, e a segunda e a
 terceira rodada precisam de cada funcionalidade e requisito de
 orquestração escrito antes de implementar, a mesma mudança em todas as
@@ -13,12 +13,23 @@ tecnologias, como o teste de viscosidade de Green e Petre (1996, p. 162)
 apresentação. Requisitos e cenários se escrevem em português ("deve",
 QUANDO/ENTÃO), com os cabeçalhos que o CLI lê em inglês, e o nome de cada
 cenário é o nome de uma verificação do teste de conformidade, conferido em
-todas as tecnologias por `npm run conferir-especificacao`. Cada mudança
-entra como *delta spec* em `implementacoes/openspec/changes/<nome>/`, e o
-commit que muda o teste de conformidade a arquiva, fundindo o delta na
-especificação viva antes do commit de cada tecnologia; o delta arquivado é
-o que o texto cita como a mudança da rodada.
+todas as tecnologias por `npm run conferir-especificacao`. A mudança
+entre rodadas, cada funcionalidade e requisito de orquestração da segunda
+rodada, entra como *delta spec* em
+`implementacoes/openspec/changes/<nome>/`, e o commit que muda o teste de
+conformidade a arquiva, fundindo o delta na especificação viva antes do
+commit de cada tecnologia; o delta arquivado é o que o texto cita como a
+mudança da rodada. A mudança dentro de uma rodada (correção, redação, uma
+regra ou um controle novo da primeira rodada) edita o `spec.md` direto,
+no mesmo commit do teste de conformidade, porque o texto não a cita como
+mudança, e o delta lhe custaria a proposta, o commit de revisão e o
+arquivamento; a interface nova continua a entrar por um delta, para a
+especificação ser revisada antes do código.
 
+Em vez de: toda mudança num *delta spec*, inclusive as da primeira
+rodada (decisão de 2026-10-12); guarda em `changes/archive/` a história de
+cada regra, mas a primeira rodada não se mede como mudança, e corrigir
+a redação de um cenário pedia três commits.
 Em vez de: o `README.org` em prosa, com uma seção por mudança; sem
 ferramenta nova, mas sem forma que diga o que foi acrescentado, mudado ou
 retirado, nem conferência de estrutura.
@@ -46,11 +57,13 @@ Custo: uma dependência de 53 pacotes (18 MB) num projeto de 2025 com
 versões frequentes; o `openspec validate` avisa, em cada requisito, que
 falta SHALL ou MUST, e o `--strict` não serve; os cabeçalhos ficam em
 inglês no meio do português; cada verificação nova ou renomeada muda o
-`spec.md` e os testes de todas as plataformas no mesmo commit; entre o
+`spec.md` e os testes de todas as plataformas no mesmo commit; a mudança
+dentro de uma rodada fica só no `git log` do `spec.md`, sem proposta que
+diga o porquê, que vai para a mensagem do commit; entre o
 arquivamento e o último commit de tecnologia, as implementações ainda não
 mudadas falham no teste de conformidade; as três interfaces novas
-(tcc-t19i, tcc-2ui8, tcc-dxdg) e as mudanças da primeira rodada (tcc-z2jq,
-tcc-v4m7, tcc-32dr) esperaram esta decisão.
+(tcc-t19i, tcc-2ui8, tcc-dxdg) esperaram a decisão de 2026-10-12 e
+entraram por *delta spec*.
 
 Fontes: openspec.dev/docs/schemas/spec-driven (lida em 2026-10-11 e
 2026-10-12); o CLI 1.14.1 testado em 2026-10-12 (`init --tools none`, o
