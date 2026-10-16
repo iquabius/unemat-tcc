@@ -43,11 +43,11 @@ caracteres ou mais cada um, também durante a tentativa e a sessão.
 
 ### Requirement: Tentativa
 
-Clicar no "Entrar" deve encerrar a sessão em curso, se houver, cancelar pelo
-`AbortSignal` a tentativa anterior, se houver, e mostrar "Conectando…": a
-resposta de uma tentativa cancelada nunca aparece. O servidor simulado
-(`autenticar` do domínio) responde em 1 s e só aceita o nome "ana" com a
-senha "segredo".
+Clicar no "Entrar" deve encerrar a sessão em andamento, se houver, cancelar
+pelo `AbortSignal` a tentativa anterior, se houver, e mostrar
+"Conectando…": a resposta de uma tentativa cancelada nunca aparece. O
+servidor simulado (`autenticar` do domínio) responde em 1 s e só aceita o
+nome "ana" com a senha "segredo".
 
 #### Scenario: 3 conectando
 
@@ -57,7 +57,7 @@ senha "segredo".
 
 #### Scenario: 5 tentativa nova cancela a anterior
 
-- **DADO** a tentativa com a senha "errada" em curso há 500 ms, com a requisição aberta
+- **DADO** a tentativa com a senha "errada" em andamento há 500 ms, com a requisição aberta
 - **QUANDO** o usuário digita a senha "segredo" e clica no "Entrar"
 - **ENTÃO** `contarAbertos()` dá 1, a requisição da tentativa nova
 
@@ -69,7 +69,7 @@ senha "segredo".
 
 #### Scenario: 8 Entrar na sessão a encerra
 
-- **DADO** uma sessão em curso, com a senha "segredo"
+- **DADO** uma sessão em andamento, com a senha "segredo"
 - **QUANDO** o usuário clica no "Entrar"
 - **ENTÃO** a situação mostra "Conectando…"
 - **E** não há tempo de sessão nem "Sair" na tela
@@ -146,7 +146,7 @@ tempo de sessão e o "Sair" somem, e o relógio da sessão para.
 
 #### Scenario: 10 Sair
 
-- **DADO** uma sessão em curso
+- **DADO** uma sessão em andamento
 - **QUANDO** o usuário clica no "Sair"
 - **ENTÃO** a situação mostra "Desconectado."
 - **E** não há tempo de sessão nem "Sair" na tela
@@ -198,7 +198,7 @@ domínio, dá 0.
 
 #### Scenario: 13 esconder na sessão fecha o relógio
 
-- **DADO** uma sessão em curso, com o relógio aberto
+- **DADO** uma sessão em andamento, com o relógio aberto
 - **QUANDO** o usuário clica no "Esconder login"
 - **ENTÃO** a interface não está na página, e o botão diz "Mostrar login"
 - **E** `contarAbertos()` dá 0
@@ -213,6 +213,6 @@ domínio, dá 0.
 
 #### Scenario: 14 esconder na tentativa cancela a requisição
 
-- **DADO** uma tentativa em curso, com a requisição aberta
+- **DADO** uma tentativa em andamento, com a requisição aberta
 - **QUANDO** o usuário clica no "Esconder login"
 - **ENTÃO** `contarAbertos()` dá 0

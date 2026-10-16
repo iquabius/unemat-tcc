@@ -31,7 +31,7 @@ class PainelDeLogin extends HTMLElement {
   private relogio!: HTMLParagraphElement;
   private sair!: HTMLButtonElement;
 
-  // Estado da coordenação: a tentativa em curso e o relógio da sessão.
+  // Estado da coordenação: a tentativa em andamento e o relógio da sessão.
   private controlador?: AbortController;
   private pararRelogio?: () => void;
   private segundos = 0;

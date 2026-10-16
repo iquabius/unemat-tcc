@@ -3,8 +3,8 @@
 Painel de login com nome, senha, "Entrar" e "Sair", cuja sessão expira
 sozinha (o /login panel/ de Berry e Serrano, 2020, p. 534-535). É a
 interface das atividades que se cancelam: uma tentativa nova encerra a
-anterior e a sessão em curso, e o relógio da sessão vive só enquanto ela
-vive. A quarentena depois de falhas seguidas (o "Login Panel 2.0", p. 539)
+anterior e a sessão em andamento, e o relógio da sessão vive só enquanto
+ela vive. A quarentena depois de falhas seguidas (o "Login Panel 2.0", p. 539)
 entra na segunda rodada.
 
 O servidor é simulado em =dominio.ts=, com a forma de uma chamada =fetch=:
