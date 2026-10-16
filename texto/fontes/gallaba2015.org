@@ -54,15 +54,19 @@
   /toolkit/ chama as sub-rotinas (“sometimes called ‘event-based
   programming’”).
 - Conferido: 2026-10-15.
-* [[file:../intro.org::No navegador, as sub-rotinas desse código][intro: No navegador, as sub-rotinas desse código]], p. 1 (a frequência)
-- Frase: “Em média, uma em cada dez funções definidas em programas
-  JavaScript recebe um /callback/ (Gallaba; Mesbah; Beschastnikh, 2015,
-  p. 1).”
-- Trecho: “We find that on average, every 10th function definition takes a
-  callback argument” (resumo, p. 1), num corpus de 138 programas
-  JavaScript com mais de 5 milhões de linhas.
-- Lido em: =tmp/fontes/gallaba2015.pdf=, p. 1 do PDF.
-- Observação: está no lugar do “predominante” de Blackheath e Jones (“the
-  dominant way of propagating events”), que nenhuma fonte revisada por
-  pares lida sustenta.
-- Conferido: 2026-10-15.
+* [[file:../intro.org::No navegador, as sub-rotinas desse código][intro: No navegador, as sub-rotinas desse código]], p. 6 (a frequência no navegador)
+- Frase: “Em média, 9% das chamadas de função no código do navegador passam
+  um /callback/, e 72% deles são assíncronos (Gallaba; Mesbah;
+  Beschastnikh, 2015, p. 6).”
+- Trecho: “Finding 2: On average, every 5th function callsite takes a
+  callback argument. Callback-accepting function callsites are more
+  prevalent in server-side code (24%) than in client-side code (9%).”;
+  “Of all callsites in client-side code, 72% were asynchronous. On the
+  server-side, asynchronous callbacks usage is 55% on average.” (p. 6)
+- Lido em: =tmp/fontes/gallaba2015.pdf=, p. 6 do PDF.
+- Observação: substitui os 10% do resumo (p. 1), média dos 138 programas,
+  86 deles módulos NPM de servidor, que a segunda checagem adversarial
+  (0072d35) marcou como enganosa depois de “No navegador”; “no navegador”
+  traduz o /client-side/, e os 72% são das chamadas do cliente que passam
+  /callback/ (as /callback-accepting callsites/ da seção IV-B).
+- Conferido: 2026-10-16.
