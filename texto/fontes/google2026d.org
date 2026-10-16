@@ -1,20 +1,22 @@
 #+title: google2026d: Google (2026), Lifecycle
 #+startup: overview
 
-* [[file:../intro.org::Mesmo na segunda rodada, as implementações continuam pequenas][intro: Mesmo na segunda rodada, as implementações continuam pequenas]]
-- Frase: “Os pares isolam pouco: na web, só o Web Component e o Lit, ambos
-  com componentes que são elementos personalizados do navegador (Google,
-  2026d), separam o imperativo de um declarativo [...]”
-- Trecho: “Lit components are standard custom elements and inherit the
-  custom element lifecycle methods.”; “The reactive update cycle is
-  triggered when a reactive property changes or when the requestUpdate()
-  method is explicitly called.”; “The component’s render method is called
-  to update its internal DOM.”
+* [[file:../intro.org::Nos declarativos, o programador descreve a tela][intro: Nos declarativos, o programador descreve a tela]] (o método que monta a tela)
+- Frase: “[...] no Lit, é o método =render()= da classe do componente
+  (Google, 2026d).”
+- Trecho: “The component’s render method is called to update its internal
+  DOM.”; “The render() method has no arguments, but typically it
+  references component properties.”
 - Lido em: =tmp/fontes/lit2026-lifecycle.html= (página salva em
-  2026-10-13; lit.dev/docs/components/lifecycle/).
-- Observação: que o par Web Component e Lit mantém o modelo de componente
-  e a orquestração é do próprio delineamento (ADR 0013), e não da fonte.
-- Conferido: 2026-10-13.
+  2026-10-13; lit.dev/docs/components/lifecycle/), conferido em
+  2026-10-15.
+- Observação: entra na reescrita dos §5 a §7 (checagem adversarial de
+  2026-10-15): o declarativo por re-renderização passa a se definir pelo
+  que se reexecuta, a função ou o método que monta a tela, e não pelo
+  componente como função, que vale só para o React (decisão do autor). Que
+  o componente é uma classe se vê em
+  =implementacoes/dados-ao-vivo/lit/src/main.ts:16=.
+- Conferido: 2026-10-15.
 * [[file:../cases.org::Na web, Web Component, React e Solid][cases: Na web, Web Component, React e Solid]]
 - Frase: “O Lit se constrói sobre o Web Component: seus componentes são
   elementos personalizados do navegador, mas cada alteração de estado chama

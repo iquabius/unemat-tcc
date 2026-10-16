@@ -1,11 +1,14 @@
 #+title: lee2025: Lee et al. (2025), React-tRace: A Semantics for Understanding React Hooks: An Operational Semantics and a Visualizer for Clarifying React Hooks
 #+startup: overview
 
-* [[file:../intro.org::Nos declarativos, o programador descreve a tela][intro: Nos declarativos, o programador descreve a tela]], 289:1 (o componente é uma função)
-- Frase: “No /declarativo por re-renderização/, o componente é uma função
-  que especifica a tela e que, chamada com os mesmos argumentos, deve
-  exibir a mesma interface; cada alteração de estado o reexecuta, como no
-  React (Lee; Ahn; Yi, 2025, 289:1, 289:2 e 289:6).”
+* [[file:../intro.org::Nos declarativos, o programador descreve a tela][intro: Nos declarativos, o programador descreve a tela]], p. 289:1 (o componente é uma função)
+- Frase: “No React, é o próprio componente, uma função que especifica a
+  tela e que, chamada com os mesmos argumentos, deve exibir a mesma
+  interface (Lee; Ahn; Yi, 2025, p. 289:1, 289:2 e 289:6) [...]” Em
+  2026-10-15, a função deixou de definir o modelo e passou a valer só para
+  o React: o declarativo por re-renderização se define pelo que se
+  reexecuta, a função ou o método que monta a tela, porque o componente
+  do Lit é uma classe (checagem adversarial, decisão do autor).
 - Trecho: “A React component is a function that serves as a declarative
   specification of a UI [...]. Ideally, when a component is called with the
   same arguments, it should render the same interface”.
@@ -17,9 +20,13 @@
   checagem de 2026-10-08).
 - Conferido: 2026-10-09.
 * [[file:../intro.org::Nos declarativos, o programador descreve a tela][intro: Nos declarativos, o programador descreve a tela]], p. 289:2 e 289:6
-- Frase: “No /declarativo por re-renderização/, cada alteração de estado
-  reexecuta o componente, como no React (Lee; Ahn; Yi, 2025, p. 289:2 e
-  289:6).”
+- Frase: a mesma da entrada anterior; as p. 289:2 e 289:6 sustentam que o
+  ambiente de execução chama de novo o componente do React a cada
+  alteração de estado (“No /declarativo por re-renderização/, o ambiente
+  de execução chama de novo, a cada alteração de estado, a parte que monta
+  a tela. No React, é o próprio componente [...]”). “A parte que monta a
+  tela” é redação do autor (2026-10-15), no lugar de “a função ou o
+  método”.
 - Trecho: “the same component is called for both creating a new view and
   updating an existing view” (289:2); “setting state within an Effect
   triggers the runtime to Check if the state has changed, which is
@@ -31,6 +38,20 @@
 - Observação: substitui Meta (2026b), documentação do React (decisão do
   autor em 2026-10-09).
 - Conferido: 2026-10-09.
+* [[file:../intro.org::Nos declarativos, o programador descreve a tela][intro: Nos declarativos, o programador descreve a tela]], p. 289:2 (o contador)
+- Frase: “Num contador, por exemplo, o /callback/ do clique soma um ao
+  estado, e o componente devolve o botão com o valor novo (Lee; Ahn; Yi,
+  2025, p. 289:2).”
+- Trecho: o =Counter= da p. 289:2: “const [s, setS] = useState(() => x);
+  const h = () => setS((s) => s+1); return <button onClick={h}> {s}
+  </button>”; “setS must be used to update the state.”
+- Lido em: =tmp/fontes/lee2025.pdf=, p. 2 do PDF (paginação da ACM
+  impressa na cópia do arXiv).
+- Observação: fecha o parágrafo dos declarativos com a ilustração, depois
+  da frase de Sperber e Schlegel (2025, p. 32) de que, no React, o
+  /callback/ altera o estado e a tela se monta de novo (reescrita dos §5 a
+  §7 na checagem adversarial de 2026-10-15).
+- Conferido: 2026-10-15.
 * [[file:../cases.org::No React e no Solid, a tela se monta][cases: No React e no Solid, a tela se monta em JSX]], 289:38
 - Frase: “a cada alteração de estado, o React reexecuta o componente
   inteiro, e o Solid atualiza só os trechos da tela que dependem do

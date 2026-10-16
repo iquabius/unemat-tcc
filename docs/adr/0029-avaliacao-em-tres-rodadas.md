@@ -137,8 +137,9 @@ segunda e a terceira rodada em novembro, antes do fechamento em
 2026-11-20; 33 implementações, 72 commits e 9 reescritas, perto de 7.700
 linhas de código de saída (estimativa de 2026-10-12), que não cabem
 inteiras no pós-texto; os requisitos da segunda rodada foram escolhidos
-com protótipos e com as implementações da primeira rodada prontas, embora
-antes da análise, e Kiss (p. 96) mostra o risco de o prazo escolher as
+com protótipos e com parte das implementações da primeira rodada (os ADRs
+os registraram em 2026-10-12, antes do código do Login, do Quadro e dos
+Dados ao vivo), embora antes da análise, e Kiss (p. 96) mostra o risco de o prazo escolher as
 interfaces da rodada estreita ("The time unfortunately ran out"); com os
 eixos desiguais entre as interfaces, a conclusão sobre cada eixo vem de
 duas ou três interfaces; a terceira rodada mede bibliotecas, e a hipótese

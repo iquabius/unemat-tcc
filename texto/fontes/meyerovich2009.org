@@ -1,0 +1,29 @@
+#+title: meyerovich2009: Meyerovich et al. (2009), Flapjax: A Programming Language for Ajax Applications
+#+startup: overview
+
+* [[file:../intro.org::Este trabalho compara /modelos de programação/][intro: Este trabalho compara /modelos de programação/]], p. 3 (o cronômetro)
+- Frase: “Num cronômetro escrito assim, o /callback/ do botão que zera o
+  tempo altera o valor guardado, mas não o leva à tela (Meyerovich et al.,
+  2009, p. 3). Até o próximo tique do relógio, o tempo exibido não
+  corresponde ao valor guardado, e cabe ao programador escrever a
+  sincronização da tela com o estado (Meyerovich et al., 2009, p. 3).”
+- Trecho: “The bug is that the time displayed on-screen—which we might
+  think of as having to always represent the value of elapsedTime (i.e., a
+  model-view relationship)—is undefined between when the user clicks on
+  the Reset button and when the timer next fires. This is because the
+  program resets elapsedTime but not does propagate it to the screen.
+  [...] Put differently, the developer has incurred the burden of
+  synchronizing the on-screen value with the model of time” (p. 3)
+- Lido em:
+  =tmp/fontes/candidatas-pr-2026-10-15/meyerovich2009-flapjax.pdf=, p. 3
+  do PDF; a cópia dos autores tem 20 páginas, e o Crossref dá p. 1-20 na
+  publicação (OOPSLA 2009), sem número impresso por página.
+- Observação: o cronômetro da fig. 1 é JavaScript com /callbacks/ que
+  alteram o DOM (=setInterval=, =onclick=); ilustra o imperativo por
+  atualização manual no fim do parágrafo que o define (reescrita dos §5 a
+  §7 na checagem adversarial de 2026-10-15). Na mesma página, a versão em
+  Flapjax deixa “maintenance of consistency to the language”. A fonte diz
+  também, na p. 2, que o culpado é o /callback/, e não o JavaScript: “The
+  culprit here is not JavaScript, but the use of callbacks and their effect
+  on program structure”.
+- Conferido: 2026-10-15.

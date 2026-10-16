@@ -11,7 +11,7 @@ três rodadas. Texto em `texto/`, código em `implementacoes/`, decisões em
 ## Language
 
 **Modelo de programação**:
-O modo de coordenar evento, estado e tela que uma tecnologia impõe: as
+O modo de coordenar evento, estado e tela que uma tecnologia torna possível: as
 técnicas e os princípios de projeto construídos sobre um modelo de
 computação (Van Roy e Haridi, 2004). São três: o imperativo por
 atualização manual, o declarativo por re-renderização e o declarativo por

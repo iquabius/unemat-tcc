@@ -1,58 +1,42 @@
 #+title: bainomugisha2013: Bainomugisha et al. (2013), A Survey on Reactive Programming
 #+startup: overview
 
-* [[file:../intro.org::Uma alternativa ao /callback/ é a][intro: Uma alternativa ao /callback/ é a]], p. 52:2
-- Frase: “Assim, o programador não precisa cuidar da ordem dos eventos nem
-  das dependências entre as computações.”
-- Trecho: “having the language automatically manage the flow of time (by
-  conceptually supporting simultaneity), and data and computation
-  dependencies. This yields the advantage that programmers need not to
-  worry about the order of events and computation dependencies.” (p. 52:2)
-- Lido em: =tmp/fontes/bainomugisha2013.pdf=, p. 2 do PDF (p. 52:2).
-- Conferido: 2026-10-07.
-* [[file:../intro.org::Uma alternativa ao /callback/ é a][intro: Uma alternativa ao /callback/ é a]], p. 52:1-3 (a planilha)
-- Frase: “Na PR, =var3= se recalcula a cada alteração de =var1= ou de
-  =var2=, como numa planilha eletrônica, em que alterar o valor de uma
-  célula recalcula as fórmulas que dependem dela (Bainomugisha et al.,
-  2013, p. 52:1-3).” O recálculo de =var3= é da p. 52:3 (entrada
-  seguinte); a planilha, das p. 52:1-2.
-- Trecho: “Reactive programming has recently gained popularity as a
-  paradigm that is well-suited for developing event-driven and
-  interactive applications.” (resumo, p. 52:1); “Reactive programming is
-  essentially about embedding the spreadsheet-like model in programming
-  languages.”; “automatic management of data dependencies can be
-  observed in spreadsheet systems [...] If a value of a cell changes then
-  the formulas are automatically recalculated.” (p. 52:2)
-- Lido em: =tmp/fontes/bainomugisha2013.pdf=, p. 1 e 2 do PDF (p. 52:1 e
-  52:2).
-- Conferido: 2026-10-07.
-* [[file:../intro.org::Uma alternativa ao /callback/ é a][intro: Uma alternativa ao /callback/ é a]], p. 52:3 (o exemplo de =var3=)
-- Frase: “Com =var1= igual a 1, =var2= igual a 2 e =var3 = var1 + var2=,
-  a programação imperativa guarda 3 em =var3= mesmo depois que =var1=
-  recebe outro valor, a não ser que o programador escreva de novo a
-  atribuição da soma (Bainomugisha et al., 2013, p. 52:3).” “Escreva”
-  separa quem escreve a atribuição, o programador, de quem a executa, o
-  programa. O travessão “a atualização de =var3= é manual” saiu em
-  2026-10-15 (decisão do autor): “manual” qualifica a escrita, e a
-  definição do imperativo por atualização manual já diz que o programador
-  escreve a atualização (=AGENTS.md=, “O programador escreve, e o programa
-  executa”). A metade da PR está na frase seguinte, com a planilha
-  (entrada anterior).
-- Trecho: “In conventional sequential imperative programming, the value of
-  the variable var3 will always contain 3, which is the sum of the initial
-  values of variables var1 and var2 even when var1 or var2 is later
-  assigned a new value (unless the programmer explicitly assigns a new
-  value to the variable var3). In reactive programming, the value of the
-  variable var3 is always kept up-to-date. In other words, the value of
-  var3 is automatically recomputed over time whenever the value of var1 or
-  var2 changes.” (p. 52:3)
-- Lido em: =tmp/fontes/bainomugisha2013.pdf=, versão dos autores, p. 3 do
-  PDF (cabeçalho “:3”).
-- Observação: ilustra, no parágrafo da PR, o estado que o programa
-  imperativo só atualiza por atribuição e a atualização que a PR faz
-  sozinha (escolha do autor em
-  2026-10-14; docs/estado-eventos-e-complexidade.md, seção "Definição e contraste, revisados por pares").
-- Conferido: 2026-10-14.
+* [[file:../intro.org::Como resposta à dificuldade de coordenar os][intro: Como resposta à dificuldade de coordenar os]], p. 52:2 (a PR como solução)
+- Frase: “Como resposta à dificuldade de coordenar os /callbacks/, foi
+  proposta a PR, com abstrações próprias para os eventos e para as
+  alterações de estado (Bainomugisha et al., 2013, p. 52:2).”
+- Trecho: “coordinating callbacks can be a very daunting task even for
+  advanced programmers since numerous isolated code fragments can be
+  manipulating the same data and their order of execution is
+  unpredictable. [...] there is a need for dedicated language abstractions
+  to take care of the event handling logic as well as the management of
+  state changes. The reactive programming paradigm has been recently
+  proposed as a solution that is well-suited for developing event-driven
+  applications.” (p. 52:2)
+- Lido em: =tmp/fontes/bainomugisha2013.pdf=, versão dos autores, p. 2 do
+  PDF (cabeçalho “:2”).
+- Observação: substitui, em 2026-10-15, a frase sem fonte “Uma alternativa
+  ao /callback/ é a PR” e a vantagem “need not to worry about the order of
+  events and computation dependencies”, que a própria survey restringe na
+  p. 52:11 (linguagens em que o programador rastreia as dependências à
+  mão); reescrita dos §5 a §7 pedida pelo autor na checagem adversarial.
+  O exemplo de =var3= (p. 52:3) saiu da introdução no mesmo dia: a
+  planilha basta como ilustração da PR (sugestão do autor).
+- Conferido: 2026-10-15.
+* [[file:../intro.org::Como resposta à dificuldade de coordenar os][intro: Como resposta à dificuldade de coordenar os]], p. 52:2 (a planilha)
+- Frase: “A PR leva às linguagens de programação o modelo da planilha
+  eletrônica, em que alterar o valor de uma célula recalcula as fórmulas
+  que dependem dela (Bainomugisha et al., 2013, p. 52:2).”
+- Trecho: “automatic management of data dependencies can be observed in
+  spreadsheet systems [...] If a value of a cell changes then the formulas
+  are automatically recalculated. Reactive programming is essentially
+  about embedding the spreadsheet-like model in programming languages.”
+  (p. 52:2)
+- Lido em: =tmp/fontes/bainomugisha2013.pdf=, versão dos autores, p. 2 do
+  PDF (cabeçalho “:2”).
+- Observação: antes de 2026-10-15, citava a p. 52:1-3, com o exemplo de
+  =var3=; a p. 52:1 é o resumo e não traz a planilha.
+- Conferido: 2026-10-15.
 * [[file:../prog.org::Nas linguagens imperativas, esse estado é][prog: Nas linguagens imperativas, esse estado é]], p. 52:2 (a gestão manual)
 - Frase: “Numa interface, é o programador quem escreve essa ordem: para
   cada mudança de estado, ele precisa escrever a atualização de tudo o que
@@ -118,4 +102,17 @@
   fim do primeiro parágrafo, o dos eventos (pedido do autor em
   2026-10-15). A seção 2 (=prog.org=) diz a ordem dos eventos com Martin
   (2022, p. 125) desde 3bf8b08.
+- Conferido: 2026-10-15.
+* [[file:../intro.org::As interfaces gráficas costumam ter estado][intro: As interfaces gráficas costumam ter estado]], p. 52:2 (o gerenciamento de estado)
+- Frase: “Essa coordenação, tema desta pesquisa, se divide aqui em dois
+  eixos: a orquestração de eventos [...] e o gerenciamento de estado
+  (Bainomugisha et al., 2013, p. 52:2).”
+- Trecho: “To reduce the burden faced by the programmers, there is a need
+  for dedicated language abstractions to take care of the event handling
+  logic as well as the management of state changes.” (p. 52:2)
+- Lido em: =tmp/fontes/bainomugisha2013.pdf=, versão dos autores, p. 2 do
+  PDF (cabeçalho “:2”).
+- Observação: sustenta o eixo do estado; a divisão em dois eixos é do
+  trabalho (ver a entrada de meijer2012 no mesmo parágrafo). Checagem
+  adversarial de 2026-10-15, decisão do autor.
 - Conferido: 2026-10-15.

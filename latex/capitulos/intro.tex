@@ -15,11 +15,10 @@ O desenvolvimento de interfaces gráficas é difícil por natureza
 Uma das razões é o código escrito do avesso (\emph{inside-out}), dividido em
 sub-rotinas que o \emph{toolkit} chama quando ocorrem ações do usuário
 \cite[p. 75 e 79]{myers1994}.
-Além disso, a forma de escrever a interface, que o programador escolhe junto
-com a tecnologia, afeta a compreensão e a manutenção do programa
-\cite[p. 134]{fischer2007}.
+Esse estilo, orientado a eventos, complica muito a compreensão e a
+manutenção do programa \cite[p. 134]{fischer2007}.
 Como \textcite[p. 5]{kiss2014}, este trabalho não aborda, apesar da
-importância, o projeto da interface e a usabilidade dela para quem a usa, e
+importância, o projeto da interface gráfica e a usabilidade dela para quem a usa, e
 trata do desenvolvimento de interfaces do ponto de vista da programação.
 
 As interfaces gráficas costumam ter estado, e essa é uma das principais
@@ -27,13 +26,14 @@ diferenças entre a programação de interfaces e a dos outros programas: o
 estado da aplicação determina a aparência e o comportamento da tela
 \cite[p. 230]{oney2012}.
 Com ele, elas lembram informações \cite[p. 14]{vanroy2009}, como os valores
-digitados nos campos \cite[12:3]{madsen2020}.
+digitados nos campos \cite[p. 12:3]{madsen2020}.
 O desafio do programador é escrever, no código, como o estado passa de um
 evento a outro \cite[p. N]{krishnamurthi2019}.
 Programar interfaces exige montar os elementos gráficos na tela e
 coordená-los com o resto do programa.
-Essa coordenação, tema desta pesquisa, tem dois eixos: a orquestração de
-eventos e o gerenciamento de estado.
+Essa coordenação, tema desta pesquisa, se divide aqui em dois eixos: a
+orquestração de eventos \cite[p. 67]{meijer2012} e o gerenciamento de
+estado \cite[p. 52:2]{bainomugisha2013}.
 O primeiro combina eventos de diferentes fontes, como as teclas digitadas e
 as respostas de uma busca, e o segundo leva cada alteração aos valores que
 dependem dela e à tela.
@@ -56,31 +56,32 @@ Os \emph{callbacks} que alteram o \gls{dom} muitas vezes levam o programador a
 escrever um código interdependente, opaco e propenso a erros, o chamado código
 espaguete \cite[p. 229]{oney2012}.
 
-Uma alternativa ao \emph{callback} é a \gls{pr}.
-Segundo \textcite[p. 1125-1126]{salvaneschi2017}, nela o programador
-declara as relações entre os valores, e o ambiente de execução faz as
-atualizações que elas exigem.
-Com \texttt{var1} igual a 1, \texttt{var2} igual a 2 e \texttt{var3 = var1 + var2}, a
-programação imperativa guarda 3 em \texttt{var3} mesmo depois que \texttt{var1} recebe
-outro valor, a não ser que o programador escreva de novo a atribuição da
-soma \cite[p. 52:3]{bainomugisha2013}.
-Na \gls{pr}, \texttt{var3} se recalcula a cada alteração de \texttt{var1} ou de \texttt{var2},
-como numa planilha eletrônica, em que alterar o valor de uma célula
-recalcula as fórmulas que dependem dela \cite[p. 52:1-3]{bainomugisha2013}.
-Assim, um comportamento que, de outro modo, seria complexo se exprime de modo
-declarativo \cite[p. 1125]{salvaneschi2017}.
-O programador não precisa cuidar da ordem dos eventos nem das dependências
-entre as computações \cite[p. 52:2]{bainomugisha2013}.
-Num experimento controlado com 127 estudantes, quem leu programas escritos
+Como resposta à dificuldade de coordenar os \emph{callbacks}, foi proposta a
+\gls{pr}, com abstrações próprias para os eventos e para as alterações de
+estado \cite[p. 52:2]{bainomugisha2013}.
+Nela, o programador declara como os valores dependem uns dos outros, em vez
+de escrever os passos que calculam o valor novo de cada um
+\cite[p. 1126]{salvaneschi2017}.
+O ambiente de execução leva cada alteração aos valores que dependem dela, e
+o programador não precisa escrever essa atualização
+\cite[p. 1126]{salvaneschi2017}.
+A forma de escrever o programa pesa na compreensão: num experimento
+controlado com 127 estudantes, quem leu programas escritos
 com \gls{pr} os compreendeu melhor do que quem leu as versões dos mesmos
 programas com o \emph{Observer Pattern} \cite[p. 1125-1134]{salvaneschi2017}.
+Nas três aplicações interativas do experimento, porém, a diferença não foi
+significativa, e em duas delas o grupo do \emph{Observer Pattern} teve média
+maior \cite[p. 1128 e 1132]{salvaneschi2017}.
+A \gls{pr} leva às linguagens de programação o modelo da planilha
+eletrônica, em que alterar o valor de uma célula recalcula as fórmulas que
+dependem dela \cite[p. 52:2]{bainomugisha2013}.
 
 Este trabalho compara \emph{modelos de programação}: as técnicas e os
 princípios de projeto que um modelo de computação torna possíveis
 \cite[p. xiii e 29]{vanroy2004}.
 \notamudou[list,prepend,caption={\textbf{1. Mudanças desde o projeto de 2017}}]{o projeto comparava paradigmas, a PF e a PR frente à POO com \emph{callbacks}; \textbf{agora se comparam modelos de programação}.}
 Na programação de interfaces gráficas, o modelo de programação é o modo
-de coordenar evento, estado e tela que uma tecnologia impõe.
+de coordenar evento, estado e tela que uma tecnologia torna possível.
 A \emph{notação} é a forma escrita de um modelo de programação numa
 tecnologia: as palavras e os sinais com que o programador escreve, no
 código-fonte da aplicação, o estado, os valores derivados dele e a tela
@@ -92,31 +93,44 @@ No \emph{imperativo por atualização manual}, o programador escreve, nos
 \emph{callbacks}, a alteração do estado e a atualização da tela
 \cites[][ p. 93]{disch2025}[][ p. 229]{oney2012}[][ p. 28 e 32]{sperber2025}, como
 nos Web Components sem biblioteca \cite{mozilla2026}.
+Num cronômetro escrito assim, o \emph{callback} do botão que zera o tempo
+altera o valor guardado, mas não o leva à tela
+\cite[p. 3]{meyerovich2009}.
+Até o próximo tique do relógio, o tempo exibido não corresponde ao valor
+guardado, e cabe ao programador escrever a sincronização da tela com o
+estado \cite[p. 3]{meyerovich2009}.
 
 Nos declarativos, o programador descreve a tela em função do estado, e o
 ambiente de execução a mantém atualizada
 \cites{solidjs2026}[][ p. 32]{sperber2025}.
-No \emph{declarativo por re-renderização}, o componente é uma função que
-especifica a tela e que, chamada com os mesmos argumentos, deve exibir a
-mesma interface; cada alteração de estado o reexecuta, como no React
-\cite[289:1, 289:2 e 289:6]{lee2025}.
-No \emph{declarativo por atualização granular}, cada \emph{signal} avisa os valores
-e trechos da tela que dependem dele, como no Solid e no Angular com
+No \emph{declarativo por re-renderização}, o ambiente de execução chama de
+novo, a cada alteração de estado, a parte que monta a tela.
+No React, é o próprio componente, uma função que especifica a tela e que,
+chamada com os mesmos argumentos, deve exibir a mesma interface
+\cite[p. 289:1, 289:2 e 289:6]{lee2025}; no Lit, é o método \texttt{render()}
+da classe do componente \cite{google2026d}.
+O \emph{declarativo por atualização granular} usa as abstrações da \gls{pr},
+os valores que variam no tempo, chamados \emph{signals}, cujas alterações se
+propagam automaticamente \cite[p. 953]{salvaneschi2015}.
+Cada \emph{signal} avisa o que depende dele, como no Solid e no Angular com
 \emph{signals} \cite{solidjs2026,google2026}.
-O modelo de programação por atualização granular usa as abstrações da \gls{pr}, os
-valores que variam no tempo, chamados \emph{signals}, cujas alterações se propagam
-automaticamente \cite[p. 953]{salvaneschi2015}.
+No React, o \emph{callback} continua a tratar o evento, mas só altera o estado,
+e a tela se monta de novo a partir dele \cite[p. 32]{sperber2025}.
+Num contador, por exemplo, o \emph{callback} do clique soma um ao estado, e o
+componente devolve o botão com o valor novo \cite[p. 289:2]{lee2025}.
 
 Para discutir o quanto uma notação facilita a compreensão e a
 manutenção, há as \glspl{dc}, propostas por \textcite{green1989}.
 Elas são um vocabulário para descrever a usabilidade de notações e de outros
 artefatos de informação \cite[p. 327]{blackwell2001}.
-Trabalhos anteriores compararam por elas paradigmas e linguagens de
+Trabalhos anteriores compararam por elas, ou por questionários derivados
+delas, paradigmas e linguagens de
 programação de interfaces e bibliotecas de \gls{pr}.
 \textcite{mernik2009} compararam o \gls{xaml} e o Windows Forms em C\#.
 \textcite[p. v, 11 e 104]{kiss2014} comparou a \gls{poo} e a \gls{pf}
-em sete interfaces gráficas, com JavaFX e ScalaFX, e deixou como
-trabalho futuro comparar os \emph{frameworks} de interface do navegador.
+em sete interfaces gráficas, com JavaFX e ScalaFX, e em parte delas com
+Scala.Rx, ReactFX e Elm, e deixou como trabalho futuro comparar os
+\emph{frameworks} de interface do navegador.
 \textcite[p. 1510 e 1513]{zimmerle2025} avaliaram com usuários duas
 bibliotecas de \gls{pr} para JavaScript.
 Fora das \glspl{dc}, \textcite[p. 15]{grolaux2026} compararam
@@ -175,7 +189,7 @@ Quanto aos objetivos, a pesquisa é \emph{exploratória}: busca compreensão nov
 \notamudou{O projeto também classificava a pesquisa como exploratória, com Leal (2011), e de natureza aplicada; \textbf{a natureza sai}.}
 e gera ideias e hipóteses para outras pesquisas
 \cite[p. 135]{runeson2009}.
-A pergunta de pesquisa, como a usabilidade difere entre os modelos de
+A pergunta de pesquisa, como a usabilidade da notação difere entre os modelos de
 programação, é do tipo que \textcite{easterbrook2008} chamam de
 descritivo-comparativo, das perguntas sobre como uma coisa difere de outra,
 e põem entre as perguntas exploratórias.
@@ -191,8 +205,8 @@ qualitativas e feitas por uma pessoa \cite[p. 76]{sim2003}.
 A medida, neste trabalho, é a avaliação pelas \glspl{dc}.
 Aqui, as técnicas são os três modelos de programação, e a amostra, cinco
 interfaces gráficas.
-Cada uma traz as exigências de coordenação que a aplicação real costuma ter, nos dois
-eixos da coordenação.
+Cada uma traz, em proporção própria, exigências dos dois eixos da
+coordenação.
 
 As cinco interfaces são implementadas na web por uma tecnologia de cada modelo de
 programação, Web Component, React e Solid, e três delas também pelo Lit,
@@ -204,15 +218,16 @@ A avaliação se faz em três rodadas: a primeira responde à P1; a segunda
 acrescenta as mesmas funcionalidades e os mesmos requisitos de
 orquestração a todas as implementações e responde à P1.1; a terceira
 reescreve o Formulário com a biblioteca de formulário do ecossistema de
-cada tecnologia e responde à P1.2.
+cada tecnologia, ou com a API da plataforma quando nenhuma domina, e
+responde à P1.2.
 \notamudou{\textbf{As três rodadas são novas}; o projeto não as previa.}
-A linguagem, a especificação e as regras de domínio ficam fixas, as duas
+A linguagem de cada plataforma, a especificação e as regras de domínio ficam fixas, as duas
 primeiras rodadas não usam bibliotecas de formulário, e um teste de
 conformidade confere que as implementações de uma interface fazem o mesmo.
 Em cada rodada, o autor percorre as 14 \glspl{dc} no código, e a análise
 compara o perfil de cada modelo de programação numa tabela-síntese, que
 também se lê por exigência de coordenação.
-\notamudou{\textbf{As DCs passam às 14}, e não oito, em cada rodada.}
+\notamudou{\textbf{As DCs passam às 14} em cada rodada.}
 A seção \ref{chap:cases} detalha o delineamento, e as implementações, os
 testes de conformidade e as capturas ficam em
 \url{https://github.com/iquabius/unemat-tcc}.
@@ -225,16 +240,22 @@ em cada dimensão.
 Em métodos de inspeção, avaliadores diferentes acham problemas bem
 diferentes na mesma interface \cite[p. 183]{hertzum2003}.
 Além disso, quem avalia pelas \glspl{dc} o que construiu tem conflito de
-interesse e tende a não ver os problemas que se acostumou a contornar
-\cite{dagit2006}.
-\realce{A familiaridade do autor com as tecnologias é desigual, maior com o React.}\notapergunta[list,prepend,caption={\textbf{5. IA nas implementações}}]{as versões atuais foram geradas com agentes de IA a partir de implementações de referência escritas pelo autor, e o texto não diz isso. \textbf{Declarar nas limitações e nos controles do delineamento?}}
+interesse e, num sistema implementado ao longo de muito tempo, tende a não
+ver os problemas que se acostumou a contornar \cite{dagit2006}.
+O conflito diminui num sistema ainda em formação, e usar as \glspl{dc}
+tarde no próprio sistema é melhor do que não usá-las \cite{dagit2006}.
+\realce{A familiaridade do autor com as tecnologias é desigual, maior com o React.}\notapergunta[list,prepend,caption={\textbf{5. IA nas implementações}}]{as implementações atuais foram geradas com agentes de IA a partir de implementações de referência escritas pelo autor, e o texto não diz isso. \textbf{Declarar nas limitações e nos controles do delineamento?}}
 Na avaliação, que é subjetiva, esse desnível pode favorecer a notação do
 React.
 
 Por ser analítica, e não um experimento, a avaliação pelas \glspl{dc} aponta
-diferenças que ainda precisam ser testadas com programadores.
-Quatro das 14 \glspl{dc} pesam no ambiente de edição, se leem só pela
-face que aparece na notação e podem mostrar pouca diferença no código.
+diferenças que convém testar depois com programadores
+\cite[p. 103]{kiss2014}.
+Quatro das 14 \glspl{dc} pesam no ambiente de edição, e este trabalho as
+lê só pela face que aparece na notação, onde podem mostrar pouca diferença
+no código.
+Elas entram mesmo assim, porque escolher de antemão um subconjunto das
+\glspl{dc} pode ser pouco útil \cite[p. 332]{blackwell2001}.
 Para \textcite[p. 334]{green2006}, duas das outras, a expressividade de
 papel e as operações mentais difíceis, sempre foram mal descritas.
 Na tabela-síntese, os rótulos do que acontece com a diferença de uma
@@ -243,9 +264,10 @@ rodada a outra, \emph{mantida}, \emph{ampliada}, \emph{reduzida}, \emph{anulada}
 
 Mesmo na segunda rodada, as implementações continuam pequenas, e o que só aparece em
 programas de grande porte ou ao longo da manutenção fica de fora.
-O autor definiu o conjunto de interfaces para este trabalho e escolheu as
-mudanças da segunda rodada com as implementações da primeira prontas, embora antes da
-avaliação.
+O autor reuniu o conjunto de interfaces para este trabalho, três delas
+adaptadas de fontes publicadas que a seção \ref{chap:cases} apresenta, e
+escolheu as mudanças da segunda rodada com protótipos e parte das
+implementações da primeira, antes da avaliação.
 Um conjunto criado por um pesquisador só e pouco usado tende a ter menos
 impacto que um adotado por uma comunidade \cite[p. 76]{sim2003}.
 O delineamento compara categorias, e não artefatos: cada modelo de programação
@@ -254,13 +276,11 @@ delas.
 As \glspl{dc} também dizem pouco das escolhas de alto nível, como o
 modelo de computação, e a relevância delas começa quando se definem os
 detalhes \cite[p. 139]{green1996d}.
-Por isso, a avaliação compara os modelos de programação pelos detalhes que
+Por isso, a análise compara os modelos de programação pelos detalhes que
 a notação de cada tecnologia exige no código-fonte.
-Os pares isolam pouco: na web, só o Web Component e o Lit, ambos com
-componentes que são elementos personalizados do navegador
-\cite{google2026d}, separam o imperativo de um declarativo, em três
-interfaces e só na ligação do estado com a tela; fora da web, cada
-plataforma confere dois dos três modelos de programação.
+Os pares isolam pouco: na web, só o Web Component e o Lit separam o
+imperativo por atualização manual do declarativo por re-renderização, e
+fora da web cada plataforma confere dois dos três modelos de programação.
 
 Além desta introdução, o texto tem três seções.
 A seção \ref{chap:prog} reúne os conceitos em que o trabalho se apoia, dos

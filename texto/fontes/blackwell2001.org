@@ -21,3 +21,22 @@
   (p. 332)
 - Lido em: =tmp/fontes/blackwell2001-springer.pdf=, p. 8 do PDF (p. 332).
 - Conferido: 2026-10-13.
+* [[file:../intro.org::Por ser analítica, e não um experimento][intro: Por ser analítica, e não um experimento]], p. 332 (as quatro do ambiente)
+- Frase: “Elas entram mesmo assim, porque escolher de antemão um subconjunto
+  das DCs pode ser pouco útil (Blackwell et al., 2001, p. 332).”
+- Trecho: “The conclusion was that prior selection of a subset of CDs may be
+  unhelpful. Using the full set of dimensions can produce some unexpected,
+  but useful results and should be done in order to discover as much
+  information as possible.” (p. 332)
+- Lido em: =tmp/fontes/blackwell2001-springer.pdf=, p. 8 do PDF (p. 332).
+- Observação: Blackwell et al. relatam o estudo de Britton e Kutar (2001),
+  que diz o mesmo com mais força (“it is detrimental to use only a subset
+  of the dimensions in the creation of profiles”), na p. 7 da cópia em
+  =tmp/fontes/britton2001.pdf=, sem paginação impressa (o artigo vai de
+  265 a 274 e a cópia tem 7 páginas). O agrupamento das quatro (compromisso
+  prematuro, avaliação progressiva, visibilidade e provisoriedade) é do
+  trabalho, e a frase anterior o diz; Kiss (2014, p. 15) deixa de fora outro
+  bloco, o das DCs de “tooling and the process” (visibilidade, avaliação
+  progressiva e provisoriedade). Checagem adversarial de 2026-10-15,
+  pedido do autor.
+- Conferido: 2026-10-15.

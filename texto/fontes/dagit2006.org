@@ -3,13 +3,21 @@
 
 * [[file:../intro.org::O delineamento tem limitações em três pontos][intro: O delineamento tem limitações em três pontos]] (conflito de interesse)
 - Frase: “Além disso, quem avalia pelas DCs o que construiu tem conflito de
-  interesse e tende a não ver os problemas que se acostumou a contornar
-  (Dagit et al., 2006).”
+  interesse e, num sistema implementado ao longo de muito tempo, tende a não
+  ver os problemas que se acostumou a contornar (Dagit et al., 2006). O
+  conflito diminui num sistema ainda em formação, e usar as DCs tarde no
+  próprio sistema é melhor do que não usá-las (Dagit et al., 2006).” Em
+  2026-10-15, a frase ganhou a condição e as ressalvas da fonte e se
+  dividiu em duas (checagem adversarial, decisão do autor).
 - Trecho: “a conflict of interest arises: the designer has a strong
-  incentive to decide that the system has no usability issues”; “when
-  evaluating one’s own system after it has been extensively implemented
-  over time, it becomes very difficult to see the errors, in part because
-  the designers have accustomed themselves to working around them.”
+  incentive to decide that the system has no usability issues”; “On the
+  other hand, when the system being evaluated is an emerging system, these
+  conflicts and temptations are diminished.” (p. 2 do PDF); “when evaluating one’s own
+  system after it has been extensively implemented over time, it becomes
+  very difficult to see the errors, in part because the designers have
+  accustomed themselves to working around them.” (p. 4 do PDF); “That said,
+  using CDs late on one’s own system is better than not using them at all.”
+  (p. 4 do PDF, mais adiante na mesma seção)
 - Lido em: =tmp/fontes/dagit2006.pdf=, p. 2 e 4 do PDF; página impressa a
   conferir (tcc-wg7).
 - Observação: substitui Ledo et al. (2018), cujo sujeito são os autores de

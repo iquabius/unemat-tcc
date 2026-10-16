@@ -1,7 +1,7 @@
 #+title: madsen2020: Madsen, Lhoták e Tip (2020), A Semantics for the Essence of React
 #+startup: overview
 
-* [[file:../intro.org::As interfaces gráficas costumam ter estado][intro: As interfaces gráficas costumam ter estado]], 12:3 (os valores dos campos)
+* [[file:../intro.org::As interfaces gráficas costumam ter estado][intro: As interfaces gráficas costumam ter estado]], p. 12:3 (os valores dos campos)
 - Frase: “Com ele, elas lembram informações [...], como os valores
   digitados nos campos (Madsen; Lhoták; Tip, 2020, 12:3).”
 - Trecho: “The state holds time-varying values, e.g., the values of input

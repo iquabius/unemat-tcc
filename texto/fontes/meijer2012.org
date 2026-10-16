@@ -11,3 +11,19 @@
   (ADR 0002, 2026-10-15); Meijer fica como a origem adaptada, como o
   /Flight Booker/ de Kiss no Formulário.
 - Conferido: 2026-10-15.
+* [[file:../intro.org::As interfaces gráficas costumam ter estado][intro: As interfaces gráficas costumam ter estado]], p. 67 (a orquestração de eventos)
+- Frase: “Essa coordenação, tema desta pesquisa, se divide aqui em dois
+  eixos: a orquestração de eventos (Meijer, 2012, p. 67) e o gerenciamento
+  de estado [...]”
+- Trecho: “The goal of Rx is to coordinate and orchestrate event-based and
+  asynchronous computations such as low-latency sensor streams, Twitter and
+  social media status updates, SMS messages, GPS coordinates, mouse moves
+  and other UI events, Web sockets, and high-latency calls to Web
+  services [...]” (p. 67)
+- Lido em: =tmp/fontes/meijer2012-cacm.pdf=, p. 2 do PDF (p. 67, entre os
+  rodapés das p. 66 e 68).
+- Observação: a divisão em dois eixos é do trabalho (“se divide aqui”;
+  docs/estado-eventos-e-complexidade.md, seção "Coordenação, orquestração e
+  estado nas fontes", decisão do autor em 2026-10-11); Meijer sustenta o
+  eixo dos eventos (checagem adversarial de 2026-10-15, decisão do autor).
+- Conferido: 2026-10-15.

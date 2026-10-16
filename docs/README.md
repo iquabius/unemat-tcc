@@ -28,7 +28,7 @@ pesam, pela tabela "Fontes centrais".
 
 ## Fontes centrais
 
-As 17 entradas com `peso = {central}` no `refs.bib` em 2026-10-15, pelo
+As 19 entradas com `peso = {central}` no `refs.bib` em 2026-10-15, pelo
 elo que sustentam. A lista do dia sai de
 `grep -B1 'peso = {central}' texto/refs.bib | grep '^@'`; quando o peso
 de uma fonte mudar, esta tabela muda junto.
@@ -36,6 +36,8 @@ de uma fonte mudar, esta tabela muda junto.
 | Elo | Fonte | O que sustenta | Onde |
 |---|---|---|---|
 | Problema | Moseley e Marks 2006 (`moseley2006`) | o estado como maior causa da complexidade acidental | `docs/estado-eventos-e-complexidade.md`, seção "Moseley e Marks (2006)" |
+| Problema | Meijer 2012 (`meijer2012`) | a orquestração de eventos, um dos dois eixos da coordenação | `docs/estado-eventos-e-complexidade.md`, seção "Coordenação, orquestração e estado nas fontes" |
+| Problema | Bainomugisha et al. 2013 (`bainomugisha2013`) | o gerenciamento de estado, o outro eixo, e a PR como solução para coordenar *callbacks* | `docs/estado-eventos-e-complexidade.md`, seções "Eventos" e "Coordenação, orquestração e estado nas fontes" |
 | Pergunta | Easterbrook et al. 2008 (`easterbrook2008`) | a pergunta descritivo-comparativa | só `texto/fontes/easterbrook2008.org` e a `annotation` |
 | Lacuna | Kiss 2014 (`kiss2014`) | as DCs já aplicadas a *signals*, na JVM e no Elm | `docs/trabalhos-relacionados-e-lacuna.md`, seção "Trechos dos trabalhos mais próximos"; o método dele, em `docs/metodo-da-avaliacao.md` |
 | Lacuna | Zimmerle e Gama 2025 (`zimmerle2025`) | as DCs por questionário em bibliotecas de PR, sem interface gráfica | `docs/trabalhos-relacionados-e-lacuna.md`, seção "Zimmerle e Gama 2025" |

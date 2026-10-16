@@ -22,8 +22,10 @@
 - Conferido: 2026-10-12.
 * [[file:../intro.org::Para discutir o quanto uma notação facilita][intro: Para discutir o quanto uma notação facilita]], p. v e 104
 - Frase: “Kiss (2014, p. v, 11 e 104) comparou a POO e a PF em sete interfaces
-  gráficas, com JavaFX e ScalaFX, e deixou como trabalho futuro comparar
-  os /frameworks/ de interface do navegador.”
+  gráficas, com JavaFX e ScalaFX, e em parte delas com Scala.Rx, ReactFX e
+  Elm, e deixou como trabalho futuro comparar os /frameworks/ de interface
+  do navegador.” Em 2026-10-15, a frase ganhou Scala.Rx, ReactFX e Elm, como
+  a de prog.org, pela checagem adversarial (decisão do autor).
 - Trecho: “The languages and libraries which serve as a practical testbed
   for the comparison are Java/JavaFX on the object-oriented side, and
   Scala/ScalaFX, Scala.Rx, ReactFX and Elm on the functional side.”
@@ -119,3 +121,15 @@
   usability of ‘information artifacts’”
 - Lido em: =tmp/fontes/kiss2014.pdf=, p. 14 do PDF (p. 8 impressa).
 - Conferido: 2026-10-06.
+* [[file:../intro.org::Por ser analítica, e não um experimento][intro: Por ser analítica, e não um experimento]], p. 103
+- Frase: “Por ser analítica, e não um experimento, a avaliação pelas DCs
+  aponta diferenças que convém testar depois com programadores (Kiss, 2014,
+  p. 103).”
+- Trecho: “After first insights have been gained in an analytical fashion,
+  it would make sense to follow up with empirical studies to give results
+  more meaningfulness.” (p. 103)
+- Lido em: =tmp/fontes/kiss2014.pdf=, p. 109 do PDF (p. 103 impressa).
+- Observação: antes de 2026-10-15, a frase não citava fonte e dizia
+  “precisam ser testadas”; o “it would make sense” de Kiss pede o “convém”
+  (checagem adversarial).
+- Conferido: 2026-10-15.

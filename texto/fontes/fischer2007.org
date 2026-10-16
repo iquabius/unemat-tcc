@@ -2,18 +2,22 @@
 #+startup: overview
 
 * [[file:../intro.org::O desenvolvimento de interfaces gráficas é difícil][intro: O desenvolvimento de interfaces gráficas é difícil]], p. 134
-- Frase: “Além disso, a forma de escrever a interface, que o programador
-  escolhe junto com a tecnologia, afeta a compreensão e a manutenção do
-  programa (Fischer; Majumdar; Millstein, 2007, p. 134).”
+- Frase: “Esse estilo, orientado a eventos, complica muito a compreensão e
+  a manutenção do programa (Fischer; Majumdar; Millstein, 2007, p. 134).”
 - Trecho: “the event-driven style severely complicates program maintenance
   and understanding”.
 - Lido em: =tmp/fontes/fischer2007-tasks-language-support-for-event-driven-programming.pdf=,
   p. 1 do PDF.
-- Observação: afirmação dos autores, sem medição; a medição da compreensão
-  está em Salvaneschi et al. (2017), no parágrafo da PR. A oração “que o
-  programador escolhe junto com a tecnologia” é do texto, sem fonte. A
-  frase veio do parágrafo do estado para o da dificuldade em 2026-10-14.
-- Conferido: 2026-10-09.
+- Observação: afirmação dos autores, sem medição. Em 2026-10-15, a frase
+  passou ao sujeito da fonte, o estilo orientado a eventos, no lugar de “a
+  forma de escrever a interface, que o programador escolhe junto com a
+  tecnologia, afeta”, que inflava o escopo e tinha uma oração sem fonte; a
+  ponte para a notação foi para o §5, com o experimento de Salvaneschi et
+  al. (2017), que mede a compreensão (checagem adversarial, decisão do
+  autor). “Orientado a eventos” retoma o “event-based programming” de
+  Myers (1994, p. 79), citado na frase anterior; “complica muito” traduz o
+  “severely complicates”.
+- Conferido: 2026-10-15.
 * [[file:../intro.org::No navegador, as sub-rotinas desse código][intro: No navegador, as sub-rotinas desse código]], p. 134-135
 - Frase: “O /callback/ fragmenta o fluxo de controle: a sequência de passos
   que o programador tem em mente para uma operação fica dividida entre

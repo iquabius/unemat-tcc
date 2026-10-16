@@ -11,9 +11,12 @@
 - Lido em: =tmp/fontes/solidjs2026.txt=, l. 8 (página salva).
 - Conferido: 2026-10-06.
 * [[file:../intro.org::Nos declarativos, o programador descreve a tela][intro: Nos declarativos, o programador descreve a tela]]
-- Frase: “No /declarativo por atualização granular/, cada /signal/ avisa os
-  valores e trechos da tela que dependem dele, como no Solid [...]. O Solid
-  recalcula só esses (SolidJS, 2026)”.
+- Frase: “Cada /signal/ avisa o que depende dele, como no Solid e no
+  Angular com /signals/ (SolidJS, 2026; Google, 2026).” Em 2026-10-15,
+  “os valores e trechos da tela” passou a “o que depende dele”: no Angular,
+  o /signal/ lido no /template/ marca o componente (google2026, l. 222), e
+  o grão de cada um fica para cases.org (checagem adversarial, decisão do
+  autor).
 - Trecho: “data entities (signals) will maintain a list of their
   subscribers (effects). This is a way to notify subscribers whenever a
   signal they observe changes.” (l. 70); “In Solid, updates are made to the

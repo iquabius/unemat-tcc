@@ -1,21 +1,51 @@
 #+title: salvaneschi2017: Salvaneschi et al. (2017), On the Positive Effect of Reactive Programming on Software Comprehension: An Empirical Study
 #+startup: overview
 
-* [[file:../intro.org::Uma alternativa ao /callback/ é a][intro: Uma alternativa ao /callback/ é a]], p. 1125-1126
-- Frase: “Segundo Salvaneschi et al. (2017, p. 1125-1126), nela o
-  programador declara as relações entre os valores, e o ambiente de
-  execução faz as atualizações que elas exigem.”
-- Trecho: “the programmer states which relations should be enforced among
-  the variables that compose a reactive program and the RP runtime takes
-  care of performing all the required updates” (p. 1125); “the language
-  runtime takes care of change propagation” (p. 1125).
-- Lido em: =tmp/fontes/salvaneschi2017.pdf=, p. 1 do PDF (p. 1125).
-- Conferido: 2026-10-07.
-* [[file:../intro.org::Uma alternativa ao /callback/ é a][intro: Uma alternativa ao /callback/ é a]], p. 1125-1134 (o experimento)
-- Frase: “Num experimento controlado com 127 estudantes, quem leu programas
-  escritos com PR os compreendeu melhor do que quem leu as versões dos
-  mesmos programas com o /Observer Pattern/ (Salvaneschi et al., 2017,
-  p. 1125-1134).”
+* [[file:../intro.org::Como resposta à dificuldade de coordenar os][intro: Como resposta à dificuldade de coordenar os]], p. 1126 (o que o programador declara)
+- Frase: “Nela, o programador declara como os valores dependem uns dos
+  outros, em vez de escrever os passos que calculam o valor novo de cada
+  um (Salvaneschi et al., 2017, p. 1126). O ambiente de execução leva cada
+  alteração aos valores que dependem dela, e o programador não precisa
+  escrever essa atualização (Salvaneschi et al., 2017, p. 1126).”
+- Trecho: “Declarativeness With RP, programmers state how components
+  functionally depend on each other, rather than providing the
+  computational steps that derive the new state of a component based on
+  the state of another one.”; “Developers do not need to manually update
+  dependent values, because the language runtime takes care of change
+  propagation.” (seção 2, p. 1126)
+- Lido em: =tmp/fontes/salvaneschi2017.pdf=, p. 2 do PDF (p. 1126).
+- Observação: substitui, em 2026-10-15, a citação narrativa da p. 1125-1126
+  e a frase do “potential” da p. 1125 (“for the potential to express
+  otherwise complex reactive behavior”), que a frase dava como fato; a
+  p. 1126 é a definição de princípio. “Não precisa escrever” segue o
+  “manually update” pela regra do =AGENTS.md= (“O programador escreve, e o
+  programa executa”). Reescrita dos §5 a §7 na checagem adversarial.
+- Conferido: 2026-10-15.
+* [[file:../intro.org::Como resposta à dificuldade de coordenar os][intro: Como resposta à dificuldade de coordenar os]], p. 1128 e 1132 (as aplicações interativas)
+- Frase: “Nas três aplicações interativas do experimento, porém, a
+  diferença não foi significativa, e em duas delas o grupo do /Observer
+  Pattern/ teve média maior (Salvaneschi et al., 2017, p. 1128 e 1132).”
+- Trecho: “Interactive applications (applications 8-10) require the user,
+  for example, to click buttons” (p. 1128); “The most striking cases are
+  Task 8 and Task 9, where the average for the OO group is higher than the
+  average for the RP group – even if this difference is not statistically
+  significant.”; “RP performs significantly better than OO for tasks
+  3-4-5-7 and [...] RP never performs significantly worse than OO”
+  (p. 1132)
+- Lido em: =tmp/fontes/salvaneschi2017.pdf=, p. 4 e 8 do PDF (p. 1128 e
+  1132).
+- Observação: ressalva da própria fonte, que a frase do experimento omitia
+  (checagem adversarial de 2026-10-15). A interface gráfica é o domínio
+  deste trabalho, e nela o experimento não mostrou vantagem significativa.
+- Conferido: 2026-10-15.
+* [[file:../intro.org::Como resposta à dificuldade de coordenar os][intro: Como resposta à dificuldade de coordenar os]], p. 1125-1134 (o experimento)
+- Frase: “A forma de escrever o programa pesa na compreensão: num
+  experimento controlado com 127 estudantes, quem leu programas escritos
+  com PR os compreendeu melhor do que quem leu as versões dos mesmos
+  programas com o /Observer Pattern/ (Salvaneschi et al., 2017,
+  p. 1125-1134).” Em 2026-10-15, a frase ganhou a abertura, que leva para
+  cá a ponte para a notação que o §2 fazia com Fischer et al. (2007),
+  sem medição (checagem adversarial, decisão do autor).
 - Trecho: “The study involves 127 subjects and compares reactive
   programming to the traditional object-oriented style with the Observer
   design pattern. Our findings show that program comprehension is
@@ -25,21 +55,6 @@
 - Observação: os números do experimento (médias, tempo de resposta) foram
   com o parágrafo inteiro para a seção 2.4 e estão na afirmação de prog,
   p. 1125-1134, mais abaixo.
-- Conferido: 2026-10-14.
-* [[file:../intro.org::Uma alternativa ao /callback/ é a][intro: Uma alternativa ao /callback/ é a]], p. 1125 (declarativo)
-- Frase: “Assim, um comportamento que, de outro modo, seria complexo se
-  exprime de modo declarativo (Salvaneschi et al., 2017, p. 1125).” Em
-  2026-10-15, a frase deixou de abrir pela PR, que abria também a anterior,
-  e foi para a passiva sintética: o que se escreve no código não tem a
-  tecnologia de sujeito (=AGENTS.md=, decisão do autor).
-- Trecho: “reactive programming (RP) has gained the attention of
-  researchers and practitioners for the potential to express otherwise
-  complex reactive behavior in an intuitive and declarative way.” (p. 1125)
-- Lido em: =tmp/fontes/salvaneschi2017.pdf=, p. 1 do PDF (p. 1125).
-- Observação: liga a PR ao declarativo no parágrafo da PR
-  (pedida pelo autor em 2026-10-14); “assim” retoma o exemplo de =var3= e
-  a planilha de Bainomugisha et al. (2013, p. 52:1-3), nas frases
-  anteriores do mesmo parágrafo.
 - Conferido: 2026-10-14.
 * [[file:../intro.org::Quanto aos objetivos, a pesquisa é][intro: Quanto aos objetivos, a pesquisa é exploratória]]
 - Frase: “As hipóteses desta pesquisa servem a experimentos controlados
