@@ -21,14 +21,14 @@ no Formulário, na
 Busca e nos Dados ao vivo; React × Solid, o modelo de programação entre os
 dois declarativos, nas cinco interfaces; React × Lit e Solid × Angular com
 *signals*, a notação dentro de cada declarativo, em três interfaces cada
-(ADR 0013). No Login, o imperativo não tem par e difere dos declarativos
-em mais de uma variável ao mesmo tempo. Fora da web, Views × Compose e
-Windows Forms × WPF mudam a coordenação e a montagem da tela juntas; o par
-mais controlado, Swing × JavaFX em código, ficou fora (ADR 0001). Ficam
-sem controle o avaliador, que é o autor, a origem das implementações,
-geradas com agentes de IA, o número de tecnologias por modelo de
-programação, que muda de interface para interface, e as bibliotecas da
-terceira rodada.
+(ADR 0013). No Login e no Quadro, o imperativo não tem par e difere dos
+declarativos em mais de uma variável ao mesmo tempo. Fora da web, Views
+× Compose e Windows Forms × WPF mudam a coordenação e a montagem da tela
+juntas; o par mais controlado, Swing × JavaFX em código, ficou fora (ADR
+0001). Ficam sem controle o avaliador, que é o autor, a origem das
+implementações, geradas com agentes de IA, o número de tecnologias por
+modelo de programação, que muda de interface para interface, e as
+bibliotecas da terceira rodada.
 
 O termo segue Prodanov e Freitas (2013, p. 54, `prodanov2013`): o
 *design* "pode ser traduzido como delineamento", que "refere-se ao
@@ -73,7 +73,7 @@ texto; o que cada par candidato acrescentava e os custos estão em
 
 | Variável | Por que não se controla | Onde o texto diz | Em aberto |
 |---|---|---|---|
-| Imperativo × declarativos na web | o Web Component difere do React e do Solid na coordenação, na montagem da tela e na organização em componentes ao mesmo tempo; a diferença se atribui pelo sinal escrito (coordenação, montagem ou ligação entre as duas) | limitações de `texto/intro.org` | "Decidir como a análise atribui as diferenças entre o imperativo e os declarativos, sem par controlado na web" (tcc-4ie); o par Web Component × Lit cobre o Formulário, a Busca e os Dados ao vivo, e o Login fica sem par (ADR 0013; seção "O que cada par isola, DC a DC") |
+| Imperativo × declarativos na web | o Web Component difere do React e do Solid na coordenação, na montagem da tela e na organização em componentes ao mesmo tempo; a diferença se atribui pelo sinal escrito (coordenação, montagem ou ligação entre as duas) | limitações de `texto/intro.org` | "Decidir como a análise atribui as diferenças entre o imperativo e os declarativos, sem par controlado na web" (tcc-4ie); o par Web Component × Lit cobre o Formulário, a Busca e os Dados ao vivo, e o Login e o Quadro ficam sem par (ADR 0013; seção "O que cada par isola, DC a DC") |
 | Representantes por modelo de programação | na web, uma ou duas tecnologias por coluna, conforme a interface: React e Lit no Formulário, na Busca e nos Dados ao vivo; Solid e Angular no Formulário, na Busca e no Quadro; a conclusão generaliza a partir delas, e cada coluna tem outra tecnologia fora da web | limitações; `docs/paradigma-modelo-e-notacao.md`, seção "Unidade comparada e evidência: o TCC compara categorias" | "Avaliar React × Angular na web, com o Solid só como menção" (tcc-qti, adiada) tiraria o par que isola o modelo de programação |
 | Bibliotecas da terceira rodada | cada tecnologia usa a biblioteca de formulário do seu ecossistema, e a conclusão se lê como "no ecossistema típico", sem atribuição só ao modelo de programação | ainda não | ADR 0029; tcc-di3a |
 | Divergência dentro da coluna | Solid e Angular, ou React e Lit, nas três interfaces de cada par, podem divergir numa DC | a célula da tabela-síntese registra a divergência | ADR 0017 |

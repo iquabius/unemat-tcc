@@ -48,7 +48,7 @@ Do mais abstrato ao mais concreto:
 | Modelo de computação | "a formal system that defines a language and how sentences of the language [...] are executed by an abstract machine" | Van Roy e Haridi 2004, p. 29 | o mesmo nas cinco tecnologias web (TypeScript) |
 | Modelo de programação | "the programming techniques and design principles made possible by the computation model"; "always built on top of a computation model" | Van Roy e Haridi 2004, p. xiii e 29 | o que se compara: o modo de coordenar evento, estado e tela |
 | Arquitetura, padrão | a organização da aplicação (MVC, MVU) ou de uma relação entre objetos (*Observer*) | Sperber e Schlegel 2025, p. 28 e 32; Van Roy e Haridi 2004, p. 534 (padrão de projeto) | vizinho: organiza a aplicação, e não o modo de escrever o estado, os derivados e a tela |
-| Tecnologia | o produto que se instala, que a documentação chama de biblioteca, *framework*, *toolkit* ou plataforma | seção "Os vizinhos: biblioteca, *framework*, *toolkit*, documentações" | Web Component, jQuery, React, Solid, Angular; Views e Compose |
+| Tecnologia | o produto que se instala, que a documentação chama de biblioteca, *framework*, *toolkit* ou plataforma | seção "Os vizinhos: biblioteca, *framework*, *toolkit*, documentações" | Web Component, Lit, React, Solid, Angular; Views e Compose |
 | Notação | "the perceived marks or symbols that are combined to build an information structure"; "what the user sees and edits" | Green e Blackwell 1998, p. 8; Blackwell e Green 2003, p. 114 | a forma escrita de um modelo de programação numa tecnologia |
 | Abstração | o que "changes the notation", quase sempre por expansão; a linguística ganha sintaxe própria, traduzida para a linguagem núcleo | Green e Blackwell 1998, p. 24; Van Roy e Haridi 2004, p. 38-40 | o *callback* registrado, o componente reexecutado, o *signal*, o *hook* |
 
@@ -93,13 +93,14 @@ uma generalização das tecnologias que estão nela.
 Custos que o texto precisa declarar:
 
 - **poucos representantes por categoria**: na web, o declarativo por
-  re-renderização tem só o React, o declarativo por atualização granular
-  tem Solid e Angular com *signals*, e o imperativo por atualização manual tem
-  Web Component e jQuery; o Android acrescenta Views e Compose a dois dos
-  três;
+  re-renderização tem React e Lit, o declarativo por atualização
+  granular tem Solid e Angular com *signals*, e o imperativo por
+  atualização manual tem só o Web Component; o Lit e o Angular
+  implementam três das cinco interfaces cada (ADR 0013); o Android
+  acrescenta Views e Compose a dois dos três;
 - **divergência dentro da coluna**: quando as duas tecnologias de uma
-  coluna divergem numa DC, Solid e Angular ou Web Component e jQuery, a
-  célula registra a divergência (ADR 0017);
+  coluna divergem numa DC, React e Lit ou Solid e Angular, a célula
+  registra a divergência (ADR 0017);
 - **escolha de alto nível**: as DCs "have little to say about these
   high-level choices; its relevance starts as the details are worked out"
   (Green e Petre 1996, p. 139). O TCC avalia a escolha do modelo de
@@ -107,16 +108,18 @@ Custos que o texto precisa declarar:
 
 Uma comparação por tecnologia seguiria a forma usual, mas responderia
 qual tecnologia, e não qual modelo de programação. Os pares próximos
-existem para que a categoria possa ser comparada: React × Solid escrevem
-a tela no mesmo JSX e têm modelos de programação diferentes; Solid ×
-Angular têm o mesmo modelo de programação e duas notações.
+existem para que a categoria possa ser comparada: Web Component × Lit
+têm o mesmo modelo de componente e a mesma orquestração, com modelos de
+programação diferentes; React × Solid escrevem a tela no mesmo JSX e têm
+modelos de programação diferentes; React × Lit e Solid × Angular têm o
+mesmo modelo de programação e duas notações (ADR 0013).
 
 ## As tecnologias por modelo de programação
 
 | Modelo de programação | Web | Android | Como coordena | Montagem da tela |
 |---|---|---|---|---|
-| Imperativo por atualização manual | Web Component, jQuery | Views | o *callback* registrado atualiza a tela passo a passo | `createElement` e `innerHTML`; HTML com seletores; layout XML |
-| Declarativo por re-renderização | React | Compose | o componente reexecuta a cada alteração de estado, e o derivado é expressão comum | JSX; funções que podem ser compostas |
+| Imperativo por atualização manual | Web Component | Views | o *callback* registrado atualiza a tela passo a passo | `createElement` e `innerHTML`; layout XML |
+| Declarativo por re-renderização | React, Lit | Compose | o componente reexecuta a cada alteração de estado, e o derivado é expressão comum | JSX; *template* `html`; funções que podem ser compostas |
 | Declarativo por atualização granular | Solid, Angular com *signals* | — | o componente executa uma vez, e o *signal* propaga a alteração aos derivados e à tela | JSX numa função; *template* com construtos próprios |
 
 React e Solid diferem também no dialeto do JSX (`className` e `class`) e
@@ -126,11 +129,16 @@ decorador, injeção de dependências) e a API além do *signal* e do valor
 derivado (ADR 0021). Os pares de *desktop* candidatos estão em
 `docs/plataformas/desktop.md`.
 
-Os pares controlam a comparação entre os dois modelos de programação
-declarativos; o imperativo por atualização manual entra contra os dois sem par
-controlado na web, e Views × Compose é o par mais próximo no Android. O quadro
-do que o delineamento controla, isola e deixa sem controle está em
-`docs/delineamento.md`.
+Na web, o Web Component × Lit é o único par que isola o imperativo por
+atualização manual, contra a re-renderização, no Formulário, na Busca e
+nos Dados ao vivo (ADR 0013). Nos dois, o componente é uma classe que
+estende `HTMLElement`, o esqueleto da tela se escreve em HTML num texto
+e a orquestração é a mesma; mudam a ligação do estado com a tela e, nas
+partes repetidas e no filho que entra e sai da página, a montagem (ADR
+0037). No Login e no Quadro, e contra a atualização granular em todas as
+interfaces, o imperativo entra sem par controlado na web, e Views ×
+Compose é o par mais próximo no Android. O quadro do que o delineamento
+controla, isola e deixa sem controle está em `docs/delineamento.md`.
 
 O exemplo que separa React e Solid, com o mesmo JSX: no React,
 `const dobro = n * 2` se recalcula porque o componente reexecuta; no

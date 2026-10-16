@@ -22,8 +22,8 @@ o Android, e entra nele se a tcc-a0w decidir representá-lo.
 
 | Modelo de programação | Web | Android | Swing × JavaFX | Windows Forms × WPF | Qt Widgets × QML |
 |---|---|---|---|---|---|
-| Imperativo por atualização manual | Web Component, jQuery | Views | Swing | Windows Forms | Qt Widgets |
-| Declarativo por re-renderização | React | Compose | — | — | — |
+| Imperativo por atualização manual | Web Component | Views | Swing | Windows Forms | Qt Widgets |
+| Declarativo por re-renderização | React, Lit | Compose | — | — | — |
 | Declarativo por atualização granular | Solid, Angular com *signals* | — | JavaFX | WPF | QML |
 
 Leitura:
@@ -46,15 +46,19 @@ Leitura:
   "Swing × JavaFX (Java)"); na QML, a confirma, com o rastreamento
   automático (`docs/plataformas/desktop.md`, seção "Qt Widgets × QML
   (C++ e QML)").
-- Cada par compara o imperativo por atualização manual e um declarativo na
-  mesma linguagem e plataforma, o par controlado que a web não tem (tarefa
-  "Decidir como a análise atribui as diferenças entre o imperativo e os
-  declarativos, sem par controlado na web", tcc-4ie). O Views × Compose
-  faz o mesmo com o declarativo por re-renderização, mas muda também a
-  montagem da tela (*layout* XML contra funções). Swing × JavaFX, com a
-  tela do JavaFX montada em código Java, mantém a montagem da tela e
-  isola o modelo de programação; nos outros dois pares ela muda (código
-  C# contra XAML; C++ contra QML).
+- Cada par de *desktop* compara o imperativo por atualização manual e um
+  declarativo na mesma linguagem e plataforma. Na web, o Web Component ×
+  Lit faz isso com o declarativo por re-renderização, no Formulário, na
+  Busca e nos Dados ao vivo (ADR 0013); o imperativo contra o
+  declarativo por atualização granular, a célula dos pares de *desktop*,
+  não tem par na web (tarefa "Decidir como a análise atribui as
+  diferenças entre o imperativo e os declarativos, sem par controlado na
+  web", tcc-4ie). O Views × Compose põe o imperativo contra o
+  declarativo por re-renderização no Android, mas muda também a montagem
+  da tela (*layout* XML contra funções). Swing × JavaFX, com a tela do
+  JavaFX montada em código Java, mantém a montagem da tela e isola o
+  modelo de programação; nos outros dois pares ela muda (código C#
+  contra XAML; C++ contra QML).
 
 ## O que comparar dentro do granular
 

@@ -1,12 +1,12 @@
 # Web: tecnologias, documentação, uso e opiniões
 
-Referência. As tecnologias web do TCC e as descartadas (Svelte, Vue): o
-modelo de programação e a montagem da tela, o que mudou de 2016 a 2026,
-o modelo de reatividade segundo a documentação oficial, as medidas de
-uso, os artigos não acadêmicos, os prós e contras de cada escolha e como
-os Web Components sem biblioteca montam a tela; quase tudo é literatura
-cinzenta. Sustenta o ADR 0013. Cada afirmação sobre ferramenta ou versão
-leva a data em que foi observada.
+Referência. As tecnologias web do TCC e as descartadas (jQuery, Svelte,
+Vue): o modelo de programação e a montagem da tela, o que mudou de 2016
+a 2026, o modelo de reatividade segundo a documentação oficial, as
+medidas de uso, os artigos não acadêmicos, os prós e contras de cada
+escolha e como os Web Components sem biblioteca montam a tela; quase
+tudo é literatura cinzenta. Sustenta o ADR 0013. Cada afirmação sobre
+ferramenta ou versão leva a data em que foi observada.
 
 **Conclusão.** A PR virou o modelo padrão de reatividade das principais
 bibliotecas de UI, com os *signals* (seção "O que mudou de 2016 a
@@ -43,26 +43,33 @@ de 2026-10-12, estão em `docs/plataformas/bibliotecas-de-formulario.md`
 
 ## Tecnologias por modelo de programação
 
-| Tecnologia | Modelo de programação | Montagem da tela |
-|---|---|---|
-| Web Component | imperativo por atualização manual | HTML e DOM |
-| jQuery | imperativo por atualização manual | HTML e DOM |
-| React | declarativo por re-renderização | JSX |
-| Solid | declarativo por atualização granular | JSX |
-| Angular com *signals* | declarativo por atualização granular | *template* |
-| Angular com RxJS | apoio, fora da análise (ADR 0013) | *template* |
+| Tecnologia | Modelo de programação | Montagem da tela | Interfaces |
+|---|---|---|---|
+| Web Component | imperativo por atualização manual | esqueleto em HTML num texto; partes repetidas com `createElement` (ADR 0037) | as cinco |
+| Lit | declarativo por re-renderização | *template* `html` | Formulário, Busca, Dados ao vivo |
+| React | declarativo por re-renderização | JSX | as cinco |
+| Solid | declarativo por atualização granular | JSX | as cinco |
+| Angular com *signals* | declarativo por atualização granular | *template* | Formulário, Busca, Quadro |
+| Angular com RxJS | apoio, fora da análise (ADR 0013) | *template* | — |
+| jQuery | fora da análise (ADR 0013) | HTML e DOM | — |
 
-Cinco interfaces em cada tecnologia (ADRs 0002 e 0012). Dois pares
-próximos (ADR 0021): React × Solid, com a mesma tela em JSX e modelos de
-programação diferentes; Solid × Angular com *signals*, com o mesmo modelo
-de programação e duas notações. Quando as duas tecnologias de uma coluna
-divergem numa DC, Solid e Angular ou Web Component e jQuery
-(`createElement` e `innerHTML` contra seletores), a célula da
-tabela-síntese registra a divergência (ADR 0017). O imperativo por
-atualização manual entra contra os dois declarativos sem par controlado
-(`docs/paradigma-modelo-e-notacao.md`, seção "As tecnologias por modelo
-de programação"). O quadro do que o delineamento controla está em
-`docs/delineamento.md`.
+Quatro pares próximos, um para cada contraste (ADR 0013): Web Component
+× Lit, com o mesmo modelo de componente, o esqueleto da tela em HTML num
+texto e a mesma orquestração, isola o imperativo contra a
+re-renderização na ligação do estado com a tela, e nas partes repetidas
+e no filho que entra e sai da página muda também a montagem (ADR 0037);
+React × Solid, com a mesma tela em JSX, isola o modelo de programação
+entre os dois declarativos; React × Lit, a notação dentro da
+re-renderização; Solid × Angular com *signals*, a notação dentro da
+atualização granular. Quando as duas tecnologias de uma coluna divergem
+numa DC, React e Lit ou Solid e Angular, a célula da tabela-síntese
+registra a divergência (ADR 0017). No Login e no Quadro, que o Lit não
+implementa, o imperativo por atualização manual entra contra os dois
+declarativos sem par controlado, e em nenhuma interface um par o põe
+contra a atualização granular (`docs/delineamento.md`, seção "O que fica
+sem controle"). O jQuery fica fora, e o Angular com RxJS, de apoio; os
+dois ficam congelados em `implementacoes/fora-da-analise/` (ADR 0013).
+O quadro do que o delineamento controla está em `docs/delineamento.md`.
 
 ## O que mudou de 2016 a 2026
 
@@ -248,7 +255,7 @@ evidência.
     existiria sem a classe. Fontes: Carniato 2024; Harris 2019; Verou
     2024; State of JS 2025. Evidência: opinião de partes interessadas;
     número.
-- **jQuery como a imperativa reconhecível**
+- **jQuery como a imperativa reconhecível, que ficou fora**
   - *pró*: Terceira mais usada no Stack Overflow 2025 (23,4%), 65,6% dos
     *sites*; 4.0.0 em 2026-01, mantida; a API (`.on`, `.html`, `.val`) é
     a forma canônica de evento → *callback* → DOM. Fontes: SO 2025;

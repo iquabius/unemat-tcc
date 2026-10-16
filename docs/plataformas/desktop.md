@@ -131,11 +131,13 @@ resumidas.
 **Montagem da tela: código Java × FXML.**
 
 - `swing` e `javafx` montam a tela com as mesmas chamadas e na mesma
-  ordem (criar o controle, `setLabelFor`, adicionar ao painel vertical): o
-  par isola o modelo de programação, o contraste controlado entre o
-  imperativo e um declarativo que a web não tem (tarefa "Decidir como a
-  análise atribui as diferenças entre o imperativo e os declarativos, sem
-  par controlado na web", tcc-4ie).
+  ordem (criar o controle, `setLabelFor`, adicionar ao painel vertical):
+  o par isola o modelo de programação, o contraste controlado entre o
+  imperativo e o declarativo por atualização granular que a web não tem
+  (tarefa "Decidir como a análise atribui as diferenças entre o
+  imperativo e os declarativos, sem par controlado na web", tcc-4ie); na
+  web, o Web Component × Lit põe o imperativo contra o declarativo por
+  re-renderização (ADR 0013).
 - `javafx` e `javafx-fxml` têm os mesmos *bindings*, com os mesmos nomes,
   e o `diff` entre eles mostra só a montagem: os campos com `@FXML`, o
   `initialize` no lugar do construtor e o tratador ligado por nome
