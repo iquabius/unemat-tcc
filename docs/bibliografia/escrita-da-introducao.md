@@ -154,4 +154,5 @@ As fontes de trabalhos relacionados:
 
 Criada em 2026-10-15 com a seção 7 de `docs/metodo-da-avaliacao.md` e,
 de `docs/trabalhos-relacionados.md`, a seção 7.1 e o parágrafo sobre as
-introduções da seção 7.
+introduções da seção 7. Em 2026-10-16, foi para `docs/bibliografia/`,
+com as outras notas de fontes de apoio.

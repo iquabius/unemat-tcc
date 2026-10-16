@@ -336,4 +336,5 @@ Veio de `docs/literatura.md` (índice até `ff620ad`), seções 1, 3.3, 5 e
 ganhou o nome de agora, a lacuna foi para
 `docs/trabalhos-relacionados-e-lacuna.md`, e vieram de
 `docs/fundamentacao.md` a matriz tema × referência e os incluídos de
-prioridade alta da primeira rodada.
+prioridade alta da primeira rodada. Em 2026-10-16, foi para
+`docs/bibliografia/`, com as outras notas de fontes de apoio.

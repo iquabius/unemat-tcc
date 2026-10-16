@@ -13,7 +13,7 @@ estão em `CONTEXT.md`; use-os.
 | Decisão cara de reverter, com alternativa real | `docs/adr/NNNN-slug.md` | skill `adr`: um parágrafo, data absoluta, "Em vez de" e "Custo" obrigatórios. Decisão que muda reescreve o ADR no lugar, com a data nova e a decisão anterior num "Em vez de"; errata se corrige no texto; ADR absorvido por outro se apaga. O git guarda as versões, e a numeração tem lacunas |
 | Termo do projeto | `CONTEXT.md` | skill `domain-modeling`: definição de uma ou duas frases e o que evitar |
 | Tarefa aberta | Beads (`bd`), exportado em `.beads/issues.jsonl` | seção abaixo |
-| Fonte, nota de referência ou achado que o texto ainda vai absorver | `docs/*.md`, com entrada em `docs/README.md` | seção abaixo |
+| Fonte, nota de referência ou achado que o texto ainda vai absorver | `docs/` e as subpastas dele, com entrada em `docs/README.md` | seção abaixo |
 | Plano, guia de leitura e revisão do agente na avaliação pelas DCs | `docs/avaliacao/<rodada>-<interface>/` | skill do projeto `avaliacao-pelas-dcs`: o guia sai antes da leitura do autor e sem conclusão, a revisão depois do ditado; cada um num commit no `master`; a origem das posições vai numa linha do commit do texto |
 | Convenção de código, pastas ou ambiente | `implementacoes/AGENTS.md` | |
 | Mudança em código (`implementacoes/`, `bin/`, scripts), ferramentas ou `AGENTS.md` | numa worktree, em ramo próprio, que chega ao `master` revisado | seção "Código: ramo, revisão, merge" abaixo |
@@ -314,8 +314,12 @@ pergunta antes.
 O ponto de entrada é `docs/README.md`: o mapa das notas pelo elo do
 argumento, as fontes centrais (o `peso` do `refs.bib`), onde guardar um
 trecho novo e a legenda das notas de fontes. Nota nova entra nele, e a
-tabela das centrais muda com o peso. Cada nota é de um tipo só, dito na
-primeira linha depois do título:
+tabela das centrais muda com o peso. Na raiz de `docs/` ficam as notas
+que seguram um elo do argumento ou se leem em toda rodada; as de apoio
+ficam numa pasta por tipo de material: `docs/bibliografia/` (fontes de
+apoio e as buscas), `docs/plataformas/` (uma nota por plataforma, com as
+tecnologias) e `docs/processo/` (o projeto e as ferramentas). Cada nota
+é de um tipo só, dito na primeira linha depois do título:
 
 - **Fontes** (`docs/estado-eventos-e-complexidade.md`): as fontes de um
   assunto, com o que cada uma sustenta e o trecho conferido; abre pela

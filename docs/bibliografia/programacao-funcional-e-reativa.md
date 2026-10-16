@@ -104,6 +104,7 @@ para a análise.
 ## Histórico
 
 Criada em 2026-10-15 com as seções 3 e 5 de `docs/fundamentacao.md` e,
-da seção 4, os trechos de Bainomugisha et al. e de Salvaneschi et al.
-A fundamentação veio de `docs/literatura.md` (índice até `ff620ad`) em
-2026-10-10.
+da seção 4, os trechos de Bainomugisha et al. e de Salvaneschi et al. A
+fundamentação veio de `docs/literatura.md` (índice até `ff620ad`) em
+2026-10-10. Em 2026-10-16, foi para `docs/bibliografia/`, com as outras
+notas de fontes de apoio.

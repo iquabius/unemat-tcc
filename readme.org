@@ -20,7 +20,7 @@
   | =latex/= | o que o =latexmk= lê: =tcc.tex=, classe, estilos, brasões, =apendices/= e os =capitulos/= exportados |
   | =pdf/= | o que sai, fora do git: =build/=, =versoes/= e =ao-vivo/= |
   | =implementacoes/= | as implementações de cada interface, a especificação (=openspec/=) e o =package.json= dos =workspaces= |
-  | =docs/= | decisões (=adr/=) e notas, com entrada em =docs/README.md= |
+  | =docs/= | decisões (=adr/=) e notas, com entrada em =docs/README.md=: o argumento na raiz, o apoio em =bibliografia/=, =plataformas/= e =processo/= |
   | =bin/= | scripts |
 
   Os caminhos dentro de =latex/= são relativos a ela, e o =latexmk= compila
