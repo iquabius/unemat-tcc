@@ -1,4 +1,4 @@
-# Implementações de referência no CodeSandbox
+# Implementações do autor no CodeSandbox
 
 Referência. São as implementações que o autor escreveu à mão no
 CodeSandbox, antes das implementações atuais de `implementacoes/`. As

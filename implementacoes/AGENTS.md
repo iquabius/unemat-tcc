@@ -208,7 +208,7 @@ A mudança não se porta para o código da interface em
   entra no `innerHTML`: o texto vai por `textContent`, e o tratador de
   um item, por `addEventListener` no elemento criado, e não por
   delegação com `data-*`. É a forma mais comum em programas reais sem
-  biblioteca (`docs/tecnologias-web.md`, seção "Como Web Components sem
+  biblioteca (`docs/plataformas/web.md`, seção "Como Web Components sem
   biblioteca montam a tela"), e o ADR 0037 diz as alternativas e o
   custo.
 - O Lit (ADR 0013: Formulário, Busca e Dados ao vivo) fica em

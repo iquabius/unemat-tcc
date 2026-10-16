@@ -27,4 +27,4 @@ dentro do VS Code; o Scotty envia por padrão um evento diário ao PostHog.
 Fontes: pesquisa dos painéis prontos em 2026-09-27 (tarefa tcc-308d, no
 `.beads/issues.jsonl` do commit `c81c5e7`); beads.gascity.com, "Sync
 Concepts" e "Community Tools" (2026-09-27); `bd` 1.3.0 (commit f45b249);
-`docs/beads-e-dolt.md`.
+`docs/processo/tarefas-no-beads.md`.

@@ -49,7 +49,7 @@ IJSREM, 2025).
 
 O que mudou de 2016 a 2026 na literatura revisada por pares, verificado
 no resumo do artigo (a linha do tempo das tecnologias está em
-`docs/tecnologias-web.md`, seção 1): Salvaneschi et al. (2017) é a
+`docs/plataformas/web.md`, seção 1): Salvaneschi et al. (2017) é a
 versão em periódico do experimento citado; a linha da UFPE (Zimmerle,
 Gama e colaboradores) avalia PR com DCs; PFR para GUIs continuou na
 teoria (Graulund 2021, Bahr & Møgelberg 2023); semântica formal do React

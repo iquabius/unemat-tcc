@@ -5,7 +5,7 @@ descreve a avaliação: o rótulo do método, o 7GUIs como origem de três
 interfaces, as DCs, o limite das interfaces pequenas, as rodadas e como
 aplicar as DCs a código, com o trecho e a página. O que o delineamento
 controla está em `docs/delineamento.md`; a forma da introdução, em
-`docs/escrita-da-introducao.md`.
+`docs/bibliografia/escrita-da-introducao.md`.
 
 **Conclusão.** Em 2026-10-10, quanto aos meios, o trabalho é uma
 avaliação qualitativa, pelas DCs, de implementações de um mesmo conjunto
@@ -509,9 +509,9 @@ trabalho:
 
 Veio de `docs/literatura.md` (índice até `ff620ad`), seções 9, 11, 13.2,
 14.2 e 16, em 2026-10-10. Em 2026-10-15, a seção sobre a escrita da
-introdução foi para `docs/escrita-da-introducao.md`, e vieram de
-`docs/fundamentacao.md` os trechos de Blackwell e Green da seção "O
-alcance das DCs".
+introdução foi para `docs/bibliografia/escrita-da-introducao.md`, e
+vieram de `docs/fundamentacao.md` os trechos de Blackwell e Green da
+seção "O alcance das DCs".
 
 De 2026-09-28 a 2026-10-08, a avaliação de um só avaliador, critério a
 critério, se rotulava como a *feature analysis* da DESMET, na forma de

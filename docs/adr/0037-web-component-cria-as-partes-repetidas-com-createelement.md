@@ -32,5 +32,5 @@ escrevem no *template*, com `map` e uma condicional), e a análise
 atribui cada diferença ali à montagem ou à ligação pelo sinal escrito;
 o `createElement` gasta mais linhas que o HTML do item.
 
-Fontes: `docs/tecnologias-web.md`, seção "Como Web Components sem
+Fontes: `docs/plataformas/web.md`, seção "Como Web Components sem
 biblioteca montam a tela" (pesquisa de 2026-10-15); tcc-53w.

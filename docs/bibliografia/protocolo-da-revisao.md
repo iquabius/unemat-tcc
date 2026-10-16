@@ -23,7 +23,7 @@ achou estão em `docs/README.md`, seção "Fontes centrais".
 
 Origem: revisão bibliográfica de 2026-09-24 (Modo 2 da skill
 `escrita-academica`, OpenAlex e Crossref), com as 41 saídas brutas em
-`docs/literatura/buscas/` (resumos retirados; título, autores, DOI e
+`docs/bibliografia/buscas/` (resumos retirados; título, autores, DOI e
 contagem de citações ficaram; para reler um resumo,
 `buscar_literatura.py doi`). Os 30 DOIs citados na primeira versão de
 `docs/literatura.md` foram conferidos no Crossref e no `doi.org`. A

@@ -96,4 +96,4 @@ gerou, com o mesmo nome de antes (=<tecnologia>-<cena>.png=).
   conformidade, em Qt Test, repetem as verificações da web, sem capturas.
 
   A comparação dos pares de desktop e a pré-análise de cada um estão em
-  =docs/plataformas.md=.
+  =docs/plataformas/README.md=.

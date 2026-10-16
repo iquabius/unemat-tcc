@@ -112,6 +112,7 @@ reescritos; os programas de listas mudam do `cases.org` para o
 `prog.org`; a mudança deve ser justificada ao curso e aos orientadores.
 
 Fontes: revisão da introdução de 2026-09-23 (Wazlawick);
-`docs/projeto-2017.md`; ADRs 0012, 0013, 0021 e 0029, que fecharam o recorte e
-o vocabulário; `docs/paradigma-modelo-e-notacao.md`, seção "Unidade
-comparada e evidência: o TCC compara categorias".
+`docs/processo/projeto-de-2017.md`; ADRs 0012, 0013, 0021 e 0029, que
+fecharam o recorte e o vocabulário;
+`docs/paradigma-modelo-e-notacao.md`, seção "Unidade comparada e
+evidência: o TCC compara categorias".

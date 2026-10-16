@@ -74,5 +74,5 @@ Fontes: developer.android.com/kotlin/first (2026-09-22) e
 2019-05-07, 2022-08-17 e 2024-04-29; kotlinlang.org/docs/faq
 (2026-09-23); developer.android.com, *Side-effects in Compose*
 (2026-10-01); Stack Overflow 2025; JetBrains 2025, cálculo em
-`docs/jetbrains-deveco-2025-android.py`; prós, contras e fontes em
-`docs/kotlin-e-java-no-android.md`; commits `25cf4dd` e `9220b5b`.
+`docs/plataformas/android-jetbrains-2025.py`; prós, contras e fontes em
+`docs/plataformas/android.md`; commits `25cf4dd` e `9220b5b`.

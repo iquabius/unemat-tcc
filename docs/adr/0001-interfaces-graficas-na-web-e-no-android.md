@@ -79,8 +79,8 @@ código de Swing × JavaFX e de Qt Widgets × QML fica fora da análise.
 
 Fontes: Stack Overflow Developer Survey 2025 (React 44,7%, jQuery 23,4%,
 Angular 18,2%); notas de 2026-10-08 a 2026-10-11 na tarefa tcc-a0w;
-`docs/plataformas.md`; JetBrains State of Developer Ecosystem 2022 e
-State of .NET 2025 (Windows Forms 23%, WPF 18%); Pesquisa Código Fonte TV
-2026; commits `25cf4dd` e `534a191`; "What's new in Windows Forms .NET
-8" (Microsoft, atualizada em 2026-02-10), seção "Data binding
+`docs/plataformas/README.md`; JetBrains State of Developer Ecosystem
+2022 e State of .NET 2025 (Windows Forms 23%, WPF 18%); Pesquisa Código
+Fonte TV 2026; commits `25cf4dd` e `534a191`; "What's new in Windows
+Forms .NET 8" (Microsoft, atualizada em 2026-02-10), seção "Data binding
 improvements".

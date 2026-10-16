@@ -52,8 +52,8 @@ referências. Orientação do Me. Alexandre Berndt.
 
 As implementações do Contador, do Conversor de temperatura, da Reserva de
 voo e do Cronômetro vieram depois do projeto, no CodeSandbox
-(`docs/implementacoes-de-referencia.md`); as com RxJS e xstream entraram
-no `cases.org` em 2020.
+(`docs/processo/implementacoes-no-codesandbox.md`); as com RxJS e
+xstream entraram no `cases.org` em 2020.
 
 ## 2. O que mudou
 
@@ -84,7 +84,8 @@ Kiss (2014) como precedente; a pesquisa exploratória.
    viraram o modelo de reatividade do Angular, do Solid, do Preact e do
    Svelte 5 (2024), com proposta de padronização no JavaScript (TC39). A
    re-renderização e a atualização granular são dois modelos de
-   programação que 2017 não distinguia (`docs/tecnologias-web.md`, seção 1).
+   programação que 2017 não distinguia (`docs/plataformas/web.md`, seção
+   1).
 2. **Paradigma não é o que as DCs medem.** Kiss (2014, p. 23) registra,
    no *Temperature Converter*, que "the toolkit dominated this evaluation
    and the paradigms did not come into play"; as DCs avaliam o que se

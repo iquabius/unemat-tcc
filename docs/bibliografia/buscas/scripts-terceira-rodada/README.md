@@ -3,7 +3,7 @@
 Referência. Cópia do código que consultou o OpenAlex na terceira rodada
 da revisão bibliográfica (tcc-lf9, 2026-10-09), recriada em 2026-10-14
 (tcc-ds6j), porque os originais não foram guardados no repositório. O
-protocolo e os números estão em `docs/protocolo-da-revisao.md`, seção
+protocolo e os números estão em `docs/bibliografia/protocolo-da-revisao.md`, seção
 3, e no Apêndice II.
 
 Os três scripts de então (um auxiliar de acesso à API, um de citantes e
@@ -40,7 +40,7 @@ referências (56 e 41, total 97); alguns ids não se resolvem pelo filtro
 ## Uso
 
 ```bash
-cd docs/literatura/buscas/scripts-terceira-rodada
+cd docs/bibliografia/buscas/scripts-terceira-rodada
 ./coleta.py citantes sementes-iteracao1.txt dados/
 ./coleta.py juntar sementes-iteracao1.txt dados/ dados/iteracao1.json
 ./coleta.py listar sementes-iteracao1.txt dados/ dados/iteracao1.json \
@@ -57,7 +57,8 @@ saída 80 guardada não tem: a coleta de 2026-10-09 o rotulava "[antes de
 Testes, sem rede, e a conferência ao vivo contra a saída 80:
 
 ```bash
-python3 -m unittest discover -s docs/literatura/buscas/scripts-terceira-rodada
+python3 -m unittest discover \
+    -s docs/bibliografia/buscas/scripts-terceira-rodada
 COLETA_AO_VIVO=1 python3 -m unittest discover \
-    -s docs/literatura/buscas/scripts-terceira-rodada -k AoVivo
+    -s docs/bibliografia/buscas/scripts-terceira-rodada -k AoVivo
 ```

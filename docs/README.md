@@ -21,10 +21,10 @@ pesam, pela tabela "Fontes centrais".
 | O que se compara: modelo de programação e notação | `texto/intro.org`, `texto/prog.org` | `docs/paradigma-modelo-e-notacao.md`; os termos, no `CONTEXT.md` |
 | Método: o rótulo, as DCs, as rodadas, o tamanho das interfaces | `texto/intro.org`, metodologia | `docs/metodo-da-avaliacao.md`; o que se controla, em `docs/delineamento.md` |
 | Análise por DC | `texto/cases.org`, `texto/results.org` | `docs/metodo-da-avaliacao.md`, seção "Como as fontes aplicaram as DCs a código, e as armadilhas"; `docs/achados-das-implementacoes.md`; a skill `avaliacao-pelas-dcs` |
-| Capítulo de programação | `texto/prog.org` | `docs/paradigma-modelo-e-notacao.md`, `docs/programacao-funcional-e-reativa.md`, `docs/estado-eventos-e-complexidade.md` |
-| Tecnologias e plataformas | ADRs 0001, 0005, 0013 e 0031 | `docs/tecnologias-web.md`, `docs/plataformas.md`, `docs/kotlin-e-java-no-android.md`, `docs/bibliotecas-de-formulario.md` |
-| Forma da introdução | `texto/intro.org` | `docs/escrita-da-introducao.md` |
-| Como a busca foi feita | Apêndice II | `docs/protocolo-da-revisao.md` |
+| Capítulo de programação | `texto/prog.org` | `docs/paradigma-modelo-e-notacao.md`, `docs/bibliografia/programacao-funcional-e-reativa.md`, `docs/estado-eventos-e-complexidade.md` |
+| Tecnologias e plataformas | ADRs 0001, 0005, 0013 e 0031 | `docs/plataformas/web.md`, `docs/plataformas/README.md`, `docs/plataformas/android.md`, `docs/plataformas/bibliotecas-de-formulario.md` |
+| Forma da introdução | `texto/intro.org` | `docs/bibliografia/escrita-da-introducao.md` |
+| Como a busca foi feita | Apêndice II | `docs/bibliografia/protocolo-da-revisao.md` |
 
 ## Fontes centrais
 
@@ -87,12 +87,12 @@ Fontes, uma nota por assunto:
   próximos aos mais distantes, e a lacuna;
 - `docs/metodo-da-avaliacao.md`: o rótulo do método, as DCs, as rodadas
   e como aplicá-las a código;
-- `docs/programacao-funcional-e-reativa.md`: PF e PR, os complementares
-  e o contraponto de Zampetti et al. (2025);
-- `docs/escrita-da-introducao.md`: a forma da introdução e os ciclos de
-  lacuna;
-- `docs/protocolo-da-revisao.md`: as bases, os critérios e os números de
-  cada rodada da busca.
+- `docs/bibliografia/programacao-funcional-e-reativa.md`: PF e PR, os
+  complementares e o contraponto de Zampetti et al. (2025);
+- `docs/bibliografia/escrita-da-introducao.md`: a forma da introdução e
+  os ciclos de lacuna;
+- `docs/bibliografia/protocolo-da-revisao.md`: as bases, os critérios e
+  os números de cada rodada da busca.
 
 Referência:
 
@@ -100,18 +100,19 @@ Referência:
   que fica sem controle;
 - `docs/exigencias-de-coordenacao.md`: as exigências de coordenação de
   cada interface, agrupadas em tipos, e os tipos que cada par cobre;
-- `docs/tecnologias-web.md`, `docs/plataformas.md`,
-  `docs/kotlin-e-java-no-android.md` e
-  `docs/bibliotecas-de-formulario.md`: as tecnologias, as plataformas e
-  as bibliotecas, com a data de cada observação;
-- `docs/projeto-2017.md`: o projeto de 2017 e o que mudou;
-- `docs/implementacoes-de-referencia.md`: as implementações do autor no
-  CodeSandbox;
-- `docs/beads-e-dolt.md`: onde ficam as tarefas e como recuperá-las.
+- `docs/plataformas/web.md`, `docs/plataformas/README.md`,
+  `docs/plataformas/android.md` e
+  `docs/plataformas/bibliotecas-de-formulario.md`: as tecnologias, as
+  plataformas e as bibliotecas, com a data de cada observação;
+- `docs/processo/projeto-de-2017.md`: o projeto de 2017 e o que mudou;
+- `docs/processo/implementacoes-no-codesandbox.md`: as implementações do
+  autor no CodeSandbox;
+- `docs/processo/tarefas-no-beads.md`: onde ficam as tarefas e como
+  recuperá-las.
 
 Achados: `docs/achados-das-implementacoes.md`. Registros da avaliação:
 `docs/avaliacao/<rodada>-<interface>/`. Decisões: `docs/adr/`. Saídas
-brutas das buscas: `docs/literatura/buscas/`.
+brutas das buscas: `docs/bibliografia/buscas/`.
 
 ## Legenda das notas de fontes
 

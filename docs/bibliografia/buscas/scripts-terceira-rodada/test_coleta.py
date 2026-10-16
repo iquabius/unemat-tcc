@@ -4,7 +4,7 @@
 Sem rede, os de sempre:
 
     python3 -m unittest discover \
-        -s docs/literatura/buscas/scripts-terceira-rodada
+        -s docs/bibliografia/buscas/scripts-terceira-rodada
 
 A conferência ao vivo contra a saída 80 (os citantes de Zimmerle e Gama
 2025) só roda com COLETA_AO_VIVO=1, porque depende da rede e do OpenAlex

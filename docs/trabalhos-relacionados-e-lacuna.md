@@ -5,7 +5,7 @@ existe no texto (tarefa tcc-iku), e a lacuna que eles deixam: o que cada
 um compara e como, os trechos conferidos dos mais próximos e o estado da
 lacuna depois de cada rodada. Os trabalhos vão dos mais próximos aos mais
 distantes do delineamento; a busca que os achou está em
-`docs/protocolo-da-revisao.md`.
+`docs/bibliografia/protocolo-da-revisao.md`.
 
 **Conclusão.** Em 2026-10-09, nenhum trabalho encontrado repete o
 delineamento do TCC (mesmas interfaces, várias tecnologias, avaliação
@@ -39,17 +39,18 @@ no PDF; o resto da legenda está em `docs/README.md`.
 ## A lacuna
 
 Estado em 2026-10-09, depois da terceira rodada
-(`docs/protocolo-da-revisao.md`, seção "Terceira rodada"): o nicho
-continua sem trabalho. O mais perto são duas autoavaliações pelas DCs de
-bibliotecas de controles feitas em Angular e em React (Narechania et
-al., 2025; Verma, Odak e Narechania, 2026), que avaliam a notação da
-própria biblioteca; a de Verma et al. só diz que ela é "consistent with
-the framework it has been implemented in (i.e. React.js)" (p. 6 da
-cópia; seção "Autoavaliações pelas DCs de bibliotecas de controles").
+(`docs/bibliografia/protocolo-da-revisao.md`, seção "Terceira rodada"):
+o nicho continua sem trabalho. O mais perto são duas autoavaliações
+pelas DCs de bibliotecas de controles feitas em Angular e em React
+(Narechania et al., 2025; Verma, Odak e Narechania, 2026), que avaliam a
+notação da própria biblioteca; a de Verma et al. só diz que ela é
+"consistent with the framework it has been implemented in (i.e.
+React.js)" (p. 6 da cópia; seção "Autoavaliações pelas DCs de
+bibliotecas de controles").
 
 O nicho e as quatro lacunas parciais, levantadas em 2026-09-24 e
 revistas em 2026-10-02, depois da segunda rodada
-(`docs/protocolo-da-revisao.md`, seção "Segunda rodada"):
+(`docs/bibliografia/protocolo-da-revisao.md`, seção "Segunda rodada"):
 
 - **Nicho.** Não se encontrou análise pelas DCs de React nem dos
   *signals* das bibliotecas web atuais (Solid, Angular), nem comparação
@@ -78,8 +79,8 @@ revistas em 2026-10-02, depois da segunda rodada
   Salvaneschi et al. (2015, *technical briefing* no ICSE), Sperber &
   Schlegel (2025, UIs funcionais, *workshop* FUNARCH), Matos & Zuchi
   (2021, revisão bibliográfica em revista da Fatec) e Tsukanova &
-  Zabrodin (2026; `docs/protocolo-da-revisao.md`, seção "Vistos e
-  descartados"). "P-FRP task scheduling: a survey" (2016)
+  Zabrodin (2026; `docs/bibliografia/protocolo-da-revisao.md`, seção
+  "Vistos e descartados"). "P-FRP task scheduling: a survey" (2016)
   trata de escalonamento de tempo real.
 - **Lacuna 3, trabalhos brasileiros** (fechada em 2026-10-02):
   procurados além do grupo da UFPE (SBES, SBLP, WEI, BDTD). Nas bases
@@ -406,7 +407,8 @@ Veio de `docs/literatura.md` (índice até `ff620ad`), seções 3.2 (Lima
 `docs/trabalhos-relacionados.md`, com as seções na ordem das rodadas da
 busca. Em 2026-10-15, ganhou o nome de agora e a ordem dos mais
 próximos aos mais distantes, e recebeu a lacuna, que estava em
-`docs/revisao-bibliografica.md` (hoje `docs/protocolo-da-revisao.md`) e
-em `docs/problema-lacuna-pergunta.md` (hoje
-`docs/estado-eventos-e-complexidade.md`), e os trechos de Grolaux et
-al. de `docs/fundamentacao.md`.
+`docs/revisao-bibliografica.md` (hoje
+`docs/bibliografia/protocolo-da-revisao.md`) e em
+`docs/problema-lacuna-pergunta.md` (hoje
+`docs/estado-eventos-e-complexidade.md`), e os trechos de Grolaux et al.
+de `docs/fundamentacao.md`.

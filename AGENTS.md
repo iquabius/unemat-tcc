@@ -34,7 +34,7 @@ repositório (este, notas, tarefas, ADRs), a citação continua curta.
 As tarefas vivem no [Beads](https://github.com/gastownhall/beads) (`bd`
 1.3.0, em `~/.local/bin`), num banco Dolt embutido em
 `.beads/embeddeddolt/`, fora do git (ADR 0015). Detalhes técnicos em
-`docs/beads-e-dolt.md`.
+`docs/processo/tarefas-no-beads.md`.
 
 - Criar: `bd create "Título" -p 2 --body-file -`, com o corpo pela entrada
   padrão. Id `tcc-` mais um hash que o `bd` gera; tipo `task` (padrão),
@@ -47,13 +47,13 @@ As tarefas vivem no [Beads](https://github.com/gastownhall/beads) (`bd`
 
   | A tarefa muda | Épico |
   |---|---|
-  | `texto/intro.org`, `docs/metodo-da-avaliacao.md`, `docs/estado-eventos-e-complexidade.md`, `docs/escrita-da-introducao.md` | Fase 1: introdução (`tcc-e2e`) |
+  | `texto/intro.org`, `docs/metodo-da-avaliacao.md`, `docs/estado-eventos-e-complexidade.md`, `docs/bibliografia/escrita-da-introducao.md` | Fase 1: introdução (`tcc-e2e`) |
   | a pauta de uma orientação | a fase em andamento, a primeira ainda aberta |
   | `texto/cases.org`, `texto/results.org`, a análise por DC | Fase 2: análise das implementações (`tcc-d40`) |
-  | `texto/prog.org`, `docs/programacao-funcional-e-reativa.md`, `docs/trabalhos-relacionados-e-lacuna.md` | Fase 3: capítulo de programação (`tcc-2o8`) |
+  | `texto/prog.org`, `docs/bibliografia/programacao-funcional-e-reativa.md`, `docs/trabalhos-relacionados-e-lacuna.md` | Fase 3: capítulo de programação (`tcc-2o8`) |
   | `texto/conclusion.org`, o título, o texto do resumo | Fase 4: fechamento (`tcc-y8x`) |
   | `implementacoes/`: código, especificação, testes de conformidade, capturas | Código das interfaces (`tcc-3jg`) |
-  | `texto/refs.bib`, `tmp/fontes/`, `docs/protocolo-da-revisao.md` | Bibliografia (`tcc-bkm`) |
+  | `texto/refs.bib`, `tmp/fontes/`, `docs/bibliografia/protocolo-da-revisao.md` | Bibliografia (`tcc-bkm`) |
   | `latex/`, pré-textuais, margens, legendas | Formatação do documento (`tcc-juu`) |
   | `bin/`, skills, Beads, PDFs, `AGENTS.md`, `readme.org` | Ferramentas e processo (`tcc-qko`) |
 
@@ -322,7 +322,7 @@ primeira linha depois do título:
   conclusão e pelas fontes centrais e fecha pela seção "Histórico", com a
   origem e as mudanças de lugar. O trecho que o texto passa a citar vai
   para `texto/fontes/<chave>.org` (ADR 0035), e a nota guarda o link.
-- **Referência** (`docs/tecnologias-web.md`): tabelas e listas para
+- **Referência** (`docs/plataformas/web.md`): tabelas e listas para
   consulta, atualizadas quando o fato muda; cada afirmação sobre
   ferramenta ou versão leva a data em que foi observada.
 - **Achados** (`docs/achados-das-implementacoes.md`): observações feitas ao

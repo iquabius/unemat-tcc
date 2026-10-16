@@ -119,8 +119,8 @@ que o Angular obrigou a escrever diferente.
 ## 2026-10-09, *desktop* em pré-análise (commits `0704352` a `04b5995`)
 
 Swing, JavaFX montado em código e JavaFX com FXML, no Formulário e na
-Lista; o *desktop* ainda não é plataforma do TCC (`docs/plataformas.md`,
-seção "Swing × JavaFX").
+Lista; o *desktop* ainda não é plataforma do TCC
+(`docs/plataformas/README.md`, seção "Swing × JavaFX").
 
 - **A dependência esquecida passa na rotina** (dependências ocultas,
   propensão a erros, viscosidade): no JavaFX, tirar `ida.textProperty()`

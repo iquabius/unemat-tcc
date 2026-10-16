@@ -66,7 +66,7 @@ TV, *Pesquisa Salarial de Programadores 2026*,
 pesquisa.codigofonte.com.br/2026, /2026/ranking, /2026/area/mobile,
 /2026/linguagem/kotlin e /2026/linguagem/java (2026-09-27; coleta de
 2026-02-23 a 2026-06-09, 17.046 respostas; ressalvas em
-`docs/tecnologias-web.md`, seção 3).
+`docs/plataformas/web.md`, seção 3).
 
 Artigos de desenvolvedores (opinião, com parcimônia): JACKOWSKI, K.,
 Netguru, 2026-09-23; GIRO, G., Toptal, 2026-05-11; DROSOPOULOU, E., Java
@@ -100,5 +100,5 @@ numeradores `proglang` (uso em 12 meses), `primary_lang`, `main_lang` e
 native tools" em `mobile_target_os`. Sem o peso o Kotlin sobe (36% contra
 51% no uso em 12 meses), porque o peso corrige a inclinação da audiência
 da JetBrains por país, linguagem e relação com a empresa. O cálculo está
-em `docs/jetbrains-deveco-2025-android.py`, que recebe o ZIP ou o CSV e
-imprime os dois valores.
+em `docs/plataformas/android-jetbrains-2025.py`, que recebe o ZIP ou o
+CSV e imprime os dois valores.

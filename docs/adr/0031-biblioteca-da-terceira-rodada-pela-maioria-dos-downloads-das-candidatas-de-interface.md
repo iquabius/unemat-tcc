@@ -24,8 +24,8 @@ Framework 4.5; e a maioria das duas candidatas que sobram, a do
 Kimtoo.ValidationProvider 1.0.8 (2022-04-14), são 177 downloads em seis
 semanas, o que não indica ecossistema: é um caso declarado, sem piso
 numérico na regra. A tabela com as medidas está em
-`docs/bibliotecas-de-formulario.md`, e as versões se fixam nos arquivos
-de dependência quando a terceira rodada começar.
+`docs/plataformas/bibliotecas-de-formulario.md`, e as versões se fixam
+nos arquivos de dependência quando a terceira rodada começar.
 
 Em vez de: contar o validador de objetos como biblioteca de interface; o
 FluentValidation domina o NuGet (55,95 mi de downloads em seis semanas,

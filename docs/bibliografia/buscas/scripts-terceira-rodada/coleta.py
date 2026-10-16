@@ -2,7 +2,7 @@
 """Coleta da terceira rodada da revisão no OpenAlex (tcc-lf9, 2026-10-09).
 
 Cópia de referência dos scripts que geraram as saídas 80, 82, 83 e 85
-de docs/literatura/buscas/, recriada em 2026-10-14 (tcc-ds6j): os
+de docs/bibliografia/buscas/, recriada em 2026-10-14 (tcc-ds6j): os
 originais não foram guardados no repositório. Este módulo refaz o mesmo
 comportamento da coleta; o texto das saídas 82, 83 e 85 e o cabeçalho
 da 80 saíram de código que não foi recriado (README.md). O OpenAlex muda

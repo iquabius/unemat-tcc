@@ -2,7 +2,7 @@
 """Kotlin × Java entre quem desenvolve para Android, nos dados brutos do
 JetBrains State of Developer Ecosystem 2025.
 
-Reproduz os números da seção 3 de docs/kotlin-e-java-no-android.md e da
+Reproduz os números da seção 3 de docs/plataformas/android.md e da
 errata de 2026-09-26 no ADR 0005. Só biblioteca padrão.
 
 Fonte: https://resources.jetbrains.com/storage/products/research/DevEco2025/RawData.zip
@@ -10,8 +10,8 @@ Fonte: https://resources.jetbrains.com/storage/products/research/DevEco2025/RawD
 relatório publicado não tem seção Android; o cálculo é este.
 
 Uso:
-    python3 docs/jetbrains-deveco-2025-android.py RawData.zip
-    python3 docs/jetbrains-deveco-2025-android.py developer_ecosystem_2025_external.csv
+    python3 docs/plataformas/android-jetbrains-2025.py RawData.zip
+    python3 docs/plataformas/android-jetbrains-2025.py developer_ecosystem_2025_external.csv
 
 Método: o README dos dados pede a coluna `weight` (corrige país,
 linguagem preferida e relação com a JetBrains); o script mostra os dois

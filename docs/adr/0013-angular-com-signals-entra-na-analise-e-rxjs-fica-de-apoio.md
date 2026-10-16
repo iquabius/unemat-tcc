@@ -134,7 +134,7 @@ Fontes: Stack Overflow 2025; CHANGELOG do Angular (17.0.0, 2023-11-08;
 *peer dependency* (npm, 2026-09-25); lit.dev/docs, *Lifecycle* e
 *Signals* (2026-10-11); *Design Principles* do React
 (legacy.reactjs.org), modelo *pull*; taxonomia *push/pull* de
-`bainomugisha2013`; Kiss (2014, cap. 4, p. 58-99); `docs/tecnologias-web.md`,
-seções 2 a 6; `docs/delineamento.md`, seção 4; rascunhos em Lit em
-`tmp/rascunho-lit-2026-10-12/` (fora do git); commits `25cf4dd` e
-`7126e77`.
+`bainomugisha2013`; Kiss (2014, cap. 4, p. 58-99);
+`docs/plataformas/web.md`, seções 2 a 6; `docs/delineamento.md`, seção
+4; rascunhos em Lit em `tmp/rascunho-lit-2026-10-12/` (fora do git);
+commits `25cf4dd` e `7126e77`.

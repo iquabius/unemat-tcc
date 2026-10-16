@@ -172,7 +172,7 @@ Implementações previstas na tcc-74m; até lá, só os pontos de partida.
   a assincronia.
 - Documentação: learn.microsoft.com/dotnet/desktop/winforms.
 
-### WPF (declarativo por atualização granular, hipótese de `docs/plataformas.md`)
+### WPF (declarativo por atualização granular, hipótese de `docs/plataformas/README.md`)
 
 - Arquivos: o `*.xaml` (montagem e ligações) e o *code-behind*
   `*.xaml.cs`; com o CommunityToolkit.Mvvm na terceira rodada, o *view model*.

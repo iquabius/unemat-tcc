@@ -115,7 +115,7 @@ React reativo de Salvaneschi et al. (2014, p. 564).
   "Compose skips the recomposition of a composable if all the inputs are
   stable and haven't changed. The comparison uses the `equals` method"
   (Lifecycle of composables). Leitura nossa: o React só pula um filho com
-  `memo` ou com o React Compiler (`docs/tecnologias-web.md`).
+  `memo` ou com o React Compiler (`docs/plataformas/web.md`).
 - **Na notação, o lado da re-renderização**: no Formulário
   (`implementacoes/formulario/android-compose/`), os derivados são
   expressões comuns (`val erroNome = erroDoNome(nome)`), recalculadas a

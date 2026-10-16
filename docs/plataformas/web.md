@@ -38,7 +38,8 @@ Tratar como literatura cinzenta no texto:
 Versões nos `package.json` de `implementacoes/`: React 19.3.0, Solid
 1.9.15, Angular 22.2.0 com RxJS 7.8, jQuery 4.0.0 (2026-09-26). As
 bibliotecas de formulário da terceira rodada, com as medidas do registro
-de 2026-10-12, estão em `docs/bibliotecas-de-formulario.md` (ADR 0031).
+de 2026-10-12, estão em `docs/plataformas/bibliotecas-de-formulario.md`
+(ADR 0031).
 
 ## 1. O que mudou de 2016 a 2026
 
@@ -69,7 +70,7 @@ resumo do artigo.
   comparação React × Solid na dimensão push/pull de `bainomugisha2013`.
 
 A literatura revisada por pares do mesmo período está em
-`docs/programacao-funcional-e-reativa.md`, seção "Fontes
+`docs/bibliografia/programacao-funcional-e-reativa.md`, seção "Fontes
 complementares".
 
 ## 2. O modelo de reatividade segundo a documentação oficial
