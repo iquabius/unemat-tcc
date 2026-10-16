@@ -276,11 +276,11 @@ Pesquisa de 2026-10-11.
 
 Conclusão: literatura, repositórios e comunidades convergem nos
 requisitos de orquestração da Busca: esperar a pausa, cancelar a
-requisição em curso, mostrar só a resposta mais recente, tratar falha e
-nova tentativa e guardar respostas. O desfazer e o controle de diálogo
-têm apoio na literatura e nos repositórios, e pouco nas comunidades. Três
-subagentes; os números de repositórios e comunidades não foram
-reconferidos.
+requisição em andamento, mostrar só a resposta mais recente, tratar
+falha e nova tentativa e guardar respostas. O desfazer e o controle de
+diálogo têm apoio na literatura e nos repositórios, e pouco nas
+comunidades. Três subagentes; os números de repositórios e comunidades
+não foram reconferidos.
 
 - Literatura: Meijer (2012, p. 72), *dictionary suggest* com `Throttle` e
   `Switch`; Kiss (2014, p. 77-78); Oney e Myers (2012, p. 231); controle de
