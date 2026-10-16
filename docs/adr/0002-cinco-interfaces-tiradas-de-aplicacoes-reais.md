@@ -20,9 +20,10 @@ cada eixo forte em pelo menos duas:
   tentativa nova que cancela a anterior e o relógio da sessão, que vive
   só enquanto a sessão vive, na orquestração;
 - Quadro de tarefas, um *kanban*: o estado compartilhado entre o
-  cabeçalho e três colunas, o limite de "Fazendo", que cruza colunas, e a
-  persistência, no gerenciamento de estado;
-- Dados ao vivo com pausa, placares de jogos em andamento empurrados por
+  cabeçalho e três colunas, o limite de "Fazendo", que vale para as
+  tarefas das outras colunas, e a persistência, no gerenciamento de
+  estado;
+- Dados ao vivo com pausa, placares de jogos em andamento mandados por
   uma fonte, que adaptam as cotações de Meijer (2012, p. 66-67) como o
   Formulário adapta o *Flight Booker*: a inscrição presa à tela e a
   pausa, na orquestração. O placar se entende sem contexto, e o palpite
@@ -56,7 +57,7 @@ segundos); mais realista, mas os gols ficariam raros, a tela mudaria
 quase só no relógio, e o teste dependeria de gols marcados em segundos
 arranjados.
 Em vez de: a posse de bola como o valor que muda a cada lote; um número
-que um servidor de fato empurra a todo instante, mas outra tabela, sem
+que um servidor de fato manda a todo instante, mas outra tabela, sem
 protótipo.
 Em vez de: o *Timer* do 7GUIs; barato e com precedente, mas no protótipo
 a coordenação ficou abaixo da montagem da tela (6 a 9 linhas contra 15 e
@@ -77,7 +78,7 @@ sobre cada eixo vem de duas ou três interfaces; a Busca, o Login e os Dados
 ao vivo se sobrepõem no cancelamento, que cada um faz com uma política
 diferente; no placar, o que muda a cada lote é o relógio da partida,
 simulado a 1 minuto por segundo, que um aplicativo real costuma contar
-no próprio aparelho, e a fonte simulada o empurra só para manter um lote
+no próprio aparelho, e a fonte simulada o manda só para manter um lote
 por segundo; o domínio dos Dados ao vivo cresce de 73 para 106 linhas, e
 a troca refaz a especificação, o teste de conformidade, as cenas e as
 quatro implementações web já feitas, com as capturas.
