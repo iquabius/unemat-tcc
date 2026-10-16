@@ -42,6 +42,29 @@ bibliotecas de formulário da terceira rodada, com as medidas do registro
 de 2026-10-12, estão em `docs/plataformas/bibliotecas-de-formulario.md`
 (ADR 0031).
 
+## Tecnologias por modelo de programação
+
+| Tecnologia | Modelo de programação | Montagem da tela |
+|---|---|---|
+| Web Component | imperativo por atualização manual | HTML e DOM |
+| jQuery | imperativo por atualização manual | HTML e DOM |
+| React | declarativo por re-renderização | JSX |
+| Solid | declarativo por atualização granular | JSX |
+| Angular com *signals* | declarativo por atualização granular | *template* |
+| Angular com RxJS | apoio, fora da análise (ADR 0013) | *template* |
+
+Cinco interfaces em cada tecnologia (ADRs 0002 e 0012). Dois pares
+próximos (ADR 0021): React × Solid, com a mesma tela em JSX e modelos de
+programação diferentes; Solid × Angular com *signals*, com o mesmo modelo
+de programação e duas notações. Quando as duas tecnologias de uma coluna
+divergem numa DC, Solid e Angular ou Web Component e jQuery
+(`createElement` e `innerHTML` contra seletores), a célula da
+tabela-síntese registra a divergência (ADR 0017). O imperativo por
+atualização manual entra contra os dois declarativos sem par controlado
+(`docs/paradigma-modelo-e-notacao.md`, seção "As tecnologias por modelo
+de programação"). O quadro do que o delineamento controla está em
+`docs/delineamento.md`.
+
 ## O que mudou de 2016 a 2026
 
 Verificado em fonte primária (documentação oficial, registro npm) ou no

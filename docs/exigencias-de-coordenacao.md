@@ -4,8 +4,8 @@ Referência. Lista, interface por interface, as exigências de coordenação
 que as especificações definem nos dois eixos (`CONTEXT.md`), agrupadas em
 tipos, e diz quais tipos cada par de tecnologias cobre na primeira e na
 segunda rodada. Serve de base para comparar outros pares como se comparou
-Views × Compose em `docs/plataformas/README.md`, seção "Hipótese sobre o
-ambiente de execução do Compose", e para pesar o equilíbrio dos pares.
+Views × Compose em `docs/plataformas/android.md`, seção "Hipótese sobre
+o ambiente de execução do Compose", e para pesar o equilíbrio dos pares.
 Lido em 2026-10-15 nos `spec.md` de `implementacoes/openspec/specs/`,
 nos ADRs 0002, 0005 e 0029 e nas descrições das tarefas da segunda
 rodada (tcc-32dr, tcc-k9i2, tcc-r29v, tcc-buku, tcc-dnk5). Os nomes dos

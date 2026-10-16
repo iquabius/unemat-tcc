@@ -14,6 +14,80 @@ ponderados, o Java ainda é mais usado que o Kotlin entre quem desenvolve
 para Android (55% contra 33% no uso nos últimos 12 meses; seção
 "Conferência dos números"). Tratar como literatura cinzenta no texto.
 
+## Tecnologias por modelo de programação
+
+| Tecnologia | Modelo de programação | Montagem da tela | Estilo fora da tela |
+|---|---|---|---|
+| Views | imperativo por atualização manual | *layout* XML | `res/values/estilo.xml` |
+| Jetpack Compose | declarativo por re-renderização | funções | `Estilo.kt` |
+
+Kotlin nas duas (ADR 0005). Conferem a web no Formulário, no Quadro e nos
+Dados ao vivo (ADR 0029); capturas pelo Robolectric com Roborazzi, na
+JVM, idênticas às da web (ADR 0008).
+
+### Hipótese sobre o ambiente de execução do Compose
+
+Documentação do Android lida em 2026-10-15, nas páginas "Thinking in
+Compose", "State and Jetpack Compose", "Lifecycle of composables" e
+"Side-effects in Compose", todas atualizadas em 2026-10-01; as
+implementações usam o BOM `2026.09.00`. Hipótese a conferir na
+pré-análise do Quadro e dos Dados ao vivo: pela notação, o Compose é
+declarativo por re-renderização, como o React; pelo ambiente de execução,
+fica perto do declarativo por atualização granular, porque rastreia
+sozinho o que cada função lê e chama de novo só o que leu o valor
+alterado. Pelo ADR 0021 a classificação fica onde está, porque só conta o
+sinal escrito, mas o texto precisa enfrentar a distância, como enfrenta o
+React reativo de Salvaneschi et al. (2014, p. 564).
+
+- **Rastreamento das leituras**: "Any changes to `value` schedule
+  recomposition of any composable functions that read `value`" (State and
+  Jetpack Compose). Leitura nossa: o `mutableStateOf` guarda o valor e
+  avisa quem o leu, como o *signal* do Solid.
+- **Recomposição parcial**: o Compose "calls only the functions or
+  lambdas that might have changed, and skips the rest", e "may skip to
+  re-run a single `Button`'s composable without executing any of the
+  composables higher or lower in the UI tree" (Thinking in Compose);
+  "Compose skips the recomposition of a composable if all the inputs are
+  stable and haven't changed. The comparison uses the `equals` method"
+  (Lifecycle of composables). Leitura nossa: o React só pula um filho com
+  `memo` ou com o React Compiler (`docs/plataformas/web.md`).
+- **Na notação, o lado da re-renderização**: no Formulário
+  (`implementacoes/formulario/android-compose/`), os derivados são
+  expressões comuns (`val erroNome = erroDoNome(nome)`), recalculadas a
+  cada recomposição, e a função da tela lê todos os estados no começo; o
+  Compose a chama de novo inteira a cada tecla, e o pulo, se houver, fica
+  nas funções filhas (`Entrada`, `Erro`). Nada se escreve como o `() =>`
+  do derivado do Solid. Leitura nossa, sem medida.
+- **Onde o granular pode chegar à notação**, os sinais a procurar no
+  Quadro e nos Dados ao vivo:
+  - o `derivedStateOf`, que "creates a new Compose state object you can
+    observe that only updates as much as you need" (Side-effects in
+    Compose), como o `computed` do Angular com *signals* (leitura nossa);
+  - as chaves de `remember(chave)` e de `LaunchedEffect(chave)`: "If
+    `LaunchedEffect` is recomposed with different keys [...], the
+    existing coroutine will be cancelled and the new suspend function will
+    be launched in a new coroutine" (Side-effects in Compose). Leitura
+    nossa: as chaves se escrevem à mão, como as dependências do `useEffect`
+    e do `createXBinding` do JavaFX (`docs/plataformas/desktop.md`,
+    seção "Swing × JavaFX (Java)"), com o mesmo risco da dependência
+    esquecida.
+- **Orquestração**: "The coroutine will be cancelled if `LaunchedEffect`
+  leaves the composition", e o `onDispose` do `DisposableEffect` limpa o
+  que o efeito abriu quando "the keys change or if the composable leaves
+  the Composition" (Side-effects in Compose): o ciclo de vida de relógios e
+  inscrições fica amarrado à composição. No Views, a inscrição dos Dados
+  ao vivo se escreve em `onStart` e `onStop`; as duas tecnologias usam as
+  corrotinas da linguagem, sem `ViewModel` nem `Flow`, e o escopo delas
+  difere, a composição contra o ciclo de vida da `Activity` (ADR 0005).
+  Leitura nossa: a diferença do par na orquestração deve ficar no ciclo de
+  vida, nos Dados ao vivo, e nas políticas do envio do Formulário, que
+  ignora o reenvio (primeira rodada), e da atualização otimista do Quadro,
+  que aplica os pedidos na ordem dos cliques (segunda rodada). A política
+  em que a requisição nova cancela a anterior, que a Busca e o Login
+  exigem, o par só terá se a validação do e-mail na segunda rodada a
+  adotar (tarefa "Decidir como a análise atribui as diferenças entre o
+  imperativo e os declarativos, sem par controlado na web", tcc-4ie).
+
 ## Argumentos
 
 | Argumento | Direção | Fontes | Evidência |

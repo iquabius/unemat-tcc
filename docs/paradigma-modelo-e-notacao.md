@@ -124,7 +124,7 @@ em `&&` e `.map` contra `<Show>` e `<For>`. Solid e Angular variam em três
 pontos da notação: a montagem da tela, o modelo de componente (classe,
 decorador, injeção de dependências) e a API além do *signal* e do valor
 derivado (ADR 0021). Os pares de *desktop* candidatos estão em
-`docs/plataformas/README.md`.
+`docs/plataformas/desktop.md`.
 
 Os pares controlam a comparação entre os dois modelos de programação
 declarativos; o imperativo por atualização manual entra contra os dois sem par

@@ -99,6 +99,6 @@ ela; a diferença do domínio em Kotlin só aparece no método.
 Fontes: ADRs 0002, 0005, 0010, 0014 e 0029; `texto/cases.org`;
 `docs/metodo-da-avaliacao.md`, seção "As 14 DCs canônicas";
 `docs/achados-das-implementacoes.md`; commit `25cf4dd`;
-`docs/plataformas/README.md`; tarefas tcc-7io e tcc-3b6 (notas de
-2026-10-14); Kiss (2014, cap. 3, p. 12 e 56); Wazlawick (2014, p.
-101-104).
+`docs/plataformas/README.md` e `docs/plataformas/desktop.md`; tarefas
+tcc-7io e tcc-3b6 (notas de 2026-10-14); Kiss (2014, cap. 3, p. 12 e
+56); Wazlawick (2014, p. 101-104).
