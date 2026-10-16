@@ -12,6 +12,6 @@
   em 2026-10-13; atualizada em 2025-08-27).
 - Observação: a fonte sustenta a atualização só dos elementos ligados; pôr
   o WPF no declarativo por atualização granular é hipótese do trabalho
-  (docs/plataformas.md, seção Windows Forms × WPF), a conferir no código
-  (tcc-74m).
+  (docs/plataformas/desktop.md, seção "Windows Forms × WPF (C#)"), a
+  conferir no código (tcc-74m).
 - Conferido: 2026-10-13.
