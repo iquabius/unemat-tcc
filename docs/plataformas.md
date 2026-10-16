@@ -134,22 +134,23 @@ React reativo de Salvaneschi et al. (2014, p. 564).
     be launched in a new coroutine" (Side-effects in Compose). Leitura
     nossa: as chaves se escrevem à mão, como as dependências do `useEffect`
     e do `createXBinding` do JavaFX (seção "Swing × JavaFX"), com o mesmo
-    risco da dependência esquecida;
-  - o `snapshotFlow`, que converte o estado num Flow e "emits the result
-    of the `State` objects read in it" (Side-effects in Compose), e liga o
-    gerenciamento de estado às ferramentas de orquestração do Kotlin.
+    risco da dependência esquecida.
 - **Orquestração**: "The coroutine will be cancelled if `LaunchedEffect`
   leaves the composition", e o `onDispose` do `DisposableEffect` limpa o
   que o efeito abriu quando "the keys change or if the composable leaves
   the Composition" (Side-effects in Compose): o tempo de vida de relógios e
-  assinaturas fica amarrado à composição. Leitura nossa, a conferir: no
-  Views, o cancelamento se escreve no código ou se amarra ao
-  `lifecycleScope` da Activity; as corrotinas e o Flow são os mesmos nos
-  dois. A diferença do par na orquestração deve ficar no tempo de vida (a
-  limpeza ao sair da tela, nos Dados ao vivo), e não na combinação de
-  eventos no tempo, que a Busca exige e o Android não implementa (tarefa
-  "Decidir como a análise atribui as diferenças entre o imperativo e os
-  declarativos, sem par controlado na web", tcc-4ie).
+  assinaturas fica amarrado à composição. No Views, a assinatura dos Dados
+  ao vivo se escreve em `onStart` e `onStop`; as duas tecnologias usam as
+  corrotinas da linguagem, sem `ViewModel` nem `Flow`, e o escopo delas
+  difere, a composição contra o ciclo de vida da `Activity` (ADR 0005).
+  Leitura nossa: a diferença do par na orquestração deve ficar no tempo de
+  vida, nos Dados ao vivo, e nas políticas do envio do Formulário, que
+  ignora o reenvio (primeira rodada), e da atualização otimista do Quadro,
+  que aplica os pedidos na ordem dos cliques (segunda rodada). A política
+  em que a requisição nova cancela a anterior, que a Busca e o Login
+  exigem, o par só terá se a validação do e-mail na segunda rodada a
+  adotar (tarefa "Decidir como a análise atribui as diferenças entre o
+  imperativo e os declarativos, sem par controlado na web", tcc-4ie).
 
 ## O que comparar dentro do granular
 
