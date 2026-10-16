@@ -16,7 +16,12 @@ declarativo por atualização granular com a mesma JSX do React, tem uso
 pequeno e a maior retenção do State of JS por cinco anos (seções 3 e 5).
 As fontes pedem cuidado no texto: as pesquisas de uso são de amostra
 autosselecionada, e a literatura dos *signals* é escrita por partes
-interessadas (seção 6).
+interessadas (seção 6). Programas reais com Web Components sem
+biblioteca escrevem o esqueleto da tela em HTML (num `<template>` ou num
+texto) e as partes repetidas por `createElement` ou clone de
+`<template>` por item, e quase nunca por HTML num texto com
+`.map().join("")`; nem o MDN nem o web.dev prescrevem uma forma
+(seção "Como Web Components sem biblioteca montam a tela").
 
 Tratar como literatura cinzenta no texto:
 
@@ -319,6 +324,179 @@ evidência.
 8. **Web Component ≠ notação.** A classe com `HTMLElement` é o modelo de
    componente da plataforma, não a notação imperativa; o que representa a
    notação é o `addEventListener` com mutação do DOM dentro dela.
+
+## Como Web Components sem biblioteca montam a tela
+
+Pesquisa de 2026-10-15 (tcc-53w): como programas reais com elementos
+personalizados sem biblioteca escrevem a montagem da tela, e o que
+recomendam o MDN, o web.dev e a especificação.
+
+**Conclusão.** Não há convenção única, mas há um padrão. O esqueleto
+fixo do elemento se escreve em HTML: um `<template>` clonado (Firefox,
+Thunderbird, Chromium), um texto atribuído a `innerHTML` (barras de
+ferramentas do Trix e do Lexxy) ou o HTML que o servidor já mandou, que o
+elemento só aprimora (GitHub, Gitea, Turbo, Jellyfin). As partes
+repetidas montadas no cliente saem de `createElement` por item (Firefox,
+Thunderbird, Chromium, Trix, Lexxy, Forgejo), às vezes de um elemento
+personalizado que clona um `<template>` no construtor (Firefox,
+Thunderbird), de clone de `<template>` no próprio laço (Firefox,
+Chromium, Lexxy) ou de `insertRow`/`insertCell` (Chromium);
+HTML num texto com `.map().join("")` só aparece no Jellyfin, escrito
+pelo chamador, e num exemplo do MDN. A atualização muda `textContent` e
+atributos em nós guardados, e a coleção que muda se esvazia e se remonta
+(`replaceChildren`, `textContent = ""`). O *shadow DOM* é minoria.
+
+### Critério de escolha
+
+Programa com usuários (aplicação, ou elemento que um programa usa em
+produção), elementos que estendem `HTMLElement` sem Lit, lit-html,
+Polymer, Stencil, FAST, Catalyst nem uhtml (conferido nas dependências e
+nos *imports*), código público e commit depois de 2025-01-01. Em cada
+programa, os elementos com partes repetidas. Ficou de fora o
+`details-dialog-element` do GitHub, arquivado em 2022-09-21. Os links
+são permanentes, no commit indicado, e cada linha foi lida nele; os
+elementos do GitHub, um repositório cada, foram lidos no último commit
+de cada um, entre 2026-10-05 e 2026-10-15.
+
+### Programas
+
+| Programa (commit, data) | Elemento | Esqueleto | Partes repetidas | Atualização | *Shadow* |
+|---|---|---|---|---|---|
+| Firefox (`751f567`, 2026-10-15) | `login-list` | `<template>` da página, clonado | item Lit por login; seção por clone de `<template>` | nós guardados; recarga esvazia e remonta | sim |
+| | `addon-list` | `createElement` | `createElement("addon-card")` | `insertBefore`/`remove`; `textContent` no cartão | não |
+| | `addon-permissions-list` | texto → `DOMParser` → `<template>` | `createElement("li")` | esvazia e remonta | não |
+| | `import-details-row` | `<template>` da página, clonado no construtor | um elemento por linha (`new`), criado pelo chamador | `innerHTML = ""` e remonta | não |
+| Thunderbird (`a430595`, 2026-10-15) | `unified-toolbar` | `<template>` da página | `createElement("li", {is})`, que clona `<template>` | reconciliação por chave, escrita à mão | não |
+| | `customization-palette` | — | `map` + `createElement` | `replaceChildren` | não |
+| | `folder-tree-row` | `<template>` da página | `createElement("li", {is})` | `textContent` em nós guardados | não |
+| Chromium WebUI (`382503f`, 2026-10-15) | `device-table` | texto → `<template>`, pela base `CustomElement` | `insertRow`/`insertCell` | `textContent` por célula | sim |
+| | `indexeddb-transaction-table` | idem | clone de `<template>` por linha | esvazia e remonta | sim |
+| | `diagnose-info-table` | idem | `createElement("tr")` e `("td")` | esvazia e remonta | sim |
+| Trix (`e2df97a`, 2026-10-09) | `trix-toolbar` | HTML da página ou texto em `innerHTML` | dentro do texto | atributos | não |
+| | `trix-editor` | `createElement` | `createElement` por bloco | esvazia e anexa fragmento | não |
+| Lexxy (`b384704`, 2026-10-09) | barra (`lexxy-toolbar`) | texto em `innerHTML` | — | `ariaPressed` nos botões | não |
+| | menu do `lexxy-prompt` | `createElement` | clone de `<template>` da página por item | `innerHTML = ""` + `append` | não |
+| | seletor de linguagem do código | `createElement` | `createElement("option")` | — | não |
+| | seletor de cor (`highlight`) | `createElement` | `createElement("button")` | `innerHTML = ""` + `append` | não |
+| GitHub, elementos (2026-10-05 a 2026-10-15) | `relative-time`, `tab-container`, `auto-complete`, `include-fragment`, `clipboard-copy`, `markdown-toolbar` | `createElement` (um `span`, *slots*) ou aprimora o HTML da página | do servidor | `textContent`, atributos | metade |
+| Gitea (`1c117a9`, 2026-10-14) | `relative-time`, `overflow-menu` | `createElement`; aprimora o HTML do servidor | move os nós do servidor | `textContent`, atributos | só `relative-time` |
+| Forgejo (`5c1d46c`, 2026-10-15) | `relative-time`, `absolute-date`, `overflow-menu` | `createElement`; aprimora o HTML do servidor | move os nós do servidor | `textContent`, atributos | só as datas |
+| | `citation-information` | aprimora o HTML do servidor | `createElement` por formato | — | não |
+| Jellyfin web (`fcee5df`, 2026-10-15) | `emby-itemscontainer`, `emby-select`, `emby-tabs` | aprimora o HTML do chamador | `.map().join("")` ou `html +=`, no chamador | `innerHTML` inteiro | não |
+| Turbo (`75350a1`, 2026-09-09) | `turbo-stream`, `turbo-frame` | `<template>` do servidor | do servidor | `innerHTML = ""` + `append` | não |
+
+Trechos que mostram cada forma:
+
+- `<template>` da página, convenção escrita: Thunderbird,
+  [`custom_element_conventions.md#L32-L35`](https://github.com/mozilla/releases-comm-central/blob/a430595faa0eb7c300d565374143f0ede2e03660/mail/base/docs/custom_element_conventions.md#L32-L35),
+  "Templates are currently managed in HTML markup"; o elemento
+  [`folder-tree-row.mjs#L78-L88`](https://github.com/mozilla/releases-comm-central/blob/a430595faa0eb7c300d565374143f0ede2e03660/mail/base/content/widgets/folder-tree-row.mjs#L78-L88)
+  clona o `#folderTemplate` e guarda os nós, e
+  [`#L108-L111`](https://github.com/mozilla/releases-comm-central/blob/a430595faa0eb7c300d565374143f0ede2e03660/mail/base/content/widgets/folder-tree-row.mjs#L108-L111)
+  muda o `textContent`.
+- Texto que vira `<template>`: Chromium,
+  [`custom_element.ts#L25-L29`](https://github.com/chromium/chromium/blob/382503f29ed53c7218211f99d2a5c74fa3269db7/ui/webui/resources/js/custom_element.ts#L25-L29),
+  a base dos elementos "that don't use Polymer" (l. 8).
+- `insertRow`/`insertCell`: Chromium,
+  [`device_table.ts#L128-L142`](https://github.com/chromium/chromium/blob/382503f29ed53c7218211f99d2a5c74fa3269db7/chrome/browser/resources/bluetooth_internals/device_table.ts#L128-L142),
+  e o `textContent` por célula em
+  [`#L220-L221`](https://github.com/chromium/chromium/blob/382503f29ed53c7218211f99d2a5c74fa3269db7/chrome/browser/resources/bluetooth_internals/device_table.ts#L220-L221).
+- Clone de `<template>` por linha: Chromium,
+  [`transaction_table.ts#L61-L84`](https://github.com/chromium/chromium/blob/382503f29ed53c7218211f99d2a5c74fa3269db7/content/browser/resources/indexed_db/transaction_table.ts#L61-L84),
+  com o `<template id="transaction-row">` no HTML do elemento
+  ([`transaction_table.html#L121-L139`](https://github.com/chromium/chromium/blob/382503f29ed53c7218211f99d2a5c74fa3269db7/content/browser/resources/indexed_db/transaction_table.html#L121-L139)).
+- `createElement` por item: Firefox,
+  [`addon-permissions-list.mjs#L99-L113`](https://github.com/mozilla-firefox/firefox/blob/751f5671de2d327ff436154dfca6ed1733809163/toolkit/mozapps/extensions/content/components/addon-permissions-list.mjs#L99-L113);
+  Thunderbird,
+  [`customization-palette.mjs#L89-L98`](https://github.com/mozilla/releases-comm-central/blob/a430595faa0eb7c300d565374143f0ede2e03660/mail/components/unifiedtoolbar/content/customization-palette.mjs#L89-L98).
+- Texto em `innerHTML` para o esqueleto: Trix,
+  [`trix_toolbar_element.js#L30-L34`](https://github.com/basecamp/trix/blob/e2df97a56bcf1b6689ccd08d0d11a3f96006da8b/src/trix/elements/trix_toolbar_element.js#L30-L34);
+  Lexxy,
+  [`editor.js#L835-L841`](https://github.com/basecamp/lexxy/blob/b384704c1c334509c07d3eb66ae6aa2e65742e3d/src/elements/editor.js#L835-L841).
+- `.map().join("")` no chamador: Jellyfin,
+  [`playbackSettings.js#L107-L110`](https://github.com/jellyfin/jellyfin-web/blob/fcee5dfaaf59cfcb7a073d1cf0ac362f70e2158b/src/components/playbackSettings/playbackSettings.js#L107-L110).
+
+Ressalvas: o Firefox e o Chromium migram para o Lit (`MozLitElement`,
+187 ocorrências em 166 arquivos do Firefox, contra 48 de `extends
+HTMLElement`, no searchfox em 2026-10-15; `CrLitElement` e Polymer na
+maior parte do WebUI), e o `login-list` sem Lit já tem itens em Lit. O
+Jellyfin registra os elementos pela API v0 (`document.registerElement`,
+com *polyfill*) e migra para React. As contagens do searchfox e da busca
+do GitHub não ficam presas ao commit. Não se conferiu que os elementos do
+GitHub rodam no github.com; o indício é a dependência dos Primer View
+Components.
+
+### Contagens
+
+Na amostra acima, contam-se as coleções montadas no cliente a partir
+de dados, pelo código que as monta, seja do próprio elemento ou de quem
+o usa; ficam de fora o HTML que vem do servidor e as barras de botões
+fixos. O laço chama `createElement`, ou cria um elemento personalizado,
+em doze: quatro do Firefox (os itens do `login-list`, que são elementos
+Lit, o `addon-list`, o `addon-permissions-list` e as linhas do
+`import-details-row`), três do Thunderbird, o `diagnose-info-table` do
+Chromium, o `trix-editor`, os seletores de linguagem e de cor do Lexxy e
+o `citation-information` do Forgejo. Clona um `<template>` em três (as
+seções do `login-list`, o `indexeddb-transaction-table` do Chromium, o
+menu do Lexxy), usa `insertRow` em uma (o `device-table` do Chromium) e
+escreve HTML num texto em três, todas do Jellyfin e no chamador (`html
++=` no `emby-itemscontainer`, `.map().join("")` no `emby-select` e no
+`emby-tabs`). Em três das doze, o item criado clona um `<template>` no
+próprio construtor (`unified-toolbar` e `folder-tree-row` do
+Thunderbird, `import-details-row` do Firefox).
+
+Busca de código do GitHub (API `search/code`, 2026-10-15), arquivos com
+`"extends HTMLElement"` e o termo:
+
+| Termo | JavaScript | TypeScript |
+|---|---|---|
+| (só `"extends HTMLElement"`) | 179.200 | 159.744 |
+| `innerHTML` | 118.272 | 38.784 |
+| `createElement` | 89.600 | 46.336 |
+| `cloneNode` | 33.678 | 7.328 |
+| `createElement` sem `cloneNode` | 59.904 | 40.704 |
+| `cloneNode` sem `createElement` | 4.992 | 1.220 |
+| `createElement` e `cloneNode` | 29.824 | 5.680 |
+| `insertRow` | 501 | 290 |
+
+A contagem é de arquivos, aproximada, e inclui tutoriais e exercícios; o
+`createElement` serve também ao `<style>`, ao contêiner e a outros usos
+que não são partes repetidas, e o `cloneNode`, quase só ao `<template>`.
+Mede presença no arquivo, e não a forma das partes repetidas. No Stack
+Overflow (API, 2026-10-15), das 3.841 perguntas com a etiqueta
+`web-component`, 118 citam `innerHTML`, 24 `createElement` e 7
+`cloneNode`.
+
+### Documentação
+
+- **Especificação** (WHATWG, *HTML Living Standard*, 4.13.2, atualizada
+  em 2026-10-14): o construtor não ganha filhos nem atributos, e "work
+  should be deferred to connectedCallback as much as possible—especially
+  work involving fetching resources or rendering"; os exemplos usam
+  `shadowRoot.innerHTML` com HTML fixo (4.13.1.8) e deixam a montagem
+  "as an exercise for the reader" (4.13.1.1).
+- **MDN**, *Using custom elements* (2026-09-01): montar no
+  `connectedCallback`; os exemplos usam `createElement` e, no embutido,
+  aprimoram o HTML da página. *Using templates and slots* (2026-05-17):
+  `<template>` da página e `importNode` para estrutura que se repete. O
+  único exemplo oficial com lista, o `editable-list` de
+  `mdn/web-components-examples`
+  ([`main.js#L40-L48`](https://github.com/mdn/web-components-examples/blob/7e588e43bb8ed439716c413a3bd42466112155c8/editable-list/main.js#L40-L48),
+  commit de 2026-10-07), monta os itens iniciais com `.map().join("")`
+  sem escape e os novos com `createElement`.
+- **MDN**, *Element.innerHTML* (2026-10-12): "probably the most common
+  vector for cross-site scripting (XSS) attacks"; para texto,
+  `textContent`. O `setHTML()` segue com disponibilidade limitada, e o
+  Trusted Types é Baseline desde 2026-02.
+- **web.dev**, *Custom Element Best Practices* e *Custom Elements v1*
+  (2017-08-14): *shadow root* no construtor, `<template>` criado uma vez
+  e clonado por instância, que "cuts down on HTML parse costs"; o v1
+  desaconselha sobrescrever os filhos do *light DOM*. *Shadow DOM v1*
+  (2016-08-01), sobre `innerHTML` ou outra API: "This is the web. We have
+  choice."
+- **Literatura cinzenta**: Keith, *HTML web components* (2023-11-09), e
+  Leatherman, *An Attempted Taxonomy of Web Components* (2023-11-18),
+  defendem aprimorar o HTML que já vem da página, sem *shadow DOM*.
 
 ## 7. Fontes
 
