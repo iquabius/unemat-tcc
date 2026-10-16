@@ -35,7 +35,7 @@ sinal de nenhuma DC.
 - Estado → tela: atribuições ao DOM (`textContent`, `setAttribute`,
   `hidden`), feitas pelo próprio código, em cada lugar que muda o
   estado.
-- Tempo de vida: `connectedCallback` e `disconnectedCallback`; o
+- Ciclo de vida: `connectedCallback` e `disconnectedCallback`; o
   encerramento (`clearInterval`, `AbortController.abort()`, cancelar a
   assinatura) fica escrito no `disconnectedCallback`.
 - Montagem: `createElement` e `append` no Contador; `innerHTML` com
@@ -53,7 +53,7 @@ sinal de nenhuma DC.
   ao campo.
 - Estado → tela: o `render()` devolve o *template* `html`, e o Lit
   atualiza só as partes do DOM cujos valores mudaram.
-- Tempo de vida: os mesmos `connectedCallback` e `disconnectedCallback`
+- Ciclo de vida: os mesmos `connectedCallback` e `disconnectedCallback`
   do Web Component, chamando `super`; ou um `ReactiveController`.
 - Montagem: o *template* `html` com `${}`; `nothing` para não pôr nada.
   `createRenderRoot() { return this; }` desliga o *shadow DOM* para o
@@ -69,7 +69,7 @@ sinal de nenhuma DC.
   dependências escrita à mão.
 - Evento → estado: `onClick={() => set...(...)}` no JSX.
 - Estado → tela: o JSX devolvido; a reconciliação acha o que mudou.
-- Tempo de vida: `useEffect` que devolve a função de limpeza; a lista de
+- Ciclo de vida: `useEffect` que devolve a função de limpeza; a lista de
   dependências diz quando o efeito refaz.
 - Montagem: JSX, com `&&`, ternário e `.map` com `key`.
 - Documentação: react.dev (pt-br.react.dev para os termos em
@@ -85,7 +85,7 @@ sinal de nenhuma DC.
 - Evento → estado: `onClick` no JSX, como no React.
 - Estado → tela: as expressões do JSX que leem *signals* se atualizam
   sozinhas; as *props* não se desestruturam, para não perder a leitura.
-- Tempo de vida: `onCleanup`, dentro do componente ou do
+- Ciclo de vida: `onCleanup`, dentro do componente ou do
   `createEffect`.
 - Montagem: o mesmo JSX do React com outro dialeto (`class`, `<Show>`,
   `<For>`).
@@ -100,7 +100,7 @@ sinal de nenhuma DC.
 - Evento → estado: `(click)="..."` no *template*; `.set` e `.update`.
 - Estado → tela: interpolação `{{ }}` e `[propriedade]` no *template*,
   que leem os *signals*.
-- Tempo de vida: `DestroyRef.onDestroy`, ou a limpeza do `effect`;
+- Ciclo de vida: `DestroyRef.onDestroy`, ou a limpeza do `effect`;
   `resource` para a requisição.
 - Montagem: o *template* com `@if`, `@for` (com `track`) e as ligações
   `[ ]` e `( )`.
@@ -122,7 +122,7 @@ sinal de nenhuma DC.
   estado.
 - Ligação entre os dois arquivos: o `android:id="@+id/..."` do XML e o
   `R.id....` do Kotlin, conferidos na compilação, mas só pelo nome.
-- Tempo de vida: os métodos do ciclo de vida da `Activity` (`onCreate`,
+- Ciclo de vida: os métodos do ciclo de vida da `Activity` (`onCreate`,
   `onStop`, `onDestroy`); corrotinas presas ao ciclo de vida
   (`lifecycleScope`) quando há assincronia (ADR 0005: sem `ViewModel`
   nem `Flow`).
@@ -145,7 +145,7 @@ sinal de nenhuma DC.
 - Evento → estado: `onClick = { ... }` passado ao componente.
 - Estado → tela: a função `@Composable` que lê o estado roda de novo
   quando ele muda (a "recomposição"), como o componente React.
-- Tempo de vida: `LaunchedEffect` (corrotina que se cancela ao sair) e
+- Ciclo de vida: `LaunchedEffect` (corrotina que se cancela ao sair) e
   `DisposableEffect` com `onDispose`.
 - Montagem: chamadas de função aninhadas (`Row`, `Column`, `Text`), com
   `Modifier` para semântica e aparência.
@@ -164,7 +164,7 @@ Implementações previstas na tcc-74m; até lá, só os pontos de partida.
 - Evento → estado: `botao.Click += (s, e) => ...`.
 - Estado → tela: atribuições às propriedades dos controles (`Text`,
   `Enabled`, `Visible`); `ErrorProvider.SetError` para o erro no campo.
-- Tempo de vida: `Dispose`, `FormClosed`; `CancellationTokenSource` para
+- Ciclo de vida: `Dispose`, `FormClosed`; `CancellationTokenSource` para
   a assincronia.
 - Documentação: learn.microsoft.com/dotnet/desktop/winforms.
 
@@ -180,5 +180,5 @@ Implementações previstas na tcc-74m; até lá, só os pontos de partida.
 - Estado → tela: `{Binding Caminho}` no XAML, resolvido em tempo de
   execução contra o `DataContext`; o nome errado não quebra a compilação,
   só aparece na saída de depuração.
-- Tempo de vida: `Unloaded`, `Closed`; `CancellationTokenSource`.
+- Ciclo de vida: `Unloaded`, `Closed`; `CancellationTokenSource`.
 - Documentação: learn.microsoft.com/dotnet/desktop/wpf (data binding).
