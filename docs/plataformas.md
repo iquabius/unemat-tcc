@@ -138,12 +138,12 @@ React reativo de Salvaneschi et al. (2014, p. 564).
 - **Orquestração**: "The coroutine will be cancelled if `LaunchedEffect`
   leaves the composition", e o `onDispose` do `DisposableEffect` limpa o
   que o efeito abriu quando "the keys change or if the composable leaves
-  the Composition" (Side-effects in Compose): o tempo de vida de relógios e
+  the Composition" (Side-effects in Compose): o ciclo de vida de relógios e
   assinaturas fica amarrado à composição. No Views, a assinatura dos Dados
   ao vivo se escreve em `onStart` e `onStop`; as duas tecnologias usam as
   corrotinas da linguagem, sem `ViewModel` nem `Flow`, e o escopo delas
   difere, a composição contra o ciclo de vida da `Activity` (ADR 0005).
-  Leitura nossa: a diferença do par na orquestração deve ficar no tempo de
+  Leitura nossa: a diferença do par na orquestração deve ficar no ciclo de
   vida, nos Dados ao vivo, e nas políticas do envio do Formulário, que
   ignora o reenvio (primeira rodada), e da atualização otimista do Quadro,
   que aplica os pedidos na ordem dos cliques (segunda rodada). A política
@@ -494,7 +494,7 @@ linhas no Formulário e 52 na Lista, contra 79 e 77 do Kotlin do Views.
 
 **Achados que pesam em propensão a erros e dependências ocultas.**
 
-- **Qt Widgets, tempo de vida da conexão**: fechar o Formulário com um campo
+- **Qt Widgets, ciclo de vida da conexão**: fechar o Formulário com um campo
   focado caía com `std::bad_alloc`. O `~QWidget` apaga os campos, a troca
   de foco emite o `focusChanged` da aplicação, e o *slot* gravava no
   conjunto de campos tocados, já destruído. A documentação diz que,

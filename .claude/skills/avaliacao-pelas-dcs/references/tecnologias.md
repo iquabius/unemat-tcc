@@ -10,7 +10,7 @@ duas fica marcado "a conferir".
 
 Os seis pontos de cada tecnologia seguem a exigência de coordenação
 (`CONTEXT.md`): o estado, o valor derivado, o evento que muda o estado, o
-estado que chega à tela, a assincronia com o tempo de vida (limpeza ao
+estado que chega à tela, a assincronia com o ciclo de vida (limpeza ao
 sair da tela) e a montagem da tela. O que conta é o código da aplicação:
 o `dominio.ts` e o `dominio-kotlin/` são compartilhados e ficam fora da
 notação de cada tecnologia, como os estilos, a configuração e os testes

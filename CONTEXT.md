@@ -97,7 +97,7 @@ pesquisa é o documento de 2017)
 **Exigência de coordenação**:
 O que uma interface exige do modelo de programação, em dois eixos, a
 orquestração de eventos e o gerenciamento de estado: evento → estado →
-tela, estado derivado, assincronia, tempo de vida de relógios e
+tela, estado derivado, assincronia, ciclo de vida de relógios e
 assinaturas, lista derivada (com a montagem dos itens na tela), estado
 compartilhado, histórico (ADR 0002). Cada interface tem uma proporção
 própria dos dois eixos, como a aplicação real que ela reproduz.
