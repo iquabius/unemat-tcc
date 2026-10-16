@@ -51,19 +51,26 @@ class PainelDePlacares extends HTMLElement {
     this.situacao = this.querySelector(".situacao")!;
     this.pausa = this.querySelector(".pausa")!;
     const corpo = this.querySelector("tbody")!;
+    const celula = (texto: string) => {
+      const td = document.createElement("td");
+      td.textContent = texto;
+      return td;
+    };
     for (const jogo of JOGOS) {
-      const linha = corpo.insertRow();
-      linha.insertCell().textContent = jogo.codigo;
       const celulas = {
-        linha,
-        placar: linha.insertCell(),
-        tempo: linha.insertCell(),
-        golsNovos: linha.insertCell(),
+        linha: document.createElement("tr"),
+        placar: celula(formatarPlacar(undefined)),
+        tempo: celula(formatarTempo(undefined)),
+        golsNovos: celula(golsNovos(undefined, undefined)),
       };
-      celulas.placar.textContent = formatarPlacar(undefined);
-      celulas.tempo.textContent = formatarTempo(undefined);
-      celulas.golsNovos.textContent = golsNovos(undefined, undefined);
-      linha.insertCell().textContent = formatarPlacar(jogo.palpite);
+      celulas.linha.append(
+        celula(jogo.codigo),
+        celulas.placar,
+        celulas.tempo,
+        celulas.golsNovos,
+        celula(formatarPlacar(jogo.palpite)),
+      );
+      corpo.append(celulas.linha);
       this.celulas.set(jogo.codigo, celulas);
     }
 
