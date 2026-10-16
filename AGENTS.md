@@ -336,7 +336,9 @@ As seções das notas não têm número, e a referência cita o título:
 primeira frase da seção. Nota nova só quando o conteúdo não cabe num
 ADR, numa tarefa nem no texto.
 Todo texto de nota, tarefa ou ADR: conclusão primeiro, datas absolutas, uma
-palavra por conceito (`CONTEXT.md`), sem alusão à conversa que o gerou.
+palavra por conceito (`CONTEXT.md`), sem alusão à conversa que o gerou e
+sem decalque do inglês (`portugues-idiomatico.md` da `escrita-academica`,
+seção "Decalque").
 
 ## Versões
 

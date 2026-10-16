@@ -283,8 +283,11 @@ perguntas, e então o autor dá o rótulo.
    e não some. Decisão cara de reverter vira ADR (skill `adr`).
 5. **Métricas** nos parágrafos tocados:
    `python3 ~/.claude/skills/escrita-academica/scripts/metricas_texto.py texto/<capítulo>.org`,
-   e leitura com `principios-escrita.md`, `portugues-academico.md` e
-   `processo-e-corte.md`. Confira as siglas contra a primeira definição no
+   e leitura com `principios-escrita.md`, `portugues-academico.md`,
+   `processo-e-corte.md` e `portugues-idiomatico.md`, este com a checagem
+   de decalque: o decalque claro é correção mecânica do passo 6, a área
+   cinzenta se pergunta antes, com as duas versões (passo 4), e o termo
+   adotado fica. Confira as siglas contra a primeira definição no
    capítulo e as preferências do autor (`AGENTS.md`, "Texto"). Em cada
    interface ou exigência de coordenação que o trecho descreve, confira se
    o trecho diz o que ela dá ao usuário final ("para o usuário ...", o
