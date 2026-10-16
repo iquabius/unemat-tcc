@@ -72,7 +72,7 @@ class PainelDePlacares extends HTMLElement {
     this.inscrever();
   }
 
-  // Sem isto, a fonte continua empurrando lotes para um painel fora da página.
+  // Sem isto, a fonte continua mandando lotes para um painel fora da página.
   disconnectedCallback() {
     this.cancelar?.();
   }

@@ -2,7 +2,7 @@
 
 Painel de placares de jogos em andamento que uma fonte atualiza sozinha,
 sem o usuário pedir. Adapta o caso /push/ de Meijer (2012, p. 66-67), que
-cita as cotações de bolsa empurradas ao cliente e os /WebSockets/ entre as
+cita as cotações de bolsa mandadas ao cliente e os /WebSockets/ entre as
 fontes, como o Formulário adapta o /Flight Booker/ (ADR 0002). É a
 interface da inscrição presa à tela: o painel se inscreve na fonte ao entrar
 na página, para o usuário seguir os jogos sem pedir, e cancela a
@@ -12,7 +12,7 @@ reconexão, o bolão e a frequência de atualização entram na segunda
 rodada.
 
 A fonte é simulada em =dominio.ts=, com a forma de um /WebSocket/ ou de um
-=EventSource=: =inscreverNosPlacares(aoReceber)= empurra os lotes e devolve
+=EventSource=: =inscreverNosPlacares(aoReceber)= manda os lotes e devolve
 a função que cancela a inscrição, o =Closable= de Meijer. O placar depende
 só do relógio, como num servidor real, para os testes e as capturas se
 repetirem. =contarInscricoes()= diz quantas inscrições estão abertas, para a

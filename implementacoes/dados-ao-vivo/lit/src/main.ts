@@ -33,7 +33,7 @@ class PainelDePlacares extends LitElement {
     this.inscrever();
   }
 
-  // Sem isto, a fonte continua empurrando lotes para um painel fora da página.
+  // Sem isto, a fonte continua mandando lotes para um painel fora da página.
   override disconnectedCallback() {
     super.disconnectedCallback();
     this.cancelar?.();

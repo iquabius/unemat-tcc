@@ -39,7 +39,7 @@ lote, o placar, o tempo e os gols novos mostram "—", a situação mostra
 
 ### Requirement: Lotes da partida
 
-A fonte simulada (`inscreverNosPlacares`) deve empurrar a cada 1 s um lote
+A fonte simulada (`inscreverNosPlacares`) deve mandar a cada 1 s um lote
 com o minuto e os gols de cada jogo, pelo segundo em que ele sai: a partida
 anda 1 minuto por segundo e recomeça a cada 100 s; o teste começa às
 10:00:00 UTC de 2026-10-12. A cada lote, o painel mostra o placar

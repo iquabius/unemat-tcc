@@ -8,7 +8,7 @@ export interface Gols {
 }
 
 /**
- * O que a fonte empurra de cada jogo: a partida (o ciclo do relógio em que
+ * O que a fonte manda de cada jogo: a partida (o ciclo do relógio em que
  * ela se joga), o minuto e os gols.
  */
 export interface Placar extends Gols {
@@ -88,7 +88,7 @@ let inscricoes = 0;
 
 /**
  * Inscreve aoReceber na fonte, como quem abre um WebSocket ou um
- * EventSource: a cada INTERVALO_MS a fonte empurra um lote para aoReceber.
+ * EventSource: a cada INTERVALO_MS a fonte manda um lote para aoReceber.
  * Devolve a função que cancela a inscrição; chamá-la de novo não faz nada.
  */
 export function inscreverNosPlacares(
