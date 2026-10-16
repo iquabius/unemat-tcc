@@ -45,12 +45,14 @@ tela)
 
 **Montagem da tela**:
 A parte da notação que escreve quais elementos a tela tem, em que
-hierarquia e com que textos: HTML (Web Component), *template* `html`
-(Lit), JSX (React, Solid), *template* (Angular), layout XML (Views),
-funções (Compose), código C# (Windows Forms), XAML (WPF). Solid
-e Angular diferem nela dentro do mesmo modelo de programação. A
-análise aponta, em cada DC, se a diferença está na coordenação, na
-montagem da tela ou na ligação entre as duas (ADR 0021).
+hierarquia e com que textos: HTML num texto, com `createElement` nas
+partes repetidas (Web Component), *template* `html` (Lit), JSX (React,
+Solid), *template* (Angular), layout XML (Views), funções (Compose),
+código C# (Windows Forms), XAML (WPF). Solid e Angular diferem nela
+dentro do mesmo modelo de programação, e Web Component e Lit, nas partes
+repetidas e no filho que entra e sai da página. A análise aponta, em
+cada DC, se a diferença está na coordenação, na montagem da tela ou na
+ligação entre as duas (ADR 0021).
 _Avoid_: estrutura da tela como notação à parte; sintaxe da tela;
 marcação (não cobre `createElement` nem Compose)
 

@@ -20,8 +20,10 @@ interessadas (seção 6). Programas reais com Web Components sem
 biblioteca escrevem o esqueleto da tela em HTML (num `<template>` ou num
 texto) e as partes repetidas por `createElement` ou clone de
 `<template>` por item, e quase nunca por HTML num texto com
-`.map().join("")`; nem o MDN nem o web.dev prescrevem uma forma
-(seção "Como Web Components sem biblioteca montam a tela").
+`.map().join("")`; nem o MDN nem o web.dev prescrevem uma forma. No
+Web Component do TCC, as partes repetidas se escrevem com
+`createElement`, a forma mais comum (seção "Como Web Components sem
+biblioteca montam a tela").
 
 Tratar como literatura cinzenta no texto:
 
@@ -345,6 +347,9 @@ HTML num texto com `.map().join("")` só aparece no Jellyfin, escrito
 pelo chamador, e num exemplo do MDN. A atualização muda `textContent` e
 atributos em nós guardados, e a coleção que muda se esvazia e se remonta
 (`replaceChildren`, `textContent = ""`). O *shadow DOM* é minoria.
+
+A convenção do TCC, decidida pelo autor em 2026-10-15 a partir desta
+pesquisa, está no ADR 0037 e em `implementacoes/AGENTS.md`.
 
 ### Critério de escolha
 

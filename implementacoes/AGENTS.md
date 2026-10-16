@@ -196,12 +196,30 @@ A mudança não se porta para o código da interface em
   Solid (`signal`, `computed`, `effect`, `resource`, sem RxJS nem
   formulários do Angular); o `angular-rxjs`, de apoio, com RxJS e Reactive
   Forms de propósito, ficou congelado em `implementacoes/fora-da-analise/`.
+- No Web Component, o esqueleto da tela se escreve em HTML num texto
+  (marcado `/* HTML */`), atribuído ao `innerHTML` uma vez, e as partes
+  repetidas (itens de lista, linhas de tabela) e os elementos filhos,
+  como o painel que o botão de esconder e mostrar põe na página, se
+  criam com `createElement` e `append`. A tela muda por `textContent`,
+  atributos e `hidden` nos nós já montados, e a coleção que muda se
+  esvazia e se remonta (`replaceChildren`); quando uma regra de
+  `display` do `estilo.css` venceria o `hidden`, o mesmo arquivo traz
+  `[hidden] { display: none !important; }`, como na Busca. Nenhum dado
+  entra no `innerHTML`: o texto vai por `textContent`, e o tratador de
+  um item, por `addEventListener` no elemento criado, e não por
+  delegação com `data-*`. É a forma mais comum em programas reais sem
+  biblioteca (`docs/tecnologias-web.md`, seção "Como Web Components sem
+  biblioteca montam a tela"), e o ADR 0037 diz as alternativas e o
+  custo.
 - O Lit (ADR 0013: Formulário, Busca e Dados ao vivo) fica em
   `implementacoes/<interface>/lit/`, com o Lit 3 e o *template* `html`, sem
   `@lit-labs/signals` nem `@lit/task`. Escreve-se como o Web Component da
-  interface, para o par isolar a ligação do estado com a tela: os mesmos
-  elementos e classes, `createRenderRoot()` devolvendo `this` (sem *shadow
-  DOM*, para o `estilo.css` valer), e o que a interface abre no
+  interface, para o par diferir o mínimo além da ligação do estado com a
+  tela; nas partes repetidas e no filho que entra e sai da página, que no
+  Lit se escrevem no *template* (`map`, condicional), o par difere também
+  na montagem da tela. Ficam iguais os elementos e classes,
+  `createRenderRoot()` devolvendo `this` (sem *shadow DOM*, para o
+  `estilo.css` valer), e o que a interface abre no
   `connectedCallback` e fecha no `disconnectedCallback` herdados, que
   chamam o `super`. O estado da tela leva `@state() accessor`; o da
   coordenação (a inscrição, o `AbortController`) fica em campo comum. Um

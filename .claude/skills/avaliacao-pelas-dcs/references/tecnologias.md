@@ -38,8 +38,12 @@ sinal de nenhuma DC.
 - Ciclo de vida: `connectedCallback` e `disconnectedCallback`; o
   encerramento (`clearInterval`, `AbortController.abort()`, cancelar a
   inscrição) fica escrito no `disconnectedCallback`.
-- Montagem: `createElement` e `append` no Contador; `innerHTML` com
-  *template literal* marcado `/* HTML */` nas outras interfaces (tcc-53w).
+- Montagem: o esqueleto em *template literal* marcado `/* HTML */`,
+  atribuído ao `innerHTML` uma vez; as partes repetidas e os filhos com
+  `createElement` e `append` (`implementacoes/AGENTS.md`). No par com o
+  Lit, em que as partes repetidas e o filho que entra e sai da página se
+  escrevem no *template* (`map`, condicional), essa diferença é de
+  montagem da tela, e não de ligação.
 - Documentação: developer.mozilla.org, "Using custom elements".
 
 ### Lit (declarativo por re-renderização, par do Web Component)

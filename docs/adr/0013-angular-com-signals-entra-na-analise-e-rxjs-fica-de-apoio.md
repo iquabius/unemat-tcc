@@ -18,9 +18,12 @@ eventos como o Web Component, com `setTimeout` no tratador. O Angular com
 `computed`, `effect` e `resource()`, sem RxJS), implementa o Formulário, a
 Busca e o Quadro. Os dois vão até a terceira rodada (ADR 0029). Isso dá
 quatro comparações próximas, uma para cada contraste: Web Component × Lit
-(o mesmo modelo de componente, a tela em HTML num texto e a mesma
-orquestração; muda só a ligação do estado com a tela, e é o único par que
-isola o imperativo); React × Solid (o mesmo JSX, modelo de programação
+(o mesmo modelo de componente, o esqueleto da tela em HTML num texto e a
+mesma orquestração; muda a ligação do estado com a tela e, nas partes
+repetidas e no filho que entra e sai da página, a montagem, com
+`createElement` no Web Component, e no *template* no Lit (ADR 0037); é o
+único par que isola o imperativo); React × Solid (o mesmo JSX, modelo
+de programação
 diferente); React × Lit (a notação dentro da re-renderização); Solid ×
 Angular (a notação dentro da atualização granular, com o modelo de
 componente do Angular: classe, decorador, injeção de dependências). Sem o
@@ -114,7 +117,10 @@ commits na segunda rodada; os exemplos de RxJS ficam nas regras de
 ignora o reenvio); o Lit e o Angular aparecem em três interfaces cada, e
 as células das outras duas ficam com uma tecnologia da coluna, o que a
 análise declara; o par Web Component × Lit isola a ligação com a tela, e
-não a orquestração, que o Lit não muda; a diferença entre Solid e Angular
+não a orquestração, que o Lit não muda; nas partes repetidas e no filho
+que entra e sai da página, a montagem da tela muda junto com a ligação
+(ADR 0037);
+a diferença entre Solid e Angular
 mistura a sintaxe com o modelo de componente (classe, decorador, injeção
 de dependências), que a análise precisa separar; o Formulário fica mais
 longo nas tecnologias sem apoio; o jQuery, a tecnologia web mais

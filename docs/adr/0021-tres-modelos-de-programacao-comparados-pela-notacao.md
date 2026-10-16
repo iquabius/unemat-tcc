@@ -144,8 +144,11 @@ atualização manual descreve o que as implementações escrevem, e não tudo
 o que a tecnologia oferece; o React é reativo para Salvaneschi et al. (2014,
 p. 564), o que o texto precisa enfrentar; a base de "notação" é uma frase
 do tutorial de 1998, repetida em fontes publicadas (Green 2000; Blackwell
-e Green 2003); o Web Component escreve a tela com `createElement` no
-Contador e com `innerHTML` nas outras interfaces (tcc-53w); a pergunta, os
+e Green 2003); no Web Component, o esqueleto da tela se escreve com
+`innerHTML` e as partes repetidas com `createElement`, que no Lit se
+escrevem no *template*, e o par difere aí na montagem da tela (ADR
+0037); a
+pergunta, os
 objetivos, a introdução, o `CONTEXT.md` e a pauta da orientação de
 2026-10-09 mudam de vocabulário.
 

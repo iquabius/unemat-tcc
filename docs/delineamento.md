@@ -15,7 +15,9 @@ anunciadas; limpeza ao sair da tela) e, na primeira e na segunda rodada,
 as dependências; na terceira rodada, cada tecnologia usa a biblioteca de
 formulário do seu ecossistema, sem controle (ADR 0029). Na web, cada
 contraste tem um par: Web Component × Lit, o imperativo contra a
-re-renderização, pela ligação do estado com a tela, no Formulário, na
+re-renderização, pela ligação do estado com a tela (e, nas partes
+repetidas e no filho que entra e sai da página, também pela montagem),
+no Formulário, na
 Busca e nos Dados ao vivo; React × Solid, o modelo de programação entre os
 dois declarativos, nas cinco interfaces; React × Lit e Solid × Angular com
 *signals*, a notação dentro de cada declarativo, em três interfaces cada
@@ -54,7 +56,7 @@ que se confunde com o desenho da tela (`CONTEXT.md`, Delineamento).
 
 | Par | Plataforma | Igual nos dois | Diferente | O que isola | De onde vem |
 |---|---|---|---|---|---|
-| Web Component × Lit | web, no Formulário, na Busca e nos Dados ao vivo (nas três rodadas) | modelo de componente (classe que estende `HTMLElement`), tela em HTML num texto, orquestração (`setTimeout` no tratador) | a ligação do estado com a tela: métodos escritos à mão contra `render()` com `${}` | o imperativo contra a re-renderização, na ligação; não a orquestração | ADR 0013; seção 4 |
+| Web Component × Lit | web, no Formulário, na Busca e nos Dados ao vivo (nas três rodadas) | modelo de componente (classe que estende `HTMLElement`), esqueleto da tela em HTML num texto, orquestração (`setTimeout` no tratador) | a ligação do estado com a tela: métodos escritos à mão contra `render()` com `${}`; nas partes repetidas e no filho que entra e sai da página, a montagem da tela: `createElement` contra `map` e condicional no *template* | o imperativo contra a re-renderização, na ligação; não a orquestração nem a montagem dessas partes | ADRs 0013 e 0037; seção 4 |
 | React × Solid | web | JSX, linguagem, especificação | modelo de programação; também o dialeto do JSX (`className` e `class`) e `&&` e `.map` contra `<Show>` e `<For>` | o modelo de programação, entre os dois declarativos | ADR 0021; [`plataformas.md`, Web](plataformas.md#web) |
 | Solid × Angular com *signals* | web, no Formulário, na Busca e no Quadro (nas três rodadas) | modelo de programação (`signal`, `computed`, leitura por chamada) | notação: montagem da tela (JSX numa função, *template*), modelo de componente (classe, decorador, injeção de dependências) e API além do *signal* | a notação como um todo, contra o modelo de programação; os três pontos variam juntos, e a análise os separa pelo sinal escrito | ADR 0021; [`plataformas.md`, Web](plataformas.md#web) |
 | Views × Compose | Android, no Formulário, no Quadro e nos Dados ao vivo | linguagem, plataforma, especificação | modelo de programação e montagem da tela (*layout* XML, funções) | nenhuma variável sozinha; é o contraste mais próximo entre o imperativo e um declarativo | [`plataformas.md`, Android](plataformas.md#android); tcc-4ie |
@@ -94,8 +96,8 @@ git); as linhas citadas não foram reconferidas.
 
 | | Web Component × Lit | React × Solid |
 |---|---|---|
-| Fica igual | classe registrada como elemento, tela em HTML num texto e, na Busca, a orquestração (`setTimeout` no tratador) | o JSX, com o dialeto (`className` e `class`, `onChange` e `onInput`) |
-| Muda | a ligação do estado com a tela: `validar()` e `mostrarErro` escritos à mão contra `render()` com `${}` | a coordenação: o componente reexecuta ou executa uma vez; dependências listadas ou rastreadas |
+| Fica igual | classe registrada como elemento, esqueleto da tela em HTML num texto e, na Busca, a orquestração (`setTimeout` no tratador) | o JSX, com o dialeto (`className` e `class`, `onChange` e `onInput`) |
+| Muda | a ligação do estado com a tela: `validar()` e `mostrarErro` escritos à mão contra `render()` com `${}`; nas partes repetidas (Busca, Dados ao vivo) e no painel que entra e sai da página (Dados ao vivo), a montagem: `createElement` contra `map` e condicional no *template* | a coordenação: o componente reexecuta ou executa uma vez; dependências listadas ou rastreadas |
 | DCs que só o par atribui | operações mentais difíceis, dependências ocultas, viscosidade | dependências ocultas, consistência, viscosidade continuam atribuíveis sem ele; proximidade de descrição, concisão, notação secundária e visibilidade deixam de ser |
 | DCs em parte | nível de abstração, proximidade de descrição, expressividade de papel, propensão a erros, compromisso prematuro, visibilidade | nível de abstração, operações mentais difíceis, expressividade de papel, propensão a erros, compromisso prematuro |
 | Sem o par | o `useEffect` com a lista de dependências e o truque do `pedido` contam contra a re-renderização | as armadilhas do Solid (o valor que congela, as *props* desestruturadas) somem, e o `$any` e o aborto do `resource` do Angular entram na coluna granular |
