@@ -47,14 +47,20 @@ class Tela {
     return (JTextField) rotulado(campo.rotulo);
   }
 
-  private List<JLabel> daClasse(String classe) {
+  // Os componentes do tipo dado com a propriedade "classe" dada, como o
+  // querySelectorAll(".classe").
+  private <T extends JComponent> List<T> daClasse(
+    String classe,
+    Class<T> tipo
+  ) {
     return componentes(formulario)
       .stream()
       .filter(
         c ->
-          c instanceof JLabel l && classe.equals(l.getClientProperty("classe"))
+          tipo.isInstance(c) &&
+          classe.equals(((JComponent) c).getClientProperty("classe"))
       )
-      .map(c -> (JLabel) c)
+      .map(tipo::cast)
       .toList();
   }
 
@@ -138,7 +144,7 @@ class Tela {
   // Mensagens de erro visíveis, de cima para baixo.
   List<String> erros() {
     return naTela(() ->
-      daClasse("erro")
+      daClasse("erro", JLabel.class)
         .stream()
         .filter(JComponent::isVisible)
         .map(JLabel::getText)
@@ -148,16 +154,7 @@ class Tela {
 
   String confirmacao() {
     return naTela(() ->
-      componentes(formulario)
-        .stream()
-        .filter(
-          c ->
-            c instanceof JTextArea t &&
-            "confirmacao".equals(t.getClientProperty("classe"))
-        )
-        .map(c -> ((JTextArea) c).getText())
-        .findFirst()
-        .orElseThrow()
+      daClasse("confirmacao", JTextArea.class).get(0).getText()
     );
   }
 }
