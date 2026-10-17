@@ -1,16 +1,16 @@
 import {
+  COLUNAS,
   MENSAGENS,
   anunciarArquivamento,
   anunciarMovimento,
-  cabeEm,
   carregarQuadro,
   ouvirOutrasAbas,
+  podeIr,
   salvarQuadro,
   tarefa,
   textoDaColuna,
   textoDoCabecalho,
   tituloDa,
-  vizinhas,
   type Coluna,
   type EstadoDoQuadro,
 } from "../../dominio";
@@ -156,20 +156,13 @@ class ColunaDoQuadro extends ComponenteDoQuadro {
   protected atualizar() {
     const { estado } = this.loja;
     const ids = estado[this.coluna];
-    const { anterior, proxima } = vizinhas(this.coluna);
     this.titulo.textContent = textoDaColuna(estado, this.coluna);
-    this.lista.replaceChildren(
-      ...ids.map((id) => this.item(id, anterior, proxima)),
-    );
+    this.lista.replaceChildren(...ids.map((id) => this.item(id)));
     this.lista.hidden = ids.length === 0;
     this.aviso.hidden = ids.length > 0;
   }
 
-  private item(
-    id: number,
-    anterior: Coluna | undefined,
-    proxima: Coluna | undefined,
-  ) {
+  private item(id: number) {
     const nome = tarefa(id).titulo;
     const titulo = document.createElement("span");
     titulo.className = "titulo";
@@ -183,32 +176,26 @@ class ColunaDoQuadro extends ComponenteDoQuadro {
       this.loja.arquivar(id, this.coluna),
     );
     const item = document.createElement("li");
-    item.append(
-      titulo,
-      this.mover(id, nome, anterior, "←"),
-      this.mover(id, nome, proxima, "→"),
-      arquivar,
-    );
+    item.append(titulo, this.colunaDa(id, nome), arquivar);
     return item;
   }
 
-  // Sem coluna vizinha, um espaço vazio no lugar do botão.
-  private mover(
-    id: number,
-    nome: string,
-    para: Coluna | undefined,
-    sinal: string,
-  ) {
-    if (!para) return document.createElement("span");
-    const botao = document.createElement("button");
-    botao.type = "button";
-    botao.setAttribute("aria-label", `Mover ${nome} para ${tituloDa(para)}`);
-    botao.disabled = !cabeEm(this.loja.estado, para);
-    botao.textContent = sinal;
-    botao.addEventListener("click", () =>
-      this.loja.mover(id, this.coluna, para),
+  // A lista mostra a coluna da tarefa; escolher outra a leva para lá.
+  private colunaDa(id: number, nome: string) {
+    const lista = document.createElement("select");
+    lista.setAttribute("aria-label", `Coluna de ${nome}`);
+    for (const coluna of COLUNAS) {
+      const opcao = document.createElement("option");
+      opcao.value = coluna;
+      opcao.textContent = tituloDa(coluna);
+      opcao.disabled = !podeIr(this.loja.estado, this.coluna, coluna);
+      lista.append(opcao);
+    }
+    lista.value = this.coluna;
+    lista.addEventListener("change", () =>
+      this.loja.mover(id, this.coluna, lista.value as Coluna),
     );
-    return botao;
+    return lista;
   }
 }
 
