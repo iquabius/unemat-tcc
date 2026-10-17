@@ -44,7 +44,7 @@ export const tarefas: readonly Tarefa[] = [
  */
 export type EstadoDoQuadro = Record<Coluna, number[]>;
 
-// Um objeto novo a cada chamada: a loja do Web Component e a do Lit e o
+// Um objeto novo a cada chamada: as lojas do Web Component e do Lit e o
 // store do Solid alteram no lugar o quadro que recebem, e uma constante
 // compartilhada deixaria de ser o inicial.
 const inicial = (): EstadoDoQuadro => ({
