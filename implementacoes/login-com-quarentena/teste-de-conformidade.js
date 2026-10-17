@@ -1,4 +1,4 @@
-// Teste de conformidade do Login com quarentena, igual para as três
+// Teste de conformidade do Login com quarentena, igual para todas as
 // implementações web. Cole no console do navegador com a implementação
 // aberta; a última linha devolve o resultado de cada verificação ("ok" ou
 // "FALHOU"). Segue a especificação, com latência de 1 s e sessão de 10 s;
