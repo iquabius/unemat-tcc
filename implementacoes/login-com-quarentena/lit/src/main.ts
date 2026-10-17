@@ -57,7 +57,7 @@ class PainelDeLogin extends LitElement {
     });
   }
 
-  // Sem mexer na situação: quem chama escreve a dela, "Conectando…" na
+  // Sem mexer na situação: quem chama escreve a sua, "Conectando…" na
   // tentativa nova e "Desconectado." no Sair e na expiração.
   private pararSessao() {
     this.pararRelogio?.();
