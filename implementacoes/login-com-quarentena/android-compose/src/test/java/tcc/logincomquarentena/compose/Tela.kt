@@ -13,6 +13,7 @@ import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.performSemanticsAction
 import androidx.compose.ui.text.AnnotatedString
 import tcc.logincomquarentena.RelogioFalso
+import tcc.logincomquarentena.tempoDeSessao
 
 // Os campos, pela ordem na tela.
 enum class Campo {
@@ -24,6 +25,7 @@ private val botao =
     SemanticsMatcher.expectValue(SemanticsProperties.Role, Role.Button)
 private val regiaoDeStatus =
     SemanticsMatcher.keyIsDefined(SemanticsProperties.LiveRegion)
+private val inicioDoTempo = tempoDeSessao(0).substringBefore("0")
 private val editavel =
     SemanticsMatcher.keyIsDefined(SemanticsProperties.EditableText)
 
@@ -80,12 +82,13 @@ class Tela(
 
     fun situacao(): String? = situacaoNo()?.let { textoDe(it) }
 
-    // null sem o tempo de sessão na tela, como o texto() da web.
+    // null sem o tempo de sessão na tela, como o texto() da web. Achado pelo
+    // começo do texto do domínio, o que vem antes dos segundos.
     fun tempo(): String? =
         regra
             .onAllNodes(
                 SemanticsMatcher("tempo de sessão") {
-                    textoDe(it)?.startsWith("Tempo de sessão") == true
+                    textoDe(it)?.startsWith(inicioDoTempo) == true
                 }
             )
             .fetchSemanticsNodes()
@@ -104,8 +107,8 @@ class Tela(
             .config[SemanticsProperties.EditableText]
             .text
 
-    fun textoDoAlternar(): String? =
-        textoDe(regra.onAllNodes(botao)[0].fetchSemanticsNode())
+    fun textoDoAlternar(): String =
+        textoDe(regra.onAllNodes(botao)[0].fetchSemanticsNode())!!
 
     fun painelNaPagina(): Boolean = situacaoNo() != null
 

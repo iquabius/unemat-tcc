@@ -241,6 +241,8 @@ class TesteDeConformidade {
             listOf(requisicoesNaTentativa, contarAbertos()),
             listOf(1, 0),
         )
+        tela.avancar(1000)
+        tela.alternar()
 
         assertTrue(falhas.joinToString("\n"), falhas.isEmpty())
     }
