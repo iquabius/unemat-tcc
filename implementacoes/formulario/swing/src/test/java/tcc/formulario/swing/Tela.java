@@ -11,6 +11,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import tcc.formulario.TipoDeVoo;
 
@@ -120,6 +121,17 @@ class Tela {
   }
 
   String confirmacao() {
-    return naTela(() -> daClasse("confirmacao").get(0).getText());
+    return naTela(() ->
+      componentes(formulario)
+        .stream()
+        .filter(
+          c ->
+            c instanceof JTextArea t &&
+            "confirmacao".equals(t.getClientProperty("classe"))
+        )
+        .map(c -> ((JTextArea) c).getText())
+        .findFirst()
+        .orElseThrow()
+    );
   }
 }

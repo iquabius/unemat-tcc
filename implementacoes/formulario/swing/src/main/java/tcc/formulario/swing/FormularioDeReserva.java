@@ -21,6 +21,7 @@ import javax.swing.JComboBox;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
@@ -41,7 +42,9 @@ public class FormularioDeReserva extends JPanel {
   private final JTextField ida = new JTextField(hoje());
   private final JTextField volta = new JTextField(hoje());
   private final JButton reservar = new JButton("Reservar");
-  private final JLabel confirmacao = new JLabel();
+  // Como o <p class="confirmacao">: um texto de várias linhas, que o JLabel
+  // não quebra.
+  private final JTextArea confirmacao = new JTextArea();
 
   // O parágrafo de erro de cada campo, como o <p class="erro"> do Web
   // Component.
@@ -74,6 +77,9 @@ public class FormularioDeReserva extends JPanel {
     add(reservar);
     add(confirmacao);
     confirmacao.putClientProperty("classe", "confirmacao");
+    // Só de leitura e fora da ordem do Tab, como o parágrafo.
+    confirmacao.setEditable(false);
+    confirmacao.setFocusable(false);
     volta.setEnabled(false);
 
     // Como o addEventListener("input") do Web Component: o DocumentListener

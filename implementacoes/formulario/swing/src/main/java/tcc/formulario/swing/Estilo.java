@@ -9,6 +9,7 @@ import javax.swing.JComboBox;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
 
@@ -67,6 +68,13 @@ final class Estilo {
     } else if ("confirmacao".equals(classe)) {
       componente.setForeground(CONFIRMACAO);
       componente.setBorder(BorderFactory.createEmptyBorder(12, 0, 0, 0));
+      // Quebra entre palavras, na largura da coluna, sobre o fundo.
+      if (componente instanceof JTextArea texto) {
+        texto.setLineWrap(true);
+        texto.setWrapStyleWord(true);
+        texto.setOpaque(false);
+        texto.setMaximumSize(new Dimension(LARGURA, Integer.MAX_VALUE));
+      }
     } else if (componente instanceof JLabel) {
       componente.setBorder(BorderFactory.createEmptyBorder(0, 0, 4, 0));
     } else if (componente instanceof JTextField campo) {
