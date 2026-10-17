@@ -61,15 +61,6 @@ export function tarefa(id: number): Tarefa {
 
 export const tituloDa = (coluna: Coluna) => TITULOS[coluna];
 
-/** A coluna antes e a coluna depois desta, quando existem. */
-export function vizinhas(coluna: Coluna): {
-  anterior?: Coluna;
-  proxima?: Coluna;
-} {
-  const i = COLUNAS.indexOf(coluna);
-  return { anterior: COLUNAS[i - 1], proxima: COLUNAS[i + 1] };
-}
-
 /** Uma tarefa pode entrar na coluna se ela não for "Fazendo" cheia. */
 export function cabeEm(estado: EstadoDoQuadro, coluna: Coluna): boolean {
   return coluna !== "fazendo" || estado.fazendo.length < LIMITE_FAZENDO;

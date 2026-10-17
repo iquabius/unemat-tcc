@@ -1,4 +1,3 @@
-import { NgTemplateOutlet } from "@angular/common";
 import {
   Component,
   DestroyRef,
@@ -13,15 +12,14 @@ import {
   MENSAGENS,
   anunciarArquivamento,
   anunciarMovimento,
-  cabeEm,
   carregarQuadro,
   ouvirOutrasAbas,
+  podeIr,
   salvarQuadro,
   tarefa,
   textoDaColuna,
   textoDoCabecalho,
   tituloDa,
-  vizinhas,
   type Coluna,
   type EstadoDoQuadro,
 } from "../../../dominio";
@@ -85,26 +83,11 @@ export class Cabecalho {
   protected readonly textoDoCabecalho = textoDoCabecalho;
 }
 
+// Cada opção diz se é a escolhida: um [value] no select chegaria antes das
+// opções do @for, e a lista ficaria na primeira.
 @Component({
   selector: "app-coluna",
-  imports: [NgTemplateOutlet],
   template: `
-    <ng-template #mover let-para="para" let-sinal="sinal" let-id="id">
-      @if (para) {
-        <button
-          type="button"
-          attr.aria-label="Mover {{ tarefa(id).titulo }} para {{
-            tituloDa(para)
-          }}"
-          [disabled]="!cabeEm(loja.estado(), para)"
-          (click)="loja.mover(id, coluna(), para)"
-        >
-          {{ sinal }}
-        </button>
-      } @else {
-        <span></span>
-      }
-    </ng-template>
     <section class="coluna">
       <h2>{{ textoDaColuna(loja.estado(), coluna()) }}</h2>
       @if (loja.estado()[coluna()].length > 0) {
@@ -112,26 +95,21 @@ export class Cabecalho {
           @for (id of loja.estado()[coluna()]; track id) {
             <li>
               <span class="titulo">{{ tarefa(id).titulo }}</span>
-              <ng-container
-                *ngTemplateOutlet="
-                  mover;
-                  context: {
-                    para: vizinhas(coluna()).anterior,
-                    sinal: '←',
-                    id: id,
-                  }
-                "
-              />
-              <ng-container
-                *ngTemplateOutlet="
-                  mover;
-                  context: {
-                    para: vizinhas(coluna()).proxima,
-                    sinal: '→',
-                    id: id,
-                  }
-                "
-              />
+              <select
+                #lista
+                attr.aria-label="Coluna de {{ tarefa(id).titulo }}"
+                (change)="loja.mover(id, coluna(), $any(lista.value))"
+              >
+                @for (para of colunas; track para) {
+                  <option
+                    [value]="para"
+                    [selected]="para === coluna()"
+                    [disabled]="!podeIr(loja.estado(), coluna(), para)"
+                  >
+                    {{ tituloDa(para) }}
+                  </option>
+                }
+              </select>
               <button
                 type="button"
                 class="arquivar"
@@ -154,11 +132,11 @@ export class ColunaDoQuadro {
   protected readonly loja = inject(LojaDoQuadro);
   // O template só alcança o que a classe expõe: o domínio entra por aqui.
   protected readonly MENSAGENS = MENSAGENS;
-  protected readonly cabeEm = cabeEm;
+  protected readonly colunas = COLUNAS;
+  protected readonly podeIr = podeIr;
   protected readonly tarefa = tarefa;
   protected readonly textoDaColuna = textoDaColuna;
   protected readonly tituloDa = tituloDa;
-  protected readonly vizinhas = vizinhas;
 }
 
 // O quadro: provê a loja que os componentes de dentro compartilham, uma
