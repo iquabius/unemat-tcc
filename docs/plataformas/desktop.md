@@ -61,21 +61,23 @@ p. 28-29 e 38-39), conferido no PDF. O que não vem delas está marcado
 como leitura nossa, a conferir pelo autor. As observações feitas ao
 implementar, com data e commit, estão em
 `docs/achados-das-implementacoes.md` (2026-10-09), e aqui aparecem
-resumidas.
+resumidas. As comparações com o Web Component são do código de
+2026-10-16; até ali, eram com o jQuery, que ficou fora (ADR 0013).
 
 **Exigências de coordenação evento → estado → tela e estado derivado
 (Formulário).**
 
 - **Swing**: cada *listener* chama `validar()`, que recalcula todos os erros
   e escreve na tela (`setText`, `setVisible`, `setEnabled`), como o
-  `MainActivity` do Views e o jQuery. O tutorial registra os *listeners*
-  com `addXListener` e explica que interfaces com vários métodos obrigam a
-  implementar todos, salvo quando a API traz uma classe *adapter*. O
-  `DocumentListener`, que avisa a alteração do texto, tem três métodos e
-  nenhum *adapter* no JDK 25: a tela escreve uma classe anônima com três
-  corpos iguais (leitura nossa: difusão e viscosidade, sem equivalente no
-  `.on("input")` do jQuery nem no `doAfterTextChanged` do Android, que
-  vem de uma biblioteca).
+  `MainActivity` do Views e o Web Component. O tutorial registra os
+  *listeners* com `addXListener` e explica que interfaces com vários
+  métodos obrigam a implementar todos, salvo quando a API traz uma
+  classe *adapter*. O `DocumentListener`, que avisa a alteração do
+  texto, tem três métodos e nenhum *adapter* no JDK 25: a tela escreve
+  uma classe anônima com três corpos iguais (leitura nossa: difusão e
+  viscosidade, sem equivalente no `addEventListener("input")` do Web
+  Component nem no `doAfterTextChanged` do Android, que vem de uma
+  biblioteca).
 - **JavaFX**: não há `validar()`. Cada erro é um
   `Bindings.createStringBinding(cálculo, dependências...)`, e a tela se
   liga a eles (`textProperty().bind`, `visibleProperty().bind`,
@@ -110,8 +112,9 @@ resumidas.
 **Exigência de coordenação lista derivada (Lista).**
 
 - **Swing**: `atualizarLista()` filtra e ordena com *streams* e troca o
-  conteúdo do `DefaultListModel` (`clear` e `addAll`), como o `.empty()`
-  e `.append()` do jQuery; os três *listeners* a chamam.
+  conteúdo do `DefaultListModel` (`clear` e `addAll`), como o
+  `replaceChildren` do Web Component no Quadro; os três *listeners* a
+  chamam.
 - **JavaFX**: a lista visível são dois objetos, `FilteredList` e
   `SortedList`, com `predicateProperty` e `comparatorProperty` ligados a
   `createObjectBinding` sobre os controles; a contagem e o aviso de
@@ -258,13 +261,16 @@ nas quatro implementações com o Qt 6.10.2, no Linux.
 Em 2026-10-09.
 
 O que vem das fontes leva a fonte; o resto é leitura nossa, feita sobre o
-código de `73a9a11`, e está marcado assim.
+código de `73a9a11`, e está marcado assim. As comparações com o Web
+Component são do código de 2026-10-16; até ali, eram com o jQuery, que
+ficou fora (ADR 0013).
 
 **Evento → estado → tela (Formulário).** No Qt Widgets, cada campo liga o
 *signal* `textChanged` ao *slot* `validar`, que relê os textos dos campos,
 recalcula todos os erros e manda o resultado para a tela
-(`mostrarErro`, `setEnabled`). É a forma do jQuery e do Views: um
-tratador que revalida o formulário inteiro e escreve em cada elemento. A
+(`mostrarErro`, `setEnabled`). É a forma do Web Component e do Views:
+um tratador que revalida o formulário inteiro e escreve em cada
+elemento. A
 documentação apresenta os *signals* e *slots* como alternativa aos
 *callbacks*, que "may suffer from problems in ensuring the
 type-correctness of callback arguments", e diz que o objeto que emite
@@ -310,8 +316,9 @@ elimina a escrita na tela.
 
 **Lista derivada (Lista).** No Qt Widgets, o *slot* `atualizarLista`
 filtra e ordena o catálogo, apaga a `QListWidget` e monta um *widget*
-por produto a partir do `ItemProduto.ui`, como o `.empty().append()` do
-jQuery e o `Adapter` do Views. Na QML, a lista visível é uma propriedade
+por produto a partir do `ItemProduto.ui`, como o `replaceChildren` do
+Web Component no Quadro e o `Adapter` do Views. Na QML, a lista visível
+é uma propriedade
 ligada à expressão `Dominio.produtos.filter(...).sort(...)`, que lê o
 texto da busca e as duas seleções, e o `ListView` a usa como modelo, com
 um `delegate` por item, como o `map` do JSX. O `ListView` só monta os
@@ -322,7 +329,7 @@ quando o modelo se altera (se o `ListView` refaz todos) fica a conferir na
 documentação.
 
 **Montagem da tela.** O Qt Widgets separa a estrutura (`.ui`) da
-coordenação (C++), como o Views e o jQuery; a QML junta as duas no mesmo
+coordenação (C++), como o Views; a QML junta as duas no mesmo
 arquivo, como o JSX. O par, portanto, muda a montagem da tela junto com
 o modelo de programação, como Views × Compose, e não a isola. O `.ui` é
 o formato que o Qt Designer grava: cada propriedade ocupa três ou mais
@@ -334,10 +341,10 @@ domínio para a QML nem o `main.cpp`, que só abre a janela; o
 `MainActivity.kt` do Android entra, porque nele está a coordenação;
 ainda sem o *script* do ADR 0012.
 
-| Interface | Qt Widgets (dos quais `.ui`) | QML | Views | Compose | jQuery | Solid |
-|---|---|---|---|---|---|---|
-| Formulário | 307 (224) | 91 | 162 | 121 | 107 | 127 |
-| Lista | 226 (174, dois `.ui`) | 51 | 138 | 65 | 77 | 79 |
+| Interface | Qt Widgets (dos quais `.ui`) | QML | Views | Compose | Solid |
+|---|---|---|---|---|---|
+| Formulário | 307 (224) | 91 | 162 | 121 | 127 |
+| Lista | 226 (174, dois `.ui`) | 51 | 138 | 65 | 79 |
 
 Leitura nossa: a diferença de concisão vem sobretudo do formato do
 `.ui`, e não do modelo de programação. O C++ da coordenação tem 83
@@ -390,8 +397,9 @@ Leitura nossa, de 2026-10-09.
   confeririam a coluna com outro mecanismo (dependências listadas ou
   notificadas à mão).
 - Uma tecnologia imperativa com *callbacks* que confirma a coluna: o
-  Qt Widgets coordena como o jQuery e o Views, e os *signals* e *slots*
-  mudam a checagem de tipos e o acoplamento, não o modo de coordenar.
+  Qt Widgets coordena como o Web Component e o Views, e os *signals* e
+  *slots* mudam a checagem de tipos e o acoplamento, não o modo de
+  coordenar.
 - Não isola o modelo de programação: a montagem da tela muda junto
   (`.ui` contra QML), como em Views × Compose; Swing × JavaFX com a tela
   em código continua o par mais controlado.
