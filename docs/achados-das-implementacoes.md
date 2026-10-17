@@ -203,9 +203,9 @@ Swing e JavaFX, com a tela do JavaFX em código, no Formulário.
   várias linhas como `JTextArea`, só de leitura e fora da ordem do Tab
   (`setEditable(false)`, `setFocusable(false)`), e a quebra fica no
   `Estilo`; o JavaFX o escreve como `Label`, com a quebra no `estilo.css`.
-  A tela do Swing tem três linhas a mais que a do JavaFX por causa do
-  *toolkit*, não do modelo de programação: a análise as desconta.
+  A tela do Swing tem duas chamadas a mais que a do JavaFX, as do
+  `setEditable` e do `setFocusable`, por causa do *toolkit*, não do
+  modelo de programação: a análise as desconta.
 - **Sem janela, o Swing não mede na escala da imagem** (nos testes): o
   texto medido na escala 1 e pintado na 2 perde o fim de cada rótulo e
   de cada campo, e as capturas do desktop saem na escala 1.
-
