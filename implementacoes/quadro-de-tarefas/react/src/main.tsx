@@ -12,15 +12,14 @@ import {
   MENSAGENS,
   anunciarArquivamento,
   anunciarMovimento,
-  cabeEm,
   carregarQuadro,
   ouvirOutrasAbas,
+  podeIr,
   salvarQuadro,
   tarefa,
   textoDaColuna,
   textoDoCabecalho,
   tituloDa,
-  vizinhas,
   type Coluna,
   type EstadoDoQuadro,
 } from "../../dominio";
@@ -115,22 +114,7 @@ function Cabecalho() {
 
 function ColunaDoQuadro({ coluna }: { coluna: Coluna }) {
   const { estado, despachar } = useQuadro();
-  const { anterior, proxima } = vizinhas(coluna);
   const ids = estado[coluna];
-
-  const mover = (para: Coluna | undefined, sinal: string, id: number) =>
-    para ? (
-      <button
-        type="button"
-        aria-label={`Mover ${tarefa(id).titulo} para ${tituloDa(para)}`}
-        disabled={!cabeEm(estado, para)}
-        onClick={() => despachar({ tipo: "mover", id, de: coluna, para })}
-      >
-        {sinal}
-      </button>
-    ) : (
-      <span />
-    );
 
   return (
     <section className="coluna">
@@ -140,8 +124,28 @@ function ColunaDoQuadro({ coluna }: { coluna: Coluna }) {
           {ids.map((id) => (
             <li key={id}>
               <span className="titulo">{tarefa(id).titulo}</span>
-              {mover(anterior, "←", id)}
-              {mover(proxima, "→", id)}
+              <select
+                aria-label={`Coluna de ${tarefa(id).titulo}`}
+                value={coluna}
+                onChange={(e) =>
+                  despachar({
+                    tipo: "mover",
+                    id,
+                    de: coluna,
+                    para: e.target.value as Coluna,
+                  })
+                }
+              >
+                {COLUNAS.map((para) => (
+                  <option
+                    key={para}
+                    value={para}
+                    disabled={!podeIr(estado, coluna, para)}
+                  >
+                    {tituloDa(para)}
+                  </option>
+                ))}
+              </select>
               <button
                 type="button"
                 className="arquivar"
