@@ -8,7 +8,8 @@ import java.io.Closeable
 // nas duas tecnologias do Android: o porte do dominio.ts da web, com os
 // mesmos nomes, regras e mensagens. Nada aqui depende de interface.
 
-// Como a interface Gols: os gols de cada lado, do placar de um jogo ou do
+// Como o tipo Gols do dominio.ts: os gols de cada lado, do placar de um jogo ou
+// do
 // palpite do usuário.
 interface Gols {
     val mandante: Int
@@ -31,9 +32,13 @@ data class Placar(
 ) : Gols
 
 /** Minutos em que cada lado marca, do roteiro simulado da partida. */
-data class Roteiro(val mandante: List<Int>, val visitante: List<Int>)
+data class MinutosDosGols(val mandante: List<Int>, val visitante: List<Int>)
 
-data class Jogo(val codigo: String, val roteiro: Roteiro, val palpite: Palpite)
+data class Jogo(
+    val codigo: String,
+    val roteiro: MinutosDosGols,
+    val palpite: Palpite,
+)
 
 /** Placar de cada jogo num lote, pelo código. */
 typealias Lote = Map<String, Placar>
@@ -43,10 +48,26 @@ const val INTERVALO_MS = 1000L
 
 val JOGOS =
     listOf(
-        Jogo("FLA × PAL", Roteiro(listOf(2, 55), listOf(9, 80)), Palpite(1, 0)),
-        Jogo("COR × SAO", Roteiro(listOf(15), listOf(32)), Palpite(2, 0)),
-        Jogo("GRE × INT", Roteiro(listOf(30), listOf(42)), Palpite(1, 0)),
-        Jogo("CAM × CRU", Roteiro(listOf(20, 47), listOf(66)), Palpite(2, 1)),
+        Jogo(
+            "FLA × PAL",
+            MinutosDosGols(listOf(2, 55), listOf(9, 80)),
+            Palpite(1, 0),
+        ),
+        Jogo(
+            "COR × SAO",
+            MinutosDosGols(listOf(15), listOf(32)),
+            Palpite(2, 0),
+        ),
+        Jogo(
+            "GRE × INT",
+            MinutosDosGols(listOf(30), listOf(42)),
+            Palpite(1, 0),
+        ),
+        Jogo(
+            "CAM × CRU",
+            MinutosDosGols(listOf(20, 47), listOf(66)),
+            Palpite(2, 1),
+        ),
     )
 
 // Como o objeto MENSAGENS.
@@ -87,6 +108,9 @@ interface Relogio {
     fun aCada(ms: Long, acao: () -> Unit): Closeable
 }
 
+// Repete pelo Handler da thread principal, como o setInterval repete pelo
+// laço de eventos do navegador. A fonte simula o servidor; as corrotinas do
+// ADR 0005 ficam para a assincronia que as implementações escrevem.
 object RelogioDoSistema : Relogio {
     override fun agora() = System.currentTimeMillis()
 
@@ -118,10 +142,10 @@ private var inscricoes = 0
  */
 fun inscreverNosPlacares(aoReceber: (Lote) -> Unit): Closeable {
     inscricoes++
+    // O intervalo e a hora vêm do mesmo relógio, o da hora da inscrição.
+    val relogio = relogioDaFonte
     val envio =
-        relogioDaFonte.aCada(INTERVALO_MS) {
-            aoReceber(placaresEm(relogioDaFonte.agora()))
-        }
+        relogio.aCada(INTERVALO_MS) { aoReceber(placaresEm(relogio.agora())) }
     var ativa = true
     return Closeable {
         if (ativa) {
