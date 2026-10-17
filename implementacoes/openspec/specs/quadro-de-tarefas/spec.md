@@ -3,8 +3,8 @@
 ## Purpose
 Quadro de tarefas (*kanban*) com um cabeçalho e três colunas que leem e
 alteram o mesmo quadro: o estado compartilhado entre componentes, o limite
-de "Fazendo", que cruza colunas, e a persistência no `localStorage`, que
-acompanha as outras abas.
+de "Fazendo", que vale para as tarefas das outras colunas, e a persistência
+no `localStorage`, que acompanha as outras abas.
 
 ## Requirements
 
@@ -26,31 +26,30 @@ Sem quadro salvo, o quadro deve abrir com as seis tarefas do domínio:
 
 ### Requirement: Mover
 
-Cada tarefa deve ter "←" e "→", com os nomes acessíveis "Mover <título>
-para <coluna>", que a levam para o fim da coluna vizinha. Em "A fazer" não
-há "←", e em "Feito" não há "→".
+Cada tarefa deve ter uma lista de escolha, com o nome acessível "Coluna de
+<título>", que mostra a coluna da tarefa e oferece "A fazer", "Fazendo" e
+"Feito", nessa ordem. Escolher outra coluna leva a tarefa para o fim dela,
+qualquer que seja, para o usuário mudar a tarefa de coluna com um controle
+só.
 
-#### Scenario: 2 A fazer só move para a direita
-
-- **QUANDO** o quadro abre com as tarefas iniciais
-- **ENTÃO** os botões de mover de "A fazer" são "Mover Revisar a introdução para Fazendo", "Mover Conferir as referências para Fazendo" e "Mover Gerar as capturas para Fazendo"
-
-#### Scenario: 2 Fazendo move para os dois lados
+#### Scenario: 2 cada tarefa tem a lista das colunas
 
 - **QUANDO** o quadro abre com as tarefas iniciais
-- **ENTÃO** os botões de mover de "Fazendo" são "Mover Implementar o Carrinho para A fazer" e "Mover Implementar o Carrinho para Feito"
+- **ENTÃO** as listas de escolha são "Coluna de Revisar a introdução", "Coluna de Conferir as referências", "Coluna de Gerar as capturas", "Coluna de Implementar o Carrinho", "Coluna de Escrever o método" e "Coluna de Marcar a orientação", nessa ordem
+- **E** cada uma oferece "A fazer", "Fazendo" e "Feito", nessa ordem
 
-#### Scenario: 2 Feito só move para a esquerda
+#### Scenario: 2 a lista mostra a coluna da tarefa
 
 - **QUANDO** o quadro abre com as tarefas iniciais
-- **ENTÃO** os botões de mover de "Feito" são "Mover Escrever o método para Fazendo" e "Mover Marcar a orientação para Fazendo"
+- **ENTÃO** as três primeiras listas mostram "A fazer", a quarta mostra "Fazendo", e as duas últimas, "Feito"
 
 #### Scenario: 3 mover põe no fim da coluna
 
 - **DADO** o quadro inicial
-- **QUANDO** o usuário clica em "Mover Revisar a introdução para Fazendo"
+- **QUANDO** o usuário escolhe "Fazendo" em "Coluna de Revisar a introdução"
 - **ENTÃO** "A fazer" mostra "Conferir as referências" e "Gerar as capturas"
 - **E** "Fazendo" mostra "Implementar o Carrinho" e "Revisar a introdução", nessa ordem
+- **E** "Coluna de Revisar a introdução" mostra "Fazendo"
 
 ### Requirement: Colunas
 
@@ -72,30 +71,35 @@ tarefas deve mostrar "Nenhuma tarefa.".
 
 ### Requirement: Limite de Fazendo
 
-"Fazendo" deve comportar 2 tarefas. Cheia, os botões que levam a ela, nas
-outras duas colunas, ficam desabilitados, e os que tiram tarefas dela
-continuam habilitados; com uma vaga, todos voltam a ficar habilitados.
+"Fazendo" deve comportar 2 tarefas. Cheia, a opção "Fazendo" fica
+desabilitada nas listas das tarefas das outras duas colunas, e as outras
+opções continuam habilitadas, para o usuário ainda levar uma tarefa de "A
+fazer" direto a "Feito"; nas tarefas de "Fazendo", as três ficam
+habilitadas. Com uma vaga, a opção "Fazendo" volta a ficar habilitada em
+todas as listas.
 
-#### Scenario: 4 Fazendo cheia desabilita o → de A fazer
-
-- **QUANDO** "Revisar a introdução" vai para "Fazendo", que fica com 2 tarefas
-- **ENTÃO** "Mover Conferir as referências para Fazendo" e "Mover Gerar as capturas para Fazendo" estão desabilitados
-
-#### Scenario: 4 Fazendo cheia desabilita o ← de Feito
+#### Scenario: 4 Fazendo cheia desabilita só a opção Fazendo nas outras colunas
 
 - **QUANDO** "Revisar a introdução" vai para "Fazendo", que fica com 2 tarefas
-- **ENTÃO** "Mover Escrever o método para Fazendo" e "Mover Marcar a orientação para Fazendo" estão desabilitados
+- **ENTÃO** em "Coluna de Conferir as referências", "Coluna de Gerar as capturas", "Coluna de Escrever o método" e "Coluna de Marcar a orientação", a lista e as opções "A fazer" e "Feito" estão habilitadas, e a opção "Fazendo" está desabilitada
 
 #### Scenario: 4 Fazendo cheia deixa sair dela
 
 - **QUANDO** "Revisar a introdução" vai para "Fazendo", com "Implementar o Carrinho"
-- **ENTÃO** os quatro botões de mover de "Fazendo" estão habilitados
+- **ENTÃO** "Coluna de Implementar o Carrinho" e "Coluna de Revisar a introdução" estão habilitadas, com as três opções habilitadas
 
-#### Scenario: 5 vaga em Fazendo reabilita os botões
+#### Scenario: 4 Fazendo cheia deixa ir de A fazer a Feito
 
 - **DADO** "Fazendo" com 2 tarefas
-- **QUANDO** o usuário clica em "Mover Implementar o Carrinho para Feito"
-- **ENTÃO** "Mover Conferir as referências para Fazendo" e "Mover Escrever o método para Fazendo" estão habilitados
+- **QUANDO** o usuário escolhe "Feito" em "Coluna de Gerar as capturas", e depois "A fazer"
+- **ENTÃO** "Feito" mostrou "Escrever o método", "Marcar a orientação" e "Gerar as capturas", nessa ordem
+- **E** "A fazer" volta a mostrar "Conferir as referências" e "Gerar as capturas"
+
+#### Scenario: 5 vaga em Fazendo reabilita a opção
+
+- **DADO** "Fazendo" com 2 tarefas
+- **QUANDO** o usuário escolhe "Feito" em "Coluna de Implementar o Carrinho"
+- **ENTÃO** a opção "Fazendo" de "Coluna de Conferir as referências" e a de "Coluna de Escrever o método" estão habilitadas
 
 ### Requirement: Cabeçalho
 
@@ -143,7 +147,7 @@ arquivada.".
 
 #### Scenario: 3 situação anuncia o movimento
 
-- **QUANDO** o usuário clica em "Mover Revisar a introdução para Fazendo"
+- **QUANDO** o usuário escolhe "Fazendo" em "Coluna de Revisar a introdução"
 - **ENTÃO** a situação mostra "“Revisar a introdução” foi para Fazendo."
 
 #### Scenario: 6 situação anuncia o arquivamento

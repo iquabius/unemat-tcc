@@ -75,6 +75,13 @@ export function cabeEm(estado: EstadoDoQuadro, coluna: Coluna): boolean {
   return coluna !== "fazendo" || estado.fazendo.length < LIMITE_FAZENDO;
 }
 
+/**
+ * A opção de levar a tarefa de uma coluna para outra fica habilitada se a
+ * outra couber; a da coluna em que a tarefa já está, sempre.
+ */
+export const podeIr = (estado: EstadoDoQuadro, de: Coluna, para: Coluna) =>
+  para === de || cabeEm(estado, para);
+
 /** A situação depois de mover a tarefa para a coluna. */
 export const anunciarMovimento = (id: number, para: Coluna) =>
   `“${tarefa(id).titulo}” foi para ${tituloDa(para)}.`;

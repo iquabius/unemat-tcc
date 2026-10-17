@@ -35,18 +35,29 @@
   const cabecalhos = () => colunas().map((c) => texto(c.querySelector("h2")));
   const titulos = (i) =>
     [...colunas()[i].querySelectorAll(".titulo")].map(texto);
-  const deMover = (i) =>
-    [...colunas()[i].querySelectorAll("button")]
-      .filter((b) => nome(b)?.startsWith("Mover "))
-      .map(nome);
+  const listas = () => [...document.querySelectorAll("section.coluna select")];
+  const lista = (n) => listas().find((l) => nome(l) === n);
+  const opcao = (l, coluna) => [...l.options].find((o) => texto(o) === coluna);
+  const mostra = (l) => texto(l.selectedOptions[0]);
+  // A lista e as opções "A fazer", "Fazendo" e "Feito": desabilitada ou não.
+  const desabilitadas = (n) => {
+    const l = lista(n);
+    return [l, ...l.options].map((el) => el.disabled);
+  };
   const botao = (n) =>
     [...document.querySelectorAll("button")].find((b) => nome(b) === n);
-  const desabilitados = (...nomes) => nomes.map((n) => botao(n).disabled);
   const resumo = () => texto($(".resumo"));
   const situacao = () => texto($(".situacao"));
   const abertos = () => globalThis.contarAbertos();
   async function clicar(n) {
     botao(n).click();
+    await escoar();
+  }
+  // Como o usuário: só a escolha muda o valor, e a lista avisa com change.
+  async function escolher(n, coluna) {
+    const l = lista(n);
+    l.value = opcao(l, coluna).value;
+    l.dispatchEvent(new Event("change", { bubbles: true }));
     await escoar();
   }
   async function alternar() {
@@ -118,27 +129,36 @@
     ],
   );
 
-  conferir("2 A fazer só move para a direita", deMover(0), [
-    "Mover Revisar a introdução para Fazendo",
-    "Mover Conferir as referências para Fazendo",
-    "Mover Gerar as capturas para Fazendo",
-  ]);
-  conferir("2 Fazendo move para os dois lados", deMover(1), [
-    "Mover Implementar o Carrinho para A fazer",
-    "Mover Implementar o Carrinho para Feito",
-  ]);
-  conferir("2 Feito só move para a esquerda", deMover(2), [
-    "Mover Escrever o método para Fazendo",
-    "Mover Marcar a orientação para Fazendo",
+  const NOMES_INICIAIS = [
+    "Coluna de Revisar a introdução",
+    "Coluna de Conferir as referências",
+    "Coluna de Gerar as capturas",
+    "Coluna de Implementar o Carrinho",
+    "Coluna de Escrever o método",
+    "Coluna de Marcar a orientação",
+  ];
+  conferir(
+    "2 cada tarefa tem a lista das colunas",
+    listas().map((l) => [nome(l), [...l.options].map(texto)]),
+    NOMES_INICIAIS.map((n) => [n, ["A fazer", "Fazendo", "Feito"]]),
+  );
+  conferir("2 a lista mostra a coluna da tarefa", listas().map(mostra), [
+    "A fazer",
+    "A fazer",
+    "A fazer",
+    "Fazendo",
+    "Feito",
+    "Feito",
   ]);
 
-  await clicar("Mover Revisar a introdução para Fazendo");
+  await escolher("Coluna de Revisar a introdução", "Fazendo");
   conferir(
     "3 mover põe no fim da coluna",
-    [titulos(0), titulos(1)],
+    [titulos(0), titulos(1), mostra(lista("Coluna de Revisar a introdução"))],
     [
       ["Conferir as referências", "Gerar as capturas"],
       ["Implementar o Carrinho", "Revisar a introdução"],
+      "Fazendo",
     ],
   );
   conferir("3 contagens depois de mover", cabecalhos(), [
@@ -153,39 +173,54 @@
   );
 
   conferir(
-    "4 Fazendo cheia desabilita o → de A fazer",
-    desabilitados(
-      "Mover Conferir as referências para Fazendo",
-      "Mover Gerar as capturas para Fazendo",
-    ),
-    [true, true],
+    "4 Fazendo cheia desabilita só a opção Fazendo nas outras colunas",
+    [
+      "Coluna de Conferir as referências",
+      "Coluna de Gerar as capturas",
+      "Coluna de Escrever o método",
+      "Coluna de Marcar a orientação",
+    ].map(desabilitadas),
+    [
+      [false, false, true, false],
+      [false, false, true, false],
+      [false, false, true, false],
+      [false, false, true, false],
+    ],
   );
   conferir(
-    "4 Fazendo cheia desabilita o ← de Feito",
-    desabilitados(
-      "Mover Escrever o método para Fazendo",
-      "Mover Marcar a orientação para Fazendo",
+    "4 Fazendo cheia deixa sair dela",
+    ["Coluna de Implementar o Carrinho", "Coluna de Revisar a introdução"].map(
+      desabilitadas,
     ),
-    [true, true],
+    [
+      [false, false, false, false],
+      [false, false, false, false],
+    ],
   );
-  conferir("4 Fazendo cheia deixa sair dela", desabilitados(...deMover(1)), [
-    false,
-    false,
-    false,
-    false,
-  ]);
+  // A tarefa volta ao fim de "A fazer", onde já estava: o resto do teste
+  // segue com o quadro de antes.
+  await escolher("Coluna de Gerar as capturas", "Feito");
+  const feitoComAPulada = titulos(2);
+  await escolher("Coluna de Gerar as capturas", "A fazer");
+  conferir(
+    "4 Fazendo cheia deixa ir de A fazer a Feito",
+    [feitoComAPulada, titulos(0)],
+    [
+      ["Escrever o método", "Marcar a orientação", "Gerar as capturas"],
+      ["Conferir as referências", "Gerar as capturas"],
+    ],
+  );
 
-  await clicar("Mover Implementar o Carrinho para Feito");
+  await escolher("Coluna de Implementar o Carrinho", "Feito");
   conferir(
     "5 cabeçalho conta as feitas",
     resumo(),
     "Quadro: 6 tarefas · 3 feitas",
   );
   conferir(
-    "5 vaga em Fazendo reabilita os botões",
-    desabilitados(
-      "Mover Conferir as referências para Fazendo",
-      "Mover Escrever o método para Fazendo",
+    "5 vaga em Fazendo reabilita a opção",
+    ["Coluna de Conferir as referências", "Coluna de Escrever o método"].map(
+      (n) => opcao(lista(n), "Fazendo").disabled,
     ),
     [false, false],
   );

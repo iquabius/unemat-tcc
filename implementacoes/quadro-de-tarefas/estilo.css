@@ -57,14 +57,16 @@ body {
 
 .quadro li {
   display: grid;
-  grid-template-columns: 1fr auto auto auto;
+  grid-auto-flow: column;
+  grid-template-columns: 1fr;
   gap: 0.5rem;
   align-items: center;
   padding: 0.5rem;
   background: #333;
 }
 
-.pagina button {
+.pagina button,
+.pagina select {
   padding: 0.3rem 0.6rem;
   border: 1px solid #555;
   background: #3a3a3a;
