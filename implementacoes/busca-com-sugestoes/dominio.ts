@@ -6,8 +6,6 @@ export interface Cidade {
   uf: string;
 }
 
-/** Espera depois da última tecla antes de buscar. */
-export const ESPERA_MS = 300;
 /** Termos mais curtos que isso não são buscados. */
 export const MINIMO_DE_LETRAS = 2;
 const MAXIMO_DE_SUGESTOES = 8;
