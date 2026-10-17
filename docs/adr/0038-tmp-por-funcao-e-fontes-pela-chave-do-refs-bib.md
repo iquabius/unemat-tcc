@@ -56,8 +56,9 @@ e a mudança arquivada do openspec ficam com os caminhos de antes; os
 relatórios das duas pesquisas citam `pdfs/<arquivo>.pdf`, que foi para
 `tmp/fontes/`, e cada pasta tem um `LEIAME.md` que aponta a tabela do
 movimento; o trabalho de um mesmo dia fica junto dentro de cada pasta,
-mas não entre pastas; nas entradas sem data, a data saiu do conteúdo, e
-não da data de modificação, que marca a última edição.
+mas não entre pastas, e vê-lo inteiro pede o `bin/tmp-por-data.py`;
+nas entradas sem data, a data saiu do conteúdo, e não da data de
+modificação, que marca a última edição.
 
 Fontes: análise e tabela antigo → novo em
 `tmp/pesquisas/2026-10-16-organizacao-do-tmp/`; modelo em
