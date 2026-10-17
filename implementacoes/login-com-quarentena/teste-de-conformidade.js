@@ -45,7 +45,13 @@
       for (let i = 0; i < 4; i++) await mensagem();
     };
     return {
-      escoar,
+      // Depois de um clique ou digitação, roda também os temporizadores já
+      // vencidos: o Angular sem zone.js faz a tela num setTimeout de 0 ms,
+      // que o relógio falso seguraria até o próximo avancar (Angular 22.2,
+      // medido em 2026-10-17).
+      escoar() {
+        return this.avancar(0);
+      },
       async avancar(ms) {
         const fim = agora + ms;
         for (;;) {
