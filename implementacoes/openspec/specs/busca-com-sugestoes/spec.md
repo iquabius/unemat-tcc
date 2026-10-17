@@ -17,16 +17,6 @@ A interface deve abrir sem situação, sem sugestões e sem destino escolhido.
 - **QUANDO** a interface abre
 - **ENTÃO** não há situação, sugestão nem destino na tela
 
-### Requirement: Espera depois da última tecla
-
-Cada tecla deve reiniciar uma espera de 300 ms, e a busca só deve acontecer
-quando ela termina.
-
-#### Scenario: 3 nada durante a espera
-
-- **QUANDO** o usuário digita "sa" e passam 150 ms
-- **ENTÃO** não há situação na tela
-
 ### Requirement: Termo
 
 O termo deve ser o texto do campo sem espaços nas pontas. Se o termo for
@@ -36,7 +26,7 @@ requisição deve sair: "rio" e "rio " são o mesmo termo.
 #### Scenario: 5 termo repetido não busca
 
 - **DADO** as sugestões de "rio" na tela
-- **QUANDO** o usuário digita "rio " e a espera termina
+- **QUANDO** o usuário digita "rio "
 - **ENTÃO** não há situação na tela
 - **E** as sugestões continuam "Rio Branco (AC)" e "Rio de Janeiro (RJ)"
 
@@ -48,20 +38,22 @@ nova deve sair.
 
 #### Scenario: 2 termo curto não busca
 
-- **QUANDO** o usuário digita "s" e a espera termina
+- **QUANDO** o usuário digita "s"
 - **ENTÃO** não há situação nem sugestões na tela
 
 ### Requirement: Busca
 
-A busca deve apagar a situação e as sugestões, mostrar "Buscando…" e
-cancelar pelo `AbortSignal` a requisição anterior, se houver: a resposta de uma
-busca antiga nunca aparece. A API simulada (`buscarCidades` do domínio)
-responde em 800 ms a termos de até 2 letras e em 200 ms aos demais.
+Cada tecla com termo de 2 letras ou mais, diferente do último termo,
+deve começar a busca na hora: apagar a situação e as sugestões, mostrar
+"Buscando…" e cancelar pelo `AbortSignal` a requisição anterior, se houver.
+A resposta de uma busca antiga nunca aparece. A API simulada
+(`buscarCidades` do domínio) responde em 800 ms a termos de até 2 letras e
+em 200 ms aos demais.
 
 #### Scenario: 3 buscando
 
-- **QUANDO** o usuário digita "sa" e a espera termina
-- **ENTÃO** a situação mostra "Buscando…", sem sugestões
+- **QUANDO** o usuário digita "sa"
+- **ENTÃO** a situação mostra "Buscando…" na hora, sem sugestões
 
 #### Scenario: 4 resposta antiga não aparece
 
@@ -109,13 +101,13 @@ devem funcionar normalmente.
 
 ### Requirement: Esc
 
-Esc no campo deve cancelar a espera e a requisição em andamento e apagar a
-situação e as sugestões. O último termo continua o mesmo, então digitar o
-mesmo termo não reabre as sugestões.
+Esc no campo deve cancelar a requisição em andamento e apagar a situação e
+as sugestões. O último termo continua o mesmo, então digitar o mesmo termo
+não reabre as sugestões.
 
 #### Scenario: 6 buscando antes do Esc
 
-- **QUANDO** o usuário digita "sal" e a espera termina
+- **QUANDO** o usuário digita "sal"
 - **ENTÃO** a situação mostra "Buscando…"
 
 #### Scenario: 6 Esc limpa

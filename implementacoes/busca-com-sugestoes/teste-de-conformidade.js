@@ -1,8 +1,8 @@
 // Teste de conformidade da Busca com sugestões, igual para todas as
 // implementações web. Cole no console do navegador com a implementação aberta;
 // a última linha devolve o resultado de cada verificação ("ok" ou "FALHOU").
-// Segue a especificação, com espera de 300 ms e latência de 800 ms (até 2
-// letras) ou 200 ms (3 ou mais); cada verificação é um cenário de
+// Segue a especificação, com latência de 800 ms (até 2 letras) ou 200 ms (3
+// ou mais); cada verificação é um cenário de
 // implementacoes/openspec/specs/busca-com-sugestoes/spec.md.
 (async () => {
   const dormir = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -39,13 +39,11 @@
   );
 
   digitar("s");
-  await dormir(450);
+  await dormir(150);
   conferir("2 termo curto não busca", [situacao(), sugestoes()], [null, []]);
 
   digitar("sa");
   await dormir(150);
-  conferir("3 nada durante a espera", situacao(), null);
-  await dormir(300);
   conferir("3 buscando", [situacao(), sugestoes()], ["Buscando…", []]);
   await dormir(800);
   conferir(
@@ -70,14 +68,14 @@
   digitar("ri");
   await dormir(400);
   digitar("rio");
-  await dormir(1300);
+  await dormir(1000);
   conferir("4 resposta antiga não aparece", sugestoes(), [
     "Rio Branco (AC)",
     "Rio de Janeiro (RJ)",
   ]);
 
   digitar("rio ");
-  await dormir(450);
+  await dormir(150);
   conferir(
     "5 termo repetido não busca",
     [situacao(), sugestoes()],
@@ -85,7 +83,7 @@
   );
 
   digitar("sal");
-  await dormir(400);
+  await dormir(100);
   conferir("6 buscando antes do Esc", situacao(), "Buscando…");
   campo().dispatchEvent(
     new KeyboardEvent("keydown", { key: "Escape", bubbles: true }),
@@ -100,14 +98,14 @@
   );
 
   digitar("erro");
-  await dormir(700);
+  await dormir(400);
   conferir(
     "7 falha",
     [situacao(), sugestoes()],
     ["Não foi possível buscar as cidades.", []],
   );
   digitar("cac");
-  await dormir(700);
+  await dormir(400);
   conferir(
     "7 busca seguinte funciona",
     [situacao(), sugestoes()],
@@ -121,7 +119,7 @@
     [campo().value, sugestoes(), escolha()],
     ["Cáceres (MT)", [], "Destino: Cáceres (MT)"],
   );
-  await dormir(700);
+  await dormir(400);
   conferir(
     "8 escolha não dispara busca",
     [situacao(), sugestoes()],
@@ -129,7 +127,7 @@
   );
 
   digitar("xyz");
-  await dormir(700);
+  await dormir(400);
   conferir(
     "9 nenhuma cidade",
     [situacao(), escolha()],
