@@ -4,6 +4,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.io.UncheckedIOException;
+import java.util.Objects;
 import javax.imageio.ImageIO;
 
 // Grava as capturas das cenas em <destino>/<tecnologia>-<cena>.png, com o
@@ -24,8 +25,15 @@ public final class Captura {
   private Captura() {}
 
   public static void gravar(BufferedImage imagem, String cena) {
-    String destino = System.getProperty("capturas.destino");
-    String tecnologia = System.getProperty("capturas.tecnologia");
+    // O Gradle as passa; o teste rodado de fora dele (pela IDE) não as tem.
+    String destino = Objects.requireNonNull(
+      System.getProperty("capturas.destino"),
+      "falta capturas.destino: rode as cenas pelo Gradle de desktop/"
+    );
+    String tecnologia = Objects.requireNonNull(
+      System.getProperty("capturas.tecnologia"),
+      "falta capturas.tecnologia: rode as cenas pelo Gradle de desktop/"
+    );
     File arquivo = new File(destino, tecnologia + "-" + cena + ".png");
     arquivo.getParentFile().mkdirs();
     try {
