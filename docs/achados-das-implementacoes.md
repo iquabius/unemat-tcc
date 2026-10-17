@@ -264,3 +264,12 @@ Swing e JavaFX, com a tela do JavaFX em código, no Formulário.
 - **Sem janela, o Swing não mede na escala da imagem** (nos testes): o
   texto medido na escala 1 e pintado na 2 perde o fim de cada rótulo e
   de cada campo, e as capturas do desktop saem na escala 1.
+- **A dica do Swing é uma chave em texto** (propensão a erros,
+  dependências ocultas; commits `bba93aa` a `fdd0cfe`): o JavaFX põe a
+  dica "DD/MM/AAAA" com `setPromptText`, que o compilador confere; o
+  `JTextField` não tem dica, e a tela do Swing a marca com
+  `putClientProperty("dica", ...)`, que o `Estilo` lê e pinta. Uma chave
+  escrita errada na tela ou no `Estilo` some com a dica sem erro nenhum.
+  As duas telas têm duas linhas, uma por campo; a diferença é do
+  *toolkit*, e o FlatLaf, na terceira rodada, a mantém com a chave dele
+  (`JTextField.placeholderText`).
