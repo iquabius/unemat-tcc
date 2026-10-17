@@ -5,6 +5,7 @@ repositório git num diretório temporário, que faz as vezes do do TCC:
     python3 -m unittest discover -s bin -p 'test_*.py'
 """
 import importlib.util
+import io
 import json
 import os
 import subprocess
@@ -161,6 +162,155 @@ class Mensagem(Base):
         self.assertIn("colunas", self.conferir(f"git commit -F - <<'EOF'\n{msg}EOF\n"))
         msg = "Corrige a soma\n\nVer:\n  https://exemplo.org/" + "x" * 80 + "\n"
         self.assertIsNone(self.conferir(f"git commit -F - <<'EOF'\n{msg}EOF\n"))
+
+    def git(self, *args):
+        # sem a configuração global, e com ela os hooks da máquina
+        ambiente = dict(os.environ, GIT_CONFIG_GLOBAL="/dev/null", GIT_CONFIG_NOSYSTEM="1")
+        return subprocess.run(["git", "-c", "user.name=t", "-c", "user.email=t@t", *args],
+                              cwd=self.dir.name, env=ambiente, check=True,
+                              capture_output=True, text=True).stdout.strip()
+
+    def commita(self, *arquivos):
+        for a in arquivos:
+            p = Path(self.dir.name, a)
+            p.parent.mkdir(parents=True, exist_ok=True)
+            p.write_text("0\n", encoding="utf-8")
+        self.git("add", *arquivos)
+        self.git("commit", "-qm", "base")
+        return self.git("rev-parse", "--short", "HEAD")
+
+    def com(self, frase):
+        msg = BOA.replace("Conferido com", frase + "\n\nConferido com")
+        return self.conferir(f"git commit -F - <<'EOF'\n{msg}EOF\n")
+
+    def test_sha_citado_tem_de_estar_na_historia(self):
+        sha = self.commita("bin/x.py")
+        self.assertIsNone(self.com(f"Desde {sha} o relatório soma."))
+        self.assertIn("sha citado", self.com("Desde abc1234 o relatório soma."))
+        # número, palavra sem dígito e sha dentro de uma palavra não contam
+        for frase in ["O relatório de 2026101 soma.", "A palavra deadbeef fica.",
+                      "O ramo vabc1234 e o abc1234.py ficam."]:
+            with self.subTest(frase=frase):
+                self.assertIsNone(self.com(frase))
+        # o commit reescrito continua como objeto e ainda resolve
+        self.git("commit", "-q", "--amend", "-m", "base de novo")
+        self.assertEqual(self.git("rev-parse", "--verify", f"{sha}^{{commit}}")[:7], sha)
+        principal = self.git("symbolic-ref", "--short", "HEAD")  # master ou main
+        self.assertIn(f"história de HEAD nem do {principal}: {sha}",
+                      self.com(f"Desde {sha} o relatório soma."))
+        # o ramo cita um commit do ramo principal feito depois da base dele
+        self.git("switch", "-q", "-c", "ramo")
+        self.git("switch", "-q", principal)
+        no_principal = self.commita("docs/m.md")
+        self.git("switch", "-q", "ramo")
+        self.assertIsNone(self.com(f"Desde {no_principal} o relatório soma."))
+
+    def test_juncao_confere_contra_o_ramo_juntado(self):
+        self.commita("bin/x.py")
+        principal = self.git("symbolic-ref", "--short", "HEAD")
+        self.git("switch", "-q", "-c", "ramo")
+        sha = self.commita("bin/novo.py")
+        self.git("switch", "-q", principal)
+        # o HEAD é o master; o caminho e o sha vieram pelo ramo
+        cmd = "git merge --no-ff -m 'Junta o ramo ramo: o bin/novo.py de {}' ramo"
+        self.assertIsNone(self.conferir(cmd.format(sha)))
+        self.assertIn("não existe no ramo juntado, no HEAD nem no disco: bin/outro.py",
+                      self.conferir("git merge --no-ff -m 'Junta o ramo ramo: o bin/outro.py' ramo"))
+        self.assertIn("história de ramo nem do",
+                      self.conferir(cmd.format("abc1234")))
+
+    def test_sha_de_outro_repositorio_se_confere_la(self):
+        outro = tempfile.TemporaryDirectory()
+        self.addCleanup(outro.cleanup)
+        ambiente = dict(os.environ, GIT_CONFIG_GLOBAL="/dev/null", GIT_CONFIG_NOSYSTEM="1")
+        subprocess.run(["git", "init", "-q", outro.name], check=True)
+        subprocess.run(["git", "-c", "user.name=t", "-c", "user.email=t@t", "commit", "-q",
+                        "--allow-empty", "-m", "x"], cwd=outro.name, env=ambiente, check=True)
+        sha = subprocess.run(["git", "rev-parse", "--short", "HEAD"], cwd=outro.name,
+                             capture_output=True, text=True, check=True).stdout.strip()
+        daqui = self.commita("bin/x.py")
+        self.assertIn("história de HEAD", self.com(f"Veio do commit {sha}."))
+        with unittest.mock.patch.object(cc, "OUTROS_REPOSITORIOS",
+                                        [(cc.re.compile("dotfiles"), Path(outro.name))]):
+            self.assertIsNone(self.com(f"Veio do commit {sha} dos\ndotfiles."))
+            # o parágrafo que nomeia os dotfiles cita também um commit daqui
+            self.assertIsNone(self.com(f"Veio de {daqui}, com o {sha} dos dotfiles."))
+            self.assertIn(f"nem do HEAD de {outro.name}: abc1234",
+                          self.com("Veio do commit abc1234 dos dotfiles."))
+            # noutro parágrafo da mesma mensagem, o sha é deste repositório
+            self.assertIn("história de HEAD", self.com(f"Dos dotfiles.\n\nVeio de {sha}."))
+        with unittest.mock.patch.object(cc, "OUTROS_REPOSITORIOS",
+                                        [(cc.re.compile("dotfiles"), Path(outro.name, "nao"))]):
+            self.assertIsNone(self.com("Veio do commit abc1234 dos dotfiles."))
+        # a chave é o nome do repositório privado, não "dotfiles", que casa o público
+        self.assertTrue(cc.OUTROS_REPOSITORIOS[0][0].search("do .dotfiles-private"))
+        self.assertFalse(cc.OUTROS_REPOSITORIOS[0][0].search("do ~/.dotfiles"))
+
+    def test_caminho_citado_tem_de_existir(self):
+        self.commita("bin/x.py", "docs/n.md")
+        Path(self.dir.name, "docs/n.md").unlink()
+        self.assertIsNone(self.com("O bin/x.py lê docs/n.md."))  # no disco; no HEAD
+        self.assertIn("não existe no índice, no HEAD nem no disco: docs/outro.md",
+                      self.com("O docs/outro.md soma."))
+        # pasta de fora da raiz, pasta sem arquivo, exemplo com <chave>,
+        # URL e caminho de outro repositório não contam
+        for frase in ["Veja fact-check/SKILL.md.", "A pasta bin/ e o docs/adr/ ficam.",
+                      "A cópia vai para acervo/<chave>.pdf.",
+                      "Veja https://exemplo.org/docs/x.md e a/b.md.",
+                      "Lê ./novo/x.tex e ../refs.bib."]:
+            with self.subTest(frase=frase):
+                self.assertIsNone(self.com(frase))
+        Path(self.dir.name, "acervo").mkdir()
+        self.assertIsNone(self.com("A cópia vai para acervo/<chave>.pdf."))
+        self.assertIn("acervo/x.pdf", self.com("A cópia vai para acervo/x.pdf."))
+
+    def test_tarefa_citada_tem_de_existir_no_banco(self):
+        self.assertIsNone(self.com("Fecha a tcc-zzz."))  # sem banco, não se confere
+        beads = Path(self.dir.name, ".beads")
+        beads.mkdir()
+        (beads / "issues.jsonl").write_text(
+            '{"id":"tcc-abc","title":"x","dependencies":[{"issue_id":"tcc-abc","depends_on_id":"tcc-def"}]}\n',
+            encoding="utf-8")
+        self.assertIsNone(self.com("Fecha a tcc-abc."))
+        self.assertIn("tcc-zzz", self.com("Fecha a tcc-zzz."))
+        self.assertIn("tcc-def", self.com("Fecha a tcc-def."))
+
+    def test_adr_citado_tem_de_existir(self):
+        self.assertIsNone(self.com("Pelo ADR 0002."))  # sem docs/adr, não se confere
+        self.commita("docs/adr/0001-x.md")
+        self.assertIsNone(self.com("Pelo ADR 0001."))
+        self.assertIn("ADR 0002", self.com("Pelo ADR 0002."))
+
+    def test_serie_confere_cada_commit_contra_a_arvore_dele(self):
+        base = self.commita("bin/x.py")
+        self.git("rm", "-q", "bin/x.py")
+        self.git("commit", "-qm", "Apaga o bin/x.py\n\nO bin/x.py não serve mais.")
+        # o commit reescrito pelo rebase continua como objeto; o sha dele
+        # está fora da história da ponta
+        velho = self.commita("bin/y.py")
+        self.git("commit", "-q", "--amend", "-m", f"Cita um sha\n\nCita o {velho}.\n")
+        sha = self.git("rev-parse", "--short", "HEAD")
+        achados = cc.problemas_da_serie(Path(self.dir.name), f"{base}..HEAD")
+        self.assertEqual([(a, len(p)) for _, a, p in achados], [("Cita um sha", 1)])
+        self.assertIn(f"sha citado que não está na história de {sha}", achados[0][2][0])
+        self.assertIn(f": {velho} ", achados[0][2][0])
+        with unittest.mock.patch.object(cc.sys, "stderr", io.StringIO()) as erro:
+            self.assertEqual(cc.serie([f"{base}..HEAD"], self.dir.name), 1)
+            self.assertIn("Cita um sha\n  - sha citado", erro.getvalue())
+        self.git("commit", "-q", "--amend", "-m", "Põe o y\n\nO y faltava.")
+        # o fixup! é rascunho que o rebase dobra; não se confere
+        self.git("commit", "-q", "--allow-empty", "--fixup=HEAD")
+        self.assertEqual(cc.serie([f"{base}..HEAD"], self.dir.name), 0)
+        # pela linha de comando, no diretório atual
+        feito = subprocess.run([sys.executable, str(SCRIPT), "--serie", f"{base}..HEAD"],
+                               cwd=self.dir.name, capture_output=True, text=True)
+        self.assertEqual((feito.returncode, feito.stderr), (0, ""))
+
+    def test_serie_com_intervalo_ilegivel_sai_com_2(self):
+        self.commita("bin/x.py")
+        with unittest.mock.patch.object(cc.sys, "stderr", io.StringIO()) as erro:
+            self.assertEqual(cc.serie(["naoexiste..HEAD"], self.dir.name), 2)
+            self.assertIn("naoexiste..HEAD não se lê", erro.getvalue())
 
     def test_opcoes_agrupadas_e_git_C(self):
         Path(self.dir.name, "sub").mkdir()

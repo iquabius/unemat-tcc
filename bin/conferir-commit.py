@@ -31,6 +31,21 @@ recusados quando:
     contam como corpo;
   - linha do corpo com mais de 72 colunas, fora as sem espaço e as com
     URL;
+  - sha, caminho com extensão, tarefa tcc-xxxx ou ADR NNNN citado que não
+    existe: o sha na história do HEAD ou do ramo principal (o ramo cita
+    um commit do master feito depois da base dele), ou, no parágrafo que
+    nomeia o .dotfiles-private, na história do HEAD dele, se ele está
+    nesta máquina (o commit de outro ramo se cita pelo assunto;
+    o sha só de dígitos ou só de letras não se confere, para um número
+    como 2026101 não contar); o caminho no índice, no HEAD ou no disco,
+    só a partir de uma pasta da raiz (o <chave> de um exemplo e o
+    caminho de outro repositório não contam); a tarefa no
+    .beads/issues.jsonl do checkout principal; o ADR em docs/adr/. Na
+    junção de ramo, o caminho e o sha valem no ramo juntado, em vez do
+    índice: o HEAD é o master, e o que a mensagem cita veio pelo ramo.
+    É a parte mecânica da checagem de fatos da skill fact-check; o verbo
+    da regra citada, a atribuição e o número ficam com o agente e com o
+    eixo Facts da linus-review;
 - o commit é --fixup ou --squash no master ou no main, ou com o HEAD
   destacado na ponta de um deles (a worktree em que o merge se monta),
   lidos como estão antes do comando, sem contar um git checkout no mesmo
@@ -67,6 +82,14 @@ Passam sem conferência:
 Para recusar, escreve a decisão na saída padrão; sem nada a dizer, sai
 calado com 0. Entrada que não se lê também sai com 0: o hook não trava o
 Bash por defeito próprio.
+
+Fora do hook, bin/conferir-commit.py --serie <base>..<ponta> confere as
+mesmas regras nas mensagens já commitadas, contra a árvore de cada
+commit (o caminho no commit, no pai ou no disco; o sha na história do
+commit ou do ramo principal, porque o commit que um rebase reescreveu
+continua como objeto no repositório e ainda resolve), pulando o fixup!,
+squash! e amend!, que o rebase dobra, e sai com 1 listando o que falha,
+ou com 2 se o intervalo não se lê.
 """
 
 import glob
@@ -394,15 +417,16 @@ def commit_do_git(args, corpos, dir_, vars_, escritos):
         else:
             levados = [(f"o commit {r}", ["-1", r]) for r in revisoes]
         yield {"mensagens": [], "arquivo": None, "heredoc": None, "reusa": True,
-               "fixup": False, "dir": dir_, "cria_commit": False, "juntados": levados}
+               "fixup": False, "dir": dir_, "cria_commit": False, "juntados": levados,
+               "ramos": []}
         return
     if k < len(args) and args[k] in ("commit", "merge"):
         c = opcoes_do_commit(args[k + 1:], corpos, vars_)
-        c["juntados"], c["cria_commit"] = [], True
+        c["juntados"], c["ramos"], c["cria_commit"] = [], [], True
         if args[k] == "merge":
-            c["juntados"] = [(f"o ramo {r}", [f"HEAD..{r}"]) for r in
-                             (expande(r, vars_) for r in alvos(args[k + 1:]))
-                             if r is not None]
+            c["ramos"] = [r for r in (expande(r, vars_) for r in alvos(args[k + 1:]))
+                          if r is not None]
+            c["juntados"] = [(f"o ramo {r}", [f"HEAD..{r}"]) for r in c["ramos"]]
             c["cria_commit"] = bool(c["mensagens"] or c["arquivo"])
             c["fixup"] = False  # o --squash do merge não prepara rebase
         c["dir"] = dir_
@@ -670,7 +694,9 @@ def git_comum(dir_):
     return None if comum is None else Path(comum).resolve()
 
 
-RAMOS_PRINCIPAIS = {"master", "main"}
+# Na ordem em que se procura o ramo principal: o master deste repositório
+# antes do main dos dotfiles.
+RAMOS_PRINCIPAIS = ("master", "main")
 
 
 def no_ramo_principal(dir_):
@@ -692,6 +718,175 @@ def tem_fixup(dir_, revisoes):
     assuntos = git_saida(dir_, "log", "--format=%s", *revisoes, "--")
     return assuntos is not None and any(
         re.match(r"(?:fixup|squash|amend)! ", a) for a in assuntos.splitlines())
+
+
+# O que a mensagem cita e tem de existir. O sha tem letra e dígito, para
+# um número como 2026101 não contar; o caminho vai de uma pasta até uma
+# extensão, para a pasta sozinha (docs/adr/), o <chave> de um exemplo e o
+# que vem depois de uma barra (a URL) não contarem, e só conta a partir de
+# uma pasta da raiz (ver problemas_dos_fatos), para fact-check/SKILL.md,
+# de outro repositório, não contar; a primeira pasta tem letra ou dígito,
+# para ./x/y.md e ../x.md não contarem como pasta "." ou "..".
+SHA_CITADO = re.compile(r"(?<![\w/.-])(?=[0-9a-f]*[a-f])(?=[0-9a-f]*\d)[0-9a-f]{7,40}(?![\w/-]|\.\w)")
+CAMINHO_CITADO = re.compile(r"(?<![\w/.<@-])(?=[.-]*\w)[\w.-]+(?:/[\w.-]+)+\.[A-Za-z]{1,10}(?![\w/-])")
+TAREFA_CITADA = re.compile(r"\btcc-[a-z0-9]{3,4}\b")
+ADR_CITADO = re.compile(r"\bADR (\d{4})\b")
+# O parágrafo que nomeia outro repositório cita commits de lá (as mensagens
+# citam os do .dotfiles-private pelo sha, com o nome do repositório): o sha
+# que não é daqui se confere na história do HEAD daquele repositório, se
+# ele está na máquina. "dotfiles" sozinho casaria o ~/.dotfiles público.
+OUTROS_REPOSITORIOS = [(re.compile(r"dotfiles-private|dotfiles privados"),
+                        Path.home() / ".dotfiles-private")]
+
+
+def paragrafos(texto):
+    return [p for p in re.split(r"\n[ \t]*\n", texto) if p.strip()]
+
+
+def na_historia(dir_, sha, *pontas):
+    """Se o commit sha é ancestral de alguma das pontas (o HEAD, ou o ramo
+    principal: o ramo cita um commit do master feito depois da base dele).
+    O commit reescrito por um rebase fica fora das duas, embora o objeto
+    ainda resolva."""
+    return any(git_saida(dir_, "merge-base", "--is-ancestor", sha, p) is not None
+               for p in pontas if p)
+
+
+def existe(raiz, dir_, p, revs):
+    """Se o caminho p, relativo à raiz, está no disco ou na árvore de uma
+    das revs ("" é o índice)."""
+    if Path(raiz, p).exists():
+        return True
+    return any(git_saida(dir_, "cat-file", "-e", f"{rev}:{p}") is not None for rev in revs)
+
+
+def tarefas_do_banco(dir_):
+    """Os ids do .beads/issues.jsonl do checkout principal, que o bd regrava
+    a cada escrita; None sem o arquivo."""
+    comum = git_comum(dir_)
+    if comum is None:
+        return None
+    try:
+        linhas = (comum.parent / ".beads" / "issues.jsonl").read_text(encoding="utf-8").splitlines()
+    except (OSError, UnicodeDecodeError):
+        return None
+    ids = set()
+    for linha in linhas:
+        try:
+            ids.add(json.loads(linha)["id"])
+        except (ValueError, KeyError, TypeError):
+            continue
+    return ids
+
+
+def adrs(raiz, dir_, revs):
+    """Os números dos ADRs em docs/adr/, no disco e nas revs; None se não há
+    a pasta em lugar nenhum."""
+    nomes = []
+    pasta = Path(raiz, "docs", "adr")
+    if pasta.is_dir():
+        nomes += [p.name for p in pasta.iterdir()]
+    for rev in revs:
+        if not rev:
+            continue  # o índice não se lista por rev; o disco já o cobre
+        lista = git_saida(dir_, "ls-tree", "--name-only", rev, "docs/adr/")
+        if lista:
+            nomes += [l.rsplit("/", 1)[-1] for l in lista.splitlines()]
+    if not nomes and not pasta.is_dir():
+        return None
+    return {n[:4] for n in nomes if re.match(r"\d{4}-", n)}
+
+
+LER_BANCO = object()
+
+
+def problemas_dos_fatos(texto, dir_, revs, onde, tarefas=LER_BANCO):
+    """Os shas, caminhos, tarefas e ADRs citados na mensagem que não existem,
+    uma frase cada. Além do disco, o caminho e o ADR valem nas árvores de
+    revs, que `onde` nomeia na frase: o índice ("") e o HEAD antes do
+    commit; o commit e o pai dele na série. O sha tem de estar na
+    história da primeira rev com commit (o HEAD; na série, o próprio
+    commit), porque o objeto de um commit reescrito ainda resolve. Os ids
+    das tarefas se leem do banco, salvo quando a série os passa, lidos
+    uma vez."""
+    raiz = git_saida(dir_, "rev-parse", "--show-toplevel")
+    if raiz is None:
+        return []
+    ponta = next((r for r in revs if r), "HEAD")
+    principal = next((r for r in RAMOS_PRINCIPAIS
+                      if git_saida(dir_, "rev-parse", "--verify", "-q", f"refs/heads/{r}")), None)
+    historias = f"de {ponta}" + (f" nem do {principal}" if principal else "")
+    problemas = []
+    for paragrafo in paragrafos(texto):
+        # o parágrafo que nomeia outro repositório pode citar commits dele e
+        # deste; sem o outro na máquina, o sha que não é daqui fica sem conferir
+        outro = next((d for nome, d in OUTROS_REPOSITORIOS if nome.search(paragrafo)), None)
+        for sha in dict.fromkeys(SHA_CITADO.findall(paragrafo)):
+            if na_historia(dir_, sha, ponta, principal):
+                continue
+            if outro is None:
+                problemas.append(f"sha citado que não está na história {historias}: {sha} (o "
+                                 "commit de outro ramo se cita pelo assunto; o de outro "
+                                 "repositório, num parágrafo que o nomeie)")
+            elif outro.is_dir() and not na_historia(outro, sha, "HEAD"):
+                problemas.append(f"sha citado que não está na história {historias}, nem do "
+                                 f"HEAD de {outro}: {sha}")
+    for p in dict.fromkeys(CAMINHO_CITADO.findall(texto)):
+        if existe(raiz, dir_, p.split("/", 1)[0], revs) and not existe(raiz, dir_, p, revs):
+            problemas.append(f"caminho citado que não existe {onde}: {p} (o caminho de "
+                             "exemplo se escreve com <chave>)")
+    if tarefas is LER_BANCO:
+        tarefas = tarefas_do_banco(dir_)
+    if tarefas is not None:
+        for t in dict.fromkeys(TAREFA_CITADA.findall(texto)):
+            if t not in tarefas:
+                problemas.append(f"tarefa citada que não existe no bd: {t}")
+    numeros = adrs(raiz, dir_, revs)
+    if numeros is not None:
+        for n in dict.fromkeys(ADR_CITADO.findall(texto)):
+            if n not in numeros:
+                problemas.append(f"ADR citado que não existe em docs/adr/: ADR {n}")
+    return problemas
+
+
+def problemas_da_serie(dir_, intervalo):
+    """[(sha curto, assunto, [problemas])] das mensagens de base..ponta, na
+    ordem dos commits, só os commits com problema; None se o intervalo
+    não se lê. O fixup!, squash! ou amend! fica de fora: é rascunho que o
+    rebase dobra, e o hook já recusa levá-lo ao master."""
+    saida = git_saida(dir_, "log", "--reverse", "--format=%H%x00%B%x01", intervalo)
+    if saida is None:
+        return None
+    tarefas = tarefas_do_banco(dir_)
+    achados = []
+    for bloco in saida.split("\x01"):
+        if "\x00" not in bloco:
+            continue
+        sha, texto = bloco.strip("\n").split("\x00", 1)
+        if re.match(r"(?:fixup|squash|amend)! ", texto):
+            continue
+        problemas = problemas_da_mensagem(texto) + problemas_dos_fatos(
+            texto, dir_, [sha, f"{sha}^"], "no commit, no pai nem no disco", tarefas)
+        if problemas:
+            achados.append((sha[:7], texto.split("\n", 1)[0], problemas))
+    return achados
+
+
+def serie(args, dir_=None):
+    """O --serie, no repositório de dir_ (o diretório atual): sai com 1 e
+    lista no stderr o que falha, 2 se o intervalo não se lê, ou 0 calado."""
+    if len(args) != 1 or ".." not in args[0]:
+        print("uso: conferir-commit.py --serie <base>..<ponta>", file=sys.stderr)
+        return 2
+    achados = problemas_da_serie(Path(dir_ or os.getcwd()), args[0])
+    if achados is None:
+        print(f"conferir-commit: o intervalo {args[0]} não se lê", file=sys.stderr)
+        return 2
+    for sha, assunto, problemas in achados:
+        print(f"conferir-commit: {sha} {assunto}", file=sys.stderr)
+        for p in problemas:
+            print(f"  - {p}", file=sys.stderr)
+    return 1 if achados else 0
 
 
 def neste_repositorio(c, cwd):
@@ -742,6 +937,11 @@ def conferir(dados):
         texto = mensagem(c, cwd)
         if texto is not None:
             problemas += problemas_da_mensagem(texto)
+            # na junção, o que a mensagem cita veio pelo ramo juntado; o HEAD
+            # é o master
+            revs, onde = ((c["ramos"] + ["HEAD"], "no ramo juntado, no HEAD nem no disco")
+                          if c["ramos"] else (["", "HEAD"], "no índice, no HEAD nem no disco"))
+            problemas += problemas_dos_fatos(texto, Path(cwd, c["dir"]), revs, onde)
     problemas = list(dict.fromkeys(problemas))
     sem_skill = (any(c["cria_commit"] for c in cs)
                  and skill_carregada(dados) is False)
@@ -757,6 +957,8 @@ def conferir(dados):
 
 
 def main():
+    if sys.argv[1:2] == ["--serie"]:
+        return serie(sys.argv[2:])
     try:
         dados = json.load(sys.stdin)
     except ValueError:
