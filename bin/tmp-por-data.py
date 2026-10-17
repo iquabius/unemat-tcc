@@ -7,22 +7,23 @@ ficam em pastas diferentes (ADR 0038).
                              [--raiz DIR]
          padrão: tmp/ do checkout principal, todos os dias
 
-Lê as entradas de primeiro nível de cada pasta de tmp/ (revisao/,
-pesquisas/, devlogs/…), menos fontes/, que se nomeia pela chave do
-refs.bib e não por data. O dia sai do começo do nome, AAAA-MM-DD-<assunto>,
-e não da data de modificação, que marca a última edição. O trabalho de
-vários dias, AAAA-MM-DD-a-DD-<assunto> ou AAAA-MM-DD-a-MM-DD-<assunto>,
-aparece em cada dia do intervalo, com "(desde AAAA-MM-DD)" nos dias
-depois do primeiro. Os dias vêm em ordem crescente, e dentro do dia, por
-pasta e por nome; o caminho sai relativo ao diretório que contém tmp/.
+Lê as entradas de primeiro nível das pastas de tmp/ que o ADR 0038 lista
+(revisao/, pesquisas/, prototipos/, devlogs/, orientacao/ e copias/). O
+dia sai do começo do nome, AAAA-MM-DD-<assunto>, e não da data de
+modificação, que marca a última edição. O trabalho de vários dias,
+AAAA-MM-DD-a-DD-<assunto> ou AAAA-MM-DD-a-MM-DD-<assunto>, aparece em
+cada dia do intervalo, com "(desde AAAA-MM-DD)" nos dias depois do
+primeiro. Os dias vêm em ordem crescente, e dentro do dia, por pasta e
+por nome; o caminho sai relativo ao diretório que contém tmp/.
 
-A entrada cujo nome não abre por uma data válida vai para a lista "sem
-data válida no começo do nome", no fim, para ser renomeada, e o arquivo
-solto na raiz de tmp/, que o ADR 0038 proíbe, para a lista "solto na
-raiz"; nenhuma das duas muda o código de saída. O intervalo não vira o
-ano, e o que termina antes de começar (2026-10-16-a-14) não é data
-válida; em 2026-10-14-a-15-16-x, o 15 se lê como mês. --desde e --ate
-limitam os dias mostrados, inclusive; --desde depois de --ate é erro.
+O que foge do ADR 0038 sai em três listas no fim, para ser corrigido, e
+o código de saída é 1: "sem data válida no começo do nome", a entrada a
+renomear; "pasta fora do ADR 0038", a pasta de tmp/ que a lista não
+tem, cujo conteúdo não se lê; e "solto na raiz", o arquivo fora das
+pastas. O intervalo não vira o ano, e o que termina antes de começar
+(2026-10-16-a-14) não é data válida; em 2026-10-14-a-15-16-x, o 15 se
+lê como mês. --desde e --ate limitam os dias mostrados, inclusive;
+--desde depois de --ate é erro.
 
 Fora do checkout principal (numa worktree), o padrão é o tmp/ do
 checkout principal, que é onde o material fica.
@@ -34,6 +35,9 @@ import subprocess
 import sys
 from pathlib import Path
 
+# As pastas de tmp/ que o ADR 0038 lista.
+PASTAS = {"revisao", "pesquisas", "prototipos", "devlogs", "orientacao",
+          "copias"}
 DATA = re.compile(
     r"^(\d{4})-(\d{2})-(\d{2})(?:-a-(?:(\d{2})-)?(\d{2}))?(?=[-.]|$)")
 
@@ -57,20 +61,21 @@ def dias(nome):
 
 
 def entradas(raiz):
-    """(pasta, nome) de cada entrada das pastas de tmp/, menos fontes/, e
-    a lista dos arquivos soltos na raiz."""
+    """(pasta, nome) de cada entrada das pastas do ADR 0038, as pastas
+    fora dele e os arquivos soltos na raiz."""
     pastas = sorted(p for p in raiz.iterdir() if p.is_dir())
     soltos = sorted(p.name for p in raiz.iterdir() if not p.is_dir())
-    dentro = [(pasta.name, e.name) for pasta in pastas if pasta.name != "fontes"
+    fora = [p.name for p in pastas if p.name not in PASTAS]
+    dentro = [(pasta.name, e.name) for pasta in pastas if pasta.name in PASTAS
               for e in sorted(pasta.iterdir())]
-    return dentro, soltos
+    return dentro, fora, soltos
 
 
 def agrupar(raiz, desde=None, ate=None):
-    """{dia: [(pasta, nome, primeiro dia)]}, as entradas sem data e os
-    arquivos soltos na raiz."""
+    """{dia: [(pasta, nome, primeiro dia)]}, as entradas sem data, as
+    pastas fora do ADR 0038 e os arquivos soltos na raiz."""
     por_dia, sem_data = {}, []
-    dentro, soltos = entradas(raiz)
+    dentro, fora, soltos = entradas(raiz)
     for pasta, nome in dentro:
         ds = dias(nome)
         if not ds:
@@ -80,7 +85,7 @@ def agrupar(raiz, desde=None, ate=None):
             if (desde and d < desde) or (ate and d > ate):
                 continue
             por_dia.setdefault(d, []).append((pasta, nome, ds[0]))
-    return por_dia, sem_data, soltos
+    return por_dia, sem_data, fora, soltos
 
 
 def checkout_principal():
@@ -114,7 +119,7 @@ def main(argv=None, saida=sys.stdout):
     if not raiz.is_dir():
         print(f"tmp-por-data: {raiz} não existe", file=sys.stderr)
         return 2
-    por_dia, sem_data, soltos = agrupar(raiz, args.desde, args.ate)
+    por_dia, sem_data, fora, soltos = agrupar(raiz, args.desde, args.ate)
     base = raiz.resolve().name
     for d in sorted(por_dia):
         print(d.isoformat(), file=saida)
@@ -125,11 +130,15 @@ def main(argv=None, saida=sys.stdout):
         print("sem data válida no começo do nome", file=saida)
         for pasta, nome in sem_data:
             print(f"  {base}/{pasta}/{nome}", file=saida)
+    if fora:
+        print("pasta fora do ADR 0038", file=saida)
+        for nome in fora:
+            print(f"  {base}/{nome}", file=saida)
     if soltos:
         print("solto na raiz", file=saida)
         for nome in soltos:
             print(f"  {base}/{nome}", file=saida)
-    return 0
+    return 1 if sem_data or fora or soltos else 0
 
 
 if __name__ == "__main__":

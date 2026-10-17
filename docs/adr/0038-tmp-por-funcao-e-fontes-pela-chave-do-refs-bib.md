@@ -34,7 +34,8 @@ repetir o nome da pasta (`devlogs/2026-10-14-corte-intro.md`), e cada
 pasta se lê em ordem cronológica no `ls` e no dired. A regra vale no
 primeiro nível; dentro de uma entrada, os arquivos se nomeiam como o
 trabalho pedir. O `bin/tmp-por-data.py` lista o `tmp/` por dia, entre
-as pastas.
+as pastas, e sai com 1 quando acha um arquivo solto na raiz, uma pasta
+fora da lista ou um nome sem data.
 
 Em vez de: as cópias em `tmp/fontes/`, como ficou de 2026-10-16 a
 2026-10-17; nenhum caminho mudava, mas o "tmp" dizia "temporário" do que

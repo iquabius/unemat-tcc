@@ -20,7 +20,7 @@ estão em `CONTEXT.md`; use-os.
 | Feedback de escrita e revisão bibliográfica | não vai para o repositório | skill `escrita-academica`; o que sobra vira tarefa no `bd` ou nota em `docs/` |
 | Frase nova ou alterada em `texto/*.org` | direto no `.org` do checkout principal; o commit espera a revisão | seção "Texto" abaixo e skill do projeto `revisao-de-texto` (ADR 0023) |
 | Cópia de uma fonte lida: PDF, página salva, texto extraído | `acervo/` do checkout principal, fora do git (ADR 0038) | a obra com chave no `refs.bib` em `acervo/<chave>.pdf`; a sem chave, na pasta do tipo; mover uma cópia citada troca o caminho no mesmo commit |
-| Material local de trabalho: mapas e checagens do texto, pesquisas, protótipos, dev logs | `tmp/` do checkout principal, numa das pastas do ADR 0038, nunca solto na raiz | nome `AAAA-MM-DD-<assunto>`, com a data do começo do trabalho; `bin/tmp-por-data.py` lista por dia, entre as pastas |
+| Material local de trabalho: mapas e checagens do texto, pesquisas, protótipos, dev logs | `tmp/` do checkout principal, numa das pastas do ADR 0038, nunca solto na raiz | nome `AAAA-MM-DD-<assunto>`, com a data do começo do trabalho; `bin/tmp-por-data.py` lista por dia, entre as pastas, e acusa o que foge da regra |
 | Trecho de fonte que sustenta uma frase do texto | `texto/fontes/<chave>.org` | um arquivo por chave do `refs.bib` (ADR 0035); um título por afirmação, com o link para o parágrafo e a página, e embaixo a frase, o trecho e a data da conferência; o trecho que o texto ainda não cita fica na nota de fontes do assunto |
 
 No chat, o ADR se cita pelo número e pelo nome, num link para o arquivo,
