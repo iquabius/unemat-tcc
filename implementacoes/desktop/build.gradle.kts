@@ -54,6 +54,8 @@ ktfmtTask(
 val destinoDasCapturas = providers.gradleProperty("capturas.destino")
 
 subprojects {
+    // A pasta do módulo é a tecnologia: swing ou javafx.
+    val tecnologia = projectDir.name
     apply(plugin = "application")
     // O Kotlin só compila o domínio da interface; a tela é Java.
     apply(plugin = "org.jetbrains.kotlin.jvm")
@@ -73,7 +75,7 @@ subprojects {
     // Aparência do JavaFX (implementacoes/<interface>/javafx-estilo/
     // estilo.css), fora da tela, como o estilo.css da web.
     val estilo = projectDir.resolveSibling("javafx-estilo")
-    if (estilo.isDirectory && !name.endsWith("-swing")) {
+    if (estilo.isDirectory && tecnologia == "javafx") {
         extensions.configure<SourceSetContainer> {
             getByName("main").resources.srcDir(estilo)
         }
@@ -82,7 +84,6 @@ subprojects {
     // Apoio das Telas de teste e das cenas (implementacoes/desktop/teste/),
     // um por tecnologia e um comum às duas, como o
     // implementacoes/android/captura/.
-    val tecnologia = if (name.endsWith("-swing")) "swing" else "javafx"
     extensions.configure<SourceSetContainer> {
         getByName("test").java.srcDir(rootDir.resolve("teste/$tecnologia"))
         getByName("test").java.srcDir(rootDir.resolve("teste/comum"))
@@ -104,7 +105,7 @@ subprojects {
         // O JavaFX carrega bibliotecas nativas pelo classpath.
         jvmArgs("--enable-native-access=ALL-UNNAMED")
         // Onde as cenas gravam as capturas (Captura.java).
-        systemProperty("capturas.tecnologia", projectDir.name)
+        systemProperty("capturas.tecnologia", tecnologia)
         systemProperty(
             "capturas.destino",
             destinoDasCapturas.getOrElse(
