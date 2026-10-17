@@ -392,6 +392,15 @@ rascunho, e a história dele se condensa antes do merge (passo 5).
    documentação de ferramenta (`AGENTS.md`, `readme.org`) dispensa a
    revisão, mas não o ramo. ADR, nota de `docs/` e tarefa seguem o
    trabalho que as gera: com o texto, no `master`; com o código, no ramo.
+   Em todo ramo, com código ou sem, as mensagens de `git log
+   $(git merge-base master HEAD)..HEAD` passam pela checagem de fatos da
+   skill `fact-check` (cartucho `references/commit-message.md`): na
+   `linus-review`, é o eixo Facts; no ramo só de instrução, o subagente
+   do cartucho sozinho. Cada sha citado e o que ele fez, caminho e o que
+   diz, regra citada do `AGENTS.md` e o verbo dela, número, data, "só
+   comentário" se conferem na árvore, e o achado se conserta no passo 4,
+   porque a mensagem que chega ao `master` não se reescreve (decisão de
+   2026-10-17).
 4. **Cada achado vira um conserto** no ramo: `git commit --fixup=<commit
    que ele corrige>`, ou commit novo quando ele não corrige um commit só.
    Revise de novo até o veredito **Ready to merge**.
@@ -409,14 +418,19 @@ rascunho, e a história dele se condensa antes do merge (passo 5).
    ```
 
    A série refeita à mão (juntar, dividir, reescrever mensagens) passa
-   pelo mesmo `git diff` vazio. Com a árvore igual à revisada, só o eixo
-   History da `linus-review` roda de novo, sobre a série nova; com outra
-   árvore, a revisão do ramo inteiro. Então `git revisao pronto` na ponta
+   pelo mesmo `git diff` vazio. Com a árvore igual à revisada, só os
+   eixos History e Facts da `linus-review` rodam de novo, sobre a série
+   nova (no ramo só de instrução, só o Facts), porque o rebase reescreve
+   as mensagens a partir da árvore e troca os shas que elas citam, sem
+   passar pelo hook que as confere no `git commit`; com outra árvore, a
+   revisão do ramo inteiro. Então `git revisao pronto` na ponta
    nova, na worktree e sem código mudado fora do commit, nem especificação
    quando o ramo a confere (`implementacoes/openspec/`, que o
    `.config/revisao` não conta como código). Ele roda antes o
    `bin/testes-da-revisao.py` (a linha `teste:` do `.config/revisao`),
-   que escolhe pelo diff do ramo a `unittest` da pasta mudada, as
+   que confere as mensagens da série (`bin/conferir-commit.py --serie`:
+   as regras mecânicas e os shas, caminhos, tarefas e ADRs citados) e
+   escolhe pelo diff do ramo a `unittest` da pasta mudada, as
    capturas das interfaces mudadas, a especificação e a formatação, e dá
    à worktree o `npm ci` e o `android/local.properties` que faltam; se
    ele falha, a ponta fica sem marca. Achado que o autor decide deixar de
@@ -541,7 +555,18 @@ próprio; nada que um commit seguinte corrija (o que corrige um commit do
 ramo entra nele: `--amend` no último, `--fixup` nos outros, que o passo
 5 de "Código: ramo, revisão, merge" condensa); a mensagem diz o
 problema, o porquê e como foi conferida, sem descrever o diff; nenhum
-banner de IA no assunto nem no corpo, só o trailer `Co-Authored-By`. No
+banner de IA no assunto nem no corpo, só o trailer `Co-Authored-By`.
+Antes de mostrar a mensagem, confere cada fato dela pelo comando que o
+prova, com a saída na mão e sem subagente (skill `fact-check`, cartucho
+`references/commit-message.md`, primeiro momento): `git show <sha>` para
+o commit citado e o que ele fez, `git show HEAD:<caminho>` ou
+`:<caminho>` para o que um arquivo diz e o verbo da regra citada, `bd
+show` para a tarefa, o arquivo em `docs/adr/` para o ADR, a saída do
+teste para o número de verificações.
+Esse é o momento em que o `--amend` conserta de graça; a mensagem no
+`master` não se reescreve, e o erro achado depois fica como errata na
+próxima mensagem que tocar o assunto. Sha de um commit do mesmo ramo
+muda no rebase do passo 5: cite o assunto entre aspas ao lado dele. No
 commit de código, ferramenta ou instrução de agente, o agente mostra a
 mensagem e commita na mesma resposta, sem a confirmação que a skill
 pede: a revisão do ramo e o push, que é do autor, já são os pontos de
@@ -554,9 +579,19 @@ app, em `.claude/settings.json`) recusa o `git commit` do agente neste
 repositório, ou numa worktree dele, e o `git merge` que cria o commit da
 junção, quando a skill não está no contexto da sessão (não foi
 carregada, ou a compactação não a reanexou) e quando a mensagem lida do
-comando quebra uma das regras mecânicas; recusa também o `--fixup` no
+comando quebra uma das regras mecânicas, inclusive citar um sha, um
+caminho com extensão, uma tarefa `tcc-` ou um `ADR NNNN` que não existe
+(o sha na história do `HEAD` ou do `master`, ou na do `.dotfiles-private`
+quando o parágrafo o nomeia; o caminho no índice, no `HEAD` ou no disco, a
+partir de uma pasta da raiz; a tarefa no `.beads/issues.jsonl` do
+checkout principal; o ADR em `docs/adr/`; na junção, o caminho e o sha
+valem no ramo juntado); o caminho de exemplo se escreve com `<chave>`,
+que o hook pula, e o commit de outro ramo, pelo assunto. Recusa também o `--fixup` no
 `master` e o `git merge` ou o `git cherry-pick` que levem um `fixup!`
 não condensado. O docstring do script é a lista das regras e do que
-passa sem conferência. O resto do eixo History fica com o agente e com a
-`linus-review` do ramo. Testes:
+passa sem conferência. `bin/conferir-commit.py --serie <base>..<ponta>`
+confere o mesmo nas mensagens já commitadas, contra a árvore de cada
+commit; o `testes-da-revisao.py` o roda em todo ramo. O resto do eixo
+History e os fatos que pedem leitura (o verbo da regra, a atribuição, o
+número) ficam com o agente e com a `linus-review` do ramo. Testes:
 `python3 -m unittest discover -s bin -p 'test_*.py'`.
