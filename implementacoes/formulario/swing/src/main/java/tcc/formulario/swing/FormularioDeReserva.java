@@ -81,6 +81,10 @@ public class FormularioDeReserva extends JPanel {
     confirmacao.setEditable(false);
     confirmacao.setFocusable(false);
     volta.setEnabled(false);
+    // Como o placeholder: a dica do formato, que o Estilo pinta no campo
+    // vazio.
+    ida.putClientProperty("dica", "DD/MM/AAAA");
+    volta.putClientProperty("dica", "DD/MM/AAAA");
 
     // Como o addEventListener("input") do Web Component: o DocumentListener
     // avisa as três formas de alteração do texto, e as três revalidam.

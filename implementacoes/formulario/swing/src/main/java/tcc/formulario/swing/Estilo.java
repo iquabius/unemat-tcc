@@ -5,6 +5,11 @@ import java.awt.Component;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.FontMetrics;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Insets;
+import java.awt.RenderingHints;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -43,6 +48,8 @@ final class Estilo {
   private static final Color BORDA_DESABILITADA = new Color(0x404040);
   private static final Color FUNDO_DESABILITADO = new Color(0x333333);
   private static final Color TEXTO_DESABILITADO = new Color(0x8c8c8c);
+  // A cor da dica no Android; a web fica com a do navegador.
+  private static final Color DICA = new Color(0x999999);
   // O font-size de 1rem e o de 0.875rem do erro, sem o negrito do Metal.
   private static final Font FONTE = new Font(Font.SANS_SERIF, Font.PLAIN, 16);
   private static final Font FONTE_DO_ERRO = FONTE.deriveFont(14f);
@@ -162,11 +169,13 @@ final class Estilo {
     Border borda = BorderFactory.createLineBorder(
       !habilitado ? BORDA_DESABILITADA : invalido ? BORDA_INVALIDA : BORDA
     );
+    Border moldura = BorderFactory.createCompoundBorder(
+      borda,
+      BorderFactory.createEmptyBorder(6, 6, 6, 6)
+    );
+    Object dica = campo.getClientProperty("dica");
     campo.setBorder(
-      BorderFactory.createCompoundBorder(
-        borda,
-        BorderFactory.createEmptyBorder(6, 6, 6, 6)
-      )
+      dica == null ? moldura : new BordaComDica(moldura, (String) dica)
     );
     campo.setBackground(
       !habilitado
@@ -175,5 +184,62 @@ final class Estilo {
           ? FUNDO_INVALIDO
           : FUNDO_DA_ENTRADA
     );
+  }
+
+  // Como o ::placeholder: o JTextField não tem dica, e a borda a pinta por
+  // cima do campo vazio, onde o texto começaria.
+  private static final class BordaComDica implements Border {
+
+    private final Border moldura;
+    private final String dica;
+
+    BordaComDica(Border moldura, String dica) {
+      this.moldura = moldura;
+      this.dica = dica;
+    }
+
+    @Override
+    public void paintBorder(
+      Component componente,
+      Graphics grafico,
+      int x,
+      int y,
+      int largura,
+      int altura
+    ) {
+      moldura.paintBorder(componente, grafico, x, y, largura, altura);
+      if (!((JTextField) componente).getText().isEmpty()) {
+        return;
+      }
+      Graphics2D texto = (Graphics2D) grafico.create();
+      texto.setRenderingHint(
+        RenderingHints.KEY_TEXT_ANTIALIASING,
+        RenderingHints.VALUE_TEXT_ANTIALIAS_ON
+      );
+      texto.setColor(DICA);
+      texto.setFont(componente.getFont());
+      FontMetrics medidas = texto.getFontMetrics();
+      Insets margens = getBorderInsets(componente);
+      int linha = altura - margens.top - margens.bottom;
+      texto.drawString(
+        dica,
+        x + margens.left,
+        y +
+          margens.top +
+          (linha - medidas.getHeight()) / 2 +
+          medidas.getAscent()
+      );
+      texto.dispose();
+    }
+
+    @Override
+    public Insets getBorderInsets(Component componente) {
+      return moldura.getBorderInsets(componente);
+    }
+
+    @Override
+    public boolean isBorderOpaque() {
+      return moldura.isBorderOpaque();
+    }
   }
 }
