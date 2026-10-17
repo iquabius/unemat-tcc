@@ -115,7 +115,7 @@ def main(argv=None, saida=sys.stdout):
         print(f"tmp-por-data: {raiz} não existe", file=sys.stderr)
         return 2
     por_dia, sem_data, soltos = agrupar(raiz, args.desde, args.ate)
-    base = raiz.name
+    base = raiz.resolve().name
     for d in sorted(por_dia):
         print(d.isoformat(), file=saida)
         for pasta, nome, primeiro in sorted(por_dia[d]):

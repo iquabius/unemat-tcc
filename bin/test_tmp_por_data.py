@@ -103,6 +103,12 @@ class Listagem(unittest.TestCase):
         _, saida = self.rodar()
         self.assertNotIn("fontes", saida)
 
+    def test_raiz_relativa_sai_com_o_nome_da_pasta(self):
+        saida = io.StringIO()
+        with contextlib.chdir(self.raiz):
+            tpd.main(["--raiz", "."], saida)
+        self.assertIn("  tmp/devlogs/2026-10-14-corte-intro.md\n", saida.getvalue())
+
     def test_desde_e_ate_inclusivos(self):
         _, saida = self.rodar("--desde", "2026-10-15", "--ate", "2026-10-15")
         self.assertTrue(saida.startswith("2026-10-15\n"))
