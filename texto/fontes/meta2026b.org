@@ -1,0 +1,21 @@
+#+title: meta2026b: Meta Platforms (2026), You Might Not Need an Effect
+#+startup: overview
+
+* [[file:../cases.org::No Web Component, as tarefas de cada coluna][cases: No Web Component, as tarefas de cada coluna do Quadro]]
+- Frase: “A documentação do React chama os efeitos de ‘uma saída de
+  emergência do paradigma do React’.” A frase anterior, “o estado do Quadro
+  se grava no armazenamento do navegador, um sistema externo, por um
+  efeito”, usa o “external system” do mesmo trecho.
+- Trecho: “Effects are an escape hatch from the React paradigm. They let
+  you ‘step outside’ of React and synchronize your components with some
+  external system like a non-React widget, network, or the browser DOM.”
+- Lido em: https://react.dev/learn/you-might-not-need-an-effect, em
+  2026-10-16.
+- Observação: “efeito”, e não “efeito colateral”: a documentação chama de
+  /Effect/, com maiúscula, o recurso do React (“a side effect caused by
+  rendering”) e reserva /side effect/ ao conceito geral
+  (https://react.dev/learn/synchronizing-with-effects); a tradução
+  oficial em pt-br usa “Efeito” e “efeito colateral” na mesma distinção
+  (https://pt-br.react.dev/learn/synchronizing-with-effects, lido em
+  2026-10-16).
+- Conferido: 2026-10-16.

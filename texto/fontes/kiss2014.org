@@ -133,3 +133,28 @@
   “precisam ser testadas”; o “it would make sense” de Kiss pede o “convém”
   (checagem adversarial).
 - Conferido: 2026-10-15.
+* [[file:../cases.org::Das sete interfaces do 7GUIs, só o][cases: Das sete interfaces do 7GUIs, só o Flight Booker fica]] (Flight Booker), p. 25
+- Frase: “Das sete interfaces do 7GUIs, só o /Flight Booker/ fica no
+  conjunto, adaptado no Formulário.”
+- Trecho: “3.5 Flight Booker / Challenges: working with constraints” (p. 25);
+  no sumário, “3.5 Flight Booker … 25”.
+- Lido em: =tmp/fontes/kiss2014.pdf=, p. 31 do PDF (p. 25 impressa).
+- Observação: até 2026-10-16, o parágrafo listava também o /Counter/
+  (p. 17) e o /Crud/ (p. 34), que o Contador e a Lista filtrável adaptavam;
+  as duas interfaces saíram do conjunto (ADR 0002).
+- Conferido: 2026-10-16.
+* [[file:../cases.org::Das sete interfaces do 7GUIs, só o][cases: Das sete interfaces do 7GUIs, só o Flight Booker fica]] (Timer), p. 30
+- Frase: “O /Timer/ trata da concorrência entre um relógio e o usuário, mas
+  nenhuma das sete faz uma requisição cujas respostas chegam fora de ordem
+  ou são canceladas.” A segunda metade é leitura do conjunto inteiro
+  (cap. 3): nenhuma das sete interfaces faz requisição.
+- Trecho: “Timer deals with concurrency in the sense that a timer process
+  that updates the elapsed time runs concurrently to the user’s
+  interactions with the GUI application. This also means that the solution
+  to competing user and signal interactions is tested.” (p. 30)
+- Lido em: =tmp/fontes/kiss2014.pdf=, p. 36 do PDF (p. 30 impressa).
+- Observação: a frase seguinte, “nenhuma põe componentes independentes para
+  ler e alterar o mesmo estado”, também é leitura do conjunto: no /Crud/
+  (p. 34), a lista, os campos e os botões leem e alteram a mesma lista de
+  nomes, mas num quadro só.
+- Conferido: 2026-10-16.

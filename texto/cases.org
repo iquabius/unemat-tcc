@@ -576,25 +576,20 @@
   usabilidade do código, e não por tempo de execução e memória, como num
   /benchmark/ tradicional.
 
-  O jQuery e o Web Component derivam a Lista filtrável com =filter=, =sort= e
-  =map=, funções de [[gls:pf]].
-  E o React e o Solid recorrem a efeitos para sincronizar o componente com
-  sistemas externos, como o armazenamento do navegador no Carrinho.
+  No Web Component, as tarefas de cada coluna do Quadro se criam com
+  =map=, função de [[gls:pf]].
+  E, no React, no Solid e no Angular com /signals/, o estado do Quadro se
+  grava no armazenamento do navegador, um sistema externo, por um efeito.
   A documentação do React chama os efeitos de “uma saída de emergência do
   paradigma do React” [[cite:meta2026b][tradução nossa]].
 
-  Três das cinco tarefas partem do 7GUIs [[cite:kiss2014][p. 17, 25 e 34]]:
-
-  - Contador :: a tarefa /Counter/;
-  - Formulário com validação :: a /Flight Booker/, ampliada com os campos de
-    um formulário real;
-  - Lista filtrável :: o filtro por prefixo da tarefa /Crud/.
-
+  Das sete interfaces do 7GUIs, só o /Flight Booker/ fica no conjunto,
+  adaptado no Formulário [[cite:kiss2014][p. 25]].
   O /Timer/ trata da concorrência entre um relógio e o usuário, mas nenhuma
-  das sete tarefas faz uma requisição cujas respostas chegam fora de ordem ou
-  são canceladas [[cite:kiss2014][p. 30]].
-  E nenhuma põe três componentes independentes para ler e alterar o mesmo
-  estado, como os do Carrinho.
+  das sete faz uma requisição cujas respostas chegam fora de ordem ou são
+  canceladas [[cite:kiss2014][p. 30]].
+  E nenhuma põe componentes independentes para ler e alterar o mesmo
+  estado, como o cabeçalho e as três colunas do Quadro.
 
   No React, um valor derivado é uma expressão comum, recalculada a cada
   execução do componente cite:meta2026b.
