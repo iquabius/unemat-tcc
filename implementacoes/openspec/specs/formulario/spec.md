@@ -3,9 +3,9 @@
 ## Purpose
 
 Compra de passagem de ônibus com nome, e-mail, tipo de viagem e duas
-datas, a interface *Flight Booker* do 7GUIs levada à passagem de ônibus e
-ampliada com os campos e o "tocado" de um formulário real: campos
-dependentes e estado derivado, no gerenciamento de estado.
+datas, a interface *Flight Booker* do 7GUIs ampliada com os campos e o
+"tocado" de um formulário real: campos dependentes e estado derivado, no
+gerenciamento de estado.
 
 ## Requirements
 
