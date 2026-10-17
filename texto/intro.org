@@ -43,8 +43,6 @@ dependem dela e à tela.
 No navegador, as sub-rotinas desse código do avesso são /callbacks/: funções
 passadas como argumento a outra função, que as chama na hora ou mais tarde
 [[cite:gallaba2015][p. 1-2]].
-Em média, 9% das chamadas de função no código do navegador passam um
-/callback/, e 72% deles são assíncronos [[cite:gallaba2015][p. 6]].
 A forma tradicional de implementar programas que reagem a eventos é o
 /Observer Pattern/, que separa os observadores, que consomem os eventos, dos
 observáveis, que os produzem [[cite:salvaneschi2015][p. 953]].

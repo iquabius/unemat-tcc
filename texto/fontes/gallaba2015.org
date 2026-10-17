@@ -37,6 +37,24 @@
   callbacks are nested” (resumo).
 - Lido em: =tmp/fontes/gallaba2015.pdf=, p. 1.
 - Conferido: 2026-10-06.
+* [[file:../prog.org::Em JavaScript, os /callbacks/ são frequentes:][prog: Em JavaScript, os /callbacks/ são frequentes:]], p. 6 (o navegador)
+- Frase: “No código do navegador, em média 9% das chamadas de função
+  passam um /callback/, e 72% desses /callbacks/ são assíncronos.”
+- Trecho: “Finding 2: On average, every 5th function callsite takes a
+  callback argument. Callback-accepting function callsites are more
+  prevalent in server-side code (24%) than in client-side code (9%).”;
+  “Of all callsites in client-side code, 72% were asynchronous.”;
+  “Finding 3: More than half of all callbacks are asynchronous.
+  Asynchronous callbacks, on average, appear more frequently in
+  client-side code (72%) than server-side code (55%).” (p. 6)
+- Lido em: =tmp/fontes/gallaba2015.pdf=, p. 6.
+- Observação: “no código do navegador” traduz o /client-side/; os 72% são
+  das chamadas do cliente que passam /callback/ (seção IV-B), e o Finding 3
+  os diz dos /callbacks/. Veio da introdução, onde estava no lugar dos 10%
+  do resumo, que a segunda checagem adversarial (0072d35) marcou como
+  enganosos depois de “No navegador”; o autor a moveu para cá em
+  2026-10-16.
+- Conferido: 2026-10-16.
 * [[file:../intro.org::No navegador, as sub-rotinas desse código][intro: No navegador, as sub-rotinas desse código]], p. 1-2 (o callback)
 - Frase: “No navegador, as sub-rotinas desse código do avesso são
   /callbacks/: funções passadas como argumento a outra função, que as chama
@@ -54,19 +72,3 @@
   /toolkit/ chama as sub-rotinas (“sometimes called ‘event-based
   programming’”).
 - Conferido: 2026-10-15.
-* [[file:../intro.org::No navegador, as sub-rotinas desse código][intro: No navegador, as sub-rotinas desse código]], p. 6 (a frequência no navegador)
-- Frase: “Em média, 9% das chamadas de função no código do navegador passam
-  um /callback/, e 72% deles são assíncronos (Gallaba; Mesbah;
-  Beschastnikh, 2015, p. 6).”
-- Trecho: “Finding 2: On average, every 5th function callsite takes a
-  callback argument. Callback-accepting function callsites are more
-  prevalent in server-side code (24%) than in client-side code (9%).”;
-  “Of all callsites in client-side code, 72% were asynchronous. On the
-  server-side, asynchronous callbacks usage is 55% on average.” (p. 6)
-- Lido em: =tmp/fontes/gallaba2015.pdf=, p. 6 do PDF.
-- Observação: substitui os 10% do resumo (p. 1), média dos 138 programas,
-  86 deles módulos NPM de servidor, que a segunda checagem adversarial
-  (0072d35) marcou como enganosa depois de “No navegador”; “no navegador”
-  traduz o /client-side/, e os 72% são das chamadas do cliente que passam
-  /callback/ (as /callback-accepting callsites/ da seção IV-B).
-- Conferido: 2026-10-16.

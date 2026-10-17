@@ -15,7 +15,7 @@ sequência de forma explícita.
 Tais linguagens são baseadas no modelo \emph{imperativo} de computação, e são
 denominadas \emph{linguagens imperativas}.
 \section{Linguagens de programação}
-\label{sec:orgcd9fe36}
+\label{sec:orgafc4054}
 \label{sec:langs}
 
 Linguagens de programação são mais simples que linguagens naturais, no
@@ -73,7 +73,7 @@ A programação declarativa costuma ser descrita como a que expressa “o
 quê” e não “o como” da computação, embora a diferença seja de grau
 \cite[p. 361]{hudak1989}.
 \section{Paradigmas e modelos de programação}
-\label{sec:org019d01e}
+\label{sec:org33aef3b}
 \todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}
 
 O modelo de programação não é o paradigma, noção imprecisa que o modelo
@@ -167,7 +167,7 @@ Esses paradigmas não possuem condições de corrida, \emph{‘race conditions�
 inglês.
 \todo{Esses últimos dois parágrafos parecem estar deslocados.}
 \section{Programação de interfaces gráficas}
-\label{sec:org585b689}
+\label{sec:org6d7ac60}
 \todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}
 
 No projeto da interface, além dos problemas comuns a todo sistema de
@@ -194,6 +194,11 @@ problemas vêm de escrever uma com o recurso da outra
 Em JavaScript, os \emph{callbacks} são frequentes: num estudo de 138 programas, em
 média uma em cada dez definições de função recebe um \emph{callback}, e a maioria dos
 \emph{callbacks} é aninhada \cite[p. 1]{gallaba2015}.
+No código do navegador, em média 9\% das chamadas de função passam um
+\emph{callback}, e 72\% desses \emph{callbacks} são assíncronos \cite[p. 6]{gallaba2015}.
+Numa sessão típica de uso de onze sites, como Gmail, Facebook e Amazon, os
+tratadores de eventos executam de 31,6\% a 99,1\% das instruções JavaScript
+\cite{ratanaworabhan2010}.
 
 O JavaScript ganhou alternativas ao \emph{callback}: as \emph{promises}, que encadeiam
 computações assíncronas \cite[p. 86:1]{madsen2017}, e as palavras-chave
@@ -262,7 +267,7 @@ Alguns problemas de computação são melhor resolvidos com o modelo baseado
 em \emph{threads}. No entanto \textcite{blackheath2016} afirmam que a
 abordagem com eventos geralmente é a melhor escolha.
 \section{Programação funcional}
-\label{sec:org4a256ce}
+\label{sec:orge42074e}
 \Gls{pf} é assim chamada porque sua operação básica é a
 aplicação de funções à argumentos \cite{hughes1990}.
 Lisp foi a primeira linguagem de programação funcional.
@@ -328,7 +333,7 @@ expressão \texttt{tres inc 2} resulta no valor \texttt{5} \cite{noble1994}.
   \label{code:currying}
 \end{listing}
 \subsection{Porque programação funcional é relevante}
-\label{sec:org69b7b2a}
+\label{sec:orgadd2593}
 \todo{Trecho vindo da introdução na checagem de outubro de 2026, ainda por integrar a esta seção.}
 \textcite[p. 1 e 21]{moseley2006} distinguem a complexidade essencial,
 própria do problema, da acidental, todo o resto, e propõem reduzir a
@@ -365,7 +370,7 @@ contribuir significativamente para a modularização de programas:
   que os convencionais. \cite[p.~22; tradução nossa]{hughes1990}
 \end{citacao}
 \section{Programação reativa}
-\label{sec:orge93b845}
+\label{sec:org4d08a77}
 \todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}
 
 \textcite[p. 52:2]{bainomugisha2013} chamam as planilhas de “possivelmente a
@@ -447,7 +452,7 @@ como simulações físicas.
   (p. 36; tradução nossa)
 \end{citacao}
 \section{Trabalhos relacionados}
-\label{sec:org589d5e1}
+\label{sec:org37968cf}
 \todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}
 
 \textcite{mernik2009} compararam, com 36 estudantes de graduação, uma linguagem de
@@ -476,7 +481,7 @@ significativa).
 Também respondeu mais rápido em seis das dez tarefas, sem diferença
 significativa nas outras quatro.
 \section{Uso das tecnologias web}
-\label{sec:orgc776c13}
+\label{sec:orgace7077}
 
 As pesquisas de uso medem tecnologias, não modelos de programação, e por
 isso o uso de cada modelo de programação se afere pelas tecnologias que o

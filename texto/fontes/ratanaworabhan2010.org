@@ -1,0 +1,20 @@
+#+title: ratanaworabhan2010: Ratanaworabhan, Livshits e Zorn (2010), JSMeter: Comparing the Behavior of JavaScript Benchmarks with Real Web Applications
+#+startup: overview
+
+* [[file:../prog.org::Em JavaScript, os /callbacks/ são frequentes:][prog: Em JavaScript, os /callbacks/ são frequentes:]], sem página
+- Frase: “Numa sessão típica de uso de onze sites, como Gmail, Facebook e
+  Amazon, os tratadores de eventos executam de 31,6% a 99,1% das
+  instruções JavaScript.”
+- Trecho: “By instrumenting the Internet Explorer 8 JavaScript runtime, we
+  measure the JavaScript behavior of 11 important web applications and
+  pages, including Gmail, Facebook, Amazon, and Yahoo. For each
+  application, we conduct a typical user interaction scenario” (seção 1);
+  Figura 8, “Event handler characteristics in real applications”, coluna
+  “% of handler instructions”: gmail 31.60%, ebay 99.11%, os extremos dos
+  11 sites (seção 4.6).
+- Lido em: =tmp/fontes/ratanaworabhan2010.pdf=, p. 1 e 10 do PDF, cópia
+  sem paginação impressa.
+- Observação: a porcentagem é das instruções JavaScript executadas na
+  sessão roteirizada de cada site, no Internet Explorer 8, em 2010; a
+  citação indireta sai sem página (NBR 10520:2023).
+- Conferido: 2026-10-16.
