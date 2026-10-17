@@ -88,12 +88,11 @@ todas as listas.
 - **QUANDO** "Revisar a introdução" vai para "Fazendo", com "Implementar o Carrinho"
 - **ENTÃO** "Coluna de Implementar o Carrinho" e "Coluna de Revisar a introdução" estão habilitadas, com as três opções habilitadas
 
-#### Scenario: 4 Fazendo cheia deixa ir de A fazer a Feito
+#### Scenario: 11 Fazendo cheia deixa ir de A fazer a Feito
 
-- **DADO** "Fazendo" com 2 tarefas
-- **QUANDO** o usuário escolhe "Feito" em "Coluna de Gerar as capturas", e depois "A fazer"
-- **ENTÃO** "Feito" mostrou "Escrever o método", "Marcar a orientação" e "Gerar as capturas", nessa ordem
-- **E** "A fazer" volta a mostrar "Conferir as referências" e "Gerar as capturas"
+- **DADO** o quadro inicial, com "Revisar a introdução" levada a "Fazendo", que fica com 2 tarefas
+- **QUANDO** o usuário escolhe "Feito" em "Coluna de Gerar as capturas"
+- **ENTÃO** "Feito" mostra "Escrever o método", "Marcar a orientação" e "Gerar as capturas", nessa ordem
 
 #### Scenario: 5 vaga em Fazendo reabilita a opção
 

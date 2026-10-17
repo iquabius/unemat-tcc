@@ -197,19 +197,6 @@
       [false, false, false, false],
     ],
   );
-  // A tarefa volta ao fim de "A fazer", onde já estava: o resto do teste
-  // segue com o quadro de antes.
-  await escolher("Coluna de Gerar as capturas", "Feito");
-  const feitoComAPulada = titulos(2);
-  await escolher("Coluna de Gerar as capturas", "A fazer");
-  conferir(
-    "4 Fazendo cheia deixa ir de A fazer a Feito",
-    [feitoComAPulada, titulos(0)],
-    [
-      ["Escrever o método", "Marcar a orientação", "Gerar as capturas"],
-      ["Conferir as referências", "Gerar as capturas"],
-    ],
-  );
 
   await escolher("Coluna de Implementar o Carrinho", "Feito");
   conferir(
@@ -329,6 +316,19 @@
       '{"a-fazer":[1,2,3],"fazendo":[4],"feito":[5,6]}',
     ]),
   );
+
+  await escolher("Coluna de Revisar a introdução", "Fazendo");
+  await escolher("Coluna de Gerar as capturas", "Feito");
+  conferir("11 Fazendo cheia deixa ir de A fazer a Feito", titulos(2), [
+    "Escrever o método",
+    "Marcar a orientação",
+    "Gerar as capturas",
+  ]);
+
+  // Como no começo: o teste termina com o quadro inicial.
+  await alternar();
+  localStorage.removeItem("quadro");
+  await alternar();
 
   return r.join("\n");
 })();
