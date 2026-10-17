@@ -55,12 +55,9 @@ class Tela {
   ) {
     return componentes(formulario)
       .stream()
-      .filter(
-        c ->
-          tipo.isInstance(c) &&
-          classe.equals(((JComponent) c).getClientProperty("classe"))
-      )
+      .filter(tipo::isInstance)
       .map(tipo::cast)
+      .filter(c -> classe.equals(c.getClientProperty("classe")))
       .toList();
   }
 
