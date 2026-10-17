@@ -45,3 +45,10 @@ rodada edita o =spec.md= direto (=implementacoes/AGENTS.md=).
   arquivo no console. O teste troca os temporizadores da página por um
   relógio falso, que só anda quando ele manda, e por isso roda em menos de
   um segundo. As cenas das capturas ficam em =cenas.mts=.
+
+  No Android, as mesmas 23 verificações estão em =TesteDeConformidade.kt=,
+  nos testes de cada tecnologia, com o relógio falso da regra
+  =RelogioFalso=, que troca a espera do domínio, e rodam com o
+  =npm run capturas= (ou com =./gradlew testDebugUnitTest= em
+  =implementacoes/android/=). O =DominioTest.kt= confere o porte do
+  domínio.
