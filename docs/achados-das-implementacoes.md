@@ -225,6 +225,12 @@ requisitos da segunda rodada".
   a `Tabela` achar onde cada linha começa. A tela do Compose fica tão
   curta quanto a do React (`Tabela`, `Linha`, `Celula`), mas o que o
   HTML e o Views trazem prontos passa ao arquivo de estilo.
+- **Domínio Kotlin × JavaScript no placar de antes de 1970** (ADR 0010):
+  o `placaresEm` do Kotlin tira o minuto com `Math.floorMod`, entre 0 e
+  99, e o `%` do JavaScript dá resto negativo; num instante negativo, a
+  web responde o minuto -1 do FLA × PAL, e o Kotlin, 99. Teste
+  `igualAoDaWeb` em `implementacoes/dados-ao-vivo/dominio-kotlin/test/DominioTest.kt`,
+  com `@Ignore`.
 - **O negrito da linha destacada pede código no Views** (aparência): os
   seletores de `res/color/` e `res/drawable/` trocam a cor e o fundo pelo
   estado da view, mas não o peso da fonte, e o `tr.alerta` virou a
