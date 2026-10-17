@@ -17,7 +17,6 @@ class PainelDeLogin extends LitElement {
   @state() accessor nome = "";
   @state() accessor senha = "";
   @state() accessor situacao: string = MENSAGENS.desconectado;
-  @state() accessor emSessao = false;
   @state() accessor segundos = 0;
 
   // Estado da coordenação, fora da tela: a tentativa em andamento e o
@@ -52,7 +51,6 @@ class PainelDeLogin extends LitElement {
   private iniciarSessao() {
     this.segundos = 0;
     this.situacao = MENSAGENS.conectado;
-    this.emSessao = true;
     this.pararRelogio = iniciarRelogio(() => {
       this.segundos += 1;
       if (this.segundos >= DURACAO_DA_SESSAO) this.encerrarSessao();
@@ -63,7 +61,6 @@ class PainelDeLogin extends LitElement {
   // anunciada não recebe "Desconectado." antes de "Conectando…".
   private pararSessao() {
     this.pararRelogio?.();
-    this.emSessao = false;
   }
 
   private encerrarSessao() {
@@ -71,7 +68,10 @@ class PainelDeLogin extends LitElement {
     this.situacao = MENSAGENS.desconectado;
   }
 
+  // A sessão dura enquanto a situação for "Conectado.": a tentativa nova,
+  // o Sair e a expiração trocam a situação e param o relógio juntos.
   override render() {
+    const emSessao = this.situacao === MENSAGENS.conectado;
     return html`
       <section class="painel">
         <label>
@@ -102,13 +102,13 @@ class PainelDeLogin extends LitElement {
           Entrar
         </button>
         <p class="situacao" role="status">${this.situacao}</p>
-        <p class="relogio" ?hidden=${!this.emSessao}>
+        <p class="relogio" ?hidden=${!emSessao}>
           ${tempoDeSessao(this.segundos)}
         </p>
         <button
           type="button"
           class="sair"
-          ?hidden=${!this.emSessao}
+          ?hidden=${!emSessao}
           @click=${this.encerrarSessao}
         >
           Sair
