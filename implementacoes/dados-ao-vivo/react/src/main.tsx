@@ -4,6 +4,8 @@ import {
   JOGOS,
   MENSAGENS,
   inscreverNosPlacares,
+  iniciarRelogio,
+  formatarAtualizacao,
   formatarPlacar,
   formatarTempo,
   golsNovos,
@@ -16,14 +18,22 @@ function PainelDePlacares() {
   const [pausado, setPausado] = useState(false);
   // Os dois últimos lotes: o atual dá o placar, o anterior, os gols novos.
   const [lotes, setLotes] = useState<{ anterior?: Lote; atual?: Lote }>({});
+  // A hora em que chegou o último lote e a do último tique do relógio.
+  const [chegada, setChegada] = useState<number>();
+  const [agora, setAgora] = useState(Date.now);
 
   // A limpeza cancela a inscrição ao pausar e ao sair da tela.
   useEffect(() => {
     if (pausado) return;
-    return inscreverNosPlacares((lote) =>
-      setLotes(({ atual }) => ({ anterior: atual, atual: lote })),
-    );
+    return inscreverNosPlacares((lote) => {
+      setLotes(({ atual }) => ({ anterior: atual, atual: lote }));
+      setChegada(Date.now());
+    });
   }, [pausado]);
+
+  // O relógio vive com o painel, e não com a inscrição: sem dependências, a
+  // limpeza o para só ao sair da tela.
+  useEffect(() => iniciarRelogio(() => setAgora(Date.now())), []);
 
   const situacao = pausado
     ? MENSAGENS.pausado
@@ -36,6 +46,7 @@ function PainelDePlacares() {
       <p className="situacao" role="status">
         {situacao}
       </p>
+      <p className="atualizacao">{formatarAtualizacao(chegada, agora)}</p>
       <table>
         <thead>
           <tr>
