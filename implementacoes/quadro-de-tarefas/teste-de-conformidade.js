@@ -1,4 +1,4 @@
-// Teste de conformidade do Quadro de tarefas, igual para as quatro
+// Teste de conformidade do Quadro de tarefas, igual para as cinco
 // implementações web. Cole no console do navegador com a implementação
 // aberta; a última linha devolve o resultado de cada verificação ("ok" ou
 // "FALHOU"). Cada verificação é um cenário de
