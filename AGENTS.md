@@ -19,6 +19,7 @@ estão em `CONTEXT.md`; use-os.
 | Mudança em código (`implementacoes/`, `bin/`, scripts), ferramentas ou `AGENTS.md` | numa worktree, em ramo próprio, que chega ao `master` revisado | seção "Código: ramo, revisão, merge" abaixo |
 | Feedback de escrita e revisão bibliográfica | não vai para o repositório | skill `escrita-academica`; o que sobra vira tarefa no `bd` ou nota em `docs/` |
 | Frase nova ou alterada em `texto/*.org` | direto no `.org` do checkout principal; o commit espera a revisão | seção "Texto" abaixo e skill do projeto `revisao-de-texto` (ADR 0023) |
+| Material local fora do git: cópias das fontes, mapas e checagens do texto, pesquisas, protótipos, dev logs | `tmp/` do checkout principal, numa das pastas do ADR 0038, nunca solto na raiz | fonte com chave no `refs.bib` em `tmp/fontes/<chave>.pdf`, com o `.txt` ao lado; sem chave, em `tmp/fontes/<tipo>/`; o resto em `revisao/`, `pesquisas/`, `prototipos/`, `devlogs/`, `orientacao/` ou `copias/`; mover um arquivo citado troca o caminho no mesmo commit |
 | Trecho de fonte que sustenta uma frase do texto | `texto/fontes/<chave>.org` | um arquivo por chave do `refs.bib` (ADR 0035); um título por afirmação, com o link para o parágrafo e a página, e embaixo a frase, o trecho e a data da conferência; o trecho que o texto ainda não cita fica na nota de fontes do assunto |
 
 No chat, o ADR se cita pelo número e pelo nome, num link para o arquivo,

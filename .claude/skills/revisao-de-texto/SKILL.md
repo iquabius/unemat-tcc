@@ -25,9 +25,10 @@ Evince estão só no host: tudo que os usa vai por `distrobox-host-exec`.
    aparece. Antes de mexer, `git status --short texto/` e
    `git diff --stat HEAD -- texto/`: o que houver ali é o rascunho do
    autor, e não se apaga nem se reescreve sem ele pedir.
-3. As fontes em PDF ficam em `tmp/fontes/` do checkout principal. Mapas
-   de estrutura e anotações de trabalho ficam em `tmp/`, que o git ignora.
-   O texto não passa mais por `tmp/rascunho-*.org`.
+3. As fontes em PDF ficam em `tmp/fontes/` do checkout principal, a
+   citada como `tmp/fontes/<chave>.pdf` (ADR 0038). Mapas de estrutura,
+   variantes e checagens ficam em `tmp/revisao/`, que o git ignora. O
+   texto não passa mais por `tmp/rascunho-*.org`.
 4. Diff ao vivo rodando no host contra HEAD. Conferir e, se não estiver,
    iniciar (ele mesmo abre o Evince e, a cada PDF novo, o leva à última
    edição salva):
@@ -90,9 +91,9 @@ sobra passa pela rodada por bloco. As técnicas e as fontes estão em
    parágrafo; o N só ancora a tabela. Na introdução, rode também `--parte problema --parte objetivos --parte
    metodologia --parte justificativa` antes e depois: um ✓ que vira ⚠
    aponta um elo da cadeia que perdeu o marcador.
-2. **Mapa invertido** em `tmp/estrutura-<bloco>-<data>.md`, como o
-   `tmp/estrutura-introducao-2026-10-04.md`. Dê uma linha por parágrafo,
-   com a função, as fontes e as palavras. Depois, o teste de Garcia: só
+2. **Mapa invertido** em `tmp/revisao/estrutura-<bloco>-<data>.md`,
+   como o `tmp/revisao/estrutura-introducao-2026-10-04.md`. Dê uma linha
+   por parágrafo, com a função, as fontes e as palavras. Depois, o teste de Garcia: só
    as primeiras frases de cada parágrafo já contam o argumento?
 3. **Teste do silêncio**, por parágrafo e por fonte. Escreva a cadeia que
    o bloco sustenta, numa linha; na introdução, problema → justificativa
@@ -167,7 +168,7 @@ sobra passa pela rodada por bloco. As técnicas e as fontes estão em
    - releia a cadeia inteira, do primeiro ao último parágrafo, antes do
      commit de toda rodada. A releitura local do passo 5 não a substitui, nem o
      `--parte`, que só acha a palavra-marcador de cada elo. O mapa da
-     cadeia vai para o `tmp/estrutura-<bloco>-<data>.md`, uma linha por
+     cadeia vai para o `tmp/revisao/estrutura-<bloco>-<data>.md`, uma linha por
      parágrafo: o elo que ele sustenta, os eixos da pesquisa que ele
      carrega (os da pergunta e dos objetivos) e se segue do anterior.
      Depois, confira cada eixo: o objetivo que não tem etapa no método, a
@@ -411,7 +412,7 @@ formato do relatório estão em `references/checagem-adversarial.md` da
    Roda no checkout principal, porque as correções são no texto. Anote o
    commit lido.
 2. **Extração e mapa**, pelo agente principal, em
-   `tmp/checagem-<capítulo>-<data>/passada-1.md`. Onde a verdade deve
+   `tmp/revisao/checagem-<capítulo>-<data>/passada-1.md`. Onde a verdade deve
    estar: a chave e a página citadas, o PDF em `tmp/fontes/`, a
    afirmação em `texto/fontes/<chave>.org` (`bin/conferir-fontes.py
    --paragrafos texto/<capítulo>.org` junta as afirmações na ordem do
@@ -448,7 +449,7 @@ formato do relatório estão em `references/checagem-adversarial.md` da
 6. **Passada 2**, só depois do commit da primeira, de preferência numa
    sessão nova, que lê o texto e a referência e não o relatório da
    primeira. A extração se refaz sobre o texto corrigido, com subagentes
-   novos, em `tmp/checagem-<capítulo>-<data>/passada-2.md`. A lista do
+   novos, em `tmp/revisao/checagem-<capítulo>-<data>/passada-2.md`. A lista do
    commit da passada 1 serve só para conferir que cada correção aprovada
    está no HEAD. Antes do diff, além das socráticas do passo 4, uma
    mensagem só com as perguntas numeradas, que o autor responde por

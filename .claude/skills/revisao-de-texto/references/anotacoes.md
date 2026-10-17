@@ -180,7 +180,7 @@ O `texdoc` do host não tem a documentação local.
 | Anotação nativa | pdfcomment | `\pdfmargincomment`, `\pdfmarkupcomment[markup=Highlight]{trecho}{nota}`, `[final]` | não ocupa espaço | o Evince (poppler) mostra o ícone, e o texto só ao passar o mouse; depende do visualizador, a referência da documentação é o Adobe Reader; não imprime; o ícone cobriu o texto na prova; sem formatação LaTeX no comentário |
 | Margem sem caixa | marginnote | `\marginnote{...}` | não flutua, funciona em figura e rodapé | notas se sobrepõem; sem cor, lista nem `[disable]` |
 
-Os testes ficaram em `tmp/anotacoes-2026-10-09/` do checkout principal:
+Os testes ficaram em `tmp/prototipos/anotacoes-2026-10-09/` do checkout principal:
 `prova.org` (todas as formas, exportado pelo `bin/exportar-org.sh -o`),
 `amostra.tex` (o esquema sobre parágrafos da introdução) e os diffs pelo
 `bin/latexdiff-tcc.sh`.
