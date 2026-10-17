@@ -247,3 +247,20 @@ requisitos da segunda rodada".
   do Material usa por dentro, é raro. Decisão do autor em 2026-10-17,
   pela forma mais comum, contra a subclasse, que deixaria o código da
   tela igual ao do Web Component, com só a linha ativada.
+
+## 2026-10-17, *desktop* de volta à análise (commits `3e6606b` a `279f8ae`)
+
+Swing e JavaFX, com a tela do JavaFX em código, no Formulário.
+
+- **O `JLabel` não quebra linha** (expressividade, concisão): a
+  confirmação de ida e volta pede 891 px numa coluna de 384, e o `JLabel`
+  a cortava com reticências na janela. O Swing escreve o parágrafo de
+  várias linhas como `JTextArea`, só de leitura e fora da ordem do Tab
+  (`setEditable(false)`, `setFocusable(false)`), e a quebra fica no
+  `Estilo`; o JavaFX o escreve como `Label`, com a quebra no `estilo.css`.
+  A tela do Swing tem duas chamadas a mais que a do JavaFX, as do
+  `setEditable` e do `setFocusable`, por causa do *toolkit*, não do
+  modelo de programação: a análise as desconta.
+- **Sem janela, o Swing não mede na escala da imagem** (nos testes): o
+  texto medido na escala 1 e pintado na 2 perde o fim de cada rótulo e
+  de cada campo, e as capturas do desktop saem na escala 1.

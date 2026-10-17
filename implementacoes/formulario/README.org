@@ -6,7 +6,8 @@ mesma especificação; as regras de domínio (formato de data, e-mail, mensagens
 ficam em =dominio.ts=, compartilhado pelos projetos web, para que as
 implementações só difiram na coordenação e na tela. No Android, as
 mesmas regras estão portadas para Kotlin em =dominio-kotlin/main/Dominio.kt=,
-compartilhado por =android-views= e =android-compose=.
+compartilhado por =android-views= e =android-compose= e, pela JVM, pelo
+=swing= e pelo =javafx= do desktop, que o chamam do Java.
 
 As regras, as mensagens e os cenários que o teste de conformidade confere
 estão em =implementacoes/openspec/specs/formulario/spec.md=, a
@@ -24,7 +25,9 @@ rodada edita o =spec.md= direto (=implementacoes/AGENTS.md=).
 
   No Android, as mesmas 19 verificações estão em =TesteDeConformidade.kt=, nos
   testes de cada tecnologia, e rodam com o =npm run capturas= (ou com
-  =./gradlew testDebugUnitTest= em =implementacoes/android/=). O
-  =DominioTest.kt= confere os casos-limite do porte do domínio (31/02, e-mail,
-  ordem das datas).
+  =./gradlew testDebugUnitTest= em =implementacoes/android/=). No desktop,
+  estão em =TesteDeConformidade.java=, também por tecnologia, e rodam com o
+  =npm run capturas= (ou com =./gradlew test= em =implementacoes/desktop/=).
+  O =DominioTest.kt= confere os casos-limite do porte do domínio (31/02,
+  e-mail, ordem das datas).
 

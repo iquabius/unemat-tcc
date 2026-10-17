@@ -1,8 +1,7 @@
-# Formatação de implementacoes/ (tcc-6wha). O Prettier (web e XML do Android), o
-# ktfmt (Kotlin) e o CSharpier (C# e XAML) leem a largura daqui: 80
-# colunas em todas as plataformas, para o código caber no PDF. O resto fica
-# no padrão de cada ferramenta, salvo o XML do Android, abaixo e no
-# .prettierrc.json.
+# Formatação de implementacoes/ (tcc-6wha). O Prettier (web, XML do Android
+# e Java) e o ktfmt (Kotlin) leem a largura daqui: 80 colunas em todas as
+# plataformas, para o código caber no PDF. O resto fica no padrão de cada
+# ferramenta, salvo o XML do Android, abaixo e no .prettierrc.json.
 root = true
 
 [*]

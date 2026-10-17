@@ -16,12 +16,17 @@
 // Android: as cenas ficam nos testes de cada módulo (src/test/.../CenasTest.kt),
 // que o Gradle roda com Robolectric e Roborazzi, sem emulador; o projeto
 // Gradle fica em implementacoes/android/.
+// Desktop: as cenas ficam nos testes de cada módulo (src/test/.../
+// CenasTest.java), que o Gradle roda sem janela, com o Swing pintado numa
+// imagem e o JavaFX na plataforma Headless; o projeto Gradle fica em
+// implementacoes/desktop/.
 // No fim, avisa quando a mesma cena sai diferente entre as tecnologias de
 // uma interface na mesma plataforma: na web, as implementações seguem a mesma
 // especificação e a mesma aparência, então as imagens deveriam ser
 // idênticas; no Android, Views e Compose reproduzem o mesmo estilo, mas
 // desenham o texto com diferenças de poucos pixels, e o aviso pede só
-// conferir as imagens.
+// conferir as imagens; no desktop, Swing e JavaFX desenham os controles e o
+// texto cada um a seu modo, e o aviso é só informativo.
 
 import { execFileSync } from "node:child_process";
 import { createHash } from "node:crypto";
@@ -36,10 +41,31 @@ export type Cenas = Record<string, (pagina: Page) => Promise<void>>;
 
 const RAIZ = path.resolve(import.meta.dirname, "..");
 const IMPLEMENTACOES = path.join(RAIZ, "implementacoes");
-const WEB = ["web-component", "react", "solid", "lit", "angular-signals"];
-const ANDROID = ["android-views", "android-compose"];
-const TECNOLOGIAS = [...WEB, ...ANDROID];
-const GRADLEW = path.join(IMPLEMENTACOES, "android", "gradlew");
+// A plataforma de cada tecnologia, na ordem em que o script as captura.
+const PLATAFORMA: Record<string, "web" | "android" | "desktop"> = {
+  "web-component": "web",
+  react: "web",
+  solid: "web",
+  lit: "web",
+  "angular-signals": "web",
+  "android-views": "android",
+  "android-compose": "android",
+  swing: "desktop",
+  javafx: "desktop",
+};
+const TECNOLOGIAS = Object.keys(PLATAFORMA);
+// O projeto Gradle de cada plataforma e a tarefa que roda os testes de um
+// módulo, com as cenas.
+const GRADLE: Record<string, { gradlew: string; tarefa: string }> = {
+  android: {
+    gradlew: path.join(IMPLEMENTACOES, "android", "gradlew"),
+    tarefa: "testDebugUnitTest",
+  },
+  desktop: {
+    gradlew: path.join(IMPLEMENTACOES, "desktop", "gradlew"),
+    tarefa: "test",
+  },
+};
 
 // Data fixa para que as implementações que mostram "hoje" gerem sempre a
 // mesma imagem.
@@ -58,14 +84,13 @@ async function implementacoes(filtros: string[]): Promise<[string, string][]> {
   const lista: [string, string][] = [];
   for (const gui of (await readdir(IMPLEMENTACOES)).sort()) {
     // Toda interface tem a especificação em openspec/specs/<interface>/; as
-    // outras pastas (node_modules, android, openspec e fora-da-analise, que
-    // não se captura) não são interfaces.
+    // outras pastas (node_modules, android, desktop, openspec e
+    // fora-da-analise, que não se captura) não são interfaces.
     if (!existsSync(path.join(IMPLEMENTACOES, "openspec", "specs", gui)))
       continue;
     for (const tecnologia of TECNOLOGIAS) {
-      const projeto = ANDROID.includes(tecnologia)
-        ? "build.gradle.kts"
-        : "package.json";
+      const projeto =
+        PLATAFORMA[tecnologia] === "web" ? "package.json" : "build.gradle.kts";
       if (!existsSync(path.join(IMPLEMENTACOES, gui, tecnologia, projeto)))
         continue;
       const escolhido =
@@ -117,20 +142,21 @@ function servir(pasta: string): Promise<Server> {
   );
 }
 
-// Roda os testes de captura do módulo Android, que gravam
+// Roda os testes do módulo Android ou desktop, que gravam
 // <tecnologia>-<cena>.png na pasta dada, e devolve os nomes gerados.
-async function capturarAndroid(
+async function capturarNoGradle(
   gui: string,
   tecnologia: string,
   pasta: string,
 ): Promise<string[]> {
-  const tarefa = `:${gui}-${tecnologia}:testDebugUnitTest`;
+  const { gradlew, tarefa: teste } = GRADLE[PLATAFORMA[tecnologia]];
+  const tarefa = `:${gui}-${tecnologia}:${teste}`;
   try {
     execFileSync(
-      GRADLEW,
+      gradlew,
       ["-q", tarefa, "--rerun", `-Pcapturas.destino=${pasta}`],
       {
-        cwd: path.dirname(GRADLEW),
+        cwd: path.dirname(gradlew),
         encoding: "utf8",
         stdio: "pipe",
       },
@@ -179,8 +205,7 @@ async function registrar(
   cena: string,
   imagem: Buffer,
 ) {
-  const plataforma = ANDROID.includes(tecnologia) ? "android" : "web";
-  const chave = `${gui}/${cena} (${plataforma})`;
+  const chave = `${gui}/${cena} (${PLATAFORMA[tecnologia]})`;
   if (!hashes.has(chave)) hashes.set(chave, new Map());
   hashes
     .get(chave)!
@@ -229,12 +254,12 @@ try {
     const destino = temporaria ? path.join(temporaria, gui) : versionadas;
     await mkdir(destino, { recursive: true });
 
-    if (ANDROID.includes(tecnologia)) {
+    if (PLATAFORMA[tecnologia] !== "web") {
       // O Gradle grava numa pasta só deste módulo; daqui vão para o destino.
       const pasta = await mkdtemp(
         path.join(tmpdir(), `capturas-${tecnologia}-`),
       );
-      const arquivos = await capturarAndroid(gui, tecnologia, pasta);
+      const arquivos = await capturarNoGradle(gui, tecnologia, pasta);
       const cenas = arquivos.map((a) =>
         a.slice(tecnologia.length + 1, -".png".length),
       );
