@@ -39,3 +39,11 @@ rodada edita o =spec.md= direto (=implementacoes/AGENTS.md=).
   temporizadores de verdade, ele começa escondendo o painel e o mostrando
   de novo. Depois do teste, recarregue a página para os lotes voltarem. As
   cenas das capturas ficam em =cenas.mts=.
+
+  No Android, as mesmas 15 verificações estão em =TesteDeConformidade.kt=,
+  nos testes de cada tecnologia, com o relógio falso da regra
+  =RelogioFalso=, e rodam com o =npm run capturas= (ou com
+  =./gradlew testDebugUnitTest= em =implementacoes/android/=). O
+  =DominioTest.kt= confere o porte do domínio, e o =RotacaoTest.kt=, a
+  rotação, que a especificação não cobre: a =Activity= recriada fecha a
+  inscrição da tela antiga, e o painel recomeça sem a pausa nem os valores.

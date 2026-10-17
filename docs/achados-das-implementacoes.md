@@ -192,3 +192,41 @@ requisitos da segunda rodada".
   guarda o objeto, e no Angular o `signal` também; nada na chamada do
   Solid diz que o argumento passa a ser do store. A correção ficou no
   domínio, que devolve um objeto novo a cada leitura.
+
+## 2026-10-17, Dados ao vivo no Android (commits `4f44d7c` a `4335773` e seguinte)
+
+- **Em segundo plano, o Views fecha a inscrição e o Compose a mantém**
+  (dependências ocultas, propensão a erros): no Views, a inscrição se
+  escreve no `onStart` e no `onStop` da `Activity`
+  (`implementacoes/dados-ao-vivo/android-views/src/main/java/tcc/dadosaovivo/views/MainActivity.kt`),
+  e com a `Activity` parada `contarInscricoes()` dá 0. No Compose, o
+  `DisposableEffect(pausado)` fecha a inscrição quando o painel sai da
+  composição, e a composição continua com a `Activity` parada: a
+  contagem dá 1, os lotes seguem chegando a uma tela que ninguém vê, e
+  ao voltar os gols novos contam desde o último lote recebido em
+  segundo plano, e não desde o último que o usuário viu. Nada na
+  chamada do efeito diz até onde ele vive. Medido com
+  `scenario.moveToState(Lifecycle.State.CREATED)` num teste provisório,
+  fora do repositório. O ADR 0005 previa o escopo diferente (a
+  composição contra o ciclo de vida da `Activity`); igualar pediria o
+  `LifecycleStartEffect`, ou um `DisposableEffect` que observe o ciclo
+  de vida, no Compose, ou tirar o `onStop` do Views.
+- **A rotação recomeça o painel igual nas duas tecnologias**: a
+  `Activity` recriada fecha a inscrição da tela antiga e abre uma nova,
+  e o painel volta sem a pausa, sem os valores e na página, mesmo se
+  estava escondido; o estado está em campos da `Activity` no Views e em
+  `remember` no Compose, e os dois se perdem (`RotacaoTest.kt` de cada
+  tecnologia).
+- **O Compose não tem tabela** (montagem da tela, nível de
+  abstração): o Views escreve a tabela com o `TableLayout` da
+  plataforma, que dá às colunas a largura do maior conteúdo, como a
+  tabela do HTML; no Compose, a `Tabela` do `Estilo.kt` é um `Layout`
+  escrito à mão, com uma `Linha` que põe o fundo antes das células para
+  a `Tabela` achar onde cada linha começa. A tela do Compose fica tão
+  curta quanto a do React (`Tabela`, `Linha`, `Celula`), mas o que o
+  HTML e o Views trazem prontos passa ao arquivo de estilo.
+- **O negrito da linha destacada pede código no Views** (aparência): os
+  seletores de `res/color/` e `res/drawable/` trocam a cor e o fundo pelo
+  estado da view, mas não o peso da fonte, e o `tr.alerta` virou a
+  `Celula`, uma `TextView` que troca o peso quando fica ativada. No
+  Compose, o negrito é um parâmetro da `Linha`.
