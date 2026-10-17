@@ -143,10 +143,11 @@ class ColunaDoQuadro extends ComponenteDoQuadro {
     return this.getAttribute("coluna") as Coluna;
   }
 
-  // Os itens vão pela chave do id, como o key do React: a lista em que o
-  // usuário escolheu outra coluna sai com a tarefa. Com o map, o Lit
-  // reaproveitaria o item pela posição, e a tarefa seguinte herdaria a
-  // escolha.
+  // A seção mostra a lista ou o aviso de coluna vazia. Os itens vão pela
+  // chave do id, como o key do React: a lista de escolha em que o usuário
+  // escolheu outra coluna sai com a tarefa. Com o map, o Lit reaproveitaria
+  // o item pela posição, sem reaplicar o selected das opções, e a tarefa
+  // seguinte mostraria a coluna escolhida para a anterior.
   override render() {
     const { estado } = this.loja;
     const ids = estado[this.coluna];
