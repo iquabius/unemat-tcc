@@ -93,7 +93,8 @@ React reativo de Salvaneschi et al. (2014, p. 564).
   em que a requisição nova cancela a anterior, que a Busca e o Login
   exigem, o par só terá se a validação do e-mail na segunda rodada a
   adotar (tarefa "Decidir como a análise atribui as diferenças entre o
-  imperativo e os declarativos, sem par controlado na web", tcc-4ie).
+  imperativo e os declarativos onde a web não tem par controlado",
+  tcc-4ie).
 
 ## Argumentos
 
