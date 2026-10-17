@@ -5,10 +5,10 @@ mesmo quadro: o cabeçalho e três colunas, instâncias do mesmo componente. É
 a interface do estado compartilhado entre componentes, para o usuário ver o
 resumo do cabeçalho de acordo com as colunas depois de cada mudança; do
 limite de "Fazendo", que vale para as tarefas das outras colunas, para o
-usuário terminar o que começou antes de pegar outra tarefa; e do quadro salvo no =localStorage=, que acompanha as
-outras abas, para o usuário achar cada tarefa na coluna em que a deixou, ao
-voltar à página ou em outra aba. O desfazer e a atualização otimista entram
-na segunda rodada.
+usuário terminar o que começou antes de pegar outra tarefa; e do quadro
+salvo no =localStorage=, que acompanha as outras abas, para o usuário achar
+cada tarefa na coluna em que a deixou, ao voltar à página ou em outra aba.
+O desfazer e a atualização otimista entram na segunda rodada.
 
 As regras que não dependem da tela ficam em =dominio.ts=: as tarefas,
 as colunas, o limite, os textos e o quadro salvo. O ouvinte das outras
