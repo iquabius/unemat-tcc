@@ -1,5 +1,4 @@
 import {
-  ESPERA_MS,
   MENSAGENS,
   MINIMO_DE_LETRAS,
   buscarCidades,
@@ -31,9 +30,8 @@ class BuscaDeDestino extends HTMLElement {
   private sugestoes!: HTMLUListElement;
   private escolha!: HTMLParagraphElement;
 
-  // Estado da coordenação: a espera agendada, a requisição em andamento e o
-  // último termo buscado.
-  private espera?: number;
+  // Estado da coordenação: a requisição em andamento e o último termo
+  // buscado.
   private controlador?: AbortController;
   private ultimoTermo = "";
 
@@ -44,21 +42,15 @@ class BuscaDeDestino extends HTMLElement {
     this.sugestoes = this.querySelector(".sugestoes")!;
     this.escolha = this.querySelector(".escolha")!;
 
-    this.campo.addEventListener("input", () => this.agendarBusca());
+    this.campo.addEventListener("input", () =>
+      this.buscar(this.campo.value.trim()),
+    );
     this.campo.addEventListener("keydown", (evento) => {
       if (evento.key === "Escape") {
         this.cancelar();
         this.limpar();
       }
     });
-  }
-
-  private agendarBusca() {
-    clearTimeout(this.espera);
-    this.espera = window.setTimeout(
-      () => this.buscar(this.campo.value.trim()),
-      ESPERA_MS,
-    );
   }
 
   private buscar(termo: string) {
@@ -83,7 +75,6 @@ class BuscaDeDestino extends HTMLElement {
   }
 
   private cancelar() {
-    clearTimeout(this.espera);
     this.controlador?.abort();
   }
 
