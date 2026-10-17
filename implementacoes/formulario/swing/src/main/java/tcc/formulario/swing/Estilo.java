@@ -9,7 +9,6 @@ import java.awt.FontMetrics;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Insets;
-import java.awt.RenderingHints;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -23,6 +22,7 @@ import javax.swing.border.Border;
 import javax.swing.plaf.ColorUIResource;
 import javax.swing.plaf.InsetsUIResource;
 import javax.swing.plaf.basic.BasicComboBoxUI;
+import javax.swing.plaf.basic.BasicGraphicsUtils;
 
 // Aparência do Formulário, fora da tela, como o estilo.css: o Swing não tem
 // seletores, então o Estilo percorre os componentes e escolhe pela classe
@@ -213,17 +213,17 @@ final class Estilo {
       if (!((JTextField) componente).getText().isEmpty()) {
         return;
       }
+      // O BasicGraphicsUtils mede e desenha como o campo desenha o texto,
+      // com a suavização do componente.
       Graphics2D texto = (Graphics2D) grafico.create();
-      texto.setRenderingHint(
-        RenderingHints.KEY_TEXT_ANTIALIASING,
-        RenderingHints.VALUE_TEXT_ANTIALIAS_ON
-      );
       texto.setColor(componente.isEnabled() ? DICA : DICA_DESABILITADA);
       texto.setFont(componente.getFont());
-      FontMetrics medidas = texto.getFontMetrics();
+      FontMetrics medidas = componente.getFontMetrics(componente.getFont());
       Insets margens = getBorderInsets(componente);
       int linha = altura - margens.top - margens.bottom;
-      texto.drawString(
+      BasicGraphicsUtils.drawString(
+        (JComponent) componente,
+        texto,
         dica,
         x + margens.left,
         y +
