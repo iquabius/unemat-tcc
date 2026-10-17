@@ -26,14 +26,14 @@ class RotacaoTest {
     fun rotacaoRecomecaOPainel() {
         tela.avancar(2000)
         tela.pausa()
-        regra.activityRule.scenario.recreate()
+        tela.recriar()
         assertEquals(
             listOf("Aguardando placares…", "Pausar", 1),
             listOf(tela.situacao(), tela.textoDaPausa(), contarInscricoes()),
         )
 
         tela.alternar()
-        regra.activityRule.scenario.recreate()
+        tela.recriar()
         assertEquals(
             listOf(true, "Esconder painel", 1),
             listOf(

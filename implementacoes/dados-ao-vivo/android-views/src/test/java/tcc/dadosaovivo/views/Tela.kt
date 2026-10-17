@@ -7,6 +7,7 @@ import android.widget.TableLayout
 import android.widget.TableRow
 import android.widget.TextView
 import androidx.core.view.children
+import androidx.lifecycle.Lifecycle
 import androidx.test.core.app.ActivityScenario
 import org.robolectric.Shadows.shadowOf
 import tcc.dadosaovivo.RelogioFalso
@@ -34,6 +35,22 @@ class Tela(
     fun pausa() = naTela { it.findViewById<Button>(R.id.pausa).performClick() }
 
     fun avancar(ms: Long) = relogio.avancar(ms)
+
+    // A rotação: o Android recria a Activity.
+    fun recriar() {
+        cenario.recreate()
+        shadowOf(Looper.getMainLooper()).idle()
+    }
+
+    // A tela fora de vista e de volta, como quando o usuário troca de
+    // aplicativo: a Activity para (onStop) e recomeça (onStart).
+    fun irParaSegundoPlano() {
+        cenario.moveToState(Lifecycle.State.CREATED)
+    }
+
+    fun voltarDoSegundoPlano() {
+        cenario.moveToState(Lifecycle.State.RESUMED)
+    }
 
     fun textoDoAlternar() = naTela {
         it.findViewById<Button>(R.id.alternar).text.toString()

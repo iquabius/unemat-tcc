@@ -205,9 +205,9 @@ requisitos da segunda rodada".
   contagem dá 1, os lotes seguem chegando a uma tela que ninguém vê, e
   ao voltar os gols novos contam desde o último lote recebido em
   segundo plano, e não desde o último que o usuário viu. Nada na
-  chamada do efeito diz até onde ele vive. Medido com
-  `scenario.moveToState(Lifecycle.State.CREATED)` num teste provisório,
-  fora do repositório. O ADR 0005 previa o escopo diferente (a
+  chamada do efeito diz até onde ele vive. O `SegundoPlanoTest.kt` de
+  cada tecnologia prende a diferença, com a `Activity` levada ao estado
+  `CREATED` e de volta. O ADR 0005 previa o escopo diferente (a
   composição contra o ciclo de vida da `Activity`); igualar pediria o
   `LifecycleStartEffect`, ou um `DisposableEffect` que observe o ciclo
   de vida, no Compose, ou tirar o `onStop` do Views.

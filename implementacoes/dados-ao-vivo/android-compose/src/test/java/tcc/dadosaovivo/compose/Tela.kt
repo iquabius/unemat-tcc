@@ -12,6 +12,8 @@ import androidx.compose.ui.test.junit4.AndroidComposeTestRule
 import androidx.compose.ui.test.performClick
 import androidx.compose.ui.text.TextLayoutResult
 import androidx.compose.ui.text.font.FontWeight
+import androidx.lifecycle.Lifecycle
+import androidx.test.ext.junit.rules.ActivityScenarioRule
 import tcc.dadosaovivo.JOGOS
 import tcc.dadosaovivo.RelogioFalso
 
@@ -27,7 +29,11 @@ private val texto = SemanticsMatcher.keyIsDefined(SemanticsProperties.Text)
 // e pela ordem (o que esconde e mostra o painel, e o de pausa), a situação
 // pela região anunciada e as células da tabela pelo texto e pela posição.
 class Tela(
-    private val regra: AndroidComposeTestRule<*, *>,
+    private val regra:
+        AndroidComposeTestRule<
+            ActivityScenarioRule<MainActivity>,
+            MainActivity,
+        >,
     private val relogio: RelogioFalso,
 ) {
     private fun botoes() = regra.onAllNodes(botao)
@@ -54,6 +60,24 @@ class Tela(
 
     fun avancar(ms: Long) {
         relogio.avancar(ms)
+        regra.waitForIdle()
+    }
+
+    // A rotação: o Android recria a Activity.
+    fun recriar() {
+        regra.activityRule.scenario.recreate()
+        regra.waitForIdle()
+    }
+
+    // A tela fora de vista e de volta, como quando o usuário troca de
+    // aplicativo: a Activity para (onStop) e recomeça (onStart). Com ela
+    // parada, o teste não lê a tela.
+    fun irParaSegundoPlano() {
+        regra.activityRule.scenario.moveToState(Lifecycle.State.CREATED)
+    }
+
+    fun voltarDoSegundoPlano() {
+        regra.activityRule.scenario.moveToState(Lifecycle.State.RESUMED)
         regra.waitForIdle()
     }
 
