@@ -10,9 +10,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import tcc.desktop.JavaFX;
 import tcc.formulario.TipoDeVoo;
 
-// Ações e leituras usadas pelo teste, como as funções do
+// Ações e leituras usadas pelas cenas e pelo teste, como as funções do
 // teste-de-conformidade.js. A Tela do Swing tem os mesmos
 // nomes. Acha os campos pelo rótulo (setLabelFor), os erros e a
 // confirmação pela classe de estilo.
@@ -70,6 +71,21 @@ class Tela {
       campo(campo).requestFocus();
       rotulado("Tipo de voo").requestFocus();
     });
+  }
+
+  // Como o focus() da web.
+  void focar(Campo campo) {
+    naTela(() -> campo(campo).requestFocus());
+  }
+
+  // Como o fill() do Playwright: foca o campo e escreve.
+  void preencher(Campo campo, String texto) {
+    focar(campo);
+    digitar(campo, texto);
+  }
+
+  void capturar(String cena) {
+    JavaFX.capturar(formulario, cena);
   }
 
   @SuppressWarnings("unchecked")
