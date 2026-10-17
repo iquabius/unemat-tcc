@@ -159,9 +159,9 @@ pt-br.react.dev, *Sincronizando com Efeitos*, e
 developer.android.com/develop/ui/compose/side-effects?hl=pt-br
 (2026-10-12), para "limpeza"; Lima, Giusti e Dias-Neto (2020, SBQS,
 WTDQS), para "vazamento de recursos"; protótipos e medidas de 2026-10-12
-em `tmp/prototipos/mergulho-tarefas-2026-10-12/`,
-`tmp/prototipos/prototipos-tarefas-2026-10-12/` e `tmp/prototipos/prototipos-p2-2026-10-12/`,
-e de 2026-10-13 em `tmp/prototipos/prototipos-placar-2026-10-13/` (fora do git);
+em `tmp/prototipos/2026-10-12-mergulho-tarefas/`,
+`tmp/prototipos/2026-10-12-tarefas/` e `tmp/prototipos/2026-10-12-p2/`,
+e de 2026-10-13 em `tmp/prototipos/2026-10-13-placar/` (fora do git);
 ADRs 0001, 0002, 0005, 0012, 0013, 0014 e 0017;
 `docs/plataformas/web.md`, seção "O modelo de reatividade segundo a
 documentação oficial"; tarefas tcc-cef, tcc-di3a, tcc-xep e tcc-dw83.

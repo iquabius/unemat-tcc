@@ -157,7 +157,7 @@ contrastes, as tensões e os trechos com página (seção "Trechos das
 fontes", que veio de `docs/literatura.md`, seção 15, dividida em
 2026-10-10); `docs/plataformas/web.md`, seção "O modelo de reatividade
 segundo a documentação oficial"; conferência no PDF de 2026-10-08 em
-`tmp/pesquisas/buscas-2026-10-08/` (fora do git); Van Roy e Haridi (2004, p. xiii,
+`tmp/pesquisas/2026-10-08-buscas/` (fora do git); Van Roy e Haridi (2004, p. xiii,
 29, 406, 679); Van Roy (2009, p. 10, 14); Green e Blackwell (1998, p. 8,
 24); Green e Petre (1996, JVLC 7, p. 139 e 150); Green et al. (2006,
 JVLC 17, p. 342); Blackwell et al. (2001, LNAI 2117, p. 328); Blackwell

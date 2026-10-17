@@ -251,7 +251,7 @@ Levantados em 2026-09-28.
 | KRUCHTEN, N.; MCNUTT, A. M.; MCGUFFIN, M. J. *Metrics-based evaluation and comparison of visualization notations*. IEEE TVCG, 2023. DOI 10.1109/tvcg.2023.3326907 | Nove notações de visualização numa galeria de 40 exemplos | TC (conferido, p. 2 da cópia) |
 | KUTAR, M.; BRITTON, C.; BARKER, T. *A comparison of empirical study and cognitive dimensions analysis in the evaluation of UML diagrams*. PPIG 14, 2002 | Análise pelas DCs pelos três autores, com consenso, confrontada com estudo empírico; os dois não concordaram | TC (conferido: "agreed by all authors", p. v da cópia; "did not concur", p. 1) |
 
-Relatórios completos das buscas, com os links bloqueados: `tmp/pesquisas/pesquisa-*.md`
+Relatórios completos das buscas, com os links bloqueados: `tmp/pesquisas/2026-09-28-*.md`
 (fora do git).
 
 ## Trabalhos brasileiros

@@ -93,7 +93,7 @@ re-renderização; sem o segundo, o *template* e a API do Angular iriam para
 a conta do modelo granular, e a Busca da segunda rodada ficaria sem
 tecnologia granular. Nenhum par fora da web compensa nenhum dos dois.
 Leitura de dois subagentes sobre o código de `casos/` em `2ef10bb` e sobre
-um rascunho em Lit não executado (`tmp/prototipos/rascunho-lit-2026-10-12/`, fora do
+um rascunho em Lit não executado (`tmp/prototipos/2026-10-12-rascunho-lit/`, fora do
 git); as linhas citadas não foram reconferidas.
 
 | | Web Component × Lit | React × Solid |

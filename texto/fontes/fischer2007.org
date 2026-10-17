@@ -34,5 +34,5 @@
 - Lido em: =tmp/fontes/fischer2007.pdf=, p. 1 e 2 do PDF (p. 134 e 135).
 - Observação: é o primeiro erro da regra de Blackheath e Jones (sequência
   escrita com eventos); o segundo, o código sequencial, está no §7 com
-  Moseley e Marks (relatório em tmp/pesquisas/fluxo-de-controle-2026-10-07/).
+  Moseley e Marks (relatório em tmp/pesquisas/2026-10-07-fluxo-de-controle/).
 - Conferido: 2026-10-07.

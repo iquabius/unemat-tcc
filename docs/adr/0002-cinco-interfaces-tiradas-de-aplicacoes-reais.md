@@ -85,8 +85,8 @@ quatro implementações web já feitas, com as capturas.
 
 Fontes: 7GUIs (`kiss2014`, p. 56 e 77); Berry e Serrano (2020); Meijer
 (2012); protótipos e medidas de 2026-10-12 em
-`tmp/prototipos/mergulho-tarefas-2026-10-12/` e `tmp/prototipos/prototipos-tarefas-2026-10-12/`,
-e de 2026-10-13 em `tmp/prototipos/prototipos-placar-2026-10-13/` (fora do git);
+`tmp/prototipos/2026-10-12-mergulho-tarefas/` e `tmp/prototipos/2026-10-12-tarefas/`,
+e de 2026-10-13 em `tmp/prototipos/2026-10-13-placar/` (fora do git);
 `docs/metodo-da-avaliacao.md`, seções "Requisitos típicos de interface
 para a segunda rodada" e "*Benchmark* de notação e requisitos da segunda
 rodada"; commit `25cf4dd`; tarefa tcc-dw83.

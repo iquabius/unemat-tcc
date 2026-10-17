@@ -187,7 +187,7 @@ estudos sobre React, RxJS e Redux. Decisão do autor em 2026-10-11, para o
 guarda-chuva, com dois eixos, a orquestração de eventos e o gerenciamento
 de estado; "tratamento de eventos" não serve de eixo, porque é
 vocabulário do imperativo (relatório do autor em
-`tmp/pesquisas/relatorio-termos-e-coordenacao.md`). Conferidos no PDF: Meijer,
+`tmp/pesquisas/2026-10-11-relatorio-termos-e-coordenacao.md`). Conferidos no PDF: Meijer,
 Bainomugisha et al. e Kiss; o resto por subagente.
 
 | Fonte | Trecho ou termo | Onde | Eixo |

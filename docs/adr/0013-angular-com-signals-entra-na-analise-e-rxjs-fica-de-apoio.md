@@ -138,5 +138,5 @@ Fontes: Stack Overflow 2025; CHANGELOG do Angular (17.0.0, 2023-11-08;
 `docs/plataformas/web.md`, seções de "O modelo de reatividade segundo a
 documentação oficial" a "Desvantagens a reconhecer no texto";
 `docs/delineamento.md`, seção "O que cada par isola, DC a DC"; rascunhos
-em Lit em `tmp/prototipos/rascunho-lit-2026-10-12/` (fora do git); commits
+em Lit em `tmp/prototipos/2026-10-12-rascunho-lit/` (fora do git); commits
 `25cf4dd` e `7126e77`.

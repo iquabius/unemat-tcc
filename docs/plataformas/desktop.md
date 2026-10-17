@@ -8,7 +8,7 @@ implementado. Serve à tarefa "Representar uma plataforma desktop"
 (tcc-a0w) e às três que implementam e pré-analisam os pares: Swing ×
 JavaFX (tcc-dwg), Windows Forms × WPF (tcc-74m) e Qt Widgets × QML
 (tcc-jhl). Os números de uso estão em
-`tmp/pesquisas/pesquisa-desktop-java/devlog.md` (coletados em 2026-10-08).
+`tmp/pesquisas/2026-10-08-desktop-java/devlog.md` (coletados em 2026-10-08).
 
 **Conclusão.** Os três pares repetem a mesma divisão: uma tecnologia de
 eventos, do imperativo por atualização manual, e outra que liga
