@@ -18,89 +18,108 @@ import tcc.formulario.TipoDeVoo;
 // teste-de-conformidade.js. As Telas do JavaFX têm os mesmos nomes. Acha os
 // campos pelo rótulo (setLabelFor), os erros e a confirmação pela classe.
 class Tela {
-    private final FormularioDeReserva formulario;
 
-    Tela() {
-        formulario = naTela(FormularioDeReserva::new);
-    }
+  private final FormularioDeReserva formulario;
 
-    private Component rotulado(String rotulo) {
-        return componentes(formulario).stream()
-                .filter(c -> c instanceof JLabel l && rotulo.equals(l.getText()))
-                .map(c -> ((JLabel) c).getLabelFor())
-                .findFirst()
-                .orElseThrow();
-    }
+  Tela() {
+    formulario = naTela(FormularioDeReserva::new);
+  }
 
-    private JTextField campo(Campo campo) {
-        return (JTextField) rotulado(campo.rotulo);
-    }
+  private Component rotulado(String rotulo) {
+    return componentes(formulario)
+      .stream()
+      .filter(c -> c instanceof JLabel l && rotulo.equals(l.getText()))
+      .map(c -> ((JLabel) c).getLabelFor())
+      .findFirst()
+      .orElseThrow();
+  }
 
-    private List<JLabel> daClasse(String classe) {
-        return componentes(formulario).stream()
-                .filter(c -> c instanceof JLabel l && classe.equals(l.getClientProperty("classe")))
-                .map(c -> (JLabel) c)
-                .toList();
-    }
+  private JTextField campo(Campo campo) {
+    return (JTextField) rotulado(campo.rotulo);
+  }
 
-    private JButton botao() {
-        return componentes(formulario).stream()
-                .filter(c -> c instanceof JButton b && "Reservar".equals(b.getText()))
-                .map(c -> (JButton) c)
-                .findFirst()
-                .orElseThrow();
-    }
+  private List<JLabel> daClasse(String classe) {
+    return componentes(formulario)
+      .stream()
+      .filter(
+        c ->
+          c instanceof JLabel l && classe.equals(l.getClientProperty("classe"))
+      )
+      .map(c -> (JLabel) c)
+      .toList();
+  }
 
-    // Como o setter + evento "input" da web: altera o texto sem mover o foco.
-    void digitar(Campo campo, String texto) {
-        naTela(() -> campo(campo).setText(texto));
-    }
+  private JButton botao() {
+    return componentes(formulario)
+      .stream()
+      .filter(c -> c instanceof JButton b && "Reservar".equals(b.getText()))
+      .map(c -> (JButton) c)
+      .findFirst()
+      .orElseThrow();
+  }
 
-    // Como o blur da web, que dispara o evento em vez de mover o foco: sem
-    // janela, o Swing não tem foco para mover. Todos os listeners de foco do
-    // campo recebem o evento, os da tela e os do próprio Swing (o do cursor),
-    // como no dispatchEvent da web.
-    void sair(Campo campo) {
-        naTela(() -> {
-            JTextField alvo = campo(campo);
-            FocusEvent evento = new FocusEvent(alvo, FocusEvent.FOCUS_LOST);
-            for (FocusListener ouvinte : alvo.getFocusListeners()) {
-                ouvinte.focusLost(evento);
-            }
-        });
-    }
+  // Como o setter + evento "input" da web: altera o texto sem mover o foco.
+  void digitar(Campo campo, String texto) {
+    naTela(() -> campo(campo).setText(texto));
+  }
 
-    @SuppressWarnings("unchecked")
-    void escolherTipo(TipoDeVoo tipo) {
-        naTela(() -> ((JComboBox<String>) rotulado("Tipo de voo")).setSelectedIndex(tipo.ordinal()));
-    }
+  // Como o blur da web, que dispara o evento em vez de mover o foco: sem
+  // janela, o Swing não tem foco para mover. Todos os listeners de foco do
+  // campo recebem o evento, os da tela e os do próprio Swing (o do cursor),
+  // como no dispatchEvent da web.
+  void sair(Campo campo) {
+    naTela(() -> {
+      JTextField alvo = campo(campo);
+      FocusEvent evento = new FocusEvent(alvo, FocusEvent.FOCUS_LOST);
+      for (FocusListener ouvinte : alvo.getFocusListeners()) {
+        ouvinte.focusLost(evento);
+      }
+    });
+  }
 
-    void reservar() {
-        naTela(() -> botao().doClick());
-    }
+  @SuppressWarnings("unchecked")
+  void escolherTipo(TipoDeVoo tipo) {
+    naTela(() ->
+      ((JComboBox<String>) rotulado("Tipo de voo")).setSelectedIndex(
+        tipo.ordinal()
+      )
+    );
+  }
 
-    boolean botaoHabilitado() {
-        return naTela(() -> botao().isEnabled());
-    }
+  void reservar() {
+    naTela(() -> botao().doClick());
+  }
 
-    boolean habilitado(Campo campo) {
-        return naTela(() -> campo(campo).isEnabled());
-    }
+  boolean botaoHabilitado() {
+    return naTela(() -> botao().isEnabled());
+  }
 
-    String valor(Campo campo) {
-        return naTela(() -> campo(campo).getText());
-    }
+  boolean habilitado(Campo campo) {
+    return naTela(() -> campo(campo).isEnabled());
+  }
 
-    boolean invalido(Campo campo) {
-        return naTela(() -> Boolean.TRUE.equals(campo(campo).getClientProperty("invalido")));
-    }
+  String valor(Campo campo) {
+    return naTela(() -> campo(campo).getText());
+  }
 
-    // Mensagens de erro visíveis, de cima para baixo.
-    List<String> erros() {
-        return naTela(() -> daClasse("erro").stream().filter(JComponent::isVisible).map(JLabel::getText).toList());
-    }
+  boolean invalido(Campo campo) {
+    return naTela(() ->
+      Boolean.TRUE.equals(campo(campo).getClientProperty("invalido"))
+    );
+  }
 
-    String confirmacao() {
-        return naTela(() -> daClasse("confirmacao").get(0).getText());
-    }
+  // Mensagens de erro visíveis, de cima para baixo.
+  List<String> erros() {
+    return naTela(() ->
+      daClasse("erro")
+        .stream()
+        .filter(JComponent::isVisible)
+        .map(JLabel::getText)
+        .toList()
+    );
+  }
+
+  String confirmacao() {
+    return naTela(() -> daClasse("confirmacao").get(0).getText());
+  }
 }

@@ -78,7 +78,10 @@ subprojects {
 
     // Apoio das Telas de teste (casos/desktop/teste/), um por tecnologia,
     // como o casos/android/captura/.
-    val apoio = rootDir.resolve("teste").resolve(if (name.endsWith("-swing")) "swing" else "javafx")
+    val apoio =
+        rootDir
+            .resolve("teste")
+            .resolve(if (name.endsWith("-swing")) "swing" else "javafx")
     extensions.configure<SourceSetContainer> {
         getByName("test").java.srcDir(apoio)
     }
@@ -95,6 +98,9 @@ subprojects {
         systemProperty("prism.order", "sw")
         // O JavaFX carrega bibliotecas nativas pelo classpath.
         jvmArgs("--enable-native-access=ALL-UNNAMED")
-        testLogging { exceptionFormat = org.gradle.api.tasks.testing.logging.TestExceptionFormat.FULL }
+        testLogging {
+            exceptionFormat =
+                org.gradle.api.tasks.testing.logging.TestExceptionFormat.FULL
+        }
     }
 }

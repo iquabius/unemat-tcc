@@ -17,84 +17,107 @@ import tcc.formulario.TipoDeVoo;
 // mesmos nomes. Acha os campos pelo rótulo (setLabelFor), os erros e a
 // confirmação pela classe de estilo.
 class Tela {
-    private final Parent formulario;
 
-    Tela() {
-        formulario = mostrar(FormularioDeReserva::new);
-    }
+  private final Parent formulario;
 
-    private Node rotulado(String rotulo) {
-        return formulario.lookupAll(".label").stream()
-                .filter(n -> n instanceof Label l && rotulo.equals(l.getText()))
-                .map(n -> ((Label) n).getLabelFor())
-                .findFirst()
-                .orElseThrow();
-    }
+  Tela() {
+    formulario = mostrar(FormularioDeReserva::new);
+  }
 
-    private TextField campo(Campo campo) {
-        return (TextField) rotulado(campo.rotulo);
-    }
+  private Node rotulado(String rotulo) {
+    return formulario
+      .lookupAll(".label")
+      .stream()
+      .filter(n -> n instanceof Label l && rotulo.equals(l.getText()))
+      .map(n -> ((Label) n).getLabelFor())
+      .findFirst()
+      .orElseThrow();
+  }
 
-    private List<Label> daClasse(String classe) {
-        return formulario.lookupAll("." + classe).stream().map(n -> (Label) n).toList();
-    }
+  private TextField campo(Campo campo) {
+    return (TextField) rotulado(campo.rotulo);
+  }
 
-    private Button botao() {
-        return formulario.lookupAll(".button").stream()
-                .filter(n -> n instanceof Button b && "Reservar".equals(b.getText()))
-                .map(n -> (Button) n)
-                .findFirst()
-                .orElseThrow();
-    }
+  private List<Label> daClasse(String classe) {
+    return formulario
+      .lookupAll("." + classe)
+      .stream()
+      .map(n -> (Label) n)
+      .toList();
+  }
 
-    // Como o setter + evento "input" da web: altera o texto sem mover o foco.
-    void digitar(Campo campo, String texto) {
-        naTela(() -> campo(campo).setText(texto));
-    }
+  private Button botao() {
+    return formulario
+      .lookupAll(".button")
+      .stream()
+      .filter(n -> n instanceof Button b && "Reservar".equals(b.getText()))
+      .map(n -> (Button) n)
+      .findFirst()
+      .orElseThrow();
+  }
 
-    // Como o blur da web: o foco entra no campo e passa para o tipo de voo,
-    // que não é campo de texto, para que só este campo fique tocado. (A Tela
-    // do Android passa o foco a outro campo, que também fica tocado se o
-    // tinha antes.)
-    void sair(Campo campo) {
-        naTela(() -> {
-            campo(campo).requestFocus();
-            rotulado("Tipo de voo").requestFocus();
-        });
-    }
+  // Como o setter + evento "input" da web: altera o texto sem mover o foco.
+  void digitar(Campo campo, String texto) {
+    naTela(() -> campo(campo).setText(texto));
+  }
 
-    @SuppressWarnings("unchecked")
-    void escolherTipo(TipoDeVoo tipo) {
-        naTela(() -> ((ComboBox<String>) rotulado("Tipo de voo")).getSelectionModel().select(tipo.ordinal()));
-    }
+  // Como o blur da web: o foco entra no campo e passa para o tipo de voo,
+  // que não é campo de texto, para que só este campo fique tocado. (A Tela
+  // do Android passa o foco a outro campo, que também fica tocado se o
+  // tinha antes.)
+  void sair(Campo campo) {
+    naTela(() -> {
+      campo(campo).requestFocus();
+      rotulado("Tipo de voo").requestFocus();
+    });
+  }
 
-    void reservar() {
-        naTela(() -> botao().fire());
-    }
+  @SuppressWarnings("unchecked")
+  void escolherTipo(TipoDeVoo tipo) {
+    naTela(() ->
+      ((ComboBox<String>) rotulado("Tipo de voo"))
+        .getSelectionModel()
+        .select(tipo.ordinal())
+    );
+  }
 
-    boolean botaoHabilitado() {
-        return naTela(() -> !botao().isDisabled());
-    }
+  void reservar() {
+    naTela(() -> botao().fire());
+  }
 
-    boolean habilitado(Campo campo) {
-        return naTela(() -> !campo(campo).isDisabled());
-    }
+  boolean botaoHabilitado() {
+    return naTela(() -> !botao().isDisabled());
+  }
 
-    String valor(Campo campo) {
-        return naTela(() -> campo(campo).getText());
-    }
+  boolean habilitado(Campo campo) {
+    return naTela(() -> !campo(campo).isDisabled());
+  }
 
-    boolean invalido(Campo campo) {
-        return naTela(() -> campo(campo).getPseudoClassStates().stream()
-                .anyMatch(p -> p.getPseudoClassName().equals("invalido")));
-    }
+  String valor(Campo campo) {
+    return naTela(() -> campo(campo).getText());
+  }
 
-    // Mensagens de erro visíveis, de cima para baixo.
-    List<String> erros() {
-        return naTela(() -> daClasse("erro").stream().filter(Node::isVisible).map(Label::getText).toList());
-    }
+  boolean invalido(Campo campo) {
+    return naTela(() ->
+      campo(campo)
+        .getPseudoClassStates()
+        .stream()
+        .anyMatch(p -> p.getPseudoClassName().equals("invalido"))
+    );
+  }
 
-    String confirmacao() {
-        return naTela(() -> daClasse("confirmacao").get(0).getText());
-    }
+  // Mensagens de erro visíveis, de cima para baixo.
+  List<String> erros() {
+    return naTela(() ->
+      daClasse("erro")
+        .stream()
+        .filter(Node::isVisible)
+        .map(Label::getText)
+        .toList()
+    );
+  }
+
+  String confirmacao() {
+    return naTela(() -> daClasse("confirmacao").get(0).getText());
+  }
 }

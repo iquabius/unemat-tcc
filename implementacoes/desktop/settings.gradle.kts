@@ -18,6 +18,7 @@ dependencyResolutionManagement {
 rootProject.name = "casos-desktop"
 
 val casos = rootDir.parentFile
+
 casos.listFiles().orEmpty().sorted().forEach { caso ->
     listOf("swing", "javafx", "javafx-fxml").forEach { tecnologia ->
         val pasta = caso.resolve(tecnologia)
