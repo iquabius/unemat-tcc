@@ -5,8 +5,8 @@ uma subpasta: =implementacoes/<interface>/<tecnologia>/=. Cada subpasta é
 um projeto completo, com o próprio =package.json=, e pode ser lida sozinha.
 O escopo (interfaces e tecnologias) está nas decisões em
 [[file:../docs/adr/][docs/adr/]]. O código que saiu da análise (o Contador,
-a Lista filtrável, o Carrinho, o jQuery, o Angular com RxJS, os pares de
-desktop em Java e no Qt e o cronômetro de 2017) fica congelado em
+a Lista filtrável, o Carrinho, o jQuery, o Angular com RxJS, o JavaFX com
+FXML, o par Qt Widgets × QML e o cronômetro de 2017) fica congelado em
 [[file:fora-da-analise/README.org][fora-da-analise/]], fora dos comandos
 abaixo.
 
@@ -22,7 +22,7 @@ abaixo.
   #+end_src
 
   O Angular 22 exige Node 22.22.3 ou mais novo. O JDK (Temurin 25) só é
-  preciso para o Android.
+  preciso para o Android e o desktop.
 
 * Instalar e rodar (web)
 
@@ -91,6 +91,32 @@ abaixo.
   [[https://kotlinlang.org/docs/gradle-configure-project.html][kotlinlang.org/docs/gradle-configure-project.html]]; havia Gradle 9.8 e AGP
   9.4 mais novos, fora dela.
 
+* Instalar e rodar (desktop)
+
+  O Formulário com validação também existe no desktop, em Java, em duas
+  tecnologias, com a tela montada em código nas duas:
+
+  | Subpasta  | Tecnologia                                       |
+  |-----------+--------------------------------------------------|
+  | =swing=   | Swing: /listeners/, estado na classe da tela     |
+  | =javafx=  | JavaFX 27: /properties/ e /bindings/, sem FXML   |
+
+  Os dois formam um único projeto Gradle, com raiz em
+  =implementacoes/desktop/=, onde ficam o /wrapper/ e as versões
+  (=gradle/libs.versions.toml=). Cada subpasta é um módulo, chamado
+  =:<interface>-<tecnologia>= (por exemplo, =:formulario-swing=). O
+  domínio é o =dominio-kotlin= do Android, compilado para a JVM e chamado
+  do Java.
+
+  #+begin_src sh
+  cd implementacoes/desktop
+  ./gradlew test                            # testes de conformidade e cenas
+  ./gradlew :formulario-javafx:run          # abre a janela
+  #+end_src
+
+  Os testes rodam sem janela: o Swing pinta a tela numa imagem, e o
+  JavaFX usa a plataforma Headless.
+
 * Capturas de tela
 
   Cada interface guarda capturas versionadas em
@@ -135,13 +161,21 @@ abaixo.
   animações ficam desligadas nos testes: o efeito de toque (/ripple/) tem
   um brilho que mudaria a imagem a cada execução.
 
+  No desktop, as cenas ficam em =src/test/.../CenasTest.java= de cada
+  módulo, e o /script/ as roda pelo Gradle de =implementacoes/desktop/=,
+  sem janela. As imagens saem no tamanho da janela, 416 × 560, sem a
+  escala 2 da web e do Android, que o Swing não mede sem janela. O aviso
+  compara Swing com JavaFX e sai sempre: cada um desenha controles e
+  texto a seu modo, cada um com o seu arquivo de estilo (=Estilo.java= no
+  Swing, =javafx-estilo/estilo.css= no JavaFX).
+
   Agentes de código seguem essas regras pelo
   [[file:AGENTS.md][implementacoes/AGENTS.md]] (o =CLAUDE.md= ao lado é um
   /symlink/ para ele).
 
   As imagens web dependem das fontes instaladas: geradas noutra máquina,
-  podem mudar sem que o código tenha mudado. As do Android usam as fontes
-  que o Robolectric traz.
+  podem mudar sem que o código tenha mudado, e as do desktop também. As do
+  Android usam as fontes que o Robolectric traz.
 
 * Especificação das interfaces (OpenSpec)
 

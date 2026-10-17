@@ -13,10 +13,10 @@ Toda alteração que possa mudar a tela ou o comportamento de uma
 implementação exige conferir as capturas antes de dar o trabalho por pronto
 ou commitar. Isso inclui o código de
 `implementacoes/<interface>/<tecnologia>/`, o `estilo.css`, o `dominio.ts`
-e o `cenas.mts` de cada interface, o `implementacoes/capturar.mts`, o
-projeto Gradle em `implementacoes/android/` e as dependências
-(`package.json`, `package-lock.json`,
-`implementacoes/android/gradle/libs.versions.toml`).
+e o `cenas.mts` de cada interface, o `implementacoes/capturar.mts`, os
+projetos Gradle em `implementacoes/android/` e `implementacoes/desktop/` e
+as dependências (`package.json`, `package-lock.json` e o
+`gradle/libs.versions.toml` de cada projeto Gradle).
 
 1. Rode, de `implementacoes/`, onde está o `package.json` dos *workspaces*:
 
@@ -24,10 +24,10 @@ projeto Gradle em `implementacoes/android/` e as dependências
    npm run capturas -- --conferir <interface>
    ```
 
-   Sem `<interface>`, confere todas, web e Android. O comando não grava
-   nada: compara as imagens geradas agora com as versionadas em
-   `implementacoes/<interface>/capturas/` e sai com erro se alguma mudou, é
-   nova ou sumiu.
+   Sem `<interface>`, confere todas, web, Android e desktop. O comando não
+   grava nada: compara as imagens geradas agora com as versionadas em
+   `implementacoes/<interface>/capturas/` e sai com erro se alguma mudou,
+   é nova ou sumiu.
 2. Se a saída trouxer `AVISO: <interface>/<cena> (web) difere entre as
    tecnologias`, alguma implementação web foge da especificação da
    interface. Corrija antes de seguir: as implementações web de uma
@@ -36,7 +36,10 @@ projeto Gradle em `implementacoes/android/` e as dependências
    Compose desenham os mesmos glifos com diferenças de poucos pixels (no
    Contador, 0,15% da imagem, só nos algarismos e no "+"). Abra as duas
    imagens: se posições, tamanhos, cores e conteúdo batem, siga; se não,
-   corrija o arquivo de estilo da tecnologia. **Nunca acrescente código de
+   corrija o arquivo de estilo da tecnologia. No desktop, o aviso
+   `(desktop)` sai sempre: Swing e JavaFX desenham controles e texto cada
+   um a seu modo (decisão do autor em 2026-10-17); abra as imagens e
+   confira conteúdo, posições e cores. **Nunca acrescente código de
    aparência na tela para igualar as imagens**: no TCC, o código da tela
    com a menor variação possível entre as implementações importa mais que
    o resultado visual.
@@ -375,10 +378,60 @@ conferidas.
 - Para rodar num emulador ou abrir no Android Studio, use a pasta
   `implementacoes/android/`.
 
+## Desktop (Java)
+
+- Interfaces no desktop: o Formulário com validação, em
+  `implementacoes/<interface>/swing/` (*listeners*, estado na classe da
+  tela) e `implementacoes/<interface>/javafx/` (*properties* e
+  *bindings*), os dois em Java e com a tela montada em código, com as
+  mesmas chamadas e na mesma ordem, para o par diferir só no modelo de
+  programação. Sem FXML: o `javafx-fxml` ficou congelado em
+  `fora-da-analise/` (decisão do autor em 2026-10-16).
+- Um único projeto Gradle em `implementacoes/desktop/`: o
+  `settings.gradle.kts` inclui sozinho toda pasta `swing` ou `javafx` que
+  tenha `build.gradle.kts`, com o nome `:<interface>-<tecnologia>`. O
+  `build.gradle.kts` da raiz traz a configuração comum; o de cada módulo,
+  só a `mainClass` e, no JavaFX, o *plugin* e os módulos.
+- O domínio é o `dominio-kotlin` do Android, que o `build.gradle.kts` da
+  raiz compila para a JVM; a tela o chama do Java (`DominioKt`). Dos
+  testes de lá, só entra a regra `DataFixa`.
+- Comentários curtos em português que apontem o equivalente no Web
+  Component (como o `addEventListener("input")`) e, no JavaFX, no Solid
+  (como o `createMemo`), o par do mesmo modelo de programação na web.
+- Aparência igual à da web, reproduzindo o `estilo.css` da interface, e
+  separada da tela: no Swing, `Estilo.java`, que percorre os componentes
+  e escolhe pela propriedade `classe` (o `class`) ou pelo tipo, e escreve
+  no `UIManager` o que o Metal só lê de lá; no JavaFX, o
+  `<interface>/javafx-estilo/estilo.css`, que o `Main` carrega. Os dois
+  ficam fora da análise.
+- Quando a interface tem `teste-de-conformidade.js`, as mesmas
+  verificações vão para `TesteDeConformidade.java` em cada tecnologia, na
+  mesma ordem e com os mesmos nomes, e as cenas do `cenas.mts`, para
+  `CenasTest.java`, que termina cada cena com `tela.capturar("<cena>")`.
+  As ações e leituras ficam numa classe `Tela` de teste por tecnologia,
+  com a API das do Android (`digitar`, `sair`, `focar`, `preencher`,
+  `erros()`...). A `Tela` acha os campos pelo rótulo (`setLabelFor`), sem
+  marcas só para teste, e monta a tela como o `Main`: o Swing com o
+  `Estilo`, o JavaFX numa janela do tamanho do `Main`, com o `estilo.css`.
+  O apoio comum fica em `implementacoes/desktop/teste/`: `naTela` (a
+  thread da interface), `mostrar` e `capturar` por tecnologia, e o
+  `Captura.java`, que grava as imagens.
+- Os testes rodam sem janela: o Swing com `java.awt.headless` e o texto
+  suavizado, o JavaFX na plataforma Headless. Sem janela, o Swing não tem
+  foco, e a `Tela` dispara a saída do campo nos *listeners* de foco dele;
+  no JavaFX, o foco anda pela janela, que não aparece.
+- As capturas saem em 416 × 560, o tamanho da janela, na escala 1: sem
+  janela, o Swing mede o texto na escala 1 e, pintado na 2 da web e do
+  Android, corta o fim de cada texto. O JavaFX acompanha.
+- Rode de `implementacoes/desktop/`: `./gradlew test` roda os testes de
+  conformidade e as cenas, e `./gradlew :<interface>-<tecnologia>:run`
+  abre a janela.
+
 ## Ambiente
 
-- Node e JDK pelo asdf, nas versões do `.tool-versions` da raiz. Se `node`
-  ou `java` não estiverem no `PATH`, use `~/.asdf/shims`.
+- Node e JDK (Android e desktop) pelo asdf, nas versões do
+  `.tool-versions` da raiz. Se `node` ou `java` não estiverem no `PATH`,
+  use `~/.asdf/shims`.
 - Android SDK em `~/Android/Sdk`, apontado por
   `implementacoes/android/local.properties` (`sdk.dir=...`, não versionado;
   o Android Studio cria sozinho). Licenças do SDK são aceitas pelo usuário,
@@ -391,8 +444,8 @@ conferidas.
 `implementacoes/fora-da-analise/` guarda, com a estrutura de `implementacoes/`
 (`<interface>/<tecnologia>/`), o código que saiu da análise: o Contador, a
 Lista filtrável e o Carrinho (ADR 0002), o jQuery e o Angular com RxJS
-(ADR 0013), os pares de desktop Swing × JavaFX e Qt Widgets × QML (ADR
-0001) e o cronômetro de 2017 (ADR 0012). O `README.org` de lá diz o que é
+(ADR 0013), o JavaFX com FXML, o par Qt Widgets × QML (ADR 0001) e o
+cronômetro de 2017 (ADR 0012). O `README.org` de lá diz o que é
 cada pasta, por que saiu e como rodá-la no commit anterior ao movimento.
 
 - É registro congelado (decisão do autor em 2026-10-13): não se edita,

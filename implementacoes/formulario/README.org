@@ -26,8 +26,8 @@ rodada edita o =spec.md= direto (=implementacoes/AGENTS.md=).
   No Android, as mesmas 19 verificações estão em =TesteDeConformidade.kt=, nos
   testes de cada tecnologia, e rodam com o =npm run capturas= (ou com
   =./gradlew testDebugUnitTest= em =implementacoes/android/=). No desktop,
-  estão em =TesteDeConformidade.java=, também por tecnologia, e rodam com
-  =./gradlew test= em =implementacoes/desktop/=.
+  estão em =TesteDeConformidade.java=, também por tecnologia, e rodam com o
+  =npm run capturas= (ou com =./gradlew test= em =implementacoes/desktop/=).
   O =DominioTest.kt= confere os casos-limite do porte do domínio (31/02,
   e-mail, ordem das datas).
 
