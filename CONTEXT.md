@@ -317,9 +317,10 @@ caso de teste
 
 **Mudança**:
 O que se propõe e se arquiva no OpenSpec para a especificação (*change*):
-a especificação de uma interface nova, cada funcionalidade e requisito de
-orquestração da segunda rodada, e as correções da primeira, como a retirada da espera da
-Busca. É o termo da engenharia de software em português para *change*
+a especificação de uma interface nova e cada funcionalidade e requisito
+de orquestração da segunda rodada (ADR 0030). A correção dentro de uma
+rodada, como a retirada da espera da Busca na primeira, edita a
+especificação direto, sem mudança no OpenSpec. É o termo da engenharia de software em português para *change*
 (gerência de mudanças, análise de impacto de mudanças) e o da viscosidade,
 "resistência à mudança" (`docs/paradigma-modelo-e-notacao.md`, seção
 "Mudança, alteração e modificação").
