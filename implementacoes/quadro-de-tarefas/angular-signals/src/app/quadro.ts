@@ -96,9 +96,8 @@ export class Cabecalho {
             <li>
               <span class="titulo">{{ tarefa(id).titulo }}</span>
               <select
-                #lista
                 attr.aria-label="Coluna de {{ tarefa(id).titulo }}"
-                (change)="loja.mover(id, coluna(), $any(lista.value))"
+                (change)="loja.mover(id, coluna(), $any($event.target).value)"
               >
                 @for (para of colunas; track para) {
                   <option
