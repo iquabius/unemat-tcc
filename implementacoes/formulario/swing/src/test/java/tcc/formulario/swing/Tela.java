@@ -13,17 +13,25 @@ import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import tcc.desktop.Swing;
 import tcc.formulario.TipoDeVoo;
 
-// Ações e leituras usadas pelo teste, como as funções do
+// Ações e leituras usadas pelas cenas e pelo teste, como as funções do
 // teste-de-conformidade.js. A Tela do JavaFX tem os mesmos nomes. Acha os
 // campos pelo rótulo (setLabelFor), os erros e a confirmação pela classe.
 class Tela {
 
   private final FormularioDeReserva formulario;
+  // Sem janela, o Swing não tem foco: o campo focado fica anotado aqui.
+  private Campo focado;
 
+  // Como o Main: a tela com o Estilo, que as cenas capturam.
   Tela() {
-    formulario = naTela(FormularioDeReserva::new);
+    formulario = naTela(() -> {
+      FormularioDeReserva tela = new FormularioDeReserva();
+      Estilo.aplicar(tela);
+      return tela;
+    });
   }
 
   private Component rotulado(String rotulo) {
@@ -76,6 +84,24 @@ class Tela {
         ouvinte.focusLost(evento);
       }
     });
+  }
+
+  // Como o focus() da web: o campo que tinha o foco o perde.
+  void focar(Campo campo) {
+    if (focado != null && focado != campo) {
+      sair(focado);
+    }
+    focado = campo;
+  }
+
+  // Como o fill() do Playwright: foca o campo e escreve.
+  void preencher(Campo campo, String texto) {
+    focar(campo);
+    digitar(campo, texto);
+  }
+
+  void capturar(String cena) {
+    Swing.capturar(formulario, cena);
   }
 
   @SuppressWarnings("unchecked")
