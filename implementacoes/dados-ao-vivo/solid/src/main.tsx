@@ -4,6 +4,8 @@ import {
   JOGOS,
   MENSAGENS,
   inscreverNosPlacares,
+  iniciarRelogio,
+  formatarAtualizacao,
   formatarPlacar,
   formatarTempo,
   golsNovos,
@@ -16,17 +18,25 @@ function PainelDePlacares() {
   const [pausado, setPausado] = createSignal(false);
   // Os dois últimos lotes: o atual dá o placar, o anterior, os gols novos.
   const [lotes, setLotes] = createSignal<{ anterior?: Lote; atual?: Lote }>({});
+  // A hora em que chegou o último lote e a do último tique do relógio.
+  const [chegada, setChegada] = createSignal<number>();
+  const [agora, setAgora] = createSignal(Date.now());
 
   // O efeito roda de novo quando pausado se altera; o onCleanup cancela a
   // inscrição antes disso e quando o painel sai da tela.
   createEffect(() => {
     if (pausado()) return;
     onCleanup(
-      inscreverNosPlacares((lote) =>
-        setLotes(({ atual }) => ({ anterior: atual, atual: lote })),
-      ),
+      inscreverNosPlacares((lote) => {
+        setLotes(({ atual }) => ({ anterior: atual, atual: lote }));
+        setChegada(Date.now());
+      }),
     );
   });
+
+  // O relógio vive com o painel, e não com a inscrição: fora do efeito, o
+  // onCleanup o para só quando o painel sai da tela.
+  onCleanup(iniciarRelogio(() => setAgora(Date.now())));
 
   const situacao = () =>
     pausado() ? MENSAGENS.pausado : lotes().atual ? "" : MENSAGENS.aguardando;
@@ -36,6 +46,7 @@ function PainelDePlacares() {
       <p class="situacao" role="status">
         {situacao()}
       </p>
+      <p class="atualizacao">{formatarAtualizacao(chegada(), agora())}</p>
       <table>
         <thead>
           <tr>
