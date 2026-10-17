@@ -91,4 +91,40 @@ class DominioTest {
         relogio.avancar(5000)
         assertEquals(2, recebidos.size)
     }
+
+    @Test
+    fun relogioDoPainel() {
+        val horas = mutableListOf<Long>()
+        val inicio = agora()
+        val tiques = iniciarRelogio { horas += agora() - inicio }
+        assertEquals(1, contarRelogios())
+        relogio.avancar(2500)
+        assertEquals(listOf(1000L, 2000L), horas)
+
+        tiques.close()
+        tiques.close()
+        assertEquals(0, contarRelogios())
+        relogio.avancar(5000)
+        assertEquals(2, horas.size)
+    }
+
+    @Test
+    fun atualizacao() {
+        val chegada = instante("2026-10-12T10:00:02Z")
+        assertEquals("", formatarAtualizacao(null, chegada))
+        assertEquals("Atualizado há 0 s", formatarAtualizacao(chegada, chegada))
+        assertEquals(
+            "Atualizado há 0 s",
+            formatarAtualizacao(chegada, chegada + 999),
+        )
+        assertEquals(
+            "Atualizado há 7 s",
+            formatarAtualizacao(chegada, chegada + 7000),
+        )
+        // O agora do último tique, lido antes da chegada do lote.
+        assertEquals(
+            "Atualizado há 0 s",
+            formatarAtualizacao(chegada, chegada - 1000),
+        )
+    }
 }

@@ -9,8 +9,9 @@ import org.junit.runner.RunWith
 import org.robolectric.annotation.Config
 import tcc.dadosaovivo.RelogioFalso
 import tcc.dadosaovivo.contarInscricoes
+import tcc.dadosaovivo.contarRelogios
 
-// As 15 verificações de implementacoes/dados-ao-vivo/teste-de-conformidade.js,
+// As 19 verificações de implementacoes/dados-ao-vivo/teste-de-conformidade.js,
 // na mesma ordem e com os mesmos nomes. O relógio falso começa às 10:00:00 UTC
 // de 2026-10-12 e só anda com avancar(ms). Falha listando todas as que não
 // passaram.
@@ -75,13 +76,14 @@ class TesteDeConformidade {
 
         tela.alternar()
         conferir(
-            "2 esconder cancela a inscrição",
+            "2 esconder cancela a inscrição e para o relógio",
             listOf(
                 tela.painelNaPagina(),
                 tela.textoDoAlternar(),
                 contarInscricoes(),
+                contarRelogios(),
             ),
-            listOf(false, "Mostrar painel", 0),
+            listOf(false, "Mostrar painel", 0, 0),
         )
 
         tela.alternar()
@@ -92,13 +94,17 @@ class TesteDeConformidade {
                 tela.linhas(),
                 tela.textoDaPausa(),
                 tela.textoDoAlternar(),
+                tela.atualizacao(),
                 contarInscricoes(),
+                contarRelogios(),
             ),
             listOf(
                 "Aguardando placares…",
                 semLote,
                 "Pausar",
                 "Esconder painel",
+                "",
+                1,
                 1,
             ),
         )
@@ -114,6 +120,11 @@ class TesteDeConformidade {
             "4 jogo no palpite fica destacado",
             tela.destacadas(),
             listOf("GRE × INT"),
+        )
+        conferir(
+            "4 o primeiro lote mostra atualizado há 0 s",
+            tela.atualizacao(),
+            "Atualizado há 0 s",
         )
 
         tela.avancar(1000)
@@ -136,6 +147,11 @@ class TesteDeConformidade {
         )
         tela.avancar(7000)
         conferir("6 em pausa a tabela não muda", tela.linhas(), segundoLote)
+        conferir(
+            "6 em pausa o atualizado há conta os segundos",
+            tela.atualizacao(),
+            "Atualizado há 7 s",
+        )
 
         tela.pausa()
         conferir(
@@ -143,12 +159,23 @@ class TesteDeConformidade {
             listOf(tela.situacao(), tela.textoDaPausa(), contarInscricoes()),
             listOf("", "Pausar", 1),
         )
+        conferir(
+            "7 retomar não zera o atualizado há",
+            tela.atualizacao(),
+            "Atualizado há 7 s",
+        )
         // O lote sai 8 s depois do segundo; os gols da pausa contam desde ele.
         tela.avancar(1000)
         conferir(
             "7 gols novos contam desde o último lote mostrado",
             listOf(tela.linhas(), tela.destacadas()),
             listOf(loteDepoisDaPausa, listOf("CAM × CRU")),
+        )
+        // O tique do relógio e o lote saem no mesmo instante, 10:00:10.
+        conferir(
+            "7 o lote seguinte volta o atualizado há a 0 s",
+            tela.atualizacao(),
+            "Atualizado há 0 s",
         )
 
         conferir(
@@ -166,9 +193,11 @@ class TesteDeConformidade {
                 tela.situacao(),
                 tela.textoDaPausa(),
                 tela.linhas(),
+                tela.atualizacao(),
                 contarInscricoes(),
+                contarRelogios(),
             ),
-            listOf("Aguardando placares…", "Pausar", semLote, 1),
+            listOf("Aguardando placares…", "Pausar", semLote, "", 1, 1),
         )
 
         tela.pausa()
@@ -184,9 +213,9 @@ class TesteDeConformidade {
             tela.alternar()
         }
         conferir(
-            "11 esconder e mostrar três vezes deixa uma inscrição",
-            contarInscricoes(),
-            1,
+            "11 esconder e mostrar três vezes deixa uma inscrição e um relógio",
+            listOf(contarInscricoes(), contarRelogios()),
+            listOf(1, 1),
         )
 
         assertTrue(falhas.joinToString("\n"), falhas.isEmpty())

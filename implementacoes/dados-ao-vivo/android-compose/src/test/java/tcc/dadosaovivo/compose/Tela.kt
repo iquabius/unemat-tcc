@@ -27,7 +27,8 @@ private val texto = SemanticsMatcher.keyIsDefined(SemanticsProperties.Text)
 // teste-de-conformidade.js. A Tela do Views tem os mesmos nomes. Os elementos
 // são achados pela semântica, sem marcas só para teste: os botões pelo papel
 // e pela ordem (o que esconde e mostra o painel, e o de pausa), a situação
-// pela região anunciada e as células da tabela pelo texto e pela posição.
+// pela região anunciada, o "Atualizado há" pela ordem, logo depois dela, e as
+// células da tabela pelo texto e pela posição.
 class Tela(
     private val regra:
         AndroidComposeTestRule<
@@ -90,6 +91,22 @@ class Tela(
     fun painelNaPagina() = situacaoNo() != null
 
     fun situacao(): String? = situacaoNo()?.let { textoDe(it) }
+
+    // O "Atualizado há" (.atualizacao na web): o texto logo depois da região
+    // de status, na ordem da tela, vazio ou não. Pelos limites na tela não
+    // serve: o texto vazio não tem largura, e os limites dele saem zerados.
+    fun atualizacao(): String? {
+        val nos =
+            regra
+                .onAllNodes(
+                    texto and !hasAnyAncestor(botao),
+                    useUnmergedTree = true,
+                )
+                .fetchSemanticsNodes()
+        val situacao = nos.indexOfFirst { regiaoDeStatus.matches(it) }
+        if (situacao < 0) return null
+        return nos.getOrNull(situacao + 1)?.let { textoDe(it) }
+    }
 
     // As linhas dos jogos, com os textos das células separados por " | ",
     // como o linhas() da web.
