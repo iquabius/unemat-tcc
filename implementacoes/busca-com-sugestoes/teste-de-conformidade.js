@@ -2,8 +2,8 @@
 // implementações web. Cole no console do navegador com a implementação aberta;
 // a última linha devolve o resultado de cada verificação ("ok" ou "FALHOU").
 // Segue a especificação, com latência de 800 ms (até 2 letras) ou 200 ms (3
-// ou mais); cada verificação é um cenário de implementacoes/openspec/specs/
-// busca-com-sugestoes/spec.md.
+// ou mais); cada verificação é um cenário de
+// implementacoes/openspec/specs/busca-com-sugestoes/spec.md.
 (async () => {
   const dormir = (ms) => new Promise((r) => setTimeout(r, ms));
   const campo = () => document.querySelector('[name="destino"]');
