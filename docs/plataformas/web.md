@@ -35,8 +35,8 @@ Tratar como literatura cinzenta no texto:
   autor do Solid;
 - ***benchmark***: os números vêm de um único mantenedor.
 
-Versões nos `package.json` de `implementacoes/`: React 19.3.0, Solid
-1.9.15, Angular 22.2.0 com RxJS 7.8, jQuery 4.0.0 (2026-09-26). As
+Versões no `package-lock.json` de `implementacoes/`: React 19.3.0,
+Solid 1.9.15, Lit 3.3.3, Angular 22.2.0 com RxJS 7.8.2 (2026-10-16). As
 bibliotecas de formulário da terceira rodada, com as medidas do registro
 de 2026-10-12, estão em `docs/plataformas/bibliotecas-de-formulario.md`
 (ADR 0031).
@@ -255,6 +255,25 @@ evidência.
     existiria sem a classe. Fontes: Carniato 2024; Harris 2019; Verou
     2024; State of JS 2025. Evidência: opinião de partes interessadas;
     número.
+- **Lit como a declarativa por re-renderização sobre o Web Component**
+  - *pró*: Escreve sobre o Web Component (`LitElement` estende
+    `HTMLElement`), com o mesmo modelo de componente e a mesma
+    orquestração, e muda a ligação do estado com a tela: o par Web
+    Component × Lit é o único que isola o imperativo; sem ele, os custos
+    dos *hooks* do React na orquestração iriam para a conta da
+    re-renderização (na espera de 300 ms do rascunho de 2026-10-12,
+    +34/−22 linhas no React contra +5/−1 no Lit); 8,4 M downloads por
+    semana e 1,30 no *benchmark*, contra 1,58 do React. Fontes: lit.dev
+    *Lifecycle*; ADR 0013; npm; Krause 2026. Evidência: fato oficial;
+    medida de rascunho; número.
+  - *contra*: Uso pequeno (10% no State of JS 2025, retenção de 67%;
+    ausente no Stack Overflow e no W3Techs); fica em três das cinco
+    interfaces, e no Formulário o rascunho sai quase linha a linha igual
+    ao React, dentro de uma classe; a variante com *signals*
+    (`@lit-labs/signals` 0.3.0) é experimental. Fontes: State of JS
+    2025; SO 2025; W3Techs 2026-09-26; ADR 0013;
+    lit.dev/docs/data/signals. Evidência: número; fato; medida de
+    rascunho.
 - **jQuery como a imperativa reconhecível, que ficou fora**
   - *pró*: Terceira mais usada no Stack Overflow 2025 (23,4%), 65,6% dos
     *sites*; 4.0.0 em 2026-01, mantida; a API (`.on`, `.html`, `.val`) é
