@@ -55,6 +55,13 @@ Primeira rodada em 2026-09-24.
   2014; 2016) a partir de bainomugisha2013, salvaneschi2014, salvaneschi2017,
   czaplicki2013, elliott1997, salvaneschi2015, edwards2009, salvaneschi2013,
   zimmerle2022 e Green & Petre (1996); para trás a partir de zimmerle2025.
+- **Cópias.** O texto completo de cada fonte lida fica em `acervo/` (ADR
+  0038), e de onde a cópia veio, com o link e a data do download, numa
+  linha de `acervo/procedencia.tsv` (ADR 0039), escrita no mesmo passo
+  do download. Nas três rodadas, até 2026-10-13, o link ficou numa
+  `annotation` do `refs.bib`, numa nota ou só na conversa; a rodada de
+  procedência da tarefa da Bibliografia que imprime a URL e o acesso o
+  recupera.
 
 | Etapa | Registros |
 |---|---|
@@ -292,7 +299,7 @@ Economics) e Tsukanova & Zabrodin (2026): veículos fora da área; o resumo do
 segundo parece relevante, conferir o veículo. Donvir et al. (2024, arXiv):
 preprint. Estudos de desempenho de WebFlux e serverless: lado servidor.
 Jain & Mittal (2024, *The rise of component-driven development in modern
-frontend frameworks*, IJFMR, `tmp/fontes/artigos/jain2024.pdf`), lido em 2026-10-11:
+frontend frameworks*, IJFMR, `acervo/artigos/jain2024.pdf`), lido em 2026-10-11:
 veículo multidisciplinar fora da área, sem método nem dados, com os
 "case studies" como afirmações e dez referências de blogs e palestras;
 descartado como o IJEECS acima. A lista de práticas (contêiner e

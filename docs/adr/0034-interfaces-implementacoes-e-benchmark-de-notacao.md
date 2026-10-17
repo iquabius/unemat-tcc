@@ -60,7 +60,7 @@ os corpos em 2026-10-15, e as notas delas, que são registro, ficaram.
 
 Fontes: `sim2003` (§3.2, p. 76), `kiss2014` (p. 11, 104 e 114),
 `erdweg2015` (§6), `nanz2013` (resumo), `green1996d` (Fig. 1) e o 7GUIs,
-lidos em `tmp/fontes/` em 2026-10-14; `blackwell2003` (p. 107), lido
+lidos em `acervo/` em 2026-10-14; `blackwell2003` (p. 107), lido
 em 2026-10-16; `docs/metodo-da-avaliacao.md`,
 seção "O rótulo do método: avaliação de um conjunto de interfaces, não
 estudo de caso".

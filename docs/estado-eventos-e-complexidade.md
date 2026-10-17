@@ -296,7 +296,7 @@ A cadeia, com a fonte de cada elo:
    cadeia fica toda em fontes revisadas: estado implícito, sequência
    escrita pelo programador, complexidade acidental. Järvi et al. põem
    os defeitos no código que coordena eventos. Conferido em 2026-10-15
-   (`tmp/fontes/edwards2009.pdf`, p. 5 do PDF; a p. 1
+   (`acervo/edwards2009.pdf`, p. 5 do PDF; a p. 1
    do PDF é a 925).
 
 ## Pendências
@@ -317,7 +317,7 @@ A cadeia, com a fonte de cada elo:
 
 Criada em 2026-10-14, como `docs/problema-lacuna-pergunta.md`, com o que
 estava nas seções 4 e 8 de `docs/fundamentacao.md` e com a busca de
-2026-10-14 sobre estado nas 211 fontes de `tmp/fontes/`. Em 2026-10-15,
+2026-10-14 sobre estado nas 211 fontes de `acervo/`. Em 2026-10-15,
 ganhou o nome de agora, a lacuna passou para
 `docs/trabalhos-relacionados-e-lacuna.md` e a seção "Coordenação,
 orquestração e estado nas fontes" veio de

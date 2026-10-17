@@ -29,7 +29,7 @@ iguais.
 | 81 | o JSON do `juntar`: os registros com `seen` falso, em ordem de título | a decisão de cada registro e as notas, pela leitura do título e do resumo |
 | 82 | `filtro 'fulltext.search:<termo>'` para "7GUIs", "eugenkiss", "eugen kiss", "GUI programming benchmark" e outros | o código que pôs os JSON em listas; Semantic Scholar, busca na web e GitHub; a triagem |
 | 83 | `citantes` e `referencias`, com `sementes-iteracao2.txt` | o código que pôs os JSON em listas; a triagem |
-| 84 | nada: as referências de Kiss, Mernik et al. e Zimmerle (2024) saíram das cópias em `tmp/fontes/` | um filtro por termos de interface, PR ou DCs sobre a bibliografia de Zimmerle (2024), e a leitura das listas |
+| 84 | nada: as referências de Kiss, Mernik et al. e Zimmerle (2024) saíram das cópias em `acervo/` | um filtro por termos de interface, PR ou DCs sobre a bibliografia de Zimmerle (2024), e a leitura das listas |
 | 85 | `filtro 'fulltext.search:"cognitive dimensions" <termo>'`, oito termos | o código que pôs os JSON em listas e cortou, nos resultados grandes, os de 2013 em diante com termo de programação ou interface no título; a triagem, com notas |
 | 86 | nada: o Google Acadêmico, pelas capturas do autor (2026-10-13) | tudo |
 

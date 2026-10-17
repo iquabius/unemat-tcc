@@ -67,8 +67,7 @@ class Listagem(unittest.TestCase):
             "devlogs/2026-10-14-a-15-sessao.md",
             "revisao/2026-10-15-checagem-intro/passada-1.md",
             "revisao/estrutura-sem-data.md",
-            "fontes/kiss2014.pdf",
-            "fontes/artigos/2026-10-14-nao-conta.pdf",
+            "avaliacao/2026-10-14-nao-conta.md",
         ]:
             p = raiz / caminho
             p.parent.mkdir(parents=True, exist_ok=True)
@@ -86,7 +85,7 @@ class Listagem(unittest.TestCase):
 
     def test_agrupa_por_dia_e_repete_o_intervalo(self):
         codigo, saida = self.rodar()
-        self.assertEqual(codigo, 0)
+        self.assertEqual(codigo, 1)
         self.assertEqual(saida, (
             "2026-10-14\n"
             "  tmp/devlogs/2026-10-14-a-15-sessao.md\n"
@@ -96,12 +95,42 @@ class Listagem(unittest.TestCase):
             "  tmp/revisao/2026-10-15-checagem-intro\n"
             "sem data válida no começo do nome\n"
             "  tmp/revisao/estrutura-sem-data.md\n"
+            "pasta fora do ADR 0038\n"
+            "  tmp/avaliacao\n"
             "solto na raiz\n"
             "  tmp/solto-na-raiz.md\n"))
 
-    def test_fontes_fica_de_fora(self):
+    def test_pasta_fora_do_adr_nao_se_le(self):
         _, saida = self.rodar()
-        self.assertNotIn("fontes", saida)
+        self.assertNotIn("nao-conta", saida)
+
+    def test_tudo_em_ordem_sai_com_zero(self):
+        self.em_ordem()
+        codigo, saida = self.rodar()
+        self.assertEqual(codigo, 0)
+        self.assertNotIn("sem data", saida)
+
+    def em_ordem(self):
+        (self.raiz / "solto-na-raiz.md").unlink()
+        (self.raiz / "revisao/estrutura-sem-data.md").unlink()
+        (self.raiz / "avaliacao/2026-10-14-nao-conta.md").unlink()
+        (self.raiz / "avaliacao").rmdir()
+
+    def test_so_a_pasta_fora_do_adr_sai_com_um(self):
+        self.em_ordem()
+        (self.raiz / "avaliacao").mkdir()
+        self.assertEqual(self.rodar()[0], 1)
+
+    def test_so_o_nome_sem_data_sai_com_um(self):
+        self.em_ordem()
+        (self.raiz / "revisao/sem-data.md").write_text("")
+        self.assertEqual(self.rodar()[0], 1)
+
+    def test_raiz_relativa_sai_com_o_nome_da_pasta(self):
+        saida = io.StringIO()
+        with contextlib.chdir(self.raiz):
+            tpd.main(["--raiz", "."], saida)
+        self.assertIn("  tmp/devlogs/2026-10-14-corte-intro.md\n", saida.getvalue())
 
     def test_desde_e_ate_inclusivos(self):
         _, saida = self.rodar("--desde", "2026-10-15", "--ate", "2026-10-15")

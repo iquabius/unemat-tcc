@@ -66,7 +66,7 @@ coisa.
 
 | Fonte | O que sustenta | Onde |
 |---|---|---|
-| SIM, S. E.; EASTERBROOK, S.; HOLT, R. C. *Using benchmarking to advance research: a challenge to software engineering*. ICSE 2003, p. 74-83. DOI 10.1109/icse.2003.1201189 | *Benchmark* é "um teste ou conjunto de testes usado para comparar o desempenho de ferramentas ou técnicas alternativas", com três componentes: comparação motivadora, amostra de tarefas ("representativa" das tarefas da prática, como substitutas) e medidas de desempenho, que "podem ser quantitativas ou qualitativas", feitas "por um computador ou por uma pessoa". Um conjunto de testes sem medida de desempenho é um proto-*benchmark*, às vezes chamado de "estudos de caso ou exemplares" | §3.2; a cópia do autor (cs.toronto.edu) e a do ResearchGate são o mesmo arquivo, sem a paginação dos anais (p. 74-83); a do IEEE (`tmp/fontes/sim2003.pdf`) também não a imprime, mas tem as dez páginas dos anais, e a p. 3 dela, com a *Task Sample*, é a p. 76 (conferido em 2026-10-14) |
+| SIM, S. E.; EASTERBROOK, S.; HOLT, R. C. *Using benchmarking to advance research: a challenge to software engineering*. ICSE 2003, p. 74-83. DOI 10.1109/icse.2003.1201189 | *Benchmark* é "um teste ou conjunto de testes usado para comparar o desempenho de ferramentas ou técnicas alternativas", com três componentes: comparação motivadora, amostra de tarefas ("representativa" das tarefas da prática, como substitutas) e medidas de desempenho, que "podem ser quantitativas ou qualitativas", feitas "por um computador ou por uma pessoa". Um conjunto de testes sem medida de desempenho é um proto-*benchmark*, às vezes chamado de "estudos de caso ou exemplares" | §3.2; a cópia do autor (cs.toronto.edu) e a do ResearchGate são o mesmo arquivo, sem a paginação dos anais (p. 74-83); a do IEEE (`acervo/sim2003.pdf`) também não a imprime, mas tem as dez páginas dos anais, e a p. 3 dela, com a *Task Sample*, é a p. 76 (conferido em 2026-10-14) |
 | idem | **Ressalva a declarar nas limitações:** a teoria trata de *benchmarks* criados e usados por uma comunidade de pesquisa; os "criados por um único indivíduo ou laboratório e pouco usados" tendem a não ter o mesmo impacto. As cinco interfaces do TCC são de um só autor; três partem do 7GUIs, que tem implementações de terceiros, e duas não | §3.1 |
 | STOL, K.-J.; FITZGERALD, B. *The ABC of software engineering research*. ACM TOSEM, v. 27, n. 3, art. 11, 2018. DOI 10.1145/3241743 | Estudos de *benchmarking* que comparam técnicas por critérios predefinidos pertencem à estratégia de experimento de laboratório, porque o pesquisador monta um ambiente artificial (*contrived*); limitações inerentes: contexto abstrato ou irreal e validade interna à custa da externa. Serve para enquadrar o delineamento e as limitações, não como rótulo: os autores pensam em dados quantitativos | p. 11:15 e Tabela 5, p. 11:13-14 (versão publicada; na aceita, p. 1:13 e 1:15-16) |
 | RUNESON, P.; HÖST, M. *Guidelines for conducting and reporting case study research in software engineering*. Empirical Software Engineering, v. 14, n. 2, 2009. DOI 10.1007/s10664-008-9102-8 | As definições de estudo de caso que reúnem (Robson, Yin, Benbasat et al.) concordam em método empírico sobre fenômeno contemporâneo no seu contexto; estudos com "*toy programs*" ficam excluídos "por falta de contexto real" | p. 134 (§2.1) e p. 139 |
@@ -159,7 +159,7 @@ mostra o que só aparece em programa grande (Stol e Fitzgerald 2018;
 Runeson e Höst 2009), e fora do brinquedo o programa pede abstrações
 acima dos conceitos da linguagem núcleo (Van Roy e Haridi 2004). Achados
 na checagem adversarial da introdução, ao procurar "toy" nas fontes de
-`tmp/fontes/`. Todos os trechos lidos no PDF pelo agente principal; a
+`acervo/`. Todos os trechos lidos no PDF pelo agente principal; a
 página é a impressa.
 
 | Fonte | Trecho | Onde | Uso |
@@ -390,7 +390,7 @@ procedimento da skill `avaliacao-pelas-dcs` (tcc-4a9) sai daqui, e as
 armadilhas dela, das seções "Armadilhas declaradas pelas fontes" e
 "Armadilhas do próprio trabalho". Levantamento de quatro subagentes;
 todos os trechos da tabela foram conferidos no PDF pelo agente
-principal, com a página impressa. Cópias em `tmp/fontes/`, fora do git:
+principal, com a página impressa. Cópias em `acervo/`, fora do git:
 as publicadas são `green1996-usability-analysis-...pdf` (JVLC, p.
 131-174; `greenpetre1996.pdf` e `green1996.pdf` são o manuscrito, com
 outra paginação) e `blackwell2003-notational-systems-...pdf` (p.
