@@ -3,6 +3,7 @@
 
     python3 -m unittest discover -s bin -p 'test_*.py'
 """
+import contextlib
 import datetime
 import importlib.util
 import io
@@ -44,6 +45,14 @@ class Dias(unittest.TestCase):
     def test_data_invalida(self):
         self.assertEqual(tpd.dias("2026-13-01-x.md"), [])
         self.assertEqual(tpd.dias("2026-10-16-a-14-x.md"), [])
+
+    def test_intervalo_nao_vira_o_ano(self):
+        # o formato tem um ano só: 01-02 se lê como 2026-01-02, antes do início
+        self.assertEqual(tpd.dias("2026-12-30-a-01-02-x.md"), [])
+
+    def test_dia_depois_do_a_seguido_de_numero_se_le_como_mes(self):
+        # 2026-10-14-a-15-16-x: o 15 é mês, e o nome não tem data válida
+        self.assertEqual(tpd.dias("2026-10-14-a-15-16-x.md"), [])
 
     def test_digitos_colados_nao_sao_data(self):
         self.assertEqual(tpd.dias("2026-10-141-x.md"), [])
@@ -99,6 +108,20 @@ class Listagem(unittest.TestCase):
         self.assertTrue(saida.startswith("2026-10-15\n"))
         self.assertNotIn("2026-10-14\n", saida)
         self.assertIn("(desde 2026-10-14)", saida)
+
+    def test_desde_depois_de_ate_e_erro(self):
+        with contextlib.redirect_stderr(io.StringIO()) as erro:
+            with self.assertRaises(SystemExit) as saida:
+                self.rodar("--desde", "2026-10-15", "--ate", "2026-10-14")
+        self.assertEqual(saida.exception.code, 2)
+        self.assertIn("depois de --ate", erro.getvalue())
+
+    def test_ajuda_mostra_a_docstring_inteira(self):
+        with contextlib.redirect_stdout(io.StringIO()) as ajuda:
+            with self.assertRaises(SystemExit):
+                tpd.main(["--help"])
+        self.assertIn("solto na raiz", ajuda.getvalue())
+        self.assertIn("não vira o", ajuda.getvalue())
 
     def test_fora_de_um_repositorio(self):
         original = tpd.checkout_principal

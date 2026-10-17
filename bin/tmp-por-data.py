@@ -22,7 +22,7 @@ solto na raiz de tmp/, que o ADR 0038 proíbe, para a lista "solto na
 raiz"; nenhuma das duas muda o código de saída. O intervalo não vira o
 ano, e o que termina antes de começar (2026-10-16-a-14) não é data
 válida; em 2026-10-14-a-15-16-x, o 15 se lê como mês. --desde e --ate
-limitam os dias mostrados, inclusive.
+limitam os dias mostrados, inclusive; --desde depois de --ate é erro.
 
 Fora do checkout principal (numa worktree), o padrão é o tmp/ do
 checkout principal, que é onde o material fica.
@@ -98,11 +98,14 @@ def data(texto):
 
 
 def main(argv=None, saida=sys.stdout):
-    ap = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
+    ap = argparse.ArgumentParser(description=__doc__,
+                                 formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--desde", type=data, help="primeiro dia mostrado, AAAA-MM-DD")
     ap.add_argument("--ate", type=data, help="último dia mostrado, AAAA-MM-DD")
     ap.add_argument("--raiz", type=Path, help="o tmp/ a listar")
     args = ap.parse_args(argv)
+    if args.desde and args.ate and args.desde > args.ate:
+        ap.error(f"--desde {args.desde} depois de --ate {args.ate}")
     try:
         raiz = args.raiz or checkout_principal() / "tmp"
     except subprocess.CalledProcessError:
