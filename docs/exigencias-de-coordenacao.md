@@ -28,7 +28,7 @@ Angular.
 
 | Tipo | O que exige | Onde (rodada) |
 |---|---|---|
-| O1. Pedido novo com outro em andamento | a política quando o usuário faz um pedido novo com outro em andamento: **substituição**, o novo cancela o anterior, e a resposta cancelada nunca aparece (*switch*); **descarte**, o pedido novo é ignorado até a resposta (*exhaust*); **fila**, os pedidos se aplicam na ordem dos cliques (*concat*) | substituição: Busca, termo novo (1ª); Login, tentativa nova (1ª). Descarte: envio do Formulário (1ª, tcc-32dr). Fila: atualização otimista do Quadro (2ª). Sem política definida: validação do e-mail (2ª) |
+| O1. Pedido novo com outro em andamento | a política quando o usuário faz um pedido novo com outro em andamento: **substituição**, o novo cancela o anterior, e a resposta cancelada nunca aparece (*switch*); **ignorar**, o pedido novo não sai até a resposta do anterior (*exhaust*); **fila**, os pedidos se aplicam na ordem dos cliques (*concat*) | substituição: Busca, termo novo (1ª); Login, tentativa nova (1ª). Ignorar: envio do Formulário (1ª, tcc-32dr). Fila: atualização otimista do Quadro (2ª). Sem política definida: validação do e-mail (2ª) |
 | O2. Tempo | **espera** depois da última tecla (*debounce*); **relógio** que a interface mostra; **prazo** que muda o estado sozinho; **frequência** de atualização escolhida pelo usuário | espera: Busca (2ª). Relógio: tempo de sessão do Login (1ª); contagem regressiva da quarentena (2ª). Prazo: expiração aos 10 s do Login (1ª); fim da quarentena (2ª); nova inscrição em 2 s nos Dados ao vivo (2ª). Frequência: Dados ao vivo (2ª) |
 | O3. Ciclo de vida | o que a interface abre (requisição, relógio, inscrição, ouvinte) fecha **com a tela** (limpeza ao sair da tela, ADR 0029) ou **com um estado** (o relógio vive enquanto a sessão vive; a pausa fecha a inscrição), e fica **uma só** depois de esconder e mostrar a tela | com a tela: Login, Quadro e Dados ao vivo (1ª); Busca e Formulário à espera da tcc-v4m7. Com um estado: sessão do Login; pausa dos Dados ao vivo (1ª); reconexão cancelada por pausar ou esconder (2ª). Uma só: Dados ao vivo, cenário 11 (1ª) |
 | O4. Fonte de fora da interface | eventos que ninguém na tela pediu, combinados com os do usuário | a fonte que manda um lote por segundo: Dados ao vivo (1ª). A outra aba que grava o quadro: Quadro (1ª) |
@@ -64,7 +64,7 @@ fecha é O3, e o que volta ao valor inicial é estado. A tabela não o conta
 
 | Interface | Orquestração (1ª) | Orquestração (2ª) | Estado (1ª) | Estado (2ª) |
 |---|---|---|---|---|
-| Formulário | O1 descarte, O5, O6 (envio, tcc-32dr, ainda fora do `spec.md`) | O1 sem política (e-mail), O7 (foco) | E1, E2, E3, E4, E8; E5 com o envio | E3 e E4 (passo), E5 (e-mail) |
+| Formulário | O1 ignorar, O5, O6 (envio, tcc-32dr, ainda fora do `spec.md`) | O1 sem política (e-mail), O7 (foco) | E1, E2, E3, E4, E8; E5 com o envio | E3 e E4 (passo), E5 (e-mail) |
 | Busca | O1 substituição, O5, O6; O3 com a tela à espera da tcc-v4m7 | O2 espera | E5, E7, E8 | E4 (item ativo) |
 | Login | O1 substituição, O2 relógio e prazo, O3 com a tela e com um estado, O5 | O2 relógio e prazo, O5, O6 (quarentena) | E1, E5 | E5, E8, E9 |
 | Quadro | O3 com a tela, O4 (outra aba) | O1 fila, O6, O7 (atalhos, leitura nossa) | E1, E2, E4, E6, E7, E9 | E8, E9 |
@@ -81,7 +81,7 @@ interface que traz o tipo ao par; "—" é o tipo que o par não tem.
 | Tipo | Web Component × Lit | Solid × Angular | Views × Compose | Windows Forms × WPF |
 |---|---|---|---|---|
 | O1 substituição | Busca | Busca | — | Login |
-| O1 descarte | Formulário | Formulário | Formulário | Formulário |
+| O1 ignorar | Formulário | Formulário | Formulário | Formulário |
 | O1 fila | — | Quadro (2ª) | Quadro (2ª) | Quadro (2ª) |
 | O2 espera | Busca (2ª) | Busca (2ª) | — | — |
 | O2 relógio e prazo | Dados ao vivo (2ª, só prazo) | — | Dados ao vivo (2ª, só prazo) | Login |
