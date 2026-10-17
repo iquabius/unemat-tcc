@@ -2,8 +2,9 @@
 
 Campo "Cidade de destino" que sugere cidades enquanto o usuário digita (o
 /typeahead/ de sites de viagem e de entrega). É a interface assíncrona:
-esperar o usuário parar de digitar, cancelar a requisição anterior e nunca
-mostrar uma resposta atrasada. O 7GUIs não tem tarefa equivalente.
+cancelar a requisição anterior e nunca mostrar uma resposta atrasada, para
+o usuário não ver as sugestões de um termo que já mudou. O 7GUIs não tem
+tarefa equivalente.
 
 A "API" é simulada em =dominio.ts=, com a forma de uma chamada =fetch=:
 =buscarCidades(termo, sinal)= devolve uma /Promise/ e aceita um

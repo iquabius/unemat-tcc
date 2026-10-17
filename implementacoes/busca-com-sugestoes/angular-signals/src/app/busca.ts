@@ -1,6 +1,5 @@
 import { Component, resource, signal } from "@angular/core";
 import {
-  ESPERA_MS,
   MENSAGENS,
   MINIMO_DE_LETRAS,
   buscarCidades,
@@ -20,7 +19,7 @@ import {
           placeholder="Digite ao menos 2 letras"
           [value]="texto()"
           (input)="
-            texto.set($event.target.value); agendarBusca($event.target.value)
+            texto.set($event.target.value); buscar($event.target.value.trim())
           "
           (keydown.escape)="cancelar()"
         />
@@ -54,7 +53,6 @@ export class BuscaDeDestino {
   private readonly termo = signal("");
   private readonly aberta = signal(false);
   protected readonly escolha = signal<string | null>(null);
-  private espera: number | undefined;
 
   // O recurso refaz a requisição quando o termo se altera, expõe isLoading e
   // error, e descarta a resposta de uma requisição que já foi substituída.
@@ -64,32 +62,27 @@ export class BuscaDeDestino {
     loader: ({ params, abortSignal }) => buscarCidades(params, abortSignal),
   });
 
-  protected agendarBusca(valor: string) {
-    clearTimeout(this.espera);
-    this.espera = window.setTimeout(() => {
-      const novo = valor.trim();
-      if (novo === this.termo()) return;
-      // Aborta a requisição anterior, como o controlador.abort() do Solid. O
-      // resource não tem abort(): é o set() que aborta o loader em andamento,
-      // e o valor gravado não importa, por isso undefined, o de "sem
-      // resposta". Sem isso, um termo curto deixaria a requisição seguir:
-      // com params undefined, o resource só descarta a resposta.
-      this.cidades.set(undefined);
-      this.aberta.set(true);
-      this.termo.set(novo);
-    }, ESPERA_MS);
+  protected buscar(novo: string) {
+    if (novo === this.termo()) return;
+    // Aborta a requisição anterior, como o controlador.abort() do Solid. O
+    // resource não tem abort(): é o set() que aborta o loader em andamento,
+    // e o valor gravado não importa, por isso undefined, o de "sem
+    // resposta". Sem isso, um termo curto deixaria a requisição seguir: com
+    // params undefined, o resource só descarta a resposta.
+    this.cidades.set(undefined);
+    this.aberta.set(true);
+    this.termo.set(novo);
   }
 
   protected cancelar() {
-    clearTimeout(this.espera);
-    // Aborta a requisição em andamento pelo set(), como em agendarBusca.
+    // Aborta a requisição em andamento pelo set(), como em buscar.
     this.cidades.set(undefined);
     this.aberta.set(false);
   }
 
   protected escolher(cidade: Cidade) {
     this.cancelar();
-    // Altera o texto sem agendar busca: nenhuma busca nova.
+    // Alterar o texto pelo signal não dispara o (input): nenhuma busca nova.
     this.texto.set(rotulo(cidade));
     this.escolha.set(rotulo(cidade));
   }

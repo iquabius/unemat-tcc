@@ -1,7 +1,6 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { createRoot } from "react-dom/client";
 import {
-  ESPERA_MS,
   MENSAGENS,
   MINIMO_DE_LETRAS,
   buscarCidades,
@@ -26,54 +25,43 @@ const MENSAGEM_DO_ESTADO: Partial<Record<Estado["tipo"], string>> = {
 
 function BuscaDeDestino() {
   const [texto, setTexto] = useState("");
-  // Cada tecla cria um pedido novo (outro objeto), o que reinicia a espera
-  // mesmo que o termo não se altere; null é "nada agendado".
-  const [pedido, setPedido] = useState<{ termo: string } | null>(null);
   const [estado, setEstado] = useState<Estado>({ tipo: "vazio" });
   const [escolha, setEscolha] = useState<string | null>(null);
   const controlador = useRef<AbortController | null>(null);
   const ultimoTermo = useRef("");
 
-  useEffect(() => {
-    if (!pedido) return;
-    const espera = setTimeout(() => {
-      const { termo } = pedido;
-      if (termo === ultimoTermo.current) return;
-      ultimoTermo.current = termo;
-      controlador.current?.abort();
-      if (termo.length < MINIMO_DE_LETRAS) {
-        setEstado({ tipo: "vazio" });
-        return;
-      }
-      const atual = new AbortController();
-      controlador.current = atual;
-      setEstado({ tipo: "buscando" });
-      buscarCidades(termo, atual.signal).then(
-        (cidades) =>
-          setEstado(
-            cidades.length === 0
-              ? { tipo: "nenhuma" }
-              : { tipo: "sugestoes", cidades },
-          ),
-        (erro) => {
-          if (!foiCancelada(erro)) setEstado({ tipo: "falha" });
-        },
-      );
-    }, ESPERA_MS);
-    // A limpeza desfaz só a espera: a requisição em andamento continua até
-    // outra busca começar, senão um termo repetido ficaria sem resposta.
-    return () => clearTimeout(espera);
-  }, [pedido]);
+  function buscar(termo: string) {
+    if (termo === ultimoTermo.current) return;
+    ultimoTermo.current = termo;
+    controlador.current?.abort();
+    if (termo.length < MINIMO_DE_LETRAS) {
+      setEstado({ tipo: "vazio" });
+      return;
+    }
+    const atual = new AbortController();
+    controlador.current = atual;
+    setEstado({ tipo: "buscando" });
+    buscarCidades(termo, atual.signal).then(
+      (cidades) =>
+        setEstado(
+          cidades.length === 0
+            ? { tipo: "nenhuma" }
+            : { tipo: "sugestoes", cidades },
+        ),
+      (erro) => {
+        if (!foiCancelada(erro)) setEstado({ tipo: "falha" });
+      },
+    );
+  }
 
   function cancelar() {
-    setPedido(null);
     controlador.current?.abort();
     setEstado({ tipo: "vazio" });
   }
 
   function escolher(cidade: Cidade) {
     cancelar();
-    // Altera o texto sem criar pedido: nenhuma busca nova.
+    // Alterar o texto pelo estado não dispara o onChange: nenhuma busca nova.
     setTexto(rotulo(cidade));
     setEscolha(rotulo(cidade));
   }
@@ -91,7 +79,7 @@ function BuscaDeDestino() {
           value={texto}
           onChange={(e) => {
             setTexto(e.target.value);
-            setPedido({ termo: e.target.value.trim() });
+            buscar(e.target.value.trim());
           }}
           onKeyDown={(e) => {
             if (e.key === "Escape") cancelar();

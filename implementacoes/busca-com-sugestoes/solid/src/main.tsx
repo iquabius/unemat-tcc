@@ -1,7 +1,6 @@
 import { batch, createResource, createSignal, For, Show } from "solid-js";
 import { render } from "solid-js/web";
 import {
-  ESPERA_MS,
   MENSAGENS,
   MINIMO_DE_LETRAS,
   buscarCidades,
@@ -18,7 +17,6 @@ function BuscaDeDestino() {
   const [termo, setTermo] = createSignal("");
   const [aberta, setAberta] = createSignal(false);
   const [escolha, setEscolha] = createSignal<string | null>(null);
-  let espera: number | undefined;
   let controlador: AbortController | undefined;
 
   // O recurso refaz a requisição quando o termo se altera, expõe loading e
@@ -31,28 +29,23 @@ function BuscaDeDestino() {
     },
   );
 
-  function agendarBusca(valor: string) {
-    clearTimeout(espera);
-    espera = window.setTimeout(() => {
-      const novo = valor.trim();
-      if (novo === termo()) return;
-      controlador?.abort();
-      batch(() => {
-        setAberta(true);
-        setTermo(novo);
-      });
-    }, ESPERA_MS);
+  function buscar(novo: string) {
+    if (novo === termo()) return;
+    controlador?.abort();
+    batch(() => {
+      setAberta(true);
+      setTermo(novo);
+    });
   }
 
   function cancelar() {
-    clearTimeout(espera);
     controlador?.abort();
     setAberta(false);
   }
 
   function escolher(cidade: Cidade) {
     cancelar();
-    // Altera o texto sem agendar busca: nenhuma busca nova.
+    // Alterar o texto pelo sinal não dispara o onInput: nenhuma busca nova.
     setTexto(rotulo(cidade));
     setEscolha(rotulo(cidade));
   }
@@ -79,7 +72,7 @@ function BuscaDeDestino() {
           value={texto()}
           onInput={(e) => {
             setTexto(e.currentTarget.value);
-            agendarBusca(e.currentTarget.value);
+            buscar(e.currentTarget.value.trim());
           }}
           onKeyDown={(e) => {
             if (e.key === "Escape") cancelar();

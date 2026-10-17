@@ -171,14 +171,16 @@ requisitos da segunda rodada".
   `doAfterTextChanged` com `tocados` vazio, escondendo os erros que
   estavam à vista. Falta confirmar com `ActivityScenario.recreate()` e
   `StateRestorationTester`.
-- **A espera de 300 ms continua na Busca da primeira rodada**: o ADR 0002
+- **A espera de 300 ms ficou na Busca da primeira rodada até 2026-10-17**
+  (commits `e6b75d4` a `0c98a60`, que a tiraram): o ADR 0002
   (2026-10-11) a tirou da primeira rodada para acrescentá-la na segunda
   rodada, mas o item 1 do `casos/busca-com-sugestoes/README.org` e as
   implementações ainda a têm (por exemplo,
   `casos/busca-com-sugestoes/react/src/main.tsx:29-58`, onde o estado
   `pedido` existe por causa dela). Ela ocupa cerca de 4 linhas de
   coordenação no Web Component, 9 no React e 5 no Solid; tirá-la muda a
-  linha de base da primeira rodada e o diff da segunda rodada.
+  linha de base da primeira rodada e o diff da segunda rodada. No React,
+  saíram com ela o `pedido` e o `useEffect`.
 
 ## 2026-10-13, Quadro de tarefas na web (commits `39d85b9` e seguinte)
 
