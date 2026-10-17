@@ -153,17 +153,14 @@ class ColunaDoQuadro extends ComponenteDoQuadro {
     return html`
       <section class="coluna">
         <h2>${textoDaColuna(estado, this.coluna)}</h2>
-        ${
-          ids.length > 0
-            ? html`<ul>
-                ${repeat(
-                  ids,
-                  (id) => id,
-                  (id) => this.item(id),
-                )}
-              </ul>`
-            : html`<p class="aviso">${MENSAGENS.colunaVazia}</p>`
-        }
+        <ul ?hidden=${ids.length === 0}>
+          ${repeat(
+            ids,
+            (id) => id,
+            (id) => this.item(id),
+          )}
+        </ul>
+        <p class="aviso" ?hidden=${ids.length > 0}>${MENSAGENS.colunaVazia}</p>
       </section>
     `;
   }
