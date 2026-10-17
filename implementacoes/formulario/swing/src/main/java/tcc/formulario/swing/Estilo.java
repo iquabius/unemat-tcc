@@ -48,8 +48,10 @@ final class Estilo {
   private static final Color BORDA_DESABILITADA = new Color(0x404040);
   private static final Color FUNDO_DESABILITADO = new Color(0x333333);
   private static final Color TEXTO_DESABILITADO = new Color(0x8c8c8c);
-  // A cor da dica no Android; a web fica com a do navegador.
+  // A cor da dica no Android; a web fica com a do navegador. No campo
+  // desabilitado, a mesma cor com o opacity: 0.5, já misturada ao fundo.
   private static final Color DICA = new Color(0x999999);
+  private static final Color DICA_DESABILITADA = new Color(0x626262);
   // O font-size de 1rem e o de 0.875rem do erro, sem o negrito do Metal.
   private static final Font FONTE = new Font(Font.SANS_SERIF, Font.PLAIN, 16);
   private static final Font FONTE_DO_ERRO = FONTE.deriveFont(14f);
@@ -216,7 +218,7 @@ final class Estilo {
         RenderingHints.KEY_TEXT_ANTIALIASING,
         RenderingHints.VALUE_TEXT_ANTIALIAS_ON
       );
-      texto.setColor(DICA);
+      texto.setColor(componente.isEnabled() ? DICA : DICA_DESABILITADA);
       texto.setFont(componente.getFont());
       FontMetrics medidas = texto.getFontMetrics();
       Insets margens = getBorderInsets(componente);
