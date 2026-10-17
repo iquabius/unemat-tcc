@@ -54,8 +54,9 @@ fun PainelDeLogin() {
     var senha by remember { mutableStateOf("") }
     var situacao by remember { mutableStateOf(Situacao.DESCONECTADO) }
     var segundos by remember { mutableIntStateOf(0) }
-    // Como o useRef do AbortController: a tentativa em andamento, que só o
-    // tratador lê; cancelar o Job faz o papel do abort().
+    // No papel do useRef do AbortController: a tentativa em andamento, num
+    // estado que a tela não lê, e por isso não a faz rodar de novo; cancelar
+    // o Job faz o papel do abort().
     var tentativa by remember { mutableStateOf<Job?>(null) }
     // O escopo das corrotinas do painel: quando o painel sai da tela, o
     // Compose o cancela, e a tentativa em andamento com ele. Faz o papel do
@@ -84,10 +85,18 @@ fun PainelDeLogin() {
         // sessão nova mostraria por um quadro o tempo da anterior.
         segundos = 0
         situacao = Situacao.CONECTANDO
+        // Lidos no clique, como o nome e a senha que o tratador do React vê:
+        // lidos dentro do launch, que roda depois, pegariam uma edição feita
+        // nesse meio-tempo.
+        val nomeDaTentativa = nome
+        val senhaDaTentativa = senha
         tentativa = escopo.launch {
             situacao =
-                if (autenticar(nome, senha)) Situacao.CONECTADO
-                else Situacao.FALHA
+                if (autenticar(nomeDaTentativa, senhaDaTentativa)) {
+                    Situacao.CONECTADO
+                } else {
+                    Situacao.FALHA
+                }
         }
     }
 
