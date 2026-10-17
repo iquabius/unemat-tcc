@@ -61,7 +61,7 @@ function BuscaDeDestino() {
 
   function escolher(cidade: Cidade) {
     cancelar();
-    // Altera o texto sem chamar buscar: nenhuma busca nova.
+    // Alterar o texto pelo estado não dispara o onChange: nenhuma busca nova.
     setTexto(rotulo(cidade));
     setEscolha(rotulo(cidade));
   }

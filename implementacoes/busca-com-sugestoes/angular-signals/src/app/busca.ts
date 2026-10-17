@@ -82,7 +82,7 @@ export class BuscaDeDestino {
 
   protected escolher(cidade: Cidade) {
     this.cancelar();
-    // Altera o texto sem chamar buscar: nenhuma busca nova.
+    // Alterar o texto pelo signal não dispara o (input): nenhuma busca nova.
     this.texto.set(rotulo(cidade));
     this.escolha.set(rotulo(cidade));
   }
