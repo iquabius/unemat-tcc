@@ -99,7 +99,7 @@ todas as listas.
 
 - **DADO** "Fazendo" com 2 tarefas
 - **QUANDO** o usuário escolhe "Feito" em "Coluna de Implementar o Carrinho"
-- **ENTÃO** a opção "Fazendo" de "Coluna de Conferir as referências" e a de "Coluna de Escrever o método" estão habilitadas
+- **ENTÃO** a opção "Fazendo" está habilitada nas seis listas
 
 ### Requirement: Cabeçalho
 

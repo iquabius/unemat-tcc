@@ -219,10 +219,8 @@
   );
   conferir(
     "5 vaga em Fazendo reabilita a opção",
-    ["Coluna de Conferir as referências", "Coluna de Escrever o método"].map(
-      (n) => opcao(lista(n), "Fazendo").disabled,
-    ),
-    [false, false],
+    listas().map((l) => opcao(l, "Fazendo").disabled),
+    [false, false, false, false, false, false],
   );
   conferir(
     "5 salva no localStorage",
