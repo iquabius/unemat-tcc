@@ -4,7 +4,7 @@ import java.io.Closeable
 import java.time.Instant
 import org.junit.rules.ExternalResource
 
-// Regra JUnit que troca o relógio da fonte por um relógio falso, como o
+// Regra JUnit que troca o relógio do domínio por um relógio falso, como o
 // instalarRelogioFalso do teste da web: a hora começa às 10:00:00 UTC de
 // 2026-10-12 e só anda com avancar(ms), que roda na hora certa as repetições
 // que vencerem até lá. A hora do Robolectric não serve: as esperas do teste
@@ -20,11 +20,11 @@ class RelogioFalso : ExternalResource(), Relogio {
     private val pendentes = mutableListOf<Repeticao>()
 
     override fun before() {
-        relogioDaFonte = this
+        relogioDoDominio = this
     }
 
     override fun after() {
-        relogioDaFonte = RelogioDoSistema
+        relogioDoDominio = RelogioDoSistema
     }
 
     override fun agora() = hora

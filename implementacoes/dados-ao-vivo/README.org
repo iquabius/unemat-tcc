@@ -19,8 +19,8 @@ repetirem. =contarInscricoes()= diz quantas inscrições estão abertas, para a
 limpeza ao sair da tela se conferir pela contagem. No Android, as mesmas
 regras estão portadas para Kotlin em =dominio-kotlin/main/Dominio.kt=,
 compartilhado por =android-views= e =android-compose=: a fonte entrega os
-lotes por /callback/ e devolve um =Closeable=, e o relógio dela
-(=relogioDaFonte=) é o que o teste troca pelo falso.
+lotes por /callback/ e devolve um =Closeable=, e o relógio do domínio
+(=relogioDoDominio=) é o que o teste troca pelo falso.
 
 As regras, as mensagens e os cenários que o teste de conformidade confere
 estão em =implementacoes/openspec/specs/dados-ao-vivo/spec.md=, a

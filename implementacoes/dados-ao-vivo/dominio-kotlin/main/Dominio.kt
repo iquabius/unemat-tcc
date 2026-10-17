@@ -129,9 +129,9 @@ object RelogioDoSistema : Relogio {
     }
 }
 
-// O relógio da fonte. O teste o troca pelo relógio falso (RelogioFalso), como
-// o teste da web troca o Date.now e o setInterval da página.
-var relogioDaFonte: Relogio = RelogioDoSistema
+// O relógio do domínio. O teste o troca pelo relógio falso (RelogioFalso),
+// como o teste da web troca o Date.now e o setInterval da página.
+var relogioDoDominio: Relogio = RelogioDoSistema
 
 // Inscrições abertas agora, para a limpeza ao sair da tela.
 private var inscricoes = 0
@@ -144,7 +144,7 @@ private var inscricoes = 0
 fun inscreverNosPlacares(aoReceber: (Lote) -> Unit): Closeable {
     inscricoes++
     // O intervalo e a hora vêm do mesmo relógio, o da hora da inscrição.
-    val relogio = relogioDaFonte
+    val relogio = relogioDoDominio
     val envio =
         relogio.aCada(INTERVALO_MS) { aoReceber(placaresEm(relogio.agora())) }
     var ativa = true
