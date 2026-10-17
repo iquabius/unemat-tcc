@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """testes-da-revisao.py — o teste que o git revisao pronto roda antes de
-marcar a ponta (a linha "teste:" do .config/revisao), escolhido pelo diff
-de GIT_REVISAO_BASE a GIT_REVISAO_PONTA nos caminhos de código da lista e
-na especificação (implementacoes/openspec/, que a lista deixa de fora por
-ser .md).
+marcar a ponta (a linha "teste:" do .config/revisao): a conferência das
+mensagens da série e, escolhidos pelo diff de GIT_REVISAO_BASE a
+GIT_REVISAO_PONTA nos caminhos de código da lista e na especificação
+(implementacoes/openspec/, que a lista deixa de fora por ser .md), os
+testes do que mudou.
 
     uso: bin/testes-da-revisao.py [--mostrar]
          --mostrar: diz o que rodaria, sem rodar
@@ -17,6 +18,11 @@ plano sai assim mesmo, e a recusa vira aviso.
 
 O que muda escolhe o que roda:
 
+- com base, sempre, antes do resto: as mensagens da série
+  (bin/conferir-commit.py --serie base..ponta), porque o rebase que
+  condensa o ramo troca os shas que elas citam e reescreve mensagens
+  sem passar pelo hook que as confere no git commit; isso vale também
+  no ramo que não muda código;
 - um arquivo de uma pasta que tem test_*.py, como bin/: a unittest da
   pasta;
 - implementacoes/<interface>/: as capturas dela (--conferir), a
@@ -124,6 +130,11 @@ def capturas(guis):
     return (rotulo, IMPL, ["npm", "run", "-s", "capturas", "--", "--conferir", *guis])
 
 
+def mensagens(base, ponta):
+    return ("mensagens da série", ".", [sys.executable, "bin/conferir-commit.py",
+                                        "--serie", f"{base}..{ponta or 'HEAD'}"])
+
+
 def escolher(arquivos, testes, guis, tudo=False):
     """[(rótulo, pasta, argv)] que conferem `arquivos`, na ordem de rodar.
 
@@ -182,6 +193,8 @@ def main():
     ponta = os.environ.get("GIT_REVISAO_PONTA") or None
     arquivos = mudados(base, ponta) if base else []
     plano = escolher(arquivos, pastas_de_teste(), interfaces(), tudo=not base)
+    if base:
+        plano.insert(0, mensagens(base, ponta))
     if not plano:
         print("testes da revisão: nenhum teste confere o que mudou", file=sys.stderr)
         return 0

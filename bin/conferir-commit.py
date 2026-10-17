@@ -89,7 +89,10 @@ commit (o caminho no commit, no pai ou no disco; o sha na história do
 commit ou do ramo principal, porque o commit que um rebase reescreveu
 continua como objeto no repositório e ainda resolve), pulando o fixup!,
 squash! e amend!, que o rebase dobra, e sai com 1 listando o que falha,
-ou com 2 se o intervalo não se lê.
+ou com 2 se o intervalo não se lê. É o que o testes-da-revisao.py roda no
+git revisao pronto, em todo ramo, porque a mensagem reescrita no rebase
+que condensa o ramo não passa por este hook, que só lê a do comando git
+commit.
 """
 
 import glob

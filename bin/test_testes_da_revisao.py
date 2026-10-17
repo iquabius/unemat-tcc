@@ -176,7 +176,30 @@ class Mudados(unittest.TestCase):
         codigo, _, erro = self.roda()
         self.assertEqual(codigo, 0)
         self.assertNotIn("spec.md", erro)
-        self.assertEqual([argv[argv.index("-s") + 1] for argv in self.rodados], ["bin"])
+        self.assertEqual([argv[argv.index("-s") + 1] for argv in self.rodados if "-s" in argv],
+                         ["bin"])
+
+    def test_com_base_confere_as_mensagens_da_serie_antes_do_resto(self):
+        # mesmo no ramo que não muda código, e antes da unittest
+        self.commita("docs/n.md")
+        codigo, _, erro = self.roda()
+        self.assertEqual(codigo, 0)
+        self.assertNotIn("nenhum teste", erro)
+        self.assertEqual(self.rodados, [[tr.sys.executable, "bin/conferir-commit.py",
+                                         "--serie", f"{self.base}..HEAD"]])
+        self.commita("bin/x.py", "bin/test_x.py")
+        self.roda()
+        self.assertEqual([argv[1] for argv in self.rodados],
+                         ["bin/conferir-commit.py", "-B"])
+        codigo, saida, _ = self.roda("--mostrar")
+        self.assertIn(f"mensagens da série: (cd . && {tr.sys.executable} "
+                      f"bin/conferir-commit.py --serie {self.base}..HEAD)", saida)
+
+    def test_sem_base_nao_confere_mensagens(self):
+        self.base = ""
+        self.roda()
+        self.assertFalse([argv for argv in self.rodados if "--serie" in argv])
+        self.assertTrue(self.rodados)
 
     def test_mostrar_da_o_plano_e_avisa_da_especificacao_solta(self):
         self.commita("implementacoes/openspec/specs/formulario/spec.md")
