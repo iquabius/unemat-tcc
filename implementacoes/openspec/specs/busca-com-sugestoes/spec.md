@@ -46,14 +46,15 @@ nova deve sair.
 Cada tecla com termo de 2 letras ou mais, diferente do último termo,
 deve começar a busca na hora: apagar a situação e as sugestões, mostrar
 "Buscando…" e cancelar pelo `AbortSignal` a requisição anterior, se houver.
-A resposta de uma busca antiga nunca aparece. A API simulada
-(`buscarCidades` do domínio) responde em 800 ms a termos de até 2 letras e
-em 200 ms aos demais.
+A resposta de uma busca antiga nunca aparece, para o usuário não ver as
+sugestões de um termo que já mudou. A API simulada (`buscarCidades` do
+domínio) responde em 800 ms a termos de até 2 letras e em 200 ms aos
+demais.
 
 #### Scenario: 3 buscando
 
-- **QUANDO** o usuário digita "sa"
-- **ENTÃO** a situação mostra "Buscando…" na hora, sem sugestões
+- **QUANDO** o usuário digita "sa" e passam 150 ms
+- **ENTÃO** a situação mostra "Buscando…", sem sugestões
 
 #### Scenario: 4 resposta antiga não aparece
 
