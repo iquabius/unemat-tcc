@@ -9,12 +9,13 @@ import org.junit.runner.RunWith
 import org.robolectric.annotation.Config
 import tcc.dadosaovivo.RelogioFalso
 import tcc.dadosaovivo.contarInscricoes
+import tcc.dadosaovivo.contarRelogios
 
 // A rotação, que a especificação não cobre: o Android recria a Activity, a
-// inscrição da tela antiga fecha, e o painel recomeça como se a interface
-// abrisse, sem a pausa nem os valores, também depois de escondido.
+// inscrição e o relógio da tela antiga fecham, e o painel recomeça como se a
+// interface abrisse, sem a pausa nem os valores, também depois de escondido.
 @RunWith(AndroidJUnit4::class)
-@Config(qualifiers = "w480dp-h280dp-xhdpi")
+@Config(qualifiers = "w480dp-h320dp-xhdpi")
 class RotacaoTest {
     @get:Rule(order = 0) val relogio = RelogioFalso()
 
@@ -28,18 +29,24 @@ class RotacaoTest {
         tela.pausa()
         tela.recriar()
         assertEquals(
-            listOf("Aguardando placares…", "Pausar", 1),
-            listOf(tela.situacao(), tela.textoDaPausa(), contarInscricoes()),
+            listOf("Aguardando placares…", "Pausar", 1, 1),
+            listOf(
+                tela.situacao(),
+                tela.textoDaPausa(),
+                contarInscricoes(),
+                contarRelogios(),
+            ),
         )
 
         tela.alternar()
         tela.recriar()
         assertEquals(
-            listOf(true, "Esconder painel", 1),
+            listOf(true, "Esconder painel", 1, 1),
             listOf(
                 tela.painelNaPagina(),
                 tela.textoDoAlternar(),
                 contarInscricoes(),
+                contarRelogios(),
             ),
         )
     }

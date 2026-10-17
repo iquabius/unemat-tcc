@@ -15,7 +15,7 @@ import tcc.dadosaovivo.contarRelogios
 // tecnologias diferem (ADR 0005; docs/achados-das-implementacoes.md): no
 // Views, o onStop fecha a inscrição e o relógio; de volta, o "Atualizado há"
 // diz já a idade do último lote, e os gols novos contam desde o último lote
-// que o usuário viu. No Compose, a inscrição continua.
+// que o usuário viu. No Compose, a inscrição e o relógio continuam.
 @RunWith(AndroidJUnit4::class)
 @Config(qualifiers = "w480dp-h320dp-xhdpi")
 class SegundoPlanoTest {

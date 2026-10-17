@@ -17,9 +17,12 @@ import androidx.compose.ui.semantics.semantics
 import tcc.dadosaovivo.JOGOS
 import tcc.dadosaovivo.Lote
 import tcc.dadosaovivo.MENSAGENS
+import tcc.dadosaovivo.agora
+import tcc.dadosaovivo.formatarAtualizacao
 import tcc.dadosaovivo.formatarPlacar
 import tcc.dadosaovivo.formatarTempo
 import tcc.dadosaovivo.golsNovos
+import tcc.dadosaovivo.iniciarRelogio
 import tcc.dadosaovivo.inscreverNosPlacares
 import tcc.dadosaovivo.noPalpite
 
@@ -41,6 +44,9 @@ fun PainelDePlacares() {
     // Os dois últimos lotes: o atual dá o placar, o anterior, os gols novos.
     var anterior by remember { mutableStateOf<Lote?>(null) }
     var atual by remember { mutableStateOf<Lote?>(null) }
+    // A hora em que chegou o último lote e a do último tique do relógio.
+    var chegada by remember { mutableStateOf<Long?>(null) }
+    var ultimoTique by remember { mutableStateOf(agora()) }
 
     // Como o useEffect com [pausado]: roda de novo quando pausado se altera,
     // e o onDispose cancela a inscrição antes disso e quando o painel sai da
@@ -50,8 +56,16 @@ fun PainelDePlacares() {
         val inscricao = inscreverNosPlacares { lote ->
             anterior = atual
             atual = lote
+            chegada = agora()
         }
         onDispose { inscricao.close() }
+    }
+
+    // O relógio vive com o painel, e não com a inscrição: como o useEffect
+    // com [], o onDispose o para só quando o painel sai da tela.
+    DisposableEffect(Unit) {
+        val relogio = iniciarRelogio { ultimoTique = agora() }
+        onDispose { relogio.close() }
     }
 
     val situacao =
@@ -64,6 +78,7 @@ fun PainelDePlacares() {
             situacao,
             Modifier.semantics { liveRegion = LiveRegionMode.Polite },
         )
+        Atualizacao(formatarAtualizacao(chegada, ultimoTique))
         Tabela {
             Cabecalho {
                 Celula("Jogo")

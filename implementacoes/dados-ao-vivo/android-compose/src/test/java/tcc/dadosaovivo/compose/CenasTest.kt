@@ -14,7 +14,7 @@ import tcc.dadosaovivo.RelogioFalso
 // captura da web. O placar depende do relógio falso, que começa às 10:00:00
 // UTC; cada cena esconde e mostra o painel, para a inscrição começar com ela.
 @RunWith(AndroidJUnit4::class)
-@Config(qualifiers = "w480dp-h280dp-xhdpi")
+@Config(qualifiers = "w480dp-h320dp-xhdpi")
 class CenasTest {
     @get:Rule(order = 0) val relogio = RelogioFalso()
 

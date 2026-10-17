@@ -50,6 +50,7 @@ rodada edita o =spec.md= direto (=implementacoes/AGENTS.md=).
   =./gradlew testDebugUnitTest= em =implementacoes/android/=). O
   =DominioTest.kt= confere o porte do domínio. Dois testes conferem o que a
   especificação não cobre: o =RotacaoTest.kt=, a rotação, em que a
-  =Activity= recriada fecha a inscrição da tela antiga e o painel recomeça
-  sem a pausa nem os valores; e o =SegundoPlanoTest.kt=, a tela em segundo
-  plano, em que o Views fecha a inscrição e o Compose a mantém.
+  =Activity= recriada fecha a inscrição e o relógio da tela antiga e o
+  painel recomeça sem a pausa nem os valores; e o =SegundoPlanoTest.kt=, a
+  tela em segundo plano, em que o Views fecha a inscrição e o relógio e o
+  Compose os mantém.
