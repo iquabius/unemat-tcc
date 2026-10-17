@@ -15,15 +15,14 @@ import {
   MENSAGENS,
   anunciarArquivamento,
   anunciarMovimento,
-  cabeEm,
   carregarQuadro,
   ouvirOutrasAbas,
+  podeIr,
   salvarQuadro,
   tarefa,
   textoDaColuna,
   textoDoCabecalho,
   tituloDa,
-  vizinhas,
   type Coluna,
   type EstadoDoQuadro,
 } from "../../dominio";
@@ -105,21 +104,6 @@ function Cabecalho() {
 
 function ColunaDoQuadro(props: { coluna: Coluna }) {
   const { estado, moverTarefa, arquivarTarefa } = useQuadro();
-  const { anterior, proxima } = vizinhas(props.coluna);
-
-  const mover = (para: Coluna | undefined, sinal: string, id: number) =>
-    para ? (
-      <button
-        type="button"
-        aria-label={`Mover ${tarefa(id).titulo} para ${tituloDa(para)}`}
-        disabled={!cabeEm(estado, para)}
-        onClick={() => moverTarefa(id, props.coluna, para)}
-      >
-        {sinal}
-      </button>
-    ) : (
-      <span />
-    );
 
   return (
     <section class="coluna">
@@ -133,8 +117,28 @@ function ColunaDoQuadro(props: { coluna: Coluna }) {
             {(id) => (
               <li>
                 <span class="titulo">{tarefa(id).titulo}</span>
-                {mover(anterior, "←", id)}
-                {mover(proxima, "→", id)}
+                <select
+                  aria-label={`Coluna de ${tarefa(id).titulo}`}
+                  value={props.coluna}
+                  onChange={(e) =>
+                    moverTarefa(
+                      id,
+                      props.coluna,
+                      e.currentTarget.value as Coluna,
+                    )
+                  }
+                >
+                  <For each={COLUNAS}>
+                    {(para) => (
+                      <option
+                        value={para}
+                        disabled={!podeIr(estado, props.coluna, para)}
+                      >
+                        {tituloDa(para)}
+                      </option>
+                    )}
+                  </For>
+                </select>
                 <button
                   type="button"
                   class="arquivar"
