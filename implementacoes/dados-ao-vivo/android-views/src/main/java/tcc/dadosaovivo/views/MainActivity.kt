@@ -19,7 +19,8 @@ import tcc.dadosaovivo.noPalpite
 
 class MainActivity : AppCompatActivity() {
     // O painel na página (null quando escondido) e a linha de cada jogo, pelo
-    // código, como o this.painel e o Map de células do Web Component.
+    // código, como o this.painel do Web Component e o Map dele, que guarda as
+    // células; aqui, as células se acham na linha pelo id.
     private var painel: View? = null
     private val linhas = mutableMapOf<String, View>()
 

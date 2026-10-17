@@ -15,7 +15,7 @@
     <TableLayout
         android:id="@+id/tabela"
         style="@style/Tabela">
-        <TableRow>
+        <TableRow style="@style/Linha">
             <TextView
                 style="@style/PrimeiroCabecalho"
                 android:text="Jogo" />

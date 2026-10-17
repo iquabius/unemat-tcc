@@ -63,9 +63,13 @@
         <item name="android:layout_height">wrap_content</item>
     </style>
 
-    <!-- .painel tr, com tr.alerta no fundo da linha ativada. -->
+    <!-- .painel tr, com tr.alerta no fundo da linha ativada. As células se
+         alinham pelo topo, e não pela linha de base do texto, o padrão do
+         TableRow, como na Tabela do Compose. -->
     <style name="Linha">
         <item name="android:background">@drawable/fundo_da_linha</item>
+        <item name="android:baselineAligned">false</item>
+        <item name="android:gravity">top</item>
     </style>
 
     <!-- .painel td: 0.2rem e 0.6rem de margem interna, alinhado à direita, sem
