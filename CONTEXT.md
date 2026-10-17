@@ -277,6 +277,13 @@ Implementação que o autor consulta ao escrever e não entra na análise: o
 Angular com RxJS, congelado em `implementacoes/fora-da-analise/` com as
 regras de 2026-10-13.
 
+**Conjunto analisado**:
+As implementações que a análise pelas DCs lê, escolhidas por critério
+declarado antes dela, com o código e as capturas prontos (ADR 0012).
+_Avoid_: recorte da análise (o recorte é o da pesquisa, ADR 0014);
+escopo; amostra (a amostra de tarefas é o conjunto das interfaces, no
+*benchmark* de notação)
+
 **Domínio**:
 As regras de uma interface que não dependem da tela (datas, e-mail,
 mensagens, servidores simulados, fontes de dados, o limite do quadro),
