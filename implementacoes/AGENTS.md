@@ -217,8 +217,9 @@ A mudança não se porta para o código da interface em
   custo.
 - O Lit (ADR 0013: Formulário, Busca e Dados ao vivo; o Quadro desde
   2026-10-17, fora do ADR 0013 até a conferência das coleções do Quadro,
-  tcc-2rx2, decidir o trio dos pares; o Login desde 2026-10-17, pelo plano
-  de implementar as cinco interfaces em todas as tecnologias) fica em
+  tcc-2rx2, decidir o trio dos pares; o Login desde 2026-10-17, fora do
+  ADR 0013 até a escolha do conjunto analisado, pelo plano de implementar
+  as cinco interfaces em todas as tecnologias) fica em
   `implementacoes/<interface>/lit/`, com o Lit 3 e o *template* `html`, sem
   `@lit-labs/signals` nem `@lit/task`. Escreve-se como o Web Component da
   interface, para o par diferir o mínimo além da ligação do estado com a
