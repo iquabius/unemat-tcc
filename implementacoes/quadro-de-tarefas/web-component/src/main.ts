@@ -180,22 +180,22 @@ class ColunaDoQuadro extends ComponenteDoQuadro {
     return item;
   }
 
-  // A lista mostra a coluna da tarefa; escolher outra a leva para lá.
+  // A lista de escolha mostra a coluna da tarefa; escolher outra a leva lá.
   private colunaDa(id: number, nome: string) {
-    const lista = document.createElement("select");
-    lista.setAttribute("aria-label", `Coluna de ${nome}`);
+    const escolha = document.createElement("select");
+    escolha.setAttribute("aria-label", `Coluna de ${nome}`);
     for (const para of COLUNAS) {
       const opcao = document.createElement("option");
       opcao.value = para;
       opcao.textContent = tituloDa(para);
       opcao.disabled = !podeIr(this.loja.estado, this.coluna, para);
-      lista.append(opcao);
+      escolha.append(opcao);
     }
-    lista.value = this.coluna;
-    lista.addEventListener("change", () =>
-      this.loja.mover(id, this.coluna, lista.value as Coluna),
+    escolha.value = this.coluna;
+    escolha.addEventListener("change", () =>
+      this.loja.mover(id, this.coluna, escolha.value as Coluna),
     );
-    return lista;
+    return escolha;
   }
 }
 
