@@ -9,13 +9,15 @@ import org.junit.runner.RunWith
 import org.robolectric.annotation.Config
 import tcc.dadosaovivo.RelogioFalso
 import tcc.dadosaovivo.contarInscricoes
+import tcc.dadosaovivo.contarRelogios
 
 // A tela em segundo plano, que a especificação não cobre e em que as duas
 // tecnologias diferem (ADR 0005; docs/achados-das-implementacoes.md): no
-// Views, o onStop fecha a inscrição, e de volta os gols novos contam desde o
-// último lote que o usuário viu. No Compose, a inscrição continua.
+// Views, o onStop fecha a inscrição e o relógio; de volta, o "Atualizado há"
+// diz já a idade do último lote, e os gols novos contam desde o último lote
+// que o usuário viu. No Compose, a inscrição continua.
 @RunWith(AndroidJUnit4::class)
-@Config(qualifiers = "w480dp-h280dp-xhdpi")
+@Config(qualifiers = "w480dp-h320dp-xhdpi")
 class SegundoPlanoTest {
     @get:Rule(order = 0) val relogio = RelogioFalso()
 
@@ -28,13 +30,24 @@ class SegundoPlanoTest {
     fun segundoPlanoFechaAInscricao() {
         tela.avancar(1000)
         tela.irParaSegundoPlano()
-        val emSegundoPlano = contarInscricoes()
+        val emSegundoPlano = listOf(contarInscricoes(), contarRelogios())
         relogio.avancar(3000)
         tela.voltarDoSegundoPlano()
+        val aoVoltar = tela.atualizacao()
         tela.avancar(1000)
         assertEquals(
-            listOf(0, 1, "FLA × PAL | 1 × 0 | 5' | +1 × 0 | 1 × 0"),
-            listOf(emSegundoPlano, contarInscricoes(), tela.linhas()[0]),
+            listOf(
+                listOf(0, 0),
+                "Atualizado há 3 s",
+                listOf(1, 1),
+                "FLA × PAL | 1 × 0 | 5' | +1 × 0 | 1 × 0",
+            ),
+            listOf(
+                emSegundoPlano,
+                aoVoltar,
+                listOf(contarInscricoes(), contarRelogios()),
+                tela.linhas()[0],
+            ),
         )
     }
 }

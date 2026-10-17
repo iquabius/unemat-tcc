@@ -12,6 +12,10 @@
         style="@style/Situacao"
         android:accessibilityLiveRegion="polite" />
 
+    <TextView
+        android:id="@+id/atualizacao"
+        style="@style/Atualizacao" />
+
     <TableLayout
         android:id="@+id/tabela"
         style="@style/Tabela">

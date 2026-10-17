@@ -16,7 +16,7 @@ import tcc.dadosaovivo.contarRelogios
 // de 2026-10-12 e só anda com avancar(ms). Falha listando todas as que não
 // passaram.
 @RunWith(AndroidJUnit4::class)
-@Config(qualifiers = "w480dp-h280dp-xhdpi")
+@Config(qualifiers = "w480dp-h320dp-xhdpi")
 class TesteDeConformidade {
     @get:Rule(order = 0) val relogio = RelogioFalso()
 

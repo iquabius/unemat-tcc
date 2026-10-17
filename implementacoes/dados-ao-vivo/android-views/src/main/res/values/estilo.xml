@@ -58,6 +58,11 @@
         <item name="android:textColor">#aaaaaa</item>
     </style>
 
+    <!-- .atualizacao, com a aparência da .situacao -->
+    <style
+        name="Atualizacao"
+        parent="Situacao" />
+
     <!-- .painel table: as colunas têm a largura do maior conteúdo. -->
     <style name="Tabela">
         <item name="android:layout_width">wrap_content</item>
