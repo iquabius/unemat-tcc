@@ -386,7 +386,10 @@ conferidas.
   *bindings*), os dois em Java e com a tela montada em código, com as
   mesmas chamadas e na mesma ordem, para o par diferir só no modelo de
   programação. Sem FXML: o `javafx-fxml` ficou congelado em
-  `fora-da-analise/` (decisão do autor em 2026-10-16).
+  `fora-da-analise/` (decisão do autor em 2026-10-16). A diferença que o
+  *toolkit* impõe fica num comentário da tela e em
+  `docs/achados-das-implementacoes.md`, como a confirmação, que no Swing
+  é um `JTextArea`, porque o `JLabel` não quebra linha.
 - Um único projeto Gradle em `implementacoes/desktop/`: o
   `settings.gradle.kts` inclui sozinho toda pasta `swing` ou `javafx` que
   tenha `build.gradle.kts`, com o nome `:<interface>-<tecnologia>`. O
