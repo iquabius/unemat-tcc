@@ -4,6 +4,7 @@ import java.time.Instant
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue
+import org.junit.Ignore
 import org.junit.Rule
 import org.junit.Test
 
@@ -34,6 +35,17 @@ class DominioTest {
             fim.getValue("FLA × PAL").partida + 1,
             recomeco.getValue("FLA × PAL").partida,
         )
+    }
+
+    // Documenta a diferença conhecida em relação à web, sem executar: o %
+    // do JavaScript dá resto negativo, e o placar de antes de 1970 ninguém
+    // pede. A resposta esperada é a do próprio dominio.ts, rodado no Node
+    // (docs/adr/0010-dominio-compartilhado-sem-imitar-o-javascript.md).
+    @Ignore("diferença conhecida em relação à web; só documenta")
+    @Test
+    fun igualAoDaWeb() {
+        val antes = placaresEm(-1000).getValue("FLA × PAL")
+        assertEquals(listOf(-1, -1), listOf(antes.partida, antes.minuto))
     }
 
     @Test

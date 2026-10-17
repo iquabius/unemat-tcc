@@ -84,6 +84,8 @@ private const val CICLO_S = 100
 private const val DURACAO_MIN = 90
 private const val DEFASAGEM_MIN = 20
 
+// Antes de 1970 (instante negativo), o minuto do Kotlin fica entre 0 e 99, e o
+// % do dominio.ts dá minuto negativo: ver DominioTest.igualAoDaWeb.
 fun placaresEm(instante: Long): Lote {
     val segundo = Math.floorDiv(instante, 1000L)
     return JOGOS.withIndex().associate { (i, jogo) ->
