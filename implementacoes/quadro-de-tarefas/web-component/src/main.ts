@@ -184,11 +184,11 @@ class ColunaDoQuadro extends ComponenteDoQuadro {
   private colunaDa(id: number, nome: string) {
     const lista = document.createElement("select");
     lista.setAttribute("aria-label", `Coluna de ${nome}`);
-    for (const coluna of COLUNAS) {
+    for (const para of COLUNAS) {
       const opcao = document.createElement("option");
-      opcao.value = coluna;
-      opcao.textContent = tituloDa(coluna);
-      opcao.disabled = !podeIr(this.loja.estado, this.coluna, coluna);
+      opcao.value = para;
+      opcao.textContent = tituloDa(para);
+      opcao.disabled = !podeIr(this.loja.estado, this.coluna, para);
       lista.append(opcao);
     }
     lista.value = this.coluna;
