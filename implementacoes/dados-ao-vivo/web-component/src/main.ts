@@ -2,6 +2,8 @@ import {
   JOGOS,
   MENSAGENS,
   inscreverNosPlacares,
+  iniciarRelogio,
+  formatarAtualizacao,
   formatarPlacar,
   formatarTempo,
   golsNovos,
@@ -13,6 +15,7 @@ import "../../estilo.css";
 const modelo = /* HTML */ `
   <section class="painel">
     <p class="situacao" role="status"></p>
+    <p class="atualizacao"></p>
     <table>
       <thead>
         <tr>
@@ -38,17 +41,22 @@ interface Celulas {
 
 class PainelDePlacares extends HTMLElement {
   private situacao!: HTMLParagraphElement;
+  private atualizacao!: HTMLParagraphElement;
   private pausa!: HTMLButtonElement;
   private celulas = new Map<string, Celulas>();
 
-  // Estado da coordenação: a inscrição aberta (nenhuma em pausa) e o último
-  // lote mostrado, que dá os gols novos.
+  // Estado da coordenação: a inscrição aberta (nenhuma em pausa), o último
+  // lote mostrado, que dá os gols novos, a hora em que ele chegou e o
+  // relógio, que vive com o painel, e não com a inscrição.
   private cancelar?: () => void;
   private ultimo?: Lote;
+  private chegada?: number;
+  private pararRelogio?: () => void;
 
   connectedCallback() {
     this.innerHTML = modelo;
     this.situacao = this.querySelector(".situacao")!;
+    this.atualizacao = this.querySelector(".atualizacao")!;
     this.pausa = this.querySelector(".pausa")!;
     const corpo = this.querySelector("tbody")!;
     const celula = (texto: string) => {
@@ -77,11 +85,14 @@ class PainelDePlacares extends HTMLElement {
     this.pausa.addEventListener("click", () => this.alternarPausa());
     this.situacao.textContent = MENSAGENS.aguardando;
     this.inscrever();
+    this.pararRelogio = iniciarRelogio(() => this.mostrarAtualizacao());
   }
 
-  // Sem isto, a fonte continua mandando lotes para um painel fora da página.
+  // Sem isto, a fonte continua mandando lotes, e o relógio continua
+  // batendo, para um painel fora da página.
   disconnectedCallback() {
     this.cancelar?.();
+    this.pararRelogio?.();
   }
 
   private inscrever() {
@@ -114,7 +125,17 @@ class PainelDePlacares extends HTMLElement {
       celulas.linha.classList.toggle("alerta", noPalpite(jogo, placar));
     }
     this.ultimo = lote;
+    this.chegada = Date.now();
     this.situacao.textContent = "";
+    this.mostrarAtualizacao();
+  }
+
+  // Chamada a cada lote e a cada tique: o mesmo texto muda pelos dois.
+  private mostrarAtualizacao() {
+    this.atualizacao.textContent = formatarAtualizacao(
+      this.chegada,
+      Date.now(),
+    );
   }
 }
 

@@ -45,6 +45,9 @@ typealias Lote = Map<String, Placar>
 /** Intervalo entre dois lotes da fonte. */
 const val INTERVALO_MS = 1000L
 
+/** Intervalo entre dois tiques do relógio do painel. */
+const val TIQUE_MS = 1000L
+
 val JOGOS =
     listOf(
         Jogo(
@@ -101,7 +104,10 @@ fun placaresEm(instante: Long): Lote {
     }
 }
 
-/** A hora e o intervalo da fonte, como o Date.now e o setInterval da web. */
+/**
+ * A hora e os intervalos da fonte e do relógio do painel, como o Date.now e o
+ * setInterval da web.
+ */
 interface Relogio {
     fun agora(): Long
 
@@ -129,9 +135,12 @@ object RelogioDoSistema : Relogio {
     }
 }
 
-// O relógio da fonte. O teste o troca pelo relógio falso (RelogioFalso), como
-// o teste da web troca o Date.now e o setInterval da página.
-var relogioDaFonte: Relogio = RelogioDoSistema
+// O relógio do domínio. O teste o troca pelo relógio falso (RelogioFalso),
+// como o teste da web troca o Date.now e o setInterval da página.
+var relogioDoDominio: Relogio = RelogioDoSistema
+
+/** A hora agora, em milissegundos, como o Date.now. */
+fun agora(): Long = relogioDoDominio.agora()
 
 // Inscrições abertas agora, para a limpeza ao sair da tela.
 private var inscricoes = 0
@@ -144,7 +153,7 @@ private var inscricoes = 0
 fun inscreverNosPlacares(aoReceber: (Lote) -> Unit): Closeable {
     inscricoes++
     // O intervalo e a hora vêm do mesmo relógio, o da hora da inscrição.
-    val relogio = relogioDaFonte
+    val relogio = relogioDoDominio
     val envio =
         relogio.aCada(INTERVALO_MS) { aoReceber(placaresEm(relogio.agora())) }
     var ativa = true
@@ -159,6 +168,29 @@ fun inscreverNosPlacares(aoReceber: (Lote) -> Unit): Closeable {
 
 /** Inscrições abertas agora, para o teste de conformidade. */
 fun contarInscricoes(): Int = inscricoes
+
+// Relógios abertos agora, para a limpeza ao sair da tela.
+private var relogios = 0
+
+/**
+ * Chama aoTique a cada TIQUE_MS, na thread principal. Devolve o Closeable que
+ * para o relógio; fechá-lo de novo não faz nada.
+ */
+fun iniciarRelogio(aoTique: () -> Unit): Closeable {
+    relogios++
+    val tiques = relogioDoDominio.aCada(TIQUE_MS, aoTique)
+    var parado = false
+    return Closeable {
+        if (!parado) {
+            parado = true
+            relogios--
+            tiques.close()
+        }
+    }
+}
+
+/** Relógios abertos agora, para o teste de conformidade. */
+fun contarRelogios(): Int = relogios
 
 /** "2 × 1", ou "—" antes do primeiro lote. */
 fun formatarPlacar(gols: Gols?): String =
@@ -184,6 +216,16 @@ fun golsNovos(anterior: Placar?, atual: Placar?): String {
     if (m == 0 && v == 0) return "="
     fun lado(n: Int) = if (n > 0) "+$n" else "0"
     return "${lado(m)} × ${lado(v)}"
+}
+
+/**
+ * "Atualizado há 7 s": os segundos inteiros entre a chegada do lote e agora, ou
+ * "" antes do primeiro lote. Nunca negativo: o agora pode ser o do último
+ * tique, lido antes da chegada do lote.
+ */
+fun formatarAtualizacao(chegada: Long?, agora: Long): String {
+    if (chegada == null) return ""
+    return "Atualizado há ${maxOf(0L, Math.floorDiv(agora - chegada, 1000L))} s"
 }
 
 /** O placar bate com o palpite do jogo. */

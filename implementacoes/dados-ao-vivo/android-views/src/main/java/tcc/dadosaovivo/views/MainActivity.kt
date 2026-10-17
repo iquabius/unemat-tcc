@@ -14,9 +14,12 @@ import java.io.Closeable
 import tcc.dadosaovivo.JOGOS
 import tcc.dadosaovivo.Lote
 import tcc.dadosaovivo.MENSAGENS
+import tcc.dadosaovivo.agora
+import tcc.dadosaovivo.formatarAtualizacao
 import tcc.dadosaovivo.formatarPlacar
 import tcc.dadosaovivo.formatarTempo
 import tcc.dadosaovivo.golsNovos
+import tcc.dadosaovivo.iniciarRelogio
 import tcc.dadosaovivo.inscreverNosPlacares
 import tcc.dadosaovivo.noPalpite
 
@@ -28,11 +31,15 @@ class MainActivity : AppCompatActivity() {
     private val linhas = mutableMapOf<String, TableRow>()
 
     // Estado da coordenação, na Activity: a inscrição aberta (nenhuma em
-    // pausa, com o painel escondido ou com a tela fora de vista), a pausa e o
-    // último lote mostrado, que dá os gols novos.
+    // pausa, com o painel escondido ou com a tela fora de vista), a pausa, o
+    // último lote mostrado, que dá os gols novos, a hora em que ele chegou e
+    // o relógio, que vive com o painel, e não com a inscrição (aberto também
+    // em pausa).
     private var inscricao: Closeable? = null
     private var pausado = false
     private var ultimo: Lote? = null
+    private var chegada: Long? = null
+    private var relogio: Closeable? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,23 +51,28 @@ class MainActivity : AppCompatActivity() {
             } else {
                 mostrar()
                 inscrever()
+                abrirRelogio()
             }
         }
         mostrar()
     }
 
-    // A tela ficou à vista: abre a inscrição, se o painel está na página e
-    // não está em pausa. Como o connectedCallback do Web Component.
+    // A tela ficou à vista: abre o relógio, se o painel está na página, e a
+    // inscrição, se ele não está em pausa. Como o connectedCallback do Web
+    // Component.
     override fun onStart() {
         super.onStart()
-        if (painel != null && !pausado) inscrever()
+        if (painel == null) return
+        if (!pausado) inscrever()
+        abrirRelogio()
     }
 
-    // Sem isto, a fonte continua mandando lotes para uma tela fora de vista.
-    // Como o disconnectedCallback.
+    // Sem isto, a fonte continua mandando lotes, e o relógio continua
+    // batendo, para uma tela fora de vista. Como o disconnectedCallback.
     override fun onStop() {
         super.onStop()
         cancelar()
+        fecharRelogio()
     }
 
     private fun inscrever() {
@@ -72,11 +84,26 @@ class MainActivity : AppCompatActivity() {
         inscricao = null
     }
 
+    // Como o iniciarRelogio do connectedCallback do Web Component. O texto se
+    // recalcula já ao abrir: de volta do segundo plano, ele ainda diria a idade
+    // de quando a tela saiu de vista.
+    private fun abrirRelogio() {
+        relogio = iniciarRelogio { mostrarAtualizacao() }
+        mostrarAtualizacao()
+    }
+
+    // Como o pararRelogio do disconnectedCallback.
+    private fun fecharRelogio() {
+        relogio?.close()
+        relogio = null
+    }
+
     // Põe o painel na página como se a interface abrisse, sem pausa nem
     // valores. Como o createElement e o append do Web Component.
     private fun mostrar() {
         pausado = false
         ultimo = null
+        chegada = null
         val placares = findViewById<LinearLayout>(R.id.placares)
         val novo = layoutInflater.inflate(R.layout.painel, placares, false)
         val tabela = novo.findViewById<TableLayout>(R.id.tabela)
@@ -107,6 +134,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun esconder() {
         cancelar()
+        fecharRelogio()
         findViewById<LinearLayout>(R.id.placares).removeView(painel)
         painel = null
         findViewById<Button>(R.id.alternar).text = "Mostrar painel"
@@ -148,6 +176,15 @@ class MainActivity : AppCompatActivity() {
             }
         }
         ultimo = lote
+        chegada = agora()
         findViewById<TextView>(R.id.situacao).text = ""
+        mostrarAtualizacao()
+    }
+
+    // Chamada a cada lote e a cada tique: o mesmo texto muda pelos dois. Como
+    // a mostrarAtualizacao() do Web Component.
+    private fun mostrarAtualizacao() {
+        findViewById<TextView>(R.id.atualizacao).text =
+            formatarAtualizacao(chegada, agora())
     }
 }

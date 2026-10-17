@@ -35,8 +35,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 // Aparência dos Dados ao vivo, no papel do estilo.css da web: a tela só usa
-// os nomes daqui (Tema, Placares, Painel, Situacao, Tabela, Cabecalho, Linha,
-// Celula, Botao), como o className. O tr.alerta vira parâmetro da Linha.
+// os nomes daqui (Tema, Placares, Painel, Situacao, Atualizacao, Tabela,
+// Cabecalho, Linha, Celula, Botao), como o className. O tr.alerta vira
+// parâmetro da Linha.
 
 private val texto = Color(0xFFEEEEEE)
 
@@ -77,10 +78,19 @@ fun Painel(conteudo: @Composable ColumnScope.() -> Unit) {
     Column(verticalArrangement = Arrangement.spacedBy(8.dp), content = conteudo)
 }
 
+// .situacao, .atualizacao: a regra comum às duas.
+private val cinza = Color(0xFFAAAAAA)
+
 // .situacao
 @Composable
 fun Situacao(mensagem: String, modifier: Modifier = Modifier) {
-    Text(mensagem, modifier, color = Color(0xFFAAAAAA))
+    Text(mensagem, modifier, color = cinza)
+}
+
+// .atualizacao
+@Composable
+fun Atualizacao(texto: String) {
+    Text(texto, color = cinza)
 }
 
 // O fundo que cada linha põe antes das células, para a Tabela achar onde a

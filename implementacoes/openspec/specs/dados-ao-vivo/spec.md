@@ -35,7 +35,8 @@ lote, o placar, o tempo e os gols novos mostram "—", a situação mostra
 - **ENTÃO** a situação mostra "Aguardando placares…"
 - **E** as quatro linhas mostram o código, "—" no placar, no tempo e nos gols novos, e o palpite
 - **E** o botão de pausa diz "Pausar", e o outro, "Esconder painel"
-- **E** `contarInscricoes()` dá 1
+- **E** o "Atualizado há" fica vazio
+- **E** `contarInscricoes()` e `contarRelogios()` dão 1
 
 ### Requirement: Lotes da partida
 
@@ -128,6 +129,40 @@ marcados durante a pausa.
 - **ENTÃO** a situação mostra "Aguardando placares…"
 - **E** `contarInscricoes()` dá 1
 
+### Requirement: Atualizado há
+
+O painel deve mostrar "Atualizado há N s", em que N são os segundos inteiros
+desde a chegada do último lote mostrado, pela diferença das horas, e não pela
+contagem dos tiques, recalculado a cada 1 s pelo relógio do painel e de volta
+a 0 a cada lote, também em pausa, para o usuário saber quão recentes são os
+placares, ao vivo e com a tabela parada. Antes do primeiro lote, o texto fica
+vazio. Ele fica fora da situação, para o leitor de tela não o anunciar a cada
+segundo.
+
+#### Scenario: 4 o primeiro lote mostra atualizado há 0 s
+
+- **DADO** o painel mostrado às 10:00:00, sem lote, com o "Atualizado há" vazio
+- **QUANDO** passa 1 s, e chega o primeiro lote
+- **ENTÃO** a tela mostra "Atualizado há 0 s"
+
+#### Scenario: 6 em pausa o atualizado há conta os segundos
+
+- **DADO** o painel pausado com o segundo lote na tela, chegado às 10:00:02
+- **QUANDO** passam 7 s
+- **ENTÃO** a tela mostra "Atualizado há 7 s"
+
+#### Scenario: 7 retomar não zera o atualizado há
+
+- **DADO** o painel pausado há 7 s, com "Atualizado há 7 s"
+- **QUANDO** o usuário clica no "Retomar"
+- **ENTÃO** a tela ainda mostra "Atualizado há 7 s"
+
+#### Scenario: 7 o lote seguinte volta o atualizado há a 0 s
+
+- **DADO** o painel retomado 7 s depois de pausar
+- **QUANDO** passa 1 s, e o lote sai no mesmo instante do tique do relógio
+- **ENTÃO** a tela mostra "Atualizado há 0 s"
+
 ### Requirement: Situação anunciada
 
 A situação deve ficar num mesmo elemento com `role="status"`, presente
@@ -144,16 +179,16 @@ tela anunciá-la sem que ela receba o foco (WCAG 2.2, critério 4.1.3).
 
 O botão "Esconder painel" deve tirar o painel da página e passar a dizer
 "Mostrar painel", que o põe de volta como se a interface abrisse, sem pausa
-nem valores. Fora da página, o painel não deixa inscrição aberta, para o
-usuário não gastar rede e bateria com um painel que não vê:
-`contarInscricoes()`, do domínio, dá 0.
+nem valores. Fora da página, o painel não deixa inscrição nem relógio
+aberto, para o usuário não gastar rede e bateria com um painel que não vê:
+`contarInscricoes()` e `contarRelogios()`, do domínio, dão 0.
 
-#### Scenario: 2 esconder cancela a inscrição
+#### Scenario: 2 esconder cancela a inscrição e para o relógio
 
-- **DADO** o painel na página, com a inscrição aberta
+- **DADO** o painel na página, com a inscrição e o relógio abertos
 - **QUANDO** o usuário clica no "Esconder painel"
 - **ENTÃO** o painel não está na página, e o botão diz "Mostrar painel"
-- **E** `contarInscricoes()` dá 0
+- **E** `contarInscricoes()` e `contarRelogios()` dão 0
 
 #### Scenario: 9 mostrar depois de esconder em pausa começa sem pausa
 
@@ -161,10 +196,11 @@ usuário não gastar rede e bateria com um painel que não vê:
 - **QUANDO** o usuário clica no "Mostrar painel"
 - **ENTÃO** a situação mostra "Aguardando placares…", e o botão de pausa diz "Pausar"
 - **E** as quatro linhas mostram "—" no placar, no tempo e nos gols novos
-- **E** `contarInscricoes()` dá 1
+- **E** o "Atualizado há" fica vazio
+- **E** `contarInscricoes()` e `contarRelogios()` dão 1
 
-#### Scenario: 11 esconder e mostrar três vezes deixa uma inscrição
+#### Scenario: 11 esconder e mostrar três vezes deixa uma inscrição e um relógio
 
 - **DADO** o painel na página
 - **QUANDO** o usuário clica três vezes no "Esconder painel" e no "Mostrar painel"
-- **ENTÃO** `contarInscricoes()` dá 1
+- **ENTÃO** `contarInscricoes()` e `contarRelogios()` dão 1

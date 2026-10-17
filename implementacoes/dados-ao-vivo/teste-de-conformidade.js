@@ -7,7 +7,8 @@
 //
 // O tempo é de um relógio falso: o teste troca setTimeout, setInterval e
 // Date.now da página pelos dele e só os faz andar com avancar(ms). O placar
-// depende do segundo do relógio, que começa às 10:00:00 UTC de 2026-10-12.
+// depende do segundo do relógio, que começa às 10:00:00 UTC de 2026-10-12, e
+// o "Atualizado há", da hora da chegada do lote e da hora do tique.
 // O painel se inscreve na fonte ao abrir a página, com os temporizadores de
 // verdade: por isso o teste o esconde e o mostra antes de conferir lotes.
 // Entre um disparo e outro, deixa rodar as promises e as mensagens que o
@@ -101,7 +102,9 @@
     [...document.querySelectorAll(".painel tbody tr.alerta")].map((tr) =>
       texto(tr.cells[0]),
     );
+  const atualizacao = () => texto($(".atualizacao"));
   const inscricoes = () => globalThis.contarInscricoes();
+  const relogios = () => globalThis.contarRelogios();
   const r = [];
   const conferir = (nome, obtido, esperado) =>
     r.push(
@@ -148,9 +151,9 @@
 
     await clicar(".alternar");
     conferir(
-      "2 esconder cancela a inscrição",
-      [$(".painel"), texto($(".alternar")), inscricoes()],
-      [null, "Mostrar painel", 0],
+      "2 esconder cancela a inscrição e para o relógio",
+      [$(".painel"), texto($(".alternar")), inscricoes(), relogios()],
+      [null, "Mostrar painel", 0, 0],
     );
 
     await clicar(".alternar");
@@ -161,9 +164,11 @@
         linhas(),
         texto($(".pausa")),
         texto($(".alternar")),
+        atualizacao(),
         inscricoes(),
+        relogios(),
       ],
-      ["Aguardando placares…", semLote, "Pausar", "Esconder painel", 1],
+      ["Aguardando placares…", semLote, "Pausar", "Esconder painel", "", 1, 1],
     );
     const regiao = $(".situacao");
 
@@ -174,6 +179,11 @@
       ["", primeiroLote],
     );
     conferir("4 jogo no palpite fica destacado", destacadas(), ["GRE × INT"]);
+    conferir(
+      "4 o primeiro lote mostra atualizado há 0 s",
+      atualizacao(),
+      "Atualizado há 0 s",
+    );
 
     await relogio.avancar(1000);
     conferir(
@@ -193,6 +203,11 @@
     );
     await relogio.avancar(7000);
     conferir("6 em pausa a tabela não muda", linhas(), segundoLote);
+    conferir(
+      "6 em pausa o atualizado há conta os segundos",
+      atualizacao(),
+      "Atualizado há 7 s",
+    );
 
     await clicar(".pausa");
     conferir(
@@ -200,12 +215,23 @@
       [situacao(), texto($(".pausa")), inscricoes()],
       ["", "Pausar", 1],
     );
+    conferir(
+      "7 retomar não zera o atualizado há",
+      atualizacao(),
+      "Atualizado há 7 s",
+    );
     // O lote sai 8 s depois do segundo; os gols da pausa contam desde ele.
     await relogio.avancar(1000);
     conferir(
       "7 gols novos contam desde o último lote mostrado",
       [linhas(), destacadas()],
       [loteDepoisDaPausa, ["CAM × CRU"]],
+    );
+    // O tique do relógio e o lote saem no mesmo instante, 10:00:10.
+    conferir(
+      "7 o lote seguinte volta o atualizado há a 0 s",
+      atualizacao(),
+      "Atualizado há 0 s",
     );
 
     conferir(
@@ -219,8 +245,15 @@
     await clicar(".alternar");
     conferir(
       "9 mostrar depois de esconder em pausa começa sem pausa",
-      [situacao(), texto($(".pausa")), linhas(), inscricoes()],
-      ["Aguardando placares…", "Pausar", semLote, 1],
+      [
+        situacao(),
+        texto($(".pausa")),
+        linhas(),
+        atualizacao(),
+        inscricoes(),
+        relogios(),
+      ],
+      ["Aguardando placares…", "Pausar", semLote, "", 1, 1],
     );
 
     await clicar(".pausa");
@@ -236,9 +269,9 @@
       await clicar(".alternar");
     }
     conferir(
-      "11 esconder e mostrar três vezes deixa uma inscrição",
-      inscricoes(),
-      1,
+      "11 esconder e mostrar três vezes deixa uma inscrição e um relógio",
+      [inscricoes(), relogios()],
+      [1, 1],
     );
   } finally {
     relogio.desinstalar();

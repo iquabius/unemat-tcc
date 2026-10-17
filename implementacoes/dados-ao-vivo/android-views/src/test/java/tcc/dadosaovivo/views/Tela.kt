@@ -69,6 +69,11 @@ class Tela(
         it.findViewById<TextView?>(R.id.situacao)?.text?.toString()
     }
 
+    // O "Atualizado há" (.atualizacao na web).
+    fun atualizacao(): String? = naTela {
+        it.findViewById<TextView?>(R.id.atualizacao)?.text?.toString()
+    }
+
     // As linhas dos jogos, com os textos das células separados por " | ",
     // como o linhas() da web.
     fun linhas(): List<String> = naTela { atividade ->

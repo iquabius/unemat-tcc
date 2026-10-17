@@ -15,12 +15,16 @@ A fonte é simulada em =dominio.ts=, com a forma de um /WebSocket/ ou de um
 =EventSource=: =inscreverNosPlacares(aoReceber)= manda os lotes e devolve
 a função que cancela a inscrição, o =Closable= de Meijer. O placar depende
 só do relógio, como num servidor real, para os testes e as capturas se
-repetirem. =contarInscricoes()= diz quantas inscrições estão abertas, para a
-limpeza ao sair da tela se conferir pela contagem. No Android, as mesmas
+repetirem. O relógio do painel, que recalcula o "Atualizado há" a cada
+segundo, é o =iniciarRelogio(aoTique)=, que devolve a função que o para.
+=contarInscricoes()= e =contarRelogios()= dizem quantas inscrições e quantos
+relógios estão abertos, para a limpeza ao sair da tela se conferir pela
+contagem. No Android, as mesmas
 regras estão portadas para Kotlin em =dominio-kotlin/main/Dominio.kt=,
 compartilhado por =android-views= e =android-compose=: a fonte entrega os
-lotes por /callback/ e devolve um =Closeable=, e o relógio dela
-(=relogioDaFonte=) é o que o teste troca pelo falso.
+lotes por /callback/ e devolve um =Closeable=, e o relógio do domínio
+(=relogioDoDominio=), que dá a hora e os intervalos à fonte e ao relógio do
+painel, é o que o teste troca pelo falso.
 
 As regras, as mensagens e os cenários que o teste de conformidade confere
 estão em =implementacoes/openspec/specs/dados-ao-vivo/spec.md=, a
@@ -40,12 +44,13 @@ rodada edita o =spec.md= direto (=implementacoes/AGENTS.md=).
   de novo. Depois do teste, recarregue a página para os lotes voltarem. As
   cenas das capturas ficam em =cenas.mts=.
 
-  No Android, as mesmas 15 verificações estão em =TesteDeConformidade.kt=,
+  No Android, as mesmas 19 verificações estão em =TesteDeConformidade.kt=,
   nos testes de cada tecnologia, com o relógio falso da regra
   =RelogioFalso=, e rodam com o =npm run capturas= (ou com
   =./gradlew testDebugUnitTest= em =implementacoes/android/=). O
   =DominioTest.kt= confere o porte do domínio. Dois testes conferem o que a
   especificação não cobre: o =RotacaoTest.kt=, a rotação, em que a
-  =Activity= recriada fecha a inscrição da tela antiga e o painel recomeça
-  sem a pausa nem os valores; e o =SegundoPlanoTest.kt=, a tela em segundo
-  plano, em que o Views fecha a inscrição e o Compose a mantém.
+  =Activity= recriada fecha a inscrição e o relógio da tela antiga e o
+  painel recomeça sem a pausa nem os valores; e o =SegundoPlanoTest.kt=, a
+  tela em segundo plano, em que o Views fecha a inscrição e o relógio e o
+  Compose os mantém.

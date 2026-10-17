@@ -4,6 +4,8 @@ import {
   JOGOS,
   MENSAGENS,
   inscreverNosPlacares,
+  iniciarRelogio,
+  formatarAtualizacao,
   formatarPlacar,
   formatarTempo,
   golsNovos,
@@ -15,13 +17,18 @@ import "../../estilo.css";
 @customElement("painel-de-placares")
 class PainelDePlacares extends LitElement {
   // Estado da tela: alterá-lo reagenda render(). Os dois últimos lotes: o atual
-  // dá o placar, o anterior, os gols novos.
+  // dá o placar, o anterior, os gols novos. A hora em que chegou o último lote
+  // e a do último tique do relógio.
   @state() accessor pausado = false;
   @state() accessor anterior: Lote | undefined;
   @state() accessor atual: Lote | undefined;
+  @state() accessor chegada: number | undefined;
+  @state() accessor agora = Date.now();
 
-  // Estado da coordenação, fora da tela: a inscrição aberta.
+  // Estado da coordenação, fora da tela: a inscrição aberta e o relógio, que
+  // vive com o painel, e não com a inscrição.
   private cancelar?: () => void;
+  private pararRelogio?: () => void;
 
   // Sem shadow DOM, como o Web Component, para o estilo.css valer.
   protected override createRenderRoot() {
@@ -31,18 +38,22 @@ class PainelDePlacares extends LitElement {
   override connectedCallback() {
     super.connectedCallback();
     this.inscrever();
+    this.pararRelogio = iniciarRelogio(() => (this.agora = Date.now()));
   }
 
-  // Sem isto, a fonte continua mandando lotes para um painel fora da página.
+  // Sem isto, a fonte continua mandando lotes, e o relógio continua
+  // batendo, para um painel fora da página.
   override disconnectedCallback() {
     super.disconnectedCallback();
     this.cancelar?.();
+    this.pararRelogio?.();
   }
 
   private inscrever() {
     this.cancelar = inscreverNosPlacares((lote) => {
       this.anterior = this.atual;
       this.atual = lote;
+      this.chegada = Date.now();
     });
   }
 
@@ -61,6 +72,9 @@ class PainelDePlacares extends LitElement {
     return html`
       <section class="painel">
         <p class="situacao" role="status">${situacao}</p>
+        <p class="atualizacao">
+          ${formatarAtualizacao(this.chegada, this.agora)}
+        </p>
         <table>
           <thead>
             <tr>

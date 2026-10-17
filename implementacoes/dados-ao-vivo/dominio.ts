@@ -29,6 +29,9 @@ export type Lote = Readonly<Record<string, Placar>>;
 /** Intervalo entre dois lotes da fonte. */
 export const INTERVALO_MS = 1000;
 
+/** Intervalo entre dois tiques do relógio do painel. */
+export const TIQUE_MS = 1000;
+
 export const JOGOS: readonly Jogo[] = [
   {
     codigo: "FLA × PAL",
@@ -112,7 +115,31 @@ export function inscreverNosPlacares(
 export function contarInscricoes(): number {
   return inscricoes;
 }
-Object.assign(globalThis, { contarInscricoes });
+
+// Relógios abertos agora, para a limpeza ao sair da tela.
+let relogios = 0;
+
+/**
+ * Chama aoTique a cada TIQUE_MS. Devolve a função que para o relógio;
+ * chamá-la de novo não faz nada.
+ */
+export function iniciarRelogio(aoTique: () => void): () => void {
+  relogios++;
+  const intervalo = setInterval(aoTique, TIQUE_MS);
+  let parado = false;
+  return () => {
+    if (parado) return;
+    parado = true;
+    relogios--;
+    clearInterval(intervalo);
+  };
+}
+
+/** Relógios abertos agora, para o teste de conformidade. */
+export function contarRelogios(): number {
+  return relogios;
+}
+Object.assign(globalThis, { contarInscricoes, contarRelogios });
 
 /** "2 × 1", ou "—" antes do primeiro lote. */
 export function formatarPlacar(gols: Gols | undefined): string {
@@ -140,6 +167,19 @@ export function golsNovos(
   if (m === 0 && v === 0) return "=";
   const lado = (n: number) => (n > 0 ? `+${n}` : "0");
   return `${lado(m)} × ${lado(v)}`;
+}
+
+/**
+ * "Atualizado há 7 s": os segundos inteiros entre a chegada do lote e agora,
+ * ou "" antes do primeiro lote. Nunca negativo: o agora pode ser o do último
+ * tique, lido antes da chegada do lote.
+ */
+export function formatarAtualizacao(
+  chegada: number | undefined,
+  agora: number,
+): string {
+  if (chegada === undefined) return "";
+  return `Atualizado há ${Math.max(0, Math.floor((agora - chegada) / 1000))} s`;
 }
 
 /** O placar bate com o palpite do jogo. */
