@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- O painel, que a MainActivity põe na página e tira dela, como o
+     <section class="painel"> do Web Component. -->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/painel"
+    style="@style/Painel">
+    <!-- Como o <label>: o texto e o campo que ele nomeia. -->
+    <LinearLayout style="@style/Rotulo">
+        <TextView
+            style="@style/Texto"
+            android:labelFor="@id/nome"
+            android:text="Nome" />
+
+        <EditText
+            android:id="@+id/nome"
+            style="@style/Entrada"
+            android:autofillHints="username"
+            android:inputType="text" />
+    </LinearLayout>
+
+    <LinearLayout style="@style/Rotulo">
+        <TextView
+            style="@style/Texto"
+            android:labelFor="@id/senha"
+            android:text="Senha" />
+
+        <!-- Como o type="password": o inputType mostra um ponto no lugar de
+             cada caractere. -->
+        <EditText
+            android:id="@+id/senha"
+            style="@style/Entrada"
+            android:autofillHints="password"
+            android:inputType="textPassword" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/entrar"
+        style="@style/Botao"
+        android:enabled="false"
+        android:text="Entrar" />
+
+    <!-- Como o role="status": o leitor de tela anuncia a atualização. -->
+    <TextView
+        android:id="@+id/situacao"
+        style="@style/Texto"
+        android:accessibilityLiveRegion="polite" />
+
+    <TextView
+        android:id="@+id/relogio"
+        style="@style/Texto"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/sair"
+        style="@style/Botao"
+        android:text="Sair"
+        android:visibility="gone" />
+</LinearLayout>

@@ -275,3 +275,49 @@ Swing e JavaFX, com a tela do JavaFX em código, no Formulário.
   As duas telas têm duas linhas, uma por campo; a diferença é do
   *toolkit*, e o FlatLaf, na terceira rodada, a mantém com a chave dele
   (`JTextField.placeholderText`).
+
+## 2026-10-17, Login no Android (commits `edcbcf8` a `10fc5f6` e seguinte)
+
+- **O campo de senha** (montagem da tela, nível de abstração): no Views,
+  é um atributo do layout, `android:inputType="textPassword"`, como o
+  `type="password"` da web. No Compose, o `BasicTextField` de valor (o
+  mesmo do Formulário, no papel do *input* controlado do React) recebe
+  `visualTransformation = PasswordVisualTransformation()` e o teclado
+  `KeyboardType.Password`, no parâmetro `senha` da `Entrada` do
+  `Estilo.kt`. A documentação do Compose (*Configure text fields*,
+  página atualizada em 2026-10-16) recomenda os campos de estado
+  (`TextFieldState`) e, para senha, o `SecureTextField`, e o
+  `PasswordVisualTransformation` sai obsoleto no Compose 1.13.0-alpha03,
+  com os campos de `VisualTransformation`; no 1.12.1, o do BOM
+  2026.09.00, ainda não é. Trocar pelo `BasicSecureTextField` mudaria o
+  modelo do campo (um `TextFieldState` no lugar do valor e do
+  `onValueChange`) só na senha, e o Nome e o Formulário ficariam no outro.
+- **O cancelamento ao sair da tela se escreve no Views e vem do escopo no
+  Compose** (dependências ocultas, propensão a erros): no Views, a
+  tentativa e o relógio são `Job`s do `lifecycleScope`, que só os cancela
+  ao destruir a `Activity`; o `esconder()` cancela os dois à mão, no
+  papel do `disconnectedCallback`, e sem esses `cancel()` o teste de
+  conformidade falha (verificação 13). No Compose, a tentativa nasce no
+  `rememberCoroutineScope()` do painel e o relógio no
+  `LaunchedEffect(situacao)`; a saída do painel da composição cancela os
+  dois sem uma linha na tela. Pôr a tentativa num escopo que não é o do
+  painel (um `GlobalScope`) faz falhar a verificação 14. A preempção (a
+  tentativa nova que cancela a anterior) se escreve igual nas duas, um
+  `tentativa?.cancel()` antes de lançar a nova, como o `abort()` da web.
+- **A espera do domínio é trocável, e não o despachante** (teste): o
+  `autenticar` e o `iniciarRelogio` esperam pela variável `esperar` do
+  domínio, que no aplicativo é o `delay` e no teste a regra
+  `RelogioFalso` troca por uma espera que só o `avancar(ms)` retoma. O
+  despachante de teste das corrotinas, a forma comum, prenderia o tempo
+  ao relógio do teste do Compose, que o `waitForIdle` faz andar.
+- **A captura copiava um quadro antigo** (ambiente de teste, fora da
+  análise): com a API 37, o Robolectric 4.17 desenha de verdade, e o
+  `captureScreenRoboImage` copia a superfície da janela (`PixelCopy`).
+  No Login em Views, a cópia às vezes devolvia a tela de antes da última
+  alteração, conforme quantos quadros a cena desenhara, e o `--conferir`
+  acusava mudança sem mudança no código; o teste de conformidade, que lê
+  as views, passava. O `capturar()` de
+  `implementacoes/android/captura/Captura.kt` passou a desenhar a janela
+  num `Bitmap` (commit `7bd5984`); das capturas do Android já
+  versionadas, só a `android-compose-inicial` do Formulário mudou, em
+  pixels do texto desabilitado, sem diferença visível.

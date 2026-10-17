@@ -50,8 +50,8 @@ abaixo.
 
 * Instalar e rodar (Android)
 
-  O Formulário com validação e os Dados ao vivo também existem no Android,
-  em Kotlin, em duas tecnologias:
+  O Formulário com validação, os Dados ao vivo e o Login com quarentena
+  também existem no Android, em Kotlin, em duas tecnologias:
 
   | Subpasta           | Tecnologia                                         |
   |--------------------+----------------------------------------------------|
