@@ -26,7 +26,7 @@ requisição deve sair: "rio" e "rio " são o mesmo termo.
 #### Scenario: 5 termo repetido não busca
 
 - **DADO** as sugestões de "rio" na tela
-- **QUANDO** o usuário digita "rio "
+- **QUANDO** o usuário digita "rio " e passam 150 ms
 - **ENTÃO** não há situação na tela
 - **E** as sugestões continuam "Rio Branco (AC)" e "Rio de Janeiro (RJ)"
 
@@ -38,7 +38,7 @@ nova deve sair.
 
 #### Scenario: 2 termo curto não busca
 
-- **QUANDO** o usuário digita "s"
+- **QUANDO** o usuário digita "s" e passam 150 ms
 - **ENTÃO** não há situação nem sugestões na tela
 
 ### Requirement: Busca
@@ -108,7 +108,7 @@ não reabre as sugestões.
 
 #### Scenario: 6 buscando antes do Esc
 
-- **QUANDO** o usuário digita "sal"
+- **QUANDO** o usuário digita "sal" e passam 150 ms
 - **ENTÃO** a situação mostra "Buscando…"
 
 #### Scenario: 6 Esc limpa
