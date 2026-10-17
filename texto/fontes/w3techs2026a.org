@@ -6,7 +6,7 @@
   /site/ contar”
 - Trecho: “If we find a technology on any of the pages, it is considered
   to be used by the website.”
-- Lido em: =tmp/fontes/w3techs2026-metodologia.txt=, l. 70 (a página
+- Lido em: =tmp/fontes/w3techs2026a.txt=, l. 70 (a página
   “Technologies Overview”, salva em 2026-09-29; a de 2026-10-13 traz a
   mesma frase).
 - Observação: Seção “Uso das tecnologias web”. Parágrafo vindo dos estudos

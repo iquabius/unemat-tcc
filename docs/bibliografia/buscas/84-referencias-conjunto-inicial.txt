@@ -1,6 +1,6 @@
 # Terceira rodada (tcc-lf9, 2026-10-09): referências do conjunto inicial (snowballing para trás)
 
-- Kiss (2014): 60 referências (lista lida em tmp/fontes/kiss2014.txt, p. 106-111), todas de 2014 ou antes. As que aplicam DCs (Clarke e Becker 2003; Kutar, Britton e Wilson; Sadowski e Kurniawan 2011; Green, "Instructions and descriptions") e as de PFR para GUIs (Courtney; Czaplicki; Maier e Odersky; REScala; InterState; Salvaneschi et al. 2014) já estavam na base ou em tmp/pesquisa-precedentes.md. Nenhum incluído novo.
+- Kiss (2014): 60 referências (lista lida em tmp/fontes/kiss2014.txt, p. 106-111), todas de 2014 ou antes. As que aplicam DCs (Clarke e Becker 2003; Kutar, Britton e Wilson; Sadowski e Kurniawan 2011; Green, "Instructions and descriptions") e as de PFR para GUIs (Courtney; Czaplicki; Maier e Odersky; REScala; InterState; Salvaneschi et al. 2014) já estavam na base ou em tmp/pesquisas/pesquisa-precedentes.md. Nenhum incluído novo.
 - Mernik et al. (2009): 15 referências (tmp/fontes/mernik2009.txt), de 1987 a 2009. Nenhum incluído novo.
 - Zimmerle (2024, tese, `lima2024`): bibliografia de cerca de 140 entradas; lidas as 23 com termos de interface, PR, *callback*, Observer ou DCs (abaixo). Todas já na base ou fora do recorte (servidor, IoT, CEP). Nenhum incluído novo.
 - Zimmerle e Gama (2025): referências vistas na primeira rodada (30-referencias-zimmerle2025.txt).

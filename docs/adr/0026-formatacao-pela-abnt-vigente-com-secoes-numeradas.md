@@ -1,8 +1,8 @@
 # 0026. A forma do documento segue as normas ABNT vigentes, com as seções primárias numeradas, e não os modelos do curso onde eles divergem
 
 2026-10-05. Os dois modelos de TCC II do curso,
-`tmp/unemat/Modelo_Estrutura_TCCII.doc` e
-`tmp/unemat/Monografia_final_EXEMPLO.docx` (criado em 2016-03-29, salvo
+`tmp/fontes/normas/brasil/unemat/Modelo_Estrutura_TCCII.doc` e
+`tmp/fontes/normas/brasil/unemat/Monografia_final_EXEMPLO.docx` (criado em 2016-03-29, salvo
 em 2019-08-19), divergem das normas ABNT que a página da disciplina lista,
 e a Resolução 030/2012-CONEPE, Art. 27, I, pede "na sua estrutura formal,
 os critérios técnicos estabelecidos na ABNT [...] vigente". A forma do
@@ -33,9 +33,9 @@ N"; a ficha catalográfica, no verso da folha de rosto (NBR 14724:2024,
 4.2.1.1.2), depende da biblioteca, pergunta em aberto à coordenação.
 
 Fontes: Resolução 030/2012-CONEPE, Art. 27, I (p. 7,
-`tmp/unemat/instrucoes-normativas/resolucao_030_2012_conepe_tcc-1.pdf`);
+`tmp/fontes/normas/brasil/unemat/instrucoes-normativas/resolucao_030_2012_conepe_tcc-1.pdf`);
 regimento de TCC II, Art. 26 e Anexo II
-(`tmp/unemat/instrucoes-normativas/REGIMENTO_INTERNO_TRABALHO_DE_CONCLUSO_CURSO_II.pdf`);
+(`tmp/fontes/normas/brasil/unemat/instrucoes-normativas/REGIMENTO_INTERNO_TRABALHO_DE_CONCLUSO_CURSO_II.pdf`);
 NBR 14724:2024, 4.2.2, pelo guia da UVA, p. 2
-(`tmp/unemat/abnt/nbr14724-2024-uva.pdf`); `w:pgMar` e `w:header` da
+(`tmp/fontes/normas/brasil/unemat/abnt/nbr14724-2024-uva.pdf`); `w:pgMar` e `w:header` da
 `Monografia_final_EXEMPLO.docx`.

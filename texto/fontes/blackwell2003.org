@@ -8,7 +8,7 @@
   proposed, as will be discussed later)” (p. 115); as dimensões vêm nas
   p. 115-118.
 - Lido em:
-  =tmp/fontes/blackwell2003-notational-systems—the-cognitive-dimensions-of-notations-framework.pdf=,
+  =tmp/fontes/blackwell2003-livro.pdf=,
   p. 13 a 16 do PDF (p. 115 a 118).
 - Observação: os nomes em português e a expressividade de papel
   (/role-expressiveness/) seguem o CONTEXT.md; o agrupamento em oito, duas
@@ -36,7 +36,7 @@
 - Lido em: o mesmo PDF, p. 11 (p. 113).
 - Observação: a fonte dá as seis atividades; a escolha de três e a divisão
   por rodada são do trabalho (docs/metodo-da-avaliacao.md, seção "Rodadas e crescimento do código";
-  tmp/relatorio-termos-e-coordenacao.md, seção 5.1).
+  tmp/pesquisas/relatorio-termos-e-coordenacao.md, seção 5.1).
 - Conferido: 2026-10-13.
 * [[file:../cases.org::A análise compara os modelos de][cases: A análise compara os modelos de]], p. 106 e 112
 - Frase: “A seção 4 compara os modelos de programação pelo perfil de cada

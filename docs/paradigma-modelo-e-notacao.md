@@ -28,7 +28,7 @@ Yi (2025, `lee2025`), para o componente do React que reexecuta (seção
 exemplos; a nota deles é `docs/trabalhos-relacionados-e-lacuna.md`.
 
 Estado das fontes. Todas as páginas citadas aqui foram conferidas no PDF
-em 2026-10-08 (relatórios em `tmp/buscas-2026-10-08/conferencia-*.md`,
+em 2026-10-08 (relatórios em `tmp/pesquisas/buscas-2026-10-08/conferencia-*.md`,
 fora do git) ou em 2026-10-03 (seção "Trechos das fontes"), salvo as
 marcadas **cópia**, **sem PDF** ou **leitura nossa** (legenda em
 `docs/README.md`). Conferir nas versões publicadas as páginas das cópias
@@ -448,7 +448,7 @@ p. 1125; Kiss 2014, p. 5).
 
 Método: tarefa tcc-cfm. Quatro lotes de busca, um por comunidade
 (OpenAlex, Crossref, BDTD, SOL e *snowballing* das sementes), com os
-relatórios e os PDFs em `tmp/revisao-interativo-reativo-2026-10-10/`,
+relatórios e os PDFs em `tmp/pesquisas/revisao-interativo-reativo-2026-10-10/`,
 fora do git. Só entram aqui os trechos conferidos no PDF pelo agente
 principal em 2026-10-10 (`conferencia.md` da mesma pasta); as 45 fontes
 sem acesso estão em `sem-acesso.md`. "Cópia" marca a página da versão

@@ -6,7 +6,7 @@
   uma fonte manda aos clientes, de Meijer (2012, p. 66).”
 - Trecho: “source asynchronously pushing data to its clients”; “push-based
   streams of stock quotes” (p. 66)
-- Lido em: =tmp/fontes/meijer2012-cacm.pdf=, p. 1 do PDF (p. 66).
+- Lido em: =tmp/fontes/meijer2012.pdf=, p. 1 do PDF (p. 66).
 - Observação: os Dados ao vivo trocaram as cotações por placares
   (ADR 0002, 2026-10-15); Meijer fica como a origem adaptada, como o
   /Flight Booker/ de Kiss no Formulário.
@@ -20,7 +20,7 @@
   social media status updates, SMS messages, GPS coordinates, mouse moves
   and other UI events, Web sockets, and high-latency calls to Web
   services [...]” (p. 67)
-- Lido em: =tmp/fontes/meijer2012-cacm.pdf=, p. 2 do PDF (p. 67, entre os
+- Lido em: =tmp/fontes/meijer2012.pdf=, p. 2 do PDF (p. 67, entre os
   rodapés das p. 66 e 68).
 - Observação: a divisão em dois eixos é do trabalho (“se divide aqui”;
   docs/estado-eventos-e-complexidade.md, seção "Coordenação, orquestração e

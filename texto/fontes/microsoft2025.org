@@ -8,7 +8,7 @@
 - Trecho: “If the binding has the correct settings and the data provides
   the proper notifications, when the data changes its value, the elements
   that are bound to the data reflect changes automatically.”
-- Lido em: =tmp/fontes/microsoft2025-wpf-data-binding.html= (página salva
+- Lido em: =tmp/fontes/microsoft2025.html= (página salva
   em 2026-10-13; atualizada em 2025-08-27).
 - Observação: a fonte sustenta a atualização só dos elementos ligados; pôr
   o WPF no declarativo por atualização granular é hipótese do trabalho

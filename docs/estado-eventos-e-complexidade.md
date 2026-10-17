@@ -187,7 +187,7 @@ estudos sobre React, RxJS e Redux. Decisão do autor em 2026-10-11, para o
 guarda-chuva, com dois eixos, a orquestração de eventos e o gerenciamento
 de estado; "tratamento de eventos" não serve de eixo, porque é
 vocabulário do imperativo (relatório do autor em
-`tmp/relatorio-termos-e-coordenacao.md`). Conferidos no PDF: Meijer,
+`tmp/pesquisas/relatorio-termos-e-coordenacao.md`). Conferidos no PDF: Meijer,
 Bainomugisha et al. e Kiss; o resto por subagente.
 
 | Fonte | Trecho ou termo | Onde | Eixo |
@@ -296,7 +296,7 @@ A cadeia, com a fonte de cada elo:
    cadeia fica toda em fontes revisadas: estado implícito, sequência
    escrita pelo programador, complexidade acidental. Järvi et al. põem
    os defeitos no código que coordena eventos. Conferido em 2026-10-15
-   (`tmp/fontes/edwards2009-coherent-reaction.pdf`, p. 5 do PDF; a p. 1
+   (`tmp/fontes/edwards2009.pdf`, p. 5 do PDF; a p. 1
    do PDF é a 925).
 
 ## Pendências
