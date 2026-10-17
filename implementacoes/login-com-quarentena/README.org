@@ -18,8 +18,9 @@ para Kotlin em =dominio-kotlin/main/Dominio.kt=, compartilhado por
 =android-views= e =android-compose=, com as corrotinas no lugar das
 /Promises/: =autenticar= é uma função suspensa, e cancelar a corrotina que
 a espera faz o papel do =AbortSignal=; =iniciarRelogio= roda o relógio numa
-corrotina e devolve o =Job= que o para. Nada ali depende do Android, para o
-desktop compilar o mesmo arquivo pela JVM.
+corrotina e devolve o =Job= que o para. Nada ali depende do Android; para
+o desktop usar o mesmo arquivo, faltam o =kotlinx-coroutines-core= e uma
+forma de o Java chamar a função suspensa.
 
 As regras, as mensagens e os cenários que o teste de conformidade confere
 estão em =implementacoes/openspec/specs/login-com-quarentena/spec.md=, a

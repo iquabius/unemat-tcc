@@ -9,9 +9,13 @@ import kotlinx.coroutines.launch
 // Regras, mensagens, o servidor simulado e o relógio da sessão do Login com
 // quarentena, iguais nas tecnologias do Android: o porte do dominio.ts da
 // web, com os mesmos nomes, regras e mensagens. Nada aqui depende de
-// interface nem do Android, para o desktop compilar o mesmo arquivo pela
-// JVM. A espera é a das corrotinas (ADR 0005): o cancelamento da corrotina
-// faz o papel do AbortSignal e do clearInterval.
+// interface nem do Android, mas o desktop ainda não compila este arquivo:
+// precisa do kotlinx-coroutines-core, que o Android traz com o AndroidX, e o
+// Java não chama função suspensa sem adaptador. A espera é a das corrotinas
+// (ADR 0005): o cancelamento da corrotina faz o papel do AbortSignal e do
+// clearInterval. Na web, a contagem de abertos cai no próprio abort(); aqui,
+// quando a corrotina cancelada retoma e roda o finally, o que no escopo que
+// despacha (o do Compose) fica para a volta seguinte do laço de eventos.
 
 /** Nome e senha mais curtos que isso deixam o "Entrar" desabilitado. */
 const val MINIMO_DE_CARACTERES = 2

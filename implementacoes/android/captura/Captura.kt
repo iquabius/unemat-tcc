@@ -9,7 +9,8 @@ import androidx.test.runner.lifecycle.Stage
 import com.github.takahirom.roborazzi.captureRoboImage
 import org.junit.rules.ExternalResource
 
-// Grava a tela inteira em <destino>/<tecnologia>-<cena>.png, com o mesmo
+// Grava a janela da Activity em primeiro plano (sem diálogos nem popups, que
+// são outras janelas) em <destino>/<tecnologia>-<cena>.png, com o mesmo
 // esquema de nomes das capturas web. Destino e tecnologia vêm do Gradle
 // (build.gradle.kts da raiz); quem compara com as versionadas é o
 // implementacoes/capturar.mts.
