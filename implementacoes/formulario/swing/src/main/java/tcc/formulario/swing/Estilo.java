@@ -100,15 +100,14 @@ final class Estilo {
       componente.setFont(FONTE_DO_ERRO);
       componente.setBorder(BorderFactory.createEmptyBorder(0, 0, 12, 0));
     } else if ("confirmacao".equals(classe)) {
-      componente.setForeground(CONFIRMACAO);
-      componente.setBorder(BorderFactory.createEmptyBorder(12, 0, 0, 0));
       // Quebra entre palavras, na largura da coluna, sobre o fundo.
-      if (componente instanceof JTextArea texto) {
-        texto.setLineWrap(true);
-        texto.setWrapStyleWord(true);
-        texto.setOpaque(false);
-        texto.setMaximumSize(new Dimension(LARGURA, Integer.MAX_VALUE));
-      }
+      JTextArea texto = (JTextArea) componente;
+      texto.setForeground(CONFIRMACAO);
+      texto.setBorder(BorderFactory.createEmptyBorder(12, 0, 0, 0));
+      texto.setLineWrap(true);
+      texto.setWrapStyleWord(true);
+      texto.setOpaque(false);
+      texto.setMaximumSize(new Dimension(LARGURA, Integer.MAX_VALUE));
     } else if (componente instanceof JLabel) {
       componente.setBorder(BorderFactory.createEmptyBorder(0, 0, 4, 0));
     } else if (componente instanceof JTextField campo) {
