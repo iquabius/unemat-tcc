@@ -13,8 +13,8 @@ import javafx.scene.control.TextField;
 import tcc.formulario.TipoDeVoo;
 
 // Ações e leituras usadas pelo teste, como as funções do
-// teste-de-conformidade.js. As Telas do Swing e do JavaFX com FXML têm os
-// mesmos nomes. Acha os campos pelo rótulo (setLabelFor), os erros e a
+// teste-de-conformidade.js. A Tela do Swing tem os mesmos
+// nomes. Acha os campos pelo rótulo (setLabelFor), os erros e a
 // confirmação pela classe de estilo.
 class Tela {
 

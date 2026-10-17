@@ -9,7 +9,7 @@ import java.util.concurrent.atomic.AtomicReference;
 import java.util.function.Supplier;
 import javax.swing.SwingUtilities;
 
-// Apoio das Telas de teste do Swing, comum aos casos.
+// Apoio das Telas de teste do Swing, comum às interfaces.
 public final class Swing {
 
   private Swing() {}

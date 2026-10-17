@@ -10,8 +10,8 @@ import org.junit.Test;
 import tcc.formulario.DataFixa;
 import tcc.formulario.TipoDeVoo;
 
-// As 19 verificações de casos/formulario/teste-de-conformidade.js, na mesma
-// ordem e com os mesmos nomes. Falha listando todas as que não passaram.
+// As 19 verificações de implementacoes/formulario/teste-de-conformidade.js, na
+// mesma ordem e com os mesmos nomes. Falha listando todas as que não passaram.
 public class TesteDeConformidade {
 
   @Rule

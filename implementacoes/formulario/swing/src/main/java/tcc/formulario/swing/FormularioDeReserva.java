@@ -27,7 +27,7 @@ import javax.swing.event.DocumentListener;
 import tcc.formulario.Reserva;
 import tcc.formulario.TipoDeVoo;
 
-// O formulário de reserva em Swing, como o MainActivity do Views: os
+// O formulário de reserva em Swing, como o elemento do Web Component: os
 // componentes e o estado ficam nesta classe, e cada listener revalida tudo.
 public class FormularioDeReserva extends JPanel {
 
@@ -43,7 +43,8 @@ public class FormularioDeReserva extends JPanel {
   private final JButton reservar = new JButton("Reservar");
   private final JLabel confirmacao = new JLabel();
 
-  // O parágrafo de erro de cada campo, como o <p class="erro"> do jQuery.
+  // O parágrafo de erro de cada campo, como o <p class="erro"> do Web
+  // Component.
   private final Map<JTextField, JLabel> erros = Map.of(
     nome,
     erro(),
@@ -55,7 +56,8 @@ public class FormularioDeReserva extends JPanel {
     erro()
   );
 
-  // Campos já tocados (que perderam o foco uma vez), como o Set do jQuery.
+  // Campos já tocados (que perderam o foco uma vez), como o Set do Web
+  // Component.
   private final Set<JTextField> tocados = new HashSet<>();
 
   public FormularioDeReserva() {
@@ -74,8 +76,8 @@ public class FormularioDeReserva extends JPanel {
     confirmacao.putClientProperty("classe", "confirmacao");
     volta.setEnabled(false);
 
-    // Como .on("input", validar): o DocumentListener avisa as três formas
-    // de alteração do texto, e as três revalidam.
+    // Como o addEventListener("input") do Web Component: o DocumentListener
+    // avisa as três formas de alteração do texto, e as três revalidam.
     DocumentListener validarAoMudar = new DocumentListener() {
       @Override
       public void insertUpdate(DocumentEvent e) {
@@ -94,7 +96,7 @@ public class FormularioDeReserva extends JPanel {
     };
     for (JTextField campo : List.of(nome, email, ida, volta)) {
       campo.getDocument().addDocumentListener(validarAoMudar);
-      // Como .on("blur"): marca o campo como tocado.
+      // Como o addEventListener("blur"): marca o campo como tocado.
       campo.addFocusListener(
         new FocusAdapter() {
           @Override
@@ -106,13 +108,13 @@ public class FormularioDeReserva extends JPanel {
       );
     }
 
-    // Como .on("change") do <select>.
+    // Como o addEventListener("change") do <select>.
     tipo.addActionListener(e -> {
       volta.setEnabled(tipo() == TipoDeVoo.IDA_E_VOLTA);
       validar();
     });
 
-    // Como .on("submit"): o botão só fica habilitado sem erros.
+    // Como o addEventListener("submit"): o botão só fica habilitado sem erros.
     reservar.addActionListener(e ->
       confirmacao.setText(
         mensagemDeConfirmacao(

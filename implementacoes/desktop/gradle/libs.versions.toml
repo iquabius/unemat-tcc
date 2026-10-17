@@ -1,5 +1,5 @@
 # Versões do projeto desktop (Swing e JavaFX). O Kotlin só compila o domínio
-# do caso, o mesmo do Android, na versão do casos/android/.
+# da interface, o mesmo do Android, na versão do implementacoes/android/.
 [versions]
 kotlin = "2.4.20"
 javafx = "27"

@@ -15,7 +15,7 @@ import javax.swing.JTextField;
 import tcc.formulario.TipoDeVoo;
 
 // Ações e leituras usadas pelo teste, como as funções do
-// teste-de-conformidade.js. As Telas do JavaFX têm os mesmos nomes. Acha os
+// teste-de-conformidade.js. A Tela do JavaFX tem os mesmos nomes. Acha os
 // campos pelo rótulo (setLabelFor), os erros e a confirmação pela classe.
 class Tela {
 

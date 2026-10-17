@@ -1,6 +1,7 @@
-// Projeto Gradle único dos casos de desktop, em Java. Cada caso e tecnologia
-// é um módulo em casos/<caso>/<tecnologia>/, ao lado das implementações web e
-// Android, e se chama :<caso>-<tecnologia> (por exemplo, :formulario-swing).
+// Projeto Gradle único do desktop, em Java. Cada interface e tecnologia é um
+// módulo em implementacoes/<interface>/<tecnologia>/, ao lado das
+// implementações web e Android, e se chama :<interface>-<tecnologia> (por
+// exemplo, :formulario-swing).
 pluginManagement {
     repositories {
         mavenCentral()
@@ -15,16 +16,16 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "casos-desktop"
+rootProject.name = "implementacoes-desktop"
 
-val casos = rootDir.parentFile
+val implementacoes = rootDir.parentFile
 
-casos.listFiles().orEmpty().sorted().forEach { caso ->
-    listOf("swing", "javafx", "javafx-fxml").forEach { tecnologia ->
-        val pasta = caso.resolve(tecnologia)
+implementacoes.listFiles().orEmpty().sorted().forEach { gui ->
+    listOf("swing", "javafx").forEach { tecnologia ->
+        val pasta = gui.resolve(tecnologia)
         if (pasta.resolve("build.gradle.kts").exists()) {
-            include(":${caso.name}-$tecnologia")
-            project(":${caso.name}-$tecnologia").projectDir = pasta
+            include(":${gui.name}-$tecnologia")
+            project(":${gui.name}-$tecnologia").projectDir = pasta
         }
     }
 }

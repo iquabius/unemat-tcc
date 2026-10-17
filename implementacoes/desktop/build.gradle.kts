@@ -52,12 +52,12 @@ ktfmtTask(
 
 subprojects {
     apply(plugin = "application")
-    // O Kotlin só compila o domínio do caso; a tela é Java.
+    // O Kotlin só compila o domínio da interface; a tela é Java.
     apply(plugin = "org.jetbrains.kotlin.jvm")
 
-    // Domínio do caso (casos/<caso>/dominio-kotlin/), o mesmo do Android, no
-    // papel do dominio.ts da web. Dos testes de lá só entra a regra DataFixa:
-    // o DominioTest já roda no projeto Android.
+    // Domínio da interface (implementacoes/<interface>/dominio-kotlin/), o
+    // mesmo do Android, no papel do dominio.ts da web. Dos testes de lá só
+    // entra a regra DataFixa: o DominioTest já roda no projeto Android.
     val dominio = projectDir.resolveSibling("dominio-kotlin")
     if (dominio.isDirectory) {
         extensions.configure<KotlinJvmProjectExtension> {
@@ -67,8 +67,8 @@ subprojects {
         }
     }
 
-    // Aparência do JavaFX (casos/<caso>/javafx-estilo/estilo.css), a mesma
-    // nas duas montagens, como o estilo.css da web.
+    // Aparência do JavaFX (implementacoes/<interface>/javafx-estilo/
+    // estilo.css), fora da tela, como o estilo.css da web.
     val estilo = projectDir.resolveSibling("javafx-estilo")
     if (estilo.isDirectory && !name.endsWith("-swing")) {
         extensions.configure<SourceSetContainer> {
@@ -76,8 +76,8 @@ subprojects {
         }
     }
 
-    // Apoio das Telas de teste (casos/desktop/teste/), um por tecnologia,
-    // como o casos/android/captura/.
+    // Apoio das Telas de teste (implementacoes/desktop/teste/), um por
+    // tecnologia, como o implementacoes/android/captura/.
     val apoio =
         rootDir
             .resolve("teste")

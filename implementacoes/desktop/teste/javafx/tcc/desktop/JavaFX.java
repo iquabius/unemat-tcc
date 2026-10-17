@@ -9,7 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-// Apoio das Telas de teste do JavaFX, comum aos casos e às duas montagens.
+// Apoio das Telas de teste do JavaFX, comum às interfaces.
 public final class JavaFX {
 
   private static boolean iniciada;
