@@ -109,14 +109,20 @@ _Avoid_: problema de coordenação (até 2026-10-14: "problema" fica para o
 de usabilidade e o de pesquisa); requisito de coordenação (confunde-se com
 o requisito de orquestração); padrão de interface; tratamento de eventos
 (é o vocabulário do imperativo, e mediria os três modelos de programação
-com a régua de um)
+com a régua de um); tempo de vida (até 2026-10-16: "ciclo de vida" é o
+termo das documentações do Android e do React em português); assinatura
+e assinar, para o *subscribe* (até 2026-10-16: "assinatura" se lê como
+mensalidade de serviço, e a documentação do React em português diz
+"inscrição" e "inscrever")
 
 **Orquestração de eventos**:
 O eixo da exigência de coordenação que combina no tempo eventos de várias
 fontes: a espera depois da última tecla, o cancelamento, a ordem das
 respostas, a nova tentativa (Meijer, 2012).
 _Avoid_: coordenação de eventos (coordenar cobre também o estado, Edwards,
-2009); orquestração para o estado
+2009); orquestração para o estado; em curso, para a requisição ou a
+tentativa que espera resposta (até 2026-10-16: "em andamento" é a forma
+das telas brasileiras)
 
 **Gerenciamento de estado**:
 O eixo da exigência de coordenação que propaga cada alteração de estado aos
@@ -189,7 +195,8 @@ teste de conformidade confere que nada sobrou. Quem a viola deixa um
 vazamento de recursos (Lima, Giusti e Dias-Neto, 2020).
 _Avoid_: "nada vivo depois de sair da tela" (decalque de *alive*);
 descarte (tradução automática de *dispose*); desmontar sozinho
-(vocabulário do React); tarefa órfã (tarefa é a do bd)
+(vocabulário do React); tarefa órfã (tarefa é a do bd); assinatura (é
+inscrição, como em "Exigência de coordenação")
 
 **Ecossistema**:
 As bibliotecas que a comunidade de uma tecnologia usa junto dela, como as
@@ -487,7 +494,8 @@ Sequência de valores que chegam com o tempo, mandados pela fonte; os
 operadores de coleção, como filtrar e transformar, aplicam-se a ela
 (Meijer, 2012).
 _Avoid_: *stream* sem tradução; fluxo de dados (é a computação guiada
-pelos valores, não o valor)
+pelos valores, não o valor); empurrar e empurrados (até 2026-10-16:
+decalque de *push*; a fonte manda)
 
 **Tarefa do bd**:
 Um item de trabalho no Beads (`bd`); não é decisão (ADR) nem achado para a
