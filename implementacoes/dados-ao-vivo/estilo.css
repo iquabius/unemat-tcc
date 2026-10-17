@@ -20,7 +20,8 @@ body {
   justify-items: start;
 }
 
-.situacao {
+.situacao,
+.atualizacao {
   margin: 0;
   color: #aaa;
 }
