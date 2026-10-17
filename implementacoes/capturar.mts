@@ -41,10 +41,19 @@ export type Cenas = Record<string, (pagina: Page) => Promise<void>>;
 
 const RAIZ = path.resolve(import.meta.dirname, "..");
 const IMPLEMENTACOES = path.join(RAIZ, "implementacoes");
-const WEB = ["web-component", "react", "solid", "lit", "angular-signals"];
-const ANDROID = ["android-views", "android-compose"];
-const DESKTOP = ["swing", "javafx"];
-const TECNOLOGIAS = [...WEB, ...ANDROID, ...DESKTOP];
+// A plataforma de cada tecnologia, na ordem em que o script as captura.
+const PLATAFORMA: Record<string, "web" | "android" | "desktop"> = {
+  "web-component": "web",
+  react: "web",
+  solid: "web",
+  lit: "web",
+  "angular-signals": "web",
+  "android-views": "android",
+  "android-compose": "android",
+  swing: "desktop",
+  javafx: "desktop",
+};
+const TECNOLOGIAS = Object.keys(PLATAFORMA);
 // O projeto Gradle de cada plataforma e a tarefa que roda os testes de um
 // módulo, com as cenas.
 const GRADLE: Record<string, { gradlew: string; tarefa: string }> = {
@@ -57,12 +66,6 @@ const GRADLE: Record<string, { gradlew: string; tarefa: string }> = {
     tarefa: "test",
   },
 };
-const plataformaDe = (tecnologia: string) =>
-  ANDROID.includes(tecnologia)
-    ? "android"
-    : DESKTOP.includes(tecnologia)
-      ? "desktop"
-      : "web";
 
 // Data fixa para que as implementações que mostram "hoje" gerem sempre a
 // mesma imagem.
@@ -87,9 +90,7 @@ async function implementacoes(filtros: string[]): Promise<[string, string][]> {
       continue;
     for (const tecnologia of TECNOLOGIAS) {
       const projeto =
-        plataformaDe(tecnologia) === "web"
-          ? "package.json"
-          : "build.gradle.kts";
+        PLATAFORMA[tecnologia] === "web" ? "package.json" : "build.gradle.kts";
       if (!existsSync(path.join(IMPLEMENTACOES, gui, tecnologia, projeto)))
         continue;
       const escolhido =
@@ -148,7 +149,7 @@ async function capturarNoGradle(
   tecnologia: string,
   pasta: string,
 ): Promise<string[]> {
-  const { gradlew, tarefa: teste } = GRADLE[plataformaDe(tecnologia)];
+  const { gradlew, tarefa: teste } = GRADLE[PLATAFORMA[tecnologia]];
   const tarefa = `:${gui}-${tecnologia}:${teste}`;
   try {
     execFileSync(
@@ -204,7 +205,7 @@ async function registrar(
   cena: string,
   imagem: Buffer,
 ) {
-  const chave = `${gui}/${cena} (${plataformaDe(tecnologia)})`;
+  const chave = `${gui}/${cena} (${PLATAFORMA[tecnologia]})`;
   if (!hashes.has(chave)) hashes.set(chave, new Map());
   hashes
     .get(chave)!
@@ -253,7 +254,7 @@ try {
     const destino = temporaria ? path.join(temporaria, gui) : versionadas;
     await mkdir(destino, { recursive: true });
 
-    if (plataformaDe(tecnologia) !== "web") {
+    if (PLATAFORMA[tecnologia] !== "web") {
       // O Gradle grava numa pasta só deste módulo; daqui vão para o destino.
       const pasta = await mkdtemp(
         path.join(tmpdir(), `capturas-${tecnologia}-`),
