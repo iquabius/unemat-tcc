@@ -215,9 +215,9 @@ A mudança não se porta para o código da interface em
   biblioteca (`docs/plataformas/web.md`, seção "Como Web Components sem
   biblioteca montam a tela"), e o ADR 0037 diz as alternativas e o
   custo.
-- O Lit (ADR 0013: Formulário, Busca e Dados ao vivo; o Quadro, de apoio
-  desde 2026-10-17, até a conferência das coleções do Quadro, tcc-2rx2,
-  decidir o trio dos pares) fica em
+- O Lit (ADR 0013: Formulário, Busca e Dados ao vivo; o Quadro desde
+  2026-10-17, fora do ADR 0013 até a conferência das coleções do Quadro,
+  tcc-2rx2, decidir o trio dos pares) fica em
   `implementacoes/<interface>/lit/`, com o Lit 3 e o *template* `html`, sem
   `@lit-labs/signals` nem `@lit/task`. Escreve-se como o Web Component da
   interface, para o par diferir o mínimo além da ligação do estado com a

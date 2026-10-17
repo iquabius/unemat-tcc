@@ -10,8 +10,8 @@ inteiro, o formato do `useReducer` do React, e o Solid, em vez de alterar o
 (`reconcile`). Mover, arquivar e trocar pelo quadro de outra aba passam a
 ser escritos em cada implementação, no idioma da tecnologia: o Web
 Component altera no lugar as listas da loja (e o Lit, que implementa o
-Quadro de apoio desde 2026-10-17, faz o mesmo), o React escreve o redutor
-no próprio arquivo, o Solid altera o *store* pelo caminho com `produce`, e
+Quadro desde 2026-10-17, faz o mesmo), o React escreve o redutor no
+próprio arquivo, o Solid altera o *store* pelo caminho com `produce`, e
 o Angular troca o valor do *signal* por uma cópia. O domínio fica com as
 tarefas, as colunas, o limite de "Fazendo", os textos, o quadro salvo e o
 ouvinte das outras abas, que entrega o quadro lido, e não uma ação.
