@@ -65,10 +65,10 @@ Referências desta skill:
 6. **Interface fora da análise** (o Contador, a Lista e o Carrinho em
    `implementacoes/fora-da-analise/`), usada para calibrar a leitura, como
    o primeiro *case study* de Kiss (2014, p. 18): os mesmos passos, com
-   os arquivos em `tmp/avaliacao/<interface>/`, sem commit e sem ir para
-   o texto. O código de lá não compila no `master`; para executar (regra
-   4), use o commit anterior ao movimento, pelo
-   `implementacoes/fora-da-analise/README.org`, "Rodar". A especificação
+   os arquivos em `tmp/pesquisas/AAAA-MM-DD-calibracao-<interface>/`,
+   sem commit e sem ir para o texto. O código de lá não compila no
+   `master`; para executar (regra 4), use o commit anterior ao movimento,
+   pelo `implementacoes/fora-da-analise/README.org`, "Rodar". A especificação
    é o `README.org` da interface.
 7. **Celular.** O autor lê o guia e dita no celular: títulos curtos, uma
    DC por seção, listas em vez de tabelas largas, trechos de código curtos
