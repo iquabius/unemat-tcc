@@ -80,25 +80,25 @@ class DominioTest {
     @Test
     fun confirmacoes() {
         assertEquals(
-            "Voo só de ida reservado para Maria em 10/10/2026. A confirmação vai para maria@exemplo.com.",
+            "Passagem só de ida comprada para Maria em 10/10/2026. A confirmação vai para maria@exemplo.com.",
             mensagemDeConfirmacao(
-                Reserva(
+                Compra(
                     " Maria ",
                     "maria@exemplo.com",
-                    TipoDeVoo.IDA,
+                    TipoDeViagem.IDA,
                     "10/10/2026",
                     "",
                 )
             ),
         )
         assertEquals(
-            "Voo de ida e volta reservado para Maria: ida em 10/10/2026 e volta em 15/10/2026. " +
+            "Passagens de ida e volta compradas para Maria: ida em 10/10/2026 e volta em 15/10/2026. " +
                 "A confirmação vai para maria@exemplo.com.",
             mensagemDeConfirmacao(
-                Reserva(
+                Compra(
                     "Maria",
                     "maria@exemplo.com",
-                    TipoDeVoo.IDA_E_VOLTA,
+                    TipoDeViagem.IDA_E_VOLTA,
                     "10/10/2026",
                     "15/10/2026",
                 )

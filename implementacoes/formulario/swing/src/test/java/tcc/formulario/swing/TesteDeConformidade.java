@@ -8,7 +8,7 @@ import java.util.Objects;
 import org.junit.Rule;
 import org.junit.Test;
 import tcc.formulario.DataFixa;
-import tcc.formulario.TipoDeVoo;
+import tcc.formulario.TipoDeViagem;
 
 // As 19 verificações de implementacoes/formulario/teste-de-conformidade.js, na
 // mesma ordem e com os mesmos nomes. Falha listando todas as que não passaram.
@@ -77,7 +77,7 @@ public class TesteDeConformidade {
       List.of(List.of(), true)
     );
 
-    tela.escolherTipo(TipoDeVoo.IDA_E_VOLTA);
+    tela.escolherTipo(TipoDeViagem.IDA_E_VOLTA);
     conferir("7 volta habilitada", tela.habilitado(Campo.VOLTA), true);
     conferir(
       "7 volta antes da ida",
@@ -98,16 +98,16 @@ public class TesteDeConformidade {
       List.of(List.of(), true)
     );
 
-    tela.reservar();
+    tela.comprar();
     conferir(
       "9 confirmação de ida e volta",
       tela.confirmacao(),
-      "Voo de ida e volta reservado para Maria: ida em 10/10/2099 e volta em 15/10/2099. " +
+      "Passagens de ida e volta compradas para Maria: ida em 10/10/2099 e volta em 15/10/2099. " +
         "A confirmação vai para maria@exemplo.com."
     );
 
     tela.digitar(Campo.VOLTA, "xx");
-    tela.escolherTipo(TipoDeVoo.IDA);
+    tela.escolherTipo(TipoDeViagem.IDA);
     conferir(
       "10 volta desabilitada não conta",
       List.of(
@@ -117,11 +117,11 @@ public class TesteDeConformidade {
       ),
       List.of(false, List.of(), true)
     );
-    tela.reservar();
+    tela.comprar();
     conferir(
       "10 confirmação só de ida",
       tela.confirmacao(),
-      "Voo só de ida reservado para Maria em 10/10/2099. A confirmação vai para maria@exemplo.com."
+      "Passagem só de ida comprada para Maria em 10/10/2099. A confirmação vai para maria@exemplo.com."
     );
 
     assertTrue(String.join("\n", falhas), falhas.isEmpty());

@@ -17,8 +17,8 @@ import androidx.compose.ui.semantics.contentType
 import androidx.compose.ui.semantics.liveRegion
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.input.KeyboardType
-import tcc.formulario.Reserva
-import tcc.formulario.TipoDeVoo
+import tcc.formulario.Compra
+import tcc.formulario.TipoDeViagem
 import tcc.formulario.erroDaData
 import tcc.formulario.erroDaOrdem
 import tcc.formulario.erroDoEmail
@@ -39,25 +39,25 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         // Como o createRoot(...).render(...) do React; o Tema faz o papel
         // do import do estilo.css.
-        setContent { Tema { FormularioDeReserva() } }
+        setContent { Tema { FormularioDeCompra() } }
     }
 }
 
 // Função que descreve a tela a partir do estado, como o componente React.
 // A aparência fica em Estilo.kt.
 @Composable
-fun FormularioDeReserva() {
+fun FormularioDeCompra() {
     // Como os useState: alterar um valor faz a função rodar de novo.
     var nome by remember { mutableStateOf("") }
     var email by remember { mutableStateOf("") }
-    var tipo by remember { mutableStateOf(TipoDeVoo.IDA) }
+    var tipo by remember { mutableStateOf(TipoDeViagem.IDA) }
     var ida by remember { mutableStateOf(hoje()) }
     var volta by remember { mutableStateOf(hoje()) }
     var tocados by remember { mutableStateOf(setOf<Campo>()) }
     var confirmacao by remember { mutableStateOf("") }
 
     // Os erros são derivados do estado a cada recomposição.
-    val idaEVolta = tipo == TipoDeVoo.IDA_E_VOLTA
+    val idaEVolta = tipo == TipoDeViagem.IDA_E_VOLTA
     val erroNome = erroDoNome(nome)
     val erroEmail = erroDoEmail(email)
     val erroIda = erroDaData(ida)
@@ -119,12 +119,12 @@ fun FormularioDeReserva() {
         }
         erroVisivel[Campo.EMAIL]?.let { Erro(it) }
 
-        Rotulo("Tipo de voo") {
+        Rotulo("Tipo de viagem") {
             Selecao(
                 opcoes =
                     listOf(
-                        TipoDeVoo.IDA to "Só ida",
-                        TipoDeVoo.IDA_E_VOLTA to "Ida e volta",
+                        TipoDeViagem.IDA to "Só ida",
+                        TipoDeViagem.IDA_E_VOLTA to "Ida e volta",
                     ),
                 escolhida = tipo,
                 aoEscolher = { tipo = it },
@@ -157,13 +157,11 @@ fun FormularioDeReserva() {
         Botao(
             onClick = {
                 confirmacao =
-                    mensagemDeConfirmacao(
-                        Reserva(nome, email, tipo, ida, volta)
-                    )
+                    mensagemDeConfirmacao(Compra(nome, email, tipo, ida, volta))
             },
             habilitado = !temErro,
         ) {
-            Text("Reservar")
+            Text("Comprar")
         }
     }
     // Como o role="status": o leitor de tela anuncia a atualização.

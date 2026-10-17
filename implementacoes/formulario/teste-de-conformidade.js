@@ -113,7 +113,7 @@
   conferir(
     "9 confirmação de ida e volta",
     document.querySelector(".confirmacao").textContent.trim(),
-    "Voo de ida e volta reservado para Maria: ida em 10/10/2099 e volta em 15/10/2099. A confirmação vai para maria@exemplo.com.",
+    "Passagens de ida e volta compradas para Maria: ida em 10/10/2099 e volta em 15/10/2099. A confirmação vai para maria@exemplo.com.",
   );
 
   await digitar("volta", "xx");
@@ -128,7 +128,7 @@
   conferir(
     "10 confirmação só de ida",
     document.querySelector(".confirmacao").textContent.trim(),
-    "Voo só de ida reservado para Maria em 10/10/2099. A confirmação vai para maria@exemplo.com.",
+    "Passagem só de ida comprada para Maria em 10/10/2099. A confirmação vai para maria@exemplo.com.",
   );
 
   return r.join("\n");

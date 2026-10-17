@@ -7,16 +7,16 @@ import {
   erroDoNome,
   hoje,
   mensagemDeConfirmacao,
-  type TipoDeVoo,
+  type TipoDeViagem,
 } from "../../dominio";
 import "../../estilo.css";
 
 type Campo = "nome" | "email" | "ida" | "volta";
 
-function FormularioDeReserva() {
+function FormularioDeCompra() {
   const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
-  const [tipo, setTipo] = useState<TipoDeVoo>("ida");
+  const [tipo, setTipo] = useState<TipoDeViagem>("ida");
   const [ida, setIda] = useState(hoje);
   const [volta, setVolta] = useState(hoje);
   const [tocados, setTocados] = useState<ReadonlySet<Campo>>(new Set());
@@ -46,14 +46,14 @@ function FormularioDeReserva() {
       (tocado("ida") || tocado("volta") ? erroOrdem : null),
   };
 
-  function reservar(evento: FormEvent) {
+  function comprar(evento: FormEvent) {
     evento.preventDefault();
     setConfirmacao(mensagemDeConfirmacao({ nome, email, tipo, ida, volta }));
   }
 
   return (
     <>
-      <form className="formulario" noValidate onSubmit={reservar}>
+      <form className="formulario" noValidate onSubmit={comprar}>
         <label>
           Nome do passageiro
           <input
@@ -82,11 +82,11 @@ function FormularioDeReserva() {
         {erroVisivel.email && <p className="erro">{erroVisivel.email}</p>}
 
         <label>
-          Tipo de voo
+          Tipo de viagem
           <select
             name="tipo"
             value={tipo}
-            onChange={(e) => setTipo(e.target.value as TipoDeVoo)}
+            onChange={(e) => setTipo(e.target.value as TipoDeViagem)}
           >
             <option value="ida">Só ida</option>
             <option value="ida-e-volta">Ida e volta</option>
@@ -121,7 +121,7 @@ function FormularioDeReserva() {
         {erroVisivel.volta && <p className="erro">{erroVisivel.volta}</p>}
 
         <button type="submit" disabled={temErro}>
-          Reservar
+          Comprar
         </button>
       </form>
       <p className="confirmacao" role="status">
@@ -131,4 +131,4 @@ function FormularioDeReserva() {
   );
 }
 
-createRoot(document.getElementById("raiz")!).render(<FormularioDeReserva />);
+createRoot(document.getElementById("raiz")!).render(<FormularioDeCompra />);

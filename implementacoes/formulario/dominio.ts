@@ -1,12 +1,12 @@
 // Regras de domínio do Formulário, iguais em todas as implementações web.
 // Nada aqui depende de interface: cada implementação decide quando chamar.
 
-export type TipoDeVoo = "ida" | "ida-e-volta";
+export type TipoDeViagem = "ida" | "ida-e-volta";
 
-export interface Reserva {
+export interface Compra {
   nome: string;
   email: string;
-  tipo: TipoDeVoo;
+  tipo: TipoDeViagem;
   ida: string;
   volta: string;
 }
@@ -62,11 +62,11 @@ export function erroDaOrdem(ida: string, volta: string): string | null {
   return dataDeVolta < dataDeIda ? "A volta não pode ser antes da ida." : null;
 }
 
-export function mensagemDeConfirmacao(reserva: Reserva): string {
-  const { nome, email, tipo, ida, volta } = reserva;
+export function mensagemDeConfirmacao(compra: Compra): string {
+  const { nome, email, tipo, ida, volta } = compra;
   const trecho =
     tipo === "ida"
-      ? `Voo só de ida reservado para ${nome.trim()} em ${ida}.`
-      : `Voo de ida e volta reservado para ${nome.trim()}: ida em ${ida} e volta em ${volta}.`;
+      ? `Passagem só de ida comprada para ${nome.trim()} em ${ida}.`
+      : `Passagens de ida e volta compradas para ${nome.trim()}: ida em ${ida} e volta em ${volta}.`;
   return `${trecho} A confirmação vai para ${email.trim()}.`;
 }

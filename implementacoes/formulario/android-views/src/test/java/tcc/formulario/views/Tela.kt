@@ -10,7 +10,7 @@ import androidx.core.view.isVisible
 import androidx.test.core.app.ActivityScenario
 import java.time.Duration
 import org.robolectric.Shadows.shadowOf
-import tcc.formulario.TipoDeVoo
+import tcc.formulario.TipoDeViagem
 
 enum class Campo(val id: Int) {
     NOME(R.id.nome),
@@ -55,16 +55,16 @@ class Tela(private val cenario: ActivityScenario<MainActivity>) {
         focar(if (campo == Campo.NOME) Campo.EMAIL else Campo.NOME)
     }
 
-    fun escolherTipo(tipo: TipoDeVoo) = naTela {
+    fun escolherTipo(tipo: TipoDeViagem) = naTela {
         it.findViewById<Spinner>(R.id.tipo).setSelection(tipo.ordinal)
     }
 
-    fun reservar() = naTela {
-        it.findViewById<Button>(R.id.reservar).performClick()
+    fun comprar() = naTela {
+        it.findViewById<Button>(R.id.comprar).performClick()
     }
 
     fun botaoHabilitado() = naTela {
-        it.findViewById<Button>(R.id.reservar).isEnabled
+        it.findViewById<Button>(R.id.comprar).isEnabled
     }
 
     fun habilitado(campo: Campo) = naTela { campo(it, campo).isEnabled }
