@@ -18,7 +18,9 @@ import {
           autocomplete="off"
           placeholder="Digite ao menos 2 letras"
           [value]="texto()"
-          (input)="texto.set($event.target.value); buscar($event.target.value)"
+          (input)="
+            texto.set($event.target.value); buscar($event.target.value.trim())
+          "
           (keydown.escape)="cancelar()"
         />
       </label>
@@ -60,8 +62,7 @@ export class BuscaDeDestino {
     loader: ({ params, abortSignal }) => buscarCidades(params, abortSignal),
   });
 
-  protected buscar(valor: string) {
-    const novo = valor.trim();
+  protected buscar(novo: string) {
     if (novo === this.termo()) return;
     // Aborta a requisição anterior, como o controlador.abort() do Solid. O
     // resource não tem abort(): é o set() que aborta o loader em andamento,

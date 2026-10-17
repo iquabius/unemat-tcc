@@ -29,8 +29,7 @@ function BuscaDeDestino() {
     },
   );
 
-  function buscar(valor: string) {
-    const novo = valor.trim();
+  function buscar(novo: string) {
     if (novo === termo()) return;
     controlador?.abort();
     batch(() => {
@@ -73,7 +72,7 @@ function BuscaDeDestino() {
           value={texto()}
           onInput={(e) => {
             setTexto(e.currentTarget.value);
-            buscar(e.currentTarget.value);
+            buscar(e.currentTarget.value.trim());
           }}
           onKeyDown={(e) => {
             if (e.key === "Escape") cancelar();
