@@ -8,9 +8,8 @@ import java.io.Closeable
 // nas duas tecnologias do Android: o porte do dominio.ts da web, com os
 // mesmos nomes, regras e mensagens. Nada aqui depende de interface.
 
-// Como o tipo Gols do dominio.ts: os gols de cada lado, do placar de um jogo ou
-// do
-// palpite do usuário.
+// Como o tipo Gols do dominio.ts: os gols de cada lado, do placar de um
+// jogo ou do palpite do usuário.
 interface Gols {
     val mandante: Int
     val visitante: Int
