@@ -12,7 +12,7 @@
   Figura 8, “Event handler characteristics in real applications”, coluna
   “% of handler instructions”: gmail 31.60%, ebay 99.11%, os extremos dos
   11 sites (seção 4.6).
-- Lido em: =tmp/fontes/ratanaworabhan2010.pdf=, p. 1 e 10 do PDF, cópia
+- Lido em: =acervo/ratanaworabhan2010.pdf=, p. 1 e 10 do PDF, cópia
   sem paginação impressa.
 - Observação: a porcentagem é das instruções JavaScript executadas na
   sessão roteirizada de cada site, no Internet Explorer 8, em 2010; a

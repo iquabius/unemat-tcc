@@ -12,7 +12,7 @@
   (p. 28, o MVC); “instead of requiring the programmer to implement the
   update logic manually, these toolkits feature a pre-processor that
   generates the update code automatically” (p. 32, Angular, Svelte e Vue)
-- Lido em: =tmp/fontes/sperber2025.pdf=, p. 2 e 6 do PDF (p. 28 e 32).
+- Lido em: =acervo/sperber2025.pdf=, p. 2 e 6 do PDF (p. 28 e 32).
 - Observação: o rótulo “imperativo por atualização manual” é do trabalho
   (decisão do autor em 2026-10-14); nenhuma fonte usa a expressão. Em
   2026-10-15, a citação ganhou a p. 32, que sustenta “o programador
@@ -30,7 +30,7 @@
   requiring the programmer to implement the update logic manually, these
   toolkits feature a pre-processor that generates the update code
   automatically from the construction code.” (p. 32)
-- Lido em: =tmp/fontes/sperber2025.pdf=, p. 6 do PDF (p. 32 impressa).
+- Lido em: =acervo/sperber2025.pdf=, p. 6 do PDF (p. 32 impressa).
 - Observação: substitui Meta (2026a), documentação do React (decisão do
   autor em 2026-10-09). O Solid não aparece em Sperber e Schlegel e fica
   com a documentação dele. No Angular, a atualização vem de um
@@ -46,7 +46,7 @@
   and these callbacks can either mutate the component state or cause the
   properties to be replaced. Conceptually, React ignores the difference
   between these two methods and re-renders” (p. 32)
-- Lido em: =tmp/fontes/sperber2025.pdf=, p. 6 do PDF (p. 32 impressa).
+- Lido em: =acervo/sperber2025.pdf=, p. 6 do PDF (p. 32 impressa).
 - Observação: “só altera o estado” resume “mutate the component state or
   cause the properties to be replaced”: nos dois casos, o /callback/ não
   escreve a atualização da tela. Liga o /callback/ dos §2 a §4 aos

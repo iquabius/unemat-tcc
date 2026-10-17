@@ -10,5 +10,5 @@
   applications, developers take advantage of the asynchronous capabilities
   offered by modern browsers, such as timeouts and XMLHttpRequest (XHR)
   calls.” (p. 368-369)
-- Lido em: =tmp/fontes/alimadadi2014.pdf=, p. 2 e 3 do PDF (p. 368 e 369).
+- Lido em: =acervo/alimadadi2014.pdf=, p. 2 e 3 do PDF (p. 368 e 369).
 - Conferido: 2026-10-07.

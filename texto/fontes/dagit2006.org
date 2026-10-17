@@ -18,7 +18,7 @@
   accustomed themselves to working around them.” (p. 4 do PDF); “That said,
   using CDs late on one’s own system is better than not using them at all.”
   (p. 4 do PDF, mais adiante na mesma seção)
-- Lido em: =tmp/fontes/dagit2006.pdf=, p. 2 e 4 do PDF; página impressa a
+- Lido em: =acervo/dagit2006.pdf=, p. 2 e 4 do PDF; página impressa a
   conferir (tcc-wg7).
 - Observação: substitui Ledo et al. (2018), cujo sujeito são os autores de
   um /toolkit/ avaliando o próprio /toolkit/. Em Dagit et al., é o projetista
@@ -28,6 +28,6 @@
 - Frase: “[...] e as DCs pedem menos tempo que eles (Dagit et al., 2006).”
 - Trecho: “CDs are more practical in terms of designer time than other
   alternatives such as empirical user studies.”
-- Lido em: =tmp/fontes/dagit2006.pdf=, pré-publicação de 2006-03-12, p. 4
+- Lido em: =acervo/dagit2006.pdf=, pré-publicação de 2006-03-12, p. 4
   do PDF; página impressa a conferir (tcc-wg7).
 - Conferido: 2026-10-09.

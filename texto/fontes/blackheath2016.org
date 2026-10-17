@@ -8,5 +8,5 @@
   express dependency. In different situations, both are needed. A lot of
   problems come from trying to express dependency with threads, or
   sequences with events.” (p. 16)
-- Lido em: =tmp/fontes/blackheath2016-cap1.pdf=, p. 19 do PDF (p. 16).
+- Lido em: =acervo/blackheath2016-cap1.pdf=, p. 19 do PDF (p. 16).
 - Conferido: 2026-10-07.

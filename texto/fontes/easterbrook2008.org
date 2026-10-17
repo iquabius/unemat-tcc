@@ -13,7 +13,7 @@
   trecho, a primeira pergunta de Jane, “Is a fisheye-view file navigator
   more efficient than the traditional view for file navigation?”, vira
   “How do fisheye views differ from conventional views?”.
-- Lido em: =tmp/fontes/easterbrook2008.pdf=, p. 3 do PDF (pré-publicação;
+- Lido em: =acervo/easterbrook2008.pdf=, p. 3 do PDF (pré-publicação;
   a página do livro, 285-311, não se confere nela).
 - Observação: a pergunta da introdução passou a “como difere” na forma
   de Easterbrook et al. em 2026-10-09 (decisão do autor).

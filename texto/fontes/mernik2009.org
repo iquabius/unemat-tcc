@@ -7,7 +7,7 @@
   problem domain has been used – construction of graphical user
   interfaces. In terms of domain-specific language, XAML has been used and
   C# Forms for application library.” (resumo)
-- Lido em: =tmp/fontes/mernik2009.pdf=, p. 1 do PDF (p. 180).
+- Lido em: =acervo/mernik2009.pdf=, p. 1 do PDF (p. 180).
 - Conferido: 2026-10-06.
 * [[file:../prog.org::compararam, com 36 estudantes de graduação,][prog: compararam, com 36 estudantes de graduação,]]
 - Frase: “Mernik et al. (2009) compararam, com 36 programadores, uma
@@ -17,5 +17,5 @@
   problem domain has been used – construction of graphical user
   interfaces. In terms of domain-specific language, XAML has been used and
   C# Forms for application library.” (resumo)
-- Lido em: =tmp/fontes/mernik2009.pdf=, p. 1 do PDF (p. 180).
+- Lido em: =acervo/mernik2009.pdf=, p. 1 do PDF (p. 180).
 - Conferido: 2026-10-06.

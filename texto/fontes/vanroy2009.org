@@ -8,7 +8,7 @@
   frase: o exemplo dos campos traz o usuário (decisão do autor).
 - Trecho: “State is the ability to remember information, or more
   precisely, to store a sequence of values in time.” (p. 14)
-- Lido em: =tmp/fontes/vanroy2009.pdf=,
+- Lido em: =acervo/vanroy2009.pdf=,
   p. 6 do PDF (p. 14, impressa no rodapé).
 - Observação: define estado em qualquer programa, não só na interface;
   capítulo de livro.
@@ -21,6 +21,6 @@
   concepts. All but the smallest toy problems require different sets of
   concepts for different parts. This is why programming languages should
   support many paradigms.” (p. 10)
-- Lido em: =tmp/fontes/vanroy2009.pdf=,
+- Lido em: =acervo/vanroy2009.pdf=,
   p. 2 do PDF (p. 10).
 - Conferido: 2026-10-08.

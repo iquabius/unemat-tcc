@@ -13,7 +13,7 @@
   state changes. The reactive programming paradigm has been recently
   proposed as a solution that is well-suited for developing event-driven
   applications.” (p. 52:2)
-- Lido em: =tmp/fontes/bainomugisha2013.pdf=, versão dos autores, p. 2 do
+- Lido em: =acervo/bainomugisha2013.pdf=, versão dos autores, p. 2 do
   PDF (cabeçalho “:2”).
 - Observação: substitui, em 2026-10-15, a frase sem fonte “Uma alternativa
   ao /callback/ é a PR” e a vantagem “need not to worry about the order of
@@ -32,7 +32,7 @@
   are automatically recalculated. Reactive programming is essentially
   about embedding the spreadsheet-like model in programming languages.”
   (p. 52:2)
-- Lido em: =tmp/fontes/bainomugisha2013.pdf=, versão dos autores, p. 2 do
+- Lido em: =acervo/bainomugisha2013.pdf=, versão dos autores, p. 2 do
   PDF (cabeçalho “:2”).
 - Observação: antes de 2026-10-15, citava a p. 52:1-3, com o exemplo de
   =var3=; a p. 52:1 é o resumo e não traz a planilha.
@@ -48,7 +48,7 @@
   it. Such manual management of state changes and data dependencies is
   complex and error-prone (e.g., performing state changes at a wrong time
   or in a wrong order)” (p. 52:2)
-- Lido em: =tmp/fontes/bainomugisha2013.pdf=, versão dos autores, p. 2 do
+- Lido em: =acervo/bainomugisha2013.pdf=, versão dos autores, p. 2 do
   PDF (cabeçalho “:2”).
 - Observação: “Numa interface” vem do contexto do trecho, que fala das
   aplicações interativas e dos eventos externos (mouse, teclado, toques).
@@ -67,7 +67,7 @@
   “in a topologically sorted graph [...], thus ensuring that an expression
   is always evaluated after all its dependents have been evaluated” (p.
   52:7)
-- Lido em: =tmp/fontes/bainomugisha2013.pdf=, versão dos autores, p. 5 e 7
+- Lido em: =acervo/bainomugisha2013.pdf=, versão dos autores, p. 5 e 7
   do PDF (cabeçalhos “:5” e “:7”).
 - Observação: “a ordem das atualizações não se escreve” é a leitura do
   texto: o trecho diz que a propagação é automática do ponto de vista do
@@ -85,7 +85,7 @@
   functional domain specific language developed in the late 1990s to ease
   the construction of graphics and interactive media applications.”
   (p. 52:2)
-- Lido em: =tmp/fontes/bainomugisha2013.pdf=, versão dos autores, p. 2 do
+- Lido em: =acervo/bainomugisha2013.pdf=, versão dos autores, p. 2 do
   PDF (cabeçalho “:2”).
 - Observação: a página era “p. 1-2”, a paginação do /preprint/; os dois
   trechos estão na folha 52:2, no formato que o resto do texto usa.
@@ -96,7 +96,7 @@
 - Trecho: “it is impossible to predict or control the order of arrival of
   external events and as such control jumps around event handlers as the
   outside environment changes unexpectedly” (p. 52:2)
-- Lido em: =tmp/fontes/bainomugisha2013.pdf=, versão dos autores, p. 2 do
+- Lido em: =acervo/bainomugisha2013.pdf=, versão dos autores, p. 2 do
   PDF (cabeçalho “:2”).
 - Observação: dá o porquê da “orquestração de eventos” antes do tema, no
   fim do primeiro parágrafo, o dos eventos (pedido do autor em
@@ -110,7 +110,7 @@
 - Trecho: “To reduce the burden faced by the programmers, there is a need
   for dedicated language abstractions to take care of the event handling
   logic as well as the management of state changes.” (p. 52:2)
-- Lido em: =tmp/fontes/bainomugisha2013.pdf=, versão dos autores, p. 2 do
+- Lido em: =acervo/bainomugisha2013.pdf=, versão dos autores, p. 2 do
   PDF (cabeçalho “:2”).
 - Observação: sustenta o eixo do estado; a divisão em dois eixos é do
   trabalho (ver a entrada de meijer2012 no mesmo parágrafo). Checagem

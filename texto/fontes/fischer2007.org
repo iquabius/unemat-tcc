@@ -6,7 +6,7 @@
   a manutenção do programa (Fischer; Majumdar; Millstein, 2007, p. 134).”
 - Trecho: “the event-driven style severely complicates program maintenance
   and understanding”.
-- Lido em: =tmp/fontes/fischer2007-publicada.pdf=,
+- Lido em: =acervo/fischer2007-publicada.pdf=,
   p. 1 do PDF.
 - Observação: afirmação dos autores, sem medição. Em 2026-10-15, a frase
   passou ao sujeito da fonte, o estilo orientado a eventos, no lugar de “a
@@ -31,7 +31,7 @@
   “the violence that the event-driven style does to a program’s natural
   flow of control. The code in restOfRun logically follows the buffer
   write, but they must be unnaturally separated” (p. 135).
-- Lido em: =tmp/fontes/fischer2007.pdf=, p. 1 e 2 do PDF (p. 134 e 135).
+- Lido em: =acervo/fischer2007.pdf=, p. 1 e 2 do PDF (p. 134 e 135).
 - Observação: é o primeiro erro da regra de Blackheath e Jones (sequência
   escrita com eventos); o segundo, o código sequencial, está no §7 com
   Moseley e Marks (relatório em tmp/pesquisas/2026-10-07-fluxo-de-controle/).

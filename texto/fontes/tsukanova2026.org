@@ -7,7 +7,7 @@
 - Trecho: tabela “Сравнение push- и pull-моделей”, linha “Примеры
   реализации”, coluna pull: “SolidJS, MobX, Knockout, Svelte, Vue 3
   (реактивные ref/effect), Angular Signals”.
-- Lido em: =tmp/fontes/tsukanova2026.pdf=, p. 4 do PDF.
+- Lido em: =acervo/tsukanova2026.pdf=, p. 4 do PDF.
 - Observação: veículo de uma universidade de transportes, aceito quatro dias
   depois de recebido; única fonte revisada achada que liga o Solid à PR. Na
   p. 59, diz que o Angular atualiza só os nós do DOM dependentes, o que a

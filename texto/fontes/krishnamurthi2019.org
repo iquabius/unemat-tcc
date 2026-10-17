@@ -9,7 +9,7 @@
   environment that is in charge; each event (whether a keystroke, a screen
   touch, a Web request, a network packet arrival, or the tick of a clock)
   causes some part of the program to run in response.” (seção 3, “Beyond Paradigms”)
-- Lido em: =tmp/fontes/krishnamurthi2019.pdf=, p. 8 do PDF, a versão dos
+- Lido em: =acervo/krishnamurthi2019.pdf=, p. 8 do PDF, a versão dos
   autores (“Draft of a chapter”); a página do livro (p. 377-413) espera a
   versão publicada.
 - Observação: a fonte lista o /keystroke/ e o /screen touch/ junto do
@@ -28,7 +28,7 @@
   passa de um evento a outro (Krishnamurthi; Fisler, 2019, p. N).”
 - Trecho: “The programmer’s challenge is to arrange how state is
   transferred between the events.” (seção 3, “Beyond Paradigms”)
-- Lido em: =tmp/fontes/krishnamurthi2019.pdf=, p. 8 do PDF, a versão dos
+- Lido em: =acervo/krishnamurthi2019.pdf=, p. 8 do PDF, a versão dos
   autores.
 - Observação: “escrever, no código” traduz o /arrange/: o programador
   escreve como o estado passa, e quem o passa é o programa (=AGENTS.md=,

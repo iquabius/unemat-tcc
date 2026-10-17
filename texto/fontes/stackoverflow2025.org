@@ -9,7 +9,7 @@
   done extensive development work in over the past year [...]?”; “2. React:
   44.7%”, “3. jQuery: 23.4%”, “7. Angular: 18.2%” (All Respondents);
   “Responses: 23,678 (48.3%)”.
-- Lido em: =tmp/fontes/stackoverflow2025.txt=, l. 11, 15-20 e 42 (página
+- Lido em: =acervo/stackoverflow2025.txt=, l. 11, 15-20 e 42 (página
   salva em 2026-09-29).
 - Observação: Seção “Uso das tecnologias web”, nova em 2026-10-13. Parágrafo
   vindo da introdução e dos estudos de casos, como dado de interesse, sem
@@ -24,7 +24,7 @@
 - Trecho: “Respondents were recruited primarily through channels owned by
   Stack Overflow. [...] highly-engaged users on Stack Overflow were more
   likely to notice the prompts to take the survey”
-- Lido em: =tmp/fontes/stackoverflow2025-metodologia.txt=, l. 35.
+- Lido em: =acervo/stackoverflow2025-metodologia.txt=, l. 35.
 - Observação: Seção “Uso das tecnologias web”. Parágrafo vindo dos estudos
   de casos em 2026-10-13.
 - Conferido: 2026-10-13.

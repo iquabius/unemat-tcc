@@ -6,7 +6,7 @@
 - Trecho: “Usage statistics and market share of Angular for websites”;
   “Angular is a JavaScript library for building web applications,
   developed by Google. Website: angular.dev”.
-- Lido em: =tmp/fontes/w3techs2026b.txt=, l. 118 e 193-198 (página salva
+- Lido em: =acervo/w3techs2026b.txt=, l. 118 e 193-198 (página salva
   em 2026-10-13).
 - Observação: Seção “Uso das tecnologias web”. Parágrafo vindo dos estudos
   de casos em 2026-10-13. A página do Angular fica no endereço

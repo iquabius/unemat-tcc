@@ -8,7 +8,7 @@
   “In total, we defined five tasks [...], all revolving HTTP requests”
   (p. 1513); “a user-centered study was performed involving programming
   tasks” (resumo, p. 1506).
-- Lido em: =tmp/fontes/zimmerle2025.pdf=, p. 5 e 8 do PDF.
+- Lido em: =acervo/zimmerle2025.pdf=, p. 5 e 8 do PDF.
 - Conferido: 2026-10-06.
 * [[file:../prog.org::compararam, com 36 estudantes de graduação,][prog: compararam, com 36 estudantes de graduação,]], p. 1510 e 1513
 - Frase: “Zimmerle e Gama (2025, p. 1510 e 1513) avaliaram com usuários
@@ -18,7 +18,7 @@
   “In total, we defined five tasks [...], all revolving HTTP requests”
   (p. 1513); “a user-centered study was performed involving programming
   tasks” (resumo, p. 1506).
-- Lido em: =tmp/fontes/zimmerle2025.pdf=, p. 5 e 8 do PDF.
+- Lido em: =acervo/zimmerle2025.pdf=, p. 5 e 8 do PDF.
 - Conferido: 2026-10-06.
 * [[file:../conclusion.org::@@latex:\todo{Trecho vindo da introdução][conclusion: Uma forma de conferir as conclusões de quem avalia]], p. 1512-1513 e 1519
 - Frase: “Uma forma de conferir as conclusões de quem avalia é compará-las
@@ -31,7 +31,7 @@
   containing 24 assertions, can be found in Appendix B” (p. 1513); “In
   total, 12 participants, who did the tasks, made themselves available to
   answer the questionnaire.” (p. 1519)
-- Lido em: =tmp/fontes/zimmerle2025.pdf=, p. 7, 8 e 14 do PDF.
+- Lido em: =acervo/zimmerle2025.pdf=, p. 7, 8 e 14 do PDF.
 - Observação: as cinco dimensões são as de López-Fernández et al., que os
   autores mapeiam para as DCs de Blackwell e Green (p. 1513). O trecho
   veio da introdução no corte de outubro de 2026; a frase mudou em

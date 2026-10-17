@@ -11,7 +11,7 @@
   subscriptions, what callbacks have already been called, what callbacks
   will be subsequently called […]. Coordinating changes to communal state
   amidst this chaos can be baffling, and is far from modular.”
-- Lido em: =tmp/fontes/edwards2009.pdf=, p. 2 do PDF;
+- Lido em: =acervo/edwards2009.pdf=, p. 2 do PDF;
   p. 926 impressa no rodapé (conferida em 2026-10-15).
 - Conferido: 2026-10-06.
 * [[file:../prog.org::Nas linguagens imperativas, esse estado é][prog: Nas linguagens imperativas, esse estado é]], p. 929
@@ -23,7 +23,7 @@
   complexity [2], and that coherent execution can handle it automatically,
   at least in the domain of interactive applications.” (p. 929), em que [2]
   é Brooks, “No silver bullet”, IEEE Computer, 1987.
-- Lido em: =tmp/fontes/edwards2009.pdf=, p. 5 do PDF;
+- Lido em: =acervo/edwards2009.pdf=, p. 5 do PDF;
   p. 929 calculada pelo início dos anais (925).
 - Observação: a frase veio da introdução, de onde saiu no corte de
   2026-10-14. A atribuição narrativa marca a proposta de Edwards (“This

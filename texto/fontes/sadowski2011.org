@@ -7,5 +7,5 @@
   inconclusivos (Sadowski; Kurniawan, 2011, p. 9) [...].”
 - Trecho: “user studies which compare programming languages or systems are
   often very expensive and typically inconclusive.”
-- Lido em: =tmp/fontes/sadowski2011.pdf=, p. 1 do PDF (resumo).
+- Lido em: =acervo/sadowski2011.pdf=, p. 1 do PDF (resumo).
 - Conferido: 2026-10-09.

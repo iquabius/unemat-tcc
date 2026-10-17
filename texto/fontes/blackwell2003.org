@@ -8,7 +8,7 @@
   proposed, as will be discussed later)” (p. 115); as dimensões vêm nas
   p. 115-118.
 - Lido em:
-  =tmp/fontes/blackwell2003-livro.pdf=,
+  =acervo/blackwell2003-livro.pdf=,
   p. 13 a 16 do PDF (p. 115 a 118).
 - Observação: os nomes em português e a expressividade de papel
   (/role-expressiveness/) seguem o CONTEXT.md; o agrupamento em oito, duas
@@ -47,7 +47,7 @@
   generate an observed profile.” (p. 106); “the second step is to
   scrutinise the system and determine how it lies on each dimension. If
   the two profiles match, all is well.” (p. 112)
-- Lido em: =tmp/fontes/blackwell2003.pdf=, p. 4 e 10 do PDF (p. 106 e 112).
+- Lido em: =acervo/blackwell2003.pdf=, p. 4 e 10 do PDF (p. 106 e 112).
 - Observação: “posição” e “perfil” vêm daí (decisão do autor em
   2026-10-14; CONTEXT.md, Posição e Perfil); a fonte compara o perfil
   observado com o que cada atividade pede, e o trabalho compara os perfis

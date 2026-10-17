@@ -6,7 +6,7 @@
 - Trecho: “promises, an alternative mechanism for managing asynchrony that
   enables programmers to chain asynchronous computations while supporting
   proper error handling” (resumo, p. 86:1).
-- Lido em: =tmp/fontes/madsen2017.pdf=, p. 1 do PDF (p. 86:1).
+- Lido em: =acervo/madsen2017.pdf=, p. 1 do PDF (p. 86:1).
 - Conferido: 2026-10-07.
 * [[file:../prog.org::Um programa orientado a eventos reage ao][prog: Um programa orientado a eventos reage ao]], p. 86:1 (fontes de eventos)
 - Frase: “Um programa orientado a eventos reage ao que acontece no
@@ -15,7 +15,7 @@
 - Trecho: “Events are typically emitted in response to some external
   activity, e.g., a button being clicked by a user, or a network response
   arriving, and enqueued for processing.” (p. 86:1)
-- Lido em: =tmp/fontes/madsen2017.pdf=, p. 1 do PDF (p. 86:1).
+- Lido em: =acervo/madsen2017.pdf=, p. 1 do PDF (p. 86:1).
 - Observação: “o que acontece no ambiente externo” traduz /external activity/. A
   tecla digitada e a mensagem do servidor são exemplos do texto, no lugar
   da /network response/ da fonte: “mensagem” cobre também o que o servidor
@@ -29,7 +29,7 @@
 - Trecho: “[...] and enqueued for processing. In the main event loop, an
   event is selected from the queue and its associated callback is invoked
   and executed until completion.” (p. 86:1)
-- Lido em: =tmp/fontes/madsen2017.pdf=, p. 1 do PDF (p. 86:1).
+- Lido em: =acervo/madsen2017.pdf=, p. 1 do PDF (p. 86:1).
 - Observação: “um de cada vez” traduz o /executed until completion/, cada
   /callback/ até o fim antes do seguinte. A frase vem de um rascunho da
   introdução.

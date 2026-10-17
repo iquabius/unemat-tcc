@@ -5,7 +5,7 @@
 - Frase: “e nos Web Components sem biblioteca.”
 - Trecho: o exemplo registra um /callback/ que altera o DOM,
   =newSpan.addEventListener("click", onClick);=
-- Lido em: =tmp/fontes/mozilla2026.txt=, l. 606 (página salva; MDN,
+- Lido em: =acervo/mozilla2026.txt=, l. 606 (página salva; MDN,
   modificada em 2026-09-01).
 - Conferido: 2026-10-06.
 * [[file:../prog.org::O modelo de programação não é][prog: O modelo de programação não é]] (recurso do navegador)
@@ -16,7 +16,7 @@
   by the web developer, that extend the set of elements available in the
   browser.”; “This class will not be called by you, but will be called by
   the browser.”
-- Lido em: =tmp/fontes/mozilla2026.txt=, l. 7 e 49 (página salva; MDN,
+- Lido em: =acervo/mozilla2026.txt=, l. 7 e 49 (página salva; MDN,
   modificada em 2026-09-01).
 - Observação: até 2026-10-13, a frase contrapunha o jQuery, que se diz
   biblioteca; o jQuery saiu do texto (ADR 0013).
@@ -28,7 +28,7 @@
   defined by the web developer, that extend the set of elements available
   in the browser.”; “This class will not be called by you, but will be
   called by the browser.”
-- Lido em: =tmp/fontes/mozilla2026.txt=, l. 7 e 49 (página salva; MDN,
+- Lido em: =acervo/mozilla2026.txt=, l. 7 e 49 (página salva; MDN,
   modificada em 2026-09-01).
 - Observação: o jQuery, que dividia a frase, saiu do texto (ADR 0013).
 - Conferido: 2026-10-13.

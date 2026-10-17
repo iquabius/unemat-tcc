@@ -9,7 +9,7 @@
 - Trecho: “Since interaction depends on external events that might occur
   in any order, understanding an FSM requires considering multiple causal
   chains.” (p. 125)
-- Lido em: =tmp/fontes/martin2022.pdf=, p. 128 do PDF (p. 125).
+- Lido em: =acervo/martin2022.pdf=, p. 128 do PDF (p. 125).
 - Observação: substitui Bainomugisha et al. (2013, p. 52:2), que a
   introdução usa para a ordem de chegada. A fonte fala de entender uma
   máquina de estados (FSM), e a frase diz “o programa”, porque o

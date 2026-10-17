@@ -11,7 +11,7 @@
 - Trecho: “One of the main differentiators of interactive behaviors from
   general programming is that GUIs are often stateful [9] – the application
   state determines its appearance and behavior.”
-- Lido em: =tmp/fontes/oney2012.pdf=, p. 2 do PDF (versão da ACM).
+- Lido em: =acervo/oney2012.pdf=, p. 2 do PDF (versão da ACM).
 - Conferido: 2026-10-09.
 * [[file:../intro.org::No navegador, as sub-rotinas desse código][intro: No navegador, as sub-rotinas desse código]], p. 229
 - Frase: “Os /callbacks/ que alteram o DOM muitas vezes levam o programador
@@ -27,7 +27,7 @@
   often results in developers writing interdependent, opaque, and
   error-prone “spaghetti-code,” a problem that was identified over 20
   years ago [13].” (p. 229)
-- Lido em: =tmp/fontes/oney2012.pdf=, p. 1 do PDF (versão da ACM).
+- Lido em: =acervo/oney2012.pdf=, p. 1 do PDF (versão da ACM).
 - Observação: entra no lugar do dado da Adobe (Parent, 2006, slides de
   palestra), que saiu em 2026-10-09; repõe o custo em defeitos com fonte
   revisada por pares.
@@ -40,14 +40,14 @@
 - Trecho: “JavaScript code defines interactive behaviors with callbacks
   that modify the DOM using side effects — a paradigm used by most GUI
   frameworks.” (p. 229)
-- Lido em: =tmp/fontes/oney2012.pdf=, p. 1 do PDF (versão da ACM).
+- Lido em: =acervo/oney2012.pdf=, p. 1 do PDF (versão da ACM).
 - Conferido: 2026-10-09.
 * [[file:../prog.org::Um programa orientado a eventos reage ao][prog: Um programa orientado a eventos reage ao]], p. 230 (estado)
 - Frase: “A reação depende também do /estado/ da aplicação, que determina
   a aparência e o comportamento dela (Oney; Myers; Brandt, 2012, p. 230).”
 - Trecho: “GUIs are often stateful [9] – the application state determines
   its appearance and behavior.” (p. 230)
-- Lido em: =tmp/fontes/oney2012.pdf=, p. 2 do PDF (p. 230).
+- Lido em: =acervo/oney2012.pdf=, p. 2 do PDF (p. 230).
 - Conferido: 2026-10-14.
 * [[file:../prog.org::Um programa orientado a eventos reage ao][prog: Um programa orientado a eventos reage ao]], p. 230 (barra de ferramentas)
 - Frase: “Uma barra de ferramentas, por exemplo, fica encaixada acima da
@@ -58,7 +58,7 @@
   when it is dragging, it follows the mouse.”; “Transitions describe when
   and how the application changes state – e.g., when the user presses the
   toolbar header in docked mode, it enters dragging mode.” (p. 230)
-- Lido em: =tmp/fontes/oney2012.pdf=, p. 2 do PDF (p. 230).
+- Lido em: =acervo/oney2012.pdf=, p. 2 do PDF (p. 230).
 - Observação: “encaixada” traduz /docked/; “a segura pelo topo” e “se
   solta”, o /presses the toolbar header/ e o /enters dragging mode/.
   Substitui o laço de Benveniste et al. (2003, p. 65, Fig. 1),

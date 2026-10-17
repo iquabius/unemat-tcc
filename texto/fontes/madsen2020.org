@@ -6,7 +6,7 @@
   digitados nos campos (Madsen; Lhoták; Tip, 2020, 12:3).”
 - Trecho: “The state holds time-varying values, e.g., the values of input
   fields.” (12:3)
-- Lido em: =tmp/fontes/madsen2020.pdf=, p. 3 do PDF (12:3).
+- Lido em: =acervo/madsen2020.pdf=, p. 3 do PDF (12:3).
 - Observação: a fonte fala do estado interno de um componente do React; o
   exemplo vale para a interface em geral e traz o usuário para o estado
   (desde 2026-10-15, no lugar de “o que o usuário já fez”, de Myers). A Busca e o Formulário, duas das interfaces implementadas, têm

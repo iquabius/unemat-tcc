@@ -12,7 +12,7 @@
 - Trecho: “Most modern GUI frameworks use an imperative programming model
   that is based on shared mutable state that is read and updated via
   callback functions.” (introdução, logo depois do resumo)
-- Lido em: =tmp/fontes/disch2025.pdf=, p. 1 da pré-publicação. Cópia: o
+- Lido em: =acervo/disch2025.pdf=, p. 1 da pré-publicação. Cópia: o
   Crossref dá p. 93-114 no LNCS, e a pré-publicação já está no formato do
   LNCS, então a frase deve estar na p. 93; a versão publicada não foi
   conferida.

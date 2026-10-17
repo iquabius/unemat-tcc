@@ -5,7 +5,7 @@
 - Frase: “e pelo Solid, usado por 10% dos respondentes do State of JS
   2025”
 - Trecho: “Solid may only be used by 10% of respondents”
-- Lido em: =tmp/fontes/devographics2026.txt=, l. 49 (página salva em
+- Lido em: =acervo/devographics2026.txt=, l. 49 (página salva em
   2026-09-29); a tabela dá 1.269 de 12.030 (10,55%).
 - Observação: Seção “Uso das tecnologias web”, nova em 2026-10-13. Parágrafo
   vindo da introdução e dos estudos de casos, como dado de interesse, sem
@@ -17,7 +17,7 @@
   desenvolvedores.”
 - Trecho: “It should also be taken as a snapshot of a specific subset of
   developers, and is not meant to speak for the entire ecosystem.”
-- Lido em: =tmp/fontes/devographics2026.txt=, l. 66.
+- Lido em: =acervo/devographics2026.txt=, l. 66.
 - Observação: Seção “Uso das tecnologias web”. Parágrafo vindo dos estudos
   de casos em 2026-10-13.
 - Conferido: 2026-10-13.

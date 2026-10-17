@@ -7,7 +7,7 @@
 - Trecho: “jQuery is used by 65.5% of all the websites”; na tabela, a
   primeira coluna (uso entre todos os sites) dá “React | 6.0%” e
   “Angular | 0.2%”.
-- Lido em: =tmp/fontes/w3techs2026.txt=, l. 98, 137-141 e 317-321 (página
+- Lido em: =acervo/w3techs2026.txt=, l. 98, 137-141 e 317-321 (página
   salva em 2026-09-29); o universo é o dos sites que o W3Techs monitora
   (=w3techs2026-metodologia.txt=).
 - Observação: Seção “Uso das tecnologias web”, nova em 2026-10-13. Parágrafo
@@ -18,7 +18,7 @@
 - Frase: “No W3Techs, basta achar a biblioteca em qualquer página para o
   /site/ contar, o que favorece o jQuery e nada diz das aplicações novas.”
 - Trecho: “jQuery is used by 65.5% of all the websites”
-- Lido em: =tmp/fontes/w3techs2026.txt=, l. 98 (página salva em
+- Lido em: =acervo/w3techs2026.txt=, l. 98 (página salva em
   2026-09-29).
 - Observação: Seção “Uso das tecnologias web”. Parágrafo vindo dos estudos
   de casos em 2026-10-13. Que a regra de contagem favoreça o jQuery e nada

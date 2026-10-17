@@ -15,7 +15,7 @@
   [...] Put differently, the developer has incurred the burden of
   synchronizing the on-screen value with the model of time” (p. 3)
 - Lido em:
-  =tmp/fontes/meyerovich2009.pdf=, p. 3
+  =acervo/meyerovich2009.pdf=, p. 3
   do PDF; a cópia dos autores tem 20 páginas, e o Crossref dá p. 1-20 na
   publicação (OOPSLA 2009), sem número impresso por página.
 - Observação: o cronômetro da fig. 1 é JavaScript com /callbacks/ que

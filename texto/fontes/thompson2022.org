@@ -6,7 +6,7 @@
 - Trecho: “we extended the LTS due to the global pandemic until December
   31, 2021. Well, friends, the time has come and we’re no longer supporting
   AngularJS.”; “the way it evolved into its successor, Angular”.
-- Lido em: =tmp/fontes/thompson2022.txt= (post de 2022-01-11, salvo em
+- Lido em: =acervo/thompson2022.txt= (post de 2022-01-11, salvo em
   2026-10-13 pelo navegador).
 - Observação: Seção “Uso das tecnologias web”. Parágrafo vindo dos estudos
   de casos em 2026-10-13.

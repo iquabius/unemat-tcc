@@ -10,5 +10,5 @@
   programming is a paradigm [...]. On the other hand, reactive distributed
   systems handle client requests in a timely fashion regardless of load or
   failures.” (resumo, 5:1)
-- Lido em: =tmp/fontes/myter2019.pdf=, p. 1 do PDF.
+- Lido em: =acervo/myter2019.pdf=, p. 1 do PDF.
 - Conferido: 2026-10-10.

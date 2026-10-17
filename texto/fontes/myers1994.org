@@ -8,7 +8,7 @@
   como previsão do texto, e não de Myers.
 - Trecho: “user interface design and implementation are inherently
   difficult tasks and will remain so for the foreseeable future.”
-- Lido em: =tmp/fontes/myers1994.pdf=, p. 1 do PDF (resumo).
+- Lido em: =acervo/myers1994.pdf=, p. 1 do PDF (resumo).
 - Conferido: 2026-10-09; de novo em 2026-10-12.
 * [[file:../intro.org::Cada toque num aplicativo de celular, clique][intro: Cada toque num aplicativo de celular, clique]], p. 79 (eventos a qualquer momento)
 - Frase: “Cada toque num aplicativo de celular, clique num programa de
@@ -17,7 +17,7 @@
   comandos (Myers, 1994, p. 79).”
 - Trecho: “the user interface software must be structured so that it can
   accept input events at all times, even while executing commands” (p. 79)
-- Lido em: =tmp/fontes/myers1994.pdf=, p. 7 do PDF (p. 79).
+- Lido em: =acervo/myers1994.pdf=, p. 7 do PDF (p. 79).
 - Observação: o “real-time requirements for handling input events” da p.
   75 sai como “a qualquer momento”, porque “tempo real” tem no texto o
   sentido estrito dos sistemas embarcados.
@@ -38,14 +38,14 @@
   classes, the application must instead be structured as many subroutines
   which are called by the user interface tool kit when the user does
   something. This is sometimes called ‘event-based programming.’”
-- Lido em: =tmp/fontes/myers1994.pdf=, p. 7 do PDF (páginas 73 a 83 na
+- Lido em: =acervo/myers1994.pdf=, p. 7 do PDF (páginas 73 a 83 na
   publicação, sem número impresso por página).
 - Observação: a p. 75 sustenta “Uma das razões” (da dificuldade da
   implementação); a p. 79, a descrição. Em 2026-10-14, a frase saiu do
   parágrafo do estado, onde era “Outra” das principais diferenças, para o
   da dificuldade. A explicação da inversão de controle foi para prog.org
   na rodada 2 do corte.
-- Lido em, p. 75: =tmp/fontes/myers1994.pdf=, p. 3 do PDF.
+- Lido em, p. 75: =acervo/myers1994.pdf=, p. 3 do PDF.
 - Conferido: 2026-10-06; a p. 75, em 2026-10-14.
 * [[file:../prog.org::No projeto da interface, além dos][prog: No projeto da interface, além dos]], p. 75 (projeto)
 - Frase: “No projeto, além dos problemas comuns a todo sistema de software
@@ -55,7 +55,7 @@
   complex software system, user interfaces add the following problems:
   designers have difficulty thinking like users; tasks and domains are
   complex” (seção “No Silver Bullet”, p. 75)
-- Lido em: =tmp/fontes/myers1994.pdf=, p. 3 do PDF (p. 75).
+- Lido em: =acervo/myers1994.pdf=, p. 3 do PDF (p. 75).
 - Observação: é o contraste entre projeto e implementação que Kiss (2014,
   p. 5) faz citando o relatório técnico de Myers de 1993, a versão
   anterior deste artigo.
@@ -72,7 +72,7 @@
   handled. [...] the user interface must always accept any possible input,
   and continue to operate. [...] user interfaces should allow the user to
   abort and undo operations.” (seção “Need for Robustness”, p. 80)
-- Lido em: =tmp/fontes/myers1994.pdf=, p. 3, 7 e 8 do PDF (p. 75, 79 e
+- Lido em: =acervo/myers1994.pdf=, p. 3, 7 e 8 do PDF (p. 75, 79 e
   80).
 - Observação: Myers põe o desfazer ao lado da robustez, e não como
   consequência dela; o porquê do desfazer, na p. 79, é a expectativa do

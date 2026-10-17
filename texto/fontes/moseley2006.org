@@ -10,7 +10,7 @@
   in the textual form of the program.” (p. 8); “Effectively they are being
   forced to over-specify the problem.”; quem lê “must [...] start with the
   assumption that the ordering specified is significant” (p. 9).
-- Lido em: =tmp/fontes/moseley2006.pdf=, p. 8 e 9.
+- Lido em: =acervo/moseley2006.pdf=, p. 8 e 9.
 - Conferido: 2026-10-07.
 * [[file:../prog.org::O código sequencial tem o problema oposto][prog: O código sequencial tem o problema oposto]], p. 1 (causas da complexidade)
 - Frase: “Essa preocupação explícita com o fluxo de controle é uma das
@@ -21,5 +21,5 @@
   systems is the handling of state [...]. Other closely related
   contributors are code volume, and explicit concern with the flow of
   control through the system.” (p. 1)
-- Lido em: =tmp/fontes/moseley2006.pdf=, p. 1.
+- Lido em: =acervo/moseley2006.pdf=, p. 1.
 - Conferido: 2026-10-07.

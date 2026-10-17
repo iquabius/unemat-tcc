@@ -9,7 +9,7 @@
 - Trecho: “The start set ought to be formulated from keywords in the
   research question” e “3.2.2 Forward Snowballing” (p. 3); “backward and
   forward snowballing, the loop is ended” (p. 4).
-- Lido em: =tmp/fontes/wohlin2014.pdf=, p. 3 e 4 do PDF, sem paginação
+- Lido em: =acervo/wohlin2014.pdf=, p. 3 e 4 do PDF, sem paginação
   impressa (EASE '14).
 - Observação: a frase já citava Wohlin p. 3-4 antes do corte; as rodadas e
   as datas são do próprio trabalho (Apêndice B, tabelas 1 a 3). Em

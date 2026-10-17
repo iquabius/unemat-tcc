@@ -13,7 +13,7 @@
   the state of another one.”; “Developers do not need to manually update
   dependent values, because the language runtime takes care of change
   propagation.” (seção 2, p. 1126)
-- Lido em: =tmp/fontes/salvaneschi2017.pdf=, p. 2 do PDF (p. 1126).
+- Lido em: =acervo/salvaneschi2017.pdf=, p. 2 do PDF (p. 1126).
 - Observação: substitui, em 2026-10-15, a citação narrativa da p. 1125-1126
   e a frase do “potential” da p. 1125 (“for the potential to express
   otherwise complex reactive behavior”), que a frase dava como fato; a
@@ -32,7 +32,7 @@
   significant.”; “RP performs significantly better than OO for tasks
   3-4-5-7 and [...] RP never performs significantly worse than OO”
   (p. 1132)
-- Lido em: =tmp/fontes/salvaneschi2017.pdf=, p. 4 e 8 do PDF (p. 1128 e
+- Lido em: =acervo/salvaneschi2017.pdf=, p. 4 e 8 do PDF (p. 1128 e
   1132).
 - Observação: ressalva da própria fonte, que a frase do experimento omitia
   (checagem adversarial de 2026-10-15). A interface gráfica é o domínio
@@ -51,7 +51,7 @@
   design pattern. Our findings show that program comprehension is
   significantly enhanced by the reactive-programming paradigm” (resumo,
   p. 1125); “Each program is implemented in two versions.” (p. 1128).
-- Lido em: =tmp/fontes/salvaneschi2017.pdf=, p. 1 e 4 do PDF (p. 1125 e 1128).
+- Lido em: =acervo/salvaneschi2017.pdf=, p. 1 e 4 do PDF (p. 1125 e 1128).
 - Observação: os números do experimento (médias, tempo de resposta) foram
   com o parágrafo inteiro para a seção 2.4 e estão na afirmação de prog,
   p. 1125-1134, mais abaixo.
@@ -62,7 +62,7 @@
 - Trecho: “The study involves 127 subjects and compares reactive
   programming to the traditional object-oriented style with the Observer
   design pattern.” (resumo, p. 1125)
-- Lido em: =tmp/fontes/salvaneschi2017.pdf=, p. 1 do PDF; o delineamento
+- Lido em: =acervo/salvaneschi2017.pdf=, p. 1 do PDF; o delineamento
   controlado está na entrada do §5.
 - Observação: a frase saiu do §11 em 2026-10-07, para o §14 ligar as
   hipóteses da pesquisa exploratória ao experimento.
@@ -74,7 +74,7 @@
   needs to continuously and interactively respond to internal or external
   stimuli”; exemplos incluem “user-interactive software, like GUIs and Web
   applications” (p. 1125).
-- Lido em: =tmp/fontes/salvaneschi2017.pdf=, p. 1 do PDF.
+- Lido em: =acervo/salvaneschi2017.pdf=, p. 1 do PDF.
 - Conferido: 2026-10-09.
 * [[file:../prog.org::testaram uma afirmação repetida][prog: testaram uma afirmação repetida]], p. 1125-1134
 - Frase: “Num experimento controlado com 127 estudantes, quem leu os
@@ -92,7 +92,7 @@
   faster. For the tasks 5-8-9-10, H0 cannot be rejected.”; “Finding 2:
   Comprehending programs in the RP style does not require more time than
   comprehending their OO equivalent.” (PDF p. 9, p. 1133)
-- Lido em: =tmp/fontes/salvaneschi2017.pdf=, p. 1, 7 e 9 do PDF; as páginas
+- Lido em: =acervo/salvaneschi2017.pdf=, p. 1, 7 e 9 do PDF; as páginas
   publicadas (1125 a 1141) se contam do início, sem paginação impressa no
   PDF.
 - Conferido: 2026-10-06; o tempo, em 2026-10-08.
@@ -108,6 +108,6 @@
   applications are usually developed using the Observer design pattern”.
   Na p. 1125, as aplicações reativas incluem “user-interactive software,
   like GUIs and Web applications”: as interativas são parte delas.
-- Lido em: =tmp/fontes/salvaneschi2017.pdf=, p. 1 e 3 do PDF (manuscrito;
+- Lido em: =acervo/salvaneschi2017.pdf=, p. 1 e 3 do PDF (manuscrito;
   publicada = 1124 + página do PDF).
 - Conferido: 2026-10-09.

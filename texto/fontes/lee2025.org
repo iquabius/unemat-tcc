@@ -12,7 +12,7 @@
 - Trecho: “A React component is a function that serves as a declarative
   specification of a UI [...]. Ideally, when a component is called with the
   same arguments, it should render the same interface”.
-- Lido em: =tmp/fontes/lee2025.pdf=, cópia do arXiv com a paginação da ACM.
+- Lido em: =acervo/lee2025.pdf=, cópia do arXiv com a paginação da ACM.
 - Observação: o “specification of a UI” é a definição do componente no
   declarativo por re-renderização; a frase saiu do parágrafo do
   declarativo, que deixou a introdução em 2026-10-14, e se fundiu com a do
@@ -33,7 +33,7 @@
   implemented by invoking the component body again. If the state whose
   setter function is called is actually modified, the component
   re-renders” (289:6).
-- Lido em: =tmp/fontes/lee2025.pdf=, p. 2 e 6 do PDF (paginação da ACM
+- Lido em: =acervo/lee2025.pdf=, p. 2 e 6 do PDF (paginação da ACM
   impressa na cópia do arXiv).
 - Observação: substitui Meta (2026b), documentação do React (decisão do
   autor em 2026-10-09).
@@ -45,7 +45,7 @@
 - Trecho: o =Counter= da p. 289:2: “const [s, setS] = useState(() => x);
   const h = () => setS((s) => s+1); return <button onClick={h}> {s}
   </button>”; “setS must be used to update the state.”
-- Lido em: =tmp/fontes/lee2025.pdf=, p. 2 do PDF (paginação da ACM
+- Lido em: =acervo/lee2025.pdf=, p. 2 do PDF (paginação da ACM
   impressa na cópia do arXiv).
 - Observação: fecha o parágrafo dos declarativos com a ilustração, depois
   da frase de Sperber e Schlegel (2025, p. 32) de que, no React, o
@@ -60,5 +60,5 @@
   Spec.” é “Yes” no React e “No” no Solid e no Angular; a propriedade é
   “whether they re-read component specifications for re-rendering”
   (289:38).
-- Lido em: =tmp/fontes/lee2025.pdf=, p. 38 do PDF (apêndice C).
+- Lido em: =acervo/lee2025.pdf=, p. 38 do PDF (apêndice C).
 - Conferido: 2026-10-09.

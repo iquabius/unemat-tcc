@@ -8,7 +8,7 @@
   eliminating the need for manual updates to the user interface (UI). By
   connecting UI elements to the underlying data, updates become
   automated.”
-- Lido em: =tmp/fontes/solidjs2026.txt=, l. 8 (página salva).
+- Lido em: =acervo/solidjs2026.txt=, l. 8 (página salva).
 - Conferido: 2026-10-06.
 * [[file:../intro.org::Nos declarativos, o programador descreve a tela][intro: Nos declarativos, o programador descreve a tela]]
 - Frase: “Cada /signal/ avisa o que depende dele, como no Solid e no
@@ -22,7 +22,7 @@
   signal they observe changes.” (l. 70); “In Solid, updates are made to the
   targeted attribute that needs to be changed […] React would re-execute an
   entire component for a change in the single attribute” (l. 10)
-- Lido em: =tmp/fontes/solidjs2026.txt= (página salva).
+- Lido em: =acervo/solidjs2026.txt= (página salva).
 - Conferido: 2026-10-06.
 * [[file:../cases.org::No React e no Solid, a tela se monta][cases: No React e no Solid, a tela se monta em JSX]]
 - Frase: “a cada alteração de estado, o React reexecuta o componente
@@ -32,7 +32,7 @@
   to be changed, avoiding broader and, sometimes unnecessary, updates. In
   contrast, React would re-execute an entire component for a change in the
   single attribute”
-- Lido em: =tmp/fontes/solidjs2026.txt=, l. 10 (página salva).
+- Lido em: =acervo/solidjs2026.txt=, l. 10 (página salva).
 - Conferido: 2026-10-06.
 * [[file:../cases.org::Solid e Angular com /signals/, ao contrário][cases: Solid e Angular com signals, ao contrário]]
 - Frase: “No /declarativo por atualização granular/, cada /signal/ avisa os
@@ -43,5 +43,5 @@
   signal they observe changes.” (l. 70); “In Solid, updates are made to the
   targeted attribute that needs to be changed […] React would re-execute an
   entire component for a change in the single attribute” (l. 10)
-- Lido em: =tmp/fontes/solidjs2026.txt= (página salva).
+- Lido em: =acervo/solidjs2026.txt= (página salva).
 - Conferido: 2026-10-06.

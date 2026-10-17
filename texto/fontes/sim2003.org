@@ -14,7 +14,7 @@
   the performance of alternative tools or techniques.”; “Task Sample. The
   tests in the benchmark should be a representative sample of the tasks
   that the tool or technique is expected to solve in actual practice.”
-- Lido em: =tmp/fontes/sim2003.pdf=, p. 3 do PDF (p. 76; o artigo vai de
+- Lido em: =acervo/sim2003.pdf=, p. 3 do PDF (p. 76; o artigo vai de
   74 a 83); em 2026-10-14, também na cópia da IEEE, idêntica, p. 3.
 - Conferido: 2026-10-14.
 * [[file:../intro.org::Mesmo na segunda rodada, as implementações continuam pequenas][intro: Mesmo na segunda rodada, as implementações continuam pequenas]]
@@ -26,5 +26,5 @@
 - Trecho: “Benchmarks that are created by a single individual or
   laboratory and are not used widely tend not to have the same impact on
   the community and research results.” (3.1 Scope)
-- Lido em: =tmp/fontes/sim2003.pdf=, p. 3 do PDF (p. 76).
+- Lido em: =acervo/sim2003.pdf=, p. 3 do PDF (p. 76).
 - Conferido: 2026-10-06.

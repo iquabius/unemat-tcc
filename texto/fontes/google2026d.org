@@ -7,7 +7,7 @@
 - Trecho: “The component’s render method is called to update its internal
   DOM.”; “The render() method has no arguments, but typically it
   references component properties.”
-- Lido em: =tmp/fontes/google2026d.html= (página salva em
+- Lido em: =acervo/google2026d.html= (página salva em
   2026-10-13; lit.dev/docs/components/lifecycle/), conferido em
   2026-10-15.
 - Observação: entra na reescrita dos §5 a §7 (checagem adversarial de
@@ -26,7 +26,7 @@
   triggered when a reactive property changes or when the requestUpdate()
   method is explicitly called.”; “The component’s render method is called
   to update its internal DOM.”
-- Lido em: =tmp/fontes/google2026d.html= (página salva em
+- Lido em: =acervo/google2026d.html= (página salva em
   2026-10-13; lit.dev/docs/components/lifecycle/).
 - Observação: que o par Web Component e Lit mantém o modelo de componente
   e a orquestração é do próprio delineamento (ADR 0013), e não da fonte.

@@ -11,7 +11,7 @@
   sometimes call this a programming model. A programming model is always
   built on top of a computation model.” (p. 29)
 - Lido em:
-  =tmp/fontes/vanroy2004.pdf=,
+  =acervo/vanroy2004.pdf=,
   p. 14 do PDF (prefácio, p. xiii pelo índice) e p. 60 do PDF (abertura do
   capítulo 2, p. 29 pelo índice: “programming model, xiii, 29”).
 - Observação: a primeira menção apresenta o termo por contraste com

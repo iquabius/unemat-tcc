@@ -16,7 +16,7 @@
   this admittedly very important aspect. We are instead concerned with GUI
   development from a programming perspective.” (seção 1.2, “Challenges in
   GUI Development”, p. 5)
-- Lido em: =tmp/fontes/kiss2014.pdf=, p. 11 do PDF (p. 5).
+- Lido em: =acervo/kiss2014.pdf=, p. 11 do PDF (p. 5).
 - Observação: a referência [30] de Kiss é o relatório técnico de Myers de
   1993, a versão anterior de Myers (1994).
 - Conferido: 2026-10-12.
@@ -33,7 +33,7 @@
   respect to browser-based GUI frameworks. It would be interesting to
   create some kind of taxonomy of these frameworks and systematically
   compare their viability.” (p. 104)
-- Lido em: =tmp/fontes/kiss2014.pdf=, p. 6 e 110 do PDF.
+- Lido em: =acervo/kiss2014.pdf=, p. 6 e 110 do PDF.
 - Observação: as sete interfaces estão na p. 11 (entrada do §17); Kiss as
   chama de /case studies/, e o 7GUIs, de /tasks/.
 - Conferido: 2026-10-06.
@@ -47,7 +47,7 @@
   lies in incorporating these additional aspects in as self-contained as
   possible case studies resp. modifying the existing ones without bloating
   them up too much.” (p. 104)
-- Lido em: =tmp/fontes/kiss2014.pdf=, p. 109 e 110 do PDF.
+- Lido em: =acervo/kiss2014.pdf=, p. 109 e 110 do PDF.
 - Observação: “num tamanho só” é leitura do método de Kiss (cap. 3), em que
   cada interface tem uma implementação por tecnologia; a extensão do cap. 4
   troca a biblioteca, e não a interface. Kiss chama cada interface de
@@ -64,7 +64,7 @@
   structured in a way as to be a notational benchmark for languages
   and/or libraries/frameworks/toolkits with respect to GUI programming”
   (p. 114, apêndice A).
-- Lido em: =tmp/fontes/kiss2014.txt=, p. 110 e 120 do PDF.
+- Lido em: =acervo/kiss2014.txt=, p. 110 e 120 do PDF.
 - Observação: entrou em 2026-10-14, com o vocabulário do ADR 0034. Na p.
   104, Kiss chama assim o TodoMVC, “a single and bigger one instead of a
   set of case studies”, um /benchmark/ de um item só; por isso a citação
@@ -81,7 +81,7 @@
   respect to browser-based GUI frameworks. It would be interesting to
   create some kind of taxonomy of these frameworks and systematically
   compare their viability.” (p. 104)
-- Lido em: =tmp/fontes/kiss2014.pdf=, p. 6 e 110 do PDF.
+- Lido em: =acervo/kiss2014.pdf=, p. 6 e 110 do PDF.
 - Observação: as sete interfaces estão na p. 11 (entrada do §17); Kiss as
   chama de /case studies/, e o 7GUIs, de /tasks/.
 - Conferido: 2026-10-06.
@@ -93,7 +93,7 @@
   (p. 11); sumário: “3.5 Flight Booker … 25”; o nome 7GUIs é o do
   repositório da dissertação, “https://github.com/eugenkiss/7guis”
   (Apêndice A, p. 114, p. 120 do PDF).
-- Lido em: =tmp/fontes/kiss2014.pdf=, p. 17 do PDF para a p. 11 impressa.
+- Lido em: =acervo/kiss2014.pdf=, p. 17 do PDF para a p. 11 impressa.
 - Observação: até 2026-10-13, o Contador e a Lista adaptavam também o
   /Counter/ (p. 17) e o /CRUD/ (p. 34); saíram da análise (ADR 0002).
 - Conferido: 2026-10-06; de novo em 2026-10-13.
@@ -108,7 +108,7 @@
   extending the solutions for the case studies in ScalaFX with Scala.Rx
   and ReactFX. Afterwards, [...] by providing implementations of a
   selection of the case studies in Elm.” (p. 3)
-- Lido em: =tmp/fontes/kiss2014.pdf=, p. 9 do PDF (p. 3).
+- Lido em: =acervo/kiss2014.pdf=, p. 9 do PDF (p. 3).
 - Conferido: 2026-10-13.
 * [[file:../cases.org::A avaliação cabe ao autor][cases: A avaliação cabe ao autor]], p. 8
 - Frase: “Kiss (2014, p. 8) chama de analítica a avaliação pelas DCs e a
@@ -119,7 +119,7 @@
   analytical approach. The Cognitive Dimensions of Notations framework
   (CDs) [43] is a set of standardized criteria for analyzing the
   usability of ‘information artifacts’”
-- Lido em: =tmp/fontes/kiss2014.pdf=, p. 14 do PDF (p. 8 impressa).
+- Lido em: =acervo/kiss2014.pdf=, p. 14 do PDF (p. 8 impressa).
 - Conferido: 2026-10-06.
 * [[file:../intro.org::Por ser analítica, e não um experimento][intro: Por ser analítica, e não um experimento]], p. 103
 - Frase: “Por ser analítica, e não um experimento, a avaliação pelas DCs
@@ -128,7 +128,7 @@
 - Trecho: “After first insights have been gained in an analytical fashion,
   it would make sense to follow up with empirical studies to give results
   more meaningfulness.” (p. 103)
-- Lido em: =tmp/fontes/kiss2014.pdf=, p. 109 do PDF (p. 103 impressa).
+- Lido em: =acervo/kiss2014.pdf=, p. 109 do PDF (p. 103 impressa).
 - Observação: antes de 2026-10-15, a frase não citava fonte e dizia
   “precisam ser testadas”; o “it would make sense” de Kiss pede o “convém”
   (checagem adversarial).
@@ -138,7 +138,7 @@
   conjunto, adaptado no Formulário.”
 - Trecho: “3.5 Flight Booker / Challenges: working with constraints” (p. 25);
   no sumário, “3.5 Flight Booker … 25”.
-- Lido em: =tmp/fontes/kiss2014.pdf=, p. 31 do PDF (p. 25 impressa).
+- Lido em: =acervo/kiss2014.pdf=, p. 31 do PDF (p. 25 impressa).
 - Observação: até 2026-10-16, o parágrafo listava também o /Counter/
   (p. 17) e o /Crud/ (p. 34), que o Contador e a Lista filtrável adaptavam;
   as duas interfaces saíram do conjunto (ADR 0002).
@@ -152,7 +152,7 @@
   that updates the elapsed time runs concurrently to the user’s
   interactions with the GUI application. This also means that the solution
   to competing user and signal interactions is tested.” (p. 30)
-- Lido em: =tmp/fontes/kiss2014.pdf=, p. 36 do PDF (p. 30 impressa).
+- Lido em: =acervo/kiss2014.pdf=, p. 36 do PDF (p. 30 impressa).
 - Observação: a frase seguinte, “nenhuma põe componentes independentes para
   ler e alterar o mesmo estado”, também é leitura do conjunto: no /Crud/
   (p. 34), a lista, os campos e os botões leem e alteram a mesma lista de

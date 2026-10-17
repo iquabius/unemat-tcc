@@ -11,7 +11,7 @@
   signals or behaviors), events streams to model discrete updates,
   automatic tracking of dependencies, and automated propagation of
   change.”
-- Lido em: =tmp/fontes/salvaneschi2015.pdf=, p. 1 do PDF (p. 953).
+- Lido em: =acervo/salvaneschi2015.pdf=, p. 1 do PDF (p. 953).
 - Conferido: 2026-10-06.
 * [[file:../intro.org::No navegador, as sub-rotinas desse código][intro: No navegador, as sub-rotinas desse código]], p. 953 (o Observer Pattern)
 - Frase: “A forma tradicional de implementar programas que reagem a eventos
@@ -21,7 +21,7 @@
 - Trecho: “The traditional approach to implement reactive applications is
   the Observer design pattern that decouples event consumers (observers)
   from event producers (observables).” (p. 953)
-- Lido em: =tmp/fontes/salvaneschi2015.pdf=, p. 1 do PDF (p. 953).
+- Lido em: =acervo/salvaneschi2015.pdf=, p. 1 do PDF (p. 953).
 - Observação: “programas que reagem a eventos” traduz /reactive
   applications/, para não usar “reativo” fora da PR (=AGENTS.md=,
   preferências do autor). A forma das orações relativas vem da opção que o

@@ -9,6 +9,6 @@
   que sobra sem o /binding/ (microsoft2025b, abaixo).
 - Trecho: “If one of these events is raised and there's an associated
   event handler, the handler is invoked and code is run.”
-- Lido em: =tmp/fontes/microsoft2026a.html= (página salva
+- Lido em: =acervo/microsoft2026a.html= (página salva
   em 2026-10-13; atualizada em 2026-02-20).
 - Conferido: 2026-10-13.

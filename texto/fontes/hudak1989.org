@@ -11,7 +11,7 @@
   common) command, since its effect is to alter the underlying implicit
   store so as to yield a different binding for a particular variable.”
   (p. 361)
-- Lido em: =tmp/fontes/hudak1989.pdf=, p. 3 do PDF (p. 361).
+- Lido em: =acervo/hudak1989.pdf=, p. 3 do PDF (p. 361).
 - Observação: define /efeito colateral/ pelo /side effected/ do trecho. A
   definição estava num parágrafo solto da seção de interfaces (“Essas
   alterações são efeitos colaterais”), vindo da introdução sem o
@@ -25,7 +25,7 @@
 - Trecho: “As a result, such languages generally have a notion of
   sequencing (of the commands) to permit precise and deterministic control
   over the state.” (p. 361)
-- Lido em: =tmp/fontes/hudak1989.pdf=, p. 3 do PDF (p. 361).
+- Lido em: =acervo/hudak1989.pdf=, p. 3 do PDF (p. 361).
 - Observação: “Por isso” traduz o /As a result/, e o propósito, o /to
   permit precise and deterministic control over the state/. “Fluxo de
   controle” saiu daqui; a introdução o define (=intro.org=, “O /callback/
@@ -37,7 +37,7 @@
 - Trecho: “In contrast, declarative languages are characterized as having
   no implicit state, and thus the emphasis is placed entirely on
   programming with expressions (or terms).” (p. 361)
-- Lido em: =tmp/fontes/hudak1989.pdf=, p. 3 do PDF (p. 361).
+- Lido em: =acervo/hudak1989.pdf=, p. 3 do PDF (p. 361).
 - Conferido: 2026-10-14.
 * [[file:../prog.org::Nas linguagens declarativas, não há estado][prog: Nas linguagens declarativas, não há estado]], p. 361 ("o quê" e "o como")
 - Frase: “A programação declarativa costuma ser descrita como a que
@@ -46,7 +46,7 @@
 - Trecho: “Functional (in general, declarative) programming is often
   described as expressing what is being computed rather than how, although
   this is really a matter of degree.” (p. 361)
-- Lido em: =tmp/fontes/hudak1989.pdf=, p. 3 do PDF (p. 361).
+- Lido em: =acervo/hudak1989.pdf=, p. 3 do PDF (p. 361).
 - Observação: veio da introdução, de onde saiu no corte de 2026-10-14;
   “costuma ser descrita” traduz o /is often described/.
 - Conferido: 2026-10-14.

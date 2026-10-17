@@ -12,7 +12,7 @@
   ="SolidJS":1=. Na página da área de front-end: “Perguntamos quais eram
   as principais ferramentas e frameworks que o participante costuma usar
   mais no dia a dia.”
-- Lido em: =tmp/fontes/codigofonte2026-ranking.html= e
+- Lido em: =acervo/codigofonte2026-ranking.html= e
   =codigofonte2026-area-frontend.html= (páginas salvas em 2026-10-04).
 - Observação: Seção “Uso das tecnologias web”, nova em 2026-10-13. Parágrafo
   vindo da introdução e dos estudos de casos, como dado de interesse, sem
@@ -28,7 +28,7 @@
   ="AngularJS":78=; “Como toda pesquisa com amostragem por conveniência,
   algum viés pode permanecer - a audiência do canal tende a estar
   super-representada.”
-- Lido em: =tmp/fontes/codigofonte2026.html= e
+- Lido em: =acervo/codigofonte2026.html= e
   =codigofonte2026-ranking.html= (páginas salvas em 2026-10-04).
 - Observação: Seção “Uso das tecnologias web”. Parágrafo vindo dos estudos
   de casos em 2026-10-13.

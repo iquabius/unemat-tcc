@@ -11,7 +11,7 @@
   as a callback and the main thread continues its synchronous execution.
   When the operation completes, a message is enqueued into a task queue
   along with the provided callback.” (p. 2)
-- Lido em: =tmp/fontes/gallaba2015.pdf=, p. 2.
+- Lido em: =acervo/gallaba2015.pdf=, p. 2.
 - Conferido: 2026-10-07.
 * [[file:../prog.org::O /callback/ é síncrono quando a][prog: O /callback/ é síncrono quando a]], p. 5
 - Frase: “O /callback/ de um clique é desse tipo: registrado quando a tela é
@@ -23,7 +23,7 @@
   II, “Example asynchronous APIs available to JavaScript programs”: “DOM
   events: addEventListener, onclick (Browser)”; a Listagem 5 registra um
   =$('.restart').on('click', function() {...})=. (p. 5)
-- Lido em: =tmp/fontes/gallaba2015.pdf=, p. 5.
+- Lido em: =acervo/gallaba2015.pdf=, p. 5.
 - Observação: a primeira metade da frase (registrado na montagem da tela,
   roda no clique) é ilustração do autor; a fonte sustenta que o evento do
   DOM é API assíncrona.
@@ -35,7 +35,7 @@
 - Trecho: “a representative corpus of 138 JavaScript programs […] on
   average, every 10th function definition takes a callback argument […] the majority of
   callbacks are nested” (resumo).
-- Lido em: =tmp/fontes/gallaba2015.pdf=, p. 1.
+- Lido em: =acervo/gallaba2015.pdf=, p. 1.
 - Conferido: 2026-10-06.
 * [[file:../prog.org::Em JavaScript, os /callbacks/ são frequentes:][prog: Em JavaScript, os /callbacks/ são frequentes:]], p. 6 (o navegador)
 - Frase: “No código do navegador, em média 9% das chamadas de função
@@ -47,7 +47,7 @@
   “Finding 3: More than half of all callbacks are asynchronous.
   Asynchronous callbacks, on average, appear more frequently in
   client-side code (72%) than server-side code (55%).” (p. 6)
-- Lido em: =tmp/fontes/gallaba2015.pdf=, p. 6.
+- Lido em: =acervo/gallaba2015.pdf=, p. 6.
 - Observação: “no código do navegador” traduz o /client-side/; os 72% são
   das chamadas do cliente que passam /callback/ (seção IV-B), e o Finding 3
   os diz dos /callbacks/. Veio da introdução, onde estava no lugar dos 10%
@@ -63,7 +63,7 @@
   the client-side” (p. 1); “A callback is a function that is passed as an
   argument to another function, which is expected to invoke it either
   immediately or at some point in the future” (p. 2).
-- Lido em: =tmp/fontes/gallaba2015.pdf=, p. 1 e 2 do PDF.
+- Lido em: =acervo/gallaba2015.pdf=, p. 1 e 2 do PDF.
 - Observação: substitui Blackheath e Jones (2016, p. 7), livro que sai da
   introdução por decisão do autor em 2026-10-15; “no navegador” traduz o
   /client-side/. Que as sub-rotinas do código do avesso de Myers (1994,
