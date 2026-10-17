@@ -10,10 +10,11 @@
 //
 // O nome do cenário (#### Scenario: <nome> em
 // openspec/specs/<interface>/spec.md) é o nome da verificação
-// (conferir("<nome>", ...)) nos testes de implementacoes/<interface>/, em JS
-// ou Kotlin. Cada arquivo de teste tem de ter todos os cenários e só eles; e,
-// como as outras plataformas repetem o teste da web, na mesma ordem do
-// arquivo que fica na pasta da interface. Sai com erro e lista as diferenças.
+// (conferir("<nome>", ...)) nos testes de implementacoes/<interface>/, em JS,
+// Kotlin ou Java. Cada arquivo de teste tem de ter todos os cenários e só
+// eles; e, como as outras plataformas repetem o teste da web, na mesma ordem
+// do arquivo que fica na pasta da interface. Sai com erro e lista as
+// diferenças.
 //
 // Teste é todo arquivo da pasta da interface que chama conferir(...); cada
 // chamada tem de ter o nome como texto literal entre aspas duplas, senão o
@@ -27,7 +28,7 @@ import path from "node:path";
 const IMPLEMENTACOES = import.meta.dirname;
 const SPECS = path.join(IMPLEMENTACOES, "openspec", "specs");
 const OPENSPEC = path.join(IMPLEMENTACOES, "node_modules", ".bin", "openspec");
-const EXTENSOES = new Set([".js", ".ts", ".mts", ".kt"]);
+const EXTENSOES = new Set([".js", ".ts", ".mts", ".kt", ".java"]);
 const FORA = new Set([
   "node_modules",
   "build",
@@ -40,9 +41,10 @@ const FORA = new Set([
 const semShallNemMust = /should contain SHALL or MUST/;
 const cenario = /^####\s+Scenario:\s*(.+?)\s*$/gm;
 const verificacao = /\bconferir\(\s*"((?:[^"\\]|\\.)*)"/g;
-// Toda chamada, e as definições (fun, no Kotlin), que não são chamadas.
+// Toda chamada, e as definições (fun no Kotlin, void no Java), que não são
+// chamadas.
 const chamada = /\bconferir\(/g;
-const definicao = /\bfun\s+conferir\(/g;
+const definicao = /\b(?:fun|void)\s+conferir\(/g;
 
 type Validacao = {
   items: {
