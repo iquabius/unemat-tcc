@@ -213,8 +213,8 @@ final class Estilo {
       if (!((JTextField) componente).getText().isEmpty()) {
         return;
       }
-      // O BasicGraphicsUtils mede e desenha como o campo desenha o texto,
-      // com a suavização do componente.
+      // Medida pelo componente e desenhada pelo BasicGraphicsUtils, com a
+      // suavização do componente, como o campo mede e desenha o texto.
       Graphics2D texto = (Graphics2D) grafico.create();
       texto.setColor(componente.isEnabled() ? DICA : DICA_DESABILITADA);
       texto.setFont(componente.getFont());
