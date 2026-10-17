@@ -292,7 +292,7 @@ Economics) e Tsukanova & Zabrodin (2026): veículos fora da área; o resumo do
 segundo parece relevante, conferir o veículo. Donvir et al. (2024, arXiv):
 preprint. Estudos de desempenho de WebFlux e serverless: lado servidor.
 Jain & Mittal (2024, *The rise of component-driven development in modern
-frontend frameworks*, IJFMR, `tmp/fontes/artigos/jain2024.pdf`), lido em 2026-10-11:
+frontend frameworks*, IJFMR, `acervo/artigos/jain2024.pdf`), lido em 2026-10-11:
 veículo multidisciplinar fora da área, sem método nem dados, com os
 "case studies" como afirmações e dez referências de blogs e palestras;
 descartado como o IJEECS acima. A lista de práticas (contêiner e

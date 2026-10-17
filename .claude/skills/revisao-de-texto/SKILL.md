@@ -25,8 +25,8 @@ Evince estão só no host: tudo que os usa vai por `distrobox-host-exec`.
    aparece. Antes de mexer, `git status --short texto/` e
    `git diff --stat HEAD -- texto/`: o que houver ali é o rascunho do
    autor, e não se apaga nem se reescreve sem ele pedir.
-3. As fontes em PDF ficam em `tmp/fontes/` do checkout principal, a
-   citada como `tmp/fontes/<chave>.pdf` (ADR 0038). Mapas de estrutura,
+3. As fontes em PDF ficam em `acervo/` do checkout principal, a
+   citada como `acervo/<chave>.pdf` (ADR 0038). Mapas de estrutura,
    variantes e checagens ficam em `tmp/revisao/`, que o git ignora. O
    texto não passa mais por `tmp/rascunho-*.org`.
 4. Diff ao vivo rodando no host contra HEAD. Conferir e, se não estiver,
@@ -244,8 +244,8 @@ perguntas, e então o autor dá o rótulo.
    ao rascunho.
 2. **Fonte lida.** Para cada frase nova ou alterada (`git diff --cached
    --word-diff`) que se apoia numa fonte:
-   - `pdftotext -layout tmp/fontes/<chave>.pdf - | less` ou
-     `pdfgrep -n "termo" tmp/fontes/<chave>.pdf`;
+   - `pdftotext -layout acervo/<chave>.pdf - | less` ou
+     `pdfgrep -n "termo" acervo/<chave>.pdf`;
    - na conversa, o trecho e a página da publicação, não a do PDF quando
      diferem (`abnt.md` da skill);
    - fonte que só um subagente leu não entra sem conferir; sem PDF, diga
@@ -266,7 +266,7 @@ perguntas, e então o autor dá o rótulo.
    - embaixo, uma linha `- Rótulo:` por campo: `Frase` (a frase do texto,
      ou o trecho dela que faz a afirmação), `Trecho` (curto, na língua
      original, com a página da publicação), `Lido em` (o PDF em
-     `tmp/fontes/` e a página do PDF, quando difere), `Observação`, se
+     `acervo/` e a página do PDF, quando difere), `Observação`, se
      houver, e `Conferido` (a data).
 
    A frase que sai do texto sai da matriz; a que muda de capítulo ou de
@@ -413,7 +413,7 @@ formato do relatório estão em `references/checagem-adversarial.md` da
    commit lido.
 2. **Extração e mapa**, pelo agente principal, em
    `tmp/revisao/<data>-checagem-<capítulo>/passada-1.md`. Onde a verdade deve
-   estar: a chave e a página citadas, o PDF em `tmp/fontes/`, a
+   estar: a chave e a página citadas, o PDF em `acervo/`, a
    afirmação em `texto/fontes/<chave>.org` (`bin/conferir-fontes.py
    --paragrafos texto/<capítulo>.org` junta as afirmações na ordem do
    capítulo); para o próprio trabalho (interfaces, tecnologias,
@@ -422,7 +422,7 @@ formato do relatório estão em `references/checagem-adversarial.md` da
    nos outros capítulos e contra os termos do `CONTEXT.md`.
 3. **Passada 1.** Um subagente por lote, todos na mesma mensagem, com a
    instrução da referência e os caminhos absolutos dos PDFs em
-   `tmp/fontes/` do checkout principal. Enquanto rodam, a auditoria
+   `acervo/` do checkout principal. Enquanto rodam, a auditoria
    lógica. O relatório vai para o arquivo do passo 2, e o resumo, para a
    conversa.
 4. **Perguntas socráticas antes das correções.** Salto causal, premissa

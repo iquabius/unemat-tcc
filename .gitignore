@@ -44,6 +44,8 @@ local.properties
 .beads/proxieddb/
 *.gate.lock*
 
-# Material local: PDFs baixados, textos extraídos e relatórios (não versionar)
+# Material local, fora do git (ADR 0038): o de trabalho em tmp/, e as
+# cópias das fontes, os PDFs e os textos extraídos, em acervo/
 /tmp/
+/acervo/*
 __pycache__/

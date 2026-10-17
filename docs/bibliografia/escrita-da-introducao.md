@@ -148,7 +148,7 @@ As fontes de trabalhos relacionados:
   2025; Narechania et al. 2025; Verma et al. 2026; Nanz et al. 2013;
   Kruchten et al. 2023; Mernik et al. 2009). Grolaux et al. (2026) e Green
   e Petre (1996), um ciclo; Sperber e Schlegel (2025) e Kutar et al.
-  (2002), nenhum. Saeed (2024) e Grov (2015) não estão em `tmp/fontes/`.
+  (2002), nenhum. Saeed (2024) e Grov (2015) não estão em `acervo/`.
 
 ## Histórico
 

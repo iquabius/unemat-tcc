@@ -230,7 +230,7 @@ Da terceira rodada (2026-10-09).
 
 Os dois avaliam pelas DCs a notação da própria biblioteca, e não a do
 Angular ou a do React; no `refs.bib` desde a rodada, com as cópias do
-arXiv em `tmp/fontes/`. "TC" é o texto completo, lido nessas cópias.
+arXiv em `acervo/`. "TC" é o texto completo, lido nessas cópias.
 
 | Trabalho | O que faz | Para que serve | Lido |
 |---|---|---|---|
@@ -273,7 +273,7 @@ Da segunda rodada (2026-10-02).
 
 Nenhum repete o delineamento do TCC. "R" é o resumo, relido no OpenAlex ou no
 Crossref; "TC", o texto completo, lido em 2026-10-02 nas cópias de
-`tmp/fontes/`.
+`acervo/`.
 
 | Trabalho | O que faz | Para que serve | Lido |
 |---|---|---|---|
@@ -303,7 +303,7 @@ critérios da revisão (Apêndice II), que só admitem, além dos revisados,
 dissertações e teses da BDTD: servem de contraste com o delineamento do
 TCC e de modelo do gênero. "Grau" diz de onde vem o bacharelado: da folha
 de rosto, da página do repositório ou de uma referência. Cópias em
-`tmp/fontes/tccs/`, fora do git, com o texto extraído
+`acervo/tccs/`, fora do git, com o texto extraído
 ao lado de cada PDF.
 
 | Trabalho | O que faz | Grau | Lido | Introdução |

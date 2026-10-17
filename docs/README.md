@@ -144,7 +144,7 @@ Decisões: `docs/adr/`.
   completo, o resumo ou só o título;
 - **cópia**: a página é a da versão do autor ou da pré-publicação, e não
   a da publicada;
-- **sem PDF**: a fonte não está em `tmp/fontes/`, e nada dela foi lido;
+- **sem PDF**: a fonte não está em `acervo/`, e nada dela foi lido;
 - **leitura nossa**: a fonte não diz isso com essas palavras; é
   aplicação do TCC;
 - **sem entrada** e **fora do `refs.bib`**: a fonte não tem entrada;
@@ -152,7 +152,7 @@ Decisões: `docs/adr/`.
 
 A página citada é a impressa, salvo onde a nota diz outra; a relação com
 a página do PDF, quando difere, vem no começo da seção. As cópias das
-fontes ficam em `tmp/fontes/` do checkout principal, fora do git.
+fontes ficam em `acervo/` do checkout principal, fora do git.
 
 ## Convenções
 

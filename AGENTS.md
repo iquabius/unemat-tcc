@@ -19,7 +19,8 @@ estão em `CONTEXT.md`; use-os.
 | Mudança em código (`implementacoes/`, `bin/`, scripts), ferramentas ou `AGENTS.md` | numa worktree, em ramo próprio, que chega ao `master` revisado | seção "Código: ramo, revisão, merge" abaixo |
 | Feedback de escrita e revisão bibliográfica | não vai para o repositório | skill `escrita-academica`; o que sobra vira tarefa no `bd` ou nota em `docs/` |
 | Frase nova ou alterada em `texto/*.org` | direto no `.org` do checkout principal; o commit espera a revisão | seção "Texto" abaixo e skill do projeto `revisao-de-texto` (ADR 0023) |
-| Material local fora do git: cópias das fontes, mapas e checagens do texto, pesquisas, protótipos, dev logs | `tmp/` do checkout principal, numa das pastas do ADR 0038, nunca solto na raiz | fonte com chave no `refs.bib` em `tmp/fontes/<chave>.pdf`, com o `.txt` ao lado; sem chave, em `tmp/fontes/<tipo>/`; o resto em `revisao/`, `pesquisas/`, `prototipos/`, `devlogs/`, `orientacao/` ou `copias/`, com o nome `AAAA-MM-DD-<assunto>`, a data do começo do trabalho e sem repetir o nome da pasta (`devlogs/2026-10-14-corte-intro.md`), e `bin/tmp-por-data.py` lista tudo por dia, entre pastas; mover um arquivo citado troca o caminho no mesmo commit |
+| Cópia de uma fonte lida: PDF, página salva, texto extraído | `acervo/` do checkout principal, fora do git (ADR 0038) | a obra com chave no `refs.bib` em `acervo/<chave>.pdf`; a sem chave, na pasta do tipo; mover uma cópia citada troca o caminho no mesmo commit |
+| Material local de trabalho: mapas e checagens do texto, pesquisas, protótipos, dev logs | `tmp/` do checkout principal, numa das pastas do ADR 0038, nunca solto na raiz | nome `AAAA-MM-DD-<assunto>`, com a data do começo do trabalho; `bin/tmp-por-data.py` lista por dia, entre as pastas |
 | Trecho de fonte que sustenta uma frase do texto | `texto/fontes/<chave>.org` | um arquivo por chave do `refs.bib` (ADR 0035); um título por afirmação, com o link para o parágrafo e a página, e embaixo a frase, o trecho e a data da conferência; o trecho que o texto ainda não cita fica na nota de fontes do assunto |
 
 No chat, o ADR se cita pelo número e pelo nome, num link para o arquivo,
@@ -54,7 +55,7 @@ As tarefas vivem no [Beads](https://github.com/gastownhall/beads) (`bd`
   | `texto/prog.org`, `docs/bibliografia/programacao-funcional-e-reativa.md`, `docs/trabalhos-relacionados-e-lacuna.md` | Fase 3: capítulo de programação (`tcc-2o8`) |
   | `texto/conclusion.org`, o título, o texto do resumo | Fase 4: fechamento (`tcc-y8x`) |
   | `implementacoes/`: código, especificação, testes de conformidade, capturas | Código das interfaces (`tcc-3jg`) |
-  | `texto/refs.bib`, `tmp/fontes/`, `docs/bibliografia/protocolo-da-revisao.md` | Bibliografia (`tcc-bkm`) |
+  | `texto/refs.bib`, `acervo/`, `docs/bibliografia/protocolo-da-revisao.md` | Bibliografia (`tcc-bkm`) |
   | `latex/`, pré-textuais, margens, legendas | Formatação do documento (`tcc-juu`) |
   | `bin/`, skills, Beads, PDFs, `AGENTS.md`, `readme.org` | Ferramentas e processo (`tcc-qko`) |
 
@@ -307,7 +308,7 @@ pergunta antes.
   Emacs, uma por vez; código, ferramentas e instruções de agente seguem
   numa worktree, em ramo próprio (seção seguinte). O que
   houver no `git diff HEAD -- texto/` é rascunho do autor e não se apaga
-  nem se reescreve sem ele pedir. As fontes em PDF ficam em `tmp/fontes/`
+  nem se reescreve sem ele pedir. As fontes em PDF ficam em `acervo/`
   do checkout principal.
 
 ## Notas em `docs/`

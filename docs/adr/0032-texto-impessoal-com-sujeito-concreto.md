@@ -26,7 +26,7 @@ escolheu" atribui ao texto uma decisão humana. As passivas analíticas
 tendem a voltar e precisam ser revistas uma a uma. Se o orientador
 preferir a primeira do plural, a introdução muda inteira.
 
-Fontes: `tmp/fontes/normas/brasil/unemat/instrucoes-normativas/` (regimento, Res. 030/2012 e
-055/2015); `tmp/fontes/normas/brasil/unemat/convertidos/Monografia_final_EXEMPLO.txt`;
-`tmp/fontes/normas/brasil/unemat/abnt/nbr6028-2021-unesp.pdf`; skill `escrita-academica`
+Fontes: `acervo/normas/brasil/unemat/instrucoes-normativas/` (regimento, Res. 030/2012 e
+055/2015); `acervo/normas/brasil/unemat/convertidos/Monografia_final_EXEMPLO.txt`;
+`acervo/normas/brasil/unemat/abnt/nbr6028-2021-unesp.pdf`; skill `escrita-academica`
 (`principios-escrita.md`, seção 7; `portugues-academico.md`, seção 7).

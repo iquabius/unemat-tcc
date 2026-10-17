@@ -38,7 +38,7 @@ Kiss (2014) não tem DOI e não está no OpenAlex nem no Semantic Scholar; os ci
 
 ## OpenAlex, fulltext.search:7GUI e "7GUI": 47 cada, todos ruído (o índice separa "7" de "GUI"); "7 GUIs" e "seven GUIs": 812 e 19, ruído.
 
-Wiersdorf et al. (2024), que escreve "7GUI" e cita Kiss (2014) e o site do 7GUIs (referências 53 e 54, texto completo em tmp/fontes/artigos/wiersdorf2024.pdf), não aparece em nenhuma dessas buscas: o índice de texto completo do OpenAlex é parcial.
+Wiersdorf et al. (2024), que escreve "7GUI" e cita Kiss (2014) e o site do 7GUIs (referências 53 e 54, texto completo em acervo/artigos/wiersdorf2024.pdf), não aparece em nenhuma dessas buscas: o índice de texto completo do OpenAlex é parcial.
 
 ## Semantic Scholar
 - API (graph/v1/paper/search e snippet/search, "7GUIs" e "Eugen Kiss GUI programming benchmark"): 13 tentativas, todas HTTP 429.

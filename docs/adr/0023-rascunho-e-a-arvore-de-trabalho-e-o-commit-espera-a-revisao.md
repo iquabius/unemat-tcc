@@ -67,7 +67,7 @@ caminhos levaria o rascunho do índice, por isso os commits nesse checkout
 nomeiam os arquivos ou usam índice temporário; sessões em worktree não
 veem o rascunho; diff ao vivo, exportação e compilação dependem do host
 (Emacs, TeX Live, Evince) por `distrobox-host-exec`; as fontes em PDF
-ficam em `tmp/fontes/`, fora do git; a matriz de fontes se mantém à mão,
+ficam em `acervo/`, fora do git; a matriz de fontes se mantém à mão,
 e o `bin/conferir-fontes.py` só a confere contra as citações.
 
 Fontes: `bin/diff-ao-vivo.sh` (commits `b846bfd` e `858d488`); tarefas
