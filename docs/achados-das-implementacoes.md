@@ -178,7 +178,9 @@ requisitos da segunda rodada".
   `casos/busca-com-sugestoes/react/src/main.tsx:29-58`, onde o estado
   `pedido` existe por causa dela). Ela ocupa cerca de 4 linhas de
   coordenação no Web Component, 9 no React e 5 no Solid; tirá-la muda a
-  linha de base da primeira rodada e o diff da segunda rodada.
+  linha de base da primeira rodada e o diff da segunda rodada. Saiu em
+  2026-10-17 (tcc-z2jq), e no React saíram com ela o `pedido` e o
+  `useEffect`.
 
 ## 2026-10-13, Quadro de tarefas na web (commits `39d85b9` e seguinte)
 

@@ -94,7 +94,11 @@ a conta do modelo granular, e a Busca da segunda rodada ficaria sem
 tecnologia granular. Nenhum par fora da web compensa nenhum dos dois.
 Leitura de dois subagentes sobre o código de `casos/` em `2ef10bb` e sobre
 um rascunho em Lit não executado (`tmp/prototipos/2026-10-12-rascunho-lit/`, fora do
-git); as linhas citadas não foram reconferidas.
+git); as linhas citadas não foram reconferidas. Em 2026-10-17 (tcc-z2jq),
+a espera de 300 ms saiu da Busca da primeira rodada, e com ela o
+`setTimeout` no tratador do Web Component e o `useEffect` com o `pedido`
+do React, que a tabela cita; o contraste que ela tira deles fica para a
+Busca da segunda rodada, quando a espera volta.
 
 | | Web Component × Lit | React × Solid |
 |---|---|---|
