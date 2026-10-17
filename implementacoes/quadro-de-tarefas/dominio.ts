@@ -62,13 +62,13 @@ export function tarefa(id: number): Tarefa {
 export const tituloDa = (coluna: Coluna) => TITULOS[coluna];
 
 /** Uma tarefa pode entrar na coluna se ela não for "Fazendo" cheia. */
-export function cabeEm(estado: EstadoDoQuadro, coluna: Coluna): boolean {
+function cabeEm(estado: EstadoDoQuadro, coluna: Coluna): boolean {
   return coluna !== "fazendo" || estado.fazendo.length < LIMITE_FAZENDO;
 }
 
 /**
- * A opção de levar a tarefa de uma coluna para outra fica habilitada se a
- * outra couber; a da coluna em que a tarefa já está, sempre.
+ * A tarefa pode ir de uma coluna para outra se couber nela; para a coluna
+ * em que já está, sempre.
  */
 export const podeIr = (estado: EstadoDoQuadro, de: Coluna, para: Coluna) =>
   para === de || cabeEm(estado, para);
