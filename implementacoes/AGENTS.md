@@ -39,10 +39,11 @@ as dependências (`package.json`, `package-lock.json` e o
    corrija o arquivo de estilo da tecnologia. No desktop, o aviso
    `(desktop)` sai sempre: Swing e JavaFX desenham controles e texto cada
    um a seu modo (decisão do autor em 2026-10-17); abra as imagens e
-   confira conteúdo, posições e cores. **Nunca acrescente código de
-   aparência na tela para igualar as imagens**: no TCC, o código da tela
-   com a menor variação possível entre as implementações importa mais que
-   o resultado visual.
+   confira conteúdo, posições e cores. **A diferença entre as imagens não
+   se corrige no código da tela**: o ajuste vai no arquivo de estilo da
+   tecnologia, e o que ele não alcançar fica na imagem. No TCC, importa
+   mais que o código da tela varie o mínimo entre as implementações do que
+   as imagens saírem iguais.
 3. Se alguma captura mudou:
    - **mudança intencional:** abra as imagens da pasta temporária que o
      comando indica, confirme que mostram o esperado, rode
@@ -349,6 +350,14 @@ conferidas.
     `.formulario`, `Erro` para `.formulario .erro`, `Botao` para
     `.formulario button`). A tela só usa esses nomes.
   - Os arquivos de estilo ficam fora da análise, como o `estilo.css`.
+  - A aparência que muda com o estado e que o arquivo de estilo não
+    exprime se escreve no código da tela, na forma dos programas reais,
+    com um comentário que diga por quê. No Views, os seletores de
+    `res/color/` e `res/drawable/` trocam pelo estado da view
+    (`isActivated`, `isEnabled`) só a cor e o fundo: o negrito da linha
+    destacada dos Dados ao vivo se põe com `setTypeface` em cada célula,
+    a forma mais comum no código do GitHub, contra uma subclasse de
+    `TextView` no papel do estilo (decisão do autor em 2026-10-17).
 - Alinhamento sempre explícito no arquivo de estilo, nunca deixado ao
   padrão de cada tecnologia, porque eles diferem: o `LinearLayout` alinha os
   filhos pela linha de base do texto (desligue com
