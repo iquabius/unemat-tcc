@@ -65,7 +65,9 @@ interface do Formulário") ou o número ("as cinco interfaces"); o domínio
 fica no plural ou com "gráfica" ("programar interfaces gráficas") (ADR
 0034).
 _Avoid_: tarefa (o termo do 7GUIs e de Sim et al., 2003, até 2026-10-14:
-colide com o Quadro de tarefas e com a tarefa do bd); caso e estudo de
+colide com o Quadro de tarefas, com a tarefa do bd e com a *task* das
+DCs, o que se faz com a notação, que no trabalho seria cada mudança da
+segunda rodada, ADR 0034); caso e estudo de
 caso (o estudo de caso é um método que o trabalho não adota, embora Kiss,
 2014, chame cada item de *case study*); problema (o de Erdweg et al.,
 2015, e de Nanz et al., 2013: colide com o problema de usabilidade e o de
