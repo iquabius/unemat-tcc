@@ -295,8 +295,13 @@ código foi quebrado à mão, e 80 colunas cabem numa coluna do PDF em 8 pt.
   `--kotlinlang-style`, fixado em
   `implementacoes/android/gradle/libs.versions.toml` e rodado pela tarefa
   `formatarKotlin` do Gradle.
-- C# e XAML (Windows Forms e WPF): CSharpier, com a mesma largura, a
-  instalar e fixar com o primeiro código do desktop (tcc-74m).
+- Java (Swing e JavaFX): Prettier com o `prettier-plugin-java`, também
+  fixado, no padrão dele (recuo de 2), escolhido pelo autor em 2026-10-17
+  contra o google-java-format, de largura fixa em 100 colunas, e o
+  formatador do Eclipse pelo Spotless, de perfil próprio a manter. Os
+  `.kts` de `implementacoes/desktop/` e dos módulos do desktop passam pelo
+  ktfmt, com a versão e as opções do Android, na tarefa `formatarKotlin`
+  do projeto Gradle do desktop.
 - Ficam de fora `implementacoes/fora-da-analise/` e os documentos
   (`implementacoes/.prettierignore` e o `build.gradle.kts` de
   `implementacoes/android/`).

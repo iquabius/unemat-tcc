@@ -1,5 +1,5 @@
 {
-  "plugins": ["@prettier/plugin-xml"],
+  "plugins": ["@prettier/plugin-xml", "prettier-plugin-java"],
   "overrides": [
     {
       "files": "*.xml",

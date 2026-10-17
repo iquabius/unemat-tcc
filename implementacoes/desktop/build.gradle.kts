@@ -8,6 +8,48 @@ plugins {
     alias(libs.plugins.javafx) apply false
 }
 
+// Formatação dos .kts do desktop pelo ktfmt, com as opções da tarefa de mesmo
+// nome de implementacoes/android/, que não alcança esta pasta (tcc-6wha). O
+// npm run formatar e o npm run conferir-formatacao, em implementacoes/,
+// chamam as duas depois do Prettier, que formata o Java.
+val ktfmt by configurations.creating {
+    // O ktfmt publica também um jar com as dependências dentro; sem dizer
+    // qual, o Gradle não escolhe entre os dois.
+    attributes {
+        attribute(Usage.USAGE_ATTRIBUTE, objects.named(Usage.JAVA_RUNTIME))
+        attribute(Bundling.BUNDLING_ATTRIBUTE, objects.named(Bundling.SHADOWED))
+    }
+}
+
+dependencies { ktfmt(libs.ktfmt) }
+
+val arquivosKotlin =
+    fileTree(rootDir.parentFile) {
+        include("desktop/*.kts", "*/swing/*.kts", "*/javafx/*.kts")
+        exclude("**/build/**", "fora-da-analise/**")
+    }
+
+fun ktfmtTask(nome: String, descricao: String, vararg opcoes: String) =
+    tasks.register<JavaExec>(nome) {
+        description = descricao
+        classpath = ktfmt
+        mainClass = "com.facebook.ktfmt.cli.Main"
+        // O compilador do Kotlin dentro do ktfmt usa o sun.misc.Unsafe, que o
+        // JDK 25 avisa a cada execução.
+        jvmArgs("--sun-misc-unsafe-memory-access=allow")
+        args("--kotlinlang-style", "--enable-editorconfig", "--quiet", *opcoes)
+        args(arquivosKotlin.files.map { it.path }.sorted())
+    }
+
+ktfmtTask("formatarKotlin", "Formata os .kts do desktop com o ktfmt.")
+
+ktfmtTask(
+    "conferirFormatacaoKotlin",
+    "Falha se algum .kts do desktop não estiver formatado.",
+    "--dry-run",
+    "--set-exit-if-changed",
+)
+
 subprojects {
     apply(plugin = "application")
     // O Kotlin só compila o domínio do caso; a tela é Java.
