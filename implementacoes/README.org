@@ -50,8 +50,8 @@ abaixo.
 
 * Instalar e rodar (Android)
 
-  O Formulário com validação também existe no Android, em Kotlin, em duas
-  tecnologias:
+  O Formulário com validação e os Dados ao vivo também existem no Android,
+  em Kotlin, em duas tecnologias:
 
   | Subpasta           | Tecnologia                                         |
   |--------------------+----------------------------------------------------|

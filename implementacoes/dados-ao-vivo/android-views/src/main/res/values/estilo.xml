@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Aparência dos Dados ao vivo, no papel do estilo.css da web: o layout só
+     cita os estilos pelo nome (style="@style/..."), como o class do HTML. O
+     fundo do tr.alerta fica em res/drawable/fundo_da_linha.xml, pela linha
+     ativada; o negrito, que o Android não troca pelo estado, a MainActivity
+     põe nas células. -->
+<resources>
+    <color name="fundo">#2b2b2b</color>
+    <color name="alerta">#6b4b00</color>
+
+    <!-- body: o tema da tela inteira, aplicado no AndroidManifest.xml. -->
+    <style
+        name="Tema"
+        parent="Theme.Material3.Dark.NoActionBar">
+        <item name="android:windowBackground">@color/fundo</item>
+    </style>
+
+    <style name="Pagina">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:fitsSystemWindows">true</item>
+    </style>
+
+    <!-- .placares: uma coluna com 0.5rem entre os itens e 1rem de margem,
+         alinhados ao início. -->
+    <style name="Placares">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:padding">16dp</item>
+        <item name="android:divider">@drawable/espaco_de_8dp</item>
+        <item name="android:showDividers">middle</item>
+    </style>
+
+    <!-- .painel: uma coluna com 0.5rem entre os itens. -->
+    <style name="Painel">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:divider">@drawable/espaco_de_8dp</item>
+        <item name="android:showDividers">middle</item>
+    </style>
+
+    <!-- Texto comum (a cor e o tamanho do body), sem o espaço que a TextView
+         põe acima e abaixo da fonte, que o navegador e o Compose não põem. -->
+    <style name="Texto">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">#eeeeee</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <!-- .situacao -->
+    <style
+        name="Situacao"
+        parent="Texto">
+        <item name="android:textColor">#aaaaaa</item>
+    </style>
+
+    <!-- .painel table: as colunas têm a largura do maior conteúdo. -->
+    <style name="Tabela">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <!-- .painel tr, com tr.alerta no fundo da linha ativada. As células se
+         alinham pelo topo, e não pela linha de base do texto, o padrão do
+         TableRow, como na Tabela do Compose. -->
+    <style name="Linha">
+        <item name="android:background">@drawable/fundo_da_linha</item>
+        <item name="android:baselineAligned">false</item>
+        <item name="android:gravity">top</item>
+    </style>
+
+    <!-- .painel td: 0.2rem e 0.6rem de margem interna, alinhado à direita, sem
+         quebra de linha. -->
+    <style
+        name="Celula"
+        parent="Texto">
+        <item name="android:paddingHorizontal">9.6dp</item>
+        <item name="android:paddingVertical">3.2dp</item>
+        <item name="android:gravity">end</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
+    <!-- .painel td:first-child: alinhado à esquerda. -->
+    <style
+        name="PrimeiraCelula"
+        parent="Celula">
+        <item name="android:gravity">start</item>
+    </style>
+
+    <!-- .painel th: como a célula, em negrito. -->
+    <style
+        name="Cabecalho"
+        parent="Celula">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- .painel th:first-child -->
+    <style
+        name="PrimeiroCabecalho"
+        parent="Cabecalho">
+        <item name="android:gravity">start</item>
+    </style>
+
+    <!-- .placares button: o botão padrão do navegador, cinza-claro, com borda
+         e cantos de 3px, e 0.4rem de margem interna. Sem as margens externas,
+         os tamanhos mínimos, o espaço acima e abaixo da fonte e o texto em
+         negrito do botão do Material. -->
+    <style
+        name="Botao"
+        parent="Widget.Material3.Button">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:textColor">#000000</item>
+        <item name="backgroundTint">#efefef</item>
+        <item name="strokeColor">#767676</item>
+        <item name="strokeWidth">1dp</item>
+        <item name="cornerRadius">3dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:padding">6.4dp</item>
+        <item name="android:minHeight">0dp</item>
+        <item name="android:minWidth">0dp</item>
+    </style>
+</resources>
