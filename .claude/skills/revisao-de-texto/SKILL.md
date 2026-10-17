@@ -409,8 +409,8 @@ seções e salto causal passam enquanto ninguém mexer na frase. Antes da
 tag de uma fase (ADR 0024; `AGENTS.md`, "Versões"), cada capítulo que a
 fase mudou é lido inteiro por um crítico hostil de fatos e de lógica. O
 método, os vereditos, a escada de fontes, a instrução dos subagentes e o
-formato do relatório estão em `references/checagem-adversarial.md` da
-`escrita-academica`; leia-o antes.
+formato do relatório estão em `references/academic-chapter.md` da skill
+`fact-check`, o cartucho do capítulo; leia-o antes.
 
 1. **Texto aprovado.** A checagem lê o HEAD. Rascunho do autor em
    `git diff HEAD -- texto/` passa antes pela porta aberta e pelo commit.
