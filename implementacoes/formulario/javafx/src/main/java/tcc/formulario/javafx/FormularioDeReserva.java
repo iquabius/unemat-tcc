@@ -81,6 +81,10 @@ public class FormularioDeReserva extends VBox {
     getStyleClass().add("formulario");
     confirmacao.getStyleClass().add("confirmacao");
     tipo.getSelectionModel().select(0);
+    // Como o placeholder: a dica do formato, que o JavaFX mostra no campo
+    // vazio.
+    ida.setPromptText("DD/MM/AAAA");
+    volta.setPromptText("DD/MM/AAAA");
 
     // Valores derivados: cada createStringBinding recebe o cálculo e, depois
     // dele, as propriedades que o cálculo lê.

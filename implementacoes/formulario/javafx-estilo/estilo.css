@@ -36,6 +36,10 @@
   -fx-padding: 0;
 }
 
+.text-field {
+  -fx-prompt-text-fill: #999999;
+}
+
 .text-field:disabled {
   -fx-opacity: 0.5;
 }
