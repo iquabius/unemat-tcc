@@ -221,8 +221,8 @@ plataforma (é o domínio dela, na linguagem dela)
 
 **Tecnologia**:
 Uma forma de implementar uma interface numa plataforma: na web, Web
-Component (a plataforma), React, Solid, Lit e Angular com *signals* (estes
-dois em três interfaces cada) e Angular com RxJS; no Android, Views (a
+Component (a plataforma), React, Solid, Lit, Angular com *signals* e
+Angular com RxJS; no Android, Views (a
 plataforma) e Jetpack Compose; no desktop, Windows Forms e WPF. Cada uma
 impõe um modelo de programação e se escreve numa notação própria; a
 documentação a classifica como biblioteca, *framework*, *toolkit* ou
