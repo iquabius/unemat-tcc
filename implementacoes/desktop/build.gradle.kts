@@ -50,6 +50,9 @@ ktfmtTask(
     "--set-exit-if-changed",
 )
 
+// Destino das capturas: o capturar.mts passa -Pcapturas.destino=<pasta>.
+val destinoDasCapturas = providers.gradleProperty("capturas.destino")
+
 subprojects {
     apply(plugin = "application")
     // O Kotlin só compila o domínio da interface; a tela é Java.
@@ -76,14 +79,13 @@ subprojects {
         }
     }
 
-    // Apoio das Telas de teste (implementacoes/desktop/teste/), um por
-    // tecnologia, como o implementacoes/android/captura/.
-    val apoio =
-        rootDir
-            .resolve("teste")
-            .resolve(if (name.endsWith("-swing")) "swing" else "javafx")
+    // Apoio das Telas de teste e das cenas (implementacoes/desktop/teste/),
+    // um por tecnologia e um comum às duas, como o
+    // implementacoes/android/captura/.
+    val tecnologia = if (name.endsWith("-swing")) "swing" else "javafx"
     extensions.configure<SourceSetContainer> {
-        getByName("test").java.srcDir(apoio)
+        getByName("test").java.srcDir(rootDir.resolve("teste/$tecnologia"))
+        getByName("test").java.srcDir(rootDir.resolve("teste/comum"))
     }
 
     dependencies {
@@ -96,8 +98,19 @@ subprojects {
         systemProperty("java.awt.headless", "true")
         systemProperty("glass.platform", "Headless")
         systemProperty("prism.order", "sw")
+        // Texto suavizado, como no desktop Linux: sem janela, o Swing não lê
+        // a configuração do sistema.
+        systemProperty("awt.useSystemAAFontSettings", "on")
         // O JavaFX carrega bibliotecas nativas pelo classpath.
         jvmArgs("--enable-native-access=ALL-UNNAMED")
+        // Onde as cenas gravam as capturas (Captura.java).
+        systemProperty("capturas.tecnologia", projectDir.name)
+        systemProperty(
+            "capturas.destino",
+            destinoDasCapturas.getOrElse(
+                layout.buildDirectory.dir("capturas").get().asFile.path
+            ),
+        )
         testLogging {
             exceptionFormat =
                 org.gradle.api.tasks.testing.logging.TestExceptionFormat.FULL
