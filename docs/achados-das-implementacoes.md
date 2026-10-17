@@ -240,9 +240,10 @@ requisitos da segunda rodada".
   fundo e o negrito pelo CSS, e no Compose o negrito é um parâmetro da
   `Linha`. É a forma mais comum em programas reais: numa busca no código
   do GitHub em 2026-10-17, `isSelected`, `Typeface.BOLD` e
-  `onBindViewHolder` aparecem juntos em 331 arquivos Kotlin, a maioria
-  adaptadores de lista (Thunderbird, Signal, Wikipedia); a subclasse de `TextView` que troca a fonte pelo
-  estado, a primeira versão do ramo, quase não aparece; e o
-  `setTextAppearance` entre dois estilos, que o `TabLayout` do Material
-  usa por dentro, é raro. Decisão do autor em 2026-10-17, pela forma mais
-  comum, contra a subclasse, que deixaria a tela igual à da web.
+  `onBindViewHolder` aparecem juntos em 331 arquivos Kotlin, como no
+  Thunderbird, no Signal e no app da Wikipedia; a subclasse de `TextView`
+  que troca a fonte pelo estado, a primeira versão do ramo, quase não
+  aparece; e o `setTextAppearance` entre dois estilos, que o `TabLayout`
+  do Material usa por dentro, é raro. Decisão do autor em 2026-10-17,
+  pela forma mais comum, contra a subclasse, que deixaria o código da
+  tela igual ao do Web Component, com só a linha ativada.
