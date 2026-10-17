@@ -113,15 +113,11 @@ class Tela(private val regra: AndroidComposeTestRule<*, *>) {
             .fetchSemanticsNodes()
             .map { textoDe(it.config) }
 
+    // A confirmação é a região de status, como o role="status" da web.
     fun confirmacao(): String =
         regra
             .onAllNodes(
-                SemanticsMatcher("confirmação") {
-                    textoDe(it.config).let {
-                        it.startsWith("Passagem ") ||
-                            it.startsWith("Passagens ")
-                    }
-                }
+                SemanticsMatcher.keyIsDefined(SemanticsProperties.LiveRegion)
             )
             .fetchSemanticsNodes()
             .map { textoDe(it.config) }
