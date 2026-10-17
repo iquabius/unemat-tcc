@@ -7,8 +7,9 @@
 //
 // O tempo é de um relógio falso: o teste troca setTimeout e setInterval da
 // página pelos dele e só os faz andar com avancar(ms), para não esperar os
-// 10 s da sessão. Entre um disparo e outro, deixa rodar as promises e as
-// mensagens que o React agenda por MessageChannel, fora do relógio falso.
+// 10 s da sessão. Entre um disparo e outro, deixa rodar as promises, as
+// mensagens que o React agenda por MessageChannel e o quadro de animação em
+// que o Angular faz a tela, fora do relógio falso.
 (async () => {
   function instalarRelogioFalso() {
     const originais = { setTimeout, clearTimeout, setInterval, clearInterval };
@@ -40,9 +41,13 @@
     // O React faz a tela numa mensagem e roda os efeitos (e a limpeza
     // deles) noutra, agendada só depois da primeira: com o React 19.3, o
     // teste falha com duas voltas e passa com três (medido em 2026-10-12);
-    // quatro dão folga.
+    // quatro dão folga. O Angular sem zone.js faz a tela num setTimeout em
+    // corrida com um requestAnimationFrame: o relógio falso segura o
+    // setTimeout, e o quadro pedido depois roda depois do dele (Angular
+    // 22.2, medido em 2026-10-17). Com a aba escondida, o quadro não vem.
     const escoar = async () => {
       for (let i = 0; i < 4; i++) await mensagem();
+      await new Promise((r) => requestAnimationFrame(() => r()));
     };
     return {
       escoar,
