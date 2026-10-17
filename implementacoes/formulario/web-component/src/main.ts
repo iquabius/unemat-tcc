@@ -5,7 +5,7 @@ import {
   erroDoNome,
   hoje,
   mensagemDeConfirmacao,
-  type TipoDeVoo,
+  type TipoDeViagem,
 } from "../../dominio";
 import "../../estilo.css";
 
@@ -24,7 +24,7 @@ const modelo = /* HTML */ `
     <p class="erro" data-erro="email" hidden></p>
 
     <label>
-      Tipo de voo
+      Tipo de viagem
       <select name="tipo">
         <option value="ida">Só ida</option>
         <option value="ida-e-volta">Ida e volta</option>
@@ -43,26 +43,26 @@ const modelo = /* HTML */ `
     </label>
     <p class="erro" data-erro="volta" hidden></p>
 
-    <button type="submit">Reservar</button>
+    <button type="submit">Comprar</button>
   </form>
   <p class="confirmacao" role="status"></p>
 `;
 
 type Campo = "nome" | "email" | "ida" | "volta";
 
-class FormularioDeReserva extends HTMLElement {
+class FormularioDeCompra extends HTMLElement {
   private readonly tocados = new Set<Campo>();
   private formulario!: HTMLFormElement;
   private campos!: Record<Campo, HTMLInputElement>;
   private tipo!: HTMLSelectElement;
-  private botaoDeReservar!: HTMLButtonElement;
+  private botaoDeComprar!: HTMLButtonElement;
   private confirmacao!: HTMLParagraphElement;
 
   connectedCallback() {
     this.innerHTML = modelo;
     this.formulario = this.querySelector("form")!;
     this.tipo = this.querySelector("select")!;
-    this.botaoDeReservar = this.querySelector("button")!;
+    this.botaoDeComprar = this.querySelector("button")!;
     this.confirmacao = this.querySelector(".confirmacao")!;
     this.campos = {
       nome: this.campo("nome"),
@@ -106,7 +106,7 @@ class FormularioDeReserva extends HTMLElement {
     this.confirmacao.textContent = mensagemDeConfirmacao({
       nome: this.campos.nome.value,
       email: this.campos.email.value,
-      tipo: this.tipo.value as TipoDeVoo,
+      tipo: this.tipo.value as TipoDeViagem,
       ida: this.campos.ida.value,
       volta: this.campos.volta.value,
     });
@@ -134,7 +134,7 @@ class FormularioDeReserva extends HTMLElement {
           : null),
     );
 
-    this.botaoDeReservar.disabled = [
+    this.botaoDeComprar.disabled = [
       erroNome,
       erroEmail,
       erroIda,
@@ -153,4 +153,4 @@ class FormularioDeReserva extends HTMLElement {
   }
 }
 
-customElements.define("formulario-de-reserva", FormularioDeReserva);
+customElements.define("formulario-de-compra", FormularioDeCompra);

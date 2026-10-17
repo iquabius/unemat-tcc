@@ -14,10 +14,13 @@ import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.performSemanticsAction
 import androidx.compose.ui.test.requestFocus
 import androidx.compose.ui.text.AnnotatedString
-import tcc.formulario.TipoDeVoo
+import tcc.formulario.TipoDeViagem
 
 private val ROTULOS =
-    mapOf(TipoDeVoo.IDA to "Só ida", TipoDeVoo.IDA_E_VOLTA to "Ida e volta")
+    mapOf(
+        TipoDeViagem.IDA to "Só ida",
+        TipoDeViagem.IDA_E_VOLTA to "Ida e volta",
+    )
 
 private val MENSAGENS_DE_ERRO =
     setOf(
@@ -31,7 +34,7 @@ private val MENSAGENS_DE_ERRO =
 // teste-de-conformidade.js. A Tela do Views tem os mesmos nomes. Os campos são
 // achados pela ordem (nome, e-mail, ida, volta), sem marcas só para teste.
 class Tela(private val regra: AndroidComposeTestRule<*, *>) {
-    private var tipo = TipoDeVoo.IDA
+    private var tipo = TipoDeViagem.IDA
 
     // Todo campo tem texto editável, mesmo desabilitado (quando perde a ação
     // de editar).
@@ -70,7 +73,7 @@ class Tela(private val regra: AndroidComposeTestRule<*, *>) {
     }
 
     // Abre a seleção pelo rótulo atual e escolhe a opção no menu.
-    fun escolherTipo(novo: TipoDeVoo) {
+    fun escolherTipo(novo: TipoDeViagem) {
         if (novo == tipo) return
         regra.onNodeWithText(ROTULOS.getValue(tipo)).performClick()
         regra
@@ -82,14 +85,14 @@ class Tela(private val regra: AndroidComposeTestRule<*, *>) {
         tipo = novo
     }
 
-    fun reservar() {
-        regra.onNodeWithText("Reservar").performClick()
+    fun comprar() {
+        regra.onNodeWithText("Comprar").performClick()
         regra.waitForIdle()
     }
 
     fun botaoHabilitado() =
         SemanticsProperties.Disabled !in
-            regra.onNodeWithText("Reservar").fetchSemanticsNode().config
+            regra.onNodeWithText("Comprar").fetchSemanticsNode().config
 
     fun habilitado(campo: Campo) =
         SemanticsProperties.Disabled !in config(campo)
@@ -114,7 +117,10 @@ class Tela(private val regra: AndroidComposeTestRule<*, *>) {
         regra
             .onAllNodes(
                 SemanticsMatcher("confirmação") {
-                    textoDe(it.config).startsWith("Voo ")
+                    textoDe(it.config).let {
+                        it.startsWith("Passagem ") ||
+                            it.startsWith("Passagens ")
+                    }
                 }
             )
             .fetchSemanticsNodes()

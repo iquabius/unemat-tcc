@@ -11,7 +11,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import tcc.desktop.JavaFX;
-import tcc.formulario.TipoDeVoo;
+import tcc.formulario.TipoDeViagem;
 
 // Ações e leituras usadas pelas cenas e pelo teste, como as funções do
 // teste-de-conformidade.js. A Tela do Swing tem os mesmos
@@ -22,7 +22,7 @@ class Tela {
   private final Parent formulario;
 
   Tela() {
-    formulario = mostrar(FormularioDeReserva::new);
+    formulario = mostrar(FormularioDeCompra::new);
   }
 
   private Node rotulado(String rotulo) {
@@ -51,7 +51,7 @@ class Tela {
     return formulario
       .lookupAll(".button")
       .stream()
-      .filter(n -> n instanceof Button b && "Reservar".equals(b.getText()))
+      .filter(n -> n instanceof Button b && "Comprar".equals(b.getText()))
       .map(n -> (Button) n)
       .findFirst()
       .orElseThrow();
@@ -62,14 +62,14 @@ class Tela {
     naTela(() -> campo(campo).setText(texto));
   }
 
-  // Como o blur da web: o foco entra no campo e passa para o tipo de voo,
+  // Como o blur da web: o foco entra no campo e passa para o tipo de viagem,
   // que não é campo de texto, para que só este campo fique tocado. (A Tela
   // do Android passa o foco a outro campo, que também fica tocado se o
   // tinha antes.)
   void sair(Campo campo) {
     naTela(() -> {
       campo(campo).requestFocus();
-      rotulado("Tipo de voo").requestFocus();
+      rotulado("Tipo de viagem").requestFocus();
     });
   }
 
@@ -89,15 +89,15 @@ class Tela {
   }
 
   @SuppressWarnings("unchecked")
-  void escolherTipo(TipoDeVoo tipo) {
+  void escolherTipo(TipoDeViagem tipo) {
     naTela(() ->
-      ((ComboBox<String>) rotulado("Tipo de voo"))
+      ((ComboBox<String>) rotulado("Tipo de viagem"))
         .getSelectionModel()
         .select(tipo.ordinal())
     );
   }
 
-  void reservar() {
+  void comprar() {
     naTela(() -> botao().fire());
   }
 

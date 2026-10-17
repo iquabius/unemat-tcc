@@ -12,7 +12,7 @@ public class Main extends Application {
   public void start(Stage janela) {
     // O tamanho da tela das capturas do Android: a coluna de 384 da web
     // mais as margens de 16.
-    Scene cena = new Scene(new FormularioDeReserva(), 416, 560);
+    Scene cena = new Scene(new FormularioDeCompra(), 416, 560);
     cena
       .getStylesheets()
       .add(Main.class.getResource("/estilo.css").toExternalForm());

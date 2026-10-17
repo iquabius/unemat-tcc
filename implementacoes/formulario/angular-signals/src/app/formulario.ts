@@ -6,7 +6,7 @@ import {
   erroDoNome,
   hoje,
   mensagemDeConfirmacao,
-  type TipoDeVoo,
+  type TipoDeViagem,
 } from "../../../dominio";
 
 type Campo = "nome" | "email" | "ida" | "volta";
@@ -14,7 +14,7 @@ type Campo = "nome" | "email" | "ida" | "volta";
 @Component({
   selector: "app-formulario",
   template: `
-    <form class="formulario" novalidate (submit)="reservar($event)">
+    <form class="formulario" novalidate (submit)="comprar($event)">
       <label>
         Nome do passageiro
         <input
@@ -47,7 +47,7 @@ type Campo = "nome" | "email" | "ida" | "volta";
       }
 
       <label>
-        Tipo de voo
+        Tipo de viagem
         <select
           name="tipo"
           [value]="tipo()"
@@ -89,15 +89,15 @@ type Campo = "nome" | "email" | "ida" | "volta";
         <p class="erro">{{ erro }}</p>
       }
 
-      <button type="submit" [disabled]="temErro()">Reservar</button>
+      <button type="submit" [disabled]="temErro()">Comprar</button>
     </form>
     <p class="confirmacao" role="status">{{ confirmacao() }}</p>
   `,
 })
-export class FormularioDeReserva {
+export class FormularioDeCompra {
   protected readonly nome = signal("");
   protected readonly email = signal("");
-  protected readonly tipo = signal<TipoDeVoo>("ida");
+  protected readonly tipo = signal<TipoDeViagem>("ida");
   protected readonly ida = signal(hoje());
   protected readonly volta = signal(hoje());
   private readonly tocados = signal<ReadonlySet<Campo>>(new Set());
@@ -143,7 +143,7 @@ export class FormularioDeReserva {
       (this.tocado("ida") || this.tocado("volta") ? this.erroOrdem() : null),
   };
 
-  protected reservar(evento: SubmitEvent) {
+  protected comprar(evento: SubmitEvent) {
     evento.preventDefault();
     this.confirmacao.set(
       mensagemDeConfirmacao({

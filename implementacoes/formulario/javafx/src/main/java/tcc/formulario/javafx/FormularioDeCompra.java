@@ -21,15 +21,15 @@ import javafx.scene.control.Control;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
-import tcc.formulario.Reserva;
-import tcc.formulario.TipoDeVoo;
+import tcc.formulario.Compra;
+import tcc.formulario.TipoDeViagem;
 
-// O formulário de reserva em JavaFX, montado em código como o do Swing. O
+// O formulário de compra em JavaFX, montado em código como o do Swing. O
 // estado são as propriedades dos próprios controles (textProperty), e cada erro
 // é um binding que lista as propriedades de que depende: se atualiza sozinho
 // quando uma delas se altera, como o createMemo do Solid, mas com as
 // dependências escritas à mão.
-public class FormularioDeReserva extends VBox {
+public class FormularioDeCompra extends VBox {
 
   // Como o aria-invalid: o estilo pinta de vermelho o campo com :invalido.
   private static final PseudoClass INVALIDO = PseudoClass.getPseudoClass(
@@ -38,13 +38,13 @@ public class FormularioDeReserva extends VBox {
 
   private final TextField nome = new TextField();
   private final TextField email = new TextField();
-  // Como o <select>: a posição da opção é a do TipoDeVoo.
+  // Como o <select>: a posição da opção é a do TipoDeViagem.
   private final ComboBox<String> tipo = new ComboBox<>(
     FXCollections.observableArrayList("Só ida", "Ida e volta")
   );
   private final TextField ida = new TextField(hoje());
   private final TextField volta = new TextField(hoje());
-  private final Button reservar = new Button("Reservar");
+  private final Button comprar = new Button("Comprar");
   private final Label confirmacao = new Label();
 
   // O parágrafo de erro de cada campo, como o <p class="erro">.
@@ -64,18 +64,18 @@ public class FormularioDeReserva extends VBox {
   private final ObservableSet<TextField> tocados =
     FXCollections.observableSet();
 
-  public FormularioDeReserva() {
+  public FormularioDeCompra() {
     getChildren().addAll(
       rotulo("Nome do passageiro", nome),
       erros.get(nome),
       rotulo("E-mail", email),
       erros.get(email),
-      rotulo("Tipo de voo", tipo),
+      rotulo("Tipo de viagem", tipo),
       rotulo("Data de ida", ida),
       erros.get(ida),
       rotulo("Data de volta", volta),
       erros.get(volta),
-      reservar,
+      comprar,
       confirmacao
     );
     getStyleClass().add("formulario");
@@ -91,7 +91,7 @@ public class FormularioDeReserva extends VBox {
     BooleanBinding idaEVolta = tipo
       .getSelectionModel()
       .selectedIndexProperty()
-      .isEqualTo(TipoDeVoo.IDA_E_VOLTA.ordinal());
+      .isEqualTo(TipoDeViagem.IDA_E_VOLTA.ordinal());
     StringBinding erroNome = Bindings.createStringBinding(
       () -> erroDoNome(nome.getText()),
       nome.textProperty()
@@ -168,7 +168,7 @@ public class FormularioDeReserva extends VBox {
     );
 
     volta.disableProperty().bind(idaEVolta.not());
-    reservar.disableProperty().bind(temErro);
+    comprar.disableProperty().bind(temErro);
 
     // Como o onBlur: o foco é uma propriedade, e o listener marca o campo.
     for (TextField campo : List.of(nome, email, ida, volta)) {
@@ -181,10 +181,10 @@ public class FormularioDeReserva extends VBox {
 
     // Como o onSubmit: a confirmação se atualiza só no clique, não
     // acompanha os campos.
-    reservar.setOnAction(e ->
+    comprar.setOnAction(e ->
       confirmacao.setText(
         mensagemDeConfirmacao(
-          new Reserva(
+          new Compra(
             nome.getText(),
             email.getText(),
             tipo(),
@@ -211,8 +211,8 @@ public class FormularioDeReserva extends VBox {
     return erro;
   }
 
-  private TipoDeVoo tipo() {
-    return TipoDeVoo.values()[tipo.getSelectionModel().getSelectedIndex()];
+  private TipoDeViagem tipo() {
+    return TipoDeViagem.values()[tipo.getSelectionModel().getSelectedIndex()];
   }
 
   private void mostrarErro(TextField campo, StringBinding erro) {

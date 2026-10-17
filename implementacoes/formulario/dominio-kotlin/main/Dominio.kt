@@ -11,17 +11,17 @@ import java.time.LocalDate
 // Difere da web em anos de 0 a 99 e espaços fora do ASCII: ver
 // DominioTest.igualAoDaWeb.
 
-// Como o type TipoDeVoo = "ida" | "ida-e-volta".
-enum class TipoDeVoo {
+// Como o type TipoDeViagem = "ida" | "ida-e-volta".
+enum class TipoDeViagem {
     IDA,
     IDA_E_VOLTA,
 }
 
-// Como a interface Reserva.
-data class Reserva(
+// Como a interface Compra.
+data class Compra(
     val nome: String,
     val email: String,
-    val tipo: TipoDeVoo,
+    val tipo: TipoDeViagem,
     val ida: String,
     val volta: String,
 )
@@ -73,13 +73,13 @@ fun erroDaOrdem(ida: String, volta: String): String? {
     else null
 }
 
-fun mensagemDeConfirmacao(reserva: Reserva): String {
-    val (nome, email, tipo, ida, volta) = reserva
+fun mensagemDeConfirmacao(compra: Compra): String {
+    val (nome, email, tipo, ida, volta) = compra
     val trecho =
-        if (tipo == TipoDeVoo.IDA) {
-            "Voo só de ida reservado para ${nome.trim()} em $ida."
+        if (tipo == TipoDeViagem.IDA) {
+            "Passagem só de ida comprada para ${nome.trim()} em $ida."
         } else {
-            "Voo de ida e volta reservado para ${nome.trim()}: ida em $ida e volta em $volta."
+            "Passagens de ida e volta compradas para ${nome.trim()}: ida em $ida e volta em $volta."
         }
     return "$trecho A confirmação vai para ${email.trim()}."
 }

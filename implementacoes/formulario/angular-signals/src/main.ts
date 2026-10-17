@@ -1,7 +1,7 @@
 import { provideBrowserGlobalErrorListeners } from "@angular/core";
 import { bootstrapApplication } from "@angular/platform-browser";
-import { FormularioDeReserva } from "./app/formulario";
+import { FormularioDeCompra } from "./app/formulario";
 
-bootstrapApplication(FormularioDeReserva, {
+bootstrapApplication(FormularioDeCompra, {
   providers: [provideBrowserGlobalErrorListeners()],
 }).catch((err) => console.error(err));

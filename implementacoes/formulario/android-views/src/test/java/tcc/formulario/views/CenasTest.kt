@@ -9,7 +9,7 @@ import org.robolectric.annotation.Config
 import tcc.captura.SemAnimacoes
 import tcc.captura.capturar
 import tcc.formulario.DataFixa
-import tcc.formulario.TipoDeVoo
+import tcc.formulario.TipoDeViagem
 
 // Mesmas cenas de implementacoes/formulario/cenas.mts. A tela tem 416dp de
 // largura para a coluna ficar com os 384dp do max-width da web.
@@ -33,20 +33,20 @@ class CenasTest {
     fun erros() {
         tela.focar(Campo.NOME)
         tela.preencher(Campo.EMAIL, "maria@")
-        tela.escolherTipo(TipoDeVoo.IDA_E_VOLTA)
+        tela.escolherTipo(TipoDeViagem.IDA_E_VOLTA)
         tela.preencher(Campo.VOLTA, "01/09/2026")
         tela.focar(Campo.NOME)
         capturar("erros")
     }
 
     @Test
-    fun reservado() {
+    fun comprado() {
         tela.preencher(Campo.NOME, "Maria")
         tela.preencher(Campo.EMAIL, "maria@exemplo.com")
-        tela.escolherTipo(TipoDeVoo.IDA_E_VOLTA)
+        tela.escolherTipo(TipoDeViagem.IDA_E_VOLTA)
         tela.preencher(Campo.IDA, "10/10/2026")
         tela.preencher(Campo.VOLTA, "15/10/2026")
-        tela.reservar()
-        capturar("reservado")
+        tela.comprar()
+        capturar("comprado")
     }
 }

@@ -45,13 +45,13 @@
                 <TextView
                     style="@style/Texto"
                     android:labelFor="@id/tipo"
-                    android:text="Tipo de voo" />
+                    android:text="Tipo de viagem" />
 
                 <!-- Como o <select>; as opções ficam em res/values/opcoes.xml. -->
                 <Spinner
                     android:id="@+id/tipo"
                     style="@style/Selecao"
-                    android:entries="@array/tipos_de_voo" />
+                    android:entries="@array/tipos_de_viagem" />
             </LinearLayout>
 
             <LinearLayout style="@style/Rotulo">
@@ -90,9 +90,9 @@
                 style="@style/Erro" />
 
             <Button
-                android:id="@+id/reservar"
+                android:id="@+id/comprar"
                 style="@style/Botao"
-                android:text="Reservar" />
+                android:text="Comprar" />
         </LinearLayout>
 
         <!-- Como o role="status": o leitor de tela anuncia a atualização. -->

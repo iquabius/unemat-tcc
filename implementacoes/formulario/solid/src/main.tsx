@@ -7,16 +7,16 @@ import {
   erroDoNome,
   hoje,
   mensagemDeConfirmacao,
-  type TipoDeVoo,
+  type TipoDeViagem,
 } from "../../dominio";
 import "../../estilo.css";
 
 type Campo = "nome" | "email" | "ida" | "volta";
 
-function FormularioDeReserva() {
+function FormularioDeCompra() {
   const [nome, setNome] = createSignal("");
   const [email, setEmail] = createSignal("");
-  const [tipo, setTipo] = createSignal<TipoDeVoo>("ida");
+  const [tipo, setTipo] = createSignal<TipoDeViagem>("ida");
   const [ida, setIda] = createSignal(hoje());
   const [volta, setVolta] = createSignal(hoje());
   const [tocados, setTocados] = createSignal<ReadonlySet<Campo>>(new Set());
@@ -53,7 +53,7 @@ function FormularioDeReserva() {
       (tocado("ida") || tocado("volta") ? erroOrdem() : null),
   };
 
-  function reservar(evento: SubmitEvent) {
+  function comprar(evento: SubmitEvent) {
     evento.preventDefault();
     setConfirmacao(
       mensagemDeConfirmacao({
@@ -68,7 +68,7 @@ function FormularioDeReserva() {
 
   return (
     <>
-      <form class="formulario" novalidate onSubmit={reservar}>
+      <form class="formulario" novalidate onSubmit={comprar}>
         <label>
           Nome do passageiro
           <input
@@ -101,11 +101,11 @@ function FormularioDeReserva() {
         </Show>
 
         <label>
-          Tipo de voo
+          Tipo de viagem
           <select
             name="tipo"
             value={tipo()}
-            onChange={(e) => setTipo(e.currentTarget.value as TipoDeVoo)}
+            onChange={(e) => setTipo(e.currentTarget.value as TipoDeViagem)}
           >
             <option value="ida">Só ida</option>
             <option value="ida-e-volta">Ida e volta</option>
@@ -144,7 +144,7 @@ function FormularioDeReserva() {
         </Show>
 
         <button type="submit" disabled={temErro()}>
-          Reservar
+          Comprar
         </button>
       </form>
       <p class="confirmacao" role="status">
@@ -154,4 +154,4 @@ function FormularioDeReserva() {
   );
 }
 
-render(() => <FormularioDeReserva />, document.getElementById("raiz")!);
+render(() => <FormularioDeCompra />, document.getElementById("raiz")!);

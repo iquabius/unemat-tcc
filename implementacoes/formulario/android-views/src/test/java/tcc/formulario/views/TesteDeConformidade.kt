@@ -8,7 +8,7 @@ import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.annotation.Config
 import tcc.formulario.DataFixa
-import tcc.formulario.TipoDeVoo
+import tcc.formulario.TipoDeViagem
 
 // As 19 verificações de implementacoes/formulario/teste-de-conformidade.js, na
 // mesma ordem e com os mesmos nomes. Falha listando todas as que não passaram.
@@ -87,7 +87,7 @@ class TesteDeConformidade {
             listOf(emptyList<String>(), true),
         )
 
-        tela.escolherTipo(TipoDeVoo.IDA_E_VOLTA)
+        tela.escolherTipo(TipoDeViagem.IDA_E_VOLTA)
         conferir("7 volta habilitada", tela.habilitado(Campo.VOLTA), true)
         conferir(
             "7 volta antes da ida",
@@ -108,16 +108,16 @@ class TesteDeConformidade {
             listOf(emptyList<String>(), true),
         )
 
-        tela.reservar()
+        tela.comprar()
         conferir(
             "9 confirmação de ida e volta",
             tela.confirmacao(),
-            "Voo de ida e volta reservado para Maria: ida em 10/10/2099 e volta em 15/10/2099. " +
+            "Passagens de ida e volta compradas para Maria: ida em 10/10/2099 e volta em 15/10/2099. " +
                 "A confirmação vai para maria@exemplo.com.",
         )
 
         tela.digitar(Campo.VOLTA, "xx")
-        tela.escolherTipo(TipoDeVoo.IDA)
+        tela.escolherTipo(TipoDeViagem.IDA)
         conferir(
             "10 volta desabilitada não conta",
             listOf(
@@ -127,11 +127,11 @@ class TesteDeConformidade {
             ),
             listOf(false, emptyList<String>(), true),
         )
-        tela.reservar()
+        tela.comprar()
         conferir(
             "10 confirmação só de ida",
             tela.confirmacao(),
-            "Voo só de ida reservado para Maria em 10/10/2099. A confirmação vai para maria@exemplo.com.",
+            "Passagem só de ida comprada para Maria em 10/10/2099. A confirmação vai para maria@exemplo.com.",
         )
 
         assertTrue(falhas.joinToString("\n"), falhas.isEmpty())

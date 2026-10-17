@@ -1,6 +1,6 @@
 #+TITLE: Formulário com validação
 
-Reserva de voo baseada na tarefa /Flight Booker/ do [[https://eugenkiss.github.io/7guis/tasks/][7GUIs]] (=kiss2014=),
+Compra de passagem de ônibus baseada na tarefa /Flight Booker/ do [[https://eugenkiss.github.io/7guis/tasks/][7GUIs]] (=kiss2014=),
 ampliada com os campos de um formulário real. Todas as implementações seguem a
 mesma especificação; as regras de domínio (formato de data, e-mail, mensagens)
 ficam em =dominio.ts=, compartilhado pelos projetos web, para que as

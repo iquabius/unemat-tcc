@@ -10,8 +10,8 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.core.widget.doAfterTextChanged
-import tcc.formulario.Reserva
-import tcc.formulario.TipoDeVoo
+import tcc.formulario.Compra
+import tcc.formulario.TipoDeViagem
 import tcc.formulario.erroDaData
 import tcc.formulario.erroDaOrdem
 import tcc.formulario.erroDoEmail
@@ -54,7 +54,7 @@ class MainActivity : AppCompatActivity() {
                     id: Long,
                 ) {
                     campo(R.id.volta).isEnabled =
-                        tipo() == TipoDeVoo.IDA_E_VOLTA
+                        tipo() == TipoDeViagem.IDA_E_VOLTA
                     validar()
                 }
 
@@ -62,10 +62,10 @@ class MainActivity : AppCompatActivity() {
             }
 
         // Como .on("submit"): o botão só fica habilitado sem erros.
-        findViewById<Button>(R.id.reservar).setOnClickListener {
+        findViewById<Button>(R.id.comprar).setOnClickListener {
             findViewById<TextView>(R.id.confirmacao).text =
                 mensagemDeConfirmacao(
-                    Reserva(
+                    Compra(
                         texto(R.id.nome),
                         texto(R.id.email),
                         tipo(),
@@ -85,7 +85,8 @@ class MainActivity : AppCompatActivity() {
     private fun texto(id: Int) = campo(id).text.toString()
 
     private fun tipo() =
-        TipoDeVoo.entries[findViewById<Spinner>(R.id.tipo).selectedItemPosition]
+        TipoDeViagem.entries[
+                findViewById<Spinner>(R.id.tipo).selectedItemPosition]
 
     private fun mostrarErro(id: Int, idDoErro: Int, erro: String?) {
         // Como o aria-invalid: o estilo pinta de vermelho o campo ativado.
@@ -98,7 +99,7 @@ class MainActivity : AppCompatActivity() {
     // Revalida o formulário inteiro a cada evento: mostra os erros dos campos
     // já tocados e habilita o botão só se não houver erro nenhum.
     private fun validar() {
-        val idaEVolta = tipo() == TipoDeVoo.IDA_E_VOLTA
+        val idaEVolta = tipo() == TipoDeViagem.IDA_E_VOLTA
         val erroNome = erroDoNome(texto(R.id.nome))
         val erroEmail = erroDoEmail(texto(R.id.email))
         val erroIda = erroDaData(texto(R.id.ida))
@@ -134,6 +135,6 @@ class MainActivity : AppCompatActivity() {
             listOf(erroNome, erroEmail, erroIda, erroVolta, erroOrdem).any {
                 it != null
             }
-        findViewById<Button>(R.id.reservar).isEnabled = !temErro
+        findViewById<Button>(R.id.comprar).isEnabled = !temErro
     }
 }

@@ -14,21 +14,21 @@ import javax.swing.JLabel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import tcc.desktop.Swing;
-import tcc.formulario.TipoDeVoo;
+import tcc.formulario.TipoDeViagem;
 
 // Ações e leituras usadas pelas cenas e pelo teste, como as funções do
 // teste-de-conformidade.js. A Tela do JavaFX tem os mesmos nomes. Acha os
 // campos pelo rótulo (setLabelFor), os erros e a confirmação pela classe.
 class Tela {
 
-  private final FormularioDeReserva formulario;
+  private final FormularioDeCompra formulario;
   // Sem janela, o Swing não tem foco: o campo focado fica anotado aqui.
   private Campo focado;
 
   // Como o Main: a tela com o Estilo, que as cenas capturam.
   Tela() {
     formulario = naTela(() -> {
-      FormularioDeReserva tela = new FormularioDeReserva();
+      FormularioDeCompra tela = new FormularioDeCompra();
       Estilo.aplicar(tela);
       return tela;
     });
@@ -64,7 +64,7 @@ class Tela {
   private JButton botao() {
     return componentes(formulario)
       .stream()
-      .filter(c -> c instanceof JButton b && "Reservar".equals(b.getText()))
+      .filter(c -> c instanceof JButton b && "Comprar".equals(b.getText()))
       .map(c -> (JButton) c)
       .findFirst()
       .orElseThrow();
@@ -108,15 +108,15 @@ class Tela {
   }
 
   @SuppressWarnings("unchecked")
-  void escolherTipo(TipoDeVoo tipo) {
+  void escolherTipo(TipoDeViagem tipo) {
     naTela(() ->
-      ((JComboBox<String>) rotulado("Tipo de voo")).setSelectedIndex(
+      ((JComboBox<String>) rotulado("Tipo de viagem")).setSelectedIndex(
         tipo.ordinal()
       )
     );
   }
 
-  void reservar() {
+  void comprar() {
     naTela(() -> botao().doClick());
   }
 

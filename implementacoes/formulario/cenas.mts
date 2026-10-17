@@ -16,12 +16,12 @@ export const cenas: Cenas = {
     await campo(pagina, "nome").focus();
   },
 
-  reservado: async (pagina) => {
+  comprado: async (pagina) => {
     await campo(pagina, "nome").fill("Maria");
     await campo(pagina, "email").fill("maria@exemplo.com");
     await campo(pagina, "tipo").selectOption("ida-e-volta");
     await campo(pagina, "ida").fill("10/10/2026");
     await campo(pagina, "volta").fill("15/10/2026");
-    await pagina.getByRole("button", { name: "Reservar" }).click();
+    await pagina.getByRole("button", { name: "Comprar" }).click();
   },
 };

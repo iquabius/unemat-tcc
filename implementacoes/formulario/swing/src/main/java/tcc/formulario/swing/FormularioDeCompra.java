@@ -25,23 +25,23 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
-import tcc.formulario.Reserva;
-import tcc.formulario.TipoDeVoo;
+import tcc.formulario.Compra;
+import tcc.formulario.TipoDeViagem;
 
-// O formulário de reserva em Swing, como o elemento do Web Component: os
+// O formulário de compra em Swing, como o elemento do Web Component: os
 // componentes e o estado ficam nesta classe, e cada listener revalida tudo.
-public class FormularioDeReserva extends JPanel {
+public class FormularioDeCompra extends JPanel {
 
   private final JTextField nome = new JTextField();
   private final JTextField email = new JTextField();
-  // Como o <select>: a posição da opção é a do TipoDeVoo.
+  // Como o <select>: a posição da opção é a do TipoDeViagem.
   private final JComboBox<String> tipo = new JComboBox<>(new String[] {
     "Só ida",
     "Ida e volta",
   });
   private final JTextField ida = new JTextField(hoje());
   private final JTextField volta = new JTextField(hoje());
-  private final JButton reservar = new JButton("Reservar");
+  private final JButton comprar = new JButton("Comprar");
   // Como o <p class="confirmacao">: um texto de várias linhas, que o JLabel
   // não quebra.
   private final JTextArea confirmacao = new JTextArea();
@@ -63,18 +63,18 @@ public class FormularioDeReserva extends JPanel {
   // Component.
   private final Set<JTextField> tocados = new HashSet<>();
 
-  public FormularioDeReserva() {
+  public FormularioDeCompra() {
     setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
     add(rotulo("Nome do passageiro", nome));
     add(erros.get(nome));
     add(rotulo("E-mail", email));
     add(erros.get(email));
-    add(rotulo("Tipo de voo", tipo));
+    add(rotulo("Tipo de viagem", tipo));
     add(rotulo("Data de ida", ida));
     add(erros.get(ida));
     add(rotulo("Data de volta", volta));
     add(erros.get(volta));
-    add(reservar);
+    add(comprar);
     add(confirmacao);
     confirmacao.putClientProperty("classe", "confirmacao");
     // Só de leitura e fora da ordem do Tab, como o parágrafo.
@@ -120,15 +120,15 @@ public class FormularioDeReserva extends JPanel {
 
     // Como o addEventListener("change") do <select>.
     tipo.addActionListener(e -> {
-      volta.setEnabled(tipo() == TipoDeVoo.IDA_E_VOLTA);
+      volta.setEnabled(tipo() == TipoDeViagem.IDA_E_VOLTA);
       validar();
     });
 
     // Como o addEventListener("submit"): o botão só fica habilitado sem erros.
-    reservar.addActionListener(e ->
+    comprar.addActionListener(e ->
       confirmacao.setText(
         mensagemDeConfirmacao(
-          new Reserva(
+          new Compra(
             nome.getText(),
             email.getText(),
             tipo(),
@@ -161,8 +161,8 @@ public class FormularioDeReserva extends JPanel {
     return erro;
   }
 
-  private TipoDeVoo tipo() {
-    return TipoDeVoo.values()[tipo.getSelectedIndex()];
+  private TipoDeViagem tipo() {
+    return TipoDeViagem.values()[tipo.getSelectedIndex()];
   }
 
   private void mostrarErro(JTextField campo, String erro) {
@@ -175,7 +175,7 @@ public class FormularioDeReserva extends JPanel {
   // Revalida o formulário inteiro a cada evento: mostra os erros dos campos
   // já tocados e habilita o botão só se não houver erro nenhum.
   private void validar() {
-    boolean idaEVolta = tipo() == TipoDeVoo.IDA_E_VOLTA;
+    boolean idaEVolta = tipo() == TipoDeViagem.IDA_E_VOLTA;
     String erroNome = erroDoNome(nome.getText());
     String erroEmail = erroDoEmail(email.getText());
     String erroIda = erroDaData(ida.getText());
@@ -204,6 +204,6 @@ public class FormularioDeReserva extends JPanel {
       erroVolta,
       erroOrdem
     ).anyMatch(Objects::nonNull);
-    reservar.setEnabled(!temErro);
+    comprar.setEnabled(!temErro);
   }
 }
