@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <!-- Aparência dos Dados ao vivo, no papel do estilo.css da web: o layout só
      cita os estilos pelo nome (style="@style/..."), como o class do HTML. O
-     tr.alerta fica no fundo de res/drawable/fundo_da_linha.xml, pela linha
-     ativada, e no negrito da Celula (Celula.kt). -->
+     fundo do tr.alerta fica em res/drawable/fundo_da_linha.xml, pela linha
+     ativada; o negrito, que o Android não troca pelo estado, a MainActivity
+     põe nas células. -->
 <resources>
     <color name="fundo">#2b2b2b</color>
     <color name="alerta">#6b4b00</color>

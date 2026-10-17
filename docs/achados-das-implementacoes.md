@@ -231,8 +231,18 @@ requisitos da segunda rodada".
   web responde o minuto -1 do FLA × PAL, e o Kotlin, 99. Teste
   `igualAoDaWeb` em `implementacoes/dados-ao-vivo/dominio-kotlin/test/DominioTest.kt`,
   com `@Ignore`.
-- **O negrito da linha destacada pede código no Views** (aparência): os
-  seletores de `res/color/` e `res/drawable/` trocam a cor e o fundo pelo
-  estado da view, mas não o peso da fonte, e o `tr.alerta` virou a
-  `Celula`, uma `TextView` que troca o peso quando fica ativada. No
-  Compose, o negrito é um parâmetro da `Linha`.
+- **O negrito da linha destacada pede código na tela do Views**
+  (aparência, concisão): os seletores de `res/color/` e `res/drawable/`
+  trocam a cor e o fundo pelo estado da view, mas não o peso da fonte, e
+  nenhum caminho só em XML o faz da API 26 à 37. O `receber()` da
+  `MainActivity` ativa a linha, para o fundo, e põe o negrito em cada
+  célula com `setTypeface`; no Web Component, o `classList.toggle` leva o
+  fundo e o negrito pelo CSS, e no Compose o negrito é um parâmetro da
+  `Linha`. É a forma mais comum em programas reais: numa busca no código
+  do GitHub em 2026-10-17, `isSelected`, `Typeface.BOLD` e
+  `onBindViewHolder` aparecem juntos em 331 arquivos Kotlin, a maioria
+  adaptadores de lista (Thunderbird, Signal, Wikipedia); a subclasse de `TextView` que troca a fonte pelo
+  estado, a primeira versão do ramo, quase não aparece; e o
+  `setTextAppearance` entre dois estilos, que o `TabLayout` do Material
+  usa por dentro, é raro. Decisão do autor em 2026-10-17, pela forma mais
+  comum, contra a subclasse, que deixaria a tela igual à da web.

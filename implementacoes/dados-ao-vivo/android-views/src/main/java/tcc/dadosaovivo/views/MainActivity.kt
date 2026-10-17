@@ -1,12 +1,15 @@
 package tcc.dadosaovivo.views
 
+import android.graphics.Typeface
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TableLayout
+import android.widget.TableRow
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.children
 import java.io.Closeable
 import tcc.dadosaovivo.JOGOS
 import tcc.dadosaovivo.Lote
@@ -22,7 +25,7 @@ class MainActivity : AppCompatActivity() {
     // código, como o this.painel do Web Component e o Map dele, que guarda as
     // células; aqui, as células se acham na linha pelo id.
     private var painel: View? = null
-    private val linhas = mutableMapOf<String, View>()
+    private val linhas = mutableMapOf<String, TableRow>()
 
     // Estado da coordenação, na Activity: a inscrição aberta (nenhuma em
     // pausa, com o painel escondido ou com a tela fora de vista), a pausa e o
@@ -79,7 +82,9 @@ class MainActivity : AppCompatActivity() {
         val tabela = novo.findViewById<TableLayout>(R.id.tabela)
         linhas.clear()
         for (jogo in JOGOS) {
-            val linha = layoutInflater.inflate(R.layout.linha, tabela, false)
+            val linha =
+                layoutInflater.inflate(R.layout.linha, tabela, false)
+                    as TableRow
             linha.findViewById<TextView>(R.id.codigo).text = jogo.codigo
             linha.findViewById<TextView>(R.id.placar).text =
                 formatarPlacar(null)
@@ -132,9 +137,15 @@ class MainActivity : AppCompatActivity() {
                 formatarTempo(placar)
             linha.findViewById<TextView>(R.id.gols_novos).text =
                 golsNovos(ultimo?.get(jogo.codigo), placar)
-            // Como o classList.toggle("alerta"): o estilo pinta a linha
-            // ativada.
-            linha.isActivated = noPalpite(jogo, placar)
+            // Como o classList.toggle("alerta"): o estilo pinta o fundo da
+            // linha ativada. O negrito o estilo não troca pelo estado, e se
+            // põe em cada célula.
+            val alerta = noPalpite(jogo, placar)
+            linha.isActivated = alerta
+            val peso = if (alerta) Typeface.BOLD else Typeface.NORMAL
+            for (celula in linha.children) {
+                (celula as TextView).setTypeface(null, peso)
+            }
         }
         ultimo = lote
         findViewById<TextView>(R.id.situacao).text = ""

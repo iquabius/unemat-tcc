@@ -1,27 +1,26 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <!-- A linha de um jogo, que a MainActivity cria uma vez por jogo, como o
-     createElement("tr") do Web Component. A Celula (Celula.kt) é a TextView
-     que fica em negrito na linha ativada. -->
+     createElement("tr") do Web Component. -->
 <TableRow
     xmlns:android="http://schemas.android.com/apk/res/android"
     style="@style/Linha">
-    <tcc.dadosaovivo.views.Celula
+    <TextView
         android:id="@+id/codigo"
         style="@style/PrimeiraCelula" />
 
-    <tcc.dadosaovivo.views.Celula
+    <TextView
         android:id="@+id/placar"
         style="@style/Celula" />
 
-    <tcc.dadosaovivo.views.Celula
+    <TextView
         android:id="@+id/tempo"
         style="@style/Celula" />
 
-    <tcc.dadosaovivo.views.Celula
+    <TextView
         android:id="@+id/gols_novos"
         style="@style/Celula" />
 
-    <tcc.dadosaovivo.views.Celula
+    <TextView
         android:id="@+id/palpite"
         style="@style/Celula" />
 </TableRow>
