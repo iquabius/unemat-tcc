@@ -152,7 +152,10 @@ Decisões: `docs/adr/`.
 
 A página citada é a impressa, salvo onde a nota diz outra; a relação com
 a página do PDF, quando difere, vem no começo da seção. As cópias das
-fontes ficam em `acervo/` do checkout principal, fora do git.
+fontes ficam em `acervo/` do checkout principal, fora do git (ADR 0038),
+e de onde veio cada uma, com o link e a data do download, em
+`acervo/procedencia.tsv`, a única coisa versionada da pasta; o ADR 0039
+diz quando a cópia sem procedência se cita.
 
 ## Convenções
 

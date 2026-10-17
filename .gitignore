@@ -45,7 +45,8 @@ local.properties
 *.gate.lock*
 
 # Material local, fora do git (ADR 0038): o de trabalho em tmp/, e as
-# cópias das fontes, os PDFs e os textos extraídos, em acervo/
+# cópias das fontes em acervo/, menos a tabela de procedência (ADR 0039)
 /tmp/
 /acervo/*
+!/acervo/procedencia.tsv
 __pycache__/

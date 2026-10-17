@@ -55,6 +55,13 @@ Primeira rodada em 2026-09-24.
   2014; 2016) a partir de bainomugisha2013, salvaneschi2014, salvaneschi2017,
   czaplicki2013, elliott1997, salvaneschi2015, edwards2009, salvaneschi2013,
   zimmerle2022 e Green & Petre (1996); para trás a partir de zimmerle2025.
+- **Cópias.** O texto completo de cada fonte lida fica em `acervo/` (ADR
+  0038), e de onde a cópia veio, com o link e a data do download, numa
+  linha de `acervo/procedencia.tsv` (ADR 0039), escrita no mesmo passo
+  do download. Nas três rodadas, até 2026-10-13, o link ficou numa
+  `annotation` do `refs.bib`, numa nota ou só na conversa; a rodada de
+  procedência da tarefa da Bibliografia que imprime a URL e o acesso o
+  recupera.
 
 | Etapa | Registros |
 |---|---|

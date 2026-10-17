@@ -249,7 +249,11 @@ perguntas, e então o autor dá o rótulo.
    - na conversa, o trecho e a página da publicação, não a do PDF quando
      diferem (`abnt.md` da skill);
    - fonte que só um subagente leu não entra sem conferir; sem PDF, diga
-     ao autor e deixe `p. N` no texto.
+     ao autor e deixe `p. N` no texto;
+   - a cópia lida tem a linha dela em `acervo/procedencia.tsv` (ADR
+     0039): a que o agente baixa entra lá no mesmo passo, com o link de
+     onde veio e a data, e a que não tem linha, ou tem o link vazio, só
+     se cita depois de perguntar ao autor de onde ela veio.
 
    Justificativa que é do agente não se apresenta como da fonte.
 3. **Matriz de fontes.** O trecho conferido entra em
@@ -266,7 +270,8 @@ perguntas, e então o autor dá o rótulo.
    - embaixo, uma linha `- Rótulo:` por campo: `Frase` (a frase do texto,
      ou o trecho dela que faz a afirmação), `Trecho` (curto, na língua
      original, com a página da publicação), `Lido em` (o PDF em
-     `acervo/` e a página do PDF, quando difere), `Observação`, se
+     `acervo/` e a página do PDF, quando difere; de onde a cópia veio
+     fica na tabela de procedência), `Observação`, se
      houver, e `Conferido` (a data).
 
    A frase que sai do texto sai da matriz; a que muda de capítulo ou de

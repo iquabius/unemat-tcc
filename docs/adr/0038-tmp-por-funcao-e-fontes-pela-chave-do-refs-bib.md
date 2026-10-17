@@ -25,7 +25,8 @@ pelo nome em inglês. A obra que entra no `refs.bib` sobe para a raiz com
 o nome da chave no commit do primeiro arquivo da matriz que a cita.
 Assim, o caminho de toda fonte citada sai da chave, sem índice, como o
 da matriz, e o `acervo/<chave>.pdf` da skill `revisao-de-texto` vale
-para todas. A raiz de `tmp/` tem só
+para todas. De onde veio cada cópia fica em `acervo/procedencia.tsv`,
+a única coisa versionada da pasta (ADR 0039). A raiz de `tmp/` tem só
 pastas por função: `revisao/` (mapas invertidos, variantes e checagens
 do texto), `pesquisas/`, `prototipos/`, `devlogs/`, `orientacao/` e
 `copias/` (build e cópias de segurança). Nelas, o nome de cada entrada

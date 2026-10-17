@@ -19,7 +19,7 @@ estão em `CONTEXT.md`; use-os.
 | Mudança em código (`implementacoes/`, `bin/`, scripts), ferramentas ou `AGENTS.md` | numa worktree, em ramo próprio, que chega ao `master` revisado | seção "Código: ramo, revisão, merge" abaixo |
 | Feedback de escrita e revisão bibliográfica | não vai para o repositório | skill `escrita-academica`; o que sobra vira tarefa no `bd` ou nota em `docs/` |
 | Frase nova ou alterada em `texto/*.org` | direto no `.org` do checkout principal; o commit espera a revisão | seção "Texto" abaixo e skill do projeto `revisao-de-texto` (ADR 0023) |
-| Cópia de uma fonte lida: PDF, página salva, texto extraído | `acervo/` do checkout principal, fora do git (ADR 0038) | a obra com chave no `refs.bib` em `acervo/<chave>.pdf`; a sem chave, na pasta do tipo; mover uma cópia citada troca o caminho no mesmo commit |
+| Cópia de uma fonte lida: PDF, página salva, texto extraído | `acervo/` do checkout principal, fora do git (ADR 0038) | a obra com chave no `refs.bib` em `acervo/<chave>.pdf`; a sem chave, na pasta do tipo; de onde cada cópia veio, em `acervo/procedencia.tsv` (ADR 0039; a regra está na seção "Texto"); mover uma cópia troca o caminho, na matriz e na tabela, no mesmo commit |
 | Material local de trabalho: mapas e checagens do texto, pesquisas, protótipos, dev logs | `tmp/` do checkout principal, numa das pastas do ADR 0038, nunca solto na raiz | nome `AAAA-MM-DD-<assunto>`, com a data do começo do trabalho; `bin/tmp-por-data.py` lista por dia, entre as pastas, e acusa o que foge da regra |
 | Trecho de fonte que sustenta uma frase do texto | `texto/fontes/<chave>.org` | um arquivo por chave do `refs.bib` (ADR 0035); um título por afirmação, com o link para o parágrafo e a página, e embaixo a frase, o trecho e a data da conferência; o trecho que o texto ainda não cita fica na nota de fontes do assunto |
 
@@ -309,7 +309,11 @@ pergunta antes.
   numa worktree, em ramo próprio (seção seguinte). O que
   houver no `git diff HEAD -- texto/` é rascunho do autor e não se apaga
   nem se reescreve sem ele pedir. As fontes em PDF ficam em `acervo/`
-  do checkout principal.
+  do checkout principal, e de onde veio cada uma, em
+  `acervo/procedencia.tsv` (ADR 0039): o agente que baixa uma cópia
+  escreve a linha, com o link e a data, no mesmo passo, e a que não tem
+  linha, ou tem o link vazio, como a que o autor pôs na pasta, só se
+  cita depois de perguntar ao autor de onde ela veio.
 
 ## Notas em `docs/`
 
