@@ -7,8 +7,8 @@ análise só por DC dá ao leitor o código de uma interface em fragmentos
 espalhados pelas seções. Web Component, React e Solid, uma tecnologia por
 modelo de programação na web, implementam as cinco interfaces; cada outro
 par implementa a interface base, o Formulário, e mais duas, escolhidas
-pelo que o par mostra (ADRs 0001, 0005, 0013 e 0029); e o recorte da
-análise se escolhe com o código e as capturas prontos. O Desenvolvimento
+pelo que o par mostra (ADRs 0001, 0005, 0013 e 0029); e o conjunto
+analisado se escolhe com o código e as capturas prontos. O Desenvolvimento
 (seção 3, `texto/cases.org`) mostra cada interface uma vez e a analisa
 por DC: a 3.2 tem uma subseção por interface, com as cenas e o trecho
 central de cada tecnologia em listagens numeradas, com o contexto
