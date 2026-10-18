@@ -1,7 +1,5 @@
-# Formatação de implementacoes/ (tcc-6wha). O Prettier (web, XML do Android
-# e Java) e o ktfmt (Kotlin) leem a largura daqui: 80 colunas em todas as
-# plataformas, para o código caber no PDF. O resto fica no padrão de cada
-# ferramenta, salvo o XML do Android, abaixo e no .prettierrc.json.
+# Formatação de implementacoes/ (tcc-6wha). O Prettier lê a largura daqui:
+# 80 colunas, para o código caber no PDF. O resto fica no padrão dele.
 root = true
 
 [*]
@@ -9,8 +7,3 @@ charset = utf-8
 end_of_line = lf
 insert_final_newline = true
 max_line_length = 80
-
-# Recuo do Android Studio nos layouts e recursos.
-[*.xml]
-indent_style = space
-indent_size = 4

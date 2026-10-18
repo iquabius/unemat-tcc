@@ -11,8 +11,8 @@
   ],
   "scripts": {
     "capturas": "node capturar.mts",
-    "formatar": "prettier --write . && android/gradlew -q -p android formatarKotlin && desktop/gradlew -q -p desktop formatarKotlin",
-    "conferir-formatacao": "prettier --check . && android/gradlew -q -p android conferirFormatacaoKotlin && desktop/gradlew -q -p desktop conferirFormatacaoKotlin",
+    "formatar": "prettier --write .",
+    "conferir-formatacao": "prettier --check .",
     "openspec": "OPENSPEC_TELEMETRY=0 openspec",
     "conferir-especificacao": "node conferir-especificacao.mts"
   },
@@ -21,9 +21,7 @@
   },
   "devDependencies": {
     "@fission-ai/openspec": "1.14.1",
-    "@prettier/plugin-xml": "3.4.2",
     "playwright": "^1.63.0",
-    "prettier": "3.9.10",
-    "prettier-plugin-java": "2.11.0"
+    "prettier": "3.9.10"
   }
 }

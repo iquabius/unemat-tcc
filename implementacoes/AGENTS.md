@@ -269,36 +269,21 @@ Playwright nem biblioteca.
 ## Formatação
 
 Todo o código de `implementacoes/`, menos o que a lista de exclusões abaixo
-deixa de fora, passa pelo formatador da plataforma, com 80 colunas
-(`implementacoes/.editorconfig`) e o resto no padrão da ferramenta, salvo no
-XML (tcc-6wha, 2026-10-12). Duas razões: a contagem de linhas da concisão e
-o diff da segunda rodada (ADRs 0012 e 0029) não podem depender de como o
-código foi quebrado à mão, e 80 colunas cabem numa coluna do PDF em 8 pt.
+deixa de fora, passa pelo Prettier 3.9.10, fixado em
+`implementacoes/package.json`, com 80 colunas (`implementacoes/.editorconfig`)
+e o resto no padrão dele (tcc-6wha, 2026-10-12). Duas razões: a contagem de
+linhas da concisão e o diff da segunda rodada (ADRs 0012 e 0029) não podem
+depender de como o código foi quebrado à mão, e 80 colunas cabem numa
+coluna do PDF em 8 pt.
 
-- Web (TS, TSX, HTML, CSS, JSON): Prettier 3.9.10, fixado em
-  `implementacoes/package.json`. O HTML do Web Component, num *template
-  literal*, leva o comentário `/* HTML */` antes da crase, a marca com que
-  o Prettier o reconhece e formata, como o *template* do Angular e o `html`
-  do Lit, inclusive o *template* aninhado num `${...}`. O Prettier só
-  formata a expressão de um `${...}` escrita em mais de uma linha: se ela
-  passar de 80 colunas, quebre-a uma vez dentro do `${...}`.
-- XML do Android: Prettier com o `@prettier/plugin-xml`, também fixado, e
-  três exceções ao padrão, que imitam o Android Studio: recuo de 4, um
-  atributo por linha e o fim da tag na linha do último atributo.
-- Kotlin (`.kt` e `.kts` do Android e dos `dominio-kotlin`): ktfmt 0.64 com
-  `--kotlinlang-style`, fixado em
-  `implementacoes/android/gradle/libs.versions.toml` e rodado pela tarefa
-  `formatarKotlin` do Gradle.
-- Java (Swing e JavaFX): Prettier com o `prettier-plugin-java`, também
-  fixado, no padrão dele (recuo de 2), escolhido pelo autor em 2026-10-17
-  contra o google-java-format, de largura fixa em 100 colunas, e o
-  formatador do Eclipse pelo Spotless, de perfil próprio a manter. Os
-  `.kts` de `implementacoes/desktop/` e dos módulos do desktop passam pelo
-  ktfmt, com a versão e as opções do Android, na tarefa `formatarKotlin`
-  do projeto Gradle do desktop.
+- O Prettier formata TS, TSX, HTML, CSS e JSON. O HTML do Web Component,
+  num *template literal*, leva o comentário `/* HTML */` antes da crase, a
+  marca com que o Prettier o reconhece e formata, como o *template* do
+  Angular e o `html` do Lit, inclusive o *template* aninhado num `${...}`.
+  O Prettier só formata a expressão de um `${...}` escrita em mais de uma
+  linha: se ela passar de 80 colunas, quebre-a uma vez dentro do `${...}`.
 - Ficam de fora `implementacoes/fora-da-analise/` e os documentos
-  (`implementacoes/.prettierignore` e o `build.gradle.kts` de
-  `implementacoes/android/`).
+  (`implementacoes/.prettierignore`).
 
 De `implementacoes/`, `npm run formatar` formata tudo, e `npm run
 conferir-formatacao` falha se algum arquivo estiver fora do padrão. Rode o
