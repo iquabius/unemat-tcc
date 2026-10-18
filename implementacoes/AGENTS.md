@@ -69,19 +69,19 @@ pelo `npm run openspec -- <comando>`, que desliga a telemetria; o
   `**ENTÃO**` e `**E**`, com os dados que o teste usa.
 - **O nome do cenário é o nome de uma verificação** do teste de
   conformidade, letra por letra: `#### Scenario: 2 nome tocado e vazio`
-  é o `conferir("2 nome tocado e vazio", ...)` da web, do Android e do
-  desktop. Um cenário por verificação, sem sobra dos dois lados; o número
-  do nome é o passo do teste, não o do requisito. Regra que nenhuma
-  verificação confere (uma latência, um termo do domínio) entra no texto
-  do requisito que a usa, ou ganha verificação.
+  é o `conferir("2 nome tocado e vazio", ...)` do teste. Um cenário por
+  verificação, sem sobra dos dois lados; o número do nome é o passo do
+  teste, não o do requisito. Regra que nenhuma verificação confere (uma
+  latência, um termo do domínio) entra no texto do requisito que a usa,
+  ou ganha verificação.
 - Cenário não é cena: a cena é um estado a capturar (`cenas.mts`).
 
 `npm run conferir-especificacao`, de `implementacoes/`, roda o
 `openspec validate --all` e confere, em todo arquivo de
 `implementacoes/<interface>/` que chama `conferir(...)`, que os nomes das
-verificações são os dos cenários da especificação viva, na ordem do teste da
-web; o de `implementacoes/fora-da-analise/` não é conferido. Rode-o antes de
-cada commit que mexa numa especificação ou num teste de conformidade.
+verificações são os dos cenários da especificação viva; o de
+`implementacoes/fora-da-analise/` não é conferido. Rode-o antes de cada
+commit que mexa numa especificação ou num teste de conformidade.
 
 ### Interface nova
 
@@ -111,12 +111,11 @@ A mudança dentro de uma rodada (correção, redação, as regras e os
 controles novos da primeira rodada, como o envio que ignora o reenvio e
 o "Definir Status" do Quadro) edita o `spec.md` direto, sem proposta nem
 arquivamento: um commit que muda a especificação, o teste de conformidade
-em todas as plataformas que o têm e os arquivos da interface que citam a
-regra, com `npm run conferir-especificacao` antes, e depois um commit por
-tecnologia, na mesma ordem em todas (ADR 0029). A troca de um nome do
-domínio vai num commit só, com todas as tecnologias, porque um commit por
-tecnologia quebraria a construção das outras. O porquê vai na mensagem do
-commit.
+e os arquivos da interface que citam a regra, com `npm run
+conferir-especificacao` antes, e depois um commit por tecnologia, na mesma
+ordem em todas (ADR 0029). A troca de um nome do domínio vai num commit
+só, com todas as tecnologias, porque um commit por tecnologia quebraria a
+construção das outras. O porquê vai na mensagem do commit.
 
 Passos do *delta spec*:
 
@@ -151,9 +150,9 @@ Passos do *delta spec*:
    - sem `design.md`: decisão de método vai para um ADR.
 2. `npm run conferir-especificacao` e commit da proposta, que o autor
    revisa antes do resto.
-3. Um commit que muda o teste de conformidade em todas as plataformas que o
-   têm em `implementacoes/<interface>/`, e os arquivos da interface que
-   citam a regra, e arquiva a mudança:
+3. Um commit que muda o teste de conformidade em
+   `implementacoes/<interface>/`, e os arquivos da interface que citam a
+   regra, e arquiva a mudança:
    `npm run openspec -- archive <nome> --yes` funde o delta em `specs/` e
    move a pasta para `changes/archive/AAAA-MM-DD-<nome>/`. Assim a
    especificação viva diz sempre o que os testes conferem, e as
