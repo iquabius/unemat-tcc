@@ -415,14 +415,8 @@ conferidas.
 
 ## Ambiente
 
-- Node e JDK (Android e desktop) pelo asdf, nas versões do
-  `.tool-versions` da raiz. Se `node` ou `java` não estiverem no `PATH`,
-  use `~/.asdf/shims`.
-- Android SDK em `~/Android/Sdk`, apontado por
-  `implementacoes/android/local.properties` (`sdk.dir=...`, não versionado;
-  o Android Studio cria sozinho). Licenças do SDK são aceitas pelo usuário,
-  nunca pelo agente: se o Gradle pedir um pacote novo, diga o comando
-  `sdkmanager` e peça que ele rode.
+- Node pelo asdf, na versão do `.tool-versions` da raiz. Se `node` não
+  estiver no `PATH`, use `~/.asdf/shims`.
 - Na primeira vez, `npx playwright install chromium-headless-shell`.
 
 ## Fora da análise
