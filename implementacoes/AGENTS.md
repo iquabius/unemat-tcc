@@ -424,15 +424,17 @@ conferidas.
 `implementacoes/fora-da-analise/` guarda, com a estrutura de `implementacoes/`
 (`<interface>/<tecnologia>/`), o código que saiu da análise: o Contador, a
 Lista filtrável e o Carrinho (ADR 0002), o jQuery e o Angular com RxJS
-(ADR 0013), o JavaFX com FXML, o par Qt Widgets × QML (ADR 0001) e o
-cronômetro de 2017 (ADR 0012). O `README.org` de lá diz o que é
-cada pasta, por que saiu e como rodá-la no commit anterior ao movimento.
+(ADR 0013), o JavaFX com FXML, o par Qt Widgets × QML (ADR 0001), o
+cronômetro de 2017 (ADR 0012) e, desde 2026-10-18, o Android (Views ×
+Compose) e o desktop (Swing × JavaFX), por decisão do autor de
+2026-10-17. O `README.org` de lá diz o que é cada pasta, por que saiu e
+como rodá-la no commit anterior ao movimento.
 
 - É registro congelado (decisão do autor em 2026-10-13): não se edita,
   não compila, não se testa, não se formata nem se captura. Os
-  *workspaces*, o projeto Gradle do Android, o `npm run capturas` e o
-  `npm run conferir-especificacao` não o alcançam, e a contagem de linhas
-  da concisão (ADR 0012), quando for escrita, também o deixa de fora.
+  *workspaces*, o `npm run capturas` e o `npm run conferir-especificacao`
+  não o alcançam, e a contagem de linhas da concisão (ADR 0012), quando
+  for escrita, também o deixa de fora.
 - Código que sai da análise vai para lá com `git mv`, num commit só de
   movimento, com as capturas da tecnologia, e ganha um item na lista do
   `README.org` de lá, com o ADR que o tirou.

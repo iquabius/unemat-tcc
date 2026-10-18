@@ -1,14 +1,15 @@
 #+TITLE: Fora da análise: código que saiu do conjunto analisado
 
 Esta pasta guarda o código de =implementacoes/= que o texto não analisa,
-congelado como estava ao sair da análise, em 2026-10-13. Nada aqui
-compila, testa, formata nem captura pelos comandos de =implementacoes/=, e
-as mudanças na especificação das tarefas (=implementacoes/openspec/=) não
-são portadas para cá. Em =implementacoes/= ficam só as tarefas e as
+congelado como estava ao sair da análise: quase tudo em 2026-10-13, e o
+Android e o desktop em 2026-10-18. Nada aqui compila, testa, formata nem
+captura pelos comandos de =implementacoes/=, e as mudanças na
+especificação das interfaces (=implementacoes/openspec/=) não são
+portadas para cá. Em =implementacoes/= ficam só as interfaces e as
 tecnologias analisadas.
 
-A estrutura é a de =implementacoes/=: =<tarefa>/<tecnologia>/=, mais os
-projetos que reuniam o desktop e o Qt.
+A estrutura é a de =implementacoes/=: =<interface>/<tecnologia>/=, mais os
+projetos que reuniam o Android, o desktop e o Qt.
 
 Cada pasta, o que é, por que saiu e o ADR:
 
@@ -36,6 +37,17 @@ Cada pasta, o que é, por que saiu e o ADR:
   de 2026-10-16): =formulario/swing/=, =javafx/= e =javafx-estilo/= e o
   projeto Gradle =desktop/= voltaram para =implementacoes/=, e o FXML e a
   Lista ficaram aqui.
+- =formulario/swing/=, =javafx/= e =javafx-estilo/=, com =desktop/=, o
+  projeto Gradle que os reúne: o par Swing × JavaFX do Formulário, em
+  Java, com a tela do JavaFX em código. Voltou para cá em 2026-10-18, por
+  decisão do autor de 2026-10-17: a análise fica só na web, com sete
+  interfaces, e o Android e o desktop vão para os trabalhos futuros da
+  conclusão.
+- =formulario/=, =dados-ao-vivo/= e =login-com-quarentena/=, com
+  =android-views/=, =android-compose/= e =dominio-kotlin/=, e =android/=,
+  o projeto Gradle que os reúne: o par Views × Compose do Formulário, dos
+  Dados ao vivo e do Login, em Kotlin. Saiu em 2026-10-18, com o desktop,
+  pela mesma decisão.
 - =formulario/qt-widgets/=, =qml/= e =dominio-cpp/=, com =qt/=, o projeto
   CMake que os reunia: o par Qt Widgets × QML, em C++ e QML. Saiu em
   2026-10-13, com o Swing × JavaFX, e não voltou (ADR 0001).
@@ -56,26 +68,36 @@ gerou, com o mesmo nome de antes (=<tecnologia>-<cena>.png=).
   =implementacoes/<tarefa>/= e continuam mudando com a especificação: o
   código daqui se lê contra a versão deles do commit anterior ao movimento.
 
+  O Android e o desktop vieram com o domínio em Kotlin, que fica na pasta
+  de cada interface, e com os projetos Gradle, que procuram os módulos na
+  pasta-mãe: aqui, ela é =fora-da-analise/=, e o =android/= acharia também
+  o Contador e a Lista, e o =desktop/=, a Lista, com as regras de
+  2026-10-13.
+
 * Rodar
 
   Cada pasta roda no commit anterior ao que a trouxe para cá, com as
-  instruções do =casos/README.org= de lá. De qualquer pasta do
-  repositório, com o caminho dela a partir daqui; o =git log= procura pelo
-  caminho de antes de 2026-10-14, quando =implementacoes/= se chamava
-  =casos/=:
+  instruções do =README.org= das implementações de lá. De qualquer pasta
+  do repositório, com o caminho dela a partir daqui: o da tecnologia
+  (=formulario/swing=), e não o da interface, que continua em
+  =implementacoes/=. O último commit que mexeu no caminho de fora desta
+  pasta é o do movimento, e o =git log= procura também pelo caminho de
+  antes de 2026-10-14, quando =implementacoes/= se chamava =casos/=:
 
   #+begin_src sh
   pasta=formulario/jquery
-  git switch --detach "$(git log --format=%H --reverse \
-      -- ":/casos/fora-da-analise/$pasta" | head -1)~1"
+  git switch --detach "$(git log -1 --format=%H \
+      -- ":/implementacoes/$pasta" ":/casos/$pasta")~1"
   #+end_src
 
-  Ali, de =casos/=:
+  Ali, de =casos/=, ou de =implementacoes/= no que saiu depois de
+  2026-10-14:
 
   #+begin_src sh
   npm install
   npm run capturas -- contador                  # web e Android
   npm run dev -w formulario/jquery              # uma implementação web
+  (cd android && ./gradlew testDebugUnitTest)   # Views e Compose
   (cd desktop && ./gradlew test)                # Swing e JavaFX
   (cd qt && cmake -S . -B build -G Ninja && cmake --build build &&
       QT_QPA_PLATFORM=offscreen ctest --test-dir build --output-on-failure)
@@ -94,8 +116,9 @@ gerou, com o mesmo nome de antes (=<tecnologia>-<cena>.png=).
   =TesteDeConformidade.java= com as verificações do teste da web, sem
   capturas; o JavaFX 27 rodava os testes na plataforma Headless. O
   =desktop/= e o =formulario/javafx-estilo/=, de que o =javafx-fxml= e a
-  Lista dependem, voltaram para =implementacoes/=; os dois rodam no commit
-  anterior ao movimento deles, como o resto.
+  Lista dependem, estão de novo aqui (itens acima). O Formulário que
+  voltou em 2026-10-17 tem ainda as cenas do =cenas.mts= em
+  =CenasTest.java=, com as capturas =swing-*= e =javafx-*=.
 
   O par Qt Widgets × QML (Formulário e Lista, 2026-10-09, Qt 6.10.2) tinha
   a tela do Widgets num =.ui=, com a coordenação por =connect=, e a QML com
@@ -105,3 +128,14 @@ gerou, com o mesmo nome de antes (=<tecnologia>-<cena>.png=).
 
   A comparação dos pares de desktop e a pré-análise de cada um estão em
   =docs/plataformas/desktop.md=.
+
+* O par do Android
+
+  O par Views × Compose (Formulário, Dados ao vivo e Login) tinha as
+  regras do =dominio.ts= portadas para o =dominio-kotlin/= de cada
+  interface, com os mesmos nomes, e um =TesteDeConformidade.kt= por
+  tecnologia, com as verificações do teste da web. As cenas, em
+  =CenasTest.kt=, rodavam na JVM com Robolectric e Roborazzi, sem
+  emulador, com o apoio de =android/captura/=. O desktop chamava do Java o
+  =dominio-kotlin= do Formulário. As tecnologias do Android e a escolha da
+  linguagem estão em =docs/plataformas/android.md=.
