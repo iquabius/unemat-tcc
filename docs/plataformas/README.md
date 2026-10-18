@@ -49,11 +49,12 @@ Leitura:
 - Cada par de *desktop* compara o imperativo por atualização manual e um
   declarativo na mesma linguagem e plataforma. Na web, o Web Component ×
   Lit faz isso com o declarativo por re-renderização, no Formulário, na
-  Busca e nos Dados ao vivo (ADR 0013); o imperativo contra o
-  declarativo por atualização granular, a célula dos pares de *desktop*,
-  não tem par na web (tarefa "Decidir como a análise atribui as
-  diferenças entre o imperativo e os declarativos onde a web não tem par
-  controlado", tcc-4ie). O Views × Compose põe o imperativo contra o
+  Busca e nos Dados ao vivo (ADR 0013), e, fora dele até a reescrita
+  com o conjunto analisado (tcc-a84z), no Quadro e no Login
+  (2026-10-17); o imperativo contra o declarativo por atualização
+  granular, a célula dos pares de *desktop*, não tem par na web (tarefa
+  "Decidir como a análise atribui as diferenças entre o imperativo e os
+  declarativos onde a web não tem par controlado", tcc-4ie). O Views × Compose põe o imperativo contra o
   declarativo por re-renderização no Android, mas muda também a montagem
   da tela (*layout* XML contra funções). Swing × JavaFX, com a tela do
   JavaFX montada em código Java, mantém a montagem da tela e isola o

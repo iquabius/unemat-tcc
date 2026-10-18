@@ -73,7 +73,8 @@ fecha é O3, e o que volta ao valor inicial é estado. A tabela não o conta
 ## Cobertura por par
 
 Interfaces de cada par pelo ADR 0029: Web Component, React e Solid têm as
-cinco; o Lit, Formulário, Busca e Dados ao vivo; o Angular com *signals*,
+cinco; o Lit, Formulário, Busca e Dados ao vivo (e, fora do ADR, o Quadro
+e o Login desde 2026-10-17); o Angular com *signals*,
 Formulário, Busca e Quadro; Views × Compose, Formulário, Quadro e Dados ao
 vivo; Windows Forms × WPF, Formulário, Quadro e Login. Cada célula diz a
 interface que traz o tipo ao par; "—" é o tipo que o par não tem.

@@ -46,10 +46,10 @@ de 2026-10-12, estão em `docs/plataformas/bibliotecas-de-formulario.md`
 | Tecnologia | Modelo de programação | Montagem da tela | Interfaces |
 |---|---|---|---|
 | Web Component | imperativo por atualização manual | esqueleto em HTML num texto; partes repetidas com `createElement` (ADR 0037) | as cinco |
-| Lit | declarativo por re-renderização | *template* `html` | Formulário, Busca, Dados ao vivo |
+| Lit | declarativo por re-renderização | *template* `html` | Formulário, Busca, Dados ao vivo (ADR 0013); Quadro e Login fora dele (2026-10-17) |
 | React | declarativo por re-renderização | JSX | as cinco |
 | Solid | declarativo por atualização granular | JSX | as cinco |
-| Angular com *signals* | declarativo por atualização granular | *template* | Formulário, Busca, Quadro |
+| Angular com *signals* | declarativo por atualização granular | *template* | Formulário, Busca, Quadro (ADR 0013); Login fora dele (2026-10-17) |
 | Angular com RxJS | apoio, fora da análise (ADR 0013) | *template* | — |
 | jQuery | fora da análise (ADR 0013) | HTML e DOM | — |
 
@@ -63,10 +63,13 @@ entre os dois declarativos; React × Lit, a notação dentro da
 re-renderização; Solid × Angular com *signals*, a notação dentro da
 atualização granular. Quando as duas tecnologias de uma coluna divergem
 numa DC, React e Lit ou Solid e Angular, a célula da tabela-síntese
-registra a divergência (ADR 0017). No Login e no Quadro, que o Lit não
-implementa, o imperativo por atualização manual entra contra os dois
-declarativos sem par controlado, e em nenhuma interface um par o põe
-contra a atualização granular (`docs/delineamento.md`, seção "O que fica
+registra a divergência (ADR 0017). No Login e no Quadro, o ADR 0013
+deixa o imperativo por atualização manual contra os dois declarativos
+sem par controlado; desde 2026-10-17 o Lit tem os dois, e a análise, que
+nessa data passou a ler as cinco interfaces nas nove tecnologias
+(tcc-a84z), lê o par neles, à espera da reescrita do ADR 0013. Em
+nenhuma interface da web um par põe o imperativo contra a atualização
+granular (`docs/delineamento.md`, seção "O que fica
 sem controle"). O jQuery fica fora, e o Angular com RxJS, de apoio; os
 dois ficam congelados em `implementacoes/fora-da-analise/` (ADR 0013).
 O quadro do que o delineamento controla está em `docs/delineamento.md`.
