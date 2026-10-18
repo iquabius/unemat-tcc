@@ -2,7 +2,7 @@
 
 Cada interface do *benchmark* de notação é implementada em várias
 tecnologias, para comparação no TCC. As decisões de escopo (interfaces,
-tecnologias, Android) estão em `docs/adr/`; os termos, em `CONTEXT.md` na
+tecnologias) estão em `docs/adr/`; os termos, em `CONTEXT.md` na
 raiz; instalação e uso, em `implementacoes/README.org`. O código que saiu
 da análise fica congelado em `implementacoes/fora-da-analise/` (última
 seção).
@@ -289,129 +289,6 @@ conferir-formatacao` falha se algum arquivo estiver fora do padrão. Rode o
 `formatar` antes de cada commit de código. Uma mudança que é só de
 formatação vai num commit à parte, sem lógica, com as capturas
 conferidas.
-
-## Android (Kotlin)
-
-- Interfaces no Android: o Formulário com validação, em
-  `implementacoes/<interface>/android-views/` (Views clássico: *listeners*,
-  estado na `Activity`) e `implementacoes/<interface>/android-compose/`
-  (Jetpack Compose). Os dois em Kotlin.
-- Um único projeto Gradle em `implementacoes/android/`: o `settings.gradle.kts`
-  inclui sozinho toda pasta `android-views` ou `android-compose` que tenha
-  `build.gradle.kts`, com o nome `:<interface>-<tecnologia>`. O
-  `build.gradle.kts` da raiz traz a configuração comum; o de cada módulo,
-  só plugins, `namespace` e dependências.
-- Mesma especificação do `spec.md` da interface: mesmos textos, mensagens,
-  regras e dados. Regras do `dominio.ts` portadas para Kotlin com o mesmo
-  comportamento, em
-  `implementacoes/<interface>/dominio-kotlin/main/Dominio.kt` (pacote
-  `tcc.<interface>`), com os mesmos nomes de funções. O `build.gradle.kts`
-  da raiz inclui essa pasta nas duas tecnologias quando ela existe; os
-  testes do porte e as regras JUnit da interface (como a `DataFixa`, que
-  fixa "hoje" em 26/09/2026) ficam em `dominio-kotlin/test/`.
-- O leitor conhece React, não Kotlin: comentários curtos em português que
-  apontem o equivalente nas implementações web (como o `useState`, como o
-  `addEventListener`).
-- Aparência igual à da web, reproduzindo o `estilo.css` da interface (cores,
-  medidas em dp e sp com os mesmos números dos px, alinhamentos), e
-  separada da tela, como o CSS fica separado do JSX:
-  - **Views:** `res/values/estilo.xml`, com o `Tema` (papel do `body`,
-    aplicado no `AndroidManifest.xml`) e um estilo nomeado por regra do
-    CSS. O layout só tem estrutura, `id`, textos e acessibilidade, e cita
-    a aparência com `style="@style/..."`, como o `class`.
-  - **Compose:** `Estilo.kt`, com o `Tema { }` e componentes já
-    estilizados no papel das regras do CSS (`Formulario` para
-    `.formulario`, `Erro` para `.formulario .erro`, `Botao` para
-    `.formulario button`). A tela só usa esses nomes.
-  - Os arquivos de estilo ficam fora da análise, como o `estilo.css`.
-  - A aparência que muda com o estado e que o arquivo de estilo não
-    exprime se escreve no código da tela, na forma dos programas reais,
-    com um comentário que diga por quê. No Views, os seletores de
-    `res/color/` e `res/drawable/` trocam pelo estado da view
-    (`isActivated`, `isEnabled`) só a cor e o fundo: o negrito da linha
-    destacada dos Dados ao vivo se põe com `setTypeface` em cada célula,
-    a forma mais comum no código do GitHub, contra uma subclasse de
-    `TextView` no papel do estilo (decisão do autor em 2026-10-17).
-- Alinhamento sempre explícito no arquivo de estilo, nunca deixado ao
-  padrão de cada tecnologia, porque eles diferem: o `LinearLayout` alinha os
-  filhos pela linha de base do texto (desligue com
-  `android:baselineAligned="false"`), e a `Row` do Compose, pelo topo.
-- As cenas ficam em `src/test/.../CenasTest.kt` de cada módulo (Robolectric
-  e Roborazzi, sem emulador), com os mesmos nomes do `cenas.mts` da
-  interface. Cada cena termina com `capturar("<cena>")`, e a classe usa a
-  regra `SemAnimacoes()` (ambos em
-  `implementacoes/android/captura/Captura.kt`). No Compose, chame
-  `regra.waitForIdle()` antes de capturar.
-- Quando a interface tem `teste-de-conformidade.js`, as mesmas verificações
-  vão para `TesteDeConformidade.kt` em cada tecnologia, na mesma ordem e
-  com os mesmos nomes. As ações e leituras ficam numa classe `Tela` de
-  teste por tecnologia, com a mesma API nas duas (`digitar`, `sair`,
-  `erros()`...), para que `CenasTest` e `TesteDeConformidade` fiquem iguais
-  entre Views e Compose. Nada de marcas só para teste no código da tela: o
-  Views acha as views pelo `id`; o Compose, pela semântica (texto, ordem
-  dos campos, papel).
-- Confira que o teste de conformidade pega erros: introduza um defeito numa
-  regra e veja o `TesteDeConformidade` falhar antes de dar a tarefa por
-  pronta. Rode um módulo por vez: com duas tarefas e `--tests` na mesma
-  linha do Gradle, o resultado do primeiro módulo não foi atualizado.
-- Nas cenas, só foque um campo quando a cena depende do foco (como o
-  "tocado" do Formulário). Na Lista, um teste do Compose que focava a busca
-  fez o teste seguinte capturar a tela anterior à mudança; sem foco, as
-  imagens saem certas (e sem cursor, como na web).
-- Para rodar num emulador ou abrir no Android Studio, use a pasta
-  `implementacoes/android/`.
-
-## Desktop (Java)
-
-- Interfaces no desktop: o Formulário com validação, em
-  `implementacoes/<interface>/swing/` (*listeners*, estado na classe da
-  tela) e `implementacoes/<interface>/javafx/` (*properties* e
-  *bindings*), os dois em Java e com a tela montada em código, com as
-  mesmas chamadas e na mesma ordem, para o par diferir só no modelo de
-  programação. Sem FXML: o `javafx-fxml` ficou congelado em
-  `fora-da-analise/` (decisão do autor em 2026-10-16). A diferença que o
-  *toolkit* impõe fica num comentário da tela e em
-  `docs/achados-das-implementacoes.md`, como a confirmação, que no Swing
-  é um `JTextArea`, porque o `JLabel` não quebra linha.
-- Um único projeto Gradle em `implementacoes/desktop/`: o
-  `settings.gradle.kts` inclui sozinho toda pasta `swing` ou `javafx` que
-  tenha `build.gradle.kts`, com o nome `:<interface>-<tecnologia>`. O
-  `build.gradle.kts` da raiz traz a configuração comum; o de cada módulo,
-  só a `mainClass` e, no JavaFX, o *plugin* e os módulos.
-- O domínio é o `dominio-kotlin` do Android, que o `build.gradle.kts` da
-  raiz compila para a JVM; a tela o chama do Java (`DominioKt`). Dos
-  testes de lá, só entra a regra `DataFixa`.
-- Comentários curtos em português que apontem o equivalente no Web
-  Component (como o `addEventListener("input")`) e, no JavaFX, no Solid
-  (como o `createMemo`), o par do mesmo modelo de programação na web.
-- Aparência igual à da web, reproduzindo o `estilo.css` da interface, e
-  separada da tela: no Swing, `Estilo.java`, que percorre os componentes
-  e escolhe pela propriedade `classe` (o `class`) ou pelo tipo, e escreve
-  no `UIManager` o que o Metal só lê de lá; no JavaFX, o
-  `<interface>/javafx-estilo/estilo.css`, que o `Main` carrega. Os dois
-  ficam fora da análise.
-- Quando a interface tem `teste-de-conformidade.js`, as mesmas
-  verificações vão para `TesteDeConformidade.java` em cada tecnologia, na
-  mesma ordem e com os mesmos nomes, e as cenas do `cenas.mts`, para
-  `CenasTest.java`, que termina cada cena com `tela.capturar("<cena>")`.
-  As ações e leituras ficam numa classe `Tela` de teste por tecnologia,
-  com a API das do Android (`digitar`, `sair`, `focar`, `preencher`,
-  `erros()`...). A `Tela` acha os campos pelo rótulo (`setLabelFor`), sem
-  marcas só para teste, e monta a tela como o `Main`: o Swing com o
-  `Estilo`, o JavaFX numa janela do tamanho do `Main`, com o `estilo.css`.
-  O apoio comum fica em `implementacoes/desktop/teste/`: `naTela` (a
-  thread da interface), `mostrar` e `capturar` por tecnologia, e o
-  `Captura.java`, que grava as imagens.
-- Os testes rodam sem janela: o Swing com `java.awt.headless` e o texto
-  suavizado, o JavaFX na plataforma Headless. Sem janela, o Swing não tem
-  foco, e a `Tela` dispara a saída do campo nos *listeners* de foco dele;
-  no JavaFX, o foco anda pela janela, que não aparece.
-- As capturas saem em 416 × 560, o tamanho da janela, na escala 1: sem
-  janela, o Swing mede o texto na escala 1 e, pintado na 2 da web e do
-  Android, corta o fim de cada texto. O JavaFX acompanha.
-- Rode de `implementacoes/desktop/`: `./gradlew test` roda os testes de
-  conformidade e as cenas, e `./gradlew :<interface>-<tecnologia>:run`
-  abre a janela.
 
 ## Ambiente
 
