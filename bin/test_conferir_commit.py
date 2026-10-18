@@ -34,6 +34,17 @@ Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
 """
 
 
+# O git dos repositórios de teste: sem a configuração global, e com ela os
+# hooks da máquina; com nome e datas fixos, para o sha sair sempre o mesmo.
+# Com a data do relógio, cerca de 4% dos shas curtos saem só com dígitos ou
+# só com letras, e o SHA_CITADO não os lê como sha.
+DATA_DOS_COMMITS = "2026-10-01T10:01:00-0400"
+GIT_DE_TESTE = {"GIT_CONFIG_GLOBAL": "/dev/null", "GIT_CONFIG_NOSYSTEM": "1",
+                "GIT_AUTHOR_NAME": "t", "GIT_AUTHOR_EMAIL": "t@t",
+                "GIT_COMMITTER_NAME": "t", "GIT_COMMITTER_EMAIL": "t@t",
+                "GIT_AUTHOR_DATE": DATA_DOS_COMMITS, "GIT_COMMITTER_DATE": DATA_DOS_COMMITS}
+
+
 def skill(nome="commit-message"):
     return {"type": "assistant", "message": {"content": [
         {"type": "tool_use", "name": "Skill", "input": {"skill": nome}}]}}
@@ -44,7 +55,8 @@ class Base(unittest.TestCase):
         self.dir = tempfile.TemporaryDirectory()
         self.addCleanup(self.dir.cleanup)
         # o diretório temporário faz as vezes do repositório do TCC
-        subprocess.run(["git", "init", "-q", self.dir.name], check=True)
+        subprocess.run(["git", "init", "-q", self.dir.name], check=True,
+                       env=dict(os.environ, **GIT_DE_TESTE))
         repositorio = cc.REPOSITORIO
         cc.REPOSITORIO = Path(self.dir.name)
         self.addCleanup(setattr, cc, "REPOSITORIO", repositorio)
@@ -164,11 +176,15 @@ class Mensagem(Base):
         self.assertIsNone(self.conferir(f"git commit -F - <<'EOF'\n{msg}EOF\n"))
 
     def git(self, *args):
-        # sem a configuração global, e com ela os hooks da máquina
-        ambiente = dict(os.environ, GIT_CONFIG_GLOBAL="/dev/null", GIT_CONFIG_NOSYSTEM="1")
-        return subprocess.run(["git", "-c", "user.name=t", "-c", "user.email=t@t", *args],
-                              cwd=self.dir.name, env=ambiente, check=True,
+        return subprocess.run(["git", *args], cwd=self.dir.name,
+                              env=dict(os.environ, **GIT_DE_TESTE), check=True,
                               capture_output=True, text=True).stdout.strip()
+
+    def citavel(self, sha):
+        """O sha, se a mensagem que o cita o confere; senão, a data de
+        GIT_DE_TESTE tem de mudar."""
+        self.assertTrue(cc.SHA_CITADO.fullmatch(sha), f"sha que o SHA_CITADO não lê: {sha}")
+        return sha
 
     def commita(self, *arquivos):
         for a in arquivos:
@@ -177,7 +193,7 @@ class Mensagem(Base):
             p.write_text("0\n", encoding="utf-8")
         self.git("add", *arquivos)
         self.git("commit", "-qm", "base")
-        return self.git("rev-parse", "--short", "HEAD")
+        return self.citavel(self.git("rev-parse", "--short", "HEAD"))
 
     def com(self, frase):
         msg = BOA.replace("Conferido com", frase + "\n\nConferido com")
@@ -222,12 +238,13 @@ class Mensagem(Base):
     def test_sha_de_outro_repositorio_se_confere_la(self):
         outro = tempfile.TemporaryDirectory()
         self.addCleanup(outro.cleanup)
-        ambiente = dict(os.environ, GIT_CONFIG_GLOBAL="/dev/null", GIT_CONFIG_NOSYSTEM="1")
-        subprocess.run(["git", "init", "-q", outro.name], check=True)
-        subprocess.run(["git", "-c", "user.name=t", "-c", "user.email=t@t", "commit", "-q",
-                        "--allow-empty", "-m", "x"], cwd=outro.name, env=ambiente, check=True)
-        sha = subprocess.run(["git", "rev-parse", "--short", "HEAD"], cwd=outro.name,
-                             capture_output=True, text=True, check=True).stdout.strip()
+        ambiente = dict(os.environ, **GIT_DE_TESTE)
+        subprocess.run(["git", "init", "-q", outro.name], env=ambiente, check=True)
+        subprocess.run(["git", "commit", "-q", "--allow-empty", "-m", "x"], cwd=outro.name,
+                       env=ambiente, check=True)
+        sha = self.citavel(subprocess.run(["git", "rev-parse", "--short", "HEAD"],
+                                          cwd=outro.name, env=ambiente, capture_output=True,
+                                          text=True, check=True).stdout.strip())
         daqui = self.commita("bin/x.py")
         self.assertIn("história de HEAD", self.com(f"Veio do commit {sha}."))
         with unittest.mock.patch.object(cc, "OUTROS_REPOSITORIOS",
