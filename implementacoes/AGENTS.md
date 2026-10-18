@@ -13,10 +13,8 @@ Toda alteração que possa mudar a tela ou o comportamento de uma
 implementação exige conferir as capturas antes de dar o trabalho por pronto
 ou commitar. Isso inclui o código de
 `implementacoes/<interface>/<tecnologia>/`, o `estilo.css`, o `dominio.ts`
-e o `cenas.mts` de cada interface, o `implementacoes/capturar.mts`, os
-projetos Gradle em `implementacoes/android/` e `implementacoes/desktop/` e
-as dependências (`package.json`, `package-lock.json` e o
-`gradle/libs.versions.toml` de cada projeto Gradle).
+e o `cenas.mts` de cada interface, o `implementacoes/capturar.mts` e as
+dependências (`package.json` e `package-lock.json`).
 
 1. Rode, de `implementacoes/`, onde está o `package.json` dos *workspaces*:
 
@@ -24,26 +22,14 @@ as dependências (`package.json`, `package-lock.json` e o
    npm run capturas -- --conferir <interface>
    ```
 
-   Sem `<interface>`, confere todas, web, Android e desktop. O comando não
-   grava nada: compara as imagens geradas agora com as versionadas em
+   Sem `<interface>`, confere todas. O comando não grava nada: compara as
+   imagens geradas agora com as versionadas em
    `implementacoes/<interface>/capturas/` e sai com erro se alguma mudou,
    é nova ou sumiu.
-2. Se a saída trouxer `AVISO: <interface>/<cena> (web) difere entre as
-   tecnologias`, alguma implementação web foge da especificação da
-   interface. Corrija antes de seguir: as implementações web de uma
-   interface devem gerar imagens idênticas.
-   No Android, o aviso `(android)` pode vir só do desenho do texto: Views e
-   Compose desenham os mesmos glifos com diferenças de poucos pixels (no
-   Contador, 0,15% da imagem, só nos algarismos e no "+"). Abra as duas
-   imagens: se posições, tamanhos, cores e conteúdo batem, siga; se não,
-   corrija o arquivo de estilo da tecnologia. No desktop, o aviso
-   `(desktop)` sai sempre: Swing e JavaFX desenham controles e texto cada
-   um a seu modo (decisão do autor em 2026-10-17); abra as imagens e
-   confira conteúdo, posições e cores. **A diferença entre as imagens não
-   se corrige no código da tela**: o ajuste vai no arquivo de estilo da
-   tecnologia, e o que ele não alcançar fica na imagem. No TCC, importa
-   mais que o código da tela varie o mínimo entre as implementações do que
-   as imagens saírem iguais.
+2. Se a saída trouxer `AVISO: <interface>/<cena> difere entre as
+   tecnologias`, alguma implementação foge da especificação da interface.
+   Corrija antes de seguir: as implementações de uma interface devem gerar
+   imagens idênticas.
 3. Se alguma captura mudou:
    - **mudança intencional:** abra as imagens da pasta temporária que o
      comando indica, confirme que mostram o esperado, rode

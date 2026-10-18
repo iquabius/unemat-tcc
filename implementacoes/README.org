@@ -121,8 +121,8 @@ abaixo.
 
   Cada interface guarda capturas versionadas em
   =implementacoes/<interface>/capturas/=, uma por tecnologia e cena
-  (=react-inicial.png=, =android-compose-erros.png=...). Ao criar ou alterar
-  uma implementação, gere-as de novo e inclua no mesmo commit: o =git diff=
+  (=react-inicial.png=, =solid-erros.png=...). Ao criar ou alterar uma
+  implementação, gere-as de novo e inclua no mesmo commit: o =git diff=
   mostra o que mudou na tela.
 
   #+begin_src sh
@@ -130,7 +130,6 @@ abaixo.
   npm run capturas                                  # todos
   npm run capturas -- formulario                    # uma interface
   npm run capturas -- formulario/react              # uma implementação
-  npm run capturas -- formulario/android-views      # uma implementação Android
   npm run capturas -- --conferir                    # só compara, não grava
   #+end_src
 
@@ -144,38 +143,16 @@ abaixo.
   captura); sem ele, só o estado inicial é capturado. O /script/
   ([[file:capturar.mts][implementacoes/capturar.mts]]) faz o /build/, serve
   o resultado, fixa a data em 26/09/2026 (para "hoje" não mudar a imagem)
-  e, no fim, avisa se a mesma cena saiu diferente entre as tecnologias web
-  de uma interface, o que indica que alguma implementação foge da
+  e, no fim, avisa se a mesma cena saiu diferente entre as tecnologias de
+  uma interface, o que indica que alguma implementação foge da
   especificação.
-
-  No Android, as mesmas cenas ficam nos testes de cada módulo
-  (=src/test/.../CenasTest.kt=). O /script/ roda esses testes pelo Gradle
-  com [[https://robolectric.org][Robolectric]] e
-  [[https://github.com/takahirom/roborazzi][Roborazzi]], que desenham a
-  tela na JVM, sem emulador, e o resto segue igual: mesma pasta, mesmo
-  =--conferir=. O aviso compara só Views com Compose. As duas reproduzem o
-  =estilo.css= da interface, cada uma no seu arquivo de estilo
-  (=res/values/estilo.xml= no Views, =Estilo.kt= no Compose), mas desenham
-  o texto com diferenças de poucos pixels, e o aviso aparece mesmo assim:
-  abra as imagens e confira se posições, cores e conteúdo batem. As
-  animações ficam desligadas nos testes: o efeito de toque (/ripple/) tem
-  um brilho que mudaria a imagem a cada execução.
-
-  No desktop, as cenas ficam em =src/test/.../CenasTest.java= de cada
-  módulo, e o /script/ as roda pelo Gradle de =implementacoes/desktop/=,
-  sem janela. As imagens saem no tamanho da janela, 416 × 560, sem a
-  escala 2 da web e do Android, que o Swing não mede sem janela. O aviso
-  compara Swing com JavaFX e sai sempre: cada um desenha controles e
-  texto a seu modo, cada um com o seu arquivo de estilo (=Estilo.java= no
-  Swing, =javafx-estilo/estilo.css= no JavaFX).
 
   Agentes de código seguem essas regras pelo
   [[file:AGENTS.md][implementacoes/AGENTS.md]] (o =CLAUDE.md= ao lado é um
   /symlink/ para ele).
 
-  As imagens web dependem das fontes instaladas: geradas noutra máquina,
-  podem mudar sem que o código tenha mudado, e as do desktop também. As do
-  Android usam as fontes que o Robolectric traz.
+  As imagens dependem das fontes instaladas: geradas noutra máquina,
+  podem mudar sem que o código tenha mudado.
 
 * Especificação das interfaces (OpenSpec)
 

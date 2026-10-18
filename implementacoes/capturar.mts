@@ -11,27 +11,16 @@
 // com as de implementacoes/<interface>/capturas/; o script lista as que
 // mudaram, as novas e as que sumiram, e sai com erro se houver alguma.
 //
-// Web: cada interface pode ter um cenas.mts com as cenas a capturar (ações do
+// Cada interface pode ter um cenas.mts com as cenas a capturar (ações do
 // Playwright antes da captura); sem ele, captura só o estado inicial.
-// Android: as cenas ficam nos testes de cada módulo (src/test/.../CenasTest.kt),
-// que o Gradle roda com Robolectric e Roborazzi, sem emulador; o projeto
-// Gradle fica em implementacoes/android/.
-// Desktop: as cenas ficam nos testes de cada módulo (src/test/.../
-// CenasTest.java), que o Gradle roda sem janela, com o Swing pintado numa
-// imagem e o JavaFX na plataforma Headless; o projeto Gradle fica em
-// implementacoes/desktop/.
 // No fim, avisa quando a mesma cena sai diferente entre as tecnologias de
-// uma interface na mesma plataforma: na web, as implementações seguem a mesma
-// especificação e a mesma aparência, então as imagens deveriam ser
-// idênticas; no Android, Views e Compose reproduzem o mesmo estilo, mas
-// desenham o texto com diferenças de poucos pixels, e o aviso pede só
-// conferir as imagens; no desktop, Swing e JavaFX desenham os controles e o
-// texto cada um a seu modo, e o aviso é só informativo.
+// uma interface: as implementações seguem a mesma especificação e a mesma
+// aparência, então as imagens deveriam ser idênticas.
 
 import { execFileSync } from "node:child_process";
 import { createHash } from "node:crypto";
 import { existsSync } from "node:fs";
-import { copyFile, mkdir, mkdtemp, readFile, readdir } from "node:fs/promises";
+import { mkdir, mkdtemp, readFile, readdir } from "node:fs/promises";
 import { createServer, type Server } from "node:http";
 import { tmpdir } from "node:os";
 import path from "node:path";
@@ -41,31 +30,14 @@ export type Cenas = Record<string, (pagina: Page) => Promise<void>>;
 
 const RAIZ = path.resolve(import.meta.dirname, "..");
 const IMPLEMENTACOES = path.join(RAIZ, "implementacoes");
-// A plataforma de cada tecnologia, na ordem em que o script as captura.
-const PLATAFORMA: Record<string, "web" | "android" | "desktop"> = {
-  "web-component": "web",
-  react: "web",
-  solid: "web",
-  lit: "web",
-  "angular-signals": "web",
-  "android-views": "android",
-  "android-compose": "android",
-  swing: "desktop",
-  javafx: "desktop",
-};
-const TECNOLOGIAS = Object.keys(PLATAFORMA);
-// O projeto Gradle de cada plataforma e a tarefa que roda os testes de um
-// módulo, com as cenas.
-const GRADLE: Record<string, { gradlew: string; tarefa: string }> = {
-  android: {
-    gradlew: path.join(IMPLEMENTACOES, "android", "gradlew"),
-    tarefa: "testDebugUnitTest",
-  },
-  desktop: {
-    gradlew: path.join(IMPLEMENTACOES, "desktop", "gradlew"),
-    tarefa: "test",
-  },
-};
+// As tecnologias, na ordem em que o script as captura.
+const TECNOLOGIAS = [
+  "web-component",
+  "react",
+  "solid",
+  "lit",
+  "angular-signals",
+];
 
 // Data fixa para que as implementações que mostram "hoje" gerem sempre a
 // mesma imagem.
@@ -84,15 +56,13 @@ async function implementacoes(filtros: string[]): Promise<[string, string][]> {
   const lista: [string, string][] = [];
   for (const gui of (await readdir(IMPLEMENTACOES)).sort()) {
     // Toda interface tem a especificação em openspec/specs/<interface>/; as
-    // outras pastas (node_modules, android, desktop, openspec e
-    // fora-da-analise, que não se captura) não são interfaces.
+    // outras pastas (node_modules, openspec e fora-da-analise, que não se
+    // captura) não são interfaces.
     if (!existsSync(path.join(IMPLEMENTACOES, "openspec", "specs", gui)))
       continue;
     for (const tecnologia of TECNOLOGIAS) {
-      const projeto =
-        PLATAFORMA[tecnologia] === "web" ? "package.json" : "build.gradle.kts";
-      if (!existsSync(path.join(IMPLEMENTACOES, gui, tecnologia, projeto)))
-        continue;
+      const projeto = path.join(IMPLEMENTACOES, gui, tecnologia);
+      if (!existsSync(path.join(projeto, "package.json"))) continue;
       const escolhido =
         filtros.length === 0 ||
         filtros.some((f) => f === gui || f === `${gui}/${tecnologia}`);
@@ -142,35 +112,6 @@ function servir(pasta: string): Promise<Server> {
   );
 }
 
-// Roda os testes do módulo Android ou desktop, que gravam
-// <tecnologia>-<cena>.png na pasta dada, e devolve os nomes gerados.
-async function capturarNoGradle(
-  gui: string,
-  tecnologia: string,
-  pasta: string,
-): Promise<string[]> {
-  const { gradlew, tarefa: teste } = GRADLE[PLATAFORMA[tecnologia]];
-  const tarefa = `:${gui}-${tecnologia}:${teste}`;
-  try {
-    execFileSync(
-      gradlew,
-      ["-q", tarefa, "--rerun", `-Pcapturas.destino=${pasta}`],
-      {
-        cwd: path.dirname(gradlew),
-        encoding: "utf8",
-        stdio: "pipe",
-      },
-    );
-  } catch (erro) {
-    const { stdout, stderr } = erro as { stdout?: string; stderr?: string };
-    console.error(`Falhou: ${tarefa}\n${stdout ?? ""}${stderr ?? ""}`);
-    throw erro;
-  }
-  return (await readdir(pasta))
-    .filter((a) => a.startsWith(`${tecnologia}-`) && a.endsWith(".png"))
-    .sort();
-}
-
 async function cenasDo(gui: string): Promise<Cenas> {
   const arquivo = path.join(IMPLEMENTACOES, gui, "cenas.mts");
   if (!existsSync(arquivo)) return { inicial: async () => {} };
@@ -205,7 +146,7 @@ async function registrar(
   cena: string,
   imagem: Buffer,
 ) {
-  const chave = `${gui}/${cena} (${PLATAFORMA[tecnologia]})`;
+  const chave = `${gui}/${cena}`;
   if (!hashes.has(chave)) hashes.set(chave, new Map());
   hashes
     .get(chave)!
@@ -253,28 +194,6 @@ try {
     const versionadas = path.join(IMPLEMENTACOES, gui, "capturas");
     const destino = temporaria ? path.join(temporaria, gui) : versionadas;
     await mkdir(destino, { recursive: true });
-
-    if (PLATAFORMA[tecnologia] !== "web") {
-      // O Gradle grava numa pasta só deste módulo; daqui vão para o destino.
-      const pasta = await mkdtemp(
-        path.join(tmpdir(), `capturas-${tecnologia}-`),
-      );
-      const arquivos = await capturarNoGradle(gui, tecnologia, pasta);
-      const cenas = arquivos.map((a) =>
-        a.slice(tecnologia.length + 1, -".png".length),
-      );
-      for (const [i, arquivo] of arquivos.entries()) {
-        await copyFile(path.join(pasta, arquivo), path.join(destino, arquivo));
-        await registrar(
-          gui,
-          tecnologia,
-          cenas[i],
-          await readFile(path.join(pasta, arquivo)),
-        );
-      }
-      await procurarSumidas(gui, tecnologia, cenas);
-      continue;
-    }
 
     execFileSync(
       "npm",
@@ -332,7 +251,7 @@ for (const [chave, porTecnologia] of hashes) {
 }
 if (divergentes === 0) {
   console.log(
-    `As ${hashes.size} cenas saíram idênticas em todas as tecnologias de cada interface e plataforma.`,
+    `As ${hashes.size} cenas saíram idênticas em todas as tecnologias de cada interface.`,
   );
 }
 
