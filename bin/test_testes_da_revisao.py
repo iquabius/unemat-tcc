@@ -48,7 +48,7 @@ class Escolha(unittest.TestCase):
 
     def test_o_resto_de_implementacoes_roda_as_capturas_de_todas(self):
         for arquivo in ("implementacoes/package-lock.json", "implementacoes/capturar.mts",
-                        "implementacoes/android/build.gradle.kts"):
+                        "implementacoes/.prettierignore"):
             with self.subTest(arquivo=arquivo):
                 self.assertEqual(
                     rotulos(arquivo, "implementacoes/formulario/cenas.mts"),
@@ -224,28 +224,21 @@ class Mudados(unittest.TestCase):
 
 
 class Preparar(unittest.TestCase):
-    """O que a worktree ganha antes das capturas, sem rodar o npm."""
+    """O que a worktree ganha antes dos comandos de implementacoes/, sem rodar
+    o npm."""
 
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory()
         self.addCleanup(self.tmp.cleanup)
-        raiz = Path(self.tmp.name) / "worktree"
+        raiz = Path(self.tmp.name)
         (raiz / "implementacoes" / "node_modules").mkdir(parents=True)
-        (raiz / "implementacoes" / "android").mkdir()
-        self.principal = Path(self.tmp.name) / "principal"
-        (self.principal / "implementacoes" / "android").mkdir(parents=True)
         self.chamadas = []
         for alvo in (mock.patch.object(tr, "RAIZ", raiz),
                      mock.patch.object(tr.subprocess, "run",
                                        lambda argv, **kw: self.chamadas.append(argv)),
-                     mock.patch.object(tr, "git", return_value=f"{self.principal}/.git\n"),
-                     mock.patch.dict(os.environ, {"ANDROID_HOME": "/sdk"}),
                      mock.patch.object(tr.sys, "stderr", io.StringIO())):
             alvo.start()
             self.addCleanup(alvo.stop)
-
-    def local(self, raiz):
-        return raiz / "implementacoes" / "android" / "local.properties"
 
     def test_lock_mudado_reinstala_mesmo_com_node_modules(self):
         tr.preparar(["implementacoes/package-lock.json"])
@@ -259,29 +252,6 @@ class Preparar(unittest.TestCase):
         (tr.RAIZ / "implementacoes" / "node_modules").rmdir()
         tr.preparar([])
         self.assertEqual(self.chamadas, [["npm", "ci", "--no-audit", "--no-fund"]])
-
-    def test_sem_android_home_copia_o_local_properties_do_checkout_principal(self):
-        del os.environ["ANDROID_HOME"]
-        self.local(self.principal).write_text("sdk.dir=/sdk\n")
-        tr.preparar([])
-        self.assertEqual(self.local(tr.RAIZ).read_text(), "sdk.dir=/sdk\n")
-
-    def test_com_android_home_nao_copia(self):
-        self.local(self.principal).write_text("sdk.dir=/sdk\n")
-        tr.preparar([])
-        self.assertFalse(self.local(tr.RAIZ).exists())
-
-    def test_sem_local_properties_em_lugar_nenhum_avisa(self):
-        del os.environ["ANDROID_HOME"]
-        tr.preparar([])
-        self.assertIn("não acham o SDK", tr.sys.stderr.getvalue())
-        self.assertFalse(self.local(tr.RAIZ).exists())
-
-    def test_sem_capturas_no_plano_nao_mexe_no_android(self):
-        del os.environ["ANDROID_HOME"]
-        tr.preparar([], android=False)
-        self.assertEqual(tr.sys.stderr.getvalue(), "")
-        self.assertFalse(self.local(tr.RAIZ).exists())
 
 
 class CaminhosDeCodigo(unittest.TestCase):

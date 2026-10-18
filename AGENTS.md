@@ -432,11 +432,11 @@ rascunho, e a história dele se condensa antes do merge (passo 5).
    as regras mecânicas e os shas, caminhos, tarefas e ADRs citados) e
    escolhe pelo diff do ramo a `unittest` da pasta mudada, as
    capturas das interfaces mudadas, a especificação e a formatação, e dá
-   à worktree o `npm ci` e o `android/local.properties` que faltam; se
-   ele falha, a ponta fica sem marca. Achado que o autor decide deixar de
-   pé, ou teste que não dá para rodar: `git revisao excecao -m "<motivo
-   do autor>"`, que só o autor decide. Nenhum commit `fixup!`
-   chega ao `master`, e o que já está nele não se reescreve.
+   à worktree o `npm ci` que falta; se ele falha, a ponta fica sem marca.
+   Achado que o autor decide deixar de pé, ou teste que não dá para
+   rodar: `git revisao excecao -m "<motivo do autor>"`, que só o autor
+   decide. Nenhum commit `fixup!` chega ao `master`, e o que já está
+   nele não se reescreve.
 6. **Merge**, montado na worktree e levado ao `master` por fast-forward,
    porque o índice do checkout principal pode guardar o rascunho do texto
    e o `git merge --no-ff` recusa índice com mudança (o fast-forward o
