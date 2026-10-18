@@ -6,25 +6,23 @@ um projeto completo, com o próprio =package.json=, e pode ser lida sozinha.
 O escopo (interfaces e tecnologias) está nas decisões em
 [[file:../docs/adr/][docs/adr/]]. O código que saiu da análise (o Contador,
 a Lista filtrável, o Carrinho, o jQuery, o Angular com RxJS, o JavaFX com
-FXML, o par Qt Widgets × QML e o cronômetro de 2017) fica congelado em
-[[file:fora-da-analise/README.org][fora-da-analise/]], fora dos comandos
-abaixo.
+FXML, o par Qt Widgets × QML, o cronômetro de 2017, o Android e o desktop)
+fica congelado em [[file:fora-da-analise/README.org][fora-da-analise/]],
+fora dos comandos abaixo.
 
-* Pré-requisitos: Node.js e JDK
+* Pré-requisito: Node.js
 
-  As versões ficam em =.tool-versions=, na raiz do repositório, e o
-  [[https://asdf-vm.com][asdf]] as instala:
+  A versão fica em =.tool-versions=, na raiz do repositório, e o
+  [[https://asdf-vm.com][asdf]] a instala:
 
   #+begin_src sh
   asdf plugin add nodejs
-  asdf plugin add java
   asdf install
   #+end_src
 
-  O Angular 22 exige Node 22.22.3 ou mais novo. O JDK (Temurin 25) só é
-  preciso para o Android e o desktop.
+  O Angular 22 exige Node 22.22.3 ou mais novo.
 
-* Instalar e rodar (web)
+* Instalar e rodar
 
   Os projetos web são /workspaces/ do npm, todos em TypeScript: um único
   =npm install= em =implementacoes/=, onde está o =package.json= dos
@@ -48,81 +46,12 @@ abaixo.
   | =lit=              | Lit (sobre o /custom element/)         |
   | =angular-signals=  | Angular com /signals/                  |
 
-* Instalar e rodar (Android)
-
-  O Formulário com validação, os Dados ao vivo e o Login com quarentena
-  também existem no Android, em Kotlin, em duas tecnologias:
-
-  | Subpasta           | Tecnologia                                         |
-  |--------------------+----------------------------------------------------|
-  | =android-views=    | Views clássico: /listeners/, estado na =Activity= |
-  | =android-compose=  | Jetpack Compose                                    |
-
-  Todos formam um único projeto Gradle, com raiz em
-  =implementacoes/android/=, onde ficam o /wrapper/ e as versões
-  (=gradle/libs.versions.toml=). Cada subpasta é um módulo, chamado
-  =:<interface>-<tecnologia>= (por exemplo, =:formulario-android-compose=).
-
-  Precisa do Android SDK (o Android Studio o instala em =~/Android/Sdk=),
-  com a plataforma =android-37= e as /build-tools/ 36.0.0. Para compilar
-  pela linha de comando, crie =implementacoes/android/local.properties= (não é
-  versionado; o Android Studio o cria ao abrir o projeto):
-
-  #+begin_src sh
-  echo "sdk.dir=$HOME/Android/Sdk" > implementacoes/android/local.properties
-  cd implementacoes/android
-  ./gradlew assembleDebug                                   # todos os APKs
-  ./gradlew :formulario-android-compose:installDebug         # instala no emulador
-  #+end_src
-
-  No Android Studio, abra a pasta =implementacoes/android/=.
-
-  | Peça              | Versão     | Por quê                                           |
-  |-------------------+------------+---------------------------------------------------|
-  | JDK               | Temurin 25 | LTS; o Gradle roda no 25 desde a 9.1               |
-  | Gradle            | 9.7.0      | máximo com suporte completo do Kotlin 2.4.20       |
-  | AGP               | 9.3.3      | linha 9.3, a última com suporte do Kotlin 2.4.20 |
-  | Kotlin            | 2.4.20     |                                                   |
-  | Compose BOM       | 2026.09.00 |                                                   |
-  | Robolectric       | 4.17       | suporta a API 37 (notas da versão)                 |
-  | Roborazzi         | 1.75.0     |                                                   |
-
-  A compatibilidade entre Kotlin, Gradle e AGP segue a tabela de
-  [[https://kotlinlang.org/docs/gradle-configure-project.html][kotlinlang.org/docs/gradle-configure-project.html]]; havia Gradle 9.8 e AGP
-  9.4 mais novos, fora dela.
-
-* Instalar e rodar (desktop)
-
-  O Formulário com validação também existe no desktop, em Java, em duas
-  tecnologias, com a tela montada em código nas duas:
-
-  | Subpasta  | Tecnologia                                       |
-  |-----------+--------------------------------------------------|
-  | =swing=   | Swing: /listeners/, estado na classe da tela     |
-  | =javafx=  | JavaFX 27: /properties/ e /bindings/, sem FXML   |
-
-  Os dois formam um único projeto Gradle, com raiz em
-  =implementacoes/desktop/=, onde ficam o /wrapper/ e as versões
-  (=gradle/libs.versions.toml=). Cada subpasta é um módulo, chamado
-  =:<interface>-<tecnologia>= (por exemplo, =:formulario-swing=). O
-  domínio é o =dominio-kotlin= do Android, compilado para a JVM e chamado
-  do Java.
-
-  #+begin_src sh
-  cd implementacoes/desktop
-  ./gradlew test                            # testes de conformidade e cenas
-  ./gradlew :formulario-javafx:run          # abre a janela
-  #+end_src
-
-  Os testes rodam sem janela: o Swing pinta a tela numa imagem, e o
-  JavaFX usa a plataforma Headless.
-
 * Capturas de tela
 
   Cada interface guarda capturas versionadas em
   =implementacoes/<interface>/capturas/=, uma por tecnologia e cena
-  (=react-inicial.png=, =android-compose-erros.png=...). Ao criar ou alterar
-  uma implementação, gere-as de novo e inclua no mesmo commit: o =git diff=
+  (=react-inicial.png=, =solid-erros.png=...). Ao criar ou alterar uma
+  implementação, gere-as de novo e inclua no mesmo commit: o =git diff=
   mostra o que mudou na tela.
 
   #+begin_src sh
@@ -130,7 +59,6 @@ abaixo.
   npm run capturas                                  # todos
   npm run capturas -- formulario                    # uma interface
   npm run capturas -- formulario/react              # uma implementação
-  npm run capturas -- formulario/android-views      # uma implementação Android
   npm run capturas -- --conferir                    # só compara, não grava
   #+end_src
 
@@ -144,38 +72,16 @@ abaixo.
   captura); sem ele, só o estado inicial é capturado. O /script/
   ([[file:capturar.mts][implementacoes/capturar.mts]]) faz o /build/, serve
   o resultado, fixa a data em 26/09/2026 (para "hoje" não mudar a imagem)
-  e, no fim, avisa se a mesma cena saiu diferente entre as tecnologias web
-  de uma interface, o que indica que alguma implementação foge da
+  e, no fim, avisa se a mesma cena saiu diferente entre as tecnologias de
+  uma interface, o que indica que alguma implementação foge da
   especificação.
-
-  No Android, as mesmas cenas ficam nos testes de cada módulo
-  (=src/test/.../CenasTest.kt=). O /script/ roda esses testes pelo Gradle
-  com [[https://robolectric.org][Robolectric]] e
-  [[https://github.com/takahirom/roborazzi][Roborazzi]], que desenham a
-  tela na JVM, sem emulador, e o resto segue igual: mesma pasta, mesmo
-  =--conferir=. O aviso compara só Views com Compose. As duas reproduzem o
-  =estilo.css= da interface, cada uma no seu arquivo de estilo
-  (=res/values/estilo.xml= no Views, =Estilo.kt= no Compose), mas desenham
-  o texto com diferenças de poucos pixels, e o aviso aparece mesmo assim:
-  abra as imagens e confira se posições, cores e conteúdo batem. As
-  animações ficam desligadas nos testes: o efeito de toque (/ripple/) tem
-  um brilho que mudaria a imagem a cada execução.
-
-  No desktop, as cenas ficam em =src/test/.../CenasTest.java= de cada
-  módulo, e o /script/ as roda pelo Gradle de =implementacoes/desktop/=,
-  sem janela. As imagens saem no tamanho da janela, 416 × 560, sem a
-  escala 2 da web e do Android, que o Swing não mede sem janela. O aviso
-  compara Swing com JavaFX e sai sempre: cada um desenha controles e
-  texto a seu modo, cada um com o seu arquivo de estilo (=Estilo.java= no
-  Swing, =javafx-estilo/estilo.css= no JavaFX).
 
   Agentes de código seguem essas regras pelo
   [[file:AGENTS.md][implementacoes/AGENTS.md]] (o =CLAUDE.md= ao lado é um
   /symlink/ para ele).
 
-  As imagens web dependem das fontes instaladas: geradas noutra máquina,
-  podem mudar sem que o código tenha mudado, e as do desktop também. As do
-  Android usam as fontes que o Robolectric traz.
+  As imagens dependem das fontes instaladas: geradas noutra máquina,
+  podem mudar sem que o código tenha mudado.
 
 * Especificação das interfaces (OpenSpec)
 

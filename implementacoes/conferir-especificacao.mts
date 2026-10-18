@@ -1,6 +1,6 @@
 // Confere a especificação das interfaces em openspec/: a estrutura, pelo
 // openspec validate, e a ligação de cada cenário a uma verificação do teste
-// de conformidade da interface, em todas as tecnologias.
+// de conformidade da interface.
 //
 // Uso: npm run conferir-especificacao
 //
@@ -10,11 +10,9 @@
 //
 // O nome do cenário (#### Scenario: <nome> em
 // openspec/specs/<interface>/spec.md) é o nome da verificação
-// (conferir("<nome>", ...)) nos testes de implementacoes/<interface>/, em JS,
-// Kotlin ou Java. Cada arquivo de teste tem de ter todos os cenários e só
-// eles; e, como as outras plataformas repetem o teste da web, na mesma ordem
-// do arquivo que fica na pasta da interface. Sai com erro e lista as
-// diferenças.
+// (conferir("<nome>", ...)) nos testes de implementacoes/<interface>/. Cada
+// arquivo de teste tem de ter todos os cenários e só eles. Sai com erro e
+// lista as diferenças.
 //
 // Teste é todo arquivo da pasta da interface que chama conferir(...); cada
 // chamada tem de ter o nome como texto literal entre aspas duplas, senão o
@@ -28,23 +26,15 @@ import path from "node:path";
 const IMPLEMENTACOES = import.meta.dirname;
 const SPECS = path.join(IMPLEMENTACOES, "openspec", "specs");
 const OPENSPEC = path.join(IMPLEMENTACOES, "node_modules", ".bin", "openspec");
-const EXTENSOES = new Set([".js", ".ts", ".mts", ".kt", ".java"]);
-const FORA = new Set([
-  "node_modules",
-  "build",
-  "dist",
-  "capturas",
-  ".gradle",
-  ".angular",
-]);
+const EXTENSOES = new Set([".js", ".ts", ".mts"]);
+// O build/ do Android e do desktop sobra, fora do git, nas pastas das
+// interfaces dos checkouts que os compilaram.
+const FORA = new Set(["node_modules", "build", "dist", "capturas", ".angular"]);
 
 const semShallNemMust = /should contain SHALL or MUST/;
 const cenario = /^####\s+Scenario:\s*(.+?)\s*$/gm;
 const verificacao = /\bconferir\(\s*"((?:[^"\\]|\\.)*)"/g;
-// Toda chamada, e as definições (fun no Kotlin, void no Java), que não são
-// chamadas.
 const chamada = /\bconferir\(/g;
-const definicao = /\b(?:fun|void)\s+conferir\(/g;
 
 type Validacao = {
   items: {
@@ -134,10 +124,10 @@ for (const gui of guis) {
     await arquivos(path.join(IMPLEMENTACOES, gui))
   ).sort()) {
     const texto = await readFile(arquivo, "utf8");
-    const chamadas = contar(texto, chamada) - contar(texto, definicao);
+    const chamadas = contar(texto, chamada);
     if (chamadas === 0) continue;
     const relativo = path.relative(IMPLEMENTACOES, arquivo);
-    // O escape (\" no JS, \$ no Kotlin) vale o caractere que vem depois.
+    // O escape (\") vale o caractere que vem depois.
     const nomes = [...texto.matchAll(verificacao)].map((m) =>
       m[1].replace(/\\(.)/g, "$1"),
     );
@@ -149,14 +139,8 @@ for (const gui of guis) {
     testes.push({ arquivo: relativo, nomes });
   }
 
-  const completo = (nomes: string[]) =>
-    nomes.length === cenarios.length &&
-    cenarios.every((c) => nomes.includes(c));
-
-  // A referência da ordem é o teste da web, o arquivo na pasta da interface.
-  const web = testes.find((t) => path.dirname(t.arquivo) === gui);
-  if (!web) {
-    problemas.push(`${gui}: falta o teste de conformidade da web em ${gui}/`);
+  if (!testes.some((t) => path.dirname(t.arquivo) === gui)) {
+    problemas.push(`${gui}: falta o teste de conformidade em ${gui}/`);
   }
   for (const { arquivo, nomes } of testes) {
     const faltam = cenarios.filter((c) => !nomes.includes(c));
@@ -169,15 +153,6 @@ for (const gui of guis) {
     }
     for (const nome of repetidos(nomes)) {
       problemas.push(`${arquivo}: verificação repetida: "${nome}"`);
-    }
-    // A ordem só se compara entre testes que têm cada cenário uma vez.
-    if (
-      web &&
-      completo(nomes) &&
-      completo(web.nomes) &&
-      nomes.join("\n") !== web.nomes.join("\n")
-    ) {
-      problemas.push(`${arquivo}: ordem diferente da de ${web.arquivo}`);
     }
   }
 

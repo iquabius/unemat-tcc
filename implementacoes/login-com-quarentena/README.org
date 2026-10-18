@@ -13,14 +13,7 @@ O servidor é simulado em =dominio.ts=, com a forma de uma chamada =fetch=:
 repetirem. O relógio da sessão também fica no domínio,
 =iniciarRelogio(aoTique)=, que devolve a função que o para, para a limpeza
 ao sair da tela se conferir pela contagem: =contarAbertos()= diz quantas
-requisições e relógios estão abertos. No Android, o domínio está portado
-para Kotlin em =dominio-kotlin/main/Dominio.kt=, compartilhado por
-=android-views= e =android-compose=, com as corrotinas no lugar das
-/Promises/: =autenticar= é uma função suspensa, e cancelar a corrotina que
-a espera faz o papel do =AbortSignal=; =iniciarRelogio= roda o relógio numa
-corrotina e devolve o =Job= que o para. Nada ali depende do Android; para
-o desktop usar o mesmo arquivo, faltam o =kotlinx-coroutines-core= e uma
-forma de o Java chamar a função suspensa.
+requisições e relógios estão abertos.
 
 As regras, as mensagens e os cenários que o teste de conformidade confere
 estão em =implementacoes/openspec/specs/login-com-quarentena/spec.md=, a
@@ -46,10 +39,3 @@ rodada edita o =spec.md= direto (=implementacoes/AGENTS.md=).
   arquivo no console. O teste troca os temporizadores da página por um
   relógio falso, que só anda quando ele manda, e por isso roda em menos de
   um segundo. As cenas das capturas ficam em =cenas.mts=.
-
-  No Android, as mesmas 23 verificações estão em =TesteDeConformidade.kt=,
-  nos testes de cada tecnologia, com o relógio falso da regra
-  =RelogioFalso=, que troca a espera do domínio, e rodam com o
-  =npm run capturas= (ou com =./gradlew testDebugUnitTest= em
-  =implementacoes/android/=). O =DominioTest.kt= confere o porte do
-  domínio.

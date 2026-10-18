@@ -31,7 +31,8 @@ _minted*
 node_modules/
 dist/
 .angular/
-# Gradle (projeto Android das implementações, em implementacoes/android/)
+# Gradle (o Android e o desktop, em implementacoes/fora-da-analise/, e as
+# saídas que sobram dos dois nos checkouts que os compilaram)
 .gradle/
 .kotlin/
 build/

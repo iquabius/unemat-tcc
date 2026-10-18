@@ -1,5 +1,6 @@
 # Saídas de build e dependências (o Prettier só lê o .gitignore de
-# implementacoes/).
+# implementacoes/). As do Gradle sobram, fora do git, nos checkouts que
+# compilaram o Android e o desktop antes de irem para fora-da-analise/.
 node_modules/
 dist/
 .angular/

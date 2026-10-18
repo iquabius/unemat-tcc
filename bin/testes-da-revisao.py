@@ -30,18 +30,15 @@ O que muda escolhe o que roda:
 - implementacoes/openspec/: a especificação;
 - implementacoes/fora-da-analise/: nada, porque o código dali está
   congelado;
-- o resto de implementacoes/ (android/, package.json, capturar.mts...):
+- o resto de implementacoes/ (package.json, capturar.mts...):
   as capturas de todas as interfaces, a especificação e a formatação;
 - .config/revisao, .tool-versions, ou nenhuma base: tudo.
 
 Roda na worktree em que se marca. A que não tem implementacoes/node_modules,
-ou cujo diff muda o package.json ou o package-lock.json, ganha um npm ci; a
-que não tem implementacoes/android/local.properties (ignorado pelo git)
-recebe o do checkout principal, salvo com ANDROID_HOME no ambiente. Para no
-primeiro comando que falha, com a saída dele.
+ou cujo diff muda o package.json ou o package-lock.json, ganha um npm ci.
+Para no primeiro comando que falha, com a saída dele.
 """
 import os
-import shutil
 import subprocess
 import sys
 from pathlib import Path
@@ -169,22 +166,11 @@ def escolher(arquivos, testes, guis, tudo=False):
     return plano
 
 
-def preparar(arquivos, android=True):
-    """Dá à worktree o que o git não guarda e o plano pede: os node_modules
-    e, com `android` (há capturas no plano), o local.properties."""
+def preparar(arquivos):
+    """Dá à worktree os node_modules, que o git não guarda."""
     if not (RAIZ / IMPL / "node_modules").is_dir() or DEPENDENCIAS & set(arquivos):
         print("testes da revisão: npm ci em implementacoes/", file=sys.stderr, flush=True)
         subprocess.run(["npm", "ci", "--no-audit", "--no-fund"], cwd=RAIZ / IMPL, check=True)
-    local = Path(IMPL, "android", "local.properties")
-    if not android or os.environ.get("ANDROID_HOME") or (RAIZ / local).exists():
-        return
-    principal = Path(git("rev-parse", "--path-format=absolute", "--git-common-dir").strip()).parent
-    if (principal / local).exists():
-        print(f"testes da revisão: {local} do checkout principal", file=sys.stderr)
-        shutil.copy(principal / local, RAIZ / local)
-    else:
-        print(f"testes da revisão: sem {local} aqui nem no checkout principal, e sem "
-              "ANDROID_HOME; as capturas do Android não acham o SDK", file=sys.stderr)
 
 
 def main():
@@ -212,7 +198,7 @@ def main():
     if soltos:
         return 1
     if any(pasta == IMPL for _, pasta, _ in plano):
-        preparar(arquivos, android=any(r.startswith("capturas") for r, _, _ in plano))
+        preparar(arquivos)
     for rotulo, pasta, argv in plano:
         print(f"testes da revisão: {rotulo}", file=sys.stderr, flush=True)
         feito = subprocess.run(argv, cwd=RAIZ / pasta)
