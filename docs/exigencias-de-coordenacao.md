@@ -13,10 +13,13 @@ tipos são proposta do agente, revista pelo autor em 2026-10-16; nenhum
 entrou no `CONTEXT.md`.
 
 **Conclusão.** A orquestração de eventos tem sete tipos nas cinco
-interfaces, e o gerenciamento de estado, nove. Nenhum par cobre todos. O
-Windows Forms × WPF é o mais equilibrado: o Formulário e o Quadro no
-estado, o Login na orquestração, com as três políticas de concorrência e
-os relógios. O Web Component × Lit pende para a orquestração, sem estado
+interfaces, e o gerenciamento de estado, nove. Nenhum par cobre todos com
+as interfaces do ADR 0029. O par do desktop, com o Formulário, o Quadro e
+o Login, é o mais equilibrado: o Formulário e o Quadro no estado, o Login
+na orquestração, com as três políticas de concorrência e os relógios. A
+cobertura vem das interfaces, e não das tecnologias: o Swing × JavaFX,
+que substituiu o Windows Forms × WPF em 2026-10-16 (ADR 0001), cobre os
+mesmos tipos com as mesmas interfaces. O Web Component × Lit pende para a orquestração, sem estado
 compartilhado; o Solid × Angular com *signals*, para o estado, sem relógio
 nem ciclo de vida preso a um estado; o Views × Compose é o mais forte no
 gerenciamento de estado e não tem a política em que a requisição nova
@@ -76,10 +79,15 @@ Interfaces de cada par pelo ADR 0029: Web Component, React e Solid têm as
 cinco; o Lit, Formulário, Busca e Dados ao vivo (e, fora do ADR, o Quadro
 e o Login desde 2026-10-17); o Angular com *signals*,
 Formulário, Busca e Quadro; Views × Compose, Formulário, Quadro e Dados ao
-vivo; Windows Forms × WPF, Formulário, Quadro e Login. Cada célula diz a
-interface que traz o tipo ao par; "—" é o tipo que o par não tem.
+vivo; o par do desktop, Formulário, Quadro e Login, as interfaces que o
+ADR 0001 dava ao Windows Forms × WPF antes da troca do par, em
+2026-10-16, e que a coluna mantém para o Swing × JavaFX. Pelo plano de 2026-10-17 (`dd46fba`), as
+cinco interfaces se implementam nas nove tecnologias, e o conjunto
+analisado sai depois; a tabela mostra a cobertura com os subconjuntos do
+ADR 0029. Cada célula diz a interface que traz o tipo ao par; "—" é o
+tipo que o par não tem.
 
-| Tipo | Web Component × Lit | Solid × Angular | Views × Compose | Windows Forms × WPF |
+| Tipo | Web Component × Lit | Solid × Angular | Views × Compose | Swing × JavaFX |
 |---|---|---|---|---|
 | O1 substituição | Busca | Busca | — | Login |
 | O1 ignorar | Formulário | Formulário | Formulário | Formulário |
@@ -103,7 +111,7 @@ interface que traz o tipo ao par; "—" é o tipo que o par não tem.
 
 Leitura nossa, a conferir quando o autor fixar os tipos:
 
-- ao Windows Forms × WPF falta só o tempo da Busca e dos Dados ao vivo, e
+- ao par do desktop falta só o tempo da Busca e dos Dados ao vivo, e
   o Login lhe dá a substituição, o relógio, o prazo e o ciclo de vida preso a um
   estado;
 - o Web Component × Lit tem toda a orquestração que a web tem, menos a
