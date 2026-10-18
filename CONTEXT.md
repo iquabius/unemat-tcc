@@ -267,9 +267,9 @@ o Compose se apresenta assim.
 _Avoid_: *toolkit* como sinônimo de biblioteca; kit de ferramentas
 
 **Implementação**:
-Uma interface numa tecnologia: na primeira rodada, 33, sendo 21 na web, 6
-no Android e 6 no desktop; na terceira, o Formulário reescrito em cada uma
-das nove tecnologias que o têm.
+Uma interface numa tecnologia: na primeira rodada, as cinco interfaces nas
+nove tecnologias, 45, de que sai o conjunto analisado (plano de
+2026-10-17); na terceira, o Formulário reescrito em cada uma das nove.
 _Avoid_: versão, exemplo; solução (pede "problema" para a interface)
 
 **Apoio**:
