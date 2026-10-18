@@ -48,7 +48,7 @@ A parte da notação que escreve quais elementos a tela tem, em que
 hierarquia e com que textos: HTML num texto, com `createElement` nas
 partes repetidas (Web Component), *template* `html` (Lit), JSX (React,
 Solid), *template* (Angular), layout XML (Views), funções (Compose),
-código C# (Windows Forms), XAML (WPF). Solid e Angular diferem nela
+código Java (Swing, JavaFX). Solid e Angular diferem nela
 dentro do mesmo modelo de programação, e Web Component e Lit, nas partes
 repetidas e no filho que entra e sai da página. A análise aponta, em
 cada DC, se a diferença está na coordenação, na montagem da tela ou na
@@ -211,7 +211,7 @@ _Avoid_: ambiente sozinho; ambiente para o sistema de edição das DCs
 
 **Plataforma**:
 O ambiente em que a interface roda e cujas APIs uma tecnologia usa: a web
-(TypeScript), o Android (Kotlin) e o desktop (C#). Cada par se classifica
+(TypeScript), o Android (Kotlin) e o desktop (Java). Cada par se classifica
 pela plataforma: a análise se faz na web, e o Android e o desktop
 conferem, nas interfaces que implementam, se as posições da web se repetem
 (ADR 0012).
@@ -223,7 +223,7 @@ plataforma (é o domínio dela, na linguagem dela)
 Uma forma de implementar uma interface numa plataforma: na web, Web
 Component (a plataforma), React, Solid, Lit, Angular com *signals* e
 Angular com RxJS; no Android, Views (a
-plataforma) e Jetpack Compose; no desktop, Windows Forms e WPF. Cada uma
+plataforma) e Jetpack Compose; no desktop, Swing e JavaFX. Cada uma
 impõe um modelo de programação e se escreve numa notação própria; a
 documentação a classifica como biblioteca, *framework*, *toolkit* ou
 plataforma, e o texto usa essas categorias só para descrevê-la.
