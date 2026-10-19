@@ -1,27 +1,28 @@
-# 0008. Capturas versionadas e idênticas entre tecnologias, com o Android capturado na JVM e reproduzindo a aparência da web
+# 0008. Capturas versionadas e idênticas entre as tecnologias web
 
-2026-09-26. As implementações de uma interface seguem a mesma
-especificação e a mesma aparência, e um desvio passava despercebido. Cada
-interface guarda em `capturas/` uma imagem por tecnologia e cena, gerada
-pelo Playwright (web) e por Robolectric com Roborazzi (Android, sem
-emulador) com `npm run capturas`; a mesma cena sai idêntica em todas as
-tecnologias, o comando avisa quando não sai, e as imagens entram no
-commit que altera a implementação. Para isso o Android reproduz o
-`estilo.css` da interface com o estilo fora da tela:
-`res/values/estilo.xml` no Views, citado com `style="@style/..."`, e
-`Estilo.kt` no Compose, com `Tema`, `Modifier`s nomeados e componentes
-estilizados; a tela só cita nomes, como o JSX cita `className`.
+2026-10-19. As implementações de uma interface seguem a mesma
+especificação e a mesma aparência, e um desvio passava despercebido.
+Cada interface guarda em `capturas/` uma imagem por tecnologia e cena,
+gerada pelo Playwright com `npm run capturas`; a mesma cena sai idêntica
+em todas as tecnologias web, o comando avisa quando não sai, e as
+imagens entram no commit que altera a implementação. A aparência fica no
+`estilo.css` da interface, fora da análise, e a tela só cita classes.
 
-Em vez de: conferir a olho no navegador e no emulador; sem registro, e o
-emulador não roda no ambiente de desenvolvimento.
+Em vez de: as capturas também fora da web (decisões de 2026-09-26 e
+2026-10-17): o Android capturado na JVM, com Robolectric e Roborazzi,
+reproduzindo o `estilo.css` em `estilo.xml` e `Estilo.kt`, e o *desktop*
+por tecnologia, na escala 1, com o aviso só informativo; mantinha a
+aparência comparável nas três plataformas, mas o texto diferia em poucos
+pixels entre Views e Compose, o Swing e o JavaFX não desenham iguais, e
+as duas plataformas saíram da análise (ADR 0001).
+Em vez de: conferir a olho no navegador; sem registro.
 Em vez de: o tema padrão de cada tecnologia, sem código de estilo (o
-primeiro Contador, commit `58277f3`); as capturas não eram comparáveis, e
-a diferença visual se misturava à de notação.
-Custo: imagens binárias no repositório; o texto no Android difere por
-poucos pixels entre Views e Compose, o que obriga a olhar as imagens em
-vez de confiar só no aviso; um arquivo de estilo a mais por tecnologia; e
-uma diferença que vai para a análise: o Views seleciona por estilo
-nomeado, como o CSS por classe, e o Compose, sem seletores, leva a
-componentes estilizados.
+primeiro Contador, commit `58277f3`); as capturas não eram comparáveis,
+e a diferença visual se misturava à de notação.
+Custo: imagens binárias no repositório; o *canvas* do Circle Drawer
+entra na captura só como pixels, e a igualdade depende de o navegador
+desenhar igual nas quatro tecnologias, a conferir; as capturas do
+Android e do *desktop* ficam congeladas em
+`implementacoes/fora-da-analise/`.
 
-Fontes: commits `951411f`, `58277f3` e `3a6f6dc`.
+Fontes: commits `951411f`, `58277f3`, `3a6f6dc` e `eb957e3`; ADR 0001.
