@@ -5,9 +5,7 @@
   "workspaces": [
     "*/web-component",
     "*/react",
-    "*/solid",
-    "*/lit",
-    "*/angular-signals"
+    "*/solid"
   ],
   "scripts": {
     "capturas": "node capturar.mts",
@@ -17,7 +15,7 @@
     "conferir-especificacao": "node conferir-especificacao.mts"
   },
   "engines": {
-    "node": ">=22.22.3"
+    "node": "^22.18.0 || >=23.6.0"
   },
   "devDependencies": {
     "@fission-ai/openspec": "1.14.1",
