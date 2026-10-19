@@ -11,7 +11,7 @@
   =acervo/blackwell2003-livro.pdf=,
   p. 13 a 16 do PDF (p. 115 a 118).
 - Observação: os nomes em português e a expressividade de papel
-  (/role-expressiveness/) seguem o CONTEXT.md; o agrupamento em oito, duas
+  (/role-expressiveness/) seguem o GLOSSARY.md; o agrupamento em oito, duas
   e quatro é do trabalho (ADR 0012), e não da fonte.
 - Conferido: 2026-10-13.
 * [[file:../cases.org::Em cada rodada, a avaliação percorre][cases: Em cada rodada, a avaliação percorre]], p. 115 (atividade)
@@ -49,7 +49,7 @@
   the two profiles match, all is well.” (p. 112)
 - Lido em: =acervo/blackwell2003.pdf=, p. 4 e 10 do PDF (p. 106 e 112).
 - Observação: “posição” e “perfil” vêm daí (decisão do autor em
-  2026-10-14; CONTEXT.md, Posição e Perfil); a fonte compara o perfil
+  2026-10-14; GLOSSARY.md, Posição e Perfil); a fonte compara o perfil
   observado com o que cada atividade pede, e o trabalho compara os perfis
   dos modelos entre si.
 - Conferido: 2026-10-14.

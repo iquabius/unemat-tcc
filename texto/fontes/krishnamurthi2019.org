@@ -18,7 +18,7 @@
   fonte, é a requisição que chega a um servidor, e não a que a interface
   faz. “A parte do programa que responde a ele” traduz o /causes some part
   of the program to run in response/ (2026-10-14). “It is the operating
-  environment that is in charge” fica fora da frase: o “ambiente de execução” do =CONTEXT.md= é só o que faz as
+  environment that is in charge” fica fora da frase: o “ambiente de execução” do =GLOSSARY.md= é só o que faz as
   atualizações que o código declara, e não o /operating environment/ da
   fonte. Substitui Madsen, Lhoták e Tip (2017, 86:1), que fica em
   =prog.org= (decisão do autor em 2026-10-14).

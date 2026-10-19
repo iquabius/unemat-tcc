@@ -6,7 +6,7 @@
   os valores que variam no tempo, chamados /signals/, cujas alterações se
   propagam automaticamente (Salvaneschi; Margara; Tamburrelli, 2015,
   p. 953).” Em 2026-10-15, “O modelo de programação por atualização
-  granular” passou ao nome do modelo (=CONTEXT.md=).
+  granular” passou ao nome do modelo (=GLOSSARY.md=).
 - Trecho: “It is based on concepts like time-varying values (a.k.a.
   signals or behaviors), events streams to model discrete updates,
   automatic tracking of dependencies, and automated propagation of

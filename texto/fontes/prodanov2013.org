@@ -11,6 +11,6 @@
   coletados e as formas de controle das variáveis envolvidas.” (p. 54)
 - Lido em: =acervo/prodanov2013.pdf=, p. 54 do PDF (p. 54).
 - Observação: primeira menção de “delineamento” no capítulo, no fim do
-  parágrafo que mostra o controle; o termo segue o CONTEXT.md, contra
+  parágrafo que mostra o controle; o termo segue o GLOSSARY.md, contra
   “desenho”.
 - Conferido: 2026-10-13.

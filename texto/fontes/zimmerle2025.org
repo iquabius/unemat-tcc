@@ -35,5 +35,5 @@
 - Observação: as cinco dimensões são as de López-Fernández et al., que os
   autores mapeiam para as DCs de Blackwell e Green (p. 1513). O trecho
   veio da introdução no corte de outubro de 2026; a frase mudou em
-  2026-10-14 (“juízo” saiu, CONTEXT.md, Avaliação).
+  2026-10-14 (“juízo” saiu, GLOSSARY.md, Avaliação).
 - Conferido: 2026-10-14.

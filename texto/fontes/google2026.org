@@ -34,7 +34,7 @@
   que colidia com o rótulo do React; a unidade da atualização no Angular é
   o componente (Lee et al., 2025, p. 289:24 e 289:38, reexecução do
   componente: React “Yes”, Solid e Angular “No”). “Detecção de
-  alterações” traduz /change detection/ sem “mudança”, que o CONTEXT.md
+  alterações” traduz /change detection/ sem “mudança”, que o GLOSSARY.md
   reserva ao OpenSpec. O trecho fala do componente OnPush; o texto não
   distingue a estratégia, e não precisa: no Angular 22.2.0, o das
   implementações (=implementacoes/node_modules/@angular/core=,
