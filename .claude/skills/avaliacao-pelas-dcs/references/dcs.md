@@ -35,7 +35,8 @@ da implementação, não o exemplo.
 6. **Na terceira rodada, misturar a biblioteca com o modelo de
    programação.** A conclusão da terceira rodada se lê "no ecossistema típico" (ADR 0029): o sinal que
    vem da API da biblioteca (react-hook-form, TanStack Solid Form,
-   `@angular/forms`, CommunityToolkit.Mvvm) é da biblioteca.
+   `react-use-websocket`, `@solid-primitives/websocket`; ADR 0031) é da
+   biblioteca.
 7. **Contar o mesmo fato em várias dimensões.** Kiss conta a lista do
    `createXBinding` nas dependências ocultas (p. 28) e na viscosidade
    (p. 29). Pode valer em duas, mas diga que é o mesmo trecho.
@@ -75,12 +76,11 @@ da implementação, não o exemplo.
   "types and availability of abstraction mechanisms" (Blackwell e Green
   2003, p. 116).
 - Sinal: as abstrações que a notação exige antes de implementar a
-  interface (classe com ciclo de vida, *hook*, *signal*, decorador,
-  `@Composable`, `INotifyPropertyChanged`) e as que ela permite criar
-  (componente, *hook* próprio, função `@Composable`,
-  `ReactiveController`). Liste-as com a linha em que aparecem.
+  interface (classe com ciclo de vida, *hook*, *signal*, efeito,
+  `createRoot`) e as que ela permite criar (componente, *hook* próprio,
+  função que cria um efeito). Liste-as com a linha em que aparecem.
 - Parte: coordenação, ou montagem da tela quando a abstração é da
-  tela (o componente, o decorador com o *template*).
+  tela (o componente).
 - Armadilhas: ler "nível baixo" como bom (Kiss 2014, p. 19, "low resp.
   good"); a dimensão diz quantas e quais abstrações, e o custo depende da
   atividade. Contar abstrações do domínio compartilhado.
@@ -93,8 +93,8 @@ da implementação, não o exemplo.
 - Sinal: a distância entre o que a especificação diz ("o total é a soma
   das cotações", "a mensagem aparece depois de três falhas") e o que o
   código escreve para isso; as peças que só existem para a tecnologia
-  (`useEffect` para sincronizar, `requestUpdate`, `findViewById`, a lista
-  de dependências).
+  (`useEffect` para sincronizar, o `querySelector` que acha o nó, o
+  `createRoot` que guarda os efeitos, a lista de dependências).
 - Parte: coordenação e ligação; a montagem da tela quando a hierarquia do
   código espelha (ou não) a da tela (Kiss 2014, p. 19).
 - Armadilhas: confundir com concisão, que se mede "independently of
@@ -111,7 +111,7 @@ da implementação, não o exemplo.
   (Blackwell e Green 2003, p. 117).
 - Sinal: a mesma intenção escrita de formas diferentes na mesma notação
   (ler o *signal* com `()` e o *store* sem; `class` e `className`; o
-  evento ora no XML, ora no Kotlin; `@state` e `@property`).
+  atributo ora no HTML do esqueleto, ora num `setAttribute`).
 - Parte: qualquer uma.
 - Armadilhas: avalia-se "by introspection" (Green e Petre 1996, p. 148):
   marque como leitura do autor; não trazer a dimensão por outra porta,
@@ -160,9 +160,10 @@ da implementação, não o exemplo.
 - Sinal: o valor que muda num lugar e é lido noutro sem marca entre os
   dois (o campo escrito no tratador e lido no `renderizar`); a dependência
   escrita só num sentido, como a planilha, que "does not tell which other
-  cells take their value from it" (p. 154); a ligação só por nome (`id`
-  do XML e `R.id`; `{Binding Caminho}`); a lista de dependências escrita à
-  mão (React, `createXBinding`).
+  cells take their value from it" (p. 154); a ligação só por nome (a
+  classe ou o atributo do esqueleto HTML que o `querySelector` procura);
+  a lista de dependências escrita à mão (no React, a do `useEffect` e a
+  do `useMemo`).
 - Parte: ligação entre coordenação e tela.
 - Armadilhas: confundir com visibilidade: "Visibility measures the number
   of steps needed to make a given item visible, hidden dependencies
@@ -193,8 +194,8 @@ da implementação, não o exemplo.
   language?" (Green e Petre 1996, p. 139). Definição: "extra information
   in means other than formal syntax" (Blackwell e Green 2003, p. 117).
 - Sinal: o que a notação deixa livre para agrupar e comentar (a ordem dos
-  membros de uma classe, o aninhamento do JSX, o comentário no XML do
-  layout, o agrupamento de *signals*) e o que ela fixa (a ordem dos
+  membros de uma classe, o aninhamento do JSX, o comentário no HTML do
+  esqueleto, o agrupamento de *signals*) e o que ela fixa (a ordem dos
   *hooks* no React, o formatador).
 - Parte: qualquer uma.
 - Armadilhas: tomar os comentários das implementações por traço da
@@ -250,7 +251,7 @@ da implementação, não o exemplo.
 - Face notacional: a escolha de construção que obriga a decidir antes,
   como o *while* que "should be changed to" *for* (Green e Petre 1996,
   p. 157): escolher entre estado e derivado, entre `useState` e
-  `useReducer`, entre `@state` e `@property`, onde guardar o estado
+  `useReducer`, entre `createSignal` e `createStore`, onde guardar o estado
   compartilhado.
 - Parte: coordenação.
 - Armadilhas: tratar a ordem que o editor impõe, que não está no código;
@@ -267,10 +268,11 @@ da implementação, não o exemplo.
   p. 118).
 - Face notacional: a regra da notação que "prohibits any testing until
   the program is completely ready" (Green e Petre 1996, p. 157): o que o
-  compilador exige antes de rodar a primeira tela (o decorador completo,
-  o layout XML com os `id` que o Kotlin lê, o `DataContext` do XAML).
+  compilador exige antes de rodar a primeira tela (o `tsc` que o `build`
+  roda antes de empacotar: o tipo de cada *prop* no JSX, o elemento que
+  o `querySelector` devolve).
 - Parte: montagem da tela e ligação.
-- Armadilhas: o ambiente de edição (*hot reload*, Vite, emulador) fica
+- Armadilhas: o ambiente de edição (*hot reload*, o servidor da Vite) fica
   fora da notação; diga quando o sinal é do ambiente.
 
 ## 13. Visibilidade (face notacional)
@@ -280,12 +282,12 @@ da implementação, não o exemplo.
   will?" (Green e Petre 1996, p. 139). Definição: "ability to view
   components easily" (Blackwell e Green 2003, p. 116).
 - Face notacional: a dispersão do código (p. 162): em quantos arquivos e
-  lugares está o que se lê junto (o layout XML e o Kotlin; o *template*
-  no decorador e a classe; o XAML e o *code-behind*; o tratador longe da
-  tela que ele muda).
+  lugares está o que se lê junto (o esqueleto HTML no texto e o
+  `createElement` que o completa; o tratador longe da tela que ele muda;
+  o `createEffect` longe do *signal* que ele lê).
 - Parte: montagem da tela e ligação.
 - Armadilhas: confundir com dependências ocultas (ficha 6); contar
-  arquivos que a convenção do trabalho criou (`estilo.css`, `Estilo.kt`).
+  arquivos que a convenção do trabalho criou (`estilo.css`, `dominio.ts`).
 
 ## 14. Provisoriedade (face notacional)
 

@@ -1,13 +1,14 @@
 ---
 name: avaliacao-pelas-dcs
-description: Planeja, pré-analisa e revisa a avaliação do TCC pelas 14 Dimensões Cognitivas (DCs), interface por interface e rodada por rodada (primeira, segunda e terceira) — o plano da rodada, o guia de leitura do código por DC, factual e sem conclusão, que o agente entrega antes de o autor ler, e a revisão da análise que o autor ditou (Wispr Flow), conferida contra os trechos e as armadilhas, com a origem de cada posição registrada. Use sempre que for avaliar, analisar, pré-analisar ou ler uma implementação ou um diff de implementacoes/ pelas DCs, preparar a leitura de uma tecnologia que o autor conhece pouco (Views, Compose, Windows Forms, WPF, Web Component, Lit), revisar uma posição por DC, preencher a tabela-síntese ou dizer se a diferença entre os modelos de programação ficou mantida, ampliada, reduzida, anulada, invertida ou surgida — mesmo que o pedido não diga "DC", como "vamos ler o Formulário no Compose", "o que olhar na viscosidade da segunda rodada" ou "confere minha análise da Busca". Não use para escrever ou revisar a frase do texto (revisao-de-texto) nem para implementar uma das interfaces.
+description: Planeja, pré-analisa e revisa a avaliação do TCC pelas 14 Dimensões Cognitivas (DCs), interface por interface e rodada por rodada (primeira, segunda e terceira) — o plano da rodada, o guia de leitura do código por DC, factual e sem conclusão, que o agente entrega antes de o autor ler, e a revisão da análise que o autor ditou (Wispr Flow), conferida contra os trechos e as armadilhas, com a origem de cada posição registrada. Use sempre que for avaliar, analisar, pré-analisar ou ler uma implementação ou um diff de implementacoes/ pelas DCs, preparar a leitura de uma tecnologia que o autor conhece pouco (o Web Component, o Web Component com signals), revisar uma posição por DC, preencher a tabela-síntese ou dizer se a diferença entre os modelos de programação ficou mantida, ampliada, reduzida, anulada, invertida ou surgida — mesmo que o pedido não diga "DC", como "vamos ler a Reserva de passagem no Web Component", "o que olhar na viscosidade da segunda rodada" ou "confere minha análise da Busca". Não use para escrever ou revisar a frase do texto (revisao-de-texto) nem para implementar uma das interfaces.
 ---
 
 # Avaliação pelas DCs: plano, guia de leitura e revisão
 
 Por que existe: desde 2026-10-11, a avaliação percorre as 14 DCs em cada
-rodada (ADRs 0012, 0017 e 0029), em até nove tecnologias, e o autor
-conhece pouco seis delas. A avaliação é analítica, feita pelo autor
+rodada (ADRs 0012, 0017 e 0029), hoje nas quatro tecnologias web do ADR
+0013, e o autor conhece pouco duas delas, o Web Component e o Web
+Component com *signals*. A avaliação é analítica, feita pelo autor
 (`GLOSSARY.md`, verbete Avaliação): a conclusão é dele. O agente prepara a
 leitura e revisa depois, em duas etapas (decisão do autor de 2026-10-13,
 tcc-4a9): o guia de leitura vem antes e não toma posição, para não
@@ -62,14 +63,14 @@ Referências desta skill:
    que vai para o texto passa pela porta fechada e pela
    `revisao-de-texto`; achado de implementação vai para
    `docs/achados-das-implementacoes.md`.
-6. **Interface fora da análise** (o Contador, a Lista e o Carrinho em
-   `implementacoes/fora-da-analise/`), usada para calibrar a leitura, como
-   o primeiro *case study* de Kiss (2014, p. 18): os mesmos passos, com
-   os arquivos em `tmp/pesquisas/AAAA-MM-DD-calibracao-<interface>/`,
+6. **Interface fora da análise** (o Contador, a Lista, o Carrinho e o
+   Quadro em `implementacoes/fora-da-analise/`), usada para calibrar a
+   leitura, como o primeiro *case study* de Kiss (2014, p. 18): os
+   mesmos passos, com os arquivos em `tmp/pesquisas/AAAA-MM-DD-calibracao-<interface>/`,
    sem commit e sem ir para o texto. O código de lá não compila no
    `master`; para executar (regra 4), use o commit anterior ao movimento,
    pelo `implementacoes/fora-da-analise/README.org`, "Rodar". A especificação
-   é o `README.org` da interface.
+   é o `README.org` da interface, e, no Quadro, o `spec.md` ao lado dele.
 7. **Celular.** O autor lê o guia e dita no celular: títulos curtos, uma
    DC por seção, listas em vez de tabelas largas, trechos de código curtos
    (até umas 8 linhas, com a linha de começo).
@@ -80,11 +81,11 @@ Entrada: a interface e a rodada. Saída: `plano.md` (modelo em
 `references/formatos.md`).
 
 1. `bd ready` e a tarefa do bd da rodada; o sha do `master` que se lê.
-2. **Implementações.** As tecnologias da interface nessa rodada (ADR 0029:
-   Web Component, React e Solid em todas; Lit, Angular com *signals*,
-   Views × Compose e Windows Forms × WPF nas três interfaces de cada par).
-   Para cada uma, os arquivos da notação e os que ficam fora (domínio,
-   estilo, testes, configuração), pelo `references/tecnologias.md`.
+2. **Implementações.** As quatro tecnologias do ADR 0013, em todas as
+   interfaces: o Web Component, o Web Component com *signals*, o Solid e
+   o React. Para cada uma, os arquivos da notação e os que ficam fora
+   (domínio, estilo, testes, configuração), pelo
+   `references/tecnologias.md`.
 3. **Atividade** (Blackwell e Green 2003, tabela 5.1, p. 113), que diz
    como ler cada DC (`references/dcs.md`, "Atividade da rodada"; só a
    modificação tem perfil publicado):
@@ -93,17 +94,20 @@ Entrada: a interface e a rodada. Saída: `plano.md` (modelo em
      (especificação em `implementacoes/openspec/specs/<interface>/spec.md`)
      e entende como as partes se ligam.
    - Segunda e terceira rodadas: modificação. O objeto é o diff de cada mudança, um commit
-     por mudança, na mesma ordem em todas as tecnologias; a terceira é a
-     reescrita do Formulário com a biblioteca do ecossistema (ADR 0031).
+     por mudança, na mesma ordem em todas as tecnologias; a terceira
+     refatora a Reserva de passagem e o Placar ao vivo para a forma do
+     ecossistema de cada tecnologia (ADRs 0029 e 0031).
 4. **Perguntas de leitura**, uma por exigência de coordenação da interface:
    onde a notação escreve o evento que muda o estado, o derivado, a tela,
    a assincronia e a limpeza ao sair da tela. Na segunda rodada, uma por mudança: que
    trechos o diff toca, quantos e por quê.
-5. **Comparações da rodada**: os três modelos de programação na web; as
-   células com duas tecnologias (Solid × Angular no Formulário, na Busca e
-   no Quadro; React × Lit no Formulário, na Busca e nos Dados ao vivo, ADR
-   0017); a conferência no Android e no desktop, nas interfaces que eles
-   têm.
+5. **Comparações da rodada**: os três modelos de programação e os
+   passos da cadeia do ADR 0013, cada um com o que muda: Web Component →
+   Web Component com *signals* (a ligação do estado com a tela) → Solid
+   (a montagem da tela e o modelo de componente) → React (o modelo de
+   programação, com o mesmo JSX). A diferença entre o Web Component e o
+   React, que não formam par, se atribui ao passo da cadeia em que ela
+   aparece, e a que nenhum passo explica, pelo sinal escrito (ADR 0013).
 6. **DC da interface.** Quais DCs têm esta interface como a fixada no
    mapa DC → interface (ADR 0017; tcc-7jc), se o mapa já existir. As 14
    se percorrem de qualquer jeito; a fixada só diz onde a seção da DC
@@ -126,8 +130,8 @@ pela revisão de design de 2026-10-14 (tcc-4a9; modelo em
 - **o índice das 14 DCs**, numa linha de links, logo abaixo do título,
   para chegar à DC com um toque;
 - **a legenda dos arquivos**, um nome curto por arquivo, que diga a
-  tecnologia e a linguagem (`Views.kt`, `Views.xml`, `Compose.kt`,
-  `WC.ts`), sem usar o nome da tecnologia sozinho para o arquivo;
+  tecnologia e a linguagem (`WC.ts`, `Solid.tsx`, `React.tsx`), sem
+  usar o nome da tecnologia sozinho para o arquivo;
 - o quadro das tecnologias pouco familiares (abaixo).
 
 Cada DC segue esta ordem, porque o autor precisa saber o que procurar
@@ -138,7 +142,7 @@ antes de ler o código:
    presas aos blocos que vêm abaixo, sem resposta embutida, e a
    armadilha da ficha que os trechos convidam a cometer.
 3. **Um ponto por subseção** (`###`), com um título curto que nomeia o
-   sinal e as tecnologias que o têm ("O valor vai à tela: WC, Views").
+   sinal e as tecnologias que o têm ("O valor vai à tela: WC, em um lugar").
    As tecnologias que escrevem a mesma coisa do mesmo jeito ficam na
    mesma subseção. Uma lista que compara as tecnologias e é o sinal da
    DC (as linhas que citam um campo, o que cada uma pede antes da
@@ -162,14 +166,14 @@ umas 15 linhas cada; o resto vai em linha.
   relativo às linhas mostradas, e não o do arquivo; a linha mais longa
   quebra num ponto da sintaxe (depois de um operador, de uma vírgula, de
   `(`, `[` ou `{`, antes do `.` de uma chamada encadeada, entre
-  atributos de HTML ou XML), e a continuação fica sem número, recuada. O sinal que dá título à
+  atributos de HTML ou de JSX), e a continuação fica sem número, recuada. O sinal que dá título à
   subseção nunca fica depois da coluna 41.
 - Cada linha leva o número dela à esquerda; as linhas puladas e os
   comentários da implementação viram `⋮` (armadilha geral 8).
 - O bloco abre com o nome curto do arquivo da legenda, no comentário da
-  linguagem (`// WC.ts`, `<!-- Views.xml -->`); dois arquivos lidos
-  juntos (o layout XML e o Kotlin) podem ir no mesmo bloco, cada um com
-  o seu cabeçalho e a sua numeração.
+  linguagem (`// WC.ts`, `// React.tsx`); dois arquivos lidos
+  juntos (o `dominio.ts` e a implementação que o chama) podem ir no
+  mesmo bloco, cada um com o seu cabeçalho e a sua numeração.
 - **O que faz**, embaixo do bloco: o mecanismo em frase descritiva,
   verificável no código ou na documentação (regra 4), com a parte da
   notação, uma das três do ADR 0021: coordenação, montagem da tela ou
@@ -177,8 +181,8 @@ umas 15 linhas cada; o resto vai em linha.
 
 Um trecho sai em bloco na **primeira** DC que o usa; nas seguintes, a
 remissão traz o trecho curto em linha, para que voltar seja opcional:
-"(`Views.kt` l. 61, `override fun onNothingSelected(...) {}`; bloco na
-DC 5)". Não remeta a uma DC que ainda não veio.
+"(`WC.ts` l. 61, `disconnectedCallback() {`; bloco na DC 5)". Não
+remeta a uma DC que ainda não veio.
 
 **Sem resposta embutida.** O "O que faz", o "Também" e a armadilha dizem
 fatos e contagens, e não classificam o que a pergunta da DC pede ao
@@ -218,8 +222,8 @@ que se procurou. Não force um trecho para preencher a seção: as fontes
 pedem que se pergunte por todas as dimensões, e "sem diferença" também é
 resultado (ADR 0017).
 
-Nas tecnologias pouco familiares (Views, Compose, Windows Forms, WPF, Web
-Component, Lit), o guia abre, antes da DC 1, com um quadro de três a
+Nas tecnologias pouco familiares (o Web Component e o Web Component com
+*signals*), o guia abre, antes da DC 1, com um quadro de três a
 cinco linhas por tecnologia sobre como ela escreve o estado, o evento e
 a tela, a partir de `references/tecnologias.md` e da documentação.
 Nenhum termo do guia usa "modelo" sozinho (`GLOSSARY.md`): o formato do
@@ -259,8 +263,9 @@ cada DC do texto ditado:
    `references/dcs.md`; cada uma que a conclusão comete vira um
    apontamento com o trecho do ditado, a linha do `.org`, o trecho do
    código e a fonte da armadilha.
-3. **Contradição**: outra tecnologia do mesmo modelo, outra interface ou o
-   Android e o desktop contradizem a conclusão? (ADR 0017.)
+3. **Contradição**: outra tecnologia do mesmo modelo (o Web Component
+   com *signals* e o Solid, no granular), outro passo da cadeia ou outra
+   interface contradizem a conclusão? (ADRs 0013 e 0017.)
 4. **Lacunas**: DC sem posição ditada, tecnologia da rodada sem
    menção, célula sem o valor da mudança entre rodadas.
 5. **Termos**: palavras que o `GLOSSARY.md` manda evitar ("paradigma"
