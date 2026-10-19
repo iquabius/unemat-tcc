@@ -3,23 +3,22 @@
 Trabalho de conclusão que compara três modelos de programação de
 interfaces gráficas pelas Dimensões Cognitivas de Notações, aplicadas à
 notação com que cada tecnologia os escreve, com as mesmas interfaces
-implementadas em várias tecnologias na web, no Android e no desktop, em
-três rodadas. Texto em `texto/`, código em `implementacoes/`, decisões em
-`docs/adr/`, definições e fontes dos termos em
-`docs/paradigma-modelo-e-notacao.md`.
+implementadas em quatro tecnologias web, em três rodadas. Texto em
+`texto/`, código em `implementacoes/`, decisões em `docs/adr/`, definições
+e fontes dos termos em `docs/paradigma-modelo-e-notacao.md`.
 
 ## Language
 
 **Modelo de programação**:
-O modo de coordenar evento, estado e tela que uma tecnologia torna possível: as
-técnicas e os princípios de projeto construídos sobre um modelo de
-computação (Van Roy e Haridi, 2004). São três: o imperativo por
+O modo de coordenar evento, estado e tela que uma tecnologia torna
+possível: as técnicas e os princípios de projeto construídos sobre um
+modelo de computação (Van Roy e Haridi, 2004). São três: o imperativo por
 atualização manual, o declarativo por re-renderização e o declarativo por
 atualização granular, nomeados por como a alteração de estado chega à
-tela. React e Compose têm o mesmo; React e Solid, dois;
-Solid e Angular com *signals* são um modelo de programação com duas
-notações. É o que o trabalho compara, pela notação de cada tecnologia, e
-aplica conceitos de um ou mais paradigmas (ADR 0021).
+tela. React e Solid têm dois; o Web Component com *signals* e o Solid são
+um modelo de programação com duas notações. É o que o trabalho compara,
+pela notação de cada tecnologia, e aplica conceitos de um ou mais
+paradigmas (ADR 0021).
 _Avoid_: "modelo" sozinho (o modelo de computação, o de execução de uma
 tecnologia e o de componente são outros); notação para o que se compara;
 paradigma; abordagem; estilo; arquitetura (MVC e MVU organizam a
@@ -38,46 +37,47 @@ avaliam (Green e Blackwell, 1998; Blackwell e Green, 2003), e uma
 diferença entre modelos de programação só conta numa DC quando aparece
 nela. Cada tecnologia tem a sua; muda com as abstrações da tecnologia, não
 com a linguagem (ADR 0021).
-_Avoid_: notação para o modelo de programação (Solid e Angular são um
-modelo e duas notações); sintaxe (a notação inclui a estrutura que a
-forma deixa à vista); "notação de interface gráfica" (é do código, não da
-tela)
+_Avoid_: notação para o modelo de programação (o Web Component com
+*signals* e o Solid são um modelo e duas notações); sintaxe (a notação
+inclui a estrutura que a forma deixa à vista); "notação de interface
+gráfica" (é do código, não da tela)
 
 **Montagem da tela**:
 A parte da notação que escreve quais elementos a tela tem, em que
 hierarquia e com que textos: HTML num texto, com `createElement` nas
-partes repetidas (Web Component), *template* `html` (Lit), JSX (React,
-Solid), *template* (Angular), layout XML (Views), funções (Compose),
-código Java (Swing, JavaFX). Solid e Angular diferem nela
-dentro do mesmo modelo de programação, e Web Component e Lit, nas partes
-repetidas e no filho que entra e sai da página. A análise aponta, em
-cada DC, se a diferença está na coordenação, na montagem da tela ou na
-ligação entre as duas (ADR 0021).
-_Avoid_: estrutura da tela como notação à parte; sintaxe da tela;
-marcação (não cobre `createElement` nem Compose)
+partes repetidas (Web Component e Web Component com *signals*), JSX
+(React, Solid). O Web Component com *signals* e o Solid diferem nela
+dentro do mesmo modelo de programação, e o Web Component e o Web Component
+com *signals* a têm igual. A análise aponta, em cada DC, se a diferença
+está na coordenação, na montagem da tela ou na ligação entre as duas (ADR
+0021).
+_Avoid_: estrutura da tela como notação à parte; sintaxe da tela; marcação
+(não cobre `createElement` nem Compose)
 
 **Interface**:
-Uma das cinco interfaces gráficas especificadas que todas as
-implementações seguem: Formulário com validação, Busca com sugestões,
-Login com quarentena, Quadro de tarefas e Dados ao vivo (ADR 0002). Onde
-"a interface" puder ser qualquer interface gráfica, leva o nome ("a
-interface do Formulário") ou o número ("as cinco interfaces"); o domínio
-fica no plural ou com "gráfica" ("programar interfaces gráficas") (ADR
-0034).
+Uma das sete interfaces gráficas especificadas que todas as implementações
+seguem: Reserva de passagem, Busca com sugestões, Login com quarentena,
+Placar ao vivo, conversor de câmbio, planilha do orçamento e Circle Drawer
+(ADR 0002). Onde "a interface" puder ser qualquer interface gráfica, leva
+o nome ("a interface da Reserva de passagem") ou o número ("as sete
+interfaces"); o domínio fica no plural ou com "gráfica" ("programar
+interfaces gráficas") (ADR 0034).
 _Avoid_: tarefa (o termo do 7GUIs e de Sim et al., 2003, até 2026-10-14:
-colide com o Quadro de tarefas, com a tarefa do bd e com a *task* das
-DCs, o que se faz com a notação, que no trabalho seria cada mudança da
-segunda rodada, ADR 0034); caso e estudo de
-caso (o estudo de caso é um método que o trabalho não adota, embora Kiss,
-2014, chame cada item de *case study*); problema (o de Erdweg et al.,
-2015, e de Nanz et al., 2013: colide com o problema de usabilidade e o de
-pesquisa, e pede "solução" no lugar de implementação); programa;
-exemplo; cenário; interface em texto corrido para o tipo da POO
+colide com a tarefa do bd e com a *task* das DCs, o que se faz com a
+notação, que no trabalho seria cada mudança da segunda rodada, ADR 0034);
+caso e estudo de caso (o estudo de caso é um método que o trabalho não
+adota, embora Kiss, 2014, chame cada item de *case study*); problema (o de
+Erdweg et al., 2015, e de Nanz et al., 2013: colide com o problema de
+usabilidade e o de pesquisa, e pede "solução" no lugar de implementação);
+programa; exemplo; cenário; interface em texto corrido para o tipo da POO
 (escreve-se a palavra-chave em código: o tipo `Reserva`, declarado com
-`interface`); interface para a API
+`interface`); interface para a API; Formulário e Dados ao vivo para a
+Reserva de passagem e o Placar ao vivo (nomes até 2026-10-19:
+"Formulário" colide com a biblioteca de formulário, e "Dados ao vivo"
+não diz que dados são)
 
 ***Benchmark* de notação**:
-O conjunto das cinco interfaces, implementadas em cada tecnologia e
+O conjunto das sete interfaces, implementadas em cada tecnologia e
 avaliadas pelas DCs: o *notational benchmark* de Kiss (2014, p. 114), na
 definição de *benchmark* de Sim, Easterbrook e Holt (2003, p. 76), em que
 as interfaces são a amostra de tarefas (*task sample*) e a avaliação é a
@@ -87,8 +87,9 @@ _Avoid_: *benchmark* de código; *benchmark* para uma interface só;
 desempenho (Tichy, 2014)
 
 **Interface base**:
-A interface que todas as tecnologias implementam, o Formulário, e que a
-terceira rodada reescreve com a biblioteca de formulário de cada ecossistema (ADR 0029).
+A Reserva de passagem, o *Flight Booker* adaptado, a interface de que o
+trabalho parte e que a terceira rodada refatora com a biblioteca de
+formulário de cada ecossistema, ao lado do Placar ao vivo (ADR 0029).
 _Avoid_: interface principal; tarefa base (até 2026-10-14); caso base
 
 **Delineamento**:
@@ -101,17 +102,19 @@ pesquisa é o documento de 2017)
 **Exigência de coordenação**:
 O que uma interface exige do modelo de programação, em dois eixos, a
 orquestração de eventos e o gerenciamento de estado: evento → estado →
-tela, estado derivado, assincronia, ciclo de vida de relógios e
-inscrições, lista derivada (com a montagem dos itens na tela), estado
-compartilhado, histórico (ADR 0002). Cada interface tem uma proporção
-própria dos dois eixos, como a aplicação real que ela reproduz.
+tela, estado derivado (também nos dois sentidos e por um grafo que o
+usuário escreve), assincronia, ciclo de vida de relógios e inscrições,
+lista derivada (com a montagem dos itens na tela), estado compartilhado,
+histórico, sequência de eventos do ponteiro (ADR 0002). Cada interface tem
+uma proporção própria dos dois eixos, como a aplicação real que ela
+reproduz.
 _Avoid_: problema de coordenação (até 2026-10-14: "problema" fica para o
 de usabilidade e o de pesquisa); requisito de coordenação (confunde-se com
 o requisito de orquestração); padrão de interface; tratamento de eventos
 (é o vocabulário do imperativo, e mediria os três modelos de programação
 com a régua de um); tempo de vida (até 2026-10-16: "ciclo de vida" é o
-termo das documentações do Android e do React em português); assinatura
-e assinar, para o *subscribe* (até 2026-10-16: "assinatura" se lê como
+termo das documentações do Android e do React em português); assinatura e
+assinar, para o *subscribe* (até 2026-10-16: "assinatura" se lê como
 mensalidade de serviço, e a documentação do React em português diz
 "inscrição" e "inscrever")
 
@@ -135,17 +138,18 @@ Uma das três etapas da avaliação, cada uma mais estreita que a anterior,
 chamadas pelo ordinal: a primeira, a segunda e a terceira rodada. A
 primeira responde à pergunta de pesquisa, a P1; a segunda e a terceira, às
 subperguntas, a P1.1 e a P1.2 (ADR 0014). Os rótulos ficam para as
-perguntas, e o ordinal, para as rodadas, em todo lugar. A primeira rodada:
-as cinco interfaces em Web Component, React e Solid, e a interface base e
-mais duas em cada outro par; a segunda, funcionalidades e requisitos de
-orquestração acrescentados a cada interface; a terceira, o Formulário
-reescrito com a biblioteca de formulário do ecossistema (ADR 0029).
+perguntas, e o ordinal, para as rodadas, em todo lugar. A primeira
+constrói as sete interfaces nas quatro tecnologias, com o modelo de
+programação isolado; a segunda muda o comportamento, com funcionalidades e
+requisitos de orquestração acrescentados a cada interface; a terceira muda
+só a forma, refatorando a Reserva de passagem e o Placar ao vivo para a
+forma do ecossistema (ADR 0029).
 _Avoid_: fase (é do roteiro); iteração; rodada sozinha onde puder ser a
 rodada de corte ou a de revisão do texto (ADRs 0022 e 0023); "a rodada da
-P1", "a rodada da P2" e P2 e P3 para as rodadas (até 2026-10-13, quando
-as subperguntas passaram a P1.1 e P1.2 e "a rodada da P1" ficou ambígua
-com a avaliação inteira); R1, R2 e R3 (rótulos de 2026-10-13, desfeitos no
-mesmo dia)
+P1", "a rodada da P2" e P2 e P3 para as rodadas (até 2026-10-13, quando as
+subperguntas passaram a P1.1 e P1.2 e "a rodada da P1" ficou ambígua com a
+avaliação inteira); R1, R2 e R3 (rótulos de 2026-10-13, desfeitos no mesmo
+dia)
 
 **Estado**:
 O que o programa guarda sobre os eventos anteriores e consulta, junto com
@@ -176,9 +180,9 @@ re-renderização para toda atualização (é a do React e do Compose)
 **Funcionalidade**:
 Mudança acrescentada a uma interface na segunda rodada que muda o que o
 usuário percebe ou pode fazer, por qualquer sentido ou tecnologia
-assistiva: o assistente em três passos do Formulário, mas também o foco
-que se move ou a mensagem anunciada ao leitor de tela (requisito de
-acessibilidade, com o critério da WCAG).
+assistiva: a escolha da moeda do conversor, mas também o foco que se move
+ou a mensagem anunciada ao leitor de tela (requisito de acessibilidade,
+com o critério da WCAG).
 _Avoid_: *feature*; recurso; "o que o usuário vê" (exclui quem não vê a
 tela); requisito não funcional para a acessibilidade
 
@@ -210,26 +214,24 @@ _Avoid_: ambiente sozinho; ambiente para o sistema de edição das DCs
 (ambiente de edição, Green e Blackwell, 1998)
 
 **Plataforma**:
-O ambiente em que a interface roda e cujas APIs uma tecnologia usa: a web
-(TypeScript), o Android (Kotlin) e o desktop (Java). Cada par se classifica
-pela plataforma: a análise se faz na web, e o Android e o desktop
-conferem, nas interfaces que implementam, se as posições da web se repetem
-(ADR 0012).
-_Avoid_: plataforma para o *framework*; replicação para o Android (nome
-de 2026-09-26, trocado em 2026-10-09); porte para o domínio de outra
+O ambiente em que a interface roda e cujas APIs uma tecnologia usa. A
+análise fica na web, em TypeScript; o Android e o desktop ficam para os
+trabalhos futuros (ADR 0001).
+_Avoid_: plataforma para o *framework*; replicação para o Android (nome de
+2026-09-26, trocado em 2026-10-09); porte para o domínio de outra
 plataforma (é o domínio dela, na linguagem dela)
 
 **Tecnologia**:
-Uma forma de implementar uma interface numa plataforma: na web, Web
-Component (a plataforma), React, Solid, Lit, Angular com *signals* e
-Angular com RxJS; no Android, Views (a
-plataforma) e Jetpack Compose; no desktop, Swing e JavaFX. Cada uma
-impõe um modelo de programação e se escreve numa notação própria; a
-documentação a classifica como biblioteca, *framework*, *toolkit* ou
-plataforma, e o texto usa essas categorias só para descrevê-la.
-_Avoid_: biblioteca, *framework* ou *toolkit* como nome genérico;
-variante (as do Android são tecnologias como as da web); tecnologia
-nativa (no Android, nativa é a interface do sistema, e as duas são)
+Uma forma de implementar uma interface numa plataforma: na análise, Web
+Component (a plataforma), Web Component com *signals* do `solid-js`, React
+e Solid (ADR 0013); fora dela, o Lit, o Angular, as Views, o Compose, o
+Swing e o JavaFX. Cada uma impõe um modelo de programação e se escreve
+numa notação própria; a documentação a classifica como biblioteca,
+*framework*, *toolkit* ou plataforma, e o texto usa essas categorias só
+para descrevê-la.
+_Avoid_: biblioteca, *framework* ou *toolkit* como nome genérico; variante
+(as do Android são tecnologias como as da web); tecnologia nativa (no
+Android, nativa é a interface do sistema, e as duas são)
 
 **Categoria**:
 A classe em que se põe uma tecnologia por um critério. O trabalho usa dois
@@ -256,8 +258,8 @@ nome genérico das tecnologias
 
 ***Framework***:
 Aplicação semicompleta e reutilizável que chama o código da aplicação, a
-inversão de controle (Johnson e Foote, 1988; Fayad e Schmidt, 1997):
-Solid e Angular se apresentam assim.
+inversão de controle (Johnson e Foote, 1988; Fayad e Schmidt, 1997): o
+Solid se apresenta assim.
 _Avoid_: *framework* como nome genérico das tecnologias; arcabouço
 
 ***Toolkit***:
@@ -267,9 +269,9 @@ o Compose se apresenta assim.
 _Avoid_: *toolkit* como sinônimo de biblioteca; kit de ferramentas
 
 **Implementação**:
-Uma interface numa tecnologia: na primeira rodada, as cinco interfaces nas
-nove tecnologias, 45, de que sai o conjunto analisado (plano de
-2026-10-17); na terceira, o Formulário reescrito em cada uma das nove.
+Uma interface numa tecnologia: na primeira rodada, as sete interfaces nas
+quatro tecnologias, 28 (ADR 0012); na terceira, a Reserva de passagem e o
+Placar ao vivo refatorados em cada uma das quatro (ADR 0029).
 _Avoid_: versão, exemplo; solução (pede "problema" para a interface)
 
 **Apoio**:
@@ -278,22 +280,22 @@ Angular com RxJS, congelado em `implementacoes/fora-da-analise/` com as
 regras de 2026-10-13.
 
 **Conjunto analisado**:
-As implementações que a análise pelas DCs lê, escolhidas por critério
-declarado antes dela, com o código e as capturas prontos (ADR 0012).
-_Avoid_: recorte da análise (o recorte é o da pesquisa, ADR 0014);
-escopo; amostra (a amostra de tarefas é o conjunto das interfaces, no
-*benchmark* de notação)
+As implementações que a análise pelas DCs lê: todas as de
+`implementacoes/`, fora de `fora-da-analise/`, as sete interfaces nas
+quatro tecnologias (ADR 0012).
+_Avoid_: recorte da análise (o recorte é o da pesquisa, ADR 0014); escopo;
+amostra (a amostra de tarefas é o conjunto das interfaces, no *benchmark*
+de notação)
 
 **Domínio**:
-As regras de uma interface que não dependem da tela (datas, e-mail,
-mensagens, servidores simulados, fontes de dados, o limite do quadro),
-compartilhadas pelas implementações. Mover e arquivar no Quadro ficam em
-cada implementação, porque escrever uma alteração de estado é parte da
-notação (ADR 0033).
+As regras de uma interface que não dependem da tela (datas, mensagens,
+servidores simulados, fontes de dados, a cotação, a análise e a avaliação
+das fórmulas), compartilhadas pelas implementações. A propagação da
+planilha fica em cada implementação, porque escrever uma alteração de
+estado é parte da notação, o critério do ADR 0033.
 _Avoid_: lógica de negócio e regras de negócio, que pressupõem um negócio:
-a validação de datas e de e-mail do Formulário não é regra de negócio de
-ninguém (a *business
-logic* de Karagkasidis, 2008, é o domínio aqui)
+a validação de datas da Reserva de passagem não é regra de negócio de
+ninguém (a *business logic* de Karagkasidis, 2008, é o domínio aqui)
 
 **Teste de conformidade**:
 As verificações da especificação de uma interface, executadas contra cada
@@ -324,23 +326,24 @@ caso de teste
 
 **Mudança**:
 O que se propõe e se arquiva no OpenSpec para a especificação (*change*):
-a especificação de uma interface nova e cada funcionalidade e requisito
-de orquestração da segunda rodada (ADR 0030). A correção dentro de uma
+a especificação de uma interface nova e cada funcionalidade e requisito de
+orquestração da segunda rodada (ADR 0030). A correção dentro de uma
 rodada, como a retirada da espera da Busca na primeira, edita a
-especificação direto, sem mudança no OpenSpec. É o termo da engenharia de software em português para *change*
-(gerência de mudanças, análise de impacto de mudanças) e o da viscosidade,
-"resistência à mudança" (`docs/paradigma-modelo-e-notacao.md`, seção
-"Mudança, alteração e modificação").
+especificação direto, sem mudança no OpenSpec. É o termo da engenharia de
+software em português para *change* (gerência de mudanças, análise de
+impacto de mudanças) e o da viscosidade, "resistência à mudança"
+(`docs/paradigma-modelo-e-notacao.md`, seção "Mudança, alteração e
+modificação").
 _Avoid_: alteração (é a do estado; o Git, o VS Code e o GitHub em
 português chamam assim o que entra num commit, e o trabalho diz commit);
-modificação (a atividade das DCs); acréscimo (não cobre a reescrita da
-terceira rodada); proposta para a mudança inteira (a proposta é o documento do
-porquê); versão; mudança para o diff de uma tecnologia (é o commit dela);
-mudança para o que acontece com a diferença entre rodadas. O estranho não
-é o substantivo, e sim o que o cerca: "onze mudanças, acrescentadas uma
-por commit" (mudança acrescentada), que virou "feitas"; "os nomes da
-mudança entre rodadas", que virou "o que acontece com a diferença de uma
-rodada a outra" (2026-10-13)
+modificação (a atividade das DCs); acréscimo (não cobre a refatoração da
+terceira rodada); proposta para a mudança inteira (a proposta é o
+documento do porquê); versão; mudança para o diff de uma tecnologia (é o
+commit dela); mudança para o que acontece com a diferença entre rodadas. O
+estranho não é o substantivo, e sim o que o cerca: "onze mudanças,
+acrescentadas uma por commit" (mudança acrescentada), que virou "feitas";
+"os nomes da mudança entre rodadas", que virou "o que acontece com a
+diferença de uma rodada a outra" (2026-10-13)
 
 **Delta spec**:
 A parte de uma mudança que diz, requisito a requisito, o que se
@@ -354,7 +357,8 @@ _Avoid_: roadmap; beads como nome do plano (Beads é a ferramenta); roteiro
 para as verificações de uma interface (teste de conformidade)
 
 **Cena**:
-Um estado da interface a capturar, com o mesmo nome na web e no Android.
+Um estado da interface a capturar, com o mesmo nome em todas as
+tecnologias.
 _Avoid_: cenário (o exemplo de um requisito, que o teste confere)
 
 **Captura**:
@@ -396,16 +400,16 @@ que saíram em 2026-10-08
 Onde um modelo de programação fica numa DC, pela notação de cada
 tecnologia, com a interface de onde vem a evidência: o que a avaliação diz
 dele na dimensão, "how it lies on each dimension" (Blackwell e Green,
-2003). É a célula da tabela-síntese e o que o Android e o desktop
-conferem. Da primeira rodada para as outras duas, a posição sobe, desce ou
-fica igual, e a diferença entre os modelos na DC fica mantida, ampliada,
-reduzida, anulada, invertida ou surgida (ADR 0017). Subir não é melhorar:
-nenhuma dimensão é boa ou má em si.
+2003). É a célula da tabela-síntese. Da primeira rodada para as outras
+duas, a posição sobe, desce ou fica igual, e a diferença entre os modelos
+na DC fica mantida, ampliada, reduzida, anulada, invertida ou surgida (ADR
+0017). Subir não é melhorar: nenhuma dimensão é boa ou má em si.
 _Avoid_: conclusão (o termo até 2026-10-14; fica para o uso comum e para o
 capítulo); veredito e juízo (dizem qual é melhor); aumenta e diminui para
-a posição (rótulos até 2026-10-14); resultado (nome do capítulo 4); interação para o que
-acontece com a diferença entre rodadas (termo da estatística, que o
-trabalho não testa); mudança entre rodadas (mudança é a do OpenSpec)
+a posição (rótulos até 2026-10-14); resultado (nome do capítulo 4);
+interação para o que acontece com a diferença entre rodadas (termo da
+estatística, que o trabalho não testa); mudança entre rodadas (mudança é a
+do OpenSpec)
 
 **Perfil**:
 O conjunto das posições de um modelo de programação nas 14 DCs, a coluna
