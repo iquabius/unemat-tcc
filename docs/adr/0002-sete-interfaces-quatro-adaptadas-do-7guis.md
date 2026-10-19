@@ -1,4 +1,4 @@
-# 0002. Sete interfaces gráficas, quatro adaptadas do 7GUIs: Reserva de passagem, Busca, Login com quarentena, Placar ao vivo, conversor de câmbio, planilha do orçamento e Circle Drawer
+# 0002. Sete interfaces gráficas, quatro adaptadas do 7GUIs: Reserva de passagem, Busca, Login com quarentena, Placar ao vivo, conversor de moedas, planilha do orçamento e Circle Drawer
 
 2026-10-19. O projeto de 2017 tinha processamento de listas, um Contador
 e uma Reserva de voo, nenhum assíncrono. Cada interface reproduz a de
@@ -21,7 +21,7 @@ para que as posições se comparem com as que Kiss (2014) publicou:
 - Placar ao vivo com pausa, placares de jogos mandados por uma fonte,
   que adaptam as cotações de Meijer (2012, p. 66-67): a inscrição presa
   à tela, a pausa e o "Atualizado há", na orquestração;
-- conversor de câmbio de real para peso argentino, com a cotação fixa no
+- conversor de moedas, de real para peso argentino, com a cotação fixa no
   domínio, o *Temperature Converter* (§3.4, p. 21), que Kiss diz
   aparecer também como conversor de moeda (nota 10): cada campo derivado
   do outro, o texto inválido que não muda o outro e a escrita do
