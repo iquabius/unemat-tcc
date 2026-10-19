@@ -31,13 +31,7 @@ export type Cenas = Record<string, (pagina: Page) => Promise<void>>;
 const RAIZ = path.resolve(import.meta.dirname, "..");
 const IMPLEMENTACOES = path.join(RAIZ, "implementacoes");
 // As tecnologias, na ordem em que o script as captura.
-const TECNOLOGIAS = [
-  "web-component",
-  "react",
-  "solid",
-  "lit",
-  "angular-signals",
-];
+const TECNOLOGIAS = ["web-component", "react", "solid"];
 
 // Data fixa para que as implementações que mostram "hoje" gerem sempre a
 // mesma imagem.
@@ -70,17 +64,6 @@ async function implementacoes(filtros: string[]): Promise<[string, string][]> {
     }
   }
   return lista;
-}
-
-// O Vite gera dist/; o Angular, dist/<projeto>/browser/.
-async function pastaDoBuild(projeto: string): Promise<string> {
-  const dist = path.join(projeto, "dist");
-  if (existsSync(path.join(dist, "index.html"))) return dist;
-  for (const nome of await readdir(dist)) {
-    const browser = path.join(dist, nome, "browser");
-    if (existsSync(path.join(browser, "index.html"))) return browser;
-  }
-  throw new Error(`build sem index.html em ${dist}`);
 }
 
 function servir(pasta: string): Promise<Server> {
@@ -202,10 +185,12 @@ try {
         // O package.json dos workspaces fica em implementacoes/.
         cwd: IMPLEMENTACOES,
         stdio: "ignore",
-        env: { ...process.env, NG_CLI_ANALYTICS: "false" },
       },
     );
-    const servidor = await servir(await pastaDoBuild(projeto));
+    const dist = path.join(projeto, "dist");
+    if (!existsSync(path.join(dist, "index.html")))
+      throw new Error(`build sem index.html em ${dist}`);
+    const servidor = await servir(dist);
     const endereco = servidor.address();
     const porta = typeof endereco === "object" && endereco ? endereco.port : 0;
     const cenas = await cenasDo(gui);
