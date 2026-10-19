@@ -39,7 +39,7 @@ class Escolha(unittest.TestCase):
         self.assertEqual(
             rotulos("implementacoes/formulario/react/src/App.tsx",
                     "implementacoes/dados-ao-vivo/dominio.ts",
-                    "implementacoes/dados-ao-vivo/lit/src/main.ts"),
+                    "implementacoes/dados-ao-vivo/solid/src/main.tsx"),
             ["especificação", "formatação", "capturas de dados-ao-vivo, formulario"])
 
     def test_especificacao_roda_so_a_conferencia_dela(self):
