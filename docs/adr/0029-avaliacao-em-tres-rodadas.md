@@ -1,167 +1,139 @@
-# 0029. A avaliação se faz em três rodadas: as cinco interfaces, requisitos acrescentados pela realidade de cada uma e o Formulário com a biblioteca do ecossistema
+# 0029. A avaliação se faz em três rodadas: a primeira constrói as sete interfaces, a segunda muda o comportamento e a terceira só a forma, na Reserva de passagem e no Placar ao vivo
 
-2026-10-15. Interfaces pequenas isolam uma escolha de projeto, mas não
-mostram o que só aparece quando o programa cresce (Stol e Fitzgerald 2018,
-p. 11:10; Green et al. 2006, p. 334), e Kiss (2014) avaliou cada
+2026-10-19. Interfaces pequenas isolam uma escolha de projeto, mas não
+mostram o que só aparece quando o programa cresce (Stol e Fitzgerald
+2018, p. 11:10; Green et al. 2006, p. 334), e Kiss (2014) avaliou cada
 implementação num tamanho só, deixando como trabalho futuro estendê-las
 com requisitos novos (p. 103-104). A avaliação se faz em três rodadas,
-cada uma mais estreita que a anterior, como as de Kiss (p. 3). Na primeira
-rodada, as cinco interfaces (ADR 0002): Web Component, React e Solid
-implementam todas; os outros pares implementam a interface base, o
-Formulário, e mais duas: o Lit, a Busca e os Dados ao vivo; o Angular com
-*signals*, a Busca e o Quadro (ADR 0013); Views × Compose, o Quadro e os
-Dados ao vivo (ADR 0005); Windows Forms × WPF, o Quadro e o Login (ADR
-0001). São 33 implementações, 21 na web, 6 no Android e 6 no desktop, e
-todas seguem duas regras comuns, conferidas pelo teste de conformidade de
-cada interface: as mensagens de status são anunciadas sem receber o foco
-(WCAG 2.2, critério 4.1.3), e vale a limpeza ao sair da tela: a tela
-encerra o que iniciou (temporizador, requisição, inscrição, ouvinte), sem
-vazamento de recursos (Lima, Giusti e Dias-Neto 2020). Na segunda rodada,
-cada interface recebe, um por commit e na mesma ordem em todas as
-tecnologias em que existe, funcionalidades, que mudam o que o usuário
-percebe ou pode fazer, e requisitos de orquestração, que deixam as cenas
-iguais e mudam como se combinam eventos de várias fontes, sem bibliotecas.
-Os requisitos seguem o que a aplicação real que cada interface reproduz
-costuma pedir, e não a mesma quantidade de cada eixo: cada interface
-concentra exigências de um eixo, como, em Kiss (2014), o *Flight Booker*
-concentra as restrições entre campos, e o *Timer*, a concorrência; e cada
-eixo é forte em pelo menos duas interfaces. São 11 requisitos:
+cada uma mais estreita que a anterior, como as de Kiss (p. 3), e cada
+uma muda uma coisa só. A primeira constrói o comportamento base das sete
+interfaces (ADR 0002) nas quatro tecnologias (ADR 0013), 28
+implementações, com o modelo de programação isolado: cada uma usa só o
+que a tecnologia traz, e todas seguem duas regras comuns, conferidas
+pelo teste de conformidade de cada interface: as mensagens de status são
+anunciadas sem receber o foco (WCAG 2.2, critério 4.1.3), e vale a
+limpeza ao sair da tela, sem vazamento de recursos (Lima, Giusti e
+Dias-Neto 2020). A segunda muda o comportamento: cada interface recebe,
+um por commit e na mesma ordem nas quatro tecnologias, funcionalidades e
+requisitos de orquestração que a aplicação real que ela reproduz costuma
+pedir, ainda sem bibliotecas; latências, tentativas, prazos e intervalos
+ficam fixos no domínio. São 12 mudanças, 48 commits:
 
-- Formulário: um assistente em três passos com o foco gerenciado (o
-  controle de diálogo de Karagkasidis 2008 e Kiss 2014, p. 6; WCAG 2.4.3
-  e 3.3.1) e a validação do e-mail num servidor simulado;
-- Busca: a espera de 300 ms depois da última tecla, que sai da primeira
-  rodada para voltar aqui, e o *combobox* operável pelo teclado, com o
-  item ativo (WCAG 2.1.1; padrão *Combobox* do APG);
-- Login: a quarentena depois de três falhas seguidas (o "Login Panel 2.0"
-  de Berry e Serrano 2020, p. 539) e o "lembrar meu nome", em que o
-  "Entrar" vale para um nome que chega sem tecla;
-- Quadro: desfazer e refazer, e a atualização otimista com um servidor
-  simulado;
-- Dados ao vivo: a reconexão depois de queda, o bolão, com os pontos de
-  cada jogo e o total derivados dos placares e dos palpites que o usuário
-  digita, e a frequência de atualização controlável (WCAG 2.2.2).
+- Reserva de passagem: a data de volta acompanha a ida até o usuário
+  editá-la;
+- Busca: a espera de 300 ms depois da última tecla e o *combobox*
+  operável pelo teclado, com o item ativo (WCAG 2.1.1; padrão *Combobox*
+  do APG);
+- Login: a quarentena depois de três falhas seguidas (o "Login Panel
+  2.0" de Berry e Serrano 2020, p. 539) e o "lembrar meu nome";
+- Placar ao vivo: a reconexão depois de queda, o bolão, com os pontos de
+  cada jogo e o total derivados dos placares e dos palpites, e a
+  frequência de atualização, numa lista de 1, 5 e 10 s (WCAG 2.2.2);
+- conversor: a escolha da moeda, entre peso argentino, peso mexicano e
+  yuan chinês, que mantém o campo editado por último e recalcula o
+  outro;
+- planilha: a referência circular, que não se avalia e mostra um aviso,
+  a mudança que Kiss imagina no teste de viscosidade do *Cells* (p. 54);
+- Circle Drawer: arrastar os círculos, com o arraste no desfazer, e
+  salvar o desenho num servidor simulado a cada mudança, na ordem das
+  mudanças; Kiss usa no teste de viscosidade o arrastar e o salvar em
+  arquivo (p. 47), e o servidor com a ordem é a adaptação para a web.
 
-Latências, tentativas, prazos e intervalos ficam fixos no domínio, e a
-segunda rodada soma 72 commits, 46 na web. Na terceira rodada, o
-Formulário estendido da segunda rodada é reescrito nas nove tecnologias
-que o têm, com a biblioteca de formulário mais usada no ecossistema de
-cada uma, pela medida pública do registro de pacotes, ou com a API da
-plataforma quando nenhuma domina, como no Web Component e no Lit
-(tcc-di3a); a terceira rodada deixa o controle das dependências para se
-aproximar do uso real, o que o método declara, e a conclusão dela se lê
-como "no ecossistema típico", sem atribuição só ao modelo de programação.
-Em cada rodada, as 14 DCs são percorridas e registradas (ADR 0012), com o
-apoio do trecho de código, das linhas (concisão, script do ADR 0012) e, na
-segunda e na terceira rodada, dos trechos do diff de cada mudança, que
-medem a viscosidade de repetição e de efeito dominó (Blackwell e Green
-2003, p. 115), com a regra do menor diff; a mesma mudança, preparada antes
-e feita em cada versão, é o teste de viscosidade de Green e Petre (1996,
-p. 162). Da primeira rodada para a segunda e a terceira, na linha de cada
-DC, a diferença entre os modelos de programação fica mantida, ampliada,
-reduzida, anulada, invertida ou surgida, e na célula a posição sobe,
-desce ou fica igual (ADR 0017). A análise fica na notação, e
-"ecossistema" são as bibliotecas, e não as ferramentas. Se o prazo
-apertar, pulam-se interfaces em alguns pares, nesta ordem, fixada antes da
-análise: 1) a segunda rodada do Angular no Quadro; 2) o Quadro no Angular;
-3) os Dados ao vivo no Lit; 4) a Busca no Angular. Web Component, React e
-Solid, o Formulário de cada par e a Busca no Lit não saem.
+A terceira muda só a forma: refatora o código da segunda rodada da
+Reserva de passagem e do Placar ao vivo para o que o ecossistema de cada
+tecnologia usa (biblioteca, convenção, módulo oficial), escolhido pela
+regra do ADR 0031, com as cenas e o teste de conformidade da segunda
+rodada como rede: o comportamento não muda. São 8 refatorações, uma
+interface de cada eixo; o Web Component com *signals* segue o Web
+Component, que fica com a API da plataforma na Reserva de passagem e,
+no Placar ao vivo, com o que a regra do ADR 0031 der depois do
+levantamento (tcc-vgrx), e a conclusão da rodada se lê como "no
+ecossistema típico", sem atribuição só ao modelo de programação. Em cada
+rodada, as 14 DCs são percorridas e registradas (ADR 0012), com o apoio
+do trecho de código, das linhas e, na segunda e na terceira, do diff de
+cada mudança, que mede a viscosidade de repetição e de efeito dominó
+(Blackwell e Green 2003, p. 115): a mesma mudança, preparada antes e
+feita em cada versão, é o teste de viscosidade de Green e Petre (1996,
+p. 162), com a regra do menor diff. Da primeira rodada para as outras
+duas, a diferença entre os modelos fica mantida, ampliada, reduzida,
+anulada, invertida ou surgida, e a posição sobe, desce ou fica igual
+(ADR 0017). Se o prazo apertar, saem mudanças inteiras, nas quatro
+tecnologias, nesta ordem, fixada antes da análise: 1) a escolha da
+moeda; 2) o bolão; 3) o "lembrar meu nome"; 4) a terceira rodada do
+Placar ao vivo. A primeira rodada, a cadeia de pares e os tipos de
+exigência que só uma mudança traz não saem.
 
-Em vez de: a segunda rodada só no Formulário e na Busca, com cinco
-requisitos (assistente, e-mail no servidor, espera, nova tentativa e
-respostas guardadas), o Angular só na primeira rodada e o Lit só na Busca
-(decisões de 2026-10-11 e do começo de 2026-10-12); 26 commits, mas a
-segunda rodada não chegaria às interfaces novas, a orquestração ficaria
-quase toda na Busca, e a nova tentativa e as respostas guardadas repetem
-mecanismos da reconexão dos Dados ao vivo e da regra do termo repetido.
-Em vez de: dois requisitos por interface, um de cada eixo (proposta de
-2026-10-12); equilibraria os eixos interface a interface, mas forçaria
-requisitos que a aplicação real não tem, e a análise se organiza por DC,
-e não por eixo.
-Em vez de: outros requisitos prototipados em 2026-10-12, como os
-passageiros dinâmicos no Formulário (+55 a +61 linhas por tecnologia,
-com armadilhas de identidade diferentes em cada notação e bibliotecas
-que identificam as linhas de modos diferentes na terceira rodada) e o filtro no
-Quadro (+24 a +30 linhas); reais e baratos, mas somariam commits em
-interfaces que já têm os dois eixos, e o filtro repete a lista derivada da
-Busca.
-Em vez de: a carteira com o total derivado das cotações (decisão de
-2026-10-12), que sai com as cotações (ADR 0002); o bolão tem a mesma
-forma, um valor que o usuário digita e outro que a fonte manda, que dão
-o valor de cada linha e o total, e no protótipo de 2026-10-13, na mesma
-base formatada, custa +40/+29/+34 linhas contra +45/+33/+38 da carteira
-(Web Component, React e Solid), com a mesma distância entre as
-tecnologias. Muda uma coisa: o palpite editável é o mesmo valor que
-decide o destaque da primeira rodada, e por isso o diff do bolão altera
-linhas da primeira rodada nas três tecnologias (9, 2 e 3), e o da
-carteira, no Web Component (7) e, no Solid, só o import que o Prettier
-quebra (1).
-Em vez de: a classificação derivada dos placares como análogo da
-carteira; uma tabela de pontos que a aplicação real mostra, mas uma lista
-derivada e ordenada, que repete a Busca e o Quadro, e sem um valor que o
-usuário digita.
-Em vez de: chamar a regra de "nada vivo depois de sair da tela" (nome
-de 2026-10-12, mais cedo); diz o efeito, mas decalca o *alive* do inglês,
-e "limpeza" é o termo das documentações em português do React e do
-Android.
-Em vez de: tirar pares inteiros se o prazo apertar (decisão do começo de
-2026-10-12); mais simples, mas perderia de uma vez um contraste
-controlado; a ordem fixada protege o par Web Component × Lit, o único que
-isola o imperativo, e começa pelo Angular, que mantém o par com o Solid
-no Formulário e na Busca.
-Em vez de: uma rodada só, as interfaces no tamanho da primeira rodada (ADR 0012,
-2026-10-09), como Kiss num tamanho dado; mais barata e já implementada,
-mas não mostra se a diferença entre os modelos de programação se mantém
-quando o código cresce, que é onde a viscosidade "will be most apparent"
-(Green e Petre 1996, p. 161).
-Em vez de: o controle de diálogo como sexta interface da primeira rodada
-(tcc-cef, fechada em 2026-10-11); cobriria uma exigência de coordenação
-que falta, mas seria outra interface pequena, sem a mudança feita sobre
-código que já existe, e interfaces maiores "would not be examined
-comprehensively in detail" (Kiss 2014, p. 103-104).
+Em vez de: as três rodadas de 2026-10-15, com as cinco interfaces de
+então na primeira rodada (33 implementações, os pares fora do Web
+Component, do React e do Solid em três interfaces cada), 11 requisitos
+na segunda (o assistente e a verificação do e-mail na Reserva de
+passagem, a espera e o *combobox* na Busca, a quarentena e o "lembrar
+meu nome" no Login, o desfazer e a atualização otimista no Quadro, a
+reconexão, o bolão e a frequência no Placar ao vivo; 72 commits) e a
+Reserva de passagem reescrito com a biblioteca de formulário nas nove
+tecnologias na terceira; o conjunto e as tecnologias mudaram (ADRs 0001,
+0002 e 0013), e a terceira mudava a biblioteca e o comportamento juntos.
+Em vez de: as segundas rodadas decididas de 2026-10-16 a 2026-10-18, com
+as poltronas (a fila), o saldo ⇄ Pix e a verificação do e-mail ao sair
+do campo na Reserva de passagem, e os jogos do bolão, o "Marcar todos" e
+o bolão salvo no Placar ao vivo; cobriam o conjunto antigo, mas inflavam
+interfaces que já tinham os seus eixos, e o controle de diálogo, a fila
+e o grafo passam ao Circle Drawer e à planilha.
+Em vez de: a terceira rodada que também muda o comportamento quando a
+forma real o traz, como o "Próximo" que espera a verificação do e-mail
+(decisão rejeitada em 2026-10-17); mais perto do uso real, mas a
+diferença entre rodadas misturaria crescimento e biblioteca, e a
+refatoração ficaria sem a rede do teste da segunda rodada.
+Em vez de: a terceira rodada nas sete interfaces (28 refatorações), só
+na Reserva de passagem ou na Reserva de passagem e na Busca; a primeira
+não tem escolha a defender, mas a planilha, o Circle Drawer e o
+conversor quase não têm biblioteca típica; as outras duas deixam a
+rodada num eixo só.
+Em vez de: a tarifa no conversor e o destaque das dependentes na
+planilha; reais, mas a tarifa muda pouco além da fórmula do domínio, e o
+destaque é aparência derivada, sem fonte em Kiss.
+Em vez de: cortar a terceira rodada primeiro, ou não fixar a ordem;
+protegeria a segunda rodada inteira, ou daria flexibilidade, mas a P1.2
+poderia ficar sem resposta, e um corte escolhido depois de ver o código
+é o risco que Kiss mostra ("The time unfortunately ran out", p. 96).
+Em vez de: uma rodada só, as interfaces no tamanho da primeira, como
+Kiss num tamanho dado; mais barata, mas não mostra se a diferença entre
+os modelos de programação se mantém quando o código cresce, que é onde
+a viscosidade "will be most apparent" (Green e Petre 1996, p. 161).
 Em vez de: a terceira rodada com as dependências controladas, a mesma
-biblioteca em todas as tecnologias, como o TanStack Form, que tem exemplos
-de assistente em React, Angular, Lit e Solid (commit `2216fde`,
-2026-10-01); isolaria a notação, mas não tem suporte oficial ao JavaScript
-sem *framework* nem existe no Android e no desktop, e não seria a
-biblioteca que cada ecossistema usa.
+biblioteca em todas as tecnologias, como o TanStack Form; isolaria a
+notação, mas não tem suporte oficial ao JavaScript sem *framework*, e
+não seria a biblioteca que cada ecossistema usa.
 Em vez de: bibliotecas desde a primeira rodada; mais perto do código de
-produção, mas mediria as bibliotecas antes dos modelos de programação (ADR
-0013).
+produção, mas mediria as bibliotecas antes dos modelos de programação
+(ADR 0013).
 Em vez de: nomear a mudança entre rodadas como interação entre modelo e
 rodada, cruzada ou não (Gail e Simon 1985); dá nome a "invertida" e a
 "ampliada", mas é bioestatística de ensaio clínico que propõe um teste,
 e o trabalho não testa.
-Custo: o prazo, com a primeira rodada até 2026-10-30, junto da Fase 2, e a
-segunda e a terceira rodada em novembro, antes do fechamento em
-2026-11-20; 33 implementações, 72 commits e 9 reescritas, perto de 7.700
-linhas de código de saída (estimativa de 2026-10-12), que não cabem
-inteiras no pós-texto; os requisitos da segunda rodada foram escolhidos
-com protótipos e com parte das implementações da primeira rodada (os ADRs
-os registraram em 2026-10-12, antes do código do Login, do Quadro e dos
-Dados ao vivo), embora antes da análise, e Kiss (p. 96) mostra o risco de o prazo escolher as
-interfaces da rodada estreita ("The time unfortunately ran out"); com os
-eixos desiguais entre as interfaces, a conclusão sobre cada eixo vem de
-duas ou três interfaces; a terceira rodada mede bibliotecas, e a hipótese
-de que o ecossistema rebalanceia o trabalho cognitivo fica como desejável,
-sem teste; os seis valores da linha não vêm de fonte; a limpeza ao sair da
-tela se apoia no ciclo de vida de cada tecnologia, que o Web Component tem
-e as outras escrevem de outro modo; a acessibilidade se verifica pelos
-atributos e pelo foco, e não com um leitor de tela real; a ordem de corte,
-se usada, encolhe primeiro o par Solid × Angular; a pergunta ganha duas
-subperguntas (ADR 0014), e a introdução se reestrutura (tcc-xep).
+Custo: o prazo, com a primeira rodada até 2026-10-30 e a segunda e a
+terceira em novembro, antes do fechamento em 2026-11-20; 28
+implementações, 48 commits e 8 refatorações, que não cabem inteiras no
+pós-texto; três interfaces novas e a Reserva de passagem refeito ainda
+na primeira rodada; os requisitos da segunda rodada foram escolhidos com
+parte das implementações prontas, embora antes da análise; a conclusão
+sobre cada eixo vem de três ou quatro interfaces; a forma típica do
+Placar ao vivo ainda não foi levantada (tcc-vgrx); na terceira rodada, o
+Web Component com *signals* segue o Web Component, e o par com o Solid
+passa a diferir também na biblioteca; a terceira rodada mede bibliotecas
+e convenções, e a hipótese de que o ecossistema rebalanceia o trabalho
+cognitivo fica sem teste; os seis valores da linha não vêm de fonte; a
+limpeza ao sair da tela se apoia no ciclo de vida de cada tecnologia; a
+acessibilidade se verifica pelos atributos e pelo foco, e não com um
+leitor de tela real.
 
 Fontes: `docs/metodo-da-avaliacao.md`, seções de "Rodadas e crescimento
 do código" a "O que muda entre rodadas: vocabulário", com os trechos e
-as páginas; WCAG 2.2 (W3C, 2024-12-12) e o padrão *Combobox* do WAI-ARIA
-APG (w3.org, lidos em 2026-10-12); Berry e Serrano (2020, p. 534-539);
-pt-br.react.dev, *Sincronizando com Efeitos*, e
-developer.android.com/develop/ui/compose/side-effects?hl=pt-br
-(2026-10-12), para "limpeza"; Lima, Giusti e Dias-Neto (2020, SBQS,
-WTDQS), para "vazamento de recursos"; protótipos e medidas de 2026-10-12
-em `tmp/prototipos/2026-10-12-mergulho-tarefas/`,
-`tmp/prototipos/2026-10-12-tarefas/` e `tmp/prototipos/2026-10-12-p2/`,
-e de 2026-10-13 em `tmp/prototipos/2026-10-13-placar/` (fora do git);
-ADRs 0001, 0002, 0005, 0012, 0013, 0014 e 0017;
-`docs/plataformas/web.md`, seção "O modelo de reatividade segundo a
-documentação oficial"; tarefas tcc-cef, tcc-di3a, tcc-xep e tcc-dw83.
+as páginas; Kiss (2014, p. 3, 47, 54, 96 e 103-104); WCAG 2.2 (W3C,
+2024-12-12) e o padrão *Combobox* do WAI-ARIA APG (lidos em 2026-10-12);
+Berry e Serrano (2020, p. 534-539); Lima, Giusti e Dias-Neto (2020,
+SBQS, WTDQS);
+`tmp/pesquisas/2026-10-17-temas-do-conversor-e-da-planilha.md` e
+`tmp/pesquisas/2026-10-17-aparencia-por-estado-e-rodadas.md` (fora do
+git); ADRs 0002, 0012, 0013, 0017 e 0031; tarefas tcc-vgrx, tcc-5y5g e
+tcc-z6tg.
