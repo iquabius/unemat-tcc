@@ -34,12 +34,8 @@ Commit lido: <sha> (<data>). Atividade: <busca e compreensão | modificação>
 ## Comparações
 - Modelos: imperativo por atualização manual (<tecnologias>), re-renderização
   (<...>), atualização granular (<...>).
-- Células com duas tecnologias: <Solid × Angular | React × Lit>, ou
-  nenhuma.
-- Conferência: <Android | desktop>, ou fora desta interface.
-
-## DCs fixadas nesta interface
-<lista do mapa DC → interface, ou "mapa ainda não fixado (tcc-7jc)">
+- Passos da cadeia (ADR 0013): <WC → WC com signals | WC com signals →
+  Solid | Solid → React>, com o que cada passo muda nesta interface.
 ```
 
 ## guia.md
@@ -62,8 +58,8 @@ conclusão: as perguntas são para o autor responder ao ditar. Atividade:
 
 Arquivos, a partir de `implementacoes/<interface>/`:
 - `WC.ts` = `web-component/src/main.ts`
-- `Views.kt` = `android-views/.../MainActivity.kt`
-- `Views.xml` = `android-views/.../activity_main.xml`
+- `Solid.tsx` = `solid/src/main.tsx`
+- `React.tsx` = `react/src/main.tsx`
 - ...
 
 ## Como cada tecnologia escreve a coordenação
@@ -91,7 +87,7 @@ O que faz: <mecanismo, verificável; parte: coordenação | montagem da
 tela | ligação; fonte: código | documentação, <endereço>, <data> | a
 conferir: <o que falta, onde vai aparecer>>.
 
-### <Lista que é o sinal da DC>: <as seis>
+### <Lista que é o sinal da DC>: <as quatro>
 - <Tecnologia>: <contagem ou fato> (`<arquivo>` l. <n>).
 
 ### DC 1 · Também
@@ -103,35 +99,38 @@ conferir: <o que falta, onde vai aparecer>>.
 Exemplo de subseção boa (Contador, primeira rodada, viscosidade), com
 as linhas em até 41 colunas:
 
-> ### O valor vai à tela: Views, em dois lugares
+> ### O valor vai à tela: WC, em um lugar
 >
-> ```kotlin
-> // Views.kt
-> 10 private var contador = 0
+> ```typescript
+> // WC.ts
+>  4 private contador = 0;
 >  ⋮
-> 17 val valor =
->      findViewById<TextView>(R.id.valor)
-> 18 valor.text = contador.toString()
+> 24   this.renderizar();
+> 25 }
 >  ⋮
-> 21 findViewById<Button>(R.id.incrementar)
->      .setOnClickListener {
-> 22   contador = contador + 1
-> 23   valor.text = contador.toString()
-> 24 }
+> 27 private tratarClique() {
+> 28   this.contador = this.contador + 1;
+> 29   this.renderizar();
+> 30 }
+>  ⋮
+> 32 private renderizar() {
+> 33   this.caixaDoValor.textContent =
+>        String(this.contador);
+> 34 }
 > ```
 >
-> O que faz: a mesma atribuição põe o valor na tela ao abrir (l. 18) e
-> depois de cada clique (l. 23); o estado é a propriedade da `Activity`
-> (l. 10). Parte: ligação. Fonte: código. O Web Component escreve em um
-> lugar (`renderizar`, l. 33), chamado de dois (l. 24, 29); React,
-> Solid, Angular e Compose, em um.
+> O que faz: uma atribuição põe o valor na tela (l. 33), no método
+> `renderizar`, chamado ao abrir, no fim do `connectedCallback` (l. 24),
+> e depois de cada clique (l. 29); o estado é o campo da classe (l. 4).
+> Parte: ligação. Fonte: código. No React e no Solid, o valor se
+> escreve no JSX, em um lugar (`React.tsx` e `Solid.tsx`, l. 10).
 
 Exemplos de frase que o guia não aceita:
 
-> O Views repete a escrita na tela, o que o deixa mais viscoso que o
-> Compose.
+> O Web Component chama a escrita na tela de dois lugares, o que o deixa
+> mais viscoso que o Solid.
 
-(Juízo, "repete" e "mais viscoso", e conclui pelo autor.)
+(Juízo, "mais viscoso", e conclui pelo autor.)
 
 > `validar` não diz quem o chama.
 
