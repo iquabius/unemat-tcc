@@ -8,12 +8,12 @@ description: Planeja, pré-analisa e revisa a avaliação do TCC pelas 14 Dimens
 Por que existe: desde 2026-10-11, a avaliação percorre as 14 DCs em cada
 rodada (ADRs 0012, 0017 e 0029), em até nove tecnologias, e o autor
 conhece pouco seis delas. A avaliação é analítica, feita pelo autor
-(`CONTEXT.md`, verbete Avaliação): a conclusão é dele. O agente prepara a
+(`GLOSSARY.md`, verbete Avaliação): a conclusão é dele. O agente prepara a
 leitura e revisa depois, em duas etapas (decisão do autor de 2026-10-13,
 tcc-4a9): o guia de leitura vem antes e não toma posição, para não
 ancorar a conclusão; a revisão vem depois e confere o que o autor disse.
 
-Leia antes o `CONTEXT.md` (modelo de programação, notação, montagem da
+Leia antes o `GLOSSARY.md` (modelo de programação, notação, montagem da
 tela, interface, rodada, conclusão) e use os termos dele. As fontes do
 procedimento, com trecho e página, estão em
 `docs/metodo-da-avaliacao.md`, seções "Rodadas e crescimento do código",
@@ -53,7 +53,7 @@ Referências desta skill:
    fica marcado "a conferir". Não explique uma API de memória ao autor.
 5. **Registro versionado em `docs/avaliacao/<rodada>-<interface>/`**
    (`primeira-rodada-formulario`, `segunda-rodada-busca`; as rodadas pelo
-   ordinal, como no `CONTEXT.md`): `plano.md`, `guia.md`, `revisao.md`
+   ordinal, como no `GLOSSARY.md`): `plano.md`, `guia.md`, `revisao.md`
    (decisão do autor de 2026-10-13). Cada um entra num commit próprio no
    `master`, no checkout principal, assim que é entregue: o guia antes do
    ditado do autor, a revisão depois, para que o histórico mostre o que o
@@ -222,7 +222,7 @@ Nas tecnologias pouco familiares (Views, Compose, Windows Forms, WPF, Web
 Component, Lit), o guia abre, antes da DC 1, com um quadro de três a
 cinco linhas por tecnologia sobre como ela escreve o estado, o evento e
 a tela, a partir de `references/tecnologias.md` e da documentação.
-Nenhum termo do guia usa "modelo" sozinho (`CONTEXT.md`): o formato do
+Nenhum termo do guia usa "modelo" sozinho (`GLOSSARY.md`): o formato do
 guia é o formato, e a constante do código se cita pelo nome.
 
 Entregue o guia no chat por DC, uma ou duas por mensagem quando o autor
@@ -263,7 +263,7 @@ cada DC do texto ditado:
    Android e o desktop contradizem a conclusão? (ADR 0017.)
 4. **Lacunas**: DC sem posição ditada, tecnologia da rodada sem
    menção, célula sem o valor da mudança entre rodadas.
-5. **Termos**: palavras que o `CONTEXT.md` manda evitar ("paradigma"
+5. **Termos**: palavras que o `GLOSSARY.md` manda evitar ("paradigma"
    para o que se compara, "expressividade" sozinha, "reativo" no nome de
    um modelo de programação).
 

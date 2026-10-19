@@ -149,7 +149,7 @@ e Green 2003); no Web Component, o esqueleto da tela se escreve com
 escrevem no *template*, e o par difere aí na montagem da tela (ADR
 0037); a
 pergunta, os
-objetivos, a introdução, o `CONTEXT.md` e a pauta da orientação de
+objetivos, a introdução, o `GLOSSARY.md` e a pauta da orientação de
 2026-10-09 mudam de vocabulário.
 
 Fontes: `docs/paradigma-modelo-e-notacao.md`, com as definições, os

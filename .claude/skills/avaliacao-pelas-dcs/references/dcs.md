@@ -1,6 +1,6 @@
 # As 14 DCs: uma ficha por dimensão
 
-Ordem canônica do trabalho (`CONTEXT.md`, verbete DC; ADR 0012). Cada
+Ordem canônica do trabalho (`GLOSSARY.md`, verbete DC; ADR 0012). Cada
 ficha dá a pergunta da fonte, o sinal escrito a procurar no código, a
 parte da notação em que ele costuma estar, o que a atividade da rodada
 muda e as armadilhas próprias da dimensão. As perguntas são de Green e
@@ -181,7 +181,7 @@ da implementação, não o exemplo.
 - Parte: qualquer uma; costuma estar na ligação.
 - Armadilhas: tomar por poder de expressão da linguagem, a "restricted
   expressivity" de Kiss (2014, p. 98); nunca "expressividade" sozinha
-  (`CONTEXT.md`); creditar à notação o nome bom que quem implementou deu
+  (`GLOSSARY.md`); creditar à notação o nome bom que quem implementou deu
   (armadilha geral 8). Avaliá-la "requires a reasonable conjecture about
   cognitive representations" (Blackwell e Green 2003, p. 116): é leitura
   do autor.

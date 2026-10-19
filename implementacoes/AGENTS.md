@@ -2,7 +2,7 @@
 
 Cada interface do *benchmark* de notação é implementada em várias
 tecnologias, para comparação no TCC. As decisões de escopo (interfaces,
-tecnologias) estão em `docs/adr/`; os termos, em `CONTEXT.md` na
+tecnologias) estão em `docs/adr/`; os termos, em `GLOSSARY.md` na
 raiz; instalação e uso, em `implementacoes/README.org`. O código que saiu
 da análise fica congelado em `implementacoes/fora-da-analise/` (última
 seção).

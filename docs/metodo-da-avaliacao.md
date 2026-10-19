@@ -14,7 +14,7 @@ avaliação de um conjunto de interfaces, não estudo de caso"); o rótulo é
 uma pergunta ao orientador numa nota de `texto/intro.org`. A avaliação é
 analítica, feita por especialista (Blandford e Green 2008), como a de
 Kiss (2014): o autor aplica as DCs ao código, dimensão a dimensão, sem
-participantes (`CONTEXT.md`, verbete Avaliação). As duas DCs a mais que
+participantes (`GLOSSARY.md`, verbete Avaliação). As duas DCs a mais que
 as de Kiss, expressividade e operações mentais difíceis, se justificam
 pela condição do próprio Kiss e por Mernik et al. (2009) (seção
 "Expressividade e operações mentais difíceis nas fontes"). As interfaces
@@ -515,7 +515,7 @@ seção "O alcance das DCs".
 
 De 2026-09-28 a 2026-10-08, a avaliação de um só avaliador, critério a
 critério, se rotulava como a *feature analysis* da DESMET, na forma de
-triagem (Kitchenham 1996); o rótulo saiu em 2026-10-08 (`CONTEXT.md`,
+triagem (Kitchenham 1996); o rótulo saiu em 2026-10-08 (`GLOSSARY.md`,
 verbete Avaliação), e `kitchenham1996` não está em `texto/intro.org` em
 2026-10-10.
 

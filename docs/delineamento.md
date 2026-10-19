@@ -34,13 +34,13 @@ O termo segue Prodanov e Freitas (2013, p. 54, `prodanov2013`): o
 *design* "pode ser traduzido como delineamento", que "refere-se ao
 planejamento da pesquisa em sua dimensão mais ampla", incluindo "as
 formas de controle das variáveis envolvidas". O texto não diz "desenho",
-que se confunde com o desenho da tela (`CONTEXT.md`, Delineamento).
+que se confunde com o desenho da tela (`GLOSSARY.md`, Delineamento).
 
 ## O que fica fixo
 
 | Variável | Como se controla | De onde vem | Estado em 2026-10-09 |
 |---|---|---|---|
-| Linguagem e modelo de computação | uma linguagem por plataforma: TypeScript na web, Kotlin no Android, C# no desktop | ADRs 0001 e 0021; `CONTEXT.md`, Modelo de computação | controlado |
+| Linguagem e modelo de computação | uma linguagem por plataforma: TypeScript na web, Kotlin no Android, C# no desktop | ADRs 0001 e 0021; `GLOSSARY.md`, Modelo de computação | controlado |
 | Especificação | as implementações de uma interface seguem o mesmo `spec.md` do OpenSpec, com os mesmos textos, regras e dados, e cada mudança entre rodadas entra como *delta spec* | ADRs 0002, 0012 e 0030; `implementacoes/AGENTS.md` | controlado no Formulário e na Busca (`spec.md` desde 2026-10-12); o Login, o Quadro e os Dados ao vivo só têm a especificação dos protótipos de 2026-10-12 (`tmp/`, fora do git) |
 | Teste de conformidade | as mesmas verificações, na mesma ordem, contra cada implementação, cada uma com o nome de um cenário da especificação, conferido por `npm run conferir-especificacao`; na web, colado no console | `implementacoes/AGENTS.md` | faltam os das três interfaces novas; o nome mudou de "rotina" em 2026-10-11 |
 | Regras comuns da primeira rodada | em todas as interfaces, as mensagens de status ficam numa região anunciada (`role="status"`, WCAG 2.2, 4.1.3), e vale a limpeza ao sair da tela (a tela encerra o que iniciou); o teste de conformidade confere as duas, a segunda contando no domínio os relógios, as inscrições e as requisições abertas | ADR 0029 | a fazer; os Dados ao vivo já contam as inscrições no protótipo |

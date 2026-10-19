@@ -9,13 +9,13 @@ tecnologia, está em `docs/plataformas/web.md`,
 bibliotecas de formulário da terceira rodada, em
 `docs/plataformas/bibliotecas-de-formulario.md`.
 
-Os termos seguem o `CONTEXT.md` e o ADR 0021, com as definições e as
+Os termos seguem o `GLOSSARY.md` e o ADR 0021, com as definições e as
 fontes em `docs/paradigma-modelo-e-notacao.md`: o que se compara são três
 modelos de programação (o imperativo por atualização manual, o declarativo por
 re-renderização e o declarativo por atualização granular), e a notação é
 a forma escrita de um modelo de programação numa tecnologia. As
 tecnologias dos pares são tecnologias como as da web e do Android; o
-*desktop* ainda não é plataforma no `CONTEXT.md`, que só conhece a web e
+*desktop* ainda não é plataforma no `GLOSSARY.md`, que só conhece a web e
 o Android, e entra nele se a tcc-a0w decidir representá-lo.
 
 ## Resumo

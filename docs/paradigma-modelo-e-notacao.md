@@ -2,7 +2,7 @@
 
 Fontes. Diz o que cada termo nomeia no TCC, de que fonte vem, com que
 vizinhos se explica e que tensões o texto ainda precisa enfrentar. A
-decisão está no ADR 0021 (2026-10-08) e os verbetes no `CONTEXT.md`;
+decisão está no ADR 0021 (2026-10-08) e os verbetes no `GLOSSARY.md`;
 aqui ficam as definições com a página, os contrastes e os trechos.
 
 **Conclusão.** O TCC compara três **modelos de programação**: o
@@ -721,7 +721,7 @@ Levantadas em 2026-10-13.
 
 Conclusão: "mudança" é o termo da engenharia de software acadêmica em
 português para *change*, e fica para o que o OpenSpec chama de *change*
-(`CONTEXT.md`, Mudança); "alteração" é o das ferramentas de versão em
+(`GLOSSARY.md`, Mudança); "alteração" é o das ferramentas de versão em
 português; os dicionários dão as três palavras como sinônimas. Três
 subagentes, em 2026-10-13; as contagens e os trechos são deles, sem
 reconferência, salvo onde se diz.
@@ -741,7 +741,7 @@ substantivo: "onze mudanças, acrescentadas uma por commit" e "os nomes da
 mudança entre rodadas". A primeira passou a "feitas", a segunda a "o que
 acontece com a diferença de uma rodada a outra" (`texto/intro.org`,
 2026-10-13). O nome das rodadas não usa nenhuma das palavras: elas se
-chamam pelo ordinal, "a segunda rodada" (`CONTEXT.md`, Rodada).
+chamam pelo ordinal, "a segunda rodada" (`GLOSSARY.md`, Rodada).
 
 Com "mudança" fixada para o OpenSpec, o estado ficou com "alteração", e
 a tela com "atualização" (decisão do autor em 2026-10-13): o evento altera

@@ -1,7 +1,7 @@
 # Exigências de coordenação: o que cada interface pede, e o que cada par cobre
 
 Referência. Lista, interface por interface, as exigências de coordenação
-que as especificações definem nos dois eixos (`CONTEXT.md`), agrupadas em
+que as especificações definem nos dois eixos (`GLOSSARY.md`), agrupadas em
 tipos, e diz quais tipos cada par de tecnologias cobre na primeira e na
 segunda rodada. Serve de base para comparar outros pares como se comparou
 Views × Compose em `docs/plataformas/android.md`, seção "Hipótese sobre
@@ -10,7 +10,7 @@ Lido em 2026-10-15 nos `spec.md` de `implementacoes/openspec/specs/`,
 nos ADRs 0002, 0005 e 0029 e nas descrições das tarefas da segunda
 rodada (tcc-32dr, tcc-k9i2, tcc-r29v, tcc-buku, tcc-dnk5). Os nomes dos
 tipos são proposta do agente, revista pelo autor em 2026-10-16; nenhum
-entrou no `CONTEXT.md`.
+entrou no `GLOSSARY.md`.
 
 **Conclusão.** A orquestração de eventos tem sete tipos nas cinco
 interfaces, e o gerenciamento de estado, nove. Nenhum par cobre todos com

@@ -4,14 +4,14 @@ Trabalho de conclusão em Ciência da Computação (UNEMAT), em português: o
 texto em `texto/*.org` (exportado para `latex/capitulos/`), a bibliografia
 em `texto/refs.bib`, o código das implementações em `implementacoes/`
 (instruções próprias em `implementacoes/AGENTS.md`). Os termos do projeto
-estão em `CONTEXT.md`; use-os.
+estão em `GLOSSARY.md`; use-os.
 
 ## Onde cada coisa vive
 
 | O quê | Onde | Regra |
 |---|---|---|
 | Decisão cara de reverter, com alternativa real | `docs/adr/NNNN-slug.md` | skill `adr`: um parágrafo, data absoluta, "Em vez de" e "Custo" obrigatórios. Decisão que muda reescreve o ADR no lugar, com a data nova e a decisão anterior num "Em vez de"; errata se corrige no texto; ADR absorvido por outro se apaga. O git guarda as versões, e a numeração tem lacunas |
-| Termo do projeto | `CONTEXT.md` | skill `domain-modeling`: definição de uma ou duas frases e o que evitar |
+| Termo do projeto | `GLOSSARY.md` | skill `domain-modeling`: definição de uma ou duas frases e o que evitar |
 | Tarefa aberta | Beads (`bd`), exportado em `.beads/issues.jsonl` | seção abaixo |
 | Fonte, nota de referência ou achado que o texto ainda vai absorver | `docs/` e as subpastas dele, com entrada em `docs/README.md` | seção abaixo |
 | Plano, guia de leitura e revisão do agente na avaliação pelas DCs | `docs/avaliacao/<rodada>-<interface>/` | skill do projeto `avaliacao-pelas-dcs`: o guia sai antes da leitura do autor e sem conclusão, a revisão depois do ditado; cada um num commit no `master`; a origem das posições vai numa linha do commit do texto |
@@ -282,7 +282,7 @@ pergunta antes.
   vai para a passiva sintética ou para um sujeito que seja o código: "no
   Lit, a orquestração se escreve como no Web Component", "o tratador
   chama…", e nunca "o Lit escreve" nem "o Lit escreve igual a". A
-  montagem da tela é parte da notação (`CONTEXT.md`): "no React e no
+  montagem da tela é parte da notação (`GLOSSARY.md`): "no React e no
   Solid, a tela se monta em JSX", e não "o React monta a tela em JSX". A diferença entre modelos de
   programação só conta no sinal escrito (ADR 0021), e o verbo de execução
   com a tecnologia de sujeito atribuiria a ela o que o programador
@@ -347,7 +347,7 @@ As seções das notas não têm número, e a referência cita o título:
 primeira frase da seção. Nota nova só quando o conteúdo não cabe num
 ADR, numa tarefa nem no texto.
 Todo texto de nota, tarefa ou ADR: conclusão primeiro, datas absolutas, uma
-palavra por conceito (`CONTEXT.md`), sem alusão à conversa que o gerou e
+palavra por conceito (`GLOSSARY.md`), sem alusão à conversa que o gerou e
 sem decalque do inglês (`portugues-idiomatico.md` da `escrita-academica`,
 seção "Decalque").
 

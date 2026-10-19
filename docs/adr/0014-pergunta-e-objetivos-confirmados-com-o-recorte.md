@@ -70,7 +70,7 @@ pedia um juízo que as DCs não fazem e passou a "o que cada modelo de
 programação facilita e o que dificulta" (decisões do autor em
 2026-10-09).
 Em vez de: "avaliar" no lugar de "comparar"; diria a atividade com o
-termo do CONTEXT.md, mas avaliar é atribuir valor, o objetivo geral se
+termo do GLOSSARY.md, mas avaliar é atribuir valor, o objetivo geral se
 confundiria com o segundo específico ("avaliar as implementações por
 oito DCs"), e os pares e as colunas da síntese perderiam o verbo.
 Em vez de: "como as três notações [...] se comparam quanto à

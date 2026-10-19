@@ -18,7 +18,7 @@ ouvinte das outras abas, que entrega o quadro lido, e não uma ação.
 Escrever uma alteração de estado faz parte da notação, e assim a diferença
 entre copiar o estado e alterá-lo no lugar fica à vista da análise.
 
-Em vez de: as transições no domínio (protótipo e `CONTEXT.md`, de
+Em vez de: as transições no domínio (protótipo e `GLOSSARY.md`, de
 2026-10-12); o código de cada implementação ficaria só com a coordenação,
 e o desfazer da segunda rodada se resolveria igual em todas, guardando os
 quadros anteriores, sem o contraste de Kiss (2014) entre guardar o comando

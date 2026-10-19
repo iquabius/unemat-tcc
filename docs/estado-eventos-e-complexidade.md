@@ -91,7 +91,7 @@ Jones (2016) e Benveniste et al. (2003):
   Memory / for each input event do / Compute Outputs / Update Memory" de
   Benveniste et al. (p. 65). Os dois estilos escrevem a mesma máquina;
   muda quem escreve a ordem das alterações, o programador ou o ambiente
-  de execução (`CONTEXT.md`, "Atualização").
+  de execução (`GLOSSARY.md`, "Atualização").
 
 ## Eventos
 
@@ -183,7 +183,7 @@ eventos quanto o estado, e por isso serve de guarda-chuva; "orquestrar" é
 sempre sobre eventos; o estado tem dois nomes, "change propagation" ou
 "management of state changes" nos artigos de PR, e "state management" nos
 estudos sobre React, RxJS e Redux. Decisão do autor em 2026-10-11, para o
-`CONTEXT.md` depois da orientação: a exigência de coordenação é o
+`GLOSSARY.md` depois da orientação: a exigência de coordenação é o
 guarda-chuva, com dois eixos, a orquestração de eventos e o gerenciamento
 de estado; "tratamento de eventos" não serve de eixo, porque é
 vocabulário do imperativo (relatório do autor em

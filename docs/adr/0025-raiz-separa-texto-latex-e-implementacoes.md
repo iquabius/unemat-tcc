@@ -16,7 +16,7 @@ principal. O npm vai para `implementacoes/`, de onde rodam os *workspaces*
 e o `npm run capturas`. A pasta reúne também a especificação
 (`openspec/`), o projeto Android e uma pasta por interface, e o nome diz o
 que ela guarda, e não o item, que é a interface (ADR 0034). O Scotty abre
-por `bin/tarefas`. Na raiz ficam `readme.org`, `AGENTS.md`, `CONTEXT.md`,
+por `bin/tarefas`. Na raiz ficam `readme.org`, `AGENTS.md`, `GLOSSARY.md`,
 `setup.org`, `dependencies.json` e a configuração sem pasta própria
 (`.gitignore`, `.tool-versions`, `.dir-locals.el`). As tags `v0.2` a
 `v0.9` ficam no leiaute antigo, e o `bin/gerar-versao.sh` compila cada

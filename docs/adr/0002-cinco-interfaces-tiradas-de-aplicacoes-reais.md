@@ -4,7 +4,7 @@
 uma Reserva de voo, nenhum assíncrono. Cada interface reproduz a de uma
 aplicação real, com as exigências de coordenação que ela costuma ter, nos
 dois eixos, a orquestração de eventos e o gerenciamento de estado
-(`CONTEXT.md`), sem a mesma quantidade de cada eixo em cada uma, e com
+(`GLOSSARY.md`), sem a mesma quantidade de cada eixo em cada uma, e com
 cada eixo forte em pelo menos duas:
 
 - Formulário com validação, o *Flight Booker* do 7GUIs mais nome e e-mail:
