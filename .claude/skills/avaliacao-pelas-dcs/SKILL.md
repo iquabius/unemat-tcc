@@ -108,11 +108,7 @@ Entrada: a interface e a rodada. Saída: `plano.md` (modelo em
    programação, com o mesmo JSX). A diferença entre o Web Component e o
    React, que não formam par, se atribui ao passo da cadeia em que ela
    aparece, e a que nenhum passo explica, pelo sinal escrito (ADR 0013).
-6. **DC da interface.** Quais DCs têm esta interface como a fixada no
-   mapa DC → interface (ADR 0017; tcc-7jc), se o mapa já existir. As 14
-   se percorrem de qualquer jeito; a fixada só diz onde a seção da DC
-   busca a evidência principal.
-7. **Apoio medido**: linhas por implementação, com o script do ADR 0012
+6. **Apoio medido**: linhas por implementação, com o script do ADR 0012
    (tcc-hlh7) quando existir, senão `git diff --stat`/`wc -l` marcados
    como provisórios; na segunda e na terceira, o `git diff --stat` de cada commit da mudança.
 

@@ -36,9 +36,6 @@ Commit lido: <sha> (<data>). Atividade: <busca e compreensão | modificação>
   (<...>), atualização granular (<...>).
 - Passos da cadeia (ADR 0013): <WC → WC com signals | WC com signals →
   Solid | Solid → React>, com o que cada passo muda nesta interface.
-
-## DCs fixadas nesta interface
-<lista do mapa DC → interface, ou "mapa ainda não fixado (tcc-7jc)">
 ```
 
 ## guia.md
