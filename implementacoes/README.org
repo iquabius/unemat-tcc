@@ -6,9 +6,10 @@ um projeto completo, com o próprio =package.json=, e pode ser lida sozinha.
 O escopo (interfaces e tecnologias) está nas decisões em
 [[file:../docs/adr/][docs/adr/]]. O código que saiu da análise (o Contador,
 a Lista filtrável, o Carrinho, o jQuery, o Angular com RxJS, o JavaFX com
-FXML, o par Qt Widgets × QML, o cronômetro de 2017, o Android e o desktop)
-fica congelado em [[file:fora-da-analise/README.org][fora-da-analise/]],
-fora dos comandos abaixo.
+FXML, o par Qt Widgets × QML, o cronômetro de 2017, o Android, o desktop,
+o Lit, o Angular com /signals/ e o Quadro de tarefas) fica congelado em
+[[file:fora-da-analise/README.org][fora-da-analise/]], fora dos comandos
+abaixo.
 
 * Pré-requisito: Node.js
 
@@ -19,8 +20,6 @@ fora dos comandos abaixo.
   asdf plugin add nodejs
   asdf install
   #+end_src
-
-  O Angular 22 exige Node 22.22.3 ou mais novo.
 
 * Instalar e rodar
 
@@ -36,15 +35,13 @@ fora dos comandos abaixo.
   #+end_src
 
   Troque o caminho pelo da implementação desejada. O Vite serve em
-  =http://localhost:5173= e o Angular em =http://localhost:4200=.
+  =http://localhost:5173=.
 
   | Subpasta           | Tecnologia                             |
   |--------------------+----------------------------------------|
   | =web-component=    | DOM puro com /custom element/ (classe) |
   | =react=            | React                                  |
   | =solid=            | Solid (/signals/)                      |
-  | =lit=              | Lit (sobre o /custom element/)         |
-  | =angular-signals=  | Angular com /signals/                  |
 
 * Capturas de tela
 

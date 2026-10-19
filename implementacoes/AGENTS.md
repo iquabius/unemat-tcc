@@ -85,9 +85,9 @@ commit que mexa numa especificação ou num teste de conformidade.
 
 ### Interface nova
 
-O Login, o Quadro, os Dados ao vivo e outra que vier entram como *delta
-spec*, como a mudança entre rodadas ("Mudança numa especificação",
-abaixo), para a especificação ser revisada antes do código:
+O Login, os Dados ao vivo e outra que vier entram como *delta spec*,
+como a mudança entre rodadas ("Mudança numa especificação", abaixo),
+para a especificação ser revisada antes do código:
 
 1. `npm run openspec -- new change especificar-<interface>`. O delta, em
    `specs/<interface>/spec.md`, tem o `## Purpose` (uma ou duas frases, com
@@ -108,8 +108,8 @@ da segunda rodada, entra como *delta spec*, pelos passos abaixo, e o
 delta arquivado é o que o texto cita como a mudança da rodada (ADR 0030).
 
 A mudança dentro de uma rodada (correção, redação, as regras e os
-controles novos da primeira rodada, como o envio que ignora o reenvio e
-o "Definir Status" do Quadro) edita o `spec.md` direto, sem proposta nem
+controles novos da primeira rodada, como o envio que ignora o reenvio)
+edita o `spec.md` direto, sem proposta nem
 arquivamento: um commit que muda a especificação, o teste de conformidade
 e os arquivos da interface que citam a regra, com `npm run
 conferir-especificacao` antes, e depois um commit por tecnologia, na mesma
@@ -174,17 +174,15 @@ A mudança não se porta para o código da interface em
   `README.org`, na especificação ou no texto do TCC, vem com o que ela dá
   ao usuário final, no papel do **ENTÃO** que os cenários já usam
   (*Given-When-Then*, do BDD): a exigência técnica e, em seguida, "para o
-  usuário ...", como em "o quadro gravado no navegador, para o usuário
-  reencontrá-lo como deixou ao voltar à página". A frase técnica diz o que
-  o programa faz, e a ilustrativa, por que a aplicação real o pede; a
-  rodada de revisão do texto confere as duas (skill `revisao-de-texto`).
+  usuário ...", como em "cancela a inscrição ao sair da tela, para o
+  usuário não gastar rede e bateria com um painel que não vê". A frase
+  técnica diz o que o programa faz, e a ilustrativa, por que a aplicação
+  real o pede; a rodada de revisão do texto confere as duas (skill
+  `revisao-de-texto`).
 - Crie o `cenas.mts` da interface (estados a capturar), gere as capturas com
   `npm run capturas -- <interface>` e versione-as no mesmo commit.
 - Implementações web em TypeScript, sem bibliotecas além do que cada
-  framework traz. O Angular é o `angular-signals` (ADR 0013), que espelha o
-  Solid (`signal`, `computed`, `effect`, `resource`, sem RxJS nem
-  formulários do Angular); o `angular-rxjs`, de apoio, com RxJS e Reactive
-  Forms de propósito, ficou congelado em `implementacoes/fora-da-analise/`.
+  framework traz.
 - No Web Component, o esqueleto da tela se escreve em HTML num texto
   (marcado `/* HTML */`), atribuído ao `innerHTML` uma vez, e as partes
   repetidas (itens de lista, linhas de tabela) e os elementos filhos,
@@ -200,34 +198,6 @@ A mudança não se porta para o código da interface em
   biblioteca (`docs/plataformas/web.md`, seção "Como Web Components sem
   biblioteca montam a tela"), e o ADR 0037 diz as alternativas e o
   custo.
-- O Lit (ADR 0013: Formulário, Busca e Dados ao vivo; o Quadro desde
-  2026-10-17, fora do ADR 0013 até a conferência das coleções do Quadro,
-  tcc-2rx2, decidir o trio dos pares; o Login desde 2026-10-17, fora do
-  ADR 0013 até a escolha do conjunto analisado, pelo plano de implementar
-  as cinco interfaces em todas as tecnologias) fica em
-  `implementacoes/<interface>/lit/`, com o Lit 3 e o *template* `html`, sem
-  `@lit-labs/signals` nem `@lit/task`. Escreve-se como o Web Component da
-  interface, para o par diferir o mínimo além da ligação do estado com a
-  tela; nas partes repetidas e no filho que entra e sai da página, que no
-  Lit se escrevem no *template* (`map`, condicional), o par difere também
-  na montagem da tela. Ficam iguais os elementos e classes,
-  `createRenderRoot()` devolvendo `this` (sem *shadow DOM*, para o
-  `estilo.css` valer), e o que a interface abre no
-  `connectedCallback` e fecha no `disconnectedCallback` herdados, que
-  chamam o `super`. O estado da tela leva `@state() accessor`; o da
-  coordenação (a inscrição, o `AbortController`) fica em campo comum. Um
-  método passado ao `@click` roda com o elemento como `this`, sem `bind`.
-- Os decoradores do Lit são os padrão do TypeScript, com `@customElement`
-  no lugar do `customElements.define`. A Vite 8 os deixa sem converter, e
-  o navegador ainda não os entende: o `vite.config.ts` do Lit os converte
-  com o `@rolldown/plugin-babel` e o `@babel/plugin-proposal-decorators`
-  (decisão do autor em 2026-10-13, contra os decoradores legados do
-  `experimentalDecorators`, que rodam sem Babel, e contra o `static
-  properties`, sem decoradores). O `@babel/core` do Lit aceita a versão que
-  o `@angular/build` fixa, para o `package-lock.json` não ganhar um segundo
-  `@babel/core`; o plugin dos decoradores ainda sobe o `@babel/parser` e o
-  `@babel/traverse` que o Angular usa (de 8.0.6 para 8.0.7 em 2026-10-13),
-  e por isso a mudança no Babel confere as capturas do Angular.
 
 ## Teste de conformidade na web
 
@@ -277,10 +247,10 @@ coluna do PDF em 8 pt.
 
 - O Prettier formata TS, TSX, HTML, CSS e JSON. O HTML do Web Component,
   num *template literal*, leva o comentário `/* HTML */` antes da crase, a
-  marca com que o Prettier o reconhece e formata, como o *template* do
-  Angular e o `html` do Lit, inclusive o *template* aninhado num `${...}`.
-  O Prettier só formata a expressão de um `${...}` escrita em mais de uma
-  linha: se ela passar de 80 colunas, quebre-a uma vez dentro do `${...}`.
+  marca com que o Prettier o reconhece e formata, inclusive o *template*
+  aninhado num `${...}`. O Prettier só formata a expressão de um `${...}`
+  escrita em mais de uma linha: se ela passar de 80 colunas, quebre-a uma
+  vez dentro do `${...}`.
 - Ficam de fora `implementacoes/fora-da-analise/` e os documentos
   (`implementacoes/.prettierignore`).
 
@@ -302,10 +272,12 @@ conferidas.
 (`<interface>/<tecnologia>/`), o código que saiu da análise: o Contador, a
 Lista filtrável e o Carrinho (ADR 0002), o jQuery e o Angular com RxJS
 (ADR 0013), o JavaFX com FXML, o par Qt Widgets × QML (ADR 0001), o
-cronômetro de 2017 (ADR 0012) e, desde 2026-10-18, o Android (Views ×
+cronômetro de 2017 (ADR 0012), desde 2026-10-18 o Android (Views ×
 Compose) e o desktop (Swing × JavaFX), por decisão do autor de
-2026-10-17. O `README.org` de lá diz o que é cada pasta, por que saiu e
-como rodá-la no commit anterior ao movimento.
+2026-10-17, e desde 2026-10-19 o Lit e o Angular com *signals* (ADR
+0013) e o Quadro de tarefas, com a especificação ao lado (ADR 0002). O
+`README.org` de lá diz o que é cada pasta, por que saiu e como rodá-la
+no commit anterior ao movimento.
 
 - É registro congelado (decisão do autor em 2026-10-13): não se edita,
   não compila, não se testa, não se formata nem se captura. Os
