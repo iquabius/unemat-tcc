@@ -1,42 +1,47 @@
 # 0014. A pergunta e os objetivos comparam três modelos de programação pela usabilidade das notações, segundo as Dimensões Cognitivas, com duas subperguntas, a P1.1 e a P1.2, e "larga escala" vira motivação
 
-2026-10-13. A introdução de 2017 trazia a pergunta em três formulações,
+2026-10-19. A introdução de 2017 trazia a pergunta em três formulações,
 uma sobre software em larga escala, que interfaces pequenas não
 respondem, e um objetivo geral sem critério. A pergunta: pelas Dimensões
-Cognitivas de Notações, como difere a usabilidade da notação do código de
-interfaces gráficas em cada tecnologia entre os três modelos de
+Cognitivas de Notações, como difere a usabilidade da notação do código
+de interfaces gráficas em cada tecnologia entre os três modelos de
 programação — o imperativo por atualização manual, o declarativo por
 re-renderização e o declarativo por atualização granular? A pergunta tem
 a forma descritivo-comparativa de Easterbrook et al. (2008), "How does X
-differ from Y?", e pede diferenças, e não um juízo de qual é melhor, como
-as próprias DCs, que "are not good or bad in themselves" (Blackwell e
-Green 2003, cópia). A pergunta diz a unidade comparada, o modelo de
+differ from Y?", e pede diferenças, e não um juízo de qual é melhor,
+como as próprias DCs, que "are not good or bad in themselves" (Blackwell
+e Green 2003, cópia). A pergunta diz a unidade comparada, o modelo de
 programação, e onde se observa a evidência, a notação de cada tecnologia
 (ADR 0021); "do código" diz que a notação é a do código que programa a
 interface, e não o que o usuário vê na tela. A pergunta principal tem
 duas subperguntas, uma por rodada estreita (ADR 0029), com rótulos
 hierárquicos, que dizem a subordinação sem uma frase que a anuncie: como
 a diferença entre os modelos de programação muda quando a mesma
-funcionalidade ou o mesmo requisito de orquestração se acrescenta a todas
-as implementações (P1.1, a segunda rodada), e quando cada tecnologia usa
-a biblioteca de formulário do seu ecossistema (P1.2, a terceira); a
-redação é do autor, na introdução (tcc-xep). As rodadas se chamam pelo
-ordinal, e não pela pergunta, porque "a rodada da P1" se confundiria com
-a avaliação inteira, que a P1 cobre. "Larga escala" fica só na motivação.
-O objetivo geral é comparar, segundo as DCs, a usabilidade das notações
-dos três modelos de programação em interfaces típicas da web, em
-TypeScript, e em parte delas no Android, em Kotlin, e no desktop, em C#
-(cada plataforma pelo nome, ADR 0012); os específicos: implementar as
-cinco interfaces com Web Component, React e Solid, três delas também em
-Lit e em Angular com *signals*, e três no Android, com Views e Compose, e
-no desktop, com Windows Forms e WPF, e estendê-las na segunda e na
-terceira rodada (ADRs 0013 e 0029); avaliar as implementações pelas 14
+funcionalidade ou o mesmo requisito de orquestração se acrescenta a
+todas as implementações (P1.1, a segunda rodada), e quando cada
+tecnologia usa a biblioteca de formulário do seu ecossistema (P1.2, a
+terceira); a redação é do autor, na introdução (tcc-xep). As rodadas se
+chamam pelo ordinal, e não pela pergunta, porque "a rodada da P1" se
+confundiria com a avaliação inteira, que a P1 cobre. "Larga escala" fica
+só na motivação. O objetivo geral é comparar, segundo as DCs, a
+usabilidade das notações dos três modelos de programação em interfaces
+típicas da web, em TypeScript (ADR 0001); os específicos: implementar as
+sete interfaces com o Web Component, o Web Component com *signals*, o
+React e o Solid, estendê-las na segunda rodada e refatorar duas delas na
+terceira (ADRs 0002, 0013 e 0029); avaliar as implementações pelas 14
 DCs em cada rodada (ADR 0012); sintetizar, por exigência de coordenação,
-o que cada modelo de programação facilita e o que dificulta. Os programas
-de processamento de listas, que demonstram os conceitos de PF, vão para a
-fundamentação (`prog.org`): fundamentar conceitos é função de uma seção
-do texto, e não um passo para o objetivo geral.
+o que cada modelo de programação facilita e o que dificulta. Os
+programas de processamento de listas, que demonstram os conceitos de PF,
+vão para a fundamentação (`prog.org`): fundamentar conceitos é função de
+uma seção do texto, e não um passo para o objetivo geral.
 
+Em vez de: o objetivo geral na web, em TypeScript, e em parte das
+interfaces no Android, em Kotlin, e no *desktop*, em C#, com os
+específicos de implementar as cinco interfaces em Web Component, React e
+Solid, três delas também em Lit e em Angular com *signals*, três no
+Android e três no *desktop* (versão de 2026-10-13); cobria três
+plataformas, mas o Android e o *desktop* saíram da análise (ADRs 0001 e
+0005), e o Lit e o Angular também (ADR 0013).
 Em vez de: uma pergunta só, sem subperguntas (decisão de 2026-10-09);
 mais curta, mas a segunda e a terceira rodada ficariam sem pergunta a
 que responder, e a conclusão da terceira, que mede bibliotecas, se
@@ -59,16 +64,16 @@ Em vez de: "a notação com que se escrevem interfaces gráficas" (edição
 do autor em 2026-10-13); tira o eco de "programação", mas "escrever
 interfaces" deixa a notação ambígua entre o código e a tela, e "do
 código de" diz o mesmo com uma palavra a menos.
-Em vez de: "como os três modelos de programação [...] se comparam
-quanto à usabilidade das notações com que se escrevem, segundo as DCs?"
+Em vez de: "como os três modelos de programação [...] se comparam quanto
+à usabilidade das notações com que se escrevem, segundo as DCs?"
 (decisão de 2026-10-08); "comparar" também serve à forma
 descritivo-comparativa, mas "com que se escrevem" não dizia o que se
 escreve nem de quem é a notação, a pergunta repetia "programação" e
 "segundo as DCs" do objetivo geral, e o critério ficava longe do verbo;
-o terceiro objetivo específico, "sintetizar as vantagens e desvantagens",
-pedia um juízo que as DCs não fazem e passou a "o que cada modelo de
-programação facilita e o que dificulta" (decisões do autor em
-2026-10-09).
+o terceiro objetivo específico, "sintetizar as vantagens e
+desvantagens", pedia um juízo que as DCs não fazem e passou a "o que
+cada modelo de programação facilita e o que dificulta" (decisões do
+autor em 2026-10-09).
 Em vez de: "avaliar" no lugar de "comparar"; diria a atividade com o
 termo do GLOSSARY.md, mas avaliar é atribuir valor, o objetivo geral se
 confundiria com o segundo específico ("avaliar as implementações por
@@ -82,9 +87,9 @@ que a evidência está na notação, e uma diferença só de execução, sem
 sinal escrito (Moseley e Marks 2006, p. 9), pareceria caber na resposta.
 Em vez de: "como se comparam, segundo as DCs, as notações dos três
 modelos de programação?"; a forma usual das DCs, que comparam notações,
-mas as notações concretas são cinco na web, e a pergunta ou passaria a
-comparar tecnologias, ou devolveria a "notação" o sentido de classe que
-junta Solid e Angular.
+mas as notações concretas são quatro na web, e a pergunta ou passaria
+a comparar tecnologias, ou devolveria a "notação" o sentido de classe
+que junta o Web Component com *signals* e o Solid.
 Em vez de: manter a comparação de 2017, PF e PR contra POO com
 *callbacks*; continuidade com o projeto aprovado, mas o lado declarativo
 de 2026 se divide em dois modelos de programação, a re-renderização
@@ -95,20 +100,23 @@ Em vez de: um objetivo específico para demonstrar, com processamento de
 listas, os conceitos de PF em que se apoiam os modelos de programação
 declarativos (decisão de 2026-09-26); continuava o projeto de 2017 e
 preparava a PF antes da PR, mas não tinha critério nem se ligava à
-pergunta, e o parágrafo do método que o sustentava ("O trabalho se divide
-em duas partes") só repetia o §7 e os objetivos.
+pergunta, e o parágrafo do método que o sustentava ("O trabalho se
+divide em duas partes") só repetia o §7 e os objetivos.
 Em vez de: quatro modelos de programação, com o RxJS como o reativo por
 fluxos; retomaria a PR de 2017, mas pelas razões do ADR 0013 o RxJS fica
 de apoio.
-Custo: a pergunta restringe o alcance: diferenças de modelo de
-programação que não aparecem no código, como o desempenho, ficam fora da
-resposta; as subperguntas pedem que a introdução e a conclusão respondam
-a três perguntas, e a P1.2 só se responde no ecossistema típico; os
-rótulos hierárquicos obrigam a chamar as rodadas pelo ordinal, e os ADRs,
-as notas de `docs/`, `implementacoes/` e as tarefas que diziam P2 e P3 mudam; a
-introdução, o título ("Demonstração e Análise de Programação
-Funcional e Reativa") e a análise do Contador em `cases.org` precisam ser
-reescritos; os programas de listas mudam do `cases.org` para o
+Custo: a P1.2 ainda fala da biblioteca de formulário, e a terceira
+rodada passou a refatorar a Reserva de passagem e o Placar ao vivo para
+a forma do ecossistema (ADR 0029), e a redação dela muda com a tcc-vgrx;
+a pergunta restringe o alcance: diferenças de modelo de programação que
+não aparecem no código, como o desempenho, ficam fora da resposta; as
+subperguntas pedem que a introdução e a conclusão respondam a três
+perguntas, e a P1.2 só se responde no ecossistema típico; os rótulos
+hierárquicos obrigam a chamar as rodadas pelo ordinal, e os ADRs, as
+notas de `docs/`, `implementacoes/` e as tarefas que diziam P2 e P3
+mudam; a introdução, o título ("Demonstração e Análise de Programação
+Funcional e Reativa") e a análise do Contador em `cases.org` precisam
+ser reescritos; os programas de listas mudam do `cases.org` para o
 `prog.org`; a mudança deve ser justificada ao curso e aos orientadores.
 
 Fontes: revisão da introdução de 2026-09-23 (Wazlawick);
