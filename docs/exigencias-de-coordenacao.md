@@ -1,139 +1,104 @@
-# Exigências de coordenação: o que cada interface pede, e o que cada par cobre
+# Exigências de coordenação: o que cada interface pede, e em que rodada
 
 Referência. Lista, interface por interface, as exigências de coordenação
-que as especificações definem nos dois eixos (`GLOSSARY.md`), agrupadas em
-tipos, e diz quais tipos cada par de tecnologias cobre na primeira e na
-segunda rodada. Serve de base para comparar outros pares como se comparou
-Views × Compose em `docs/plataformas/android.md`, seção "Hipótese sobre
-o ambiente de execução do Compose", e para pesar o equilíbrio dos pares.
-Lido em 2026-10-15 nos `spec.md` de `implementacoes/openspec/specs/`,
-nos ADRs 0002, 0005 e 0029 e nas descrições das tarefas da segunda
-rodada (tcc-32dr, tcc-k9i2, tcc-r29v, tcc-buku, tcc-dnk5). Os nomes dos
-tipos são proposta do agente, revista pelo autor em 2026-10-16; nenhum
-entrou no `GLOSSARY.md`.
+que as especificações e as decisões definem nos dois eixos
+(`GLOSSARY.md`), agrupadas em tipos, e diz em que rodada cada tipo
+aparece. Lida em 2026-10-15 nos `spec.md` de
+`implementacoes/openspec/specs/` e nos ADRs 0002, 0005 e 0029, e revista
+em 2026-10-19 com as sete interfaces e as rodadas dos ADRs 0002 e 0029;
+as interfaces sem especificação (o conversor, a planilha e o Circle
+Drawer) entram pelas decisões, e os tipos delas são leitura do agente, a
+conferir na especificação. Os nomes dos tipos são proposta do agente,
+revista pelo autor em 2026-10-16 e em 2026-10-19; nenhum entrou no
+`GLOSSARY.md`.
 
-**Conclusão.** A orquestração de eventos tem sete tipos nas cinco
-interfaces, e o gerenciamento de estado, nove. Nenhum par cobre todos com
-as interfaces do ADR 0029. O par do desktop, com o Formulário, o Quadro e
-o Login, é o mais equilibrado: o Formulário e o Quadro no estado, o Login
-na orquestração, com as três políticas de concorrência e os relógios. A
-cobertura vem das interfaces, e não das tecnologias: o Swing × JavaFX,
-que substituiu o Windows Forms × WPF em 2026-10-16 (ADR 0001), cobre os
-mesmos tipos com as mesmas interfaces. O Web Component × Lit pende para a orquestração, sem estado
-compartilhado; o Solid × Angular com *signals*, para o estado, sem relógio
-nem ciclo de vida preso a um estado; o Views × Compose é o mais forte no
-gerenciamento de estado e não tem a política em que a requisição nova
-cancela a anterior. A ordem de corte do ADR 0029 começa pelo Quadro do
-Angular, que leva consigo o estado compartilhado e a fila do par Solid ×
-Angular.
+**Conclusão.** A orquestração de eventos tem oito tipos nas sete
+interfaces, e o gerenciamento de estado, nove, dois deles com formas
+novas, trazidas do 7GUIs e da segunda rodada da Reserva de passagem. Na
+primeira rodada, o estado pesa em quatro interfaces (a Reserva de
+passagem, o conversor, a planilha e o Circle Drawer), e a orquestração,
+em três (a Busca, o Login e o Placar ao vivo); na segunda rodada, os
+dois eixos ficam perto do equilíbrio. As quatro tecnologias implementam
+as sete interfaces (ADR 0012), e todo par cobre os mesmos tipos: a
+cobertura vem das interfaces. Ficam numa interface só a política de
+ignorar o pedido novo (o envio da Reserva de passagem), a fila (o
+salvamento do Circle Drawer), a fonte de fora da interface (o Placar ao
+vivo), a sequência de eventos do ponteiro (o arrastar do Circle Drawer),
+o estado compartilhado (a barra de fórmula; no Circle Drawer, só por
+leitura nossa) e as três formas novas do estado derivado.
 
 ## Tipos de orquestração de eventos
 
 | Tipo | O que exige | Onde (rodada) |
 |---|---|---|
-| O1. Pedido novo com outro em andamento | a política quando o usuário faz um pedido novo com outro em andamento: **substituição**, o novo cancela o anterior, e a resposta cancelada nunca aparece (*switch*); **ignorar**, o pedido novo não sai até a resposta do anterior (*exhaust*); **fila**, os pedidos se aplicam na ordem dos cliques (*concat*) | substituição: Busca, termo novo (1ª); Login, tentativa nova (1ª). Ignorar: envio do Formulário (1ª, tcc-32dr). Fila: atualização otimista do Quadro (2ª). Sem política definida: validação do e-mail (2ª) |
-| O2. Tempo | **espera** depois da última tecla (*debounce*); **relógio** que a interface mostra; **prazo** que muda o estado sozinho; **frequência** de atualização escolhida pelo usuário | espera: Busca (2ª). Relógio: tempo de sessão do Login (1ª); contagem regressiva da quarentena (2ª). Prazo: expiração aos 10 s do Login (1ª); fim da quarentena (2ª); nova inscrição em 2 s nos Dados ao vivo (2ª). Frequência: Dados ao vivo (2ª) |
-| O3. Ciclo de vida | o que a interface abre (requisição, relógio, inscrição, ouvinte) fecha **com a tela** (limpeza ao sair da tela, ADR 0029) ou **com um estado** (o relógio vive enquanto a sessão vive; a pausa fecha a inscrição), e fica **uma só** depois de esconder e mostrar a tela | com a tela: Login, Quadro e Dados ao vivo (1ª); Busca e Formulário à espera da tcc-v4m7. Com um estado: sessão do Login; pausa dos Dados ao vivo (1ª); reconexão cancelada por pausar ou esconder (2ª). Uma só: Dados ao vivo, cenário 11 (1ª) |
-| O4. Fonte de fora da interface | eventos que ninguém na tela pediu, combinados com os do usuário | a fonte que manda um lote por segundo: Dados ao vivo (1ª). A outra aba que grava o quadro: Quadro (1ª) |
-| O5. Separação dos eventos | saber de onde veio cada evento e o que ele pode mudar: a alteração que o programa faz conta ou não como a do usuário, e duas fontes não interferem uma na outra | a escolha de uma sugestão muda o campo sem disparar busca: Busca (1ª). Editar não cancela a tentativa nem encerra a sessão: Login (1ª). Editar não cancela o envio: Formulário (1ª). O nome lembrado volta preenchido e já habilita o Entrar, sem o usuário digitar: Login (2ª). No Views, o *listener* dispara de novo quando o código altera o campo (ADR 0005) |
-| O6. Falha e recuperação | o que a falha deixa na tela e como a interface volta a funcionar: a busca seguinte mostra as sugestões, o cartão volta à coluna de onde saiu, o painel se inscreve de novo na fonte | a busca seguinte funciona: Busca (1ª). A falha mantém os dados no formulário: envio do Formulário (1ª). A quarentena depois de três falhas seguidas: Login (2ª). O cartão volta se o servidor falhar: Quadro (2ª). A reconexão depois de queda: Dados ao vivo (2ª) |
-| O7. Ação que espera a tela atualizar | uma ação que só funciona depois que a tela mudou, como mover o foco para um campo que acabou de aparecer | o foco no título do passo novo e no primeiro campo inválido: Formulário (2ª). Leitura nossa: os atalhos Ctrl+Z e Ctrl+Y do Quadro (2ª) pedem um ouvinte fora do componente, que também cai em O3 |
+| O1. Pedido novo com outro em andamento | a política quando o usuário faz um pedido novo com outro em andamento: **substituição**, o novo cancela o anterior, e a resposta cancelada nunca aparece (*switch*); **ignorar**, o pedido novo não sai até a resposta do anterior (*exhaust*); **fila**, os pedidos se aplicam na ordem das ações (*concat*) | substituição: Busca, termo novo (1ª); Login, tentativa nova (1ª). Ignorar: envio da Reserva de passagem (1ª, tcc-32dr). Fila: salvamento do Circle Drawer, a cada mudança (2ª) |
+| O2. Tempo | **espera** depois da última tecla (*debounce*); **relógio** que a interface mostra; **prazo** que muda o estado sozinho; **frequência** de atualização escolhida pelo usuário | espera: Busca (2ª). Relógio: tempo de sessão do Login (1ª); "Atualizado há" do Placar ao vivo (1ª); contagem regressiva da quarentena (2ª). Prazo: expiração aos 10 s do Login (1ª); fim da quarentena (2ª); nova inscrição em 2 s no Placar ao vivo (2ª). Frequência: Placar ao vivo (2ª) |
+| O3. Ciclo de vida | o que a interface abre (requisição, relógio, inscrição, ouvinte) fecha **com a tela** (limpeza ao sair da tela, ADR 0029) ou **com um estado** (o relógio vive enquanto a sessão vive; a pausa fecha a inscrição), e fica **uma só** depois de esconder e mostrar a tela | com a tela: Login e Placar ao vivo (1ª); Busca e Reserva de passagem à espera da tcc-v4m7; as três interfaces novas nascem com a regra. Com um estado: sessão do Login; pausa do Placar ao vivo (1ª); reconexão cancelada por pausar ou esconder (2ª). Uma só: Placar ao vivo, cenário 11 (1ª) |
+| O4. Fonte de fora da interface | eventos que ninguém na tela pediu, combinados com os do usuário | a fonte que manda um lote por segundo: Placar ao vivo (1ª) |
+| O5. Separação dos eventos | saber de onde veio cada evento e o que ele pode mudar: a alteração que o programa faz conta ou não como a do usuário, e duas fontes não interferem uma na outra | a escolha de uma sugestão muda o campo sem disparar busca: Busca (1ª). Editar não cancela a tentativa nem encerra a sessão: Login (1ª). Editar não cancela o envio: Reserva de passagem (1ª). O valor que o programa escreve num campo do conversor não volta como digitado: conversor (1ª). O nome lembrado volta preenchido e já habilita o Entrar: Login (2ª). A volta que o programa escreve deixa de acompanhar a ida quando o usuário a edita: Reserva de passagem (2ª) |
+| O6. Falha e recuperação | o que a falha deixa na tela e como a interface volta a funcionar | a busca seguinte funciona: Busca (1ª). A falha mantém os dados no formulário: envio da Reserva de passagem (1ª). A quarentena depois de três falhas seguidas: Login (2ª). A reconexão depois de queda: Placar ao vivo (2ª). A falha ao salvar o desenho: Circle Drawer (2ª) |
+| O7. Ação que espera a tela atualizar | uma ação que só funciona depois que a tela mudou, como mover o foco para um elemento que acabou de aparecer | leitura nossa, a conferir na especificação: o item ativo do *combobox* da Busca, que precisa estar na tela para ser anunciado (2ª) |
+| O8. Sequência de eventos do ponteiro | um gesto feito de vários eventos combinados no tempo (pressionar, mover, soltar), com o estado do gesto entre eles | arrastar os círculos: Circle Drawer (2ª) |
 
-O1 e O6 se sobrepõem no cancelamento, que o ADR 0002 já registra no custo:
-cada interface o faz com uma política diferente. O5 tem os dois sentidos:
-na Busca, a alteração feita pelo programa não pode contar como a do
-usuário; no nome lembrado do Login, tem de contar.
+O1 e O6 se sobrepõem no cancelamento, que o ADR 0002 já registra no
+custo: cada interface o faz com uma política diferente. O5 tem os dois
+sentidos: na Busca e no conversor, a alteração feita pelo programa não
+pode contar como a do usuário; no nome lembrado do Login, tem de contar.
 
 ## Tipos de gerenciamento de estado
 
 | Tipo | O que exige | Onde (rodada) |
 |---|---|---|
-| E1. Derivado de um valor | um valor calculado de outro, que o acompanha a cada alteração | o erro de cada campo do Formulário; o Entrar habilitado do Login; o destaque do palpite e a situação dos Dados ao vivo; a contagem de cada coluna do Quadro (1ª) |
-| E2. Derivado de várias partes | um valor que lê várias partes da tela, ou uma restrição que vale para todas | o Reservar, que considera todos os erros; a volta não antes da ida, mostrada quando qualquer data foi tocada (Formulário, 1ª); a opção "Fazendo" da lista "Coluna de <título>" das tarefas das outras colunas, desabilitada quando a coluna enche; o resumo do cabeçalho (Quadro, 1ª); os pontos e o total do bolão, do palpite digitado e do placar que a fonte manda (Dados ao vivo, 2ª) |
-| E3. Partes condicionais | uma parte aparece, fica habilitada ou conta conforme outro valor | a volta habilitada só em "Ida e volta" e o campo desabilitado que não conta para o Reservar (Formulário, 1ª); o passo do assistente (2ª) |
-| E4. Estado de interação | o que o usuário já fez na tela, à parte dos dados | o "tocado" (Formulário, 1ª); o item ativo do *combobox* (Busca, 2ª); a última ação na situação do Quadro (1ª) |
-| E5. Situação de uma operação | os estados pelos quais uma operação passa, cada um com a sua tela | Busca: vazia, "Buscando…", sugestões, nenhuma cidade, falha (1ª). Login: desconectado, conectando, conectado, falha (1ª); quarentena (2ª). Dados ao vivo: aguardando, com lotes, pausado (1ª); reconectando (2ª). Envio do Formulário: enviando, falha, confirmação (1ª); e-mail em validação (2ª) |
-| E6. Estado compartilhado | partes da tela que leem e alteram o mesmo estado | o cabeçalho e as três colunas do Quadro (1ª) |
-| E7. Lista e identidade dos itens | a lista na tela acompanha a lista no estado, item por item | as sugestões da Busca; as colunas, com a tarefa que muda de lista, no Quadro; as linhas dos jogos nos Dados ao vivo (1ª); a linha com palpite editável (2ª) |
-| E8. Histórico | um valor que registra o que já aconteceu | o último termo e o destino que fica (Busca, 1ª); a confirmação até a próxima reserva (Formulário, 1ª); os gols novos desde o último lote mostrado, contados também durante a pausa (Dados ao vivo, 1ª); desfazer e refazer (Quadro, 2ª); as falhas seguidas (Login, 2ª) |
-| E9. Estado salvo fora da interface | salvar, ler e validar o que fica fora da interface | o `localStorage`, com a validação ao abrir e o que outra aba grava (Quadro, 1ª); o nome lembrado (Login, 2ª); o servidor que confirma ou desfaz a mudança otimista (Quadro, 2ª) |
+| E1. Derivado de um valor | um valor calculado de outro, que o acompanha a cada alteração; formas: **nos dois sentidos**, cada valor derivado do outro; **até o usuário editar**, o derivado que passa a ser do usuário quando ele o escreve | a data inválida marcada na hora e o botão desabilitado (Reserva de passagem, 1ª); o Entrar habilitado do Login; o destaque do palpite e a situação do Placar ao vivo; o círculo sob o ponteiro no Circle Drawer (1ª). Nos dois sentidos: os dois campos do conversor (1ª). Até o usuário editar: a volta que acompanha a ida na Reserva de passagem (2ª) |
+| E2. Derivado de várias partes | um valor que lê várias partes da tela, ou uma restrição que vale para todas; forma: **grafo definido pelo usuário**, em que o próprio usuário escreve de que partes cada valor depende, e só as dependentes se recalculam | o Reservar, que considera as duas datas; a volta não antes da ida (Reserva de passagem, 1ª); os pontos e o total do bolão, do palpite digitado e do placar que a fonte manda (Placar ao vivo, 2ª). Grafo definido pelo usuário: as fórmulas da planilha (1ª); a referência circular, que não se avalia (planilha, 2ª) |
+| E3. Partes condicionais | uma parte aparece, fica habilitada ou conta conforme outro valor | a volta habilitada só em "Ida e volta" e o campo desabilitado que não conta para o Reservar (Reserva de passagem, 1ª) |
+| E4. Estado de interação | o que o usuário já fez na tela, à parte dos dados | o texto digitado à parte do número (conversor, 1ª); a célula selecionada (planilha, 1ª); o círculo e o diâmetro antigo, guardados entre o menu e o diálogo, o controle de diálogo (Circle Drawer, 1ª); o campo editado por último (conversor, 2ª); o item ativo do *combobox* (Busca, 2ª) |
+| E5. Situação de uma operação | os estados pelos quais uma operação passa, cada um com a sua tela | Busca: vazia, "Buscando…", sugestões, nenhuma cidade, falha (1ª). Login: desconectado, conectando, conectado, falha (1ª); quarentena (2ª). Placar ao vivo: aguardando, com lotes, pausado (1ª); reconectando (2ª). Envio da Reserva de passagem: enviando, falha, confirmação (1ª). Salvamento do Circle Drawer: "Salvando…", "Salvo", falha (2ª) |
+| E6. Estado compartilhado | partes da tela que leem e alteram o mesmo estado | a grade e a barra de fórmula da planilha, com a célula selecionada e a fórmula dela (1ª); leitura nossa: o *canvas* e o diálogo do Circle Drawer, com o círculo selecionado (1ª) |
+| E7. Lista e identidade dos itens | a lista na tela acompanha a lista no estado, item por item | as sugestões da Busca; as linhas dos jogos no Placar ao vivo; os círculos, com a identidade do selecionado (Circle Drawer, Kiss 2014, p. 46); as oito células da planilha (1ª); a linha com palpite editável (2ª) |
+| E8. Histórico | um valor que registra o que já aconteceu | o último termo e o destino que fica (Busca, 1ª); a confirmação até a próxima reserva (Reserva de passagem, 1ª); os gols novos desde o último lote mostrado (Placar ao vivo, 1ª); desfazer e refazer (Circle Drawer, 1ª); o arraste no desfazer (Circle Drawer, 2ª); as falhas seguidas (Login, 2ª) |
+| E9. Estado salvo fora da interface | salvar, ler e validar o que fica fora da interface | o nome lembrado (Login, 2ª); o desenho salvo no servidor (Circle Drawer, 2ª) |
 
-O reinício com a tela (mostrar começa do zero no Login e nos Dados ao
-vivo, e abre o quadro salvo no Quadro) aparece nos dois eixos: o que se
-fecha é O3, e o que volta ao valor inicial é estado. A tabela não o conta
-à parte.
+O reinício com a tela (mostrar começa do zero no Login e no Placar ao
+vivo) aparece nos dois eixos: o que se fecha é O3, e o que volta ao
+valor inicial é estado. A tabela não o conta à parte.
 
 ## Mapa por interface
 
 | Interface | Orquestração (1ª) | Orquestração (2ª) | Estado (1ª) | Estado (2ª) |
 |---|---|---|---|---|
-| Formulário | O1 ignorar, O5, O6 (envio, tcc-32dr, ainda fora do `spec.md`) | O1 sem política (e-mail), O7 (foco) | E1, E2, E3, E4, E8; E5 com o envio | E3 e E4 (passo), E5 (e-mail) |
-| Busca | O1 substituição, O5, O6; O3 com a tela à espera da tcc-v4m7 | O2 espera | E5, E7, E8 | E4 (item ativo) |
+| Reserva de passagem | O1 ignorar, O5, O6 (envio, tcc-32dr, ainda fora do `spec.md`) | O5 (a volta editada) | E1, E2, E3, E5 (envio), E8 (confirmação) | E1 até o usuário editar (a volta) |
+| Busca | O1 substituição, O5, O6; O3 com a tela à espera da tcc-v4m7 | O2 espera; O7 (leitura nossa) | E5, E7, E8 | E4 (item ativo) |
 | Login | O1 substituição, O2 relógio e prazo, O3 com a tela e com um estado, O5 | O2 relógio e prazo, O5, O6 (quarentena) | E1, E5 | E5, E8, E9 |
-| Quadro | O3 com a tela, O4 (outra aba) | O1 fila, O6, O7 (atalhos, leitura nossa) | E1, E2, E4, E6, E7, E9 | E8, E9 |
-| Dados ao vivo | O3 com a tela, com um estado e uma só, O4 (lotes) | O2 prazo e frequência, O3 com um estado, O6 | E1, E7, E8 | E2 (bolão), E7 |
+| Placar ao vivo | O2 relógio, O3 com a tela, com um estado e uma só, O4 (lotes) | O2 prazo e frequência, O3 com um estado, O6 | E1, E7, E8 | E2 (bolão), E5, E7 |
+| Conversor | O5 | — | E1 nos dois sentidos, E4 | E4 (campo editado por último) |
+| Planilha | — | — | E2 grafo definido pelo usuário, E4, E6, E7 | a referência circular (E2) |
+| Circle Drawer | — | O1 fila, O6 (salvamento), O8 (arrastar) | E1, E4 (diálogo), E7, E8; E6 (leitura nossa) | E5, E8, E9 |
 
 ## Cobertura por par
 
-Interfaces de cada par pelo ADR 0029: Web Component, React e Solid têm as
-cinco; o Lit, Formulário, Busca e Dados ao vivo (e, fora do ADR, o Quadro
-e o Login desde 2026-10-17); o Angular com *signals*,
-Formulário, Busca e Quadro; Views × Compose, Formulário, Quadro e Dados ao
-vivo; o par do desktop, Formulário, Quadro e Login, as interfaces que o
-ADR 0001 dava ao Windows Forms × WPF antes da troca do par, em
-2026-10-16, e que a coluna mantém para o Swing × JavaFX. Pelo plano de 2026-10-17 (`dd46fba`), as
-cinco interfaces se implementam nas nove tecnologias, e o conjunto
-analisado sai depois; a tabela mostra a cobertura com os subconjuntos do
-ADR 0029. Cada célula diz a interface que traz o tipo ao par; "—" é o
-tipo que o par não tem.
-
-| Tipo | Web Component × Lit | Solid × Angular | Views × Compose | Swing × JavaFX |
-|---|---|---|---|---|
-| O1 substituição | Busca | Busca | — | Login |
-| O1 ignorar | Formulário | Formulário | Formulário | Formulário |
-| O1 fila | — | Quadro (2ª) | Quadro (2ª) | Quadro (2ª) |
-| O2 espera | Busca (2ª) | Busca (2ª) | — | — |
-| O2 relógio e prazo | Dados ao vivo (2ª, só prazo) | — | Dados ao vivo (2ª, só prazo) | Login |
-| O2 frequência | Dados ao vivo (2ª) | — | Dados ao vivo (2ª) | — |
-| O3 com a tela | Busca, Dados ao vivo | Busca, Quadro | Quadro, Dados ao vivo | Quadro, Login |
-| O3 com um estado | Dados ao vivo | — | Dados ao vivo | Login |
-| O4 fonte de fora | Dados ao vivo | Quadro | Quadro, Dados ao vivo | Quadro |
-| O5 separação | Busca, Formulário | Busca, Formulário | Formulário | Login, Formulário |
-| O6 falha | Busca, Formulário, Dados ao vivo (2ª) | Busca, Formulário, Quadro (2ª) | Formulário, Quadro (2ª), Dados ao vivo (2ª) | Formulário, Login (2ª), Quadro (2ª) |
-| O7 ação que espera a tela | Formulário (2ª) | Formulário (2ª), Quadro (2ª) | Formulário (2ª), Quadro (2ª) | Formulário (2ª), Quadro (2ª) |
-| E1 a E4 | Formulário | Formulário, Quadro | Formulário, Quadro, Dados ao vivo | Formulário, Quadro, Login |
-| E5 situação | Busca, Dados ao vivo, Formulário | Busca, Formulário | Dados ao vivo, Formulário | Login, Formulário |
-| E6 compartilhado | — | Quadro | Quadro | Quadro |
-| E7 lista | Busca, Dados ao vivo | Busca, Quadro | Quadro, Dados ao vivo | Quadro |
-| E8 histórico | Busca, Dados ao vivo, Formulário | Busca, Formulário, Quadro (2ª) | Dados ao vivo, Formulário, Quadro (2ª) | Formulário, Login (2ª), Quadro (2ª) |
-| E9 salvo fora | — | Quadro | Quadro | Quadro, Login (2ª) |
-| Tipos que faltam | O1 fila, O2 relógio, E6, E9 | O2 relógio, prazo e frequência, O3 com um estado | O1 substituição, O2 espera e relógio | O2 espera e frequência |
-
-Leitura nossa, a conferir quando o autor fixar os tipos:
-
-- ao par do desktop falta só o tempo da Busca e dos Dados ao vivo, e
-  o Login lhe dá a substituição, o relógio, o prazo e o ciclo de vida preso a um
-  estado;
-- o Web Component × Lit tem toda a orquestração que a web tem, menos a
-  fila, e no estado só o Formulário pesa; o par isola a ligação do estado
-  com a tela (`docs/delineamento.md`, seção "O que um par isola"), e o
-  estado compartilhado fica sem esse contraste;
-- o Solid × Angular tem o estado do Formulário e do Quadro e a substituição da
-  Busca, mas nenhum relógio nem ciclo de vida preso a um estado; com a
-  ordem de corte do ADR 0029, perde primeiro a fila e depois E6 e E9;
-- o Views × Compose cobre o estado nas três interfaces, e a substituição só
-  entra se a validação do e-mail a adotar (tcc-k9i2).
+As quatro tecnologias implementam as sete interfaces (ADRs 0012 e 0013),
+e todo par cobre os mesmos tipos. Até 2026-10-18, quando os pares
+cobriam subconjuntos das interfaces, esta seção comparava o Web
+Component × Lit, o Solid × Angular com *signals*, o Views × Compose e o
+Swing × JavaFX; a tabela está na versão desta nota no commit `3ada83b`.
 
 ## Lacunas nas especificações
 
-Levantadas em 2026-10-15.
+Levantadas em 2026-10-15 e revistas em 2026-10-19.
 
-- O envio que ignora o reenvio está decidido para a primeira rodada
-  (ADRs 0002 e 0005), mas não está no `spec.md` do Formulário; é a
-  tcc-32dr, aberta, que bloqueia a segunda rodada do Formulário
-  (tcc-k9i2).
-- A Busca e o Formulário não têm o requisito "Limpeza ao sair da tela",
-  que o ADR 0029 pede a todas as interfaces; é a tcc-v4m7, aberta.
-- A validação do e-mail da segunda rodada não diz o que acontece com a
-  resposta de um e-mail que o usuário já mudou, nem se a validação espera
-  a última tecla; a política decide se ela traz a substituição ao Formulário.
+- O envio que ignora o reenvio está decidido para a primeira rodada (ADR
+  0002), mas não está no `spec.md` da Reserva de passagem; é a tcc-32dr,
+  aberta.
+- A Busca e a Reserva de passagem não têm o requisito "Limpeza ao sair
+  da tela", que o ADR 0029 pede a todas as interfaces; é a tcc-v4m7,
+  aberta.
+- A Reserva de passagem ainda tem o nome, o e-mail e o "tocado", que
+  saem na volta ao *Flight Booker* (ADR 0002).
+- O conversor, a planilha e o Circle Drawer não têm especificação; os
+  tipos que esta nota lhes dá vêm das decisões.
+- O *canvas* do Circle Drawer não tem texto que o teste de conformidade
+  leia; o domínio precisa expor os círculos.
+- A volta que acompanha a ida até o usuário editá-la (Reserva de
+  passagem, 2ª) espera um precedente em aplicação real, a conferir antes
+  da especificação.
