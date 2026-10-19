@@ -1,8 +1,9 @@
 #+TITLE: Fora da análise: código que saiu do conjunto analisado
 
 Esta pasta guarda o código de =implementacoes/= que o texto não analisa,
-congelado como estava ao sair da análise: quase tudo em 2026-10-13, e o
-Android e o desktop em 2026-10-18. Nada aqui compila, testa, formata nem
+congelado como estava ao sair da análise: quase tudo em 2026-10-13, o
+Android e o desktop em 2026-10-18, e o Lit, o Angular com /signals/ e o
+Quadro de tarefas em 2026-10-19. Nada aqui compila, testa, formata nem
 captura pelos comandos de =implementacoes/=, e as mudanças na
 especificação das interfaces (=implementacoes/openspec/=) não são
 portadas para cá. Em =implementacoes/= ficam só as interfaces e as
@@ -19,16 +20,32 @@ Cada pasta, o que é, por que saiu e o ADR:
 - =lista-filtravel/=: a Lista filtrável, na web, no Android, em Java e no
   Qt. É a menos densa em coordenação e cabe quase toda no Carrinho (ADR
   0002).
-- =carrinho/=: o Carrinho, na web. Dá lugar ao Quadro de tarefas, em que
-  desfazer existe de verdade (ADR 0002).
+- =carrinho/=: o Carrinho, na web. Forçava o desfazer, que passou ao
+  Quadro de tarefas e, com o Quadro fora, ao Circle Drawer (ADR 0002).
 - =formulario/jquery/= e =busca-com-sugestoes/jquery/=: o jQuery (o das
   tarefas acima está na pasta de cada uma). O imperativo por atualização
   manual fica com o Web Component, que tem modelo de componente e par
-  controlado, o Lit (ADR 0013).
+  controlado, o Web Component com /signals/ (ADR 0013).
 - =formulario/angular-rxjs/= e =busca-com-sugestoes/angular-rxjs/=: o
   Angular com RxJS, apoio à escrita do capítulo de programação. Não entra
   no texto, e fica congelado com as regras de 2026-10-13, por decisão do
   autor nessa data (ADR 0013).
+- =formulario/=, =busca-com-sugestoes/=, =login-com-quarentena/= e
+  =dados-ao-vivo/=, com =lit/=, e as três primeiras com
+  =angular-signals/=: o Lit e o Angular com /signals/. Saíram em
+  2026-10-19, por decisão do autor de 2026-10-18: a análise na web fica
+  com o Web Component, o Web Component com /signals/, o React e o Solid,
+  numa cadeia de pares que muda o mínimo por passo, e os dois vão para os
+  trabalhos futuros da conclusão (ADR 0013). O Lit e o Angular do Quadro
+  estão na pasta dele (item seguinte).
+- =quadro-de-tarefas/=: o Quadro de tarefas, no Web Component, no React,
+  no Solid, no Lit e no Angular com /signals/, com a especificação do
+  OpenSpec ao lado, em =spec.md=. Saiu em 2026-10-19, por decisão do
+  autor nessa data: nenhuma fonte o sustenta, e o que só ele tinha passa
+  às interfaces do 7GUIs, o estado compartilhado à barra de fórmula da
+  planilha, o desfazer, o arrastar e o salvar ao Circle Drawer (ADR 0002).
+  As propostas que o especificaram continuam em
+  =implementacoes/openspec/changes/archive/=.
 - =formulario/javafx-fxml/= e =lista-filtravel/swing/=, =javafx/=,
   =javafx-fxml/= e =javafx-estilo/=: o JavaFX com a tela em FXML e a Lista
   do par Swing × JavaFX, em Java. O par saiu em 2026-10-13, quando o
@@ -61,12 +78,17 @@ gerou, com o mesmo nome de antes (=<tecnologia>-<cena>.png=).
 
   O código importa o que tinha ao lado em =casos/=: o =dominio.ts= e o
   =estilo.css= da tarefa, o =tsconfig.base.json= de =casos/=, o
-  =dominio-kotlin= do Android. No Contador, na Lista e no Carrinho, que
-  saíram inteiros, o que fica na pasta da tarefa veio junto, menos o
-  =tsconfig.base.json= e o =casos/android/=. No Formulário e na Busca, o
-  domínio, o estilo e o teste de conformidade ficaram em
-  =implementacoes/<tarefa>/= e continuam mudando com a especificação: o
-  código daqui se lê contra a versão deles do commit anterior ao movimento.
+  =dominio-kotlin= do Android. No Contador, na Lista, no Carrinho e no
+  Quadro, que saíram inteiros, o que fica na pasta da tarefa veio junto,
+  menos o =tsconfig.base.json= e o =casos/android/=. No Formulário, na
+  Busca, no Login e nos Dados ao vivo, o domínio, o estilo e o teste de
+  conformidade ficaram em =implementacoes/<tarefa>/= e continuam mudando
+  com a especificação: o código daqui se lê contra a versão deles do
+  commit anterior ao movimento.
+
+  O =README.org= e o teste do Quadro procuram a especificação em
+  =implementacoes/openspec/specs/quadro-de-tarefas/=, onde ela estava; ela
+  veio para =quadro-de-tarefas/spec.md=, ao lado deles.
 
   O Android e o desktop vieram com o domínio em Kotlin, que fica na pasta
   de cada interface, e com os projetos Gradle, que procuram os módulos na
@@ -80,9 +102,11 @@ gerou, com o mesmo nome de antes (=<tecnologia>-<cena>.png=).
   instruções do =README.org= das implementações de lá. De qualquer pasta
   do repositório, com o caminho dela a partir daqui: o da tecnologia
   (=formulario/swing=), e não o da interface, que continua em
-  =implementacoes/=. O último commit que mexeu no caminho de fora desta
-  pasta é o do movimento, e o =git log= procura também pelo caminho de
-  antes de 2026-10-14, quando =implementacoes/= se chamava =casos/=:
+  =implementacoes/=; no Quadro também, porque o Lit e o Angular dele
+  saíram um commit antes do resto. O último commit que mexeu no caminho
+  de fora desta pasta é o do movimento, e o =git log= procura também pelo
+  caminho de antes de 2026-10-14, quando =implementacoes/= se chamava
+  =casos/=:
 
   #+begin_src sh
   pasta=formulario/jquery
