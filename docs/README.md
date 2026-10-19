@@ -24,7 +24,7 @@ achar as fontes que mais pesam, pela tabela "Fontes centrais".
 | Método: o rótulo, as DCs, as rodadas, o tamanho das interfaces | `texto/intro.org`, metodologia | `docs/metodo-da-avaliacao.md`; o que se controla, em `docs/delineamento.md`; o que cada interface exige e cada par cobre, em `docs/exigencias-de-coordenacao.md` |
 | Análise por DC | `texto/cases.org`, `texto/results.org` | `docs/metodo-da-avaliacao.md`, seção "Como as fontes aplicaram as DCs a código, e as armadilhas"; `docs/achados-das-implementacoes.md`; `docs/exigencias-de-coordenacao.md`, seção "Mapa por interface"; a skill `avaliacao-pelas-dcs` |
 | Capítulo de programação | `texto/prog.org` | `docs/paradigma-modelo-e-notacao.md`, `docs/bibliografia/programacao-funcional-e-reativa.md`, `docs/estado-eventos-e-complexidade.md` |
-| Tecnologias e plataformas | ADRs 0001, 0005, 0013 e 0031 | `docs/plataformas/README.md`, e dali `web.md`, `android.md`, `desktop.md` e `bibliotecas-de-formulario.md` |
+| Tecnologias e plataformas | ADRs 0001, 0005, 0013 e 0031 | `docs/plataformas/README.md`, e dali `web.md`, `android.md`, `desktop.md`, `bibliotecas-de-formulario.md` e `bibliotecas-de-inscricao-e-reconexao.md` |
 | Forma da introdução | `texto/intro.org` | `docs/bibliografia/escrita-da-introducao.md` |
 | Como a busca foi feita | Apêndice II | `docs/bibliografia/protocolo-da-revisao.md` |
 
@@ -121,6 +121,9 @@ Em `docs/plataformas/`, as tecnologias, com a data de cada observação:
   conta da JetBrains (`android-jetbrains-2025.py`);
 - `bibliotecas-de-formulario.md` (Referência): a biblioteca de
   formulário de cada tecnologia na terceira rodada.
+- `bibliotecas-de-inscricao-e-reconexao.md` (Referência): a biblioteca
+  que trata a inscrição e a reconexão no Placar ao vivo, por tecnologia,
+  na terceira rodada.
 
 Em `docs/processo/`, o projeto e as ferramentas:
 
