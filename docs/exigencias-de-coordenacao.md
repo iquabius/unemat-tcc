@@ -14,7 +14,7 @@ revista pelo autor em 2026-10-16 e em 2026-10-19; nenhum entrou no
 
 **Conclusão.** A orquestração de eventos tem oito tipos nas sete
 interfaces, e o gerenciamento de estado, nove, dois deles com formas
-novas, trazidas do 7GUIs e da segunda rodada da Reserva de passagem. Na
+novas, trazidas do 7GUIs. Na
 primeira rodada, o estado pesa em quatro interfaces (a Reserva de
 passagem, o conversor, a planilha e o Circle Drawer), e a orquestração,
 em três (a Busca, o Login e o Placar ao vivo); na segunda rodada, os
@@ -25,7 +25,7 @@ ignorar o pedido novo (o envio da Reserva de passagem), a fila (o
 salvamento do Circle Drawer), a fonte de fora da interface (o Placar ao
 vivo), a sequência de eventos do ponteiro (o arrastar do Circle Drawer),
 o estado compartilhado (a barra de fórmula; no Circle Drawer, só por
-leitura nossa) e as três formas novas do estado derivado.
+leitura nossa) e as duas formas novas do estado derivado.
 
 ## Tipos de orquestração de eventos
 
@@ -35,7 +35,7 @@ leitura nossa) e as três formas novas do estado derivado.
 | O2. Tempo | **espera** depois da última tecla (*debounce*); **relógio** que a interface mostra; **prazo** que muda o estado sozinho; **frequência** de atualização escolhida pelo usuário | espera: Busca (2ª). Relógio: tempo de sessão do Login (1ª); "Atualizado há" do Placar ao vivo (1ª); contagem regressiva da quarentena (2ª). Prazo: expiração aos 10 s do Login (1ª); fim da quarentena (2ª); nova inscrição em 2 s no Placar ao vivo (2ª). Frequência: Placar ao vivo (2ª) |
 | O3. Ciclo de vida | o que a interface abre (requisição, relógio, inscrição, ouvinte) fecha **com a tela** (limpeza ao sair da tela, ADR 0029) ou **com um estado** (o relógio vive enquanto a sessão vive; a pausa fecha a inscrição), e fica **uma só** depois de esconder e mostrar a tela | com a tela: Login e Placar ao vivo (1ª); Busca e Reserva de passagem à espera da tcc-v4m7; as três interfaces novas nascem com a regra. Com um estado: sessão do Login; pausa do Placar ao vivo (1ª); reconexão cancelada por pausar ou esconder (2ª). Uma só: Placar ao vivo, cenário 11 (1ª) |
 | O4. Fonte de fora da interface | eventos que ninguém na tela pediu, combinados com os do usuário | a fonte que manda um lote por segundo: Placar ao vivo (1ª) |
-| O5. Separação dos eventos | saber de onde veio cada evento e o que ele pode mudar: a alteração que o programa faz conta ou não como a do usuário, e duas fontes não interferem uma na outra | a escolha de uma sugestão muda o campo sem disparar busca: Busca (1ª). Editar não cancela a tentativa nem encerra a sessão: Login (1ª). Editar não cancela o envio: Reserva de passagem (1ª). O valor que o programa escreve num campo do conversor não volta como digitado: conversor (1ª). O nome lembrado volta preenchido e já habilita o Entrar: Login (2ª). A volta que o programa escreve deixa de acompanhar a ida quando o usuário a edita: Reserva de passagem (2ª) |
+| O5. Separação dos eventos | saber de onde veio cada evento e o que ele pode mudar: a alteração que o programa faz conta ou não como a do usuário, e duas fontes não interferem uma na outra | a escolha de uma sugestão muda o campo sem disparar busca: Busca (1ª). Editar não cancela a tentativa nem encerra a sessão: Login (1ª). Editar não cancela o envio: Reserva de passagem (1ª). O valor que o programa escreve num campo do conversor não volta como digitado: conversor (1ª). O nome lembrado volta preenchido e já habilita o Entrar: Login (2ª). A volta que o programa empurra para depois da ida vale como valor da volta, num campo que o usuário pode ter editado: Reserva de passagem (2ª) |
 | O6. Falha e recuperação | o que a falha deixa na tela e como a interface volta a funcionar | a busca seguinte funciona: Busca (1ª). A falha mantém os dados no formulário: envio da Reserva de passagem (1ª). A quarentena depois de três falhas seguidas: Login (2ª). A reconexão depois de queda: Placar ao vivo (2ª). A falha ao salvar o desenho: Circle Drawer (2ª) |
 | O7. Ação que espera a tela atualizar | uma ação que só funciona depois que a tela mudou, como mover o foco para um elemento que acabou de aparecer | leitura nossa, a conferir na especificação: o item ativo do *combobox* da Busca, que precisa estar na tela para ser anunciado (2ª) |
 | O8. Sequência de eventos do ponteiro | um gesto feito de vários eventos combinados no tempo (pressionar, mover, soltar), com o estado do gesto entre eles | arrastar os círculos: Circle Drawer (2ª) |
@@ -49,7 +49,7 @@ pode contar como a do usuário; no nome lembrado do Login, tem de contar.
 
 | Tipo | O que exige | Onde (rodada) |
 |---|---|---|
-| E1. Derivado de um valor | um valor calculado de outro, que o acompanha a cada alteração; formas: **nos dois sentidos**, cada valor derivado do outro; **até o usuário editar**, o derivado que passa a ser do usuário quando ele o escreve | a data inválida marcada na hora e o botão desabilitado (Reserva de passagem, 1ª); o Entrar habilitado do Login; o destaque do palpite e a situação do Placar ao vivo; o círculo sob o ponteiro no Circle Drawer (1ª). Nos dois sentidos: os dois campos do conversor (1ª). Até o usuário editar: a volta que acompanha a ida na Reserva de passagem (2ª) |
+| E1. Derivado de um valor | um valor calculado de outro, que o acompanha a cada alteração; forma: **nos dois sentidos**, cada valor derivado do outro | a data inválida marcada na hora e o botão desabilitado (Reserva de passagem, 1ª); o Entrar habilitado do Login; o destaque do palpite e a situação do Placar ao vivo; o círculo sob o ponteiro no Circle Drawer (1ª). a volta empurrada para o dia seguinte à ida, quando a ida passa dela (Reserva de passagem, 2ª). Nos dois sentidos: os dois campos do conversor (1ª) |
 | E2. Derivado de várias partes | um valor que lê várias partes da tela, ou uma restrição que vale para todas; forma: **grafo definido pelo usuário**, em que o próprio usuário escreve de que partes cada valor depende, e só as dependentes se recalculam | o Reservar, que considera as duas datas; a volta não antes da ida (Reserva de passagem, 1ª); os pontos e o total do bolão, do palpite digitado e do placar que a fonte manda (Placar ao vivo, 2ª). Grafo definido pelo usuário: as fórmulas da planilha (1ª); a referência circular, que não se avalia (planilha, 2ª) |
 | E3. Partes condicionais | uma parte aparece, fica habilitada ou conta conforme outro valor | a volta habilitada só em "Ida e volta" e o campo desabilitado que não conta para o Reservar (Reserva de passagem, 1ª) |
 | E4. Estado de interação | o que o usuário já fez na tela, à parte dos dados | o texto digitado à parte do número (conversor, 1ª); a célula selecionada (planilha, 1ª); o círculo e o diâmetro antigo, guardados entre o menu e o diálogo, o controle de diálogo (Circle Drawer, 1ª); o campo editado por último (conversor, 2ª); o item ativo do *combobox* (Busca, 2ª) |
@@ -67,7 +67,7 @@ valor inicial é estado. A tabela não o conta à parte.
 
 | Interface | Orquestração (1ª) | Orquestração (2ª) | Estado (1ª) | Estado (2ª) |
 |---|---|---|---|---|
-| Reserva de passagem | O1 ignorar, O5, O6 (envio, tcc-32dr, ainda fora do `spec.md`) | O5 (a volta editada) | E1, E2, E3, E5 (envio), E8 (confirmação) | E1 até o usuário editar (a volta) |
+| Reserva de passagem | O1 ignorar, O5, O6 (envio, tcc-32dr, ainda fora do `spec.md`) | O5 (a volta empurrada) | E1, E2, E3, E5 (envio), E8 (confirmação) | E1 (a volta empurrada) |
 | Busca | O1 substituição, O5, O6; O3 com a tela à espera da tcc-v4m7 | O2 espera; O7 (leitura nossa) | E5, E7, E8 | E4 (item ativo) |
 | Login | O1 substituição, O2 relógio e prazo, O3 com a tela e com um estado, O5 | O2 relógio e prazo, O5, O6 (quarentena) | E1, E5 | E5, E8, E9 |
 | Placar ao vivo | O2 relógio, O3 com a tela, com um estado e uma só, O4 (lotes) | O2 prazo e frequência, O3 com um estado, O6 | E1, E7, E8 | E2 (bolão), E5, E7 |
@@ -99,6 +99,6 @@ Levantadas em 2026-10-15 e revistas em 2026-10-19.
   tipos que esta nota lhes dá vêm das decisões.
 - O *canvas* do Circle Drawer não tem texto que o teste de conformidade
   leia; o domínio precisa expor os círculos.
-- A volta que acompanha a ida até o usuário editá-la (Reserva de
-  passagem, 2ª) espera um precedente em aplicação real, a conferir antes
-  da especificação.
+- A volta empurrada pela ida (Reserva de passagem, 2ª) tem precedente
+  no Buson, testado em 2026-10-19: a volta vai ao dia seguinte à ida
+  quando a ida passa dela.
