@@ -46,6 +46,38 @@ Component → Web Component com *signals* → Solid → React.
   a ligação do estado com a tela (ADR 0013).
 - Documentação: developer.mozilla.org, "Using custom elements".
 
+## Web Component com *signals* (declarativo por atualização granular)
+
+Ainda sem implementação (tcc-2pu0): os pontos abaixo vêm dos ADRs 0013
+e 0021 e da tarefa, e não do código. Confira cada um na implementação
+antes do guia.
+
+- Arquivos: `web-component-signals/` (tcc-2pu0), com a classe que
+  estende `HTMLElement`, como no Web Component; o `solid-js` entra só
+  como biblioteca de reatividade (ADR 0013).
+- Estado: `createSignal`; lê-se chamando, como no Solid (ADR 0021).
+- Derivado: `createMemo`.
+- Evento → estado: o tratador altera um *signal*.
+- Estado → tela: cada escrita na tela fica num `createEffect`, que o
+  ambiente de execução reexecuta só quando muda um *signal* lido nele. A
+  escrita se escreve uma vez por parte da tela, e o corpo do efeito ainda
+  é uma escrita no DOM, que o leitor pode tomar por imperativa (ADR 0013,
+  "Custo").
+- Ciclo de vida: um `createRoot` aberto no `connectedCallback` e
+  fechado no `disconnectedCallback`.
+- Montagem: a do Web Component, o esqueleto em HTML num texto atribuído
+  ao `innerHTML` uma vez e o `createElement` nas partes repetidas (ADR
+  0037). Com o Solid, a diferença é a montagem da tela e o modelo de
+  componente: a classe com o `connectedCallback` e o
+  `disconnectedCallback` contra a função com o `onCleanup` (ADRs 0013 e
+  0021).
+- Execução: no Node, sem a condição `browser`, o `solid-js` resolve
+  para o *build* do servidor, em que os efeitos não rodam e nada avisa
+  (ADR 0013); por isso, a execução que depende dos efeitos, como o teste
+  de conformidade e a tela, roda no navegador.
+- Documentação: docs.solidjs.com, *createEffect*, *createRoot* e
+  *mapArray*.
+
 ## Solid (declarativo por atualização granular)
 
 - Arquivos: `solid/src/main.tsx`; o componente executa uma vez.
