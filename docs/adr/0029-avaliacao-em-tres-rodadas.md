@@ -19,8 +19,10 @@ requisitos de orquestração que a aplicação real que ela reproduz costuma
 pedir, ainda sem bibliotecas; latências, tentativas, prazos e intervalos
 ficam fixos no domínio. São 12 mudanças, 48 commits:
 
-- Reserva de passagem: a data de volta acompanha a ida até o usuário
-  editá-la;
+- Reserva de passagem: a volta empurrada pela ida; quando a ida passa
+  da volta, o programa leva a volta ao dia seguinte à ida, em vez de
+  mostrar o erro e desabilitar o botão, como no Buson (testado em
+  2026-10-19);
 - Busca: a espera de 300 ms depois da última tecla e o *combobox*
   operável pelo teclado, com o item ativo (WCAG 2.1.1; padrão *Combobox*
   do APG);
@@ -73,6 +75,14 @@ reconexão, o bolão e a frequência no Placar ao vivo; 72 commits) e a
 Reserva de passagem reescrito com a biblioteca de formulário nas nove
 tecnologias na terceira; o conjunto e as tecnologias mudaram (ADRs 0001,
 0002 e 0013), e a terceira mudava a biblioteca e o comportamento juntos.
+Em vez de: a volta que acompanha a ida até o usuário editá-la (decisão
+anterior, também de 2026-10-19); daria ao estado um derivado que deixa
+de derivar, mas nenhum site de passagem testado (Buson, ClickBus,
+Google Voos, Kayak) o faz, e o campo editado por último já vem com o
+conversor.
+Em vez de: a volta empurrada mantendo a duração da viagem; mais
+derivação, mas só apareceu fora das viagens, como opção de uma
+ferramenta de gestão de projetos.
 Em vez de: as segundas rodadas decididas de 2026-10-16 a 2026-10-18, com
 as poltronas (a fila), o saldo ⇄ Pix e a verificação do e-mail ao sair
 do campo na Reserva de passagem, e os jogos do bolão, o "Marcar todos" e
