@@ -47,11 +47,12 @@ tecnologia usa (biblioteca, convenção, módulo oficial), escolhido pela
 regra do ADR 0031, com as cenas e o teste de conformidade da segunda
 rodada como rede: o comportamento não muda. São 8 refatorações, uma
 interface de cada eixo; o Web Component com *signals* segue o Web
-Component, que fica com a API da plataforma na Reserva de passagem e,
-no Placar ao vivo, com o que a regra do ADR 0031 der depois do
-levantamento (tcc-vgrx), e a conclusão da rodada se lê como "no
-ecossistema típico", sem atribuição só ao modelo de programação. Em cada
-rodada, as 14 DCs são percorridas e registradas (ADR 0012), com o apoio
+Component, que fica com a API da plataforma, a validação de restrições
+na Reserva de passagem e o `WebSocket` no Placar ao vivo, cuja fonte
+simulada fala WebSocket desde a primeira rodada (ADR 0031), e a
+conclusão da rodada se lê como "no ecossistema típico", sem atribuição
+só ao modelo de programação. Em cada rodada, as 14 DCs são percorridas
+e registradas (ADR 0012), com o apoio
 do trecho de código, das linhas e, na segunda e na terceira, do diff de
 cada mudança, que mede a viscosidade de repetição e de efeito dominó
 (Blackwell e Green 2003, p. 115): a mesma mudança, preparada antes e
@@ -124,14 +125,16 @@ e o trabalho não testa.
 Custo: o prazo, com a primeira rodada até 2026-10-30 e a segunda e a
 terceira em novembro, antes do fechamento em 2026-11-20; 28
 implementações, 48 commits e 8 refatorações, que não cabem inteiras no
-pós-texto; três interfaces novas e a Reserva de passagem refeito ainda
-na primeira rodada; os requisitos da segunda rodada foram escolhidos com
-parte das implementações prontas, embora antes da análise; a conclusão
-sobre cada eixo vem de três ou quatro interfaces; a forma típica do
-Placar ao vivo ainda não foi levantada (tcc-vgrx); na terceira rodada, o
-Web Component com *signals* segue o Web Component, e o par com o Solid
-passa a diferir também na biblioteca; a terceira rodada mede bibliotecas
-e convenções, e a hipótese de que o ecossistema rebalanceia o trabalho
+pós-texto; três interfaces novas e a Reserva de passagem refeita ainda
+na primeira rodada, e o Placar ao vivo refeito sobre o WebSocket
+simulado; os requisitos da segunda rodada foram escolhidos com parte
+das implementações prontas, embora antes da análise; a conclusão sobre
+cada eixo vem de três ou quatro interfaces; no Placar ao vivo, a forma
+típica do Web Component e do Web Component com *signals* já é a API da
+plataforma, e a terceira rodada deles ali fica sem diff; na terceira
+rodada, o Web Component com *signals* segue o Web Component, e o par com
+o Solid passa a diferir também na biblioteca; a terceira rodada mede
+bibliotecas e convenções, e a hipótese de que o ecossistema rebalanceia o trabalho
 cognitivo fica sem teste; os seis valores da linha não vêm de fonte; a
 limpeza ao sair da tela se apoia no ciclo de vida de cada tecnologia; a
 acessibilidade se verifica pelos atributos e pelo foco, e não com um
