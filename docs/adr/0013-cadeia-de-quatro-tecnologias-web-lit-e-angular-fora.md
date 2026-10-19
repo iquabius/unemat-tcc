@@ -20,8 +20,11 @@ dentro de um `createRoot` aberto no `connectedCallback` e descartado no
 `disconnectedCallback`. Com o Solid, é um modelo de programação com duas
 notações, que diferem na montagem da tela e no modelo de componente: a
 classe registrada como elemento, com o `connectedCallback` e o
-`disconnectedCallback`, contra a função com o `onCleanup` (ADR 0021). O
-Lit e o Angular com *signals* vão para `implementacoes/fora-da-analise/`
+`disconnectedCallback`, contra a função com o `onCleanup` (ADR 0021). A
+diferença entre o Web Component e o React, que não formam par, se
+atribui ao passo da cadeia em que ela aparece, e a que nenhum passo
+explica, pelo sinal escrito (ADR 0021; decisão do autor em 2026-10-19).
+O Lit e o Angular com *signals* vão para `implementacoes/fora-da-analise/`
 (tcc-mbrc) e para os trabalhos futuros da conclusão (tcc-dpci); o jQuery
 e o Angular com RxJS continuam fora. Na primeira e na segunda rodada,
 cada implementação usa só o que a tecnologia traz, sem bibliotecas de
@@ -63,6 +66,13 @@ ficaria sem par controlado.
 Em vez de: o Angular com RxJS como quarto modelo de programação, o
 reativo por fluxos; retomaria a PR de 2017, mas usar RxJS para estado
 vai contra a documentação do Angular e mudaria a pergunta (ADR 0014).
+Em vez de: atribuir a diferença entre o Web Component e o React só
+pelo sinal escrito, sem os passos da cadeia (ADR 0021); não supõe que os
+passos se somam, mas deixa a cadeia sem papel na atribuição e refaz a
+leitura que cada par já faz.
+Em vez de: decidir a regra da atribuição na análise, com a primeira
+rodada lida; decidiria com o código na mão, mas a regra sairia depois de
+ver o resultado, o risco que o ADR 0017 recusou.
 Em vez de: o Svelte no lugar do Solid; mais popular (Stack Overflow
 2025: 7,2%), mas com sintaxe e compilador próprios, e a comparação com
 o React mudaria duas coisas.
@@ -80,7 +90,10 @@ vez por parte da tela, e o ambiente de execução decide quando ela roda;
 o imperativo e a re-renderização ficam com uma tecnologia cada, e a
 conclusão sobre eles generaliza do Web Component e do React; o
 imperativo contra a re-renderização fica sem par direto, porque o Web
-Component e o React diferem na ligação, na montagem e no modelo; o
+Component e o React diferem na ligação, na montagem e no modelo, e a
+atribuição pela cadeia supõe que os passos se somam, o que falha quando
+um passo muda a leitura de outro, como a montagem em JSX pode mudar a
+leitura da ligação; o
 `solid-js` fica na 1.9, porque a 2.0 (em versão candidata em 2026-10-13)
 muda o `createEffect`; no Node, sem a condição `browser`, o `solid-js`
 resolve para o *build* do servidor, em que os efeitos não rodam e nada
