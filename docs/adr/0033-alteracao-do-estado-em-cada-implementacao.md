@@ -43,10 +43,11 @@ delas só o teste de conformidade pega; a guarda que uma função do
 domínio daria (o limite, o índice que não existe) passa a depender de
 cada implementação; o desfazer do Circle Drawer depende de como cada
 tecnologia altera o estado, e a alteração no lugar pede uma cópia para
-guardar o histórico; o tipo do estado deixa de ser só de leitura, e o
-React perde o aviso do compilador contra alterá-lo no lugar; a linha
-entre a regra do domínio e a alteração do estado ainda se traça em cada
-especificação, como a da propagação da planilha.
+guardar o histórico; o compilador não avisa da cópia esquecida, porque o
+tipo do estado não é só de leitura: no Circle Drawer, o círculo do
+domínio tem campos alteráveis, e só a lista do React se declara só de
+leitura; a linha entre a regra do domínio e a alteração do estado ainda
+se traça em cada especificação, como a da propagação da planilha.
 
 Fontes: `docs/metodo-da-avaliacao.md`, linha do Quadro com desfazer;
 Kiss (2014), Circle Drawer (§3.8, p. 40 e 46); ADRs 0002, 0010, 0013 e
