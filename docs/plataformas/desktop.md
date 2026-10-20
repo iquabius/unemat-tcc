@@ -4,23 +4,31 @@ Referência. Os três pares candidatos a representar o *desktop*, Swing ×
 JavaFX, Windows Forms × WPF e Qt Widgets × QML: que modelo de
 programação cada tecnologia cobre, como a notação dela escreve a
 coordenação, os valores derivados e a tela, e a pré-análise de cada par
-implementado. Serve à tarefa "Representar uma plataforma desktop"
-(tcc-a0w) e às três que implementam e pré-analisam os pares: Swing ×
-JavaFX (tcc-dwg), Windows Forms × WPF (tcc-74m) e Qt Widgets × QML
-(tcc-jhl). Os números de uso estão em
+implementado. O *desktop* está fora da análise desde 2026-10-17 (ADR
+0001), e a nota fica como referência para os trabalhos futuros da
+conclusão (tcc-dpci); o código dos pares implementados está em
+`implementacoes/fora-da-analise/`. Serviu à tarefa "Representar uma
+plataforma desktop" (tcc-a0w) e às três que implementavam e
+pré-analisavam os pares: Swing × JavaFX (tcc-dwg), Windows Forms × WPF
+(tcc-74m) e Qt Widgets × QML (tcc-jhl). Os números de uso estão em
 `tmp/pesquisas/2026-10-08-desktop-java/devlog.md` (coletados em 2026-10-08).
 
-**Conclusão.** Os três pares repetem a mesma divisão: uma tecnologia de
-eventos, do imperativo por atualização manual, e outra que liga
-propriedades, do declarativo por atualização granular; nenhum cobre o
-declarativo por re-renderização. A célula granular é hipótese a
-conferir: no JavaFX, a pré-análise de 2026-10-09 sustenta o mecanismo
-granular, com as dependências escritas à mão; na QML, a confirma, com o
-rastreamento automático. Só Swing × JavaFX, com a tela do JavaFX montada
-em código Java, mantém a montagem da tela e isola o modelo de
-programação (`docs/plataformas/README.md`, seção "Resumo"). Que tipos de
-exigência de coordenação cada par cobre está em
-`docs/exigencias-de-coordenacao.md`, seção "Cobertura por par".
+**Conclusão.** Desde 2026-10-17, o *desktop* está fora da análise (ADR
+0001): o par que só ele tinha, o imperativo por atualização manual
+contra o declarativo por atualização granular com a mesma montagem da
+tela, passou à web pelo Web Component com *signals* (ADR 0013), e o que
+cada par acrescentaria fica para os trabalhos futuros da conclusão. Os
+três pares repetem a mesma divisão: uma tecnologia de eventos, do
+imperativo por atualização manual, e outra que liga propriedades, do
+declarativo por atualização granular; nenhum cobre o declarativo por
+re-renderização. A célula granular era hipótese a conferir: no JavaFX, a
+pré-análise de 2026-10-09 sustenta o mecanismo granular, com as
+dependências escritas à mão; na QML, a confirma, com o rastreamento
+automático. Só Swing × JavaFX, com a tela do JavaFX montada em código
+Java, mantém a montagem da tela e isola o modelo de programação (seção
+"Swing × JavaFX (Java)"). Que tipos de exigência de coordenação o Swing
+× JavaFX cobria está em `docs/exigencias-de-coordenacao.md`, seção
+"Cobertura por par", na versão do commit `3ada83b`.
 
 ## Swing × JavaFX (Java)
 
@@ -294,8 +302,8 @@ Solid, com precedente revisado na detecção automática de parâmetros do
 Garnet e do Amulet (Vander Zanden et al., 2001). Leitura nossa: isso
 confirma a QML na coluna do declarativo por atualização granular, que na
 tabela era hipótese, e a separa do JavaFX, que lista as dependências, e
-do WPF, que as notifica à mão (`docs/plataformas/README.md`, seção "O
-que comparar dentro do granular").
+do WPF, que as notifica à mão (seção "O que comparar dentro do
+granular").
 
 **Estado derivado e campos dependentes (Formulário).** No Qt Widgets, a
 volta habilitada depende do tipo de voo num *slot* próprio, ligado ao
@@ -447,4 +455,11 @@ como "sibling" ou "cousin" seria inferência do TCC.
 ## Histórico
 
 Criada em 2026-10-16 com as seções dos três pares de
-`docs/plataformas.md`, hoje `docs/plataformas/README.md`.
+`docs/plataformas.md`, que no mesmo dia passou a
+`docs/plataformas/README.md`.
+
+Em 2026-10-19, a abertura e a conclusão passaram a dizer que o *desktop*
+está fora da análise desde 2026-10-17 (ADR 0001), e a seção "O que
+comparar dentro do granular" veio sem mudança de
+`docs/plataformas/README.md`, que virou o índice das notas de
+plataformas.
