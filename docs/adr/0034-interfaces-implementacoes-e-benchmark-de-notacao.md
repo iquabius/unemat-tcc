@@ -13,8 +13,8 @@ TodoMVC, um *benchmark* de um item só);
 cada item é *task* (Sim et al., 7GUIs), *case study* (Kiss), *benchmark
 problem* (Erdweg et al. 2015) ou *program* (Green e Petre 1996; Nanz et
 al. 2013); a realização é *solution* ou *implementation*. Por decisão do
-autor, cada item é uma **interface** ("implementar cinco interfaces
-gráficas", "a interface do Formulário"), cada realização uma
+autor, cada item é uma **interface** ("implementar sete interfaces
+gráficas", "a interface da Reserva de passagem"), cada realização uma
 **implementação**, e o conjunto o ***benchmark* de notação**, ligado numa
 frase à amostra de tarefas de Sim et al. O que cada interface exige do
 modelo de programação passa de "problema de coordenação" a **exigência de
