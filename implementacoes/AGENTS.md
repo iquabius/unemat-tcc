@@ -222,16 +222,16 @@ Playwright nem biblioteca.
   `MessageChannel`. Com o React 19.3, o teste falha com duas e passa com
   três (medido em 2026-10-12). Se uma versão nova do React falhar só em
   verificações logo depois de um efeito, meça de novo.
-- **Limpeza ao sair da tela.** Na interface que abre requisições,
-  relógios ou inscrições (todas menos o conversor de moedas, ADR 0029), o
-  `dominio.ts` conta o que está aberto numa função em `globalThis`, como
-  o `contarAbertos()` do Login, e cada implementação tem um botão que
-  esconde e mostra a interface. O teste esconde a interface e confere zero
-  **antes** de avançar o relógio: uma requisição esquecida terminaria
-  sozinha na latência, e a conferência depois dela passaria (achado da
-  revisão do Login, 2026-10-12). Pelo mesmo motivo, confira a contagem
-  logo depois da ação que deve cancelar, como a tentativa nova do
-  Login.
+- **Limpeza ao sair da tela.** Na interface que abre requisições, relógios
+  ou inscrições (todas menos o conversor de moedas e a planilha,
+  ADR 0029), o `dominio.ts` conta o que está aberto numa função em
+  `globalThis`, como o `contarAbertos()` do Login, e cada implementação
+  tem um botão que esconde e mostra a interface. O teste esconde a
+  interface e confere zero **antes** de avançar o relógio: uma requisição
+  esquecida terminaria sozinha na latência, e a conferência depois dela
+  passaria (achado da revisão do Login, 2026-10-12). Pelo mesmo motivo,
+  confira a contagem logo depois da ação que deve cancelar, como a
+  tentativa nova do Login.
 - Confira que o teste pega erros: introduza na implementação um defeito
   de cada regra (sem o `abort()`, sem a limpeza do efeito, sem o
   `disconnectedCallback`) e veja a verificação certa falhar.

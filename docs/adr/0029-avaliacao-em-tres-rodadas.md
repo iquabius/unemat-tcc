@@ -13,13 +13,13 @@ que a tecnologia traz, e todas seguem duas regras comuns, conferidas
 pelo teste de conformidade de cada interface: as mensagens de status são
 anunciadas sem receber o foco (WCAG 2.2, critério 4.1.3), e vale a
 limpeza ao sair da tela, sem vazamento de recursos (Lima, Giusti e
-Dias-Neto 2020), que o conversor, sem relógio, requisição nem
-inscrição, cumpre sem botão de esconder nem verificação. A segunda muda
-o comportamento: cada interface recebe, um por commit e na mesma ordem
-nas quatro tecnologias, funcionalidades e requisitos de orquestração que
-a aplicação real que ela reproduz costuma pedir, ainda sem bibliotecas;
-latências, tentativas, prazos e intervalos ficam fixos no domínio. São
-12 mudanças, 48 commits:
+Dias-Neto 2020), que o conversor e a planilha, sem relógio, requisição
+nem inscrição, cumprem sem botão de esconder nem verificação. A segunda
+muda o comportamento: cada interface recebe, um por commit e na mesma
+ordem nas quatro tecnologias, funcionalidades e requisitos de
+orquestração que a aplicação real que ela reproduz costuma pedir, ainda
+sem bibliotecas; latências, tentativas, prazos e intervalos ficam fixos
+no domínio. São 12 mudanças, 48 commits:
 
 - Reserva de passagem: a volta empurrada pela ida; quando a ida passa
   da volta, o programa leva a volta ao dia seguinte à ida, em vez de
@@ -102,9 +102,10 @@ na Reserva de passagem ou na Reserva de passagem e na Busca; a primeira
 não tem escolha a defender, mas a planilha, o Circle Drawer e o
 conversor quase não têm biblioteca típica; as outras duas deixam a
 rodada num eixo só.
-Em vez de: o botão de esconder também no conversor, com a verificação
-da limpeza; uniforme com as outras interfaces, mas a contagem daria zero
-em qualquer tecnologia, e o botão seria código alheio ao conversor.
+Em vez de: o botão de esconder também no conversor e na planilha, com a
+verificação da limpeza; uniforme com as outras interfaces, mas a
+contagem daria zero em qualquer tecnologia, e o botão seria código
+alheio a elas.
 Em vez de: a tarifa no conversor e o destaque das dependentes na
 planilha; reais, mas a tarifa muda pouco além da fórmula do domínio, e o
 destaque é aparência derivada, sem fonte em Kiss.
