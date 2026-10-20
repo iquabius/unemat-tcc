@@ -166,9 +166,15 @@ a refazer, para o usuário corrigir o desenho sem recomeçar. Com o menu
 aberto, desfazer e refazer o fecham antes de agir, porque o passo pode
 tirar da lista o círculo dele.
 
+#### Scenario: 9 ajustar depois de desfazer não muda o passo desfeito
+
+- **DADO** o ajuste do círculo em (220, 100) para 40 desfeito, com 30 de diâmetro
+- **QUANDO** o usuário ajusta o diâmetro dele para 45 e clica em "Desfazer"
+- **ENTÃO** `circulosDesenhados()` dá de novo o círculo em (220, 100) com 30 de diâmetro
+
 #### Scenario: 10 desfazer a criação tira o círculo
 
-- **DADO** os círculos em (100, 100), (200, 100) e (220, 100), com o ajuste do terceiro para 40 já desfeito
+- **DADO** os círculos em (100, 100), (200, 100) e (220, 100), com o ajuste do terceiro já desfeito
 - **QUANDO** o usuário clica em "Desfazer"
 - **ENTÃO** `circulosDesenhados()` dá só os círculos em (100, 100) e (200, 100)
 - **E** a situação mostra "Desfeito.", e "Refazer" está habilitado

@@ -266,6 +266,15 @@
     [depoisDeFechar, diametroEm(220)],
     ["Diâmetro ajustado para 40.", 30],
   );
+  await abrirAjuste(212, 100);
+  await moverSlider(45);
+  await fecharDialogo();
+  await apertar("Desfazer");
+  conferir(
+    "9 ajustar depois de desfazer não muda o passo desfeito",
+    diametroEm(220),
+    30,
+  );
 
   await apertar("Desfazer");
   conferir(
