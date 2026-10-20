@@ -1,4 +1,4 @@
-# 0002. Sete interfaces gráficas, quatro adaptadas do 7GUIs: Reserva de passagem, Busca, Login com quarentena, Placar ao vivo, conversor de moedas, planilha do orçamento e Circle Drawer
+# 0002. Sete interfaces gráficas, quatro adaptadas do 7GUIs: Reserva de passagem, Busca, Login com quarentena, Placar ao vivo, conversor de moedas, planilha e Circle Drawer
 
 2026-10-19. O projeto de 2017 tinha processamento de listas, um Contador
 e uma Reserva de voo, nenhum assíncrono. Cada interface reproduz a de
@@ -26,10 +26,10 @@ para que as posições se comparem com as que Kiss (2014) publicou:
   aparecer também como conversor de moeda (nota 10): cada campo derivado
   do outro, o texto inválido que não muda o outro e a escrita do
   programa que não volta como a do usuário;
-- planilha do orçamento do mês, o *Cells* (§3.9, p. 49) em oito células
-  numa coluna, com fórmulas de número, referência (A1 a A8), + e −: o
-  grafo de dependências que o usuário escreve, com o recálculo só das
-  dependentes, e a barra de fórmula, que lê e altera a célula
+- planilha, o *Cells* (§3.9, p. 49) como o orçamento do mês, em oito
+  células numa coluna, com fórmulas de número, referência (A1 a A8), +
+  e −: o grafo de dependências que o usuário escreve, com o recálculo só
+  das dependentes, e a barra de fórmula, que lê e altera a célula
   selecionada com a grade, o estado compartilhado;
 - Circle Drawer (§3.8, p. 40): o desfazer e o refazer, o diálogo que
   ajusta o diâmetro do círculo escolhido no menu (o controle de

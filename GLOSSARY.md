@@ -57,7 +57,7 @@ _Avoid_: estrutura da tela como notação à parte; sintaxe da tela; marcação
 **Interface**:
 Uma das sete interfaces gráficas especificadas que todas as implementações
 seguem: Reserva de passagem, Busca com sugestões, Login com quarentena,
-Placar ao vivo, conversor de moedas, planilha do orçamento e Circle Drawer
+Placar ao vivo, conversor de moedas, planilha e Circle Drawer
 (ADR 0002). Onde "a interface" puder ser qualquer interface gráfica, leva
 o nome ("a interface da Reserva de passagem") ou o número ("as sete
 interfaces"); o domínio fica no plural ou com "gráfica" ("programar
@@ -77,7 +77,9 @@ Reserva de passagem e o Placar ao vivo (nomes até 2026-10-19:
 não diz que dados são); conversor de câmbio para o conversor de moedas
 (até 2026-10-19: vinha do título da tarefa do bd, e não de uma decisão;
 "conversor de moedas" é o nome comum da ferramenta e o *currency
-converter* de Kiss, 2014, p. 21, nota 10)
+converter* de Kiss, 2014, p. 21, nota 10); planilha do orçamento para a
+planilha (até 2026-10-19: o orçamento do mês é o tema dela, e não o
+nome)
 
 ***Benchmark* de notação**:
 O conjunto das sete interfaces, implementadas em cada tecnologia e
