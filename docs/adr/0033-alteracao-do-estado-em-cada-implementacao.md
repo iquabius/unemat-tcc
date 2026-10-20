@@ -1,44 +1,47 @@
-# 0033. As transições do Quadro de tarefas ficam em cada implementação, e não no domínio
+# 0033. A alteração do estado se escreve em cada implementação, e não no domínio
 
-2026-10-13. O domínio comum existe para que as implementações só difiram
-na coordenação da interface (ADR 0010), e o Quadro de tarefas entrou para
-medir o gerenciamento de estado (ADR 0002); com a transição do quadro no
-domínio, uma função pura `reduzir(quadro, ação)` que devolve o quadro
-novo, as quatro implementações web despachavam ações e trocavam o quadro
-inteiro, o formato do `useReducer` do React, e o Solid, em vez de alterar o
-*store* pelo caminho, recalculava o quadro e o comparava com o anterior
-(`reconcile`). Mover, arquivar e trocar pelo quadro de outra aba passam a
-ser escritos em cada implementação, no idioma da tecnologia: o Web
-Component altera no lugar as listas da loja (e o Lit, que implementa o
-Quadro desde 2026-10-17, faz o mesmo), o React escreve o redutor no
-próprio arquivo, o Solid altera o *store* pelo caminho com `produce`, e
-o Angular troca o valor do *signal* por uma cópia. O domínio fica com as
-tarefas, as colunas, o limite de "Fazendo", os textos, o quadro salvo e o
-ouvinte das outras abas, que entrega o quadro lido, e não uma ação.
-Escrever uma alteração de estado faz parte da notação, e assim a diferença
-entre copiar o estado e alterá-lo no lugar fica à vista da análise.
+2026-10-19. O domínio comum existe para que as implementações só difiram
+na coordenação da interface (ADR 0010), mas escrever uma alteração de
+estado faz parte da notação: com a alteração no domínio, numa função
+pura que devolve o estado novo, as quatro implementações só a chamariam
+e trocariam o estado inteiro, o formato do `useReducer` do React, e a
+diferença entre copiar o estado e alterá-lo no lugar sairia da análise.
+Por isso, em cada interface, o domínio fica com as regras e os dados, e
+a alteração do estado se escreve em cada implementação, no idioma da
+tecnologia. Na planilha, o domínio analisa e avalia a fórmula, e a
+propagação (quem reavaliar, em que ordem, quando parar) fica em cada
+implementação; no Circle Drawer, criar um círculo, ajustar o diâmetro e
+os passos do desfazer e do refazer, com o histórico, ficam em cada
+implementação, para a análise ver o contraste de Kiss (2014) entre
+guardar o comando e copiar o estado (decisão do autor em 2026-10-19).
 
-Em vez de: as transições no domínio (protótipo e `GLOSSARY.md`, de
-2026-10-12); o código de cada implementação ficaria só com a coordenação,
-e o desfazer da segunda rodada se resolveria igual em todas, guardando os
-quadros anteriores, sem o contraste de Kiss (2014) entre guardar o comando
-e copiar o estado; mas o formato do redutor ficaria imposto a três
-tecnologias que não o usam, justo na interface que mede o gerenciamento de
-estado.
-Custo: as três transições se repetem nas implementações da web e nos
-portes do Android e do desktop (tcc-ysxk, tcc-74m), e um erro numa delas
-só o teste de conformidade pega; o desfazer da segunda rodada (tcc-buku)
-volta a depender de como cada tecnologia altera o estado, e a alteração no
-lugar do Web Component, do Lit e do Solid pede uma cópia para guardar o
-histórico; o limite de "Fazendo" passa a se garantir só pelos botões
-desabilitados, sem a guarda que o `reduzir` tinha; e a coluna de onde a
-tarefa sai vem do componente que desenha o botão, e não de uma busca em
-todas as colunas, como no `reduzir`: com uma coluna errada, a tarefa
-ficaria onde está, e apareceria também no destino ao mover, e no Web
-Component, no Lit e no Solid o `splice` com o índice -1 ainda tiraria a
-última tarefa da coluna errada; o tipo do quadro deixa de ser só de
-leitura em todas as da web, e o React e o Angular perdem o aviso do
-compilador contra alterá-lo no lugar.
+Em vez de: a versão de 2026-10-13 deste ADR, só para o Quadro de
+tarefas, em que mover, arquivar e trocar pelo quadro de outra aba se
+escreviam em cada implementação (o Web Component e o Lit alteravam no
+lugar as listas da loja, o React escrevia o redutor no próprio arquivo,
+o Solid alterava o *store* pelo caminho com `produce`, e o Angular
+trocava o valor do *signal* por uma cópia), e o domínio ficava com as
+tarefas, as colunas, o limite de "Fazendo", o quadro salvo e o ouvinte
+das outras abas; o Quadro saiu da análise (ADR 0002), e a regra passou
+às interfaces que a herdaram.
+Em vez de: as transições no domínio (protótipo do Quadro e
+`GLOSSARY.md`, de 2026-10-12); o código de cada implementação ficaria só
+com a coordenação, e o desfazer se resolveria igual em todas, guardando
+os estados anteriores, sem o contraste de Kiss; mas o formato do redutor
+ficaria imposto a três tecnologias que não o usam.
+Em vez de: decidir a linha interface por interface, na especificação de
+cada uma; deixaria cada especificação livre, mas a mesma pergunta
+voltaria sem critério em cada interface.
+Custo: a alteração se repete nas quatro implementações, e um erro numa
+delas só o teste de conformidade pega; a guarda que uma função do
+domínio daria (o limite, o índice que não existe) passa a depender de
+cada implementação; o desfazer do Circle Drawer depende de como cada
+tecnologia altera o estado, e a alteração no lugar pede uma cópia para
+guardar o histórico; o tipo do estado deixa de ser só de leitura, e o
+React perde o aviso do compilador contra alterá-lo no lugar; a linha
+entre a regra do domínio e a alteração do estado ainda se traça em cada
+especificação, como a da propagação da planilha.
 
 Fontes: `docs/metodo-da-avaliacao.md`, linha do Quadro com desfazer;
-ADRs 0002, 0010 e 0013; tarefas tcc-2ui8 e tcc-i7qx.
+Kiss (2014), Circle Drawer (§3.8, p. 40); ADRs 0002, 0010 e 0013;
+tarefas tcc-2ui8, tcc-i7qx, tcc-wtt6 e tcc-z6tg.
