@@ -24,7 +24,7 @@ achar as fontes que mais pesam, pela tabela "Fontes centrais".
 | Método: o rótulo, as DCs, as rodadas, o tamanho das interfaces | `texto/intro.org`, metodologia | `docs/metodo-da-avaliacao.md`; o que se controla, em `docs/delineamento.md`; o que cada interface exige e cada par cobre, em `docs/exigencias-de-coordenacao.md` |
 | Análise por DC | `texto/cases.org`, `texto/results.org` | `docs/metodo-da-avaliacao.md`, seção "Como as fontes aplicaram as DCs a código, e as armadilhas"; `docs/achados-das-implementacoes.md`; `docs/exigencias-de-coordenacao.md`, seção "Mapa por interface"; a skill `avaliacao-pelas-dcs` |
 | Capítulo de programação | `texto/prog.org` | `docs/paradigma-modelo-e-notacao.md`, `docs/bibliografia/programacao-funcional-e-reativa.md`, `docs/estado-eventos-e-complexidade.md` |
-| Tecnologias e plataformas | ADRs 0001, 0005, 0013 e 0031 | `docs/plataformas/README.md`, e dali `web.md`, `android.md`, `desktop.md`, `bibliotecas-de-formulario.md` e `bibliotecas-de-inscricao-e-reconexao.md` |
+| Tecnologias e plataformas | ADRs 0001, 0005, 0013 e 0031 | `docs/plataformas/README.md`, e dali `web.md`, `bibliotecas-de-formulario.md` e `bibliotecas-de-inscricao-e-reconexao.md`; o Android e o *desktop*, fora da análise, em `android.md` e `desktop.md` |
 | Forma da introdução | `texto/intro.org` | `docs/bibliografia/escrita-da-introducao.md` |
 | Como a busca foi feita | Apêndice II | `docs/bibliografia/protocolo-da-revisao.md` |
 
@@ -113,17 +113,21 @@ Em `docs/bibliografia/`, as fontes de apoio e a busca:
 
 Em `docs/plataformas/`, as tecnologias, com a data de cada observação:
 
-- `README.md` (Referência): que modelo de programação cada plataforma
-  cobre e o que comparar dentro do granular;
-- `web.md`, `android.md` e `desktop.md` (Referência): as tecnologias de
-  cada plataforma, a notação de cada uma e a literatura cinzenta sobre
-  elas; no Android, também a escolha do Kotlin, com o script que refaz a
-  conta da JetBrains (`android-jetbrains-2025.py`);
+- `README.md` (Referência): o índice das notas de plataformas, com as
+  quatro tecnologias da análise por modelo de programação e a cadeia de
+  pares;
+- `web.md` (Referência): as tecnologias web, a notação de cada uma e a
+  literatura cinzenta sobre elas;
 - `bibliotecas-de-formulario.md` (Referência): a biblioteca de
-  formulário de cada tecnologia na terceira rodada.
+  formulário de cada tecnologia na Reserva de passagem, na terceira
+  rodada, e as medidas das tecnologias que saíram da análise;
 - `bibliotecas-de-inscricao-e-reconexao.md` (Referência): a biblioteca
   que trata a inscrição e a reconexão no Placar ao vivo, por tecnologia,
-  na terceira rodada.
+  na terceira rodada;
+- `android.md` e `desktop.md` (Referência): as plataformas que saíram
+  da análise em 2026-10-17 (ADRs 0001 e 0005), como referência para os
+  trabalhos futuros; no Android, também a escolha do Kotlin, com o
+  script que refaz a conta da JetBrains (`android-jetbrains-2025.py`).
 
 Em `docs/processo/`, o projeto e as ferramentas:
 
