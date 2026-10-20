@@ -596,18 +596,40 @@ Arquitetura de sistemas:
   admitem várias notações num sistema, e Blackwell e Green (2003, p.
   115) pedem que uma subnotação seja analisada à parte; no TCC, as duas
   ficam na mesma coluna, e a célula registra quando divergem (ADR 0017).
-  No Web Component com
-  *signals*, o corpo de cada efeito ainda é uma escrita no DOM, e o
-  texto precisa mostrar que o sinal escrito do granular é o efeito
-  declarado uma vez por parte da tela, que o ambiente de execução
-  reexecuta, para o leitor não o tomar por imperativo (ADRs 0013 e
-  0021).
-- **A fonte da fronteira entre a re-renderização e a atualização
-  granular fala de tecnologias fora da análise.** Sperber e Schlegel
-  (2025, p. 32) põem o Angular com os "OO toolkits" do tipo MVC, e não
-  com o MVU, junto do Svelte e do Vue; nenhuma das três está no
-  conjunto analisado, e o texto precisa dizer se a frase vale para o
-  Web Component com *signals* e o Solid, e por quê.
+  No Web Component com *signals*, o corpo de cada efeito ainda é uma
+  escrita no DOM, e o texto precisa mostrar que o sinal escrito do
+  granular é o efeito declarado uma vez por parte da tela, que o
+  ambiente de execução reexecuta, para o leitor não o tomar por
+  imperativo (ADRs 0013 e 0021).
+- **A fronteira entre a re-renderização e a atualização granular se
+  apoia em Lee, Ahn e Yi (2025, 289:38)**, decisão do autor de
+  2026-10-20. Na Tabela 2 deles, "Re-read Spec." é *Yes* no React e
+  *No* no Solid: o critério é o que o ambiente de execução faz,
+  reexecutar ou não a especificação do componente, e cobre também o Web
+  Component com *signals*, que não tem pré-processador. Sperber e
+  Schlegel (2025, p. 32) não servem para a fronteira: os exemplos deles
+  são o Angular, o Svelte e o Vue, e o critério, um pré-processador que
+  gera a atualização a partir do código que monta a tela, deixaria de
+  fora o Web Component com *signals*, em que cada escrita na tela se
+  escreve num efeito. A frase de `texto/intro.org:105` sobre os
+  declarativos, que cita Sperber e Schlegel nessa página, passa por isso
+  na revisão do texto.
+- **Por que o granular é o Solid, e não o Angular, mais usado**: o
+  autor decidiu em 2026-10-20 guardar Sperber e Schlegel (2025, p. 32)
+  para a fundamentação ou a metodologia. Eles põem o Angular entre os
+  "Modern OO toolkits" que, "instead of requiring the programmer to
+  implement the update logic manually", têm um pré-processador que gera
+  a atualização, e dizem o custo: "these toolkits require the code
+  changing the state to be exposed to the UI toolkit, and for that code
+  to use conventions recognizable to the pre-processor. This means that
+  the model cannot be implemented independently of the UI toolkit, and
+  is thus coupled to the view". Cuidado ao usar: o JSX do Solid também
+  passa por um compilador, e a fonte não separa o Angular com *signals*
+  do Angular anterior; o trecho sustenta a leitura deles do Angular, e
+  não a diferença entre o Angular e o Solid, que o ADR 0013 tira da
+  cadeia (o modelo de componente com classe, decorador e injeção de
+  dependências, ADR 0021). O contraste com o Angular numa seção depois
+  da análise está na tarefa da seção de contraste.
 - **O React é reativo para Salvaneschi et al. (2014, p. 564).** O texto
   diz por que o TCC não o chama assim.
 - **A semântica de Madsen et al. (2020) trata os *hooks* como
@@ -843,3 +865,9 @@ seção "Trechos das fontes", só mudou a coluna "Uso": o Svelte e o Vue
 deixaram de ser candidatos, e a tarefa tcc-4ie passou a escrever na
 introdução a atribuição pela cadeia. As correspondências de "Para quem
 vem do Java" ficaram, como apresentação dos modelos de programação.
+
+Em 2026-10-20, a fronteira entre a re-renderização e a atualização
+granular passou a se apoiar em Lee, Ahn e Yi (2025, 289:38), e o
+trecho de Sperber e Schlegel (2025, p. 32) ficou guardado, na seção
+"Tensões que o texto precisa enfrentar", para explicar por que o
+granular é o Solid, e não o Angular (decisões do autor).
