@@ -3,16 +3,23 @@
 Referência. As tecnologias do Android no TCC, Views e Jetpack Compose,
 com o modelo de programação e a montagem da tela de cada uma e a
 hipótese sobre o ambiente de execução do Compose, e a escolha da
-linguagem: a literatura cinzenta sobre Kotlin × Java que sustenta o ADR
-0005, com os argumentos a favor e contra, as fontes e a conferência dos
-números de adoção. Cada afirmação sobre ferramenta ou versão leva a data
-em que foi observada.
+linguagem: a literatura cinzenta sobre Kotlin × Java que sustentou a
+escolha do Kotlin (ADR 0005), com os argumentos a favor e contra, as
+fontes e a conferência dos números de adoção. O Android está fora da
+análise desde 2026-10-17 (ADRs 0001 e 0005), e a nota fica como
+referência para os trabalhos futuros da conclusão (tcc-dpci); o código
+das Views e do Compose está em `implementacoes/fora-da-analise/`. Cada
+afirmação sobre ferramenta ou versão leva a data em que foi observada.
 
-**Conclusão.** O Views cobre o imperativo por atualização manual e o
-Compose o declarativo por re-renderização, os dois em Kotlin; pela
-notação, o Compose fica com o React, e pelo ambiente de execução, perto
-do declarativo por atualização granular, hipótese a conferir na
-pré-análise (seção "Hipótese sobre o ambiente de execução do Compose").
+**Conclusão.** Desde 2026-10-17, o Android está fora da análise (ADRs
+0001 e 0005), e o que ele acrescentaria, a re-renderização fora do JSX,
+noutra linguagem, e a inscrição presa ao ciclo de vida da `Activity`,
+fica para os trabalhos futuros da conclusão. O Views cobre o imperativo
+por atualização manual e o Compose o declarativo por re-renderização, os
+dois em Kotlin; pela notação, o Compose fica com o React, e pelo
+ambiente de execução, perto do declarativo por atualização granular,
+hipótese que a análise não chegou a conferir (seção "Hipótese sobre o
+ambiente de execução do Compose").
 O Compose é Kotlin-only, e o Google recomenda o Kotlin para projetos
 novos. Os números de adoção vêm do Google e da JetBrains, partes
 interessadas, sem metodologia publicada; "conter código Kotlin" não é
@@ -194,3 +201,7 @@ agora e a seção "Tecnologias por modelo de programação", com a hipótese
 do Compose, que estava em `docs/plataformas.md`; o script que reproduz a
 conferência dos números veio para o lado dela, como
 `docs/plataformas/android-jetbrains-2025.py`.
+
+Em 2026-10-19, a abertura e a conclusão passaram a dizer que o Android
+está fora da análise desde 2026-10-17 (ADRs 0001 e 0005), como
+referência para os trabalhos futuros.
