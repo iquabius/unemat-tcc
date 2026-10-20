@@ -1,0 +1,85 @@
+/* Aparência comum às implementações do Circle Drawer, para que só a lógica mude. */
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: #2b2b2b;
+  color: #eee;
+}
+
+.pagina,
+.desenho {
+  display: grid;
+  gap: 0.5rem;
+  justify-items: start;
+}
+
+.pagina {
+  padding: 1rem;
+}
+
+.acoes {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.pagina button {
+  padding: 0.4rem;
+  font-size: 1rem;
+}
+
+.desenho canvas {
+  display: block;
+  border: 1px solid #888;
+}
+
+.situacao {
+  margin: 0;
+  min-height: 1.2em;
+  color: #aaa;
+}
+
+/* O menu fica no ponteiro: a implementação dá o left e o top, contados
+   da página, e não da janela, para ele acompanhar a rolagem. */
+.menu {
+  position: absolute;
+  inset: auto;
+  margin: 0;
+  padding: 0;
+  border: 1px solid #888;
+  background: #333;
+  color: #eee;
+}
+
+.menu button {
+  border: 0;
+  background: transparent;
+  color: inherit;
+}
+
+/* O diálogo fica no alto da página, sobre os botões, que o modal deixa
+   inertes, e sem fundo escuro, para o círculo ajustado ficar à vista
+   enquanto o diâmetro muda. */
+.ajuste {
+  position: absolute;
+  inset: 0 auto auto 0;
+  margin: 0.5rem;
+  border: 1px solid #888;
+  background: #333;
+  color: #eee;
+}
+
+.ajuste h2 {
+  margin: 0 0 0.75rem;
+  font-size: 1rem;
+}
+
+.ajuste label {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.ajuste::backdrop {
+  background: transparent;
+}
