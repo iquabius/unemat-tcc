@@ -1,0 +1,45 @@
+#+TITLE: Circle Drawer
+
+O Circle Drawer do 7GUIs (Kiss 2014, §3.8, p. 40), na pasta
+=desenho-de-circulos=: círculos desenhados num /canvas/, com o círculo sob
+o ponteiro selecionado, o diâmetro ajustado num diálogo aberto pelo menu do
+botão direito e o desfazer e o refazer de cada passo. É a interface do
+histórico, para o usuário corrigir o desenho sem recomeçar; do diálogo que
+guarda o círculo escolhido entre o menu e o ajuste (o controle de diálogo),
+para o usuário ajustar o círculo que escolheu, e não o que estiver sob o
+ponteiro; e do círculo sob o ponteiro, derivado da posição e da lista, para
+o usuário ver em que círculo vai agir. O arrastar e o salvamento num
+servidor simulado entram na segunda rodada.
+
+As regras que não dependem da tela ficam em =dominio.ts=: as medidas, as
+mensagens, a escolha do círculo sob o ponteiro (=circuloSob=) e o corpo do
+desenho, =desenharCirculos(canvas, circulos, selecionado)=, que pinta o
+/canvas/ inteiro e é "o como" igual em todas as implementações. Cada
+implementação guarda a lista de círculos, o histórico e a seleção e decide
+quando o desenho roda de novo, que é a parte que se compara. O /canvas/
+não tem texto que o teste leia: =desenharCirculos= guarda o que pintou, e
+=circulosDesenhados()= o devolve. Os atalhos de teclado também ficam no
+domínio, =ouvirAtalhos(acoes)=, que ouve no =document= e devolve a função
+que fecha o ouvinte: o desenho que sai da tela deixa de ouvir, para o
+atalho não agir sobre um desenho que o usuário não vê, e
+=contarAbertos()= diz quantos ouvintes estão abertos, para o teste
+conferir essa limpeza pela contagem.
+
+As regras, as mensagens e os cenários que o teste de conformidade confere
+estão em =implementacoes/openspec/specs/desenho-de-circulos/spec.md=, a
+especificação viva (OpenSpec); a mudança entre rodadas entra como
+/delta spec/ em =implementacoes/openspec/changes/=, e a de dentro de uma
+rodada edita o =spec.md= direto (=implementacoes/AGENTS.md=).
+
+* Teste
+
+  O =teste-de-conformidade.js= percorre a especificação: cada verificação
+  tem o nome de um cenário do =spec.md=, e =npm run conferir-especificacao=
+  confere a ligação. Com uma implementação aberta no navegador, cole o
+  arquivo no console. Ele dispara no /canvas/ e no =document= os eventos do
+  ponteiro e do teclado, lê os círculos por =circulosDesenhados()= e a cor
+  do centro de cada um no próprio /canvas/, e começa e termina com o
+  desenho vazio, escondendo e mostrando a interface. O fechamento do menu e
+  do diálogo no Esc e no clique fora é do navegador e não responde a evento
+  disparado por script: fica sem verificação. As cenas das capturas ficam
+  em =cenas.mts=.

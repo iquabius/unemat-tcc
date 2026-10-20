@@ -1,11 +1,12 @@
-## Purpose
+# Circle Drawer
 
+## Purpose
 Circle Drawer do 7GUIs (Kiss 2014, §3.8, p. 40): círculos desenhados num
 *canvas*, com o círculo sob o ponteiro selecionado, o diâmetro ajustado num
 diálogo aberto pelo menu do botão direito e o desfazer e o refazer de cada
 passo, para o usuário corrigir o desenho sem recomeçar.
 
-## ADDED Requirements
+## Requirements
 
 ### Requirement: Abertura
 
@@ -81,7 +82,9 @@ ponteiro sai do *canvas*.
 O botão direito sobre o *canvas* com um círculo selecionado deve abrir,
 no ponteiro, um menu com um item só, "Ajustar o diâmetro…", para o
 usuário chegar ao ajuste pelo círculo; sem círculo selecionado, o menu
-não abre. O clique fora do menu e o Esc o fecham sem mudar nada.
+não abre. Com o menu aberto, o círculo dele fica selecionado, mesmo com o
+ponteiro fora do *canvas*, para o usuário ver em que círculo o menu age. O
+clique fora do menu, com qualquer botão, e o Esc o fecham sem mudar nada.
 
 #### Scenario: 5 botão direito fora dos círculos não abre o menu
 
@@ -94,6 +97,12 @@ não abre. O clique fora do menu e o Esc o fecham sem mudar nada.
 - **DADO** o ponteiro em (212, 100), com o círculo em (220, 100) selecionado
 - **QUANDO** o usuário clica com o botão direito
 - **ENTÃO** o menu está aberto, com o item "Ajustar o diâmetro…"
+
+#### Scenario: 5 com o menu aberto o círculo fica selecionado
+
+- **DADO** o menu aberto sobre o círculo em (220, 100)
+- **QUANDO** o ponteiro sai do *canvas*, a caminho do menu
+- **ENTÃO** o círculo em (220, 100) continua selecionado
 
 ### Requirement: Ajuste do diâmetro
 
@@ -108,7 +117,7 @@ que ajusta.
 
 - **DADO** o menu aberto sobre o círculo em (220, 100)
 - **QUANDO** o usuário clica em "Ajustar o diâmetro…"
-- **ENTÃO** o menu fecha, e o diálogo está aberto, com o título "Ajustar o diâmetro do círculo em (220, 100)"
+- **ENTÃO** o menu fecha, e o diálogo está aberto, modal, com o título "Ajustar o diâmetro do círculo em (220, 100)"
 - **E** o *slider* "Diâmetro" mostra 30
 
 #### Scenario: 6 com o diálogo aberto o círculo fica selecionado
@@ -153,7 +162,9 @@ O "Desfazer" deve desfazer o último passo, criar um círculo ou ajustar um
 diâmetro, e mostrar "Desfeito." na situação; o "Refazer" refaz o último
 passo desfeito e mostra "Refeito.". Um passo novo descarta os passos
 desfeitos. Cada botão fica desabilitado quando não há passo a desfazer ou
-a refazer, para o usuário corrigir o desenho sem recomeçar.
+a refazer, para o usuário corrigir o desenho sem recomeçar. Com o menu
+aberto, desfazer e refazer o fecham antes de agir, porque o passo pode
+tirar da lista o círculo dele.
 
 #### Scenario: 10 desfazer a criação tira o círculo
 
@@ -169,6 +180,12 @@ a refazer, para o usuário corrigir o desenho sem recomeçar.
 - **ENTÃO** `circulosDesenhados()` dá de novo o círculo em (220, 100), com 30 de diâmetro
 - **E** a situação mostra "Refeito."
 
+#### Scenario: 10 ajustar depois de refazer não muda o passo refeito
+
+- **DADO** o círculo em (220, 100) devolvido pelo refazer, com 30 de diâmetro
+- **QUANDO** o usuário ajusta o diâmetro dele para 45 e clica em "Desfazer"
+- **ENTÃO** `circulosDesenhados()` dá de novo o círculo em (220, 100) com 30 de diâmetro
+
 #### Scenario: 11 passo novo descarta o refazer
 
 - **DADO** a criação do círculo em (220, 100) desfeita, com "Refazer" habilitado
@@ -183,12 +200,20 @@ a refazer, para o usuário corrigir o desenho sem recomeçar.
 - **ENTÃO** `circulosDesenhados()` dá uma lista vazia
 - **E** "Desfazer" está desabilitado, e "Refazer", habilitado
 
+#### Scenario: 13 desfazer com o menu aberto fecha o menu
+
+- **DADO** o menu aberto sobre o círculo em (100, 100), o único do *canvas*
+- **QUANDO** o usuário tecla Ctrl+Z
+- **ENTÃO** o menu fecha, e `circulosDesenhados()` dá uma lista vazia
+- **E** a situação mostra "Desfeito."
+
 ### Requirement: Atalhos de teclado
 
-Ctrl+Z deve agir como o "Desfazer", e Ctrl+Shift+Z, como o "Refazer", em
-qualquer ponto da página, para o usuário desfazer sem ir ao botão; com o
-diálogo aberto, os atalhos não fazem nada. O ouvinte fica no `document`,
-aberto pelo domínio (`ouvirAtalhos`), que o conta em `contarAbertos()`.
+Ctrl+Z (Cmd+Z no macOS) deve agir como o "Desfazer", e Ctrl+Shift+Z, como
+o "Refazer", em qualquer ponto da página, para o usuário desfazer sem ir
+ao botão; com o diálogo aberto, os atalhos não fazem nada. O ouvinte fica
+no `document`, aberto pelo domínio (`ouvirAtalhos`), que o conta em
+`contarAbertos()`.
 
 #### Scenario: 13 Ctrl+Z desfaz e Ctrl+Shift+Z refaz
 
