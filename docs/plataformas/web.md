@@ -1,18 +1,20 @@
 # Web: tecnologias, documentação, uso e opiniões
 
-Referência. As tecnologias web do TCC e as descartadas (jQuery, Svelte,
-Vue): o modelo de programação e a montagem da tela, o que mudou de 2016
-a 2026, o modelo de reatividade segundo a documentação oficial, as
-medidas de uso, os artigos não acadêmicos, os prós e contras de cada
-escolha e como os Web Components sem biblioteca montam a tela; quase
-tudo é literatura cinzenta. Sustenta o ADR 0013. Cada afirmação sobre
-ferramenta ou versão leva a data em que foi observada.
+Referência. As quatro tecnologias web da análise e as que ficaram fora
+(o jQuery, o Svelte e o Vue, e, desde 2026-10-19, o Lit e o Angular): o
+modelo de programação e a montagem da tela, o que mudou de 2016 a 2026,
+o modelo de reatividade segundo a documentação oficial, as medidas de
+uso, os artigos não acadêmicos, os prós e contras de cada escolha e como
+os Web Components sem biblioteca montam a tela; quase tudo é literatura
+cinzenta. Sustenta o ADR 0013. Cada afirmação sobre ferramenta ou versão
+leva a data em que foi observada.
 
 **Conclusão.** A PR virou o modelo padrão de reatividade das principais
 bibliotecas de UI, com os *signals* (seção "O que mudou de 2016 a
 2026"). Em 2026-09-26, o React é o mais usado em todas as medidas, e o
 Solid, que representa o modelo declarativo por atualização granular com
-a mesma JSX do React, tem uso pequeno e a maior retenção do State of JS
+o mesmo JSX do React, ao lado do Web Component com *signals* do
+`solid-js` (ADR 0013), tem uso pequeno e a maior retenção do State of JS
 por cinco anos (seções "Uso" e "Prós e contras de cada escolha do ADR
 0013"). As fontes pedem cuidado no texto: as pesquisas de uso são de
 amostra autosselecionada, e a literatura dos *signals* é escrita por
@@ -35,44 +37,55 @@ Tratar como literatura cinzenta no texto:
   autor do Solid;
 - ***benchmark***: os números vêm de um único mantenedor.
 
-Versões no `package-lock.json` de `implementacoes/`: React 19.3.0,
-Solid 1.9.15, Lit 3.3.3, Angular 22.2.0 com RxJS 7.8.2 (2026-10-16). As
-bibliotecas de formulário da terceira rodada, com as medidas do registro
-de 2026-10-12, estão em `docs/plataformas/bibliotecas-de-formulario.md`
-(ADR 0031).
+Versões no `package-lock.json` de `implementacoes/`: React 19.3.0 e
+Solid 1.9.15, o `solid-js` que o Web Component com *signals* também usa
+(2026-10-19). Em 2026-10-16 o arquivo tinha ainda o Lit 3.3.3 e o
+Angular 22.2.0 com RxJS 7.8.2, que saíram dos *workspaces* em
+2026-10-19, quando o Lit e o Angular ficaram fora da análise (ADR 0013).
+As bibliotecas de formulário da terceira rodada, com as medidas do
+registro de 2026-10-12, estão em
+`docs/plataformas/bibliotecas-de-formulario.md` (ADR 0031).
 
 ## Tecnologias por modelo de programação
 
 | Tecnologia | Modelo de programação | Montagem da tela | Interfaces |
 |---|---|---|---|
-| Web Component | imperativo por atualização manual | esqueleto em HTML num texto; partes repetidas com `createElement` (ADR 0037) | as cinco |
-| Lit | declarativo por re-renderização | *template* `html` | Formulário, Busca, Dados ao vivo (ADR 0013); Quadro e Login fora dele (2026-10-17) |
-| React | declarativo por re-renderização | JSX | as cinco |
-| Solid | declarativo por atualização granular | JSX | as cinco |
-| Angular com *signals* | declarativo por atualização granular | *template* | Formulário, Busca, Quadro (ADR 0013); Login fora dele (2026-10-17) |
+| Web Component | imperativo por atualização manual | esqueleto em HTML num texto; partes repetidas com `createElement` (ADR 0037) | as sete |
+| Web Component com *signals* do `solid-js` | declarativo por atualização granular | a do Web Component (ADR 0037) | as sete |
+| Solid | declarativo por atualização granular | JSX | as sete |
+| React | declarativo por re-renderização | JSX | as sete |
+| Lit | declarativo por re-renderização; fora da análise desde 2026-10-19 (ADR 0013) | *template* `html` | nenhuma; o código de cinco interfaces de então em `implementacoes/fora-da-analise/` |
+| Angular com *signals* | declarativo por atualização granular; fora da análise desde 2026-10-19 (ADR 0013) | *template* | nenhuma; o código de quatro interfaces de então em `implementacoes/fora-da-analise/` |
 | Angular com RxJS | apoio, fora da análise (ADR 0013) | *template* | — |
 | jQuery | fora da análise (ADR 0013) | HTML e DOM | — |
 
-Quatro pares próximos, um para cada contraste (ADR 0013): Web Component
-× Lit, com o mesmo modelo de componente, o esqueleto da tela em HTML num
-texto e a mesma orquestração, isola o imperativo contra a
-re-renderização na ligação do estado com a tela, e nas partes repetidas
-e no filho que entra e sai da página muda também a montagem (ADR 0037);
-React × Solid, com a mesma tela em JSX, isola o modelo de programação
-entre os dois declarativos; React × Lit, a notação dentro da
-re-renderização; Solid × Angular com *signals*, a notação dentro da
-atualização granular. Quando as duas tecnologias de uma coluna divergem
-numa DC, React e Lit ou Solid e Angular, a célula da tabela-síntese
-registra a divergência (ADR 0017). No Login e no Quadro, o ADR 0013
-deixa o imperativo por atualização manual contra os dois declarativos
-sem par controlado; desde 2026-10-17 o Lit tem os dois, e a análise, que
-nessa data passou a ler as cinco interfaces nas nove tecnologias
-(tcc-a84z), lê o par neles, à espera da reescrita do ADR 0013. Em
-nenhuma interface da web um par põe o imperativo contra a atualização
-granular (`docs/delineamento.md`, seção "O que fica
-sem controle"). O jQuery fica fora, e o Angular com RxJS, de apoio; os
-dois ficam congelados em `implementacoes/fora-da-analise/` (ADR 0013).
-O quadro do que o delineamento controla está em `docs/delineamento.md`.
+As quatro tecnologias formam uma cadeia de pares em que cada passo muda
+o mínimo (ADR 0013): Web Component → (a ligação do estado com a tela) →
+Web Component com *signals* → (a montagem da tela e o modelo de
+componente) → Solid → (o modelo de programação, com o mesmo JSX) →
+React. O Web Component × Web Component com *signals*, com a mesma classe
+que estende `HTMLElement` e a mesma montagem, põe o imperativo contra o
+granular na ligação do estado com a tela. O Web Component com *signals*
+× Solid é um modelo de programação com duas notações: a coordenação se
+escreve com os mesmos sinais do `solid-js` (`createSignal`,
+`createMemo`, `createEffect`), e a montagem da tela e o modelo de
+componente mudam, também nas partes repetidas e no filho que entra e
+sai da página (`createElement` num efeito contra `<For>` e `<Show>`, ADR
+0037). O Solid × React, com a tela em JSX, põe um declarativo contra o
+outro, com o dialeto do JSX (`class` e `className`) de diferença. Nenhum
+passo muda uma coisa só, e o que muda junto se separa pelo sinal escrito
+(ADR 0021). O Web Component e o React não formam par: a diferença entre
+eles se atribui ao passo da cadeia em que ela aparece, e a que nenhum
+passo explica, pelo sinal escrito, e o imperativo contra a
+re-renderização fica sem par direto (`docs/delineamento.md`, seção "O
+que fica sem controle"). Quando o Web Component com *signals* e o Solid
+divergem numa DC, a célula do granular na tabela-síntese registra a
+divergência (ADR 0017). O Lit e o Angular com
+*signals* saíram da análise em 2026-10-19 e ficam para os trabalhos
+futuros da conclusão (tcc-dpci); com o jQuery e o Angular com RxJS, que
+continuam fora, estão congelados em `implementacoes/fora-da-analise/`
+(ADR 0013). O quadro do que o delineamento controla está em
+`docs/delineamento.md`.
 
 ## O que mudou de 2016 a 2026
 
@@ -115,10 +128,11 @@ complementares".
 | jQuery | "fast, small, and feature-rich JavaScript library" para "HTML document traversal and manipulation, event handling"; `.on()` anexa *handlers*, `.html()`, `.text()` e `.val()` leem e escrevem o DOM; nenhum estado nem reatividade | jquery.com e api.jquery.com (2026-09-26); 4.0.0 em 2026-01-17 (blog, Willison), "first major version release in almost 10 years"; 3.x só recebe correções críticas |
 | React | "React, however, sticks to the 'pull' approach where computations can be delayed until necessary"; renderizar é "React calling your components"; o estado é um *snapshot* por renderização; as dependências de `useEffect` são declaradas à mão e comparadas com `Object.is`; o React Compiler (1.0, 2025-10-07) memoiza automaticamente "without compromising on React's core mental model" | legacy.reactjs.org/docs/design-principles (sem data, "no longer updated"); react.dev *Render and Commit*, *State as a Snapshot*, *useEffect*, *React Compiler* (2026-09-26); blog *React Compiler v1.0* (Tan, Savona, Zhang, 2025-10-07) |
 | Solid | "Components, much like other functions, will only run once"; ler um *signal* num escopo de rastreamento inscreve o escopo no *signal*; "In contrast, React would re-execute an entire component for a change in the single attribute"; "Instead of using a Virtual DOM, it compiles its templates to real DOM nodes" | docs.solidjs.com *Intro to reactivity* (2026-04-28), *Signals* (2026-08-28), *Fine-grained reactivity* (2026-04-28); README de `solidjs/solid` (2026-09-26) |
+| Web Component com *signals* do `solid-js` | O `solid-js` entra só como biblioteca de reatividade, sem JSX (ADR 0013): o estado é um `createSignal`, que o tratador altera, o derivado é um `createMemo`, e cada escrita na tela fica num `createEffect`, que o ambiente de execução reexecuta só quando muda um *signal* lido nele, dentro de um `createRoot` aberto no `connectedCallback` e descartado no `disconnectedCallback`; a classe e a montagem da tela são as do Web Component (ADR 0037) | docs.solidjs.com, *createEffect*, *createRoot* e *mapArray* (atualizadas em 2026-04-28), citadas no ADR 0013; `solid-js` 1.9.15 no `package-lock.json` (2026-10-19) |
 | TC39 Signals | Estágio 1; *computed* "lazy, i.e., pull-based"; "Signals may be thought of as a 'push-pull' construction"; colaboradores: Angular, Bubble, Ember, FAST, MobX, Preact, Qwik, RxJS, Solid, Starbeam, Svelte, Vue, Wiz | `tc39/proposal-signals` (README; último *commit* em `main` 2025-08-11, atividade 2026-01-25; sem estágio 2); `signal-polyfill` 0.2.2 (2025-01-17) |
 | Angular | "Angular Signals is a system that granularly tracks how and where your state is used"; *computed* "lazily evaluated and memoized"; RxJS entra pela interoperação (`toSignal`, `toObservable`, `rxResource`); a RFC de 2023: "Angular does not internally use RxJS to propagate state or drive rendering" | angular.dev/guide/signals e /ecosystem/rxjs-interop (2026-09-26); RFC *Angular Signals*, `angular/angular#49685` (2023-04-03); CHANGELOG: 16.0.0 (2023-05-03) *signals* na API pública; 17.0.0 (2023-11-08) estáveis; 20.0.0 (2025-05-28) `toSignal` estável e `zone.js` opcional; 20.2.0 (2025-08-20) *zoneless* estável; 21.0.0 (2025-11-19) *zoneless* por padrão; 22.0.0 (2026-06-03) *signal forms* públicos |
-| Lit | "a simple library for building fast, lightweight web components": escreve sobre o Web Component (`LitElement` estende `HTMLElement`); quando uma propriedade reativa se altera, a atualização é agendada "at microtask timing", e o `update()` "calls `render()`" de novo; a tela sai de *template* `html` (*tagged template literal*), e o Lit "keeps track of your UI's dynamic parts and updates only those", sem DOM virtual. Na notação, é o declarativo por re-renderização: o componente reexecuta e o derivado é expressão comum | lit.dev/docs, *Lifecycle* (2026-10-11); `lit` 3.3.3 (npm, 2026-05-14) |
-| Lit com `@lit-labs/signals` | Pacote "experimental" da Lit Labs, que depende de "a proposal and polyfill that themselves are not stable"; integra o `signal-polyfill` da proposta TC39. Muda a notação em três pontos: a classe passa a `SignalWatcher(LitElement)`; o *signal* se lê e escreve com `.get()` e `.set()` (`signal(0)`, `new Signal.Computed(() => count.get() * 2)`), e não com chamada de função como no Solid e no Angular; o *binding* se marca com `${watch(count)}`, ou fica implícito com o `html` importado de `@lit-labs/signals`. Ler o *signal* no `render()` ainda reexecuta o componente; com `watch()`, "the only bindings updated are those with changed signals". Numa mesma tecnologia, dá o contraste entre a re-renderização e a atualização granular, a analisar contra o Lit sem *signals* | lit.dev/docs/data/signals (2026-10-11); `@lit-labs/signals` 0.3.0 (npm, 2026-05-14) |
+| Lit | "a simple library for building fast, lightweight web components": `LitElement` estende `HTMLElement`, a classe do Web Component; quando uma propriedade reativa se altera, a atualização é agendada "at microtask timing", e o `update()` "calls `render()`" de novo; a tela sai de *template* `html` (*tagged template literal*), e o Lit "keeps track of your UI's dynamic parts and updates only those", sem DOM virtual. Na notação, é o declarativo por re-renderização: o componente reexecuta e o derivado é expressão comum. Fora da análise desde 2026-10-19 (ADR 0013) | lit.dev/docs, *Lifecycle* (2026-10-11); `lit` 3.3.3 (npm, 2026-05-14) |
+| Lit com `@lit-labs/signals` | Pacote "experimental" da Lit Labs, que depende de "a proposal and polyfill that themselves are not stable"; integra o `signal-polyfill` da proposta TC39. Muda a notação em três pontos: a classe passa a `SignalWatcher(LitElement)`; o *signal* se lê e escreve com `.get()` e `.set()` (`signal(0)`, `new Signal.Computed(() => count.get() * 2)`), e não com chamada de função como no Solid e no Angular; o *binding* se marca com `${watch(count)}`, ou fica implícito com o `html` importado de `@lit-labs/signals`. Ler o *signal* no `render()` ainda reexecuta o componente; com `watch()`, "the only bindings updated are those with changed signals". Numa mesma tecnologia, daria o contraste entre a re-renderização e a atualização granular; o ADR 0013 o recusa no papel do granular, porque o `render()` continua a executar, o que põe a re-renderização contra um híbrido, e não o imperativo contra o granular | lit.dev/docs/data/signals (2026-10-11); `@lit-labs/signals` 0.3.0 (npm, 2026-05-14) |
 | RxJS | "library for composing asynchronous and event-based programs by using observable sequences"; 7.8.2 é a última estável (2025-02-22); a 8 nunca saiu (última 8.0.0-alpha.14, 2024-01-12); 9.0.0-beta.0 em 2026-08-04 | rxjs.dev/guide/overview; registro npm (2026-09-26) |
 
 Datas de versão (registro npm, 2026-09-26): React 18.0.0 2022-03-29,
@@ -242,14 +256,18 @@ tecnologias.
 
 ## Prós e contras de cada escolha do ADR 0013
 
-Cada escolha com o argumento a favor e o contra, as fontes e o tipo de
-evidência.
+Cada tecnologia que o ADR 0013 pôs na análise ou deixou fora, com o
+argumento a favor e o contra, as fontes e o tipo de evidência. Na
+análise ficam o Web Component, o Web Component com *signals*, o React e
+o Solid, nas sete interfaces; o Lit e o Angular com *signals* saíram em
+2026-10-19, e o que valia para eles até 2026-10-18 fica com a data; o
+jQuery, o Angular com RxJS, o Svelte e o Vue continuam fora.
 
 - **Web Component como a imperativa sem biblioteca**
   - *pró*: É a plataforma: padrão WHATWG, *baseline* desde 2020-01,
     cerca de 20% dos carregamentos no Chrome; a classe com *callbacks*
     de ciclo de vida torna explícito o que o modelo imperativo exige
-    (evento → mutação do DOM à mão). Fontes: MDN; WHATWG; Chrome
+    (evento → mutação do DOM escrita à mão). Fontes: MDN; WHATWG; Chrome
     Platform Status; Lawson 2023. Evidência: fato oficial; contador de
     uso.
   - *contra*: Não aparece nas pesquisas de uso (Lit: 10% no State of JS,
@@ -258,35 +276,40 @@ evidência.
     existiria sem a classe. Fontes: Carniato 2024; Harris 2019; Verou
     2024; State of JS 2025. Evidência: opinião de partes interessadas;
     número.
-- **Lit como a declarativa por re-renderização sobre o Web Component**
-  - *pró*: Escreve sobre o Web Component (`LitElement` estende
-    `HTMLElement`), com o mesmo modelo de componente e a mesma
-    orquestração, e muda a ligação do estado com a tela: o par Web
-    Component × Lit é o único que isola o imperativo; sem ele, os custos
-    dos *hooks* do React na orquestração iriam para a conta da
-    re-renderização (na espera de 300 ms do rascunho de 2026-10-12,
-    +34/−22 linhas no React contra +5/−1 no Lit); 8,4 M downloads por
-    semana e 1,30 no *benchmark*, contra 1,58 do React. Fontes: lit.dev
-    *Lifecycle*; ADR 0013; npm; Krause 2026. Evidência: fato oficial;
-    medida de rascunho; número.
-  - *contra*: Uso pequeno (10% no State of JS 2025, retenção de 67%;
-    ausente no Stack Overflow e no W3Techs); fica em três das cinco
-    interfaces, e no Formulário o rascunho sai quase linha a linha igual
-    ao React, dentro de uma classe; a variante com *signals*
-    (`@lit-labs/signals` 0.3.0) é experimental. Fontes: State of JS
-    2025; SO 2025; W3Techs 2026-09-26; ADR 0013;
-    lit.dev/docs/data/signals. Evidência: número; fato; medida de
-    rascunho.
-- **jQuery como a imperativa reconhecível, que ficou fora**
-  - *pró*: Terceira mais usada no Stack Overflow 2025 (23,4%), 65,6% dos
-    *sites*; 4.0.0 em 2026-01, mantida; a API (`.on`, `.html`, `.val`) é
-    a forma canônica de evento → *callback* → DOM. Fontes: SO 2025;
-    W3Techs 2026-09-26; Willison 2026. Evidência: número; fato.
-  - *contra*: A menos admirada (31,5%) e a menos desejada (9,0%) da
-    tabela; uso medido em *sites* legados, não em aplicações novas; sem
-    linha no js-framework-benchmark; leitores podem tomá-la como
-    "espantalho" do imperativo. Fontes: SO 2025; Bhattacharyea 2025;
-    Krause. Evidência: número; opinião.
+- **Web Component com *signals* do `solid-js` como a declarativa por
+  atualização granular sem JSX**
+  - *pró*: Forma com o Web Component o par que difere só na ligação do
+    estado com a tela: a mesma classe que estende `HTMLElement`, o mesmo
+    esqueleto em HTML num texto e o mesmo `createElement` nas partes
+    repetidas (ADR 0037), com o estado num `createSignal`, o derivado
+    num `createMemo` e cada escrita na tela num `createEffect`; é o
+    único par que põe o imperativo contra o granular com a mesma
+    montagem, o que só o Swing × JavaFX dava, no *desktop* (ADR 0001).
+    Com o Solid, a coordenação se escreve com os mesmos sinais (leitura
+    por chamada, `createSignal`, `createMemo`, `createEffect`), um
+    modelo de programação com duas notações (ADR 0021), e a única
+    dependência é o `solid-js`, que o Solid já usa; outra biblioteca de
+    *signals* traria um vocabulário que tiraria o par com o Solid (ADR
+    0013). Fontes: ADRs 0001, 0013, 0021 e 0037; docs.solidjs.com
+    (2026-04-28). Evidência: fato oficial; protótipo de 2026-10-17, fora
+    do git.
+  - *contra*: Forma rara nos programas reais (11 arquivos TypeScript na
+    busca de código do GitHub em 2026-10-17, contra 45.824 com `extends
+    HTMLElement` e `createElement`): é uma construção de controle, que o
+    texto declara, e o critério do ADR 0037, a forma mais comum, não
+    vale para ela. O corpo de cada efeito ainda é uma escrita no DOM, e
+    o leitor pode tomá-lo por imperativo; o texto precisa mostrar o
+    sinal escrito do granular, o efeito declarado uma vez por parte da
+    tela, que o ambiente de execução reexecuta (ADR 0021). O par com o
+    Solid difere também no modelo de componente (a classe com o
+    `connectedCallback` e o `disconnectedCallback` contra a função com o
+    `onCleanup`) e, na terceira rodada, em que o Web Component com
+    *signals* segue o Web Component, na biblioteca (ADRs 0029 e 0031). O
+    `solid-js` fica na 1.9, porque a 2.0 muda o `createEffect`, e no
+    Node, sem a condição `browser`, resolve para o *build* do servidor,
+    em que os efeitos não rodam e nada avisa. Fontes: ADRs 0013, 0021,
+    0029, 0031 e 0037; busca de código do GitHub (2026-10-17).
+    Evidência: número; fato.
 - **React como a declarativa por re-renderização**
   - *pró*: A mais usada em todas as medidas (44,7% SO; 85% State of JS;
     204 M downloads por semana); modelo *pull* declarado na própria
@@ -314,18 +337,71 @@ evidência.
     literatura explicativa dos *signals* é sobretudo do autor do Solid.
     Fontes: State of JS; SO; npm; Carniato. Evidência: número; parte
     interessada.
-- **Angular com RxJS só de apoio**
-  - *pró*: Único *framework* grande com `rxjs` como *peer dependency*;
-    documenta a interoperação (`toSignal`, `toObservable`); a RFC
-    reserva o RxJS a "streams of events over time", que é o uso do
-    projeto de 2017. Fontes: npm; angular.dev; RFC 2023. Evidência: fato
-    oficial.
+- **Lit, a declarativa por re-renderização sobre o Web Component, fora
+  da análise desde 2026-10-19**
+  - *pró (de mantê-lo, como valia até 2026-10-18)*: `LitElement`
+    estende `HTMLElement`, com o mesmo modelo de componente e a mesma
+    orquestração do Web Component, e muda a ligação do estado com a
+    tela: o par Web Component × Lit era o único que isolava o imperativo
+    contra a re-renderização; sem ele, os custos dos *hooks* do React na
+    orquestração iriam para a conta da re-renderização (na espera de 300
+    ms do rascunho de 2026-10-12, +34/−22 linhas no React contra +5/−1
+    no Lit); 8,4 M downloads por semana e 1,30 no *benchmark*, contra
+    1,58 do React. Fontes: lit.dev *Lifecycle*; ADR 0013; npm; Krause
+    2026. Evidência: fato oficial; medida de rascunho; número.
+  - *contra*: Uso pequeno (10% no State of JS 2025, retenção de 67%;
+    ausente no Stack Overflow e no W3Techs); em 2026-10-13, ficava em
+    três das cinco interfaces de então, e na Reserva de passagem (então
+    Formulário) o rascunho saía quase linha a linha igual ao React,
+    dentro de uma classe; a variante com *signals* (`@lit-labs/signals`
+    0.3.0) é experimental. Saiu com a cadeia de quatro tecnologias:
+    manter o Lit e o Angular ao lado do Web Component com *signals*
+    daria seis tecnologias e 42 implementações, e o texto de cada
+    interface passaria de 12 a 14 páginas (ADR 0013). Com a saída, o
+    imperativo contra a re-renderização fica sem par direto. Fontes:
+    State of JS 2025; SO 2025; W3Techs 2026-09-26; ADR 0013;
+    lit.dev/docs/data/signals. Evidência: número; fato; medida de
+    rascunho.
+- **Angular com *signals*, a declarativa por atualização granular mais
+  usada, fora da análise desde 2026-10-19**
+  - *pró (de mantê-lo, como valia até 2026-10-18)*: O representante do
+    granular mais usado (18,2% no Stack Overflow 2025); o par Solid ×
+    Angular com *signals* dava a notação dentro da atualização granular.
+    Fontes: SO 2025; ADR 0013. Evidência: número.
+  - *contra*: Em 2026-10-13, ficava em três das cinco interfaces de
+    então (Formulário, Busca e Quadro; o Login em 2026-10-17); com o
+    Solid, variava ao mesmo tempo na montagem da tela, no modelo de
+    componente (classe, decorador, injeção de dependências) e na API
+    além do *signal*, enquanto o Web Component com *signals* tem a API
+    do Solid e varia em dois pontos (ADR 0021); a retenção é a que mais
+    cai no State of JS (54% → 48%). Saiu pelo mesmo motivo do Lit (ADR
+    0013). Fontes: ADRs 0013 e 0021; State of JS 2025. Evidência: fato;
+    número.
+- **jQuery como a imperativa reconhecível, que ficou fora**
+  - *pró*: Terceira mais usada no Stack Overflow 2025 (23,4%), 65,6% dos
+    *sites*; 4.0.0 em 2026-01, mantida; a API (`.on`, `.html`, `.val`) é
+    a forma canônica de evento → *callback* → DOM. Fontes: SO 2025;
+    W3Techs 2026-09-26; Willison 2026. Evidência: número; fato.
+  - *contra*: A menos admirada (31,5%) e a menos desejada (9,0%) da
+    tabela; uso medido em *sites* legados, não em aplicações novas; sem
+    linha no js-framework-benchmark; leitores podem tomá-la como
+    "espantalho" do imperativo; sem modelo de componente, o imperativo
+    ficaria sem par controlado. Fontes: SO 2025; Bhattacharyea 2025;
+    Krause; ADR 0013. Evidência: número; opinião.
+- **Angular com RxJS, que continua fora**
+  - *pró (de analisá-lo)*: Único *framework* grande com `rxjs` como
+    *peer dependency*; documenta a interoperação (`toSignal`,
+    `toObservable`); a RFC reserva o RxJS a "streams of events over
+    time", que é o uso do projeto de 2017; como quarto modelo de
+    programação, o reativo por fluxos, retomaria a PR de 2017. Fontes:
+    npm; angular.dev; RFC 2023; ADR 0013. Evidência: fato oficial.
   - *contra*: O Angular não renderiza com RxJS, e desde a 17 (2023-11) a
     direção é *signals*, *zoneless* por padrão (21, 2025-11) e *signal
     forms* (22, 2026-06): usar RxJS para estado vai contra a
-    documentação; o RxJS 8 nunca saiu; Angular é o que mais perde
-    retenção (54% → 48%). Fontes: CHANGELOG; npm; State of JS.
-    Evidência: fato; número.
+    documentação; um quarto modelo de programação mudaria a pergunta
+    (ADR 0014); o RxJS 8 nunca saiu; Angular é o que mais perde
+    retenção (54% → 48%). Fontes: CHANGELOG; npm; State of JS; ADRs
+    0013 e 0014. Evidência: fato; número.
 - **Svelte descartado**
   - *pró (do descarte)*: Sintaxe e compilador próprios: comparar com
     React mudaria duas variáveis; runas do Svelte 5 (2024-10) são
@@ -351,10 +427,12 @@ evidência.
    Código Fonte é de salário, de resposta única e de audiência de um canal:
    serve para a ordem (React > Angular > Vue > jQuery > Svelte > Solid) no
    Brasil, não para a magnitude.
-2. **Representatividade do Solid.** O modelo declarativo por atualização
-   granular é representado por uma tecnologia com 10% de uso; o
-   argumento de generalidade apoia-se em Angular, Vue, Svelte 5, Preact
-   e na proposta TC39 usarem o mesmo primitivo, não no Solid.
+2. **Representatividade do `solid-js`.** O modelo declarativo por
+   atualização granular é representado pelo `solid-js` em duas notações:
+   o Solid, com 10% de uso, e o Web Component com *signals*, forma rara
+   nos programas reais (ADR 0013); o argumento de generalidade apoia-se
+   em Angular, Vue, Svelte 5, Preact e na proposta TC39 usarem o mesmo
+   primitivo, não no Solid.
 3. **Partes interessadas.** A literatura dos *signals* é escrita por
    autores de Solid, Qwik, Preact, Svelte e Angular; a posição do React é
    um comentário de blog e dois textos sobre o compilador.
@@ -374,12 +452,24 @@ evidência.
    candidate*; RxJS 9 em beta. As versões fixadas nos `package.json`
    valem para o texto, e uma nota deve dizer que a comparação é da
    versão, não da tecnologia.
-7. **Angular de apoio.** O uso de RxJS para estado nas implementações de
-   apoio contraria a direção documentada do Angular; serve de referência
+7. **Angular fora da análise.** O Angular com RxJS, congelado em
+   `implementacoes/fora-da-analise/` como apoio à escrita, usa RxJS para
+   estado, contra a direção documentada do Angular; serve de referência
    ao autor e não pode ser citado como "como se escreve Angular em 2026".
+   O Angular com *signals*, fora desde 2026-10-19, fica para os trabalhos
+   futuros da conclusão (tcc-dpci).
 8. **Web Component ≠ notação.** A classe com `HTMLElement` é o modelo de
    componente da plataforma, não a notação imperativa; o que representa a
    notação é o `addEventListener` com mutação do DOM dentro dela.
+9. **Cadeia sem par direto.** O imperativo e a re-renderização ficam com
+   uma tecnologia cada, e o imperativo contra a re-renderização, sem
+   par: a diferença entre o Web Component e o React se atribui aos
+   passos da cadeia, o que supõe que os passos se somam e falha quando
+   um muda a leitura de outro, como a montagem em JSX pode mudar a
+   leitura da ligação (ADR 0013). No Web Component com *signals*, o
+   corpo de cada efeito ainda é uma escrita no DOM, e o texto precisa
+   mostrar o sinal escrito do granular para o leitor não o tomar por
+   imperativo (ADR 0021).
 
 ## Como Web Components sem biblioteca montam a tela
 
@@ -603,3 +693,25 @@ Veio de `docs/literatura.md` (índice até `ff620ad`), seções 4 e 8, em
 2026-10-10, como `docs/tecnologias-web.md`. Em 2026-10-16, ganhou o nome
 de agora, paralelo ao das outras plataformas, e a seção "Tecnologias por
 modelo de programação", que estava em `docs/plataformas.md`.
+
+Em 2026-10-19, passou à cadeia de quatro tecnologias do ADR 0013,
+reescrito nessa data: o Lit e o Angular com *signals* saíram da análise,
+por decisão do autor de 2026-10-18, e o Web Component com *signals* do
+`solid-js` entrou, nas sete interfaces do ADR 0002, em que o Formulário
+e os Dados ao vivo passaram a Reserva de passagem e Placar ao vivo e o
+Quadro de tarefas saiu. A seção "Tecnologias por modelo de
+programação" ganhou a linha do Web Component com *signals* e trocou os
+quatro pares próximos pela cadeia, com a atribuição da diferença entre o
+Web Component e o React aos passos dela (decisão do autor de
+2026-10-19); a frase de que nenhum par punha o imperativo contra a
+atualização granular deu lugar à de que o imperativo contra a
+re-renderização fica sem par direto. "O modelo de reatividade segundo a
+documentação oficial" ganhou a linha do Web Component com *signals* e
+diz que o Lit saiu e que o ADR 0013 recusou o Lit com
+`@lit-labs/signals`. "Prós e contras de cada escolha do ADR 0013"
+ganhou a entrada do Web Component com *signals* e a do Angular com
+*signals*, e o Lit e o Angular passaram a fora da análise, com o que
+valia até 2026-10-18 datado. "Desvantagens a reconhecer no texto"
+ganhou o item da cadeia sem par direto. O cabeçalho diz as versões do
+`package-lock.json` depois da saída do Lit e do Angular dos
+*workspaces*.
