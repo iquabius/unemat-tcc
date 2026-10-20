@@ -39,17 +39,17 @@ class ConversorDeMoedas extends HTMLElement {
     this.querySelector(".cotacao")!.textContent = COTACAO;
 
     this.reais.addEventListener("input", () =>
-      this.escrever(emPesos(this.reais.value), this.pesos),
+      this.atualizar(emPesos(this.reais.value), this.pesos),
     );
     this.pesos.addEventListener("input", () =>
-      this.escrever(emReais(this.pesos.value), this.reais),
+      this.atualizar(emReais(this.pesos.value), this.reais),
     );
   }
 
-  // Escreve no outro campo o texto convertido, se houver, e remarca os
+  // Atualiza o outro campo com o texto convertido, se houver, e remarca os
   // dois, porque o outro pode ter ficado inválido de antes. Alterar o valor
   // por código não dispara "input": a escrita não volta como a do usuário.
-  private escrever(convertido: string | undefined, outro: HTMLInputElement) {
+  private atualizar(convertido: string | undefined, outro: HTMLInputElement) {
     if (convertido !== undefined) outro.value = convertido;
     const reais = ehInvalido(this.reais.value);
     const pesos = ehInvalido(this.pesos.value);
