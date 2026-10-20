@@ -1,6 +1,6 @@
 # 0033. A alteração do estado se escreve em cada implementação, e não no domínio
 
-2026-10-19. O domínio comum existe para que as implementações só difiram
+2026-10-20. O domínio comum existe para que as implementações só difiram
 na coordenação da interface (ADR 0010), mas escrever uma alteração de
 estado faz parte da notação: com a alteração no domínio, numa função
 pura que devolve o estado novo, as quatro implementações só a chamariam
@@ -11,9 +11,11 @@ a alteração do estado se escreve em cada implementação, no idioma da
 tecnologia. Na planilha, o domínio analisa e avalia a fórmula, e a
 propagação (quem reavaliar, em que ordem, quando parar) fica em cada
 implementação; no Circle Drawer, criar um círculo, ajustar o diâmetro e
-os passos do desfazer e do refazer, com o histórico, ficam em cada
-implementação, para a análise ver o contraste de Kiss (2014) entre
-guardar o comando e copiar o estado (decisão do autor em 2026-10-19).
+os passos do desfazer e do refazer ficam em cada implementação, no
+lugar onde a tecnologia o permite e por cópia no React, para a análise
+ver o contraste de Kiss (2014, p. 46) entre alterar o círculo e trocar a
+lista por uma cópia, e o histórico, igual nas quatro, guarda uma
+fotografia da lista a cada passo (ADR 0040).
 
 Em vez de: a versão de 2026-10-13 deste ADR, só para o Quadro de
 tarefas, em que mover, arquivar e trocar pelo quadro de outra aba se
@@ -24,6 +26,10 @@ trocava o valor do *signal* por uma cópia), e o domínio ficava com as
 tarefas, as colunas, o limite de "Fazendo", o quadro salvo e o ouvinte
 das outras abas; o Quadro saiu da análise (ADR 0002), e a regra passou
 às interfaces que a herdaram.
+Em vez de: no Circle Drawer, também o histórico no idioma de cada
+tecnologia, para a análise ver o contraste de Kiss entre guardar o
+comando e copiar o estado (decisão de 2026-10-19); o ADR 0040 diz por
+que a forma do histórico ficou igual nas quatro.
 Em vez de: as transições no domínio (protótipo do Quadro e
 `GLOSSARY.md`, de 2026-10-12); o código de cada implementação ficaria só
 com a coordenação, e o desfazer se resolveria igual em todas, guardando
@@ -43,5 +49,6 @@ entre a regra do domínio e a alteração do estado ainda se traça em cada
 especificação, como a da propagação da planilha.
 
 Fontes: `docs/metodo-da-avaliacao.md`, linha do Quadro com desfazer;
-Kiss (2014), Circle Drawer (§3.8, p. 40); ADRs 0002, 0010 e 0013;
+Kiss (2014), Circle Drawer (§3.8, p. 40 e 46); ADRs 0002, 0010, 0013 e
+0040;
 tarefas tcc-2ui8, tcc-i7qx, tcc-wtt6 e tcc-z6tg.
