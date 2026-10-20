@@ -1,0 +1,43 @@
+#+TITLE: Planilha
+
+O orçamento do mês em oito células numa coluna, com a barra de fórmula,
+para quem controla o mês ver o saldo na hora em que muda um gasto e
+montar as contas do seu jeito. Adapta o /Cells/ de Kiss (2014, §3.9, p.
+49), como a Reserva de passagem adapta o /Flight Booker/ (ADR 0002), sem a
+grade de 100 linhas por 26 colunas e sem o /widget/ de tabela
+customizado, que Kiss deixou fora da listagem (p. 50). É a interface do
+grafo de dependências que o usuário escreve: a fórmula cita outras
+células, e a alteração se propaga só às que dependem da alterada, cada
+uma uma vez, e para na que não mudou de valor, para a planilha grande
+responder na hora. A grade e a barra leem e alteram a célula selecionada
+e a fórmula dela, o estado compartilhado. A referência circular entra na
+segunda rodada.
+
+O domínio, em =dominio.ts=, traz as células (=CELULAS=), a mensagem e a
+análise das fórmulas, que não entram na comparação: =referencias(formula)=
+lista as células que a conta cita, =avaliar(formula, ler)= devolve o
+valor, em centavos inteiros, lendo o das células citadas com =ler(nome)=,
+e =formatar(valor)= o escreve. A propagação (quem reavaliar, em que ordem,
+quando parar) fica em cada implementação, porque escrever uma alteração de
+estado é parte da notação (ADR 0033). =contarAvaliacoes()= diz quantas
+vezes o =avaliar= rodou, para o teste conferir que só as dependentes se
+avaliam. A planilha não abre relógio, requisição nem inscrição, e por isso
+não tem o botão de esconder das outras interfaces: a limpeza ao sair da
+tela não tem o que conferir.
+
+As regras, as mensagens e os cenários que o teste de conformidade confere
+estão em =implementacoes/openspec/specs/planilha/spec.md=, a
+especificação viva (OpenSpec); a mudança entre rodadas entra como
+/delta spec/ em =implementacoes/openspec/changes/=, e a de dentro de uma
+rodada edita o =spec.md= direto (=implementacoes/AGENTS.md=).
+
+* Teste
+
+  O =teste-de-conformidade.js= percorre a especificação: cada verificação
+  tem o nome de um cenário do =spec.md=, e =npm run conferir-especificacao=
+  confere a ligação. Com uma implementação recém-aberta no navegador,
+  cole o arquivo no console; ele clica nos botões da grade, digita na
+  barra, tecla Enter e Esc e confere os valores, a barra, a mensagem e a
+  contagem das avaliações, sem esperar tempo. Depois do teste, recarregue
+  a página, que a contagem começa na abertura. As cenas das capturas
+  ficam em =cenas.mts=.
