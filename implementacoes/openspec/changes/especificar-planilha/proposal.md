@@ -20,9 +20,11 @@ Kiss não tinha.
   2026-10-19: fórmulas com número, referência de A1 a A8, "+" e "-", sem
   `SOMA`; a fórmula se aplica ao Enter, e o Esc e a troca de célula
   descartam o rascunho, como em Kiss ("After having finished editing", p.
-  49); o texto que não é número nem fórmula é rótulo, como em Kiss (p.
-  50); um erro só, "#ERRO", que se propaga às dependentes, também quando a
-  fórmula cita um rótulo; a célula vazia vale 0.
+  49), e o Enter com a fórmula já aplicada não avalia nada; a fórmula que
+  não é número nem conta (o que começa por "=") é rótulo, como em Kiss
+  (p. 50); um erro só, "#ERRO", que se propaga às dependentes, também
+  quando a conta cita um rótulo, e a conta bem escrita que dá erro segue
+  dependente das células que cita; a célula vazia vale 0.
 - Só as dependentes se avaliam, cada uma uma vez, mesmo a que depende por
   dois caminhos (como o Excel), e a propagação para na célula cujo valor
   não mudou (como o `setValue` de Kiss, p. 50). O domínio conta as

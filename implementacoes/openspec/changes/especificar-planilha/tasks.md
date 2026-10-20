@@ -15,7 +15,7 @@
 - [ ] 1.4 Arquivar a mudança no mesmo commit
   (`npm run openspec -- archive especificar-planilha --yes`) e trocar o
   título do `spec.md` pelo nome da interface; verificar com
-  `npm run conferir-especificacao`, que tem de passar com 20 cenários na
+  `npm run conferir-especificacao`, que tem de passar com 22 cenários na
   planilha.
 
 ## Workflow follow-up

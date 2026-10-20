@@ -10,12 +10,13 @@ que muda um gasto e montar as contas do seu jeito.
 
 ### Requirement: Abertura
 
-A interface deve abrir com o título "Orçamento do mês", a barra de
-fórmula e a grade das células A1 a A8, uma por linha, com o nome da
-célula, o item e o valor: Salário "3200", Renda extra "450", Aluguel
-"1300", Mercado "900", Transporte "250", Total de despesas "=A3+A4+A5",
-Saldo "=A1+A2-A6-A8" e Reserva "=A2". A1 abre selecionada, e a mensagem de
-erro, vazia. Cada célula se avalia uma vez.
+A interface deve abrir com o título "Orçamento do mês", a barra de fórmula
+e a grade das células A1 a A8, uma por linha, com o nome da célula, o item
+e o valor: Salário "3200", Renda extra "450", Aluguel "1300", Mercado
+"900", Transporte "250", Total de despesas "=A3+A4+A5", Saldo
+"=A1+A2-A6-A8" e Reserva "=A2". A1 abre selecionada, e a mensagem de erro,
+vazia. Cada célula se avalia uma vez, para a planilha grande abrir na
+hora.
 
 #### Scenario: 1 abre com os valores do orçamento
 
@@ -29,10 +30,10 @@ erro, vazia. Cada célula se avalia uma vez.
 
 A grade e a barra de fórmula devem ler e alterar o mesmo estado, a célula
 selecionada e a fórmula de cada célula. Cada linha da grade tem um botão
-com o nome da célula, e o da selecionada tem `aria-pressed="true"`.
-Clicar no botão seleciona a célula, e a barra mostra o nome dela no
-rótulo do campo e a fórmula dela no campo, para o usuário ler na grade os
-valores e na barra a conta que deu cada um.
+com o nome da célula, e o da selecionada tem `aria-pressed="true"`. Clicar
+no botão seleciona a célula, e a barra mostra o nome dela no rótulo do
+campo e a fórmula dela no campo, para o usuário ler na grade os valores e
+na barra a fórmula que deu cada um.
 
 #### Scenario: 2 selecionar mostra a fórmula na barra
 
@@ -45,10 +46,11 @@ valores e na barra a conta que deu cada um.
 
 O texto digitado no campo da barra deve ser um rascunho, que não muda a
 célula. O Enter no campo aplica o rascunho à célula selecionada, que fica
-selecionada; o Esc volta o campo à fórmula aplicada; e clicar num botão da
-grade descarta o rascunho e mostra a fórmula da célula clicada, para o
-usuário ver o valor mudar só quando termina a fórmula, como em Kiss
-("After having finished editing", p. 49), e desistir dela sem apagar.
+selecionada, e não avalia nada se o texto é o da fórmula aplicada; o Esc
+volta o campo à fórmula aplicada; e clicar num botão da grade descarta o
+rascunho e mostra a fórmula da célula clicada, para o usuário ver o valor
+mudar só quando termina a fórmula, como em Kiss ("After having finished
+editing", p. 49), e desistir dela sem apagar.
 
 #### Scenario: 3 rascunho não muda a célula
 
@@ -57,12 +59,20 @@ usuário ver o valor mudar só quando termina a fórmula, como em Kiss
 - **ENTÃO** A4 mostra "900,00"
 - **E** `contarAvaliacoes()` não muda
 
+#### Scenario: 4 Enter sem mudar não avalia nada
+
+- **DADO** A4 selecionada, com "950" aplicado
+- **QUANDO** o usuário tecla Enter de novo, sem mudar o campo
+- **ENTÃO** A4 continua "950,00"
+- **E** `contarAvaliacoes()` não muda
+
 #### Scenario: 13 Esc descarta o rascunho
 
 - **DADO** A1 selecionada, com "3200"
 - **QUANDO** o usuário digita "4000" no campo e tecla Esc
 - **ENTÃO** a barra mostra "3200"
 - **E** A1 mostra "3.200,00"
+- **E** `contarAvaliacoes()` não muda
 
 #### Scenario: 14 trocar de célula descarta o rascunho
 
@@ -70,16 +80,17 @@ usuário ver o valor mudar só quando termina a fórmula, como em Kiss
 - **QUANDO** o usuário digita "4000" no campo, clica no botão "A2" e de novo no "A1"
 - **ENTÃO** a barra mostra "A1" e "3200"
 - **E** A1 mostra "3.200,00"
+- **E** `contarAvaliacoes()` não muda
 
 ### Requirement: Conteúdo da célula
 
-O domínio deve analisar o texto da célula sem os espaços das pontas: o
-vazio deixa a célula vazia, que vale 0 para quem a cita; dígitos com, se
-houver, uma vírgula e até duas casas ("12,50") são número; o texto que
-começa por "=" é fórmula, com números e referências de A1 a A8, de letra
-maiúscula ou minúscula, ligados por "+" e "-", com espaços entre eles;
-outro texto é rótulo e se mostra como foi digitado. O valor tem duas
-casas, vírgula decimal, ponto de milhar e "-" no negativo ("-1.250,00").
+O domínio deve analisar a fórmula da célula sem os espaços das pontas: a
+vazia deixa a célula vazia, que vale 0 para quem a cita; dígitos com, se
+houver, uma vírgula e até duas casas ("12,50") são número; a que começa
+por "=" é conta, com números e referências de A1 a A8, de letra maiúscula
+ou minúscula, ligados por "+" e "-", admitindo espaços entre eles; o resto
+é rótulo, mostrado como texto. O valor tem duas casas, vírgula decimal,
+ponto de milhar e "-" no negativo ("-1.250,00").
 
 #### Scenario: 10 texto vira rótulo, e quem o cita dá #ERRO
 
@@ -164,7 +175,8 @@ passa pelo `avaliar` do domínio, contada em `contarAvaliacoes()`.
 
 A célula com fórmula mal escrita, com referência fora de A1 a A8, ou que
 cita um rótulo ou uma célula com erro deve mostrar "#ERRO", e assim as que
-dependem dela, direta ou indiretamente. Corrigir a origem volta os
+dependem dela, direta ou indiretamente. A conta bem escrita que dá erro
+segue dependente das células que cita, e corrigir a origem volta os
 valores. Enquanto a célula selecionada mostra "#ERRO", a mensagem de erro
 diz "Erro na fórmula ou numa célula citada. Use números, A1 a A8, + e -.",
 para o usuário saber o que escrever, e fica vazia nas outras.
@@ -189,6 +201,13 @@ para o usuário saber o que escrever, e fica vazia nas outras.
 - **QUANDO** o usuário aplica "1300" em A3
 - **ENTÃO** A3 mostra "1.300,00", A6, "2.250,00", e A7, "1.300,75"
 - **E** a mensagem de erro está vazia
+
+#### Scenario: 10 com erro, a fórmula segue dependente das citadas
+
+- **DADO** A4 com o rótulo "a definir", e A6 com "=A4+A3", que dá "#ERRO"
+- **QUANDO** o usuário aplica "1400" em A3
+- **ENTÃO** A6 continua "#ERRO"
+- **E** `contarAvaliacoes()` sobe 2: A3 e A6, que cita A3 depois do rótulo
 
 #### Scenario: 11 referência fora de A1 a A8 dá #ERRO
 
