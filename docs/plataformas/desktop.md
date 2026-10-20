@@ -418,6 +418,32 @@ Leitura nossa, de 2026-10-09.
   terceiro modelo de programação, ficariam nas expressões da QML. O par
   e o custo são inferência de uma pesquisa de 2026-10-09, não de fonte.
 
+## O que comparar dentro do granular
+
+As três tecnologias declarativas do *desktop* ligam propriedades, mas
+diferem em quem mantém as dependências, e é aí que a pré-análise deve
+olhar (dependências ocultas, propensão a erros, viscosidade):
+
+- **JavaFX**: dependências explícitas, na API fluente ou listadas em
+  `super.bind(...)` e `createXBinding` (tutorial da Oracle, Release 8;
+  Kiss 2014, p. 28-29, vê nisso dependências visíveis, mas viscosidade e
+  difusão piores); na implementação, a dependência esquecida compila e
+  passa no teste de conformidade (`docs/plataformas/desktop.md`, seção
+  "Swing × JavaFX (Java)");
+- **WPF**: o caminho do *binding* vai numa *string* do XAML, resolvida por
+  reflexão em tempo de execução, e a fonte notifica à mão pelo
+  `INotifyPropertyChanged` (Microsoft, "Data binding overview" e "XAML
+  data binding diagnostics");
+- **QML**: o motor rastreia sozinho o que a expressão lê, como o Solid
+  (Qt 6, "Property Binding"); atribuir um valor pelo JavaScript desfaz o
+  *binding*, o que a própria página chama de causa comum de erros (o
+  motor pode avisar quando um *binding* se perde por atribuição).
+
+O rastreamento automático tem precedente revisado em Vander Zanden et al.
+(2001, TOPLAS, "Automatic Parameter Detection" no Garnet e no Amulet).
+Bainomugisha et al. (2013) não citam JavaFX, WPF nem QML: enquadrá-los
+como "sibling" ou "cousin" seria inferência do TCC.
+
 ## Histórico
 
 Criada em 2026-10-16 com as seções dos três pares de
