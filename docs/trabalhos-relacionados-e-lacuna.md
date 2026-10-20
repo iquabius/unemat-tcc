@@ -58,7 +58,7 @@ revistas em 2026-10-02, depois da segunda rodada
   declarativo por re-renderização, declarativo por atualização granular)
   nas mesmas interfaces. As DCs já foram aplicadas à PR por Kiss (2014),
   com Scala.Rx, ReactFX e Elm (`docs/metodo-da-avaliacao.md`, seção "As
-  DCs de Kiss e as oito do TCC"), e por Zimmerle & Gama (2025), com RxJS
+  DCs de Kiss e as 14 do TCC"), e por Zimmerle & Gama (2025), com RxJS
   e Bacon.js por questionário (nesta nota, seção "Zimmerle e Gama 2025 e
   a tese de Lima 2024"); "nenhuma análise de *signals* pelas DCs" não se
   sustenta. O mais perto de comparar notações de coordenação é Grolaux
@@ -243,7 +243,7 @@ Levantados em 2026-09-28.
 
 | Trabalho | O que compara e como | Lido |
 |---|---|---|
-| KISS (2014) | `docs/metodo-da-avaliacao.md`, seções "O 7GUIs e as interfaces" e "As DCs de Kiss e as oito do TCC", e, nesta nota, trechos na seção "Trechos dos trabalhos mais próximos"; JavaFX × ScalaFX, Scala.Rx, ReactFX, Elm em sete tarefas, pelas DCs | TC |
+| KISS (2014) | `docs/metodo-da-avaliacao.md`, seções "O 7GUIs e as interfaces" e "As DCs de Kiss e as 14 do TCC", e, nesta nota, trechos na seção "Trechos dos trabalhos mais próximos"; JavaFX × ScalaFX, Scala.Rx, ReactFX, Elm em sete tarefas, pelas DCs | TC |
 | GREEN, T. R. G.; PETRE, M. *Usability analysis of visual programming environments: a 'cognitive dimensions' framework*. JVLC, v. 7, p. 131-174, 1996. DOI 10.1006/jvlc.1996.0009 | Basic, LabVIEW e Prograph num mesmo problema, pelas DCs, pelos dois autores; "*broad-brush evaluation technique*" (p. 131, resumo, na versão publicada, conferida em 2026-10-10; p. 3 da pré-publicação) | TC (pré-publicação; página da publicada conferida em 2026-10-10) |
 | BAYRAK, G.; OCKER, F.; VOGEL-HEUSER, B. *Evaluation of selected control programming languages for process engineers by means of cognitive effectiveness and dimensions*. JSEA, v. 10, p. 457-481, 2017. DOI 10.4236/jsea.2017.105026 | Três notações de controle num exemplo e cinco modificações, pelas DCs | TC (conferido, p. 457 e 467) |
 | NANZ, S. et al. *Benchmarking usability and performance of multicore languages*. ESEM 2013, p. 183-192. DOI 10.1109/esem.2013.10 | Quatro linguagens, seis problemas, um implementador e revisão por especialistas (§II-E) | TC (arXiv; conferido) |

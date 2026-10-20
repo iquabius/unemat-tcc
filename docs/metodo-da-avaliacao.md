@@ -1,7 +1,7 @@
 # Método da avaliação: rótulo, DCs e tamanho das interfaces
 
 Fontes. Reúne as fontes que sustentam como a metodologia da introdução
-descreve a avaliação: o rótulo do método, o 7GUIs como origem de três
+descreve a avaliação: o rótulo do método, o 7GUIs como origem de quatro
 interfaces, as DCs, o limite das interfaces pequenas, as rodadas e como
 aplicar as DCs a código, com o trecho e a página. O que o delineamento
 controla está em `docs/delineamento.md`; a forma da introdução, em
@@ -14,25 +14,31 @@ avaliação de um conjunto de interfaces, não estudo de caso"); o rótulo é
 uma pergunta ao orientador numa nota de `texto/intro.org`. A avaliação é
 analítica, feita por especialista (Blandford e Green 2008), como a de
 Kiss (2014): o autor aplica as DCs ao código, dimensão a dimensão, sem
-participantes (`GLOSSARY.md`, verbete Avaliação). As duas DCs a mais que
-as de Kiss, expressividade e operações mentais difíceis, se justificam
-pela condição do próprio Kiss e por Mernik et al. (2009) (seção
-"Expressividade e operações mentais difíceis nas fontes"). As interfaces
-pequenas isolam uma escolha de projeto, mas não mostram o que só aparece
-em programa grande (seção "Programas de brinquedo: isolar uma escolha e
-o limite do tamanho").
+participantes (`GLOSSARY.md`, verbete Avaliação). Ela percorre as 14
+DCs canônicas, e não um subconjunto escolhido antes (seção "As 14 DCs
+canônicas"; ADR 0012); as oito de 2026-10-09, as seis de Kiss mais a
+expressividade de papel e as operações mentais difíceis, deram lugar às
+14 em 2026-10-11 (seção "Expressividade e operações mentais difíceis nas
+fontes"). As interfaces pequenas isolam uma escolha de projeto, mas não
+mostram o que só aparece em programa grande (seção "Programas de
+brinquedo: isolar uma escolha e o limite do tamanho").
 
-Em 2026-10-11, o autor decidiu avaliar em três rodadas (a primeira; a
-segunda, com requisitos acrescentados; a terceira, com as bibliotecas do
-ecossistema, sem controle de variáveis) e percorrer as 14 DCs, e não oito;
-em 2026-10-12, trocou as interfaces e levou a segunda rodada às cinco,
-pela realidade de cada uma (seção "*Benchmark* de notação e requisitos
-da segunda rodada"). As fontes estão nas seções de "Rodadas e
-crescimento do código" a "*Benchmark* de notação e requisitos da segunda
-rodada", e as decisões, nos ADRs 0002, 0012, 0017 e 0029. Em 2026-10-13,
-a seção "Como as fontes aplicaram as DCs a código, e as armadilhas"
-juntou como as fontes aplicaram as DCs a código e as armadilhas, que a
-skill `avaliacao-pelas-dcs` usa.
+Em 2026-10-19, a análise fica na web, com quatro tecnologias (Web
+Component, Web Component com *signals* do `solid-js`, React e Solid) nas
+sete interfaces, 28 implementações (ADRs 0002, 0012 e 0013), em três
+rodadas (ADR 0029): a primeira constrói as sete; a segunda tem 12
+mudanças de comportamento, entre funcionalidades e requisitos de
+orquestração; a terceira muda só a forma, na Reserva de passagem e no
+Placar ao vivo, para o que o ecossistema de cada tecnologia usa. Antes,
+em 2026-10-11, o autor decidiu avaliar em três rodadas e percorrer as 14
+DCs; em 2026-10-12, trocou as interfaces e levou a segunda rodada às
+cinco de então, pela realidade de cada uma (seção "*Benchmark* de
+notação e requisitos da segunda rodada"). As fontes estão nas seções de
+"Rodadas e crescimento do código" a "*Benchmark* de notação e requisitos
+da segunda rodada", e as decisões, nos ADRs 0002, 0012, 0013, 0017 e
+0029. Em 2026-10-13, a seção "Como as fontes aplicaram as DCs a código,
+e as armadilhas" juntou como as fontes aplicaram as DCs a código e as
+armadilhas, que a skill `avaliacao-pelas-dcs` usa.
 
 **Fontes centrais.** Para o rótulo, Sim, Easterbrook e Holt (2003,
 `sim2003`), Runeson e Höst (2009, `runeson2009`) e Kitchenham (1996,
@@ -67,7 +73,7 @@ coisa.
 | Fonte | O que sustenta | Onde |
 |---|---|---|
 | SIM, S. E.; EASTERBROOK, S.; HOLT, R. C. *Using benchmarking to advance research: a challenge to software engineering*. ICSE 2003, p. 74-83. DOI 10.1109/icse.2003.1201189 | *Benchmark* é "um teste ou conjunto de testes usado para comparar o desempenho de ferramentas ou técnicas alternativas", com três componentes: comparação motivadora, amostra de tarefas ("representativa" das tarefas da prática, como substitutas) e medidas de desempenho, que "podem ser quantitativas ou qualitativas", feitas "por um computador ou por uma pessoa". Um conjunto de testes sem medida de desempenho é um proto-*benchmark*, às vezes chamado de "estudos de caso ou exemplares" | §3.2; a cópia do autor (cs.toronto.edu) e a do ResearchGate são o mesmo arquivo, sem a paginação dos anais (p. 74-83); a do IEEE (`acervo/sim2003.pdf`) também não a imprime, mas tem as dez páginas dos anais, e a p. 3 dela, com a *Task Sample*, é a p. 76 (conferido em 2026-10-14) |
-| idem | **Ressalva a declarar nas limitações:** a teoria trata de *benchmarks* criados e usados por uma comunidade de pesquisa; os "criados por um único indivíduo ou laboratório e pouco usados" tendem a não ter o mesmo impacto. As cinco interfaces do TCC são de um só autor; três partem do 7GUIs, que tem implementações de terceiros, e duas não | §3.1 |
+| idem | **Ressalva a declarar nas limitações:** a teoria trata de *benchmarks* criados e usados por uma comunidade de pesquisa; os "criados por um único indivíduo ou laboratório e pouco usados" tendem a não ter o mesmo impacto. Em 2026-10-19, as sete interfaces do TCC são de um só autor; quatro partem do 7GUIs, que tem implementações de terceiros, e três não (ADR 0002) | §3.1 |
 | STOL, K.-J.; FITZGERALD, B. *The ABC of software engineering research*. ACM TOSEM, v. 27, n. 3, art. 11, 2018. DOI 10.1145/3241743 | Estudos de *benchmarking* que comparam técnicas por critérios predefinidos pertencem à estratégia de experimento de laboratório, porque o pesquisador monta um ambiente artificial (*contrived*); limitações inerentes: contexto abstrato ou irreal e validade interna à custa da externa. Serve para enquadrar o delineamento e as limitações, não como rótulo: os autores pensam em dados quantitativos | p. 11:15 e Tabela 5, p. 11:13-14 (versão publicada; na aceita, p. 1:13 e 1:15-16) |
 | RUNESON, P.; HÖST, M. *Guidelines for conducting and reporting case study research in software engineering*. Empirical Software Engineering, v. 14, n. 2, 2009. DOI 10.1007/s10664-008-9102-8 | As definições de estudo de caso que reúnem (Robson, Yin, Benbasat et al.) concordam em método empírico sobre fenômeno contemporâneo no seu contexto; estudos com "*toy programs*" ficam excluídos "por falta de contexto real" | p. 134 (§2.1) e p. 139 |
 | KITCHENHAM, B. A. *Evaluating software engineering methods and tool, part 1: the evaluation context and evaluation methods*. ACM SIGSOFT Software Engineering Notes, v. 21, n. 1, p. 11-15, 1996. DOI 10.1145/381790.381795 | Na DESMET, toda avaliação é comparativa (p. 11). *Benchmarking* é rodar testes padronizados com ferramentas alternativas e medir o desempenho relativo; a escolha dos testes é subjetiva, as medidas costumam ser objetivas, e é mais útil quando a ferramenta "não exige perícia humana" (p. 14). Por esse critério, o TCC não é *benchmarking*. A avaliação qualitativa ou subjetiva (p. 12), característica por característica, é a *feature analysis*, que "pode ser feita por uma única pessoa" (p. 14); nessa forma é a triagem (*qualitative screening*): um só indivíduo escolhe as características e a escala e avalia, em geral com base na literatura sobre as ferramentas, e não no uso delas (p. 15). O TCC fica entre a triagem e o estudo de caso qualitativo, feito após o uso num projeto real (p. 15): o avaliador usa as notações, mas em interfaces pequenas | p. 11, 12, 14 e 15; partes 2 e 3 (v. 21, n. 2 e n. 4) tratam da escolha do método |
@@ -86,42 +92,68 @@ coisa.
   capítulo 3, escolhidos para refletir desafios "fundamentais" da
   programação de interfaces, simples e baseados em exemplos existentes
   (p. 11).
-- Contador = *Counter* (§3.3, p. 17); Formulário parte do *Flight Booker*
-  (§3.5, p. 25); a Lista toma o filtro por prefixo do *Crud* (§3.7, p. 34).
+- Em 2026-10-19, quatro das sete interfaces vêm do 7GUIs (ADR 0002): a
+  Reserva de passagem, o *Flight Booker* (§3.5, p. 25) levado à passagem
+  de ônibus; o conversor de moedas, o *Temperature Converter* (§3.4,
+  p. 21), que Kiss diz aparecer também como conversor de moeda (nota 10);
+  a planilha, o *Cells* (§3.9, p. 49) em oito células numa coluna; e o
+  Circle Drawer (§3.8, p. 40). A Busca, o Login com quarentena e o
+  Placar ao vivo não vêm do 7GUIs: o Login adapta Berry e Serrano
+  (2020), e o Placar, Meijer (2012). Até 2026-10-11, três interfaces
+  partiam do 7GUIs: o Contador, o *Counter* (§3.3, p. 17); o Formulário,
+  do *Flight Booker*; e a Lista filtrável, com o filtro por prefixo do
+  *Crud* (§3.7, p. 34); de 2026-10-12 a 2026-10-19, só o Formulário.
 - Assincronia: o *Timer* (§3.6, p. 30) trata de concorrência entre o
-  relógio e o usuário; nenhuma tarefa tem requisição com respostas fora de
-  ordem e cancelamento, como a Busca.
+  relógio e o usuário; nenhuma das sete do 7GUIs tem requisição com
+  respostas fora de ordem e cancelamento, como a Busca, e o próprio Kiss
+  sugere trocar o *Timer* por uma interface assíncrona (p. 77, nota 26).
 - Estado compartilhado: o *Cells* (§3.9, p. 49) propaga alterações entre
-  células; nenhuma tarefa divide o estado entre componentes separados da
-  tela, como o Carrinho.
+  células; na planilha, a barra de fórmula lê e altera a célula
+  selecionada junto com a grade (ADR 0002). Até 2026-10-11, o estado
+  compartilhado vinha do Carrinho e, de 2026-10-12 a 2026-10-19, do
+  Quadro de tarefas.
+- Desfazer e controle de diálogo: o Circle Drawer (§3.8, p. 40) traz o
+  desfazer e o refazer e o diálogo que ajusta o diâmetro do círculo
+  escolhido (ADR 0002); o desfazer estava antes no Carrinho e no Quadro.
 
-## As DCs de Kiss e as oito do TCC
+## As DCs de Kiss e as 14 do TCC
 
-Seis das oito DCs de `cases.org` são o subconjunto de Kiss (p. 12-14).
-Ele deixou de fora compromisso prematuro, expressividade, consistência,
-operações mentais difíceis e notação secundária, que "provavelmente
-teriam sido úteis" se as linguagens e os *toolkits* fossem "muito mais
-diferentes"; e visibilidade, análise progressiva e provisoriedade, que
-serviriam se o foco fosse o processo e as ferramentas (p. 15). Na
-comparação principal dele, o ScalaFX "is a wrapper around JavaFX",
-escolhido para que a comparação não fosse "dominated by unimportant
-toolkit differences" (p. 11), e o Scala é "syntactically not too distant
-from Java" (p. 12). O texto de `cases.org` sobre as dimensões é tradução
-de Kiss (p. 12-15) sem atribuição impressa, só num comentário Org.
+O TCC percorre as 14 DCs canônicas desde 2026-10-11 (ADR 0012; seção
+"As 14 DCs canônicas"), e Kiss, um subconjunto de seis (p. 12-14); até
+2026-10-11, seis das oito DCs de `cases.org` eram as de Kiss. Kiss deixou
+de fora compromisso prematuro, expressividade, consistência, operações
+mentais difíceis e notação secundária, que "provavelmente teriam sido
+úteis" se as linguagens e os *toolkits* fossem "muito mais diferentes";
+e visibilidade, análise progressiva e provisoriedade, que serviriam se o
+foco fosse o processo e as ferramentas (p. 15). Na comparação principal
+dele, o ScalaFX "is a wrapper around JavaFX", escolhido para que a
+comparação não fosse "dominated by unimportant toolkit differences"
+(p. 11), e o Scala é "syntactically not too distant from Java" (p. 12).
+Em 2026-10-19, a lista das dimensões de `cases.org` (depois do
+comentário da linha 284) ainda é tradução de Kiss (p. 12-15) sem
+atribuição impressa, só num comentário Org.
 
 ## Expressividade e operações mentais difíceis nas fontes
 
 Lidas em 2026-09-28.
 
-Conclusão: as duas DCs a mais se justificam pela condição do próprio Kiss
-(as cinco que ele deixou de fora serviriam se as notações fossem muito mais
-diferentes, e as dele eram próximas de propósito), pelo esforço mental que
-ele descreve nas bibliotecas reativas sem uma dimensão para isso, e por
-Mernik et al. (2009), no mesmo domínio. Compromisso prematuro, consistência
-e notação secundária ficam de fora com razões declaradas, e o compromisso
-prematuro é a exclusão mais frágil. É a base do parágrafo das DCs e das
-limitações da metodologia da introdução. Levantamento
-feito por quatro subagentes.
+Conclusão: com as 14 DCs, desde 2026-10-11 (ADR 0012), nenhuma dimensão
+fica de fora, e as fontes desta seção sustentam três pontos: percorrer
+todas, porque a escolha prévia de um subconjunto pode atrapalhar
+(Blackwell et al. 2001; Britton e Kutar 2001) e a omissão sem razão clara
+parece escolha a dedo (Ledo et al. 2018); a vagueza da expressividade de
+papel e das operações mentais difíceis (Green 2006); e o peso das duas na
+compreensão, no mesmo domínio (Mernik et al. 2009). Em 2026-10-19, a
+introdução cita Blackwell et al. (2001, p. 332) e Green (2006, p. 334)
+nas limitações da metodologia. Até 2026-10-11, as mesmas fontes
+justificavam as duas DCs que o TCC somava às seis de Kiss: a condição do
+próprio Kiss (as cinco que ele deixou de fora serviriam se as notações
+fossem muito mais diferentes, e as dele eram próximas de propósito), o
+esforço mental que ele descreve nas bibliotecas reativas sem uma
+dimensão para isso, e Mernik et al. (2009); compromisso prematuro,
+consistência e notação secundária ficavam de fora com razões
+declaradas, e o compromisso prematuro era a exclusão mais frágil.
+Levantamento feito por quatro subagentes.
 
 | Fonte | O que sustenta | Onde | Leitura |
 |---|---|---|---|
@@ -146,8 +178,12 @@ feito por quatro subagentes.
 | Hadhrawi et al. 2017 (`hadhrawi2017`) | Subconjuntos de DCs são comuns: 208 artigos focam uma dimensão só, e "more often, authors simply named specific dimensions as being relevant" | p. 8 da cópia | conferido |
 | Dagit et al. 2006 (`dagit2006`) | Compromisso prematuro numa interface: o editor de jogadas obriga o técnico a fixar a formação antes do cenário, "This creates a premature commitment" | p. 8 da cópia | conferido |
 
-Objeções que o texto enfrenta: a escolha prévia do subconjunto (Britton e
-Kutar; Ledo) e o compromisso prematuro, ambos nas limitações.
+Objeções que o texto enfrenta: a vagueza da expressividade de papel e
+das operações mentais difíceis (Green 2006) e as quatro DCs que pesam no
+ambiente de edição, lidas só pela face notacional (seção "As 14 DCs
+canônicas"), ambas nas limitações. Até 2026-10-11, com as oito DCs, eram
+a escolha prévia do subconjunto (Britton e Kutar; Ledo) e o compromisso
+prematuro deixado de fora.
 
 ## Programas de brinquedo: isolar uma escolha e o limite do tamanho
 
@@ -244,7 +280,7 @@ nenhuma fonte conta visibilidade e justaposição como duas. As fontes
 primárias pedem todas, e não um subconjunto escolhido antes: "prior
 selection of a subset of CDs may be unhelpful" (Blackwell et al. 2001,
 p. 332, conferido); Blackwell e Green (2003, p. 107-108) mandam perguntar
-por todas a cada passo. **Erro a corrigir:** `texto/cases.org:56` diz que
+por todas a cada passo. **Erro a corrigir:** `texto/cases.org:281` (em 2026-10-19) diz que
 "os autores recomendam usar um subconjunto", frase de Kiss (2014, p. 12)
 sem fonte primária; o mais próximo é um "CDs-lite" para iniciantes
 (Blackwell et al. 2001, p. 336-337). Contagens conferidas; o resto por
@@ -333,39 +369,57 @@ lista.
 
 Protótipos de 2026-10-12.
 
-Conclusão: o conjunto antigo deixava a orquestração de eventos só na
-Busca, e o Contador e a Lista não traziam exigência própria; protótipos em
-Web Component, React e Solid, medidos pelo mesmo critério de linhas
-(montagem da tela, coordenação, ligação), sustentaram a troca por Login
-com quarentena, Quadro de tarefas e Dados ao vivo, e a escolha de 11
-requisitos da segunda rodada pela realidade de cada interface (ADRs 0002 e
-0029). Medidas de subagentes, com `tsc` estrito e testes em Playwright
-passando; os trechos de fonte com página foram conferidos por eles e não
-reconferidos. Código e números em `tmp/prototipos/2026-10-12-mergulho-tarefas/`,
+Conclusão: em 2026-10-19, a segunda rodada tem as 12 mudanças do ADR
+0029 nas sete interfaces do ADR 0002: a volta empurrada pela ida na
+Reserva de passagem; a espera de 300 ms e o *combobox* na Busca; a
+quarentena e o "lembrar meu nome" no Login com quarentena; a reconexão,
+o bolão e a frequência de atualização no Placar ao vivo; a escolha da
+moeda no conversor de moedas; a referência circular na planilha; e
+arrastar e salvar no Circle Drawer. A Reserva de passagem perdeu o
+assistente, a verificação do e-mail e as poltronas, e o Quadro de
+tarefas saiu do conjunto. Os protótipos de 2026-10-12 sustentaram o
+passo anterior: o conjunto de então deixava a orquestração de eventos só
+na Busca, e o Contador e a Lista não traziam exigência própria;
+protótipos em Web Component, React e Solid, medidos pelo mesmo critério
+de linhas (montagem da tela, coordenação, ligação), sustentaram a troca
+por Login com quarentena, Quadro de tarefas e Dados ao vivo e a escolha
+de 11 requisitos da segunda rodada pela realidade de cada interface
+(versão de 2026-10-15 do ADR 0029). Das medidas da tabela, a do Login
+com quarentena, a da limpeza ao sair da tela e a dos placares, do bolão
+e da frequência tratam de regras e mudanças que seguem em 2026-10-19; as
+outras ficam como registro, com o que saiu marcado na coluna Uso. A
+interface que continua leva o nome de 2026-10-19, com o de então entre
+parênteses. Medidas de subagentes, com `tsc` estrito e testes em
+Playwright passando; os trechos de fonte com página foram conferidos por
+eles e não reconferidos. Código e números em
+`tmp/prototipos/2026-10-12-mergulho-tarefas/`,
 `tmp/prototipos/2026-10-12-tarefas/` e `tmp/prototipos/2026-10-12-p2/`
 (fora do git).
 
 | Achado | Medida | Uso |
 |---|---|---|
-| Densidade de coordenação nas interfaces antigas (coordenação / total) | Busca 0,52; Formulário 0,29; Contador 0,24; Carrinho 0,22; Lista 0,12 | o Contador e a Lista saem (ADR 0002) |
-| Assistente do Formulário, acréscimo em Web Component e React | montagem +22 e +25, coordenação +13 e +11, ligação +21 e +18; o React reindenta 67 linhas | a montagem é o maior balde, mas não domina |
+| Densidade de coordenação nas interfaces antigas (coordenação / total) | Busca 0,52; Reserva de passagem (então Formulário) 0,29; Contador 0,24; Carrinho 0,22; Lista 0,12 | o Contador e a Lista saem (ADR 0002) |
+| Assistente da Reserva de passagem (então Formulário), acréscimo em Web Component e React | montagem +22 e +25, coordenação +13 e +11, ligação +21 e +18; o React reindenta 67 linhas | a montagem é o maior balde, mas não domina; o assistente saiu da segunda rodada no ADR 0029 de 2026-10-19 |
 | *Timer* do 7GUIs | coordenação de 6 a 9 linhas contra montagem de 15 e 16; a pausa da segunda rodada não separa React de Solid | descartado |
-| Login com quarentena (Berry e Serrano 2020, p. 534-539) | a quarentena custa +20 a +21 linhas nos três; o diff tem o mesmo tamanho, e muda o tipo: o Web Component repete, os declarativos acrescentam uma condição | desmente em parte "Almost all the initial implementation components need to be modified" (p. 539) |
-| Dados ao vivo (Meijer 2012, p. 66-67) | sem a limpeza, o vazamento é silencioso no Web Component e aparece na tela, ou nem ocorre, nos declarativos | a regra comum da limpeza ao sair da tela |
-| Quadro com desfazer, contra o desfazer no Carrinho | +43/+79/+64 contra +36/+57/+50; no Carrinho, "Finalizar compra" teve de apagar o histórico; no Solid, guardar o próprio *store* no histórico falhou em 8 verificações | o Quadro entra no lugar do Carrinho; o contraste de Kiss entre comando e cópia do estado some quando as transições ficam no domínio |
-| Carteira nos Dados ao vivo | +27/+23/+23; 10 linhas da primeira rodada mudam no Web Component, nenhuma no React e no Solid; nenhum *glitch* no sentido de Kiss (2014, p. 104) com a fonte por ativo | entra na segunda rodada |
-| Placares no lugar das cotações nos Dados ao vivo (protótipos de 2026-10-13, `tmp/prototipos/2026-10-13-placar/`) | primeira rodada +5/+2/+4, sem mudar a coordenação; na base formatada pelo Prettier, o bolão custa +40/+29/+34 e a carteira +45/+33/+38; o bolão altera 9/2/3 linhas da primeira rodada, porque o palpite decide o destaque, e a carteira 7/0/1, em que a linha do Solid é só o import que o Prettier quebra; a frequência controlável é a mesma mudança nos dois domínios (+19/+14/+14) | o placar entra no lugar das cotações, e o bolão no da carteira (ADRs 0002 e 0029) |
-| Atualização otimista no Quadro | +32/+51/+40 sobre a primeira rodada; o `useOptimistic` do React aplica as respostas na ordem em que chegam | entra na segunda rodada; as regras da fila são do protótipo |
-| Passageiros dinâmicos no Formulário | +55/+61/+61; uma armadilha de identidade diferente por notação, invisível ao `tsc` | fica fora (ADR 0029) |
-| Filtro no Quadro | +25/+30/+24; não interfere no desfazer | fica fora (ADR 0029) |
+| Login com quarentena (Berry e Serrano 2020, p. 534-539) | a quarentena custa +20 a +21 linhas nos três; o diff tem o mesmo tamanho, e muda o tipo: o Web Component repete, os declarativos acrescentam uma condição | desmente em parte "Almost all the initial implementation components need to be modified" (p. 539); a quarentena segue na segunda rodada de 2026-10-19 (ADR 0029) |
+| Placar ao vivo (então Dados ao vivo, com as cotações de Meijer 2012, p. 66-67) | sem a limpeza, o vazamento é silencioso no Web Component e aparece na tela, ou nem ocorre, nos declarativos | a regra comum da limpeza ao sair da tela |
+| Quadro com desfazer, contra o desfazer no Carrinho | +43/+79/+64 contra +36/+57/+50; no Carrinho, "Finalizar compra" teve de apagar o histórico; no Solid, guardar o próprio *store* no histórico falhou em 8 verificações | o Quadro entra no lugar do Carrinho; o contraste de Kiss entre comando e cópia do estado some quando as transições ficam no domínio; o Quadro saiu do conjunto em 2026-10-19, e o desfazer passou ao Circle Drawer (ADR 0002) |
+| Carteira no Placar ao vivo (então Dados ao vivo) | +27/+23/+23; 10 linhas da primeira rodada mudam no Web Component, nenhuma no React e no Solid; nenhum *glitch* no sentido de Kiss (2014, p. 104) com a fonte por ativo | entrou na segunda rodada e foi trocada pelo bolão (linha seguinte) |
+| Placares no lugar das cotações (Placar ao vivo, então Dados ao vivo; protótipos de 2026-10-13, `tmp/prototipos/2026-10-13-placar/`) | primeira rodada +5/+2/+4, sem mudar a coordenação; na base formatada pelo Prettier, o bolão custa +40/+29/+34 e a carteira +45/+33/+38; o bolão altera 9/2/3 linhas da primeira rodada, porque o palpite decide o destaque, e a carteira 7/0/1, em que a linha do Solid é só o import que o Prettier quebra; a frequência controlável é a mesma mudança nos dois domínios (+19/+14/+14) | o placar entra no lugar das cotações, e o bolão no da carteira (ADRs 0002 e 0029); o bolão e a frequência seguem na segunda rodada de 2026-10-19 |
+| Atualização otimista no Quadro | +32/+51/+40 sobre a primeira rodada; o `useOptimistic` do React aplica as respostas na ordem em que chegam | entrou na segunda rodada e saiu com o Quadro em 2026-10-19 (ADRs 0002 e 0029); as regras da fila são do protótipo |
+| Passageiros dinâmicos na Reserva de passagem (então Formulário) | +55/+61/+61; uma armadilha de identidade diferente por notação, invisível ao `tsc` | fica fora (ADR 0029) |
+| Filtro no Quadro | +25/+30/+24; não interfere no desfazer | fica fora (ADR 0029); o Quadro saiu do conjunto em 2026-10-19 (ADR 0002) |
 
-Acessibilidade: os três requisitos de acessibilidade da segunda rodada e a
-regra das mensagens de status vêm da WCAG 2.2 (W3C, 2024-12-12): 2.4.3 e
-3.3.1 no assistente com foco gerenciado, 2.1.1 e o padrão *Combobox* do
-WAI-ARIA APG na Busca, 2.2.2 na frequência controlável dos Dados ao vivo e
-4.1.3 nas mensagens de status. O foco é o ponto em que os declarativos
-voltam ao imperativo (`useRef` com `useEffect`, `ref` com `createEffect`,
-`FocusRequester` com `LaunchedEffect`).
+Acessibilidade: em 2026-10-19, os dois requisitos de acessibilidade da
+segunda rodada e a regra das mensagens de status da primeira vêm da WCAG
+2.2 (W3C, 2024-12-12): 2.1.1 e o padrão *Combobox* do WAI-ARIA APG na
+Busca, 2.2.2 na frequência de atualização do Placar ao vivo e 4.1.3 nas
+mensagens de status (ADR 0029). O terceiro de 2026-10-12, 2.4.3 e 3.3.1
+no assistente com foco gerenciado da Reserva de passagem (então
+Formulário), saiu com o assistente. Nos protótipos, o foco foi o ponto
+em que os declarativos voltam ao imperativo (`useRef` com `useEffect` no
+React, `ref` com `createEffect` no Solid; `FocusRequester` com
+`LaunchedEffect` no Compose, fora da análise pelo ADR 0001).
 
 Demonstração: o capítulo 4 de Kiss (2014) não é só demonstração; avalia
 Scala.Rx, ReactFX e Elm pelas mesmas dimensões do capítulo 3, o Elm em 4
@@ -405,7 +459,7 @@ outra paginação) e `blackwell2003-notational-systems-...pdf` (p.
 | idem | seis atividades (tabela 5.1); a busca é "hunting for a known target, such as where a function is called", e a compreensão exploratória, "discovering structure or algorithm" | p. 113 | a atividade da primeira rodada (busca e compreensão) e da segunda e da terceira (modificação) |
 | Green e Blackwell 1998 | a figura 19, "desirable profiles of dimensions for each of the types of user activity", cobre só seis dimensões e quatro atividades (transcrição, incrementação, modificação, exploração); na modificação, viscosidade e dependências ocultas "harmful", visibilidade "important" | p. 42 | não há perfil publicado para a busca nem para a compreensão exploratória: a primeira rodada não tem perfil ideal a comparar |
 | Kiss 2014 | critério da boa solução fixado antes do código: "A good solution will have very minimal scaffolding" | p. 17 | a pergunta de cada exigência de coordenação, antes da leitura |
-| idem | "this first evaluation is focused on the very basics", para que as seguintes "do not have to repeat these basic observations" | p. 18 | o Contador como primeira leitura |
+| idem | "this first evaluation is focused on the very basics", para que as seguintes "do not have to repeat these basic observations" | p. 18 | a primeira interface lida concentra o básico, que as seguintes não repetem; em 2026-10-13, a nota punha aqui o Contador, que saiu da análise (ADR 0002), e a interface que faz esse papel está por decidir |
 | idem | "We concentrate on the behavior related code as the layout and initialization code is in essence similar" | p. 22 | ler a coordenação; a montagem da tela só onde difere |
 | idem | omite a dimensão "when there was nothing particularly worthwhile to mention" | p. 12 | "nenhum trecho achado", dito, e não omitido |
 | idem | o "system" é "the amalgamation of paradigm, language, toolkit and IDE" | p. 12, nota 2 | atribuir cada achado: coordenação, montagem, ligação, ou fora da notação |
@@ -519,7 +573,29 @@ triagem (Kitchenham 1996); o rótulo saiu em 2026-10-08 (`GLOSSARY.md`,
 verbete Avaliação), e `kitchenham1996` não está em `texto/intro.org` em
 2026-10-10.
 
-Errata de 2026-09-29: a seção "As DCs de Kiss e as oito do TCC" dizia
-que "as notações do TCC diferem mais que JavaFX e ScalaFX", sem fonte; a
-razão das duas DCs a mais está na seção "Expressividade e operações
-mentais difíceis nas fontes".
+Errata de 2026-09-29: a seção "As DCs de Kiss e as oito do TCC" (desde
+2026-10-19, "As DCs de Kiss e as 14 do TCC") dizia que "as notações do
+TCC diferem mais que JavaFX e ScalaFX", sem fonte; a razão das duas DCs
+a mais estava na seção "Expressividade e operações mentais difíceis nas
+fontes".
+
+Em 2026-10-19, a nota passou às decisões de 2026-10-18 e 2026-10-19: a
+análise só na web, com quatro tecnologias nas sete interfaces, 28
+implementações (ADRs 0002, 0012 e 0013), as 14 DCs (ADR 0012) e as 12
+mudanças da segunda rodada (ADR 0029). Os trechos das fontes não
+mudaram; mudou o que a nota afirmava sobre o conjunto de antes:
+
+- o cabeçalho e a conclusão: quatro interfaces do 7GUIs, e não três, as
+  14 DCs no lugar das "duas a mais" e o estado de 2026-10-19;
+- a ressalva de Sim et al., na tabela do rótulo: sete interfaces, quatro
+  do 7GUIs;
+- a seção "O 7GUIs e as interfaces": as quatro adaptações no lugar do
+  Contador, da Lista e do Carrinho;
+- a seção das DCs de Kiss, com o título novo, e a conclusão e as
+  objeções da seção "Expressividade e operações mentais difíceis nas
+  fontes", que justificavam as oito DCs;
+- a seção "*Benchmark* de notação e requisitos da segunda rodada": a
+  conclusão passa às 12 mudanças, a tabela guarda as medidas dos
+  protótipos com o que saiu marcado e os nomes novos da Reserva de
+  passagem e do Placar ao vivo, e a acessibilidade perde o assistente;
+- o Contador como primeira leitura, no procedimento.
