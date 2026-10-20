@@ -1,0 +1,71 @@
+/* Aparência comum às implementações da planilha, para que só a lógica mude. */
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: #2b2b2b;
+  color: #eee;
+}
+
+.planilha {
+  display: grid;
+  gap: 0.5rem;
+  max-width: 28rem;
+  padding: 1rem;
+  justify-items: start;
+}
+
+.planilha h1 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.barra {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  width: 100%;
+}
+
+.barra label {
+  min-width: 2rem;
+  font-weight: bold;
+}
+
+.barra input {
+  flex: 1;
+  padding: 0.3rem;
+  font: inherit;
+  font-family: ui-monospace, monospace;
+}
+
+.planilha table {
+  border-collapse: collapse;
+}
+
+.planilha td,
+.planilha th {
+  padding: 0.2rem 0.6rem;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.planilha td.valor {
+  min-width: 6rem;
+  text-align: right;
+}
+
+.planilha tbody button {
+  padding: 0.1rem 0.4rem;
+  font: inherit;
+}
+
+.planilha tbody button[aria-pressed="true"] {
+  background: #2f5f8f;
+  color: #fff;
+  font-weight: bold;
+}
+
+.mensagem {
+  margin: 0;
+  color: #f0a0a0;
+}
