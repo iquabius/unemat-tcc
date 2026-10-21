@@ -7,21 +7,22 @@ const campo = (pagina: Page, nome: string) =>
 export const cenas: Cenas = {
   inicial: async () => {},
 
-  // Erros visíveis: nome tocado e vazio, e-mail mal formatado, volta antes da ida.
-  erros: async (pagina) => {
-    await campo(pagina, "nome").focus();
-    await campo(pagina, "email").fill("maria@");
-    await campo(pagina, "tipo").selectOption("ida-e-volta");
-    await campo(pagina, "volta").fill("01/09/2026");
-    await campo(pagina, "nome").focus();
+  // A data que não existe, marcada na hora, sem sair do campo.
+  invalida: async (pagina) => {
+    await campo(pagina, "ida").fill("31/02/2026");
   },
 
-  comprado: async (pagina) => {
-    await campo(pagina, "nome").fill("Maria");
-    await campo(pagina, "email").fill("maria@exemplo.com");
+  // A volta de hoje antes da ida, ao passar para ida e volta: "hoje" é a data
+  // fixa do capturar.mts, 26/09/2026, antes de 10/10/2026.
+  ordem: async (pagina) => {
+    await campo(pagina, "ida").fill("10/10/2026");
+    await campo(pagina, "tipo").selectOption("ida-e-volta");
+  },
+
+  reservado: async (pagina) => {
     await campo(pagina, "tipo").selectOption("ida-e-volta");
     await campo(pagina, "ida").fill("10/10/2026");
     await campo(pagina, "volta").fill("15/10/2026");
-    await pagina.getByRole("button", { name: "Comprar" }).click();
+    await pagina.getByRole("button", { name: "Reservar" }).click();
   },
 };

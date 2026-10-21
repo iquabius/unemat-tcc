@@ -93,8 +93,6 @@ Levantadas em 2026-10-15 e revistas em 2026-10-19.
 - A Busca e a Reserva de passagem não têm o requisito "Limpeza ao sair
   da tela", que o ADR 0029 pede a todas as interfaces; é a tcc-v4m7,
   aberta.
-- A Reserva de passagem ainda tem o nome, o e-mail e o "tocado", que
-  saem na volta ao *Flight Booker* (ADR 0002).
 - O conversor, a planilha e o Circle Drawer não têm especificação; os
   tipos que esta nota lhes dá vêm das decisões.
 - O *canvas* do Circle Drawer não tem texto que o teste de conformidade

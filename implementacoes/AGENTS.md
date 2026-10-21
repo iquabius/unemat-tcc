@@ -68,8 +68,8 @@ pelo `npm run openspec -- <comando>`, que desliga a telemetria; o
 - Cenário: `**DADO**` quando o estado anterior importa, `**QUANDO**`,
   `**ENTÃO**` e `**E**`, com os dados que o teste usa.
 - **O nome do cenário é o nome de uma verificação** do teste de
-  conformidade, letra por letra: `#### Scenario: 2 nome tocado e vazio`
-  é o `conferir("2 nome tocado e vazio", ...)` do teste. Um cenário por
+  conformidade, letra por letra: `#### Scenario: 2 data inexistente`
+  é o `conferir("2 data inexistente", ...)` do teste. Um cenário por
   verificação, sem sobra dos dois lados; o número do nome é o passo do
   teste, não o do requisito. Regra que nenhuma verificação confere (uma
   latência, um termo do domínio) entra no texto do requisito que a usa,

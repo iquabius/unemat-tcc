@@ -1,7 +1,13 @@
-// Regras de domínio do Formulário, iguais em todas as implementações web.
-// Nada aqui depende de interface: cada implementação decide quando chamar.
+// Regras de domínio da Reserva de passagem, iguais em todas as implementações
+// web. Nada aqui depende de interface: cada implementação decide quando chamar.
 
 export type TipoDeViagem = "ida" | "ida-e-volta";
+
+export interface Reserva {
+  tipo: TipoDeViagem;
+  ida: string;
+  volta: string;
+}
 
 export interface Compra {
   nome: string;
@@ -69,4 +75,11 @@ export function mensagemDeConfirmacao(compra: Compra): string {
       ? `Passagem só de ida comprada para ${nome.trim()} em ${ida}.`
       : `Passagens de ida e volta compradas para ${nome.trim()}: ida em ${ida} e volta em ${volta}.`;
   return `${trecho} A confirmação vai para ${email.trim()}.`;
+}
+
+export function confirmacaoDaReserva(reserva: Reserva): string {
+  const { tipo, ida, volta } = reserva;
+  return tipo === "ida"
+    ? `Você reservou uma passagem só de ida para ${ida}.`
+    : `Você reservou passagens de ida e volta: ida em ${ida} e volta em ${volta}.`;
 }
