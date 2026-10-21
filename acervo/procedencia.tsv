@@ -1,2 +1,4 @@
 arquivo	link	data	observacao
 paginas-web/bcb2026-fechamento-20261016.csv	https://www4.bcb.gov.br/Download/fechamento/20261016.csv	2026-10-19	boletim de fechamento PTAX do Banco Central de 2026-10-16, sem cabeçalho: data, código, tipo, moeda, taxa de compra e de venda em reais, paridade de compra e de venda; cotação do conversor de moedas
+kiss2014.pdf	https://eugenkiss.com/projects/thesis.pdf	2026-10-11	tese de mestrado de Kiss (2014), o 7GUIs; link dito pelo autor em 2026-10-20, data da modificação da cópia
+paginas-web/kiss2026-7guis-tasks.html	https://eugenkiss.github.io/7guis/tasks/	2026-10-21	página das tarefas do 7GUIs, de Kiss; o Flight Booker pede a mensagem que informa a escolha ("You have booked a one-way flight on 04.04.2014."), que a tese de 2014 não traz

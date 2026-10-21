@@ -1,28 +1,14 @@
 import {
+  confirmacaoDaReserva,
   erroDaData,
   erroDaOrdem,
-  erroDoEmail,
-  erroDoNome,
   hoje,
-  mensagemDeConfirmacao,
   type TipoDeViagem,
 } from "../../dominio";
 import "../../estilo.css";
 
 const modelo = /* HTML */ `
   <form class="formulario" novalidate>
-    <label>
-      Nome do passageiro
-      <input name="nome" autocomplete="name" />
-    </label>
-    <p class="erro" data-erro="nome" hidden></p>
-
-    <label>
-      E-mail
-      <input name="email" type="email" autocomplete="email" />
-    </label>
-    <p class="erro" data-erro="email" hidden></p>
-
     <label>
       Tipo de viagem
       <select name="tipo">
@@ -43,30 +29,27 @@ const modelo = /* HTML */ `
     </label>
     <p class="erro" data-erro="volta" hidden></p>
 
-    <button type="submit">Comprar</button>
+    <button type="submit">Reservar</button>
   </form>
   <p class="confirmacao" role="status"></p>
 `;
 
-type Campo = "nome" | "email" | "ida" | "volta";
+type Campo = "ida" | "volta";
 
 class FormularioDeCompra extends HTMLElement {
-  private readonly tocados = new Set<Campo>();
   private formulario!: HTMLFormElement;
   private campos!: Record<Campo, HTMLInputElement>;
   private tipo!: HTMLSelectElement;
-  private botaoDeComprar!: HTMLButtonElement;
+  private botaoDeReservar!: HTMLButtonElement;
   private confirmacao!: HTMLParagraphElement;
 
   connectedCallback() {
     this.innerHTML = modelo;
     this.formulario = this.querySelector("form")!;
     this.tipo = this.querySelector("select")!;
-    this.botaoDeComprar = this.querySelector("button")!;
+    this.botaoDeReservar = this.querySelector("button")!;
     this.confirmacao = this.querySelector(".confirmacao")!;
     this.campos = {
-      nome: this.campo("nome"),
-      email: this.campo("email"),
       ida: this.campo("ida"),
       volta: this.campo("volta"),
     };
@@ -74,16 +57,8 @@ class FormularioDeCompra extends HTMLElement {
     this.campos.ida.value = hoje();
     this.campos.volta.value = hoje();
 
-    for (const [nome, campo] of Object.entries(this.campos) as [
-      Campo,
-      HTMLInputElement,
-    ][]) {
+    for (const campo of Object.values(this.campos))
       campo.addEventListener("input", () => this.validar());
-      campo.addEventListener("blur", () => {
-        this.tocados.add(nome);
-        this.validar();
-      });
-    }
     this.tipo.addEventListener("change", () => this.tratarMudancaDeTipo());
     this.formulario.addEventListener("submit", (evento) =>
       this.tratarEnvio(evento),
@@ -103,44 +78,27 @@ class FormularioDeCompra extends HTMLElement {
 
   private tratarEnvio(evento: SubmitEvent) {
     evento.preventDefault();
-    this.confirmacao.textContent = mensagemDeConfirmacao({
-      nome: this.campos.nome.value,
-      email: this.campos.email.value,
+    this.confirmacao.textContent = confirmacaoDaReserva({
       tipo: this.tipo.value as TipoDeViagem,
       ida: this.campos.ida.value,
       volta: this.campos.volta.value,
     });
   }
 
-  // Revalida o formulário inteiro a cada evento: mostra os erros dos campos
-  // já tocados e habilita o botão só se não houver erro nenhum.
+  // Revalida o formulário inteiro a cada evento: mostra os erros e habilita
+  // o botão só se não houver erro nenhum.
   private validar() {
-    const { nome, email, ida, volta } = this.campos;
+    const { ida, volta } = this.campos;
     const idaEVolta = !volta.disabled;
-    const erroNome = erroDoNome(nome.value);
-    const erroEmail = erroDoEmail(email.value);
     const erroIda = erroDaData(ida.value);
     const erroVolta = idaEVolta ? erroDaData(volta.value) : null;
     const erroOrdem = idaEVolta ? erroDaOrdem(ida.value, volta.value) : null;
 
-    this.mostrarErro("nome", this.tocados.has("nome") ? erroNome : null);
-    this.mostrarErro("email", this.tocados.has("email") ? erroEmail : null);
-    this.mostrarErro("ida", this.tocados.has("ida") ? erroIda : null);
-    this.mostrarErro(
-      "volta",
-      (this.tocados.has("volta") ? erroVolta : null) ??
-        (this.tocados.has("ida") || this.tocados.has("volta")
-          ? erroOrdem
-          : null),
+    this.mostrarErro("ida", erroIda);
+    this.mostrarErro("volta", erroVolta ?? erroOrdem);
+    this.botaoDeReservar.disabled = [erroIda, erroVolta, erroOrdem].some(
+      Boolean,
     );
-
-    this.botaoDeComprar.disabled = [
-      erroNome,
-      erroEmail,
-      erroIda,
-      erroVolta,
-      erroOrdem,
-    ].some(Boolean);
   }
 
   private mostrarErro(campo: Campo, erro: string | null) {

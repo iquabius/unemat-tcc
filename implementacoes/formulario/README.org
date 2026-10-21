@@ -1,10 +1,10 @@
 #+TITLE: Formulário com validação
 
-Compra de passagem de ônibus baseada na tarefa /Flight Booker/ do [[https://eugenkiss.github.io/7guis/tasks/][7GUIs]] (=kiss2014=),
-ampliada com os campos de um formulário real. Todas as implementações seguem a
-mesma especificação; as regras de domínio (formato de data, e-mail, mensagens)
-ficam em =dominio.ts=, compartilhado pelos projetos web, para que as
-implementações só difiram na coordenação e na tela.
+Reserva de passagem de ônibus, a tarefa /Flight Booker/ do [[https://eugenkiss.github.io/7guis/tasks/][7GUIs]] (=kiss2014=,
+§3.5, p. 25) com o tema trocado. Todas as implementações seguem a mesma
+especificação; as regras de domínio (formato de data, mensagens) ficam em
+=dominio.ts=, compartilhado pelos projetos web, para que as implementações só
+difiram na coordenação e na tela.
 
 As regras, as mensagens e os cenários que o teste de conformidade confere
 estão em =implementacoes/openspec/specs/formulario/spec.md=, a
@@ -15,7 +15,7 @@ rodada edita o =spec.md= direto (=implementacoes/AGENTS.md=).
 * Teste
 
   O =teste-de-conformidade.js= percorre a especificação: cada verificação
-  tem o nome de um cenário do =spec.md= (19), e
+  tem o nome de um cenário do =spec.md= (13), e
   =npm run conferir-especificacao= confere a ligação. Com uma
   implementação aberta no navegador, cole o arquivo no console.
 

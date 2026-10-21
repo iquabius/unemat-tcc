@@ -47,7 +47,7 @@ abaixo.
 
   Cada interface guarda capturas versionadas em
   =implementacoes/<interface>/capturas/=, uma por tecnologia e cena
-  (=react-inicial.png=, =solid-erros.png=...). Ao criar ou alterar uma
+  (=react-inicial.png=, =solid-ordem.png=...). Ao criar ou alterar uma
   implementação, gere-as de novo e inclua no mesmo commit: o =git diff=
   mostra o que mudou na tela.
 

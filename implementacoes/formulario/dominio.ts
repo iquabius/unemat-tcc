@@ -1,18 +1,15 @@
-// Regras de domínio do Formulário, iguais em todas as implementações web.
-// Nada aqui depende de interface: cada implementação decide quando chamar.
+// Regras de domínio da Reserva de passagem, iguais em todas as implementações
+// web. Nada aqui depende de interface: cada implementação decide quando chamar.
 
 export type TipoDeViagem = "ida" | "ida-e-volta";
 
-export interface Compra {
-  nome: string;
-  email: string;
+export interface Reserva {
   tipo: TipoDeViagem;
   ida: string;
   volta: string;
 }
 
 const FORMATO_DE_DATA = /^(\d{2})\/(\d{2})\/(\d{4})$/;
-const FORMATO_DE_EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 /** Converte "DD/MM/AAAA" numa data, ou `null` se o texto não for uma data real. */
 export function parsearData(texto: string): Date | null {
@@ -38,16 +35,6 @@ export function hoje(): string {
   return formatarData(new Date());
 }
 
-export function erroDoNome(nome: string): string | null {
-  return nome.trim() === "" ? "Informe o nome do passageiro." : null;
-}
-
-export function erroDoEmail(email: string): string | null {
-  return FORMATO_DE_EMAIL.test(email.trim())
-    ? null
-    : "Informe um e-mail válido.";
-}
-
 export function erroDaData(texto: string): string | null {
   return parsearData(texto)
     ? null
@@ -62,11 +49,9 @@ export function erroDaOrdem(ida: string, volta: string): string | null {
   return dataDeVolta < dataDeIda ? "A volta não pode ser antes da ida." : null;
 }
 
-export function mensagemDeConfirmacao(compra: Compra): string {
-  const { nome, email, tipo, ida, volta } = compra;
-  const trecho =
-    tipo === "ida"
-      ? `Passagem só de ida comprada para ${nome.trim()} em ${ida}.`
-      : `Passagens de ida e volta compradas para ${nome.trim()}: ida em ${ida} e volta em ${volta}.`;
-  return `${trecho} A confirmação vai para ${email.trim()}.`;
+export function confirmacaoDaReserva(reserva: Reserva): string {
+  const { tipo, ida, volta } = reserva;
+  return tipo === "ida"
+    ? `Você reservou uma passagem só de ida para ${ida}.`
+    : `Você reservou passagens de ida e volta: ida em ${ida} e volta em ${volta}.`;
 }
