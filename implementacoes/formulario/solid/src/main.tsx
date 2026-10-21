@@ -1,32 +1,23 @@
 import { createMemo, createSignal, Show } from "solid-js";
 import { render } from "solid-js/web";
 import {
+  confirmacaoDaReserva,
   erroDaData,
   erroDaOrdem,
-  erroDoEmail,
-  erroDoNome,
   hoje,
-  mensagemDeConfirmacao,
   type TipoDeViagem,
 } from "../../dominio";
 import "../../estilo.css";
 
-type Campo = "nome" | "email" | "ida" | "volta";
-
 function FormularioDeCompra() {
-  const [nome, setNome] = createSignal("");
-  const [email, setEmail] = createSignal("");
   const [tipo, setTipo] = createSignal<TipoDeViagem>("ida");
   const [ida, setIda] = createSignal(hoje());
   const [volta, setVolta] = createSignal(hoje());
-  const [tocados, setTocados] = createSignal<ReadonlySet<Campo>>(new Set());
   const [confirmacao, setConfirmacao] = createSignal("");
 
   // Cada erro é um valor derivado: recalcula só quando os sinais que ele lê
   // se alteram, e atualiza só os pontos da tela que o leem.
   const idaEVolta = () => tipo() === "ida-e-volta";
-  const erroNome = createMemo(() => erroDoNome(nome()));
-  const erroEmail = createMemo(() => erroDoEmail(email()));
   const erroIda = createMemo(() => erroDaData(ida()));
   const erroVolta = createMemo(() =>
     idaEVolta() ? erroDaData(volta()) : null,
@@ -34,72 +25,21 @@ function FormularioDeCompra() {
   const erroOrdem = createMemo(() =>
     idaEVolta() ? erroDaOrdem(ida(), volta()) : null,
   );
+  const erroNaVolta = () => erroVolta() ?? erroOrdem();
   const temErro = createMemo(() =>
-    [erroNome(), erroEmail(), erroIda(), erroVolta(), erroOrdem()].some(
-      Boolean,
-    ),
+    [erroIda(), erroVolta(), erroOrdem()].some(Boolean),
   );
 
-  const tocado = (campo: Campo) => tocados().has(campo);
-  const tocar = (campo: Campo) =>
-    setTocados((anteriores) => new Set(anteriores).add(campo));
-
-  const erroVisivel: Record<Campo, () => string | null> = {
-    nome: () => (tocado("nome") ? erroNome() : null),
-    email: () => (tocado("email") ? erroEmail() : null),
-    ida: () => (tocado("ida") ? erroIda() : null),
-    volta: () =>
-      (tocado("volta") ? erroVolta() : null) ??
-      (tocado("ida") || tocado("volta") ? erroOrdem() : null),
-  };
-
-  function comprar(evento: SubmitEvent) {
+  function reservar(evento: SubmitEvent) {
     evento.preventDefault();
     setConfirmacao(
-      mensagemDeConfirmacao({
-        nome: nome(),
-        email: email(),
-        tipo: tipo(),
-        ida: ida(),
-        volta: volta(),
-      }),
+      confirmacaoDaReserva({ tipo: tipo(), ida: ida(), volta: volta() }),
     );
   }
 
   return (
     <>
-      <form class="formulario" novalidate onSubmit={comprar}>
-        <label>
-          Nome do passageiro
-          <input
-            name="nome"
-            autocomplete="name"
-            value={nome()}
-            aria-invalid={Boolean(erroVisivel.nome())}
-            onInput={(e) => setNome(e.currentTarget.value)}
-            onBlur={() => tocar("nome")}
-          />
-        </label>
-        <Show when={erroVisivel.nome()}>
-          {(erro) => <p class="erro">{erro()}</p>}
-        </Show>
-
-        <label>
-          E-mail
-          <input
-            name="email"
-            type="email"
-            autocomplete="email"
-            value={email()}
-            aria-invalid={Boolean(erroVisivel.email())}
-            onInput={(e) => setEmail(e.currentTarget.value)}
-            onBlur={() => tocar("email")}
-          />
-        </label>
-        <Show when={erroVisivel.email()}>
-          {(erro) => <p class="erro">{erro()}</p>}
-        </Show>
-
+      <form class="formulario" novalidate onSubmit={reservar}>
         <label>
           Tipo de viagem
           <select
@@ -118,14 +58,11 @@ function FormularioDeCompra() {
             name="ida"
             placeholder="DD/MM/AAAA"
             value={ida()}
-            aria-invalid={Boolean(erroVisivel.ida())}
+            aria-invalid={Boolean(erroIda())}
             onInput={(e) => setIda(e.currentTarget.value)}
-            onBlur={() => tocar("ida")}
           />
         </label>
-        <Show when={erroVisivel.ida()}>
-          {(erro) => <p class="erro">{erro()}</p>}
-        </Show>
+        <Show when={erroIda()}>{(erro) => <p class="erro">{erro()}</p>}</Show>
 
         <label>
           Data de volta
@@ -134,17 +71,16 @@ function FormularioDeCompra() {
             placeholder="DD/MM/AAAA"
             value={volta()}
             disabled={!idaEVolta()}
-            aria-invalid={Boolean(erroVisivel.volta())}
+            aria-invalid={Boolean(erroNaVolta())}
             onInput={(e) => setVolta(e.currentTarget.value)}
-            onBlur={() => tocar("volta")}
           />
         </label>
-        <Show when={erroVisivel.volta()}>
+        <Show when={erroNaVolta()}>
           {(erro) => <p class="erro">{erro()}</p>}
         </Show>
 
         <button type="submit" disabled={temErro()}>
-          Comprar
+          Reservar
         </button>
       </form>
       <p class="confirmacao" role="status">
