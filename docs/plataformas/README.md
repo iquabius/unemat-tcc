@@ -36,8 +36,8 @@ explica, pelo sinal escrito (ADR 0021).
 As notas:
 
 - `web.md`: as tecnologias web e as descartadas, o modelo de
-  programação e a montagem da tela de cada uma, a documentação, as
-  medidas de uso e a literatura cinzenta;
+  programação e a montagem da tela de cada uma, onde ficam o estilo e o
+  *layout*, a documentação, as medidas de uso e a literatura cinzenta;
 - `bibliotecas-de-formulario.md`: a biblioteca de formulário de cada
   tecnologia na Reserva de passagem, na terceira rodada (ADR 0031);
 - `bibliotecas-de-inscricao-e-reconexao.md`: a biblioteca que trata a

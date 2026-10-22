@@ -4,9 +4,10 @@ Referência. As quatro tecnologias web da análise e as que ficaram fora
 (o jQuery, o Svelte e o Vue, e, desde 2026-10-19, o Lit e o Angular): o
 modelo de programação e a montagem da tela, o que mudou de 2016 a 2026,
 o modelo de reatividade segundo a documentação oficial, as medidas de
-uso, os artigos não acadêmicos, os prós e contras de cada escolha e como
-os Web Components sem biblioteca montam a tela; quase tudo é literatura
-cinzenta. Sustenta o ADR 0013. Cada afirmação sobre ferramenta ou versão
+uso, os artigos não acadêmicos, os prós e contras de cada escolha, como
+os Web Components sem biblioteca montam a tela e onde as tecnologias
+põem o estilo e o *layout*; quase tudo é literatura cinzenta. Sustenta
+os ADRs 0013, 0037 e 0041. Cada afirmação sobre ferramenta ou versão
 leva a data em que foi observada.
 
 **Conclusão.** A PR virou o modelo padrão de reatividade das principais
@@ -23,9 +24,15 @@ Programas reais com Web Components sem biblioteca escrevem o esqueleto
 da tela em HTML (num `<template>` ou num texto) e as partes repetidas
 por `createElement` ou clone de `<template>` por item, e quase nunca por
 HTML num texto com `.map().join("")`; nem o MDN nem o web.dev prescrevem
-uma forma. No Web Component do TCC, as partes repetidas se escrevem com
-`createElement`, a forma mais comum (seção "Como Web Components sem
-biblioteca montam a tela").
+uma forma; a árvore inteira em `createElement` só aparece nos exemplos
+didáticos da MDN e em esqueletos de um a três nós. No Web Component do
+TCC, as partes repetidas se escrevem com `createElement`, a forma mais
+comum (seção "Como Web Components sem biblioteca montam a tela"). O
+estilo e o *layout* ficam no CSS nas quatro tecnologias, pela
+documentação e pela prática, e o código escreve no `style` só o valor
+calculado; o que varia é a ferramenta que leva o CSS ao projeto, plural
+no React, e o TCC usa um `estilo.css` comum, fora da notação (seção
+"Onde ficam o estilo e o *layout*").
 
 Tratar como literatura cinzenta no texto:
 
@@ -473,9 +480,10 @@ jQuery, o Angular com RxJS, o Svelte e o Vue continuam fora.
 
 ## Como Web Components sem biblioteca montam a tela
 
-Pesquisa de 2026-10-15 (tcc-53w): como programas reais com elementos
-personalizados sem biblioteca escrevem a montagem da tela, e o que
-recomendam o MDN, o web.dev e a especificação.
+Pesquisas de 2026-10-15 (tcc-53w) e de 2026-10-21 (subseção "Amostra
+de 2026-10-21"): como programas reais com elementos personalizados sem
+biblioteca escrevem a montagem da tela, e o que recomendam o MDN, o
+web.dev e a especificação.
 
 **Conclusão.** Não há convenção única, mas há um padrão. O esqueleto
 fixo do elemento se escreve em HTML: um `<template>` clonado (Firefox,
@@ -488,12 +496,26 @@ personalizado que clona um `<template>` no construtor (Firefox,
 Thunderbird), de clone de `<template>` no próprio laço (Firefox,
 Chromium, Lexxy) ou de `insertRow`/`insertCell` (Chromium);
 HTML num texto com `.map().join("")` só aparece no Jellyfin, escrito
-pelo chamador, e num exemplo do MDN. A atualização muda `textContent` e
-atributos em nós guardados, e a coleção que muda se esvazia e se remonta
-(`replaceChildren`, `textContent = ""`). O *shadow DOM* é minoria.
+pelo chamador, e num exemplo do MDN, e, na amostra de 2026-10-21, no
+sumário do Kelp. A atualização muda `textContent` e atributos em nós
+guardados, e a coleção que muda se esvazia e se remonta
+(`replaceChildren`, `textContent = ""`). O *shadow DOM* é minoria no
+código de aplicação.
+
+A amostra de 2026-10-21, de elementos publicados como pacote, separa
+duas famílias pelo lugar onde o HTML pode viver: os elementos de
+aplicação aprimoram o HTML da página e quase não montam nada, e os
+*widgets* empacotados, que não podem contar com um `<template>` na
+página de quem os usa, escrevem o esqueleto como HTML num texto, com
+*shadow DOM*. O `createElement` fica com o nó avulso e as partes
+repetidas, e a árvore inteira em `createElement` só aparece em
+esqueletos de um a três nós e nos exemplos didáticos da MDN, sem par em
+produção. Nenhum levantamento sistemático classifica a forma de
+montagem; as conclusões saem das amostras lidas.
 
 A convenção do TCC, decidida pelo autor em 2026-10-15 a partir desta
-pesquisa, está no ADR 0037 e em `implementacoes/AGENTS.md`.
+pesquisa e mantida em 2026-10-22 depois da amostra de 2026-10-21, está
+no ADR 0037 e em `implementacoes/AGENTS.md`.
 
 ### Critério de escolha
 
@@ -647,6 +669,214 @@ Overflow (API, 2026-10-15), das 3.841 perguntas com a etiqueta
   Leatherman, *An Attempted Taxonomy of Web Components* (2023-11-18),
   defendem aprimorar o HTML que já vem da página, sem *shadow DOM*.
 
+### Amostra de 2026-10-21
+
+Pesquisa de 2026-10-21: 15 repositórios de elementos sem Lit, Stencil,
+FAST nem Catalyst (conferido nas `dependencies` do `package.json`),
+clonados nessa data e lidos nas linhas citadas, que estão nos links
+permanentes. O critério troca o programa com usuários da amostra de
+2026-10-15 pelo elemento publicado, e por isso entram os *widgets*
+distribuídos para terceiros. Ficou de fora o
+`daviddarnes/component-template`, sem código de montagem nem de estilo.
+
+| Repositório | Commit (data) |
+|---|---|
+| `github/relative-time-element`, `tab-container-element`, `auto-complete-element`, `include-fragment-element`, `clipboard-copy-element` | `3b3a1bc`, `4219ffe`, `e00d834`, `95a2302`, `87686f8` (2026-10-19 e 2026-10-20) |
+| `github/markdown-toolbar-element`, `file-attachment-element`, `details-menu-element` | `2f5552a`, `b92a4e2`, `bdf2d4f` (2026-10-20) |
+| `muxinc/media-chrome` (player de vídeo da Mux) | `d862932` (2026-10-19) |
+| `nolanlawson/emoji-picker-element` | `5d1c8bf` (2026-03-04) |
+| `web-padawan/vanilla-colorful` | `7d88961` (2026-10-02) |
+| `zachleat/browser-window`, `zachleat/table-saw` | `9fdbf67` (2026-09-23), `207b099` (2025-12-16) |
+| `cferdinandi/kelp` (Kelp UI) | `23e6460` (2025-12-02) |
+| `mdn/web-components-examples` | `7e588e4` (2026-10-07) |
+
+O que cada família escreve:
+
+- **Aprimoram o HTML da página** (elementos de aplicação, quase todos em
+  *light DOM*): o `auto-complete-element` põe no `innerHTML` o HTML que o
+  servidor mandou
+  ([`autocomplete.ts#L205-L210`](https://github.com/github/auto-complete-element/blob/e00d834d187498e8b6ed4169f220dd988353ffc0/src/autocomplete.ts#L205-L210));
+  o `markdown-toolbar-element` e o `file-attachment-element` não têm
+  `createElement`, `innerHTML`, `cloneNode` nem `attachShadow` em `src/`
+  ([`markdown-toolbar-element/src`](https://github.com/github/markdown-toolbar-element/tree/2f5552a16fc561e6caecae4a1be654b8742f83f7/src));
+  o `table-saw` lê as células da página e só as envolve em `div`
+  ([`table-saw.js#L150-L152`](https://github.com/zachleat/table-saw/blob/207b099bbfb24c555cf7a0707fc3fe8270e45fd2/table-saw.js#L150-L152));
+  nenhum dos 12 elementos do Kelp chama `attachShadow`, e, quando montam,
+  o `kelp-toc` gera a lista como texto no `innerHTML`
+  ([`toc.js#L66`](https://github.com/cferdinandi/kelp/blob/23e6460c272fdb58062bd60b846d3eb38419fbae/src/js/components/toc.js#L66)).
+- **Esqueleto em HTML num texto, com *shadow DOM*** (*widgets*
+  empacotados): o media-chrome atribui ao `shadowRoot.innerHTML` o texto
+  de uma função `getTemplateHTML()` que as subclasses sobrescrevem
+  ([`media-control-bar.ts#L11-L69`](https://github.com/muxinc/media-chrome/blob/d8629324c3032363e23aef35235b1ec013fe1693/src/js/media-control-bar.ts#L11-L69));
+  o vanilla-colorful e o browser-window passam o texto a um `<template>`
+  criado em JS e clonam o conteúdo por instância
+  ([`dom.ts#L4-L10`](https://github.com/web-padawan/vanilla-colorful/blob/7d88961446a0e7cc9f5387da154b79bae6ad6ccf/src/lib/utils/dom.ts#L4-L10);
+  [`browser-window.js#L160-L206`](https://github.com/zachleat/browser-window/blob/9fdbf67d8fdde65365f4d3f9bec2f7c2c6466c7f/browser-window.js#L160-L206)),
+  a recomendação do web.dev aplicada a um texto; o emoji-picker-element
+  tem um *tagged template* `html` próprio, com cache e chave para listas
+  ([`framework.js#L1-L12`](https://github.com/nolanlawson/emoji-picker-element/blob/5d1c8bfc21e737c03a3cb14e06b4e472e2275ff1/src/picker/components/Picker/framework.js#L1-L12)):
+  "sem biblioteca" ali quer dizer sem dependência, e não sem abstração
+  de montagem.
+- **`createElement` no nó pequeno ou guardado**: o `relative-time` cria
+  um `span` e o reaproveita a cada atualização
+  ([`relative-time-element.ts#L403-L411`](https://github.com/github/relative-time-element/blob/3b3a1bc7c5ddf4543b7d3064633956749be6e3d0/src/relative-time-element.ts#L403-L411)),
+  o `tab-container` monta três `slot` e `div`
+  ([`tab-container-element.ts#L187-L195`](https://github.com/github/tab-container-element/blob/4219ffeeb5eb02665842b83cac3e0a215025638d/src/tab-container-element.ts#L187-L195)),
+  e o Kelp cria assim o botão, a mensagem de erro e a região `aria-live`
+  ([`form-validate.js#L231`](https://github.com/cferdinandi/kelp/blob/23e6460c272fdb58062bd60b846d3eb38419fbae/src/js/components/form-validate.js#L231)).
+- **Exemplos da MDN**: os `popup-info-box` montam o *shadow root*
+  inteiro com `createElement`, `setAttribute` e `appendChild`, cerca de
+  30 linhas para um *tooltip*, sem par em produção na amostra
+  ([`popup-info-box-web-component/main.js#L10-L45`](https://github.com/mdn/web-components-examples/blob/7e588e43bb8ed439716c413a3bd42466112155c8/popup-info-box-web-component/main.js#L10-L45));
+  o `editable-list` escreve o esqueleto e o `<style>` num texto e cria
+  os itens novos com `createElement`
+  ([`editable-list/main.js#L14-L76`](https://github.com/mdn/web-components-examples/blob/7e588e43bb8ed439716c413a3bd42466112155c8/editable-list/main.js#L14-L76)).
+
+Contagens de 2026-10-21. Na busca de código do GitHub (API
+`search/code`, JavaScript), os arquivos com `"extends HTMLElement"` são
+173.444, contra 179.200 em 2026-10-15 sem mudança de método: a contagem
+oscila e inclui tutoriais. Deles, `attachShadow` aparece em 54%,
+`"<style>"` em até 32%, `"style.display"` em até 12%,
+`adoptedStyleSheets` em 5,0% e `rel="stylesheet"` em até 3,4%; os termos
+com pontuação podem casar como palavras soltas e valem como limite
+superior. No Chrome Platform Status (dados de 2026-10-19),
+`attachShadow` roda em 22,19% dos carregamentos de página,
+`customElements.define` em 19,81% e `adoptedStyleSheets` em 13,41%, mas
+o contador registra a chamada venha de onde vier, inclusive do Lit e do
+Polymer. As três medidas (a amostra de aplicações, a de pacotes e a
+busca) acham o *shadow DOM* em proporções diferentes porque medem
+universos diferentes.
+
+Documentação e opinião acrescentadas em 2026-10-21. O MDN, em *Using
+shadow DOM* (2026-09-08), monta um exemplo com `createElement` e outro
+anexando um `<template>`. O único argumento comparativo explícito é o do
+web.dev, *Custom Elements v1* (2017): o `<template>` clonado sai mais
+barato que o `innerHTML` por instância, porque o HTML se analisa uma
+vez; é um argumento de custo, e não de legibilidade. Nenhuma fonte lida
+proíbe o HTML fixo num texto; o aviso é contra os dados do usuário no
+`innerHTML`. Nielsen (*HTML Web Components*, 2023-11-13), Coyier
+(*Light-DOM-Only Web Components are Sweet*, 2023-12-08) e Ferdinandi
+(*But what about the shadow DOM?*, 2024-05-15) defendem aprimorar o HTML
+existente, e nenhum defende a árvore toda em `createElement`. As frases
+dessas páginas vieram por resumo de página e se conferem na página antes
+de entrar no texto.
+
+## Onde ficam o estilo e o *layout*
+
+Pesquisa de 2026-10-21 (`tmp/pesquisas/2026-10-21-montagem-e-estilo/`,
+fora do git), sobre a documentação do React e do Solid, a amostra de Web
+Components da subseção "Amostra de 2026-10-21" e as pesquisas de uso.
+
+**Conclusão.** O React, o Solid e os Web Components sem biblioteca
+traçam a mesma fronteira, pela documentação e pela prática: o estilo e o
+*layout* estáticos ficam no CSS, e o código escreve no `style` só o
+valor que depende de dados. O que varia é a ferramenta que leva o CSS ao
+projeto, plural no React. Nenhuma das quatro tecnologias escreve o
+*layout* em código, como o JavaFX faz (`new HBox(10, count, countUp)`,
+Kiss 2014, p. 17). O TCC segue a fronteira com um `estilo.css` comum por
+interface, em *light DOM*, e deixa fora da notação o idioma de estilo de
+cada ecossistema (ADR 0041).
+
+### Documentação
+
+- **React** (react.dev, *Common components* e *Quick Start*, lidas por
+  `curl` em 2026-10-21, trechos literais): "React does not prescribe how
+  you add CSS files"; o exemplo padrão é `className` com as regras "in a
+  separate CSS file"; e "We recommend only using the `style` attribute
+  when your styles depend on JavaScript variables. Otherwise, applying
+  plain CSS classes with `className` is more efficient." O objeto `style`
+  usa nomes em camelCase e põe `px` sozinho nos números. As páginas
+  lidas não citam CSS Modules, CSS-in-JS, Tailwind nem *shadow DOM*.
+- **Solid** (docs.solidjs.com, *Styling your components*, atualizada em
+  2026-06-21, e *Class and style*, em 2026-04-28; frases por resumo de
+  página, a conferir): lista sete caminhos sem escolher (CSS puro com
+  `class` e `style`, Sass e LESS, CSS Modules, três bibliotecas de
+  CSS-in-JS, Tailwind e UnoCSS); desaconselha o estilo inline em
+  produção, por reuso e manutenção, e o indica para variáveis CSS em
+  tempo de execução; prefere `classList` para várias classes
+  condicionais. O `style` usa os nomes do CSS com hífen e aceita
+  `--var`, e o `className` saiu na 1.4 em favor de `class`.
+- **Web Component** (MDN, *Using shadow DOM*, 2026-09-08, e *::part()*;
+  web.dev, 2017 e 2019): dentro do *shadow DOM*, um `<style>` no
+  `<template>` ou um `CSSStyleSheet` em `adoptedStyleSheets`, o segundo
+  para compartilhar uma folha entre muitas árvores; `part` e `::part`
+  deixam a página estilizar de fora um nó da árvore de sombra; o web.dev
+  manda criar o *shadow root* para encapsular o estilo e definir o
+  `display` do `:host`. São uma enciclopédia e artigos da equipe do
+  Chrome, e não a recomendação de uma tecnologia.
+
+React e Solid recusam o estilo estático no `style` por motivos
+diferentes: eficiência num, manutenção no outro.
+
+### Programas
+
+- **Web Components com *shadow DOM***: o estilo fica num `<style>` dentro
+  do HTML do *shadow root* (o media-chrome tem `<style>` em 40 arquivos
+  de `src/` e `:host` em 37;
+  [`media-control-bar.ts#L13-L18`](https://github.com/muxinc/media-chrome/blob/d8629324c3032363e23aef35235b1ec013fe1693/src/js/media-control-bar.ts#L13-L18)),
+  com o tema aberto por propriedades personalizadas e, em parte, por
+  `part`. O `adoptedStyleSheets` aparece no código recente de Leatherman
+  ([`browser-window.js#L160-L169`](https://github.com/zachleat/browser-window/blob/9fdbf67d8fdde65365f4d3f9bec2f7c2c6466c7f/browser-window.js#L160-L169)),
+  e o `<link rel="stylesheet">` no *shadow root*, só no exemplo da MDN.
+- **Web Components em *light DOM***: o estilo é o CSS global da página;
+  o Kelp põe as regras na folha global, com seletores pelo nome da *tag*
+  ([`tabs-wc.css`](https://github.com/cferdinandi/kelp/blob/23e6460c272fdb58062bd60b846d3eb38419fbae/src/css/components/tabs-wc.css)),
+  e cinco dos elementos do GitHub não trazem CSS, porque o estilo vem do
+  site.
+- ***Layout***: em todos os elementos lidos, flex, grid, ordem e
+  espaçamento ficam no CSS, e o JS escreve no `style` só uma posição
+  calculada ou uma propriedade personalizada que o CSS lê: o table-saw
+  mede a tabela e escreve a proporção que o `grid-template-columns` usa
+  ([`table-saw.js#L164-L172`](https://github.com/zachleat/table-saw/blob/207b099bbfb24c555cf7a0707fc3fe8270e45fd2/table-saw.js#L164-L172)),
+  e o media-chrome, o deslocamento do *tooltip*. No media-chrome, seis
+  linhas de `src/` escrevem `display`, tamanho, grid ou flex no `style`,
+  contra 32 arquivos com `flex` no CSS embutido.
+- **React e Solid**: os modelos `template-react-ts` e `template-solid-ts`
+  do create-vite importam `index.css` e `App.css` comuns, com
+  `className` num e `class` no outro; os modelos do Solid
+  (`solidjs/templates`) trazem variantes com Tailwind, UnoCSS, Sass e
+  Bootstrap.
+
+### Medidas
+
+As pesquisas da Devographics têm amostra autosselecionada, e "usou" não
+quer dizer "usa no projeto atual". Com essa ressalva, a pergunta do State
+of React sobre o que o programador usou para estilizar aplicações React
+(2025: 3.760 respostas, 2.740 nesta pergunta; números pela API GraphQL
+da Devographics, 2026-10-21):
+
+| Ferramenta | 2024 (% da pergunta) | 2025 (% da pergunta) | Onde o estilo fica |
+|---|---|---|---|
+| Tailwind CSS | 73,1% | 78,2% | nas classes do JSX |
+| CSS Modules | 63,6% | 65,5% | arquivo `.css` próprio, escopado |
+| Sass/SCSS | 60,1% | 58,7% | arquivo próprio |
+| styled-components | 59,2% | 58,2% | no JS do componente |
+| Emotion | 31,4% | 28,7% | no JS do componente |
+
+A soma passa de 300%: cada respondente usou três ou mais ferramentas, e
+o estilo no React é plural, e não um idioma só. No State of CSS 2025
+(5.506 respostas), o Tailwind é o *framework* mais usado (51% da
+pergunta), e na pergunta de CSS-in-JS a resposta mais comum é "nenhum"
+(57%). O mantenedor do styled-components pôs o projeto em manutenção em
+2025-03-17. Os *downloads* do npm (`tailwindcss`: 592,9 milhões de
+2026-09-12 a 2026-10-11, contra 815,6 milhões do `react`) não medem uso.
+O Solid não tem medida de estilo, e nenhuma pesquisa separa o `.css`
+global do arquivo por componente nem mede o `style` inline.
+
+### No TCC
+
+Em 2026-10-22, nenhuma implementação fora de
+`implementacoes/fora-da-analise/` chama `attachShadow`; cada interface
+tem um `estilo.css` que as tecnologias importam e citam por classes, e o
+`style` aparece só na posição do menu do Circle Drawer, nas três
+tecnologias prontas, e no tamanho do *canvas*, no domínio. Ali o dialeto
+difere: `style={{ left: posicaoDoMenu.x }}` no React, com o número que
+ganha `px` sozinho; `` left: `${posicaoDoMenu().x}px` `` no Solid; e
+`this.menu.style.left` no Web Component. O que o `estilo.css` comum
+deixa de fora é o idioma do ecossistema, o Tailwind no JSX e o `<style>`
+no *shadow root* dos *widgets*, e as DCs não veem a mistura de estilo e
+componente (ADR 0041).
+
 ## Fontes
 
 Fontes primárias: MDN, *Web components* e *Using custom elements*
@@ -687,6 +917,22 @@ respondentes da pergunta de *frameworks* no Stack Overflow 2024 e 2025
 (as páginas não o exibem; só nos dados brutos); os *tweets* de Abramov
 sobre *signals* (sem URL registrada; o X exige conta).
 
+Lidos em 2026-10-21, para a subseção "Amostra de 2026-10-21" e a seção
+"Onde ficam o estilo e o *layout*": REACT TEAM, react.dev, *Common
+components* e *Quick Start*; SOLIDJS, docs.solidjs.com, *Styling your
+components*, *Class and style*, *style* e *classList*; MDN, *Using
+shadow DOM*, *Using templates and slots*, *::part()* e
+*Element.innerHTML*; BIDELMAN, E., *Custom Elements v1*, web.dev, 2017;
+MILLER, J., *Constructable Stylesheets*, web.dev, 2019-02-08; NIELSEN,
+J., *HTML Web Components*, 2023-11-13; COYIER, C., *Light-DOM-Only Web
+Components are Sweet*, 2023-12-08; FERDINANDI, C., *But what about the
+shadow DOM?*, 2024-05-15; DEVOGRAPHICS, *State of React* 2024 e 2025,
+*Component Libraries*, e *State of CSS* 2025, *Other Tools*, com a API
+GraphQL; os modelos `template-react-ts` e `template-solid-ts` do
+create-vite e `solidjs/templates`; api.npmjs.org; GitHub REST API,
+*search/code*; Chrome Platform Status, *featurepopularity*; os
+repositórios da tabela da subseção, nos commits indicados.
+
 ## Histórico
 
 Veio de `docs/literatura.md` (índice até `ff620ad`), seções 4 e 8, em
@@ -715,3 +961,11 @@ valia até 2026-10-18 datado. "Desvantagens a reconhecer no texto"
 ganhou o item da cadeia sem par direto. O cabeçalho diz as versões do
 `package-lock.json` depois da saída do Lit e do Angular dos
 *workspaces*.
+
+Em 2026-10-22, a seção "Como Web Components sem biblioteca montam a
+tela" ganhou a subseção "Amostra de 2026-10-21", com os *widgets*
+empacotados, a separação entre as duas famílias e as contagens dessa
+data, e a conclusão passou a dizer que o *shadow DOM* é minoria no
+código de aplicação, e não em geral; entrou a seção "Onde ficam o
+estilo e o *layout*", da mesma pesquisa, que sustenta o ADR 0041. O
+cabeçalho passou a citar os ADRs 0037 e 0041.
