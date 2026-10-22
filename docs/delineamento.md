@@ -8,11 +8,12 @@ implementado, uma tarefa fechada. O texto resume o que não se controla
 nas limitações de `texto/intro.org`, no parágrafo que abre por "O
 delineamento tem limitações".
 
-**Conclusão (2026-10-19).** O delineamento fixa a linguagem e o modelo
+**Conclusão (2026-10-22).** O delineamento fixa a linguagem e o modelo
 de computação (TypeScript, só na web), a especificação de cada
 interface, o domínio, as duas regras comuns da primeira rodada
-(mensagens de status anunciadas; limpeza ao sair da tela) e, na primeira
-e na segunda rodada, as dependências; na terceira rodada, a Reserva de
+(mensagens de status anunciadas; limpeza ao sair da tela), a aparência,
+num `estilo.css` comum fora da notação, em todas as rodadas, e, na
+primeira e na segunda rodada, as dependências; na terceira rodada, a Reserva de
 passagem e o Placar ao vivo passam à forma do ecossistema de cada
 tecnologia, sem controle (ADR 0029). As quatro tecnologias implementam
 as sete interfaces, numa cadeia em que cada par muda o mínimo: Web
@@ -25,8 +26,9 @@ re-renderização não tem par: o Web Component e o React diferem na
 ligação, na montagem e no modelo ao mesmo tempo. Ficam sem controle o
 avaliador, que é o autor, a origem das implementações, geradas com
 agentes de IA, a representação do imperativo e da re-renderização por
-uma tecnologia cada, a forma rara do Web Component com *signals* e as
-bibliotecas da terceira rodada.
+uma tecnologia cada, a forma rara do Web Component com *signals*, as
+bibliotecas da terceira rodada e o idioma de estilo de cada
+ecossistema.
 
 O termo segue Prodanov e Freitas (2013, p. 54, `prodanov2013`): o
 *design* "pode ser traduzido como delineamento", que "refere-se ao
@@ -44,7 +46,7 @@ que se confunde com o desenho da tela (`GLOSSARY.md`, Delineamento).
 | Regras comuns da primeira rodada | em todas as interfaces, as mensagens de status ficam numa região anunciada (`role="status"`, WCAG 2.2, 4.1.3), e vale a limpeza ao sair da tela; o teste de conformidade confere as duas, a segunda contando no domínio os relógios, as inscrições e as requisições abertas | ADR 0029 | no Login e no Placar ao vivo; a Reserva de passagem e a Busca à espera da tcc-v4m7 |
 | Dependências | na primeira e na segunda rodada, cada implementação usa só o que a própria tecnologia traz, sem bibliotecas de formulário; o Web Component com *signals* usa só o `solid-js`; na terceira rodada, a forma do ecossistema | ADRs 0013, 0029 e 0031 | controlado na primeira e na segunda rodada |
 | Domínio | as regras que não dependem da interface (datas, mensagens, servidores simulados, fontes de dados, a cotação, a análise das fórmulas) ficam num domínio comum por interface; a propagação da planilha fica em cada implementação | ADRs 0002 e 0033 | controlado |
-| Aparência e comportamento | capturas de cada cena, idênticas entre as tecnologias | ADR 0008 | controlado; o *canvas* do Circle Drawer, a conferir |
+| Aparência e comportamento | capturas de cada cena, idênticas entre as tecnologias; o estilo e o *layout* estáticos ficam no `estilo.css` comum da interface, que a tela cita por classes, em *light DOM*, em todas as rodadas, e só o valor que depende do estado (a posição do menu do Circle Drawer) entra na notação | ADRs 0008 e 0041 | controlado; o *canvas* do Circle Drawer, a conferir; nenhuma implementação chama `attachShadow` (2026-10-22) |
 | Versões | fixadas no `package-lock.json`; o `solid-js` na 1.9 | `texto/cases.org`, nota `versoes` (ainda cita o `libs.versions.toml` do Android); ADR 0013 | controlado |
 | DCs | as 14, percorridas em cada interface e em cada rodada | ADRs 0012 e 0017 | controlado desde 2026-10-11 |
 | Mudança da segunda rodada | a mesma funcionalidade ou o mesmo requisito de orquestração, um por commit, na mesma ordem nas quatro tecnologias; latências, tentativas, prazos e intervalos fixos no domínio | ADR 0029 | a fazer; 12 mudanças, 48 commits |
@@ -75,6 +77,7 @@ e [`plataformas/desktop.md`](plataformas/desktop.md).
 | Representantes por modelo de programação | uma tecnologia no imperativo (Web Component) e na re-renderização (React), duas no granular (Web Component com *signals* e Solid); a conclusão generaliza a partir delas | limitações; `docs/paradigma-modelo-e-notacao.md`, seção "Unidade comparada e evidência: o TCC compara categorias" | ADR 0013 |
 | Forma do Web Component com *signals* | rara nos programas reais (11 arquivos na busca de código do GitHub em 2026-10-17): uma construção de controle, que o critério do ADR 0037 não cobre; o corpo do efeito ainda escreve no DOM | ainda não | ADRs 0013 e 0021 |
 | Bibliotecas da terceira rodada | cada tecnologia usa a forma do ecossistema na Reserva de passagem e no Placar ao vivo, e a conclusão se lê como "no ecossistema típico"; o Web Component com *signals* segue o Web Component | ainda não | ADRs 0029 e 0031; tcc-vgrx |
+| Idioma de estilo do ecossistema | o estilo fica fora da notação nas quatro tecnologias, e o que cada ecossistema usa não entra: no React, o Tailwind, os CSS Modules e o styled-components (State of React 2025, amostra autosselecionada); nos *widgets* empacotados, o `<style>` no *shadow root*; as DCs não veem a mistura de estilo e componente, nem as dependências ocultas do HTML com o CSS, e o código do React e do Solid pode parecer pouco realista a quem é do ecossistema | ainda não: a separação entre HTML e CSS, que o Java no *desktop* não tem, e o lugar do estilo vão ao método e às limitações de `texto/intro.org` | ADR 0041; [`plataformas/web.md`](plataformas/web.md#onde-ficam-o-estilo-e-o-layout) |
 | Divergência dentro da coluna | o Web Component com *signals* e o Solid podem divergir numa DC | a célula da tabela-síntese registra a divergência | ADR 0017 |
 | Avaliador | uma pessoa só, o autor, que construiu o que avalia, com familiaridade desigual, maior com o React | limitações (Hertzum e Jacobsen 2003, p. 183; Dagit et al. 2006) | — |
 | Origem das implementações | as atuais foram geradas com agentes de IA a partir de implementações de referência do autor, e não se sabe de quais | ainda não | `docs/processo/implementacoes-no-codesandbox.md`; "Escrever a declaração de uso de IA do TCC a partir do histórico do repositório" (tcc-gjw) |
