@@ -50,9 +50,28 @@ partes repetidas (Web Component e Web Component com *signals*), JSX
 dentro do mesmo modelo de programação, e o Web Component e o Web Component
 com *signals* a têm igual. A análise aponta, em cada DC, se a diferença
 está na coordenação, na montagem da tela ou na ligação entre as duas (ADR
-0021).
+0021). Não inclui a aparência: a montagem diz quais elementos há, e o
+*layout*, onde eles ficam (ADR 0041).
 _Avoid_: estrutura da tela como notação à parte; sintaxe da tela; marcação
-(não cobre `createElement` nem Compose)
+(não cobre `createElement` nem Compose); *layout* para a montagem (no
+JavaFX os dois se escrevem juntos, em código; na web, não)
+
+**Aparência**:
+O que a tela mostra além dos elementos e dos textos: cores, fontes,
+tamanhos e o *layout*. Fica no CSS comum a todas as tecnologias de uma
+interface, fora da notação; só o valor que depende do estado, como uma
+posição calculada, entra na notação (ADRs 0008 e 0041).
+_Avoid_: estilo sozinho (o estilo orientado a eventos e o estilo do
+código são outros; fica "folha de estilo" para o arquivo CSS); visual;
+*design*
+
+***Layout***:
+A parte da aparência que dispõe os elementos na tela: a ordem, o
+alinhamento, o espaçamento, as linhas e as colunas. Na web se declara no
+CSS, em todas as tecnologias; no Java no *desktop*, se escreve em código,
+com contêineres como o `HBox` (Kiss, 2014).
+_Avoid_: montagem (a montagem diz quais elementos há); leiaute;
+disposição como termo à parte
 
 **Interface**:
 Uma das sete interfaces gráficas especificadas que todas as implementações
