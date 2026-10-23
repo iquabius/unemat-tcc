@@ -63,7 +63,7 @@ registro de 2026-10-12, estão em
 | React | declarativo por re-renderização | JSX | as sete |
 | Lit | declarativo por re-renderização; fora da análise desde 2026-10-19 (ADR 0013) | *template* `html` | nenhuma; o código de cinco interfaces de então em `implementacoes/fora-da-analise/` |
 | Angular com *signals* | declarativo por atualização granular; fora da análise desde 2026-10-19 (ADR 0013) | *template* | nenhuma; o código de quatro interfaces de então em `implementacoes/fora-da-analise/` |
-| Angular com RxJS | apoio, fora da análise (ADR 0013) | *template* | — |
+| Angular com RxJS | fora da análise (ADR 0013) | *template* | — |
 | jQuery | fora da análise (ADR 0013) | HTML e DOM | — |
 
 As quatro tecnologias formam uma cadeia de pares em que cada passo muda
@@ -459,10 +459,11 @@ jQuery, o Angular com RxJS, o Svelte e o Vue continuam fora.
    candidate*; RxJS 9 em beta. As versões fixadas nos `package.json`
    valem para o texto, e uma nota deve dizer que a comparação é da
    versão, não da tecnologia.
-7. **Angular fora da análise.** O Angular com RxJS, congelado em
-   `implementacoes/fora-da-analise/` como apoio à escrita, usa RxJS para
-   estado, contra a direção documentada do Angular; serve de referência
-   ao autor e não pode ser citado como "como se escreve Angular em 2026".
+7. **Angular fora da análise.** O Angular com RxJS fica em
+   `implementacoes/fora-da-analise/`, como as outras implementações que
+   saíram; usa RxJS para estado, contra a direção documentada do
+   Angular, e não pode ser citado como "como se escreve Angular em
+   2026".
    O Angular com *signals*, fora desde 2026-10-19, fica para os trabalhos
    futuros da conclusão (tcc-dpci).
 8. **Web Component ≠ notação.** A classe com `HTMLElement` é o modelo de
