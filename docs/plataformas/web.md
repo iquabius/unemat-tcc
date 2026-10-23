@@ -67,28 +67,32 @@ registro de 2026-10-12, estão em
 | jQuery | fora da análise (ADR 0013) | HTML e DOM | — |
 
 As quatro tecnologias formam uma cadeia de pares em que cada passo muda
-o mínimo (ADR 0013): Web Component → (a ligação do estado com a tela) →
-Web Component com *signals* → (a montagem da tela e o modelo de
-componente) → Solid → (o modelo de programação, com o mesmo JSX) →
-React. O Web Component × Web Component com *signals*, com a mesma classe
-que estende `HTMLElement` e a mesma montagem, põe o imperativo contra o
-granular na ligação do estado com a tela. O Web Component com *signals*
-× Solid é um modelo de programação com duas notações: a coordenação se
-escreve com os mesmos sinais do `solid-js` (`createSignal`,
-`createMemo`, `createEffect`), e a montagem da tela e o modelo de
-componente mudam, também nas partes repetidas e no filho que entra e
-sai da página (`createElement` num efeito contra `<For>` e `<Show>`, ADR
-0037). O Solid × React, com a tela em JSX, põe um declarativo contra o
-outro, com o dialeto do JSX (`class` e `className`) de diferença. Nenhum
-passo muda uma coisa só, e o que muda junto se separa pelo sinal escrito
-(ADR 0021). O Web Component e o React não formam par: a diferença entre
-eles se atribui ao passo da cadeia em que ela aparece, e a que nenhum
-passo explica, pelo sinal escrito, e o imperativo contra a
-re-renderização fica sem par direto (`docs/delineamento.md`, seção "O
-que fica sem controle"). Quando o Web Component com *signals* e o Solid
-divergem numa DC, a célula do granular na tabela-síntese registra a
-divergência (ADR 0017). O Lit e o Angular com
-*signals* saíram da análise em 2026-10-19 e ficam para os trabalhos
+o mínimo (ADR 0013): Web Component → (a ligação do estado com a tela e
+a orquestração) → Web Component com *signals* → (a montagem da tela e
+o modelo de componente) → Solid → (o modelo de programação, com o
+mesmo JSX) → React. O Web Component × Web Component com *signals*, com
+a mesma classe que estende `HTMLElement` e a mesma montagem, também nas
+partes repetidas, que ficam no laço de `createElement` e não no
+`mapArray`, põe o imperativo contra o granular na ligação do estado com
+a tela; a orquestração (a requisição, o relógio, a inscrição) muda
+junto, porque no Web Component com *signals* se escreve como no Solid,
+com `createResource` e `onCleanup` (decisões do autor em 2026-10-23).
+O Web Component com *signals* × Solid é um modelo de programação com
+duas notações: a coordenação se escreve com os mesmos sinais do
+`solid-js` (`createSignal`, `createMemo`, `createEffect`), e a montagem
+da tela e o modelo de componente mudam, também nas partes repetidas e no
+filho que entra e sai da página (`createElement` num efeito contra
+`<For>` e `<Show>`, ADR 0037). O Solid × React, com a tela em JSX, põe
+um declarativo contra o outro, com o dialeto do JSX (`class` e
+`className`) de diferença. Nenhum passo muda uma coisa só, e o que muda
+junto se separa pelo sinal escrito (ADR 0021). O Web Component e o React
+não formam par: a diferença entre eles se atribui ao passo da cadeia em
+que ela aparece, e a que nenhum passo explica, pelo sinal escrito, e o
+imperativo contra a re-renderização fica sem par direto
+(`docs/delineamento.md`, seção "O que fica sem controle"). Quando o Web
+Component com *signals* e o Solid divergem numa DC, a célula do granular
+na tabela-síntese registra a divergência (ADR 0017). O Lit e o Angular
+com *signals* saíram da análise em 2026-10-19 e ficam para os trabalhos
 futuros da conclusão (tcc-dpci); com o jQuery e o Angular com RxJS, que
 continuam fora, estão congelados em `implementacoes/fora-da-analise/`
 (ADR 0013). O quadro do que o delineamento controla está em
@@ -285,21 +289,22 @@ jQuery, o Angular com RxJS, o Svelte e o Vue continuam fora.
     número.
 - **Web Component com *signals* do `solid-js` como a declarativa por
   atualização granular sem JSX**
-  - *pró*: Forma com o Web Component o par que difere só na ligação do
-    estado com a tela: a mesma classe que estende `HTMLElement`, o mesmo
-    esqueleto em HTML num texto e o mesmo `createElement` nas partes
-    repetidas (ADR 0037), com o estado num `createSignal`, o derivado
-    num `createMemo` e cada escrita na tela num `createEffect`; é o
-    único par que põe o imperativo contra o granular com a mesma
-    montagem, o que só o Swing × JavaFX dava, no *desktop* (ADR 0001).
-    Com o Solid, a coordenação se escreve com os mesmos sinais (leitura
-    por chamada, `createSignal`, `createMemo`, `createEffect`), um
-    modelo de programação com duas notações (ADR 0021), e a única
-    dependência é o `solid-js`, que o Solid já usa; outra biblioteca de
-    *signals* traria um vocabulário que tiraria o par com o Solid (ADR
-    0013). Fontes: ADRs 0001, 0013, 0021 e 0037; docs.solidjs.com
-    (2026-04-28). Evidência: fato oficial; protótipo de 2026-10-17, fora
-    do git.
+  - *pró*: Forma com o Web Component o par com a mesma montagem: a
+    mesma classe que estende `HTMLElement`, o mesmo esqueleto em HTML
+    num texto e o mesmo laço de `createElement` nas partes repetidas
+    (ADR 0037), com o estado num `createSignal`, o derivado num
+    `createMemo` ou numa função, como no Solid, e cada escrita na tela
+    num `createEffect`; é o único par que põe o imperativo contra o
+    granular com a mesma montagem, o que só o Swing × JavaFX dava, no
+    *desktop* (ADR 0001). Com o Solid, a coordenação se escreve com os
+    mesmos sinais (leitura por chamada, `createSignal`, `createMemo`,
+    `createEffect`) e a orquestração do mesmo jeito (`createResource`,
+    `onCleanup`), um modelo de programação com duas notações (ADR 0021),
+    e a única dependência é o `solid-js`, que o Solid já usa; outra
+    biblioteca de *signals* traria um vocabulário que tiraria o par com
+    o Solid (ADR 0013). Fontes: ADRs 0001, 0013, 0021 e 0037;
+    docs.solidjs.com (2026-04-28). Evidência: fato oficial; protótipo de
+    2026-10-17, fora do git.
   - *contra*: Forma rara nos programas reais (11 arquivos TypeScript na
     busca de código do GitHub em 2026-10-17, contra 45.824 com `extends
     HTMLElement` e `createElement`): é uma construção de controle, que o
@@ -308,15 +313,18 @@ jQuery, o Angular com RxJS, o Svelte e o Vue continuam fora.
     o leitor pode tomá-lo por imperativo; o texto precisa mostrar o
     sinal escrito do granular, o efeito declarado uma vez por parte da
     tela, que o ambiente de execução reexecuta (ADR 0021). O par com o
-    Solid difere também no modelo de componente (a classe com o
-    `connectedCallback` e o `disconnectedCallback` contra a função com o
-    `onCleanup`) e, na terceira rodada, em que o Web Component com
-    *signals* segue o Web Component, na biblioteca (ADRs 0029 e 0031). O
-    `solid-js` fica na 1.9, porque a 2.0 muda o `createEffect`, e no
-    Node, sem a condição `browser`, resolve para o *build* do servidor,
-    em que os efeitos não rodam e nada avisa. Fontes: ADRs 0013, 0021,
-    0029, 0031 e 0037; busca de código do GitHub (2026-10-17).
-    Evidência: número; fato.
+    Web Component difere na ligação e na orquestração, que segue a do
+    Solid para o par seguinte diferir só na montagem e no modelo de
+    componente (decisão do autor em 2026-10-23, ADR 0013); a análise
+    separa as duas pelo sinal escrito. O par com o Solid difere também
+    no modelo de componente (a classe com o `connectedCallback` e o
+    `disconnectedCallback` contra a função com o `onCleanup`) e, na
+    terceira rodada, em que o Web Component com *signals* segue o Web
+    Component, na biblioteca (ADRs 0029 e 0031). O `solid-js` fica na
+    1.9, porque a 2.0 muda o `createEffect`, e no Node, sem a condição
+    `browser`, resolve para o *build* do servidor, em que os efeitos não
+    rodam e nada avisa. Fontes: ADRs 0013, 0021, 0029, 0031 e 0037;
+    busca de código do GitHub (2026-10-17). Evidência: número; fato.
 - **React como a declarativa por re-renderização**
   - *pró*: A mais usada em todas as medidas (44,7% SO; 85% State of JS;
     204 M downloads por semana); modelo *pull* declarado na própria
@@ -970,3 +978,11 @@ data, e a conclusão passou a dizer que o *shadow DOM* é minoria no
 código de aplicação, e não em geral; entrou a seção "Onde ficam o
 estilo e o *layout*", da mesma pesquisa, que sustenta o ADR 0041. O
 cabeçalho passou a citar os ADRs 0037 e 0041.
+
+Em 2026-10-23, "Tecnologias por modelo de programação" e a entrada do
+Web Component com *signals* em "Prós e contras de cada escolha do ADR
+0013" passaram a dizer que o primeiro passo da cadeia muda a ligação
+do estado com a tela e a orquestração, que no Web Component com
+*signals* segue a do Solid, e que as partes repetidas ficam no laço de
+`createElement` do Web Component (decisões do autor, ADR 0013); antes,
+diziam que o par mudava só a ligação.

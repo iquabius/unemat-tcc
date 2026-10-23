@@ -110,19 +110,19 @@ Custos que o texto precisa declarar:
 Uma comparação por tecnologia seguiria a forma usual, mas responderia
 qual tecnologia, e não qual modelo de programação. A cadeia de pares
 existe para que a categoria possa ser comparada, e cada passo muda o
-mínimo (ADR 0013): Web Component → (a ligação do estado com a tela) →
-Web Component com *signals* → (a montagem da tela e o modelo de
-componente) → Solid → (o modelo de programação, com o mesmo JSX) →
-React. O Web Component e o Web Component com *signals* têm o mesmo
-modelo de componente e a mesma montagem da tela, com modelos de
+mínimo (ADR 0013): Web Component → (a ligação do estado com a tela e
+a orquestração) → Web Component com *signals* → (a montagem da tela e
+o modelo de componente) → Solid → (o modelo de programação, com o mesmo
+JSX) → React. O Web Component e o Web Component com *signals* têm o
+mesmo modelo de componente e a mesma montagem da tela, com modelos de
 programação diferentes; o Web Component com *signals* e o Solid têm o
-mesmo modelo de programação e duas notações; no Solid e no React, a
-tela se monta no mesmo JSX, com modelos de programação diferentes. O
-Web Component e o React não formam par: a diferença entre eles se
-atribui ao passo da cadeia em que aparece, e a que nenhum passo
-explica, pelo sinal escrito (ADR 0021). Até 2026-10-18, os pares eram
-quatro, Web Component × Lit, React × Solid, React × Lit e Solid ×
-Angular com *signals*, com o Lit e o Angular em três interfaces cada.
+mesmo modelo de programação e duas notações; no Solid e no React, a tela
+se monta no mesmo JSX, com modelos de programação diferentes. O Web
+Component e o React não formam par: a diferença entre eles se atribui ao
+passo da cadeia em que aparece, e a que nenhum passo explica, pelo sinal
+escrito (ADR 0021). Até 2026-10-18, os pares eram quatro, Web Component
+× Lit, React × Solid, React × Lit e Solid × Angular com *signals*, com o
+Lit e o Angular em três interfaces cada.
 
 ## As tecnologias por modelo de programação
 
@@ -135,8 +135,9 @@ Angular com *signals*, com o Lit e o Angular em três interfaces cada.
 O Solid e o React diferem também no dialeto do JSX (`className` e
 `class`) e em `&&` e `.map` contra `<Show>` e `<For>`. O Web Component
 com *signals* e o Solid coordenam com os mesmos sinais do `solid-js`
-(`createSignal`, `createMemo`, `createEffect`, leitura por chamada) e
-variam em dois pontos da notação: a montagem da tela e o modelo de
+(`createSignal`, `createMemo`, `createEffect`, leitura por chamada),
+escrevem a orquestração do mesmo jeito (`createResource`, `onCleanup`)
+e variam em dois pontos da notação: a montagem da tela e o modelo de
 componente, a classe que estende `HTMLElement`, com o
 `connectedCallback` e o `disconnectedCallback`, contra a função com o
 `onCleanup` (ADRs 0013 e 0021). Até 2026-10-18, o modelo com duas
@@ -153,19 +154,27 @@ imperativo por atualização manual contra a atualização granular, nas
 sete interfaces (ADR 0013). Nos dois, o componente é uma classe que
 estende `HTMLElement`, o esqueleto da tela se escreve em HTML num
 texto, atribuído ao `innerHTML` uma vez, e as partes repetidas se criam
-com `createElement` (ADR 0037); muda só a ligação do estado com a tela:
-a escrita na tela em cada tratador, contra a escrita declarada uma vez
-num efeito, que o ambiente de execução reexecuta. O imperativo contra a
-re-renderização não tem par direto: o Web Component e o React diferem
-na ligação, na montagem e no modelo de componente, e a diferença entre
-eles se atribui ao passo da cadeia em que aparece, e a que nenhum passo
-explica, pelo sinal escrito. A atribuição supõe que os passos se somam,
-o que falha quando um passo muda a leitura de outro, como a montagem em
-JSX pode mudar a leitura da ligação (ADR 0013). Até 2026-10-18, o par
-do imperativo era o Web Component × Lit, contra a re-renderização, em
-três das cinco interfaces de então, e o imperativo entrava sem par
-controlado contra a atualização granular. O quadro do que o
-delineamento controla, isola e deixa sem controle está em
+com `createElement` (ADR 0037), num laço que o Web Component com
+*signals* refaz num efeito quando a coleção acompanha um *signal*, e não
+no `mapArray` do `<For>` do Solid. Mudam a ligação do estado com a tela,
+a escrita na tela em cada tratador contra a escrita declarada uma vez
+num efeito, que o ambiente de execução reexecuta, e a orquestração (a
+requisição, o relógio, a inscrição), que no Web Component com *signals*
+se escreve como no Solid, com `createResource` e `onCleanup`. As duas
+escolhas são do autor, em 2026-10-23, para a montagem só mudar no passo
+para o Solid e o par com ele diferir só na montagem e no modelo de
+componente; o preço é o primeiro passo mudar a ligação e a orquestração
+juntas, que a análise separa pelo sinal escrito (ADRs 0013 e 0021). O
+imperativo contra a re-renderização não tem par direto: o Web Component
+e o React diferem na ligação, na montagem e no modelo de componente, e a
+diferença entre eles se atribui ao passo da cadeia em que aparece, e a
+que nenhum passo explica, pelo sinal escrito. A atribuição supõe que os
+passos se somam, o que falha quando um passo muda a leitura de outro,
+como a montagem em JSX pode mudar a leitura da ligação (ADR 0013). Até
+2026-10-18, o par do imperativo era o Web Component × Lit, contra a
+re-renderização, em três das cinco interfaces de então, e o imperativo
+entrava sem par controlado contra a atualização granular. O quadro do
+que o delineamento controla, isola e deixa sem controle está em
 `docs/delineamento.md`.
 
 O exemplo que separa React e Solid, com o mesmo JSX: no React,
@@ -891,3 +900,10 @@ Em 2026-10-23, o custo do pré-processador de Sperber e Schlegel (2025,
 p. 32) ficou sem alvo no conjunto analisado, e o trecho saiu da
 análise; a célula "Uso" da seção "Trechos das fontes" dizia que faltava
 decidir se ele valia para o JSX compilado do Solid (decisão do autor).
+
+Também em 2026-10-23, o primeiro passo da cadeia, nas seções "Unidade
+comparada e evidência: o TCC compara categorias" e "As tecnologias por
+modelo de programação", passou a mudar a ligação do estado com a tela e
+a orquestração, que no Web Component com *signals* segue a do Solid, com
+as partes repetidas no laço de `createElement` do Web Component
+(decisões do autor, ADR 0013); antes, o par mudava só a ligação.
