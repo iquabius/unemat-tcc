@@ -9,7 +9,12 @@ import path from "node:path";
 
 export const IMPLEMENTACOES = import.meta.dirname;
 // As tecnologias, na ordem em que os scripts as percorrem.
-export const TECNOLOGIAS = ["web-component", "react", "solid"];
+export const TECNOLOGIAS = [
+  "web-component",
+  "web-component-signals",
+  "react",
+  "solid",
+];
 
 const TIPOS: Record<string, string> = {
   ".html": "text/html; charset=utf-8",

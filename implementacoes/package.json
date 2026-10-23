@@ -4,6 +4,7 @@
   "description": "Implementações das interfaces gráficas do TCC, um projeto por interface e tecnologia",
   "workspaces": [
     "*/web-component",
+    "*/web-component-signals",
     "*/react",
     "*/solid"
   ],

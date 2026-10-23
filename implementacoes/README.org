@@ -37,11 +37,12 @@ abaixo.
   Troque o caminho pelo da implementação desejada. O Vite serve em
   =http://localhost:5173=.
 
-  | Subpasta           | Tecnologia                             |
-  |--------------------+----------------------------------------|
-  | =web-component=    | DOM puro com /custom element/ (classe) |
-  | =react=            | React                                  |
-  | =solid=            | Solid (/signals/)                      |
+  | Subpasta                | Tecnologia                                       |
+  |-------------------------+--------------------------------------------------|
+  | =web-component=         | DOM puro com /custom element/ (classe)           |
+  | =web-component-signals= | o mesmo, com os /signals/ do =solid-js=, sem JSX |
+  | =react=                 | React                                            |
+  | =solid=                 | Solid (/signals/)                                |
 
 * Capturas de tela
 
