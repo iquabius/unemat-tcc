@@ -321,3 +321,29 @@ Swing e JavaFX, com a tela do JavaFX em código, no Formulário.
   num `Bitmap` (commit `7bd5984`); das capturas do Android já
   versionadas, só a `android-compose-inicial` do Formulário mudou, em
   pixels do texto desabilitado, sem diferença visível.
+
+## 2026-10-17, Busca no Android (commits `5e7b9c0` e `08673d6`, fora do master)
+
+A Busca no Views e no Compose ficou no ramo busca-no-android, que não
+foi juntado: com o Android fora da análise (ADRs 0001 e 0005), o autor
+pediu em 2026-10-19 que o ramo fosse excluído. Os commits continuam no
+repositório, sem ramo: `5e7b9c0` ("Implementa a Busca com sugestões no
+Views") e `08673d6` ("Implementa a Busca com sugestões no Compose"), que
+traz no `docs/achados-das-implementacoes.md` dele mais seis achados da
+Busca no Android. Este, registrado aqui em 2026-10-23, é o que a tarefa
+dos trabalhos futuros cita como contraste com a web (tcc-dpci):
+
+- **A mudança do campo por código dispara a busca no Views**
+  (dependências ocultas, propensão a erros): na escolha de uma sugestão,
+  o `setText` do campo chama o `TextWatcher` do `doAfterTextChanged`,
+  que buscaria o rótulo da cidade, e a busca nova mostraria "Buscando…"
+  e depois "Nenhuma cidade encontrada." ao lado do destino escolhido. Na
+  web, o `.value` do Web Component não dispara o `input`, e no React e
+  no Compose o estado novo não chama o `onChange` nem o `onValueChange`.
+  O Views guarda o observador num campo, tira-o antes do `setText` e o
+  põe de volta depois, um campo e duas linhas a mais que só existem por
+  causa do *listener*; sem eles, falha a verificação "8 escolha não
+  dispara busca". As outras formas são um sinal lido no observador, um
+  estado a mais na `Activity`, ou o rótulo no último termo antes do
+  `setText`, que muda o comportamento: colar de novo, num evento só, o
+  termo de antes da escolha voltaria a buscar.
