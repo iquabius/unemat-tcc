@@ -75,9 +75,9 @@ disposição como termo à parte
 
 **Interface**:
 Uma das sete interfaces gráficas especificadas que todas as implementações
-seguem: Reserva de passagem, Busca com sugestões, Login com quarentena,
-Placar ao vivo, conversor de moedas, planilha e Circle Drawer
-(ADR 0002). Onde "a interface" puder ser qualquer interface gráfica, leva
+seguem: Contador, Reserva de passagem, Busca com sugestões, Login com
+quarentena, Placar ao vivo, planilha e Circle Drawer (ADR 0002; o
+conversor de moedas saiu da análise em 2026-10-22). Onde "a interface" puder ser qualquer interface gráfica, leva
 o nome ("a interface da Reserva de passagem") ou o número ("as sete
 interfaces"); o domínio fica no plural ou com "gráfica" ("programar
 interfaces gráficas") (ADR 0034).
@@ -204,7 +204,7 @@ re-renderização para toda atualização (é a do React e do Compose)
 **Funcionalidade**:
 Mudança acrescentada a uma interface na segunda rodada que muda o que o
 usuário percebe ou pode fazer, por qualquer sentido ou tecnologia
-assistiva: a escolha da moeda do conversor, mas também o foco que se move
+assistiva: a lista de contadores do Contador, mas também o foco que se move
 ou a mensagem anunciada ao leitor de tela (requisito de acessibilidade,
 com o critério da WCAG).
 _Avoid_: *feature*; recurso; "o que o usuário vê" (exclui quem não vê a
