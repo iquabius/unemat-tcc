@@ -82,7 +82,7 @@ e [`plataformas/desktop.md`](plataformas/desktop.md).
 | Avaliador | uma pessoa só, o autor, que construiu o que avalia, com familiaridade desigual, maior com o React | limitações (Hertzum e Jacobsen 2003, p. 183; Dagit et al. 2006) | — |
 | Origem das implementações | as atuais foram geradas com agentes de IA a partir de implementações de referência do autor, e não se sabe de quais | ainda não | `docs/processo/implementacoes-no-codesandbox.md`; "Escrever a declaração de uso de IA do TCC a partir do histórico do repositório" (tcc-gjw) |
 | Tamanho das interfaces | pequenas; a segunda rodada as faz crescer por mudanças acrescentadas (ADR 0029), mas o que só aparece em programa grande continua de fora | limitações | Stol e Fitzgerald (2018, p. 11:10) e Green e Blackwell (1998, p. 62), candidatas (`docs/metodo-da-avaliacao.md`, seção "Programas de brinquedo: isolar uma escolha e o limite do tamanho") |
-| Origem do *benchmark* de notação | quatro interfaces adaptam o 7GUIs (Reserva de passagem, conversor, planilha, Circle Drawer), o Login adapta Berry e Serrano (2020), o Placar ao vivo, Meijer (2012); a Busca não tem fonte única | limitações (Sim et al. 2003, p. 76) | ADR 0002 |
+| Origem do *benchmark* de notação | quatro interfaces adaptam o 7GUIs (Contador, Reserva de passagem, planilha, Circle Drawer), o Login adapta Berry e Serrano (2020), o Placar ao vivo, Meijer (2012); a Busca não tem fonte única | limitações (Sim et al. 2003, p. 76) | ADR 0002 |
 
 ## O que cada par isola, DC a DC
 
