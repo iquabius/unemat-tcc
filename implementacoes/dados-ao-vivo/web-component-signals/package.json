@@ -1,0 +1,18 @@
+{
+  "name": "dados-ao-vivo-web-component-signals",
+  "private": true,
+  "type": "module",
+  "description": "Dados ao vivo em Web Component com os signals do solid-js, sem JSX",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -p . && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "solid-js": "^1.9.15"
+  },
+  "devDependencies": {
+    "typescript": "~6.0.3",
+    "vite": "^8.3.1"
+  }
+}
