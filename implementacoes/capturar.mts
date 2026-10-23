@@ -25,6 +25,7 @@ import path from "node:path";
 import { chromium, type Page } from "playwright";
 import {
   IMPLEMENTACOES,
+  TECNOLOGIAS,
   construirEServir,
   implementacoes,
 } from "./implementacoes-web.mts";
@@ -92,6 +93,14 @@ async function registrar(
   }
 }
 
+// A tecnologia de uma captura é a de nome mais longo que prefixa o arquivo:
+// "web-component-" também prefixa "web-component-signals-inicial.png".
+function tecnologiaDa(arquivo: string): string | undefined {
+  return TECNOLOGIAS.filter((t) => arquivo.startsWith(`${t}-`)).sort(
+    (a, b) => b.length - a.length,
+  )[0];
+}
+
 // Capturas versionadas desta tecnologia que nenhuma cena gerou.
 async function procurarSumidas(
   gui: string,
@@ -103,7 +112,7 @@ async function procurarSumidas(
   for (const arquivo of await readdir(versionadas)) {
     const cena = arquivo.slice(tecnologia.length + 1, -".png".length);
     if (
-      arquivo.startsWith(`${tecnologia}-`) &&
+      tecnologiaDa(arquivo) === tecnologia &&
       arquivo.endsWith(".png") &&
       !cenas.includes(cena)
     ) {
