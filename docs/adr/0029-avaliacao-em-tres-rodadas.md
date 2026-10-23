@@ -1,6 +1,6 @@
 # 0029. A avaliação se faz em três rodadas: a primeira constrói as sete interfaces, a segunda muda o comportamento e a terceira só a forma, na Reserva de passagem e no Placar ao vivo
 
-2026-10-19. Interfaces pequenas isolam uma escolha de projeto, mas não
+2026-10-22. Interfaces pequenas isolam uma escolha de projeto, mas não
 mostram o que só aparece quando o programa cresce (Stol e Fitzgerald
 2018, p. 11:10; Green et al. 2006, p. 334), e Kiss (2014) avaliou cada
 implementação num tamanho só, deixando como trabalho futuro estendê-las
@@ -13,14 +13,19 @@ que a tecnologia traz, e todas seguem duas regras comuns, conferidas
 pelo teste de conformidade de cada interface: as mensagens de status são
 anunciadas sem receber o foco (WCAG 2.2, critério 4.1.3), e vale a
 limpeza ao sair da tela, sem vazamento de recursos (Lima, Giusti e
-Dias-Neto 2020), que o conversor e a planilha, sem relógio, requisição
+Dias-Neto 2020), que o Contador e a planilha, sem relógio, requisição
 nem inscrição, cumprem sem botão de esconder nem verificação. A segunda
 muda o comportamento: cada interface recebe, um por commit e na mesma
 ordem nas quatro tecnologias, funcionalidades e requisitos de
 orquestração que a aplicação real que ela reproduz costuma pedir, ainda
 sem bibliotecas; latências, tentativas, prazos e intervalos ficam fixos
-no domínio. São 12 mudanças, 48 commits:
+no domínio. São 13 mudanças, 52 commits:
 
+- Contador: a lista de contadores, em que o usuário acrescenta e remove
+  contadores e o total deriva deles; traz a remoção de um item da
+  coleção com a identidade dos que ficam, o "managing mutation" do
+  *Crud* de Kiss (p. 34), que nenhuma outra mudança traz; o precedente
+  da lista de contadores se confere antes da especificação;
 - Reserva de passagem: a volta empurrada pela ida; quando a ida passa
   da volta, o programa leva a volta ao dia seguinte à ida, em vez de
   mostrar o erro e desabilitar o botão, como no Buson (testado em
@@ -33,15 +38,17 @@ no domínio. São 12 mudanças, 48 commits:
 - Placar ao vivo: a reconexão depois de queda, o bolão, com os pontos de
   cada jogo e o total derivados dos placares e dos palpites, e a
   frequência de atualização, numa lista de 1, 5 e 10 s (WCAG 2.2.2);
-- conversor: a escolha da moeda, entre peso argentino, peso mexicano e
-  yuan chinês, que mantém o campo editado por último e recalcula o
-  outro;
 - planilha: a referência circular, que não se avalia e mostra um aviso,
   a mudança que Kiss imagina no teste de viscosidade do *Cells* (p. 54);
 - Circle Drawer: arrastar os círculos, com o arraste no desfazer, e
   salvar o desenho num servidor simulado a cada mudança, na ordem das
   mudanças; Kiss usa no teste de viscosidade o arrastar e o salvar em
-  arquivo (p. 47), e o servidor com a ordem é a adaptação para a web.
+  arquivo (p. 47), e o servidor com a ordem é a adaptação para a web; e
+  um campo numérico ao lado do *slider* do diâmetro, cada um escrevendo
+  o outro, com o texto inválido ou incompleto que não mexe no círculo,
+  a coordenação nos dois sentidos que saiu com o conversor (ADR 0002),
+  com a identidade no lugar da fórmula; o precedente do controle se
+  confere antes da especificação.
 
 A terceira muda só a forma: refatora o código da segunda rodada da
 Reserva de passagem e do Placar ao vivo para o que o ecossistema de cada
@@ -63,10 +70,12 @@ p. 162), com a regra do menor diff. Da primeira rodada para as outras
 duas, a diferença entre os modelos fica mantida, ampliada, reduzida,
 anulada, invertida ou surgida, e a posição sobe, desce ou fica igual
 (ADR 0017). Se o prazo apertar, saem mudanças inteiras, nas quatro
-tecnologias, nesta ordem, fixada antes da análise: 1) a escolha da
-moeda; 2) o bolão; 3) o "lembrar meu nome"; 4) a terceira rodada do
-Placar ao vivo. A primeira rodada, a cadeia de pares e os tipos de
-exigência que só uma mudança traz não saem.
+tecnologias, nesta ordem, fixada antes da análise: 1) o bolão; 2) o
+"lembrar meu nome"; 3) a terceira rodada do Placar ao vivo (decisão do
+autor em 2026-10-22). A primeira rodada, a cadeia de pares e os tipos
+de exigência que só uma mudança traz não saem: entre eles, a lista de
+contadores (a remoção com a identidade) e o campo do diâmetro (os dois
+sentidos).
 
 Em vez de: as três rodadas de 2026-10-15, com as cinco interfaces de
 então na primeira rodada (33 implementações, os pares fora do Web
@@ -81,7 +90,7 @@ tecnologias na terceira; o conjunto e as tecnologias mudaram (ADRs 0001,
 Em vez de: a volta que acompanha a ida até o usuário editá-la (decisão
 anterior, também de 2026-10-19); daria ao estado um derivado que deixa
 de derivar, mas nenhum site de passagem testado (Buson, ClickBus,
-Google Voos, Kayak) o faz, e o campo editado por último já vem com o
+Google Voos, Kayak) o faz, e o campo editado por último vinha com o
 conversor.
 Em vez de: a volta empurrada mantendo a duração da viagem; mais
 derivação, mas só apareceu fora das viagens, como opção de uma
@@ -100,7 +109,7 @@ refatoração ficaria sem a rede do teste da segunda rodada.
 Em vez de: a terceira rodada nas sete interfaces (28 refatorações), só
 na Reserva de passagem ou na Reserva de passagem e na Busca; a primeira
 não tem escolha a defender, mas a planilha, o Circle Drawer e o
-conversor quase não têm biblioteca típica; as outras duas deixam a
+Contador quase não têm biblioteca típica; as outras duas deixam a
 rodada num eixo só.
 Em vez de: o botão de esconder também no conversor e na planilha, com a
 verificação da limpeza; uniforme com as outras interfaces, mas a
@@ -109,6 +118,20 @@ alheio a elas.
 Em vez de: a tarifa no conversor e o destaque das dependentes na
 planilha; reais, mas a tarifa muda pouco além da fórmula do domínio, e o
 destaque é aparência derivada, sem fonte em Kiss.
+Em vez de: as segundas rodadas de 2026-10-19, com a escolha da moeda no
+conversor (entre peso argentino, peso mexicano e yuan chinês, mantendo
+o campo editado por último) e o Circle Drawer só com arrastar e salvar,
+12 mudanças e 48 commits; o conversor saiu da análise (ADR 0002), e a
+escolha da moeda era a primeira na ordem de corte.
+Em vez de: o diálogo não modal no Circle Drawer, preso ao círculo
+escolhido enquanto a lista muda (proposta de 2026-10-19, tcc-wqvo);
+juntaria o diálogo, o histórico e o arrastar num diff de efeito dominó,
+mas não traz tipo novo, e a interface já tem três mudanças, contra uma
+ou duas nas outras (decisão do autor em 2026-10-22).
+Em vez de: a ordem de corte de 2026-10-19, com a escolha da moeda
+primeiro, ou a lista de contadores ou o campo do diâmetro no lugar
+dela; a primeira saiu com o conversor, e as outras duas abririam
+exceção à regra de não cortar o tipo que só uma mudança traz.
 Em vez de: cortar a terceira rodada primeiro, ou não fixar a ordem;
 protegeria a segunda rodada inteira, ou daria flexibilidade, mas a P1.2
 poderia ficar sem resposta, e um corte escolhido depois de ver o código
@@ -130,12 +153,14 @@ rodada, cruzada ou não (Gail e Simon 1985); dá nome a "invertida" e a
 e o trabalho não testa.
 Custo: o prazo, com a primeira rodada até 2026-10-30 e a segunda e a
 terceira em novembro, antes do fechamento em 2026-11-20; 28
-implementações, 48 commits e 8 refatorações, que não cabem inteiras no
-pós-texto; três interfaces novas e a Reserva de passagem refeita ainda
-na primeira rodada, e o Placar ao vivo refeito sobre o WebSocket
+implementações, 52 commits e 8 refatorações, que não cabem inteiras no
+pós-texto; duas interfaces novas, o Contador de volta e a Reserva de
+passagem refeita ainda na primeira rodada, e o Placar ao vivo refeito sobre o WebSocket
 simulado; os requisitos da segunda rodada foram escolhidos com parte
 das implementações prontas, embora antes da análise; a conclusão sobre
-cada eixo vem de três ou quatro interfaces; no Placar ao vivo, a forma
+cada eixo vem de três interfaces; o Circle Drawer fica com três
+mudanças na segunda rodada, e o diff dele pesa mais que o das outras;
+os dois sentidos só entram na segunda rodada, e com a identidade; no Placar ao vivo, a forma
 típica do Web Component e do Web Component com *signals* já é a API da
 plataforma, e a terceira rodada deles ali fica sem diff; na terceira
 rodada, o Web Component com *signals* segue o Web Component, e o par com
@@ -148,11 +173,11 @@ leitor de tela real.
 
 Fontes: `docs/metodo-da-avaliacao.md`, seções de "Rodadas e crescimento
 do código" a "O que muda entre rodadas: vocabulário", com os trechos e
-as páginas; Kiss (2014, p. 3, 47, 54, 96 e 103-104); WCAG 2.2 (W3C,
+as páginas; Kiss (2014, p. 3, 34, 47, 54, 96 e 103-104); WCAG 2.2 (W3C,
 2024-12-12) e o padrão *Combobox* do WAI-ARIA APG (lidos em 2026-10-12);
 Berry e Serrano (2020, p. 534-539); Lima, Giusti e Dias-Neto (2020,
 SBQS, WTDQS);
 `tmp/pesquisas/2026-10-17-temas-do-conversor-e-da-planilha.md` e
 `tmp/pesquisas/2026-10-17-aparencia-por-estado-e-rodadas.md` (fora do
-git); ADRs 0002, 0012, 0013, 0017 e 0031; tarefas tcc-vgrx, tcc-5y5g e
-tcc-z6tg.
+git); ADRs 0002, 0012, 0013, 0017 e 0031; tarefas tcc-vgrx, tcc-5y5g,
+tcc-wqvo e tcc-z6tg.
