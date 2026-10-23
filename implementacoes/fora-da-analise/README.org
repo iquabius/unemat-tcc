@@ -2,21 +2,36 @@
 
 Esta pasta guarda o código de =implementacoes/= que o texto não analisa,
 congelado como estava ao sair da análise: quase tudo em 2026-10-13, o
-Android e o desktop em 2026-10-18, e o Lit, o Angular com /signals/ e o
-Quadro de tarefas em 2026-10-19. Nada aqui compila, testa, formata nem
-captura pelos comandos de =implementacoes/=, e as mudanças na
-especificação das interfaces (=implementacoes/openspec/=) não são
-portadas para cá. Em =implementacoes/= ficam só as interfaces e as
-tecnologias analisadas.
+Android e o desktop em 2026-10-18, o Lit, o Angular com /signals/ e o
+Quadro de tarefas em 2026-10-19, e o conversor de moedas em 2026-10-23.
+Nada aqui compila, testa, formata nem captura pelos comandos de
+=implementacoes/=, e as mudanças na especificação das interfaces
+(=implementacoes/openspec/=) não são portadas para cá. Em
+=implementacoes/= ficam só as interfaces e as tecnologias analisadas.
 
 A estrutura é a de =implementacoes/=: =<interface>/<tecnologia>/=, mais os
 projetos que reuniam o Android, o desktop e o Qt.
 
 Cada pasta, o que é, por que saiu e o ADR:
 
-- =contador/=: o Contador, na web (seis tecnologias) e no Android. Não tem
-  problema de coordenação próprio: evento → estado → tela aparece em todas
-  as tarefas (ADR 0002).
+- =contador/=, com =jquery/=, =angular-rxjs/=, =angular-signals/=,
+  =android-views/= e =android-compose/=: o Contador nessas tecnologias,
+  que saíram da análise com as das outras interfaces (itens abaixo). O
+  Contador saiu inteiro em 2026-10-13, por não ter problema de
+  coordenação próprio, e voltou à análise em 2026-10-23, por decisão do
+  autor de 2026-10-22, como a primeira das sete interfaces, a base da
+  primeira leitura (ADR 0002): o Web Component, o React e o Solid, com o
+  =README.org=, o estilo e as cenas, voltaram para
+  =implementacoes/contador/=.
+- =conversor-de-moedas/=: o conversor de moedas, no Web Component, no
+  React e no Solid, com a especificação do OpenSpec ao lado, em
+  =spec.md=. Saiu em 2026-10-23, pela mesma decisão: com ele, a primeira
+  leitura ficava sem a base do Contador, e o estado pesava em quatro
+  interfaces contra três da orquestração; o derivado nos dois sentidos,
+  que só ele tinha, passa ao campo numérico ao lado do /slider/ do
+  diâmetro, no Circle Drawer da segunda rodada (ADRs 0002 e 0029). A
+  proposta que o especificou continua em
+  =implementacoes/openspec/changes/archive/=.
 - =lista-filtravel/=: a Lista filtrável, na web, no Android, em Java e no
   Qt. É a menos densa em coordenação e cabe quase toda no Carrinho (ADR
   0002).
@@ -76,17 +91,19 @@ gerou, com o mesmo nome de antes (=<tecnologia>-<cena>.png=).
 
   O código importa o que tinha ao lado em =casos/=: o =dominio.ts= e o
   =estilo.css= da tarefa, o =tsconfig.base.json= de =casos/=, o
-  =dominio-kotlin= do Android. No Contador, na Lista, no Carrinho e no
-  Quadro, que saíram inteiros, o que fica na pasta da tarefa veio junto,
-  menos o =tsconfig.base.json= e o =casos/android/=. No Formulário, na
-  Busca, no Login e nos Dados ao vivo, o domínio, o estilo e o teste de
-  conformidade ficaram em =implementacoes/<tarefa>/= e continuam mudando
+  =dominio-kotlin= do Android. Na Lista, no Carrinho, no Quadro e no
+  conversor, que saíram inteiros, o que fica na pasta da tarefa veio
+  junto, menos o =tsconfig.base.json= e o =casos/android/=. No Contador,
+  no Formulário, na Busca, no Login e nos Dados ao vivo, o domínio, o
+  estilo e o teste de conformidade ficaram em =implementacoes/<tarefa>/=
+  (os do Contador voltaram para lá em 2026-10-23) e continuam mudando
   com a especificação: o código daqui se lê contra a versão deles do
   commit anterior ao movimento.
 
-  O =README.org= e o teste do Quadro procuram a especificação em
-  =implementacoes/openspec/specs/quadro-de-tarefas/=, onde ela estava; ela
-  veio para =quadro-de-tarefas/spec.md=, ao lado deles.
+  O =README.org= e o teste do Quadro e do conversor procuram a
+  especificação em =implementacoes/openspec/specs/<interface>/=, onde ela
+  estava; ela veio para =quadro-de-tarefas/spec.md= e
+  =conversor-de-moedas/spec.md=, ao lado deles.
 
   O Android e o desktop vieram com o domínio em Kotlin, que fica na pasta
   de cada interface, e com os projetos Gradle, que procuram os módulos na

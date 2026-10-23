@@ -285,15 +285,14 @@ O `bin/testes-da-revisao.py` o roda nas interfaces que o ramo muda.
   três (medido em 2026-10-12). Se uma versão nova do React falhar só em
   verificações logo depois de um efeito, meça de novo.
 - **Limpeza ao sair da tela.** Na interface que abre requisições, relógios
-  ou inscrições (todas menos o conversor de moedas e a planilha,
-  ADR 0029), o `dominio.ts` conta o que está aberto numa função em
-  `globalThis`, como o `contarAbertos()` do Login, e cada implementação
-  tem um botão que esconde e mostra a interface. O teste esconde a
-  interface e confere zero **antes** de avançar o relógio: uma requisição
-  esquecida terminaria sozinha na latência, e a conferência depois dela
-  passaria (achado da revisão do Login, 2026-10-12). Pelo mesmo motivo,
-  confira a contagem logo depois da ação que deve cancelar, como a
-  tentativa nova do Login.
+  ou inscrições (todas menos o Contador e a planilha, ADR 0029), o
+  `dominio.ts` conta o que está aberto numa função em `globalThis`, como o
+  `contarAbertos()` do Login, e cada implementação tem um botão que
+  esconde e mostra a interface. O teste esconde a interface e confere zero
+  **antes** de avançar o relógio: uma requisição esquecida terminaria
+  sozinha na latência, e a conferência depois dela passaria (achado da
+  revisão do Login, 2026-10-12). Pelo mesmo motivo, confira a contagem
+  logo depois da ação que deve cancelar, como a tentativa nova do Login.
 - Confira que o teste pega erros: introduza na implementação um defeito
   de cada regra (sem o `abort()`, sem a limpeza do efeito, sem o
   `disconnectedCallback`) e veja a verificação certa falhar no `npm run
@@ -333,15 +332,18 @@ conferidas.
 ## Fora da análise
 
 `implementacoes/fora-da-analise/` guarda, com a estrutura de `implementacoes/`
-(`<interface>/<tecnologia>/`), o código que saiu da análise: o Contador, a
-Lista filtrável e o Carrinho (ADR 0002), o jQuery e o Angular com RxJS
-(ADR 0013), o JavaFX com FXML, o par Qt Widgets × QML (ADR 0001), o
+(`<interface>/<tecnologia>/`), o código que saiu da análise: a Lista
+filtrável e o Carrinho (ADR 0002), o jQuery e o Angular com RxJS (ADR
+0013), o JavaFX com FXML, o par Qt Widgets × QML (ADR 0001), o
 cronômetro de 2017 (ADR 0012), desde 2026-10-18 o Android (Views ×
 Compose) e o desktop (Swing × JavaFX), por decisão do autor de
-2026-10-17, e desde 2026-10-19 o Lit e o Angular com *signals* (ADR
-0013) e o Quadro de tarefas, com a especificação ao lado (ADR 0002). O
-`README.org` de lá diz o que é cada pasta, por que saiu e como rodá-la
-no commit anterior ao movimento.
+2026-10-17, desde 2026-10-19 o Lit e o Angular com *signals* (ADR 0013)
+e o Quadro de tarefas, com a especificação ao lado (ADR 0002), e desde
+2026-10-23 o conversor de moedas, também com a especificação ao lado
+(ADR 0002). O Contador, que saiu em 2026-10-13, voltou em 2026-10-23
+no Web Component, no React e no Solid; as outras tecnologias dele ficam
+lá. O `README.org` de lá diz o que é cada pasta, por que saiu e como
+rodá-la no commit anterior ao movimento.
 
 - É registro congelado (decisão do autor em 2026-10-13): não se edita,
   não compila, não se testa, não se formata nem se captura. Os
