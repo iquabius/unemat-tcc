@@ -1,6 +1,6 @@
 # 0029. A avaliação se faz em três rodadas: a primeira constrói as sete interfaces, a segunda muda o comportamento e a terceira só a forma, na Reserva de passagem e no Placar ao vivo
 
-2026-10-22. Interfaces pequenas isolam uma escolha de projeto, mas não
+2026-10-23. Interfaces pequenas isolam uma escolha de projeto, mas não
 mostram o que só aparece quando o programa cresce (Stol e Fitzgerald
 2018, p. 11:10; Green et al. 2006, p. 334), e Kiss (2014) avaliou cada
 implementação num tamanho só, deixando como trabalho futuro estendê-las
@@ -38,8 +38,13 @@ no domínio. São 13 mudanças, 52 commits:
 - Placar ao vivo: a reconexão depois de queda, o bolão, com os pontos de
   cada jogo e o total derivados dos placares e dos palpites, e a
   frequência de atualização, numa lista de 1, 5 e 10 s (WCAG 2.2.2);
-- planilha: a referência circular, que não se avalia e mostra um aviso,
-  a mudança que Kiss imagina no teste de viscosidade do *Cells* (p. 54);
+- planilha: a referência circular, a mudança que Kiss imagina no teste
+  de viscosidade do *Cells* (p. 54); a fórmula que fecha o ciclo se
+  grava, como no Google Sheets e no Excel na web (testados em
+  2026-10-23); as células do ciclo não se avaliam e mostram "#CICLO",
+  com um aviso, e as que dependem delas mostram "#ERRO"; a detecção é
+  parte da propagação e se escreve em cada implementação (ADR 0033), e
+  o contador de avaliações confere que o ciclo não se avalia;
 - Circle Drawer: arrastar os círculos, com o arraste no desfazer, e
   salvar o desenho num servidor simulado a cada mudança, na ordem das
   mudanças; Kiss usa no teste de viscosidade o arrastar e o salvar em
@@ -115,6 +120,20 @@ Em vez de: o botão de esconder também no conversor e na planilha, com a
 verificação da limpeza; uniforme com as outras interfaces, mas a
 contagem daria zero em qualquer tecnologia, e o botão seria código
 alheio a elas.
+Em vez de: na planilha, o "#ERRO" com mensagem própria, como o "#REF!"
+do Google Sheets, ou a marca do ciclo também nas dependentes, como no
+Sheets e no LibreOffice Calc; teriam precedente, mas a grade não
+apontaria as células a corrigir, e a segunda pediria uma regra de qual
+marca vence (decisões do autor em 2026-10-23).
+Em vez de: o 0 do Excel, ou recusar no Enter a fórmula que fecha o
+ciclo, a leitura literal do "prevent" de Kiss (p. 54); o 0 passaria às
+dependentes como valor certo, e a recusa tiraria da mudança a
+propagação, que ela existe para medir.
+Em vez de: a detecção do ciclo no domínio, numa função pura sobre as
+fórmulas; um algoritmo só e um diff parecido nas quatro tecnologias,
+mas decidir quando parar é propagação (ADR 0033), e no Solid a detecção
+rodaria fora do grafo dos memos, onde está a diferença entre os
+modelos.
 Em vez de: a tarifa no conversor e o destaque das dependentes na
 planilha; reais, mas a tarifa muda pouco além da fórmula do domínio, e o
 destaque é aparência derivada, sem fonte em Kiss.
@@ -169,15 +188,18 @@ bibliotecas e convenções, e a hipótese de que o ecossistema rebalanceia o tra
 cognitivo fica sem teste; os seis valores da linha não vêm de fonte; a
 limpeza ao sair da tela se apoia no ciclo de vida de cada tecnologia; a
 acessibilidade se verifica pelos atributos e pelo foco, e não com um
-leitor de tela real.
+leitor de tela real; na planilha, quatro detecções do ciclo para
+escrever, e o "#CICLO" só nas células do ciclo fica sem precedente nos
+programas testados.
 
 Fontes: `docs/metodo-da-avaliacao.md`, seções de "Rodadas e crescimento
 do código" a "O que muda entre rodadas: vocabulário", com os trechos e
 as páginas; Kiss (2014, p. 3, 34, 47, 54, 96 e 103-104); WCAG 2.2 (W3C,
 2024-12-12) e o padrão *Combobox* do WAI-ARIA APG (lidos em 2026-10-12);
-Berry e Serrano (2020, p. 534-539); Lima, Giusti e Dias-Neto (2020,
+Berry e Serrano (2020, p. 534-539); o ciclo no Google Sheets, no
+Excel na web e no LibreOffice Calc, testado em 2026-10-23; Lima, Giusti e Dias-Neto (2020,
 SBQS, WTDQS);
 `tmp/pesquisas/2026-10-17-temas-do-conversor-e-da-planilha.md` e
 `tmp/pesquisas/2026-10-17-aparencia-por-estado-e-rodadas.md` (fora do
 git); ADRs 0002, 0012, 0013, 0017 e 0031; tarefas tcc-vgrx, tcc-5y5g,
-tcc-wqvo e tcc-z6tg.
+tcc-wqvo, tcc-z6tg e tcc-o5er.
