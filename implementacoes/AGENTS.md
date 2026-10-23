@@ -13,8 +13,9 @@ Toda alteração que possa mudar a tela ou o comportamento de uma
 implementação exige conferir as capturas antes de dar o trabalho por pronto
 ou commitar. Isso inclui o código de
 `implementacoes/<interface>/<tecnologia>/`, o `estilo.css`, o `dominio.ts`
-e o `cenas.mts` de cada interface, o `implementacoes/capturar.mts` e as
-dependências (`package.json` e `package-lock.json`).
+e o `cenas.mts` de cada interface, o `implementacoes/capturar.mts`, o
+`implementacoes/implementacoes-web.mts`, que lista, constrói e serve as
+implementações, e as dependências (`package.json` e `package-lock.json`).
 
 1. Rode, de `implementacoes/`, onde está o `package.json` dos *workspaces*:
 
