@@ -103,9 +103,11 @@ Entrada: a interface e a rodada. Saída: `plano.md` (modelo em
    trechos o diff toca, quantos e por quê.
 5. **Comparações da rodada**: os três modelos de programação e os
    passos da cadeia do ADR 0013, cada um com o que muda: Web Component →
-   Web Component com *signals* (a ligação do estado com a tela) → Solid
-   (a montagem da tela e o modelo de componente) → React (o modelo de
-   programação, com o mesmo JSX). A diferença entre o Web Component e o
+   Web Component com *signals* (a ligação do estado com a tela e a
+   orquestração, que segue a do Solid) → Solid (a montagem da tela e o
+   modelo de componente) → React (o modelo de programação, com o mesmo
+   JSX). No primeiro passo, separe a ligação da orquestração pelo sinal
+   escrito (ADR 0021). A diferença entre o Web Component e o
    React, que não formam par, se atribui ao passo da cadeia em que ela
    aparece, e a que nenhum passo explica, pelo sinal escrito (ADR 0013).
 6. **Apoio medido**: linhas por implementação, com o script do ADR 0012

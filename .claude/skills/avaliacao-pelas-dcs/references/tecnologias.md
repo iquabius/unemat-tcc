@@ -42,21 +42,21 @@ Component → Web Component com *signals* → Solid → React.
 - Montagem: o esqueleto em *template literal* marcado `/* HTML */`,
   atribuído ao `innerHTML` uma vez; as partes repetidas e os filhos com
   `createElement` e `append` (`implementacoes/AGENTS.md`). É a mesma
-  montagem do Web Component com *signals*: o passo entre os dois muda só
-  a ligação do estado com a tela (ADR 0013).
+  montagem do Web Component com *signals*: o passo entre os dois muda a
+  ligação do estado com a tela e a orquestração (ADR 0013).
 - Documentação: developer.mozilla.org, "Using custom elements".
 
 ## Web Component com *signals* (declarativo por atualização granular)
 
-Ainda sem implementação (tcc-2pu0): os pontos abaixo vêm dos ADRs 0013
-e 0021 e da tarefa, e não do código. Confira cada um na implementação
-antes do guia.
+Implementado na Reserva de passagem, na Busca, no Login e no Placar ao
+vivo (tcc-2pu0); a regra está em `implementacoes/AGENTS.md`. Confira
+cada ponto no código da interface antes do guia.
 
 - Arquivos: `web-component-signals/` (tcc-2pu0), com a classe que
   estende `HTMLElement`, como no Web Component; o `solid-js` entra só
   como biblioteca de reatividade (ADR 0013).
 - Estado: `createSignal`; lê-se chamando, como no Solid (ADR 0021).
-- Derivado: `createMemo`.
+- Derivado: `createMemo` ou uma função, como no Solid da interface.
 - Evento → estado: o tratador altera um *signal*.
 - Estado → tela: cada escrita na tela fica num `createEffect`, que o
   ambiente de execução reexecuta só quando muda um *signal* lido nele. A
@@ -65,12 +65,19 @@ antes do guia.
   "Custo").
 - Ciclo de vida: um `createRoot` aberto no `connectedCallback` e
   fechado no `disconnectedCallback`.
+- Orquestração: a do Solid da interface, e não a do Web Component, como
+  o `createResource` da Busca; o que o Solid limpa (o relógio, a
+  inscrição, a tentativa aberta) se registra com `onCleanup` dentro do
+  `createRoot` (ADR 0013, decisão do autor em 2026-10-23). O passo do
+  Web Component muda a ligação e a orquestração juntas, e a análise as
+  separa pelo sinal escrito (ADR 0021).
 - Montagem: a do Web Component, o esqueleto em HTML num texto atribuído
-  ao `innerHTML` uma vez e o `createElement` nas partes repetidas (ADR
-  0037). Com o Solid, a diferença é a montagem da tela e o modelo de
-  componente: a classe com o `connectedCallback` e o
-  `disconnectedCallback` contra a função com o `onCleanup` (ADRs 0013 e
-  0021).
+  ao `innerHTML` uma vez e o laço de `createElement` nas partes
+  repetidas, nunca o `mapArray`: a coleção que acompanha um *signal* se
+  remonta num efeito que a lê (ADRs 0013 e 0037). Com o Solid, a
+  diferença é a montagem da tela e o modelo de componente: a classe com
+  o `connectedCallback` e o `disconnectedCallback` contra a função com o
+  `onCleanup` (ADRs 0013 e 0021).
 - Execução: no Node, sem a condição `browser`, o `solid-js` resolve
   para o *build* do servidor, em que os efeitos não rodam e nada avisa
   (ADR 0013); por isso, a execução que depende dos efeitos, como o teste
