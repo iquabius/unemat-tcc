@@ -630,6 +630,21 @@ Arquitetura de sistemas:
   cadeia (o modelo de componente com classe, decorador e injeção de
   dependências, ADR 0021). O contraste com o Angular numa seção depois
   da análise está na tarefa da seção de contraste.
+- **O custo do pré-processador não tem alvo no conjunto analisado**,
+  decisão do autor de 2026-10-23. No Solid, o compilador transforma o
+  JSX, o código que monta a tela, e os *signals* do solid-js rodam sem
+  tela e sem compilador: o código que altera o estado chama o *setter*
+  da biblioteca, e não segue convenção que um pré-processador
+  reconheça. No Web Component com *signals*, não há compilador. E as
+  regras de cada interface ficam no domínio comum, fora da tela (ADR
+  0010). A convenção de compilador do Solid que existe, não
+  desestruturar as *props*, fica no código da tela, e não no que altera
+  o estado. O trecho sai da análise (dependências ocultas e
+  acoplamento) e fica no argumento da escolha do Solid no lugar do
+  Angular e na seção de contraste. Rejeitados: ler o custo numa forma
+  mais fraca, o estado que só se lê com a biblioteca reativa, que
+  esticaria a fonte do *toolkit* de interface para a biblioteca; e
+  decidir depois da leitura por DC.
 - **O React é reativo para Salvaneschi et al. (2014, p. 564).** O texto
   diz por que o TCC não o chama assim.
 - **A semântica de Madsen et al. (2020) trata os *hooks* como
@@ -774,7 +789,7 @@ Trechos que saíram da introdução ou não couberam nela, guardados em
 | Sperber e Schlegel 2025 (`sperber2025`), FUNARCH | "Model-View-Update solves the Update challenge: A single function describes view construction, no separate logic for view update is needed." | p. 32 | conferido em 2026-10-09 | declarativos (intro.org, §9); fundamentação do MVU |
 | Sperber e Schlegel 2025 | "Modern OO toolkits like Angular, Svelte, and Vue.js have also attempted to solve the Update challenge [...]. However, instead of requiring the programmer to implement the update logic manually, these toolkits feature a pre-processor that generates the update code automatically from the construction code." | p. 32 | conferido em 2026-10-09 | declarativos (intro.org, §9); o granular descrito por tecnologias fora da análise (seção "Tensões que o texto precisa enfrentar") |
 | Sperber e Schlegel 2025 | "React's render function corresponds to Elm's view: It transforms the model state into a HTML tree."; o React "re-renders the entire UI on each interaction, just like Elm" | p. 32 | conferido em 2026-10-09 | re-renderização, na fundamentação; "a UI inteira" e "conceitualmente": não citar para o componente |
-| Sperber e Schlegel 2025 | o custo do pré-processador: o modelo "cannot be implemented independently of the UI toolkit, and is thus coupled to the view—effectively giving up the Model/View separation" | p. 32 | conferido em 2026-10-09 | análise: dependências ocultas e acoplamento, no Angular até 2026-10-18; falta dizer se vale para o JSX compilado do Solid |
+| Sperber e Schlegel 2025 | o custo do pré-processador: o modelo "cannot be implemented independently of the UI toolkit, and is thus coupled to the view—effectively giving up the Model/View separation" | p. 32 | conferido em 2026-10-09 | argumento da escolha do Solid no lugar do Angular e seção de contraste; sem alvo no conjunto analisado (decisão do autor de 2026-10-23, seção "Tensões que o texto precisa enfrentar"); na análise, dependências ocultas e acoplamento, no Angular até 2026-10-18 |
 | Lee, Ahn e Yi 2025 (`lee2025`), OOPSLA | "the same component is called for both creating a new view and updating an existing view" | 289:2 | conferido em 2026-10-09 | re-renderização (intro.org, §9) |
 | Lee, Ahn e Yi 2025 | ao alterar o estado, o React faz o Check "by invoking the component body again. If the state whose setter function is called is actually modified, the component re-renders" | 289:6 | conferido em 2026-10-09 | re-renderização (intro.org, §9); o componente reexecuta, e só re-renderiza se o estado mudou |
 | Lee, Ahn e Yi 2025 | Tabela 2, "Comparison of reactive UI frameworks": "Re-read Spec." é Yes no React, Preact, Dioxus e SwiftUI, e No no Solid, Leptos, Angular, Vue e Svelte; atualização "Queued" no React | 289:38 | conferido em 2026-10-09 | React × Solid (intro.org, §20) |
@@ -871,3 +886,8 @@ granular passou a se apoiar em Lee, Ahn e Yi (2025, 289:38), e o
 trecho de Sperber e Schlegel (2025, p. 32) ficou guardado, na seção
 "Tensões que o texto precisa enfrentar", para explicar por que o
 granular é o Solid, e não o Angular (decisões do autor).
+
+Em 2026-10-23, o custo do pré-processador de Sperber e Schlegel (2025,
+p. 32) ficou sem alvo no conjunto analisado, e o trecho saiu da
+análise; a célula "Uso" da seção "Trechos das fontes" dizia que faltava
+decidir se ele valia para o JSX compilado do Solid (decisão do autor).
