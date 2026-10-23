@@ -14,9 +14,10 @@ biblioteca de formulário na terceira rodada: o React, o react-hook-form
 por uma maioria estreita (52,9%). O Web Component fica com a API de
 validação de restrições da plataforma, porque nenhuma candidata sem
 *framework* soma a maioria, e o Web Component com *signals* o segue por
-decisão do autor, e não pela medida, para o par entre os dois continuar
-diferindo só na ligação do estado com a tela (ADR 0031, decisão de
-2026-10-19).
+decisão do autor, e não pela medida, para o passo entre os dois, que já
+muda a ligação do estado com a tela e a orquestração (ADR 0013), não
+mudar também a biblioteca (ADR 0031, decisão de 2026-10-19, mantida em
+2026-10-23).
 
 ## A regra
 
@@ -227,3 +228,8 @@ ANDROID, developer.android.com, `TextInputLayout` (2026-10-12);
   (ADR 0031); as medidas do Lit, do Angular, do NuGet e do Maven, com as
   ressalvas que só valem para elas, foram sem mudança para a seção
   "Tecnologias fora da análise (medida de 2026-10-12)".
+- 2026-10-23: a conclusão passou a dar como motivo de o Web Component
+  com *signals* seguir o Web Component que o passo entre os dois, que
+  já muda a ligação do estado com a tela e a orquestração (ADR 0013),
+  não mude também a biblioteca; antes, dizia que o par continuaria
+  diferindo só na ligação. A decisão ficou (decisão do autor).

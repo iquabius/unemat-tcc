@@ -18,9 +18,10 @@ no Solid (52,9%), e, no Placar ao vivo, o `react-use-websocket` 4.13.0
 no React (95,5%) e o `@solid-primitives/websocket` 1.4.0 no Solid
 (99,97%). O Web Component fica com a API da plataforma, a validação de
 restrições e o `WebSocket` do navegador, e o Web Component com *signals*
-o segue por decisão, e não pela medida, para o par entre os dois
-continuar diferindo só na ligação do estado com a tela (decisão do autor
-em 2026-10-19). As duas bibliotecas do Placar ao vivo abrem a conexão
+o segue por decisão, e não pela medida, para o passo entre os dois, que
+já muda a ligação do estado com a tela e a orquestração (ADR 0013), não
+mudar também a biblioteca (decisão do autor em 2026-10-19, mantida em
+2026-10-23). As duas bibliotecas do Placar ao vivo abrem a conexão
 por URL, e a fonte simulada do domínio passa a falar WebSocket desde a
 primeira rodada (decisão do autor em 2026-10-19): a terceira rodada do
 React e do Solid troca só a reconexão escrita pela biblioteca, e a do

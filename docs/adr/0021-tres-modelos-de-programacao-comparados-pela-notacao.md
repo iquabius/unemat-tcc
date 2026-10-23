@@ -34,9 +34,10 @@ chamada) e são um modelo de programação com duas notações, que variam na
 montagem da tela (HTML num texto e `createElement`, contra JSX) e no
 modelo de componente (a classe que estende `HTMLElement` contra a
 função); e o Web Component e o Web Component com *signals* têm a mesma
-montagem e são dois modelos de programação, que diferem só na ligação do
-estado com a tela (ADR 0013). A notação muda com as abstrações de cada
-tecnologia (o *callback* registrado, o componente reexecutado, o
+montagem e são dois modelos de programação, que diferem na ligação do
+estado com a tela e na orquestração, que no Web Component com *signals*
+se escreve como no Solid (ADR 0013). A notação muda com as abstrações de
+cada tecnologia (o *callback* registrado, o componente reexecutado, o
 *signal*), não com a linguagem, porque uma abstração "changes the
 notation" (Green e Blackwell 1998, p. 24). Em cada DC, a análise aponta
 se a diferença está na coordenação, na montagem da tela ou na ligação
