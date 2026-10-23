@@ -430,9 +430,10 @@ rascunho, e a história dele se condensa antes do merge (passo 5).
    `bin/testes-da-revisao.py` (a linha `teste:` do `.config/revisao`),
    que confere as mensagens da série (`bin/conferir-commit.py --serie`:
    as regras mecânicas e os shas, caminhos, tarefas e ADRs citados) e
-   escolhe pelo diff do ramo a `unittest` da pasta mudada, as
-   capturas das interfaces mudadas, a especificação e a formatação, e dá
-   à worktree o `npm ci` que falta; se ele falha, a ponta fica sem marca.
+   escolhe pelo diff do ramo a `unittest` da pasta mudada, o teste de
+   conformidade e as capturas das interfaces mudadas, a especificação e
+   a formatação, e dá à worktree o `npm ci` que falta; se ele falha, a
+   ponta fica sem marca.
    Achado que o autor decide deixar de pé, ou teste que não dá para
    rodar: `git revisao excecao -m "<motivo do autor>"`, que só o autor
    decide. Nenhum commit `fixup!` chega ao `master`, e o que já está

@@ -35,41 +35,49 @@ class Escolha(unittest.TestCase):
     def test_script_sem_testes_nao_roda_nada(self):
         self.assertEqual(rotulos("docs/jetbrains.py"), [])
 
-    def test_interface_roda_as_capturas_dela_a_especificacao_e_a_formatacao(self):
+    def test_interface_roda_o_teste_as_capturas_dela_a_especificacao_e_a_formatacao(self):
         self.assertEqual(
             rotulos("implementacoes/formulario/react/src/App.tsx",
                     "implementacoes/dados-ao-vivo/dominio.ts",
                     "implementacoes/dados-ao-vivo/solid/src/main.tsx"),
-            ["especificação", "formatação", "capturas de dados-ao-vivo, formulario"])
+            ["especificação", "formatação",
+             "teste de conformidade de dados-ao-vivo, formulario",
+             "capturas de dados-ao-vivo, formulario"])
 
     def test_especificacao_roda_so_a_conferencia_dela(self):
         self.assertEqual(rotulos("implementacoes/openspec/specs/formulario/spec.md"),
                          ["especificação"])
 
-    def test_o_resto_de_implementacoes_roda_as_capturas_de_todas(self):
+    def test_o_resto_de_implementacoes_roda_o_teste_e_as_capturas_de_todas(self):
         for arquivo in ("implementacoes/package-lock.json", "implementacoes/capturar.mts",
                         "implementacoes/.prettierignore"):
             with self.subTest(arquivo=arquivo):
                 self.assertEqual(
                     rotulos(arquivo, "implementacoes/formulario/cenas.mts"),
-                    ["especificação", "formatação", "capturas de todas as interfaces"])
+                    ["especificação", "formatação",
+                     "teste de conformidade de todas as interfaces",
+                     "capturas de todas as interfaces"])
 
     def test_fora_da_analise_nao_roda_nada(self):
         self.assertEqual(rotulos("implementacoes/fora-da-analise/qt/main.cpp"), [])
 
     def test_lista_de_codigo_e_versoes_rodam_tudo(self):
         tudo = ["unittest bin", "unittest docs/buscas", "especificação", "formatação",
+                "teste de conformidade de todas as interfaces",
                 "capturas de todas as interfaces"]
         self.assertEqual(rotulos(".config/revisao"), tudo)
         self.assertEqual(rotulos(".tool-versions"), tudo)
         self.assertEqual(rotulos(tudo=True), tudo)
 
-    def test_as_capturas_rodam_de_implementacoes_e_a_unittest_da_raiz(self):
+    def test_o_teste_e_as_capturas_rodam_de_implementacoes_e_a_unittest_da_raiz(self):
         plano = {r: (pasta, argv) for r, pasta, argv in
                  tr.escolher(["bin/x.py", "implementacoes/formulario/a.ts"], TESTES, GUIS)}
         self.assertEqual(plano["capturas de formulario"],
                          ("implementacoes",
                           ["npm", "run", "-s", "capturas", "--", "--conferir", "formulario"]))
+        self.assertEqual(plano["teste de conformidade de formulario"],
+                         ("implementacoes",
+                          ["npm", "run", "-s", "conformidade", "--", "formulario"]))
         pasta, argv = plano["unittest bin"]
         self.assertEqual(pasta, ".")
         self.assertEqual(argv[argv.index("-s") + 1], "bin")

@@ -225,6 +225,8 @@ interface. No commit que muda o teste antes das implementações (passo 3
 do *delta spec*), as que ainda não mudaram falham de propósito: rode-o
 só nas que já seguem o teste novo.
 
+O `bin/testes-da-revisao.py` o roda nas interfaces que o ramo muda.
+
 - **Relógio falso.** Na interface com prazos de segundos (a sessão do Login,
   os lotes dos Dados ao vivo), o teste não espera em tempo real: no
   começo, troca `setTimeout`, `setInterval`, `clearTimeout` e

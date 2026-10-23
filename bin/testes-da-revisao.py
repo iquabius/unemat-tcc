@@ -25,13 +25,14 @@ O que muda escolhe o que roda:
   no ramo que não muda código;
 - um arquivo de uma pasta que tem test_*.py, como bin/: a unittest da
   pasta;
-- implementacoes/<interface>/: as capturas dela (--conferir), a
-  especificação e a formatação;
+- implementacoes/<interface>/: o teste de conformidade e as capturas
+  (--conferir) dela, a especificação e a formatação;
 - implementacoes/openspec/: a especificação;
 - implementacoes/fora-da-analise/: nada, porque o código dali está
   congelado;
-- o resto de implementacoes/ (package.json, capturar.mts...):
-  as capturas de todas as interfaces, a especificação e a formatação;
+- o resto de implementacoes/ (package.json, capturar.mts...): o teste
+  de conformidade e as capturas de todas as interfaces, a especificação
+  e a formatação;
 - .config/revisao, .tool-versions, ou nenhuma base: tudo.
 
 Roda na worktree em que se marca. A que não tem implementacoes/node_modules,
@@ -122,9 +123,18 @@ def unittest(pasta):
                                          "discover", "-s", pasta, "-p", "test_*.py", "-q"])
 
 
+def quais(guis):
+    return ", ".join(guis) if guis else "todas as interfaces"
+
+
+def conformidade(guis):
+    return (f"teste de conformidade de {quais(guis)}", IMPL,
+            ["npm", "run", "-s", "conformidade", "--", *guis])
+
+
 def capturas(guis):
-    rotulo = "capturas de " + (", ".join(guis) if guis else "todas as interfaces")
-    return (rotulo, IMPL, ["npm", "run", "-s", "capturas", "--", "--conferir", *guis])
+    return (f"capturas de {quais(guis)}", IMPL,
+            ["npm", "run", "-s", "capturas", "--", "--conferir", *guis])
 
 
 def mensagens(base, ponta):
@@ -162,7 +172,9 @@ def escolher(arquivos, testes, guis, tudo=False):
         plano.append(ESPECIFICACAO)
     if impl:
         plano.append(FORMATACAO)
-        plano.append(capturas([] if todas else sorted(guis_mudadas)))
+        escolhidas = [] if todas else sorted(guis_mudadas)
+        plano.append(conformidade(escolhidas))
+        plano.append(capturas(escolhidas))
     return plano
 
 
