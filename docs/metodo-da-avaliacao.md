@@ -92,12 +92,15 @@ coisa.
   capítulo 3, escolhidos para refletir desafios "fundamentais" da
   programação de interfaces, simples e baseados em exemplos existentes
   (p. 11).
-- Em 2026-10-19, quatro das sete interfaces vêm do 7GUIs (ADR 0002): a
-  Reserva de passagem, o *Flight Booker* (§3.5, p. 25) levado à passagem
-  de ônibus; o conversor de moedas, o *Temperature Converter* (§3.4,
-  p. 21), que Kiss diz aparecer também como conversor de moeda (nota 10);
-  a planilha, o *Cells* (§3.9, p. 49) em oito células numa coluna; e o
-  Circle Drawer (§3.8, p. 40). A Busca, o Login com quarentena e o
+- Em 2026-10-22, quatro das sete interfaces vêm do 7GUIs (ADR 0002): o
+  Contador, o *Counter* (§3.3, p. 17), a base em que a primeira leitura
+  registra o básico de cada tecnologia; a Reserva de passagem, o *Flight
+  Booker* (§3.5, p. 25) levado à passagem de ônibus; a planilha, o
+  *Cells* (§3.9, p. 49) em oito células numa coluna; e o Circle Drawer
+  (§3.8, p. 40). De 2026-10-19 a 2026-10-22, o conversor de moedas, o
+  *Temperature Converter* (§3.4, p. 21), ocupava o lugar do Contador, e
+  a coordenação nos dois sentidos dele passou ao campo do diâmetro do
+  Circle Drawer, na segunda rodada (ADR 0029). A Busca, o Login com quarentena e o
   Placar ao vivo não vêm do 7GUIs: o Login adapta Berry e Serrano
   (2020), e o Placar, Meijer (2012). Até 2026-10-11, três interfaces
   partiam do 7GUIs: o Contador, o *Counter* (§3.3, p. 17); o Formulário,
@@ -369,13 +372,14 @@ lista.
 
 Protótipos de 2026-10-12.
 
-Conclusão: em 2026-10-19, a segunda rodada tem as 12 mudanças do ADR
-0029 nas sete interfaces do ADR 0002: a volta empurrada pela ida na
-Reserva de passagem; a espera de 300 ms e o *combobox* na Busca; a
-quarentena e o "lembrar meu nome" no Login com quarentena; a reconexão,
-o bolão e a frequência de atualização no Placar ao vivo; a escolha da
-moeda no conversor de moedas; a referência circular na planilha; e
-arrastar e salvar no Circle Drawer. A Reserva de passagem perdeu o
+Conclusão: em 2026-10-22, a segunda rodada tem as 13 mudanças do ADR
+0029 nas sete interfaces do ADR 0002: a lista de contadores no
+Contador; a volta empurrada pela ida na Reserva de passagem; a espera
+de 300 ms e o *combobox* na Busca; a quarentena e o "lembrar meu nome"
+no Login com quarentena; a reconexão, o bolão e a frequência de
+atualização no Placar ao vivo; a referência circular na planilha; e
+arrastar, salvar e o campo do diâmetro no Circle Drawer. Até
+2026-10-22, eram 12, com a escolha da moeda no conversor de moedas. A Reserva de passagem perdeu o
 assistente, a verificação do e-mail e as poltronas, e o Quadro de
 tarefas saiu do conjunto. Os protótipos de 2026-10-12 sustentaram o
 passo anterior: o conjunto de então deixava a orquestração de eventos só
@@ -398,7 +402,7 @@ eles e não reconferidos. Código e números em
 
 | Achado | Medida | Uso |
 |---|---|---|
-| Densidade de coordenação nas interfaces antigas (coordenação / total) | Busca 0,52; Reserva de passagem (então Formulário) 0,29; Contador 0,24; Carrinho 0,22; Lista 0,12 | o Contador e a Lista saem (ADR 0002) |
+| Densidade de coordenação nas interfaces antigas (coordenação / total) | Busca 0,52; Reserva de passagem (então Formulário) 0,29; Contador 0,24; Carrinho 0,22; Lista 0,12 | o Contador e a Lista saem (ADR 0002); o Contador volta em 2026-10-22 como a base, e não por uma exigência própria |
 | Assistente da Reserva de passagem (então Formulário), acréscimo em Web Component e React | montagem +22 e +25, coordenação +13 e +11, ligação +21 e +18; o React reindenta 67 linhas | a montagem é o maior balde, mas não domina; o assistente saiu da segunda rodada no ADR 0029 de 2026-10-19 |
 | *Timer* do 7GUIs | coordenação de 6 a 9 linhas contra montagem de 15 e 16; a pausa da segunda rodada não separa React de Solid | descartado |
 | Login com quarentena (Berry e Serrano 2020, p. 534-539) | a quarentena custa +20 a +21 linhas nos três; o diff tem o mesmo tamanho, e muda o tipo: o Web Component repete, os declarativos acrescentam uma condição | desmente em parte "Almost all the initial implementation components need to be modified" (p. 539); a quarentena segue na segunda rodada de 2026-10-19 (ADR 0029) |
@@ -459,7 +463,7 @@ outra paginação) e `blackwell2003-notational-systems-...pdf` (p.
 | idem | seis atividades (tabela 5.1); a busca é "hunting for a known target, such as where a function is called", e a compreensão exploratória, "discovering structure or algorithm" | p. 113 | a atividade da primeira rodada (busca e compreensão) e da segunda e da terceira (modificação) |
 | Green e Blackwell 1998 | a figura 19, "desirable profiles of dimensions for each of the types of user activity", cobre só seis dimensões e quatro atividades (transcrição, incrementação, modificação, exploração); na modificação, viscosidade e dependências ocultas "harmful", visibilidade "important" | p. 42 | não há perfil publicado para a busca nem para a compreensão exploratória: a primeira rodada não tem perfil ideal a comparar |
 | Kiss 2014 | critério da boa solução fixado antes do código: "A good solution will have very minimal scaffolding" | p. 17 | a pergunta de cada exigência de coordenação, antes da leitura |
-| idem | "this first evaluation is focused on the very basics", para que as seguintes "do not have to repeat these basic observations" | p. 18 | a primeira interface lida concentra o básico, que as seguintes não repetem; em 2026-10-13, a nota punha aqui o Contador, que saiu da análise (ADR 0002), e a interface que faz esse papel está por decidir |
+| idem | "this first evaluation is focused on the very basics", para que as seguintes "do not have to repeat these basic observations" | p. 18 | a primeira interface lida concentra o básico, que as seguintes não repetem: o Contador, que voltou em 2026-10-22 como primeira das sete (ADR 0002), depois de sair da análise em 2026-10-12 |
 | idem | "We concentrate on the behavior related code as the layout and initialization code is in essence similar" | p. 22 | ler a coordenação; a montagem da tela só onde difere |
 | idem | omite a dimensão "when there was nothing particularly worthwhile to mention" | p. 12 | "nenhum trecho achado", dito, e não omitido |
 | idem | o "system" é "the amalgamation of paradigm, language, toolkit and IDE" | p. 12, nota 2 | atribuir cada achado: coordenação, montagem, ligação, ou fora da notação |
@@ -599,3 +603,9 @@ mudaram; mudou o que a nota afirmava sobre o conjunto de antes:
   protótipos com o que saiu marcado e os nomes novos da Reserva de
   passagem e do Placar ao vivo, e a acessibilidade perde o assistente;
 - o Contador como primeira leitura, no procedimento.
+
+Em 2026-10-22, o Contador voltou como primeira das sete interfaces, no
+lugar do conversor de moedas, e a segunda rodada passou a 13 mudanças,
+com a lista de contadores e o campo do diâmetro do Circle Drawer (ADRs
+0002 e 0029); "O 7GUIs e as interfaces", a conclusão do *benchmark* e a
+linha da primeira leitura no procedimento mudaram com isso.
