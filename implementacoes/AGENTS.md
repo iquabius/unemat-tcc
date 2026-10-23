@@ -199,6 +199,46 @@ A mudança não se porta para o código da interface em
   biblioteca (`docs/plataformas/web.md`, seção "Como Web Components sem
   biblioteca montam a tela"), e o ADR 0037 diz as alternativas e o
   custo.
+- No Web Component com *signals* (`<interface>/web-component-signals/`),
+  a montagem da tela é a do Web Component da interface, letra por letra:
+  a mesma classe, o mesmo esqueleto, os mesmos `querySelector` e
+  `createElement`. Mudam a ligação do estado com a tela e a orquestração,
+  escritas com o `solid-js` da versão do Solid (1.9), sem JSX (ADR 0013):
+  - nenhum tratador escreve na tela: ele altera um *signal*
+    (`createSignal`), o derivado é um `createMemo` ou uma função, como no
+    Solid da interface, e cada escrita na tela que acompanha o estado
+    (`textContent`, `value`, `disabled`, `hidden`, atributo) fica num
+    `createEffect`; o texto inicial que a montagem do Web Component já
+    escreve fica nela;
+  - os derivados e os efeitos nascem num `createRoot` aberto no
+    `connectedCallback`, que devolve o descarte para o
+    `disconnectedCallback` chamar;
+  - as partes repetidas ficam no laço de `createElement` do Web Component,
+    em toda interface, e nunca no `mapArray`: a coleção que acompanha um
+    *signal* se esvazia e se remonta num efeito que o lê
+    (`replaceChildren` e o laço), e a coleção fixa se monta uma vez, com
+    um efeito por célula que muda;
+  - a orquestração é a do Solid da interface, como no `createResource` da
+    Busca e na tentativa do Login, que o tratador abre e cancela, e o que
+    o Solid limpa (o relógio, a inscrição, a tentativa aberta) se
+    registra com `onCleanup` dentro do `createRoot`.
+
+  As duas últimas são decisões do autor de 2026-10-23: o laço, contra o
+  `mapArray` do `<For>` do Solid, para a montagem continuar igual à do
+  Web Component e mudar só no passo para o Solid (ADR 0013); a
+  orquestração do Solid, contra a do Web Component no tratador, para o
+  par com o Solid diferir só na montagem e no modelo de componente.
+
+  O efeito roda pela primeira vez na mesma tarefa, antes da pintura: no
+  fim do `createRoot`, antes de o `connectedCallback` voltar, quando o
+  elemento entra fora de um efeito (a Reserva de passagem); na fila da
+  atualização que roda os efeitos da página, depois de o `append` do
+  painel voltar e antes de o `connectedCallback` da página voltar, quando
+  é o painel que um efeito da página cria (o Login). Os dois casos foram
+  conferidos no navegador em 2026-10-23, e por isso o
+  `createRenderEffect` não faz falta. O *signal* lido fora de um efeito
+  ou de um `createMemo` não é acompanhado, e a tela fica com o valor da
+  primeira leitura. O `solid-js` 2.0 muda a assinatura do `createEffect`.
 
 ## Teste de conformidade na web
 

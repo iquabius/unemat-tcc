@@ -1,23 +1,30 @@
 # 0013. Na web, o Web Component, o Web Component com *signals* do `solid-js`, o React e o Solid implementam as sete interfaces, numa cadeia de pares que muda o mínimo por passo; o Lit e o Angular ficam fora
 
-2026-10-19. Com a análise só na web (ADR 0001), o par entre o imperativo
+2026-10-23. Com a análise só na web (ADR 0001), o par entre o imperativo
 por atualização manual e o declarativo por atualização granular com a
 mesma montagem da tela, que o Swing × JavaFX dava no *desktop*, ficou
 sem lugar, e a análise por interface (ADR 0017) pede todas as
 tecnologias em todas as interfaces. Quatro tecnologias implementam as
 sete interfaces (ADR 0002), 28 implementações, numa cadeia em que cada
-passo muda o mínimo: Web Component → (a ligação do estado com a tela) →
-Web Component com *signals* → (a montagem da tela e o modelo de
-componente) → Solid → (o modelo de programação, com o mesmo JSX) →
-React. O Web Component com *signals* usa o `solid-js` (1.9.15 no
+passo muda o mínimo: Web Component → (a ligação do estado com a tela e
+a orquestração) → Web Component com *signals* → (a montagem da tela e
+o modelo de componente) → Solid → (o modelo de programação, com o mesmo
+JSX) → React. O Web Component com *signals* usa o `solid-js` (1.9.15 no
 `package-lock.json`) só como biblioteca de reatividade: a classe que
 estende `HTMLElement`, o esqueleto em HTML num texto atribuído ao
 `innerHTML` uma vez e o `createElement` nas partes repetidas são os do
 Web Component (ADR 0037); o tratador altera um *signal*, o derivado é um
-`createMemo`, e cada escrita na tela fica num `createEffect`, que o
-ambiente de execução reexecuta só quando muda um *signal* lido nele,
-dentro de um `createRoot` aberto no `connectedCallback` e descartado no
-`disconnectedCallback`. Com o Solid, é um modelo de programação com duas
+`createMemo` ou uma função, como no Solid, e cada escrita na tela fica
+num `createEffect`, que o ambiente de execução reexecuta só quando muda
+um *signal* lido nele, dentro de um `createRoot` aberto no
+`connectedCallback` e descartado no `disconnectedCallback`. Em
+2026-10-23, o autor decidiu que as partes repetidas ficam no laço de
+`createElement` do Web Component em toda interface, refeito num efeito
+quando a coleção acompanha um *signal*, e que a orquestração (a
+requisição, o relógio, a inscrição) se escreve como no Solid da
+interface, com `createResource` e `onCleanup`, para a montagem só mudar
+no passo para o Solid e o par com ele diferir só na montagem e no
+modelo de componente. Com o Solid, é um modelo de programação com duas
 notações, que diferem na montagem da tela e no modelo de componente: a
 classe registrada como elemento, com o `connectedCallback` e o
 `disconnectedCallback`, contra a função com o `onCleanup` (ADR 0021). A
@@ -59,6 +66,15 @@ Em vez de: Alpine.js, Knockout, petite-vue, uhtml, Arrow.js, VanJS ou
 FAST no papel do granular; ligam o estado a nós já montados ou montam a
 tela num *template* ou em funções, e o par mediria a montagem junto da
 ligação.
+Em vez de: o `mapArray` nas partes repetidas do Web Component com
+*signals*, que guarda o item criado para cada elemento, como o `<For>`
+do Solid (a primeira escolha na Busca, em 2026-10-23); tiraria a
+composição da lista da forma do Web Component, e o passo do Web
+Component ao Web Component com *signals* mudaria também a montagem.
+Em vez de: a orquestração do Web Component com *signals* escrita como a
+do Web Component, no tratador e no `disconnectedCallback`; o passo do
+Web Component mudaria só a ligação, mas o par com o Solid diferiria
+também na orquestração.
 Em vez de: o jQuery no lugar do Web Component (comparação de
 2026-10-12); a tecnologia web mais reconhecível depois do React (Stack
 Overflow 2025: 23,4%), mas sem modelo de componente, e o imperativo
@@ -76,9 +92,12 @@ ver o resultado, o risco que o ADR 0017 recusou.
 Em vez de: o Svelte no lugar do Solid; mais popular (Stack Overflow
 2025: 7,2%), mas com sintaxe e compilador próprios, e a comparação com
 o React mudaria duas coisas.
-Custo: a cadeia não muda uma coisa só em cada passo: o Web Component com
-*signals* e o Solid diferem também no modelo de componente, e o Solid e
-o React, no dialeto do JSX, o que a análise separa pelo sinal escrito
+Custo: a cadeia não muda uma coisa só em cada passo: o Web Component e
+o Web Component com *signals* diferem na ligação e na orquestração, que
+segue a do Solid, o preço de o par seguinte diferir só na montagem e no
+modelo de componente; o Web Component com *signals* e o Solid diferem
+nessas duas, e o Solid e o React, além do modelo de programação, no
+dialeto do JSX, o que a análise separa pelo sinal escrito
 (ADR 0021); a forma do Web Component com *signals* é rara nos programas
 reais (11 arquivos na busca de código do GitHub, em TypeScript, em
 2026-10-17, contra 45.824 com `extends HTMLElement` e `createElement`):
