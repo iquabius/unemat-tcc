@@ -13,8 +13,9 @@ Toda alteração que possa mudar a tela ou o comportamento de uma
 implementação exige conferir as capturas antes de dar o trabalho por pronto
 ou commitar. Isso inclui o código de
 `implementacoes/<interface>/<tecnologia>/`, o `estilo.css`, o `dominio.ts`
-e o `cenas.mts` de cada interface, o `implementacoes/capturar.mts` e as
-dependências (`package.json` e `package-lock.json`).
+e o `cenas.mts` de cada interface, o `implementacoes/capturar.mts`, o
+`implementacoes/implementacoes-web.mts`, que lista, constrói e serve as
+implementações, e as dependências (`package.json` e `package-lock.json`).
 
 1. Rode, de `implementacoes/`, onde está o `package.json` dos *workspaces*:
 
@@ -205,6 +206,27 @@ O `teste-de-conformidade.js` da interface se cola no console do navegador,
 com a implementação aberta, e devolve uma linha por verificação, sem
 Playwright nem biblioteca.
 
+De `implementacoes/`, o mesmo arquivo roda por um comando, com os filtros
+do `npm run capturas`:
+
+```sh
+npm run conformidade -- <interface>[/<tecnologia>] ...
+```
+
+Sem filtro, roda todas as interfaces. O comando constrói cada
+implementação, abre o build no Chromium do Playwright, avalia o teste na
+página e imprime as linhas; sai com erro se alguma disser `FALHOU`, se
+nenhuma disser `ok`, se o teste lançar erro ou se a interface não
+tiver teste. Ele só avalia o arquivo, com a página em pt-BR e sem outra
+preparação, então o que o teste precisa (o relógio falso, as esperas)
+fica no próprio teste, que continua colável no console. Rode-o antes de
+cada commit que mude uma implementação, o `dominio.ts` ou o teste da
+interface. No commit que muda o teste antes das implementações (passo 3
+do *delta spec*), as que ainda não mudaram falham de propósito: rode-o
+só nas que já seguem o teste novo.
+
+O `bin/testes-da-revisao.py` o roda nas interfaces que o ramo muda.
+
 - **Relógio falso.** Na interface com prazos de segundos (a sessão do Login,
   os lotes dos Dados ao vivo), o teste não espera em tempo real: no
   começo, troca `setTimeout`, `setInterval`, `clearTimeout` e
@@ -234,7 +256,8 @@ Playwright nem biblioteca.
   tentativa nova do Login.
 - Confira que o teste pega erros: introduza na implementação um defeito
   de cada regra (sem o `abort()`, sem a limpeza do efeito, sem o
-  `disconnectedCallback`) e veja a verificação certa falhar.
+  `disconnectedCallback`) e veja a verificação certa falhar no `npm run
+  conformidade`.
 
 ## Formatação
 
@@ -282,9 +305,9 @@ no commit anterior ao movimento.
 
 - É registro congelado (decisão do autor em 2026-10-13): não se edita,
   não compila, não se testa, não se formata nem se captura. Os
-  *workspaces*, o `npm run capturas` e o `npm run conferir-especificacao`
-  não o alcançam, e a contagem de linhas da concisão (ADR 0012), quando
-  for escrita, também o deixa de fora.
+  *workspaces*, o `npm run capturas`, o `npm run conformidade` e o `npm
+  run conferir-especificacao` não o alcançam, e a contagem de linhas da
+  concisão (ADR 0012), quando for escrita, também o deixa de fora.
 - Código que sai da análise vai para lá com `git mv`, num commit só de
   movimento, com as capturas da tecnologia, e ganha um item na lista do
   `README.org` de lá, com o ADR que o tirou.

@@ -17,83 +17,25 @@
 // uma interface: as implementações seguem a mesma especificação e a mesma
 // aparência, então as imagens deveriam ser idênticas.
 
-import { execFileSync } from "node:child_process";
 import { createHash } from "node:crypto";
 import { existsSync } from "node:fs";
 import { mkdir, mkdtemp, readFile, readdir } from "node:fs/promises";
-import { createServer, type Server } from "node:http";
 import { tmpdir } from "node:os";
 import path from "node:path";
 import { chromium, type Page } from "playwright";
+import {
+  IMPLEMENTACOES,
+  construirEServir,
+  implementacoes,
+} from "./implementacoes-web.mts";
 
 export type Cenas = Record<string, (pagina: Page) => Promise<void>>;
 
-const RAIZ = path.resolve(import.meta.dirname, "..");
-const IMPLEMENTACOES = path.join(RAIZ, "implementacoes");
-// As tecnologias, na ordem em que o script as captura.
-const TECNOLOGIAS = ["web-component", "react", "solid"];
+const RAIZ = path.dirname(IMPLEMENTACOES);
 
 // Data fixa para que as implementações que mostram "hoje" gerem sempre a
 // mesma imagem.
 const DATA_FIXA = new Date("2026-09-26T12:00:00");
-
-const TIPOS: Record<string, string> = {
-  ".html": "text/html; charset=utf-8",
-  ".js": "text/javascript",
-  ".css": "text/css",
-  ".svg": "image/svg+xml",
-  ".ico": "image/x-icon",
-  ".png": "image/png",
-};
-
-async function implementacoes(filtros: string[]): Promise<[string, string][]> {
-  const lista: [string, string][] = [];
-  for (const gui of (await readdir(IMPLEMENTACOES)).sort()) {
-    // Toda interface tem a especificação em openspec/specs/<interface>/; as
-    // outras pastas (node_modules, openspec e fora-da-analise, que não se
-    // captura) não são interfaces.
-    if (!existsSync(path.join(IMPLEMENTACOES, "openspec", "specs", gui)))
-      continue;
-    for (const tecnologia of TECNOLOGIAS) {
-      const projeto = path.join(IMPLEMENTACOES, gui, tecnologia);
-      if (!existsSync(path.join(projeto, "package.json"))) continue;
-      const escolhido =
-        filtros.length === 0 ||
-        filtros.some((f) => f === gui || f === `${gui}/${tecnologia}`);
-      if (escolhido) lista.push([gui, tecnologia]);
-    }
-  }
-  return lista;
-}
-
-function servir(pasta: string): Promise<Server> {
-  const servidor = createServer(async (pedido, resposta) => {
-    const url = decodeURIComponent(
-      new URL(pedido.url ?? "/", "http://x").pathname,
-    );
-    let arquivo = path.join(pasta, url);
-    if (
-      !arquivo.startsWith(pasta) ||
-      !existsSync(arquivo) ||
-      url.endsWith("/")
-    ) {
-      arquivo = path.join(pasta, "index.html");
-    }
-    try {
-      const conteudo = await readFile(arquivo);
-      resposta.writeHead(200, {
-        "content-type":
-          TIPOS[path.extname(arquivo)] ?? "application/octet-stream",
-      });
-      resposta.end(conteudo);
-    } catch {
-      resposta.writeHead(404).end();
-    }
-  });
-  return new Promise((resolve) =>
-    servidor.listen(0, "127.0.0.1", () => resolve(servidor)),
-  );
-}
 
 async function cenasDo(gui: string): Promise<Cenas> {
   const arquivo = path.join(IMPLEMENTACOES, gui, "cenas.mts");
@@ -173,26 +115,11 @@ async function procurarSumidas(
 const navegador = await chromium.launch();
 try {
   for (const [gui, tecnologia] of lista) {
-    const projeto = path.join(IMPLEMENTACOES, gui, tecnologia);
     const versionadas = path.join(IMPLEMENTACOES, gui, "capturas");
     const destino = temporaria ? path.join(temporaria, gui) : versionadas;
     await mkdir(destino, { recursive: true });
 
-    execFileSync(
-      "npm",
-      ["run", "build", "-w", path.relative(IMPLEMENTACOES, projeto)],
-      {
-        // O package.json dos workspaces fica em implementacoes/.
-        cwd: IMPLEMENTACOES,
-        stdio: "ignore",
-      },
-    );
-    const dist = path.join(projeto, "dist");
-    if (!existsSync(path.join(dist, "index.html")))
-      throw new Error(`build sem index.html em ${dist}`);
-    const servidor = await servir(dist);
-    const endereco = servidor.address();
-    const porta = typeof endereco === "object" && endereco ? endereco.port : 0;
+    const { endereco, servidor } = await construirEServir(gui, tecnologia);
     const cenas = await cenasDo(gui);
     for (const [cena, agir] of Object.entries(cenas)) {
       const contexto = await navegador.newContext({
@@ -202,7 +129,7 @@ try {
       });
       const pagina = await contexto.newPage();
       await pagina.clock.setFixedTime(DATA_FIXA);
-      await pagina.goto(`http://127.0.0.1:${porta}/`);
+      await pagina.goto(endereco);
       await pagina.waitForLoadState("networkidle");
       await agir(pagina);
       await pagina.waitForTimeout(100);

@@ -80,6 +80,24 @@ abaixo.
   As imagens dependem das fontes instaladas: geradas noutra máquina,
   podem mudar sem que o código tenha mudado.
 
+* Teste de conformidade
+
+  O =teste-de-conformidade.js= de cada interface confere a implementação
+  aberta no navegador, colado no console. O mesmo arquivo roda por um
+  comando, com os filtros das capturas:
+
+  #+begin_src sh
+  npm run conformidade                              # todas
+  npm run conformidade -- formulario                # uma interface
+  npm run conformidade -- formulario/react          # uma implementação
+  #+end_src
+
+  O /script/ ([[file:conformidade.mts][implementacoes/conformidade.mts]])
+  faz o /build/, abre a página no Chromium do Playwright, avalia nela o
+  teste e imprime as linhas. Sai com erro se alguma disser =FALHOU=, se
+  nenhuma disser =ok=, se o teste lançar erro ou se a interface
+  não tiver teste.
+
 * Especificação das interfaces (OpenSpec)
 
   A especificação de cada interface fica em

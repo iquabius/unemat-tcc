@@ -27,8 +27,8 @@ código das implementações vai de `casos/` para `implementacoes/` (ADR
 0025), e no código, onde `interface` é palavra reservada do TypeScript e
 do Kotlin, a variável de cada interface se chama `gui` (`guis` no
 plural), porque `pasta` já nomeia outras pastas nos scripts (a da
-tecnologia no `settings.gradle.kts`, a servida e a das capturas no
-`capturar.mts`).
+tecnologia no `settings.gradle.kts`, a servida no
+`implementacoes-web.mts` e a das capturas no `capturar.mts`).
 
 Em vez de: "tarefa", o termo de Sim et al. e do 7GUIs; liga o texto à
 fonte sem tradução, mas é o mais abstrato e colide com o Quadro de

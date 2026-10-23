@@ -12,7 +12,8 @@
     "formatar": "prettier --write .",
     "conferir-formatacao": "prettier --check .",
     "openspec": "OPENSPEC_TELEMETRY=0 openspec",
-    "conferir-especificacao": "node conferir-especificacao.mts"
+    "conferir-especificacao": "node conferir-especificacao.mts",
+    "conformidade": "node conformidade.mts"
   },
   "engines": {
     "node": "^22.18.0 || >=23.6.0"
