@@ -20,6 +20,19 @@
 - Observação: a referência [30] de Kiss é o relatório técnico de Myers de
   1993, a versão anterior de Myers (1994).
 - Conferido: 2026-10-12.
+* [[file:../intro.org::Este trabalho compara /modelos de programação/][intro: Este trabalho compara modelos de programação]], p. 17
+- Frase: “Na web, ela se declara em CSS, uma camada de notação à parte do
+  HTML (Green et al., 2006, p. 342), enquanto no JavaFX o /layout/ faz
+  parte do código que monta a tela (Kiss, 2014, p. 17).”
+- Trecho: “Finally, count and countUp are laid out horizontally by an
+  HBox with spacing and padding of 10 units and the stage is
+  initialized.”, seguido do código, em que a mesma função =start= cria o
+  =TextField= e o =Button= e os passa a =new HBox(10, count, countUp)=
+  (Listing 1, p. 17)
+- Lido em: =acervo/kiss2014.pdf=, p. 23 do PDF (p. 17).
+- Observação: o /layout/ no código vale para as soluções de Kiss, que não
+  usam o FXML (p. 16); o JavaFX também aceita o /layout/ em XML.
+- Conferido: 2026-10-23.
 * [[file:../intro.org::Para discutir o quanto uma notação facilita][intro: Para discutir o quanto uma notação facilita]], p. v e 104
 - Frase: “Kiss (2014, p. v, 11 e 104) comparou a POO e a PF em sete interfaces
   gráficas, com JavaFX e ScalaFX, e em parte delas com Scala.Rx, ReactFX e
@@ -70,6 +83,22 @@
   set of case studies”, um /benchmark/ de um item só; por isso a citação
   é a p. 114, onde o termo nomeia o conjunto.
 - Conferido: 2026-10-14.
+* [[file:../intro.org::As cinco interfaces são implementadas na web][intro: As cinco interfaces são implementadas na web]], p. 16
+- Frase: “Como Kiss (2014, p. 16), que deixou de fora a linguagem de
+  /layout/ do JavaFX para não tirar o foco da comparação, este trabalho
+  mantém fora da notação o que não distingue os modelos de programação.”
+- Trecho: “JavaFX also supports the specification of layouts in XML via
+  FXML and optionally a GUI builder like Scene Builder. Note that neither
+  FXML nor a GUI builder are employed in the solutions of our case studies
+  as (complex) layout specifications are a challenge in only one case
+  study and using yet another language or tool would take away the focus
+  from the main comparison of the conceptual differences between the two
+  paradigms.” (p. 16)
+- Lido em: =acervo/kiss2014.pdf=, p. 22 do PDF (p. 16).
+- Observação: a razão de Kiss é o foco da comparação; que a aparência não
+  distingue os modelos de programação é razão deste trabalho (ADR 0041),
+  e não de Kiss.
+- Conferido: 2026-10-23.
 * [[file:../prog.org::compararam, com 36 estudantes de graduação,][prog: compararam, com 36 estudantes de graduação,]], p. v e 104
 - Frase: “Kiss (2014, p. v e 104) comparou a POO e a PF em sete interfaces
   gráficas, com JavaFX, ScalaFX, Scala.Rx, ReactFX e Elm, e deixou como

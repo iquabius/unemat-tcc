@@ -1,7 +1,7 @@
 #+title: mozilla2026: Mozilla (2026), Using Custom Elements
 #+startup: overview
 
-* [[file:../intro.org::Este trabalho compara /modelos de programação/][intro: Este trabalho compara modelos de programação]]
+* [[file:../intro.org::Nas tecnologias que este trabalho compara][intro: Nas tecnologias que este trabalho compara]]
 - Frase: “e nos Web Components sem biblioteca.”
 - Trecho: o exemplo registra um /callback/ que altera o DOM,
   =newSpan.addEventListener("click", onClick);=

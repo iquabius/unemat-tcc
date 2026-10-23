@@ -87,6 +87,13 @@ dependem dela [[cite:bainomugisha2013][p. 52:2]].
   código-fonte da aplicação, o estado, os valores derivados dele e a tela
   que os mostra.
   @@latex:\notamudou{A montagem da tela, que o projeto deixou de fora, \textbf{passa a fazer parte da notação}.}@@
+  A tela entra na notação pela /montagem/: quais elementos ela tem, em que
+  hierarquia e com que textos.
+  A aparência, isto é, as cores, as fontes e o /layout/, fica fora dela.
+  Na web, ela se declara em [[gls:css]], uma camada de notação à parte do
+  [[gls:html]] [[cite:green2006][p. 342]], enquanto no JavaFX o /layout/
+  faz parte do código que monta a tela [[cite:kiss2014][p. 17]].
+
   Nas tecnologias que este trabalho compara, há três modelos de
   programação, dois deles declarativos.
   No /imperativo por atualização manual/, o programador escreve, nos
@@ -99,6 +106,13 @@ dependem dela [[cite:bainomugisha2013][p. 52:2]].
   Até o próximo tique do relógio, o tempo exibido não corresponde ao valor
   guardado, e cabe ao programador escrever a sincronização da tela com o
   estado [[cite:meyerovich2009][p. 3]].
+  O nome do modelo diz como a alteração do estado chega à tela, e não como
+  a tela se monta.
+  Nas implementações deste trabalho, o esqueleto da tela do Web Component
+  fica em [[gls:html]], e só se montam elemento a elemento as partes que o
+  estado repete ou põe e tira da tela, como os itens de uma lista.
+  Os textos e os valores calculados do estado mudam nos elementos já
+  montados, e essa atualização é a parte imperativa.
 
   Nos declarativos, o programador descreve a tela em função do estado, e o
   ambiente de execução a mantém atualizada
@@ -222,6 +236,14 @@ dependem dela [[cite:bainomugisha2013][p. 52:2]].
   A linguagem de cada plataforma, a especificação e as regras de domínio ficam fixas, as duas
   primeiras rodadas não usam bibliotecas de formulário, e um teste de
   conformidade confere que as implementações de uma interface fazem o mesmo.
+  A aparência também fica fixa, num arquivo [[gls:css]] comum às
+  implementações de cada interface, e a tela só cita as classes pelo nome.
+  As capturas de tela conferem que ela sai igual em todas as tecnologias.
+  Só o valor que depende do estado, como a posição de um menu, entra na
+  notação.
+  Como [[textcite:kiss2014][p. 16]], que deixou de fora a linguagem de
+  /layout/ do JavaFX para não tirar o foco da comparação, este trabalho
+  mantém fora da notação o que não distingue os modelos de programação.
   Em cada rodada, o autor percorre as 14 [[glspl:dc]] no código, e a análise
   compara o perfil de cada modelo de programação numa tabela-síntese, que
   também se lê por exigência de coordenação.
@@ -276,6 +298,11 @@ dependem dela [[cite:bainomugisha2013][p. 52:2]].
   detalhes [[cite:green1996d][p. 139]].
   Por isso, a análise compara os modelos de programação pelos detalhes que
   a notação de cada tecnologia exige no código-fonte.
+  Com a aparência fora da notação, a avaliação não vê o estilo escrito
+  junto do componente, no próprio código que monta a tela.
+  Também não chega às dependências ocultas que
+  [[textcite:green2006][p. 342]] acham no sistema formado pelo [[gls:html]]
+  e pelo [[gls:css]].
   Os pares isolam pouco: na web, só o Web Component e o Lit separam o
   imperativo por atualização manual do declarativo por re-renderização, e
   fora da web cada plataforma confere dois dos três modelos de programação.

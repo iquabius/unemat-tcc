@@ -1,7 +1,7 @@
 #+title: meyerovich2009: Meyerovich et al. (2009), Flapjax: A Programming Language for Ajax Applications
 #+startup: overview
 
-* [[file:../intro.org::Este trabalho compara /modelos de programação/][intro: Este trabalho compara /modelos de programação/]], p. 3 (o cronômetro)
+* [[file:../intro.org::Nas tecnologias que este trabalho compara][intro: Nas tecnologias que este trabalho compara]], p. 3 (o cronômetro)
 - Frase: “Num cronômetro escrito assim, o /callback/ do botão que zera o
   tempo altera o valor guardado, mas não o leva à tela (Meyerovich et al.,
   2009, p. 3). Até o próximo tique do relógio, o tempo exibido não

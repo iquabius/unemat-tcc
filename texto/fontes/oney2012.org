@@ -32,7 +32,7 @@
   palestra), que saiu em 2026-10-09; repõe o custo em defeitos com fonte
   revisada por pares.
 - Conferido: 2026-10-09.
-* [[file:../intro.org::Este trabalho compara /modelos de programação/][intro: Este trabalho compara modelos de programação]], p. 229 (o imperativo)
+* [[file:../intro.org::Nas tecnologias que este trabalho compara][intro: Nas tecnologias que este trabalho compara]], p. 229 (o imperativo)
 - Frase: a mesma do disch2025 acima, na mesma citação; Oney, Myers e
   Brandt sustentam a atualização da tela escrita nos /callbacks/ (“callbacks
   that modify the DOM”), como no jQuery e nos Web Components sem

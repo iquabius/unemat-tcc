@@ -1,7 +1,7 @@
 #+title: disch2025: Disch et al. (2025), Functional Reactive GUI Programming with Modal Types
 #+startup: overview
 
-* [[file:../intro.org::Este trabalho compara /modelos de programação/][intro: Este trabalho compara modelos de programação]], p. 93
+* [[file:../intro.org::Nas tecnologias que este trabalho compara][intro: Nas tecnologias que este trabalho compara]], p. 93
 - Frase: “No /imperativo por atualização manual/, o programador escreve,
   nos /callbacks/, a alteração do estado e a atualização da tela (Disch;
   Heegaard; Bahr, 2025, p. 93; Oney; Myers; Brandt, 2012, p. 229; Sperber;

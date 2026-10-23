@@ -1,6 +1,14 @@
 #+title: green2006: Green et al. (2006), Cognitive Dimensions: Achievements, New Directions, and Open Questions
 #+startup: overview
 
+* [[file:../intro.org::Este trabalho compara /modelos de programação/][intro: Este trabalho compara modelos de programação]], p. 342
+- Frase: “Na web, ela se declara em CSS, uma camada de notação à parte do
+  HTML (Green et al., 2006, p. 342)”
+- Trecho: “From a CDs perspective, with the introduction of abstraction
+  mechanisms comes a new layer of notation, in which the abstractions are
+  expressed (CSS in this case)” (p. 342)
+- Lido em: =acervo/green2006-publicada.pdf=, p. 15 do PDF (p. 342).
+- Conferido: 2026-10-23.
 * [[file:../intro.org::Por ser analítica][intro: Por ser analítica]], p. 334
 - Frase: “Para Green et al. (2006, p. 334), duas das outras, a
   expressividade de papel e as operações mentais difíceis, sempre foram
@@ -11,6 +19,18 @@
 - Lido em: =acervo/green2006-publicada.pdf=,
   p. 7 do PDF (p. 334).
 - Conferido: 2026-10-07.
+* [[file:../intro.org::Mesmo na segunda rodada, as implementações continuam pequenas][intro: Mesmo na segunda rodada, as implementações continuam pequenas]], p. 342
+- Frase: “Também não chega às dependências ocultas que Green et al.
+  (2006, p. 342) acham no sistema formado pelo HTML e pelo CSS.”
+- Trecho: “consider the properties of the new, joint system, HTML/CSS.
+  [...] Like the original HTML, CSS is unfriendly to abstractions: there
+  is no way to group related rules even when they share common features,
+  except by making use of the inheritance system, which creates problems
+  of hidden dependencies.” e “determining what elements on the page are
+  affected by a given CSS rule can only be done by exhaustive inspection.
+  These are the classic phenomena of hidden dependencies.” (p. 342)
+- Lido em: =acervo/green2006-publicada.pdf=, p. 15 do PDF (p. 342).
+- Conferido: 2026-10-23.
 * [[file:../cases.org::Em cada rodada, a avaliação percorre][cases: Em cada rodada, a avaliação percorre]], p. 357
 - Frase: “Destas, a avaliação lê a face que aparece na notação, porque os
   próprios autores suspeitam que há uma zona cinzenta entre as dimensões da
