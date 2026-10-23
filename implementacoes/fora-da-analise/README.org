@@ -27,9 +27,7 @@ Cada pasta, o que é, por que saiu e o ADR:
   manual fica com o Web Component, que tem modelo de componente e par
   controlado, o Web Component com /signals/ (ADR 0013).
 - =formulario/angular-rxjs/= e =busca-com-sugestoes/angular-rxjs/=: o
-  Angular com RxJS, apoio à escrita do capítulo de programação. Não entra
-  no texto, e fica congelado com as regras de 2026-10-13, por decisão do
-  autor nessa data (ADR 0013).
+  Angular com RxJS, congelado com as regras de 2026-10-13 (ADR 0013).
 - =formulario/=, =busca-com-sugestoes/=, =login-com-quarentena/= e
   =dados-ao-vivo/=, com =lit/=, e as três primeiras com
   =angular-signals/=: o Lit e o Angular com /signals/. Saíram em
