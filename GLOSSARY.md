@@ -298,11 +298,6 @@ quatro tecnologias, 28 (ADR 0012); na terceira, a Reserva de passagem e o
 Placar ao vivo refatorados em cada uma das quatro (ADR 0029).
 _Avoid_: versão, exemplo; solução (pede "problema" para a interface)
 
-**Apoio**:
-Implementação que o autor consulta ao escrever e não entra na análise: o
-Angular com RxJS, congelado em `implementacoes/fora-da-analise/` com as
-regras de 2026-10-13.
-
 **Conjunto analisado**:
 As implementações que a análise pelas DCs lê: todas as de
 `implementacoes/`, fora de `fora-da-analise/`, as sete interfaces nas
