@@ -1,5 +1,5 @@
 // Lista, constrói e serve as implementações web, para os scripts que as
-// abrem no Chromium do Playwright (capturar.mts).
+// abrem no Chromium do Playwright (capturar.mts e conformidade.mts).
 
 import { execFileSync } from "node:child_process";
 import { existsSync } from "node:fs";
