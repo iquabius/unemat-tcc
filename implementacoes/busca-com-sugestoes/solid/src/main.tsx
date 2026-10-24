@@ -1,4 +1,11 @@
-import { batch, createResource, createSignal, For, Show } from "solid-js";
+import {
+  batch,
+  createResource,
+  createSignal,
+  For,
+  onCleanup,
+  Show,
+} from "solid-js";
 import { render } from "solid-js/web";
 import {
   MENSAGENS,
@@ -28,6 +35,9 @@ function BuscaDeDestino() {
       return buscarCidades(termoValido, controlador.signal);
     },
   );
+
+  // Sem isto, a requisição continua fora da página.
+  onCleanup(() => controlador?.abort());
 
   function buscar(novo: string) {
     if (novo === termo()) return;
@@ -62,7 +72,7 @@ function BuscaDeDestino() {
     visivel() && !cidades.loading && !cidades.error ? (cidades() ?? []) : [];
 
   return (
-    <main class="busca">
+    <section class="painel">
       <label>
         Cidade de destino
         <input
@@ -79,13 +89,9 @@ function BuscaDeDestino() {
           }}
         />
       </label>
-      <Show when={mensagem()}>
-        {(m) => (
-          <p class="situacao" role="status">
-            {m()}
-          </p>
-        )}
-      </Show>
+      <p class="situacao" role="status" hidden={!mensagem()}>
+        {mensagem()}
+      </p>
       <Show when={sugestoes().length > 0}>
         <ul class="sugestoes">
           <For each={sugestoes()}>
@@ -102,8 +108,27 @@ function BuscaDeDestino() {
       <Show when={escolha()}>
         {(e) => <p class="escolha">Destino: {e()}</p>}
       </Show>
+    </section>
+  );
+}
+
+// A página: o botão que tira a busca da página e a põe de volta.
+function BuscaComSugestoes() {
+  const [visivel, setVisivel] = createSignal(true);
+  return (
+    <main class="busca">
+      <button
+        type="button"
+        class="alternar"
+        onClick={() => setVisivel(!visivel())}
+      >
+        {visivel() ? "Esconder busca" : "Mostrar busca"}
+      </button>
+      <Show when={visivel()}>
+        <BuscaDeDestino />
+      </Show>
     </main>
   );
 }
 
-render(() => <BuscaDeDestino />, document.getElementById("raiz")!);
+render(() => <BuscaComSugestoes />, document.getElementById("raiz")!);
