@@ -87,8 +87,11 @@ Entrada: a interface e a rodada. Saída: `plano.md` (modelo em
    (domínio, estilo, testes, configuração), pelo
    `references/tecnologias.md`.
 3. **Atividade** (Blackwell e Green 2003, tabela 5.1, p. 113), que diz
-   como ler cada DC (`references/dcs.md`, "Atividade da rodada"; só a
-   modificação tem perfil publicado):
+   como ler cada DC, e nunca quais ler: as 14 DCs se percorrem em toda
+   rodada, sem seleção prévia por perfil de atividade (ADR 0012, decisão
+   do autor de 2026-10-24); o perfil só muda o peso e a pergunta de cada
+   uma (`references/dcs.md`, "Atividade da rodada"; só a modificação tem
+   perfil publicado):
    - Primeira rodada: busca e compreensão exploratória. O leitor procura
      onde o código escreve cada exigência de coordenação da interface
      (especificação em `implementacoes/openspec/specs/<interface>/spec.md`)
@@ -126,7 +129,9 @@ pela revisão de design de 2026-10-14 (tcc-4a9; modelo em
 `references/formatos.md`). O guia abre com:
 
 - **o índice das 14 DCs**, numa linha de links, logo abaixo do título,
-  para chegar à DC com um toque;
+  para chegar à DC com um toque; as 14 têm seção em toda rodada,
+  inclusive as que o perfil de atividade não lista, que se leem com a
+  mesma ficha e sem o peso publicado (ADR 0012);
 - **a legenda dos arquivos**, um nome curto por arquivo, que diga a
   tecnologia e a linguagem (`WC.ts`, `Solid.tsx`, `React.tsx`), sem
   usar o nome da tecnologia sozinho para o arquivo;

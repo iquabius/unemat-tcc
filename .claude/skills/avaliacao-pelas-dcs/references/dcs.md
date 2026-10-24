@@ -55,6 +55,13 @@ da implementação, não o exemplo.
 
 ## Atividade da rodada
 
+O perfil de atividade guia como ler cada DC, e nunca seleciona quais
+ler: as 14 se percorrem em toda rodada, sem seleção prévia por perfil,
+porque a leitura dirigida deixaria sem resposta, no diff, as DCs fora
+do perfil (ADR 0012, decisão do autor de 2026-10-24). O que o perfil
+muda é o peso e a pergunta de cada DC na rodada; a DC sem linha na
+tabela se lê com a mesma ficha, sem o peso publicado.
+
 - **Primeira rodada: busca e compreensão exploratória** (Blackwell e Green 2003,
   tabela 5.1, p. 113): "hunting for a known target, such as where a
   function is called" e "discovering structure or algorithm". Nenhuma
