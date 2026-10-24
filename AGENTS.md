@@ -225,6 +225,16 @@ pergunta antes.
   na ordem alfabética do sobrenome do primeiro autor (NBR 10520:2023,
   pelo manual da biblioteca da UFSCar); dois links `[[cite:a][p. N]]`
   seguidos imprimem dois parênteses.
+- Figura em TikZ: num `#+begin_figure` com um `#+begin_export latex`
+  dentro, com `#+CAPTION`, `#+NAME` e `#+ATTR_LATEX: :options [htbp]`
+  no bloco de fora; o `#+begin_src latex` viraria listagem minted pelo
+  `.dir-locals.el`, e o `#+CAPTION` sobre o `#+begin_export` é
+  ignorado. A legenda sai em cima, como a das imagens, porque o
+  `special-block` está em `org-latex-caption-above` no
+  `.dir-locals.el`; as bibliotecas TikZ ficam no `latex/tcc.tex`, e o
+  `tikzpicture` fica fora da marcação do diff ao vivo (`PICTUREENV` do
+  `bin/latexdiff-tcc.sh`): a figura alterada sai inteira, a velha
+  comentada (pesquisa de 2026-10-24).
 - Siglas pelo glossaries (ADR 0027): no `.org`, `[[gls:pr]]`,
   `[[glspl:dc]]` no plural e `[[Gls:pf]]` no começo de frase, nunca a
   definição escrita à mão; cada sigla tem entrada em `latex/siglas.tex`. O

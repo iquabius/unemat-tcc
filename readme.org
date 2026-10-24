@@ -97,7 +97,7 @@
      --main latex/tcc.tex \
      --packages=biblatex \
      --exclude-safecmd=realce \
-     --config="PICTUREENV=(?:picture|DIFnomarkup|minted)[\w\d*@]*" \
+     --config="PICTUREENV=(?:picture|DIFnomarkup|minted|tikzpicture)[\w\d*@]*" \
      --no-view \
      --output pdf/diff.pdf \
      --latexmk \

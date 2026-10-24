@@ -1,6 +1,6 @@
 ((nil . ((ispell-local-dictionary . "pt_BR,en_US")
          (org-export-headline-levels . 5)
-         (org-latex-caption-above . (image src-block table))
+         (org-latex-caption-above . (image src-block table special-block))
          (org-latex-prefer-user-labels . t)
          (org-latex-src-block-backend . minted)
          (org-ref-cite-insert-version . 2)))
