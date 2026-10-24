@@ -135,7 +135,10 @@ Em `docs/processo/`, o projeto e as ferramentas:
 - `implementacoes-no-codesandbox.md` (Referência): as implementações do
   autor no CodeSandbox, anteriores às de `implementacoes/`;
 - `tarefas-no-beads.md` (Referência): onde ficam as tarefas e como
-  recuperá-las.
+  recuperá-las;
+- `estimativa-de-paginas.md` (Referência): o total de páginas do PDF, o
+  texto da análise e o anexo de código, com a conta e a data; os três
+  números que o chat mostra ao tratar do delineamento.
 
 Registros da avaliação: `docs/avaliacao/<rodada>-<interface>/`.
 Decisões: `docs/adr/`.
