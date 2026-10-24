@@ -1,5 +1,6 @@
-// Regras de domínio da Reserva de passagem, iguais em todas as implementações
-// web. Nada aqui depende de interface: cada implementação decide quando chamar.
+// Regras de domínio, mensagens e o servidor simulado da Reserva de passagem,
+// iguais em todas as implementações web. Nada aqui depende de interface: cada
+// implementação decide quando chamar.
 
 export type TipoDeViagem = "ida" | "ida-e-volta";
 
@@ -55,3 +56,55 @@ export function confirmacaoDaReserva(reserva: Reserva): string {
     ? `Você reservou uma passagem só de ida para ${ida}.`
     : `Você reservou passagens de ida e volta: ida em ${ida} e volta em ${volta}.`;
 }
+
+/** Latência fixa do servidor simulado. */
+export const LATENCIA_MS = 500;
+/** A ida que o servidor simulado recusa, para a falha se repetir. */
+export const IDA_RECUSADA = "31/12/2099";
+
+export const MENSAGENS = {
+  enviando: "Enviando…",
+  falha: "Não foi possível reservar. Tente de novo.",
+} as const;
+
+// Requisições abertas agora, para a limpeza ao sair da tela.
+let abertas = 0;
+
+/**
+ * Servidor simulado, com a forma de uma chamada fetch: devolve uma Promise
+ * que se resolve depois de LATENCIA_MS, ou se rejeita se a ida for a
+ * IDA_RECUSADA, e aceita um AbortSignal.
+ */
+export function enviarReserva(
+  reserva: Reserva,
+  sinal: AbortSignal,
+): Promise<void> {
+  abertas++;
+  return new Promise((resolve, reject) => {
+    const cancelar = () => {
+      abertas--;
+      clearTimeout(resposta);
+      reject(new DOMException("Envio cancelado", "AbortError"));
+    };
+    const resposta = setTimeout(() => {
+      abertas--;
+      sinal.removeEventListener("abort", cancelar);
+      if (reserva.ida === IDA_RECUSADA)
+        reject(new Error("Reserva recusada pelo servidor simulado"));
+      else resolve();
+    }, LATENCIA_MS);
+    if (sinal.aborted) cancelar();
+    else sinal.addEventListener("abort", cancelar, { once: true });
+  });
+}
+
+/** Diferencia o cancelamento (esperado) de uma falha de verdade. */
+export function foiCancelado(erro: unknown): boolean {
+  return erro instanceof DOMException && erro.name === "AbortError";
+}
+
+/** Requisições abertas agora, para o teste de conformidade. */
+export function contarAbertos(): number {
+  return abertas;
+}
+Object.assign(globalThis, { contarAbertos });

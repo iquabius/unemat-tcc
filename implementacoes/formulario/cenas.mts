@@ -19,11 +19,27 @@ export const cenas: Cenas = {
     await campo(pagina, "tipo").selectOption("ida-e-volta");
   },
 
+  // O servidor simulado responde em 500 ms: a captura sai 100 ms depois do
+  // clique, com o "Enviando…", ou depois da resposta, com folga.
+  enviando: async (pagina) => {
+    await campo(pagina, "tipo").selectOption("ida-e-volta");
+    await campo(pagina, "ida").fill("10/10/2026");
+    await campo(pagina, "volta").fill("15/10/2026");
+    await pagina.getByRole("button", { name: "Reservar" }).click();
+  },
+
   reservado: async (pagina) => {
     await campo(pagina, "tipo").selectOption("ida-e-volta");
     await campo(pagina, "ida").fill("10/10/2026");
     await campo(pagina, "volta").fill("15/10/2026");
     await pagina.getByRole("button", { name: "Reservar" }).click();
+    await pagina.waitForTimeout(700);
+  },
+
+  falha: async (pagina) => {
+    await campo(pagina, "ida").fill("31/12/2099");
+    await pagina.getByRole("button", { name: "Reservar" }).click();
+    await pagina.waitForTimeout(700);
   },
 
   escondido: async (pagina) => {

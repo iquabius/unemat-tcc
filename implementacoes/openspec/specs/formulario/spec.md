@@ -5,7 +5,8 @@
 Reserva de passagem de ônibus com tipo de viagem e duas datas, a
 interface *Flight Booker* do 7GUIs (Kiss 2014, §3.5, p. 25): restrições
 entre campos e dentro de um campo, com estado derivado, no gerenciamento
-de estado.
+de estado, e o envio que ignora o reenvio enquanto espera a resposta, na
+orquestração de eventos.
 
 ## Requirements
 
@@ -123,10 +124,41 @@ antes corrigir a data que deixou nela.
 - **ENTÃO** a volta fica desabilitada e não mostra erro
 - **E** o botão Reservar fica habilitado
 
+### Requirement: Envio da reserva
+
+Reservar deve enviar a reserva ao servidor simulado (`enviarReserva` do
+domínio), que responde em 500 ms, e mostrar "Enviando…" na situação,
+para o usuário saber que a reserva saiu. Durante o envio o botão
+continua habilitado, mas o clique é ignorado até a resposta, para a
+mesma reserva não sair duas vezes. Editar o tipo ou as datas não
+cancela o envio, e a resposta confirma a reserva que saiu, para o
+usuário saber o que reservou, e não o que digitou depois.
+
+#### Scenario: 5 enviando
+
+- **DADO** "Ida e volta", ida em 10/10/2099 e volta em 15/10/2099
+- **QUANDO** o usuário clica em Reservar
+- **ENTÃO** a situação mostra "Enviando…", e o botão Reservar continua habilitado
+- **E** `contarAbertos()` dá 1
+
+#### Scenario: 5 reenvio ignorado
+
+- **DADO** o envio em andamento
+- **QUANDO** o usuário clica em Reservar de novo
+- **ENTÃO** a situação continua "Enviando…"
+- **E** `contarAbertos()` continua 1
+
+#### Scenario: 6 edição durante o envio não o cancela
+
+- **DADO** "Só ida", com o envio da ida em 10/10/2099 em andamento
+- **QUANDO** o usuário digita "11/10/2099" na ida
+- **ENTÃO** a situação continua "Enviando…"
+- **E** `contarAbertos()` continua 1
+
 ### Requirement: Confirmação da reserva
 
-Ao reservar, deve aparecer abaixo do formulário uma confirmação, que
-fica até a próxima reserva, para o usuário conferir o tipo e as datas
+Com a resposta do servidor, deve aparecer na situação uma confirmação,
+que fica até o próximo envio, para o usuário conferir o tipo e as datas
 que reservou. Só de ida: "Você reservou uma passagem só de ida para
 IDA." Ida e volta: "Você reservou passagens de ida e volta: ida em IDA e
 volta em VOLTA." Kiss (2014) não mostra mensagem; o site do 7GUIs pede
@@ -134,24 +166,46 @@ uma que informe a escolha.
 
 #### Scenario: 5 confirmação de ida e volta
 
-- **DADO** "Ida e volta", ida em 10/10/2099 e volta em 15/10/2099
-- **QUANDO** o usuário clica em Reservar
+- **DADO** o envio de "Ida e volta", ida em 10/10/2099 e volta em 15/10/2099, em andamento
+- **QUANDO** chega a resposta
 - **ENTÃO** aparece "Você reservou passagens de ida e volta: ida em 10/10/2099 e volta em 15/10/2099."
+- **E** `contarAbertos()` dá 0
 
 #### Scenario: 6 confirmação só de ida
 
-- **DADO** "Só ida", ida em 10/10/2099
-- **QUANDO** o usuário clica em Reservar
+- **DADO** o envio de "Só ida", ida em 10/10/2099, em andamento, com a ida editada para 11/10/2099
+- **QUANDO** chega a resposta
+- **ENTÃO** aparece "Você reservou uma passagem só de ida para 10/10/2099.", a reserva que saiu
+
+### Requirement: Falha do envio
+
+Quando o servidor recusa a reserva, o que o domínio simula com a ida em
+31/12/2099, a situação deve mostrar "Não foi possível reservar. Tente de
+novo.", e o tipo e as datas ficam como estavam, para o usuário tentar de
+novo sem digitar tudo outra vez; o envio seguinte funciona.
+
+#### Scenario: 7 falha mantém os dados
+
+- **DADO** "Só ida", ida em 31/12/2099 e "xx" na volta desabilitada
+- **QUANDO** o usuário clica em Reservar e chega a resposta
+- **ENTÃO** a situação mostra "Não foi possível reservar. Tente de novo."
+- **E** o tipo continua "Só ida", a ida 31/12/2099, sem erro, e a volta "xx"
+- **E** o botão Reservar está habilitado
+
+#### Scenario: 7 envio seguinte funciona
+
+- **DADO** a falha na tela
+- **QUANDO** o usuário digita "10/10/2099" na ida, clica em Reservar e chega a resposta
 - **ENTÃO** aparece "Você reservou uma passagem só de ida para 10/10/2099."
 
 ### Requirement: Situação anunciada
 
-A situação, que mostra a confirmação da reserva, deve ficar num mesmo
-elemento com `role="status"`, presente desde a abertura, que só muda de
-texto, para o leitor de tela anunciá-la sem que ela receba o foco (WCAG
-2.2, critério 4.1.3).
+A situação, que mostra "Enviando…", a falha e a confirmação da reserva,
+deve ficar num mesmo elemento com `role="status"`, presente desde a
+abertura, que só muda de texto, para o leitor de tela anunciá-la sem que
+ela receba o foco (WCAG 2.2, critério 4.1.3).
 
-#### Scenario: 7 a situação é a mesma região de status
+#### Scenario: 8 a situação é a mesma região de status
 
 - **DADO** a situação que mudou de texto desde a abertura
 - **QUANDO** o teste a procura na tela
@@ -161,20 +215,26 @@ texto, para o leitor de tela anunciá-la sem que ela receba o foco (WCAG
 
 O botão "Esconder reserva" deve tirar a interface da página e passar a
 dizer "Mostrar reserva", que a põe de volta como se ela abrisse, para o
-usuário recomeçar a reserva do zero. Na primeira rodada, a interface não
-abre requisição, relógio nem inscrição, e por isso nada fica aberto fora
-da página.
+usuário recomeçar a reserva do zero. Fora da página, a interface não
+deixa requisição aberta, para o usuário não gastar rede com uma reserva
+que não vê: `contarAbertos()`, do domínio, dá 0.
 
-#### Scenario: 8 esconder tira a reserva da página
+#### Scenario: 9 esconder durante o envio cancela a requisição
 
-- **DADO** a reserva confirmada na tela
+- **DADO** o envio em andamento, com a requisição aberta
 - **QUANDO** o usuário clica no "Esconder reserva"
-- **ENTÃO** o formulário não está na página, e o botão diz "Mostrar reserva"
+- **ENTÃO** `contarAbertos()` dá 0
 
-#### Scenario: 8 mostrar começa do zero
+#### Scenario: 9 esconder tira a reserva da página
 
-- **DADO** a interface escondida
+- **DADO** o clique no "Esconder reserva"
+- **QUANDO** o teste procura o formulário
+- **ENTÃO** ele não está na página, e o botão diz "Mostrar reserva"
+
+#### Scenario: 9 mostrar começa do zero
+
+- **DADO** a interface escondida, depois do tempo da resposta
 - **QUANDO** o usuário clica no "Mostrar reserva"
 - **ENTÃO** o tipo de viagem é "Só ida", as datas mostram a data de hoje, sem erro, e o botão Reservar está habilitado
-- **E** não há confirmação na tela
+- **E** a situação está vazia
 - **E** o botão diz "Esconder reserva"

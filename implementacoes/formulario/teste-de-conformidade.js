@@ -2,9 +2,10 @@
 // implementações web. Cole no console do navegador com a implementação
 // aberta; a última linha devolve o resultado de cada verificação ("ok" ou
 // "FALHOU"). Cada verificação é um cenário de
-// implementacoes/openspec/specs/formulario/spec.md.
+// implementacoes/openspec/specs/formulario/spec.md. O servidor simulado
+// responde em 500 ms; o teste espera em tempo real.
 (async () => {
-  const esperar = () => new Promise((r) => setTimeout(r, 80));
+  const esperar = (ms = 80) => new Promise((r) => setTimeout(r, ms));
   const campo = (n) => document.querySelector(`[name="${n}"]`);
   const botao = () => document.querySelector('button[type="submit"]');
   const erro = (n) => {
@@ -32,6 +33,8 @@
   const marcada = (n) => campo(n).getAttribute("aria-invalid") === "true";
   const $ = (seletor) => document.querySelector(seletor);
   const texto = (el) => (el ? el.textContent.trim() : null);
+  const situacao = () => texto($(".situacao"));
+  const abertas = () => globalThis.contarAbertos();
   const r = [];
   const conferir = (nome, obtido, esperado) =>
     r.push(
@@ -85,9 +88,21 @@
   botao().click();
   await esperar();
   conferir(
+    "5 enviando",
+    [situacao(), botao().disabled, abertas()],
+    ["Enviando…", false, 1],
+  );
+  botao().click();
+  await esperar();
+  conferir("5 reenvio ignorado", [situacao(), abertas()], ["Enviando…", 1]);
+  await esperar(600);
+  conferir(
     "5 confirmação de ida e volta",
-    texto($(".situacao")),
-    "Você reservou passagens de ida e volta: ida em 10/10/2099 e volta em 15/10/2099.",
+    [situacao(), abertas()],
+    [
+      "Você reservou passagens de ida e volta: ida em 10/10/2099 e volta em 15/10/2099.",
+      0,
+    ],
   );
 
   await digitar("volta", "xx");
@@ -99,35 +114,84 @@
   );
   botao().click();
   await esperar();
+  await digitar("ida", "11/10/2099");
+  conferir(
+    "6 edição durante o envio não o cancela",
+    [situacao(), abertas()],
+    ["Enviando…", 1],
+  );
+  await esperar(600);
   conferir(
     "6 confirmação só de ida",
-    texto($(".situacao")),
+    situacao(),
+    "Você reservou uma passagem só de ida para 10/10/2099.",
+  );
+
+  await digitar("ida", "31/12/2099");
+  botao().click();
+  await esperar(600);
+  conferir(
+    "7 falha mantém os dados",
+    [
+      situacao(),
+      campo("tipo").value,
+      campo("ida").value,
+      erro("ida"),
+      campo("volta").value,
+      botao().disabled,
+    ],
+    [
+      "Não foi possível reservar. Tente de novo.",
+      "ida",
+      "31/12/2099",
+      null,
+      "xx",
+      false,
+    ],
+  );
+  await digitar("ida", "10/10/2099");
+  botao().click();
+  await esperar(600);
+  conferir(
+    "7 envio seguinte funciona",
+    situacao(),
     "Você reservou uma passagem só de ida para 10/10/2099.",
   );
 
   conferir(
-    "7 a situação é a mesma região de status",
+    "8 a situação é a mesma região de status",
     [$(".situacao") === regiao, regiao?.getAttribute("role") ?? null],
     [true, "status"],
   );
 
+  botao().click();
+  await esperar();
+  const abertasNoEnvio = abertas();
+  // Confere antes do tempo da resposta: a requisição esquecida terminaria
+  // sozinha nos 500 ms.
   $(".alternar").click();
   await esperar();
   conferir(
-    "8 esconder tira a reserva da página",
+    "9 esconder durante o envio cancela a requisição",
+    [abertasNoEnvio, abertas()],
+    [1, 0],
+  );
+  conferir(
+    "9 esconder tira a reserva da página",
     [$(".formulario"), texto($(".alternar"))],
     [null, "Mostrar reserva"],
   );
+  await esperar(600);
   $(".alternar").click();
   await esperar();
   conferir(
-    "8 mostrar começa do zero",
+    "9 mostrar começa do zero",
     [
       campo("tipo").value,
       [campo("ida").value, campo("volta").value],
       ["ida", "volta"].map(erro),
       botao().disabled,
-      texto($(".situacao")),
+      situacao(),
       texto($(".alternar")),
     ],
     ["ida", [hoje, hoje], [null, null], false, "", "Esconder reserva"],

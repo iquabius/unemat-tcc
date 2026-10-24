@@ -298,8 +298,7 @@ O `bin/testes-da-revisao.py` o roda nas interfaces que o ramo muda.
   ou inscrições (todas menos o Contador e a planilha, ADR 0029), o
   `dominio.ts` conta o que está aberto numa função em `globalThis`, como o
   `contarAbertos()` do Login, e cada implementação tem um botão que
-  esconde e mostra a interface; a Reserva de passagem já tem o botão, e
-  a contagem entra com o envio da reserva, que traz a requisição. O teste esconde a interface e confere zero
+  esconde e mostra a interface. O teste esconde a interface e confere zero
   **antes** de avançar o relógio: uma requisição esquecida terminaria
   sozinha na latência, e a conferência depois dela passaria (achado da
   revisão do Login, 2026-10-12). Pelo mesmo motivo, confira a contagem
