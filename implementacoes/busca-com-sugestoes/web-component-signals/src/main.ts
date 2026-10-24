@@ -4,6 +4,7 @@ import {
   createResource,
   createRoot,
   createSignal,
+  onCleanup,
 } from "solid-js";
 import {
   MENSAGENS,
@@ -16,7 +17,7 @@ import {
 import "../../estilo.css";
 
 const modelo = /* HTML */ `
-  <main class="busca">
+  <section class="painel">
     <label>
       Cidade de destino
       <input
@@ -28,7 +29,7 @@ const modelo = /* HTML */ `
     <p class="situacao" role="status" hidden></p>
     <ul class="sugestoes" hidden></ul>
     <p class="escolha" hidden></p>
-  </main>
+  </section>
 `;
 
 class BuscaDeDestino extends HTMLElement {
@@ -97,6 +98,9 @@ class BuscaDeDestino extends HTMLElement {
         },
       );
 
+      // Sem isto, a requisição continua fora da página.
+      onCleanup(() => controlador?.abort());
+
       const visivel = () => aberta() && termo().length >= MINIMO_DE_LETRAS;
       const mensagem = () => {
         if (!visivel()) return null;
@@ -142,4 +146,42 @@ class BuscaDeDestino extends HTMLElement {
   }
 }
 
+// A página: o botão que tira a busca da página e a põe de volta.
+class BuscaComSugestoes extends HTMLElement {
+  private descartar?: () => void;
+
+  connectedCallback() {
+    this.innerHTML = /* HTML */ `
+      <main class="busca">
+        <button type="button" class="alternar">Esconder busca</button>
+      </main>
+    `;
+    const principal = this.querySelector("main")!;
+    const alternar = this.querySelector<HTMLButtonElement>(".alternar")!;
+
+    const [visivel, setVisivel] = createSignal(true);
+    alternar.addEventListener("click", () => setVisivel(!visivel()));
+
+    this.descartar = createRoot((descartar) => {
+      createEffect(() => {
+        alternar.textContent = visivel() ? "Esconder busca" : "Mostrar busca";
+      });
+      // A busca entra quando o sinal fica verdadeiro, e a limpeza a tira
+      // quando ele fica falso.
+      createEffect(() => {
+        if (!visivel()) return;
+        const busca = document.createElement("busca-de-destino");
+        principal.append(busca);
+        onCleanup(() => busca.remove());
+      });
+      return descartar;
+    });
+  }
+
+  disconnectedCallback() {
+    this.descartar?.();
+  }
+}
+
 customElements.define("busca-de-destino", BuscaDeDestino);
+customElements.define("busca-com-sugestoes", BuscaComSugestoes);
