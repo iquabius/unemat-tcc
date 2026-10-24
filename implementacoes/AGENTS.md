@@ -227,8 +227,10 @@ A mudança não se porta para o código da interface em
   `createElement`. Mudam a ligação do estado com a tela e a orquestração,
   escritas com o `solid-js` da versão do Solid (1.9), sem JSX (ADR 0013):
   - nenhum tratador escreve na tela: ele altera um *signal*
-    (`createSignal`), o derivado é um `createMemo` ou uma função, como no
-    Solid da interface, e cada escrita na tela que acompanha o estado
+    (`createSignal`), ou o *store* com `produce` onde o Solid da
+    interface guarda nele o estado, como a lista do Circle Drawer; o
+    derivado é um `createMemo` ou uma função, como no Solid da
+    interface, e cada escrita na tela que acompanha o estado
     (`textContent`, `value`, `disabled`, `hidden`, atributo) fica num
     `createEffect`; o texto inicial que a montagem do Web Component já
     escreve fica nela;
@@ -249,7 +251,11 @@ A mudança não se porta para o código da interface em
   `mapArray` do `<For>` do Solid, para a montagem continuar igual à do
   Web Component e mudar só no passo para o Solid (ADR 0013); a
   orquestração do Solid, contra a do Web Component no tratador, para o
-  par com o Solid diferir só na montagem e no modelo de componente.
+  par com o Solid diferir só na montagem e no modelo de componente. O
+  *store* é decisão do autor de 2026-10-24, pelo mesmo motivo: no Circle
+  Drawer, a lista se altera no lugar com `produce`, como no Solid,
+  contra o *signal* da lista copiada, a forma do React, e o *signal* com
+  `equals: false`, a do Web Component (ADR 0040).
 
   O efeito roda pela primeira vez na mesma tarefa, antes da pintura, no
   fim do `createRoot`, antes de o `connectedCallback` voltar: a ilha
