@@ -9,9 +9,9 @@ proximidade de descrição da p. 46; o híbrido da p. 48 separa as duas. O
 trabalho fixa a primeira e deixa a segunda no idioma de cada tecnologia:
 nas quatro, o histórico guarda uma fotografia da lista a cada passo, e o
 desfazer e o refazer movem o cursor; a alteração se escreve no lugar no
-Web Component e, com um *store* do `solid-js` e `produce`, no Solid, e
-por cópia no React, cujo `setState` ignora a mesma referência; a do Web
-Component com *signals* fica para a tarefa dele (tcc-2pu0). A forma do
+Web Component e, com um *store* do `solid-js` e `produce`, no Solid e no
+Web Component com *signals* (decisão do autor de 2026-10-24, tcc-wtt6),
+e por cópia no React, cujo `setState` ignora a mesma referência. A forma do
 histórico é escolha de projeto, que qualquer das tecnologias aceita; a
 da alteração depende do modelo de programação, e é a diferença que o ADR
 0033 quer à vista. Onde a alteração é no lugar, a fotografia é uma cópia
@@ -33,13 +33,19 @@ o modelo de programação.
 Em vez de: comandos nas quatro, como o Java de Kiss (p. 41-43); fiel ao
 lado orientado a objetos dele, mas no React os comandos viram funções
 que devolvem a lista nova, longe do que se escreve nele.
+Em vez de, no Web Component com *signals*: um *signal* da lista copiada
+a cada mudança, como no React, ou um *signal* com `equals: false` sobre
+a lista alterada no lugar, como no Web Component; os dois afastariam o
+par com o Solid da diferença só na montagem e no modelo de componente,
+que a regra de 2026-10-23 do `implementacoes/AGENTS.md` pede.
 Custo: o contraste entre guardar o comando e guardar a fotografia, onde
 Kiss viu a vantagem do Scala em viscosidade, concisão, propensão a erros
 e nível de abstração (p. 46-48), fica fora da análise; o arrastar da
 segunda rodada (ADR 0029) entra como mais uma fotografia em todas, o
-caso barato de Kiss (p. 47); no Web Component e no Solid, a cópia
-profunda se escreve ao guardar o passo e ao voltar a ele, o que o React
-não precisa, e a cópia esquecida só o teste de conformidade pega.
+caso barato de Kiss (p. 47); no Web Component, no Web Component com
+*signals* e no Solid, a cópia profunda se escreve ao guardar o passo e
+ao voltar a ele, o que o React não precisa, e a cópia esquecida só o
+teste de conformidade pega.
 
 Fontes: Kiss (2014, §3.8, p. 41-48), em `acervo/kiss2014.txt`; ADRs 0029
 e 0033; tarefas tcc-wtt6 e tcc-2pu0.
