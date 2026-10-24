@@ -8,6 +8,7 @@ import {
   podeEntrar,
   tempoDeSessao,
 } from "../../dominio";
+import { hospedar } from "../../../pagina";
 import "../../estilo.css";
 
 type Situacao = keyof typeof MENSAGENS;
@@ -108,42 +109,10 @@ class PainelDeLogin extends HTMLElement {
   }
 }
 
-// A página: o botão que tira o painel da página e o põe de volta.
-class LoginComQuarentena extends HTMLElement {
-  private descartar?: () => void;
-
-  connectedCallback() {
-    this.innerHTML = /* HTML */ `
-      <main class="login">
-        <button type="button" class="alternar">Esconder login</button>
-      </main>
-    `;
-    const principal = this.querySelector("main")!;
-    const alternar = this.querySelector<HTMLButtonElement>(".alternar")!;
-
-    const [visivel, setVisivel] = createSignal(true);
-    alternar.addEventListener("click", () => setVisivel(!visivel()));
-
-    this.descartar = createRoot((descartar) => {
-      createEffect(() => {
-        alternar.textContent = visivel() ? "Esconder login" : "Mostrar login";
-      });
-      // O painel entra quando o sinal fica verdadeiro, e a limpeza o tira
-      // quando ele fica falso.
-      createEffect(() => {
-        if (!visivel()) return;
-        const painel = document.createElement("painel-de-login");
-        principal.append(painel);
-        onCleanup(() => painel.remove());
-      });
-      return descartar;
-    });
-  }
-
-  disconnectedCallback() {
-    this.descartar?.();
-  }
-}
-
 customElements.define("painel-de-login", PainelDeLogin);
-customElements.define("login-com-quarentena", LoginComQuarentena);
+
+hospedar((conteiner) => {
+  const painel = document.createElement("painel-de-login");
+  conteiner.append(painel);
+  return () => painel.remove();
+});
