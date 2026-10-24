@@ -6,9 +6,12 @@ import {
   onCleanup,
 } from "solid-js";
 import {
+  MENSAGENS,
   confirmacaoDaReserva,
+  enviarReserva,
   erroDaData,
   erroDaOrdem,
+  foiCancelado,
   hoje,
   type TipoDeViagem,
 } from "../../dominio";
@@ -68,6 +71,26 @@ class FormularioDeCompra extends HTMLElement {
     const [ida, setIda] = createSignal(hoje());
     const [volta, setVolta] = createSignal(hoje());
     const [situacao, setSituacao] = createSignal("");
+    // O envio em andamento, que ignora o reenvio.
+    let controlador: AbortController | undefined;
+
+    // O clique durante o envio é ignorado; editar não cancela o envio, e a
+    // confirmação é da reserva que saiu.
+    const reservar = () => {
+      if (controlador) return;
+      const reserva = { tipo: tipo(), ida: ida(), volta: volta() };
+      const atual = new AbortController();
+      controlador = atual;
+      setSituacao(MENSAGENS.enviando);
+      enviarReserva(reserva, atual.signal)
+        .then(
+          () => setSituacao(confirmacaoDaReserva(reserva)),
+          (erro) => {
+            if (!foiCancelado(erro)) setSituacao(MENSAGENS.falha);
+          },
+        )
+        .finally(() => (controlador = undefined));
+    };
 
     // Os tratadores só alteram os sinais; nenhum deles escreve na tela.
     this.campos.ida.addEventListener("input", () =>
@@ -81,15 +104,16 @@ class FormularioDeCompra extends HTMLElement {
     );
     this.formulario.addEventListener("submit", (evento) => {
       evento.preventDefault();
-      setSituacao(
-        confirmacaoDaReserva({ tipo: tipo(), ida: ida(), volta: volta() }),
-      );
+      reservar();
     });
 
     // Cada erro é um valor derivado, e cada escrita na tela, um efeito, que
     // roda de novo só quando um sinal que ele lê se altera. O createRoot
     // guarda os efeitos para o disconnectedCallback descartá-los.
     this.descartar = createRoot((descartar) => {
+      // Sem isto, o envio continua fora da página.
+      onCleanup(() => controlador?.abort());
+
       const idaEVolta = () => tipo() === "ida-e-volta";
       const erroIda = createMemo(() => erroDaData(ida()));
       const erroVolta = createMemo(() =>
