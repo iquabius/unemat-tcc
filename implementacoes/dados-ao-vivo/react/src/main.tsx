@@ -3,8 +3,9 @@ import { createRoot } from "react-dom/client";
 import {
   JOGOS,
   MENSAGENS,
-  inscreverNosPlacares,
+  URL_DOS_PLACARES,
   iniciarRelogio,
+  lerLote,
   formatarAtualizacao,
   formatarPlacar,
   formatarTempo,
@@ -23,16 +24,19 @@ function PainelDePlacares() {
   const [chegada, setChegada] = useState<number>();
   const [agora, setAgora] = useState(Date.now);
 
-  // A limpeza cancela a inscrição ao pausar e ao sair da tela.
+  // A limpeza fecha a conexão ao pausar e ao sair da tela.
   useEffect(() => {
     if (pausado) return;
-    return inscreverNosPlacares((lote) => {
+    const conexao = new WebSocket(URL_DOS_PLACARES);
+    conexao.addEventListener("message", (mensagem) => {
+      const lote = lerLote(mensagem);
       setLotes(({ atual }) => ({ anterior: atual, atual: lote }));
       setChegada(Date.now());
     });
+    return () => conexao.close();
   }, [pausado]);
 
-  // O relógio vive com o painel, e não com a inscrição: sem dependências, a
+  // O relógio vive com o painel, e não com a conexão: sem dependências, a
   // limpeza o para só ao sair da tela.
   useEffect(() => iniciarRelogio(() => setAgora(Date.now())), []);
 
