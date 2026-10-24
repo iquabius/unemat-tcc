@@ -1,6 +1,6 @@
 # 0012. As quatro tecnologias web implementam as sete interfaces, todas no conjunto analisado, e o texto as lê pelas 14 DCs, sem conferência fora da web
 
-2026-10-19. Escolher antes o que analisar exigiria prever qual interface
+2026-10-24. Escolher antes o que analisar exigiria prever qual interface
 e qual tecnologia mostram melhor cada DC, e escolher depois, com o
 código pronto, entrega ao avaliador a escolha da evidência que ele mesmo
 julga. O Web Component, o Web Component com *signals*, o React e o Solid
@@ -20,7 +20,12 @@ pesam no ambiente de edição (compromisso prematuro, avaliação
 progressiva, visibilidade e provisoriedade); destas, a análise declara a
 face notacional que as fontes citam, porque os próprios autores
 suspeitam de uma zona cinzenta entre as dimensões da notação e as do
-ambiente (Green et al. 2006, p. 357). A concisão tem o apoio de linhas
+ambiente (Green et al. 2006, p. 357). Em toda rodada, inclusive nas que
+modificam o código, as 14 se percorrem sem seleção prévia por perfil de
+atividade: o perfil de Blackwell e Green (2003, p. 118) guia como ler
+cada DC, e não quais ler; o que o texto detalha se enxuga depois, na
+revisão da análise, sem repetir entre rodadas e DCs o que não muda
+(decisão do autor em 2026-10-24). A concisão tem o apoio de linhas
 não vazias e sem comentários, contadas por script versionado, sem o
 domínio e o estilo. O `cronometro-com-rxjs-5`, de 2017, o jQuery, o Lit
 e o Angular (ADR 0013), o Contador, a Lista filtrável, o Carrinho e o
@@ -45,6 +50,14 @@ de 2026-10-09); menos texto, e Kiss (2014, p. 12) também escolheu, mas
 2001, p. 332), Blackwell e Green (2003, p. 107-108) mandam perguntar por
 todas, e nenhuma fonte primária recomenda o subconjunto que `cases.org`
 lhes atribui (tcc-ey1a).
+Em vez de: nas rodadas que modificam o código, detalhar só as DCs do
+perfil de modificação, fixado antes da análise pela tabela de Green e
+Blackwell (1998) que Blackwell e Green (2003, p. 118) citam ("A
+tentative tabulation of the support required for each generic
+activity"), e resumir as outras numa linha (proposta de 2026-10-24);
+teria fonte e pouparia texto, mas a tabela é tentativa, o tutorial é
+literatura cinzenta sem entrada no `refs.bib`, e a leitura dirigida
+deixaria sem resposta, no diff, as DCs fora do perfil.
 Em vez de: as 14 mais as candidatas propostas depois (Blackwell et al.
 2001, p. 335-336; Green et al. 2006, p. 336-337); cobriria mais, mas as
 próprias fontes as declaram candidatas.
@@ -53,7 +66,9 @@ analisador.
 Custo: 28 implementações, com cenas e capturas, e as rodadas seguintes
 nas quatro tecnologias; as 14 DCs em cada interface, algumas com "sem
 diferença" (ADR 0017), e as quatro do ambiente de edição podem render
-pouco no código; quatro listagens por interface, que têm de ficar
+pouco no código; nas rodadas que modificam o código, muitas DCs repetem
+"sem sinal no diff", e a revisão do texto da análise as enxuga depois,
+sem tirar a leitura; quatro listagens por interface, que têm de ficar
 enxutas para a seção não virar inventário de telas (Wazlawick 2014,
 p. 103-104); nenhuma posição se confere fora da web; sem escolha de
 implementações, o prazo só se ajusta pela ordem de corte do ADR 0029.
