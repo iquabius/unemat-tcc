@@ -218,7 +218,7 @@ _Avoid_: requisito não funcional (a mudança é de comportamento)
 
 **Limpeza ao sair da tela**:
 Regra comum da primeira rodada: quando a interface sai da tela, ela
-encerra o que iniciou (relógios, inscrições, requisições, ouvintes), e o
+encerra o que iniciou (relógios, conexões, requisições, ouvintes), e o
 teste de conformidade confere que nada sobrou. Quem a viola deixa um
 vazamento de recursos (Lima, Giusti e Dias-Neto, 2020).
 _Avoid_: "nada vivo depois de sair da tela" (decalque de *alive*);

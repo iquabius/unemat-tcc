@@ -236,7 +236,7 @@ A mudança não se porta para o código da interface em
     um efeito por célula que muda;
   - a orquestração é a do Solid da interface, como no `createResource` da
     Busca e na tentativa do Login, que o tratador abre e cancela, e o que
-    o Solid limpa (o relógio, a inscrição, a tentativa aberta) se
+    o Solid limpa (o relógio, a conexão, a tentativa aberta) se
     registra com `onCleanup` dentro do `createRoot`.
 
   As duas últimas são decisões do autor de 2026-10-23: o laço, contra o

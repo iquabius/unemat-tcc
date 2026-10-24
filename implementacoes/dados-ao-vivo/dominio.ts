@@ -197,36 +197,6 @@ export function contarConexoes(): number {
   return conexoes;
 }
 
-// Inscrições abertas agora, para a limpeza ao sair da tela.
-let inscricoes = 0;
-
-/**
- * Inscreve aoReceber na fonte, como quem abre um WebSocket ou um
- * EventSource: a cada INTERVALO_MS a fonte manda um lote para aoReceber.
- * Devolve a função que cancela a inscrição; chamá-la de novo não faz nada.
- */
-export function inscreverNosPlacares(
-  aoReceber: (lote: Lote) => void,
-): () => void {
-  inscricoes++;
-  const intervalo = setInterval(
-    () => aoReceber(placaresEm(Date.now())),
-    INTERVALO_MS,
-  );
-  let ativa = true;
-  return () => {
-    if (!ativa) return;
-    ativa = false;
-    inscricoes--;
-    clearInterval(intervalo);
-  };
-}
-
-/** Inscrições abertas agora, para o teste de conformidade. */
-export function contarInscricoes(): number {
-  return inscricoes;
-}
-
 // Relógios abertos agora, para a limpeza ao sair da tela.
 let relogios = 0;
 
@@ -250,7 +220,7 @@ export function iniciarRelogio(aoTique: () => void): () => void {
 export function contarRelogios(): number {
   return relogios;
 }
-Object.assign(globalThis, { contarConexoes, contarInscricoes, contarRelogios });
+Object.assign(globalThis, { contarConexoes, contarRelogios });
 
 /** "2 × 1", ou "—" antes do primeiro lote. */
 export function formatarPlacar(gols: Gols | undefined): string {
