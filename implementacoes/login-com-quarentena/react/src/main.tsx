@@ -9,6 +9,7 @@ import {
   podeEntrar,
   tempoDeSessao,
 } from "../../dominio";
+import { hospedar } from "../../../pagina";
 import "../../estilo.css";
 
 type Situacao = keyof typeof MENSAGENS;
@@ -98,21 +99,8 @@ function PainelDeLogin() {
   );
 }
 
-// A página: o botão que tira o painel da página e o põe de volta.
-function LoginComQuarentena() {
-  const [visivel, setVisivel] = useState(true);
-  return (
-    <main className="login">
-      <button
-        type="button"
-        className="alternar"
-        onClick={() => setVisivel(!visivel)}
-      >
-        {visivel ? "Esconder login" : "Mostrar login"}
-      </button>
-      {visivel && <PainelDeLogin />}
-    </main>
-  );
-}
-
-createRoot(document.getElementById("raiz")!).render(<LoginComQuarentena />);
+hospedar((conteiner) => {
+  const raiz = createRoot(conteiner);
+  raiz.render(<PainelDeLogin />);
+  return () => raiz.unmount();
+});
