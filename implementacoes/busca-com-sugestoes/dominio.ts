@@ -112,6 +112,9 @@ function sugerir(termo: string): Cidade[] {
   );
 }
 
+// Requisições abertas agora, para a limpeza ao sair da tela.
+let abertas = 0;
+
 /**
  * API simulada, com a forma de uma chamada fetch: devolve uma Promise e
  * aceita um AbortSignal. Termos de até 2 letras levam 800 ms; os demais,
@@ -123,12 +126,15 @@ export function buscarCidades(
 ): Promise<Cidade[]> {
   const normalizado = normalizar(termo);
   const latencia = normalizado.length <= 2 ? 800 : 200;
+  abertas++;
   return new Promise((resolve, reject) => {
     const cancelar = () => {
+      abertas--;
       clearTimeout(resposta);
       reject(new DOMException("Busca cancelada", "AbortError"));
     };
     const resposta = setTimeout(() => {
+      abertas--;
       sinal?.removeEventListener("abort", cancelar);
       if (normalizado === "erro") reject(new Error("Falha simulada da API"));
       else resolve(sugerir(normalizado));
@@ -137,6 +143,12 @@ export function buscarCidades(
     else sinal?.addEventListener("abort", cancelar, { once: true });
   });
 }
+
+/** Requisições abertas agora, para o teste de conformidade. */
+export function contarAbertos(): number {
+  return abertas;
+}
+Object.assign(globalThis, { contarAbertos });
 
 /** Diferencia o cancelamento (esperado) de uma falha de verdade. */
 export function foiCancelada(erro: unknown): boolean {

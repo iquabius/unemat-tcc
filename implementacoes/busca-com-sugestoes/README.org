@@ -9,7 +9,11 @@ tarefa equivalente.
 A "API" é simulada em =dominio.ts=, com a forma de uma chamada =fetch=:
 =buscarCidades(termo, sinal)= devolve uma /Promise/ e aceita um
 =AbortSignal=, com latência determinística, para os testes e as capturas se
-repetirem.
+repetirem. =contarAbertos()= diz quantas requisições estão abertas, para a
+limpeza ao sair da tela se conferir pela contagem: o botão "Esconder
+busca" tira a interface da página, e nenhuma requisição fica aberta. A
+situação fica numa região de status que existe desde a abertura, as duas
+regras comuns da primeira rodada (ADR 0029).
 
 As regras, as mensagens e os cenários que o teste de conformidade confere
 estão em =implementacoes/openspec/specs/busca-com-sugestoes/spec.md=, a

@@ -6,7 +6,8 @@
 // implementacoes/openspec/specs/busca-com-sugestoes/spec.md.
 (async () => {
   const dormir = (ms) => new Promise((r) => setTimeout(r, ms));
-  const campo = () => document.querySelector('[name="destino"]');
+  const $ = (seletor) => document.querySelector(seletor);
+  const campo = () => $('[name="destino"]');
   const setter = (el) =>
     Object.getOwnPropertyDescriptor(Object.getPrototypeOf(el), "value").set;
   function digitar(texto) {
@@ -25,6 +26,7 @@
       texto,
     );
   const escolha = () => texto(visivel(".escolha"));
+  const abertas = () => globalThis.contarAbertos();
   const r = [];
   const conferir = (nome, obtido, esperado) =>
     r.push(
@@ -32,6 +34,7 @@
     );
 
   await dormir(100);
+  const regiao = $(".situacao");
   conferir(
     "1 começa vazio",
     [situacao(), sugestoes(), escolha()],
@@ -132,6 +135,33 @@
     "9 nenhuma cidade",
     [situacao(), escolha()],
     ["Nenhuma cidade encontrada.", "Destino: Cáceres (MT)"],
+  );
+
+  conferir(
+    "10 a situação é a mesma região de status",
+    [$(".situacao") === regiao, regiao?.getAttribute("role") ?? null],
+    [true, "status"],
+  );
+
+  digitar("sa");
+  await dormir(50);
+  const abertasNaBusca = abertas();
+  // Confere antes do tempo da resposta: a requisição esquecida terminaria
+  // sozinha nos 800 ms.
+  $(".alternar").click();
+  await dormir(50);
+  conferir(
+    "11 esconder durante a busca cancela a requisição",
+    [abertasNaBusca, $(".painel"), texto($(".alternar")), abertas()],
+    [1, null, "Mostrar busca", 0],
+  );
+  await dormir(1000);
+  $(".alternar").click();
+  await dormir(50);
+  conferir(
+    "11 mostrar começa do zero",
+    [campo().value, situacao(), sugestoes(), escolha(), texto($(".alternar"))],
+    ["", null, [], null, "Esconder busca"],
   );
 
   return r.join("\n");

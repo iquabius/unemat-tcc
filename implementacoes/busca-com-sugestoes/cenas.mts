@@ -28,4 +28,7 @@ export const cenas: Cenas = {
     await pagina.waitForTimeout(500);
     await pagina.getByRole("button", { name: "Cáceres (MT)" }).click();
   },
+  escondido: async (pagina) => {
+    await pagina.getByRole("button", { name: "Esconder busca" }).click();
+  },
 };

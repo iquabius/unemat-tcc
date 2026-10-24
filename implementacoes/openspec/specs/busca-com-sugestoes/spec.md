@@ -141,3 +141,38 @@ destino fica até a próxima escolha.
 - **DADO** a escolha de "Cáceres (MT)"
 - **QUANDO** passa o tempo de uma busca
 - **ENTÃO** não há situação nem sugestões na tela
+
+### Requirement: Situação anunciada
+
+A situação deve ficar num mesmo elemento com `role="status"`, presente
+desde a abertura e escondido enquanto não há situação, que só muda de
+texto, para o leitor de tela anunciá-la sem que ela receba o foco (WCAG
+2.2, critério 4.1.3).
+
+#### Scenario: 10 a situação é a mesma região de status
+
+- **DADO** a situação que mudou de texto desde a abertura
+- **QUANDO** o teste a procura na tela
+- **ENTÃO** ela está no mesmo elemento da abertura, com `role="status"`
+
+### Requirement: Limpeza ao sair da tela
+
+O botão "Esconder busca" deve tirar a interface da página e passar a
+dizer "Mostrar busca", que a põe de volta como se ela abrisse, com o
+campo vazio. Fora da página, a interface não deixa requisição aberta,
+para o usuário não gastar rede com sugestões que não vê:
+`contarAbertos()`, do domínio, dá 0.
+
+#### Scenario: 11 esconder durante a busca cancela a requisição
+
+- **DADO** a busca de "sa" em andamento, com a requisição aberta
+- **QUANDO** o usuário clica no "Esconder busca"
+- **ENTÃO** a interface não está na página, e o botão diz "Mostrar busca"
+- **E** `contarAbertos()` dá 0
+
+#### Scenario: 11 mostrar começa do zero
+
+- **DADO** a interface escondida, depois do tempo da resposta
+- **QUANDO** o usuário clica no "Mostrar busca"
+- **ENTÃO** o campo está vazio, sem situação, sugestão nem destino na tela
+- **E** o botão diz "Esconder busca"

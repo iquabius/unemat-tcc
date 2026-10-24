@@ -13,11 +13,20 @@ body {
   color: #eee;
 }
 
-.busca {
+.busca,
+.painel {
   display: grid;
   gap: 0.5rem;
+}
+
+.busca {
   max-width: 24rem;
   padding: 1rem;
+}
+
+.alternar {
+  padding: 0.4rem;
+  font-size: 1rem;
 }
 
 .busca label {
