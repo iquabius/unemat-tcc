@@ -74,11 +74,12 @@ feita em cada versão, é o teste de viscosidade de Green e Petre (1996,
 p. 162), com a regra do menor diff. Da primeira rodada para as outras
 duas, a diferença entre os modelos fica mantida, ampliada, reduzida,
 anulada, invertida ou surgida, e a posição sobe, desce ou fica igual
-(ADR 0017). Se o prazo apertar, saem mudanças inteiras, nas quatro
-tecnologias, nesta ordem, fixada antes da análise: 1) o bolão; 2) o
-"lembrar meu nome"; 3) a terceira rodada do Placar ao vivo (decisão do
-autor em 2026-10-22). A primeira rodada, a cadeia de pares e os tipos
-de exigência que só uma mudança traz não saem: entre eles, a lista de
+(ADR 0017). Se o prazo apertar, sai primeiro o contraste depois da
+análise, uma tecnologia por vez, na ordem do ADR 0042, e depois
+mudanças inteiras, nas quatro tecnologias, nesta ordem, fixada antes
+da análise: 1) o bolão; 2) o "lembrar meu nome"; 3) a terceira rodada
+do Placar ao vivo (decisões do autor em 2026-10-22 e 2026-10-23). A
+primeira rodada, a cadeia de pares e os tipos de exigência que só uma mudança traz não saem: entre eles, a lista de
 contadores (a remoção com a identidade) e o campo do diâmetro (os dois
 sentidos).
 
@@ -201,5 +202,5 @@ Excel na web e no LibreOffice Calc, testado em 2026-10-23; Lima, Giusti e Dias-N
 SBQS, WTDQS);
 `tmp/pesquisas/2026-10-17-temas-do-conversor-e-da-planilha.md` e
 `tmp/pesquisas/2026-10-17-aparencia-por-estado-e-rodadas.md` (fora do
-git); ADRs 0002, 0012, 0013, 0017 e 0031; tarefas tcc-vgrx, tcc-5y5g,
+git); ADRs 0002, 0012, 0013, 0017, 0031 e 0042; tarefas tcc-vgrx, tcc-5y5g,
 tcc-wqvo, tcc-z6tg e tcc-o5er.
