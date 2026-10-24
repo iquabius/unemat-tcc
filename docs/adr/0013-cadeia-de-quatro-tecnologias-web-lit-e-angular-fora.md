@@ -32,8 +32,11 @@ diferença entre o Web Component e o React, que não formam par, se
 atribui ao passo da cadeia em que ela aparece, e a que nenhum passo
 explica, pelo sinal escrito (ADR 0021; decisão do autor em 2026-10-19).
 O Lit e o Angular com *signals* vão para `implementacoes/fora-da-analise/`
-(tcc-mbrc) e para os trabalhos futuros da conclusão (tcc-dpci); o jQuery
-e o Angular com RxJS continuam fora. Na primeira e na segunda rodada,
+(tcc-mbrc) e para os trabalhos futuros da conclusão (tcc-dpci); o Angular
+com *signals* volta, fora do conjunto analisado, no contraste depois da
+análise, na Busca e no Placar ao vivo, com o RxJS onde há orquestração
+de eventos (ADR 0042); o jQuery e o Angular com RxJS como modelo de
+programação à parte continuam fora. Na primeira e na segunda rodada,
 cada implementação usa só o que a tecnologia traz, sem bibliotecas de
 formulário; na terceira, a forma do ecossistema (ADRs 0029 e 0031).
 
@@ -123,5 +126,5 @@ Fontes: `tmp/pesquisas/2026-10-17-par-imperativo-granular-na-web.md`
 (fora do git), com o protótipo e a busca de código; Stack Overflow
 Developer Survey 2025; docs.solidjs.com, *createEffect*, *createRoot* e
 *mapArray* (atualizadas em 2026-04-28); lit.dev/docs/data/signals
-(lida em 2026-10-17); ADRs 0001, 0002, 0014, 0017, 0021, 0029, 0031 e
-0037; tarefas tcc-2pu0, tcc-mbrc e tcc-dpci.
+(lida em 2026-10-17); ADRs 0001, 0002, 0014, 0017, 0021, 0029, 0031,
+0037 e 0042; tarefas tcc-2pu0, tcc-mbrc e tcc-dpci.
