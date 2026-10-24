@@ -1,5 +1,6 @@
-// Jogos, mensagens e a fonte simulada de placares dos Dados ao vivo, iguais
-// em todas as implementações web. Nada aqui depende de interface.
+// Jogos, mensagens e o servidor WebSocket simulado de placares dos Dados ao
+// vivo, iguais em todas as implementações web. Nada aqui depende de
+// interface.
 
 /** Gols de cada lado: o placar de um jogo ou o palpite do usuário. */
 export interface Gols {
@@ -26,8 +27,15 @@ export interface Jogo {
 /** Placar de cada jogo num lote, pelo código. */
 export type Lote = Readonly<Record<string, Placar>>;
 
-/** Intervalo entre dois lotes da fonte. */
+/** Intervalo entre dois lotes do servidor. */
 export const INTERVALO_MS = 1000;
+
+/**
+ * Endereço do servidor de placares. O WebSocket do navegador que o abre
+ * (new WebSocket(URL_DOS_PLACARES)) recebe um lote a cada INTERVALO_MS,
+ * numa mensagem com o JSON do Lote, do servidor simulado abaixo.
+ */
+export const URL_DOS_PLACARES = "ws://placares.simulado/";
 
 /** Intervalo entre dois tiques do relógio do painel. */
 export const TIQUE_MS = 1000;
@@ -86,6 +94,109 @@ export function placaresEm(instante: number): Lote {
   return lote;
 }
 
+/** O lote de uma mensagem do servidor. */
+export function lerLote(mensagem: MessageEvent): Lote {
+  return JSON.parse(mensagem.data) as Lote;
+}
+
+// Conexões abertas agora, da criação ao close(), para a limpeza ao sair da
+// tela.
+let conexoes = 0;
+
+/**
+ * Conexão com o servidor simulado, com a API do WebSocket do navegador:
+ * readyState, os eventos open, message e close (por addEventListener ou
+ * pelos tratadores on*), send e close. As implementações da primeira
+ * rodada só usam o message e o close; o resto é o que as bibliotecas da
+ * terceira rodada (ADR 0031) esperam de um WebSocket. Abre num
+ * temporizador de 0 ms, como uma conexão real, e manda um lote a cada
+ * INTERVALO_MS; o close() para os lotes e dispara o close no temporizador
+ * seguinte. Os temporizadores são os da página, para o relógio falso do
+ * teste de conformidade os controlar.
+ */
+class ConexaoSimulada extends EventTarget {
+  static readonly CONNECTING = 0;
+  static readonly OPEN = 1;
+  static readonly CLOSING = 2;
+  static readonly CLOSED = 3;
+
+  readonly url: string;
+  readyState: number = ConexaoSimulada.CONNECTING;
+  onopen: ((evento: Event) => void) | null = null;
+  onmessage: ((evento: MessageEvent) => void) | null = null;
+  onclose: ((evento: CloseEvent) => void) | null = null;
+  onerror: ((evento: Event) => void) | null = null;
+
+  private abertura: ReturnType<typeof setTimeout>;
+  private lotes?: ReturnType<typeof setInterval>;
+
+  constructor(url: string) {
+    super();
+    this.url = url;
+    conexoes++;
+    this.abertura = setTimeout(() => {
+      this.readyState = ConexaoSimulada.OPEN;
+      this.disparar(new Event("open"));
+      this.lotes = setInterval(() => {
+        const data = JSON.stringify(placaresEm(Date.now()));
+        this.disparar(new MessageEvent("message", { data }));
+      }, INTERVALO_MS);
+    }, 0);
+  }
+
+  /** O servidor não lê o que o painel manda. */
+  send(): void {}
+
+  close(): void {
+    if (this.readyState >= ConexaoSimulada.CLOSING) return;
+    this.readyState = ConexaoSimulada.CLOSING;
+    conexoes--;
+    clearTimeout(this.abertura);
+    clearInterval(this.lotes);
+    setTimeout(() => {
+      this.readyState = ConexaoSimulada.CLOSED;
+      this.disparar(new CloseEvent("close", { code: 1000, wasClean: true }));
+    }, 0);
+  }
+
+  // Os ouvintes do addEventListener e o tratador on* do mesmo tipo.
+  private disparar(evento: Event) {
+    this.dispatchEvent(evento);
+    const tratador =
+      this[
+        `on${evento.type}` as "onopen" | "onmessage" | "onclose" | "onerror"
+      ];
+    tratador?.call(this, evento as never);
+  }
+}
+
+// O servidor simulado toma o lugar do WebSocket do navegador só na
+// URL_DOS_PLACARES; qualquer outro endereço abre a conexão de verdade. É
+// uma função, e não uma classe: instanceof WebSocket dá falso depois do
+// import, o que nada aqui testa.
+const WebSocketDoNavegador = globalThis.WebSocket;
+function WebSocketSimulado(
+  this: unknown,
+  url: string | URL,
+  protocolos?: string | string[],
+) {
+  return String(url) === URL_DOS_PLACARES
+    ? new ConexaoSimulada(String(url))
+    : new WebSocketDoNavegador(url, protocolos);
+}
+Object.assign(WebSocketSimulado, {
+  CONNECTING: ConexaoSimulada.CONNECTING,
+  OPEN: ConexaoSimulada.OPEN,
+  CLOSING: ConexaoSimulada.CLOSING,
+  CLOSED: ConexaoSimulada.CLOSED,
+});
+globalThis.WebSocket = WebSocketSimulado as unknown as typeof WebSocket;
+
+/** Conexões abertas agora, para o teste de conformidade. */
+export function contarConexoes(): number {
+  return conexoes;
+}
+
 // Inscrições abertas agora, para a limpeza ao sair da tela.
 let inscricoes = 0;
 
@@ -139,7 +250,7 @@ export function iniciarRelogio(aoTique: () => void): () => void {
 export function contarRelogios(): number {
   return relogios;
 }
-Object.assign(globalThis, { contarInscricoes, contarRelogios });
+Object.assign(globalThis, { contarConexoes, contarInscricoes, contarRelogios });
 
 /** "2 × 1", ou "—" antes do primeiro lote. */
 export function formatarPlacar(gols: Gols | undefined): string {

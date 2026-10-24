@@ -2,10 +2,12 @@
 
 ## Purpose
 
-Painel de placares de jogos em andamento que uma fonte simulada atualiza
-sozinha a cada segundo, com pausa, adaptado das cotações de Meijer (2012,
-p. 66-67): o painel se inscreve na fonte ao entrar na página, para o usuário
-seguir os jogos sem pedir, e cancela a inscrição ao pausar, para o
+Painel de placares de jogos em andamento que um servidor simulado atualiza
+sozinho a cada segundo, com pausa, adaptado das cotações de Meijer (2012,
+p. 66-67); o servidor é simulado no domínio, que toma o lugar do
+`WebSocket` do navegador só em `URL_DOS_PLACARES`. O painel abre a
+conexão com o servidor ao entrar na página,
+para o usuário seguir os jogos sem pedir, e a fecha ao pausar, para o
 usuário ler a tabela parada, e ao sair dela, para o usuário não gastar
 rede e bateria com um painel que não vê.
 
@@ -13,20 +15,20 @@ rede e bateria com um painel que não vê.
 
 ### Requirement: Abertura
 
-A interface deve abrir com o painel na página. O painel se inscreve na fonte
-ao entrar na página, para o usuário seguir os jogos sem pedir, e mostra uma
+A interface deve abrir com o painel na página. O painel abre a conexão com
+o servidor ao entrar na página, para o usuário seguir os jogos sem pedir, e mostra uma
 linha por jogo, na ordem FLA × PAL, COR × SAO, GRE × INT e CAM × CRU, com o
 código, o placar, o tempo, os gols novos e o palpite ("1 × 0", "2 × 0", "1 ×
 0" e "2 × 1"). Antes do primeiro lote, o placar, o tempo e os gols novos
 mostram "—", a situação mostra "Aguardando placares…" e o botão de pausa diz
 "Pausar".
 
-#### Scenario: 1 abre com o painel e uma inscrição
+#### Scenario: 1 abre com o painel e uma conexão
 
 - **QUANDO** a interface abre
 - **ENTÃO** o painel está na página
 - **E** o botão de pausa diz "Pausar"
-- **E** `contarInscricoes()` dá 1
+- **E** `contarConexoes()` dá 1
 
 #### Scenario: 3 voltar começa aguardando
 
@@ -36,21 +38,21 @@ mostram "—", a situação mostra "Aguardando placares…" e o botão de pausa 
 - **E** as quatro linhas mostram o código, "—" no placar, no tempo e nos gols novos, e o palpite
 - **E** o botão de pausa diz "Pausar"
 - **E** o "Atualizado há" fica vazio
-- **E** `contarInscricoes()` e `contarRelogios()` dão 1
+- **E** `contarConexoes()` e `contarRelogios()` dão 1
 
 ### Requirement: Lotes da partida
 
-A fonte simulada (`inscreverNosPlacares`) deve mandar a cada 1 s um lote
-com o minuto e os gols de cada jogo, pelo segundo em que ele sai: a partida
-anda 1 minuto por segundo e recomeça a cada 100 s; o teste começa às
-10:00:00 UTC de 2026-10-12. A cada lote, o painel mostra o placar
+O servidor simulado em `URL_DOS_PLACARES`, aberto com o `WebSocket` do
+navegador, deve mandar a cada 1 s um lote com o minuto e os gols de cada
+jogo, pelo segundo em que ele sai: a partida anda 1 minuto por segundo e
+recomeça a cada 100 s. A cada lote, o painel mostra o placar
 ("1 × 0"), o tempo ("41'", "Fim" depois do 90) e os gols novos desde o
 último lote mostrado da mesma partida ("+1 × 0", "=", senão "—"), e a
 situação fica vazia, para o usuário seguir os jogos sem pedir.
 
 #### Scenario: 4 primeiro lote mostra os placares, sem gols novos
 
-- **DADO** o painel mostrado às 10:00:00, sem lote
+- **DADO** o painel mostrado às 10:00:00 UTC de 2026-10-12, sem lote
 - **QUANDO** passa 1 s
 - **ENTÃO** a situação fica vazia
 - **E** os placares são "0 × 0" (FLA × PAL), "1 × 0" (COR × SAO), "1 × 0" (GRE × INT) e "2 × 0" (CAM × CRU), nos tempos "1'", "21'", "41'" e "61'", com os gols novos "—"
@@ -82,16 +84,16 @@ que o palpite está certo.
 
 ### Requirement: Pausa
 
-O "Pausar" deve cancelar a inscrição, deixar na tabela os valores do
+O "Pausar" deve fechar a conexão, deixar na tabela os valores do
 último lote, mostrar "Pausado." na situação e passar a dizer "Retomar",
 para o usuário ler a tabela parada.
 
-#### Scenario: 6 pausar cancela a inscrição
+#### Scenario: 6 pausar fecha a conexão
 
 - **DADO** o segundo lote na tela
 - **QUANDO** o usuário clica no "Pausar"
 - **ENTÃO** a situação mostra "Pausado.", e o botão diz "Retomar"
-- **E** `contarInscricoes()` dá 0
+- **E** `contarConexoes()` dá 0
 
 #### Scenario: 6 em pausa a tabela não muda
 
@@ -101,18 +103,18 @@ para o usuário ler a tabela parada.
 
 ### Requirement: Retomada com os gols da pausa
 
-O "Retomar" deve inscrever o painel de novo na fonte e voltar a dizer
+O "Retomar" deve abrir a conexão de novo e voltar a dizer
 "Pausar". A situação fica vazia se a tabela tem valores, e volta a
 "Aguardando placares…" se não tem. Os gols novos do lote seguinte contam
 desde o último lote mostrado da mesma partida, para o usuário ver os gols
 marcados durante a pausa.
 
-#### Scenario: 7 retomar inscreve o painel de novo
+#### Scenario: 7 retomar abre a conexão de novo
 
 - **DADO** o painel pausado há 7 s, com o segundo lote na tela
 - **QUANDO** o usuário clica no "Retomar"
 - **ENTÃO** a situação fica vazia, e o botão diz "Pausar"
-- **E** `contarInscricoes()` dá 1
+- **E** `contarConexoes()` dá 1
 
 #### Scenario: 7 gols novos contam desde o último lote mostrado
 
@@ -127,7 +129,7 @@ marcados durante a pausa.
 - **DADO** o painel que acaba de ser mostrado, pausado antes do primeiro lote
 - **QUANDO** o usuário clica no "Retomar"
 - **ENTÃO** a situação mostra "Aguardando placares…"
-- **E** `contarInscricoes()` dá 1
+- **E** `contarConexoes()` dá 1
 
 ### Requirement: Atualizado há
 
@@ -177,19 +179,19 @@ tela anunciá-la sem que ela receba o foco (WCAG 2.2, critério 4.1.3).
 
 ### Requirement: Limpeza ao sair da tela
 
-Ao sair da tela, o painel deve sair da página sem deixar inscrição nem
+Ao sair da tela, o painel deve sair da página sem deixar conexão nem
 relógio aberto, para o usuário não gastar rede e bateria com um painel que
-não vê: `contarInscricoes()` e `contarRelogios()`, do domínio, dão 0. Ao
+não vê: `contarConexoes()` e `contarRelogios()`, do domínio, dão 0. Ao
 voltar à tela, ele deve abrir como da primeira vez, sem pausa nem valores. A
 tela é a rota da página que a hospeda: "#/" é a página sem a interface, e
 qualquer outra rota, inclusive sem hash, a tem.
 
-#### Scenario: 2 sair cancela a inscrição e para o relógio
+#### Scenario: 2 sair fecha a conexão e para o relógio
 
-- **DADO** o painel na página, com a inscrição e o relógio abertos
+- **DADO** o painel na página, com a conexão e o relógio abertos
 - **QUANDO** a página vai à rota "#/", sem o painel
 - **ENTÃO** o painel não está na página
-- **E** `contarInscricoes()` e `contarRelogios()` dão 0
+- **E** `contarConexoes()` e `contarRelogios()` dão 0
 
 #### Scenario: 9 voltar depois de sair em pausa começa sem pausa
 
@@ -198,10 +200,10 @@ qualquer outra rota, inclusive sem hash, a tem.
 - **ENTÃO** a situação mostra "Aguardando placares…", e o botão de pausa diz "Pausar"
 - **E** as quatro linhas mostram "—" no placar, no tempo e nos gols novos
 - **E** o "Atualizado há" fica vazio
-- **E** `contarInscricoes()` e `contarRelogios()` dão 1
+- **E** `contarConexoes()` e `contarRelogios()` dão 1
 
-#### Scenario: 11 sair e voltar três vezes deixa uma inscrição e um relógio
+#### Scenario: 11 sair e voltar três vezes deixa uma conexão e um relógio
 
 - **DADO** o painel na página
 - **QUANDO** a página vai à rota "#/" e volta à rota com o painel três vezes
-- **ENTÃO** `contarInscricoes()` e `contarRelogios()` dão 1
+- **ENTÃO** `contarConexoes()` e `contarRelogios()` dão 1

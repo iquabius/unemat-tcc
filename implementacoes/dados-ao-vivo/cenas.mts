@@ -2,9 +2,9 @@ import type { Page } from "playwright";
 import type { Cenas } from "../capturar.mts";
 
 // O placar depende do segundo do relógio, que o capturar.mts fixa. Cada cena
-// recarrega a página, para a inscrição começar com a cena e com o relógio
+// recarrega a página, para a conexão começar com a cena e com o relógio
 // dela, e espera os lotes pela tela, e não pelo tempo: o lote sai 1 s
-// depois da inscrição.
+// depois da conexão.
 async function recarregar(pagina: Page) {
   await pagina.reload();
   await pagina.waitForLoadState("networkidle");

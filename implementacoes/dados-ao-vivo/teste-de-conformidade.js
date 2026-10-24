@@ -9,7 +9,7 @@
 // Date.now da página pelos dele e só os faz andar com avancar(ms). O placar
 // depende do segundo do relógio, que começa às 10:00:00 UTC de 2026-10-12, e
 // o "Atualizado há", da hora da chegada do lote e da hora do tique.
-// O painel se inscreve na fonte ao abrir a página, com os temporizadores de
+// O painel abre a conexão ao abrir a página, com os temporizadores de
 // verdade: por isso o teste sai da tela e volta antes de conferir lotes.
 // Entre um disparo e outro, deixa rodar as promises e as mensagens que o
 // React agenda por MessageChannel, fora do relógio falso.
@@ -31,8 +31,8 @@
       });
       return ultimoId;
     }
-    // A inscrição da abertura nasce antes do relógio falso, com o
-    // setInterval de verdade: o id que não é dele vai ao clearInterval
+    // A conexão da abertura nasce antes do relógio falso, com os
+    // temporizadores de verdade: o id que não é dele vai ao clearInterval
     // original, senão o intervalo seguiria disparando fora da página.
     const cancelar = (id) =>
       pendentes.delete(id) || originais.clearInterval.call(window, id);
@@ -116,7 +116,7 @@
       texto(tr.cells[0]),
     );
   const atualizacao = () => texto($(".atualizacao"));
-  const inscricoes = () => globalThis.contarInscricoes();
+  const conexoes = () => globalThis.contarConexoes();
   const relogios = () => globalThis.contarRelogios();
   const r = [];
   const conferir = (nome, obtido, esperado) =>
@@ -152,15 +152,15 @@
 
   try {
     conferir(
-      "1 abre com o painel e uma inscrição",
-      [$(".painel") !== null, texto($(".pausa")), inscricoes()],
+      "1 abre com o painel e uma conexão",
+      [$(".painel") !== null, texto($(".pausa")), conexoes()],
       [true, "Pausar", 1],
     );
 
     await sairDaTela();
     conferir(
-      "2 sair cancela a inscrição e para o relógio",
-      [$(".painel"), inscricoes(), relogios()],
+      "2 sair fecha a conexão e para o relógio",
+      [$(".painel"), conexoes(), relogios()],
       [null, 0, 0],
     );
 
@@ -172,7 +172,7 @@
         linhas(),
         texto($(".pausa")),
         atualizacao(),
-        inscricoes(),
+        conexoes(),
         relogios(),
       ],
       ["Aguardando placares…", semLote, "Pausar", "", 1, 1],
@@ -204,8 +204,8 @@
 
     await clicar(".pausa");
     conferir(
-      "6 pausar cancela a inscrição",
-      [situacao(), texto($(".pausa")), inscricoes()],
+      "6 pausar fecha a conexão",
+      [situacao(), texto($(".pausa")), conexoes()],
       ["Pausado.", "Retomar", 0],
     );
     await relogio.avancar(7000);
@@ -218,8 +218,8 @@
 
     await clicar(".pausa");
     conferir(
-      "7 retomar inscreve o painel de novo",
-      [situacao(), texto($(".pausa")), inscricoes()],
+      "7 retomar abre a conexão de novo",
+      [situacao(), texto($(".pausa")), conexoes()],
       ["", "Pausar", 1],
     );
     conferir(
@@ -257,7 +257,7 @@
         texto($(".pausa")),
         linhas(),
         atualizacao(),
-        inscricoes(),
+        conexoes(),
         relogios(),
       ],
       ["Aguardando placares…", "Pausar", semLote, "", 1, 1],
@@ -267,7 +267,7 @@
     await clicar(".pausa");
     conferir(
       "10 retomar antes do primeiro lote volta a aguardar",
-      [situacao(), inscricoes()],
+      [situacao(), conexoes()],
       ["Aguardando placares…", 1],
     );
 
@@ -276,8 +276,8 @@
       await voltarATela();
     }
     conferir(
-      "11 sair e voltar três vezes deixa uma inscrição e um relógio",
-      [inscricoes(), relogios()],
+      "11 sair e voltar três vezes deixa uma conexão e um relógio",
+      [conexoes(), relogios()],
       [1, 1],
     );
   } finally {
