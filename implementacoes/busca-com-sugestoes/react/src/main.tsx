@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { createRoot } from "react-dom/client";
 import {
   MENSAGENS,
@@ -29,6 +29,9 @@ function BuscaDeDestino() {
   const [escolha, setEscolha] = useState<string | null>(null);
   const controlador = useRef<AbortController | null>(null);
   const ultimoTermo = useRef("");
+
+  // Sem isto, a requisição continua fora da página.
+  useEffect(() => () => controlador.current?.abort(), []);
 
   function buscar(termo: string) {
     if (termo === ultimoTermo.current) return;
@@ -69,7 +72,7 @@ function BuscaDeDestino() {
   const mensagem = MENSAGEM_DO_ESTADO[estado.tipo];
 
   return (
-    <main className="busca">
+    <section className="painel">
       <label>
         Cidade de destino
         <input
@@ -86,11 +89,9 @@ function BuscaDeDestino() {
           }}
         />
       </label>
-      {mensagem && (
-        <p className="situacao" role="status">
-          {mensagem}
-        </p>
-      )}
+      <p className="situacao" role="status" hidden={!mensagem}>
+        {mensagem}
+      </p>
       {estado.tipo === "sugestoes" && (
         <ul className="sugestoes">
           {estado.cidades.map((cidade) => (
@@ -103,8 +104,25 @@ function BuscaDeDestino() {
         </ul>
       )}
       {escolha && <p className="escolha">Destino: {escolha}</p>}
+    </section>
+  );
+}
+
+// A página: o botão que tira a busca da página e a põe de volta.
+function BuscaComSugestoes() {
+  const [visivel, setVisivel] = useState(true);
+  return (
+    <main className="busca">
+      <button
+        type="button"
+        className="alternar"
+        onClick={() => setVisivel(!visivel)}
+      >
+        {visivel ? "Esconder busca" : "Mostrar busca"}
+      </button>
+      {visivel && <BuscaDeDestino />}
     </main>
   );
 }
 
-createRoot(document.getElementById("raiz")!).render(<BuscaDeDestino />);
+createRoot(document.getElementById("raiz")!).render(<BuscaComSugestoes />);
