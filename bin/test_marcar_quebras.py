@@ -2,7 +2,9 @@
 """Testes do bin/marcar-quebras.py, sem o latexdiff: os trechos de diff vêm
 da saída do latexdiff 1.4.0 (2026-10-08) para dois parágrafos fundidos, um
 dividido, um apagado inteiro e um inserido inteiro, uma sequência de linhas
-em branco inserida e uma listagem minted inserida e outra apagada. O trecho
+em branco inserida, uma listagem minted inserida e outra apagada e uma
+figura tikzpicture inserida e outra apagada (construídas pelo rastro do
+minted). O trecho
 do float é construído: o latexdiff abre a tabela com \\DIFaddbegin, sem FL,
 e usa \\DIFaddFL só no conteúdo; o teste cobre os blocos FL dos diffs
 antigos (v0.1..v0.4).
@@ -170,6 +172,61 @@ let b = 2;
 
 %DIFDELCMD < %%%
 \\DIFdelend \\begin{table}[h]
+""")
+
+    def test_linha_em_branco_dentro_de_tikzpicture_inserido_fica_sem_marca(self):
+        # O tikzpicture também está no PICTUREENV: a figura entra inteira, e
+        # um ¶ entre dois caminhos quebraria o TikZ.
+        diff = PREAMBULO + """Antes.
+\\DIFaddbegin \\begin{tikzpicture}
+\\node (a) {Alfa};
+
+\\node[right=of a] (b) {Beta};
+\\end{tikzpicture}
+
+\\DIFadd{Depois.}\\DIFaddend
+"""
+        self.assertEqual(marcar(diff), PREAMBULO + """Antes.
+\\DIFaddbegin \\begin{tikzpicture}
+\\node (a) {Alfa};
+
+\\node[right=of a] (b) {Beta};
+\\end{tikzpicture}
+\\ifhmode\\DIFadd{\\P}\\fi
+
+\\DIFadd{Depois.}\\DIFaddend
+""")
+
+    def test_linha_em_branco_dentro_de_tikzpicture_apagado_fica_sem_marca(self):
+        # Como no minted apagado: o \\begin{tikzpicture} comentado basta, a
+        # linha em branco crua entre os caminhos fica, e a quebra de depois
+        # da figura leva o ¶.
+        diff = PREAMBULO + """Um dois.
+
+\\DIFdelbegin %DIFDELCMD < \\begin{tikzpicture}
+%DIFDELCMD < \\node (a) {Alfa};
+%DIFDELCMD < 
+
+%DIFDELCMD < \\node[right=of a] (b) {Beta};
+%DIFDELCMD < \\end{tikzpicture}
+%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\\DIFdelend Três quatro.
+"""
+        self.assertEqual(marcar(diff), PREAMBULO + """Um dois.
+
+\\DIFdelbegin %DIFDELCMD < \\begin{tikzpicture}
+%DIFDELCMD < \\node (a) {Alfa};
+%DIFDELCMD < 
+
+%DIFDELCMD < \\node[right=of a] (b) {Beta};
+%DIFDELCMD < \\end{tikzpicture}
+%DIFDELCMD < 
+\\ifhmode\\DIFdel{\\P}\\fi
+
+%DIFDELCMD < %%%
+\\DIFdelend Três quatro.
 """)
 
     def test_bloco_FL_de_float_recebe_o_mesmo_marcador(self):

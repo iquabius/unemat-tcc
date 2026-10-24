@@ -7,7 +7,11 @@
 #
 # --flatten resolve os \input pelo diretório de cada tcc.tex;
 # --packages=biblatex, porque a classe carrega o biblatex e o latexdiff não a
-# lê; o PICTUREENV deixa o minted fora da marcação. O git latexdiff do
+# lê; o PICTUREENV deixa o minted e o tikzpicture fora da marcação: sem o
+# tikzpicture na lista, o latexdiff marca dentro do nó da figura, o que na
+# figura da cadeia parou o pdflatex ("A node must have a (possibly empty)
+# label text", pesquisa de 2026-10-24); com ele, a figura velha sai
+# comentada e a nova inteira. O git latexdiff do
 # readme.org repete as duas últimas, sem as siglas, o ¶ das quebras, os
 # marcadores do realce e a troca dos comandos de fonte; lá, o
 # --exclude-safecmd=realce deixa o \realce fora do \DIFadd, e o trecho que
@@ -41,7 +45,8 @@
 # Quebra de parágrafo inserida ou removida: o latexdiff a trata como comando
 # e não a marca. O bin/marcar-quebras.py, no fim, põe um ¶ na cor da mudança
 # no fim do parágrafo que a quebra fecha, e pula as listagens: a lista de
-# ambientes dele (LITERAL) repete o minted do PICTUREENV daqui.
+# ambientes dele (LITERAL) repete o minted e o tikzpicture do PICTUREENV
+# daqui.
 #
 # Comandos de fonte (\emph, \textbf, \textit, \texttt): o latexdiff os
 # divide como comandos de texto e pode casar a abertura de um \emph apagado
@@ -52,7 +57,7 @@
 set -euo pipefail
 [ $# -eq 2 ] || { echo "uso: $0 VELHO.tex NOVO.tex >diff.tex" >&2; exit 2; }
 
-PICT='PICTUREENV=(?:picture|DIFnomarkup|minted)[\w\d*@]*'
+PICT='PICTUREENV=(?:picture|DIFnomarkup|minted|tikzpicture)[\w\d*@]*'
 SIGLAS='CUSTOMDIFCMD=[gG]ls(?:pl)?(?![a-zA-Z])'
 
 BIN=$(cd "$(dirname "$0")" && pwd)

@@ -10,7 +10,12 @@ com a do \\emph{Observer Pattern}, e o \\emph passava a cobrir o \\par entre
 eles ("Paragraph ended before \\text@command was complete"). O segundo é o
 \\emph com \\footnote do prog.tex, que não pode ir inteiro para o \\DIFdel.
 O terceiro é um \\emph mais longo que a linha, apagado: dentro do \\sout, ele
-tem de quebrar entre as palavras, sem sair pela margem.
+tem de quebrar entre as palavras, sem sair pela margem. O quarto é uma
+figura em TikZ com um nó alterado: sem o tikzpicture no PICTUREENV, o
+latexdiff marca dentro do nó (nesta figura mínima o pdflatex ainda
+compila; na figura da cadeia, em 2026-10-24, parou com "A node must have
+a (possibly empty) label text"); com ele, a figura velha sai comentada e
+a nova inteira.
 
     python3 -m unittest discover -s bin -p 'test_*.py'
 """
@@ -35,8 +40,8 @@ except FileNotFoundError:
     TEX = False
 
 
-def documento(corpo):
-    return ("\\documentclass{article}\n\\begin{document}\n"
+def documento(corpo, preambulo=""):
+    return ("\\documentclass{article}\n" + preambulo + "\\begin{document}\n"
             + textwrap.dedent(corpo) + "\\end{document}\n")
 
 
@@ -71,6 +76,28 @@ NOTA = (documento("""\
     para modelar notificações, em \\textbf{tempo de execução}.
     \\end{itemize}
     """))
+
+
+def figura(no):
+    return documento(f"""\
+    Antes da figura.
+
+    \\begin{{figure}}
+    \\centering
+    \\begin{{tikzpicture}}
+    \\node (a) {{Alfa}};
+
+    \\node[right=of a] (b) {{{no}}};
+    \\draw (a) -- (b);
+    \\end{{tikzpicture}}
+    \\caption{{A cadeia.}}
+    \\end{{figure}}
+
+    Depois da figura.
+    """, "\\usepackage{tikz}\n\\usetikzlibrary{positioning}\n")
+
+
+FIGURA = (figura("Beta"), figura("Gama"))
 
 
 def sem_comentarios(tex):
@@ -148,6 +175,20 @@ class EmphLongoApagado(Diff):
 
     def test_diff_compila_sem_sair_pela_margem(self):
         self.assertNotIn("Overfull \\hbox", self.compila())
+
+
+class FiguraTikzAlterada(Diff):
+    CASO = FIGURA
+
+    def test_diff_compila(self):
+        self.compila()
+
+    def test_figura_velha_sai_comentada_e_a_nova_inteira(self):
+        texto = sem_comentarios(self.diff)
+        self.assertNotIn("Gama", sem_comentarios(self.CASO[0]))
+        self.assertIn("{Gama}", texto)
+        self.assertNotIn("{Beta}", texto)
+        self.assertIn("%DIFDELCMD < \\node[right=of a] (b) {Beta};", self.diff)
 
 
 del Diff

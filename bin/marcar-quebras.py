@@ -24,20 +24,25 @@ cala onde a linha em branco não fecha parágrafo algum, depois de um título,
 de uma tabela ou de uma lista, em que o TeX está em modo vertical e o ¶
 sairia sozinho numa linha. As linhas em branco fora dos blocos e tudo antes
 do \\begin{document}, onde o preâmbulo do latexdiff define os próprios
-comandos, ficam como estão, e também as de dentro de uma listagem minted ou
-de um verbatim, em que a linha em branco é texto do código: a inserida
-inteira, e a apagada inteira, cujas linhas o latexdiff comenta uma a uma
-com "%DIFDELCMD < ", menos a em branco, que sai crua entre elas. Esses
-ambientes não se aninham aqui (um minted dentro de um DIFnomarkup perderia
-a proteção no \\end{minted}); o TCC só usa o minted.
+comandos, ficam como estão, e também as de dentro de uma listagem minted,
+de um verbatim ou de uma figura tikzpicture, em que a linha em branco é
+texto do código, ou nada, entre dois caminhos da figura, onde o ¶ quebraria
+o TikZ: a inserida inteira, e a apagada inteira, cujas linhas o latexdiff
+comenta uma a uma com "%DIFDELCMD < ", menos a em branco, que sai crua
+entre elas. Esses ambientes não se aninham aqui (um minted dentro de um
+DIFnomarkup perderia a proteção no \\end{minted}); o TCC usa o minted e
+vai usar o tikzpicture.
 """
 import re
 import sys
 
 BLOCO = re.compile(r"\\DIF(add|del)(begin|end)(?:FL)?(?![A-Za-z])")
-# Ambientes em que a linha em branco é texto: o minted do PICTUREENV do
-# bin/latexdiff-tcc.sh e os VERBATIMENV do latexdiff.
-LITERAL = re.compile(r"\\(begin|end)\{(?:minted|verbatim\*?|lstlisting|DIFnomarkup)\}")
+# Ambientes em que a linha em branco é texto, ou nada: o minted e o
+# tikzpicture do PICTUREENV do bin/latexdiff-tcc.sh e os VERBATIMENV do
+# latexdiff.
+LITERAL = re.compile(
+    r"\\(begin|end)\{(?:minted|verbatim\*?|lstlisting|tikzpicture|DIFnomarkup)\}"
+)
 
 
 def marcar(linhas):
