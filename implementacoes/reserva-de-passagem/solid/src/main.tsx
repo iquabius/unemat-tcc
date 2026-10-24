@@ -13,7 +13,7 @@ import {
 import { hospedar } from "../../../pagina";
 import "../../estilo.css";
 
-function FormularioDeCompra() {
+function ReservaDePassagem() {
   const [tipo, setTipo] = createSignal<TipoDeViagem>("ida");
   const [ida, setIda] = createSignal(hoje());
   const [volta, setVolta] = createSignal(hoje());
@@ -111,4 +111,4 @@ function FormularioDeCompra() {
   );
 }
 
-hospedar((conteiner) => render(() => <FormularioDeCompra />, conteiner));
+hospedar((conteiner) => render(() => <ReservaDePassagem />, conteiner));

@@ -13,7 +13,7 @@ import {
 import { hospedar } from "../../../pagina";
 import "../../estilo.css";
 
-function FormularioDeCompra() {
+function ReservaDePassagem() {
   const [tipo, setTipo] = useState<TipoDeViagem>("ida");
   const [ida, setIda] = useState(hoje);
   const [volta, setVolta] = useState(hoje);
@@ -104,6 +104,6 @@ function FormularioDeCompra() {
 
 hospedar((conteiner) => {
   const raiz = createRoot(conteiner);
-  raiz.render(<FormularioDeCompra />);
+  raiz.render(<ReservaDePassagem />);
   return () => raiz.unmount();
 });

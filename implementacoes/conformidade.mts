@@ -3,9 +3,9 @@
 // Playwright, como quem o cola no console com a implementação aberta.
 //
 // Uso: npm run conformidade [-- <interface>[/<tecnologia>] ...]
-//   npm run conformidade                              todas as interfaces
-//   npm run conformidade -- formulario                uma interface
-//   npm run conformidade -- formulario/react          uma implementação
+//   npm run conformidade                                todas as interfaces
+//   npm run conformidade -- reserva-de-passagem         uma interface
+//   npm run conformidade -- reserva-de-passagem/react   uma implementação
 //
 // Imprime as linhas que o teste devolve, sob o nome de cada implementação,
 // e reprova a implementação cuja interface não tem teste, cujo teste lança

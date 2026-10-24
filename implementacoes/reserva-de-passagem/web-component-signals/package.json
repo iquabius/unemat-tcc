@@ -1,8 +1,8 @@
 {
-  "name": "formulario-web-component-signals",
+  "name": "reserva-de-passagem-web-component-signals",
   "private": true,
   "type": "module",
-  "description": "Formulário com validação em Web Component com os signals do solid-js, sem JSX",
+  "description": "Reserva de passagem em Web Component com os signals do solid-js, sem JSX",
   "scripts": {
     "dev": "vite",
     "build": "tsc -p . && vite build",

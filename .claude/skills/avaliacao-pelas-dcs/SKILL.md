@@ -53,15 +53,15 @@ Referências desta skill:
    esquecimento por vez; nunca no código de `implementacoes/`). O resto
    fica marcado "a conferir". Não explique uma API de memória ao autor.
 5. **Registro versionado em `docs/avaliacao/<rodada>-<interface>/`**
-   (`primeira-rodada-formulario`, `segunda-rodada-busca`; as rodadas pelo
-   ordinal, como no `GLOSSARY.md`): `plano.md`, `guia.md`, `revisao.md`
-   (decisão do autor de 2026-10-13). Cada um entra num commit próprio no
-   `master`, no checkout principal, assim que é entregue: o guia antes do
-   ditado do autor, a revisão depois, para que o histórico mostre o que o
-   agente entregou antes da leitura do autor. São notas de `docs/` sem
-   código, e o commit nomeia os arquivos (`git commit -- <arquivos>`). O
-   que vai para o texto passa pela porta fechada e pela
-   `revisao-de-texto`; achado de implementação vai para
+   (`primeira-rodada-reserva-de-passagem`, `segunda-rodada-busca`; as
+   rodadas pelo ordinal, como no `GLOSSARY.md`): `plano.md`, `guia.md`,
+   `revisao.md` (decisão do autor de 2026-10-13). Cada um entra num commit
+   próprio no `master`, no checkout principal, assim que é entregue: o
+   guia antes do ditado do autor, a revisão depois, para que o histórico
+   mostre o que o agente entregou antes da leitura do autor. São notas de
+   `docs/` sem código, e o commit nomeia os arquivos
+   (`git commit -- <arquivos>`). O que vai para o texto passa pela porta
+   fechada e pela `revisao-de-texto`; achado de implementação vai para
    `docs/achados-das-implementacoes.md`.
 6. **Interface fora da análise** (o Contador, a Lista, o Carrinho e o
    Quadro em `implementacoes/fora-da-analise/`), usada para calibrar a

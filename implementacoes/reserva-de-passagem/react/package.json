@@ -1,8 +1,8 @@
 {
-  "name": "formulario-react",
+  "name": "reserva-de-passagem-react",
   "private": true,
   "type": "module",
-  "description": "Formulário com validação em React (declarativo por re-renderização)",
+  "description": "Reserva de passagem em React (declarativo por re-renderização)",
   "scripts": {
     "dev": "vite",
     "build": "tsc -p . && vite build",

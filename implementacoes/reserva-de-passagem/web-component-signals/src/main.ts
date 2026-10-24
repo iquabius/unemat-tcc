@@ -49,7 +49,7 @@ const modelo = /* HTML */ `
 
 type Campo = "ida" | "volta";
 
-class FormularioDeCompra extends HTMLElement {
+class ReservaDePassagem extends HTMLElement {
   private formulario!: HTMLFormElement;
   private campos!: Record<Campo, HTMLInputElement>;
   private tipo!: HTMLSelectElement;
@@ -164,10 +164,10 @@ class FormularioDeCompra extends HTMLElement {
   }
 }
 
-customElements.define("formulario-de-compra", FormularioDeCompra);
+customElements.define("reserva-de-passagem", ReservaDePassagem);
 
 hospedar((conteiner) => {
-  const formulario = document.createElement("formulario-de-compra");
-  conteiner.append(formulario);
-  return () => formulario.remove();
+  const reserva = document.createElement("reserva-de-passagem");
+  conteiner.append(reserva);
+  return () => reserva.remove();
 });

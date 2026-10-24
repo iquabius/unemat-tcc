@@ -2,8 +2,8 @@
 // implementações web. Cole no console do navegador com a implementação
 // aberta; a última linha devolve o resultado de cada verificação ("ok" ou
 // "FALHOU"). Cada verificação é um cenário de
-// implementacoes/openspec/specs/formulario/spec.md. O servidor simulado
-// responde em 500 ms; o teste espera em tempo real.
+// implementacoes/openspec/specs/reserva-de-passagem/spec.md. O servidor
+// simulado responde em 500 ms; o teste espera em tempo real.
 (async () => {
   const esperar = (ms = 80) => new Promise((r) => setTimeout(r, ms));
   const campo = (n) => document.querySelector(`[name="${n}"]`);

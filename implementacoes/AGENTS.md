@@ -46,7 +46,7 @@ A especificação de cada interface é
 `implementacoes/openspec/specs/<interface>/spec.md`, no esquema
 *spec-driven* do OpenSpec 1.14.1, fixado em `package.json` (ADR 0030).
 `<interface>` é o nome da pasta da interface em `implementacoes/`
-(`formulario`, `busca-com-sugestoes`), a "capacidade" do OpenSpec. O
+(`reserva-de-passagem`, `busca-com-sugestoes`), a "capacidade" do OpenSpec. O
 `README.org` da interface fica com a apresentação (a origem, onde está o
 domínio, como rodar os testes) e aponta para o `spec.md`, sem repetir regra
 nem mensagem. O fluxo de agente do OpenSpec fica de fora: nada de

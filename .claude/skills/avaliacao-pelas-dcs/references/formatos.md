@@ -1,8 +1,8 @@
 # Modelos do plano, do guia e da revisão
 
 Os três arquivos ficam em `docs/avaliacao/<rodada>-<interface>/`
-(`primeira-rodada-formulario`, `segunda-rodada-busca`,
-`terceira-rodada-formulario`), versionados, cada um no seu commit
+(`primeira-rodada-reserva-de-passagem`, `segunda-rodada-busca`,
+`terceira-rodada-reserva-de-passagem`), versionados, cada um no seu commit
 (SKILL.md, regra 5; a interface fora da análise fica em `tmp/`, regra
 6). Como toda nota de `docs/`, cada um diz o tipo na primeira linha
 depois do título, e abre com a interface, a rodada, o sha de

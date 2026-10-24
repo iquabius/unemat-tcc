@@ -1,8 +1,8 @@
 {
-  "name": "formulario-web-component",
+  "name": "reserva-de-passagem-web-component",
   "private": true,
   "type": "module",
-  "description": "Formulário com validação em Web Component (DOM puro, classe e callbacks)",
+  "description": "Reserva de passagem em Web Component (DOM puro, classe e callbacks)",
   "scripts": {
     "dev": "vite",
     "build": "tsc -p . && vite build",

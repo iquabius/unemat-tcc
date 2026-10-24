@@ -3,7 +3,7 @@
 Painel de placares de jogos em andamento que uma fonte atualiza sozinha,
 sem o usuário pedir. Adapta o caso /push/ de Meijer (2012, p. 66-67), que
 cita as cotações de bolsa mandadas ao cliente e os /WebSockets/ entre as
-fontes, como o Formulário adapta o /Flight Booker/ (ADR 0002). É a
+fontes, como a Reserva de passagem adapta o /Flight Booker/ (ADR 0002). É a
 interface da conexão presa à tela: o painel abre a conexão com o servidor
 ao entrar na página, para o usuário seguir os jogos sem pedir, e a fecha
 ao pausar, para o usuário ler a tabela parada, e ao sair dela, para o

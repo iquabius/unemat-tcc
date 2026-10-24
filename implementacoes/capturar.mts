@@ -2,10 +2,10 @@
 // implementacoes/<interface>/capturas/<tecnologia>-<cena>.png.
 //
 // Uso: npm run capturas [-- [--conferir] <interface>[/<tecnologia>] ...]
-//   npm run capturas                      todas as interfaces e tecnologias
-//   npm run capturas -- formulario        uma interface
-//   npm run capturas -- formulario/react  uma implementação
-//   npm run capturas -- --conferir        não grava: compara com as versionadas
+//   npm run capturas                                todas as interfaces
+//   npm run capturas -- reserva-de-passagem         uma interface
+//   npm run capturas -- reserva-de-passagem/react   uma implementação
+//   npm run capturas -- --conferir                  só compara, não grava
 //
 // Com --conferir, as imagens vão para uma pasta temporária e são comparadas
 // com as de implementacoes/<interface>/capturas/; o script lista as que

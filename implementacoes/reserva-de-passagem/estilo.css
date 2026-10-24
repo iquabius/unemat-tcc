@@ -1,4 +1,5 @@
-/* Aparência comum às implementações do Formulário, para que só a lógica mude. */
+/* Aparência comum às implementações da Reserva de passagem, para que só a
+   lógica mude. */
 body {
   margin: 0;
   font-family: system-ui, sans-serif;

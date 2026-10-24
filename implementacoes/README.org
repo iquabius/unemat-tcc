@@ -31,7 +31,7 @@ fora dos comandos abaixo.
 
   #+begin_src sh
   npm install
-  npm run dev -w formulario/react
+  npm run dev -w reserva-de-passagem/react
   #+end_src
 
   Troque o caminho pelo da implementação desejada. O Vite serve em
@@ -55,8 +55,8 @@ fora dos comandos abaixo.
   #+begin_src sh
   npx playwright install chromium-headless-shell   # só na primeira vez
   npm run capturas                                  # todos
-  npm run capturas -- formulario                    # uma interface
-  npm run capturas -- formulario/react              # uma implementação
+  npm run capturas -- reserva-de-passagem           # uma interface
+  npm run capturas -- reserva-de-passagem/react     # uma implementação
   npm run capturas -- --conferir                    # só compara, não grava
   #+end_src
 
@@ -88,9 +88,9 @@ fora dos comandos abaixo.
   comando, com os filtros das capturas:
 
   #+begin_src sh
-  npm run conformidade                              # todas
-  npm run conformidade -- formulario                # uma interface
-  npm run conformidade -- formulario/react          # uma implementação
+  npm run conformidade                                # todas
+  npm run conformidade -- reserva-de-passagem         # uma interface
+  npm run conformidade -- reserva-de-passagem/react   # uma implementação
   #+end_src
 
   O /script/ ([[file:conformidade.mts][implementacoes/conformidade.mts]])

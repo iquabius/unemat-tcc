@@ -1,8 +1,8 @@
 {
-  "name": "formulario-solid",
+  "name": "reserva-de-passagem-solid",
   "private": true,
   "type": "module",
-  "description": "Formulário com validação em Solid (declarativo por atualização granular, com signals)",
+  "description": "Reserva de passagem em Solid (declarativo por atualização granular, com signals)",
   "scripts": {
     "dev": "vite",
     "build": "tsc -p . && vite build",
