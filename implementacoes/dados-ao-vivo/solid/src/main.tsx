@@ -1,4 +1,4 @@
-import { createEffect, createSignal, For, onCleanup, Show } from "solid-js";
+import { createEffect, createSignal, For, onCleanup } from "solid-js";
 import { render } from "solid-js/web";
 import {
   JOGOS,
@@ -12,6 +12,7 @@ import {
   noPalpite,
   type Lote,
 } from "../../dominio";
+import { hospedar } from "../../../pagina";
 import "../../estilo.css";
 
 function PainelDePlacares() {
@@ -87,23 +88,4 @@ function PainelDePlacares() {
   );
 }
 
-// A página: o botão que tira o painel da página e o põe de volta.
-function DadosAoVivo() {
-  const [visivel, setVisivel] = createSignal(true);
-  return (
-    <main class="placares">
-      <button
-        type="button"
-        class="alternar"
-        onClick={() => setVisivel(!visivel())}
-      >
-        {visivel() ? "Esconder painel" : "Mostrar painel"}
-      </button>
-      <Show when={visivel()}>
-        <PainelDePlacares />
-      </Show>
-    </main>
-  );
-}
-
-render(() => <DadosAoVivo />, document.getElementById("raiz")!);
+hospedar((conteiner) => render(() => <PainelDePlacares />, conteiner));
