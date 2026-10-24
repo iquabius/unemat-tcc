@@ -1,9 +1,12 @@
-import { createMemo, createSignal, Show } from "solid-js";
+import { createMemo, createSignal, onCleanup, Show } from "solid-js";
 import { render } from "solid-js/web";
 import {
+  MENSAGENS,
   confirmacaoDaReserva,
+  enviarReserva,
   erroDaData,
   erroDaOrdem,
+  foiCancelado,
   hoje,
   type TipoDeViagem,
 } from "../../dominio";
@@ -14,6 +17,11 @@ function FormularioDeCompra() {
   const [ida, setIda] = createSignal(hoje());
   const [volta, setVolta] = createSignal(hoje());
   const [situacao, setSituacao] = createSignal("");
+  // O envio em andamento, que ignora o reenvio.
+  let controlador: AbortController | undefined;
+
+  // Sem isto, o envio continua fora da página.
+  onCleanup(() => controlador?.abort());
 
   // Cada erro é um valor derivado: recalcula só quando os sinais que ele lê
   // se alteram, e atualiza só os pontos da tela que o leem.
@@ -30,11 +38,23 @@ function FormularioDeCompra() {
     [erroIda(), erroVolta(), erroOrdem()].some(Boolean),
   );
 
+  // O clique durante o envio é ignorado; editar não cancela o envio, e a
+  // confirmação é da reserva que saiu.
   function reservar(evento: SubmitEvent) {
     evento.preventDefault();
-    setSituacao(
-      confirmacaoDaReserva({ tipo: tipo(), ida: ida(), volta: volta() }),
-    );
+    if (controlador) return;
+    const reserva = { tipo: tipo(), ida: ida(), volta: volta() };
+    const atual = new AbortController();
+    controlador = atual;
+    setSituacao(MENSAGENS.enviando);
+    enviarReserva(reserva, atual.signal)
+      .then(
+        () => setSituacao(confirmacaoDaReserva(reserva)),
+        (erro) => {
+          if (!foiCancelado(erro)) setSituacao(MENSAGENS.falha);
+        },
+      )
+      .finally(() => (controlador = undefined));
   }
 
   return (
