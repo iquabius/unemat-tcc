@@ -2,7 +2,7 @@
   "name": "busca-com-sugestoes-solid",
   "private": true,
   "type": "module",
-  "description": "Busca com sugestões em Solid (reativo com signals)",
+  "description": "Busca com sugestões em Solid (declarativo por atualização granular, com signals)",
   "scripts": {
     "dev": "vite",
     "build": "tsc -p . && vite build",

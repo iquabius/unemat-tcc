@@ -2,7 +2,7 @@
   "name": "formulario-solid",
   "private": true,
   "type": "module",
-  "description": "Formulário com validação em Solid (reativo com signals)",
+  "description": "Formulário com validação em Solid (declarativo por atualização granular, com signals)",
   "scripts": {
     "dev": "vite",
     "build": "tsc -p . && vite build",

@@ -2,7 +2,7 @@
   "name": "contador-solid",
   "private": true,
   "type": "module",
-  "description": "Contador com Solid (reativo com signals)",
+  "description": "Contador em Solid (declarativo por atualização granular, com signals)",
   "scripts": {
     "dev": "vite",
     "build": "tsc -p . && vite build",
