@@ -86,6 +86,54 @@ cobriam subconjuntos das interfaces, esta seção comparava o Web
 Component × Lit, o Solid × Angular com *signals*, o Views × Compose e o
 Swing × JavaFX; a tabela está na versão desta nota no commit `3ada83b`.
 
+## Exigências de rede de aplicação real, fora do conjunto
+
+Levantadas em 2026-10-24, na pesquisa WebSocket × SSE
+(`docs/plataformas/websocket-e-sse.md`) e na conferência do
+`websocket-ts`; nenhuma está nas especificações. Para cada uma, a
+interface que a receberia, a forma (mudança da segunda rodada, ramo da
+terceira ou limitação) e o custo, como referência para uma troca de
+exigência decidida pelo autor.
+
+- **Fila de mensagens enquanto desconectado** (o *buffer* do
+  `partysocket`, "Buffers messages when not connected"; as filas
+  `ArrayQueue` e `RingQueue` do `websocket-ts`): só faz sentido com
+  mensagens do cliente ao servidor. No conjunto, o lugar é o salvar do
+  Circle Drawer a cada mudança, na ordem (segunda rodada, O1 fila): com
+  o servidor fora, os pedidos se acumulam e saem na ordem ao voltar;
+  hoje a fila supõe o servidor respondendo. Forma: uma funcionalidade a
+  mais no Circle Drawer. Custo: a interface já tem três mudanças.
+- **Backpressure** (mensagens mais rápidas que o processamento; MDN,
+  *WebSocket*: "The WebSocket API has no way to apply backpressure"): no
+  Placar ao vivo, uma rajada depois da queda (a retomada pelo
+  `Last-Event-ID` devolve os lotes perdidos de uma vez) ou a frequência
+  de 1 s com a tela lenta. A frequência escolhida pelo usuário (segunda
+  rodada) é a resposta do lado do usuário; na Busca, a espera de 300 ms
+  é o controle de pressão do lado da entrada. Forma: limitação, ou uma
+  mudança no Placar ("a rajada depois da reconexão"), sem precedente nas
+  fontes do conjunto.
+- **Limite de conexões por domínio** (SSE em HTTP/1.1: seis por
+  navegador e domínio, pela MDN; a WHATWG, §9.2.7, sugere um *shared
+  worker*): vários painéis ou abas do Placar ao vivo. A página comum
+  (ADR 0043) hospeda um painel; fora do conjunto. Forma: limitação a
+  declarar se o SSE entrar.
+- **Retomada exata depois da pausa** (o `Last-Event-ID` não acompanha
+  um `EventSource` novo): o Placar ao vivo com SSE; o "Gols novos"
+  depende do último lote. Forma: parte da mudança de pausa e reconexão,
+  se o SSE entrar (tcc-jjzc).
+- **Cache e deduplicação de respostas** (TanStack Query, SWR): a Busca,
+  que já tem "o termo repetido" na primeira rodada. Forma: ramo de
+  biblioteca de busca de dados na Busca, a forma de ecossistema mais
+  medida (298 milhões de downloads na janela do ADR 0031), hoje guardada
+  para o contraste (ADR 0042). Custo: um ramo a mais, cinco diffs e uma
+  subseção; tira o TanStack Query do contraste.
+
+Candidatas a irmãs dos ramos da terceira rodada (a biblioteca do
+ecossistema e o padrão de projeto), anotadas na tarefa tcc-l7qe: o
+gerenciador de estado da comunidade; a forma oficial da documentação;
+a API nova da plataforma; a máquina de estados tipada no Login e no
+Placar; a busca de dados com cache na Busca.
+
 ## Lacunas nas especificações
 
 Levantadas em 2026-10-15 e revistas em 2026-10-19 e em 2026-10-24.

@@ -80,6 +80,45 @@ com as listagens inteiras. As outras dissertações do acervo (Brilhante
 no `refs.bib`; os outros trabalhos relacionados (Mernik et al. 2009;
 Zimmerle et al. 2025; Grolaux et al. 2026) são artigos.
 
+## Como encurtar as listagens sem perder a análise
+
+Medido em 2026-10-24, para a decisão do autor (tcc-ie1y):
+
+- **Sem os `import`**, como Kiss (2014): os `import` são 357 das 3.427
+  linhas de `src/` das 26 implementações de então (10,4%): Web
+  Component 76 de 996 (7,6%), Web Component com *signals* 86 de 804
+  (10,7%), Solid 105 de 793 (13,2%), React 90 de 834 (10,8%). Contagem
+  por script, sem `fora-da-analise/` e sem testes.
+- **Sem a montagem repetida entre tecnologias vizinhas**: o esqueleto
+  em HTML e o `createElement` das partes repetidas são iguais no Web
+  Component e no Web Component com *signals* (ADR 0013), e o JSX é o
+  mesmo no Solid e no React, salvo o dialeto (ADR 0021); mostra-se uma
+  vez, e a outra listagem diz "montagem igual à do Web Component,
+  l. N-M". Nos protótipos de 2026-10-12, a montagem era o maior balde de
+  linhas, sem dominar; estimativa do agente: de 30% a 40% de cada
+  arquivo.
+- **Sem o domínio e o estilo**, que já ficam fora (ADRs 0010 e 0041).
+- **Ou extraindo, em vez de esconder** (alternativa do autor em
+  2026-10-24): as partes iguais entre tecnologias vizinhas saem para
+  módulos compartilhados por refatoração comum, sem esconder código,
+  como o domínio já saiu (ADR 0010): o esqueleto em HTML e o
+  `createElement` das partes repetidas num módulo de montagem comum ao
+  Web Component e ao Web Component com *signals*; o que o Solid e o
+  React têm igual fora do dialeto do JSX, se houver, noutro. A listagem
+  do módulo entra uma vez, e cada implementação fica com o que a
+  distingue na cadeia. Custo: a montagem é parte da notação
+  (`GLOSSARY.md`; ADR 0021) e sai da listagem de cada implementação,
+  então a leitura por DC da montagem passa a ser feita no módulo, uma
+  vez por par; e o passo Web Component com *signals* → Solid, que muda
+  a montagem, passa a ser um módulo contra um JSX. É decisão do autor,
+  anterior à primeira rodada da análise, e muda o código
+  (implementacoes/AGENTS.md, ADR 0013).
+
+Com os três cortes, a parte que a análise lê (a ligação do estado com
+a tela e a coordenação) fica em ≈ 55% a 60% das linhas: ≈ 3.400 linhas
+viram ≈ 1.900, ≈ 48 páginas a 40 por página, contra ≈ 85 com as
+listagens inteiras. O Resumo só muda quando o autor decidir o corte.
+
 ## Histórico
 
 Criada em 2026-10-24, na sessão de texto que projetou a quarta rodada
