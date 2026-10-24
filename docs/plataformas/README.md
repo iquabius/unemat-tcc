@@ -42,7 +42,7 @@ As notas:
   tecnologia na Reserva de passagem, na terceira rodada (ADR 0031);
 - `bibliotecas-de-inscricao-e-reconexao.md`: a biblioteca que trata a
   inscrição e a reconexão no Placar ao vivo, na terceira rodada (ADR
-  0031).
+  0031);
 - `websocket-e-sse.md`: o WebSocket (RFC 6455) e os Server-Sent Events
   (EventSource) pelas fontes primárias, e o que cada um dá de nascença
   ao Placar ao vivo; a decisão do protocolo é a tcc-jjzc.

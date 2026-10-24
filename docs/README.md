@@ -127,7 +127,7 @@ Em `docs/plataformas/`, as tecnologias, com a data de cada observação:
 - `websocket-e-sse.md` (Referência): o WebSocket e os Server-Sent Events
   pelas fontes primárias, característica por característica, e o que
   cada um atende de nascença nas exigências do Placar ao vivo; a
-  reconexão é do programador no primeiro e do navegador no segundo.
+  reconexão é do programador no primeiro e do navegador no segundo;
 - `android.md` e `desktop.md` (Referência): as plataformas que saíram
   da análise em 2026-10-17 (ADRs 0001 e 0005), como referência para os
   trabalhos futuros; no Android, também a escolha do Kotlin, com o
