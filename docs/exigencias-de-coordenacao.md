@@ -36,7 +36,7 @@ diâmetro do Circle Drawer.
 |---|---|---|
 | O1. Pedido novo com outro em andamento | a política quando o usuário faz um pedido novo com outro em andamento: **substituição**, o novo cancela o anterior, e a resposta cancelada nunca aparece (*switch*); **ignorar**, o pedido novo não sai até a resposta do anterior (*exhaust*); **fila**, os pedidos se aplicam na ordem das ações (*concat*) | substituição: Busca, termo novo (1ª); Login, tentativa nova (1ª). Ignorar: envio da Reserva de passagem (1ª, tcc-32dr). Fila: salvamento do Circle Drawer, a cada mudança (2ª) |
 | O2. Tempo | **espera** depois da última tecla (*debounce*); **relógio** que a interface mostra; **prazo** que muda o estado sozinho; **frequência** de atualização escolhida pelo usuário | espera: Busca (2ª). Relógio: tempo de sessão do Login (1ª); "Atualizado há" do Placar ao vivo (1ª); contagem regressiva da quarentena (2ª). Prazo: expiração aos 10 s do Login (1ª); fim da quarentena (2ª); nova inscrição em 2 s no Placar ao vivo (2ª). Frequência: Placar ao vivo (2ª) |
-| O3. Ciclo de vida | o que a interface abre (requisição, relógio, inscrição, ouvinte) fecha **com a tela** (limpeza ao sair da tela, ADR 0029) ou **com um estado** (o relógio vive enquanto a sessão vive; a pausa fecha a inscrição), e fica **uma só** depois de esconder e mostrar a tela | com a tela: Login e Placar ao vivo (1ª); Busca e Reserva de passagem à espera da tcc-v4m7; as três interfaces novas nascem com a regra. Com um estado: sessão do Login; pausa do Placar ao vivo (1ª); reconexão cancelada por pausar ou esconder (2ª). Uma só: Placar ao vivo, cenário 11 (1ª) |
+| O3. Ciclo de vida | o que a interface abre (requisição, relógio, inscrição, ouvinte) fecha **com a tela** (limpeza ao sair da tela, ADR 0029) ou **com um estado** (o relógio vive enquanto a sessão vive; a pausa fecha a inscrição), e fica **uma só** depois de esconder e mostrar a tela | com a tela: Login, Placar ao vivo e Busca (1ª); Reserva de passagem com o envio (1ª, tcc-32dr), que traz a requisição; as três interfaces novas nascem com a regra. Com um estado: sessão do Login; pausa do Placar ao vivo (1ª); reconexão cancelada por pausar ou esconder (2ª). Uma só: Placar ao vivo, cenário 11 (1ª) |
 | O4. Fonte de fora da interface | eventos que ninguém na tela pediu, combinados com os do usuário | a fonte que manda um lote por segundo: Placar ao vivo (1ª) |
 | O5. Separação dos eventos | saber de onde veio cada evento e o que ele pode mudar: a alteração que o programa faz conta ou não como a do usuário, e duas fontes não interferem uma na outra | a escolha de uma sugestão muda o campo sem disparar busca: Busca (1ª). Editar não cancela a tentativa nem encerra a sessão: Login (1ª). Editar não cancela o envio: Reserva de passagem (1ª). O valor que o programa escreve no campo do diâmetro, ao mexer no *slider*, não volta como digitado: Circle Drawer (2ª). O nome lembrado volta preenchido e já habilita o Entrar: Login (2ª). A volta que o programa empurra para depois da ida vale como valor da volta, num campo que o usuário pode ter editado: Reserva de passagem (2ª) |
 | O6. Falha e recuperação | o que a falha deixa na tela e como a interface volta a funcionar | a busca seguinte funciona: Busca (1ª). A falha mantém os dados no formulário: envio da Reserva de passagem (1ª). A quarentena depois de três falhas seguidas: Login (2ª). A reconexão depois de queda: Placar ao vivo (2ª). A falha ao salvar o desenho: Circle Drawer (2ª) |
@@ -71,7 +71,7 @@ valor inicial é estado. A tabela não o conta à parte.
 | Interface | Orquestração (1ª) | Orquestração (2ª) | Estado (1ª) | Estado (2ª) |
 |---|---|---|---|---|
 | Reserva de passagem | O1 ignorar, O5, O6 (envio, tcc-32dr, ainda fora do `spec.md`) | O5 (a volta empurrada) | E1, E2, E3, E5 (envio), E8 (confirmação) | E1 (a volta empurrada) |
-| Busca | O1 substituição, O5, O6; O3 com a tela à espera da tcc-v4m7 | O2 espera; O7 (leitura nossa) | E5, E7, E8 | E4 (item ativo) |
+| Busca | O1 substituição, O3 com a tela, O5, O6 | O2 espera; O7 (leitura nossa) | E5, E7, E8 | E4 (item ativo) |
 | Login | O1 substituição, O2 relógio e prazo, O3 com a tela e com um estado, O5 | O2 relógio e prazo, O5, O6 (quarentena) | E1, E5 | E5, E8, E9 |
 | Placar ao vivo | O2 relógio, O3 com a tela, com um estado e uma só, O4 (lotes) | O2 prazo e frequência, O3 com um estado, O6 | E1, E7, E8 | E2 (bolão), E5, E7 |
 | Contador | — (a base) | — | — (a base) | E2 (o total), E7 com remoção (a lista de contadores) |
@@ -88,13 +88,10 @@ Swing × JavaFX; a tabela está na versão desta nota no commit `3ada83b`.
 
 ## Lacunas nas especificações
 
-Levantadas em 2026-10-15 e revistas em 2026-10-19.
+Levantadas em 2026-10-15 e revistas em 2026-10-19 e em 2026-10-24.
 
 - O envio que ignora o reenvio está decidido para a primeira rodada (ADR
   0002), mas não está no `spec.md` da Reserva de passagem; é a tcc-32dr,
-  aberta.
-- A Busca e a Reserva de passagem não têm o requisito "Limpeza ao sair
-  da tela", que o ADR 0029 pede a todas as interfaces; é a tcc-v4m7,
   aberta.
 - A lista de contadores e o campo do diâmetro (2ª) não têm
   especificação, e o Contador da primeira rodada só tem a do README de
