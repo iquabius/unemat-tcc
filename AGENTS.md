@@ -375,10 +375,21 @@ em 2026-10-14, a mesma dos dotfiles). O que está no `master` ou foi
 enviado é registro e não se reescreve; o ramo ainda não juntado é
 rascunho, e a história dele se condensa antes do merge (passo 5).
 
-1. **Worktree em ramo próprio**, a partir do `master`:
-   `git worktree add -b <tarefa> .claude/worktrees/<tarefa> master`. Uma
-   tarefa por ramo, com um nome que a diga. A worktree usa o banco do
-   `bd` do checkout principal (seção "Tarefas").
+1. **Worktree em ramo próprio**, a partir do `master`, criada pela sessão
+   aberta no checkout principal:
+   `git worktree add -b <tarefa> .claude/worktrees/<tarefa> master`, e
+   logo depois a ferramenta `EnterWorktree` com `path` nela. Daí até o
+   `ExitWorktree` do passo 6, o Claude Code prende a sessão à worktree:
+   recusa o Edit e o Write no checkout principal e o git apontado para
+   ele (`-C`, `cd`, `GIT_DIR`). A escrita em `tmp/` do checkout
+   principal, como o dev log, pede o `ExitWorktree` com `keep` e a volta
+   pelo `EnterWorktree` com o mesmo `path`. A sessão que o app desktop
+   abre já dentro de uma worktree tem a mesma guarda, sem chave do
+   `settings.json` que a solte (o `worktree.bgIsolation` vale só para as
+   sessões em segundo plano), e não se testou se o `ExitWorktree` a
+   solta: o trabalho em código começa numa sessão aberta no checkout
+   principal. Uma tarefa por ramo, com um nome que a diga. A worktree
+   usa o banco do `bd` do checkout principal (seção "Tarefas").
 2. **Primeira versão commitada** assim que roda e as conferências passam
    (as capturas de `implementacoes/AGENTS.md`, os testes de `bin/`).
    `GIT_REVISAO_BASE=$(git merge-base master HEAD)
@@ -441,15 +452,18 @@ rascunho, e a história dele se condensa antes do merge (passo 5).
 6. **Merge**, montado na worktree e levado ao `master` por fast-forward,
    porque o índice do checkout principal pode guardar o rascunho do texto
    e o `git merge --no-ff` recusa índice com mudança (o fast-forward o
-   preserva, testado em 2026-10-07):
+   preserva, testado em 2026-10-07). O fast-forward roda no checkout
+   principal, depois do `ExitWorktree` com `keep`: de outra worktree, o
+   git recusa avançar o `master` que está em uso nele (`git branch -f` e
+   `git push .`, testados em 2026-10-23):
 
    ```sh
    # na worktree
    git switch --detach master
    git merge --ff-only <tarefa> ||
        git merge --no-ff -m "Junta o ramo <tarefa>: <o que o ramo traz>" <tarefa>
-   git -C <checkout principal> merge --ff-only "$(git rev-parse HEAD)"
-   # no checkout principal
+   # ExitWorktree com keep: a sessão volta ao checkout principal
+   git merge --ff-only "$(git -C .claude/worktrees/<tarefa> rev-parse HEAD)"
    git revisao pendente   # tem de dizer "nada pendente"
    git worktree remove .claude/worktrees/<tarefa>
    git branch -d <tarefa>
@@ -460,11 +474,11 @@ rascunho, e a história dele se condensa antes do merge (passo 5).
      `.beads/issues.jsonl` cai sempre nisso, porque o `bd` exporta para
      lá. As tarefas do ramo já estão nos commits dele (seção "Tarefas");
      o que difere no checkout principal, fora do índice, é exportação do
-     banco, que continua lá. Se o jsonl estiver no índice (`git -C
-     <checkout principal> diff --cached --quiet -- .beads/issues.jsonl`
-     falha), ele é de um commit que espera o autor: pare e pergunte. Se
-     não, restaure-o com `git -C <checkout principal> checkout HEAD --
-     .beads/issues.jsonl` e faça o fast-forward; o próximo `bd` o regrava.
+     banco, que continua lá. Se o jsonl estiver no índice (`git diff
+     --cached --quiet -- .beads/issues.jsonl` falha), ele é de um commit
+     que espera o autor: pare e pergunte. Se não, restaure-o com `git
+     checkout HEAD -- .beads/issues.jsonl` e faça o fast-forward; o
+     próximo `bd` o regrava.
      Qualquer outro arquivo modificado lá é do autor: pare e pergunte.
    - Conflito no `.beads/issues.jsonl` durante o `--no-ff`, tarefa por
      tarefa, e não commitando o `bd export`, que levaria ao `master` as
@@ -489,8 +503,8 @@ rascunho, e a história dele se condensa antes do merge (passo 5).
      a resolução (`git show --cc HEAD`) e só marque o merge com `git
      revisao pronto` com o Ready dela; senão, pare e pergunte ao autor.
    - Se o `master` andou entre o merge na worktree e o fast-forward ("Not
-     possible to fast-forward"), refaça o passo desde o `git switch
-     --detach master`.
+     possible to fast-forward"), volte à worktree com o `EnterWorktree`
+     e refaça o passo desde o `git switch --detach master`.
    - Se `git log --oneline master..<tarefa>` listar commits além dos do
      ramo, o merge os levaria ao `master`, com conflito em arquivos que o
      ramo não muda, como os de `texto/`. Não faça o merge (`git merge
@@ -507,7 +521,8 @@ rascunho, e a história dele se condensa antes do merge (passo 5).
      git switch --detach master
      git cherry-pick <base>..<tarefa>
      git branch -f <tarefa> HEAD
-     git -C <checkout principal> merge --ff-only "$(git rev-parse HEAD)"
+     # ExitWorktree com keep: a sessão volta ao checkout principal
+     git merge --ff-only "$(git -C .claude/worktrees/<tarefa> rev-parse HEAD)"
      ```
 
      Se o `git diff` não sair vazio, o cherry-pick pode dar conflito, que
