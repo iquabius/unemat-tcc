@@ -12,6 +12,7 @@ import {
   noPalpite,
   type Lote,
 } from "../../dominio";
+import { hospedar } from "../../../pagina";
 import "../../estilo.css";
 
 function PainelDePlacares() {
@@ -86,21 +87,8 @@ function PainelDePlacares() {
   );
 }
 
-// A página: o botão que tira o painel da página e o põe de volta.
-function DadosAoVivo() {
-  const [visivel, setVisivel] = useState(true);
-  return (
-    <main className="placares">
-      <button
-        type="button"
-        className="alternar"
-        onClick={() => setVisivel(!visivel)}
-      >
-        {visivel ? "Esconder painel" : "Mostrar painel"}
-      </button>
-      {visivel && <PainelDePlacares />}
-    </main>
-  );
-}
-
-createRoot(document.getElementById("raiz")!).render(<DadosAoVivo />);
+hospedar((conteiner) => {
+  const raiz = createRoot(conteiner);
+  raiz.render(<PainelDePlacares />);
+  return () => raiz.unmount();
+});

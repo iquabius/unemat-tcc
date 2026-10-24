@@ -81,9 +81,9 @@ O Web Component com *signals* × Solid é um modelo de programação com
 duas notações: a coordenação se escreve com os mesmos sinais do
 `solid-js` (`createSignal`, `createMemo`, `createEffect`), e a montagem
 da tela e o modelo de componente mudam, também nas partes repetidas e no
-filho que entra e sai da página (`createElement` num efeito contra
-`<For>` e `<Show>`, ADR 0037). O Solid × React, com a tela em JSX, põe
-um declarativo contra o outro, com o dialeto do JSX (`class` e
+trecho que entra e sai da tela (`createElement` e `hidden` num efeito
+contra `<For>` e `<Show>`, ADR 0037). O Solid × React, com a tela em
+JSX, põe um declarativo contra o outro, com o dialeto do JSX (`class` e
 `className`) de diferença. Nenhum passo muda uma coisa só, e o que muda
 junto se separa pelo sinal escrito (ADR 0021). O Web Component e o React
 não formam par: a diferença entre eles se atribui ao passo da cadeia em

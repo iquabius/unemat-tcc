@@ -8,7 +8,7 @@
 // desenho, circulosDesenhados(), do domínio, e a cor do centro de cada um
 // no próprio canvas. Os eventos do ponteiro e do teclado são disparados
 // como o navegador os manda; o teste começa e termina com o desenho
-// vazio, escondendo e mostrando a interface.
+// vazio, saindo da tela e voltando pela rota da página comum.
 (async () => {
   const mensagem = () =>
     new Promise((r) => {
@@ -149,10 +149,19 @@
     );
     await escoar();
   }
-  async function alternar() {
-    $(".alternar").click();
+  // Sai da tela e volta pela rota da página que hospeda a interface
+  // (implementacoes/pagina.ts): "#/" é a página sem ela. O hashchange
+  // chega numa tarefa própria, depois da troca.
+  async function irPara(hash) {
+    const mudou = new Promise((r) =>
+      addEventListener("hashchange", r, { once: true }),
+    );
+    location.hash = hash;
+    await mudou;
     await escoar();
   }
+  const sairDaTela = () => irPara("/");
+  const voltarATela = () => irPara("");
 
   const r = [];
   const conferir = (nome, obtido, esperado) =>
@@ -160,14 +169,14 @@
       `${JSON.stringify(obtido) === JSON.stringify(esperado) ? "ok " : "FALHOU"} ${nome}: ${JSON.stringify(obtido)}`,
     );
 
-  await alternar();
-  await alternar();
+  await sairDaTela();
+  await voltarATela();
 
   const regiao = $(".situacao");
   conferir(
     "1 abre com o canvas vazio",
-    [texto($(".alternar")), habilitados(), desenhados(), situacao(), abertos()],
-    ["Esconder desenho", [false, false], [], "", 1],
+    [habilitados(), desenhados(), situacao(), abertos()],
+    [[false, false], [], "", 1],
   );
 
   await clicar(100, 100);
@@ -362,25 +371,25 @@
     [true, "status"],
   );
 
-  await alternar();
+  await sairDaTela();
   conferir(
-    "15 esconder fecha o ouvinte dos atalhos",
-    [canvas(), texto($(".alternar")), abertos()],
-    [null, "Mostrar desenho", 0],
+    "15 sair fecha o ouvinte dos atalhos",
+    [canvas(), abertos()],
+    [null, 0],
   );
 
-  await alternar();
+  await voltarATela();
   conferir(
-    "16 mostrar começa vazio",
+    "16 voltar começa vazio",
     [desenhados(), habilitados(), situacao(), abertos()],
     [[], [false, false], "", 1],
   );
 
   for (let i = 0; i < 3; i++) {
-    await alternar();
-    await alternar();
+    await sairDaTela();
+    await voltarATela();
   }
-  conferir("17 esconder e mostrar três vezes deixa um ouvinte", abertos(), 1);
+  conferir("17 sair e voltar três vezes deixa um ouvinte", abertos(), 1);
 
   return r.join("\n");
 })();

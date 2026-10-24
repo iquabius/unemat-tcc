@@ -84,6 +84,19 @@
     $(seletor).click();
     await relogio.escoar();
   }
+  // Sai da tela e volta pela rota da página que hospeda a interface
+  // (implementacoes/pagina.ts): "#/" é a página sem ela. O hashchange
+  // chega numa tarefa própria, depois da troca.
+  async function irPara(hash) {
+    const mudou = new Promise((r) =>
+      addEventListener("hashchange", r, { once: true }),
+    );
+    location.hash = hash;
+    await mudou;
+    await relogio.escoar();
+  }
+  const sairDaTela = () => irPara("/");
+  const voltarATela = () => irPara("");
   const texto = (el) =>
     el && !el.hidden ? el.textContent.replace(/\s+/g, " ").trim() : null;
   const situacao = () => texto($(".situacao"));
@@ -228,16 +241,16 @@
     await clicar(".entrar");
     await relogio.avancar(1000);
     const relogiosNaSessao = abertos();
-    await clicar(".alternar");
+    await sairDaTela();
     conferir(
-      "13 esconder na sessão fecha o relógio",
-      [relogiosNaSessao, $(".painel"), texto($(".alternar")), abertos()],
-      [1, null, "Mostrar login", 0],
+      "13 sair na sessão fecha o relógio",
+      [relogiosNaSessao, $(".painel"), abertos()],
+      [1, null, 0],
     );
     await relogio.avancar(2000);
-    await clicar(".alternar");
+    await voltarATela();
     conferir(
-      "13 mostrar começa do zero",
+      "13 voltar começa do zero",
       [
         situacao(),
         $('[name="nome"]').value,
@@ -245,9 +258,8 @@
         entrar(),
         tempo(),
         sair(),
-        texto($(".alternar")),
       ],
-      ["Desconectado.", "", "", false, null, false, "Esconder login"],
+      ["Desconectado.", "", "", false, null, false],
     );
 
     await digitar("nome", "ana");
@@ -256,14 +268,14 @@
     const requisicoesNaTentativa = abertos();
     // Confere antes de o relógio andar: com 1 s, a requisição esquecida
     // terminaria sozinha.
-    await clicar(".alternar");
+    await sairDaTela();
     conferir(
-      "14 esconder na tentativa cancela a requisição",
+      "14 sair na tentativa cancela a requisição",
       [requisicoesNaTentativa, abertos()],
       [1, 0],
     );
     await relogio.avancar(1000);
-    await clicar(".alternar");
+    await voltarATela();
   } finally {
     relogio.desinstalar();
   }

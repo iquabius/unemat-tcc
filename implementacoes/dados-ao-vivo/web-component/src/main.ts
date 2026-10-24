@@ -10,6 +10,7 @@ import {
   noPalpite,
   type Lote,
 } from "../../dominio";
+import { hospedar } from "../../../pagina";
 import "../../estilo.css";
 
 const modelo = /* HTML */ `
@@ -139,37 +140,10 @@ class PainelDePlacares extends HTMLElement {
   }
 }
 
-// A página: o botão que tira o painel da página e o põe de volta.
-class DadosAoVivo extends HTMLElement {
-  private painel?: PainelDePlacares;
-
-  connectedCallback() {
-    this.innerHTML = /* HTML */ `
-      <main class="placares">
-        <button type="button" class="alternar">Esconder painel</button>
-      </main>
-    `;
-    const principal = this.querySelector("main")!;
-    const alternar = this.querySelector<HTMLButtonElement>(".alternar")!;
-    const mostrar = () => {
-      this.painel = document.createElement(
-        "painel-de-placares",
-      ) as PainelDePlacares;
-      principal.append(this.painel);
-      alternar.textContent = "Esconder painel";
-    };
-    alternar.addEventListener("click", () => {
-      if (this.painel) {
-        this.painel.remove();
-        this.painel = undefined;
-        alternar.textContent = "Mostrar painel";
-      } else {
-        mostrar();
-      }
-    });
-    mostrar();
-  }
-}
-
 customElements.define("painel-de-placares", PainelDePlacares);
-customElements.define("dados-ao-vivo", DadosAoVivo);
+
+hospedar((conteiner) => {
+  const painel = document.createElement("painel-de-placares");
+  conteiner.append(painel);
+  return () => painel.remove();
+});

@@ -157,22 +157,22 @@ texto, para o leitor de tela anunciá-la sem que ela receba o foco (WCAG
 
 ### Requirement: Limpeza ao sair da tela
 
-O botão "Esconder busca" deve tirar a interface da página e passar a
-dizer "Mostrar busca", que a põe de volta como se ela abrisse, com o
-campo vazio. Fora da página, a interface não deixa requisição aberta,
-para o usuário não gastar rede com sugestões que não vê:
-`contarAbertos()`, do domínio, dá 0.
+Ao sair da tela, a interface deve sair da página sem deixar requisição
+aberta, para o usuário não gastar rede com sugestões que não vê:
+`contarAbertos()`, do domínio, dá 0. Ao voltar à tela, ela deve abrir como
+da primeira vez, com o campo vazio. A tela é a rota da página que a hospeda:
+"#/" é a página sem a interface, e qualquer outra rota, inclusive sem hash,
+a tem.
 
-#### Scenario: 11 esconder durante a busca cancela a requisição
+#### Scenario: 11 sair durante a busca cancela a requisição
 
 - **DADO** a busca de "sa" em andamento, com a requisição aberta
-- **QUANDO** o usuário clica no "Esconder busca"
-- **ENTÃO** a interface não está na página, e o botão diz "Mostrar busca"
+- **QUANDO** a página vai à rota "#/", sem a interface
+- **ENTÃO** a interface não está na página
 - **E** `contarAbertos()` dá 0
 
-#### Scenario: 11 mostrar começa do zero
+#### Scenario: 11 voltar começa do zero
 
-- **DADO** a interface escondida, depois do tempo da resposta
-- **QUANDO** o usuário clica no "Mostrar busca"
+- **DADO** a interface fora da tela, depois do tempo da resposta
+- **QUANDO** a página volta à rota com a interface
 - **ENTÃO** o campo está vazio, sem situação, sugestão nem destino na tela
-- **E** o botão diz "Esconder busca"

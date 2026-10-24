@@ -27,6 +27,19 @@
     );
   const escolha = () => texto(visivel(".escolha"));
   const abertas = () => globalThis.contarAbertos();
+  // Sai da tela e volta pela rota da página que hospeda a interface
+  // (implementacoes/pagina.ts): "#/" é a página sem ela. O hashchange
+  // chega numa tarefa própria, depois da troca.
+  async function irPara(hash) {
+    const mudou = new Promise((r) =>
+      addEventListener("hashchange", r, { once: true }),
+    );
+    location.hash = hash;
+    await mudou;
+    await dormir(50);
+  }
+  const sairDaTela = () => irPara("/");
+  const voltarATela = () => irPara("");
   const r = [];
   const conferir = (nome, obtido, esperado) =>
     r.push(
@@ -148,20 +161,18 @@
   const abertasNaBusca = abertas();
   // Confere antes do tempo da resposta: a requisição esquecida terminaria
   // sozinha nos 800 ms.
-  $(".alternar").click();
-  await dormir(50);
+  await sairDaTela();
   conferir(
-    "11 esconder durante a busca cancela a requisição",
-    [abertasNaBusca, $(".painel"), texto($(".alternar")), abertas()],
-    [1, null, "Mostrar busca", 0],
+    "11 sair durante a busca cancela a requisição",
+    [abertasNaBusca, $(".painel"), abertas()],
+    [1, null, 0],
   );
   await dormir(1000);
-  $(".alternar").click();
-  await dormir(50);
+  await voltarATela();
   conferir(
-    "11 mostrar começa do zero",
-    [campo().value, situacao(), sugestoes(), escolha(), texto($(".alternar"))],
-    ["", null, [], null, "Esconder busca"],
+    "11 voltar começa do zero",
+    [campo().value, situacao(), sugestoes(), escolha()],
+    ["", null, [], null],
   );
 
   return r.join("\n");

@@ -213,28 +213,28 @@ ela receba o foco (WCAG 2.2, critério 4.1.3).
 
 ### Requirement: Limpeza ao sair da tela
 
-O botão "Esconder reserva" deve tirar a interface da página e passar a
-dizer "Mostrar reserva", que a põe de volta como se ela abrisse, para o
-usuário recomeçar a reserva do zero. Fora da página, a interface não
-deixa requisição aberta, para o usuário não gastar rede com uma reserva
-que não vê: `contarAbertos()`, do domínio, dá 0.
+Ao sair da tela, a interface deve sair da página sem deixar requisição
+aberta, para o usuário não gastar rede com uma reserva que não vê:
+`contarAbertos()`, do domínio, dá 0. Ao voltar à tela, ela deve abrir como
+da primeira vez, para o usuário recomeçar a reserva do zero. A tela é a rota
+da página que a hospeda: "#/" é a página sem a interface, e qualquer outra
+rota, inclusive sem hash, a tem.
 
-#### Scenario: 9 esconder durante o envio cancela a requisição
+#### Scenario: 9 sair durante o envio cancela a requisição
 
 - **DADO** o envio em andamento, com a requisição aberta
-- **QUANDO** o usuário clica no "Esconder reserva"
+- **QUANDO** a página vai à rota "#/", sem a interface
 - **ENTÃO** `contarAbertos()` dá 0
 
-#### Scenario: 9 esconder tira a reserva da página
+#### Scenario: 9 sair tira a reserva da página
 
-- **DADO** o clique no "Esconder reserva"
+- **DADO** a página na rota "#/"
 - **QUANDO** o teste procura o formulário
-- **ENTÃO** ele não está na página, e o botão diz "Mostrar reserva"
+- **ENTÃO** ele não está na página
 
-#### Scenario: 9 mostrar começa do zero
+#### Scenario: 9 voltar começa do zero
 
-- **DADO** a interface escondida, depois do tempo da resposta
-- **QUANDO** o usuário clica no "Mostrar reserva"
+- **DADO** a interface fora da tela, depois do tempo da resposta
+- **QUANDO** a página volta à rota com a interface
 - **ENTÃO** o tipo de viagem é "Só ida", as datas mostram a data de hoje, sem erro, e o botão Reservar está habilitado
 - **E** a situação está vazia
-- **E** o botão diz "Esconder reserva"

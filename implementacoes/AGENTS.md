@@ -180,15 +180,31 @@ A mudança não se porta para o código da interface em
   técnica diz o que o programa faz, e a ilustrativa, por que a aplicação
   real o pede; a rodada de revisão do texto confere as duas (skill
   `revisao-de-texto`).
+- A página que hospeda a interface é `implementacoes/pagina.ts`, comum
+  às quatro tecnologias e importada por caminho relativo, como o
+  `dominio.ts` (ADR 0043): um roteador de hash sem visual, que monta a
+  interface no contêiner `#raiz` em qualquer rota, inclusive sem hash, e
+  a tira da página em `#/`. O `main` de cada implementação termina em
+  `hospedar(montar)`, com o par montar e desmontar no idioma da
+  tecnologia: no Web Component e no Web Component com *signals*, o
+  `createElement` e o `append` do elemento, e o `remove()`, que dispara o
+  `disconnectedCallback`; no React, o `createRoot(conteiner).render(...)`
+  e o `unmount()` da raiz; no Solid, o `render(...)`, que já devolve o
+  `dispose`. O `index.html` traz o contêiner, `<main id="raiz"
+  class="<classe do layout>">`. A limpeza ao sair da tela (o
+  `disconnectedCallback`, o retorno do `useEffect`, o `onCleanup`) fica
+  na implementação: é o que se compara. O Contador e a planilha, sem
+  nada a limpar (ADR 0029), montam direto no `index.html`, sem a página.
 - Crie o `cenas.mts` da interface (estados a capturar), gere as capturas com
   `npm run capturas -- <interface>` e versione-as no mesmo commit.
 - Implementações web em TypeScript, sem bibliotecas além do que cada
   framework traz.
 - No Web Component, o esqueleto da tela se escreve em HTML num texto
   (marcado `/* HTML */`), atribuído ao `innerHTML` uma vez, e as partes
-  repetidas (itens de lista, linhas de tabela) e os elementos filhos,
-  como o painel que o botão de esconder e mostrar põe na página, se
-  criam com `createElement` e `append`. A tela muda por `textContent`,
+  repetidas (itens de lista, linhas de tabela) se criam com
+  `createElement` e `append`, como a própria ilha, que o gancho de
+  montagem cria e põe no contêiner da página comum (item acima). A tela
+  muda por `textContent`,
   atributos e `hidden` nos nós já montados, e a coleção que muda se
   esvazia e se remonta (`replaceChildren`); quando uma regra de
   `display` do `estilo.css` venceria o `hidden`, o mesmo arquivo traz
@@ -229,14 +245,13 @@ A mudança não se porta para o código da interface em
   orquestração do Solid, contra a do Web Component no tratador, para o
   par com o Solid diferir só na montagem e no modelo de componente.
 
-  O efeito roda pela primeira vez na mesma tarefa, antes da pintura: no
-  fim do `createRoot`, antes de o `connectedCallback` voltar, quando o
-  elemento entra fora de um efeito (a Reserva de passagem); na fila da
-  atualização que roda os efeitos da página, depois de o `append` do
-  painel voltar e antes de o `connectedCallback` da página voltar, quando
-  é o painel que um efeito da página cria (o Login). Os dois casos foram
-  conferidos no navegador em 2026-10-23, e por isso o
-  `createRenderEffect` não faz falta. O *signal* lido fora de um efeito
+  O efeito roda pela primeira vez na mesma tarefa, antes da pintura, no
+  fim do `createRoot`, antes de o `connectedCallback` voltar: a ilha
+  entra pelo `append` do gancho de montagem, fora de qualquer efeito
+  (conferido no navegador em 2026-10-23, com a Reserva de passagem; o
+  caso do painel criado por um efeito da página, o do Login até
+  2026-10-24, deixou de existir com a página comum, ADR 0043), e por isso
+  o `createRenderEffect` não faz falta. O *signal* lido fora de um efeito
   ou de um `createMemo` não é acompanhado, e a tela fica com o valor da
   primeira leitura. O `solid-js` 2.0 muda a assinatura do `createEffect`.
 
@@ -297,12 +312,14 @@ O `bin/testes-da-revisao.py` o roda nas interfaces que o ramo muda.
 - **Limpeza ao sair da tela.** Na interface que abre requisições, relógios
   ou inscrições (todas menos o Contador e a planilha, ADR 0029), o
   `dominio.ts` conta o que está aberto numa função em `globalThis`, como o
-  `contarAbertos()` do Login, e cada implementação tem um botão que
-  esconde e mostra a interface. O teste esconde a interface e confere zero
-  **antes** de avançar o relógio: uma requisição esquecida terminaria
-  sozinha na latência, e a conferência depois dela passaria (achado da
-  revisão do Login, 2026-10-12). Pelo mesmo motivo, confira a contagem
-  logo depois da ação que deve cancelar, como a tentativa nova do Login.
+  `contarAbertos()` do Login, e a página que hospeda a interface
+  (`implementacoes/pagina.ts`) a tira da página na rota `#/` e a põe de
+  volta sem hash. O teste sai da tela, trocando `location.hash` e
+  esperando o `hashchange`, e confere zero **antes** de avançar o
+  relógio: uma requisição esquecida terminaria sozinha na latência, e a
+  conferência depois dela passaria (achado da revisão do Login,
+  2026-10-12). Pelo mesmo motivo, confira a contagem logo depois da ação
+  que deve cancelar, como a tentativa nova do Login.
 - Confira que o teste pega erros: introduza na implementação um defeito
   de cada regra (sem o `abort()`, sem a limpeza do efeito, sem o
   `disconnectedCallback`) e veja a verificação certa falhar no `npm run

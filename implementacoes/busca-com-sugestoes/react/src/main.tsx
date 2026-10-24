@@ -8,6 +8,7 @@ import {
   rotulo,
   type Cidade,
 } from "../../dominio";
+import { hospedar } from "../../../pagina";
 import "../../estilo.css";
 
 type Estado =
@@ -108,21 +109,8 @@ function BuscaDeDestino() {
   );
 }
 
-// A página: o botão que tira a busca da página e a põe de volta.
-function BuscaComSugestoes() {
-  const [visivel, setVisivel] = useState(true);
-  return (
-    <main className="busca">
-      <button
-        type="button"
-        className="alternar"
-        onClick={() => setVisivel(!visivel)}
-      >
-        {visivel ? "Esconder busca" : "Mostrar busca"}
-      </button>
-      {visivel && <BuscaDeDestino />}
-    </main>
-  );
-}
-
-createRoot(document.getElementById("raiz")!).render(<BuscaComSugestoes />);
+hospedar((conteiner) => {
+  const raiz = createRoot(conteiner);
+  raiz.render(<BuscaDeDestino />);
+  return () => raiz.unmount();
+});

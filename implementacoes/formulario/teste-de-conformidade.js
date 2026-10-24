@@ -35,6 +35,19 @@
   const texto = (el) => (el ? el.textContent.trim() : null);
   const situacao = () => texto($(".situacao"));
   const abertas = () => globalThis.contarAbertos();
+  // Sai da tela e volta pela rota da página que hospeda a interface
+  // (implementacoes/pagina.ts): "#/" é a página sem ela. O hashchange
+  // chega numa tarefa própria, depois da troca.
+  async function irPara(hash) {
+    const mudou = new Promise((r) =>
+      addEventListener("hashchange", r, { once: true }),
+    );
+    location.hash = hash;
+    await mudou;
+    await esperar();
+  }
+  const sairDaTela = () => irPara("/");
+  const voltarATela = () => irPara("");
   const r = [];
   const conferir = (nome, obtido, esperado) =>
     r.push(
@@ -169,32 +182,25 @@
   const abertasNoEnvio = abertas();
   // Confere antes do tempo da resposta: a requisição esquecida terminaria
   // sozinha nos 500 ms.
-  $(".alternar").click();
-  await esperar();
+  await sairDaTela();
   conferir(
-    "9 esconder durante o envio cancela a requisição",
+    "9 sair durante o envio cancela a requisição",
     [abertasNoEnvio, abertas()],
     [1, 0],
   );
-  conferir(
-    "9 esconder tira a reserva da página",
-    [$(".formulario"), texto($(".alternar"))],
-    [null, "Mostrar reserva"],
-  );
+  conferir("9 sair tira a reserva da página", $(".formulario"), null);
   await esperar(600);
-  $(".alternar").click();
-  await esperar();
+  await voltarATela();
   conferir(
-    "9 mostrar começa do zero",
+    "9 voltar começa do zero",
     [
       campo("tipo").value,
       [campo("ida").value, campo("volta").value],
       ["ida", "volta"].map(erro),
       botao().disabled,
       situacao(),
-      texto($(".alternar")),
     ],
-    ["ida", [hoje, hoje], [null, null], false, "", "Esconder reserva"],
+    ["ida", [hoje, hoje], [null, null], false, ""],
   );
 
   return r.join("\n");

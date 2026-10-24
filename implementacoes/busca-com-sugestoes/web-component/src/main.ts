@@ -6,6 +6,7 @@ import {
   rotulo,
   type Cidade,
 } from "../../dominio";
+import { hospedar } from "../../../pagina";
 import "../../estilo.css";
 
 const modelo = /* HTML */ `
@@ -119,35 +120,10 @@ class BuscaDeDestino extends HTMLElement {
   }
 }
 
-// A página: o botão que tira a busca da página e a põe de volta.
-class BuscaComSugestoes extends HTMLElement {
-  private busca?: BuscaDeDestino;
-
-  connectedCallback() {
-    this.innerHTML = /* HTML */ `
-      <main class="busca">
-        <button type="button" class="alternar">Esconder busca</button>
-      </main>
-    `;
-    const principal = this.querySelector("main")!;
-    const alternar = this.querySelector<HTMLButtonElement>(".alternar")!;
-    const mostrar = () => {
-      this.busca = document.createElement("busca-de-destino") as BuscaDeDestino;
-      principal.append(this.busca);
-      alternar.textContent = "Esconder busca";
-    };
-    alternar.addEventListener("click", () => {
-      if (this.busca) {
-        this.busca.remove();
-        this.busca = undefined;
-        alternar.textContent = "Mostrar busca";
-      } else {
-        mostrar();
-      }
-    });
-    mostrar();
-  }
-}
-
 customElements.define("busca-de-destino", BuscaDeDestino);
-customElements.define("busca-com-sugestoes", BuscaComSugestoes);
+
+hospedar((conteiner) => {
+  const busca = document.createElement("busca-de-destino");
+  conteiner.append(busca);
+  return () => busca.remove();
+});

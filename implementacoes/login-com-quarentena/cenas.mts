@@ -23,7 +23,4 @@ export const cenas: Cenas = {
     await entrar(pagina, "segredo");
     await pagina.waitForTimeout(1300);
   },
-  escondido: async (pagina) => {
-    await pagina.getByRole("button", { name: "Esconder login" }).click();
-  },
 };

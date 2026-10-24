@@ -191,28 +191,28 @@ sem que ela receba o foco (WCAG 2.2, critério 4.1.3).
 
 ### Requirement: Limpeza ao sair da tela
 
-O botão "Esconder login" deve tirar a interface da página e passar a dizer
-"Mostrar login", que a põe de volta como se ela abrisse. Fora da página, a
-interface não deixa requisição nem relógio aberto: `contarAbertos()`, do
-domínio, dá 0.
+Ao sair da tela, a interface deve sair da página sem deixar requisição nem
+relógio aberto, para o usuário não gastar rede e bateria com um login que
+não vê: `contarAbertos()`, do domínio, dá 0. Ao voltar à tela, ela deve
+abrir como da primeira vez. A tela é a rota da página que a hospeda: "#/" é
+a página sem a interface, e qualquer outra rota, inclusive sem hash, a tem.
 
-#### Scenario: 13 esconder na sessão fecha o relógio
+#### Scenario: 13 sair na sessão fecha o relógio
 
 - **DADO** uma sessão em andamento, com o relógio aberto
-- **QUANDO** o usuário clica no "Esconder login"
-- **ENTÃO** a interface não está na página, e o botão diz "Mostrar login"
+- **QUANDO** a página vai à rota "#/", sem a interface
+- **ENTÃO** a interface não está na página
 - **E** `contarAbertos()` dá 0
 
-#### Scenario: 13 mostrar começa do zero
+#### Scenario: 13 voltar começa do zero
 
-- **DADO** a interface escondida há 2 s
-- **QUANDO** o usuário clica no "Mostrar login"
+- **DADO** a interface fora da tela há 2 s
+- **QUANDO** a página volta à rota com a interface
 - **ENTÃO** a situação mostra "Desconectado.", com os campos vazios e o "Entrar" desabilitado
 - **E** não há tempo de sessão nem "Sair" na tela
-- **E** o botão diz "Esconder login"
 
-#### Scenario: 14 esconder na tentativa cancela a requisição
+#### Scenario: 14 sair na tentativa cancela a requisição
 
 - **DADO** uma tentativa em andamento, com a requisição aberta
-- **QUANDO** o usuário clica no "Esconder login"
+- **QUANDO** a página vai à rota "#/", sem a interface
 - **ENTÃO** `contarAbertos()` dá 0

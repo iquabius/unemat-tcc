@@ -1,10 +1,4 @@
-import {
-  createEffect,
-  createMemo,
-  createSignal,
-  onCleanup,
-  Show,
-} from "solid-js";
+import { createEffect, createMemo, createSignal, onCleanup } from "solid-js";
 import { createStore, produce, unwrap } from "solid-js/store";
 import { render } from "solid-js/web";
 import {
@@ -22,6 +16,7 @@ import {
   type Circulo,
   type Ponto,
 } from "../../dominio";
+import { hospedar } from "../../../pagina";
 import "../../estilo.css";
 
 function AreaDeDesenho() {
@@ -237,23 +232,4 @@ function AreaDeDesenho() {
   );
 }
 
-// A página: o botão que tira o desenho da página e o põe de volta.
-function Pagina() {
-  const [visivel, setVisivel] = createSignal(true);
-  return (
-    <main class="pagina">
-      <button
-        type="button"
-        class="alternar"
-        onClick={() => setVisivel(!visivel())}
-      >
-        {visivel() ? "Esconder desenho" : "Mostrar desenho"}
-      </button>
-      <Show when={visivel()}>
-        <AreaDeDesenho />
-      </Show>
-    </main>
-  );
-}
-
-render(() => <Pagina />, document.getElementById("raiz")!);
+hospedar((conteiner) => render(() => <AreaDeDesenho />, conteiner));

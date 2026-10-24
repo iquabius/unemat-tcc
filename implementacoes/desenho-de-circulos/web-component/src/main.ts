@@ -13,6 +13,7 @@ import {
   type Circulo,
   type Ponto,
 } from "../../dominio";
+import { hospedar } from "../../../pagina";
 import "../../estilo.css";
 
 const modelo = /* HTML */ `
@@ -227,35 +228,10 @@ class AreaDeDesenho extends HTMLElement {
   }
 }
 
-// A página: o botão que tira o desenho da página e o põe de volta.
-class Pagina extends HTMLElement {
-  private desenho?: AreaDeDesenho;
-
-  connectedCallback() {
-    this.innerHTML = /* HTML */ `
-      <main class="pagina">
-        <button type="button" class="alternar">Esconder desenho</button>
-      </main>
-    `;
-    const principal = this.querySelector("main")!;
-    const alternar = this.querySelector<HTMLButtonElement>(".alternar")!;
-    const mostrar = () => {
-      this.desenho = document.createElement("area-de-desenho") as AreaDeDesenho;
-      principal.append(this.desenho);
-      alternar.textContent = "Esconder desenho";
-    };
-    alternar.addEventListener("click", () => {
-      if (this.desenho) {
-        this.desenho.remove();
-        this.desenho = undefined;
-        alternar.textContent = "Mostrar desenho";
-      } else {
-        mostrar();
-      }
-    });
-    mostrar();
-  }
-}
-
 customElements.define("area-de-desenho", AreaDeDesenho);
-customElements.define("desenho-de-circulos", Pagina);
+
+hospedar((conteiner) => {
+  const desenho = document.createElement("area-de-desenho");
+  conteiner.append(desenho);
+  return () => desenho.remove();
+});

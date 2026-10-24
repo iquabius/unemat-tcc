@@ -39,7 +39,7 @@ rodada edita o =spec.md= direto (=implementacoes/AGENTS.md=).
   arquivo no console. Ele dispara no /canvas/ e no =document= os eventos do
   ponteiro e do teclado, lê os círculos por =circulosDesenhados()= e a cor
   do centro de cada um no próprio /canvas/, e começa e termina com o
-  desenho vazio, escondendo e mostrando a interface. O fechamento do menu e
-  do diálogo no Esc e no clique fora é do navegador e não responde a evento
-  disparado por script: fica sem verificação. As cenas das capturas ficam
-  em =cenas.mts=.
+  desenho vazio, saindo da tela e voltando pela rota da página comum. O
+  fechamento do menu e do diálogo no Esc e no clique fora é do navegador
+  e não responde a evento disparado por script: fica sem verificação. As
+  cenas das capturas ficam em =cenas.mts=.

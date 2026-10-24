@@ -226,6 +226,17 @@ descarte (tradução automática de *dispose*); desmontar sozinho
 (vocabulário do React); tarefa órfã (tarefa é a do bd); assinatura (é
 inscrição, como em "Exigência de coordenação")
 
+**Página comum**:
+O módulo em TypeScript puro, `implementacoes/pagina.ts`, que hospeda a
+interface nas quatro tecnologias: monta-a no contêiner e a tira da página
+pela rota do hash, para o teste conferir a limpeza ao sair da tela. A
+interface montada nela é a ilha, no sentido da arquitetura de ilhas, e
+cada implementação só traz o gancho de montagem, o par montar e
+desmontar no idioma da tecnologia (ADR 0043).
+_Avoid_: esqueleto (nome da tarefa até 2026-10-24: sugere um visual, que
+a página não tem); roteador como nome do módulo (o hash é o mecanismo, e
+não o papel); desmontar para a limpeza (é "sair da tela")
+
 **Ecossistema**:
 As bibliotecas que a comunidade de uma tecnologia usa junto dela, como as
 de formulário da terceira rodada.

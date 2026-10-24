@@ -14,9 +14,9 @@ O servidor é simulado em =dominio.ts=, com a forma de uma chamada =fetch=:
 testes e as capturas se repetirem. =contarAbertos()= diz quantas
 requisições estão abertas, para a limpeza ao sair da tela se conferir
 pela contagem. A situação fica numa região de status que existe desde a
-abertura, e o botão "Esconder reserva" tira a interface da página e a
-põe de volta do zero, as duas regras comuns da primeira rodada (ADR
-0029).
+abertura, e, ao sair da tela, a página que hospeda a interface
+(=implementacoes/pagina.ts=) a tira da página e, ao voltar, a põe de
+volta do zero, as duas regras comuns da primeira rodada (ADR 0029).
 
 As regras, as mensagens e os cenários que o teste de conformidade confere
 estão em =implementacoes/openspec/specs/formulario/spec.md=, a
