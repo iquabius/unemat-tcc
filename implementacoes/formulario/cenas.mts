@@ -41,8 +41,4 @@ export const cenas: Cenas = {
     await pagina.getByRole("button", { name: "Reservar" }).click();
     await pagina.waitForTimeout(700);
   },
-
-  escondido: async (pagina) => {
-    await pagina.getByRole("button", { name: "Esconder reserva" }).click();
-  },
 };

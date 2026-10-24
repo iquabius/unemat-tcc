@@ -35,6 +35,6 @@ rodada edita o =spec.md= direto (=implementacoes/AGENTS.md=).
   arquivo no console. O teste troca os temporizadores e o =Date.now= da
   página por um relógio falso, que só anda quando ele manda, e por isso
   roda em menos de um segundo; como a inscrição da abertura usa os
-  temporizadores de verdade, ele começa escondendo o painel e o mostrando
-  de novo. Depois do teste, recarregue a página para os lotes voltarem. As
-  cenas das capturas ficam em =cenas.mts=.
+  temporizadores de verdade, ele começa saindo da tela e voltando, pela
+  rota da página comum. Depois do teste, recarregue a página para os
+  lotes voltarem. As cenas das capturas ficam em =cenas.mts=.

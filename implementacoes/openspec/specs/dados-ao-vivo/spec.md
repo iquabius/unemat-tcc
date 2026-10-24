@@ -13,28 +13,28 @@ rede e bateria com um painel que não vê.
 
 ### Requirement: Abertura
 
-A interface deve abrir com o painel na página e o botão "Esconder painel".
-O painel se inscreve na fonte ao entrar na página, para o usuário seguir os
-jogos sem pedir, e mostra uma linha por jogo, na ordem FLA × PAL,
-COR × SAO, GRE × INT e CAM × CRU, com o código, o placar, o tempo, os gols
-novos e o palpite ("1 × 0", "2 × 0", "1 × 0" e "2 × 1"). Antes do primeiro
-lote, o placar, o tempo e os gols novos mostram "—", a situação mostra
-"Aguardando placares…" e o botão de pausa diz "Pausar".
+A interface deve abrir com o painel na página. O painel se inscreve na fonte
+ao entrar na página, para o usuário seguir os jogos sem pedir, e mostra uma
+linha por jogo, na ordem FLA × PAL, COR × SAO, GRE × INT e CAM × CRU, com o
+código, o placar, o tempo, os gols novos e o palpite ("1 × 0", "2 × 0", "1 ×
+0" e "2 × 1"). Antes do primeiro lote, o placar, o tempo e os gols novos
+mostram "—", a situação mostra "Aguardando placares…" e o botão de pausa diz
+"Pausar".
 
 #### Scenario: 1 abre com o painel e uma inscrição
 
 - **QUANDO** a interface abre
-- **ENTÃO** o painel está na página, e o botão diz "Esconder painel"
+- **ENTÃO** o painel está na página
 - **E** o botão de pausa diz "Pausar"
 - **E** `contarInscricoes()` dá 1
 
-#### Scenario: 3 mostrar começa aguardando
+#### Scenario: 3 voltar começa aguardando
 
-- **DADO** o painel escondido
-- **QUANDO** o usuário clica no "Mostrar painel"
+- **DADO** o painel fora da tela
+- **QUANDO** a página volta à rota com o painel
 - **ENTÃO** a situação mostra "Aguardando placares…"
 - **E** as quatro linhas mostram o código, "—" no placar, no tempo e nos gols novos, e o palpite
-- **E** o botão de pausa diz "Pausar", e o outro, "Esconder painel"
+- **E** o botão de pausa diz "Pausar"
 - **E** o "Atualizado há" fica vazio
 - **E** `contarInscricoes()` e `contarRelogios()` dão 1
 
@@ -177,30 +177,31 @@ tela anunciá-la sem que ela receba o foco (WCAG 2.2, critério 4.1.3).
 
 ### Requirement: Limpeza ao sair da tela
 
-O botão "Esconder painel" deve tirar o painel da página e passar a dizer
-"Mostrar painel", que o põe de volta como se a interface abrisse, sem pausa
-nem valores. Fora da página, o painel não deixa inscrição nem relógio
-aberto, para o usuário não gastar rede e bateria com um painel que não vê:
-`contarInscricoes()` e `contarRelogios()`, do domínio, dão 0.
+Ao sair da tela, o painel deve sair da página sem deixar inscrição nem
+relógio aberto, para o usuário não gastar rede e bateria com um painel que
+não vê: `contarInscricoes()` e `contarRelogios()`, do domínio, dão 0. Ao
+voltar à tela, ele deve abrir como da primeira vez, sem pausa nem valores. A
+tela é a rota da página que a hospeda: "#/" é a página sem a interface, e
+qualquer outra rota, inclusive sem hash, a tem.
 
-#### Scenario: 2 esconder cancela a inscrição e para o relógio
+#### Scenario: 2 sair cancela a inscrição e para o relógio
 
 - **DADO** o painel na página, com a inscrição e o relógio abertos
-- **QUANDO** o usuário clica no "Esconder painel"
-- **ENTÃO** o painel não está na página, e o botão diz "Mostrar painel"
+- **QUANDO** a página vai à rota "#/", sem o painel
+- **ENTÃO** o painel não está na página
 - **E** `contarInscricoes()` e `contarRelogios()` dão 0
 
-#### Scenario: 9 mostrar depois de esconder em pausa começa sem pausa
+#### Scenario: 9 voltar depois de sair em pausa começa sem pausa
 
-- **DADO** o painel pausado, escondido em seguida
-- **QUANDO** o usuário clica no "Mostrar painel"
+- **DADO** o painel pausado, fora da tela em seguida
+- **QUANDO** a página volta à rota com o painel
 - **ENTÃO** a situação mostra "Aguardando placares…", e o botão de pausa diz "Pausar"
 - **E** as quatro linhas mostram "—" no placar, no tempo e nos gols novos
 - **E** o "Atualizado há" fica vazio
 - **E** `contarInscricoes()` e `contarRelogios()` dão 1
 
-#### Scenario: 11 esconder e mostrar três vezes deixa uma inscrição e um relógio
+#### Scenario: 11 sair e voltar três vezes deixa uma inscrição e um relógio
 
 - **DADO** o painel na página
-- **QUANDO** o usuário clica três vezes no "Esconder painel" e no "Mostrar painel"
+- **QUANDO** a página vai à rota "#/" e volta à rota com o painel três vezes
 - **ENTÃO** `contarInscricoes()` e `contarRelogios()` dão 1

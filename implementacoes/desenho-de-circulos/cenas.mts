@@ -52,7 +52,4 @@ export const cenas: Cenas = {
     await pagina.getByRole("button", { name: "Fechar" }).click();
     await pagina.getByRole("button", { name: "Desfazer" }).click();
   },
-  escondido: async (pagina) => {
-    await pagina.getByRole("button", { name: "Esconder desenho" }).click();
-  },
 };

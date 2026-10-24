@@ -297,12 +297,14 @@ O `bin/testes-da-revisao.py` o roda nas interfaces que o ramo muda.
 - **Limpeza ao sair da tela.** Na interface que abre requisições, relógios
   ou inscrições (todas menos o Contador e a planilha, ADR 0029), o
   `dominio.ts` conta o que está aberto numa função em `globalThis`, como o
-  `contarAbertos()` do Login, e cada implementação tem um botão que
-  esconde e mostra a interface. O teste esconde a interface e confere zero
-  **antes** de avançar o relógio: uma requisição esquecida terminaria
-  sozinha na latência, e a conferência depois dela passaria (achado da
-  revisão do Login, 2026-10-12). Pelo mesmo motivo, confira a contagem
-  logo depois da ação que deve cancelar, como a tentativa nova do Login.
+  `contarAbertos()` do Login, e a página que hospeda a interface
+  (`implementacoes/pagina.ts`) a tira da página na rota `#/` e a põe de
+  volta sem hash. O teste sai da tela, trocando `location.hash` e
+  esperando o `hashchange`, e confere zero **antes** de avançar o
+  relógio: uma requisição esquecida terminaria sozinha na latência, e a
+  conferência depois dela passaria (achado da revisão do Login,
+  2026-10-12). Pelo mesmo motivo, confira a contagem logo depois da ação
+  que deve cancelar, como a tentativa nova do Login.
 - Confira que o teste pega erros: introduza na implementação um defeito
   de cada regra (sem o `abort()`, sem a limpeza do efeito, sem o
   `disconnectedCallback`) e veja a verificação certa falhar no `npm run

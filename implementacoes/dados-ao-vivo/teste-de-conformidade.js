@@ -10,7 +10,7 @@
 // depende do segundo do relógio, que começa às 10:00:00 UTC de 2026-10-12, e
 // o "Atualizado há", da hora da chegada do lote e da hora do tique.
 // O painel se inscreve na fonte ao abrir a página, com os temporizadores de
-// verdade: por isso o teste o esconde e o mostra antes de conferir lotes.
+// verdade: por isso o teste sai da tela e volta antes de conferir lotes.
 // Entre um disparo e outro, deixa rodar as promises e as mensagens que o
 // React agenda por MessageChannel, fora do relógio falso.
 (async () => {
@@ -91,6 +91,19 @@
     $(seletor).click();
     await relogio.escoar();
   }
+  // Sai da tela e volta pela rota da página que hospeda a interface
+  // (implementacoes/pagina.ts): "#/" é a página sem ela. O hashchange
+  // chega numa tarefa própria, depois da troca.
+  async function irPara(hash) {
+    const mudou = new Promise((r) =>
+      addEventListener("hashchange", r, { once: true }),
+    );
+    location.hash = hash;
+    await mudou;
+    await relogio.escoar();
+  }
+  const sairDaTela = () => irPara("/");
+  const voltarATela = () => irPara("");
   const texto = (el) =>
     el && !el.hidden ? el.textContent.replace(/\s+/g, " ").trim() : null;
   const situacao = () => texto($(".situacao"));
@@ -140,35 +153,29 @@
   try {
     conferir(
       "1 abre com o painel e uma inscrição",
-      [
-        texto($(".alternar")),
-        $(".painel") !== null,
-        texto($(".pausa")),
-        inscricoes(),
-      ],
-      ["Esconder painel", true, "Pausar", 1],
+      [$(".painel") !== null, texto($(".pausa")), inscricoes()],
+      [true, "Pausar", 1],
     );
 
-    await clicar(".alternar");
+    await sairDaTela();
     conferir(
-      "2 esconder cancela a inscrição e para o relógio",
-      [$(".painel"), texto($(".alternar")), inscricoes(), relogios()],
-      [null, "Mostrar painel", 0, 0],
+      "2 sair cancela a inscrição e para o relógio",
+      [$(".painel"), inscricoes(), relogios()],
+      [null, 0, 0],
     );
 
-    await clicar(".alternar");
+    await voltarATela();
     conferir(
-      "3 mostrar começa aguardando",
+      "3 voltar começa aguardando",
       [
         situacao(),
         linhas(),
         texto($(".pausa")),
-        texto($(".alternar")),
         atualizacao(),
         inscricoes(),
         relogios(),
       ],
-      ["Aguardando placares…", semLote, "Pausar", "Esconder painel", "", 1, 1],
+      ["Aguardando placares…", semLote, "Pausar", "", 1, 1],
     );
     const regiao = $(".situacao");
 
@@ -241,10 +248,10 @@
     );
 
     await clicar(".pausa");
-    await clicar(".alternar");
-    await clicar(".alternar");
+    await sairDaTela();
+    await voltarATela();
     conferir(
-      "9 mostrar depois de esconder em pausa começa sem pausa",
+      "9 voltar depois de sair em pausa começa sem pausa",
       [
         situacao(),
         texto($(".pausa")),
@@ -265,11 +272,11 @@
     );
 
     for (let i = 0; i < 3; i++) {
-      await clicar(".alternar");
-      await clicar(".alternar");
+      await sairDaTela();
+      await voltarATela();
     }
     conferir(
-      "11 esconder e mostrar três vezes deixa uma inscrição e um relógio",
+      "11 sair e voltar três vezes deixa uma inscrição e um relógio",
       [inscricoes(), relogios()],
       [1, 1],
     );

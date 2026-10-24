@@ -10,8 +10,8 @@ passo, para o usuário corrigir o desenho sem recomeçar.
 
 ### Requirement: Abertura
 
-A interface deve abrir com o botão "Esconder desenho", os botões
-"Desfazer" e "Refazer", desabilitados, um *canvas* de 400 × 300 px,
+A interface deve abrir com os botões "Desfazer" e "Refazer",
+desabilitados, um *canvas* de 400 × 300 px,
 branco e sem círculos, e a situação vazia. O *canvas* não tem texto que o
 teste leia: `circulosDesenhados()`, do domínio, devolve os círculos do
 último desenho, com o centro, o diâmetro e a seleção, e o teste confere
@@ -20,7 +20,7 @@ também a cor do centro de cada círculo no *canvas*.
 #### Scenario: 1 abre com o canvas vazio
 
 - **QUANDO** a interface abre
-- **ENTÃO** o botão diz "Esconder desenho", e "Desfazer" e "Refazer" estão desabilitados
+- **ENTÃO** "Desfazer" e "Refazer" estão desabilitados
 - **E** `circulosDesenhados()` dá uma lista vazia
 - **E** a situação está vazia
 - **E** `contarAbertos()` dá 1
@@ -249,29 +249,30 @@ quem não vê o *canvas* o resultado de cada ação.
 
 ### Requirement: Limpeza ao sair da tela
 
-O botão "Esconder desenho" deve tirar a interface da página e passar a
-dizer "Mostrar desenho", que a põe de volta como se ela abrisse, sem
-círculos nem passos. Fora da página, a interface não deixa aberto o
-ouvinte dos atalhos, para o atalho não agir sobre um desenho que o
-usuário não vê: `contarAbertos()`, do domínio, dá 0.
+Ao sair da tela, a interface deve sair da página sem deixar aberto o ouvinte
+dos atalhos, para o atalho não agir sobre um desenho que o usuário não vê:
+`contarAbertos()`, do domínio, dá 0. Ao voltar à tela, ela deve abrir como
+da primeira vez, sem círculos nem passos. A tela é a rota da página que a
+hospeda: "#/" é a página sem a interface, e qualquer outra rota, inclusive
+sem hash, a tem.
 
-#### Scenario: 15 esconder fecha o ouvinte dos atalhos
+#### Scenario: 15 sair fecha o ouvinte dos atalhos
 
 - **DADO** a interface na página, com círculos
-- **QUANDO** o usuário clica em "Esconder desenho"
-- **ENTÃO** a interface não está na página, e o botão diz "Mostrar desenho"
+- **QUANDO** a página vai à rota "#/", sem a interface
+- **ENTÃO** a interface não está na página
 - **E** `contarAbertos()` dá 0
 
-#### Scenario: 16 mostrar começa vazio
+#### Scenario: 16 voltar começa vazio
 
-- **DADO** a interface escondida depois de desenhar
-- **QUANDO** o usuário clica em "Mostrar desenho"
+- **DADO** a interface fora da tela depois de desenhar
+- **QUANDO** a página volta à rota com a interface
 - **ENTÃO** `circulosDesenhados()` dá uma lista vazia, e "Desfazer" e "Refazer" estão desabilitados
 - **E** a situação está vazia
 - **E** `contarAbertos()` dá 1
 
-#### Scenario: 17 esconder e mostrar três vezes deixa um ouvinte
+#### Scenario: 17 sair e voltar três vezes deixa um ouvinte
 
 - **DADO** a interface na página
-- **QUANDO** o usuário clica três vezes em "Esconder desenho" e em "Mostrar desenho"
+- **QUANDO** a página vai à rota "#/" e volta à rota com a interface três vezes
 - **ENTÃO** `contarAbertos()` dá 1
