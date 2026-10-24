@@ -116,7 +116,13 @@ e os arquivos da interface que citam a regra, com `npm run
 conferir-especificacao` antes, e depois um commit por tecnologia, na mesma
 ordem em todas (ADR 0029). A troca de um nome do domínio vai num commit
 só, com todas as tecnologias, porque um commit por tecnologia quebraria a
-construção das outras. O porquê vai na mensagem do commit.
+construção das outras. O nome que sai do domínio quebra a construção do
+mesmo jeito: sai no commit da última tecnologia da análise que o usa, e
+não no da especificação, como o `ESPERA_MS` da Busca em 2026-10-17. O
+`cenas.mts` que muda com a regra nova, com nome que sai ou sem ele, vai
+no commit da última tecnologia, porque, num commit anterior, as cenas
+novas mudariam as capturas das tecnologias que ainda seguem a regra
+antiga. O porquê de cada commit vai na mensagem dele.
 
 Passos do *delta spec*:
 
