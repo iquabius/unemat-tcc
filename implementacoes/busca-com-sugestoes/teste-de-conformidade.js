@@ -26,6 +26,10 @@
       texto,
     );
   const escolha = () => texto(visivel(".escolha"));
+  const teclarEsc = () =>
+    campo().dispatchEvent(
+      new KeyboardEvent("keydown", { key: "Escape", bubbles: true }),
+    );
   const abertas = () => globalThis.contarAbertos();
   // Sai da tela e volta pela rota da página que hospeda a interface
   // (implementacoes/pagina.ts): "#/" é a página sem ela. O hashchange
@@ -81,14 +85,20 @@
   );
 
   // "ri" (800 ms) começa antes de "rio" (200 ms), mas responderia depois.
+  // A contagem logo depois de "rio" pega a requisição de "ri" que não se
+  // cancelou: o createResource do Solid e do Web Component com signals
+  // descarta a resposta dela, e a tela não mostraria a falta.
   digitar("ri");
   await dormir(400);
   digitar("rio");
-  await dormir(1000);
-  conferir("4 resposta antiga não aparece", sugestoes(), [
-    "Rio Branco (AC)",
-    "Rio de Janeiro (RJ)",
-  ]);
+  await dormir(50);
+  const abertasDepoisDoRio = abertas();
+  await dormir(950);
+  conferir(
+    "4 resposta antiga não aparece",
+    [abertasDepoisDoRio, sugestoes()],
+    [1, ["Rio Branco (AC)", "Rio de Janeiro (RJ)"]],
+  );
 
   digitar("rio ");
   await dormir(150);
@@ -98,19 +108,38 @@
     [null, ["Rio Branco (AC)", "Rio de Janeiro (RJ)"]],
   );
 
-  digitar("sal");
+  // "sa" leva 800 ms: a contagem 50 ms depois do Esc fica longe da
+  // resposta, que fecharia sozinha a requisição esquecida.
+  digitar("sa");
   await dormir(150);
-  conferir("6 buscando antes do Esc", situacao(), "Buscando…");
-  campo().dispatchEvent(
-    new KeyboardEvent("keydown", { key: "Escape", bubbles: true }),
+  conferir(
+    "6 buscando antes do Esc",
+    [situacao(), abertas()],
+    ["Buscando…", 1],
   );
+  teclarEsc();
   await dormir(50);
-  conferir("6 Esc limpa", [situacao(), sugestoes()], [null, []]);
-  await dormir(400);
+  conferir("6 Esc limpa", [situacao(), sugestoes(), abertas()], [null, [], 0]);
+  await dormir(700);
   conferir(
     "6 resposta cancelada não aparece",
     [situacao(), sugestoes()],
     [null, []],
+  );
+  // Com as sugestões na tela, o Esc as fecha, e o mesmo termo não as
+  // reabre nem busca de novo.
+  digitar("rio");
+  await dormir(400);
+  teclarEsc();
+  await dormir(50);
+  digitar("rio ");
+  await dormir(50);
+  const abertasDoMesmoTermo = abertas();
+  await dormir(400);
+  conferir(
+    "6 mesmo termo depois do Esc não reabre",
+    [abertasDoMesmoTermo, situacao(), sugestoes()],
+    [0, null, []],
   );
 
   digitar("erro");

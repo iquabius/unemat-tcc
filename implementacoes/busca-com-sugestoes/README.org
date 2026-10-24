@@ -9,10 +9,12 @@ tarefa equivalente.
 A "API" é simulada em =dominio.ts=, com a forma de uma chamada =fetch=:
 =buscarCidades(termo, sinal)= devolve uma /Promise/ e aceita um
 =AbortSignal=, com latência determinística, para os testes e as capturas se
-repetirem. =contarAbertos()= diz quantas requisições estão abertas, para a
-limpeza ao sair da tela se conferir pela contagem: ao sair da tela, a
-página que hospeda a interface (=implementacoes/pagina.ts=) a tira da
-página, e nenhuma requisição fica aberta. A situação fica numa região de
+repetirem. =contarAbertos()= diz quantas requisições estão abertas, para o
+teste conferir o que a tela nem sempre mostra: que a tecla nova e o Esc
+cancelam a requisição em andamento, que o mesmo termo depois do Esc não
+busca de novo, e que nenhuma requisição fica aberta ao sair da tela,
+quando a página que hospeda a interface (=implementacoes/pagina.ts=) a
+tira da página. A situação fica numa região de
 status que existe desde a abertura, as duas regras comuns da primeira
 rodada (ADR 0029).
 
