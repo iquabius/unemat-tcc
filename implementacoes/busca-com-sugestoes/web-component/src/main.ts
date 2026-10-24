@@ -9,7 +9,7 @@ import {
 import "../../estilo.css";
 
 const modelo = /* HTML */ `
-  <main class="busca">
+  <section class="painel">
     <label>
       Cidade de destino
       <input
@@ -21,7 +21,7 @@ const modelo = /* HTML */ `
     <p class="situacao" role="status" hidden></p>
     <ul class="sugestoes" hidden></ul>
     <p class="escolha" hidden></p>
-  </main>
+  </section>
 `;
 
 class BuscaDeDestino extends HTMLElement {
@@ -51,6 +51,11 @@ class BuscaDeDestino extends HTMLElement {
         this.limpar();
       }
     });
+  }
+
+  // Sem isto, a requisição continua fora da página.
+  disconnectedCallback() {
+    this.cancelar();
   }
 
   private buscar(termo: string) {
@@ -114,4 +119,35 @@ class BuscaDeDestino extends HTMLElement {
   }
 }
 
+// A página: o botão que tira a busca da página e a põe de volta.
+class BuscaComSugestoes extends HTMLElement {
+  private busca?: BuscaDeDestino;
+
+  connectedCallback() {
+    this.innerHTML = /* HTML */ `
+      <main class="busca">
+        <button type="button" class="alternar">Esconder busca</button>
+      </main>
+    `;
+    const principal = this.querySelector("main")!;
+    const alternar = this.querySelector<HTMLButtonElement>(".alternar")!;
+    const mostrar = () => {
+      this.busca = document.createElement("busca-de-destino") as BuscaDeDestino;
+      principal.append(this.busca);
+      alternar.textContent = "Esconder busca";
+    };
+    alternar.addEventListener("click", () => {
+      if (this.busca) {
+        this.busca.remove();
+        this.busca = undefined;
+        alternar.textContent = "Mostrar busca";
+      } else {
+        mostrar();
+      }
+    });
+    mostrar();
+  }
+}
+
 customElements.define("busca-de-destino", BuscaDeDestino);
+customElements.define("busca-com-sugestoes", BuscaComSugestoes);
