@@ -1,9 +1,12 @@
-import { useState, type FormEvent } from "react";
+import { useEffect, useRef, useState, type FormEvent } from "react";
 import { createRoot } from "react-dom/client";
 import {
+  MENSAGENS,
   confirmacaoDaReserva,
+  enviarReserva,
   erroDaData,
   erroDaOrdem,
+  foiCancelado,
   hoje,
   type TipoDeViagem,
 } from "../../dominio";
@@ -14,6 +17,11 @@ function FormularioDeCompra() {
   const [ida, setIda] = useState(hoje);
   const [volta, setVolta] = useState(hoje);
   const [situacao, setSituacao] = useState("");
+  // O envio em andamento, que ignora o reenvio.
+  const controlador = useRef<AbortController | null>(null);
+
+  // Sem isto, o envio continua fora da página.
+  useEffect(() => () => controlador.current?.abort(), []);
 
   // Os erros são derivados do estado a cada renderização.
   const idaEVolta = tipo === "ida-e-volta";
@@ -23,9 +31,23 @@ function FormularioDeCompra() {
   const erroNaVolta = erroVolta ?? erroOrdem;
   const temErro = [erroIda, erroVolta, erroOrdem].some(Boolean);
 
+  // O clique durante o envio é ignorado; editar não cancela o envio, e a
+  // confirmação é da reserva que saiu.
   function reservar(evento: FormEvent) {
     evento.preventDefault();
-    setSituacao(confirmacaoDaReserva({ tipo, ida, volta }));
+    if (controlador.current) return;
+    const reserva = { tipo, ida, volta };
+    const atual = new AbortController();
+    controlador.current = atual;
+    setSituacao(MENSAGENS.enviando);
+    enviarReserva(reserva, atual.signal)
+      .then(
+        () => setSituacao(confirmacaoDaReserva(reserva)),
+        (erro) => {
+          if (!foiCancelado(erro)) setSituacao(MENSAGENS.falha);
+        },
+      )
+      .finally(() => (controlador.current = null));
   }
 
   return (
