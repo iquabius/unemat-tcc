@@ -13,7 +13,7 @@ function FormularioDeCompra() {
   const [tipo, setTipo] = createSignal<TipoDeViagem>("ida");
   const [ida, setIda] = createSignal(hoje());
   const [volta, setVolta] = createSignal(hoje());
-  const [confirmacao, setConfirmacao] = createSignal("");
+  const [situacao, setSituacao] = createSignal("");
 
   // Cada erro é um valor derivado: recalcula só quando os sinais que ele lê
   // se alteram, e atualiza só os pontos da tela que o leem.
@@ -32,7 +32,7 @@ function FormularioDeCompra() {
 
   function reservar(evento: SubmitEvent) {
     evento.preventDefault();
-    setConfirmacao(
+    setSituacao(
       confirmacaoDaReserva({ tipo: tipo(), ida: ida(), volta: volta() }),
     );
   }
@@ -83,8 +83,8 @@ function FormularioDeCompra() {
           Reservar
         </button>
       </form>
-      <p class="confirmacao" role="status">
-        {confirmacao()}
+      <p class="situacao" role="status">
+        {situacao()}
       </p>
     </section>
   );

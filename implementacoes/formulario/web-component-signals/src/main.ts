@@ -39,7 +39,7 @@ const modelo = /* HTML */ `
 
       <button type="submit">Reservar</button>
     </form>
-    <p class="confirmacao" role="status"></p>
+    <p class="situacao" role="status"></p>
   </section>
 `;
 
@@ -50,7 +50,7 @@ class FormularioDeCompra extends HTMLElement {
   private campos!: Record<Campo, HTMLInputElement>;
   private tipo!: HTMLSelectElement;
   private botaoDeReservar!: HTMLButtonElement;
-  private confirmacao!: HTMLParagraphElement;
+  private situacao!: HTMLParagraphElement;
   private descartar?: () => void;
 
   connectedCallback() {
@@ -58,7 +58,7 @@ class FormularioDeCompra extends HTMLElement {
     this.formulario = this.querySelector("form")!;
     this.tipo = this.querySelector("select")!;
     this.botaoDeReservar = this.querySelector("button")!;
-    this.confirmacao = this.querySelector(".confirmacao")!;
+    this.situacao = this.querySelector(".situacao")!;
     this.campos = {
       ida: this.campo("ida"),
       volta: this.campo("volta"),
@@ -67,7 +67,7 @@ class FormularioDeCompra extends HTMLElement {
     const [tipo, setTipo] = createSignal<TipoDeViagem>("ida");
     const [ida, setIda] = createSignal(hoje());
     const [volta, setVolta] = createSignal(hoje());
-    const [confirmacao, setConfirmacao] = createSignal("");
+    const [situacao, setSituacao] = createSignal("");
 
     // Os tratadores só alteram os sinais; nenhum deles escreve na tela.
     this.campos.ida.addEventListener("input", () =>
@@ -81,7 +81,7 @@ class FormularioDeCompra extends HTMLElement {
     );
     this.formulario.addEventListener("submit", (evento) => {
       evento.preventDefault();
-      setConfirmacao(
+      setSituacao(
         confirmacaoDaReserva({ tipo: tipo(), ida: ida(), volta: volta() }),
       );
     });
@@ -109,7 +109,7 @@ class FormularioDeCompra extends HTMLElement {
       this.ligarErro("ida", erroIda);
       this.ligarErro("volta", () => erroVolta() ?? erroOrdem());
       createEffect(() => (this.botaoDeReservar.disabled = temErro()));
-      createEffect(() => (this.confirmacao.textContent = confirmacao()));
+      createEffect(() => (this.situacao.textContent = situacao()));
       return descartar;
     });
   }

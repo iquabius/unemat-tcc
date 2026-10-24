@@ -144,15 +144,16 @@ uma que informe a escolha.
 - **QUANDO** o usuário clica em Reservar
 - **ENTÃO** aparece "Você reservou uma passagem só de ida para 10/10/2099."
 
-### Requirement: Confirmação anunciada
+### Requirement: Situação anunciada
 
-A confirmação deve ficar num mesmo elemento com `role="status"`, presente
-desde a abertura, que só muda de texto, para o leitor de tela anunciá-la
-sem que ela receba o foco (WCAG 2.2, critério 4.1.3).
+A situação, que mostra a confirmação da reserva, deve ficar num mesmo
+elemento com `role="status"`, presente desde a abertura, que só muda de
+texto, para o leitor de tela anunciá-la sem que ela receba o foco (WCAG
+2.2, critério 4.1.3).
 
-#### Scenario: 7 a confirmação é a mesma região de status
+#### Scenario: 7 a situação é a mesma região de status
 
-- **DADO** a confirmação que mudou de texto desde a abertura
+- **DADO** a situação que mudou de texto desde a abertura
 - **QUANDO** o teste a procura na tela
 - **ENTÃO** ela está no mesmo elemento da abertura, com `role="status"`
 

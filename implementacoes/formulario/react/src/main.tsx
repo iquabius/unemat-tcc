@@ -13,7 +13,7 @@ function FormularioDeCompra() {
   const [tipo, setTipo] = useState<TipoDeViagem>("ida");
   const [ida, setIda] = useState(hoje);
   const [volta, setVolta] = useState(hoje);
-  const [confirmacao, setConfirmacao] = useState("");
+  const [situacao, setSituacao] = useState("");
 
   // Os erros são derivados do estado a cada renderização.
   const idaEVolta = tipo === "ida-e-volta";
@@ -25,7 +25,7 @@ function FormularioDeCompra() {
 
   function reservar(evento: FormEvent) {
     evento.preventDefault();
-    setConfirmacao(confirmacaoDaReserva({ tipo, ida, volta }));
+    setSituacao(confirmacaoDaReserva({ tipo, ida, volta }));
   }
 
   return (
@@ -72,8 +72,8 @@ function FormularioDeCompra() {
           Reservar
         </button>
       </form>
-      <p className="confirmacao" role="status">
-        {confirmacao}
+      <p className="situacao" role="status">
+        {situacao}
       </p>
     </section>
   );

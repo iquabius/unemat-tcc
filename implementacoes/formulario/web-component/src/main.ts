@@ -32,7 +32,7 @@ const modelo = /* HTML */ `
 
       <button type="submit">Reservar</button>
     </form>
-    <p class="confirmacao" role="status"></p>
+    <p class="situacao" role="status"></p>
   </section>
 `;
 
@@ -43,14 +43,14 @@ class FormularioDeCompra extends HTMLElement {
   private campos!: Record<Campo, HTMLInputElement>;
   private tipo!: HTMLSelectElement;
   private botaoDeReservar!: HTMLButtonElement;
-  private confirmacao!: HTMLParagraphElement;
+  private situacao!: HTMLParagraphElement;
 
   connectedCallback() {
     this.innerHTML = modelo;
     this.formulario = this.querySelector("form")!;
     this.tipo = this.querySelector("select")!;
     this.botaoDeReservar = this.querySelector("button")!;
-    this.confirmacao = this.querySelector(".confirmacao")!;
+    this.situacao = this.querySelector(".situacao")!;
     this.campos = {
       ida: this.campo("ida"),
       volta: this.campo("volta"),
@@ -80,7 +80,7 @@ class FormularioDeCompra extends HTMLElement {
 
   private tratarEnvio(evento: SubmitEvent) {
     evento.preventDefault();
-    this.confirmacao.textContent = confirmacaoDaReserva({
+    this.situacao.textContent = confirmacaoDaReserva({
       tipo: this.tipo.value as TipoDeViagem,
       ida: this.campos.ida.value,
       volta: this.campos.volta.value,
