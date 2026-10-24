@@ -3,8 +3,9 @@ import { render } from "solid-js/web";
 import {
   JOGOS,
   MENSAGENS,
-  inscreverNosPlacares,
+  URL_DOS_PLACARES,
   iniciarRelogio,
+  lerLote,
   formatarAtualizacao,
   formatarPlacar,
   formatarTempo,
@@ -23,19 +24,20 @@ function PainelDePlacares() {
   const [chegada, setChegada] = createSignal<number>();
   const [agora, setAgora] = createSignal(Date.now());
 
-  // O efeito roda de novo quando pausado se altera; o onCleanup cancela a
-  // inscrição antes disso e quando o painel sai da tela.
+  // O efeito roda de novo quando pausado se altera; o onCleanup fecha a
+  // conexão antes disso e quando o painel sai da tela.
   createEffect(() => {
     if (pausado()) return;
-    onCleanup(
-      inscreverNosPlacares((lote) => {
-        setLotes(({ atual }) => ({ anterior: atual, atual: lote }));
-        setChegada(Date.now());
-      }),
-    );
+    const conexao = new WebSocket(URL_DOS_PLACARES);
+    conexao.addEventListener("message", (mensagem) => {
+      const lote = lerLote(mensagem);
+      setLotes(({ atual }) => ({ anterior: atual, atual: lote }));
+      setChegada(Date.now());
+    });
+    onCleanup(() => conexao.close());
   });
 
-  // O relógio vive com o painel, e não com a inscrição: fora do efeito, o
+  // O relógio vive com o painel, e não com a conexão: fora do efeito, o
   // onCleanup o para só quando o painel sai da tela.
   onCleanup(iniciarRelogio(() => setAgora(Date.now())));
 
