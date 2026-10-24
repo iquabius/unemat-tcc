@@ -25,4 +25,8 @@ export const cenas: Cenas = {
     await campo(pagina, "volta").fill("15/10/2026");
     await pagina.getByRole("button", { name: "Reservar" }).click();
   },
+
+  escondido: async (pagina) => {
+    await pagina.getByRole("button", { name: "Esconder reserva" }).click();
+  },
 };

@@ -143,3 +143,37 @@ uma que informe a escolha.
 - **DADO** "Só ida", ida em 10/10/2099
 - **QUANDO** o usuário clica em Reservar
 - **ENTÃO** aparece "Você reservou uma passagem só de ida para 10/10/2099."
+
+### Requirement: Confirmação anunciada
+
+A confirmação deve ficar num mesmo elemento com `role="status"`, presente
+desde a abertura, que só muda de texto, para o leitor de tela anunciá-la
+sem que ela receba o foco (WCAG 2.2, critério 4.1.3).
+
+#### Scenario: 7 a confirmação é a mesma região de status
+
+- **DADO** a confirmação que mudou de texto desde a abertura
+- **QUANDO** o teste a procura na tela
+- **ENTÃO** ela está no mesmo elemento da abertura, com `role="status"`
+
+### Requirement: Limpeza ao sair da tela
+
+O botão "Esconder reserva" deve tirar a interface da página e passar a
+dizer "Mostrar reserva", que a põe de volta como se ela abrisse, para o
+usuário recomeçar a reserva do zero. Na primeira rodada, a interface não
+abre requisição, relógio nem inscrição, e por isso nada fica aberto fora
+da página.
+
+#### Scenario: 8 esconder tira a reserva da página
+
+- **DADO** a reserva confirmada na tela
+- **QUANDO** o usuário clica no "Esconder reserva"
+- **ENTÃO** o formulário não está na página, e o botão diz "Mostrar reserva"
+
+#### Scenario: 8 mostrar começa do zero
+
+- **DADO** a interface escondida
+- **QUANDO** o usuário clica no "Mostrar reserva"
+- **ENTÃO** o tipo de viagem é "Só ida", as datas mostram a data de hoje, sem erro, e o botão Reservar está habilitado
+- **E** não há confirmação na tela
+- **E** o botão diz "Esconder reserva"

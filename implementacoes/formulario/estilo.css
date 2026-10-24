@@ -6,11 +6,21 @@ body {
   color: #eee;
 }
 
+.reserva,
+.painel,
 .formulario {
   display: grid;
   gap: 0.75rem;
+}
+
+.reserva {
   max-width: 24rem;
   padding: 1rem;
+}
+
+.alternar {
+  padding: 0.4rem;
+  font-size: 1rem;
 }
 
 .formulario label {
@@ -58,7 +68,6 @@ body {
 }
 
 .confirmacao {
-  margin: 0 1rem;
-  max-width: 24rem;
+  margin: 0;
   color: #9fd88a;
 }

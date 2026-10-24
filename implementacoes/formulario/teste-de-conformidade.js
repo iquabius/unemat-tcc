@@ -30,6 +30,8 @@
   const d = new Date();
   const hoje = `${String(d.getDate()).padStart(2, "0")}/${String(d.getMonth() + 1).padStart(2, "0")}/${d.getFullYear()}`;
   const marcada = (n) => campo(n).getAttribute("aria-invalid") === "true";
+  const $ = (seletor) => document.querySelector(seletor);
+  const texto = (el) => (el ? el.textContent.trim() : null);
   const r = [];
   const conferir = (nome, obtido, esperado) =>
     r.push(
@@ -37,6 +39,7 @@
     );
 
   await esperar();
+  const regiao = $(".confirmacao");
   conferir("1 botão começa habilitado", botao().disabled, false);
   conferir("1 nenhum erro visível", ["ida", "volta"].map(erro), [null, null]);
   conferir(
@@ -83,7 +86,7 @@
   await esperar();
   conferir(
     "5 confirmação de ida e volta",
-    document.querySelector(".confirmacao").textContent.trim(),
+    texto($(".confirmacao")),
     "Você reservou passagens de ida e volta: ida em 10/10/2099 e volta em 15/10/2099.",
   );
 
@@ -98,8 +101,36 @@
   await esperar();
   conferir(
     "6 confirmação só de ida",
-    document.querySelector(".confirmacao").textContent.trim(),
+    texto($(".confirmacao")),
     "Você reservou uma passagem só de ida para 10/10/2099.",
+  );
+
+  conferir(
+    "7 a confirmação é a mesma região de status",
+    [$(".confirmacao") === regiao, regiao?.getAttribute("role") ?? null],
+    [true, "status"],
+  );
+
+  $(".alternar").click();
+  await esperar();
+  conferir(
+    "8 esconder tira a reserva da página",
+    [$(".formulario"), texto($(".alternar"))],
+    [null, "Mostrar reserva"],
+  );
+  $(".alternar").click();
+  await esperar();
+  conferir(
+    "8 mostrar começa do zero",
+    [
+      campo("tipo").value,
+      [campo("ida").value, campo("volta").value],
+      ["ida", "volta"].map(erro),
+      botao().disabled,
+      texto($(".confirmacao")),
+      texto($(".alternar")),
+    ],
+    ["ida", [hoje, hoje], [null, null], false, "", "Esconder reserva"],
   );
 
   return r.join("\n");

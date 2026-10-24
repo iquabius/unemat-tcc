@@ -4,7 +4,11 @@ Reserva de passagem de ônibus, a tarefa /Flight Booker/ do [[https://eugenkiss.
 §3.5, p. 25) com o tema trocado. Todas as implementações seguem a mesma
 especificação; as regras de domínio (formato de data, mensagens) ficam em
 =dominio.ts=, compartilhado pelos projetos web, para que as implementações só
-difiram na coordenação e na tela.
+difiram na coordenação e na tela. A confirmação fica numa região de
+status que existe desde a abertura, e o botão "Esconder reserva" tira a
+interface da página e a põe de volta do zero, as duas regras comuns da
+primeira rodada (ADR 0029); o envio da reserva, que traz a requisição
+que a limpeza ao sair da tela cancela, entra depois.
 
 As regras, as mensagens e os cenários que o teste de conformidade confere
 estão em =implementacoes/openspec/specs/formulario/spec.md=, a
@@ -15,7 +19,8 @@ rodada edita o =spec.md= direto (=implementacoes/AGENTS.md=).
 * Teste
 
   O =teste-de-conformidade.js= percorre a especificação: cada verificação
-  tem o nome de um cenário do =spec.md= (13), e
+  tem o nome de um cenário do =spec.md= (16), e
   =npm run conferir-especificacao= confere a ligação. Com uma
-  implementação aberta no navegador, cole o arquivo no console.
+  implementação aberta no navegador, cole o arquivo no console. As cenas
+  das capturas ficam em =cenas.mts=.
 
