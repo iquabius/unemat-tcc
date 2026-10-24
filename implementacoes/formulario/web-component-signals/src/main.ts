@@ -15,6 +15,7 @@ import {
   hoje,
   type TipoDeViagem,
 } from "../../dominio";
+import { hospedar } from "../../../pagina";
 import "../../estilo.css";
 
 const modelo = /* HTML */ `
@@ -163,44 +164,10 @@ class FormularioDeCompra extends HTMLElement {
   }
 }
 
-// A página: o botão que tira o formulário da página e o põe de volta.
-class ReservaDePassagem extends HTMLElement {
-  private descartar?: () => void;
-
-  connectedCallback() {
-    this.innerHTML = /* HTML */ `
-      <main class="reserva">
-        <button type="button" class="alternar">Esconder reserva</button>
-      </main>
-    `;
-    const principal = this.querySelector("main")!;
-    const alternar = this.querySelector<HTMLButtonElement>(".alternar")!;
-
-    const [visivel, setVisivel] = createSignal(true);
-    alternar.addEventListener("click", () => setVisivel(!visivel()));
-
-    this.descartar = createRoot((descartar) => {
-      createEffect(() => {
-        alternar.textContent = visivel()
-          ? "Esconder reserva"
-          : "Mostrar reserva";
-      });
-      // O formulário entra quando o sinal fica verdadeiro, e a limpeza o
-      // tira quando ele fica falso.
-      createEffect(() => {
-        if (!visivel()) return;
-        const formulario = document.createElement("formulario-de-compra");
-        principal.append(formulario);
-        onCleanup(() => formulario.remove());
-      });
-      return descartar;
-    });
-  }
-
-  disconnectedCallback() {
-    this.descartar?.();
-  }
-}
-
 customElements.define("formulario-de-compra", FormularioDeCompra);
-customElements.define("reserva-de-passagem", ReservaDePassagem);
+
+hospedar((conteiner) => {
+  const formulario = document.createElement("formulario-de-compra");
+  conteiner.append(formulario);
+  return () => formulario.remove();
+});
