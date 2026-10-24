@@ -39,8 +39,11 @@ a data da conta. Quem refizer a conta troca a linha "Resumo" e a data da
 nota, na forma `**Resumo (AAAA-MM-DD):**`, que o hook lê. As duas regras
 deste trecho chegam a cada mensagem do autor pelo hook
 `UserPromptSubmit` do `.claude/settings.json`, que roda
-`bin/lembrete-do-chat.py`: a linha "Resumo" e a lista dos ADRs de
-`docs/adr/`, pelo nome do arquivo.
+`bin/lembrete-do-chat.py`: a linha "Resumo", a regra da citação com o
+exemplo e, só quando a mensagem do autor menciona um ADR, a lista dos
+ADRs de `docs/adr/`, pelo nome do arquivo. Quando o agente traz um ADR
+à conversa sem o autor o ter mencionado, lista antes os arquivos de
+`docs/adr/` e copia o nome.
 
 ## Tarefas: Beads (`bd`)
 

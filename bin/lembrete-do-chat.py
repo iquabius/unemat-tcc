@@ -17,10 +17,15 @@ curtas porque chegam a toda mensagem:
   conta), e quando mostrá-lo. A linha some, sem erro, quando a nota ou o
   Resumo não existe: o hook não pode travar a mensagem.
 - "ADR": a forma da citação, com o exemplo do AGENTS.md ("Onde cada
-  coisa vive"), e os ADRs de docs/adr/, pelo nome do arquivo sem o .md,
-  NNNN-slug, que é o que o link pede; o nome em palavras é o slug com os
-  acentos. Fica de fora o título de cada um, que pesa mais que o dobro
-  do nome do arquivo e repete o que o slug já diz.
+  coisa vive"). Quando a mensagem do autor (o campo prompt do JSON)
+  menciona um ADR ("ADR", "ADRs" ou "ADR0029", em qualquer caixa, e não
+  "adrenalina"), a linha traz também os ADRs de docs/adr/, pelo nome do
+  arquivo sem o .md, NNNN-slug, que é o que o link pede; o nome em
+  palavras é o slug com os acentos. Sem a menção, só a regra e o
+  exemplo: a lista pesa 1,7 KB, e o agente que traz um ADR à conversa
+  lista docs/adr/ ele mesmo, como o AGENTS.md pede. O título de cada
+  ADR fica sempre de fora: pesa mais que o dobro do nome do arquivo e
+  repete o que o slug já diz.
 
 Nada sai quando o JSON da entrada traz agent_id ou agent_type, que o
 Claude Code põe nos hooks que rodam num subagente: o lembrete é do chat
@@ -46,6 +51,8 @@ REGRA_DOS_ADRS = (
     "\"[ADR 0023: o rascunho é a árvore de trabalho e o commit espera a "
     "revisão](docs/adr/0023-rascunho-e-a-arvore-de-trabalho-e-o-commit-"
     "espera-a-revisao.md)\", nunca só \"ADR 0023\".")
+# "ADR", "ADRs", "ADR0029" e "ADR-0029"; não "adrenalina" nem "madrasta".
+MENCAO_DE_ADR = re.compile(r"\bADR(?:s?\b|\d)", re.IGNORECASE)
 
 
 def resumo(texto):
@@ -84,21 +91,20 @@ def adrs(raiz):
                   if ARQUIVO_DE_ADR.match(p.name))
 
 
-def linha_dos_adrs(raiz):
-    lista = adrs(raiz)
+def linha_dos_adrs(lista):
+    """A regra da citação, com a lista dos ADRs quando ela vem."""
     if not lista:
         return REGRA_DOS_ADRS
     return f"{REGRA_DOS_ADRS} Existem ({ADRS}/<nome>.md): {'; '.join(lista)}."
 
 
-def em_subagente(entrada):
-    """Se o JSON do hook diz que ele roda num subagente."""
+def dados_do_hook(entrada):
+    """O JSON do hook, ou {} quando a entrada está vazia ou não é JSON."""
     try:
         dados = json.loads(entrada.read() or "{}")
     except (ValueError, OSError):
-        return False
-    return isinstance(dados, dict) and bool(
-        dados.get("agent_id") or dados.get("agent_type"))
+        return {}
+    return dados if isinstance(dados, dict) else {}
 
 
 def main(argv=None, entrada=None, saida=sys.stdout):
@@ -106,13 +112,15 @@ def main(argv=None, entrada=None, saida=sys.stdout):
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--raiz", type=Path, help="a raiz do checkout a ler")
     args = ap.parse_args(argv)
-    if em_subagente(sys.stdin if entrada is None else entrada):
+    dados = dados_do_hook(sys.stdin if entrada is None else entrada)
+    if dados.get("agent_id") or dados.get("agent_type"):
         return 0
     raiz = args.raiz or Path(__file__).resolve().parent.parent
     paginas = linha_das_paginas(raiz)
     if paginas:
         print(paginas, file=saida)
-    print(linha_dos_adrs(raiz), file=saida)
+    mencionou = MENCAO_DE_ADR.search(dados.get("prompt") or "")
+    print(linha_dos_adrs(adrs(raiz) if mencionou else []), file=saida)
     return 0
 
 

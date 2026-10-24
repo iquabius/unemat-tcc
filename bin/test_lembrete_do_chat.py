@@ -6,6 +6,7 @@
 import contextlib
 import importlib.util
 import io
+import json
 import tempfile
 import unittest
 from pathlib import Path
@@ -63,16 +64,18 @@ class Lembrete(unittest.TestCase):
     def tearDown(self):
         self.dir.cleanup()
 
-    def rodar(self, entrada=None, raiz=None):
+    def rodar(self, entrada=None, raiz=None, prompt=None):
         # Sempre com entrada própria: main lê o stdin até o fim, e o da
         # suíte pode ser um pipe que não fecha.
+        if prompt is not None:
+            entrada = io.StringIO(json.dumps({"prompt": prompt}))
         saida = io.StringIO()
         codigo = ldc.main(["--raiz", str(raiz or self.raiz)],
                           entrada=entrada or io.StringIO(""), saida=saida)
         return codigo, saida.getvalue()
 
-    def test_duas_linhas(self):
-        codigo, saida = self.rodar()
+    def test_duas_linhas_sem_a_lista_quando_o_autor_nao_fala_de_adr(self):
+        codigo, saida = self.rodar(prompt="qual o tamanho do texto?")
         self.assertEqual(codigo, 0)
         linhas = saida.splitlines()
         self.assertEqual(len(linhas), 2)
@@ -81,15 +84,29 @@ class Lembrete(unittest.TestCase):
             "docs/processo/estimativa-de-paginas.md): PDF ≈ 150 páginas"))
         self.assertIn("ADR 0029). Mostre os três números", linhas[0])
         self.assertTrue(linhas[1].startswith("ADR: cite pelo número e pelo nome"))
+        self.assertTrue(linhas[1].endswith('nunca só "ADR 0023".'))
+        self.assertNotIn("Existem", saida)
 
     def test_lista_os_adrs_em_ordem_sem_o_que_nao_e_adr(self):
-        _, saida = self.rodar()
+        _, saida = self.rodar(prompt="o que diz o ADR 0029?")
         self.assertTrue(saida.splitlines()[1].endswith(
             " Existem (docs/adr/<nome>.md): "
             "0001-modelos-de-programacao-so-na-web; "
             "0029-avaliacao-em-tres-rodadas."))
         self.assertNotIn("README", saida)
         self.assertNotIn("rascunho.md~", saida)
+
+    def test_a_mencao_vale_em_qualquer_caixa_no_plural_e_colada_ao_numero(self):
+        for prompt in ["os adrs da avaliação", "Adr 0013", "ADRs", "ADR0029",
+                       "ADR-0029", "(ADR)"]:
+            self.assertIn("Existem", self.rodar(prompt=prompt)[1], prompt)
+        for prompt in ["o quadro das DCs", "0029", "", "madrasta",
+                       "adrenalina", "Adriana"]:
+            self.assertNotIn("Existem", self.rodar(prompt=prompt)[1], prompt)
+
+    def test_sem_o_prompt_no_json_nao_ha_lista(self):
+        _, saida = self.rodar(entrada=io.StringIO('{"session_id": "s"}'))
+        self.assertNotIn("Existem", saida)
 
     def test_sem_a_nota_so_a_linha_dos_adrs(self):
         (self.raiz / ldc.NOTA).unlink()
@@ -108,15 +125,15 @@ class Lembrete(unittest.TestCase):
         for p in (self.raiz / "docs/adr").iterdir():
             p.unlink()
         (self.raiz / "docs/adr").rmdir()
-        _, saida = self.rodar()
+        _, saida = self.rodar(prompt="ADR")
         self.assertTrue(saida.splitlines()[1].endswith('nunca só "ADR 0023".'))
         self.assertNotIn("Existem", saida)
 
     def test_num_subagente_nada_sai(self):
-        for json in ['{"session_id": "s", "agent_id": "a1"}',
-                     '{"session_id": "s", "agent_type": "Explore"}']:
-            codigo, saida = self.rodar(entrada=io.StringIO(json))
-            self.assertEqual((codigo, saida), (0, ""), json)
+        for texto in ['{"session_id": "s", "agent_id": "a1"}',
+                      '{"session_id": "s", "agent_type": "Explore"}']:
+            codigo, saida = self.rodar(entrada=io.StringIO(texto))
+            self.assertEqual((codigo, saida), (0, ""), texto)
 
     def test_na_sessao_principal_o_json_do_hook_nao_cala(self):
         _, saida = self.rodar(entrada=io.StringIO(
@@ -133,10 +150,13 @@ class Lembrete(unittest.TestCase):
         # O lembrete chega a toda mensagem do autor e não pode pesar no
         # contexto; se a lista dos ADRs crescer até aqui, encurte-a.
         raiz = SCRIPT.resolve().parent.parent
-        _, saida = self.rodar(raiz=raiz)
+        _, saida = self.rodar(raiz=raiz, prompt="qual ADR decide isso?")
         self.assertIn("0023-rascunho-e-a-arvore-de-trabalho", saida)
         self.assertIn("Páginas (Resumo de ", saida)
         self.assertLess(len(saida), 4000)
+        _, saida = self.rodar(raiz=raiz, prompt="e o tamanho do texto?")
+        self.assertNotIn("Existem", saida)
+        self.assertLess(len(saida), 1000)
 
     def test_ajuda_mostra_a_docstring_inteira(self):
         with contextlib.redirect_stdout(io.StringIO()) as ajuda:
