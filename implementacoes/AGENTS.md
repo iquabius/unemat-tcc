@@ -86,7 +86,7 @@ commit que mexa numa especificação ou num teste de conformidade.
 
 ### Interface nova
 
-O Login, os Dados ao vivo e outra que vier entram como *delta spec*,
+O Login, o Placar ao vivo e outra que vier entram como *delta spec*,
 como a mudança entre rodadas ("Mudança numa especificação", abaixo),
 para a especificação ser revisada antes do código:
 
@@ -141,7 +141,7 @@ Passos do *delta spec*:
        novo é comparado aos cenários do requisito antigo. O `archive` põe
        o `ADDED` no fim da especificação viva, e o commit do arquivamento
        o devolve à ordem à mão (a mudança `trocar-cotacoes-por-placares`
-       fez assim com três requisitos dos Dados ao vivo);
+       fez assim com três requisitos do Placar ao vivo);
      - `REMOVED` só com o nome, `**Reason**` e `**Migration**`;
      - `RENAMED` com `FROM:`/`TO:`, só para o nome do requisito;
    - `tasks.md`: só o teste de conformidade, os arquivos da interface que
@@ -283,7 +283,7 @@ só nas que já seguem o teste novo.
 O `bin/testes-da-revisao.py` o roda nas interfaces que o ramo muda.
 
 - **Relógio falso.** Na interface com prazos de segundos (a sessão do Login,
-  os lotes dos Dados ao vivo), o teste não espera em tempo real: no
+  os lotes do Placar ao vivo), o teste não espera em tempo real: no
   começo, troca `setTimeout`, `setInterval`, `clearTimeout` e
   `clearInterval` da página por um relógio falso, que só anda com
   `avancar(ms)`, e o desinstala num `finally`. Copie o
@@ -292,7 +292,7 @@ O `bin/testes-da-revisao.py` o roda nas interfaces que o ramo muda.
   que tiraria o teste do console, e contra o tempo real, que no Login
   esperaria 27,5 s). Ele só controla os temporizadores criados depois de
   instalado, e não troca o `Date.now`: a interface que lê a hora (o placar
-  dos Dados ao vivo) acrescenta o `Date.now` ao relógio falso.
+  do Placar ao vivo) acrescenta o `Date.now` ao relógio falso.
 - **Escoar.** O React faz a tela e roda os efeitos em mensagens de
   `MessageChannel`, fora do relógio falso: entre um disparo e outro, e
   depois de cada clique ou digitação, o teste espera quatro voltas do

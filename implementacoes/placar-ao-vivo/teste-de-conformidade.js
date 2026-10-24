@@ -1,9 +1,9 @@
-// Teste de conformidade dos Dados ao vivo, igual para as quatro
+// Teste de conformidade do Placar ao vivo, igual para as quatro
 // implementações web. Cole no console do navegador com a implementação
 // aberta; a última linha devolve o resultado de cada verificação ("ok" ou
 // "FALHOU"). Segue a especificação, com um lote a cada 1 s; cada
 // verificação é um cenário de
-// implementacoes/openspec/specs/dados-ao-vivo/spec.md.
+// implementacoes/openspec/specs/placar-ao-vivo/spec.md.
 //
 // O tempo é de um relógio falso: o teste troca setTimeout, setInterval e
 // Date.now da página pelos dele e só os faz andar com avancar(ms). O placar

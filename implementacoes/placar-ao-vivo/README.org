@@ -1,4 +1,4 @@
-#+TITLE: Dados ao vivo com pausa
+#+TITLE: Placar ao vivo com pausa
 
 Painel de placares de jogos em andamento que uma fonte atualiza sozinha,
 sem o usuário pedir. Adapta o caso /push/ de Meijer (2012, p. 66-67), que
@@ -23,7 +23,7 @@ quantos relógios estão abertos, para a limpeza ao sair da tela se conferir
 pela contagem.
 
 As regras, as mensagens e os cenários que o teste de conformidade confere
-estão em =implementacoes/openspec/specs/dados-ao-vivo/spec.md=, a
+estão em =implementacoes/openspec/specs/placar-ao-vivo/spec.md=, a
 especificação viva (OpenSpec); a mudança entre rodadas entra como
 /delta spec/ em =implementacoes/openspec/changes/=, e a de dentro de uma
 rodada edita o =spec.md= direto (=implementacoes/AGENTS.md=).

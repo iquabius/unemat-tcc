@@ -1,6 +1,5 @@
-// Jogos, mensagens e o servidor WebSocket simulado de placares dos Dados ao
-// vivo, iguais em todas as implementações web. Nada aqui depende de
-// interface.
+// Jogos, mensagens e o servidor WebSocket simulado do Placar ao vivo,
+// iguais em todas as implementações web. Nada aqui depende de interface.
 
 /** Gols de cada lado: o placar de um jogo ou o palpite do usuário. */
 export interface Gols {

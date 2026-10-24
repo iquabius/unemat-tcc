@@ -1,4 +1,4 @@
-# Dados ao vivo com pausa
+# Placar ao vivo com pausa
 
 ## Purpose
 

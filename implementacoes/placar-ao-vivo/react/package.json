@@ -1,8 +1,8 @@
 {
-  "name": "dados-ao-vivo-react",
+  "name": "placar-ao-vivo-react",
   "private": true,
   "type": "module",
-  "description": "Dados ao vivo em React (declarativo por re-renderização)",
+  "description": "Placar ao vivo em React (declarativo por re-renderização)",
   "scripts": {
     "dev": "vite",
     "build": "tsc -p . && vite build",

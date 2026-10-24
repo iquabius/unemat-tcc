@@ -1,8 +1,8 @@
 {
-  "name": "dados-ao-vivo-solid",
+  "name": "placar-ao-vivo-solid",
   "private": true,
   "type": "module",
-  "description": "Dados ao vivo em Solid (declarativo por atualização granular, com signals)",
+  "description": "Placar ao vivo em Solid (declarativo por atualização granular, com signals)",
   "scripts": {
     "dev": "vite",
     "build": "tsc -p . && vite build",
