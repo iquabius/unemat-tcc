@@ -112,7 +112,8 @@ function sugerir(termo: string): Cidade[] {
   );
 }
 
-// Requisições abertas agora, para a limpeza ao sair da tela.
+// Requisições abertas agora, para o teste conferir os cancelamentos e a
+// limpeza ao sair da tela.
 let abertas = 0;
 
 /**

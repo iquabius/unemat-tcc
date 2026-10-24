@@ -59,8 +59,9 @@ demais.
 #### Scenario: 4 resposta antiga não aparece
 
 - **DADO** a busca de "ri", que leva 800 ms, em andamento
-- **QUANDO** o usuário digita "rio", que leva 200 ms, e as duas respostas teriam chegado
-- **ENTÃO** as sugestões são só as de "rio": "Rio Branco (AC)" e "Rio de Janeiro (RJ)"
+- **QUANDO** o usuário digita "rio", que leva 200 ms
+- **ENTÃO** 50 ms depois `contarAbertos()` vale 1: a requisição de "ri" foi cancelada
+- **E** depois do tempo das duas respostas, as sugestões são só as de "rio": "Rio Branco (AC)" e "Rio de Janeiro (RJ)"
 
 ### Requirement: Resposta
 
@@ -108,20 +109,29 @@ não reabre as sugestões.
 
 #### Scenario: 6 buscando antes do Esc
 
-- **QUANDO** o usuário digita "sal" e passam 150 ms
+- **QUANDO** o usuário digita "sa", que leva 800 ms, e passam 150 ms
 - **ENTÃO** a situação mostra "Buscando…"
+- **E** uma requisição está aberta (`contarAbertos()` vale 1)
 
 #### Scenario: 6 Esc limpa
 
-- **DADO** a busca de "sal" em andamento
-- **QUANDO** o usuário tecla Esc no campo
+- **DADO** a busca de "sa" em andamento
+- **QUANDO** o usuário tecla Esc no campo e passam 50 ms
 - **ENTÃO** não há situação nem sugestões na tela
+- **E** nenhuma requisição está aberta, antes do tempo da resposta (`contarAbertos()` vale 0)
 
 #### Scenario: 6 resposta cancelada não aparece
 
-- **DADO** o Esc durante a busca de "sal"
+- **DADO** o Esc durante a busca de "sa"
 - **QUANDO** passa o tempo da resposta
 - **ENTÃO** não há situação nem sugestões na tela
+
+#### Scenario: 6 mesmo termo depois do Esc não reabre
+
+- **DADO** as sugestões de "rio" na tela, fechadas pelo Esc
+- **QUANDO** o usuário digita "rio "
+- **ENTÃO** 50 ms depois nenhuma requisição está aberta (`contarAbertos()` vale 0)
+- **E** depois do tempo da resposta, não há situação nem sugestões na tela
 
 ### Requirement: Escolha de uma sugestão
 
