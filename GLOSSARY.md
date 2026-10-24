@@ -300,11 +300,20 @@ _Avoid_: versão, exemplo; solução (pede "problema" para a interface)
 
 **Conjunto analisado**:
 As implementações que a análise pelas DCs lê: todas as de
-`implementacoes/`, fora de `fora-da-analise/`, as sete interfaces nas
-quatro tecnologias (ADR 0012).
+`implementacoes/`, fora de `fora-da-analise/` e de `contraste/`, as sete
+interfaces nas quatro tecnologias (ADR 0012).
 _Avoid_: recorte da análise (o recorte é o da pesquisa, ADR 0014); escopo;
 amostra (a amostra de tarefas é o conjunto das interfaces, no *benchmark*
 de notação)
+
+**Contraste**:
+As implementações de tecnologias fora da cadeia de pares, só na primeira
+rodada e nas interfaces em que cada uma difere, lidas depois da análise
+para situar os quatro modelos de programação, como o Elm em Kiss (2014)
+(ADR 0042).
+_Avoid_: comparação (a comparação é a da análise); controle (o
+controle é o das variáveis, no delineamento); trabalhos futuros (o Lit
+fica lá)
 
 **Domínio**:
 As regras de uma interface que não dependem da tela (datas, mensagens,
