@@ -1,11 +1,12 @@
 # Estimativa de páginas do TCC
 
 Referência. Os três números que o agente mostra toda vez que a conversa
-trata do delineamento, das rodadas ou do tamanho do texto (decisão do
-autor em 2026-10-24): o total de páginas do PDF, as páginas só do texto
-da análise e as páginas de um anexo com o código, se ele entrar. Cada
-número leva a data da conta; a conta se refaz quando o delineamento ou
-o texto muda, e a linha "Resumo" é a que vai para o chat.
+trata do delineamento, das rodadas da avaliação ou do tamanho do texto
+(decisão do autor em 2026-10-24): o total de páginas do PDF, as páginas
+só do texto da análise e as páginas de um anexo com o código, se ele
+entrar. Cada número leva a data da conta; a conta se refaz quando o
+delineamento ou o texto muda, e a linha "Resumo" é a que vai para o
+chat.
 
 **Resumo (2026-10-24):** PDF ≈ 150 páginas sem o código; análise ≈ 92
 páginas de texto; anexo de código ≈ 75 a 90 páginas, se entrar (hoje

@@ -11,6 +11,17 @@
           }
         ]
       }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"$CLAUDE_PROJECT_DIR\"/bin/lembrete-do-chat.py",
+            "timeout": 10
+          }
+        ]
+      }
     ]
   }
 }

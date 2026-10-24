@@ -31,6 +31,17 @@ vizinho. O nome é o slug do arquivo em palavras, com os acentos, e o
 caminho é relativo ao diretório de trabalho da sessão. Nos arquivos do
 repositório (este, notas, tarefas, ADRs), a citação continua curta.
 
+Ao tratar do delineamento, das rodadas da avaliação ou do tamanho do
+texto, o agente mostra os três números de
+`docs/processo/estimativa-de-paginas.md`: o total de páginas do PDF, as
+páginas do texto da análise e as do anexo de código, se ele entrar, com
+a data da conta. Quem refizer a conta troca a linha "Resumo" e a data da
+nota, na forma `**Resumo (AAAA-MM-DD):**`, que o hook lê. As duas regras
+deste trecho chegam a cada mensagem do autor pelo hook
+`UserPromptSubmit` do `.claude/settings.json`, que roda
+`bin/lembrete-do-chat.py`: a linha "Resumo" e a lista dos ADRs de
+`docs/adr/`, pelo nome do arquivo.
+
 ## Tarefas: Beads (`bd`)
 
 As tarefas vivem no [Beads](https://github.com/gastownhall/beads) (`bd`
