@@ -1,0 +1,28 @@
+#+TITLE: Contador
+
+Um número e um botão "+": cada clique soma 1 ao número. É o /Counter/ do
+[[https://eugenkiss.github.io/7guis/tasks/][7GUIs]] (Kiss 2014, §3.3, p. 17), o caminho mais curto do evento ao
+estado e à tela, sem exigência de coordenação própria, que mostra o
+mínimo de código que cada tecnologia pede para uma interface: a base da
+primeira leitura (ADR 0002). A lista de contadores entra na segunda
+rodada.
+
+Não há =dominio.ts=: a única regra, somar 1, fica no código de cada
+implementação. O Contador não abre relógio, requisição nem inscrição, e
+por isso não tem o botão de esconder das outras interfaces: a limpeza ao
+sair da tela não tem o que conferir.
+
+As regras e os cenários que o teste de conformidade confere estão em
+=implementacoes/openspec/specs/contador/spec.md=, a especificação viva
+(OpenSpec); a mudança entre rodadas entra como /delta spec/ em
+=implementacoes/openspec/changes/=, e a de dentro de uma rodada edita o
+=spec.md= direto (=implementacoes/AGENTS.md=).
+
+* Teste
+
+  O =teste-de-conformidade.js= percorre a especificação: cada verificação
+  tem o nome de um cenário do =spec.md=, e =npm run conferir-especificacao=
+  confere a ligação. Com uma implementação recém-aberta no navegador,
+  cole o arquivo no console; ele clica no botão e confere o valor, sem
+  esperar tempo. As cenas das capturas ficam em =cenas.mts=: =inicial= (o
+  valor 0) e =tres-cliques= (o valor 3).

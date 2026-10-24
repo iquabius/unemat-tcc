@@ -4,12 +4,12 @@ Cada interface do /benchmark/ de notação tem uma pasta, e cada tecnologia
 uma subpasta: =implementacoes/<interface>/<tecnologia>/=. Cada subpasta é
 um projeto completo, com o próprio =package.json=, e pode ser lida sozinha.
 O escopo (interfaces e tecnologias) está nas decisões em
-[[file:../docs/adr/][docs/adr/]]. O código que saiu da análise (o Contador,
-a Lista filtrável, o Carrinho, o jQuery, o Angular com RxJS, o JavaFX com
-FXML, o par Qt Widgets × QML, o cronômetro de 2017, o Android, o desktop,
-o Lit, o Angular com /signals/ e o Quadro de tarefas) fica congelado em
-[[file:fora-da-analise/README.org][fora-da-analise/]], fora dos comandos
-abaixo.
+[[file:../docs/adr/][docs/adr/]]. O código que saiu da análise (a Lista
+filtrável, o Carrinho, o jQuery, o Angular com RxJS, o JavaFX com FXML, o
+par Qt Widgets × QML, o cronômetro de 2017, o Android, o desktop, o Lit,
+o Angular com /signals/, o Quadro de tarefas e o conversor de moedas)
+fica congelado em [[file:fora-da-analise/README.org][fora-da-analise/]],
+fora dos comandos abaixo.
 
 * Pré-requisito: Node.js
 

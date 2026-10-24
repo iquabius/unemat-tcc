@@ -1,23 +1,24 @@
 import "../../estilo.css";
 
+const modelo = /* HTML */ `
+  <main class="contador">
+    <output></output>
+    <button aria-label="Incrementar">+</button>
+  </main>
+`;
+
 class ContadorElemento extends HTMLElement {
   private contador = 0;
-  private readonly caixaDoValor = document.createElement("output");
-  private readonly botaoDeIncrementar = document.createElement("button");
+  private caixaDoValor!: HTMLOutputElement;
 
   connectedCallback() {
     this.contador = Number(this.getAttribute("valor-inicial") ?? 0);
-
-    const raiz = document.createElement("main");
-    raiz.className = "contador";
-    this.botaoDeIncrementar.textContent = "+";
-    this.botaoDeIncrementar.setAttribute("aria-label", "Incrementar");
-    raiz.append(this.caixaDoValor, this.botaoDeIncrementar);
-    this.append(raiz);
+    this.innerHTML = modelo;
+    this.caixaDoValor = this.querySelector("output")!;
 
     // Arrow function para que `this` continue sendo o elemento dentro do
     // callback, sem precisar de `bind(this)`.
-    this.botaoDeIncrementar.addEventListener("click", () =>
+    this.querySelector("button")!.addEventListener("click", () =>
       this.tratarClique(),
     );
 
