@@ -57,7 +57,14 @@
   await esperar();
   const regiao = $(".situacao");
   conferir("1 botão começa habilitado", botao().disabled, false);
-  conferir("1 nenhum erro visível", ["ida", "volta"].map(erro), [null, null]);
+  conferir(
+    "1 nenhum erro visível",
+    [["ida", "volta"].map(erro), ["ida", "volta"].map(marcada)],
+    [
+      [null, null],
+      [false, false],
+    ],
+  );
   conferir(
     "1 datas começam hoje",
     [campo("ida").value, campo("volta").value],
@@ -152,6 +159,7 @@
       erro("ida"),
       campo("volta").value,
       botao().disabled,
+      abertas(),
     ],
     [
       "Não foi possível reservar. Tente de novo.",
@@ -160,6 +168,7 @@
       null,
       "xx",
       false,
+      0,
     ],
   );
   await digitar("ida", "10/10/2099");

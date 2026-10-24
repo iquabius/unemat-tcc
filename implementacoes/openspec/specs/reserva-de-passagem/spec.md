@@ -26,6 +26,7 @@ pede as duas datas iguais, numa data qualquer.
 
 - **QUANDO** o formulário abre
 - **ENTÃO** nenhuma das datas mostra erro
+- **E** nenhuma está marcada como inválida
 
 ### Requirement: Data de volta só em ida e volta
 
@@ -191,6 +192,7 @@ novo sem digitar tudo outra vez; o envio seguinte funciona.
 - **ENTÃO** a situação mostra "Não foi possível reservar. Tente de novo."
 - **E** o tipo continua "Só ida", a ida 31/12/2099, sem erro, e a volta "xx"
 - **E** o botão Reservar está habilitado
+- **E** `contarAbertos()` dá 0
 
 #### Scenario: 7 envio seguinte funciona
 
