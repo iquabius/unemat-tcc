@@ -29,7 +29,7 @@ function FormularioDeCompra() {
   }
 
   return (
-    <>
+    <section className="painel">
       <form className="formulario" noValidate onSubmit={reservar}>
         <label>
           Tipo de viagem
@@ -75,8 +75,25 @@ function FormularioDeCompra() {
       <p className="confirmacao" role="status">
         {confirmacao}
       </p>
-    </>
+    </section>
   );
 }
 
-createRoot(document.getElementById("raiz")!).render(<FormularioDeCompra />);
+// A página: o botão que tira o formulário da página e o põe de volta.
+function ReservaDePassagem() {
+  const [visivel, setVisivel] = useState(true);
+  return (
+    <main className="reserva">
+      <button
+        type="button"
+        className="alternar"
+        onClick={() => setVisivel(!visivel)}
+      >
+        {visivel ? "Esconder reserva" : "Mostrar reserva"}
+      </button>
+      {visivel && <FormularioDeCompra />}
+    </main>
+  );
+}
+
+createRoot(document.getElementById("raiz")!).render(<ReservaDePassagem />);
