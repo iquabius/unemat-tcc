@@ -10,6 +10,7 @@ import {
   hoje,
   type TipoDeViagem,
 } from "../../dominio";
+import { hospedar } from "../../../pagina";
 import "../../estilo.css";
 
 function FormularioDeCompra() {
@@ -101,21 +102,8 @@ function FormularioDeCompra() {
   );
 }
 
-// A página: o botão que tira o formulário da página e o põe de volta.
-function ReservaDePassagem() {
-  const [visivel, setVisivel] = useState(true);
-  return (
-    <main className="reserva">
-      <button
-        type="button"
-        className="alternar"
-        onClick={() => setVisivel(!visivel)}
-      >
-        {visivel ? "Esconder reserva" : "Mostrar reserva"}
-      </button>
-      {visivel && <FormularioDeCompra />}
-    </main>
-  );
-}
-
-createRoot(document.getElementById("raiz")!).render(<ReservaDePassagem />);
+hospedar((conteiner) => {
+  const raiz = createRoot(conteiner);
+  raiz.render(<FormularioDeCompra />);
+  return () => raiz.unmount();
+});
