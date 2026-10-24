@@ -8,30 +8,32 @@ import {
 import "../../estilo.css";
 
 const modelo = /* HTML */ `
-  <form class="formulario" novalidate>
-    <label>
-      Tipo de viagem
-      <select name="tipo">
-        <option value="ida">Só ida</option>
-        <option value="ida-e-volta">Ida e volta</option>
-      </select>
-    </label>
+  <section class="painel">
+    <form class="formulario" novalidate>
+      <label>
+        Tipo de viagem
+        <select name="tipo">
+          <option value="ida">Só ida</option>
+          <option value="ida-e-volta">Ida e volta</option>
+        </select>
+      </label>
 
-    <label>
-      Data de ida
-      <input name="ida" placeholder="DD/MM/AAAA" />
-    </label>
-    <p class="erro" data-erro="ida" hidden></p>
+      <label>
+        Data de ida
+        <input name="ida" placeholder="DD/MM/AAAA" />
+      </label>
+      <p class="erro" data-erro="ida" hidden></p>
 
-    <label>
-      Data de volta
-      <input name="volta" placeholder="DD/MM/AAAA" disabled />
-    </label>
-    <p class="erro" data-erro="volta" hidden></p>
+      <label>
+        Data de volta
+        <input name="volta" placeholder="DD/MM/AAAA" disabled />
+      </label>
+      <p class="erro" data-erro="volta" hidden></p>
 
-    <button type="submit">Reservar</button>
-  </form>
-  <p class="confirmacao" role="status"></p>
+      <button type="submit">Reservar</button>
+    </form>
+    <p class="confirmacao" role="status"></p>
+  </section>
 `;
 
 type Campo = "ida" | "volta";
@@ -111,4 +113,37 @@ class FormularioDeCompra extends HTMLElement {
   }
 }
 
+// A página: o botão que tira o formulário da página e o põe de volta.
+class ReservaDePassagem extends HTMLElement {
+  private formulario?: FormularioDeCompra;
+
+  connectedCallback() {
+    this.innerHTML = /* HTML */ `
+      <main class="reserva">
+        <button type="button" class="alternar">Esconder reserva</button>
+      </main>
+    `;
+    const principal = this.querySelector("main")!;
+    const alternar = this.querySelector<HTMLButtonElement>(".alternar")!;
+    const mostrar = () => {
+      this.formulario = document.createElement(
+        "formulario-de-compra",
+      ) as FormularioDeCompra;
+      principal.append(this.formulario);
+      alternar.textContent = "Esconder reserva";
+    };
+    alternar.addEventListener("click", () => {
+      if (this.formulario) {
+        this.formulario.remove();
+        this.formulario = undefined;
+        alternar.textContent = "Mostrar reserva";
+      } else {
+        mostrar();
+      }
+    });
+    mostrar();
+  }
+}
+
 customElements.define("formulario-de-compra", FormularioDeCompra);
+customElements.define("reserva-de-passagem", ReservaDePassagem);
