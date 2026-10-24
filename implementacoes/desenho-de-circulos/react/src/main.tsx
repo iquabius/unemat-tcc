@@ -15,6 +15,7 @@ import {
   type Circulo,
   type Ponto,
 } from "../../dominio";
+import { hospedar } from "../../../pagina";
 import "../../estilo.css";
 
 function AreaDeDesenho() {
@@ -224,21 +225,8 @@ function AreaDeDesenho() {
   );
 }
 
-// A página: o botão que tira o desenho da página e o põe de volta.
-function Pagina() {
-  const [visivel, setVisivel] = useState(true);
-  return (
-    <main className="pagina">
-      <button
-        type="button"
-        className="alternar"
-        onClick={() => setVisivel(!visivel)}
-      >
-        {visivel ? "Esconder desenho" : "Mostrar desenho"}
-      </button>
-      {visivel && <AreaDeDesenho />}
-    </main>
-  );
-}
-
-createRoot(document.getElementById("raiz")!).render(<Pagina />);
+hospedar((conteiner) => {
+  const raiz = createRoot(conteiner);
+  raiz.render(<AreaDeDesenho />);
+  return () => raiz.unmount();
+});
