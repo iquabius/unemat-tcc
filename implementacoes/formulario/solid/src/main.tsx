@@ -38,7 +38,7 @@ function FormularioDeCompra() {
   }
 
   return (
-    <>
+    <section class="painel">
       <form class="formulario" novalidate onSubmit={reservar}>
         <label>
           Tipo de viagem
@@ -86,8 +86,27 @@ function FormularioDeCompra() {
       <p class="confirmacao" role="status">
         {confirmacao()}
       </p>
-    </>
+    </section>
   );
 }
 
-render(() => <FormularioDeCompra />, document.getElementById("raiz")!);
+// A página: o botão que tira o formulário da página e o põe de volta.
+function ReservaDePassagem() {
+  const [visivel, setVisivel] = createSignal(true);
+  return (
+    <main class="reserva">
+      <button
+        type="button"
+        class="alternar"
+        onClick={() => setVisivel(!visivel())}
+      >
+        {visivel() ? "Esconder reserva" : "Mostrar reserva"}
+      </button>
+      <Show when={visivel()}>
+        <FormularioDeCompra />
+      </Show>
+    </main>
+  );
+}
+
+render(() => <ReservaDePassagem />, document.getElementById("raiz")!);
