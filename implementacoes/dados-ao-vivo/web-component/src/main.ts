@@ -1,8 +1,9 @@
 import {
   JOGOS,
   MENSAGENS,
-  inscreverNosPlacares,
+  URL_DOS_PLACARES,
   iniciarRelogio,
+  lerLote,
   formatarAtualizacao,
   formatarPlacar,
   formatarTempo,
@@ -46,10 +47,10 @@ class PainelDePlacares extends HTMLElement {
   private pausa!: HTMLButtonElement;
   private celulas = new Map<string, Celulas>();
 
-  // Estado da coordenação: a inscrição aberta (nenhuma em pausa), o último
+  // Estado da coordenação: a conexão aberta (nenhuma em pausa), o último
   // lote mostrado, que dá os gols novos, a hora em que ele chegou e o
-  // relógio, que vive com o painel, e não com a inscrição.
-  private cancelar?: () => void;
+  // relógio, que vive com o painel, e não com a conexão.
+  private conexao?: WebSocket;
   private ultimo?: Lote;
   private chegada?: number;
   private pararRelogio?: () => void;
@@ -85,29 +86,32 @@ class PainelDePlacares extends HTMLElement {
 
     this.pausa.addEventListener("click", () => this.alternarPausa());
     this.situacao.textContent = MENSAGENS.aguardando;
-    this.inscrever();
+    this.conectar();
     this.pararRelogio = iniciarRelogio(() => this.mostrarAtualizacao());
   }
 
-  // Sem isto, a fonte continua mandando lotes, e o relógio continua
+  // Sem isto, o servidor continua mandando lotes, e o relógio continua
   // batendo, para um painel fora da página.
   disconnectedCallback() {
-    this.cancelar?.();
+    this.conexao?.close();
     this.pararRelogio?.();
   }
 
-  private inscrever() {
-    this.cancelar = inscreverNosPlacares((lote) => this.receber(lote));
+  private conectar() {
+    this.conexao = new WebSocket(URL_DOS_PLACARES);
+    this.conexao.addEventListener("message", (mensagem) =>
+      this.receber(lerLote(mensagem)),
+    );
   }
 
   private alternarPausa() {
-    if (this.cancelar) {
-      this.cancelar();
-      this.cancelar = undefined;
+    if (this.conexao) {
+      this.conexao.close();
+      this.conexao = undefined;
       this.pausa.textContent = "Retomar";
       this.situacao.textContent = MENSAGENS.pausado;
     } else {
-      this.inscrever();
+      this.conectar();
       this.pausa.textContent = "Pausar";
       this.situacao.textContent = this.ultimo ? "" : MENSAGENS.aguardando;
     }
