@@ -1,7 +1,10 @@
 import {
+  MENSAGENS,
   confirmacaoDaReserva,
+  enviarReserva,
   erroDaData,
   erroDaOrdem,
+  foiCancelado,
   hoje,
   type TipoDeViagem,
 } from "../../dominio";
@@ -45,6 +48,9 @@ class FormularioDeCompra extends HTMLElement {
   private botaoDeReservar!: HTMLButtonElement;
   private situacao!: HTMLParagraphElement;
 
+  // Estado da coordenação: o envio em andamento, que ignora o reenvio.
+  private controlador?: AbortController;
+
   connectedCallback() {
     this.innerHTML = modelo;
     this.formulario = this.querySelector("form")!;
@@ -69,6 +75,11 @@ class FormularioDeCompra extends HTMLElement {
     this.validar();
   }
 
+  // Sem isto, o envio continua fora da página.
+  disconnectedCallback() {
+    this.controlador?.abort();
+  }
+
   private campo(nome: Campo): HTMLInputElement {
     return this.querySelector(`input[name="${nome}"]`)!;
   }
@@ -78,13 +89,27 @@ class FormularioDeCompra extends HTMLElement {
     this.validar();
   }
 
+  // O clique durante o envio é ignorado; editar não cancela o envio, e a
+  // confirmação é da reserva que saiu.
   private tratarEnvio(evento: SubmitEvent) {
     evento.preventDefault();
-    this.situacao.textContent = confirmacaoDaReserva({
+    if (this.controlador) return;
+    const reserva = {
       tipo: this.tipo.value as TipoDeViagem,
       ida: this.campos.ida.value,
       volta: this.campos.volta.value,
-    });
+    };
+    const controlador = new AbortController();
+    this.controlador = controlador;
+    this.situacao.textContent = MENSAGENS.enviando;
+    enviarReserva(reserva, controlador.signal)
+      .then(
+        () => (this.situacao.textContent = confirmacaoDaReserva(reserva)),
+        (erro) => {
+          if (!foiCancelado(erro)) this.situacao.textContent = MENSAGENS.falha;
+        },
+      )
+      .finally(() => (this.controlador = undefined));
   }
 
   // Revalida o formulário inteiro a cada evento: mostra os erros e habilita
