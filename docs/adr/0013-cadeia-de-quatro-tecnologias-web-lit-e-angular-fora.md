@@ -142,7 +142,7 @@ dialeto do JSX, o que a análise separa pelo sinal escrito (ADR 0021); a
 forma do Web Component com *signals* é rara nos programas reais (11
 arquivos na busca de código do GitHub, em TypeScript, em 2026-10-17,
 contra 45.824 com `extends HTMLElement` e `createElement`): é uma
-construção de controle, que o texto declara, e o critério do ADR 0037,
+construção de controle, que o texto declara, e a regra do ADR 0037,
 a forma mais comum, não vale para ela; o corpo do efeito ainda é uma
 escrita no DOM, e o leitor pode tomá-lo por imperativo, o que o texto
 enfrenta pelo sinal escrito (ADR 0021): a escrita se escreve uma vez

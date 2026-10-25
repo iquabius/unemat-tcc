@@ -308,7 +308,7 @@ jQuery, o Angular com RxJS, o Svelte e o Vue continuam fora.
   - *contra*: Forma rara nos programas reais (11 arquivos TypeScript na
     busca de código do GitHub em 2026-10-17, contra 45.824 com `extends
     HTMLElement` e `createElement`): é uma construção de controle, que o
-    texto declara, e o critério do ADR 0037, a forma mais comum, não
+    texto declara, e a regra do ADR 0037, a forma mais comum, não
     vale para ela. O corpo de cada efeito ainda é uma escrita no DOM, e
     o leitor pode tomá-lo por imperativo; o texto precisa mostrar o
     sinal escrito do granular, o efeito declarado uma vez por parte da

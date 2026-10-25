@@ -64,7 +64,7 @@ estrutura da introdução pediria uma busca.
 Em vez de: a raiz de `tmp/` como estava, tirando só as normas e os PDFs
 das pesquisas; quebraria menos citações, mas a raiz voltaria a encher a
 cada sessão.
-Custo: dois critérios convivem no `acervo/`, a chave na raiz e o tipo
+Custo: duas regras convivem no `acervo/`, a chave na raiz e o tipo
 nas pastas; a obra muda de caminho quando ganha chave, e a nota de
 `docs/` que a citou antes disso precisa mudar junto; o caminho de cada
 cópia mudou três vezes de 2026-10-16 a 2026-10-17, e cada vez trocou os

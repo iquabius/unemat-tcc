@@ -308,7 +308,7 @@ tabela-síntese ou a classificação do método)
 **Biblioteca**:
 Código reutilizável que a aplicação chama, sem lhe ceder o controle
 (Fayad e Schmidt, 1997): o React, como a documentação dele se chama, e
-as bibliotecas de formulário da terceira rodada. O critério falha quando a biblioteca
+as bibliotecas de formulário da terceira rodada. A definição falha quando a biblioteca
 recebe funções da aplicação: o React chama os componentes.
 _Avoid_: biblioteca para o que se compara (modelo de programação) ou como
 nome genérico das tecnologias
@@ -354,7 +354,7 @@ As regras de uma interface que não dependem da tela (datas, mensagens,
 servidores simulados, fontes de dados, a cotação, a análise e a avaliação
 das fórmulas), compartilhadas pelas implementações. A propagação da
 planilha fica em cada implementação, porque escrever uma alteração de
-estado é parte da notação, o critério do ADR 0033.
+estado é parte da notação, a regra do ADR 0033.
 _Avoid_: lógica de negócio e regras de negócio, que pressupõem um negócio:
 a validação de datas da Reserva de passagem não é regra de negócio de
 ninguém (a *business logic* de Karagkasidis, 2008, é o domínio aqui)
