@@ -17,8 +17,8 @@ bin/gerar-versao.sh, em quatro passos:
   paginas DIR AUX JOB PDF SAIDA
                               depois da última compilação: SAIDA.pdf, o diff
                               só com o resumo e as páginas com marca do
-                              latexdiff (qpdf), e SAIDA.json com a página e a
-                              seção de cada uma
+                              latexdiff (qpdf), e SAIDA.json com a página, o
+                              capítulo, a seção e a subseção de cada uma
   corpo SAIDA TAG BASE        o corpo da release: a mensagem da tag e as
                               páginas alteradas (bin/preparar-release.sh)
 
@@ -343,14 +343,135 @@ def sem_marcas(titulo):
     return t.strip()
 
 
+def texto_simples(titulo):
+    """O título como ficou em REF, em texto, sem comandos nem chaves: o
+    \\texorpdfstring fica com o segundo argumento, e o \\MakeUppercase do
+    título de capítulo some com o [] que o sumário deixa depois dele; o
+    espaço inquebrável vira espaço."""
+    t = sem_marcas(titulo)
+    while (m := re.search(r"\\texorpdfstring\s*", t)):
+        args, fim = argumentos(t, m.end(), 2)
+        t = t[:m.start()] + (args[1] if args else "") + t[fim if args else m.end():]
+    t = re.sub(r"\\nobreakspace\s*\{\}|~", " ", t)
+    t = re.sub(r"\\[a-zA-Z@]+\*?\s*(\[[^\]]*\])?|[{}]", "", t)
+    return " ".join(t.split()).rstrip(".:;")
+
+
+def argumentos(texto, i, n):
+    """Os n argumentos entre chaves que começam em texto[i], com as chaves
+    de dentro em qualquer profundidade, e a posição depois do último; None
+    se faltar algum."""
+    args = []
+    for _ in range(n):
+        while i < len(texto) and texto[i].isspace():
+            i += 1
+        if i >= len(texto) or texto[i] != "{":
+            return None, i
+        prof, j = 0, i
+        while j < len(texto):
+            if texto[j] == "\\":
+                j += 2
+                continue
+            if texto[j] == "{":
+                prof += 1
+            elif texto[j] == "}":
+                prof -= 1
+                if prof == 0:
+                    break
+            j += 1
+        else:
+            return None, i
+        args.append(texto[i + 1:j])
+        i = j + 1
+    return args, i
+
+
+def secoes(aux):
+    """O capítulo, a seção e a subseção de cada marca do latexdiff
+    (\\difpagina) e de cada âncora (\\newlabel{difancora-N}) do .aux, em
+    texto: (marcas, ancoras), com marcas uma lista de (página física,
+    página impressa, capítulo, seção, subseção) e ancoras {N: (página
+    impressa, capítulo, seção, subseção)}; o nível que não há fica vazio.
+
+    O nome que a marca grava (\\@currentlabelname) não serve: a legenda de
+    figura e de tabela também o muda. Valem as entradas do sumário, que o
+    .aux traz na mesma ordem das marcas: o capítulo, a seção e a subseção
+    numerados, pelo título, sem o número, que no diff conta também as
+    seções apagadas e por isso não é o do texto; a subsubseção e o
+    parágrafo ficam na subseção. Antes do primeiro capítulo,
+    "pré-textuais"; da bibliografia (\\difbiblio) em diante, "referências";
+    nos capítulos de apêndice (âncora appendix.*), "apêndices". O título
+    que só tem texto apagado (o capítulo ou a seção que saiu) não muda o
+    lugar. No título de seção do titlesec, a marca vem antes da entrada do
+    sumário: a marca cujo nome é o título da próxima entrada fica nela."""
+    eventos = []  # (tipo, argumentos)
+    padrao = re.compile(r"\\@writefile\{toc\}\{\\contentsline\s*|\\difpagina\s*"
+                        r"|\\newlabel\{difancora-(\d+)\}|\\difbiblio\s*")
+    for m in padrao.finditer(aux):
+        if m.group(0).startswith("\\@writefile"):
+            args, _ = argumentos(aux, m.end(), 4)
+            if args:
+                eventos.append(("toc", args))
+        elif m.group(0).startswith("\\difpagina"):
+            args, _ = argumentos(aux, m.end(), 3)
+            if args:
+                eventos.append(("marca", args))
+        elif m.group(1):
+            args, _ = argumentos(aux, m.end(), 1)
+            dentro = args and argumentos(args[0], 0, 3)[0]
+            if dentro:
+                eventos.append(("ancora", [int(m.group(1))] + dentro))
+        else:
+            eventos.append(("biblio", None))
+
+    estados, nomes, lugar = [], [], ("pré-textuais", "", "")
+    for tipo, args in eventos:
+        nome = ""
+        if tipo == "biblio":
+            lugar = ("referências", "", "")
+        elif tipo == "toc":
+            nivel, titulo, _pagina, ancora = args
+            m = re.match(r"\s*\\numberline\s*\{[^{}]*\}", titulo)
+            nome = texto_simples(titulo[m.end():] if m else titulo)
+            cap, sec, _sub = lugar
+            if nivel == "chapter":
+                if ancora.startswith("appendix."):
+                    lugar = ("apêndices", "", "")
+                elif nome and cap != "referências":
+                    lugar = (nome, "", "")
+            elif m and nome and cap not in ("referências", "apêndices"):
+                if nivel == "section":
+                    lugar = (cap, nome, "")
+                elif nivel == "subsection":
+                    lugar = (cap, sec, nome)
+        estados.append(lugar)
+        nomes.append(nome)
+
+    marcas, ancoras, seguinte = [], {}, None
+    for k in range(len(eventos) - 1, -1, -1):
+        tipo, args = eventos[k]
+        if tipo == "toc":
+            seguinte = k
+            continue
+        if tipo not in ("marca", "ancora"):
+            continue
+        nome, estado = texto_simples(args[-1] if tipo == "marca" else args[3]), estados[k]
+        if seguinte is not None and nome and nome == nomes[seguinte]:
+            estado = estados[seguinte]
+        if tipo == "marca":
+            marcas.append((int(args[0]), args[1]) + estado)
+        else:
+            ancoras[args[0]] = (args[2],) + estado
+    marcas.reverse()
+    return marcas, ancoras
+
+
 def resumo(dir_, aux, job, base_nome, ref_nome):
     d = json.load(open(Path(dir_) / "difancoras.json"))
-    rotulos = {}  # n -> (página, título da seção)
     a = Path(dir_) / aux / f"{job}.aux"
-    if a.exists():
-        for m in re.finditer(r"\\newlabel\{difancora-(\d+)\}\{\{[^{}]*\}\{([^{}]*)\}\{((?:[^{}]|\{[^{}]*\})*)\}",
-                             a.read_text(errors="replace")):
-            rotulos[int(m.group(1))] = (m.group(2), m.group(3))
+    # n -> (página, capítulo, seção, subseção); vazio antes da primeira
+    # compilação.
+    rotulos = secoes(a.read_text(errors="replace"))[1] if a.exists() else {}
     bbl = Path(dir_) / aux / f"{job}.bbl"
     na_bib = set(re.findall(r"\\entry\{([^}]+)\}", bbl.read_text(errors="replace"))) if bbl.exists() else set()
 
@@ -370,17 +491,17 @@ def resumo(dir_, aux, job, base_nome, ref_nome):
     for c in d["commits"]:
         partes = []
         for tipo, cor in (("entrou", "blue"), ("saiu", "red")):
-            secoes = {}  # título -> {página: n}, na ordem do documento
+            por_secao = {}  # título -> {página: n}, na ordem do documento
             for an in sorted((x for x in d["ancoras"] if x["commit"] == c["commit"] and x["tipo"] == tipo),
                              key=lambda x: (int(rotulos[x["n"]][0]) if x["n"] in rotulos
                                             and rotulos[x["n"]][0].isdigit() else 0, x["n"])):
-                pagina, secao = rotulos.get(an["n"], (f"#{an['n']}", ""))
-                secao = sem_marcas(secao) or esc(an["capitulo"])
-                secoes.setdefault(secao, {}).setdefault(pagina, an["n"])
-            if not secoes:
+                pagina, cap, sec, sub = rotulos.get(an["n"], (f"#{an['n']}", an["capitulo"], "", ""))
+                secao = esc(sub or sec or cap)
+                por_secao.setdefault(secao, {}).setdefault(pagina, an["n"])
+            if not por_secao:
                 continue
             grupos = []
-            for secao, paginas in secoes.items():
+            for secao, paginas in por_secao.items():
                 links = [f"\\hyperref[difancora-{n}]{{{esc(p)}}}" for p, n in paginas.items()]
                 grupos.append((f"{secao}, " if secao else "") + ("p.~" if len(links) == 1 else "pp.~")
                               + ", ".join(links))
@@ -402,36 +523,27 @@ def resumo(dir_, aux, job, base_nome, ref_nome):
     (Path(dir_) / "difresumo.tex").write_text("\n".join(out) + "\n")
 
 
+def paginas_alteradas(aux):
+    """As páginas com marca do latexdiff no .aux, na ordem do documento:
+    uma entrada por página e lugar (secoes()), e a página com alteração em
+    duas seções aparece nas duas. O resumo, em romanos, fica fora."""
+    lista, vistas = [], set()
+    for fisica, impressa, *lugar in secoes(aux)[0]:
+        if impressa.isdigit() and (fisica, *lugar) not in vistas:
+            vistas.add((fisica, *lugar))
+            lista.append(dict(pagina=impressa, fisica=fisica,
+                              **dict(zip(("capitulo", "secao", "subsecao"), lugar))))
+    return lista
+
+
 def paginas(dir_, aux, job, pdf, saida):
     """O diff só com o resumo e as páginas que têm marca do latexdiff, em
-    SAIDA.pdf, e SAIDA.json com a página impressa e a seção de cada uma.
+    SAIDA.pdf, e SAIDA.json com a página impressa, o capítulo, a seção e a
+    subseção de cada uma (secoes()).
     O qpdf mantém os objetos das páginas, e os links do resumo continuam
     levando ao trecho; o pdfunite, o pdfjam e o Ghostscript os perdem."""
-    d = json.load(open(Path(dir_) / "difancoras.json"))
     texto = (Path(dir_) / aux / f"{job}.aux").read_text(errors="replace")
-    marcas = {}  # página física -> (impressa, seção)
-    arg = r"\{((?:[^{}]|\{[^{}]*\})*)\}"
-    for m in re.finditer(r"\\difpagina\{(\d+)\}\{([^{}]*)\}" + arg, texto):
-        fisica, impressa, secao = int(m.group(1)), m.group(2), sem_marcas(m.group(3))
-        if not impressa.isdigit():  # o resumo, em romanos
-            continue
-        if fisica not in marcas or (secao and not marcas[fisica][1]):
-            marcas[fisica] = (impressa, secao)
-    # Sem seção na marca (o capítulo sem número, como a introdução), vale a
-    # da última âncora até aquela página.
-    rotulos = {}
-    for m in re.finditer(r"\\newlabel\{difancora-(\d+)\}\{\{[^{}]*\}\{(\d+)\}" + arg, texto):
-        rotulos[int(m.group(1))] = (int(m.group(2)), sem_marcas(m.group(3)))
-    ancoras = sorted((rotulos[a["n"]][0], rotulos[a["n"]][1] or a["capitulo"])
-                     for a in d["ancoras"] if a["n"] in rotulos)
-    lista = []
-    for fisica, (impressa, secao) in sorted(marcas.items()):
-        if not secao:
-            antes = [s for p, s in ancoras if p <= int(impressa)]
-            # Antes da primeira âncora só há as pré-textuais, como o sumário.
-            secao = antes[-1] if antes else "pré-textuais"
-        secao = " ".join(re.sub(r"\\[a-zA-Z]+\*?|[{}]", "", secao).split()).rstrip(".:;")
-        lista.append({"pagina": impressa, "fisica": fisica, "secao": secao})
+    lista = paginas_alteradas(texto)
     for velho in (Path(saida + ".pdf"), Path(saida + ".json")):
         velho.unlink(missing_ok=True)
     if not lista:
@@ -447,7 +559,7 @@ def paginas(dir_, aux, job, pdf, saida):
     subprocess.run(["qpdf", pdf, "--pages", ".", ",".join(map(str, paginas_pdf)), "--",
                     saida + ".pdf"], check=True)
     json.dump(lista, open(saida + ".json", "w"), ensure_ascii=False, indent=1)
-    print(f"páginas: {len(lista)} em {saida}.pdf")
+    print(f"páginas: {len({p['fisica'] for p in lista})} em {saida}.pdf")
 
 
 def intervalos(numeros):
@@ -463,11 +575,14 @@ def intervalos(numeros):
 
 
 def resumo_paginas(lista):
-    """As páginas alteradas por seção, na ordem do documento."""
-    secoes = {}
+    """As páginas alteradas por lugar, na ordem do documento."""
+    lugares = {}
     for p in lista:
-        secoes.setdefault(p["secao"], []).append(int(p["pagina"]))
-    return "; ".join((f"{s}, " if s else "") + intervalos(ns) for s, ns in secoes.items())
+        lugar = p["subsecao"] or p["secao"] or p["capitulo"]
+        paginas = lugares.setdefault(lugar, [])
+        if int(p["pagina"]) not in paginas:
+            paginas.append(int(p["pagina"]))
+    return "; ".join(f"{s}, " + intervalos(ns) for s, ns in lugares.items())
 
 
 def corpo(saida, tag, base):
@@ -477,8 +592,12 @@ def corpo(saida, tag, base):
     print("\n\n".join(" ".join(p.split()) for p in re.split(r"\n\s*\n", texto)))
     if Path(saida + ".json").exists():
         lista = json.load(open(saida + ".json"))
-        plural = "s" if len(lista) > 1 else ""
-        print(f"\n**{len(lista)} página{plural} com alteração desde {base}:** "
+        if any("subsecao" not in p for p in lista):
+            sys.exit(f"{saida}.json não diz o capítulo de cada página: "
+                     f"rode bin/gerar-versao.sh {tag}")
+        n = len({p["fisica"] for p in lista})
+        plural = "s" if n > 1 else ""
+        print(f"\n**{n} página{plural} com alteração desde {base}:** "
               f"{resumo_paginas(lista)}. Estão no diff só das páginas alteradas, "
               "com o resumo dos commits na frente.")
 

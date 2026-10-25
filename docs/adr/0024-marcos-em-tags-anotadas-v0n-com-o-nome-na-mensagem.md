@@ -14,7 +14,9 @@ linha. A tag leva a data do commit que marca. Cada release
 (`bin/preparar-release.sh`, como rascunho) leva o PDF do texto, o do diff
 desde a tag anterior e o mesmo diff só com o resumo dos commits, as
 páginas que têm alteração e a bibliografia, cortado pelo `qpdf`, que mantém os links do
-resumo; o corpo diz as páginas alteradas por seção. Até a banca aceitar,
+resumo; o corpo diz as páginas alteradas pela subseção, pela
+seção ou pelo capítulo de cada uma, pelo título no sumário e sem o
+número, que no diff conta também as seções apagadas. Até a banca aceitar,
 a capa e a folha de rosto dizem "U Boneque", a versão (ou o intervalo, no
 diff), o nome do marco e a data da tag (DD/MM/AAAA), no lugar do ano.
 
@@ -40,6 +42,9 @@ Em vez de: uma imagem só com as páginas empilhadas; 13 páginas dão
 WebP (16.383 px) e do que os navegadores de celular mostram sem reduzir.
 Em vez de: cortar com o Ghostscript (`-sPageList`), que já estava no
 host; os links do resumo passam a apontar para a página errada.
+Em vez de: a seção pelo nome que a marca do latexdiff grava no `.aux`
+(`\@currentlabelname`); a legenda de figura e de tabela também o muda, e
+a lista da `v0.10` dava a legenda da Figura 1 como seção.
 Em vez de: o ano de 2019 na capa, como estava; não pede nada no script,
 mas data como de 2019 uma versão de 2026 e não diz qual versão se lê.
 Custo: o nome só se lê na mensagem (`git tag -n1`); depois do push, mover
@@ -50,8 +55,10 @@ porque repete o nome no corpo e mantém as quebras de 72 colunas; o GitHub
 troca o `..` do nome do diff por um ponto só (`diff-v0.8.v0.9.pdf`), o que
 só o rótulo do arquivo desfaz; o PDF das páginas alteradas pede o `qpdf`
 (12.4.1, zypper, 2026-10-05), e nele os links para o que ficou de fora,
-como os do sumário, não levam a lugar nenhum; e as páginas não aparecem no corpo da release: é preciso abrir o
-PDF.
+como os do sumário, não levam a lugar nenhum; as páginas não aparecem no corpo da release: é preciso abrir o
+PDF; e a lista das páginas gerada antes de 2026-10-25 não diz o
+capítulo, e o corpo de uma release antiga só se regrava depois do
+`bin/gerar-versao.sh` da tag.
 
 Fontes: `gh release create --help`, `gh` 2.100.0 (2026-10-04); tarefas
 tcc-8kw, tcc-6ah, tcc-3jd e tcc-cv7c.
