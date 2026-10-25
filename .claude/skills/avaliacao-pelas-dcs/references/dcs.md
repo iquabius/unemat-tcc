@@ -42,8 +42,8 @@ da implementação, não o exemplo.
    (p. 29). Pode valer em duas, mas diga que é o mesmo trecho.
 8. **Comentários das implementações não são sinal.** São notação
    secundária de quem implementou, não da tecnologia, e o código de
-   `implementacoes/` foi escrito com agentes. A expressividade de papel
-   depende de quem escreve (Kutar, Britton e Wilson 2000, p. ix da
+   `interfaces-graficas/` foi escrito com agentes. A expressividade de
+   papel depende de quem escreve (Kutar, Britton e Wilson 2000, p. ix da
    cópia).
 9. **"Sem diferença" é resultado.** Dito, com o que se procurou; não
    omitido nem forçado (ADR 0017; Kiss 2014, p. 12, omite sem dizer).

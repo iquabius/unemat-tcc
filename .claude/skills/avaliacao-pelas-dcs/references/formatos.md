@@ -6,8 +6,8 @@ Os três arquivos ficam em `docs/avaliacao/<rodada>-<interface>/`
 (SKILL.md, regra 5; a interface fora da análise fica em `tmp/`, regra
 6). Como toda nota de `docs/`, cada um diz o tipo na primeira linha
 depois do título, e abre com a interface, a rodada, o sha de
-`implementacoes/` lido e a data. Markdown que se lê no celular: títulos
-curtos, listas, trechos de até umas 8 linhas.
+`interfaces-graficas/` lido e a data. Markdown que se lê no celular:
+títulos curtos, listas, trechos de até umas 8 linhas.
 
 ## plano.md
 
@@ -56,7 +56,7 @@ Guia de leitura do agente, entregue antes da leitura do autor (skill
 conclusão: as perguntas são para o autor responder ao ditar. Atividade:
 <a da rodada>.
 
-Arquivos, a partir de `implementacoes/<interface>/`:
+Arquivos, a partir de `interfaces-graficas/<interface>/analisadas/`:
 - `WC.ts` = `web-component/src/main.ts`
 - `Solid.tsx` = `solid/src/main.tsx`
 - `React.tsx` = `react/src/main.tsx`

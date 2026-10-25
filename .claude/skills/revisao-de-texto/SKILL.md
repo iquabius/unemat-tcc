@@ -297,7 +297,7 @@ perguntas, e então o autor dá o rótulo.
    capítulo e as preferências do autor (`AGENTS.md`, "Texto"). Em cada
    interface ou exigência de coordenação que o trecho descreve, confira se
    o trecho diz o que ela dá ao usuário final ("para o usuário ...", o
-   **ENTÃO** do cenário; `implementacoes/AGENTS.md`, "Interface ou
+   **ENTÃO** do cenário; `interfaces-graficas/AGENTS.md`, "Interface ou
    implementação nova"); o que faltar entra como correção de sentido.
 6. **Correções por cima, todas de uma vez.** O agente aplica no `.org`
    todas as correções da rodada, sem commit, com a entrada de cada fonte
@@ -422,9 +422,9 @@ formato do relatório estão em `references/academic-chapter.md` da skill
    afirmação em `texto/fontes/<chave>.org` (`bin/conferir-fontes.py
    --paragrafos texto/<capítulo>.org` junta as afirmações na ordem do
    capítulo); para o próprio trabalho (interfaces, tecnologias,
-   implementações), `implementacoes/` e `GLOSSARY.md`. A cadeia do mapa
-   é a da rodada de corte, passo 3. As contradições se procuram também
-   nos outros capítulos e contra os termos do `GLOSSARY.md`.
+   implementações), `interfaces-graficas/` e `GLOSSARY.md`. A cadeia do
+   mapa é a da rodada de corte, passo 3. As contradições se procuram
+   também nos outros capítulos e contra os termos do `GLOSSARY.md`.
 3. **Passada 1.** Um subagente por lote, todos na mesma mensagem, com a
    instrução da referência e os caminhos absolutos dos PDFs em
    `acervo/` do checkout principal. Enquanto rodam, a auditoria

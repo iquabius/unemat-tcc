@@ -41,7 +41,7 @@ Component → Web Component com *signals* → Solid → React.
   inscrição) fica escrito no `disconnectedCallback`.
 - Montagem: o esqueleto em *template literal* marcado `/* HTML */`,
   atribuído ao `innerHTML` uma vez; as partes repetidas e os filhos com
-  `createElement` e `append` (`implementacoes/AGENTS.md`). É a mesma
+  `createElement` e `append` (`interfaces-graficas/AGENTS.md`). É a mesma
   montagem do Web Component com *signals*: o passo entre os dois muda a
   ligação do estado com a tela e a orquestração (ADR 0013).
 - Documentação: developer.mozilla.org, "Using custom elements".
@@ -49,7 +49,7 @@ Component → Web Component com *signals* → Solid → React.
 ## Web Component com *signals* (declarativo por atualização granular)
 
 Implementado na Reserva de passagem, na Busca, no Login e no Placar ao
-vivo (tcc-2pu0); a regra está em `implementacoes/AGENTS.md`. Confira
+vivo (tcc-2pu0); a regra está em `interfaces-graficas/AGENTS.md`. Confira
 cada ponto no código da interface antes do guia.
 
 - Arquivos: `web-component-signals/` (tcc-2pu0), com a classe que

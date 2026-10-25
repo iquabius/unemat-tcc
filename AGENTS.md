@@ -2,9 +2,9 @@
 
 Trabalho de conclusão em Ciência da Computação (UNEMAT), em português: o
 texto em `texto/*.org` (exportado para `latex/capitulos/`), a bibliografia
-em `texto/refs.bib`, o código das implementações em `implementacoes/`
-(instruções próprias em `implementacoes/AGENTS.md`). Os termos do projeto
-estão em `GLOSSARY.md`; use-os.
+em `texto/refs.bib`, o código das implementações em `interfaces-graficas/`
+(instruções próprias em `interfaces-graficas/AGENTS.md`). Os termos do
+projeto estão em `GLOSSARY.md`; use-os.
 
 ## Onde cada coisa vive
 
@@ -15,8 +15,8 @@ estão em `GLOSSARY.md`; use-os.
 | Tarefa aberta | Beads (`bd`), exportado em `.beads/issues.jsonl` | seção abaixo |
 | Fonte, nota de referência ou achado que o texto ainda vai absorver | `docs/` e as subpastas dele, com entrada em `docs/README.md` | seção abaixo |
 | Plano, guia de leitura e revisão do agente na avaliação pelas DCs | `docs/avaliacao/<rodada>-<interface>/` | skill do projeto `avaliacao-pelas-dcs`: o guia sai antes da leitura do autor e sem conclusão, a revisão depois do ditado; cada um num commit no `master`; a origem das posições vai numa linha do commit do texto |
-| Convenção de código, pastas ou ambiente | `implementacoes/AGENTS.md` | |
-| Mudança em código (`implementacoes/`, `bin/`, scripts), ferramentas ou `AGENTS.md` | numa worktree, em ramo próprio, que chega ao `master` revisado | seção "Código: ramo, revisão, merge" abaixo |
+| Convenção de código, pastas ou ambiente | `interfaces-graficas/AGENTS.md` | |
+| Mudança em código (`interfaces-graficas/`, `bin/`, scripts), ferramentas ou `AGENTS.md` | numa worktree, em ramo próprio, que chega ao `master` revisado | seção "Código: ramo, revisão, merge" abaixo |
 | Feedback de escrita e revisão bibliográfica | não vai para o repositório | skill `escrita-academica`; o que sobra vira tarefa no `bd` ou nota em `docs/` |
 | Frase nova ou alterada em `texto/*.org` | direto no `.org` do checkout principal; o commit espera a revisão | seção "Texto" abaixo e skill do projeto `revisao-de-texto` (ADR 0023) |
 | Cópia de uma fonte lida: PDF, página salva, texto extraído | `acervo/` do checkout principal, fora do git (ADR 0038) | a obra com chave no `refs.bib` em `acervo/<chave>.pdf`; a sem chave, na pasta do tipo; de onde cada cópia veio, em `acervo/procedencia.tsv` (ADR 0039; a regra está na seção "Texto"); mover uma cópia troca o caminho, na matriz e na tabela, no mesmo commit |
@@ -72,7 +72,7 @@ As tarefas vivem no [Beads](https://github.com/gastownhall/beads) (`bd`
   | `texto/cases.org`, `texto/results.org`, a análise por DC | Fase 2: análise das implementações (`tcc-d40`) |
   | `texto/prog.org`, `docs/bibliografia/programacao-funcional-e-reativa.md`, `docs/trabalhos-relacionados-e-lacuna.md` | Fase 3: capítulo de programação (`tcc-2o8`) |
   | `texto/conclusion.org`, o título, o texto do resumo | Fase 4: fechamento (`tcc-y8x`) |
-  | `implementacoes/`: código, especificação, testes de conformidade, capturas | Código das interfaces (`tcc-3jg`) |
+  | `interfaces-graficas/`: código, especificação, testes de conformidade, capturas | Código das interfaces (`tcc-3jg`) |
   | `texto/refs.bib`, `acervo/`, `docs/bibliografia/protocolo-da-revisao.md` | Bibliografia (`tcc-bkm`) |
   | `latex/`, pré-textuais, margens, legendas | Formatação do documento (`tcc-juu`) |
   | `bin/`, skills, Beads, PDFs, `AGENTS.md`, `readme.org` | Ferramentas e processo (`tcc-qko`) |
@@ -468,19 +468,19 @@ rascunho, e a história dele se condensa antes do merge (passo 5).
    principal. Uma tarefa por ramo, com um nome que a diga. A worktree
    usa o banco do `bd` do checkout principal (seção "Tarefas").
 2. **Primeira versão commitada** assim que roda e as conferências passam
-   (as capturas de `implementacoes/AGENTS.md`, os testes de `bin/`).
+   (as capturas de `interfaces-graficas/AGENTS.md`, os testes de `bin/`).
    `GIT_REVISAO_BASE=$(git merge-base master HEAD)
    bin/testes-da-revisao.py` roda só as que o ramo pede, contando o que
    ainda não foi commitado, com a escolha do passo 5; com `--mostrar`, só
    diz quais.
 3. **Revisão do ramo inteiro.** Quando o ramo muda código (os caminhos de
-   `.config/revisao`: `bin/`, scripts, `implementacoes/` menos capturas,
-   `.org` e `.md`, e o `.tool-versions`), rode a skill `linus-review`
-   sobre `$(git merge-base master HEAD)...HEAD`. Ramo só de instrução ou
-   documentação de ferramenta (`AGENTS.md`, `readme.org`) dispensa a
-   revisão, mas não o ramo. ADR, nota de `docs/` e tarefa seguem o
-   trabalho que as gera: com o texto, no `master`; com o código, no ramo.
-   Em todo ramo, com código ou sem, as mensagens de `git log
+   `.config/revisao`: `bin/`, scripts, `interfaces-graficas/` menos
+   capturas, `.org` e `.md`, e o `.tool-versions`), rode a skill
+   `linus-review` sobre `$(git merge-base master HEAD)...HEAD`. Ramo só de
+   instrução ou documentação de ferramenta (`AGENTS.md`, `readme.org`)
+   dispensa a revisão, mas não o ramo. ADR, nota de `docs/` e tarefa
+   seguem o trabalho que as gera: com o texto, no `master`; com o código,
+   no ramo. Em todo ramo, com código ou sem, as mensagens de `git log
    $(git merge-base master HEAD)..HEAD` passam pela checagem de fatos da
    skill `fact-check` (cartucho `references/commit-message.md`): na
    `linus-review`, é o eixo Facts; no ramo só de instrução, o subagente
@@ -513,7 +513,7 @@ rascunho, e a história dele se condensa antes do merge (passo 5).
    passar pelo hook que as confere no `git commit`; com outra árvore, a
    revisão do ramo inteiro. Então `git revisao pronto` na ponta
    nova, na worktree e sem código mudado fora do commit, nem especificação
-   quando o ramo a confere (`implementacoes/openspec/`, que o
+   quando o ramo a confere (`interfaces-graficas/openspec/`, que o
    `.config/revisao` não conta como código). Ele roda antes o
    `bin/testes-da-revisao.py` (a linha `teste:` do `.config/revisao`),
    que confere as mensagens da série (`bin/conferir-commit.py --serie`:
@@ -634,10 +634,10 @@ Mensagens em português, no imperativo, sem prefixo, explicando o problema
 antes da solução (skill `commit-message`). O commit que resolve uma tarefa
 fecha a tarefa e leva do `.beads/issues.jsonl` só as tarefas dele
 (`bin/juntar-tarefas.py --so`, seção "Tarefas"); o que altera uma
-implementação inclui as capturas (`implementacoes/AGENTS.md`). Com outra
-sessão no mesmo checkout, prepare só os próprios arquivos, por índice
-temporário (`GIT_INDEX_FILE`) se o índice compartilhado tiver mudanças
-alheias. No checkout principal, todo commit nomeia os arquivos
+implementação inclui as capturas (`interfaces-graficas/AGENTS.md`). Com
+outra sessão no mesmo checkout, prepare só os próprios arquivos, por
+índice temporário (`GIT_INDEX_FILE`) se o índice compartilhado tiver
+mudanças alheias. No checkout principal, todo commit nomeia os arquivos
 (`git commit -- <arquivos>`), porque o índice pode guardar o rascunho do
 texto que o autor ainda não aprovou.
 

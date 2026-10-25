@@ -1,6 +1,6 @@
 ---
 name: avaliacao-pelas-dcs
-description: Planeja, pré-analisa e revisa a avaliação do TCC pelas 14 Dimensões Cognitivas (DCs), interface por interface e rodada por rodada (primeira, segunda e terceira) — o plano da rodada, o guia de leitura do código por DC, factual e sem conclusão, que o agente entrega antes de o autor ler, e a revisão da análise que o autor ditou (Wispr Flow), conferida contra os trechos e as armadilhas, com a origem de cada posição registrada. Use sempre que for avaliar, analisar, pré-analisar ou ler uma implementação ou um diff de implementacoes/ pelas DCs, preparar a leitura de uma tecnologia que o autor conhece pouco (o Web Component, o Web Component com signals), revisar uma posição por DC, preencher a tabela-síntese ou dizer se a diferença entre os modelos de programação ficou mantida, ampliada, reduzida, anulada, invertida ou surgida — mesmo que o pedido não diga "DC", como "vamos ler a Reserva de passagem no Web Component", "o que olhar na viscosidade da segunda rodada" ou "confere minha análise da Busca". Não use para escrever ou revisar a frase do texto (revisao-de-texto) nem para implementar uma das interfaces.
+description: Planeja, pré-analisa e revisa a avaliação do TCC pelas 14 Dimensões Cognitivas (DCs), interface por interface e rodada por rodada (primeira, segunda e terceira) — o plano da rodada, o guia de leitura do código por DC, factual e sem conclusão, que o agente entrega antes de o autor ler, e a revisão da análise que o autor ditou (Wispr Flow), conferida contra os trechos e as armadilhas, com a origem de cada posição registrada. Use sempre que for avaliar, analisar, pré-analisar ou ler uma implementação ou um diff de interfaces-graficas/ pelas DCs, preparar a leitura de uma tecnologia que o autor conhece pouco (o Web Component, o Web Component com signals), revisar uma posição por DC, preencher a tabela-síntese ou dizer se a diferença entre os modelos de programação ficou mantida, ampliada, reduzida, anulada, invertida ou surgida — mesmo que o pedido não diga "DC", como "vamos ler a Reserva de passagem no Web Component", "o que olhar na viscosidade da segunda rodada" ou "confere minha análise da Busca". Não use para escrever ou revisar a frase do texto (revisao-de-texto) nem para implementar uma das interfaces.
 ---
 
 # Avaliação pelas DCs: plano, guia de leitura e revisão
@@ -44,14 +44,15 @@ Referências desta skill:
    comportamento, de desempenho ou de mecanismo interno sem marca no código
    não é sinal.
 3. **Tudo com o commit lido.** Plano, guia e revisão dizem o sha de
-   `implementacoes/` que leram; trecho sem `arquivo:linha` não entra.
+   `interfaces-graficas/` que leram; trecho sem `arquivo:linha` não entra.
 4. **O que não vem do código vem da documentação ou da execução.** A
    semântica de uma API, da documentação oficial, com a página e a data da
    leitura; o que o compilador, o teste ou a tela mostram, com o comando e
    a saída (o `tsc` ou o compilador da tecnologia numa cópia fora de
-   `implementacoes/`, no `tmp/` ou no diretório temporário da sessão, um
-   esquecimento por vez; nunca no código de `implementacoes/`). O resto
-   fica marcado "a conferir". Não explique uma API de memória ao autor.
+   `interfaces-graficas/`, no `tmp/` ou no diretório temporário da sessão,
+   um esquecimento por vez; nunca no código de `interfaces-graficas/`). O
+   resto fica marcado "a conferir". Não explique uma API de memória ao
+   autor.
 5. **Registro versionado em `docs/avaliacao/<rodada>-<interface>/`**
    (`primeira-rodada-reserva-de-passagem`, `segunda-rodada-busca`; as
    rodadas pelo ordinal, como no `GLOSSARY.md`): `plano.md`, `guia.md`,
@@ -63,14 +64,16 @@ Referências desta skill:
    (`git commit -- <arquivos>`). O que vai para o texto passa pela porta
    fechada e pela `revisao-de-texto`; achado de implementação vai para
    `docs/achados-das-implementacoes.md`.
-6. **Interface fora da análise** (o Contador, a Lista, o Carrinho e o
-   Quadro em `implementacoes/fora-da-analise/`), usada para calibrar a
-   leitura, como o primeiro *case study* de Kiss (2014, p. 18): os
-   mesmos passos, com os arquivos em `tmp/pesquisas/AAAA-MM-DD-calibracao-<interface>/`,
-   sem commit e sem ir para o texto. O código de lá não compila no
-   `master`; para executar (regra 4), use o commit anterior ao movimento,
-   pelo `implementacoes/fora-da-analise/README.org`, "Rodar". A especificação
-   é o `README.org` da interface, e, no Quadro, o `spec.md` ao lado dele.
+6. **Interface fora da análise** (a Lista, o Carrinho e o Quadro, que
+   saíram do repositório em 2026-10-25), usada para calibrar a leitura,
+   como o primeiro *case study* de Kiss (2014, p. 18): os mesmos passos,
+   com os arquivos em `tmp/pesquisas/AAAA-MM-DD-calibracao-<interface>/`,
+   sem commit e sem ir para o texto. O código está no commit anterior ao
+   que tirou a pasta `fora-da-analise/` (o comando que o acha está em
+   `interfaces-graficas/AGENTS.md`, última seção), e para executar (regra
+   4) use o commit anterior ao movimento de cada pasta, pelo `README.org`
+   de lá, "Rodar". A especificação é o `README.org` da interface, e, no
+   Quadro, o `spec.md` ao lado dele.
 7. **Celular.** O autor lê o guia e dita no celular: títulos curtos, uma
    DC por seção, listas em vez de tabelas largas, trechos de código curtos
    (até umas 8 linhas, com a linha de começo).
@@ -94,8 +97,9 @@ Entrada: a interface e a rodada. Saída: `plano.md` (modelo em
    perfil publicado):
    - Primeira rodada: busca e compreensão exploratória. O leitor procura
      onde o código escreve cada exigência de coordenação da interface
-     (especificação em `implementacoes/openspec/specs/<interface>/spec.md`)
-     e entende como as partes se ligam.
+     (especificação em
+     `interfaces-graficas/openspec/specs/<interface>/spec.md`) e entende
+     como as partes se ligam.
    - Segunda e terceira rodadas: modificação. O objeto é o diff de cada mudança, um commit
      por mudança, na mesma ordem em todas as tecnologias; a terceira
      refatora a Reserva de passagem e o Placar ao vivo para a forma do

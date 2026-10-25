@@ -4,8 +4,8 @@ Trabalho de conclusão que compara três modelos de programação de
 interfaces gráficas pelas Dimensões Cognitivas de Notações, aplicadas à
 notação com que cada tecnologia os escreve, com as mesmas interfaces
 implementadas em cinco tecnologias web, em três rodadas. Texto em
-`texto/`, código em `implementacoes/`, decisões em `docs/adr/`, definições
-e fontes dos termos em `docs/paradigma-modelo-e-notacao.md`.
+`texto/`, código em `interfaces-graficas/`, decisões em `docs/adr/`,
+definições e fontes dos termos em `docs/paradigma-modelo-e-notacao.md`.
 
 ## Language
 
@@ -245,8 +245,8 @@ descarte (tradução automática de *dispose*); desmontar sozinho
 inscrição, como em "Exigência de coordenação")
 
 **Página comum**:
-O módulo em TypeScript puro, `implementacoes/pagina.ts`, que hospeda a
-interface nas cinco tecnologias: monta-a no contêiner e a tira da página
+O módulo em TypeScript puro, `interfaces-graficas/pagina.ts`, que hospeda
+a interface nas cinco tecnologias: monta-a no contêiner e a tira da página
 pela rota do hash, para o teste conferir a limpeza ao sair da tela. A
 interface montada nela é a ilha, no sentido da arquitetura de ilhas, e
 cada implementação só traz o gancho de montagem, o par montar e desmontar
@@ -333,9 +333,10 @@ Placar ao vivo e o Circle Drawer refatorados, em cada vertente, nas cinco
 _Avoid_: versão, exemplo; solução (pede "problema" para a interface)
 
 **Conjunto analisado**:
-As implementações que a análise pelas DCs lê: todas as de
-`implementacoes/`, fora de `fora-da-analise/` e de `contraste/`, as sete
-interfaces nas cinco tecnologias (ADR 0012).
+As implementações que a análise pelas DCs lê, as sete interfaces nas
+cinco tecnologias (ADR 0012), em
+`interfaces-graficas/<interface>/analisadas/`; as de `contraste/`, ao
+lado, ficam de fora (ADR 0025).
 _Avoid_: recorte da análise (o recorte é o da pesquisa, ADR 0014); escopo;
 amostra (a amostra de tarefas é o conjunto das interfaces, no *benchmark*
 de notação)
