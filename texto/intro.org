@@ -259,6 +259,52 @@ dependem dela [[cite:bainomugisha2013][p. 52:2]].
   rodada, para a terceira trocar só a reconexão escrita no código pela da
   biblioteca.
 
+  #+CAPTION: Cadeia de pares das quatro tecnologias e as três rodadas da avaliação. Cada passo da cadeia muda o mínimo entre tecnologias vizinhas, e cada rodada responde a uma pergunta; na terceira, a Reserva de passagem e o Placar ao vivo passam à forma do ecossistema de cada tecnologia. Cinza: imperativo por atualização manual; verde: declarativo por atualização granular; roxo: declarativo por re-renderização.
+  #+NAME: fig:cadeia-e-rodadas
+  #+ATTR_LATEX: :options [htbp]
+  #+begin_figure
+  #+begin_export latex
+  \centering
+  \definecolor{corimperativo}{HTML}{5F5E5A}
+  \definecolor{corgranular}{HTML}{0F6E56}
+  \definecolor{correrender}{HTML}{534AB7}
+  \begin{tikzpicture}[
+      font=\footnotesize,
+      tec/.style={draw, rounded corners=2pt, minimum width=2.9cm, minimum height=1cm, text width=2.7cm, align=center},
+      cel/.style={draw, rounded corners=2pt, minimum width=2.9cm, minimum height=1.3cm, text width=2.7cm, align=center},
+      faixa/.style={draw=gray!60, rounded corners=2pt, minimum width=13.25cm, minimum height=1cm, text width=13cm, align=center, fill=gray!8},
+      rotulo/.style={text width=2.4cm, align=right, anchor=east},
+      passo/.style={font=\scriptsize, text width=2.6cm, align=center, anchor=south},
+      imp/.style={fill=corimperativo!18, draw=corimperativo},
+      gra/.style={fill=corgranular!18, draw=corgranular},
+      rer/.style={fill=correrender!18, draw=correrender},
+      seta/.style={-{Stealth[length=5pt]}, semithick},
+    ]
+    \node[tec, imp] (t1) at (0,0) {Web Component\\\scriptsize imperativo por atualização manual};
+    \node[tec, gra] (t2) at (3.45,0) {Web Component com \emph{signals}\\\scriptsize declarativo por atualização granular};
+    \node[tec, gra] (t3) at (6.9,0) {Solid\\\scriptsize declarativo por atualização granular};
+    \node[tec, rer] (t4) at (10.35,0) {React\\\scriptsize declarativo por re-renderização};
+    \draw[seta] (t1) -- (t2);
+    \draw[seta] (t2) -- (t3);
+    \draw[seta] (t3) -- (t4);
+    \node[passo] at (1.725,1.0) {1.º passo: a ligação do estado com a tela e a orquestração};
+    \node[passo] at (5.175,1.0) {2.º passo: a montagem da tela e o modelo de componente};
+    \node[passo] at (8.625,1.0) {3.º passo: o modelo de programação};
+    \node[rotulo] at (-1.65,-2.1) {1.ª rodada, P1:\\constrói};
+    \node[faixa] (f1) at (5.175,-2.1) {7 interfaces nas 4 tecnologias: 28 implementações\\\scriptsize cada implementação usa só o que a tecnologia traz; o Placar ao vivo fala WebSocket desde a primeira rodada};
+    \node[rotulo] at (-1.65,-3.6) {2.ª rodada, P1.1:\\cresce};
+    \node[faixa] (f2) at (5.175,-3.6) {13 mudanças, 52 \emph{commits}, sem bibliotecas\\\scriptsize funcionalidades e requisitos de orquestração, iguais nas quatro tecnologias};
+    \node[rotulo] at (-1.65,-5.3) {3.ª rodada, P1.2:\\só a forma, na Reserva de passagem e no Placar ao vivo};
+    \node[cel, imp] (c1) at (0,-5.3) {API da plataforma\\\scriptsize validação de restrições;\\\scriptsize\texttt{WebSocket}};
+    \node[cel, gra] (c2) at (3.45,-5.3) {segue o Web Component\\\scriptsize a mesma API da plataforma};
+    \node[cel, gra] (c3) at (6.9,-5.3) {biblioteca\\\scriptsize TanStack Solid Form;\\\scriptsize\texttt{@solid-primitives/}\\\scriptsize\texttt{websocket}};
+    \node[cel, rer] (c4) at (10.35,-5.3) {biblioteca\\\scriptsize\texttt{react-hook-form};\\\scriptsize\texttt{react-use-websocket}};
+    \draw[seta] (f1) -- (f2);
+    \draw[seta] (f2.south) -- (5.175,-4.55);
+  \end{tikzpicture}
+  #+end_export
+  #+end_figure
+
   A linguagem, a especificação e as regras de domínio ficam fixas, nas
   duas primeiras rodadas cada implementação usa só o que a tecnologia
   traz, e um teste de conformidade confere que as implementações de uma
