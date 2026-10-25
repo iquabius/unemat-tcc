@@ -23,12 +23,12 @@ para o de usabilidade e o de pesquisa. "Interface" tem três sentidos, e
 cada um ganha uma forma: o item leva o nome ou o número onde puder ser
 qualquer interface; o domínio fica no plural ou com "gráfica"; o tipo da
 POO nunca aparece em texto corrido, só a palavra-chave em código. O
-código das implementações vai de `casos/` para `implementacoes/` (ADR
-0025), e no código, onde `interface` é palavra reservada do TypeScript e
-do Kotlin, a variável de cada interface se chama `gui` (`guis` no
-plural), porque `pasta` já nomeia outras pastas nos scripts (a da
-tecnologia no `settings.gradle.kts`, a servida no
-`implementacoes-web.mts` e a das capturas no `capturar.mts`).
+código das implementações vai de `casos/` para `implementacoes/` e, em
+2026-10-25, para `interfaces-graficas/` (ADR 0025), e no código, onde
+`interface` é palavra reservada do TypeScript e do Kotlin, a variável de
+cada interface se chama `gui` (`guis` no plural), porque `pasta` já nomeia
+outras pastas nos scripts (a da tecnologia no `settings.gradle.kts`, a
+servida no `implementacoes-web.mts` e a das capturas no `capturar.mts`).
 
 Em vez de: "tarefa", o termo de Sim et al. e do 7GUIs; liga o texto à
 fonte sem tradução, mas é o mais abstrato e colide com o Quadro de
@@ -53,7 +53,7 @@ a interface gráfica em geral pede o nome ou o número. A introdução, os
 docs, os ADRs, as instruções, a especificação no OpenSpec e o código
 trocam "tarefa", "caso" e "problema de coordenação"; o registro da
 avaliação (`docs/avaliacao/`), as mudanças arquivadas do OpenSpec, o
-código congelado em `implementacoes/fora-da-analise/` e as tarefas do bd
+código congelado em `fora-da-analise/` até 2026-10-25 e as tarefas do bd
 fechadas ficam com os nomes antigos. As abertas e os épicos ("Código das
 interfaces", "Fase 2: análise das implementações") trocaram os títulos e
 os corpos em 2026-10-15, e as notas delas, que são registro, ficaram.

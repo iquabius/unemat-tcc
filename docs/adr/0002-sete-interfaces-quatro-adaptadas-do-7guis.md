@@ -114,14 +114,15 @@ Custo: duas interfaces novas (a planilha e o Circle Drawer) a
 especificar, testar e implementar nas quatro tecnologias, com cenas e
 capturas, e o Contador, que volta de `implementacoes/fora-da-analise/`
 com as regras comuns da primeira rodada e a implementação no Web
-Component com *signals*; o conversor, já implementado, vai para
-`implementacoes/fora-da-analise/`; o derivado nos dois sentidos só
+Component com *signals*; o conversor, já implementado, foi para
+`implementacoes/fora-da-analise/`, que saiu do repositório em
+2026-10-25 (ADR 0025); o derivado nos dois sentidos só
 entra na segunda rodada, e com a identidade, e não com uma fórmula e a
 inversa; o Contador não tem exigência de coordenação, e as células dele
 na tabela-síntese medem sobretudo a montagem e o modelo de componente,
 o que Kiss também observou ("dominated by the toolkit(s)", p. 20); o
 Quadro, implementado em Web Component, React, Solid, Lit e
-Angular com *signals*, vai para `implementacoes/fora-da-analise/`; a
+Angular com *signals*, foi para a mesma pasta; a
 Reserva de passagem fica enxuta como a de Kiss, e a especificação, o
 teste e as implementações dela mudam dentro da primeira rodada; os nomes
 novos mudam as pastas, as especificações, as tarefas e o texto; o

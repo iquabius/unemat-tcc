@@ -6,25 +6,25 @@ terceira rodada precisam de cada funcionalidade e requisito de
 orquestração escrito antes de implementar, a mesma mudança em todas as
 tecnologias, como o teste de viscosidade de Green e Petre (1996, p. 162)
 (ADR 0029). A especificação viva de cada interface passa a ser
-`implementacoes/openspec/specs/<interface>/spec.md`, no esquema
+`interfaces-graficas/openspec/specs/<interface>/spec.md`, no esquema
 *spec-driven* do OpenSpec 1.14.1 (npm, 2026-10-05), fixado no
-`package.json` de `implementacoes/` e rodado sem o fluxo de agente dele
-(`init --tools none`) e sem telemetria; o `README.org` fica só com a
+`package.json` de `interfaces-graficas/` e rodado sem o fluxo de agente
+dele (`init --tools none`) e sem telemetria; o `README.org` fica só com a
 apresentação. Requisitos e cenários se escrevem em português ("deve",
 QUANDO/ENTÃO), com os cabeçalhos que o CLI lê em inglês, e o nome de cada
 cenário é o nome de uma verificação do teste de conformidade, conferido em
 todas as tecnologias por `npm run conferir-especificacao`. A mudança
 entre rodadas, cada funcionalidade e requisito de orquestração da segunda
 rodada, entra como *delta spec* em
-`implementacoes/openspec/changes/<nome>/`, e o commit que muda o teste de
-conformidade a arquiva, fundindo o delta na especificação viva antes do
-commit de cada tecnologia; o delta arquivado é o que o texto cita como a
-mudança da rodada. A mudança dentro de uma rodada (correção, redação, uma
-regra ou um controle novo da primeira rodada) edita o `spec.md` direto,
-no mesmo commit do teste de conformidade, porque o texto não a cita como
-mudança, e o delta lhe custaria a proposta, o commit de revisão e o
-arquivamento; a interface nova continua a entrar por um delta, para a
-especificação ser revisada antes do código.
+`interfaces-graficas/openspec/changes/<nome>/`, e o commit que muda o
+teste de conformidade a arquiva, fundindo o delta na especificação viva
+antes do commit de cada tecnologia; o delta arquivado é o que o texto cita
+como a mudança da rodada. A mudança dentro de uma rodada (correção,
+redação, uma regra ou um controle novo da primeira rodada) edita o
+`spec.md` direto, no mesmo commit do teste de conformidade, porque o texto
+não a cita como mudança, e o delta lhe custaria a proposta, o commit de
+revisão e o arquivamento; a interface nova continua a entrar por um delta,
+para a especificação ser revisada antes do código.
 
 Em vez de: toda mudança num *delta spec*, inclusive as da primeira
 rodada (decisão de 2026-10-12); guarda em `changes/archive/` a história de
@@ -68,5 +68,5 @@ entraram por *delta spec*.
 Fontes: openspec.dev/docs/schemas/spec-driven (lida em 2026-10-11 e
 2026-10-12); o CLI 1.14.1 testado em 2026-10-12 (`init --tools none`, o
 aviso de SHALL/MUST, o `archive` de um delta REMOVED e MODIFIED); ADRs 0002,
-0025 e 0029; tarefa tcc-wlx; `implementacoes/AGENTS.md`, seção
+0025 e 0029; tarefa tcc-wlx; `interfaces-graficas/AGENTS.md`, seção
 "Especificação: OpenSpec".

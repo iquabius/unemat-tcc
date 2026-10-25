@@ -37,7 +37,7 @@ Em vez de, no Web Component com *signals*: um *signal* da lista copiada
 a cada mudança, como no React, ou um *signal* com `equals: false` sobre
 a lista alterada no lugar, como no Web Component; os dois afastariam o
 par com o Solid da diferença só na montagem e no modelo de componente,
-que a regra de 2026-10-23 do `implementacoes/AGENTS.md` pede.
+que a regra de 2026-10-23 do `interfaces-graficas/AGENTS.md` pede.
 Custo: o contraste entre guardar o comando e guardar a fotografia, onde
 Kiss viu a vantagem do Scala em viscosidade, concisão, propensão a erros
 e nível de abstração (p. 46-48), fica fora da análise; o arrastar da

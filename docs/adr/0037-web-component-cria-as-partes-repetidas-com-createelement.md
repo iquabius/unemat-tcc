@@ -19,13 +19,14 @@ HTML num texto, as três do Jellyfin (na busca de código do GitHub,
 não forma); na de 2026-10-21, de 15 repositórios, o `createElement` fica
 com o nó avulso e as partes repetidas, os *widgets* empacotados escrevem
 o esqueleto como HTML num texto, e o exemplo `editable-list` da MDN
-escreve o esqueleto num texto e cria os itens novos com `createElement`. A regra está em `implementacoes/AGENTS.md`.
-O Web Component com *signals* monta a tela do mesmo jeito, porque só a
-ligação do estado com a tela o separa do Web Component (ADR 0013): os
-itens se criam com `createElement`, e se a coleção se recria num efeito
-ou passa pelo `mapArray`, que guarda cada item criado, decide a tarefa
-dele (tcc-2pu0). Decisão do autor em 2026-10-15, mantida em 2026-10-22
-depois da amostra nova.
+escreve o esqueleto num texto e cria os itens novos com `createElement`. A
+regra está em `interfaces-graficas/AGENTS.md`. O Web Component com
+*signals* monta a tela do mesmo jeito, porque só a ligação do estado com a
+tela o separa do Web Component (ADR 0013): os itens se criam com
+`createElement`, e se a coleção se recria num efeito ou passa pelo
+`mapArray`, que guarda cada item criado, decide a tarefa dele (tcc-2pu0).
+Decisão do autor em 2026-10-15, mantida em 2026-10-22 depois da amostra
+nova.
 
 Em vez de: a árvore inteira em `createElement`, para manter uma
 tecnologia que monte a tela de forma imperativa e pela familiaridade de

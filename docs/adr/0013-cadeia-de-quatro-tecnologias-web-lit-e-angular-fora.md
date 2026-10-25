@@ -21,7 +21,7 @@ e, com ele, o que a re-renderização muda na montagem: o *template* do
 `html` do Lit, com o mesmo HTML do esqueleto, no lugar do `innerHTML`
 atribuído uma vez, e o `map` no lugar do laço de `createElement` nas
 partes repetidas (decisões do autor em 2026-10-25, tcc-cp6c;
-`implementacoes/AGENTS.md`). O Web Component com *signals* usa o
+`interfaces-graficas/AGENTS.md`). O Web Component com *signals* usa o
 `solid-js` (1.9.15 no `package-lock.json`) só como biblioteca de
 reatividade: a classe que estende `HTMLElement`, o esqueleto em HTML num
 texto atribuído ao `innerHTML` uma vez e o `createElement` nas partes
@@ -44,11 +44,13 @@ modelo de componente: a classe registrada como elemento, com o
 que não formam par, se atribui ao passo da cadeia em que ela aparece, e
 a que nenhum passo explica, pelo sinal escrito (ADR 0021; decisão do
 autor em 2026-10-19); a parte que vem só da re-renderização se lê no
-par Web Component × Lit. O Angular com *signals* vai para
-`implementacoes/fora-da-analise/` (tcc-mbrc) e para os trabalhos futuros
-da conclusão (tcc-dpci), e volta, fora do conjunto analisado, no
-contraste depois da análise, na Busca e no Placar ao vivo, com o RxJS
-onde há orquestração de eventos (ADR 0042); o jQuery, o Angular com RxJS
+par Web Component × Lit. O Angular com *signals* sai da análise e vai
+para os trabalhos futuros da conclusão (tcc-dpci); o código dele, que
+ficou congelado na pasta `fora-da-analise/` de 2026-10-19 (tcc-mbrc) a
+2026-10-25, saiu do repositório com ela, e o Angular volta, fora do
+conjunto analisado, no contraste depois da análise, na Busca e no
+Placar ao vivo, com o RxJS onde há orquestração de eventos (ADR 0042);
+o jQuery, o Angular com RxJS
 como modelo de programação à parte e o Lit com `@lit-labs/signals`
 continuam fora. Na primeira e na segunda rodada, cada implementação usa
 só o que a tecnologia traz, sem bibliotecas de formulário; na terceira,
@@ -164,7 +166,7 @@ Fontes: `tmp/pesquisas/2026-10-17-par-imperativo-granular-na-web.md`
 Developer Survey 2025; docs.solidjs.com, *createEffect*, *createRoot* e
 *mapArray* (atualizadas em 2026-04-28); lit.dev/docs/data/signals
 (lida em 2026-10-17); Google (2026d), *Lifecycle*, em
-`texto/fontes/google2026d.org`; `implementacoes/AGENTS.md`, o item do
+`texto/fontes/google2026d.org`; `interfaces-graficas/AGENTS.md`, o item do
 Lit; `docs/processo/estimativa-de-paginas.md`; ADRs 0001, 0002, 0014,
 0017, 0021, 0029, 0031, 0037 e 0042; tarefas tcc-2pu0, tcc-mbrc,
 tcc-dpci, tcc-cp6c e tcc-7qty.

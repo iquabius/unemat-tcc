@@ -64,5 +64,5 @@ vindo do Java no *desktop* não conhece, precisa de uma frase no método.
 Fontes: `tmp/pesquisas/2026-10-21-montagem-e-estilo/` (fora do git), com
 as páginas do react.dev e do docs.solidjs.com, o State of React 2025, os
 modelos do create-vite e a amostra de Web Components; Kiss (2014, p. 16
-e 17); Green et al. (2006, p. 342); `implementacoes/*/estilo.css`; ADRs
-0008, 0013, 0029 e 0031.
+e 17); Green et al. (2006, p. 342); `interfaces-graficas/*/estilo.css`;
+ADRs 0008, 0013, 0029 e 0031.

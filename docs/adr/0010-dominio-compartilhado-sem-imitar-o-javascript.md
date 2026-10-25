@@ -10,9 +10,9 @@ interface, compartilhado pelo Web Component, pelo Web Component com
 *signals*, pelo React e pelo Solid (ADR 0013). O que a análise compara,
 inclusive a alteração do estado (ADR 0033), fica em cada implementação.
 Os portes do domínio em Kotlin e em C++, de quando o Android e o
-*desktop* estavam na análise, ficam congelados em
-`implementacoes/fora-da-analise/`, com as diferenças que este ADR
-registrava (ADRs 0001 e 0005).
+*desktop* estavam na análise, ficaram congelados na pasta
+`fora-da-analise/`, com as diferenças que este ADR registrava, até
+saírem do repositório com ela em 2026-10-25 (ADRs 0001 e 0005).
 
 Em vez de: a versão de 2026-09-26 deste ADR, com o `dominio.ts`
 portado para `dominio-kotlin/` (e depois para `dominio-cpp/`) com os
@@ -35,6 +35,7 @@ real tem no navegador; nos portes congelados, um e-mail com espaço não
 separável no meio passa no Kotlin e não no JavaScript.
 
 Fontes: commits `384b7a5` e `ae24a32`;
-`implementacoes/fora-da-analise/formulario/dominio-kotlin/test/DominioTest.kt`;
-`implementacoes/AGENTS.md`, regra do `dominio.ts`; ADRs 0001, 0005,
+`interfaces-graficas/fora-da-analise/formulario/dominio-kotlin/test/DominioTest.kt`,
+no commit anterior ao que tirou a pasta;
+`interfaces-graficas/AGENTS.md`, regra do `dominio.ts`; ADRs 0001, 0005,
 0013, 0031 e 0033.

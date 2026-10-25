@@ -9,21 +9,21 @@ página, com o botão "Esconder X"/"Mostrar X", escrito de novo em cada
 tecnologia: código que a contagem de linhas da concisão (ADR 0012)
 contaria e que não é especificação de interface alguma nem a notação
 comparada, com uma captura "escondido" por implementação que só mostrava
-o botão. A página sai das implementações para `implementacoes/pagina.ts`,
-um módulo comum em TypeScript puro, importado por caminho relativo como o
-`dominio.ts` (ADR 0010): um roteador de hash com duas rotas, sem hash
-com a interface montada em `#raiz` e `#/` sem ela, sem cabeçalho, botão
-nem CSS. O teste sai da tela e volta trocando `location.hash`, e a cena
-"escondido" sai das capturas. Cada implementação fica com a ilha e com o
-par montar e desmontar no idioma da tecnologia, em poucas linhas:
-`createElement`, `append` e `remove()` no Web Component e no Web
-Component com *signals*, em que o `remove()` dispara o
-`disconnectedCallback`; `createRoot(el).render(...)` e `root.unmount()`
-no React; `render(...)` e o `dispose` devolvido no Solid. A limpeza (o
-`disconnectedCallback`, o retorno do `useEffect`, o `onCleanup`) continua
-em cada implementação, que é o que se compara. É a arquitetura de ilhas
-sem *framework* de ilhas: a página estática hospeda a ilha e decide
-quando ela entra e sai. Decisão do autor em 2026-10-24.
+o botão. A página sai das implementações para
+`interfaces-graficas/pagina.ts`, um módulo comum em TypeScript puro,
+importado por caminho relativo como o `dominio.ts` (ADR 0010): um roteador
+de hash com duas rotas, sem hash com a interface montada em `#raiz` e `#/`
+sem ela, sem cabeçalho, botão nem CSS. O teste sai da tela e volta
+trocando `location.hash`, e a cena "escondido" sai das capturas. Cada
+implementação fica com a ilha e com o par montar e desmontar no idioma da
+tecnologia, em poucas linhas: `createElement`, `append` e `remove()` no
+Web Component e no Web Component com *signals*, em que o `remove()`
+dispara o `disconnectedCallback`; `createRoot(el).render(...)` e
+`root.unmount()` no React; `render(...)` e o `dispose` devolvido no Solid.
+A limpeza (o `disconnectedCallback`, o retorno do `useEffect`, o
+`onCleanup`) continua em cada implementação, que é o que se compara. É a
+arquitetura de ilhas sem *framework* de ilhas: a página estática hospeda a
+ilha e decide quando ela entra e sai. Decisão do autor em 2026-10-24.
 
 Em vez de: a página repetida em cada tecnologia, com o botão, o estado
 de 2026-10-12 a 2026-10-24; testa na própria tela e não pede módulo
