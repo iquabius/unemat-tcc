@@ -1,11 +1,14 @@
 # 0024. Cada marco do TCC ganha uma tag anotada `v0.N`, com o nome na primeira linha da mensagem
 
-2026-10-05. Os PDFs com o diff do texto eram gerados à mão entre hashes, a
+2026-10-25. Os PDFs com o diff do texto eram gerados à mão entre hashes, a
 única tag (`v0.1`) era de 2020, e o diff de uma entrega cobre dezenas de
 commits. Cada marco ganha uma tag anotada `v0.N`, em ordem: de `v0.2`
 (`3806425`, o último trabalho de 2020) a `v0.9` (`2a9d0b3`, a introdução
-antes do corte do ADR 0022), depois uma por fase fechada, e `v1.0` é a
-versão depositada para a banca. A primeira linha da mensagem é o nome do
+antes do corte do ADR 0022), depois uma por marco que o autor nomeia ao
+fechar um trabalho, e não por fase: a `v0.10` com as quatro tecnologias
+web na introdução e as figuras do delineamento (`5c0f2b8`), a `v0.11`
+com o redesenho da terceira rodada em vertentes (decisão de
+2026-10-25); `v1.0` é a versão depositada para a banca. A primeira linha da mensagem é o nome do
 marco, título da release, e o resto, o corpo, com cada parágrafo numa
 linha. A tag leva a data do commit que marca. Cada release
 (`bin/preparar-release.sh`, como rascunho) leva o PDF do texto, o do diff
@@ -15,6 +18,11 @@ resumo; o corpo diz as páginas alteradas por seção. Até a banca aceitar,
 a capa e a folha de rosto dizem "U Boneque", a versão (ou o intervalo, no
 diff), o nome do marco e a data da tag (DD/MM/AAAA), no lugar do ano.
 
+Em vez de: uma tag por fase fechada, depois da `v0.9` (decisão de
+2026-10-05); casaria com as quatro fases do roteiro, mas os marcos
+pedidos em 2026-10-24 e 2026-10-25, o ajuste do delineamento, a
+conferência dos callbacks e o redesenho da terceira rodada, caem todos
+dentro da Fase 1, que ficaria sem ponto fixo entre eles (tcc-cv7c).
 Em vez de: nomes descritivos (`retomada`, `recorte`, `fase-1`); leem-se
 sem consulta, mas sem ordem própria e destoando da `v0.1`.
 Em vez de: `v0.N` mais um apelido `fase-N`; o diff da entrega se pediria
@@ -46,4 +54,4 @@ como os do sumário, não levam a lugar nenhum; e as páginas não aparecem no c
 PDF.
 
 Fontes: `gh release create --help`, `gh` 2.100.0 (2026-10-04); tarefas
-tcc-8kw, tcc-6ah e tcc-3jd.
+tcc-8kw, tcc-6ah, tcc-3jd e tcc-cv7c.
