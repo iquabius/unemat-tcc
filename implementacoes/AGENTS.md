@@ -271,21 +271,32 @@ A mudança não se porta para o código da interface em
   interface em tudo que não é a ligação do estado com a tela (decisão do
   autor em 2026-10-25, tcc-cp6c): a mesma classe, registrada com
   `customElements.define`, a mesma orquestração e o mesmo gancho de
-  montagem da página comum. A forma de cada parte, abaixo, vem das três
-  primeiras implementações, a Reserva de passagem, o Placar ao vivo e o
-  Circle Drawer (2026-10-25):
+  montagem da página comum, ou a montagem direta no `index.html` no
+  Contador e na Planilha. A forma de cada parte, abaixo, vem das sete
+  implementações (2026-10-25):
   - sem *shadow DOM*: `createRenderRoot()` devolve o próprio elemento,
     para o `estilo.css` comum valer;
-  - o estado que a tela mostra é `@state()`, o tratador o altera e o
-    `render()` descreve a tela num *template* do `html` do Lit, com o
-    mesmo HTML e as mesmas classes do esqueleto do Web Component, menos
-    os atributos que ele só usa para achar o nó, como o `data-erro` da
-    Reserva, porque o *template* já liga o nó; os elementos que o Web
-    Component esconde com `hidden` ficam montados, com `?hidden`;
+  - o estado que a tela mostra é `@state()`, inclusive o que o Web
+    Component guarda como estado da coordenação, como a conexão do
+    Placar e os segundos do Login, com o porquê num comentário; o
+    tratador o altera e o `render()` descreve a tela num *template* do
+    `html` do Lit, com o mesmo HTML e as mesmas classes do esqueleto do
+    Web Component, menos os atributos que ele só usa para achar o nó,
+    como o `data-erro` da Reserva, porque o *template* já liga o nó; os
+    elementos que o Web Component esconde com `hidden` ficam montados,
+    com `?hidden`;
   - as partes repetidas saem de um `map` no *template*, no lugar do laço
     de `createElement`, porque é isso que a re-renderização muda na
     montagem; o `repeat` do Lit, que guarda cada item pela chave, só
-    onde os itens se reordenam, o que nenhuma das três faz;
+    onde os itens se reordenam, o que nenhuma das sete faz;
+  - o campo de texto leva o estado pelo `.value` quando o programa troca
+    o texto dele depois de o usuário o editar, como a escolha da Busca e
+    o Esc da Planilha, porque, depois da edição, o atributo `value` já
+    não muda o texto mostrado; a Reserva, que só escreve a data de hoje
+    ao abrir, usa o mesmo `.value`. O Lit só escreve no campo o valor
+    que mudou desde o último `render()`, e por isso o tratador do
+    `@input` copia cada tecla para o estado; o campo que só se lê, como
+    o nome e a senha do Login, só copia, sem `.value`;
   - a orquestração (a requisição, o relógio, a conexão, o ouvinte) se
     escreve como no Web Component, no tratador, no `connectedCallback`
     e no `disconnectedCallback`, que chamam o `super`, e não como no
@@ -294,7 +305,8 @@ A mudança não se porta para o código da interface em
     de `@query`, e o que o *template* não monta, como o desenho no
     canvas, se faz no `updated()`;
   - o que o Web Component altera no lugar se altera no lugar, seguido de
-    `requestUpdate()`, porque o Lit compara o `@state()` por referência.
+    `requestUpdate()`, porque o Lit compara o `@state()` por referência,
+    como a lista do Circle Drawer e os mapas da Planilha.
     A documentação do Lit recomenda os dados imutáveis, e se o idioma do
     Lit, no sentido do ADR 0040, é a alteração no lugar ou a cópia é
     dúvida do autor, registrada no commit do Circle Drawer; até ele
