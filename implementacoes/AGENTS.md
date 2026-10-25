@@ -267,6 +267,43 @@ A mudança não se porta para o código da interface em
   o `createRenderEffect` não faz falta. O *signal* lido fora de um efeito
   ou de um `createMemo` não é acompanhado, e a tela fica com o valor da
   primeira leitura. O `solid-js` 2.0 muda a assinatura do `createEffect`.
+- No Lit (`<interface>/lit/`), a implementação é a do Web Component da
+  interface em tudo que não é a ligação do estado com a tela (decisão do
+  autor em 2026-10-25, tcc-cp6c): a mesma classe, registrada com
+  `customElements.define`, a mesma orquestração e o mesmo gancho de
+  montagem da página comum. A forma de cada parte, abaixo, vem das três
+  primeiras implementações, a Reserva de passagem, o Placar ao vivo e o
+  Circle Drawer (2026-10-25):
+  - sem *shadow DOM*: `createRenderRoot()` devolve o próprio elemento,
+    para o `estilo.css` comum valer;
+  - o estado que a tela mostra é `@state()`, o tratador o altera e o
+    `render()` descreve a tela num *template* do `html` do Lit, com o
+    mesmo HTML e as mesmas classes do esqueleto do Web Component, menos
+    os atributos que ele só usa para achar o nó, como o `data-erro` da
+    Reserva, porque o *template* já liga o nó; os elementos que o Web
+    Component esconde com `hidden` ficam montados, com `?hidden`;
+  - as partes repetidas saem de um `map` no *template*, no lugar do laço
+    de `createElement`, porque é isso que a re-renderização muda na
+    montagem; o `repeat` do Lit, que guarda cada item pela chave, só
+    onde os itens se reordenam, o que nenhuma das três faz;
+  - a orquestração (a requisição, o relógio, a conexão, o ouvinte) se
+    escreve como no Web Component, no tratador, no `connectedCallback`
+    e no `disconnectedCallback`, que chamam o `super`, e não como no
+    Solid;
+  - o elemento que um tratador chama (o `showModal()` de um diálogo) vem
+    de `@query`, e o que o *template* não monta, como o desenho no
+    canvas, se faz no `updated()`;
+  - o que o Web Component altera no lugar se altera no lugar, seguido de
+    `requestUpdate()`, porque o Lit compara o `@state()` por referência.
+    A documentação do Lit recomenda os dados imutáveis, e se o idioma do
+    Lit, no sentido do ADR 0040, é a alteração no lugar ou a cópia é
+    dúvida do autor, registrada no commit do Circle Drawer; até ele
+    decidir, a alteração fica no lugar, como no Web Component.
+
+  Os decoradores são os do TypeScript (`experimentalDecorators` e
+  `useDefineForClassFields: false` no `tsconfig.json` da
+  implementação), como no modelo `lit-ts` do create-vite, sem Babel. O
+  Lit com `@lit-labs/signals` fica fora (ADR 0013).
 
 ## Teste de conformidade na web
 
