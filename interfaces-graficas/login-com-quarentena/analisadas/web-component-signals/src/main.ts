@@ -7,9 +7,9 @@ import {
   iniciarRelogio,
   podeEntrar,
   tempoDeSessao,
-} from "../../dominio";
-import { hospedar } from "../../../pagina";
-import "../../estilo.css";
+} from "../../../dominio";
+import { hospedar } from "../../../../pagina";
+import "../../../estilo.css";
 
 type Situacao = keyof typeof MENSAGENS;
 

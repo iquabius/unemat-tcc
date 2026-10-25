@@ -12,9 +12,9 @@ import {
   golsNovos,
   noPalpite,
   type Lote,
-} from "../../dominio";
-import { hospedar } from "../../../pagina";
-import "../../estilo.css";
+} from "../../../dominio";
+import { hospedar } from "../../../../pagina";
+import "../../../estilo.css";
 
 function PainelDePlacares() {
   const [pausado, setPausado] = useState(false);

@@ -8,8 +8,8 @@ import {
   formatar,
   referencias,
   type Valor,
-} from "../../dominio";
-import "../../estilo.css";
+} from "../../../dominio";
+import "../../../estilo.css";
 
 class OrcamentoDoMes extends LitElement {
   // O estado: a fórmula e o valor de cada célula, as células que citam cada

@@ -6,8 +6,8 @@ import {
   formatar,
   referencias,
   type Valor,
-} from "../../dominio";
-import "../../estilo.css";
+} from "../../../dominio";
+import "../../../estilo.css";
 
 const modelo = /* HTML */ `
   <main class="planilha">

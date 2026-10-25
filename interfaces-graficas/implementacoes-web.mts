@@ -39,7 +39,7 @@ export async function implementacoes(
     if (!existsSync(path.join(IMPLEMENTACOES, "openspec", "specs", gui)))
       continue;
     for (const tecnologia of TECNOLOGIAS) {
-      const projeto = path.join(IMPLEMENTACOES, gui, tecnologia);
+      const projeto = path.join(IMPLEMENTACOES, gui, "analisadas", tecnologia);
       if (!existsSync(path.join(projeto, "package.json"))) continue;
       const escolhido =
         filtros.length === 0 ||
@@ -85,7 +85,7 @@ export async function construirEServir(
   gui: string,
   tecnologia: string,
 ): Promise<{ endereco: string; servidor: Server }> {
-  const projeto = path.join(IMPLEMENTACOES, gui, tecnologia);
+  const projeto = path.join(IMPLEMENTACOES, gui, "analisadas", tecnologia);
   execFileSync(
     "npm",
     ["run", "build", "-w", path.relative(IMPLEMENTACOES, projeto)],

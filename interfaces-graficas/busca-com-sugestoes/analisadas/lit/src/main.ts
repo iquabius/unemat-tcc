@@ -7,9 +7,9 @@ import {
   foiCancelada,
   rotulo,
   type Cidade,
-} from "../../dominio";
-import { hospedar } from "../../../pagina";
-import "../../estilo.css";
+} from "../../../dominio";
+import { hospedar } from "../../../../pagina";
+import "../../../estilo.css";
 
 class BuscaDeDestino extends LitElement {
   // Estado da tela: alterá-lo agenda o render() de novo. O texto do campo,

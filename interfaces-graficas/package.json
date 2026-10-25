@@ -3,11 +3,11 @@
   "private": true,
   "description": "Implementações das interfaces gráficas do TCC, um projeto por interface e tecnologia",
   "workspaces": [
-    "*/web-component",
-    "*/web-component-signals",
-    "*/lit",
-    "*/react",
-    "*/solid"
+    "*/analisadas/web-component",
+    "*/analisadas/web-component-signals",
+    "*/analisadas/lit",
+    "*/analisadas/react",
+    "*/analisadas/solid"
   ],
   "scripts": {
     "capturas": "node capturar.mts",

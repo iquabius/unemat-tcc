@@ -8,9 +8,9 @@ import {
   iniciarRelogio,
   podeEntrar,
   tempoDeSessao,
-} from "../../dominio";
-import { hospedar } from "../../../pagina";
-import "../../estilo.css";
+} from "../../../dominio";
+import { hospedar } from "../../../../pagina";
+import "../../../estilo.css";
 
 class PainelDeLogin extends LitElement {
   // Estado da tela: alterá-lo agenda o render() de novo. O que se digitou,

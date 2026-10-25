@@ -14,9 +14,9 @@ import {
   foiCancelada,
   rotulo,
   type Cidade,
-} from "../../dominio";
-import { hospedar } from "../../../pagina";
-import "../../estilo.css";
+} from "../../../dominio";
+import { hospedar } from "../../../../pagina";
+import "../../../estilo.css";
 
 function BuscaDeDestino() {
   const [texto, setTexto] = createSignal("");

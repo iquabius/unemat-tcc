@@ -14,9 +14,9 @@ import {
   tituloDoAjuste,
   type Circulo,
   type Ponto,
-} from "../../dominio";
-import { hospedar } from "../../../pagina";
-import "../../estilo.css";
+} from "../../../dominio";
+import { hospedar } from "../../../../pagina";
+import "../../../estilo.css";
 
 function AreaDeDesenho() {
   // O estado: a lista de círculos, trocada por uma cópia a cada alteração,

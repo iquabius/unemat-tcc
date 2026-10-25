@@ -6,9 +6,9 @@ import {
   iniciarRelogio,
   podeEntrar,
   tempoDeSessao,
-} from "../../dominio";
-import { hospedar } from "../../../pagina";
-import "../../estilo.css";
+} from "../../../dominio";
+import { hospedar } from "../../../../pagina";
+import "../../../estilo.css";
 
 const modelo = /* HTML */ `
   <section class="painel">

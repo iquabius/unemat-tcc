@@ -14,9 +14,9 @@ import {
   foiCancelado,
   hoje,
   type TipoDeViagem,
-} from "../../dominio";
-import { hospedar } from "../../../pagina";
-import "../../estilo.css";
+} from "../../../dominio";
+import { hospedar } from "../../../../pagina";
+import "../../../estilo.css";
 
 const modelo = /* HTML */ `
   <section class="painel">

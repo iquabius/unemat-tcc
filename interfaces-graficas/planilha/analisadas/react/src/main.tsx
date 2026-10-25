@@ -8,8 +8,8 @@ import {
   formatar,
   referencias,
   type Valor,
-} from "../../dominio";
-import "../../estilo.css";
+} from "../../../dominio";
+import "../../../estilo.css";
 
 type Formulas = Record<string, string>;
 type Valores = Record<string, Valor>;

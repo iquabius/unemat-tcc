@@ -1,6 +1,6 @@
 import { LitElement, html } from "lit";
 import { state } from "lit/decorators.js";
-import "../../estilo.css";
+import "../../../estilo.css";
 
 class ContadorElemento extends LitElement {
   // Estado da tela: alterá-lo agenda o render() de novo.

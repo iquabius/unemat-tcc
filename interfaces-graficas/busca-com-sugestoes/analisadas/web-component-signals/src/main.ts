@@ -13,9 +13,9 @@ import {
   foiCancelada,
   rotulo,
   type Cidade,
-} from "../../dominio";
-import { hospedar } from "../../../pagina";
-import "../../estilo.css";
+} from "../../../dominio";
+import { hospedar } from "../../../../pagina";
+import "../../../estilo.css";
 
 const modelo = /* HTML */ `
   <section class="painel">

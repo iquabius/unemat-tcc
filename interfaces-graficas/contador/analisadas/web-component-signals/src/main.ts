@@ -1,5 +1,5 @@
 import { createEffect, createRoot, createSignal } from "solid-js";
-import "../../estilo.css";
+import "../../../estilo.css";
 
 const modelo = /* HTML */ `
   <main class="contador">

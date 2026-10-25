@@ -15,8 +15,8 @@ import {
   avaliar,
   formatar,
   type Valor,
-} from "../../dominio";
-import "../../estilo.css";
+} from "../../../dominio";
+import "../../../estilo.css";
 
 function OrcamentoDoMes() {
   const celulas: Record<

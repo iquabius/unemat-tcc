@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { createRoot } from "react-dom/client";
-import "../../estilo.css";
+import "../../../estilo.css";
 
 function Contador({ valorInicial }: { valorInicial: number }) {
   const [contador, setContador] = useState(valorInicial);

@@ -9,9 +9,9 @@ import {
   foiCancelado,
   hoje,
   type TipoDeViagem,
-} from "../../dominio";
-import { hospedar } from "../../../pagina";
-import "../../estilo.css";
+} from "../../../dominio";
+import { hospedar } from "../../../../pagina";
+import "../../../estilo.css";
 
 function ReservaDePassagem() {
   const [tipo, setTipo] = useState<TipoDeViagem>("ida");

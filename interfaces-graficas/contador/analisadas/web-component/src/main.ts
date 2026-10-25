@@ -1,4 +1,4 @@
-import "../../estilo.css";
+import "../../../estilo.css";
 
 const modelo = /* HTML */ `
   <main class="contador">

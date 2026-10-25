@@ -1,6 +1,6 @@
 import { createSignal } from "solid-js";
 import { render } from "solid-js/web";
-import "../../estilo.css";
+import "../../../estilo.css";
 
 function Contador(props: { valorInicial: number }) {
   const [contador, setContador] = createSignal(props.valorInicial);

@@ -9,9 +9,9 @@ import {
   foiCancelado,
   hoje,
   type TipoDeViagem,
-} from "../../dominio";
-import { hospedar } from "../../../pagina";
-import "../../estilo.css";
+} from "../../../dominio";
+import { hospedar } from "../../../../pagina";
+import "../../../estilo.css";
 
 class ReservaDePassagem extends LitElement {
   // Estado da tela: alterá-lo agenda o render() de novo.
