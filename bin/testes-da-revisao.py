@@ -3,7 +3,7 @@
 marcar a ponta (a linha "teste:" do .config/revisao): a conferência das
 mensagens da série e, escolhidos pelo diff de GIT_REVISAO_BASE a
 GIT_REVISAO_PONTA nos caminhos de código da lista e na especificação
-(implementacoes/openspec/, que a lista deixa de fora por ser .md), os
+(interfaces-graficas/openspec/, que a lista deixa de fora por ser .md), os
 testes do que mudou.
 
     uso: bin/testes-da-revisao.py [--mostrar]
@@ -25,18 +25,19 @@ O que muda escolhe o que roda:
   no ramo que não muda código;
 - um arquivo de uma pasta que tem test_*.py, como bin/: a unittest da
   pasta;
-- implementacoes/<interface>/: o teste de conformidade e as capturas
+- interfaces-graficas/<interface>/: o teste de conformidade e as capturas
   (--conferir) dela, a especificação e a formatação;
-- implementacoes/openspec/: a especificação;
-- implementacoes/fora-da-analise/: nada, porque o código dali está
+- interfaces-graficas/openspec/: a especificação;
+- interfaces-graficas/autorais/: nada, porque o código dali está
   congelado;
-- o resto de implementacoes/ (package.json, capturar.mts...): o teste
+- o resto de interfaces-graficas/ (package.json, capturar.mts...): o teste
   de conformidade e as capturas de todas as interfaces, a especificação
   e a formatação;
 - .config/revisao, .tool-versions, ou nenhuma base: tudo.
 
-Roda na worktree em que se marca. A que não tem implementacoes/node_modules,
-ou cujo diff muda o package.json ou o package-lock.json, ganha um npm ci.
+Roda na worktree em que se marca. A que não tem
+interfaces-graficas/node_modules, ou cujo diff muda o package.json ou o
+package-lock.json, ganha um npm ci.
 Para no primeiro comando que falha, com a saída dele.
 """
 import os
@@ -45,7 +46,7 @@ import sys
 from pathlib import Path
 
 RAIZ = Path(__file__).resolve().parent.parent
-IMPL = "implementacoes"
+IMPL = "interfaces-graficas"
 OPENSPEC = f"{IMPL}/openspec"
 TUDO = {".config/revisao", ".tool-versions"}
 DEPENDENCIAS = {f"{IMPL}/package.json", f"{IMPL}/package-lock.json"}
@@ -156,7 +157,7 @@ def escolher(arquivos, testes, guis, tudo=False):
             tudo = True
         elif a.startswith(f"{OPENSPEC}/"):
             spec = True
-        elif pasta_impl == "fora-da-analise":
+        elif pasta_impl == "autorais":
             pass  # congelado: não compila, não se testa nem se captura
         elif pasta_impl in guis:
             impl = True
@@ -181,7 +182,7 @@ def escolher(arquivos, testes, guis, tudo=False):
 def preparar(arquivos):
     """Dá à worktree os node_modules, que o git não guarda."""
     if not (RAIZ / IMPL / "node_modules").is_dir() or DEPENDENCIAS & set(arquivos):
-        print("testes da revisão: npm ci em implementacoes/", file=sys.stderr, flush=True)
+        print("testes da revisão: npm ci em interfaces-graficas/", file=sys.stderr, flush=True)
         subprocess.run(["npm", "ci", "--no-audit", "--no-fund"], cwd=RAIZ / IMPL, check=True)
 
 

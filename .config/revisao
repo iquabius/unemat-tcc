@@ -8,7 +8,7 @@ teste: bin/testes-da-revisao.py
 bin/
 *.py
 *.sh
-implementacoes/
-:!implementacoes/*/capturas/*
+interfaces-graficas/
+:!interfaces-graficas/*/capturas/*
 :!*.org
 :!*.md
