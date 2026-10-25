@@ -4,9 +4,9 @@ Referência. Lista, interface por interface, as exigências de coordenação
 que as especificações e as decisões definem nos dois eixos
 (`GLOSSARY.md`), agrupadas em tipos, e diz em que rodada cada tipo
 aparece. Lida em 2026-10-15 nos `spec.md` de
-`implementacoes/openspec/specs/` e nos ADRs 0002, 0005 e 0029, e revista
-em 2026-10-19 com as sete interfaces e as rodadas dos ADRs 0002 e 0029,
-e em 2026-10-22 com o Contador no lugar do conversor de moedas (ADR
+`interfaces-graficas/openspec/specs/` e nos ADRs 0002, 0005 e 0029, e
+revista em 2026-10-19 com as sete interfaces e as rodadas dos ADRs 0002 e
+0029, e em 2026-10-22 com o Contador no lugar do conversor de moedas (ADR
 0002); as mudanças sem especificação entram pelas decisões, e os tipos
 delas são leitura do agente, a conferir na especificação. Os nomes dos tipos são proposta do agente,
 revista pelo autor em 2026-10-16 e em 2026-10-19; nenhum entrou no
@@ -139,9 +139,10 @@ Placar; a busca de dados com cache na Busca.
 Levantadas em 2026-10-15 e revistas em 2026-10-19 e em 2026-10-24.
 
 - A lista de contadores e o campo do diâmetro (2ª) não têm
-  especificação, e o Contador da primeira rodada só tem a do README de
-  `implementacoes/fora-da-analise/contador/`; os tipos que esta nota
-  lhes dá vêm das decisões de 2026-10-22.
+  especificação; o Contador da primeira rodada, que só tinha a do README
+  da pasta `fora-da-analise/`, ganhou a de
+  `interfaces-graficas/openspec/specs/contador/` em 2026-10-23. Os tipos
+  que esta nota lhes dá vêm das decisões de 2026-10-22.
 - O *canvas* do Circle Drawer não tem texto que o teste de conformidade
   leia; o domínio precisa expor os círculos.
 - A volta empurrada pela ida (Reserva de passagem, 2ª) tem precedente

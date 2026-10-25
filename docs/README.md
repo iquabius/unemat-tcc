@@ -142,7 +142,7 @@ Em `docs/processo/`, o projeto e as ferramentas:
 
 - `projeto-de-2017.md` (Referência): o projeto de 2017 e o que mudou;
 - `implementacoes-no-codesandbox.md` (Referência): as implementações do
-  autor no CodeSandbox, anteriores às de `implementacoes/`;
+  autor no CodeSandbox, anteriores às de `interfaces-graficas/`;
 - `tarefas-no-beads.md` (Referência): onde ficam as tarefas e como
   recuperá-las;
 - `estimativa-de-paginas.md` (Referência): as páginas do PDF sem o

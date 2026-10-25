@@ -11,7 +11,8 @@ Solid, numa cadeia de pares em que cada passo muda o mínimo (ADR 0013,
 de 2026-10-19). O Lit e o Angular com *signals* saíram pelo ADR 0013, e
 o Android e o *desktop*, pelos ADRs 0001 e 0005, de 2026-10-17; todos
 vão para os trabalhos futuros da conclusão (tcc-dpci), e o código deles
-fica em `implementacoes/fora-da-analise/`.
+saiu do repositório em 2026-10-25 e fica no commit anterior ao que
+tirou a pasta `fora-da-analise/`.
 
 Os termos seguem o `GLOSSARY.md` e o ADR 0021, com as definições e as
 fontes em `docs/paradigma-modelo-e-notacao.md`: o que se compara são três

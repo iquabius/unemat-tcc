@@ -8,7 +8,8 @@ escolha do Kotlin (ADR 0005), com os argumentos a favor e contra, as
 fontes e a conferência dos números de adoção. O Android está fora da
 análise desde 2026-10-17 (ADRs 0001 e 0005), e a nota fica como
 referência para os trabalhos futuros da conclusão (tcc-dpci); o código
-das Views e do Compose está em `implementacoes/fora-da-analise/`. Cada
+das Views e do Compose saiu do repositório em 2026-10-25 e fica no commit
+anterior ao que tirou a pasta `fora-da-analise/`. Cada
 afirmação sobre ferramenta ou versão leva a data em que foi observada.
 
 **Conclusão.** Desde 2026-10-17, o Android está fora da análise (ADRs
@@ -66,7 +67,8 @@ React reativo de Salvaneschi et al. (2014, p. 564).
   (Lifecycle of composables). Leitura nossa: o React só pula um filho com
   `memo` ou com o React Compiler (`docs/plataformas/web.md`).
 - **Na notação, o lado da re-renderização**: no Formulário
-  (`implementacoes/formulario/android-compose/`), os derivados são
+  (`interfaces-graficas/fora-da-analise/formulario/android-compose/`, no
+  commit anterior ao que tirou a pasta), os derivados são
   expressões comuns (`val erroNome = erroDoNome(nome)`), recalculadas a
   cada recomposição, e a função da tela lê todos os estados no começo; o
   Compose a chama de novo inteira a cada tecla, e o pulo, se houver, fica

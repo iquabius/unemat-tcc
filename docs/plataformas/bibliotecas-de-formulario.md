@@ -276,7 +276,7 @@ Janelas, além da do npm:
 | Tecnologia | Biblioteca e versão (publicação) | Medida | Janela | Fonte |
 |---|---|---|---|---|
 | Lit | API de validação de restrições da plataforma, como no Web Component; Lit 3.3.3 (2026-05-14) | sem maioria: a líder, `@vaadin/hilla-lit-form`, tem 28,5% | npm, 2026-09-12 a 2026-10-11 | api.npmjs.org |
-| Angular com *signals* | `@angular/forms` 22.2.0 (2026-09-23), a mesma do `@angular/core` em `implementacoes/`, com os *Signal Forms* (`form()` de `@angular/forms/signals`) | 23.793.794 downloads, 95,9% das candidatas; a API escolhida pelo ADR 0031, porque a medida não separa as APIs do pacote | npm, 2026-09-12 a 2026-10-11 | api.npmjs.org; `types/_structure-chunk.d.ts` do pacote, `@publicApi 22.0` |
+| Angular com *signals* | `@angular/forms` 22.2.0 (2026-09-23), a mesma do `@angular/core` então em `implementacoes/`, com os *Signal Forms* (`form()` de `@angular/forms/signals`) | 23.793.794 downloads, 95,9% das candidatas; a API escolhida pelo ADR 0031, porque a medida não separa as APIs do pacote | npm, 2026-09-12 a 2026-10-11 | api.npmjs.org; `types/_structure-chunk.d.ts` do pacote, `@publicApi 22.0` |
 | Views | API da plataforma: o erro no campo do Material Components (`TextInputLayout.setError`), já em `libs.versions.toml` (`material` 1.14.0) | sem contagem pública | — | developer.android.com, `TextInputLayout` (2026-10-12) |
 | Compose | API da plataforma: `isError` e `supportingText` do `TextField` do Material 3, do BOM 2026.09.00 de `libs.versions.toml` | sem contagem pública | — | `androidx/androidx`, `material3/.../TextField.kt` (ramo `androidx-main`, 2026-10-12) |
 | Windows Forms | API da plataforma: `ErrorProvider` e o evento `Validating` | a maioria das candidatas compatíveis são 177 downloads, sem ecossistema (seção "NuGet") | NuGet, seis semanas até 2026-10-12 | learn.microsoft.com, `ErrorProvider` (2026-10-12); `dotnet/winforms`, `ErrorProvider.cs` |
@@ -406,7 +406,8 @@ NUGET, relatórios por pacote (`nuget.org/stats/reports/packages`), busca
 ANDROID, developer.android.com, `TextInputLayout` (2026-10-12);
 `androidx/androidx`, `TextField.kt` do Material 3; angular.dev,
 *Forms* (2026-10-12); `@angular/forms` 22.2.0 instalado em
-`implementacoes/node_modules`.
+`implementacoes/node_modules` (2026-10-12; o Angular saiu do
+repositório em 2026-10-25).
 
 ## Histórico
 

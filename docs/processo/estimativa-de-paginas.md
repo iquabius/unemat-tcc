@@ -93,9 +93,11 @@ são os mesmos.
   (`pagina.ts`, ADR 0043) ficam fora do número e entram como linha à
   parte, porque não são notação. Até o script da tcc-hlh7 existir, a
   conta é o script da sessão sobre
-  `find implementacoes/<interface>/<tecnologia>/src -name '*.ts*'`,
-  sem os testes, sem `implementacoes/fora-da-analise/` e sem
-  `implementacoes/contraste/` (que em 2026-10-24 ainda não existe).
+  `find interfaces-graficas/<interface>/analisadas/<tecnologia>/src -name '*.ts*'`,
+  sem os testes; a busca já deixa de fora o `contraste/` de cada
+  interface (que em 2026-10-25 ainda não existe) e o `autorais/`. Até
+  2026-10-25, o caminho era `implementacoes/<interface>/<tecnologia>/`,
+  e a conta deixava de fora `implementacoes/fora-da-analise/`.
 - **Total projetado sem o anexo:** pré-texto 9 + introdução ≈ 7 +
   capítulo 2 ≈ 18 (com os trabalhos relacionados) + análise + conclusão
   ≈ 5 + referências ≈ 12 + apêndices ≈ 5 = 56 + análise. **Com o anexo:**
@@ -167,8 +169,9 @@ do JSX. As abreviaturas: WC, o Web Component; WCS, o Web Component com
   110, a Busca 157, o Login 85, o Placar 272, a Planilha 139, o Circle
   Drawer 160; o Contador não tem) e `pagina.ts` tem 28: ≈ 24 páginas, se
   entrarem no anexo.
-- O Lit, pelo código congelado em `implementacoes/fora-da-analise/`
-  (commit `328b2110`, do conjunto antigo, só como medida de tamanho):
+- O Lit, pelo código que estava congelado em
+  `implementacoes/fora-da-analise/` (commit `328b2110`, do conjunto
+  antigo, só como medida de tamanho):
   Busca 129, Dados ao vivo 138, Formulário 150, Login 144, Quadro 240
   linhas, 4 ou 5 de `import` cada. Para L2, a Reserva pelo Formulário, o
   Placar pelos Dados ao vivo e o Circle Drawer pelo Quadro: ≈ 516 linhas
@@ -197,7 +200,7 @@ O anexo leva só a primeira rodada, a versão de cada implementação no
 `master` de 2026-10-24 (`d7814135`, a junção do Circle Drawer no Web
 Component com *signals*; nenhum commit mudou `implementacoes/` depois,
 até 2026-10-25), antes de qualquer mudança da segunda rodada (nenhuma
-foi implementada: `implementacoes/openspec/changes/archive/` não tem
+foi implementada: `interfaces-graficas/openspec/changes/archive/` não tem
 *delta* de segunda rodada); as mudanças da segunda rodada (13, 52
 commits em quatro tecnologias, 65 com o Lit; a conta abaixo é de antes
 do Lit e com 11 mudanças, sem o bolão e o "lembrar meu nome") e as
@@ -321,7 +324,7 @@ seção diz o que cada corte tira e custa:
   vez por par; e o passo Web Component com *signals* → Solid, que muda
   a montagem, passa a ser um módulo contra um JSX. É decisão do autor,
   anterior à primeira rodada da análise, e muda o código
-  (implementacoes/AGENTS.md, ADR 0013).
+  (interfaces-graficas/AGENTS.md, ADR 0013).
 
 Com os cortes (a) e (b), a parte que a análise lê (a ligação do estado
 com a tela e a coordenação) fica em ≈ 2.900 das 3.674 linhas, ≈ 73

@@ -6,12 +6,14 @@ programação cada tecnologia cobre, como a notação dela escreve a
 coordenação, os valores derivados e a tela, e a pré-análise de cada par
 implementado. O *desktop* está fora da análise desde 2026-10-17 (ADR
 0001), e a nota fica como referência para os trabalhos futuros da
-conclusão (tcc-dpci); o código dos pares implementados está em
-`implementacoes/fora-da-analise/`. Serviu à tarefa "Representar uma
-plataforma desktop" (tcc-a0w) e às três que implementavam e
-pré-analisavam os pares: Swing × JavaFX (tcc-dwg), Windows Forms × WPF
-(tcc-74m) e Qt Widgets × QML (tcc-jhl). Os números de uso estão em
-`tmp/pesquisas/2026-10-08-desktop-java/devlog.md` (coletados em 2026-10-08).
+conclusão (tcc-dpci); o código dos pares implementados saiu do repositório
+em 2026-10-25 e fica no commit anterior ao que tirou a pasta
+`fora-da-analise/`. Serviu à tarefa "Representar uma plataforma desktop"
+(tcc-a0w) e às três que implementavam e pré-analisavam os pares: Swing ×
+JavaFX (tcc-dwg), Windows Forms × WPF (tcc-74m) e Qt Widgets × QML
+(tcc-jhl). Os números de uso estão em
+`tmp/pesquisas/2026-10-08-desktop-java/devlog.md` (coletados em
+2026-10-08).
 
 **Conclusão.** Desde 2026-10-17, o *desktop* está fora da análise (ADR
 0001): o par que só ele tinha, o imperativo por atualização manual
@@ -45,11 +47,12 @@ Java, mantém a montagem da tela e isola o modelo de programação (seção
   Gradle em `casos/desktop/`; desde 2026-10-13, em
   `casos/fora-da-analise/`, desde 2026-10-14,
   `implementacoes/fora-da-analise/`, com as instruções no `README.org` de
-  lá. Decisões do autor em 2026-10-09: as duas interfaces que conferem a
-  web; testes de conformidade sem capturas; o JavaFX em código e em FXML;
-  o domínio do Android, em Kotlin, pela JVM. Os testes de conformidade (19
-  verificações no Formulário, 11 na Lista) passam nas seis, no Linux, com
-  o JavaFX 27 na plataforma Headless.
+  lá, e em 2026-10-25 saiu do repositório. Decisões do autor em
+  2026-10-09: as duas interfaces que conferem a web; testes de
+  conformidade sem capturas; o JavaFX em código e em FXML; o domínio do
+  Android, em Kotlin, pela JVM. Os testes de conformidade (19 verificações
+  no Formulário, 11 na Lista) passam nas seis, no Linux, com o JavaFX 27
+  na plataforma Headless.
 - **Testes de conformidade sem AssertJ Swing nem TestFX**: cada tecnologia
   tem uma `Tela` de teste escrita à mão, com a mesma API das do Android,
   que acha os campos pelo rótulo e dispensa robô de mouse e teclado.
@@ -255,7 +258,8 @@ Formulário e Lista, em `casos/<interface>/qt-widgets/` e
 `casos/<interface>/qml/`, com o domínio em C++ em
 `casos/<interface>/dominio-cpp/` e um projeto CMake único em `casos/qt/`;
 desde 2026-10-13, em `casos/fora-da-analise/`, desde 2026-10-14,
-`implementacoes/fora-da-analise/`, com a instalação no `README.org` de lá.
+`implementacoes/fora-da-analise/`, com a instalação no `README.org` de lá,
+e em 2026-10-25 saiu do repositório.
 Decisões do autor em 2026-10-09: as duas interfaces que conferem a web;
 testes de conformidade já, capturas só se o par entrar; o Qt Widgets monta
 a tela num `.ui` e coordena por `connect`, sem propriedades *bindable*; a

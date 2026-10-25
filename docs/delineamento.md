@@ -41,8 +41,8 @@ que se confunde com o desenho da tela (`GLOSSARY.md`, Delineamento).
 | Variável | Como se controla | De onde vem | Estado em 2026-10-19 |
 |---|---|---|---|
 | Linguagem e modelo de computação | TypeScript em modo `strict` em todas as tecnologias, só na web | ADRs 0001 e 0021; `GLOSSARY.md`, Modelo de computação | controlado |
-| Especificação | as implementações de uma interface seguem o mesmo `spec.md` do OpenSpec, com os mesmos textos, regras e dados, e cada mudança entre rodadas entra como *delta spec* | ADRs 0002, 0012 e 0030; `implementacoes/AGENTS.md` | controlado na Reserva de passagem, na Busca, no Login e no Placar ao vivo; o conversor, a planilha e o Circle Drawer ainda sem especificação; a Reserva de passagem volta ao *Flight Booker* dentro da primeira rodada |
-| Teste de conformidade | as mesmas verificações, na mesma ordem, contra cada implementação, cada uma com o nome de um cenário da especificação, conferido por `npm run conferir-especificacao`; colado no console | `implementacoes/AGENTS.md` | o *canvas* do Circle Drawer não tem texto que o teste leia, e o domínio expõe os círculos |
+| Especificação | as implementações de uma interface seguem o mesmo `spec.md` do OpenSpec, com os mesmos textos, regras e dados, e cada mudança entre rodadas entra como *delta spec* | ADRs 0002, 0012 e 0030; `interfaces-graficas/AGENTS.md` | controlado na Reserva de passagem, na Busca, no Login e no Placar ao vivo; o conversor, a planilha e o Circle Drawer ainda sem especificação; a Reserva de passagem volta ao *Flight Booker* dentro da primeira rodada |
+| Teste de conformidade | as mesmas verificações, na mesma ordem, contra cada implementação, cada uma com o nome de um cenário da especificação, conferido por `npm run conferir-especificacao`; colado no console | `interfaces-graficas/AGENTS.md` | o *canvas* do Circle Drawer não tem texto que o teste leia, e o domínio expõe os círculos |
 | Regras comuns da primeira rodada | em todas as interfaces, as mensagens de status ficam numa região anunciada (`role="status"`, WCAG 2.2, 4.1.3), e vale a limpeza ao sair da tela; o teste de conformidade confere as duas, a segunda contando no domínio os relógios, as conexões e as requisições abertas | ADR 0029 | no Login, no Placar ao vivo, na Busca e na Reserva de passagem |
 | Dependências | na primeira e na segunda rodada, cada implementação usa só o que a própria tecnologia traz, sem bibliotecas de formulário; o Web Component com *signals* usa só o `solid-js`; na terceira rodada, a forma do ecossistema | ADRs 0013, 0029 e 0031 | controlado na primeira e na segunda rodada |
 | Domínio | as regras que não dependem da interface (datas, mensagens, servidores simulados, fontes de dados, a cotação, a análise das fórmulas) ficam num domínio comum por interface; a propagação da planilha fica em cada implementação | ADRs 0002 e 0033 | controlado |
@@ -60,14 +60,15 @@ que se confunde com o desenho da tela (`GLOSSARY.md`, Delineamento).
 | Web Component com *signals* × Solid | modelo de programação e API de *signals* (`createSignal`, `createMemo`, `createEffect`) | montagem da tela (HTML num texto e `createElement` contra JSX) e modelo de componente (classe contra função) | a notação dentro do mesmo modelo de programação: a montagem da tela e o modelo de componente, que a análise separa pelo sinal escrito | ADRs 0013 e 0021 |
 | Solid × React | JSX, linguagem, especificação | modelo de programação; também o dialeto do JSX (`className` e `class`) e `&&` e `.map` contra `<Show>` e `<For>` | o modelo de programação, entre os dois declarativos | ADR 0021; [`plataformas/web.md`](plataformas/web.md#tecnologias-por-modelo-de-programação) |
 
-Os pares de antes saíram da análise e estão em
-`implementacoes/fora-da-analise/` e nos trabalhos futuros da conclusão
-(tcc-dpci): Web Component × Lit, que isolava o imperativo contra a
-re-renderização (até 2026-10-18); Solid × Angular com *signals*, um
-modelo com duas notações (até 2026-10-18); Views × Compose, no Android,
-e Swing × JavaFX em código, no *desktop* (até 2026-10-17); o que cada um
-acrescentava está em [`plataformas/android.md`](plataformas/android.md)
-e [`plataformas/desktop.md`](plataformas/desktop.md).
+Os pares de antes saíram da análise e estão nos trabalhos futuros da
+conclusão (tcc-dpci), e o código deles saiu do repositório em 2026-10-25 e
+fica no commit anterior ao que tirou a pasta `fora-da-analise/`: Web
+Component × Lit, que isolava o imperativo contra a re-renderização (até
+2026-10-18); Solid × Angular com *signals*, um modelo com duas notações
+(até 2026-10-18); Views × Compose, no Android, e Swing × JavaFX em código,
+no *desktop* (até 2026-10-17); o que cada um acrescentava está em
+[`plataformas/android.md`](plataformas/android.md) e
+[`plataformas/desktop.md`](plataformas/desktop.md).
 
 ## O que fica sem controle
 

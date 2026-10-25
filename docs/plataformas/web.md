@@ -44,7 +44,7 @@ Tratar como literatura cinzenta no texto:
   autor do Solid;
 - ***benchmark***: os números vêm de um único mantenedor.
 
-Versões no `package-lock.json` de `implementacoes/`: React 19.3.0 e
+Versões no `package-lock.json` de `interfaces-graficas/`: React 19.3.0 e
 Solid 1.9.15, o `solid-js` que o Web Component com *signals* também usa
 (2026-10-19). Em 2026-10-16 o arquivo tinha ainda o Lit 3.3.3 e o
 Angular 22.2.0 com RxJS 7.8.2, que saíram dos *workspaces* em
@@ -61,8 +61,8 @@ registro de 2026-10-12, estão em
 | Web Component com *signals* do `solid-js` | declarativo por atualização granular | a do Web Component (ADR 0037) | as sete |
 | Solid | declarativo por atualização granular | JSX | as sete |
 | React | declarativo por re-renderização | JSX | as sete |
-| Lit | declarativo por re-renderização; fora da análise desde 2026-10-19 (ADR 0013) | *template* `html` | nenhuma; o código de cinco interfaces de então em `implementacoes/fora-da-analise/` |
-| Angular com *signals* | declarativo por atualização granular; fora da análise desde 2026-10-19 (ADR 0013) | *template* | nenhuma; o código de quatro interfaces de então em `implementacoes/fora-da-analise/` |
+| Lit | declarativo por re-renderização; fora da análise desde 2026-10-19 (ADR 0013) | *template* `html` | nenhuma; o código de cinco interfaces de então no commit anterior ao que tirou `fora-da-analise/`, em 2026-10-25 |
+| Angular com *signals* | declarativo por atualização granular; fora da análise desde 2026-10-19 (ADR 0013) | *template* | nenhuma; o código de quatro interfaces de então no commit anterior ao que tirou `fora-da-analise/`, em 2026-10-25 |
 | Angular com RxJS | fora da análise (ADR 0013) | *template* | — |
 | jQuery | fora da análise (ADR 0013) | HTML e DOM | — |
 
@@ -94,7 +94,8 @@ Component com *signals* e o Solid divergem numa DC, a célula do granular
 na tabela-síntese registra a divergência (ADR 0017). O Lit e o Angular
 com *signals* saíram da análise em 2026-10-19 e ficam para os trabalhos
 futuros da conclusão (tcc-dpci); com o jQuery e o Angular com RxJS, que
-continuam fora, estão congelados em `implementacoes/fora-da-analise/`
+continuam fora, o código saiu do repositório em 2026-10-25 e fica no
+commit anterior ao que tirou a pasta `fora-da-analise/`
 (ADR 0013). O quadro do que o delineamento controla está em
 `docs/delineamento.md`.
 
@@ -467,9 +468,9 @@ jQuery, o Angular com RxJS, o Svelte e o Vue continuam fora.
    candidate*; RxJS 9 em beta. As versões fixadas nos `package.json`
    valem para o texto, e uma nota deve dizer que a comparação é da
    versão, não da tecnologia.
-7. **Angular fora da análise.** O Angular com RxJS fica em
-   `implementacoes/fora-da-analise/`, como as outras implementações que
-   saíram; usa RxJS para estado, contra a direção documentada do
+7. **Angular fora da análise.** O Angular com RxJS saiu do
+   repositório em 2026-10-25, como as outras implementações que saíram
+   da análise; usa RxJS para estado, contra a direção documentada do
    Angular, e não pode ser citado como "como se escreve Angular em
    2026".
    O Angular com *signals*, fora desde 2026-10-19, fica para os trabalhos
@@ -524,7 +525,7 @@ montagem; as conclusões saem das amostras lidas.
 
 A convenção do TCC, decidida pelo autor em 2026-10-15 a partir desta
 pesquisa e mantida em 2026-10-22 depois da amostra de 2026-10-21, está
-no ADR 0037 e em `implementacoes/AGENTS.md`.
+no ADR 0037 e em `interfaces-graficas/AGENTS.md`.
 
 ### Critério de escolha
 
