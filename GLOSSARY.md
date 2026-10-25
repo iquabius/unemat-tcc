@@ -252,9 +252,13 @@ a página não tem); roteador como nome do módulo (o hash é o mecanismo, e
 não o papel); desmontar para a limpeza (é "sair da tela")
 
 **Ecossistema**:
-As bibliotecas que a comunidade de uma tecnologia usa junto dela, como as
-de formulário da terceira rodada.
-_Avoid_: ecossistema para as ferramentas de *build*, teste ou edição
+As bibliotecas que a comunidade de uma tecnologia usa junto dela; na
+terceira rodada, as que a vertente do ecossistema escolhe pela regra do
+ADR 0031.
+_Avoid_: ecossistema para as ferramentas de *build*, teste ou edição;
+ecossistema para a API da plataforma (a validação de restrições, o FACE),
+que é o que a tecnologia traz desde a primeira rodada e fica com a
+vertente quando nenhuma biblioteca domina
 
 **Ambiente de execução**:
 A parte da tecnologia que, em tempo de execução, faz as atualizações que o
