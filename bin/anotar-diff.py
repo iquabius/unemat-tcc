@@ -295,7 +295,17 @@ PREAMBULO = r"""
 \newcommand*\difbibmarca{\@bsphack\protected@write\@auxout{}{\string\difbiblio
   {\noexpand\the\ReadonlyShipoutCounter}}\@esphack}
 % Robustos, porque o latexdiff também os põe em títulos de seção e de
-% capítulo, que vão para o sumário e o cabeçalho.
+% capítulo, que vão para o sumário e o cabeçalho. O \pdfstringdef do
+% hyperref, que faz do título o marcador do PDF, expande até os robustos,
+% e no título que o titlesec da classe formata (\section e abaixo) o
+% \protected@write do \dif@pagina expandido ali estoura a memória do TeX
+% ("TeX capacity exceeded"); no marcador, o \dif@pagina não grava nada.
+% O marcador leva o título como ficou, como no preâmbulo que o latexdiff
+% escreve quando sabe do hyperref: sem isso, o \color sai do marcador e
+% deixa nele o nome da cor ("Linguagens de redProgramaçãoblueprogramação").
+\pdfstringdefDisableCommands{\let\dif@pagina\@empty
+  \let\DIFadd\@firstofone \let\DIFaddFL\@firstofone
+  \let\DIFdel\@gobble \let\DIFdelFL\@gobble}
 \let\dif@DIFadd\DIFadd \DeclareRobustCommand\DIFadd[1]{\dif@pagina\dif@DIFadd{#1}}
 \let\dif@DIFdel\DIFdel \DeclareRobustCommand\DIFdel[1]{\dif@pagina\dif@DIFdel{#1}}
 \let\dif@DIFaddFL\DIFaddFL \DeclareRobustCommand\DIFaddFL[1]{\dif@pagina\dif@DIFaddFL{#1}}
