@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 """lembrete-do-chat.py — lembra o agente, a cada mensagem do autor, das
-duas regras de chat que o contexto não segura sozinho: os quatro
-números da estimativa de páginas e a citação de cada ADR pelo número e
-pelo nome.
+duas regras de chat que o contexto não segura sozinho: a estimativa de
+páginas e a citação de cada ADR pelo número e pelo nome.
 
     uso: bin/lembrete-do-chat.py [--raiz DIR] < json-do-hook
          à mão: bin/lembrete-do-chat.py < /dev/null
@@ -10,14 +9,20 @@ pelo nome.
 
 O Claude Code o chama a cada mensagem do autor, pelo hook
 UserPromptSubmit do .claude/settings.json, e acrescenta o stdout ao
-contexto antes de o modelo ler a mensagem (saída 0). Saem duas linhas,
-curtas porque chegam a toda mensagem:
+contexto antes de o modelo ler a mensagem (saída 0). Saem dois blocos,
+curtos porque chegam a toda mensagem:
 
-- "Páginas": o parágrafo "Resumo" de docs/processo/estimativa-de-paginas.md
-  (o total do PDF sem o anexo de código, só o texto da análise, o anexo
-  com o código, se entrar, e o total com o anexo, com a data da conta),
-  e quando mostrá-lo. A linha some, sem erro, quando a nota ou o
-  Resumo não existe: o hook não pode travar a mensagem.
+- "Páginas": o bloco "Resumo" de docs/processo/estimativa-de-paginas.md
+  (as páginas do PDF sem o anexo, da análise, do anexo de código e do
+  PDF com o anexo, o delineamento e as decisões em aberto, com a data
+  da conta), um item por linha, como está na nota; depois o "Resumo
+  curto" da nota, de dois itens, para a sessão com a skill i-have-adhd
+  ligada; e quando mostrá-los. Um item começa com "- "; a linha que não
+  começa assim continua o item anterior, que a nota quebrou em 72
+  colunas, e volta a uma linha só, para o agente o copiar sem rejuntar.
+  O bloco some, sem erro, quando a nota, o Resumo ou os itens dele não
+  existem, e a parte do curto some sozinha quando só ele falta: o hook
+  não pode travar a mensagem.
 - "ADR": a forma da citação, com o exemplo do AGENTS.md ("Onde cada
   coisa vive"). Quando a mensagem do autor (o campo prompt do JSON)
   menciona um ADR ("ADR", "ADRs" ou "ADR0029", em qualquer caixa, e não
@@ -43,11 +48,18 @@ from pathlib import Path
 NOTA = Path("docs/processo/estimativa-de-paginas.md")
 ADRS = Path("docs/adr")
 ARQUIVO_DE_ADR = re.compile(r"^\d{4}-.+\.md$")
-RESUMO = re.compile(r"^\*\*Resumo \((\d{4}-\d{2}-\d{2})\):\*\*\s*(.*)$")
+# A linha de abertura de cada bloco; o grupo "resto" é o que sobra dela
+# depois do rótulo, e vira o primeiro item quando não está vazio.
+RESUMO = re.compile(
+    r"^\*\*Resumo \((?P<data>\d{4}-\d{2}-\d{2})\):\*\*\s*(?P<resto>.*)$")
+RESUMO_CURTO = re.compile(r"^\*\*Resumo curto:\*\*\s*(?P<resto>.*)$")
 
-QUANDO = ("Mostre os quatro números ao tratar do delineamento, das rodadas "
-          "da avaliação ou do tamanho do texto; quem refizer a conta troca "
-          "o Resumo e a data da nota.")
+SKILL_DO_CURTO = "i-have-adhd"
+CABECALHO_DO_CURTO = f"Resumo curto, para a skill {SKILL_DO_CURTO} ligada:"
+QUANDO = ("Mostre o Resumo, um item por linha, ao tratar do delineamento, "
+          "das rodadas da avaliação ou do tamanho do texto")
+QUANDO_O_CURTO = f", e o curto quando a skill {SKILL_DO_CURTO} estiver ligada"
+QUEM_REFAZ = "; quem refizer a conta troca os dois blocos e a data da nota."
 REGRA_DOS_ADRS = (
     "ADR: cite pelo número e pelo nome, num link para o arquivo, "
     "\"[ADR 0023: o rascunho é a árvore de trabalho e o commit espera a "
@@ -57,31 +69,69 @@ REGRA_DOS_ADRS = (
 MENCAO_DE_ADR = re.compile(r"\bADR(?:s?\b|\d)", re.IGNORECASE)
 
 
-def resumo(texto):
-    """(data, resumo) do parágrafo "Resumo" da nota, ou None se não há."""
+def itens(linhas, i, primeira):
+    """Os itens do bloco que abre em linhas[i], um por linha de saída.
+
+    `primeira` é o que sobra da linha de abertura depois do rótulo; o
+    bloco vai até a linha em branco. A linha que começa com "- " abre um
+    item; qualquer outra continua o anterior, que a nota quebrou em 72
+    colunas, com recuo ou sem (o parágrafo corrido vira um item só).
+    """
+    resultado = [primeira.strip()] if primeira.strip() else []
+    for linha in linhas[i + 1:]:
+        if not linha.strip():
+            break
+        if linha.startswith("- ") or not resultado:
+            resultado.append(linha.strip())
+        else:
+            resultado[-1] += " " + linha.strip()
+    return resultado
+
+
+def bloco(texto, abertura):
+    """(o casamento da linha de abertura, itens) do primeiro bloco da nota
+    cuja linha de abertura casa com `abertura`, ou None sem o bloco ou
+    sem item nenhum nele: um bloco vazio não é bloco."""
     linhas = texto.splitlines()
     for i, linha in enumerate(linhas):
-        m = RESUMO.match(linha)
-        if not m:
-            continue
-        partes = [m.group(2)]
-        for seguinte in linhas[i + 1:]:
-            if not seguinte.strip():
-                break
-            partes.append(seguinte.strip())
-        return m.group(1), " ".join(p for p in partes if p)
+        m = abertura.match(linha)
+        if m:
+            lista = itens(linhas, i, m.group("resto"))
+            return (m, lista) if lista else None
     return None
 
 
-def linha_das_paginas(raiz):
-    try:
-        achado = resumo((raiz / NOTA).read_text(encoding="utf-8"))
-    except OSError:
-        return None
+def resumo(texto):
+    """(data, itens) do bloco "Resumo" da nota, ou None se não há."""
+    achado = bloco(texto, RESUMO)
     if not achado:
         return None
-    data, texto = achado
-    return f"Páginas (Resumo de {data}, {NOTA}): {texto} {QUANDO}"
+    m, lista = achado
+    return m.group("data"), lista
+
+
+def resumo_curto(texto):
+    """Os itens do bloco "Resumo curto" da nota, ou None se não há."""
+    achado = bloco(texto, RESUMO_CURTO)
+    return achado[1] if achado else None
+
+
+def bloco_das_paginas(raiz):
+    """As linhas do bloco "Páginas", ou None sem a nota ou sem o Resumo."""
+    try:
+        texto = (raiz / NOTA).read_text(encoding="utf-8")
+    except OSError:
+        return None
+    achado = resumo(texto)
+    if not achado:
+        return None
+    data, lista = achado
+    saida = [f"Páginas (Resumo de {data}, {NOTA}):", *lista]
+    curto = resumo_curto(texto)
+    if curto:
+        saida += [CABECALHO_DO_CURTO, *curto]
+    saida.append(QUANDO + (QUANDO_O_CURTO if curto else "") + QUEM_REFAZ)
+    return saida
 
 
 def adrs(raiz):
@@ -118,9 +168,9 @@ def main(argv=None, entrada=None, saida=sys.stdout):
     if dados.get("agent_id") or dados.get("agent_type"):
         return 0
     raiz = args.raiz or Path(__file__).resolve().parent.parent
-    paginas = linha_das_paginas(raiz)
+    paginas = bloco_das_paginas(raiz)
     if paginas:
-        print(paginas, file=saida)
+        print("\n".join(paginas), file=saida)
     mencionou = MENCAO_DE_ADR.search(dados.get("prompt") or "")
     print(linha_dos_adrs(adrs(raiz) if mencionou else []), file=saida)
     return 0

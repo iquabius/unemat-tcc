@@ -140,10 +140,10 @@ Em `docs/processo/`, o projeto e as ferramentas:
   autor no CodeSandbox, anteriores às de `implementacoes/`;
 - `tarefas-no-beads.md` (Referência): onde ficam as tarefas e como
   recuperá-las;
-- `estimativa-de-paginas.md` (Referência): o total de páginas do PDF sem
-  o anexo de código, as páginas só do texto da análise, as do anexo com
-  o código, se ele entrar, e o total com o anexo, com a conta e a data;
-  os quatro números que o chat mostra ao tratar do delineamento.
+- `estimativa-de-paginas.md` (Referência): as páginas do PDF sem o
+  anexo de código, da análise, do anexo e do PDF com o anexo, com a
+  conta e a data; o bloco "Resumo" que o chat mostra ao tratar do
+  delineamento, e o "Resumo curto" para a skill `i-have-adhd`.
 
 Registros da avaliação: `docs/avaliacao/<rodada>-<interface>/`.
 Decisões: `docs/adr/`.

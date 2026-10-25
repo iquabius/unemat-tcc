@@ -32,18 +32,21 @@ caminho é relativo ao diretório de trabalho da sessão. Nos arquivos do
 repositório (este, notas, tarefas, ADRs), a citação continua curta.
 
 Ao tratar do delineamento, das rodadas da avaliação ou do tamanho do
-texto, o agente mostra os quatro números de
-`docs/processo/estimativa-de-paginas.md`: o total de páginas do PDF sem
-o anexo de código, as páginas só do texto da análise, as do anexo com o
-código, se ele entrar, e o total com o anexo, com a data da conta. Quem
-refizer a conta troca a linha "Resumo" e a data da nota, na forma
-`**Resumo (AAAA-MM-DD):**`, que o hook lê. As duas regras deste trecho
-chegam a cada mensagem do autor pelo hook `UserPromptSubmit` do
-`.claude/settings.json`, que roda `bin/lembrete-do-chat.py`: a linha
-"Resumo", a regra da citação com o exemplo e, só quando a mensagem do
-autor menciona um ADR, a lista dos ADRs de `docs/adr/`, pelo nome do
-arquivo. Quando o agente traz um ADR à conversa sem o autor o ter
-mencionado, lista antes os arquivos de `docs/adr/` e copia o nome.
+texto, o agente mostra o bloco "Resumo" de
+`docs/processo/estimativa-de-paginas.md`, um item por linha: as páginas
+do PDF sem o anexo de código, as do texto da análise, as do anexo, se
+ele entrar, e as do PDF com o anexo, com as alternativas de cada número
+na linha dele, o delineamento e uma linha por decisão em aberto; com a
+skill `i-have-adhd` ligada, mostra o "Resumo curto" da nota, de dois
+itens. Quem refizer a conta troca os dois blocos e a data da nota, na
+forma `**Resumo (AAAA-MM-DD):**` seguida dos itens, que o hook lê. As
+duas regras deste trecho chegam a cada mensagem do autor pelo hook
+`UserPromptSubmit` do `.claude/settings.json`, que roda
+`bin/lembrete-do-chat.py`: os dois blocos do Resumo, a regra da citação
+com o exemplo e, só quando a mensagem do autor menciona um ADR, a lista
+dos ADRs de `docs/adr/`, pelo nome do arquivo. Quando o agente traz um ADR
+à conversa sem o autor o ter mencionado, lista antes os arquivos de
+`docs/adr/` e copia o nome.
 
 ## Tarefas: Beads (`bd`)
 

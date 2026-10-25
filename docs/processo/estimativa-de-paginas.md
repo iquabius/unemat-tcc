@@ -1,21 +1,72 @@
 # Estimativa de páginas do TCC
 
-Referência. Os quatro números que o agente mostra toda vez que a
-conversa trata do delineamento, das rodadas da avaliação ou do tamanho
-do texto (decisão do autor em 2026-10-24): o total de páginas do PDF sem
-o anexo de código, as páginas só do texto da análise, as páginas do
-anexo com o código, se ele entrar, e o total com o anexo. Cada número
-leva a data da conta; a conta se refaz quando o delineamento ou o texto
-muda, e a linha "Resumo" é a que vai para o chat.
+Referência. O bloco "Resumo" que o agente mostra toda vez que a conversa
+trata do delineamento, das rodadas da avaliação ou do tamanho do texto,
+com os quatro números (decisão do autor em 2026-10-24): o total de
+páginas do PDF sem o anexo de código, as páginas só do texto da
+análise, as páginas do anexo com o código, se ele entrar, e o total
+com o anexo; mais o delineamento e as decisões em aberto. A conta se
+refaz quando o delineamento ou o texto muda, e os dois blocos abaixo
+vão para o chat pelo hook `bin/lembrete-do-chat.py`, na forma da seção
+"A forma do Resumo".
 
-**Resumo (2026-10-24):** PDF ≈ 152 páginas sem o anexo; análise ≈ 96
-com trechos por DC, ou ≈ 160 com as listagens inteiras no corpo, como
-Kiss (2014); anexo de código ≈ 82, ou ≈ 73 sem a montagem repetida, se
-entrar (hoje não entra, ADR 0029); PDF ≈ 234 com o anexo. Delineamento:
-três rodadas, a terceira em quatro vertentes nas três interfaces (6
-pares interface-vertente). Com o Lit nas três interfaces da terceira
-rodada (L2): análise +12, anexo +13; nas sete (L3): análise +20, anexo
-+24.
+**Resumo (2026-10-24):**
+- PDF sem anexo: ≈ 152 páginas (trechos por DC) · ≈ 216 (listagens
+  inteiras no corpo)
+- Análise: ≈ 96 (trechos por DC) · ≈ 160 (listagens inteiras no corpo,
+  como Kiss 2014)
+- Anexo de código, da 1.ª rodada: ≈ 82 (a, sem os import) · ≈ 73 (b,
+  sem a montagem repetida) · ≈ 80 (c, montagem em módulos
+  compartilhados); pelo ADR 0029, o código não cabe inteiro no
+  pós-texto
+- PDF com anexo: ≈ 234 (a) · ≈ 225 (b) · ≈ 232 (c)
+- Delineamento: 3 rodadas, a 3.ª em 4 vertentes nas 3 interfaces dela,
+  6 pares interface-vertente
+- Em aberto: o corte das listagens (tcc-ie1y), sobre a variante (a);
+  (b): PDF sem anexo 0, análise 0, anexo −9, PDF com anexo −9; (c): PDF
+  sem anexo 0, análise 0, anexo −2, PDF com anexo −2; listagens inteiras
+  no corpo: PDF sem anexo +64, análise +64, anexo −82 (deixa de
+  existir), PDF com anexo −18 (é o PDF sem anexo)
+- Em aberto: o 7.º par, Circle Drawer × máquina de estados (tcc-l7qe):
+  PDF sem anexo +3, análise +3, anexo 0, PDF com anexo +3
+- Em aberto: o Lit (tcc-cp6c); L2: PDF sem anexo +12, análise +12,
+  anexo +13, PDF com anexo +25; L3: PDF sem anexo +20, análise +20,
+  anexo +24, PDF com anexo +44
+
+**Resumo curto:**
+- ≈ PDF s/anexo 152 · listagens 216 | análise 96 · listagens 160 |
+  anexo a 82 · b 73 · c 80 | PDF c/anexo a 234 · b 225 · c 232
+- 3 rodadas, 3.ª em 4 vertentes | em aberto: corte b 0/0/−9/−9, c
+  0/0/−2/−2, listagens +64/+64/−82/−18; 7.º par +3/+3/0/+3; Lit L2
+  +12/+12/+13/+25, L3 +20/+20/+24/+44 (PDF s/anexo, análise, anexo,
+  PDF c/anexo)
+
+## A forma do Resumo
+
+O hook lê a forma abaixo (decisão do autor em 2026-10-25, para o leitor
+correr os olhos pelos números em vez de ler um parágrafo):
+
+- a linha `**Resumo (AAAA-MM-DD):**`, com a data da conta, e embaixo um
+  item por linha, sempre nesta ordem: PDF sem anexo, análise, anexo de
+  código, PDF com anexo, delineamento e, por fim, uma linha "Em aberto"
+  por decisão pendente, com a tarefa dela e o que ela soma ou tira de
+  cada um dos quatro números, com o sinal; o rótulo vem antes do número,
+  e as alternativas de um mesmo número ficam na linha dele, separadas
+  por "·", com o nome de cada uma entre parênteses;
+- o bloco `**Resumo curto:**`, de dois itens, para a sessão com a skill
+  `i-have-adhd` ligada: o primeiro com os quatro números e as
+  alternativas, separadas por "·" como no Resumo, o segundo com o
+  delineamento e as decisões em aberto, com as diferenças na ordem dos
+  quatro números; os rótulos abreviados ao mínimo que ainda identifica
+  cada número;
+- o item que não cabe em 72 colunas continua na linha seguinte, com
+  recuo, e o hook o junta de volta numa linha só.
+
+As decisões pendentes em 2026-10-25 são o corte das listagens
+(tcc-ie1y), o 7.º par da terceira rodada (tcc-l7qe) e o Lit (tcc-cp6c);
+a regra vale para qualquer outra que as substitua, sem mexer nas outras
+linhas. O teste do hook confere, na nota, que os números dos dois blocos
+são os mesmos.
 
 ## Como se conta
 
@@ -59,8 +110,8 @@ as páginas de hoje por seção são lidas no sumário. Tudo o mais é do
 agente, sem fonte: as frações "≈ 1 página por coluna" e "≈ 3 por par",
 as páginas projetadas do pré-texto, da introdução, do capítulo 2, da
 conclusão, das referências e dos apêndices, as ≈ 30 linhas por mudança
-da segunda rodada e o tamanho do Lit. Quem refizer a conta troca o
-resumo e a data.
+da segunda rodada e o tamanho do Lit. Quem refizer a conta troca os
+dois blocos e a data.
 
 ## A conta de 2026-10-24 à noite: quatro vertentes, o anexo por variante e o Lit
 
@@ -185,8 +236,10 @@ da primeira rodada.
 ### Totais, variante × Lit (6 pares; o 7.º soma 3 à análise e aos dois PDFs)
 
 PDF sem o anexo = 56 + análise; PDF com o anexo = PDF sem o anexo +
-anexo. O anexo do Lit é o mesmo nas três variantes, porque o *template*
-do lit-html não repete o HTML do Web Component letra por letra.
+anexo. Com as listagens inteiras no corpo, como Kiss, o PDF sem o anexo
+em L0 é 56 + 160 ≈ 216, e não há anexo. O anexo do Lit é o mesmo nas
+três variantes, porque o *template* do lit-html não repete o HTML do
+Web Component letra por letra.
 
 | Variante | Lit | PDF sem anexo | Análise | Anexo | PDF com anexo |
 |---|---|---|---|---|---|
@@ -274,8 +327,9 @@ seção diz o que cada corte tira e custa:
 Com os cortes (a) e (b), a parte que a análise lê (a ligação do estado
 com a tela e a coordenação) fica em ≈ 2.900 das 3.674 linhas, ≈ 73
 páginas a 40 por página, contra ≈ 82 sem a montagem escondida e ≈ 92
-com os `import`. O Resumo traz a variante (a) e, entre parênteses, a
-(b); ele só muda de variante quando o autor decidir o corte.
+com os `import`. O Resumo traz as três variantes na linha do anexo e na
+do PDF com anexo, e o corte fica na linha "Em aberto" até o autor
+decidir; decidido, a variante escolhida fica sozinha na linha.
 
 ## Histórico
 
@@ -298,3 +352,14 @@ corrigida de 110 a 120 para ≈ 160.
 Em 2026-10-25, o autor tirou de cogitação o anexo com as versões
 inteiras das três rodadas; a seção do código das rodadas 2 e 3 ficou
 só com a primeira rodada e o total descartado.
+
+Em 2026-10-25, o autor decidiu a forma do Resumo: um item por número,
+em linhas, com as alternativas na linha do número e uma linha por
+decisão em aberto, no lugar do parágrafo corrido; o Lit sai da frase
+corrida para a linha "Em aberto", como decisão pendente, e o corte das
+listagens e o 7.º par ganham a sua; e o Resumo curto, de dois itens,
+para a skill `i-have-adhd`. O hook passou a imprimir os dois blocos em
+linhas. Os números são os da conta de 2026-10-24 à noite: as variantes
+do PDF com anexo vêm da tabela de totais, o PDF sem anexo com as
+listagens no corpo da fórmula 56 + análise, e as diferenças das
+decisões em aberto, da mesma tabela.
