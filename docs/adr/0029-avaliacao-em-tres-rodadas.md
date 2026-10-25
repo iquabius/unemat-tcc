@@ -239,24 +239,23 @@ tecnologias (tcc-jjzc); na segunda rodada, a reconexão depois de queda é
 do navegador, e só vira código na terceira, por isso não se mede ali
 como as outras mudanças; os requisitos da segunda rodada foram
 escolhidos com parte das implementações prontas, embora antes da
-análise, e os números de "Requisitos típicos" ainda não foram
-reconferidos (tcc-phqj); a conclusão sobre cada eixo vem de três
-interfaces, e a de cada vertente, de uma ou duas; o Circle Drawer fica
-com três mudanças na segunda rodada e com quatro vertentes na terceira,
-e o diff dele pesa mais que o das outras; os dois sentidos só entram na
-segunda rodada, e com a identidade; na vertente do ecossistema, o Web
-Component com *signals* segue o Web Component, e o par com o Solid passa
-a diferir também na biblioteca, e a hipótese de que o ecossistema
-rebalanceia o trabalho cognitivo fica sem teste; a API nova da
-plataforma é proposta do WICG, só no Chromium, e o teste prova a
-conformidade, e não a disponibilidade ao usuário; o padrão de projeto
-sai do precedente de Kiss, e não de uma medida; os seis valores da linha
-não vêm de fonte; a limpeza ao sair da tela se apoia no ciclo de vida de
-cada tecnologia, e as fontes tratam de memória e de ouvintes, e não de
-conexões nem de requisições; a acessibilidade se verifica pelos
-atributos e pelo foco, e não com um leitor de tela real; na planilha,
-cinco detecções do ciclo para escrever, e o "#CICLO" só nas células do
-ciclo fica sem precedente nos programas testados.
+análise; a conclusão sobre cada eixo vem de três interfaces, e a de cada
+vertente, de uma ou duas; o Circle Drawer fica com três mudanças na
+segunda rodada e com quatro vertentes na terceira, e o diff dele pesa
+mais que o das outras; os dois sentidos só entram na segunda rodada, e
+com a identidade; na vertente do ecossistema, o Web Component com
+*signals* segue o Web Component, e o par com o Solid passa a diferir
+também na biblioteca, e a hipótese de que o ecossistema rebalanceia o
+trabalho cognitivo fica sem teste; a API nova da plataforma é proposta
+do WICG, só no Chromium, e o teste prova a conformidade, e não a
+disponibilidade ao usuário; o padrão de projeto sai do precedente de
+Kiss, e não de uma medida; os seis valores da linha não vêm de fonte; a
+limpeza ao sair da tela se apoia no ciclo de vida de cada tecnologia, e
+as fontes tratam de memória e de ouvintes, e não de conexões nem de
+requisições; a acessibilidade se verifica pelos atributos e pelo foco, e
+não com um leitor de tela real; na planilha, cinco detecções do ciclo
+para escrever, e o "#CICLO" só nas células do ciclo fica sem precedente
+nos programas testados.
 
 Fontes: `docs/metodo-da-avaliacao.md`, seções de "Rodadas e crescimento
 do código" a "O que muda entre rodadas: vocabulário" e "Requisitos
