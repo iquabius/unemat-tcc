@@ -148,7 +148,9 @@ Em `docs/processo/`, o projeto e as ferramentas:
 - `estimativa-de-paginas.md` (Referência): as páginas do PDF sem o
   anexo de código, da análise, do anexo e do PDF com o anexo, com a
   conta e a data; o bloco "Resumo" que o chat mostra ao tratar do
-  delineamento, e o "Resumo curto" para a skill `i-have-adhd`.
+  delineamento, e o "Resumo curto" para a skill `i-have-adhd`;
+- `historico-dos-adrs.md` (Referência): os ADRs que saíram de
+  `docs/adr/`, com o commit e o ADR que absorveu cada um.
 
 Registros da avaliação: `docs/avaliacao/<rodada>-<interface>/`.
 Decisões: `docs/adr/`.

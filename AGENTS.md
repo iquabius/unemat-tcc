@@ -10,7 +10,7 @@ estão em `GLOSSARY.md`; use-os.
 
 | O quê | Onde | Regra |
 |---|---|---|
-| Decisão cara de reverter, com alternativa real | `docs/adr/NNNN-slug.md` | skill `adr`: um parágrafo, data absoluta, "Em vez de" e "Custo" obrigatórios. Decisão que muda reescreve o ADR no lugar, com a data nova e a decisão anterior num "Em vez de"; errata se corrige no texto; ADR absorvido por outro se apaga. O git guarda as versões, e a numeração tem lacunas |
+| Decisão cara de reverter, com alternativa real | `docs/adr/NNNN-slug.md` | skill `adr` e a seção "ADRs" abaixo: o título é o nome do arquivo, o corpo vai do problema ao custo, e o ADR que sai ganha uma linha em `docs/processo/historico-dos-adrs.md` |
 | Termo do projeto | `GLOSSARY.md` | skill `domain-modeling`: definição de uma ou duas frases e o que evitar |
 | Tarefa aberta | Beads (`bd`), exportado em `.beads/issues.jsonl` | seção abaixo |
 | Fonte, nota de referência ou achado que o texto ainda vai absorver | `docs/` e as subpastas dele, com entrada em `docs/README.md` | seção abaixo |
@@ -377,6 +377,49 @@ Todo texto de nota, tarefa ou ADR: conclusão primeiro, datas absolutas, uma
 palavra por conceito (`GLOSSARY.md`), sem alusão à conversa que o gerou e
 sem decalque do inglês (`portugues-idiomatico.md` da `escrita-academica`,
 seção "Decalque").
+
+O README de uma pasta (`docs/README.md`, `docs/plataformas/README.md`)
+tem um título de até 50 caracteres que diz o que a pasta guarda, e a
+primeira frase diz o que o leitor vem fazer ali, com o nome técnico da
+segunda frase em diante.
+
+## ADRs
+
+Quem lê o ADR é o autor semanas depois ou um agente sem a conversa que o
+gerou: o ADR tem o tamanho que a cadeia das decisões pede, e nada mais
+(ADR 0044).
+
+- **Título.** O nome do arquivo em palavras, com os acentos, as
+  maiúsculas e a pontuação, e o artigo do começo que o nome cortou:
+  `0023-rascunho-e-a-arvore-de-trabalho-e-o-commit-espera-a-revisao.md`
+  tem o título "O rascunho é a árvore de trabalho e o commit espera a
+  revisão". Sem crase nem itálico, porque o título vai para o link do
+  chat e para a nota de rodapé da release. O nome, sem o número e sem o
+  `.md`, tem até 70 caracteres e começa pela palavra que distingue o ADR
+  dos vizinhos; a lista (de interfaces, de tecnologias) e o que muda a
+  cada redesenho vão para o corpo.
+- **Corpo**, nesta ordem, cada parte aberta pelo que o leitor já
+  reconhece, com o nome técnico da segunda frase em diante:
+  1. a data e o problema, em uma a três frases, sem a decisão; a
+     primeira diz quem sente o problema (o orientador, o leitor do
+     texto, a análise, o autor, o agente) e o que perde com ele, como a
+     abertura dos cartões da skill `task-workflow`;
+  2. `Critérios:`, até cinco itens do que a decisão precisa garantir;
+  3. a decisão, aberta pela frase do título, e o porquê;
+  4. `Em vez de:`, só as alternativas que a cadeia pede: a decisão
+     anterior que esta substitui e a que um leitor proporia, cada uma com
+     o argumento a favor e o critério que ela não cumpre;
+  5. `Custo:`, o que fica mais difícil;
+  6. `Fontes:`, quando a decisão se apoia em número ou documento.
+- Decisão que muda reescreve o ADR no lugar, com a data nova e a decisão
+  anterior num "Em vez de"; errata se corrige no texto. O git guarda as
+  versões, e a numeração tem lacunas.
+- O ADR absorvido por outro e o "Em vez de" que a cadeia não pede saem.
+  O ADR que sai ganha, no mesmo commit, uma linha em
+  `docs/processo/historico-dos-adrs.md`, com o commit, a data e o ADR que
+  o absorveu.
+- O título que muda troca o nome do arquivo, com o caminho em todas as
+  referências, num commit só de movimento, antes do que muda o texto.
 
 ## Versões
 
