@@ -6,7 +6,7 @@ commits. Cada marco ganha uma tag anotada `v0.N`, em ordem: de `v0.2`
 (`3806425`, o último trabalho de 2020) a `v0.9` (`2a9d0b3`, a introdução
 antes do corte do ADR 0022), depois uma por marco que o autor nomeia ao
 fechar um trabalho, e não por fase: a `v0.10` com as quatro tecnologias
-web na introdução e as figuras do delineamento (`5c0f2b8`), a `v0.11`
+web na introdução e as figuras do delineamento (`a512695`), a `v0.11`
 com o redesenho da terceira rodada em vertentes (decisão de
 2026-10-25); `v1.0` é a versão depositada para a banca. A primeira linha da mensagem é o nome do
 marco, título da release, e o resto, o corpo, com cada parágrafo numa
