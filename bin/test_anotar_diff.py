@@ -241,32 +241,45 @@ class CorpoDaRelease(unittest.TestCase):
             "A introdução saiu do corte do ADR 0022.", "Duas figuras - em TikZ.",
             "Fica para a v0.11."])
 
-    def test_corpo_com_titulo_do_adr_na_tag(self):
-        arquivos = {"docs/adr/0022-corte.md": "# 0022. O texto passa por um corte\n\nTexto.\n"}
+    ADRS = {"docs/adr/0022-corte.md": "# 0022. O texto passa por um corte\n\nTexto.\n"}
 
+    def corpo_de(self, mensagem, tag, saida):
+        """O corpo que anotar.corpo() imprime para a tag, com o git trocado
+        por um que devolve a mensagem e os ADRs de ADRS."""
         def git(_repo, *args):
             if args[:2] == ("tag", "-l"):
-                return "Nome\n\nA introdução saiu do corte do ADR 0022.\n"
+                return mensagem
             if args[0] == "ls-tree":
-                return "\n".join(arquivos) + "\n"
-            return arquivos[args[1].split(":", 1)[1]]
+                return "\n".join(self.ADRS) + "\n"
+            return self.ADRS[args[1].split(":", 1)[1]]
 
+        with mock.patch.object(anotar, "git", git), \
+                mock.patch("sys.stdout", new_callable=io.StringIO) as out:
+            anotar.corpo(saida, tag, "v0.9", "dono/repo")
+        return out.getvalue()
+
+    def saida(self, dados):
         tmp = tempfile.TemporaryDirectory()
         self.addCleanup(tmp.cleanup)
         saida = str(Path(tmp.name) / "diff-v0.9..v0.10-paginas")
-        Path(saida + ".json").write_text(json.dumps({
+        Path(saida + ".json").write_text(json.dumps(dados))
+        return saida
+
+    def test_corpo_com_titulo_do_adr_na_tag(self):
+        saida = self.saida({
             "paginas": [
                 {"pagina": "11", "fisica": 19, "capitulo": "Introdução", "secao": "", "subsecao": ""},
                 {"pagina": "44", "fisica": 52, "capitulo": "Comparação",
                  "secao": "*Revisão do JavaScript", "subsecao": ""}],
             "lugares": [dict(lugar("Introdução"), palavras_mais=20, palavras_menos=5,
                              palavras=40, fontes_novas=["a2020"])],
-            "sairam": [{"nivel": "chapter", "capitulo": "Comparação", "titulo": "Resultados"}]}))
-        with mock.patch.object(anotar, "git", git), \
-                mock.patch("sys.stdout", new_callable=io.StringIO) as out:
-            anotar.corpo(saida, "v0.10", "v0.9", "dono/repo")
-        corpo = out.getvalue().replace(anotar.INQUEBRAVEL, " ")
-        self.assertIn("- A introdução saiu do corte do ADR 0022[^adr-0022].", corpo)
+            "sairam": [{"nivel": "chapter", "capitulo": "Comparação", "titulo": "Resultados"}]})
+        corpo = self.corpo_de("A introdução saiu do corte do ADR 0022.\n\nDuas figuras.\n",
+                              "v0.10", saida).replace(anotar.INQUEBRAVEL, " ")
+        # Até a v0.10, a mensagem não tem abertura: todo parágrafo é item.
+        self.assertTrue(corpo.startswith("### O que mudou\n\n"
+                                         "- A introdução saiu do corte do ADR 0022[^adr-0022].\n"
+                                         "- Duas figuras.\n\n### PDFs\n"), corpo)
         self.assertIn("[^adr-0022]: [ADR 0022: O texto passa por um corte]"
                       "(https://github.com/dono/repo/blob/v0.10/docs/adr/0022-corte.md)", corpo)
         self.assertIn("(https://github.com/dono/repo/releases/download/v0.10/"
@@ -278,10 +291,26 @@ class CorpoDaRelease(unittest.TestCase):
 
         # O JSON de antes das medidas: uma lista de páginas.
         Path(saida + ".json").write_text(json.dumps([{"pagina": "11", "fisica": 19, "secao": "x"}]))
-        with mock.patch.object(anotar, "git", git), mock.patch("sys.stdout", new_callable=io.StringIO), \
-                self.assertRaises(SystemExit) as erro:
-            anotar.corpo(saida, "v0.10", "v0.9", "dono/repo")
+        with self.assertRaises(SystemExit) as erro:
+            self.corpo_de("Duas figuras.\n", "v0.10", saida)
         self.assertIn("rode bin/gerar-versao.sh v0.10", str(erro.exception))
+
+    def test_abertura_no_alto_desde_a_v0_11(self):
+        saida = self.saida({"paginas": [], "lugares": []})
+        mensagem = ("A introdução fica mais curta.\n\n"
+                    "A introdução saiu do corte do ADR 0022.\n\nDuas figuras.\n")
+        casos = [
+            (mensagem, "v0.11", "A introdução fica mais curta.\n\n### O que mudou\n\n"
+                                "- A introdução saiu do corte do ADR 0022[^adr-0022].\n"
+                                "- Duas figuras.\n\n### PDFs\n"),
+            (mensagem, "v1.0", "A introdução fica mais curta.\n\n### O que mudou\n"),
+            ("Só a abertura, do ADR 0022.\n", "v0.11",
+             "Só a abertura, do ADR 0022[^adr-0022].\n\n### PDFs\n"),
+            ("", "v0.11", "### PDFs\n"),
+        ]
+        for texto, tag, comeco in casos:
+            corpo = self.corpo_de(texto, tag, saida)
+            self.assertTrue(corpo.startswith(comeco), corpo)
 
     def test_rodape_por_adr_na_ordem_da_primeira_citacao(self):
         adrs = {"0012": ("docs/adr/0012-a.md", "Doze"), "0029": ("docs/adr/0029-b.md", "Vinte e nove")}

@@ -8,13 +8,19 @@ antes do corte do ADR 0022), depois uma por marco que o autor nomeia ao
 fechar um trabalho, e não por fase: a `v0.10` com as quatro tecnologias
 web na introdução e as figuras do delineamento (`a512695`), a `v0.11`
 com o redesenho da terceira rodada em vertentes (decisão de
-2026-10-25); `v1.0` é a versão depositada para a banca. A primeira linha da mensagem é o nome do
-marco, título da release, e o resto, o corpo, com cada parágrafo numa
-linha. A tag leva a data do commit que marca. Cada release
+2026-10-25); `v1.0` é a versão depositada para a banca. A primeira
+linha da mensagem é o nome do marco, título da release. Desde a `v0.11`,
+o resto se escreve para quem lê o PDF sem abrir o repositório, o
+orientador: um parágrafo de abertura com o que a versão traz a quem lê
+o texto, e um parágrafo curto por mudança, com o fato primeiro e o ADR
+no fim; cada parágrafo numa linha (decisão do autor em 2026-10-25). A
+tag leva a data do commit que marca. Cada release
 (`bin/preparar-release.sh`, como rascunho) leva o PDF do texto, o do diff
 desde a tag anterior e o mesmo diff só com o resumo dos commits, as
 páginas que têm alteração e a bibliografia, cortado pelo `qpdf`, que mantém os links do
-resumo. O corpo traz a mensagem em itens, um por parágrafo, os links dos
+resumo. O corpo traz a abertura no alto e as mudanças em itens de "O
+que mudou", um por parágrafo (a mensagem só com a abertura sai sem a
+seção, e a das tags até a `v0.10`, toda em itens), os links dos
 três PDFs e as páginas alteradas por capítulo, seção e subseção, pelo
 título no sumário e sem o número, que no diff conta também as seções
 apagadas; cada ADR citado ganha uma nota de rodapé com o título da
@@ -30,6 +36,20 @@ num `<details>`, com a primeira linha à vista. Até a banca aceitar,
 a capa e a folha de rosto dizem "U Boneque", a versão (ou o intervalo, no
 diff), o nome do marco e a data da tag (DD/MM/AAAA), no lugar do ano.
 
+Em vez de: um parágrafo curto por assunto, sem abertura; funciona sem
+mudar o script, e o título da release faz o papel de resumo, mas o nome
+do marco diz a versão em poucas palavras, sem dizer em palavras do texto
+o que ela muda para quem o lê.
+Em vez de: uma marca na abertura, como um "Resumo:" no começo do
+parágrafo; o script a reconheceria sem depender da posição, mas a marca
+apareceria na release, e a regra da v0.11 já separa as mensagens das
+duas formas.
+Em vez de: a abertura seguida das mudanças em linhas "- "; também se lê
+como lista no `git show` da tag, mas pede ao script uma segunda forma de
+item, ao lado do parágrafo.
+Em vez de: os parágrafos longos da `v0.10`, um por assunto, de 19 a 92
+palavras; cobrem o marco inteiro, mas o segundo junta seis ADRs num item
+de 92 palavras.
 Em vez de: uma tag por fase fechada, depois da `v0.9` (decisão de
 2026-10-05); casaria com as quatro fases do roteiro, mas os marcos
 pedidos em 2026-10-24 e 2026-10-25, o ajuste do delineamento, a
@@ -90,9 +110,11 @@ caracteres; a contagem de palavras do `.tex` não bate com a do
 seção de título novo com ao menos 80% do texto novo e o título apagado
 ao menos 60% parecido com um novo; a chave renomeada no `refs.bib`
 conta como fonte que entra e fonte que sai (`roy2004` e `vanroy2004`, na
-`v0.10`); e a lista das páginas gerada antes
+`v0.10`); a lista das páginas gerada antes
 de 2026-10-25 não diz o capítulo nem traz as medidas, e o corpo de uma
-release antiga só se regrava depois do `bin/gerar-versao.sh` da tag.
+release antiga só se regrava depois do `bin/gerar-versao.sh` da tag; e
+a abertura se reconhece só pela posição, e a mensagem que a esquecer
+faz da primeira mudança a abertura.
 
 Fontes: `gh release create --help`, `gh` 2.100.0 (2026-10-04); tarefas
-tcc-8kw, tcc-6ah, tcc-3jd e tcc-cv7c.
+tcc-8kw, tcc-6ah, tcc-3jd, tcc-cv7c e tcc-p4s0.

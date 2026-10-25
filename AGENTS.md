@@ -381,7 +381,12 @@ seção "Decalque").
 ## Versões
 
 Cada marco ganha uma tag anotada `v0.N` (ADR 0024). A primeira linha da
-mensagem é o nome do marco, e o resto diz o que mudou no texto. A data é
+mensagem é o nome do marco. Desde a `v0.11`, o resto se escreve para
+quem lê o PDF sem abrir o repositório, o orientador: um parágrafo de
+abertura com o que a versão traz a quem lê o texto, que o corpo da
+release põe no alto, e depois um parágrafo curto por mudança, cada um
+num item de "O que mudou", com o fato primeiro e o ADR, quando houver,
+no fim; cada parágrafo numa linha. A data é
 a do commit: `GIT_COMMITTER_DATE="$(git log -1 --format=%cI <commit>)"
 git tag -a v0.N -F <mensagem> <commit>`. A próxima tag sai quando o
 autor nomeia um marco, e não quando uma fase fecha (ADR 0024). `git tag
