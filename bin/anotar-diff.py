@@ -18,12 +18,14 @@ bin/gerar-versao.sh, em quatro passos:
                               depois da última compilação: SAIDA.pdf, o diff
                               só com o resumo e as páginas com marca do
                               latexdiff (qpdf), e SAIDA.json com a página, o
-                              capítulo, a seção e a subseção de cada uma
+                              capítulo, a seção e a subseção de cada uma e
+                              as medidas do texto de cada lugar, do JOB.tex
   corpo SAIDA TAG BASE REPO   o corpo da release, em Markdown: a mensagem
                               da tag em itens, os PDFs, as páginas
-                              alteradas por capítulo e os ADRs citados em
-                              notas de rodapé, com links para o GitHub de
-                              REPO, dono/nome (bin/preparar-release.sh)
+                              alteradas por capítulo, com as medidas, e
+                              os ADRs citados em notas de rodapé, com
+                              links para o GitHub de REPO, dono/nome
+                              (bin/preparar-release.sh)
 
 O trecho que entrou é atribuído pelo git blame BASE..REF do .tex de REF; o
 que saiu, pelo git blame --reverse do .tex de BASE, ao commit seguinte ao
@@ -46,6 +48,7 @@ import os
 import re
 import subprocess
 import sys
+from collections import Counter
 from difflib import SequenceMatcher
 from pathlib import Path
 
@@ -543,14 +546,213 @@ def paginas_alteradas(aux):
     return lista
 
 
+PALAVRA = re.compile(r"[^\W_]+(?:[-'][^\W_]+)*")
+# O que não é texto do trabalho: código, figuras em TikZ, comentários.
+SEM_PALAVRAS = ("minted", "verbatim", "Verbatim", "lstlisting", "tikzpicture", "comment")
+FLOATS = {"figure": "figura", "table": "tabela", "listing": "listagem"}
+# Título apagado tão parecido com um novo, no mesmo lugar, que é o mesmo
+# renomeado ("Programação Reativa" e "Programação reativa"), e não uma
+# seção que saiu e outra que entrou.
+RENOMEADA = 0.6
+# A parte do texto de uma seção de título novo que precisa ser nova para a
+# seção ser nova.
+NOVA = 0.8
+
+
+def comandos(texto, padrao):
+    """(início, fim, argumento) de cada comando do padrão seguido de um
+    argumento entre chaves, sem os que estão dentro de um anterior."""
+    i = 0
+    for m in re.finditer(padrao + r"(?![a-zA-Z])\s*(?=\{)", texto):
+        if m.start() < i:
+            continue
+        args, fim = argumentos(texto, m.end(), 1)
+        if args is not None:
+            i = fim
+            yield m.start(), fim, args[0]
+
+
+def sem_comandos(texto, padrao):
+    """O texto sem os comandos do padrão, com os argumentos deles."""
+    partes, i = [], 0
+    for ini, fim, _ in comandos(texto, padrao):
+        partes.append(texto[i:ini])
+        i = fim
+    return "".join(partes) + texto[i:]
+
+
+def citacoes(texto):
+    """(início, fim, [chaves]) de cada \\cite, \\textcite, \\cites e afins
+    do texto; o \\cites leva todos os grupos de chaves."""
+    for m in re.finditer(r"\\[a-zA-Z]*cites?\*?(?![a-zA-Z])", texto):
+        i, lista = m.end(), []
+        while True:
+            pos = re.match(r"\s*(\[[^\]]*\]\s*)*\{", texto[i:])
+            if not pos:
+                break
+            args, fim = argumentos(texto, i + pos.end() - 1, 1)
+            if args is None:
+                break
+            i = fim
+            lista += [k.strip() for k in args[0].split(",") if k.strip()]
+            if not m.group(0).rstrip("*").endswith("cites"):  # um grupo só
+                break
+        yield m.start(), i, lista
+
+
+def chaves(texto):
+    """As chaves citadas no texto, na ordem, com as repetidas."""
+    return [k for *_, lista in citacoes(texto) for k in lista]
+
+
+# O que não é texto do trabalho, com o primeiro argumento: as notas ao
+# orientador, que a versão entregue desliga, o endereço de um link e o
+# espaço medido.
+FORA_DO_TEXTO = (r"\\(?:notamudou|notapergunta|notaproxima|notalegenda|todo|url|href"
+                 r"|hspace|vspace)\*?(?:\[[^\]]*\])?")
+
+
+def palavras(texto):
+    """As palavras de um trecho de LaTeX, sem as citações, as notas ao
+    orientador, os rótulos, os nomes de ambiente, as medidas (o 0pt do
+    \\hskip0pt que o latexdiff põe depois da citação) e as marcas de
+    parágrafo; o comentário também fica de fora."""
+    texto = "\n".join(map(sem_comentario, texto.splitlines()))
+    partes, i = [], 0
+    for ini, fim, _ in citacoes(texto):
+        partes.append(texto[i:ini])
+        i = fim
+    t = sem_comandos("".join(partes) + texto[i:], FORA_DO_TEXTO)
+    t = re.sub(r"\\(?:label|ref|eqref|autoref|difancora|begin|end)\*?\s*\{[^{}]*\}(\[[^\]]*\])?", " ", t)
+    t = re.sub(r"\\[hv]skip\s*-?[\d.]+\s*(?:pt|em|ex|mm|cm|in)?|\\P(?![a-zA-Z])", " ", t)
+    return len(PALAVRA.findall(texto_simples(t)))
+
+
+def metricas(tex):
+    """As métricas do texto no .tex do latexdiff, por lugar (o capítulo, a
+    seção e a subseção pelo título, como em secoes()): as palavras que
+    entraram e saíram e as do lugar como ficou; os parágrafos que
+    entraram e saíram, pelo \\P das quebras (ADR 0028); as chaves citadas
+    no texto que entrou e no que saiu; as fontes, as chaves que o texto da
+    base não citava em lugar nenhum e as que o texto como ficou deixou de
+    citar; as figuras, tabelas e listagens com a legenda toda nova ou toda
+    apagada; e se o lugar é novo (título novo e ao menos NOVA do texto
+    novo) ou mudou de título (palavras trocadas; maiúscula não conta).
+    Devolve (lugares, sairam): lugares {(capítulo, seção, subseção): {...}}
+    na ordem do documento, e sairam, os títulos que só têm texto apagado
+    e não são o de um lugar renomeado, [(nível, capítulo, título)]."""
+    corpo = tex[tex.find("\\begin{document}"):]
+    # O título cujo comando mudou (\chapter* para \chapter) fica num
+    # %DIFDELCMD, e o novo sai todo em \DIFadd: com o mesmo texto, o lugar
+    # não é novo.
+    comentados = {(m.group(1), texto_simples(args[0]).lower())
+                  for m in re.finditer(r"%DIFDELCMD\s*<\s*\\(chapter|section|subsection)\*?\s*(?=\{)",
+                                       corpo)
+                  if (args := argumentos(corpo, m.end(), 1)[0])}
+    corpo = "\n".join("" if l.lstrip().startswith("%") else sem_comentario(l)
+                      for l in corpo.splitlines())
+    corpo = re.sub(r"\\begin\{(%s)\}.*?\\end\{\1\}" % "|".join(SEM_PALAVRAS), " ",
+                   corpo, flags=re.S)
+    base = set(chaves(sem_comandos(corpo, r"\\DIFadd(?:FL)?")))
+    ref = set(chaves(sem_comandos(corpo, r"\\DIFdel(?:FL)?")))
+
+    textos, natureza, sairam = {}, {}, []
+    lugar, i = ("pré-textuais", "", ""), 0
+    titulo = re.compile(r"\\(chapter|section|subsection)(\*?)\s*(?:\[[^\]]*\]\s*)?(?=\{)"
+                        r"|\\printbibliography|\\apendices(?![a-zA-Z])")
+    for m in titulo.finditer(corpo):
+        textos.setdefault(lugar, []).append(corpo[i:m.start()])
+        i = m.end()
+        if not m.group(1):
+            lugar = ("referências" if "bibliography" in m.group(0) else "apêndices", "", "")
+            continue
+        args, i = argumentos(corpo, m.end(), 1)
+        if args is None or m.group(2) or lugar[0] in ("referências", "apêndices"):
+            i = m.end() if args is None else i
+            continue
+        nome = texto_simples(args[0])
+        nivel = m.group(1)
+        if not nome:
+            apagado = texto_simples(re.sub(r"\\DIFdel(?:FL)?(?![a-zA-Z])", "", args[0]))
+            sairam.append((nivel, lugar[0], apagado))
+            continue
+        cap, sec, _ = lugar
+        lugar = {"chapter": (nome, "", ""), "section": (cap, nome, ""),
+                 "subsection": (cap, sec, nome)}[nivel]
+        if "\\DIFadd" in args[0] and not palavras(sem_comandos(args[0], r"\\DIFadd(?:FL)?")):
+            if (nivel, nome.lower()) not in comentados:
+                natureza[lugar] = "nova"
+        else:
+            antes = texto_simples(re.sub(r"\\DIFdel(?:FL)?(?![a-zA-Z])", "",
+                                         sem_comandos(args[0], r"\\DIFadd(?:FL)?")))
+            # Só a troca de palavras conta; a de maiúscula, não.
+            if antes.lower() != nome.lower():
+                natureza[lugar] = "título mudou"
+    textos.setdefault(lugar, []).append(corpo[i:])
+
+    # O título apagado que é o de um lugar novo renomeado não saiu.
+    for item in list(sairam):
+        nivel, cap, apagado = item
+        k = {"chapter": 0, "section": 1, "subsection": 2}[nivel]
+        parecidos = [(SequenceMatcher(None, apagado.lower(), lg[k].lower()).ratio(), lg)
+                     for lg, n in natureza.items()
+                     if n == "nova" and lg[k] and not any(lg[k + 1:]) and (k == 0 or lg[0] == cap)]
+        if parecidos and max(parecidos)[0] >= RENOMEADA:
+            razao, lg = max(parecidos)
+            natureza[lg] = "título mudou" if razao < 1 else ""
+            sairam.remove(item)
+
+    lugares = {}
+    for lg, pedacos in textos.items():
+        # A nota ao orientador sai antes, com o que entrou ou saiu nela.
+        s = sem_comandos("".join(pedacos), FORA_DO_TEXTO)
+        entrou = [a for _, _, a in comandos(s, r"\\DIFadd(?:FL)?")]
+        saiu = [a for _, _, a in comandos(s, r"\\DIFdel(?:FL)?")]
+        mais, menos = set(chaves("".join(entrou))), set(chaves("".join(saiu)))
+        floats = Counter()
+        for f in re.finditer(r"\\begin\{(%s)\}(.*?)\\end\{\1\}" % "|".join(FLOATS), s, re.S):
+            for _, _, legenda in comandos(f.group(2), r"\\caption"):
+                legenda = re.sub(r"\\label\{[^}]*\}", "", legenda)
+                for lado, cmd in (("+", r"\\DIFaddFL"), ("−", r"\\DIFdelFL")):
+                    if re.search(cmd, legenda) and not palavras(sem_comandos(legenda, cmd)):
+                        floats[lado + FLOATS[f.group(1)]] += 1
+        m = {"natureza": natureza.get(lg, ""),
+             "palavras_mais": sum(map(palavras, entrou)),
+             "palavras_menos": sum(map(palavras, saiu)),
+             "palavras": palavras(sem_comandos(s, r"\\DIFdel(?:FL)?")),
+             "paragrafos_mais": sum(len(re.findall(r"\\P(?![a-zA-Z])", a)) for a in entrou),
+             "paragrafos_menos": sum(len(re.findall(r"\\P(?![a-zA-Z])", a)) for a in saiu),
+             "citacoes_mais": len(chaves("".join(entrou))),
+             "citacoes_menos": len(chaves("".join(saiu))),
+             "fontes_novas": sorted(mais - base), "fontes_sairam": sorted(menos - ref),
+             "floats": dict(floats)}
+        lugares[lg] = m
+
+    # Nova é a seção de título novo cujo texto, com o das subseções, é
+    # quase todo novo; a de título novo e texto antigo, como o capítulo
+    # que só ganhou número, não muda de natureza.
+    for lg, m in lugares.items():
+        if m["natureza"] != "nova":
+            continue
+        k = max(n for n, p in enumerate(lg) if p) + 1  # até o nível do lugar
+        abaixo = [n for outro, n in lugares.items() if outro[:k] == lg[:k]]
+        total = sum(n["palavras"] for n in abaixo)
+        if total and sum(n["palavras_mais"] for n in abaixo) < NOVA * total:
+            m["natureza"] = ""
+    return ({lg: m for lg, m in lugares.items() if any(v for k, v in m.items() if k != "palavras")},
+            sairam)
+
+
 def paginas(dir_, aux, job, pdf, saida):
     """O diff só com o resumo e as páginas que têm marca do latexdiff, em
-    SAIDA.pdf, e SAIDA.json com a página impressa, o capítulo, a seção e a
-    subseção de cada uma (secoes()).
+    SAIDA.pdf, e SAIDA.json com as páginas, a impressa, o capítulo, a
+    seção e a subseção de cada uma (secoes()), e as medidas do texto de
+    cada lugar e os títulos que saíram, do JOB.tex (metricas()).
     O qpdf mantém os objetos das páginas, e os links do resumo continuam
     levando ao trecho; o pdfunite, o pdfjam e o Ghostscript os perdem."""
     texto = (Path(dir_) / aux / f"{job}.aux").read_text(errors="replace")
     lista = paginas_alteradas(texto)
+    lugares, sairam = metricas((Path(dir_) / f"{job}.tex").read_text(errors="replace"))
     for velho in (Path(saida + ".pdf"), Path(saida + ".json")):
         velho.unlink(missing_ok=True)
     if not lista:
@@ -565,7 +767,12 @@ def paginas(dir_, aux, job, pdf, saida):
     paginas_pdf = sorted(set(paginas_pdf))
     subprocess.run(["qpdf", pdf, "--pages", ".", ",".join(map(str, paginas_pdf)), "--",
                     saida + ".pdf"], check=True)
-    json.dump(lista, open(saida + ".json", "w"), ensure_ascii=False, indent=1)
+    with open(saida + ".json", "w") as f:
+        json.dump({"paginas": lista,
+                   "lugares": [dict(zip(("capitulo", "secao", "subsecao"), lg), **m)
+                               for lg, m in lugares.items()],
+                   "sairam": [dict(zip(("nivel", "capitulo", "titulo"), s)) for s in sairam]},
+                  f, ensure_ascii=False, indent=1)
     print(f"páginas: {len({p['fisica'] for p in lista})} em {saida}.pdf")
 
 
@@ -614,27 +821,176 @@ def rodapes(textos, adrs):
     return textos, [(n, *v) for n, v in notas.items()]
 
 
-def paginas_por_capitulo(lista):
-    """As linhas da lista das páginas alteradas, na ordem do documento: um
-    item por capítulo, um por seção embaixo dele e um por subseção embaixo
-    da seção, cada um com as páginas que são dele e não de um nível de
-    baixo; o capítulo em negrito."""
-    lugares = {}  # (capítulo, seção, subseção) -> [páginas]
-    for p in lista:
-        lugar = (p["capitulo"], p["secao"], p["subsecao"])
-        # Os níveis de cima entram antes, mesmo sem página própria.
-        for k in (1, 2):
-            lugares.setdefault(lugar[:k] + ("",) * (3 - k), [])
-        if int(p["pagina"]) not in lugares.setdefault(lugar, []):
-            lugares[lugar].append(int(p["pagina"]))
-    linhas = []
-    for lugar, paginas in lugares.items():
-        partes = [parte for parte in lugar if parte]
-        nivel = len(partes) - 1
-        nome = markdown(partes[-1])
-        nome = f"**{nome[0].upper() + nome[1:]}**" if nivel == 0 else nome
-        linhas.append("  " * nivel + f"- {nome}" + (f": {intervalos(paginas)}" if paginas else ""))
-    return linhas
+# Com mais linhas que isto, a lista das páginas recolhe (<details>) os
+# capítulos que têm ao menos SUBITENS_PARA_RECOLHER itens embaixo; o de um
+# ou dois fica aberto, porque recolher não poupa nada.
+LINHAS_ABERTAS = 12
+SUBITENS_PARA_RECOLHER = 3
+# O espaço entre os números e a palavra de uma medida não quebra: "+324 −95"
+# não se parte, nem "+13 fontes" no fim da linha.
+INQUEBRAVEL = "\u00a0"
+
+
+def milhar(n):
+    return f"{n:,}".replace(",", ".")
+
+
+def contagem(n, um, varios):
+    return f"{milhar(n)} {um if n == 1 else varios}"
+
+
+def mais_menos(mais, menos, um, varios):
+    """"+312 −95 palavras", "+1 parágrafo"; vazio quando os dois são zero."""
+    lados = INQUEBRAVEL.join([f"+{milhar(mais)}"] * bool(mais) + [f"−{milhar(menos)}"] * bool(menos))
+    return f"{lados}{INQUEBRAVEL}{um if max(mais, menos) == 1 else varios}" if lados else ""
+
+
+def somar(metricas_):
+    """As métricas de vários lugares somadas, com as fontes sem repetir."""
+    soma = {"natureza": "", "fontes_novas": [], "fontes_sairam": [], "floats": Counter()}
+    for m in metricas_:
+        for k, v in m.items():
+            if isinstance(v, int):
+                soma[k] = soma.get(k, 0) + v
+            elif k in ("fontes_novas", "fontes_sairam"):
+                soma[k] += [f for f in v if f not in soma[k]]
+        soma["floats"].update(m.get("floats", {}))
+    return soma
+
+
+def resumo_do_lugar(natureza, paginas, m):
+    """A natureza, as páginas, as palavras e as fontes de um lugar, numa
+    linha; o que é zero fica de fora."""
+    return " · ".join(p for p in (
+        natureza, intervalos(paginas).replace(" ", INQUEBRAVEL, 1) if paginas else "",
+        mais_menos(m.get("palavras_mais", 0), m.get("palavras_menos", 0), "palavra", "palavras"),
+        mais_menos(len(m.get("fontes_novas", [])), len(m.get("fontes_sairam", [])),
+                   "fonte", "fontes")) if p)
+
+
+def extras_do_lugar(natureza, m):
+    """O resto das medidas: a parte nova do texto (fora do lugar novo, que
+    é todo novo), os parágrafos, as citações e as figuras, tabelas e
+    listagens."""
+    novo = ""
+    if natureza != "nova" and m.get("palavras") and m.get("palavras_mais"):
+        novo = min(100, round(100 * m["palavras_mais"] / m["palavras"]))
+        novo = f"{novo}% novo" if novo else ""
+    floats = [f"{tipo[0]}{n}{INQUEBRAVEL}{tipo[1:]}{'s' if n > 1 else ''}"
+              for tipo, n in sorted(m.get("floats", {}).items())]
+    return " · ".join(p for p in [
+        novo,
+        mais_menos(m.get("paragrafos_mais", 0), m.get("paragrafos_menos", 0),
+                   "parágrafo", "parágrafos"),
+        mais_menos(m.get("citacoes_mais", 0), m.get("citacoes_menos", 0), "citação", "citações"),
+        *floats] if p)
+
+
+NIVEIS = {"chapter": "capítulo", "section": "seção", "subsection": "subseção"}
+
+
+def juntar(nomes):
+    return ", ".join(nomes[:-1]) + " e " + nomes[-1] if len(nomes) > 1 else nomes[0]
+
+
+def paginas_por_capitulo(dados):
+    """As linhas da lista das páginas alteradas, na ordem do documento.
+
+    Cada capítulo abre por uma linha com o nome em negrito e o resumo
+    somado (resumo_do_lugar()), e uma segunda com o resto das medidas
+    somadas (extras_do_lugar()) e o que saiu dele. Embaixo, um item por
+    seção e um por subseção, recuada, só com o resumo; a seção ou
+    subseção sem palavras que entraram ou saíram, que não é nova e (a
+    seção) não tem subseção que mudou entra no último item, "Só
+    marcação", com as páginas e os nomes das seções, e as subseções
+    contadas. A lista com mais de LINHAS_ABERTAS linhas recolhe num
+    <details> cada capítulo de ao menos SUBITENS_PARA_RECOLHER itens."""
+    paginas, metricas_ = {}, {}
+    for p in dados["paginas"]:
+        lg = (p["capitulo"], p["secao"], p["subsecao"])
+        if int(p["pagina"]) not in paginas.setdefault(lg, []):
+            paginas[lg].append(int(p["pagina"]))
+    for m in dados["lugares"]:
+        metricas_[(m["capitulo"], m["secao"], m["subsecao"])] = m
+
+    capitulos = {}  # capítulo -> [lugar], na ordem das páginas
+    for lg in paginas:
+        capitulos.setdefault(lg[0], [])
+        # A seção entra antes das subseções dela, mesmo sem página própria;
+        # a subseção sem seção entra sozinha.
+        for filho in ((lg[:2] + ("",)) if lg[1] else None, lg):
+            if filho and (filho[1] or filho[2]) and filho not in capitulos[lg[0]]:
+                capitulos[lg[0]].append(filho)
+
+    blocos = []  # (nome, resumo, extras, itens)
+    for cap, filhos in capitulos.items():
+        todos = [(cap, "", "")] + filhos
+        soma = somar(metricas_[lg] for lg in todos if lg in metricas_)
+        pags = sorted({n for lg in todos for n in paginas.get(lg, [])})
+        natureza = metricas_.get((cap, "", ""), {}).get("natureza", "")
+
+        def mudou(lg):
+            """Se o lugar, ou uma subseção da seção, mudou palavras, fontes ou
+            título, ou é novo; a seção que só tem a subseção mudada fica na
+            lista, para a subseção ficar embaixo dela."""
+            m = metricas_.get(lg, {})
+            return bool(m.get("palavras_mais") or m.get("palavras_menos") or m.get("natureza")
+                        or m.get("fontes_novas") or m.get("fontes_sairam")) \
+                or (not lg[2] and any(mudou(f) for f in filhos if f[:2] == lg[:2] and f[2]))
+
+        itens, marcacao = [], []
+        for lg in filhos:
+            if not mudou(lg):
+                marcacao.append(lg)
+                continue
+            m = metricas_.get(lg, {})
+            itens.append(("  " if lg[1] and lg[2] else "") + "- " + " · ".join(p for p in [
+                markdown(lg[2] or lg[1]),
+                resumo_do_lugar(m.get("natureza", ""), paginas.get(lg, []), m)] if p))
+        if marcacao:
+            secoes = [markdown(lg[1]) for lg in marcacao if not lg[2]]
+            subs = len(marcacao) - len(secoes)
+            nomes = secoes + ([contagem(subs, "subseção", "subseções")] if subs else [])
+            pags_m = sorted({n for lg in marcacao for n in paginas.get(lg, [])})
+            itens.append("- Só marcação" + (f", {intervalos(pags_m).replace(" ", INQUEBRAVEL, 1)}" if pags_m else "")
+                         + f": {juntar(nomes)}")
+        extras = extras_do_lugar(natureza, soma)
+        # O texto do que saiu fica no capítulo em que estava: diz-se lá.
+        sairam = [f"saiu: {markdown(s['titulo'])} ({NIVEIS[s['nivel']]})"
+                  for s in dados.get("sairam", []) if s["capitulo"] == cap]
+        blocos.append((cap[0].upper() + cap[1:], resumo_do_lugar(natureza, pags, soma),
+                       " · ".join(p for p in [extras] + sairam if p), itens))
+
+    recolher = sum(1 + bool(extras) + len(i) for _, _, extras, i in blocos) > LINHAS_ABERTAS
+    saida = []
+    for nome, resumo, extras, itens in blocos:
+        if recolher and len(itens) >= SUBITENS_PARA_RECOLHER:
+            html = nome.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+            saida += ["<details>", f"<summary><b>{html}</b> · {resumo}</summary>", ""]
+            saida += ([extras, ""] if extras else []) + itens + ["", "</details>", ""]
+            continue
+        # A quebra de linha do Markdown: a barra no fim da linha.
+        saida.append(f"**{markdown(nome)}** · {resumo}" + (f"\\\n{extras}" if extras else ""))
+        saida += [""] + (itens + [""] if itens else [])
+    return saida[:-1]
+
+
+def visao_geral(dados):
+    """A linha que abre a lista das páginas: as palavras, as fontes, as
+    seções novas e o que saiu."""
+    soma = somar(dados["lugares"])
+    novos = Counter(max(n for n, p in enumerate((m["capitulo"], m["secao"], m["subsecao"])) if p)
+                    for m in dados["lugares"] if m["natureza"] == "nova")
+    partes = [mais_menos(soma.get("palavras_mais", 0), soma.get("palavras_menos", 0),
+                         "palavra", "palavras"),
+              mais_menos(len(soma["fontes_novas"]), len(soma["fontes_sairam"]), "fonte", "fontes")]
+    partes += [contagem(novos[n], um, varios) for n, um, varios in (
+        (0, "capítulo novo", "capítulos novos"), (1, "seção nova", "seções novas"),
+        (2, "subseção nova", "subseções novas")) if novos[n]]
+    sairam = [f"{markdown(s['titulo'])} ({NIVEIS[s['nivel']]})" for s in dados.get("sairam", [])]
+    if sairam:
+        partes.append("saiu: " + ", ".join(sairam))
+    return " · ".join(p for p in partes if p)
 
 
 def corpo(saida, tag, base, repo):
@@ -642,7 +998,8 @@ def corpo(saida, tag, base, repo):
     linha, em itens (itens()), com cada ADR citado numa nota de rodapé
     que traz o título dele, da linha "# NNNN. Título" do arquivo, e leva
     ao arquivo na tag; os PDFs; e as páginas que mudaram desde a base,
-    por capítulo e seção."""
+    por capítulo e seção, com as medidas do texto (visao_geral() e
+    paginas_por_capitulo())."""
     mensagem = git(".", "tag", "-l", "--format=%(contents:body)", tag)
     adrs = {}
     for caminho in git(".", "ls-tree", "--name-only", tag, "docs/adr/").split():
@@ -658,16 +1015,19 @@ def corpo(saida, tag, base, repo):
                f"- [Texto da {tag}]({baixar}tcc-{tag}.pdf)",
                f"- [Diff desde a {base}]({baixar}{diff}.pdf)"]
     if Path(saida + ".json").exists():
-        lista = json.load(open(saida + ".json"))
-        if any("subsecao" not in p for p in lista):
-            sys.exit(f"{saida}.json não diz o capítulo de cada página: "
+        with open(saida + ".json") as f:
+            dados = json.load(f)
+        if not isinstance(dados, dict) or "lugares" not in dados:
+            sys.exit(f"{saida}.json não traz as métricas de cada lugar: "
                      f"rode bin/gerar-versao.sh {tag}")
-        n = len({p["fisica"] for p in lista})
+        n = len({p["fisica"] for p in dados["paginas"]})
         s = "s" if n > 1 else ""
         linhas += [f"- [Só as páginas alteradas]({baixar}{diff}-paginas.pdf), "
                    "com o resumo dos commits na frente",
                    "", f"### {n} página{s} alterada{s} desde a {base}", ""]
-        linhas += paginas_por_capitulo(lista)
+        geral = visao_geral(dados)
+        linhas += [geral, ""] if geral else []
+        linhas += paginas_por_capitulo(dados)
     if notas:
         linhas.append("")
         linhas += [f"[^adr-{n}]: [ADR {n}: {titulo}](https://github.com/{repo}/blob/{tag}/{arquivo})"
