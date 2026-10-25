@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """lembrete-do-chat.py — lembra o agente, a cada mensagem do autor, das
-duas regras de chat que o contexto não segura sozinho: as três
-estimativas de páginas e a citação de cada ADR pelo número e pelo nome.
+duas regras de chat que o contexto não segura sozinho: os quatro
+números da estimativa de páginas e a citação de cada ADR pelo número e
+pelo nome.
 
     uso: bin/lembrete-do-chat.py [--raiz DIR] < json-do-hook
          à mão: bin/lembrete-do-chat.py < /dev/null
@@ -13,8 +14,9 @@ contexto antes de o modelo ler a mensagem (saída 0). Saem duas linhas,
 curtas porque chegam a toda mensagem:
 
 - "Páginas": o parágrafo "Resumo" de docs/processo/estimativa-de-paginas.md
-  (o total do PDF, o texto da análise e o anexo de código, com a data da
-  conta), e quando mostrá-lo. A linha some, sem erro, quando a nota ou o
+  (o total do PDF sem o anexo de código, só o texto da análise, o anexo
+  com o código, se entrar, e o total com o anexo, com a data da conta),
+  e quando mostrá-lo. A linha some, sem erro, quando a nota ou o
   Resumo não existe: o hook não pode travar a mensagem.
 - "ADR": a forma da citação, com o exemplo do AGENTS.md ("Onde cada
   coisa vive"). Quando a mensagem do autor (o campo prompt do JSON)
@@ -43,7 +45,7 @@ ADRS = Path("docs/adr")
 ARQUIVO_DE_ADR = re.compile(r"^\d{4}-.+\.md$")
 RESUMO = re.compile(r"^\*\*Resumo \((\d{4}-\d{2}-\d{2})\):\*\*\s*(.*)$")
 
-QUANDO = ("Mostre os três números ao tratar do delineamento, das rodadas "
+QUANDO = ("Mostre os quatro números ao tratar do delineamento, das rodadas "
           "da avaliação ou do tamanho do texto; quem refizer a conta troca "
           "o Resumo e a data da nota.")
 REGRA_DOS_ADRS = (

@@ -18,11 +18,11 @@ spec.loader.exec_module(ldc)
 
 NOTA = """# Estimativa de páginas do TCC
 
-Referência. Os três números.
+Referência. Os quatro números.
 
 **Resumo (2026-10-24):** PDF ≈ 150 páginas sem o código; análise ≈ 92
 páginas de texto; anexo de código ≈ 75 a 90 páginas, se entrar (hoje
-não entra, ADR 0029).
+não entra, ADR 0029); PDF ≈ 230 com o anexo.
 
 ## Como se conta
 
@@ -36,7 +36,7 @@ class Resumo(unittest.TestCase):
             "2026-10-24",
             "PDF ≈ 150 páginas sem o código; análise ≈ 92 páginas de texto; "
             "anexo de código ≈ 75 a 90 páginas, se entrar (hoje não entra, "
-            "ADR 0029)."))
+            "ADR 0029); PDF ≈ 230 com o anexo."))
 
     def test_para_na_linha_em_branco(self):
         self.assertNotIn("Como se conta", ldc.resumo(NOTA)[1])
@@ -82,7 +82,7 @@ class Lembrete(unittest.TestCase):
         self.assertTrue(linhas[0].startswith(
             "Páginas (Resumo de 2026-10-24, "
             "docs/processo/estimativa-de-paginas.md): PDF ≈ 150 páginas"))
-        self.assertIn("ADR 0029). Mostre os três números", linhas[0])
+        self.assertIn("com o anexo. Mostre os quatro números", linhas[0])
         self.assertTrue(linhas[1].startswith("ADR: cite pelo número e pelo nome"))
         self.assertTrue(linhas[1].endswith('nunca só "ADR 0023".'))
         self.assertNotIn("Existem", saida)
