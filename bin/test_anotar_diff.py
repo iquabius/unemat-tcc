@@ -106,6 +106,27 @@ class TituloAlterado(unittest.TestCase):
             "Paradigmas e modelos de programação", "Trabalhos relacionados"])
 
 
+class MarcaDaBibliografia(unittest.TestCase):
+    """No diff v0.9..v0.10, a linha do \\printbibliography mudou, o latexdiff
+    deixou a antiga num %DIFDELCMD, e a marca da bibliografia caiu nela: o
+    .aux ficou sem \\difbiblio, e o PDF das páginas alteradas, sem as
+    referências."""
+
+    def test_marca_o_printbibliography_fora_de_comentario(self):
+        tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(tmp.cleanup)
+        tex = Path(tmp.name) / "diff.tex"
+        tex.write_text("\\begin{document}\n"
+                       "%DIFDELCMD < \\printbibliography[title=\\refname]\n"
+                       "\\DIFaddbegin \\printbibliography[title=REFERÊNCIAS]\n"
+                       "\\end{document}\n", encoding="utf-8")
+        anotar.montar(str(tex))
+        linhas = tex.read_text(encoding="utf-8").splitlines()
+        self.assertIn("%DIFDELCMD < \\printbibliography[title=\\refname]", linhas)
+        self.assertIn("\\DIFaddbegin \\difbibmarca\\printbibliography[title=REFERÊNCIAS]"
+                      "\\difbibmarca", linhas)
+
+
 def marcadores(out):
     """Os títulos dos \\BOOKMARK do .out do hyperref, que vêm em UTF-16 com
     os bytes em octal (\\376\\377\\000P...)."""

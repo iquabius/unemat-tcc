@@ -321,8 +321,12 @@ PREAMBULO = r"""
 def montar(diff_tex):
     t = Path(diff_tex).read_text()
     t = t.replace("\\begin{document}", PREAMBULO + "\\begin{document}\n\\input{difresumo}\n", 1)
-    t = re.sub(r"\\printbibliography(\[[^\]]*\])?",
-               lambda m: "\\difbibmarca" + m.group(0) + "\\difbibmarca", t, count=1)
+    # O primeiro \printbibliography fora de comentário: quando a linha dele
+    # muda entre as versões, o latexdiff deixa a antiga num %DIFDELCMD.
+    for m in re.finditer(r"\\printbibliography(\[[^\]]*\])?", t):
+        if sem_comentario(t[t.rfind("\n", 0, m.start()) + 1:m.end()]).endswith(m.group(0)):
+            t = t[:m.start()] + "\\difbibmarca" + m.group(0) + "\\difbibmarca" + t[m.end():]
+            break
     Path(diff_tex).write_text(t)
 
 
