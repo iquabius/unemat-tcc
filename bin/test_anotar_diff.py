@@ -15,6 +15,8 @@ leva o título como ficou, sem o texto apagado e sem o nome da cor que o
     python3 -m unittest discover -s bin -p 'test_*.py'
 """
 import importlib.util
+import io
+import json
 import os
 import re
 import shutil
@@ -22,6 +24,7 @@ import subprocess
 import tempfile
 import textwrap
 import unittest
+from unittest import mock
 from pathlib import Path
 
 BIN = Path(__file__).resolve().parent
@@ -228,6 +231,81 @@ class SecoesDoAux(unittest.TestCase):
         self.assertEqual(anotar.argumentos(r"{a{b{c}}}{d\}}x", 0, 2),
                          (["a{b{c}}", r"d\}"], 14))
         self.assertEqual(anotar.argumentos("{a}", 0, 2)[0], None)
+
+
+class CorpoDaRelease(unittest.TestCase):
+    def test_um_item_por_paragrafo(self):
+        mensagem = ("A introdução saiu do corte\ndo ADR 0022.\n\n"
+                    "Duas figuras\n- em TikZ.\n\n\nFica para a v0.11.\n")
+        self.assertEqual(anotar.itens(mensagem), [
+            "A introdução saiu do corte do ADR 0022.", "Duas figuras - em TikZ.",
+            "Fica para a v0.11."])
+
+    def test_corpo_com_titulo_do_adr_na_tag(self):
+        arquivos = {"docs/adr/0022-corte.md": "# 0022. O texto passa por um corte\n\nTexto.\n"}
+
+        def git(_repo, *args):
+            if args[:2] == ("tag", "-l"):
+                return "Nome\n\nA introdução saiu do corte do ADR 0022.\n"
+            if args[0] == "ls-tree":
+                return "\n".join(arquivos) + "\n"
+            return arquivos[args[1].split(":", 1)[1]]
+
+        tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(tmp.cleanup)
+        saida = str(Path(tmp.name) / "diff-v0.9..v0.10-paginas")
+        Path(saida + ".json").write_text(json.dumps([
+            {"pagina": "11", "fisica": 19, "capitulo": "Introdução", "secao": "", "subsecao": ""},
+            {"pagina": "44", "fisica": 52, "capitulo": "Comparação",
+             "secao": "*Revisão do JavaScript", "subsecao": ""}]))
+        with mock.patch.object(anotar, "git", git), \
+                mock.patch("sys.stdout", new_callable=io.StringIO) as out:
+            anotar.corpo(saida, "v0.10", "v0.9", "dono/repo")
+        corpo = out.getvalue()
+        self.assertIn("- A introdução saiu do corte do ADR 0022[^adr-0022].", corpo)
+        self.assertIn("[^adr-0022]: [ADR 0022: O texto passa por um corte]"
+                      "(https://github.com/dono/repo/blob/v0.10/docs/adr/0022-corte.md)", corpo)
+        self.assertIn("(https://github.com/dono/repo/releases/download/v0.10/"
+                      "diff-v0.9.v0.10-paginas.pdf)", corpo)
+        self.assertIn("### 2 páginas alteradas desde a v0.9", corpo)
+        self.assertIn("  - \\*Revisão do JavaScript: p. 44", corpo)
+
+        Path(saida + ".json").write_text(json.dumps([{"pagina": "11", "fisica": 19, "secao": "x"}]))
+        with mock.patch.object(anotar, "git", git), mock.patch("sys.stdout", new_callable=io.StringIO), \
+                self.assertRaises(SystemExit) as erro:
+            anotar.corpo(saida, "v0.10", "v0.9", "dono/repo")
+        self.assertIn("rode bin/gerar-versao.sh v0.10", str(erro.exception))
+
+    def test_rodape_por_adr_na_ordem_da_primeira_citacao(self):
+        adrs = {"0012": ("docs/adr/0012-a.md", "Doze"), "0029": ("docs/adr/0029-b.md", "Vinte e nove")}
+        textos, notas = anotar.rodapes(
+            ["Três rodadas (ADRs 0029 e 0012).", "De novo o ADR 0029, e o ADR 0099.",
+             "O ADR 0012, 2026-10-25."], adrs)
+        self.assertEqual(textos, [
+            "Três rodadas (ADRs 0029[^adr-0029] e 0012[^adr-0012]).",
+            "De novo o ADR 0029[^adr-0029], e o ADR 0099.",
+            "O ADR 0012[^adr-0012], 2026-10-25."])
+        self.assertEqual(notas, [("0029", "docs/adr/0029-b.md", "Vinte e nove"),
+                                 ("0012", "docs/adr/0012-a.md", "Doze")])
+
+    def test_paginas_por_capitulo_secao_e_subsecao(self):
+        def p(pagina, cap, sec="", sub=""):
+            return {"pagina": str(pagina), "fisica": pagina + 8, "capitulo": cap,
+                    "secao": sec, "subsecao": sub}
+        lista = [p(1, "pré-textuais"), p(2, "pré-textuais"), p(4, "pré-textuais"),
+                 p(11, "Introdução"), p(25, "Modelos", "Linguagens"),
+                 p(26, "Modelos", "Linguagens"), p(46, "Modelos", "Listas", "Preços"),
+                 p(50, "Modelos", "", "Sem seção"), p(64, "apêndices")]
+        self.assertEqual(anotar.paginas_por_capitulo(lista), [
+            "- **Pré-textuais**: pp. 1–2, 4",
+            "- **Introdução**: p. 11",
+            "- **Modelos**",
+            "  - Linguagens: pp. 25–26",
+            "  - Listas",
+            "    - Preços: p. 46",
+            "  - Sem seção: p. 50",
+            "- **Apêndices**: p. 64",
+        ])
 
 
 if __name__ == "__main__":

@@ -19,8 +19,11 @@ bin/gerar-versao.sh, em quatro passos:
                               só com o resumo e as páginas com marca do
                               latexdiff (qpdf), e SAIDA.json com a página, o
                               capítulo, a seção e a subseção de cada uma
-  corpo SAIDA TAG BASE        o corpo da release: a mensagem da tag e as
-                              páginas alteradas (bin/preparar-release.sh)
+  corpo SAIDA TAG BASE REPO   o corpo da release, em Markdown: a mensagem
+                              da tag em itens, os PDFs, as páginas
+                              alteradas por capítulo e os ADRs citados em
+                              notas de rodapé, com links para o GitHub de
+                              REPO, dono/nome (bin/preparar-release.sh)
 
 O trecho que entrou é atribuído pelo git blame BASE..REF do .tex de REF; o
 que saiu, pelo git blame --reverse do .tex de BASE, ao commit seguinte ao
@@ -578,32 +581,98 @@ def intervalos(numeros):
     return ("p. " if len(numeros) == 1 else "pp. ") + ", ".join(partes)
 
 
-def resumo_paginas(lista):
-    """As páginas alteradas por lugar, na ordem do documento."""
-    lugares = {}
+def itens(mensagem):
+    """O corpo da mensagem da tag em itens, um por parágrafo, com as
+    quebras de 72 colunas trocadas por espaço."""
+    return [t for p in re.split(r"\n\s*\n", mensagem.strip()) if (t := " ".join(p.split()))]
+
+
+def markdown(titulo):
+    """O título em texto, com o que o Markdown leria como marcação escapado."""
+    return re.sub(r"([\\`*_\[\]<>])", r"\\\1", titulo)
+
+
+ADR = re.compile(r"\bADRs? \d{4}(?![\d-])(?:(?:, | e )\d{4}(?![\d-]))*")
+
+
+def rodapes(textos, adrs):
+    """Uma chamada de rodapé depois de cada número de ADR citado nos textos
+    ("ADR 0022", "ADRs 0012 e 0029") e uma nota por ADR, na ordem da
+    primeira citação. adrs: {"0022": (arquivo, título)}; o número que não
+    está nele fica sem chamada, com um aviso. Devolve os textos com as
+    chamadas e as notas, [(número, arquivo, título)]."""
+    notas = {}
+
+    def numero(n):
+        if n.group(0) not in adrs:
+            print(f"aviso: o ADR {n.group(0)} não está em docs/adr/ na tag", file=sys.stderr)
+            return n.group(0)
+        notas.setdefault(n.group(0), adrs[n.group(0)])
+        return f"{n.group(0)}[^adr-{n.group(0)}]"
+
+    textos = [ADR.sub(lambda m: re.sub(r"\d{4}", numero, m.group(0)), t) for t in textos]
+    return textos, [(n, *v) for n, v in notas.items()]
+
+
+def paginas_por_capitulo(lista):
+    """As linhas da lista das páginas alteradas, na ordem do documento: um
+    item por capítulo, um por seção embaixo dele e um por subseção embaixo
+    da seção, cada um com as páginas que são dele e não de um nível de
+    baixo; o capítulo em negrito."""
+    lugares = {}  # (capítulo, seção, subseção) -> [páginas]
     for p in lista:
-        lugar = p["subsecao"] or p["secao"] or p["capitulo"]
-        paginas = lugares.setdefault(lugar, [])
-        if int(p["pagina"]) not in paginas:
-            paginas.append(int(p["pagina"]))
-    return "; ".join(f"{s}, " + intervalos(ns) for s, ns in lugares.items())
+        lugar = (p["capitulo"], p["secao"], p["subsecao"])
+        # Os níveis de cima entram antes, mesmo sem página própria.
+        for k in (1, 2):
+            lugares.setdefault(lugar[:k] + ("",) * (3 - k), [])
+        if int(p["pagina"]) not in lugares.setdefault(lugar, []):
+            lugares[lugar].append(int(p["pagina"]))
+    linhas = []
+    for lugar, paginas in lugares.items():
+        partes = [parte for parte in lugar if parte]
+        nivel = len(partes) - 1
+        nome = markdown(partes[-1])
+        nome = f"**{nome[0].upper() + nome[1:]}**" if nivel == 0 else nome
+        linhas.append("  " * nivel + f"- {nome}" + (f": {intervalos(paginas)}" if paginas else ""))
+    return linhas
 
 
-def corpo(saida, tag, base):
-    """O corpo da release: a mensagem da tag sem a primeira linha, com cada
-    parágrafo numa linha, e as páginas que mudaram desde a base."""
-    texto = git(".", "tag", "-l", "--format=%(contents:body)", tag).strip()
-    print("\n\n".join(" ".join(p.split()) for p in re.split(r"\n\s*\n", texto)))
+def corpo(saida, tag, base, repo):
+    """O corpo da release, em Markdown: a mensagem da tag sem a primeira
+    linha, em itens (itens()), com cada ADR citado numa nota de rodapé
+    que traz o título dele, da linha "# NNNN. Título" do arquivo, e leva
+    ao arquivo na tag; os PDFs; e as páginas que mudaram desde a base,
+    por capítulo e seção."""
+    mensagem = git(".", "tag", "-l", "--format=%(contents:body)", tag)
+    adrs = {}
+    for caminho in git(".", "ls-tree", "--name-only", tag, "docs/adr/").split():
+        if m := re.match(r"docs/adr/(\d{4})-.*\.md$", caminho):
+            primeira = git(".", "show", f"{tag}:{caminho}").partition("\n")[0]
+            adrs[m.group(1)] = (caminho, re.sub(r"^#\s*\d{4}\.\s*", "", primeira).strip())
+    textos, notas = rodapes(itens(mensagem), adrs)
+    # O GitHub troca o ".." do nome do arquivo por um ponto só.
+    baixar = f"https://github.com/{repo}/releases/download/{tag}/"
+    diff = f"diff-{base}.{tag}"
+    linhas = ["### O que mudou", ""] + [f"- {t}" for t in textos]
+    linhas += ["", "### PDFs", "",
+               f"- [Texto da {tag}]({baixar}tcc-{tag}.pdf)",
+               f"- [Diff desde a {base}]({baixar}{diff}.pdf)"]
     if Path(saida + ".json").exists():
         lista = json.load(open(saida + ".json"))
         if any("subsecao" not in p for p in lista):
             sys.exit(f"{saida}.json não diz o capítulo de cada página: "
                      f"rode bin/gerar-versao.sh {tag}")
         n = len({p["fisica"] for p in lista})
-        plural = "s" if n > 1 else ""
-        print(f"\n**{n} página{plural} com alteração desde {base}:** "
-              f"{resumo_paginas(lista)}. Estão no diff só das páginas alteradas, "
-              "com o resumo dos commits na frente.")
+        s = "s" if n > 1 else ""
+        linhas += [f"- [Só as páginas alteradas]({baixar}{diff}-paginas.pdf), "
+                   "com o resumo dos commits na frente",
+                   "", f"### {n} página{s} alterada{s} desde a {base}", ""]
+        linhas += paginas_por_capitulo(lista)
+    if notas:
+        linhas.append("")
+        linhas += [f"[^adr-{n}]: [ADR {n}: {titulo}](https://github.com/{repo}/blob/{tag}/{arquivo})"
+                   for n, arquivo, titulo in notas]
+    print("\n".join(linhas))
 
 
 if __name__ == "__main__":
