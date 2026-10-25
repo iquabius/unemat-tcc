@@ -383,9 +383,10 @@ seção "Decalque").
 Cada marco ganha uma tag anotada `v0.N` (ADR 0024). A primeira linha da
 mensagem é o nome do marco, e o resto diz o que mudou no texto. A data é
 a do commit: `GIT_COMMITTER_DATE="$(git log -1 --format=%cI <commit>)"
-git tag -a v0.N -F <mensagem> <commit>`. A próxima tag sai quando uma
-fase fecha. `git tag -n1 --sort=v:refname` lista os marcos. Push de tag
-e release só a pedido do autor.
+git tag -a v0.N -F <mensagem> <commit>`. A próxima tag sai quando o
+autor nomeia um marco, e não quando uma fase fecha (ADR 0024). `git tag
+-n1 --sort=v:refname` lista os marcos. Push de tag e release só a pedido
+do autor.
 
 Os três PDFs de uma versão (o texto, o diff e o diff só das páginas
 alteradas) saem do `bin/gerar-versao.sh <tag>`, e a release, como
