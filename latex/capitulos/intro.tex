@@ -114,18 +114,18 @@ montados, e essa atualização é a parte imperativa.
 
 Nos declarativos, o programador descreve a tela em função do estado, e o
 ambiente de execução a mantém atualizada
-\cites{solidjs2026}[][ p. 32]{sperber2025}.
+\cites[][ p. 289:1]{lee2025}{solidjs2026}.
 No \emph{declarativo por re-renderização}, o ambiente de execução chama de
 novo, a cada alteração de estado, a parte que monta a tela.
 No React, é o próprio componente, uma função que especifica a tela e que,
 chamada com os mesmos argumentos, deve exibir a mesma interface
-\cite[p. 289:1, 289:2 e 289:6]{lee2025}; no Lit, é o método \texttt{render()}
-da classe do componente \cite{google2026d}.
+\cite[p. 289:1, 289:2 e 289:6]{lee2025}.
 O \emph{declarativo por atualização granular} usa as abstrações da \gls{pr},
 os valores que variam no tempo, chamados \emph{signals}, cujas alterações se
 propagam automaticamente \cite[p. 953]{salvaneschi2015}.
-Cada \emph{signal} avisa o que depende dele, como no Solid e no Angular com
-\emph{signals} \cite{solidjs2026,google2026}.
+Cada \emph{signal} avisa o que depende dele, como no Solid \cite{solidjs2026},
+e o ambiente de execução não chama de novo a parte que monta a tela
+\cite[p. 289:38]{lee2025}.
 No React, o \emph{callback} continua a tratar o evento, mas só altera o estado,
 e a tela se monta de novo a partir dele \cite[p. 32]{sperber2025}.
 Num contador, por exemplo, o \emph{callback} do clique soma um ao estado, e o
@@ -152,7 +152,7 @@ interface, entre elas a \gls{pr}.
 Nenhum desses trabalhos compara, sobre as mesmas interfaces e em tecnologias
 web, os três modelos de programação.
 Os trabalhos encontrados na revisão bibliográfica também não avaliam pelas
-\glspl{dc} a notação do React nem a do Solid e do Angular com \emph{signals}.
+\glspl{dc} a notação do React nem a do Solid.
 A lacuna se apoia nessa revisão, feita por palavras-chave e por
 \emph{snowballing} \cite[p. 3-4]{wohlin2014}, sobretudo para a frente, em três
 rodadas de busca, em setembro e outubro de 2026, e descrita no Apêndice
@@ -165,10 +165,11 @@ notação do código de interfaces gráficas em cada tecnologia entre
 os três modelos de programação~--- o imperativo por atualização manual, o
 declarativo por re-renderização e o declarativo por atualização granular?
 \notamudou{O projeto perguntava \enquote{Quais os conceitos apropriados para programação de interfaces gráficas?} e se a programação declarativa é adequada a elas.}
-(P1.1) Como muda essa diferença quando o código cresce, com as mesmas
-funcionalidades e os mesmos requisitos de orquestração acrescentados a
-todas as implementações?
-(P1.2) E como ela muda no ecossistema típico de cada tecnologia?
+(P1.1) Como muda essa diferença quando o código cresce, com
+funcionalidades e requisitos de orquestração acrescentados a cada
+interface, iguais em todas as tecnologias?
+(P1.2) E como ela muda quando o código passa à forma que o ecossistema de
+cada tecnologia usa, com o mesmo comportamento?
 \notamudou{\textbf{As duas subperguntas são novas}, como as rodadas a que elas respondem.}
 Conhecer essas diferenças pode ajudar quem programa interfaces a escolher uma tecnologia
 sabendo o que o modelo de programação dela facilita e o que dificulta em
@@ -178,24 +179,22 @@ de programação.
 
 O objetivo geral é comparar, segundo as \glspl{dc}, a usabilidade das
 notações dos três modelos de programação em interfaces típicas da web,
-em TypeScript, e em parte delas no Android, em Kotlin, e no
-\emph{desktop}, em C\#.
+em TypeScript.
 Especificamente:
 
 \begin{itemize}
-\item implementar cinco interfaces gráficas (Formulário com validação,
-Busca com sugestões, Login com quarentena, Quadro de tarefas e Dados
-ao vivo) com Web Component, React e Solid, três delas também com Lit
-e três com Angular com \emph{signals}, três no Android, com Views e
-Jetpack Compose, e três no \emph{desktop}, com Windows Forms e WPF, e
-estendê-las em duas rodadas;
+\item implementar sete interfaces gráficas (Contador, Reserva de passagem,
+Busca com sugestões, Login com quarentena, Placar ao vivo, Planilha e
+Circle Drawer) com Web Component, Web Component com \emph{signals}, React
+e Solid, estendê-las na segunda rodada e refatorar duas delas na
+terceira;
 \item avaliar as implementações pelas 14 \glspl{dc} em cada rodada;
 \item sintetizar, por exigência de coordenação, o que cada modelo de
 programação facilita e o que dificulta, como no estado derivado e na
 assincronia.
 \end{itemize}
 
-\notamudou[inline]{No projeto, o objetivo geral era demonstrar e analisar conceitos declarativos de PF e PR, e o primeiro objetivo específico, demonstrar a programação declarativa com a PF, se cumpria com programas de processamento de listas. \textbf{Esse objetivo sai} e vai para a seção 2, porque fundamentar conceitos não responde à pergunta. Os \enquote{programas concretos} passam a cinco interfaces, avaliadas em três rodadas; o JavaScript passa a TypeScript na web, com Kotlin no Android e C\# no \emph{desktop}; e as DCs, que o projeto não listava, passam às 14 da lista completa.}
+\notamudou[inline]{No projeto, o objetivo geral era demonstrar e analisar conceitos declarativos de PF e PR, e o primeiro objetivo específico, demonstrar a programação declarativa com a PF, se cumpria com programas de processamento de listas. \textbf{Esse objetivo sai} e vai para a seção 2, porque fundamentar conceitos não responde à pergunta. Os \enquote{programas concretos} passam a sete interfaces na web, avaliadas em três rodadas; o JavaScript passa a TypeScript; e as DCs, que o projeto não listava, passam às 14 da lista completa.}
 
 Quanto aos objetivos, a pesquisa é \emph{exploratória}: busca compreensão nova
 \notamudou{O projeto também classificava a pesquisa como exploratória, com Leal (2011), e de natureza aplicada; \textbf{a natureza sai}.}
@@ -215,27 +214,55 @@ uma amostra representativa das tarefas da prática e servem para comparar
 técnicas alternativas por medidas de desempenho, que podem ser
 qualitativas e feitas por uma pessoa \cite[p. 76]{sim2003}.
 A medida, neste trabalho, é a avaliação pelas \glspl{dc}.
-Aqui, as técnicas são os três modelos de programação, e a amostra, cinco
+Aqui, as técnicas são os três modelos de programação, e a amostra, sete
 interfaces gráficas.
-Cada uma traz, em proporção própria, exigências dos dois eixos da
-coordenação.
+A primeira, o Contador, mostra só a estrutura básica que o código de uma
+interface exige em cada tecnologia \cite[p. 17]{kiss2014}.
+As outras seis trazem, em proporção própria, exigências dos dois eixos
+da coordenação.
 
-As cinco interfaces são implementadas na web por uma tecnologia de cada modelo de
-programação, Web Component, React e Solid, e três delas também pelo Lit,
-no declarativo por re-renderização, e pelo Angular com \emph{signals}, no
-declarativo por atualização granular.
-No Android e no \emph{desktop}, um par de tecnologias confere se as posições
-encontradas na web se repetem.
-A avaliação se faz em três rodadas: a primeira responde à P1; a segunda
-acrescenta as mesmas funcionalidades e os mesmos requisitos de
-orquestração a todas as implementações e responde à P1.1; a terceira
-reescreve o Formulário com a biblioteca de formulário do ecossistema de
-cada tecnologia, ou com a API da plataforma quando nenhuma domina, e
+As sete interfaces são implementadas na web por quatro tecnologias, numa
+cadeia de pares em que cada passo muda o mínimo.
+A cadeia parte do Web Component, no imperativo por atualização manual.
+O primeiro passo, ao Web Component com \emph{signals} do \texttt{solid-js}, leva ao
+declarativo por atualização granular: muda o modo como a alteração do
+estado chega à tela e também a orquestração de eventos.
+O segundo, ao Solid, mantém o modelo de programação e muda a montagem da
+tela e o modelo de componente.
+O terceiro, ao React, mantém a montagem em JSX e muda o modelo de
+programação para o declarativo por re-renderização.
+O Web Component com \emph{signals} é uma construção de controle, feita para
+este trabalho, e não tirada de programas reais.
+Nele, o \texttt{solid-js} serve só como biblioteca de \emph{signals}, e a classe e a
+montagem da tela são as do Web Component.
+O Web Component e o React não formam par, e a diferença entre eles se
+atribui ao passo da cadeia em que ela aparece.
+A que nenhum passo explica se atribui pelo sinal escrito na notação: se
+ele está na coordenação, na montagem da tela ou na ligação entre as duas.
+
+A avaliação se faz em três rodadas.
+A primeira responde à P1.
+A segunda acrescenta a cada interface funcionalidades e requisitos de
+orquestração, iguais nas quatro tecnologias, e responde à P1.1.
+A terceira refatora o código da segunda rodada da Reserva de passagem e
+do Placar ao vivo, uma interface de cada eixo, para a forma que o
+ecossistema de cada tecnologia usa, sem mudar o comportamento, e
 responde à P1.2.
 \notamudou{\textbf{As três rodadas são novas}; o projeto não as previa.}
-A linguagem de cada plataforma, a especificação e as regras de domínio ficam fixas, as duas
-primeiras rodadas não usam bibliotecas de formulário, e um teste de
-conformidade confere que as implementações de uma interface fazem o mesmo.
+Na terceira rodada, a forma de cada tecnologia é a biblioteca com mais
+da metade dos downloads no npm entre as que guardam o estado do
+formulário ou tratam a conexão ao vivo.
+Quando nenhuma domina, a forma é a \gls{api} da plataforma.
+No Web Component com \emph{signals}, vale a forma do Web Component, para o
+primeiro passo da cadeia não mudar também a biblioteca.
+A fonte simulada do Placar ao vivo fala WebSocket desde a primeira
+rodada, para a terceira trocar só a reconexão escrita no código pela da
+biblioteca.
+
+A linguagem, a especificação e as regras de domínio ficam fixas, nas
+duas primeiras rodadas cada implementação usa só o que a tecnologia
+traz, e um teste de conformidade confere que as implementações de uma
+interface fazem o mesmo.
 A aparência também fica fixa, num arquivo \gls{css} comum às
 implementações de cada interface, e a tela só cita as classes pelo nome.
 As capturas de tela conferem que ela sai igual em todas as tecnologias.
@@ -284,12 +311,13 @@ rodada a outra, \emph{mantida}, \emph{ampliada}, \emph{reduzida}, \emph{anulada}
 
 Mesmo na segunda rodada, as implementações continuam pequenas, e o que só aparece em
 programas de grande porte ou ao longo da manutenção fica de fora.
-O autor reuniu o conjunto de interfaces para este trabalho, três delas
+O autor reuniu o conjunto de interfaces para este trabalho, seis delas
 adaptadas de fontes publicadas que a seção \ref{chap:cases} apresenta, e
 escolheu as mudanças da segunda rodada com protótipos e parte das
 implementações da primeira, antes da avaliação.
 Um conjunto criado por um pesquisador só e pouco usado tende a ter menos
 impacto que um adotado por uma comunidade \cite[p. 76]{sim2003}.
+
 O delineamento compara categorias, e não artefatos: cada modelo de programação
 tem uma ou duas tecnologias na web, e o perfil dele generaliza a partir
 delas.
@@ -303,9 +331,12 @@ junto do componente, no próprio código que monta a tela.
 Também não chega às dependências ocultas que
 \textcite[p. 342]{green2006} acham no sistema formado pelo \gls{html}
 e pelo \gls{css}.
-Os pares isolam pouco: na web, só o Web Component e o Lit separam o
-imperativo por atualização manual do declarativo por re-renderização, e
-fora da web cada plataforma confere dois dos três modelos de programação.
+Os pares isolam pouco: o primeiro passo da cadeia muda, além do modelo
+de programação, a orquestração, que segue a do Solid.
+O imperativo e a re-renderização não formam par, e atribuir a diferença
+entre eles aos passos da cadeia supõe que os passos se somam.
+A suposição falha quando um passo muda a leitura de outro, como a
+montagem em JSX pode mudar a leitura do modo como o estado chega à tela.
 
 Além desta introdução, o texto tem três seções.
 A seção \ref{chap:prog} reúne os conceitos em que o trabalho se apoia, dos

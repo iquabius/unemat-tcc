@@ -1,6 +1,38 @@
 #+title: lee2025: Lee et al. (2025), React-tRace: A Semantics for Understanding React Hooks: An Operational Semantics and a Visualizer for Clarifying React Hooks
 #+startup: overview
 
+* [[file:../intro.org::Nos declarativos, o programador descreve a tela][intro: Nos declarativos, o programador descreve a tela]], p. 289:1 (as declarativas)
+- Frase: “Nos declarativos, o programador descreve a tela em função do
+  estado, e o ambiente de execução a mantém atualizada (Lee; Ahn; Yi,
+  2025, p. 289:1; SolidJS, 2026).” (o React)
+- Trecho: “A React component is a function that serves as a declarative
+  specification of a UI, which is read by the React runtime to render the
+  interface.” (289:1)
+- Lido em: =acervo/lee2025.pdf=, p. 1 do PDF (paginação da ACM impressa
+  na cópia do arXiv).
+- Observação: substitui Sperber e Schlegel (2025, p. 32), cujo trecho
+  cobria o React pelo MVU e o Angular pelo pré-processador; com o Angular
+  fora da análise, e com a fronteira entre os dois declarativos apoiada
+  em Lee, Ahn e Yi (289:38; decisão do autor de 2026-10-20), a frase fica
+  com o React por esta fonte e o Solid pela documentação dele.
+- Conferido: 2026-10-24.
+* [[file:../intro.org::Nos declarativos, o programador descreve a tela][intro: Nos declarativos, o programador descreve a tela]], p. 289:38 (a fronteira)
+- Frase: “Cada /signal/ avisa o que depende dele, como no Solid (SolidJS,
+  2026), e o ambiente de execução não chama de novo a parte que monta a
+  tela (Lee; Ahn; Yi, 2025, p. 289:38).”
+- Trecho: Tabela 2, “Comparison of reactive UI frameworks”, pela
+  propriedade “whether they re-read component specifications for
+  re-rendering”: “Re-read Spec.” é “Yes” no React e “No” no Solid (289:38).
+- Lido em: =acervo/lee2025.pdf=, p. 38 do PDF (apêndice C).
+- Observação: é a fronteira entre a re-renderização e a atualização
+  granular (decisão do autor de 2026-10-20,
+  =docs/paradigma-modelo-e-notacao.md=, seção “Tensões que o texto
+  precisa enfrentar”). O critério é o que o ambiente de execução faz, e
+  cobre o Web Component com /signals/, que não tem pré-processador; “a
+  parte que monta a tela” é a “component specification” da fonte, como
+  na frase da re-renderização, duas frases antes.
+- Conferido: 2026-10-24.
+
 * [[file:../intro.org::Nos declarativos, o programador descreve a tela][intro: Nos declarativos, o programador descreve a tela]], p. 289:1 (o componente é uma função)
 - Frase: “No React, é o próprio componente, uma função que especifica a
   tela e que, chamada com os mesmos argumentos, deve exibir a mesma

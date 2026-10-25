@@ -19,7 +19,7 @@
 - Lido em: =acervo/green2006-publicada.pdf=,
   p. 7 do PDF (p. 334).
 - Conferido: 2026-10-07.
-* [[file:../intro.org::Mesmo na segunda rodada, as implementações continuam pequenas][intro: Mesmo na segunda rodada, as implementações continuam pequenas]], p. 342
+* [[file:../intro.org::O delineamento compara categorias, e não artefatos][intro: O delineamento compara categorias, e não artefatos]], p. 342
 - Frase: “Também não chega às dependências ocultas que Green et al.
   (2006, p. 342) acham no sistema formado pelo HTML e pelo CSS.”
 - Trecho: “consider the properties of the new, joint system, HTML/CSS.

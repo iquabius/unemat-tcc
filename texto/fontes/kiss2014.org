@@ -83,7 +83,20 @@
   set of case studies”, um /benchmark/ de um item só; por isso a citação
   é a p. 114, onde o termo nomeia o conjunto.
 - Conferido: 2026-10-14.
-* [[file:../intro.org::As cinco interfaces são implementadas na web][intro: As cinco interfaces são implementadas na web]], p. 16
+* [[file:../intro.org::Quanto aos meios, o trabalho é][intro: Quanto aos meios, o trabalho é uma avaliação qualitativa]], p. 17 (o Contador)
+- Frase: “A primeira, o Contador, mostra só a estrutura básica que o
+  código de uma interface exige em cada tecnologia (Kiss, 2014, p. 17).”
+- Trecho: “Challenges: understanding the basic ideas of a
+  language/toolkit and the essential scaffolding”; “by comparing Counter
+  implementations one can clearly see what basic scaffolding is needed
+  and how the very basic features work together to build a GUI
+  application.” (p. 17)
+- Lido em: =acervo/kiss2014.pdf=, p. 23 do PDF (p. 17).
+- Observação: que o Contador não tem exigência de coordenação própria é
+  do ADR 0002 (2026-10-22), e não de Kiss; “estrutura básica” traduz
+  /basic scaffolding/.
+- Conferido: 2026-10-24.
+* [[file:../intro.org::A linguagem, a especificação e as regras de domínio][intro: A linguagem, a especificação e as regras de domínio]], p. 16
 - Frase: “Como Kiss (2014, p. 16), que deixou de fora a linguagem de
   /layout/ do JavaFX para não tirar o foco da comparação, este trabalho
   mantém fora da notação o que não distingue os modelos de programação.”
