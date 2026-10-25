@@ -3,7 +3,7 @@
 Trabalho de conclusão que compara três modelos de programação de
 interfaces gráficas pelas Dimensões Cognitivas de Notações, aplicadas à
 notação com que cada tecnologia os escreve, com as mesmas interfaces
-implementadas em quatro tecnologias web, em três rodadas. Texto em
+implementadas em cinco tecnologias web, em três rodadas. Texto em
 `texto/`, código em `implementacoes/`, decisões em `docs/adr/`, definições
 e fontes dos termos em `docs/paradigma-modelo-e-notacao.md`.
 
@@ -112,8 +112,9 @@ desempenho (Tichy, 2014)
 
 **Interface base**:
 A Reserva de passagem, o *Flight Booker* adaptado, a interface de que o
-trabalho parte e que a terceira rodada refatora com a biblioteca de
-formulário de cada ecossistema, ao lado do Placar ao vivo (ADR 0029).
+trabalho parte e que a vertente do ecossistema refatora na terceira rodada
+com a biblioteca de formulário de cada tecnologia, ao lado do Placar ao
+vivo (ADRs 0029 e 0031).
 _Avoid_: interface principal; tarefa base (até 2026-10-14); caso base
 
 **Delineamento**:
@@ -163,11 +164,11 @@ chamadas pelo ordinal: a primeira, a segunda e a terceira rodada. A
 primeira responde à pergunta de pesquisa, a P1; a segunda e a terceira, às
 subperguntas, a P1.1 e a P1.2 (ADR 0014). Os rótulos ficam para as
 perguntas, e o ordinal, para as rodadas, em todo lugar. A primeira
-constrói as sete interfaces nas quatro tecnologias, com o modelo de
+constrói as sete interfaces nas cinco tecnologias, com o modelo de
 programação isolado; a segunda muda o comportamento, com funcionalidades e
 requisitos de orquestração acrescentados a cada interface; a terceira muda
-só a forma, refatorando a Reserva de passagem e o Placar ao vivo para a
-forma do ecossistema (ADR 0029).
+só a forma, em quatro vertentes irmãs sobre o código da segunda, na
+Reserva de passagem, no Placar ao vivo e no Circle Drawer (ADR 0029).
 _Avoid_: fase (é do roteiro); iteração; rodada sozinha onde puder ser a
 rodada de corte ou a de revisão do texto (ADRs 0022 e 0023); "a rodada da
 P1", "a rodada da P2" e P2 e P3 para as rodadas (até 2026-10-13, quando as
@@ -234,7 +235,10 @@ _Avoid_: requisito não funcional (a mudança é de comportamento)
 Regra comum da primeira rodada: quando a interface sai da tela, ela
 encerra o que iniciou (relógios, conexões, requisições, ouvintes), e o
 teste de conformidade confere que nada sobrou. Quem a viola deixa um
-vazamento de recursos (Lima, Giusti e Dias-Neto, 2020).
+vazamento: o ouvinte, o relógio ou a inscrição que fica depois que o
+componente sai do DOM segura o que capturou e impede o coletor de
+recolhê-lo (Vilk e Berger, 2018, p. 15; Shahoor et al., 2023); para as
+conexões e as requisições, a fonte é só a documentação de cada tecnologia.
 _Avoid_: "nada vivo depois de sair da tela" (decalque de *alive*);
 descarte (tradução automática de *dispose*); desmontar sozinho
 (vocabulário do React); tarefa órfã (tarefa é a do bd); assinatura (é
@@ -242,11 +246,11 @@ inscrição, como em "Exigência de coordenação")
 
 **Página comum**:
 O módulo em TypeScript puro, `implementacoes/pagina.ts`, que hospeda a
-interface nas quatro tecnologias: monta-a no contêiner e a tira da página
+interface nas cinco tecnologias: monta-a no contêiner e a tira da página
 pela rota do hash, para o teste conferir a limpeza ao sair da tela. A
 interface montada nela é a ilha, no sentido da arquitetura de ilhas, e
-cada implementação só traz o gancho de montagem, o par montar e
-desmontar no idioma da tecnologia (ADR 0043).
+cada implementação só traz o gancho de montagem, o par montar e desmontar
+no idioma da tecnologia (ADR 0043).
 _Avoid_: esqueleto (nome da tarefa até 2026-10-24: sugere um visual, que
 a página não tem); roteador como nome do módulo (o hash é o mecanismo, e
 não o papel); desmontar para a limpeza (é "sair da tela")
@@ -276,8 +280,8 @@ plataforma (é o domínio dela, na linguagem dela)
 
 **Tecnologia**:
 Uma forma de implementar uma interface numa plataforma: na análise, Web
-Component (a plataforma), Web Component com *signals* do `solid-js`, React
-e Solid (ADR 0013); fora dela, o Lit, o Angular, as Views, o Compose, o
+Component (a plataforma), Lit, Web Component com *signals* do `solid-js`,
+Solid e React (ADR 0013); fora dela, o Angular, as Views, o Compose, o
 Swing e o JavaFX. Cada uma impõe um modelo de programação e se escreve
 numa notação própria; a documentação a classifica como biblioteca,
 *framework*, *toolkit* ou plataforma, e o texto usa essas categorias só
@@ -323,26 +327,27 @@ _Avoid_: *toolkit* como sinônimo de biblioteca; kit de ferramentas
 
 **Implementação**:
 Uma interface numa tecnologia: na primeira rodada, as sete interfaces nas
-quatro tecnologias, 28 (ADR 0012); na terceira, a Reserva de passagem e o
-Placar ao vivo refatorados em cada uma das quatro (ADR 0029).
+cinco tecnologias, 35 (ADR 0012); na terceira, a Reserva de passagem, o
+Placar ao vivo e o Circle Drawer refatorados, em cada vertente, nas cinco
+(ADR 0029).
 _Avoid_: versão, exemplo; solução (pede "problema" para a interface)
 
 **Conjunto analisado**:
 As implementações que a análise pelas DCs lê: todas as de
 `implementacoes/`, fora de `fora-da-analise/` e de `contraste/`, as sete
-interfaces nas quatro tecnologias (ADR 0012).
+interfaces nas cinco tecnologias (ADR 0012).
 _Avoid_: recorte da análise (o recorte é o da pesquisa, ADR 0014); escopo;
 amostra (a amostra de tarefas é o conjunto das interfaces, no *benchmark*
 de notação)
 
 **Contraste**:
-As implementações de tecnologias fora da cadeia de pares, só na primeira
-rodada e nas interfaces em que cada uma difere, lidas depois da análise
-para situar os quatro modelos de programação, como o Elm em Kiss (2014)
-(ADR 0042).
+As implementações de tecnologias fora da cadeia de pares, na primeira e na
+segunda rodada das interfaces em que cada uma difere, lidas depois da
+análise, pelo diff da segunda, para situar os três modelos de programação,
+como o Elm em Kiss (2014) (ADR 0042).
 _Avoid_: comparação (a comparação é a da análise); controle (o
-controle é o das variáveis, no delineamento); trabalhos futuros (o Lit
-fica lá)
+controle é o das variáveis, no delineamento); trabalhos futuros (são a
+seção da conclusão, que recebe o Angular e o par que sai do corte)
 
 **Domínio**:
 As regras de uma interface que não dependem da tela (datas, mensagens,
