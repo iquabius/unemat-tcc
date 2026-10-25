@@ -5,11 +5,12 @@
 #   uso:  bin/preparar-release.sh v0.9 [v0.10 ...]
 #
 # Título: "v0.N: <nome do marco>", a primeira linha da mensagem da tag.
-# Corpo: o resto da mensagem em itens, um por parágrafo (a página da
-#   release mostraria as quebras de linha da tag), com cada ADR citado
-#   numa nota de rodapé que traz o título e leva ao arquivo na tag; os
-#   links dos PDFs; e as páginas que mudaram, por capítulo, seção e
-#   subseção (bin/anotar-diff.py corpo).
+# Corpo: o resto da mensagem, um parágrafo por linha (a página da
+#   release mostraria as quebras de linha da tag), o primeiro no alto,
+#   como abertura, e os outros em itens (até a v0.10, todos em itens),
+#   com cada ADR citado numa nota de rodapé que traz o título e leva ao
+#   arquivo na tag; os links dos PDFs; e as páginas que mudaram, por
+#   capítulo, seção e subseção (bin/anotar-diff.py corpo).
 # Arquivos: o PDF do texto, o do diff desde a tag anterior e o mesmo diff só
 #   com o resumo e as páginas alteradas. Numa release que já existe, os
 #   arquivos são trocados, e os que não são mais gerados (os PNGs de uma

@@ -637,12 +637,23 @@ def paginas_por_capitulo(lista):
     return linhas
 
 
+# A primeira tag cuja mensagem abre por um parágrafo de abertura (ADR 0024).
+ABERTURA_DESDE = (0, 11)
+
+
+def versao(tag):
+    """O número da tag "v0.11" como (0, 11), que se compara em ordem."""
+    return tuple(int(n) for n in tag.removeprefix("v").split("."))
+
+
 def corpo(saida, tag, base, repo):
     """O corpo da release, em Markdown: a mensagem da tag sem a primeira
-    linha, em itens (itens()), com cada ADR citado numa nota de rodapé
-    que traz o título dele, da linha "# NNNN. Título" do arquivo, e leva
-    ao arquivo na tag; os PDFs; e as páginas que mudaram desde a base,
-    por capítulo e seção."""
+    linha, em parágrafos (itens()), o primeiro como abertura e os outros
+    como itens de "O que mudou" (ADR 0024; até a v0.10, todos como
+    itens), com cada ADR citado numa nota de rodapé que traz o título
+    dele, da linha "# NNNN. Título" do arquivo, e leva ao arquivo na tag;
+    os PDFs; e as páginas que mudaram desde a base, por capítulo e
+    seção."""
     mensagem = git(".", "tag", "-l", "--format=%(contents:body)", tag)
     adrs = {}
     for caminho in git(".", "ls-tree", "--name-only", tag, "docs/adr/").split():
@@ -653,8 +664,13 @@ def corpo(saida, tag, base, repo):
     # O GitHub troca o ".." do nome do arquivo por um ponto só.
     baixar = f"https://github.com/{repo}/releases/download/{tag}/"
     diff = f"diff-{base}.{tag}"
-    linhas = ["### O que mudou", ""] + [f"- {t}" for t in textos]
-    linhas += ["", "### PDFs", "",
+    # Até a v0.10, a mensagem não tinha abertura, e todo parágrafo é item.
+    abertura = textos[:1] if versao(tag) >= ABERTURA_DESDE else []
+    mudancas = textos[len(abertura):]
+    linhas = (abertura + [""]) if abertura else []
+    if mudancas:
+        linhas += ["### O que mudou", ""] + [f"- {t}" for t in mudancas] + [""]
+    linhas += ["### PDFs", "",
                f"- [Texto da {tag}]({baixar}tcc-{tag}.pdf)",
                f"- [Diff desde a {base}]({baixar}{diff}.pdf)"]
     if Path(saida + ".json").exists():
