@@ -3,9 +3,9 @@
 Cada interface do *benchmark* de notação é implementada em várias
 tecnologias, para comparação no TCC. As decisões de escopo (interfaces,
 tecnologias) estão em `docs/adr/`; os termos, em `GLOSSARY.md` na
-raiz; instalação e uso, em `implementacoes/README.org`. O código que saiu
-da análise fica congelado em `implementacoes/fora-da-analise/` (última
-seção).
+raiz; instalação e uso, em `implementacoes/README.org`. O código que o
+autor escreveu à mão fica congelado em `autorais/`, e o que sai da
+análise sai do repositório (última seção).
 
 ## Conferir as capturas a cada alteração
 
@@ -81,7 +81,7 @@ pelo `npm run openspec -- <comando>`, que desliga a telemetria; o
 `openspec validate --all` e confere, em todo arquivo de
 `implementacoes/<interface>/` que chama `conferir(...)`, que os nomes das
 verificações são os dos cenários da especificação viva; o de
-`implementacoes/fora-da-analise/` não é conferido. Rode-o antes de cada
+`autorais/` não é conferido. Rode-o antes de cada
 commit que mexa numa especificação ou num teste de conformidade.
 
 ### Interface nova
@@ -167,9 +167,7 @@ Passos do *delta spec*:
 4. Um commit por tecnologia, na mesma ordem em todas (ADR 0029), cada um
    passando no teste de conformidade e com as capturas conferidas.
 
-A mudança não se porta para o código da interface em
-`implementacoes/fora-da-analise/` (decisões do autor em 2026-10-12 e
-2026-10-13).
+A mudança não se porta para o código de `autorais/`, que é registro.
 
 ## Interface ou implementação nova
 
@@ -402,7 +400,7 @@ coluna do PDF em 8 pt.
   aninhado num `${...}`. O Prettier só formata a expressão de um `${...}`
   escrita em mais de uma linha: se ela passar de 80 colunas, quebre-a uma
   vez dentro do `${...}`.
-- Ficam de fora `implementacoes/fora-da-analise/` e os documentos
+- Ficam de fora `autorais/` e os documentos
   (`implementacoes/.prettierignore`).
 
 De `implementacoes/`, `npm run formatar` formata tudo, e `npm run
@@ -417,29 +415,31 @@ conferidas.
   estiver no `PATH`, use `~/.asdf/shims`.
 - Na primeira vez, `npx playwright install chromium-headless-shell`.
 
-## Fora da análise
+## Autorais e o que sai da análise
 
-`implementacoes/fora-da-analise/` guarda, com a estrutura de `implementacoes/`
-(`<interface>/<tecnologia>/`), o código que saiu da análise: a Lista
-filtrável e o Carrinho (ADR 0002), o jQuery e o Angular com RxJS (ADR
-0013), o JavaFX com FXML, o par Qt Widgets × QML (ADR 0001), o
-cronômetro de 2017 (ADR 0012), desde 2026-10-18 o Android (Views ×
-Compose) e o desktop (Swing × JavaFX), por decisão do autor de
-2026-10-17, desde 2026-10-19 o Lit e o Angular com *signals* (ADR 0013)
-e o Quadro de tarefas, com a especificação ao lado (ADR 0002), e desde
-2026-10-23 o conversor de moedas, também com a especificação ao lado
-(ADR 0002). O Contador, que saiu em 2026-10-13, voltou em 2026-10-23
-no Web Component, no React e no Solid; as outras tecnologias dele ficam
-lá. O Lit, que saiu em 2026-10-19, volta às sete interfaces por
-decisão do autor de 2026-10-25, escrito de novo (tcc-cp6c); o código
-dele lá é o do conjunto antigo. O `README.org` de lá diz o que é cada
-pasta, por que saiu e como rodá-la no commit anterior ao movimento.
+`autorais/` guarda o código que o autor escreveu à mão no CodeSandbox,
+antes das implementações, uma pasta por *sandbox*, com o nome dele. É
+registro congelado: não se edita, não compila, não se testa, não se
+formata nem se captura. Os *workspaces*, o `npm run capturas`, o `npm
+run conformidade` e o `npm run conferir-especificacao` não o alcançam,
+e a contagem de linhas da concisão (ADR 0012), quando for escrita,
+também o deixa de fora. O `README.org` de lá diz de onde veio cada
+pasta.
 
-- É registro congelado (decisão do autor em 2026-10-13): não se edita,
-  não compila, não se testa, não se formata nem se captura. Os
-  *workspaces*, o `npm run capturas`, o `npm run conformidade` e o `npm
-  run conferir-especificacao` não o alcançam, e a contagem de linhas da
-  concisão (ADR 0012), quando for escrita, também o deixa de fora.
-- Código que sai da análise vai para lá com `git mv`, num commit só de
-  movimento, com as capturas da tecnologia, e ganha um item na lista do
-  `README.org` de lá, com o ADR que o tirou.
+Código que sai da análise sai do repositório, com `git rm`, num commit
+só de remoção, com as capturas da tecnologia, que cita o ADR que o tirou
+(decisão do autor em 2026-10-25). Até essa data, ele ia para uma pasta
+`fora-da-analise/`, congelado; a pasta saiu inteira, com a Lista
+filtrável, o Carrinho, o Quadro de tarefas, o conversor de moedas, o
+jQuery, o Angular, o Lit do conjunto antigo, o JavaFX, o Qt, o Android
+e o desktop (ADRs 0001, 0002, 0005 e 0013). O commit anterior ao que a
+tirou tem tudo, com o `README.org` de lá, que diz como rodar cada pasta.
+Para lê-lo sem mexer no checkout principal, onde o índice pode guardar
+o rascunho do texto, abra-o numa worktree à parte, em `tmp/copias/`
+(ADR 0038), ou leia um arquivo só com `git show <commit>:<caminho>`:
+
+```sh
+antes="$(git log -1 --format=%H -- ':/interfaces-graficas/fora-da-analise')~1"
+raiz="$(dirname "$(git rev-parse --path-format=absolute --git-common-dir)")"
+git worktree add --detach "$raiz/tmp/copias/AAAA-MM-DD-fora-da-analise" "$antes"
+```
