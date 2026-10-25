@@ -24,7 +24,7 @@ achar as fontes que mais pesam, pela tabela "Fontes centrais".
 | Método: o rótulo, as DCs, as rodadas, o tamanho das interfaces | `texto/intro.org`, metodologia | `docs/metodo-da-avaliacao.md`; o que se controla, em `docs/delineamento.md`; o que cada interface exige e cada par cobre, em `docs/exigencias-de-coordenacao.md` |
 | Análise por DC | `texto/cases.org`, `texto/results.org` | `docs/metodo-da-avaliacao.md`, seção "Como as fontes aplicaram as DCs a código, e as armadilhas"; `docs/achados-das-implementacoes.md`; `docs/exigencias-de-coordenacao.md`, seção "Mapa por interface"; a skill `avaliacao-pelas-dcs` |
 | Capítulo de programação | `texto/prog.org` | `docs/paradigma-modelo-e-notacao.md`, `docs/bibliografia/programacao-funcional-e-reativa.md`, `docs/estado-eventos-e-complexidade.md` |
-| Tecnologias e plataformas | ADRs 0001, 0005, 0013 e 0031 | `docs/plataformas/README.md`, e dali `web.md`, `bibliotecas-de-formulario.md` e `bibliotecas-de-inscricao-e-reconexao.md`; o Android e o *desktop*, fora da análise, em `android.md` e `desktop.md` |
+| Tecnologias e plataformas | ADRs 0001, 0005, 0013 e 0031 | `docs/plataformas/README.md`, e dali `web.md`, `bibliotecas-de-formulario.md`, `bibliotecas-de-inscricao-e-reconexao.md` e `medida-das-bibliotecas.md`; o Android e o *desktop*, fora da análise, em `android.md` e `desktop.md` |
 | Forma da introdução | `texto/intro.org` | `docs/bibliografia/escrita-da-introducao.md` |
 | Como a busca foi feita | Apêndice II | `docs/bibliografia/protocolo-da-revisao.md` |
 
@@ -124,6 +124,11 @@ Em `docs/plataformas/`, as tecnologias, com a data de cada observação:
 - `bibliotecas-de-inscricao-e-reconexao.md` (Referência): a biblioteca
   que trata a inscrição e a reconexão no Placar ao vivo, por tecnologia,
   na terceira rodada;
+- `medida-das-bibliotecas.md` (Referência): como se mede o uso de cada
+  candidata a forma de uma vertente da terceira rodada, os eixos além dos
+  downloads, a janela de cada eixo, o filtro de depreciação e manutenção
+  e as variantes de regra, com a sensibilidade da escolha por interface e
+  tecnologia e as medidas das vertentes sem nota própria;
 - `websocket-e-sse.md` (Referência): o WebSocket e os Server-Sent Events
   pelas fontes primárias, característica por característica, e o que
   cada um atende de nascença nas exigências do Placar ao vivo; a

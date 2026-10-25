@@ -43,6 +43,11 @@ As notas:
 - `bibliotecas-de-inscricao-e-reconexao.md`: a biblioteca que trata a
   inscrição e a reconexão no Placar ao vivo, na terceira rodada (ADR
   0031);
+- `medida-das-bibliotecas.md`: os eixos, as janelas, o filtro e as
+  variantes de regra com que se mede a forma de cada vertente da
+  terceira rodada, a sensibilidade da escolha e as medidas da máquina de
+  estados, da API nova da plataforma e dos padrões de projeto (medida de
+  2026-10-25);
 - `websocket-e-sse.md`: o WebSocket (RFC 6455) e os Server-Sent Events
   (EventSource) pelas fontes primárias, e o que cada um dá de nascença
   ao Placar ao vivo; a decisão do protocolo é a tcc-jjzc.

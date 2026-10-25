@@ -17,7 +17,10 @@ validação de restrições da plataforma, porque nenhuma candidata sem
 decisão do autor, e não pela medida, para o passo entre os dois, que já
 muda a ligação do estado com a tela e a orquestração (ADR 0013), não
 mudar também a biblioteca (ADR 0031, decisão de 2026-10-19, mantida em
-2026-10-23).
+2026-10-23). A medida refeita em 2026-10-25, com eixos a mais e três
+janelas, está na seção "Medida de 2026-10-25: eixos a mais e janelas":
+confirma o React e muda o Solid e o Web Component conforme a janela, a
+métrica e o filtro de manutenção.
 
 ## A regra
 
@@ -96,6 +99,127 @@ Downloads das tecnologias na mesma janela, para a escala: `react`
 - **Maioria estreita no Solid.** Os 52,9% do TanStack Solid Form mudam com
   a lista de candidatas; a linhagem Modular Forms e Formisch, somada, tem
   37,5%.
+
+## Medida de 2026-10-25: eixos a mais e janelas
+
+Medida de 2026-10-25, sobre as mesmas candidatas da seção "Candidatas
+medidas", pelo método de `medida-das-bibliotecas.md` (os eixos, as
+janelas, o filtro e as variantes de regra estão lá; os dados brutos, em
+`tmp/pesquisas/2026-10-25-medida-das-bibliotecas/`). Três janelas de
+downloads: a nova, 2026-09-25 a 2026-10-24, que a API do npm zera em 9
+dos 30 dias; a do ADR, 2026-09-12 a 2026-10-11 (2 dias zerados); e a
+limpa, 2026-07-27 a 2026-08-25 (1 dia zerado). A mediana é das quatro
+semanas inteiras da janela nova. Dependentes publicados e repositórios
+dependentes pelo ecosyste.ms, *hits* do mês no jsDelivr, versão e data
+pelo registro, tudo no retrato de 2026-10-25. O filtro marca `24m` a
+candidata sem versão há mais de 24 meses; nenhuma está depreciada ou
+arquivada.
+
+**O que muda.** No React, nada: o `react-hook-form` tem a maioria dos
+downloads nas três janelas (83,9%, 84,6% e 85,8%) e dos *hits* do
+jsDelivr (79,4%); só não a tem pelos dependentes publicados (42,9%) nem
+pelos repositórios dependentes, em que o `formik` lidera por 106.319 a
+105.160 (42,8%). No Solid, a maioria do TanStack Solid Form depende da
+janela: 52,9% na do ADR, 52,0% na limpa e 47,0% na nova, em que o
+`@solid-primitives/form` subiu de 26.621 para 39.298 downloads; pelos
+repositórios dependentes a maioria é do `@modular-forms/solid` (60,1%),
+e pelos dependentes publicados, do `@felte/solid` (70,0%, 7 pacotes). No
+Web Component, o resíduo refeito na janela nova dá ao `final-form` 49,3%
+(49,2% em 2026-10-12, e 49,2% com os downloads da janela do ADR baixados
+de novo em 2026-10-25), e a API da plataforma fica nessas duas janelas;
+mas na janela limpa o resíduo do `final-form` é 51,2% (485.872 de
+949.350), e, tirando as quatro candidatas sem versão há mais de 24 meses
+(`hyperform`, `just-validate`, `pristinejs` e `form-associated-helpers`),
+62,7% na janela nova (382.894 de 610.581), 64,5% na do ADR e 61,0% na
+limpa: a API da plataforma no Web Component depende da janela e do
+filtro tanto quanto o TanStack Solid Form no Solid. Os adaptadores e o
+devtools do TanStack (13.890.580) somam mais que o `@tanstack/form-core`
+(13.704.508), de modo que o resíduo dele é zero nas três janelas. O eixo que mais diverge
+é o jsDelivr: o `pristinejs` e o `just-validate`, sem versão desde 2023,
+têm 3.191.371 e 2.965.017 *hits* por mês com 14.660 e 41.349 downloads,
+que é o uso em páginas sem *bundler* que o npm não vê.
+
+### React
+
+| Pacote | Downloads nova (fração) | ADR | Limpa | Mediana semanal | Dep. pacotes | Repos dependentes | jsDelivr mês | Última versão (data) | Versões 12/24 m | Estrelas | Filtro |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| `react-hook-form` | 191.279.933 (83,9%) | 255.298.395 | 246.756.060 | 43.588.303 | 3.937 | 105.160 | 650.081 | 7.91.0 (2026-10-23) | 38/73 | 44.861 | |
+| `formik` | 15.397.147 (6,8%) | 20.301.562 | 19.047.458 | 3.612.703 | 3.368 | 106.319 | 14.189 | 2.4.9 (2025-11-10) | 2/2 | 34.307 | |
+| `@tanstack/react-form` | 12.513.770 (5,5%) | 14.950.345 | 11.174.178 | 3.041.962 | 0 | 1.835 | 19.979 | 1.33.5 (2026-08-11) | 36/148 | 6.734 | |
+| `@rc-component/form` | 4.305.655 (1,9%) | 5.496.573 | 4.686.464 | 1.028.552 | 0 | 0 | 123.383 | 1.8.6 (2026-07-27) | 15/21 | 1.028 | |
+| `react-final-form` | 1.791.750 (0,8%) | 2.446.029 | 2.609.242 | 421.976 | 698 | 10.605 | 2.364 | 7.0.1 (2026-05-05) | 1/3 | 7.435 | |
+| `redux-form` | 1.706.469 (0,7%) | 2.251.900 | 2.155.269 | 388.556 | 1.158 | 23.023 | 7.740 | 8.3.10 (2023-03-28) | 0/0 | 12.473 | 24m |
+| `@conform-to/react` | 952.798 (0,4%) | 1.198.726 | 1.026.328 | 237.688 | 6 | 1.471 | 1.294 | 1.21.2 (2026-10-11) | 21/42 | 2.583 | |
+
+O `react` teve 642.034.744 downloads na janela nova: o `react-hook-form` é
+29,8% dele. O Snyk Advisor dá 90/100 ao `react-hook-form` ("Key ecosystem
+project"; manutenção "Sustainable"; comunidade "Active"). A tag
+`react-hook-form` tem 2.560 perguntas no Stack Overflow (1.714 desde
+2021-10-25, 11 no último ano) e a `formik`, 2.838 (1.003, 0); o tópico
+`react-hook-form` no GitHub tem 6.330 repositórios (5.901 criados desde
+2021-10-25) e `formik`, 2.974 (2.075); no dev.to, 50 artigos com a tag
+`reacthookform` (39 desde 2021-10-25) e 52 com `formik` (31). O State of React 2024 e 2025 pergunta
+pelas bibliotecas de formulário (`react_hook_form`, `formik`,
+`react_final_form`, `redux_form`, `react_json_schema_form`, `formily`,
+`mantine_forms`; em 2025, também `conform` e `tanstack_form`), mas os
+resultados ficam na API GraphQL, que voltou 502 em 2026-10-25; o
+Developer Survey do Stack Overflow não pergunta por nenhuma. No OpenAlex,
+"react-hook-form" devolve 53 trabalhos desde 2021 e "formik form
+library", 2.
+
+### Solid
+
+| Pacote | Downloads nova (fração) | ADR | Limpa | Mediana semanal | Dep. pacotes | Repos dependentes | jsDelivr mês | Última versão (data) | Versões 12/24 m | Estrelas | Filtro |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| `@tanstack/solid-form` | 145.546 (47,0%) | 213.307 | 195.218 | 30.056 | 0 | 39 | 482 | 1.33.5 (2026-08-11) | 36/134 | 6.734 | |
+| `@modular-forms/solid` | 86.860 (28,1%) | 122.737 | 138.873 | 19.184 | 3 | 137 | 925 | 0.25.1 (2025-03-01) | 0/2 | 1.210 | |
+| `@solid-primitives/form` | 39.298 (12,7%) | 26.621 | 1.951 | 9.332 | 0 | 1 | 239 | 1.0.0-next.5 (2026-10-14) | 5/5 | 1.560 | |
+| `@formisch/solid` | 28.979 (9,4%) | 28.310 | 11.738 | 7.615 | 0 | 1 | 836 | 1.1.0 (2026-09-08) | 24/31 | 1.205 | |
+| `@felte/solid` | 8.694 (2,8%) | 11.998 | 27.448 | 2.138 | 7 | 50 | 58 | 1.2.14 (2024-10-29) | 0/1 | 1.088 | |
+
+O `solid-js` teve 23.765.155 downloads na janela nova: o TanStack Solid
+Form é 0,6% dele. O Snyk Advisor não dá nota ao `@tanstack/solid-form`.
+Nenhuma candidata tem tag própria no Stack Overflow (consultadas em
+2026-10-25 `tanstack-form`, `modular-forms`, `felte`, `formisch` e
+`solid-primitives`; só a tag genérica `tanstack` existe, com 184
+perguntas); o tópico `tanstack-form` no GitHub tem 153 repositórios (151 criados desde 2021-10-25), sem separar
+o adaptador do Solid; no dev.to, 1 artigo com `tanstackform`. No
+OpenAlex, "TanStack Form" devolve 0 trabalhos.
+
+### Web Component
+
+| Pacote | Downloads nova (fração bruta) | ADR | Limpa | Resíduo na janela nova | Dep. pacotes | Repos dependentes | jsDelivr mês | Última versão (data) | Versões 12/24 m | Estrelas | Filtro |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| `@tanstack/form-core` | 13.704.508 (79,6%) | 16.396.448 | 12.477.227 | 0 (os adaptadores e o devtools somam 13.890.580) | 2 | 835 | 15.219 | 1.33.5 (2026-08-11) | 36/132 | 6.734 | |
+| `final-form` | 2.174.644 (12,6%) | 2.979.315 | 3.095.114 | 382.894 (descontado o `react-final-form`), 49,3% | 704 | 11.066 | 3.505 | 5.0.1 (2026-05-05) | 1/6 | 3.048 | |
+| `@conform-to/dom` | 997.383 (5,8%) | 1.255.082 | 1.082.860 | 44.585 (descontado o `@conform-to/react`) | 3 | 1.098 | 1.171 | 1.21.2 (2026-10-11) | 21/42 | 2.583 | |
+| `vest` | 182.863 (1,1%) | 236.222 | 253.597 | 182.863, 23,5% | 18 | 104 | 35.607 | 6.3.4 (2026-10-03) | 289/295 | 2.670 | |
+| `hyperform` | 98.347 (0,6%) | 172.977 | 50.443 | 98.347 | 18 | 560 | 661 | 0.12.1 (2022-07-26) | 0/0 | 734 | 24m |
+| `just-validate` | 41.349 (0,2%) | 51.706 | 50.706 | 41.349 | 4 | 475 | 2.965.017 | 4.3.0 (2023-11-13) | 0/0 | 591 | 24m |
+| `pristinejs` | 14.660 (0,1%) | 17.797 | 15.615 | 14.660 | 6 | 135 | 3.191.371 | 1.1.0 (2023-04-01) | 0/0 | 436 | 24m |
+| `form-associated-helpers` | 11.906 (0,1%) | 16.209 | 36.227 | 11.906 | 0 | 1 | 507 | 0.0.11 (2024-07-13) | 0/0 | 11 | 24m |
+| `@felte/element` | 239 (0,0%) | 347 | 358 | 239 | 1 | 2 | 36 | 0.5.14 (2024-10-29) | 0/1 | 1.088 | |
+
+O resíduo total é 776.843. Os adaptadores na janela nova:
+`@tanstack/react-form` 12.513.770, `@tanstack/vue-form` 209.649,
+`@tanstack/solid-form` 145.546, `@tanstack/svelte-form` 93.304,
+`@tanstack/angular-form` 10.580, `@tanstack/lit-form` 9.128 e
+`@tanstack/form-devtools` 908.603. Pelos dependentes publicados o
+`final-form` tem 93,1% das nove candidatas e pelos repositórios
+dependentes, 77,5%; pelo jsDelivr, o `pristinejs` tem 51,4% e, tirando os
+pacotes sem versão há 24 meses, o `vest`, 64,1%.
+
+### Sensibilidade
+
+O resultado da regra do ADR 0031 e das variantes de
+`medida-das-bibliotecas.md`, por tecnologia; "API" é a API da
+plataforma.
+
+| Tecnologia | Downloads, nova | Downloads, ADR | Downloads, limpa | Mediana semanal | Dependentes publicados | Repositórios dependentes | jsDelivr | Com filtro (24 m) |
+|---|---|---|---|---|---|---|---|---|
+| React | `react-hook-form` 83,9% | 84,6% | 85,8% | 83,3% | API (42,9%) | API (`formik` 42,8%) | `react-hook-form` 79,4% | `react-hook-form` 84,5% |
+| Solid | API (`@tanstack/solid-form` 47,0%) | `@tanstack/solid-form` 52,9% | `@tanstack/solid-form` 52,0% | API (`@tanstack/solid-form` 44,0%) | `@felte/solid` 70,0% | `@modular-forms/solid` 60,1% | API (`@modular-forms/solid` 36,4%) | API (`@tanstack/solid-form` 47,0%) |
+| Web Component (pelo resíduo) | API (`final-form` 49,3%) | API (`final-form` 49,2%) | `final-form` 51,2% | — | `final-form` 93,1% | `final-form` 77,5% | `pristinejs` 51,4% | `final-form` 62,7% |
 
 ## Tecnologias fora da análise (medida de 2026-10-12)
 
@@ -233,3 +357,7 @@ ANDROID, developer.android.com, `TextInputLayout` (2026-10-12);
   já muda a ligação do estado com a tela e a orquestração (ADR 0013),
   não mude também a biblioteca; antes, dizia que o par continuaria
   diferindo só na ligação. A decisão ficou (decisão do autor).
+- 2026-10-25: ganhou a seção "Medida de 2026-10-25: eixos a mais e
+  janelas", com as mesmas candidatas medidas em três janelas e pelos
+  eixos de `medida-das-bibliotecas.md`, e a frase da conclusão que
+  aponta para ela; a regra, a janela e as tabelas de 2026-10-12 ficaram.
