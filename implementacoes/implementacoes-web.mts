@@ -12,6 +12,7 @@ export const IMPLEMENTACOES = import.meta.dirname;
 export const TECNOLOGIAS = [
   "web-component",
   "web-component-signals",
+  "lit",
   "react",
   "solid",
 ];

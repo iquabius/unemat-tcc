@@ -1,4 +1,4 @@
-// A página que hospeda a interface, comum às quatro tecnologias, como o
+// A página que hospeda a interface, comum às tecnologias, como o
 // dominio.ts de cada interface (ADRs 0010 e 0043): um roteador de hash
 // com duas rotas. Em "#/" a página está sem a interface; em qualquer
 // outra, inclusive sem hash, a interface está montada em #raiz. O teste

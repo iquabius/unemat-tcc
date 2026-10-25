@@ -187,20 +187,21 @@ A mudança não se porta para o código da interface em
   real o pede; a rodada de revisão do texto confere as duas (skill
   `revisao-de-texto`).
 - A página que hospeda a interface é `implementacoes/pagina.ts`, comum
-  às quatro tecnologias e importada por caminho relativo, como o
-  `dominio.ts` (ADR 0043): um roteador de hash sem visual, que monta a
-  interface no contêiner `#raiz` em qualquer rota, inclusive sem hash, e
-  a tira da página em `#/`. O `main` de cada implementação termina em
+  às tecnologias e importada por caminho relativo, como o `dominio.ts`
+  (ADR 0043): um roteador de hash sem visual, que monta a interface no
+  contêiner `#raiz` em qualquer rota, inclusive sem hash, e a tira da
+  página em `#/`. O `main` de cada implementação termina em
   `hospedar(montar)`, com o par montar e desmontar no idioma da
-  tecnologia: no Web Component e no Web Component com *signals*, o
-  `createElement` e o `append` do elemento, e o `remove()`, que dispara o
-  `disconnectedCallback`; no React, o `createRoot(conteiner).render(...)`
-  e o `unmount()` da raiz; no Solid, o `render(...)`, que já devolve o
-  `dispose`. O `index.html` traz o contêiner, `<main id="raiz"
-  class="<classe do layout>">`. A limpeza ao sair da tela (o
-  `disconnectedCallback`, o retorno do `useEffect`, o `onCleanup`) fica
-  na implementação: é o que se compara. O Contador e a planilha, sem
-  nada a limpar (ADR 0029), montam direto no `index.html`, sem a página.
+  tecnologia: no Web Component, no Web Component com *signals* e no
+  Lit, o `createElement` e o `append` do elemento, e o `remove()`, que
+  dispara o `disconnectedCallback`; no React, o
+  `createRoot(conteiner).render(...)` e o `unmount()` da raiz; no Solid,
+  o `render(...)`, que já devolve o `dispose`. O `index.html` traz o
+  contêiner, `<main id="raiz" class="<classe do layout>">`. A limpeza
+  ao sair da tela (o `disconnectedCallback`, o retorno do `useEffect`, o
+  `onCleanup`) fica na implementação: é o que se compara. O Contador e a
+  planilha, sem nada a limpar (ADR 0029), montam direto no
+  `index.html`, sem a página.
 - Crie o `cenas.mts` da interface (estados a capturar), gere as capturas com
   `npm run capturas -- <interface>` e versione-as no mesmo commit.
 - Implementações web em TypeScript, sem bibliotecas além do que cada
@@ -381,8 +382,10 @@ e o Quadro de tarefas, com a especificação ao lado (ADR 0002), e desde
 2026-10-23 o conversor de moedas, também com a especificação ao lado
 (ADR 0002). O Contador, que saiu em 2026-10-13, voltou em 2026-10-23
 no Web Component, no React e no Solid; as outras tecnologias dele ficam
-lá. O `README.org` de lá diz o que é cada pasta, por que saiu e como
-rodá-la no commit anterior ao movimento.
+lá. O Lit, que saiu em 2026-10-19, volta às sete interfaces por
+decisão do autor de 2026-10-25, escrito de novo (tcc-cp6c); o código
+dele lá é o do conjunto antigo. O `README.org` de lá diz o que é cada
+pasta, por que saiu e como rodá-la no commit anterior ao movimento.
 
 - É registro congelado (decisão do autor em 2026-10-13): não se edita,
   não compila, não se testa, não se formata nem se captura. Os

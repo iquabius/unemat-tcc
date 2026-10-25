@@ -5,6 +5,7 @@
   "workspaces": [
     "*/web-component",
     "*/web-component-signals",
+    "*/lit",
     "*/react",
     "*/solid"
   ],
