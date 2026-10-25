@@ -10,36 +10,32 @@ refaz quando o delineamento ou o texto muda, e os dois blocos abaixo
 vão para o chat pelo hook `bin/lembrete-do-chat.py`, na forma da seção
 "A forma do Resumo".
 
-**Resumo (2026-10-24):**
-- PDF sem anexo: ≈ 152 páginas (trechos por DC) · ≈ 216 (listagens
-  inteiras no corpo)
-- Análise: ≈ 96 (trechos por DC) · ≈ 160 (listagens inteiras no corpo,
-  como Kiss 2014)
-- Anexo de código, da 1.ª rodada: ≈ 82 (a, sem os import) · ≈ 73 (b,
-  sem a montagem repetida) · ≈ 80 (c, montagem em módulos
-  compartilhados); pelo ADR 0029, o código não cabe inteiro no
+**Resumo (2026-10-25):**
+- PDF sem anexo: ≈ 172 páginas
+- Análise: ≈ 116, com trechos por DC
+- Anexo de código, da 1.ª rodada: ≈ 97 (b, sem os import e sem a
+  montagem repetida); pelo ADR 0029, o código não cabe inteiro no
   pós-texto
-- PDF com anexo: ≈ 234 (a) · ≈ 225 (b) · ≈ 232 (c)
+- PDF com anexo: ≈ 269
 - Delineamento: 3 rodadas, a 3.ª em 4 vertentes nas 3 interfaces dela,
-  6 pares interface-vertente
-- Em aberto: o corte das listagens (tcc-ie1y), sobre a variante (a);
-  (b): PDF sem anexo 0, análise 0, anexo −9, PDF com anexo −9; (c): PDF
-  sem anexo 0, análise 0, anexo −2, PDF com anexo −2; listagens inteiras
-  no corpo: PDF sem anexo +64, análise +64, anexo −82 (deixa de
-  existir), PDF com anexo −18 (é o PDF sem anexo)
+  6 pares interface-vertente; 5 tecnologias, 35 implementações
 - Em aberto: o 7.º par, Circle Drawer × máquina de estados (tcc-l7qe):
-  PDF sem anexo +3, análise +3, anexo 0, PDF com anexo +3
-- Em aberto: o Lit (tcc-cp6c); L2: PDF sem anexo +12, análise +12,
-  anexo +13, PDF com anexo +25; L3: PDF sem anexo +20, análise +20,
-  anexo +24, PDF com anexo +44
+  PDF sem anexo +4, análise +4, anexo 0, PDF com anexo +4
+- Em aberto: o corte do Lit fora do trio, na revisão depois da análise;
+  sem a 2.ª rodada do Lit fora do trio: PDF sem anexo −4, análise −4,
+  anexo 0, PDF com anexo −4; L2: PDF sem anexo −8, análise −8, anexo
+  −11, PDF com anexo −19
+- Em aberto: o contraste depois da análise, fora da conta acima e o
+  primeiro a sair no corte; com a 2.ª rodada: PDF sem anexo +26, análise
+  0, anexo 0, PDF com anexo +26; só com a 1.ª: PDF sem anexo +14,
+  análise 0, anexo 0, PDF com anexo +14
 
 **Resumo curto:**
-- ≈ PDF s/anexo 152 · listagens 216 | análise 96 · listagens 160 |
-  anexo a 82 · b 73 · c 80 | PDF c/anexo a 234 · b 225 · c 232
-- 3 rodadas, 3.ª em 4 vertentes | em aberto: corte b 0/0/−9/−9, c
-  0/0/−2/−2, listagens +64/+64/−82/−18; 7.º par +3/+3/0/+3; Lit L2
-  +12/+12/+13/+25, L3 +20/+20/+24/+44 (PDF s/anexo, análise, anexo,
-  PDF c/anexo)
+- ≈ PDF s/anexo 172 | análise 116 | anexo b 97 | PDF c/anexo 269
+- 3 rodadas, 3.ª em 4 vertentes, 5 tecnologias | em aberto: 7.º par
+  +4/+4/0/+4; Lit fora do trio −4/−4/0/−4 · L2 −8/−8/−11/−19;
+  contraste com a 2.ª rodada +26/0/0/+26 · só a 1.ª +14/0/0/+14 (PDF
+  s/anexo, análise, anexo, PDF c/anexo)
 
 ## A forma do Resumo
 
@@ -62,8 +58,9 @@ correr os olhos pelos números em vez de ler um parágrafo):
 - o item que não cabe em 72 colunas continua na linha seguinte, com
   recuo, e o hook o junta de volta numa linha só.
 
-As decisões pendentes em 2026-10-25 são o corte das listagens
-(tcc-ie1y), o 7.º par da terceira rodada (tcc-l7qe) e o Lit (tcc-cp6c);
+As decisões pendentes em 2026-10-25, à noite, são o 7.º par da
+terceira rodada (tcc-l7qe), o corte do Lit fora do trio (tcc-7qty) e o
+contraste, que fica fora da conta e é o primeiro a sair no corte;
 a regra vale para qualquer outra que as substitua, sem mexer nas outras
 linhas. O teste do hook confere, na nota, que os números dos dois blocos
 são os mesmos.
@@ -201,8 +198,10 @@ O anexo leva só a primeira rodada, a versão de cada implementação no
 Component com *signals*; nenhum commit mudou `implementacoes/` depois,
 até 2026-10-25), antes de qualquer mudança da segunda rodada (nenhuma
 foi implementada: `implementacoes/openspec/changes/archive/` não tem
-*delta* de segunda rodada); as mudanças da segunda rodada (11, 44
-commits) e as refatorações da terceira (24 a 28) aparecem no corpo
+*delta* de segunda rodada); as mudanças da segunda rodada (13, 52
+commits em quatro tecnologias, 65 com o Lit; a conta abaixo é de antes
+do Lit e com 11 mudanças, sem o bolão e o "lembrar meu nome") e as
+refatorações da terceira (24 a 28; 30 a 35 com o Lit) aparecem no corpo
 como trechos do diff, já contados nas páginas da análise. As versões
 inteiras de cada rodada no anexo estão fora de cogitação (decisão do
 autor em 2026-10-25): a segunda rodada cresceria ≈ 30 linhas por
@@ -363,3 +362,17 @@ linhas. Os números são os da conta de 2026-10-24 à noite: as variantes
 do PDF com anexo vêm da tabela de totais, o PDF sem anexo com as
 listagens no corpo da fórmula 56 + análise, e as diferenças das
 decisões em aberto, da mesma tabela.
+- 2026-10-25, à noite: os dois blocos passaram à conta com o Lit nas
+  sete interfaces (L3) e com a variante (b) das listagens, decididos pelo
+  autor nesse dia: PDF sem anexo ≈ 172, análise ≈ 116, anexo ≈ 97 e PDF
+  com anexo ≈ 269, da tabela de totais, linha (b) L3. Saíram as linhas
+  do Lit e das listagens, decididas; entraram a do corte do Lit fora do
+  trio, que a revisão depois da análise decide (tcc-7qty), com as
+  diferenças da tabela (L3 → L2) e da conta de ≈ 1 página por coluna por
+  interface-rodada (as quatro interfaces fora do trio, na segunda
+  rodada), e a do contraste, fora da conta das 56 páginas: ≈ 1 página por
+  coluna por interface-rodada, 12 colunas em cada rodada, mais 2 de
+  abertura (conta do agente). O 7.º par passou de +3 a +4, com a coluna
+  do Lit. A seção "O código das rodadas 2 e 3 no anexo" dizia 11
+  mudanças e 44 commits, a conta sem o bolão e o "lembrar meu nome",
+  contra as 13 do ADR 0029; ficou dito.
