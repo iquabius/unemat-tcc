@@ -311,32 +311,45 @@ subagente.
 
 ## Requisitos típicos de interface para a segunda rodada
 
-Pesquisa de 2026-10-11.
+Pesquisa de 2026-10-11, com os números e as páginas reconferidos na
+fonte em 2026-10-25.
 
 Conclusão: literatura, repositórios e comunidades convergem nos
 requisitos de orquestração da Busca: esperar a pausa, cancelar a
 requisição em andamento, mostrar só a resposta mais recente, tratar
 falha e nova tentativa e guardar respostas. O desfazer e o controle de
 diálogo têm apoio na literatura e nos repositórios, e pouco nas
-comunidades. Três subagentes; os números de repositórios e comunidades
-não foram reconferidos.
+comunidades. A pesquisa foi de três subagentes; em 2026-10-25, cada
+número se releu na fonte e cada página no PDF de `acervo/`.
 
-- Literatura: Meijer (2012, p. 72), *dictionary suggest* com `Throttle` e
-  `Switch`; Kiss (2014, p. 77-78); Oney e Myers (2012, p. 231); controle de
-  diálogo em Karagkasidis (2008, PDF p. 7) e Kiss (2014, p. 6, 40); arrastar
-  e soltar em Maier et al. (2010) e Kiss (2014, p. 47, 103); desfazer em
-  Kiss (2014, p. 56-57) e Myers (1994, p. 75).
+- Literatura: Meijer (2012, p. 71-73), *dictionary suggest* com
+  `Throttle` e `Switch`; Kiss (2014, p. 77-78); Oney e Myers (2012,
+  p. 231); controle de diálogo em Karagkasidis (2008, PDF p. 7) e Kiss
+  (2014, p. 6, 40); arrastar e soltar em Maier et al. (2010, PDF p. 1) e
+  Kiss (2014, p. 47, 103); desfazer em Kiss (2014, p. 56-57) e Myers
+  (1994, p. 75).
 - Repositórios (API do GitHub e do npm, 2026-10-11): o próprio 7GUIs admite
   que não trata assincronia (página "More"); Kiss (2018, "Towards a better
   GUI programming benchmark", Hackernoon, literatura cinzenta) lista API
   lenta e instável, atualização otimista, assistentes, paginação; TanStack
   Query (cancelamento, tentativas, deduplicação, paginação); React Hook
   Form ("Wizard Form / Funnel"); a *issue* de tipagem dos Reactive Forms do
-  Angular, 1.189 reações.
-- Comunidades: "State Management", 34,3% no State of JS 2025; "abortar
-  Ajax" no jQuery, 2.006 votos no Stack Overflow; 86,6% usam biblioteca de
-  formulário (State of React 2025); combobox/autocompletar, 32,1% no State
-  of HTML 2025; desfazer, no máximo 35 votos.
+  Angular ("Reactive forms are not strongly typed",
+  angular/angular#13721, fechada em 2022-06-02), 1.189 reações, 953
+  delas 👍, em 2026-10-25.
+- Comunidades, em 2026-10-25: "State Management", 34,5% no State of JS
+  2025 (3.461 dos 10.038 que responderam à pergunta das dificuldades com
+  o JavaScript, atrás de "Code Architecture", 37,6%); "abortar Ajax" no
+  jQuery, 2.006 votos no Stack Overflow ("Abort Ajax requests using
+  jQuery"); 86,6% usam biblioteca de formulário (State of React 2025:
+  13,4% dos 2.643 que responderam marcaram nenhuma); combobox/autocompletar,
+  32,1% no State of HTML 2025 (1.249 dos 3.887 que responderam à pergunta
+  dos elementos que faltam ao HTML); desfazer, no máximo 35 votos no Stack
+  Overflow, na pergunta mais votada sobre implementar desfazer e refazer
+  em JavaScript ("How to make a undo/redo function"). Os resultados da
+  Devographics vêm do `page-data.json` de cada página, em
+  `pageData.dataAPI` (`docs/plataformas/medida-das-bibliotecas.md`, seção
+  "Os eixos", eixo 7), e os votos, da API do Stack Exchange.
 
 ## O que muda entre rodadas: vocabulário
 
@@ -609,3 +622,24 @@ lugar do conversor de moedas, e a segunda rodada passou a 13 mudanças,
 com a lista de contadores e o campo do diâmetro do Circle Drawer (ADRs
 0002 e 0029); "O 7GUIs e as interfaces", a conclusão do *benchmark* e a
 linha da primeira leitura no procedimento mudaram com isso.
+
+Em 2026-10-25, a seção "Requisitos típicos de interface para a segunda
+rodada" teve cada número relido na fonte e cada página no PDF de
+`acervo/`, e perdeu a ressalva de que os números de repositórios e
+comunidades não tinham sido reconferidos. Mudaram dois:
+
+- "State Management", no State of JS 2025, de 34,3% a 34,5%: os dados
+  publicados mudaram depois de 2026-10-11, e a página não diz por quê.
+  As capturas do `page-data.json` da página *Usage* no Internet Archive
+  de 2026-02-03 e 2026-07-05 trazem 3.490 de 10.171 (34,31%), o valor de
+  2026-10-11, e o arquivo de 2026-10-25, 3.461 de 10.038 (34,48%); a
+  ordem das dificuldades é a mesma, e o valor de 2024 (31,0%) não mudou;
+- Meijer (2012), de p. 72 a p. 71-73: o *dictionary suggest* se
+  apresenta no fim da p. 71, o `Switch` e o `Throttle` se explicam na
+  p. 72, e a consulta final com os dois está na p. 73.
+
+Os outros conferem: 1.189 reações na *issue* do Angular, 2.006 votos,
+86,6%, 32,1% e 35 votos, e as páginas de Kiss (2014), Oney e Myers (2012),
+Karagkasidis (2008) e Myers (1994). Maier et al. (2010) ganhou a página
+do PDF em que o exemplo do arrastar começa. Os arquivos baixados estão
+em `tmp/pesquisas/2026-10-25-requisitos-tipicos/` (fora do git).
