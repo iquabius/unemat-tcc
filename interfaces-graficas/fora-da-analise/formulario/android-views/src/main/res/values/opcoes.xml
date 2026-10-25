@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<!-- As opções do <select> "Tipo de viagem", na ordem do enum TipoDeViagem. -->
-<resources>
-    <string-array name="tipos_de_viagem">
-        <item>Só ida</item>
-        <item>Ida e volta</item>
-    </string-array>
-</resources>

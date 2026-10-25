@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<!-- Fundo de .painel tr.alerta: a linha ativada, a do palpite certo. -->
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item
-        android:drawable="@color/alerta"
-        android:state_activated="true" />
-    <item android:drawable="@android:color/transparent" />
-</selector>
