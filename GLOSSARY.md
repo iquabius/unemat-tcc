@@ -175,6 +175,20 @@ subperguntas passaram a P1.1 e P1.2 e "a rodada da P1" ficou ambígua com a
 avaliação inteira); R1, R2 e R3 (rótulos de 2026-10-13, desfeitos no mesmo
 dia)
 
+**Vertente**:
+Cada uma das refatorações da terceira rodada sobre o código da segunda,
+irmãs e sem ordem entre si, chamadas pela forma a que levam: a do
+ecossistema, a da máquina de estados tipada, a da API nova da plataforma
+e a dos padrões de projeto, nessa prioridade. Todas respondem à P1.2, e
+cada uma refatora, entre as três interfaces da terceira rodada, as que
+têm a exigência de coordenação que a forma dela sabe tratar; a ordem de
+corte é por par interface-vertente, fixada antes da análise (decisão do
+autor em 2026-10-24).
+_Avoid_: ramo (é o do git, e cada vertente nasce como um ramo do git);
+sub-rodada e quarta rodada (sugerem sequência, e as vertentes partem da
+mesma base); variante (verbete Tecnologia); eixo (os da coordenação);
+braço (o grupo do ensaio clínico)
+
 **Estado**:
 O que o programa guarda sobre os eventos anteriores e consulta, junto com
 o evento que chega, para calcular a saída; cada evento pode alterá-lo
