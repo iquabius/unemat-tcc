@@ -7,9 +7,9 @@ manutenção, as variantes de regra de escolha e o que cada uma muda no
 resultado. As medições da vertente do ecossistema estão nas seções de
 2026-10-25 de `bibliotecas-de-formulario.md` (Reserva de passagem) e de
 `bibliotecas-de-inscricao-e-reconexao.md` (Placar ao vivo); as das outras
-três vertentes, que não têm nota própria, ficam nesta. A regra em vigor
-é a do ADR 0031, que esta nota não reescreve: as variantes são propostas
-para a decisão do autor. Cada afirmação sobre ferramenta, versão ou
+três vertentes, que não têm nota própria, ficam nesta. O autor decidiu em
+2026-10-25 pela variante I, que o ADR 0031 ainda não diz; as outras
+ficam como alternativas, com o que cada uma mudaria. Cada afirmação sobre ferramenta, versão ou
 contagem leva a data em que foi observada; tudo o que não diz outra data
 foi medido em 2026-10-25, com os dados brutos em
 `tmp/pesquisas/2026-10-25-medida-das-bibliotecas/` (fora do git, ADR
@@ -71,9 +71,10 @@ causa do termo `tanstack form`, que junta todos os *frameworks*. O
 State of React, lido do `page-data.json` (subseção "Pesquisa de uso: o
 State of React"), diz que 74,3% dos que responderam usaram o
 `react-hook-form` em 2025, mas ele fica com 47,8% das escolhas das
-candidatas, com o TanStack Form a 21,5% dos que responderam. Nenhuma variante de regra está
-decidida; a tabela da seção "Sensibilidade por vertente" mostra onde
-cada uma muda a escolha.
+candidatas, com o TanStack Form a 21,5% dos que responderam. O autor
+decidiu em 2026-10-25 pela variante I, a maioria dos downloads depois do
+filtro de manutenção, que o ADR 0031 ainda não diz; a tabela da seção
+"Sensibilidade por vertente" mostra onde cada variante muda a escolha.
 
 ## Os eixos
 
@@ -137,19 +138,25 @@ entre elas o `reconnecting-websocket` (2020-02-07), o `sockette`
 com `D` (depreciada), `A` (arquivada) e `24m` (sem versão há mais de 24
 meses).
 
-Proposta do agente, a decidir pelo autor:
+Decisão do autor em 2026-10-25 (a variante I, seção "As variantes de
+regra"): a candidata depreciada, arquivada ou sem versão há mais de 24
+meses sai da lista antes da medida, porque a terceira rodada escreve
+código que a análise lê como a forma do ecossistema, e um ecossistema
+não aponta para o que abandonou; a fração se calcula sobre as que
+ficam.
 
-- a candidata depreciada ou com repositório arquivado sai da lista antes
-  da medida, porque a terceira rodada escreve código que a análise lê
-  como a forma do ecossistema, e um ecossistema não aponta para o que
-  abandonou;
-- a candidata sem versão há mais de 24 meses fica na lista com aviso, e
-  sai só se o autor preferir: o `reconnecting-websocket` está parado
-  desde 2020 e ainda é o mais carregado no jsDelivr e o segundo nos
-  repositórios dependentes, atrás do `sturdy-websocket`, também parado,
-  o que diz uso, e não manutenção;
-- em qualquer caso, o filtro se aplica antes da fração, e a tabela de
-  sensibilidade mostra o resultado com cada tratamento.
+Depois, no mesmo dia, o autor estendeu "depreciada" à depreciação dita na
+documentação oficial do pacote, e não só no campo `deprecated` do
+registro: o `@vaadin/hilla-lit-form`, candidata do Lit na Reserva de
+passagem, tem o campo vazio e versão em 2026-10-21, mas a documentação
+abre com "Hilla with Lit is deprecated and is removed in Vaadin 26"
+(vaadin.com/docs, Form Binding Reference, lida em 2026-10-25). Nas
+escolhidas da regra, o campo `deprecated` está vazio, e os README do
+`final-form`, do `partysocket` e do `react-use-websocket` no registro não
+falam em depreciação; os dos pacotes de *monorepo* (TanStack Form,
+`@solid-primitives/websocket`, `xstate`) vêm vazios, e a documentação
+deles não foi lida (`tmp/pesquisas/2026-10-25-formulario-no-lit/`, fora
+do git).
 
 Onde o filtro muda o resultado, em 2026-10-25: na máquina de estados sem
 *framework*, a maioria dos downloads passa de "nenhuma" (o `@xstate/fsm`,
@@ -168,8 +175,9 @@ filtro não muda a escolhida.
 
 Todas as variantes partem da mesma lista de candidatas de cada
 tecnologia (a do ADR 0031 na vertente do ecossistema; as levantadas em
-2026-10-25 nas outras), e o que muda é a métrica e o limiar. Nenhuma
-está decidida.
+2026-10-25 nas outras), e o que muda é a métrica e o limiar. O autor
+decidiu pela I em 2026-10-25, com a depreciação dita na documentação
+oficial (seção "O filtro"); as outras ficam como alternativas.
 
 | Variante | Regra | O que implica | Custo |
 |---|---|---|---|
@@ -499,3 +507,7 @@ scripts estão em `tmp/pesquisas/2026-10-25-medida-das-bibliotecas/`.
   antes fora pela API da Devographics em 502, foram lidos do
   `page-data.json` das páginas, e ganharam a subseção "Pesquisa de uso:
   o State of React" e a linha da API nova da plataforma.
+- 2026-10-25, depois: a seção "O filtro" passou da proposta do agente,
+  que deixava a candidata sem versão há 24 meses na lista com aviso, à
+  decisão do autor (variante I), e ganhou a depreciação
+  dita na documentação oficial, pelo caso do `@vaadin/hilla-lit-form`.
