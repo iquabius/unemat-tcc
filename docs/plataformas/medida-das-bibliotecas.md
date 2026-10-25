@@ -67,7 +67,11 @@ os `package.json` dão a maioria ao `final-form` no Web Component da
 Reserva (72,4%) e a tiram do `partysocket` no do Placar (40,0%, contra
 48,9% do `reconnecting-websocket`); o Trends dá a maioria ao
 `react hook form` em cinco anos (51,8%) e só a tira em doze meses por
-causa do termo `tanstack form`, que junta todos os *frameworks*. Nenhuma variante de regra está
+causa do termo `tanstack form`, que junta todos os *frameworks*. O
+State of React, lido do `page-data.json` (subseção "Pesquisa de uso: o
+State of React"), diz que 74,3% dos que responderam usaram o
+`react-hook-form` em 2025, mas ele fica com 47,8% das escolhas das
+candidatas, com o TanStack Form a 21,5% dos que responderam. Nenhuma variante de regra está
 decidida; a tabela da seção "Sensibilidade por vertente" mostra onde
 cada uma muda a escolha.
 
@@ -84,7 +88,7 @@ direto. A tabela diz o que cada um conta, de onde vem e o que o enviesa.
 | 4. Artigos científicos | Trabalhos que a busca por termo devolve no OpenAlex (`title_and_abstract.search`), pelo `buscar_literatura.py buscar` da skill `escrita-academica`, com `--desde 2021`, `--desde 2017` e sem janela | OpenAlex, pelo script | Conta trabalhos devolvidos, e não menções no texto: o termo de pacote (`formik form library`, 2 trabalhos desde 2021) acha quase nada, e o de várias (`command pattern user interface`) acha o que tem as palavras espalhadas. O Crossref (`query.bibliographic`) casa qualquer termo e devolve centenas de milhares; ficou só nos dados |
 | 5. Menções informais | Perguntas por tag no Stack Overflow, com `fromdate` e `todate`; artigos por tag no dev.to; repositórios por tópico no GitHub, com `created:` e `pushed:` | `api.stackexchange.com/2.3/questions?tagged=<tag>&fromdate&todate&filter=total`; `dev.to/api/articles?tag=<tag>&per_page=100`; `api.github.com/search/repositories?q=topic:<t>` | Pacote pequeno não tem tag (`partysocket`, `robot3` e as candidatas do Solid não existem como tag, consultado em 2026-10-25); o tópico do GitHub é autodeclarado; nas tags de biblioteca medidas, o último ano tem de 0 a 11 perguntas, e a janela de um ano quase zera (não há série por ano que date o encolhimento); a contagem de resultados do Google não entra, porque não é reproduzível |
 | 6. Google Trends | Interesse de busca relativo, de 0 a 100, numa série semanal; a fração de cada termo é a média dele sobre a soma das médias do grupo | Sem API oficial: a biblioteca `pytrends` 4.9.2 (não oficial), no Python do host, em grupos de até 5 termos, o limite do Trends; a exportação da interface e o `api/explore` direto voltaram 429 | O índice é relativo dentro do grupo, e grupos não se comparam; mede termos de busca, e não pacotes: "modular forms" é assunto de matemática (por isso o grupo do Solid se refez com "modular forms solid"), "vest" sozinho seria peça de roupa (consultou-se "vest validation"), e não se conferiu se "sockette" e "hyperform" buscam o pacote; um termo como "tanstack form" junta todos os *frameworks*; e o termo pequeno fica no ruído (médias abaixo de 2) |
-| 7. Pesquisas de uso | O que o State of JS, o State of React e o Stack Overflow Developer Survey perguntam sobre as candidatas, nas edições de 2024 e 2025 | O `page-data.json` de cada seção dos sites da Devographics (a estrutura das perguntas e as opções) e as páginas do Stack Overflow; a API GraphQL dos resultados (`api.devographics.com`) voltou 502 em todas as tentativas de 2026-10-25 | Amostra autosselecionada; só perguntam pelo que listam: o State of React pergunta pelas bibliotecas de formulário e pelo XState (seção *State Management*), e não pelas de WebSocket; o Stack Overflow não pergunta por nenhuma candidata |
+| 7. Pesquisas de uso | O que o State of JS, o State of React e o Stack Overflow Developer Survey perguntam sobre as candidatas, nas edições de 2024 e 2025 | O `page-data.json` de cada página dos sites da Devographics, que traz em `result.pageContext.pageData.dataAPI` os resultados das perguntas da página (a página se monta dele, sem chamar a API); as páginas do Stack Overflow; a API GraphQL (`api.devographics.com`) voltou 502 em todas as tentativas de 2026-10-25 e não foi preciso | Amostra autosselecionada; só perguntam pelo que listam: o State of React pergunta pelas bibliotecas de formulário e pelo XState (seção *State Management*), e não pelas de WebSocket; o Stack Overflow não pergunta por nenhuma candidata |
 | 8. Manutenção e maturidade | Data da última versão, versões nos últimos 12 e 24 meses, o campo `deprecated` do registro, se o repositório está arquivado, estrelas, *issues* abertas, contribuidores; a nota de saúde do Snyk Advisor onde a página a traz | `registry.npmjs.org/<pacote>`; `api.github.com/repos/<repo>` e `/contributors?per_page=1&anon=true` (a contagem vem do cabeçalho `Link`); `repo_metadata` do ecosyste.ms; `snyk.io/advisor/npm-package/<pacote>` | Estrelas acumulam e não caem; *issues* abertas dependem da triagem do projeto; a versão por mês premia quem publica *patch* automático (o `vest`, 289 versões em 12 meses); o Snyk não dá nota aos pacotes com escopo medidos (`@tanstack/solid-form`, `@solid-primitives/websocket`) |
 
 Proposta do agente, a decidir pelo autor, de três eixos a mais, não
@@ -249,8 +253,7 @@ O que a tabela diz, em 2026-10-25:
   máquinas de estados; o State of React pergunta pelo XState, na seção
   *State Management*, e o `page-data.json` da edição de 2025 traz as
   respostas: usaram 280 dos 2.727 que responderam em 2025, contra 615 de
-  6.291 em 2024 e 1.058 de 9.850 em 2023 (a API dos resultados, que
-  daria as outras bibliotecas da seção, voltou 502).
+  6.291 em 2024 e 1.058 de 9.850 em 2023.
 
 ## API nova da plataforma (vertente 3)
 
@@ -267,7 +270,7 @@ embarque, o uso e a posição dos fabricantes, em 2026-10-25.
 | Polyfill | `observable-polyfill` 0.0.29 (2025-09-12): 744 downloads na janela nova, 18 estrelas no GitHub em 2026-10-25 (17 no espelho do ecosyste.ms), 7 contribuidores; o RxJS, o Observable de biblioteca, teve 354.844.529 | — | api.npmjs.org, registro, GitHub |
 | Artigos | "Observable API DOM events", 1 trabalho; "WICG Observable", 0; "RxJS", 73 desde 2021 (234 sem janela) | — | OpenAlex |
 | Menções | Tag `observable` no Stack Overflow: 9.688 perguntas, 1.187 desde 2021-10-25, 5 no último ano, sem separar a API do RxJS | — | api.stackexchange.com |
-| Pesquisas de uso | O State of JS 2024 e 2025 pergunta pelo RxJS (seção *Other Tools*, "libraries") e pelo WebSocket (*browser_api_features*); pelo Observable, só como recurso que falta ao JavaScript ("top_currently_missing_from_js", opção `js_observable`, com link para a proposta do TC39), não como API em uso | — | `page-data.json` dos sites |
+| Pesquisas de uso | O State of JS 2024 e 2025 pergunta pelo RxJS (seção *Other Tools*, "libraries"; usaram 20,2% dos que responderam em 2025 e 23,7% em 2024) e pela API `WebSocket` (*browser_api_features*; 63,7% e 62,1%); pelo Observable, só como recurso que falta ao JavaScript ("top_currently_missing_from_js", opção `js_observable`, com link para a proposta do TC39; escolhido por 14,1% dos que responderam em 2025 e 18,7% em 2024), não como API em uso | — | `page-data.json` dos sites, `pageData.dataAPI` |
 
 A leitura do agente: a forma é nova de verdade, e a medida de uso não a
 enquadra como as outras, porque não há com o que compará-la; o que a
@@ -357,6 +360,34 @@ Circle Drawer):
 As vertentes da API nova da plataforma e dos padrões de projeto não têm
 candidatas a escolher por maioria; as medidas estão nas seções delas.
 
+### Pesquisa de uso: o State of React
+
+Medida em 2026-10-25, depois das tabelas acima. A API GraphQL da
+Devographics voltou 502, mas cada página do site se monta do próprio
+`page-data.json`, que traz os resultados em `pageData.dataAPI`; a
+pergunta das bibliotecas de formulário (`form_libraries`, de múltipla
+escolha) está na página *Component Libraries*. Como
+variante de regra, **L**: a candidata que a maioria dos que responderam
+usou (L1), ou a que tem mais da metade das escolhas das candidatas (L2),
+porque a pergunta aceita várias respostas.
+
+| Edição | Responderam | `react-hook-form` | `formik` | TanStack Form | `redux-form` | `react-final-form` | `conform` | Nenhuma | L1 | L2 (fração das escolhas das candidatas) |
+|---|---|---|---|---|---|---|---|---|---|---|
+| 2025 (3.760 respostas, 2.643 nesta pergunta) | 70,3% | 1.964 (74,3%) | 1.095 (41,4%) | 567 (21,5%) | 260 (9,8%) | 164 (6,2%) | 56 (2,1%) | 355 (13,4%) | `react-hook-form` | API (`react-hook-form` 47,8% de 4.106) |
+| 2024 (7.869 respostas, 6.036 nesta pergunta) | 76,7% | 4.274 (70,8%) | 2.795 (46,3%) | 45 (0,7%, em `tanstack_form` e `tanstack_forms`) | 670 (11,1%) | 449 (7,4%) | 53 (0,9%) | 961 (15,9%) | `react-hook-form` | `react-hook-form` 51,6% de 8.286 |
+
+As porcentagens são dos que responderam à pergunta. O `@rc-component/form`
+não é opção da pergunta (o Ant Design aparece em 2024 com 24 escolhas);
+`mantine_forms`, `react_json_schema_form` e `formily`, opções da
+pesquisa, não são candidatas do ADR 0031. A fração dos que usam alguma
+biblioteca de formulário, 100% menos os 13,43% que responderam nenhuma,
+é 86,57% em 2025, o que confere a leitura anterior de
+`docs/metodo-da-avaliacao.md` (86,6%). O que a tabela mostra: a maioria
+dos desenvolvedores de React que responderam usa o `react-hook-form`
+nas duas edições, mas a fatia dele entre as escolhas das candidatas cai
+abaixo da metade em 2025, com o TanStack Form de 0,7% a 21,5%, o mesmo
+movimento do Trends.
+
 ### Busca de código e Google Trends
 
 Medidos em 2026-10-25, depois das tabelas acima, com o `gh` e o
@@ -416,16 +447,6 @@ O que as duas colunas mudam no quadro de 2026-10-25:
 
 ## O que não foi possível medir
 
-- **Resultados das pesquisas da Devographics** (eixo 7): a API GraphQL
-  (`api.devographics.com/graphql`) voltou HTTP 502 em todas as tentativas
-  de 2026-10-25, uma delas registrada em `consultas.tsv`; as páginas se
-  montam no navegador a partir dela, e o `page-data.json` traz a
-  estrutura das perguntas e, da seção *State Management* do State of
-  React, as respostas do XState, mas não as das bibliotecas de
-  formulário. A nota
-  `docs/metodo-da-avaliacao.md` guarda uma leitura anterior (86,6% usam
-  biblioteca de formulário, State of React 2025), que esta medida não
-  reconferiu.
 - **Google Trends para as candidatas pequenas** (eixo 6): medido, mas
   sem leitura no Solid da Reserva, em que todos os termos ficam abaixo
   de 2 de média; no Web Component, os líderes são termos que não se
@@ -474,3 +495,7 @@ scripts estão em `tmp/pesquisas/2026-10-25-medida-das-bibliotecas/`.
   antes fora por falta do `gh` e do `pytrends` no ambiente, foram
   medidos pelo host, e ganharam a subseção "Busca de código e Google
   Trends" e as linhas dos eixos 3 e 6.
+- 2026-10-25, depois: os resultados do State of React e do State of JS,
+  antes fora pela API da Devographics em 502, foram lidos do
+  `page-data.json` das páginas, e ganharam a subseção "Pesquisa de uso:
+  o State of React" e a linha da API nova da plataforma.

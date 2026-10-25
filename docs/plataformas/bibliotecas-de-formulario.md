@@ -161,9 +161,14 @@ project"; manutenção "Sustainable"; comunidade "Active"). A tag
 `reacthookform` (39 desde 2021-10-25) e 52 com `formik` (31). O State of React 2024 e 2025 pergunta
 pelas bibliotecas de formulário (`react_hook_form`, `formik`,
 `react_final_form`, `redux_form`, `react_json_schema_form`, `formily`,
-`mantine_forms`; em 2025, também `conform` e `tanstack_form`), mas os
-resultados ficam na API GraphQL, que voltou 502 em 2026-10-25; o
-Developer Survey do Stack Overflow não pergunta por nenhuma. No OpenAlex,
+`mantine_forms`; em 2025, também `conform` e `tanstack_form`), e o
+`page-data.json` da página *Component Libraries* traz os resultados: o
+`react-hook-form` foi usado por 74,3% dos que responderam em 2025 e
+70,8% em 2024, o `formik` por 41,4% e 46,3%, o TanStack Form por 21,5%
+e 0,7%; entre as escolhas das candidatas, o `react-hook-form` tem 47,8%
+em 2025 e 51,6% em 2024 (`medida-das-bibliotecas.md`, seção "Pesquisa
+de uso: o State of React"). O Developer Survey do Stack Overflow não
+pergunta por nenhuma. No OpenAlex,
 "react-hook-form" devolve 53 trabalhos desde 2021 e "formik form
 library", 2.
 
@@ -380,4 +385,5 @@ ANDROID, developer.android.com, `TextInputLayout` (2026-10-12);
   janelas", com as mesmas candidatas medidas em três janelas e pelos
   eixos de `medida-das-bibliotecas.md`, e a frase da conclusão que
   aponta para ela; a regra, a janela e as tabelas de 2026-10-12 ficaram.
-  Depois, no mesmo dia, a subseção "Busca de código e Google Trends".
+  Depois, no mesmo dia, a subseção "Busca de código e Google Trends" e
+  os resultados do State of React na seção do React.
