@@ -143,26 +143,25 @@ Mais ≈ 24 páginas em qualquer variante, se o domínio e a página comum
 entrarem. A variante (c) muda o código e a notação (a seção "Como
 encurtar as listagens" diz o custo); as outras só a listagem.
 
-### O código das rodadas 2 e 3 no anexo: duas leituras
+### O código das rodadas 2 e 3 no anexo
 
-- **Leitura A, só a primeira rodada, com os diffs no corpo:** o anexo
-  é o da tabela acima; as mudanças da segunda rodada (11, 44 commits) e
-  as refatorações da terceira (24 a 28) aparecem no corpo como trechos
-  do diff, já contados nas páginas da análise. É a leitura do Resumo.
-- **Leitura B, as versões inteiras de cada rodada:** a segunda rodada
-  cresce ≈ 30 linhas por mudança por implementação (suposição do agente
-  pelos protótipos de 2026-10-12 e 2026-10-13: a quarentena +20 a +21,
-  a frequência +14 a +19, a carteira +23 a +27, o bolão +29 a +40;
-  `docs/metodo-da-avaliacao.md`, seção "*Benchmark* de notação e
-  requisitos da segunda rodada"), 44 diffs × 30 ≈ +1.320 linhas; as 28
-  versões da segunda rodada ≈ 4.612 linhas ≈ 115 páginas. A terceira
-  refatora sem mudar o tamanho: cada versão ≈ a da segunda rodada da
-  implementação (a Reserva ≈ 605 linhas nas quatro tecnologias, o Placar
-  ≈ 681, o Circle Drawer ≈ 1.257), uma por par: a Reserva × 1, o Placar
-  × 3, o Circle Drawer × 2 (× 3 com o opcional) ≈ 5.162 a 6.419 linhas ≈
-  129 a 160 páginas. Total da leitura B na variante (a): 82 + 115 + 129
-  a 160 ≈ 330 a 360 páginas, o quádruplo da leitura A. As duas leituras
-  diferem demais para o Resumo trazer as duas; ele traz a A.
+O anexo leva só a primeira rodada, a versão de cada implementação no
+`master` de 2026-10-24 (`d7814135`, a junção do Circle Drawer no Web
+Component com *signals*; nenhum commit mudou `implementacoes/` depois,
+até 2026-10-25), antes de qualquer mudança da segunda rodada (nenhuma
+foi implementada: `implementacoes/openspec/changes/archive/` não tem
+*delta* de segunda rodada); as mudanças da segunda rodada (11, 44
+commits) e as refatorações da terceira (24 a 28) aparecem no corpo
+como trechos do diff, já contados nas páginas da análise. As versões
+inteiras de cada rodada no anexo estão fora de cogitação (decisão do
+autor em 2026-10-25): a segunda rodada cresceria ≈ 30 linhas por
+mudança por implementação (suposição do agente pelos protótipos de
+2026-10-12 e 2026-10-13, `docs/metodo-da-avaliacao.md`, seção
+"*Benchmark* de notação e requisitos da segunda rodada"), 44 diffs × 30
+≈ +1.320 linhas, as 28 versões dela ≈ 115 páginas; as 24 a 28 versões
+da terceira, cada uma do tamanho da segunda, ≈ 129 a 160; e o anexo
+iria a 82 + 115 + 129 a 160 ≈ 330 a 360 páginas, o quádruplo das ≈ 82
+da primeira rodada.
 
 ### As páginas da análise por delineamento
 
@@ -295,3 +294,7 @@ código das rodadas 2 e 3; os totais por variante e por configuração do
 Lit; as páginas de hoje por seção lidas no sumário, corrigindo a
 distribuição anterior; e a análise com as listagens inteiras no corpo
 corrigida de 110 a 120 para ≈ 160.
+
+Em 2026-10-25, o autor tirou de cogitação o anexo com as versões
+inteiras das três rodadas; a seção do código das rodadas 2 e 3 ficou
+só com a primeira rodada e o total descartado.
