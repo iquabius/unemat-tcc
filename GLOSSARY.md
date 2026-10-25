@@ -349,6 +349,14 @@ _Avoid_: comparação (a comparação é a da análise); controle (o
 controle é o das variáveis, no delineamento); trabalhos futuros (são a
 seção da conclusão, que recebe o Angular e o par que sai do corte)
 
+**Código autoral**:
+O código que o autor escreveu à mão no CodeSandbox, em *sandboxes* como
+o `cronometro-com-rxjs-5`, antes das implementações que os agentes de IA
+geraram a partir de alguns deles, guardado como registro em
+`interfaces-graficas/autorais/` (ADR 0025).
+_Avoid_: implementação autoral (sugere que passa pelo teste e pelas
+capturas); referência (é o tipo de nota de `docs/`); original
+
 **Domínio**:
 As regras de uma interface que não dependem da tela (datas, mensagens,
 servidores simulados, fontes de dados, a cotação, a análise e a avaliação

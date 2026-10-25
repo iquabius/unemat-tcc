@@ -1,0 +1,21 @@
+#+TITLE: Autorais: o código que o autor escreveu à mão
+
+Esta pasta guarda o código autoral (=GLOSSARY.md=): o que o autor
+escreveu à mão no CodeSandbox, antes das implementações de
+=interfaces-graficas/<interface>/analisadas/=, que os agentes de IA
+geraram a partir de alguns desses /sandboxes/. É registro
+histórico, congelado como o CodeSandbox o guarda: nada aqui entra nos
+/workspaces/, no Prettier, nas capturas nem no teste de conformidade, e
+as mudanças na especificação das interfaces não são portadas para cá.
+
+A lista dos /sandboxes/, com os links, e o que se sabe de qual serviu de
+base a qual implementação estão em
+=docs/processo/implementacoes-no-codesandbox.md=. Cada um ganha aqui uma
+pasta com o nome dele no CodeSandbox.
+
+- =cronometro-com-rxjs-5/=: o cronômetro em RxJS 5, a cópia do /sandbox/
+  =cronometro-com-rxjs-5= que entrou no repositório em 2020-03-27, no
+  commit 6eb671c8, em =casos/=, com dois ajustes em 2020-03-29 (6b14a305
+  e 8370c8af), e ficou na pasta =fora-da-analise/= de 2026-10-13 a
+  2026-10-25. Nunca foi /workspace/: tem instalação própria
+  (=npm install= e =npm start= na pasta dele, com o Parcel 1).

@@ -1,9 +1,9 @@
 # Implementações do autor no CodeSandbox
 
 Referência. São as implementações que o autor escreveu à mão no
-CodeSandbox, antes das implementações atuais de `implementacoes/`. As
-atuais foram geradas com agentes de IA a partir de algumas destas, e
-ficaram mais padronizadas entre as tecnologias. Lista do autor de
+CodeSandbox, antes das implementações de 2026 em `interfaces-graficas/`,
+geradas com agentes de IA a partir de algumas destas e mais padronizadas
+entre as tecnologias. Lista do autor de
 2026-10-07; os links não foram abertos nesta data.
 
 ## O que ainda não se sabe
@@ -12,8 +12,10 @@ Não está registrado quais destas implementações, nem em que versão,
 serviram de base quando o autor pediu aos agentes as implementações
 atuais (informação do autor em 2026-10-07). Isso pesa na decisão sobre
 declarar os agentes na metodologia (pauta da orientação de 2026-10-09,
-ponto A4, tcc-y4q). Para mapear, o código de cada uma pode ser baixado
-do CodeSandbox e comparado com `implementacoes/`.
+ponto A4, tcc-y4q). Para mapear, o código de cada uma se baixa do
+CodeSandbox para `interfaces-graficas/autorais/` (tcc-cssu), onde fica
+como registro, e se compara com o de
+`interfaces-graficas/<interface>/analisadas/`.
 
 Nenhuma delas está no projeto de TCC entregue em 2017
 (`../unemat-projeto-tcc`), que não nomeia programas. A menção mais antiga
@@ -34,7 +36,7 @@ no repositório é o link do Contador com POO em `texto/cases.org`, de
 | Reserva de voo | [reserva-de-voo-com-poo](https://codesandbox.io/p/sandbox/reserva-de-voo-com-poo-w9jei) | Formulário com validação |
 | Reserva de voo | [reserva-de-voo-com-rxjs-5](https://codesandbox.io/p/sandbox/reserva-de-voo-com-rxjs-5-f9svq) | Formulário com validação |
 | Reserva de voo | [reserva-de-voo-com-xstream](https://codesandbox.io/p/sandbox/reserva-de-voo-com-xstream-6vucn) | Formulário com validação |
-| Cronômetro | [cronometro-com-rxjs-5](https://codesandbox.io/p/sandbox/cronometro-com-rxjs-5-zg544) | nenhuma; há uma cópia em `implementacoes/fora-da-analise/cronometro-com-rxjs-5` (commit `6eb671c`, 2020-03-27), fora da análise (ADR 0012) e não comparada com o CodeSandbox |
+| Cronômetro | [cronometro-com-rxjs-5](https://codesandbox.io/p/sandbox/cronometro-com-rxjs-5-zg544) | nenhuma; há uma cópia em `interfaces-graficas/autorais/cronometro-com-rxjs-5` (commit `6eb671c`, 2020-03-27), fora da análise (ADR 0012) e não comparada com o CodeSandbox |
 
 O Contador, o Conversor de temperatura e a Reserva de voo têm os nomes de
 três tarefas do 7GUIs (*Counter*, *Temperature Converter* e *Flight
