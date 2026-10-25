@@ -306,11 +306,10 @@ A mudança não se porta para o código da interface em
     canvas, se faz no `updated()`;
   - o que o Web Component altera no lugar se altera no lugar, seguido de
     `requestUpdate()`, porque o Lit compara o `@state()` por referência,
-    como a lista do Circle Drawer e os mapas da Planilha.
-    A documentação do Lit recomenda os dados imutáveis, e se o idioma do
-    Lit, no sentido do ADR 0040, é a alteração no lugar ou a cópia é
-    dúvida do autor, registrada no commit do Circle Drawer; até ele
-    decidir, a alteração fica no lugar, como no Web Component.
+    como a lista do Circle Drawer e os mapas da Planilha. A documentação
+    do Lit recomenda os dados imutáveis, mas a alteração fica no lugar,
+    para o par com o Web Component diferir só na ligação (decisão do
+    autor em 2026-10-25, tcc-cp6c).
 
   Os decoradores são os do TypeScript (`experimentalDecorators` e
   `useDefineForClassFields: false` no `tsconfig.json` da
