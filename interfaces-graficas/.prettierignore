@@ -1,19 +1,14 @@
-# Saídas de build e dependências (o Prettier só lê o .gitignore de
-# implementacoes/). As do Gradle sobram, fora do git, nos checkouts que
-# compilaram o Android e o desktop antes de irem para fora-da-analise/.
+# Saídas de build e dependências (o Prettier só lê o .gitignore desta
+# pasta).
 node_modules/
 dist/
 .angular/
-build/
-.gradle/
-.kotlin/
 package-lock.json
 capturas/
 
 # Documentos, revisados com o texto.
 *.md
 
-# Código fora da análise, congelado como saiu dela, e o código que o
-# autor escreveu à mão, congelado como o CodeSandbox o guarda.
-fora-da-analise/
+# O código que o autor escreveu à mão, congelado como o CodeSandbox o
+# guarda.
 autorais/

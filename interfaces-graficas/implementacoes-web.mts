@@ -34,8 +34,8 @@ export async function implementacoes(
   const lista: [string, string][] = [];
   for (const gui of (await readdir(IMPLEMENTACOES)).sort()) {
     // Toda interface tem a especificação em openspec/specs/<interface>/; as
-    // outras pastas (node_modules, openspec e fora-da-analise, que não se
-    // captura) não são interfaces.
+    // outras pastas (node_modules, openspec e autorais, que não se captura)
+    // não são interfaces.
     if (!existsSync(path.join(IMPLEMENTACOES, "openspec", "specs", gui)))
       continue;
     for (const tecnologia of TECNOLOGIAS) {

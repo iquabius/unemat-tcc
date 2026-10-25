@@ -16,7 +16,8 @@
 //
 // Teste é todo arquivo da pasta da interface que chama conferir(...); cada
 // chamada tem de ter o nome como texto literal entre aspas duplas, senão o
-// script acusa. O código de implementacoes/fora-da-analise/ não é conferido.
+// script acusa. O código de autorais/, que não é de nenhuma interface, não
+// é conferido.
 
 import { spawnSync } from "node:child_process";
 import { existsSync } from "node:fs";
@@ -27,9 +28,7 @@ const IMPLEMENTACOES = import.meta.dirname;
 const SPECS = path.join(IMPLEMENTACOES, "openspec", "specs");
 const OPENSPEC = path.join(IMPLEMENTACOES, "node_modules", ".bin", "openspec");
 const EXTENSOES = new Set([".js", ".ts", ".mts"]);
-// O build/ do Android e do desktop sobra, fora do git, nas pastas das
-// interfaces dos checkouts que os compilaram.
-const FORA = new Set(["node_modules", "build", "dist", "capturas", ".angular"]);
+const FORA = new Set(["node_modules", "dist", "capturas", ".angular"]);
 
 const semShallNemMust = /should contain SHALL or MUST/;
 const cenario = /^####\s+Scenario:\s*(.+?)\s*$/gm;

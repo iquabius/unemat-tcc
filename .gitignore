@@ -31,12 +31,6 @@ _minted*
 node_modules/
 dist/
 .angular/
-# Gradle (o Android e o desktop, em implementacoes/fora-da-analise/, e as
-# saídas que sobram dos dois nos checkouts que os compilaram)
-.gradle/
-.kotlin/
-build/
-local.properties
 
 # Beads / Dolt files (added by bd init)
 .dolt/
