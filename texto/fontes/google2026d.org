@@ -15,3 +15,22 @@
 - Observação: que o par Web Component e Lit mantém o modelo de componente
   e a orquestração é do próprio delineamento (ADR 0013), e não da fonte.
 - Conferido: 2026-10-13.
+
+* [[file:../intro.org::As sete interfaces são implementadas na web por cinco tecnologias][intro: As sete interfaces são implementadas na web por cinco tecnologias]] (o ramo do Lit)
+- Frase: “Do Web Component sai também um ramo, ao Lit, que leva ao
+  declarativo por re-renderização com a mesma classe e a mesma
+  orquestração: muda o modo como a alteração do estado chega à tela,
+  porque cada alteração faz o ambiente de execução chamar de novo o
+  método que monta a tela (Google, 2026d).”
+- Trecho: “Lit components are standard custom elements and inherit the
+  custom element lifecycle methods.”; “The reactive update cycle is
+  triggered when a reactive property changes or when the requestUpdate()
+  method is explicitly called.”; “The component’s render method is called
+  to update its internal DOM.”
+- Lido em: =acervo/google2026d.html= (página salva em 2026-10-13;
+  lit.dev/docs/components/lifecycle/).
+- Observação: a fonte sustenta só o ciclo: o elemento personalizado e o
+  render() chamado de novo a cada alteração. A mesma classe e a mesma
+  orquestração do Web Component são do delineamento (ADR 0013), e não da
+  fonte.
+- Conferido: 2026-10-25.

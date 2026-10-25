@@ -1,0 +1,20 @@
+#+title: whatwg2026: WHATWG (2026), HTML Standard: Server-Sent Events
+#+startup: overview
+
+* [[file:../intro.org::Na vertente do ecossistema, a forma de cada tecnologia][intro: Na vertente do ecossistema, a forma de cada tecnologia]], § 9.2.1 (a reconexão automática do SSE)
+- Frase: “Nas duas primeiras rodadas, o Placar ao vivo recebe os lotes por
+  SSE, e o navegador refaz sozinho a conexão que cai (WHATWG, 2026,
+  § 9.2.1)”.
+- Trecho: “Clients will reconnect if the connection is closed; a client
+  can be told to stop reconnecting using the HTTP 204 No Content response
+  code.” (§ 9.2.1, Introduction); o tempo de espera é o “reconnection
+  time, in milliseconds. This must initially be an implementation-defined
+  value, probably in the region of a few seconds” (§ 9.2.2), e “user agents
+  might introduce an exponential backoff delay” (§ 9.2.3).
+- Lido em: =acervo/paginas-web/whatwg2026-server-sent-events.html=, Living
+  Standard de 2026-10-22, cópia de 2026-10-24.
+- Observação: a frase atribui a reconexão ao navegador, e não ao
+  programador; a nota =docs/plataformas/websocket-e-sse.md= traz a
+  comparação inteira com o WebSocket, cuja especificação não tem passo de
+  reconexão.
+- Conferido: 2026-10-25.

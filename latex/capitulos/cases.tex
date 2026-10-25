@@ -1,7 +1,7 @@
 \section{Delineamento}
-\label{sec:org6151f96}
+\label{sec:org97df970}
 \subsection{As interfaces e as exigências de coordenação}
-\label{sec:org7275455}
+\label{sec:org3c65982}
 \todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}
 
 O conjunto de interfaces é um \emph{benchmark} de notação, como os \emph{benchmarks}
@@ -39,7 +39,7 @@ O Login segue o painel de \textcite[p. 534]{berry2020}, e os Dados ao
 vivo adaptam a placares de jogos as cotações que uma fonte manda aos
 clientes, de \textcite[p. 66]{meijer2012}.
 \subsection{As tecnologias e os pares}
-\label{sec:org6f7a7d8}
+\label{sec:org90805f0}
 \todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}
 
 Na web, Web Component, React e Solid, uma tecnologia por modelo de
@@ -111,7 +111,7 @@ plataforma confere só dois dos três modelos de programação: o Android
 fica sem o declarativo por atualização granular, e o \emph{desktop}, sem o
 declarativo por re-renderização.
 \subsection{As rodadas}
-\label{sec:org4e4e282}
+\label{sec:org9df9920}
 \todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}
 
 A avaliação se faz em três rodadas, cada uma mais estreita que a
@@ -136,7 +136,7 @@ terceira rodada vale para o ecossistema típico de cada tecnologia, e não só
 para o modelo de programação.
 
 \begin{figure}[htbp]
-\caption{\label{fig:interfaces-por-rodada}As sete interfaces nas quatro tecnologias, rodada a rodada: a primeira constrói as 28 implementações; a segunda acrescenta de uma a três mudanças por interface, 13 ao todo; a terceira refatora a Reserva de passagem e o Placar ao vivo para a forma do ecossistema, sem diff onde essa forma já é a API da plataforma. WC: Web Component; WS: Web Component com signals; S: Solid; R: React. Cinza: imperativo por atualização manual; vermelho: declarativo por atualização granular; azul: declarativo por re-renderização.}
+\caption{\label{fig:interfaces-por-rodada}As sete interfaces nas cinco tecnologias, rodada a rodada: a primeira constrói as 35 implementações; a segunda acrescenta de uma a três mudanças por interface, 13 ao todo; a terceira refatora o código da segunda em seis pares interface-vertente, mais um opcional, nas cinco tecnologias. L: Lit; WC: Web Component; WS: Web Component com signals; S: Solid; R: React. Cinza: imperativo por atualização manual; vermelho: declarativo por atualização granular; azul: declarativo por re-renderização.}
 \centering
 \definecolor{corimperativo}{HTML}{74787B}
 \definecolor{corgranular}{HTML}{D6281E}
@@ -146,48 +146,44 @@ para o modelo de programação.
     imp/.style={fill=corimperativo, draw=corimperativo},
     gra/.style={fill=corgranular!85, draw=corgranular!85},
     rer/.style={fill=correrender!85, draw=correrender!85},
-    semdiff/.style={pattern=north east lines, pattern color=gray!70, draw=gray!70},
-    fora/.style={draw=gray!45, fill=white},
+    opcional/.style={draw=gray!70, dashed, fill=white},
   ]
+  \newcommand{\cabecalho}[2]{%
+    \node[font=\tiny] at (#1,#2) {L};
+    \node[font=\tiny] at (#1+1,#2) {WC};
+    \node[font=\tiny] at (#1+2,#2) {WS};
+    \node[font=\tiny] at (#1+3,#2) {S};
+    \node[font=\tiny] at (#1+4,#2) {R};}
+  \newcommand{\linha}[2]{%
+    \node[cel, rer] at (#1,#2) {};
+    \node[cel, imp] at (#1+1,#2) {};
+    \node[cel, gra] at (#1+2,#2) {};
+    \node[cel, gra] at (#1+3,#2) {};
+    \node[cel, rer] at (#1+4,#2) {};}
   \foreach \r/\nome in {0/Contador, 1/Reserva de passagem, 2/Busca com sugestões, 3/Login com quarentena, 4/Placar ao vivo, 5/Planilha, 6/Circle Drawer}
     \node[anchor=east, font=\footnotesize] at (-0.7,-\r) {\nome};
-  \foreach \x/\titulo in {0/1.ª rodada, 6/2.ª rodada, 12/3.ª rodada}
-    \node[anchor=south, font=\footnotesize] at (\x+1.5,1.3) {\titulo};
-  \foreach \x in {0,6,12} {
-    \node[font=\tiny] at (\x,0.65) {WC};
-    \node[font=\tiny] at (\x+1,0.65) {WS};
-    \node[font=\tiny] at (\x+2,0.65) {S};
-    \node[font=\tiny] at (\x+3,0.65) {R};
-  }
-  \foreach \x in {0,6} \foreach \r in {0,...,6} {
-    \node[cel, imp] at (\x,-\r) {};
-    \node[cel, gra] at (\x+1,-\r) {};
-    \node[cel, gra] at (\x+2,-\r) {};
-    \node[cel, rer] at (\x+3,-\r) {};
-  }
+  \node[anchor=south, font=\footnotesize] at (2,1.3) {1.ª rodada};
+  \node[anchor=south, font=\footnotesize] at (9,1.3) {2.ª rodada};
+  \cabecalho{0}{0.65}
+  \cabecalho{7}{0.65}
+  \foreach \r in {0,...,6} {\linha{0}{-\r}\linha{7}{-\r}}
   \foreach \r/\n in {0/1, 1/1, 2/2, 3/2, 4/3, 5/1, 6/3}
-    \node[anchor=west] at (9.6,-\r) {\n};
-  \foreach \r in {0,2,3,5,6} \foreach \c in {0,...,3}
-    \node[cel, fora] at (12+\c,-\r) {};
-  \node[cel, imp] at (12,-1) {};
-  \node[cel, gra] at (13,-1) {};
-  \node[cel, gra] at (14,-1) {};
-  \node[cel, rer] at (15,-1) {};
-  \node[cel, semdiff] at (12,-4) {};
-  \node[cel, semdiff] at (13,-4) {};
-  \node[cel, gra] at (14,-4) {};
-  \node[cel, rer] at (15,-4) {};
-  \node[cel, imp] at (0,-8.2) {};
-  \node[anchor=west] at (0.4,-8.2) {implementa, muda ou refatora};
-  \node[cel, fora] at (9,-8.2) {};
-  \node[anchor=west] at (9.4,-8.2) {fora da rodada};
-  \node[cel, semdiff] at (0,-9.2) {};
-  \node[anchor=west] at (0.4,-9.2) {sem diff: a forma já é a API da plataforma};
-  \node[anchor=west] at (-0.3,-10.2) {número à direita da 2.ª rodada: mudanças da interface};
+    \node[anchor=west] at (11.6,-\r) {\n};
+  \node[anchor=south, font=\footnotesize] at (2,-7.9) {3.ª rodada, por par interface-vertente};
+  \cabecalho{0}{-8.35}
+  \foreach \r/\nome in {9/Reserva de passagem × ecossistema, 10/Placar ao vivo × ecossistema, 11/Placar ao vivo × máquina de estados, 12/Placar ao vivo × API nova da plataforma, 13/Circle Drawer × API nova da plataforma, 14/Circle Drawer × padrões de projeto, 15/Circle Drawer × máquina de estados}
+    \node[anchor=east, font=\footnotesize] at (-0.7,-\r) {\nome};
+  \foreach \r in {9,...,14} {\linha{0}{-\r}}
+  \foreach \c in {0,...,4} \node[cel, opcional] at (\c,-15) {};
+  \node[cel, imp] at (0,-17.2) {};
+  \node[anchor=west] at (0.4,-17.2) {implementa, muda ou refatora};
+  \node[cel, opcional] at (7,-17.2) {};
+  \node[anchor=west] at (7.4,-17.2) {par opcional, o primeiro a sair no corte};
+  \node[anchor=west] at (-0.3,-18.2) {número à direita da 2.ª rodada: mudanças da interface};
 \end{tikzpicture}
 \end{figure}
 \subsection{Os controles e o teste de conformidade}
-\label{sec:org813daae}
+\label{sec:orgab64190}
 \todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}
 
 Quatro coisas poderiam diferenciar as implementações sem ser o modelo de
@@ -221,7 +217,7 @@ e Playwright 1.63.0 para as capturas.
 No Android, Kotlin 2.4.20, Jetpack Compose pela \gls{bom}
 2026.09.00 e, para as capturas, Robolectric 4.17 com Roborazzi 1.75.0.}, para que as implementações possam ser reproduzidas.
 \subsection{A avaliação}
-\label{sec:orgcd68bc3}
+\label{sec:org9f10722}
 \todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}
 
 A avaliação cabe ao autor, que examina o código das implementações dimensão
@@ -284,7 +280,7 @@ mudança, preparada antes e feita em cada implementação, como no teste
 de \textcite[p. 162]{green1996d}, mostra quantas ações ela pede, e
 quantas outras restauram a consistência \cite[p. 115]{blackwell2003}.
 \section{Dimensões de avaliação}
-\label{sec:org247b9c1}
+\label{sec:org964f7e5}
 \todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}
 A avaliação usa as \glspl{dc}, que \textcite[p. 106]{blackwell2003} chamam de ferramentas
 de discussão, para quem projeta ou avalia artefatos de informação, e não
@@ -477,13 +473,13 @@ momento}
 de comprometimento com uma ação ou marco}
 \end{itemize}
 \section{*Revisão do JavaScript}
-\label{sec:org6cbcc2d}
+\label{sec:org8551c8c}
 Talvez devêssemos colocar uma seção de revisão das ferramentas utilizadas na
 implementação dos estudos de caso? Poderíamos descrever os recursos relevantes
 para nossa análise.
 \todo[noline]{Berndt disse p/ colocar como apêndice}
 \section{Processamento de listas}
-\label{sec:org4afcad1}
+\label{sec:orgd60b0db}
 
 Uma coleção é um agrupamento com uma quantidade variável de itens, que (1)
 compartilham algum significado ao problema a se resolver e (2) precisam ser
@@ -520,7 +516,7 @@ for (count = 0; count < people.length; count++) {
 \end{minted}
 \end{listing}
 \subsection{Formatação de preços}
-\label{sec:orgd94f082}
+\label{sec:org4884a38}
 
 Nesta seção veremos como formatar uma lista preços para serem mostrados na
 tela, p. ex., transformando um valor numérico \mintinline{js}{50.45} em uma \emph{string}
@@ -573,12 +569,12 @@ Outras ideias:
 letras maiúsculas
 \end{itemize}
 \subsection{Seleção de valores com \texttt{filter()}}
-\label{sec:orgf5f2560}
+\label{sec:orgdf2865a}
 Remover nomes que não começam com ‘S’
 \subsection{Nivelamento de valores com \texttt{concatAll()}}
-\label{sec:orgec58e69}
+\label{sec:orgeda487a}
 \subsection{Redução de valores com \texttt{reduce()}}
-\label{sec:orgc77c7ec}
+\label{sec:org85184ca}
 
 O método \mintinline{js}{reduce()} executa uma função \textbf{reducer} para cada item da
 lista, resultando num único valor. Em \ref{code:somaDePreçosComReduce} é
@@ -595,9 +591,9 @@ const total = preços.reduce(somar);
 \end{minted}
 \end{listing}
 \subsection{Agrupamento de valores com \texttt{zip()}}
-\label{sec:org0322e48}
+\label{sec:org5799537}
 \section{Coordenação de eventos}
-\label{sec:orga7b0363}
+\label{sec:org6a4cee9}
 \todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}
 A triagem em geral se apoia no que se escreveu sobre as alternativas, e não
 no uso delas \cite[p. 15]{kitchenham1996}.
@@ -638,7 +634,7 @@ anos de 0 a 99, e cada diferença conhecida fica registrada num teste.
 Entre Views e Compose, a única diferença admitida nas capturas é a de
 poucos pixels na renderização do texto.
 \subsection{Contador}
-\label{sec:org695902e}
+\label{sec:org48c37c9}
 
 \begin{description}
 \item[{Problema}] entender os conceitos essenciais da linguagem e a estrutura
@@ -728,11 +724,11 @@ Contador({ valorInicial: 0 });
 \end{minted}
 \end{listing}
 \subsubsection{Análise}
-\label{sec:orgea3e744}
+\label{sec:orga5d3e72}
 
 Essa primeira análise é focada no básico.
 \paragraph{Nível de abstração}
-\label{sec:orgb2a3ac4}
+\label{sec:org0b356fa}
 Na solução com \gls{poo} os conceitos da linguagem que deve-se entender são:
 classes, construtor, objetos, propriedades, métodos, \emph{callbacks} na forma
 de método, e conhecimento da \gls{api} do objeto do documento do \gls{html} ---
@@ -760,16 +756,16 @@ Níveis mais altos de abstração não são necessários, então a solução com
 é igualmente boa ou um pouco melhor que a solução com \gls{poo} quanto ao Nível
 de Abstração.
 \paragraph{Proximidade de descrição}
-\label{sec:org0325b0c}
+\label{sec:org50b1085}
 Essa dimensão/critério faz mais sentido para análise de apresentação do que
 comportamento (coordenação de eventos).
 \paragraph{Dependências ocultas}
-\label{sec:org2e5106a}
+\label{sec:org7f9a84a}
 \todo[noline]{Acredito que o HTML só não está situado no mesmo local que o código JavaScript, que é diferente de “oculto”.}
 As únicas dependências que podem ser consideradas ocultas são os elementos
 \gls{html} buscados pelo identificador com \texttt{document.getElementById("id")}.
 \paragraph{Propensão a erros}
-\label{sec:org771d95e}
+\label{sec:org987fe6a}
 Na solução com \gls{poo}, esquecer de vincular a instância do contador à função
 \texttt{tratarClique()} resultará no erro “TypeError: this.renderizar is not a
 function”.
@@ -802,7 +798,7 @@ Pois ela não será renderizada, apesar de toda a lógica do contador
 funcionar.
 Apesar de tudo, essas possibilidades de erros não são críticas.
 \paragraph{Concisão}
-\label{sec:orgd708040}
+\label{sec:org1ff0450}
 Na solução com \gls{poo} o método \mintinline{js}{tratarClique()}, usado como \emph{callback},
 poderia ser substituído por uma função de seta.
 Além de poupar algumas linhas o uso do \mintinline{js}{.bind(this)} se torna
@@ -819,11 +815,11 @@ De qualquer forma, a \gls{pr} evita a verbosidade da declaração da classe e do
 métodos, além da repetição do \mintinline{js}{this}.
 Então em termos de Concisão a \gls{pr} está à frente da \gls{poo}.
 \paragraph{Viscosidade}
-\label{sec:org7900678}
+\label{sec:org1ae7fca}
 Num caso tão simples como o do Contador a única resistência a alteração
 está em renomear atributos no caso da \gls{poo}, e variáveis na \gls{pr}.
 No entanto isso é inevitável ao renomear termos.
 Além disso o \gls{ide} pode ajudar através de uma funcionalidade de refatoração.
 \todo{Talves seja interessante analisar a viscosidade da alteração pra colocar um botão de decremento (-1) do Contador.}
 \subsection{Reserva de voo}
-\label{sec:orgfb492cc}
+\label{sec:org3a8d1eb}

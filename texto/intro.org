@@ -170,8 +170,10 @@ dependem dela [[cite:bainomugisha2013][p. 52:2]].
   (P1.1) Como muda essa diferença quando o código cresce, com
   funcionalidades e requisitos de orquestração acrescentados a cada
   interface, iguais em todas as tecnologias?
-  (P1.2) E como ela muda quando o código passa à forma que o ecossistema de
-  cada tecnologia usa, com o mesmo comportamento?
+  (P1.2) E como ela muda quando o código da segunda rodada se refatora, com
+  o mesmo comportamento, para a forma do ecossistema de cada tecnologia,
+  para uma máquina de estados tipada, para a [[gls:api]] nova da
+  plataforma ou para um padrão de projeto?
   @@latex:\notamudou{\textbf{As duas subperguntas são novas}, como as rodadas a que elas respondem.}@@
   Conhecer essas diferenças pode ajudar quem programa interfaces a escolher uma tecnologia
   sabendo o que o modelo de programação dela facilita e o que dificulta em
@@ -186,9 +188,9 @@ dependem dela [[cite:bainomugisha2013][p. 52:2]].
 
    - implementar sete interfaces gráficas (Contador, Reserva de passagem,
      Busca com sugestões, Login com quarentena, Placar ao vivo, Planilha e
-     Circle Drawer) com Web Component, Web Component com /signals/, React
-     e Solid, estendê-las na segunda rodada e refatorar duas delas na
-     terceira;
+     Circle Drawer) com Web Component, Lit, Web Component com /signals/,
+     Solid e React, estendê-las na segunda rodada e refatorar três delas na
+     terceira, em quatro vertentes;
    - avaliar as implementações pelas 14 [[glspl:dc]] em cada rodada;
    - sintetizar, por exigência de coordenação, o que cada modelo de
      programação facilita e o que dificulta, como no estado derivado e na
@@ -221,7 +223,7 @@ dependem dela [[cite:bainomugisha2013][p. 52:2]].
   As outras seis trazem, em proporção própria, exigências dos dois eixos
   da coordenação.
 
-  As sete interfaces são implementadas na web por quatro tecnologias, numa
+  As sete interfaces são implementadas na web por cinco tecnologias, numa
   cadeia de pares em que cada passo muda o mínimo.
   A cadeia parte do Web Component, no imperativo por atualização manual.
   O primeiro passo, ao Web Component com /signals/ do =solid-js=, leva ao
@@ -231,35 +233,56 @@ dependem dela [[cite:bainomugisha2013][p. 52:2]].
   tela e o modelo de componente.
   O terceiro, ao React, mantém a montagem em JSX e muda o modelo de
   programação para o declarativo por re-renderização.
+  Do Web Component sai também um ramo, ao Lit, que leva ao declarativo
+  por re-renderização com a mesma classe e a mesma orquestração.
+  Muda o modo como a alteração do estado chega à tela: cada alteração faz
+  o ambiente de execução chamar de novo o método que monta a tela
+  [[cite:google2026d]].
   O Web Component com /signals/ é uma construção de controle, feita para
   este trabalho, e não tirada de programas reais.
   Nele, o =solid-js= serve só como biblioteca de /signals/, e a classe e a
   montagem da tela são as do Web Component.
-  O Web Component e o React não formam par, e a diferença entre eles se
-  atribui ao passo da cadeia em que ela aparece.
+  O Web Component e o React não formam par: a parte da diferença entre
+  eles que vem só da re-renderização se lê no par Web Component × Lit, e
+  o resto se atribui ao passo da cadeia em que ela aparece.
   A que nenhum passo explica se atribui pelo sinal escrito na notação: se
   ele está na coordenação, na montagem da tela ou na ligação entre as duas.
 
   A avaliação se faz em três rodadas.
   A primeira responde à P1.
   A segunda acrescenta a cada interface funcionalidades e requisitos de
-  orquestração, iguais nas quatro tecnologias, e responde à P1.1.
-  A terceira refatora o código da segunda rodada da Reserva de passagem e
-  do Placar ao vivo, uma interface de cada eixo, para a forma que o
-  ecossistema de cada tecnologia usa, sem mudar o comportamento, e
-  responde à P1.2.
+  orquestração, iguais nas cinco tecnologias, e responde à P1.1.
+  A terceira refatora o código da segunda rodada da Reserva de passagem,
+  do Placar ao vivo e do Circle Drawer, sem mudar o comportamento, em
+  quatro vertentes irmãs, e responde à P1.2.
   @@latex:\notamudou{\textbf{As três rodadas são novas}; o projeto não as previa.}@@
-  Na terceira rodada, a forma de cada tecnologia é a biblioteca com mais
-  da metade dos downloads no npm entre as que guardam o estado do
-  formulário ou tratam a conexão ao vivo.
-  Quando nenhuma domina, a forma é a [[gls:api]] da plataforma.
-  No Web Component com /signals/, vale a forma do Web Component, para o
-  primeiro passo da cadeia não mudar também a biblioteca.
-  A fonte simulada do Placar ao vivo fala WebSocket desde a primeira
-  rodada, para a terceira trocar só a reconexão escrita no código pela da
-  biblioteca.
+  Cada vertente entra na interface cuja exigência de coordenação ela sabe
+  tratar.
+  A biblioteca que o ecossistema de cada tecnologia usa vai à Reserva de
+  passagem e ao Placar ao vivo; a máquina de estados tipada, ao Placar ao
+  vivo; a [[gls:api]] nova da plataforma, ao Placar ao vivo e ao Circle
+  Drawer; e o padrão de projeto, ao Circle Drawer.
 
-  #+CAPTION: Cadeia de pares das quatro tecnologias e as três rodadas da avaliação. Cada passo da cadeia muda o mínimo entre tecnologias vizinhas, e cada rodada responde a uma pergunta; na terceira, a Reserva de passagem e o Placar ao vivo passam à forma do ecossistema de cada tecnologia. Cinza: imperativo por atualização manual; vermelho: declarativo por atualização granular; azul: declarativo por re-renderização.
+  Na vertente do ecossistema, a forma de cada tecnologia é a biblioteca
+  com mais da metade dos downloads no npm entre as que guardam o estado
+  do formulário ou tratam a conexão ao vivo.
+  Antes da conta saem as depreciadas, as arquivadas e as sem versão há
+  mais de 24 meses.
+  Quando nenhuma domina, a forma é a [[gls:api]] da plataforma.
+  No Web Component com /signals/ e no Lit, vale a forma do Web Component,
+  para o passo a cada um não mudar também a biblioteca.
+  Pelo mesmo motivo, o React usa na Reserva de passagem a biblioteca do
+  Solid, que tem adaptador oficial nas duas tecnologias.
+  Nas duas primeiras rodadas, o Placar ao vivo recebe os lotes por
+  [[gls:sse]], e o navegador refaz sozinho a conexão que cai
+  [[cite:whatwg2026][§ 9.2.1]].
+  A frequência escolhida pelo usuário, na segunda, vai ao servidor por
+  uma requisição à parte, a solução provisória que o jargão chama de
+  gambiarra.
+  A vertente do ecossistema a substitui pelo WebSocket, e a reconexão
+  passa à biblioteca.
+
+  #+CAPTION: Cadeia de pares das cinco tecnologias e as três rodadas da avaliação. Cada passo da cadeia muda o mínimo entre tecnologias vizinhas, e o Lit sai do Web Component num ramo que muda a ligação; cada rodada responde a uma pergunta. Na terceira, quatro vertentes refatoram o código da segunda na Reserva de passagem, no Placar ao vivo e no Circle Drawer, e a do ecossistema dá a cada tecnologia a biblioteca da última linha. Cinza: imperativo por atualização manual; vermelho: declarativo por atualização granular; azul: declarativo por re-renderização.
   #+NAME: fig:cadeia-e-rodadas
   #+ATTR_LATEX: :options [htbp]
   #+begin_figure
@@ -270,37 +293,44 @@ dependem dela [[cite:bainomugisha2013][p. 52:2]].
   \definecolor{correrender}{HTML}{008BD0}
   \begin{tikzpicture}[
       font=\footnotesize,
-      tec/.style={draw, rounded corners=2pt, minimum width=2.9cm, minimum height=1cm, text width=2.7cm, align=center},
-      cel/.style={draw, rounded corners=2pt, minimum width=2.9cm, minimum height=1.3cm, text width=2.7cm, align=center},
-      faixa/.style={draw=gray!60, rounded corners=2pt, minimum width=13.25cm, minimum height=1cm, text width=13cm, align=center, fill=gray!8},
-      rotulo/.style={text width=2.4cm, align=right, anchor=east},
-      passo/.style={font=\scriptsize, text width=2.6cm, align=center, anchor=south},
+      tec/.style={draw, rounded corners=2pt, minimum width=2.4cm, minimum height=1cm, text width=2.25cm, align=center},
+      cel/.style={draw, rounded corners=2pt, minimum width=2.4cm, minimum height=1.3cm, text width=2.25cm, align=center},
+      faixa/.style={draw=gray!60, rounded corners=2pt, minimum width=12.8cm, minimum height=1cm, text width=12.55cm, align=center, fill=gray!8},
+      rotulo/.style={text width=2.5cm, align=right, anchor=east},
+      passo/.style={font=\scriptsize, text width=2.4cm, align=center, anchor=south},
       imp/.style={fill=corimperativo, draw=corimperativo, text=white},
       gra/.style={fill=corgranular!85, draw=corgranular!85, text=white},
       rer/.style={fill=correrender!85, draw=correrender!85, text=white},
       seta/.style={-{Stealth[length=5pt]}, semithick},
     ]
-    \node[tec, imp] (t1) at (0,0) {Web Component\\\scriptsize imperativo por atualização manual};
-    \node[tec, gra] (t2) at (3.45,0) {Web Component com \emph{signals}\\\scriptsize declarativo por atualização granular};
-    \node[tec, gra] (t3) at (6.9,0) {Solid\\\scriptsize declarativo por atualização granular};
-    \node[tec, rer] (t4) at (10.35,0) {React\\\scriptsize declarativo por re-renderização};
+    \node[tec, rer] (t0) at (0,0) {Lit\\\scriptsize declarativo por re-renderização};
+    \node[tec, imp] (t1) at (2.6,0) {Web Component\\\scriptsize imperativo por atualização manual};
+    \node[tec, gra] (t2) at (5.2,0) {Web Component com \emph{signals}\\\scriptsize declarativo por atualização granular};
+    \node[tec, gra] (t3) at (7.8,0) {Solid\\\scriptsize declarativo por atualização granular};
+    \node[tec, rer] (t4) at (10.4,0) {React\\\scriptsize declarativo por re-renderização};
+    \draw[seta] (t1) -- (t0);
     \draw[seta] (t1) -- (t2);
     \draw[seta] (t2) -- (t3);
     \draw[seta] (t3) -- (t4);
-    \node[passo] at (1.725,1.0) {1.º passo: a ligação do estado com a tela e a orquestração};
-    \node[passo] at (5.175,1.0) {2.º passo: a montagem da tela e o modelo de componente};
-    \node[passo] at (8.625,1.0) {3.º passo: o modelo de programação};
-    \node[rotulo] at (-1.65,-2.1) {1.ª rodada, P1:\\constrói};
-    \node[faixa] (f1) at (5.175,-2.1) {7 interfaces nas 4 tecnologias: 28 implementações\\\scriptsize cada implementação usa só o que a tecnologia traz; o Placar ao vivo fala WebSocket desde a primeira rodada};
-    \node[rotulo] at (-1.65,-3.6) {2.ª rodada, P1.1:\\cresce};
-    \node[faixa] (f2) at (5.175,-3.6) {13 mudanças, 52 \emph{commits}, sem bibliotecas\\\scriptsize funcionalidades e requisitos de orquestração, iguais nas quatro tecnologias};
-    \node[rotulo] at (-1.65,-5.3) {3.ª rodada, P1.2:\\só a forma, na Reserva de passagem e no Placar ao vivo};
-    \node[cel, imp] (c1) at (0,-5.3) {API da plataforma\\\scriptsize validação de restrições;\\\scriptsize\texttt{WebSocket}};
-    \node[cel, gra] (c2) at (3.45,-5.3) {segue o Web Component\\\scriptsize a mesma API da plataforma};
-    \node[cel, gra] (c3) at (6.9,-5.3) {biblioteca\\\scriptsize TanStack Solid Form;\\\scriptsize\texttt{@solid-primitives/}\\\scriptsize\texttt{websocket}};
-    \node[cel, rer] (c4) at (10.35,-5.3) {biblioteca\\\scriptsize\texttt{react-hook-form};\\\scriptsize\texttt{react-use-websocket}};
-    \draw[seta] (f1) -- (f2);
-    \draw[seta] (f2.south) -- (5.175,-4.55);
+    \node[passo] at (1.3,1.3) {ramo: a ligação do estado com a tela};
+    \node[passo] at (3.9,1.3) {1.º passo: a ligação e a orquestração};
+    \node[passo] at (6.5,1.3) {2.º passo: a montagem da tela e o modelo de componente};
+    \node[passo] at (9.1,1.3) {3.º passo: o modelo de programação};
+    \node[rotulo] at (-1.35,-2.2) {1.ª rodada, P1:\\constrói};
+    \node[faixa] (f1) at (5.2,-2.2) {7 interfaces nas 5 tecnologias: 35 implementações\\\scriptsize cada implementação usa só o que a tecnologia traz; o Placar ao vivo recebe os lotes por SSE};
+    \node[rotulo] at (-1.35,-3.8) {2.ª rodada, P1.1:\\cresce};
+    \node[faixa] (f2) at (5.2,-3.8) {13 mudanças, 65 \emph{commits}, sem bibliotecas\\\scriptsize funcionalidades e requisitos de orquestração, iguais nas cinco tecnologias; a frequência do Placar vai numa requisição à parte};
+    \node[rotulo] at (-1.35,-5.5) {3.ª rodada, P1.2:\\só a forma};
+    \node[faixa] (f3) at (5.2,-5.5) {4 vertentes sobre o código da segunda rodada: 6 pares, 30 refatorações\\\scriptsize ecossistema: Reserva e Placar; máquina de estados: Placar; API nova da plataforma: Placar e Circle Drawer; padrões de projeto: Circle Drawer};
+    \node[rotulo] at (-1.35,-7.4) {vertente do ecossistema};
+    \node[cel, rer] (c0) at (0,-7.4) {segue o Web Component\\\scriptsize\texttt{final-form};\\\scriptsize\texttt{partysocket}};
+    \node[cel, imp] (c1) at (2.6,-7.4) {biblioteca\\\scriptsize\texttt{final-form};\\\scriptsize\texttt{partysocket}};
+    \node[cel, gra] (c2) at (5.2,-7.4) {segue o Web Component\\\scriptsize\texttt{final-form};\\\scriptsize\texttt{partysocket}};
+    \node[cel, gra] (c3) at (7.8,-7.4) {biblioteca\\\scriptsize TanStack Solid Form;\\\scriptsize\texttt{@solid-}\\\scriptsize\texttt{primitives/}\\\scriptsize\texttt{websocket}};
+    \node[cel, rer] (c4) at (10.4,-7.4) {biblioteca\\\scriptsize TanStack React Form;\\\scriptsize\texttt{react-use-}\\\scriptsize\texttt{websocket}};
+    \draw[seta] (f1.south) -- (f2.north);
+    \draw[seta] (f2.south) -- (f3.north);
+    \draw[seta] (f3.south) -- (c2.north);
   \end{tikzpicture}
   #+end_export
   #+end_figure
@@ -379,10 +409,19 @@ dependem dela [[cite:bainomugisha2013][p. 52:2]].
   e pelo [[gls:css]].
   Os pares isolam pouco: o primeiro passo da cadeia muda, além do modelo
   de programação, a orquestração, que segue a do Solid.
-  O imperativo e a re-renderização não formam par, e atribuir a diferença
-  entre eles aos passos da cadeia supõe que os passos se somam.
+  O Web Component e o React não formam par, e atribuir a diferença entre
+  eles aos passos da cadeia supõe que os passos se somam.
+  O par Web Component × Lit também muda, com a ligação, a montagem das
+  partes repetidas, que a re-renderização refaz a cada alteração.
   A suposição falha quando um passo muda a leitura de outro, como a
   montagem em JSX pode mudar a leitura do modo como o estado chega à tela.
+  A reconexão depois de queda fica com o navegador nas duas primeiras
+  rodadas e com a biblioteca na terceira: nenhuma tecnologia a escreve, e
+  por isso ela não se mede como as outras mudanças da segunda.
+  A [[gls:api]] nova da plataforma está implementada só no Chromium
+  [[cite:mdn2026]]: o teste de conformidade, que roda nele, prova a
+  conformidade das implementações, e não a disponibilidade da
+  [[gls:api]] ao usuário.
 
   Além desta introdução, o texto tem três seções.
   A seção ref:chap:prog reúne os conceitos em que o trabalho se apoia, dos
