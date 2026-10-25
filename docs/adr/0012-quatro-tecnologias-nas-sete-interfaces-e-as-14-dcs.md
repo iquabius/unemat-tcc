@@ -1,16 +1,16 @@
-# 0012. As quatro tecnologias web implementam as sete interfaces, todas no conjunto analisado, e o texto as lê pelas 14 DCs, sem conferência fora da web
+# 0012. As cinco tecnologias web implementam as sete interfaces, todas no conjunto analisado, e o texto as lê pelas 14 DCs, sem conferência fora da web
 
-2026-10-24. Escolher antes o que analisar exigiria prever qual interface
+2026-10-25. Escolher antes o que analisar exigiria prever qual interface
 e qual tecnologia mostram melhor cada DC, e escolher depois, com o
 código pronto, entrega ao avaliador a escolha da evidência que ele mesmo
-julga. O Web Component, o Web Component com *signals*, o React e o Solid
-(ADR 0013) implementam as sete interfaces (ADR 0002), 28 implementações
-na primeira rodada, e o conjunto analisado é o todo: não há
-implementação a escolher. O Desenvolvimento (`texto/cases.org`) segue o
-ADR 0017: uma seção por interface, com a especificação curta, as cenas,
-as listagens das quatro tecnologias e as 14 DCs, com as rodadas dentro
-dela, e a síntese no fim. As DCs são as 14 canônicas, percorridas e
-registradas em cada rodada: as 13 de Green e Petre (1996, p. 138-139)
+julga. O Web Component, o Lit, o Web Component com *signals*, o Solid e
+o React (ADR 0013) implementam as sete interfaces (ADR 0002), 35
+implementações na primeira rodada, e o conjunto analisado é o todo: não
+há implementação a escolher. O Desenvolvimento (`texto/cases.org`) segue
+o ADR 0017: uma seção por interface, com a especificação curta, as
+cenas, as listagens das cinco tecnologias e as 14 DCs, com as rodadas
+dentro dela, e a síntese no fim. As DCs são as 14 canônicas, percorridas
+e registradas em cada rodada: as 13 de Green e Petre (1996, p. 138-139)
 mais a provisoriedade (Green e Blackwell 1998, p. 11). Oito são da
 notação (nível de abstração, proximidade de descrição, consistência,
 concisão, operações mentais difíceis, dependências ocultas,
@@ -25,13 +25,17 @@ modificam o código, as 14 se percorrem sem seleção prévia por perfil de
 atividade: o perfil de Blackwell e Green (2003, p. 118) guia como ler
 cada DC, e não quais ler; o que o texto detalha se enxuga depois, na
 revisão da análise, sem repetir entre rodadas e DCs o que não muda
-(decisão do autor em 2026-10-24). A concisão tem o apoio de linhas
-não vazias e sem comentários, contadas por script versionado, sem o
-domínio e o estilo. O `cronometro-com-rxjs-5`, de 2017, o jQuery, o Lit
-e o Angular (ADR 0013), o Contador, a Lista filtrável, o Carrinho e o
+(decisão do autor em 2026-10-24). A concisão tem o apoio de linhas não
+vazias e sem comentários, contadas por script versionado, sem o domínio
+e o estilo. O `cronometro-com-rxjs-5`, de 2017, o jQuery, o Angular e o
+código congelado do Lit (ADR 0013), a Lista filtrável, o Carrinho e o
 Quadro (ADR 0002) e o código do Android e do *desktop* (ADRs 0001 e
 0005) ficam no repositório, fora da análise.
 
+Em vez de: as quatro tecnologias nas sete interfaces, 28 implementações
+(versão de 2026-10-24); menos código e menos texto por interface, mas
+sem o par direto entre o imperativo e a re-renderização, que o Lit dá
+(ADR 0013).
 Em vez de: Web Component, React e Solid nas cinco interfaces e cada
 outro par na Reserva de passagem e em mais duas, com o texto dividido em
 uma subseção por interface, uma por DC e a síntese, e o Android e o
@@ -63,14 +67,14 @@ Em vez de: as 14 mais as candidatas propostas depois (Blackwell et al.
 próprias fontes as declaram candidatas.
 Em vez de: contar *tokens*; depende menos da formatação, mas exige um
 analisador.
-Custo: 28 implementações, com cenas e capturas, e as rodadas seguintes
-nas quatro tecnologias; as 14 DCs em cada interface, algumas com "sem
+Custo: 35 implementações, com cenas e capturas, e as rodadas seguintes
+nas cinco tecnologias; as 14 DCs em cada interface, algumas com "sem
 diferença" (ADR 0017), e as quatro do ambiente de edição podem render
 pouco no código; nas rodadas que modificam o código, muitas DCs repetem
 "sem sinal no diff", e a revisão do texto da análise as enxuga depois,
-sem tirar a leitura; quatro listagens por interface, que têm de ficar
-enxutas para a seção não virar inventário de telas (Wazlawick 2014,
-p. 103-104); nenhuma posição se confere fora da web; sem escolha de
+sem tirar a leitura; cinco listagens por interface, que têm de ficar
+enxutas para a seção não virar inventário de telas (Wazlawick 2014, p.
+103-104); nenhuma posição se confere fora da web; sem escolha de
 implementações, o prazo só se ajusta pela ordem de corte do ADR 0029.
 
 Fontes: ADRs 0001, 0002, 0005, 0013, 0017 e 0029; `texto/cases.org`;
