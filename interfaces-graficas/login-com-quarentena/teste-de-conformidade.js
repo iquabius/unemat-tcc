@@ -3,7 +3,7 @@
 // aberta; a última linha devolve o resultado de cada verificação ("ok" ou
 // "FALHOU"). Segue a especificação, com latência de 1 s e sessão de 10 s;
 // cada verificação é um cenário de
-// implementacoes/openspec/specs/login-com-quarentena/spec.md.
+// interfaces-graficas/openspec/specs/login-com-quarentena/spec.md.
 //
 // O tempo é de um relógio falso: o teste troca setTimeout e setInterval da
 // página pelos dele e só os faz andar com avancar(ms), para não esperar os
@@ -85,7 +85,7 @@
     await relogio.escoar();
   }
   // Sai da tela e volta pela rota da página que hospeda a interface
-  // (implementacoes/pagina.ts): "#/" é a página sem ela. O hashchange
+  // (interfaces-graficas/pagina.ts): "#/" é a página sem ela. O hashchange
   // chega numa tarefa própria, depois da troca.
   async function irPara(hash) {
     const mudou = new Promise((r) =>

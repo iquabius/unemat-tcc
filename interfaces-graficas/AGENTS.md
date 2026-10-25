@@ -1,23 +1,36 @@
-# Instruções para agentes: implementações do TCC (`implementacoes/`)
+# Instruções para agentes: implementações do TCC (`interfaces-graficas/`)
 
 Cada interface do *benchmark* de notação é implementada em várias
 tecnologias, para comparação no TCC. As decisões de escopo (interfaces,
 tecnologias) estão em `docs/adr/`; os termos, em `GLOSSARY.md` na
-raiz; instalação e uso, em `implementacoes/README.org`. O código que o
-autor escreveu à mão fica congelado em `autorais/`, e o que sai da
+raiz; instalação e uso, em `interfaces-graficas/README.org`. O código que
+o autor escreveu à mão fica congelado em `autorais/`, e o que sai da
 análise sai do repositório (última seção).
+
+A pasta de cada interface guarda o que vale para todas as tecnologias
+dela (o `dominio.ts`, o `estilo.css`, o `cenas.mts`, as capturas, o
+teste de conformidade e o `README.org`) e uma subpasta por tecnologia em
+`analisadas/`, o conjunto analisado, e em `contraste/`, as tecnologias do
+contraste (ADR 0042), que vão passar pelo mesmo teste e pelas mesmas
+cenas (ADR 0025): `reserva-de-passagem/analisadas/react/`,
+`reserva-de-passagem/contraste/elm/`. Até a primeira implementação do
+contraste (tcc-o9p7), a pasta não existe, e os comandos daqui só
+percorrem `analisadas/`.
 
 ## Conferir as capturas a cada alteração
 
 Toda alteração que possa mudar a tela ou o comportamento de uma
 implementação exige conferir as capturas antes de dar o trabalho por pronto
 ou commitar. Isso inclui o código de
-`implementacoes/<interface>/<tecnologia>/`, o `estilo.css`, o `dominio.ts`
-e o `cenas.mts` de cada interface, o `implementacoes/capturar.mts`, o
-`implementacoes/implementacoes-web.mts`, que lista, constrói e serve as
-implementações, e as dependências (`package.json` e `package-lock.json`).
+`interfaces-graficas/<interface>/analisadas/<tecnologia>/`, o
+`estilo.css`, o `dominio.ts` e o `cenas.mts` de cada interface, o
+`interfaces-graficas/capturar.mts`, o
+`interfaces-graficas/implementacoes-web.mts`, que lista, constrói e serve
+as implementações, e as dependências (`package.json` e
+`package-lock.json`).
 
-1. Rode, de `implementacoes/`, onde está o `package.json` dos *workspaces*:
+1. Rode, de `interfaces-graficas/`, onde está o `package.json` dos
+   *workspaces*:
 
    ```sh
    npm run capturas -- --conferir <interface>
@@ -25,8 +38,8 @@ implementações, e as dependências (`package.json` e `package-lock.json`).
 
    Sem `<interface>`, confere todas. O comando não grava nada: compara as
    imagens geradas agora com as versionadas em
-   `implementacoes/<interface>/capturas/` e sai com erro se alguma mudou,
-   é nova ou sumiu.
+   `interfaces-graficas/<interface>/capturas/` e sai com erro se alguma
+   mudou, é nova ou sumiu.
 2. Se a saída trouxer `AVISO: <interface>/<cena> difere entre as
    tecnologias`, alguma implementação foge da especificação da interface.
    Corrija antes de seguir: as implementações de uma interface devem gerar
@@ -43,9 +56,9 @@ implementações, e as dependências (`package.json` e `package-lock.json`).
 ## Especificação: OpenSpec
 
 A especificação de cada interface é
-`implementacoes/openspec/specs/<interface>/spec.md`, no esquema
+`interfaces-graficas/openspec/specs/<interface>/spec.md`, no esquema
 *spec-driven* do OpenSpec 1.14.1, fixado em `package.json` (ADR 0030).
-`<interface>` é o nome da pasta da interface em `implementacoes/`
+`<interface>` é o nome da pasta da interface em `interfaces-graficas/`
 (`reserva-de-passagem`, `busca-com-sugestoes`), a "capacidade" do OpenSpec. O
 `README.org` da interface fica com a apresentação (a origem, onde está o
 domínio, como rodar os testes) e aponta para o `spec.md`, sem repetir regra
@@ -77,10 +90,10 @@ pelo `npm run openspec -- <comando>`, que desliga a telemetria; o
   ou ganha verificação.
 - Cenário não é cena: a cena é um estado a capturar (`cenas.mts`).
 
-`npm run conferir-especificacao`, de `implementacoes/`, roda o
+`npm run conferir-especificacao`, de `interfaces-graficas/`, roda o
 `openspec validate --all` e confere, em todo arquivo de
-`implementacoes/<interface>/` que chama `conferir(...)`, que os nomes das
-verificações são os dos cenários da especificação viva; o de
+`interfaces-graficas/<interface>/` que chama `conferir(...)`, que os nomes
+das verificações são os dos cenários da especificação viva; o de
 `autorais/` não é conferido. Rode-o antes de cada
 commit que mexa numa especificação ou num teste de conformidade.
 
@@ -97,9 +110,9 @@ para a especificação ser revisada antes do código:
 2. Commit da proposta, que o autor revisa.
 3. Um commit com o `dominio.ts`, o teste de conformidade da web (um
    `conferir` por cenário), o `README.org` da interface e o arquivamento,
-   que cria `implementacoes/openspec/specs/<interface>/spec.md`; troque o
-   título que o `archive` escreve (`# <interface> Specification`) pelo nome
-   da interface.
+   que cria `interfaces-graficas/openspec/specs/<interface>/spec.md`;
+   troque o título que o `archive` escreve (`# <interface> Specification`)
+   pelo nome da interface.
 4. Um commit por tecnologia, com cenas e capturas (seção acima).
 
 ### Mudança numa especificação
@@ -128,7 +141,7 @@ Passos do *delta spec*:
 
 1. `npm run openspec -- new change <nome>`, com o nome em português, em
    *kebab-case*, verbo e objeto (`acrescentar-quarentena-ao-login`). Na
-   pasta `implementacoes/openspec/changes/<nome>/`:
+   pasta `interfaces-graficas/openspec/changes/<nome>/`:
    - `proposal.md`: o porquê, com o ADR de origem; o que muda; a interface
      modificada, em `### Modified Capabilities`; o impacto, com as
      tecnologias, os arquivos da interface que citam a regra (como o
@@ -158,8 +171,8 @@ Passos do *delta spec*:
 2. `npm run conferir-especificacao` e commit da proposta, que o autor
    revisa antes do resto.
 3. Um commit que muda o teste de conformidade em
-   `implementacoes/<interface>/`, e os arquivos da interface que citam a
-   regra, e arquiva a mudança:
+   `interfaces-graficas/<interface>/`, e os arquivos da interface que
+   citam a regra, e arquiva a mudança:
    `npm run openspec -- archive <nome> --yes` funde o delta em `specs/` e
    move a pasta para `changes/archive/AAAA-MM-DD-<nome>/`. Assim a
    especificação viva diz sempre o que os testes conferem, e as
@@ -172,7 +185,7 @@ A mudança não se porta para o código de `autorais/`, que é registro.
 ## Interface ou implementação nova
 
 - Cada interface tem a especificação em
-  `implementacoes/openspec/specs/<interface>/` (seção acima) e um
+  `interfaces-graficas/openspec/specs/<interface>/` (seção acima) e um
   `README.org` com a apresentação. Regras de domínio compartilhadas pelas
   implementações web ficam num `dominio.ts` da interface.
 - Cada exigência de coordenação que se descreve de uma interface, no
@@ -184,11 +197,11 @@ A mudança não se porta para o código de `autorais/`, que é registro.
   técnica diz o que o programa faz, e a ilustrativa, por que a aplicação
   real o pede; a rodada de revisão do texto confere as duas (skill
   `revisao-de-texto`).
-- A página que hospeda a interface é `implementacoes/pagina.ts`, comum
-  às tecnologias e importada por caminho relativo, como o `dominio.ts`
-  (ADR 0043): um roteador de hash sem visual, que monta a interface no
-  contêiner `#raiz` em qualquer rota, inclusive sem hash, e a tira da
-  página em `#/`. O `main` de cada implementação termina em
+- A página que hospeda a interface é `interfaces-graficas/pagina.ts`,
+  comum às tecnologias e importada por caminho relativo, como o
+  `dominio.ts` (ADR 0043): um roteador de hash sem visual, que monta a
+  interface no contêiner `#raiz` em qualquer rota, inclusive sem hash, e a
+  tira da página em `#/`. O `main` de cada implementação termina em
   `hospedar(montar)`, com o par montar e desmontar no idioma da
   tecnologia: no Web Component, no Web Component com *signals* e no
   Lit, o `createElement` e o `append` do elemento, e o `remove()`, que
@@ -220,11 +233,12 @@ A mudança não se porta para o código de `autorais/`, que é registro.
   biblioteca (`docs/plataformas/web.md`, seção "Como Web Components sem
   biblioteca montam a tela"), e o ADR 0037 diz as alternativas e o
   custo.
-- No Web Component com *signals* (`<interface>/web-component-signals/`),
-  a montagem da tela é a do Web Component da interface, letra por letra:
-  a mesma classe, o mesmo esqueleto, os mesmos `querySelector` e
-  `createElement`. Mudam a ligação do estado com a tela e a orquestração,
-  escritas com o `solid-js` da versão do Solid (1.9), sem JSX (ADR 0013):
+- No Web Component com *signals*
+  (`<interface>/analisadas/web-component-signals/`), a montagem da tela é
+  a do Web Component da interface, letra por letra: a mesma classe, o
+  mesmo esqueleto, os mesmos `querySelector` e `createElement`. Mudam a
+  ligação do estado com a tela e a orquestração, escritas com o `solid-js`
+  da versão do Solid (1.9), sem JSX (ADR 0013):
   - nenhum tratador escreve na tela: ele altera um *signal*
     (`createSignal`), ou o *store* com `produce` onde o Solid da
     interface guarda nele o estado, como a lista do Circle Drawer; o
@@ -265,10 +279,10 @@ A mudança não se porta para o código de `autorais/`, que é registro.
   o `createRenderEffect` não faz falta. O *signal* lido fora de um efeito
   ou de um `createMemo` não é acompanhado, e a tela fica com o valor da
   primeira leitura. O `solid-js` 2.0 muda a assinatura do `createEffect`.
-- No Lit (`<interface>/lit/`), a implementação é a do Web Component da
-  interface em tudo que não é a ligação do estado com a tela (decisão do
-  autor em 2026-10-25, tcc-cp6c): a mesma classe, registrada com
-  `customElements.define`, a mesma orquestração e o mesmo gancho de
+- No Lit (`<interface>/analisadas/lit/`), a implementação é a do Web
+  Component da interface em tudo que não é a ligação do estado com a tela
+  (decisão do autor em 2026-10-25, tcc-cp6c): a mesma classe, registrada
+  com `customElements.define`, a mesma orquestração e o mesmo gancho de
   montagem da página comum, ou a montagem direta no `index.html` no
   Contador e na Planilha. A forma de cada parte, abaixo, vem das sete
   implementações (2026-10-25):
@@ -320,8 +334,8 @@ O `teste-de-conformidade.js` da interface se cola no console do navegador,
 com a implementação aberta, e devolve uma linha por verificação, sem
 Playwright nem biblioteca.
 
-De `implementacoes/`, o mesmo arquivo roda por um comando, com os filtros
-do `npm run capturas`:
+De `interfaces-graficas/`, o mesmo arquivo roda por um comando, com os
+filtros do `npm run capturas`:
 
 ```sh
 npm run conformidade -- <interface>[/<tecnologia>] ...
@@ -372,8 +386,8 @@ O `bin/testes-da-revisao.py` o roda nas interfaces que o ramo muda.
   ou inscrições (todas menos o Contador e a planilha, ADR 0029), o
   `dominio.ts` conta o que está aberto numa função em `globalThis`, como o
   `contarAbertos()` do Login, e a página que hospeda a interface
-  (`implementacoes/pagina.ts`) a tira da página na rota `#/` e a põe de
-  volta sem hash. O teste sai da tela, trocando `location.hash` e
+  (`interfaces-graficas/pagina.ts`) a tira da página na rota `#/` e a põe
+  de volta sem hash. O teste sai da tela, trocando `location.hash` e
   esperando o `hashchange`, e confere zero **antes** de avançar o
   relógio: uma requisição esquecida terminaria sozinha na latência, e a
   conferência depois dela passaria (achado da revisão do Login,
@@ -386,13 +400,13 @@ O `bin/testes-da-revisao.py` o roda nas interfaces que o ramo muda.
 
 ## Formatação
 
-Todo o código de `implementacoes/`, menos o que a lista de exclusões abaixo
-deixa de fora, passa pelo Prettier 3.9.10, fixado em
-`implementacoes/package.json`, com 80 colunas (`implementacoes/.editorconfig`)
-e o resto no padrão dele (tcc-6wha, 2026-10-12). Duas razões: a contagem de
-linhas da concisão e o diff da segunda rodada (ADRs 0012 e 0029) não podem
-depender de como o código foi quebrado à mão, e 80 colunas cabem numa
-coluna do PDF em 8 pt.
+Todo o código de `interfaces-graficas/`, menos o que a lista de exclusões
+abaixo deixa de fora, passa pelo Prettier 3.9.10, fixado em
+`interfaces-graficas/package.json`, com 80 colunas
+(`interfaces-graficas/.editorconfig`) e o resto no padrão dele (tcc-6wha,
+2026-10-12). Duas razões: a contagem de linhas da concisão e o diff da
+segunda rodada (ADRs 0012 e 0029) não podem depender de como o código foi
+quebrado à mão, e 80 colunas cabem numa coluna do PDF em 8 pt.
 
 - O Prettier formata TS, TSX, HTML, CSS e JSON. O HTML do Web Component,
   num *template literal*, leva o comentário `/* HTML */` antes da crase, a
@@ -401,9 +415,9 @@ coluna do PDF em 8 pt.
   escrita em mais de uma linha: se ela passar de 80 colunas, quebre-a uma
   vez dentro do `${...}`.
 - Ficam de fora `autorais/` e os documentos
-  (`implementacoes/.prettierignore`).
+  (`interfaces-graficas/.prettierignore`).
 
-De `implementacoes/`, `npm run formatar` formata tudo, e `npm run
+De `interfaces-graficas/`, `npm run formatar` formata tudo, e `npm run
 conferir-formatacao` falha se algum arquivo estiver fora do padrão. Rode o
 `formatar` antes de cada commit de código. Uma mudança que é só de
 formatação vai num commit à parte, sem lógica, com as capturas

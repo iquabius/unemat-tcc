@@ -10,8 +10,8 @@
 //
 // O nome do cenário (#### Scenario: <nome> em
 // openspec/specs/<interface>/spec.md) é o nome da verificação
-// (conferir("<nome>", ...)) nos testes de implementacoes/<interface>/. Cada
-// arquivo de teste tem de ter todos os cenários e só eles. Sai com erro e
+// (conferir("<nome>", ...)) nos testes de interfaces-graficas/<interface>/.
+// Cada arquivo de teste tem de ter todos os cenários e só eles. Sai com erro e
 // lista as diferenças.
 //
 // Teste é todo arquivo da pasta da interface que chama conferir(...); cada
@@ -57,7 +57,7 @@ const validate = spawnSync(
 );
 if (validate.error) {
   console.error(
-    `openspec validate não rodou (${validate.error.message}); rode npm install em implementacoes/`,
+    `openspec validate não rodou (${validate.error.message}); rode npm install em interfaces-graficas/`,
   );
   process.exit(1);
 }
@@ -109,7 +109,9 @@ const guis = (await readdir(SPECS, { withFileTypes: true }))
 for (const gui of guis) {
   const arquivoSpec = path.join(SPECS, gui, "spec.md");
   if (!existsSync(arquivoSpec) || !existsSync(path.join(IMPLEMENTACOES, gui))) {
-    problemas.push(`${gui}: falta o spec.md ou a pasta implementacoes/${gui}/`);
+    problemas.push(
+      `${gui}: falta o spec.md ou a pasta interfaces-graficas/${gui}/`,
+    );
     continue;
   }
   const spec = await readFile(arquivoSpec, "utf8");

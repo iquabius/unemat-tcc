@@ -1,4 +1,4 @@
-# Formatação de implementacoes/ (tcc-6wha). O Prettier lê a largura daqui:
+# Formatação de interfaces-graficas/ (tcc-6wha). O Prettier lê a largura daqui:
 # 80 colunas, para o código caber no PDF. O resto fica no padrão dele.
 root = true
 

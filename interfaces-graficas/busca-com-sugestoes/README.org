@@ -13,16 +13,16 @@ repetirem. =contarAbertos()= diz quantas requisições estão abertas, para o
 teste conferir o que a tela nem sempre mostra: que a tecla nova e o Esc
 cancelam a requisição em andamento, que o mesmo termo depois do Esc não
 busca de novo, e que nenhuma requisição fica aberta ao sair da tela,
-quando a página que hospeda a interface (=implementacoes/pagina.ts=) a
-tira da página. A situação fica numa região de
+quando a página que hospeda a interface (=interfaces-graficas/pagina.ts=)
+a tira da página. A situação fica numa região de
 status que existe desde a abertura, as duas regras comuns da primeira
 rodada (ADR 0029).
 
 As regras, as mensagens e os cenários que o teste de conformidade confere
-estão em =implementacoes/openspec/specs/busca-com-sugestoes/spec.md=, a
-especificação viva (OpenSpec); a mudança entre rodadas entra como
-/delta spec/ em =implementacoes/openspec/changes/=, e a de dentro de uma
-rodada edita o =spec.md= direto (=implementacoes/AGENTS.md=).
+estão em =interfaces-graficas/openspec/specs/busca-com-sugestoes/spec.md=,
+a especificação viva (OpenSpec); a mudança entre rodadas entra como
+/delta spec/ em =interfaces-graficas/openspec/changes/=, e a de dentro de
+uma rodada edita o =spec.md= direto (=interfaces-graficas/AGENTS.md=).
 
 * Teste
 

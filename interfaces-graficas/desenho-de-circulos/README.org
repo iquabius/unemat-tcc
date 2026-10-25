@@ -26,10 +26,10 @@ atalho não agir sobre um desenho que o usuário não vê, e
 conferir essa limpeza pela contagem.
 
 As regras, as mensagens e os cenários que o teste de conformidade confere
-estão em =implementacoes/openspec/specs/desenho-de-circulos/spec.md=, a
-especificação viva (OpenSpec); a mudança entre rodadas entra como
-/delta spec/ em =implementacoes/openspec/changes/=, e a de dentro de uma
-rodada edita o =spec.md= direto (=implementacoes/AGENTS.md=).
+estão em =interfaces-graficas/openspec/specs/desenho-de-circulos/spec.md=,
+a especificação viva (OpenSpec); a mudança entre rodadas entra como
+/delta spec/ em =interfaces-graficas/openspec/changes/=, e a de dentro de
+uma rodada edita o =spec.md= direto (=interfaces-graficas/AGENTS.md=).
 
 * Teste
 

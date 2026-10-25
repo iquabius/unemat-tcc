@@ -15,14 +15,14 @@ testes e as capturas se repetirem. =contarAbertos()= diz quantas
 requisições estão abertas, para a limpeza ao sair da tela se conferir
 pela contagem. A situação fica numa região de status que existe desde a
 abertura, e, ao sair da tela, a página que hospeda a interface
-(=implementacoes/pagina.ts=) a tira da página e, ao voltar, a põe de
+(=interfaces-graficas/pagina.ts=) a tira da página e, ao voltar, a põe de
 volta do zero, as duas regras comuns da primeira rodada (ADR 0029).
 
 As regras, as mensagens e os cenários que o teste de conformidade confere
-estão em =implementacoes/openspec/specs/reserva-de-passagem/spec.md=, a
-especificação viva (OpenSpec); a mudança entre rodadas entra como
-/delta spec/ em =implementacoes/openspec/changes/=, e a de dentro de uma
-rodada edita o =spec.md= direto (=implementacoes/AGENTS.md=).
+estão em =interfaces-graficas/openspec/specs/reserva-de-passagem/spec.md=,
+a especificação viva (OpenSpec); a mudança entre rodadas entra como
+/delta spec/ em =interfaces-graficas/openspec/changes/=, e a de dentro de
+uma rodada edita o =spec.md= direto (=interfaces-graficas/AGENTS.md=).
 
 * Teste
 

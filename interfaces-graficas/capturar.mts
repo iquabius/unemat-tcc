@@ -1,5 +1,5 @@
 // Captura a tela das implementações em
-// implementacoes/<interface>/capturas/<tecnologia>-<cena>.png.
+// interfaces-graficas/<interface>/capturas/<tecnologia>-<cena>.png.
 //
 // Uso: npm run capturas [-- [--conferir] <interface>[/<tecnologia>] ...]
 //   npm run capturas                                todas as interfaces
@@ -8,7 +8,7 @@
 //   npm run capturas -- --conferir                  só compara, não grava
 //
 // Com --conferir, as imagens vão para uma pasta temporária e são comparadas
-// com as de implementacoes/<interface>/capturas/; o script lista as que
+// com as de interfaces-graficas/<interface>/capturas/; o script lista as que
 // mudaram, as novas e as que sumiram, e sai com erro se houver alguma.
 //
 // Cada interface pode ter um cenas.mts com as cenas a capturar (ações do

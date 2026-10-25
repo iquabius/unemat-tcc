@@ -2,7 +2,7 @@
 // implementações web. Cole no console do navegador com a implementação
 // aberta; a última linha devolve o resultado de cada verificação ("ok" ou
 // "FALHOU"). Cada verificação é um cenário de
-// implementacoes/openspec/specs/reserva-de-passagem/spec.md. O servidor
+// interfaces-graficas/openspec/specs/reserva-de-passagem/spec.md. O servidor
 // simulado responde em 500 ms; o teste espera em tempo real.
 (async () => {
   const esperar = (ms = 80) => new Promise((r) => setTimeout(r, ms));
@@ -36,7 +36,7 @@
   const situacao = () => texto($(".situacao"));
   const abertas = () => globalThis.contarAbertos();
   // Sai da tela e volta pela rota da página que hospeda a interface
-  // (implementacoes/pagina.ts): "#/" é a página sem ela. O hashchange
+  // (interfaces-graficas/pagina.ts): "#/" é a página sem ela. O hashchange
   // chega numa tarefa própria, depois da troca.
   async function irPara(hash) {
     const mudou = new Promise((r) =>

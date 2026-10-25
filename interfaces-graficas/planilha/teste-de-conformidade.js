@@ -1,7 +1,8 @@
 // Teste de conformidade da planilha, igual para todas as implementações web.
 // Cole no console do navegador com a implementação recém-aberta; a última
 // linha devolve o resultado de cada verificação ("ok" ou "FALHOU"). Cada
-// verificação é um cenário de implementacoes/openspec/specs/planilha/spec.md.
+// verificação é um cenário de
+// interfaces-graficas/openspec/specs/planilha/spec.md.
 //
 // Nada espera tempo, e o teste não troca o relógio. Depois de cada clique,
 // digitação ou tecla, deixa rodar as mensagens que o React agenda por

@@ -13,10 +13,10 @@ por isso o teste não sai da tela, como o das outras interfaces: a
 limpeza ao sair da tela não tem o que conferir.
 
 As regras e os cenários que o teste de conformidade confere estão em
-=implementacoes/openspec/specs/contador/spec.md=, a especificação viva
-(OpenSpec); a mudança entre rodadas entra como /delta spec/ em
-=implementacoes/openspec/changes/=, e a de dentro de uma rodada edita o
-=spec.md= direto (=implementacoes/AGENTS.md=).
+=interfaces-graficas/openspec/specs/contador/spec.md=, a especificação
+viva (OpenSpec); a mudança entre rodadas entra como /delta spec/ em
+=interfaces-graficas/openspec/changes/=, e a de dentro de uma rodada edita
+o =spec.md= direto (=interfaces-graficas/AGENTS.md=).
 
 * Teste
 

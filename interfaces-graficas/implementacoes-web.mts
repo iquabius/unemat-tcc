@@ -90,7 +90,7 @@ export async function construirEServir(
     "npm",
     ["run", "build", "-w", path.relative(IMPLEMENTACOES, projeto)],
     {
-      // O package.json dos workspaces fica em implementacoes/.
+      // O package.json dos workspaces fica em interfaces-graficas/.
       cwd: IMPLEMENTACOES,
       stdio: "ignore",
     },

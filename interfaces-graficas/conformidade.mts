@@ -1,5 +1,5 @@
 // Roda o teste de conformidade das implementações web
-// (implementacoes/<interface>/teste-de-conformidade.js) no Chromium do
+// (interfaces-graficas/<interface>/teste-de-conformidade.js) no Chromium do
 // Playwright, como quem o cola no console com a implementação aberta.
 //
 // Uso: npm run conformidade [-- <interface>[/<tecnologia>] ...]

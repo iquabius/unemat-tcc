@@ -1,8 +1,13 @@
 #+TITLE: Implementações das interfaces
 
 Cada interface do /benchmark/ de notação tem uma pasta, e cada tecnologia
-uma subpasta: =implementacoes/<interface>/<tecnologia>/=. Cada subpasta é
-um projeto completo, com o próprio =package.json=, e pode ser lida sozinha.
+uma subpasta, em =analisadas/= no conjunto analisado e em =contraste/= no
+contraste: =interfaces-graficas/<interface>/analisadas/<tecnologia>/=. As
+duas ficam ao lado do domínio, das cenas, das capturas e do teste de
+conformidade da interface, que valem para elas; =contraste/= nasce com a
+primeira implementação do contraste, e até lá os comandos abaixo só
+percorrem =analisadas/=. Cada subpasta é um
+projeto completo, com o próprio =package.json=, e pode ser lida sozinha.
 O escopo (interfaces e tecnologias) está nas decisões em
 [[file:../docs/adr/][docs/adr/]]. O código que o autor escreveu à mão no
 CodeSandbox, antes das implementações, fica congelado em
@@ -25,14 +30,14 @@ tarefas e o conversor de moedas) saiu também do repositório em
 * Instalar e rodar
 
   Os projetos web são /workspaces/ do npm, todos em TypeScript: um único
-  =npm install= em =implementacoes/=, onde está o =package.json= dos
+  =npm install= em =interfaces-graficas/=, onde está o =package.json= dos
   /workspaces/, instala todos. Os comandos =npm= abaixo rodam de
-  =implementacoes/=. O =build= confere os tipos com =tsc= antes de
+  =interfaces-graficas/=. O =build= confere os tipos com =tsc= antes de
   empacotar.
 
   #+begin_src sh
   npm install
-  npm run dev -w reserva-de-passagem/react
+  npm run dev -w reserva-de-passagem/analisadas/react
   #+end_src
 
   Troque o caminho pelo da implementação desejada. O Vite serve em
@@ -49,7 +54,7 @@ tarefas e o conversor de moedas) saiu também do repositório em
 * Capturas de tela
 
   Cada interface guarda capturas versionadas em
-  =implementacoes/<interface>/capturas/=, uma por tecnologia e cena
+  =interfaces-graficas/<interface>/capturas/=, uma por tecnologia e cena
   (=react-inicial.png=, =solid-ordem.png=...). Ao criar ou alterar uma
   implementação, gere-as de novo e inclua no mesmo commit: o =git diff=
   mostra o que mudou na tela.
@@ -68,17 +73,17 @@ tarefas e o conversor de moedas) saiu também do repositório em
   implementação: se algo mudou de propósito, regenere; se não, é regressão.
 
   As cenas de cada interface ficam em
-  =implementacoes/<interface>/cenas.mts= (ações do Playwright antes da
-  captura); sem ele, só o estado inicial é capturado. O /script/
-  ([[file:capturar.mts][implementacoes/capturar.mts]]) faz o /build/, serve
-  o resultado, fixa a data em 26/09/2026 (para "hoje" não mudar a imagem)
-  e, no fim, avisa se a mesma cena saiu diferente entre as tecnologias de
-  uma interface, o que indica que alguma implementação foge da
-  especificação.
+  =interfaces-graficas/<interface>/cenas.mts= (ações do Playwright antes
+  da captura); sem ele, só o estado inicial é capturado. O /script/
+  ([[file:capturar.mts][interfaces-graficas/capturar.mts]]) faz o /build/,
+  serve o resultado, fixa a data em 26/09/2026 (para "hoje" não mudar a
+  imagem) e, no fim, avisa se a mesma cena saiu diferente entre as
+  tecnologias de uma interface, o que indica que alguma implementação foge
+  da especificação.
 
   Agentes de código seguem essas regras pelo
-  [[file:AGENTS.md][implementacoes/AGENTS.md]] (o =CLAUDE.md= ao lado é um
-  /symlink/ para ele).
+  [[file:AGENTS.md][interfaces-graficas/AGENTS.md]] (o =CLAUDE.md= ao lado
+  é um /symlink/ para ele).
 
   As imagens dependem das fontes instaladas: geradas noutra máquina,
   podem mudar sem que o código tenha mudado.
@@ -95,24 +100,24 @@ tarefas e o conversor de moedas) saiu também do repositório em
   npm run conformidade -- reserva-de-passagem/react   # uma implementação
   #+end_src
 
-  O /script/ ([[file:conformidade.mts][implementacoes/conformidade.mts]])
-  faz o /build/, abre a página no Chromium do Playwright, avalia nela o
-  teste e imprime as linhas. Sai com erro se alguma disser =FALHOU=, se
-  nenhuma disser =ok=, se o teste lançar erro ou se a interface
-  não tiver teste.
+  O /script/
+  ([[file:conformidade.mts][interfaces-graficas/conformidade.mts]]) faz o
+  /build/, abre a página no Chromium do Playwright, avalia nela o teste e
+  imprime as linhas. Sai com erro se alguma disser =FALHOU=, se nenhuma
+  disser =ok=, se o teste lançar erro ou se a interface não tiver teste.
 
 * Especificação das interfaces (OpenSpec)
 
   A especificação de cada interface fica em
-  =implementacoes/openspec/specs/<interface>/spec.md=, no esquema
+  =interfaces-graficas/openspec/specs/<interface>/spec.md=, no esquema
   /spec-driven/ do [[https://openspec.dev][OpenSpec]] (1.14.1, fixado em
   =package.json=): requisitos e cenários, em português, com os cabeçalhos
   que o OpenSpec lê em inglês. A mudança entre rodadas é uma pasta em
-  =implementacoes/openspec/changes/=, com a proposta e o /delta spec/;
-  arquivada, ela se funde na especificação viva e vai para
+  =interfaces-graficas/openspec/changes/=, com a proposta e o /delta
+  spec/; arquivada, ela se funde na especificação viva e vai para
   =changes/archive/=. A mudança dentro de uma rodada edita o =spec.md=
   direto. A convenção está no
-  [[file:AGENTS.md][implementacoes/AGENTS.md]].
+  [[file:AGENTS.md][interfaces-graficas/AGENTS.md]].
 
   #+begin_src sh
   npm run conferir-especificacao          # validate e cenários × testes

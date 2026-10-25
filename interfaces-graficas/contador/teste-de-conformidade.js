@@ -2,7 +2,7 @@
 // web. Cole no console do navegador com a implementação recém-aberta; a
 // última linha devolve o resultado de cada verificação ("ok" ou
 // "FALHOU"). Cada verificação é um cenário de
-// implementacoes/openspec/specs/contador/spec.md.
+// interfaces-graficas/openspec/specs/contador/spec.md.
 //
 // Nada espera tempo, e o teste não troca o relógio. Depois de cada clique,
 // deixa rodar as mensagens que o React agenda por MessageChannel, em que

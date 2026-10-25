@@ -1,6 +1,6 @@
 schema: spec-driven
 
 # Especificação das interfaces do TCC (tcc-wlx, 2026-10-12). A convenção, em
-# português, está em implementacoes/AGENTS.md, seção "Especificação:
+# português, está em interfaces-graficas/AGENTS.md, seção "Especificação:
 # OpenSpec"; o fluxo de agente do OpenSpec (comandos /opsx e skills) fica
 # de fora.

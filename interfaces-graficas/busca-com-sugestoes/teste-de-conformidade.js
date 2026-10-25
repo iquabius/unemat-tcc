@@ -3,7 +3,7 @@
 // a última linha devolve o resultado de cada verificação ("ok" ou "FALHOU").
 // Segue a especificação, com latência de 800 ms (até 2 letras) ou 200 ms (3
 // ou mais); cada verificação é um cenário de
-// implementacoes/openspec/specs/busca-com-sugestoes/spec.md.
+// interfaces-graficas/openspec/specs/busca-com-sugestoes/spec.md.
 (async () => {
   const dormir = (ms) => new Promise((r) => setTimeout(r, ms));
   const $ = (seletor) => document.querySelector(seletor);
@@ -32,7 +32,7 @@
     );
   const abertas = () => globalThis.contarAbertos();
   // Sai da tela e volta pela rota da página que hospeda a interface
-  // (implementacoes/pagina.ts): "#/" é a página sem ela. O hashchange
+  // (interfaces-graficas/pagina.ts): "#/" é a página sem ela. O hashchange
   // chega numa tarefa própria, depois da troca.
   async function irPara(hash) {
     const mudou = new Promise((r) =>
