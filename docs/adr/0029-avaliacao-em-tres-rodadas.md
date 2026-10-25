@@ -1,14 +1,15 @@
 # 0029. A avaliação se faz em três rodadas: a primeira constrói as sete interfaces, a segunda muda o comportamento e a terceira só a forma, em quatro vertentes, na Reserva de passagem, no Placar ao vivo e no Circle Drawer
 
-2026-10-25. Interfaces pequenas isolam uma escolha de projeto, mas não
-mostram o que só aparece quando o programa cresce (Stol e Fitzgerald
-2018, p. 11:10; Green et al. 2006, p. 334), e Kiss (2014) avaliou cada
-implementação num tamanho só, deixando como trabalho futuro estendê-las
-com requisitos novos (p. 103-104). A avaliação se faz em três rodadas,
-cada uma mais estreita que a anterior, em etapas sucessivas, como as de
-Kiss (p. 3), cuja última cobre só uma seleção dos casos, e cada uma muda
-uma coisa só. A primeira constrói o comportamento base das sete
-interfaces (ADR 0002) nas cinco tecnologias (ADR 0013), 35
+2026-10-25. Interfaces pequenas isolam uma escolha de projeto (Green e
+Blackwell 1998, p. 62), mas algumas dificuldades da notação só aparecem
+quando os exemplos crescem (Green et al. 2006, p. 334), e a viscosidade
+aumenta com o programa (Green e Blackwell 1998, p. 14). Kiss (2014)
+avaliou cada implementação num tamanho só, deixando como trabalho futuro
+estendê-las com requisitos novos (p. 103-104). A avaliação se faz em
+três rodadas, cada uma mais estreita que a anterior, em etapas
+sucessivas, como as de Kiss (p. 3), cuja última cobre só uma seleção dos
+casos, e cada uma muda uma coisa só. A primeira constrói o comportamento
+base das sete interfaces (ADR 0002) nas cinco tecnologias (ADR 0013), 35
 implementações, com o modelo de programação isolado: cada uma usa só o
 que a tecnologia traz, e todas seguem duas regras comuns, conferidas
 pelo teste de conformidade de cada interface: as mensagens de status são
@@ -220,7 +221,8 @@ os modelos de programação se mantém quando o código cresce, que é onde
 a viscosidade "will be most apparent" (Green e Petre 1996, p. 161).
 Em vez de: a terceira rodada com as dependências controladas, a mesma
 biblioteca em todas as tecnologias, como o TanStack Form; isolaria a
-notação, mas não tem suporte oficial ao JavaScript sem *framework*, e
+notação, mas não tem adaptador, guia nem exemplo para o JavaScript sem
+*framework*: o uso direto do núcleo só aparece na referência de API, e
 não seria a biblioteca que cada ecossistema usa.
 Em vez de: bibliotecas desde a primeira rodada; mais perto do código de
 produção, mas mediria as bibliotecas antes dos modelos de programação
@@ -260,16 +262,20 @@ Fontes: `docs/metodo-da-avaliacao.md`, seções de "Rodadas e crescimento
 do código" a "O que muda entre rodadas: vocabulário" e "Requisitos
 típicos de interface para a segunda rodada", com os trechos e as
 páginas; Kiss (2014, p. 3, 34, 41-45, 47, 54, 96 e 103-104); Green e
-Petre (1996, p. 161-162); WCAG 2.2 (W3C, 2024-12-12) e o padrão
-*Combobox* do WAI-ARIA APG (lidos em 2026-10-12); Berry e Serrano (2020,
-p. 534-539); o ciclo no Google Sheets, no Excel na web e no LibreOffice
-Calc, testado em 2026-10-23; Shahoor et al. (2023, ASE, Leakpair) e
-Vilk e Berger (2018, PLDI, BLeak), em
-`tmp/pesquisas/2026-10-25-vazamento-de-recursos-na-web/`; o HTML
-Standard da WHATWG, seção 9.2, *Server-sent events* (lida em
+Petre (1996, p. 161-162); Green e Blackwell (1998, p. 14 e 62), o
+tutorial das DCs; o TanStack Form no npm, na documentação e no GitHub,
+lidos em 2026-10-25
+(`tmp/pesquisas/2026-10-25-tanstack-form-sem-framework/`); WCAG 2.2
+(W3C, 2024-12-12) e o padrão *Combobox* do WAI-ARIA APG (lidos em
+2026-10-12); Berry e Serrano (2020, p. 534-539); o ciclo no Google
+Sheets, no Excel na web e no LibreOffice Calc, testado em 2026-10-23;
+Shahoor et al. (2023, ASE, Leakpair) e Vilk e Berger (2018, PLDI,
+BLeak), em `tmp/pesquisas/2026-10-25-vazamento-de-recursos-na-web/`; o
+HTML Standard da WHATWG, seção 9.2, *Server-sent events* (lida em
 2026-10-24), e a MDN e o BCD do `Observable` (2026-10-25);
 `docs/plataformas/medida-das-bibliotecas.md`;
 `tmp/pesquisas/2026-10-17-temas-do-conversor-e-da-planilha.md` e
 `tmp/pesquisas/2026-10-17-aparencia-por-estado-e-rodadas.md` (fora do
 git); ADRs 0002, 0012, 0013, 0017, 0031, 0042 e 0043; tarefas tcc-vgrx,
-tcc-l7qe, tcc-jjzc, tcc-7qty, tcc-phqj, tcc-5y5g, tcc-wqvo, tcc-z6tg e tcc-o5er.
+tcc-l7qe, tcc-jjzc, tcc-7qty, tcc-phqj, tcc-5y5g, tcc-wqvo, tcc-z6tg e
+tcc-o5er.
