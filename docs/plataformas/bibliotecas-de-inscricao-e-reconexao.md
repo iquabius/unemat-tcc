@@ -288,6 +288,25 @@ plataforma.
 | Solid | `@solid-primitives/websocket` 100% | 100% | 100% | 100% | 100% | 100% | 100% | 100% | 100% |
 | Web Component | `partysocket` 79,7% (a tabela de 2026-10-19 diz API, por decisão) | `partysocket` 77,9% | `partysocket` 90,4% | `partysocket` 81,0% | `reconnecting-websocket` 83,3% | API (`sturdy-websocket` 40,3%) | `reconnecting-websocket` 96,8% | `partysocket` 60,2% (descontado o `agents`) | `partysocket` 99,1% |
 
+### Busca de código e Google Trends
+
+Medidos em 2026-10-25 pelo método de `medida-das-bibliotecas.md`
+(seção "Busca de código e Google Trends"). Os `package.json` do GitHub
+que declaram cada candidata (`gh api search/code`, sem janela) dão a
+maioria ao `react-use-websocket` no React (5.840 de 6.345 arquivos,
+92,0%) e ao `@solid-primitives/websocket` no Solid (410, candidata
+única). No Web Component, ninguém tem a maioria: o
+`reconnecting-websocket` tem 2.224 dos 4.544 arquivos (48,9%) e o
+`partysocket`, 1.816 (40,0%); sem as candidatas sem versão há 24 meses,
+o `partysocket` fica com 91,3%. O `agents` aparece em 6.656 arquivos,
+mais que o `partysocket`, e cada um puxa o `partysocket` como dependência
+transitiva, que a busca não conta. No
+Google Trends, o `react-use-websocket` tem 95,7% do grupo do React em
+cinco anos e 100% em doze meses. No grupo do Web Component, o termo
+`sockette`, que não se conferiu buscar o pacote, tem de 76% a 83%; sem
+ele, o `reconnecting-websocket` lidera (49,7% em cinco anos, 80,7% em
+doze meses), e o `partysocket` fica com 26,7% e 19,3%.
+
 ## Guardado para contraste: o TanStack Query
 
 O autor decidiu em 2026-10-19 guardar o TanStack Query, com o
@@ -323,4 +342,5 @@ dependentes), 2026-10-19.
   pelos eixos de `medida-das-bibliotecas.md`, a primeira medida do Web
   Component e a conta do `partysocket` contra o `agents`, e a frase da
   conclusão que aponta para ela; a regra, a janela e as tabelas de
-  2026-10-19 ficaram.
+  2026-10-19 ficaram. Depois, no mesmo dia, a subseção "Busca de código
+  e Google Trends".

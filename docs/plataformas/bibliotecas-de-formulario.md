@@ -221,6 +221,25 @@ plataforma.
 | Solid | API (`@tanstack/solid-form` 47,0%) | `@tanstack/solid-form` 52,9% | `@tanstack/solid-form` 52,0% | API (`@tanstack/solid-form` 44,0%) | `@felte/solid` 70,0% | `@modular-forms/solid` 60,1% | API (`@modular-forms/solid` 36,4%) | API (`@tanstack/solid-form` 47,0%) |
 | Web Component (pelo resíduo) | API (`final-form` 49,3%) | API (`final-form` 49,2%) | `final-form` 51,2% | — | `final-form` 93,1% | `final-form` 77,5% | `pristinejs` 51,4% | `final-form` 62,7% |
 
+### Busca de código e Google Trends
+
+Medidos em 2026-10-25 pelo método de `medida-das-bibliotecas.md`
+(seção "Busca de código e Google Trends"). Os `package.json` do GitHub
+que declaram cada candidata (`gh api search/code`, sem janela) dão a
+maioria ao `react-hook-form` no React (993.280 de 1.147.256 arquivos,
+86,6%; o `formik`, 124.928, 10,9%), a ninguém no Solid (o
+`@modular-forms/solid` tem 219 dos 520, 42,1%, e o TanStack Solid Form,
+190, 36,5%) e ao `final-form` no Web Component (3.536 de 4.882, 72,4%;
+88,7% sem as candidatas sem versão há 24 meses). No Google Trends, o
+`react hook form` tem 51,8% do grupo das cinco do React em cinco anos e
+48,0% em doze meses, em que o `tanstack form` sobe a 15,4%; o termo
+junta o TanStack Form de todos os *frameworks*, e sem ele o `react hook
+form` tem 56,8%. Os termos do Solid ficam no ruído (médias abaixo de 2;
+"modular forms" sozinho é assunto de matemática), e os do Web Component
+não dão maioria a ninguém, com o `final-form` em 10,2% e 12,2%, atrás de
+`hyperform` e `vest validation`, que não se conferiu buscarem os
+pacotes.
+
 ## Tecnologias fora da análise (medida de 2026-10-12)
 
 O Lit, o Angular com *signals*, as Views, o Compose, o Windows Forms e o
@@ -361,3 +380,4 @@ ANDROID, developer.android.com, `TextInputLayout` (2026-10-12);
   janelas", com as mesmas candidatas medidas em três janelas e pelos
   eixos de `medida-das-bibliotecas.md`, e a frase da conclusão que
   aponta para ela; a regra, a janela e as tabelas de 2026-10-12 ficaram.
+  Depois, no mesmo dia, a subseção "Busca de código e Google Trends".

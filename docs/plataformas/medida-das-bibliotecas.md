@@ -61,9 +61,15 @@ das cargas de página do Chrome, com a posição da Mozilla negativa
 (2026-04-13) e a do WebKit favorável sem embarque; e o Command no
 desfazer tem o precedente direto em Kiss (2014, p. 41 e 44), com 10
 trabalhos desde 2021 no OpenAlex para "command pattern undo" e 1 para
-"memento pattern undo". Nenhuma variante de regra está decidida; a tabela
-da seção "Sensibilidade por vertente" mostra onde cada uma muda a
-escolha.
+"memento pattern undo". A busca de código do GitHub e o Google Trends, medidos
+depois pelo host, estão na subseção "Busca de código e Google Trends":
+os `package.json` dão a maioria ao `final-form` no Web Component da
+Reserva (72,4%) e a tiram do `partysocket` no do Placar (40,0%, contra
+48,9% do `reconnecting-websocket`); o Trends dá a maioria ao
+`react hook form` em cinco anos (51,8%) e só a tira em doze meses por
+causa do termo `tanstack form`, que junta todos os *frameworks*. Nenhuma variante de regra está
+decidida; a tabela da seção "Sensibilidade por vertente" mostra onde
+cada uma muda a escolha.
 
 ## Os eixos
 
@@ -74,10 +80,10 @@ direto. A tabela diz o que cada um conta, de onde vem e o que o enviesa.
 |---|---|---|---|
 | 1. Downloads | Downloads do pacote no npm numa janela de 30 dias: a soma e a mediana das quatro semanas inteiras da janela, que pesa menos os picos de integração contínua | `api.npmjs.org/downloads/range/<ini>:<fim>/<pacote>` | Integração contínua, espelhos e dependência transitiva: o pacote que outra biblioteca puxa conta como se a aplicação o tivesse pedido. A API zera dias inteiros para todos os pacotes (seção "As janelas") |
 | 2. Dependentes publicados | Quantos pacotes do npm declaram o candidato como dependência, e quanto dos downloads dele o maior dependente pode explicar | `packages.ecosyste.ms/api/v1/registries/npmjs.org/packages/<pacote>` (`dependent_packages_count`) e `/dependent_packages?sort=downloads` | O índice atrasa (o `agents`, maior dependente do `partysocket`, não aparece na lista dele); pacote publicado não é aplicação; a fatia do dependente é um limite superior, porque o *lockfile* e o *cache* fazem um `npm install` do dependente baixar o candidato zero ou uma vez |
-| 3. Uso direto | Repositórios públicos do GitHub que declaram o candidato (`repos.ecosyste.ms`, com a data do último *push*); carga direta por navegadores no jsDelivr (`hits`, mês e ano); presença no cdnjs | `repos.ecosyste.ms/api/v1/usage/npm/<pacote>` e `/dependencies`; `data.jsdelivr.com/v1/stats/packages/npm/<pacote>?period=month`; `api.cdnjs.com/libraries/<nome>` | Só repositórios públicos indexados, com bibliotecas, aplicações, exemplos e *forks* misturados; o CDN mede quem carrega sem *bundler*, que é a minoria do uso em React e Solid, e mais perto do uso em páginas sem *build*; a busca de código do GitHub (`package.json` que declaram a dependência) pede autenticação e não foi feita (seção "O que não foi possível medir") |
+| 3. Uso direto | Repositórios públicos do GitHub que declaram o candidato (`repos.ecosyste.ms`, com a data do último *push*); carga direta por navegadores no jsDelivr (`hits`, mês e ano); presença no cdnjs | `repos.ecosyste.ms/api/v1/usage/npm/<pacote>` e `/dependencies`; `data.jsdelivr.com/v1/stats/packages/npm/<pacote>?period=month`; `api.cdnjs.com/libraries/<nome>`; a busca de código do GitHub, `gh api search/code` com `q="\"<pacote>\":" filename:package.json`, autenticada | Só repositórios públicos indexados, com bibliotecas, aplicações, exemplos e *forks* misturados; o CDN mede quem carrega sem *bundler*, que é a minoria do uso em React e Solid, e mais perto do uso em páginas sem *build*; a busca de código conta arquivos `package.json`, e não repositórios (um *monorepo* conta várias vezes), casa a chave também em `devDependencies` e `peerDependencies` de outras bibliotecas, e não aceita filtro de data |
 | 4. Artigos científicos | Trabalhos que a busca por termo devolve no OpenAlex (`title_and_abstract.search`), pelo `buscar_literatura.py buscar` da skill `escrita-academica`, com `--desde 2021`, `--desde 2017` e sem janela | OpenAlex, pelo script | Conta trabalhos devolvidos, e não menções no texto: o termo de pacote (`formik form library`, 2 trabalhos desde 2021) acha quase nada, e o de várias (`command pattern user interface`) acha o que tem as palavras espalhadas. O Crossref (`query.bibliographic`) casa qualquer termo e devolve centenas de milhares; ficou só nos dados |
 | 5. Menções informais | Perguntas por tag no Stack Overflow, com `fromdate` e `todate`; artigos por tag no dev.to; repositórios por tópico no GitHub, com `created:` e `pushed:` | `api.stackexchange.com/2.3/questions?tagged=<tag>&fromdate&todate&filter=total`; `dev.to/api/articles?tag=<tag>&per_page=100`; `api.github.com/search/repositories?q=topic:<t>` | Pacote pequeno não tem tag (`partysocket`, `robot3` e as candidatas do Solid não existem como tag, consultado em 2026-10-25); o tópico do GitHub é autodeclarado; nas tags de biblioteca medidas, o último ano tem de 0 a 11 perguntas, e a janela de um ano quase zera (não há série por ano que date o encolhimento); a contagem de resultados do Google não entra, porque não é reproduzível |
-| 6. Google Trends | Interesse de busca relativo | Sem API oficial; a exportação da interface e o `api/explore` voltaram 429 (seção "O que não foi possível medir") | Não medido |
+| 6. Google Trends | Interesse de busca relativo, de 0 a 100, numa série semanal; a fração de cada termo é a média dele sobre a soma das médias do grupo | Sem API oficial: a biblioteca `pytrends` 4.9.2 (não oficial), no Python do host, em grupos de até 5 termos, o limite do Trends; a exportação da interface e o `api/explore` direto voltaram 429 | O índice é relativo dentro do grupo, e grupos não se comparam; mede termos de busca, e não pacotes: "modular forms" é assunto de matemática (por isso o grupo do Solid se refez com "modular forms solid"), "vest" sozinho seria peça de roupa (consultou-se "vest validation"), e não se conferiu se "sockette" e "hyperform" buscam o pacote; um termo como "tanstack form" junta todos os *frameworks*; e o termo pequeno fica no ruído (médias abaixo de 2) |
 | 7. Pesquisas de uso | O que o State of JS, o State of React e o Stack Overflow Developer Survey perguntam sobre as candidatas, nas edições de 2024 e 2025 | O `page-data.json` de cada seção dos sites da Devographics (a estrutura das perguntas e as opções) e as páginas do Stack Overflow; a API GraphQL dos resultados (`api.devographics.com`) voltou 502 em todas as tentativas de 2026-10-25 | Amostra autosselecionada; só perguntam pelo que listam: o State of React pergunta pelas bibliotecas de formulário e pelo XState (seção *State Management*), e não pelas de WebSocket; o Stack Overflow não pergunta por nenhuma candidata |
 | 8. Manutenção e maturidade | Data da última versão, versões nos últimos 12 e 24 meses, o campo `deprecated` do registro, se o repositório está arquivado, estrelas, *issues* abertas, contribuidores; a nota de saúde do Snyk Advisor onde a página a traz | `registry.npmjs.org/<pacote>`; `api.github.com/repos/<repo>` e `/contributors?per_page=1&anon=true` (a contagem vem do cabeçalho `Link`); `repo_metadata` do ecosyste.ms; `snyk.io/advisor/npm-package/<pacote>` | Estrelas acumulam e não caem; *issues* abertas dependem da triagem do projeto; a versão por mês premia quem publica *patch* automático (o `vest`, 289 versões em 12 meses); o Snyk não dá nota aos pacotes com escopo medidos (`@tanstack/solid-form`, `@solid-primitives/websocket`) |
 
@@ -106,10 +112,10 @@ mesmo sem suporte ou depreciada. As janelas de 2026-10-25:
 |---|---|---|
 | 1. Downloads | Três janelas de 30 dias: a nova, 2026-09-25 a 2026-10-24; a do ADR 0031, 2026-09-12 a 2026-10-11; e a limpa, 2026-07-27 a 2026-08-25 | A nova é a que o autor propôs em 2026-10-25. A API do npm, consultada nesse dia, dá zero a todos os pacotes em 9 dos 30 dias dela (2026-10-06, 13, 14, 15, 19, 20, 21, 23 e 24), inclusive ao `react`, e em 2 dos 30 da janela do ADR (2026-09-15 e 2026-10-06): as somas da janela nova saem até 30% menores que as da janela do ADR (21% no `react`, 25% no `react-hook-form`), e a mediana semanal, que a janela nova existia para dar, tem dia zerado em três das quatro semanas, duas delas em mais de um dia. A limpa é a primeira das janelas de 30 dias com menos dias zerados entre 2026-07-27 e 2026-10-24 (um, 2026-08-14; as nove janelas de 2026-07-27 a 2026-08-04 empatam), para separar o efeito da janela do efeito dos dias zerados. As frações entre candidatas resistem, porque os dias zerados são os mesmos para todas; os totais, não. A limpa é limpa de dias zerados, não de picos: nela o `partysocket` tem 39.163.763 downloads, 3,4 vezes a janela nova, e o `machina`, 214.107, 25 vezes menos que a nova |
 | 2. Dependentes | O retrato de 2026-10-25 | O ecosyste.ms não dá histórico; a data do último *push* de cada repositório dependente, no eixo 3, é a janela que ele admite |
-| 3. Uso direto | O retrato de 2026-10-25 para a contagem; o *push* desde 2021-10-25 para a parte "viva" dos repositórios dependentes (até 300 por candidata, as três primeiras páginas da API); o mês e o ano no jsDelivr | Cinco anos é a janela do autor para o que ainda se usa |
+| 3. Uso direto | O retrato de 2026-10-25 para a contagem; o *push* desde 2021-10-25 para a parte "viva" dos repositórios dependentes (até 300 por candidata, as três primeiras páginas da API); o mês e o ano no jsDelivr; o índice de código do GitHub em 2026-10-25, sem janela | Cinco anos é a janela do autor para o que ainda se usa; a busca de código não aceita data |
 | 4. Artigos | Desde 2021 (cinco anos) e, em coluna à parte, desde 2017 e sem janela | A comparação mostra o que a janela muda: o `finite state machine user interface` tem 490 trabalhos sem janela e 138 desde 2021 |
 | 5. Menções informais | 2021-10-25 a 2026-10-25 no Stack Overflow e no dev.to, com o total sem janela e o último ano ao lado; `created:>=2021-10-25` e `pushed:>=2021-10-25` no GitHub | A mesma janela de cinco anos; o último ano mostra o encolhimento do Stack Overflow |
-| 6. Google Trends | Seria `today 5-y` | Não medido |
+| 6. Google Trends | 2021-10-25 a 2026-10-24 (cinco anos) e 2025-10-25 a 2026-10-24 (doze meses); o Trends devolve as semanas inteiras, de 2021-10-24 a 2026-10-18 e de 2025-10-19 a 2026-10-18 | A janela de cinco anos do autor; os doze meses mostram o que mudou no último ano |
 | 7. Pesquisas de uso | As edições de 2024 e 2025 | As duas últimas de cada pesquisa |
 | 8. Manutenção | A última versão nos últimos 12 e nos últimos 24 meses, contados de 2026-10-25 | Os dois cortes que o filtro abaixo usa |
 
@@ -351,12 +357,65 @@ Circle Drawer):
 As vertentes da API nova da plataforma e dos padrões de projeto não têm
 candidatas a escolher por maioria; as medidas estão nas seções delas.
 
+### Busca de código e Google Trends
+
+Medidos em 2026-10-25, depois das tabelas acima, com o `gh` e o
+`pytrends` do host. As duas colunas a mais, como variantes de regra:
+**J**, a maioria dos `package.json` do GitHub que declaram a candidata
+(ao lado, sem as candidatas arquivadas e as sem versão há 24 meses,
+como na coluna I); **K**, a maioria da fração no Google Trends, em cinco
+anos e em doze meses, pela mesma regra; "sem leitura" é o grupo em que
+todos os termos ficam abaixo de 2 de média.
+
+| Par | J. `package.json` no GitHub | J com o filtro (24 m) | K. Trends, cinco anos | K. Trends, doze meses |
+|---|---|---|---|---|
+| Reserva × React | `react-hook-form` 86,6% (993.280 de 1.147.256) | `react-hook-form` 87,4% | `react-hook-form` 51,8% | API (`react hook form` 48,0%; o termo `tanstack form`, de todos os *frameworks*, 15,4%; sem ele, `react hook form` 56,8%) |
+| Reserva × Solid | API (`@modular-forms/solid` 42,1%; `@tanstack/solid-form` 36,5%; de 520 arquivos) | API (42,1%) | sem leitura (médias de 0 a 0,8) | sem leitura (de 0 a 1,9) |
+| Reserva × Web Component | `final-form` 72,4% (3.536 de 4.882) | `final-form` 88,7% | API (`hyperform` 46,8%; `vest validation` 39,7%; `final-form` 10,2%) | API (`vest validation` 47,9%; `hyperform` 37,4%; `final-form` 12,2%) |
+| Placar × React | `react-use-websocket` 92,0% (5.840 de 6.345) | `react-use-websocket` 92,2% | `react-use-websocket` 95,7% | `react-use-websocket` 100% |
+| Placar × Solid | `@solid-primitives/websocket` 100% (410) | 100% | não medido | não medido |
+| Placar × Web Component | API (`reconnecting-websocket` 48,9%; `partysocket` 40,0%; de 4.544) | `partysocket` 91,3% | `sockette` 82,8% (sem ele, nenhum: `reconnecting-websocket` 49,7%); `partysocket` 4,6% | `sockette` 75,7% (sem ele, `reconnecting-websocket` 80,7%); `partysocket` 4,7% |
+| Máquina × sem *framework* | `xstate` 89,5% (8.856 de 9.898) | `xstate` 94,4% | `xstate` 99,7% | `xstate` 99,9% |
+| Máquina × React | `@xstate/react` 99,5% (3.872 de 3.890) | 100% (o `react-robot` está arquivado) | não medido | não medido |
+| Máquina × Solid | `@xstate/solid` 96,7% (29 de 30) | 100% | não medido | não medido |
+
+O que as duas colunas mudam no quadro de 2026-10-25:
+
+- **Os `package.json` contam arquivos que declaram a biblioteca, de
+  aplicações e de outras bibliotecas**, e confirmam a escolha por
+  downloads em cinco pares: o React da Reserva, os dois do Placar fora
+  do Web Component e a máquina de estados no React e no Solid; no React
+  da Reserva desfazem o empate dos repositórios dependentes (o `formik`
+  tem 10,9% dos arquivos).
+- **No Web Component da Reserva**, o `final-form` tem a maioria também
+  aqui (72,4%), como nos dependentes publicados e nos repositórios
+  dependentes; só os downloads das janelas nova e do ADR dão a API da
+  plataforma.
+- **No Web Component do Placar**, o `partysocket` perde a maioria (40,0%,
+  atrás dos 48,9% do `reconnecting-websocket`) e só a recupera com o
+  filtro de 24 meses (91,3%); o `agents`, que depende dele, aparece em
+  6.656 arquivos, mais que o próprio `partysocket` (1.816), e cada um
+  puxa o `partysocket` como dependência transitiva, que esta busca não
+  conta.
+- **Na máquina sem *framework***, o `xstate` tem a maioria dos arquivos
+  (89,5%) com o `@xstate/fsm` na lista (1,9%), o contrário do que dizem
+  os downloads, e o Trends dá 99,7% ao `xstate`.
+- **No Trends**, o `react hook form` tem a maioria em cinco anos (51,8%)
+  e a perde em doze meses (48,0%), com o `tanstack form` subindo de 3,6%
+  para 15,4%; mas o termo junta o TanStack Form de todos os *frameworks*,
+  e sem ele o `react hook form` tem 56,8% em doze meses. O que o eixo
+  mostra é a subida do TanStack Form, e não uma troca no React. Nos
+  padrões de projeto, a média do `command pattern` é 25 vezes a do
+  `memento pattern` em cinco anos e 45 vezes em doze meses (16,6 contra
+  0,7; 34,1 contra 0,8, num grupo com o RxJS e o `observable api`).
+- **No Web Component**, os líderes do Trends (`hyperform`, `vest
+  validation`, `sockette`) são termos que não se conferiu buscarem o
+  pacote; sem o `sockette`, o `reconnecting-websocket` lidera o Placar
+  nos dois períodos, como nos `package.json`, e o `partysocket` fica
+  abaixo de 27%.
+
 ## O que não foi possível medir
 
-- **Google Trends** (eixo 6): sem API oficial; a biblioteca `pytrends`
-  não se instala neste ambiente (o Python do sistema não tem `pip`), e a
-  exportação da interface e o `trends/api/explore` voltaram HTTP 429 em
-  2026-10-25. Sem número.
 - **Resultados das pesquisas da Devographics** (eixo 7): a API GraphQL
   (`api.devographics.com/graphql`) voltou HTTP 502 em todas as tentativas
   de 2026-10-25, uma delas registrada em `consultas.tsv`; as páginas se
@@ -367,10 +426,12 @@ candidatas a escolher por maioria; as medidas estão nas seções delas.
   `docs/metodo-da-avaliacao.md` guarda uma leitura anterior (86,6% usam
   biblioteca de formulário, State of React 2025), que esta medida não
   reconferiu.
-- **Busca de código do GitHub** (`package.json` que declaram a
-  dependência, eixo 3): pede autenticação, e o `gh` não está instalado
-  neste ambiente; a API sem token dá 60 chamadas por hora, gastas nos
-  metadados dos repositórios.
+- **Google Trends para as candidatas pequenas** (eixo 6): medido, mas
+  sem leitura no Solid da Reserva, em que todos os termos ficam abaixo
+  de 2 de média; no Web Component, os líderes são termos que não se
+  conferiu buscarem o pacote (seção "Busca de código e Google Trends").
+  O Placar no Solid e os adaptadores da máquina de estados não se
+  mediram no Trends.
 - **Contagem no Crossref** (eixo 4): o `query.bibliographic` casa
   qualquer um dos termos e devolve centenas de milhares de registros
   para `command pattern undo`; a contagem não distingue nada e ficou só
@@ -391,7 +452,8 @@ repos.ecosyste.ms, 2026-10-25; data.jsdelivr.com e api.cdnjs.com,
 `escrita-academica`, 2026-10-25; api.crossref.org, 2026-10-25;
 api.stackexchange.com (`tags/<nomes>/info`, em duas consultas, e
 `questions`), dev.to/api e api.github.com (sem token), 2026-10-25;
-trends.google.com (recusado), 2026-10-25; 2024 e
+trends.google.com pelo `pytrends` 4.9.2 e `api.github.com/search/code`
+pelo `gh` autenticado, 2026-10-25; 2024 e
 2025.stateofjs.com, 2024 e 2025.stateofreact.com (`page-data.json`),
 survey.stackoverflow.co/2024 e /2025, api.devographics.com (502),
 2026-10-25; snyk.io/advisor, 2026-10-25; chromestatus.com
@@ -408,3 +470,7 @@ scripts estão em `tmp/pesquisas/2026-10-25-medida-das-bibliotecas/`.
 - 2026-10-25: criada, a pedido do autor, para registrar como se mede e
   se escolhe a forma de cada vertente da terceira rodada, a partir da
   dúvida sobre o viés do uso indireto na regra do ADR 0031.
+- 2026-10-25, depois: a busca de código do GitHub e o Google Trends,
+  antes fora por falta do `gh` e do `pytrends` no ambiente, foram
+  medidos pelo host, e ganharam a subseção "Busca de código e Google
+  Trends" e as linhas dos eixos 3 e 6.
