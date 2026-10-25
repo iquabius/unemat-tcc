@@ -136,16 +136,16 @@ terceira rodada vale para o ecossistema típico de cada tecnologia, e não só
 para o modelo de programação.
 
 \begin{figure}[htbp]
-\caption{\label{fig:interfaces-por-rodada}As sete interfaces nas quatro tecnologias, rodada a rodada: a primeira constrói as 28 implementações; a segunda acrescenta de uma a três mudanças por interface, 13 ao todo; a terceira refatora a Reserva de passagem e o Placar ao vivo para a forma do ecossistema, sem diff onde essa forma já é a API da plataforma. WC: Web Component; WS: Web Component com signals; S: Solid; R: React. Cinza: imperativo por atualização manual; verde: declarativo por atualização granular; roxo: declarativo por re-renderização.}
+\caption{\label{fig:interfaces-por-rodada}As sete interfaces nas quatro tecnologias, rodada a rodada: a primeira constrói as 28 implementações; a segunda acrescenta de uma a três mudanças por interface, 13 ao todo; a terceira refatora a Reserva de passagem e o Placar ao vivo para a forma do ecossistema, sem diff onde essa forma já é a API da plataforma. WC: Web Component; WS: Web Component com signals; S: Solid; R: React. Cinza: imperativo por atualização manual; vermelho: declarativo por atualização granular; azul: declarativo por re-renderização.}
 \centering
-\definecolor{corimperativo}{HTML}{5F5E5A}
-\definecolor{corgranular}{HTML}{0F6E56}
-\definecolor{correrender}{HTML}{534AB7}
+\definecolor{corimperativo}{HTML}{74787B}
+\definecolor{corgranular}{HTML}{D6281E}
+\definecolor{correrender}{HTML}{008BD0}
 \begin{tikzpicture}[font=\scriptsize, x=0.62cm, y=0.5cm,
     cel/.style={minimum size=0.42cm, inner sep=0pt},
-    imp/.style={fill=corimperativo!25, draw=corimperativo},
-    gra/.style={fill=corgranular!25, draw=corgranular},
-    rer/.style={fill=correrender!25, draw=correrender},
+    imp/.style={fill=corimperativo, draw=corimperativo},
+    gra/.style={fill=corgranular!85, draw=corgranular!85},
+    rer/.style={fill=correrender!85, draw=correrender!85},
     semdiff/.style={pattern=north east lines, pattern color=gray!70, draw=gray!70},
     fora/.style={draw=gray!45, fill=white},
   ]

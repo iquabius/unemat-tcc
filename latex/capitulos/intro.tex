@@ -260,11 +260,11 @@ rodada, para a terceira trocar só a reconexão escrita no código pela da
 biblioteca.
 
 \begin{figure}[htbp]
-\caption{\label{fig:cadeia-e-rodadas}Cadeia de pares das quatro tecnologias e as três rodadas da avaliação. Cada passo da cadeia muda o mínimo entre tecnologias vizinhas, e cada rodada responde a uma pergunta; na terceira, a Reserva de passagem e o Placar ao vivo passam à forma do ecossistema de cada tecnologia. Cinza: imperativo por atualização manual; verde: declarativo por atualização granular; roxo: declarativo por re-renderização.}
+\caption{\label{fig:cadeia-e-rodadas}Cadeia de pares das quatro tecnologias e as três rodadas da avaliação. Cada passo da cadeia muda o mínimo entre tecnologias vizinhas, e cada rodada responde a uma pergunta; na terceira, a Reserva de passagem e o Placar ao vivo passam à forma do ecossistema de cada tecnologia. Cinza: imperativo por atualização manual; vermelho: declarativo por atualização granular; azul: declarativo por re-renderização.}
 \centering
-\definecolor{corimperativo}{HTML}{5F5E5A}
-\definecolor{corgranular}{HTML}{0F6E56}
-\definecolor{correrender}{HTML}{534AB7}
+\definecolor{corimperativo}{HTML}{74787B}
+\definecolor{corgranular}{HTML}{D6281E}
+\definecolor{correrender}{HTML}{008BD0}
 \begin{tikzpicture}[
     font=\footnotesize,
     tec/.style={draw, rounded corners=2pt, minimum width=2.9cm, minimum height=1cm, text width=2.7cm, align=center},
@@ -272,9 +272,9 @@ biblioteca.
     faixa/.style={draw=gray!60, rounded corners=2pt, minimum width=13.25cm, minimum height=1cm, text width=13cm, align=center, fill=gray!8},
     rotulo/.style={text width=2.4cm, align=right, anchor=east},
     passo/.style={font=\scriptsize, text width=2.6cm, align=center, anchor=south},
-    imp/.style={fill=corimperativo!18, draw=corimperativo},
-    gra/.style={fill=corgranular!18, draw=corgranular},
-    rer/.style={fill=correrender!18, draw=correrender},
+    imp/.style={fill=corimperativo, draw=corimperativo, text=white},
+    gra/.style={fill=corgranular!85, draw=corgranular!85, text=white},
+    rer/.style={fill=correrender!85, draw=correrender!85, text=white},
     seta/.style={-{Stealth[length=5pt]}, semithick},
   ]
   \node[tec, imp] (t1) at (0,0) {Web Component\\\scriptsize imperativo por atualização manual};
