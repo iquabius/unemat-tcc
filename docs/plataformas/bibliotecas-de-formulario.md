@@ -250,7 +250,10 @@ pacotes.
 O Lit, o Angular com *signals*, as Views, o Compose, o Windows Forms e o
 WPF saíram da análise (ADRs 0001, 0005 e 0013), e as medidas deles ficam
 aqui, sem mudança, para os trabalhos futuros da conclusão (decisão do
-autor de 2026-10-19; tcc-dpci). Pela mesma regra, ganhavam biblioteca o
+autor de 2026-10-19; tcc-dpci). O Lit voltou à análise nas sete
+interfaces em 2026-10-25 (tcc-cp6c), e a lista dele, com duas candidatas
+fora do critério, se corrige na subseção "Lit: a lista corrigida". Pela
+mesma regra, ganhavam biblioteca o
 Angular com *signals*, os *Signal Forms* do `@angular/forms`, e o WPF, o
 CommunityToolkit.Mvvm. Ficavam com a API da plataforma o Lit, em que
 nenhuma candidata somava a maioria; as Views e o Compose, porque o Maven
@@ -303,6 +306,47 @@ tecnologia.
 
 Downloads das tecnologias na mesma janela, para a escala:
 `@angular/core` 27.227.175 (22.2.2); `lit` 31.952.129 (3.3.3).
+
+### Lit: a lista corrigida
+
+Conclusão (2026-10-25): duas das cinco candidatas do Lit medidas em
+2026-10-12 estão fora do critério da regra, a biblioteca que guarda o
+estado do formulário ou mostra o erro no campo, e saem da lista; com a
+regra I, a maioria dos downloads depois do filtro de manutenção, que o
+autor decidiu em 2026-10-25 e que conta a depreciação dita na
+documentação (`medida-das-bibliotecas.md`, seção "O filtro de
+depreciação e manutenção"), sobra só o `@tanstack/lit-form`. Se o Lit
+segue essa medida, ou o Web Component, como o Web Component com
+*signals*, é decisão do ADR 0031, ainda não tomada.
+
+Saem da lista:
+
+- o `@open-wc/form-control` ("Base class for creating form-participating
+  custom elements", no registro): serve para escrever um controle de
+  formulário, o elemento personalizado que participa do `<form>` pelo
+  `ElementInternals` (o FACE), e não para coordenar o estado e os erros
+  de um formulário; pelo mesmo motivo fica fora o `@lit-labs/forms`
+  0.1.0 (2025-12-23), dos *mixins* para escrever esse controle no Lit,
+  com 25 downloads na janela;
+- o `@lion/ui` 0.25.0 (2026-10-19), biblioteca de componentes inteira,
+  como as coleções de *hooks* que o ADR 0031 tira do Placar ao vivo: os
+  downloads vêm dos outros componentes; o *form-core* do Lion, sem
+  versão própria desde 2022-09-08, continua dentro dele, em
+  `components/form-core`.
+
+Ficam três, na janela do ADR, de 2026-09-12 a 2026-10-11, com a fração
+sobre as que ficam em cada coluna:
+
+| Candidata | Downloads | Sem filtro | Sem a de 24 meses | Regra I |
+|---|---|---|---|---|
+| `@vaadin/hilla-lit-form` 25.2.13 (2026-10-21) | 39.293 | 56,9% | 80,0% | sai: "Hilla with Lit is deprecated and is removed in Vaadin 26" (vaadin.com/docs, Form Binding Reference, lida em 2026-10-25) |
+| `@lion/form-core` 0.18.3 (2022-09-08) | 19.954 | 28,9% | sai (24m) | sai (24m) |
+| `@tanstack/lit-form` 1.25.5 (2026-08-11) | 9.823 | 14,2% | 20,0% | 100% (candidata única) |
+
+O Hilla prende o formulário ao *backend*: os modelos que o `Binder`
+recebe são gerados de classes Java ("The model classes aren't intended
+to be instantiated manually", mesma página). Os dados de 2026-10-25
+estão em `tmp/pesquisas/2026-10-25-formulario-no-lit/` (fora do git).
 
 ### NuGet
 
@@ -387,3 +431,8 @@ ANDROID, developer.android.com, `TextInputLayout` (2026-10-12);
   aponta para ela; a regra, a janela e as tabelas de 2026-10-12 ficaram.
   Depois, no mesmo dia, a subseção "Busca de código e Google Trends" e
   os resultados do State of React na seção do React.
+- 2026-10-25, depois: com o Lit de volta à análise, ganhou a subseção
+  "Lit: a lista corrigida", que tira da lista de 2026-10-12 o
+  `@open-wc/form-control` (controle de formulário) e o `@lion/ui`
+  (biblioteca de componentes inteira) e mede as três que ficam pela
+  regra I; a tabela de 2026-10-12 ficou como estava.
