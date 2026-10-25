@@ -1,6 +1,6 @@
 # 0014. A pergunta e os objetivos comparam três modelos de programação pela usabilidade das notações, segundo as Dimensões Cognitivas, com duas subperguntas, a P1.1 e a P1.2, e "larga escala" vira motivação
 
-2026-10-19. A introdução de 2017 trazia a pergunta em três formulações,
+2026-10-25. A introdução de 2017 trazia a pergunta em três formulações,
 uma sobre software em larga escala, que interfaces pequenas não
 respondem, e um objetivo geral sem critério. A pergunta: pelas Dimensões
 Cognitivas de Notações, como difere a usabilidade da notação do código
@@ -18,30 +18,44 @@ duas subperguntas, uma por rodada estreita (ADR 0029), com rótulos
 hierárquicos, que dizem a subordinação sem uma frase que a anuncie: como
 a diferença entre os modelos de programação muda quando a mesma
 funcionalidade ou o mesmo requisito de orquestração se acrescenta a
-todas as implementações (P1.1, a segunda rodada), e quando cada
-tecnologia usa a biblioteca de formulário do seu ecossistema (P1.2, a
-terceira); a redação é do autor, na introdução (tcc-xep). As rodadas se
-chamam pelo ordinal, e não pela pergunta, porque "a rodada da P1" se
+todas as implementações (P1.1, a segunda rodada), e quando o código da
+segunda rodada se refatora, com o mesmo comportamento, para a forma do
+ecossistema de cada tecnologia, para uma máquina de estados tipada, para
+a API nova da plataforma ou para um padrão de projeto (P1.2, a terceira,
+composta pelas quatro vertentes do ADR 0029; decisão do autor em
+2026-10-24); a redação é do autor, na introdução (tcc-xep). As rodadas
+se chamam pelo ordinal, e não pela pergunta, porque "a rodada da P1" se
 confundiria com a avaliação inteira, que a P1 cobre. "Larga escala" fica
 só na motivação. O objetivo geral é comparar, segundo as DCs, a
 usabilidade das notações dos três modelos de programação em interfaces
 típicas da web, em TypeScript (ADR 0001); os específicos: implementar as
-sete interfaces com o Web Component, o Web Component com *signals*, o
-React e o Solid, estendê-las na segunda rodada e refatorar duas delas na
-terceira (ADRs 0002, 0013 e 0029); avaliar as implementações pelas 14
-DCs em cada rodada (ADR 0012); sintetizar, por exigência de coordenação,
-o que cada modelo de programação facilita e o que dificulta. Os
-programas de processamento de listas, que demonstram os conceitos de PF,
-vão para a fundamentação (`prog.org`): fundamentar conceitos é função de
-uma seção do texto, e não um passo para o objetivo geral.
+sete interfaces com o Web Component, o Lit, o Web Component com
+*signals*, o Solid e o React, estendê-las na segunda rodada e refatorar
+três delas na terceira, em quatro vertentes (ADRs 0002, 0013 e 0029);
+avaliar as implementações pelas 14 DCs em cada rodada (ADR 0012);
+sintetizar, por exigência de coordenação, o que cada modelo de
+programação facilita e o que dificulta. Os programas de processamento de
+listas, que demonstram os conceitos de PF, vão para a fundamentação
+(`prog.org`): fundamentar conceitos é função de uma seção do texto, e
+não um passo para o objetivo geral.
 
+Em vez de: a P1.2 só sobre a forma do ecossistema, "E como ela muda
+quando o código passa à forma que o ecossistema de cada tecnologia usa,
+com o mesmo comportamento?" (redação da introdução até 2026-10-24);
+casava com a terceira rodada em duas interfaces, mas a terceira passou a
+quatro vertentes irmãs (ADR 0029), e três delas ficariam sem pergunta.
+Em vez de: uma P1.3 para os padrões de projeto, com uma quarta rodada
+(proposta do autor em 2026-10-24); daria a cada forma uma pergunta, mas
+as vertentes partem do mesmo código, sem ordem entre si, e a subpergunta
+é uma só porque a rodada é uma só (ADR 0029).
 Em vez de: o objetivo geral na web, em TypeScript, e em parte das
 interfaces no Android, em Kotlin, e no *desktop*, em C#, com os
 específicos de implementar as cinco interfaces em Web Component, React e
 Solid, três delas também em Lit e em Angular com *signals*, três no
 Android e três no *desktop* (versão de 2026-10-13); cobria três
 plataformas, mas o Android e o *desktop* saíram da análise (ADRs 0001 e
-0005), e o Lit e o Angular também (ADR 0013).
+0005), o Angular também, e o Lit, que só entrava em três interfaces,
+voltou nas sete (ADR 0013).
 Em vez de: uma pergunta só, sem subperguntas (decisão de 2026-10-09);
 mais curta, mas a segunda e a terceira rodada ficariam sem pergunta a
 que responder, e a conclusão da terceira, que mede bibliotecas, se
@@ -105,19 +119,19 @@ divide em duas partes") só repetia o §7 e os objetivos.
 Em vez de: quatro modelos de programação, com o RxJS como o reativo por
 fluxos; retomaria a PR de 2017, mas pelas razões do ADR 0013 o RxJS fica
 de apoio.
-Custo: a P1.2 ainda fala da biblioteca de formulário, e a terceira
-rodada passou a refatorar a Reserva de passagem e o Placar ao vivo para
-a forma do ecossistema (ADR 0029), e a redação dela muda com a tcc-vgrx;
-a pergunta restringe o alcance: diferenças de modelo de programação que
-não aparecem no código, como o desempenho, ficam fora da resposta; as
-subperguntas pedem que a introdução e a conclusão respondam a três
-perguntas, e a P1.2 só se responde no ecossistema típico; os rótulos
-hierárquicos obrigam a chamar as rodadas pelo ordinal, e os ADRs, as
-notas de `docs/`, `implementacoes/` e as tarefas que diziam P2 e P3
-mudam; a introdução, o título ("Demonstração e Análise de Programação
-Funcional e Reativa") e a análise do Contador em `cases.org` precisam
-ser reescritos; os programas de listas mudam do `cases.org` para o
-`prog.org`; a mudança deve ser justificada ao curso e aos orientadores.
+Custo: a P1.2 junta quatro formas numa subpergunta, e a resposta dela
+sai por vertente, de uma ou duas interfaces cada; a pergunta restringe o
+alcance: diferenças de modelo de programação que não aparecem no código,
+como o desempenho, ficam fora da resposta; as subperguntas pedem que a
+introdução e a conclusão respondam a três perguntas, e a P1.2 só se
+responde em cada forma, sem atribuição só ao modelo de programação; os
+rótulos hierárquicos obrigam a chamar as rodadas pelo ordinal, e os
+ADRs, as notas de `docs/`, `implementacoes/` e as tarefas que diziam P2
+e P3 mudam; a introdução, o título ("Demonstração e Análise de
+Programação Funcional e Reativa") e a análise do Contador em `cases.org`
+precisam ser reescritos; os programas de listas mudam do `cases.org`
+para o `prog.org`; a mudança deve ser justificada ao curso e aos
+orientadores.
 
 Fontes: revisão da introdução de 2026-09-23 (Wazlawick);
 `docs/processo/projeto-de-2017.md`; ADRs 0012, 0013, 0021 e 0029, que
