@@ -1,4 +1,4 @@
-# 0042. O contraste depois da análise leva o Elm, o Foldkit, o Cycle.js, o Angular com *signals* e RxJS e o TanStack Query à primeira e à segunda rodada das interfaces em que cada um difere, lê o diff da segunda, fica em `implementacoes/contraste/`, com o mesmo teste, e é o primeiro a sair no corte
+# 0042. O contraste depois da análise leva o Elm, o Foldkit, o Cycle.js, o Angular com *signals* e RxJS e o TanStack Query à primeira e à segunda rodada das interfaces em que cada um difere, lê o diff da segunda, fica em `contraste/` ao lado do conjunto analisado, com o mesmo teste, e é o primeiro a sair no corte
 
 2026-10-25. A cadeia de pares (ADR 0013) põe na análise só o Web
 Component, o Lit, o Web Component com *signals*, o Solid e o React, e
@@ -26,15 +26,15 @@ mudar um requisito, e não da versão base: iniciar o campo do Flight
 Booker com a data de hoje "seems very involved" (p. 91), e "some easy
 things with JavaFX required a lot of work in Elm" (p. 96) (decisão do
 autor em 2026-10-25). O código fica em
-`implementacoes/contraste/<interface>/<tecnologia>/`, fora do conjunto
-analisado, e passa pelo teste de conformidade e pelas capturas da
-interface, com o `dominio.ts` importado onde a linguagem deixa (o Elm
-reescreve as regras). No corte do ADR 0029, o contraste sai antes de
-tudo: primeiro a segunda rodada dele, inteira, e a seção volta a ler a
-primeira, como Kiss; depois uma tecnologia por vez: 1) o TanStack
-Query; 2) o Foldkit; 3) o Cycle.js; 4) o Angular com *signals* e RxJS;
-5) o Elm, o último, pelo precedente de Kiss (decisões do autor em
-2026-10-23 e 2026-10-25).
+`interfaces-graficas/<interface>/contraste/<tecnologia>/`, irmã de
+`analisadas/`, fora do conjunto analisado (ADR 0025), e passa pelo teste
+de conformidade e pelas capturas da interface, com o `dominio.ts`
+importado onde a linguagem deixa (o Elm reescreve as regras). No corte do
+ADR 0029, o contraste sai antes de tudo: primeiro a segunda rodada dele,
+inteira, e a seção volta a ler a primeira, como Kiss; depois uma
+tecnologia por vez: 1) o TanStack Query; 2) o Foldkit; 3) o Cycle.js; 4) o
+Angular com *signals* e RxJS; 5) o Elm, o último, pelo precedente de Kiss
+(decisões do autor em 2026-10-23 e 2026-10-25).
 
 Em vez de: o contraste só na primeira rodada, como o Elm em Kiss
 (decisão de 2026-10-23); 12 implementações, com precedente, mas sem a
@@ -71,10 +71,14 @@ Em vez de: as cinco tecnologias nas mesmas três interfaces (o Contador,
 a Busca e o Placar ao vivo); lado a lado nas mesmas telas, mas o MVU
 perderia o Circle Drawer, em que o desfazer o favorece.
 Em vez de: o código junto das cinco tecnologias, em
-`implementacoes/<interface>/`, ou numa pasta própria sem teste; os
-comandos já funcionariam, ou o Elm sairia mais barato, mas a primeira
-mistura o analisado com o contraste, e a segunda deixa sem prova que o
-contraste faz o mesmo, e a diferença lida pode ser de comportamento.
+`interfaces-graficas/<interface>/analisadas/`, ou numa pasta própria sem
+teste; os comandos já funcionariam, ou o Elm sairia mais barato, mas a
+primeira mistura o analisado com o contraste, e a segunda deixa sem prova
+que o contraste faz o mesmo, e a diferença lida pode ser de comportamento.
+Em vez de: `implementacoes/contraste/<interface>/<tecnologia>/`, a
+primeira versão deste ADR, de 2026-10-25; o contraste ficava separado
+logo no topo, mas importaria o domínio, as cenas e o teste de conformidade
+de outra árvore, a da interface (ADR 0025).
 Em vez de: o contraste depois do bolão e do "lembrar meu nome", ou fora
 da ordem de corte; pesaria mais que duas mudanças sem tipo novo, ou
 seria mais simples, mas passaria à frente da análise principal, ou
@@ -88,7 +92,7 @@ em beta e quebra em versões menores; o Cycle.js está parado desde 2022
 e não tem artigo revisado por pares; o Angular fica com duas notações, e
 a seção separa o que é do *signal* e o que é do RxJS; o Placar ao vivo
 do contraste fala SSE, com a frequência numa requisição à parte, como o
-da análise; os comandos de `implementacoes/` e o
+da análise; os comandos de `interfaces-graficas/` e o
 `bin/testes-da-revisao.py` passam a conhecer a pasta nova; as
 tecnologias do contraste só se comparam entre si duas a duas, na mesma
 interface; com o prazo apertado, a seção pode sair só com a primeira
