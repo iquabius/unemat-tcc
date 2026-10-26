@@ -1,7 +1,8 @@
 # Histórico dos ADRs: os que saíram de `docs/adr/`
 
 Referência. Cada ADR que saiu de `docs/adr/`, por corte ou por ter sido
-absorvido por outro, com o commit, a data e o ADR que o absorveu, para
+absorvido por outro, com o commit, a data e o destino (o ADR que o
+absorveu, ou a regra, o verbete ou o docstring que o recebeu), para
 que a cadeia inteira das decisões se refaça pelo git (ADR 0044). O ADR
 que sai ganha uma linha aqui no mesmo commit. A troca do nome do arquivo
 não entra: `git log --follow` a acha.

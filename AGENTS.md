@@ -415,10 +415,12 @@ gerou: o ADR tem o tamanho que a cadeia das decisões pede, e nada mais
 - Decisão que muda reescreve o ADR no lugar, com a data nova e a decisão
   anterior num "Em vez de"; errata se corrige no texto. O git guarda as
   versões, e a numeração tem lacunas.
-- O ADR absorvido por outro e o "Em vez de" que a cadeia não pede saem.
-  O ADR que sai ganha, no mesmo commit, uma linha em
-  `docs/processo/historico-dos-adrs.md`, com o commit, a data e o ADR que
-  o absorveu.
+- O ADR absorvido por outro e o "Em vez de" que a cadeia não pede saem;
+  o ADR que não passa nos três critérios da skill `adr` sai para a regra
+  do `AGENTS.md`, o verbete do `GLOSSARY.md` ou o docstring que já diz
+  quase tudo dele. O ADR que sai ganha, no mesmo commit, uma linha em
+  `docs/processo/historico-dos-adrs.md`, com o commit pelo assunto, a
+  data e o destino.
 - O título que muda troca o nome do arquivo, com o caminho em todas as
   referências, num commit só de movimento, antes do que muda o texto.
 
