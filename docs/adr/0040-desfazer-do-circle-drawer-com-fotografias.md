@@ -1,51 +1,63 @@
 # 0040. O desfazer do Circle Drawer com fotografias
 
-2026-10-20. No Circle Drawer, Kiss (2014, p. 48) concluiu que "the
-paradigm differences clearly dominated", mas o contraste dele junta duas
-escolhas: a forma do histórico, o comando do Java contra a lista de
-listas com um cursor do Scala (p. 41-45), e a forma da alteração, o
-círculo alterado no lugar contra a lista trocada por uma cópia, a
-proximidade de descrição da p. 46; o híbrido da p. 48 separa as duas. O
-trabalho fixa a primeira e deixa a segunda no idioma de cada tecnologia:
-nas quatro, o histórico guarda uma fotografia da lista a cada passo, e o
-desfazer e o refazer movem o cursor; a alteração se escreve no lugar no
-Web Component e, com um *store* do `solid-js` e `produce`, no Solid e no
-Web Component com *signals* (decisão do autor de 2026-10-24, tcc-wtt6),
-e por cópia no React, cujo `setState` ignora a mesma referência. A forma do
-histórico é escolha de projeto, que qualquer das tecnologias aceita; a
-da alteração depende do modelo de programação, e é a diferença que o ADR
-0010 quer à vista. Onde a alteração é no lugar, a fotografia é uma cópia
-profunda, ao guardar o passo e ao voltar a ele, senão o histórico
-dividiria os círculos com a lista, o risco que Kiss aponta no híbrido
-("deeply copyable").
+2026-10-25. No Circle Drawer, a análise atribuiria ao modelo de
+programação uma escolha de projeto: a conclusão de Kiss (2014, p. 48),
+de que o paradigma dominou, junta a forma do histórico, o comando do
+Java contra a lista de listas do Scala (p. 41-45), e a forma da
+alteração, o círculo alterado no lugar contra a lista trocada por uma
+cópia (p. 46).
 
-Em vez de: fotografias com a lista imutável nas quatro, como o Scala de
-Kiss (decisão de 2026-10-19); a diferença lida ficaria só no gatilho do
-desenho, na seleção derivada e no controle de diálogo, sem nada que
-dependa da forma do estado, mas no Web Component a lista se copiaria
-onde a alteração no lugar é o natural e a forma que se ensina, e a
-diferença entre alterar e copiar sairia da análise por construção.
-Em vez de: a forma típica de cada tecnologia também no histórico,
-comandos no Web Component e fotografias no React e no Solid, como o
-tutorial do jogo da velha do React guarda o histórico; mais perto do
-código real, mas mediria a escolha entre comando e fotografia junto com
-o modelo de programação.
-Em vez de: comandos nas quatro, como o Java de Kiss (p. 41-43); fiel ao
-lado orientado a objetos dele, mas no React os comandos viram funções
-que devolvem a lista nova, longe do que se escreve nele.
-Em vez de, no Web Component com *signals*: um *signal* da lista copiada
-a cada mudança, como no React, ou um *signal* com `equals: false` sobre
-a lista alterada no lugar, como no Web Component; os dois afastariam o
-par com o Solid da diferença só na montagem e no modelo de componente,
-que a regra de 2026-10-23 do `interfaces-graficas/AGENTS.md` pede.
-Custo: o contraste entre guardar o comando e guardar a fotografia, onde
-Kiss viu a vantagem do Scala em viscosidade, concisão, propensão a erros
-e nível de abstração (p. 46-48), fica fora da análise; o arrastar da
-segunda rodada (ADR 0029) entra como mais uma fotografia em todas, o
-caso barato de Kiss (p. 47); no Web Component, no Web Component com
-*signals* e no Solid, a cópia profunda se escreve ao guardar o passo e
-ao voltar a ele, o que o React não precisa, e a cópia esquecida só o
-teste de conformidade pega.
+Critérios:
 
-Fontes: Kiss (2014, §3.8, p. 41-48), em `acervo/kiss2014.txt`; ADRs 0010
-e 0029; tarefas tcc-wtt6 e tcc-2pu0.
+- a forma da alteração, que depende do modelo de programação, fica à
+  vista (ADR 0010);
+- a escolha que qualquer tecnologia aceita fica igual em todas;
+- o código de cada tecnologia segue o idioma dela.
+
+O desfazer do Circle Drawer guarda fotografias: nas cinco tecnologias,
+o histórico guarda uma fotografia da lista a cada passo, e o desfazer e
+o refazer movem o cursor. A alteração segue o ADR 0010: no lugar no Web
+Component; num *store* do `solid-js`, com `produce`, no Solid e no Web
+Component com *signals*; por cópia no Lit, como a documentação dele
+recomenda ("Treat objects and arrays as immutable", lit.dev,
+Properties), e no React, cujo `setState` ignora a mesma referência. Onde
+a alteração é no lugar, nas três primeiras, é o híbrido de Kiss (p. 48):
+a fotografia é uma cópia profunda (`structuredClone`), senão o
+histórico dividiria os círculos com a lista ("deeply copyable", p. 48);
+onde é por cópia, a própria lista é a fotografia. Decisões do autor em
+2026-10-20, no Web Component com *signals* em 2026-10-24 e no Lit em
+2026-10-25 (tcc-cp6c).
+
+Em vez de: o Lit no lugar, seguido de `requestUpdate()` (decisão de
+2026-10-25, revista no mesmo dia); o par Web Component × Lit diferiria
+só na ligação, mas no Lit se escreveria a forma que a documentação dá
+como técnica avançada, e o Lit e o React, um modelo de programação só,
+alterariam de formas diferentes (falha o primeiro e o terceiro
+critério).
+Em vez de: a forma típica de cada tecnologia também no histórico
+(decisão de 2026-10-19), como comandos no Web Component e fotografias
+no React e no Solid; mais perto do código real, mas mediria a escolha
+entre comando e fotografia junto com o modelo de programação (falha o
+segundo critério).
+Em vez de: fotografias com a lista imutável em todas, como o Scala;
+dispensaria a cópia profunda, mas o Web Component copiaria a lista onde
+o natural é alterá-la (falha o primeiro e o terceiro).
+Em vez de: comandos em todas, como o Java (p. 41-43); o histórico
+guardaria só o que muda a cada passo, mas no React os
+comandos viram funções que devolvem a lista nova (falha o terceiro).
+
+Custo: a diferença entre guardar o comando e guardar a fotografia, em
+que Kiss viu a vantagem do Scala em viscosidade, concisão, propensão a
+erros e nível de abstração (p. 46-48), não entra na análise, e o
+arrastar da segunda rodada (ADR 0029) entra como mais uma fotografia em
+todas, o caso barato de Kiss (p. 47); nas três tecnologias que
+alteram no lugar, a cópia profunda se escreve, e a esquecida só o teste
+de conformidade pega; o par Web Component × Lit difere também na
+alteração, no Circle Drawer e na Planilha; até a tcc-f50c, o código do
+Lit ainda altera no lugar.
+
+Fontes: Kiss (2014, §3.8, p. 41-48), em `acervo/kiss2014.txt`;
+`interfaces-graficas/desenho-de-circulos/analisadas/lit/src/main.ts`;
+commits `b3061870` (a decisão de 2026-10-19) e `07656463`; tarefas
+tcc-wtt6, tcc-cp6c e tcc-f50c; lit.dev, Properties, "Mutating object
+and array properties" (lida em 2026-10-25).
