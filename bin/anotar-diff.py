@@ -405,10 +405,11 @@ def secoes(aux):
 
     O nome que a marca grava (\\@currentlabelname) não serve: a legenda de
     figura e de tabela também o muda. Valem as entradas do sumário, que o
-    .aux traz na mesma ordem das marcas: o capítulo, a seção e a subseção
-    numerados, pelo título, sem o número, que no diff conta também as
-    seções apagadas e por isso não é o do texto; a subsubseção e o
-    parágrafo ficam na subseção. Antes do primeiro capítulo,
+    .aux traz na mesma ordem das marcas: o capítulo, com número ou sem
+    (a introdução até a v0.9), e a seção e a subseção numeradas, pelo
+    título, sem o número, que no diff conta também as seções apagadas e
+    por isso não é o do texto; a subsubseção e o parágrafo ficam na
+    subseção. Antes do primeiro capítulo,
     "pré-textuais"; da bibliografia (\\difbiblio) em diante, "referências";
     nos capítulos de apêndice (âncora appendix.*), "apêndices". O título
     que só tem texto apagado (o capítulo ou a seção que saiu) não muda o
@@ -638,9 +639,11 @@ def metricas(tex):
     citar; as figuras, tabelas e listagens com a legenda toda nova ou toda
     apagada; e se o lugar é novo (título novo e ao menos NOVA do texto
     novo) ou mudou de título (palavras trocadas; maiúscula não conta).
+    O capítulo sem número entra pela linha do sumário (\\addcontentsline).
     Devolve (lugares, sairam): lugares {(capítulo, seção, subseção): {...}}
     na ordem do documento, e sairam, os títulos que só têm texto apagado
-    e não são o de um lugar renomeado, [(nível, capítulo, título)]."""
+    e não são o de um lugar renomeado nem, no capítulo, o de um que
+    continua no texto, [(nível, capítulo, título)]."""
     corpo = tex[tex.find("\\begin{document}"):]
     # O título cujo comando mudou (\chapter* para \chapter) fica num
     # %DIFDELCMD, e o novo sai todo em \DIFadd: com o mesmo texto, o lugar
@@ -658,12 +661,17 @@ def metricas(tex):
 
     textos, natureza, sairam = {}, {}, []
     lugar, i = ("pré-textuais", "", ""), 0
+    # O capítulo sem número, como a introdução até a v0.9 (\chapter* e
+    # \addcontentsline), entra pela linha do sumário, como em secoes();
+    # o texto entre os dois, o \label, fica no lugar anterior.
     titulo = re.compile(r"\\(chapter|section|subsection)(\*?)\s*(?:\[[^\]]*\]\s*)?(?=\{)"
+                        r"|\\addcontentsline\s*\{toc\}\s*\{(chapter)\}\s*(?=\{)"
                         r"|\\printbibliography|\\apendices(?![a-zA-Z])")
     for m in titulo.finditer(corpo):
         textos.setdefault(lugar, []).append(corpo[i:m.start()])
         i = m.end()
-        if not m.group(1):
+        nivel = m.group(1) or m.group(3)
+        if not nivel:
             lugar = ("referências" if "bibliography" in m.group(0) else "apêndices", "", "")
             continue
         args, i = argumentos(corpo, m.end(), 1)
@@ -671,7 +679,6 @@ def metricas(tex):
             i = m.end() if args is None else i
             continue
         nome = texto_simples(args[0])
-        nivel = m.group(1)
         if not nome:
             apagado = texto_simples(re.sub(r"\\DIFdel(?:FL)?(?![a-zA-Z])", "", args[0]))
             sairam.append((nivel, lugar[0], apagado))
@@ -690,6 +697,13 @@ def metricas(tex):
                 natureza[lugar] = "título mudou"
     textos.setdefault(lugar, []).append(corpo[i:])
 
+    # O capítulo cujo título continua no texto, num capítulo que não é
+    # novo, não saiu: na v0.10, a linha do sumário apagada é a da
+    # introdução, que trocou o \chapter* pelo \chapter. O título do
+    # capítulo novo fica para o laço seguinte, que acha o que mudou de
+    # lugar.
+    ficaram = {lg[0].lower() for lg in textos if not any(lg[1:]) and natureza.get(lg) != "nova"}
+    sairam = [s for s in sairam if s[0] != "chapter" or s[2].lower() not in ficaram]
     # O título apagado que é o de um lugar novo renomeado não saiu.
     for item in list(sairam):
         nivel, cap, apagado = item

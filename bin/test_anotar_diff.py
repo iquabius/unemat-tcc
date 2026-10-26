@@ -491,6 +491,54 @@ class Metricas(unittest.TestCase):
             "\\chapter{\\DIFadd{Notas}}\n\\DIFadd{Tudo novo aqui.}\n")
         self.assertEqual(lugares[("Notas", "", "")]["natureza"], "nova")
 
+    def test_capítulo_sem_número_pela_linha_do_sumário(self):
+        # A introdução até a v0.9.
+        lugares, sairam = anotar.metricas(
+            "\\begin{document}\\chapter*{Introdução}\\label{chap:intro}\n"
+            "\\addcontentsline{toc}{chapter}{Introdução}\n"
+            "Velho \\DIFaddbegin \\DIFadd{três palavras novas}\\DIFaddend.\n"
+            "\\chapter{Programação}\nIgual.\n")
+        self.assertEqual(list(lugares), [("Introdução", "", "")])
+        m = lugares[("Introdução", "", "")]
+        self.assertEqual((m["natureza"], m["palavras_mais"], m["palavras_menos"]), ("", 3, 0))
+        self.assertEqual(sairam, [])
+
+    def test_capítulo_que_ganhou_número_não_saiu(self):
+        # A introdução da v0.10, no trecho do latexdiff reduzido.
+        lugares, sairam = anotar.metricas(
+            "\\begin{document}\\DIFdelbegin %DIFDELCMD < \\chapter*{Introdução}%%%\n"
+            "\\DIFdelend \\DIFaddbegin \\chapter{\\DIFadd{Introdução}}\\DIFaddend\n"
+            "\\DIFdelbegin \\addcontentsline{toc}{chapter}{\\DIFdel{Introdução}}\\DIFdelend\n"
+            "Velho \\DIFaddbegin \\DIFadd{novo}\\DIFaddend.\n")
+        m = lugares[("Introdução", "", "")]
+        self.assertEqual((m["natureza"], m["palavras_mais"], m["palavras_menos"]), ("", 1, 0))
+        self.assertEqual(sairam, [])
+
+    def test_linha_do_sumário_apagada_não_desfaz_capítulo_novo(self):
+        lugares, sairam = anotar.metricas(
+            "\\begin{document}\\DIFdelbegin %DIFDELCMD < \\chapter*{Introdução}%%%\n"
+            "\\DIFdelend \\DIFaddbegin \\chapter{\\DIFadd{Introdução}}\\DIFaddend\n"
+            "\\DIFdelbegin \\addcontentsline{toc}{chapter}{\\DIFdel{Introdução}}\\DIFdelend\n"
+            "Velho.\n\\chapter{\\DIFadd{Introduções}}\n\\DIFadd{Texto todo novo aqui.}\n")
+        self.assertEqual(lugares[("Introduções", "", "")]["natureza"], "nova")
+        self.assertEqual(sairam, [])
+
+    def test_capítulo_que_mudou_de_lugar_não_saiu_nem_é_novo(self):
+        lugares, sairam = anotar.metricas(
+            "\\begin{document}\\chapter{\\DIFdel{Resultados}}\n\\DIFdel{Texto velho.}\n"
+            "\\chapter{Conclusão}\nIgual.\n"
+            "\\chapter{\\DIFadd{Resultados}}\n\\DIFadd{Texto velho.}\n")
+        self.assertEqual(lugares[("Resultados", "", "")]["natureza"], "")
+        self.assertEqual(sairam, [])
+
+    def test_capítulo_sem_número_que_saiu(self):
+        _, sairam = anotar.metricas(
+            "\\begin{document}\\chapter{Introdução}\nIgual.\n"
+            "\\DIFdelbegin %DIFDELCMD < \\chapter*{Apresentação}%%%\n\\DIFdelend\n"
+            "\\DIFdelbegin \\addcontentsline{toc}{chapter}{\\DIFdel{Apresentação}}\\DIFdelend\n"
+            "\\DIFdelbegin \\DIFdel{Texto que saiu.}\\DIFdelend\n")
+        self.assertEqual(sairam, [("chapter", "Introdução", "Apresentação")])
+
     def test_chaves_de_cites(self):
         self.assertEqual(anotar.chaves(r"\cites[p. 1]{a}[p. 2]{b,c} e \textcite{d}{nao}"),
                          ["a", "b", "c", "d"])
