@@ -16,7 +16,7 @@ Critérios:
   há dentro;
 - o domínio, as cenas, as capturas e o teste de conformidade de uma
   interface valem para o conjunto analisado e para o contraste (ADRs
-  0008 e 0010) e ficam num lugar só;
+  0010 e 0041) e ficam num lugar só;
 - o conjunto analisado se aponta por um caminho, sem listar exceções,
   para o anexo, a contagem de linhas e os *workspaces*;
 - o código que nenhum comando percorre só fica na árvore quando é a
@@ -92,4 +92,4 @@ dois leiautes do LaTeX enquanto houver tag antiga a compilar.
 Fontes: `latexdiff --flatten` e `latexmk -cd` testados no host em
 2026-10-05 (latexmk 4.87); `GLOSSARY.md`, verbetes *Benchmark* de
 notação, Conjunto analisado, Contraste e Código autoral; tarefa
-tcc-qteq, nota de 2026-10-25; ADRs 0001, 0008, 0010 e 0042.
+tcc-qteq, nota de 2026-10-25; ADRs 0001, 0010, 0041 e 0042.

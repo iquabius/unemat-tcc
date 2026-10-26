@@ -39,7 +39,8 @@ dos números"). Tratar como literatura cinzenta no texto.
 
 Kotlin nas duas (ADR 0001). Conferem a web no Formulário, no Quadro e nos
 Dados ao vivo (ADR 0029); capturas pelo Robolectric com Roborazzi, na
-JVM, idênticas às da web (ADR 0008).
+JVM, idênticas às da web (no ADR das capturas, que saiu de `docs/adr/`
+em 2026-10-25, `docs/processo/historico-dos-adrs.md`).
 
 ### Hipótese sobre o ambiente de execução do Compose
 

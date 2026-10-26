@@ -61,7 +61,7 @@ JavaFX os dois se escrevem juntos, em código; na web, não)
 O que a tela mostra além dos elementos e dos textos: cores, fontes,
 tamanhos e o *layout*. Fica no CSS comum a todas as tecnologias de uma
 interface, fora da notação; só o valor que depende do estado, como uma
-posição calculada, entra na notação (ADRs 0008 e 0041).
+posição calculada, entra na notação (ADR 0041).
 _Avoid_: estilo sozinho (o estilo orientado a eventos e o estilo do
 código são outros; fica "folha de estilo" para o arquivo CSS); visual;
 *design*
