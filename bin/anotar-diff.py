@@ -78,7 +78,7 @@ def sem_comentario(linha):
 
 def visivel(linha):
     """Se a linha imprime alguma coisa, e não só \\label e comentário, como a
-    dos rótulos sec:org1a2b3c4 que o Org sorteia a cada exportação."""
+    do \\label que o Org põe embaixo de cada título."""
     return bool(re.sub(r"\\label\{[^}]*\}", "", sem_comentario(linha)).strip())
 
 

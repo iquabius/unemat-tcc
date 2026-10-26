@@ -85,8 +85,10 @@ sem_rotulos() { sed -E 's/org[0-9a-f]{7}/org/g' "$1"; }
 seguir() {
   # Leva o Evince à primeira linha do diff que mudou desde o PDF anterior.
   # Não contam os comentários, porque o cabeçalho do latexdiff traz a hora
-  # dos arquivos, nem os rótulos que o Org sorteia a cada exportação
-  # (sec:org1a2b3c4). A primeira compilação não tem com o que comparar e só
+  # dos arquivos, nem os rótulos que o Org ainda sorteia a cada exportação
+  # (org1a2b3c4, o da nota de rodapé citada mais de uma vez ou posta numa
+  # tabela, no termo de um item ou noutra nota; os títulos têm rótulo fixo,
+  # pelo título). A primeira compilação não tem com o que comparar e só
   # guarda o diff. Com a janela fechada, nada acontece.
   local linha
   if [ "${SEGUIR:-sim}" != none ] && [ -f "$ANTERIOR" ]; then
