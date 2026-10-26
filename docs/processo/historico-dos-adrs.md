@@ -48,3 +48,4 @@ pelo assunto, que se acha no `git log`; o sha sai de
 | 0012 | `0012-quatro-tecnologias-nas-sete-interfaces-e-as-14-dcs.md` | 0017 (as 14 DCs) e 0013 (a composição) | "Reescreve o ADR 0017 com as 14 DCs dentro dele" |
 | 0033 | `0033-alteracao-do-estado-em-cada-implementacao.md` | 0010 | "Reescreve o ADR 0010 com a alteração do estado dentro dele" |
 | 0008 | `0008-capturas-versionadas-identicas-entre-as-tecnologias-web.md` | 0041 | "Reescreve o ADR 0041 com as capturas idênticas dentro dele" |
+| 0036 | `0036-notas-de-fontes-por-assunto-com-ponto-de-entrada.md` | o `AGENTS.md`, seção "Notas em `docs/`", e o ADR 0035 (a fronteira entre a matriz e a nota de fontes) | "Leva ao AGENTS.md as notas de docs/ por assunto" |

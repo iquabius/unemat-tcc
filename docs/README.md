@@ -8,7 +8,8 @@ o que quer dizer a legenda das notas de fontes. Nota nova entra aqui.
 por assunto, e o trecho que o texto já cita fica em
 `texto/fontes/<chave>.org` (ADR 0035). As notas que seguram o argumento
 ficam na raiz de `docs/`, e as de apoio em `bibliografia/`,
-`plataformas/` e `processo/` (ADR 0036; seção "As notas"). Para achar o
+`plataformas/` e `processo/` (`AGENTS.md`, seção "Notas em `docs/`";
+aqui, seção "As notas"). Para achar o
 que sustenta um elo, comece pela tabela "Os elos do argumento"; para
 achar as fontes que mais pesam, pela tabela "Fontes centrais".
 

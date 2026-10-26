@@ -352,7 +352,9 @@ tabela das centrais muda com o peso. Na raiz de `docs/` ficam as notas
 que seguram um elo do argumento ou se leem em toda rodada; as de apoio
 ficam numa pasta por tipo de material: `docs/bibliografia/` (fontes de
 apoio e as buscas), `docs/plataformas/` (uma nota por plataforma, com as
-tecnologias) e `docs/processo/` (o projeto e as ferramentas). Cada nota
+tecnologias) e `docs/processo/` (o projeto e as ferramentas), decisão
+de 2026-10-16. A fonte que serve a dois assuntos fica na nota de um
+deles, e a outra aponta para ela. Cada nota
 é de um tipo só, dito na primeira linha depois do título:
 
 - **Fontes** (`docs/estado-eventos-e-complexidade.md`): as fontes de um
