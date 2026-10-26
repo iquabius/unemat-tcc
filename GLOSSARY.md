@@ -76,7 +76,7 @@ disposição como termo à parte
 **Interface**:
 Uma das sete interfaces gráficas especificadas que todas as implementações
 seguem: Contador, Reserva de passagem, Busca com sugestões, Login com
-quarentena, Placar ao vivo, planilha e Circle Drawer (ADR 0002; o
+quarentena, Placar ao vivo, Planilha e Circle Drawer (ADR 0002; o
 conversor de moedas saiu da análise em 2026-10-22). Onde "a interface" puder ser qualquer interface gráfica, leva
 o nome ("a interface da Reserva de passagem") ou o número ("as sete
 interfaces"); o domínio fica no plural ou com "gráfica" ("programar
@@ -97,7 +97,7 @@ não diz que dados são); conversor de câmbio para o conversor de moedas
 (até 2026-10-19: vinha do título da tarefa do bd, e não de uma decisão;
 "conversor de moedas" é o nome comum da ferramenta e o *currency
 converter* de Kiss, 2014, p. 21, nota 10); planilha do orçamento para a
-planilha (até 2026-10-19: o orçamento do mês é o tema dela, e não o
+Planilha (até 2026-10-19: o orçamento do mês é o tema dela, e não o
 nome)
 
 ***Benchmark* de notação**:
@@ -362,7 +362,7 @@ capturas); referência (é o tipo de nota de `docs/`); original
 As regras de uma interface que não dependem da tela (datas, mensagens,
 servidores simulados, fontes de dados, a cotação, a análise e a avaliação
 das fórmulas), compartilhadas pelas implementações. A propagação da
-planilha fica em cada implementação, porque escrever uma alteração de
+Planilha fica em cada implementação, porque escrever uma alteração de
 estado é parte da notação, a regra do ADR 0033.
 _Avoid_: lógica de negócio e regras de negócio, que pressupõem um negócio:
 a validação de datas da Reserva de passagem não é regra de negócio de
