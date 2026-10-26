@@ -813,12 +813,16 @@ def markdown(titulo):
     return re.sub(r"([\\`*_\[\]<>])", r"\\\1", titulo)
 
 
-ADR = re.compile(r"\bADRs? \d{4}(?![\d-])(?:(?:, | e )\d{4}(?![\d-]))*")
+# O intervalo ("ADRs 0011 a 0014") só no plural, para o "a" de "o ADR
+# 0017 a 2025" não ligar o ano ao número.
+ADR = re.compile(r"\bADR \d{4}(?![\d-])(?:(?:, | e )\d{4}(?![\d-]))*"
+                 r"|\bADRs \d{4}(?![\d-])(?:(?:, | e | a )\d{4}(?![\d-]))*")
 
 
 def rodapes(textos, adrs):
     """Uma chamada de rodapé depois de cada número de ADR citado nos textos
-    ("ADR 0022", "ADRs 0012 e 0029") e uma nota por ADR, na ordem da
+    ("ADR 0022", "ADRs 0012 e 0029", "ADRs 0011 a 0014", que dá nota às
+    duas pontas do intervalo) e uma nota por ADR, na ordem da
     primeira citação. adrs: {"0022": (arquivo, título)}; o número que não
     está nele fica sem chamada, com um aviso. Devolve os textos com as
     chamadas e as notas, [(número, arquivo, título)]."""

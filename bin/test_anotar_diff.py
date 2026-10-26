@@ -324,6 +324,19 @@ class CorpoDaRelease(unittest.TestCase):
         self.assertEqual(notas, [("0029", "docs/adr/0029-b.md", "Vinte e nove"),
                                  ("0012", "docs/adr/0012-a.md", "Doze")])
 
+    def test_rodape_nas_pontas_do_intervalo(self):
+        # A mensagem da v0.5.
+        adrs = {n: (f"docs/adr/{n}-x.md", n) for n in ("0011", "0012", "0013", "0014", "0016")}
+        with mock.patch("sys.stderr", new_callable=io.StringIO) as erro:
+            textos, notas = anotar.rodapes(["O recorte (ADRs 0011 a 0014). A introdução.",
+                                            "O ADR 0012 a 2025.", "Os ADRs 0012 a 0014 e 0016."], adrs)
+        # O ano não vira número de ADR, nem com aviso.
+        self.assertEqual(erro.getvalue(), "")
+        self.assertEqual(textos, ["O recorte (ADRs 0011[^adr-0011] a 0014[^adr-0014]). A introdução.",
+                                  "O ADR 0012[^adr-0012] a 2025.",
+                                  "Os ADRs 0012[^adr-0012] a 0014[^adr-0014] e 0016[^adr-0016]."])
+        self.assertEqual([n for n, _, _ in notas], ["0011", "0014", "0012", "0016"])
+
     def test_capitulo_seções_e_só_marcação(self):
         dados = {
             "paginas": [pagina(1, "pré-textuais"), pagina(11, "Introdução"),
