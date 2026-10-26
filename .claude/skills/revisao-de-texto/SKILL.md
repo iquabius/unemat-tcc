@@ -266,7 +266,11 @@ perguntas, e então o autor dá o rótulo.
      parágrafo e a página da publicação, sem o §N:
      `* [[file:../<capítulo>.org::<começo>][<capítulo>: <começo>]], p. N`,
      e um rótulo entre parênteses quando a mesma fonte sustenta duas
-     afirmações do mesmo parágrafo;
+     afirmações do mesmo parágrafo. O parágrafo que abre com outro link
+     entre colchetes, como uma sigla, leva os colchetes escapados na
+     busca, como o Org os aceita, e a descrição sem eles:
+     `* [[file:../cases.org::As \[\[glspl:dc\]\] de][cases: As DCs de]], p. N`;
+     a citação que abre o parágrafo fica fora da busca;
    - embaixo, uma linha `- Rótulo:` por campo: `Frase` (a frase do texto,
      ou o trecho dela que faz a afirmação), `Trecho` (curto, na língua
      original, com a página da publicação), `Lido em` (o PDF em

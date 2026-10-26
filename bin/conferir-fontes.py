@@ -19,7 +19,9 @@ código 1 se houver algum:
 - link quebrado: o título não tem link de busca, o link aponta para um
   arquivo que não é capítulo, a busca não casa com o texto ou casa no
   meio de um parágrafo; o começo vale depois do marcador de item e da
-  citação que abre a frase.
+  citação que abre a frase. O parágrafo que abre com outro link entre
+  colchetes, como uma sigla, leva os colchetes escapados na busca, como o
+  Org os aceita: file:../cases.org::As \\[\\[glspl:dc\\]\\] de.
 
 O link se procura como o Org procura um link de texto: sem diferença de
 maiúsculas e com qualquer espaço ou quebra de linha entre as palavras, na
@@ -67,12 +69,23 @@ PALAVRA_CHAVE = re.compile(r"\s*#\+")
 BLOCO_IGNORADO = re.compile(r"\s*#\+begin_(comment|src|example)\b", re.I)
 # O começo de um parágrafo, antes da primeira palavra: o marcador de item e
 # a citação que abre a frase ([[textcite:chave][p. N]] ou textcite:chave),
-# que não cabe num link de busca do Org.
+# que fica fora da busca (entre colchetes, ela só caberia escapada).
 ABERTURA = re.compile(
     r"\s*(?:(?:[-+]|\d+[.)])\s+)?"
     r"(?:(?:\[\[[a-z]*cite[a-z]*\*?:[^]]+\](?:\[[^]]*\])?\]"
     r"|[a-z]*cite[a-z]*\*?:[\w,;&-]+)\s+)?")
-LINK = re.compile(r"\[\[file:([^]:]+)::([^]]+)\](?:\[[^]]*\])?\]")
+# A busca aceita os colchetes escapados com barra invertida, como o
+# org-link-bracket-re do Org 9.8 (As \[\[glspl:dc\]\] de), e os desfaz como
+# o org-link-unescape: cada sequência de barras antes de um colchete ou do
+# fim fica com a metade das barras, arredondada para baixo.
+LINK = re.compile(r"\[\[file:([^]:]+)::((?:[^][\\]|\\(?:\\\\)*[][]|\\+[^][])+)"
+                  r"\](?:\[[^]]*\])?\]")
+ESCAPE = re.compile(r"(\\+)(?=[][]|\Z)")
+
+
+def desescapar(busca):
+    """A busca de um link do Org sem os escapes, como o Org a procura."""
+    return ESCAPE.sub(lambda m: m.group(1)[:len(m.group(1)) // 2], busca)
 
 
 def normalizar(texto):
@@ -154,7 +167,8 @@ class Afirmacao:
     def __init__(self, nome, linha, chave, titulo, pasta=None):
         self.nome, self.linha, self.chave = nome, linha, chave
         m = LINK.search(titulo)
-        self.arquivo, self.busca = (m.group(1), m.group(2)) if m else (None, None)
+        self.arquivo, self.busca = ((m.group(1), desescapar(m.group(2)))
+                                    if m else (None, None))
         # O capítulo do link, resolvido como o Org o resolve: a partir da
         # pasta do arquivo da matriz; sem a pasta, fica sem destino.
         self.destino = (os.path.realpath(Path(pasta, self.arquivo))

@@ -142,6 +142,19 @@ class Matriz(unittest.TestCase):
         self.assertEqual((b.linha, b.busca, b.corpo),
                          (5, "Três estudos medem", []))
 
+    def test_busca_com_colchetes_escapados(self):
+        a, = cf.matriz(r"* [[file:../cases.org::As \[\[glspl:dc\]\] de]"
+                       r"[cases: As DCs]], p. 12" "\n", "k", "k.org")
+        self.assertEqual((a.busca, a.resto), ("As [[glspl:dc]] de", ", p. 12"))
+
+    def test_desfaz_os_escapes_como_o_org(self):
+        # org-link-unescape: as barras antes de um colchete ou do fim ficam
+        # com a metade, arredondada para baixo; as outras ficam todas
+        casos = {r"a \[b\]": "a [b]", r"a \\\[b": r"a \[b", r"a\\": "a\\",
+                 r"a\b": r"a\b", "a\\\n": "a\\\n"}
+        for escapada, busca in casos.items():
+            self.assertEqual(cf.desescapar(escapada), busca, escapada)
+
     def test_destino_a_partir_da_pasta_da_matriz(self):
         a, = cf.matriz("* [[file:../intro.org::x]]\n* sem link\n", "k",
                        "k.org", "/r/texto/fontes")[:1]
@@ -201,6 +214,18 @@ class Matriz(unittest.TestCase):
         for abertura in ("[[textcite:edwards2009][p. 926]]", "textcite:edwards2009"):
             capitulo = CAPITULO.replace("Três estudos", abertura + " Três estudos")
             self.assertEqual(conferir(capitulo), [], abertura)
+
+    def test_link_escapado_para_o_paragrafo_que_abre_com_sigla(self):
+        for abertura, busca in (("As [[glspl:dc]] de", r"As \[\[glspl:dc\]\] de"),
+                                ("O [[gls:pr]], que", r"O \[\[gls:pr\]\], que")):
+            capitulo = CAPITULO.replace("Três estudos", abertura)
+            matriz = {chave: texto.replace("::Três estudos medem", "::" + busca)
+                      for chave, texto in MATRIZ.items()}
+            self.assertEqual(conferir(capitulo, matriz), [], abertura)
+        # sem o escape, o ]] da sigla fecha o link, e o título fica sem busca
+        a, = cf.matriz("* [[file:../intro.org::As [[glspl:dc]] de]]\n",
+                       "k", "k.org")
+        self.assertIsNone(a.busca)
 
 
 class Desde(unittest.TestCase):
