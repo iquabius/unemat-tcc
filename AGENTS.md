@@ -659,7 +659,24 @@ prova, com a saída na mão e sem subagente (skill `fact-check`, cartucho
 o commit citado e o que ele fez, `git show HEAD:<caminho>` ou
 `:<caminho>` para o que um arquivo diz e o verbo da regra citada, `bd
 show` para a tarefa, o arquivo em `docs/adr/` para o ADR, a saída do
-teste para o número de verificações.
+teste para o número de verificações, o `author` e o `date` da entrada
+do `texto/refs.bib` e o `texto/fontes/<chave>.org` para a fonte citada
+por autor e ano. O corpo da tarefa e o pedido da sessão não provam
+nada: o nome de autor, a página e o sha que vêm deles se conferem na
+fonte, como os outros. O assunto se relê sozinho, como sai no `git log
+--oneline`, e é falso quando diz mais do que o commit fez ("Tira as
+oito DCs" pelo commit que tira a frase que as excluía).
+
+O commit feito direto no `master` (o texto, as tarefas) não passa pela
+revisão de um ramo, e a conferência do agente que escreveu a mensagem é
+cega para o erro que ele mesmo trouxe, como o nome de autor copiado de
+uma tarefa (2026-10-26). Antes dele, um subagente read-only, sem o
+contexto da sessão, confere o rascunho da mensagem contra o diff
+preparado (cartucho `references/commit-message.md`, momento 1b, com a
+instrução de subagente dele) e devolve os achados, que o agente conserta
+antes de mostrar a mensagem; no commit do texto, a mensagem vai ao autor
+junto do diff, no mesmo aprovo.
+
 Esse é o momento em que o `--amend` conserta de graça; a mensagem no
 `master` não se reescreve, e o erro achado depois fica como errata na
 próxima mensagem que tocar o assunto. Sha de um commit do mesmo ramo
