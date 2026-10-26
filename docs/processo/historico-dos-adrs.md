@@ -46,3 +46,4 @@ pelo assunto, que se acha no `git log`; o sha sai de
 | 0034 | `0034-interfaces-implementacoes-e-benchmark-de-notacao.md` | o `GLOSSARY.md` (Interface, *Benchmark* de notação) e o `interfaces-graficas/AGENTS.md` (a variável `gui`) | "Leva ao glossário os termos interface e *benchmark* de notação" |
 | 0005 | `0005-android-fora-da-analise-como-trabalho-futuro.md` | 0001 | "Reescreve o ADR 0001 com o Android dentro dele" |
 | 0012 | `0012-quatro-tecnologias-nas-sete-interfaces-e-as-14-dcs.md` | 0017 (as 14 DCs) e 0013 (a composição) | "Reescreve o ADR 0017 com as 14 DCs dentro dele" |
+| 0033 | `0033-alteracao-do-estado-em-cada-implementacao.md` | 0010 | "Reescreve o ADR 0010 com a alteração do estado dentro dele" |

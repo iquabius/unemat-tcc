@@ -367,7 +367,7 @@ As regras de uma interface que não dependem da tela (datas, mensagens,
 servidores simulados, fontes de dados, a cotação, a análise e a avaliação
 das fórmulas), compartilhadas pelas implementações. A propagação da
 Planilha fica em cada implementação, porque escrever uma alteração de
-estado é parte da notação, a regra do ADR 0033.
+estado é parte da notação, a regra do ADR 0010.
 _Avoid_: lógica de negócio e regras de negócio, que pressupõem um negócio:
 a validação de datas da Reserva de passagem não é regra de negócio de
 ninguém (a *business logic* de Karagkasidis, 2008, é o domínio aqui)

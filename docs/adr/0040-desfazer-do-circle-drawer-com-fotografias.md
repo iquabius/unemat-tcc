@@ -14,7 +14,7 @@ Web Component com *signals* (decisão do autor de 2026-10-24, tcc-wtt6),
 e por cópia no React, cujo `setState` ignora a mesma referência. A forma do
 histórico é escolha de projeto, que qualquer das tecnologias aceita; a
 da alteração depende do modelo de programação, e é a diferença que o ADR
-0033 quer à vista. Onde a alteração é no lugar, a fotografia é uma cópia
+0010 quer à vista. Onde a alteração é no lugar, a fotografia é uma cópia
 profunda, ao guardar o passo e ao voltar a ele, senão o histórico
 dividiria os círculos com a lista, o risco que Kiss aponta no híbrido
 ("deeply copyable").
@@ -47,5 +47,5 @@ caso barato de Kiss (p. 47); no Web Component, no Web Component com
 ao voltar a ele, o que o React não precisa, e a cópia esquecida só o
 teste de conformidade pega.
 
-Fontes: Kiss (2014, §3.8, p. 41-48), em `acervo/kiss2014.txt`; ADRs 0029
-e 0033; tarefas tcc-wtt6 e tcc-2pu0.
+Fontes: Kiss (2014, §3.8, p. 41-48), em `acervo/kiss2014.txt`; ADRs 0010
+e 0029; tarefas tcc-wtt6 e tcc-2pu0.

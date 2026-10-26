@@ -1,41 +1,48 @@
 # 0010. O domínio comum e a alteração do estado em cada implementação
 
-2026-10-19. Para que as implementações de uma interface só difiram na
-coordenação e na tela, as regras do domínio dela (datas, e-mail,
-mensagens, a avaliação das fórmulas, os intervalos e os prazos) e o que
-a interface simula (o servidor, a fonte do Placar ao vivo, que passa a
-ser um servidor WebSocket simulado, ADR 0031, e a contagem do que fica
-aberto para a limpeza ao sair da tela) ficam num `dominio.ts` da
-interface, compartilhado pelo Web Component, pelo Web Component com
-*signals*, pelo React e pelo Solid (ADR 0013). O que a análise compara,
-inclusive a alteração do estado (ADR 0033), fica em cada implementação.
-Os portes do domínio em Kotlin e em C++, de quando o Android e o
-*desktop* estavam na análise, ficaram congelados na pasta
-`fora-da-analise/`, com as diferenças que este ADR registrava, até
-saírem do repositório com ela em 2026-10-25 (ADR 0001).
+2026-10-20. A análise só atribui ao modelo de programação a diferença
+entre as implementações de uma interface se as regras forem as mesmas,
+e perde parte do que compara se a alteração de estado, parte da
+notação, for para um código comum.
 
-Em vez de: a versão de 2026-09-26 deste ADR, com o `dominio.ts`
-portado para `dominio-kotlin/` (e depois para `dominio-cpp/`) com os
-mesmos nomes, sem imitar as peculiaridades do JavaScript: o porte
-responde diferente em entradas-limite (anos de 0 a 99, espaços fora do
-ASCII) e fica assim, com a diferença num teste `@Ignore` que falha se
-ativado; servia à conferência no Android e no *desktop*, que saiu da
-análise.
-Em vez de: igualar o Kotlin ao JavaScript (commit `384b7a5`), para o
-roteiro passar idêntico nas duas plataformas; o código a mais não
-compensava, e o commit seguinte o desfez.
-Em vez de: cada implementação escrever o próprio domínio, mais perto de
-um programa real; mas as implementações difeririam também nas regras, e
-a análise compararia o domínio, e não a coordenação.
-Custo: o domínio compartilhado esconde da análise como cada tecnologia
-escreveria as regras e a simulação, e a linha entre o que é domínio e o
-que é coordenação se decide interface por interface (ADR 0033); a fonte
-em WebSocket simulado põe no domínio um servidor que nenhum programa
-real tem no navegador; nos portes congelados, um e-mail com espaço não
-separável no meio passa no Kotlin e não no JavaScript.
+Critérios:
 
-Fontes: commits `384b7a5` e `ae24a32`;
-`interfaces-graficas/fora-da-analise/formulario/dominio-kotlin/test/DominioTest.kt`,
-no commit anterior ao que tirou a pasta;
-`interfaces-graficas/AGENTS.md`, regra do `dominio.ts`; ADRs 0001,
-0013, 0031 e 0033.
+- as implementações diferem só na coordenação e na tela;
+- a alteração de estado fica à vista em cada tecnologia.
+
+O domínio é comum, e a alteração do estado se escreve em cada
+implementação. As regras e o que a interface simula (as datas, as
+fórmulas, os prazos, os servidores, a contagem do que fica aberto)
+ficam num `dominio.ts` por interface, comum às cinco tecnologias e ao
+contraste, onde a linguagem deixa (ADR 0042); o servidor do Placar ao
+vivo passa a falar SSE na primeira e na segunda rodada e WebSocket na
+vertente do ecossistema (ADRs 0029 e 0031). A alteração do estado
+fica em cada implementação, no idioma da tecnologia (a propagação da
+Planilha; criar, ajustar, desfazer e refazer no Circle Drawer, ADR
+0040), porque, numa função do domínio que devolve o estado novo, a
+diferença entre alterar no lugar e trocar por uma cópia, que Kiss
+(2014, p. 46) aponta no Circle Drawer, sairia da análise. Decisões do
+autor em 2026-10-19 e 2026-10-20.
+
+Em vez de: cada implementação escrever o próprio domínio; mais perto de
+um programa real, mas a análise compararia as regras (falha o primeiro
+critério).
+Em vez de: as transições no domínio, no formato do redutor (protótipo do
+Quadro de tarefas, 2026-10-12); a alteração ficaria num lugar só,
+testável sem a tela, mas o `useReducer` do React ficaria
+imposto às quatro tecnologias que não o usam (falha o segundo).
+
+Custo: o domínio comum esconde como as regras se escreveriam em cada
+tecnologia, e põe nele servidores simulados que nenhum programa real tem
+no navegador; a alteração se repete nas cinco implementações, e um erro
+numa delas só o teste de conformidade pega; a guarda que uma função do
+domínio daria (o limite, o índice que não existe) passa a depender de
+cada implementação; o compilador não avisa da cópia esquecida, porque o
+tipo do estado não é só de leitura: no Circle Drawer, o círculo do
+domínio tem campos alteráveis, e só a lista do React se declara assim
+(errata `89eef7e6`); a linha entre a regra e a alteração se traça em
+cada especificação; até a tcc-jjzc, o domínio do Placar ao vivo só
+simula o WebSocket.
+
+Fontes: Kiss (2014, §3.8, p. 46); `interfaces-graficas/AGENTS.md`,
+regra do `dominio.ts`; tarefas tcc-i7qx, tcc-wtt6 e tcc-z6tg.
