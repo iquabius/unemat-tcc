@@ -124,7 +124,7 @@ variante. O anexo não muda a decisão do Lit: a diferença entre L2 e L3
 está na análise (+8 páginas) tanto quanto no anexo (+11). A tabela de
 totais está no fim da seção; antes, as contagens e as suposições.
 
-### As linhas de hoje (master `d7814135`, 2026-10-24)
+### As linhas de hoje (master `967d35f5`, 2026-10-24)
 
 Linhas de `src/` por implementação, sem os testes, com a parte dos
 `import`, a da montagem da tela (o HTML num texto e o `createElement`
@@ -196,10 +196,11 @@ encurtar as listagens" diz o custo); as outras só a listagem.
 
 ### O código das rodadas 2 e 3 no anexo
 
-O anexo leva só a primeira rodada, a versão de cada implementação no
-`master` de 2026-10-24 (`d7814135`, a junção do Circle Drawer no Web
-Component com *signals*; nenhum commit mudou `implementacoes/` depois,
-até 2026-10-25), antes de qualquer mudança da segunda rodada (nenhuma
+O anexo leva só a primeira rodada, a versão de cada implementação
+antes de qualquer mudança da segunda rodada; as linhas das quatro
+tecnologias de antes do Lit foram contadas no `master` de 2026-10-24
+(`967d35f5`, a junção do Circle Drawer no Web Component com *signals*),
+e as do Lit são estimadas (nenhuma mudança da segunda rodada
 foi implementada: `interfaces-graficas/openspec/changes/archive/` não tem
 *delta* de segunda rodada); as mudanças da segunda rodada (13, 52
 commits em quatro tecnologias, 65 com o Lit; a conta abaixo é de antes

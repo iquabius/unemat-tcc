@@ -24,7 +24,8 @@
   reserva ao OpenSpec. O trecho fala do componente OnPush; o texto não
   distingue a estratégia, e não precisa: no Angular 22.2.0, o das
   implementações (=implementacoes/node_modules/@angular/core=,
-  2026-10-15), o componente que não declara =changeDetection= é OnPush
+  2026-10-15, antes do renome para =interfaces-graficas/= e da saída do
+  Angular do repositório, em 2026-10-25), o componente que não declara =changeDetection= é OnPush
   (“NOTE: OnPush is enabled by default.”, no comentário do
   =ChangeDetectionStrategy= em =types/_debug_node-chunk.d.ts=; também em
   next.angular.dev/api/core/ChangeDetectionStrategy), e nenhum componente

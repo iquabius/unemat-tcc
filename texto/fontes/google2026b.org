@@ -17,6 +17,6 @@
 - Trecho: “Every component must have: A TypeScript class with behaviors such
   as handling user input and fetching data from a server”.
 - Lido em: https://angular.dev/guide/components, em 2026-10-09; o uso do TypeScript
-  pelas outras tecnologias se confere em =implementacoes/= (só =.ts= e =.tsx= nas
+  pelas outras tecnologias se confere em =interfaces-graficas/= (só =.ts= e =.tsx= nas
   implementações, achado L03 da checagem de 2026-10-08).
 - Conferido: 2026-10-09.
