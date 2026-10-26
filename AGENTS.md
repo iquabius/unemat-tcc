@@ -452,9 +452,11 @@ ano, sempre assim, no gênero neutro: o `\ano` do `latex/tcc.tex` e o
 O texto fica no `master` do checkout principal, com a revisão da seção
 "Texto". Todo o resto que muda código, ferramenta ou instrução de agente
 chega ao `master` por um ramo revisado (decisão de 2026-10-07, revista
-em 2026-10-14, a mesma dos dotfiles). O que está no `master` ou foi
-enviado é registro e não se reescreve; o ramo ainda não juntado é
-rascunho, e a história dele se condensa antes do merge (passo 5).
+em 2026-10-14, a mesma dos dotfiles). O que foi enviado é registro e
+não se reescreve, e o que está no `master` só na mensagem, antes do
+push e com o aprovo do autor (seção "Commits"); o ramo ainda não
+juntado é rascunho, e a história dele se condensa antes do merge (passo
+5).
 
 1. **Worktree em ramo próprio**, a partir do `master`, criada pela sessão
    aberta no checkout principal:
@@ -491,8 +493,9 @@ rascunho, e a história dele se condensa antes do merge (passo 5).
    do cartucho sozinho. Cada sha citado e o que ele fez, caminho e o que
    diz, regra citada do `AGENTS.md` e o verbo dela, número, data, "só
    comentário" se conferem na árvore, e o achado se conserta no passo 4,
-   porque a mensagem que chega ao `master` não se reescreve (decisão de
-   2026-10-17).
+   porque no ramo o conserto é de graça, e a mensagem que chega ao
+   `master` só se reescreve pela regra da seção "Commits" (decisão de
+   2026-10-17, revista em 2026-10-26).
 4. **Cada achado vira um conserto** no ramo: `git commit --fixup=<commit
    que ele corrige>`, ou commit novo quando ele não corrige um commit só.
    Revise de novo até o veredito **Ready to merge**.
@@ -529,7 +532,7 @@ rascunho, e a história dele se condensa antes do merge (passo 5).
    Achado que o autor decide deixar de pé, ou teste que não dá para
    rodar: `git revisao excecao -m "<motivo do autor>"`, que só o autor
    decide. Nenhum commit `fixup!` chega ao `master`, e o que já está
-   nele não se reescreve.
+   nele só se reescreve pela regra da seção "Commits".
 6. **Merge**, montado na worktree e levado ao `master` por fast-forward,
    porque o índice do checkout principal pode guardar o rascunho do texto
    e o `git merge --no-ff` recusa índice com mudança (o fast-forward o
@@ -677,16 +680,50 @@ instrução de subagente dele) e devolve os achados, que o agente conserta
 antes de mostrar a mensagem; no commit do texto, a mensagem vai ao autor
 junto do diff, no mesmo aprovo.
 
-Esse é o momento em que o `--amend` conserta de graça; a mensagem no
-`master` não se reescreve, e o erro achado depois fica como errata na
-próxima mensagem que tocar o assunto. Sha de um commit do mesmo ramo
-muda no rebase do passo 5: cite o assunto entre aspas ao lado dele. No
-commit de código, ferramenta ou instrução de agente, o agente mostra a
-mensagem e commita na mesma resposta, sem a confirmação que a skill
-pede: a revisão do ramo e o push, que é do autor, já são os pontos de
-parada, e a skill, exigida em toda sessão, travaria a sessão autônoma a
-cada commit. O commit do texto continua esperando o aprovo do autor
-(seção "Texto").
+Esse é o momento em que o conserto é de graça. Depois do commit, no
+ramo, o passo 4 de "Código: ramo, revisão, merge"; no `master`, o
+commit ainda não enviado (`git log origin/master..master`) se conserta
+só na mensagem e com o aprovo do autor (decisão de 2026-10-26), sem
+levar o rascunho do índice nem da árvore:
+
+- a ponta: `git commit --amend --only -F <arquivo>`, que troca só a
+  mensagem;
+- um commit anterior: o rebase numa worktree destacada no `master`, que
+  muda as mensagens e mantém as árvores, e o `master` levado à ponta
+  nova com o valor antigo, que recusa a troca se outra sessão commitou
+  no meio:
+
+  ```sh
+  git worktree add --detach .claude/worktrees/reescrita master
+  velha=$(git rev-parse master)
+  # na worktree: rebase -i --committer-date-is-author-date com reword
+  git diff "$velha" <ponta nova>   # tem de sair vazio
+  bin/conferir-commit.py --serie origin/master..<ponta nova>
+  git update-ref refs/heads/master <ponta nova> "$velha"
+  git worktree remove .claude/worktrees/reescrita
+  ```
+
+Depois da reescrita, o sha velho se procura no `bd` e em `docs/`, e o
+motivo de fechamento ou a nota que o cita passa ao novo. O commit
+enviado não se reescreve: o erro fica como errata na próxima mensagem
+que tocar o assunto. A reescrita muda os shas debaixo das outras sessões
+do checkout principal: antes dela, o agente pergunta ao autor se há
+outra sessão aberta ali, para que ele a avise. E toda sessão que
+trabalha no `master` anota a ponta ao começar (`git rev-parse master`)
+e, antes de cada commit, confere que ela continua na história
+(`git merge-base --is-ancestor <ponta anotada> master`). Se não
+continua, o `master` foi reescrito: ela relê o `git log`, troca os shas
+que a mensagem cita e anota a ponta nova. O ramo que saiu do `master`
+antigo chega ao novo pelo cherry-pick do passo 6, que leva só os
+commits dele; o merge traria de volta os commits reescritos.
+
+Sha de um commit do mesmo ramo muda no rebase do passo 5: cite o assunto
+entre aspas ao lado dele. No commit de código, ferramenta ou instrução
+de agente, o agente mostra a mensagem e commita na mesma resposta, sem a
+confirmação que a skill pede: a revisão do ramo e o push, que é do
+autor, já são os pontos de parada, e a skill, exigida em toda sessão,
+travaria a sessão autônoma a cada commit. O commit do texto continua
+esperando o aprovo do autor (seção "Texto").
 
 O hook `bin/conferir-commit.py` (PreToolUse do Bash e do terminal do
 app, em `.claude/settings.json`) recusa o `git commit` do agente neste

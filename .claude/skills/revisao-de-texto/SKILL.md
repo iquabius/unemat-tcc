@@ -410,8 +410,10 @@ decidido.
    próprio commit (`git commit -- <arquivos>`), para não levar o que
    outra sessão deixou no índice. A mensagem termina com uma linha
    `Fontes conferidas:` com chave e página de cada fonte lida na rodada,
-   chave que o hook confere no `refs.bib`. Mensagem que mudou depois do
-   aprovo volta ao autor. Nada de push.
+   chave que o hook confere no `refs.bib`. Antes de commitar, confira
+   que a ponta do `master` anotada no começo da rodada (`git rev-parse
+   master`) continua na história (`AGENTS.md`, "Commits"). Mensagem
+   que mudou depois do aprovo volta ao autor. Nada de push.
 6. Pendências que sobraram viram tarefa no `bd`; achado de implementação,
    nota em `docs/achados-das-implementacoes.md`.
 
