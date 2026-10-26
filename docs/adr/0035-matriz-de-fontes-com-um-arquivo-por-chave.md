@@ -1,4 +1,4 @@
-# 0035. A matriz de fontes tem um arquivo por chave do refs.bib, e cada afirmação aponta para o parágrafo que a cita
+# 0035. A matriz de fontes, com um arquivo por chave
 
 2026-10-14. A matriz de fontes do ADR 0023 tinha um arquivo por capítulo
 (`texto/fontes/<capítulo>.org`), com um título por parágrafo e um

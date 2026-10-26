@@ -1,4 +1,4 @@
-# 0032. O texto do TCC é impessoal, com sujeito concreto ou passiva sintética
+# 0032. O texto impessoal, com sujeito concreto
 
 2026-10-13. A introdução reescrita é impessoal, com "o trabalho", "este
 trabalho" e "o autor" como sujeitos, e o `texto/cases.org` ainda usa a

@@ -1,4 +1,4 @@
-# 0041. O estilo e o layout ficam no `estilo.css` comum, fora da notação, e só o valor que depende do estado entra nela
+# 0041. O estilo e o layout no estilo.css comum, fora da notação
 
 2026-10-22. Na web, a tela se escreve em HTML e a aparência em CSS, uma
 separação da plataforma que o Java no *desktop* não tem: no JavaFX de

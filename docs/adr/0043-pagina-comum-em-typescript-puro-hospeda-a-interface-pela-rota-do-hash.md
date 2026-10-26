@@ -1,4 +1,4 @@
-# 0043. A página que hospeda a interface é um roteador de hash comum em TypeScript puro, sem botão de esconder, e cada implementação só traz o par montar e desmontar
+# 0043. A página comum em TypeScript puro hospeda a interface pela rota do hash
 
 2026-10-24. O teste de conformidade confere a limpeza ao sair da tela
 (ADR 0029) tirando a interface da página e lendo a contagem do domínio,

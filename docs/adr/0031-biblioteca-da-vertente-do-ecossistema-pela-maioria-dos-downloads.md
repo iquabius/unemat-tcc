@@ -1,4 +1,4 @@
-# 0031. Na vertente do ecossistema, cada tecnologia usa a biblioteca com a maioria dos downloads das candidatas no npm, depois de tirar as depreciadas, as arquivadas e as paradas há 24 meses
+# 0031. A biblioteca da vertente do ecossistema pela maioria dos downloads
 
 2026-10-25. O ADR 0029 manda a vertente do ecossistema refatorar a
 Reserva de passagem e o Placar ao vivo para a biblioteca que o

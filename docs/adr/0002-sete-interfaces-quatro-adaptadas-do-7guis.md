@@ -1,4 +1,4 @@
-# 0002. Sete interfaces gráficas, quatro adaptadas do 7GUIs: Contador, Reserva de passagem, Busca, Login com quarentena, Placar ao vivo, planilha e Circle Drawer
+# 0002. Sete interfaces, quatro adaptadas do 7GUIs
 
 2026-10-22. O projeto de 2017 tinha processamento de listas, um Contador
 e uma Reserva de voo, nenhum assíncrono. Cada interface reproduz a de

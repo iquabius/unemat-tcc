@@ -1,4 +1,4 @@
-# 0042. O contraste depois da análise leva o Elm, o Foldkit, o Cycle.js, o Angular com *signals* e RxJS e o TanStack Query à primeira e à segunda rodada das interfaces em que cada um difere, lê o diff da segunda, fica em `contraste/` ao lado do conjunto analisado, com o mesmo teste, e é o primeiro a sair no corte
+# 0042. O contraste depois da análise, com cinco tecnologias em duas rodadas
 
 2026-10-25. A cadeia de pares (ADR 0013) põe na análise só o Web
 Component, o Lit, o Web Component com *signals*, o Solid e o React, e

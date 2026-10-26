@@ -1,4 +1,4 @@
-# 0027. As siglas se marcam no texto com links do org-ref, e o glossaries escreve a definição e a lista de siglas
+# 0027. As siglas pelo glossaries, com expansão automática
 
 2026-10-05. As siglas eram definidas à mão na primeira ocorrência de cada
 seção primária, pela regra do `AGENTS.md`, e conferidas só na leitura; o

@@ -1,4 +1,4 @@
-# 0014. A pergunta e os objetivos comparam três modelos de programação pela usabilidade das notações, segundo as Dimensões Cognitivas, com duas subperguntas, a P1.1 e a P1.2, e "larga escala" vira motivação
+# 0014. A pergunta descritivo-comparativa, com uma subpergunta por rodada
 
 2026-10-25. A introdução de 2017 trazia a pergunta em três formulações,
 uma sobre software em larga escala, que interfaces pequenas não

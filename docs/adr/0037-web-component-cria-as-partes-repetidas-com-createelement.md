@@ -1,4 +1,4 @@
-# 0037. O Web Component cria as partes repetidas com `createElement`
+# 0037. O Web Component cria as partes repetidas com createElement
 
 2026-10-22. O imperativo por atualização manual se nomeia por como a
 alteração de estado chega à tela, e não por como a tela se monta (ADR

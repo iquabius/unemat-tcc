@@ -1,4 +1,4 @@
-# 0010. O domínio de cada interface é um `dominio.ts` compartilhado pelas quatro implementações web
+# 0010. O domínio comum e a alteração do estado em cada implementação
 
 2026-10-19. Para que as implementações de uma interface só difiram na
 coordenação e na tela, as regras do domínio dela (datas, e-mail,

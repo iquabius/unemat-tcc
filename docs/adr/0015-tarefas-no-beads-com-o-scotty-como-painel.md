@@ -1,4 +1,4 @@
-# 0015. As tarefas passam do beans para o Beads, com o Bead Me Up, Scotty como painel
+# 0015. As tarefas no Beads, com o Scotty como painel
 
 2026-09-27. As tarefas viviam em `.beans/`, arquivos versionados no commit
 que as resolvia, mas o formato não tem prazo e nenhum painel pronto o lê

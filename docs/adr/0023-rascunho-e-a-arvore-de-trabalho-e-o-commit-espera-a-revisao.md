@@ -1,4 +1,4 @@
-# 0023. O rascunho do texto é a árvore de trabalho do texto/*.org, as correções do agente se revisam no diff, e o commit espera a fonte lida e o aprovo do autor
+# 0023. O rascunho é a árvore de trabalho e o commit espera a revisão
 
 2026-10-06. A metodologia escrita em 2026-09-27 entrou no `master` sem
 revisão: afirmações sobre Yin e o 7GUIs de memória, uma errada;

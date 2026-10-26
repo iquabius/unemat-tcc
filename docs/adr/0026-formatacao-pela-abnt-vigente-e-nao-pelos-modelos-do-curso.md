@@ -1,4 +1,4 @@
-# 0026. A forma do documento segue as normas ABNT vigentes, com as seções primárias numeradas, e não os modelos do curso onde eles divergem
+# 0026. A formatação pela ABNT vigente, e não pelos modelos do curso
 
 2026-10-05. Os dois modelos de TCC II do curso,
 `acervo/normas/brasil/unemat/Modelo_Estrutura_TCCII.doc` e

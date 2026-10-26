@@ -1,4 +1,4 @@
-# 0024. Cada marco do TCC ganha uma tag anotada `v0.N`, com o nome na primeira linha da mensagem
+# 0024. Marcos nomeados pelo autor em tags anotadas v0.N
 
 2026-10-25. Os PDFs com o diff do texto eram gerados à mão entre hashes, a
 única tag (`v0.1`) era de 2020, e o diff de uma entrega cobre dezenas de

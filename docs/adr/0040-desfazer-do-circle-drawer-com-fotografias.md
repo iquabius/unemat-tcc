@@ -1,4 +1,4 @@
-# 0040. O desfazer do Circle Drawer guarda fotografias da lista nas quatro tecnologias, e a alteração fica no idioma de cada uma
+# 0040. O desfazer do Circle Drawer com fotografias
 
 2026-10-20. No Circle Drawer, Kiss (2014, p. 48) concluiu que "the
 paradigm differences clearly dominated", mas o contraste dele junta duas

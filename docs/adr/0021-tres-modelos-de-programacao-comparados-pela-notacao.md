@@ -1,4 +1,4 @@
-# 0021. O TCC compara três modelos de programação, nomeados por como a tela se atualiza, pela notação de cada tecnologia; o Web Component com *signals* e o Solid são um modelo com duas notações
+# 0021. Três modelos de programação comparados pela notação
 
 2026-10-19. As tecnologias web se escrevem na mesma linguagem, o
 TypeScript, e diferem no modo de coordenar evento, estado e tela; nas

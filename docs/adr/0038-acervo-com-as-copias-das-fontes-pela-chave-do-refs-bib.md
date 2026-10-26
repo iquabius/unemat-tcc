@@ -1,4 +1,4 @@
-# 0038. As cópias das fontes ficam em acervo/, com o nome da chave do refs.bib, e o tmp/ se divide por função, com a data na frente do nome
+# 0038. O acervo, com as cópias das fontes pela chave do refs.bib
 
 2026-10-16, revisto em 2026-10-17. O `tmp/`, fora do git, tinha 60
 entradas soltas na raiz e 335 arquivos em `tmp/fontes/`, com nomes que

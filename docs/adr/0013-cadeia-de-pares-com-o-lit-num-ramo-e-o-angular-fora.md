@@ -1,4 +1,4 @@
-# 0013. Na web, o Web Component, o Lit, o Web Component com *signals* do `solid-js`, o Solid e o React implementam as sete interfaces, numa cadeia de pares que muda o mínimo por passo, com o Lit num ramo do Web Component; o Angular fica fora
+# 0013. A cadeia de pares, com o Lit num ramo e o Angular fora
 
 2026-10-25. Com a análise só na web (ADR 0001), o par entre o imperativo
 por atualização manual e o declarativo por atualização granular com a

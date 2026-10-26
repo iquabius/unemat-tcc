@@ -1,4 +1,4 @@
-# 0030. A especificação de cada interface fica no OpenSpec, em português, com cada cenário igual a uma verificação do teste de conformidade e só a mudança entre rodadas e a interface nova num delta spec
+# 0030. A especificação no OpenSpec, com delta só entre rodadas
 
 2026-10-16. A especificação de cada interface era um `README.org` em
 prosa, sem forma para dizer o que uma mudança acrescenta, e a segunda e a

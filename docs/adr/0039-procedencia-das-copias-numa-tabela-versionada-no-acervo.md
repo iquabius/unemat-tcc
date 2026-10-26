@@ -1,4 +1,4 @@
-# 0039. A procedência de cada cópia do acervo fica numa tabela versionada dentro dele, com uma linha por arquivo
+# 0039. A procedência das cópias numa tabela versionada no acervo
 
 2026-10-17. Em 2026-10-15 o autor decidiu imprimir "Disponível em" e
 "Acesso em" em toda referência lida online, e as cópias do acervo (ADR

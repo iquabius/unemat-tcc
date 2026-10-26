@@ -1,4 +1,4 @@
-# 0017. A análise se organiza por interface, como em Kiss, com as 14 DCs em cada uma, e a tabela-síntese reúne as posições por modelo de programação
+# 0017. A análise por interface, com as 14 DCs e a tabela-síntese
 
 2026-10-17. A versão de 2026-10-14 deste ADR fixava antes da análise a
 interface de cada DC, porque escolher depois de ver o resultado entrega

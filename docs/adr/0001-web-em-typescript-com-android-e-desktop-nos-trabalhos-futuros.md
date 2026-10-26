@@ -1,4 +1,4 @@
-# 0001. O TCC compara modelos de programação de interfaces gráficas só na web, em TypeScript
+# 0001. A web em TypeScript, com Android e desktop nos trabalhos futuros
 
 2026-10-25. O projeto de 2017 comparava paradigmas, PF e PR frente à POO
 com *callbacks*, em JavaScript, sem nomear bibliotecas; o RxJS 5 e o

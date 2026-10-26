@@ -1,4 +1,4 @@
-# 0029. A avaliação se faz em três rodadas: a primeira constrói as sete interfaces, a segunda muda o comportamento e a terceira só a forma, em quatro vertentes, na Reserva de passagem, no Placar ao vivo e no Circle Drawer
+# 0029. A avaliação em três rodadas
 
 2026-10-25. Interfaces pequenas isolam uma escolha de projeto (Green e
 Blackwell 1998, p. 62), mas algumas dificuldades da notação só aparecem
