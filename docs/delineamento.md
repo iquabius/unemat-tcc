@@ -8,25 +8,28 @@ implementado, uma tarefa fechada. O texto resume o que não se controla
 nas limitações de `texto/intro.org`, no parágrafo que abre por "O
 delineamento tem limitações".
 
-**Conclusão (2026-10-22).** O delineamento fixa a linguagem e o modelo
+**Conclusão (2026-10-26).** O delineamento fixa a linguagem e o modelo
 de computação (TypeScript, só na web), a especificação de cada
 interface, o domínio, as duas regras comuns da primeira rodada
 (mensagens de status anunciadas; limpeza ao sair da tela), a aparência,
 num `estilo.css` comum fora da notação, em todas as rodadas, e, na
 primeira e na segunda rodada, as dependências; na terceira rodada, a Reserva de
 passagem e o Placar ao vivo passam à forma do ecossistema de cada
-tecnologia, sem controle (ADR 0029). As quatro tecnologias implementam
+tecnologia, sem controle (ADR 0029). As cinco tecnologias implementam
 as sete interfaces, numa cadeia em que cada par muda o mínimo: Web
 Component × Web Component com *signals*, a ligação do estado com a tela
-(o imperativo contra o granular, com a mesma montagem); Web Component
-com *signals* × Solid, a montagem da tela e o modelo de componente (um
-modelo de programação, duas notações); Solid × React, o modelo de
-programação, com o mesmo JSX (ADR 0013). O imperativo contra a
-re-renderização não tem par: o Web Component e o React diferem na
-ligação, na montagem e no modelo ao mesmo tempo. Ficam sem controle o
-avaliador, que é o autor, a origem das implementações, geradas com
-agentes de IA, a representação do imperativo e da re-renderização por
-uma tecnologia cada, a forma rara do Web Component com *signals*, as
+e a orquestração (o imperativo contra o granular, com a mesma
+montagem); Web Component com *signals* × Solid, a montagem da tela e o
+modelo de componente (um modelo de programação, duas notações); Solid ×
+React, o modelo de programação, com o mesmo JSX; e, num ramo, Web
+Component × Lit, a ligação (o imperativo contra a re-renderização, com
+o mesmo modelo de componente e a mesma orquestração) (ADR 0013). O
+Web Component e o React não formam par: diferem na ligação, na
+montagem, no modelo de componente e na orquestração ao mesmo tempo.
+Ficam sem controle o avaliador, que é o autor, a origem das
+implementações, geradas com agentes de IA, a representação do
+imperativo por uma tecnologia só, a forma rara do Web Component com
+*signals*, as
 bibliotecas da terceira rodada e o idioma de estilo de cada
 ecossistema.
 
@@ -38,7 +41,7 @@ que se confunde com o desenho da tela (`GLOSSARY.md`, Delineamento).
 
 ## O que fica fixo
 
-| Variável | Como se controla | De onde vem | Estado em 2026-10-19 |
+| Variável | Como se controla | De onde vem | Estado em 2026-10-26 |
 |---|---|---|---|
 | Linguagem e modelo de computação | TypeScript em modo `strict` em todas as tecnologias, só na web | ADRs 0001 e 0021; `GLOSSARY.md`, Modelo de computação | controlado |
 | Especificação | as implementações de uma interface seguem o mesmo `spec.md` do OpenSpec, com os mesmos textos, regras e dados, e cada mudança entre rodadas entra como *delta spec* | ADRs 0002, 0013 e 0030; `interfaces-graficas/AGENTS.md` | controlado na Reserva de passagem, na Busca, no Login e no Placar ao vivo; o conversor, a Planilha e o Circle Drawer ainda sem especificação; a Reserva de passagem volta ao *Flight Booker* dentro da primeira rodada |
@@ -46,40 +49,46 @@ que se confunde com o desenho da tela (`GLOSSARY.md`, Delineamento).
 | Regras comuns da primeira rodada | em todas as interfaces, as mensagens de status ficam numa região anunciada (`role="status"`, WCAG 2.2, 4.1.3), e vale a limpeza ao sair da tela; o teste de conformidade confere as duas, a segunda contando no domínio os relógios, as conexões e as requisições abertas | ADR 0029 | no Login, no Placar ao vivo, na Busca e na Reserva de passagem |
 | Dependências | na primeira e na segunda rodada, cada implementação usa só o que a própria tecnologia traz, sem bibliotecas de formulário; o Web Component com *signals* usa só o `solid-js`; na terceira rodada, a forma do ecossistema | ADRs 0013, 0029 e 0031 | controlado na primeira e na segunda rodada |
 | Domínio | as regras que não dependem da interface (datas, mensagens, servidores simulados, fontes de dados, a cotação, a análise das fórmulas) ficam num domínio comum por interface; a propagação da Planilha fica em cada implementação | ADRs 0002 e 0010 | controlado |
-| Aparência e comportamento | capturas de cada cena, idênticas entre as tecnologias; o estilo e o *layout* estáticos ficam no `estilo.css` comum da interface, que a tela cita por classes, em *light DOM*, em todas as rodadas, e só o valor que depende do estado (a posição do menu do Circle Drawer) entra na notação | ADR 0041 | controlado; o *canvas* do Circle Drawer, a conferir; nenhuma implementação chama `attachShadow` (2026-10-22) |
+| Aparência e comportamento | capturas de cada cena, idênticas entre as tecnologias; o estilo e o *layout* estáticos ficam no `estilo.css` comum da interface, que a tela cita por classes, em *light DOM*, em todas as rodadas, e só o valor que depende do estado (a posição do menu do Circle Drawer) entra na notação | ADR 0041 | controlado; o *canvas* do Circle Drawer sai idêntico nas cinco tecnologias (o md5sum das capturas); nenhuma implementação chama `attachShadow`, e o Lit desenha no próprio elemento, pelo `createRenderRoot()` |
 | Versões | fixadas no `package-lock.json`; o `solid-js` na 1.9 | `texto/cases.org`, nota `versoes` (ainda cita o `libs.versions.toml` do Android); ADR 0013 | controlado |
 | DCs | as 14, percorridas em cada interface e em cada rodada | ADR 0017 | controlado desde 2026-10-11 |
-| Mudança da segunda rodada | a mesma funcionalidade ou o mesmo requisito de orquestração, um por commit, na mesma ordem nas quatro tecnologias; latências, tentativas, prazos e intervalos fixos no domínio | ADR 0029 | a fazer; 12 mudanças, 48 commits |
-| Interfaces por tecnologia | as quatro tecnologias implementam as sete interfaces; o prazo só corta mudanças inteiras, pela ordem fixada antes | ADRs 0013 e 0029 | 28 implementações, das quais 12 existem em 2026-10-19 (as quatro interfaces de antes nas três tecnologias de antes) |
+| Mudança da segunda rodada | a mesma funcionalidade ou o mesmo requisito de orquestração, um por commit, na mesma ordem nas cinco tecnologias; latências, tentativas, prazos e intervalos fixos no domínio | ADR 0029 | a fazer; 13 mudanças, 65 commits |
+| Interfaces por tecnologia | as cinco tecnologias implementam as sete interfaces; o prazo só corta mudanças inteiras, pela ordem fixada antes | ADRs 0013 e 0029 | 35 implementações, todas na primeira rodada em 2026-10-26 |
 
 ## O que um par isola
 
 | Par | Igual nos dois | Diferente | O que isola | De onde vem |
 |---|---|---|---|---|
-| Web Component × Web Component com *signals* | modelo de componente (classe que estende `HTMLElement`), montagem da tela (HTML num texto e `createElement`), linguagem, especificação | a ligação do estado com a tela: a escrita na tela em cada tratador contra a escrita declarada uma vez num efeito, que o ambiente de execução reexecuta | o imperativo por atualização manual contra o declarativo por atualização granular, com a mesma montagem | ADR 0013; `tmp/pesquisas/2026-10-17-par-imperativo-granular-na-web.md` (fora do git) |
+| Web Component × Web Component com *signals* | modelo de componente (classe que estende `HTMLElement`), montagem da tela (HTML num texto e `createElement`), linguagem, especificação | a ligação do estado com a tela: a escrita na tela em cada tratador contra a escrita declarada uma vez num efeito, que o ambiente de execução reexecuta; e a orquestração, que no Web Component com *signals* se escreve como no Solid (`createResource`, `onCleanup`) | o imperativo por atualização manual contra o declarativo por atualização granular, com a mesma montagem | ADR 0013; `tmp/pesquisas/2026-10-17-par-imperativo-granular-na-web.md` (fora do git) |
 | Web Component com *signals* × Solid | modelo de programação e API de *signals* (`createSignal`, `createMemo`, `createEffect`) | montagem da tela (HTML num texto e `createElement` contra JSX) e modelo de componente (classe contra função) | a notação dentro do mesmo modelo de programação: a montagem da tela e o modelo de componente, que a análise separa pelo sinal escrito | ADRs 0013 e 0021 |
 | Solid × React | JSX, linguagem, especificação | modelo de programação; também o dialeto do JSX (`className` e `class`) e `&&` e `.map` contra `<Show>` e `<For>` | o modelo de programação, entre os dois declarativos | ADR 0021; [`plataformas/web.md`](plataformas/web.md#tecnologias-por-modelo-de-programação) |
+| Web Component × Lit | modelo de componente (classe que estende `HTMLElement`), orquestração (a do Web Component), linguagem, especificação | a ligação do estado com a tela: a escrita na tela em cada tratador contra o `render()` que o ambiente de execução chama a cada alteração de estado; com ela, a montagem (`innerHTML` e `createElement` contra o *template* `html` e o `map`) e, no Circle Drawer e na Planilha, a alteração (no lugar contra a cópia) | o imperativo por atualização manual contra o declarativo por re-renderização | ADRs 0013 e 0040 |
+
+O Lit e o React são um modelo de programação com duas notações, e não
+formam par: diferem na montagem, no modelo de componente e na
+orquestração (ADRs 0013 e 0021).
 
 Os pares de antes saíram da análise e estão nos trabalhos futuros da
-conclusão (tcc-dpci), e o código deles saiu do repositório em 2026-10-25 e
-fica no commit anterior ao que tirou a pasta `fora-da-analise/`: Web
-Component × Lit, que isolava o imperativo contra a re-renderização (até
-2026-10-18); Solid × Angular com *signals*, um modelo com duas notações
-(até 2026-10-18); Views × Compose, no Android, e Swing × JavaFX em código,
-no *desktop* (até 2026-10-17); o que cada um acrescentava está em
+conclusão (tcc-dpci), e o código deles saiu do repositório em 2026-10-25
+e fica no commit anterior ao que tirou a pasta `fora-da-analise/`: Solid
+× Angular com *signals*, um modelo com duas notações (até 2026-10-18);
+Views × Compose, no Android, e Swing × JavaFX em código, no *desktop*
+(até 2026-10-17); o que cada um acrescentava está em
 [`plataformas/android.md`](plataformas/android.md) e
-[`plataformas/desktop.md`](plataformas/desktop.md).
+[`plataformas/desktop.md`](plataformas/desktop.md). O Web Component ×
+Lit, fora da análise de 2026-10-19 a 2026-10-25, voltou nas sete
+interfaces (ADR 0013).
 
 ## O que fica sem controle
 
 | Variável | Por que não se controla | Onde o texto diz | Em aberto |
 |---|---|---|---|
-| Imperativo × re-renderização | o Web Component e o React diferem na ligação, na montagem e no modelo ao mesmo tempo; a diferença se atribui ao passo da cadeia em que ela aparece, e a que nenhum passo explica, pelo sinal escrito (coordenação, montagem ou ligação entre as duas); a atribuição supõe que os passos se somam | limitações de `texto/intro.org`, ainda por escrever | ADR 0013 (decisão de 2026-10-19); o texto, "Decidir como a análise atribui as diferenças entre o imperativo e os declarativos onde a web não tem par controlado" (tcc-4ie) |
-| Representantes por modelo de programação | uma tecnologia no imperativo (Web Component) e na re-renderização (React), duas no granular (Web Component com *signals* e Solid); a conclusão generaliza a partir delas | limitações; `docs/paradigma-modelo-e-notacao.md`, seção "Unidade comparada e evidência: o TCC compara categorias" | ADR 0013 |
+| Web Component × React | o Web Component e o React diferem na ligação, na montagem, no modelo de componente e na orquestração ao mesmo tempo; a diferença se atribui ao passo da cadeia em que ela aparece, e a que nenhum passo explica, pelo sinal escrito (coordenação, montagem ou ligação entre as duas); a parte que vem só da re-renderização se lê no par Web Component × Lit; a atribuição supõe que os passos se somam | limitações de `texto/intro.org`, ainda por escrever | ADR 0013 (decisão de 2026-10-19); o texto, "Decidir como a análise atribui as diferenças entre o imperativo e os declarativos onde a web não tem par controlado" (tcc-4ie) |
+| Representantes por modelo de programação | uma tecnologia no imperativo (Web Component) e duas em cada declarativo (React e Lit na re-renderização, Web Component com *signals* e Solid no granular); a conclusão generaliza a partir delas | limitações; `docs/paradigma-modelo-e-notacao.md`, seção "Unidade comparada e evidência: o TCC compara categorias" | ADR 0013 |
 | Forma do Web Component com *signals* | rara nos programas reais (11 arquivos na busca de código do GitHub em 2026-10-17): uma construção de controle, que a regra do ADR 0037 não cobre; o corpo do efeito ainda escreve no DOM | ainda não | ADRs 0013 e 0021 |
-| Bibliotecas da terceira rodada | cada tecnologia usa a forma do ecossistema na Reserva de passagem e no Placar ao vivo, e a conclusão se lê como "no ecossistema típico"; o Web Component com *signals* segue o Web Component | ainda não | ADRs 0029 e 0031; tcc-vgrx |
-| Idioma de estilo do ecossistema | o estilo fica fora da notação nas quatro tecnologias, e o que cada ecossistema usa não entra: no React, o Tailwind, os CSS Modules e o styled-components (State of React 2025, amostra autosselecionada); nos *widgets* empacotados, o `<style>` no *shadow root*; as DCs não veem a mistura de estilo e componente, nem as dependências ocultas do HTML com o CSS, e o código do React e do Solid pode parecer pouco realista a quem é do ecossistema | ainda não: a separação entre HTML e CSS, que o Java no *desktop* não tem, e o lugar do estilo vão ao método e às limitações de `texto/intro.org` | ADR 0041; [`plataformas/web.md`](plataformas/web.md#onde-ficam-o-estilo-e-o-layout) |
-| Divergência dentro da coluna | o Web Component com *signals* e o Solid podem divergir numa DC | a célula da tabela-síntese registra a divergência | ADR 0017 |
+| Bibliotecas da terceira rodada | cada tecnologia usa a forma do ecossistema na Reserva de passagem e no Placar ao vivo, e a conclusão de cada vertente se lê como "nessa forma"; o Web Component com *signals* e o Lit seguem o Web Component | ainda não | ADRs 0029 e 0031; tcc-vgrx |
+| Idioma de estilo do ecossistema | o estilo fica fora da notação nas cinco tecnologias, e o que cada ecossistema usa não entra: no React, o Tailwind, os CSS Modules e o styled-components (State of React 2025, amostra autosselecionada); nos *widgets* empacotados, o `<style>` no *shadow root*; as DCs não veem a mistura de estilo e componente, nem as dependências ocultas do HTML com o CSS, e o código do React e do Solid pode parecer pouco realista a quem é do ecossistema | ainda não: a separação entre HTML e CSS, que o Java no *desktop* não tem, e o lugar do estilo vão ao método e às limitações de `texto/intro.org` | ADR 0041; [`plataformas/web.md`](plataformas/web.md#onde-ficam-o-estilo-e-o-layout) |
+| Divergência dentro da coluna | as duas tecnologias de um declarativo (o Lit e o React, o Web Component com *signals* e o Solid) podem divergir numa DC | a célula da tabela-síntese registra a divergência | ADR 0017 |
 | Avaliador | uma pessoa só, o autor, que construiu o que avalia, com familiaridade desigual, maior com o React | limitações (Hertzum e Jacobsen 2003, p. 183; Dagit et al. 2006) | — |
 | Origem das implementações | as atuais foram geradas com agentes de IA a partir de implementações de referência do autor, e não se sabe de quais | ainda não | `docs/processo/implementacoes-no-codesandbox.md`; "Escrever a declaração de uso de IA do TCC a partir do histórico do repositório" (tcc-gjw) |
 | Tamanho das interfaces | pequenas; a segunda rodada as faz crescer por mudanças acrescentadas (ADR 0029), mas o que só aparece em programa grande continua de fora | limitações | Stol e Fitzgerald (2018, p. 11:10) e Green e Blackwell (1998, p. 62), candidatas (`docs/metodo-da-avaliacao.md`, seção "Programas de brinquedo: isolar uma escolha e o limite do tamanho") |
@@ -88,8 +97,9 @@ no *desktop* (até 2026-10-17); o que cada um acrescentava está em
 ## O que cada par isola, DC a DC
 
 Leitura de 2026-10-12. Em 2026-10-18, o Lit e o Angular saíram da
-análise (ADR 0013): a coluna Web Component × Lit é a leitura de um par
-que já não se compara, e a leitura DC a DC dos pares novos (Web
+análise, e o Lit voltou em 2026-10-25 (ADR 0013): a coluna Web
+Component × Lit é a leitura de um rascunho de 2026-10-12, anterior às
+implementações de agora, e a leitura DC a DC dos pares novos (Web
 Component × Web Component com *signals*; Web Component com *signals* ×
 Solid) está por fazer.
 

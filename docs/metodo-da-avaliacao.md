@@ -23,13 +23,14 @@ fontes"). As interfaces pequenas isolam uma escolha de projeto, mas não
 mostram o que só aparece em programa grande (seção "Programas de
 brinquedo: isolar uma escolha e o limite do tamanho").
 
-Em 2026-10-19, a análise fica na web, com quatro tecnologias (Web
-Component, Web Component com *signals* do `solid-js`, React e Solid) nas
-sete interfaces, 28 implementações (ADRs 0002 e 0013), em três
-rodadas (ADR 0029): a primeira constrói as sete; a segunda tem 12
+Em 2026-10-25, a análise fica na web, com cinco tecnologias (Web
+Component, Web Component com *signals* do `solid-js`, Solid, React e
+Lit) nas sete interfaces, 35 implementações (ADRs 0002 e 0013), em três
+rodadas (ADR 0029): a primeira constrói as sete; a segunda tem 13
 mudanças de comportamento, entre funcionalidades e requisitos de
-orquestração; a terceira muda só a forma, na Reserva de passagem e no
-Placar ao vivo, para o que o ecossistema de cada tecnologia usa. Antes,
+orquestração; a terceira muda só a forma, na Reserva de passagem, no
+Placar ao vivo e no Circle Drawer, em quatro vertentes, cada uma nas
+interfaces cuja exigência de coordenação ela sabe tratar. Antes,
 em 2026-10-11, o autor decidiu avaliar em três rodadas e percorrer as 14
 DCs; em 2026-10-12, trocou as interfaces e levou a segunda rodada às
 cinco de então, pela realidade de cada uma (seção "*Benchmark* de
@@ -645,3 +646,9 @@ Os outros conferem: 1.189 reações na *issue* do Angular, 2.006 votos,
 Karagkasidis (2008) e Myers (1994). Maier et al. (2010) ganhou a página
 do PDF em que o exemplo do arrastar começa. Os arquivos baixados estão
 em `tmp/pesquisas/2026-10-25-requisitos-tipicos/` (fora do git).
+
+Em 2026-10-26, o parágrafo do estado da análise passou às decisões de
+2026-10-25: cinco tecnologias, com o Lit num ramo do Web Component, 35
+implementações (ADR 0013), 13 mudanças na segunda rodada e a terceira
+em quatro vertentes, na Reserva de passagem, no Placar ao vivo e no
+Circle Drawer (ADR 0029). Antes, dizia o estado de 2026-10-19.

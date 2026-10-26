@@ -9,10 +9,10 @@ aqui ficam as definições com a página, os contrastes e os trechos.
 imperativo por atualização manual, o declarativo por re-renderização e o
 declarativo por atualização granular. Um modelo de programação é o
 conjunto de técnicas e princípios de projeto construído sobre um modelo
-de computação (Van Roy e Haridi 2004, p. xiii e 29). As quatro tecnologias
-web têm o mesmo modelo de computação, o do TypeScript, e diferem no
-modelo de programação. **Notação** fica no sentido das DCs: a forma
-escrita de um modelo de programação numa tecnologia, o que as DCs
+de computação (Van Roy e Haridi 2004, p. xiii e 29). As cinco
+tecnologias web têm o mesmo modelo de computação, o do TypeScript, e
+diferem no modelo de programação. **Notação** fica no sentido das DCs: a
+forma escrita de um modelo de programação numa tecnologia, o que as DCs
 avaliam. **Paradigma** fica para PF, PR e POO, no capítulo de
 programação, porque é noção imprecisa como unidade de comparação.
 **Biblioteca**, ***framework*** e ***toolkit*** descrevem o produto, a
@@ -45,10 +45,10 @@ Do mais abstrato ao mais concreto:
 | Termo | O que nomeia | Fonte | No TCC |
 |---|---|---|---|
 | Paradigma | conjunto de conceitos organizado numa linguagem núcleo; "imprecise notion", que o modelo de computação torna precisa | Van Roy 2009, p. 10 e 12; Van Roy e Haridi 2004, p. xiii | PF, PR e POO, no capítulo de programação; cada modelo de programação aplica conceitos de um ou mais |
-| Modelo de computação | "a formal system that defines a language and how sentences of the language [...] are executed by an abstract machine" | Van Roy e Haridi 2004, p. 29 | o mesmo nas quatro tecnologias web (TypeScript) |
+| Modelo de computação | "a formal system that defines a language and how sentences of the language [...] are executed by an abstract machine" | Van Roy e Haridi 2004, p. 29 | o mesmo nas cinco tecnologias web (TypeScript) |
 | Modelo de programação | "the programming techniques and design principles made possible by the computation model"; "always built on top of a computation model" | Van Roy e Haridi 2004, p. xiii e 29 | o que se compara: o modo de coordenar evento, estado e tela |
 | Arquitetura, padrão | a organização da aplicação (MVC, MVU) ou de uma relação entre objetos (*Observer*) | Sperber e Schlegel 2025, p. 28 e 32; Van Roy e Haridi 2004, p. 534 (padrão de projeto) | vizinho: organiza a aplicação, e não o modo de escrever o estado, os derivados e a tela |
-| Tecnologia | o produto que se instala, que a documentação chama de biblioteca, *framework*, *toolkit* ou plataforma | seção "Os vizinhos: biblioteca, *framework*, *toolkit*, documentações" | Web Component, Web Component com *signals* do `solid-js`, React e Solid (ADR 0013); fora da análise, Lit, Angular, Views e Compose |
+| Tecnologia | o produto que se instala, que a documentação chama de biblioteca, *framework*, *toolkit* ou plataforma | seção "Os vizinhos: biblioteca, *framework*, *toolkit*, documentações" | Web Component, Web Component com *signals* do `solid-js`, Solid, React e Lit (ADR 0013); fora da análise, Angular, Views e Compose |
 | Notação | "the perceived marks or symbols that are combined to build an information structure"; "what the user sees and edits" | Green e Blackwell 1998, p. 8; Blackwell e Green 2003, p. 114 | a forma escrita de um modelo de programação numa tecnologia |
 | Abstração | o que "changes the notation", quase sempre por expansão; a linguística ganha sintaxe própria, traduzida para a linguagem núcleo | Green e Blackwell 1998, p. 24; Van Roy e Haridi 2004, p. 38-40 | o *callback* registrado, o componente reexecutado, o *signal*, o *hook* |
 
@@ -94,14 +94,14 @@ uma generalização das tecnologias que estão nela.
 Custos que o texto precisa declarar:
 
 - **poucos representantes por categoria**: o imperativo por atualização
-  manual tem só o Web Component, e o declarativo por re-renderização, só
-  o React; o declarativo por atualização granular tem o Web Component
-  com *signals* e o Solid. As quatro tecnologias implementam as sete
-  interfaces (ADR 0013), e a conclusão sobre o imperativo e sobre a
-  re-renderização generaliza a partir de uma tecnologia cada;
-- **divergência dentro da coluna**: quando o Web Component com *signals*
-  e o Solid divergem numa DC, a célula registra a divergência (ADR
-  0017);
+  manual tem só o Web Component; o declarativo por re-renderização tem o
+  React e o Lit, e o declarativo por atualização granular, o Web
+  Component com *signals* e o Solid. As cinco tecnologias implementam as
+  sete interfaces (ADR 0013), e a conclusão sobre o imperativo
+  generaliza a partir de uma tecnologia só;
+- **divergência dentro da coluna**: quando as duas tecnologias de um
+  declarativo (o Lit e o React, o Web Component com *signals* e o Solid)
+  divergem numa DC, a célula registra a divergência (ADR 0017);
 - **escolha de alto nível**: as DCs "have little to say about these
   high-level choices; its relevance starts as the details are worked out"
   (Green e Petre 1996, p. 139). O TCC avalia a escolha do modelo de
@@ -110,26 +110,31 @@ Custos que o texto precisa declarar:
 Uma comparação por tecnologia seguiria a forma usual, mas responderia
 qual tecnologia, e não qual modelo de programação. A cadeia de pares
 existe para que a categoria possa ser comparada, e cada passo muda o
-mínimo (ADR 0013): Web Component → (a ligação do estado com a tela e
-a orquestração) → Web Component com *signals* → (a montagem da tela e
-o modelo de componente) → Solid → (o modelo de programação, com o mesmo
-JSX) → React. O Web Component e o Web Component com *signals* têm o
-mesmo modelo de componente e a mesma montagem da tela, com modelos de
-programação diferentes; o Web Component com *signals* e o Solid têm o
-mesmo modelo de programação e duas notações; no Solid e no React, a tela
-se monta no mesmo JSX, com modelos de programação diferentes. O Web
-Component e o React não formam par: a diferença entre eles se atribui ao
-passo da cadeia em que aparece, e a que nenhum passo explica, pelo sinal
-escrito (ADR 0021). Até 2026-10-18, os pares eram quatro, Web Component
-× Lit, React × Solid, React × Lit e Solid × Angular com *signals*, com o
-Lit e o Angular em três interfaces cada.
+mínimo (ADR 0013): Web Component → (a ligação do estado com a tela e a
+orquestração) → Web Component com *signals* → (a montagem da tela e o
+modelo de componente) → Solid → (o modelo de programação, com o mesmo
+JSX) → React; e, num ramo, Web Component → (a ligação) → Lit. O Web
+Component e o Web Component com *signals* têm o mesmo modelo de
+componente e a mesma montagem da tela, com modelos de programação
+diferentes; o Web Component com *signals* e o Solid têm o mesmo modelo
+de programação e duas notações; no Solid e no React, a tela se monta no
+mesmo JSX, com modelos de programação diferentes; o Web Component e o
+Lit têm o mesmo modelo de componente e a mesma orquestração, com modelos
+de programação diferentes. O Lit e o React têm o mesmo modelo de
+programação e duas notações, e não formam par: diferem também na
+orquestração (ADR 0013). O Web Component e o React não formam par: a
+diferença entre eles se atribui ao passo da cadeia em que aparece, e a
+que nenhum passo explica, pelo sinal escrito (ADR 0021). Até 2026-10-18,
+os pares eram quatro, Web Component × Lit, React × Solid, React × Lit e
+Solid × Angular com *signals*, com o Lit e o Angular em três interfaces
+cada.
 
 ## As tecnologias por modelo de programação
 
 | Modelo de programação | Tecnologias | Como coordena | Montagem da tela |
 |---|---|---|---|
 | Imperativo por atualização manual | Web Component | o *callback* registrado atualiza a tela passo a passo | HTML num texto, atribuído ao `innerHTML` uma vez, e `createElement` nas partes repetidas |
-| Declarativo por re-renderização | React | o componente reexecuta a cada alteração de estado, e o derivado é expressão comum | JSX |
+| Declarativo por re-renderização | React, Lit | o componente reexecuta a cada alteração de estado (no Lit, o `render()`), e o derivado é expressão comum | JSX, no React; *template* `html`, no Lit |
 | Declarativo por atualização granular | Web Component com *signals*, Solid | o componente executa uma vez, e o *signal* propaga a alteração aos derivados e à tela; no Web Component com *signals*, cada escrita na tela fica num `createEffect`, que o ambiente de execução reexecuta só quando muda um *signal* lido nele | a do Web Component, no Web Component com *signals*; JSX numa função, no Solid |
 
 O Solid e o React diferem também no dialeto do JSX (`className` e
@@ -144,10 +149,17 @@ componente, a classe que estende `HTMLElement`, com o
 notações era o Solid e o Angular com *signals*, que variavam em três
 pontos: a montagem da tela, o modelo de componente (classe, decorador,
 injeção de dependências) e a API além do *signal* e do valor derivado.
-O Lit e o Angular ficaram fora da análise (ADR 0013), como o Android e
-o *desktop* desde 2026-10-17 (ADR 0001), e vão para os trabalhos
-futuros; o que os pares deles acrescentavam está em
-`docs/plataformas/android.md` e `docs/plataformas/desktop.md`.
+O Lit e o React coordenam do mesmo jeito, o componente que reexecuta a
+cada alteração de estado, e variam na montagem da tela (o *template*
+`html` contra o JSX), no modelo de componente (a classe que estende
+`HTMLElement` contra a função) e na orquestração, que no Lit se escreve
+como no Web Component (decisão do autor em 2026-10-25, ADRs 0013 e
+0021). O Angular ficou fora da análise em 2026-10-19 (ADR 0013), como o
+Android e o *desktop* desde 2026-10-17 (ADR 0001), e vai para os
+trabalhos futuros; o Lit, que saiu no mesmo dia, voltou em 2026-10-25,
+num ramo do Web Component (ADR 0013). O que os pares do Android e do
+*desktop* acrescentavam está em `docs/plataformas/android.md` e
+`docs/plataformas/desktop.md`.
 
 O Web Component × Web Component com *signals* é o par que isola o
 imperativo por atualização manual contra a atualização granular, nas
@@ -164,16 +176,25 @@ se escreve como no Solid, com `createResource` e `onCleanup`. As duas
 escolhas são do autor, em 2026-10-23, para a montagem só mudar no passo
 para o Solid e o par com ele diferir só na montagem e no modelo de
 componente; o preço é o primeiro passo mudar a ligação e a orquestração
-juntas, que a análise separa pelo sinal escrito (ADRs 0013 e 0021). O
-imperativo contra a re-renderização não tem par direto: o Web Component
-e o React diferem na ligação, na montagem e no modelo de componente, e a
-diferença entre eles se atribui ao passo da cadeia em que aparece, e a
-que nenhum passo explica, pelo sinal escrito. A atribuição supõe que os
-passos se somam, o que falha quando um passo muda a leitura de outro,
-como a montagem em JSX pode mudar a leitura da ligação (ADR 0013). Até
-2026-10-18, o par do imperativo era o Web Component × Lit, contra a
-re-renderização, em três das cinco interfaces de então, e o imperativo
-entrava sem par controlado contra a atualização granular. O quadro do
+juntas, que a análise separa pelo sinal escrito (ADRs 0013 e 0021).
+
+O Web Component × Lit é o par que isola o imperativo contra a
+re-renderização, nas sete interfaces (ADR 0013): a mesma classe e a
+mesma orquestração, e muda a ligação, o `render()` que o ambiente de
+execução chama a cada alteração de estado, com o que ela muda na
+montagem (o *template* `html` e o `map`) e, no Circle Drawer e na
+Planilha, na alteração, a cópia do dado que o Web Component altera no
+lugar (ADR 0040). O Web Component e o React diferem na ligação, na
+montagem, no modelo de componente e na orquestração, e a diferença entre
+eles se atribui ao passo da cadeia em que aparece, e a que nenhum passo
+explica, pelo sinal escrito; a parte que vem só da re-renderização se lê
+no par Web Component × Lit. A atribuição supõe que os passos se somam, o
+que falha quando um passo muda a leitura de outro, como a montagem em
+JSX pode mudar a leitura da ligação (ADR 0013). Até 2026-10-18, o par
+do imperativo era o Web Component × Lit, contra a re-renderização, em
+três das cinco interfaces de então, e o imperativo entrava sem par
+controlado contra a atualização granular; de 2026-10-19 a 2026-10-25, o
+imperativo contra a re-renderização ficou sem par direto. O quadro do
 que o delineamento controla, isola e deixa sem controle está em
 `docs/delineamento.md`.
 
@@ -600,16 +621,16 @@ Arquitetura de sistemas:
   autores admitem que, para C e Pascal, "this may be true" (Blackwell e
   Green 2000, PPIG, cópia sem paginação). React e Solid caem nesse caso,
   e a análise precisa de trechos em que a diferença se vê no código.
-- **O Web Component com *signals* e o Solid são um modelo de
-  programação com duas notações.** Blackwell et al. (2001, p. 328)
-  admitem várias notações num sistema, e Blackwell e Green (2003, p.
-  115) pedem que uma subnotação seja analisada à parte; no TCC, as duas
-  ficam na mesma coluna, e a célula registra quando divergem (ADR 0017).
-  No Web Component com *signals*, o corpo de cada efeito ainda é uma
-  escrita no DOM, e o texto precisa mostrar que o sinal escrito do
-  granular é o efeito declarado uma vez por parte da tela, que o
-  ambiente de execução reexecuta, para o leitor não o tomar por
-  imperativo (ADRs 0013 e 0021).
+- **O Web Component com *signals* e o Solid, e o Lit e o React, são
+  modelos de programação com duas notações.** Blackwell et al. (2001, p.
+  328) admitem várias notações num sistema, e Blackwell e Green (2003,
+  p. 115) pedem que uma subnotação seja analisada à parte; no TCC, as
+  duas de cada modelo ficam na mesma coluna, e a célula registra quando
+  divergem (ADR 0017). No Web Component com *signals*, o corpo de cada
+  efeito ainda é uma escrita no DOM, e o texto precisa mostrar que o
+  sinal escrito do granular é o efeito declarado uma vez por parte da
+  tela, que o ambiente de execução reexecuta, para o leitor não o tomar
+  por imperativo (ADRs 0013 e 0021).
 - **A fronteira entre a re-renderização e a atualização granular se
   apoia em Lee, Ahn e Yi (2025, 289:38)**, decisão do autor de
   2026-10-20. Na Tabela 2 deles, "Re-read Spec." é *Yes* no React e
@@ -907,3 +928,12 @@ modelo de programação", passou a mudar a ligação do estado com a tela e
 a orquestração, que no Web Component com *signals* segue a do Solid, com
 as partes repetidas no laço de `createElement` do Web Component
 (decisões do autor, ADR 0013); antes, o par mudava só a ligação.
+
+Em 2026-10-26, a nota passou às cinco tecnologias da cadeia de
+2026-10-25, com o Lit num ramo do Web Component (ADR 0013), e ao Lit e
+ao React como o outro modelo de programação com duas notações (ADR
+0021): a conclusão, a tabela dos termos, os custos de "Unidade comparada
+e evidência: o TCC compara categorias", a tabela e o par Web Component ×
+Lit de "As tecnologias por modelo de programação" e o item das duas
+notações em "Tensões que o texto precisa enfrentar". Antes, diziam o Lit
+fora da análise e o imperativo contra a re-renderização sem par direto.

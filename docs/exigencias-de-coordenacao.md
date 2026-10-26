@@ -18,7 +18,7 @@ novas, trazidas do 7GUIs. Na primeira rodada, o estado pesa em três
 interfaces (a Reserva de passagem, a planilha e o Circle Drawer), a
 orquestração em três (a Busca, o Login e o Placar ao vivo), e o
 Contador, a base, não tem exigência própria; na segunda rodada, os dois
-eixos ficam perto do equilíbrio. As quatro tecnologias implementam
+eixos ficam perto do equilíbrio. As cinco tecnologias implementam
 as sete interfaces (ADR 0013), e todo par cobre os mesmos tipos: a
 cobertura vem das interfaces. Ficam numa interface só a política de
 ignorar o pedido novo (o envio da Reserva de passagem), a fila (o
@@ -80,7 +80,7 @@ valor inicial é estado. A tabela não o conta à parte.
 
 ## Cobertura por par
 
-As quatro tecnologias implementam as sete interfaces (ADR 0013),
+As cinco tecnologias implementam as sete interfaces (ADR 0013),
 e todo par cobre os mesmos tipos. Até 2026-10-18, quando os pares
 cobriam subconjuntos das interfaces, esta seção comparava o Web
 Component × Lit, o Solid × Angular com *signals*, o Views × Compose e o

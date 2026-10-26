@@ -47,12 +47,13 @@ gráfica" (é do código, não da tela)
 A parte da notação que escreve quais elementos a tela tem, em que
 hierarquia e com que textos: HTML num texto, com `createElement` nas
 partes repetidas (Web Component e Web Component com *signals*), JSX
-(React, Solid). O Web Component com *signals* e o Solid diferem nela
-dentro do mesmo modelo de programação, e o Web Component e o Web Component
-com *signals* a têm igual. A análise aponta, em cada DC, se a diferença
-está na coordenação, na montagem da tela ou na ligação entre as duas (ADR
-0021). Não inclui a aparência: a montagem diz quais elementos há, e o
-*layout*, onde eles ficam (ADR 0041).
+(React, Solid), *template* `html`, com `map` nas partes repetidas
+(Lit). O Web Component com *signals* e o Solid diferem nela dentro do
+mesmo modelo de programação, como o Lit e o React, e o Web Component e
+o Web Component com *signals* a têm igual. A análise aponta, em cada DC,
+se a diferença está na coordenação, na montagem da tela ou na ligação
+entre as duas (ADR 0021). Não inclui a aparência: a montagem diz quais
+elementos há, e o *layout*, onde eles ficam (ADR 0041).
 _Avoid_: estrutura da tela como notação à parte; sintaxe da tela; marcação
 (não cobre `createElement` nem Compose); *layout* para a montagem (no
 JavaFX os dois se escrevem juntos, em código; na web, não)

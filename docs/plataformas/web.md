@@ -1,7 +1,8 @@
 # Web: tecnologias, documentação, uso e opiniões
 
-Referência. As quatro tecnologias web da análise e as que ficaram fora
-(o jQuery, o Svelte e o Vue, e, desde 2026-10-19, o Lit e o Angular): o
+Referência. As cinco tecnologias web da análise, com o Lit de volta
+desde 2026-10-25, e as que ficaram fora (o jQuery, o Svelte e o Vue, e,
+desde 2026-10-19, o Angular): o
 modelo de programação e a montagem da tela, o que mudou de 2016 a 2026,
 o modelo de reatividade segundo a documentação oficial, as medidas de
 uso, os artigos não acadêmicos, os prós e contras de cada escolha, como
@@ -28,11 +29,11 @@ uma forma; a árvore inteira em `createElement` só aparece nos exemplos
 didáticos da MDN e em esqueletos de um a três nós. No Web Component do
 TCC, as partes repetidas se escrevem com `createElement`, a forma mais
 comum (seção "Como Web Components sem biblioteca montam a tela"). O
-estilo e o *layout* ficam no CSS nas quatro tecnologias, pela
-documentação e pela prática, e o código escreve no `style` só o valor
-calculado; o que varia é a ferramenta que leva o CSS ao projeto, plural
-no React, e o TCC usa um `estilo.css` comum, fora da notação (seção
-"Onde ficam o estilo e o *layout*").
+estilo e o *layout* ficam no CSS nas quatro tecnologias da pesquisa de
+2026-10-21, pela documentação e pela prática, e o código escreve no
+`style` só o valor calculado; o que varia é a ferramenta que leva o CSS
+ao projeto, plural no React, e o TCC usa um `estilo.css` comum, fora da
+notação (seção "Onde ficam o estilo e o *layout*").
 
 Tratar como literatura cinzenta no texto:
 
@@ -44,11 +45,12 @@ Tratar como literatura cinzenta no texto:
   autor do Solid;
 - ***benchmark***: os números vêm de um único mantenedor.
 
-Versões no `package-lock.json` de `interfaces-graficas/`: React 19.3.0 e
-Solid 1.9.15, o `solid-js` que o Web Component com *signals* também usa
-(2026-10-19). Em 2026-10-16 o arquivo tinha ainda o Lit 3.3.3 e o
-Angular 22.2.0 com RxJS 7.8.2, que saíram dos *workspaces* em
-2026-10-19, quando o Lit e o Angular ficaram fora da análise (ADR 0013).
+Versões no `package-lock.json` de `interfaces-graficas/`: React 19.3.0,
+Solid 1.9.15, o `solid-js` que o Web Component com *signals* também usa,
+e Lit 3.3.3 (2026-10-26). O Lit e o Angular 22.2.0 com RxJS 7.8.2
+saíram dos *workspaces* em 2026-10-19, quando ficaram fora da análise, e
+o Lit voltou, na mesma versão, com a volta dele à análise, em 2026-10-25
+(ADR 0013).
 As bibliotecas de formulário da terceira rodada, com as medidas do
 registro de 2026-10-12, estão em
 `docs/plataformas/bibliotecas-de-formulario.md` (ADR 0031).
@@ -61,43 +63,51 @@ registro de 2026-10-12, estão em
 | Web Component com *signals* do `solid-js` | declarativo por atualização granular | a do Web Component (ADR 0037) | as sete |
 | Solid | declarativo por atualização granular | JSX | as sete |
 | React | declarativo por re-renderização | JSX | as sete |
-| Lit | declarativo por re-renderização; fora da análise desde 2026-10-19 (ADR 0013) | *template* `html` | nenhuma; o código de cinco interfaces de então no commit anterior ao que tirou `fora-da-analise/`, em 2026-10-25 |
+| Lit | declarativo por re-renderização; fora da análise de 2026-10-19 a 2026-10-25, e desde então num ramo da cadeia (ADR 0013) | *template* `html` | as sete |
 | Angular com *signals* | declarativo por atualização granular; fora da análise desde 2026-10-19 (ADR 0013) | *template* | nenhuma; o código de quatro interfaces de então no commit anterior ao que tirou `fora-da-analise/`, em 2026-10-25 |
 | Angular com RxJS | fora da análise (ADR 0013) | *template* | — |
 | jQuery | fora da análise (ADR 0013) | HTML e DOM | — |
 
-As quatro tecnologias formam uma cadeia de pares em que cada passo muda
-o mínimo (ADR 0013): Web Component → (a ligação do estado com a tela e
-a orquestração) → Web Component com *signals* → (a montagem da tela e
-o modelo de componente) → Solid → (o modelo de programação, com o
-mesmo JSX) → React. O Web Component × Web Component com *signals*, com
-a mesma classe que estende `HTMLElement` e a mesma montagem, também nas
-partes repetidas, que ficam no laço de `createElement` e não no
-`mapArray`, põe o imperativo contra o granular na ligação do estado com
-a tela; a orquestração (a requisição, o relógio, a inscrição) muda
-junto, porque no Web Component com *signals* se escreve como no Solid,
-com `createResource` e `onCleanup` (decisões do autor em 2026-10-23).
-O Web Component com *signals* × Solid é um modelo de programação com
-duas notações: a coordenação se escreve com os mesmos sinais do
-`solid-js` (`createSignal`, `createMemo`, `createEffect`), e a montagem
-da tela e o modelo de componente mudam, também nas partes repetidas e no
-trecho que entra e sai da tela (`createElement` e `hidden` num efeito
-contra `<For>` e `<Show>`, ADR 0037). O Solid × React, com a tela em
-JSX, põe um declarativo contra o outro, com o dialeto do JSX (`class` e
-`className`) de diferença. Nenhum passo muda uma coisa só, e o que muda
-junto se separa pelo sinal escrito (ADR 0021). O Web Component e o React
-não formam par: a diferença entre eles se atribui ao passo da cadeia em
-que ela aparece, e a que nenhum passo explica, pelo sinal escrito, e o
-imperativo contra a re-renderização fica sem par direto
-(`docs/delineamento.md`, seção "O que fica sem controle"). Quando o Web
-Component com *signals* e o Solid divergem numa DC, a célula do granular
-na tabela-síntese registra a divergência (ADR 0017). O Lit e o Angular
-com *signals* saíram da análise em 2026-10-19 e ficam para os trabalhos
-futuros da conclusão (tcc-dpci); com o jQuery e o Angular com RxJS, que
-continuam fora, o código saiu do repositório em 2026-10-25 e fica no
-commit anterior ao que tirou a pasta `fora-da-analise/`
-(ADR 0013). O quadro do que o delineamento controla está em
-`docs/delineamento.md`.
+As cinco tecnologias formam uma cadeia de pares em que cada passo muda o
+mínimo (ADR 0013): Web Component → (a ligação do estado com a tela e a
+orquestração) → Web Component com *signals* → (a montagem da tela e o
+modelo de componente) → Solid → (o modelo de programação, com o mesmo
+JSX) → React; e, num ramo, Web Component → (a ligação) → Lit. O Web
+Component × Web Component com *signals*, com a mesma classe que estende
+`HTMLElement` e a mesma montagem, também nas partes repetidas, que ficam
+no laço de `createElement` e não no `mapArray`, põe o imperativo contra
+o granular na ligação do estado com a tela; a orquestração (a
+requisição, o relógio, a inscrição) muda junto, porque no Web Component
+com *signals* se escreve como no Solid, com `createResource` e
+`onCleanup` (decisões do autor em 2026-10-23). O Web Component com
+*signals* × Solid é um modelo de programação com duas notações: a
+coordenação se escreve com os mesmos sinais do `solid-js`
+(`createSignal`, `createMemo`, `createEffect`), e a montagem da tela e o
+modelo de componente mudam, também nas partes repetidas e no trecho que
+entra e sai da tela (`createElement` e `hidden` num efeito contra
+`<For>` e `<Show>`, ADR 0037). O Solid × React, com a tela em JSX, põe
+um declarativo contra o outro, com o dialeto do JSX (`class` e
+`className`) de diferença. O Web Component × Lit, com a mesma classe que
+estende `HTMLElement`, põe o imperativo contra a re-renderização na
+ligação: o `render()` que o ambiente de execução chama a cada alteração
+de estado, e, com ela, o *template* `html` e o `map` na montagem e a
+cópia do dado que o Web Component altera no lugar (ADRs 0013 e 0040). O
+Lit e o React são o outro modelo de programação com duas notações, o
+declarativo por re-renderização, e não formam par: diferem também na
+orquestração (ADRs 0013 e 0021). Nenhum passo muda uma coisa só, e o que
+muda junto se separa pelo sinal escrito (ADR 0021). O Web Component e o
+React não formam par: a diferença entre eles se atribui ao passo da
+cadeia em que ela aparece, e a que nenhum passo explica, pelo sinal
+escrito; a parte que vem só da re-renderização se lê no par Web
+Component × Lit (ADR 0013). Quando as duas tecnologias de um modelo
+divergem numa DC, a célula dele na tabela-síntese registra a divergência
+(ADR 0017). O Angular com *signals* saiu da análise em 2026-10-19 e fica
+para os trabalhos futuros da conclusão (tcc-dpci), e volta, fora do
+conjunto analisado, no contraste (ADR 0042); o Lit, que saiu no mesmo
+dia, voltou em 2026-10-25 (ADR 0013). O código do Angular, do jQuery e
+do Angular com RxJS saiu do repositório em 2026-10-25 e fica no commit
+anterior ao que tirou a pasta `fora-da-analise/` (ADR 0025). O quadro do
+que o delineamento controla está em `docs/delineamento.md`.
 
 ## O que mudou de 2016 a 2026
 
@@ -143,7 +153,7 @@ complementares".
 | Web Component com *signals* do `solid-js` | O `solid-js` entra só como biblioteca de reatividade, sem JSX (ADR 0013): o estado é um `createSignal`, que o tratador altera, o derivado é um `createMemo`, e cada escrita na tela fica num `createEffect`, que o ambiente de execução reexecuta só quando muda um *signal* lido nele, dentro de um `createRoot` aberto no `connectedCallback` e descartado no `disconnectedCallback`; a classe e a montagem da tela são as do Web Component (ADR 0037) | docs.solidjs.com, *createEffect*, *createRoot* e *mapArray* (atualizadas em 2026-04-28), citadas no ADR 0013; `solid-js` 1.9.15 no `package-lock.json` (2026-10-19) |
 | TC39 Signals | Estágio 1; *computed* "lazy, i.e., pull-based"; "Signals may be thought of as a 'push-pull' construction"; colaboradores: Angular, Bubble, Ember, FAST, MobX, Preact, Qwik, RxJS, Solid, Starbeam, Svelte, Vue, Wiz | `tc39/proposal-signals` (README; último *commit* em `main` 2025-08-11, atividade 2026-01-25; sem estágio 2); `signal-polyfill` 0.2.2 (2025-01-17) |
 | Angular | "Angular Signals is a system that granularly tracks how and where your state is used"; *computed* "lazily evaluated and memoized"; RxJS entra pela interoperação (`toSignal`, `toObservable`, `rxResource`); a RFC de 2023: "Angular does not internally use RxJS to propagate state or drive rendering" | angular.dev/guide/signals e /ecosystem/rxjs-interop (2026-09-26); RFC *Angular Signals*, `angular/angular#49685` (2023-04-03); CHANGELOG: 16.0.0 (2023-05-03) *signals* na API pública; 17.0.0 (2023-11-08) estáveis; 20.0.0 (2025-05-28) `toSignal` estável e `zone.js` opcional; 20.2.0 (2025-08-20) *zoneless* estável; 21.0.0 (2025-11-19) *zoneless* por padrão; 22.0.0 (2026-06-03) *signal forms* públicos |
-| Lit | "a simple library for building fast, lightweight web components": `LitElement` estende `HTMLElement`, a classe do Web Component; quando uma propriedade reativa se altera, a atualização é agendada "at microtask timing", e o `update()` "calls `render()`" de novo; a tela sai de *template* `html` (*tagged template literal*), e o Lit "keeps track of your UI's dynamic parts and updates only those", sem DOM virtual. Na notação, é o declarativo por re-renderização: o componente reexecuta e o derivado é expressão comum. Fora da análise desde 2026-10-19 (ADR 0013) | lit.dev/docs, *Lifecycle* (2026-10-11); `lit` 3.3.3 (npm, 2026-05-14) |
+| Lit | "a simple library for building fast, lightweight web components": `LitElement` estende `HTMLElement`, a classe do Web Component; quando uma propriedade reativa se altera, a atualização é agendada "at microtask timing", e o `update()` "calls `render()`" de novo; a tela sai de *template* `html` (*tagged template literal*), e o Lit "keeps track of your UI's dynamic parts and updates only those", sem DOM virtual. Na notação, é o declarativo por re-renderização: o componente reexecuta e o derivado é expressão comum. Fora da análise de 2026-10-19 a 2026-10-25, e desde então num ramo da cadeia (ADR 0013) | lit.dev/docs, *Lifecycle* (2026-10-11); `lit` 3.3.3 (npm, 2026-05-14) |
 | Lit com `@lit-labs/signals` | Pacote "experimental" da Lit Labs, que depende de "a proposal and polyfill that themselves are not stable"; integra o `signal-polyfill` da proposta TC39. Muda a notação em três pontos: a classe passa a `SignalWatcher(LitElement)`; o *signal* se lê e escreve com `.get()` e `.set()` (`signal(0)`, `new Signal.Computed(() => count.get() * 2)`), e não com chamada de função como no Solid e no Angular; o *binding* se marca com `${watch(count)}`, ou fica implícito com o `html` importado de `@lit-labs/signals`. Ler o *signal* no `render()` ainda reexecuta o componente; com `watch()`, "the only bindings updated are those with changed signals". Numa mesma tecnologia, daria o contraste entre a re-renderização e a atualização granular; o ADR 0013 o recusa no papel do granular, porque o `render()` continua a executar, o que põe a re-renderização contra um híbrido, e não o imperativo contra o granular | lit.dev/docs/data/signals (2026-10-11); `@lit-labs/signals` 0.3.0 (npm, 2026-05-14) |
 | RxJS | "library for composing asynchronous and event-based programs by using observable sequences"; 7.8.2 é a última estável (2025-02-22); a 8 nunca saiu (última 8.0.0-alpha.14, 2024-01-12); 9.0.0-beta.0 em 2026-08-04 | rxjs.dev/guide/overview; registro npm (2026-09-26) |
 
@@ -353,28 +363,31 @@ jQuery, o Angular com RxJS, o Svelte e o Vue continuam fora.
     literatura explicativa dos *signals* é sobretudo do autor do Solid.
     Fontes: State of JS; SO; npm; Carniato. Evidência: número; parte
     interessada.
-- **Lit, a declarativa por re-renderização sobre o Web Component, fora
-  da análise desde 2026-10-19**
-  - *pró (de mantê-lo, como valia até 2026-10-18)*: `LitElement`
-    estende `HTMLElement`, com o mesmo modelo de componente e a mesma
-    orquestração do Web Component, e muda a ligação do estado com a
-    tela: o par Web Component × Lit era o único que isolava o imperativo
-    contra a re-renderização; sem ele, os custos dos *hooks* do React na
-    orquestração iriam para a conta da re-renderização (na espera de 300
-    ms do rascunho de 2026-10-12, +34/−22 linhas no React contra +5/−1
-    no Lit); 8,4 M downloads por semana e 1,30 no *benchmark*, contra
-    1,58 do React. Fontes: lit.dev *Lifecycle*; ADR 0013; npm; Krause
+- **Lit, a declarativa por re-renderização sobre o Web Component, num
+  ramo da cadeia desde 2026-10-25, depois de fora da análise desde
+  2026-10-19**
+  - *pró*: `LitElement` estende `HTMLElement`, com o mesmo modelo de
+    componente e a mesma orquestração do Web Component, e muda a ligação
+    do estado com a tela: o par Web Component × Lit é o único que isola
+    o imperativo contra a re-renderização; sem ele, os custos dos
+    *hooks* do React na orquestração iriam para a conta da
+    re-renderização (na espera de 300 ms do rascunho de 2026-10-12,
+    +34/−22 linhas no React contra +5/−1 no Lit); 8,4 M downloads por
+    semana e 1,30 no *benchmark*, contra 1,58 do React. Fontes: lit.dev
+    *Lifecycle*; ADR 0013; npm; Krause
     2026. Evidência: fato oficial; medida de rascunho; número.
   - *contra*: Uso pequeno (10% no State of JS 2025, retenção de 67%;
     ausente no Stack Overflow e no W3Techs); em 2026-10-13, ficava em
     três das cinco interfaces de então, e na Reserva de passagem (então
     Formulário) o rascunho saía quase linha a linha igual ao React,
     dentro de uma classe; a variante com *signals* (`@lit-labs/signals`
-    0.3.0) é experimental. Saiu com a cadeia de quatro tecnologias:
-    manter o Lit e o Angular ao lado do Web Component com *signals*
-    daria seis tecnologias e 42 implementações, e o texto de cada
-    interface passaria de 12 a 14 páginas (ADR 0013). Com a saída, o
-    imperativo contra a re-renderização fica sem par direto. Fontes:
+    0.3.0) é experimental. Saiu em 2026-10-19 com a cadeia de quatro
+    tecnologias: manter o Lit e o Angular ao lado do Web Component com
+    *signals* daria seis tecnologias e 42 implementações, e o texto de
+    cada interface passaria de 12 a 14 páginas; com a saída, o
+    imperativo contra a re-renderização ficava sem par direto. Voltou em
+    2026-10-25, sem o Angular, nas sete interfaces: 35 implementações e
+    cerca de 16,6 páginas por interface (ADR 0013). Fontes:
     State of JS 2025; SO 2025; W3Techs 2026-09-26; ADR 0013;
     lit.dev/docs/data/signals. Evidência: número; fato; medida de
     rascunho.
@@ -478,15 +491,16 @@ jQuery, o Angular com RxJS, o Svelte e o Vue continuam fora.
 8. **Web Component ≠ notação.** A classe com `HTMLElement` é o modelo de
    componente da plataforma, não a notação imperativa; o que representa a
    notação é o `addEventListener` com mutação do DOM dentro dela.
-9. **Cadeia sem par direto.** O imperativo e a re-renderização ficam com
-   uma tecnologia cada, e o imperativo contra a re-renderização, sem
-   par: a diferença entre o Web Component e o React se atribui aos
-   passos da cadeia, o que supõe que os passos se somam e falha quando
-   um muda a leitura de outro, como a montagem em JSX pode mudar a
-   leitura da ligação (ADR 0013). No Web Component com *signals*, o
-   corpo de cada efeito ainda é uma escrita no DOM, e o texto precisa
-   mostrar o sinal escrito do granular para o leitor não o tomar por
-   imperativo (ADR 0021).
+9. **Atribuição pelos passos.** A diferença entre o Web Component e o
+   React se atribui aos passos da cadeia, o que supõe que os passos se
+   somam e falha quando um muda a leitura de outro, como a montagem em
+   JSX pode mudar a leitura da ligação; a parte que vem só da
+   re-renderização se lê no par Web Component × Lit, que muda com a
+   ligação também a montagem e, no Circle Drawer e na Planilha, a
+   alteração por cópia (ADRs 0013 e 0040). No Web Component com
+   *signals*, o corpo de cada efeito ainda é uma escrita no DOM, e o
+   texto precisa mostrar o sinal escrito do granular para o leitor não o
+   tomar por imperativo (ADR 0021).
 
 ## Como Web Components sem biblioteca montam a tela
 
@@ -987,3 +1001,12 @@ do estado com a tela e a orquestração, que no Web Component com
 *signals* segue a do Solid, e que as partes repetidas ficam no laço de
 `createElement` do Web Component (decisões do autor, ADR 0013); antes,
 diziam que o par mudava só a ligação.
+
+Em 2026-10-26, a nota passou a dizer a volta do Lit à análise, num ramo
+da cadeia, decidida em 2026-10-25 (ADR 0013): o cabeçalho, a versão do
+`package-lock.json`, a linha do Lit em "Tecnologias por modelo de
+programação" e em "O modelo de reatividade segundo a documentação
+oficial", o par Web Component × Lit e o Lit e o React como um modelo
+com duas notações (ADR 0021), a entrada do Lit em "Prós e contras de
+cada escolha do ADR 0013" e o item 9 de "Desvantagens a reconhecer no
+texto", que dizia o imperativo contra a re-renderização sem par direto.

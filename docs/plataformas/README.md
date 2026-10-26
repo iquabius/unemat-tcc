@@ -1,18 +1,18 @@
 # Plataformas: as notas e as tecnologias da análise
 
 Referência. O índice das notas de `docs/plataformas/`: a web, em que a
-análise fica, com as quatro tecnologias por modelo de programação e a
+análise fica, com as cinco tecnologias por modelo de programação e a
 cadeia de pares, e o Android e o *desktop*, fora da análise desde
 2026-10-17, como referência para os trabalhos futuros da conclusão.
 
 **Conclusão.** A análise fica só na web, em TypeScript (ADR 0001), com o
-Web Component, o Web Component com *signals* do `solid-js`, o React e o
-Solid, numa cadeia de pares em que cada passo muda o mínimo (ADR 0013,
-de 2026-10-19). O Lit e o Angular com *signals* saíram pelo ADR 0013, e
-o Android e o *desktop*, pelo ADR 0001, de 2026-10-17; todos
-vão para os trabalhos futuros da conclusão (tcc-dpci), e o código deles
-saiu do repositório em 2026-10-25 e fica no commit anterior ao que
-tirou a pasta `fora-da-analise/`.
+Web Component, o Web Component com *signals* do `solid-js`, o Solid, o
+React e o Lit, numa cadeia de pares em que cada passo muda o mínimo,
+com o Lit num ramo do Web Component (ADR 0013, de 2026-10-25). O Angular
+com *signals* saiu pelo ADR 0013, e o Android e o *desktop*, pelo ADR
+0001, de 2026-10-17; todos vão para os trabalhos futuros da conclusão
+(tcc-dpci), e o código deles saiu do repositório em 2026-10-25 e fica
+no commit anterior ao que tirou a pasta `fora-da-analise/`.
 
 Os termos seguem o `GLOSSARY.md` e o ADR 0021, com as definições e as
 fontes em `docs/paradigma-modelo-e-notacao.md`: o que se compara são três
@@ -24,15 +24,18 @@ programação numa tecnologia.
 | Modelo de programação | Tecnologias |
 |---|---|
 | Imperativo por atualização manual | Web Component |
-| Declarativo por re-renderização | React |
+| Declarativo por re-renderização | React, Lit |
 | Declarativo por atualização granular | Web Component com *signals*, Solid |
 
 A cadeia de pares (ADR 0013): Web Component → (a ligação do estado com a
-tela) → Web Component com *signals* → (a montagem da tela e o modelo de
-componente) → Solid → (o modelo de programação, com o mesmo JSX) →
-React. O Web Component e o React não formam par: a diferença entre eles
+tela e a orquestração) → Web Component com *signals* → (a montagem da
+tela e o modelo de componente) → Solid → (o modelo de programação, com
+o mesmo JSX) → React; e, num ramo, Web Component → (a ligação) → Lit.
+Cada declarativo é um modelo de programação com duas notações (ADR
+0021). O Web Component e o React não formam par: a diferença entre eles
 se atribui ao passo da cadeia em que ela aparece, e a que nenhum passo
-explica, pelo sinal escrito (ADR 0021).
+explica, pelo sinal escrito (ADR 0021); a parte que vem só da
+re-renderização se lê no par Web Component × Lit (ADR 0013).
 
 As notas:
 
@@ -79,3 +82,7 @@ análise e o Android e o *desktop* nos trabalhos futuros (ADRs 0001
 e 0013). A seção "Resumo", com a tabela das plataformas e dos três pares
 de *desktop* e a leitura dela, saiu, e a seção "O que comparar dentro do
 granular" foi sem mudança para `docs/plataformas/desktop.md`.
+
+Em 2026-10-26, a conclusão, a tabela e a cadeia de "A web, na análise"
+passaram a dizer a volta do Lit, num ramo do Web Component, decidida em
+2026-10-25 (ADR 0013), e o primeiro passo da cadeia com a orquestração.
