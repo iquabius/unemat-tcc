@@ -1,140 +1,80 @@
 # 0014. A pergunta descritivo-comparativa, com uma subpergunta por rodada
 
-2026-10-25. A introdução de 2017 trazia a pergunta em três formulações,
-uma sobre software em larga escala, que interfaces pequenas não
-respondem, e um objetivo geral sem critério. A pergunta: pelas Dimensões
-Cognitivas de Notações, como difere a usabilidade da notação do código
-de interfaces gráficas em cada tecnologia entre os três modelos de
-programação — o imperativo por atualização manual, o declarativo por
-re-renderização e o declarativo por atualização granular? A pergunta tem
-a forma descritivo-comparativa de Easterbrook et al. (2008), "How does X
-differ from Y?", e pede diferenças, e não um juízo de qual é melhor,
-como as próprias DCs, que "are not good or bad in themselves" (Blackwell
-e Green 2003, cópia). A pergunta diz a unidade comparada, o modelo de
-programação, e onde se observa a evidência, a notação de cada tecnologia
-(ADR 0021); "do código" diz que a notação é a do código que programa a
-interface, e não o que o usuário vê na tela. A pergunta principal tem
-duas subperguntas, uma por rodada estreita (ADR 0029), com rótulos
-hierárquicos, que dizem a subordinação sem uma frase que a anuncie: como
-a diferença entre os modelos de programação muda quando a mesma
-funcionalidade ou o mesmo requisito de orquestração se acrescenta a
-todas as implementações (P1.1, a segunda rodada), e quando o código da
-segunda rodada se refatora, com o mesmo comportamento, para a forma do
-ecossistema de cada tecnologia, para uma máquina de estados tipada, para
-a API nova da plataforma ou para um padrão de projeto (P1.2, a terceira,
-composta pelas quatro vertentes do ADR 0029; decisão do autor em
-2026-10-24); a redação é do autor, na introdução (tcc-xep). As rodadas
-se chamam pelo ordinal, e não pela pergunta, porque "a rodada da P1" se
-confundiria com a avaliação inteira, que a P1 cobre. "Larga escala" fica
-só na motivação. O objetivo geral é comparar, segundo as DCs, a
-usabilidade das notações dos três modelos de programação em interfaces
-típicas da web, em TypeScript (ADR 0001); os específicos: implementar as
-sete interfaces com o Web Component, o Lit, o Web Component com
-*signals*, o Solid e o React, estendê-las na segunda rodada e refatorar
-três delas na terceira, em quatro vertentes (ADRs 0002, 0013 e 0029);
-avaliar as implementações pelas 14 DCs em cada rodada (ADR 0017);
-sintetizar, por exigência de coordenação, o que cada modelo de
-programação facilita e o que dificulta. Os programas de processamento de
-listas, que demonstram os conceitos de PF, vão para a fundamentação
-(`prog.org`): fundamentar conceitos é função de uma seção do texto, e
-não um passo para o objetivo geral.
+2026-10-25. O orientador e o leitor do texto não tinham como conferir a
+resposta da introdução de 2017, com a pergunta em três formulações, uma
+sobre software em larga escala, que interfaces pequenas não respondem, e
+um objetivo geral sem critério. Com a avaliação em três rodadas (ADR
+0029), a segunda e a terceira ficariam sem pergunta.
 
-Em vez de: a P1.2 só sobre a forma do ecossistema, "E como ela muda
-quando o código passa à forma que o ecossistema de cada tecnologia usa,
-com o mesmo comportamento?" (redação da introdução até 2026-10-24);
-casava com a terceira rodada em duas interfaces, mas a terceira passou a
-quatro vertentes irmãs (ADR 0029), e três delas ficariam sem pergunta.
+Critérios:
+
+- a pergunta pede diferenças, e não qual é melhor, como as DCs;
+- diz a unidade comparada, o modelo de programação, e onde está a
+  evidência, a notação do código (ADR 0021);
+- cada rodada, e cada vertente da terceira, responde a uma pergunta
+  subordinada à principal;
+- cada objetivo específico é um passo para responder à pergunta;
+- as rodadas são as três do ADR 0029.
+
+A pergunta é descritivo-comparativa, com uma subpergunta por rodada:
+pelas Dimensões Cognitivas de Notações, como difere a usabilidade da
+notação do código de interfaces gráficas em cada tecnologia entre os
+três modelos de programação? É o "How does X differ from Y?" de
+Easterbrook et al. (2008), que pede diferenças, como as DCs, que "are
+not good or bad in themselves" (Blackwell e Green 2003, cópia). A P1.1
+pergunta como a diferença muda quando a segunda rodada acrescenta a
+mesma funcionalidade ou o mesmo requisito de orquestração a todas as
+implementações; a P1.2, quando a terceira refatora o código da segunda,
+com o mesmo comportamento, nas quatro vertentes do ADR 0029 (decisão do
+autor em 2026-10-24). Os rótulos hierárquicos dizem a subordinação, sem
+frase que só conte as subperguntas: num levantamento de 2026-10-13, dos
+13 trabalhos (entre 25) com perguntas em dois níveis, dez marcam o nível
+pela numeração (RQ1.1, QP2.1), e os oito que anunciam o segundo nível o
+fazem na frase que abre a lista ou numa oração que diz algo além da
+divisão. A redação é do autor, na introdução (tcc-xep; a da P1.2,
+tcc-vgrx); "larga escala" fica na motivação.
+
+O objetivo geral compara, segundo as DCs, a usabilidade das notações dos
+três modelos de programação em interfaces típicas da web, em TypeScript
+(ADR 0001). Os específicos implementam as sete interfaces nas cinco
+tecnologias, estendem-nas na segunda rodada e refatoram três delas na
+terceira, em quatro vertentes (ADRs 0002, 0013 e 0029), avaliam-nas
+pelas 14 DCs em cada rodada (ADR 0017) e sintetizam, por exigência de
+coordenação, o que cada modelo de programação facilita e o que
+dificulta, e não as vantagens e desvantagens, um juízo que as DCs não
+fazem (decisões do autor em 2026-10-09). Os programas de processamento
+de listas, que não são passo para o objetivo geral, vão para a
+fundamentação (`prog.org`).
+
+Em vez de: a P1.2 só sobre a forma do ecossistema (redação até
+2026-10-24); casava com a terceira rodada em duas interfaces, mas a
+terceira passou a quatro vertentes, e três ficariam sem pergunta (falha
+o terceiro critério).
+Em vez de: uma pergunta só, sem subperguntas (decisão de 2026-10-09),
+ou três perguntas paralelas, uma por rodada; a pergunta só é mais curta,
+e as paralelas dão às rodadas o mesmo peso, mas na primeira a segunda e
+a terceira rodada ficariam sem pergunta, e nas paralelas a terceira, que
+não responde sozinha sobre o modelo de programação, ficaria sem
+subordinação à principal (falha o terceiro).
 Em vez de: uma P1.3 para os padrões de projeto, com uma quarta rodada
-(proposta do autor em 2026-10-24); daria a cada forma uma pergunta, mas
-as vertentes partem do mesmo código, sem ordem entre si, e a subpergunta
-é uma só porque a rodada é uma só (ADR 0029).
-Em vez de: o objetivo geral na web, em TypeScript, e em parte das
-interfaces no Android, em Kotlin, e no *desktop*, em C#, com os
-específicos de implementar as cinco interfaces em Web Component, React e
-Solid, três delas também em Lit e em Angular com *signals*, três no
-Android e três no *desktop* (versão de 2026-10-13); cobria três
-plataformas, mas o Android e o *desktop* saíram da análise (ADR
-0001), o Angular também, e o Lit, que só entrava em três interfaces,
-voltou nas sete (ADR 0013).
-Em vez de: uma pergunta só, sem subperguntas (decisão de 2026-10-09);
-mais curta, mas a segunda e a terceira rodada ficariam sem pergunta a
-que responder, e a conclusão da terceira, que mede bibliotecas, se
-misturaria com a do modelo de programação.
-Em vez de: três perguntas paralelas, uma por rodada; dá às rodadas o
-mesmo peso, mas a terceira rodada não responde sobre o modelo de
-programação sozinha, e a subpergunta a deixa subordinada à principal.
-Em vez de: subperguntas com rótulos planos, P2 e P3, anunciadas por "A
-P1 tem duas subperguntas, uma para cada rodada da avaliação depois da
-primeira" (decisão de 2026-10-12); mantinha "a rodada da P2" e "a rodada
-da P3" no texto e no repositório, mas o rótulo plano não diz que a
-subpergunta é filha da P1, e a frase só contava as subperguntas, o que
-nenhum dos 25 trabalhos de um levantamento de 2026-10-13 faz; nos 13 com
-perguntas em dois níveis, dez marcam o nível pela numeração (RQ1.1,
-QP2.1).
-Em vez de: "a notação com que se programam interfaces gráficas"
-(decisão de 2026-10-12); é a colocação usual, mas repete "programação"
-na mesma frase e não diz que a notação é a do código.
-Em vez de: "a notação com que se escrevem interfaces gráficas" (edição
-do autor em 2026-10-13); tira o eco de "programação", mas "escrever
-interfaces" deixa a notação ambígua entre o código e a tela, e "do
-código de" diz o mesmo com uma palavra a menos.
-Em vez de: "como os três modelos de programação [...] se comparam quanto
-à usabilidade das notações com que se escrevem, segundo as DCs?"
-(decisão de 2026-10-08); "comparar" também serve à forma
-descritivo-comparativa, mas "com que se escrevem" não dizia o que se
-escreve nem de quem é a notação, a pergunta repetia "programação" e
-"segundo as DCs" do objetivo geral, e o critério ficava longe do verbo;
-o terceiro objetivo específico, "sintetizar as vantagens e
-desvantagens", pedia um juízo que as DCs não fazem e passou a "o que
-cada modelo de programação facilita e o que dificulta" (decisões do
-autor em 2026-10-09).
-Em vez de: "avaliar" no lugar de "comparar"; diria a atividade com o
-termo do GLOSSARY.md, mas avaliar é atribuir valor, o objetivo geral se
-confundiria com o segundo específico ("avaliar as implementações por
-oito DCs"), e os pares e as colunas da síntese perderiam o verbo.
-Em vez de: "como as três notações [...] se comparam quanto à
-usabilidade" (decisão de 2026-10-06); a palavra das DCs, mas com
-"notação" no sentido que o ADR 0021 trocou por modelo de programação.
-Em vez de: "como os três modelos de programação [...] se comparam quanto
-à usabilidade, segundo as DCs?"; mais curta, mas deixa ao método dizer
-que a evidência está na notação, e uma diferença só de execução, sem
-sinal escrito (Moseley e Marks 2006, p. 9), pareceria caber na resposta.
-Em vez de: "como se comparam, segundo as DCs, as notações dos três
-modelos de programação?"; a forma usual das DCs, que comparam notações,
-mas as notações concretas são quatro na web, e a pergunta ou passaria
-a comparar tecnologias, ou devolveria a "notação" o sentido de classe
-que junta o Web Component com *signals* e o Solid.
-Em vez de: manter a comparação de 2017, PF e PR contra POO com
-*callbacks*; continuidade com o projeto aprovado, mas o lado declarativo
-de 2026 se divide em dois modelos de programação, a re-renderização
-(*pull*) e a atualização granular (*push-pull*), que 2017 não
-distinguia, "paradigma" é noção imprecisa (Van Roy e Haridi 2004,
-p. xiii), e a pergunta tripla não era verificável.
-Em vez de: um objetivo específico para demonstrar, com processamento de
-listas, os conceitos de PF em que se apoiam os modelos de programação
-declarativos (decisão de 2026-09-26); continuava o projeto de 2017 e
-preparava a PF antes da PR, mas não tinha critério nem se ligava à
-pergunta, e o parágrafo do método que o sustentava ("O trabalho se
-divide em duas partes") só repetia o §7 e os objetivos.
-Em vez de: quatro modelos de programação, com o RxJS como o reativo por
-fluxos; retomaria a PR de 2017, mas pelas razões do ADR 0013 o RxJS fica
-de apoio.
-Custo: a P1.2 junta quatro formas numa subpergunta, e a resposta dela
-sai por vertente, de uma ou duas interfaces cada; a pergunta restringe o
-alcance: diferenças de modelo de programação que não aparecem no código,
-como o desempenho, ficam fora da resposta; as subperguntas pedem que a
-introdução e a conclusão respondam a três perguntas, e a P1.2 só se
-responde em cada forma, sem atribuição só ao modelo de programação; os
-rótulos hierárquicos obrigam a chamar as rodadas pelo ordinal, e os
-ADRs, as notas de `docs/`, `implementacoes/` e as tarefas que diziam P2
-e P3 mudam; a introdução, o título ("Demonstração e Análise de
-Programação Funcional e Reativa") e a análise do Contador em `cases.org`
-precisam ser reescritos; os programas de listas mudam do `cases.org`
-para o `prog.org`; a mudança deve ser justificada ao curso e aos
-orientadores.
+(proposta do autor em 2026-10-24); cada forma teria pergunta própria,
+mas as vertentes partem do mesmo código, sem ordem entre si (falha o
+quinto).
+Em vez de: a comparação de 2017, PF e PR contra POO com *callbacks*, e
+o objetivo específico, decidido em 2026-09-26, de demonstrar a PF com
+processamento de listas; continuaria o projeto aprovado, mas não
+distinguia a re-renderização (*pull*) da atualização granular
+(*push-pull*), a pergunta tripla não era verificável, e as listas não
+são passo para o objetivo geral (falha o segundo e o quarto).
 
-Fontes: revisão da introdução de 2026-09-23 (Wazlawick);
-`docs/processo/projeto-de-2017.md`; ADRs 0013, 0017, 0021 e 0029, que
-fecharam o recorte e o vocabulário;
+Custo: a resposta da P1.2 sai por vertente, de uma ou duas interfaces
+cada; o que não aparece no código, como o desempenho, fica fora; o
+título, a introdução e a análise do Contador em `cases.org` se
+reescrevem, e a mudança se justifica ao curso e aos orientadores.
+
+Fontes: `texto/fontes/easterbrook2008.org`; revisão da introdução de
+2026-09-23 (Wazlawick); `docs/processo/projeto-de-2017.md`;
+`tmp/pesquisas/2026-10-13-rotulos-subperguntas.md` (fora do git);
 `docs/paradigma-modelo-e-notacao.md`, seção "Unidade comparada e
-evidência: o TCC compara categorias".
+evidência: o TCC compara categorias". A notação no lugar do paradigma é
+do ADR 0021; o RxJS fora, do ADR 0013.
