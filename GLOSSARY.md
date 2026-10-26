@@ -15,10 +15,10 @@ possível: as técnicas e os princípios de projeto construídos sobre um
 modelo de computação (Van Roy e Haridi, 2004). São três: o imperativo por
 atualização manual, o declarativo por re-renderização e o declarativo por
 atualização granular, nomeados por como a alteração de estado chega à
-tela. React e Solid têm dois; o Web Component com *signals* e o Solid são
-um modelo de programação com duas notações. É o que o trabalho compara,
-pela notação de cada tecnologia, e aplica conceitos de um ou mais
-paradigmas (ADR 0021).
+tela. Cada declarativo tem duas tecnologias, um modelo de programação
+com duas notações: o Web Component com *signals* e o Solid, e o Lit e o
+React. É o que o trabalho compara, pela notação de cada tecnologia, e
+aplica conceitos de um ou mais paradigmas (ADR 0021).
 _Avoid_: "modelo" sozinho (o modelo de computação, o de execução de uma
 tecnologia e o de componente são outros); notação para o que se compara;
 paradigma; abordagem; estilo; arquitetura (MVC e MVU organizam a
@@ -38,7 +38,8 @@ diferença entre modelos de programação só conta numa DC quando aparece
 nela. Cada tecnologia tem a sua; muda com as abstrações da tecnologia, não
 com a linguagem (ADR 0021).
 _Avoid_: notação para o modelo de programação (o Web Component com
-*signals* e o Solid são um modelo e duas notações); sintaxe (a notação
+*signals* e o Solid, como o Lit e o React, são um modelo e duas
+notações); sintaxe (a notação
 inclui a estrutura que a forma deixa à vista); "notação de interface
 gráfica" (é do código, não da tela)
 
