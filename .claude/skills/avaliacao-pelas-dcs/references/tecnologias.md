@@ -14,7 +14,7 @@ estado que chega à tela, a assincronia com o ciclo de vida (limpeza ao
 sair da tela) e a montagem da tela. O que conta é o código da aplicação:
 o `dominio.ts` é compartilhado e fica fora da notação de cada
 tecnologia, como os estilos, a configuração e os testes
-(ADR 0012).
+(ADR 0017).
 
 Os comentários das implementações ("Sem isto, a tentativa continua fora
 da página", no Login do React) são notação secundária escrita por quem

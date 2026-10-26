@@ -170,7 +170,7 @@ resumidas. As comparações com o Web Component são do código de
 
 **Linhas da tela.** Contagem preliminar, linhas não vazias e sem
 comentários, com os *imports*, do arquivo da tela (sem domínio, estilo
-nem `Main`); o *script* do ADR 0012 ainda não existe:
+nem `Main`); o *script* do ADR 0017 ainda não existe:
 
 | Interface | Swing | JavaFX (código) | JavaFX (FXML: Java + XML) | Views (Kotlin + *layout*) | Compose |
 |---|---|---|---|---|---|
@@ -191,7 +191,7 @@ nem `Main`); o *script* do ADR 0012 ainda não existe:
 - Custos vistos: o domínio Kotlin chamado do Java aparece na tela como
   `DominioKt` e `getProdutos()`; o *plugin* do OpenJFX (0.1.0, de
   2023) obriga a desligar o *cache* de configuração do Gradle 9; as capturas
-  idênticas do ADR 0008 não foram tentadas; o Swing não tem *placeholder*
+  idênticas do ADR 0041 não foram tentadas; o Swing não tem *placeholder*
   nos campos.
 
 ## Windows Forms × WPF (C#)
@@ -351,7 +351,7 @@ Contagem provisória, feita em 2026-10-09 sobre o código de `29b9994`:
 linhas não vazias e sem comentário, sem domínio, estilo, a ponte do
 domínio para a QML nem o `main.cpp`, que só abre a janela; o
 `MainActivity.kt` do Android entra, porque nele está a coordenação;
-ainda sem o *script* do ADR 0012.
+ainda sem o *script* do ADR 0017.
 
 | Interface | Qt Widgets (dos quais `.ui`) | QML | Views | Compose | Solid |
 |---|---|---|---|---|---|
@@ -384,7 +384,7 @@ linhas no Formulário e 52 na Lista, contra 79 e 77 do Kotlin do Views.
   dos *layouts*, que fica no `.ui`, junto da estrutura. No Views, o estilo
   nomeado leva também o espaçamento (`android:divider` e
   `android:padding` em `res/values/estilo.xml`), e o *layout* só o cita
-  (ADR 0008).
+  (no ADR das capturas, `docs/processo/historico-dos-adrs.md`).
 - **QML, *binding* desfeito**: "A common cause of bugs in QML applications is
   accidentally overwriting bindings with static values from JavaScript
   statements", e o motor avisa pela categoria `qt.qml.binding.removal`

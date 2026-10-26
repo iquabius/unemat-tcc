@@ -1,7 +1,8 @@
 # Histórico dos ADRs: os que saíram de `docs/adr/`
 
 Referência. Cada ADR que saiu de `docs/adr/`, por corte ou por ter sido
-absorvido por outro, com o commit, a data e o ADR que o absorveu, para
+absorvido por outro, com o commit, a data e o destino (o ADR que o
+absorveu, ou a regra, o verbete ou o docstring que o recebeu), para
 que a cadeia inteira das decisões se refaça pelo git (ADR 0044). O ADR
 que sai ganha uma linha aqui no mesmo commit. A troca do nome do arquivo
 não entra: `git log --follow` a acha.
@@ -27,3 +28,24 @@ anterior num "Em vez de", e as erratas entraram no texto.
 | 0018 | `0018-frase-entra-no-texto-so-com-fonte-lida-e-aprovo-do-autor.md` | 0023 |
 | 0019 | `0019-coordenacao-e-estrutura-da-tela-sao-duas-notacoes.md` | 0021 |
 | 0020 | `0020-notacao-muda-com-as-abstracoes-da-tecnologia.md` | 0021 |
+
+## A reescrita de 2026-10-25
+
+Em 2026-10-25, a reescrita dos ADRs na forma do ADR 0044 levou-os de 34
+a 26: cada um entrou no ADR que o completava, ou, quando não passava nos
+três critérios de um ADR (caro de reverter, surpreendente sem contexto,
+com alternativa real), na regra, no verbete ou no docstring que já
+diziam quase tudo dele (decisões do autor em 2026-10-25). O commit vai
+pelo assunto, que se acha no `git log`; o sha sai de
+`git log --diff-filter=D --format='%h %s' -- docs/adr/<arquivo>`.
+
+| ADR | Arquivo | Absorvido por | Commit |
+|---|---|---|---|
+| 0028 | `0028-quebra-de-paragrafo-marcada-com-pilcrow-no-diff.md` | o docstring de `bin/marcar-quebras.py` | "Leva o pilcrow do diff do ADR ao docstring do filtro" |
+| 0034 | `0034-interfaces-implementacoes-e-benchmark-de-notacao.md` | o `GLOSSARY.md` (Interface, *Benchmark* de notação) e o `interfaces-graficas/AGENTS.md` (a variável `gui`) | "Leva ao glossário os termos interface e *benchmark* de notação" |
+| 0005 | `0005-android-fora-da-analise-como-trabalho-futuro.md` | 0001 | "Reescreve o ADR 0001 com o Android dentro dele" |
+| 0012 | `0012-quatro-tecnologias-nas-sete-interfaces-e-as-14-dcs.md` | 0017 (as 14 DCs) e 0013 (a composição) | "Reescreve o ADR 0017 com as 14 DCs dentro dele" |
+| 0033 | `0033-alteracao-do-estado-em-cada-implementacao.md` | 0010 | "Reescreve o ADR 0010 com a alteração do estado dentro dele" |
+| 0008 | `0008-capturas-versionadas-identicas-entre-as-tecnologias-web.md` | 0041 | "Reescreve o ADR 0041 com as capturas idênticas dentro dele" |
+| 0036 | `0036-notas-de-fontes-por-assunto-com-ponto-de-entrada.md` | o `AGENTS.md`, seção "Notas em `docs/`", e o ADR 0035 (a fronteira entre a matriz e a nota de fontes) | "Leva ao AGENTS.md as notas de docs/ por assunto" |
+| 0022 | `0022-corte-antes-da-frase-revisado-no-diff.md` | 0023 | "Reescreve o ADR 0023 com o corte antes da frase dentro dele" |

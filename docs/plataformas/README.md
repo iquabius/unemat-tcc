@@ -9,7 +9,7 @@ cadeia de pares, e o Android e o *desktop*, fora da análise desde
 Web Component, o Web Component com *signals* do `solid-js`, o React e o
 Solid, numa cadeia de pares em que cada passo muda o mínimo (ADR 0013,
 de 2026-10-19). O Lit e o Angular com *signals* saíram pelo ADR 0013, e
-o Android e o *desktop*, pelos ADRs 0001 e 0005, de 2026-10-17; todos
+o Android e o *desktop*, pelo ADR 0001, de 2026-10-17; todos
 vão para os trabalhos futuros da conclusão (tcc-dpci), e o código deles
 saiu do repositório em 2026-10-25 e fica no commit anterior ao que
 tirou a pasta `fora-da-analise/`.
@@ -58,7 +58,7 @@ As notas:
 - `android.md`: Views e Compose, em Kotlin, e a escolha da linguagem,
   com o script que refaz a conta da JetBrains
   (`android-jetbrains-2025.py`); fora da análise desde 2026-10-17 (ADR
-  0005);
+  0001);
 - `desktop.md`: os três pares candidatos (Swing × JavaFX, Windows Forms
   × WPF e Qt Widgets × QML), a pré-análise dos implementados e o que
   comparar dentro do granular; fora da análise desde 2026-10-17 (ADR
@@ -75,7 +75,7 @@ seções da web, do Android e dos três pares de *desktop*, que foram para
 as notas de cada plataforma.
 
 Em 2026-10-19, virou o índice das notas de plataformas, com a web na
-análise e o Android e o *desktop* nos trabalhos futuros (ADRs 0001, 0005
+análise e o Android e o *desktop* nos trabalhos futuros (ADRs 0001
 e 0013). A seção "Resumo", com a tabela das plataformas e dos três pares
 de *desktop* e a leitura dela, saiu, e a seção "O que comparar dentro do
 granular" foi sem mudança para `docs/plataformas/desktop.md`.

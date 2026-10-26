@@ -1,6 +1,6 @@
 # As 14 DCs: uma ficha por dimensão
 
-Ordem canônica do trabalho (`GLOSSARY.md`, verbete DC; ADR 0012). Cada
+Ordem canônica do trabalho (`GLOSSARY.md`, verbete DC; ADR 0017). Cada
 ficha dá a pergunta da fonte, o sinal escrito a procurar no código, a
 parte da notação em que ele costuma estar, o que a atividade da rodada
 muda e as armadilhas próprias da dimensão. As perguntas são de Green e
@@ -58,7 +58,7 @@ da implementação, não o exemplo.
 O perfil de atividade guia como ler cada DC, e nunca seleciona quais
 ler: as 14 se percorrem em toda rodada, sem seleção prévia por perfil,
 porque a leitura dirigida deixaria sem resposta, no diff, as DCs fora
-do perfil (ADR 0012, decisão do autor de 2026-10-24). O que o perfil
+do perfil (ADR 0017, decisão do autor de 2026-10-24). O que o perfil
 muda é o peso e a pergunta de cada DC na rodada; a DC sem linha na
 tabela se lê com a mesma ficha, sem o peso publicado.
 
@@ -131,7 +131,7 @@ tabela se lê com a mesma ficha, sem o peso publicado.
   a meaning?" (Green e Petre 1996, p. 138). Definição: "verbosity of
   language" (Blackwell e Green 2003, p. 117).
 - Sinal: linhas não vazias e sem comentários por implementação, sem
-  domínio, estilo e testes (ADR 0012; script da tcc-hlh7), e o trecho que
+  domínio, estilo e testes (ADR 0017; script da tcc-hlh7), e o trecho que
   concentra a diferença.
 - Parte: separe montagem da tela, coordenação e ligação, como nos
   protótipos de 2026-10-12 (`docs/metodo-da-avaliacao.md`, seção

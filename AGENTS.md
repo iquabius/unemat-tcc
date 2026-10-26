@@ -21,7 +21,7 @@ projeto estão em `GLOSSARY.md`; use-os.
 | Frase nova ou alterada em `texto/*.org` | direto no `.org` do checkout principal; o commit espera a revisão | seção "Texto" abaixo e skill do projeto `revisao-de-texto` (ADR 0023) |
 | Cópia de uma fonte lida: PDF, página salva, texto extraído | `acervo/` do checkout principal, fora do git (ADR 0038) | a obra com chave no `refs.bib` em `acervo/<chave>.pdf`; a sem chave, na pasta do tipo; de onde cada cópia veio, em `acervo/procedencia.tsv` (ADR 0039; a regra está na seção "Texto"); mover uma cópia troca o caminho, na matriz e na tabela, no mesmo commit |
 | Cópia do código autoral, o que o autor escreveu à mão no CodeSandbox | `interfaces-graficas/autorais/<sandbox>/`, no git (ADR 0025) | uma pasta por *sandbox*, com o nome dele; os links ficam na lista de `docs/processo/implementacoes-no-codesandbox.md`, e o `README.org` de lá diz de onde e quando veio cada cópia; nada vai para o `acervo/procedencia.tsv`, que é das fontes |
-| Material local de trabalho: mapas e checagens do texto, pesquisas, protótipos, dev logs | `tmp/` do checkout principal, numa das pastas do ADR 0038, nunca solto na raiz | nome `AAAA-MM-DD-<assunto>`, com a data do começo do trabalho; `bin/tmp-por-data.py` lista por dia, entre as pastas, e acusa o que foge da regra |
+| Material local de trabalho: mapas e checagens do texto, pesquisas, protótipos, dev logs | `tmp/` do checkout principal, numa destas pastas, nunca solto na raiz: `revisao/` (mapas invertidos, variantes e checagens do texto), `pesquisas/`, `prototipos/`, `devlogs/`, `orientacao/` e `copias/` (build e cópias de segurança) | no primeiro nível de cada pasta, nome `AAAA-MM-DD-<assunto>`, com a data do começo do trabalho e sem repetir o nome da pasta (`devlogs/2026-10-14-corte-intro.md`); dentro de uma entrada, os arquivos se nomeiam como o trabalho pedir; `bin/tmp-por-data.py` lista por dia, entre as pastas, e sai com 1 no arquivo solto na raiz, na pasta fora da lista e no nome sem data (decisões de 2026-10-16, as pastas, e de 2026-10-17, a data no começo do nome) |
 | Trecho de fonte que sustenta uma frase do texto | `texto/fontes/<chave>.org` | um arquivo por chave do `refs.bib` (ADR 0035); um título por afirmação, com o link para o parágrafo e a página, e embaixo a frase, o trecho e a data da conferência; o trecho que o texto ainda não cita fica na nota de fontes do assunto |
 
 No chat, o ADR se cita pelo número e pelo nome, num link para o arquivo,
@@ -195,7 +195,7 @@ e o HEAD é o texto aprovado (ADR 0023, skill `revisao-de-texto`).
   - o commit espera o aprovo do autor.
 
 Para simplificar a leitura, o bloco passa antes pela rodada de corte da
-mesma skill (ADR 0022), sem meta de palavras: `metricas_texto.py
+mesma skill (ADR 0023), sem meta de palavras: `metricas_texto.py
 --orcamento` só mede antes e depois. Cada parágrafo, frase e fonte recebe
 um rótulo: manter, condensar, mover ou cortar. A frase que ilustra fica
 quando torna concreto um elo, e sai quando só enfeita. O agente aplica de uma vez os
@@ -352,7 +352,9 @@ tabela das centrais muda com o peso. Na raiz de `docs/` ficam as notas
 que seguram um elo do argumento ou se leem em toda rodada; as de apoio
 ficam numa pasta por tipo de material: `docs/bibliografia/` (fontes de
 apoio e as buscas), `docs/plataformas/` (uma nota por plataforma, com as
-tecnologias) e `docs/processo/` (o projeto e as ferramentas). Cada nota
+tecnologias) e `docs/processo/` (o projeto e as ferramentas), decisão
+de 2026-10-16. A fonte que serve a dois assuntos fica na nota de um
+deles, e a outra aponta para ela. Cada nota
 é de um tipo só, dito na primeira linha depois do título:
 
 - **Fontes** (`docs/estado-eventos-e-complexidade.md`): as fontes de um
@@ -415,10 +417,12 @@ gerou: o ADR tem o tamanho que a cadeia das decisões pede, e nada mais
 - Decisão que muda reescreve o ADR no lugar, com a data nova e a decisão
   anterior num "Em vez de"; errata se corrige no texto. O git guarda as
   versões, e a numeração tem lacunas.
-- O ADR absorvido por outro e o "Em vez de" que a cadeia não pede saem.
-  O ADR que sai ganha, no mesmo commit, uma linha em
-  `docs/processo/historico-dos-adrs.md`, com o commit, a data e o ADR que
-  o absorveu.
+- O ADR absorvido por outro e o "Em vez de" que a cadeia não pede saem;
+  o ADR que não passa nos três critérios da skill `adr` sai para a regra
+  do `AGENTS.md`, o verbete do `GLOSSARY.md` ou o docstring que já diz
+  quase tudo dele. O ADR que sai ganha, no mesmo commit, uma linha em
+  `docs/processo/historico-dos-adrs.md`, com o commit pelo assunto, a
+  data e o destino.
 - O título que muda troca o nome do arquivo, com o caminho em todas as
   referências, num commit só de movimento, antes do que muda o texto.
 

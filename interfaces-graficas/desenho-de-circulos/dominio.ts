@@ -1,7 +1,7 @@
 // Medidas, mensagens, o desenho no canvas e os atalhos do Circle Drawer,
 // iguais em todas as implementações web. A lista de círculos, o histórico
 // do desfazer e a seleção ficam em cada implementação, porque escrever uma
-// alteração de estado é parte da notação (ADR 0033); o que fica aqui é "o
+// alteração de estado é parte da notação (ADR 0010); o que fica aqui é "o
 // como" do desenho, igual em todas, e cada implementação escreve só quando
 // ele roda de novo.
 

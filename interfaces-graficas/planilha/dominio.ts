@@ -1,7 +1,7 @@
 // As células, a mensagem e a análise e a avaliação das fórmulas da planilha,
 // iguais em todas as implementações web. Nada aqui depende de interface. A
 // propagação (quem reavaliar, em que ordem, quando parar) fica em cada
-// implementação, pela regra do ADR 0033.
+// implementação, pela regra do ADR 0010.
 
 export interface Celula {
   nome: string;

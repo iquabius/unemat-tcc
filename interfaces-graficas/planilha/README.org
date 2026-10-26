@@ -19,7 +19,7 @@ lista as células que a conta cita, =avaliar(formula, ler)= devolve o
 valor, em centavos inteiros, lendo o das células citadas com =ler(nome)=,
 e =formatar(valor)= o escreve. A propagação (quem reavaliar, em que ordem,
 quando parar) fica em cada implementação, porque escrever uma alteração de
-estado é parte da notação (ADR 0033). =contarAvaliacoes()= diz quantas
+estado é parte da notação (ADR 0010). =contarAvaliacoes()= diz quantas
 vezes o =avaliar= rodou, para o teste conferir que só as dependentes se
 avaliam. A planilha não abre relógio, requisição nem inscrição, e por isso
 o teste não sai da tela, como o das outras interfaces: a limpeza ao sair

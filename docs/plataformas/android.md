@@ -4,16 +4,17 @@ Referência. As tecnologias do Android no TCC, Views e Jetpack Compose,
 com o modelo de programação e a montagem da tela de cada uma e a
 hipótese sobre o ambiente de execução do Compose, e a escolha da
 linguagem: a literatura cinzenta sobre Kotlin × Java que sustentou a
-escolha do Kotlin (ADR 0005), com os argumentos a favor e contra, as
+escolha do Kotlin (no ADR do Android, que saiu de `docs/adr/` em
+2026-10-25, `docs/processo/historico-dos-adrs.md`), com os argumentos a favor e contra, as
 fontes e a conferência dos números de adoção. O Android está fora da
-análise desde 2026-10-17 (ADRs 0001 e 0005), e a nota fica como
+análise desde 2026-10-17 (ADR 0001), e a nota fica como
 referência para os trabalhos futuros da conclusão (tcc-dpci); o código
 das Views e do Compose saiu do repositório em 2026-10-25 e fica no commit
 anterior ao que tirou a pasta `fora-da-analise/`. Cada
 afirmação sobre ferramenta ou versão leva a data em que foi observada.
 
-**Conclusão.** Desde 2026-10-17, o Android está fora da análise (ADRs
-0001 e 0005), e o que ele acrescentaria, a re-renderização fora do JSX,
+**Conclusão.** Desde 2026-10-17, o Android está fora da análise (ADR
+0001), e o que ele acrescentaria, a re-renderização fora do JSX,
 noutra linguagem, e a inscrição presa ao ciclo de vida da `Activity`,
 fica para os trabalhos futuros da conclusão. O Views cobre o imperativo
 por atualização manual e o Compose o declarativo por re-renderização, os
@@ -36,9 +37,10 @@ dos números"). Tratar como literatura cinzenta no texto.
 | Views | imperativo por atualização manual | *layout* XML | `res/values/estilo.xml` |
 | Jetpack Compose | declarativo por re-renderização | funções | `Estilo.kt` |
 
-Kotlin nas duas (ADR 0005). Conferem a web no Formulário, no Quadro e nos
+Kotlin nas duas (ADR 0001). Conferem a web no Formulário, no Quadro e nos
 Dados ao vivo (ADR 0029); capturas pelo Robolectric com Roborazzi, na
-JVM, idênticas às da web (ADR 0008).
+JVM, idênticas às da web (no ADR das capturas, que saiu de `docs/adr/`
+em 2026-10-25, `docs/processo/historico-dos-adrs.md`).
 
 ### Hipótese sobre o ambiente de execução do Compose
 
@@ -94,7 +96,7 @@ React reativo de Salvaneschi et al. (2014, p. 564).
   inscrições fica amarrado à composição. No Views, a inscrição dos Dados
   ao vivo se escreve em `onStart` e `onStop`; as duas tecnologias usam as
   corrotinas da linguagem, sem `ViewModel` nem `Flow`, e o escopo delas
-  difere, a composição contra o ciclo de vida da `Activity` (ADR 0005).
+  difere, a composição contra o ciclo de vida da `Activity` (ADR 0001).
   Leitura nossa: a diferença do par na orquestração deve ficar no ciclo de
   vida, nos Dados ao vivo, e nas políticas do envio do Formulário, que
   ignora o reenvio (primeira rodada), e da atualização otimista do Quadro,
@@ -205,5 +207,5 @@ conferência dos números veio para o lado dela, como
 `docs/plataformas/android-jetbrains-2025.py`.
 
 Em 2026-10-19, a abertura e a conclusão passaram a dizer que o Android
-está fora da análise desde 2026-10-17 (ADRs 0001 e 0005), como
+está fora da análise desde 2026-10-17 (ADR 0001), como
 referência para os trabalhos futuros.

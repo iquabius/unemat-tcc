@@ -15,10 +15,10 @@ possível: as técnicas e os princípios de projeto construídos sobre um
 modelo de computação (Van Roy e Haridi, 2004). São três: o imperativo por
 atualização manual, o declarativo por re-renderização e o declarativo por
 atualização granular, nomeados por como a alteração de estado chega à
-tela. React e Solid têm dois; o Web Component com *signals* e o Solid são
-um modelo de programação com duas notações. É o que o trabalho compara,
-pela notação de cada tecnologia, e aplica conceitos de um ou mais
-paradigmas (ADR 0021).
+tela. Cada declarativo tem duas tecnologias, um modelo de programação
+com duas notações: o Web Component com *signals* e o Solid, e o Lit e o
+React. É o que o trabalho compara, pela notação de cada tecnologia, e
+aplica conceitos de um ou mais paradigmas (ADR 0021).
 _Avoid_: "modelo" sozinho (o modelo de computação, o de execução de uma
 tecnologia e o de componente são outros); notação para o que se compara;
 paradigma; abordagem; estilo; arquitetura (MVC e MVU organizam a
@@ -38,7 +38,8 @@ diferença entre modelos de programação só conta numa DC quando aparece
 nela. Cada tecnologia tem a sua; muda com as abstrações da tecnologia, não
 com a linguagem (ADR 0021).
 _Avoid_: notação para o modelo de programação (o Web Component com
-*signals* e o Solid são um modelo e duas notações); sintaxe (a notação
+*signals* e o Solid, como o Lit e o React, são um modelo e duas
+notações); sintaxe (a notação
 inclui a estrutura que a forma deixa à vista); "notação de interface
 gráfica" (é do código, não da tela)
 
@@ -60,7 +61,7 @@ JavaFX os dois se escrevem juntos, em código; na web, não)
 O que a tela mostra além dos elementos e dos textos: cores, fontes,
 tamanhos e o *layout*. Fica no CSS comum a todas as tecnologias de uma
 interface, fora da notação; só o valor que depende do estado, como uma
-posição calculada, entra na notação (ADRs 0008 e 0041).
+posição calculada, entra na notação (ADR 0041).
 _Avoid_: estilo sozinho (o estilo orientado a eventos e o estilo do
 código são outros; fica "folha de estilo" para o arquivo CSS); visual;
 *design*
@@ -76,14 +77,15 @@ disposição como termo à parte
 **Interface**:
 Uma das sete interfaces gráficas especificadas que todas as implementações
 seguem: Contador, Reserva de passagem, Busca com sugestões, Login com
-quarentena, Placar ao vivo, planilha e Circle Drawer (ADR 0002; o
+quarentena, Placar ao vivo, Planilha e Circle Drawer (ADR 0002; o
 conversor de moedas saiu da análise em 2026-10-22). Onde "a interface" puder ser qualquer interface gráfica, leva
 o nome ("a interface da Reserva de passagem") ou o número ("as sete
 interfaces"); o domínio fica no plural ou com "gráfica" ("programar
-interfaces gráficas") (ADR 0034).
+interfaces gráficas") (decisão do autor em 2026-10-14).
 _Avoid_: tarefa (o termo do 7GUIs e de Sim et al., 2003, até 2026-10-14:
 colide com a tarefa do bd e com a *task* das DCs, o que se faz com a
-notação, que no trabalho seria cada mudança da segunda rodada, ADR 0034);
+notação, que no trabalho seria cada mudança da segunda rodada, Blackwell
+e Green, 2003, p. 107);
 caso e estudo de caso (o estudo de caso é um método que o trabalho não
 adota, embora Kiss, 2014, chame cada item de *case study*); problema (o de
 Erdweg et al., 2015, e de Nanz et al., 2013: colide com o problema de
@@ -97,7 +99,7 @@ não diz que dados são); conversor de câmbio para o conversor de moedas
 (até 2026-10-19: vinha do título da tarefa do bd, e não de uma decisão;
 "conversor de moedas" é o nome comum da ferramenta e o *currency
 converter* de Kiss, 2014, p. 21, nota 10); planilha do orçamento para a
-planilha (até 2026-10-19: o orçamento do mês é o tema dela, e não o
+Planilha (até 2026-10-19: o orçamento do mês é o tema dela, e não o
 nome)
 
 ***Benchmark* de notação**:
@@ -105,7 +107,9 @@ O conjunto das sete interfaces, implementadas em cada tecnologia e
 avaliadas pelas DCs: o *notational benchmark* de Kiss (2014, p. 114), na
 definição de *benchmark* de Sim, Easterbrook e Holt (2003, p. 76), em que
 as interfaces são a amostra de tarefas (*task sample*) e a avaliação é a
-medida de desempenho, qualitativa e feita por uma pessoa (ADR 0034).
+medida de desempenho, qualitativa e feita por uma pessoa (decisão do
+autor em 2026-10-14; o rótulo do método está em
+`docs/metodo-da-avaliacao.md`).
 _Avoid_: *benchmark* de código; *benchmark* para uma interface só;
 *benchmark* sozinho onde o leitor possa entender medida objetiva de
 desempenho (Tichy, 2014)
@@ -170,7 +174,7 @@ requisitos de orquestração acrescentados a cada interface; a terceira muda
 só a forma, em quatro vertentes irmãs sobre o código da segunda, na
 Reserva de passagem, no Placar ao vivo e no Circle Drawer (ADR 0029).
 _Avoid_: fase (é do roteiro); iteração; rodada sozinha onde puder ser a
-rodada de corte ou a de revisão do texto (ADRs 0022 e 0023); "a rodada da
+rodada de corte ou a de revisão do texto (ADR 0023); "a rodada da
 P1", "a rodada da P2" e P2 e P3 para as rodadas (até 2026-10-13, quando as
 subperguntas passaram a P1.1 e P1.2 e "a rodada da P1" ficou ambígua com a
 avaliação inteira); R1, R2 e R3 (rótulos de 2026-10-13, desfeitos no mesmo
@@ -327,14 +331,14 @@ _Avoid_: *toolkit* como sinônimo de biblioteca; kit de ferramentas
 
 **Implementação**:
 Uma interface numa tecnologia: na primeira rodada, as sete interfaces nas
-cinco tecnologias, 35 (ADR 0012); na terceira, a Reserva de passagem, o
+cinco tecnologias, 35 (ADR 0013); na terceira, a Reserva de passagem, o
 Placar ao vivo e o Circle Drawer refatorados, em cada vertente, nas cinco
 (ADR 0029).
 _Avoid_: versão, exemplo; solução (pede "problema" para a interface)
 
 **Conjunto analisado**:
 As implementações que a análise pelas DCs lê, as sete interfaces nas
-cinco tecnologias (ADR 0012), em
+cinco tecnologias (ADR 0013), em
 `interfaces-graficas/<interface>/analisadas/`; as de `contraste/`, ao
 lado, ficam de fora (ADR 0025).
 _Avoid_: recorte da análise (o recorte é o da pesquisa, ADR 0014); escopo;
@@ -362,8 +366,8 @@ capturas); referência (é o tipo de nota de `docs/`); original
 As regras de uma interface que não dependem da tela (datas, mensagens,
 servidores simulados, fontes de dados, a cotação, a análise e a avaliação
 das fórmulas), compartilhadas pelas implementações. A propagação da
-planilha fica em cada implementação, porque escrever uma alteração de
-estado é parte da notação, a regra do ADR 0033.
+Planilha fica em cada implementação, porque escrever uma alteração de
+estado é parte da notação, a regra do ADR 0010.
 _Avoid_: lógica de negócio e regras de negócio, que pressupõem um negócio:
 a validação de datas da Reserva de passagem não é regra de negócio de
 ninguém (a *business logic* de Karagkasidis, 2008, é o domínio aqui)
@@ -438,7 +442,7 @@ _Avoid_: screenshot, print
 
 **DC**:
 Dimensão Cognitiva de Notações (Green, 1989; Blackwell e Green, 2003). O
-trabalho percorre as 14 canônicas em cada rodada (ADR 0012): nível de
+trabalho percorre as 14 canônicas em cada rodada (ADR 0017): nível de
 abstração, proximidade de descrição, consistência, concisão, operações
 mentais difíceis, dependências ocultas, expressividade de papel, notação
 secundária, viscosidade, propensão a erros, compromisso prematuro,

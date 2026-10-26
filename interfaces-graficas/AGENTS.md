@@ -17,6 +17,11 @@ cenas (ADR 0025): `reserva-de-passagem/analisadas/react/`,
 contraste (tcc-o9p7), a pasta não existe, e os comandos daqui só
 percorrem `analisadas/`.
 
+No código, a variável de uma interface se chama `gui` (`guis` no
+plural): `interface` é palavra reservada do TypeScript, e `pasta` já
+nomeia outras pastas nos scripts (a servida no `implementacoes-web.mts`,
+a das capturas no `capturar.mts`).
+
 ## Conferir as capturas a cada alteração
 
 Toda alteração que possa mudar a tela ou o comportamento de uma
@@ -405,7 +410,7 @@ abaixo deixa de fora, passa pelo Prettier 3.9.10, fixado em
 `interfaces-graficas/package.json`, com 80 colunas
 (`interfaces-graficas/.editorconfig`) e o resto no padrão dele (tcc-6wha,
 2026-10-12). Duas razões: a contagem de linhas da concisão e o diff da
-segunda rodada (ADRs 0012 e 0029) não podem depender de como o código foi
+segunda rodada (ADRs 0017 e 0029) não podem depender de como o código foi
 quebrado à mão, e 80 colunas cabem numa coluna do PDF em 8 pt.
 
 - O Prettier formata TS, TSX, HTML, CSS e JSON. O HTML do Web Component,
@@ -436,7 +441,7 @@ antes das implementações, uma pasta por *sandbox*, com o nome dele. É
 registro congelado: não se edita, não compila, não se testa, não se
 formata nem se captura. Os *workspaces*, o `npm run capturas`, o `npm
 run conformidade` e o `npm run conferir-especificacao` não o alcançam,
-e a contagem de linhas da concisão (ADR 0012), quando for escrita,
+e a contagem de linhas da concisão (ADR 0017), quando for escrita,
 também o deixa de fora. O `README.org` de lá diz de onde veio cada
 pasta.
 
@@ -446,11 +451,12 @@ só de remoção, com as capturas da tecnologia, que cita o ADR que o tirou
 `fora-da-analise/`, congelado; a pasta saiu inteira, com a Lista
 filtrável, o Carrinho, o Quadro de tarefas, o conversor de moedas, o
 jQuery, o Angular, o Lit do conjunto antigo, o JavaFX, o Qt, o Android
-e o desktop (ADRs 0001, 0002, 0005 e 0013). O commit anterior ao que a
+e o desktop (ADRs 0001, 0002 e 0013). O commit anterior ao que a
 tirou tem tudo, com o `README.org` de lá, que diz como rodar cada pasta.
 Para lê-lo sem mexer no checkout principal, onde o índice pode guardar
 o rascunho do texto, abra-o numa worktree à parte, em `tmp/copias/`
-(ADR 0038), ou leia um arquivo só com `git show <commit>:<caminho>`:
+(o `AGENTS.md` da raiz, tabela "Onde cada coisa vive"), ou leia um
+arquivo só com `git show <commit>:<caminho>`:
 
 ```sh
 antes="$(git log -1 --format=%H -- ':/interfaces-graficas/fora-da-analise')~1"

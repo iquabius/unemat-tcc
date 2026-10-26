@@ -8,7 +8,8 @@ o que quer dizer a legenda das notas de fontes. Nota nova entra aqui.
 por assunto, e o trecho que o texto já cita fica em
 `texto/fontes/<chave>.org` (ADR 0035). As notas que seguram o argumento
 ficam na raiz de `docs/`, e as de apoio em `bibliografia/`,
-`plataformas/` e `processo/` (ADR 0036; seção "As notas"). Para achar o
+`plataformas/` e `processo/` (`AGENTS.md`, seção "Notas em `docs/`";
+aqui, seção "As notas"). Para achar o
 que sustenta um elo, comece pela tabela "Os elos do argumento"; para
 achar as fontes que mais pesam, pela tabela "Fontes centrais".
 
@@ -24,7 +25,7 @@ achar as fontes que mais pesam, pela tabela "Fontes centrais".
 | Método: o rótulo, as DCs, as rodadas, o tamanho das interfaces | `texto/intro.org`, metodologia | `docs/metodo-da-avaliacao.md`; o que se controla, em `docs/delineamento.md`; o que cada interface exige e cada par cobre, em `docs/exigencias-de-coordenacao.md` |
 | Análise por DC | `texto/cases.org`, `texto/results.org` | `docs/metodo-da-avaliacao.md`, seção "Como as fontes aplicaram as DCs a código, e as armadilhas"; `docs/achados-das-implementacoes.md`; `docs/exigencias-de-coordenacao.md`, seção "Mapa por interface"; a skill `avaliacao-pelas-dcs` |
 | Capítulo de programação | `texto/prog.org` | `docs/paradigma-modelo-e-notacao.md`, `docs/bibliografia/programacao-funcional-e-reativa.md`, `docs/estado-eventos-e-complexidade.md` |
-| Tecnologias e plataformas | ADRs 0001, 0005, 0013 e 0031 | `docs/plataformas/README.md`, e dali `web.md`, `bibliotecas-de-formulario.md`, `bibliotecas-de-inscricao-e-reconexao.md` e `medida-das-bibliotecas.md`; o Android e o *desktop*, fora da análise, em `android.md` e `desktop.md` |
+| Tecnologias e plataformas | ADRs 0001, 0013 e 0031 | `docs/plataformas/README.md`, e dali `web.md`, `bibliotecas-de-formulario.md`, `bibliotecas-de-inscricao-e-reconexao.md` e `medida-das-bibliotecas.md`; o Android e o *desktop*, fora da análise, em `android.md` e `desktop.md` |
 | Forma da introdução | `texto/intro.org` | `docs/bibliografia/escrita-da-introducao.md` |
 | Como a busca foi feita | Apêndice II | `docs/bibliografia/protocolo-da-revisao.md` |
 
@@ -134,7 +135,7 @@ Em `docs/plataformas/`, as tecnologias, com a data de cada observação:
   cada um atende de nascença nas exigências do Placar ao vivo; a
   reconexão é do programador no primeiro e do navegador no segundo;
 - `android.md` e `desktop.md` (Referência): as plataformas que saíram
-  da análise em 2026-10-17 (ADRs 0001 e 0005), como referência para os
+  da análise em 2026-10-17 (ADR 0001), como referência para os
   trabalhos futuros; no Android, também a escolha do Kotlin, com o
   script que refaz a conta da JetBrains (`android-jetbrains-2025.py`).
 

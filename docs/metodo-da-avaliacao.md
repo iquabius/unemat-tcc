@@ -16,7 +16,7 @@ analítica, feita por especialista (Blandford e Green 2008), como a de
 Kiss (2014): o autor aplica as DCs ao código, dimensão a dimensão, sem
 participantes (`GLOSSARY.md`, verbete Avaliação). Ela percorre as 14
 DCs canônicas, e não um subconjunto escolhido antes (seção "As 14 DCs
-canônicas"; ADR 0012); as oito de 2026-10-09, as seis de Kiss mais a
+canônicas"; ADR 0017); as oito de 2026-10-09, as seis de Kiss mais a
 expressividade de papel e as operações mentais difíceis, deram lugar às
 14 em 2026-10-11 (seção "Expressividade e operações mentais difíceis nas
 fontes"). As interfaces pequenas isolam uma escolha de projeto, mas não
@@ -25,7 +25,7 @@ brinquedo: isolar uma escolha e o limite do tamanho").
 
 Em 2026-10-19, a análise fica na web, com quatro tecnologias (Web
 Component, Web Component com *signals* do `solid-js`, React e Solid) nas
-sete interfaces, 28 implementações (ADRs 0002, 0012 e 0013), em três
+sete interfaces, 28 implementações (ADRs 0002 e 0013), em três
 rodadas (ADR 0029): a primeira constrói as sete; a segunda tem 12
 mudanças de comportamento, entre funcionalidades e requisitos de
 orquestração; a terceira muda só a forma, na Reserva de passagem e no
@@ -35,8 +35,8 @@ DCs; em 2026-10-12, trocou as interfaces e levou a segunda rodada às
 cinco de então, pela realidade de cada uma (seção "*Benchmark* de
 notação e requisitos da segunda rodada"). As fontes estão nas seções de
 "Rodadas e crescimento do código" a "*Benchmark* de notação e requisitos
-da segunda rodada", e as decisões, nos ADRs 0002, 0012, 0013, 0017 e
-0029. Em 2026-10-13, a seção "Como as fontes aplicaram as DCs a código,
+da segunda rodada", e as decisões, nos ADRs 0002, 0013, 0017 e 0029.
+Em 2026-10-13, a seção "Como as fontes aplicaram as DCs a código,
 e as armadilhas" juntou como as fontes aplicaram as DCs a código e as
 armadilhas, que a skill `avaliacao-pelas-dcs` usa.
 
@@ -65,7 +65,8 @@ da tabela, só `blackwell2003`, `green1996d` e `kiss2014` estão no
 
 Em 2026-10-14, cada item do conjunto passou a se chamar interface, e o
 conjunto, *benchmark* de notação, nome que Kiss (2014, p. 114) dá ao
-repositório dele (ADR 0034; linha de Kiss na tabela abaixo).
+repositório dele (`GLOSSARY.md`, verbetes Interface e *Benchmark* de
+notação; linha de Kiss na tabela abaixo).
 
 As fontes foram lidas no texto completo, salvo onde a tabela diz outra
 coisa.
@@ -83,7 +84,7 @@ coisa.
 | DE SOUZA, C. S. et al. *Can inspection methods generate valid new knowledge in HCI?* International Journal of Human-Computer Studies, v. 68, p. 22-40, 2010. DOI 10.1016/j.ijhcs.2009.08.006 | Métodos de inspeção podem gerar conhecimento científico válido, sob condições (p. 22); a inspeção pode ser feita por um inspetor ou por um grupo, e a validação é por triangulação (p. 26); resultados qualitativos não se generalizam, mas a triangulação os torna amplamente aplicáveis (p. 38). Sustenta a triangulação como mitigação do avaliador único (tcc-y4q, item 2) | p. 22, 26 e 38 |
 | BLACKWELL, A.; GREEN, T. (2003), `blackwell2003` | O arcabouço das DCs "*is not an analytic method*", e sim um conjunto de "*discussion tools*"; oferece avaliação *broad-brush* | p. 106 (versão publicada, conferida em 2026-10-04) |
 | GREEN, T. R. G.; PETRE, M. (1996), JVLC 7, p. 131-174. DOI 10.1006/jvlc.1996.0009 | As DCs são uma "*broad-brush evaluation technique*"; precedente do delineamento (`docs/trabalhos-relacionados-e-lacuna.md`, seção "Precedentes internacionais do delineamento") | p. 131 (resumo) da versão publicada, conferida em 2026-10-10; p. 3 da pré-publicação |
-| KISS, E. *Comparison of object-oriented and functional programming for GUI development*. Dissertação (mestrado), Leibniz Universität Hannover, 2014 (`kiss2014`) | Chama o método de "abordagem analítica" pelas DCs, em oposição a experimentos, "caros" e de resultado "estreito" (p. 8); compara implementações pela usabilidade do código, e não por tempo e memória, como num *benchmark* tradicional (p. 11). Chama cada item de *case study* (p. 11) e o repositório com as soluções de todos de *notational benchmark* ("*is structured in a way as to be a notational benchmark for languages and/or libraries/frameworks/toolkits with respect to GUI programming*", p. 114); na p. 104, o TodoMVC é o *notational benchmark* de um item só ("*a single and bigger one instead of a set of case studies*"). Daí o nome do conjunto, *benchmark* de notação (ADR 0034) | p. 8, 11, 104 e 114 (estas duas conferidas em 2026-10-14, p. 110 e 120 do PDF); o PDF saiu do ar e está no Wayback Machine (captura de 2018-05-06) |
+| KISS, E. *Comparison of object-oriented and functional programming for GUI development*. Dissertação (mestrado), Leibniz Universität Hannover, 2014 (`kiss2014`) | Chama o método de "abordagem analítica" pelas DCs, em oposição a experimentos, "caros" e de resultado "estreito" (p. 8); compara implementações pela usabilidade do código, e não por tempo e memória, como num *benchmark* tradicional (p. 11). Chama cada item de *case study* (p. 11) e o repositório com as soluções de todos de *notational benchmark* ("*is structured in a way as to be a notational benchmark for languages and/or libraries/frameworks/toolkits with respect to GUI programming*", p. 114); na p. 104, o TodoMVC é o *notational benchmark* de um item só ("*a single and bigger one instead of a set of case studies*"). Daí o nome do conjunto, *benchmark* de notação (`GLOSSARY.md`) | p. 8, 11, 104 e 114 (estas duas conferidas em 2026-10-14, p. 110 e 120 do PDF); o PDF saiu do ar e está no Wayback Machine (captura de 2018-05-06) |
 
 ## O 7GUIs e as interfaces
 
@@ -121,7 +122,7 @@ coisa.
 
 ## As DCs de Kiss e as 14 do TCC
 
-O TCC percorre as 14 DCs canônicas desde 2026-10-11 (ADR 0012; seção
+O TCC percorre as 14 DCs canônicas desde 2026-10-11 (ADR 0017; seção
 "As 14 DCs canônicas"), e Kiss, um subconjunto de seis (p. 12-14); até
 2026-10-11, seis das oito DCs de `cases.org` eram as de Kiss. Kiss deixou
 de fora compromisso prematuro, expressividade, consistência, operações
@@ -140,7 +141,7 @@ atribuição impressa, só num comentário Org.
 
 Lidas em 2026-09-28.
 
-Conclusão: com as 14 DCs, desde 2026-10-11 (ADR 0012), nenhuma dimensão
+Conclusão: com as 14 DCs, desde 2026-10-11 (ADR 0017), nenhuma dimensão
 fica de fora, e as fontes desta seção sustentam três pontos: percorrer
 todas, porque a escolha prévia de um subconjunto pode atrapalhar
 (Blackwell et al. 2001; Britton e Kutar 2001) e a omissão sem razão clara
@@ -599,7 +600,7 @@ fontes".
 
 Em 2026-10-19, a nota passou às decisões de 2026-10-18 e 2026-10-19: a
 análise só na web, com quatro tecnologias nas sete interfaces, 28
-implementações (ADRs 0002, 0012 e 0013), as 14 DCs (ADR 0012) e as 12
+implementações (ADRs 0002 e 0013), as 14 DCs (ADR 0017) e as 12
 mudanças da segunda rodada (ADR 0029). Os trechos das fontes não
 mudaram; mudou o que a nota afirmava sobre o conjunto de antes:
 

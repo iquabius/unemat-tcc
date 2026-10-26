@@ -633,7 +633,7 @@ def metricas(tex):
     """As métricas do texto no .tex do latexdiff, por lugar (o capítulo, a
     seção e a subseção pelo título, como em secoes()): as palavras que
     entraram e saíram e as do lugar como ficou; os parágrafos que
-    entraram e saíram, pelo \\P das quebras (ADR 0028); as chaves citadas
+    entraram e saíram, pelo \\P das quebras (bin/marcar-quebras.py); as chaves citadas
     no texto que entrou e no que saiu; as fontes, as chaves que o texto da
     base não citava em lugar nenhum e as que o texto como ficou deixou de
     citar; as figuras, tabelas e listagens com a legenda toda nova ou toda
@@ -821,9 +821,9 @@ ADR = re.compile(r"\bADR \d{4}(?![\d-])(?:(?:, | e )\d{4}(?![\d-]))*"
 
 def rodapes(textos, adrs):
     """Uma chamada de rodapé depois de cada número de ADR citado nos textos
-    ("ADR 0022", "ADRs 0012 e 0029", "ADRs 0011 a 0014", que dá nota às
+    ("ADR 0023", "ADRs 0017 e 0029", "ADRs 0011 a 0014", que dá nota às
     duas pontas do intervalo) e uma nota por ADR, na ordem da
-    primeira citação. adrs: {"0022": (arquivo, título)}; o número que não
+    primeira citação. adrs: {"0023": (arquivo, título)}; o número que não
     está nele fica sem chamada, com um aviso. Devolve os textos com as
     chamadas e as notas, [(número, arquivo, título)]."""
     notas = {}
