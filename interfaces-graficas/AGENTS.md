@@ -17,6 +17,11 @@ cenas (ADR 0025): `reserva-de-passagem/analisadas/react/`,
 contraste (tcc-o9p7), a pasta não existe, e os comandos daqui só
 percorrem `analisadas/`.
 
+No código, a variável de uma interface se chama `gui` (`guis` no
+plural): `interface` é palavra reservada do TypeScript, e `pasta` já
+nomeia outras pastas nos scripts (a servida no `implementacoes-web.mts`,
+a das capturas no `capturar.mts`).
+
 ## Conferir as capturas a cada alteração
 
 Toda alteração que possa mudar a tela ou o comportamento de uma

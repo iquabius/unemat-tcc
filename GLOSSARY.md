@@ -80,10 +80,11 @@ quarentena, Placar ao vivo, Planilha e Circle Drawer (ADR 0002; o
 conversor de moedas saiu da análise em 2026-10-22). Onde "a interface" puder ser qualquer interface gráfica, leva
 o nome ("a interface da Reserva de passagem") ou o número ("as sete
 interfaces"); o domínio fica no plural ou com "gráfica" ("programar
-interfaces gráficas") (ADR 0034).
+interfaces gráficas") (decisão do autor em 2026-10-14).
 _Avoid_: tarefa (o termo do 7GUIs e de Sim et al., 2003, até 2026-10-14:
 colide com a tarefa do bd e com a *task* das DCs, o que se faz com a
-notação, que no trabalho seria cada mudança da segunda rodada, ADR 0034);
+notação, que no trabalho seria cada mudança da segunda rodada, Blackwell
+e Green, 2003, p. 107);
 caso e estudo de caso (o estudo de caso é um método que o trabalho não
 adota, embora Kiss, 2014, chame cada item de *case study*); problema (o de
 Erdweg et al., 2015, e de Nanz et al., 2013: colide com o problema de
@@ -105,7 +106,9 @@ O conjunto das sete interfaces, implementadas em cada tecnologia e
 avaliadas pelas DCs: o *notational benchmark* de Kiss (2014, p. 114), na
 definição de *benchmark* de Sim, Easterbrook e Holt (2003, p. 76), em que
 as interfaces são a amostra de tarefas (*task sample*) e a avaliação é a
-medida de desempenho, qualitativa e feita por uma pessoa (ADR 0034).
+medida de desempenho, qualitativa e feita por uma pessoa (decisão do
+autor em 2026-10-14; o rótulo do método está em
+`docs/metodo-da-avaliacao.md`).
 _Avoid_: *benchmark* de código; *benchmark* para uma interface só;
 *benchmark* sozinho onde o leitor possa entender medida objetiva de
 desempenho (Tichy, 2014)

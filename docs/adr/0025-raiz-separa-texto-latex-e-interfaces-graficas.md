@@ -35,7 +35,7 @@ os caminhos dentro dela são relativos a ela (`\input{capitulos/intro}`,
 `\input` pelo diretório do arquivo principal. `interfaces-graficas/`
 guarda o código, com o npm dos *workspaces*, os comandos (`npm run
 capturas`, `npm run conformidade`) e a especificação (`openspec/`), e
-uma pasta por interface, o item do *benchmark* de notação (ADR 0034).
+uma pasta por interface, o item do *benchmark* de notação (`GLOSSARY.md`).
 A pasta da interface guarda o que vale para todas as tecnologias dela (o
 `dominio.ts`, o `estilo.css`, o `cenas.mts`, as capturas, o teste de
 conformidade e o `README.org`) e duas irmãs com uma subpasta por
@@ -92,4 +92,4 @@ dois leiautes do LaTeX enquanto houver tag antiga a compilar.
 Fontes: `latexdiff --flatten` e `latexmk -cd` testados no host em
 2026-10-05 (latexmk 4.87); `GLOSSARY.md`, verbetes *Benchmark* de
 notação, Conjunto analisado, Contraste e Código autoral; tarefa
-tcc-qteq, nota de 2026-10-25; ADRs 0001, 0005, 0008, 0010, 0034 e 0042.
+tcc-qteq, nota de 2026-10-25; ADRs 0001, 0005, 0008, 0010 e 0042.
