@@ -1,30 +1,34 @@
 # 0015. As tarefas no Beads, com o Scotty como painel
 
-2026-09-27. As tarefas viviam em `.beans/`, arquivos versionados no commit
-que as resolvia, mas o formato não tem prazo e nenhum painel pronto o lê
-com quadro, timeline ou navegação por teclado. As tarefas passam para o
-Beads (`bd` 1.3.0, beads.gascity.com, 2026-09-27), com prazo, adiamento,
-épicos e dependências, lido pelos painéis da comunidade por `bd list
---json`; o painel é o Bead Me Up, Scotty, o único com ⌘K, navegação j/k e
-modo só de leitura.
+2026-09-27. O autor não tinha prazo nem painel para as tarefas: elas
+viviam em `.beans/`, versionadas no commit que as resolvia, num formato
+sem prazo que nenhum painel pronto lê.
 
-Em vez de: beans com o prazo numa etiqueta e os status alinhados ao
-binário; sem migração e com a tarefa no commit que a resolve, mas o
-quadro, a timeline e a ergonomia do Linear teriam de ser construídos.
-Em vez de: beans como está, com o prazo adiado; não custa nada agora, mas
-deixa o painel inteiro por construir.
-Custo: a fonte das tarefas é o banco Dolt em `.beads/embeddeddolt/`, fora
-do git, e o `.beads/issues.jsonl` é só uma exportação, de modo que o
-commit que resolve a tarefa leva o retrato, não a fonte; `bd dolt push`
-grava `refs/dolt/data` e força o ramo `__dolt_remote_info__` no GitHub, e
-um clone novo pede `bd bootstrap`; a exportação de uma worktree grava no
-checkout principal (gastownhall/beads#6680); a documentação do Beads
-ainda pede o `dolt sql-server` (binário `dolt` 2.2.0) para escritores
-concorrentes, enquanto o modo embutido só espera a trava; o calendário
-continua sem painel, e a timeline com prazo só existe no Beads Dashboard,
-dentro do VS Code; o Scotty envia por padrão um evento diário ao PostHog.
+Critérios:
 
-Fontes: pesquisa dos painéis prontos em 2026-09-27 (tarefa tcc-308d, no
+- prazo, adiamento, épicos e dependências entre tarefas;
+- um painel pronto, com quadro e navegação por teclado;
+- a tarefa legível no git, no commit que a resolve.
+
+As tarefas ficam no Beads, com o Scotty como painel: o `bd` 1.3.0 tem
+prazo, adiamento, épicos e dependências, e os painéis da comunidade o
+leem por `bd list --json`; o Bead Me Up, Scotty é o único deles com ⌘K,
+navegação j/k e modo só de leitura. O Beads cumpre o terceiro critério
+pelo retrato `.beads/issues.jsonl`, que vai no commit que resolve a
+tarefa.
+
+Em vez de: beans com o prazo numa etiqueta; sem migração, mas o quadro
+e a navegação teriam de ser construídos (falha o segundo critério).
+Em vez de: beans como está, com o prazo adiado; não custa nada agora,
+mas deixa o prazo e o painel por fazer (falha o primeiro e o segundo).
+Custo: a fonte é o banco Dolt, fora do git, e o commit leva só o
+retrato; o `bd dolt push` mexe em refs do GitHub, e um clone novo pede
+`bd bootstrap`; a exportação de uma worktree grava no checkout
+principal; a linha do tempo com prazo só existe no Beads Dashboard, no
+VS Code; o Scotty envia por padrão um evento diário ao PostHog. O
+detalhe está em `docs/processo/tarefas-no-beads.md`, e o uso, no
+`AGENTS.md`, seção "Tarefas".
+
+Fontes: pesquisa dos painéis em 2026-09-27 (tcc-308d, no
 `.beads/issues.jsonl` do commit `c81c5e7`); beads.gascity.com, "Sync
-Concepts" e "Community Tools" (2026-09-27); `bd` 1.3.0 (commit f45b249);
-`docs/processo/tarefas-no-beads.md`.
+Concepts" e "Community Tools" (2026-09-27); gastownhall/beads#6680.
