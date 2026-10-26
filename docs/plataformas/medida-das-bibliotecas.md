@@ -8,7 +8,7 @@ resultado. As medições da vertente do ecossistema estão nas seções de
 2026-10-25 de `bibliotecas-de-formulario.md` (Reserva de passagem) e de
 `bibliotecas-de-inscricao-e-reconexao.md` (Placar ao vivo); as das outras
 três vertentes, que não têm nota própria, ficam nesta. O autor decidiu em
-2026-10-25 pela variante I, que o ADR 0031 ainda não diz; as outras
+2026-10-25 pela variante I, que o ADR 0031 passou a dizer; as outras
 ficam como alternativas, com o que cada uma mudaria. Cada afirmação sobre ferramenta, versão ou
 contagem leva a data em que foi observada; tudo o que não diz outra data
 foi medido em 2026-10-25, com os dados brutos em
@@ -72,7 +72,7 @@ State of React"), diz que 74,3% dos que responderam usaram o
 `react-hook-form` em 2025, mas ele fica com 47,8% das escolhas das
 candidatas, com o TanStack Form a 21,5% dos que responderam. O autor
 decidiu em 2026-10-25 pela variante I, a maioria dos downloads depois do
-filtro de manutenção, que o ADR 0031 ainda não diz; a tabela da seção
+filtro de manutenção, que o ADR 0031 passou a dizer; a tabela da seção
 "Sensibilidade por vertente" mostra onde cada variante muda a escolha.
 
 ## Os eixos
@@ -295,11 +295,11 @@ as menções, em 2026-10-25.
 
 - **Precedente direto**: Kiss (2014) implementa o desfazer do Circle
   Drawer em Java/JavaFX com classes internas que "follow the Command
-  Pattern" (p. 41) e, em Scala/ScalaFX, "without the Command Pattern. The
-  history is simply a list of previous circle lists" (p. 44), que é a
-  forma das fotografias que o ADR 0040 fixou para as quatro tecnologias. O
-  Command é, portanto, a forma que o conjunto ainda não tem; o Memento
-  é a que já tem, com outro nome.
+  Pattern" (p. 41) e, em Scala/ScalaFX, "without the Command Pattern.
+  The history is simply a list of previous circle lists" (p. 44), que é
+  a forma das fotografias que o ADR 0040 fixou para as cinco
+  tecnologias. O Command é, portanto, a forma que o conjunto ainda não
+  tem; o Memento é a que já tem, com outro nome.
 - **Artigos** (OpenAlex, trabalhos devolvidos, não menções): "command
   pattern undo", 10 desde 2021, 17 desde 2017, 42 sem janela; "memento
   pattern undo", 1, 1 e 6; "undo redo user interface", 28, 34 e 89;

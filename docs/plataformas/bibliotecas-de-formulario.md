@@ -8,19 +8,21 @@ sobre ferramenta ou versão leva a data em que foi observada; medidas de
 tecnologias que saíram da análise estão na seção "Tecnologias fora da
 análise (medida de 2026-10-12)".
 
-**Conclusão.** Duas das quatro tecnologias da análise (ADR 0013) ganham
-biblioteca de formulário na terceira rodada: o React, o react-hook-form
-7.90.0 (84,6% das candidatas), e o Solid, o TanStack Solid Form 1.33.5,
-por uma maioria estreita (52,9%). O Web Component fica com a API de
-validação de restrições da plataforma, porque nenhuma candidata sem
-*framework* soma a maioria, e o Web Component com *signals* o segue por
-decisão do autor, e não pela medida, para o passo entre os dois, que já
-muda a ligação do estado com a tela e a orquestração (ADR 0013), não
-mudar também a biblioteca (ADR 0031, decisão de 2026-10-19, mantida em
-2026-10-23). A medida refeita em 2026-10-25, com eixos a mais e três
-janelas, está na seção "Medida de 2026-10-25: eixos a mais e janelas":
-confirma o React e muda o Solid e o Web Component conforme a janela, a
-métrica e o filtro de manutenção.
+**Conclusão.** Pela regra do ADR 0031, de 2026-10-25, a maioria dos
+downloads depois do filtro de manutenção, na janela de 2026-09-12 a
+2026-10-11, a Reserva de passagem da vertente do ecossistema usa o
+`final-form` 5.0.1 no Web Component, o TanStack Solid Form 1.33.5 no
+Solid e o TanStack React Form 1.33.5 no React, pela regra do par. O Lit
+e o Web Component com *signals* seguem o Web Component por decisão do
+autor, e não pela medida, para o passo até cada um, que já muda a
+ligação do estado com a tela, não mudar também a biblioteca (ADRs 0013
+e 0031). A medida de 2026-10-25, com eixos a mais e três janelas, está
+na seção "Medida de 2026-10-25: eixos a mais e janelas". A de
+2026-10-12, sem o filtro, dava o `react-hook-form` 7.90.0 ao React
+(84,6% das candidatas) e a API de validação de restrições da plataforma
+ao Web Component, porque nenhuma candidata sem *framework* somava a
+maioria; as seções "Tecnologia → biblioteca e versão" e "Candidatas
+medidas" são dela.
 
 ## A regra
 
@@ -36,6 +38,11 @@ Janela: no npm, de 2026-09-12 a 2026-10-11, 30 dias, pela API pública
 versão e data pelo `https://registry.npmjs.org/<pacote>`.
 
 ## Tecnologia → biblioteca e versão
+
+A tabela é a da medida de 2026-10-12, sem o filtro de manutenção. Pela
+regra de 2026-10-25 (ADR 0031), ficam o `final-form` 5.0.1 no Web
+Component, no Lit e no Web Component com *signals*, o TanStack Solid
+Form 1.33.5 no Solid e o TanStack React Form 1.33.5 no React.
 
 | Tecnologia | Biblioteca e versão (publicação) | Medida | Janela | Fonte |
 |---|---|---|---|---|
@@ -437,3 +444,9 @@ repositório em 2026-10-25).
   `@open-wc/form-control` (controle de formulário) e o `@lion/ui`
   (biblioteca de componentes inteira) e mede as três que ficam pela
   regra I; a tabela de 2026-10-12 ficou como estava.
+- 2026-10-26: a conclusão e a seção "Tecnologia → biblioteca e versão"
+  passaram à regra do ADR 0031 de 2026-10-25 (o `final-form` no Web
+  Component, no Lit e no Web Component com *signals*, o TanStack Form no
+  Solid e no React); antes, a conclusão dava o `react-hook-form` ao
+  React e a API da plataforma ao Web Component, pela medida de
+  2026-10-12, que ficou nas tabelas.

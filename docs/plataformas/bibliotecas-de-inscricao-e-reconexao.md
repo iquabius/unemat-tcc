@@ -5,22 +5,21 @@ no Placar ao vivo, por tecnologia, na terceira rodada, com a medida
 pública do npm, a janela e a fonte, pela regra do ADR 0031. Medidas e
 versões observadas em 2026-10-19.
 
-**Conclusão.** Pela janela de 2026-09-12 a 2026-10-11, a mesma da
-Reserva de passagem (`docs/plataformas/bibliotecas-de-formulario.md`),
-o React fica com o `react-use-websocket` 4.13.0 (95,5% das candidatas) e
-o Solid com o `@solid-primitives/websocket` 1.4.0 (99,97%). O Web
-Component e o Web Component com *signals* ficam com a API da plataforma,
-o `WebSocket` do navegador, que não reconecta sozinho (decisão do autor
-em 2026-10-19, ADR 0029). As duas vencedoras abrem a conexão por URL, e
-por isso a fonte simulada do domínio passa a falar WebSocket desde a
-primeira rodada (decisão do autor em 2026-10-19): na terceira rodada, o
-diff do React e do Solid troca só a reconexão escrita pela biblioteca, e
-o do Web Component e o do Web Component com *signals* não mudam nada. A
-medida refeita em 2026-10-25, com eixos a mais e três janelas, está na
-seção "Medida de 2026-10-25: eixos a mais e janelas": confirma o React e
-o Solid e registra, pela primeira vez, a medida do Web Component, em que
-o `partysocket` tem a maioria dos downloads que a tabela acima dá "por
-decisão" à API da plataforma.
+**Conclusão.** Pela regra do ADR 0031, de 2026-10-25, com as candidatas
+só de WebSocket, porque a vertente do ecossistema troca o SSE pelo
+WebSocket, e a janela de 2026-09-12 a 2026-10-11, o Placar ao vivo da
+vertente usa o `partysocket` 1.3.0 no Web Component, o
+`@solid-primitives/websocket` 1.4.0 no Solid e o `react-use-websocket`
+4.13.0 no React; o Lit e o Web Component com *signals* seguem o Web
+Component por decisão do autor (ADRs 0013 e 0031). O Placar fala SSE na
+primeira e na segunda rodada (ADR 0029), e a vertente troca o
+protocolo, a reconexão do navegador e a requisição à parte da
+frequência pela biblioteca. A medida de 2026-10-25, que registra pela
+primeira vez a do Web Component, está na seção "Medida de 2026-10-25:
+eixos a mais e janelas". As tabelas de 2026-10-19 davam ao Web Component
+e ao Web Component com *signals* a API da plataforma, o `WebSocket` do
+navegador, por decisão do autor, com o Placar em WebSocket desde a
+primeira rodada, e as duas decisões mudaram em 2026-10-25 (tcc-jjzc).
 
 ## A regra
 
@@ -54,10 +53,15 @@ versão `latest`, data e dependências pelo
 
 ## Tecnologia → biblioteca e versão
 
+A tabela é a de 2026-10-19. Pela regra de 2026-10-25 (ADR 0031), ficam
+o `partysocket` 1.3.0 no Web Component, no Lit e no Web Component com
+*signals*, o `@solid-primitives/websocket` 1.4.0 no Solid e o
+`react-use-websocket` 4.13.0 no React.
+
 | Tecnologia | Biblioteca e versão (publicação) | Medida | Reconexão |
 |---|---|---|---|
-| Web Component | API da plataforma: `WebSocket` | por decisão (ADR 0029) | escrita no código, desde a segunda rodada |
-| Web Component com *signals* | API da plataforma: `WebSocket`, como no Web Component | por decisão (ADR 0029) | escrita no código, desde a segunda rodada |
+| Web Component | API da plataforma: `WebSocket` | por decisão (2026-10-19, ADR 0031) | escrita no código, desde a segunda rodada |
+| Web Component com *signals* | API da plataforma: `WebSocket`, como no Web Component | por decisão (2026-10-19, ADR 0031) | escrita no código, desde a segunda rodada |
 | React | `react-use-websocket` 4.13.0 (2025-02-04) | 2.271.812 downloads, 95,5% das candidatas | `shouldReconnect`, `reconnectAttempts` e `reconnectInterval` do `useWebSocket` |
 | Solid | `@solid-primitives/websocket` 1.4.0 (2026-06-04) | 806.489 downloads, 99,97% das candidatas | `makeReconnectingWS`, com `delay` e `retries` |
 
@@ -146,15 +150,16 @@ Downloads das tecnologias na mesma janela, para a escala: `react`
   com o TanStack Query, os dois passariam a ele.
 - **WebSocket e não SSE.** O `react-use-websocket` também traz o
   `useEventSource`, mas o `@solid-primitives/websocket` só fala
-  WebSocket, e o protocolo comum às quatro tecnologias é o WebSocket.
+  WebSocket, e, na vertente do ecossistema, o protocolo comum às cinco
+  tecnologias é o WebSocket (ADR 0031).
 
 ## Medida de 2026-10-25: eixos a mais e janelas
 
 Medida de 2026-10-25 pelo método de `medida-das-bibliotecas.md` (os
 eixos, as janelas, o filtro e as variantes de regra estão lá; os dados
 brutos, em `tmp/pesquisas/2026-10-25-medida-das-bibliotecas/`). As
-candidatas são só as de WebSocket, porque o Placar ao vivo fala WebSocket
-desde a primeira rodada (ADR 0031): no React, as nove da seção
+candidatas são só as de WebSocket, porque a vertente do ecossistema
+troca o SSE pelo WebSocket (ADR 0031): no React, as nove da seção
 "Candidatas medidas" que não são de EventSource; no Solid, o
 `@solid-primitives/websocket`; no Web Component, as bibliotecas de
 reconexão sem *framework*, medidas pela primeira vez, levantadas pela
@@ -310,13 +315,14 @@ doze meses), e o `partysocket` fica com 26,7% e 19,3%.
 ## Guardado para contraste: o TanStack Query
 
 O autor decidiu em 2026-10-19 guardar o TanStack Query, com o
-`experimental_streamedQuery` (o `queryFn` que lê um `AsyncIterable`) e
-o `retry` como reconexão, para talvez mencioná-lo como contraste numa
-seção posterior à análise, como Kiss (2014) fez com o Elm numa seleção
-dos casos (p. 3). Ele lê uma fonte genérica, sem protocolo, e é a mesma
-biblioteca no React e no Solid; a API está exportada como experimental
-no `@tanstack/query-core` 5.104.5 (`build/modern/index.d.ts`, consultado
-em 2026-10-19).
+`experimental_streamedQuery` (o `queryFn` que lê um `AsyncIterable`) e o
+`retry` como reconexão, para uma seção posterior à análise, como Kiss
+(2014) fez com o Elm numa seleção dos casos (p. 3); em 2026-10-25, o ADR
+0042 o pôs entre as cinco tecnologias do contraste, no Placar ao vivo,
+no React e no Solid. Ele lê uma fonte genérica, sem protocolo, e é a
+mesma biblioteca no React e no Solid; a API está exportada como
+experimental no `@tanstack/query-core` 5.104.5
+(`build/modern/index.d.ts`, consultado em 2026-10-19).
 
 ## Fontes
 
@@ -344,3 +350,9 @@ dependentes), 2026-10-19.
   conclusão que aponta para ela; a regra, a janela e as tabelas de
   2026-10-19 ficaram. Depois, no mesmo dia, a subseção "Busca de código
   e Google Trends".
+- 2026-10-26: a conclusão e a seção "Tecnologia → biblioteca e versão"
+  passaram à regra do ADR 0031 de 2026-10-25 (o `partysocket` no Web
+  Component, no Lit e no Web Component com *signals*, e o SSE na
+  primeira e na segunda rodada), a medida da tabela de 2026-10-19 passou
+  a citar o ADR 0031, e não o 0029, e a seção do TanStack Query, a dizer
+  que ele entrou no contraste (ADR 0042).
