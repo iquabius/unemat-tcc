@@ -265,7 +265,8 @@ Drawer; e o padrão de projeto, ao Circle Drawer.
 
 Na vertente do ecossistema, a forma de cada tecnologia é a biblioteca
 com mais da metade dos downloads no npm entre as que guardam o estado
-do formulário ou tratam a conexão ao vivo.
+do formulário ou tratam a conexão ao vivo
+(Tabela \ref{tab:bibliotecas-do-ecossistema}).
 Antes da conta saem as depreciadas, as arquivadas e as sem versão há
 mais de 24 meses.
 Quando nenhuma domina, a forma é a \gls{api} da plataforma.
@@ -282,52 +283,73 @@ gambiarra.
 A vertente do ecossistema a substitui pelo WebSocket, e a reconexão
 passa à biblioteca.
 
-\begin{figure}[htbp]
-\caption{\label{fig:cadeia-e-rodadas}Cadeia de pares das cinco tecnologias e as três rodadas da avaliação. Cada passo da cadeia muda o mínimo entre tecnologias vizinhas, e o Lit sai do Web Component num ramo que muda a ligação; cada rodada responde a uma pergunta. Na terceira, quatro vertentes refatoram o código da segunda na Reserva de passagem, no Placar ao vivo e no Circle Drawer, e a do ecossistema dá a cada tecnologia a biblioteca da última linha. Cinza: imperativo por atualização manual; vermelho: declarativo por atualização granular; azul: declarativo por re-renderização.}
+\begin{table}[htbp]
+\caption{\label{tab:bibliotecas-do-ecossistema}Bibliotecas da vertente do ecossistema, por interface e tecnologia.}
 \centering
-\definecolor{corimperativo}{HTML}{74787B}
-\definecolor{corgranular}{HTML}{D6281E}
-\definecolor{correrender}{HTML}{008BD0}
-\begin{tikzpicture}[
-    font=\footnotesize,
-    tec/.style={draw, rounded corners=2pt, minimum width=2.4cm, minimum height=1cm, text width=2.25cm, align=center},
-    cel/.style={draw, rounded corners=2pt, minimum width=2.4cm, minimum height=1.3cm, text width=2.25cm, align=center},
-    faixa/.style={draw=gray!60, rounded corners=2pt, minimum width=12.8cm, minimum height=1cm, text width=12.55cm, align=center, fill=gray!8},
-    rotulo/.style={text width=2.5cm, align=right, anchor=east},
-    passo/.style={font=\scriptsize, text width=2.4cm, align=center, anchor=south},
-    imp/.style={fill=corimperativo, draw=corimperativo, text=white},
-    gra/.style={fill=corgranular!85, draw=corgranular!85, text=white},
-    rer/.style={fill=correrender!85, draw=correrender!85, text=white},
-    seta/.style={-{Stealth[length=5pt]}, semithick},
+\small
+\begin{tabular}{p{3.4cm}p{3.3cm}p{3.6cm}p{3.8cm}}
+\hline
+Interface & \raggedright Web Component, Lit e Web Component com \emph{signals} & Solid & React\\
+\hline
+\raggedright Reserva de passagem: formulário & \texttt{final-form} & TanStack Solid Form & TanStack React Form\\
+\raggedright Placar ao vivo: conexão & \texttt{partysocket} & \texttt{@solid-primitives/\allowbreak websocket} & \texttt{react-use-websocket}\\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{figure}[htbp]
+\caption{\label{fig:cadeia-e-rodadas}Cadeia de pares das cinco tecnologias e as três rodadas da avaliação. Cada passo da cadeia muda o mínimo entre tecnologias vizinhas, e o Lit sai do Web Component num ramo que muda a ligação; cada rodada responde a uma pergunta, e a segunda e a terceira partem do código da anterior. Grafite: imperativo por atualização manual; ocre: declarativo por atualização granular; roxo: declarativo por re-renderização.}
+\centering
+\begin{tikzpicture}[delineamento,
+    passo/.style={font=\scriptsize, inner sep=0pt, anchor=south,
+      execute at begin node={\hyphenpenalty=10000 }},
+    faixa/.style={draw=black!30, fill=black!5, rounded corners=2pt,
+      inner sep=2pt, minimum width=15.6cm, text width=15.46cm,
+      execute at begin node={\hyphenpenalty=10000 }},
   ]
-  \node[tec, rer] (t0) at (0,0) {Lit\\\scriptsize declarativo por re-renderização};
-  \node[tec, imp] (t1) at (2.6,0) {Web Component\\\scriptsize imperativo por atualização manual};
-  \node[tec, gra] (t2) at (5.2,0) {Web Component com \emph{signals}\\\scriptsize declarativo por atualização granular};
-  \node[tec, gra] (t3) at (7.8,0) {Solid\\\scriptsize declarativo por atualização granular};
-  \node[tec, rer] (t4) at (10.4,0) {React\\\scriptsize declarativo por re-renderização};
-  \draw[seta] (t1) -- (t0);
-  \draw[seta] (t1) -- (t2);
-  \draw[seta] (t2) -- (t3);
-  \draw[seta] (t3) -- (t4);
-  \node[passo] at (1.3,1.3) {ramo: a ligação do estado com a tela};
-  \node[passo] at (3.9,1.3) {1.º passo: a ligação e a orquestração};
-  \node[passo] at (6.5,1.3) {2.º passo: a montagem da tela e o modelo de componente};
-  \node[passo] at (9.1,1.3) {3.º passo: o modelo de programação};
-  \node[rotulo] at (-1.35,-2.2) {1.ª rodada, P1:\\constrói};
-  \node[faixa] (f1) at (5.2,-2.2) {7 interfaces nas 5 tecnologias: 35 implementações\\\scriptsize cada implementação usa só o que a tecnologia traz; o Placar ao vivo recebe os lotes por SSE};
-  \node[rotulo] at (-1.35,-3.8) {2.ª rodada, P1.1:\\cresce};
-  \node[faixa] (f2) at (5.2,-3.8) {13 mudanças, 65 \emph{commits}, sem bibliotecas\\\scriptsize funcionalidades e requisitos de orquestração, iguais nas cinco tecnologias; a frequência do Placar vai numa requisição à parte};
-  \node[rotulo] at (-1.35,-5.5) {3.ª rodada, P1.2:\\só a forma};
-  \node[faixa] (f3) at (5.2,-5.5) {4 vertentes sobre o código da segunda rodada: 6 pares, 30 refatorações\\\scriptsize ecossistema: Reserva e Placar; máquina de estados: Placar; API nova da plataforma: Placar e Circle Drawer; padrões de projeto: Circle Drawer};
-  \node[rotulo] at (-1.35,-7.4) {vertente do ecossistema};
-  \node[cel, rer] (c0) at (0,-7.4) {segue o Web Component\\\scriptsize\texttt{final-form};\\\scriptsize\texttt{partysocket}};
-  \node[cel, imp] (c1) at (2.6,-7.4) {biblioteca\\\scriptsize\texttt{final-form};\\\scriptsize\texttt{partysocket}};
-  \node[cel, gra] (c2) at (5.2,-7.4) {segue o Web Component\\\scriptsize\texttt{final-form};\\\scriptsize\texttt{partysocket}};
-  \node[cel, gra] (c3) at (7.8,-7.4) {biblioteca\\\scriptsize TanStack Solid Form;\\\scriptsize\texttt{@solid-}\\\scriptsize\texttt{primitives/}\\\scriptsize\texttt{websocket}};
-  \node[cel, rer] (c4) at (10.4,-7.4) {biblioteca\\\scriptsize TanStack React Form;\\\scriptsize\texttt{react-use-}\\\scriptsize\texttt{websocket}};
-  \draw[seta] (f1.south) -- (f2.north);
-  \draw[seta] (f2.south) -- (f3.north);
-  \draw[seta] (f3.south) -- (c2.north);
+  % O rótulo de um passo: três linhas de altura fixa, o nome na primeira e a
+  % quebra escrita entre as duas outras.
+  \newcommand{\passo}[2]{\parbox[t][28pt][t]{2.9cm}{\centering\strut\textbf{#1}\\#2}}
+  % Uma faixa de rodada: o rótulo sob a coluna do Lit e o conteúdo sob as
+  % outras quatro, em espaços de altura fixa, alinhados no alto.
+  \newcommand{\rodada}[4]{%
+    \parbox[t][34pt][t]{2.58cm}{\centering\strut\textbf{#1}\\#2}%
+    \hspace{0.64cm}%
+    \parbox[t][34pt][t]{12.24cm}{\centering\strut #3\\[1pt]\scriptsize #4}}
+  \matrix[cadeia] (t) {
+    |[rer] (lit)| \tecnologia{Lit}{\rerender} &
+    |[imp] (wc)| \tecnologia{Web Component}{\imperativo} &
+    |[gra] (sig)| \tecnologia{Web Component com \emph{signals}}{\granular} &
+    |[gra] (solid)| \tecnologia{Solid}{\granular} &
+    |[rer] (react)| \tecnologia{React}{\rerender} \\
+  };
+  \draw[ramo] (wc) -- (lit);
+  \draw[seta] (wc) -- (sig);
+  \draw[seta] (sig) -- (solid);
+  \draw[seta] (solid) -- (react);
+  \path (lit.north east) -- (wc.north west)
+    node[midway, above=4pt, passo] {\passo{ramo}{a ligação do estado\\com a tela}};
+  \path (wc.north east) -- (sig.north west)
+    node[midway, above=4pt, passo] {\passo{1.º passo}{a ligação e\\a orquestração}};
+  \path (sig.north east) -- (solid.north west)
+    node[midway, above=4pt, passo] {\passo{2.º passo}{a montagem da tela e o\\modelo de componente}};
+  \path (solid.north east) -- (react.north west)
+    node[midway, above=4pt, passo] {\passo{3.º passo}{o modelo\\de programação}};
+  \node[faixa, below=0.5cm of t.south, anchor=north] (r1) {\rodada{1.ª rodada}{P1: constrói}
+    {7 interfaces nas 5 tecnologias: 35 implementações}
+    {cada implementação usa só o que a tecnologia traz;\\
+     o Placar ao vivo recebe os lotes por SSE}};
+  \node[faixa, below=0.35cm of r1] (r2) {\rodada{2.ª rodada}{P1.1: cresce}
+    {13 mudanças, 65 \emph{commits}, sem bibliotecas}
+    {funcionalidades e requisitos de orquestração, iguais nas cinco tecnologias;\\
+     a frequência do Placar vai numa requisição à parte}};
+  \node[faixa, below=0.35cm of r2] (r3) {\rodada{3.ª rodada}{P1.2: só a forma}
+    {4 vertentes sobre o código da segunda rodada: 6 pares, 30 refatorações}
+    {ecossistema: Reserva e Placar\enspace·\enspace máquina de estados: Placar\\
+     API nova da plataforma: Placar e Circle Drawer\enspace·\enspace padrões de projeto: Circle Drawer}};
+  % As setas entre as rodadas descem pela coluna dos rótulos.
+  \draw[seta] (r1.south -| lit) -- (r2.north -| lit);
+  \draw[seta] (r2.south -| lit) -- (r3.north -| lit);
 \end{tikzpicture}
 \end{figure}
 

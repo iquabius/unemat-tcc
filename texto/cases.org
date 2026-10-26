@@ -136,54 +136,74 @@
   terceira rodada vale para o ecossistema típico de cada tecnologia, e não só
   para o modelo de programação.
 
-  #+CAPTION: As sete interfaces nas cinco tecnologias, rodada a rodada: a primeira constrói as 35 implementações; a segunda acrescenta de uma a três mudanças por interface, 13 ao todo; a terceira refatora o código da segunda em seis pares interface-vertente, mais um opcional, nas cinco tecnologias. L: Lit; WC: Web Component; WS: Web Component com signals; S: Solid; R: React. Cinza: imperativo por atualização manual; vermelho: declarativo por atualização granular; azul: declarativo por re-renderização.
+  #+CAPTION: As sete interfaces rodada a rodada: a primeira constrói as 35 implementações; a segunda acrescenta de uma a três mudanças por interface, 13 ao todo; a terceira refatora o código da segunda em seis pares interface-vertente, mais um opcional. Cada marca vale para as cinco tecnologias. Grafite: imperativo por atualização manual; ocre: declarativo por atualização granular; roxo: declarativo por re-renderização.
   #+NAME: fig:interfaces-por-rodada
   #+ATTR_LATEX: :options [htbp]
   #+begin_figure
   #+begin_export latex
   \centering
-  \definecolor{corimperativo}{HTML}{74787B}
-  \definecolor{corgranular}{HTML}{D6281E}
-  \definecolor{correrender}{HTML}{008BD0}
-  \begin{tikzpicture}[font=\scriptsize, x=0.62cm, y=0.5cm,
-      cel/.style={minimum size=0.42cm, inner sep=0pt},
-      imp/.style={fill=corimperativo, draw=corimperativo},
-      gra/.style={fill=corgranular!85, draw=corgranular!85},
-      rer/.style={fill=correrender!85, draw=correrender!85},
-      opcional/.style={draw=gray!70, dashed, fill=white},
+  \begin{tikzpicture}[delineamento,
+      grade/.style={matrix of nodes, nodes in empty cells, row sep=0pt, column sep=0pt,
+        inner sep=0pt, outer sep=0pt,
+        nodes={anchor=center, inner sep=0.05cm, minimum height=0.55cm,
+          text width=1.9cm, align=center,
+          execute at begin node={\hyphenpenalty=10000 }},
+        column 1/.style={nodes={text width=3.3cm, align=left}},
+        column 3/.style={nodes={text width=2.1cm}},
+        row 1/.style={nodes={minimum height=0.85cm, font=\scriptsize}},
+        row 9/.style={nodes={minimum height=0.85cm, font=\scriptsize}}},
+      % A marca é um círculo na cor do texto, e não um quadrado cinza, para
+      % não se confundir com a caixa de um modelo de programação.
+      marca/.style={circle, fill=black, minimum size=5.5pt, inner sep=0pt},
+      opcional/.style={circle, draw=black, dash pattern=on 1pt off 0.8pt, line width=0.6pt,
+        minimum size=5.5pt, inner sep=0pt},
+      regua/.style={draw=black!15},
+      divisa/.style={draw=black!40},
+      rodada/.style={anchor=south, inner sep=2pt, align=center},
     ]
-    \newcommand{\cabecalho}[2]{%
-      \node[font=\tiny] at (#1,#2) {L};
-      \node[font=\tiny] at (#1+1,#2) {WC};
-      \node[font=\tiny] at (#1+2,#2) {WS};
-      \node[font=\tiny] at (#1+3,#2) {S};
-      \node[font=\tiny] at (#1+4,#2) {R};}
-    \newcommand{\linha}[2]{%
-      \node[cel, rer] at (#1,#2) {};
-      \node[cel, imp] at (#1+1,#2) {};
-      \node[cel, gra] at (#1+2,#2) {};
-      \node[cel, gra] at (#1+3,#2) {};
-      \node[cel, rer] at (#1+4,#2) {};}
-    \foreach \r/\nome in {0/Contador, 1/Reserva de passagem, 2/Busca com sugestões, 3/Login com quarentena, 4/Placar ao vivo, 5/Planilha, 6/Circle Drawer}
-      \node[anchor=east, font=\footnotesize] at (-0.7,-\r) {\nome};
-    \node[anchor=south, font=\footnotesize] at (2,1.3) {1.ª rodada};
-    \node[anchor=south, font=\footnotesize] at (9,1.3) {2.ª rodada};
-    \cabecalho{0}{0.65}
-    \cabecalho{7}{0.65}
-    \foreach \r in {0,...,6} {\linha{0}{-\r}\linha{7}{-\r}}
-    \foreach \r/\n in {0/1, 1/1, 2/2, 3/2, 4/3, 5/1, 6/3}
-      \node[anchor=west] at (11.6,-\r) {\n};
-    \node[anchor=south, font=\footnotesize] at (2,-7.9) {3.ª rodada, por par interface-vertente};
-    \cabecalho{0}{-8.35}
-    \foreach \r/\nome in {9/Reserva de passagem × ecossistema, 10/Placar ao vivo × ecossistema, 11/Placar ao vivo × máquina de estados, 12/Placar ao vivo × API nova da plataforma, 13/Circle Drawer × API nova da plataforma, 14/Circle Drawer × padrões de projeto, 15/Circle Drawer × máquina de estados}
-      \node[anchor=east, font=\footnotesize] at (-0.7,-\r) {\nome};
-    \foreach \r in {9,...,14} {\linha{0}{-\r}}
-    \foreach \c in {0,...,4} \node[cel, opcional] at (\c,-15) {};
-    \node[cel, imp] at (0,-17.2) {};
-    \node[anchor=west] at (0.4,-17.2) {implementa, muda ou refatora};
-    \node[cel, opcional] at (7,-17.2) {};
-    \node[anchor=west] at (7.4,-17.2) {par opcional, o primeiro a sair no corte};
-    \node[anchor=west] at (-0.3,-18.2) {número à direita da 2.ª rodada: mudanças da interface};
+    \matrix[cadeia] (t) {
+      |[rer]| \tecnologia{Lit}{\rerender} &
+      |[imp]| \tecnologia{Web Component}{\imperativo} &
+      |[gra]| \tecnologia{Web Component com \emph{signals}}{\granular} &
+      |[gra]| \tecnologia{Solid}{\granular} &
+      |[rer]| \tecnologia{React}{\rerender} \\
+    };
+    \node[font=\scriptsize, above=4pt of t.north west, anchor=south west, inner sep=0pt]
+      {Cada marca e cada número valem para as cinco tecnologias:};
+    \matrix[grade, below=1.25cm of t] (m) {
+      & implementa & mudanças & ecossistema & máquina de estados & API nova da plataforma & padrões de projeto \\
+      Contador & & 1 & & & & \\
+      Reserva de passagem & & 1 & & & & \\
+      Busca com sugestões & & 2 & & & & \\
+      Login com quarentena & & 2 & & & & \\
+      Placar ao vivo & & 3 & & & & \\
+      Planilha & & 1 & & & & \\
+      Circle Drawer & & 3 & & & & \\
+      ao todo & 35\par implementações & 13 mudanças\par 65 \emph{commits} & & & & \\
+    };
+    % Os títulos das rodadas sobre as colunas de cada uma.
+    \path (m-1-2.north west) -- (m-1-2.north east)
+      node[midway, rodada] {\textbf{1.ª rodada}\\\scriptsize P1};
+    \path (m-1-3.north west) -- (m-1-3.north east)
+      node[midway, rodada] {\textbf{2.ª rodada}\\\scriptsize P1.1};
+    \path (m-1-4.north west) -- (m-1-7.north east)
+      node[midway, rodada] {\textbf{3.ª rodada}: as vertentes\\\scriptsize P1.2};
+    \path (m-9-4.west) -- (m-9-7.east)
+      node[midway, font=\scriptsize, align=center] {6 pares e 30 refatorações, mais 1 par opcional};
+    % Réguas: forte sob os títulos e sobre o total, leve entre as interfaces.
+    \draw[black!60] (m-1-1.south west) -- (m-1-7.south east);
+    \foreach \r in {2,...,7} \draw[regua] (m-\r-1.south west) -- (m-\r-7.south east);
+    \draw[black!60] (m-8-1.south west) -- (m-8-7.south east);
+    \foreach \c in {2,3,4} \draw[divisa] (m-1-\c.north west) -- (m-9-\c.south west);
+    % As marcas: a primeira rodada em todas as interfaces; a terceira nos pares.
+    \foreach \r in {2,...,8} \node[marca] at (m-\r-2) {};
+    \foreach \r/\c in {3/4, 6/4, 6/5, 6/6, 8/6, 8/7} \node[marca] at (m-\r-\c) {};
+    \node[opcional] at (m-8-5) {};
+    % Legenda das marcas.
+    \node[marca, below=0.35cm of m.south west, anchor=north west, xshift=0.1cm] (l1) {};
+    \node[right=3pt of l1, font=\scriptsize, inner sep=0pt] (l1t) {a interface entra na rodada ou no par};
+    \node[opcional, right=0.6cm of l1t] (l2) {};
+    \node[right=3pt of l2, font=\scriptsize, inner sep=0pt] {par opcional, o primeiro a sair no corte};
   \end{tikzpicture}
   #+end_export
   #+end_figure

@@ -13,6 +13,61 @@
 % texto (a matriz da cadeia de pares e das rodadas) vão usar estas.
 \usetikzlibrary{positioning,fit,decorations.pathreplacing,arrows.meta,patterns,patterns.meta}
 
+% As cores dos modelos de programação e os estilos das figuras do
+% delineamento, num lugar só: as figuras só citam os nomes.
+
+% A paleta, sem vermelho nem verde, que trazem certo e errado (e trocam de
+% sentido entre o Ocidente e o Oriente): grafite, ocre e roxo, com o
+% branco a 9,3:1, 5,1:1 e 6,7:1. Validada em 2026-10-26 pelo
+% validate_palette.js da skill dataviz (--pairs all): separação para
+% daltônicos 15,3 (ocre × grafite), 18,8 na visão normal; falham só a
+% faixa de luminosidade e o piso de croma no grafite, que é cinza de
+% propósito. Em cinza, as três ficam em tons espaçados (luminância 0,06,
+% 0,16 e 0,11). O roxo não convive com o azul: o deuteranope vê os dois
+% iguais.
+\definecolor{corgrafite}{HTML}{474747}
+\definecolor{corocre}{HTML}{9A6200}
+\definecolor{corroxo}{HTML}{7B3FA8}
+% Cada modelo de programação tem uma cor, e a cor de um modelo não marca
+% outra coisa no trabalho.
+\colorlet{corimperativo}{corgrafite}
+\colorlet{corgranular}{corocre}
+\colorlet{correrender}{corroxo}
+
+% A caixa de uma tecnologia: o nome em até duas linhas e o modelo de
+% programação em duas, em espaços de altura fixa, para todas as caixas
+% terem o mesmo tamanho e as mesmas linhas de base. Sem \\, que numa
+% célula da matrix encerraria a linha da matriz. O nome em negrito e o
+% modelo redondo e menor: o itálico, no texto, marca termo estrangeiro,
+% DC e rótulo, e não se reusa aqui.
+\newcommand{\tecnologia}[2]{%
+  \parbox[c][25pt][c]{\linewidth}{\centering\bfseries #1}\par\vspace{1pt}%
+  \parbox[t][19pt][t]{\linewidth}{\centering\scriptsize #2}}
+\newcommand{\imperativo}{imperativo por atualização manual}
+\newcommand{\granular}{declarativo por atualização granular}
+\newcommand{\rerender}{declarativo por re-renderização}
+
+% A grade das figuras: cinco colunas de 2,72 cm com 0,5 cm entre elas,
+% 15,6 cm ao todo, dentro dos 16 cm do \textwidth; a coluna cabe o
+% "Web Component" em negrito (2,53 cm), e o vão deixa o corpo da seta à
+% vista além da ponta de 5 pt.
+\tikzset{
+  delineamento/.style={
+    font=\footnotesize,
+    >={Stealth[length=5pt]},
+    seta/.style={->, semithick},
+    ramo/.style={->, semithick, densely dashed},
+    caixa/.style={rounded corners=2pt, inner sep=2pt, text=white,
+      minimum width=2.72cm, text width=2.58cm, align=center,
+      execute at begin node={\hyphenpenalty=10000 }},
+    imp/.style={caixa, fill=corimperativo},
+    gra/.style={caixa, fill=corgranular},
+    rer/.style={caixa, fill=correrender},
+    cadeia/.style={matrix of nodes, column sep=0.5cm, row sep=0pt,
+      inner sep=0pt, outer sep=0pt, nodes={anchor=center}},
+  },
+}
+
 % This package is useful for adding todo notes to the side of the text.
 % Use 'disable' option to remove all todo notes from output.
 % Run 'texdoc todonotes' in the terminal for help.
