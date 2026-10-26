@@ -33,7 +33,8 @@ que saiu, pelo git blame --reverse do .tex de BASE, ao commit seguinte ao
 trecho estava. As âncoras ficam só no lado novo, como comandos que o
 latexdiff não envolve em \\DIFadd, e por isso funcionam também para o que
 saiu. Ficam fora de verbatim, minted, matemática, tabelas e argumentos de
-comando (legenda, nota), e depois do \\item e do título de seção, para que o
+comando (legenda, nota); antes dos ambientes que o latexdiff não marca, como
+o tikzpicture; e depois do \\item e do título de seção, para que o
 \\nameref dê a seção certa. A \\difancora devolve o \\@currentHref, e o
 \\label seguinte (de seção ou legenda) continua apontando para o lugar dele.
 
@@ -82,38 +83,57 @@ def visivel(linha):
     return bool(re.sub(r"\\label\{[^}]*\}", "", sem_comentario(linha)).strip())
 
 
-def seguros(linhas):
-    """Para cada linha, se é seguro pôr uma âncora no começo dela."""
-    pilha, prof, ok = [], 0, []
-    for linha in linhas:
-        ok.append(prof == 0 and not (set(pilha) & BLOQUEADOS))
-        if pilha and pilha[-1] in VERB:
-            if re.search(r"\\end\{" + re.escape(pilha[-1]) + r"\}", linha):
+def picturenv():
+    """Os ambientes que o latexdiff deixa fora da marcação, o PICTUREENV do
+    bin/latexdiff-tcc.sh, lido de lá: a âncora de uma linha de dentro de um
+    deles vai para antes do \\begin, porque a de dentro do tikzpicture caía
+    nas opções ou antes de um \\node e parava o pdflatex."""
+    sh = Path(__file__).resolve().parent / "latexdiff-tcc.sh"
+    m = re.search(r"^PICT='PICTUREENV=(.*)'$", sh.read_text(), re.M)
+    if not m:
+        sys.exit(f"anotar-diff.py: sem a linha PICT='PICTUREENV=...' em {sh}")
+    return re.compile(m.group(1))
+
+
+def seguros(linhas, figura):
+    """Para cada linha, se é seguro pôr uma âncora no começo dela; e, das
+    linhas de dentro de um ambiente que a regex figura (o picturenv()) casa,
+    a linha do \\begin do mais de fora deles."""
+    pilha, prof, ok, dentro = [], 0, [], {}  # pilha: (ambiente, linha do \begin)
+    for i, linha in enumerate(linhas):
+        inicio = next((k for amb, k in pilha if figura.fullmatch(amb)), None)
+        if inicio is not None:
+            dentro[i] = inicio
+        ok.append(prof == 0 and inicio is None
+                  and not ({amb for amb, _ in pilha} & BLOQUEADOS))
+        if pilha and pilha[-1][0] in VERB:
+            if re.search(r"\\end\{" + re.escape(pilha[-1][0]) + r"\}", linha):
                 pilha.pop()
             continue
         s = sem_comentario(linha)
         for m in re.finditer(r"\\(begin|end)\{([^}]*)\}|(?<!\\)[{}]", s):
             if m.group(1) == "begin":
-                pilha.append(m.group(2))
+                pilha.append((m.group(2), i))
                 if m.group(2) in VERB:
                     break
             elif m.group(1) == "end":
-                if pilha and pilha[-1] == m.group(2):
+                if pilha and pilha[-1][0] == m.group(2):
                     pilha.pop()
             elif m.group(0) == "{":
                 prof += 1
             else:
                 prof = max(0, prof - 1)
-    return ok
+    return ok, dentro
 
 
-def alvo(linhas, ok, i):
+def alvo(linhas, ok, dentro, i):
     """A linha onde a âncora do trecho que começa em i deve ficar."""
     def bom(j):
         return ok[j] and linhas[j].strip() and not SECAO.match(linhas[j])
 
     n = len(linhas)
     i = min(i, n - 1)
+    i = dentro.get(i, i)
     # Primeiro para a frente, até 40 linhas (passa o título de seção, a
     # linha em branco, o fim da tabela ou da legenda); senão, para trás.
     for j in range(i, min(n, i + 40)):
@@ -174,13 +194,14 @@ def ancorar(repo, base, ref, dir_, main="tcc.tex"):
         partes = linha.split("\t")
         if partes[0].startswith("R"):
             renomes[partes[2]] = partes[1]
+    figura = picturenv()
     ancoras, n = [], 0
     for arq in arquivos:
         caminho = Path(dir_) / arq
         linhas = caminho.read_text().splitlines(keepends=True)
         if not linhas:
             continue
-        ok = seguros(linhas)
+        ok, dentro = seguros(linhas, figura)
         cap = next((m.group(1) for l in linhas
                     if (m := re.match(r"\s*\\chapter\*?\{([^{}]*)\}", l))), capitulos.get(arq, ""))
         marcas = {}  # linha -> [marca]
@@ -188,7 +209,7 @@ def ancorar(repo, base, ref, dir_, main="tcc.tex"):
         def marcar(i, commit, tipo):
             nonlocal n
             n += 1
-            j = alvo(linhas, ok, i)
+            j = alvo(linhas, ok, dentro, i)
             marcas.setdefault(j, []).append(f"\\difancora{{{n}}}")
             ancoras.append({"n": n, "commit": commit, "tipo": tipo, "arquivo": arq,
                             "linha": j + 1, "capitulo": cap})

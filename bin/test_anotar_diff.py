@@ -130,6 +130,100 @@ class MarcaDaBibliografia(unittest.TestCase):
                       "\\difbibmarca", linhas)
 
 
+FIGURA = ("""\
+Texto antes.
+
+\\begin{figure}[htbp]
+\\caption{\\label{fig:cadeia}Legenda.}
+\\centering
+\\begin{tikzpicture}[
+    font=\\footnotesize,
+    tec/.style={draw, minimum width=2cm},
+  ]
+  \\node[tec] (a) at (0,0) {Lit};
+  \\node[tec] (b) at (3,0) {React};
+\\end{tikzpicture}
+\\end{figure}
+
+Texto depois.
+""", """\
+Texto antes.
+
+\\begin{figure}[htbp]
+\\caption{\\label{fig:cadeia}Legenda.}
+\\centering
+\\begin{tikzpicture}[
+    font=\\footnotesize,
+    tec/.style={draw, minimum width=2.4cm},
+  ]
+  \\node[tec] (a) at (0,0) {Lit};
+  \\node[tec] (b) at (3,0) {Solid};
+\\end{tikzpicture}
+\\end{figure}
+
+Texto depois, mudado.
+""")
+
+
+class AncoraForaDaFigura(unittest.TestCase):
+    """No diff v0.10..v0.11 de 2026-10-26, o ancorar pôs \\difancora nas
+    opções do \\begin{tikzpicture}[...] e antes do \\node, nas linhas
+    mudadas da figura da cadeia, e o pdflatex parou em "Undefined control
+    sequence" no \\dif@href: o latexdiff deixa o ambiente fora da marcação
+    (o PICTUREENV do bin/latexdiff-tcc.sh), mas a âncora entrava nele. A
+    âncora de uma linha de dentro vai para antes do \\begin do ambiente,
+    para o link do resumo ainda levar à figura."""
+
+    def setUp(self):
+        tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(tmp.cleanup)
+        self.repo = Path(tmp.name)
+        self.env = {"GIT_CONFIG_GLOBAL": os.devnull, "GIT_CONFIG_NOSYSTEM": "1",
+                    "GIT_AUTHOR_NAME": "t", "GIT_AUTHOR_EMAIL": "t@t",
+                    "GIT_COMMITTER_NAME": "t", "GIT_COMMITTER_EMAIL": "t@t"}
+        cap = self.repo / "latex/capitulos/intro.tex"
+        cap.parent.mkdir(parents=True)
+        (self.repo / "latex/tcc.tex").write_text(
+            "\\begin{document}\n\\chapter{Introdução}\n\\input{capitulos/intro}\n"
+            "\\end{document}\n", encoding="utf-8")
+        self.git("init", "-q")
+        for k, texto in enumerate(FIGURA):
+            cap.write_text(texto, encoding="utf-8")
+            self.git("add", ".")
+            self.git("commit", "-qm", f"v{k}")
+            self.git("tag", f"v{k}")
+
+    def git(self, *args):
+        subprocess.run(["git", *args], cwd=self.repo, env={**os.environ, **self.env},
+                       check=True, capture_output=True)
+
+    def test_linha_mudada_do_tikzpicture_ancora_antes_do_begin(self):
+        with mock.patch.dict(os.environ, self.env):
+            anotar.ancorar(str(self.repo), "v0", "v1", str(self.repo), "latex/tcc.tex")
+        linhas = (self.repo / "latex/capitulos/intro.tex").read_text(
+            encoding="utf-8").splitlines()
+        inicio = next(i for i, l in enumerate(linhas) if "\\begin{tikzpicture}" in l)
+        fim = next(i for i, l in enumerate(linhas) if "\\end{tikzpicture}" in l)
+        self.assertEqual([l for l in linhas[inicio + 1:fim + 1] if "\\difancora" in l], [])
+        self.assertRegex(linhas[inicio], r"^(\\difancora\{\d+\})+\\begin\{tikzpicture\}\[$")
+        self.assertRegex(linhas[-1], r"^(\\difancora\{\d+\})+Texto depois, mudado\.$")
+        ancoras = json.loads((self.repo / "latex/difancoras.json").read_text())["ancoras"]
+        self.assertEqual(sorted({a["linha"] for a in ancoras}), [inicio + 1, len(linhas)])
+
+    def test_ancora_antes_de_cada_ambiente_do_picturenv(self):
+        """Os ambientes do PICTUREENV do bin/latexdiff-tcc.sh; o figure, que
+        o latexdiff marca, recebe a âncora na própria linha."""
+        figura = anotar.picturenv()
+        for amb, alvo in (("tikzpicture", 1), ("minted", 1), ("picture", 1),
+                          ("DIFnomarkup", 1), ("figure", 2)):
+            with self.subTest(amb):
+                self.assertEqual(bool(figura.fullmatch(amb)), amb != "figure")
+                linhas = ["Antes.\n", f"\\begin{{{amb}}}\n", "Mudou.\n",
+                          f"\\end{{{amb}}}\n", "Depois.\n"]
+                ok, dentro = anotar.seguros(linhas, figura)
+                self.assertEqual(anotar.alvo(linhas, ok, dentro, 2), alvo)
+
+
 def marcadores(out):
     """Os títulos dos \\BOOKMARK do .out do hyperref, que vêm em UTF-16 com
     os bytes em octal (\\376\\377\\000P...)."""

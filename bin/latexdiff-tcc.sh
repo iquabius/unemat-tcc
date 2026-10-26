@@ -57,6 +57,8 @@
 set -euo pipefail
 [ $# -eq 2 ] || { echo "uso: $0 VELHO.tex NOVO.tex >diff.tex" >&2; exit 2; }
 
+# O bin/anotar-diff.py lê o PICTUREENV desta linha, na forma
+# PICT='PICTUREENV=...', para não pôr âncora dentro desses ambientes.
 PICT='PICTUREENV=(?:picture|DIFnomarkup|minted|tikzpicture)[\w\d*@]*'
 SIGLAS='CUSTOMDIFCMD=[gG]ls(?:pl)?(?![a-zA-Z])'
 
