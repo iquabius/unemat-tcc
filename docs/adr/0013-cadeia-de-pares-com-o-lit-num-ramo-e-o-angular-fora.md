@@ -24,12 +24,14 @@ modelo de componente) → Solid → (o modelo de programação, com o mesmo
 JSX) → React; e, num ramo, Web Component → (a ligação) → Lit. O Lit
 (3.3.3) muda a ligação, o `render()` que o ambiente de execução chama a
 cada alteração de estado (Google 2026d), e, com ela, o que a
-re-renderização muda na montagem: o *template* do `html` no lugar do
-`innerHTML` e o `map` nas partes repetidas; e o dado que o Web Component
-altera no lugar, o Lit troca por uma cópia, como a documentação dele
-recomenda ("Treat objects and arrays as immutable", lit.dev,
-Properties, lida em 2026-10-25) (decisões do autor em 2026-10-25,
-tcc-cp6c). O Web Component com *signals* usa o `solid-js`
+re-renderização muda na montagem, o *template* do `html` no lugar do
+`innerHTML` e o `map` nas partes repetidas, e na alteração: o dado que o
+Web Component altera no lugar, o Lit troca por uma cópia, como a
+documentação dele recomenda ("Treat objects and arrays as immutable",
+lit.dev, Properties, lida em 2026-10-25), porque compara o `@state()`
+por referência, como o React no passo Solid → React (decisões do autor
+em 2026-10-25, tcc-cp6c, e em 2026-10-26, a cópia como parte da
+ligação). O Web Component com *signals* usa o `solid-js`
 (1.9.15) só para a reatividade, com a montagem do Web Component (ADR
 0037) e a orquestração do Solid, para o par com o Solid diferir só na
 montagem e no modelo de componente (decisões do autor em 2026-10-23). A

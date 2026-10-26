@@ -52,9 +52,12 @@ erros e nível de abstração (p. 46-48), não entra na análise, e o
 arrastar da segunda rodada (ADR 0029) entra como mais uma fotografia em
 todas, o caso barato de Kiss (p. 47); nas três tecnologias que
 alteram no lugar, a cópia profunda se escreve, e a esquecida só o teste
-de conformidade pega; o par Web Component × Lit difere também na
-alteração, no Circle Drawer e na Planilha; até a tcc-f50c, o código do
-Lit ainda altera no lugar.
+de conformidade pega; no Circle Drawer e na Planilha, a alteração muda
+com a ligação no par Web Component × Lit, como no Solid × React, porque
+a re-renderização compara o estado por referência, e a análise separa o
+que vem dela só pelas linhas da alteração, o sinal escrito (ADR 0021;
+decisão do autor em 2026-10-26); até a tcc-f50c, o código do Lit ainda
+altera no lugar.
 
 Fontes: Kiss (2014, §3.8, p. 41-48), em `acervo/kiss2014.txt`;
 `interfaces-graficas/desenho-de-circulos/analisadas/lit/src/main.ts`;
