@@ -391,7 +391,16 @@ decidido.
    distrobox-host-exec bash -lc 'cd "<checkout>" && latexmk -cd -outdir=../pdf/build/arvore -pvc- -view=none -interaction=nonstopmode latex/tcc.tex'
    ```
 
-5. Commit pela skill `commit-message`, depois do aprovo do autor, com
+5. A mensagem vai ao autor junto do diff, no mesmo pedido de aprovo: o
+   "pode commitar" aprova as duas. Antes, o rascunho pela skill
+   `commit-message` passa pela conferência de cada fato (`AGENTS.md`,
+   seção "Commits"): a fonte citada por autor e ano contra o `author` e
+   o `date` do `refs.bib` e contra o `texto/fontes/<chave>.org`, nunca
+   contra o corpo da tarefa ou o pedido da sessão, e o assunto relido
+   sozinho, como no `git log --oneline`.
+   Depois, pelo subagente read-only sem o contexto da sessão, que a
+   mesma seção pede para todo commit direto no `master`.
+   O commit, depois do aprovo, leva
    `texto/*.org`, `latex/capitulos/*.tex`, `texto/fontes/*.org`, `texto/refs.bib` e, se
    a rodada fecha ou muda tarefa, o `.beads/issues.jsonl` com só as
    tarefas da rodada: ele é o banco inteiro, e leva as tarefas que outras
@@ -400,8 +409,11 @@ decidido.
    <ids>` e o `git commit`, ligados por `&&`. Nomeie os arquivos no
    próprio commit (`git commit -- <arquivos>`), para não levar o que
    outra sessão deixou no índice. A mensagem termina com uma linha
-   `Fontes conferidas:` com chave e página de cada fonte lida na rodada.
-   Mostre a mensagem e commite na mesma resposta. Nada de push.
+   `Fontes conferidas:` com chave e página de cada fonte lida na rodada,
+   chave que o hook confere no `refs.bib`. Antes de commitar, confira
+   que a ponta do `master` anotada no começo da rodada (`git rev-parse
+   master`) continua na história (`AGENTS.md`, "Commits"). Mensagem
+   que mudou depois do aprovo volta ao autor. Nada de push.
 6. Pendências que sobraram viram tarefa no `bd`; achado de implementação,
    nota em `docs/achados-das-implementacoes.md`.
 

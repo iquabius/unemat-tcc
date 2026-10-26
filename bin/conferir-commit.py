@@ -42,10 +42,20 @@ recusados quando:
     caminho de outro repositório não contam); a tarefa no
     .beads/issues.jsonl do checkout principal; o ADR em docs/adr/. Na
     junção de ramo, o caminho e o sha valem no ramo juntado, em vez do
-    índice: o HEAD é o master, e o que a mensagem cita veio pelo ramo.
-    É a parte mecânica da checagem de fatos da skill fact-check; o verbo
-    da regra citada, a atribuição e o número ficam com o agente e com o
-    eixo Facts da linus-review;
+    índice: o HEAD é o master, e o que a mensagem cita veio pelo ramo;
+  - fonte citada por autor e ano cujo primeiro sobrenome é o do primeiro
+    autor de uma entrada do texto/refs.bib do mesmo ano e cujos outros
+    sobrenomes não são os dela, na ordem ("Britton e Jarvis (2001" pela
+    entrada de Britton e Kutar; o et al. vale com três autores ou mais),
+    e chave da linha "Fontes conferidas:" que não está no refs.bib. O
+    refs.bib se lê onde se lê o caminho. A fonte fora do refs.bib cujo
+    primeiro autor não tem entrada naquele ano e o ano errado passam:
+    ficam com o agente, como a citação entre aspas, que transcreve outro
+    texto (a frase que sai, o erro da errata), e a chave sem ano, que não
+    se lê.
+  Estas duas são a parte mecânica da checagem de fatos da skill
+  fact-check; o verbo da regra citada, a atribuição e o número ficam com
+  o agente e com o eixo Facts da linus-review;
 - o commit é --fixup ou --squash no master ou no main, ou com o HEAD
   destacado na ponta de um deles (a worktree em que o merge se monta),
   lidos como estão antes do comando, sem contar um git checkout no mesmo
@@ -684,7 +694,7 @@ def git_saida(dir_, *args):
     """A saída de git -C dir_ args, ou None se ele falha."""
     try:
         r = subprocess.run(["git", "-C", str(dir_), *args], capture_output=True,
-                           text=True, timeout=5)
+                           text=True, errors="replace", timeout=5)
     except (OSError, subprocess.SubprocessError):
         return None
     return r.stdout.strip() if r.returncode == 0 else None
@@ -800,6 +810,164 @@ def adrs(raiz, dir_, revs):
     return {n[:4] for n in nomes if re.match(r"\d{4}-", n)}
 
 
+REFS = "texto/refs.bib"
+# A fonte citada por autor e ano, como no texto: "Kiss (2014", "Blackwell
+# e Green (2003", "Green, Petre e Bellamy (1991", "Salvaneschi et al.
+# (2017"; a letra que o biblatex acrescenta ao ano (2026a) não conta. Do
+# sobrenome composto (Van Roy), a busca acha a última palavra. A inicial
+# é qualquer maiúscula latina, Ł e Č inclusive: sem ela, a busca
+# recomeçaria no coautor ("Salvaneschi (2013" em "Łopuszański e
+# Salvaneschi (2013").
+MAIUSCULA = "".join(re.escape(c) for c in map(chr, range(0x250)) if c.isupper())
+SOBRENOME = rf"[{MAIUSCULA}][\w'’-]*"
+CITACAO = re.compile(rf"\b({SOBRENOME})((?:,\s+{SOBRENOME})*)(?:\s+e\s+({SOBRENOME})|(\s+et\s+al\.))?"
+                     r"\s+\((\d{4})[a-z]?\b")
+# A linha "Fontes conferidas:" da skill revisao-de-texto, até a linha em
+# branco, e as chaves do refs.bib nela (kiss2014, google2026d,
+# w3techs2026), fora de caminho (acervo/google2026d.html); a chave sem
+# ano (mogk) não se distingue de uma palavra e fica sem conferir.
+FONTES_CONFERIDAS = re.compile(r"^Fontes conferidas:(.*?)(?=\n[ \t]*\n|\Z)", re.M | re.S)
+CHAVE_CITADA = re.compile(r"(?<![\w/.-])[A-Za-z][A-Za-z0-9-]*?\d{4}[a-z]?(?![\w/-]|\.\w)")
+ENTRADA = re.compile(r"^@\w+\{([^,\s]+),", re.M)
+# O trecho entre aspas, num parágrafo: a citação transcrita de outro
+# texto (a frase que sai, o erro que a errata corrige) não é afirmação da
+# mensagem.
+ASPAS = re.compile(r'"[^"]*"|“[^”]*”')
+
+
+def campo(corpo, nome):
+    """O valor entre chaves do campo nome da entrada, sem as chaves de
+    fora; None sem o campo."""
+    m = re.search(rf"^\s*{nome}\s*=\s*\{{", corpo, re.M | re.I)
+    if m is None:
+        return None
+    nivel, i = 1, m.end()
+    while i < len(corpo) and nivel:
+        nivel += {"{": 1, "}": -1}.get(corpo[i], 0)
+        i += 1
+    return corpo[m.end():i - 1]
+
+
+def sobrenomes(pessoas):
+    """Os sobrenomes de um campo author ou editor: o que vem antes da
+    vírgula, a última palavra sem vírgula, a entidade inteira entre chaves
+    ({Google}); o "and" dentro de chaves não separa."""
+    nomes, nivel, atual = [], 0, ""
+    for parte in re.split(r"(\{|\}|\s+and\s+)", pessoas):
+        if parte == "{":
+            nivel += 1
+        elif parte == "}":
+            nivel -= 1
+        elif nivel == 0 and re.fullmatch(r"\s+and\s+", parte or ""):
+            nomes.append(atual)
+            atual = ""
+            continue
+        atual += parte
+    nomes.append(atual)
+    saida = []
+    for nome in (n.strip() for n in nomes):
+        if nome.startswith("{") and nome.endswith("}"):
+            sobrenome = nome[1:-1]
+        elif "," in nome:
+            sobrenome = nome.split(",", 1)[0]
+        else:
+            sobrenome = nome.rsplit(None, 1)[-1] if nome else ""
+        sobrenome = re.sub(r"[{}\\]", "", sobrenome).strip()
+        if sobrenome:
+            saida.append(sobrenome)
+    return saida
+
+
+def fontes(raiz, dir_, revs):
+    """As entradas do refs.bib, no disco e nas revs ("" é o índice), como
+    (chave, ano, [sobrenomes]), com o editor quando falta o autor; None se
+    o arquivo não está em lugar nenhum. A união cobre a mensagem que cita
+    a entrada que o próprio commit tira."""
+    textos = []
+    try:
+        textos.append(Path(raiz, REFS).read_text(encoding="utf-8"))
+    except (OSError, UnicodeDecodeError):
+        pass
+    for rev in revs:
+        if rev is not None:
+            texto = git_saida(dir_, "show", f"{rev}:{REFS}")
+            if texto is not None:
+                textos.append(texto)
+    if not textos:
+        return None
+    entradas = set()
+    for texto in textos:
+        cabecas = list(ENTRADA.finditer(texto))
+        for m, seguinte in zip(cabecas, cabecas[1:] + [None]):
+            corpo = texto[m.end():seguinte.start() if seguinte else len(texto)]
+            data = campo(corpo, "date") or campo(corpo, "year") or ""
+            pessoas = campo(corpo, "author") or campo(corpo, "editor") or ""
+            entradas.add((m[1], data[:4], tuple(sobrenomes(pessoas))))
+    return entradas
+
+
+def bate(citado, sobrenome):
+    """Se o sobrenome escrito na mensagem é o da entrada, inteiro ou a
+    última palavra dele (Roy de Van Roy, Meuter de de Meuter)."""
+    c = citado.casefold()
+    return c == sobrenome.casefold() or c == sobrenome.split()[-1].casefold()
+
+
+def problemas_das_fontes(texto, entradas):
+    """As citações por autor e ano que não casam com uma entrada do
+    refs.bib, e as chaves de "Fontes conferidas:" que não existem, uma
+    frase cada. A citação só se confere quando o refs.bib tem, no mesmo
+    ano, uma entrada cujo primeiro autor é o primeiro sobrenome dela, e
+    então um dos outros autores ficou errado ou faltou ("Britton e Jarvis
+    (2001" por Britton e Kutar, "Prodanov (2013" por Prodanov e Freitas).
+    A fonte fora do refs.bib cujo primeiro autor tem outra entrada no
+    mesmo ano ("Salvaneschi e Mezini (2014") também se recusa, porque não
+    se distingue de um coautor errado: escreve-se sem o parêntese
+    ("Salvaneschi e Mezini, de 2014").
+    O et al. vale com três autores ou mais, como as mensagens o escrevem,
+    embora o PDF liste os três (maxcitenames=3 no latex/unemat-comp.cls):
+    a abreviação não troca nenhum nome. Sem essa entrada, é uma fonte fora do
+    refs.bib, que uma nota de docs/ pode citar, ou um ano errado, que
+    fica com o agente; o sobrenome de um coautor (Clarke, em "Stylos,
+    Clarke e Myers (2006") não basta. A citação entre aspas fica de
+    fora."""
+    problemas = []
+    aspas, inicio = [], 0
+    for paragrafo in re.split(r"(\n[ \t]*\n)", texto):
+        aspas += [(inicio + a.start(), inicio + a.end()) for a in ASPAS.finditer(paragrafo)]
+        inicio += len(paragrafo)
+    for m in CITACAO.finditer(texto):
+        if any(a <= m.start() < b for a, b in aspas):
+            continue
+        primeiro, meio, ultimo, et_al, ano = m.groups()
+        citados = [primeiro] + re.findall(SOBRENOME, meio) + ([ultimo] if ultimo else [])
+        perto = [(chave, autores) for chave, a, autores in entradas
+                 if a == ano and autores and bate(primeiro, autores[0])]
+        if not perto:
+            continue
+        if et_al:
+            casa = any(len(autores) >= 3 for _, autores in perto)
+        else:
+            casa = any(len(autores) == len(citados)
+                       and all(bate(c, s) for c, s in zip(citados, autores))
+                       for _, autores in perto)
+        if not casa:
+            lista = "; ".join(sorted(f"{chave}: {', '.join(autores)}"
+                                     for chave, autores in perto))
+            problemas.append(f"citação que não casa os autores com o {REFS}: "
+                             f"\"{' '.join(m[0].split())}\" (lá: {lista}; todos os sobrenomes, na ordem, "
+                             "ou o primeiro e et al. com três autores ou mais; a "
+                             "fonte fora do refs.bib se escreve sem o parêntese, "
+                             "\"Autor e Autor, de AAAA\")")
+    chaves = {chave for chave, _, _ in entradas}
+    for linha in FONTES_CONFERIDAS.findall(texto):
+        for chave in dict.fromkeys(CHAVE_CITADA.findall(linha)):
+            if chave not in chaves:
+                problemas.append(f"chave de \"Fontes conferidas:\" que não está no {REFS}: "
+                                 f"{chave} (a fonte fora do {REFS} se escreve por autor e ano)")
+    return problemas
+
+
 LER_BANCO = object()
 
 
@@ -849,6 +1017,9 @@ def problemas_dos_fatos(texto, dir_, revs, onde, tarefas=LER_BANCO):
         for n in dict.fromkeys(ADR_CITADO.findall(texto)):
             if n not in numeros:
                 problemas.append(f"ADR citado que não existe em docs/adr/: ADR {n}")
+    entradas = fontes(raiz, dir_, revs)
+    if entradas is not None:
+        problemas += problemas_das_fontes(texto, entradas)
     return problemas
 
 
