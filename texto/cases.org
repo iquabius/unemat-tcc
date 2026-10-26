@@ -328,7 +328,7 @@
   Aqui, ela é padronizada entre as tecnologias, e por isso não distingue
   uma notação da outra.
   As dimensões utilizadas neste trabalho são baseadas nas [[glspl:dc]] de
-  textcite:green1989. Assim usamos critérios estabelecidos, o que facilita a
+  textcite:green1989. Assim usamos um conjunto estabelecido de dimensões, o que facilita a
   comparação de nossos resultados com trabalhos baseados nas [[glspl:dc]]. O /framework/
   completo possui 14 dimensões, mas os autores recomendam usar um subconjunto
   apropriado para o artefato em mãos.
@@ -782,7 +782,7 @@
      de Abstração.
 
 **** Proximidade de descrição
-     Essa dimensão/critério faz mais sentido para análise de apresentação do que
+     Essa dimensão faz mais sentido para análise de apresentação do que
      comportamento (coordenação de eventos).
 
 **** Dependências ocultas

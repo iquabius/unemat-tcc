@@ -35,3 +35,39 @@
   stages. First one author (TG) constructed a modification” (p. 162)
 - Lido em: o mesmo PDF, p. 32 (p. 162).
 - Conferido: 2026-10-13.
+* [[file:../cases.org::As outras três do grupo ficam de fora][cases: As outras três do grupo ficam de fora]], p. 155 (compromisso prematuro)
+- Frase: “O compromisso prematuro nasce da ordem em que o ambiente de
+  edição obriga a construir o programa, e o código pronto não guarda essa
+  ordem (Green; Petre, 1996).”
+- Trecho: “The problem arises when (a) the notation contains many internal
+  dependencies, (b) the medium or working environment constrains the
+  order of doing things, and (c) the order is inappropriate.” (p. 155)
+- Lido em: o mesmo PDF, p. 25 (p. 155).
+- Observação: a fonte sustenta a primeira oração; “o código pronto não
+  guarda essa ordem” é inferência do texto. A citação no texto está sem
+  página.
+- Conferido: 2026-10-25.
+* [[file:../cases.org::As outras três do grupo ficam de fora][cases: As outras três do grupo ficam de fora]], p. 147-148 (consistência)
+- Frase: “A consistência mede o quanto quem aprende consegue adivinhar da
+  notação, e só se avalia por introspecção (Green; Petre, 1996).”
+- Trecho: “For our purposes we can take it as a particular form of
+  guessability: when a person knows some of the language structure, how
+  much of the rest can be guessed successfully?” (p. 147); “At present we
+  have little alternative but to rely on introspection.” (p. 148)
+- Lido em: o mesmo PDF, p. 17-18 (p. 147-148).
+- Observação: a fonte diz “por ora”, e não “só”. A citação no texto está
+  sem página.
+- Conferido: 2026-10-25.
+* [[file:../cases.org::As outras três do grupo ficam de fora][cases: As outras três do grupo ficam de fora]], p. 159 (notação secundária)
+- Frase: “Já a notação secundária (comentários, indentação e nomes) é
+  própria de quem escreve (Green; Petre, 1996).”
+- Trecho: “Many programming languages allow extra information to be
+  carried by means other than their formal syntax: indenting, commenting,
+  choice of naming conventions [...]. These techniques have no place in
+  the formal semantics of the algorithm but they all convey meaning to the
+  human reader.” (p. 159)
+- Lido em: o mesmo PDF, p. 29 (p. 159).
+- Observação: a fonte sustenta a lista; “própria de quem escreve” lê
+  “extra channel of communication between programmer and reader”, na
+  mesma página. A citação no texto está sem página.
+- Conferido: 2026-10-25.
