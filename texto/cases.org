@@ -293,30 +293,6 @@
   Para eles, a parte cognitiva das [[glspl:dc]] importa bem menos que a teoria de
   projeto implícita nelas.
 
-  As outras duas, /expressividade/ e /operações mentais difíceis/, vêm do grupo
-  que [[textcite:kiss2014][p. 15]] deixou de fora e que, a seu ver, teria
-  sido útil se as linguagens e os /toolkits/ comparados fossem muito mais
-  diferentes.
-  Na comparação principal, [[textcite:kiss2014][p. 11-12]] escolheu o
-  ScalaFX porque este envolve o próprio JavaFX e porque o Scala é
-  sintaticamente próximo do Java.
-  Aqui, cada tecnologia traz as próprias abstrações, e as três notações
-  diferem na forma de escrever a coordenação.
-  E, ao avaliar bibliotecas reativas, ele próprio descreve o esforço
-  mental de cada uma sem uma dimensão para isso
-  [[cite:kiss2014][p. 87 e 97]].
-
-  As duas tratam da leitura do código.
-  A expressividade é a facilidade de reconhecer o propósito de cada
-  trecho, e as operações mentais difíceis obrigam quem lê a contar nos
-  dedos ou anotar à parte para acompanhar o que acontece cite:green1996d.
-  Ao avaliar se quem lê entende uma especificação,
-  [[textcite:britton2001][p. 267]] também as incluíram entre as dimensões
-  especialmente úteis.
-  Na comparação de textcite:mernik2009 entre o [[gls:xaml]] e o C# Forms, as duas
-  estiveram entre as dimensões que mais pesaram na compreensão dos
-  programas.
-
   As [[glspl:dc]] de textcite:green1989 são um conjunto estabelecido de
   dimensões, o que facilita a comparação dos resultados com os de outros
   trabalhos baseados nelas, como argumenta [[textcite:kiss2014][p. 12]],
