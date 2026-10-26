@@ -42,7 +42,7 @@ juntos, e o React, sem maioria clara, e o Web Component, sem idioma
 único, não dariam regra de escolha (falha o quinto).
 Em vez de: o layout escrito no código do Web Component
 (`style.display`, `style.gridTemplateColumns`), como o JavaFX em código
-de Kiss; contrastaria com o declarativo também no layout, mas não tem
+de Kiss; se oporia ao declarativo também no layout, mas não tem
 par nos programas lidos, em que o código escreve no `style` só o número
 que o CSS lê (no media-chrome, seis linhas de `src/` contra 32 arquivos
 com `flex` no CSS embutido) (falha o quarto).
