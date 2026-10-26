@@ -43,9 +43,9 @@ juntos, e o React, sem maioria clara, e o Web Component, sem idioma
 Em vez de: o layout escrito no código do Web Component
 (`style.display`, `style.gridTemplateColumns`), como o JavaFX em código
 de Kiss; se oporia ao declarativo também no layout, mas não tem
-par nos programas lidos, em que o código escreve no `style` só o número
-que o CSS lê (no media-chrome, seis linhas de `src/` contra 32 arquivos
-com `flex` no CSS embutido) (falha o quarto).
+precedente nos programas lidos, em que o código escreve no `style` só o
+número que o CSS lê (no media-chrome, seis linhas de `src/` contra 32
+arquivos com `flex` no CSS embutido) (falha o quarto).
 Em vez de: o tema padrão de cada tecnologia, sem código de estilo (o
 primeiro Contador, commit `58277f3`); menos código, mas as capturas não
 se comparariam, e a diferença visual se misturaria à de notação (falha

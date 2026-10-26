@@ -41,8 +41,8 @@ código; menos trabalho, mas a análise leria três formas de montagem na
 mesma tecnologia (falha o segundo critério).
 Em vez de: a árvore inteira em `createElement`, familiar a quem vem do
 Java no *desktop*; daria a maior diferença de montagem com o JSX, mas
-não tem par em produção nas duas amostras, só em esqueletos de um a
-três nós e nos exemplos da MDN, como o `popup-info-box` (falha o
+não tem precedente em produção nas duas amostras, só em esqueletos de
+um a três nós e nos exemplos da MDN, como o `popup-info-box` (falha o
 primeiro).
 Em vez de: aprimorar o HTML que a página já traz, a forma dos elementos
 de aplicação (GitHub, Gitea, Kelp); é a mais comum entre eles, mas o
