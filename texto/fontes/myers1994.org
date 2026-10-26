@@ -56,9 +56,9 @@
   designers have difficulty thinking like users; tasks and domains are
   complex” (seção “No Silver Bullet”, p. 75)
 - Lido em: =acervo/myers1994.pdf=, p. 3 do PDF (p. 75).
-- Observação: é o contraste entre projeto e implementação que Kiss (2014,
-  p. 5) faz citando o relatório técnico de Myers de 1993, a versão
-  anterior deste artigo.
+- Observação: é a distinção entre projeto e implementação que Kiss
+  (2014, p. 5) faz citando o relatório técnico de Myers de 1993, a
+  versão anterior deste artigo.
 - Conferido: 2026-10-12.
 * [[file:../prog.org::No projeto da interface, além dos][prog: No projeto da interface, além dos]], p. 75, 79 e 80 (robustez)
 - Frase: “Também precisa ser robusto: tratar qualquer entrada sem parar de
