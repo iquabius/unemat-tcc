@@ -25,16 +25,16 @@ vão para o chat pelo hook `bin/lembrete-do-chat.py`, na forma da seção
   sem a 2.ª rodada do Lit fora do trio: PDF sem anexo −4, análise −4,
   anexo 0, PDF com anexo −4; L2: PDF sem anexo −8, análise −8, anexo
   −11, PDF com anexo −19
-- Em aberto: o contraste depois da análise, fora da conta acima e o
-  primeiro a sair no corte; com a 2.ª rodada: PDF sem anexo +26, análise
-  0, anexo 0, PDF com anexo +26; só com a 1.ª: PDF sem anexo +14,
-  análise 0, anexo 0, PDF com anexo +14
+- Em aberto: o entorno da cadeia depois da análise, fora da conta acima
+  e o primeiro a sair no corte; com a 2.ª rodada: PDF sem anexo +26,
+  análise 0, anexo 0, PDF com anexo +26; só com a 1.ª: PDF sem anexo
+  +14, análise 0, anexo 0, PDF com anexo +14
 
 **Resumo curto:**
 - ≈ PDF s/anexo 172 | análise 116 | anexo b 97 | PDF c/anexo 269
 - 3 rodadas, 3.ª em 4 vertentes, 5 tecnologias | em aberto: 7.º par
   +4/+4/0/+4; Lit fora do trio −4/−4/0/−4 · L2 −8/−8/−11/−19;
-  contraste com a 2.ª rodada +26/0/0/+26 · só a 1.ª +14/0/0/+14 (PDF
+  entorno com a 2.ª rodada +26/0/0/+26 · só a 1.ª +14/0/0/+14 (PDF
   s/anexo, análise, anexo, PDF c/anexo)
 
 ## A forma do Resumo
@@ -58,12 +58,12 @@ correr os olhos pelos números em vez de ler um parágrafo):
 - o item que não cabe em 72 colunas continua na linha seguinte, com
   recuo, e o hook o junta de volta numa linha só.
 
-As decisões pendentes em 2026-10-25, à noite, são o 7.º par da
-terceira rodada (tcc-l7qe), o corte do Lit fora do trio (tcc-7qty) e o
-contraste, que fica fora da conta e é o primeiro a sair no corte;
-a regra vale para qualquer outra que as substitua, sem mexer nas outras
-linhas. O teste do hook confere, na nota, que os números dos dois blocos
-são os mesmos.
+As decisões pendentes em 2026-10-25, à noite, são o 7.º par da terceira
+rodada (tcc-l7qe), o corte do Lit fora do trio (tcc-7qty) e o entorno da
+cadeia, que fica fora da conta e é o primeiro a sair no corte; a regra
+vale para qualquer outra que as substitua, sem mexer nas outras linhas.
+O teste do hook confere, na nota, que os números dos dois blocos são os
+mesmos.
 
 ## Como se conta
 
@@ -94,7 +94,7 @@ são os mesmos.
   parte, porque não são notação. Até o script da tcc-hlh7 existir, a
   conta é o script da sessão sobre
   `find interfaces-graficas/<interface>/analisadas/<tecnologia>/src -name '*.ts*'`,
-  sem os testes; a busca já deixa de fora o `contraste/` de cada
+  sem os testes; a busca já deixa de fora o `entorno/` de cada
   interface (que em 2026-10-25 ainda não existe) e o `autorais/`. Até
   2026-10-25, o caminho era `implementacoes/<interface>/<tecnologia>/`,
   e a conta deixava de fora `implementacoes/fora-da-analise/`.
@@ -374,7 +374,7 @@ decisões em aberto, da mesma tabela.
   trio, que a revisão depois da análise decide (tcc-7qty), com as
   diferenças da tabela (L3 → L2) e da conta de ≈ 1 página por coluna por
   interface-rodada (as quatro interfaces fora do trio, na segunda
-  rodada), e a do contraste, fora da conta das 56 páginas: ≈ 1 página por
+  rodada), e a do entorno, fora da conta das 56 páginas: ≈ 1 página por
   coluna por interface-rodada, 12 colunas em cada rodada, mais 2 de
   abertura (conta do agente). O 7.º par passou de +3 a +4, com a coluna
   do Lit. A seção "O código das rodadas 2 e 3 no anexo" dizia 11

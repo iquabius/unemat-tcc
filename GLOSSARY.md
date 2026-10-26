@@ -340,18 +340,22 @@ _Avoid_: versão, exemplo; solução (pede "problema" para a interface)
 **Conjunto analisado**:
 As implementações que a análise pelas DCs lê, as sete interfaces nas
 cinco tecnologias (ADR 0013), em
-`interfaces-graficas/<interface>/analisadas/`; as de `contraste/`, ao
+`interfaces-graficas/<interface>/analisadas/`; as de `entorno/`, ao
 lado, ficam de fora (ADR 0025).
 _Avoid_: recorte da análise (o recorte é o da pesquisa, ADR 0014); escopo;
 amostra (a amostra de tarefas é o conjunto das interfaces, no *benchmark*
 de notação)
 
-**Contraste**:
-As implementações de tecnologias fora da cadeia de pares, na primeira e na
-segunda rodada das interfaces em que cada uma difere, lidas depois da
-análise, pelo diff da segunda, para situar os três modelos de programação,
-como o Elm em Kiss (2014) (ADR 0042).
-_Avoid_: comparação (a comparação é a da análise); controle (o
+**Entorno**:
+As implementações de tecnologias fora da cadeia de pares, o que a cerca,
+na primeira e na segunda rodada das interfaces em que cada uma difere,
+lidas depois da análise, pelo diff da segunda, para situar nele os três
+modelos de programação, como o Elm em Kiss (2014) (ADR 0042). Na
+primeira menção de cada seção, "o entorno da cadeia"; depois, "o
+entorno" e "as tecnologias do entorno".
+_Avoid_: contraste (o nome até 2026-10-26: em Kiss, 2014, p. 12,
+"contrast" é a comparação principal, e a palavra diz oposição, e não o
+papel de situar); comparação (a comparação é a da análise); controle (o
 controle é o das variáveis, no delineamento); trabalhos futuros (são a
 seção da conclusão, que recebe o Angular e o par que sai do corte)
 

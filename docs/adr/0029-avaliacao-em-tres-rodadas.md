@@ -81,12 +81,12 @@ pares interface-vertente, 30 refatorações (7 e 35 com o opcional), e a
 conclusão de cada vertente se lê "nessa forma", sem atribuição só ao
 modelo de programação.
 
-Se o prazo apertar, sai primeiro o contraste (ADR 0042) e depois, nesta
-ordem, fixada antes da análise: 1) o Circle Drawer na máquina de
-estados, o par opcional; 2) o bolão; 3) o "lembrar meu nome"; 4) o
-Placar ao vivo na API nova da plataforma; 5) o Circle Drawer na API nova
-da plataforma; 6) o Placar ao vivo na máquina de estados; 7) o Circle
-Drawer nos padrões de projeto (decisões do autor em 2026-10-24 e
+Se o prazo apertar, sai primeiro o entorno da cadeia (ADR 0042) e
+depois, nesta ordem, fixada antes da análise: 1) o Circle Drawer na
+máquina de estados, o par opcional; 2) o bolão; 3) o "lembrar meu nome";
+4) o Placar ao vivo na API nova da plataforma; 5) o Circle Drawer na API
+nova da plataforma; 6) o Placar ao vivo na máquina de estados; 7) o
+Circle Drawer nos padrões de projeto (decisões do autor em 2026-10-24 e
 2026-10-25). O par opcional sai antes de duas mudanças da segunda
 rodada, e os padrões de projeto, contra a prioridade, por último, por
 serem o único elo da terceira rodada com Kiss. A mudança sai inteira,

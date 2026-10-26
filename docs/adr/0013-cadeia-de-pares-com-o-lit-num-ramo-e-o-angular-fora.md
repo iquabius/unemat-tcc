@@ -46,8 +46,8 @@ entre o Web Component e o React se atribui ao passo da cadeia em que
 aparece, e a que nenhum passo explica, pelo sinal escrito (decisão do
 autor em 2026-10-19); a parte que vem só da re-renderização se lê no
 par Web Component × Lit. O Angular vai para os trabalhos futuros
-(tcc-dpci) e volta, fora do conjunto analisado, no contraste (ADR
-0042). Usar só o que a tecnologia traz, na primeira e na segunda
+(tcc-dpci) e volta, fora do conjunto analisado, no entorno da cadeia
+(ADR 0042). Usar só o que a tecnologia traz, na primeira e na segunda
 rodada, é regra do ADR 0029.
 
 Em vez de: as quatro tecnologias de 2026-10-23, sem o Lit; 28

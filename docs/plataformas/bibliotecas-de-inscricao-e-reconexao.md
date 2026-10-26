@@ -34,7 +34,7 @@ conexão ao vivo (WebSocket ou SSE), e deixa fora:
 - a busca de dados com nova tentativa (`@tanstack/react-query` e
   `@tanstack/solid-query`, com o `experimental_streamedQuery` e o
   `retry`), porque a API de fluxo é experimental e os downloads vêm da
-  busca de dados (seção "Guardado para contraste: o TanStack Query");
+  busca de dados (seção "Guardado para o entorno: o TanStack Query");
 - a inscrição sem reconexão (`swr`, com o `useSWRSubscription`,
   experimental; `use-subscription`; `observable-hooks`, em que a nova
   tentativa vem do RxJS);
@@ -312,15 +312,15 @@ cinco anos e 100% em doze meses. No grupo do Web Component, o termo
 ele, o `reconnecting-websocket` lidera (49,7% em cinco anos, 80,7% em
 doze meses), e o `partysocket` fica com 26,7% e 19,3%.
 
-## Guardado para contraste: o TanStack Query
+## Guardado para o entorno: o TanStack Query
 
 O autor decidiu em 2026-10-19 guardar o TanStack Query, com o
 `experimental_streamedQuery` (o `queryFn` que lê um `AsyncIterable`) e o
 `retry` como reconexão, para uma seção posterior à análise, como Kiss
 (2014) fez com o Elm numa seleção dos casos (p. 3); em 2026-10-25, o ADR
-0042 o pôs entre as cinco tecnologias do contraste, no Placar ao vivo,
-no React e no Solid. Ele lê uma fonte genérica, sem protocolo, e é a
-mesma biblioteca no React e no Solid; a API está exportada como
+0042 o pôs entre as cinco tecnologias do entorno da cadeia, no Placar ao
+vivo, no React e no Solid. Ele lê uma fonte genérica, sem protocolo, e é
+a mesma biblioteca no React e no Solid; a API está exportada como
 experimental no `@tanstack/query-core` 5.104.5
 (`build/modern/index.d.ts`, consultado em 2026-10-19).
 
@@ -355,4 +355,5 @@ dependentes), 2026-10-19.
   Component, no Lit e no Web Component com *signals*, e o SSE na
   primeira e na segunda rodada), a medida da tabela de 2026-10-19 passou
   a citar o ADR 0031, e não o 0029, e a seção do TanStack Query, a dizer
-  que ele entrou no contraste (ADR 0042).
+  que ele entrou no entorno da cadeia (ADR 0042), que então se chamava
+  contraste.

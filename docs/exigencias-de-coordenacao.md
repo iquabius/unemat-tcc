@@ -125,8 +125,8 @@ exigência decidida pelo autor.
   que já tem "o termo repetido" na primeira rodada. Forma: ramo de
   biblioteca de busca de dados na Busca, a forma de ecossistema mais
   medida (298 milhões de downloads na janela do ADR 0031), hoje guardada
-  para o contraste (ADR 0042). Custo: um ramo a mais, cinco diffs e uma
-  subseção; tira o TanStack Query do contraste.
+  para o entorno da cadeia (ADR 0042). Custo: um ramo a mais, cinco
+  diffs e uma subseção; tira o TanStack Query do entorno.
 
 Candidatas a irmãs dos ramos da terceira rodada (a biblioteca do
 ecossistema e o padrão de projeto), anotadas na tarefa tcc-l7qe: o

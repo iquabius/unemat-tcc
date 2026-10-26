@@ -23,14 +23,14 @@ reconexão, só ela porque a vertente do ecossistema troca o SSE pelo
 WebSocket; ficam fora o validador de objetos, a base para escrever um
 controle de formulário, as coleções de componentes e de *hooks* e a
 busca de dados com nova tentativa, como o TanStack Query, que vai ao
-contraste (ADR 0042). Antes da medida sai a candidata depreciada, no
-campo `deprecated` do registro ou na documentação oficial, a de
-repositório arquivado e a sem versão há mais de 24 meses, porque o
-ecossistema não aponta para o que abandonou. Domina a candidata que soma
-mais da metade dos downloads das que ficam, no npm, na janela de
-2026-09-12 a 2026-10-11; sem maioria, vale a API da plataforma. A medida
-se faz no React, no Solid e no Web Component (decisões do autor em
-2026-10-25).
+entorno da cadeia (ADR 0042). Antes da medida sai a candidata
+depreciada, no campo `deprecated` do registro ou na documentação
+oficial, a de repositório arquivado e a sem versão há mais de 24 meses,
+porque o ecossistema não aponta para o que abandonou. Domina a candidata
+que soma mais da metade dos downloads das que ficam, no npm, na janela
+de 2026-09-12 a 2026-10-11; sem maioria, vale a API da plataforma. A
+medida se faz no React, no Solid e no Web Component (decisões do autor
+em 2026-10-25).
 
 No passo da cadeia que muda só o modelo de programação, do Solid ao
 React, a vertente usa a mesma biblioteca nas duas tecnologias quando a

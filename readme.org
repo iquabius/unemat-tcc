@@ -19,7 +19,7 @@
   | =texto/= | o que o autor escreve: os capítulos =.org=, =fontes/=, =refs.bib= e =fig/= |
   | =latex/= | o que o =latexmk= lê: =tcc.tex=, classe, estilos, brasões, =apendices/= e os =capitulos/= exportados |
   | =pdf/= | o que sai, fora do git: =build/=, =versoes/= e =ao-vivo/= |
-  | =interfaces-graficas/= | as implementações de cada interface (=analisadas/= e =contraste/=), a especificação (=openspec/=), o código que o autor escreveu à mão (=autorais/=) e o =package.json= dos =workspaces= |
+  | =interfaces-graficas/= | as implementações de cada interface (=analisadas/= e =entorno/=), a especificação (=openspec/=), o código que o autor escreveu à mão (=autorais/=) e o =package.json= dos =workspaces= |
   | =docs/= | decisões (=adr/=) e notas, com entrada em =docs/README.md=: o argumento na raiz, o apoio em =bibliografia/=, =plataformas/= e =processo/= |
   | =bin/= | scripts |
 

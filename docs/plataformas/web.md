@@ -103,11 +103,11 @@ Component × Lit (ADR 0013). Quando as duas tecnologias de um modelo
 divergem numa DC, a célula dele na tabela-síntese registra a divergência
 (ADR 0017). O Angular com *signals* saiu da análise em 2026-10-19 e fica
 para os trabalhos futuros da conclusão (tcc-dpci), e volta, fora do
-conjunto analisado, no contraste (ADR 0042); o Lit, que saiu no mesmo
-dia, voltou em 2026-10-25 (ADR 0013). O código do Angular, do jQuery e
-do Angular com RxJS saiu do repositório em 2026-10-25 e fica no commit
-anterior ao que tirou a pasta `fora-da-analise/` (ADR 0025). O quadro do
-que o delineamento controla está em `docs/delineamento.md`.
+conjunto analisado, no entorno da cadeia (ADR 0042); o Lit, que saiu no
+mesmo dia, voltou em 2026-10-25 (ADR 0013). O código do Angular, do
+jQuery e do Angular com RxJS saiu do repositório em 2026-10-25 e fica no
+commit anterior ao que tirou a pasta `fora-da-analise/` (ADR 0025). O
+quadro do que o delineamento controla está em `docs/delineamento.md`.
 
 ## O que mudou de 2016 a 2026
 

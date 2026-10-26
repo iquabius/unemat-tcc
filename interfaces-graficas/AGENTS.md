@@ -10,11 +10,11 @@ análise sai do repositório (última seção).
 A pasta de cada interface guarda o que vale para todas as tecnologias
 dela (o `dominio.ts`, o `estilo.css`, o `cenas.mts`, as capturas, o
 teste de conformidade e o `README.org`) e uma subpasta por tecnologia em
-`analisadas/`, o conjunto analisado, e em `contraste/`, as tecnologias do
-contraste (ADR 0042), que vão passar pelo mesmo teste e pelas mesmas
-cenas (ADR 0025): `reserva-de-passagem/analisadas/react/`,
-`reserva-de-passagem/contraste/elm/`. Até a primeira implementação do
-contraste (tcc-o9p7), a pasta não existe, e os comandos daqui só
+`analisadas/`, o conjunto analisado, e em `entorno/`, as tecnologias do
+entorno da cadeia (ADR 0042), que vão passar pelo mesmo teste e pelas
+mesmas cenas (ADR 0025): `reserva-de-passagem/analisadas/react/`,
+`reserva-de-passagem/entorno/elm/`. Até a primeira implementação do
+entorno (tcc-o9p7), a pasta não existe, e os comandos daqui só
 percorrem `analisadas/`.
 
 No código, a variável de uma interface se chama `gui` (`guis` no

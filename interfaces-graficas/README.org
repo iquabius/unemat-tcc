@@ -1,20 +1,21 @@
 #+TITLE: Implementações das interfaces
 
-Cada interface do /benchmark/ de notação tem uma pasta, e cada tecnologia
-uma subpasta, em =analisadas/= no conjunto analisado e em =contraste/= no
-contraste: =interfaces-graficas/<interface>/analisadas/<tecnologia>/=. As
-duas ficam ao lado do domínio, das cenas, das capturas e do teste de
-conformidade da interface, que valem para elas; =contraste/= nasce com a
-primeira implementação do contraste, e até lá os comandos abaixo só
-percorrem =analisadas/=. Cada subpasta é um
-projeto completo, com o próprio =package.json=, e pode ser lida sozinha.
-O escopo (interfaces e tecnologias) está nas decisões em
-[[file:../docs/adr/][docs/adr/]]. O código que o autor escreveu à mão no
-CodeSandbox, antes das implementações, fica congelado em
+Cada interface do /benchmark/ de notação tem uma pasta, e cada
+tecnologia uma subpasta, em =analisadas/= no conjunto analisado e em
+=entorno/= no entorno da cadeia:
+=interfaces-graficas/<interface>/analisadas/<tecnologia>/=. As duas
+ficam ao lado do domínio, das cenas, das capturas e do teste de
+conformidade da interface, que valem para elas; =entorno/= nasce com a
+primeira implementação do entorno, e até lá os comandos abaixo só
+percorrem =analisadas/=. Cada subpasta é um projeto completo, com o
+próprio =package.json=, e pode ser lida sozinha. O escopo (interfaces e
+tecnologias) está nas decisões em [[file:../docs/adr/][docs/adr/]]. O
+código que o autor escreveu à mão no CodeSandbox, antes das
+implementações, fica congelado em
 [[file:autorais/README.org][autorais/]], fora dos comandos abaixo. O que
 saiu da análise (a Lista filtrável, o Carrinho, o jQuery, o Angular, o
-JavaFX, o Qt, o Android, o desktop, o Lit do conjunto antigo, o Quadro de
-tarefas e o conversor de moedas) saiu também do repositório em
+JavaFX, o Qt, o Android, o desktop, o Lit do conjunto antigo, o Quadro
+de tarefas e o conversor de moedas) saiu também do repositório em
 2026-10-25, e o =git log= o recupera.
 
 * Pré-requisito: Node.js
