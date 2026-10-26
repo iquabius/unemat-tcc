@@ -10,7 +10,7 @@ ilustração torna concreto um elo, como a lasanha de Blackheath e Jones
 
 **Conclusão.** Em 2026-10-14, o texto apoia a definição de estado em
 Benveniste et al. (2003, p. 65): a cada evento de entrada, o programa
-calcula a saída e atualiza a memória, o estado. O contraste entre os
+calcula a saída e atualiza a memória, o estado. A distinção entre os
 modelos se apoia em Hudak (1989, p. 361): o imperativo tem estado
 implícito, alterado por comandos, e por isso depende da ordem; o
 declarativo não tem estado implícito. Na interface, o estado determina a
@@ -32,19 +32,19 @@ centrais, aparecem aqui só pelo que dizem do estado; a nota deles é
 
 ## Estado
 
-### Definição e contraste, revisados por pares
+### Definição e distinção, revisadas por pares
 
 | Para quê | Fonte | Página | Trecho | Leitura |
 |---|---|---|---|---|
 | Definição, com um laço simples | Benveniste et al. 2003 (`benveniste2003`), *Proceedings of the IEEE* | 65 | Fig. 1, o esquema dirigido por eventos: "Initialize Memory / for each input event do / Compute Outputs / Update Memory / end"; no texto, a lógica "computes outputs and the next state as a function of inputs and the current state"; na equação (1), U, X e Y são "input, state, and output" | conferido em 2026-10-14, a figura na página renderizada |
 | Definição curta | Mandel e Pouzet 2005, PPDP (fora do `refs.bib`) | 83 | "a process is a state machine whose behavior depends on the history of its inputs" | conferido em 2026-10-14 |
-| Contraste imperativo × declarativo | Hudak 1989 (`hudak1989`), *ACM Computing Surveys* | 361 | "Imperative languages are characterized as having an implicit state that is modified (i.e., side effected) by constructs (i.e., commands)", daí a noção de sequência dos comandos; "declarative languages are characterized as having no implicit state" | conferido em 2026-10-14 |
+| Distinção imperativo × declarativo | Hudak 1989 (`hudak1989`), *ACM Computing Surveys* | 361 | "Imperative languages are characterized as having an implicit state that is modified (i.e., side effected) by constructs (i.e., commands)", daí a noção de sequência dos comandos; "declarative languages are characterized as having no implicit state" | conferido em 2026-10-14 |
 | Estado da interface | Oney, Myers e Brandt 2012 (`oney2012`), UIST | 230 | "GUIs are often stateful [9] – the application state determines its appearance and behavior", com a barra de ferramentas: acoplada, fica acima da área de trabalho; arrastada, segue o mouse; a transição: "when the user presses the toolbar header in docked mode, it enters dragging mode" | conferido em 2026-10-09 (`texto/fontes/oney2012.org`); a transição, em 2026-10-15 |
 | Por que a interface altera estado | Edwards 2009 (`edwards2009`), Onward! | 925 | "Firstly, interaction is a side effect. The whole purpose of user input is to change the persistent state of the application." | conferido em 2026-10-09 e 2026-10-14 |
 | Efeito colateral no imperativo | Edwards 2009 | 925 | "Side effects are both the essence and bane of imperative programming. The programmer must carefully coordinate actions to manage their side effects upon each other." | conferido em 2026-10-09 |
 | Estado no React | Madsen, Lhoták e Tip 2020 (`madsen2020`), ECOOP | 12:1 e 12:3 | "a state consisting of values that may vary over time" (12:1); "The state holds time-varying values, e.g., the values of input fields." (12:3) | conferido em 2026-10-14 |
-| Contraste num exemplo mínimo | Bainomugisha et al. 2013 (`bainomugisha2013`), ACM CSUR | 52:3 | Com `var3 = var1 + var2`, "In conventional sequential imperative programming, the value of the variable var3 will always contain 3 [...]. In reactive programming, the value of the variable var3 is always kept up-to-date." | conferido em 2026-10-14 na versão do autor (":3") |
-| Contraste num exemplo mínimo | Kamina e Aotani 2018, *The Art, Science, and Engineering of Programming*, v. 2, n. 3, art. 5, DOI 10.22152/programming-journal.org/2018/2/5 (fora do `refs.bib`) | 5:7 | `signal int a = 5; signal int b = a + 3; a++;` imprime 9: "the value of b [...] is initially 8, but after the value of a is updated by a++, the value of b becomes 9" | conferido em 2026-10-14 |
+| A distinção num exemplo mínimo | Bainomugisha et al. 2013 (`bainomugisha2013`), ACM CSUR | 52:3 | Com `var3 = var1 + var2`, "In conventional sequential imperative programming, the value of the variable var3 will always contain 3 [...]. In reactive programming, the value of the variable var3 is always kept up-to-date." | conferido em 2026-10-14 na versão do autor (":3") |
+| A distinção num exemplo mínimo | Kamina e Aotani 2018, *The Art, Science, and Engineering of Programming*, v. 2, n. 3, art. 5, DOI 10.22152/programming-journal.org/2018/2/5 (fora do `refs.bib`) | 5:7 | `signal int a = 5; signal int b = a + 3; a++;` imprime 9: "the value of b [...] is initially 8, but after the value of a is updated by a++, the value of b becomes 9" | conferido em 2026-10-14 |
 | O imperativo, passo a passo | Tsukanova e Zabrodin 2026 (`tsukanova2026`), em russo | 55 | "Разработчик явно описывал последовательность действий при каждом событии: получить событие, обновить состояние, найти зависимые части интерфейса, обновить их вручную." (o programador descrevia, a cada evento, receber o evento, atualizar o estado, achar as partes da interface que dependem dele e atualizá-las à mão); "Это работало для простых программ, но с ростом масштаба возникали проблемы" | conferido em 2026-10-14; ressalvas do veículo na `annotation` do `refs.bib` |
 | `useState` contra a variável | Lee, Ahn e Yi 2025 (`lee2025`), OOPSLA | 289:4 | o `useState` dá funcionalidade "analogous to mutable variables in imperative languages", mas o estado "is managed by the React runtime" | subagente |
 | O modelo contra o estado local | Sperber e Schlegel 2025 (`sperber2025`), FUNARCH | 28, 31 e 33 | o *update* que avisa a *view* "is inherently imperative" (p. 28); "a single monolithic value for the model state" (p. 31); o estado local da interface, como o texto digitado antes do envio (p. 33) | subagente |
@@ -221,7 +221,7 @@ revisão por pares. O argumento, conferido no PDF em 2026-10-14:
 | 1 | "the major contributor to this complexity in many systems is the handling of state [...]. Other closely related contributors are code volume, and explicit concern with the flow of control" | o estado como maior causa |
 | 6, nota 1 | "By “state” we mean mutable state specifically" | a definição de estado do artigo |
 | 8 | "the single biggest remaining cause of complexity in most contemporary large systems is state, and the more we can do to limit and manage state, the better" | idem, na conclusão da seção 4.1 |
-| 16-17 | o contador: `counter := counter + 1` dentro de um procedimento sem argumentos, contra a função `getNextCounter(oldCounter)` que devolve o par `(newCounter, result)`; "the mutable state that was hidden inside the getNextCounter procedure is replaced by an extra parameter" | contraste imperativo × funcional num exemplo mínimo |
+| 16-17 | o contador: `counter := counter + 1` dentro de um procedimento sem argumentos, contra a função `getNextCounter(oldCounter)` que devolve o par `(newCounter, result)`; "the mutable state that was hidden inside the getNextCounter procedure is replaced by an extra parameter" | distinção imperativo × funcional num exemplo mínimo |
 | 22 | contra Brooks, "The complexity of software is an essential property, not an accidental one": "We disagree." | a discordância |
 | 23 | "we are going to identify state as accidental state if we can omit it in this ideal world" | a definição de estado acidental |
 | 25 | o dado derivado "can always be re-derived [...] whenever required [...] and it is clearly accidental state" | o estado derivado é acidental |

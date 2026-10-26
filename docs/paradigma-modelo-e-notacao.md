@@ -3,7 +3,7 @@
 Fontes. Diz o que cada termo nomeia no TCC, de que fonte vem, com que
 vizinhos se explica e que tensões o texto ainda precisa enfrentar. A
 decisão está no ADR 0021 (2026-10-08) e os verbetes no `GLOSSARY.md`;
-aqui ficam as definições com a página, os contrastes e os trechos.
+aqui ficam as definições com a página, as distinções e os trechos.
 
 **Conclusão.** O TCC compara três **modelos de programação**: o
 imperativo por atualização manual, o declarativo por re-renderização e o
@@ -210,7 +210,7 @@ listas de dependências do `useEffect` e do `useMemo` e as regras dos
 ## Os vizinhos: biblioteca, *framework*, *toolkit*, documentações
 
 "Modelo de programação" não é termo corrente nas disciplinas de
-graduação nem nas documentações. Explica-se por contraste com os
+graduação nem nas documentações. Explica-se pelo que o distingue dos
 vizinhos que o leitor conhece.
 
 ### Biblioteca, *framework* e *toolkit*
