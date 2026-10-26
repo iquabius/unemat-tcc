@@ -21,4 +21,15 @@
                            ;; se completa à mão.
                            (bibtex-completion-notes-template-multiple-files
                             . "#+title: ${=key=}: \n#+startup: overview\n\n")
-                           (my/org-ref-glossary-files . ("../latex/siglas.tex")))))))
+                           (my/org-ref-glossary-files . ("../latex/siglas.tex"))
+                           ;; Os capítulos na ordem do latex/tcc.tex, o
+                           ;; tcc.tex e os apêndices: o rótulo de cada título
+                           ;; sai do título (sec:delineamento), único no
+                           ;; documento, e o ref: do org-ref lista e segue os
+                           ;; rótulos de todos eles; o ref:chap:X abre o X.org.
+                           ;; Arquivo fora da lista, como os de fontes/, fica
+                           ;; com o rótulo sorteado do Org.
+                           (gambi/org-document-files
+                            . ("intro.org" "prog.org" "cases.org" "results.org"
+                               "conclusion.org" "../latex/tcc.tex"
+                               "../latex/apendices/*.tex")))))))

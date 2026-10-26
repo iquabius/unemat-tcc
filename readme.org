@@ -42,6 +42,29 @@
   e sem essa opção o arquivo exportado vem com =\documentclass=, preâmbulo e
   sumário próprios, o que quebra a compilação.
 
+** Referência a uma seção
+
+   Cada título sai no =.tex= com o rótulo do próprio título, sem acento e
+   com hífens: =* Delineamento= vira =\label{sec:delineamento}=. O título
+   repetido no documento leva antes o do ancestral mais próximo que não se
+   repete (=sec:contador-concisao=). O =CUSTOM_ID= do título, quando há,
+   prevalece. Sem isso, o Org sorteava o rótulo a cada exportação, e todo
+   =\label{sec:org...}= mudava no diff (ADR 0045).
+
+   Para citar uma seção, de qualquer capítulo, =Ctrl-u Ctrl-c ]= lista os
+   títulos do documento e os rótulos do =tcc.tex= e dos apêndices. Escolher
+   um título insere o =ref:sec:...= e grava o rótulo como =CUSTOM_ID= do
+   título citado, que pode estar em outro capítulo: daí em diante, renomear o
+   título não muda o rótulo. O clique no =ref:= leva ao título ou ao rótulo;
+   o =ref:chap:X= abre o =X.org=.
+   Use o =CUSTOM_ID=, e não o =:ID:= do org-id: o org-ref aceita os dois, mas
+   o =:ID:= não vira rótulo no =.tex=, e a referência sairia indefinida.
+
+   Quem faz isso é o init do Emacs (=~/.dotfiles=), a partir da lista
+   =gambi/org-document-files= do =.dir-locals.el=: os capítulos na ordem do
+   =latex/tcc.tex=, o =tcc.tex= e os apêndices. Capítulo novo entra na lista;
+   fora dela, o título volta ao rótulo sorteado.
+
 ** Gerar PDF com LatexMk
 
    #+begin_src fish
@@ -149,10 +172,12 @@
    destaca: o script compila com SyncTeX, acha a primeira linha do diff que
    mudou desde o PDF anterior e a passa ao Evince pelo D-Bus (=SyncView=, com
    o =gdbus=). Na comparação não entram os comentários, porque o cabeçalho do
-   =latexdiff= traz a hora dos arquivos, nem os rótulos que o Org sorteia a
-   cada exportação (=sec:org1a2b3c4=). O salto espera 1,5 s pela recarga do
-   PDF; com várias edições entre dois PDFs, vai para a primeira (testado em
-   2026-10-04).
+   =latexdiff= traz a hora dos arquivos, nem os rótulos que o Org ainda
+   sorteia a cada exportação (=org1a2b3c4=, o da nota de rodapé citada mais
+   de uma vez ou posta numa tabela, no termo de um item ou noutra nota; os
+   títulos têm rótulo fixo, seção "Referência a uma seção"). O salto espera
+   1,5 s pela recarga do PDF; com várias edições entre dois PDFs, vai para
+   a primeira (testado em 2026-10-04).
 
    Rode no host, num terminal próprio; Ctrl-C para. De outro terminal, ou do
    container por =distrobox-host-exec=, pare com
