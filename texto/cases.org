@@ -317,21 +317,10 @@
   estiveram entre as dimensões que mais pesaram na compreensão dos
   programas.
 
-  As outras três do grupo ficam de fora.
-  O compromisso prematuro nasce da ordem em que o ambiente de edição obriga a
-  construir o programa, e o código pronto não guarda essa ordem
-  cite:green1996d.
-  A consistência mede o quanto quem aprende consegue adivinhar da notação,
-  e só se avalia por introspecção cite:green1996d.
-  Já a notação secundária (comentários, indentação e nomes) é própria de
-  quem escreve cite:green1996d.
-  Aqui, ela é padronizada entre as tecnologias, e por isso não distingue
-  uma notação da outra.
-  As dimensões utilizadas neste trabalho são baseadas nas [[glspl:dc]] de
-  textcite:green1989. Assim usamos um conjunto estabelecido de dimensões, o que facilita a
-  comparação de nossos resultados com trabalhos baseados nas [[glspl:dc]]. O /framework/
-  completo possui 14 dimensões, mas os autores recomendam usar um subconjunto
-  apropriado para o artefato em mãos.
+  As [[glspl:dc]] de textcite:green1989 são um conjunto estabelecido de
+  dimensões, o que facilita a comparação dos resultados com os de outros
+  trabalhos baseados nelas, como argumenta [[textcite:kiss2014][p. 12]],
+  que usou um subconjunto delas.
 
   # Traduzidas diretamente de KISS 2014
   - Nível de abstração :: /Disponibilidade e tipos de mecanismos de abstração/

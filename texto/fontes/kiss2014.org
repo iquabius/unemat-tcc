@@ -200,3 +200,18 @@
   (p. 34), a lista, os campos e os botões leem e alteram a mesma lista de
   nomes, mas num quadro só.
 - Conferido: 2026-10-16.
+* [[file:../cases.org::As \[\[glspl:dc\]\] de textcite:green1989 são][cases: As DCs de Green (1989) são um conjunto estabelecido]], p. 12
+- Frase: “o que facilita a comparação dos resultados com os de outros
+  trabalhos baseados nelas, como argumenta Kiss (2014, p. 12), que usou um
+  subconjunto delas.”
+- Trecho: “As remarked in chapter 2 we base our dimensions on CDs. This
+  way we use established criteria and thus make it easier to compare our
+  results with other works based on CDs. The complete framework has 14
+  dimensions. The designers of CDs recommend to use a subset which fits
+  the particular information artifact at hand. Consequently, we left out
+  dimensions” (p. 12)
+- Lido em: =acervo/kiss2014.pdf=, p. 18 do PDF (p. 12 impressa).
+- Observação: a recomendação do subconjunto que Kiss atribui aos autores
+  das DCs não tem fonte nele, e Blackwell et al. (2001, p. 332) dizem o
+  contrário; o texto atribui a Kiss só o argumento e a escolha.
+- Conferido: 2026-10-25.
