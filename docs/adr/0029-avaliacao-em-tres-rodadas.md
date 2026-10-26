@@ -88,7 +88,7 @@ no desfazer e na fila do salvar do Circle Drawer, como Kiss contrasta
 (p. 41-45). São 6 pares interface-vertente, 30 refatorações (7 e 35 com
 o opcional), e a conclusão de cada vertente se lê como "nessa forma",
 sem atribuição só ao modelo de programação. Em cada rodada, as 14 DCs
-são percorridas e registradas (ADR 0012), com o apoio do trecho de
+são percorridas e registradas (ADR 0017), com o apoio do trecho de
 código, das linhas e, na segunda e na terceira, do diff de cada mudança,
 que mede a viscosidade de repetição e de efeito dominó (Blackwell e
 Green 2003, p. 115): a mesma mudança, preparada antes e feita em cada
@@ -275,6 +275,6 @@ HTML Standard da WHATWG, seção 9.2, *Server-sent events* (lida em
 `docs/plataformas/medida-das-bibliotecas.md`;
 `tmp/pesquisas/2026-10-17-temas-do-conversor-e-da-planilha.md` e
 `tmp/pesquisas/2026-10-17-aparencia-por-estado-e-rodadas.md` (fora do
-git); ADRs 0002, 0012, 0013, 0017, 0031, 0042 e 0043; tarefas tcc-vgrx,
+git); ADRs 0002, 0013, 0017, 0031, 0042 e 0043; tarefas tcc-vgrx,
 tcc-l7qe, tcc-jjzc, tcc-7qty, tcc-phqj, tcc-5y5g, tcc-wqvo, tcc-z6tg e
 tcc-o5er.

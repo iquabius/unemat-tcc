@@ -6,7 +6,7 @@ e desde a proposta do Login (commit 183fc3ec, 2026-10-12) cada
 implementação do Login, do Placar ao vivo, do Circle Drawer, da Busca e
 da Reserva de passagem trazia, para isso, um segundo componente, a
 página, com o botão "Esconder X"/"Mostrar X", escrito de novo em cada
-tecnologia: código que a contagem de linhas da concisão (ADR 0012)
+tecnologia: código que a contagem de linhas da concisão (ADR 0017)
 contaria e que não é especificação de interface alguma nem a notação
 comparada, com uma captura "escondido" por implementação que só mostrava
 o botão. A página sai das implementações para
@@ -45,5 +45,5 @@ só pelo teste; as capturas das cinco interfaces mudam de uma vez; o
 contêiner com a classe da interface vai para o `index.html`; o teste
 espera o `hashchange`, que chega numa tarefa própria depois da troca.
 
-Fontes: commit 183fc3ec; ADRs 0010, 0012 e 0029; patterns.dev, *Islands
+Fontes: commit 183fc3ec; ADRs 0010, 0017 e 0029; patterns.dev, *Islands
 Architecture*; tarefa tcc-f9c7.

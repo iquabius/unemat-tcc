@@ -410,7 +410,7 @@ abaixo deixa de fora, passa pelo Prettier 3.9.10, fixado em
 `interfaces-graficas/package.json`, com 80 colunas
 (`interfaces-graficas/.editorconfig`) e o resto no padrão dele (tcc-6wha,
 2026-10-12). Duas razões: a contagem de linhas da concisão e o diff da
-segunda rodada (ADRs 0012 e 0029) não podem depender de como o código foi
+segunda rodada (ADRs 0017 e 0029) não podem depender de como o código foi
 quebrado à mão, e 80 colunas cabem numa coluna do PDF em 8 pt.
 
 - O Prettier formata TS, TSX, HTML, CSS e JSON. O HTML do Web Component,
@@ -441,7 +441,7 @@ antes das implementações, uma pasta por *sandbox*, com o nome dele. É
 registro congelado: não se edita, não compila, não se testa, não se
 formata nem se captura. Os *workspaces*, o `npm run capturas`, o `npm
 run conformidade` e o `npm run conferir-especificacao` não o alcançam,
-e a contagem de linhas da concisão (ADR 0012), quando for escrita,
+e a contagem de linhas da concisão (ADR 0017), quando for escrita,
 também o deixa de fora. O `README.org` de lá diz de onde veio cada
 pasta.
 

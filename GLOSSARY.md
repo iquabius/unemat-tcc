@@ -331,14 +331,14 @@ _Avoid_: *toolkit* como sinônimo de biblioteca; kit de ferramentas
 
 **Implementação**:
 Uma interface numa tecnologia: na primeira rodada, as sete interfaces nas
-cinco tecnologias, 35 (ADR 0012); na terceira, a Reserva de passagem, o
+cinco tecnologias, 35 (ADR 0013); na terceira, a Reserva de passagem, o
 Placar ao vivo e o Circle Drawer refatorados, em cada vertente, nas cinco
 (ADR 0029).
 _Avoid_: versão, exemplo; solução (pede "problema" para a interface)
 
 **Conjunto analisado**:
 As implementações que a análise pelas DCs lê, as sete interfaces nas
-cinco tecnologias (ADR 0012), em
+cinco tecnologias (ADR 0013), em
 `interfaces-graficas/<interface>/analisadas/`; as de `contraste/`, ao
 lado, ficam de fora (ADR 0025).
 _Avoid_: recorte da análise (o recorte é o da pesquisa, ADR 0014); escopo;
@@ -442,7 +442,7 @@ _Avoid_: screenshot, print
 
 **DC**:
 Dimensão Cognitiva de Notações (Green, 1989; Blackwell e Green, 2003). O
-trabalho percorre as 14 canônicas em cada rodada (ADR 0012): nível de
+trabalho percorre as 14 canônicas em cada rodada (ADR 0017): nível de
 abstração, proximidade de descrição, consistência, concisão, operações
 mentais difíceis, dependências ocultas, expressividade de papel, notação
 secundária, viscosidade, propensão a erros, compromisso prematuro,

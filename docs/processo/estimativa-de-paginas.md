@@ -280,8 +280,8 @@ os `import` e sem o domínio (ADR 0010) tem de 18 a 249 linhas por
 tecnologia; as 28 implementações da primeira rodada somam ≈ 3.300
 linhas (a conta de 2026-10-24 à noite, acima). No corpo, como Kiss, a
 40 por página: ≈ 82 páginas só de listagens, mais a prosa; por isso o
-Resumo dá dois números para a análise, um com trechos por DC (ADRs 0012
-e 0017: a listagem enxuta e o trecho com as linhas) e outro com as
+Resumo dá dois números para a análise, um com trechos por DC (ADR 0017:
+a listagem enxuta e o trecho com as linhas) e outro com as
 listagens inteiras. As outras dissertações do acervo (Brilhante 2018,
 Silva 2023, Xavier 2014) não trazem código em anexo e não estão no
 `refs.bib`; os outros trabalhos relacionados (Mernik et al. 2009;

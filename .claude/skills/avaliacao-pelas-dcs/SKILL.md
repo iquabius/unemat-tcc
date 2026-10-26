@@ -6,8 +6,8 @@ description: Planeja, pré-analisa e revisa a avaliação do TCC pelas 14 Dimens
 # Avaliação pelas DCs: plano, guia de leitura e revisão
 
 Por que existe: desde 2026-10-11, a avaliação percorre as 14 DCs em cada
-rodada (ADRs 0012, 0017 e 0029), hoje nas quatro tecnologias web do ADR
-0013, e o autor conhece pouco duas delas, o Web Component e o Web
+rodada (ADRs 0017 e 0029), nas cinco tecnologias do ADR 0013, e o autor
+conhece pouco duas delas, o Web Component e o Web
 Component com *signals*. A avaliação é analítica, feita pelo autor
 (`GLOSSARY.md`, verbete Avaliação): a conclusão é dele. O agente prepara a
 leitura e revisa depois, em duas etapas (decisão do autor de 2026-10-13,
@@ -91,7 +91,7 @@ Entrada: a interface e a rodada. Saída: `plano.md` (modelo em
    `references/tecnologias.md`.
 3. **Atividade** (Blackwell e Green 2003, tabela 5.1, p. 113), que diz
    como ler cada DC, e nunca quais ler: as 14 DCs se percorrem em toda
-   rodada, sem seleção prévia por perfil de atividade (ADR 0012, decisão
+   rodada, sem seleção prévia por perfil de atividade (ADR 0017, decisão
    do autor de 2026-10-24); o perfil só muda o peso e a pergunta de cada
    uma (`references/dcs.md`, "Atividade da rodada"; só a modificação tem
    perfil publicado):
@@ -117,7 +117,7 @@ Entrada: a interface e a rodada. Saída: `plano.md` (modelo em
    escrito (ADR 0021). A diferença entre o Web Component e o
    React, que não formam par, se atribui ao passo da cadeia em que ela
    aparece, e a que nenhum passo explica, pelo sinal escrito (ADR 0013).
-6. **Apoio medido**: linhas por implementação, com o script do ADR 0012
+6. **Apoio medido**: linhas por implementação, com o script do ADR 0017
    (tcc-hlh7) quando existir, senão `git diff --stat`/`wc -l` marcados
    como provisórios; na segunda e na terceira, o `git diff --stat` de cada commit da mudança.
 
@@ -135,7 +135,7 @@ pela revisão de design de 2026-10-14 (tcc-4a9; modelo em
 - **o índice das 14 DCs**, numa linha de links, logo abaixo do título,
   para chegar à DC com um toque; as 14 têm seção em toda rodada,
   inclusive as que o perfil de atividade não lista, que se leem com a
-  mesma ficha e sem o peso publicado (ADR 0012);
+  mesma ficha e sem o peso publicado (ADR 0017);
 - **a legenda dos arquivos**, um nome curto por arquivo, que diga a
   tecnologia e a linguagem (`WC.ts`, `Solid.tsx`, `React.tsx`), sem
   usar o nome da tecnologia sozinho para o arquivo;

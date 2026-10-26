@@ -804,7 +804,7 @@ ADR = re.compile(r"\bADRs? \d{4}(?![\d-])(?:(?:, | e )\d{4}(?![\d-]))*")
 
 def rodapes(textos, adrs):
     """Uma chamada de rodapé depois de cada número de ADR citado nos textos
-    ("ADR 0022", "ADRs 0012 e 0029") e uma nota por ADR, na ordem da
+    ("ADR 0022", "ADRs 0017 e 0029") e uma nota por ADR, na ordem da
     primeira citação. adrs: {"0022": (arquivo, título)}; o número que não
     está nele fica sem chamada, com um aviso. Devolve os textos com as
     chamadas e as notas, [(número, arquivo, título)]."""

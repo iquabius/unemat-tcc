@@ -16,7 +16,7 @@ analítica, feita por especialista (Blandford e Green 2008), como a de
 Kiss (2014): o autor aplica as DCs ao código, dimensão a dimensão, sem
 participantes (`GLOSSARY.md`, verbete Avaliação). Ela percorre as 14
 DCs canônicas, e não um subconjunto escolhido antes (seção "As 14 DCs
-canônicas"; ADR 0012); as oito de 2026-10-09, as seis de Kiss mais a
+canônicas"; ADR 0017); as oito de 2026-10-09, as seis de Kiss mais a
 expressividade de papel e as operações mentais difíceis, deram lugar às
 14 em 2026-10-11 (seção "Expressividade e operações mentais difíceis nas
 fontes"). As interfaces pequenas isolam uma escolha de projeto, mas não
@@ -25,7 +25,7 @@ brinquedo: isolar uma escolha e o limite do tamanho").
 
 Em 2026-10-19, a análise fica na web, com quatro tecnologias (Web
 Component, Web Component com *signals* do `solid-js`, React e Solid) nas
-sete interfaces, 28 implementações (ADRs 0002, 0012 e 0013), em três
+sete interfaces, 28 implementações (ADRs 0002 e 0013), em três
 rodadas (ADR 0029): a primeira constrói as sete; a segunda tem 12
 mudanças de comportamento, entre funcionalidades e requisitos de
 orquestração; a terceira muda só a forma, na Reserva de passagem e no
@@ -35,8 +35,8 @@ DCs; em 2026-10-12, trocou as interfaces e levou a segunda rodada às
 cinco de então, pela realidade de cada uma (seção "*Benchmark* de
 notação e requisitos da segunda rodada"). As fontes estão nas seções de
 "Rodadas e crescimento do código" a "*Benchmark* de notação e requisitos
-da segunda rodada", e as decisões, nos ADRs 0002, 0012, 0013, 0017 e
-0029. Em 2026-10-13, a seção "Como as fontes aplicaram as DCs a código,
+da segunda rodada", e as decisões, nos ADRs 0002, 0013, 0017 e 0029.
+Em 2026-10-13, a seção "Como as fontes aplicaram as DCs a código,
 e as armadilhas" juntou como as fontes aplicaram as DCs a código e as
 armadilhas, que a skill `avaliacao-pelas-dcs` usa.
 
@@ -122,7 +122,7 @@ coisa.
 
 ## As DCs de Kiss e as 14 do TCC
 
-O TCC percorre as 14 DCs canônicas desde 2026-10-11 (ADR 0012; seção
+O TCC percorre as 14 DCs canônicas desde 2026-10-11 (ADR 0017; seção
 "As 14 DCs canônicas"), e Kiss, um subconjunto de seis (p. 12-14); até
 2026-10-11, seis das oito DCs de `cases.org` eram as de Kiss. Kiss deixou
 de fora compromisso prematuro, expressividade, consistência, operações
@@ -141,7 +141,7 @@ atribuição impressa, só num comentário Org.
 
 Lidas em 2026-09-28.
 
-Conclusão: com as 14 DCs, desde 2026-10-11 (ADR 0012), nenhuma dimensão
+Conclusão: com as 14 DCs, desde 2026-10-11 (ADR 0017), nenhuma dimensão
 fica de fora, e as fontes desta seção sustentam três pontos: percorrer
 todas, porque a escolha prévia de um subconjunto pode atrapalhar
 (Blackwell et al. 2001; Britton e Kutar 2001) e a omissão sem razão clara
@@ -600,7 +600,7 @@ fontes".
 
 Em 2026-10-19, a nota passou às decisões de 2026-10-18 e 2026-10-19: a
 análise só na web, com quatro tecnologias nas sete interfaces, 28
-implementações (ADRs 0002, 0012 e 0013), as 14 DCs (ADR 0012) e as 12
+implementações (ADRs 0002 e 0013), as 14 DCs (ADR 0017) e as 12
 mudanças da segunda rodada (ADR 0029). Os trechos das fontes não
 mudaram; mudou o que a nota afirmava sobre o conjunto de antes:
 

@@ -32,7 +32,7 @@ típicas da web, em TypeScript (ADR 0001); os específicos: implementar as
 sete interfaces com o Web Component, o Lit, o Web Component com
 *signals*, o Solid e o React, estendê-las na segunda rodada e refatorar
 três delas na terceira, em quatro vertentes (ADRs 0002, 0013 e 0029);
-avaliar as implementações pelas 14 DCs em cada rodada (ADR 0012);
+avaliar as implementações pelas 14 DCs em cada rodada (ADR 0017);
 sintetizar, por exigência de coordenação, o que cada modelo de
 programação facilita e o que dificulta. Os programas de processamento de
 listas, que demonstram os conceitos de PF, vão para a fundamentação
@@ -134,7 +134,7 @@ para o `prog.org`; a mudança deve ser justificada ao curso e aos
 orientadores.
 
 Fontes: revisão da introdução de 2026-09-23 (Wazlawick);
-`docs/processo/projeto-de-2017.md`; ADRs 0012, 0013, 0021 e 0029, que
+`docs/processo/projeto-de-2017.md`; ADRs 0013, 0017, 0021 e 0029, que
 fecharam o recorte e o vocabulário;
 `docs/paradigma-modelo-e-notacao.md`, seção "Unidade comparada e
 evidência: o TCC compara categorias".

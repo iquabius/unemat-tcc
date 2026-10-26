@@ -69,7 +69,7 @@ xstream entraram no `cases.org` em 2020.
 | Programas | Não nomeados | Cinco interfaces: Contador, Formulário com validação, Busca com sugestões, Lista filtrável e Carrinho; as três primeiras adaptam o *Counter*, o *Flight Booker* e o *CRUD* do 7GUIs (Kiss 2014) (ADR 0002) |
 | Tecnologias | Não nomeadas | Web Component, jQuery, React, Solid e Angular com *signals* na web; Views e Jetpack Compose no Android; Angular com RxJS só de apoio (ADRs 0001 e 0013) |
 | Linguagem | JavaScript | TypeScript na web e Kotlin no Android (ADR 0001) |
-| Critério | DCs, sem lista | Oito DCs: as seis de Kiss (2014) mais expressividade e operações mentais difíceis (ADR 0012) |
+| Critério | DCs, sem lista | Oito DCs: as seis de Kiss (2014) mais expressividade e operações mentais difíceis (ADR 0017) |
 | Classificação | Aplicada; exploratória (Leal 2011); estudo de casos múltiplos (Yin 2001) | Exploratória (Runeson e Höst 2009; Easterbrook et al. 2008); avaliação qualitativa, pelas DCs, de implementações de um mesmo conjunto de interfaces |
 | "Larga escala" | Na justificativa, como pergunta | Só na motivação (ADR 0014) |
 

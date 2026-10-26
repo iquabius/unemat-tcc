@@ -170,7 +170,7 @@ resumidas. As comparações com o Web Component são do código de
 
 **Linhas da tela.** Contagem preliminar, linhas não vazias e sem
 comentários, com os *imports*, do arquivo da tela (sem domínio, estilo
-nem `Main`); o *script* do ADR 0012 ainda não existe:
+nem `Main`); o *script* do ADR 0017 ainda não existe:
 
 | Interface | Swing | JavaFX (código) | JavaFX (FXML: Java + XML) | Views (Kotlin + *layout*) | Compose |
 |---|---|---|---|---|---|
@@ -351,7 +351,7 @@ Contagem provisória, feita em 2026-10-09 sobre o código de `29b9994`:
 linhas não vazias e sem comentário, sem domínio, estilo, a ponte do
 domínio para a QML nem o `main.cpp`, que só abre a janela; o
 `MainActivity.kt` do Android entra, porque nele está a coordenação;
-ainda sem o *script* do ADR 0012.
+ainda sem o *script* do ADR 0017.
 
 | Interface | Qt Widgets (dos quais `.ui`) | QML | Views | Compose | Solid |
 |---|---|---|---|---|---|
