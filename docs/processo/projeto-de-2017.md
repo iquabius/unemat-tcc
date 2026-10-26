@@ -1,7 +1,7 @@
 # O projeto de TCC de 2017 e o que mudou em 2026
 
 Referência. Compara o projeto entregue em agosto de 2017 com o TCC em
-2026-10-10, para a justificativa das mudanças ao curso (tcc-gtgw).
+2026-10-26, para a justificativa das mudanças ao curso (tcc-gtgw).
 Atualizada quando o recorte muda.
 
 **Conclusão.** O tema, programação de computadores, e a área do problema
@@ -57,19 +57,19 @@ xstream entraram no `cases.org` em 2020.
 
 ## O que mudou
 
-| Item | Projeto de 2017 | TCC em 2026-10-10 |
+| Item | Projeto de 2017 | TCC em 2026-10-26 |
 |---|---|---|
 | Delimitação | Conceitos de programação para interfaces gráficas | Modelos de programação de interfaces gráficas, avaliados pela notação: a forma de escrever no código o estado, os valores derivados dele e a tela (ADR 0021) |
-| O que se compara | Conceitos declarativos de PF e PR × imperativos de POO com *callbacks* | Três modelos de programação: o imperativo com *callbacks*, o declarativo por re-renderização e o declarativo por atualização granular, pela notação de cada tecnologia. PF, PR e POO ficam na fundamentação, e cada modelo de programação aplica conceitos de um ou mais paradigmas (ADR 0021) |
-| Pergunta | Quais conceitos são apropriados; se a declarativa é adequada | Pelas DCs, como difere a usabilidade da notação de cada tecnologia entre os três modelos de programação (ADR 0014) |
-| Objetivo geral | Demonstrar e analisar conceitos declarativos de PF e PR | Comparar, segundo as DCs, a usabilidade das notações dos três modelos de programação, na web, em TypeScript, e em parte das interfaces no Android, em Kotlin (ADR 0014) |
-| Objetivos específicos | Demonstrar PF; demonstrar PR e POO com *callbacks*; analisar e comparar | Implementar as cinco interfaces; avaliá-las por oito DCs; sintetizar, por exigência de coordenação, o que cada modelo de programação facilita e o que dificulta (ADR 0014) |
+| O que se compara | Conceitos declarativos de PF e PR × imperativos de POO com *callbacks* | Três modelos de programação: o imperativo por atualização manual, o declarativo por re-renderização e o declarativo por atualização granular, pela notação de cada tecnologia. PF, PR e POO ficam na fundamentação, e cada modelo de programação aplica conceitos de um ou mais paradigmas (ADR 0021) |
+| Pergunta | Quais conceitos são apropriados; se a declarativa é adequada | Pelas DCs, como difere a usabilidade da notação do código de interfaces gráficas em cada tecnologia entre os três modelos de programação, com uma subpergunta para a segunda rodada e outra para a terceira (ADR 0014) |
+| Objetivo geral | Demonstrar e analisar conceitos declarativos de PF e PR | Comparar, segundo as DCs, a usabilidade das notações dos três modelos de programação em interfaces típicas da web, em TypeScript (ADR 0014) |
+| Objetivos específicos | Demonstrar PF; demonstrar PR e POO com *callbacks*; analisar e comparar | Implementar as sete interfaces nas cinco tecnologias, estendê-las na segunda rodada e refatorar três delas na terceira, em quatro vertentes; avaliá-las pelas 14 DCs em cada rodada; sintetizar, por exigência de coordenação, o que cada modelo de programação facilita e o que dificulta (ADR 0014) |
 | Processamento de listas | Primeira parte do método | Fora dos objetivos, na fundamentação de PF (ADR 0014) |
 | Tela | Fora | Dentro da notação, como montagem da tela (ADR 0021) |
-| Programas | Não nomeados | Cinco interfaces: Contador, Formulário com validação, Busca com sugestões, Lista filtrável e Carrinho; as três primeiras adaptam o *Counter*, o *Flight Booker* e o *CRUD* do 7GUIs (Kiss 2014) (ADR 0002) |
-| Tecnologias | Não nomeadas | Web Component, jQuery, React, Solid e Angular com *signals* na web; Views e Jetpack Compose no Android; Angular com RxJS só de apoio (ADRs 0001 e 0013) |
-| Linguagem | JavaScript | TypeScript na web e Kotlin no Android (ADR 0001) |
-| Critério | DCs, sem lista | Oito DCs: as seis de Kiss (2014) mais expressividade e operações mentais difíceis (ADR 0017) |
+| Programas | Não nomeados | Sete interfaces: Contador, Reserva de passagem, Busca com sugestões, Login com quarentena, Placar ao vivo, Planilha e Circle Drawer; quatro adaptam o 7GUIs (Kiss 2014), o Login adapta Berry e Serrano (2020), e o Placar ao vivo, Meijer (2012) (ADR 0002) |
+| Tecnologias | Não nomeadas | Web Component, Web Component com *signals* do `solid-js`, Solid, React e Lit, na web; o Android e o *desktop*, nos trabalhos futuros (ADRs 0001 e 0013) |
+| Linguagem | JavaScript | TypeScript, só na web (ADR 0001) |
+| Critério | DCs, sem lista | As 14 DCs canônicas, percorridas em cada rodada (ADR 0017) |
 | Classificação | Aplicada; exploratória (Leal 2011); estudo de casos múltiplos (Yin 2001) | Exploratória (Runeson e Höst 2009; Easterbrook et al. 2008); avaliação qualitativa, pelas DCs, de implementações de um mesmo conjunto de interfaces |
 | "Larga escala" | Na justificativa, como pergunta | Só na motivação (ADR 0014) |
 
@@ -101,6 +101,8 @@ Kiss (2014) como precedente; a pesquisa exploratória.
 5. **Distância de Zimmerle e Gama (2025)**, que avaliaram bibliotecas de
    PR, RxJS e Bacon.js, com questionários baseados nas DCs; comparar só
    bibliotecas de PR deixaria o TCC perto demais desse trabalho.
-6. **A linguagem continua.** TypeScript é JavaScript com tipos, e o
-   Angular o exige. O Kotlin é a linguagem que o Android recomenda desde
-   2019 e a única do Compose (no ADR do Android, `docs/processo/historico-dos-adrs.md`).
+6. **A linguagem continua.** TypeScript é JavaScript com tipos, e a
+   análise fica só nele, na web (ADR 0001). O Kotlin, a linguagem que o
+   Android recomenda desde 2019 e a única do Compose, saiu com o Android
+   em 2026-10-17 (no ADR do Android,
+   `docs/processo/historico-dos-adrs.md`).
