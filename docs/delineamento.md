@@ -104,7 +104,7 @@ Component × Web Component com *signals*; Web Component com *signals* ×
 Solid) está por fazer.
 
 Conclusão: Web Component × Lit e React × Solid pesam o mesmo número de
-DCs, mas isolam contrastes diferentes. Sem o primeiro, os custos dos
+DCs, mas não isolam a mesma diferença. Sem o primeiro, os custos dos
 *hooks* do React na orquestração da Busca iriam para a conta da
 re-renderização; sem o segundo, o *template* e a API do Angular iriam
 para a conta do modelo granular, e a Busca da segunda rodada ficaria sem
@@ -115,8 +115,8 @@ sobre um rascunho em Lit não executado
 citadas não foram reconferidas. Em 2026-10-17 (tcc-z2jq), a espera de
 300 ms saiu da Busca da primeira rodada, e com ela o `setTimeout` no
 tratador do Web Component e o `useEffect` com o `pedido` do React, que a
-tabela cita; o contraste tirado desses trechos fica para a Busca da
-segunda rodada, quando a espera volta.
+tabela cita; a diferença que esses trechos mostravam fica para a Busca
+da segunda rodada, quando a espera volta.
 
 | | Web Component × Lit | React × Solid |
 |---|---|---|

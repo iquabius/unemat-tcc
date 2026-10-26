@@ -331,7 +331,8 @@ repositório, sem ramo: `5e7b9c0` ("Implementa a Busca com sugestões no
 Views") e `08673d6` ("Implementa a Busca com sugestões no Compose"), que
 traz no `docs/achados-das-implementacoes.md` dele mais seis achados da
 Busca no Android. Este, registrado aqui em 2026-10-23, é o que a tarefa
-dos trabalhos futuros cita como contraste com a web (tcc-dpci):
+dos trabalhos futuros cita como o que o Android muda em relação à web
+(tcc-dpci):
 
 - **A mudança do campo por código dispara a busca no Views**
   (dependências ocultas, propensão a erros): na escolha de uma sugestão,

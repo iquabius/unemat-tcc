@@ -363,7 +363,7 @@ que ele defende.
 
 ### A mesma pergunta, por outro método
 
-| Trabalho | Contraste com Kiss | Grau | Lido |
+| Trabalho | Diferença para Kiss | Grau | Lido |
 |---|---|---|---|
 | MENDONÇA, W. L. M. de. *Análise do impacto na compreensão de programas Java com a introdução de expressões lambda*. Dissertação (Mestrado em Informática), UnB, 2019. riunbtainacan.unb.br/teses-e-dissertacoes/analise-do-impacto-na-compreensao-de-programas-java-com-a-introducao-de-expressoes-lambda | Orientação a objetos contra um recurso funcional, por questionário com desenvolvedores e métricas de código; acha cenários em que a compreensão melhora e outros em que não | mestrado, página da UnB | R |
 | LIMA (2024), `lima2024` (seção "Zimmerle e Gama 2025 e a tese de Lima 2024") | DCs aplicadas por questionário a desenvolvedores, não analiticamente | doutorado, na base | seção "Zimmerle e Gama 2025 e a tese de Lima 2024" |
@@ -373,7 +373,7 @@ que ele defende.
 
 ### O objeto de Kiss na web e no Android
 
-| Trabalho | Contraste com Kiss | Grau | Lido |
+| Trabalho | Diferença para Kiss | Grau | Lido |
 |---|---|---|---|
 | GROV, M. *Building user interfaces using virtual DOM: a comparison against dirty checking and KVO*. Universitetet i Oslo, 2015. hdl.handle.net/10852/45209 | DOM virtual (React) contra *dirty checking* (AngularJS) e observação de valores (KVO), por desempenho, questionário com estudantes e dez entrevistas; o mais perto das três notações do TCC | mestrado, registro da universidade (`DegreeMaster`), em 2026-10-10 | R (OpenAlex) |
 | GREŠAK, M. *Assessing the suitability of Elm language for developing web applications*. Univerza v Ljubljani (FRI), 2018. eprints.fri.uni-lj.si/4111 | Elm contra React na mesma aplicação: a pergunta de Kiss com o React no lugar do JavaFX | bacharelado, folha de rosto ("diplomsko delo", primeiro ciclo); em esloveno | TC (seção "Trabalhos de conclusão de bacharelado") |
@@ -383,7 +383,7 @@ que ele defende.
 
 ### Outras saídas para o Observer da orientação a objetos
 
-| Trabalho | Contraste com Kiss | Grau | Lido |
+| Trabalho | Diferença para Kiss | Grau | Lido |
 |---|---|---|---|
 | MIJAČ, M. *Design and evaluation of software framework that improves the management of reactive dependencies in development of object-oriented applications*. Sveučilište u Zagrebu (FOI), 2021. dr.nsk.hr/islandora/object/foi:6575 | Dependências reativas tratadas dentro da orientação a objetos, sem trocar de paradigma; os artigos (`mijac2021`, `mijac2023`) estão na base | provável doutorado, não confirmado | R (OpenAlex) |
 | PEREZ DOMINGUEZ, I. *Extensible and robust functional reactive programming*. University of Nottingham, 2018. eprints.nottingham.ac.uk/50348 | Contra a PFR: toolkits de GUI puramente funcionais "have enormous maintenance costs", e a PFR impõe restrições estruturais "at the cost of modularity and separation of concerns" (resumo) | provável doutorado, não confirmado | R (OpenAlex) |
@@ -394,7 +394,7 @@ que ele defende.
 
 ### Interface declarativa e móvel no Brasil
 
-| Trabalho | Contraste com Kiss | Grau | Lido |
+| Trabalho | Diferença para Kiss | Grau | Lido |
 |---|---|---|---|
 | LOUREIRO JUNIOR, J. *Linguagens declarativas e tecnologias da web no desenvolvimento de interfaces de usuário de dispositivos portáteis*. Tese (Doutorado), UNICAMP, 2005. hdl.handle.net/20.500.12733/1608205 | Interface declarativa antes do React, vista pela IHC (orientação de Baranauskas) | doutorado, BDTD | só título (a página deu HTTP 503) |
 | SANTANA JÚNIOR, B. de M. *Explorando frameworks multiplataforma para desenvolvimento Android: uma investigação sobre o consumo de recursos*. Dissertação (Mestrado), UFPE, 2024. repositorio.ufpe.br/handle/123456789/58168 | Consumo de recursos dos frameworks multiplataforma | mestrado, BDTD | R (BDTD) |
