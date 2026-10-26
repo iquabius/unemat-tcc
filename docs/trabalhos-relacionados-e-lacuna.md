@@ -300,10 +300,10 @@ em português e em inglês, que uma busca rápida na web achou em
 *frameworks* web por popularidade e desempenho; nenhum usa as DCs nem
 trata dos *signals*. Não são revisados por pares e ficam fora dos
 critérios da revisão (Apêndice II), que só admitem, além dos revisados,
-dissertações e teses da BDTD: servem de contraste com o delineamento do
-TCC e de modelo do gênero. "Grau" diz de onde vem o bacharelado: da folha
-de rosto, da página do repositório ou de uma referência. Cópias em
-`acervo/tccs/`, fora do git, com o texto extraído
+dissertações e teses da BDTD: servem de termo de comparação para o
+delineamento do TCC e de modelo do gênero. "Grau" diz de onde vem o
+bacharelado: da folha de rosto, da página do repositório ou de uma
+referência. Cópias em `acervo/tccs/`, fora do git, com o texto extraído
 ao lado de cada PDF.
 
 | Trabalho | O que faz | Grau | Lido | Introdução |

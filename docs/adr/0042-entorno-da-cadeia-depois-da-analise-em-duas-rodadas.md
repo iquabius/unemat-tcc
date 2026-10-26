@@ -70,7 +70,7 @@ da ordem de corte; pesaria mais que duas mudanças sem tipo novo, ou
 seria mais simples, mas passaria à frente da análise principal, ou
 deixaria o corte para depois de ver o código (falha o quarto).
 Em vez de: o XState, com a quarentena e a reconexão como *statecharts*;
-não monta a tela e contrastaria a orquestração, e não o modelo de
+não monta a tela e compararia a orquestração, e não o modelo de
 programação (falha o primeiro); ele entra na terceira rodada, como
 vertente (ADR 0029).
 Custo: cerca de 12 implementações e 26 commits a mais, depois da

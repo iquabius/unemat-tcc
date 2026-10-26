@@ -76,10 +76,10 @@ Harel (1987), no Placar ao vivo e, opcional, no Circle Drawer; 3) a API
 nova da plataforma, o `Observable` e o `EventTarget.when` do WICG, só
 no Chromium, com o `AbortSignal.any`, no Placar ao vivo e no Circle
 Drawer; 4) os padrões de projeto, o *Command* no desfazer, como o que
-Kiss contrasta (p. 41-48), e na fila do salvar do Circle Drawer. São 6
-pares interface-vertente, 30 refatorações (7 e 35 com o opcional), e a
-conclusão de cada vertente se lê "nessa forma", sem atribuição só ao
-modelo de programação.
+Kiss compara com a lista de listas do Scala (p. 41-48), e na fila do
+salvar do Circle Drawer. São 6 pares interface-vertente, 30
+refatorações (7 e 35 com o opcional), e a conclusão de cada vertente se
+lê "nessa forma", sem atribuição só ao modelo de programação.
 
 Se o prazo apertar, sai primeiro o entorno da cadeia (ADR 0042) e
 depois, nesta ordem, fixada antes da análise: 1) o Circle Drawer na
