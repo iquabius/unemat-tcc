@@ -426,16 +426,24 @@
        [[gls:ide]] pode ajudar muito.
 
 
-  Outras dimensões que ficaram de fora são:
+  As outras oito dimensões da lista completa são:
 
-  - Comprometimento prematuro: /limitações na ordem de fazer as coisas/
-  - Expressividade: /o propósito de uma entidade pode ser rapidamente determinado/
+  - Compromisso prematuro: /limitações na ordem de fazer as coisas/
+  - Expressividade de papel: /o propósito de uma entidade pode ser rapidamente determinado/
   - Consistência: /semânticas parecidas são apresentadas em estilo sintático
     parecido/
   - Operações mentais difíceis: /alto esforço cognitivo pra realizar tarefas/
   - Notação secundária: /informações extras por meio de notações além das
     formais/
-  \todo[inline]{Berndt sugeriu considerar “Expressividade” e “Operações mentais difíceis”.}
+  - Visibilidade: /habilidade de ver os componentes claramente/
+  - Avaliação progressiva: /trabalho realizado pode ser verificado em qualquer
+    momento/
+  - Provisoriedade: /grau
+    de comprometimento com uma ação ou marco/
+
+  # progressive evaluation: análise/verificação
+  # provisionality: momentaneidade, transitoriedade, provisoriedade
+
   # Uma operação mental difícil é a leitura de um laço “for”. O usuário precisa
   # manter na memória os valores de todas as variáveis intermediárias envolvidas
   # na iteração. É um mal sinal se o usuário precisa fazer um teste de mesa para
@@ -448,18 +456,6 @@
   # anotações ao invés de continuar usando o sistema.”
 
   # https://medium.com/ui-lab-school/guia-para-dimensoes-cognitivas-no-design-72d898a62bc7
-
-  Em outras situações, e dependendo dos artefatos de informação, essas dimensões
-  poderiam ser úteis. Se tivéssemos focado mais nas ferramentas e no processo de
-  construção dos estudos de caso então as seguintes dimensões poderiam ser usadas:
-
-  # progressive evaluation: análise/verificação
-  # provisionality: momentaneidade, transitoriedade, provisoriedade
-  - Visibilidade: /habilidade de ver os componentes claramente/
-  - Análise progressiva: /trabalho realizado pode ser verificado em qualquer
-    momento/
-  - Provisoriedade\todo{'momentaneidade' ou 'transitoriedade'}: /grau
-    de comprometimento com uma ação ou marco/
 
 
 * *Revisão do JavaScript
