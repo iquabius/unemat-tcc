@@ -98,7 +98,8 @@ capa() {  # capa VERSÃO: o código que põe "PREFIXO VERSÃO --- nome --- data"
   # A data da tag, que é a do commit que ela marca (ADR 0024), ou a do commit.
   data=$(git for-each-ref --format='%(taggerdate:format:%d/%m/%Y)' "refs/tags/$REF_NOME")
   [ -n "$data" ] || data=$(git log -1 --format=%cd --date=format:%d/%m/%Y "$REF_NOME")
-  [ -z "$marco" ] || rotulo+=" --- $marco"
+  # A mensagem da v0.1 diz só "v0.1": o nome que repete a tag não entra.
+  [ -z "$marco" ] || [ "$marco" = "$REF_NOME" ] || rotulo+=" --- $marco"
   rotulo+=" --- $data"
   printf '\\AtBeginDocument{\\def\\ano#1{}\\expandafter\\def\\csname @ano\\endcsname{%s}}' "$rotulo"
 }
