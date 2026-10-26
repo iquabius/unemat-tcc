@@ -53,8 +53,8 @@ interfaces no Android, em Kotlin, e no *desktop*, em C#, com os
 específicos de implementar as cinco interfaces em Web Component, React e
 Solid, três delas também em Lit e em Angular com *signals*, três no
 Android e três no *desktop* (versão de 2026-10-13); cobria três
-plataformas, mas o Android e o *desktop* saíram da análise (ADRs 0001 e
-0005), o Angular também, e o Lit, que só entrava em três interfaces,
+plataformas, mas o Android e o *desktop* saíram da análise (ADR
+0001), o Angular também, e o Lit, que só entrava em três interfaces,
 voltou nas sete (ADR 0013).
 Em vez de: uma pergunta só, sem subperguntas (decisão de 2026-10-09);
 mais curta, mas a segunda e a terceira rodada ficariam sem pergunta a

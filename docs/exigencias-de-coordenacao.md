@@ -4,7 +4,7 @@ Referência. Lista, interface por interface, as exigências de coordenação
 que as especificações e as decisões definem nos dois eixos
 (`GLOSSARY.md`), agrupadas em tipos, e diz em que rodada cada tipo
 aparece. Lida em 2026-10-15 nos `spec.md` de
-`interfaces-graficas/openspec/specs/` e nos ADRs 0002, 0005 e 0029, e
+`interfaces-graficas/openspec/specs/` e nos ADRs 0002 e 0029 e no do Android (hoje no histórico dos ADRs), e
 revista em 2026-10-19 com as sete interfaces e as rodadas dos ADRs 0002 e
 0029, e em 2026-10-22 com o Contador no lugar do conversor de moedas (ADR
 0002); as mudanças sem especificação entram pelas decisões, e os tipos

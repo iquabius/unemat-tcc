@@ -45,7 +45,7 @@ autoral, que o autor escreveu à mão e de que os agentes de IA partiram,
 fica congelado em `interfaces-graficas/autorais/`, um *sandbox* por
 pasta. O código que sai da análise sai do repositório, por `git rm`, e
 o git o guarda: a pasta `fora-da-analise/`, que o congelava, saiu
-inteira em 2026-10-25 (ADRs 0001 e 0005). Na raiz ficam `readme.org`,
+inteira em 2026-10-25 (ADR 0001). Na raiz ficam `readme.org`,
 `AGENTS.md`, `GLOSSARY.md`, `setup.org`, `dependencies.json` e a
 configuração sem pasta própria (`.gitignore`, `.tool-versions`,
 `.dir-locals.el`); o Scotty abre por `bin/tarefas`. As tags `v0.2` a
@@ -92,4 +92,4 @@ dois leiautes do LaTeX enquanto houver tag antiga a compilar.
 Fontes: `latexdiff --flatten` e `latexmk -cd` testados no host em
 2026-10-05 (latexmk 4.87); `GLOSSARY.md`, verbetes *Benchmark* de
 notação, Conjunto analisado, Contraste e Código autoral; tarefa
-tcc-qteq, nota de 2026-10-25; ADRs 0001, 0005, 0008, 0010 e 0042.
+tcc-qteq, nota de 2026-10-25; ADRs 0001, 0008, 0010 e 0042.

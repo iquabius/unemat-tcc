@@ -209,7 +209,7 @@ requisitos da segunda rodada".
   segundo plano, e não desde o último que o usuário viu. Nada na
   chamada do efeito diz até onde ele vive. O `SegundoPlanoTest.kt` de
   cada tecnologia prende a diferença, com a `Activity` levada ao estado
-  `CREATED` e de volta. O ADR 0005 previa o escopo diferente (a
+  `CREATED` e de volta. O ADR 0001 previa o escopo diferente (a
   composição contra o ciclo de vida da `Activity`); igualar pediria o
   `LifecycleStartEffect`, ou um `DisposableEffect` que observe o ciclo
   de vida, no Compose, ou tirar o `onStop` do Views.
@@ -325,7 +325,7 @@ Swing e JavaFX, com a tela do JavaFX em código, no Formulário.
 ## 2026-10-17, Busca no Android (commits `5e7b9c0` e `08673d6`, fora do master)
 
 A Busca no Views e no Compose ficou no ramo busca-no-android, que não
-foi juntado: com o Android fora da análise (ADRs 0001 e 0005), o autor
+foi juntado: com o Android fora da análise (ADR 0001), o autor
 pediu em 2026-10-19 que o ramo fosse excluído. Os commits continuam no
 repositório, sem ramo: `5e7b9c0` ("Implementa a Busca com sugestões no
 Views") e `08673d6` ("Implementa a Busca com sugestões no Compose"), que

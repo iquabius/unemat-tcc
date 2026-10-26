@@ -23,6 +23,6 @@ Custo: imagens binárias no repositório; o *canvas* do Circle Drawer
 entra na captura só como pixels, e a igualdade depende de o navegador
 desenhar igual nas quatro tecnologias, a conferir; as capturas do
 Android e do *desktop* saíram do repositório com a pasta
-`fora-da-analise/` em 2026-10-25 (ADRs 0001 e 0005).
+`fora-da-analise/` em 2026-10-25 (ADR 0001).
 
 Fontes: commits `951411f`, `58277f3`, `3a6f6dc` e `eb957e3`; ADR 0001.

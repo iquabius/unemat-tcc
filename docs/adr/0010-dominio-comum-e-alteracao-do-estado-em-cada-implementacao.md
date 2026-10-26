@@ -12,7 +12,7 @@ inclusive a alteração do estado (ADR 0033), fica em cada implementação.
 Os portes do domínio em Kotlin e em C++, de quando o Android e o
 *desktop* estavam na análise, ficaram congelados na pasta
 `fora-da-analise/`, com as diferenças que este ADR registrava, até
-saírem do repositório com ela em 2026-10-25 (ADRs 0001 e 0005).
+saírem do repositório com ela em 2026-10-25 (ADR 0001).
 
 Em vez de: a versão de 2026-09-26 deste ADR, com o `dominio.ts`
 portado para `dominio-kotlin/` (e depois para `dominio-cpp/`) com os
@@ -37,5 +37,5 @@ separável no meio passa no Kotlin e não no JavaScript.
 Fontes: commits `384b7a5` e `ae24a32`;
 `interfaces-graficas/fora-da-analise/formulario/dominio-kotlin/test/DominioTest.kt`,
 no commit anterior ao que tirou a pasta;
-`interfaces-graficas/AGENTS.md`, regra do `dominio.ts`; ADRs 0001, 0005,
+`interfaces-graficas/AGENTS.md`, regra do `dominio.ts`; ADRs 0001,
 0013, 0031 e 0033.

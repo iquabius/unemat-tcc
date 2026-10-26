@@ -248,7 +248,7 @@ pacotes.
 ## Tecnologias fora da análise (medida de 2026-10-12)
 
 O Lit, o Angular com *signals*, as Views, o Compose, o Windows Forms e o
-WPF saíram da análise (ADRs 0001, 0005 e 0013), e as medidas deles ficam
+WPF saíram da análise (ADRs 0001 e 0013), e as medidas deles ficam
 aqui, sem mudança, para os trabalhos futuros da conclusão (decisão do
 autor de 2026-10-19; tcc-dpci). O Lit voltou à análise nas sete
 interfaces em 2026-10-25 (tcc-cp6c), e a lista dele, com duas candidatas

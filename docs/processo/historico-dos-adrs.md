@@ -44,3 +44,4 @@ pelo assunto, que se acha no `git log`; o sha sai de
 |---|---|---|---|
 | 0028 | `0028-quebra-de-paragrafo-marcada-com-pilcrow-no-diff.md` | o docstring de `bin/marcar-quebras.py` | "Leva o pilcrow do diff do ADR ao docstring do filtro" |
 | 0034 | `0034-interfaces-implementacoes-e-benchmark-de-notacao.md` | o `GLOSSARY.md` (Interface, *Benchmark* de notação) e o `interfaces-graficas/AGENTS.md` (a variável `gui`) | "Leva ao glossário os termos interface e *benchmark* de notação" |
+| 0005 | `0005-android-fora-da-analise-como-trabalho-futuro.md` | 0001 | "Reescreve o ADR 0001 com o Android dentro dele" |

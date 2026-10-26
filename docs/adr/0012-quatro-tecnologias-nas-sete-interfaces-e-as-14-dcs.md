@@ -29,8 +29,8 @@ revisão da análise, sem repetir entre rodadas e DCs o que não muda
 vazias e sem comentários, contadas por script versionado, sem o domínio
 e o estilo. O `cronometro-com-rxjs-5`, de 2017, o jQuery, o Angular e o
 código congelado do Lit (ADR 0013), a Lista filtrável, o Carrinho e o
-Quadro (ADR 0002) e o código do Android e do *desktop* (ADRs 0001 e
-0005) ficam no repositório, fora da análise.
+Quadro (ADR 0002) e o código do Android e do *desktop* (ADR 0001)
+ficam no repositório, fora da análise.
 
 Em vez de: as quatro tecnologias nas sete interfaces, 28 implementações
 (versão de 2026-10-24); menos código e menos texto por interface, mas
@@ -77,6 +77,6 @@ enxutas para a seção não virar inventário de telas (Wazlawick 2014, p.
 103-104); nenhuma posição se confere fora da web; sem escolha de
 implementações, o prazo só se ajusta pela ordem de corte do ADR 0029.
 
-Fontes: ADRs 0001, 0002, 0005, 0013, 0017 e 0029; `texto/cases.org`;
+Fontes: ADRs 0001, 0002, 0013, 0017 e 0029; `texto/cases.org`;
 `docs/metodo-da-avaliacao.md`, seção "As 14 DCs canônicas"; Kiss (2014,
 p. 12); Wazlawick (2014, p. 101-104); tarefas tcc-3b6 e tcc-hlh7.

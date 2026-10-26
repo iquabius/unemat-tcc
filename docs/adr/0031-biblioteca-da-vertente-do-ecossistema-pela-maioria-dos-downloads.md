@@ -82,7 +82,7 @@ instalada em `implementacoes/`; a `latest` era a 22.2.2) ao Angular com
 nuget.org publicava em 2026-10-12, que não se refazem) ao WPF, e a API
 da plataforma ao Lit, às Views, ao Compose e ao Windows Forms; cobria
 três plataformas, mas o Android, o *desktop* e o Angular saíram da
-análise (ADRs 0001, 0005 e 0013), e a terceira rodada passou a ter
+análise (ADRs 0001 e 0013), e a terceira rodada passou a ter
 também o Placar ao vivo (ADR 0029).
 Em vez de: contar no Placar ao vivo as coleções de *hooks*, como a
 Reserva de passagem contou o `@lion/ui` no Lit; seria a mesma leitura
@@ -142,5 +142,5 @@ depreciação e manutenção" e "As variantes de regra"; vaadin.com/docs,
 Form Binding Reference do Hilla com Lit (lida em 2026-10-25); a checagem
 de 2026-10-24
 (`tmp/revisao/2026-10-24-checagem-regras-rodadas/relatorio.md`, achados
-R14, K09, N05, N06, N09 e N13); ADRs 0001, 0005, 0013, 0029, 0037 e
+R14, K09, N05, N06, N09 e N13); ADRs 0001, 0013, 0029, 0037 e
 0042; tarefas tcc-di3a, tcc-vgrx, tcc-jjzc e tcc-l7qe.

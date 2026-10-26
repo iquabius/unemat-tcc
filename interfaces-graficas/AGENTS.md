@@ -451,7 +451,7 @@ só de remoção, com as capturas da tecnologia, que cita o ADR que o tirou
 `fora-da-analise/`, congelado; a pasta saiu inteira, com a Lista
 filtrável, o Carrinho, o Quadro de tarefas, o conversor de moedas, o
 jQuery, o Angular, o Lit do conjunto antigo, o JavaFX, o Qt, o Android
-e o desktop (ADRs 0001, 0002, 0005 e 0013). O commit anterior ao que a
+e o desktop (ADRs 0001, 0002 e 0013). O commit anterior ao que a
 tirou tem tudo, com o `README.org` de lá, que diz como rodar cada pasta.
 Para lê-lo sem mexer no checkout principal, onde o índice pode guardar
 o rascunho do texto, abra-o numa worktree à parte, em `tmp/copias/`

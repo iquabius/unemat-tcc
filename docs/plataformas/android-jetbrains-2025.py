@@ -3,7 +3,8 @@
 JetBrains State of Developer Ecosystem 2025.
 
 Reproduz os números da seção "Conferência dos números" de
-docs/plataformas/android.md e da errata de 2026-09-26 no ADR 0005. Só
+docs/plataformas/android.md e da errata de 2026-09-26 no ADR do Android,
+que se lê no commit bb57cd83. Só
 biblioteca padrão.
 
 Fonte: https://resources.jetbrains.com/storage/products/research/DevEco2025/RawData.zip
