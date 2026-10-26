@@ -65,7 +65,7 @@
   cada interface tem uma implementação por tecnologia; a extensão do cap. 4
   troca a biblioteca, e não a interface. Kiss chama cada interface de
   /case study/; em 2026-10-14, “cada tarefa” passou a “cada implementação”
-  (ADR 0034), e o trecho não muda.
+  (GLOSSARY.md, Implementação), e o trecho não muda.
 - Conferido: 2026-10-13.
 * [[file:../intro.org::Quanto aos meios, o trabalho é][intro: Quanto aos meios, o trabalho é uma avaliação qualitativa]], p. 114
 - Frase: “O conjunto é um /benchmark/ de notação (Kiss, 2014, p. 114):
@@ -78,10 +78,11 @@
   and/or libraries/frameworks/toolkits with respect to GUI programming”
   (p. 114, apêndice A).
 - Lido em: =acervo/kiss2014.txt=, p. 110 e 120 do PDF.
-- Observação: entrou em 2026-10-14, com o vocabulário do ADR 0034. Na p.
-  104, Kiss chama assim o TodoMVC, “a single and bigger one instead of a
-  set of case studies”, um /benchmark/ de um item só; por isso a citação
-  é a p. 114, onde o termo nomeia o conjunto.
+- Observação: entrou em 2026-10-14, com o vocabulário que o GLOSSARY.md
+  registra (verbete /Benchmark/ de notação). Na p. 104, Kiss chama assim
+  o TodoMVC, “a single and bigger one instead of a set of case studies”,
+  um /benchmark/ de um item só; por isso a citação é a p. 114, onde o
+  termo nomeia o conjunto.
 - Conferido: 2026-10-14.
 * [[file:../intro.org::Quanto aos meios, o trabalho é][intro: Quanto aos meios, o trabalho é uma avaliação qualitativa]], p. 17 (o Contador)
 - Frase: “A primeira, o Contador, mostra só a estrutura básica que o

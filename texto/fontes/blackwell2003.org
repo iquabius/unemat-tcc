@@ -12,7 +12,8 @@
   p. 13 a 16 do PDF (p. 115 a 118).
 - Observação: os nomes em português e a expressividade de papel
   (/role-expressiveness/) seguem o GLOSSARY.md; o agrupamento em oito, duas
-  e quatro é do trabalho (ADR 0012), e não da fonte.
+  e quatro é do trabalho (cases.org, seção "Dimensões de avaliação"), e
+  não da fonte.
 - Conferido: 2026-10-13.
 * [[file:../cases.org::Em cada rodada, a avaliação percorre][cases: Em cada rodada, a avaliação percorre]], p. 115 (atividade)
 - Frase: “Nenhuma dimensão é boa ou má em si, e a avaliação sempre leva em
@@ -38,21 +39,23 @@
   por rodada são do trabalho (docs/metodo-da-avaliacao.md, seção "Rodadas e crescimento do código";
   tmp/pesquisas/2026-10-11-relatorio-termos-e-coordenacao.md, seção 5.1).
 - Conferido: 2026-10-13.
-* [[file:../cases.org::A análise compara os modelos de][cases: A análise compara os modelos de]], p. 106 e 112
+* [[file:../cases.org::A análise compara os modelos de][cases: A análise compara os modelos de]], p. 107-108 e 118
 - Frase: “A seção 4 compara os modelos de programação pelo perfil de cada
-  um nas DCs (Blackwell; Green, 2003, p. 106 e 112) [...]. Cada célula dá
-  a posição do modelo na DC [...]”
-- Trecho: “for each step in each task, ask whether the user can choose
-  where to start; [...] and so on, for the other dimensions. This will
-  generate an observed profile.” (p. 106); “the second step is to
-  scrutinise the system and determine how it lies on each dimension. If
-  the two profiles match, all is well.” (p. 112)
-- Lido em: =acervo/blackwell2003.pdf=, p. 4 e 10 do PDF (p. 106 e 112).
+  um nas DCs (Blackwell; Green, 2003, p. 107-108 e 118) [...]. Cada
+  célula dá a posição do modelo na DC [...]”
+- Trecho: “For each step in each task, ask whether the user can choose
+  where to start, [...] and so on for the other dimensions. This will
+  generate an observed profile.” (p. 107-108); “the second step is to
+  scrutinize the system and determine how it lies on each dimension. If
+  the two profiles match, all is well.” (p. 118)
+- Lido em: =acervo/blackwell2003-livro.pdf=, p. 5, 6 e 16 do PDF (p. 107,
+  108 e 118); a pré-impressão, =acervo/blackwell2003.pdf=, dá os dois
+  trechos nas p. 4 e 10 do PDF, com “where to start;” e “scrutinise”.
 - Observação: “posição” e “perfil” vêm daí (decisão do autor em
   2026-10-14; GLOSSARY.md, Posição e Perfil); a fonte compara o perfil
   observado com o que cada atividade pede, e o trabalho compara os perfis
   dos modelos entre si.
-- Conferido: 2026-10-14.
+- Conferido: 2026-10-26.
 * [[file:../cases.org::A análise compara os modelos de][cases: A análise compara os modelos de]], p. 115 (viscosidade)
 - Frase: “mostra quantas ações ela pede, e quantas outras restauram a
   consistência (Blackwell; Green, 2003, p. 115).”

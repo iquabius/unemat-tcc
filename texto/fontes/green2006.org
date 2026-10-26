@@ -40,7 +40,8 @@
   their definitions, the division is not clean.” (p. 357)
 - Lido em: =acervo/green2006-publicada.pdf=,
   p. 30 do PDF (p. 357).
-- Observação: o ADR 0012 dizia p. 356-357; a frase está na p. 357. O
+- Observação: o ADR das 14 DCs, que saiu de docs/adr/ em 2026-10-25,
+  dizia p. 356-357; a frase está na p. 357. O
   que não se divide são as dimensões, em grupos, e é suspeita dos autores
   (“we suspect”), daí “os próprios autores suspeitam”; a viscosidade, logo
   depois, é o exemplo do que fica no meio (“Is that structural or

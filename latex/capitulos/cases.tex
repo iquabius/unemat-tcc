@@ -1,7 +1,7 @@
 \section{Delineamento}
-\label{sec:org90a93f7}
+\label{sec:org6768602}
 \subsection{As interfaces e as exigências de coordenação}
-\label{sec:org0043ffe}
+\label{sec:orgedd9785}
 \todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}
 
 O conjunto de interfaces é um \emph{benchmark} de notação, como os \emph{benchmarks}
@@ -39,7 +39,7 @@ O Login segue o painel de \textcite[p. 534]{berry2020}, e os Dados ao
 vivo adaptam a placares de jogos as cotações que uma fonte manda aos
 clientes, de \textcite[p. 66]{meijer2012}.
 \subsection{As tecnologias e os pares}
-\label{sec:org2c813c5}
+\label{sec:org574ccf9}
 \todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}
 
 Na web, Web Component, React e Solid, uma tecnologia por modelo de
@@ -111,7 +111,7 @@ plataforma confere só dois dos três modelos de programação: o Android
 fica sem o declarativo por atualização granular, e o \emph{desktop}, sem o
 declarativo por re-renderização.
 \subsection{As rodadas}
-\label{sec:org70fab04}
+\label{sec:org49034a8}
 \todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}
 
 A avaliação se faz em três rodadas, cada uma mais estreita que a
@@ -183,7 +183,7 @@ para o modelo de programação.
 \end{tikzpicture}
 \end{figure}
 \subsection{Os controles e o teste de conformidade}
-\label{sec:org7405949}
+\label{sec:orgdb22bd5}
 \todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}
 
 Quatro coisas poderiam diferenciar as implementações sem ser o modelo de
@@ -217,7 +217,7 @@ e Playwright 1.63.0 para as capturas.
 No Android, Kotlin 2.4.20, Jetpack Compose pela \gls{bom}
 2026.09.00 e, para as capturas, Robolectric 4.17 com Roborazzi 1.75.0.}, para que as implementações possam ser reproduzidas.
 \subsection{A avaliação}
-\label{sec:org73c8697}
+\label{sec:org2fee7e4}
 \todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}
 
 A avaliação cabe ao autor, que examina o código das implementações dimensão
@@ -252,7 +252,7 @@ Na primeira rodada, as atividades são a busca e a compreensão exploratória
 do código pronto, e, na segunda e na terceira, a modificação \cite[p. 113]{blackwell2003}.
 
 A análise compara os modelos de programação pelo perfil
-de cada um nas \glspl{dc} \cite[p. 106 e 112]{blackwell2003} e abre
+de cada um nas \glspl{dc} \cite[p. 107-108 e 118]{blackwell2003} e abre
 com uma tabela-síntese, com uma linha por
 \gls{dc} e uma coluna por modelo de programação.
 Cada célula dá a posição do modelo na \gls{dc}, indica de que interface vem a evidência e
@@ -280,7 +280,7 @@ mudança, preparada antes e feita em cada implementação, como no teste
 de \textcite[p. 162]{green1996d}, mostra quantas ações ela pede, e
 quantas outras restauram a consistência \cite[p. 115]{blackwell2003}.
 \section{Dimensões de avaliação}
-\label{sec:org74f4545}
+\label{sec:org94a5701}
 \todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}
 A avaliação usa as \glspl{dc}, que \textcite[p. 106]{blackwell2003} chamam de ferramentas
 de discussão, para quem projeta ou avalia artefatos de informação, e não
@@ -430,13 +430,13 @@ momento}
 de comprometimento com uma ação ou marco}
 \end{itemize}
 \section{*Revisão do JavaScript}
-\label{sec:org54924e6}
+\label{sec:org935faa5}
 Talvez devêssemos colocar uma seção de revisão das ferramentas utilizadas na
 implementação dos estudos de caso? Poderíamos descrever os recursos relevantes
 para nossa análise.
 \todo[noline]{Berndt disse p/ colocar como apêndice}
 \section{Processamento de listas}
-\label{sec:org4e88ba6}
+\label{sec:orgded6fae}
 
 Uma coleção é um agrupamento com uma quantidade variável de itens, que (1)
 compartilham algum significado ao problema a se resolver e (2) precisam ser
@@ -473,7 +473,7 @@ for (count = 0; count < people.length; count++) {
 \end{minted}
 \end{listing}
 \subsection{Formatação de preços}
-\label{sec:org521d846}
+\label{sec:org0b12cc1}
 
 Nesta seção veremos como formatar uma lista preços para serem mostrados na
 tela, p. ex., transformando um valor numérico \mintinline{js}{50.45} em uma \emph{string}
@@ -526,12 +526,12 @@ Outras ideias:
 letras maiúsculas
 \end{itemize}
 \subsection{Seleção de valores com \texttt{filter()}}
-\label{sec:orgd4e0740}
+\label{sec:orgabb8e4b}
 Remover nomes que não começam com ‘S’
 \subsection{Nivelamento de valores com \texttt{concatAll()}}
-\label{sec:org40875d6}
+\label{sec:org542718a}
 \subsection{Redução de valores com \texttt{reduce()}}
-\label{sec:org9598e23}
+\label{sec:orgbf4f480}
 
 O método \mintinline{js}{reduce()} executa uma função \textbf{reducer} para cada item da
 lista, resultando num único valor. Em \ref{code:somaDePreçosComReduce} é
@@ -548,9 +548,9 @@ const total = preços.reduce(somar);
 \end{minted}
 \end{listing}
 \subsection{Agrupamento de valores com \texttt{zip()}}
-\label{sec:org0b88366}
+\label{sec:orged57c57}
 \section{Coordenação de eventos}
-\label{sec:orgaf548a5}
+\label{sec:orga0851ac}
 \todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}
 A triagem em geral se apoia no que se escreveu sobre as alternativas, e não
 no uso delas \cite[p. 15]{kitchenham1996}.
@@ -591,7 +591,7 @@ anos de 0 a 99, e cada diferença conhecida fica registrada num teste.
 Entre Views e Compose, a única diferença admitida nas capturas é a de
 poucos pixels na renderização do texto.
 \subsection{Contador}
-\label{sec:org12896aa}
+\label{sec:org795a0ae}
 
 \begin{description}
 \item[{Problema}] entender os conceitos essenciais da linguagem e a estrutura
@@ -681,11 +681,11 @@ Contador({ valorInicial: 0 });
 \end{minted}
 \end{listing}
 \subsubsection{Análise}
-\label{sec:orgcb196a4}
+\label{sec:org27c4000}
 
 Essa primeira análise é focada no básico.
 \paragraph{Nível de abstração}
-\label{sec:org680a584}
+\label{sec:orgde4a004}
 Na solução com \gls{poo} os conceitos da linguagem que deve-se entender são:
 classes, construtor, objetos, propriedades, métodos, \emph{callbacks} na forma
 de método, e conhecimento da \gls{api} do objeto do documento do \gls{html} ---
@@ -713,16 +713,16 @@ Níveis mais altos de abstração não são necessários, então a solução com
 é igualmente boa ou um pouco melhor que a solução com \gls{poo} quanto ao Nível
 de Abstração.
 \paragraph{Proximidade de descrição}
-\label{sec:org12b5657}
+\label{sec:orgea70467}
 Essa dimensão faz mais sentido para análise de apresentação do que
 comportamento (coordenação de eventos).
 \paragraph{Dependências ocultas}
-\label{sec:orgdba5e01}
+\label{sec:org5f21125}
 \todo[noline]{Acredito que o HTML só não está situado no mesmo local que o código JavaScript, que é diferente de “oculto”.}
 As únicas dependências que podem ser consideradas ocultas são os elementos
 \gls{html} buscados pelo identificador com \texttt{document.getElementById("id")}.
 \paragraph{Propensão a erros}
-\label{sec:orgd3e4b6a}
+\label{sec:org92008cc}
 Na solução com \gls{poo}, esquecer de vincular a instância do contador à função
 \texttt{tratarClique()} resultará no erro “TypeError: this.renderizar is not a
 function”.
@@ -755,7 +755,7 @@ Pois ela não será renderizada, apesar de toda a lógica do contador
 funcionar.
 Apesar de tudo, essas possibilidades de erros não são críticas.
 \paragraph{Concisão}
-\label{sec:orge48bbc7}
+\label{sec:orge83d5a9}
 Na solução com \gls{poo} o método \mintinline{js}{tratarClique()}, usado como \emph{callback},
 poderia ser substituído por uma função de seta.
 Além de poupar algumas linhas o uso do \mintinline{js}{.bind(this)} se torna
@@ -772,11 +772,11 @@ De qualquer forma, a \gls{pr} evita a verbosidade da declaração da classe e do
 métodos, além da repetição do \mintinline{js}{this}.
 Então em termos de Concisão a \gls{pr} está à frente da \gls{poo}.
 \paragraph{Viscosidade}
-\label{sec:org72d13f7}
+\label{sec:org7ea33c1}
 Num caso tão simples como o do Contador a única resistência a alteração
 está em renomear atributos no caso da \gls{poo}, e variáveis na \gls{pr}.
 No entanto isso é inevitável ao renomear termos.
 Além disso o \gls{ide} pode ajudar através de uma funcionalidade de refatoração.
 \todo{Talves seja interessante analisar a viscosidade da alteração pra colocar um botão de decremento (-1) do Contador.}
 \subsection{Reserva de voo}
-\label{sec:org2bb503e}
+\label{sec:org1edea7b}

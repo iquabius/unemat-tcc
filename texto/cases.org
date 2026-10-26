@@ -252,7 +252,7 @@
   do código pronto, e, na segunda e na terceira, a modificação [[cite:blackwell2003][p. 113]].
 
   A análise compara os modelos de programação pelo perfil
-  de cada um nas [[glspl:dc]] [[cite:blackwell2003][p. 106 e 112]] e abre
+  de cada um nas [[glspl:dc]] [[cite:blackwell2003][p. 107-108 e 118]] e abre
   com uma tabela-síntese, com uma linha por
   [[gls:dc]] e uma coluna por modelo de programação.
   Cada célula dá a posição do modelo na [[gls:dc]], indica de que interface vem a evidência e
