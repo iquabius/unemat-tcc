@@ -683,7 +683,15 @@ quando o parágrafo o nomeia; o caminho no índice, no `HEAD` ou no disco, a
 partir de uma pasta da raiz; a tarefa no `.beads/issues.jsonl` do
 checkout principal; o ADR em `docs/adr/`; na junção, o caminho e o sha
 valem no ramo juntado); o caminho de exemplo se escreve com `<chave>`,
-que o hook pula, e o commit de outro ramo, pelo assunto. Recusa também o `--fixup` no
+que o hook pula, e o commit de outro ramo, pelo assunto. Recusa a fonte
+citada por autor e ano cujo primeiro sobrenome é o do primeiro autor de
+uma entrada do `texto/refs.bib` do mesmo ano e cujos outros sobrenomes
+não são os dela ("Britton e Jarvis (2001)" pela de Britton e Kutar), e
+a chave da linha `Fontes conferidas:` que não está no `refs.bib`. A
+fonte fora do `refs.bib` cujo primeiro autor tem outra entrada no mesmo
+ano se escreve sem o parêntese ("Salvaneschi e Mezini, de 2014"), que o
+hook não lê; o ano errado e a citação entre aspas, que transcreve outro
+texto, ficam com o agente. Recusa também o `--fixup` no
 `master` e o `git merge` ou o `git cherry-pick` que levem um `fixup!`
 não condensado. O docstring do script é a lista das regras e do que
 passa sem conferência. `bin/conferir-commit.py --serie <base>..<ponta>`

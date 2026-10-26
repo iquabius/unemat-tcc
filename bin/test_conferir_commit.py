@@ -298,6 +298,113 @@ class Mensagem(Base):
         self.assertIsNone(self.com("Pelo ADR 0001."))
         self.assertIn("ADR 0002", self.com("Pelo ADR 0002."))
 
+    REFS = """@inproceedings{britton2001,
+  peso = {periferico},
+  author = {Britton, Carol and Kutar, Maria},
+  editor = {Kadoda, G.},
+  date = {2001},
+}
+
+@article{fischer2007,
+  author = {Fischer, Jeffrey and Majumdar, Rupak and Millstein, Todd},
+  date = {2007},
+}
+
+@inproceedings{vanroy2003,
+  author = {Van Roy, Peter and Armstrong, Joe and Flatt, Matthew and Magnusson, Boriss},
+  date = {2003},
+}
+
+@online{google2026,
+  author = {{Google and Friends}},
+  date = {2026-09-22},
+}
+
+@collection{assayag2009,
+  editor = {Assayag, Gérard and Gerzso, Andrew},
+  date = {2009},
+}
+"""
+
+    def com_refs(self, entradas=REFS):
+        p = Path(self.dir.name, "texto", "refs.bib")
+        p.parent.mkdir(exist_ok=True)
+        p.write_text(entradas, encoding="utf-8")
+
+    def test_citacao_casa_os_autores_do_refs_bib(self):
+        # sem o refs.bib, não se confere
+        self.assertIsNone(self.com("Como dizem Britton e Jarvis (2001, p. 267)."))
+        self.com_refs()
+        for frase in ["Como dizem Britton e Kutar (2001, p. 267).",
+                      "Como dizem Britton e\nKutar (2001).",
+                      "Por Fischer et al. (2007) e Fischer, Majumdar e Millstein (2007).",
+                      "Por Van Roy et al. (2003) e por Google and Friends (2026).",
+                      "Na coletânea de Assayag e Gerzso (2009).",
+                      # outro ano, ou o sobrenome só de um coautor: fonte fora
+                      # do refs.bib, que fica com o agente
+                      "Britton (1999) e Kiss (2014).", "Stylos, Kutar e Myers (2001).",
+                      # a fonte fora do refs.bib, do mesmo autor e ano, sem o parêntese
+                      "Britton e Mezini, de 2001, ficam de fora.",
+                      # a inicial fora do Latin-1 não deixa a busca recomeçar no coautor
+                      "Por Łopuszański e Britton (2001).",
+                      # entre aspas, transcreve outro texto: a errata cita o erro
+                      'Errata: "Britton e Jarvis (2001)" é de Britton e Kutar (2001).',
+                      "A tarefa dizia “Britton e\nJarvis (2001, p. 267)”."]:
+            with self.subTest(frase=frase):
+                self.assertIsNone(self.com(frase))
+        for frase, esperado in [
+                ("Como dizem Britton e Jarvis (2001, p. 267).",
+                 '"Britton e Jarvis (2001" (lá: britton2001: Britton, Kutar;'),
+                ("Como diz Britton (2001).", '"Britton (2001"'),
+                ("Como dizem Britton et al. (2001).", '"Britton et al. (2001"'),
+                ("Como dizem Kutar e Britton (2001).", None),
+                # a aspa de outro parágrafo não protege a citação
+                ('Diz "x.\n\nComo dizem Britton e Jarvis (2001)." fim', '"Britton e Jarvis (2001"'),
+                ("Como diz Fischer (2007).", "fischer2007: Fischer, Majumdar, Millstein")]:
+            with self.subTest(frase=frase):
+                if esperado is None:  # o primeiro autor trocado fica com o agente
+                    self.assertIsNone(self.com(frase))
+                else:
+                    self.assertIn(esperado, self.com(frase))
+
+    def test_citacao_da_entrada_que_o_commit_tira(self):
+        self.com_refs()
+        self.git("add", "texto/refs.bib")
+        self.git("commit", "-qm", "base")
+        # a entrada saiu do disco e do índice, mas está no HEAD
+        self.com_refs(self.REFS.split("@article")[0].replace("Britton", "Outro"))
+        self.git("add", "texto/refs.bib")
+        self.assertIsNone(self.com("Tira Britton e Kutar (2001)."))
+        self.assertIn("Britton e Jarvis", self.com("Tira Britton e Jarvis (2001)."))
+
+    def test_refs_bib_fora_do_utf8_nao_derruba_o_hook(self):
+        self.com_refs()
+        p = Path(self.dir.name, "texto", "refs.bib")
+        p.write_bytes(p.read_bytes().replace(b"Kadoda", b"Kad\xf4da"))
+        self.git("add", "texto/refs.bib")
+        self.assertIn('"Britton e Jarvis (2001"', self.com("Por Britton e Jarvis (2001)."))
+
+    def test_fontes_conferidas_tem_de_estar_no_refs_bib(self):
+        self.assertIsNone(self.com("Fontes conferidas: kiss2014 p. 15."))  # sem o refs.bib
+        self.com_refs()
+        self.assertIsNone(self.com("Fontes conferidas: britton2001 p. 267; google2026\n"
+                                   "(acervo/google2026d.html)."))
+        # a chave com dígito antes do ano também se confere
+        self.assertIn("w3techs2026", self.com("Fontes conferidas: w3techs2026."))
+        self.assertIn('chave de "Fontes conferidas:" que não está no texto/refs.bib: kiss2014',
+                      self.com("Fontes conferidas: britton2001 p. 267;\nkiss2014 p. 15."))
+        # fora da linha, a palavra com ano não é chave
+        self.assertIsNone(self.com("A leitura de kiss2014 fica para depois."))
+
+    def test_serie_confere_a_citacao_contra_o_refs_bib_do_commit(self):
+        base = self.commita("bin/x.py")
+        self.com_refs()
+        self.git("add", "texto/refs.bib")
+        self.git("commit", "-qm", "Cita Britton e Jarvis\n\nComo dizem Britton e Jarvis (2001).")
+        achados = cc.problemas_da_serie(Path(self.dir.name), f"{base}..HEAD")
+        self.assertEqual(len(achados), 1)
+        self.assertIn('"Britton e Jarvis (2001"', achados[0][2][0])
+
     def test_serie_confere_cada_commit_contra_a_arvore_dele(self):
         base = self.commita("bin/x.py")
         self.git("rm", "-q", "bin/x.py")
