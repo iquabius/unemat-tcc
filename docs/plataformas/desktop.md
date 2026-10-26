@@ -146,16 +146,16 @@ resumidas. As comparações com o Web Component são do código de
 
 - `swing` e `javafx` montam a tela com as mesmas chamadas e na mesma
   ordem (criar o controle, `setLabelFor`, adicionar ao painel vertical):
-  o par isola o modelo de programação, o contraste controlado entre o
-  imperativo e o declarativo por atualização granular que a web não tem
-  (tarefa "Decidir como a análise atribui as diferenças entre o
+  o par isola o modelo de programação, e é o par controlado do
+  imperativo contra o declarativo por atualização granular que a web não
+  tem (tarefa "Decidir como a análise atribui as diferenças entre o
   imperativo e os declarativos onde a web não tem par controlado",
   tcc-4ie); na web, o Web Component × Lit põe o imperativo contra o
   declarativo por re-renderização (ADR 0013).
 - `javafx` e `javafx-fxml` têm os mesmos *bindings*, com os mesmos nomes,
   e o `diff` entre eles mostra só a montagem: os campos com `@FXML`, o
   `initialize` no lugar do construtor e o tratador ligado por nome
-  (`onAction="#reservar"`). É um segundo contraste, o mesmo modelo de
+  (`onAction="#reservar"`). É um segundo par, o mesmo modelo de
   programação com duas montagens, como Solid × Angular com *signals*
   (leitura nossa).
 - O FXML é, pela documentação, "a scriptable, XML-based markup language
