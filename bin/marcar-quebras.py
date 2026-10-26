@@ -32,6 +32,20 @@ comenta uma a uma com "%DIFDELCMD < ", menos a em branco, que sai crua
 entre elas. Esses ambientes não se aninham aqui (um minted dentro de um
 DIFnomarkup perderia a proteção no \\end{minted}); o TCC usa o minted e
 vai usar o tikzpicture.
+
+Por que um filtro (decisão de 2026-10-08, tarefa tcc-vgl): nenhuma opção
+do latexdiff marca a quebra, porque o \\PAR nunca entra em \\DIFadd nem em
+\\DIFdel, e o estilo CHANGEBAR (--type=CULINECHBAR) só põe barra nesses
+dois comandos (testado em 2026-10-08). Uma palavra invisível no fim de
+cada parágrafo dos .tex de entrada usaria só o comportamento documentado
+do latexdiff, mas pediria uma cópia das duas árvores de .tex antes de cada
+diff, porque o --flatten lê os \\input do disco. Fundir no PDF os
+parágrafos cuja quebra saiu, com o ¶ no meio, mostraria a paginação nova,
+mas deixaria o parágrafo apagado dentro do novo, assimétrico com a quebra
+inserida, que já sai pela paginação nova. O custo: o filtro depende da forma
+dos dois rastros, um detalhe interno do latexdiff que o
+bin/test_marcar_quebras.py fixa com trechos da saída do 1.4.0; uma versão
+que mudar o rastro deixa de marcar, sem erro.
 """
 import re
 import sys

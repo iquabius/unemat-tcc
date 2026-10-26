@@ -28,3 +28,18 @@ anterior num "Em vez de", e as erratas entraram no texto.
 | 0018 | `0018-frase-entra-no-texto-so-com-fonte-lida-e-aprovo-do-autor.md` | 0023 |
 | 0019 | `0019-coordenacao-e-estrutura-da-tela-sao-duas-notacoes.md` | 0021 |
 | 0020 | `0020-notacao-muda-com-as-abstracoes-da-tecnologia.md` | 0021 |
+
+## A reescrita de 2026-10-25
+
+Em 2026-10-25, a reescrita dos ADRs na forma do ADR 0044 tirou alguns
+de docs/adr/: cada um entrou no ADR que o completava, ou, quando
+não passava nos
+três critérios de um ADR (caro de reverter, surpreendente sem contexto,
+com alternativa real), na regra, no verbete ou no docstring que já
+diziam quase tudo dele (decisões do autor em 2026-10-25). O commit vai
+pelo assunto, que se acha no `git log`; o sha sai de
+`git log --diff-filter=D --format='%h %s' -- docs/adr/<arquivo>`.
+
+| ADR | Arquivo | Absorvido por | Commit |
+|---|---|---|---|
+| 0028 | `0028-quebra-de-paragrafo-marcada-com-pilcrow-no-diff.md` | o docstring de `bin/marcar-quebras.py` | "Leva o pilcrow do diff do ADR ao docstring do filtro" |

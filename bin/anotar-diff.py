@@ -632,7 +632,7 @@ def metricas(tex):
     """As métricas do texto no .tex do latexdiff, por lugar (o capítulo, a
     seção e a subseção pelo título, como em secoes()): as palavras que
     entraram e saíram e as do lugar como ficou; os parágrafos que
-    entraram e saíram, pelo \\P das quebras (ADR 0028); as chaves citadas
+    entraram e saíram, pelo \\P das quebras (bin/marcar-quebras.py); as chaves citadas
     no texto que entrou e no que saiu; as fontes, as chaves que o texto da
     base não citava em lugar nenhum e as que o texto como ficou deixou de
     citar; as figuras, tabelas e listagens com a legenda toda nova ou toda
