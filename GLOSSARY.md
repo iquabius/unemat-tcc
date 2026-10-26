@@ -174,7 +174,7 @@ requisitos de orquestração acrescentados a cada interface; a terceira muda
 só a forma, em quatro vertentes irmãs sobre o código da segunda, na
 Reserva de passagem, no Placar ao vivo e no Circle Drawer (ADR 0029).
 _Avoid_: fase (é do roteiro); iteração; rodada sozinha onde puder ser a
-rodada de corte ou a de revisão do texto (ADRs 0022 e 0023); "a rodada da
+rodada de corte ou a de revisão do texto (ADR 0023); "a rodada da
 P1", "a rodada da P2" e P2 e P3 para as rodadas (até 2026-10-13, quando as
 subperguntas passaram a P1.1 e P1.2 e "a rodada da P1" ficou ambígua com a
 avaliação inteira); R1, R2 e R3 (rótulos de 2026-10-13, desfeitos no mesmo

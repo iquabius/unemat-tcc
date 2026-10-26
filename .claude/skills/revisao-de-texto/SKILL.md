@@ -80,13 +80,13 @@ inteiros.
 
 ## Rodada de corte, antes da rodada da frase
 
-Por que existe: ADR 0022. Revisar com fonte e página uma frase que depois
+Por que existe: ADR 0023. Revisar com fonte e página uma frase que depois
 sai é trabalho perdido. Por isso o bloco é cortado antes, e só o que
 sobra passa pela rodada por bloco. As técnicas e as fontes estão em
 `references/processo-e-corte.md` da `escrita-academica`.
 
 1. **Medida.** O corte serve para simplificar a leitura, sem meta de
-   palavras (ADR 0022). Meça antes e depois com
+   palavras (ADR 0023). Meça antes e depois com
    `metricas_texto.py --orcamento N`, que imprime palavras e fontes por
    parágrafo; o N só ancora a tabela. Na introdução, rode também `--parte problema --parte objetivos --parte
    metodologia --parte justificativa` antes e depois: um ✓ que vira ⚠
@@ -110,13 +110,13 @@ sobra passa pela rodada por bloco. As técnicas e as fontes estão em
      lacuna sobre a de passagem.
    - O dado citado que nenhum elo usa sai. A frase que ilustra fica
      quando torna concreto um elo, como o problema ou um mecanismo, e sai
-     quando só enfeita (ADR 0022).
+     quando só enfeita (ADR 0023).
    - Antes de cortar uma fonte, `grep` a chave no capítulo: a mesma fonte
      pode apoiar outra afirmação.
    - Antes de mover ou cortar uma frase, procure no capítulo as frases que
      a retomam: um "desse grupo", um "das três", um número, um "por isso".
      Elas entram na linha do rótulo e na costura do passo 5.
-4. **O que se pergunta antes** (ADR 0022): o movimento que tira ou
+4. **O que se pergunta antes** (ADR 0023): o movimento que tira ou
    enfraquece um elo da cadeia, como a única fonte de uma afirmação da
    justificativa, um objetivo, uma etapa do método ou uma limitação. No
    formato de "Alternativas no chat", com o elo afetado. Na dúvida se um
@@ -283,7 +283,7 @@ perguntas, e então o autor dá o rótulo.
    - decisão de método, rótulo, recorte ou critério, que é do autor;
    - correção que derruba uma premissa ou uma conclusão do texto;
    - movimento de corte que tira ou enfraquece um elo da cadeia (ADR
-     0022, passo 4 da rodada de corte).
+     0023, passo 4 da rodada de corte).
 
    Frase sem fonte ganha o marcador (`p. N`, "precisa de fonte") e o aviso,
    e não some. Decisão cara de reverter vira ADR (skill `adr`).

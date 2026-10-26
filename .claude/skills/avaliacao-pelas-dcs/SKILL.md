@@ -298,7 +298,7 @@ declaração de uso de IA (tcc-gjw).
 
 1. Ditado copiado letra por letra (passo 3, porta fechada).
 2. Revisão pelas DCs (passo 4); o autor reescreve no `.org`.
-3. Rodada de corte da `revisao-de-texto` (ADR 0022), sem meta de
+3. Rodada de corte da `revisao-de-texto` (ADR 0023), sem meta de
    palavras: a seção de cada DC perde o que não sustenta a conclusão.
 4. Porta aberta da `revisao-de-texto` (ADR 0023): o rascunho no índice,
    as correções por cima, a fonte de cada afirmação conferida no PDF e

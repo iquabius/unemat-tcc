@@ -31,9 +31,8 @@ anterior num "Em vez de", e as erratas entraram no texto.
 
 ## A reescrita de 2026-10-25
 
-Em 2026-10-25, a reescrita dos ADRs na forma do ADR 0044 tirou alguns
-de docs/adr/: cada um entrou no ADR que o completava, ou, quando
-não passava nos
+Em 2026-10-25, a reescrita dos ADRs na forma do ADR 0044 levou-os de 34
+a 26: cada um entrou no ADR que o completava, ou, quando não passava nos
 três critérios de um ADR (caro de reverter, surpreendente sem contexto,
 com alternativa real), na regra, no verbete ou no docstring que já
 diziam quase tudo dele (decisões do autor em 2026-10-25). O commit vai
@@ -49,3 +48,4 @@ pelo assunto, que se acha no `git log`; o sha sai de
 | 0033 | `0033-alteracao-do-estado-em-cada-implementacao.md` | 0010 | "Reescreve o ADR 0010 com a alteração do estado dentro dele" |
 | 0008 | `0008-capturas-versionadas-identicas-entre-as-tecnologias-web.md` | 0041 | "Reescreve o ADR 0041 com as capturas idênticas dentro dele" |
 | 0036 | `0036-notas-de-fontes-por-assunto-com-ponto-de-entrada.md` | o `AGENTS.md`, seção "Notas em `docs/`", e o ADR 0035 (a fronteira entre a matriz e a nota de fontes) | "Leva ao AGENTS.md as notas de docs/ por assunto" |
+| 0022 | `0022-corte-antes-da-frase-revisado-no-diff.md` | 0023 | "Reescreve o ADR 0023 com o corte antes da frase dentro dele" |

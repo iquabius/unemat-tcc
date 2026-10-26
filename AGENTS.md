@@ -195,7 +195,7 @@ e o HEAD é o texto aprovado (ADR 0023, skill `revisao-de-texto`).
   - o commit espera o aprovo do autor.
 
 Para simplificar a leitura, o bloco passa antes pela rodada de corte da
-mesma skill (ADR 0022), sem meta de palavras: `metricas_texto.py
+mesma skill (ADR 0023), sem meta de palavras: `metricas_texto.py
 --orcamento` só mede antes e depois. Cada parágrafo, frase e fonte recebe
 um rótulo: manter, condensar, mover ou cortar. A frase que ilustra fica
 quando torna concreto um elo, e sai quando só enfeita. O agente aplica de uma vez os
