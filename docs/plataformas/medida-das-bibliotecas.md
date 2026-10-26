@@ -12,8 +12,7 @@ três vertentes, que não têm nota própria, ficam nesta. O autor decidiu em
 ficam como alternativas, com o que cada uma mudaria. Cada afirmação sobre ferramenta, versão ou
 contagem leva a data em que foi observada; tudo o que não diz outra data
 foi medido em 2026-10-25, com os dados brutos em
-`tmp/pesquisas/2026-10-25-medida-das-bibliotecas/` (fora do git, ADR
-0038).
+`tmp/pesquisas/2026-10-25-medida-das-bibliotecas/` (fora do git).
 
 **Conclusão (2026-10-25).** A regra do ADR 0031, a maioria dos downloads
 das candidatas, escolhe o mesmo que escolheu em 2026-10 em três dos

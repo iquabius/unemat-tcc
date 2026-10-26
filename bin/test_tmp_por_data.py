@@ -95,7 +95,7 @@ class Listagem(unittest.TestCase):
             "  tmp/revisao/2026-10-15-checagem-intro\n"
             "sem data válida no começo do nome\n"
             "  tmp/revisao/estrutura-sem-data.md\n"
-            "pasta fora do ADR 0038\n"
+            "pasta fora da lista\n"
             "  tmp/avaliacao\n"
             "solto na raiz\n"
             "  tmp/solto-na-raiz.md\n"))

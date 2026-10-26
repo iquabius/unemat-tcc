@@ -455,7 +455,8 @@ e o desktop (ADRs 0001, 0002 e 0013). O commit anterior ao que a
 tirou tem tudo, com o `README.org` de lá, que diz como rodar cada pasta.
 Para lê-lo sem mexer no checkout principal, onde o índice pode guardar
 o rascunho do texto, abra-o numa worktree à parte, em `tmp/copias/`
-(ADR 0038), ou leia um arquivo só com `git show <commit>:<caminho>`:
+(o `AGENTS.md` da raiz, tabela "Onde cada coisa vive"), ou leia um
+arquivo só com `git show <commit>:<caminho>`:
 
 ```sh
 antes="$(git log -1 --format=%H -- ':/interfaces-graficas/fora-da-analise')~1"
