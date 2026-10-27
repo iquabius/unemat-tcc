@@ -91,13 +91,6 @@ dependem dela [[cite:bainomugisha2013][p. 52:2]].
   Até o próximo tique do relógio, o tempo exibido não corresponde ao valor
   guardado, e cabe ao programador escrever a sincronização da tela com o
   estado [[cite:meyerovich2009][p. 3]].
-  O nome do modelo diz como a alteração do estado chega à tela, e não como
-  a tela se monta.
-  Nas implementações deste trabalho, o esqueleto da tela do Web Component
-  fica em [[gls:html]], e só se montam elemento a elemento as partes que o
-  estado repete ou põe e tira da tela, como os itens de uma lista.
-  Os textos e os valores calculados do estado mudam nos elementos já
-  montados, e essa atualização é a parte imperativa.
 
   Nos declarativos, o programador descreve a tela em função do estado, e o
   ambiente de execução a mantém atualizada
@@ -226,15 +219,6 @@ dependem dela [[cite:bainomugisha2013][p. 52:2]].
   Muda o modo como a alteração do estado chega à tela: cada alteração faz
   o ambiente de execução chamar de novo o método que monta a tela
   [[cite:google2026d]].
-  O Web Component com /signals/ é uma construção de controle, feita para
-  este trabalho, e não tirada de programas reais.
-  Nele, o =solid-js= serve só como biblioteca de /signals/, e a classe e a
-  montagem da tela são as do Web Component.
-  O Web Component e o React não formam par: a parte da diferença entre
-  eles que vem só da re-renderização se lê no par Web Component × Lit, e
-  o resto se atribui ao passo da cadeia em que ela aparece.
-  A que nenhum passo explica se atribui pelo sinal escrito na notação: se
-  ele está na coordenação, na montagem da tela ou na ligação entre as duas.
 
   A avaliação se faz em três rodadas.
   A primeira responde à P1.
@@ -244,48 +228,6 @@ dependem dela [[cite:bainomugisha2013][p. 52:2]].
   do Placar ao vivo e do Circle Drawer, sem mudar o comportamento, em
   quatro vertentes irmãs, e responde à P1.2.
   @@latex:\notamudou{\textbf{As três rodadas são novas}; o projeto não as previa.}@@
-  Cada vertente entra na interface cuja exigência de coordenação ela sabe
-  tratar.
-  A biblioteca que o ecossistema de cada tecnologia usa vai à Reserva de
-  passagem e ao Placar ao vivo; a máquina de estados tipada, ao Placar ao
-  vivo; a [[gls:api]] nova da plataforma, ao Placar ao vivo e ao Circle
-  Drawer; e o padrão de projeto, ao Circle Drawer.
-
-  Na vertente do ecossistema, a forma de cada tecnologia é a biblioteca
-  com mais da metade dos downloads no npm entre as que guardam o estado
-  do formulário ou tratam a conexão ao vivo
-  (Tabela [[ref:tab:bibliotecas-do-ecossistema]]).
-  Antes da conta saem as depreciadas, as arquivadas e as sem versão há
-  mais de 24 meses.
-  Quando nenhuma domina, a forma é a [[gls:api]] da plataforma.
-  No Web Component com /signals/ e no Lit, vale a forma do Web Component,
-  para o passo a cada um não mudar também a biblioteca.
-  Pelo mesmo motivo, o React usa na Reserva de passagem a biblioteca do
-  Solid, que tem adaptador oficial nas duas tecnologias.
-  Nas duas primeiras rodadas, o Placar ao vivo recebe os lotes por
-  [[gls:sse]], e o navegador refaz sozinho a conexão que cai
-  [[cite:whatwg2026][§ 9.2.1]].
-  A frequência escolhida pelo usuário, na segunda, vai ao servidor por
-  uma requisição à parte, a solução provisória que o jargão chama de
-  gambiarra.
-  A vertente do ecossistema a substitui pelo WebSocket, e a reconexão
-  passa à biblioteca.
-
-  #+CAPTION: Bibliotecas da vertente do ecossistema, por interface e tecnologia.
-  #+NAME: tab:bibliotecas-do-ecossistema
-  #+ATTR_LATEX: :options [htbp]
-  #+begin_table
-  #+LATEX: \centering
-  #+ATTR_LATEX: :align p{3.4cm}p{3.3cm}p{3.6cm}p{3.8cm} :font \small :float nil :center nil
-  |--------------------------------------------------------+-------------------------------------------------------------------------+------------------------------------------------------------+-----------------------|
-  | Interface                                              | @@latex:\raggedright@@ Web Component, Lit e Web Component com /signals/ | Solid                                                      | React                 |
-  |--------------------------------------------------------+-------------------------------------------------------------------------+------------------------------------------------------------+-----------------------|
-  | @@latex:\raggedright@@ Reserva de passagem: formulário | =final-form=                                                            | TanStack Solid Form                                        | TanStack React Form   |
-  | @@latex:\raggedright@@ Placar ao vivo: conexão         | =partysocket=                                                           | @@latex:\texttt{@solid-primitives/\allowbreak websocket}@@ | =react-use-websocket= |
-  |--------------------------------------------------------+-------------------------------------------------------------------------+------------------------------------------------------------+-----------------------|
-
-  #+LATEX: \small Fonte: elaborado pelo autor.
-  #+end_table
 
   #+CAPTION: Cadeia de pares das cinco tecnologias e as três rodadas da avaliação. Cada passo da cadeia muda o mínimo entre tecnologias vizinhas, e o Lit sai do Web Component num ramo que muda a ligação; cada rodada responde a uma pergunta, e a segunda e a terceira partem do código da anterior. Grafite: imperativo por atualização manual; ocre: declarativo por atualização granular; roxo: declarativo por re-renderização.
   #+NAME: fig:cadeia-e-rodadas
@@ -354,10 +296,7 @@ dependem dela [[cite:bainomugisha2013][p. 52:2]].
   traz, e um teste de conformidade confere que as implementações de uma
   interface fazem o mesmo.
   A aparência também fica fixa, num arquivo [[gls:css]] comum às
-  implementações de cada interface, e a tela só cita as classes pelo nome.
-  As capturas de tela conferem que ela sai igual em todas as tecnologias.
-  Só o valor que depende do estado, como a posição de um menu, entra na
-  notação.
+  implementações de cada interface.
   Como [[textcite:kiss2014][p. 16]], que deixou de fora a linguagem de
   /layout/ do JavaFX para não tirar o foco da comparação, este trabalho
   mantém fora da notação o que não distingue os modelos de programação.
@@ -376,11 +315,6 @@ dependem dela [[cite:bainomugisha2013][p. 52:2]].
   em cada dimensão.
   Em métodos de inspeção, avaliadores diferentes acham problemas bem
   diferentes na mesma interface [[cite:hertzum2003][p. 183]].
-  Além disso, quem avalia pelas [[glspl:dc]] o que construiu tem conflito de
-  interesse e, num sistema implementado ao longo de muito tempo, tende a não
-  ver os problemas que se acostumou a contornar cite:dagit2006.
-  O conflito diminui num sistema ainda em formação, e usar as [[glspl:dc]]
-  tarde no próprio sistema é melhor do que não usá-las cite:dagit2006.
   @@latex:\realce{@@A familiaridade do autor com as tecnologias é desigual, maior com o React.@@latex:}\notapergunta[list,prepend,caption={\textbf{5. IA nas implementações}}]{as implementações atuais foram geradas com agentes de IA a partir de implementações de referência escritas pelo autor, e o texto não diz isso. \textbf{Declarar nas limitações e nos controles do delineamento?}}@@
   Na avaliação, que é subjetiva, esse desnível pode favorecer a notação do
   React.
@@ -388,16 +322,11 @@ dependem dela [[cite:bainomugisha2013][p. 52:2]].
   Por ser analítica, e não um experimento, a avaliação pelas [[glspl:dc]] aponta
   diferenças que convém testar depois com programadores
   [[cite:kiss2014][p. 103]].
-  Quatro das 14 [[glspl:dc]] pesam no ambiente de edição, e este trabalho as
-  lê só pela face que aparece na notação, onde podem mostrar pouca diferença
-  no código.
-  Elas entram mesmo assim, porque escolher de antemão um subconjunto das
-  [[glspl:dc]] pode ser pouco útil [[cite:blackwell2001][p. 332]].
-  Para [[textcite:green2006][p. 334]], duas das outras, a expressividade de
-  papel e as operações mentais difíceis, sempre foram mal descritas.
-  Na tabela-síntese, os rótulos do que acontece com a diferença de uma
-  rodada a outra, /mantida/, /ampliada/, /reduzida/, /anulada/,
-  /invertida/ ou /surgida/, são deste trabalho, e não de uma fonte.
+  As [[glspl:dc]] também dizem pouco das escolhas de alto nível, como o
+  modelo de computação, e a relevância delas começa quando se definem os
+  detalhes [[cite:green1996d][p. 139]].
+  Por isso, a análise compara os modelos de programação pelos detalhes que
+  a notação de cada tecnologia exige no código-fonte.
 
   Mesmo na segunda rodada, as implementações continuam pequenas, e o que só aparece em
   programas de grande porte ou ao longo da manutenção fica de fora.
@@ -411,31 +340,9 @@ dependem dela [[cite:bainomugisha2013][p. 52:2]].
   O delineamento compara categorias, e não artefatos: cada modelo de programação
   tem uma ou duas tecnologias na web, e o perfil dele generaliza a partir
   delas.
-  As [[glspl:dc]] também dizem pouco das escolhas de alto nível, como o
-  modelo de computação, e a relevância delas começa quando se definem os
-  detalhes [[cite:green1996d][p. 139]].
-  Por isso, a análise compara os modelos de programação pelos detalhes que
-  a notação de cada tecnologia exige no código-fonte.
-  Com a aparência fora da notação, a avaliação não vê o estilo escrito
-  junto do componente, no próprio código que monta a tela.
-  Também não chega às dependências ocultas que
-  [[textcite:green2006][p. 342]] acham no sistema formado pelo [[gls:html]]
-  e pelo [[gls:css]].
-  Os pares isolam pouco: o primeiro passo da cadeia muda, além do modelo
-  de programação, a orquestração, que segue a do Solid.
-  Atribuir aos passos da cadeia a diferença entre o Web Component e o
-  React supõe que os passos se somam.
-  O par Web Component × Lit também muda, com a ligação, a montagem das
-  partes repetidas, que a re-renderização refaz a cada alteração.
-  A suposição falha quando um passo muda a leitura de outro, como a
-  montagem em JSX pode mudar a leitura do modo como o estado chega à tela.
-  A reconexão depois de queda fica com o navegador nas duas primeiras
-  rodadas e com a biblioteca na terceira: nenhuma tecnologia a escreve, e
-  por isso ela não se mede como as outras mudanças da segunda.
-  A [[gls:api]] nova da plataforma está implementada só no Chromium
-  [[cite:mdn2026]]: o teste de conformidade, que roda nele, prova a
-  conformidade das implementações, e não a disponibilidade da
-  [[gls:api]] ao usuário.
+  Os pares também isolam pouco: um passo da cadeia pode mudar mais de uma
+  coisa, e atribuir aos passos a diferença entre o Web Component e o React
+  supõe que eles se somam.
 
   Além desta introdução, o texto tem três seções.
   A seção ref:chap:prog reúne os conceitos em que o trabalho se apoia, dos

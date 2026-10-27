@@ -10,19 +10,20 @@
   expressed (CSS in this case)” (p. 342)
 - Lido em: =acervo/green2006-publicada.pdf=, p. 15 do PDF (p. 342).
 - Conferido: 2026-10-23.
-* [[file:../intro.org::Por ser analítica][intro: Por ser analítica]], p. 334
+* [[file:../cases.org::Quatro das 14 \[\[glspl:dc\]\] pesam no ambiente de edição][cases: Quatro das 14 DCs pesam no ambiente de edição]], p. 334
 - Frase: “Para Green et al. (2006, p. 334), duas das outras, a
   expressividade de papel e as operações mentais difíceis, sempre foram
-  mal descritas.”
+  mal descritas.” Veio da introdução para cases no corte de 2026-10-27.
 - Trecho: “Examples here are the ‘hard mental operations’ and the
   ‘role-expressiveness’ dimensions, which have always been poorly
   described” (p. 334)
 - Lido em: =acervo/green2006-publicada.pdf=,
   p. 7 do PDF (p. 334).
 - Conferido: 2026-10-07.
-* [[file:../intro.org::O delineamento compara categorias, e não artefatos][intro: O delineamento compara categorias, e não artefatos]], p. 342
+* [[file:../cases.org::Com a aparência fora da notação][cases: Com a aparência fora da notação]], p. 342
 - Frase: “Também não chega às dependências ocultas que Green et al.
-  (2006, p. 342) acham no sistema formado pelo HTML e pelo CSS.”
+  (2006, p. 342) acham no sistema formado pelo HTML e pelo CSS.” Veio da
+  introdução para cases no corte de 2026-10-27.
 - Trecho: “consider the properties of the new, joint system, HTML/CSS.
   [...] Like the original HTML, CSS is unfriendly to abstractions: there
   is no way to group related rules even when they share common features,

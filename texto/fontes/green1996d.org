@@ -1,7 +1,7 @@
 #+title: green1996d: Green e Petre (1996), Usability Analysis of Visual Programming Environments: A ‘Cognitive Dimensions’ Framework
 #+startup: overview
 
-* [[file:../intro.org::O delineamento compara categorias, e não artefatos][intro: O delineamento compara categorias, e não artefatos]], p. 139
+* [[file:../intro.org::Por ser analítica, e não um experimento][intro: Por ser analítica, e não um experimento]], p. 139
 - Frase: “As DCs também dizem pouco das escolhas de alto nível, como o
   modelo de computação, e a relevância delas começa quando se definem os
   detalhes (Green; Petre, 1996, p. 139). Por isso, a avaliação compara os

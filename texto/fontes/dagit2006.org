@@ -1,12 +1,12 @@
 #+title: dagit2006: Dagit et al. (2006), Using Cognitive Dimensions: Advice from the Trenches
 #+startup: overview
 
-* [[file:../intro.org::O delineamento tem limitações em três pontos][intro: O delineamento tem limitações em três pontos]] (conflito de interesse)
-- Frase: “Além disso, quem avalia pelas DCs o que construiu tem conflito de
-  interesse e, num sistema implementado ao longo de muito tempo, tende a não
-  ver os problemas que se acostumou a contornar (Dagit et al., 2006). O
-  conflito diminui num sistema ainda em formação, e usar as DCs tarde no
-  próprio sistema é melhor do que não usá-las (Dagit et al., 2006).” Em
+* [[file:../cases.org::Quem avalia pelas \[\[glspl:dc\]\] o que construiu][cases: Quem avalia pelas DCs o que construiu]] (conflito de interesse)
+- Frase: “Quem avalia pelas DCs o que construiu tem conflito de interesse
+  e, num sistema implementado ao longo de muito tempo, tende a não ver os
+  problemas que se acostumou a contornar (Dagit et al., 2006). O conflito
+  diminui num sistema ainda em formação, e usar as DCs tarde no próprio
+  sistema é melhor do que não usá-las (Dagit et al., 2006).” Em
   2026-10-15, a frase ganhou a condição e as ressalvas da fonte e se
   dividiu em duas (checagem adversarial, decisão do autor).
 - Trecho: “a conflict of interest arises: the designer has a strong
@@ -22,7 +22,8 @@
   conferir (tcc-wg7).
 - Observação: substitui Ledo et al. (2018), cujo sujeito são os autores de
   um /toolkit/ avaliando o próprio /toolkit/. Em Dagit et al., é o projetista
-  de uma linguagem visual; aqui, o autor das implementações.
+  de uma linguagem visual; aqui, o autor das implementações. Veio da
+  introdução para cases no corte de 2026-10-27.
 - Conferido: 2026-10-09.
 * [[file:../cases.org::A avaliação cabe ao autor][cases: A avaliação cabe ao autor]] (custo)
 - Frase: “[...] e as DCs pedem menos tempo que eles (Dagit et al., 2006).”

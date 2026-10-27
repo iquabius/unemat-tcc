@@ -21,7 +21,7 @@
   (p. 332)
 - Lido em: =acervo/blackwell2001-springer.pdf=, p. 8 do PDF (p. 332).
 - Conferido: 2026-10-13.
-* [[file:../intro.org::Por ser analítica, e não um experimento][intro: Por ser analítica, e não um experimento]], p. 332 (as quatro do ambiente)
+* [[file:../cases.org::Quatro das 14 \[\[glspl:dc\]\] pesam no ambiente de edição][cases: Quatro das 14 DCs pesam no ambiente de edição]], p. 332 (as quatro do ambiente)
 - Frase: “Elas entram mesmo assim, porque escolher de antemão um subconjunto
   das DCs pode ser pouco útil (Blackwell et al., 2001, p. 332).”
 - Trecho: “The conclusion was that prior selection of a subset of CDs may be
@@ -38,5 +38,5 @@
   trabalho, e a frase anterior o diz; Kiss (2014, p. 15) deixa de fora outro
   bloco, o das DCs de “tooling and the process” (visibilidade, avaliação
   progressiva e provisoriedade). Checagem adversarial de 2026-10-15,
-  pedido do autor.
+  pedido do autor. Veio da introdução para cases no corte de 2026-10-27.
 - Conferido: 2026-10-15.

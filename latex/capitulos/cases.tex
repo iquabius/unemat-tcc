@@ -110,6 +110,35 @@ Fora da web, os dois pares mudam também a montagem da tela, e cada
 plataforma confere só dois dos três modelos de programação: o Android
 fica sem o declarativo por atualização granular, e o \emph{desktop}, sem o
 declarativo por re-renderização.
+
+\todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}
+
+O nome do modelo diz como a alteração do estado chega à tela, e não como
+a tela se monta.
+Nas implementações deste trabalho, o esqueleto da tela do Web Component
+fica em \gls{html}, e só se montam elemento a elemento as partes que o
+estado repete ou põe e tira da tela, como os itens de uma lista.
+Os textos e os valores calculados do estado mudam nos elementos já
+montados, e essa atualização é a parte imperativa.
+
+O Web Component com \emph{signals} é uma construção de controle, feita para
+este trabalho, e não tirada de programas reais.
+Nele, o \texttt{solid-js} serve só como biblioteca de \emph{signals}, e a classe e a
+montagem da tela são as do Web Component.
+O Web Component e o React não formam par: a parte da diferença entre
+eles que vem só da re-renderização se lê no par Web Component × Lit, e
+o resto se atribui ao passo da cadeia em que ela aparece.
+A que nenhum passo explica se atribui pelo sinal escrito na notação: se
+ele está na coordenação, na montagem da tela ou na ligação entre as duas.
+
+Os pares isolam pouco: o primeiro passo da cadeia muda, além do modelo
+de programação, a orquestração, que segue a do Solid.
+Atribuir aos passos da cadeia a diferença entre o Web Component e o
+React supõe que os passos se somam.
+O par Web Component × Lit também muda, com a ligação, a montagem das
+partes repetidas, que a re-renderização refaz a cada alteração.
+A suposição falha quando um passo muda a leitura de outro, como a
+montagem em JSX pode mudar a leitura do modo como o estado chega à tela.
 \subsection{As rodadas}
 \label{sec:as-rodadas}
 \todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}
@@ -202,6 +231,59 @@ para o modelo de programação.
   \node[right=3pt of l2, font=\scriptsize, inner sep=0pt] {par opcional, o primeiro a sair no corte};
 \end{tikzpicture}
 \end{figure}
+
+\todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}
+
+Cada vertente entra na interface cuja exigência de coordenação ela sabe
+tratar.
+A biblioteca que o ecossistema de cada tecnologia usa vai à Reserva de
+passagem e ao Placar ao vivo; a máquina de estados tipada, ao Placar ao
+vivo; a \gls{api} nova da plataforma, ao Placar ao vivo e ao Circle
+Drawer; e o padrão de projeto, ao Circle Drawer.
+
+Na vertente do ecossistema, a forma de cada tecnologia é a biblioteca
+com mais da metade dos downloads no npm entre as que guardam o estado
+do formulário ou tratam a conexão ao vivo
+(Tabela \ref{tab:bibliotecas-do-ecossistema}).
+Antes da conta saem as depreciadas, as arquivadas e as sem versão há
+mais de 24 meses.
+Quando nenhuma domina, a forma é a \gls{api} da plataforma.
+No Web Component com \emph{signals} e no Lit, vale a forma do Web Component,
+para o passo a cada um não mudar também a biblioteca.
+Pelo mesmo motivo, o React usa na Reserva de passagem a biblioteca do
+Solid, que tem adaptador oficial nas duas tecnologias.
+Nas duas primeiras rodadas, o Placar ao vivo recebe os lotes por
+\gls{sse}, e o navegador refaz sozinho a conexão que cai
+\cite[§ 9.2.1]{whatwg2026}.
+A frequência escolhida pelo usuário, na segunda, vai ao servidor por
+uma requisição à parte, a solução provisória que o jargão chama de
+gambiarra.
+A vertente do ecossistema a substitui pelo WebSocket, e a reconexão
+passa à biblioteca.
+
+\begin{table}[htbp]
+\caption{\label{tab:bibliotecas-do-ecossistema}Bibliotecas da vertente do ecossistema, por interface e tecnologia.}
+\centering
+{\small
+\begin{tabular}{p{3.4cm}p{3.3cm}p{3.6cm}p{3.8cm}}
+\hline
+Interface & \raggedright Web Component, Lit e Web Component com \emph{signals} & Solid & React\\
+\hline
+\raggedright Reserva de passagem: formulário & \texttt{final-form} & TanStack Solid Form & TanStack React Form\\
+\raggedright Placar ao vivo: conexão & \texttt{partysocket} & \texttt{@solid-primitives/\allowbreak websocket} & \texttt{react-use-websocket}\\
+\hline
+\end{tabular}}
+
+\small Fonte: elaborado pelo autor.
+\end{table}
+
+A reconexão depois de queda fica com o navegador nas duas primeiras
+rodadas e com a biblioteca na terceira: nenhuma tecnologia a escreve, e
+por isso ela não se mede como as outras mudanças da segunda.
+A \gls{api} nova da plataforma está implementada só no Chromium
+\cite{mdn2026}: o teste de conformidade, que roda nele, prova a
+conformidade das implementações, e não a disponibilidade da
+\gls{api} ao usuário.
 \subsection{Os controles e o teste de conformidade}
 \label{sec:os-controles-e-o-teste-de-conformidade}
 \todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}
@@ -236,6 +318,20 @@ Na web, TypeScript 6.0.3, React 19.3.0, Solid 1.9.15, Lit 3.3.3 e Angular
 e Playwright 1.63.0 para as capturas.
 No Android, Kotlin 2.4.20, Jetpack Compose pela \gls{bom}
 2026.09.00 e, para as capturas, Robolectric 4.17 com Roborazzi 1.75.0.}, para que as implementações possam ser reproduzidas.
+
+\todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}
+
+Na aparência, que fica fixa num arquivo \gls{css} comum às
+implementações de cada interface, a tela só cita as classes pelo nome.
+As capturas de tela conferem que ela sai igual em todas as tecnologias.
+Só o valor que depende do estado, como a posição de um menu, entra na
+notação.
+
+Com a aparência fora da notação, a avaliação não vê o estilo escrito
+junto do componente, no próprio código que monta a tela.
+Também não chega às dependências ocultas que
+\textcite[p. 342]{green2006} acham no sistema formado pelo \gls{html}
+e pelo \gls{css}.
 \subsection{A avaliação}
 \label{sec:a-avaliacao}
 \todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}
@@ -299,6 +395,25 @@ Na segunda e na terceira rodada, o \emph{diff} de cada mudança apoia a viscosid
 mudança, preparada antes e feita em cada implementação, como no teste
 de \textcite[p. 162]{green1996d}, mostra quantas ações ela pede, e
 quantas outras restauram a consistência \cite[p. 115]{blackwell2003}.
+
+\todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}
+
+Quem avalia pelas \glspl{dc} o que construiu tem conflito de
+interesse e, num sistema implementado ao longo de muito tempo, tende a não
+ver os problemas que se acostumou a contornar \cite{dagit2006}.
+O conflito diminui num sistema ainda em formação, e usar as \glspl{dc}
+tarde no próprio sistema é melhor do que não usá-las \cite{dagit2006}.
+
+Quatro das 14 \glspl{dc} pesam no ambiente de edição, e este trabalho as
+lê só pela face que aparece na notação, onde podem mostrar pouca diferença
+no código.
+Elas entram mesmo assim, porque escolher de antemão um subconjunto das
+\glspl{dc} pode ser pouco útil \cite[p. 332]{blackwell2001}.
+Para \textcite[p. 334]{green2006}, duas das outras, a expressividade de
+papel e as operações mentais difíceis, sempre foram mal descritas.
+Na tabela-síntese, os rótulos do que acontece com a diferença de uma
+rodada a outra, \emph{mantida}, \emph{ampliada}, \emph{reduzida}, \emph{anulada},
+\emph{invertida} ou \emph{surgida}, são deste trabalho, e não de uma fonte.
 \section{Dimensões de avaliação}
 \label{sec:dimensoes-de-avaliacao}
 \todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}

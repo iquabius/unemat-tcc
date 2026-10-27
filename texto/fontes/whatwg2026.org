@@ -1,7 +1,7 @@
 #+title: whatwg2026: WHATWG (2026), HTML Standard: Server-Sent Events
 #+startup: overview
 
-* [[file:../intro.org::Na vertente do ecossistema, a forma de cada tecnologia][intro: Na vertente do ecossistema, a forma de cada tecnologia]], § 9.2.1 (a reconexão automática do SSE)
+* [[file:../cases.org::Na vertente do ecossistema, a forma de cada tecnologia][cases: Na vertente do ecossistema, a forma de cada tecnologia]], § 9.2.1 (a reconexão automática do SSE)
 - Frase: “Nas duas primeiras rodadas, o Placar ao vivo recebe os lotes por
   SSE, e o navegador refaz sozinho a conexão que cai (WHATWG, 2026,
   § 9.2.1)”.
@@ -16,5 +16,5 @@
 - Observação: a frase atribui a reconexão ao navegador, e não ao
   programador; a nota =docs/plataformas/websocket-e-sse.md= traz a
   comparação inteira com o WebSocket, cuja especificação não tem passo de
-  reconexão.
+  reconexão. Veio da introdução para cases no corte de 2026-10-27.
 - Conferido: 2026-10-25.
