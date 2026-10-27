@@ -19,8 +19,9 @@ vão para o chat pelo hook `bin/lembrete-do-chat.py`, na forma da seção
 - PDF com anexo: ≈ 269
 - Delineamento: 3 rodadas, a 3.ª em 4 vertentes nas 3 interfaces dela,
   6 pares interface-vertente; 5 tecnologias, 35 implementações
-- Em aberto: o 7.º par, Circle Drawer × máquina de estados (tcc-l7qe):
-  PDF sem anexo +4, análise +4, anexo 0, PDF com anexo +4
+- Em aberto: o 7.º par, Circle Drawer × máquina de estados, opcional e
+  o primeiro da fila de cortes: PDF sem anexo +4, análise +4, anexo 0,
+  PDF com anexo +4
 - Em aberto: o corte do Lit fora do trio, na revisão depois da análise;
   sem a 2.ª rodada do Lit fora do trio: PDF sem anexo −4, análise −4,
   anexo 0, PDF com anexo −4; L2: PDF sem anexo −8, análise −8, anexo
@@ -59,11 +60,11 @@ correr os olhos pelos números em vez de ler um parágrafo):
   recuo, e o hook o junta de volta numa linha só.
 
 As decisões pendentes em 2026-10-25, à noite, são o 7.º par da terceira
-rodada (tcc-l7qe), o corte do Lit fora do trio (tcc-7qty) e o entorno da
-cadeia, que fica fora da conta e é o primeiro a sair no corte; a regra
-vale para qualquer outra que as substitua, sem mexer nas outras linhas.
-O teste do hook confere, na nota, que os números dos dois blocos são os
-mesmos.
+rodada, opcional na fila de cortes do ADR 0029, o corte do Lit fora do
+trio (tcc-7qty) e o entorno da cadeia, que fica fora da conta e é o
+primeiro a sair no corte; a regra vale para qualquer outra que as
+substitua, sem mexer nas outras linhas. O teste do hook confere, na
+nota, que os números dos dois blocos são os mesmos.
 
 ## Como se conta
 
