@@ -1,0 +1,35 @@
+# Quarto ciclo (tcc-t81w, 2026-10-26), eixo 2: consultas fora do script, para resumo, veículo e cópia aberta
+
+O OpenAlex não traz resumo de quatro dos trabalhos da triagem; o resumo veio do Semantic Scholar quando ele o tinha, e o veículo, do Crossref.
+
+## Semantic Scholar, resumo por DOI
+
+`curl "https://api.semanticscholar.org/graph/v1/paper/DOI:<doi>?fields=title,abstract,venue,year,openAccessPdf,externalIds"`
+
+- Detecting code smells in React-based Web apps (2022) | Information and Software Technology | 10.1016/j.infsof.2022.107111 | sem resumo
+- Refactoring react-based Web apps (2024) | Journal of Systems and Software | 10.1016/j.jss.2024.112105 | sem resumo
+- HookLens: Visual Analytics for Understanding React Hooks Structures (2026) | IEEE Pacific Visualization Symposium | 10.1109/PacificVis68791.2026.00036 | com resumo; arXiv 2602.17891
+- Automated Refactoring of Code Smells in React.js Applications (2026) | Proceedings of the 1st Workshop on Code Translation, Transformation, and Modernization | 10.1145/3786180.3788319 | com resumo
+- Detection of code smells in react with TypeScript applications (2025) | Information and Software Technology | 10.1016/j.infsof.2025.107835 | sem resumo
+- Remediating Superfluous Re-Rendering in React Applications (2026) | Proceedings of the 2026 IEEE/ACM 48th International Conference on Software Engineering | 10.1145/3744916.3773235 | com resumo
+- Towards a Framework of Mental Models and Cognitive Processes in Component Use (2026) | 10.1007/978-3-032-41627-8_8 | não encontrado
+
+## Semantic Scholar, busca por palavras-chave: falhou (HTTP 429, duas tentativas)
+
+`curl "https://api.semanticscholar.org/graph/v1/paper/search?query=React%20bugs%20empirical%20study&year=2013-&limit=25&fields=..."`
+`curl "https://api.semanticscholar.org/graph/v1/paper/search?query=React%20hooks%20developers%20difficulties&year=2013-&limit=25&fields=..."`
+
+## arXiv, busca por título: 0 resultados
+
+`curl "https://export.arxiv.org/api/query?search_query=ti:React+AND+ti:smells&max_results=10"`
+`curl "https://export.arxiv.org/api/query?search_query=ti:superfluous+AND+ti:rendering&max_results=5"`
+
+## Crossref, veículo por DOI
+
+`curl "https://api.crossref.org/works/<doi>"`
+
+- 10.1145/3001878.3001881 | Proceedings of the 7th International Workshop on Evaluation and Usability of Programming Languages and Tools (SPLASH '16) | 2016-11 | p. 9-16
+- 10.1145/3744916.3773235 | Proceedings of the 2026 IEEE/ACM 48th International Conference on Software Engineering (ICSE '26) | 2026-04-12 | p. 2250-2261
+- 10.1016/j.infsof.2022.107111 | Information and Software Technology | v. 155, 2023-03 | 107111
+- 10.1109/ms.2017.265100610 | IEEE Software | v. 35, 2018-03 | p. 72-79
+- 10.18420/akwi2026_06 | não está no Crossref

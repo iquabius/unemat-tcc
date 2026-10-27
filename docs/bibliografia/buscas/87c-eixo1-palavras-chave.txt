@@ -1,0 +1,157 @@
+# Quarto ciclo (tcc-t81w, 2026-10-26), eixo 1: consultas por palavras-chave no OpenAlex
+# Três consultas longas voltaram vazias ou fora do tema e não tiveram a saída guardada: 'glitch freedom reactive signals consistency' (0), 'dataflow reactive programming comprehension difficulty developers' (0) e 'reactive programming challenges developers empirical study' (7, nenhum de PR). A busca do OpenAlex exige todos os termos; as cinco abaixo são as versões curtas.
+
+## Busca 'reactive programming debugging': 30
+# python3 /home/gambi/.claude/skills/escrita-academica/scripts/buscar_literatura.py buscar "reactive programming debugging" --desde 2013 --n 30
+# 
+- Debugging for reactive programming (2016) | ACM/IEEE International Conference on Software Engineering: Companion Proceedings (ICSE-Companion) | 10.1145/2884781.2884815
+- Debugging data flows in reactive programs (2018) | ACM/IEEE International Conference on Software Engineering: Companion Proceedings (ICSE-Companion) | 10.1145/3180155.3180156
+- Testing and debugging functional reactive programming (2017) | Proceedings of the ACM on Programming Languages | 10.1145/3110246
+- Debugging reactive programming with reactive inspector (2016) | ACM/IEEE International Conference on Software Engineering: Companion Proceedings (ICSE-Companion) | 10.1145/2889160.2893174
+- RDBG: a Reactive Programs Extensible Debugger (2016) | HAL | sem
+- Visual Debugging Techniques for Reactive Data Visualization (2016) | Computer Graphics Forum | 10.1111/cgf.12903
+- Out-Of-Place debugging: a debugging architecture to reduce debugging interference (2018) | The Art Science and Engineering of Programming | 10.22152/programming-journal.org/2019/3/3
+- A Cognitive Computing-Based Program Debugging Assistance System (2026) | Zenodo (CERN European Organization for Nuclear Research) | 10.5281/zenodo.22596449
+- Using SPIN for automated debugging of infinite executions of Java programs (2013) | Journal of Systems and Software | 10.1016/j.jss.2013.10.056
+- Preserving Reactiveness: Understanding and Improving the Debugging Practice of Blocking-Call Bugs (2024) | ACM SIGSOFT International Symposium on Software Testing and Analysis (ISSTA) | 10.1145/3650212.3680319
+- Debugging of RxJS-based applications (2020) | None | 10.1145/3427763.3428313
+- The Synchrone Reactive Toolbox (2018) | None | sem
+- back-in-time debugger in Kotlin (2023) | instname:Universidad de los Andes | sem
+- Extensible and robust functional reactive programming (2018) | Nottingham ePrints (University of Nottingham) | sem
+- Static and dynamic debugging techniques for the HipHop.js language (2023) | HAL | 10.70675/09768673z0bf1z46aczaf4ezebfce31c152c
+- Multi-Mode Debugging for FRP-Based Embedded Systems (2026) | arXiv (Cornell University) | 10.48550/arxiv.2608.04264
+- Reactive Programming Paradigms in High-Throughput Distributed Systems (2025) | European Journal of Computer Science and Information Technology | 10.37745/ejcsit.2013/vol13n3093103
+- Debugging and Verification Tools for Lingua Franca in Gemoc Studio (2021) | Forum on Specification & Design Languages (FDL) | 10.1109/fdl53530.2021.9568383
+- Tools for Testing and Debugging (2019) | Lecture notes in networks and systems | 10.1007/978-3-030-15391-5_11
+- Extensible Tooling for Reactive Programming Based on Active Expressions. (2024) | The Journal of Object Technology | 10.5381/jot.2024.23.1.a4
+- Using human-in-the-loop synthesis to author functional reactive programs (2019) | arXiv (Cornell University) | 10.48550/arxiv.1909.11206
+- SynergyBug: A deep learning approach to autonomous debugging and code remediation (2025) | Scientific Reports | 10.1038/s41598-025-08226-5
+- ABOD3: A Graphical Visualization and Real-Time Debugging Tool for BOD Agents (2017) | The University of Bath Online Publications Store (The University of Bath) | sem
+- Proactive Debugging of Memory Leakage Bugs in Single Page Web Applications (2025) | IEEE Transactions on Software Engineering | 10.1109/tse.2025.3571192
+- Runtime verification and validation of functional reactive systems (2020) | Journal of Functional Programming | 10.1017/s0956796820000210
+- Enhanced Suite of Probabilistic Models for Benchmarking Agentic Debugging Frameworks in Probabilistic Inference (2025) | Zenodo (CERN European Organization for Nuclear Research) | 10.5281/zenodo.17869519
+- Enhanced Suite of Probabilistic Models for Benchmarking Agentic Debugging Frameworks in Probabilistic Inference (2025) | None | 10.14293/pr2199.002535.v1
+- Smart Developer Assistant (SDA): An AI-Driven Multi-Agent Framework for Automated Code Generation, Debugging, and Documentation (2026) | INTERANTIONAL JOURNAL OF SCIENTIFIC RESEARCH IN ENGINEERING AND MANAGEMENT | 10.55041/ijsrem63072
+- Enhanced Suite of Probabilistic Models for Benchmarking Agentic Debugging Frameworks in Probabilistic Inference (2025) | SSRN Electronic Journal | 10.2139/ssrn.5893425
+- A reactive language for analyzing cloud logs (2018) | None | 10.1145/3281278.3281280
+
+## Busca 'glitch reactive programming': 14
+# python3 /home/gambi/.claude/skills/escrita-academica/scripts/buscar_literatura.py buscar "glitch reactive programming" --desde 2013 --n 30
+# 
+- A survey on reactive programming (2013) | ACM Computing Surveys | 10.1145/2501654.2501666
+- Glitch: A Live Programming Model (2013) | None | sem
+- Concurrency and Distribution in Reactive Programming (2019) | TUbilio (Technical University of Darmstadt) | 10.26083/tuprints-00005228
+- Reactive Programming on the Bare Metal: A Formal Model for a Low-Level Reactive Virtual Machine (2022) | None | 10.1145/3563837.3568342
+- Distributed functional reactive programming on actor-based runtime (2018) | None | 10.1145/3281366.3281370
+- Quality-Aware Reactive Programming for the Internet of Things (2017) | Lecture notes in computer science | 10.1007/978-3-319-68972-2_12
+- Developing Distributed Systems with Multiparty Functional Reactive Programming (2023) | World Symposium on Software Engineering (WSSE) | 10.1145/3631991.3632000
+- k R: A Functional Reactive Extension to the k Programming Language (2025) | SSRN Electronic Journal | 10.2139/ssrn.5401707
+- A Semantic Framework for the Design of Distributed Reactive Real-Time Languages and Applications (2020) | IEEE Access | 10.1109/access.2020.3010697
+- Gavial: Programming the web with multi-tier FRP (2020) | The Art Science and Engineering of Programming | 10.22152/programming-journal.org/2020/4/6
+- Distributed REScala (2014) | ACM SIGPLAN Notices | 10.1145/2714064.2660240
+- Signal Classes: A Mechanism for Building Synchronous and Persistent Signal Networks (2021) | DROPS (Schloss Dagstuhl – Leibniz Center for Informatics) | 10.4230/lipics.ecoop.2021.17
+- Pheomelanin, Eumelanin, and Neuromelanin: A Metal-Linked Hypothesis for Parkinson's Risk in Redheads (2025) | Zenodo (CERN European Organization for Nuclear Research) | 10.5281/zenodo.17976305
+- Cure by the Spoonful (2024) | Gastronomica The Journal of Food and Culture | 10.1525/gfc.2024.24.3.19
+
+## Busca 'reactive programming comprehension': 30
+# python3 /home/gambi/.claude/skills/escrita-academica/scripts/buscar_literatura.py buscar "reactive programming comprehension" --desde 2013 --n 30
+# 
+- An empirical study on program comprehension with reactive programming (2014) | ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE) | 10.1145/2635868.2635895
+- On the Positive Effect of Reactive Programming on Software Comprehension: An Empirical Study (2017) | IEEE Transactions on Software Engineering | 10.1109/tse.2017.2655524
+- An empirical study on program comprehension with reactive programming. (2016) | None | sem
+- Interactive situation models for program comprehension (2026) | Warwick Research Archive Portal (University of Warwick) | 10.82444/warw.33642031
+- Concurrency and Distribution in Reactive Programming (2019) | TUbilio (Technical University of Darmstadt) | 10.26083/tuprints-00005228
+- Using Functional Reactive Programming for Robotic Art: An Experience Report (2024) | None | 10.1145/3677996.3678288
+- Perspectives and Challenges of iOS Developers in Using Reactive Programming with RxSwift (2024) | None | 10.5753/sbes.2024.3569
+- The Role of Parents in the Indonesian Language Learning Process on Elementary School Students' Reading Comprehension Skills (2026) | Journal of Innovation and Research in Primary Education | 10.56916/jirpe.v5i2.3541
+- Structured Behavioral Programming Idioms (2017) | Lecture notes in business information processing | 10.1007/978-3-319-59466-8_20
+- A review on design, material selection, mechanism, and modelling of permeable reactive barrier for community-scale groundwater treatment (2020) | Environmental Technology & Innovation | 10.1016/j.eti.2020.100917
+- Design approaches of single-atom nanozymes for oxidative stress modulation: Mechanistic comprehensions, and biomedical applications (2026) | Colloids and Surfaces B Biointerfaces | 10.1016/j.colsurfb.2026.116186
+- Type II metacaspase mediates light-dependent programmed cell death in Chlamydomonas reinhardtii (2023) | PLANT PHYSIOLOGY | 10.1093/plphys/kiad618
+- Computational Chemistry Programs as a Facilitating Tool in the Teaching and learning Process (2015) | Journal of Education Society and Behavioural Science | 10.9734/bjesbs/2015/14819
+- Redox Control of Skeletal Muscle Regeneration (2016) | Antioxidants and Redox Signaling | 10.1089/ars.2016.6782
+- Reliability-Centered Maintenance (2023) | CRC Press eBooks | 10.1201/9781003365204-15
+- Comprehensive Study on Different Types of Software Agents (2021) | Advances in intelligent systems and computing | 10.1007/978-981-33-6176-8_28
+- Focusing at the Double-Edged Sword of Redox Imbalance: Signals for Cell Survival or for Cell Death? (2014) | Antioxidants and Redox Signaling | 10.1089/ars.2014.5914
+- Mitochondria dynamism: of shape, transport and cell migration (2014) | Cellular and Molecular Life Sciences | 10.1007/s00018-014-1557-8
+- Incorporating Chemical Structure Drawing Software throughout the Organic Laboratory Curriculum (2019) | Journal of Chemical Education | 10.1021/acs.jchemed.9b00010
+- Plant–pathogen interactions and ambient pH dynamics (2025) | Stress Biology | 10.1007/s44154-024-00183-9
+- Mechanical Thrombectomy for Major Stroke with Low Alberta Stroke Program Early CT Score (ASPECTS): Successful Revascularization Failed to Control Brain Edema and Herniation; Decompressive Craniectomy Was Lifesaving but Hemorrhagic Transformation Limited Recovery (2024) | Springer eBooks | 10.1007/978-3-030-85411-9_73-1
+- Mechanical Thrombectomy for Major Stroke with Low Alberta Stroke Program Early CT Score (ASPECTS): Successful Revascularization Failed to Control Brain Edema and Herniation; Decompressive Craniectomy Was Lifesaving but Hemorrhagic Transformation Limited Recovery (2024) | Springer eBooks | 10.1007/978-3-031-47201-5_73
+- Investigating the Design of Just-in-Time Adaptive Interventions (JITAIs) Messages Targeting Eating Behaviors (2023) | ACM Southeast Conference (ACMSE) | 10.1145/3564746.3587028
+- Endogenous adaptation of agroecosystems and food security to climate change and perturbation in South-Kivu (DR Congo) (2019) | International journal of innovation and applied studies | sem
+- Climate resilience in small ruminant and immune system: An old alliance in the new sustainability context (2022) | Small Ruminant Research | 10.1016/j.smallrumres.2022.106662
+- Oxidative Stress and the Epigenetics of Cell Senescence: Insights from Progeroid Syndromes (2019) | Current Pharmaceutical Design | 10.2174/1381612824666190114164117
+- In-situ topotactic transition of LaVO4/Bi12O17Br2 NCs by unveiling O defects and p-n heterojunction formation for photodegradation of metronidazole: Reactions, pathway and its by-product toxicity evaluation (2024) | Journal of Alloys and Compounds | 10.1016/j.jallcom.2024.174019
+- Questioning in Physical Education and sports: a scoping review (2026) | Sportis Scientific Journal of School Sport Physical Education and Psychomotricity | 10.55040/j0z54m44
+- mRNAome Analysis of Whole Blood of Patients with Psoriatic Arthritis, Ankylosing Spondylitis, and Rheumatoid Arthritis (2025) | Current Rheumatology Reviews | 10.2174/0115733971367944250630071902
+- Modern language: Interaction in conversational NS-NNS video SCMC eTandem exchanges (2021) | Language learning & technology | 10.64152/10125/73435
+
+## Busca 'reactive programming developers challenges': 30
+# python3 /home/gambi/.claude/skills/escrita-academica/scripts/buscar_literatura.py buscar "reactive programming developers challenges" --desde 2013 --n 30
+# 
+- Perspectives and Challenges of iOS Developers in Using Reactive Programming with RxSwift (2024) | None | 10.5753/sbes.2024.3569
+- Reactive Programming for Interactive Graphics (2014) | Statistical Science | 10.1214/14-sts477
+- Synthesizing functional reactive programs (2019) | None | 10.1145/3331545.3342601
+- Multi-Tier Functional Reactive Programming for the Web (2014) | None | 10.1145/2661136.2661140
+- Functional Reactive Programming on the Web - A Practical Evaluation (2015) | NORA - Norwegian Open Research Archives | sem
+- The Challenges in Specifying and Explaining Synthesized Implementations of Reactive Systems (2019) | Electronic Proceedings in Theoretical Computer Science | 10.4204/eptcs.286.5
+- On the Usability of Reactive Programming APIs: A Mixed Evaluation (2025) | Software Practice and Experience | 10.1002/spe.3435
+- Building IoT Systems Using Distributed First-Class Reactive Programming (2018) | IEEE International Conference on Cloud Computing Technology and Science | 10.1109/cloudcom2018.2018.00045
+- A Type-and-Effect System for Temporal Dependency Analysis of Render-based Reactive Programs (2026) | arXiv (Cornell University) | 10.48550/arxiv.2607.27074
+- Designing a Reactive Programming Language for Shape-Adaptive Computers (2024) | Proceedings - Asia Pacific Software Engineering Conference/Proceedings | 10.1109/apsec65559.2024.00058
+- SecureStreams: A Reactive Middleware Framework for Secure Data Stream Processing (2018) | arXiv (Cornell University) | 10.48550/arxiv.1805.01752
+- Reactive object queries: consistent views in object-oriented languages (2016) | None | 10.1145/2892664.2892665
+- Formal Semantics for Event-Driven Programming Languages (2026) | Zenodo (CERN European Organization for Nuclear Research) | 10.5281/zenodo.22136480
+- Towards Programming participatory IoT applications with mobility for Smart Cities (2021) | IEEE International Conference on Pervasive Computing and Communications Workshops and other Affiliated Events (PerCom Workshops) | 10.1109/percomworkshops51409.2021.9431033
+- Model-Based Software Engineering : Methodologies for Model-Code Synchronization in Reactive System Development (2018) | HAL | 10.70675/f86d08fdz5ed5z4e1dz8717zc2d66920c8b0
+- User Interface for Live Programming Application Construction (2025) | Portuguese National Funding Agency for Science, Research and Technology (RCAAP Project by FCT) | sem
+- AutoSignal: A Dart-Based Programming Paradigm for Automatic Component Connection via a Signal–Slot Architecture (2026) | None | 10.3390/engproc2026150015
+- Design and evaluation of software framework that improves the management of reactive dependencies in development of object-oriented applications (2021) | None | sem
+- Implementing a Language for Distributed Systems: Choices and Experiences with Type Level and Macro Programming in Scala (2020) | The Art Science and Engineering of Programming | 10.22152/programming-journal.org/2020/4/17
+- Gamification of Investment Decision-Making Using Augmented Reality and Neuro-Linguistic Programming (2026) | Zenodo (CERN European Organization for Nuclear Research) | 10.5281/zenodo.18707334
+- EVALUATING THE TRANSITION TO WEBFLUX PERFORMANCE, MAINTAINABILITY, AND ADOPTION CHALLENGES IN MODERN JAVA WEB FRAMEWORKS (2022) | None | 10.34218/ijdsrd_01_01_002
+- A Predictive Model for Exception Handling (2016) | Advances in intelligent systems and computing | 10.1007/978-3-319-31232-3_72
+- Praxisorientierte Verwendung und Evaluierung synchroner Programmierung in reaktiven, eingebetteten Systemen (2018) | RWTH Publications (RWTH Aachen) | 10.18154/rwth-2018-230185
+- Design and Implementation of an AI-Enhanced Collaborative Code Editor using CodeBERT (2026) | International Conference on Pervasive Computing and Social Networking (ICPCSN) | 10.1109/icpcsn68523.2026.11543699
+- OPTIMIZING MICROSERVICES AND SERVERLESS APPLICATIONS WITH MICRONAUT: A HIGH-PERFORMANCE ALTERNATIVE TO TRADITIONAL JAVA FRAMEWORKS (2025) | IJESRT | 10.29121/ijesrtp.v14.i6.2025.1
+- ReactiveFnJ: A choreographed model for Fork-Join Workflow in Serverless Computing (2023) | Journal of Cloud Computing Advances Systems and Applications | 10.1186/s13677-023-00429-3
+- A design and modeling approach for resource-constrained internet of things devices (2025) | Design Automation for Embedded Systems | 10.1007/s10617-025-09294-6
+- Do Hackers Dream of Electric Teachers?: A Large-Scale, In-Situ Measurement of Cybersecurity Student Behaviors and Educational Performance with AI Tutors (2026) | arXiv (Cornell University) | 10.48550/arxiv.2602.17448
+- Spring system design in practice build scalable web applications using microservices and design patterns in spring and spring boot (2025) | None | sem
+- Comparative Performance Analysis of GetX and MobX in Flutter-Based Job Finder Application (2025) | International Conference on Software Engineering and Information Technology (ICoSEIT) | 10.1109/icoseit67010.2025.11290872
+
+## Busca 'signals fine-grained reactivity': 30
+# python3 /home/gambi/.claude/skills/escrita-academica/scripts/buscar_literatura.py buscar "signals fine-grained reactivity" --desde 2013 --n 30
+# 
+- RICE LONG GRAIN 3 delays dark‐induced senescence by downregulating abscisic acid signaling and upregulating reactive oxygen species scavenging activity (2024) | The Plant Journal | 10.1111/tpj.17061
+- A Fine-Grained Predictive Stress Quantification Framework for Drivers with Autism Spectrum Disorder in Inclusive Smart Mobility (2026) | Lecture notes in computer science | 10.1007/978-981-95-7251-9_31
+- Proactive and Reactive Motor Inhibition in Top Athletes Versus Nonathletes (2018) | Perceptual and Motor Skills | 10.1177/0031512517751751
+- A Novel AI-Native Architecture for Enterprise Angular Using LLM-Orchestrated Signal Reactivity and State Isolation (2022) | International Journal of Artificial Intelligence Data Science and Machine Learning | 10.63282/3050-9262.ijaidsml-v3i3p116
+- Architectural Optimization of Performance and Security in Enterprise SPAs Using Angular Standalone Components and Signal-Based Reactivity (2025) | International Journal of Emerging Trends in Computer Science and Information Technology | 10.63282/3050-9246.ijetcsit-v6i2p114
+- Cue reactivity modulates proactive and reactive motor response inhibition in frequent gamblers (2016) | Frontiers in Aging Neuroscience | 10.3389/conf.fnagi.2016.03.00013
+- Hardware-based agent modelling: event-driven reactive architecture (EDRA) (2014) | Adaptive Agents and Multi-Agents Systems | 10.65109/mcsc5764
+- Reactive object queries: consistent views in object-oriented languages (2016) | None | 10.1145/2892664.2892665
+- AllenRV: An Extensible Monitor for Multiple Complex Specifications with High Reactivity (2019) | Lecture notes in computer science | 10.1007/978-3-030-32079-9_24
+- Arsenic Tolerance and Signaling Mechanisms in Plants (2020) | Springer eBooks | 10.1007/978-3-030-45669-6_15
+- Models and methods of cerebrovascular reactivity mapping (2025) | Oxford University Research Archive (ORA) (University of Oxford) | 10.5287/ora-ozeo67kgo
+- Reduction of ASR expansion in concretes based on reactive chert aggregates: Effect of alkali neutralisation capacity (2014) | Construction and Building Materials | 10.1016/j.conbuildmat.2013.12.036
+- Development of thermal barrier coatings using reactive pulsed dc magnetron sputtering for thermal protection of titanium alloys (2020) | Surface and Coatings Technology | 10.1016/j.surfcoat.2020.126377
+- Effect of different sport environments on proactive and reactive motor inhibition: A study on open- and closed-skilled athletes via mouse-tracking procedure (2022) | Frontiers in Psychology | 10.3389/fpsyg.2022.1042705
+- ReactHuman: A Physics-Grounded Benchmark for Human-Like Reactive Decision-Making in Embodied Multimodal LLMs (2026) | arXiv (Cornell University) | 10.48550/arxiv.2609.10895
+- Stable genetic loci orchestrate redox networks and grain traits in polyploid wheat (Triticum aestivum L.) under combined salinity and drought stress (2025) | Molecular Genetics and Genomics | 10.1007/s00438-025-02310-1
+- EarSonar: An Acoustic Signal-Based Middle-Ear Effusion Detection Using Earphones (2023) | IEEE International Conference on Distributed Computing Systems (ICDCS) | 10.1109/icdcs57875.2023.00082
+- The rice transcription factor S40-14 regulates chloroplast and reactive oxygen species–related gene networks and promotes dark-induced leaf senescence (2025) | PLANT PHYSIOLOGY | 10.1093/plphys/kiaf296
+- StreamPro: From Reactive Perception to Proactive Decision-Making in Streaming Video (2026) | arXiv (Cornell University) | 10.48550/arxiv.2605.16381
+- Stable iron isotope signals indicate a “pseudo-abiotic” process driving deep iron release in methanic sediments (2025) | Biogeosciences | 10.5194/bg-22-1673-2025
+- Midfrontal Theta Activity in Psychiatric Illness: An Index of Cognitive Vulnerabilities Across Disorders (2021) | Biological Psychiatry | 10.1016/j.biopsych.2021.08.020
+- Retained Memory after UI Subscription Churn: Reproducibility Artifact (2026) | Zenodo (CERN European Organization for Nuclear Research) | 10.5281/zenodo.21725298
+- Patterns of ROS Accumulation in the Stigmas of Angiosperms and Visions into Their Multi-Functionality in Plant Reproduction (2016) | Frontiers in Plant Science | 10.3389/fpls.2016.01112
+- MNSML: Minimal Namespace and State Management Library for Flutter (2026) | Zenodo (CERN European Organization for Nuclear Research) | 10.5281/zenodo.19728037
+- Epigenetic modulation of FKBP12-dependent pathways in drought-induced oxidative stress resilience in upland rice genotypes (2026) | Elsevier eBooks | 10.1016/b978-0-443-33465-8.00025-6
+- Methanogenic Archaea as Catalysts for Magnetite Formation in Iron‐Rich Marine Sediments (2024) | Journal of Geophysical Research Solid Earth | 10.1029/2023jb028312
+- PROTEUS (2013) | International Conference on Mobile Systems, Applications, and Services | 10.1145/2462456.2464453
+- Molecular and Physiological Regulation of Premature Leaf Senescence in Rice (2026) | Plants | 10.3390/plants15060869
+- Vector Acoustic Analysis of Time-Separated Modal Arrivals From Explosive Sound Sources During the 2017 Seabed Characterization Experiment (2019) | IEEE Journal of Oceanic Engineering | 10.1109/joe.2019.2902500
+- Physiological and molecular mechanisms of drought adaptation in foxtail millet: insights and future perspectives (2025) | Frontiers in Plant Science | 10.3389/fpls.2025.1701035
+

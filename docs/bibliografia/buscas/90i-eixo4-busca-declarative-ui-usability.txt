@@ -1,0 +1,30 @@
+# Quarto ciclo (tcc-t81w, 2026-10-26), eixo 4: consulta 'declarative user interface usability study', desde 2013
+# Comando: python3 buscar_literatura.py buscar "declarative user interface usability study" --desde 2013 --n 25
+# OpenAlex: 319 resultados no OpenAlex (mostrando 25, ordem: relevancia)
+
+## consulta 'declarative user interface usability study', desde 2013: 25
+- A framework for programmatically designing user interfaces in JavaScript (2015) | International Journal of Pervasive Computing and Communications | 10.1108/ijpcc-03-2015-0014
+- Task-Centric User Interfaces (2014) | UWSpace (University of Waterloo) | sem
+- Declarative interfaces for HEP data analysis: FuncADL and ADL/CutLang (2023) | Journal of Physics Conference Series | 10.1088/1742-6596/2438/1/012075
+- Using React for Creating Interactive user Interface Elements (2026) | Bulletin of Science and Practice | 10.33619/2414-2948/124/13
+- Prototyping an End-User User Interface for the Solid Application Interoperability Specification Under GDPR (2023) | Lecture notes in computer science | 10.1007/978-3-031-33455-9_33
+- Effects of Gender and Semantics on Auditory Displays: An Exploratory Study on User Interface Design (2022) | [ ] With Design: Reinventing Design Modes | 10.1007/978-981-19-4472-7_95
+- Unified Web Application Development - A Declarative Approach to Empower End-User Developers (2018) | None | sem
+- User Interface (UI) Design and User Experience Questionnaire (UEQ) Evaluation of a To-Do List Mobile Application to Support Day-To-Day Life of Older Adults (2022) | Healthcare | 10.3390/healthcare10102068
+- Framework for the declarative implementation of native mobile applications (2013) | IET Software | 10.1049/iet-sen.2012.0194
+- Multiple Schema-Conformant Declarative Code Generation (2025) | IEEE/ACM International Conference on Automated Software Engineering (ASE) | 10.1109/ase63991.2025.00344
+- Towards Usable End-user Authentication (2014) | e-Publications@Marquette (Marquette University) | sem
+- React JS: A Comprehensive Study of an Open-Source JavaScript Library for Building Modern User Interfaces (2026) | International Journal of Computer Information Systems and Industrial Management Applications | 10.70917/ijcisim-2026-4176
+- Declarative Framework for Semantical Interpretations of Structured Information — An Applicative Approach (2017) | International Journal of Semantic Computing | 10.1142/s1793351x17400189
+- PENERAPAN METODE LEAN UX PADA PERBAIKAN DESAIN USER INTERFACE SITUS WEBSITE PROFIL MADRASAH ALIYAH NEGERI 1 SITUBONDO (2025) | UMM Institutional Repository (University of Maine at Machias) | sem
+- FORMALIZED UIDSL LANGUAGE FOR ADAPTIVE INTERFACE GENERATION USING LLM (2025) | Naukovyi visnyk Donetskoho natsionalnoho tekhnichnoho universytetu | 10.31474/2415-7902-2025-2-15-137-146
+- Study of Eye-Glance Input Interface (2013) | Lecture notes in computer science | 10.1007/978-3-642-39330-3_24
+- A natural language interface for querying general and individual knowledge (2015) | Proceedings of the VLDB Endowment | 10.14778/2824032.2824042
+- Comparative Analysis of the Impact of Declarative and Imperative Programming Approaches on Android Application Performance Through Benchmarking Method (2025) | Journal Research of Social Science Economics and Management | 10.59141/jrssem.v5i5.1231
+- Modeling Multimodal-Multiuser Interactions in Declarative Multimedia Languages (2019) | ACM Symposium on Document Engineering (DocEng) | 10.1145/3342558.3345400
+- Liquid Glass Effect in Modern Web Interfaces: The Impact of Visual Trend on User Experience (2026) | Bulletin of Science and Practice | 10.33619/2414-2948/125/13
+- Automation in Software Performance Engineering Based on a Declarative Specification of Concerns (2019) | Online Publication Service of Würzburg University (Würzburg University) | 10.25972/opus-18090
+- From Navigation to Intention: Reframing the Web Experience through Goal-Driven Interfaces (2026) | International World Wide Web Conference (WWW) | 10.1145/3774904.3792479
+- Uvis: A Formula-Based End-User Tool for Data Visualization (2020) | IEEE Access | 10.1109/access.2020.3002591
+- Empowering End-Users: An Intuitive Framework for Service Composition and Adaptation in Pervasive Environments (2025) | SSRN Electronic Journal | 10.2139/ssrn.5295800
+- A physical learning companion for Mental-Imagery BCI User Training (2019) | International Journal of Human-Computer Studies | 10.1016/j.ijhcs.2019.102380

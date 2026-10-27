@@ -1,0 +1,30 @@
+# Quarto ciclo (tcc-t81w, 2026-10-26), eixo 4: consulta 'reactive programming controlled experiment', desde 2013
+# Comando: python3 buscar_literatura.py buscar "reactive programming controlled experiment" --desde 2013 --n 25
+# OpenAlex: 1114 resultados no OpenAlex (mostrando 25, ordem: relevancia)
+
+## consulta 'reactive programming controlled experiment', desde 2013: 25
+- RDBG: a Reactive Programs Extensible Debugger (2016) | HAL | sem
+- Interactive Music and Synchronous Reactive Programming (2020) | The Art Science and Engineering of Programming | 10.22152/programming-journal.org/2021/5/2
+- Comparative analysis of reactive programming and Java virtual threads (2026) | Journal of Computer Sciences Institute | 10.35784/jcsi.9409
+- Sequence-of-Constraints MPC: Reactive Timing-Optimal Control of Sequential Manipulation (2022) | IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS) | 10.1109/iros47612.2022.9982236
+- Control Rod Calibration Experiment (2024) | Springer eBooks | 10.1007/978-981-97-8070-9_4
+- Experimental investigation into effects of high reactive fuel on combustion and emission characteristics of the Diesel - Natural gas Reactivity Controlled Compression Ignition engine (2019) | Applied Energy | 10.1016/j.apenergy.2019.01.256
+- ReMoSPLAT: Reactive Mobile Manipulation Control on a Gaussian Splat (2025) | arXiv (Cornell University) | 10.48550/arxiv.2512.09656
+- Reactive planar non-prehensile manipulation with hybrid model predictive control (2020) | The International Journal of Robotics Research | 10.1177/0278364920913938
+- Code-as-Monitor: Constraint-aware Visual Programming for Reactive and Proactive Robotic Failure Detection (2025) | IEEE Computer Society Conference on Computer Vision and Pattern Recognition/Proceedings - IEEE Computer Society Conference on Computer Vision and Pattern Recognition/Proceedings | 10.1109/cvpr52734.2025.00649
+- Exploring Kinodynamic Fabrics for Reactive Whole-Body Control of Underactuated Humanoid Robots (2023) | IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS) | 10.1109/iros55552.2023.10342091
+- Design Principles for Multinary Metal Chalcogenides: Toward Programmable Reactivity in Energy Conversion (2021) | Chemistry of Materials | 10.1021/acs.chemmater.1c01983
+- Conformational Control of Chemical Reactivity for Surface‐Confined Ru‐Porphyrins (2021) | Angewandte Chemie International Edition | 10.1002/anie.202104075
+- Optimal reactive power and voltage control in distribution networks with distributed generators by fuzzy adaptive hybrid particle swarm optimisation method (2015) | IET Generation Transmission & Distribution | 10.1049/iet-gtd.2014.1059
+- Programming electrophotochemical selectivity through feedback-controlled synchronization (2026) | ChemRxiv | 10.26434/chemrxiv.15005910/v1
+- FC + TCR-Type Symmetrical Follow-Up Compensator of the Fundamental Harmonic Reactive Power—Analysis and Experiment (2016) | Studies in systems, decision and control | 10.1007/978-3-319-45735-2_14
+- Control of doxorubicin-induced, reactive oxygen-related apoptosis by glutathione peroxidase 1 in cardiac fibroblasts (2019) | Biochemistry and Biophysics Reports | 10.1016/j.bbrep.2019.100709
+- The plyometric treatment effects on change of direction speed and reactive agility in young tennis players: a randomized controlled trial (2023) | Frontiers in Physiology | 10.3389/fphys.2023.1226831
+- Vision-Based Reactive Planning for Aggressive Target Tracking While Avoiding Collisions and Occlusions (2018) | IEEE Robotics and Automation Letters | 10.1109/lra.2018.2856526
+- A Large-scale Reactive Power Optimization Method Based on Gaussian Penalty Function With Discrete Control Variables (2013) | Proceedings of the CSEE | sem
+- Multi-Priority Reactive Motion Control for Safe and Coordinated Dual-Arm Manipulation in Dynamic Environments (2026) | IEEE Robotics and Automation Letters | 10.1109/lra.2026.3686598
+- Conformational Control of Chemical Reactivity for Surface‐Confined Ru‐Porphyrins (2021) | Angewandte Chemie | 10.1002/ange.202104075
+- Coordination of Multiple Dynamic Programming Policies for Control of BipedalWalking (2013) | None | 10.1184/r1/6715388
+- Reactive control scheme based on fuzzy behaviors for mobile robot (2020) | Revista Politécnica | 10.33571/rpolitec.v16n31a1
+- Optimal HVAC Control for Demand Response via Chance-Constrained Two-Stage Stochastic Program (2020) | IEEE Transactions on Smart Grid | 10.1109/tsg.2020.3037668
+- Pebble Fuel Handling and Reactivity Control for Salt-Cooled High Temperature Reactors (2015) | None | 10.2172/1179799

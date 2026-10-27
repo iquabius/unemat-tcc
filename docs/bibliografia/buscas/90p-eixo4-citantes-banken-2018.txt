@@ -1,0 +1,33 @@
+# Quarto ciclo (tcc-t81w, 2026-10-26), eixo 4: iteração 2, citantes de Banken, Meijer e Gousios (2018, ICSE), depuração da PR
+# Comando: python3 buscar_literatura.py citantes 10.1145/3180155.3180156 --todos
+# OpenAlex: Total: 28 (mostrando 28)
+
+## iteração 2, citantes de Banken, Meijer e Gousios (2018, ICSE), depuração da PR: 28
+- Reactors: A Deterministic Model for Composable Reactive Systems (2020) | Lecture notes in computer science | 10.1007/978-3-030-41131-2_4
+- Distributed system development with ScalaLoci (2018) | Proceedings of the ACM on Programming Languages | 10.1145/3276499
+- On the Semantics of Distributed Reactive Programming: The Cost of Consistency (2018) | IEEE Transactions on Software Engineering | 10.1109/tse.2018.2833109
+- Software Fault Localization: an Overview of Research, Techniques, and Tools (2023) | None | 10.1002/9781119880929.ch1
+- Would you like a quick peek? providing logging support to monitor data processing in big data applications (2021) | ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE) | 10.1145/3468264.3468613
+- Lorgnette: Creating Malleable Code Projections (2023) | ACM Symposium on User Interface Software and Technology (UIST) | 10.1145/3586183.3606817
+- Automated Refactoring to Reactive Programming (2019) | IEEE/ACM International Conference on Automated Software Engineering (ASE) | 10.1109/ase.2019.00082
+- Inline Tests (2022) | IEEE/ACM International Conference on Automated Software Engineering (ASE) | 10.1145/3551349.3556952
+- Mining the usage of reactive programming APIs (2022) | International Conference on Mining Software Repositories (MSR) | 10.1145/3524842.3527966
+- An approach for persistent time-varying values (2019) | ACM SIGPLAN International Symposium on New Ideas, New Paradigms, and Reflections on Programming and Software (Onward!) | 10.1145/3359591.3359730
+- Reactive programming experience with REScala (2018) | International Conference on Art, Science, and Engineering of Programming (<Programming>) | 10.1145/3191697.3214337
+- Understanding the Challenges and Assisting Developers with Developing Spark Applications (2021) | ACM/IEEE International Conference on Software Engineering: Companion Proceedings (ICSE-Companion) | 10.1109/icse-companion52605.2021.00057
+- Topology-Level Reactivity in Distributed Reactive Programs (2022) | The Art Science and Engineering of Programming | 10.22152/programming-journal.org/2022/6/14
+- DeSQL: Interactive Debugging of SQL in Data-Intensive Scalable Computing (2024) | Proceedings of the ACM on software engineering. | 10.1145/3643761
+- Preserving Reactiveness: Understanding and Improving the Debugging Practice of Blocking-Call Bugs (2024) | ACM SIGSOFT International Symposium on Software Testing and Analysis (ISSTA) | 10.1145/3650212.3680319
+- Poker: visual instrumentation of reactive programs with programmable probes (2021) | None | 10.1145/3486605.3486785
+- On the Importance and Shortcomings of Code Readability Metrics: A Case Study on Reactive Programming (2021) | arXiv (Cornell University) | 10.48550/arxiv.2110.15246
+- Visualization for Computer Program: A Survey (2023) | Journal of Computer-Aided Design & Computer Graphics | 10.3724/sp.j.1089.2023.19893
+- Causality Error Tracing in HipHop.js (2021) | International Symposium on Principles and Practice of Declarative Programming (PPDP) | 10.1145/3479394.3479408
+- Block-based or graph-based? Why not both? Designing a hybrid programming environment for end-users (2025) | Interacting with Computers | 10.1093/iwc/iwaf028
+- Suspend-Less Debugging for Interactive and/or Realtime Programs (2019) | None | 10.1109/icst.2019.00028
+- COMPARAÇÃO DOS MODELOS REACTIVEX E PROGRAMAÇÃO REATIVA ESTRUTURADA EM APLICAÇÕES SOFT REAL TIME (2021) | None | 10.17771/pucrio.acad.53553
+- Semantics of RxJS (2022) | None | 10.1145/3563837.3568340
+- Dbux-PDG: An Interactive Program Dependency Graph for Data Structures and Algorithms (2022) | IEEE Working Conference on Software Visualization (VISSOFT) | 10.1109/vissoft55257.2022.00022
+- Extensible Tooling for Reactive Programming Based on Active Expressions. (2024) | The Journal of Object Technology | 10.5381/jot.2024.23.1.a4
+- Projecting Computer Languages for a Protean Interaction (2024) | None | 10.70675/a8b3c410zb7d6z40a1z8398z6d386e64da0a
+- HookLens: Visual Analytics for Understanding React Hooks Structures (2026) | IEEE Pacific Visualization Conference (PacificVis) | 10.1109/pacificvis68791.2026.00036
+- Escaping the DAG Dogma: Toward Modular Reactive Architectures (2026) | ACM SIGPLAN International Symposium on New Ideas, New Paradigms, and Reflections on Programming and Software (Onward!) | 10.1145/3840586.3843206

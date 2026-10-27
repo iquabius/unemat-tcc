@@ -16,6 +16,9 @@ interfaces: a lacuna se mantém
 rodada"), e a terceira fechou o laço sem trabalho novo na segunda
 iteração; no Google Acadêmico, consultado em 2026-10-13, os citantes de
 Kiss (2014) e do 7GUIs não trouxeram incluído (seção "Terceira rodada").
+O quarto ciclo, de 2026-10-26, não toca a lacuna: busca os contras dos
+modelos declarativos, que a problematização dos *callbacks* não dizia, e
+achou 36 trabalhos (seção "Quarto ciclo").
 
 **Fontes centrais.** Nenhuma: o protocolo se apoia em Wohlin (2014,
 `wohlin2014`, `apoio`), para o *snowballing*. As centrais que a busca
@@ -29,7 +32,8 @@ contagem de citações ficaram; para reler um resumo,
 `docs/literatura.md` foram conferidos no Crossref e no `doi.org`. A
 segunda rodada, de 2026-10-02, tem as saídas nos arquivos 69 a 79 da
 mesma pasta (seção "Segunda rodada"), e a terceira, de 2026-10-09, nos
-arquivos 80 a 86 (seção "Terceira rodada"). As ações que a revisão pediu
+arquivos 80 a 86 (seção "Terceira rodada"), e o quarto ciclo, de
+2026-10-26, nos arquivos 87a a 91i (seção "Quarto ciclo"). As ações que a revisão pediu
 estão nas tarefas do `bd`.
 
 ## Protocolo e primeira rodada
@@ -290,6 +294,100 @@ Limitações:
   Svelte por desempenho, pelo resumo) e uma tese sueca sobre DCs (DiVA
   diva2:1632735), cuja página recusou a conexão.
 
+## Quarto ciclo
+
+Em 2026-10-26, para a tarefa tcc-t81w.
+
+O ciclo achou 36 trabalhos que registram contras dos modelos
+declarativos, que o texto não dizia; seis foram conferidos no PDF. O
+comportamento implícito e a depuração difícil têm fontes
+independentes, e o React ganhou fontes próprias. Nenhum estudo achado
+mostra o declarativo perdendo para o imperativo em interfaces, e o único
+empate é o de Salvaneschi et al. (2017), já no texto. Os contras e os
+trechos estão em
+`docs/contras-dos-modelos-declarativos.md`.
+
+- **Motivo.** A introdução e o capítulo de programação criticam o
+  *callback* e quase não dizem custo dos modelos declarativos
+  (`docs/contras-dos-modelos-declarativos.md`, seção "O desequilíbrio no
+  texto").
+- **Perguntas.** Q1, que custos dos modelos declarativos de interface a
+  literatura registra; Q2, quais problemas atribuídos ao *callback*
+  reaparecem neles; Q3, em que estudos empíricos o declarativo empata ou
+  perde para o imperativo.
+- **Critérios**, os do plano do ciclo, com as três decisões do autor de
+  2026-10-26 (só literatura revisada por pares, o eixo do Brasil e o
+  começo em 2013):
+  - I1, revisado por pares, tese ou dissertação, sem literatura cinzenta;
+  - I2, trata de custo, limitação, erro ou dificuldade de depurar, de
+    entender ou de aprender da PR, dos *signals*, da re-renderização ou
+    da PF aplicada à interface ou à compreensão de programas;
+  - I3, inglês ou português, de 2013 em diante, o ano de Bainomugisha et
+    al., salvo fonte seminal;
+  - E1, só desempenho; E2, só servidor; E3, propõe linguagem ou
+    biblioteca nova sem avaliar o custo do modelo.
+- **Eixos**, um subagente por eixo, com as sementes:
+  1. PR e *signals*: os citantes de Bainomugisha et al. (2013), filtrados
+     por termo, e de Salvaneschi e Mezini (2016), Banken, Meijer e
+     Gousios (2018) e Alabor e Stolze (2020);
+  2. re-renderização: Lee, Ahn e Yi (2025), Madsen, Lhoták e Tip (2020)
+     e Sperber e Schlegel (2025), nos dois sentidos;
+  3. PF: Zampetti et al. (2025) para trás, Mehlhorn e Hanenberg (2022) e
+     Perez Dominguez (2018);
+  4. estudos empíricos e por DCs: Salvaneschi et al. (2017 e 2014),
+     Zimmerle e Gama (2025), Kambona et al. (2013) e Grolaux et al.
+     (2026) para trás;
+  5. Brasil: BDTD e SBC-OpenLib, em português e em inglês.
+- **Bases.** OpenAlex (citantes, referências e palavras-chave), BDTD,
+  SBC-OpenLib pelo prefixo 10.5753, Crossref e Semantic Scholar para os
+  resumos e os citantes que o OpenAlex não deu, arXiv e os sites dos
+  autores para o texto completo.
+- **Saídas.** `buscas/87a` a `91i`, sem resumos.
+
+Etapas e registros:
+
+| Eixo | Consultas | Registros, com duplicatas | Triados pelo resumo | Incluídos |
+|---|---|---|---|---|
+| 1, PR e *signals* (`buscas/87a` a `87e`) | 24 | 518 | 45 | 12 |
+| 2, re-renderização (`buscas/88a` a `88f`) | 30 | 547 | cerca de 30 | 8 |
+| 3, PF (`buscas/89a` a `89g`) | 27 | 403 | cerca de 40 | 11 |
+| 4, estudos empíricos (`buscas/90a` a `90p`) | 18 | 370 | cerca de 45 | 9 |
+| 5, Brasil (`buscas/91a` a `91i`) | 83 | 804 | cerca de 42 | 12 |
+| Total | 182 | 2.642 | cerca de 200 | 52; 36 sem as duplicatas |
+
+- **A cota do OpenAlex.** Esgotou às 22h39 UTC de 2026-10-26 (HTTP 429).
+  As sete consultas cortadas rodaram às 00h26 UTC de 2026-10-27, com 169
+  registros e nenhum incluído novo (`buscas/87e`, `88f` e `91i`); estão
+  na tabela acima.
+- **Duplicatas.** Os 52 incluídos dos cinco eixos são 36 trabalhos. Três
+  já estavam no `refs.bib`: Salvaneschi e Mezini (2016,
+  `salvaneschi2016`), semente do eixo 1, Zimmerle et al. (2022,
+  `zimmerle2022`) e Farias, Zimmerle e Gama (2024, `farias2024`), que o
+  segundo ciclo já tinha achado. Lucas et al. (2019 e 2020), do eixo 3,
+  são provavelmente a versão publicada da dissertação de Mendonça (2019),
+  já conhecida.
+- **Textos completos conferidos pelo agente principal**, com a cópia em
+  `acervo/` e a linha em `acervo/procedencia.tsv`: Ramson et al. (2024),
+  Farias, Zimmerle e Gama (2024), Hwang et al. (2026), Zid et al. (2024),
+  a tese de Ferreira (2023) e Khalili et al. (2026), este baixado pelo
+  autor, porque a ACM bloqueia o download automático.
+
+Limitações:
+
+- a triagem e as leituras de texto completo fora das seis acima foram dos
+  subagentes, e as afirmações vindas delas estão marcadas "só pelo
+  resumo" na nota dos contras;
+- o filtro "usability" nos citantes de Bainomugisha et al. não
+  restringiu: devolveu 147 dos citantes;
+- três trabalhos ficaram sem resumo e sem triagem: Nielebock, Heumüller e
+  Ortmeier (2018, EMSE), Zuilhof, van Hees e Grelck (2023, LNCS) e Naves
+  (2021, PUC-Rio); o resumo de Kurniaji, Nugroho e Islam (2023, CSIT)
+  veio cortado antes dos resultados;
+- dois *preprints* ficaram fora pelo I1 e merecem a versão revisada,
+  quando sair: Wunder, Das e Gaboardi (2026, arXiv 2607.27074), sobre
+  leituras obsoletas e inconsistências transitórias no React, e Holst e
+  Dobslaw (2021, arXiv 2110.15246).
+
 ## Vistos e descartados
 
 *React: a detailed survey* (IJEECS, 2022): descritivo, veículo fraco. Holst &
@@ -344,4 +442,7 @@ ganhou o nome de agora, a lacuna foi para
 `docs/trabalhos-relacionados-e-lacuna.md`, e vieram de
 `docs/fundamentacao.md` a matriz tema × referência e os incluídos de
 prioridade alta da primeira rodada. Em 2026-10-16, foi para
-`docs/bibliografia/`, com as outras notas de fontes de apoio.
+`docs/bibliografia/`, com as outras notas de fontes de apoio. Em
+2026-10-26, ganhou a seção "Quarto ciclo", já com o termo do
+`GLOSSARY.md` (verbete "Ciclo de busca"); as seções das três primeiras
+continuam com "rodada" até a tarefa tcc-adhv.

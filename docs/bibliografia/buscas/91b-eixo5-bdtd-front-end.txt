@@ -1,0 +1,172 @@
+# Quarto ciclo (tcc-t81w, 2026-10-26), eixo 5: BDTD, React, frameworks front-end, estado e SPA
+
+Comando de cada consulta: python3 ~/.claude/skills/escrita-academica/scripts/buscar_literatura.py bdtd "<termos>" --desde 2013 --n 30 (resumos tirados ao gravar)
+
+## "React JavaScript": 10 resultados, 10 listados
+- Assisting JavaScript Front-End Developers in Maintaining and Evolving React-Based Applications: Code Smells and Refactoring Operations (2023) | Fábio da Silva Ferreira — UFMG [tese] | https://hdl.handle.net/1843/59120
+- Arquitetura de micro-frontends baseada em princípios de microsserviços para o PDSA - RS (2024) | Perlin, Rodrigo — UFSM [dissertação] | http://repositorio.ufsm.br/handle/1/33555
+- Desenvolvimento de aplicativo para captura de imagens de pé diabético (2021) | Monteiro, Fabio Teixeira — UECE [dissertação] | https://siduece.uece.br/siduece/trabalhoAcademicoPublico.jsf?id=101257
+- Proposta e construção de aplicativo para estimulação neuropsimotora domiciliar de bebês prematuros assistidos pelo SUS (2020) | SOUZA, Aline Silveira Leite de — UCPEL [dissertação] | http://tede.ucpel.edu.br:8080/jspui/handle/jspui/868
+- Cuidados com a amamentação do bebê prematuro junto aos pais: desenvolvimento e validação de um aplicativo mobile (2023) | Becker, Ligia de Lazzari Mazzo — USP [tese] | —
+- Aplicação de inteligência artificial (IA) na prevenção de incidentes à pacientes em serviços hospitalares (2023) | Ribeiro, Cristiano Drumond — UNB [dissertação] | http://repositorio.unb.br/handle/10482/49999
+- Desenvolvimento da plataforma MAUT-I e implementação do aplicativo para cálculo da qualidade de uso de mídias interativas na primeira infância (2024) | Fernandes, Anderson Matos — UFVJM [tese] | https://acervo.ufvjm.edu.br//handle/123456789/3545
+- Desenvolvimento de um software online de gerenciamento de controle de estoque interno para laboratórios (2023) | Arruda, Clara Fumes [UNESP] — UNESP [dissertação] | http://hdl.handle.net/11449/242758
+- Wid - wise infant development: software para o ensino na avaliação do desenvolvimento infantil do lactente. (2020) | Melo, Wesley Soares de — UNILAB [dissertação] | https://repositorio.unilab.edu.br/jspui/handle/123456789/2029
+- Análise do impacto de Programas de Pós-Graduação em Biotecnologia: abordagem utilizando indicadores de empregabilidade fornecidos por egressos (2024) | Desiderio, Tamiris Mariani Pereira [UNESP] — UNESP [tese] | https://hdl.handle.net/11449/256628
+
+## "frameworks front-end": 6 resultados, 6 listados
+- Assisting JavaScript Front-End Developers in Maintaining and Evolving React-Based Applications: Code Smells and Refactoring Operations (2023) | Fábio da Silva Ferreira — UFMG [tese] | https://hdl.handle.net/1843/59120
+- HyMobWeb: uma abordagem para a adaptação híbrida de interfaces Web móveis sensíveis ao contexto e com suporte à multimodalidade (2017) | Bueno, Danilo Camargo — UFSCAR [dissertação] | https://repositorio.ufscar.br/handle/20.500.14289/9157
+- Catálogo e ferramenta de detecção de Bad smells de desempenho em sistemas React (2023) | Barros, Aryclenio Xavier — UFRN [dissertação] | https://repositorio.ufrn.br/handle/123456789/54772
+- A framework for fast architecture exploration of convolutional neural network accelerators (2022) | Juracy, Leonardo Rezende — PUC_RS [tese] | https://tede2.pucrs.br/tede2/handle/tede/10437
+- Identifying and evaluating hard skills of software developers from source code analysis (2023) | Johnatan Alves de Oliveira — UFMG [tese] | https://hdl.handle.net/1843/59367
+- Aprimorando a Modularidade e a Manutenibilidade no Framework EUL por meio da Seleção Dinâmica de Componentes (2024) | Lima, Mariany Morais Silva — USP [dissertação] | —
+
+## "React hooks": 8 resultados, 8 listados
+- Uma prosa curta num fio: violência e feminino em contos de Mia Couto (2022) | Rodrigues, Etiene Mendes — UEPB [tese] | https://repositorio.uepb.edu.br/handle/123456789/73459
+- O não-saber na prática docente: vozes, emoções e perspectivas de professores de línguas (2025) | Dal-cin Santolin, Ana Victória — UFV [dissertação] | https://locus.ufv.br/handle/123456789/35232
+- Aplicativo de gerenciamento logístico de distribuição de cadeiras de rodas infantis de baixo custo (2022) | Lima, Anderson da Silva [UNIFESP] — UNIFESP [dissertação] | https://repositorio.unifesp.br/handle/11600/65868
+- A maloca do Pela Porco: dinâmicas de sobrevivência de usuários-catadores num espaço do centro de Salvador (2024) | Rocha, Edicarla Macêdo da — UFBA [dissertação] | https://repositorio.ufba.br/handle/ri/40816
+- Interseccionalizando a epistemologia feminista: olhares em torno das narrativas do crime de feminicídio em Belém do Pará (2006 – 2020) (2022) | Dias, Ana Doroteia Santos — UFBA [dissertação] | https://repositorio.ufba.br/handle/ri/36702
+- Para além dos contos de fada: princesas Disney e concepções de gênero na perspectiva de adolescentes (2024) | Mikulski, Carla Magalhães — UFBA [dissertação] | https://repositorio.ufba.br/handle/ri/39849
+- O dia seguinte das mães de santo: efeitos do racismo religioso após depredações dos terreiros e violações do sagrado (2020) | Novaes, Luziara Miranda de — UFRRJ [dissertação] | https://rima.ufrrj.br/jspui/handle/20.500.14407/13251
+- Léxico da marginalização: malandragem e ressignificação (2025) | Santos, Yuri Brito — UFBA [dissertação] | https://repositorio.ufba.br/handle/ri/41486
+
+## "gerenciamento de estado front-end": 3 resultados, 3 listados
+- Priorização das boas práticas de gerenciamento de projetos nas obras de uma universidade pública federal (2022) | DIAS, Hathos Garcia — UNIFEI [dissertação] | https://repositorio.unifei.edu.br/jspui/handle/123456789/3461
+- Biblioteca, API e IDE para o desenvolvimento de projetos de metodologias de Ressonância Magnética (2014) | Pizetta, Daniel Cosmo — USP [dissertação] | —
+- Clínica vegetal na palma da mão: plataforma para diagnóstico fitossanitário (2022) | Santos, Fernanda Balbino Garcia dos — UFRRJ [dissertação] | https://rima.ufrrj.br/jspui/handle/20.500.14407/16076
+
+## "Redux": 12 resultados, 12 listados
+- Euro Crisis Redux? Debt Sustainability of the PIIGS Countries (2023) | Garcez, João Gabriel Rodrigues — FGV [dissertação] | https://hdl.handle.net/10438/34498
+- Proposta de uma arquitetura de gerenciamento de estados para as aplicações frontend do Tribunal de Contas do Estado do Rio Grande do Norte (2022) | Almeida, Vitor Araújo de — UFRN [dissertação] | https://repositorio.ufrn.br/handle/123456789/48385
+- Transmissão dos efeitos de política fiscal : uma análise "New Open Economy Macroeconomics" (2016) | Schlögl, Bruno — UFPR [dissertação] | http://hdl.handle.net/1884/42420
+- Revisão taxonômica e análise filogenética de Basiceros Schulz, 1906 (Formicidae, Myrmicinae, Basicerotini) (2015) | Probst, Rodolfo da Silva — USP [dissertação] | —
+- AgDataBox-Map 5.0: modernização do front-end – migração de Angular para React com foco em desempenho, manutenibilidade e paridade funcional (2025) | Bellincanta Filho, Nelson — UNIOESTE [tese] | https://tede.unioeste.br/handle/tede/8291
+- Interpretação sísmica e geocronológica do magmatismo na porção centro-norte da Bacia do Parnaíba, Brasil (2020) | Michelon, Diogo — UERJ [dissertação] | http://www.bdtd.uerj.br/handle/1/19815
+- Eros e Dionísio: o problema da vontade em Freud e Nietzsche (2025) | Pêpe, Pedro Teixeira de Castro — UFBA [dissertação] | https://repositorio.ufba.br/handle/ri/42777
+- A construção da teoria e da prática da restauração ecológica e a emergência de novas perspectivas sobre as relações entre natureza(s) e sociedade(s) (2017) | Rodrigues, Daniel Delatin — UFRRJ [tese] | https://rima.ufrrj.br/jspui/handle/20.500.14407/9484
+- De soldado Medeiros à Maria Quitéria: a construção de uma memória histórica nos séculos XIX-XX. (2024) | Farias, Marianna Teixeira — UFBA [dissertação] | https://repositorio.ufba.br/handle/ri/41092
+- Morbimortalidade por COVID-19 no estado da Bahia: uma análise interseccional (2024) | Ferreira, Ricardo Bruno Santos — UFBA [tese] | https://repositorio.ufba.br/handle/ri/42172
+- Proposta de um Índice de Qualidade da Estrutura da Remuneração da Alta Administração alinhado às melhores práticas de Governança Corporativa São Caetano do Sul 2025 (2025) | Teixeira, Edilson Gonçalves — USCS [tese] | https://repositorio.uscs.edu.br/handle/123456789/1515
+- Ativismos alimentares do sul e do norte global: MST, slow food e os mundos da crítica em torno da alimentação. (2024) | Tanaka, Jennifer Harumi — UFRRJ [tese] | https://rima.ufrrj.br/jspui/handle/20.500.14407/23302
+
+## "callbacks JavaScript assíncrona": 0 resultados, 0 listados
+
+## "code smells React": 2 resultados, 2 listados
+- Catálogo e ferramenta de detecção de Bad smells de desempenho em sistemas React (2023) | Barros, Aryclenio Xavier — UFRN [dissertação] | https://repositorio.ufrn.br/handle/123456789/54772
+- Assisting JavaScript Front-End Developers in Maintaining and Evolving React-Based Applications: Code Smells and Refactoring Operations (2023) | Fábio da Silva Ferreira — UFMG [tese] | https://hdl.handle.net/1843/59120
+
+## "single page application": 152 resultados, 30 listados
+- Software developers' perceptions about angularjs (2016) | Miguel Esteban Ramos Montilla — UFMG [dissertação] | https://hdl.handle.net/1843/ESBF-A9UNBA
+- Seleção de scfv (single-chain variable fragment) contra proteínas totais de Strongyloides venezuelensis por Phage Display e sua aplicação na detecção sorológica de imunocomplexo na estrongiloidíase humana (2014) | Levenhagen, Marcelo Arantes — UFU [tese] | https://repositorio.ufu.br/handle/123456789/16599
+- Optimizing graph processing execution on NUMA machines (2024) | Rocha, Hiago Mayk Gomes de Araújo — UFRGS [tese] | http://hdl.handle.net/10183/280326
+- Memory circuit hardening to Multiple-Cell Upsets (2024) | Brendler, Leonardo Heitich — UFRGS [tese] | http://hdl.handle.net/10183/272054
+- O ensino de história nas escolas de turno único no município do Rio de Janeiro (2021) | Silva, Kelen Fernandes dos Santos — UFRRJ [dissertação] | https://rima.ufrrj.br/jspui/handle/20.500.14407/15015
+- Web (eternamente) revisitada : análise de vulnerabilidades web e de ferramentas de código aberto para exploração (2019) | Novaski Neto, David — UFPR [dissertação] | https://hdl.handle.net/1884/65693
+- Storage and Navigation Operations on Graphs in Relational DBMS (2021) | Scabora, Lucas de Carvalho — USP [tese] | —
+- Modelagem MDD de Frameworks SPA: uma evolução do método FrameWeb (2023) | Hoppe, Pedro Henrique Brunoro — UFES [dissertação] | http://repositorio.ufes.br/handle/10/12720
+- Produção de fitase por Rhizopus microsporus var. microsporus: purificação, caracterização bioquímica e aplicação (2015) | Sato, Vanessa Sayuri [UNESP] — UNESP [tese] | http://hdl.handle.net/11449/124519
+- Oligonucleotídeos: desenho, produção e aplicações (2017) | Nunes, Allan Roberto Dias — UFRN [dissertação] | https://repositorio.ufrn.br/jspui/handle/123456789/23160
+- Estudos de biodisponibilidade e biodistribuição do Amblyomin-X (2017) | Boufleur, Pamela [UNIFESP] — UNIFESP [dissertação] | https://sucupira.capes.gov.br/sucupira/public/consultas/coleta/trabalhoConclusao/viewTrabalhoConclusao.jsf?popup=true&id_trabalho=4924024
+- Purificação, caracterização e avaliação de atividade antifúngica e citotóxica da lectina de casca de Genipa americana (Jenipapo) (2018) | Costa, Ricardo Bezerra — UFAL [dissertação] | http://www.repositorio.ufal.br/handle/riufal/3034
+- Caracterização térmica por calorimetria exploratória diferencial (DSC) das frações ricas em glutenina do trigo (Triticum aestivum, cultivar BRS-Parrudo) obtidas por diferentes métodos de extração (2014) | Savi, Lizandra Kamradt — UFPR [dissertação] | https://hdl.handle.net/1884/37380
+- Estudo dos peptídeos pertencentes à família ICK presentes no veneno das aranhas do gênero Loxosceles (2015) | Matsubara, Fernando Hitomi — UFPR [tese] | https://hdl.handle.net/1884/43740
+- Caulobacter crescentus: caracterização, expressão heteróloga e aplicações biotecnológicas do gene celA (2019) | Bussler , Larissa — UNIOESTE [tese] | http://tede.unioeste.br/handle/tede/4478
+- Webfólio: uma estratégia para a formação de enfermeiros (2016) | Miranda, Fernanda Maria de — UFSCAR [dissertação] | https://repositorio.ufscar.br/handle/20.500.14289/7856
+- Purificação, caracterização e avaliação de atividade antimicrobiana de lectina de folha de Bixa orellana L. (2018) | AMORIM, Poliana Karla — UFPE [dissertação] | https://repositorio.ufpe.br/handle/123456789/33302
+- Caracterização estrutural da hemoglobina extracelular de Amynthas gracilis (HbAg) por diferentes técnicas biofísicas (2018) | Oliveira, Jonathan Brito Souza de [UNESP] — UNESP [dissertação] | http://hdl.handle.net/11449/154821
+- Expressão de anticorpos monoclonais anti-SARS-CoV2 em células CHO (2025) | Marsili, Federico Francisco — UFRJ [tese] | http://hdl.handle.net/11422/28988
+- Construção, caracterização e perfil biotecnológico do gene xynA2 de Caulobacter crescentus (2019) | Jacomini, Débora — UNIOESTE [tese] | http://tede.unioeste.br/handle/tede/4477
+- OneTrack - Modelos Baseados em Transformers e Eficientes em Tempo de Inferência para Rastreamento de Múltiplos Objeto (2024) | Araújo Filho, Luiz Carlos — UFAM [dissertação] | https://tede.ufam.edu.br/handle/tede/10421
+- Produção de biossurfactante por Streptomyces sp. isolado de liquens da região amazônica para aplicação como agente antifúngico (2013) | SANTOS, Ana Paula Pereira dos — UFRPE [dissertação] | http://www.tede2.ufrpe.br:8080/tede2/handle/tede2/4529
+- Produção e purificação da lipase de Burkholderia lata LBBIO-BL02, sua caracterização cinética e aplicação em reações de biocatálise de interesse farmacológico e industrial (2017) | Oliveira, Bruno Henrique de [UNESP] — UNESP [tese] | http://hdl.handle.net/11449/150568
+- Os precatórios e a justiça administrativa no Brasil, Chile, Espanha e Portugal (2019) | Tavares, Ernesto Alessandro, 1976- — UFPR [dissertação] | https://hdl.handle.net/1884/61457
+- Análise da gestão de resíduos sólidos em conjunto habitacional: um estudo no Villa das Jaqueiras, Jaboatão dos Guararapes, Pernambuco (2021) | Paz, José Oscar Gomes da — IFPE [dissertação] | https://repositorio.ifpe.edu.br/xmlui/handle/123456789/738
+- Fósforo, cobre e zinco em solos submetidos à aplicação de dejetos animais : teores formas e indicadores ambientais (2013) | Seganfredo, Milton Antonio — UFRGS [tese] | http://hdl.handle.net/10183/77002
+- Capital socioespacial e valorização imobiliária : uma análise baseada em modelos hedônicos de preços em Porto Alegre (RS) (2026) | Aguiar, Ramon Lucato de — UFRGS [tese] | http://hdl.handle.net/10183/312135
+- Seleção de leveduras vínicas autóctones produtoras da enzima b-glicosidade em mosto de uvas Vitis labrusca visando o aumento do teor de resveratrol livre (2016) | Gaensly, Fernanda — UFPR [tese] | https://hdl.handle.net/1884/44051
+- Cloud Stratus: uma plataforma de middleware para desenvolvimento de aplicações em nuvem (2015) | Alves, Gustavo Nogueira — UFRN [dissertação] | https://repositorio.ufrn.br/jspui/handle/123456789/19667
+- Isolamento e caracterização de bacteriófagos líticos para duas espécies de enterobatérias: salmonella esterica subespécie enterica e shigella sonnei (2020) | Almeida, Alex Santos de — UEA [dissertação] | https://ri.uea.edu.br/handle/riuea/2178
+
+## "AngularJS": 4 resultados, 4 listados
+- Software developers' perceptions about angularjs (2016) | Miguel Esteban Ramos Montilla — UFMG [dissertação] | https://hdl.handle.net/1843/ESBF-A9UNBA
+- Elaboração e desenvolvimento de aplicativo móvel para autocuidado e automonitoramento do pé diabético (2017) | Maria Fernanda Silveira Scarcella — UFMG [dissertação] | https://hdl.handle.net/1843/ANDO-AWCKNB
+- Prevenção do uso de álcool e outras drogas entre adolescentes : desenvolvimento e validação de um software para tecnologia móvel (2022) | CHAVES, Laura Cristhiane Mendonça Rezende — UFPE [tese] | https://repositorio.ufpe.br/handle/123456789/45248
+- Desenvolvimento de um aplicativo híbrido para projetar equipamentos de separação sólido-fluido no campo gravitacional e no campo centrífugo (2019) | LIMA, Giselle Marcelino de — UFTM [dissertação] | http://bdtd.uftm.edu.br/handle/tede/891
+
+## "Vue.js": 3 resultados, 3 listados
+- Ambientes de Realidade Virtual direcionados para a Educação Patrimonial: um Estudo de Caso aplicado na Virtualização do Museu de Arqueologia da UFMS (2023) | Carlos Henrique da Costa Silva — UFMS [dissertação] | https://repositorio.ufms.br/handle/123456789/7772
+- Manutenção de requisitos e casos de testes de software : uma abordagem para automatização da rastreabilidade (2025) | Vieira, Lucas Donizetti, 1999- — UNICAMP [dissertação] | https://hdl.handle.net/20.500.12733/38871
+- O Progressive Web Apps – PWA: como ferramenta para a produção audiovisual (2020) | Trindade, Patrícia Esteves [UNESP] — UNESP [dissertação] | http://hdl.handle.net/11449/194449
+
+## "Flutter": 123 resultados, 30 listados
+- Detecção de \"flutter\" por imageamento infravermelho (2014) | Bidinotto, Jorge Henrique — USP [tese] | —
+- [en] AERODYNAMIC CONTROL OF FLUTTER OF SUSPENSION BRIDGES (2019) | GILBERTO DE BARROS RODRIGUES LOPES — PUC_RIO [tese] | https://www.maxwell.vrac.puc-rio.br/colecao.php?strSecao=resultado&nrSeq=38403&idi=1
+- Active Flutter suppression including uncertainties (2023) | Ribeiro, Frederico Albuquerque [UNESP] — UNESP [tese] | https://hdl.handle.net/11449/252756
+- Obtenção dos coeficientes de flutter utilizando simulações via CFD (2021) | Sa, Lucas Lucinda de — UFJF [dissertação] | https://doi.org/10.34019/ufjf/di/2021/00366
+- Estudo da influência do amortecimento viscoelástico no fenômeno aeroelástico de Flutter (2014) | Martins, Polliana Cândida Oliveira — UFU [dissertação] | https://repositorio.ufu.br/handle/123456789/14978
+- Aplicação de materiais inteligentes para controle da instabilidade de whirl-flutter (2024) | Bastos, Sérvio Túlio Suenai Haramura [UNESP] — UNESP [dissertação] | https://hdl.handle.net/11449/256175
+- Desenvolvimento de um aplicativo utilizando o framework Flutter para acesso às informações das sessões de tomada de decisão relacionadas ao TCE-RN (2022) | Pereira Neto, João Matias — UFRN [dissertação] | https://repositorio.ufrn.br/handle/123456789/48336
+- Construção dos módulos de notícias e processos da aplicação mobile do TCE-RN (2022) | Gurgel, Yllan Vinícius Ferreira — UFRN [dissertação] | https://repositorio.ufrn.br/handle/123456789/48323
+- Análise de estabilidade aero-servo-viscoelástica no domínio da frequência e do tempo. (2020) | Martins, Polliana Cândida Oliveira — UNB [tese] | https://repositorio.unb.br/handle/10482/38484
+- Análise de estabilidade aero-servo-viscoelástica no domínio da frequência e do tempo. (2020) | Martins, Polliana Cândida Oliveira — UNB [tese] | https://riunbtainacan.unb.br/teses-e-dissertacoes/analise-de-estabilidade-aero-servo-viscoelastica-no-dominio-da-frequencia-e-do-tempo/
+- Gerador de energia a partir de vibrações em estruturas biestáveis induzidas pelo vento (2025) | Corrêa, Renan Franco — USP [tese] | —
+- Metodologia de análise modal de flutter com sensores piezelétricos em estruturas aeronáuticas (2013) | Almeida, Alexandre Simões de — USP [dissertação] | —
+- Desenvolvimento do módulo escola de contas do aplicativo móvel TCE RN digital (2022) | Alves Junior, Gilney de Azevedo — UFRN [dissertação] | https://repositorio.ufrn.br/handle/123456789/48357
+- Qualidade da anticoagulação em pacientes com fibrilação atrial e flutter atrial em Macapá - AP : impacto da estruturação de atendimento por eletrofisiologista (2025) | Rebelo, Álan Breno Ferreira — UFRGS [dissertação] | http://hdl.handle.net/10183/293588
+- Modelagem do fenômeno de flutter pela CFD de perfis retangulares com diferentes razões de aspecto (2023) | Fronczak, Juliema — UFJF [dissertação] | https://repositorio.ufjf.br/jspui/handle/ufjf/15423
+- Nonlinear supersonic flutter analysis of reinforced laminated curved panels (2021) | Cabral, Myrella Vieira — USP [dissertação] | —
+- Rotary nonlinear energy sink for airfoil passive flutter control (2025) | Araujo, Gabriel Placeres — USP [dissertação] | —
+- Piezoelectric nonlinear energy sink for energy harvesting in aeroelastic system in Flutter Condition (2026) | Amaral, Ana Carolina Godoy [UNESP] — UNESP [tese] | https://hdl.handle.net/11449/320495
+- Estudo analítico e experimental do fenômeno de flutter em válvulas cardíacas prostéticas biológicas (2016) | Artur Henrique de Freitas Avelar — UFMG [tese] | https://hdl.handle.net/1843/BUOS-AJEQKY
+- Análise numérica fluido-estrutural do fenômeno de flutter em próteses de válvulas cardíacas biológicas (2024) | Matheus Carvalho Barbosa Costa — UFMG [dissertação] | https://hdl.handle.net/1843/74975
+- Modelagem computacional de uma bioprótese de válvula cardíaca: análise dinâmica e fenômeno de flutter (2019) | Gabriel Fontes Iásbeck — UFMG [dissertação] | https://hdl.handle.net/1843/30068
+- SOS Sífilis: aplicativo de celular para mapeamento das redes de atenção à sífilis (2020) | Coutinho, Gustavo Kleber Bezerra — UFRN [dissertação] | https://repositorio.ufrn.br/handle/123456789/31878
+- Estudo da coleta de energia a partir de oscilações não lineares induzidas por escoamento em uma asa finita (2013) | Vieira, Wander Gustavo Rocha — USP [dissertação] | —
+- Modelagem do fenômeno de flutter via CFD: aplicação a estrutura da ponte Great Belt east (2023) | Araújo, Alexandre Miguel Silva — UFJF [dissertação] | https://repositorio.ufjf.br/jspui/handle/ufjf/15436
+- Metodologia ótima robusta para o projeto de uma técnica de controle passivo de supressão do fenômeno de flutter em painéis compósitos de interesse aeronáutico (2019) | Ribeiro, Lorrane Pereira — UFU [tese] | https://repositorio.ufu.br/handle/123456789/27176
+- Metodologia de projeto ótimo-robusto de sistemas aeroeletromecânicos com harvesters piezocerâmicos e circuitos multimodais para amortecimento passivo e supressão de flutter (2024) | Diniz, Gutembergy Ferreira — UFU [tese] | https://repositorio.ufu.br/handle/123456789/42227
+- Nonlinear aeroelastic stability analysis and gust response of airfoil section under stall flutter oscillation (2021) | Santos, Luiz Guilherme Pancini dos — USP [dissertação] | —
+- Efeitos agudos do flutter e da compressão torácica sobre a remoção de secreção e a impedância do sistema respiratório em pacientes com bronquiectasias (2017) | Souza, Letícia Helena de — USP [dissertação] | —
+- Análise dos efeitos de ligas com memória de forma e de fenômenos aerodinâmicos não lineares em regime pós-flutter para a coleta piezo-aeroelástica de energia (2024) | Cassales, Luís Felipe Moreira da Silva [UNESP] — UNESP [dissertação] | https://hdl.handle.net/11449/258205
+- Análises bidimensionais de flutter da asa BSCW via simulações de interação fluido-estrutura com código SU2 (2026) | Sunano, Marcel Ryuichi — UNESP [dissertação] | https://hdl.handle.net/11449/332043
+
+## "bugs JavaScript aplicações web": 2 resultados, 2 listados
+- Recomendação de conhecimento da multidão para auxílio ao desenvolvimento de software (2015) | Campos, Eduardo Cunha — UFU [dissertação] | https://repositorio.ufu.br/handle/123456789/12580
+- Recomendação de conhecimento disponível em sítios Q&A para auxílio ao desenvolvimento e depuração de software (2019) | Campos, Eduardo Cunha — UFU [tese] | https://repositorio.ufu.br/handle/123456789/25072
+
+## "RxJS Angular": 1 resultados, 1 listados
+- Proposta de uma arquitetura de gerenciamento de estados para as aplicações frontend do Tribunal de Contas do Estado do Rio Grande do Norte (2022) | Almeida, Vitor Araújo de — UFRN [dissertação] | https://repositorio.ufrn.br/handle/123456789/48385
+
+## "Web Components": 612 resultados, 30 listados
+- Enhanced tailored durability assessmentreliable specification for uni or multiaxial dynamically excited components (2018) | Coutinho, Ismael Alves — PUC_MINS [tese] | http://bib.pucminas.br/teses/EngMecanica_CoutinhoIA_1.pdf
+- SleepWeb : uma plataforma web para suporte no monitoramento e avaliação de qualidade de sono (2020) | Hernandes, Matheus Rigoni — UPF [dissertação] | https://repositorio.upf.br/handle/123456789/1795
+- Componentes para interoperabilidade entre redes sociais na Web 2.0 (2013) | Herrera Muñoz, Carlos Leonardo — USP [dissertação] | —
+- Avaliação automática de acessibilidade em RIA (2014) | Watanabe, Willian Massami — USP [tese] | —
+- Uma ferramenta para apoiar a pesquisa exploratória na Web (2013) | Campos, Thiago Prado — UEM [dissertação] | http://repositorio.uem.br:8080/jspui/handle/1/2579
+- Um web framework para C++: projeto, implementação e avaliação (2019) | Castro, Herik Lima de — USP [dissertação] | —
+- Four year multitrophic food web: source food web description, methodology accuracy and species diversity (2016) | Maia, Lais Ferreira — UFLA [dissertação] | https://repositorio.ufla.br/handle/1/11229
+- Data linking as a service: a microservices infrastructure for publishing linked data (2019) | Salvadori, Ivan Luiz — UFSC [tese] | https://repositorio.ufsc.br/handle/123456789/214954
+- Análise comparativa do acoplamento lógico entre componentes de frameworks web (2018) | Eduardo Pereira de Sousa — INPE [dissertação] | http://urlib.net/sid.inpe.br/mtc-m21c/2018/05.21.12.09
+- A organização da informação em ambiente Web : um estudo do portal do Procon-PR (2024) | Cicon, Claudia Regina — UEL [dissertação] | https://repositorio.uel.br/handle/123456789/13772
+- Sistema multiagente web semântico para gestão de conteúdos educacionais (2013) | Sandoval Romo, Bernarda Cecibel [UNESP] — UNESP [dissertação] | http://hdl.handle.net/11449/108939
+- WS-TDD: uma abordagem ágil para o desenvolvimento de serviços WEB (2016) | Bissi, Wilson — UTFPR [dissertação] | http://repositorio.utfpr.edu.br/jspui/handle/1/1829
+- Plataforma computacional web para calibração de sistemas de medição (2016) | Patricio, Ruama Santos — UFBA [dissertação] | http://repositorio.ufba.br/ri/handle/ri/21758
+- A narrativa web como espaço de encontros entre mídias, cultura e sociedade (2016) | Nogueira, Hellen Ovando da Camara — UFSCAR [dissertação] | https://repositorio.ufscar.br/handle/20.500.14289/8619
+- Evidenciação de capital intelectual nas páginas web de prefeituras do Tocantins (2017) | Marques., Pollianna Barros — UNISINOS [dissertação] | http://www.repositorio.jesuita.org.br/handle/UNISINOS/7046
+- RestMDD: Ambiente colaborativo para o apoio no desenvolvimento de serviços Web RESTful (2013) | Sanchez, Robson Vinicius Vieira — USP [dissertação] | —
+- Uma abordagem para avaliação automatizada de acessibilidade de Rich Internet Applications (2022) | Antonelli, Humberto Lidio — USP [tese] | —
+- Aprimorando a Modularidade e a Manutenibilidade no Framework EUL por meio da Seleção Dinâmica de Componentes (2024) | Lima, Mariany Morais Silva — USP [dissertação] | —
+- Um modelo semântico para integração automática de conteúdo com um agente conversacional (2016) | Santos, Fabio Rodrigues dos — UNISINOS [dissertação] | http://www.repositorio.jesuita.org.br/handle/UNISINOS/5243
+- Evolução arquitetural de um web service: transformação de código e avaliação de arquitetura (2015) | CORREIA, Karina da Silva — UFPE [dissertação] | https://repositorio.ufpe.br/handle/123456789/17765
+- XGIS Flex : um framework livre para o desenvolvimento de sistemas de informações geográficas para a WEB (2013) | Pascual, Mariano Federico — UNB [dissertação] | http://repositorio.unb.br/handle/10482/14188
+- Avaliação sistemática de uma abordagem para integração de funcionalidades em sistemas web clonados (2015) | Santos, Jadson José dos — UFRN [dissertação] | https://repositorio.ufrn.br/jspui/handle/123456789/20772
+- Seleção automatizada de serviços web baseada em métricas funcionais e estruturais (2016) | Lima, Alysson Alves de — UFPB [dissertação] | https://repositorio.ufpb.br/jspui/handle/tede/9037
+- Uma abordagem orientada a modelos para geração de código para sistemas de informação baseados na Web construídos com frameworks (2019) | Almeida, Nilber Vittorazzi de — UFES [dissertação] | http://repositorio.ufes.br/handle/10/13730
+- Avaliação da interface do site da biblioteca do UniProjeção : usabilidade e acessibilidade como fatores de melhoria (2017) | Parrião, Giorgia Barreto Lima — UNB [dissertação] | http://repositorio.unb.br/handle/10482/31610
+- Service-oriented middleware for dynamic, real-time management of heterogeneous geosensors in flood management (2015) | Assis, Luiz Fernando Ferreira Gomes de — USP [dissertação] | —
+- Uma arquitetura para mecanismos de buscas na web usando integração de esquemas e padrões de metadados heterogêneos de recursos educacionais abertos em repositórios dispersos (2015) | Gazzola, Murilo Gleyson — USP [dissertação] | —
+- Uma arquitetura de alta disponibilidade para funções e serviços virtualizados de rede (2023) | Venâncio, Giovanni — UFPR [tese] | https://hdl.handle.net/1884/81600
+- Construção de aplicação web para hospedagem de algoritmo de avaliação automática da qualidade de imagens utilizando o Docker (2024) | LEMOS, Macela Zovka de Moraes — UFPE [dissertação] | https://repositorio.ufpe.br/handle/123456789/58502
+- Decomposição e reúso de componentes baseados em metadados para interfaces gráficas do usuário em aplicações corporativas web. (2017) | MIRANDA, Rodrigo de Almeida Vilar de. — UCB [tese] | http://dspace.sti.ufcg.edu.br:8080/jspui/handle/riufcg/583

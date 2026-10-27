@@ -1,0 +1,125 @@
+# Quarto ciclo (tcc-t81w, 2026-10-26), eixo 2: iteração 2, os dois sentidos a partir dos achados da iteração 1
+
+Os comandos rodaram sem `--sem-resumo`, para a triagem pelo resumo; os resumos foram tirados destas listas, que são a saída bruta do script reescrita uma linha por trabalho.
+
+## Citantes de Detecting code smells in React-based Web apps (Ferreira e Valente, 2023, IST): 28
+
+`python3 ~/.claude/skills/escrita-academica/scripts/buscar_literatura.py citantes 10.1016/j.infsof.2022.107111 --todos`
+
+OpenAlex: Trabalhos que citam: Detecting code smells in React-based Web apps (2022)
+Total: 28 (mostrando 28)
+
+- A Survey on Cyber Resilience: Key Strategies, Research Challenges, and Future Directions (2024) | ACM Computing Surveys | 10.1145/3649218
+- Detecting Code Smells using ChatGPT: Initial Insights (2024) | Proceedings of the ... ACM-IEEE International Symposium on Empirical Software Engineering and Measurement/International Symposium on Empirical Software Engineering and Measurement | 10.1145/3674805.3690742
+- Understanding code smells in Elixir functional language (2023) | Empirical Software Engineering | 10.1007/s10664-023-10343-6
+- Refactoring react-based Web apps (2024) | Journal of Systems and Software | 10.1016/j.jss.2024.112105
+- Contributing to open-source projects in refactoring code smells: A practical experience in teaching Software Maintenance (2024) | None | 10.5753/sbes.2024.3507
+- Development of a Decentralized Application for Managing Food Supply Chain Based on Blockchain (2024) | IEEE International Maghreb Meeting of the Conference on Sciences and Techniques of Automatic Control and Computer Engineering (MI-STA) | 10.1109/mi-sta61267.2024.10599659
+- Modeling and Simulation of Directed Graph-Based DEVS System (2025) | International Conference on Thermal, Mechanical and Multi-Physics Simulation and Experiments in Microelectronics and Microsystems (EuroSimE) | 10.1109/eurosime65125.2025.11006601
+- Code Smells and Refactorings for Elixir (2025) | None | 10.5753/ctd.2025.9280
+- Managing Security Vulnerabilities Introduced by Dependencies in React.JS JavaScript Framework (2024) | IEEE International Conference on Software Analysis, Evolution and Reengineering - Companion (SANER-C) | 10.1109/saner-c62648.2024.00022
+- Integrating Near Real-Time Hydrological Data for Monitoring and Alerting: The RoWaterAPI Framework (2026) | Geosciences | 10.3390/geosciences16020087
+- Automated Refactoring of Code Smells in React.js Applications (2026) | None | 10.1145/3786180.3788319
+- Node Overlapping Detection for Draggable Node-Based Applications (2023) | IEEE International Conference on Contemporary Computing and Communications (InC4) | 10.1109/inc457730.2023.10262840
+- Identificação de Smells em Testes Fim-a-Fim Implementados em Cypress (2024) | None | 10.5753/vem.2024.3785
+- Analisando a Qualidade do Código em Plataformas de Cursos Online Abertos e Massivos (2024) | None | 10.5753/vem.2024.3907
+- Refactoring React-Based Web Apps (2023) | SSRN Electronic Journal | 10.2139/ssrn.4501367
+- Analyzing and Detecting Code Design Smells: A Comprehensive Survey (2025) | None | 10.1109/csase63707.2025.11054036
+- A Provenance-Centric Approach to Code Smell Reduction using Human-in-Loop Approach (2025) | International Conference on Information and Computer Technologies (ICICT) | 10.1109/icict64582.2025.00011
+- Temporal validity of software datasets for code metrics: an empirical assessment of sampling strategies (2025) | Research Square | 10.21203/rs.3.rs-7217702/v1
+- The Design of an Online Meditation Learning and Sharing Platform (2025) | IEEE International Conference on Human-Machine Systems (ICHMS) | 10.1109/ichms65439.2025.11154269
+- Code Smells and Refactorings for Elixir (2025) | None | 10.5753/cbsoft_estendido.2025.11411
+- Towards an Automated Approach to Detect Code Smells in ReScript (2025) | None | 10.5753/se4fp.2025.14841
+- Code Smells and Refactorings for Elixir (2025) | None | 10.5753/sbqs.2025.15359
+- Mind the Gap: Linking Refactorings and Code Smells in Elixir (2026) | Journal of Software Evolution and Process | 10.1002/smr.70113
+- Refactoring Code Smells in Open Source Projects: A Hands-on Approach to Teaching Software Maintenance (2026) | Journal of Software Engineering Research and Development | 10.5753/jserd.2026.5688
+- HookLens: Visual Analytics for Understanding React Hooks Structures (2026) | IEEE Pacific Visualization Conference (PacificVis) | 10.1109/pacificvis68791.2026.00036
+- Evaluating Deep Learning Models for Declarative UI Code Smell Detection (2026) | International Conference on Smart Computing, IoT and Machine Learning (SIML) | 10.1109/siml69834.2026.11621778
+- A Systematic Literature Review of Code Smell Detection Tools for JavaScript Systems (2026) | SBC Reviews on Computer Science | 10.5753/reviews.2026.6187
+- Remediating Superfluous Re-Rendering in React Applications (2026) | ACM/IEEE International Conference on Software Engineering: Companion Proceedings (ICSE-Companion) | 10.1145/3744916.3773235
+
+## Citantes de Barriers in Front-End Web Development (Samudio e LaToza, 2022, VL/HCC): 6
+
+`python3 ~/.claude/skills/escrita-academica/scripts/buscar_literatura.py citantes 10.1109/vl/hcc53370.2022.9833127 --todos`
+
+OpenAlex: Trabalhos que citam: Barriers in Front-End Web Development (2022)
+Total: 6 (mostrando 6)
+
+- Enhancing Web Development Education With Game-Based and Gamification Learning: A Study of Engagement, Motivation, and Performance (2025) | IEEE Access | 10.1109/access.2025.3595510
+- An Observational Study on Flask Web Framework Questions on Stack Overflow (SO) (2024) | IET Software | 10.1049/sfw2/1905538
+- Exploring React Library Related Questions on Stack Overflow: Answered vs. Unanswered (2025) | International Conference on Smart Computing, IoT and Machine Learning (SIML) | 10.1109/siml65326.2025.11080791
+- Towards a Framework of Mental Models and Cognitive Processes in Component Use (2026) | Lecture notes in computer science | 10.1007/978-3-032-41627-8_8
+- Automated Program Repair for UI-Centric Android Bugs: How Far Are We? (2026) | Proceedings of the ACM on software engineering. | 10.1145/3832272
+- CodeTrails: Investigating the Feasibility of Supporting Learning in the Age of Agentic Coding With a vs Code IDE Extension (2026) | IEEE International Conference on Advanced Learning Technologies (ICALT) | 10.1109/icalt68022.2026.00104
+
+## Referências de HookLens (Hwang et al., 2026, PacificVis), no OpenAlex: 46
+
+`python3 ~/.claude/skills/escrita-academica/scripts/buscar_literatura.py referencias 10.1109/pacificvis68791.2026.00036 --n 80`
+
+OpenAlex: Referências de: HookLens: Visual Analytics for Understanding React Hooks Structures (2026)
+48 referências indexadas no OpenAlex
+
+- The eyes have it: a task by data type taxonomy for information visualizations (2002) | IEEE Symposium on Visual Languages | 10.1109/vl.1996.545307
+- Automating the design of graphical presentations of relational information (1986) | ACM Transactions on Graphics | 10.1145/22949.22950
+- An exploratory study of the impact of antipatterns on class change- and fault-proneness (2011) | Empirical Software Engineering | 10.1007/s10664-011-9171-y
+- Bubble Sets: Revealing Set Relations with Isocontours over Existing Visualizations (2009) | IEEE Transactions on Visualization and Computer Graphics | 10.1109/tvcg.2009.122
+- JSNOSE: Detecting JavaScript Code Smells (2013) | IEEE International Working Conference on Source Code Analysis and Manipulation (SCAM) | 10.1109/scam.2013.6648192
+- Asleep at the Keyboard? Assessing the Security of GitHub Copilot’s Code Contributions (2025) | Communications of the ACM | 10.1145/3610721
+- Meta-programming with Concrete Object Syntax (2002) | Lecture notes in computer science | 10.1007/3-540-45821-2_19
+- Reading Between the Lines: Modeling User Behavior and Costs in AI-Assisted Programming (2024) | CHI Conference on Human Factors in Computing Systems | 10.1145/3613904.3641936
+- Visualizing call graphs (2011) | Proceedings/Proceedings -- IEEE Symposium on Visual Languages and Human-Centric Computing | 10.1109/vlhcc.2011.6070388
+- Node, Node-Link, and Node-Link-Group Diagrams: An Evaluation (2014) | IEEE Transactions on Visualization and Computer Graphics | 10.1109/tvcg.2014.2346422
+- Using HTML5 visualizations in software fault localization (2013) | IEEE Working Conference on Software Visualization (VISSOFT) | 10.1109/vissoft.2013.6650539
+- A systematic literature review of modern software visualization (2020) | Journal of Visualization | 10.1007/s12650-020-00647-w
+- Detection of embedded code smells in dynamic web applications (2012) | IEEE/ACM International Conference on Automated Software Engineering (ASE) | 10.1145/2351676.2351724
+- High-Quality Ultra-Compact Grid Layout of Grouped Networks (2015) | IEEE Transactions on Visualization and Computer Graphics | 10.1109/tvcg.2015.2467251
+- Debugging for reactive programming (2016) | ACM/IEEE International Conference on Software Engineering: Companion Proceedings (ICSE-Companion) | 10.1145/2884781.2884815
+- Examining the Use and Impact of an AI Code Assistant on Developer Productivity and Experience in the Enterprise (2025) | CHI Conference Extended Abstracts on Human Factors in Computing Systems (CHI EA) | 10.1145/3706599.3706670
+- Githru: Visual Analytics for Understanding Software Development History Through Git Metadata Analysis (2020) | IEEE Transactions on Visualization and Computer Graphics | 10.1109/tvcg.2020.3030414
+- Rapsai: Accelerating Machine Learning Prototyping of Multimedia Applications through Visual Programming (2023) | CHI Conference on Human Factors in Computing Systems | 10.1145/3544548.3581338
+- iSMELL: Assembling LLMs with Expert Toolsets for Code Smell Detection and Refactoring (2024) | IEEE/ACM International Conference on Automated Software Engineering (ASE) | 10.1145/3691620.3695508
+- Detecting code smells in React-based Web apps (2022) | Information and Software Technology | 10.1016/j.infsof.2022.107111
+- Debugging data flows in reactive programs (2018) | ACM/IEEE International Conference on Software Engineering: Companion Proceedings (ICSE-Companion) | 10.1145/3180155.3180156
+- Detecting Code Smells using ChatGPT: Initial Insights (2024) | Proceedings of the ... ACM-IEEE International Symposium on Empirical Software Engineering and Measurement/International Symposium on Empirical Software Engineering and Measurement | 10.1145/3674805.3690742
+- Misty: UI Prototyping Through Interactive Conceptual Blending (2025) | CHI Conference on Human Factors in Computing Systems | 10.1145/3706598.3713924
+- Measuring Categorical Perception in Color-Coded Scatterplots (2023) | CHI Conference on Human Factors in Computing Systems | 10.1145/3544548.3581416
+- Analyzing Program Dependencies in Java EE Applications (2017) | IEEE/ACM International Conference on Mining Software Repositories (MSR) | 10.1109/msr.2017.6
+- DreamGarden: A Designer Assistant for Growing Games from a Single Prompt (2025) | CHI Conference on Human Factors in Computing Systems | 10.1145/3706598.3714233
+- A lightweight visualization of interprocedural data-flow paths for source code reading (2012) | IEEE International Conference on Program Comprehension (ICPC) | 10.1109/icpc.2012.6240506
+- Refactoring react-based Web apps (2024) | Journal of Systems and Software | 10.1016/j.jss.2024.112105
+- Large language models in source code static analysis (2024) | Ivannikov Memorial Workshop (IVMEM) | 10.1109/ivmem63006.2024.10659715
+- DrAsync (2022) | ACM/IEEE International Conference on Software Engineering: Companion Proceedings (ICSE-Companion) | 10.1145/3510003.3510097
+- NeuroSync: Intent-Aware Code-Based Problem Solving via Direct LLM Understanding Modification (2025) | ACM Symposium on User Interface Software and Technology (UIST) | 10.1145/3746059.3747668
+- On Using Tree Visualisation Techniques to Support Source Code Comprehension (2016) | IEEE Working Conference on Software Visualization (VISSOFT) | 10.1109/vissoft.2016.8
+- RustViz: Interactively Visualizing Ownership and Borrowing (2022) | Proceedings/Proceedings -- IEEE Symposium on Visual Languages and Human-Centric Computing | 10.1109/vl/hcc53370.2022.9833121
+- Visually Analyzing the Structure and Code Quality of Component-based Web Applications (2021) | IEEE Working Conference on Software Visualization (VISSOFT) | 10.1109/vissoft52517.2021.00031
+- Exploring Architectural Smells Detection Through LLMs (2025) | Lecture notes in computer science | 10.1007/978-3-032-02138-0_6
+- Graph Buddy — an interactive code dependency browsing and visualization tool (2022) | IEEE Working Conference on Software Visualization (VISSOFT) | 10.1109/vissoft55257.2022.00023
+- React-bratus: Visualising React Component Hierarchies (2021) | IEEE Working Conference on Software Visualization (VISSOFT) | 10.1109/vissoft52517.2021.00025
+- Analyzing the difference between ReactJS and AngularJS (2023) | International Conference on Computational Intelligence, Communication Technology and Networking (CICTN) | 10.1109/cictn57981.2023.10141276
+- InterLink: Linking Text with Code and Output in Computational Notebooks (2025) | CHI Conference on Human Factors in Computing Systems | 10.1145/3706598.3714104
+- Codellm-Devkit: A Framework for Contextualizing Code LLMs with Program Analysis Insights (2025) | ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE) | 10.1145/3696630.3728555
+- Visualization Support for Multi-criteria Decision Making in Software Issue Propagation (2021) | IEEE Pacific Visualization Symposium | 10.1109/pacificvis52677.2021.00018
+- ReactAppScan: Mining React Application Vulnerabilities via Component Graph (2024) | ACM SIGSAC Conference on Computer and Communications Security (CCS) | 10.1145/3658644.3670331
+- Bridging Gulfs in UI Generation through Semantic Guidance (2026) | CHI Conference on Human Factors in Computing Systems | 10.1145/3772318.3791966
+- Visual Analytics in Software Maintenance: A Systematic Literature Review (2023) | ACM Southeast Conference (ACMSE) | 10.1145/3564746.3587022
+- An Overview+Detail Layout for Visualizing Compound Graphs (2024) | Visualization | 10.1109/vis55277.2024.00035
+- React-tRace: A Semantics for Understanding React Hooks: An Operational Semantics and a Visualizer for Clarifying React Hooks (2025) | Proceedings of the ACM on Programming Languages | 10.1145/3763067
+
+## Referências de Remediating Superfluous Re-Rendering in React Applications (Khalili et al., 2026, ICSE), no OpenAlex: 10
+
+`python3 ~/.claude/skills/escrita-academica/scripts/buscar_literatura.py referencias 10.1145/3744916.3773235 --n 80`
+
+OpenAlex: Referências de: Remediating Superfluous Re-Rendering in React Applications (2026)
+10 referências indexadas no OpenAlex
+
+- Performance issues and optimizations in JavaScript (2016) | ACM/IEEE International Conference on Software Engineering: Companion Proceedings (ICSE-Companion) | 10.1145/2884781.2884829
+- Detecting code smells in React-based Web apps (2022) | Information and Software Technology | 10.1016/j.infsof.2022.107111
+- Modern Web Frameworks: A Comparison of Rendering Performance (2022) | Journal of Web Engineering | 10.13052/jwe1540-9589.21311
+- Automatic migration from synchronous to asynchronous JavaScript APIs (2021) | Proceedings of the ACM on Programming Languages | 10.1145/3485537
+- React (2016) | Communications of the ACM | 10.1145/2980991
+- Evaluating the performance of web rendering technologies based on JavaScript: Angular, React, and Vue (2022) | None | 10.1109/clei56649.2022.9959901
+- DrAsync (2022) | ACM/IEEE International Conference on Software Engineering: Companion Proceedings (ICSE-Companion) | 10.1145/3510003.3510097
+- Increasing the Responsiveness of Web Applications by Introducing Lazy Loading (2023) | IEEE/ACM International Conference on Automated Software Engineering (ASE) | 10.1109/ase56229.2023.00192
+- reformulator: Automated Refactoring of the N+1 Problem in Database-Backed Applications (2022) | IEEE/ACM International Conference on Automated Software Engineering (ASE) | 10.1145/3551349.3556911
+- Managing Security Vulnerabilities Introduced by Dependencies in React.JS JavaScript Framework (2024) | IEEE International Conference on Software Analysis, Evolution and Reengineering - Companion (SANER-C) | 10.1109/saner-c62648.2024.00022

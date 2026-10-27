@@ -1,0 +1,71 @@
+# Quarto ciclo (tcc-t81w, 2026-10-26), eixo 1: referências (snowballing para trás) dos incluídos mais fortes
+# As referências de Ramson et al. (2024, JOT) e de Hoffswell, Satyanarayan e Heer (2016, CGF) não vieram: o OpenAlex devolveu HTTP 429, orçamento diário esgotado para o IP. As de Ramson et al. foram lidas na lista do texto completo, sem trabalho novo.
+
+## Referências de Debugging of RxJS-based applications (Alabor e Stolze, 2020), no OpenAlex: 4
+# python3 /home/gambi/.claude/skills/escrita-academica/scripts/buscar_literatura.py referencias 10.1145/3427763.3428313 --n 80
+# 4 referências indexadas no OpenAlex
+- Design Patterns: Elements of Reusable Object-Oriented Software (1994) | None | sem
+- A survey on reactive programming (2013) | ACM Computing Surveys | 10.1145/2501654.2501666
+- StoryFlow: Tracking the Evolution of Stories (2013) | IEEE Transactions on Visualization and Computer Graphics | 10.1109/tvcg.2013.196
+- Back to the Future: Omniscient Debugging (2009) | IEEE Software | 10.1109/ms.2009.169
+
+## Referências de Perspectives and Challenges of iOS Developers in Using Reactive Programming with RxSwift (Farias, Zimmerle e Gama, 2024, SBES), no OpenAlex: 10
+# python3 /home/gambi/.claude/skills/escrita-academica/scripts/buscar_literatura.py referencias 10.5753/sbes.2024.3569 --n 80
+# 10 referências indexadas no OpenAlex
+- Sample size for qualitative research (2016) | Qualitative Market Research An International Journal | 10.1108/qmr-06-2016-0053
+- Qualitative Research in Action (2002) | SAGE Publications Ltd eBooks | 10.4135/9781849209656
+- Sampling in software engineering research: a critical review and guidelines (2022) | Empirical Software Engineering | 10.1007/s10664-021-10072-8
+- A survey on reactive programming (2013) | ACM Computing Surveys | 10.1145/2501654.2501666
+- REScala (2014) | None | 10.1145/2577080.2577083
+- An evaluation of reactive programming and promises for structuring collaborative web applications (2013) | None | 10.1145/2489798.2489802
+- Reactive Programming: A Walkthrough (2015) | ACM/IEEE International Conference on Software Engineering: Companion Proceedings (ICSE-Companion) | 10.1109/icse.2015.303
+- Mining the usage of reactive programming APIs (2022) | International Conference on Mining Software Repositories (MSR) | 10.1145/3524842.3527966
+- Reactive programming in Ada 2012 with RxAda (2020) | Journal of Systems Architecture | 10.1016/j.sysarc.2020.101784
+- Reactive Programming with Swift Combine: An Analysis of Problems Faced by Developers on Stack Overflow (2023) | None | 10.1145/3613372.3613381
+
+## Referências de Debugging data flows in reactive programs (Banken, Meijer e Gousios, 2018), no OpenAlex: 42
+# python3 /home/gambi/.claude/skills/escrita-academica/scripts/buscar_literatura.py referencias 10.1145/3180155.3180156 --n 80
+# 43 referências indexadas no OpenAlex
+- An Introduction to the Bootstrap (1994) | Chapman & Hall/CRC eBooks | 10.1201/9780429246593
+- Research Design: Qualitative, Quantitative, and Mixed Methods Approaches (1994) | None | sem
+- Design Patterns: Elements of Reusable Object-Oriented Software (1994) | None | sem
+- Research design: qualitative, quantitative, and mixed methods approaches (2003) | Revista de Administração Contemporânea | 10.1590/s1415-65552003000100015
+- Resilient distributed datasets: a fault-tolerant abstraction for in-memory cluster computing (2012) | None | sem
+- Gamification in Education: A Systematic Mapping Study (2015) | Educational Technology & Society | sem
+- Mixed methods research designs in counseling psychology. (2005) | Journal of Counseling Psychology | 10.1037/0022-0167.52.2.224
+- A technique for drawing directed graphs (1993) | IEEE Transactions on Software Engineering | 10.1109/32.221135
+- Functional reactive animation (1997) | ACM SIGPLAN International Conference on Functional Programming (ICFP) | 10.1145/258948.258973
+- A Systematic Survey of Program Comprehension through Dynamic Analysis (2009) | IEEE Transactions on Software Engineering | 10.1109/tse.2009.28
+- An examination of software engineering work practices (2010) | None | 10.1145/1925805.1925815
+- A practical guide to controlled experiments of software engineering tools with human participants (2013) | Empirical Software Engineering | 10.1007/s10664-013-9279-3
+- Debugging: An Analysis of Bug-Location Strategies (1987) | Human-Computer Interaction | 10.1207/s15327051hci0304_2
+- StoryFlow: Tracking the Evolution of Stories (2013) | IEEE Transactions on Visualization and Computer Graphics | 10.1109/tvcg.2013.196
+- I Know What You Did Last Summer - An Investigation of How Developers Spend Their Time (2015) | IEEE International Conference on Program Comprehension (ICPC) | 10.1109/icpc.2015.12
+- On the Comprehension of Program Comprehension (2014) | ACM Transactions on Software Engineering and Methodology | 10.1145/2622669
+- Flapjax (2009) | ACM SIGPLAN Notices | 10.1145/1639949.1640091
+- Asynchronous functional reactive programming for GUIs (2013) | ACM SIGPLAN Conference on Programming Language Design and Implementation (PLDI) | 10.1145/2491956.2462161
+- Flapjax (2009) | Conference on Object-Oriented Programming Systems, Languages, and Applications | 10.1145/1640089.1640091
+- Measuring and modeling programming experience (2013) | Empirical Software Engineering | 10.1007/s10664-013-9286-4
+- Push-pull functional reactive programming (2009) | None | 10.1145/1596638.1596643
+- Measuring programming experience (2012) | IEEE International Conference on Program Comprehension (ICPC) | 10.1109/icpc.2012.6240511
+- Real time programming : special purpose or general purpose languages (1989) | OpenGrey (Institut de l'Information Scientifique et Technique) | sem
+- REScala (2014) | None | 10.1145/2577080.2577083
+- Execution trace analysis through massive sequence and circular bundle views (2008) | Journal of Systems and Software | 10.1016/j.jss.2008.02.068
+- Back to the Future: Omniscient Debugging (2009) | IEEE Software | 10.1109/ms.2009.169
+- On the dichotomy of debugging behavior among programmers (2018) | ACM/IEEE International Conference on Software Engineering: Companion Proceedings (ICSE-Companion) | 10.1145/3180155.3180175
+- I know what you did last summer: an investigation of how developers spend their time (2015) | None | 10.5555/2820282.2820289
+- BigDebug (2016) | ACM/IEEE International Conference on Software Engineering: Companion Proceedings (ICSE-Companion) | 10.1145/2884781.2884813
+- Models of debugging (1991) | Acta Psychologica | 10.1016/0001-6918(91)90009-o
+- Don't Call Us, We'll Call You: Characterizing Callbacks in Javascript (2015) | Proceedings of the ... ACM-IEEE International Symposium on Empirical Software Engineering and Measurement/International Symposium on Empirical Software Engineering and Measurement | 10.1109/esem.2015.7321196
+- Coherent reaction (2009) | Companion to the ACM SIGPLAN Conference on Object-Oriented Programming, Systems, Languages, and Applications (OOPSLA Companion) | 10.1145/1639950.1640058
+- An empirical study on program comprehension with reactive programming (2014) | ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE) | 10.1145/2635868.2635895
+- Debugging for reactive programming (2016) | ACM/IEEE International Conference on Software Engineering: Companion Proceedings (ICSE-Companion) | 10.1145/2884781.2884815
+- Deprecating the Observer Pattern (2010) | Infoscience (Ecole Polytechnique Fédérale de Lausanne) | sem
+- Functional Reactive Programming (1999) | Lecture notes in computer science | 10.1007/3-540-49099-x_1
+- Visualizing program execution using user abstractions (2006) | None | 10.1145/1148493.1148512
+- How to rate programming skills in programming experiments? (2011) | None | 10.1145/2089155.2089161
+- Effective Debugging: 66 Specific Ways to Debug Software and Systems (2016) | CERN Document Server (European Organization for Nuclear Research) | sem
+- Functional Reactive Programming (2016) | Apress eBooks | 10.1007/978-1-4842-2152-5_3
+- Reactive Messaging (2017) | Apress eBooks | 10.1007/978-1-4842-1224-0_10
+- Introduction (2012) | Oxford University Press eBooks | 10.1093/hesc/9780199642144.003.0001
+

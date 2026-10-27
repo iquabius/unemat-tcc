@@ -1,0 +1,71 @@
+# Quarto ciclo (tcc-t81w, 2026-10-26), eixo 5: BDTD, programação declarativa, Dimensões Cognitivas e Elixir
+
+Comando de cada consulta: python3 ~/.claude/skills/escrita-academica/scripts/buscar_literatura.py bdtd "<termos>" --desde 2013 --n 30 (resumos tirados ao gravar)
+
+## "programação declarativa interface": 7 resultados, 7 listados
+- Programação visual baseada em formulários acessível para pessoas cegas. (2024) | Nascimento, Marcos Devaner do — USP [tese] | —
+- Uma linguagem de domínio específico para descrição e reconhecimento de gestos usando sensores de profundidade (2015) | VIANA, Daniel Leite — UFPE [dissertação] | https://repositorio.ufpe.br/handle/123456789/15892
+- Programação para Arquitetura: linguagens visuais e textuais em Projeto Orientado ao Desempenho (2019) | Landim, Gabriele do Rosario — USP [dissertação] | —
+- Alegria e frustração : um estudo sobre os estados afetivos em crianças com TEA na mediação com interfaces tangíveis (2018) | Vieira, Martha Barcellos — UFRGS [tese] | http://hdl.handle.net/10183/188191
+- Linguagem e compilador para o paradigma orientado a notificações: avanços para facilitar a codificação e sua validação em uma aplicação de controle de futebol de robôs (2017) | Santos, Leonardo Araujo — UTFPR [dissertação] | http://repositorio.utfpr.edu.br/jspui/handle/1/2778
+- Encadeamento de anotações e indexação de imagens. (2017) | CORREIA, Helaine Aparecida — UNIFEI [dissertação] | https://repositorio.unifei.edu.br/jspui/handle/123456789/951
+- Percepção de profissionais da enfermagem sobre os aspectos psicológicos do paciente cirúrgico (2021) | Mesquita, Vitor Siqueira de Moraes — UFRRJ [dissertação] | https://rima.ufrrj.br/jspui/handle/20.500.14407/14426
+
+## "dimensões cognitivas": 1331 resultados, 30 listados
+- Uma análise do design em tempos de hipermodernismo: do contexto político às dimensões cognitivas e comunicativas (2013) | Arruda, Marina Silveira — PUC_SP [dissertação] | https://tede2.pucsp.br/handle/handle/4496
+- Formas de recategorização e transcategorização em narrativas orais amazônicas: dimensões cognitivo-culturais (2024) | SOUZA, Carla Daniele Baia de — UFOPA [dissertação] | —
+- Dimensões ambientais, comportamentais e cognitivas: um estudo sobre efetividade de aprendizagem em língua portuguesa em Escolas Municipais de Santa Rita/PB (2025) | Silva, Maria Juscilene Nestor da — UFPB [dissertação] | https://repositorio.ufpb.br/jspui/handle/123456789/37231
+- Teste de percepção de dimensões emocionais do medo (TPDE-M) : um estudo de construção e evidências de validade (2020) | ALBUQUERQUE, Emily Souza Gaião e — UFPE [tese] | https://repositorio.ufpe.br/handle/123456789/40010
+- Jorge Amado, cacau... e o que mais ilhéus tem?: um estudo das dimensões da imagem do destino turístico (2016) | Lílian Dominguez Santana — UFMG [dissertação] | https://hdl.handle.net/1843/BUBD-A9WEYR
+- Estudo da associação do alelo E4 da apolipoproteína E (APOE) com o comprometimento cognitivo e com as dimensões da cognição em idososvivendo em comunidade: projeto Bambuí (2014) | Santos, Sandra Regina Quintino dos — FIOCRUZ [tese] | https://arca.fiocruz.br/handle/icict/10047
+- O estilo cognitivo verbal e das imagens objeto/espacial: Três dimensões psicológicas apontando caminhos para a compreensão de aspectos da resolução de problemas matemáticos. (2013) | Pacheco, Auxiliadora Baraldi — UFPE [tese] | https://repositorio.ufpe.br/handle/123456789/10457
+- Geometria das dimensões e quadridimensionalidade (2019) | Souza, Samuel de — PUC_SP [tese] | https://tede2.pucsp.br/handle/handle/22934
+- Trajetórias individuais no mercado de trabalho e habilidades: uma análise estrutural (2024) | Rosa, João Pedro de Andrade — USP [dissertação] | —
+- Habilidades linguística, cognitiva, sociocultural e socioemocional no currículo paulista de língua inglesa para os anos iniciais do ensino fundamental: uma análise crítico-reflexiva à luz de dimensões do letramento (2025) | Buto, Marcia Yoshiko — UFSCAR [dissertação] | https://hdl.handle.net/20.500.14289/22795
+- Dimensões de sintomas e funcionamento executivo em indivíduos com esquizofrenia (2019) | Franco, Ana Luiza de Mello [UNIFESP] — UNIFESP [dissertação] | https://sucupira.capes.gov.br/sucupira/public/consultas/coleta/trabalhoConclusao/viewTrabalhoConclusao.jsf?popup=true&id_trabalho=7690624
+- Avaliação das dimensões da qualidade de vida de pessoas com leishmaniose (2020) | Silva Júnior, Sérgio Vital da — UFPB [dissertação] | https://repositorio.ufpb.br/jspui/handle/123456789/20232
+- Modos de troca cognitiva no agrossistema digital (2018) | Camargo, Alessandro Mancio de — PUC_SP [tese] | https://tede2.pucsp.br/handle/handle/21752
+- Habilidades cognitivas de adolescentes em projeto social de música em Recife (2018) | NIGRO FILHO, Antonio Carlos Rabêlo — UFPE [tese] | https://repositorio.ufpe.br/handle/123456789/31900
+- Questões sociocientíficas e o ensino de administração: reflexões para uma formação acadêmica e profissional integral (2020) | Contelli, Daniela Pereira — UFBA [tese] | http://repositorio.ufba.br/ri/handle/ri/32679
+- Análise de vídeos documentários: perspectivas de debate acerca do Programa Etnomatemática (2013) | Neves, Rouseleyne Mendonça de Souza — UFG [dissertação] | http://repositorio.bc.ufg.br/tede/handle/tede/5257
+- Análise de vídeos documentários: perspectivas de debate acerca do Programa Etnomatemática (2013) | Neves, Rouseleyne Mendonça de Souza — UFG [dissertação] | http://repositorio.bc.ufg.br/tede/handle/tede/5271
+- Indivíduos e comportamento: aspectos cognitivos, institucionais e identidades sociais (2015) | Zulian, Aline — UFSM [dissertação] | http://repositorio.ufsm.br/handle/1/6622
+- Ficção híbrida: processos cognitivos, linguagens e tecnologias (2021) | Mittermayer, Thiago — PUC_SP [tese] | https://repositorio.pucsp.br/jspui/handle/handle/24378
+- Práticas de monitoramento cognitivo em atividades de modelagem matemática (2024) | Vertuan, Rodolfo Eduardo — UEL [tese] | https://repositorio.uel.br/handle/123456789/12210
+- Aspectos cognitivos e emocionais de idosos usuários e não usuários da Internet (2019) | REZENDE, Nathália de Freitas Fernandes — UFTM [dissertação] | http://bdtd.uftm.edu.br/handle/123456789/1358
+- Formação docente e avaliação do aprendizado: dimensões pedagógicas, políticas e sociais (2025) | Almeida, Janaina Rodrigues de — USP [dissertação] | —
+- Contribuições do jogo Dimensões: aprendizagem baseada em jogos no ensino de física (2025) | Herculano, Reginaldo Lourenço — UFC [dissertação] | http://repositorio.ufc.br/handle/riufc/81018
+- Dimensões constituintes dos alunos : elementos para uma formação de professores de física à luz dos modelos críticos (2021) | Milani, Iankie Gabriel, 1987- — UFPR [dissertação] | https://hdl.handle.net/1884/72530
+- Dimensões de proximidades em ecossistemas regionais de inovação emergentes: elementos para compreender seu funcionamento (2024) | Silva, Jackson Dener Serafim — UNISINOS [dissertação] | http://repositorio.jesuita.org.br/handle/UNISINOS/13889
+- Práticas curriculares com modelagem numa perspectiva da Educação Matemática: um olhar para suas dimensões (2019) | Kaczmarek, Derli — UEPG [tese] | —
+- Dimensões e sentidos sociais no percurso de construção da banda larga nas telecomunicações no Brasil (2018) | Melo, Jussara Costa — UNB [tese] | http://repositorio.unb.br/handle/10482/34205
+- A divulgação científica no Museu de Ciências da Terra: aspectos históricos e dimensões educativas (2018) | Roitberg, Nathalia Winkelmann — FIOCRUZ [dissertação] | https://arca.fiocruz.br/handle/icict/40149
+- Dimensões psicológicas, clínicas e sociodemográficas associadas à saúde mental de transgênero com disforia de gênero (2021) | Silva, Dhiordan Cardoso da — UFRGS [tese] | http://hdl.handle.net/10183/230612
+- Os padrões de decisão dos gerentes de projetos e as dimensões do triângulo de talentos do PMI® (2019) | Brandão, Moisés Luna — CEFET [dissertação] | https://repositorio.cefetmg.br//handle/123456789/2198
+
+## "cognitive dimensions of notations": 3 resultados, 3 listados
+- Uma linguagem de modelagem da interação para auxiliar a comunicação designer-usuário (2013) | Costa Neto, Macilon Araújo — UFRN [tese] | https://repositorio.ufrn.br/jspui/handle/123456789/17954
+- [pt] ESTENDENDO A MOLIC PARA APOIAR O DESIGN DE SISTEMAS COLABORATIVOS (2016) | LUIZ GUSTAVO DE SOUZA — PUC_RIO [tese] | https://www.maxwell.vrac.puc-rio.br/colecao.php?strSecao=resultado&nrSeq=25746&idi=1
+- AStar : a modeling language for document-oriented geospatial data warehouses (2022) | FERRO, Márcio Robério da Costa — UFPE [tese] | https://repositorio.ufpe.br/handle/123456789/45964
+
+## "Elixir code smells": 2 resultados, 2 listados
+- Code Smells and refactorings for Elixir (2024) | Vegi, Lucas Francisco da Matta — UFV [tese] | https://locus.ufv.br/handle/123456789/33721
+- Code smells and refactorings for Elixir (2024) | Lucas Francisco da Matta Vegi — UFMG [tese] | https://hdl.handle.net/1843/80651
+
+## "interface de usuário declarativa": 16 resultados, 16 listados
+- Avaliação dos usuários do Programa Nacional de Controle do Tabagismo e sua interface com os agravos de saúde durante a pandemia de Covid-19 (2023) | JÉSSICA ANTONIO RIBEIRO — UFMS [dissertação] | https://repositorio.ufms.br/handle/123456789/8628
+- Programação visual baseada em formulários acessível para pessoas cegas. (2024) | Nascimento, Marcos Devaner do — USP [tese] | —
+- Uma linguagem de domínio específico para descrição e reconhecimento de gestos usando sensores de profundidade (2015) | VIANA, Daniel Leite — UFPE [dissertação] | https://repositorio.ufpe.br/handle/123456789/15892
+- Acessibilidade do catálogo em linha para usuário com deficiência visual (2018) | Teixeira, Laysse Noleto Balbino — UNB [dissertação] | http://repositorio.unb.br/handle/10482/32325
+- Modular Reasoning For Software Product Lines With Emergent Feature Interfaces (2014) | MELO, Jean Carlos de Carvalho — UFPE [dissertação] | https://repositorio.ufpe.br/handle/123456789/11632
+- Equipe multiprofissional e cuidados paliativos: Interfaces para promoção da saúde na atenção básica (2017) | Melo, Myriam de Oliveira — UEPB [dissertação] | https://repositorio.uepb.edu.br/handle/123456789/73484
+- Interface microprocessada para controle e análise do condicionamento físico utilizando um novo ergômetro para cadeirantes (2017) | Vieira, Sérgio Augusto Albino — UFU [tese] | https://repositorio.ufu.br/handle/123456789/43320
+- Laboratório virtual de bombas hidráulicas para aprendizado de hidráulica aplicada ao saneamento (2024) | SANTOS, Yara Cristiane Fonseca — UFPA [dissertação] | https://repositorio.ufpa.br/handle/2011/16549
+- SAVIME: enabling declarative array processing in memory (2020) | Lustosa, Hermano Lourenço Souza — LNCC [tese] | https://tede.lncc.br/handle/tede/328
+- Implementação de análise de custo efetividade no R (2013) | Prestes, Isaías Valente — UFRGS [dissertação] | http://hdl.handle.net/10183/194580
+- Math2Text: ferramenta tecnológica para acessibilidade de estudantes cegos a expressões matemáticas (2021) | Szesz Junior, Albino — UTFPR [tese] | http://repositorio.utfpr.edu.br/jspui/handle/1/25525
+- Encadeamento de anotações e indexação de imagens. (2017) | CORREIA, Helaine Aparecida — UNIFEI [dissertação] | https://repositorio.unifei.edu.br/jspui/handle/123456789/951
+- Estudo soroepidemiológico, molecular e espacial de espécies do gênero Brucella da região leiteira do Norte da Antioquia, Colômbia (2022) | Herran Ramirez, Olga Lucia — UFRRJ [tese] | https://rima.ufrrj.br/jspui/handle/20.500.14407/15959
+- Sexualidade, gênero e geração: significados e experiências de idosas na pós-menopausa (2018) | CREMA, Izabella Lenza — UFTM [dissertação] | http://bdtd.uftm.edu.br/handle/tede/550
+- [en] GINGA-MD: AN NCL BASED PLATFORM FOR SUPPORTING THE EXECUTION OF MULTI-DEVICE HYPERMEDIA APPLICATIONS (2013) | CARLOS EDUARDO COELHO FREIRE BATISTA — PUC_RIO [tese] | https://www.maxwell.vrac.puc-rio.br/colecao.php?strSecao=resultado&nrSeq=21956&idi=1
+- Programação para Arquitetura: linguagens visuais e textuais em Projeto Orientado ao Desempenho (2019) | Landim, Gabriele do Rosario — USP [dissertação] | —

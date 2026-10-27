@@ -1,0 +1,44 @@
+# Quarto ciclo (tcc-t81w, 2026-10-26), eixo 4: citantes de Salvaneschi et al. (2014, FSE), desde 2013
+# Comando: python3 buscar_literatura.py citantes 10.1145/2635868.2635895 --desde 2013 --todos
+# OpenAlex: Total: 39 (mostrando 39)
+
+## citantes de Salvaneschi et al. (2014, FSE), desde 2013: 39
+- An Empirical Validation of Cognitive Complexity as a Measure of Source Code Understandability (2020) | Proceedings of the ... ACM-IEEE International Symposium on Empirical Software Engineering and Measurement/International Symposium on Empirical Software Engineering and Measurement | 10.1145/3382494.3410636
+- 40 Years of Designing Code Comprehension Experiments: A Systematic Mapping Study (2023) | ACM Computing Surveys | 10.1145/3626522
+- On the Positive Effect of Reactive Programming on Software Comprehension: An Empirical Study (2017) | IEEE Transactions on Software Engineering | 10.1109/tse.2017.2655524
+- Distributed system development with ScalaLoci (2018) | Proceedings of the ACM on Programming Languages | 10.1145/3276499
+- Debugging for reactive programming (2016) | ACM/IEEE International Conference on Software Engineering: Companion Proceedings (ICSE-Companion) | 10.1145/2884781.2884815
+- On the Semantics of Distributed Reactive Programming: The Cost of Consistency (2018) | IEEE Transactions on Software Engineering | 10.1109/tse.2018.2833109
+- Debugging data flows in reactive programs (2018) | ACM/IEEE International Conference on Software Engineering: Companion Proceedings (ICSE-Companion) | 10.1145/3180155.3180156
+- An empirical evaluation of the “Cognitive Complexity” measure as a predictor of code understandability (2022) | Journal of Systems and Software | 10.1016/j.jss.2022.111561
+- An empirical study on software understandability and its dependence on code characteristics (2023) | Empirical Software Engineering | 10.1007/s10664-023-10396-7
+- Thread-safe reactive programming (2018) | Proceedings of the ACM on Programming Languages | 10.1145/3276477
+- Refactoring for Asynchronous Execution on Mobile Devices (2015) | IEEE Software | 10.1109/ms.2015.133
+- Active Expressions: Basic Building Blocks for Reactive Programming (2017) | The Art Science and Engineering of Programming | 10.22152/programming-journal.org/2017/1/12
+- Automated Refactoring to Reactive Programming (2019) | IEEE/ACM International Conference on Automated Software Engineering (ASE) | 10.1109/ase.2019.00082
+- Towards a Methodology for Participant Selection in Software Engineering Experiments (2021) | Proceedings of the ... ACM-IEEE International Symposium on Empirical Software Engineering and Measurement/International Symposium on Empirical Software Engineering and Measurement | 10.1145/3475716.3484273
+- Predicting Code Comprehension: A Novel Approach to Align Human Gaze with Code using Deep Neural Networks (2024) | Proceedings of the ACM on software engineering. | 10.1145/3660795
+- Debugging reactive programming with reactive inspector (2016) | ACM/IEEE International Conference on Software Engineering: Companion Proceedings (ICSE-Companion) | 10.1145/2889160.2893174
+- I now pronounce you reactive and consistent: handling distributed and replicated state in reactive programming (2016) | None | 10.1145/3001929.3001930
+- ReactiFi: Reactive Programming of Wi-Fi Firmware on Mobile Devices (2020) | The Art Science and Engineering of Programming | 10.22152/programming-journal.org/2021/5/4
+- A mapping study of language features improving object-oriented design patterns (2023) | Information and Software Technology | 10.1016/j.infsof.2023.107222
+- What do we really know about data flow languages? (2016) | None | 10.1145/3001878.3001884
+- Reactive programming experience with REScala (2018) | International Conference on Art, Science, and Engineering of Programming (<Programming>) | 10.1145/3191697.3214337
+- Enriching the Internet By Acting and Reacting (2017) | None | 10.1145/3079368.3079407
+- Towards a Reactive Game Engine (2019) | IEEE SoutheastCon | 10.1109/southeastcon42311.2019.9020527
+- An empirical study of multi-threading paradigms Reactive programming vs continuation-passing style (2020) | None | 10.1145/3418688.3418695
+- Expression (2015) | None | 10.1145/2824893.2824903
+- Reactive caching for composed services: polling at the speed of push (2018) | Proceedings of the ACM on Programming Languages | 10.1145/3276522
+- Early Career Developers’ Perceptions of Code Understandability: A Study of Complexity Metrics (2025) | IEEE Access | 10.1109/access.2025.3585777
+- On the Usability of Reactive Programming APIs: A Mixed Evaluation (2025) | Software Practice and Experience | 10.1002/spe.3435
+- An Empirical Study on Code Comprehension: Data Context Interaction Compared to Classical Object Oriented (2017) | IEEE/ACM International Conference on Program Comprehension (ICPC) | 10.1109/icpc.2017.23
+- Interacto: A Modern User Interaction Processing Model (2021) | IEEE Transactions on Software Engineering | 10.1109/tse.2021.3083321
+- An Empirical Evaluation of the “Cognitive Complexity” Measure as a Predictor of Code Understandability (2022) | None | 10.31219/osf.io/2mbwe
+- On the Reliability of Code Comprehension Proxies (2026) | IEEE/ACM International Conference on Automated Software Engineering (ASE) | 10.1145/3832783.3834425
+- Unified Library for Dependency-graph Reactivity on Web and Desktop User Interfaces (2020) | ACM Southeast Conference (ACMSE) | 10.1145/3374135.3385278
+- UAX: Measuring the Usability of TypeScript APIs (2024) | None | 10.5753/sbes.2024.3658
+- An empirical study on code comprehension: DCI compared to OO (2016) | RIT Scholar Works (Rochester Institute of Technology) | 10.13140/rg.2.2.29331.48169
+- Refactoring for Asynchronous Execution on Mobile (2015) | IEEE Software | 10.1109/ms.2015.152
+- Design and evaluation of software framework that improves the management of reactive dependencies in development of object-oriented applications (2021) | None | sem
+- Concepts and tool for interactive computing (2022) | None | 10.70675/3902a426z78e8z4b29za1cfz67fc0c497149
+- Modèle de maintenabilité logicielle par analyse statique du graphe de code du programme (2024) | None | 10.70675/ba8f0557z5c02z4090zbd9fz569c7a61a9be

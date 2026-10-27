@@ -1,0 +1,28 @@
+# Quarto ciclo (tcc-t81w, 2026-10-26), eixo 3: iteração 1 para a frente, os citantes de Zid et al. (2024, ICSE) e de Zampetti et al. (2022, ICSME; 2025, EMSE)
+# Comandos:
+#   python3 ~/.claude/skills/escrita-academica/scripts/buscar_literatura.py citantes 10.1145/3597503.3639211 --todos --n 50
+#   python3 ~/.claude/skills/escrita-academica/scripts/buscar_literatura.py citantes 10.1007/s10664-024-10568-z --todos --n 50
+#   python3 ~/.claude/skills/escrita-academica/scripts/buscar_literatura.py citantes 10.1109/icsme55016.2022.00013 --todos --n 50
+
+## Citantes de A Study on the Pythonic Functional Constructs' Understandability (Zid et al., 2024, ICSE): 5
+- Bugs in large language models generated code: an empirical study (2025) | Empirical Software Engineering | 10.1007/s10664-025-10614-4
+- Automated Refactoring of Non-Idiomatic Python Code: A Differentiated Replication with LLMS (2025) | IEEE/ACM International Conference on Program Comprehension (ICPC) | 10.1109/icpc66645.2025.00020
+- Pythonic vs Refactorable Pythonic: On the Relationship between Pythonic Idioms and Code Quality in Machine Learning Projects (2025) | SSRN Electronic Journal | 10.2139/ssrn.5393703
+- Pythonic vs Refactorable Pythonic: On the relationship between Pythonic idioms and code quality in machine learning projects (2026) | Information and Software Technology | 10.1016/j.infsof.2025.108009
+- Technical Debt Principal Prediction by Deep Learning (2026) | International Conference on Cloud Computing and Big Data Analytics (ICCCBDA) | 10.1109/icccbda69573.2026.11676569
+
+## Citantes de The downside of functional constructs (Zampetti et al., 2025, EMSE): 3
+- Pythonic vs Refactorable Pythonic: On the Relationship between Pythonic Idioms and Code Quality in Machine Learning Projects (2025) | SSRN Electronic Journal | 10.2139/ssrn.5393703
+- Pythonic vs Refactorable Pythonic: On the relationship between Pythonic idioms and code quality in machine learning projects (2026) | Information and Software Technology | 10.1016/j.infsof.2025.108009
+- The relationship between different python argument-passing mechanisms and fixes: An empirical study (2026) | Empirical Software Engineering | 10.1007/s10664-026-10956-7
+
+## Citantes de An Empirical Study on the Fault-Inducing Effect of Functional Constructs in Python (Zampetti et al., 2022, ICSME): 8
+- Optimizing AWS lambda code execution time in amazon web services (2023) | Bulletin of Social Informatics Theory and Application | 10.31763/businta.v7i1.609
+- List Comprehension Versus for Loops Performance in Real Python Projects: Should we Care? (2024) | IEEE International Conference on Software Analysis, Evolution and Reengineering (SANER) | 10.1109/saner60148.2024.00066
+- The downside of functional constructs: a quantitative and qualitative analysis of their fix-inducing effects (2024) | Empirical Software Engineering | 10.1007/s10664-024-10568-z
+- Automated Refactoring of Non-Idiomatic Python Code: A Differentiated Replication with LLMS (2025) | IEEE/ACM International Conference on Program Comprehension (ICPC) | 10.1109/icpc66645.2025.00020
+- How Do Infrastructure-as-Code Practitioners Update Their Dependencies? An Empirical Study on Terraform Module Updates (2025) | IEEE/ACM International Conference on Mining Software Repositories (MSR) | 10.1109/msr66628.2025.00100
+- Staged Specification Logic for Verifying Higher-Order Imperative Programs (2024) | Lecture notes in computer science | 10.1007/978-3-031-71162-6_26
+- Pythonic vs Refactorable Pythonic: On the Relationship between Pythonic Idioms and Code Quality in Machine Learning Projects (2025) | SSRN Electronic Journal | 10.2139/ssrn.5393703
+- The relationship between different python argument-passing mechanisms and fixes: An empirical study (2026) | Empirical Software Engineering | 10.1007/s10664-026-10956-7
+

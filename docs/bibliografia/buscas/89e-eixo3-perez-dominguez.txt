@@ -1,0 +1,88 @@
+# Quarto ciclo (tcc-t81w, 2026-10-26), eixo 3: a tese de Perez Dominguez (2018, Nottingham) e o artigo dela sobre interfaces gráficas, nos dois sentidos
+# A tese não tem DOI, e o buscar_literatura.py só segue por DOI; as referências e os citantes vieram da API do OpenAlex pelo id W.
+# Comandos:
+#   python3 ~/.claude/skills/escrita-academica/scripts/buscar_literatura.py doi "Extensible and robust functional reactive programming" --autor Perez
+#   python3 ~/.claude/skills/escrita-academica/scripts/buscar_literatura.py doi "Bridging the GUI gap with reactive values and relations" --autor Perez
+#   python3 ~/.claude/skills/escrita-academica/scripts/buscar_literatura.py doi "Functional reactive programming, refactored" --autor Perez
+#   https://api.openalex.org/works/W2889590733 (referenced_works) e https://api.openalex.org/works?filter=cites:W2889590733
+#   https://api.openalex.org/works/W2170455857 (referenced_works) e https://api.openalex.org/works?filter=cites:W2170455857
+
+## Registro da tese no OpenAlex: 1
+- Extensible and robust functional reactive programming (2018) | Nottingham ePrints (University of Nottingham) | sem DOI (https://openalex.org/W2889590733)
+
+## Trabalhos do mesmo autor que o Crossref devolve para o título da tese: 3
+- Fault-tolerant functional reactive programming (extended version) (2020) | Journal of Functional Programming | 10.1017/s0956796820000118
+- Fault tolerant functional reactive programming (functional pearl) (2018) | Proceedings of the ACM on Programming Languages | 10.1145/3236791
+- Runtime verification and validation of functional reactive systems (2020) | Journal of Functional Programming | 10.1017/s0956796820000210
+
+## Referências da tese (Perez Dominguez, 2018), no OpenAlex: 9
+- Specifying real-time properties with metric temporal logic (1990) | Real-Time Systems | 10.1007/bf01995674
+- Why Do Computers Stop and What Can Be Done About It? (2024) | None | 10.6084/m9.figshare.27043420
+- Synthesizing Monitors for Safety Properties (2002) | Lecture notes in computer science | 10.1007/3-540-46002-0_24
+- Monitoring programs using rewriting (2005) | None | 10.1109/ase.2001.989799
+- Temporal logic with "Until", functional reactive programming with processes, and concrete process categories (2013) | None | 10.1145/2428116.2428128
+- Proof Methods for Corecursive Programs (2005) | None | sem DOI
+- Using temporal relations to specify and test an instant messaging server (2010) | None | 10.1145/1808266.1808281
+- Finite-Trace Linear Temporal Logic: Coinductive Completeness (2016) | Lecture notes in computer science | 10.1007/978-3-319-46982-9_21
+- Stuttering abstraction for model checking (2005) | IEEE International Conference on Software Engineering and Formal Methods (SEFM) | 10.1109/sefm.2005.44
+
+## Citantes da tese (Perez Dominguez, 2018), no OpenAlex: 1
+- Runtime verification and validation of functional reactive systems (2020) | Journal of Functional Programming | 10.1017/s0956796820000210
+
+## Artigos ligados à tese (consulta doi pelos títulos), no OpenAlex: 2
+- Bridging the GUI gap with reactive values and relations (2015) | None | 10.1145/2804302.2804316
+- Functional reactive programming, refactored (2016) | None | 10.1145/2976002.2976010
+
+## Referências de Bridging the GUI gap with reactive values and relations (Perez e Nilsson, 2015), no OpenAlex: 34
+- Design Patterns: Elements of Reusable Object-Oriented Software (1994) | None | sem DOI
+- Can programming be liberated from the von Neumann style? (1978) | Communications of the ACM | 10.1145/359576.359579
+- Brewer's conjecture and the feasibility of consistent, available, partition-tolerant web services (2002) | ACM SIGACT News | 10.1145/564585.564601
+- A cookbook for using the model-view controller user interface paradigm in Smalltalk-80 (1988) | Journal of Object-oriented Programming | 10.5555/50757.50759
+- Imperative functional programming (1993) | ACM SIGPLAN-SIGACT Symposium on Principles of Programming Languages (POPL) | 10.1145/158511.158524
+- Eventually consistent (2008) | Communications of the ACM | 10.1145/1435417.1435432
+- Object-oriented application frameworks (1997) | Communications of the ACM | 10.1145/262793.262798
+- Composable memory transactions (2005) | ACM SIGPLAN Symposium on Principles and Practice of Parallel Programming | 10.1145/1065944.1065952
+- Functional reactive animation (1997) | ACM SIGPLAN International Conference on Functional Programming (ICFP) | 10.1145/258948.258973
+- A Description of the Model-View-Controller User Interface Paradigm in the Smalltalk-80 System (1998) | None | sem DOI
+- Applicative programming with effects (2007) | Journal of Functional Programming | 10.1017/s0956796807006326
+- Functional reactive programming, continued (2002) | None | 10.1145/581690.581695
+- Separating application code from toolkits (1991) | ACM Symposium on User Interface Software and Technology (UIST) | 10.1145/120782.120805
+- Combinators for bi-directional tree transformations (2005) | ACM SIGPLAN-SIGACT Symposium on Principles of Programming Languages (POPL) | 10.1145/1040305.1040325
+- Just do it (2011) | ACM SIGPLAN Notices | 10.1145/2034574.2034777
+- Just do it (2011) | ACM SIGPLAN International Conference on Functional Programming (ICFP) | 10.1145/2034773.2034777
+- Coherent reaction (2009) | Companion to the ACM SIGPLAN Conference on Object-Oriented Programming, Systems, Languages, and Applications (OOPSLA Companion) | 10.1145/1639950.1640058
+- Combinators for bi-directional tree transformations (2005) | ACM SIGPLAN Notices | 10.1145/1047659.1040325
+- Tangible functional programming (2007) | ACM SIGPLAN International Conference on Functional Programming (ICFP) | 10.1145/1291151.1291163
+- The Intel labs Haskell research compiler (2013) | None | 10.1145/2503778.2503779
+- Implementation and Application of Functional Languages (2013) | Lecture notes in computer science | 10.1007/978-3-642-41582-1
+- iTask as a New Paradigm for Building GUI Applications (2011) | Lecture notes in computer science | 10.1007/978-3-642-24276-2_10
+- FUDGETS (1993) | None | 10.1145/165180.165228
+- Interactive functional objects in Clean (1998) | Lecture notes in computer science | 10.1007/bfb0055438
+- Generic Graphical User Interfaces (2004) | Lecture notes in computer science | 10.1007/978-3-540-27861-0_10
+- SuperGlue: Component Programming with Object-Oriented Signals (2006) | Lecture notes in computer science | 10.1007/11785477_15
+- Gadgets: Lazy functional components for graphical user interfaces (1995) | Lecture notes in computer science | 10.1007/bfb0026828
+- Parametric lenses (2014) | None | 10.1145/2746325.2746333
+- SoOSiM: Operating System and Programming Language Exploration (2012) | University of Twente Research Information | sem DOI
+- Implementation of Functional Languages (2000) | Lecture notes in computer science | 10.1007/10722298
+- An Instance-Oriented Approach to Constructing Product Lines from Layers (2005) | None | sem DOI
+- Tangible functional programming (2007) | ACM SIGPLAN Notices | 10.1145/1291220.1291163
+- Why are Human-Computer Interfaces Difficult to Design and Implement (1993) | None | 10.21236/ada268843
+- E-FRP with priorities (2007) | None | 10.1145/1289927.1289963
+
+## Citantes de Bridging the GUI gap with reactive values and relations (Perez e Nilsson, 2015), no OpenAlex: 16
+- Functional reactive programming, refactored (2016) | None | 10.1145/2976002.2976010
+- Testing and debugging functional reactive programming (2017) | Proceedings of the ACM on Programming Languages | 10.1145/3110246
+- Embedding by Unembedding (2023) | Proceedings of the ACM on Programming Languages | 10.1145/3607830
+- Rhine: FRP with type-level clocks (2018) | None | 10.1145/3242744.3242757
+- Functional reactive programming, refactored (2016) | ACM SIGPLAN Notices | 10.1145/3241625.2976010
+- Rhine: FRP with type-level clocks (2018) | ACM SIGPLAN Notices | 10.1145/3299711.3242757
+- Runtime verification and validation of functional reactive systems (2020) | Journal of Functional Programming | 10.1017/s0956796820000210
+- Semantic Mapping from SysML to FRP: to Enable Executable and Verifiable Systems Design (2021) | IEEE International Systems Conference (SysCon) | 10.1109/syscon48628.2021.9447075
+- GALE: a functional graphic adventure library and engine (2017) | None | 10.1145/3122938.3122944
+- Structured reactive programming with polymorphic temporal tiles (2016) | None | 10.1145/2975980.2975984
+- Mobile game programming in Haskell (2019) | None | 10.1145/3331543.3342580
+- Funky Grooves: Declarative Programming of Full-Fledged Musical Applications (2016) | Lecture notes in computer science | 10.1007/978-3-319-51676-9_11
+- A Software Architecture Based on Coarse-Grained Self-Adjusting Computations (2023) | None | 10.1145/3609025.3609481
+- Virtual Machines and Hypergraph Data/Code Models: Graph-Theoretic Representations of Lambda-Style Calculi (2023) | Signals and communication technology | 10.1007/978-3-031-29713-7_21
+- Bridging the Gap between Event-Based Programming and Functional Programming (2022) | International Journal of Science and Research (IJSR) | 10.21275/sr231116134821
+- Escaping the DAG Dogma: Toward Modular Reactive Architectures (2026) | ACM SIGPLAN International Symposium on New Ideas, New Paradigms, and Reflections on Programming and Software (Onward!) | 10.1145/3840586.3843206

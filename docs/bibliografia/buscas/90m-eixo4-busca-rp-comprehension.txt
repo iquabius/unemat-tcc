@@ -1,0 +1,30 @@
+# Quarto ciclo (tcc-t81w, 2026-10-26), eixo 4: consulta 'reactive programming comprehension', desde 2013
+# Comando: python3 buscar_literatura.py buscar "reactive programming comprehension" --desde 2013 --n 25
+# OpenAlex: 69 resultados no OpenAlex (mostrando 25, ordem: relevancia)
+
+## consulta 'reactive programming comprehension', desde 2013: 25
+- An empirical study on program comprehension with reactive programming (2014) | ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE) | 10.1145/2635868.2635895
+- On the Positive Effect of Reactive Programming on Software Comprehension: An Empirical Study (2017) | IEEE Transactions on Software Engineering | 10.1109/tse.2017.2655524
+- An empirical study on program comprehension with reactive programming. (2016) | None | sem
+- Interactive situation models for program comprehension (2026) | Warwick Research Archive Portal (University of Warwick) | 10.82444/warw.33642031
+- Concurrency and Distribution in Reactive Programming (2019) | TUbilio (Technical University of Darmstadt) | 10.26083/tuprints-00005228
+- Using Functional Reactive Programming for Robotic Art: An Experience Report (2024) | None | 10.1145/3677996.3678288
+- Perspectives and Challenges of iOS Developers in Using Reactive Programming with RxSwift (2024) | None | 10.5753/sbes.2024.3569
+- The Role of Parents in the Indonesian Language Learning Process on Elementary School Students' Reading Comprehension Skills (2026) | Journal of Innovation and Research in Primary Education | 10.56916/jirpe.v5i2.3541
+- Structured Behavioral Programming Idioms (2017) | Lecture notes in business information processing | 10.1007/978-3-319-59466-8_20
+- A review on design, material selection, mechanism, and modelling of permeable reactive barrier for community-scale groundwater treatment (2020) | Environmental Technology & Innovation | 10.1016/j.eti.2020.100917
+- Design approaches of single-atom nanozymes for oxidative stress modulation: Mechanistic comprehensions, and biomedical applications (2026) | Colloids and Surfaces B Biointerfaces | 10.1016/j.colsurfb.2026.116186
+- Type II metacaspase mediates light-dependent programmed cell death in Chlamydomonas reinhardtii (2023) | PLANT PHYSIOLOGY | 10.1093/plphys/kiad618
+- Computational Chemistry Programs as a Facilitating Tool in the Teaching and learning Process (2015) | Journal of Education Society and Behavioural Science | 10.9734/bjesbs/2015/14819
+- Redox Control of Skeletal Muscle Regeneration (2016) | Antioxidants and Redox Signaling | 10.1089/ars.2016.6782
+- Reliability-Centered Maintenance (2023) | CRC Press eBooks | 10.1201/9781003365204-15
+- Comprehensive Study on Different Types of Software Agents (2021) | Advances in intelligent systems and computing | 10.1007/978-981-33-6176-8_28
+- Focusing at the Double-Edged Sword of Redox Imbalance: Signals for Cell Survival or for Cell Death? (2014) | Antioxidants and Redox Signaling | 10.1089/ars.2014.5914
+- Mitochondria dynamism: of shape, transport and cell migration (2014) | Cellular and Molecular Life Sciences | 10.1007/s00018-014-1557-8
+- Incorporating Chemical Structure Drawing Software throughout the Organic Laboratory Curriculum (2019) | Journal of Chemical Education | 10.1021/acs.jchemed.9b00010
+- Plant–pathogen interactions and ambient pH dynamics (2025) | Stress Biology | 10.1007/s44154-024-00183-9
+- Mechanical Thrombectomy for Major Stroke with Low Alberta Stroke Program Early CT Score (ASPECTS): Successful Revascularization Failed to Control Brain Edema and Herniation; Decompressive Craniectomy Was Lifesaving but Hemorrhagic Transformation Limited Recovery (2024) | Springer eBooks | 10.1007/978-3-030-85411-9_73-1
+- Mechanical Thrombectomy for Major Stroke with Low Alberta Stroke Program Early CT Score (ASPECTS): Successful Revascularization Failed to Control Brain Edema and Herniation; Decompressive Craniectomy Was Lifesaving but Hemorrhagic Transformation Limited Recovery (2024) | Springer eBooks | 10.1007/978-3-031-47201-5_73
+- Investigating the Design of Just-in-Time Adaptive Interventions (JITAIs) Messages Targeting Eating Behaviors (2023) | ACM Southeast Conference (ACMSE) | 10.1145/3564746.3587028
+- Endogenous adaptation of agroecosystems and food security to climate change and perturbation in South-Kivu (DR Congo) (2019) | International journal of innovation and applied studies | sem
+- Climate resilience in small ruminant and immune system: An old alliance in the new sustainability context (2022) | Small Ruminant Research | 10.1016/j.smallrumres.2022.106662

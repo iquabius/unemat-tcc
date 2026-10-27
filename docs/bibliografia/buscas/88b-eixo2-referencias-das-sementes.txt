@@ -1,0 +1,68 @@
+# Quarto ciclo (tcc-t81w, 2026-10-26), eixo 2: referências das três sementes (snowballing para trás, iteração 1)
+
+Os comandos rodaram sem `--sem-resumo`, para a triagem pelo resumo; os resumos foram tirados destas listas, que são a saída bruta do script reescrita uma linha por trabalho.
+
+## Referências de React-tRace (Lee, Ahn e Yi, 2025, PACMPL), no OpenAlex: 28
+
+`python3 ~/.claude/skills/escrita-academica/scripts/buscar_literatura.py referencias 10.1145/3763067 --n 80`
+
+OpenAlex: Referências de: React-tRace: A Semantics for Understanding React Hooks: An Operational Semantics and a Visualizer for Clarifying React Hooks (2025)
+29 referências indexadas no OpenAlex
+
+- Abstract interpretation (1977) | ACM SIGACT-SIGPLAN Symposium on Principles of Programming Languages (POPL) | 10.1145/512950.512973
+- Functional reactive animation (1997) | ACM SIGPLAN International Conference on Functional Programming (ICFP) | 10.1145/258948.258973
+- Links: Web Programming Without Tiers (2007) | Lecture notes in computer science | 10.1007/978-3-540-74792-5_12
+- Natural semantics (2006) | Springer eBooks | 10.1007/bfb0039592
+- Asynchronous functional reactive programming for GUIs (2013) | ACM SIGPLAN Conference on Programming Language Design and Implementation (PLDI) | 10.1145/2491956.2462161
+- Flapjax (2009) | Conference on Object-Oriented Programming Systems, Languages, and Applications | 10.1145/1640089.1640091
+- An Operational Semantics for JavaScript (2008) | Lecture notes in computer science | 10.1007/978-3-540-89330-1_22
+- KJS: a complete formal semantics of JavaScript (2015) | ACM SIGPLAN Conference on Programming Language Design and Implementation (PLDI) | 10.1145/2737924.2737991
+- The Essence of JavaScript (2010) | Lecture notes in computer science | 10.1007/978-3-642-14107-2_7
+- From bytecode to JavaScript: the Js_of_ocaml compiler (2013) | Software Practice and Experience | 10.1002/spe.2187
+- Ur/Web (2014) | ACM SIGPLAN-SIGACT Symposium on Principles of Programming Languages (POPL) | 10.1145/2676726.2677004
+- A tested semantics for getters, setters, and eval in JavaScript (2012) | Symposium on Dynamic Languages (DLS) | 10.1145/2384577.2384579
+- Automated reasoning for web page layout (2016) | Conference on Object-Oriented Programming Systems, Languages, and Applications | 10.1145/2983990.2984010
+- A Survey of Multitier Programming (2020) | ACM Computing Surveys | 10.1145/3397495
+- A model for reasoning about JavaScript promises (2017) | Proceedings of the ACM on Programming Languages | 10.1145/3133910
+- Verifying that web pages have accessible layout (2018) | ACM SIGPLAN Conference on Programming Language Design and Implementation (PLDI) | 10.1145/3192366.3192407
+- JaVerT: JavaScript verification toolchain (2017) | Proceedings of the ACM on Programming Languages | 10.1145/3158138
+- JISET (2020) | IEEE/ACM International Conference on Automated Software Engineering (ASE) | 10.1145/3324884.3416632
+- An optimizing compiler for a purely functional web-application language (2015) | ACM SIGPLAN International Conference on Functional Programming (ICFP) | 10.1145/2784731.2784741
+- React (2016) | Communications of the ACM | 10.1145/2980991
+- Modular verification of web page layout (2019) | Proceedings of the ACM on Programming Languages | 10.1145/3360577
+- Reasoning about Web Applications (2012) | ACM Transactions on Programming Languages and Systems | 10.1145/2220365.2220369
+- A Semantics for the Essence of React (2020) | DROPS (Schloss Dagstuhl – Leibniz Center for Informatics) | 10.4230/lipics.ecoop.2020.12
+- Model-View-Update-Communicate: Session Types Meet the Elm Architecture (2019) | ENLIGHTEN (Jurnal Bimbingan dan Konseling Islam) | 10.4230/lipics.ecoop.2020.14
+- Eliom (2016) | None | 10.1145/3064899.3064901
+- JavaScript Language Design and Implementation in Tandem (2024) | Communications of the ACM | 10.1145/3624723
+- WebSpec: Towards Machine-Checked Analysis of Browser Security Mechanisms (2023) | Proceedings - IEEE Symposium on Security and Privacy/Proceedings of the ... IEEE Symposium on Security and Privacy | 10.1109/sp46215.2023.10179465
+- A Core Calculus for Documents: Or, Lambda: The Ultimate Document (2024) | Proceedings of the ACM on Programming Languages | 10.1145/3632865
+
+## Referências de Evolution of Functional UI Paradigms (Sperber e Schlegel, 2025), no OpenAlex: 14
+
+`python3 ~/.claude/skills/escrita-academica/scripts/buscar_literatura.py referencias 10.1145/3759163.3760429 --n 80`
+
+OpenAlex: Referências de: Evolution of Functional UI Paradigms (2025)
+14 referências indexadas no OpenAlex
+
+- Design Patterns: Elements of Reusable Object-Oriented Software (1994) | None | sem
+- On the criteria to be used in decomposing systems into modules (1972) | Communications of the ACM | 10.1145/361598.361623
+- Functional reactive animation (1997) | ACM SIGPLAN International Conference on Functional Programming (ICFP) | 10.1145/258948.258973
+- Combinators for bidirectional tree transformations (2007) | ACM Transactions on Programming Languages and Systems | 10.1145/1232420.1232424
+- Concurrent Programming in ML (1999) | Cambridge University Press eBooks | 10.1017/cbo9780511574962
+- Asynchronous functional reactive programming for GUIs (2013) | ACM SIGPLAN Conference on Programming Language Design and Implementation (PLDI) | 10.1145/2491956.2462161
+- Functional geometry (1982) | None | 10.1145/800068.802148
+- FUDGETS (1993) | None | 10.1145/165180.165228
+- Proceedings of the 1999 Haskell Workshop (1999) | Utrecht University Repository (Utrecht University) | sem
+- Evolution in software systems: foundations of the SPE classification scheme (2005) | Journal of Software Maintenance and Evolution Research and Practice | 10.1002/smr.314
+- Functional reactive programming, refactored (2016) | None | 10.1145/2976002.2976010
+- A functional I/O system or, fun for freshman kids (2009) | ACM SIGPLAN Notices | 10.1145/1631687.1596561
+- Tangible functional programming (2007) | ACM SIGPLAN International Conference on Functional Programming (ICFP) | 10.1145/1291151.1291163
+- Composing the user interface with Haggis (1996) | Lecture notes in computer science | 10.1007/3-540-61628-4_1
+
+## Referências de A Semantics for the Essence of React (Madsen, Lhoták e Tip, 2020), no OpenAlex: 0
+
+`python3 ~/.claude/skills/escrita-academica/scripts/buscar_literatura.py referencias 10.4230/LIPIcs.ECOOP.2020.12 --n 80`
+
+OpenAlex: Referências de: A Semantics for the Essence of React (2020)
+0 referências indexadas no OpenAlex

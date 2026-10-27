@@ -1,0 +1,30 @@
+# Quarto ciclo (tcc-t81w, 2026-10-26), eixo 4: consulta 'reactive programming usability', desde 2013
+# Comando: python3 buscar_literatura.py buscar "reactive programming usability" --desde 2013 --n 25
+# OpenAlex: 21300 resultados no OpenAlex (mostrando 25, ordem: relevancia)
+
+## consulta 'reactive programming usability', desde 2013: 25
+- Reactive Programming Using Spring WebFlux (2022) | Apress eBooks | 10.1007/978-1-4842-8792-7_11
+- Reactive Programming Using Spring WebFlux (2017) | Apress eBooks | 10.1007/978-1-4842-2931-6_12
+- Solving the Overproduction Problem in Reactive Programming using Feedback Control (2016) | Research Repository (Delft University of Technology) | sem
+- Development of Functional Reactive Programming Using an Incrementally Modular Abstraction Hierarchy (2015) | International Conference on IT Convergence and Security (ICITCS) | 10.1109/icitcs.2015.7292972
+- Property-Based Testing for Asynchronous Functional Reactive Programming Using Linear Temporal Logic (2026) | Lecture notes in computer science | 10.1007/978-3-032-15981-6_3
+- Generative Music Using Reactive Programming (2021) | HAL | sem
+- On the Usability of Reactive Programming APIs: A Mixed Evaluation (2025) | Software Practice and Experience | 10.1002/spe.3435
+- Music Notation Using Reactive Synchronous Programming (2022) | Zenodo (CERN European Organization for Nuclear Research) | 10.5281/zenodo.6669001
+- Using human-in-the-loop synthesis to author functional reactive programs (2019) | arXiv (Cornell University) | 10.48550/arxiv.1909.11206
+- Using Functional Reactive Programming for Robotic Art: An Experience Report (2024) | None | 10.1145/3677996.3678288
+- Perspectives and Challenges of iOS Developers in Using Reactive Programming with RxSwift (2024) | None | 10.5753/sbes.2024.3569
+- Building IoT Systems Using Distributed First-Class Reactive Programming (2018) | IEEE International Conference on Cloud Computing Technology and Science | 10.1109/cloudcom2018.2018.00045
+- Reactive Power Optimization by using Sequential Quadratic Programming (2018) | None | sem
+- Multi cases optimal reactive power dispatch using evolutionary programming (2020) | Indonesian Journal of Electrical Engineering and Computer Science | 10.11591/ijeecs.v17.i2.pp662-670
+- Functional Reactive Programming for iOS : using Objective-C and ReactiveCocoa (2018) | Theseus (Ammattikorkeakoulujen) | sem
+- Simplifying Education of Reactive Programming Concepts Using Comparative Application (2025) | IEEE World Symposium on Applied Machine Intelligence and Informatics (SAMI) | 10.1109/sami63904.2025.10883129
+- Using Functional Reactive Programming to Define Safe Actor Systems (2022) | None | 10.1145/3611096.3611098
+- THE EFFECTIVENESS OF USING REACTIVE PROGRAMMING FOR FINTECH WEB APPLICATION MODULES (2025) | None | 10.58351/241121.2024.27.77.002
+- The Use of Reactive Programming in the Proposed Model for Cloud Security Controlled by ITSS (2022) | Computers | 10.3390/computers11050062
+- Stream fusion using reactive programming, LINQ and magic updates (2013) | None | sem
+- ShinyRBase: Near real-time energy saving models using reactive programming (2022) | Applied Energy | 10.1016/j.apenergy.2022.119798
+- AI based HealthCare Platform for Real Time, Predictive and Prescriptive Analytics using Reactive Programming (2018) | Journal of Physics Conference Series | 10.1088/1742-6596/933/1/012010
+- Reactive task-oriented redundancy resolution using constraint-based programming (2016) | IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS) | 10.1109/iros.2016.7759837
+- Testing Reactive Systems Using Behavioural Programming, a Model Centric Approach (2021) | arXiv (Cornell University) | 10.48550/arxiv.2112.01538
+- A domain-specific dialect for financial-economic calculations using reactive programming (2017) | NORA - Norwegian Open Research Archives | sem

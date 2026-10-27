@@ -1,0 +1,89 @@
+# Quarto ciclo (tcc-t81w, 2026-10-26), eixo 5, iteração 1: citantes dos incluídos brasileiros mais fortes
+
+O OpenAlex esgotou a cota diária do IP (HTTP 429, "resets at midnight UTC") às 22h39 UTC de 2026-10-26, então o subcomando citantes do buscar_literatura.py não rodou. Os citantes vieram da API do Semantic Scholar:
+
+curl "https://api.semanticscholar.org/graph/v1/paper/DOI:<doi>/citations?fields=title,year,venue,externalIds,abstract&limit=100" (resumos tirados ao gravar)
+
+## Citantes de Detecting code smells in React-based Web apps (Ferreira e Valente, 2023, IST, 10.1016/j.infsof.2022.107111) (Semantic Scholar): 31
+- Refactoring React Component Hierarchies to Eliminate Prop Drilling (2026) | None | 2610.01376
+- A Systematic Literature Review of Code Smell Detection Tools for JavaScript Systems (2026) | SBC Reviews on Computer Science | 10.5753/reviews.2026.6187
+- Evaluating Deep Learning Models for Declarative UI Code Smell Detection (2026) | 2026 International Conference on Smart Computing, IoT, and Machine Learning (SIML) | 10.1109/SIML69834.2026.11621778
+- Refactoring Code Smells in Open Source Projects: A Hands-on Approach to Teaching Software Maintenance (2026) | Journal of Software Engineering Research and Development | 10.5753/jserd.2026.5688
+- An Empirical Evaluation of Code Smell Detection in Angular Applications (2026) | arXiv.org | 10.48550/arXiv.2604.27893
+- Automated Refactoring of Code Smells in React.js Applications (2026) | Proceedings of the 1st Workshop on Code Translation, Transformation, and Modernization | 10.1145/3786180.3788319
+- Remediating Superfluous Re-Rendering in React Applications (2026) | Proceedings of the 2026 IEEE/ACM 48th International Conference on Software Engineering | 10.1145/3744916.3773235
+- D-BUNDLR: Destructing JavaScript Bundles for Effective Static Analysis (2026) | Proceedings of the 2026 IEEE/ACM 48th International Conference on Software Engineering | 10.1145/3744916.3764564
+- HookLens: Visual Analytics for Understanding React Hooks Structures (2026) | IEEE Pacific Visualization Symposium | 10.1109/PacificVis68791.2026.00036
+- Integrating Near Real-Time Hydrological Data for Monitoring and Alerting: The RoWaterAPI Framework (2026) | Géosciences | 10.3390/geosciences16020087
+- Towards an Automated Approach to Detect Code Smells in ReScript (2025) | Anais do I Workshop em Engenharia de Software para Programação Funcional (SE4FP 2025) | 10.5753/se4fp.2025.14841
+- Code Smells and Refactorings for Elixir (2025) | Brazilian Symposium on Software Quality | 10.5753/ctd.2025.9280
+- Detection of code smells in react with TypeScript applications (2025) | Information and Software Technology | 10.1016/j.infsof.2025.107835
+- A systematic review on software code smells (2025) | International Journal of Electrical and Computer Engineering (IJECE) | 10.11591/ijece.v15i3.pp3010-3027
+- The Design of an Online Meditation Learning and Sharing Platform (2025) | International Conferences on Human-Machine Systems | 10.1109/ICHMS65439.2025.11154269
+- Analyzing and Detecting Code Design Smells: A Comprehensive Survey (2025) | International Conference on Computer Science and Software Engineering | 10.1109/CSASE63707.2025.11054036
+- Modeling and Simulation of Directed Graph-Based DEVS System (2025) | International Conference on Thermal, Mechanial and Multi-Physics Simulation and Experiments in Micro-Electronics and Micro-Systems | 10.1109/EuroSimE65125.2025.11006601
+- A Provenance-Centric Approach to Code Smell Reduction using Human-in-Loop Approach (2025) | International Congress on Information and Communication Technology | 10.1109/ICICT64582.2025.00011
+- Detecting Code Smells using ChatGPT: Initial Insights (2024) | International Symposium on Empirical Software Engineering and Measurement | 10.1145/3674805.3690742
+- Identificação de Smells em Testes Fim-a-Fim Implementados em Cypress (2024) | Workshops on Software Visualization, Evolution and Maintenance | 10.5753/vem.2024.3785
+- Analisando a Qualidade do Código em Plataformas de Cursos Online Abertos e Massivos (2024) | Workshops on Software Visualization, Evolution and Maintenance | 10.5753/vem.2024.3907
+- Contributing to open-source projects in refactoring code smells: A practical experience in teaching Software Maintenance (2024) | Brazilian Symposium on Software Engineering | 10.5753/sbes.2024.3507
+- Development of a Decentralized Application for Managing Food Supply Chain Based on Blockchain (2024) | 2024 IEEE 4th International Maghreb Meeting of the Conference on Sciences and Techniques of Automatic Control and Computer Engineering (MI-STA) | 10.1109/MI-STA61267.2024.10599659
+- Refactoring react-based Web apps (2024) | Journal of Systems and Software | 10.1016/j.jss.2024.112105
+- Managing Security Vulnerabilities Introduced by Dependencies in React.JS JavaScript Framework (2024) | IEEE International Conference on Software Analysis, Evolution, and Reengineering | 10.1109/SANER-C62648.2024.00022
+- A Survey on Cyber Resilience: Key Strategies, Research Challenges, and Future Directions (2024) | ACM Computing Surveys | 10.1145/3649218
+- Understanding code smells in Elixir functional language (2023) | Empirical Software Engineering | 10.1007/s10664-023-10343-6
+- Node Overlapping Detection for Draggable Node-Based Applications (2023) | 2023 IEEE International Conference on Contemporary Computing and Communications (InC4) | 10.1109/InC457730.2023.10262840
+- Prediction and Explainability of School Dropout in Peru Using Machine Learning and Explainable Artificial Intelligence (2026) | IEEE Access | 10.1109/ACCESS.2026.3675564
+- Constrained LLM-Guided Refactoring of JavaScript: A Smell-Targeted Transformation Framework with Human-in-the-Loop Validation (2026) | Computers, Materials &amp; Continua | 10.32604/cmc.2026.080737
+- Code Smells and Refactorings for Elixir A Ph.D. thesis about Software Quality, defended in December 2024 at UFMG (None) | None | —
+
+## Citantes de AngularJS in the wild (Ramos et al., 2016, PLATEAU, 10.1145/3001878.3001881) (Semantic Scholar): 31
+- The Effectiveness of Security Interventions on GitHub (2023) | Conference on Computer and Communications Security | 10.1145/3576915.3623174
+- Interpretation and Analysis of Angular Framework (2022) | 2022 International Conference on Power, Energy, Control and Transmission Systems (ICPECTS) | 10.1109/ICPECTS56089.2022.10047474
+- The Effect of Google Search on Software Security: Unobtrusive Security Interventions via Content Re-ranking (2021) | Conference on Computer and Communications Security | 10.1145/3460120.3484763
+- On the (un‐)adoption of JavaScript front‐end frameworks (2021) | Software, Practice & Experience | 10.1002/spe.3044
+- A Large Scale Study of Long-Time Contributor Prediction for GitHub Projects (2021) | IEEE Transactions on Software Engineering | 10.1109/TSE.2019.2918536
+- Facial Image Verification for Government Kiosk System (2020) | International Joint Conference on Computer Science and Software Engineering | 10.1109/JCSSE49651.2020.9268245
+- Developer’s Perspective on Implementing a Tool to Facilitate Development of Robotic Process Automation (2020) | None | —
+- Cloud-based Real-time Bulletin Board Posting Using AngularJS Framework (2019) | International journal of simulation. Systems, Science and Technology | 10.5013/ijssst.a.20.s2.21
+- Real-Time Asset Management Using AG Grid in Angular: A High-Performance Solution (2019) | International Journal of Science and Research (IJSR) | 10.21275/sr24709194938
+- Pigeon-Chart: A Customized HTML Element for Data Visualization in Data-Driven Web Application Using AngularJS, HighCharts, UnderscoreJS and PHP (2018) | International Conference Communication and Information Systems | 10.1109/ICOMIS.2018.8644793
+- Usability analysis of AngularJS framework in the context of simple internet application (2018) | Journal of Computer Sciences Institute | 10.35784/jcsi.674
+- Microservices in Practice: A Survey Study (2018) | Workshops on Software Visualization, Evolution and Maintenance | 1808.04836
+- An extensible approach for taming the challenges of JavaScript dead code elimination (2018) | IEEE International Conference on Software Analysis, Evolution, and Reengineering | 10.1109/SANER.2018.8330226
+- A substrate for modular, extensible data-visualization (2017) | bioRxiv | 10.1101/217349
+- Pigeon-table: A quick prototyping tool using twitter bootstraps and AngularJS for data-driven web application development (2017) | 2017 International Conference on Computer and Drone Applications (IConDA) | 10.1109/ICONDA.2017.8270395
+- AngularJS Performance: A Survey Study (2017) | IEEE Software | 10.1109/MS.2017.265100610
+- Assessing and Improving Code Transformations to Support Software Evolution. (Evaluation et amélioration des transformations de code pour soutenir l'évolution logicielle) (2017) | None | —
+- Biblioteki AngularJS i ReactJS - analiza wydajnościowa (2016) | None | 10.35784/jcsi.126
+- An Interpretation and Anatomization of Angular: A Google Web Framework (2020) | None | —
+- Current Progress in Cross-Platform Application Development Evaluation of Frameworks for Mobile Application Development (2019) | None | —
+- An Informal Carer Hub to Support Carers Looking After COPD Patients in the UK and Netherlands (2019) | Frontiers in Intelligent Computing: Theory and Applications | 10.1007/978-981-13-9920-6_33
+- Webbapplikation för den operativa polisen : Gör polisingripanden mycket smidigare (2019) | None | —
+- COLLA 2018 (2018) | None | —
+- Cross-Platform Development (2018) | None | —
+- Mukhammadjon Jalolov Analyzing JavaScript frameworks and Dart for Front-end Development in Building Automation 2018 (2018) | None | —
+- Conservation of Limited Resources: Design Principles for Security and Usability on Mobile Devices (2018) | None | —
+- FANTASIA : A TOOL FOR AUTOMATICALLY IDENTIFYING INCONSISTENCY IN ANGULARJS (2017) | None | —
+- FANTASIA : A Tool for Automatically Identifying Inconsistency in AngularJS MVC Applications (2017) | None | —
+- Communicate to Win : Real-time communication services for location-based learning activities (2017) | None | —
+- AngularJS and ReactJS libraries-performance analysis (2016) | None | —
+- Java, Python and Javascript, a comparison (None) | None | —
+
+## Citantes de Perspectives and Challenges of iOS Developers in Using Reactive Programming with RxSwift (Farias, Zimmerle e Gama, 2024, SBES, 10.5753/sbes.2024.3569) (Semantic Scholar): 0
+
+## Citantes de Refactoring react-based Web apps (Ferreira, Borges e Valente, 2024, JSS, 10.1016/j.jss.2024.112105) (Semantic Scholar): 13
+- Refactoring React Component Hierarchies to Eliminate Prop Drilling (2026) | None | 2610.01376
+- Comparative Analysis of Structural Complexity in Feature-Oriented Frontend Application Architectures: Feature-Sliced Design and the Feature-Based Modular Approach (2026) | 2026 IEEE 6th International Conference on Smart Information Systems and Technologies (SIST) | 10.1109/SIST61674.2026.11596534
+- Remediating Superfluous Re-Rendering in React Applications (2026) | Proceedings of the 2026 IEEE/ACM 48th International Conference on Software Engineering | 10.1145/3744916.3773235
+- Automated Refactoring of Code Smells in React.js Applications (2026) | Proceedings of the 1st Workshop on Code Translation, Transformation, and Modernization | 10.1145/3786180.3788319
+- PromiseAwait: A Dataset of JavaScript Migrations from Promises to Async/Await (2026) | FORGE@ICSE | 10.1145/3793655.3793714
+- HookLens: Visual Analytics for Understanding React Hooks Structures (2026) | IEEE Pacific Visualization Symposium | 10.1109/PacificVis68791.2026.00036
+- Implementasi React.Js pada Aplikasi Pengadministrasian Penerimaan dan Pelaporan Retribusi (E-Paper) (2025) | Jurnal Manajemen Informatika, Sistem Informasi dan Teknologi Komputer (JUMISTIK) | 10.70247/jumistik.v4i2.226
+- An Empirical Study of Software Refactorings in Real-World Open-Source Java Projects (2025) | IEEE Transactions on Software Engineering | 10.1109/TSE.2025.3604821
+- DABCheck: Um Plugin para Detecção de Mudanças Disruptivas em Argumentos-Padrão de Bibliotecas Python (2025) | Brazilian Symposium on Software Engineering | 10.5753/sbes.2025.11169
+- Detection of code smells in react with TypeScript applications (2025) | Information and Software Technology | 10.1016/j.infsof.2025.107835
+- ПЕРЕВАГИ ВИКОРИСТАННЯ REDUX У ПОРІВНЯННІ З ТРАДИЦІЙНИМ REACT ПІД ЧАС РОЗРОБКИ ВЕБ-ІНТЕРФЕЙСУ (2024) | Збірник наукових праць Харківського національного університету Повітряних Сил | 10.30748/zhups.2024.81.09
+- End-to-End Application and Backend State Management: A Comprehensive Review (2024) | Ubiquitous Computing, Electronics & Mobile Communication Conference | 10.1109/UEMCON62879.2024.10754779
+- A Maintainability Framework to Ensure the Software Quality in Object-Oriented Programming (2025) | IEEE Access | 10.1109/ACCESS.2025.3633265
+

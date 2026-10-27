@@ -1,0 +1,39 @@
+# Quarto ciclo (tcc-t81w, 2026-10-26), eixo 5: DOI das versões publicadas das teses e dissertações incluídas
+
+Comandos: python3 ~/.claude/skills/escrita-academica/scripts/buscar_literatura.py doi "<título>" (OpenAlex, até o HTTP 429 da cota diária) e, depois do 429, a API do Crossref:
+curl "https://api.crossref.org/works?rows=3&select=DOI,title,author,issued,container-title,is-referenced-by-count&query.bibliographic=<título e autores>"
+
+## doi "Detecting code smells in React-based Web apps" (OpenAlex)
+- Detecting code smells in React-based Web apps (2022) | Fábio Ferreira, Marco Túlio Valente — Information and Software Technology [article] | (DOI cortado na saída; ver Crossref)
+
+## doi "AngularJS in the wild: a survey with 460 developers" (OpenAlex)
+- AngularJS in the wild: a survey with 460 developers (2016) | Miguel Ramos, Marco Túlio Valente, Ricardo Terra et al. — [conference-paper] | (DOI cortado na saída; ver Crossref)
+
+## doi "AngularJS performance: a survey study" (OpenAlex)
+- AngularJS Performance: A Survey Study (2017) | Miguel Ramos, Marco Túlio Valente, Ricardo Terra — IEEE Software [article] | (DOI cortado na saída; ver Crossref)
+
+## doi "On the usage of functional programming concepts in JavaScript programs" (OpenAlex)
+- On the usage of functional programming concepts in JavaScript programs (2022) | Fernando Henrique de Albuquerque ALVES — LA Referencia [dissertation] | só a dissertação; nenhum artigo encontrado
+
+## doi "On the (un-)adoption of JavaScript front-end frameworks" (OpenAlex)
+- On the (un‐)adoption of JavaScript front‐end frameworks (2021) | Fábio Ferreira, Hudson Silva Borges, Marco Túlio Valente — Software Practice and Experience [article] | (DOI cortado na saída; ver Crossref)
+
+## doi "Refactoring React-based Web Apps" (OpenAlex)
+Erro HTTP 429 (cota diária do OpenAlex esgotada)
+
+## Crossref: "Detecting code smells in React-based Web apps Ferreira Valente"
+- Detecting code smells in React-based Web apps (2023) | Ferreira, Valente — Information and Software Technology, 29 citações | 10.1016/j.infsof.2022.107111
+- Refactoring React-Based Web Apps (2023) | da Silva Ferreira, Silva Borges, Valente — SSRN, 0 citações | 10.2139/ssrn.4501367
+- Refactoring react-based Web apps (2024) | Ferreira, Borges, Valente — Journal of Systems and Software, 11 citações | 10.1016/j.jss.2024.112105
+
+## Crossref: "AngularJS in the wild: a survey with 460 developers"
+- AngularJS in the wild: a survey with 460 developers (2016) | Ramos, Valente, Terra, Santos — PLATEAU 2016, 15 citações | 10.1145/3001878.3001881
+
+## Crossref: "AngularJS Performance: A Survey Study Ramos Valente Terra"
+- AngularJS Performance: A Survey Study (2018) | Ramos, Valente, Terra — IEEE Software, 10 citações | 10.1109/ms.2017.265100610
+
+## Crossref: "On the (un-)adoption of JavaScript front-end frameworks Ferreira Borges Valente"
+- On the (un‐)adoption of JavaScript front‐end frameworks (2021) | Ferreira, Borges, Valente — Software: Practice and Experience, 12 citações | 10.1002/spe.3044
+
+## Crossref: 10.1016/j.infsof.2025.107835 (achado nos citantes)
+- Detection of code smells in react with TypeScript applications (2025) | Nunes, Bezerra, Ferreira, Gois, Valente — Information and Software Technology | 10.1016/j.infsof.2025.107835 (sem resumo no Crossref nem no Semantic Scholar)

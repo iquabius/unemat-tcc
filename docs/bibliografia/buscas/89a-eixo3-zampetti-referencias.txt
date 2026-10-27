@@ -1,0 +1,70 @@
+# Quarto ciclo (tcc-t81w, 2026-10-26), eixo 3: iteração 1 para trás, as referências de Zampetti et al. (2025, Empirical Software Engineering)
+# Comando: python3 ~/.claude/skills/escrita-academica/scripts/buscar_literatura.py referencias 10.1007/s10664-024-10568-z --n 100
+
+## Referências de The downside of functional constructs (Zampetti et al., 2025, EMSE), no OpenAlex: 65
+- Controlling the False Discovery Rate: A Practical and Powerful Approach to Multiple Testing (1995) | Journal of the Royal Statistical Society Series B (Statistical Methodology) | 10.1111/j.2517-6161.1995.tb02031.x
+- Fitting Linear Mixed-Effects Models Using lme4 (2015) | Journal of Statistical Software | 10.18637/jss.v067.i01
+- A Coefficient of Agreement for Nominal Scales (1960) | Educational and Psychological Measurement | 10.1177/001316446002000104
+- A Complexity Measure (1976) | IEEE Transactions on Software Engineering | 10.1109/tse.1976.233837
+- On the Interpretation of χ 2 from Contingency Tables, and the Calculation of P (1922) | Journal Of The Royal Statistical Society | 10.2307/2340521
+- A large-scale empirical study of just-in-time quality assurance (2012) | IEEE Transactions on Software Engineering | 10.1109/tse.2012.70
+- Classifying Software Changes: Clean or Buggy? (2008) | IEEE Transactions on Software Engineering | 10.1109/tse.2007.70773
+- Evaluating defect prediction approaches: a benchmark and an extensive comparison (2011) | Empirical Software Engineering | 10.1007/s10664-011-9173-9
+- Fine-grained and accurate source code differencing (2014) | IEEE/ACM International Conference on Automated Software Engineering (ASE) | 10.1145/2642937.2642982
+- A large scale study of programming languages and code quality in github (2014) | ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE) | 10.1145/2635868.2635922
+- When do changes induce fixes? (2005) | None | 10.1145/1083142.1083147
+- Is it a bug or an enhancement? (2008) | None | 10.1145/1463788.1463819
+- Curating GitHub for engineered software projects (2017) | Empirical Software Engineering | 10.1007/s10664-017-9512-6
+- Fair and balanced? (2009) | None | 10.1145/1595696.1595716
+- S pearman Correlation Coefficients, Differences between (2004) | Encyclopedia of Statistical Sciences | 10.1002/0471667196.ess5050
+- PyDriller: Python framework for mining software repositories (2018) | ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE) | 10.1145/3236024.3264598
+- On the diffuseness and the impact on maintainability of code smells: a large scale empirical investigation (2017) | Empirical Software Engineering | 10.1007/s10664-017-9535-z
+- On the "naturalness" of buggy code (2016) | ACM/IEEE International Conference on Software Engineering: Companion Proceedings (ICSE-Companion) | 10.1145/2884781.2884848
+- DeepJIT: An End-to-End Deep Learning Framework for Just-in-Time Defect Prediction (2019) | IEEE/ACM International Conference on Mining Software Repositories (MSR) | 10.1109/msr.2019.00016
+- A critique of cyclomatic complexity as a software metric (1988) | Software Engineering Journal | 10.1049/sej.1988.0003
+- When and Why Your Code Starts to Smell Bad (and Whether the Smells Go Away) (2017) | IEEE Transactions on Software Engineering | 10.1109/tse.2017.2653105
+- Studying just-in-time defect prediction using cross-project models (2015) | Empirical Software Engineering | 10.1007/s10664-015-9400-x
+- Are Fix-Inducing Changes a Moving Target? A Longitudinal Case Study of Just-In-Time Defect Prediction (2017) | IEEE Transactions on Software Engineering | 10.1109/tse.2017.2693980
+- Ownership, experience and defects (2011) | ACM/IEEE International Conference on Software Engineering: Companion Proceedings (ICSE-Companion) | 10.1145/1985793.1985860
+- When Does a Refactoring Induce Bugs? An Empirical Study (2012) | IEEE International Working Conference on Source Code Analysis and Manipulation (SCAM) | 10.1109/scam.2012.20
+- Non-essential changes in version histories (2011) | ACM/IEEE International Conference on Software Engineering: Companion Proceedings (ICSE-Companion) | 10.1145/1985793.1985842
+- Measuring and modeling programming experience (2013) | Empirical Software Engineering | 10.1007/s10664-013-9286-4
+- Determining Implementation Expertise from Bug Reports (2007) | None | 10.1109/msr.2007.7
+- Does a programmer's activity indicate knowledge of code? (2007) | ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE) | 10.1145/1287624.1287673
+- Are SonarQube Rules Inducing Bugs? (2020) | Tampere University Institutional Repository (Tampere University) | 10.1109/saner48275.2020.9054821
+- Cyclomatic Complexity and Lines of Code: Empirical Evidence of a Stable Linear Relationship (2009) | Journal of Software Engineering and Applications | 10.4236/jsea.2009.23020
+- An empirical study on the impact of C++ lambdas and programmer experience (2016) | ACM/IEEE International Conference on Software Engineering: Companion Proceedings (ICSE-Companion) | 10.1145/2884781.2884849
+- Understanding misunderstandings in source code (2017) | ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE) | 10.1145/3106237.3106264
+- Clone Refactoring with Lambda Expressions (2017) | ACM/IEEE International Conference on Software Engineering: Companion Proceedings (ICSE-Companion) | 10.1109/icse.2017.14
+- On the Impact of Programming Languages on Code Quality (2019) | ACM Transactions on Programming Languages and Systems | 10.1145/3340571
+- Crossing the gap from imperative to functional programming through refactoring (2013) | ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE) | 10.1145/2491411.2491461
+- An empirical investigation of the influence of a type of side effects on program comprehension (2003) | IEEE Transactions on Software Engineering | 10.1109/tse.2003.1214329
+- Comprehending Studies on Program Comprehension (2017) | IEEE/ACM International Conference on Program Comprehension (ICPC) | 10.1109/icpc.2017.9
+- On the usage of pythonic idioms (2018) | ACM SIGPLAN International Symposium on New Ideas, New Paradigms, and Reflections on Programming and Software (Onward!) | 10.1145/3276954.3276960
+- Combining functional and imperative programming for multicore software: An empirical study evaluating Scala and Java (2012) | ACM/IEEE International Conference on Software Engineering: Companion Proceedings (ICSE-Companion) | 10.1109/icse.2012.6227200
+- How Long Does a Bug Survive? An Empirical Study (2011) | Proceedings - Working Conference on Reverse Engineering | 10.1109/wcre.2011.31
+- On the relationship between refactoring actions and bugs: a differentiated replication (2020) | ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE) | 10.1145/3368089.3409695
+- On the Positive Effect of Reactive Programming on Software Comprehension: An Empirical Study (2017) | IEEE Transactions on Software Engineering | 10.1109/tse.2017.2655524
+- An empirical study on developer‐related factors characterizing fix‐inducing commits (2016) | Journal of Software Evolution and Process | 10.1002/smr.1797
+- Making Python code idiomatic by automatic refactoring non-idiomatic Python code with pythonic idioms (2022) | ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE) | 10.1145/3540250.3549143
+- An investigation of misunderstanding code patterns in C open-source software projects (2018) | Empirical Software Engineering | 10.1007/s10664-018-9666-x
+- Prevalence of confusing code in software projects (2018) | International Conference on Mining Software Repositories (MSR) | 10.1145/3196398.3196432
+- LambdaFicator: From imperative to functional programming through automated refactoring (2013) | ACM/IEEE International Conference on Software Engineering: Companion Proceedings (ICSE-Companion) | 10.1109/icse.2013.6606699
+- Syntax, Predicates, Idioms - What Really Affects Code Complexity? (2017) | IEEE/ACM International Conference on Program Comprehension (ICPC) | 10.1109/icpc.2017.39
+- Does the Introduction of Lambda Expressions Improve the Comprehension of Java Programs? (2019) | None | 10.1145/3350768.3350791
+- Understanding the Effect of Developer Sentiment on Fix-Inducing Changes: An Exploratory Study on GitHub Pull Requests (2019) | Proceedings - Asia Pacific Software Engineering Conference/Proceedings | 10.1109/apsec48747.2019.00075
+- Atoms of Confusion in Java (2021) | IEEE/ACM International Conference on Program Comprehension (ICPC) | 10.1109/icpc52881.2021.00012
+- The relation between developers’ communication and fix-Inducing changes: An empirical study (2018) | Journal of Systems and Software | 10.1016/j.jss.2018.02.065
+- Faster or Slower? Performance Mystery of Python Idioms Unveiled with Empirical Evidence (2023) | ACM/IEEE International Conference on Software Engineering: Companion Proceedings (ICSE-Companion) | 10.1109/icse48619.2023.00130
+- Seeing confusion through a new lens: on the impact of atoms of confusion on novices’ code comprehension (2023) | Empirical Software Engineering | 10.1007/s10664-023-10311-0
+- Atoms of Confusion (2020) | Brazilian Symposium on Software Engineering | 10.1145/3422392.3422437
+- Why Do Developers Remove Lambda Expressions in Java? (2021) | IEEE/ACM International Conference on Automated Software Engineering (ASE) | 10.1109/ase51524.2021.9678600
+- A Study on the Current Status of Functional Idioms in Java (2019) | IEICE Transactions on Information and Systems | 10.1587/transinf.2019mpp0002
+- Two N-of-1 self-trials on readability differences between anonymous inner classes (AICs) and lambda expressions (LEs) on Java code snippets (2021) | Empirical Software Engineering | 10.1007/s10664-021-10077-3
+- An Empirical Study on the Fault-Inducing Effect of Functional Constructs in Python (2022) | IEEE International Conference on Software Maintenance and Evolution (ICSME) | 10.1109/icsme55016.2022.00013
+- Evaluating Atoms of Confusion in the Context of Code Reviews (2022) | IEEE International Conference on Software Maintenance and Evolution (ICSME) | 10.1109/icsme55016.2022.00048
+- An Exploratory Study Towards Understanding Lambda Expressions in Python (2020) | Evaluation and Assessment in Software Engineering | 10.1145/3383219.3383255
+- Imperative versus declarative collection processing (2022) | ACM/IEEE International Conference on Software Engineering: Companion Proceedings (ICSE-Companion) | 10.1145/3510003.3519016
+- List Comprehension Versus for Loops Performance in Real Python Projects: Should we Care? (2024) | IEEE International Conference on Software Analysis, Evolution and Reengineering (SANER) | 10.1109/saner60148.2024.00066
+- Bug-Inducing Language Constructs (2009) | Proceedings - Working Conference on Reverse Engineering | 10.1109/wcre.2009.40
+

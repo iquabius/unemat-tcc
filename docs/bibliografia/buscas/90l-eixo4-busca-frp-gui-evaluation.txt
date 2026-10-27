@@ -1,0 +1,8 @@
+# Quarto ciclo (tcc-t81w, 2026-10-26), eixo 4: consulta 'functional reactive programming graphical user interface evaluation', desde 2013
+# Comando: python3 buscar_literatura.py buscar "functional reactive programming graphical user interface evaluation" --desde 2013 --n 25
+# OpenAlex: 3 resultados no OpenAlex (mostrando 3, ordem: relevancia)
+
+## consulta 'functional reactive programming graphical user interface evaluation', desde 2013: 3
+- Geochemical and reactive transport modelling in R with the RedModRphree package (2021) | None | 10.5194/egusphere-egu21-2636
+- Editorial: Biomechanics, Sensing and bio-inspired control in rehabilitation and assistive robotics, volume II (2026) | Frontiers in Bioengineering and Biotechnology | 10.3389/fbioe.2026.1837753
+- Clinical Laboratory Informatics and Analytics: Challenges and Opportunities (2022) | Clinical Chemistry | 10.1093/clinchem/hvac157

@@ -4,7 +4,7 @@ Ponto de entrada. Diz que notas existem, em qual está cada elo do
 argumento do TCC, quais fontes pesam mais, onde guardar um trecho novo e
 o que quer dizer a legenda das notas de fontes. Nota nova entra aqui.
 
-**Conclusão.** Em 2026-10-16, as fontes do TCC ficam em sete notas, uma
+**Conclusão.** Em 2026-10-26, as fontes do TCC ficam em oito notas, uma
 por assunto, e o trecho que o texto já cita fica em
 `texto/fontes/<chave>.org` (ADR 0035). As notas que seguram o argumento
 ficam na raiz de `docs/`, e as de apoio em `bibliografia/`,
@@ -19,6 +19,7 @@ achar as fontes que mais pesam, pela tabela "Fontes centrais".
 |---|---|---|
 | Problema: coordenar evento, estado e tela torna a interface difícil | `texto/intro.org` | `docs/estado-eventos-e-complexidade.md`, seções "Estado", "Eventos" e "Uma peça possível para o problema da introdução" |
 | Justificativa: o custo do *callback* e da complexidade acidental | `texto/intro.org` | `docs/estado-eventos-e-complexidade.md`, seções "*Callbacks*, eventos e *promises*: fontes da justificativa" e "Complexidade: Moseley e Marks, e Brooks" |
+| O contrapeso: os custos dos modelos declarativos | `texto/intro.org`, `texto/prog.org` | `docs/contras-dos-modelos-declarativos.md` |
 | Lacuna | `texto/intro.org`, trabalhos relacionados | `docs/trabalhos-relacionados-e-lacuna.md`, seção "A lacuna" |
 | Pergunta e objetivos | `texto/intro.org` | ADR 0014; o tipo da pergunta, em `texto/fontes/easterbrook2008.org` |
 | O que se compara: modelo de programação e notação | `texto/intro.org`, `texto/prog.org` | `docs/paradigma-modelo-e-notacao.md`; os termos, no `GLOSSARY.md` |
@@ -98,6 +99,9 @@ Na raiz:
 - `docs/exigencias-de-coordenacao.md` (Referência): as exigências de
   coordenação de cada interface, agrupadas em tipos, e os tipos que cada
   par cobre;
+- `docs/contras-dos-modelos-declarativos.md` (Fontes): o que a
+  literatura registra contra a PR, os *signals*, a re-renderização e a
+  PF, do quarto ciclo de busca;
 - `docs/achados-das-implementacoes.md` (Achados): o que se observou ao
   implementar, à espera da análise.
 

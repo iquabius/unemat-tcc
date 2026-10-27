@@ -1,0 +1,156 @@
+# Quarto ciclo (tcc-t81w, 2026-10-26), eixo 5: SBC-OpenLib, programação reativa e funcional
+
+Comando de cada consulta: python3 ~/.claude/skills/escrita-academica/scripts/buscar_literatura.py buscar "<termos>" --sbc --desde 2013 --n 25 (resumos tirados ao gravar)
+
+## "reactive programming": 2 resultados, 2 listados
+- Perspectives and Challenges of iOS Developers in Using Reactive Programming with RxSwift (2024) | — [conference-paper] | 10.5753/sbes.2024.3569
+- UAX: Measuring the Usability of TypeScript APIs (2024) | — [conference-paper] | 10.5753/sbes.2024.3658
+
+## "functional programming comprehension": 2 resultados, 2 listados
+- Understanding the Impact of Introducing Lambda Expressions in Java Programs (2020) | Journal of Software Engineering Research and Development [article] | 10.5753/jserd.2020.744
+- Hok: Higher-Order GPU kernels in Elixir (2024) | — [conference-paper] | 10.5753/sblp.2024.3690
+
+## "programação reativa": 2 resultados, 2 listados
+- Avaliação de Desempenho de Frameworks Web Java entre Reatividade e Threads Virtuais: Um Estudo Comparativo entre Spring e Quarkus (2025) | — [conference-paper] | 10.5753/wperformance.2025.8657
+- Projecting Microservices: A Study over Asynchronous Queues to Achieve Reactive Design (2019) | iSys - Brazilian Journal of Information Systems [article] | 10.5753/isys.2019.391
+
+## "programação funcional": 25 resultados, 25 listados
+- Uma Linguagem Multiparadigma para o Ensino Integrado de Engenharia de Software e Programação Funcional (2025) | — [conference-paper] | 10.5753/se4fp.2025.14838
+- Anais do I Workshop em Engenharia de Software para Programação Funcional (SE4FP 2025) (2025) | — [paratext] | 10.5753/se4fp.2025
+- Anais do II Workshop em Engenharia de Software para Programação Funcional (SE4FP 2026) (2026) | — [paratext] | 10.5753/se4fp.2026
+- Sintaxe baseada em gramáticas de grafos para uma linguagem funcional visual voltada ao aprendizado de programação (2021) | — [conference-paper] | 10.5753/weit.2021.18931
+- Investigação do Currículo Bootstrap no Ensino de Matemática por meio da Programação de Computadores (2017) | Anais do Workshop de Informática na Escola [conference-paper] | 10.5753/cbie.wie.2017.392
+- HasKLogiX: Uma DSL embutida em Haskell para programação Prolog (2023) | — [conference-paper] | 10.5753/weit.2023.26595
+- Abordagens, Práticas e Desafios da Avaliação Automática de Exercícios de Programação (2015) | — [conference-paper] | 10.5753/desafie.2015.10048
+- Uso de juízes online no ensino de programação: desafios e oportunidades (2026) | — [conference-paper] | 10.5753/educomp_estendido.2026.19666
+- Utilizando Aprendizado Baseado em Problemas para o Ensino de Paradigmas de Programação (2021) | Anais do ... Simpósio Brasileiro de Informática na Educação/Anais do Simpósio Brasileiro de Informática na Educação [conference-paper] | 10.5753/sbie.2021.218493
+- CodeTesting: Sistema de apoio ao ensino de Lógica de Programação (2023) | — [conference-paper] | 10.5753/educomp_estendido.2023.229141
+- Avaliação da Aprendizagem em Programação com IA Generativa na Educação Profissional e Tecnológica (2025) | Anais do ... Simpósio Brasileiro de Informática na Educação/Anais do Simpósio Brasileiro de Informática na Educação [conference-paper] | 10.5753/sbie.2025.12395
+- Inovação em um Sistema de Informação para Gestão de Acidentes de Trânsito na Perspectiva de Produto e Processo (2016) | iSys - Brazilian Journal of Information Systems [article] | 10.5753/isys.2016.313
+- Análise de Modelos Mentais e Equívocos no Aprendizado de Funções de Ordem Superior: Um Relato de Experiência com Simulação Visual (2026) | — [conference-paper] | 10.5753/wie.2026.27810
+- Mapeando a BEAM: Um Censo Global de Nós Erlang Expostos na Internet (2026) | — [conference-paper] | 10.5753/se4fp.2026.32794
+- Programando, Criando e Inovando com o Scratch: em busca da formação do cidadão do século XXI (2013) | Anais ... Jornada de Atualização em Informática na Educação [conference-paper] | 10.5753/cbie.jaie.2013.126
+- Exploradores do Código: Gamificando o Processo de Aprender a Programar em uma Plataforma Web (2025) | — [conference-paper] | 10.5753/sbgames_estendido.2025.10212
+- OCL-PolyHok: DSL para GPGPU com abstrações de alto nível baseada em OpenCL (2026) | — [conference-paper] | 10.5753/eradrs.2026.21381
+- Das raízes do arcade ao roguelike: uma releitura de Space Invaders (2025) | — [conference-paper] | 10.5753/sbgames_estendido.2025.14687
+- Reinterpretação Contemporânea da Tartaruga LOGO: Desenvolvimento de um protótipo educacional (2026) | — [conference-paper] | 10.5753/ideia.2026.22665
+- Commit Explorer: Uma Solução Open Source para Extração e Avaliação de Commits e Códigos (2025) | Congresso Latino-Americano de Software Livre e Tecnologias Abertas (Latinoware) [conference-paper] | 10.5753/latinoware.2025.16516
+- Formula C: Velocidade em um Novo Ângulo (2025) | — [conference-paper] | 10.5753/sbgames_estendido.2025.14688
+- Autonomia Docente no Design de Experiências Gamificadas: Um CMS para Autoria e Mediação Pedagógica (2026) | Simpósio Brasileiro de Jogos e Entretenimento Digital (SBGames) [conference-paper] | 10.5753/sbgames.2026.25958
+- Quantificação de Elementos do Tecido Pancreático Através da Segmentação com Superpíxeis e Graph-Cut (2021) | — [conference-paper] | 10.5753/latinoware.2021.19910
+- Eparch: Máquinas de Estado Estaticamente Tipadas em Gleam (2026) | — [conference-paper] | 10.5753/se4fp.2026.32804
+- Uma Abordagem para Ensino-Aprendizado de Projetos de Sistemas Computacionais com Utilização do Simulador CompSim com Suporte à Arquitetura RISC-V (2023) | Revista Brasileira de Informática na Educação [article] | 10.5753/rbie.2023.2951
+
+## "lambda expressions": 2 resultados, 2 listados
+- Understanding the Impact of Introducing Lambda Expressions in Java Programs (2020) | Journal of Software Engineering Research and Development [article] | 10.5753/jserd.2020.744
+- A Differential Testing Pipeline for Validating Lambda Expression Handling in Java Compilers Through LLM-Generated Test Cases (2025) | — [conference-paper] | 10.5753/eres.2025.16803
+
+## "functional programming difficulties": 4 resultados, 4 listados
+- Dealing with a large number of students and inequality when teaching programming in higher education (2023) | Anais do Workshop de Informática na Escola [conference-paper] | 10.5753/wie.2023.235057
+- Estudo e adaptação de software para o ensino de Linguagens Formais e Autômatos (2014) | Revista Brasileira de Informática na Educação [article] | 10.5753/rbie.2013.21.03.53
+- From Beat to Bit: Open Music Production in the Underground Scene (2025) | — [conference-paper] | 10.5753/sbcm.2025.14341
+- Avaliando o Uso da Ferramenta Scratch para Ensino de Programação através de Análise Quantitativa e Qualitativa (2015) | Anais do ... Simpósio Brasileiro de Informática na Educação/Anais do Simpósio Brasileiro de Informática na Educação [conference-paper] | 10.5753/cbie.sbie.2015.947
+
+## "Elm functional reactive": 0 resultados, 0 listados
+
+## "reactive programming usability": 2 resultados, 2 listados
+- Perspectives and Challenges of iOS Developers in Using Reactive Programming with RxSwift (2024) | — [conference-paper] | 10.5753/sbes.2024.3569
+- UAX: Measuring the Usability of TypeScript APIs (2024) | — [conference-paper] | 10.5753/sbes.2024.3658
+
+## "Haskell students errors": 0 resultados, 0 listados
+
+## "functional programming": 57 resultados, 25 listados
+- Characterizing the Adoption of Autonomous Coding Agents in Functional Programming Repositories (2026) | — [conference-paper] | 10.5753/se4fp.2026.32864
+- Towards a Neural Lambda Calculus: Neurosymbolic AI Applied to the Foundations of Functional Programming (2026) | Journal of the Brazilian Computer Society [article] | 10.5753/jbcs.2026.6101
+- Detecting Code Smells in Elixir Using Metrics and Predicates for Functional Programming (2026) | — [conference-paper] | 10.5753/se4fp.2026.32912
+- Code Smells in Functional Programming: Initial Findings from a Grey Literature Review on Clojure (2026) | — [conference-paper] | 10.5753/se4fp.2026.32267
+- Functional vs. Object-Oriented: Comparing How Programming Paradigms Affect the Architectural Characteristics of Systems (2025) | — [conference-paper] | 10.5753/sbqs.2025.15170
+- Generative AI Assisting Programming Learning: Functional Roles, Comparative Analysis, and Emerging Challenges (2025) | Anais do ... Simpósio Brasileiro de Informática na Educação/Anais do Simpósio Brasileiro de Informática na Educação [conference-paper] | 10.5753/sbie.2025.12361
+- Differential Testing using Random Well-Typed Haskell Programs (2024) | — [conference-paper] | 10.5753/sblp.2024.3462
+- Combining Effects in a Music Programming Language based on Patterns (2019) | — [conference-paper] | 10.5753/sbcm.2019.10430
+- Modeling Quantum Computing Constraints: No-Cloning Theorem and Monadic Expressiveness with Type-Level Programming (2025) | — [conference-paper] | 10.5753/sblp.2025.13218
+- An Approach for Behavioral Fingerprinting of P4 Programmable Switches (2023) | — [conference-paper] | 10.5753/errc.2023.915
+- Understanding the Impact of Introducing Lambda Expressions in Java Programs (2020) | Journal of Software Engineering Research and Development [article] | 10.5753/jserd.2020.744
+- EasySTEP: A Programming Platform for the PIC16F648A Microcontroller with Applications in Educational Robotics and Automation (2026) | — [conference-paper] | 10.5753/semish.2026.21097
+- Bend: Immutability and Native Parallelism as a Solution to Parallel Programming Challenges (2025) | — [conference-paper] | 10.5753/se4fp.2025.13667
+- Dealing with a large number of students and inequality when teaching programming in higher education (2023) | Anais do Workshop de Informática na Escola [conference-paper] | 10.5753/wie.2023.235057
+- BOCADE: Improving the User Experience (UX) of Competitive Programming Contestants with a Visual Studio Code Extension (2024) | Anais do ... Simpósio Brasileiro de Informática na Educação/Anais do Simpósio Brasileiro de Informática na Educação [conference-paper] | 10.5753/sbie.2024.241858
+- Programmable, Expressive, Scalable, and Agile Service Function Chaining for Edge Data Centers (2020) | — [conference-paper] | 10.5753/sbrc_estendido.2020.12417
+- A-Learn EvId: A Method for Identifying Evidence of Computer Programming Skills Through Automatic Source Code Assessment (2021) | Revista Brasileira de Informática na Educação [article] | 10.5753/rbie.2021.29.0.692
+- Code Smells and Refactorings for Elixir (2025) | — [conference-paper] | 10.5753/sbqs.2025.15359
+- Towards LLM-Based Detection of Elixir Code Smells: An Empirical Evaluation (2026) | — [conference-paper] | 10.5753/se4fp.2026.32884
+- LERO - An Extensible and Adaptive Remote Lab for Educational Robotics (2018) | Anais do ... Simpósio Brasileiro de Informática na Educação/Anais do Simpósio Brasileiro de Informática na Educação [conference-paper] | 10.5753/cbie.sbie.2018.525
+- Evaluation of a Protocol for fMRI Assessment Associated with Augmented Reality Rehabilitation of Stroke Subjects (2019) | Journal on Interactive Systems [article] | 10.5753/jis.2019.717
+- Juiz Online no ensino de Programação Introdutória - Uma Revisao Sistemática da Literatura (2016) | Anais do ... Simpósio Brasileiro de Informática na Educação/Anais do Simpósio Brasileiro de Informática na Educação [conference-paper] | 10.5753/cbie.sbie.2016.11
+- Beyond Correctness: A Competency-Driven Framework for Designing Autograder Test Suites (2026) | — [conference-paper] | 10.5753/wei.2026.21827
+- Prototyping Web instruments with Mosaicode (2019) | — [conference-paper] | 10.5753/sbcm.2019.10431
+- Juiz Online no ensino de CS1 - lições aprendidas e proposta de uma ferramenta (2018) | Revista Brasileira de Informática na Educação [article] | 10.5753/rbie.2018.26.03.163
+
+## "Elixir": 19 resultados, 19 listados
+- Code Smells and Refactorings for Elixir (2025) | — [conference-paper] | 10.5753/cbsoft_estendido.2025.11411
+- Code Smells and Refactorings for Elixir (2025) | — [conference-paper] | 10.5753/ctd.2025.9280
+- Code Smells and Refactorings for Elixir (2025) | — [conference-paper] | 10.5753/sbqs.2025.15359
+- Towards Random Elixir Code Generation (2024) | — [conference-paper] | 10.5753/sblp.2024.3455
+- On the Maintenance of Large-Scale Elixir Tests (2025) | — [conference-paper] | 10.5753/se4fp.2025.13526
+- Hok: Higher-Order GPU kernels in Elixir (2024) | — [conference-paper] | 10.5753/sblp.2024.3690
+- Optimizing Compilation Times for an Elixir Monolithic Codebase (2025) | — [conference-paper] | 10.5753/se4fp.2025.13530
+- Towards LLM-Based Detection of Elixir Code Smells: An Empirical Evaluation (2026) | — [conference-paper] | 10.5753/se4fp.2026.32884
+- Detecting Code Smells in Elixir Using Metrics and Predicates for Functional Programming (2026) | — [conference-paper] | 10.5753/se4fp.2026.32912
+- From JavaScript to Elixir: Lessons from Reimplementing an Industrial Home Care System (2026) | — [conference-paper] | 10.5753/se4fp.2026.32631
+- Kernels de ordem superior para GPUs compatíveis com OpenCL utilizando metaprogramação em Elixir (2026) | — [conference-paper] | 10.5753/semish.2026.23782
+- Compreendendo o Ecossistema de Software Elixir: Uma Abordagem Baseada em Redes de Suprimento de Software (2025) | — [conference-paper] | 10.5753/se4fp.2025.14771
+- Alunas em busca do elixir: um estudo sobre engajamento e impacto de um programa de mentoria gamificado baseado na Jornada do Herói (2026) | Anais do ... Simpósio Brasileiro de Informática na Educação/Anais do Simpósio Brasileiro de Informática na Educação [conference-paper] | 10.5753/sbie.2026.27971
+- Characterizing the Adoption of Autonomous Coding Agents in Functional Programming Repositories (2026) | — [conference-paper] | 10.5753/se4fp.2026.32864
+- Building Refactoring Tools: Insights from RefactorEx (2025) | — [conference-paper] | 10.5753/se4fp.2025.13088
+- Adoção de Boas Práticas e Integração Contínua em Repositórios GitHub com Linguagens Funcionais (2025) | — [conference-paper] | 10.5753/se4fp.2025.13581
+- Code Smells in Functional Programming: Initial Findings from a Grey Literature Review on Clojure (2026) | — [conference-paper] | 10.5753/se4fp.2026.32267
+- Concorrência sem Memória Compartilhada (2026) | — [book-chapter] | 10.5753/sbc.19367.4.1
+- Mapeando a BEAM: Um Censo Global de Nós Erlang Expostos na Internet (2026) | — [conference-paper] | 10.5753/se4fp.2026.32794
+
+## "higher-order functions": 5 resultados, 5 listados
+- Hok: Higher-Order GPU kernels in Elixir (2024) | — [conference-paper] | 10.5753/sblp.2024.3690
+- Reducing Replica Coordination in BFT Consensus through Dependable and Secure In-Network Message Ordering (2026) | Journal of Internet Services and Applications [article] | 10.5753/jisa.2026.7765
+- Converting Combinatory Logic to and from Concatenative Calculus (2024) | — [conference-paper] | 10.5753/sblp.2024.3460
+- Uma Abordagem de Data Warehouse Educacional para Apoio à Tomada de Decisão (2015) | Anais ... Workshops do Congresso Brasileiro de Informática na Educação [conference-paper] | 10.5753/cbie.wcbie.2015.1064
+- BBAware - A Context-Aware Mobile and Wearable Architecture for Monitoring Beta-Blocked Cardiac Patients (2016) | — [conference-paper] | 10.5753/sbcup.2016.9444
+
+## "Haskell": 10 resultados, 10 listados
+- Differential Testing using Random Well-Typed Haskell Programs (2024) | — [conference-paper] | 10.5753/sblp.2024.3462
+- HasKLogiX: Uma DSL embutida em Haskell para programação Prolog (2023) | — [conference-paper] | 10.5753/weit.2023.26595
+- Comparando o Desempenho de Implementações de Tabelas Hash Concorrentes em Haskell (2015) | — [conference-paper] | 10.5753/wscad.2015.14282
+- Implementando o Cálculo Lambda Quântico em Haskell Utilizando a Modelagem de Sabry (2023) | — [conference-paper] | 10.5753/weit.2023.26596
+- Modeling Quantum Computing Constraints: No-Cloning Theorem and Monadic Expressiveness with Type-Level Programming (2025) | — [conference-paper] | 10.5753/sblp.2025.13218
+- Towards Random Elixir Code Generation (2024) | — [conference-paper] | 10.5753/sblp.2024.3455
+- Combining Effects in a Music Programming Language based on Patterns (2019) | — [conference-paper] | 10.5753/sbcm.2019.10430
+- Adoção de Boas Práticas e Integração Contínua em Repositórios GitHub com Linguagens Funcionais (2025) | — [conference-paper] | 10.5753/se4fp.2025.13581
+- Characterizing the Adoption of Autonomous Coding Agents in Functional Programming Repositories (2026) | — [conference-paper] | 10.5753/se4fp.2026.32864
+- Interpretando Efeitos Algébricos por Meio de Mônadas (2025) | — [conference-paper] | 10.5753/sblp.2025.10643
+
+## "RxJava Android": 0 resultados, 0 listados
+
+## "immutability": 27 resultados, 25 listados
+- Bend: Immutability and Native Parallelism as a Solution to Parallel Programming Challenges (2025) | — [conference-paper] | 10.5753/se4fp.2025.13667
+- Towards Enabling Blockchain-based Circuit Allocation in MEICAN for Secure Auditing and Network Governance (2026) | — [conference-paper] | 10.5753/cblockchain.2026.21757
+- AlimenTI: Um DApp de Suporte a Doação de Alimentos (2025) | — [conference-paper] | 10.5753/webmedia_estendido.2025.16375
+- Static Analysis Tools Applied to Smart Contracts (2021) | — [conference-paper] | 10.5753/ladc.2021.18529
+- A modular approach to Hybrid Blockchain-based and Relational Database Architectures (2022) | — [conference-paper] | 10.5753/sbbd_estendido.2022.21858
+- Analyzing a Blockchain Application for the Educational Domain from the Perspective of a Software Ecosystem (2022) | — [conference-paper] | 10.5753/wics.2022.223067
+- Evaluation of a High-Level Metamodel for Developing Smart Contracts on the Ethereum Virtual Machine (2023) | — [conference-paper] | 10.5753/wblockchain.2023.757
+- Blockchain and Self-Sovereign Identity: A Healthcare Use Case (2025) | — [conference-paper] | 10.5753/wblockchain.2025.9506
+- Challenges and Opportunities in Smart Contract Development on the Ethereum Virtual Machine: A Systematic Literature Review (2023) | — [review] | 10.5753/wblockchain.2023.756
+- UFVBeefChain: Estudo de Caso da Rastreabilidade da Carne no Frigorífico Escola da UFV com Blockchain (2026) | — [conference-paper] | 10.5753/wblockchain.2026.23216
+- Establishing a Blockchain-based Architecture for Fake News Detection (2024) | — [conference-paper] | 10.5753/sbcars.2024.3899
+- Adoption of Blockchain for Decentralized Execution Agreements: Empirical Evidence of Usability and Acceptance (2026) | — [conference-paper] | 10.5753/washes.2026.22907
+- The Impact of Hyperledger Fabric Setup on Blockchain Performance when Using Large Volumes of Heterogeneous Medical Data (2023) | — [conference-paper] | 10.5753/wscad.2023.235910
+- Anais do XX Simpósio Brasileiro de Sistemas Colaborativos (SBSC 2025) (2025) | — [paratext] | 10.5753/sbsc.2025
+- Analyzing a Blockchain-Based Educational Application from the Software Ecosystems View (2025) | — [conference-paper] | 10.5753/sbsc.2025.6374
+- Enhancing Data Provenance in mHealth: An Architecture Integrating FHIR with Blockchain (2025) | — [conference-paper] | 10.5753/ladc_estendido.2025.16887
+- Towards a Decentralized Blockchain-Based Resource Monitoring Solution For Distributed Environments (2024) | Journal of Internet Services and Applications [article] | 10.5753/jisa.2024.3813
+- None (2024) | Journal of Internet Services and Applications [paratext] | 10.5753/jisa.2024
+- A High-Level Metamodel for Developing Smart Contracts on the Ethereum Virtual Machine (2024) | — [conference-paper] | 10.5753/wblockchain.2024.3409
+- Secure distributed ledgers to support IoT technologies data (2019) | — [conference-paper] | 10.5753/sbrc.2019.7356
+- NASC: Neuro-symbolic Architecture for Smart Contracts Vulnerability Detection (2026) | — [conference-paper] | 10.5753/sast.2026.31443
+- Digital Prescription and Dispensation of Medications (2025) | — [conference-paper] | 10.5753/sbsi.2025.246608
+- A Blockchain-Integrated Pipeline Featuring Generative AI for Melanoma Detection, Segmentation, and Classification in Dermoscopic Images (2026) | Journal of the Brazilian Computer Society [article] | 10.5753/jbcs.2026.5903
+- A Cadeia de Confiança na Saúde Digital: o grande desafio da interoperabilidade (2026) | — [book-chapter] | 10.5753/sbc.19871.1.5
+- Enhancing Sustainability in Agricultural Supply Chains Through a Blockchain-IoT Framework for Environmental Footprint Tracking: A Tunisian Citrus Case Study (2026) | Journal on Interactive Systems [article] | 10.5753/jis.2026.6786

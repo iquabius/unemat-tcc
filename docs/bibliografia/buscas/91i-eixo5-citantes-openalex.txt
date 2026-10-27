@@ -1,0 +1,25 @@
+# Quarto ciclo (tcc-t81w), eixo 5: os citantes de Farias, Zimmerle e Gama (2024) e de Ramos et al. (2016) pelo OpenAlex, que o HTTP 429 cortou em 2026-10-26 (o 91g os fez pelo Semantic Scholar), rodados na madrugada de 2026-10-27 UTC; resumos tirados
+
+## Trabalhos que citam: Perspectives and Challenges of iOS Developers in Using Reactive Programming with RxSwift (2024): 0
+# python3 /home/gambi/.claude/skills/escrita-academica/scripts/buscar_literatura.py citantes 10.5753/sbes.2024.3569 --todos --desde 2013
+
+## Trabalhos que citam: AngularJS in the wild: a survey with 460 developers (2016): 18
+# python3 /home/gambi/.claude/skills/escrita-academica/scripts/buscar_literatura.py citantes 10.1145/3001878.3001881 --todos --desde 2013
+- A Large Scale Study of Long-Time Contributor Prediction for GitHub Projects (2019) | IEEE Transactions on Software Engineering | 10.1109/tse.2019.2918536
+- Microservices in Practice: A Survey Study (2018) | arXiv (Cornell University) | 10.48550/arxiv.1808.04836
+- An extensible approach for taming the challenges of JavaScript dead code elimination (2018) | IEEE International Conference on Software Analysis, Evolution and Reengineering (SANER) | 10.1109/saner.2018.8330226
+- On the (un‐)adoption of JavaScript front‐end frameworks (2021) | Software Practice and Experience | 10.1002/spe.3044
+- AngularJS Performance: A Survey Study (2017) | IEEE Software | 10.1109/ms.2017.265100610
+- The Effect of Google Search on Software Security: Unobtrusive Security Interventions via Content Re-ranking (2021) | ACM SIGSAC Conference on Computer and Communications Security (CCS) | 10.1145/3460120.3484763
+- Interpretation and Analysis of Angular Framework (2022) | International Conference on Power, Energy, Control and Transmission Systems (ICPECTS) | 10.1109/icpects56089.2022.10047474
+- A substrate for modular, extensible data-visualization (2020) | Big Data Analytics | 10.1186/s41044-019-0043-6
+- The Effectiveness of Security Interventions on GitHub (2023) | ACM SIGSAC Conference on Computer and Communications Security (CCS) | 10.1145/3576915.3623174
+- Pigeon-table: A quick prototyping tool using twitter bootstraps and AngularJS for data-driven web application development (2017) | — | 10.1109/iconda.2017.8270395
+- Biblioteki AngularJS i ReactJS - analiza wydajnościowa (2016) | Journal of Computer Sciences Institute | 10.35784/jcsi.126
+- Pigeon-Chart: A Customized HTML Element for Data Visualization in Data-Driven Web Application Using AngularJS, HighCharts, UnderscoreJS and PHP (2018) | — | 10.1109/icomis.2018.8644793
+- An Informal Carer Hub to Support Carers Looking After COPD Patients in the UK and Netherlands (2019) | Advances in intelligent systems and computing | 10.1007/978-981-13-9920-6_33
+- Framework to Migrate AngularJS Based Legacy Web Application to React Component Architecture (2021) | Moratuwa Engineering Research Conference (MERCon) | 10.1109/mercon52712.2021.9525659
+- Usability analysis of AngularJS framework in the context of simple internet application (2018) | Journal of Computer Sciences Institute | 10.35784/jcsi.674
+- Cloud-based Real-time Bulletin Board Posting Using AngularJS Framework (2019) | International Journal of Simulation Systems Science & Technology | 10.5013/ijssst.a.20.s2.21
+- Facial Image Verification for Government Kiosk System (2020) | International Joint Conference on Computer Science and Software Engineering | 10.1109/jcsse49651.2020.9268245
+- Assessing and improving code transformations to support software evolution (2017) | — | 10.70675/bcf473eezc276z47afzbc57z2847688e01ac

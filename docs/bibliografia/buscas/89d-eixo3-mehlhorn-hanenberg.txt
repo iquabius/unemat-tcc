@@ -1,0 +1,43 @@
+# Quarto ciclo (tcc-t81w, 2026-10-26), eixo 3: iteração 1 nos dois sentidos de Mehlhorn e Hanenberg (2022, ICSE)
+# Comandos:
+#   python3 ~/.claude/skills/escrita-academica/scripts/buscar_literatura.py citantes 10.1145/3510003.3519016 --todos --n 50
+#   python3 ~/.claude/skills/escrita-academica/scripts/buscar_literatura.py referencias 10.1145/3510003.3519016 --n 100
+
+## Citantes de Imperative versus declarative collection processing (Mehlhorn e Hanenberg, 2022, ICSE): 4
+- The downside of functional constructs: a quantitative and qualitative analysis of their fix-inducing effects (2024) | Empirical Software Engineering | 10.1007/s10664-024-10568-z
+- Large‐scale characterization of Java streams (2023) | Software Practice and Experience | 10.1002/spe.3213
+- Indentation and Reading Time: A Controlled Experiment on the Differences Between Generated Indented and Non-indented JSON Objects (2024) | Communications in computer and information science | 10.1007/978-3-031-61753-9_4
+- Indentation and reading time: a randomized control trial on the differences between generated indented and non-indented if-statements (2024) | Empirical Software Engineering | 10.1007/s10664-024-10531-y
+
+## Referências de Imperative versus declarative collection processing (Mehlhorn e Hanenberg, 2022, ICSE), no OpenAlex: 30
+- Design Patterns: Elements of Reusable Object-Oriented Software (1994) | None | sem DOI
+- Qualitative Research & Evaluation Methods: Integrating Theory and Practice (2014) | None | sem DOI
+- Smalltalk-80: The Language and its Implementation (1983) | HAL | sem DOI
+- Structure and Interpretation of Computer Programs (1985) | None | sem DOI
+- Cross‐over Trials In Clinical Research (2002) | Wiley eBooks | 10.1002/0470854596
+- Functional reactive animation (1997) | ACM SIGPLAN International Conference on Functional Programming (ICFP) | 10.1145/258948.258973
+- Sampling in software engineering research: a critical review and guidelines (2022) | Empirical Software Engineering | 10.1007/s10664-021-10072-8
+- Object-oriented multi-methods in Cecil (2006) | Springer eBooks | 10.1007/bfb0053029
+- The impact of identifier style on effort and comprehension (2012) | Empirical Software Engineering | 10.1007/s10664-012-9201-4
+- Crossover Designs in Software Engineering Experiments: Benefits and Perils (2015) | IEEE Transactions on Software Engineering | 10.1109/tse.2015.2467378
+- How do API documentation and static typing affect API usability? (2014) | ACM/IEEE International Conference on Software Engineering: Companion Proceedings (ICSE-Companion) | 10.1145/2568225.2568299
+- A large-scale study of programming languages and code quality in GitHub (2017) | Communications of the ACM | 10.1145/3126905
+- Understanding the use of lambda expressions in Java (2017) | Proceedings of the ACM on Programming Languages | 10.1145/3133909
+- A Comparative Study of Programming Languages in Rosetta Code (2015) | None | sem DOI
+- An empirical study on the impact of C++ lambdas and programmer experience (2016) | ACM/IEEE International Conference on Software Engineering: Companion Proceedings (ICSE-Companion) | 10.1145/2884781.2884849
+- Programming Paradigms and Beyond (2019) | Cambridge University Press eBooks | 10.1017/9781108654555.014
+- Clone Refactoring with Lambda Expressions (2017) | ACM/IEEE International Conference on Software Engineering: Companion Proceedings (ICSE-Companion) | 10.1109/icse.2017.14
+- Crossing the gap from imperative to functional programming through refactoring (2013) | ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE) | 10.1145/2491411.2491461
+- Shorter identifier names take longer to comprehend (2018) | Empirical Software Engineering | 10.1007/s10664-018-9621-x
+- Combining functional and imperative programming for multicore software: An empirical study evaluating Scala and Java (2012) | ACM/IEEE International Conference on Software Engineering: Companion Proceedings (ICSE-Companion) | 10.1109/icse.2012.6227200
+- On the Positive Effect of Reactive Programming on Software Comprehension: An Empirical Study (2017) | IEEE Transactions on Software Engineering | 10.1109/tse.2017.2655524
+- Effect sizes and their variance for AB/BA crossover design studies (2017) | Empirical Software Engineering | 10.1007/s10664-017-9574-5
+- Does the Introduction of Lambda Expressions Improve the Comprehension of Java Programs? (2019) | None | 10.1145/3350768.3350791
+- LAMBDAFICATOR: from imperative to functional programming through automated refactoring (2013) | None | 10.5555/2486788.2486986
+- The Runtime Performance of invokedynamic: An Evaluation with a Java Library (2014) | IEEE Software | 10.1109/ms.2013.46
+- Integrating theory and practice (2014) | Palgrave Macmillan eBooks | sem DOI
+- Programmers do not favor lambda expressions for concurrent object-oriented code (2018) | Empirical Software Engineering | 10.1007/s10664-018-9622-9
+- Reconciling the past and the present: An empirical study on the application of source code transformations to automatically rejuvenate Java programs (2018) | IEEE International Conference on Software Analysis, Evolution and Reengineering (SANER) | 10.1109/saner.2018.8330247
+- An empirical investigation of the effects of type systems and code completion on API usability using TypeScript and JavaScript in MS visual studio (2015) | ACM SIGPLAN Notices | 10.1145/2936313.2816720
+- Two N-of-1 self-trials on readability differences between anonymous inner classes (AICs) and lambda expressions (LEs) on Java code snippets (2021) | Empirical Software Engineering | 10.1007/s10664-021-10077-3
+

@@ -1,0 +1,17 @@
+# Quarto ciclo (tcc-t81w, 2026-10-26), eixo 4: DOI de Kiss (2014), dissertação de Hannover, e de Holst e Dobslaw (2021)
+# Comandos: python3 buscar_literatura.py doi "Comparison of Object-Oriented and Functional Programming for GUI Development" --autor Kiss; o mesmo sem --autor; python3 buscar_literatura.py doi "On the Importance and Shortcomings of Code Readability Metrics: A Case Study on Reactive Programming"
+# Kiss (2014) não está no OpenAlex nem no Crossref: os candidatos abaixo são outras obras, e sem registro não há citantes a seguir.
+
+## Kiss (2014), com --autor Kiss: OpenAlex 0, Crossref 3 (nenhum é a dissertação)
+- GUI programming (2010) | Steps in Scala | 10.1017/cbo9780511778735.007
+- Tcl Object-Oriented Programming (2022) | Programming and GUI Fundamentals | 10.1002/9781119837442.ch5
+- GUI Programming with Visual Caché (2001) | Object-Oriented Application Development Using the Caché Postrelational Database | 10.1007/978-3-642-98104-3_9
+
+## Kiss (2014), sem --autor: OpenAlex 0, Crossref 3 (os mesmos)
+- GUI programming (2010) | Steps in Scala | 10.1017/cbo9780511778735.007
+- Tcl Object-Oriented Programming (2022) | Programming and GUI Fundamentals | 10.1002/9781119837442.ch5
+- GUI Programming with Visual Caché (2001) | Object-Oriented Application Development Using the Caché Postrelational Database | 10.1007/978-3-642-98104-3_9
+
+## Holst e Dobslaw (2021): OpenAlex 2 (só o preprint e o pacote de replicação; nenhuma versão publicada)
+- On the Importance and Shortcomings of Code Readability Metrics: A Case Study on Reactive Programming (2021) | arXiv (Cornell University) | 10.48550/arxiv.2110.15246
+- On the Importance and Shortcomings of Code Readability Metrics: A Case Study on Reactive Programming - replication package (2020) | Zenodo | 10.5281/zenodo.4277871

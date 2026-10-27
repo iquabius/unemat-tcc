@@ -1,0 +1,121 @@
+# Quarto ciclo (tcc-t81w, 2026-10-26), eixo 3: iteração 2 para a frente, os citantes de Uesbeck et al. (2016), Lucas et al. (2019, 2020) e Tirronen (2014)
+# Comandos:
+#   python3 ~/.claude/skills/escrita-academica/scripts/buscar_literatura.py citantes 10.1145/2884781.2884849 --todos --n 100
+#   python3 ~/.claude/skills/escrita-academica/scripts/buscar_literatura.py citantes 10.5753/jserd.2020.744 --todos --n 50
+#   python3 ~/.claude/skills/escrita-academica/scripts/buscar_literatura.py citantes 10.1145/3350768.3350791 --todos --n 50
+#   python3 ~/.claude/skills/escrita-academica/scripts/buscar_literatura.py citantes 10.1145/2591708.2591726 --todos --n 50
+
+## Citantes de An empirical study on the impact of C++ lambdas and programmer experience (Uesbeck et al., 2016, ICSE): 67
+- Understanding the use of lambda expressions in Java (2017) | Proceedings of the ACM on Programming Languages | 10.1145/3133909
+- Clone Refactoring with Lambda Expressions (2017) | ACM/IEEE International Conference on Software Engineering: Companion Proceedings (ICSE-Companion) | 10.1109/icse.2017.14
+- Bayesian Data Analysis in Empirical Software Engineering Research (2019) | IEEE Transactions on Software Engineering | 10.1109/tse.2019.2935974
+- Recruiting Participants With Programming Skills: A Comparison of Four Crowdsourcing Platforms and a CS Student Mailing List (2022) | CHI Conference on Human Factors in Computing Systems | 10.1145/3491102.3501957
+- Programmer eXperience: A Systematic Literature Review (2019) | IEEE Access | 10.1109/access.2019.2920124
+- Glacier: Transitive Class Immutability for Java (2017) | ACM/IEEE International Conference on Software Engineering: Companion Proceedings (ICSE-Companion) | 10.1109/icse.2017.52
+- On the adoption, usage and evolution of Kotlin features in Android development (2020) | Proceedings of the ... ACM-IEEE International Symposium on Empirical Software Engineering and Measurement/International Symposium on Empirical Software Engineering and Measurement | 10.1145/3382494.3410676
+- PLIERS (2021) | ACM Transactions on Computer-Human Interaction | 10.1145/3452379
+- An Empirical Study on the Use and Misuse of Java 8 Streams (2020) | Lecture notes in computer science | 10.1007/978-3-030-45234-6_5
+- Methodological Irregularities in Programming-Language Research (2017) | Computer | 10.1109/mc.2017.3001257
+- Interdisciplinary programming language design (2018) | ACM SIGPLAN International Symposium on New Ideas, New Paradigms, and Reflections on Programming and Software (Onward!) | 10.1145/3276954.3276965
+- An Empirical Study of Solidity Language Features (2021) | IEEE International Conference on Software Quality, Reliability and Security Companion (QRS-C) | 10.1109/qrs-c55045.2021.00105
+- Can we crowdsource language design? (2017) | ACM SIGPLAN International Symposium on New Ideas, New Paradigms, and Reflections on Programming and Software (Onward!) | 10.1145/3133850.3133863
+- Programmers do not favor lambda expressions for concurrent object-oriented code (2018) | Empirical Software Engineering | 10.1007/s10664-018-9622-9
+- Automatically Generating Documentation for Lambda Expressions in Java (2019) | IEEE/ACM International Conference on Mining Software Repositories (MSR) | 10.1109/msr.2019.00057
+- Can advanced type systems be usable? An empirical study of ownership, assets, and typestate in Obsidian (2020) | Proceedings of the ACM on Programming Languages | 10.1145/3428200
+- Usability-Oriented Design of Liquid Types for Java (2023) | ACM/IEEE International Conference on Software Engineering: Companion Proceedings (ICSE-Companion) | 10.1109/icse48619.2023.00132
+- Casting about in the dark: an empirical study of cast operations in Java programs (2019) | Proceedings of the ACM on Programming Languages | 10.1145/3360584
+- The exception handling riddle: An empirical study on the Android API (2018) | Journal of Systems and Software | 10.1016/j.jss.2018.04.034
+- A Randomized Controlled Trial on the Wild Wild West of Scientific Computing with Student Learners (2019) | ACM Conference on International Computing Education Research (ICER) | 10.1145/3291279.3339421
+- An Empirical Study on the Readability of Regular Expressions: Textual Versus Graphical (2017) | IEEE Working Conference on Software Visualization (VISSOFT) | 10.1109/vissoft.2017.27
+- WAP: Does Reviewer Age Affect Code Review Performance? (2017) | IEEE International Symposium on Software Reliability Engineering (ISSRE) | 10.1109/issre.2017.37
+- Garbage collection makes rust easier to use (2022) | ACM/IEEE International Conference on Software Engineering: Companion Proceedings (ICSE-Companion) | 10.1145/3510003.3510107
+- A Study on the Current Status of Functional Idioms in Java (2019) | IEICE Transactions on Information and Systems | 10.1587/transinf.2019mpp0002
+- Two N-of-1 self-trials on readability differences between anonymous inner classes (AICs) and lambda expressions (LEs) on Java code snippets (2021) | Empirical Software Engineering | 10.1007/s10664-021-10077-3
+- Embracing modern C++ features: An empirical assessment on the KDE community (2023) | Journal of Software Evolution and Process | 10.1002/smr.2605
+- Usability of Programming Languages (2016) | CHI Conference Extended Abstracts on Human Factors in Computing Systems (CHI EA) | 10.1145/2851581.2886434
+- A randomized controlled trial on the effects of embedded computer language switching (2020) | ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE) | 10.1145/3368089.3409701
+- How is ATL Really Used? Language Feature Use in the ATL Zoo (2017) | ACM/IEEE International Conference on Model Driven Engineering Languages and Systems (MODELS) | 10.1109/models.2017.20
+- Empirical, Human-Centered Evaluation of Programming and Programming Language Constructs: Controlled Experiments (2017) | Lecture notes in computer science | 10.1007/978-3-319-60074-1_3
+- AutoPUT (2018) | ACM Symposium on Applied Computing | 10.1145/3167132.3167340
+- Understanding the adoption of modern Javascript features: An empirical study on open-source systems (2025) | Empirical Software Engineering | 10.1007/s10664-025-10663-9
+- How Do Gamification Rules and Personal Preferences Affect Coding? (2018) | International Workshop on Empirical Software Engineering in Practice (IWESEP) | 10.1109/iwesep.2018.00011
+- Experience report (2018) | ACM Symposium on Applied Computing | 10.1145/3167132.3167436
+- Linking Developer Experience to Coding Style in Open-Source Repositories (2021) | IEEE International Conference on Software Analysis, Evolution and Reengineering (SANER) | 10.1109/saner50967.2021.00057
+- Imperative versus declarative collection processing (2022) | ACM/IEEE International Conference on Software Engineering: Companion Proceedings (ICSE-Companion) | 10.1145/3510003.3519016
+- On the use of lambda expressions in 760 open source Python projects (2019) | ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE) | 10.1145/3338906.3342499
+- Relationship between Code Reading Speed and Programmers' Age (2020) | IEICE Transactions on Information and Systems | 10.1587/transinf.2020mpl0002
+- An Exploratory Study Towards Understanding Lambda Expressions in Python (2020) | Evaluation and Assessment in Software Engineering | 10.1145/3383219.3383255
+- Annotation practices in Android apps (2020) | IEEE International Working Conference on Source Code Analysis and Manipulation (SCAM) | 10.1109/scam51674.2020.00020
+- The downside of functional constructs: a quantitative and qualitative analysis of their fix-inducing effects (2024) | Empirical Software Engineering | 10.1007/s10664-024-10568-z
+- Understanding formal specifications through good examples (2018) | None | 10.1145/3239332.3242763
+- Unified Configuration Setting Access in Configuration Management Systems (2020) | International Conference on Program Comprehension | 10.1145/3387904.3389257
+- Bayesian Statistics in Software Engineering: Practical Guide and Case Studies (2016) | arXiv (Cornell University) | 10.48550/arxiv.1608.06865
+- PLIERS: A Process that Integrates User-Centered Methods into Programming Language Design (2019) | arXiv (Cornell University) | sem DOI
+- Hints Help Finding and Fixing Bugs Differently in Python and Text-Based Program Representations (2025) | ACM/IEEE International Conference on Software Engineering: Companion Proceedings (ICSE-Companion) | 10.1109/icse55347.2025.00192
+- The indolent lambdification of Java (2021) | Empirical Software Engineering | 10.1007/s10664-021-10039-9
+- Programmer Experience: A Systematic Mapping (2020) | IEEE Latin America Transactions | 10.1109/tla.2020.9099749
+- Do Type Annotations Help Students Improve Python Program Development Efficiency? (2025) | IEEE International Conference on Software Quality, Reliability and Security Companion (QRS-C) | 10.1109/qrs-c65679.2025.00078
+- Lambda Containers: A Comprehensive Anti-Tamper Framework for Games by Simulating Client Behavior in a Cloud (2018) | IEEE ... International Conference on Cloud Computing | 10.1109/cloud.2018.00083
+- Evaluating the Effort of Integrating Feature Models: A Controlled Experiment (S) (2018) | Proceedings/Proceedings of the ... International Conference on Software Engineering and Knowledge Engineering | 10.18293/seke2018-202
+- Does the Stream API Benefit from Special Debugging Facilities? A Controlled Experiment on Loops and Streams with Specific Debuggers (2023) | ACM/IEEE International Conference on Software Engineering: Companion Proceedings (ICSE-Companion) | 10.1109/icse48619.2023.00058
+- Code Quality Metrics for Functional Features in Modern Object-Oriented Languages (2023) | Lecture notes in computer science | 10.1007/978-3-031-42833-3_10
+- Indentation and reading time: a randomized control trial on the differences between generated indented and non-indented if-statements (2024) | Empirical Software Engineering | 10.1007/s10664-024-10531-y
+- On the Effects of Developers' Intuition on Measuring Similarity Between UML Models (2019) | None | 10.1145/3330204.3330238
+- Empirical studies of structural phenomena using a curated corpus of Java code (2017) | Figshare | sem DOI
+- Does the Bronze Garbage Collector Make Rust Easier to Use? A Controlled Experiment. (2021) | arXiv (Cornell University) | sem DOI
+- Recruiting Participants With Programming Skills: A Comparison of Four Crowdsourcing Platforms and a CS Student Mailing List (2021) | University of Edinburgh | 10.7488/ds/3184
+- Towards high-quality Android applications development with Kotlin (2021) | None | 10.70675/b79ef638zc70cz4363zb851ze90741782618
+- Empirical Study of Concurrent Programming Paradigms (2020) | Digital Scholarship - UNLV (University of Nevada Reno) | 10.34917/9112055
+- Code Quality Metrics for the Functional Side of the Object-oriented Language C# (2019) | UvA-DARE (University of Amsterdam) | sem DOI
+- On The Human Factors Impact of Polyglot Programming on Programmer Productivity (2020) | Digital Scholarship - UNLV (University of Nevada Reno) | 10.34917/18608807
+- Toward Productivity Improvements in Programming Languages Through Behavioral Analytics (2020) | Digital Scholarship - UNLV (University of Nevada Reno) | 10.34917/19412056
+- Proceso para la agregación de familias de experimentos en Ingeniería del Software (2019) | None | 10.20868/upm.thesis.64069
+- Programmer Experience: – An HCI Prespective (2021) | International Conference on Communication Technologies (ComTech) | 10.1109/comtech52583.2021.9616689
+- Prediction of Residual Defects after Code Review Based on Reviewer Confidence (2024) | IEICE Transactions on Information and Systems | 10.1587/transinf.2023mpl0002
+- Empirical Analysis of the Effects of a Gender Stereotypical Cue on Computer Programming (2026) | IEICE Transactions on Information and Systems | 10.1587/transinf.2025kbl0003
+
+## Citantes de Understanding the Impact of Introducing Lambda Expressions in Java Programs (Lucas et al., 2020, JSERD): 7
+- Embracing modern C++ features: An empirical assessment on the KDE community (2023) | Journal of Software Evolution and Process | 10.1002/smr.2605
+- To What Extent Cognitive-Driven Development Improves Code Readability? (2022) | Proceedings of the ... ACM-IEEE International Symposium on Empirical Software Engineering and Measurement/International Symposium on Empirical Software Engineering and Measurement | 10.1145/3544902.3546241
+- On the Importance and Shortcomings of Code Readability Metrics: A Case Study on Reactive Programming (2021) | arXiv (Cornell University) | 10.48550/arxiv.2110.15246
+- Comparing the understandability of iteration mechanisms over Collections in Java (2023) | Foundations of Computing and Decision Sciences | 10.2478/fcds-2023-0002
+- Energy Efficient Software in an Engineering Course (2023) | Lecture notes in computer science | 10.1007/978-3-031-42833-3_3
+- Understanding the Motivations, Challenges, and Practices of Software Rejuvenation (2023) | IEEE International Conference on Software Maintenance and Evolution (ICSME) | 10.1109/icsme58846.2023.00082
+- PromiseAwait: A Dataset of JavaScript Migrations from Promises to Async/Await (2026) | None | 10.1145/3793655.3793714
+
+## Citantes de Does the Introduction of Lambda Expressions Improve the Comprehension of Java Programs? (Lucas et al., 2019): 29
+- RefactoringMiner 2.0 (2020) | IEEE Transactions on Software Engineering | 10.1109/tse.2020.3007722
+- 40 Years of Designing Code Comprehension Experiments: A Systematic Mapping Study (2023) | ACM Computing Surveys | 10.1145/3626522
+- An Empirical Study on the Use and Misuse of Java 8 Streams (2020) | Lecture notes in computer science | 10.1007/978-3-030-45234-6_5
+- Safe automated refactoring for intelligent parallelization of Java 8 streams (2020) | Science of Computer Programming | 10.1016/j.scico.2020.102476
+- A Comprehensive Survey of Benchmarks for Improvement of Software's Non-Functional Properties (2025) | ACM Computing Surveys | 10.1145/3711119
+- Understanding Code Understandability Improvements in Code Reviews (2024) | IEEE Transactions on Software Engineering | 10.1109/tse.2024.3453783
+- Why Do Developers Remove Lambda Expressions in Java? (2021) | IEEE/ACM International Conference on Automated Software Engineering (ASE) | 10.1109/ase51524.2021.9678600
+- Two N-of-1 self-trials on readability differences between anonymous inner classes (AICs) and lambda expressions (LEs) on Java code snippets (2021) | Empirical Software Engineering | 10.1007/s10664-021-10077-3
+- Embracing modern C++ features: An empirical assessment on the KDE community (2023) | Journal of Software Evolution and Process | 10.1002/smr.2605
+- An Empirical Study on the Fault-Inducing Effect of Functional Constructs in Python (2022) | IEEE International Conference on Software Maintenance and Evolution (ICSME) | 10.1109/icsme55016.2022.00013
+- Understanding the Impact of Introducing Lambda Expressions in Java Programs (2020) | Journal of Software Engineering Research and Development | 10.5753/jserd.2020.744
+- Method Chaining Redux: An Empirical Study of Method Chaining in Java, Kotlin, and Python (2023) | IEEE/ACM International Conference on Mining Software Repositories (MSR) | 10.1109/msr59073.2023.00080
+- Automating Test-Specific Refactoring Mining: A Mixed-Method Investigation (2023) | IEEE International Working Conference on Source Code Analysis and Manipulation (SCAM) | 10.1109/scam59687.2023.00013
+- An exploratory study on the predominant programming paradigms in Python code (2022) | ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE) | 10.1145/3540250.3549158
+- Understanding the adoption of modern Javascript features: An empirical study on open-source systems (2025) | Empirical Software Engineering | 10.1007/s10664-025-10663-9
+- A Study on the Pythonic Functional Constructs' Understandability (2024) | ACM/IEEE International Conference on Software Engineering: Companion Proceedings (ICSE-Companion) | 10.1145/3597503.3639211
+- Imperative versus declarative collection processing (2022) | ACM/IEEE International Conference on Software Engineering: Companion Proceedings (ICSE-Companion) | 10.1145/3510003.3519016
+- The downside of functional constructs: a quantitative and qualitative analysis of their fix-inducing effects (2024) | Empirical Software Engineering | 10.1007/s10664-024-10568-z
+- Mutation Operators for Java Streams (2022) | None | 10.1145/3559744.3559752
+- How do annotations affect Java code readability? (2024) | Empirical Software Engineering | 10.1007/s10664-024-10460-w
+- The indolent lambdification of Java (2021) | Empirical Software Engineering | 10.1007/s10664-021-10039-9
+- Towards a Theory for Source Code Rejuvenation (2024) | ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE) | 10.1145/3663529.3664464
+- Does the Stream API Benefit from Special Debugging Facilities? A Controlled Experiment on Loops and Streams with Specific Debuggers (2023) | ACM/IEEE International Conference on Software Engineering: Companion Proceedings (ICSE-Companion) | 10.1109/icse48619.2023.00058
+- How does annotations affect Java code readability? (2022) | Research Square | 10.21203/rs.3.rs-2256326/v1
+- The who, what and how of the current research at the Brazilian Symposium on Software Engineering (2022) | None | 10.1145/3555228.3555241
+- Comparing the understandability of iteration mechanisms over Collections in Java (2023) | Foundations of Computing and Decision Sciences | 10.2478/fcds-2023-0002
+- Understanding the Motivations, Challenges, and Practices of Software Rejuvenation (2023) | IEEE International Conference on Software Maintenance and Evolution (ICSME) | 10.1109/icsme58846.2023.00082
+- Source Code Metrics: A Study on Scientific Publications in Brazilian Symposia and the Perception of Computing Students (2024) | None | 10.1145/3658271.3658319
+- Mining Discussions on Software Migration: A study of the Boost mailing list regarding C++ code evolution (2024) | None | 10.1145/3701625.3701665
+
+## Citantes de Study on difficulties and misconceptions with modern type systems (Tirronen, 2014): 3
+- How type errors were fixed and what students did? (2017) | Proceedings of the ACM on Programming Languages | 10.1145/3133929
+- Proteus: A platform for born digital critical editions of literary and subliterary papyri (2015) | 2015 Digital Heritage | 10.1109/digitalheritage.2015.7419546
+- Assessing the Understanding of Expressions: A Qualitative Study of Notional-Machine-Based Exam Questions (2024) | Koli Calling International Conference on Computing Education Research | 10.1145/3699538.3699554
+

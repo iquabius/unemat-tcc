@@ -1,0 +1,7 @@
+# Quarto ciclo (tcc-t81w, 2026-10-26), eixo 4: citantes de Zimmerle e Gama (2025, SPE)
+# Comando: python3 buscar_literatura.py citantes 10.1002/spe.3435 --todos
+# OpenAlex: Total: 2 (mostrando 2)
+
+## citantes de Zimmerle e Gama (2025, SPE): 2
+- The Usability Analysis of PYTHON Optimization Libraries in the Context of Student Research Projects (2026) | International Conference on Information Technologies in Engineering Education (Inforino) | 10.1109/inforino68543.2026.11556625
+- A Review on the Development Trend of Mainstream Programming Paradigms in the New Era (2026) | International Conference on Computer Information Science and Application Technology (CISAT) | 10.1109/cisat71030.2026.11682106

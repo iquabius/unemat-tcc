@@ -1,0 +1,24 @@
+# Quarto ciclo (tcc-t81w, 2026-10-26), eixo 3: consultas para localizar Zid et al. (2024), que as referências de Zampetti et al. no OpenAlex não trazem
+# Comandos:
+#   python3 ~/.claude/skills/escrita-academica/scripts/buscar_literatura.py buscar "comprehensibility functional constructs Python" --desde 2022 --n 15
+#   python3 ~/.claude/skills/escrita-academica/scripts/buscar_literatura.py doi "functional constructs comprehension Python developers" --autor Zid
+#   python3 ~/.claude/skills/escrita-academica/scripts/buscar_literatura.py buscar "Zid functional Python understandability" --desde 2023 --n 10
+#   python3 ~/.claude/skills/escrita-academica/scripts/buscar_literatura.py buscar "lambda comprehension map filter understandability Python" --desde 2022 --n 15
+
+## Consulta 'comprehensibility functional constructs Python' (desde 2022), no OpenAlex: 3
+- An Empirical Study on the Fault-Inducing Effect of Functional Constructs in Python (2022) | IEEE International Conference on Software Maintenance and Evolution (ICSME) | 10.1109/icsme55016.2022.00013
+- The downside of functional constructs: a quantitative and qualitative analysis of their fix-inducing effects (2024) | Empirical Software Engineering | 10.1007/s10664-024-10568-z
+- Fortnet, a software package for training Behler-Parrinello neural networks (2022) | Computer Physics Communications | 10.1016/j.cpc.2022.108580
+
+## Consulta doi 'functional constructs comprehension Python developers' --autor Zid, no Crossref (o OpenAlex não devolveu nada): 3
+- An Empirical Study on the Fault-Inducing Effect of Functional Constructs in Python (2022) | 2022 IEEE International Conference on Software Maintenance and Evolution (ICSME) | 10.1109/icsme55016.2022.00013
+- List Comprehension Versus for Loops Performance in Real Python Projects: Should we Care? (2024) | 2024 IEEE International Conference on Software Analysis, Evolution and Reengineering (SANER) | 10.1109/saner60148.2024.00066
+- A Study on the Pythonic Functional Constructs' Understandability (2024) | Proceedings of the IEEE/ACM 46th International Conference on Software Engineering | 10.1145/3597503.3639211
+
+## Consulta 'Zid functional Python understandability' (desde 2023), no OpenAlex: 1
+- Replication package for the paper: "A Study on the Pythonic Functional Constructs' Understandability" (2023) | PolyPublie (École Polytechnique de Montréal) | 10.5281/zenodo.8191782
+
+## Consulta 'lambda comprehension map filter understandability Python' (desde 2022), no OpenAlex: 2
+- A Study on the Pythonic Functional Constructs' Understandability (2024) | ACM/IEEE International Conference on Software Engineering: Companion Proceedings (ICSE-Companion) | 10.1145/3597503.3639211
+- Replication package for the paper: "A Study on the Pythonic Functional Constructs' Understandability" (2023) | PolyPublie (École Polytechnique de Montréal) | 10.5281/zenodo.8191782
+

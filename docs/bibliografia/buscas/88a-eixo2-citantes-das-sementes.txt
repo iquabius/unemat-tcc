@@ -1,0 +1,37 @@
+# Quarto ciclo (tcc-t81w, 2026-10-26), eixo 2: citantes das três sementes (snowballing para a frente, iteração 1)
+
+Os comandos rodaram sem `--sem-resumo`, para a triagem pelo resumo; os resumos foram tirados destas listas, que são a saída bruta do script reescrita uma linha por trabalho.
+
+## Citantes de A Semantics for the Essence of React (Madsen, Lhoták e Tip, 2020, ECOOP): 10
+
+`python3 ~/.claude/skills/escrita-academica/scripts/buscar_literatura.py citantes 10.4230/LIPIcs.ECOOP.2020.12 --todos`
+
+OpenAlex: Trabalhos que citam: A Semantics for the Essence of React (2020)
+Total: 10 (mostrando 10)
+
+- Towards Conducting Reproducible Distributed Experiments in the Geosciences (2021) | AGILE GIScience Series | 10.5194/agile-giss-2-33-2021
+- A domain-specific language for structure manipulation in constraint system-based GUIs (2022) | Journal of Computer Languages | 10.1016/j.cola.2022.101175
+- Secure RDTs: Enforcing Access Control Policies for Offline Available JSON Data (2023) | Proceedings of the ACM on Programming Languages | 10.1145/3622802
+- ReDemon UI: Reactive Synthesis by Demonstration for Web UI (2025) | ACM Symposium on User Interface Software and Technology (UIST) | 10.1145/3746058.3758454
+- React-tRace: A Semantics for Understanding React Hooks: An Operational Semantics and a Visualizer for Clarifying React Hooks (2025) | Proceedings of the ACM on Programming Languages | 10.1145/3763067
+- Engineering testable and maintainable software with Spring Boot and React (2021) | None | 10.36227/techrxiv.15147723.v3
+- Engineering testable and maintainable software with Spring Boot and React (2021) | None | 10.36227/techrxiv.15147723.v2
+- Let’s Bid: A Web Application for Online Auctions (2022) | International Journal for Research in Applied Science and Engineering Technology | 10.22214/ijraset.2022.41528
+- Engineering testable and maintainable software with Spring Boot and React (2021) | None | 10.36227/techrxiv.15147723.v1
+- Engineering testable and maintainable software with Spring Boot and React (2021) | None | 10.36227/techrxiv.15147723
+
+## Citantes de React-tRace (Lee, Ahn e Yi, 2025, PACMPL): 1
+
+`python3 ~/.claude/skills/escrita-academica/scripts/buscar_literatura.py citantes 10.1145/3763067 --todos`
+
+OpenAlex: Trabalhos que citam: React-tRace: A Semantics for Understanding React Hooks: An Operational Semantics and a Visualizer for Clarifying React Hooks (2025)
+Total: 1 (mostrando 1)
+
+- HookLens: Visual Analytics for Understanding React Hooks Structures (2026) | IEEE Pacific Visualization Conference (PacificVis) | 10.1109/pacificvis68791.2026.00036
+
+## Citantes de Evolution of Functional UI Paradigms (Sperber e Schlegel, 2025): 0
+
+`python3 ~/.claude/skills/escrita-academica/scripts/buscar_literatura.py citantes 10.1145/3759163.3760429 --todos`
+
+OpenAlex: Trabalhos que citam: Evolution of Functional UI Paradigms (2025)
+Total: 0 (mostrando 0)

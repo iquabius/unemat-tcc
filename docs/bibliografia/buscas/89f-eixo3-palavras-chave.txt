@@ -1,0 +1,131 @@
+# Quarto ciclo (tcc-t81w, 2026-10-26), eixo 3: consultas por palavras-chave no OpenAlex
+# Comandos:
+#   python3 ~/.claude/skills/escrita-academica/scripts/buscar_literatura.py buscar "functional programming program comprehension empirical" --desde 2013 --n 25
+#   python3 ~/.claude/skills/escrita-academica/scripts/buscar_literatura.py buscar "lambda expressions comprehension experiment" --desde 2013 --n 25
+#   python3 ~/.claude/skills/escrita-academica/scripts/buscar_literatura.py buscar "lambda expressions readability" --desde 2013 --n 25
+#   python3 ~/.claude/skills/escrita-academica/scripts/buscar_literatura.py buscar "functional reactive programming graphical user interfaces" --desde 2013 --n 25
+#   python3 ~/.claude/skills/escrita-academica/scripts/buscar_literatura.py buscar "Elm architecture" --desde 2013 --n 25
+#   python3 ~/.claude/skills/escrita-academica/scripts/buscar_literatura.py buscar "functional programming students difficulties misconceptions" --desde 2013 --n 25
+#   python3 ~/.claude/skills/escrita-academica/scripts/buscar_literatura.py buscar "Haskell novices errors learning" --desde 2013 --n 20
+
+## Consulta 'functional programming program comprehension empirical' (desde 2013; 100 no OpenAlex, 25 vistos): 25
+- An empirical study on program comprehension with reactive programming (2014) | ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE) | 10.1145/2635868.2635895
+- On the Positive Effect of Reactive Programming on Software Comprehension: An Empirical Study (2017) | IEEE Transactions on Software Engineering | 10.1109/tse.2017.2655524
+- Empirical Assessment of Program Comprehension Styles in Programming Language Paradigms (2021) | Proceedings/Proceedings -- IEEE Symposium on Visual Languages and Human-Centric Computing | 10.1109/vl/hcc51201.2021.9576333
+- An empirical study on program comprehension with reactive programming. (2016) | None | sem DOI
+- Effects of explicit feature traceability on program comprehension (2019) | ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE) | 10.1145/3338906.3338968
+- Empirical assessment of the code comprehension effort needed to attack programs protected with obfuscation (2026) | Computers & Security | 10.1016/j.cose.2026.104881
+- Program Functional Structure: A Preliminary Framework for Functional Position in Source Code (2026) | Zenodo (CERN European Organization for Nuclear Research) | 10.5281/zenodo.22958988
+- Sustainability of Programming Education Through CDIO-Oriented Practice: An Empirical Study on Syntax-Level Structural Visualization for Functional Programming Languages (2025) | Sustainability | 10.3390/su17125630
+- Let’s Ask Students About Their Programs, Automatically (2021) | IEEE/ACM International Conference on Program Comprehension (ICPC) | 10.1109/icpc52881.2021.00054
+- Designing accessible block-based programming environments for persons with visual impairments (2025) | Universal Access in the Information Society | 10.1007/s10209-025-01200-y
+- An Empirical Study on the Fault-Inducing Effect of Functional Constructs in Python (2022) | IEEE International Conference on Software Maintenance and Evolution (ICSME) | 10.1109/icsme55016.2022.00013
+- Extending Cognitive Complexity Measurement to Modern Programming Constructs: Generics, Lambdas, and Asynchronous APIs (2026) | International Research Conference on Smart Computing and Systems Engineering (SCSE) | 10.1109/scse70081.2026.11499801
+- Computer programming and the related function: a study on the representation and understanding of operative invariants (2018) | LA Referencia (Red Federada de Repositorios Institucionales de Publicaciones Científicas) | sem DOI
+- Impact of modular programming practices on software maintainability in student projects (2026) | International Journal of Computing Programming and Database Management | 10.33545/27076636.2026.v7.i1a.148
+- Proceedings of the 5th Workshop on Evaluation and Usability of Programming Languages and Tools (2014) | None | 10.1145/2688204
+- Learning to Program != "One-Size-Fits-All": Exploring Variations of Parsons Problems as Scaffolding (2025) | arXiv (Cornell University) | 10.48550/arxiv.2512.22407
+- The use of fables in the development of students' comprehension of social relationships and motives of human behaviour (2017) | Nastava i vaspitanje | 10.5937/nasvas1702351c
+- Peculiarities of Operator Shooting of Television Programs in Interiors (2024) | Bulletin of Kyiv National University of Culture and Arts Series in Audiovisual Art and Production | 10.31866/2617-2674.7.2.2024.319012
+- Coding Carnival: A Gamified Multi-Language Escape-Room-Inspired Platform for Immersive Programming Education (2026) | International Journal for Research in Applied Science and Engineering Technology | 10.22214/ijraset.2026.79263
+- Audiotexts’ selection criteria for teaching correspondence future Interpreters listening comprehension in English (2016) | The scientific and methodological journal Foreign Languages | 10.32589/im.v0i2.122572
+- A guided reading program for pupils with specific reading difficulties (2020) | Repository of the University of Ljubljana (University of Ljubljana) | sem DOI
+- Employability skills from employers' perspectives in indigenous contexts: empirical evidence (2022) | Higher Education Skills and Work-based Learning | 10.1108/heswbl-05-2022-0102
+- Transforming Code Patterns into Procedural Abstractions: An Empirical Study of De-com-po-si-tion (2026) | ACM Conference on Innovation and Technology in Computer Science Education (ITiCSE) | 10.1145/3803400.3809385
+- Dataset for the paper "The Relationship Between Different Python Argument-Passing Mechanisms and Fixes: An Empirical Study" (2023) | Zenodo (CERN European Organization for Nuclear Research) | 10.5281/zenodo.7870869
+- Towards comprehending the non-functional requirements through Developers’ eyes: An exploration of Stack Overflow using topic analysis (2016) | Information and Software Technology | 10.1016/j.infsof.2016.12.003
+
+## Consulta 'lambda expressions comprehension experiment' (desde 2013): 0
+
+## Consulta 'lambda expressions readability' (desde 2013): 20
+- Two N-of-1 self-trials on readability differences between anonymous inner classes (AICs) and lambda expressions (LEs) on Java code snippets (2021) | Empirical Software Engineering | 10.1007/s10664-021-10077-3
+- Understanding the use of lambda expressions in Java (2017) | Proceedings of the ACM on Programming Languages | 10.1145/3133909
+- Does the Introduction of Lambda Expressions Improve the Comprehension of Java Programs? (2019) | None | 10.1145/3350768.3350791
+- Understanding the Impact of Introducing Lambda Expressions in Java Programs (2020) | Journal of Software Engineering Research and Development | 10.5753/jserd.2020.744
+- Function Pointers, Function Objects, and Lambda Expressions (2024) | None | 10.1002/9781394193202.ch19
+- Performance improvement of using lambda expressions with new features of Java 8 vs. other possible variants of iterating over ArrayList in Java (2018) | Journal of Applied Mathematics Statistics and Informatics | 10.2478/jamsi-2018-0007
+- Generation of Call Graph for Java Higher Order Functions (2020) | International Conference on Communication and Electronics Systems (ICCES) | 10.1109/icces48766.2020.9138056
+- Imperative versus declarative collection processing (2022) | ACM/IEEE International Conference on Software Engineering: Companion Proceedings (ICSE-Companion) | 10.1145/3510003.3519016
+- The interface for functions in the dune-functions module (2015) | arXiv (Cornell University) | 10.11588/ans.2017.1.27683
+- A Study on the Current Status of Functional Idioms in Java (2019) | IEICE Transactions on Information and Systems | 10.1587/transinf.2019mpp0002
+- From Aspecto-Temporal Analysis of a Natural Language to Logical Modeling Using Combinatory Logic (2021) | NVEO - NATURAL VOLATILES & ESSENTIAL OILS Journal | NVEO | sem DOI
+- Enhancing Interactive Learning Platforms with Java Macros and Desugaring Techniques (2025) | SSRN Electronic Journal | 10.2139/ssrn.5228045
+- From Neural Lagrangians to Analytical Laws: Symbolic Extraction via Variational Distillation (2026) | Zenodo (CERN European Organization for Nuclear Research) | 10.5281/zenodo.18666055
+- Power of Java Streams and its Best Practice (2021) | International Journal of Science and Research (IJSR) | 10.21275/sr24801081541
+- HybridLF : a system for reasoning in higher-order abstract syntax (2015) | Leicester Research Archive (University of Leicester) | sem DOI
+- Does the Stream API Benefit from Special Debugging Facilities? A Controlled Experiment on Loops and Streams with Specific Debuggers (2023) | ACM/IEEE International Conference on Software Engineering: Companion Proceedings (ICSE-Companion) | 10.1109/icse48619.2023.00058
+- Integration of Prolog and Java with the Connector Architecture CAPJa (2017) | None | sem DOI
+- Integration von Prolog und Java mit Hilfe der Connector Architecture CAPJa (2017) | Online Publication Service of Würzburg University (Würzburg University) | sem DOI
+- GeoQuery-LSFB: A French Belgian Sign Language Corpus with Procedural Semantic Annotations (2026) | Zenodo (CERN European Organization for Nuclear Research) | 10.5281/zenodo.19220832
+- Compositional semantics: An introduction to the syntax/semantics interface. By Pauline Jacobson. Oxford: Oxford University Press, 2014. Pp. 448. ISBN 9780199677153. $45. (2017) | Language | 10.1353/lan.2017.0043
+
+## Consulta 'functional reactive programming graphical user interfaces' (desde 2013): 19
+- Asynchronous functional reactive programming for GUIs (2013) | ACM SIGPLAN Conference on Programming Language Design and Implementation (PLDI) | 10.1145/2491956.2462161
+- Asynchronous functional reactive programming for GUIs (2013) | ACM SIGPLAN Notices | 10.1145/2499370.2462161
+- Testing and debugging functional reactive programming (2017) | Proceedings of the ACM on Programming Languages | 10.1145/3110246
+- Development of Graphical User Interface For Microwave Filter Design (2016) | arXiv (Cornell University) | 10.48550/arxiv.1607.03922
+- A Graphical User Interface Framework for Formal Verification (2021) | DROPS (Schloss Dagstuhl – Leibniz Center for Informatics) | 10.4230/lipics.itp.2021.4
+- Abstract categorical semantics for resourceful functional reactive programming (2016) | Journal of Logical and Algebraic Methods in Programming | 10.1016/j.jlamp.2016.07.001
+- Property-Based Testing for Asynchronous Functional Reactive Programming Using Linear Temporal Logic (2026) | Lecture notes in computer science | 10.1007/978-3-032-15981-6_3
+- Adjoint Reactive GUI Programming (2021) | Lecture notes in computer science | 10.1007/978-3-030-71995-1_15
+- Asynchronous Reactive Programming with Modal Types in Haskell (2023) | Lecture notes in computer science | 10.1007/978-3-031-52038-9_2
+- Async/await is an Effective Paradigm for Event Management of User Interfaces (2026) | ACM SIGCHI Symposium on Engineering Interactive Computing Systems (EICS) | 10.1145/3807968.3810928
+- Adjoint Reactive GUI (2020) | arXiv (Cornell University) | 10.48550/arxiv.2010.12338
+- Geochemical and reactive transport modelling in R with the RedModRphree package (2021) | None | 10.5194/egusphere-egu21-2636
+- Tox21Enricher-Shiny: an R Shiny application for toxicity functional annotation analysis (2023) | Frontiers in Toxicology | 10.3389/ftox.2023.1147608
+- elementr : An R package for reducing elemental data from LA ‐ ICPMS analysis of biological calcified structures (2017) | Methods in Ecology and Evolution | 10.1111/2041-210x.12822
+- Java 11 Cookbook Ed. 2 (2018) | Packt Publishing eBooks | sem DOI
+- A Surveillance Infrastructure for Malaria Analytics: Provisioning Data Access and Preservation of Interoperability (2018) | JMIR Public Health and Surveillance | 10.2196/10218
+- Software Application Profile: TriplotGUI, a molecular epidemiology toolbox for investigating associations between exposures, omics, and outcomes (2025) | International Journal of Epidemiology | 10.1093/ije/dyaf203
+- Editorial: Biomechanics, Sensing and bio-inspired control in rehabilitation and assistive robotics, volume II (2026) | Frontiers in Bioengineering and Biotechnology | 10.3389/fbioe.2026.1837753
+- Clinical Laboratory Informatics and Analytics: Challenges and Opportunities (2022) | Clinical Chemistry | 10.1093/clinchem/hvac157
+
+## Consulta 'Elm architecture' (desde 2013; 1123 no OpenAlex, quase todos de extreme learning machines; 25 vistos): 25
+- Elm Architecture and Building Blocks (2018) | Apress eBooks | 10.1007/978-1-4842-2610-0_5
+- OXRAM based ELM architecture for multi-class classification applications (2015) | International Joint Conference on Neural Networks (IJCNN) | 10.1109/ijcnn.2015.7280603
+- A Novel Hybrid RNN-ELM Architecture for Crime Classification (2020) | Lecture notes on data engineering and communications technologies | 10.1007/978-3-030-37051-0_98
+- Model-View-Update-Communicate: Session Types Meet the Elm Architecture (2019) | ENLIGHTEN (Jurnal Bimbingan dan Konseling Islam) | 10.4230/lipics.ecoop.2020.14
+- Model-View-Update-Communicate: Session Types Meet the Elm Architecture (Artifact) (2020) | DROPS (Schloss Dagstuhl – Leibniz Center for Informatics) | 10.4230/darts.6.2.13
+- Architecture Selection of ELM Networks Based on Sensitivity of Hidden Nodes (2015) | Neural Processing Letters | 10.1007/s11063-015-9470-1
+- ELM-Based Improved Layered Ensemble Architecture for Time Series Forecasting (2019) | IEEE Access | 10.1109/access.2019.2927047
+- ELM based architecture for general purpose automatic weight and structure learning (2017) | Neurocomputing | 10.1016/j.neucom.2017.09.026
+- Rough Set, ELM Classifier and Deep Architecture for Remote Sensing Images (2024) | Learning and analytics in intelligent systems | 10.1007/978-3-031-65392-6_5
+- A Combined ELM and CNN Model Architecture for Accurate Viral Family DNA Classification (2023) | International Conference on Intelligent Computing and Information Systems (ICICIS) | 10.1109/icicis58388.2023.10391109
+- ELM Based Improved Layered Ensemble Architecture for Security Situation Prediction (2022) | IEEE Advanced Information Technology, Electronic and Automation Control Conference (IAEAC) | 10.1109/iaeac54830.2022.9929487
+- A Novel HVS Based Gray Scale Image Watermarking Scheme Using Fast Fuzzy-ELM Hybrid Architecture (2014) | Proceedings in adaptation, learning and optimization | 10.1007/978-3-319-14066-7_15
+- The Evolution of Neural Learning Systems: A Novel Architecture Combining the Strengths of NTs, CNNs, and ELMs (2015) | IEEE Systems Man and Cybernetics Magazine | 10.1109/msmc.2015.2461151
+- Toward Verifiable Audience Digital Twins: An Agent-Based Architecture Integrating COM-B and ELM (2026) | International Conference on Simulation and Modeling Methodologies, Technologies and Applications | 10.5220/0015183700004094
+- An ELM-Inspired Dual-Layer Control Architecture: Regulating Predictive Errors in Large Language Models and AI Hallucinations (2026) | None | 10.17605/osf.io/8792g
+- An ELM-Inspired Dual-Layer Control Architecture: Regulating Predictive Errors in Large Language Models and AI Hallucinations (2026) | Zenodo (CERN European Organization for Nuclear Research) | 10.5281/zenodo.20703409
+- Tf-ELM-RVFL: A TensorFlow-based library for extreme learning machines and random vector functional link networks with deep and ensemble architectures (2026) | SoftwareX | 10.1016/j.softx.2026.102724
+- Leaf Architecture of Hoya incrassata Warb. and Hoya crassicaulis Elmer x Kloppenb. (Apocynaceae): Taxonomic Identification and Conservation Concerns (2015) | IAMURE International Journal of Ecology and Conservation | 10.7718/ijec.v15i1.1002
+- Implications of Emotional Learning Method (ELM) in Adult University Education. Research Trends in Safety and Confidence in Architecture. (2013) | e_Buah | sem DOI
+- Performance analysis of ELM-PSO architectures for modelling surface roughness and power consumption in CNC turning operation (2014) | International Conference on Information Technology and Multimedia (ICIMU) | 10.1109/icimu.2014.7066649
+- Leaf Architecture as a Factor in the Metal Uptake Capacity of Brackenridgea foxworthyi (Elm.) Furtado from Selected Ultramafic Formations in Palawan Island, Philippines (2026) | National Research Council of the Philippines Research Journal | 10.63225/nrcp.rj.2026.0048
+- Leaf Architecture as a Factor in the Metal Uptake Capacity of Brackenridgea foxworthyi (Elm.) Furtado from Selected Ultramafic Formations in Palawan Island, Philippines (2026) | National Research Council of the Philippines Research Journal | 10.63225/nrcp.rj.2024.0048
+- Leaf Architecture as a Factor in the Metal Uptake Capacity of Brackenridgea foxworthyi (Elm.) Furtado from Selected Ultramafic Formations in Palawan Island, Philippines (2026) | National Research Council of the Philippines Research Journal | 10.63225/nrcp.rj.2024.0018
+- Meta-ELM: ELM with ELM hidden nodes (2013) | Neurocomputing | 10.1016/j.neucom.2013.01.060
+- Practical Application Development with AppRun: Building Reliable, High-Performance Web Apps Using Elm-Inspired Architecture, Event Pub-Sub, and Components (2019) | CERN Document Server (European Organization for Nuclear Research) | sem DOI
+
+## Consulta 'functional programming students difficulties misconceptions' (desde 2013): 15
+- Study on difficulties and misconceptions with modern type systems (2014) | None | 10.1145/2591708.2591726
+- Teaching Introductory Functional Programming Using Haskelite (2025) | Electronic Proceedings in Theoretical Computer Science | 10.4204/eptcs.424.3
+- Project and Program Turnaround (2016) | Auerbach Publications eBooks | 10.1201/9781315212746
+- Creating a system to administrate the Concept Inventory instrument in the educational programming learning context (2019) | Resumos do... | 10.20396/revpibic2720192414
+- Programming for Interactive Prototypes (2013) | None | sem DOI
+- Questions about learners’ code focusing on semantic style (2025) | Repositório do ISCTE-IUL | sem DOI
+- Considerations in writing individualized educational plans for gifted learners (2026) | Journal for the Education of Gifted Young Scientists | 10.17478/jegys.1850602
+- Diversity, inclusion & engagement (2014) | Oxford University Press eBooks | sem DOI
+- THE SOCIAL PROCESSES THAT UNDERLIE LANGUAGE USE (2013) | Analysis and Metaphysics | sem DOI
+- Debugging Tactics in Novice Programmers: The Familiarity Factor (2024) | Journal of Software Engineering and Simulation | 10.35629/3795-10090915
+- Establishing citizen participation in real estate domain: A case study of Campus a Real Estate division of Delft University of Technology (2019) | None | sem DOI
+- The Trainee’s Role in Curriculum Advocacy Within Disability Medical Education (2024) | Medical Care | 10.1097/mlr.0000000000001988
+- ABSTRACTS: Abstracts of Papers Presented at the 53rd Annual Scientific Meeting of the Association for Applied Psychophysiology and Biofeedback (2023) | Biofeedback | 10.5298/817678
+- Postpartum Depression: What Do Pediatricians Need to Know? (2017) | Pediatrics in Review | 10.1542/pir.2015-0133
+- Geriatric and Palliative Care (2023) | Journal of the American College of Surgeons | 10.1097/xcs.0000000000000828
+
+## Consulta 'Haskell novices errors learning' (desde 2013): 3
+- Investigating Compilation Errors of Students Learning Haskell (2019) | Electronic Proceedings in Theoretical Computer Science | 10.4204/eptcs.295.4
+- Tikka: An Interpreter and Debugger for a Pedagogical Subset of Haskell (2026) | ACM Conference on Innovation and Technology in Computer Science Education (ITiCSE) | 10.1145/3803401.3811988
+- Modern type error localization in education (2025) | eScholarship@McGill (McGill) | 10.82308/49447
+

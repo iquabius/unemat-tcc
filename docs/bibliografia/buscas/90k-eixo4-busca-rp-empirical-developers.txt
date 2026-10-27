@@ -1,0 +1,6 @@
+# Quarto ciclo (tcc-t81w, 2026-10-26), eixo 4: consulta 'reactive programming empirical study developers comprehension', desde 2013
+# Comando: python3 buscar_literatura.py buscar "reactive programming empirical study developers comprehension" --desde 2013 --n 25
+# OpenAlex: 1 resultados no OpenAlex (mostrando 1, ordem: relevancia)
+
+## consulta 'reactive programming empirical study developers comprehension', desde 2013: 1
+- What Do Our Respondents Think We're Asking? Using Cognitive Interviewing to Improve Medical Education Surveys (2013) | Journal of Graduate Medical Education | 10.4300/jgme-d-13-00154.1

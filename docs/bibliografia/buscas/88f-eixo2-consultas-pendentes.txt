@@ -1,0 +1,85 @@
+# Quarto ciclo (tcc-t81w), eixo 2: as três consultas por palavras-chave que o HTTP 429 do OpenAlex cortou em 2026-10-26, rodadas às 00h26 UTC de 2026-10-27, depois da renovação da cota; resumos lidos na triagem e tirados deste arquivo
+
+## Busca: 'React bugs' — 275 resultados no OpenAlex (mostrando 25, ordem: relevancia): 25
+# python3 /home/gambi/.claude/skills/escrita-academica/scripts/buscar_literatura.py buscar "React bugs" --desde 2013 --n 25
+- React to Bugs (2022) | Apress eBooks | 10.1007/978-1-4842-8294-6_6
+- When stink bugs react: Host stimuli and the brown marmorated stink bug (2016) | International Congress of Entomology (ICE) | 10.1603/ice.2016.111954
+- Repeton: Structured Bug Repair with ReAct-Guided Patch-and-Test Cycles (2025) | arXiv (Cornell University) | 10.48550/arxiv.2506.08173
+- Bug Fixing Pada Fungsi Sorting Di Header Table Pada Web Aplikasi Port Management System PT XYZ Menggunakan React JS (2022) | Universitas Airlangga Repository (Universitas Airlangga) | sem DOI
+- Bugs in the wetware: the psychology of computer insecurity (2014) | Information Security Conference | sem DOI
+- A systematic mapping study of bug reproduction and localization (2023) | Information and Software Technology | 10.1016/j.infsof.2023.107338
+- React-tRace: A Semantics for Understanding React Hooks: An Operational Semantics and a Visualizer for Clarifying React Hooks (2025) | Proceedings of the ACM on Programming Languages | 10.1145/3763067
+- TO BITE OR NOT TO BITE? LEARNING IN RHODNIUS BUGS (2013) | Journal of Experimental Biology | 10.1242/jeb.084657
+- A Semantics for the Essence of React (2020) | DROPS (Schloss Dagstuhl – Leibniz Center for Informatics) | 10.4230/lipics.ecoop.2020.12
+- Players' Perception of Bugs and Glitches in Video Games: An Exploratory Study (2025) | arXiv (Cornell University) | 10.48550/arxiv.2504.15408
+- A Survey on Machine Learning-based Automated Software Bug Report Classification (2022) | International Symposium on Multidisciplinary Studies and Innovative Technologies (ISMSIT) | 10.1109/ismsit56059.2022.9932822
+- Are ecosystem services provided by insects “bugged” by micro (nano)plastics? (2019) | TrAC Trends in Analytical Chemistry | 10.1016/j.trac.2019.02.018
+- Getting rid of bed bugs: Trickier than ever (2024) | Knowable Magazine | 10.1146/knowable-013124-2
+- Ensuring maintainability in react web applications (2024) | Tampere University Institutional Repository (Tampere University) | sem DOI
+- Preserving Reactiveness: Understanding and Improving the Debugging Practice of Blocking-Call Bugs (2024) | ACM SIGSOFT International Symposium on Software Testing and Analysis (ISSTA) | 10.1145/3650212.3680319
+- Ep. 2577: Fixing Hidden UI Bugs on Real Devices (2026) | Zenodo (CERN European Organization for Nuclear Research) | 10.5281/zenodo.20181539
+- Behaviour of avian predators to seed bugs (Lygaeoidea): effectiveness of chemical defence (2018) | Digital Repository (National Repository of Grey Literature) | sem DOI
+- Irritant contact keratitis caused by the bodily fluids of a brown marmorated stink bug (2017) | Taiwan Journal of Ophthalmology | 10.4103/tjo.tjo_32_17
+- The Behavioral Response to Heat in the Common Bed Bug,Cimex lectularius (Hemiptera: Cimicidae) (2021) | Journal of Medical Entomology | 10.1093/jme/tjab020
+- Bug Severity Classification in Software Projects using Natural Language Processing (2026) | Nazarbayev University Repository (Nazarbayev University) | sem DOI
+- PI3-kinase, the key for bugs to get in? (2015) | The Journal of Experimental Medicine | 10.1084/jem.2122insight2
+- SelfHeal: Empirical Fix Pattern Analysis and Bug Repair in LLM Agents (2026) | arXiv (Cornell University) | 10.48550/arxiv.2604.17699
+- When Agents Fail: A Comprehensive Study of Bugs in LLM Agents with Automated Labeling (2026) | arXiv (Cornell University) | 10.48550/arxiv.2601.15232
+- When Agents Fail: A Comprehensive Study of Bugs in LLM Agents with Automated Labeling (2026) | arXiv (Cornell University) | sem DOI
+- AgentSZZ: Teaching the LLM Agent to Play Detective with Bug-Inducing Commits (2026) | arXiv (Cornell University) | 10.48550/arxiv.2604.02665
+
+## Busca: 'React developers study' — 636 resultados no OpenAlex (mostrando 25, ordem: relevancia): 25
+# python3 /home/gambi/.claude/skills/escrita-academica/scripts/buscar_literatura.py buscar "React developers study" --desde 2013 --n 25
+- How do developers react to API evolution? A large-scale empirical study (2016) | Software Quality Journal | 10.1007/s11219-016-9344-4
+- Server-Side Rendering (SSR) vs Client-Side Rendering (CSR) in React/Next.js: A Comparative Study on Performance, SEO, and Developer Experience (2026) | INTERANTIONAL JOURNAL OF SCIENTIFIC RESEARCH IN ENGINEERING AND MANAGEMENT | 10.55041/ijsrem61203
+- How Do Developers React to RESTful API Evolution? (2014) | Lecture notes in computer science | 10.1007/978-3-662-45391-9_17
+- How do developers react to API evolution? The Pharo ecosystem case (2015) | IEEE International Conference on Software Maintenance and Evolution (ICSME) | 10.1109/icsm.2015.7332471
+- Converting Class Components to Functions Using React-Hooks — Developer Guidelines (2022) | Jönköping University Publications (Jönköping University) | sem DOI
+- Performance and Developer Experience Comparison of Redux, Zustand, and Context API in React Applications (2025) | International Journal on Science and Technology | 10.71097/ijsat.v16.i2.5026
+- Linguistic antipatterns: what they are and how developers perceive them (2015) | Empirical Software Engineering | 10.1007/s10664-014-9350-8
+- Membuat Aplikasi Berbasis Android "Adol Customer" Sebagai Front-End Developer Menggunakan Framework React Native (2020) | — | sem DOI
+- REACT: An Approach for Capturing Rationale in Chat Messages (2017) | Proceedings of the ... ACM-IEEE International Symposium on Empirical Software Engineering and Measurement/International Symposium on Empirical Software Engineering and Measurement | 10.1109/esem.2017.26
+- Comparative Study Between React and Svelte: Performance and Usability (2025) | International Conference on Engineering of Modern Electric Systems | 10.1109/emes65692.2025.11045600
+- A preliminary empirical study of react library related questions shared on stack overflow (2023) | Computer Science and Information Technologies | 10.11591/csit.v4i1.p14-23
+- Migrating Legacy Angular JS Applications to React Native: A Case Study (2021) | International Journal on Recent and Innovation Trends in Computing and Communication | 10.17762/ijritcc.v10i9.11712
+- React Native Performance Evaluation (2018) | Aaltodoc (Aalto University) | sem DOI
+- Exploring Behavioral Trustworthiness of Github Developers (2023) | World Symposium on Software Engineering (WSSE) | 10.1145/3631991.3632005
+- A Comprehensive Study of React Native: Architecture, Working Mechanism, and Performance Analysis (2026) | International Journal for Research in Applied Science and Engineering Technology | 10.22214/ijraset.2026.80952
+- A comparative study of Flutter and React Native for AI enhanced user feedback (2025) | Tampere University Institutional Repository (Tampere University) | sem DOI
+- Mobile App Development Trends: A Comparative Study of Flutter and React Native (2026) | International Journal of Advanced Research in Science Communication and Technology | 10.48175/ijarsct-31903
+- A Review on React Admin Dashboard (2025) | International Journal for Research in Applied Science and Engineering Technology | 10.22214/ijraset.2025.67203
+- Refactoring react-based Web apps (2024) | Journal of Systems and Software | 10.1016/j.jss.2024.112105
+- Perceived industrial usefulness of the ACD³-matrix - an interview study with product developers (2018) | Chalmers Research (Chalmers University of Technology) | sem DOI
+- Consumers' psychological reactance and ownership in in-game advertising (2021) | Marketing Intelligence & Planning | 10.1108/mip-09-2020-0419
+- React functionality to make website easier (2024) | International Journal of Multidisciplinary Research and Studies | sem DOI
+- Comparison between React and Angular JavaScript Frameworks (2024) | Doria (University of Helsinki) | sem DOI
+- Comparative Analysis of React Versions: 16 to 19 (2025) | International Journal of Innovative Research in Science Engineering and Technology | 10.15680/ijirset.2025.1402097
+- Understanding the impact of a pandemic on the work of educational developers (2023) | The International Journal for Academic Development | 10.1080/1360144x.2023.2297412
+
+## Busca: 'React Native bugs' — 39 resultados no OpenAlex (mostrando 25, ordem: relevancia): 25
+# python3 /home/gambi/.claude/skills/escrita-academica/scripts/buscar_literatura.py buscar "React Native bugs" --desde 2013 --n 25
+- Diagnostic tool for React Native : Reporting application state (2017) | KTH Publication Database DiVA (KTH Royal Institute of Technology) | sem DOI
+- A Comparison Between Angular and React Native Frameworks Used in the Development of the MIES_APP Mobile Application (2024) | Smart innovation, systems and technologies | 10.1007/978-981-97-5799-2_30
+- Testing React Native Mobile Apps: Pruning GUI Model Approach (2024) | Journal of Computer Science | 10.3844/jcssp.2024.594.601
+- Mobilna aplikacija za šah na React-Native platformi (2018) | — | sem DOI
+- Flutter versus React Native: a case study considering resource consumption, graphical interface aspects and startup and response times (2025) | Institutional Repository of the Federal Technological University of Paraná (RIUT) (Federal University of Technology – Paraná) | sem DOI
+- Ep. 2577: Fixing Hidden UI Bugs on Real Devices (2026) | Zenodo (CERN European Organization for Nuclear Research) | 10.5281/zenodo.20181539
+- Irritant contact keratitis caused by the bodily fluids of a brown marmorated stink bug (2017) | Taiwan Journal of Ophthalmology | 10.4103/tjo.tjo_32_17
+- Native egg parasitoids recorded from the invasive Halyomorpha halys successfully exploit volatiles emitted by the plant–herbivore complex (2017) | Journal of Pest Science | 10.1007/s10340-017-0861-0
+- Biodiversity of soil arthropods in a native grassland in Alberta, Canada: obscure associations and effects of simulated climate change (2013) | ERA: Education and Research Archive (University of Alberta) | 10.7939/r3nv99k1m
+- On the Impact of Development Frameworks on Mobile Apps (2023) | Proceedings - Asia Pacific Software Engineering Conference/Proceedings | 10.1109/apsec60848.2023.00023
+- Amplifying Tests for Cross-Platform Apps through Test Patterns (2019) | Proceedings/Proceedings of the ... International Conference on Software Engineering and Knowledge Engineering | 10.18293/seke2019-076
+- Aplikasi E-Learning Berbasis Android sebagai Media Pembelajaran Bahasa Pemrograman (2023) | JURNAL KRIDATAMA SAINS DAN TEKNOLOGI | 10.53863/kst.v5i01.720
+- WorkBench-RU: Can Agents Solve Multi-Step Workplace Tasks Beyond English? (2026) | Computational Linguistics and Intellectual Technologies | 10.29003/2075-7182-2026-24-153-162
+- Tealeaf CxMobile - replaying real time customer experience (2016) | International Conference on Geoinformatics | 10.1109/geoinformatics.2016.7578968
+- Porting av mobil iOS app til Android - Klimb AS (2018) | NORA - Norwegian Open Research Archives | sem DOI
+- A Real-Time Visualization Tool of Hardware Resources for Flutter Applications (2024) | Lecture notes in computer science | 10.1007/978-3-031-64608-9_2
+- Optimization of LPG Distribution for a Multiplatform-Based LPG Marketplace (2025) | International Journal of Engineering Science and Information Technology | 10.52088/ijesty.v5i3.994
+- circadia-bio/clerkR: v0.1.3 (2026) | Zenodo (CERN European Organization for Nuclear Research) | 10.5281/zenodo.21574765
+- Lemos Lambda: Deep Science Prospector (2025) | Zenodo (CERN European Organization for Nuclear Research) | 10.5281/zenodo.17958506
+- Perancangan dan Implementasi Aplikasi Kasir di Kedai Atha Langgen (2026) | Jurnal ilmiah Sistem Informasi dan Ilmu Komputer | 10.55606/juisik.v6i1.2249
+- UniRelease: A Unified Framework for Addressing Cross-Platform Mobile Application Build and Release Challenges (2026) | IEEE International Conference on Communication Systems and Network Technologies (CSNT) | 10.1109/csnt69054.2026.11502139
+- aliyevaladddin/AladdinAI: v.2.2.2 (2026) | Zenodo (CERN European Organization for Nuclear Research) | 10.5281/zenodo.21285024
+- CollabCode AI (2026) | Zenodo (CERN European Organization for Nuclear Research) | 10.5281/zenodo.20089313
+- GENIE CRM: An Agentic AI-Powered Customer Relationship Management System with Multi-Modal Intelligence and Automated Workflow Orchestration (2026) | International Scientific Journal of Engineering and Management | 10.55041/isjem06720
+- Daham-Mustaf/odrl-multi-agent-llm: v2.1.0 - Enhanced Multi-Agent System with Custom Models Support (2025) | Zenodo (CERN European Organization for Nuclear Research) | 10.5281/zenodo.17670390

@@ -1,0 +1,12 @@
+# Quarto ciclo (tcc-t81w, 2026-10-26), eixo 4: consulta 'observer pattern reactive programming comparison', desde 2013
+# Comando: python3 buscar_literatura.py buscar "observer pattern reactive programming comparison" --desde 2013 --n 25
+# OpenAlex: 7 resultados no OpenAlex (mostrando 7, ordem: relevancia)
+
+## consulta 'observer pattern reactive programming comparison', desde 2013: 7
+- MVVM in the Era of Modern Android: A Systematic Literature Review and Taxonomy of Architectural Trade-offs (2026) | CLEI electronic journal | 10.19153/cleiej.29.2.8
+- Autonomy–Opacity Stratification: A Falsifiable Theory of Performance-Driven Functional Opacity in Advanced AI Systems (2026) | Zenodo (CERN European Organization for Nuclear Research) | 10.5281/zenodo.22707082
+- FIGO consensus guidelines on intrapartum fetal monitoring: Adjunctive technologies (2015) | International Journal of Gynecology & Obstetrics | 10.1016/j.ijgo.2015.06.021
+- Initial clinical evaluation of chest digital tomosynthesis in adult patients with COVID-19 pneumonia (2024) | Chinese Medical Journal | 10.1097/cm9.0000000000003297
+- A case-control study comparing and correlating iNOS expression among various clinicopathological variants of oral leukoplakia and oral squamous cell carcinoma: A Immunohistochemistry study (2020) | Journal of Pharmacy And Bioallied Sciences | 10.4103/jpbs.jpbs_96_20
+- A Review and Framework for Thinking about the Drivers of Prosocial Consumer Behavior (2019) | Journal of the Association for Consumer Research | 10.1086/706782
+- Posters Presented at the 21st Joint Meeting of the International Society of Dermatopathology, February 14, 2018, The Westin San Diego, San Diego, California, USA (2018) | American Journal of Dermatopathology | 10.1097/dad.0000000000001163

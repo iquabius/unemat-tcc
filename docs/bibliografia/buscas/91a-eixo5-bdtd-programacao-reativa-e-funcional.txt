@@ -1,0 +1,294 @@
+# Quarto ciclo (tcc-t81w, 2026-10-26), eixo 5: BDTD, programação reativa, programação funcional, lambdas e eventos
+
+Comando de cada consulta: python3 ~/.claude/skills/escrita-academica/scripts/buscar_literatura.py bdtd "<termos>" --desde 2013 --n 30 (resumos tirados ao gravar)
+
+## "programação reativa": 131 resultados, 30 listados
+- ASYNCRFJ: uma abordagem assíncrona à programação orientada a objeto reativa (2018) | Cardoso, Diogo João — UFSM [dissertação] | http://repositorio.ufsm.br/handle/1/16315
+- Algoritmo genético com operador de transgenia para minimização de makespan da programação reativa da produção (2016) | Viana, Monique Simplicio — UFSCAR [dissertação] | https://repositorio.ufscar.br/handle/20.500.14289/9087
+- Reactive methodologies to infinite text processing (2021) | João Saffran de Rezende — UFMG [dissertação] | https://hdl.handle.net/1843/58695
+- Unveiling the usability of reactive programming APIs: findings, tools, and recommendations (2024) | LIMA, Carlos Eduardo Zimmerle de — UFPE [tese] | https://repositorio.ufpe.br/handle/123456789/64485
+- Abordagens Heurísticas para otimização de um serviço de transporte reativo a demanda (2016) | Viana, Renan José dos Santos — UFV [dissertação] | http://www.locus.ufv.br/handle/123456789/9514
+- Despacho ótimo de geração e controle de potência reativa no sistema elétrico de potência (2019) | Yamaguti, Lucas do Carmo [UNESP] — UNESP [dissertação] | http://hdl.handle.net/11449/183534
+- Um GRASP reativo para o problema de sequenciamento de máquinas paralelas não relacionadas com recurso escasso adicional (2023) | Oliveira, Cesar Augusto Souza de — CEFET [dissertação] | https://repositorio.cefetmg.br//handle/123456789/880
+- Planejamento de reativos em sistemas elétricos de potência multi-área através de modelos estocásticos (2014) | López Quizhpi, Julio César [UNESP] — UNESP [tese] | http://hdl.handle.net/11449/123362
+- Uma abordagem para construção de microsserviços reativos baseadas em filas assíncronas (2018) | Brilhante, Jonathan Lincoln Gandhi Andrade Pires — UFPB [dissertação] | https://repositorio.ufpb.br/jspui/handle/123456789/13820
+- Uma estrutura de vizinhança baseada em árvore de cobertura aplicada em uma colaboração de algoritmo genético e VNS para a minimização de makespan em problemas de programação reativa da produção (2015) | Tuma, Carlos Cesar Mansur — UFSCAR [tese] | https://repositorio.ufscar.br/handle/20.500.14289/7522
+- Modelo integrado reativo a perturbações em tempo real da programação da produção e controle avançado para um CSTR (2017) | Costa, Eugênio Pacceli — UFSCAR [tese] | https://repositorio.ufscar.br/handle/20.500.14289/9435
+- Programação do despacho termo-eólico por fluxo de potência ótimo ativo/reativo solucionado por métodos de pontos interiores/exteriores. (2020) | Souza, Rafael Ramos de [UNESP] — UNESP [tese] | http://hdl.handle.net/11449/194337
+- Modelos e métodos para alocação ótima de instalações de armazenamento de energia em sistemas elétricos de potência (2018) | Rocha, Samuel Pereira da — PUC_MINS [tese] | http://bib.pucminas.br/teses/EngEletrica_RochaSP_1.pdf
+- Funções penalidade para o tratamento das variáveis discretas do problema de fluxo de potência ótimo reativo (2016) | Silva, Daisy Paes [UNESP] — UNESP [dissertação] | http://hdl.handle.net/11449/138757
+- [en] A COMPARISON OF THE STRUCTURED REACTIVE PROGRAMMING AND REACTIVEX MODELS IN SOFT REAL TIME APPLICATIONS (2021) | THIAGO DUARTE NAVES — PUC_RIO [tese] | https://www.maxwell.vrac.puc-rio.br/colecao.php?strSecao=resultado&nrSeq=53553&idi=1
+- Uma abordagem primal-dual de reescalamento não-linear integrado para problemas de programação matemática discreta-mista com restrições de equilíbrio e suas aplicações ao problema de fluxo de potência ótimo reativo (2017) | Pinheiro, Ricardo Bento Nogueira Mori — USP [tese] | —
+- Método da barreira modificada via reescalonamento não linear aplicado ao fluxo de potência reativa ótimo (2013) | Silva, Iara da Cunha Ribeiro da, 1983- — UNICAMP [tese] | https://hdl.handle.net/20.500.12733/1620859
+- O efeito da hiperglicemia materna sobre a geração de espécies reativas de oxigênio e o estresse do retículo endoplasmático em ilhotas pancreáticas isoladas da prole de ratas (2017) | Carvalho, Diego Soares [UNIFESP] — UNIFESP [tese] | http://repositorio.unifesp.br/handle/11600/50063
+- O fluxo de potência ótimo reativo com variáveis de controle discretas e restrições de atuação de dispositivos de controle de tensão (2013) | Lage, Guilherme Guimarães — USP [tese] | —
+- [pt] PROGRAMANDO REDES DE SENSORES SEM FIO COM SCRIPTS SOBRE COMPONENTES CUSTOMIZADOS (2016) | ADRIANO FRANCISCO BRANCO — PUC_RIO [tese] | https://www.maxwell.vrac.puc-rio.br/colecao.php?strSecao=resultado&nrSeq=26573&idi=1
+- Controle integrado de tensão e potência reativa nas modernas redes de distribuição de energia elétrica. (2021) | Girardi, Mateus Franco [UNESP] — UNESP [dissertação] | http://hdl.handle.net/11449/215300
+- Gap de integralidade das variáveis discretas para a resolução do problema de fluxo de potência ótimo reativo (2020) | Silva, Daisy Paes [UNESP] — UNESP [tese] | http://hdl.handle.net/11449/192435
+- Modelo híbrido de programação de materiais na indústria automobilística: estudo de caso (2013) | Girardi, Fortunato Antônio — UFSC [dissertação] | https://repositorio.ufsc.br/handle/123456789/106682
+- Estratégia de controle de micro-redes integrando controle de tensão distribuído e programação de ganhos (2017) | Käfer, Aline Thaís — UFRGS [dissertação] | http://hdl.handle.net/10183/172106
+- Exploração de análises automatizadas de repositórios de códigos para feedback frequente a alunos de programação (2017) | Kummer Neto, Alberto Francisco — UFSM [dissertação] | http://repositorio.ufsm.br/handle/1/21411
+- Método adaptativo de programação da produção apoiado por um sitema de medição de desempenho e melhoria contínua (2024) | Belan, Helder Carlo — UEL [dissertação] | https://repositorio.uel.br/handle/123456789/13285
+- Método para a criação de linguagens de programação e compiladores para o paradigma orientado a notificações em plataformas distintas (2019) | Ronszcka, Adriano Francisco — UTFPR [tese] | http://repositorio.utfpr.edu.br/jspui/handle/1/4234
+- Desenvolvimento de um modelo de programação convexa para o problema de fluxo de potência ótimo (2018) | Silva, Mauro Viegas da [UNESP] — UNESP [tese] | http://hdl.handle.net/11449/180413
+- Programação estocástica aplicada ao planejamento de sistemas de distribuição considerando geração distribuída e emissões de CO2 (2019) | Lima, Tayenne Dias de [UNESP] — UNESP [dissertação] | http://hdl.handle.net/11449/190794
+- Efeitos da programação nutricional neonatal em células da glia hipotalâmica em ratos juvenis e adultos (2017) | Debarba, Lucas Kniess — USP [tese] | —
+
+## "programação funcional reativa": 11 resultados, 11 listados
+- ASYNCRFJ: uma abordagem assíncrona à programação orientada a objeto reativa (2018) | Cardoso, Diogo João — UFSM [dissertação] | http://repositorio.ufsm.br/handle/1/16315
+- [pt] PROGRAMANDO REDES DE SENSORES SEM FIO COM SCRIPTS SOBRE COMPONENTES CUSTOMIZADOS (2016) | ADRIANO FRANCISCO BRANCO — PUC_RIO [tese] | https://www.maxwell.vrac.puc-rio.br/colecao.php?strSecao=resultado&nrSeq=26573&idi=1
+- Programação perinatal : estudo do possível papel neuroprotetor do azeite de oliva sobre o comportamento e o metabolismo da prole adulta submetida à separação materna (2022) | Machado, Alessandra Gonçalves — UFRGS [tese] | http://hdl.handle.net/10183/249890
+- Investigação funcional inflamatória da linhagem microglial C20 em resposta a TNF&#945; e ATP e do papel do receptor P2Y12 (2024) | Silva, Jean Bezerra — USP [dissertação] | —
+- Influência das vesículas extracelulares liberadas por células tumorais de mama na modulação fenotípica e funcional de monócitos humanos (2025) | Almeida, Palloma Porto — UERJ [tese] | http://www.bdtd.uerj.br/handle/1/24981
+- Efeito do óleo de peixe sobre a modulação de depósitos de gorduras viscerais, estresse oxidativo e funcionalidade de macrófagos peritoneais de ratos wistar induzidos à obesidade (2022) | Comotti Oliveira, B. — UFPR [tese] | https://hdl.handle.net/1884/90315
+- Restrição calórica materna no último terço gestacional e as consequências de curto e longo prazo sobre o metabolismo da prole (2021) | Parrela, Jocemara Patricia Silva de Souza — UFMT [dissertação] | —
+- Impacto do estresse precoce por separação materna no eixo intestino-cérebro : modulação de marcadores inflamatórios e potencial neuroprotetor do óleo de linhaça (2025) | Smaniotto, Thiago Ângelo — UFRGS [tese] | http://hdl.handle.net/10183/298892
+- Migração de redes tradicionais para SDN (2018) | Barbosa, Renan Rodrigo — USP [dissertação] | —
+- Identificação de alvos oncogênicos na próstata de ratos expostos a misturas de ftalatos durante o desenvolvimento perinatal: estudo transgeracional (2023) | Ariana Musa de Aquino [UNESP] — UNESP [tese] | https://hdl.handle.net/11449/251282
+- Estratégias para aumentar a eficiência reprodutiva em fêmeas bovinas submetidas à IATF (2022) | Couto, Samuel Rodrigues Bonamichi do — UFRRJ [tese] | https://rima.ufrrj.br/jspui/handle/20.500.14407/17644
+
+## "reactive programming": 100 resultados, 30 listados
+- Unveiling the usability of reactive programming APIs: findings, tools, and recommendations (2024) | LIMA, Carlos Eduardo Zimmerle de — UFPE [tese] | https://repositorio.ufpe.br/handle/123456789/64485
+- [en] A COMPARISON OF THE STRUCTURED REACTIVE PROGRAMMING AND REACTIVEX MODELS IN SOFT REAL TIME APPLICATIONS (2021) | THIAGO DUARTE NAVES — PUC_RIO [tese] | https://www.maxwell.vrac.puc-rio.br/colecao.php?strSecao=resultado&nrSeq=53553&idi=1
+- ASYNCRFJ: uma abordagem assíncrona à programação orientada a objeto reativa (2018) | Cardoso, Diogo João — UFSM [dissertação] | http://repositorio.ufsm.br/handle/1/16315
+- Despacho ótimo de geração e controle de potência reativa no sistema elétrico de potência (2019) | Yamaguti, Lucas do Carmo [UNESP] — UNESP [dissertação] | http://hdl.handle.net/11449/183534
+- Funções penalidade para o tratamento das variáveis discretas do problema de fluxo de potência ótimo reativo (2016) | Silva, Daisy Paes [UNESP] — UNESP [dissertação] | http://hdl.handle.net/11449/138757
+- O fluxo de potência ótimo reativo com variáveis de controle discretas e restrições de atuação de dispositivos de controle de tensão (2013) | Lage, Guilherme Guimarães — USP [tese] | —
+- Reformulação das restrições de complementaridade em problemas de fluxo de potência ótimo (2019) | Alencar, Marina Valença [UNESP] — UNESP [dissertação] | http://hdl.handle.net/11449/182515
+- Estudo teórico de nanotubos de carbeto de silício (SiC) como material promissor para formação de espécies reativas de oxigênio para combate ao SARS-COV-2 (2025) | Silva, Diego Domingos — UEG [dissertação] | http://www.bdtd.ueg.br/handle/tede/1763
+- Desenvolvimento de um modelo de programação convexa para o problema de fluxo de potência ótimo (2018) | Silva, Mauro Viegas da [UNESP] — UNESP [tese] | http://hdl.handle.net/11449/180413
+- Thermodynamic equilibrium simulation (TeS) : thermodynamic simulation software for reaction processes (2025) | Santos Junior, Julles Mitoura dos, 1996- — UNICAMP [tese] | https://hdl.handle.net/20.500.12733/40900
+- Gap de integralidade das variáveis discretas para a resolução do problema de fluxo de potência ótimo reativo (2020) | Silva, Daisy Paes [UNESP] — UNESP [tese] | http://hdl.handle.net/11449/192435
+- Desmame precoce : impacto molecular e comportamental na prole de ratos Wistar (2020) | Rodrigues, Karoline dos Santos — UFRGS [dissertação] | http://hdl.handle.net/10183/210790
+- Numerical investigation of fluid flows using finite element method combined with characteristic-based split scheme (2020) | Oliveira, Ruhan Carlos Ponce de [UNESP] — UNESP [dissertação] | http://hdl.handle.net/11449/193014
+- Análise dos parâmetros bioquímicos sob influência da hiperglicemia intrautero e da dieta hiperlipídica no período pós-natal (2019) | Soares, Thaigra Sousa [UNESP] — UNESP [tese] | http://hdl.handle.net/11449/182154
+- [pt] PROGRAMANDO REDES DE SENSORES SEM FIO COM SCRIPTS SOBRE COMPONENTES CUSTOMIZADOS (2016) | ADRIANO FRANCISCO BRANCO — PUC_RIO [tese] | https://www.maxwell.vrac.puc-rio.br/colecao.php?strSecao=resultado&nrSeq=26573&idi=1
+- Uma abordagem para construção de microsserviços reativos baseadas em filas assíncronas (2018) | Brilhante, Jonathan Lincoln Gandhi Andrade Pires — UFPB [dissertação] | https://repositorio.ufpb.br/jspui/handle/123456789/13820
+- [en] AN OPTIMIZATION-BASED EQUIVALENT DC POWER FLOW MODEL FOR NETWORK REDUCTION (2021) | RAUL RIBEIRO DA SILVA — PUC_RIO [tese] | https://www.maxwell.vrac.puc-rio.br/colecao.php?strSecao=resultado&nrSeq=55203&idi=1
+- Meta-heurísticas aplicadas ao modelo AC no planejamento da expansão de sistemas de transmissão (2019) | Melchor Gutiérrez, José Nicolás [UNESP] — UNESP [tese] | http://hdl.handle.net/11449/182488
+- Caracterização das células-tronco mesenquimais obtidas do tecido adiposo de camundongos Swiss submetidos à hiperalimentação na lactação (2017) | Dias, Isabelle dos Santos Xavier — UERJ [dissertação] | http://www.bdtd.uerj.br/handle/1/12788
+- Efeitos da programação nutricional neonatal em células da glia hipotalâmica em ratos juvenis e adultos (2017) | Debarba, Lucas Kniess — USP [tese] | —
+- Modelo linear flexível para abordar diferentes estratégias de planejamentono sistema de distribuição de energia elétrica (2024) | Silva, Camila Maria Galo da — UEL [dissertação] | https://repositorio.uel.br/handle/123456789/13803
+- Programação estocástica aplicada ao planejamento de sistemas de distribuição considerando geração distribuída e emissões de CO2 (2019) | Lima, Tayenne Dias de [UNESP] — UNESP [dissertação] | http://hdl.handle.net/11449/190794
+- Método da barreira modificada via reescalonamento não linear aplicado ao fluxo de potência reativa ótimo (2013) | Silva, Iara da Cunha Ribeiro da, 1983- — UNICAMP [tese] | https://hdl.handle.net/20.500.12733/1620859
+- O efeito da hiperglicemia materna sobre a geração de espécies reativas de oxigênio e o estresse do retículo endoplasmático em ilhotas pancreáticas isoladas da prole de ratas (2017) | Carvalho, Diego Soares [UNIFESP] — UNIFESP [tese] | http://repositorio.unifesp.br/handle/11600/50063
+- Desenvolvimento de um sistema de tutoria inteligente e interativo baseada na metodologia PBL aplicado em ambiente virtual de aprendizagem (2022) | Meira, Matheus Carvalho, 1983- — UNICAMP [tese] | https://hdl.handle.net/20.500.12733/7165
+- Modelo linearizado para problemas de planejamento da expansão de sistemas de distribuição (2016) | Resener, Mariana — UFRGS [tese] | http://hdl.handle.net/10183/156487
+- Algoritmo genético com operador de transgenia para minimização de makespan da programação reativa da produção (2016) | Viana, Monique Simplicio — UFSCAR [dissertação] | https://repositorio.ufscar.br/handle/20.500.14289/9087
+- Uma abordagem primal-dual de reescalamento não-linear integrado para problemas de programação matemática discreta-mista com restrições de equilíbrio e suas aplicações ao problema de fluxo de potência ótimo reativo (2017) | Pinheiro, Ricardo Bento Nogueira Mori — USP [tese] | —
+- Otimização de superestrutura (MILP) para o design de biorrefinaria multiproduto (2025) | Santiago, Bárbara Luiza Silva — UNICAMP [tese] | https://hdl.handle.net/20.500.12733/41520
+- Planejamento da expansão de sistemas de distribuição de energia elétrica considerando a aplicação do índice de aproveitamento de subestações (2021) | Sampaio, Amiraldo Silva — PUC_CAMP [dissertação] | https://repositorio.sis.puc-campinas.edu.br/handle/123456789/1928
+
+## "compreensão de programas funcional": 1739 resultados, 30 listados
+- Patrimônio Ferroviário: por uma compreensão da sua lógica funcional (2015) | FREIRE, Maria Emília Lopes — UFPE [dissertação] | https://repositorio.ufpe.br/handle/123456789/17273
+- Funcionalidade, convivência e tecnologia: paradigmas contemporâneos para a compreensão da deficiência intelectual (2025) | Ferreira, Sônia Mendes — UFF [tese] | https://app.uff.br/riuff/handle/1/38776
+- A cultura de astrócitos adultos como ferramenta de estudos para compreensão da funcionalidade cerebral (2016) | Souza, Débora Guerini de — UFRGS [tese] | http://hdl.handle.net/10183/147885
+- Readaptação funcional de docentes na rede estadual paulista: a necessidade de uma compreensão complexa (2021) | Oliveira, Rosemary Gonçalves de — UNINOVE [tese] | http://bibliotecatede.uninove.br/handle/tede/2964
+- Análise do impacto na compreensão de programas Java com a introdução de expressões lambda (2019) | Mendonça, Walter Lucas Monteiro de — UNB [dissertação] | https://repositorio.unb.br/handle/10482/36024
+- Impacto de um programa de exercícios físicos na funcionalidade de mulheres idosas (2023) | Hausen, Lia — UPF [dissertação] | https://repositorio.upf.br/handle/123456789/8999
+- A funcionalidade dos gêneros textuais híbridos para o tratamento da leitura em língua espanhola (2014) | Souza, Letícia Joaquina de Castro Rodrigues Souza e — UFC [tese] | http://www.repositorio.ufc.br/handle/riufc/10511
+- Uso da cartografia social na compreensão dos impactos socioterritoriais advindos pela UHE Tucuruí na comunidade quilombola Vila de Pederneiras-PA (2025) | Cruz, Luciana de Oliveira — UNIR [dissertação] | https://ri.unir.br/jspui/handle/123456789/6331
+- Ambiente virtual de ensino e aprendizado Moodle: funcionalidades da plataforma na compreensão de estudantes do IFRS Campus Bento (2022) | Prá, Ivan — UNIVATES [dissertação] | http://hdl.handle.net/10737/3446
+- A compreensão de reação química como um sistema complexo a partir da discussão dos erros e dificuldades de aprendizagem de estudantes do ensino médio (2015) | Meneses, Fábia Maria Gomes de — UFRN [tese] | https://repositorio.ufrn.br/jspui/handle/123456789/21004
+- As relações de causalidade com valor argumentativo: compreensão e proposta de ensino para alunos do fundamental (2020) | BEZERRA, Suelem Cristina Silva — UFPA [dissertação] | https://repositorio.ufpa.br/handle/2011/13418
+- A relação forma e significado em versões da Bíblia (2015) | Magalhães, Rodrigo Santos — UFRN [dissertação] | https://repositorio.ufrn.br/jspui/handle/123456789/20277
+- Compreensão de natureza e formação do biólogo (2013) | Severo, Thiago Emmanuel Araújo — UFRN [dissertação] | https://repositorio.ufrn.br/jspui/handle/123456789/14566
+- Avaliação do estilo de vida, da qualidade de vida e da capacidade funcional em tabagistas admitidos em um programa de cessação tabágica (2018) | Macedo, Luciana Bilitário — EBM [tese] | https://repositorio.bahiana.edu.br:8443/jspui/handle/bahiana/6026
+- Avaliação do estilo de vida, da qualidade de vida e da capacidade funcional em tabagistas admitidos em um programa de cessação tabágica (2018) | Macedo, Luciana Bilitário — EBM [tese] | https://repositorio.bahiana.edu.br:8443/jspui/handle/bahiana/3904
+- O efeito de um programa de gestão de casos para prevenção de quedas em aspectos da funcionalidade de pessoas idosas: um ensaio clínico randomizado (2023) | Lopes, Juliana Ferreira — UFSCAR [dissertação] | https://repositorio.ufscar.br/handle/20.500.14289/17854
+- Divulgação tecnológica para agricultores familiares : análise de terminologias sob a ótica da linguística sistêmico-funcional (2017) | Fetter, Giselle Liana — UFRGS [dissertação] | http://hdl.handle.net/10183/177686
+- Modelagem do perfil sistêmico do gênero relato pessoal aplicada ao contexto de produção em língua inglesa a partir da implementação do programa de ensino-aprendizagem Ler para Aprender. (2022) | Andrade, Nathan Botelho — UFOP [dissertação] | http://www.repositorio.ufop.br/jspui/handle/123456789/16033
+- Construção e evidências de validade de instrumento verbal e não verbal de neuroticismo (2023) | Fonseca, Wladimir Rodrigues da — UNB [tese] | http://repositorio.unb.br/handle/10482/48855
+- Narrativas de professores em formação sobre a didatização de podcasts para o ensino de inglês na floresta (2014) | Uchôa, José Mauro Souza — UFRN [tese] | https://repositorio.ufrn.br/jspui/handle/123456789/16387
+- Sucos funcionais: percepções, compreensão e comportamento do consumidor (2019) | Costa, Marcelo Martins da — ESPM [dissertação] | http://tede2.espm.br/handle/tede/406
+- Alergênicos alimentares: o entendimento da sociedade e a compreensão da rotulagem (2019) | SILVA, Melina Lys Valeriano — UFTM [dissertação] | http://bdtd.uftm.edu.br/handle/tede/766
+- Avaliação da funcionalidade familiar por idosos (2013) | Vera, Ivana — UFG [tese] | http://repositorio.bc.ufg.br/tede/handle/tede/9100
+- Como compreender textos híbridos? : reflexões a partir de oficinas pedagógicas de linguagem nos anos finais do Ensino Fundamental (2020) | LYRA, Ana Lucia de Miranda — UFPE [dissertação] | https://repositorio.ufpe.br/handle/123456789/41647
+- Caracterização ecossistêmica e funcional das pastagens brasileiras (2021) | Santos, Claudinei Oliveira dos — UFG [tese] | http://repositorio.bc.ufg.br/tede/handle/tede/12653
+- Diversificação funcional em ribonucleases T2 na família Solanaceae (2015) | Corrêa, Lauís Brisolara — UFRGS [tese] | http://hdl.handle.net/10183/131927
+- Transtorno de personalidade borderline : da disease vista pelos psiquiatras à sua compreensão sobre a illness de seus pacientes (2018) | Silva, Diego Alexandre Rozendo da, 1988- — UNICAMP [tese] | https://hdl.handle.net/20.500.12733/1635223
+- How they relate and leave: understanding atoms of confusion in open-source java projects (2024) | Pinheiro Neto, Francisco Oton — UFC [dissertação] | http://repositorio.ufc.br/handle/riufc/76456
+- Integrando neuroimagem e genômica na compreensão das trajetórias do Transtorno de Déficit de Atenção/Hiperatividade em adultos (2023) | Bandeira, Cibele Edom — UFRGS [tese] | http://hdl.handle.net/10183/265093
+- A compreensão do conceito de variável no Modelo 3UV por estudantes do 8° ano do Ensino Fundamental (2025) | Schuster, Kristine Sheila — UFRGS [dissertação] | http://hdl.handle.net/10183/303535
+
+## "expressões lambda": 12 resultados, 12 listados
+- Um catálogo de refatorações envolvendo expressões lambda em Java (2014) | Teixeira Júnior, Jânio Elias — UFSM [dissertação] | http://repositorio.ufsm.br/handle/1/5446
+- Análise do impacto na compreensão de programas Java com a introdução de expressões lambda (2019) | Mendonça, Walter Lucas Monteiro de — UNB [dissertação] | https://riunbtainacan.unb.br/teses-e-dissertacoes/analise-do-impacto-na-compreensao-de-programas-java-com-a-introducao-de-expressoes-lambda/
+- Análise do impacto na compreensão de programas Java com a introdução de expressões lambda (2019) | Mendonça, Walter Lucas Monteiro de — UNB [dissertação] | https://repositorio.unb.br/handle/10482/36024
+- Eletrodinâmica de Poisson no Espaço Lambda-Minkowski (2025) | Basílio, Bruno Silva — UFABC [dissertação] | http://biblioteca.ufabc.edu.br/index.php?codigo_sophia=128859&midiaext=82142
+- O que é filosofia primeira, segundo a Livro Lambda da Metafísica de Aristóteles (2021) | Moreno, Alcides Devides — USP [dissertação] | —
+- Transformações de programa para suportar a evolução da linguagem Java (2017) | Dantas, Reno Medeiros — UNB [dissertação] | http://repositorio.unb.br/handle/10482/32475
+- A impureza das formas aristotélicas: um comentário a Metafísica Z 10 (2022) | Quirino, André Gomes — USP [dissertação] | —
+- Cosmologia, criação de partículas e redução do setor escuro (2023) | Trevisani Junior, Sérgio Ricardo Galindo — USP [tese] | —
+- Korteweg-de Vries Equation and Thomas-Fermi Distribution (2022) | Santos, Kaio Nikolas Mendes Menezes dos — USP [dissertação] | —
+- Efeito da música e da glicose 25% na dor do recém-nascido pré-termo usando neonatal facial coding system (2014) | Melo, Gleicia Martins de — UFC [dissertação] | http://www.repositorio.ufc.br/handle/riufc/8291
+- Expressão diferencial de proteínas no exsudato inflamatório de úlceras venosas crônicas antes e após o tratamento com selante heterólogo de fibrina: uma coorte prospectiva (2020) | Cavassan, Nayara Rodrigues Vieira [UNESP] — UNESP [tese] | http://hdl.handle.net/11449/191928
+- Adaptação transcultural e validação psicométrica do instrumento “abbreviated profile of hearing aid benefit - aphab” para o português do Brasil (2025) | Rosario, Ana Elisabete Fontana de Paula — UNIOESTE [dissertação] | —
+
+## "usabilidade de API reativa": 2 resultados, 2 listados
+- Unveiling the usability of reactive programming APIs: findings, tools, and recommendations (2024) | LIMA, Carlos Eduardo Zimmerle de — UFPE [tese] | https://repositorio.ufpe.br/handle/123456789/64485
+- STUART: Um Sistema de Tutoria Inteligente Artificial para aumentar a escalabilidade dos cursos a distância (2021) | Damasceno, Adson Roberto Pontes — UECE [dissertação] | https://siduece.uece.br/siduece/trabalhoAcademicoPublico.jsf?id=99126
+
+## "programação funcional ensino aprendizagem": 44 resultados, 30 listados
+- Uma infraestrutura de apoio ao desenvolvimento de aplicações educacionais móveis para o ensino e aprendizagem de fundamentos de programação (2019) | Marcolino, Anderson da Silva — USP [tese] | —
+- Laboratório remoto de robótica como apoio ao Ensino de Programação (2016) | Almeida, Thais Oliveira — UFAM [dissertação] | http://tede.ufam.edu.br/handle/tede/5330
+- ERPLab: Laboratório Remoto de Ensino Robótica de Programação (2024) | Silva, Ronilson Cavalcante — UFAM [dissertação] | https://tede.ufam.edu.br/handle/tede/10717
+- Programação no ensino de matemática utilizando Processing 2: Um estudo das relações formalizadas por alunos do ensino fundamental com baixo rendimento em matemática (2016) | Souza, Eduardo Cardoso de [UNESP] — UNESP [dissertação] | http://hdl.handle.net/11449/137851
+- Processos e estratégias na aquisição de habilidade motoras em classes coletivas de piano funcional na universidade (2020) | Costa, Mirna Azevedo, 1982- — UFPR [tese] | https://hdl.handle.net/1884/70154
+- Uma proposta de ensino semipresencial de programação apoiada por Juiz On-line e Ambiente Virtual de Aprendizagem Móvel (2017) | Oliveira, André Santos — UFS [dissertação] | http://ri.ufs.br/jspui/handle/riufs/10756
+- Subsídios à integração de ferramentas de avaliação automática e sistemas de gerenciamento de aprendizagem (2017) | Souza, Draylson Micael de — USP [tese] | —
+- Explorando a termodinâmica: desenvolvimento e programação de recursos didáticos virtuais (2024) | Oliveira Filho, Valdeir Francisco — UFU [dissertação] | https://repositorio.ufu.br/handle/123456789/41505
+- Um assistente virtual de programação para suporte ao aprendizado de domínio (2023) | Carneiro, Jairo Rodrigo Soares — UFRN [dissertação] | https://repositorio.ufrn.br/handle/123456789/57147
+- Narrativa para jogos digitais: uma caracterização à luz da linguística sistêmico-funcional e da pedagogia com base em gêneros da Escola de Sidney (2021) | Tiburcio, Christielen Dias da Silva — UFRN [tese] | https://repositorio.ufrn.br/handle/123456789/46998
+- Construção e validação de um aplicativo para o ensino e aprendizagem de anatomia radiológica (2023) | Rebouças, Marlylton de Carvalho — UFC [dissertação] | http://repositorio.ufc.br/handle/riufc/78577
+- Feedback dos alunos sobre a qualidade de código-fonte para apoiar o aprendizado de introdução à programação. (2018) | ANDRADE, José Raul de Brito. — UCB [tese] | http://dspace.sti.ufcg.edu.br:8080/jspui/handle/riufcg/12706
+- Feedback dos alunos sobre a qualidade de código-fonte para apoiar o aprendizado de introdução à programação. (2018) | ANDRADE, José Raul de Brito. — UFCG [tese] | https://dspace.sti.ufcg.edu.br/handle/riufcg/12706
+- PROGRAMAÇÃO DE COMPUTADORES NO ENSINO DE FÍSICA NA EDUCAÇÃO BÁSICA: UMA ALTERNATIVA INOVADORA COM O USO DE RECURSOS COMPUTACIONAIS (2020) | Cassal, Marcos Luís — UFN [tese] | http://www.tede.universidadefranciscana.edu.br:8080/handle/UFN-BDTD/873
+- Provendo feedback estrutural sobre projetos de algoritmo no ensino da programação utilizando testes de design. (2021) | OLIVEIRA, Caio Batista. — UCB [dissertação] | http://dspace.sti.ufcg.edu.br:8080/jspui/handle/riufcg/23287
+- Provendo feedback estrutural sobre projetos de algoritmo no ensino da programação utilizando testes de design. (2021) | OLIVEIRA, Caio Batista. — UFCG [dissertação] | https://dspace.sti.ufcg.edu.br/handle/riufcg/23287
+- FLiMSy: um middleware funcional em scala (2015) | SILVA, Luiz Artur Botelho da — UFPE [dissertação] | https://repositorio.ufpe.br/handle/123456789/27743
+- Análise de três abordagens de programação arquitetônica : a importância da participação do usuário (2019) | Oze, Lara Aparecida — UNB [dissertação] | https://repositorio.unb.br/handle/10482/37513
+- Estudos sobre a utilização da web 2.0 como ferramenta cultural da ação mediada no ensino de ciências (2016) | Souza, Pedro Alexandre Lopes de — UFG [dissertação] | http://repositorio.bc.ufg.br/tede/handle/tede/6831
+- Aplicativo ACA (aprendendo com comunicação alternativa) para crianças com transtorno do espectro autista (2024) | Gobbo, Maria Renata de Mira — UEL [dissertação] | https://repositorio.uel.br/handle/123456789/15166
+- Vacinação Segura: desenvolvimento e validação de ambiente virtual para apoiar a prática de profissionais de enfermagem (2025) | SILVA, Lilian Carla Monteiro — UFPA [dissertação] | https://repositorio.ufpa.br/handle/2011/17635
+- Investigação das contribuições do desenvolvimento e da utilização de aplicativos para dispositivos móveis no processo de ensino-aprendizagem de química (2022) | Rosa, Anderson da Silva — UNIPAMPA [tese] | https://repositorio.unipampa.edu.br/jspui/handle/riu/8305
+- Proposta de aprendizagem na intervenção educacional de estudantes autistas utilizando internet das coisas (IOT) (2023) | Boza, Danúbia de Medeiros Bezerra — UFT [dissertação] | http://hdl.handle.net/11612/6943
+- Experiências computacionais para a educação financeira : um estudo de caso no ensino de juros compostos (2025) | Rasador, Jordana — UCS [dissertação] | https://repositorio.ucs.br/11338/15428
+- O ensino das Leis de Newton por meio da utilização de aplicativos educacionais móveis criados no App Inventor 2 (2020) | Oliveira, João Paulo de — UTFPR [dissertação] | http://repositorio.utfpr.edu.br/jspui/handle/1/4976
+- SAA - uma ferramenta de apoio ao processo de aprendizagem (2014) | Valério, Lenilson Pinheiro — UNIFOR [dissertação] | https://biblioteca.sophia.com.br/terminalri/9575/acervo/detalhe/102490
+- RPGAD MÓVEL: uma solução educacional recursiva usando princípios socioconstrutivistas. (2018) | Dourado, Marcondes Menezes de Souza — UFBA [tese] | http://repositorio.ufba.br/ri/handle/ri/29495
+- Uso de metodologias ativas no ensino de biologia durante a pandemia: desafios e possibilidades (2022) | Piffero, Eliane de Lourdes Fontana — UNIPAMPA [tese] | https://repositorio.unipampa.edu.br/jspui/handle/riu/8396
+- Sistema programável com ferramenta open-source para ensino de controle e automação (2021) | Paparella, Luca — UTFPR [dissertação] | http://repositorio.utfpr.edu.br/jspui/handle/1/27982
+- Jogos educacionais: uma contribuição para o ensino de teste de software (2016) | Valle, Pedro Henrique Dias — USP [dissertação] | —
+
+## "Haskell": 32 resultados, 30 listados
+- Detecting logical errors in Haskell (2021) | Vanessa Cristiny Rodrigues Vasconcelos — UFMG [dissertação] | https://hdl.handle.net/1843/36445
+- Rewriting Concurrent Haskell programs to STM (2014) | Silva Neto, Francisco Miranda Soares da — UFPE [dissertação] | https://repositorio.ufpe.br/handle/123456789/11435
+- Escalonamento de transações em memória a nível de usuário em Haskell (2020) | Duarte, Rodrigo Medeiros — UFPEL [dissertação] | http://guaiaca.ufpel.edu.br/handle/prefix/6656
+- Understanding the energy Behavior of concurrent haskell programs (2016) | LIMA, Luís Gabriel Nunes Ferreira — UFPE [dissertação] | https://repositorio.ufpe.br/handle/123456789/18706
+- Classes de tipos com múltiplos parâmetros e opcionais em haskell (2013) | Rodrigo Geraldo Ribeiro — UFMG [tese] | https://hdl.handle.net/1843/ESBF-9GMJLU
+- Simulação de algoritmos quânticos considerando a teoria quântica modal em Haskell (2014) | Silva, Eduardo Ferreira da — UFSM [dissertação] | http://repositorio.ufsm.br/handle/1/15432
+- [en] A LABELLED NATURAL DEDUCTION LOGICAL FRAMEWORK (2023) | BRUNO CUCONATO CLARO — PUC_RIO [tese] | https://www.maxwell.vrac.puc-rio.br/colecao.php?strSecao=resultado&nrSeq=65161&idi=1
+- MODELAGEM E SIMULACÃO COMPUTACIONAL DE TEORIA QÂNTICA ORCH OR (2018) | Martins, Mirkos Ortiz — UFN [dissertação] | http://tede.universidadefranciscana.edu.br:8080/handle/UFN-BDTD/266
+- QJava: setas quânticas em Java (2013) | Calegaro, Bruno Crestani — UFSM [dissertação] | http://repositorio.ufsm.br/handle/1/5420
+- Programming with monoidal profunctors and semiarrows (2023) | Oliveira, Alexandre Garcia de — USP [tese] | —
+- Um interpretador e typechecker para uma linguagem reversível com pattern-matching simétrico e controle quântico (2018) | Zancanaro, Eric Tomás — UFSM [dissertação] | http://repositorio.ufsm.br/handle/1/15845
+- Evolution-aware static analysis of software product lines (2024) | Worm, Bruno Matissek — UNB [dissertação] | http://repositorio.unb.br/handle/10482/51943
+- FFACT : a fix-based domain-specific language based on a Functional Algebra for Continuous Time Modeling (2025) | Rocha, Eduardo Lemos — UNB [dissertação] | http://repositorio.unb.br/handle/10482/53194
+- Functional programming applied to electrical engineering (2019) | TAVANTE, Hanneli Carolina Andreazzi — UNIFEI [dissertação] | https://repositorio.unifei.edu.br/jspui/handle/123456789/2105
+- Certified virtual machine-based regular expression parsing. (2019) | Delfino, Thales Antônio — UFOP [dissertação] | http://www.repositorio.ufop.br/handle/123456789/12512
+- Type inference for C: applications to the analysis of incomplete programs (2019) | Leandro Terra Cunha Melo — UFMG [tese] | https://hdl.handle.net/1843/30386
+- Strategies for testing and formalizing properties of modern programming languages (2019) | Feitosa, Samuel da Silva — UFPEL [tese] | http://guaiaca.ufpel.edu.br/handle/prefix/6280
+- Um Formalismo de Gramática de Grafos para Corretude de Memória Transacional de Software (2023) | Cardoso, Diogo João — UFPEL [tese] | http://guaiaca.ufpel.edu.br/xmlui/handle/prefix/9814
+- Atividades físicas, comportamento sedentário e componentes da síndrome metabólica em idosos (2016) | LIMA, Leonardo Coelho de Deus — UFTM [dissertação] | http://bdtd.uftm.edu.br/handle/tede/233
+- Desenvolvimento de software educacional e sua aplicação em números especiais (2022) | LOPES, Marcelo de Lima — UFOPA [dissertação] | —
+- A construção do método histórico: um estudo da obra teórica de Johann Gustav Droysen (1857-1882) (2023) | Gomes, Robeilton de Souza — UFRRJ [tese] | https://rima.ufrrj.br/jspui/handle/20.500.14407/20250
+- Prevalência e fatores associados às limitações funcionais na mobilidade de idosos cadastrados na Estratégia de Saúde da Família do Município de Uberaba, MG (2013) | SANTOS, Rafaela Gomes — UFTM [dissertação] | http://bdtd.uftm.edu.br/handle/tede/325
+- Comportamento sedentário, atividade física e estado nutricional de idosos (2017) | CAMILO, Bruno de Freitas — UFTM [tese] | http://bdtd.uftm.edu.br/handle/tede/373
+- Atividade de formigas e suas implicações forenses em um ecossistema dinâmico - o corpo em decomposição (2014) | Celino, Thiago Blanc — UFRRJ [dissertação] | https://rima.ufrrj.br/jspui/handle/20.500.14407/10804
+- Sensibilidade a sons de fogos de artifício em cães: investigação dos fatores de risco, abordagem veterinária e efeito da acupuntura (2019) | Franzini de Souza, Carla Caroline — UFRRJ [tese] | https://rima.ufrrj.br/jspui/handle/20.500.14407/10139
+- Quimiotaxonomia de insetos necrófagos Calliphoridae, Muscidae, Sarcophagidae e Stratiomyidae (Diptera) de potencial forense utilizando perfis de hidrocarbonetos cuticulares (2015) | Barbosa, Rodrigo Rocha — UFRRJ [tese] | https://rima.ufrrj.br/jspui/handle/20.500.14407/9162
+- Comportamento sedentário em universitários: estimativas de acurácia, prevalências e fatores associados (2016) | FRANCO, Dayana Chaves — UFTM [dissertação] | http://bdtd.uftm.edu.br/handle/tede/840
+- Influência do nível de atividade física sobre a recuperação autonômica cardíaca após sessão aguda de exercício físico em diabético tipo 2 (2017) | SILVA NETO, Vicente Matias da — UFTM [dissertação] | http://bdtd.uftm.edu.br/handle/tede/409
+- Prática de exames preventivos, risco familiar e fatores associados ao câncer de mama: Inquérito de Saúde da Mulher em Uberaba - MG, 2014 (2016) | BURANELLO, Mariana Colombini — UFTM [dissertação] | http://bdtd.uftm.edu.br/handle/tede/216
+- Aptidão cardiorrespiratória, adesão ao baixo consumo de sódio e qualidade de vida de pacientes com insuficiência cardíaca (2017) | ALMEIDA NETO, Omar Pereira de — UFTM [tese] | http://bdtd.uftm.edu.br/handle/tede/477
+
+## "programação funcional": 434 resultados, 30 listados
+- On the usage of functional programming concepts in JavaScript programs (2022) | ALVES, Fernando Henrique de Albuquerque — UFPE [dissertação] | https://repositorio.ufpe.br/handle/123456789/46446
+- ASYNCRFJ: uma abordagem assíncrona à programação orientada a objeto reativa (2018) | Cardoso, Diogo João — UFSM [dissertação] | http://repositorio.ufsm.br/handle/1/16315
+- Data visualization from a category theory perspective (2025) | Barreira, Davi Sales — FGV [tese] | https://hdl.handle.net/10438/36341
+- Detecting logical errors in Haskell (2021) | Vanessa Cristiny Rodrigues Vasconcelos — UFMG [dissertação] | https://hdl.handle.net/1843/36445
+- A framework of memoization and variational lift using interpreters (2025) | Vieira, Tayná Larissa Fischer — UNB [dissertação] | https://riunbtainacan.unb.br/teses-e-dissertacoes/a-framework-of-memoization-and-variational-lift-using-interpreters/
+- Evolution-aware static analysis of software product lines (2024) | Worm, Bruno Matissek — UNB [dissertação] | http://repositorio.unb.br/handle/10482/51943
+- A framework of memoization and variational lift using interpreters (2025) | Vieira, Tayná Larissa Fischer — UNB [dissertação] | http://repositorio.unb.br/handle/10482/53212
+- Evolution-aware static analysis of software product lines (2025) | Worm, Bruno Matissek — UNB [dissertação] | https://riunbtainacan.unb.br/teses-e-dissertacoes/evolution-aware-static-analysis-of-software-product-lines/
+- Uso do diagrama sequencial funcional como linguagem de programação para um robô cílindrico (sic) de 5 graus de liberdade acionado pneumaticamente (2015) | Leonardelli, Pablo — UFRGS [dissertação] | http://hdl.handle.net/10183/149214
+- [en] A SURVEY OF FUNCTION VALUES IN IMPERATIVE PROGRAMMING LANGUAGES (2020) | LUIZ ROMARIO SANTANA RIOS — PUC_RIO [tese] | https://www.maxwell.vrac.puc-rio.br/colecao.php?strSecao=resultado&nrSeq=47283&idi=1
+- Programming with monoidal profunctors and semiarrows (2023) | Oliveira, Alexandre Garcia de — USP [tese] | —
+- Análise de funções robustas na reconciliação de dados não linear em processos químicos (2015) | França, Regina Luana Santos de — UFS [dissertação] | http://ri.ufs.br/jspui/handle/riufs/17086
+- Understanding the energy Behavior of concurrent haskell programs (2016) | LIMA, Luís Gabriel Nunes Ferreira — UFPE [dissertação] | https://repositorio.ufpe.br/handle/123456789/18706
+- Verificação funcional : um ambiente de teste computacional para um sistema digital com abordagem na segurança de hardware (2018) | Lima, Leandro Barbosa, 1978- — UNICAMP [dissertação] | https://hdl.handle.net/20.500.12733/1635543
+- Explorando a termodinâmica: desenvolvimento e programação de recursos didáticos virtuais (2024) | Oliveira Filho, Valdeir Francisco — UFU [dissertação] | https://repositorio.ufu.br/handle/123456789/41505
+- Análise Limite em Geomecânica utilizando Programação Cônica (2016) | JUSCAMAYTA, Victor Ernesto Alejo — UFPE [dissertação] | https://repositorio.ufpe.br/handle/123456789/17288
+- Impacto da sacarina sódica sobre a programação do desenvolvimento intergeracional (2024) | Rebeschini, Alana Rezende Godoi [UNESP] — UNESP [tese] | https://hdl.handle.net/11449/257872
+- Um assistente virtual de programação para suporte ao aprendizado de domínio (2023) | Carneiro, Jairo Rodrigo Soares — UFRN [dissertação] | https://repositorio.ufrn.br/handle/123456789/57147
+- Um modelo de interação para a programação de dispositivos por crianças na era da Internet das Coisas (2018) | Silva Neto, Benedito Ribeiro da — UFSCAR [dissertação] | https://repositorio.ufscar.br/handle/20.500.14289/11519
+- Laboratório remoto de robótica como apoio ao Ensino de Programação (2016) | Almeida, Thais Oliveira — UFAM [dissertação] | http://tede.ufam.edu.br/handle/tede/5330
+- ERPLab: Laboratório Remoto de Ensino Robótica de Programação (2024) | Silva, Ronilson Cavalcante — UFAM [dissertação] | https://tede.ufam.edu.br/handle/tede/10717
+- Rewriting Concurrent Haskell programs to STM (2014) | Silva Neto, Francisco Miranda Soares da — UFPE [dissertação] | https://repositorio.ufpe.br/handle/123456789/11435
+- Narrativa para jogos digitais: uma caracterização à luz da linguística sistêmico-funcional e da pedagogia com base em gêneros da Escola de Sidney (2021) | Tiburcio, Christielen Dias da Silva — UFRN [tese] | https://repositorio.ufrn.br/handle/123456789/46998
+- Análise geometricamente não linear por métodos baseados na partição daunidade (2018) | Lorena Leocadio Gomes — UFMG [dissertação] | https://hdl.handle.net/1843/RAOA-BELPQ5
+- FLiMSy: um middleware funcional em scala (2015) | SILVA, Luiz Artur Botelho da — UFPE [dissertação] | https://repositorio.ufpe.br/handle/123456789/27743
+- Análise funcional de eventos de Splicing alternativo (2015) | Coelho, Vitor Lima — LNCC [dissertação] | https://tede.lncc.br/handle/tede/212
+- Feedback dos alunos sobre a qualidade de código-fonte para apoiar o aprendizado de introdução à programação. (2018) | ANDRADE, José Raul de Brito. — UCB [tese] | http://dspace.sti.ufcg.edu.br:8080/jspui/handle/riufcg/12706
+- Análise de três abordagens de programação arquitetônica : a importância da participação do usuário (2019) | Oze, Lara Aparecida — UNB [dissertação] | https://repositorio.unb.br/handle/10482/37513
+- Estresse precoce e programação do comportamento alimentar, processos emocionais e cognitivos : uma perspectiva translacional (2021) | Lima, Randriely Merscher Sobreira de — UFRGS [tese] | http://hdl.handle.net/10183/230870
+- Feedback dos alunos sobre a qualidade de código-fonte para apoiar o aprendizado de introdução à programação. (2018) | ANDRADE, José Raul de Brito. — UFCG [tese] | https://dspace.sti.ufcg.edu.br/handle/riufcg/12706
+
+## "Elm linguagem funcional web": 0 resultados, 0 listados
+
+## "ReactiveX RxJava": 0 resultados, 0 listados
+
+## "programação orientada a eventos": 81 resultados, 30 listados
+- Paradigmas de desenvolvimento de software: comparação entre abordagens orientada a eventos e orientada a notificações (2014) | Xavier, Robson Duarte — UTFPR [dissertação] | http://repositorio.utfpr.edu.br/jspui/handle/1/1006
+- ASYNCRFJ: uma abordagem assíncrona à programação orientada a objeto reativa (2018) | Cardoso, Diogo João — UFSM [dissertação] | http://repositorio.ufsm.br/handle/1/16315
+- Guidelines para adoção do Event Storming com foco em arquitetura de microsserviços (2025) | Santos, Marcos Cesar Barbosa dos — UFS [dissertação] | https://ri.ufs.br/jspui/handle/riufs/24792
+- Modelagem e simulação de filme radiográfico através de programação paralela e distribuída orientada a objetos (2023) | Oliveira, Daniel Silva de — UERJ [tese] | http://www.bdtd.uerj.br/handle/1/20083
+- JavAsync : extensão da linguagem Java para tratamento de eventos assíncronos (2013) | Carlos Rafael Gimenes das Neves — ITA [dissertação] | http://www.bd.bibl.ita.br/tde_busca/arquivo.php?codArquivo=2858
+- [pt] DESENVOLVIMENTO DE UMA CLASSE NO CONTEXTO DA POO PARA GERENCIAMENTO GENÉRICO DE EVENTOS DE MOUSE EM UM CANVAS NO AMBIENTE MATLAB (2017) | EMERSSON DUVAN TORRES SÁNCHEZ — PUC_RIO [tese] | https://www.maxwell.vrac.puc-rio.br/colecao.php?strSecao=resultado&nrSeq=31994&idi=1
+- REFlex Water : um framework de IoT para gerenciamento inteligente de sistemas de abastecimento de água (2022) | GONÇALVES, Rosiberto dos Santos — UFPE [tese] | https://repositorio.ufpe.br/handle/123456789/48525
+- Framework PON C++ 4.0 IoT: paradigma orientado a notificações para ambiente de internet das coisas (2022) | Figueiredo, Luis Henrique Pelegrin — UTFPR [dissertação] | http://repositorio.utfpr.edu.br/jspui/handle/1/30398
+- Sistema de informação para a gestão de eventos científicos (2016) | ALMINHAS, Jayme Augusto Amaral — UFTM [dissertação] | http://bdtd.uftm.edu.br/handle/tede/389
+- Análise remota do eletrocardiograma para detecção de eventos isquêmicos (2019) | Bentes, Paulo César Lucena — UFRJ [tese] | http://hdl.handle.net/11422/13214
+- Festival de inverno da UFPR em Antonina (Paraná, Brasil) : a representação social do evento sob a perspectiva de residentes (2015) | Andrukiu, Alcimara Meira Gonçalves — UFPR [dissertação] | https://hdl.handle.net/1884/38860
+- Survivor : estratégias de posicionamento de controladores orientadas à sobrevivência em redes definidas por software (2014) | Müller, Lucas Fernando — UFRGS [dissertação] | http://hdl.handle.net/10183/115065
+- [en] LINEAR PROGRAMMING MODEL FOR ALLOCATING ROADS AND HOSPITALS IN THE EVENT OF DISASTERS (2018) | GUIDO MACULAN — PUC_RIO [tese] | https://www.maxwell.vrac.puc-rio.br/colecao.php?strSecao=resultado&nrSeq=32985&idi=1
+- [en] A FLEXIBLE APPROACH TO STAGED EVENTS (2015) | TIAGO LIMA SALMITO — PUC_RIO [tese] | https://www.maxwell.vrac.puc-rio.br/colecao.php?strSecao=resultado&nrSeq=25024&idi=1
+- Resolução do problema de planejamento e alocação de recursos generalizado com prioridades no setor industrial usando a técnica otimização-simulação (2025) | Girotto, Tatiane, 1996- — UNICAMP [dissertação] | https://hdl.handle.net/20.500.12733/41057
+- Tráfego de mensagem GOOSE em redundância de comunicação em subestações de energia elétrica (2018) | Faustino Junior, Wanderley Antonio — UTFPR [dissertação] | http://repositorio.utfpr.edu.br/jspui/handle/1/3856
+- Modelos multivariados de covariância linear generalizada em Python : a biblioteca MCGLM (2023) | Maia, Jean Carlos Faoot — UFPR [dissertação] | https://hdl.handle.net/1884/81386
+- Interpretação dos dialetos RS274-D e extração dos dados temporais da usinagem em máquinas CNC (2023) | Aguiar, Francisco Ricardo Taborda — UFPR [dissertação] | https://hdl.handle.net/1884/87312
+- Proposta de uma arquitetura IoT baseada em banco de dados remoto para o desenvolvimento de um sistema Health Smart Home utilizando plataformas de programação física (2023) | Batistão, Eduardo, 1986- — UNICAMP [tese] | https://hdl.handle.net/20.500.12733/17006
+- Produção de conhecimento em Matemática: aspectos dialéticos associados à cibernética a partir da prática de programação de computadores (2023) | Santos, Daniel Tebaldi [UNESP] — UNESP [tese] | http://hdl.handle.net/11449/250151
+- Onde estão as mulheres no canto coral? Compositoras e arranjadoras a partir da literatura acadêmica e da análise da programação de coros profissionais do Sudeste do Brasil (2023) | Andreta, Maria Rúbia de Moraes — USP [dissertação] | —
+- NOP query: um novo método orientado a notificações para processamento de buscas em vídeos em tempo real (2024) | Kossoski, Clayton — UTFPR [tese] | http://repositorio.utfpr.edu.br/jspui/handle/1/35731
+- Resisting : um novo mecanismo de fast-reroute com distribuição de pacotes em switches programáveis P4 (2024) | Lima, Daniel Batista de, 1981- — UNICAMP [dissertação] | https://hdl.handle.net/20.500.12733/17277
+- Desnutrição protéica perinatal : resistência ao desenvolvimento da obesidade (2017) | Martins, Isabela Peixoto, 1994- — UEM [dissertação] | http://repositorio.uem.br:8080/jspui/handle/1/5834
+- Dimensionamento de frota de navios rebocadores de apoio marítimo offshore. (2018) | Tiago, Leandro Lara — USP [dissertação] | —
+- Método e ferramental para mapeamento da evolução de programadores durante o desenvolvimento de programas (2018) | Krug, Douglas Lusa — UTFPR [dissertação] | http://repositorio.utfpr.edu.br/jspui/handle/1/3470
+- [pt] PROGRAMANDO REDES DE SENSORES SEM FIO COM SCRIPTS SOBRE COMPONENTES CUSTOMIZADOS (2016) | ADRIANO FRANCISCO BRANCO — PUC_RIO [tese] | https://www.maxwell.vrac.puc-rio.br/colecao.php?strSecao=resultado&nrSeq=26573&idi=1
+- Detecção de cargas elétricas não permitidas em quartos hospitalares por meio da supervisão da corrente elétrica (2019) | Paixão, Oneide Jorge Pereira — UPF [dissertação] | https://repositorio.upf.br/handle/123456789/1808
+- Planejamento de longo prazo de paradas de manutenção para uma refinaria de petróleo usando um modelo MILP (2024) | Lima, Ricardo Alessandro de Oliviera, 1980- — UNICAMP [dissertação] | https://hdl.handle.net/20.500.12733/28412
+- Um modelo de falhas para sistemas de tempo real (2024) | Doi Junior, Gilson — UEL [dissertação] | https://repositorio.uel.br/handle/123456789/13965
+
+## "linguagem funcional dificuldades estudantes": 150 resultados, 30 listados
+- O processamento de sentenças ambíguas por bons e maus leitores: um estudo de ressonância magnética funcional (2020) | Teixeira, Mariana Terra — PUC_RS [tese] | http://tede2.pucrs.br/tede2/handle/tede/9219
+- Avaliação de linguagem por ressonância magnética funcional em pacientes com epilepsia associada à esclerose mesial temporal unilateral: correlação com avaliação clínica de linguagem (2016) | Castro, Bettina Pinto e Silva Martins — USP [dissertação] | —
+- A linguagem da violência psicológica contra mulher : uma perspectiva sistêmico-funcional (2023) | Aguiar, Mirna Cibelle Barcelos de — UNB [dissertação] | http://repositorio.unb.br/handle/10482/49748
+- Perfil de comunicação e linguagem de alunos surdos de escolas de ensino fundamental do município de Ouro Preto-MG. (2023) | Fagundes, Kênia Toledo — UFOP [dissertação] | http://www.repositorio.ufop.br/jspui/handle/123456789/17822
+- Perfil funcional da comunicação de crianças com Transtorno do Espectro do Autismo em contexto de idioma português e inglês (2024) | Bezerra, Lucas Dias — MACKENZIE [dissertação] | https://dspace.mackenzie.br/handle/10899/39407
+- A inclusão de alunos com transtorno do espectro autista (TEA) nos anos iniciais do ensino fundamental I: possibilidades e práticas para aprendizagem da linguagem oral e escrita (2021) | Omena, Leise Cecília de [UNESP] — UNESP [dissertação] | http://hdl.handle.net/11449/213498
+- A funcionalidade dos gêneros textuais híbridos para o tratamento da leitura em língua espanhola (2014) | Souza, Letícia Joaquina de Castro Rodrigues Souza e — UFC [tese] | http://www.repositorio.ufc.br/handle/riufc/10511
+- O uso do gênero textual manual de jogos de mesa no desenvolvimento da linguagem de crianças com Transtorno do Espectro Autista (TEA) (2025) | Machado, Vânia Regina Barbosa Flauzino — UTFPR [tese] | http://repositorio.utfpr.edu.br/jspui/handle/1/40155
+- A aquisição da linguagem escrita do aluno com TEA (2023) | LOPES, Lorena Goulart — UFTM [dissertação] | http://bdtd.uftm.edu.br/handle/123456789/1496
+- Análise da progressão textual e da estrutura temática em resenhas de alunos do ensino superior : um olhar sistêmico-funcional aliado à perspectiva sociointeracionista (2017) | Sippert, Luciane — UFRGS [tese] | http://hdl.handle.net/10183/156422
+- Capacidade funcional de idosos com doença de Alzheimer (2019) | Andrade, Susann Kelly Damião do Rego e Silva — UFRN [dissertação] | https://repositorio.ufrn.br/jspui/handle/123456789/28723
+- A construção causal-explicativa (por + sn + de + x) em perspectiva funcional (2017) | Santiago, Cleide da Silva Farias — UFRN [dissertação] | https://repositorio.ufrn.br/jspui/handle/123456789/23991
+- Contribuições da musicoterapia para a comunicação de crianças com alterações da linguagem (2015) | Covre, Josiane Fernanda — UFG [dissertação] | http://repositorio.bc.ufg.br/tede/handle/tede/4850
+- [pt] A CONSTRUÇÃO DISCURSIVA DE POSICIONAMENTOS SOBRE AVALIAÇÃO EDUCACIONAL: UM ESTUDO SISTÊMICO-FUNCIONAL COM PROFESSORES DA EDUCAÇÃO BÁSICA (2016) | SUZANA DE CARVALHO BARROSO AZEVEDO — PUC_RIO [tese] | https://www.maxwell.vrac.puc-rio.br/colecao.php?strSecao=resultado&nrSeq=25670&idi=1
+- A estrutura De + SN como modificador do substantivo dose: uma análise funcional-cognitivista (2023) | Nolasco, Abraão Cleber Silva — UFES [dissertação] | http://repositorio.ufes.br/handle/10/17282
+- A aquisição de relativas de objeto no português brasileiro e efeitos de intervenção: avaliando o traço de pessoa pronominal (2021) | Lira, Thainá Amador de — UERJ [dissertação] | http://www.bdtd.uerj.br/handle/1/17093
+- Programa de educação familiar a distância em linguagem e comunicação suplementar e alternativa (2016) | Donati, Grace Cristina Ferreira [UNESP] — UNESP [tese] | http://hdl.handle.net/11449/136353
+- A intensidade da terapia fonoaudiológica está relacionada à resposta à intervenção de crianças com transtorno do desenvolvimento da linguagem? Uma revisão de escopo (2025) | Tiezzi, Giovanna Agamalian da Silva [UNIFESP] — UNIFESP [dissertação] | https://hdl.handle.net/11600/73658
+- Estudo da fluência verbal em categorias múltiplas no comprometimento cognitivo leve (2015) | Mirandez, Roberta Massariolli — USP [dissertação] | —
+- [pt] ESCRITA, ESCOLA E LETRAMENTO: PRODUÇÃO TEXTUAL NA PERSPECTIVA DA AVALIATIVIDADE E DA LINGUÍSTICA SISTÊMICO-FUNCIONAL (2015) | LIVIA MARIA AIRES DE CASTRO — PUC_RIO [tese] | https://www.maxwell.vrac.puc-rio.br/colecao.php?strSecao=resultado&nrSeq=24428&idi=1
+- Funcionalidade global, da deglutição e da comunicação de idosos com comprometimento cognitivo avançado (2018) | Santos, Daniela Tonellotto dos — USP [dissertação] | —
+- Os desafios para o acesso da população analfabeta funcional aos serviços públicos eleitorais (2023) | Hermont, Rodrigo Calumby — UFES [dissertação] | http://repositorio.ufes.br/handle/10/16695
+- A interferência da modalidade oral no texto escrito um enfoque da linguística sistêmico-funcional (2017) | Silva, Samuel da — PUC_SP [tese] | https://tede2.pucsp.br/handle/handle/20527
+- Técnicas de terapia manual no manejo da constipação funcional: uma revisão sistemática com metanálise (2025) | Nascimento, Mariana Santana — UFBA [dissertação] | https://repositorio.ufba.br/handle/ri/42676
+- Tradução Funcional da poesia de Jessier Quirino como ferramenta para o ensino do espanhol: um estudo no Instituto Federal de Educação, Ciência e Tecnologia do Ceará- Campus Iguatu (2018) | Lopes, Andre Luiz da Cunha — UFRRJ [dissertação] | https://rima.ufrrj.br/jspui/handle/20.500.14407/12400
+- Usos de vocativos em relações interpessoais: contribuições para o ensino de Português do Brasil Língua Não Materna (2020) | Santos, Lays Fernandes dos — UERJ [tese] | http://www.bdtd.uerj.br/handle/1/16667
+- Trajetória política de estudantes com deficiência na Universidade Federal da Bahia (2025) | Santos, Estela Rozeno dos — UFBA [dissertação] | https://repositorio.ufba.br/handle/ri/42682
+- Modelagem de linguagem assistida e necessidades complexas de comunicação: uma revisão de escopo e perfil da prática de profissionais (2023) | Sella, Karina Rizzardo — MACKENZIE [dissertação] | https://dspace.mackenzie.br/handle/10899/33704
+- [pt] AVALIAÇÃO DE LINGUAGEM NO DIAGNÓSTICO DE CASOS DE COMPROMETIMENTO COGNITIVO LEVE: PROPOSTA DE UM INSTRUMENTO DE VERIFICAÇÃO DE HABILIDADES SINTÁTICAS NO ENVELHECIMENTO (2022) | LARISSA RANGEL FERRARI — PUC_RIO [tese] | https://www.maxwell.vrac.puc-rio.br/colecao.php?strSecao=resultado&nrSeq=59709&idi=1
+- Uma imagem pode valer mais do que mil palavras: o conhecimento prévio e a inferência a favor da construção de sentidos na linguagem não verbal das HQs e das tiras (2019) | Mamede, Camila da Conceição Cunha — UFRRJ [dissertação] | https://rima.ufrrj.br/jspui/handle/20.500.14407/15454

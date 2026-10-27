@@ -1,0 +1,29 @@
+# Quarto ciclo (tcc-t81w, 2026-10-26), eixo 4: referências de Grolaux, Nguyen e Vanderdonckt (2026), no OpenAlex
+# Comando: python3 buscar_literatura.py referencias 10.1145/3807968.3810928 --n 100
+
+## referências de Grolaux, Nguyen e Vanderdonckt (2026), no OpenAlex: 25
+- Extracting usability information from user interface events (2000) | ACM Computing Surveys | 10.1145/371578.371593
+- Separating application code from toolkits (1991) | ACM Symposium on User Interface Software and Technology (UIST) | 10.1145/120782.120805
+- Asynchronous functional reactive programming for GUIs (2013) | ACM SIGPLAN Conference on Programming Language Design and Implementation (PLDI) | 10.1145/2491956.2462161
+- Reusable hierarchical command objects (1996) | None | 10.1145/238386.238526
+- Euphoria: A Scalable, event-driven architecture for designing interactions across heterogeneous devices in smart environments (2019) | Information and Software Technology | 10.1016/j.infsof.2019.01.006
+- Revisiting visual interface programming (2004) | ACM Symposium on User Interface Software and Technology (UIST) | 10.1145/1029632.1029678
+- Don't Call Us, We'll Call You: Characterizing Callbacks in Javascript (2015) | Proceedings of the ... ACM-IEEE International Symposium on Empirical Software Engineering and Measurement/International Symposium on Empirical Software Engineering and Measurement | 10.1109/esem.2015.7321196
+- Past, Present, and Future Trends in Software Patterns (2007) | IEEE Software | 10.1109/ms.2007.115
+- Attach Me, Detach Me, Assemble Me Like You Work (2005) | Lecture notes in computer science | 10.1007/11555261_19
+- Migratable user interfaces:beyond migratory interfaces (2004) | None | 10.1109/mobiq.2004.1331749
+- On the Semantics of Distributed Reactive Programming: The Cost of Consistency (2018) | IEEE Transactions on Software Engineering | 10.1109/tse.2018.2833109
+- Profile-directed optimization of event-based programs (2002) | ACM SIGPLAN Conference on Programming Language Design and Implementation (PLDI) | 10.1145/512529.512543
+- Modeling and Verifying Producer-Consumer Communication in Kafka Using CSP (2021) | None | 10.1145/3459960.3459961
+- Event-response systems (1986) | None | 10.1145/29933.275637
+- Formal Modelling of Java GUI Event Handling (2002) | Lecture notes in computer science | 10.1007/3-540-36103-0_37
+- An event language for building user interface frameworks (1989) | None | 10.1145/73660.73677
+- Riffle: Reactive Relational State for Local-First Applications (2023) | ACM Symposium on User Interface Software and Technology (UIST) | 10.1145/3586183.3606801
+- The Power of Event-Driven Architecture: Enabling RealTime Systems and Scalable Solutions (2020) | Turkish Journal of Computer and Mathematics Education (TURCOMAT) | 10.61841/turcomat.v11i1.14928
+- Synchronous-reactive web programming (2016) | None | 10.1145/3001929.3001931
+- AwaitViz (2019) | ACM Symposium on Applied Computing | 10.1145/3297280.3297528
+- Seemingly Imperative with async and await (2019) | Apress eBooks | 10.1007/978-1-4842-5394-6_14
+- Reactive Programming Paradigm for Development User Interfaces (2019) | Control Systems and Computers | 10.15407/csc.2019.05.062
+- A new approach for handling events in complex applications (2003) | Conference proceedings - Canadian Conference on Electrical and Computer Engineering | 10.1109/ccece.1999.807209
+- Theory and Method for Reactive Semantics in Application Development (2024) | IEEE International Systems Conference (SysCon) | 10.1109/syscon61195.2024.10553547
+- Technical Performance Comparison of Modern Frontend Frameworks Study on Svelte, React, and Vue (2025) | Brilliance Research of Artificial Intelligence | 10.47709/brilliance.v5i1.6133

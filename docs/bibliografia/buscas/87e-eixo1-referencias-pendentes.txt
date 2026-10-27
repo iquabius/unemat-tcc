@@ -1,0 +1,83 @@
+# Quarto ciclo (tcc-t81w), eixo 1: as referências de Ramson et al. (2024) e de Hoffswell et al. (2016) que o HTTP 429 do OpenAlex cortou em 2026-10-26, rodadas na madrugada de 2026-10-27 UTC (a de Ramson deu HTTP 504 na primeira tentativa e passou na segunda, com 50 das 51 referências indexadas); resumos tirados
+
+## Referências de: Extensible Tooling for Reactive Programming Based on Active Expressions. (2024): 50
+# python3 /home/gambi/.claude/skills/escrita-academica/scripts/buscar_literatura.py referencias 10.5381/jot.2024.23.1.a4 --n 80
+- Design Patterns: Elements of Reusable Object-Oriented Software (1994) | — | sem DOI
+- Chapter 12: What does the Anthropocene hold for citizenship? (1905) | edoc (University of Basel) | 10.1007/978-3
+- On the criteria to be used in decomposing systems into modules (1972) | Communications of the ACM | 10.1145/361598.361623
+- The eyes have it: a task by data type taxonomy for information visualizations (2002) | IEEE Symposium on Visual Languages | 10.1109/vl.1996.545307
+- The synchronous languages 12 years later (2003) | Proceedings of the IEEE | 10.1109/jproc.2002.805826
+- Sketch pad a man-machine graphical communication system (1964) | — | 10.1145/800265.810742
+- Functional reactive animation (1997) | ACM SIGPLAN International Conference on Functional Programming (ICFP) | 10.1145/258948.258973
+- Advances in dataflow programming languages (2004) | ACM Computing Surveys | 10.1145/1013208.1013209
+- On the Role of Scientific Thought (1982) | Springer eBooks | 10.1007/978-1-4612-5695-3_12
+- A survey on reactive programming (2013) | ACM Computing Surveys | 10.1145/2501654.2501666
+- Debugging reinvented (2008) | ACM/IEEE International Conference on Software Engineering: Companion Proceedings (ICSE-Companion) | 10.1145/1368088.1368130
+- Data Flow Program Graphs (1982) | Computer | 10.1109/mc.1982.1653939
+- Language constructs for context-oriented programming (2005) | — | 10.1145/1146841.1146842
+- Elements of functional programming (1989) | Research Repository (Kingston University London) | sem DOI
+- SIGNAL: A declarative language for synchronous programming of real-time systems (1987) | Lecture notes in computer science | 10.1007/3-540-18317-5_15
+- Flapjax (2009) | Conference on Object-Oriented Programming Systems, Languages, and Applications | 10.1145/1640089.1640091
+- A natural extension to the convex hull problem and a novel solution (2017) | arXiv (Cornell University) | 10.4230/lipics
+- REScala (2014) | — | 10.1145/2577080.2577083
+- Object-oriented program tracing and visualization (1997) | Computer | 10.1109/2.589912
+- Context-oriented programming (2007) | — | 10.1145/1352678.1352688
+- Back to the Future: Omniscient Debugging (2009) | IEEE Software | 10.1109/ms.2009.169
+- Back to the future (1997) | ACM SIGPLAN Notices | 10.1145/263700.263754
+- Bridging the gulf between code and behavior in programming (1995) | CHI Conference on Human Factors in Computing Systems | 10.1145/223904.223969
+- The Moldable Debugger: A Framework for Developing Domain-Specific Debuggers (2014) | Lecture notes in computer science | 10.1007/978-3-319-11245-9_6
+- Debugging for reactive programming (2016) | ACM/IEEE International Conference on Software Engineering: Companion Proceedings (ICSE-Companion) | 10.1145/2884781.2884815
+- Fabrik: a visual programming environment (1988) | ACM SIGPLAN Notices | 10.1145/62084.62100
+- Debugging data flows in reactive programs (2018) | ACM/IEEE International Conference on Software Engineering: Companion Proceedings (ICSE-Companion) | 10.1145/3180155.3180156
+- Testing and debugging functional reactive programming (2017) | Proceedings of the ACM on Programming Languages | 10.1145/3110246
+- Turtle: A Constraint Imperative Programming Language (2004) | Springer eBooks | 10.1007/978-0-85729-412-8_14
+- Example-based live programming for everyone: building language-agnostic tools for live programming with LSP and GraalVM (2020) | ACM SIGPLAN International Symposium on New Ideas, New Paradigms, and Reflections on Programming and Software (Onward!) | 10.1145/3426428.3426919
+- Engineering Record And Replay For Deployability: Extended Technical Report (2017) | arXiv (Cornell University) | 10.48550/arxiv.1705.05937
+- A world of active objects for work and play: the first ten years of lively (2016) | — | 10.1145/2986012.2986029
+- Self-Sustaining Systems (2008) | Lecture notes in computer science | 10.1007/978-3-540-89275-5
+- Generalized Layer Activation Mechanism for Context-Oriented Programming (2016) | Lecture notes in computer science | 10.1007/978-3-319-46969-0_4
+- Designing a live development experience for web-components (2017) | — | 10.1145/3167109
+- Proceedings of the 24th ACM SIGPLAN conference on Object oriented programming systems languages and applications (2009) | — | 10.1145/1640089
+- Monaco—A domain-specific language solution for reactive process control programming with hierarchical components (2013) | Computer Languages | 10.1016/j.cl.2013.02.001
+- Active Expressions: Basic Building Blocks for Reactive Programming (2017) | The Art Science and Engineering of Programming | 10.22152/programming-journal.org/2017/1/12
+- Automated Refactoring to Reactive Programming (2019) | IEEE/ACM International Conference on Automated Software Engineering (ASE) | 10.1109/ase.2019.00082
+- Bacatá: Notebooks for DSLs, Almost for Free (2020) | The Art Science and Engineering of Programming | 10.22152/programming-journal.org/2020/4/11
+- Kaleidoscope: mixing objects, constraints, and imperative programming (1990) | ACM SIGPLAN Notices | 10.1145/97946.97957
+- The declarative nature of implicit layer activation (2017) | — | 10.1145/3117802.3117804
+- Babelsberg/JS (2014) | Lecture notes in computer science | 10.1007/978-3-662-44202-9_17
+- IDE as Code: Reifying Language Protocols as First-Class Citizens (2021) | Innovations in Software Engineering Conference (ISEC) | 10.1145/3452383.3452406
+- Debugging of RxJS-based applications (2020) | — | 10.1145/3427763.3428313
+- A Study Design Process (2019) | Cambridge University Press eBooks | 10.1017/9781108654555.005
+- Applying Data-driven Tool Development to Context-oriented Languages (2014) | — | 10.1145/2637066.2637067
+- Constraints as polymorphic connectors (2016) | — | 10.1145/2889443.2889456
+- Reactive object queries: consistent views in object-oriented languages (2016) | — | 10.1145/2892664.2892665
+- Explicit Tool Support for Implicit Layer Activation (2022) | — | 10.1145/3570353.3570355
+
+## Referências de: Visual Debugging Techniques for Reactive Data Visualization (2016): 26
+# python3 /home/gambi/.claude/skills/escrita-academica/scripts/buscar_literatura.py referencias 10.1111/cgf.12903 --n 80
+- D³ Data-Driven Documents (2011) | IEEE Transactions on Visualization and Computer Graphics | 10.1109/tvcg.2011.185
+- Direct Manipulation Interfaces (1985) | Human-Computer Interaction | 10.1207/s15327051hci0104_2
+- Gprof (1982) | — | 10.1145/800230.806987
+- Interactive dynamics for visual analysis (2012) | Communications of the ACM | 10.1145/2133806.2133821
+- Online python tutor (2013) | ACM Technical Symposium on Computer Science Education (SIGCSE) | 10.1145/2445196.2445368
+- Designing the whyline (2004) | CHI Conference on Human Factors in Computing Systems | 10.1145/985692.985712
+- Protovis: A Graphical Toolkit for Visualization (2009) | IEEE Transactions on Visualization and Computer Graphics | 10.1109/tvcg.2009.174
+- A survey on reactive programming (2013) | ACM Computing Surveys | 10.1145/2501654.2501666
+- Reactive Vega: A Streaming Dataflow Architecture for Declarative Interactive Visualization (2015) | IEEE Transactions on Visualization and Computer Graphics | 10.1109/tvcg.2015.2467091
+- Interactive Dynamics for Visual Analysis (2012) | Queue | 10.1145/2133416.2146416
+- The Science of Interaction (2009) | Information Visualization | 10.1057/ivs.2009.22
+- IS&T/SPIE Electronic Imaging (2013) | SPIE Professional | 10.1117/2.4201304.17
+- Lyra: An Interactive Visualization Design Environment (2014) | Computer Graphics Forum | 10.1111/cgf.12391
+- Separating application code from toolkits (1991) | ACM Symposium on User Interface Software and Technology (UIST) | 10.1145/120782.120805
+- Flapjax (2009) | ACM SIGPLAN Notices | 10.1145/1639949.1640091
+- Asynchronous functional reactive programming for GUIs (2013) | ACM SIGPLAN Conference on Programming Language Design and Implementation (PLDI) | 10.1145/2491956.2462161
+- Interactive record/replay for web application debugging (2013) | ACM Symposium on User Interface Software and Technology (UIST) | 10.1145/2501988.2502050
+- Declarative interaction design for data visualization (2014) | ACM Symposium on User Interface Software and Technology (UIST) | 10.1145/2642918.2647360
+- Event-Driven FRP (2001) | Lecture notes in computer science | 10.1007/3-540-45587-6_11
+- FireCrystal: Understanding interactive behaviors in dynamic web pages (2009) | Proceedings/Proceedings -- IEEE Symposium on Visual Languages and Human-Centric Computing | 10.1109/vlhcc.2009.5295287
+- Addressing misconceptions about code with always-on programming visualizations (2014) | CHI Conference on Human Factors in Computing Systems | 10.1145/2556288.2557409
+- Information Visualisation (2024) | International Conference Information Visualisation (IV) | 10.1109/iv64223.2024.00001
+- Specifying Algorithm Visualizations: Interesting Events or State Mapping? (2002) | Lecture notes in computer science | 10.1007/3-540-45875-1_2
+- Perfopticon: Visual Query Analysis for Distributed Databases (2015) | Computer Graphics Forum | 10.1111/cgf.12619
+- Stencil: A Conceptual Model for Representation and Interaction (2008) | International Conference Information Visualisation (IV) | 10.1109/iv.2008.66
+- Reactive data visualizations (2015) | Proceedings of SPIE, the International Society for Optical Engineering/Proceedings of SPIE | 10.1117/12.2078301

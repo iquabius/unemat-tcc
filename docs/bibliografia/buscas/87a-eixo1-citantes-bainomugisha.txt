@@ -1,0 +1,207 @@
+# Quarto ciclo (tcc-t81w, 2026-10-26), eixo 1: citantes de Bainomugisha et al. (2013, ACM Computing Surveys), filtrados por termo
+# Seis consultas no OpenAlex, uma por termo do filtro. O filtro 'usability' não restringiu: devolveu 147 citantes, dos quais só 7 trazem 'usab' no título ou no resumo; a lista vale como o conjunto quase inteiro dos citantes.
+
+## Citantes de A survey on reactive programming (Bainomugisha et al., 2013), filtro 'debug': 12
+# python3 /home/gambi/.claude/skills/escrita-academica/scripts/buscar_literatura.py citantes 10.1145/2501654.2501666 --todos --filtro "debug" --desde 2013
+# Total: 12 (mostrando 12) | filtro: 'debug'
+- Debugging for reactive programming (2016) | ACM/IEEE International Conference on Software Engineering: Companion Proceedings (ICSE-Companion) | 10.1145/2884781.2884815
+- High-performance Deterministic Concurrency Using Lingua Franca (2023) | ACM Transactions on Architecture and Code Optimization | 10.1145/3617687
+- Visual Debugging Techniques for Reactive Data Visualization (2016) | Computer Graphics Forum | 10.1111/cgf.12903
+- Continuation Complexity: A Callback Hell for Distributed Systems (2015) | Lecture notes in computer science | 10.1007/978-3-319-27308-2_24
+- Debugging of RxJS-based applications (2020) | None | 10.1145/3427763.3428313
+- Towards Liveness in Game Development (2019) | IEEE Conference on Games (CoG) | 10.1109/cig.2019.8848092
+- Teaching Programmers to Think of Program Dynamics (2023) | None | 10.1145/3576882.3617918
+- Reactive Programming Paradigms in High-Throughput Distributed Systems (2025) | European Journal of Computer Science and Information Technology | 10.37745/ejcsit.2013/vol13n3093103
+- A reactive language for analyzing cloud logs (2018) | None | 10.1145/3281278.3281280
+- Towards Meta-Level Engineering and Tooling for Complex Concurrent Systems (2016) | Kent Academic Repository (University of Kent) | sem
+- Semantics of RxJS (2022) | None | 10.1145/3563837.3568340
+- Extensible Tooling for Reactive Programming Based on Active Expressions. (2024) | The Journal of Object Technology | 10.5381/jot.2024.23.1.a4
+
+## Citantes de A survey on reactive programming (Bainomugisha et al., 2013), filtro 'glitch': 7
+# python3 /home/gambi/.claude/skills/escrita-academica/scripts/buscar_literatura.py citantes 10.1145/2501654.2501666 --todos --filtro "glitch" --desde 2013
+# Total: 7 (mostrando 7) | filtro: 'glitch'
+- Distributed functional reactive programming on actor-based runtime (2018) | None | 10.1145/3281366.3281370
+- Distributed REScala (2014) | ACM SIGPLAN Notices | 10.1145/2714064.2660240
+- Quality-Aware Reactive Programming for the Internet of Things (2017) | Lecture notes in computer science | 10.1007/978-3-319-68972-2_12
+- A Semantic Framework for the Design of Distributed Reactive Real-Time Languages and Applications (2020) | IEEE Access | 10.1109/access.2020.3010697
+- Coordinating Stateful IoT Resources as Event-Driven Distributed IoT Services (2018) | Advances in web technologies and engineering book series | 10.4018/978-1-5225-7622-8.ch005
+- Developing Distributed Systems with Multiparty Functional Reactive Programming (2023) | World Symposium on Software Engineering (WSSE) | 10.1145/3631991.3632000
+- Development of a Method for Improving the Efficiency of a Reactive State Management System (2026) | International Russian Smart Industry Conference (SmartIndustryCon) | 10.1109/smartindustrycon68821.2026.11493026
+
+## Citantes de A survey on reactive programming (Bainomugisha et al., 2013), filtro 'comprehension': 3
+# python3 /home/gambi/.claude/skills/escrita-academica/scripts/buscar_literatura.py citantes 10.1145/2501654.2501666 --todos --filtro "comprehension" --desde 2013
+# Total: 3 (mostrando 3) | filtro: 'comprehension'
+- An empirical study on program comprehension with reactive programming (2014) | ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE) | 10.1145/2635868.2635895
+- On the Positive Effect of Reactive Programming on Software Comprehension: An Empirical Study (2017) | IEEE Transactions on Software Engineering | 10.1109/tse.2017.2655524
+- Perspectives and Challenges of iOS Developers in Using Reactive Programming with RxSwift (2024) | None | 10.5753/sbes.2024.3569
+
+## Citantes de A survey on reactive programming (Bainomugisha et al., 2013), filtro 'usability': 147
+# python3 /home/gambi/.claude/skills/escrita-academica/scripts/buscar_literatura.py citantes 10.1145/2501654.2501666 --todos --filtro "usability" --desde 2013
+# Total: 147 (mostrando 147) | filtro: 'usability'
+- Serverless Computing: Current Trends and Open Problems (2017) | Springer eBooks | 10.1007/978-981-10-5026-8_1
+- Declarative interaction design for data visualization (2014) | ACM Symposium on User Interface Software and Technology (UIST) | 10.1145/2642918.2647360
+- FlowMatic: An Immersive Authoring Tool for Creating Interactive Scenes in Virtual Reality (2020) | ACM Symposium on User Interface Software and Technology (UIST) | 10.1145/3379337.3415824
+- Visual Programming Environments for End-User Development of intelligent and social robots, a systematic review (2020) | Journal of Computer Languages | 10.1016/j.cola.2020.100970
+- Enabling consistency in view-based system development — The Vitruvius approach (2020) | Journal of Systems and Software | 10.1016/j.jss.2020.110815
+- The design space of construction tools for information visualization: A survey (2017) | Journal of Visual Languages & Computing | 10.1016/j.jvlc.2017.10.001
+- Idyll (2018) | ACM Symposium on User Interface Software and Technology (UIST) | 10.1145/3242587.3242600
+- Serverless Programming (Function as a Service) (2017) | IEEE International Conference on Distributed Computing Systems (ICDCS) | 10.1109/icdcs.2017.305
+- Reactive Control of Autonomous Drones (2016) | International Conference on Mobile Systems, Applications, and Services | 10.1145/2906388.2906410
+- danceON: Culturally Responsive Creative Computing (2021) | CHI Conference on Human Factors in Computing Systems | 10.1145/3411764.3445149
+- AI based HealthCare Platform for Real Time, Predictive and Prescriptive Analytics using Reactive Programming (2018) | Journal of Physics Conference Series | 10.1088/1742-6596/933/1/012010
+- Emfrp: a functional reactive programming language for small-scale embedded systems (2016) | None | 10.1145/2892664.2892670
+- An evaluation of reactive programming and promises for structuring collaborative web applications (2013) | None | 10.1145/2489798.2489802
+- Marcelle: Composing Interactive Machine Learning Workflows and Interfaces (2021) | ACM Symposium on User Interface Software and Technology (UIST) | 10.1145/3472749.3474734
+- Learning Sciences for Computing Education (2019) | Cambridge University Press eBooks | 10.1017/9781108654555.009
+- Multi-Tier Functional Reactive Programming for the Web (2014) | None | 10.1145/2661136.2661140
+- High-performance Deterministic Concurrency Using Lingua Franca (2023) | ACM Transactions on Architecture and Code Optimization | 10.1145/3617687
+- On the Semantics of Distributed Reactive Programming: The Cost of Consistency (2018) | IEEE Transactions on Software Engineering | 10.1109/tse.2018.2833109
+- Streaming semantic translations (2017) | International Conference on System Theory, Control and Computing (ICSTCC) | 10.1109/icstcc.2017.8107003
+- Distributed functional reactive programming on actor-based runtime (2018) | None | 10.1145/3281366.3281370
+- FlowDB (2017) | ACM International Conference on Distributed and Event-Based Systems (DEBS) | 10.1145/3093742.3093929
+- Designing and evaluating the usability of an API for real-time multimedia services in the Internet (2016) | Multimedia Tools and Applications | 10.1007/s11042-016-3729-z
+- Stream my models: Reactive peer-to-peer distributed models@run.time (2015) | ACM/IEEE International Conference on Model Driven Engineering Languages and Systems (MODELS) | 10.1109/models.2015.7338238
+- Djnn/Smala (2018) | Proceedings of the ACM on Human-Computer Interaction | 10.1145/3229094
+- Tools and Environments (2019) | Cambridge University Press eBooks | 10.1017/9781108654555.022
+- Robotic world models—conceptualization, review, and engineering best practices (2023) | Frontiers in Robotics and AI | 10.3389/frobt.2023.1253049
+- Thread-safe reactive programming (2018) | Proceedings of the ACM on Programming Languages | 10.1145/3276477
+- Engineering Education Research (2019) | Cambridge University Press eBooks | 10.1017/9781108654555.012
+- Active Expressions: Basic Building Blocks for Reactive Programming (2017) | The Art Science and Engineering of Programming | 10.22152/programming-journal.org/2017/1/12
+- Reactive programming with reactive variables (2016) | None | 10.1145/2892664.2892666
+- The server is dead, long live the server: Rise of Serverless Computing, Overview of Current State and Future Trends in Research and Industry (2019) | arXiv (Cornell University) | 10.48550/arxiv.1906.02888
+- Design Patterns for Code Reuse in HLS Packet Processing Pipelines (2019) | IEEE International Symposium on Field-Programmable Custom Computing Machines (FCCM) | 10.1109/fccm.2019.00036
+- Self-Organisation Programming: A Functional Reactive Macro Approach (2023) | IEEE International Conference on Autonomic Computing and Self-Organizing Systems (ACSOS) | 10.1109/acsos58161.2023.00026
+- Detecting Cyber Security Vulnerabilities through Reactive Programming (2019) | Hawaii International Conference on System Sciences (HICSS) | 10.24251/hicss.2019.864
+- Assessment and Plagiarism (2019) | Cambridge University Press eBooks | 10.1017/9781108654555.015
+- Mining the usage of reactive programming APIs (2022) | International Conference on Mining Software Repositories (MSR) | 10.1145/3524842.3527966
+- Fostering scientific methods in simulations through symbolic regressions (2024) | Physics Education | 10.1088/1361-6552/ad3cad
+- Ambient Clouds: Reactive Asynchronous Collections for Mobile Ad Hoc Network Applications (2013) | Lecture notes in computer science | 10.1007/978-3-642-38541-4_7
+- A library-based approach to context-dependent computation with reactive values: suppressing reactions of context-dependent functions using dynamic binding (2016) | None | 10.1145/2892664.2892669
+- Designing Modular Software: A Case Study in Introductory Statistics (2017) | Journal of Computational and Graphical Statistics | 10.1080/10618600.2016.1276839
+- Towards the next generation of reactive model transformations on low-code platforms (2020) | ACM/IEEE International Conference on Model Driven Engineering Languages and Systems Companion (MODELS-C) | 10.1145/3417990.3420199
+- The Mobile Fact and Concept Training System (MoFaCTS) (2016) | Lecture notes in computer science | 10.1007/978-3-319-39583-8_25
+- Quality-Aware Reactive Programming for the Internet of Things (2017) | Lecture notes in computer science | 10.1007/978-3-319-68972-2_12
+- Cloud Serverless Security and Services: A Survey (2022) | Lecture notes in mechanical engineering | 10.1007/978-981-19-0296-3_41
+- Debugging of RxJS-based applications (2020) | None | 10.1145/3427763.3428313
+- An extensible approach to implicit incremental model analyses (2019) | Software & Systems Modeling | 10.1007/s10270-019-00719-y
+- A distributable event-oriented architecture for activity recognition in smart homes (2021) | Journal of Reliable Intelligent Environments | 10.1007/s40860-020-00125-y
+- Dressi: A Hardware‐Agnostic Differentiable Renderer with Reactive Shader Packing and Soft Rasterization (2022) | Computer Graphics Forum | 10.1111/cgf.14455
+- Reactive HLA-based Distributed Simulation Systems with RxHLA (2018) | International Symposium on Distributed Simulation and Real Time Applications (DS-RT) | 10.1109/distra.2018.8600936
+- A Reactive Architectural Proposal for Fog/Edge Computing in the Internet of Things Paradigm with Application in Deep Learning (2021) | Springer optimization and its applications | 10.1007/978-3-030-84459-2_9
+- Reactive Async: expressive deterministic concurrency (2016) | None | 10.1145/2998392.2998396
+- DIVA: A Declarative and Reactive Language for in situ Visualization (2020) | IEEE Symposium on Large Data Analysis and Visualization | 10.1109/ldav51489.2020.00007
+- Incremental Queries and Transformations: From Concepts to Industrial Applications (2016) | Lecture notes in computer science | 10.1007/978-3-662-49192-8_5
+- A web-based approach using reactive programming for complex event processing in internet of things applications (2018) | ACM Symposium on Applied Computing | 10.1145/3167132.3167365
+- Reactive Access Control Systems (2018) | ACM Symposium on Access Control Models and Technologies (SACMAT) | 10.1145/3205977.3208947
+- ComPOS: A DSL for Composing IoT Systems with Weak Connectivity (2023) | None | 10.1145/3623506.3623577
+- Fundamental concepts of reactive control for autonomous drones (2018) | Communications of the ACM | 10.1145/3264417
+- Towards Liveness in Game Development (2019) | IEEE Conference on Games (CoG) | 10.1109/cig.2019.8848092
+- Enabling Reactive Streams in HLA-based Simulations through a Model-Driven Solution (2019) | International Symposium on Distributed Simulation and Real Time Applications (DS-RT) | 10.1109/ds-rt47707.2019.8958697
+- A Semantic Framework for the Design of Distributed Reactive Real-Time Languages and Applications (2020) | IEEE Access | 10.1109/access.2020.3010697
+- A Functional Reactive Programming Language for Small-Scale Embedded Systems with Recursive Data Types (2021) | Journal of Information Processing | 10.2197/ipsjjip.29.685
+- Relation Algebra as programming language using the Ampersand compiler (2018) | Journal of Logical and Algebraic Methods in Programming | 10.1016/j.jlamp.2018.04.002
+- Role-Based Runtime Model Synchronization (2018) | Euromicro Conference on Software Engineering and Advanced Applications (SEAA) | 10.1109/seaa.2018.00057
+- Reactamole: functional reactive molecular programming (2024) | Natural Computing | 10.1007/s11047-024-09982-5
+- Reactive Programming without Functions (2024) | The Art Science and Engineering of Programming | 10.22152/programming-journal.org/2024/8/11
+- Context-awareness: Connecting computing with its environment (2015) | International Conference on Information Technology, Computer, and Electrical Engineering | 10.1109/icitacee.2015.7437760
+- Reactive Programming of Robots with RxROS (2021) | Studies in computational intelligence | 10.1007/978-3-030-75472-3_2
+- Topology-Level Reactivity in Distributed Reactive Programs (2022) | The Art Science and Engineering of Programming | 10.22152/programming-journal.org/2022/6/14
+- Comprehending Algorithmic Design (2022) | Communications in computer and information science | 10.1007/978-981-19-1280-1_2
+- Hypermedia Controls: Feral to Formal (2024) | ACM Conference on Hypertext and Social Media (HT) | 10.1145/3648188.3675127
+- Event Loops as First-Class Values: A Case Study in Pedagogic Language Design (2019) | The Art Science and Engineering of Programming | 10.22152/programming-journal.org/2019/3/11
+- Computational Model for Wearable Hardware Commodities (2019) | IEEE Intl Conf on Dependable, Autonomic and Secure Computing, Intl Conf on Pervasive Intelligence and Computing, Intl Conf on Cloud and Big Data Computing, Intl Conf on Cyber Science and Technology Congress (DASC/PiCom/CBDCom/CyberSciTech) | 10.1109/dasc/picom/cbdcom/cyberscitech.2019.00055
+- Complex propagation of events: Design patterns comparison (2014) | None | 10.13140/2.1.1733.7600
+- Reactive HLA-based distributed simulation systems with RxHLA (2018) | None | 10.5555/3330299.3330311
+- Reactor Design Pattern (2021) | TEM Journal | 10.18421/tem101-03
+- On the External Concurrency of Current BDI Frameworks for MAS (2024) | Lecture notes in computer science | 10.1007/978-3-031-71152-7_3
+- On the Usability of Reactive Programming APIs: A Mixed Evaluation (2025) | Software Practice and Experience | 10.1002/spe.3435
+- Implementing a semi-causal domain-specific language for context detection over binary sensors (2018) | ACM SIGPLAN International Conference on Generative Programming: Concepts and Experiences (GPCE) | 10.1145/3278122.3278134
+- The Beauty and Elegance of Functional Reactive Animation (2023) | None | 10.1145/3609023.3609806
+- A Graph-Based Formal Semantics of Reactive Programming from First Principles (2022) | None | 10.1145/3611096.3611101
+- Teaching Programmers to Think of Program Dynamics (2023) | None | 10.1145/3576882.3617918
+- Heterogeneous System Modeling Using Timed- and Untimed-Based Models of Computation: A Case Study for Avionics Systems Domain (2024) | IEEE/AIAA Digital Avionics Systems Conference (DASC) | 10.1109/dasc62030.2024.10749534
+- High-Level Reconfigurable Embedded System Design Based on Heterogeneous Models of Computation (2025) | IEEE Access | 10.1109/access.2025.3559695
+- Modular Petri Net Processor for Embedded Systems (2018) | Communications in computer and information science | 10.1007/978-3-319-75214-3_19
+- Reactive-based Complex Event Processing (2019) | None | 10.1145/3350768.3352492
+- Issues on Performance of Reactive Programming in the Java Ecosystem with Persistent Data Sources (2019) | Advances in intelligent systems and computing | 10.1007/978-3-030-31964-9_24
+- ARx: Reactive Programming for Synchronous Connectors (2020) | Lecture notes in computer science | 10.1007/978-3-030-50029-0_3
+- Interacto: A Modern User Interaction Processing Model (2021) | IEEE Transactions on Software Engineering | 10.1109/tse.2021.3083321
+- Object-oriented Reactive Programming is Not Reactive Object-oriented Programming (2013) | None | sem
+- On the Importance and Shortcomings of Code Readability Metrics: A Case Study on Reactive Programming (2021) | arXiv (Cornell University) | 10.48550/arxiv.2110.15246
+- Rea: Workflows for Cyber-Physical Systems (2015) | Lecture notes in computer science | 10.1007/978-3-319-15940-9_14
+- Functional Reactive Programming in C++ (2019) | Lecture notes in computer science | 10.1007/978-3-030-28346-9_2
+- Towards Introducing Asynchronous Tasks to an FRP Language for Small-Scale Embedded Systems (2022) | None | 10.1145/3563837.3568338
+- UAX: Measuring the Usability of TypeScript APIs (2024) | None | 10.5753/sbes.2024.3658
+- Using Policies for Handling Complexity of Event-Driven Architectures (2014) | Lecture notes in computer science | 10.1007/978-3-319-09970-5_12
+- A reactive language for analyzing cloud logs (2018) | None | 10.1145/3281278.3281280
+- Real Time System for Indonesian Teacher Engagement Index Application (2020) | Progress in Social Science, Humanities and Education Research Symposium (PSSHERS) | 10.2991/assehr.k.200824.149
+- Renewable Energy-Aware Heuristic Algorithms for Edge Server Selection for Stream Data Processing (2021) | Lecture notes in computer science | 10.1007/978-3-030-77970-2_49
+- Tau Prolog: A Prolog Interpreter for the Web (2023) | Theory and Practice of Logic Programming | 10.1017/s1471068423000352
+- MyNote: Multiplatform Reactive Integration System with The Clean Architecture Development Concept (2023) | Jurnal Ecotipe (Electronic Control Telecommunication Information and Power Engineering) | 10.33019/jurnalecotipe.v10i2.4327
+- REFRAME–A software framework for managing reactive dependencies in object-oriented applications (2023) | SoftwareX | 10.1016/j.softx.2023.101571
+- Integrating automatic backward error recovery in asynchronous rich clients (2016) | ACM/IEEE International Conference on Software Engineering: Companion Proceedings (ICSE-Companion) | 10.1145/2889160.2889241
+- Simplifying the Use of Event-based Systems With Context Mediation and Declarative Descriptions (2015) | None | sem
+- Towards Meta-Level Engineering and Tooling for Complex Concurrent Systems (2016) | Kent Academic Repository (University of Kent) | sem
+- Cognitive Computing Systems in Reactive Multimedia Applications Developed in CÉU (2016) | IEEE International Symposium on Multimedia (ISM) | 10.1109/ism.2016.0141
+- Stochastic Hybrid Systems Modeling and Middleware-enabled DDDAS for Next-generation US Air Force Systems (2017) | None | sem
+- Supporting Crowd-Powered Science in Economics: FRACTI, a Conceptual Framework for Large-Scale Collaboration and Transparent Investigation in Financial Markets (2018) | RePEc: Research Papers in Economics | 10.48550/arxiv.1808.07959
+- Reactive CEP (2018) | Brazilian Symposium on Multimedia and the Web | 10.1145/3243082.3267453
+- Reliable State Machines: A Framework for Programming Reliable Cloud Services (2019) | arXiv (Cornell University) | 10.4230/lipics.ecoop.2019.18
+- Design and Implementation of a Reactive Framework for the Development of 3D Real-Time Applications (2019) | Lecture notes in computer science | 10.1007/978-3-030-25965-5_19
+- O REGISTRO DE MARCAS NO BRASIL: UM PANORAMA NACIONAL (2020) | Revista SODEBRAS | 10.29367/issn.1809-3957.15.2020.169.15
+- CONTROLE DE VIBRAÇÕES EM LAVRA DE MINAS PRÓXIMO A ZONAS URBANAS (2020) | Revista SODEBRAS | 10.29367/issn.1809-3957.15.2020.169.168
+- USO DA MINERAÇÃO DE DADOS PARA DETECÇÃO DE FATORES QUE INFLUENCIAM O DESEMPENHO DOS ALUNOS NO ENEM (2020) | Revista SODEBRAS | 10.29367/issn.1809-3957.15.2020.169.19
+- SMDCIC - SISTEMA PARAMONITORAMENTO DE DATA CENTERS BASEADO NA INTERNET DAS COISAS (2020) | Revista SODEBRAS | 10.29367/issn.1809-3957.15.2020.169.125
+- REDES BAYESIANAS APLICADAS A PRIORIZAÇÃO DE TESTE DE SOFTWARE NA ABORDAGEM AADSP (2020) | Revista SODEBRAS | 10.29367/issn.1809-3957.15.2020.169.119
+- HISTOPATOLOGIA DE LESÕES ORAIS DECORRENTES DE TERAPIA IMUNOSSUPRESSORA RELACIONADA À TRANSPLANTE DE FÍGADO (2020) | Revista SODEBRAS | 10.29367/issn.1809-3957.15.2020.169.62
+- AVALIAÇÃO DOS NÚCLEOS DE INOVAÇÃO (NIT) DO INSTITUTO FEDERAL DO PARANÁ (2020) | Revista SODEBRAS | 10.29367/issn.1809-3957.15.2020.169.30
+- A CONVERSA SOLIDÁRIA PARA PENSAR UMA EDUCAÇÃO EMPREENDEDORA (2020) | Revista SODEBRAS | 10.29367/issn.1809-3957.15.2020.169.53
+- INOVAÇÃO TECNOLÓGICA NA MICRORREGIÃO DE CAPANEMA NO SUDOESTE DO PARANÁ: DA PROSPECÇÃO A INOVAÇÃO (2020) | Revista SODEBRAS | 10.29367/issn.1809-3957.15.2020.169.11
+- INFLUÊNCIA DA PREPARAÇÃO DO CORANTE N719 EM CÉLULAS SOLARES DE TiO2: UMA ANÁLISE ELETROQUÍMICA (2020) | Revista SODEBRAS | 10.29367/issn.1809-3957.15.2020.169.147
+- O PROCESSO DECISÓRIO: A SISTEMATIZAÇÃO DO PROCESSO DECISÓRIO PARA TOMADAS DE DECISÃO MULTICRITÉRIO (2020) | Revista SODEBRAS | 10.29367/issn.1809-3957.15.2020.169.185
+- A TRANSFERÊNCIA DE TECNOLOGIA DAS ICTs FRENTE AO DECRETO Nº 9.283/2018 (2020) | Revista SODEBRAS | 10.29367/issn.1809-3957.15.2020.169.07
+- REUTILIZAÇÃO DE AREIA DE FUNDIÇÃO ATRAVÉS DA REGENERAÇÃO MECÂNICA: ESTUDO DE CASO EM UMA FUNDIÇÃO LOCALIZADA EM PERNAMBUCO (2020) | Revista SODEBRAS | 10.29367/issn.1809-3957.15.2020.169.173
+- A REALIDADE DO TRABALHADOR RURAL EXPOSTO AOS AGROTÓXICOS (2020) | Revista SODEBRAS | 10.29367/issn.1809-3957.15.2020.169.179
+- O IMPACTO DA IMPLEMENTAÇÃO DA FERRAMENTA POWER BI NO ATUAL CENÁRIO CORPORATIVO DE PERNAMBUCO (2020) | Revista SODEBRAS | 10.29367/issn.1809-3957.15.2020.169.48
+- Implementing a semi-causal domain-specific language for context detection over binary sensors (2020) | ACM SIGPLAN Notices | 10.1145/3393934.3278134
+- A Ruby-Based Hardware/Software Co-Design Environment with Functional Reactive Programming: Mulvery (2020) | IEICE Transactions on Information and Systems | 10.1587/transinf.2019edp7233
+- An Analytics Platform for Integrating and Computing Spatio-Temporal Metrics in Location-aware Games (2021) | None | 10.6035/14101.2021.357562
+- Smart Distributed DataSets for Stream Processing (2021) | Lecture notes in computer science | 10.1007/978-3-030-85665-6_16
+- A cross-technology benchmark for incremental graph queries (2021) | Software & Systems Modeling | 10.1007/s10270-021-00927-5
+- Semantics of RxJS (2022) | None | 10.1145/3563837.3568340
+- Language Design for Reactive Systems (2024) | None | 10.21941/kcss/2024/1
+- Following the Writer’s Path to the Dynamically Coalescing Reactive Chains Design Pattern (2024) | Algorithms | 10.3390/a17020056
+- Extensible Tooling for Reactive Programming Based on Active Expressions. (2024) | The Journal of Object Technology | 10.5381/jot.2024.23.1.a4
+- Cognitive Programming Assistant (2024) | Lecture notes in networks and systems | 10.1007/978-3-031-54053-0_1
+- Estudio comparativo de los paradigmas de programación orientada a objetos y programación reactiva en la resolución de Integrales Algebraicas (2024) | Revista Tecnológica - ESPOL | 10.37815/rte.v36n1.1163
+- Perspectives and Challenges of iOS Developers in Using Reactive Programming with RxSwift (2024) | None | 10.5753/sbes.2024.3569
+- Functional Reactive Animation with Functions of Time (2025) | Journal of Information Processing | 10.2197/ipsjjip.33.368
+- Performance and Energy Comparison of Selected Web Request Processing Models for Reactive and Imperative Spring Based Implementations (2025) | Lecture notes in computer science | 10.1007/978-3-032-02406-0_23
+- The MNL: A Block-Based Functional Programming Language with Reactive Blocks (2025) | None | 10.1145/3759534.3762684
+- Synchronous Programming for Kids: A Manifesto (2025) | ACM SIGPLAN International Symposium on New Ideas, New Paradigms, and Reflections on Programming and Software (Onward!) | 10.1145/3759429.3762617
+- Characterising Catchment-Wide Groundwater System Performance for the Inkomati Usuthu Water Management Area by a Web-based Primitive Intelligent System (2026) | SSRN Electronic Journal | 10.2139/ssrn.6172313
+- Development of a Method for Improving the Efficiency of a Reactive State Management System (2026) | International Russian Smart Industry Conference (SmartIndustryCon) | 10.1109/smartindustrycon68821.2026.11493026
+- MLIR Dialects for DAE-based Modeling Languages (2026) | ACM Transactions on Architecture and Code Optimization | 10.1145/3836762
+- OpenDC-STEAM: Realistic Modeling and Systematic Exploration of Composable Techniques for Sustainable Datacenters (2026) | IEEE/ACM International Symposium on Cluster, Cloud and Grid Computing (CCGrid) | 10.1109/ccgrid68966.2026.00035
+- Towards a Distinct Programming Style for AgentSpeak(L) (2026) | Lecture notes in computer science | 10.1007/978-3-032-22817-8_13
+- Heterogeneous IoT Device Integration Through a Digital Twin Framework and Adopting the Reactive Programming Paradigm (2026) | Lecture notes in networks and systems | 10.1007/978-3-032-36030-4_10
+
+## Citantes de A survey on reactive programming (Bainomugisha et al., 2013), filtro 'empirical': 10
+# python3 /home/gambi/.claude/skills/escrita-academica/scripts/buscar_literatura.py citantes 10.1145/2501654.2501666 --todos --filtro "empirical" --desde 2013
+# Total: 10 (mostrando 10) | filtro: 'empirical'
+- The Cambridge Handbook of Computing Education Research (2019) | Cambridge University Press eBooks | 10.1017/9781108654555
+- An empirical study on program comprehension with reactive programming (2014) | ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE) | 10.1145/2635868.2635895
+- On the Positive Effect of Reactive Programming on Software Comprehension: An Empirical Study (2017) | IEEE Transactions on Software Engineering | 10.1109/tse.2017.2655524
+- On the Semantics of Distributed Reactive Programming: The Cost of Consistency (2018) | IEEE Transactions on Software Engineering | 10.1109/tse.2018.2833109
+- Thread-safe reactive programming (2018) | Proceedings of the ACM on Programming Languages | 10.1145/3276477
+- Engineering Education Research (2019) | Cambridge University Press eBooks | 10.1017/9781108654555.012
+- Fostering scientific methods in simulations through symbolic regressions (2024) | Physics Education | 10.1088/1361-6552/ad3cad
+- Distributed REScala (2014) | ACM SIGPLAN Notices | 10.1145/2714064.2660240
+- On the Importance and Shortcomings of Code Readability Metrics: A Case Study on Reactive Programming (2021) | arXiv (Cornell University) | 10.48550/arxiv.2110.15246
+- Do We Practice What We Preach? An Exploratory Introspective Analysis of ICSE Research Artifacts (2026) | Research Square | 10.21203/rs.3.rs-8741708/v1
+
+## Citantes de A survey on reactive programming (Bainomugisha et al., 2013), filtro 'pitfall': 1
+# python3 /home/gambi/.claude/skills/escrita-academica/scripts/buscar_literatura.py citantes 10.1145/2501654.2501666 --todos --filtro "pitfall" --desde 2013
+# Total: 1 (mostrando 1) | filtro: 'pitfall'
+- Language Design for Reactive Systems (2024) | None | 10.21941/kcss/2024/1
+

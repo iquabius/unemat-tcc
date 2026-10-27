@@ -1,0 +1,44 @@
+# Quarto ciclo (tcc-t81w, 2026-10-26), eixo 4: citantes de Kambona et al. (2013, AGERE), desde 2013
+# Comando: python3 buscar_literatura.py citantes 10.1145/2489798.2489802 --desde 2013 --todos
+# OpenAlex: Total: 39 (mostrando 39)
+
+## citantes de Kambona et al. (2013, AGERE), desde 2013: 39
+- Detecting Inconsistencies in JavaScript MVC Applications (2015) | ACM/IEEE International Conference on Software Engineering: Companion Proceedings (ICSE-Companion) | 10.1109/icse.2015.52
+- A Survey of Asynchronous Programming Using Coroutines in the Internet of Things and Embedded Systems (2019) | ACM Transactions on Embedded Computing Systems | 10.1145/3319618
+- Kotlin coroutines: design and implementation (2021) | ACM SIGPLAN International Symposium on New Ideas, New Paradigms, and Reflections on Programming and Software (Onward!) | 10.1145/3486607.3486751
+- Finding broken promises in asynchronous JavaScript programs (2018) | Proceedings of the ACM on Programming Languages | 10.1145/3276532
+- Designing and evaluating the usability of an API for real-time multimedia services in the Internet (2016) | Multimedia Tools and Applications | 10.1007/s11042-016-3729-z
+- Detecting inconsistencies in JavaScript MVC applications (2015) | None | 10.5555/2818754.2818796
+- Mining the usage of reactive programming APIs (2022) | International Conference on Mining Software Repositories (MSR) | 10.1145/3524842.3527966
+- Considerations for integrating virtual threads in a Java framework: a Quarkus example in a resource-constrained environment (2023) | ACM International Conference on Distributed and Event-Based Systems (DEBS) | 10.1145/3583678.3596895
+- NetStar: A Future/Promise Framework for Asynchronous Network Functions (2019) | IEEE Journal on Selected Areas in Communications | 10.1109/jsac.2019.2894303
+- Programming with event loops and control loops – From actors to agents (2015) | Computer Languages | 10.1016/j.cl.2015.12.003
+- From Monads to Effects and Back (2016) | Lecture notes in computer science | 10.1007/978-3-319-28228-2_11
+- Hiphop.js (2018) | ACM Symposium on Applied Computing | 10.1145/3167132.3167440
+- Continuations and Aspects to Tame Callback Hell on the Web (2021) | JUCS - Journal of Universal Computer Science | 10.3897/jucs.72205
+- Kalix: A Java 11 Library for Developing Eclipse Arrowhead System-of-Systems (2020) | IEEE International Conference on Emerging Technologies and Factory Automation (ETFA) | 10.1109/etfa46521.2020.9211873
+- A JavaScript Framework Comparison Based on Benchmarking Software Metrics and Environment Configuration (2018) | Arrow - TU Dublin (Technological University Dublin) | 10.21427/d75f88
+- On the Usability of Reactive Programming APIs: A Mixed Evaluation (2025) | Software Practice and Experience | 10.1002/spe.3435
+- Progressive Server-Side Rendering with Suspendable Web Templates (2024) | Lecture notes in computer science | 10.1007/978-981-96-0576-7_33
+- A two-course web application development sequence covering the lamp and mean stacks (2018) | Journal of computing sciences in colleges | sem
+- Cloud-Operated Open Literate Educational Resources: The Case of the MyBinder (2023) | IEEE Transactions on Learning Technologies | 10.1109/tlt.2023.3343690
+- Enabling Progressive Server-Side Rendering for Traditional Web Template Engines with Java Virtual Threads (2025) | Software | 10.3390/software4030020
+- From Actor Event-Loop to Agent Control-Loop (2014) | None | 10.1145/2687357.2687361
+- RDF Event Stream Processing Based on the Publish-Subscribe Pattern (2016) | Advances in intelligent systems and computing | 10.1007/978-3-319-43982-2_32
+- Software Challenges of a Web-based Air Traffic Control Training Tool (2018) | IEEE/AIAA Digital Avionics Systems Conference (DASC) | 10.1109/dasc.2018.8569233
+- Afluentes Concurrent I/O Made Easy with Lazy Evaluation (2014) | Proceedings - Euromicro Workshop on Parallel and Distributed Processing/Proceedings | 10.1109/pdp.2014.75
+- Interactive Music and Synchronous Reactive Programming (2020) | The Art Science and Engineering of Programming | 10.22152/programming-journal.org/2021/5/2
+- Tau Prolog: A Prolog Interpreter for the Web (2023) | Theory and Practice of Logic Programming | 10.1017/s1471068423000352
+- Serena (2015) | ACM Symposium on Applied Computing | 10.1145/2695664.2695999
+- Towards a Virtual Block Approach to Tame Asynchronous Programming (2015) | None | 10.4108/icst.bict.2014.257939
+- Integrating automatic backward error recovery in asynchronous rich clients (2016) | ACM/IEEE International Conference on Software Engineering: Companion Proceedings (ICSE-Companion) | 10.1145/2889160.2889241
+- An extension of AgentSpeak(L) and Jason tailored to programming and software development (2016) | None | 10.1145/3001886.3001887
+- An Architectural Based Framework for the Distributed Collection, Analysis and Query from Inhomogeneous Time Series Data Sets and Wearables for Biofeedback Applications (2017) | Algorithms | 10.3390/a10010023
+- Cross-platform development frameworks : overview of contemporary technologies and methods for cross-platform application development (2016) | OAR@UM (University of Malta) | sem
+- The mean stack web application development platform: tutorial presentation (2018) | Journal of computing sciences in colleges | sem
+- Web simulation training environment for aircraft resource planning in wildfire events (2015) | Winter Simulation Conference | 10.1109/wsc.2015.7408468
+- Perspectives and Challenges of iOS Developers in Using Reactive Programming with RxSwift (2024) | None | 10.5753/sbes.2024.3569
+- Serena: Middleware For Real-time Web Applications (2015) | VUBIR (Vrije Universiteit Brussel) | sem
+- Client-Server Solution for Monitoring and Analyzing Road Surface Defects (2025) | Intelligent Technologies and Electronic Devices in Vehicle and Road Transport Complex (TIRVED) | 10.1109/tirved67702.2025.11367239
+- Programmation web réactive (2018) | None | 10.70675/613c15e0z2505z47e1zbfb4zd60c657fda74
+- Varda : a language for programming distributed systems by composition (2023) | None | 10.70675/3d17a2d6z19bbz4b7az8011z1ee81781ccee

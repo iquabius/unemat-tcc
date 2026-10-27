@@ -1,0 +1,463 @@
+# Quarto ciclo (tcc-t81w, 2026-10-26), eixo 2: consultas por palavras-chave no OpenAlex, de 2013 em diante
+
+Os comandos rodaram sem `--sem-resumo`, para a triagem pelo resumo; os resumos foram tirados destas listas, que são a saída bruta do script reescrita uma linha por trabalho.
+
+## Consulta 'React hooks bugs': 10
+
+`python3 ~/.claude/skills/escrita-academica/scripts/buscar_literatura.py buscar "React hooks bugs" --desde 2013 --n 25`
+
+OpenAlex: Busca: 'React hooks bugs' — 10 resultados no OpenAlex (mostrando 10, ordem: relevancia)
+
+- React-tRace: A Semantics for Understanding React Hooks: An Operational Semantics and a Visualizer for Clarifying React Hooks (2025) | Proceedings of the ACM on Programming Languages | 10.1145/3763067
+- A Semantics for the Essence of React (2020) | DROPS (Schloss Dagstuhl – Leibniz Center for Informatics) | 10.4230/lipics.ecoop.2020.12
+- Getting rid of bed bugs: Trickier than ever (2024) | Knowable Magazine | 10.1146/knowable-013124-2
+- Pocketmeal — A Meal Discovery Web App Built on React 19 and Themealdb (2026) | International Journal of Creative and Open Research in Engineering and Management | 10.55041/ijcope.v2i6.146
+- THE PROSPECTS OF USING NEURAL NETWORKS FOR OPTIMIZING LEARNING AND SELF-DEVELOPMENT (2026) | None | 10.70286/eoss-27.04.2026.006.139-141
+- ChemAudit (2026) | Zenodo (CERN European Organization for Nuclear Research) | 10.5281/zenodo.18492675
+- التطبيقية: الإنتاجية الذكية وهندسة البرمجيات ChatGPTموسوعة (2026) | Zenodo (CERN European Organization for Nuclear Research) | 10.5281/zenodo.23268242
+- AlexsLemonade/scpca-portal: v2026.05.06 (2026) | Zenodo (CERN European Organization for Nuclear Research) | 10.5281/zenodo.20058960
+- When Chemicals Go to the Dark Side (2022) | CSA News | 10.1002/csan.20894
+- Fay as freak (2018) | Routledge eBooks | 10.4324/9780429480607-8
+
+## Consulta 'empirical study bugs front-end JavaScript frameworks React': 0
+
+`python3 ~/.claude/skills/escrita-academica/scripts/buscar_literatura.py buscar "empirical study bugs front-end JavaScript frameworks React" --desde 2013 --n 25`
+
+OpenAlex: Busca: 'empirical study bugs front-end JavaScript frameworks React' — 0 resultados no OpenAlex (mostrando 0, ordem: relevancia)
+
+
+## Consulta 'React useEffect misuse developers': 0
+
+`python3 ~/.claude/skills/escrita-academica/scripts/buscar_literatura.py buscar "React useEffect misuse developers" --desde 2013 --n 25`
+
+OpenAlex: Busca: 'React useEffect misuse developers' — 0 resultados no OpenAlex (mostrando 0, ordem: relevancia)
+
+
+## Consulta 'React bugs empirical study': 10
+
+`python3 ~/.claude/skills/escrita-academica/scripts/buscar_literatura.py buscar "React bugs empirical study" --desde 2013 --n 30`
+
+OpenAlex: Busca: 'React bugs empirical study' — 10 resultados no OpenAlex (mostrando 10, ordem: relevancia)
+
+- SelfHeal: Empirical Fix Pattern Analysis and Bug Repair in LLM Agents (2026) | arXiv (Cornell University) | 10.48550/arxiv.2604.17699
+- Are ecosystem services provided by insects “bugged” by micro (nano)plastics? (2019) | TrAC Trends in Analytical Chemistry | 10.1016/j.trac.2019.02.018
+- Ensuring maintainability in react web applications (2024) | Tampere University Institutional Repository (Tampere University) | sem
+- An empirical study of same-day releases of popular packages in the npm ecosystem (2021) | Empirical Software Engineering | 10.1007/s10664-021-09980-6
+- Examining Software Engineering Practices in the Pre-AI and Post-AI ERA (2026) | International Conference on Artificial Intelligence in Information and Communication (ICAIIC) | 10.1109/icaiic68212.2026.11454249
+- LLM-BASED AGENT ARCHITECTURE: A NEW PARADIGM OF ARTIFICIAL INTELLIGENCE IN SOFTWARE ENGINEERING AUTOMATION (2026) | None | 10.61587/mmit.tiue.uz.v1i1.250
+- On the Impact of Development Frameworks on Mobile Apps (2023) | Proceedings - Asia Pacific Software Engineering Conference/Proceedings | 10.1109/apsec60848.2023.00023
+- UniRelease: A Unified Framework for Addressing Cross-Platform Mobile Application Build and Release Challenges (2026) | IEEE International Conference on Communication Systems and Network Technologies (CSNT) | 10.1109/csnt69054.2026.11502139
+- When Distributional Findings Deceive: A Methodology for Dynamic Analysis of Clustered Software Panels, Demonstrated on the AI-Accessibility Question (2026) | Zenodo (CERN European Organization for Nuclear Research) | 10.5281/zenodo.20996813
+- Tea Environments and Plantation Culture: Imperial Disarray in Eastern India (2022) | Agricultural History | 10.1215/00021482-10009891
+
+## Consulta 'front-end framework bugs': 30
+
+`python3 ~/.claude/skills/escrita-academica/scripts/buscar_literatura.py buscar "front-end framework bugs" --desde 2013 --n 30`
+
+OpenAlex: Busca: 'front-end framework bugs' — 57 resultados no OpenAlex (mostrando 30, ordem: relevancia)
+
+- Detecting C++ Compiler Front-End Bugs via Grammar Mutation and Differential Testing (2022) | IEEE Transactions on Reliability | 10.1109/tr.2022.3171220
+- Concolic Testing of Front-end JavaScript (2023) | Lecture notes in computer science | 10.1007/978-3-031-30826-0_4
+- LLM-aided Front-End Design Framework For Early Development of Verified RTLs (2024) | Proceedings - Asian Test Symposium/Proceedings | 10.1109/ats64447.2024.10915239
+- Bootsrap 3 and jQuery and bugs which are related with mobile version of websites (2020) | Institutional Repository of National University of Food Technologies | sem
+- Migrating Literature: Reading Geling Yan’s The Banquet Bug and its Chinese Translations (2014) | Meta Journal des traducteurs | 10.7202/1024176ar
+- Troubleshooting interactive complexity bugs in wireless sensor networks using data mining techniques (2014) | ACM Transactions on Sensor Networks | 10.1145/2530290
+- Agile Testing Automation Framework (2016) | International Journal Of Engineering And Computer Science | 10.18535/ijecs/v5i9.35
+- Qihe: A General-Purpose Static Analysis Framework for Verilog (2026) | arXiv (Cornell University) | 10.48550/arxiv.2601.11408
+- SISTEM PENDUKUNG KEPUTUSAN PEMILIHAN FRAMEWORK WEB MENGGUNAKAN METODE WEIGHTED PRODUCT (2026) | Rabit Jurnal Teknologi dan Sistem Informasi Univrab | 10.36341/rabit.v11i1.6610
+- Symbooglix: A Symbolic Execution Engine for Boogie Programs (2016) | IEEE International Conference on Software Testing, Verification and Validation (ICST) | 10.1109/icst.2016.11
+- ISAAC: Intelligent, Scalable, Agile, and Accelerated CPU Verification via LLM-aided FPGA Parallelism (2025) | arXiv (Cornell University) | 10.48550/arxiv.2510.10225
+- React-tRace: A Semantics for Understanding React Hooks: An Operational Semantics and a Visualizer for Clarifying React Hooks (2025) | Proceedings of the ACM on Programming Languages | 10.1145/3763067
+- All Green, Still Broken: Real-Flow Verification Lessons from an LLM-Integrated, Multi-Market Web Application (2026) | arXiv (Cornell University) | 10.48550/arxiv.2606.22475
+- Desarrollo de aplicación web con integración de sistema de control versiones y librerías de edición musical, para la creación de pistas musicales de forma grupal (2016) | None | sem
+- Mobile Testing (2013) | ACM SIGSOFT Software Engineering Notes | 10.1145/2532780.2532813
+- How to Build Static Checking Systems Using Orders of Magnitude Less Code (2016) | ACM SIGPLAN Notices | 10.1145/2954679.2872364
+- Making TransactionIsolation Checking Practical (2026) | arXiv (Cornell University) | 10.48550/arxiv.2604.20587
+- The Purchase Gym App (2026) | SUNY Digital Repository Support (State University of New York System) | sem
+- How to Build Static Checking Systems Using Orders of Magnitude Less Code (2016) | ACM SIGARCH Computer Architecture News | 10.1145/2980024.2872364
+- Implementation of business logic for Legato Sapient (2021) | Institutional Repository University of Antioquia (University of Antioquia) | sem
+- GoGoTB: Agentic RTL Verification with Specification-Grounded Coverage Closure (2026) | arXiv (Cornell University) | 10.48550/arxiv.2607.26181
+- Using conditional trace slicing for improving Maude programs (2013) | Science of Computer Programming | 10.1016/j.scico.2013.09.018
+- Aplikasi E-Learning Berbasis Android sebagai Media Pembelajaran Bahasa Pemrograman (2023) | JURNAL KRIDATAMA SAINS DAN TEKNOLOGI | 10.53863/kst.v5i01.720
+- Integrated Emergency and Trauma Response using EmKen Medical Web Application (2023) | Iconic Research and Engineering Journals | 10.64388/irev7i5-1723445
+- EMKEN: A MEDICAL WEB APPLICATION FOR INTEGRATED EMERGENCY AND TRAUMA RESPONSE (2025) | International Journal of Engineering Applied Sciences and Technology | 10.33564/ijeast.2025.v10i07.002
+- An LLM-powered Approach to Obfuscation and Testing (2026) | None | 10.26153/tsw/64370
+- Mutode: generic JavaScript and Node.js mutation testing tool (2018) | ACM SIGSOFT International Symposium on Software Testing and Analysis (ISSTA) | 10.1145/3213846.3229504
+- The Adoption of Component-Based Architecture in the Development of E-Learning Website Interface (2022) | International Conference on Software Engineering and Information Technology (ICoSEIT) | 10.1109/icoseit55604.2022.10030066
+- Process trees & service chains can serve us to mitigate zero day attacks better (2017) | None | 10.1109/icdmai.2017.8073525
+- Replication Package for "Look Back Before You Bisect: A Risk-Aware Approach for Efficient Bisection" (2026) | Zenodo (CERN European Organization for Nuclear Research) | 10.5281/zenodo.19363203
+
+## Consulta 'useEffect': 16
+
+`python3 ~/.claude/skills/escrita-academica/scripts/buscar_literatura.py buscar "useEffect" --desde 2013 --n 30`
+
+OpenAlex: Busca: 'useEffect' — 16 resultados no OpenAlex (mostrando 16, ordem: relevancia)
+
+- РЕАЛИЗАЦИИ ЛОГИКИ В USESTATE И USEEFFECT В ВЭБ ПРИЛОЖЕНИИ (2023) | Известия Чеченского государственного университета | 10.36684/12-2023-30-2-13-17
+- Useeffect of Body Mass Index on in Vitro Fertilization/Intra-Cytoplasmic Sperm Injection Outcome in Egyptian Women with Polycystic Ovary Syndrome (2017) | Evidence Based Women s Health Journal | 10.21608/ebwhj.2017.3224
+- Интеграция Яндекс.Карт в веб-приложении на React/TypeScript (2025) | Постулат | sem
+- React's Evolution and the Paradigm Shift of Hooks in Modern Web Development (2019) | Turkish Journal of Computer and Mathematics Education (TURCOMAT) | 10.61841/turcomat.v10i1.15127
+- To Query or Not to Query: Design Decisions and Practice Insights for React Server-State Management (2026) | Gesellschaft für Informatik (GI) | 10.18420/akwi2026_06
+- T-Rex Cactus Game + AI Bribery Integration (React App.js) (2026) | Zenodo (CERN European Organization for Nuclear Research) | 10.5281/zenodo.22018242
+- Technical Design and Performance Analysis of Centralized Product Catalog Management in Large Scale Telecommunication Systems: Turkcell CPCM Case (2025) | International Artificial Intelligence and Data Processing Symposium (IDAP) | 10.1109/idap68205.2025.11222358
+- Frontend development of system for car platform (2026) | Harokopio University | 10.26258/heal.hua.7687
+- Corrigendum to ‘Preoperative opioid use: a modifiable risk factor for poor postoperative outcomes’ (Br J Anaesth 2021; 127: 327-31) (2021) | British Journal of Anaesthesia | 10.1016/j.bja.2021.09.009
+- FuncLexa: An AI-Powered Web-Based Virtual Assistant Platform (2026) | Zenodo (CERN European Organization for Nuclear Research) | 10.5281/zenodo.18495411
+- Quantum Gravity FatherTimeSDKP (2026) | Zenodo (CERN European Organization for Nuclear Research) | 10.5281/zenodo.20112461
+- Quantum Gravity, FatherTimeSDKP (2026) | Zenodo (CERN European Organization for Nuclear Research) | 10.5281/zenodo.20112459
+- healthyregions/chi-air: v2.0 (2026) | Zenodo (CERN European Organization for Nuclear Research) | 10.5281/zenodo.22663590
+- Earthquake Prediction Model - Motohov Industries (2026) | Zenodo (CERN European Organization for Nuclear Research) | 10.5281/zenodo.22110141
+- Stone Set: React-Like HTML (2026) | Zenodo (CERN European Organization for Nuclear Research) | 10.5281/zenodo.19362921
+- Preoperative opioid use: a modifiable risk factor for poor postoperative outcomes (2021) | British Journal of Anaesthesia | 10.1016/j.bja.2021.04.017
+
+## Consulta 'React state management': 30
+
+`python3 ~/.claude/skills/escrita-academica/scripts/buscar_literatura.py buscar "React state management" --desde 2013 --n 30`
+
+OpenAlex: Busca: 'React state management' — 2268 resultados no OpenAlex (mostrando 30, ordem: relevancia)
+
+- Measuring the Cost of State: A Controlled Benchmark of Seven React State Management Libraries in Table-Based Dashboards (2026) | Zenodo (CERN European Organization for Nuclear Research) | 10.5281/zenodo.19462715
+- State management with React-Redux (2020) | Theseus (Ammattikorkeakoulujen) | sem
+- Analysis of state management in React (2023) | Cvut DSpace (Czech Technical University) | sem
+- React - Uniform management of state and time (2018) | Theseus (Ammattikorkeakoulujen) | sem
+- A Comprehensive Study on State Management Patterns of React (2023) | International Conference on Applied Physics and Computing (ICAPC) | 10.1109/icapc61546.2023.00150
+- State Management in React: Redux vs Zustand - A Comprehensive Guide (2024) | International Journal of Scientific Research in Computer Science Engineering and Information Technology | 10.32628/cseit24106172
+- Impact of state management solutions on react application structure (2026) | Tampere University Institutional Repository (Tampere University) | sem
+- Web Application State Management: A Review of Leading React Frameworks (2025) | IEEE Software | 10.1109/ms.2025.3621269
+- Characteristics and comparison of global state management tools in react applications (2025) | ACTA GRAPHICA Journal for Printing Science and Graphic Communications | 10.25027/ag.33.1.3
+- STATE MANAGEMENT IN LARGE-SCALE REACT APPLICATIONS: A COMPREHENSIVE ANALYSIS (2025) | INTERNATIONAL JOURNAL OF ADVANCED RESEARCH IN ENGINEERING & TECHNOLOGY | 10.34218/ijaret_16_02_007
+- Optimizing React Hooks for Efficient State and Side-Effect Management (2022) | American International Journal of Computer Science and Technology | 10.63282/3117-5481/aijcst-v4i6p105
+- Eksperimen Penerapan React Context dan Redux Sebagai State Management Pada Framework React-JS (2024) | Jurnal Pengembangan Teknologi dan Ilmu Komputer | sem
+- To Query or Not to Query: Design Decisions and Practice Insights for React Server-State Management (2026) | Gesellschaft für Informatik (GI) | 10.18420/akwi2026_06
+- Laufzeitperformance-Vergleich verschiedener State-Management-Ansätze anhand eines Proof-of-Concept in React (2024) | LIBDOC - Westsächsische Hochschule Zwickau | sem
+- State Management of API Web Service using Redux on React Native App (2021) | International Conference on Applied Science and Technology on Engineering Science (iCAST-ES) | 10.5220/0010966700003260
+- Design and Feasibility Evaluation of Redux Toolkit-Based State Management in a React Reservation Prototype (CoSpace) (2026) | International Journal Software Engineering and Computer Science (IJSECS) | 10.35870/ijsecs.v6i1.7046
+- DartDraw: The Design and Implementation of Global State Management, User Interaction Management, and Text in a React-Redux Drawing Application (2018) | None | sem
+- Analisis Performa State Management Library Redux Toolkit Dan Recoil Pada Aplikasi Manajemen Sumber Daya Manusia Menggunakan Library React (2024) | Jurnal Pengembangan Teknologi dan Ilmu Komputer | sem
+- React das umfassende Handbuch : Für Einsteiger und Fortgeschrittene : Komponentenarchitektur, Hooks, State-Management und Formulargestaltung : Tests, Performance, Routing, Server Side Rendering mit Next.js, Authentifizierung, KI-Applikationen u. v. m. (2026) | None | sem
+- Organizational change and psychological reactance (2013) | Journal of Organizational Change Management | 10.1108/09534811311328588
+- Introduction to State Management (2023) | Apress eBooks | 10.1007/978-1-4842-9648-6_9
+- Utilizing Audiovisual and Gain-Framed Messages to Attenuate Psychological Reactance Toward Weight Management Health Messages (2016) | Health Communication | 10.1080/10410236.2015.1099506
+- Capture the lifecycle: KV Cache management in ReAct Agents with KVTether (2026) | arXiv (Cornell University) | 10.48550/arxiv.2609.39819
+- Elastic Business Process Management: State of the art and open challenges for BPM in the cloud (2014) | Future Generation Computer Systems | 10.1016/j.future.2014.09.005
+- State Management (2021) | Apress eBooks | 10.1007/978-1-4842-6696-0_5
+- Live free and die: Expanding the terror management health model for pandemics to account for psychological reactance (2021) | Social and Personality Psychology Compass | 10.1111/spc3.12585
+- Javascript vs jQuery and React in web development (2020) | Theseus (Ammattikorkeakoulujen) | sem
+- Integrating State Management (2021) | Apress eBooks | 10.1007/978-1-4842-7052-3_5
+- Reacting to Global Forces: Information Management and the Case of the F-35S (2014) | uO Research (University of Ottawa) | sem
+- Storage Portal : A React-Redux Web Application utilizing Polarion for Test Data Management (2020) | Theseus (Ammattikorkeakoulujen) | sem
+
+## Consulta 'virtual DOM programming model': 12
+
+`python3 ~/.claude/skills/escrita-academica/scripts/buscar_literatura.py buscar "virtual DOM programming model" --desde 2013 --n 30`
+
+OpenAlex: Busca: 'virtual DOM programming model' — 12 resultados no OpenAlex (mostrando 12, ordem: relevancia)
+
+- The Performance Analysis of Web Applications Based on Virtual DOM and Reactive User Interfaces (2018) | Advances in intelligent systems and computing | 10.1007/978-3-319-99617-2_8
+- JavaScript DOM Manipulation Performance : Comparing Vanilla JavaScript and Leading JavaScript Front-end Frameworks (2020) | KTH Publication Database DiVA (KTH Royal Institute of Technology) | sem
+- Interactive 3D Visualization and Dissemination of UAV-SfM Models for Virtual Outcrop Geology (2020) | None | 10.1002/essoar.10502650.1
+- Virtual geological road in Cheremosh river valley, Outer Ukrainian Carpathians (2022) | None | 10.5194/egusphere-egu22-197
+- TVB-EduPack � An interactive learning and scripting platform for The Virtual Brain (2015) | Frontiers in Neuroscience | 10.3389/conf.fnins.2015.91.00046
+- SymJS: automatic symbolic testing of JavaScript web applications (2014) | ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (ESEC/FSE) | 10.1145/2635868.2635913
+- React JS: A Comprehensive Study of an Open-Source JavaScript Library for Building Modern User Interfaces (2026) | International Journal of Computer Information Systems and Industrial Management Applications | 10.70917/ijcisim-2026-4176
+- Dual-scale 3-D approach for modeling radiative heat transfer in fibrous insulations (2013) | International Journal of Heat and Mass Transfer | 10.1016/j.ijheatmasstransfer.2013.05.047
+- Software extract data from word-based documents situationally-oriented approach (2021) | Journal Of Applied Informatics | 10.37791/2687-0649-2021-16-6-66-83
+- REGULATION OF ARTIFICIAL INTELLIGENCE IN UKRAINE: ASPECTS OF PUBLIC MANAGEMENT (2025) | Public management and digital practices | 10.31673/2786-7412.2025.013854
+- Comparative Analysis of Authoritative and Democratic Leadership Styles and Their Impact on School Management Effectiveness (2025) | Inverge Journal of Social Sciences | 10.63544/ijss.v4i2.132
+- Index (2017) | Emerald Group Publishing Limited eBooks | 10.1108/s1571-502720170000030015
+
+## Consulta 'stale closure': 30
+
+`python3 ~/.claude/skills/escrita-academica/scripts/buscar_literatura.py buscar "stale closure" --desde 2013 --n 30`
+
+OpenAlex: Busca: 'stale closure' — 101 resultados no OpenAlex (mostrando 30, ordem: relevancia)
+
+- Stale by design: pricing tokenized gold against a stale reference price (2026) | SSRN Electronic Journal | 10.2139/ssrn.7030633
+- Stale by design: pricing tokenized gold against a stale reference price (2026) | SSRN Electronic Journal | 10.2139/ssrn.7174537
+- Practical Technological Stability Closure Theory (3/5): Implementation-Side Closure Beyond Intervention Admissibility (2026) | Zenodo (CERN European Organization for Nuclear Research) | 10.5281/zenodo.19728568
+- Chip City closure: verify live listings before you commit (2026) | Zenodo (CERN European Organization for Nuclear Research) | 10.5281/zenodo.23312004
+- Boundary‑Readable Trace and Absorber‑Informed Closure (2026) | Zenodo (CERN European Organization for Nuclear Research) | 10.5281/zenodo.21008316
+- Prime-Power Reciprocal Closure and a Verified Logarithmic Communication Protocol in Lean 4 (2026) | Zenodo (CERN European Organization for Nuclear Research) | 10.5281/zenodo.22134759
+- You are what you eat : On social closure, boa constrictors, and professional change (2015) | None | sem
+- Authorization Closure Graph: Minimal Repair for LLM Agents with Evolving User Instructions (2026) | arXiv (Cornell University) | 10.48550/arxiv.2609.32428
+- SΔϕ-35 — Minimal Closure Criteria for AGI: A Δϕ-Based Judgment Framework (v1.1) (2026) | Zenodo (CERN European Organization for Nuclear Research) | 10.5281/zenodo.18865540
+- Decision-Closure Invariants in LLM Reasoning: CFC Anchor Behavioral Pilot Series (2026) | Zenodo (CERN European Organization for Nuclear Research) | 10.5281/zenodo.21966516
+- BOUNDARY: From Finite Distinction Closure to a Living Future Architecture — A Scientific Framework for Recoverability-Constrained Systems Under Uncertainty (2026) | Zenodo (CERN European Organization for Nuclear Research) | 10.5281/zenodo.22907036
+- From Dialectical Closure to ParallacticalIndeterminacy: A Study of the Political and Individual Modes of Being in Slavoj Zizek’s Antigone (2021) | Journal of Critical Inquiry | 10.52015/numljci.v17iii.144
+- Typed Two-Mode Scratchpad Operator: Constitution, Authority Firewalls, Stateful Lineage, Crash Recovery, and Consensus Boundary — BIT-SCRATCHPAD-OPERATOR-001 F0–R5 Closure (2026) | Zenodo (CERN European Organization for Nuclear Research) | 10.5281/zenodo.23054622
+- Lingering Authority: Revocable Resource-and-Effect Capabilities for Coding Agents (2026) | arXiv (Cornell University) | 10.48550/arxiv.2606.22504
+- Daric: A Storage Efficient Payment Channel With Penalization Mechanism (2022) | IEEE/IFIP International Conference on Dependable Systems and Networks - Supplemental Volume (DSN-S) | 10.1109/dsn-s54099.2022.00029
+- Computing Least Fixed Points with Overwrite Semantics in Parallel and Distributed Systems (2026) | arXiv (Cornell University) | 10.48550/arxiv.2602.10486
+- Can Agentic Memory Track Changing Beliefs? A Benchmark for Temporal Belief Reconstruction (2026) | Zenodo (CERN European Organization for Nuclear Research) | 10.5281/zenodo.20130102
+- Deliberation and Resolution on Wikipedia (2018) | Proceedings of the ACM on Human-Computer Interaction | 10.1145/3274343
+- BU243 Traceable Memory and Reality-Feedback Closure under B_U BU243|B_U 体系下的可追踪记忆与现实反馈闭环 Memory Observability, Attribution, Repair, Privacy Boundary, Event Lineage, and Settlement-Gated Retention 记忆可观测性、归因、修复、隐私边界、事件谱系与结算门控型保留 (2026) | Zenodo (CERN European Organization for Nuclear Research) | 10.5281/zenodo.21071984
+- Incorporating Follower-Initiated Dynamics Within Adaptive Beaconing for Platooning Safety (2026) | Lecture notes in computer science | 10.1007/978-3-032-29105-9_7
+- CFC Cross-Model Benchmark v1: Claude and Gemini Evaluation (600 Primary Runs) (2026) | Zenodo (CERN European Organization for Nuclear Research) | 10.5281/zenodo.22117670
+- Price Discovery at the Boundary of Contractual Decidability: Terminal-value Gaps, Trading Availability, and Venue Finality on Kalshi (2026) | SSRN Electronic Journal | 10.2139/ssrn.7421318
+- Correct Is Not Governed: Provenance Integrity in Agentic Workflows (2026) | arXiv (Cornell University) | 10.48550/arxiv.2608.12761
+- Post-War Documentary (2015) | Palgrave Macmillan UK eBooks | 10.1057/9780230392878_5
+- The Minimum Net-Positive Fusion Unit: A Boundary Problem for Fusion Architecture (2026) | Zenodo (CERN European Organization for Nuclear Research) | 10.5281/zenodo.22059891
+- Model-output data for: Reducing health and climate impacts of the global food system (2026) | Zenodo (CERN European Organization for Nuclear Research) | 10.5281/zenodo.20617941
+- rfc.sql (2018) | Figshare | 10.6084/m9.figshare.7038575
+- Development of polymeric dressings for advanced wound care based on bacterial cellulose and Fu- coPol (2025) | Portuguese National Funding Agency for Science, Research and Technology (RCAAP Project by FCT) | sem
+- LivePose: Online 3D Reconstruction from Monocular Video with Dynamic Camera Poses (2023) | IEEE/CVF International Conference on Computer Vision (ICCV) | 10.1109/iccv51070.2023.00728
+- Continuous Risk-Based Scheduling for Food Safety Inspection: Integrating Historical Decay with Event-Driven Consumer Review Signals (2026) | arXiv (Cornell University) | 10.48550/arxiv.2610.15191
+
+## Consulta 'React hooks': 30
+
+`python3 ~/.claude/skills/escrita-academica/scripts/buscar_literatura.py buscar "React hooks" --desde 2013 --n 30`
+
+OpenAlex: Busca: 'React hooks' — 303 resultados no OpenAlex (mostrando 30, ordem: relevancia)
+
+- React-tRace: A Semantics for Understanding React Hooks: An Operational Semantics and a Visualizer for Clarifying React Hooks (2025) | Proceedings of the ACM on Programming Languages | 10.1145/3763067
+- React Hook Form (2025) | Apress pocket guides. | 10.1007/979-8-8688-1224-8_2
+- React Hook Form Basics (2025) | Apress pocket guides. | 10.1007/979-8-8688-1224-8_3
+- A Semantically Grounded Visualization of React Hooks (2026) | KiltHub Repository | 10.1184/r1/31816744
+- Day 4: Mastering React Hooks (2023) | Apress eBooks | 10.1007/978-1-4842-9855-8_4
+- Making Forms with React Hook Form (2025) | Apress pocket guides. | 10.1007/979-8-8688-1224-8_4
+- HookLens: Visual Analytics for Understanding React Hooks Structures (2026) | arXiv (Cornell University) | sem
+- HookLens: Visual Analytics for Understanding React Hooks Structures (2026) | arXiv (Cornell University) | 10.48550/arxiv.2602.17891
+- Optimizing React Hooks for Efficient State and Side-Effect Management (2022) | American International Journal of Computer Science and Technology | 10.63282/3117-5481/aijcst-v4i6p105
+- HookLens: Visual Analytics for Understanding React Hooks Structures (2026) | IEEE Pacific Visualization Conference (PacificVis) | 10.1109/pacificvis68791.2026.00036
+- Converting Class Components to Functions Using React-Hooks — Developer Guidelines (2022) | Jönköping University Publications (Jönköping University) | sem
+- Performance Comparison Between Development Approaches in React: Hooks, Functional and Classes (2020) | Journal of Computer Science Engineering and Software Testing | 10.46610/jocses.2020.v06i03.001
+- Learn react hooks unlock scalable state, performance, and clean code with hooks, context, suspense, and form actions, second edition (2025) | None | sem
+- Hook into React (2022) | Apress eBooks | 10.1007/978-1-4842-8294-6_8
+- Reacting to the Sandy Hook Elementary School Shooting (2013) | PsycEXTRA Dataset | 10.1037/e513042013-003
+- Performance Analysis of Hooks Functionality in React and Vue Frameworks (2022) | International Conference on Information Management and Technology (ICIMTech) | 10.1109/icimtech55957.2022.9915183
+- ROS-React: A Framework for Dynamic, Over-the-Air Reconfigurable Robot Behavior Trees via React Native Hooks (2025) | Research Square | 10.21203/rs.3.rs-7935527/v1
+- Acting, not Reacting, to Prevent Violence: Sandy Hook Reminds Us to Focus on One Patient, One Family at a Time (2013) | Journal of Psychosocial Nursing and Mental Health Services | 10.3928/02793695-20121219-10
+- Introducing Hooks (2022) | None | 10.1002/9781119685630.ch11
+- React das umfassende Handbuch : Für Einsteiger und Fortgeschrittene : Komponentenarchitektur, Hooks, State-Management und Formulargestaltung : Tests, Performance, Routing, Server Side Rendering mit Next.js, Authentifizierung, KI-Applikationen u. v. m. (2026) | None | sem
+- Web Forms with React (2025) | Apress pocket guides. | 10.1007/979-8-8688-1224-8
+- REACT (2016) | ACM SIGMOD International Conference on Management of Data (SIGMOD) | 10.1145/2882903.2899392
+- Structure and chemistry of lysinoalanine crosslinking in the spirochaete flagella hook (2019) | Nature Chemical Biology | 10.1038/s41589-019-0341-3
+- React DevTools (2022) | None | 10.1002/9781119685630.ch5
+- Lifecycle Methods and Hooks (2025) | Apress eBooks | 10.1007/979-8-8688-1318-4_9
+- Proposing React Performance Optimization – Enhancing User Experience with Efficient Rendering Techniques (2025) | INTERANTIONAL JOURNAL OF SCIENTIFIC RESEARCH IN ENGINEERING AND MANAGEMENT | 10.55041/ijsrem53880
+- REACT JS - A JAVASCRIPT LIBRARY (2024) | International Research Journal of Modernization in Engineering Technology and Science | 10.56726/irjmets52186
+- React's Evolution and the Paradigm Shift of Hooks in Modern Web Development (2019) | Turkish Journal of Computer and Mathematics Education (TURCOMAT) | 10.61841/turcomat.v10i1.15127
+- A Semantics for the Essence of React (2020) | DROPS (Schloss Dagstuhl – Leibniz Center for Informatics) | 10.4230/lipics.ecoop.2020.12
+- Practical application of advanced React Native concepts (2019) | Theseus (Ammattikorkeakoulujen) | sem
+
+## Consulta 'React code smells': 25
+
+`python3 ~/.claude/skills/escrita-academica/scripts/buscar_literatura.py buscar "React code smells" --desde 2013 --n 25`
+
+OpenAlex: Busca: 'React code smells' — 46 resultados no OpenAlex (mostrando 25, ordem: relevancia)
+
+- Comparing Different Techniques for Automatic Detection and Correction of React Code Smells (2025) | SSRN Electronic Journal | 10.2139/ssrn.5251648
+- Detecting code smells in React-based Web apps (2022) | Information and Software Technology | 10.1016/j.infsof.2022.107111
+- Code Smells in React Projects of a Junior Enterprise (2026) | Zenodo (CERN European Organization for Nuclear Research) | 10.5281/zenodo.21300839
+- Code Smells in React Projects of a Junior Enterprise (2026) | Zenodo (CERN European Organization for Nuclear Research) | 10.5281/zenodo.21853870
+- Detecting Code Smells in React-based Web Apps (2022) | Zenodo (CERN European Organization for Nuclear Research) | 10.5281/zenodo.6460775
+- Detecting Code Smells in React-based Web Apps (2022) | Zenodo (CERN European Organization for Nuclear Research) | 10.5281/zenodo.6460777
+- Detecting Code Smells in React-based Web Systems (2021) | Figshare | 10.5281/zenodo.5048311
+- Detecting Code Smells in React-based Web Systems (2021) | Zenodo (CERN European Organization for Nuclear Research) | 10.5281/zenodo.5052908
+- Detecting Code Smells in React-based Web Apps (2021) | Zenodo (CERN European Organization for Nuclear Research) | 10.5281/zenodo.5591047
+- victorpbp/TCC-Code-Smells-em-React-por-Estudantes: Release (2025) | Zenodo (CERN European Organization for Nuclear Research) | 10.5281/zenodo.17727774
+- Assisting JavaScript Front-End Developers in Maintaining and Evolving React-Based Applications: Code Smells and Refactoring Operations (2023) | LA Referencia (Red Federada de Repositorios Institucionales de Publicaciones Científicas) | sem
+- A catalog and a detection tool for performance bad Smells in react systems (2023) | LA Referencia (Red Federada de Repositorios Institucionales de Publicaciones Científicas) | sem
+- Towards an Automated Approach to Detect Code Smells in ReScript (2025) | None | 10.5753/se4fp.2025.14841
+- An Empirical Evaluation of Code Smell Detection in Angular Applications (2026) | arXiv (Cornell University) | 10.48550/arxiv.2604.27893
+- Towards a Lean Approach to Reduce Code Smells Injection: An Empirical Study (2016) | Lecture notes in business information processing | 10.1007/978-3-319-33515-5_30
+- Investigating Developer Perception on Test Smells Using Better Code Hub : work in progress (2019) | UvA-DARE (University of Amsterdam) | sem
+- Towards Unmasking LGTM Smells in Code Reviews: A Comparative Study of Comment-Free and Commented Reviews (2024) | OSF Preprints (OSF Preprints) | sem
+- Automated Code Smell Detection for Software Quality Assurance Using a Web-Based Machine Learning Framework (2025) | Research Square | 10.21203/rs.3.rs-6474801/v1
+- Replication Package of Beyond Lines of Code: Probing the Latent Representation of Magnitude-Based Code Smells in Large Language Models (2026) | Figshare | 10.6084/m9.figshare.31859158
+- Refactoring React Component Hierarchies to Eliminate Prop Drilling (2026) | arXiv (Cornell University) | 10.48550/arxiv.2610.01376
+- Dress and Natural [Neural] Codes (2017) | Routledge eBooks | 10.4324/9781315206325-6
+- A Comparison Between Angular and React Native Frameworks Used in the Development of the MIES_APP Mobile Application (2024) | Smart innovation, systems and technologies | 10.1007/978-981-97-5799-2_30
+- Smells like trouble: β-ocimene primes plant defenses through chromatin remodeling (2022) | PLANT PHYSIOLOGY | 10.1093/plphys/kiac109
+- Author response: Efficient coding in biophysically realistic excitatory-inhibitory spiking networks (2025) | None | 10.7554/elife.99545.4.sa4
+- Reviewer #1 (Public review): Efficient coding in biophysically realistic excitatory-inhibitory spiking networks (2025) | None | 10.7554/elife.99545.4.sa1
+
+## Consulta 'React anti-patterns': 25
+
+`python3 ~/.claude/skills/escrita-academica/scripts/buscar_literatura.py buscar "React anti-patterns" --desde 2013 --n 25`
+
+OpenAlex: Busca: 'React anti-patterns' — 723 resultados no OpenAlex (mostrando 25, ordem: relevancia)
+
+- Automated Detection of Architectural Anti-Patterns in React Applications Using Static Analysis (2026) | ResearchWorks at the University of Washington (University of Washington) | sem
+- Anti-Viral Pattern Recognition Receptors as Therapeutic Targets (2021) | Cells | 10.3390/cells10092258
+- How scientific research reacts to international public health emergencies: a global analysis of response patterns (2020) | Scientometrics | 10.1007/s11192-020-03531-4
+- Dying cells expose a nuclear antigen cross-reacting with anti-PD-1 monoclonal antibodies (2018) | Scientific Reports | 10.1038/s41598-018-27125-6
+- Towards a TDD maturity model through an anti-patterns framework (2023) | Iberian Conference on Information Systems and Technologies (CISTI) | 10.23919/cisti58278.2023.10211890
+- Pathogenicity of Lupus Anti–Ribosomal P Antibodies: Role of Cross‐Reacting Neuronal Surface P Antigen in Glutamatergic Transmission and Plasticity in a Mouse Model (2015) | Arthritis & Rheumatology | 10.1002/art.39081
+- Autonomy Is the Failure: The LLM-as-Autonomous-Agent Anti-Pattern in the Coordination Knowledge Substrate Pattern (2026) | Zenodo (CERN European Organization for Nuclear Research) | 10.5281/zenodo.20056586
+- A phosphorylation pattern-recognizing antibody specifically reacts to RNA polymerase II bound to exons (2016) | Experimental & Molecular Medicine | 10.1038/emm.2016.101
+- Interaction between coherent and turbulent oscillations in non-reacting and reacting wake flows (2023) | Journal of Fluid Mechanics | 10.1017/jfm.2023.321
+- Zeroth-Order Serpentine Antenna With Omnidirectional Radiation Pattern for Anti-Metal Tag Antenna Design (2024) | IEEE Journal of Radio Frequency Identification | 10.1109/jrfid.2024.3376333
+- Reference standards for the detection of anti-mitochondrial and anti-rods/rings autoantibodies (2018) | Clinical Chemistry and Laboratory Medicine (CCLM) | 10.1515/cclm-2017-1152
+- Situation and Personality Effects on Smokers’ Psychological Reactance (2016) | International Journal of Indian Psychology | 10.25215/0302.166
+- Communicating the UX Vision: 13 Anti-Patterns That Block Good Ideas (2015) | None | sem
+- Situational and personality effects on smokers’ psychological reactance (2016) | International Journal of Pharmaceutical and Healthcare Marketing | 10.1108/ijphm-10-2015-0052
+- HookLens: Visual Analytics for Understanding React Hooks Structures (2026) | arXiv (Cornell University) | 10.48550/arxiv.2602.17891
+- HookLens: Visual Analytics for Understanding React Hooks Structures (2026) | arXiv (Cornell University) | sem
+- Characterization of forced response of density stratified reacting wake (2018) | Chaos An Interdisciplinary Journal of Nonlinear Science | 10.1063/1.5006453
+- Anti-FGFR3 antibody epitopes are functional sites and correlate with the neuropathy pattern (2021) | Journal of Neuroimmunology | 10.1016/j.jneuroim.2021.577757
+- Anti-dengue IgG1 (2017) | Nature Immunology | 10.1038/ni.3701
+- Revisiting the effects of an inoculation treatment on psychological reactance: a conceptual replication and extension with self-report and psychophysiological measures (2022) | Human Communication Research | 10.1093/hcr/hqac026
+- Behavioral and neural effects of intra-striatal infusion of anti-streptococcal antibodies in rats (2014) | Brain Behavior and Immunity | 10.1016/j.bbi.2014.02.009
+- The clinical presentation and therapy of diseases related to anti-neutrophil cytoplasmic antibodies (ANCA) (2016) | Autoimmunity Reviews | 10.1016/j.autrev.2016.07.016
+- The Discovery of Anti-Yo (Anti-PCA1) Antibody in Patients with Paraneoplastic Cerebellar Degeneration: Opening a Window into Autoimmune Neurological Disease (2022) | The Cerebellum | 10.1007/s12311-022-01446-9
+- Isolated anti-Ro52 identifies a severe subset of Sjögren’s syndrome patients (2023) | Frontiers in Immunology | 10.3389/fimmu.2023.1115548
+- Anti-cytoplasmic Autoantibodies in Hodgkin's Lymphoma (2016) | Clinical Laboratory | 10.7754/clin.lab.2016.160116
+
+## Consulta 'Stack Overflow front-end frameworks': 6
+
+`python3 ~/.claude/skills/escrita-academica/scripts/buscar_literatura.py buscar "Stack Overflow front-end frameworks" --desde 2013 --n 25`
+
+OpenAlex: Busca: 'Stack Overflow front-end frameworks' — 6 resultados no OpenAlex (mostrando 6, ordem: relevancia)
+
+- Ember.js front-end framework – SEO challenges and frameworks comparison (2015) | Theseus (Ammattikorkeakoulujen) | sem
+- Barriers in Front-End Web Development (2022) | Proceedings/Proceedings -- IEEE Symposium on Visual Languages and Human-Centric Computing | 10.1109/vl/hcc53370.2022.9833127
+- Criterios para la selección de frameworks CSS de diseño front-end (2026) | Zenodo (CERN European Organization for Nuclear Research) | 10.5281/zenodo.19596190
+- SISTEM PENDUKUNG KEPUTUSAN PEMILIHAN FRAMEWORK WEB MENGGUNAKAN METODE WEIGHTED PRODUCT (2026) | Rabit Jurnal Teknologi dan Sistem Informasi Univrab | 10.36341/rabit.v11i1.6610
+- RadioStream: A Wideband Multi-Antenna SDR Platform (2026) | ACM Annual International Conference on Mobile Computing and Networking (MobiCom) | 10.1145/3795866.3844452
+- Features of a dream programming language: 2nd draft (2022) | None | 10.22541/au.164510374.48530005/v1
+
+## Consulta 'JavaScript frameworks developers challenges': 25
+
+`python3 ~/.claude/skills/escrita-academica/scripts/buscar_literatura.py buscar "JavaScript frameworks developers challenges" --desde 2013 --n 25`
+
+OpenAlex: Busca: 'JavaScript frameworks developers challenges' — 129 resultados no OpenAlex (mostrando 25, ordem: relevancia)
+
+- Modern JavaScript Frameworks and JavaScripts Future as a Full- Stack Programming Language (2023) | Journal of Artificial Intelligence & Cloud Computing | 10.47363/jaicc/2023(2)144
+- Elysia: Optimizing JavaScript Web Framework (2024) | ACM Symposium on Applied Computing | 10.1145/3605098.3636068
+- Mutation-Based Deep Learning Framework Testing Method in JavaScript Environment (2024) | IEEE/ACM International Conference on Automated Software Engineering (ASE) | 10.1145/3691620.3695478
+- Open source libraries and frameworks for biological data visualisation: A guide for developers (2014) | PROTEOMICS | 10.1002/pmic.201400377
+- An extensible approach for taming the challenges of JavaScript dead code elimination (2018) | IEEE International Conference on Software Analysis, Evolution and Reengineering (SANER) | 10.1109/saner.2018.8330226
+- Making JavaScript Learning More Interactive and Effective: A Comprehensive Literature Review and Framework Analysis (2026) | Zenodo (CERN European Organization for Nuclear Research) | 10.5281/zenodo.18357522
+- Client-Side Threats in SPAs: Modeling Security Risks in Popular JavaScript Framework (2025) | International Research Journal on Advanced Science Hub | 10.47392/irjash.2025.110
+- Managing Security Vulnerabilities Introduced by Dependencies in React.JS JavaScript Framework (2024) | IEEE International Conference on Software Analysis, Evolution and Reengineering - Companion (SANER-C) | 10.1109/saner-c62648.2024.00022
+- From one to hundreds: multi-licensing in the JavaScript ecosystem (2021) | Empirical Software Engineering | 10.1007/s10664-020-09936-2
+- Front end development for building automation systems using JavaScript Frameworks (2016) | LUTPub (LUT University) | sem
+- Implementing Data-Driven Testing in Java and JavaScript Using JSON and XML (2021) | International Journal For Multidisciplinary Research | 10.36948/ijfmr.2021.v03i06.6112
+- Semi-automated and Easily Interpretable Side-Channel Analysis for Modern JavaScript (2024) | Lecture notes in computer science | 10.1007/978-981-97-8016-7_2
+- Conversational AI in Enterprise Systems: Integration Strategies with JavaScript and Angular (2023) | Journal of Artificial Intelligence & Cloud Computing | 10.47363/jaicc/2023(2)498
+- The Role and Evolution of Frontend Developers in the Software Development Industry (2024) | Jurnal Syntax Admiration | 10.46799/jsa.v5i11.1852
+- Building Application Programming Interface (API) for Nigerian States Using Modern JavaScript Techniques (2026) | Science Forum (Journal of Pure and Applied Sciences) | sem
+- ПОРІВНЯННЯ JAVASCRIPT-ФРЕЙМВОРКІВ REACT, ANGULAR І VUE.JS У ДОСЛІДЖЕННІ ПРОДУКТИВНОСТІ ТА МАСШТАБОВАНОСТІ ВЕБ-ДОДАТКІВ (2025) | Herald of Khmelnytskyi National University Technical sciences | 10.31891/2307-5732-2025-359-103
+- Identifying Experts in Software Libraries and Frameworks Among GitHub Users (2019) | IEEE/ACM International Conference on Mining Software Repositories (MSR) | 10.1109/msr.2019.00054
+- The Role of Single Page Applications in Modern Web Development: Performance, Usability and Developer Productivity (2025) | Harokopio University | 10.26258/heal.hua.7479
+- Authentication and Authorization for the front-end web developer (2020) | Aaltodoc (Aalto University) | sem
+- An approach towards the development of Init Framework (2021) | Journal of Electrical Engineering, Electronics, Control and Computer Science | sem
+- Pemberdayaan Siswa SMK Kuningan Melalui Pelatihan Junior Web Developer Dalam Pengembangan Web (2024) | AMMA : Jurnal Pengabdian Masyarakat | sem
+- Identifying Experts in Software Libraries and Frameworks among GitHub Users (2019) | arXiv (Cornell University) | 10.48550/arxiv.1903.08113
+- Going native (or not): Five questions to ask mobile application developers (2013) | Australasian Medical Journal | 10.4066/amj.2013.1576
+- Hybrid Cross-Platform Application Framework for Mobile Devices (2018) | Transylvanian Review | sem
+- Comparative Analysis of UI Testing Frameworks for Web Applications (2019) | None | sem
+
+## Consulta 're-renders React': 25
+
+`python3 ~/.claude/skills/escrita-academica/scripts/buscar_literatura.py buscar "re-renders React" --desde 2013 --n 25`
+
+OpenAlex: Busca: 're-renders React' — 144 resultados no OpenAlex (mostrando 25, ordem: relevancia)
+
+- Optimizing re-rendering in web applications: problem analysis and a React-based solution (2025) | Management Information System and Devises | 10.30837/0135-1710.2025.184.090
+- Robust Client and Server State Synchronisation Framework For React Applications: react-state-sync (2023) | Conference proceedings - Canadian Conference on Electrical and Computer Engineering | 10.1109/ccece58730.2023.10289106
+- ANALISIS KINERJA RENDERING APLIKASI ANDROID REACT NATIVE DENGAN OPTIMASI MEMOIZATION (2026) | JATI (Jurnal Mahasiswa Teknik Informatika) | 10.36040/jati.v10i5.19233
+- React Compiler in Production: A Practical Guide to Adoption, Measurement & Safe Rollout (2026) | Zenodo (CERN European Organization for Nuclear Research) | 10.5281/zenodo.21675789
+- Measuring the Cost of State: A Controlled Benchmark of Seven React State Management Libraries in Table-Based Dashboards (2026) | Zenodo (CERN European Organization for Nuclear Research) | 10.5281/zenodo.19462715
+- React Native in 2026: Performance Tuning, New… By endurance Softwares (2026) | Zenodo (CERN European Organization for Nuclear Research) | 10.5281/zenodo.21935724
+- Optimizing React Hooks for Efficient State and Side-Effect Management (2022) | American International Journal of Computer Science and Technology | 10.63282/3117-5481/aijcst-v4i6p105
+- Proposing React Performance Optimization – Enhancing User Experience with Efficient Rendering Techniques (2025) | INTERANTIONAL JOURNAL OF SCIENTIFIC RESEARCH IN ENGINEERING AND MANAGEMENT | 10.55041/ijsrem53880
+- React Native in 2026: Performance Tuning, New Architecture, and a Release Strategy That Scales (2026) | Zenodo (CERN European Organization for Nuclear Research) | 10.5281/zenodo.21136810
+- Re-Living Motherhood: Vocalising Grief, Trauma and Loss in Butler’s Lilith’s Brood (2013) | BRILL eBooks | 10.1163/9781848881624_006
+- TEKNIK SINGLE PAGE APPLICATION (SPA) LAYOUT WEB DENGAN MENGGUNAKAN REACT JS DAN BOOTSTRAP (2021) | Jurnal Khatulistiwa Informatika | 10.31294/jki.v9i2.11357
+- Res(s)sent(i)ment: Concept, Signifier, and Reclaimability (2025) | Cultural Politics an International Journal | 10.1215/17432197-11720288
+- Competitive Nationalism vs. Cooperative Nationalism: Re-reading Rabindranath Tagore in Times of War (2018) | None | sem
+- Nano-Strand Formation via Gas Phase Reactions from Al-Co-Fe Reacted with CaF2-SiO2-Al2O3-MgO Flux at 1350 °C: SEM Study and Thermochemistry Calculations (2024) | Processes | 10.3390/pr12071342
+- Optimizing Performance (2025) | Apress eBooks | 10.1007/979-8-8688-1318-4_13
+- Autonomous and sustainable water systems management : integrating automated (re)calibration with transfer learning, temporal-aware reinforcement learning control, and explainable AI (2026) | Ghent University Academic Bibliography (Ghent University) | sem
+- Optimizing the productivity of solutions built with the help of ReactJS and D3 libraries (2024) | Bulletin of Kharkov National Automobile and Highway University | 10.30977/bul.2219-5548.2024.104.1.15
+- Thermal and drag reduction performance evaluation of a cavity-based scramjet combustor cooled by distributed hydrocarbon film (2024) | Applied Thermal Engineering | 10.1016/j.applthermaleng.2024.124981
+- Satire, History, and Ideology (2017) | Routledge eBooks | 10.4324/9781351181082-1
+- Rare earth/iron fluoride and methods for making and using same (2023) | OSTI OAI (U.S. Department of Energy Office of Scientific and Technical Information) | sem
+- The effect of coupled combustion reaction on conjugate heat transfer in boundary layer of a segregated oxidizer/fuel solid motor (2023) | International Journal of Thermal Sciences | 10.1016/j.ijthermalsci.2023.108526
+- Building C(sp3) Molecular Complexity on 2,2′‐Bipyridine and 1,10‐Phenanthroline in Rhenium Tricarbonyl Complexes (2020) | Chemistry - A European Journal | 10.1002/chem.202003814
+- The Speaking-Acting Individual and the Imaginary of The Social Field (2019) | Routledge eBooks | 10.4324/9781351145244-5
+- Reducing HTML cache footprint through tracking data optimization: Insights from eBay (2025) | None | 10.1109/iccrd64588.2025.10963202
+- Data from Say No to DMSO: Dimethylsulfoxide Inactivates Cisplatin, Carboplatin, and Other Platinum Complexes (2023) | None | 10.1158/0008-5472.c.6506201.v1
+
+## Consulta 'AngularJS developers': 25
+
+`python3 ~/.claude/skills/escrita-academica/scripts/buscar_literatura.py buscar "AngularJS developers" --desde 2013 --n 25`
+
+OpenAlex: Busca: 'AngularJS developers' — 79 resultados no OpenAlex (mostrando 25, ordem: relevancia)
+
+- AngularJS in the wild: a survey with 460 developers (2016) | None | 10.1145/3001878.3001881
+- Mastering AngularJS for .NET Developers (2015) | None | sem
+- Learning AngularJS for .NET Developers (2014) | CERN Document Server (European Organization for Nuclear Research) | sem
+- Full Stack AngularJS for Java Developers (2017) | Apress eBooks | 10.1007/978-1-4842-3198-2
+- Software developers' perceptions about angularjs (2016) | Americanae (AECID Library) | sem
+- AngularJS for .NET Developers in 24 Hours, Sams Teach Yourself (2015) | None | sem
+- Responsive Web Design with AngularJS (2014) | CERN Document Server (European Organization for Nuclear Research) | sem
+- AngularJS (2016) | Apress eBooks | 10.1007/978-1-4842-2044-3_5
+- AngularJS (2015) | Apress eBooks | 10.1007/978-1-4842-0662-1_8
+- Professional AngularJS (2015) | None | sem
+- A model-driven development of web applications using AngularJS framework (2016) | IEEE/ACIS International Conference on Computer and Information Science (ICIS) | 10.1109/icis.2016.7550838
+- Mastering AngularJS Directives (2014) | Packt Publishing eBooks | sem
+- AngularJS Testing Cookbook (2015) | CERN Document Server (European Organization for Nuclear Research) | sem
+- AngularJS SEO (2016) | Apress eBooks | 10.1007/978-1-4842-2044-3_8
+- Comparative analysis of angularjs and reactjs (2016) | International Journal of Latest Trends in Engineering and Technology | 10.21172/1.74.030
+- Angularjs Web Application Development (2013) | International Linear Collider | sem
+- AngularJS Performance: A Survey Study (2017) | IEEE Software | 10.1109/ms.2017.265100610
+- AngularJS UI Development (2014) | Packt Publishing eBooks | sem
+- Data Visualization with D3 and AngularJS (2015) | CERN Document Server (European Organization for Nuclear Research) | sem
+- The Basics of AngularJS (2014) | Apress eBooks | 10.1007/978-1-4842-0160-2_2
+- Analyzing the difference between ReactJS and AngularJS (2023) | International Conference on Computational Intelligence, Communication Technology and Networking (CICTN) | 10.1109/cictn57981.2023.10141276
+- Comparison of AngularJS and VueJS frameworks efficiency (2017) | Journal of Computer Sciences Institute | 10.35784/jcsi.622
+- THE IMPACT OF ANGULARJS AND REACT ON THE EVOLUTION OF FRONTEND DEVELOPMENT (2015) | INTERNATIONAL JOURNAL OF ADVANCED RESEARCH IN ENGINEERING & TECHNOLOGY | 10.34218/ijaret_06_06_008
+- Analysis and Research of the angularJS Framework as a Website Development Tool (2022) | Central Ukrainian Scientific Bulletin Technical Sciences | 10.32515/2664-262x.2022.5(36).1.124-134
+- Twitter bootstrap and AngularJS: Frontend frameworks to expedite science gateway development (2013) | Proceedings | 10.1109/cluster.2013.6702640
+
+## Consulta 'declarative UI': 30
+
+`python3 ~/.claude/skills/escrita-academica/scripts/buscar_literatura.py buscar "declarative UI" --desde 2013 --n 30`
+
+OpenAlex: Busca: 'declarative UI' — 352 resultados no OpenAlex (mostrando 30, ordem: relevancia)
+
+- Declarative UI Code Smell Catalog (2025) | Zenodo (CERN European Organization for Nuclear Research) | 10.5281/zenodo.17784810
+- DeclarUI: Bridging Design and Development with Automated Declarative UI Code Generation (2025) | Proceedings of the ACM on software engineering. | 10.1145/3715726
+- Bridging Design and Development with Automated Declarative UI Code Generation (2024) | arXiv (Cornell University) | 10.48550/arxiv.2409.11667
+- Embedding Real-Time Rendering Engines in Declarative UI Frameworks (2021) | Zenodo (CERN European Organization for Nuclear Research) | 10.5281/zenodo.21682786
+- The Impact of Context-Oriented Programming on Declarative UI Design in React (2025) | International Conference on Evaluation of Novel Approaches to Software Engineering | 10.5220/0013432300003928
+- Toward Frontier-Quality Declarative UI Generation at Small-Model Cost (2026) | None | 10.1145/3844177.3844556
+- Porting Declarative UI to HarmonyOS: A Heuristic-guided Approach for lightweight LLMs (2026) | arXiv (Cornell University) | 10.48550/arxiv.2606.07085
+- Embedding Real-Time Rendering Engines in Declarative UI Frameworks (2021) | Zenodo (CERN European Organization for Nuclear Research) | 10.5281/zenodo.21687716
+- Evaluating Deep Learning Models for Declarative UI Code Smell Detection (2026) | International Conference on Smart Computing, IoT and Machine Learning (SIML) | 10.1109/siml69834.2026.11621778
+- Pup9191: A Python-Based Source-to-Web Compiler for Declarative UI Development (2026) | Zenodo (CERN European Organization for Nuclear Research) | 10.5281/zenodo.23337113
+- Declarative Models for Business Processes and UI Generation using OCL (2024) | Technische Universität Berlin – Universitätsbibliothek | 10.14279/tuj.eceasst.24.333
+- Modern IOS App Development with SwiftUI AND Combine: A Declarative Approach to UI AND State (2023) | American Journal of Engineering Mechanics and Architecture (2993-2637) | sem
+- The XML-Driven UI Orchestration Pattern (X-UIOP): A Declarative Paradigm for Complex SaaS Workflows (2026) | Zenodo (CERN European Organization for Nuclear Research) | 10.5281/zenodo.18928060
+- Nodality: Treating the Build Pipeline as First-Class Data in Declarative Web UI Construction (2026) | Lecture notes in computer science | 10.1007/978-3-032-36590-3_30
+- Bluefish: Composing Diagrams with Declarative Relations (2024) | ACM Symposium on User Interface Software and Technology (UIST) | 10.1145/3654777.3676465
+- An OWL/RDF Ontology for Declarative User Interface Generation (2026) | DROPS (Schloss Dagstuhl – Leibniz Center for Informatics) | 10.4230/oasics.slate.2026.14
+- Declarative GUI descriptions for device-independent applications (2016) | Personal and Ubiquitous Computing | 10.1007/s00779-016-0903-2
+- NeuroState: Resource-Aware Speculative State Preparation for Low-Latency Declarative Mobile Engines (2026) | SSRN Electronic Journal | 10.2139/ssrn.7519358
+- Moderní UI webové aplikace pomocí Scroll Reveal efektů (2015) | None | sem
+- Affordance-Derived Declarative Interaction Models for Context Adaptation (2022) | Lecture notes in computer science | 10.1007/978-3-030-98388-8_16
+- Desain UI/UX Website Menggunakan Metode Lean UX (2024) | Journal of Information Technology Ampera | sem
+- WebPageBench: Event-Level Verification and Controlled UI-Variant Generation for Web Agents (2026) | arXiv (Cornell University) | 10.48550/arxiv.2609.35026
+- Functional test generation from UI test scenarios using reinforcement learning for android applications (2020) | Software Testing Verification and Reliability | 10.1002/stvr.1752
+- From Static UI to Dynamic Rendering: Building JSON-Driven Mobile Interfaces for Real-Time Product Evolution (2025) | Iconic Research and Engineering Journals | 10.64388/irev8i12-1716611
+- From Static UI to Dynamic Rendering: Building JSON-Driven Mobile Interfaces for Real-Time Product Evolution (2026) | International Journal of Research Publications | 10.47119/ijrp1002001720269538
+- Optimizing Your UI Using Classic or Lightning (2019) | Apress eBooks | 10.1007/978-1-4842-4871-3_12
+- PyDeclarative: a declarative Single Page Application framework for Python (2024) | None | 10.36227/techrxiv.171995222.27093382/v1
+- Novel Web Application Development Platform Using Declarative Programming and Business Process (2014) | International Symposium on Computing and Networking | 10.1109/candar.2014.24
+- Server-Driven UI and API-Orchestrated Frontends: Re-Architecting Enterprise Experience Delivery (2026) | International Journal of Intelligent Systems and Applications in Engineering | 10.5281/zenodo.20477887
+- REDESIGN UI/UX PADA APLIKASI BCA MOBILE MENGGUNAKAN METODE LEAN UX (2023) | KHARISMA Tech | 10.55645/kharismatech.v19i1.444
+
+## Consulta 'React bugs': falhou (HTTP 429 do OpenAlex, orçamento diário esgotado)
+
+`python3 ~/.claude/skills/escrita-academica/scripts/buscar_literatura.py buscar "React bugs" --desde 2013 --n 25`
+
+## Consulta 'React developers study': falhou (HTTP 429 do OpenAlex, orçamento diário esgotado)
+
+`python3 ~/.claude/skills/escrita-academica/scripts/buscar_literatura.py buscar "React developers study" --desde 2013 --n 25`
+
+## Consulta 'React Native bugs': falhou (HTTP 429 do OpenAlex, orçamento diário esgotado)
+
+`python3 ~/.claude/skills/escrita-academica/scripts/buscar_literatura.py buscar "React Native bugs" --desde 2013 --n 25`

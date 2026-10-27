@@ -1,0 +1,30 @@
+# Quarto ciclo (tcc-t81w, 2026-10-26), eixo 4: consulta 'cognitive dimensions reactive programming', desde 2013
+# Comando: python3 buscar_literatura.py buscar "cognitive dimensions reactive programming" --desde 2013 --n 25
+# OpenAlex: 99 resultados no OpenAlex (mostrando 25, ordem: relevancia)
+
+## consulta 'cognitive dimensions reactive programming', desde 2013: 25
+- On the Usability of Reactive Programming APIs: A Mixed Evaluation (2025) | Software Practice and Experience | 10.1002/spe.3435
+- Cognitive Alignment Drives Attention: Modeling and Supporting Socially Shared Regulation in Pair Programming (2026) | arXiv (Cornell University) | 10.48550/arxiv.2605.04639
+- The Degree of Contribution of Mindfulness and Cognitive Flexibility to the Vocational Interests of Academically Outstanding High School Students in the Schools of Bethlehem Governorate – A Proposed Counseling Program (2026) | International Journal for Scientific Research | 10.59992/ijsr.2026.v5n1p3
+- Neural mechanisms of affective instability and cognitive control in substance use (2019) | International Journal of Psychophysiology | 10.1016/j.ijpsycho.2019.08.003
+- Nutritional Self-efficacy and Reactive Decision - Making Speed among Players in a Sports Facility (2026) | International Journal on Science and Technology | 10.71097/ijsat.v17.i3.11505
+- The Indirect Effects of Adolescent Psychopathic Traits on Aggression Through Social-Cognitive Factors (2017) | Journal of Child and Family Studies | 10.1007/s10826-017-0667-y
+- Sing4Health: protocol of a randomized controlled trial of the effects of a singing group intervention on the well-being, cognitive function and health of older adults (2020) | BMC Geriatrics | 10.1186/s12877-020-01686-6
+- CAA-X V10: The Evolutionary Distillation of Intelligence and the Cognitive Primitives Library (2026) | Zenodo (CERN European Organization for Nuclear Research) | 10.5281/zenodo.21887180
+- Preservation‑Bounded Autonomy (PBA): Cognitive Preservation as a Boundary Condition on Self‑Evolving AI Agents (2026) | Zenodo (CERN European Organization for Nuclear Research) | 10.5281/zenodo.18826651
+- Empathy Profile in Incoming Students of Early Childhood and Primary Education Teacher Training Programs in Andalusia (2026) | Electronic Journal of Research in Educational Psychology | 10.25115/ejrep.v24i68.10768
+- Effectiveness of School-Based Mindfulness Training as a Program to Prevent Stress, Anxiety, and Depression in High School Students (2019) | Health Education and Health Promotion | 10.29252/hehp.7.3.111
+- Health neuroscience 2.0: integration with social, cognitive and affective neuroscience (2020) | Social Cognitive and Affective Neuroscience | 10.1093/scan/nsaa123
+- Evaluating the Effectiveness of a Short-Term Intensive Mindfulness-Based Skills Training Program in Adolescents: a Real-World Group-Based Study (2026) | Lecture Notes in Education Psychology and Public Media | 10.54254/2753-7048/2026.33917
+- Gender differences in the manifestation of social empathy and tolerance of diversity (2026) | Journal of Educational Sciences & Psychology | 10.51865/jesp.2026.1.23
+- HUBUNGAN REFLEKSI DIRI ADAPTIF DAN GRIT PADA GEN Z DI UNIVERSITAS MUHAMMADIYAH MALANG (2026) | UMM Institutional Repository (University of Maine at Machias) | sem
+- Empathy and Coping in Allied Health Sciences: Gender Patterns (2021) | Healthcare | 10.3390/healthcare9050497
+- Investing in compassion: exploring mindfulness as a strategy to enhance interpersonal relationships in healthcare practice (2015) | Journal of Hospital Administration | 10.5430/jha.v4n6p36
+- Attitudes of Tourism and Hospitality Students from the National University of Cañete toward Environmental Conservation (2025) | Revista Kawsaypacha Sociedad y Medio Ambiente | 10.18800/kawsaypacha.202501.a003
+- Health Informatics Associations Between Mindfulness Traits and Health Outcomes in Veterans with Chronic Multi-symptom Illness (2024) | Lecture notes in computer science | 10.1007/978-3-031-61572-6_14
+- Influence of Personalized Exercise Recommendations During Rehabilitation on the Sustainability of Objectively Measured Physical Activity Levels, Fatigue, and Fatigue-Related Biomarkers in Patients With Breast Cancer (2017) | Integrative Cancer Therapies | 10.1177/1534735417713301
+- The "Like" Economy: A Neurocognitive Review of Social Media Validation, Reward Systems, and Decision-Making in Chinese Adolescents (2026) | Lecture Notes in Education Psychology and Public Media | 10.54254/2753-7048/2026.33101
+- The muscle power masking hypothesis: high mechanical capacity conceals non-muscular initiation delays in functional mobility assessment (2026) | Medical Hypotheses | 10.1016/j.mehy.2026.111990
+- Developing empathy in business students through humanities-based study abroad: an exploratory empirical study (2026) | Journal of International Education in Business | 10.1108/jieb-10-2025-0145
+- Neural mechanisms of affective instability in substance use (2017) | UVic’s Research and Learning Repository (University of Victoria) | sem
+- Associations between empathy and big five personality traits among Chinese undergraduate medical students (2017) | PLoS ONE | 10.1371/journal.pone.0171665

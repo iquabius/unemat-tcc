@@ -1,0 +1,32 @@
+# Quarto ciclo (tcc-t81w, 2026-10-26), eixo 5: SBC-OpenLib, compreensão de programas e Dimensões Cognitivas
+
+Comando de cada consulta: python3 ~/.claude/skills/escrita-academica/scripts/buscar_literatura.py buscar "<termos>" --sbc --desde 2013 --n 25 (resumos tirados ao gravar)
+
+## "cognitive dimensions": 11 resultados, 11 listados
+- HCI evaluation with Cognitive Dimensions of Notations (2019) | — [conference-paper] | 10.5753/ihc.2019.8375
+- An experience in mixing cognitive and affective teaching approaches in a CS1 course (2021) | — [conference-paper] | 10.5753/wei.2021.15892
+- Assisting Novice Developers Learning in Flutter Through Cognitive-Driven Development (2024) | — [conference-paper] | 10.5753/sbes.2024.3473
+- Towards Blockchain Developer Experience (BcDEx): Exploring Dimensions of Developer Experience in Blockchain-oriented Software Engineering (2024) | — [conference-paper] | 10.5753/sbes.2024.3575
+- Task Interdependence in Software Teams: A Systematic Review Anchored in Kiggundu’s Theory (2026) | Journal of Software Engineering Research and Development [review] | 10.5753/jserd.2026.6507
+- L-PRISM: A Domain-Specific Language for Describing Multimedia Service Function Chains (2025) | Journal of the Brazilian Computer Society [article] | 10.5753/jbcs.2025.5453
+- Generative AI Assisting Programming Learning: Functional Roles, Comparative Analysis, and Emerging Challenges (2025) | Anais do ... Simpósio Brasileiro de Informática na Educação/Anais do Simpósio Brasileiro de Informática na Educação [conference-paper] | 10.5753/sbie.2025.12361
+- Enhancing Hackaton Practices in Software Engineering: a Neuroscience-Informed Model for TeamWell-being and Software Quality (2025) | Simpósio Brasileiro de Engenharia de Software (SBES) [conference-paper] | 10.5753/sbes.2025.11606
+- Student Engagement Through Creation of New Activities: An Empirical Study on Contributing Student Pedagogy (2020) | Anais do ... Simpósio Brasileiro de Informática na Educação/Anais do Simpósio Brasileiro de Informática na Educação [conference-paper] | 10.5753/cbie.sbie.2020.1693
+- The effect of political polarization on social distance stances in the Brazilian COVID-19 scenario (2021) | Journal of Information and Data Management [article] | 10.5753/jidm.2021.1889
+- Towards Human-Centered VR in STEM Education: A Framework for Student–Teacher Challenges through Learning Analytics and Personalized Learning (2026) | Journal on Interactive Systems [article] | 10.5753/jis.2026.6616
+
+## "program comprehension": 14 resultados, 14 listados
+- Understanding the Impact of Introducing Lambda Expressions in Java Programs (2020) | Journal of Software Engineering Research and Development [article] | 10.5753/jserd.2020.744
+- Evaluating the Code Comprehension of Novices with Eye Tracking (2023) | — [conference-paper] | 10.5753/cbsoft_estendido.2023.233240
+- Beyond Syntax and Tracing: A Multidimensional Diagnostic Framework for Novice Code Comprehension (2026) | Anais do ... Simpósio Brasileiro de Informática na Educação/Anais do Simpósio Brasileiro de Informática na Educação [conference-paper] | 10.5753/sbie.2026.26889
+- Naming Practices in Object-oriented Programming: An Empirical Study (2023) | Journal of Software Engineering Research and Development [article] | 10.5753/jserd.2023.2582
+- Source Code Comprehension and Appropriation by Novice Programmers: Understanding Novice Programmers’ Perception about Source Code Reuse (2019) | Journal on Interactive Systems [article] | 10.5753/jis.2019.556
+- Perspectives and Challenges of iOS Developers in Using Reactive Programming with RxSwift (2024) | — [conference-paper] | 10.5753/sbes.2024.3569
+- Eyes on Code Smells: Analyzing Developers’ Responses During Code Snippet Analysis (2024) | — [conference-paper] | 10.5753/sbes.2024.3431
+- Random Forest for Code Smell Detection in JavaScript (2022) | — [conference-paper] | 10.5753/eniac.2022.227328
+- Hok: Higher-Order GPU kernels in Elixir (2024) | — [conference-paper] | 10.5753/sblp.2024.3690
+- Investigating Cognitive Demands in Software Testing Activities: An EEG-Based Experimental Study (2026) | — [conference-paper] | 10.5753/sast.2026.31048
+- When Test Cases Are Not Enough: Identification, Assessment, and Rationale of Misconceptions in Correct Code (MC³) (2023) | Revista Brasileira de Informática na Educação [article] | 10.5753/rbie.2023.3552
+- Exploring Non-CS Learners’ Experience in Brazil (2025) | — [conference-paper] | 10.5753/educomp.2025.4889
+- Atoms of Confusion in the Android Open Source Project: A Prevalence Study (2024) | — [conference-paper] | 10.5753/vem.2024.3840
+- Show Me The Rules! A User Study On Making Data Validation Rules Explicit in Spreadsheet Applications (2017) | Anais do Simpósio Brasileiro de Sistemas de Informação (SBSI) [conference-paper] | 10.5753/sbsi.2017.6043

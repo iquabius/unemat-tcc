@@ -1,0 +1,128 @@
+# Quarto ciclo (tcc-t81w, 2026-10-26), eixo 5: SBC-OpenLib, React, front-end, JavaScript, Flutter e Compose
+
+Comando de cada consulta: python3 ~/.claude/skills/escrita-academica/scripts/buscar_literatura.py buscar "<termos>" --sbc --desde 2013 --n 25 (resumos tirados ao gravar)
+
+## "React": 52 resultados, 25 listados
+- Accessibility Evaluation of LLM-Generated Android Code in React Native (2025) | — [conference-paper] | 10.5753/ihc.2025.10833
+- Why is my community reacting like this? Understanding reactions in open-source communities (2024) | — [conference-paper] | 10.5753/sbes.2024.3578
+- Makiphone: um Aplicativo em React Native com o uso de WebRTC e Asterisk (2024) | — [conference-paper] | 10.5753/eri-mt.2024.245928
+- Implementação de Testes de Integração nos Frameworks de Desenvolvimento Mobile Flutter e React Native: um estudo comparativo (2025) | — [conference-paper] | 10.5753/eres.2025.16357
+- Aplicação da Abordagem Ágil REACT para a Melhoria do Processo de Desenvolvimento de Requisitos: O Caso da W3AS (2019) | — [conference-abstract] | 10.5753/cbsoft_estendido.2019.7657
+- React Native Descomplicado para Iniciantes: Um Relato de Experiência dos Cursos Online e Presencial no Ensino Prático de Desenvolvimento Mobile (2025) | Anais do Workshop sobre Educação em Computação (WEI) [conference-paper] | 10.5753/wei.2025.8524
+- Towards an Automated Approach to Detect Code Smells in ReScript (2025) | — [conference-paper] | 10.5753/se4fp.2025.14841
+- Towards Evidence-Based Mobile Technology Migration: Evaluating Native and Cross-Platform Solutions in a Case Study (2026) | — [conference-paper] | 10.5753/se4fp.2026.32634
+- Simulating Behavior Diversity in BioCrowds (2019) | — [conference-paper] | 10.5753/sibgrapi.est.2019.8296
+- Exploring approaches to compare emotional responses to the same stimuli from different individuals (2025) | Journal on Interactive Systems [article] | 10.5753/jis.2025.5421
+- Matemagos: Uma Experiência de e-Sports e Matemática na Região Amazônica (2022) | Simpósio Brasileiro de Jogos e Entretenimento Digital (SBGames) [conference-paper] | 10.5753/sbgames_estendido.2022.225588
+- Teachers' Perceptions on Traditional and Non-Traditional Data Visualization for Pedagogical Decision-Making (2019) | Anais do ... Simpósio Brasileiro de Informática na Educação/Anais do Simpósio Brasileiro de Informática na Educação [conference-paper] | 10.5753/cbie.sbie.2019.1741
+- Enhancing Mathematics Education with Geometrix: A Study on the Effectiveness of Gamified 2D and 3D Animation Tools (2024) | Anais do ... Simpósio Brasileiro de Informática na Educação/Anais do Simpósio Brasileiro de Informática na Educação [conference-paper] | 10.5753/sbie.2024.242318
+- Fake News and Brazilian politics – temporal investigation based on semantic annotations and graph analysis (2019) | — [conference-paper] | 10.5753/sbbd.2019.8818
+- Development and Test of a Serious Game for Dorsiflexion and Plantarflexion Exercises of the Feet (2021) | Journal on Interactive Systems [article] | 10.5753/jis.2021.1916
+- IFungi: Solução Econômica para Cultivo Indoor de Cogumelos (2025) | Congresso Latino-Americano de Software Livre e Tecnologias Abertas (Latinoware) [conference-paper] | 10.5753/latinoware.2025.16511
+- TeaTalk: Uma prancha de Comunicação Aumentativa e Alternativa Digital Personalizável e de Baixo Custo para pessoas com Transtorno do Espectro Autista (2026) | — [conference-paper] | 10.5753/wics.2026.21022
+- FoodConnect: um software de gestão logística para auxiliar no combate à fome e redução de desperdícios (2025) | — [conference-paper] | 10.5753/webmedia_estendido.2025.16400
+- Be a Maker: Um Aplicativo de Compartilhamento de Materiais Instrucionais Sobre Robótica Educacional (2020) | — [conference-paper] | 10.5753/cbie.wcbie.2020.132
+- WOLF: Sistema de Consulta de Vagas para Redistribuição de Servidores Docentes do Magistério Superior e Ensino Básico, Técnico e Tecnológico federal (2026) | — [conference-paper] | 10.5753/sbsc.2026.20225
+- Reactive CEP: Integrating Complex Event Processing into Web Reactive Languages (2018) | — [conference-paper] | 10.5753/webmedia.2018.4556
+- Assistente de Cena de Crime: Solução Para Auxílio à Investigação de Homicídios (2019) | — [conference-paper] | 10.5753/wbci.2019.6747
+- Únicos, mas não incomparáveis: abordagens para identificação de similaridades em respostas emocionais de diferentes indivíduos ao mesmo estímulo audiovisual (2024) | Brazilian Symposium on Multimedia and the Web [conference-paper] | 10.5753/webmedia.2024.241432
+- P4eBalancer: Leveraging P4 and eBPF for Optimized Load Balancing with Network and Host Insights (2025) | — [conference-paper] | 10.5753/sbrc.2025.5950
+- Utilizando Agentes Pedagógicos Animados como uma abordagem não restritiva ao Gaming The System (2014) | Revista Brasileira de Informática na Educação [article] | 10.5753/rbie.2014.22.01.147
+
+## "front-end framework": 11 resultados, 11 listados
+- Desenvolvimento de um Front-end para um Sistema de Diagnóstico Empresarial com o Framework Angular (2024) | — [conference-paper] | 10.5753/erigo.2024.4838
+- SmartNode Dashboard: um framework front-end baseado em Node-RED para criação de City Dashboards (2019) | — [conference-paper] | 10.5753/wbci.2019.6744
+- Front-end de um Aplicativo de Gestão de Demandas de Infraestrutura no Município de Ceres-Goiás (2024) | — [conference-paper] | 10.5753/erigo.2024.4840
+- Image2Test: Using ChatGPT to Build Manual Tests from Screenshots (2025) | — [conference-paper] | 10.5753/sast.2025.14358
+- Desenvolvimento Full-Stack com Javascript: uma Visão Geral e Prática (2023) | — [book-chapter] | 10.5753/sbc.14282.0.3
+- Towards an Automated Approach to Detect Code Smells in ReScript (2025) | — [conference-paper] | 10.5753/se4fp.2025.14841
+- Style Journey: A Gamification Proposal for Teaching CSS (2026) | Simpósio Brasileiro de Jogos e Entretenimento Digital (SBGames) [conference-paper] | 10.5753/sbgames_estendido.2026.26193
+- HyMobWeb: A hybrid adaptation of context-sensitive Web interfaces with multimodality support in mobile devices (2017) | Journal on Interactive Systems [article] | 10.5753/jis.2017.680
+- IF-Eventos: sistema de registro de frequência em eventos institucionais (2025) | Revista Eletrônica de Iniciação Científica em Computação [article] | 10.5753/reic.2025.5930
+- Quality Assurance and Testing Strategies in a Digital Platform for Screening and Early Diagnosis of Oral Cancer (2026) | — [conference-paper] | 10.5753/sbsi.2026.248359
+- Uma Metodologia para Agrupamento e Extração de Informações de URLs de Phishing (2019) | — [conference-paper] | 10.5753/sbseg.2019.13970
+
+## "JavaScript frameworks developers": 1 resultados, 1 listados
+- H.761 Support of a DOM Level 4 Core specification in NCLua scripts (2019) | Anais Estendidos do Simpósio Brasileiro de Sistemas Multimídia e Web (WebMedia) [conference-paper] | 10.5753/webmedia_estendido.2019.8170
+
+## "state management web application": 1 resultados, 1 listados
+- Automação de Tarefas com APIs: Integração entre Google Calendar e WhatsApp para Otimização de Processos (2025) | — [book-chapter] | 10.5753/sbc.16935.3.5
+
+## "declarative user interface": 0 resultados, 0 listados
+
+## "code smells React": 1 resultados, 1 listados
+- Towards an Automated Approach to Detect Code Smells in ReScript (2025) | — [conference-paper] | 10.5753/se4fp.2025.14841
+
+## "Angular Vue React": 0 resultados, 0 listados
+
+## "asynchronous JavaScript callbacks promises": 0 resultados, 0 listados
+
+## "JavaScript": 117 resultados, 25 listados
+- Assessing JavaScript API Deprecation (2020) | — [conference-paper] | 10.5753/cbsoft_estendido.2020.14616
+- Bad Smells in Javascript - A Mapping Study (2021) | — [conference-paper] | 10.5753/vem.2021.17208
+- A Survey of Fuzzing Tools for JavaScript Engines (2026) | — [conference-paper] | 10.5753/cibse.2026.42439
+- State-of-the-Art Javascript Language for Internet of Things (2019) | — [conference-paper] | 10.5753/sbesc_estendido.2019.8651
+- Random Forest for Code Smell Detection in JavaScript (2022) | — [conference-paper] | 10.5753/eniac.2022.227328
+- Analysis of WebAssembly as a Strategy to Improve JavaScript Performance on IoT Environments (2020) | — [conference-paper] | 10.5753/sbesc_estendido.2020.13102
+- SNUTS.js: Sniffing Nasty Unit Test Smells in Javascript (2024) | — [conference-paper] | 10.5753/sbes.2024.3563
+- Identifying and Addressing Test Smells in JavaScript: A Developer-Centric Study (2025) | Simpósio Brasileiro de Engenharia de Software (SBES) [conference-paper] | 10.5753/sbes.2025.9901
+- Discovering code smells in Javascript software using clustering techniques (2019) | — [conference-paper] | 10.5753/eniac.2019.9267
+- Detecting Code Smells in JavaScript: An Annotated Dataset for Software Quality Analysis (2024) | — [conference-paper] | 10.5753/sbes.2024.3432
+- A Systematic Literature Review of Code Smell Detection Tools for JavaScript Systems (2026) | SBC Reviews on Computer Science [review] | 10.5753/reviews.2026.6187
+- Desenvolvimento Full-Stack com Javascript: uma Visão Geral e Prática (2023) | — [book-chapter] | 10.5753/sbc.14282.0.3
+- From JavaScript to Elixir: Lessons from Reimplementing an Industrial Home Care System (2026) | — [conference-paper] | 10.5753/se4fp.2026.32631
+- NuGinga: a JavaScript Driven Implementation of Brazilian Digital TV Middleware for Android (2018) | — [conference-paper] | 10.5753/webmedia.2018.4612
+- Improving JavaScript Test Quality with Large Language Models: Lessons from Test Smell Refactoring (2025) | Simpósio Brasileiro de Engenharia de Software (SBES) [conference-paper] | 10.5753/sbes.2025.11568
+- Detecção de Vazamentos de Dados em Aplicativos Javascript em Dispositivos Móveis (2016) | — [conference-paper] | 10.5753/sbseg.2016.19316
+- Detecção automática de falhas em software JavaScript: Uma revisão sistemática da literatura (2017) | Anais do Simpósio Brasileiro de Sistemas de Informação (SBSI) [conference-paper] | 10.5753/sbsi.2017.6070
+- Jogos com LEDs Endereçáveis: Uma Metodologia Usando LLMs Integrando JavaScript, Arduino, Wifi e NotebookLM (2026) | — [conference-paper] | 10.5753/ideia.2026.20776
+- Avaliação comparativa do desempenho de inteligências artificiais generativas e ferramentas tradicionais na análise de código-fonte JavaScript (2025) | — [conference-paper] | 10.5753/sbseg_estendido.2025.11655
+- TaintJSec: Um Método de Análise Estática de Marcação em Código JavaScript para Detecção de Vazamento de Dados Sensíveis (2018) | — [conference-paper] | 10.5753/sbseg.2018.4253
+- WBF Analyzer: Um Método para Detecção de Browser Fingerprinting em Páginas Web (2021) | — [conference-paper] | 10.5753/sbseg.2021.17327
+- Towards an Automated Approach to Detect Code Smells in ReScript (2025) | — [conference-paper] | 10.5753/se4fp.2025.14841
+- Performance and Security Evaluation of RSA Cryptosystem Implementations on Different Hardware Configurations (2026) | Revista Eletrônica de Iniciação Científica em Computação [article] | 10.5753/reic.2026.6758
+- Avaliação de desempenho e segurança de diferentes implementações do sistema de criptografia RSA (2025) | — [conference-paper] | 10.5753/sbseg_estendido.2025.11863
+- Análise do uso do TypeScript na aprendizagem de programação (2025) | — [conference-paper] | 10.5753/codec.2025.39144
+
+## "Flutter": 39 resultados, 25 listados
+- Assisting Novice Developers Learning in Flutter Through Cognitive-Driven Development (2024) | — [conference-paper] | 10.5753/sbes.2024.3473
+- What Do Flutter Developers Ask About? An Empirical Study on Stack Overflow Posts (2024) | Journal of Software Engineering Research and Development [article] | 10.5753/jserd.2024.3620
+- Can Deep Learning Models Differentiate Atrial Fibrillation from Atrial Flutter? (2025) | — [conference-paper] | 10.5753/eniac.2025.11814
+- Deep Learning Approach for Detection of Atrial Fibrillation and Atrial Flutter Based on ECG Images (2023) | — [conference-paper] | 10.5753/sbcas.2023.229744
+- Implementação de Testes de Integração nos Frameworks de Desenvolvimento Mobile Flutter e React Native: um estudo comparativo (2025) | — [conference-paper] | 10.5753/eres.2025.16357
+- Flutterama - Descomplicando a Programação em Flutter: Um Relato de Experiência de um Curso Online Prático de Desenvolvimento de Aplicativos Móveis (2023) | Anais do Workshop de Informática na Escola [conference-paper] | 10.5753/wie.2023.234929
+- Aplicativo Interativo para o Museu Capim Branco: Desenvolvimento de Ferramenta de Valorização Cultural com Flutter e Injeção de Dependência para avaliação de débito técnico (2025) | — [conference-paper] | 10.5753/eri-mt.2025.17188
+- Disponibilizando autenticação via smartphones para um sistema de controle de acesso (2024) | — [conference-paper] | 10.5753/errc.2024.4566
+- Desenvolvimento de Aplicativo para Cadastro e Divulgação de Veículos Suspeitos (2022) | — [conference-paper] | 10.5753/latinoware.2022.228042
+- Emoções Navegáveis: Aplicativo Educativo/ Terapêutico para Reconhecimento de Emoções por Pessoas com TEA (2025) | Anais do ... Simpósio Brasileiro de Informática na Educação/Anais do Simpósio Brasileiro de Informática na Educação [conference-paper] | 10.5753/sbie.2025.12886
+- H-Pasture: uma aplicação móvel para estimativa da disponibilidade de forragem e ajuste de carga em pastagens sob lotação contínua ou rotativa (2021) | — [conference-paper] | 10.5753/sbiagro.2021.18386
+- Optimization and qualification of vaccination records against Covid-19 in public health: the case of "e-SUS Vacinação" (2021) | — [conference-paper] | 10.5753/webmedia_estendido.2021.17618
+- HerCode: Uma Ferramenta Gamificada para Meninas Descobrirem a Programação com Representatividade Feminina (2026) | — [conference-paper] | 10.5753/wit.2026.21262
+- Passa o bizu: Proposta de aplicativo de apoio a produção científica na graduação (2020) | — [conference-paper] | 10.5753/wcbie.2021.218507
+- PCare: Um Modelo para Assistência Postural em Ambientes Inteligentes (2026) | — [conference-paper] | 10.5753/sbcup.2026.20628
+- Aplicativo Móvel para Gestão de Operações em Áreas Agrícolas (2024) | — [conference-paper] | 10.5753/latinoware.2024.245571
+- CarminCount: Identificação e Reconhecimento da Cochonilha-do-Carmim em Imagens Digitais de Palma Forrageira (2026) | — [conference-paper] | 10.5753/wcama.2026.21033
+- Desenvolvimento de uma Aplicação Móvel Multiplataforma para Detecção e Avaliação de Risco de Lesões Cutâneas (2024) | — [conference-paper] | 10.5753/sbsi_estendido.2024.238929
+- Obamateca: Um Aplicativo Web e Android para Gerenciamento de Acervos de Livros (2024) | — [conference-paper] | 10.5753/cbie_estendido.2024.244331
+- Criação de um museu virtual para Oriximiná: resgate e valorização cultural através de imersão 360º (2025) | — [conference-paper] | 10.5753/sbsc.2025.7054
+- VisionApp: Reconhecimento Facial em Dispositivos Móveis para Segurança Pública (2025) | — [conference-paper] | 10.5753/sbesc_estendido.2025.15638
+- TOUCH LEARN: Plataforma de Desenhos Táteis para Apoio ao Ensino de Alunos com Deficiência Visual (2025) | — [conference-paper] | 10.5753/cbie_estendido.2025.14070
+- X-Ray Covid19: Um Aplicativo Móvel para Diagnóstico através de Radiografias do Tórax (2024) | — [conference-paper] | 10.5753/eres.2024.4314
+- MelgueiraApp: Caixa de Meliponicultura Automatizada e Aplicativo para Gestão de Produção de Mel (2021) | — [conference-paper] | 10.5753/latinoware.2021.19928
+- SGL 2.0: Evolução do Sistema de Gerenciamento do IFMT Maker Fablab com Agendamento Inteligente, Automação IoT e Inteligência Artificial (2026) | — [conference-paper] | 10.5753/ideia.2026.23758
+
+## "Jetpack Compose": 2 resultados, 2 listados
+- Recursos de Acessibilidade em Componentes do Android Jetpack Compose (2023) | — [conference-paper] | 10.5753/erbase.2023.236215
+- Image-to-UI Accessibility: Assessing ChatGPT’s Effectiveness in Generating Accessible Android Screens from Figma Templates (2025) | Brazilian Symposium on Multimedia and the Web [conference-paper] | 10.5753/webmedia.2025.15298
+
+## "frontend developers": 6 resultados, 6 listados
+- Investigating Benefits and Limitations of Migrating to a Micro-Frontends Architecture (2024) | — [conference-paper] | 10.5753/sbes.2024.3303
+- Guidelines for Adoption Micro-frontend Architecture (2025) | — [conference-paper] | 10.5753/sbsi.2025.246619
+- Designing and Evaluating a Catalog of Micro Frontends Anti-patterns (2026) | — [conference-paper] | 10.5753/ctd.2026.19415
+- A New Integration Approach to support the Development of Build-time Micro Frontend Architecture Applications (2024) | — [conference-paper] | 10.5753/sbes.2024.3585
+- Teaching Micro Frontends: Insights from Two Controlled Experiments on Guidelines and Anti-patterns (2026) | Journal of Software Engineering Research and Development [article] | 10.5753/jserd.2026.7762
+- Prototypes of Very High Fidelity, Accessibility, and Reusability with Laum (2023) | — [conference-paper] | 10.5753/ihc_estendido.2023.233185
+
+## "single page application": 2 resultados, 2 listados
+- Impacto do Gerenciamento de Estado com a Ferramenta Context API em Single Page Applications (2026) | Revista Eletrônica de Iniciação Científica em Computação [article] | 10.5753/reic.2026.7413
+- A Client-Side Architecture for Enhancing Productivity of Interactive Parallel Scalability Analysis with PaScal Suite (2025) | — [conference-paper] | 10.5753/sscad.2025.16744
