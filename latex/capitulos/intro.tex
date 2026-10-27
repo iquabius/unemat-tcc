@@ -115,6 +115,9 @@ montados, e essa atualização é a parte imperativa.
 Nos declarativos, o programador descreve a tela em função do estado, e o
 ambiente de execução a mantém atualizada
 \cites[][ p. 289:1]{lee2025}{solidjs2026}.
+Em troca, o ambiente de execução chama as funções que montam ou atualizam
+a tela quando julga necessário, e essa execução oculta pode tornar difícil
+acompanhar o fluxo real do programa \cite[p. 14]{grolaux2026}.
 No \emph{declarativo por re-renderização}, o ambiente de execução chama de
 novo, a cada alteração de estado, a parte que monta a tela.
 No React, é o próprio componente, uma função que especifica a tela e que,

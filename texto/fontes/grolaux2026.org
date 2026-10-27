@@ -48,3 +48,24 @@
   interface of modern JavaScript” (p. 9).
 - Lido em: =acervo/grolaux2026.pdf=, p. 1, 3 e 9 do PDF (p. 7 a 16).
 - Conferido: 2026-10-06.
+* [[file:../intro.org::Nos declarativos, o programador descreve a tela][intro: Nos declarativos, o programador descreve a tela]], p. 14
+- Frase: “Em troca, o ambiente de execução chama as funções que montam ou
+  atualizam a tela quando julga necessário, e essa execução oculta pode
+  tornar difícil acompanhar o fluxo real do programa (Grolaux; Nguyen;
+  Vanderdonckt, 2026, p. 14).”
+- Trecho: “With popular reactive frameworks, a reactive function is called
+  implicitly when deemed necessary. Hidden execution can make
+  understanding the actual execution flow quite hard.” (p. 14)
+- Lido em: =acervo/grolaux2026.pdf=, p. 8 do PDF (p. 14).
+- Observação: “as funções que montam ou atualizam a tela” traduz
+  “reactive function” sem usar “reativo”, que este trabalho reserva à PR
+  (prog.org, “As aplicações orientadas a eventos e”). Entre os
+  “reactive frameworks”, o artigo nomeia o React e o Vue, com DOM
+  virtual, e o Svelte, que “relies on direct DOM mutations instead of
+  virtual DOM” (p. 13); o Solid e os /signals/ não aparecem, e estender
+  a frase ao declarativo por atualização granular é leitura deste
+  trabalho. O artigo defende o async/await, e o contra serve a esse
+  argumento. Escolhida pelo autor em 2026-10-26, entre três
+  alternativas, para equilibrar a problematização dos /callbacks/
+  (tcc-t81w; docs/contras-dos-modelos-declarativos.md).
+- Conferido: 2026-10-26.
