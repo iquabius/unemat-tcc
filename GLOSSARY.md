@@ -174,12 +174,33 @@ programação isolado; a segunda muda o comportamento, com funcionalidades e
 requisitos de orquestração acrescentados a cada interface; a terceira muda
 só a forma, em quatro vertentes irmãs sobre o código da segunda, na
 Reserva de passagem, no Placar ao vivo e no Circle Drawer (ADR 0029).
-_Avoid_: fase (é do roteiro); iteração; rodada sozinha onde puder ser a
-rodada de corte ou a de revisão do texto (ADR 0023); "a rodada da
-P1", "a rodada da P2" e P2 e P3 para as rodadas (até 2026-10-13, quando as
-subperguntas passaram a P1.1 e P1.2 e "a rodada da P1" ficou ambígua com a
-avaliação inteira); R1, R2 e R3 (rótulos de 2026-10-13, desfeitos no mesmo
-dia)
+_Avoid_: fase (é do roteiro); iteração (é do *snowballing*); rodada para
+a passada da revisão do texto ou o ciclo de busca da revisão
+bibliográfica (até 2026-10-26, "rodada de corte", "rodada sobre o diff" e
+"rodada de busca", que davam à palavra três sentidos, dois deles no PDF);
+"a rodada da P1", "a rodada da P2" e P2 e P3 para as rodadas (até
+2026-10-13, quando as subperguntas passaram a P1.1 e P1.2 e "a rodada da
+P1" ficou ambígua com a avaliação inteira); R1, R2 e R3 (rótulos de
+2026-10-13, desfeitos no mesmo dia)
+
+**Ciclo de busca**:
+Cada vez que a revisão bibliográfica busca, faz a triagem e segue o
+*snowballing* até não achar trabalho novo, chamada pelo ordinal: o
+primeiro, o segundo e o terceiro ciclo. Dentro do ciclo, cada passo do
+*snowballing* é uma iteração (Wohlin, 2014), e cada pesquisa numa base é
+uma consulta.
+_Avoid_: rodada (é da avaliação; "rodada de busca" até 2026-10-26); busca
+para o ciclo inteiro (as buscas por palavras-chave e pela lacuna ficam
+dentro dele); etapa (é o título do Apêndice II e a coluna das tabelas
+dele)
+
+**Passada**:
+Uma leitura inteira de um bloco do texto, ou de um ramo, com um fim só:
+a passada de corte, a passada sobre o diff antes do commit, a primeira e
+a segunda passada da checagem adversarial, a de cada revisão do ramo.
+_Avoid_: rodada (é da avaliação; "rodada de corte", "rodada sobre o
+diff" e as rodadas da revisão do ramo até 2026-10-26); revisão sozinha
+(serve também à bibliográfica e à do ramo)
 
 **Vertente**:
 Cada uma das refatorações da terceira rodada sobre o código da segunda,
