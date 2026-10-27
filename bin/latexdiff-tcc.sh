@@ -44,9 +44,8 @@
 #
 # Quebra de parágrafo inserida ou removida: o latexdiff a trata como comando
 # e não a marca. O bin/marcar-quebras.py, no fim, põe um ¶ na cor da mudança
-# no fim do parágrafo que a quebra fecha, e pula as listagens: a lista de
-# ambientes dele (LITERAL) repete o minted e o tikzpicture do PICTUREENV
-# daqui.
+# no fim do parágrafo que a quebra fecha, e pula as listagens e as figuras:
+# recebe daqui o PICTUREENV, a que junta o verbatim e o lstlisting.
 #
 # Comandos de fonte (\emph, \textbf, \textit, \texttt): o latexdiff os
 # divide como comandos de texto e pode casar a abertura de um \emph apagado
@@ -58,7 +57,8 @@ set -euo pipefail
 [ $# -eq 2 ] || { echo "uso: $0 VELHO.tex NOVO.tex >diff.tex" >&2; exit 2; }
 
 # O bin/anotar-diff.py lê o PICTUREENV desta linha, na forma
-# PICT='PICTUREENV=...', para não pôr âncora dentro desses ambientes.
+# PICT='PICTUREENV=...', para não pôr âncora dentro desses ambientes nem
+# contar as palavras deles; o bin/marcar-quebras.py o recebe no fim.
 PICT='PICTUREENV=(?:picture|DIFnomarkup|minted|tikzpicture)[\w\d*@]*'
 SIGLAS='CUSTOMDIFCMD=[gG]ls(?:pl)?(?![a-zA-Z])'
 
@@ -97,4 +97,4 @@ latexdiff --flatten --packages=biblatex --config="$PICT" --config="$SIGLAS" \
   }
   { print }
   END { if (!feito) { print "latexdiff-tcc.sh: sem \\begin{document} na saída do latexdiff" > "/dev/stderr"; exit 1 } }' |
-  "$BIN/marcar-quebras.py"
+  "$BIN/marcar-quebras.py" "${PICT#PICTUREENV=}"

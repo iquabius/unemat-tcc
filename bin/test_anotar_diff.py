@@ -580,6 +580,16 @@ class Metricas(unittest.TestCase):
         # "Uma frase inteira nova" e a legenda; o código não conta.
         self.assertEqual(n["palavras"], 6)
 
+    def test_palavras_de_figura_do_picturenv_não_contam(self):
+        # O picture está no PICTUREENV, mas a lista à mão das métricas só
+        # tinha o minted e o tikzpicture dele.
+        tex = ("\\begin{document}\n\\chapter{Um}\n"
+               "\\DIFaddbegin \\DIFadd{Duas palavras.}\\DIFaddend\n"
+               "\\begin{picture}(10,10)\\put(0,0){\\DIFadd{três quatro cinco}}\\end{picture}\n"
+               "\\end{document}\n")
+        lugares, _ = anotar.metricas(tex)
+        self.assertEqual(lugares[("Um", "", "")]["palavras"], 2)
+
     def test_nova_só_com_o_texto_quase_todo_novo(self):
         nova = self.lugares[("Introdução", "Trabalhos relacionados", "")]
         self.assertEqual((nova["natureza"], nova["palavras_mais"]), ("nova", 4))

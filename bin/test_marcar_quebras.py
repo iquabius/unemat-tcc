@@ -13,6 +13,8 @@ antigos (v0.1..v0.4).
 """
 import importlib.util
 import os
+import subprocess
+import sys
 import unittest
 from pathlib import Path
 
@@ -21,6 +23,13 @@ SCRIPT = Path(os.environ.get("MARCAR_QUEBRAS_SCRIPT",
 spec = importlib.util.spec_from_file_location("marcar_quebras", SCRIPT)
 mq = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(mq)
+
+# O PICTUREENV que o bin/latexdiff-tcc.sh passa ao filtro, pela mesma
+# expansão da linha PICT= do script.
+PICTUREENV = subprocess.run(
+    ["bash", "-c", 'eval "$(grep "^PICT=" "$1")"; printf %s "${PICT#PICTUREENV=}"', "_",
+     str(Path(__file__).with_name("latexdiff-tcc.sh"))],
+    capture_output=True, text=True, check=True).stdout
 
 PREAMBULO = """\\documentclass{article}
 \\providecommand{\\DIFaddbegin}{} %DIF PREAMBLE
@@ -31,7 +40,8 @@ PREAMBULO = """\\documentclass{article}
 
 
 def marcar(texto):
-    return "".join(mq.marcar(texto.splitlines(keepends=True)))
+    return "".join(mq.marcar(texto.splitlines(keepends=True),
+                             mq.ambientes_literais(PICTUREENV)))
 
 
 class Marcar(unittest.TestCase):
@@ -228,6 +238,36 @@ let b = 2;
 %DIFDELCMD < %%%
 \\DIFdelend Três quatro.
 """)
+
+    def test_linha_em_branco_dentro_de_picture_fica_sem_marca(self):
+        # O picture está no PICTUREENV desde que ele entrou no
+        # bin/latexdiff-tcc.sh, mas a lista que o filtro repetia à mão não o
+        # tinha, e o ¶ caía entre dois \\put.
+        diff = PREAMBULO + """Antes.
+\\DIFaddbegin \\begin{picture}(10,10)
+\\put(0,0){Alfa}
+
+\\put(5,5){Beta}
+\\end{picture}
+
+\\DIFadd{Depois.}\\DIFaddend
+"""
+        self.assertEqual(marcar(diff), PREAMBULO + """Antes.
+\\DIFaddbegin \\begin{picture}(10,10)
+\\put(0,0){Alfa}
+
+\\put(5,5){Beta}
+\\end{picture}
+\\ifhmode\\DIFadd{\\P}\\fi
+
+\\DIFadd{Depois.}\\DIFaddend
+""")
+
+    def test_sem_o_picturenv_sai_com_o_uso(self):
+        p = subprocess.run([sys.executable, str(SCRIPT)], input="",
+                           capture_output=True, text=True)
+        self.assertNotEqual(p.returncode, 0)
+        self.assertIn("uso:", p.stderr)
 
     def test_bloco_FL_de_float_recebe_o_mesmo_marcador(self):
         diff = PREAMBULO + """\\begin{figure}

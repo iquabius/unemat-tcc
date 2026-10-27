@@ -87,7 +87,8 @@ def picturenv():
     """Os ambientes que o latexdiff deixa fora da marcação, o PICTUREENV do
     bin/latexdiff-tcc.sh, lido de lá: a âncora de uma linha de dentro de um
     deles vai para antes do \\begin, porque a de dentro do tikzpicture caía
-    nas opções ou antes de um \\node e parava o pdflatex."""
+    nas opções ou antes de um \\node e parava o pdflatex; e as palavras de
+    dentro deles não contam nas métricas (SEM_PALAVRAS)."""
     sh = Path(__file__).resolve().parent / "latexdiff-tcc.sh"
     m = re.search(r"^PICT='PICTUREENV=(.*)'$", sh.read_text(), re.M)
     if not m:
@@ -580,8 +581,11 @@ def paginas_alteradas(aux):
 
 
 PALAVRA = re.compile(r"[^\W_]+(?:[-'][^\W_]+)*")
-# O que não é texto do trabalho: código, figuras em TikZ, comentários.
-SEM_PALAVRAS = ("minted", "verbatim", "Verbatim", "lstlisting", "tikzpicture", "comment")
+# O que não é texto do trabalho, além dos ambientes do PICTUREENV
+# (picturenv()), que o latexdiff não marca e cujas palavras também não
+# contam (as figuras, o minted e o DIFnomarkup, que o texto não usa): o
+# código em verbatim e lstlisting, e os comentários.
+SEM_PALAVRAS = ("verbatim", "Verbatim", "lstlisting", "comment")
 FLOATS = {"figure": "figura", "table": "tabela", "listing": "listagem"}
 # Título apagado tão parecido com um novo, no mesmo lugar, que é o mesmo
 # renomeado ("Programação Reativa" e "Programação reativa"), e não uma
@@ -686,7 +690,8 @@ def metricas(tex):
                   if (args := argumentos(corpo, m.end(), 1)[0])}
     corpo = "\n".join("" if l.lstrip().startswith("%") else sem_comentario(l)
                       for l in corpo.splitlines())
-    corpo = re.sub(r"\\begin\{(%s)\}.*?\\end\{\1\}" % "|".join(SEM_PALAVRAS), " ",
+    sem_palavras = "|".join((picturenv().pattern, *SEM_PALAVRAS))
+    corpo = re.sub(r"\\begin\{(%s)\}.*?\\end\{\1\}" % sem_palavras, " ",
                    corpo, flags=re.S)
     base = set(chaves(sem_comandos(corpo, r"\\DIFadd(?:FL)?")))
     ref = set(chaves(sem_comandos(corpo, r"\\DIFdel(?:FL)?")))
