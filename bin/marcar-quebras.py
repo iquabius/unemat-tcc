@@ -2,7 +2,7 @@
 """marcar-quebras.py — põe um pilcrow (¶) na cor das mudanças onde o diff do
 latexdiff inseriu ou removeu uma quebra de parágrafo.
 
-    latexdiff ... | bin/marcar-quebras.py >diff.tex
+    latexdiff ... | bin/marcar-quebras.py PICTUREENV >diff.tex
 
 O latexdiff troca a primeira linha em branco de cada bloco pelo token
 \\PAR, que entra no diff como comando, e o tira no fim (latexdiff 1.4.0,
@@ -24,14 +24,15 @@ cala onde a linha em branco não fecha parágrafo algum, depois de um título,
 de uma tabela ou de uma lista, em que o TeX está em modo vertical e o ¶
 sairia sozinho numa linha. As linhas em branco fora dos blocos e tudo antes
 do \\begin{document}, onde o preâmbulo do latexdiff define os próprios
-comandos, ficam como estão, e também as de dentro de uma listagem minted,
-de um verbatim ou de uma figura tikzpicture, em que a linha em branco é
-texto do código, ou nada, entre dois caminhos da figura, onde o ¶ quebraria
-o TikZ: a inserida inteira, e a apagada inteira, cujas linhas o latexdiff
-comenta uma a uma com "%DIFDELCMD < ", menos a em branco, que sai crua
-entre elas. Esses ambientes não se aninham aqui (um minted dentro de um
-DIFnomarkup perderia a proteção no \\end{minted}); o TCC usa o minted e
-vai usar o tikzpicture.
+comandos, ficam como estão, e também as de dentro de um ambiente do
+PICTUREENV que o bin/latexdiff-tcc.sh passa (a listagem minted, a figura
+tikzpicture ou picture), de um verbatim ou de um lstlisting, em que a
+linha em branco é texto do código, ou nada, entre dois caminhos da
+figura, onde o ¶ quebraria o TikZ: a inserida inteira, e a apagada
+inteira, cujas linhas o latexdiff comenta uma a uma com "%DIFDELCMD < ",
+menos a em branco, que sai crua entre elas. Esses ambientes não se
+aninham aqui (um minted dentro de um DIFnomarkup perderia a proteção no
+\\end{minted}); o TCC usa o minted e o tikzpicture.
 
 Por que um filtro (decisão de 2026-10-08, tarefa tcc-vgl): nenhuma opção
 do latexdiff marca a quebra, porque o \\PAR nunca entra em \\DIFadd nem em
@@ -51,16 +52,19 @@ import re
 import sys
 
 BLOCO = re.compile(r"\\DIF(add|del)(begin|end)(?:FL)?(?![A-Za-z])")
-# Ambientes em que a linha em branco é texto, ou nada: o minted e o
-# tikzpicture do PICTUREENV do bin/latexdiff-tcc.sh e os VERBATIMENV do
-# latexdiff.
-LITERAL = re.compile(
-    r"\\(begin|end)\{(?:minted|verbatim\*?|lstlisting|tikzpicture|DIFnomarkup)\}"
-)
 
 
-def marcar(linhas):
-    """Gera as linhas do diff com os marcadores de quebra de parágrafo."""
+def ambientes_literais(picturenv):
+    """O \\begin e o \\end dos ambientes em que a linha em branco é texto,
+    ou nada: os do PICTUREENV, a regex que o bin/latexdiff-tcc.sh passa
+    (a linha PICT=), e os do VERBATIMLINEENV padrão do latexdiff 1.4.0
+    (lstlisting e verbatim, latexdiff --show-config)."""
+    return re.compile(r"\\(begin|end)\{(?:%s|verbatim\*?|lstlisting)\}" % picturenv)
+
+
+def marcar(linhas, ambientes):
+    """Gera as linhas do diff com os marcadores de quebra de parágrafo; a
+    regex ambientes é a de ambientes_literais()."""
     corpo = False
     aberto = None  # "add" ou "del": o bloco em que a linha anterior terminou
     branca = False  # se a linha anterior era em branco: a sequência é uma quebra só
@@ -76,13 +80,15 @@ def marcar(linhas):
             branca = False
             for m in BLOCO.finditer(linha):
                 aberto = m.group(1) if m.group(2) == "begin" else None
-            for m in LITERAL.finditer(linha):
+            for m in ambientes.finditer(linha):
                 literal = m.group(1) == "begin"
         yield linha
 
 
 def main():
-    sys.stdout.writelines(marcar(sys.stdin))
+    if len(sys.argv) != 2:
+        sys.exit("uso: marcar-quebras.py PICTUREENV <diff.tex >saida.tex")
+    sys.stdout.writelines(marcar(sys.stdin, ambientes_literais(sys.argv[1])))
 
 
 if __name__ == "__main__":

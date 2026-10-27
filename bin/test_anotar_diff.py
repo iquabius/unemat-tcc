@@ -223,6 +223,26 @@ class AncoraForaDaFigura(unittest.TestCase):
                 ok, dentro = anotar.seguros(linhas, figura)
                 self.assertEqual(anotar.alvo(linhas, ok, dentro, 2), alvo)
 
+    def test_figura_dentro_de_chaves_ancora_antes_delas(self):
+        """O \\begin dentro de chaves não é seguro, e a busca para a frente
+        punha a âncora depois do \\end{tikzpicture}, embaixo da figura."""
+        linhas = ["\\begin{figure}[htbp]\n", "\\caption{Legenda.}\n",
+                  "\\resizebox{\\linewidth}{!}{%\n", "\\begin{tikzpicture}\n",
+                  "\\node (a) {Mudou};\n", "\\end{tikzpicture}%\n", "}\n",
+                  "\\end{figure}\n"]
+        ok, dentro = anotar.seguros(linhas, anotar.picturenv())
+        self.assertEqual(anotar.alvo(linhas, ok, dentro, 4), 2)
+
+    def test_figura_entre_chaves_não_recua_para_a_seção_anterior(self):
+        """Com o \\resizebox na linha do título, a busca para trás passaria
+        ao texto da seção anterior, e o \\nameref daria a seção errada."""
+        linhas = ["\\section{A}\n", "Texto A.\n",
+                  "\\section{B}\\resizebox{\\linewidth}{!}{%\n",
+                  "\\begin{tikzpicture}\n", "\\node (a) {Mudou};\n",
+                  "\\end{tikzpicture}}\n", "Texto B.\n"]
+        ok, dentro = anotar.seguros(linhas, anotar.picturenv())
+        self.assertEqual(anotar.alvo(linhas, ok, dentro, 4), 6)
+
 
 def marcadores(out):
     """Os títulos dos \\BOOKMARK do .out do hyperref, que vêm em UTF-16 com
@@ -559,6 +579,16 @@ class Metricas(unittest.TestCase):
         self.assertEqual(n["floats"], {"+figura": 1})
         # "Uma frase inteira nova" e a legenda; o código não conta.
         self.assertEqual(n["palavras"], 6)
+
+    def test_palavras_de_figura_do_picturenv_não_contam(self):
+        # O picture está no PICTUREENV, mas a lista à mão das métricas só
+        # tinha o minted e o tikzpicture dele.
+        tex = ("\\begin{document}\n\\chapter{Um}\n"
+               "\\DIFaddbegin \\DIFadd{Duas palavras.}\\DIFaddend\n"
+               "\\begin{picture}(10,10)\\put(0,0){\\DIFadd{três quatro cinco}}\\end{picture}\n"
+               "\\end{document}\n")
+        lugares, _ = anotar.metricas(tex)
+        self.assertEqual(lugares[("Um", "", "")]["palavras"], 2)
 
     def test_nova_só_com_o_texto_quase_todo_novo(self):
         nova = self.lugares[("Introdução", "Trabalhos relacionados", "")]
