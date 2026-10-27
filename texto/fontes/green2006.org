@@ -1,9 +1,10 @@
 #+title: green2006: Green et al. (2006), Cognitive Dimensions: Achievements, New Directions, and Open Questions
 #+startup: overview
 
-* [[file:../intro.org::Este trabalho compara /modelos de programação/][intro: Este trabalho compara modelos de programação]], p. 342
-- Frase: “Na web, ela se declara em CSS, uma camada de notação à parte do
-  HTML (Green et al., 2006, p. 342)”
+* [[file:../prog.org::A aparência da tela, que este trabalho][prog: A aparência da tela, que este trabalho]], p. 342
+- Frase: “A aparência da tela, que este trabalho deixa fora da notação, se
+  declara na web em CSS, uma camada de notação à parte do HTML (Green et
+  al., 2006, p. 342)”. Veio da introdução no corte de 2026-10-26.
 - Trecho: “From a CDs perspective, with the introduction of abstraction
   mechanisms comes a new layer of notation, in which the abstractions are
   expressed (CSS in this case)” (p. 342)

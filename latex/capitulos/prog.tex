@@ -222,6 +222,15 @@ e o Solid e o Angular com \emph{signals} aparecem entre as implementações da
 \gls{pr} \cite[p. 57]{tsukanova2026}.
 
 \todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}
+
+O \emph{callback} fragmenta o fluxo de controle: a sequência de passos que o
+programador tem em mente para uma operação fica dividida entre vários
+\emph{callbacks} \cite[p. 134-135]{fischer2007}.
+
+O desafio do programador é escrever, no código, como o estado passa de um
+evento a outro \cite[p. N]{krishnamurthi2019}.
+
+\todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}
 Na implementação, a aplicação deixa de controlar a execução e se divide em
 sub-rotinas que o \emph{toolkit} da interface chama quando o usuário age, e
 programas assim parecem mais difíceis de organizar e modularizar
@@ -246,6 +255,11 @@ código que as usa dificulta a compreensão e leva facilmente a erros
 O JSX, em que o React e o Solid montam a tela, é uma extensão de sintaxe do
 JavaScript que permite escrever marcação parecida com \gls{html} dentro de
 um arquivo JavaScript \cite{meta2026c}.
+
+A aparência da tela, que este trabalho deixa fora da notação, se declara
+na web em \gls{css}, uma camada de notação à parte do \gls{html}
+\cite[p. 342]{green2006}, enquanto no JavaFX o \emph{layout} faz parte do
+código que monta a tela \cite[p. 17]{kiss2014}.
 
 Conforme é notado por \textcite{blackheath2016}, a maioria das aplicações que
 interagem com o ambiente externo são arquitetadas em torno de dois modelos de

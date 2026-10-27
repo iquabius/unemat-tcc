@@ -23,9 +23,11 @@
   fonte. Substitui Madsen, Lhoták e Tip (2017, 86:1), que fica em
   =prog.org= (decisão do autor em 2026-10-14).
 - Conferido: 2026-10-14.
-* [[file:../intro.org::As interfaces gráficas costumam ter estado][intro: As interfaces gráficas costumam ter estado]], p. N (o estado entre os eventos)
+* [[file:../prog.org::O desafio do programador é escrever][prog: O desafio do programador é escrever]], p. N (o estado entre os eventos)
 - Frase: “O desafio do programador é escrever, no código, como o estado
-  passa de um evento a outro (Krishnamurthi; Fisler, 2019, p. N).”
+  passa de um evento a outro (Krishnamurthi; Fisler, 2019, p. N).” Veio
+  da introdução no corte de 2026-10-26: os dois eixos da coordenação já
+  dizem lá o desafio (decisão do autor).
 - Trecho: “The programmer’s challenge is to arrange how state is
   transferred between the events.” (seção 3, “Beyond Paradigms”)
 - Lido em: =acervo/krishnamurthi2019.pdf=, p. 8 do PDF, a versão dos

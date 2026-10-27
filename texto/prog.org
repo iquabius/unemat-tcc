@@ -241,6 +241,15 @@ denominadas /linguagens imperativas/.
   [[gls:pr]] [[cite:tsukanova2026][p. 57]].
 
   @@latex:\todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}@@
+
+  O /callback/ fragmenta o fluxo de controle: a sequência de passos que o
+  programador tem em mente para uma operação fica dividida entre vários
+  /callbacks/ [[cite:fischer2007][p. 134-135]].
+
+  O desafio do programador é escrever, no código, como o estado passa de um
+  evento a outro [[cite:krishnamurthi2019][p. N]].
+
+  @@latex:\todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}@@
   Na implementação, a aplicação deixa de controlar a execução e se divide em
   sub-rotinas que o /toolkit/ da interface chama quando o usuário age, e
   programas assim parecem mais difíceis de organizar e modularizar
@@ -265,6 +274,11 @@ denominadas /linguagens imperativas/.
   O JSX, em que o React e o Solid montam a tela, é uma extensão de sintaxe do
   JavaScript que permite escrever marcação parecida com [[gls:html]] dentro de
   um arquivo JavaScript cite:meta2026c.
+
+  A aparência da tela, que este trabalho deixa fora da notação, se declara
+  na web em [[gls:css]], uma camada de notação à parte do [[gls:html]]
+  [[cite:green2006][p. 342]], enquanto no JavaFX o /layout/ faz parte do
+  código que monta a tela [[cite:kiss2014][p. 17]].
 
   Conforme é notado por textcite:blackheath2016, a maioria das aplicações que
   interagem com o ambiente externo são arquitetadas em torno de dois modelos de

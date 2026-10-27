@@ -29,8 +29,6 @@ estado da aplicação determina a aparência e o comportamento da tela
 [[cite:oney2012][p. 230]].
 Com ele, elas lembram informações [[cite:vanroy2009][p. 14]], como os valores
 digitados nos campos [[cite:madsen2020][p. 12:3]].
-O desafio do programador é escrever, no código, como o estado passa de um
-evento a outro [[cite:krishnamurthi2019][p. N]].
 Programar interfaces exige montar os elementos gráficos na tela e
 coordená-los com o resto do programa.
 Essa coordenação, tema desta pesquisa, se divide aqui em dois eixos: a
@@ -46,9 +44,6 @@ passadas como argumento a outra função, que as chama na hora ou mais tarde
 A forma tradicional de implementar programas que reagem a eventos é o
 /Observer Pattern/, que separa os observadores, que consomem os eventos, dos
 observáveis, que os produzem [[cite:salvaneschi2015][p. 953]].
-O /callback/ fragmenta o fluxo de controle: a sequência de passos que o
-programador tem em mente para uma operação fica dividida entre vários
-/callbacks/ [[cite:fischer2007][p. 134-135]].
 Como não se sabe em que ordem os /callbacks/ serão chamados, coordenar as
 alterações do estado compartilhado pode ser desconcertante e está longe de ser
 modular [[cite:edwards2009][p. 926]].
@@ -90,9 +85,6 @@ dependem dela [[cite:bainomugisha2013][p. 52:2]].
   A tela entra na notação pela /montagem/: quais elementos ela tem, em que
   hierarquia e com que textos.
   A aparência, isto é, as cores, as fontes e o /layout/, fica fora dela.
-  Na web, ela se declara em [[gls:css]], uma camada de notação à parte do
-  [[gls:html]] [[cite:green2006][p. 342]], enquanto no JavaFX o /layout/
-  faz parte do código que monta a tela [[cite:kiss2014][p. 17]].
 
   Nas tecnologias que este trabalho compara, há três modelos de
   programação, dois deles declarativos.
@@ -125,16 +117,15 @@ dependem dela [[cite:bainomugisha2013][p. 52:2]].
   No React, é o próprio componente, uma função que especifica a tela e que,
   chamada com os mesmos argumentos, deve exibir a mesma interface
   [[cite:lee2025][p. 289:1, 289:2 e 289:6]].
+  Nele, o /callback/ continua a tratar o evento, mas só altera o estado:
+  num contador, o do clique soma um ao estado, e o componente devolve o
+  botão com o valor novo [[cites:&lee2025 p. 289:2;&sperber2025 p. 32]].
   O /declarativo por atualização granular/ usa as abstrações da [[gls:pr]],
   os valores que variam no tempo, chamados /signals/, cujas alterações se
   propagam automaticamente [[cite:salvaneschi2015][p. 953]].
   Cada /signal/ avisa o que depende dele, como no Solid cite:solidjs2026,
   e o ambiente de execução não chama de novo a parte que monta a tela
   [[cite:lee2025][p. 289:38]].
-  No React, o /callback/ continua a tratar o evento, mas só altera o estado,
-  e a tela se monta de novo a partir dele [[cite:sperber2025][p. 32]].
-  Num contador, por exemplo, o /callback/ do clique soma um ao estado, e o
-  componente devolve o botão com o valor novo [[cite:lee2025][p. 289:2]].
 
   Para discutir o quanto uma notação facilita a compreensão e a
   manutenção, há as [[glspl:dc]], propostas por textcite:green1989.
@@ -227,7 +218,8 @@ dependem dela [[cite:bainomugisha2013][p. 52:2]].
   da coordenação.
 
   As sete interfaces são implementadas na web por cinco tecnologias, numa
-  cadeia de pares em que cada passo muda o mínimo.
+  cadeia de pares em que cada passo muda o mínimo
+  (Figura [[ref:fig:cadeia-e-rodadas]]).
   A cadeia parte do Web Component, no imperativo por atualização manual.
   O primeiro passo, ao Web Component com /signals/ do =solid-js=, leva ao
   declarativo por atualização granular: muda o modo como a alteração do
@@ -288,13 +280,19 @@ dependem dela [[cite:bainomugisha2013][p. 52:2]].
 
   #+CAPTION: Bibliotecas da vertente do ecossistema, por interface e tecnologia.
   #+NAME: tab:bibliotecas-do-ecossistema
-  #+ATTR_LATEX: :align p{3.4cm}p{3.3cm}p{3.6cm}p{3.8cm} :font \small :placement [htbp]
+  #+ATTR_LATEX: :options [htbp]
+  #+begin_table
+  #+LATEX: \centering
+  #+ATTR_LATEX: :align p{3.4cm}p{3.3cm}p{3.6cm}p{3.8cm} :font \small :float nil :center nil
   |--------------------------------------------------------+-------------------------------------------------------------------------+------------------------------------------------------------+-----------------------|
   | Interface                                              | @@latex:\raggedright@@ Web Component, Lit e Web Component com /signals/ | Solid                                                      | React                 |
   |--------------------------------------------------------+-------------------------------------------------------------------------+------------------------------------------------------------+-----------------------|
   | @@latex:\raggedright@@ Reserva de passagem: formulário | =final-form=                                                            | TanStack Solid Form                                        | TanStack React Form   |
   | @@latex:\raggedright@@ Placar ao vivo: conexão         | =partysocket=                                                           | @@latex:\texttt{@solid-primitives/\allowbreak websocket}@@ | =react-use-websocket= |
   |--------------------------------------------------------+-------------------------------------------------------------------------+------------------------------------------------------------+-----------------------|
+
+  #+LATEX: \small Fonte: elaborado pelo autor.
+  #+end_table
 
   #+CAPTION: Cadeia de pares das cinco tecnologias e as três rodadas da avaliação. Cada passo da cadeia muda o mínimo entre tecnologias vizinhas, e o Lit sai do Web Component num ramo que muda a ligação; cada rodada responde a uma pergunta, e a segunda e a terceira partem do código da anterior. Grafite: imperativo por atualização manual; ocre: declarativo por atualização granular; roxo: declarativo por re-renderização.
   #+NAME: fig:cadeia-e-rodadas
@@ -353,6 +351,8 @@ dependem dela [[cite:bainomugisha2013][p. 52:2]].
     \draw[seta] (r1.south -| lit) -- (r2.north -| lit);
     \draw[seta] (r2.south -| lit) -- (r3.north -| lit);
   \end{tikzpicture}
+
+  \small Fonte: elaborado pelo autor.
   #+end_export
   #+end_figure
 
@@ -430,8 +430,8 @@ dependem dela [[cite:bainomugisha2013][p. 52:2]].
   e pelo [[gls:css]].
   Os pares isolam pouco: o primeiro passo da cadeia muda, além do modelo
   de programação, a orquestração, que segue a do Solid.
-  O Web Component e o React não formam par, e atribuir a diferença entre
-  eles aos passos da cadeia supõe que os passos se somam.
+  Atribuir aos passos da cadeia a diferença entre o Web Component e o
+  React supõe que os passos se somam.
   O par Web Component × Lit também muda, com a ligação, a montagem das
   partes repetidas, que a re-renderização refaz a cada alteração.
   A suposição falha quando um passo muda a leitura de outro, como a

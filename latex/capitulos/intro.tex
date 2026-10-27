@@ -27,8 +27,6 @@ estado da aplicação determina a aparência e o comportamento da tela
 \cite[p. 230]{oney2012}.
 Com ele, elas lembram informações \cite[p. 14]{vanroy2009}, como os valores
 digitados nos campos \cite[p. 12:3]{madsen2020}.
-O desafio do programador é escrever, no código, como o estado passa de um
-evento a outro \cite[p. N]{krishnamurthi2019}.
 Programar interfaces exige montar os elementos gráficos na tela e
 coordená-los com o resto do programa.
 Essa coordenação, tema desta pesquisa, se divide aqui em dois eixos: a
@@ -44,9 +42,6 @@ passadas como argumento a outra função, que as chama na hora ou mais tarde
 A forma tradicional de implementar programas que reagem a eventos é o
 \emph{Observer Pattern}, que separa os observadores, que consomem os eventos, dos
 observáveis, que os produzem \cite[p. 953]{salvaneschi2015}.
-O \emph{callback} fragmenta o fluxo de controle: a sequência de passos que o
-programador tem em mente para uma operação fica dividida entre vários
-\emph{callbacks} \cite[p. 134-135]{fischer2007}.
 Como não se sabe em que ordem os \emph{callbacks} serão chamados, coordenar as
 alterações do estado compartilhado pode ser desconcertante e está longe de ser
 modular \cite[p. 926]{edwards2009}.
@@ -88,9 +83,6 @@ que os mostra.
 A tela entra na notação pela \emph{montagem}: quais elementos ela tem, em que
 hierarquia e com que textos.
 A aparência, isto é, as cores, as fontes e o \emph{layout}, fica fora dela.
-Na web, ela se declara em \gls{css}, uma camada de notação à parte do
-\gls{html} \cite[p. 342]{green2006}, enquanto no JavaFX o \emph{layout}
-faz parte do código que monta a tela \cite[p. 17]{kiss2014}.
 
 Nas tecnologias que este trabalho compara, há três modelos de
 programação, dois deles declarativos.
@@ -123,16 +115,15 @@ novo, a cada alteração de estado, a parte que monta a tela.
 No React, é o próprio componente, uma função que especifica a tela e que,
 chamada com os mesmos argumentos, deve exibir a mesma interface
 \cite[p. 289:1, 289:2 e 289:6]{lee2025}.
+Nele, o \emph{callback} continua a tratar o evento, mas só altera o estado:
+num contador, o do clique soma um ao estado, e o componente devolve o
+botão com o valor novo \cites[][ p. 289:2]{lee2025}[][ p. 32]{sperber2025}.
 O \emph{declarativo por atualização granular} usa as abstrações da \gls{pr},
 os valores que variam no tempo, chamados \emph{signals}, cujas alterações se
 propagam automaticamente \cite[p. 953]{salvaneschi2015}.
 Cada \emph{signal} avisa o que depende dele, como no Solid \cite{solidjs2026},
 e o ambiente de execução não chama de novo a parte que monta a tela
 \cite[p. 289:38]{lee2025}.
-No React, o \emph{callback} continua a tratar o evento, mas só altera o estado,
-e a tela se monta de novo a partir dele \cite[p. 32]{sperber2025}.
-Num contador, por exemplo, o \emph{callback} do clique soma um ao estado, e o
-componente devolve o botão com o valor novo \cite[p. 289:2]{lee2025}.
 
 Para discutir o quanto uma notação facilita a compreensão e a
 manutenção, há as \glspl{dc}, propostas por \textcite{green1989}.
@@ -227,7 +218,8 @@ As outras seis trazem, em proporção própria, exigências dos dois eixos
 da coordenação.
 
 As sete interfaces são implementadas na web por cinco tecnologias, numa
-cadeia de pares em que cada passo muda o mínimo.
+cadeia de pares em que cada passo muda o mínimo
+(Figura \ref{fig:cadeia-e-rodadas}).
 A cadeia parte do Web Component, no imperativo por atualização manual.
 O primeiro passo, ao Web Component com \emph{signals} do \texttt{solid-js}, leva ao
 declarativo por atualização granular: muda o modo como a alteração do
@@ -289,7 +281,7 @@ passa à biblioteca.
 \begin{table}[htbp]
 \caption{\label{tab:bibliotecas-do-ecossistema}Bibliotecas da vertente do ecossistema, por interface e tecnologia.}
 \centering
-\small
+{\small
 \begin{tabular}{p{3.4cm}p{3.3cm}p{3.6cm}p{3.8cm}}
 \hline
 Interface & \raggedright Web Component, Lit e Web Component com \emph{signals} & Solid & React\\
@@ -297,7 +289,9 @@ Interface & \raggedright Web Component, Lit e Web Component com \emph{signals} &
 \raggedright Reserva de passagem: formulário & \texttt{final-form} & TanStack Solid Form & TanStack React Form\\
 \raggedright Placar ao vivo: conexão & \texttt{partysocket} & \texttt{@solid-primitives/\allowbreak websocket} & \texttt{react-use-websocket}\\
 \hline
-\end{tabular}
+\end{tabular}}
+
+\small Fonte: elaborado pelo autor.
 \end{table}
 
 \begin{figure}[htbp]
@@ -354,6 +348,8 @@ Interface & \raggedright Web Component, Lit e Web Component com \emph{signals} &
   \draw[seta] (r1.south -| lit) -- (r2.north -| lit);
   \draw[seta] (r2.south -| lit) -- (r3.north -| lit);
 \end{tikzpicture}
+
+\small Fonte: elaborado pelo autor.
 \end{figure}
 
 A linguagem, a especificação e as regras de domínio ficam fixas, nas
@@ -430,8 +426,8 @@ Também não chega às dependências ocultas que
 e pelo \gls{css}.
 Os pares isolam pouco: o primeiro passo da cadeia muda, além do modelo
 de programação, a orquestração, que segue a do Solid.
-O Web Component e o React não formam par, e atribuir a diferença entre
-eles aos passos da cadeia supõe que os passos se somam.
+Atribuir aos passos da cadeia a diferença entre o Web Component e o
+React supõe que os passos se somam.
 O par Web Component × Lit também muda, com a ligação, a montagem das
 partes repetidas, que a re-renderização refaz a cada alteração.
 A suposição falha quando um passo muda a leitura de outro, como a

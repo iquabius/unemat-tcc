@@ -18,13 +18,15 @@
   Myers (1994, p. 79), citado na frase anterior; “complica muito” traduz o
   “severely complicates”.
 - Conferido: 2026-10-15.
-* [[file:../intro.org::No navegador, as sub-rotinas desse código][intro: No navegador, as sub-rotinas desse código]], p. 134-135
+* [[file:../prog.org::O /callback/ fragmenta o fluxo de controle][prog: O callback fragmenta o fluxo de controle]], p. 134-135
 - Frase: “O /callback/ fragmenta o fluxo de controle: a sequência de passos
   que o programador tem em mente para uma operação fica dividida entre
   vários /callbacks/ (Fischer; Majumdar; Millstein, 2007, p. 134-135).” Em
   2026-10-14, “o que dificulta a manutenção e a compreensão do programa”
   saiu: a consequência fica no parágrafo da dificuldade, com o mesmo
-  trecho do resumo (p. 134).
+  trecho do resumo (p. 134). Em 2026-10-26, a frase veio da introdução
+  para prog.org, porque o “dividido em sub-rotinas” de Myers (1994) e a
+  frase da p. 134 já a cobrem lá (decisão do autor no último corte).
 - Trecho: “the event-driven style severely complicates program maintenance
   and understanding, as it requires each logical flow of control to be
   fragmented across multiple independent callbacks.” (resumo, p. 134);

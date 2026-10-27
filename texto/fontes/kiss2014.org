@@ -20,10 +20,12 @@
 - Observação: a referência [30] de Kiss é o relatório técnico de Myers de
   1993, a versão anterior de Myers (1994).
 - Conferido: 2026-10-12.
-* [[file:../intro.org::Este trabalho compara /modelos de programação/][intro: Este trabalho compara modelos de programação]], p. 17
-- Frase: “Na web, ela se declara em CSS, uma camada de notação à parte do
-  HTML (Green et al., 2006, p. 342), enquanto no JavaFX o /layout/ faz
-  parte do código que monta a tela (Kiss, 2014, p. 17).”
+* [[file:../prog.org::A aparência da tela, que este trabalho][prog: A aparência da tela, que este trabalho]], p. 17
+- Frase: “A aparência da tela, que este trabalho deixa fora da notação, se
+  declara na web em CSS, uma camada de notação à parte do HTML (Green et
+  al., 2006, p. 342), enquanto no JavaFX o /layout/ faz parte do código que
+  monta a tela (Kiss, 2014, p. 17).” Veio da introdução no corte de
+  2026-10-26.
 - Trecho: “Finally, count and countUp are laid out horizontally by an
   HBox with spacing and padding of 10 units and the stage is
   initialized.”, seguido do código, em que a mesma função =start= cria o

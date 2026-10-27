@@ -20,9 +20,15 @@
   manually”).
 - Conferido: 2026-10-14.
 * [[file:../intro.org::Nos declarativos, o programador descreve a tela][intro: Nos declarativos, o programador descreve a tela]], p. 32 (o /callback/ do React)
-- Frase: “No React, o /callback/ continua a tratar o evento, mas só altera
-  o estado, e a tela se monta de novo a partir dele (Sperber; Schlegel,
-  2025, p. 32).”
+- Frase: “Nele, o /callback/ continua a tratar o evento, mas só altera o
+  estado: num contador, o do clique soma um ao estado, e o componente
+  devolve o botão com o valor novo (Lee; Ahn; Yi, 2025, p. 289:2;
+  Sperber; Schlegel, 2025, p. 32).” “Nele” retoma o React da frase
+  anterior. Em 2026-10-26, a frase “No React, o /callback/ continua a
+  tratar o evento, mas só altera o estado, e a tela se monta de novo a
+  partir dele” se fundiu com a do contador (último corte, decisão do
+  autor); “a tela se monta de novo” fica com o componente que devolve o
+  botão.
 - Trecho: “The UI program attaches imperative callbacks to UI components,
   and these callbacks can either mutate the component state or cause the
   properties to be replaced. Conceptually, React ignores the difference
@@ -34,4 +40,4 @@
   declarativos (reescrita dos §5 a §7 na checagem adversarial de
   2026-10-15); o React é o exemplo da fonte, e a frase não diz isso do
   Solid.
-- Conferido: 2026-10-15.
+- Conferido: 2026-10-15; de novo em 2026-10-27, na frase fundida.
