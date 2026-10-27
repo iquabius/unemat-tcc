@@ -223,6 +223,26 @@ class AncoraForaDaFigura(unittest.TestCase):
                 ok, dentro = anotar.seguros(linhas, figura)
                 self.assertEqual(anotar.alvo(linhas, ok, dentro, 2), alvo)
 
+    def test_figura_dentro_de_chaves_ancora_antes_delas(self):
+        """O \\begin dentro de chaves não é seguro, e a busca para a frente
+        punha a âncora depois do \\end{tikzpicture}, embaixo da figura."""
+        linhas = ["\\begin{figure}[htbp]\n", "\\caption{Legenda.}\n",
+                  "\\resizebox{\\linewidth}{!}{%\n", "\\begin{tikzpicture}\n",
+                  "\\node (a) {Mudou};\n", "\\end{tikzpicture}%\n", "}\n",
+                  "\\end{figure}\n"]
+        ok, dentro = anotar.seguros(linhas, anotar.picturenv())
+        self.assertEqual(anotar.alvo(linhas, ok, dentro, 4), 2)
+
+    def test_figura_entre_chaves_não_recua_para_a_seção_anterior(self):
+        """Com o \\resizebox na linha do título, a busca para trás passaria
+        ao texto da seção anterior, e o \\nameref daria a seção errada."""
+        linhas = ["\\section{A}\n", "Texto A.\n",
+                  "\\section{B}\\resizebox{\\linewidth}{!}{%\n",
+                  "\\begin{tikzpicture}\n", "\\node (a) {Mudou};\n",
+                  "\\end{tikzpicture}}\n", "Texto B.\n"]
+        ok, dentro = anotar.seguros(linhas, anotar.picturenv())
+        self.assertEqual(anotar.alvo(linhas, ok, dentro, 4), 6)
+
 
 def marcadores(out):
     """Os títulos dos \\BOOKMARK do .out do hyperref, que vêm em UTF-16 com

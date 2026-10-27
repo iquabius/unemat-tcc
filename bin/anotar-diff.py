@@ -133,7 +133,18 @@ def alvo(linhas, ok, dentro, i):
 
     n = len(linhas)
     i = min(i, n - 1)
-    i = dentro.get(i, i)
+    if i in dentro:
+        # Dentro de uma figura do PICTUREENV, para trás desde o \begin: a
+        # âncora fica antes dela, também quando o \begin está dentro de
+        # chaves (\resizebox{...}{\begin{tikzpicture}...}), em que a linha
+        # dele não é segura e a busca para a frente pularia a figura. Para
+        # no título de seção, para o \nameref não dar a seção anterior; sem
+        # linha boa até ele, segue a busca de baixo, que sai depois da figura.
+        for j in range(dentro[i], -1, -1):
+            if SECAO.match(linhas[j]):
+                break
+            if bom(j):
+                return j
     # Primeiro para a frente, até 40 linhas (passa o título de seção, a
     # linha em branco, o fim da tabela ou da legenda); senão, para trás.
     for j in range(i, min(n, i + 40)):
