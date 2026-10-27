@@ -249,6 +249,14 @@ denominadas /linguagens imperativas/.
   O desafio do programador é escrever, no código, como o estado passa de um
   evento a outro [[cite:krishnamurthi2019][p. N]].
 
+  Nem todo evento vem do usuário: a chegada de um pacote da rede e o tique do
+  relógio também são eventos, e cada evento faz rodar a parte do programa que
+  responde a ele [[cite:krishnamurthi2019][p. N]].
+
+  Com o estado, as interfaces gráficas lembram informações
+  [[cite:vanroy2009][p. 14]], como os valores digitados nos campos
+  [[cite:madsen2020][p. 12:3]].
+
   @@latex:\todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}@@
   Na implementação, a aplicação deixa de controlar a execução e se divide em
   sub-rotinas que o /toolkit/ da interface chama quando o usuário age, e

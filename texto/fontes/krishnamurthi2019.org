@@ -1,7 +1,7 @@
 #+title: krishnamurthi2019: Krishnamurthi e Fisler (2019), Programming Paradigms and Beyond
 #+startup: overview
 
-* [[file:../intro.org::Cada toque num aplicativo de celular, clique][intro: Cada toque num aplicativo de celular, clique]], p. N (eventos que não vêm do usuário)
+* [[file:../prog.org::Nem todo evento vem do usuário][prog: Nem todo evento vem do usuário]], p. N (eventos que não vêm do usuário)
 - Frase: “Nem todo evento vem do usuário: a chegada de um pacote da rede e
   o tique do relógio também são eventos, e cada evento faz rodar a parte do
   programa que responde a ele (Krishnamurthi; Fisler, 2019, p. N).”
@@ -21,7 +21,8 @@
   environment that is in charge” fica fora da frase: o “ambiente de execução” do =GLOSSARY.md= é só o que faz as
   atualizações que o código declara, e não o /operating environment/ da
   fonte. Substitui Madsen, Lhoták e Tip (2017, 86:1), que fica em
-  =prog.org= (decisão do autor em 2026-10-14).
+  =prog.org= (decisão do autor em 2026-10-14). Veio da introdução para
+  prog no corte de 2026-10-27.
 - Conferido: 2026-10-14.
 * [[file:../prog.org::O desafio do programador é escrever][prog: O desafio do programador é escrever]], p. N (o estado entre os eventos)
 - Frase: “O desafio do programador é escrever, no código, como o estado

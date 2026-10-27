@@ -4,9 +4,6 @@ Cada toque num aplicativo de celular, clique num programa de computador ou
 tecla digitada num \emph{site} gera um evento, que o programa precisa aceitar a
 qualquer momento, mesmo enquanto executa outros comandos
 \cite[p. 79]{myers1994}.
-Nem todo evento vem do usuário: a chegada de um pacote da rede e o tique do
-relógio também são eventos, e cada evento faz rodar a parte do programa que
-responde a ele \cite[p. N]{krishnamurthi2019}.
 Esses eventos chegam numa ordem que o programador não escolhe nem pode
 prever \cite[p. 52:2]{bainomugisha2013}.
 
@@ -25,8 +22,6 @@ As interfaces gráficas costumam ter estado, e essa é uma das principais
 diferenças entre a programação de interfaces e a dos outros programas: o
 estado da aplicação determina a aparência e o comportamento da tela
 \cite[p. 230]{oney2012}.
-Com ele, elas lembram informações \cite[p. 14]{vanroy2009}, como os valores
-digitados nos campos \cite[p. 12:3]{madsen2020}.
 Programar interfaces exige montar os elementos gráficos na tela e
 coordená-los com o resto do programa.
 Essa coordenação, tema desta pesquisa, se divide aqui em dois eixos: a
@@ -52,11 +47,9 @@ espaguete \cite[p. 229]{oney2012}.
 Como resposta à dificuldade de coordenar os \emph{callbacks}, foi proposta a
 \gls{pr}, com abstrações próprias para os eventos e para as alterações de
 estado \cite[p. 52:2]{bainomugisha2013}.
-Nela, o programador declara como os valores dependem uns dos outros, em vez
-de escrever os passos que calculam o valor novo de cada um
-\cite[p. 1126]{salvaneschi2017}.
-O ambiente de execução leva cada alteração aos valores que dependem dela, e
-o programador não precisa escrever essa atualização
+Nela, o programador declara como os valores dependem uns dos outros, e o
+ambiente de execução leva cada alteração aos valores que dependem dela,
+sem que o programador escreva essa atualização
 \cite[p. 1126]{salvaneschi2017}.
 A forma de escrever o programa pesa na compreensão: num experimento
 controlado com 127 estudantes, quem leu programas escritos

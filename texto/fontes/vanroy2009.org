@@ -1,9 +1,10 @@
 #+title: vanroy2009: Van Roy (2009), Programming Paradigms for Dummies: What Every Programmer Should Know
 #+startup: overview
 
-* [[file:../intro.org::As interfaces gráficas costumam ter estado][intro: As interfaces gráficas costumam ter estado]], p. 14 (estado)
-- Frase: “Com ele, elas lembram informações (Van Roy, 2009, p. 14), como
-  os valores digitados nos campos [...]” Em 2026-10-15, Myers (1994,
+* [[file:../prog.org::Com o estado, as interfaces gráficas lembram informações][prog: Com o estado, as interfaces gráficas lembram informações]], p. 14 (estado)
+- Frase: “Com o estado, as interfaces gráficas lembram informações (Van
+  Roy, 2009, p. 14), como os valores digitados nos campos [...]” Em
+  2026-10-15, Myers (1994,
   p. 79) saiu desta citação, e “sobre o que o usuário já fez” saiu da
   frase: o exemplo dos campos traz o usuário (decisão do autor).
 - Trecho: “State is the ability to remember information, or more
@@ -11,7 +12,7 @@
 - Lido em: =acervo/vanroy2009.pdf=,
   p. 6 do PDF (p. 14, impressa no rodapé).
 - Observação: define estado em qualquer programa, não só na interface;
-  capítulo de livro.
+  capítulo de livro. Veio da introdução para prog no corte de 2026-10-27.
 - Conferido: 2026-10-13.
 * [[file:../prog.org::Cada modelo de programação aplica conceitos][prog: Cada modelo de programação aplica conceitos]], p. 10
 - Frase: “Em quase todo problema, cada parte pede o seu conjunto de conceitos

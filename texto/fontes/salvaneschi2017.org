@@ -3,10 +3,9 @@
 
 * [[file:../intro.org::Como resposta à dificuldade de coordenar os][intro: Como resposta à dificuldade de coordenar os]], p. 1126 (o que o programador declara)
 - Frase: “Nela, o programador declara como os valores dependem uns dos
-  outros, em vez de escrever os passos que calculam o valor novo de cada
-  um (Salvaneschi et al., 2017, p. 1126). O ambiente de execução leva cada
-  alteração aos valores que dependem dela, e o programador não precisa
-  escrever essa atualização (Salvaneschi et al., 2017, p. 1126).”
+  outros, e o ambiente de execução leva cada alteração aos valores que
+  dependem dela, sem que o programador escreva essa atualização
+  (Salvaneschi et al., 2017, p. 1126).”
 - Trecho: “Declarativeness With RP, programmers state how components
   functionally depend on each other, rather than providing the
   computational steps that derive the new state of a component based on
@@ -19,8 +18,11 @@
   otherwise complex reactive behavior”), que a frase dava como fato; a
   p. 1126 é a definição de princípio. “Não precisa escrever” segue o
   “manually update” pela regra do =AGENTS.md= (“O programador escreve, e o
-  programa executa”). Reescrita dos §5 a §7 na checagem adversarial.
-- Conferido: 2026-10-15.
+  programa executa”). Reescrita dos §5 a §7 na checagem adversarial. Em
+  2026-10-27, as duas frases se fundiram numa só no corte da introdução,
+  e saiu o “em vez de escrever os passos que calculam o valor novo de
+  cada um”.
+- Conferido: 2026-10-15; de novo em 2026-10-27, na frase fundida.
 * [[file:../intro.org::Como resposta à dificuldade de coordenar os][intro: Como resposta à dificuldade de coordenar os]], p. 1128 e 1132 (as aplicações interativas)
 - Frase: “Nas três aplicações interativas do experimento, porém, a
   diferença não foi significativa, e em duas delas o grupo do /Observer
