@@ -238,7 +238,11 @@ pergunta antes.
   `.dir-locals.el`; as bibliotecas TikZ ficam no `latex/tcc.tex`, e o
   `tikzpicture` fica fora da marcação do diff ao vivo (`PICTUREENV` do
   `bin/latexdiff-tcc.sh`): a figura alterada sai inteira, a velha
-  comentada (pesquisa de 2026-10-24).
+  comentada (pesquisa de 2026-10-24). As cores dos modelos de
+  programação e os estilos das figuras também ficam no `latex/tcc.tex`,
+  e a figura segue as regras de layout de `references/figuras.md` da
+  skill `revisao-de-texto`, conferidas num protótipo em
+  `tmp/prototipos/` antes de ir ao `.org`.
 - Siglas pelo glossaries (ADR 0027): no `.org`, `[[gls:pr]]`,
   `[[glspl:dc]]` no plural e `[[Gls:pf]]` no começo de frase, nunca a
   definição escrita à mão; cada sigla tem entrada em `latex/siglas.tex`. O
