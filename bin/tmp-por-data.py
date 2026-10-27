@@ -8,14 +8,19 @@ ficam em pastas diferentes (AGENTS.md, a linha do tmp/ na tabela
                              [--raiz DIR]
          padrão: tmp/ do checkout principal, todos os dias
 
-Lê as entradas de primeiro nível das pastas de tmp/ que o AGENTS.md lista
-(revisao/, pesquisas/, prototipos/, devlogs/, orientacao/ e copias/). O
-dia sai do começo do nome, AAAA-MM-DD-<assunto>, e não da data de
-modificação, que marca a última edição. O trabalho de vários dias,
-AAAA-MM-DD-a-DD-<assunto> ou AAAA-MM-DD-a-MM-DD-<assunto>, aparece em
-cada dia do intervalo, com "(desde AAAA-MM-DD)" nos dias depois do
+Lê as entradas de primeiro nível das pastas de tmp/ que o AGENTS.md lista,
+menos scripts/ (revisao/, pesquisas/, prototipos/, devlogs/, orientacao/ e
+copias/). O dia sai do começo do nome, AAAA-MM-DD-<assunto>, e não da
+data de modificação, que marca a última edição. O trabalho de vários
+dias, AAAA-MM-DD-a-DD-<assunto> ou AAAA-MM-DD-a-MM-DD-<assunto>, aparece
+em cada dia do intervalo, com "(desde AAAA-MM-DD)" nos dias depois do
 primeiro. Os dias vêm em ordem crescente, e dentro do dia, por pasta e
 por nome; o caminho sai relativo ao diretório que contém tmp/.
+
+A pasta scripts/, também da lista, guarda os scripts que o agente
+escreve para rodar e as mensagens longas de commit e de PR, sem data no
+nome e apagados depois do uso: o conteúdo é efêmero, e a pasta não entra
+na listagem por dia nem na conferência da data.
 
 O que foge da regra sai em três listas no fim, para ser corrigido, e
 o código de saída é 1: "sem data válida no começo do nome", a entrada a
@@ -36,9 +41,11 @@ import subprocess
 import sys
 from pathlib import Path
 
-# As pastas de tmp/ que o AGENTS.md lista.
+# As pastas de tmp/ que o AGENTS.md lista: as que se leem, e as de
+# conteúdo efêmero, que não se leem.
 PASTAS = {"revisao", "pesquisas", "prototipos", "devlogs", "orientacao",
           "copias"}
+EFEMERAS = {"scripts"}
 DATA = re.compile(
     r"^(\d{4})-(\d{2})-(\d{2})(?:-a-(?:(\d{2})-)?(\d{2}))?(?=[-.]|$)")
 
@@ -62,11 +69,11 @@ def dias(nome):
 
 
 def entradas(raiz):
-    """(pasta, nome) de cada entrada das pastas da lista, as pastas
-    fora dela e os arquivos soltos na raiz."""
+    """(pasta, nome) de cada entrada das pastas da lista, menos as
+    efêmeras, as pastas fora dela e os arquivos soltos na raiz."""
     pastas = sorted(p for p in raiz.iterdir() if p.is_dir())
     soltos = sorted(p.name for p in raiz.iterdir() if not p.is_dir())
-    fora = [p.name for p in pastas if p.name not in PASTAS]
+    fora = [p.name for p in pastas if p.name not in PASTAS | EFEMERAS]
     dentro = [(pasta.name, e.name) for pasta in pastas if pasta.name in PASTAS
               for e in sorted(pasta.iterdir())]
     return dentro, fora, soltos

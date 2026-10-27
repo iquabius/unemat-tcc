@@ -126,6 +126,15 @@ class Listagem(unittest.TestCase):
         (self.raiz / "revisao/sem-data.md").write_text("")
         self.assertEqual(self.rodar()[0], 1)
 
+    def test_scripts_nao_se_le_nem_sai_com_um(self):
+        self.em_ordem()
+        (self.raiz / "scripts").mkdir()
+        (self.raiz / "scripts/mensagem-do-commit.txt").write_text("")
+        (self.raiz / "scripts/2026-10-14-com-data.py").write_text("")
+        codigo, saida = self.rodar()
+        self.assertEqual(codigo, 0)
+        self.assertNotIn("scripts", saida)
+
     def test_raiz_relativa_sai_com_o_nome_da_pasta(self):
         saida = io.StringIO()
         with contextlib.chdir(self.raiz):
