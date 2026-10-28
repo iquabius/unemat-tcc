@@ -22,7 +22,7 @@ class PainelDePlacares extends LitElement {
   // coordenação, entra aqui porque a tela mostra se ela está aberta, no
   // botão e na situação; os dois últimos lotes, que dão o placar e os gols
   // novos; a hora em que o último chegou e a do último tique do relógio.
-  @state() private conexao?: WebSocket;
+  @state() private conexao?: EventSource;
   @state() private anterior?: Lote;
   @state() private ultimo?: Lote;
   @state() private chegada?: number;
@@ -52,7 +52,7 @@ class PainelDePlacares extends LitElement {
   }
 
   private conectar() {
-    this.conexao = new WebSocket(URL_DOS_PLACARES);
+    this.conexao = new EventSource(URL_DOS_PLACARES);
     this.conexao.addEventListener("message", (mensagem) =>
       this.receber(lerLote(mensagem)),
     );
