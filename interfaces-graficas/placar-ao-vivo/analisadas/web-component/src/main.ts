@@ -50,7 +50,7 @@ class PainelDePlacares extends HTMLElement {
   // Estado da coordenação: a conexão aberta (nenhuma em pausa), o último
   // lote mostrado, que dá os gols novos, a hora em que ele chegou e o
   // relógio, que vive com o painel, e não com a conexão.
-  private conexao?: WebSocket;
+  private conexao?: EventSource;
   private ultimo?: Lote;
   private chegada?: number;
   private pararRelogio?: () => void;
@@ -98,7 +98,7 @@ class PainelDePlacares extends HTMLElement {
   }
 
   private conectar() {
-    this.conexao = new WebSocket(URL_DOS_PLACARES);
+    this.conexao = new EventSource(URL_DOS_PLACARES);
     this.conexao.addEventListener("message", (mensagem) =>
       this.receber(lerLote(mensagem)),
     );
