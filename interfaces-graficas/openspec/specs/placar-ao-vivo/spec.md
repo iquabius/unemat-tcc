@@ -5,8 +5,8 @@
 Painel de placares de jogos em andamento que um servidor simulado atualiza
 sozinho a cada segundo, com pausa, adaptado das cotações de Meijer (2012,
 p. 66-67); o servidor é simulado no domínio, que toma o lugar do
-`WebSocket` do navegador só em `URL_DOS_PLACARES`. O painel abre a
-conexão com o servidor ao entrar na página,
+`EventSource` do navegador, o cliente de SSE, só em `URL_DOS_PLACARES`.
+O painel abre a conexão com o servidor ao entrar na página,
 para o usuário seguir os jogos sem pedir, e a fecha ao pausar, para o
 usuário ler a tabela parada, e ao sair dela, para o usuário não gastar
 rede e bateria com um painel que não vê.
@@ -42,7 +42,7 @@ mostram "—", a situação mostra "Aguardando placares…" e o botão de pausa 
 
 ### Requirement: Lotes da partida
 
-O servidor simulado em `URL_DOS_PLACARES`, aberto com o `WebSocket` do
+O servidor simulado em `URL_DOS_PLACARES`, aberto com o `EventSource` do
 navegador, deve mandar a cada 1 s um lote com o minuto e os gols de cada
 jogo, pelo segundo em que ele sai: a partida anda 1 minuto por segundo e
 recomeça a cada 100 s. A cada lote, o painel mostra o placar

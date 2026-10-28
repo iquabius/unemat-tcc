@@ -1,4 +1,4 @@
-// Jogos, mensagens e o servidor WebSocket simulado do Placar ao vivo,
+// Jogos, mensagens e o servidor SSE simulado do Placar ao vivo,
 // iguais em todas as implementações web. Nada aqui depende de interface.
 
 /** Gols de cada lado: o placar de um jogo ou o palpite do usuário. */
@@ -30,11 +30,11 @@ export type Lote = Readonly<Record<string, Placar>>;
 export const INTERVALO_MS = 1000;
 
 /**
- * Endereço do servidor de placares. O WebSocket do navegador que o abre
- * (new WebSocket(URL_DOS_PLACARES)) recebe um lote a cada INTERVALO_MS,
- * numa mensagem com o JSON do Lote, do servidor simulado abaixo.
+ * Endereço do servidor de placares. O EventSource do navegador que o abre
+ * (new EventSource(URL_DOS_PLACARES)) recebe um lote a cada INTERVALO_MS,
+ * num evento message com o JSON do Lote, do servidor simulado abaixo.
  */
-export const URL_DOS_PLACARES = "ws://placares.simulado/";
+export const URL_DOS_PLACARES = "https://placares.simulado/lotes";
 
 /** Intervalo entre dois tiques do relógio do painel. */
 export const TIQUE_MS = 1000;
@@ -103,24 +103,65 @@ export function lerLote(mensagem: MessageEvent): Lote {
 let conexoes = 0;
 
 /**
- * Conexão com o servidor simulado, com a API do WebSocket do navegador:
- * readyState, os eventos open, message e close (por addEventListener ou
- * pelos tratadores on*), send e close. As implementações da primeira
- * rodada só usam o message e o close; o resto é o que as bibliotecas da
- * terceira rodada (ADR 0031) esperam de um WebSocket. Abre num
- * temporizador de 0 ms, como uma conexão real, e manda um lote a cada
- * INTERVALO_MS; o close() para os lotes e dispara o close no temporizador
- * seguinte. Os temporizadores são os da página, para o relógio falso do
- * teste de conformidade os controlar.
+ * Conexão com o servidor simulado, com a parte da API do EventSource do
+ * navegador (WHATWG, HTML Standard, § 9.2.2) que as implementações da
+ * primeira rodada usam: o evento message, por addEventListener, que traz
+ * um lote a cada INTERVALO_MS, e o método close(), que para os lotes na
+ * hora, sem evento, como no navegador. O servidor não cai na primeira
+ * rodada: a queda, o evento error e a reconexão que o navegador faz
+ * sozinho entram com a segunda (ADR 0029). O temporizador é o da página,
+ * para o relógio falso do teste de conformidade o controlar.
  */
 class ConexaoSimulada extends EventTarget {
+  private aberta = true;
+  private lotes: ReturnType<typeof setInterval>;
+
+  constructor() {
+    super();
+    conexoes++;
+    this.lotes = setInterval(() => {
+      const data = JSON.stringify(placaresEm(Date.now()));
+      this.dispatchEvent(new MessageEvent("message", { data }));
+    }, INTERVALO_MS);
+  }
+
+  close(): void {
+    if (!this.aberta) return;
+    this.aberta = false;
+    conexoes--;
+    clearInterval(this.lotes);
+  }
+}
+
+// O servidor simulado toma o lugar do EventSource do navegador só na
+// URL_DOS_PLACARES; qualquer outro endereço abre a conexão de verdade. É
+// uma função, e não uma classe: instanceof EventSource dá falso depois do
+// import, o que nada aqui testa.
+const EventSourceDoNavegador = globalThis.EventSource;
+function EventSourceSimulado(
+  this: unknown,
+  url: string | URL,
+  opcoes?: EventSourceInit,
+) {
+  return String(url) === URL_DOS_PLACARES
+    ? new ConexaoSimulada()
+    : new EventSourceDoNavegador(url, opcoes);
+}
+globalThis.EventSource = EventSourceSimulado as unknown as typeof EventSource;
+
+// O servidor WebSocket simulado de antes do SSE, que responde também na
+// URL_DOS_PLACARES até a última implementação passar ao EventSource, para
+// as que ainda abrem new WebSocket seguirem recebendo os lotes; sai com
+// ela. Abre num temporizador de 0 ms, manda um lote por mensagem a cada
+// INTERVALO_MS e dispara o close no temporizador seguinte ao close().
+class ConexaoWebSocketSimulada extends EventTarget {
   static readonly CONNECTING = 0;
   static readonly OPEN = 1;
   static readonly CLOSING = 2;
   static readonly CLOSED = 3;
 
   readonly url: string;
-  readyState: number = ConexaoSimulada.CONNECTING;
+  readyState: number = ConexaoWebSocketSimulada.CONNECTING;
   onopen: ((evento: Event) => void) | null = null;
   onmessage: ((evento: MessageEvent) => void) | null = null;
   onclose: ((evento: CloseEvent) => void) | null = null;
@@ -134,7 +175,7 @@ class ConexaoSimulada extends EventTarget {
     this.url = url;
     conexoes++;
     this.abertura = setTimeout(() => {
-      this.readyState = ConexaoSimulada.OPEN;
+      this.readyState = ConexaoWebSocketSimulada.OPEN;
       this.disparar(new Event("open"));
       this.lotes = setInterval(() => {
         const data = JSON.stringify(placaresEm(Date.now()));
@@ -147,13 +188,13 @@ class ConexaoSimulada extends EventTarget {
   send(): void {}
 
   close(): void {
-    if (this.readyState >= ConexaoSimulada.CLOSING) return;
-    this.readyState = ConexaoSimulada.CLOSING;
+    if (this.readyState >= ConexaoWebSocketSimulada.CLOSING) return;
+    this.readyState = ConexaoWebSocketSimulada.CLOSING;
     conexoes--;
     clearTimeout(this.abertura);
     clearInterval(this.lotes);
     setTimeout(() => {
-      this.readyState = ConexaoSimulada.CLOSED;
+      this.readyState = ConexaoWebSocketSimulada.CLOSED;
       this.disparar(new CloseEvent("close", { code: 1000, wasClean: true }));
     }, 0);
   }
@@ -169,10 +210,6 @@ class ConexaoSimulada extends EventTarget {
   }
 }
 
-// O servidor simulado toma o lugar do WebSocket do navegador só na
-// URL_DOS_PLACARES; qualquer outro endereço abre a conexão de verdade. É
-// uma função, e não uma classe: instanceof WebSocket dá falso depois do
-// import, o que nada aqui testa.
 const WebSocketDoNavegador = globalThis.WebSocket;
 function WebSocketSimulado(
   this: unknown,
@@ -180,14 +217,14 @@ function WebSocketSimulado(
   protocolos?: string | string[],
 ) {
   return String(url) === URL_DOS_PLACARES
-    ? new ConexaoSimulada(String(url))
+    ? new ConexaoWebSocketSimulada(String(url))
     : new WebSocketDoNavegador(url, protocolos);
 }
 Object.assign(WebSocketSimulado, {
-  CONNECTING: ConexaoSimulada.CONNECTING,
-  OPEN: ConexaoSimulada.OPEN,
-  CLOSING: ConexaoSimulada.CLOSING,
-  CLOSED: ConexaoSimulada.CLOSED,
+  CONNECTING: ConexaoWebSocketSimulada.CONNECTING,
+  OPEN: ConexaoWebSocketSimulada.OPEN,
+  CLOSING: ConexaoWebSocketSimulada.CLOSING,
+  CLOSED: ConexaoWebSocketSimulada.CLOSED,
 });
 globalThis.WebSocket = WebSocketSimulado as unknown as typeof WebSocket;
 
