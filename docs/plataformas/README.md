@@ -54,7 +54,9 @@ As notas:
   2026-10-25);
 - `websocket-e-sse.md`: o WebSocket (RFC 6455) e os Server-Sent Events
   (EventSource) pelas fontes primárias, e o que cada um dá de nascença
-  ao Placar ao vivo; a decisão do protocolo é a tcc-jjzc.
+  ao Placar ao vivo; a decisão de 2026-10-25 foi o SSE na primeira e na
+  segunda rodada e o WebSocket na vertente do ecossistema (ADRs 0029 e
+  0031).
 
 ## Android e *desktop*, nos trabalhos futuros
 
