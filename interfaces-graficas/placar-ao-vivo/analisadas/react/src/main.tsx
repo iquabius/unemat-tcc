@@ -27,7 +27,7 @@ function PainelDePlacares() {
   // A limpeza fecha a conexão ao pausar e ao sair da tela.
   useEffect(() => {
     if (pausado) return;
-    const conexao = new WebSocket(URL_DOS_PLACARES);
+    const conexao = new EventSource(URL_DOS_PLACARES);
     conexao.addEventListener("message", (mensagem) => {
       const lote = lerLote(mensagem);
       setLotes(({ atual }) => ({ anterior: atual, atual: lote }));
