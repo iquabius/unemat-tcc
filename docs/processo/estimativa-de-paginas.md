@@ -10,18 +10,16 @@ refaz quando o delineamento ou o texto muda, e os dois blocos abaixo
 vão para o chat pelo hook `bin/lembrete-do-chat.py`, na forma da seção
 "A forma do Resumo".
 
-**Resumo (2026-10-25):**
-- PDF sem anexo: ≈ 172 páginas
-- Análise: ≈ 116, com trechos por DC
+**Resumo (2026-10-29):**
+- PDF sem anexo: ≈ 156 páginas
+- Análise: ≈ 100, com trechos por DC
 - Anexo de código, da 1.ª rodada: ≈ 97 (b, sem os import e sem a
   montagem repetida); pelo ADR 0029, o código não cabe inteiro no
   pós-texto
-- PDF com anexo: ≈ 269
-- Delineamento: 3 rodadas, a 3.ª em 4 vertentes nas 3 interfaces dela,
-  6 pares interface-vertente; 5 tecnologias, 35 implementações
-- Em aberto: o 7.º par, Circle Drawer × máquina de estados, opcional e
-  o primeiro da fila de cortes: PDF sem anexo +4, análise +4, anexo 0,
-  PDF com anexo +4
+- PDF com anexo: ≈ 253
+- Delineamento: 3 rodadas, a 3.ª só na vertente do ecossistema, na
+  Reserva de passagem e no Placar ao vivo, 2 pares interface-vertente;
+  5 tecnologias, 35 implementações
 - Em aberto: o corte do Lit fora do trio, na revisão depois da análise;
   sem a 2.ª rodada do Lit fora do trio: PDF sem anexo −4, análise −4,
   anexo 0, PDF com anexo −4; L2: PDF sem anexo −8, análise −8, anexo
@@ -32,9 +30,9 @@ vão para o chat pelo hook `bin/lembrete-do-chat.py`, na forma da seção
   +14, análise 0, anexo 0, PDF com anexo +14
 
 **Resumo curto:**
-- ≈ PDF s/anexo 172 | análise 116 | anexo b 97 | PDF c/anexo 269
-- 3 rodadas, 3.ª em 4 vertentes, 5 tecnologias | em aberto: 7.º par
-  +4/+4/0/+4; Lit fora do trio −4/−4/0/−4 · L2 −8/−8/−11/−19;
+- ≈ PDF s/anexo 156 | análise 100 | anexo b 97 | PDF c/anexo 253
+- 3 rodadas, 3.ª só no ecossistema (2 pares), 5 tecnologias | em
+  aberto: Lit fora do trio −4/−4/0/−4 · L2 −8/−8/−11/−19;
   entorno com a 2.ª rodada +26/0/0/+26 · só a 1.ª +14/0/0/+14 (PDF
   s/anexo, análise, anexo, PDF c/anexo)
 
@@ -59,9 +57,8 @@ correr os olhos pelos números em vez de ler um parágrafo):
 - o item que não cabe em 72 colunas continua na linha seguinte, com
   recuo, e o hook o junta de volta numa linha só.
 
-As decisões pendentes em 2026-10-25, à noite, são o 7.º par da terceira
-rodada, opcional na fila de cortes do ADR 0029, o corte do Lit fora do
-trio (tcc-7qty) e o entorno da cadeia, que fica fora da conta e é o
+As decisões pendentes em 2026-10-29 são o corte do Lit fora do trio
+(tcc-7qty) e o entorno da cadeia, que fica fora da conta e é o
 primeiro a sair no corte; a regra vale para qualquer outra que as
 substitua, sem mexer nas outras linhas. O teste do hook confere, na
 nota, que os números dos dois blocos são os mesmos.
@@ -391,3 +388,15 @@ decisões em aberto, da mesma tabela.
   do Lit. A seção "O código das rodadas 2 e 3 no anexo" dizia 11
   mudanças e 44 commits, a conta sem o bolão e o "lembrar meu nome",
   contra as 13 do ADR 0029; ficou dito.
+- 2026-10-29: a terceira rodada passou a só a vertente do ecossistema,
+  na Reserva de passagem e no Placar ao vivo, 2 pares e 10
+  refatorações (ADR 0029, decisão do autor; tcc-wx05). Pela seção "As
+  páginas da análise por delineamento", a base de 84 páginas já cobre a
+  terceira rodada em dois pares, e o Lit em L3 passa de 7 + 7 + 6 = 20
+  a 7 + 7 + 2 = 16 colunas por interface-rodada: a análise vai de ≈ 116
+  a ≈ 100, o PDF sem anexo a ≈ 156 e o PDF com anexo a ≈ 253; o anexo,
+  só da primeira rodada, fica em ≈ 97 (conta do agente). Saiu a linha
+  do 7.º par, que foi com a máquina de estados aos trabalhos futuros.
+  As diferenças do Lit fora do trio não mudam: a terceira rodada conta
+  igual em L2 e em L3. A tabela de totais e a seção "As páginas da
+  análise por delineamento" ficam com a conta de 2026-10-24.

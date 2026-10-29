@@ -56,7 +56,8 @@ Em vez de: o entorno só na primeira rodada, como o Elm em Kiss
 (decisão de 2026-10-23); 12 implementações, com precedente, mas sem a
 mudança de requisito em que Kiss esboçou o custo do Elm (falha o segundo
 critério).
-Em vez de: o entorno lendo a terceira rodada, ao lado das vertentes;
+Em vez de: o entorno lendo a terceira rodada, ao lado da biblioteca do
+ecossistema;
 seria a leitura mais próxima da P1.2, mas exige antes as duas primeiras
 rodadas dessas tecnologias, ao lado da análise principal (falha o
 quarto).
@@ -71,8 +72,8 @@ seria mais simples, mas passaria à frente da análise principal, ou
 deixaria o corte para depois de ver o código (falha o quarto).
 Em vez de: o XState, com a quarentena e a reconexão como *statecharts*;
 não monta a tela e compararia a orquestração, e não o modelo de
-programação (falha o primeiro); ele entra na terceira rodada, como
-vertente (ADR 0029).
+programação (falha o primeiro); a máquina de estados tipada vai aos
+trabalhos futuros da conclusão (ADR 0029).
 Custo: cerca de 12 implementações e 26 commits a mais, depois da
 análise principal e antes do fechamento em 2026-11-20; o Elm pede outra
 linguagem e as regras do domínio reescritas, também nas mudanças; o

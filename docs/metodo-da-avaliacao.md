@@ -23,14 +23,14 @@ fontes"). As interfaces pequenas isolam uma escolha de projeto, mas não
 mostram o que só aparece em programa grande (seção "Programas de
 brinquedo: isolar uma escolha e o limite do tamanho").
 
-Em 2026-10-25, a análise fica na web, com cinco tecnologias (Web
+Em 2026-10-29, a análise fica na web, com cinco tecnologias (Web
 Component, Web Component com *signals* do `solid-js`, Solid, React e
 Lit) nas sete interfaces, 35 implementações (ADRs 0002 e 0013), em três
 rodadas (ADR 0029): a primeira constrói as sete; a segunda tem 13
 mudanças de comportamento, entre funcionalidades e requisitos de
-orquestração; a terceira muda só a forma, na Reserva de passagem, no
-Placar ao vivo e no Circle Drawer, em quatro vertentes, cada uma nas
-interfaces cuja exigência de coordenação ela sabe tratar. Antes,
+orquestração; a terceira muda só a forma, na Reserva de passagem e no
+Placar ao vivo, para a biblioteca que o ecossistema de cada tecnologia
+mais usa (seção "A terceira rodada e os trabalhos futuros"). Antes,
 em 2026-10-11, o autor decidiu avaliar em três rodadas e percorrer as 14
 DCs; em 2026-10-12, trocou as interfaces e levou a segunda rodada às
 cinco de então, pela realidade de cada uma (seção "*Benchmark* de
@@ -273,6 +273,52 @@ antes, em cada versão. Trechos conferidos no PDF; página impressa.
 | Blackwell e Green 2003 | o redesenho que "would lower the viscosity but could readily introduce problems such as hidden dependencies" | p. 109 | a troca a observar na segunda rodada |
 | Blackwell e Green 2003 | seis atividades: incrementação, transcrição, modificação, *design* exploratório, busca, compreensão exploratória (tabela 5.1) | p. 113 | a primeira rodada lê; a segunda e a terceira rodada modificam |
 | Berry e Serrano 2020 | quarentena acrescentada ao login; em JavaScript, "Almost all the initial implementation components need to be modified and re-tested" | p. 539 | um requisito de orquestração acrescentado depois |
+
+## A terceira rodada e os trabalhos futuros
+
+Achadas na busca de 2026-10-27, em três eixos (bibliotecas e APIs;
+padrões de projeto e máquinas de estados; o *toolkit* e o ecossistema
+web), e lidas em lote no Codex em 2026-10-28; os trechos abaixo foram
+conferidos pelo agente no PDF em 2026-10-28 e 2026-10-29. As cópias
+estão em `acervo/candidatas/2026-10-27-p12/`, com a procedência em
+`acervo/procedencia.tsv`, menos o livro de Ford et al., em
+`acervo/livros/`.
+
+Conclusão: a P1.2 pergunta só pela biblioteca que o ecossistema de cada
+tecnologia mais usa, e a introdução a justifica pelo custo de adotar a
+solução pronta no lugar da própria abstração, com Kiss (2014, p. 56) e
+Ammerlaan, Veninga e Zaidman (2015, p. 507), cujos trechos estão em
+`texto/fontes/kiss2014.org` e `texto/fontes/ammerlaan2015.org` (ADR
+0029, decisão do autor em 2026-10-29). A máquina de estados tipada, a
+API nova da plataforma e os padrões de projeto vão aos trabalhos
+futuros da conclusão, e as fontes da tabela os sustentam ali. Nenhuma
+delas mede a diferença entre modelos de programação depois de uma
+refatoração, e nenhuma sustenta que a biblioteca oficial ajude mais que
+a de terceiros ou que a biblioteca facilite a entrada de quem chega ao
+projeto. O que a análise pela notação não mede, o custo de manter a
+dependência e o tempo de aprender, também é trabalho futuro, com
+pessoas.
+
+| Fonte | Trecho | Onde | Uso |
+|---|---|---|---|
+| Ammerlaan, Veninga e Zaidman 2015 | uma pergunta só: "Is the productivity of developers influenced by code that is refactored for understandability when performing small coding tasks?"; cinco experimentos com 30 desenvolvedores, três a favor do código original, um do refatorado, um sem diferença | p. 504; preprint sem número impresso | a P1.2 na introdução; o terceiro experimento, o ContractProlongation, não é uma terceira pergunta |
+| Vokáč et al. 2004 | "each design pattern tested has its own nature, so that it is not valid to characterize design patterns as useful or harmful in general" | p. 191 | padrões de projeto: o efeito depende do padrão |
+| Prechelt et al. 2001 | "We found evidence of both cases, depending on the situation" (padrões mais flexíveis que o problema pede, úteis ou prejudiciais) | p. 1142 | padrões de projeto contra a solução mais simples |
+| Ng et al. 2006 | "the time spent on using the refactoring approach is much shorter than that of using the direct approach even after including the duration of our refactoring process" | p. 9 do PDF, sem número impresso | refatorar para padrões uma GUI (o JHotDraw) antes de mudanças previstas |
+| Krein et al. 2016 | "Our analysis of moderators (including developer experience and pattern knowledge) resolves the differences" | p. 1 do PDF, resumo | a experiência e o conhecimento do padrão moderam o efeito |
+| Kistner e Nuernberger 2014 | "Separating our interface development from interaction logic has simplified the development of complex applications" | p. 7 do PDF, sem número impresso | *statecharts* em SCXML numa GUI de produção; relato, sem controle |
+| Ferreira, Borges e Valente 2024 | "Replace HTML/JS code with third-party components", 1 ocorrência, e "Replace third-party component with own", 5, em commits de dez projetos React | tabela da p. 13 do manuscrito | a troca por biblioteca existe nos dois sentidos, e é rara |
+| Ferreira, Borges e Valente 2022 | "a larger talent pool to draw from, a larger pool of supporting libraries in the ecosystem, more tutorials" (respondente RA26) | p. 9 do manuscrito | o lado de quem chega ao projeto, como percepção |
+| Myers, Hudson e Pausch 2000 | "some techniques for achieving the power needed for high-ceiling systems seem to have the effect of raising the threshold" | p. 14 | abstração mais poderosa, aprendizado mais caro |
+| Clarke 2005 | classes "at a higher level of abstraction that represented the task in the way that participants thought of it": a tarefa sem conclusão em duas horas coube em vinte minutos | p. 1, sem número impresso | as DCs aplicadas a uma API; relato |
+| Stylos e Myers 2008 | "the dependencies between a class and a class that acts on it are effectively hidden by the tools and documentation" | p. 110 | dependência oculta criada pelo desenho da API |
+| Ford et al. 2023 | "understanding suffers when you must call a Factory to get a proxy to a remote interface to a Thing" (p. 176); "Make sure the benefits outweigh the cost in updates, dependency management" (p. 177); "We prefer libraries because they introduce less coupling to your application" (p. 180) | p. do PDF, sem paginação impressa | o custo da abstração e da dependência, como opinião dos autores |
+
+Os que citam Ammerlaan et al. e que a tarefa da P1.2 (tcc-wx05) lista,
+como Sellitto et al. (2022), Palomba et al. (2017) e Ljung e
+Gonzalez-Huerta (2022), foram lidos só pelo Codex, online, e não têm
+cópia nem trecho conferido. A leitura em lote e a repriorização estão em
+`tmp/pesquisas/2026-10-27-fontes-da-p12/` (fora do git).
 
 ## As 14 DCs canônicas
 
@@ -652,3 +698,9 @@ Em 2026-10-26, o parágrafo do estado da análise passou às decisões de
 implementações (ADR 0013), 13 mudanças na segunda rodada e a terceira
 em quatro vertentes, na Reserva de passagem, no Placar ao vivo e no
 Circle Drawer (ADR 0029). Antes, dizia o estado de 2026-10-19.
+
+Em 2026-10-29, a terceira rodada passou a só a vertente do ecossistema,
+na Reserva de passagem e no Placar ao vivo (ADR 0029), e o parágrafo do
+estado da análise mudou com ela. Entrou a seção "A terceira rodada e os
+trabalhos futuros", com as fontes da busca de 2026-10-27 que a P1.2 não
+cita e que a conclusão pode usar.

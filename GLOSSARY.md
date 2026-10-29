@@ -172,8 +172,8 @@ perguntas, e o ordinal, para as rodadas, em todo lugar. A primeira
 constrói as sete interfaces nas cinco tecnologias, com o modelo de
 programação isolado; a segunda muda o comportamento, com funcionalidades e
 requisitos de orquestração acrescentados a cada interface; a terceira muda
-só a forma, em quatro vertentes irmãs sobre o código da segunda, na
-Reserva de passagem, no Placar ao vivo e no Circle Drawer (ADR 0029).
+só a forma, com a vertente do ecossistema sobre o código da segunda, na
+Reserva de passagem e no Placar ao vivo (ADR 0029).
 _Avoid_: fase (é do roteiro); iteração (é do *snowballing*); rodada para
 a passada da revisão do texto ou o ciclo de busca da revisão
 bibliográfica (até 2026-10-26, "rodada de corte", "rodada sobre o diff" e
@@ -203,18 +203,16 @@ diff" e as rodadas da revisão do ramo até 2026-10-26); revisão sozinha
 (serve também à bibliográfica e à do ramo)
 
 **Vertente**:
-Cada uma das refatorações da terceira rodada sobre o código da segunda,
-irmãs e sem ordem entre si, chamadas pela forma a que levam: a do
-ecossistema, a da máquina de estados tipada, a da API nova da plataforma
-e a dos padrões de projeto, nessa prioridade. Todas respondem à P1.2, e
-cada uma refatora, entre as três interfaces da terceira rodada, as que
-têm a exigência de coordenação que a forma dela sabe tratar; a ordem de
-corte é por par interface-vertente, fixada antes da análise (decisão do
-autor em 2026-10-24).
-_Avoid_: ramo (é o do git, e cada vertente nasce como um ramo do git);
-sub-rodada e quarta rodada (sugerem sequência, e as vertentes partem da
-mesma base); variante (verbete Tecnologia); eixo (os da coordenação);
-braço (o grupo do ensaio clínico)
+A refatoração da terceira rodada sobre o código da segunda, chamada pela
+forma a que leva: a vertente do ecossistema, a biblioteca que o
+ecossistema de cada tecnologia mais usa (ADR 0031), na Reserva de
+passagem e no Placar ao vivo, que responde à P1.2. De 2026-10-24 a
+2026-10-28 eram quatro, irmãs e sem ordem entre si; a da máquina de
+estados tipada, a da API nova da plataforma e a dos padrões de projeto
+foram aos trabalhos futuros (ADR 0029, decisão do autor em 2026-10-29).
+_Avoid_: ramo (é o do git, e a vertente nasce como um ramo do git);
+sub-rodada e quarta rodada (sugerem sequência); variante (verbete
+Tecnologia); eixo (os da coordenação); braço (o grupo do ensaio clínico)
 
 **Estado**:
 O que o programa guarda sobre os eventos anteriores e consulta, junto com
@@ -353,8 +351,8 @@ _Avoid_: *toolkit* como sinônimo de biblioteca; kit de ferramentas
 
 **Implementação**:
 Uma interface numa tecnologia: na primeira rodada, as sete interfaces nas
-cinco tecnologias, 35 (ADR 0013); na terceira, a Reserva de passagem, o
-Placar ao vivo e o Circle Drawer refatorados, em cada vertente, nas cinco
+cinco tecnologias, 35 (ADR 0013); na terceira, a Reserva de passagem e o
+Placar ao vivo refatorados na vertente do ecossistema, nas cinco
 (ADR 0029).
 _Avoid_: versão, exemplo; solução (pede "problema" para a interface)
 

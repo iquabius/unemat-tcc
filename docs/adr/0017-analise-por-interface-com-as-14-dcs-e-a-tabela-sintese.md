@@ -25,8 +25,8 @@ listagens das cinco tecnologias e as 14 DCs, cada uma em poucas linhas
 e com "sem diferença" quando os modelos de programação não diferem
 nela, onde Kiss omite a dimensão (p. 12). Dentro da seção ficam as
 rodadas da interface: a segunda, com os diffs das mudanças, e, na
-Reserva de passagem, no Placar ao vivo e no Circle Drawer, a terceira,
-com as vertentes (ADR 0029). A organização por interface é de
+Reserva de passagem e no Placar ao vivo, a terceira, com a biblioteca
+do ecossistema (ADR 0029). A organização por interface é de
 2026-10-17.
 
 As DCs são as 14 canônicas, as 13 de Green e Petre (1996, p. 138-139)
