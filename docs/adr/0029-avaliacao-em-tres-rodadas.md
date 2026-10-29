@@ -128,9 +128,9 @@ unfortunately ran out" (p. 96) (falha o quinto).
 Custo: o prazo, com a primeira rodada até 2026-10-30 e as outras duas
 em novembro, antes do fechamento em 2026-11-20; 35 implementações, 65
 commits e 30 refatorações, que não cabem inteiras no pós-texto
-(`docs/processo/estimativa-de-paginas.md`); o Placar ao vivo a ser
-refeito sobre o SSE (tcc-jjzc), com a reconexão do navegador, que a
-segunda rodada não mede como as outras mudanças; os requisitos
+(`docs/processo/estimativa-de-paginas.md`); o Placar ao vivo refeito
+sobre o SSE em 2026-10-28 (tcc-jjzc), com a reconexão do navegador,
+que a segunda rodada não mede como as outras mudanças; os requisitos
 escolhidos antes da análise, mas com parte das implementações prontas;
 cada eixo concluído de três interfaces, e cada vertente, de uma ou
 duas, com o Circle Drawer pesando mais; a API nova, em parte proposta

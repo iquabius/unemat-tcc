@@ -97,7 +97,7 @@ class PainelDePlacares extends HTMLElement {
       // a conexão antes disso e quando o painel sai da tela.
       createEffect(() => {
         if (pausado()) return;
-        const conexao = new WebSocket(URL_DOS_PLACARES);
+        const conexao = new EventSource(URL_DOS_PLACARES);
         conexao.addEventListener("message", (mensagem) => {
           const lote = lerLote(mensagem);
           setLotes(({ atual }) => ({ anterior: atual, atual: lote }));

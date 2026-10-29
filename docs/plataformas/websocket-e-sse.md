@@ -4,9 +4,9 @@ Referência. A diferença entre o WebSocket (RFC 6455; a API `WebSocket`
 do WebSockets Standard da WHATWG) e os *Server-Sent Events* (a API
 `EventSource` do HTML Standard da WHATWG), pelas fontes primárias, e o
 que cada um atende de nascença nas exigências de coordenação do Placar
-ao vivo, a única das sete interfaces com conexão viva. Serve à decisão
-do protocolo, interface a interface (tcc-jjzc), e ao texto onde a
-diferença couber. Cada afirmação leva a fonte e a data em que foi lida.
+ao vivo, a única das sete interfaces com conexão viva. Serviu à decisão
+do protocolo do Placar ao vivo (tcc-jjzc; ADRs 0029 e 0031) e serve ao
+texto onde a diferença couber. Cada afirmação leva a fonte e a data em que foi lida.
 
 **Conclusão (2026-10-24).** Os dois atendem "só servidor → cliente", a
 inscrição e o cancelamento. A diferença que importa à coordenação é a
@@ -21,6 +21,10 @@ navegador e deixaria a segunda rodada sem o que medir, e a terceira e a
 quarta sem a reconexão para refatorar. O que o SSE não tem é o canal de
 volta: a frequência que o usuário escolhe iria por URL nova ou por
 requisição à parte.
+
+**Decisão (2026-10-25).** O autor escolheu o SSE na primeira e na
+segunda rodada e o WebSocket só na vertente do ecossistema (ADRs 0029 e
+0031); a seção "Consequência para o delineamento" diz o que isso custa.
 
 ## Fontes e versões
 
@@ -100,8 +104,12 @@ para a plataforma.
 
 ## Consequência para o delineamento
 
-A decisão é da tcc-jjzc. O que esta nota permite dizer: com WebSocket,
-a reconexão da segunda rodada é código em todas as tecnologias, a
+Decisão do autor de 2026-10-25 (ADRs 0029 e 0031): o Placar ao vivo
+fala SSE na primeira e na segunda rodada, com a reconexão do navegador,
+e WebSocket só na vertente do ecossistema da terceira, cujas
+bibliotecas são as de WebSocket; o código passou ao `EventSource` em
+2026-10-28 (tcc-jjzc). O que esta nota diz das duas escolhas: com
+WebSocket, a reconexão da segunda rodada é código em todas as tecnologias, a
 biblioteca da terceira rodada tem o que trocar (a reconexão escrita
 pela da biblioteca, ADR 0031) e o Strategy do *backoff*, cogitado para
 uma quarta rodada (tcc-l7qe), tem alvo; com SSE, a reconexão é do
@@ -130,3 +138,8 @@ Criada em 2026-10-24, na sessão de texto, a pedido do autor, para a
 decisão do protocolo do Placar ao vivo (tcc-jjzc) e para o texto, onde
 a diferença couber (a fundamentação ou a análise do Placar). As cópias
 entraram no `acervo/` com a linha de procedência no mesmo passo.
+
+Em 2026-10-28, a seção "Consequência para o delineamento" ganhou a
+decisão de 2026-10-25 e a data em que o código a seguiu, e, depois da
+conclusão, entrou o parágrafo da decisão, que aponta para ela; a
+abertura passou a dizer que a nota serviu à decisão.

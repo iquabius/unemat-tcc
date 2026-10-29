@@ -10,11 +10,13 @@ ao pausar, para o usuário ler a tabela parada, e ao sair dela, para o
 usuário não gastar rede e bateria com um painel que não vê. A reconexão,
 o bolão e a frequência de atualização entram na segunda rodada.
 
-O servidor é simulado em =dominio.ts= e fala /WebSocket/ desde a primeira
-rodada (ADR 0031): cada implementação abre =new WebSocket(URL_DOS_PLACARES)=
-com a API do navegador, e o domínio toma o lugar do =WebSocket= só nesse
-endereço, com uma conexão que abre num temporizador, manda os lotes em
-mensagens e fecha no =close()=; =lerLote(mensagem)= lê o lote. O placar
+O servidor é simulado em =dominio.ts= e fala SSE (/Server-Sent Events/) na
+primeira e na segunda rodada, e /WebSocket/ só na vertente do ecossistema
+da terceira, cujas bibliotecas são as de /WebSocket/ (ADRs 0029 e 0031):
+cada implementação abre =new EventSource(URL_DOS_PLACARES)= com a API do
+navegador, e o domínio toma o lugar do =EventSource= só nesse endereço,
+com uma conexão que manda os lotes em eventos =message= e para no
+=close()=; =lerLote(mensagem)= lê o lote. O placar
 depende só do relógio, como num servidor real, para os testes e as
 capturas se repetirem. O relógio do painel, que recalcula o "Atualizado
 há" a cada segundo, é o =iniciarRelogio(aoTique)=, que devolve a função
