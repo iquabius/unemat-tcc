@@ -162,8 +162,8 @@
    2026-09-28).
 
    #+begin_src fish
-   bin/diff-ao-vivo.sh            # compara com HEAD: só o que não foi commitado
-   bin/diff-ao-vivo.sh . 7975f81  # compara com um commit: o trabalho inteiro
+   bin/diff-ao-vivo.sh            # compara com HEAD, que acompanha os commits
+   bin/diff-ao-vivo.sh . 7975f81  # compara com um sha fixo: o trabalho inteiro
    VIEW=none bin/diff-ao-vivo.sh  # sem abrir o Evince
    SEGUIR=none bin/diff-ao-vivo.sh  # sem levar o Evince à última edição
    #+end_src
@@ -186,7 +186,16 @@
 
    Contra =HEAD=, o PDF sai sem marcas enquanto a árvore não difere do último
    commit: não há diferença a mostrar. As marcas aparecem na primeira edição
-   salva.
+   salva. A BASE acompanha os commits: a cada segundo o script confere a
+   árvore de =HEAD:latex= e, quando um commit a muda (o da rodada, com os
+   =.tex= exportados), extrai de novo a versão antiga, refaz a nova a partir
+   da árvore e recompila, sem levar o Evince a lugar nenhum; o PDF fica só
+   com o que ainda não foi commitado. Conta só o =latex/=, que é o que a
+   versão antiga guarda; o =refs.bib= os dois lados leem da árvore. O
+   commit que muda o =.org= de um capítulo sem o =.tex= dele não tira a
+   marca do que entrou, porque o =.tex= da BASE continua velho: o script
+   avisa na saída. O nome de um ramo, local ou remoto, acompanha a ponta
+   dele do mesmo jeito; com um sha ou uma tag, a BASE fica parada.
 
    As opções do =latexdiff= ficam no =bin/latexdiff-tcc.sh=, o mesmo do
    =bin/gerar-versao.sh=. Ele também troca =\gls=, =\glspl=, =\Gls= e
@@ -206,9 +215,10 @@
    no bloco dela.
 
    Tudo fica em =pdf/ao-vivo/=, fora do git: o PDF =diff-ao-vivo.pdf=,
-   a compilação em =build/= e os logs =emacs.log=, =latexdiff.log= e
-   =latexmk.log=. Os =latex/capitulos/*.tex= da árvore não são tocados: capítulo cujo
-   =.org= não mudou entra pelo =.tex= da árvore. A compilação roda em =build/=
+   a compilação em =build/= e os logs =emacs.log=, =latexdiff.log=,
+   =latexmk.log= e =troca.log=, o da troca da BASE. Os
+   =latex/capitulos/*.tex= da árvore não são tocados: capítulo cujo =.org=
+   não mudou entra pelo =.tex= da árvore. A compilação roda em =build/=
    e o PDF só é copiado para =diff-ao-vivo.pdf= quando ela termina sem erro;
    um =.org= no meio de uma edição ou um =refs.bib= quebrado deixam no Evince
    o último PDF bom, e a correção recompila sozinha (testado em 2026-09-29).

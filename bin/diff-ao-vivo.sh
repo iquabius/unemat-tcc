@@ -5,8 +5,10 @@
 #
 #   uso:   bin/diff-ao-vivo.sh [REPO] [BASE]  (padrão: diretório atual, HEAD)
 #          BASE é o commit contra o qual se compara: HEAD mostra só o que
-#          ainda não foi commitado; um commit mais antigo mostra o trabalho
-#          de um bloco, tarefa ou branch inteiros.
+#          ainda não foi commitado, e acompanha os commits (abaixo), como
+#          o nome de um ramo acompanha a ponta dele; um sha ou uma tag
+#          fica parado e mostra o trabalho de um bloco, tarefa ou branch
+#          inteiros.
 #   parar: Ctrl-C, ou de outro terminal: pkill -f '[b]in/diff-ao-vivo.sh'
 #   PDF:   REPO/pdf/ao-vivo/diff-ao-vivo.pdf, aberto no Evince
 #   VIEW=none diff-ao-vivo.sh  não abre o Evince (abra o PDF à mão)
@@ -14,6 +16,16 @@
 #
 # A cada PDF novo, leva o Evince (SyncTeX, pelo D-Bus) à primeira linha do
 # diff que mudou desde o PDF anterior: a última edição salva.
+#
+# Com BASE em HEAD, o commit de uma rodada leva a BASE ao HEAD novo: o laço
+# confere a cada segundo o HEAD (ou a ponta do ramo) e, quando um commit
+# muda a árvore do latex/, extrai de novo base/, refaz novo/ a partir da
+# árvore e recompila, sem reabrir o Evince nem levá-lo a lugar nenhum. Só
+# o latex/ conta, porque é o que base/ guarda: os .org entram pelos .tex
+# que a exportação commita junto, e o refs.bib os dois lados leem da
+# árvore. Commit que não muda latex/ deixa a BASE onde está. O commit que
+# muda o .org de um capítulo sem o .tex dele não tira a marca do que
+# entrou, porque o .tex da BASE continua velho, e o script avisa.
 #
 # Compila em ao-vivo/build/ e só copia o PDF para diff-ao-vivo.pdf quando a
 # compilação termina sem erro: um .org no meio de uma edição ou um refs.bib
@@ -24,6 +36,16 @@ set -euo pipefail
 
 REPO=$(realpath "${1:-$PWD}")
 BASE=$(git -C "$REPO" rev-parse --short "${2:-HEAD}")
+# O que base_andou() acompanha: HEAD, o nome completo de um ramo, ou nada
+# para um sha ou uma tag. CABECA é o último commit visto dele.
+ACOMPANHA=${2:-HEAD}
+if [ "$ACOMPANHA" != HEAD ]; then
+  ACOMPANHA=$(git -C "$REPO" rev-parse --symbolic-full-name "$ACOMPANHA")
+  case $ACOMPANHA in refs/heads/* | refs/remotes/*) ;; *) ACOMPANHA= ;; esac
+fi
+CABECA=$(git -C "$REPO" rev-parse "$BASE")
+ARVORE_BASE=$(git -C "$REPO" rev-parse "$BASE:latex")
+FALHOU_EM=  # o commit da última troca da BASE que falhou
 OUT=$REPO/pdf/ao-vivo
 BUILD=$OUT/build
 JOB=diff-ao-vivo
@@ -33,15 +55,68 @@ ANTERIOR=$OUT/$JOB.tex.anterior  # o diff do último PDF bom, para seguir()
 cd "$REPO"
 VIGIADOS=(texto/*.org texto/refs.bib latex/tcc.tex)
 CAPITULOS=$OUT/novo/latex/capitulos
-rm -rf "$OUT/base" "$OUT/novo" "$ANTERIOR"
-mkdir -p "$OUT/base" "$OUT/novo" "$BUILD"
+rm -rf "$OUT/novo" "$ANTERIOR"
+mkdir -p "$OUT/novo" "$BUILD"
 
-# Versão antiga: os fontes TeX do commit BASE, extraídos uma vez. O latexdiff
-# --flatten resolve os \input pelo diretório de cada tcc.tex, por isso base e
-# novo reproduzem o latex/ inteiro.
-git archive "$BASE" latex | tar -x -C "$OUT/base"
+# Versão antiga: os fontes TeX do commit BASE, extraídos de novo quando
+# base_andou() a move. O latexdiff --flatten resolve os \input pelo
+# diretório de cada tcc.tex, por isso base e novo reproduzem o latex/
+# inteiro. Extrai em base.tmp/ e só troca no sucesso, para a falha não
+# deixar o diff sem versão antiga.
+extrair_base() {
+  rm -rf "$OUT/base.tmp" && mkdir -p "$OUT/base.tmp" &&
+    git archive "$1" latex | tar -x -C "$OUT/base.tmp" &&
+    rm -rf "$OUT/base" && mv "$OUT/base.tmp" "$OUT/base"
+}
+extrair_base "$BASE"
 
 hora() { date +%T; }
+
+avisar_sem_tex() {
+  # Avisa de cada .org de capítulo que mudou de $1 para $2 sem o .tex dele:
+  # o que entrou nele continua marcado.
+  local org
+  for org in $(git diff --name-only "$1" "$2" -- ':(glob)texto/*.org'); do
+    if git diff --quiet "$1" "$2" -- "latex/capitulos/$(basename "${org%.org}").tex"; then
+      echo "[$(hora)] $org mudou até $(git rev-parse --short "$2") sem o .tex; o que entrou nele continua marcado"
+    fi
+  done
+}
+
+base_andou() {
+  # Leva a BASE ao commit novo do que ela acompanha quando o latex/ dele
+  # muda, e põe em orgs, por novo_da_arvore(), os .org a exportar. O commit
+  # se lê uma vez só, para o que chega no meio não separar a árvore
+  # conferida da extraída. As variáveis só mudam no fim: a troca que falha
+  # esquece a árvore da BASE, porque base/ pode já ser a do commit novo, e
+  # se tenta de novo na volta seguinte, mesmo que o commit volte a ser o
+  # anterior, e refaz base/ e novo/; a falha se anuncia uma vez enquanto o
+  # commit não muda. Sem o diff anterior, seguir() não leva o Evince ao que
+  # só perdeu a marca.
+  local cabeca arvore
+  [ -n "$ACOMPANHA" ] || return 1
+  cabeca=$(git rev-parse -q --verify "$ACOMPANHA") || return 1
+  [ "$cabeca" != "$CABECA" ] || [ -z "$ARVORE_BASE" ] || return 1
+  arvore=$(git rev-parse -q --verify "$cabeca:latex") || return 1
+  if [ "$arvore" = "$ARVORE_BASE" ]; then
+    avisar_sem_tex "$CABECA" "$cabeca"
+    CABECA=$cabeca
+    return 1
+  fi
+  if ! { extrair_base "$cabeca" && novo_da_arvore; } 2>"$OUT/troca.log"; then
+    [ "$cabeca" = "$FALHOU_EM" ] ||
+      echo "[$(hora)] a troca da BASE para $(git rev-parse --short "$cabeca") falhou; tento de novo a cada segundo. Ver $OUT/troca.log"
+    FALHOU_EM=$cabeca
+    ARVORE_BASE=
+    return 1
+  fi
+  avisar_sem_tex "$CABECA" "$cabeca"
+  CABECA=$cabeca
+  BASE=$(git rev-parse --short "$cabeca")
+  ARVORE_BASE=$arvore
+  rm -f "$ANTERIOR"
+  echo "[$(hora)] BASE agora é $BASE (${ACOMPANHA#refs/*/} andou)"
+}
 
 exportar() {
   # Os .org dados vão para ao-vivo/novo/latex/capitulos/, não para o
@@ -112,34 +187,51 @@ gerar() {
 
 estado() { stat -c '%n %.9Y' "${VIGIADOS[@]}" 2>/dev/null || true; }
 
-# Os .tex da árvore servem para os capítulos que não mudaram; exporta só o .org
-# mais novo que o próprio .tex, para não pôr no diff diferenças de exportação.
-cp -r latex "$OUT/novo/"
-novos=()
-for f in texto/*.org; do
-  if [ "$f" -nt "latex/capitulos/$(basename "${f%.org}").tex" ]; then novos+=("$f"); fi
-done
+novo_da_arvore() {
+  # Os .tex da árvore servem para os capítulos que não mudaram; põe em orgs
+  # só o .org mais novo que o próprio .tex, para não pôr no diff diferenças
+  # de exportação. Roda na partida e a cada BASE nova, porque o commit que
+  # move a BASE pode trazer à árvore o .tex de um capítulo cujo .org não
+  # mudou (o .tex reexportado), e novo/ ficaria com o capítulo da partida,
+  # que sairia no diff ao contrário. As siglas, os estilos e as figuras o
+  # pdflatex lê da árvore, em latex/.
+  rm -rf "$OUT/novo/latex" && cp -r latex "$OUT/novo/" || return 1
+  orgs=()
+  for f in texto/*.org; do
+    if [ "$f" -nt "latex/capitulos/$(basename "${f%.org}").tex" ]; then orgs+=("$f"); fi
+  done
+}
+
+novo_da_arvore
 ultimo=$(estado)
-gerar "${novos[@]}" || true
+gerar "${orgs[@]}" || true
 visor=
 if [ "${VIEW:-pdf}" != none ] && [ -f "$PDF" ]; then
   evince "$PDF" >/dev/null 2>&1 &
   visor=1
 fi
 trap 'pkill -P $$ 2>/dev/null; exit' INT TERM
-echo "vigiando texto/*.org, texto/refs.bib e latex/tcc.tex contra $BASE; Ctrl-C para parar"
+echo "vigiando texto/*.org, texto/refs.bib e latex/tcc.tex contra $BASE${ACOMPANHA:+, que acompanha ${ACOMPANHA#refs/*/}}; Ctrl-C para parar"
 
 while sleep 1; do
   agora=$(estado)
-  [ "$agora" = "$ultimo" ] && continue
-  # espera os arquivos pararem de mudar por 2 s antes de exportar
-  while sleep 2; do n=$(estado); [ "$n" = "$agora" ] && break; agora=$n; done
-  mudados=$(grep -Fvxf <(printf '%s\n' "$ultimo") <<<"$agora" | cut -d' ' -f1 || true)
-  ultimo=$agora
-  orgs=()
-  for f in $mudados; do
-    case $f in *.org) orgs+=("$f") ;; esac
-  done
+  mudou=
+  if [ "$agora" != "$ultimo" ]; then
+    # espera os arquivos pararem de mudar por 2 s antes de exportar
+    while sleep 2; do n=$(estado); [ "$n" = "$agora" ] && break; agora=$n; done
+    mudados=$(grep -Fvxf <(printf '%s\n' "$ultimo") <<<"$agora" | cut -d' ' -f1 || true)
+    ultimo=$agora
+    mudou=1
+  fi
+  # Com BASE nova, base_andou() já pôs em orgs o .org que mudou, mais novo
+  # que o .tex da árvore.
+  if ! base_andou; then
+    [ -n "$mudou" ] || continue
+    orgs=()
+    for f in $mudados; do
+      case $f in *.org) orgs+=("$f") ;; esac
+    done
+  fi
   gerar "${orgs[@]}" || true
   if [ "${VIEW:-pdf}" != none ] && [ -z "$visor" ] && [ -f "$PDF" ]; then
     evince "$PDF" >/dev/null 2>&1 &

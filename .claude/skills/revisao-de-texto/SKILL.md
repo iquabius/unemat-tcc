@@ -38,10 +38,16 @@ Evince estão só no host: tudo que os usa vai por `distrobox-host-exec`.
    distrobox-host-exec bash -lc 'cd "<checkout>" && setsid bin/diff-ao-vivo.sh . HEAD >pdf/diff-ao-vivo.out 2>&1 &'
    ```
 
-   A BASE fica fixa na partida: depois de um commit, reinicie para
-   comparar com o HEAD novo, ou mantenha a antiga para mostrar a rodada
-   inteira. Parar: `distrobox-host-exec pkill -f '[b]in/diff-ao-vivo.sh'`,
-   num comando sozinho. Os colchetes evitam que o padrão case com o próprio
+   Contra HEAD, a BASE acompanha os commits: o commit da rodada, que leva
+   os `.tex` exportados, a passa ao HEAD novo e o PDF perde as marcas do
+   que entrou, sem reiniciar (a saída diz "BASE agora é <sha>"); o commit
+   do `.org` de um capítulo sem o `.tex` dele deixa a marca, e a saída
+   avisa. Para mostrar a rodada inteira depois do commit, pare-o e inicie
+   de novo com um sha (`bin/diff-ao-vivo.sh . <sha>`), cuja BASE fica
+   parada (o nome de um ramo acompanha a ponta dele, como HEAD acompanha
+   os commits); dois ao mesmo tempo escreveriam no mesmo `pdf/ao-vivo/`.
+   Parar: `distrobox-host-exec pkill -f '[b]in/diff-ao-vivo.sh'`, num
+   comando sozinho. Os colchetes evitam que o padrão case com o próprio
    `pkill`, mas o container vê os processos do host e vice-versa: se a
    mesma linha de comando citar o script de outro jeito (um `cp
    bin/diff-ao-vivo.sh ...`), o `pkill` mata o shell da própria sessão.
