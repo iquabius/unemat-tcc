@@ -11,21 +11,22 @@
 - Lido em: =acervo/myers1994.pdf=, p. 1 do PDF (resumo).
 - Conferido: 2026-10-09; de novo em 2026-10-12.
 * [[file:../intro.org::Cada toque num aplicativo de celular, clique][intro: Cada toque num aplicativo de celular, clique]], p. 79 (eventos a qualquer momento)
-- Frase: “Cada toque num aplicativo de celular, clique num programa de
-  computador ou tecla digitada num /site/ gera um evento, que o programa
-  precisa aceitar a qualquer momento, mesmo enquanto executa outros
-  comandos (Myers, 1994, p. 79).”
+- Frase: “O programa precisa aceitar os eventos a qualquer momento, mesmo
+  enquanto executa comandos (Myers, 1994, p. 79).”
 - Trecho: “the user interface software must be structured so that it can
   accept input events at all times, even while executing commands” (p. 79)
 - Lido em: =acervo/myers1994.pdf=, p. 7 do PDF (p. 79).
-- Observação: o “real-time requirements for handling input events” da p.
-  75 sai como “a qualquer momento”, porque “tempo real” tem no texto o
-  sentido estrito dos sistemas embarcados.
-- Observação, 2026-10-14: a frase veio do parágrafo da dificuldade para o
-  do caso concreto, no lugar de “que o programa precisa tratar sem deixar
-  de responder ao usuário”, que não tinha fonte.
+- Observação: o “real-time requirements for handling input events” da p. 75
+  sai como “a qualquer momento”, porque “tempo real” tem no texto o sentido
+  estrito dos sistemas embarcados. Em 2026-10-28, a frase mudou na checagem
+  adversarial: a citação sustenta só o requisito de aceitar eventos, e saiu
+  “outros”.
+- Observação, 2026-10-14: a frase veio do parágrafo da dificuldade para o do
+  caso concreto, no lugar de “que o programa precisa tratar sem deixar de
+  responder ao usuário”, que não tinha fonte.
 - Conferido: 2026-10-12; dividida em duas frases em 2026-10-13; trecho
-  conferido de novo contra a frase nova em 2026-10-14.
+  conferido de novo contra a frase nova em 2026-10-14; de novo em
+  2026-10-28.
 * [[file:../intro.org::O desenvolvimento de interfaces gráficas é difícil][intro: O desenvolvimento de interfaces gráficas é difícil]], p. 75 e 79 (o código do avesso)
 - Frase: “Uma das razões é o código escrito do avesso (/inside-out/),
   dividido em sub-rotinas que o /toolkit/ chama quando ocorrem ações do

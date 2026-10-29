@@ -1,9 +1,9 @@
 \notalegenda{Em azul, o que mudou desde o projeto de 2017; em laranja, uma pergunta, junto do trecho realçado.}
 
 Cada toque num aplicativo de celular, clique num programa de computador ou
-tecla digitada num \emph{site} gera um evento, que o programa precisa aceitar a
-qualquer momento, mesmo enquanto executa outros comandos
-\cite[p. 79]{myers1994}.
+tecla digitada num \emph{site} gera um evento.
+O programa precisa aceitar os eventos a qualquer momento, mesmo enquanto
+executa comandos \cite[p. 79]{myers1994}.
 Esses eventos chegam numa ordem que o programador não escolhe nem pode
 prever \cite[p. 52:2]{bainomugisha2013}.
 
@@ -56,8 +56,7 @@ controlado com 127 estudantes, quem leu programas escritos
 com \gls{pr} os compreendeu melhor do que quem leu as versões dos mesmos
 programas com o \emph{Observer Pattern} \cite[p. 1125-1134]{salvaneschi2017}.
 Nas três aplicações interativas do experimento, porém, a diferença não foi
-significativa, e em duas delas o grupo do \emph{Observer Pattern} teve média
-maior \cite[p. 1128 e 1132]{salvaneschi2017}.
+significativa \cite[p. 1128 e 1132]{salvaneschi2017}.
 A \gls{pr} leva às linguagens de programação o modelo da planilha
 eletrônica, em que alterar o valor de uma célula recalcula as fórmulas que
 dependem dela \cite[p. 52:2]{bainomugisha2013}.
@@ -92,20 +91,22 @@ estado \cite[p. 3]{meyerovich2009}.
 
 Nos declarativos, o programador descreve a tela em função do estado, e o
 ambiente de execução a mantém atualizada
-\cites[][ p. 289:1]{lee2025}{solidjs2026}.
-Em troca, o ambiente de execução chama as funções que montam ou atualizam
-a tela quando julga necessário, e essa execução oculta pode tornar difícil
-acompanhar o fluxo real do programa \cite[p. 14]{grolaux2026}.
+\cites[][ p. 289:1 e 289:2]{lee2025}{solidjs2026}.
+Em troca, o ambiente de execução chama as funções que dependem do estado
+quando julga necessário, e essa execução oculta pode tornar difícil
+acompanhar o fluxo real do programa \cite[p. 13-14]{grolaux2026}.
 No \emph{declarativo por re-renderização}, o ambiente de execução chama de
-novo, a cada alteração de estado, a parte que monta a tela.
+novo, quando o estado se altera, a parte que monta a tela.
 No React, é o próprio componente, uma função que especifica a tela e que,
-chamada com os mesmos argumentos, deve exibir a mesma interface
-\cite[p. 289:1, 289:2 e 289:6]{lee2025}.
-Nele, o \emph{callback} continua a tratar o evento, mas só altera o estado:
+idealmente, chamada com os mesmos argumentos, exibe a mesma interface
+\cite[p. 289:1, 289:2, 289:4 e 289:6]{lee2025}.
+Nele, o \emph{callback} continua a tratar o evento, mas não escreve a
+atualização da tela:
 num contador, o do clique soma um ao estado, e o componente devolve o
 botão com o valor novo \cites[][ p. 289:2]{lee2025}[][ p. 32]{sperber2025}.
-O \emph{declarativo por atualização granular} usa as abstrações da \gls{pr},
-os valores que variam no tempo, chamados \emph{signals}, cujas alterações se
+O \emph{declarativo por atualização granular} usa uma das abstrações da
+\gls{pr}, os valores que variam no tempo, chamados \emph{signals}, cujas
+alterações se
 propagam automaticamente \cite[p. 953]{salvaneschi2015}.
 Cada \emph{signal} avisa o que depende dele, como no Solid \cite{solidjs2026},
 e o ambiente de execução não chama de novo a parte que monta a tela
@@ -138,8 +139,9 @@ A lacuna se apoia nessa revisão, feita por palavras-chave e por
 rodadas de busca, em setembro e outubro de 2026, e descrita no Apêndice
 \ref{apend:2}; a lacuna vale para o que ela encontrou.
 Além disso, \textcite[p. 103-104]{kiss2014} avaliou cada implementação num
-tamanho só e propôs, como trabalho futuro, estendê-las com requisitos
-novos.
+tamanho só e propôs, como trabalho futuro, estender ou modificar as
+interfaces com requisitos novos e estudar outras bem maiores, para ver se
+a abordagem escala.
 Pergunta-se, então (P1): pelas \glspl{dc}, como difere a usabilidade da
 notação do código de interfaces gráficas em cada tecnologia entre
 os três modelos de programação~--- o imperativo por atualização manual, o
@@ -149,7 +151,8 @@ declarativo por re-renderização e o declarativo por atualização granular?
 funcionalidades e requisitos de orquestração acrescentados a cada
 interface, iguais em todas as tecnologias?
 (P1.2) E como ela muda quando o código da segunda rodada se refatora, com
-o mesmo comportamento, para a forma do ecossistema de cada tecnologia,
+o mesmo comportamento, para a biblioteca mais usada no ecossistema de
+cada tecnologia,
 para uma máquina de estados tipada, para a \gls{api} nova da
 plataforma ou para um padrão de projeto?
 \notamudou{\textbf{As duas subperguntas são novas}, como as rodadas a que elas respondem.}
@@ -186,8 +189,8 @@ A pergunta de pesquisa, como a usabilidade da notação difere entre os modelos 
 programação, é do tipo que \textcite{easterbrook2008} chamam de
 descritivo-comparativo, das perguntas sobre como uma coisa difere de outra,
 e põem entre as perguntas exploratórias.
-As hipóteses desta pesquisa servem a experimentos controlados como o de
-\textcite{salvaneschi2017}.
+As hipóteses que esta pesquisa gerar podem ser testadas em experimentos
+controlados como o de \textcite{salvaneschi2017}.
 
 Quanto aos meios, o trabalho é \realce{uma avaliação qualitativa}\notapergunta[list,prepend,caption={\textbf{2. Classificação do método}}]{no projeto, estudo de casos múltiplos (Yin 2001). \textbf{Fica o rótulo novo?} A troca se explica no texto ou só no pedido à coordenação?}, pelas \glspl{dc}, de
 implementações de um mesmo conjunto de interfaces.
@@ -198,8 +201,8 @@ qualitativas e feitas por uma pessoa \cite[p. 76]{sim2003}.
 A medida, neste trabalho, é a avaliação pelas \glspl{dc}.
 Aqui, as técnicas são os três modelos de programação, e a amostra, sete
 interfaces gráficas.
-A primeira, o Contador, mostra só a estrutura básica que o código de uma
-interface exige em cada tecnologia \cite[p. 17]{kiss2014}.
+Na primeira rodada, o Contador mostra só a estrutura básica que o código
+de uma interface exige em cada tecnologia \cite[p. 17]{kiss2014}.
 As outras seis trazem, em proporção própria, exigências dos dois eixos
 da coordenação.
 
@@ -216,8 +219,9 @@ O terceiro, ao React, mantém a montagem em JSX e muda o modelo de
 programação para o declarativo por re-renderização.
 Do Web Component sai também um ramo, ao Lit, que leva ao declarativo
 por re-renderização com a mesma classe e a mesma orquestração.
-Muda o modo como a alteração do estado chega à tela: cada alteração faz
-o ambiente de execução chamar de novo o método que monta a tela
+Muda o modo como a alteração do estado chega à tela: a alteração de uma
+das propriedades que o componente declara agenda uma atualização, em que
+o ambiente de execução chama de novo o método que monta a tela
 \cite{google2026d}.
 
 A avaliação se faz em três rodadas.
@@ -226,7 +230,8 @@ A segunda acrescenta a cada interface funcionalidades e requisitos de
 orquestração, iguais nas cinco tecnologias, e responde à P1.1.
 A terceira refatora o código da segunda rodada da Reserva de passagem,
 do Placar ao vivo e do Circle Drawer, sem mudar o comportamento, em
-quatro vertentes irmãs, e responde à P1.2.
+quatro vertentes irmãs, cada uma só nas interfaces cuja exigência de
+coordenação ela trata, e responde à P1.2.
 \notamudou{\textbf{As três rodadas são novas}; o projeto não as previa.}
 
 \begin{figure}[htbp]

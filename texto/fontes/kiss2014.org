@@ -54,21 +54,27 @@
 - Conferido: 2026-10-06.
 * [[file:../intro.org::Nenhum desses trabalhos compara, sobre as mesmas interfaces][intro: Nenhum desses trabalhos compara, sobre as mesmas interfaces]], p. 103-104
 - Frase: “Além disso, Kiss (2014, p. 103-104) avaliou cada implementação num
-  tamanho só e propôs, como trabalho futuro, estendê-las com requisitos
-  novos.”
+  tamanho só e propôs, como trabalho futuro, estender ou modificar as
+  interfaces com requisitos novos e estudar outras bem maiores, para ver se
+  a abordagem escala.” “As interfaces” traduz os /case studies/ de Kiss,
+  como o resto desta matriz (GLOSSARY.md, Interface).
 - Trecho: “The following additional aspects could be taken into
   consideration for an extended resp. modified set of case studies: • An
-  asynchronous requirement [...]” (p. 103); “Of course, the difficulty
-  lies in incorporating these additional aspects in as self-contained as
-  possible case studies resp. modifying the existing ones without bloating
-  them up too much.” (p. 104)
+  asynchronous requirement [...]” (p. 103); “Of course, the difficulty lies
+  in incorporating these additional aspects in as self-contained as possible
+  case studies resp. modifying the existing ones without bloating them up
+  too much.” (p. 104); “Another strategy is to instead consider much bigger
+  case studies in order to find out if an approach scales.” (p. 104)
 - Lido em: =acervo/kiss2014.pdf=, p. 109 e 110 do PDF.
 - Observação: “num tamanho só” é leitura do método de Kiss (cap. 3), em que
   cada interface tem uma implementação por tecnologia; a extensão do cap. 4
-  troca a biblioteca, e não a interface. Kiss chama cada interface de
-  /case study/; em 2026-10-14, “cada tarefa” passou a “cada implementação”
-  (GLOSSARY.md, Implementação), e o trecho não muda.
-- Conferido: 2026-10-13.
+  troca a biblioteca, e não a interface. Kiss chama cada interface de /case
+  study/; em 2026-10-14, “cada tarefa” passou a “cada implementação”
+  (GLOSSARY.md, Implementação), e o trecho não muda. Em 2026-10-28, a frase
+  mudou na checagem adversarial: a proposta futura passou a incluir
+  modificar os casos e estudar casos maiores para verificar se a abordagem
+  escala.
+- Conferido: 2026-10-13; de novo em 2026-10-28.
 * [[file:../intro.org::Quanto aos meios, o trabalho é][intro: Quanto aos meios, o trabalho é uma avaliação qualitativa]], p. 114
 - Frase: “O conjunto é um /benchmark/ de notação (Kiss, 2014, p. 114):
   testes que formam uma amostra representativa das tarefas da prática e
@@ -87,18 +93,19 @@
   termo nomeia o conjunto.
 - Conferido: 2026-10-14.
 * [[file:../intro.org::Quanto aos meios, o trabalho é][intro: Quanto aos meios, o trabalho é uma avaliação qualitativa]], p. 17 (o Contador)
-- Frase: “A primeira, o Contador, mostra só a estrutura básica que o
+- Frase: “Na primeira rodada, o Contador mostra só a estrutura básica que o
   código de uma interface exige em cada tecnologia (Kiss, 2014, p. 17).”
-- Trecho: “Challenges: understanding the basic ideas of a
-  language/toolkit and the essential scaffolding”; “by comparing Counter
-  implementations one can clearly see what basic scaffolding is needed
-  and how the very basic features work together to build a GUI
-  application.” (p. 17)
+- Trecho: “Challenges: understanding the basic ideas of a language/toolkit
+  and the essential scaffolding”; “by comparing Counter implementations one
+  can clearly see what basic scaffolding is needed and how the very basic
+  features work together to build a GUI application.” (p. 17)
 - Lido em: =acervo/kiss2014.pdf=, p. 23 do PDF (p. 17).
-- Observação: que o Contador não tem exigência de coordenação própria é
-  do ADR 0002 (2026-10-22), e não de Kiss; “estrutura básica” traduz
-  /basic scaffolding/.
-- Conferido: 2026-10-24.
+- Observação: que o Contador não tem exigência de coordenação própria é do
+  ADR 0002 (2026-10-22), e não de Kiss; “estrutura básica” traduz /basic
+  scaffolding/. Em 2026-10-28, a frase mudou na checagem adversarial: a
+  estrutura básica do Contador ficou restrita à primeira rodada, pois na
+  segunda ele ganha a lista de contadores.
+- Conferido: 2026-10-24; de novo em 2026-10-28.
 * [[file:../intro.org::A linguagem, a especificação e as regras de domínio][intro: A linguagem, a especificação e as regras de domínio]], p. 16
 - Frase: “Como Kiss (2014, p. 16), que deixou de fora a linguagem de
   /layout/ do JavaFX para não tirar o foco da comparação, este trabalho

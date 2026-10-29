@@ -25,8 +25,12 @@
 - Conferido: 2026-10-15; de novo em 2026-10-27, na frase fundida.
 * [[file:../intro.org::Como resposta à dificuldade de coordenar os][intro: Como resposta à dificuldade de coordenar os]], p. 1128 e 1132 (as aplicações interativas)
 - Frase: “Nas três aplicações interativas do experimento, porém, a
-  diferença não foi significativa, e em duas delas o grupo do /Observer
-  Pattern/ teve média maior (Salvaneschi et al., 2017, p. 1128 e 1132).”
+  diferença não foi significativa (Salvaneschi et al., 2017, p. 1128 e
+  1132).” Em 2026-10-27, saiu “e em duas delas o grupo do /Observer
+  Pattern/ teve média maior”: segue o texto dos autores (p. 1132), que a
+  Tabela 2 deles (p. 1133) desmente na tarefa 8, com RP 96,80% e OO
+  93,80% de acertos; só na 9 o OO acerta mais em proporção (75,40% contra
+  64,50%) (checagem adversarial, decisão do autor).
 - Trecho: “Interactive applications (applications 8-10) require the user,
   for example, to click buttons” (p. 1128); “The most striking cases are
   Task 8 and Task 9, where the average for the OO group is higher than the
@@ -59,16 +63,18 @@
   p. 1125-1134, mais abaixo.
 - Conferido: 2026-10-14.
 * [[file:../intro.org::Quanto aos objetivos, a pesquisa é][intro: Quanto aos objetivos, a pesquisa é exploratória]]
-- Frase: “As hipóteses desta pesquisa servem a experimentos controlados
-  como o de Salvaneschi et al. (2017).”
-- Trecho: “The study involves 127 subjects and compares reactive
-  programming to the traditional object-oriented style with the Observer
-  design pattern.” (resumo, p. 1125)
+- Frase: “As hipóteses que esta pesquisa gerar podem ser testadas em
+  experimentos controlados como o de Salvaneschi et al. (2017).”
+- Trecho: “The study involves 127 subjects and compares reactive programming
+  to the traditional object-oriented style with the Observer design
+  pattern.” (resumo, p. 1125)
 - Lido em: =acervo/salvaneschi2017.pdf=, p. 1 do PDF; o delineamento
   controlado está na entrada do §5.
 - Observação: a frase saiu do §11 em 2026-10-07, para o §14 ligar as
-  hipóteses da pesquisa exploratória ao experimento.
-- Conferido: 2026-10-07.
+  hipóteses da pesquisa exploratória ao experimento. Em 2026-10-28, a frase
+  mudou na checagem adversarial: o verbo passou a indicar intenção, pois a
+  pesquisa ainda não formulou hipóteses.
+- Conferido: 2026-10-07; de novo em 2026-10-28.
 * [[file:../prog.org::As aplicações orientadas a eventos e][prog: As aplicações orientadas a eventos e]], p. 1125 (aplicações reativas)
 - Frase: “Na literatura de PR, essas aplicações também se chamam reativas
   (Salvaneschi et al., 2017, p. 1125) [...]”
@@ -95,7 +101,7 @@
   Comprehending programs in the RP style does not require more time than
   comprehending their OO equivalent.” (PDF p. 9, p. 1133)
 - Lido em: =acervo/salvaneschi2017.pdf=, p. 1, 7 e 9 do PDF; as páginas
-  publicadas (1125 a 1141) se contam do início, sem paginação impressa no
+  publicadas (1125 a 1143) se contam do início, sem paginação impressa no
   PDF.
 - Conferido: 2026-10-06; o tempo, em 2026-10-08.
 * [[file:../prog.org::testaram uma afirmação repetida][prog: testaram uma afirmação repetida]], p. 1125 (afirmação repetida)

@@ -17,20 +17,21 @@
 - Conferido: 2026-10-13.
 
 * [[file:../intro.org::As sete interfaces são implementadas na web por cinco tecnologias][intro: As sete interfaces são implementadas na web por cinco tecnologias]] (o ramo do Lit)
-- Frase: “Do Web Component sai também um ramo, ao Lit, que leva ao
-  declarativo por re-renderização com a mesma classe e a mesma
-  orquestração: muda o modo como a alteração do estado chega à tela,
-  porque cada alteração faz o ambiente de execução chamar de novo o
-  método que monta a tela (Google, 2026d).”
-- Trecho: “Lit components are standard custom elements and inherit the
-  custom element lifecycle methods.”; “The reactive update cycle is
-  triggered when a reactive property changes or when the requestUpdate()
-  method is explicitly called.”; “The component’s render method is called
-  to update its internal DOM.”
+- Frase: “Muda o modo como a alteração do estado chega à tela: a alteração
+  de uma das propriedades que o componente declara agenda uma atualização,
+  em que o ambiente de execução chama de novo o método que monta a tela
+  (Google, 2026d).”
+- Trecho: “The reactive update cycle is triggered when a reactive property
+  changes or when the requestUpdate() method is explicitly called. Lit
+  performs updates asynchronously so property changes are batched”; “The
+  component’s render method is called to update its internal DOM.” (seção
+  “Reactive update cycle”).
 - Lido em: =acervo/google2026d.html= (página salva em 2026-10-13;
   lit.dev/docs/components/lifecycle/).
-- Observação: a fonte sustenta só o ciclo: o elemento personalizado e o
-  render() chamado de novo a cada alteração. A mesma classe e a mesma
-  orquestração do Web Component são do delineamento (ADR 0013), e não da
-  fonte.
-- Conferido: 2026-10-25.
+- Observação: A fonte sustenta o ciclo: a alteração de propriedade agenda a
+  atualização e o render() é chamado durante esse ciclo. A mesma classe e a
+  mesma orquestração do Web Component são do delineamento (ADR 0013), e não
+  da fonte. Em 2026-10-28, a frase mudou na checagem adversarial: a
+  alteração de propriedade agenda uma atualização, que pode reunir várias
+  alterações.
+- Conferido: 2026-10-25; de novo em 2026-10-28.
