@@ -2,14 +2,20 @@
 #+startup: overview
 
 * [[file:../intro.org::Este trabalho compara /modelos de programação/][intro: Este trabalho compara modelos de programação]], p. xiii e 29
-- Frase: “Este trabalho compara /modelos de programação/: as técnicas e os
-  princípios de projeto que um modelo de computação torna possíveis (Van
-  Roy; Haridi, 2004, p. xiii e 29).”
-- Trecho: “Sometimes we use the phrase “programming model.” This refers to
-  what the programmer needs: the programming techniques and design
-  principles made possible by the computation model.” (p. xiii); “We will
-  sometimes call this a programming model. A programming model is always
-  built on top of a computation model.” (p. 29)
+- Frase: “O termo vem de Van Roy e Haridi, para quem o modelo de
+  programação são as técnicas e os princípios de projeto tornados possíveis
+  pelo /modelo de computação/, o sistema formal que define uma linguagem e
+  como se executam os programas escritos nela (Van Roy; Haridi, 2004,
+  p. xiii e 29).”
+- Trecho: “A computation model is a formal system that defines how
+  computations are done.” e “Sometimes we use the phrase “programming
+  model.” This refers to what the programmer needs: the programming
+  techniques and design principles made possible by the computation
+  model.” (p. xiii); “First, a computation model, which is a formal system
+  that defines a language and how sentences of the language (e.g.,
+  expressions and statements) are executed by an abstract machine.” e “We
+  will sometimes call this a programming model. A programming model is
+  always built on top of a computation model.” (p. 29)
 - Lido em:
   =acervo/vanroy2004.pdf=,
   p. 14 do PDF (prefácio, p. xiii pelo índice) e p. 60 do PDF (abertura do
@@ -17,8 +23,14 @@
 - Observação: a primeira menção apresenta o termo pelo que o distingue
   de paradigma, biblioteca e /framework/ (ADR 0021; nota de referência
   docs/paradigma-modelo-e-notacao.md, seção "Os vizinhos: biblioteca,
-  framework, toolkit, documentações").
-- Conferido: 2026-10-09.
+  framework, toolkit, documentações"). Em 2026-10-28, o §6 passou a abrir
+  pela definição do trabalho (o modo de coordenar evento, estado e tela)
+  e a dizer, na frase seguinte, de onde vem o termo, com o modelo de
+  computação definido, porque o §19 o usa (Green e Petre, 1996, p. 139);
+  “como se executam os programas escritos nela” resume o “how sentences of
+  the language [...] are executed” (decisão do autor).
+- Conferido: 2026-10-09; a definição do modelo de computação, em
+  2026-10-28.
 * [[file:../prog.org::O modelo de programação não é][prog: O modelo de programação não é]], p. xiii (paradigma)
 - Frase: “Ele não é o paradigma, noção imprecisa que o modelo de
   computação torna precisa (Van Roy; Haridi, 2004, p. xiii) [...]”

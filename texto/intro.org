@@ -62,12 +62,14 @@ A [[gls:pr]] leva às linguagens de programação o modelo da planilha
 eletrônica, em que alterar o valor de uma célula recalcula as fórmulas que
 dependem dela [[cite:bainomugisha2013][p. 52:2]].
 
-  Este trabalho compara /modelos de programação/: as técnicas e os
-  princípios de projeto que um modelo de computação torna possíveis
-  [[cite:vanroy2004][p. xiii e 29]].
+  Este trabalho compara /modelos de programação/: na programação de
+  interfaces gráficas, o modo de coordenar evento, estado e tela que uma
+  tecnologia torna possível.
   @@latex:\notamudou[list,prepend,caption={\textbf{1. Mudanças desde o projeto de 2017}}]{o projeto comparava paradigmas, a PF e a PR frente à POO com \emph{callbacks}; \textbf{agora se comparam modelos de programação}.}@@
-  Na programação de interfaces gráficas, o modelo de programação é o modo
-  de coordenar evento, estado e tela que uma tecnologia torna possível.
+  O termo vem de Van Roy e Haridi, para quem o modelo de programação são
+  as técnicas e os princípios de projeto tornados possíveis pelo /modelo de
+  computação/, o sistema formal que define uma linguagem e como se executam
+  os programas escritos nela [[cite:vanroy2004][p. xiii e 29]].
   A /notação/ é a forma escrita de um modelo de programação numa
   tecnologia: as palavras e os sinais com que o programador escreve, no
   código-fonte da aplicação, o estado, os valores derivados dele e a tela
