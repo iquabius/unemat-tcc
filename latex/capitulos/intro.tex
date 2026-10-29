@@ -140,6 +140,14 @@ Além disso, \textcite[p. 103-104]{kiss2014} avaliou cada implementação num
 tamanho só e propôs, como trabalho futuro, estender ou modificar as
 interfaces com requisitos novos e estudar outras bem maiores, para ver se
 a abordagem escala.
+Adotar a biblioteca que o ecossistema usa pode poupar código a manter,
+mas traz abstrações novas a aprender.
+Nos casos de \textcite[p. 56]{kiss2014}, o \emph{toolkit} pesou mais que o
+paradigma, porque as construções especiais dele cobriam, em casos
+frequentes, as lacunas do paradigma.
+Já o código refatorado nem sempre se entende melhor logo depois,
+para quem está acostumado com a estrutura antiga
+\cite[p. 507]{ammerlaan2015}.
 Pergunta-se, então (P1): pelas \glspl{dc}, como difere a usabilidade da
 notação do código de interfaces gráficas em cada tecnologia entre
 os três modelos de programação~--- o imperativo por atualização manual, o
@@ -150,9 +158,7 @@ funcionalidades e requisitos de orquestração acrescentados a cada
 interface, iguais em todas as tecnologias?
 (P1.2) E como ela muda quando o código da segunda rodada se refatora, com
 o mesmo comportamento, para a biblioteca mais usada no ecossistema de
-cada tecnologia,
-para uma máquina de estados tipada, para a \gls{api} nova da
-plataforma ou para um padrão de projeto?
+cada tecnologia?
 \notamudou{\textbf{As duas subperguntas são novas}, como as rodadas a que elas respondem.}
 Conhecer essas diferenças pode ajudar quem programa interfaces a escolher uma tecnologia
 sabendo o que o modelo de programação dela facilita e o que dificulta em
@@ -169,8 +175,8 @@ Especificamente:
 \item implementar sete interfaces gráficas (Contador, Reserva de passagem,
 Busca com sugestões, Login com quarentena, Placar ao vivo, Planilha e
 Circle Drawer) com Web Component, Lit, Web Component com \emph{signals},
-Solid e React, estendê-las na segunda rodada e refatorar três delas na
-terceira, em quatro vertentes;
+Solid e React, estendê-las na segunda rodada e refatorar duas delas na
+terceira;
 \item avaliar as implementações pelas 14 \glspl{dc} em cada rodada;
 \item sintetizar, por exigência de coordenação, o que cada modelo de
 programação facilita e o que dificulta, como no estado derivado e na
@@ -224,10 +230,9 @@ A avaliação se faz em três rodadas.
 A primeira responde à P1.
 A segunda acrescenta a cada interface funcionalidades e requisitos de
 orquestração, iguais nas cinco tecnologias, e responde à P1.1.
-A terceira refatora o código da segunda rodada da Reserva de passagem,
-do Placar ao vivo e do Circle Drawer, sem mudar o comportamento, em
-quatro vertentes irmãs, cada uma só nas interfaces cuja exigência de
-coordenação ela trata, e responde à P1.2.
+A terceira refatora o código da segunda rodada da Reserva de passagem
+e do Placar ao vivo, sem mudar o comportamento, para a biblioteca mais
+usada no ecossistema de cada tecnologia, e responde à P1.2.
 \notamudou{\textbf{As três rodadas são novas}; o projeto não as previa.}
 
 \begin{figure}[htbp]
@@ -277,9 +282,8 @@ coordenação ela trata, e responde à P1.2.
     {funcionalidades e requisitos de orquestração, iguais nas cinco tecnologias;\\
      a frequência do Placar vai numa requisição à parte}};
   \node[faixa, below=0.35cm of r2] (r3) {\rodada{3.ª rodada}{P1.2: só a forma}
-    {4 vertentes sobre o código da segunda rodada: 6 pares, 30 refatorações}
-    {ecossistema: Reserva e Placar\enspace·\enspace máquina de estados: Placar\\
-     API nova da plataforma: Placar e Circle Drawer\enspace·\enspace padrões de projeto: Circle Drawer}};
+    {a biblioteca do ecossistema sobre o código da segunda rodada: 10 refatorações}
+    {Reserva de passagem e Placar ao vivo, nas cinco tecnologias}};
   % As setas entre as rodadas descem pela coluna dos rótulos.
   \draw[seta] (r1.south -| lit) -- (r2.north -| lit);
   \draw[seta] (r2.south -| lit) -- (r3.north -| lit);

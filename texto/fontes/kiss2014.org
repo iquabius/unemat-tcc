@@ -76,6 +76,26 @@
   modificar os casos e estudar casos maiores para verificar se a abordagem
   escala.
 - Conferido: 2026-10-13; de novo em 2026-10-28.
+* [[file:../intro.org::Nenhum desses trabalhos compara, sobre as mesmas interfaces][intro: Nenhum desses trabalhos compara, sobre as mesmas interfaces]] (o /toolkit/), p. 56
+- Frase: “Nos casos de Kiss (2014, p. 56), o /toolkit/ pesou mais que o
+  paradigma, porque as construções especiais dele cobriam, em casos
+  frequentes, as lacunas do paradigma.” Justifica a P1.2, depois da frase
+  do autor sobre o custo de adotar a biblioteca do ecossistema.
+- Trecho: “Now that the analysis has been completed we can conclude that
+  the toolkit in general played the most crucial role in our case studies.
+  A good toolkit can cover potential deficits in the paradigm and/or
+  language with special constructs for special but frequent use cases.
+  Paradigm and language differences played a more minor role.” (seção 3.10,
+  “Verdict”, p. 56)
+- Lido em: =acervo/kiss2014.pdf=, p. 62 do PDF.
+- Observação: o /toolkit/ de Kiss é o JavaFX e o ScalaFX (GLOSSARY.md,
+  /Toolkit/), e não a biblioteca da terceira rodada; ligar um à outra é
+  razão do autor, dita na frase anterior do texto. Na p. 3 (p. 9 do PDF),
+  Kiss já previa esse resultado: “another possible outcome is that the
+  language’s, the IDE’s and/or the toolkit’s role in GUI development is
+  much more crucial than the role of the paradigm”; na p. 100 (p. 106 do
+  PDF), “the role of the toolkit dominated”. “Lacunas” traduz /deficits/.
+- Conferido: 2026-10-29.
 * [[file:../intro.org::Quanto aos meios, o trabalho é][intro: Quanto aos meios, o trabalho é uma avaliação qualitativa]], p. 114
 - Frase: “O conjunto é um /benchmark/ de notação (Kiss, 2014, p. 114):
   testes que formam uma amostra representativa das tarefas da prática e

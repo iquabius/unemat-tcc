@@ -1,0 +1,28 @@
+#+title: ammerlaan2015: Ammerlaan, Veninga e Zaidman (2015), Old Habits Die Hard: Why Refactoring for Understandability Does Not Give Immediate Benefits
+#+startup: overview
+
+* [[file:../intro.org::Nenhum desses trabalhos compara, sobre as mesmas interfaces][intro: Nenhum desses trabalhos compara, sobre as mesmas interfaces]], p. 507
+- Frase: “Já o código refatorado nem sempre se entende melhor logo depois,
+  para quem está acostumado com a estrutura antiga (AMMERLAAN; VENINGA;
+  ZAIDMAN, 2015, p. 507).” Justifica a P1.2: o efeito de reescrever o
+  código numa forma considerada melhor não é dado de antemão.
+- Trecho: “In our experiment at Exact, we observed that the productivity
+  of developers can be influenced both positively and negatively by code
+  that is refactored for understandability when performing small coding
+  tasks. So-called ‘clean code’ does not immediately improve one’s
+  understanding of code, if one is used to working with the old structures
+  present in source code.” (seção V, “Conclusion”, p. 507)
+- Lido em: =acervo/ammerlaan2015.pdf=, p. 4 do PDF.
+- Observação: a cópia é o preprint dos autores, sem número de página
+  impresso; a cópia do ResearchGate é o mesmo arquivo (sha256 igual,
+  conferido em 2026-10-29). A edição ocupa as p. 504-507 dos anais do
+  SANER 2015, e a p. 507 é a quarta, inferida, não lida na edição. O artigo
+  tem uma pergunta de pesquisa só (p. 504): “Is the productivity of
+  developers influenced by code that is refactored for understandability
+  when performing small coding tasks?”; 30 desenvolvedores de 11 equipes,
+  cinco experimentos em VB.NET, três a favor do código original, um a favor
+  do refatorado e um sem diferença. A refatoração estudada é de limpeza
+  (extrair método, extrair classe, dividir responsabilidades), e não a
+  troca por biblioteca; o costume com a estrutura antiga é explicação dos
+  autores, e não medida (seção IV.A, “Habits”).
+- Conferido: 2026-10-29.
