@@ -37,8 +37,7 @@ No navegador, as sub-rotinas desse código do avesso são /callbacks/: funções
 passadas como argumento a outra função, que as chama na hora ou mais tarde
 [[cite:gallaba2015][p. 1-2]].
 A forma tradicional de implementar programas que reagem a eventos é o
-/Observer Pattern/, que separa os observadores, que consomem os eventos, dos
-observáveis, que os produzem [[cite:salvaneschi2015][p. 953]].
+/Observer Pattern/ [[cite:salvaneschi2015][p. 953]].
 Como não se sabe em que ordem os /callbacks/ serão chamados, coordenar as
 alterações do estado compartilhado pode ser desconcertante e está longe de ser
 modular [[cite:edwards2009][p. 926]].
@@ -123,9 +122,8 @@ dependem dela [[cite:bainomugisha2013][p. 52:2]].
   programação de interfaces e bibliotecas de [[gls:pr]].
   textcite:mernik2009 compararam o [[gls:xaml]] e o Windows Forms em C#.
   [[textcite:kiss2014][p. v, 11 e 104]] comparou a [[gls:poo]] e a [[gls:pf]]
-  em sete interfaces gráficas, com JavaFX e ScalaFX, e em parte delas com
-  Scala.Rx, ReactFX e Elm, e deixou como trabalho futuro comparar os
-  /frameworks/ de interface do navegador.
+  em sete interfaces gráficas, com JavaFX e ScalaFX, e deixou como trabalho
+  futuro comparar os /frameworks/ de interface do navegador.
   [[textcite:zimmerle2025][p. 1510 e 1513]] avaliaram com usuários duas
   bibliotecas de [[gls:pr]] para JavaScript.
   Fora das [[glspl:dc]], [[textcite:grolaux2026][p. 15]] compararam
@@ -136,10 +134,8 @@ dependem dela [[cite:bainomugisha2013][p. 52:2]].
   web, os três modelos de programação.
   Os trabalhos encontrados na revisão bibliográfica também não avaliam pelas
   [[glspl:dc]] a notação do React nem a do Solid.
-  A lacuna se apoia nessa revisão, feita por palavras-chave e por
-  /snowballing/ [[cite:wohlin2014][p. 3-4]], sobretudo para a frente, em três
-  rodadas de busca, em setembro e outubro de 2026, e descrita no Apêndice
-  ref:apend:2; a lacuna vale para o que ela encontrou.
+  A lacuna vale para o que encontrou a revisão bibliográfica descrita no
+  Apêndice ref:apend:2.
   Além disso, [[textcite:kiss2014][p. 103-104]] avaliou cada implementação num
   tamanho só e propôs, como trabalho futuro, estender ou modificar as
   interfaces com requisitos novos e estudar outras bem maiores, para ver se
@@ -189,8 +185,6 @@ dependem dela [[cite:bainomugisha2013][p. 52:2]].
   programação, é do tipo que textcite:easterbrook2008 chamam de
   descritivo-comparativo, das perguntas sobre como uma coisa difere de outra,
   e põem entre as perguntas exploratórias.
-  As hipóteses que esta pesquisa gerar podem ser testadas em experimentos
-  controlados como o de textcite:salvaneschi2017.
 
   Quanto aos meios, o trabalho é @@latex:\realce{@@uma avaliação qualitativa@@latex:}\notapergunta[list,prepend,caption={\textbf{2. Classificação do método}}]{no projeto, estudo de casos múltiplos (Yin 2001). \textbf{Fica o rótulo novo?} A troca se explica no texto ou só no pedido à coordenação?}@@, pelas [[glspl:dc]], de
   implementações de um mesmo conjunto de interfaces.

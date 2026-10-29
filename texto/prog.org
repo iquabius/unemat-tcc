@@ -257,6 +257,9 @@ denominadas /linguagens imperativas/.
   [[cite:vanroy2009][p. 14]], como os valores digitados nos campos
   [[cite:madsen2020][p. 12:3]].
 
+  O /Observer Pattern/ separa os observadores, que consomem os eventos, dos
+  observáveis, que os produzem [[cite:salvaneschi2015][p. 953]].
+
   @@latex:\todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}@@
   Na implementação, a aplicação deixa de controlar a execução e se divide em
   sub-rotinas que o /toolkit/ da interface chama quando o usuário age, e

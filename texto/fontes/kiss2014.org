@@ -36,11 +36,12 @@
   usam o FXML (p. 16); o JavaFX também aceita o /layout/ em XML.
 - Conferido: 2026-10-23.
 * [[file:../intro.org::Para discutir o quanto uma notação facilita][intro: Para discutir o quanto uma notação facilita]], p. v e 104
-- Frase: “Kiss (2014, p. v, 11 e 104) comparou a POO e a PF em sete interfaces
-  gráficas, com JavaFX e ScalaFX, e em parte delas com Scala.Rx, ReactFX e
-  Elm, e deixou como trabalho futuro comparar os /frameworks/ de interface
-  do navegador.” Em 2026-10-15, a frase ganhou Scala.Rx, ReactFX e Elm, como
-  a de prog.org, pela checagem adversarial (decisão do autor).
+- Frase: “Kiss (2014, p. v, 11 e 104) comparou a POO e a PF em sete
+  interfaces gráficas, com JavaFX e ScalaFX, e deixou como trabalho futuro
+  comparar os /frameworks/ de interface do navegador.” Em 2026-10-15, a
+  frase ganhou Scala.Rx, ReactFX e Elm, como a de prog.org, pela checagem
+  adversarial (decisão do autor); em 2026-10-28, no corte do contorno, eles
+  saíram da introdução e ficam só em prog.org (decisão do autor).
 - Trecho: “The languages and libraries which serve as a practical testbed
   for the comparison are Java/JavaFX on the object-oriented side, and
   Scala/ScalaFX, Scala.Rx, ReactFX and Elm on the functional side.”

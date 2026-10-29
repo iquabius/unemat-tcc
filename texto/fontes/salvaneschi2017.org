@@ -62,7 +62,7 @@
   com o parágrafo inteiro para a seção 2.4 e estão na afirmação de prog,
   p. 1125-1134, mais abaixo.
 - Conferido: 2026-10-14.
-* [[file:../intro.org::Quanto aos objetivos, a pesquisa é][intro: Quanto aos objetivos, a pesquisa é exploratória]]
+* [[file:../conclusion.org::As hipóteses que esta pesquisa gerar][conclusion: As hipóteses que esta pesquisa gerar]]
 - Frase: “As hipóteses que esta pesquisa gerar podem ser testadas em
   experimentos controlados como o de Salvaneschi et al. (2017).”
 - Trecho: “The study involves 127 subjects and compares reactive programming
@@ -73,7 +73,8 @@
 - Observação: a frase saiu do §11 em 2026-10-07, para o §14 ligar as
   hipóteses da pesquisa exploratória ao experimento. Em 2026-10-28, a frase
   mudou na checagem adversarial: o verbo passou a indicar intenção, pois a
-  pesquisa ainda não formulou hipóteses.
+  pesquisa ainda não formulou hipóteses; no mesmo dia, foi da introdução
+  para a conclusão, no corte do contorno (decisão do autor).
 - Conferido: 2026-10-07; de novo em 2026-10-28.
 * [[file:../prog.org::As aplicações orientadas a eventos e][prog: As aplicações orientadas a eventos e]], p. 1125 (aplicações reativas)
 - Frase: “Na literatura de PR, essas aplicações também se chamam reativas

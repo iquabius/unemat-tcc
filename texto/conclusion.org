@@ -11,3 +11,6 @@ Blá blá blá…
   estudo de [[textcite:zimmerle2025][p. 1512-1513 e 1519]], em que 12 estudantes
   responderam, depois das tarefas, a 24 afirmações agrupadas em cinco
   dimensões derivadas das [[glspl:dc]].
+
+  As hipóteses que esta pesquisa gerar podem ser testadas em experimentos
+  controlados como o de textcite:salvaneschi2017.
