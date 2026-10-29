@@ -11,11 +11,12 @@
 # tikzpicture na lista, o latexdiff marca dentro do nó da figura, o que na
 # figura da cadeia parou o pdflatex ("A node must have a (possibly empty)
 # label text", pesquisa de 2026-10-24); com ele, a figura velha sai
-# comentada e a nova inteira. O git latexdiff do
-# readme.org repete as duas últimas, sem as siglas, o ¶ das quebras, os
-# marcadores do realce e a troca dos comandos de fonte; lá, o
-# --exclude-safecmd=realce deixa o \realce fora do \DIFadd, e o trecho que
-# só ganhou o realce sai apagado e reescrito.
+# comentada e a nova inteira, e o bin/figura-no-diff.py mostra as duas
+# (abaixo). O git latexdiff do readme.org repete o --packages e o
+# PICTUREENV, sem as siglas, as figuras, o ¶ das quebras, os marcadores do
+# realce e a troca dos comandos de fonte; lá, o --exclude-safecmd=realce
+# deixa o \realce fora do \DIFadd, e o trecho que só ganhou o realce sai
+# apagado e reescrito.
 #
 # Siglas do glossaries (ADR 0027, L5): o latexdiff não sabe compor \gls,
 # \glspl, \Gls e \Glspl dentro do \DIFdel e os comentava, e a sigla sumia do
@@ -42,10 +43,27 @@
 # tcc.tex, onde o --flatten resolve os \input, sem os auxiliares aux-*/ do
 # bin/gerar-versao.sh, que outra versão pode estar compilando ao mesmo tempo.
 #
+# Figuras TikZ: sem marca dentro do tikzpicture, a figura que mudou saía no
+# PDF igual a uma que não mudou. O bin/figura-no-diff.py, no fim, mostra a
+# velha numa moldura vermelha tracejada, "antes", e a nova numa azul,
+# "depois", com as palavras dos nós que saíram e entraram pintadas, só na
+# cor; a figura inteira nova ganha a moldura azul, e a apagada sai do
+# comentário, na vermelha (escolha do autor de 2026-10-29, entre quatro
+# protótipos). Ele vem por último para compilar no pdflatex o diff inteiro,
+# como sai daqui: se não compila, a figura pintada que não compila sai sem
+# pintura e a velha que nem assim compila fica no comentário, e, se o diff
+# ainda falha, ele sai sem as figuras; o diff que não compila nem sem elas
+# (o rascunho no meio de uma edição) sai com elas. Recebe
+# daqui o PICTUREENV, para deixar como está a figura de dentro de uma
+# listagem, e os diretórios em que compila: o do NOVO.tex e o latex/ deste
+# repositório, que no diff ao vivo tem a classe e o ../texto/ das imagens
+# que o NOVO.tex de lá não tem.
+#
 # Quebra de parágrafo inserida ou removida: o latexdiff a trata como comando
-# e não a marca. O bin/marcar-quebras.py, no fim, põe um ¶ na cor da mudança
-# no fim do parágrafo que a quebra fecha, e pula as listagens e as figuras:
-# recebe daqui o PICTUREENV, a que junta o verbatim e o lstlisting.
+# e não a marca. O bin/marcar-quebras.py, antes do filtro das figuras, põe
+# um ¶ na cor da mudança no fim do parágrafo que a quebra fecha, e pula as
+# listagens e as figuras: recebe daqui o PICTUREENV, a que junta o verbatim
+# e o lstlisting.
 #
 # Comandos de fonte (\emph, \textbf, \textit, \texttt): o latexdiff os
 # divide como comandos de texto e pode casar a abertura de um \emph apagado
@@ -58,7 +76,8 @@ set -euo pipefail
 
 # O bin/anotar-diff.py lê o PICTUREENV desta linha, na forma
 # PICT='PICTUREENV=...', para não pôr âncora dentro desses ambientes nem
-# contar as palavras deles; o bin/marcar-quebras.py o recebe no fim.
+# contar as palavras deles; o bin/figura-no-diff.py e o
+# bin/marcar-quebras.py o recebem no pipe.
 PICT='PICTUREENV=(?:picture|DIFnomarkup|minted|tikzpicture)[\w\d*@]*'
 SIGLAS='CUSTOMDIFCMD=[gG]ls(?:pl)?(?![a-zA-Z])'
 
@@ -97,4 +116,6 @@ latexdiff --flatten --packages=biblatex --config="$PICT" --config="$SIGLAS" \
   }
   { print }
   END { if (!feito) { print "latexdiff-tcc.sh: sem \\begin{document} na saída do latexdiff" > "/dev/stderr"; exit 1 } }' |
-  "$BIN/marcar-quebras.py" "${PICT#PICTUREENV=}"
+  "$BIN/marcar-quebras.py" "${PICT#PICTUREENV=}" |
+  "$BIN/figura-no-diff.py" "${PICT#PICTUREENV=}" \
+    "$(cd "$(dirname "$2")" && pwd)" "$BIN/../latex"
