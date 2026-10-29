@@ -235,14 +235,16 @@ pergunta antes.
   `.dir-locals.el`, e o `#+CAPTION` sobre o `#+begin_export` é
   ignorado. A legenda sai em cima, como a das imagens, porque o
   `special-block` está em `org-latex-caption-above` no
-  `.dir-locals.el`; as bibliotecas TikZ ficam no `latex/tcc.tex`, e o
-  `tikzpicture` fica fora da marcação do diff ao vivo (`PICTUREENV` do
-  `bin/latexdiff-tcc.sh`): a figura alterada sai inteira, a velha
-  comentada (pesquisa de 2026-10-24). As cores dos modelos de
-  programação e os estilos das figuras também ficam no `latex/tcc.tex`,
-  e a figura segue as regras de layout de `references/figuras.md` da
-  skill `revisao-de-texto`, conferidas num protótipo em
-  `tmp/prototipos/` antes de ir ao `.org`.
+  `.dir-locals.el`; as bibliotecas TikZ ficam no `latex/tcc.tex`. O
+  latexdiff não marca dentro do `tikzpicture` (`PICTUREENV` do
+  `bin/latexdiff-tcc.sh`, pesquisa de 2026-10-24), e no PDF do diff o
+  `bin/figura-no-diff.py` mostra a figura alterada duas vezes, a velha
+  na moldura vermelha tracejada e a nova na azul, com as palavras dos
+  nós que saíram e entraram pintadas (escolha de 2026-10-29). As cores
+  dos modelos de programação e os estilos das figuras também ficam no
+  `latex/tcc.tex`, e a figura segue as regras de layout de
+  `references/figuras.md` da skill `revisao-de-texto`, conferidas num
+  protótipo em `tmp/prototipos/` antes de ir ao `.org`.
 - Siglas pelo glossaries (ADR 0027): no `.org`, `[[gls:pr]]`,
   `[[glspl:dc]]` no plural e `[[Gls:pf]]` no começo de frase, nunca a
   definição escrita à mão; cada sigla tem entrada em `latex/siglas.tex`. O

@@ -133,8 +133,9 @@
    O =git latexdiff= não passa pelo =bin/latexdiff-tcc.sh=: no texto
    apagado, as siglas do glossaries somem, a quebra de parágrafo inserida
    ou removida sai sem o ¶, o trecho que só ganhou o realce sai apagado
-   e reescrito, e um =\emph= apagado pode casar com outro acrescentado
-   parágrafos adiante, num diff que não compila.
+   e reescrito, um =\emph= apagado pode casar com outro acrescentado
+   parágrafos adiante, num diff que não compila, e a figura TikZ que
+   mudou sai igual a uma que não mudou.
 
 ** Exportar pelo terminal
 
@@ -212,7 +213,18 @@
    simples de =\emph=, =\textbf=, =\textit= ou =\texttt= conta como uma
    palavra só, pelo =bin/fonte-no-diff.py=: o que mudou sai apagado e
    reescrito inteiro, e o que não mudou, colado a uma mudança, pode entrar
-   no bloco dela.
+   no bloco dela. A figura TikZ que mudou sai duas vezes, pelo
+   =bin/figura-no-diff.py=: a velha numa moldura vermelha tracejada e a
+   nova numa azul, com as palavras dos nós que saíram e entraram pintadas;
+   a figura inteira nova ou apagada sai na moldura dela. Antes, ele compila
+   o diff inteiro com essas figuras (uns 4,3 s em 2026-10-29, a cada PDF,
+   enquanto houver figura mudada). Se não compila e o diff sem as figuras
+   compila, o filtro compila cada versão de cada figura sozinha (uns 2,4 s
+   cada): a figura pintada que não compila sai sem pintura, a velha que
+   nem assim compila fica no comentário, e a nova sai como "figura
+   alterada"; se o diff ainda falha, ele sai sem as figuras; cada
+   recusa deixa uma linha no =latexdiff.log=. O diff que não compila nem
+   sem as figuras, como o de um =.org= no meio de uma edição, sai com elas.
 
    Tudo fica em =pdf/ao-vivo/=, fora do git: o PDF =diff-ao-vivo.pdf=,
    a compilação em =build/= e os logs =emacs.log=, =latexdiff.log=,

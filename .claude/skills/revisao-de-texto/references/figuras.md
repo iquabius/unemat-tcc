@@ -117,6 +117,28 @@ protótipo com o preâmbulo do trabalho (seção "O protótipo"); 1 cm =
     cinza (`pdftoppm -gray`) antes de ir ao `.org`. Por quê: nenhum dos
     defeitos acima aparecia no log do PDF do trabalho, e o preto e branco
     só se vê na página renderizada em cinza.
+12. **Texto do nó legível pelo diff.** No PDF do diff (ao vivo e das
+    versões), a figura alterada sai duas vezes, a velha numa moldura
+    vermelha tracejada e a nova numa azul, e o `bin/figura-no-diff.py`
+    pinta as palavras que saíram e entraram só quando estão no texto de
+    um nó ou da matriz, ou no argumento de um comando de texto do LaTeX
+    (`\textbf`, `\emph`) ou de um comando definido por `\newcommand` no
+    documento (`\rodada`, `\passo`, `\tecnologia`). O texto escrito
+    direto no argumento de `\parbox`, `\makebox` ou de outro comando de
+    pacote não se pinta; o comando próprio da figura, que recebe o texto
+    e monta a caixa (como o `\rodada`), deixa a palavra legível pelo
+    filtro. Por quê: a cor na lista do `\foreach` parou o pdflatex no
+    protótipo de 2026-10-29, e o filtro só pinta onde sabe que é texto.
+    A figura que mudou só no comentário ou no espaço sai como antes, uma
+    vez e sem moldura. O filtro compila antes o diff inteiro com as
+    figuras, com o preâmbulo da versão nova. Se não compila e o diff sem
+    elas compila, a pintada que não compila sai sem pintura, e a velha
+    que nem assim compila (porque usa um estilo, comando ou cor que o
+    `latex/tcc.tex` mudou no mesmo diff) fica no comentário, e a nova
+    sai como "figura alterada"; se o diff ainda não compila, sai sem as
+    figuras.
+    O diff que não compila nem sem elas (o `.org` no meio de uma edição)
+    sai com elas; sem o pdflatex, sai sem elas.
 
 ## O protótipo
 
