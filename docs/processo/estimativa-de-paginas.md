@@ -74,7 +74,14 @@ nota, que os números dos dois blocos são os mesmos.
   (PDF compilado em 2026-10-23): 53 páginas: pré-texto 8, introdução 6,
   capítulo 2 10, capítulo 3 15 (conteúdo antigo), conclusão 1,
   referências 9, apêndices 4. A conta anterior da mesma data trocava o
-  capítulo 2 pelo 3 e somava 54.
+  capítulo 2 pelo 3 e somava 54. Em 2026-10-27, depois do último corte
+  da introdução (commits "Leva à fundamentação dois exemplos da
+  problematização" e "Leva ao delineamento o detalhe do método e das
+  limitações"), a introdução tem 2.222 palavras e ocupa as p. 9 a 14,
+  cinco páginas e um terço, com a Figura 1 e as notas ao orientador; das
+  ≈ 830 palavras a menos, duas frases foram para o capítulo 2, quase
+  todo o resto para o delineamento do capítulo 3, e o PDF tem 54
+  páginas.
 - **Análise:** páginas por interface × interfaces, mais os pares da
   rodada estreita e a coluna de tecnologia a mais. A base é a estimativa
   do autor no ADR 0013 (2026-10-18): com seis tecnologias, cada
@@ -101,7 +108,10 @@ nota, que os números dos dois blocos são os mesmos.
   e a conta deixava de fora `implementacoes/fora-da-analise/`.
 - **Total projetado sem o anexo:** pré-texto 9 + introdução ≈ 7 +
   capítulo 2 ≈ 18 (com os trabalhos relacionados) + análise + conclusão
-  ≈ 5 + referências ≈ 12 + apêndices ≈ 5 = 56 + análise. **Com o anexo:**
+  ≈ 5 + referências ≈ 12 + apêndices ≈ 5 = 56 + análise. Depois do
+  corte de 2026-10-27, a introdução fica com ≈ 5 e o delineamento do
+  capítulo 3 ganha ≈ 2 com o que veio dela; a soma não muda, e o Resumo
+  continua o de 2026-10-25. **Com o anexo:**
   o total sem o anexo mais as páginas do anexo.
 
 O único número registrado pelo autor é o do ADR 0013 (12 páginas por
