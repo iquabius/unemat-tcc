@@ -3,7 +3,7 @@
 #+LATEX: \notalegenda{Em azul, o que mudou desde o projeto de 2017; em laranja, uma pergunta, junto do trecho realçado.}
 
 Cada toque num aplicativo de celular, clique num programa de computador ou
-tecla digitada num /site/ gera um evento.
+tecla digitada num /site/ gera eventos [[cite:bainomugisha2013][p. 52:1-2]].
 O programa precisa aceitar os eventos a qualquer momento, mesmo enquanto
 executa comandos [[cite:myers1994][p. 79]].
 Esses eventos chegam numa ordem que o programador não escolhe nem pode
@@ -38,6 +38,9 @@ passadas como argumento a outra função, que as chama na hora ou mais tarde
 [[cite:gallaba2015][p. 1-2]].
 A forma tradicional de implementar programas que reagem a eventos é o
 /Observer Pattern/ [[cite:salvaneschi2015][p. 953]].
+Os /callbacks/, também chamados de /listeners/ ou /event handlers/, são um
+dos mecanismos do /Observer Pattern/
+[[cites:&bainomugisha2013 p. 52:2;&salvaneschi2017 p. 1125]].
 Como não se sabe em que ordem os /callbacks/ serão chamados, coordenar as
 alterações do estado compartilhado pode ser desconcertante e está longe de ser
 modular [[cite:edwards2009][p. 926]].
@@ -45,19 +48,21 @@ Os /callbacks/ que alteram o [[gls:dom]] muitas vezes levam o programador a
 escrever um código interdependente, opaco e propenso a erros, o chamado código
 espaguete [[cite:oney2012][p. 229]].
 
-Como resposta à dificuldade de coordenar os /callbacks/, foi proposta a
-[[gls:pr]], com abstrações próprias para os eventos e para as alterações de
-estado [[cite:bainomugisha2013][p. 52:2]].
+A [[gls:pr]] foi proposta como solução para as aplicações orientadas a
+eventos, em que coordenar os /callbacks/ é difícil, com abstrações próprias
+para os eventos e para as alterações de estado
+[[cite:bainomugisha2013][p. 52:2]].
 Nela, o programador declara como os valores dependem uns dos outros, e o
 ambiente de execução leva cada alteração aos valores que dependem dela,
 sem que o programador escreva essa atualização
 [[cite:salvaneschi2017][p. 1126]].
-A forma de escrever o programa pesa na compreensão: num experimento
+A forma de escrever o programa pode pesar na compreensão: num experimento
 controlado com 127 estudantes, quem leu programas escritos
 com [[gls:pr]] os compreendeu melhor do que quem leu as versões dos mesmos
 programas com o /Observer Pattern/ [[cite:salvaneschi2017][p. 1125-1134]].
-Nas três aplicações interativas do experimento, porém, a diferença não foi
-significativa [[cite:salvaneschi2017][p. 1128 e 1132]].
+Nas três aplicações interativas do experimento, porém, e só nelas, a
+diferença não foi significativa nem nos acertos nem no tempo
+[[cite:salvaneschi2017][p. 1128 e 1133]].
 A [[gls:pr]] leva às linguagens de programação o modelo da planilha
 eletrônica, em que alterar o valor de uma célula recalcula as fórmulas que
 dependem dela [[cite:bainomugisha2013][p. 52:2]].

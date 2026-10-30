@@ -1,10 +1,11 @@
 #+title: bainomugisha2013: Bainomugisha et al. (2013), A Survey on Reactive Programming
 #+startup: overview
 
-* [[file:../intro.org::Como resposta à dificuldade de coordenar os][intro: Como resposta à dificuldade de coordenar os]], p. 52:2 (a PR como solução)
-- Frase: “Como resposta à dificuldade de coordenar os /callbacks/, foi
-  proposta a PR, com abstrações próprias para os eventos e para as
-  alterações de estado (Bainomugisha et al., 2013, p. 52:2).”
+* [[file:../intro.org::A \[\[gls:pr\]\] foi proposta como][intro: A PR foi proposta como]], p. 52:2 (a PR como solução)
+- Frase: “A PR foi proposta como solução para as aplicações orientadas a
+  eventos, em que coordenar os /callbacks/ é difícil, com abstrações
+  próprias para os eventos e para as alterações de estado (Bainomugisha et
+  al., 2013, p. 52:2).”
 - Trecho: “coordinating callbacks can be a very daunting task even for
   advanced programmers since numerous isolated code fragments can be
   manipulating the same data and their order of execution is
@@ -21,9 +22,15 @@
   p. 52:11 (linguagens em que o programador rastreia as dependências à
   mão); reescrita dos §5 a §7 pedida pelo autor na checagem adversarial.
   O exemplo de =var3= (p. 52:3) saiu da introdução no mesmo dia: a
-  planilha basta como ilustração da PR (sugestão do autor).
-- Conferido: 2026-10-15.
-* [[file:../intro.org::Como resposta à dificuldade de coordenar os][intro: Como resposta à dificuldade de coordenar os]], p. 52:2 (a planilha)
+  planilha basta como ilustração da PR (sugestão do autor). Em
+  2026-10-30, na segunda passada da checagem adversarial, “Como resposta
+  à dificuldade de coordenar os /callbacks/” deu lugar à adequação: a
+  survey apresenta a PR como solução para as aplicações orientadas a
+  eventos, e não como a origem dela, que na mesma página “descends from
+  Fran”, do fim dos anos 1990, para gráficos e mídia interativa (decisão
+  do autor).
+- Conferido: 2026-10-15; de novo em 2026-10-30.
+* [[file:../intro.org::A \[\[gls:pr\]\] foi proposta como][intro: A PR foi proposta como]], p. 52:2 (a planilha)
 - Frase: “A PR leva às linguagens de programação o modelo da planilha
   eletrônica, em que alterar o valor de uma célula recalcula as fórmulas
   que dependem dela (Bainomugisha et al., 2013, p. 52:2).”
@@ -103,6 +110,40 @@
   2026-10-15). A seção 2 (=prog.org=) diz a ordem dos eventos com Martin
   (2022, p. 125) desde 3bf8b08.
 - Conferido: 2026-10-15.
+* [[file:../intro.org::Cada toque num aplicativo de celular, clique][intro: Cada toque num aplicativo de celular, clique]], p. 52:1-2 (os eventos)
+- Frase: “Cada toque num aplicativo de celular, clique num programa de
+  computador ou tecla digitada num /site/ gera eventos (Bainomugisha et
+  al., 2013, p. 52:1-2).”
+- Trecho: “The most interactive part of such applications is usually the
+  GUI, which typically needs to react to and coordinate multiple events
+  (e.g., mouse clicks, keyboard button presses, multi-touch gestures,
+  etc.).” (p. 52:1-2)
+- Lido em: =acervo/bainomugisha2013.pdf=, versão dos autores, fim da p. 1
+  e começo da p. 2 do PDF (cabeçalho “:2”).
+- Observação: a frase não tinha fonte e dizia “gera um evento”, um por
+  ação, que nenhuma fonte sustenta; a survey dá os cliques, as teclas e
+  os toques como eventos, no plural. O /site/ é exemplo do autor: a fonte
+  não fala da web. Segunda passada da checagem adversarial, decisão do
+  autor.
+- Conferido: 2026-10-30.
+* [[file:../intro.org::No navegador, as sub-rotinas desse][intro: No navegador, as sub-rotinas desse]], p. 52:2 (os /event handlers/)
+- Frase: “Os /callbacks/, também chamados de /listeners/ ou /event
+  handlers/, são um dos mecanismos do /Observer Pattern/ (Bainomugisha et
+  al., 2013, p. 52:2; Salvaneschi et al., 2017, p. 1125).”
+- Trecho: “Using traditional programming solutions (such as design
+  patterns and event-driven programming), interactive applications are
+  typically constructed around the notion of asynchronous callbacks (event
+  handlers).” (p. 52:2)
+- Lido em: =acervo/bainomugisha2013.pdf=, versão dos autores, p. 2 do
+  PDF (cabeçalho “:2”).
+- Observação: sustenta o sinônimo /event handlers/ e os /callbacks/ nas
+  soluções tradicionais, entre elas os padrões de projeto; o /Observer
+  Pattern/ com /callbacks/ está em salvaneschi2017, p. 1125. /Listeners/
+  é o nome da plataforma (=addEventListener=), sem fonte. A frase é do
+  autor, na pergunta socrática da segunda passada da checagem
+  adversarial, que liga os /callbacks/ ao padrão depois que a definição
+  dele foi para =prog.org= (1704ce60).
+- Conferido: 2026-10-30.
 * [[file:../intro.org::As interfaces gráficas costumam ter estado][intro: As interfaces gráficas costumam ter estado]], p. 52:2 (o gerenciamento de estado)
 - Frase: “Essa coordenação, tema desta pesquisa, se divide aqui em dois
   eixos: a orquestração de eventos [...] e o gerenciamento de estado

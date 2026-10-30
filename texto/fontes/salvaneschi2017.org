@@ -1,7 +1,21 @@
 #+title: salvaneschi2017: Salvaneschi et al. (2017), On the Positive Effect of Reactive Programming on Software Comprehension: An Empirical Study
 #+startup: overview
 
-* [[file:../intro.org::Como resposta à dificuldade de coordenar os][intro: Como resposta à dificuldade de coordenar os]], p. 1126 (o que o programador declara)
+* [[file:../intro.org::No navegador, as sub-rotinas desse][intro: No navegador, as sub-rotinas desse]], p. 1125 (os /callbacks/ no /Observer Pattern/)
+- Frase: “Os /callbacks/, também chamados de /listeners/ ou /event
+  handlers/, são um dos mecanismos do /Observer Pattern/ (Bainomugisha et
+  al., 2013, p. 52:2; Salvaneschi et al., 2017, p. 1125).”
+- Trecho: “The Observer design pattern [8] is widely used for such
+  applications. It has the advantage of decoupling observers from
+  observables. However, when it comes to program readability, it does not
+  make things easier, because of dynamic registration, side effects in
+  callbacks, and inversion of control [4].” (p. 1125)
+- Lido em: =acervo/salvaneschi2017.pdf=, p. 1 do PDF (p. 1125).
+- Observação: os /callbacks/ aparecem entre o que o padrão traz, ao lado
+  do registro dinâmico; a frase é do autor, na pergunta socrática da
+  segunda passada da checagem adversarial.
+- Conferido: 2026-10-30.
+* [[file:../intro.org::A \[\[gls:pr\]\] foi proposta como][intro: A PR foi proposta como]], p. 1126 (o que o programador declara)
 - Frase: “Nela, o programador declara como os valores dependem uns dos
   outros, e o ambiente de execução leva cada alteração aos valores que
   dependem dela, sem que o programador escreva essa atualização
@@ -23,10 +37,17 @@
   e saiu o “em vez de escrever os passos que calculam o valor novo de
   cada um”.
 - Conferido: 2026-10-15; de novo em 2026-10-27, na frase fundida.
-* [[file:../intro.org::Como resposta à dificuldade de coordenar os][intro: Como resposta à dificuldade de coordenar os]], p. 1128 e 1132 (as aplicações interativas)
-- Frase: “Nas três aplicações interativas do experimento, porém, a
-  diferença não foi significativa (Salvaneschi et al., 2017, p. 1128 e
-  1132).” Em 2026-10-27, saiu “e em duas delas o grupo do /Observer
+* [[file:../intro.org::A \[\[gls:pr\]\] foi proposta como][intro: A PR foi proposta como]], p. 1128 e 1133 (as aplicações interativas)
+- Frase: “Nas três aplicações interativas do experimento, porém, e só
+  nelas, a diferença não foi significativa nem nos acertos nem no tempo
+  (Salvaneschi et al., 2017, p. 1128 e 1133).” Em 2026-10-30, na segunda
+  passada da checagem adversarial, a frase ganhou “e só nelas” e as duas
+  medidas, e a página dos números passou de 1132 a 1133: só nos acertos
+  (Tabela 2), as tarefas 1, 2 e 6 também não têm diferença significativa
+  (0,102, 0,361 e 0,403), mas têm no tempo (Tabela 3: *0,000, *0,000 e
+  *0,006); a 5 não tem no tempo (0,076), mas tem nos acertos (*0,004); as
+  8, 9 e 10 são as únicas sem diferença nas duas (acertos 0,680, 0,245 e
+  0,251; tempo 0,565, 0,837 e 0,083) (decisão do autor). Em 2026-10-27, saiu “e em duas delas o grupo do /Observer
   Pattern/ teve média maior”: segue o texto dos autores (p. 1132), que a
   Tabela 2 deles (p. 1133) desmente na tarefa 8, com RP 96,80% e OO
   93,80% de acertos; só na 9 o OO acerta mais em proporção (75,40% contra
@@ -37,15 +58,18 @@
   average for the RP group – even if this difference is not statistically
   significant.”; “RP performs significantly better than OO for tasks
   3-4-5-7 and [...] RP never performs significantly worse than OO”
-  (p. 1132)
-- Lido em: =acervo/salvaneschi2017.pdf=, p. 4 e 8 do PDF (p. 1128 e
-  1132).
+  (p. 1132); no tempo, “For the tasks 5-8-9-10, H0 cannot be rejected.”
+  (p. 1133); “Table 2: Person X 2 Test and Fisher’s Exact Test for
+  Correctness. Starred Differences are Significant.” e “Table 3:
+  Mann-Whitney U Test for Answer Times.” (p. 1133)
+- Lido em: =acervo/salvaneschi2017.pdf=, p. 4, 8 e 9 do PDF (p. 1128,
+  1132 e 1133).
 - Observação: ressalva da própria fonte, que a frase do experimento omitia
   (checagem adversarial de 2026-10-15). A interface gráfica é o domínio
   deste trabalho, e nela o experimento não mostrou vantagem significativa.
-- Conferido: 2026-10-15.
-* [[file:../intro.org::Como resposta à dificuldade de coordenar os][intro: Como resposta à dificuldade de coordenar os]], p. 1125-1134 (o experimento)
-- Frase: “A forma de escrever o programa pesa na compreensão: num
+- Conferido: 2026-10-15; de novo em 2026-10-30.
+* [[file:../intro.org::A \[\[gls:pr\]\] foi proposta como][intro: A PR foi proposta como]], p. 1125-1134 (o experimento)
+- Frase: “A forma de escrever o programa pode pesar na compreensão: num
   experimento controlado com 127 estudantes, quem leu programas escritos
   com PR os compreendeu melhor do que quem leu as versões dos mesmos
   programas com o /Observer Pattern/ (Salvaneschi et al., 2017,
@@ -60,8 +84,12 @@
 - Lido em: =acervo/salvaneschi2017.pdf=, p. 1 e 4 do PDF (p. 1125 e 1128).
 - Observação: os números do experimento (médias, tempo de resposta) foram
   com o parágrafo inteiro para a seção 2.4 e estão na afirmação de prog,
-  p. 1125-1134, mais abaixo.
-- Conferido: 2026-10-14.
+  p. 1125-1134, mais abaixo. Em 2026-10-30, “pesa” passou a “pode pesar”:
+  um experimento só, com REScala e Scala, e os autores avisam “It is
+  possible that our findings are specific to those languages and do not
+  generalize to other languages.” (p. 1139, p. 15 do PDF) (segunda passada
+  da checagem adversarial, decisão do autor).
+- Conferido: 2026-10-14; a ressalva da p. 1139, em 2026-10-30.
 * [[file:../conclusion.org::As hipóteses que esta pesquisa gerar][conclusion: As hipóteses que esta pesquisa gerar]]
 - Frase: “As hipóteses que esta pesquisa gerar podem ser testadas em
   experimentos controlados como o de Salvaneschi et al. (2017).”
