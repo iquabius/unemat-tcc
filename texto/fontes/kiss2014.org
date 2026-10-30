@@ -54,10 +54,11 @@
   chama de /case studies/, e o 7GUIs, de /tasks/.
 - Conferido: 2026-10-06.
 * [[file:../intro.org::Nenhum desses trabalhos compara, sobre as mesmas interfaces][intro: Nenhum desses trabalhos compara, sobre as mesmas interfaces]], p. 103-104
-- Frase: “Além disso, Kiss (2014, p. 103-104) avaliou cada implementação num
-  tamanho só e propôs, como trabalho futuro, estender ou modificar as
-  interfaces com requisitos novos e estudar outras bem maiores, para ver se
-  a abordagem escala.” “As interfaces” traduz os /case studies/ de Kiss,
+- Frase: “Além disso, Kiss (2014, p. 103-104) propôs, como trabalho
+  futuro, estender ou modificar as interfaces com requisitos novos, sem
+  inchá-las demais, ou, em vez disso, estudar outras bem maiores, para ver
+  se uma abordagem escala, estas sem análise detalhada e com métricas
+  estatísticas.” “As interfaces” traduz os /case studies/ de Kiss,
   como o resto desta matriz (GLOSSARY.md, Interface).
 - Trecho: “The following additional aspects could be taken into
   consideration for an extended resp. modified set of case studies: • An
@@ -65,9 +66,17 @@
   in incorporating these additional aspects in as self-contained as possible
   case studies resp. modifying the existing ones without bloating them up
   too much.” (p. 104); “Another strategy is to instead consider much bigger
-  case studies in order to find out if an approach scales.” (p. 104)
+  case studies in order to find out if an approach scales. Naturally, such
+  case studies would not be examined comprehensively in detail.
+  Nevertheless, statistical metrics could be applied to judge the quality
+  of a solution.” (p. 104)
 - Lido em: =acervo/kiss2014.pdf=, p. 109 e 110 do PDF.
-- Observação: “num tamanho só” é leitura do método de Kiss (cap. 3), em que
+- Observação: em 2026-10-30, na segunda passada da checagem adversarial,
+  saiu “avaliou cada implementação num tamanho só”, que não está nas
+  p. 103-104, e entraram as duas ressalvas da p. 104, o “without bloating
+  them up too much” e os casos maiores sem análise detalhada; “an
+  approach” é a abordagem de programação, por isso “uma abordagem”
+  (decisão do autor). Antes: “num tamanho só” era leitura do método de Kiss (cap. 3), em que
   cada interface tem uma implementação por tecnologia; a extensão do cap. 4
   troca a biblioteca, e não a interface. Kiss chama cada interface de /case
   study/; em 2026-10-14, “cada tarefa” passou a “cada implementação”
@@ -75,11 +84,11 @@
   mudou na checagem adversarial: a proposta futura passou a incluir
   modificar os casos e estudar casos maiores para verificar se a abordagem
   escala.
-- Conferido: 2026-10-13; de novo em 2026-10-28.
+- Conferido: 2026-10-13; de novo em 2026-10-28 e 2026-10-30.
 * [[file:../intro.org::Nenhum desses trabalhos compara, sobre as mesmas interfaces][intro: Nenhum desses trabalhos compara, sobre as mesmas interfaces]] (o /toolkit/), p. 56
-- Frase: “Nos casos de Kiss (2014, p. 56), o /toolkit/ pesou mais que o
-  paradigma, porque as construções especiais dele cobriam, em casos
-  frequentes, as lacunas do paradigma.” Justifica a P1.2, depois da frase
+- Frase: “Nos casos de Kiss (2014, p. 56), o /toolkit/ pesou, em geral,
+  mais que o paradigma, porque as construções especiais dele podiam
+  cobrir, em casos frequentes, lacunas do paradigma.” Justifica a P1.2, depois da frase
   do autor sobre o custo de adotar a biblioteca do ecossistema.
 - Trecho: “Now that the analysis has been completed we can conclude that
   the toolkit in general played the most crucial role in our case studies.
@@ -95,7 +104,12 @@
   language’s, the IDE’s and/or the toolkit’s role in GUI development is
   much more crucial than the role of the paradigm”; na p. 100 (p. 106 do
   PDF), “the role of the toolkit dominated”. “Lacunas” traduz /deficits/.
-- Conferido: 2026-10-29.
+  Em 2026-10-30, na segunda passada da checagem adversarial, a frase
+  ganhou o “em geral” (“in general”) e o modal da fonte (“can cover
+  potential deficits”): antes, “cobriam [...] as lacunas” dava como fato
+  o que Kiss diz como possibilidade. O próprio Kiss diz que no sexto caso
+  o paradigma dominou, e no sétimo nenhuma parte (p. 56).
+- Conferido: 2026-10-29; de novo em 2026-10-30.
 * [[file:../intro.org::Quanto aos meios, o trabalho é][intro: Quanto aos meios, o trabalho é uma avaliação qualitativa]], p. 114
 - Frase: “O conjunto é um /benchmark/ de notação (Kiss, 2014, p. 114):
   testes que formam uma amostra representativa das tarefas da prática e

@@ -2,8 +2,8 @@
 #+startup: overview
 
 * [[file:../intro.org::Nenhum desses trabalhos compara, sobre as mesmas interfaces][intro: Nenhum desses trabalhos compara, sobre as mesmas interfaces]], p. 507
-- Frase: “Já o código refatorado nem sempre se entende melhor logo depois,
-  para quem está acostumado com a estrutura antiga (AMMERLAAN; VENINGA;
+- Frase: “Já o código refatorado para ficar mais legível nem sempre se
+  entende melhor logo depois, para quem está acostumado com a estrutura antiga (AMMERLAAN; VENINGA;
   ZAIDMAN, 2015, p. 507).” Justifica a P1.2: o efeito de reescrever o
   código numa forma considerada melhor não é dado de antemão.
 - Trecho: “In our experiment at Exact, we observed that the productivity
@@ -24,5 +24,9 @@
   do refatorado e um sem diferença. A refatoração estudada é de limpeza
   (extrair método, extrair classe, dividir responsabilidades), e não a
   troca por biblioteca; o costume com a estrutura antiga é explicação dos
-  autores, e não medida (seção IV.A, “Habits”).
-- Conferido: 2026-10-29.
+  autores, e não medida (seção IV.A, “Habits”). Em 2026-10-30, na segunda
+  passada da checagem adversarial, a frase ganhou o “para ficar mais
+  legível” (“refactored for understandability”): sem ele, “o código
+  refatorado” estendia o achado a toda refatoração, inclusive à da
+  terceira rodada.
+- Conferido: 2026-10-29; de novo em 2026-10-30.
