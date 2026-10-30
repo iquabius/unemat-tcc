@@ -112,7 +112,7 @@
 - Conferido: 2026-10-29; de novo em 2026-10-30.
 * [[file:../intro.org::Quanto aos meios, o trabalho é][intro: Quanto aos meios, o trabalho é uma avaliação qualitativa]], p. 114
 - Frase: “O conjunto é um /benchmark/ de notação (Kiss, 2014, p. 114):
-  testes que formam uma amostra representativa das tarefas da prática e
+  testes que devem formar uma amostra representativa das tarefas da prática e
   servem para comparar técnicas alternativas por medidas de desempenho,
   que podem ser qualitativas e feitas por uma pessoa (Sim; Easterbrook;
   Holt, 2003, p. 76).”
@@ -128,8 +128,9 @@
   termo nomeia o conjunto.
 - Conferido: 2026-10-14.
 * [[file:../intro.org::Quanto aos meios, o trabalho é][intro: Quanto aos meios, o trabalho é uma avaliação qualitativa]], p. 17 (o Contador)
-- Frase: “Na primeira rodada, o Contador mostra só a estrutura básica que o
-  código de uma interface exige em cada tecnologia (Kiss, 2014, p. 17).”
+- Frase: “Na primeira rodada, o Contador mostra a estrutura básica que o
+  código de uma interface exige em cada tecnologia e como os recursos mais
+  básicos se juntam (Kiss, 2014, p. 17).”
 - Trecho: “Challenges: understanding the basic ideas of a language/toolkit
   and the essential scaffolding”; “by comparing Counter implementations one
   can clearly see what basic scaffolding is needed and how the very basic
@@ -139,8 +140,11 @@
   ADR 0002 (2026-10-22), e não de Kiss; “estrutura básica” traduz /basic
   scaffolding/. Em 2026-10-28, a frase mudou na checagem adversarial: a
   estrutura básica do Contador ficou restrita à primeira rodada, pois na
-  segunda ele ganha a lista de contadores.
-- Conferido: 2026-10-24; de novo em 2026-10-28.
+  segunda ele ganha a lista de contadores. Em 2026-10-30, na segunda
+  passada, saiu o “só”, que é do ADR 0002 e não de Kiss, e entrou o resto
+  do trecho, “how the very basic features work together” (decisão do
+  autor).
+- Conferido: 2026-10-24; de novo em 2026-10-28 e 2026-10-30.
 * [[file:../intro.org::A linguagem, a especificação e as regras de domínio][intro: A linguagem, a especificação e as regras de domínio]], p. 16
 - Frase: “Como Kiss (2014, p. 16), que deixou de fora a linguagem de
   /layout/ do JavaFX para não tirar o foco da comparação, este trabalho

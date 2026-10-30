@@ -206,17 +206,23 @@ dependem dela [[cite:bainomugisha2013][p. 52:2]].
 
   Quanto aos meios, o trabalho é @@latex:\realce{@@uma avaliação qualitativa@@latex:}\notapergunta[list,prepend,caption={\textbf{2. Classificação do método}}]{no projeto, estudo de casos múltiplos (Yin 2001). \textbf{Fica o rótulo novo?} A troca se explica no texto ou só no pedido à coordenação?}@@, pelas [[glspl:dc]], de
   implementações de um mesmo conjunto de interfaces.
-  O conjunto é um /benchmark/ de notação [[cite:kiss2014][p. 114]]: testes que formam
-  uma amostra representativa das tarefas da prática e servem para comparar
+  O conjunto é um /benchmark/ de notação [[cite:kiss2014][p. 114]]: testes que devem
+  formar uma amostra representativa das tarefas da prática e servem para comparar
   técnicas alternativas por medidas de desempenho, que podem ser
   qualitativas e feitas por uma pessoa [[cite:sim2003][p. 76]].
   A medida, neste trabalho, é a avaliação pelas [[glspl:dc]].
   Aqui, as técnicas são os três modelos de programação, e a amostra, sete
   interfaces gráficas.
-  Na primeira rodada, o Contador mostra só a estrutura básica que o código
-  de uma interface exige em cada tecnologia [[cite:kiss2014][p. 17]].
-  As outras seis trazem, em proporção própria, exigências dos dois eixos
-  da coordenação.
+  A representatividade dessa amostra é desejável, mas a escolha das
+  interfaces, pelas exigências de coordenação que cada uma traz, e a
+  comparação entre os modelos de programação passam na frente dela.
+  Na primeira rodada, o Contador mostra a estrutura básica que o código de
+  uma interface exige em cada tecnologia e como os recursos mais básicos se
+  juntam [[cite:kiss2014][p. 17]].
+  As outras seis trazem exigências da coordenação: as de orquestração
+  pesam na Busca com sugestões, no Login com quarentena e no Placar ao
+  vivo, e as de gerenciamento de estado, na Reserva de passagem, na
+  Planilha e no Circle Drawer.
 
   As sete interfaces são implementadas na web por cinco tecnologias, numa
   cadeia de pares em que cada passo muda o mínimo

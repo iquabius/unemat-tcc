@@ -9,14 +9,20 @@
   /representative sample of the tasks/ da /Task Sample/, e a frase
   seguinte, “Aqui, as técnicas são os três modelos de programação, e a
   amostra, cinco interfaces gráficas”, liga as interfaces a ela
-  (2026-10-14).
+  (2026-10-14). Em 2026-10-30, na segunda passada da checagem
+  adversarial, “testes que formam” passou a “testes que devem formar”,
+  como o /should be/ da fonte, que é um requisito, e não uma propriedade
+  de todo /benchmark/; a frase do autor que vem depois de “a amostra,
+  sete interfaces gráficas” diz que a representatividade é desejável, mas
+  cede à escolha das interfaces e à comparação entre os modelos de
+  programação.
 - Trecho: “We define a benchmark as a test or set of tests used to compare
   the performance of alternative tools or techniques.”; “Task Sample. The
   tests in the benchmark should be a representative sample of the tasks
   that the tool or technique is expected to solve in actual practice.”
 - Lido em: =acervo/sim2003.pdf=, p. 3 do PDF (p. 76; o artigo vai de
   74 a 83); em 2026-10-14, também na cópia da IEEE, idêntica, p. 3.
-- Conferido: 2026-10-14.
+- Conferido: 2026-10-14; de novo em 2026-10-30.
 * [[file:../intro.org::Mesmo na segunda rodada, as implementações continuam pequenas][intro: Mesmo na segunda rodada, as implementações continuam pequenas]]
 - Frase: “Um conjunto criado por um pesquisador só e pouco usado tende a
   ter menos impacto que um adotado por uma comunidade.”
