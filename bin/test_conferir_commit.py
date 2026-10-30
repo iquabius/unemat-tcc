@@ -775,9 +775,9 @@ class Skill(Base):
             "content": "<command-name>/mensagem-de-commit</command-name>"}}])
         self.assertIsNone(self.conferir(f"git commit -F - <<'EOF'\n{BOA}EOF\n"))
 
-    def test_nome_antigo_ainda_conta(self):
-        # a skill se chamava commit-message até 2026-10-30; a sessão que a
-        # carregou com esse nome não precisa carregá-la de novo
+    def test_nome_antigo_nao_conta(self):
+        # a skill se chamava commit-message até 2026-10-30; o nome velho
+        # não está mais instalado, e a sessão que o carregou carrega o novo
         reanexo = {"type": "attachment", "attachment": {"type": "invoked_skills", "skills": [
             {"name": "commit-message", "path": "/x/SKILL.md", "content": "..."}]}}
         for entradas in [[skill("commit-message")], [skill("plugin:commit-message")],
@@ -787,7 +787,8 @@ class Skill(Base):
                           reanexo]]:
             with self.subTest(entradas=entradas):
                 self.transcript(entradas)
-                self.assertIsNone(self.conferir(f"git commit -F - <<'EOF'\n{BOA}EOF\n"))
+                self.assertIn("mensagem-de-commit",
+                              self.conferir(f"git commit -F - <<'EOF'\n{BOA}EOF\n"))
 
     def test_nome_com_prefixo_de_plugin_conta(self):
         self.transcript([skill("plugin:mensagem-de-commit")])
