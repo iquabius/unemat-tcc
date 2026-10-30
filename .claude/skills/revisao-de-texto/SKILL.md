@@ -60,12 +60,15 @@ legível no celular: nunca widget, nem caminho de arquivo para abrir; o
 Emacs do host, só a pedido. As correções da porta aberta vão todas
 de uma vez no diff (passo 6 da porta aberta). O formato abaixo vale para
 as alternativas a escolher antes de editar: o passo 4 da rodada de
-corte, o passo 4 da porta aberta e o passo 5 da checagem adversarial.
+corte, o passo 4 da porta aberta e os passos 5 e 6 da checagem
+adversarial.
 
 1. Legenda numa linha, no topo: ~~riscado~~ sai; **[+ texto]** entra;
    **[⇠ texto]** vem de outro lugar; *[o quê → destino]* na origem.
 2. Uma decisão por mensagem: uma frase, uma repetição ou um movimento,
-   nunca duas perguntas juntas.
+   nunca duas perguntas juntas. Na passada 2 da checagem adversarial
+   (passo 6), as perguntas do mesmo parágrafo ou do mesmo elo podem ir
+   juntas, cada uma com as opções dela neste formato.
 3. Cada trecho em citação (`>`), com o lugar e a linha antes ("§ das três
    notações, l. 90"). A citação traz o parágrafo inteiro em volta da
    frase que muda, e não só a frase; quando a decisão envolve outro
@@ -372,6 +375,12 @@ Na rodada de corte, o commit espera a releitura da cadeia inteira do
 passo 6, feita e mostrada ao autor, com o que ela achou corrigido ou
 decidido.
 
+Na checagem adversarial, a passada não sai num commit só: sai num
+commit por grupo de correções, e cada um passa por estes passos, com a
+mensagem curta e a própria linha `Fontes conferidas:`; o
+`.beads/issues.jsonl` fica para um commit próprio, ao fim (passo 5 da
+checagem).
+
 1. `refs.bib`, se ganhou entrada: o `peso` na primeira linha, proposto ao
    autor (`AGENTS.md`, seção "Texto"); `%`, `#` e `&` escapados fora de
    `url` e `doi`, inclusive em `annotation`; confira com
@@ -460,9 +469,12 @@ da skill `escrita-academica`, o cartucho do capítulo, que a
    proposta (seção 7 da referência). O autor escreve o elo no Emacs ou
    dita a frase, que o agente copia letra por letra. O que ele escreve
    vai para o índice (passo 1 da porta aberta) antes das correções.
-5. **Correções como na porta aberta.** Com o texto do autor no índice, o
-   `git diff` mostra só as correções do agente. Aplique de uma vez, nas
-   duas classes do passo 6 da porta aberta, com os links do passo 7.
+5. **Correções como na porta aberta, em grupos.** As correções andam em
+   grupos: as do mesmo parágrafo, do mesmo elo da cadeia ou do grupo de
+   perguntas em que o autor as decidiu (passo 6). Com o texto do autor
+   no índice, o `git diff` mostra só as correções do agente. Aplique de
+   uma vez as de um grupo, nas duas classes do passo 6 da porta aberta,
+   com os links do passo 7.
    - Correção que só o subagente leu é conferida pelo agente no PDF, com
      trecho e página, e entra na matriz antes de ir para o texto.
    - Frase sem fonte ganha o marcador e o aviso e não some.
@@ -471,17 +483,33 @@ da skill `escrita-academica`, o cartucho do capítulo, que a
      formato de "Alternativas no chat", sem frase nova (passo 4 da porta
      aberta).
 
-   O autor revisa no diff e desfaz o que recusar; o commit segue "Fechar
-   e commitar", com a linha `Fontes conferidas:` e a lista das correções
-   aprovadas na mensagem.
-6. **Passada 2**, só depois do commit da primeira, de preferência numa
+   O autor revisa no diff e desfaz o que recusar. A passada não sai num
+   commit só, cuja mensagem listaria todas as correções: sai em vários
+   commits semânticos, um por grupo, cada um pelos passos de "Fechar e
+   commitar".
+   - O commit do grupo leva o `.org`, o `.tex` exportado daquele ponto,
+     as entradas da matriz em `texto/fontes/` e o que mais o grupo tocar
+     (`GLOSSARY.md`, `texto/refs.bib`, `acervo/procedencia.tsv`).
+   - Como o `git commit -- <arquivos>` leva o arquivo inteiro da árvore,
+     o grupo seguinte só entra no `.org` depois do commit do anterior; o
+     texto que o autor escreveu no passo 4 vai no commit do grupo do
+     parágrafo dele.
+   - Cada mensagem é curta: as correções aprovadas daquele grupo e a
+     própria linha `Fontes conferidas:`, com as fontes lidas para ele.
+   - As tarefas criadas ou anotadas na passada vão num commit próprio,
+     ao fim, com só elas no `.beads/issues.jsonl` (`AGENTS.md`, seção
+     "Tarefas").
+6. **Passada 2**, só depois dos commits da primeira, de preferência numa
    sessão nova, que lê o texto e a referência e não o relatório da
    primeira. A extração se refaz sobre o texto corrigido, com subagentes
-   novos, em `tmp/revisao/<data>-checagem-<capítulo>/passada-2.md`. A lista do
-   commit da passada 1 serve só para conferir que cada correção aprovada
-   está no HEAD. Antes do diff, além das socráticas do passo 4, uma
-   mensagem só com as perguntas numeradas, que o autor responde por
-   número:
+   novos, em `tmp/revisao/<data>-checagem-<capítulo>/passada-2.md`. As
+   mensagens dos commits da passada 1 servem só para conferir que cada
+   correção aprovada está no HEAD. Antes do diff, além das socráticas do
+   passo 4, vêm as perguntas de informação e de decisão, uma por uma ou
+   em grupos relacionados (o mesmo parágrafo ou o mesmo elo), e não numa
+   mensagem só com todas numeradas. Cada opção vai com o texto inteiro e
+   o diff marcado, no formato de "Alternativas no chat", e os mesmos
+   grupos viram os commits do passo 5:
    - de informação, para a afirmação sem fonte: de onde ela veio, antes
      do marcador;
    - de decisão, com as alternativas e sempre "manter como está", para o
@@ -489,6 +517,6 @@ da skill `escrita-academica`, o cartucho do capítulo, que a
      aprovada na passada 1, que nunca entra direto no diff.
 
    O resto, mecânico ou fato novo, segue o passo 5.
-7. **Tag.** Sai depois do commit da segunda passada. O que ficou com
+7. **Tag.** Sai depois dos commits da segunda passada. O que ficou com
    marcador ou sem PDF vira tarefa no `bd`, no épico que a tabela do
    `AGENTS.md` der.
