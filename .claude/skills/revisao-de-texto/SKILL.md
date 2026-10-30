@@ -335,7 +335,7 @@ perguntas, e então o autor dá o rótulo.
    para o orientador segue a forma e o leitor do `AGENTS.md` ("Texto"); o
    comando de cada função, o realce, a lista de assuntos e o que conferir
    no PDF estão em `references/anotacoes.md`. Cada nota criada ou alterada
-   passa pela leitura de copy da `design-review` e pela de escrita da
+   passa pela lente do texto da `revisao-de-usabilidade` e pela de escrita da
    `escrita-academica`, com o núcleo em negrito (mesma referência, "O
    texto da nota"). Confira no `pdftotext` do diff ao vivo que ela saiu
    inteira, com as aspas no lugar. Antes de responder, cheque nas correções de
@@ -399,7 +399,7 @@ decidido.
 
 5. A mensagem vai ao autor junto do diff, no mesmo pedido de aprovo: o
    "pode commitar" aprova as duas. Antes, o rascunho pela skill
-   `commit-message` passa pela conferência de cada fato (`AGENTS.md`,
+   `mensagem-de-commit` passa pela conferência de cada fato (`AGENTS.md`,
    seção "Commits"): a fonte citada por autor e ano contra o `author` e
    o `date` do `refs.bib` e contra o `texto/fontes/<chave>.org`, nunca
    contra o corpo da tarefa ou o pedido da sessão, e o assunto relido
@@ -431,8 +431,9 @@ seções e salto causal passam enquanto ninguém mexer na frase. Antes da
 tag de uma fase (ADR 0024; `AGENTS.md`, "Versões"), cada capítulo que a
 fase mudou é lido inteiro por um crítico hostil de fatos e de lógica. O
 método, os vereditos, a escada de fontes, a instrução dos subagentes e o
-formato do relatório estão em `references/academic-chapter.md` da skill
-`fact-check`, o cartucho do capítulo; leia-o antes.
+formato do relatório estão em `cartuchos-de-fatos/capitulo-academico.md`
+da skill `escrita-academica`, o cartucho do capítulo, que a
+`checagem-de-fatos` carrega; leia-o antes.
 
 1. **Texto aprovado.** A checagem lê o HEAD. Rascunho do autor em
    `git diff HEAD -- texto/` passa antes pela porta aberta e pelo commit.

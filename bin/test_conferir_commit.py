@@ -271,7 +271,7 @@ class Mensagem(Base):
                       self.com("O docs/outro.md soma."))
         # pasta de fora da raiz, pasta sem arquivo, exemplo com <chave>,
         # URL e caminho de outro repositório não contam
-        for frase in ["Veja fact-check/SKILL.md.", "A pasta bin/ e o docs/adr/ ficam.",
+        for frase in ["Veja checagem-de-fatos/SKILL.md.", "A pasta bin/ e o docs/adr/ ficam.",
                       "A cópia vai para acervo/<chave>.pdf.",
                       "Veja https://exemplo.org/docs/x.md e a/b.md.",
                       "Lê ./novo/x.tex e ../refs.bib."]:

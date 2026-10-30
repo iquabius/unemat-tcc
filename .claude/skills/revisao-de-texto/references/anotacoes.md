@@ -44,8 +44,8 @@ A nota é lida fria, na margem, longe da frase, por quem leu o projeto de
 por duas leituras antes de ir ao diff, e o que elas acham se corrige na
 mesma rodada:
 
-- **Copy** (skill `design-review`, `references/copy.md` e
-  `references/heuristics.md`): leia a nota em voz alta como o orientador,
+- **Texto** (lente da skill `revisao-de-usabilidade`, `references/texto.md` e
+  `references/heuristicas.md`): leia a nota em voz alta como o orientador,
   sem o resto da conversa, e anote cada ponto em que ele para, adivinha
   ou acha duas leituras: um pronome sem antecedente na nota ("a dizia",
   "o das listas", "aqui"), um termo que só a pauta explica, uma frase que
@@ -65,7 +65,7 @@ mesma rodada:
   externo"). Uma expressão por nota, duas no máximo, de preferência no
   fim da frase. O rótulo da lista já sai em negrito no começo; mais de
   dois pontos de negrito na mesma caixa achatam a hierarquia (lente de
-  ergonomia do `design-review`, peso e teste de apertar os olhos);
+  ergonomia e hierarquia da `revisao-de-usabilidade`, peso e teste de apertar os olhos);
 - *itálico* (`\emph{...}`) como no texto: estrangeirismo (\emph{callbacks},
   \emph{signals}) e termo do trabalho na definição, e não para ênfase;
 - citação entre aspas (`\enquote{...}`) para as palavras do projeto ou de

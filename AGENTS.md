@@ -488,14 +488,15 @@ juntado é rascunho, e a história dele se condensa antes do merge (passo
 3. **Revisão do ramo inteiro.** Quando o ramo muda código (os caminhos de
    `.config/revisao`: `bin/`, scripts, `interfaces-graficas/` menos
    capturas, `.org` e `.md`, e o `.tool-versions`), rode a skill
-   `linus-review` sobre `$(git merge-base master HEAD)...HEAD`. Ramo só de
+   `revisao-rigorosa` sobre `$(git merge-base master HEAD)...HEAD`. Ramo só de
    instrução ou documentação de ferramenta (`AGENTS.md`, `readme.org`)
    dispensa a revisão, mas não o ramo. ADR, nota de `docs/` e tarefa
    seguem o trabalho que as gera: com o texto, no `master`; com o código,
    no ramo. Em todo ramo, com código ou sem, as mensagens de `git log
    $(git merge-base master HEAD)..HEAD` passam pela checagem de fatos da
-   skill `fact-check` (cartucho `references/commit-message.md`): na
-   `linus-review`, é o eixo Facts; no ramo só de instrução, o subagente
+   skill `checagem-de-fatos` (cartucho
+   `cartuchos-de-fatos/mensagem-de-commit.md` da `mensagem-de-commit`): na
+   `revisao-rigorosa`, é o eixo Fatos; no ramo só de instrução, o subagente
    do cartucho sozinho. Cada sha citado e o que ele fez, caminho e o que
    diz, regra citada do `AGENTS.md` e o verbo dela, número, data, "só
    comentário" se conferem na árvore, e o achado se conserta no passo 4,
@@ -504,11 +505,11 @@ juntado é rascunho, e a história dele se condensa antes do merge (passo
    2026-10-17, revista em 2026-10-26).
 4. **Cada achado vira um conserto** no ramo: `git commit --fixup=<commit
    que ele corrige>`, ou commit novo quando ele não corrige um commit só.
-   Revise de novo até o veredito **Ready to merge**.
-5. **Condense o ramo e marque a ponta** (passo 7 da `linus-review`): cada
-   conserto entra no commit que ele corrige, e a série fica com uma
+   Revise de novo até o veredito **Pronto para o merge**.
+5. **Condense o ramo e marque a ponta** (passo 7 da `revisao-rigorosa`):
+   cada conserto entra no commit que ele corrige, e a série fica com uma
    mudança lógica por commit, com as mensagens escritas a partir da
-   árvore (skill `commit-message`), sem as rodadas da revisão:
+   árvore (skill `mensagem-de-commit`), sem as rodadas da revisão:
 
    ```sh
    # na worktree
@@ -520,8 +521,8 @@ juntado é rascunho, e a história dele se condensa antes do merge (passo
 
    A série refeita à mão (juntar, dividir, reescrever mensagens) passa
    pelo mesmo `git diff` vazio. Com a árvore igual à revisada, só os
-   eixos History e Facts da `linus-review` rodam de novo, sobre a série
-   nova (no ramo só de instrução, só o Facts), porque o rebase reescreve
+   eixos História e Fatos da `revisao-rigorosa` rodam de novo, sobre a
+   série nova (no ramo só de instrução, só o Fatos), porque o rebase reescreve
    as mensagens a partir da árvore e troca os shas que elas citam, sem
    passar pelo hook que as confere no `git commit`; com outra árvore, a
    revisão do ramo inteiro. Então `git revisao pronto` na ponta
@@ -589,9 +590,10 @@ juntado é rascunho, e a história dele se condensa antes do merge (passo
      conflito. A tarefa que mudou dos dois lados sem lado igual ao banco o
      script recusa e lista: pergunte ao autor qual fica e repita com
      `--nosso <id>` (o `master`) ou `--deles <id>` (o ramo). Conflito em
-     código é código novo que ninguém revisou: rode a `linus-review` sobre
-     a resolução (`git show --cc HEAD`) e só marque o merge com `git
-     revisao pronto` com o Ready dela; senão, pare e pergunte ao autor.
+     código é código novo que ninguém revisou: rode a `revisao-rigorosa`
+     sobre a resolução (`git show --cc HEAD`) e só marque o merge com `git
+     revisao pronto` com o "Pronto para o merge" dela; senão, pare e
+     pergunte ao autor.
    - Se o `master` andou entre o merge na worktree e o fast-forward ("Not
      possible to fast-forward"), volte à worktree com o `EnterWorktree`
      e refaça o passo desde o `git switch --detach master`.
@@ -644,7 +646,7 @@ os pule.
 ## Commits
 
 Mensagens em português, no imperativo, sem prefixo, explicando o problema
-antes da solução (skill `commit-message`). O commit que resolve uma tarefa
+antes da solução (skill `mensagem-de-commit`). O commit que resolve uma tarefa
 fecha a tarefa e leva do `.beads/issues.jsonl` só as tarefas dele
 (`bin/juntar-tarefas.py --so`, seção "Tarefas"); o que altera uma
 implementação inclui as capturas (`interfaces-graficas/AGENTS.md`). Com
@@ -654,8 +656,8 @@ mudanças alheias. No checkout principal, todo commit nomeia os arquivos
 (`git commit -- <arquivos>`), porque o índice pode guardar o rascunho do
 texto que o autor ainda não aprovou.
 
-Antes de cada commit, o agente carrega a skill `commit-message` e
-confere o commit pelos critérios do eixo History da `linus-review`: uma
+Antes de cada commit, o agente carrega a skill `mensagem-de-commit` e
+confere o commit pelos critérios do eixo História da `revisao-rigorosa`: uma
 mudança lógica por commit, com mover, renomear ou reformatar num commit
 próprio; nada que um commit seguinte corrija (o que corrige um commit do
 ramo entra nele: `--amend` no último, `--fixup` nos outros, que o passo
@@ -663,8 +665,9 @@ ramo entra nele: `--amend` no último, `--fixup` nos outros, que o passo
 problema, o porquê e como foi conferida, sem descrever o diff; nenhum
 banner de IA no assunto nem no corpo, só o trailer `Co-Authored-By`.
 Antes de mostrar a mensagem, confere cada fato dela pelo comando que o
-prova, com a saída na mão e sem subagente (skill `fact-check`, cartucho
-`references/commit-message.md`, primeiro momento): `git show <sha>` para
+prova, com a saída na mão e sem subagente (skill `checagem-de-fatos`,
+cartucho `cartuchos-de-fatos/mensagem-de-commit.md` da
+`mensagem-de-commit`, primeiro momento): `git show <sha>` para
 o commit citado e o que ele fez, `git show HEAD:<caminho>` ou
 `:<caminho>` para o que um arquivo diz e o verbo da regra citada, `bd
 show` para a tarefa, o arquivo em `docs/adr/` para o ADR, a saída do
@@ -681,7 +684,8 @@ revisão de um ramo, e a conferência do agente que escreveu a mensagem é
 cega para o erro que ele mesmo trouxe, como o nome de autor copiado de
 uma tarefa (2026-10-26). Antes dele, um subagente read-only, sem o
 contexto da sessão, confere o rascunho da mensagem contra o diff
-preparado (cartucho `references/commit-message.md`, momento 1b, com a
+preparado (cartucho `cartuchos-de-fatos/mensagem-de-commit.md` da
+`mensagem-de-commit`, momento 1b, com a
 instrução de subagente dele) e devolve os achados, que o agente conserta
 antes de mostrar a mensagem; no commit do texto, a mensagem vai ao autor
 junto do diff, no mesmo aprovo.
@@ -757,6 +761,6 @@ não condensado. O docstring do script é a lista das regras e do que
 passa sem conferência. `bin/conferir-commit.py --serie <base>..<ponta>`
 confere o mesmo nas mensagens já commitadas, contra a árvore de cada
 commit; o `testes-da-revisao.py` o roda em todo ramo. O resto do eixo
-History e os fatos que pedem leitura (o verbo da regra, a atribuição, o
-número) ficam com o agente e com a `linus-review` do ramo. Testes:
+História e os fatos que pedem leitura (o verbo da regra, a atribuição, o
+número) ficam com o agente e com a `revisao-rigorosa` do ramo. Testes:
 `python3 -m unittest discover -s bin -p 'test_*.py'`.

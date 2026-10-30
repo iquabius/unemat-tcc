@@ -54,8 +54,8 @@ recusados quando:
     texto (a frase que sai, o erro da errata), e a chave sem ano, que não
     se lê.
   Estas duas são a parte mecânica da checagem de fatos da skill
-  fact-check; o verbo da regra citada, a atribuição e o número ficam com
-  o agente e com o eixo Facts da linus-review;
+  checagem-de-fatos; o verbo da regra citada, a atribuição e o número
+  ficam com o agente e com o eixo Fatos da revisao-rigorosa;
 - o commit é --fixup ou --squash no master ou no main, ou com o HEAD
   destacado na ponta de um deles (a worktree em que o merge se monta),
   lidos como estão antes do comando, sem contar um git checkout no mesmo
@@ -66,7 +66,7 @@ também quando levam um commit fixup!, squash! ou amend!: esses commits
 só existem para o rebase --autosquash que condensa o ramo antes do
 merge.
 
-O resto do eixo History da linus-review (uma mudança lógica por commit,
+O resto do eixo História da revisao-rigorosa (uma mudança lógica por commit,
 nada que um commit seguinte corrija, a mensagem que explica o porquê)
 não se confere aqui: a recusa por falta da skill o lembra, e o AGENTS.md
 o pede em cada commit.
@@ -743,7 +743,7 @@ def tem_fixup(dir_, revisoes):
 # um número como 2026101 não contar; o caminho vai de uma pasta até uma
 # extensão, para a pasta sozinha (docs/adr/), o <chave> de um exemplo e o
 # que vem depois de uma barra (a URL) não contarem, e só conta a partir de
-# uma pasta da raiz (ver problemas_dos_fatos), para fact-check/SKILL.md,
+# uma pasta da raiz (ver problemas_dos_fatos), para checagem-de-fatos/SKILL.md,
 # de outro repositório, não contar; a primeira pasta tem letra ou dígito,
 # para ./x/y.md e ../x.md não contarem como pasta "." ou "..".
 SHA_CITADO = re.compile(r"(?<![\w/.-])(?=[0-9a-f]*[a-f])(?=[0-9a-f]*\d)[0-9a-f]{7,40}(?![\w/-]|\.\w)")
