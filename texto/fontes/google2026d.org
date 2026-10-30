@@ -17,10 +17,11 @@
 - Conferido: 2026-10-13.
 
 * [[file:../intro.org::As sete interfaces são implementadas na web por cinco tecnologias][intro: As sete interfaces são implementadas na web por cinco tecnologias]] (o ramo do Lit)
-- Frase: “Muda o modo como a alteração do estado chega à tela: a alteração
-  de uma das propriedades que o componente declara agenda uma atualização,
-  em que o ambiente de execução chama de novo o método que monta a tela
-  (Google, 2026d).”
+- Frase: “Muda o modo como a alteração do estado chega à tela e, com ele, a
+  montagem das partes repetidas. A alteração de uma das propriedades
+  reativas que o componente declara, ou a chamada de =requestUpdate()=,
+  agenda uma atualização, em que o ambiente de execução chama de novo o
+  método que monta a tela (Google, 2026d).”
 - Trecho: “The reactive update cycle is triggered when a reactive property
   changes or when the requestUpdate() method is explicitly called. Lit
   performs updates asynchronously so property changes are batched”; “The
@@ -33,5 +34,9 @@
   mesma orquestração do Web Component são do delineamento (ADR 0013), e não
   da fonte. Em 2026-10-28, a frase mudou na checagem adversarial: a
   alteração de propriedade agenda uma atualização, que pode reunir várias
-  alterações.
-- Conferido: 2026-10-25; de novo em 2026-10-28.
+  alterações. Em 2026-10-30, na segunda passada, entraram “reativas” e o
+  segundo gatilho do trecho, o =requestUpdate()=, que a Planilha e o
+  Circle Drawer do Lit chamam depois de alterar os dados no lugar; a
+  ressalva de que esse é o uso avançado está em google2026e, e a
+  montagem das partes repetidas, no ADR 0013 (decisão do autor).
+- Conferido: 2026-10-25; de novo em 2026-10-28 e 2026-10-30.

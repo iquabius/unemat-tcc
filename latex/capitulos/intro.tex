@@ -233,14 +233,21 @@ declarativo por atualização granular: muda o modo como a alteração do
 estado chega à tela e também a orquestração de eventos.
 O segundo, ao Solid, mantém o modelo de programação e muda a montagem da
 tela e o modelo de componente.
-O terceiro, ao React, mantém a montagem em JSX e muda o modelo de
-programação para o declarativo por re-renderização.
+O terceiro, ao React, mantém a montagem em JSX, num dialeto um pouco
+diferente, e muda o modelo de programação para o declarativo por
+re-renderização.
 Do Web Component sai também um ramo, ao Lit, que leva ao declarativo
-por re-renderização com a mesma classe e a mesma orquestração.
-Muda o modo como a alteração do estado chega à tela: a alteração de uma
-das propriedades que o componente declara agenda uma atualização, em que
-o ambiente de execução chama de novo o método que monta a tela
-\cite{google2026d}.
+por re-renderização com o componente ainda numa classe e a mesma
+orquestração.
+Muda o modo como a alteração do estado chega à tela e, com ele, a
+montagem das partes repetidas.
+A alteração de uma das propriedades
+reativas que o componente declara, ou a chamada de \texttt{requestUpdate()},
+agenda uma atualização, em que o ambiente de execução chama de novo o
+método que monta a tela \cite{google2026d}.
+Chamar o \texttt{requestUpdate()} depois de alterar um dado no lugar é, para a
+documentação, um uso avançado, e não o padrão, que é trocar o dado por
+uma cópia \cite{google2026e}.
 
 A avaliação se faz em três rodadas.
 A primeira responde à P1.

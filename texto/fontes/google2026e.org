@@ -1,0 +1,24 @@
+#+title: google2026e: Google (2026e), Reactive properties
+#+startup: overview
+
+* [[file:../intro.org::As sete interfaces são implementadas na web por cinco tecnologias][intro: As sete interfaces são implementadas na web por cinco tecnologias]] (o uso avançado)
+- Frase: “Chamar o =requestUpdate()= depois de alterar um dado no lugar é,
+  para a documentação, um uso avançado, e não o padrão, que é trocar o
+  dado por uma cópia (Google, 2026e).”
+- Trecho: “Mutating an object or array doesn't change the object
+  reference, so it won't trigger an update. You can handle object and
+  array properties in one of two ways: Immutable data pattern. Treat
+  objects and arrays as immutable. [...] Manually triggering an update.
+  Mutate the data and call requestUpdate() to trigger an update directly.
+  [...] In general, using top-down data flow with immutable objects is
+  best for most applications. [...] Mutating data directly and calling
+  requestUpdate() should be considered an advanced use case.” (seção
+  “Mutating object and array properties”)
+- Lido em: =acervo/google2026e.html= (página salva em 2026-10-30;
+  lit.dev/docs/components/properties/).
+- Observação: a Planilha e o Circle Drawer do Lit ainda alteram os dados
+  no lugar e chamam o =requestUpdate()=; a troca pela cópia, decidida em
+  2026-10-25, está na tcc-f50c. A frase deixa explícita a mudança quando
+  ela acontecer (segunda passada da checagem adversarial, decisão do
+  autor).
+- Conferido: 2026-10-30.
