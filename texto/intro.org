@@ -169,8 +169,8 @@ dependem dela [[cite:bainomugisha2013][p. 52:2]].
   funcionalidades e requisitos de orquestração acrescentados a cada
   interface, iguais em todas as tecnologias?
   (P1.2) E como ela muda quando o código da segunda rodada se refatora, com
-  o mesmo comportamento, para a biblioteca mais usada no ecossistema de
-  cada tecnologia?
+  o mesmo comportamento, para a biblioteca do ecossistema de cada
+  tecnologia?
   @@latex:\notamudou{\textbf{As duas subperguntas são novas}, como as rodadas a que elas respondem.}@@
   Conhecer essas diferenças pode ajudar quem programa interfaces a escolher uma tecnologia
   sabendo o que o modelo de programação dela facilita e o que dificulta em
@@ -254,8 +254,12 @@ dependem dela [[cite:bainomugisha2013][p. 52:2]].
   A segunda acrescenta a cada interface funcionalidades e requisitos de
   orquestração, iguais nas cinco tecnologias, e responde à P1.1.
   A terceira refatora o código da segunda rodada da Reserva de passagem
-  e do Placar ao vivo, sem mudar o comportamento, para a biblioteca mais
-  usada no ecossistema de cada tecnologia, e responde à P1.2.
+  e do Placar ao vivo, sem mudar o comportamento, para a biblioteca do
+  ecossistema de cada tecnologia, e responde à P1.2.
+  A biblioteca é a mais baixada no Web Component, no Solid e no React.
+  O Lit e o Web Component com /signals/ seguem a do Web Component, e o
+  React, na Reserva de passagem, segue a do Solid, para que cada par da
+  cadeia mude uma coisa só.
   @@latex:\notamudou{\textbf{As três rodadas são novas}; o projeto não as previa.}@@
 
   #+CAPTION: Cadeia de pares das cinco tecnologias e as três rodadas da avaliação. Cada passo da cadeia muda o mínimo entre tecnologias vizinhas, e o Lit sai do Web Component num ramo que muda a ligação; cada rodada responde a uma pergunta, e a segunda e a terceira partem do código da anterior. Grafite: imperativo por atualização manual; ocre: declarativo por atualização granular; roxo: declarativo por re-renderização.
@@ -325,9 +329,10 @@ dependem dela [[cite:bainomugisha2013][p. 52:2]].
   interface fazem o mesmo.
   A aparência também fica fixa, num arquivo [[gls:css]] comum às
   implementações de cada interface.
-  Como [[textcite:kiss2014][p. 16]], que deixou de fora a linguagem de
-  /layout/ do JavaFX para não tirar o foco da comparação, este trabalho
-  mantém fora da notação o que não distingue os modelos de programação.
+  [[textcite:kiss2014][p. 16]] não usou o FXML, a linguagem de /layout/ do
+  JavaFX, para não tirar o foco da comparação; com o mesmo propósito, este
+  trabalho mantém fora da notação o que não distingue os modelos de
+  programação.
   Em cada rodada, o autor percorre as 14 [[glspl:dc]] no código, e a análise
   compara o perfil de cada modelo de programação numa tabela-síntese, que
   também se lê por exigência de coordenação.

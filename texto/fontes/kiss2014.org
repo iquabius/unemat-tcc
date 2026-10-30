@@ -146,9 +146,15 @@
   autor).
 - Conferido: 2026-10-24; de novo em 2026-10-28 e 2026-10-30.
 * [[file:../intro.org::A linguagem, a especificação e as regras de domínio][intro: A linguagem, a especificação e as regras de domínio]], p. 16
-- Frase: “Como Kiss (2014, p. 16), que deixou de fora a linguagem de
-  /layout/ do JavaFX para não tirar o foco da comparação, este trabalho
-  mantém fora da notação o que não distingue os modelos de programação.”
+- Frase: “Kiss (2014, p. 16) não usou o FXML, a linguagem de /layout/ do
+  JavaFX, para não tirar o foco da comparação; com o mesmo propósito, este
+  trabalho mantém fora da notação o que não distingue os modelos de
+  programação.” Até 2026-10-29, “Como Kiss (2014, p. 16), que deixou de
+  fora a linguagem de /layout/ do JavaFX [...]”: o “Como” sugeria que os
+  dois fizeram o mesmo, mas Kiss escreveu o /layout/ no código Java
+  (“count and countUp are laid out horizontally by an HBox”, p. 17), e só
+  o propósito é comum (segunda passada da checagem adversarial, decisão
+  do autor).
 - Trecho: “JavaFX also supports the specification of layouts in XML via
   FXML and optionally a GUI builder like Scene Builder. Note that neither
   FXML nor a GUI builder are employed in the solutions of our case studies
@@ -160,7 +166,8 @@
 - Observação: a razão de Kiss é o foco da comparação; que a aparência não
   distingue os modelos de programação é razão deste trabalho (ADR 0041),
   e não de Kiss.
-- Conferido: 2026-10-23.
+- Conferido: 2026-10-23; de novo em 2026-10-30, com a p. 17 (p. 23 do
+  PDF).
 * [[file:../prog.org::compararam, com 36 estudantes de graduação,][prog: compararam, com 36 estudantes de graduação,]], p. v e 104
 - Frase: “Kiss (2014, p. v e 104) comparou a POO e a PF em sete interfaces
   gráficas, com JavaFX, ScalaFX, Scala.Rx, ReactFX e Elm, e deixou como
