@@ -10,7 +10,7 @@ definições e fontes dos termos em `docs/paradigma-modelo-e-notacao.md`.
 ## Language
 
 **Modelo de programação**:
-O modo de coordenar evento, estado e tela que uma tecnologia torna
+Um modo de coordenar evento, estado e tela que uma tecnologia torna
 possível: as técnicas e os princípios de projeto construídos sobre um
 modelo de computação (Van Roy e Haridi, 2004). São três: o imperativo por
 atualização manual, o declarativo por re-renderização e o declarativo por
@@ -32,7 +32,8 @@ sozinho (lê-se como o paradigma)
 **Notação**:
 A forma escrita de um modelo de programação numa tecnologia: as palavras e
 os sinais com que o programador escreve, no código-fonte da aplicação, o
-estado, os valores derivados dele e a tela que os mostra. É o que as DCs
+tratamento dos eventos, o estado, os valores derivados dele e a tela que
+os mostra. É o que as DCs
 avaliam (Green e Blackwell, 1998; Blackwell e Green, 2003), e uma
 diferença entre modelos de programação só conta numa DC quando aparece
 nela. Cada tecnologia tem a sua; muda com as abstrações da tecnologia, não
