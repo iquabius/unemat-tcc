@@ -45,7 +45,7 @@ GIT_DE_TESTE = {"GIT_CONFIG_GLOBAL": "/dev/null", "GIT_CONFIG_NOSYSTEM": "1",
                 "GIT_AUTHOR_DATE": DATA_DOS_COMMITS, "GIT_COMMITTER_DATE": DATA_DOS_COMMITS}
 
 
-def skill(nome="commit-message"):
+def skill(nome="mensagem-de-commit"):
     return {"type": "assistant", "message": {"content": [
         {"type": "tool_use", "name": "Skill", "input": {"skill": nome}}]}}
 
@@ -643,7 +643,7 @@ class Mensagem(Base):
         self.assertIn("banner", self.conferir(
             f"git merge --no-ff -m '{juncao}' -m 'Generated with Claude Code' soma-total"))
         self.transcript([skill("adr")])
-        self.assertIn("commit-message", self.conferir(cmd))
+        self.assertIn("mensagem-de-commit", self.conferir(cmd))
 
     def test_merge_de_ramo_com_fixup(self):
         d = self.dir.name
@@ -760,40 +760,58 @@ class SkillComMensagemIlegivel(Base):
                     "S=$(mktemp) && git commit -F \"$S\"",
                     'git commit -m "$MSG_NAO_HA"']:
             with self.subTest(cmd=cmd):
-                self.assertIn("commit-message", self.conferir(cmd))
+                self.assertIn("mensagem-de-commit", self.conferir(cmd))
 
 
 class Skill(Base):
     def test_sem_skill_recusa_com_o_lembrete(self):
-        self.transcript([skill("linus-review")])
+        self.transcript([skill("revisao-rigorosa")])
         r = self.conferir(f"git commit -F - <<'EOF'\n{BOA}EOF\n")
-        self.assertIn("commit-message", r)
-        self.assertIn("History", r)
+        self.assertIn("mensagem-de-commit", r)
+        self.assertIn("História", r)
 
     def test_comando_de_barra_conta(self):
         self.transcript([{"type": "user", "message": {
-            "content": "<command-name>/commit-message</command-name>"}}])
+            "content": "<command-name>/mensagem-de-commit</command-name>"}}])
+        self.assertIsNone(self.conferir(f"git commit -F - <<'EOF'\n{BOA}EOF\n"))
+
+    def test_nome_antigo_ainda_conta(self):
+        # a skill se chamava commit-message até 2026-10-30; a sessão que a
+        # carregou com esse nome não precisa carregá-la de novo
+        reanexo = {"type": "attachment", "attachment": {"type": "invoked_skills", "skills": [
+            {"name": "commit-message", "path": "/x/SKILL.md", "content": "..."}]}}
+        for entradas in [[skill("commit-message")], [skill("plugin:commit-message")],
+                         [{"type": "user", "message": {
+                             "content": "<command-name>/commit-message</command-name>"}}],
+                         [skill("adr"), {"type": "system", "subtype": "compact_boundary"},
+                          reanexo]]:
+            with self.subTest(entradas=entradas):
+                self.transcript(entradas)
+                self.assertIsNone(self.conferir(f"git commit -F - <<'EOF'\n{BOA}EOF\n"))
+
+    def test_nome_com_prefixo_de_plugin_conta(self):
+        self.transcript([skill("plugin:mensagem-de-commit")])
         self.assertIsNone(self.conferir(f"git commit -F - <<'EOF'\n{BOA}EOF\n"))
 
     def test_saida_de_ferramenta_nao_conta(self):
         self.transcript([{"type": "user", "message": {"content": [
-            {"type": "tool_result", "content": "<command-name>/commit-message</command-name>"}]}}])
-        self.assertIn("commit-message", self.conferir(f"git commit -F - <<'EOF'\n{BOA}EOF\n"))
+            {"type": "tool_result", "content": "<command-name>/mensagem-de-commit</command-name>"}]}}])
+        self.assertIn("mensagem-de-commit", self.conferir(f"git commit -F - <<'EOF'\n{BOA}EOF\n"))
 
     def test_compactacao_apaga(self):
         self.transcript([skill(), {"type": "system", "subtype": "compact_boundary"}])
-        self.assertIn("commit-message", self.conferir(f"git commit -F - <<'EOF'\n{BOA}EOF\n"))
+        self.assertIn("mensagem-de-commit", self.conferir(f"git commit -F - <<'EOF'\n{BOA}EOF\n"))
         self.transcript([skill(), {"type": "system", "subtype": "compact_boundary"}, skill()])
         self.assertIsNone(self.conferir(f"git commit -F - <<'EOF'\n{BOA}EOF\n"))
 
     def test_skill_reanexada_pela_compactacao_conta(self):
         reanexo = {"type": "attachment", "attachment": {"type": "invoked_skills", "skills": [
-            {"name": "commit-message", "path": "/x/SKILL.md", "content": "..."}]}}
+            {"name": "mensagem-de-commit", "path": "/x/SKILL.md", "content": "..."}]}}
         self.transcript([skill(), {"type": "system", "subtype": "compact_boundary"}, reanexo])
         self.assertIsNone(self.conferir(f"git commit -F - <<'EOF'\n{BOA}EOF\n"))
         reanexo["attachment"]["skills"][0]["name"] = "adr"
         self.transcript([skill(), {"type": "system", "subtype": "compact_boundary"}, reanexo])
-        self.assertIn("commit-message", self.conferir(f"git commit -F - <<'EOF'\n{BOA}EOF\n"))
+        self.assertIn("mensagem-de-commit", self.conferir(f"git commit -F - <<'EOF'\n{BOA}EOF\n"))
 
     def test_subagente_sem_transcript_nao_herda_o_do_pai(self):
         self.transcript([skill()])
@@ -811,14 +829,14 @@ class Skill(Base):
                          {"type": "user", "message": {"content": 3}},
                          {"type": "user", "message": {"content": [{"type": "text", "text": 3}]}},
                          {"type": "assistant", "message": {"content": [
-                             {"type": "tool_use", "name": "Skill", "input": "commit-message"}]}},
+                             {"type": "tool_use", "name": "Skill", "input": "mensagem-de-commit"}]}},
                          skill()])
         self.assertTrue(cc.skill_carregada({"transcript_path": str(self.caminho)}))
 
     def test_subagente_le_o_proprio_transcript(self):
         self.transcript([skill()])
         self.transcript([skill("adr")], "sessao/subagents/agent-a1.jsonl")
-        self.assertIn("commit-message",
+        self.assertIn("mensagem-de-commit",
                       self.conferir(f"git commit -F - <<'EOF'\n{BOA}EOF\n", agent_id="a1"))
 
     def test_sem_transcript_confere_so_a_mensagem(self):

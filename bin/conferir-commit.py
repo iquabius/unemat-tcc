@@ -8,9 +8,9 @@ commit do agente neste repositório, ou numa worktree dele, e o git merge
 com a mensagem no comando (-m, -F), que cria o commit da junção, são
 recusados quando:
 
-- a skill commit-message não está no contexto da sessão (ou do subagente
-  que commita): não foi carregada, ou foi antes da última compactação e
-  a compactação não a reanexou;
+- a skill mensagem-de-commit (commit-message até 2026-10-30) não está no
+  contexto da sessão (ou do subagente que commita): não foi carregada, ou
+  foi antes da última compactação e a compactação não a reanexou;
 - a mensagem, quando se lê do comando (-m, -F arquivo, -F - ou
   /dev/stdin com heredoc, -m "$(cat <<'EOF' ... EOF)"), quebra uma regra
   que se confere sem ler o diff:
@@ -612,12 +612,17 @@ def problemas_da_mensagem(texto):
     return problemas
 
 
+# O nome da skill, e o que ela tinha até 2026-10-30, para a sessão que a
+# carregou com ele.
+NOMES_DA_SKILL = ("mensagem-de-commit", "commit-message")
+
+
 def eh_a_skill(nome):
-    return nome == "commit-message" or str(nome).endswith(":commit-message")
+    return any(nome == n or str(nome).endswith(":" + n) for n in NOMES_DA_SKILL)
 
 
 def skill_carregada(dados):
-    """True se a skill commit-message está no contexto: carregada desde a
+    """True se a skill mensagem-de-commit está no contexto: carregada desde a
     última compactação, ou reanexada por ela (o anexo invoked_skills que o
     Claude Code grava depois do compact_boundary). O transcript do
     subagente fica em <sessão>/subagents/, ou abaixo dali quando o
@@ -662,7 +667,8 @@ def skill_carregada(dados):
                 b.get("text") for b in conteudo if isinstance(b, dict)
                 and b.get("type") == "text" and isinstance(b.get("text"), str)
             ] if isinstance(conteudo, list) else []
-            if any("<command-name>/commit-message</command-name>" in t for t in textos):
+            if any(f"<command-name>/{n}</command-name>" in t
+                   for t in textos for n in NOMES_DA_SKILL):
                 carregada = True
         elif e.get("type") == "assistant" and isinstance(conteudo, list):
             for b in conteudo:
@@ -674,8 +680,8 @@ def skill_carregada(dados):
 
 
 LEMBRETE = """\
-Carregue a skill commit-message (ferramenta Skill) e reveja o commit pelos
-critérios do eixo History da linus-review antes de commitar:
+Carregue a skill mensagem-de-commit (ferramenta Skill) e reveja o commit
+pelos critérios do eixo História da revisao-rigorosa antes de commitar:
 - uma mudança lógica por commit; mover, renomear ou reformatar vai num
   commit próprio, antes da mudança de lógica;
 - nada que um commit seguinte corrija: o que corrige um commit do ramo
@@ -1125,7 +1131,7 @@ def conferir(dados):
     if problemas:
         partes.append("Mensagem:\n" + "\n".join(f"- {p}" for p in problemas))
     if sem_skill:
-        partes.append("A skill commit-message não foi carregada nesta sessão "
+        partes.append("A skill mensagem-de-commit não foi carregada nesta sessão "
                       "(ou desde a última compactação).\n" + LEMBRETE)
     return "\n\n".join(partes)
 
