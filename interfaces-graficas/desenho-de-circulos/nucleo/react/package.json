@@ -2,7 +2,7 @@
   "name": "desenho-de-circulos-react",
   "private": true,
   "type": "module",
-  "description": "Circle Drawer em React (declarativo por re-renderização)",
+  "description": "Circle Drawer em React (propagação por re-renderização)",
   "scripts": {
     "dev": "vite",
     "build": "tsc -p . && vite build",

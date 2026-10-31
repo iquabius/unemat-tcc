@@ -3,14 +3,15 @@
 
 * O trabalho
   Trabalho de conclusão a ser apresentado ao curso de Ciência da Computação da
-  Universidade do Estado de Mato Grosso. Compara três modelos de programação
-  de interfaces gráficas, o imperativo por atualização manual, o declarativo
-  por re-renderização e o declarativo por atualização granular, pelas
+  Universidade do Estado de Mato Grosso. Compara modelos de programação de
+  interfaces gráficas na web, cada um um modo de orquestração, do evento
+  ao estado, combinado com um de propagação, do estado à tela, pelas
   Dimensões Cognitivas de Notações, aplicadas ao código. O /benchmark/ de
-  notação são cinco interfaces (Formulário com validação, Busca com
-  sugestões, Login com quarentena, Quadro de tarefas e Dados ao vivo),
-  implementadas em tecnologias da web, do Android e do /desktop/ e avaliadas
-  em três rodadas. Os termos do projeto estão no =GLOSSARY.md=.
+  notação são sete interfaces (Contador, Reserva de passagem, Busca com
+  sugestões, Login com quarentena, Placar ao vivo, Planilha e Circle
+  Drawer), implementadas no Web Component e no React e avaliadas em três
+  rodadas, a terceira com mais quatro modelos de programação na Busca, no
+  Login e no Placar ao vivo. Os termos do projeto estão no =GLOSSARY.md=.
 
 * Leiaute
 

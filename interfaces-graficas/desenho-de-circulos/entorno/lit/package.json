@@ -2,7 +2,7 @@
   "name": "desenho-de-circulos-lit",
   "private": true,
   "type": "module",
-  "description": "Circle Drawer em Lit (declarativo por re-renderização sobre o Web Component)",
+  "description": "Circle Drawer em Lit (propagação por re-renderização sobre o Web Component)",
   "scripts": {
     "dev": "vite",
     "build": "tsc -p . && vite build",

@@ -2,7 +2,7 @@
   "name": "contador-react",
   "private": true,
   "type": "module",
-  "description": "Contador com React (declarativo por re-renderização)",
+  "description": "Contador com React (propagação por re-renderização)",
   "scripts": {
     "dev": "vite",
     "build": "tsc -p . && vite build",

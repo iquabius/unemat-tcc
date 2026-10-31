@@ -2,7 +2,7 @@
   "name": "planilha-solid",
   "private": true,
   "type": "module",
-  "description": "Planilha em Solid (declarativo por atualização granular, com signals)",
+  "description": "Planilha em Solid (propagação granular, com signals)",
   "scripts": {
     "dev": "vite",
     "build": "tsc -p . && vite build",

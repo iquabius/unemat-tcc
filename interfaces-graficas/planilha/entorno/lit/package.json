@@ -2,7 +2,7 @@
   "name": "planilha-lit",
   "private": true,
   "type": "module",
-  "description": "Planilha em Lit (declarativo por re-renderização sobre o Web Component)",
+  "description": "Planilha em Lit (propagação por re-renderização sobre o Web Component)",
   "scripts": {
     "dev": "vite",
     "build": "tsc -p . && vite build",

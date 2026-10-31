@@ -293,8 +293,8 @@ pergunta antes.
   bibliotecas de formulário", não "bibliotecas auxiliares", por ser mais
   específico; "reativo" só para termos sustentados por fontes revisadas
   por pares e dissertações, como a PR, e nunca no nome de um modelo de
-  programação (o terceiro é o "declarativo por
-  atualização granular", ADR 0021); na frase revisada, a citação narrativa com página
+  programação nem de um modo da orquestração ou da propagação (ADR
+  0021); na frase revisada, a citação narrativa com página
   ("Para Autor (ano, p. N), ...") é candidata a ir para o fim
   (`[[cite:chave][p. N]]`), para a frase abrir pelo tópico, salvo quando a
   atribuição marca a opinião da fonte: propor ao autor, com as duas
@@ -336,8 +336,8 @@ pergunta antes.
   others that depend on it" (p. 52:2) vira "o programador precisa escrever
   a atualização de tudo o que depende dele". Sperber e Schlegel (2025,
   p. 32) dizem do jeito certo: "implement the update logic manually". É o
-  sentido do nome do imperativo por atualização manual (ADR 0021): manual
-  é a escrita da atualização, e não a execução dela.
+  sentido da propagação manual (ADR 0021): manual é a escrita da
+  atualização, e não a execução dela.
 - A sessão que edita o texto roda no checkout principal, o mesmo do
   Emacs, uma por vez; código, ferramentas e instruções de agente seguem
   numa worktree, em ramo próprio (seção seguinte). O que

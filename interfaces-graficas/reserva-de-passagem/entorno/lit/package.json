@@ -2,7 +2,7 @@
   "name": "reserva-de-passagem-lit",
   "private": true,
   "type": "module",
-  "description": "Reserva de passagem em Lit (declarativo por re-renderização sobre o Web Component)",
+  "description": "Reserva de passagem em Lit (propagação por re-renderização sobre o Web Component)",
   "scripts": {
     "dev": "vite",
     "build": "tsc -p . && vite build",
