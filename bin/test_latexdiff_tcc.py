@@ -417,9 +417,9 @@ class DeclaracaoQueSaiuDaFigura(Diff):
 @unittest.skipUnless(TEX, "sem latexdiff ou pdflatex no host")
 class CorDaPalavraPintada(unittest.TestCase):
     """A palavra pintada no nó de texto branco, como na caixa roxa do
-    núcleo, sai no tom claro, e no de texto preto, no azul ou no vermelho:
-    o \\DIFfigcor do preâmbulo do bin/figura-no-diff.py, compilado, escreve
-    no .log a cor em que cada palavra sai."""
+    núcleo, sai no tom claro, e no de texto preto, no azul ou no vermelho
+    escuro: o \\DIFfigcor do preâmbulo do bin/figura-no-diff.py, compilado,
+    escreve no .log a cor em que cada palavra sai."""
 
     def test_tom_claro_so_no_texto_claro(self):
         spec = importlib.util.spec_from_file_location(
@@ -448,7 +448,7 @@ class CorDaPalavraPintada(unittest.TestCase):
             log = Path(tmp, "cor.log").read_text(encoding="utf-8", errors="replace")
         self.assertEqual(dict(re.findall(r"^COR (\S+) (\S+)$", log, re.M)),
                          {"add-claro": "A8DCFF", "add-escuro": "0000FF",
-                          "del-claro": "FFC8C8", "del-escuro": "FF0000"})
+                          "del-claro": "FFC8C8", "del-escuro": "A80000"})
 
 
 del Diff

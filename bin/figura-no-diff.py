@@ -15,15 +15,17 @@ O filtro tira a velha do comentário e mostra as duas, uma depois da outra,
 cada uma inteira: a velha numa moldura vermelha tracejada, "antes", e a
 nova numa moldura azul, "depois", as cores do \\DIFdel e do \\DIFadd. Um
 diff palavra a palavra entre as duas pinta as palavras apagadas na velha
-(\\DIFdelfig, vermelho) e as acrescentadas na nova (\\DIFaddfig, azul), só na
-cor: o \\sout e o \\uwave do ulem não se testaram dentro dos nós. No nó de
-texto claro, como o branco sobre o roxo do núcleo, a cor escura se perderia
-no fundo, e a palavra sai num tom claro da mesma cor, azul-claro ou
-rosa-claro (o \\DIFfigcor do PREAMBULO, escolha do autor em 2026-10-31). A
-figura inteira acrescentada ganha a moldura azul, "figura nova"; a
-apagada sai do comentário, na moldura vermelha, "figura apagada", onde
-estava. A figura em que só mudou comentário ou espaço fica como o
-latexdiff a deixou.
+(\\DIFdelfig, vermelho escuro) e as acrescentadas na nova (\\DIFaddfig,
+azul), só na cor: o \\sout e o \\uwave do ulem não se testaram dentro dos
+nós. O vermelho é mais escuro que o do \\DIFdel, que se perderia nos fundos
+claros de cor, como o azul-acinzentado dos cantos da grade do núcleo. No
+nó de texto claro, como o branco sobre o roxo do núcleo, a cor escura se
+perderia no fundo, e a palavra sai num tom claro da mesma cor, azul-claro
+ou rosa-claro (o \\DIFfigcor do PREAMBULO, escolhas do autor em
+2026-10-31). A figura inteira acrescentada ganha a moldura azul, "figura
+nova"; a apagada sai do comentário, na moldura vermelha, "figura
+apagada", onde estava. A figura em que só mudou comentário ou espaço
+fica como o latexdiff a deixou.
 
 O par é a figura velha de um bloco apagado e a nova do bloco acrescentado
 que vem logo depois dele. As duas com o mesmo \\label dentro (fora de
@@ -93,8 +95,9 @@ palavra que muda, a de uma que passa a nove, a que ganha texto onde não
 havia nenhum, a que passa o texto para o argumento de um comando que não
 é de texto (o \\textcolor). A cor da palavra pintada segue a do texto, e
 não a do fundo: o texto escuro num fundo escuro sai em azul ou
-vermelho, e o claro num fundo claro, no tom claro, e os dois se leem mal
-como já se liam sem o diff. O \\DIFfigcor não lê a cor de texto que o
+vermelho escuro, um pouco pior que no vermelho do \\DIFdel, e o claro
+num fundo claro, no tom claro, e os dois se leem mal como já se liam
+sem o diff. O \\DIFfigcor não lê a cor de texto que o
 pacote color definiu antes de o xcolor carregar ("Undefined color
 model"), e a figura que a usa sai sem pintura.
 """
@@ -201,12 +204,16 @@ PISO = 0.22
 
 # A cor da palavra pintada sai do \DIFfigcor: no texto claro (o cinza do
 # xcolor, 0,3 R + 0,59 G + 0,11 B, acima de 0,5), que pede fundo escuro, o
-# tom claro da marca, e no escuro, o azul e o vermelho do \DIFadd e do
-# \DIFdel. O tom claro guarda dois terços do contraste do branco com o
-# fundo: 4,6:1 no roxo do núcleo (#7B3FA8), onde o branco tem 6,7:1.
+# tom claro da marca, e no escuro, o azul do \DIFadd e um vermelho escuro.
+# O tom claro guarda dois terços do contraste do branco com o fundo: 4,6:1
+# no roxo do núcleo (#7B3FA8), onde o branco tem 6,7:1. O vermelho do
+# \DIFdel (#FF0000) tem 2,4:1 no azul-acinzentado dos cantos da grade
+# (#CBC8D6), e o escuro (#A80000), 4,8:1, contra 5,2:1 do azul; 6,6:1 no
+# pêssego (#FBE8D8) e 7,9:1 no branco.
 PREAMBULO = r"""%DIF FIGURAS TIKZ (bin/figura-no-diff.py)
 \RequirePackage{tikz}
 \definecolor{DIFaddfigclaro}{HTML}{A8DCFF}
+\definecolor{DIFdelfigescuro}{HTML}{A80000}
 \definecolor{DIFdelfigclaro}{HTML}{FFC8C8}
 \providecommand{\DIFfigcor}[2]{%
   \colorlet{DIFfigtexto}{.}%
@@ -214,7 +221,7 @@ PREAMBULO = r"""%DIF FIGURAS TIKZ (bin/figura-no-diff.py)
   \expandafter\convertcolorspec\DIFfigspec{gray}\DIFfigcinza
   \ifdim\DIFfigcinza pt>0.5pt \color{#2}\else\color{#1}\fi}
 \providecommand{\DIFaddfig}[1]{{\protect\DIFfigcor{blue}{DIFaddfigclaro}#1}}
-\providecommand{\DIFdelfig}[1]{{\protect\DIFfigcor{red}{DIFdelfigclaro}#1}}
+\providecommand{\DIFdelfig}[1]{{\protect\DIFfigcor{DIFdelfigescuro}{DIFdelfigclaro}#1}}
 \tikzset{
   DIFaddfigura/.style={execute at end picture={
     \draw[blue, thick, rounded corners=2pt]
