@@ -85,31 +85,6 @@
   modificar os casos e estudar casos maiores para verificar se a abordagem
   escala.
 - Conferido: 2026-10-13; de novo em 2026-10-28 e 2026-10-30.
-* [[file:../intro.org::Nenhum desses trabalhos compara, sobre as mesmas interfaces][intro: Nenhum desses trabalhos compara, sobre as mesmas interfaces]] (o /toolkit/), p. 56
-- Frase: “Nos casos de Kiss (2014, p. 56), o /toolkit/ pesou, em geral,
-  mais que o paradigma, porque as construções especiais dele podiam
-  cobrir, em casos frequentes, lacunas do paradigma.” Justifica a P1.2, depois da frase
-  do autor sobre o custo de adotar a biblioteca do ecossistema.
-- Trecho: “Now that the analysis has been completed we can conclude that
-  the toolkit in general played the most crucial role in our case studies.
-  A good toolkit can cover potential deficits in the paradigm and/or
-  language with special constructs for special but frequent use cases.
-  Paradigm and language differences played a more minor role.” (seção 3.10,
-  “Verdict”, p. 56)
-- Lido em: =acervo/kiss2014.pdf=, p. 62 do PDF.
-- Observação: o /toolkit/ de Kiss é o JavaFX e o ScalaFX (GLOSSARY.md,
-  /Toolkit/), e não a biblioteca da terceira rodada; ligar um à outra é
-  razão do autor, dita na frase anterior do texto. Na p. 3 (p. 9 do PDF),
-  Kiss já previa esse resultado: “another possible outcome is that the
-  language’s, the IDE’s and/or the toolkit’s role in GUI development is
-  much more crucial than the role of the paradigm”; na p. 100 (p. 106 do
-  PDF), “the role of the toolkit dominated”. “Lacunas” traduz /deficits/.
-  Em 2026-10-30, na segunda passada da checagem adversarial, a frase
-  ganhou o “em geral” (“in general”) e o modal da fonte (“can cover
-  potential deficits”): antes, “cobriam [...] as lacunas” dava como fato
-  o que Kiss diz como possibilidade. O próprio Kiss diz que no sexto caso
-  o paradigma dominou, e no sétimo nenhuma parte (p. 56).
-- Conferido: 2026-10-29; de novo em 2026-10-30.
 * [[file:../intro.org::Quanto aos meios, o trabalho é][intro: Quanto aos meios, o trabalho é uma avaliação qualitativa]], p. 114
 - Frase: “O conjunto é um /benchmark/ de notação (Kiss, 2014, p. 114):
   testes que devem formar uma amostra representativa das tarefas da prática e
@@ -271,3 +246,12 @@
   das DCs não tem fonte nele, e Blackwell et al. (2001, p. 332) dizem o
   contrário; o texto atribui a Kiss só o argumento e a escolha.
 - Conferido: 2026-10-25.
+
+* [[file:../intro.org::A avaliação se faz em três rodadas.][intro: A avaliação se faz em três rodadas.]] (o passo sem controle), p. 23
+- Frase: “Como nos casos de Kiss (2014, p. 23), em que o /toolkit/ pesou
+  mais que o paradigma, a diferença que esse passo mostra não se atribui
+  só ao modelo de programação.”
+- Trecho: “As before, the toolkit dominated this evaluation and the
+  paradigms did not come into play once again.”
+- Lido em: =acervo/kiss2014.pdf=, p. 29 do PDF.
+- Conferido: 2026-10-31.

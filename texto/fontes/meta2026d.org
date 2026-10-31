@@ -1,0 +1,12 @@
+#+title: meta2026d: Meta Platforms (2026), useReducer
+#+startup: overview
+
+* [[file:../intro.org::Na orquestração, o modo /por atribuição/][intro: Na orquestração, o modo por atribuição]] (a mensagem)
+- Frase: “No modo /por mensagem/, cada evento vira uma mensagem que uma
+  função pura transforma no estado seguinte, como o =useReducer= do React
+  (Meta Platforms, 2026d)”.
+- Trecho: “reducer: The reducer function that specifies how the state gets
+  updated. It must be pure, should take the state and action as arguments,
+  and should return the next state.”
+- Lido em: =acervo/paginas-web/react2026-usereducer.md=.
+- Conferido: 2026-10-31.

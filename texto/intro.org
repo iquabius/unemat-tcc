@@ -87,9 +87,11 @@ dependem dela [[cite:bainomugisha2013][p. 52:2]].
   A aparência, isto é, as cores, as fontes e o /layout/, fica fora dela,
   salvo o valor que depende do estado, como a posição de um menu.
 
-  Nas tecnologias que este trabalho compara, há três modelos de
-  programação, dois deles declarativos.
-  No /imperativo por atualização manual/, o programador escreve, nos
+  Nas tecnologias que este trabalho compara, cada modelo de programação se
+  descreve por dois eixos: a /orquestração/, como o código leva o evento
+  ao estado, e a /propagação/, como leva o estado à tela.
+  Em cada eixo, o modo de escrever vai do imperativo ao declarativo.
+  Na propagação /manual/, a imperativa, o programador escreve, nos
   /callbacks/, a alteração do estado e a atualização da tela
   [[cites:&disch2025 p. 93;&oney2012 p. 229;&sperber2025 p. 28 e 32]], como
   nos Web Components sem biblioteca cite:mozilla2026.
@@ -106,7 +108,7 @@ dependem dela [[cite:bainomugisha2013][p. 52:2]].
   Em troca, o ambiente de execução chama as funções que dependem do estado
   quando julga necessário, e essa execução oculta pode tornar difícil
   acompanhar o fluxo real do programa [[cite:grolaux2026][p. 13-14]].
-  No /declarativo por re-renderização/, o ambiente de execução chama de
+  Na propagação /por re-renderização/, o ambiente de execução chama de
   novo, quando o estado se altera, a parte que monta a tela.
   No React, é o próprio componente, uma função que especifica a tela e que,
   idealmente, chamada com os mesmos argumentos, exibe a mesma interface
@@ -115,13 +117,36 @@ dependem dela [[cite:bainomugisha2013][p. 52:2]].
   atualização da tela:
   num contador, o do clique soma um ao estado, e o componente devolve o
   botão com o valor novo [[cites:&lee2025 p. 289:2;&sperber2025 p. 32]].
-  O /declarativo por atualização granular/ usa uma das abstrações da
+  A propagação /granular/ usa uma das abstrações da
   [[gls:pr]], os valores que variam no tempo, chamados /signals/, cujas
   alterações se
   propagam automaticamente [[cite:salvaneschi2015][p. 953]].
   Cada /signal/ avisa o que depende dele, como no Solid cite:solidjs2026,
   e o ambiente de execução não chama de novo a parte que monta a tela
   [[cite:lee2025][p. 289:38]].
+  No código, isso se vê no derivado, que vira uma função à parte
+  cite:solidjs2026a, e na leitura do estado, que se marca por uma
+  chamada, como =contador()= no Solid cite:solidjs2026b.
+  Na propagação /por combinadores/, a dependência se escreve com
+  operadores sobre fluxos de eventos que nomeiam as fontes, como o
+  =combineLatest= do RxJS cite:reactivex2026.
+
+  Na orquestração, o modo /por atribuição/ é o /callback/ que grava um
+  valor no estado ou chama a função que o altera, e o /sequencial/, o
+  código que espera o próximo evento e segue em ordem~--- os dois são
+  imperativos.
+  Por isso o React e o Solid, declarativos na propagação, são imperativos
+  na orquestração: nos dois, o /callback/ altera o estado por uma função,
+  e [[textcite:bahr2025][p. 25]] chama de imperativos os /frameworks/ com
+  /signals/ que funcionam assim.
+  No modo /por mensagem/, cada evento vira uma mensagem que uma função
+  pura transforma no estado seguinte, como o =useReducer= do React
+  cite:meta2026d.
+  No modo /por acumulação/, o estado se define sobre o fluxo de eventos, sem função que o altere, como o =scan= do RxJS,
+  uma variação do /fold/ [[cite:zimmerle2025][p. 1530]].
+  O modelo de programação é a combinação de um modo de cada eixo: o Web
+  Component sem biblioteca é imperativo nos dois, e o React com RxJS, com
+  os derivados escritos com operadores, é declarativo nos dois.
 
   Para discutir o quanto uma notação facilita a compreensão e a
   manutenção, há as [[glspl:dc]], propostas por textcite:green1989.
@@ -141,7 +166,7 @@ dependem dela [[cite:bainomugisha2013][p. 52:2]].
   interface, entre elas a [[gls:pr]].
 
   Nenhum desses trabalhos compara, sobre as mesmas interfaces e em tecnologias
-  web, os três modelos de programação.
+  web, modelos de programação do imperativo ao declarativo nos dois eixos.
   Os trabalhos incluídos na revisão bibliográfica também não avaliam pelas
   [[glspl:dc]] a notação do React nem a do Solid.
   A lacuna vale para o que encontrou a revisão bibliográfica descrita no
@@ -151,43 +176,36 @@ dependem dela [[cite:bainomugisha2013][p. 52:2]].
   inchá-las demais, ou, em vez disso, estudar outras bem maiores, para ver
   se uma abordagem escala, estas sem análise detalhada e com métricas
   estatísticas.
-  Supõe-se aqui que adotar a biblioteca que o ecossistema usa pode poupar
-  código a manter, mas traz abstrações novas a aprender.
-  Nos casos de [[textcite:kiss2014][p. 56]], o /toolkit/ pesou, em geral,
-  mais que o paradigma, porque as construções especiais dele podiam
-  cobrir, em casos frequentes, lacunas do paradigma.
   Já o código refatorado para ficar mais legível nem sempre se entende
   melhor logo depois,
   para quem está acostumado com a estrutura antiga
   [[cite:ammerlaan2015][p. 507]].
   Pergunta-se, então (P1): pelas [[glspl:dc]], como difere a usabilidade da
-  notação do código de interfaces gráficas em cada tecnologia entre
-  os três modelos de programação~--- o imperativo por atualização manual, o
-  declarativo por re-renderização e o declarativo por atualização granular?
+  notação do código de interfaces gráficas entre modelos de programação
+  que vão do imperativo ao declarativo na propagação, do estado à tela, e
+  na orquestração, do evento ao estado?
   @@latex:\notamudou{O projeto perguntava \enquote{Quais os conceitos apropriados para programação de interfaces gráficas?} e se a programação declarativa é adequada a elas.}@@
   (P1.1) Como muda essa diferença quando o código cresce, com
-  funcionalidades e requisitos de orquestração acrescentados a cada
-  interface, iguais em todas as tecnologias?
-  (P1.2) E como ela muda quando o código da segunda rodada se refatora, com
-  o mesmo comportamento, para a biblioteca do ecossistema de cada
-  tecnologia?
+  funcionalidades e requisitos de combinação de eventos acrescentados a
+  cada interface, iguais no Web Component e no React?
+  (P1.2) E como ela muda quando o código da segunda rodada se refatora,
+  sem mudar o comportamento, um modo de cada vez, até a orquestração por
+  acumulação e a propagação por combinadores?
   @@latex:\notamudou{\textbf{As duas subperguntas são novas}, como as rodadas a que elas respondem.}@@
   Conhecer essas diferenças pode ajudar quem programa interfaces a escolher uma tecnologia
   sabendo o que o modelo de programação dela facilita e o que dificulta em
-  cada /exigência de coordenação/.
-  Uma exigência de coordenação é o que uma interface gráfica pede ao modelo
+  cada /exigência de coordenação/: o que uma interface gráfica pede ao modelo
   de programação.
 
    O objetivo geral é comparar, segundo as [[glspl:dc]], a usabilidade das
-   notações dos três modelos de programação em interfaces típicas da web,
-   em TypeScript.
+   notações de modelos de programação que vão do imperativo ao
+   declarativo, em interfaces típicas da web, em TypeScript.
    Especificamente:
 
    - implementar sete interfaces gráficas (Contador, Reserva de passagem,
      Busca com sugestões, Login com quarentena, Placar ao vivo, Planilha e
-     Circle Drawer) com Web Component, Lit, Web Component com /signals/,
-     Solid e React, estendê-las na segunda rodada e refatorar duas delas na
-     terceira;
+     Circle Drawer) com Web Component e React, estendê-las na segunda
+     rodada e refatorar três delas na terceira, um modo de cada vez;
    - avaliar as implementações pelas 14 [[glspl:dc]] em cada rodada;
    - sintetizar, por exigência de coordenação, o que cada modelo de
      programação facilita e o que dificulta, como no estado derivado e na
@@ -211,7 +229,7 @@ dependem dela [[cite:bainomugisha2013][p. 52:2]].
   técnicas alternativas por medidas de desempenho, que podem ser
   qualitativas e feitas por uma pessoa [[cite:sim2003][p. 76]].
   A medida, neste trabalho, é a avaliação pelas [[glspl:dc]].
-  Aqui, as técnicas são os três modelos de programação, e a amostra, sete
+  Aqui, as técnicas são os modelos de programação, e a amostra, sete
   interfaces gráficas.
   A representatividade dessa amostra é desejável, mas a escolha das
   interfaces, pelas exigências de coordenação que cada uma traz, e a
@@ -224,108 +242,166 @@ dependem dela [[cite:bainomugisha2013][p. 52:2]].
   vivo, e as de gerenciamento de estado, na Reserva de passagem, na
   Planilha e no Circle Drawer.
 
-  As sete interfaces são implementadas na web por cinco tecnologias, numa
-  cadeia de pares em que cada passo muda o mínimo
-  (Figura [[ref:fig:cadeia-e-rodadas]]).
-  A cadeia parte do Web Component, no imperativo por atualização manual.
-  O primeiro passo, ao Web Component com /signals/ do =solid-js=, leva ao
-  declarativo por atualização granular: muda o modo como a alteração do
-  estado chega à tela e também a orquestração de eventos.
-  O segundo, ao Solid, mantém o modelo de programação e muda a montagem da
-  tela e o modelo de componente.
-  O terceiro, ao React, mantém a montagem em JSX, num dialeto um pouco
-  diferente, e muda o modelo de programação para o declarativo por
-  re-renderização.
-  Do Web Component sai também um ramo, ao Lit, que leva ao declarativo
-  por re-renderização com o componente ainda numa classe e a mesma
-  orquestração.
-  Muda o modo como a alteração do estado chega à tela e, com ele, a
-  montagem das partes repetidas.
-  A alteração de uma das propriedades
-  reativas que o componente declara, ou a chamada de =requestUpdate()=,
-  agenda uma atualização, em que o ambiente de execução chama de novo o
-  método que monta a tela [[cite:google2026d]].
-  Chamar o =requestUpdate()= depois de alterar um dado no lugar é, para a
-  documentação, um uso avançado, e não o padrão, que é trocar o dado por
-  uma cópia [[cite:google2026e]].
+  As sete interfaces são implementadas na web por duas tecnologias, o
+  núcleo, em passos que mudam um modo de um eixo de cada vez
+  (Figura [[ref:fig:grade-do-nucleo]]).
+  O núcleo parte do Web Component, a plataforma sem biblioteca, imperativo
+  nos dois eixos.
+  O passo ao React muda a propagação, de manual a re-renderização, com a
+  orquestração por atribuição nos dois.
+  O mesmo passo muda também a montagem da tela, do =createElement= ao
+  JSX, e o modelo de componente, da classe à função, e a análise separa
+  pelo sinal escrito o que vem de cada mudança.
 
   A avaliação se faz em três rodadas.
-  A primeira responde à P1.
+  A primeira constrói as sete interfaces no núcleo e responde à P1.
   A segunda acrescenta a cada interface funcionalidades e requisitos de
-  orquestração, iguais nas cinco tecnologias, e responde à P1.1.
-  A terceira refatora o código da segunda rodada da Reserva de passagem
-  e do Placar ao vivo, sem mudar o comportamento, para a biblioteca do
-  ecossistema de cada tecnologia, e responde à P1.2.
-  A biblioteca é a mais baixada no Web Component, no Solid e no React.
-  O Lit e o Web Component com /signals/ seguem a do Web Component, e o
-  React, na Reserva de passagem, segue a do Solid, para que cada par da
-  cadeia mude uma coisa só.
+  combinação de eventos, iguais no Web Component e no React, e responde
+  à P1.1.
+  A terceira refatora o código da segunda rodada da Busca, do Login e do
+  Placar ao vivo, sem mudar o comportamento, um modo por passo, e
+  responde à P1.2.
+  Ela leva o Web Component e o React à orquestração por acumulação, com
+  o RxJS, passando no React pela orquestração por mensagem, do
+  =useReducer=, e depois leva os derivados do React aos combinadores.
+  Depois da análise, um entorno situa as células vizinhas, com cada
+  tecnologia num passo a partir do núcleo.
+  O Lit e o Solid entram na primeira rodada, e o Web Component com
+  Effection, que escreve a orquestração sequencial, na Busca, no Login e
+  no Placar ao vivo.
+  O último passo do entorno, do React com os derivados no RxJS ao
+  Cycle.js, muda de uma vez a biblioteca de fluxos, o modelo de
+  componente, os efeitos e a montagem da tela.
+  Como nos casos de [[textcite:kiss2014][p. 23]], em que o /toolkit/
+  pesou mais que o paradigma, a diferença que esse passo mostra não se
+  atribui só ao modelo de programação.
   @@latex:\notamudou{\textbf{As três rodadas são novas}; o projeto não as previa.}@@
 
-  #+CAPTION: Cadeia de pares das cinco tecnologias e as três rodadas da avaliação. Cada passo da cadeia muda o mínimo entre tecnologias vizinhas, e o Lit sai do Web Component num ramo que muda a ligação; cada rodada responde a uma pergunta, e a segunda e a terceira partem do código da anterior. Grafite: imperativo por atualização manual; ocre: declarativo por atualização granular; roxo: declarativo por re-renderização.
-  #+NAME: fig:cadeia-e-rodadas
+  #+CAPTION: Tecnologias do núcleo e do entorno na grade dos modos de orquestração (do evento ao estado) e de propagação (do estado à tela), com uma seta por passo. A linha tracejada separa, em cada eixo, os modos imperativos dos declarativos.
+  #+NAME: fig:grade-do-nucleo
   #+ATTR_LATEX: :options [htbp]
   #+begin_figure
   #+begin_export latex
   \centering
-  \begin{tikzpicture}[delineamento,
-      passo/.style={font=\scriptsize, inner sep=0pt, anchor=south,
-        execute at begin node={\hyphenpenalty=10000 }},
-      faixa/.style={draw=black!30, fill=black!5, rounded corners=2pt,
-        inner sep=2pt, minimum width=15.6cm, text width=15.46cm,
-        execute at begin node={\hyphenpenalty=10000 }},
-    ]
-    % O rótulo de um passo: três linhas de altura fixa, o nome na primeira e a
-    % quebra escrita entre as duas outras.
-    \newcommand{\passo}[2]{\parbox[t][28pt][t]{2.9cm}{\centering\strut\textbf{#1}\\#2}}
-    % Uma faixa de rodada: o rótulo sob a coluna do Lit e o conteúdo sob as
-    % outras quatro, em espaços de altura fixa, alinhados no alto.
-    \newcommand{\rodada}[4]{%
-      \parbox[t][34pt][t]{2.58cm}{\centering\strut\textbf{#1}\\#2}%
-      \hspace{0.64cm}%
-      \parbox[t][34pt][t]{12.24cm}{\centering\strut #3\\[1pt]\scriptsize #4}}
-    \matrix[cadeia] (t) {
-      |[rer] (lit)| \tecnologia{Lit}{\rerender} &
-      |[imp] (wc)| \tecnologia{Web Component}{\imperativo} &
-      |[gra] (sig)| \tecnologia{Web Component com \emph{signals}}{\granular} &
-      |[gra] (solid)| \tecnologia{Solid}{\granular} &
-      |[rer] (react)| \tecnologia{React}{\rerender} \\
+  \begin{tikzpicture}[grade]
+    % As tecnologias, uma linha da matriz por fileira de caixas: sequencial;
+    % atribuição em duas (empilhadas na célula); mensagem; acumulação em
+    % duas. As colunas: manual, por re-renderização, granular, por
+    % combinadores.
+    \matrix[celulas] (g) {
+      |[entorno, largo] (eff)| \nagradecom{Web Component}{com Effection} & & & \\
+      & |[entorno] (lit)| \nagrade{Lit} & & \\
+      |[nucleo, largo] (wc)| \nagrade{Web Component} &
+        |[nucleo] (react)| \nagrade{React} &
+        |[entorno, estreito] (solid)| \nagrade{Solid} & \\
+      & |[nucleo] (usered)| \nagradecom{React}{com \texttt{useReducer}} & & \\
+      |[nucleo, largo] (wcrx)| \nagradecom{Web Component}{com RxJS} &
+        |[nucleo] (reactrx)| \nagradecom{React}{com RxJS} & &
+        |[nucleo, maislargo] (reactder)| \nagradecom{React}{com derivados no RxJS} \\
+      & & & |[entorno, maislargo] (cycle)| \nagrade{Cycle.js} \\
     };
-    \draw[ramo] (wc) -- (lit);
-    \draw[seta] (wc) -- (sig);
-    \draw[seta] (sig) -- (solid);
-    \draw[seta] (solid) -- (react);
-    \path (lit.north east) -- (wc.north west)
-      node[midway, above=4pt, passo] {\passo{ramo}{a ligação do estado\\com a tela}};
-    \path (wc.north east) -- (sig.north west)
-      node[midway, above=4pt, passo] {\passo{1.º passo}{a ligação e\\a orquestração}};
-    \path (sig.north east) -- (solid.north west)
-      node[midway, above=4pt, passo] {\passo{2.º passo}{a montagem da tela e o\\modelo de componente}};
-    \path (solid.north east) -- (react.north west)
-      node[midway, above=4pt, passo] {\passo{3.º passo}{o modelo\\de programação}};
-    \node[faixa, below=0.5cm of t.south, anchor=north] (r1) {\rodada{1.ª rodada}{P1: constrói}
-      {7 interfaces nas 5 tecnologias: 35 implementações}
-      {cada implementação usa só o que a tecnologia traz;\\
-       o Placar ao vivo recebe os lotes por SSE}};
-    \node[faixa, below=0.35cm of r1] (r2) {\rodada{2.ª rodada}{P1.1: cresce}
-      {13 mudanças, 65 \emph{commits}, sem bibliotecas}
-      {funcionalidades e requisitos de orquestração, iguais nas cinco tecnologias;\\
-       a frequência do Placar vai numa requisição à parte}};
-    \node[faixa, below=0.35cm of r2] (r3) {\rodada{3.ª rodada}{P1.2: só a forma}
-      {a biblioteca do ecossistema sobre o código da segunda rodada: 10 refatorações}
-      {Reserva de passagem e Placar ao vivo, nas cinco tecnologias}};
-    % As setas entre as rodadas descem pela coluna dos rótulos.
-    \draw[seta] (r1.south -| lit) -- (r2.north -| lit);
-    \draw[seta] (r2.south -| lit) -- (r3.north -| lit);
+
+    % As bordas das células, tiradas das caixas: o meio de cada vão entre
+    % colunas e entre fileiras, e 0,25 cm além das caixas nas bordas.
+    \coordinate (x0) at ([xshift=-0.25cm]wc.west);
+    \path (wc.east) -- (react.west) coordinate[midway] (x1);
+    \path (react.east) -- (solid.west) coordinate[midway] (x2);
+    \path (solid.east) -- (solid.east -| reactder.west) coordinate[midway] (x3);
+    \coordinate (x4) at ([xshift=0.25cm]reactder.east);
+    \coordinate (y0) at ([yshift=0.3cm]eff.north);
+    \coordinate (y1) at ([yshift=0.3cm]lit.north);
+    \path (wc.south) -- (wc.south |- usered.north) coordinate[midway] (y2);
+    \path (usered.south) -- (reactrx.north) coordinate[midway] (y3);
+    \coordinate (y4) at ([yshift=-0.3cm]cycle.south);
+
+    % Os tons dos cantos e as linhas, atrás das caixas.
+    \begin{scope}[on background layer]
+      \fill[cantoimp] (x0 |- y0) rectangle (x1 |- y2);
+      \fill[cantodec] (x1 |- y2) rectangle (x4 |- y4);
+      \draw[linha] (x0 |- y1) -- (x4 |- y1);
+      \draw[linha] (x0 |- y3) -- (x4 |- y3);
+      \draw[linha] (x2 |- y0) -- (x2 |- y4);
+      \draw[linha] (x3 |- y0) -- (x3 |- y4);
+      \draw[linha] (x0 |- y0) rectangle (x4 |- y4);
+    \end{scope}
+
+    % Propagação, no alto: o título, os lados e os modos.
+    \path (x0 |- y0) -- (x4 |- y0) coordinate[midway] (topo);
+    \path (x0 |- y0) -- (x1 |- y0) coordinate[midway] (topoimp);
+    \path (x1 |- y0) -- (x4 |- y0) coordinate[midway] (topodec);
+    \node[modoalto] at (wc |- y0) {manual};
+    \node[modoalto] at (react |- y0) {por re-renderização};
+    \node[modoalto] at (solid |- y0) {granular};
+    \node[modoalto] at (reactder |- y0) {por combinadores};
+    \node[ladoalto] at (topoimp) {imperativo};
+    \node[ladoalto] at (topodec) {declarativo};
+    \node[eixoalto] at (topo) {Propagação (do estado à tela)};
+
+    % Orquestração, à esquerda: os modos, os lados e o título, girados.
+    \path (x0 |- y0) -- (x0 |- y1) coordinate[midway] (fseq);
+    \path (x0 |- y1) -- (x0 |- y2) coordinate[midway] (fatr);
+    \path (x0 |- y2) -- (x0 |- y3) coordinate[midway] (fmsg);
+    \path (x0 |- y3) -- (x0 |- y4) coordinate[midway] (facu);
+    \node[modoesq] at (fseq) {sequencial};
+    \node[modoesq] at (fatr) {por atribuição};
+    \node[modoesq] at (fmsg) {por mensagem};
+    \node[modoesq] (acu) at (facu) {por acumulação};
+    % A linha de base do lado girado, logo à esquerda do modo mais largo.
+    \coordinate (xl) at ([xshift=-0.15cm]acu.west);
+    \path (xl |- y0) -- (xl |- y2) coordinate[midway] (ladoimp);
+    \path (xl |- y2) -- (xl |- y4) coordinate[midway] (ladodec);
+    \path (xl |- y0) -- (xl |- y4) coordinate[midway] (ladoeixo);
+    \node[ladoesq] at (ladoimp) {imperativo};
+    \node[ladoesq] at (ladodec) {declarativo};
+    \node[eixoesq] at (ladoeixo) {Orquestração (do evento ao estado)};
+
+    % As divisas entre o imperativo e o declarativo, que atravessam os
+    % rótulos dos lados.
+    \draw[divisa] (x1 |- y4) -- ([yshift=0.95cm]x1 |- y0);
+    \draw[divisa] (x4 |- y2) -- ([xshift=-0.3cm]xl |- y2);
+
+    % 1.ª e 2.ª rodadas.
+    \draw[primeiras] (wc) -- (react);
+    % 3.ª rodada.
+    \draw[terceira] (wc) -- (wcrx);
+    \draw[terceira] (react) -- (usered);
+    \draw[terceira] (usered) -- (reactrx);
+    \draw[terceira] (wcrx) -- (reactrx);
+    \draw[terceira] (reactrx) -- (reactder);
+    % Entorno.
+    \draw[doentorno] (wc) -- (eff);
+    \draw[doentorno] ([xshift=-0.15cm]wc.north east) -- ([xshift=0.15cm]lit.south west);
+    \draw[doentorno] (react) -- (solid);
+    \draw[doentorno] (reactder) -- (cycle);
+
+    % Legenda, em duas linhas centradas sob a grade.
+    \path (x0 |- y4) -- (x4 |- y4) coordinate[midway] (base);
+    \matrix[matrix of nodes, anchor=north, column sep=3pt, inner sep=0pt,
+        nodes={anchor=base west, font=\scriptsize}] (leg1)
+        at ([yshift=-0.35cm]base) {
+      |[amostra, fill=cornucleo]| {} & núcleo &[0.45cm]
+      |[amostra, draw=black!75, line width=0.6pt]| {} & entorno &[0.45cm]
+      |[amostra, fill=corcantoimp, draw=black!25]| {} & imperativo nos dois eixos &[0.45cm]
+      |[amostra, fill=corcantodec, draw=black!25]| {} & declarativo nos dois eixos \\
+    };
+    \matrix[matrix of nodes, anchor=north, column sep=3pt, inner sep=0pt,
+        nodes={anchor=base west, font=\scriptsize}] (leg2)
+        at ([yshift=-0.25cm]leg1.south) {
+      |[amostra]| {} & passo da 1.ª e da 2.ª rodadas &[0.45cm]
+      |[amostra]| {} & passo da 3.ª rodada &[0.45cm]
+      |[amostra]| {} & passo do entorno \\
+    };
+    \draw[primeiras] (leg2-1-1.west) -- (leg2-1-1.east);
+    \draw[terceira] (leg2-1-3.west) -- (leg2-1-3.east);
+    \draw[doentorno] (leg2-1-5.west) -- (leg2-1-5.east);
   \end{tikzpicture}
 
   \small Fonte: elaborado pelo autor.
   #+end_export
   #+end_figure
 
-  A linguagem, a especificação e as regras de domínio ficam fixas, nas
-  duas primeiras rodadas cada implementação usa só o que a tecnologia
-  traz, e um teste de conformidade confere que as implementações de uma
+  A linguagem, a especificação e as regras de domínio ficam fixas, cada
+  implementação usa só o que a tecnologia traz, e um teste de conformidade confere que as implementações de uma
   interface fazem o mesmo.
   A aparência também fica fixa, num arquivo [[gls:css]] comum às
   implementações de cada interface.
@@ -370,12 +446,20 @@ dependem dela [[cite:bainomugisha2013][p. 52:2]].
   Um conjunto criado por um pesquisador só e pouco usado tende a ter menos
   impacto que um adotado por uma comunidade [[cite:sim2003][p. 76]].
 
-  O delineamento compara categorias, e não artefatos: cada modelo de programação
-  tem uma ou duas tecnologias na web, e o perfil dele generaliza a partir
-  delas.
-  Os pares também isolam pouco: um passo da cadeia pode mudar mais de uma
-  coisa, e atribuir aos passos a diferença entre o Web Component e o React
-  supõe que eles se somam.
+  O delineamento compara categorias, e não artefatos: cada modelo de
+  programação tem uma tecnologia no núcleo, e o perfil dele generaliza a
+  partir dela.
+  Os passos também isolam pouco: o do Web Component ao React muda também
+  a montagem e o modelo de componente.
+  Atribuir as diferenças aos passos supõe que eles se somam, o que só o quadrado do Web Component, do React
+  e dos dois com RxJS testa, na terceira rodada.
+  E o Web Component é o extremo controlado, e não o representante do que
+  se usa na prática.
+  O jQuery, na mesma célula, é a terceira tecnologia web mais usada entre
+  quem respondeu à pesquisa do Stack Overflow de 2025, com 23,4%
+  cite:stackoverflow2025.
+  Ficou de fora porque não organiza a tela em componentes: o passo dele
+  ao React acrescentaria um componente onde não havia nenhum.
 
   Além desta introdução, o texto tem três seções.
   A seção ref:chap:prog reúne os conceitos em que o trabalho se apoia, dos

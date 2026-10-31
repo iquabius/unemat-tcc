@@ -28,3 +28,13 @@
 - Observação: Seção “Uso das tecnologias web”. Parágrafo vindo dos estudos
   de casos em 2026-10-13.
 - Conferido: 2026-10-13.
+
+* [[file:../intro.org::O delineamento compara categorias, e não artefatos][intro: O delineamento compara categorias, e não artefatos]] (o jQuery)
+- Frase: “O jQuery, na mesma célula, é a terceira tecnologia web mais
+  usada entre quem respondeu à pesquisa do Stack Overflow de 2025, com
+  23,4% (Stack Overflow, 2025).”
+- Trecho: a questão, “Which web frameworks and web technologies have you
+  done extensive development work in over the past year [...]?”; “3.
+  jQuery: 23.4%” (All Respondents).
+- Lido em: =acervo/stackoverflow2025.txt=, l. 11 e 15-20.
+- Conferido: 2026-10-31.

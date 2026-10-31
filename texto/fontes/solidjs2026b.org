@@ -1,0 +1,11 @@
+#+title: solidjs2026b: SolidJS (2026), Signals
+#+startup: overview
+
+* [[file:../intro.org::Nos declarativos, o programador descreve a tela][intro: Nos declarativos, o programador descreve a tela]] (a leitura por chamada)
+- Frase: “e na leitura do estado, que se marca por uma chamada, como
+  =contador()= no Solid (SolidJS, 2026b).”
+- Trecho: “The getter function returned by `createSignal` is used to access
+  the value of the signal. You call this function with no arguments to get
+  the current value of the signal”.
+- Lido em: =acervo/paginas-web/solidjs2026-signals.mdx=, l. 49-50.
+- Conferido: 2026-10-31.

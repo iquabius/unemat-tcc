@@ -68,6 +68,84 @@
   },
 }
 
+% A grade do núcleo e do entorno (fig:grade-do-nucleo, na introdução):
+% as tecnologias nas células da orquestração × propagação, com uma seta
+% por passo. A biblioteca backgrounds põe os tons das células atrás das
+% caixas e das setas. Protótipo em tmp/prototipos/2026-10-31-grade-do-nucleo/.
+\usetikzlibrary{backgrounds}
+
+% Decisão do autor em 2026-10-31, entre oito variantes: a caixa do núcleo,
+% cheia, em roxo (#7B3FA8), com o texto branco a 6,7:1; o canto imperativo
+% no azul-escuro do brasão da UNEMAT (#2E215C) clareado 75% para o branco,
+% um azul-acinzentado, e o canto declarativo num pêssego claro. Cada um
+% numa família de cor: o núcleo se destaca nos dois cantos, e o par frio
+% em cima e quente embaixo diz a divisão. O texto preto a 12,8:1 e 17,6:1
+% nos cantos; em cinza, luminosidade L* 100 (célula sem tom), 81 (canto
+% imperativo) e 93 (canto declarativo).
+\definecolor{cornucleo}{HTML}{7B3FA8}
+\definecolor{corcantoimp}{HTML}{CBC8D6}
+\definecolor{corcantodec}{HTML}{FBE8D8}
+
+% O nome de uma tecnologia na grade, numa linha de altura fixa; com o
+% modo, \nagradecom põe o que a implementação acrescenta ("com RxJS") na
+% segunda linha, menor e sem negrito, para todas as caixas de duas linhas
+% terem a mesma altura (decisão do autor em 2026-10-31).
+\newcommand{\nagrade}[1]{\parbox[c][15pt][c]{\linewidth}{\centering #1}}
+\newcommand{\nagradecom}[2]{\parbox[c][24pt][c]{\linewidth}{\centering #1\par
+  \vspace{-1pt}{\scriptsize\mdseries #2}}}
+
+% A grade: quatro colunas de 2,72 cm (a caixa cabe o "Web Component" em
+% negrito, 2,50 cm) com 0,5 cm entre elas, a coluna dos rótulos à
+% esquerda; o vão de 0,5 cm deixa o corpo da seta à vista além da ponta.
+\tikzset{
+  grade/.style={
+    font=\scriptsize,
+    >={Stealth[length=5pt]},
+    celulas/.style={matrix of nodes, column sep=0.5cm, row sep=0.5cm,
+      inner sep=0pt, outer sep=0pt, nodes={anchor=center}},
+    tec/.style={rounded corners=2pt, inner sep=2pt, minimum width=2.72cm,
+      text width=2.58cm, align=center, font=\footnotesize\bfseries,
+      execute at begin node={\hyphenpenalty=10000 }},
+    % A largura da caixa pelo nome mais longo da coluna: a do Web Component
+    % e a dos combinadores ("com derivados no RxJS") um pouco mais largas, a
+    % do Solid, sozinho na coluna granular, mais estreita; a coluna segue a
+    % caixa.
+    largo/.style={minimum width=2.98cm, text width=2.84cm},
+    maislargo/.style={minimum width=3.14cm, text width=3.0cm},
+    estreito/.style={minimum width=2.2cm, text width=2.06cm},
+    nucleo/.style={tec, fill=cornucleo, text=white},
+    entorno/.style={tec, draw=black!75, line width=0.6pt},
+    % Um passo por seta, o traço pela rodada.
+    primeiras/.style={-{Stealth[length=7pt, width=6pt]}, line width=1.6pt},
+    terceira/.style={->, line width=0.8pt},
+    doentorno/.style={-{Stealth[length=4.5pt]}, line width=0.5pt,
+      densely dotted},
+    % As células: as linhas da grade, a divisa entre o imperativo e o
+    % declarativo em cada eixo, e os tons dos dois cantos.
+    linha/.style={draw=black!25, line width=0.4pt},
+    divisa/.style={draw=black!70, line width=0.8pt,
+      dash pattern=on 3pt off 2pt},
+    cantoimp/.style={fill=corcantoimp},
+    cantodec/.style={fill=corcantodec},
+    % Os rótulos, pela linha de base: no alto, o modo de propagação, o
+    % lado (imperativo ou declarativo) e o título do eixo, um acima do
+    % outro; à esquerda, o modo de orquestração e, girados, o lado e o
+    % título.
+    eixo/.style={font=\footnotesize\bfseries, inner sep=0pt},
+    modo/.style={font=\scriptsize, inner sep=0pt},
+    lado/.style={font=\scriptsize\itshape, inner sep=0pt},
+    modoalto/.style={modo, anchor=base, yshift=0.15cm},
+    ladoalto/.style={lado, anchor=base, yshift=0.6cm},
+    eixoalto/.style={eixo, anchor=base, yshift=1.1cm},
+    modoesq/.style={modo, anchor=east, xshift=-0.15cm},
+    ladoesq/.style={lado, anchor=base, rotate=90},
+    eixoesq/.style={eixo, anchor=base, xshift=-0.45cm, rotate=90},
+    % A amostra da legenda, centrada na altura do x do texto ao lado.
+    amostra/.style={minimum width=0.55cm, minimum height=0.3cm,
+      inner sep=0pt, rounded corners=1pt, yshift=0.5ex},
+  },
+}
+
 % This package is useful for adding todo notes to the side of the text.
 % Use 'disable' option to remove all todo notes from output.
 % Run 'texdoc todonotes' in the terminal for help.

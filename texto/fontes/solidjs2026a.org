@@ -10,3 +10,11 @@
 - Lido em: https://docs.solidjs.com/concepts/derived-values/derived-signals,
   em 2026-10-06.
 - Conferido: 2026-10-06.
+
+* [[file:../intro.org::Nos declarativos, o programador descreve a tela][intro: Nos declarativos, o programador descreve a tela]] (o derivado como função)
+- Frase: “No código, isso se vê no derivado, que vira uma função à parte
+  (SolidJS, 2026a)”.
+- Trecho: “Derived signals are functions that rely on one or more signals
+  to produce a value.”
+- Lido em: =acervo/paginas-web/solidjs2026-derived-signals.mdx=.
+- Conferido: 2026-10-31.
