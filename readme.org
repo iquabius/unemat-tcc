@@ -8,8 +8,8 @@
   ao estado, combinado com um de propagação, do estado à tela, pelas
   Dimensões Cognitivas de Notações, aplicadas ao código. O /benchmark/ de
   notação são sete interfaces (Contador, Reserva de passagem, Busca com
-  sugestões, Login com quarentena, Placar ao vivo, Planilha e Circle
-  Drawer), implementadas no Web Component e no React e avaliadas em três
+  sugestões, Login com quarentena, Placar ao vivo, Planilha e Desenhador
+  de círculos), implementadas no Web Component e no React e avaliadas em três
   rodadas, a terceira com mais quatro modelos de programação na Busca, no
   Login e no Placar ao vivo. Os termos do projeto estão no =GLOSSARY.md=.
 

@@ -1,15 +1,15 @@
-#+TITLE: Circle Drawer
+#+TITLE: Desenhador de círculos
 
-O Circle Drawer do 7GUIs (Kiss 2014, §3.8, p. 40), na pasta
-=desenho-de-circulos=: círculos desenhados num /canvas/, com o círculo sob
-o ponteiro selecionado, o diâmetro ajustado num diálogo aberto pelo menu do
-botão direito e o desfazer e o refazer de cada passo. É a interface do
-histórico, para o usuário corrigir o desenho sem recomeçar; do diálogo que
-guarda o círculo escolhido entre o menu e o ajuste (o controle de diálogo),
-para o usuário ajustar o círculo que escolheu, e não o que estiver sob o
-ponteiro; e do círculo sob o ponteiro, derivado da posição e da lista, para
-o usuário ver em que círculo vai agir. O arrastar e o salvamento num
-servidor simulado entram na segunda rodada.
+O Desenhador de círculos, o Circle Drawer do 7GUIs (Kiss 2014, §3.8,
+p. 40), na pasta =desenho-de-circulos=: círculos desenhados num /canvas/,
+com o círculo sob o ponteiro selecionado, o diâmetro ajustado num diálogo
+aberto pelo menu do botão direito e o desfazer e o refazer de cada passo. É
+a interface do histórico, para o usuário corrigir o desenho sem recomeçar;
+do diálogo que guarda o círculo escolhido entre o menu e o ajuste (o
+controle de diálogo), para o usuário ajustar o círculo que escolheu, e não
+o que estiver sob o ponteiro; e do círculo sob o ponteiro, derivado da
+posição e da lista, para o usuário ver em que círculo vai agir. O arrastar
+e o salvamento num servidor simulado entram na segunda rodada.
 
 As regras que não dependem da tela ficam em =dominio.ts=: as medidas, as
 mensagens, a escolha do círculo sob o ponteiro (=circuloSob=) e o corpo do

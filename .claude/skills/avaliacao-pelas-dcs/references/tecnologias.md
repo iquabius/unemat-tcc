@@ -97,9 +97,9 @@ parte (ADR 0042).
 - **Lit** (`entorno/lit/`, atribuição × re-renderização), a partir do
   Web Component: a mesma classe e a mesma orquestração; o `@state()` e o
   `render()` com o *template* do `html` no lugar das escritas na tela,
-  e o dado trocado por uma cópia; até a tcc-f50c, o Circle Drawer e a
-  Planilha ainda alteram no lugar, seguido de `requestUpdate()`, e o
-  guia lê o código como ele está. Documentação: lit.dev.
+  e o dado trocado por uma cópia; até a tcc-f50c, o Desenhador de
+  círculos e a Planilha ainda alteram no lugar, seguido de
+  `requestUpdate()`, e o guia lê o código como ele está. Documentação: lit.dev.
 - **Solid** (`entorno/solid/`, atribuição × granular), a partir do
   React: o componente executa uma vez; o estado em `createSignal`, lido
   chamando (`contador()`); o derivado numa função que lê o *signal* ou

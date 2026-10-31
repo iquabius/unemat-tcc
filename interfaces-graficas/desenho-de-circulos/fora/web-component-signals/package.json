@@ -2,7 +2,7 @@
   "name": "desenho-de-circulos-web-component-signals",
   "private": true,
   "type": "module",
-  "description": "Circle Drawer em Web Component com os signals do solid-js, sem JSX",
+  "description": "Desenhador de círculos em Web Component com os signals do solid-js, sem JSX",
   "scripts": {
     "dev": "vite",
     "build": "tsc -p . && vite build",

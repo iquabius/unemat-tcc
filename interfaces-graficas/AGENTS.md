@@ -256,9 +256,9 @@ A mudança não se porta para o código de `autorais/`, que é registro.
   da versão do Solid (1.9), sem JSX:
   - nenhum tratador escreve na tela: ele altera um *signal*
     (`createSignal`), ou o *store* com `produce` onde o Solid da
-    interface guarda nele o estado, como a lista do Circle Drawer; o
-    derivado é um `createMemo` ou uma função, como no Solid da
-    interface, e cada escrita na tela que acompanha o estado
+    interface guarda nele o estado, como a lista do Desenhador de
+    círculos; o derivado é um `createMemo` ou uma função, como no Solid
+    da interface, e cada escrita na tela que acompanha o estado
     (`textContent`, `value`, `disabled`, `hidden`, atributo) fica num
     `createEffect`; o texto inicial que a montagem do Web Component já
     escreve fica nela;
@@ -282,8 +282,8 @@ A mudança não se porta para o código de `autorais/`, que é registro.
   o Solid; a orquestração do Solid, contra a do Web Component no
   tratador, para o passo ao Solid mudar só a montagem e o modelo de
   componente. O
-  *store* é decisão do autor de 2026-10-24, pelo mesmo motivo: no Circle
-  Drawer, a lista se altera no lugar com `produce`, como no Solid,
+  *store* é decisão do autor de 2026-10-24, pelo mesmo motivo: no Desenhador
+  de círculos, a lista se altera no lugar com `produce`, como no Solid,
   contra o *signal* da lista copiada, a forma do React, e o *signal* com
   `equals: false`, a do Web Component (ADR 0040).
 
@@ -334,14 +334,14 @@ A mudança não se porta para o código de `autorais/`, que é registro.
   - o elemento que um tratador chama (o `showModal()` de um diálogo) vem
     de `@query`, e o que o *template* não monta, como o desenho no
     canvas, se faz no `updated()`;
-  - o que o Web Component altera no lugar, como a lista do Circle
-    Drawer e os mapas da Planilha, se troca por uma cópia, como no
+  - o que o Web Component altera no lugar, como a lista do Desenhador
+    de círculos e os mapas da Planilha, se troca por uma cópia, como no
     React, porque o Lit compara o `@state()` por referência e a
     documentação dele recomenda os dados imutáveis: o passo do Web
     Component ao Lit muda a propagação com o dado copiado, e o texto o
     declara (ADR 0042; decisão do autor em 2026-10-25, tcc-f50c). Até a
-    tcc-f50c, o Circle Drawer e a Planilha ainda alteram no lugar,
-    seguido de `requestUpdate()`.
+    tcc-f50c, o Desenhador de círculos e a Planilha ainda alteram no
+    lugar, seguido de `requestUpdate()`.
 
   Os decoradores são os do TypeScript (`experimentalDecorators` e
   `useDefineForClassFields: false` no `tsconfig.json` da

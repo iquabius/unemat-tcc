@@ -2,7 +2,7 @@
   "name": "desenho-de-circulos-web-component",
   "private": true,
   "type": "module",
-  "description": "Circle Drawer em Web Component (DOM puro, classe e callbacks)",
+  "description": "Desenhador de círculos em Web Component (DOM puro, classe e callbacks)",
   "scripts": {
     "dev": "vite",
     "build": "tsc -p . && vite build",
