@@ -253,7 +253,7 @@ A mudança não se porta para o código de `autorais/`, que é registro.
   a do Web Component da interface, letra por letra: a mesma classe, o
   mesmo esqueleto, os mesmos `querySelector` e `createElement`. Mudam a
   ligação do estado com a tela e a orquestração, escritas com o `solid-js`
-  da versão do Solid (1.9), sem JSX (ADR 0013):
+  da versão do Solid (1.9), sem JSX:
   - nenhum tratador escreve na tela: ele altera um *signal*
     (`createSignal`), ou o *store* com `produce` onde o Solid da
     interface guarda nele o estado, como a lista do Circle Drawer; o
@@ -275,11 +275,13 @@ A mudança não se porta para o código de `autorais/`, que é registro.
     o Solid limpa (o relógio, a conexão, a tentativa aberta) se
     registra com `onCleanup` dentro do `createRoot`.
 
-  As duas últimas são decisões do autor de 2026-10-23: o laço, contra o
-  `mapArray` do `<For>` do Solid, para a montagem continuar igual à do
-  Web Component e mudar só no passo para o Solid (ADR 0013); a
-  orquestração do Solid, contra a do Web Component no tratador, para o
-  par com o Solid diferir só na montagem e no modelo de componente. O
+  As duas últimas são decisões do autor de 2026-10-23, de quando ele
+  ficava entre o Web Component e o Solid na cadeia de pares (até
+  2026-10-30): o laço, contra o `mapArray` do `<For>` do Solid, para a
+  montagem continuar igual à do Web Component e mudar só no passo para
+  o Solid; a orquestração do Solid, contra a do Web Component no
+  tratador, para o passo ao Solid mudar só a montagem e o modelo de
+  componente. O
   *store* é decisão do autor de 2026-10-24, pelo mesmo motivo: no Circle
   Drawer, a lista se altera no lugar com `produce`, como no Solid,
   contra o *signal* da lista copiada, a forma do React, e o *signal* com
@@ -296,7 +298,8 @@ A mudança não se porta para o código de `autorais/`, que é registro.
   primeira leitura. O `solid-js` 2.0 muda a assinatura do `createEffect`.
 - No Lit (`<interface>/entorno/lit/`), a implementação é a do Web
   Component da interface em tudo que não é a ligação do estado com a tela
-  (decisão do autor em 2026-10-25, tcc-cp6c): a mesma classe, registrada
+  e a cópia do dado (decisões do autor em 2026-10-25, tcc-cp6c e
+  tcc-f50c): a mesma classe, registrada
   com `customElements.define`, a mesma orquestração e o mesmo gancho de
   montagem da página comum, ou a montagem direta no `index.html` no
   Contador e na Planilha. A forma de cada parte, abaixo, vem das sete
@@ -331,17 +334,21 @@ A mudança não se porta para o código de `autorais/`, que é registro.
   - o elemento que um tratador chama (o `showModal()` de um diálogo) vem
     de `@query`, e o que o *template* não monta, como o desenho no
     canvas, se faz no `updated()`;
-  - o que o Web Component altera no lugar se altera no lugar, seguido de
-    `requestUpdate()`, porque o Lit compara o `@state()` por referência,
-    como a lista do Circle Drawer e os mapas da Planilha. A documentação
-    do Lit recomenda os dados imutáveis, mas a alteração fica no lugar,
-    para o par com o Web Component diferir só na ligação (decisão do
-    autor em 2026-10-25, tcc-cp6c).
+  - o que o Web Component altera no lugar, como a lista do Circle
+    Drawer e os mapas da Planilha, se troca por uma cópia, como no
+    React, porque o Lit compara o `@state()` por referência e a
+    documentação dele recomenda os dados imutáveis: o passo do Web
+    Component ao Lit muda a propagação com o dado copiado, e o texto o
+    declara (ADR 0042; decisão do autor em 2026-10-25, tcc-f50c). Até a
+    tcc-f50c, o Circle Drawer e a Planilha ainda alteram no lugar,
+    seguido de `requestUpdate()`.
 
   Os decoradores são os do TypeScript (`experimentalDecorators` e
   `useDefineForClassFields: false` no `tsconfig.json` da
   implementação), como no modelo `lit-ts` do create-vite, sem Babel. O
-  Lit com `@lit-labs/signals` fica fora (ADR 0013).
+  Lit com `@lit-labs/signals` fica fora: o `render()` continua a
+  executar, o que poria a re-renderização contra um híbrido, e o pacote
+  é experimental (`docs/plataformas/web.md`).
 - O Solid (`<interface>/entorno/solid/`) se lê como um passo a partir do
   React da interface, que muda a propagação, de re-renderização a
   granular, com o JSX num dialeto um pouco diferente (ADR 0042): o
