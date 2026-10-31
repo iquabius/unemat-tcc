@@ -16,7 +16,10 @@ cada uma inteira: a velha numa moldura vermelha tracejada, "antes", e a
 nova numa moldura azul, "depois", as cores do \\DIFdel e do \\DIFadd. Um
 diff palavra a palavra entre as duas pinta as palavras apagadas na velha
 (\\DIFdelfig, vermelho) e as acrescentadas na nova (\\DIFaddfig, azul), só na
-cor: o \\sout e o \\uwave do ulem não se testaram dentro dos nós. A
+cor: o \\sout e o \\uwave do ulem não se testaram dentro dos nós. No nó de
+texto claro, como o branco sobre o roxo do núcleo, a cor escura se perderia
+no fundo, e a palavra sai num tom claro da mesma cor, azul-claro ou
+rosa-claro (o \\DIFfigcor do PREAMBULO, escolha do autor em 2026-10-31). A
 figura inteira acrescentada ganha a moldura azul, "figura nova"; a
 apagada sai do comentário, na moldura vermelha, "figura apagada", onde
 estava. A figura em que só mudou comentário ou espaço fica como o
@@ -88,8 +91,12 @@ níveis de chaves não conta como literal. A figura sem \\label em comum
 que troca quase todo o texto fica sem par, apagada e nova: a de uma só
 palavra que muda, a de uma que passa a nove, a que ganha texto onde não
 havia nenhum, a que passa o texto para o argumento de um comando que não
-é de texto (o \\textcolor). As palavras pintadas nas caixas de texto
-branco (as tecnologias) perdem contraste.
+é de texto (o \\textcolor). A cor da palavra pintada segue a do texto, e
+não a do fundo: o texto escuro num fundo escuro sai em azul ou
+vermelho, e o claro num fundo claro, no tom claro, e os dois se leem mal
+como já se liam sem o diff. O \\DIFfigcor não lê a cor de texto que o
+pacote color definiu antes de o xcolor carregar ("Undefined color
+model"), e a figura que a usa sai sem pintura.
 """
 import difflib
 import importlib.util
@@ -192,10 +199,22 @@ Grupo = namedtuple("Grupo", "fecha texto dono inicio")
 # (de 0,12 a 0,20; 0,155 entre a cadeia e a grade do núcleo, 2026-10-31).
 PISO = 0.22
 
+# A cor da palavra pintada sai do \DIFfigcor: no texto claro (o cinza do
+# xcolor, 0,3 R + 0,59 G + 0,11 B, acima de 0,5), que pede fundo escuro, o
+# tom claro da marca, e no escuro, o azul e o vermelho do \DIFadd e do
+# \DIFdel. O tom claro guarda dois terços do contraste do branco com o
+# fundo: 4,6:1 no roxo do núcleo (#7B3FA8), onde o branco tem 6,7:1.
 PREAMBULO = r"""%DIF FIGURAS TIKZ (bin/figura-no-diff.py)
 \RequirePackage{tikz}
-\providecommand{\DIFaddfig}[1]{{\protect\color{blue}#1}}
-\providecommand{\DIFdelfig}[1]{{\protect\color{red}#1}}
+\definecolor{DIFaddfigclaro}{HTML}{A8DCFF}
+\definecolor{DIFdelfigclaro}{HTML}{FFC8C8}
+\providecommand{\DIFfigcor}[2]{%
+  \colorlet{DIFfigtexto}{.}%
+  \extractcolorspec{DIFfigtexto}\DIFfigspec
+  \expandafter\convertcolorspec\DIFfigspec{gray}\DIFfigcinza
+  \ifdim\DIFfigcinza pt>0.5pt \color{#2}\else\color{#1}\fi}
+\providecommand{\DIFaddfig}[1]{{\protect\DIFfigcor{blue}{DIFaddfigclaro}#1}}
+\providecommand{\DIFdelfig}[1]{{\protect\DIFfigcor{red}{DIFdelfigclaro}#1}}
 \tikzset{
   DIFaddfigura/.style={execute at end picture={
     \draw[blue, thick, rounded corners=2pt]

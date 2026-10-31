@@ -26,10 +26,12 @@ preâmbulo, sem e com o minted do TCC, que pede o shell escape na
 compilação de teste, a pintada no argumento de cor de um comando do
 documento, a de dentro da matemática, a que aloca um comprimento, que só
 compila uma vez, a do argumento do \\textbf e a cujo \\newlength saiu
-dela.
+dela. O CorDaPalavraPintada, sem o latexdiff, confere a cor da palavra
+pintada no nó de texto branco e no de texto preto.
 
     python3 -m unittest discover -s bin -p 'test_*.py'
 """
+import importlib.util
 import os
 import re
 import shutil
@@ -410,6 +412,43 @@ class DeclaracaoQueSaiuDaFigura(Diff):
         # Cada versão compila sozinha, e o documento com elas, não.
         self.assertNotIn("figura=", sem_comentarios(self.diff))
         self.assertIn("não compila com as figuras", self.erros)
+
+
+@unittest.skipUnless(TEX, "sem latexdiff ou pdflatex no host")
+class CorDaPalavraPintada(unittest.TestCase):
+    """A palavra pintada no nó de texto branco, como na caixa roxa do
+    núcleo, sai no tom claro, e no de texto preto, no azul ou no vermelho:
+    o \\DIFfigcor do preâmbulo do bin/figura-no-diff.py, compilado, escreve
+    no .log a cor em que cada palavra sai."""
+
+    def test_tom_claro_so_no_texto_claro(self):
+        spec = importlib.util.spec_from_file_location(
+            "figura_no_diff", SCRIPT.with_name("figura-no-diff.py"))
+        filtro = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(filtro)
+        nos = "".join(
+            f"\\node[{opcoes}] {{\\{cmd}{{\\cor{{{nome}}}x}}}};\n"
+            for nome, cmd, opcoes in (
+                ("add-claro", "DIFaddfig", "fill=black, text=white"),
+                ("add-escuro", "DIFaddfig", "draw"),
+                ("del-claro", "DIFdelfig", "fill=black, text=white"),
+                ("del-escuro", "DIFdelfig", "fill=yellow")))
+        tex = documento(
+            "\\begin{tikzpicture}\n" + nos + "\\end{tikzpicture}\n",
+            "\\usepackage{tikz}\n" + filtro.PREAMBULO
+            + "\\newcommand{\\cor}[1]{\\extractcolorspec{.}\\spec"
+            "\\expandafter\\convertcolorspec\\spec{HTML}\\html\\typeout{COR #1 \\html}}\n")
+        with tempfile.TemporaryDirectory() as tmp:
+            Path(tmp, "cor.tex").write_text(tex, encoding="utf-8")
+            pdf = subprocess.run(
+                HOST + ["sh", "-c", 'cd "$1" && exec pdflatex -interaction=nonstopmode '
+                        '-halt-on-error cor.tex', "sh", tmp],
+                capture_output=True, text=True)
+            self.assertEqual(pdf.returncode, 0, pdf.stdout[-2000:])
+            log = Path(tmp, "cor.log").read_text(encoding="utf-8", errors="replace")
+        self.assertEqual(dict(re.findall(r"^COR (\S+) (\S+)$", log, re.M)),
+                         {"add-claro": "A8DCFF", "add-escuro": "0000FF",
+                          "del-claro": "FFC8C8", "del-escuro": "FF0000"})
 
 
 del Diff
