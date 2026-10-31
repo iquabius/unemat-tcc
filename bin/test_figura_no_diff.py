@@ -3,9 +3,11 @@
 da saída do latexdiff 1.4.0 (2026-10-29), com o PICTUREENV do
 bin/latexdiff-tcc.sh, para uma figura com um nó trocado e uma linha em
 branco dentro, uma figura inteira acrescentada e outra apagada, duas
-figuras trocadas no mesmo float, duas trocadas por uma, uma fora de float,
-uma dentro de um \\resizebox e uma listagem minted com um tikzpicture
-dentro. O caso com o latexdiff e o pdflatex está no test_latexdiff_tcc.py.
+figuras trocadas no mesmo float, duas trocadas por uma, duas diferentes
+no mesmo bloco, a palavra partida por um %, o par no piso, o mesmo
+\\label abaixo dele, uma fora de float, uma dentro de um \\resizebox e
+uma listagem minted com um tikzpicture dentro. O caso com o latexdiff e
+o pdflatex está no test_latexdiff_tcc.py.
 
     python3 -m unittest discover -s bin -p 'test_*.py'
 """
@@ -392,13 +394,14 @@ class Varias(unittest.TestCase):
                "".join(fig(n) for n in novas), fl)) + FIM
 
     def test_duas_trocadas_saem_em_dois_pares(self):
-        saida = figuras(self.bloco(["Alfa", "Beta"], ["Gama", "Delta"]))
+        saida = figuras(self.bloco(["Alfa um", "Beta um"], ["Alfa dois", "Beta dois"]))
         self.assertEqual(saida.count("[DIFdelfigura=antes]"), 2)
         self.assertEqual(saida.count("[DIFaddfigura=depois]"), 2)
-        for palavra in ("\\DIFdelfig{Alfa}", "\\DIFdelfig{Beta}", "\\DIFaddfig{Gama}",
-                        "\\DIFaddfig{Delta}"):
+        for palavra in ("{Alfa \\DIFdelfig{um}}", "{Beta \\DIFdelfig{um}}",
+                        "{Alfa \\DIFaddfig{dois}}", "{Beta \\DIFaddfig{dois}}"):
             self.assertIn(palavra, saida)
-        self.assertLess(saida.index("\\DIFdelfig{Alfa}"), saida.index("\\DIFdelfig{Beta}"))
+        self.assertLess(saida.index("{Alfa \\DIFdelfig{um}}"),
+                        saida.index("{Beta \\DIFdelfig{um}}"))
         self.assertIn("\\ifmmode\\else\\endgraf\\fi}\\ifmmode\\else\\medskip\\fi\n%DIFDELCMD < %%%\n\\DIFdelendFL", saida)
 
     def test_uma_sai_e_outra_entra_sem_forcar_par(self):
@@ -436,8 +439,38 @@ class Varias(unittest.TestCase):
         self.assertIn("[DIFdelfigura=antes]\n\\node (a) {Beta \\DIFdelfig{dois}};", saida)
         self.assertIn("[DIFaddfigura=depois]\n\\node (a) {Beta \\DIFaddfig{tres}};", saida)
 
+    def test_figuras_diferentes_nao_formam_par(self):
+        # Abaixo do PISO na razão das palavras, a velha sai apagada e a
+        # nova, nova, sem palavra pintada.
+        saida = figuras(self.bloco(["Alfa Beta Gama Delta Epsilon"],
+                                   ["Alfa Zeta Eta Teta Iota"]))
+        self.assertIn("[DIFdelfigura=figura apagada]\n\\node (a) {Alfa Beta", saida)
+        self.assertIn("[DIFaddfigura=figura nova]\n\\node (a) {Alfa Zeta", saida)
+        self.assertNotIn("\\DIFaddfig{", saida)
+
+    def test_palavra_partida_por_comentario_e_uma_so(self):
+        # "AB" e "A%" seguido de "B" imprimem o mesmo: o par se forma, e a
+        # figura fica como o latexdiff a deixou; com outra palavra mudada,
+        # o par se forma e só ela se pinta.
+        diff = self.bloco(["AB"], ["A%\nB"])
+        self.assertEqual(figuras(diff), diff)
+        saida = figuras(self.bloco(["AB C"], ["A%\nB D"]))
+        self.assertIn("[DIFaddfigura=depois]\n\\node (a) {A%\nB \\DIFaddfig{D}};", saida)
+
+    def test_par_no_piso(self):
+        # Uma palavra de quatro em comum: razão 0,25, acima do PISO.
+        saida = figuras(self.bloco(["Alfa Beta Gama Delta"], ["Alfa Zeta Eta Teta"]))
+        self.assertIn("[DIFaddfigura=depois]", saida)
+
+    def test_mesmo_label_forma_par_abaixo_do_piso(self):
+        self.assertEqual(fd.alinhar([fig("Alfa\\label{a}")], [fig("Beta\\label{a}")]),
+                         {0: 0})
+        # Repetido num dos lados, o \label em comum ainda dispensa o piso.
+        self.assertEqual(len(fd.alinhar([fig("Alfa\\label{a}"), fig("Gama\\label{a}")],
+                                        [fig("Beta\\label{a}")])), 1)
+
     def test_par_fora_de_float(self):
-        saida = figuras(self.bloco(["Alfa"], ["Beta"], fl=""))
+        saida = figuras(self.bloco(["Alfa"], ["Alfa Beta"], fl=""))
         self.assertIn("\\DIFdelbegin {\\ifmmode\\else\\endgraf\\centering\\fi\n"
                       "\\begin{tikzpicture}[DIFdelfigura=antes]", saida)
         self.assertIn("\\DIFaddbegin \\begin{tikzpicture}[DIFaddfigura=depois]", saida)
@@ -447,13 +480,13 @@ class Varias(unittest.TestCase):
             "\\DIFdelbeginFL " + comentada("\\resizebox{\\linewidth}{!}{%\n"
                                            + fig("Alfa") + "}\n%%%")
             + "\n\\DIFdelendFL \\DIFaddbeginFL \\resizebox{\\linewidth}{!}{%\n"
-            + fig("Beta") + "}\n\\DIFaddendFL ") + FIM
+            + fig("Alfa Beta") + "}\n\\DIFaddendFL ") + FIM
         saida = figuras(diff)
         self.assertIn(" %DIFDELCMD < \\resizebox{\\linewidth}{!}{%\n{\\ifmmode\\else\\endgraf\\centering\\fi\n"
-                      "\\begin{tikzpicture}[DIFdelfigura=antes]\n\\node (a) {\\DIFdelfig{Alfa}};\n"
+                      "\\begin{tikzpicture}[DIFdelfigura=antes]\n\\node (a) {Alfa};\n"
                       "\\end{tikzpicture}\\ifmmode\\else\\endgraf\\fi}\\ifmmode\\else\\medskip\\fi\n%DIFDELCMD < }\n", saida)
         self.assertIn("{%\n\\begin{tikzpicture}[DIFaddfigura=depois]\n"
-                      "\\node (a) {\\DIFaddfig{Beta}};", saida)
+                      "\\node (a) {Alfa \\DIFaddfig{Beta}};", saida)
 
 
 class Texto(unittest.TestCase):

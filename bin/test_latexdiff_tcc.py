@@ -243,7 +243,7 @@ def duas(um, dois, flutuante=True):
 
 
 class DuasFigurasNoMesmoFloat(Diff):
-    CASO = (duas("Alfa", "Beta"), duas("Gama", "Delta"))
+    CASO = (duas("Alfa um", "Beta um"), duas("Alfa dois", "Beta dois"))
 
     def test_diff_compila(self):
         self.compila()
@@ -255,15 +255,16 @@ class DuasFigurasNoMesmoFloat(Diff):
 
 
 class FigurasForaDeFloat(Diff):
-    CASO = (duas("Alfa", "Beta", flutuante=False), duas("Alfa", "Gama", flutuante=False))
+    CASO = (duas("Alfa", "Beta um", flutuante=False),
+            duas("Alfa", "Beta dois", flutuante=False))
 
     def test_diff_compila(self):
         self.compila()
 
     def test_par_fora_de_float(self):
         texto = sem_comentarios(self.diff)
-        self.assertIn("\\node (a) {\\DIFdelfig{Beta}};", texto)
-        self.assertIn("\\node (a) {\\DIFaddfig{Gama}};", texto)
+        self.assertIn("\\node (a) {Beta \\DIFdelfig{um}};", texto)
+        self.assertIn("\\node (a) {Beta \\DIFaddfig{dois}};", texto)
 
 
 def com_estilo(nome, minted=False):
@@ -353,7 +354,7 @@ class AlocacaoNaFigura(Diff):
     """O \\newlength da figura compila na velha e na nova, cada uma sozinha,
     e não nas duas juntas ("Command \\largura already defined"): o diff sai
     como sem o filtro."""
-    CASO = (com_largura("quatro vertentes"), com_largura("a biblioteca"))
+    CASO = (com_largura("quatro vertentes"), com_largura("quatro bibliotecas"))
 
     def test_diff_compila(self):
         self.compila()
@@ -373,7 +374,7 @@ class FiguraNoArgumentoDeUmComando(Diff):
     """No argumento do \\textbf, que não é \\long, o \\par do parágrafo da
     figura velha parava o pdflatex ("Paragraph ended before
     \\text@command was complete")."""
-    CASO = (em_negrito("quatro vertentes"), em_negrito("uma biblioteca"))
+    CASO = (em_negrito("quatro vertentes"), em_negrito("quatro bibliotecas"))
 
     def test_diff_compila(self):
         self.compila()
@@ -382,7 +383,7 @@ class FiguraNoArgumentoDeUmComando(Diff):
         # Com o \par, o filtro recuaria para o diff sem as figuras.
         texto = sem_comentarios(self.diff)
         self.assertIn("[DIFdelfigura=antes]", texto)
-        self.assertIn("\\DIFaddfig{uma biblioteca}", texto)
+        self.assertIn("quatro \\DIFaddfig{bibliotecas}", texto)
 
 
 class DeclaracaoQueSaiuDaFigura(Diff):
@@ -399,7 +400,7 @@ class DeclaracaoQueSaiuDaFigura(Diff):
 
         \\newlength{\\largura}\\setlength{\\largura}{3cm}
         \\begin{tikzpicture}
-        \\node[draw, minimum width=\\largura] {uma biblioteca};\\end{tikzpicture}
+        \\node[draw, minimum width=\\largura] {quatro bibliotecas};\\end{tikzpicture}
         """, "\\usepackage{tikz}\n"))
 
     def test_diff_compila(self):

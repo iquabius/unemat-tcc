@@ -27,12 +27,15 @@ que vem logo depois dele. As duas com o mesmo \\label dentro (fora de
 comentário) formam par, em qualquer ordem, e duas com \\label diferentes
 nunca formam; as outras se alinham na ordem dos dois lados, pela maior
 soma da semelhança (semelhanca()), e a figura sem par fica nova ou
-apagada. Duas figuras sem \\label que trocam de lugar entre si não se
-cruzam: uma forma par, e a outra sai apagada e nova. A figura dentro de
-um comentário, de um código em linha (\\verb, \\lstinline, \\mintinline)
-ou de um ambiente literal (os do ambientes_literais() do
-bin/marcar-quebras.py menos o tikzpicture: o minted, o verbatim, o
-lstlisting) é texto e fica como está.
+apagada. Duas figuras sem \\label em comum e com menos de PISO na razão
+das palavras são figuras diferentes e não formam par, como a cadeia de
+pares que a grade do núcleo substituiu em 2026-10-31: pareadas, a nova
+saía com quase todas as palavras pintadas. Duas figuras sem \\label que
+trocam de lugar entre si não se cruzam: uma forma par, e a outra sai
+apagada e nova. A figura dentro de um comentário, de um código em linha
+(\\verb, \\lstinline, \\mintinline) ou de um ambiente literal (os do
+ambientes_literais() do bin/marcar-quebras.py menos o tikzpicture: o
+minted, o verbatim, o lstlisting) é texto e fica como está.
 
 Antes de soltar, o filtro compila no pdflatex o diff inteiro, como sai,
 com os DIR no TEXINPUTS (compilador()); por isso ele é o último do pipe do
@@ -81,8 +84,12 @@ comando do documento que não é texto, mas não para o pdflatex (a chave de
 um \\cite dentro de um comando próprio, o argumento de um \\detokenize),
 sai errada no diff. O \\label da legenda, fora do tikzpicture, não
 identifica a figura no pareamento. O código em linha com mais de três
-níveis de chaves não conta como literal. As palavras pintadas nas caixas
-de texto branco (as tecnologias) perdem contraste.
+níveis de chaves não conta como literal. A figura sem \\label em comum
+que troca quase todo o texto fica sem par, apagada e nova: a de uma só
+palavra que muda, a de uma que passa a nove, a que ganha texto onde não
+havia nenhum, a que passa o texto para o argumento de um comando que não
+é de texto (o \\textcolor). As palavras pintadas nas caixas de texto
+branco (as tecnologias) perdem contraste.
 """
 import difflib
 import importlib.util
@@ -179,6 +186,11 @@ PARAGRAFO = re.compile(r"\n[ \t]*\n")
 # do TikZ (TIKZ), como o corpo do \foreach.
 TIKZ = None
 Grupo = namedtuple("Grupo", "fecha texto dono inicio")
+
+# A razão das palavras abaixo da qual duas figuras sem o mesmo \label não
+# formam par (semelhanca()): entre as redesenhadas (0,25) e as diferentes
+# (de 0,12 a 0,20; 0,155 entre a cadeia e a grade do núcleo, 2026-10-31).
+PISO = 0.22
 
 PREAMBULO = r"""%DIF FIGURAS TIKZ (bin/figura-no-diff.py)
 \RequirePackage{tikz}
@@ -354,32 +366,42 @@ def pintar(toks, trechos, cmd, comandos=TEXTO):
     return "".join(saida)
 
 
-def semelhanca(a, b, comandos):
+def semelhanca(a, b, comandos, piso=PISO):
     """A semelhança de duas figuras: o quadrado da razão das palavras de
-    texto, que separa a figura mudada da que só divide o esqueleto do TikZ,
-    mais um centésimo da dos tokens de código, que ainda pareia as duas
-    sem palavra em comum. Nas do delineamento, de v0.11 ao HEAD de
-    2026-10-29, a razão das palavras é 0,82 na cadeia e 0,25 nas interfaces
-    redesenhadas, e de 0,12 a 0,20 entre uma e outra; a dos tokens não as
-    separa (0,145 nas interfaces, de 0,135 a 0,139 entre uma e outra)."""
+    texto, como o codigo() as junta (a palavra partida por um % é uma só),
+    que separa a figura mudada da que só divide o esqueleto do TikZ, mais
+    um centésimo da dos tokens de código, que desempata as de mesma razão,
+    como as figuras sem palavra nenhuma. Nas do delineamento, de v0.11 ao
+    HEAD de 2026-10-29, a razão das palavras é 0,82 na cadeia e 0,25 nas
+    interfaces redesenhadas, e de 0,12 a 0,20 entre uma e outra; a dos
+    tokens não as separa (0,145 nas interfaces, de 0,135 a 0,139 entre uma
+    e outra). Com a razão das palavras abaixo do piso, as duas são figuras
+    diferentes, e a semelhança é None."""
     def razao(x, y):
         return difflib.SequenceMatcher(None, x, y, autojunk=False).ratio()
 
-    def palavras(toks):
-        return [t for (tipo, t), eh in zip(toks, texto(toks, comandos))
-                if eh and tipo == "palavra"]
+    def palavras(toks, cod):
+        eh = texto(toks, comandos)
+        return [v.rstrip() for i, _, v in cod
+                if toks[i][0] == "palavra" and eh[i]]
 
     ta, tb = tokens(a), tokens(b)
-    return razao(palavras(ta), palavras(tb)) ** 2 + razao(
-        [v for _, _, v in codigo(ta)], [v for _, _, v in codigo(tb)]) / 100
+    ca, cb = codigo(ta), codigo(tb)
+    das_palavras = razao(palavras(ta, ca), palavras(tb, cb))
+    if das_palavras < piso:
+        return None
+    return das_palavras ** 2 + razao(
+        [v for _, _, v in ca], [v for _, _, v in cb]) / 100
 
 
 def alinhar(velhas, novas, comandos=TEXTO):
     """Os pares {i: j} de figuras velhas e novas. As que têm o mesmo \\label
     dentro, um só de cada lado, são a mesma figura, em qualquer ordem. As
     outras se pareiam na ordem dos dois lados, com a maior soma de
-    semelhança: o par que somaria menos que outros não se forma, e as duas
-    figuras ficam sem par."""
+    semelhança: o par que somaria menos que outros, ou de figuras
+    diferentes (semelhança None), não se forma, e as duas figuras ficam
+    sem par. O par com um \\label em comum, repetido num dos lados, não
+    passa pelo PISO."""
     pares = {}
     rotulos_velhos = [set(ROTULO.findall(sem_comentarios(v))) for v in velhas]
     rotulos_novos = [set(ROTULO.findall(sem_comentarios(n))) for n in novas]
@@ -396,9 +418,12 @@ def alinhar(velhas, novas, comandos=TEXTO):
         for b in range(1, len(jn) + 1):
             rv, rn = rotulos_velhos[iv[a - 1]], rotulos_novos[jn[b - 1]]
             soma[a][b] = max(soma[a - 1][b], soma[a][b - 1])
-            if not (rv and rn) or rv & rn:  # rótulos diferentes: outras figuras
-                soma[a][b] = max(soma[a][b], soma[a - 1][b - 1] + semelhanca(
-                    velhas[iv[a - 1]], novas[jn[b - 1]], comandos))
+            if rv and rn and not rv & rn:  # rótulos diferentes: outras figuras
+                continue
+            par = semelhanca(velhas[iv[a - 1]], novas[jn[b - 1]], comandos,
+                             0 if rv & rn else PISO)
+            if par is not None:
+                soma[a][b] = max(soma[a][b], soma[a - 1][b - 1] + par)
     a, b = len(iv), len(jn)
     while a and b:
         if soma[a][b] == soma[a - 1][b]:
