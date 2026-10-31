@@ -202,10 +202,11 @@ dependem dela [[cite:bainomugisha2013][p. 52:2]].
    declarativo, em interfaces típicas da web, em TypeScript.
    Especificamente:
 
-   - implementar sete interfaces gráficas (Contador, Reserva de passagem,
-     Busca com sugestões, Login com quarentena, Placar ao vivo, Planilha e
-     Circle Drawer) com Web Component e React, estendê-las na segunda
-     rodada e refatorar três delas na terceira, um modo de cada vez;
+   - implementar com Web Component e React sete interfaces gráficas:
+     Busca com sugestões, Contador, Desenhador de círculos, Login com
+     quarentena, Placar ao vivo, Planilha e Reserva de passagem;
+   - estender as sete na segunda rodada e refatorar três delas na
+     terceira, um modo de cada vez;
    - avaliar as implementações pelas 14 [[glspl:dc]] em cada rodada;
    - sintetizar, por exigência de coordenação, o que cada modelo de
      programação facilita e o que dificulta, como no estado derivado e na
@@ -240,7 +241,7 @@ dependem dela [[cite:bainomugisha2013][p. 52:2]].
   As outras seis trazem exigências da coordenação: as de orquestração
   pesam na Busca com sugestões, no Login com quarentena e no Placar ao
   vivo, e as de gerenciamento de estado, na Reserva de passagem, na
-  Planilha e no Circle Drawer.
+  Planilha e no Desenhador de círculos.
 
   As sete interfaces são implementadas na web por duas tecnologias, o
   núcleo, em passos que mudam um modo de um eixo de cada vez
