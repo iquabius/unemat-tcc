@@ -53,6 +53,10 @@ de tarefas e o conversor de moedas) saiu também do repositório em
   | =entorno/solid=              | Solid (/signals/)                                        |
   | =fora/web-component-signals= | o Web Component, com os /signals/ do =solid-js=, sem JSX |
 
+  A terceira rodada e o entorno do núcleo acrescentam, na Busca, no
+  Login e no Placar ao vivo, uma subpasta por implementação, com a
+  forma dita no [[file:AGENTS.md][interfaces-graficas/AGENTS.md]].
+
 * Capturas de tela
 
   Cada interface guarda capturas versionadas em

@@ -228,7 +228,9 @@ A mudança não se porta para o código de `autorais/`, que é registro.
 - Crie o `cenas.mts` da interface (estados a capturar), gere as capturas com
   `npm run capturas -- <interface>` e versione-as no mesmo commit.
 - Implementações web em TypeScript, sem bibliotecas além do que cada
-  framework traz.
+  tecnologia traz (ADR 0029): o RxJS só nas implementações da terceira
+  rodada que o nomeiam, e as bibliotecas do entorno do núcleo só nele (seção
+  seguinte).
 - No Web Component, o esqueleto da tela se escreve em HTML num texto
   (marcado `/* HTML */`), atribuído ao `innerHTML` uma vez, e as partes
   repetidas (itens de lista, linhas de tabela) se criam com
@@ -340,6 +342,82 @@ A mudança não se porta para o código de `autorais/`, que é registro.
   `useDefineForClassFields: false` no `tsconfig.json` da
   implementação), como no modelo `lit-ts` do create-vite, sem Babel. O
   Lit com `@lit-labs/signals` fica fora (ADR 0013).
+- O Solid (`<interface>/entorno/solid/`) se lê como um passo a partir do
+  React da interface, que muda a propagação, de re-renderização a
+  granular, com o JSX num dialeto um pouco diferente (ADR 0042): o
+  derivado num `createMemo` ou numa função, a leitura do estado por
+  chamada, as partes repetidas em `<For>`. O código veio da cadeia de
+  pares (até 2026-10-30), em que o Solid partia do Web Component com
+  *signals*, e a orquestração dele é a daquele passo, como o
+  `createResource` da Busca, que o React não tem; a diferença de
+  orquestração que o passo trouxer se declara (ADR 0042).
+
+## Terceira rodada e entorno do núcleo: uma pasta por implementação
+
+A terceira rodada refatora o código da segunda da Busca, do Login e do
+Placar ao vivo, um modo de um eixo por passo, sem mudar o
+comportamento: cada passo chega a uma implementação nova, numa subpasta
+própria ao lado da de que parte, porque o quadrado lê o Web Component,
+o React e os dois com RxJS lado a lado (ADRs 0013 e 0029; os nomes,
+decisão do autor em 2026-10-31). Dois passos chegam ao React com RxJS,
+e por isso os cinco passos dão quatro pastas. Cada uma passa no teste de
+conformidade e nas cenas da segunda rodada, e o nome dela entra no
+`TECNOLOGIAS` do `implementacoes-web.mts` no commit da primeira
+implementação; os *workspaces* do `package.json` já cobrem toda subpasta
+dos três grupos. Em `nucleo/`:
+
+- `web-component-rxjs/`, a partir do Web Component: a orquestração, de
+  atribuição a acumulação. Os eventos viram fluxos do RxJS, e o estado
+  se define sobre eles (`scan`), sem *setter*; os derivados e a tela
+  continuam escritos à mão no *listener* do `subscribe`, com a montagem
+  do Web Component;
+- `react-reducer/`, a partir do React: a orquestração, de atribuição a
+  mensagem, pela receita de três passos da documentação do React
+  ("Extracting State Logic into a Reducer"): o tratador despacha uma
+  ação, e um *reducer* puro devolve o estado novo;
+- `react-rxjs/`, a partir do React com `useReducer`: a orquestração, de
+  mensagem a acumulação, com o mesmo *reducer* no `scan` de um fluxo de
+  ações e os derivados no corpo do componente, como no React, forma que
+  nenhuma documentação mostra, para que o passo seguinte mude só os
+  derivados. É também o fim do passo a partir do Web Component com
+  RxJS, que muda a propagação, de manual a re-renderização, e fecha o
+  quadrado;
+- `react-rxjs-derivados/`, a partir do React com RxJS: a propagação dos
+  derivados, do corpo do componente aos combinadores do RxJS, o
+  declarativo nos dois eixos.
+
+A ponte do React ao RxJS se escreve com o `useSyncExternalStore`, que
+vem no React e a deixa no código, como o `subscribe` do Web Component,
+com o estado num `BehaviorSubject`, e não com o `@react-rxjs/core`, que
+a esconde no `bind`; um protótipo confere a ponte antes da rodada (ADR
+0029). O XState, o `Observable` do WICG e as bibliotecas do ecossistema
+não entram: vão aos trabalhos futuros da conclusão (ADRs 0029 e 0042).
+
+No entorno do núcleo, em `entorno/`, cada tecnologia parte de uma
+implementação do núcleo num passo só, numa pasta própria, e o passo que
+muda mais de uma coisa se declara (ADR 0042). Na primeira rodada, nas
+sete interfaces, o Lit, a partir do Web Component, e o Solid, a partir
+do React (seção anterior). O Lit, o Solid e o Web Component com
+*signals*, de `fora/`, param na primeira rodada (ADR 0042): o commit
+do primeiro *delta spec* da segunda rodada faz o
+`implementacoes-web.mts` percorrer os três só quando o filtro os nomeia,
+e troca as frases que dizem que os comandos percorrem os três grupos
+ou o `fora/` (a primeira e a última seção daqui, o `README.org` e o ADR
+0025); o código deles fica no estado da
+primeira rodada, que o teste do commit anterior ao *delta* confere. Na
+Busca, no Login e no Placar ao vivo:
+
+- `web-component-effection/`, a partir do Web Component da segunda
+  rodada: a orquestração, de atribuição a sequencial, com o Effection
+  (4.2.0): o código espera o próximo evento e segue em ordem, com a
+  espera escrita como `yield*`; a montagem e a propagação ficam as do
+  Web Component;
+- `cycle/`, a partir do React com derivados no RxJS, com o Cycle.js
+  (`@cycle/run` 5.7.0, `@cycle/dom` 23.1.0, `xstream` 11.14.0): o passo
+  muda de uma vez a biblioteca de fluxos, o modelo de componente, os
+  efeitos, que vão a *drivers*, e a montagem da tela; o Placar ao vivo
+  leva um *driver* escrito à mão, porque o Cycle.js não tem um oficial
+  para ele.
 
 ## Teste de conformidade na web
 

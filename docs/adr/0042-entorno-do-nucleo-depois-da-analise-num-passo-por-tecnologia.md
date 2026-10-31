@@ -53,7 +53,11 @@ Cada uma entra no corpo, junto da análise dela, como diff quando ele é
 mais curto que a listagem, senão como a listagem inteira com as linhas
 mudadas realçadas (ADR 0017). O código vai à pasta `entorno/` da
 interface, fora do conjunto analisado (ADR 0025), e passa pelo teste de
-conformidade e pelas capturas da interface. A estrutura de pares se
+conformidade e pelas capturas da interface. O Lit, o Solid e o Web
+Component com *signals* param na primeira rodada: não recebem as
+mudanças da segunda, e, a partir do primeiro *delta spec* dela, os
+comandos só os percorrem quando o filtro os nomeia (decisão do autor em
+2026-10-31). A estrutura de pares se
 demonstra antes, na fundamentação, com o `for` contra o `map` e o
 `filter` e um contador nos modos de orquestração, sem as DCs.
 
