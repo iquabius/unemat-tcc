@@ -392,8 +392,8 @@ _Avoid_: versão, exemplo; solução (pede "problema" para a interface)
 **Conjunto analisado**:
 As implementações do núcleo, que a análise pelas DCs lê: as sete
 interfaces no Web Component e no React e os passos da terceira rodada
-(ADRs 0013 e 0029), em `interfaces-graficas/<interface>/analisadas/`; as
-de `entorno/`, ao lado, ficam de fora (ADR 0025).
+(ADRs 0013 e 0029), em `interfaces-graficas/<interface>/nucleo/`; as de
+`entorno/` e de `fora/`, ao lado, ficam de fora (ADR 0025).
 _Avoid_: recorte da análise (o recorte é o da pesquisa, ADR 0014); escopo;
 amostra (a amostra de tarefas é o conjunto das interfaces, no *benchmark*
 de notação)
