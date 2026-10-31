@@ -60,7 +60,7 @@ decisão do autor em 2026-10-26); até a tcc-f50c, o código do Lit ainda
 altera no lugar.
 
 Fontes: Kiss (2014, §3.8, p. 41-48), em `acervo/kiss2014.txt`;
-`interfaces-graficas/desenho-de-circulos/analisadas/lit/src/main.ts`;
+`interfaces-graficas/desenho-de-circulos/entorno/lit/src/main.ts`;
 commits `b3061870` (a decisão de 2026-10-19) e `07656463`; tarefas
 tcc-wtt6, tcc-cp6c e tcc-f50c; lit.dev, Properties, "Mutating object
 and array properties" (lida em 2026-10-25).

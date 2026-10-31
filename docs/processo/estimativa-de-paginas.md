@@ -91,11 +91,12 @@ nota, que os números dos dois blocos são os mesmos.
   (`pagina.ts`, ADR 0043) ficam fora do número e entram como linha à
   parte, porque não são notação. Até o script da tcc-hlh7 existir, a
   conta é o script da sessão sobre
-  `find interfaces-graficas/<interface>/analisadas/<tecnologia>/src -name '*.ts*'`,
-  sem os testes; a busca já deixa de fora o `entorno/` de cada
-  interface (que em 2026-10-25 ainda não existe) e o `autorais/`. Até
-  2026-10-25, o caminho era `implementacoes/<interface>/<tecnologia>/`,
-  e a conta deixava de fora `implementacoes/fora-da-analise/`.
+  `find interfaces-graficas/<interface>/nucleo/<tecnologia>/src -name '*.ts*'`,
+  sem os testes; a busca já deixa de fora o `entorno/`, o `fora/` e o
+  `autorais/`. De 2026-10-25 a 2026-10-31, o caminho era
+  `<interface>/analisadas/<tecnologia>/`; até 2026-10-25,
+  `implementacoes/<interface>/<tecnologia>/`, e a conta deixava de fora
+  `implementacoes/fora-da-analise/`.
 - **Total projetado sem o anexo:** pré-texto 9 + introdução ≈ 7 +
   capítulo 2 ≈ 18 (com os trabalhos relacionados) + análise + conclusão
   ≈ 5 + referências ≈ 12 + apêndices ≈ 5 = 56 + análise. Depois do

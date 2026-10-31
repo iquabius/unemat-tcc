@@ -17,9 +17,9 @@ export const TECNOLOGIAS = [
   "solid",
   "web-component-signals",
 ];
-// As pastas da interface com uma subpasta por tecnologia: o conjunto
-// analisado, o entorno do núcleo e o código fora dos dois.
-const GRUPOS = ["analisadas", "entorno", "fora"];
+// As pastas da interface com uma subpasta por tecnologia: o núcleo, o
+// entorno do núcleo e o código fora dos dois.
+const GRUPOS = ["nucleo", "entorno", "fora"];
 
 // O projeto da implementação, no grupo em que ela está, ou undefined se a
 // interface não a tem. As capturas de uma interface ficam numa pasta só,

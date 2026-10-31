@@ -56,7 +56,7 @@ Guia de leitura do agente, entregue antes da leitura do autor (skill
 conclusão: as perguntas são para o autor responder ao ditar. Atividade:
 <a da rodada>.
 
-Arquivos, a partir de `interfaces-graficas/<interface>/analisadas/`:
+Arquivos, a partir de `interfaces-graficas/<interface>/nucleo/`:
 - `WC.ts` = `web-component/src/main.ts`
 - `Solid.tsx` = `solid/src/main.tsx`
 - `React.tsx` = `react/src/main.tsx`

@@ -37,9 +37,9 @@ class Escolha(unittest.TestCase):
 
     def test_interface_roda_o_teste_as_capturas_dela_a_especificacao_e_a_formatacao(self):
         self.assertEqual(
-            rotulos("interfaces-graficas/formulario/analisadas/react/src/App.tsx",
+            rotulos("interfaces-graficas/formulario/nucleo/react/src/App.tsx",
                     "interfaces-graficas/dados-ao-vivo/dominio.ts",
-                    "interfaces-graficas/dados-ao-vivo/analisadas/solid/src/main.tsx"),
+                    "interfaces-graficas/dados-ao-vivo/entorno/solid/src/main.tsx"),
             ["especificação", "formatação",
              "teste de conformidade de dados-ao-vivo, formulario",
              "capturas de dados-ao-vivo, formulario"])

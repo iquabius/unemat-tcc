@@ -2,7 +2,7 @@
 
 Esta pasta guarda o código autoral (=GLOSSARY.md=): o que o autor
 escreveu à mão no CodeSandbox, antes das implementações de
-=interfaces-graficas/<interface>/analisadas/=, que os agentes de IA
+=interfaces-graficas/<interface>/=, que os agentes de IA
 geraram a partir de alguns desses /sandboxes/. É registro
 histórico, congelado como o CodeSandbox o guarda: nada aqui entra nos
 /workspaces/, no Prettier, nas capturas nem no teste de conformidade, e

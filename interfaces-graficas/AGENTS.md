@@ -5,17 +5,24 @@ tecnologias, para comparação no TCC. As decisões de escopo (interfaces,
 tecnologias) estão em `docs/adr/`; os termos, em `GLOSSARY.md` na
 raiz; instalação e uso, em `interfaces-graficas/README.org`. O código que
 o autor escreveu à mão fica congelado em `autorais/`, e o que sai da
-análise sai do repositório (última seção).
+análise sai do repositório, menos o Web Component com *signals* (última
+seção).
 
 A pasta de cada interface guarda o que vale para todas as tecnologias
 dela (o `dominio.ts`, o `estilo.css`, o `cenas.mts`, as capturas, o
 teste de conformidade e o `README.org`) e uma subpasta por tecnologia em
-`analisadas/`, o conjunto analisado, e em `entorno/`, as tecnologias do
-entorno da cadeia (ADR 0042), que vão passar pelo mesmo teste e pelas
-mesmas cenas (ADR 0025): `reserva-de-passagem/analisadas/react/`,
-`reserva-de-passagem/entorno/elm/`. Até a primeira implementação do
-entorno (tcc-o9p7), a pasta não existe, e os comandos daqui só
-percorrem `analisadas/`.
+três grupos (ADR 0025): `nucleo/`, o conjunto analisado, com as
+implementações do núcleo (ADR 0013); `entorno/`, as do entorno do
+núcleo (ADR 0042); e `fora/`, o Web Component com *signals*, que saiu
+da análise e do entorno com o código mantido no repositório (ADR 0042;
+a pasta, decisão do autor em 2026-10-31). Os três passam pelo mesmo
+teste e pelas mesmas cenas, e os comandos daqui percorrem os três:
+`reserva-de-passagem/nucleo/react/`,
+`reserva-de-passagem/entorno/solid/`,
+`reserva-de-passagem/fora/web-component-signals/`. O nome da tecnologia
+não se repete entre os grupos, porque as capturas de uma interface
+ficam numa pasta só, `capturas/<tecnologia>-<cena>.png`, e o
+`implementacoes-web.mts` recusa o nome que está em dois.
 
 No código, a variável de uma interface se chama `gui` (`guis` no
 plural): `interface` é palavra reservada do TypeScript, e `pasta` já
@@ -27,7 +34,7 @@ a das capturas no `capturar.mts`).
 Toda alteração que possa mudar a tela ou o comportamento de uma
 implementação exige conferir as capturas antes de dar o trabalho por pronto
 ou commitar. Isso inclui o código de
-`interfaces-graficas/<interface>/analisadas/<tecnologia>/`, o
+`interfaces-graficas/<interface>/<grupo>/<tecnologia>/`, o
 `estilo.css`, o `dominio.ts` e o `cenas.mts` de cada interface, o
 `interfaces-graficas/capturar.mts`, o
 `interfaces-graficas/implementacoes-web.mts`, que lista, constrói e serve
@@ -239,7 +246,8 @@ A mudança não se porta para o código de `autorais/`, que é registro.
   biblioteca montam a tela"), e o ADR 0037 diz as alternativas e o
   custo.
 - No Web Component com *signals*
-  (`<interface>/analisadas/web-component-signals/`), a montagem da tela é
+  (`<interface>/fora/web-component-signals/`), que não se lê na análise
+  nem no entorno do núcleo (ADR 0042), a montagem da tela é
   a do Web Component da interface, letra por letra: a mesma classe, o
   mesmo esqueleto, os mesmos `querySelector` e `createElement`. Mudam a
   ligação do estado com a tela e a orquestração, escritas com o `solid-js`
@@ -284,7 +292,7 @@ A mudança não se porta para o código de `autorais/`, que é registro.
   o `createRenderEffect` não faz falta. O *signal* lido fora de um efeito
   ou de um `createMemo` não é acompanhado, e a tela fica com o valor da
   primeira leitura. O `solid-js` 2.0 muda a assinatura do `createEffect`.
-- No Lit (`<interface>/analisadas/lit/`), a implementação é a do Web
+- No Lit (`<interface>/entorno/lit/`), a implementação é a do Web
   Component da interface em tudo que não é a ligação do estado com a tela
   (decisão do autor em 2026-10-25, tcc-cp6c): a mesma classe, registrada
   com `customElements.define`, a mesma orquestração e o mesmo gancho de
@@ -447,7 +455,10 @@ pasta.
 
 Código que sai da análise sai do repositório, com `git rm`, num commit
 só de remoção, com as capturas da tecnologia, que cita o ADR que o tirou
-(decisão do autor em 2026-10-25). Até essa data, ele ia para uma pasta
+(decisão do autor em 2026-10-25). A exceção é o Web Component com
+*signals*, que o autor mandou guardar em `fora/` (primeira seção), onde
+continua nos comandos daqui (decisão de 2026-10-31). Até 2026-10-25, o
+código que saía ia para uma pasta
 `fora-da-analise/`, congelado; a pasta saiu inteira, com a Lista
 filtrável, o Carrinho, o Quadro de tarefas, o conversor de moedas, o
 jQuery, o Angular, o Lit do conjunto antigo, o JavaFX, o Qt, o Android

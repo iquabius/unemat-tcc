@@ -15,7 +15,7 @@ declarar os agentes na metodologia (pauta da orientação de 2026-10-09,
 ponto A4, tcc-y4q). Para mapear, o código de cada uma se baixa do
 CodeSandbox para `interfaces-graficas/autorais/` (tcc-cssu), onde fica
 como registro, e se compara com o de
-`interfaces-graficas/<interface>/analisadas/`.
+`interfaces-graficas/<interface>/`.
 
 Nenhuma delas está no projeto de TCC entregue em 2017
 (`../unemat-projeto-tcc`), que não nomeia programas. A menção mais antiga

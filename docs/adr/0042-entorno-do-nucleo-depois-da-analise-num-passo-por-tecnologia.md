@@ -47,8 +47,8 @@ diferença vem dessa troca. São 20 implementações, 14 delas prontas.
 O Web Component com *signals*, que a cadeia antiga tinha como
 construção de controle do par imperativo × granular, sai antes da
 v0.13: é raro nos programas reais, e o Solid já ocupa a coluna
-granular; o código dele fica no repositório, por ora em `analisadas/`
-(decisão do autor em 2026-10-31).
+granular; o código dele fica no repositório, em `fora/` (ADR 0025;
+decisões do autor em 2026-10-31).
 Cada uma entra no corpo, junto da análise dela, como diff quando ele é
 mais curto que a listagem, senão como a listagem inteira com as linhas
 mudadas realçadas (ADR 0017). O código vai à pasta `entorno/` da
