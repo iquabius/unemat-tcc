@@ -24,9 +24,7 @@ só onde o ponto de partida já existe (decisões do autor em
 2026-10-31):
 
 - na primeira rodada, nas sete interfaces, com o código já
-  implementado: Web Component → Web Component com *signals*, a
-  propagação de manual a granular, com a montagem igual (ADR 0037) e o
-  `solid-js` (1.9.15) só para a reatividade; Web Component → Lit (3.3.3),
+  implementado: Web Component → Lit (3.3.3),
   a propagação de manual a re-renderização, com o componente ainda numa
   classe e o dado trocado por uma cópia, como a documentação do Lit
   recomenda; e React → Solid, a propagação de re-renderização a
@@ -45,20 +43,24 @@ e a montagem da tela, e o texto o declara sem controle, como os casos
 de Kiss (2014), em que "the toolkit dominated this evaluation and the
 paradigms did not come into play" (p. 23), com a exceção do sexto caso
 (p. 48). O contraste com os passos do núcleo mostra quanto da
-diferença vem dessa troca. São 27 implementações, 21 delas prontas.
+diferença vem dessa troca. São 20 implementações, 14 delas prontas.
+O Web Component com *signals*, que a cadeia antiga tinha como
+construção de controle do par imperativo × granular, sai antes da
+v0.13: é raro nos programas reais, e o Solid já ocupa a coluna
+granular; o código dele fica no repositório, por ora em `analisadas/`
+(decisão do autor em 2026-10-31).
 Cada uma entra no corpo, junto da análise dela, como diff quando ele é
 mais curto que a listagem, senão como a listagem inteira com as linhas
-mudadas realçadas (ADR 0017). O código fica na pasta `entorno/` da
+mudadas realçadas (ADR 0017). O código vai à pasta `entorno/` da
 interface, fora do conjunto analisado (ADR 0025), e passa pelo teste de
 conformidade e pelas capturas da interface. A estrutura de pares se
 demonstra antes, na fundamentação, com o `for` contra o `map` e o
 `filter` e um contador nos modos de orquestração, sem as DCs.
 
 No corte do ADR 0029, o entorno sai antes de tudo, uma tecnologia por
-vez, nesta ordem: 1) o Web Component com *signals*, uma construção de
-controle da cadeia antiga, rara nos programas reais; 2) o Lit, que
-repete a coluna do React; 3) o Web Component com Effection, o único da
-linha sequencial; 4) o Solid; 5) o Cycle.js, o último (decisões do
+vez, nesta ordem: 1) o Lit, que repete a coluna do React; 2) o Web
+Component com Effection, o único da linha sequencial; 3) o Solid; 4) o
+Cycle.js, o último (decisões do
 autor em 2026-10-31). Vão aos trabalhos futuros da conclusão, cada um
 com o par de um passo que formaria: o Elm, o Foldkit, o Angular com
 *signals* e o TanStack Query, do entorno anterior; o redux-saga, a forma
@@ -76,7 +78,7 @@ domínio reescrito, e o React com `useReducer` já ocupa no núcleo a
 célula do MVU (falha o primeiro critério).
 Em vez de: o entorno também na segunda rodada; mostraria a viscosidade
 das vizinhas, mas somaria cerca de 12 páginas a um entorno que já passa
-de 90 (falha o terceiro).
+de 70 (falha o terceiro).
 Em vez de: o Cycle.js em quatro fases, como uma migração em produção
 (o RxJS ao `xstream`, os componentes à `main` com o `@cycle/react`, os
 efeitos aos *drivers*, o `@cycle/react` ao `@cycle/dom`); levaria ao
@@ -90,14 +92,19 @@ o estado ainda alterado por mensagem (falha o primeiro).
 Em vez de: a linha sequencial na primeira rodada, antes do primeiro
 passo; mostraria o extremo imperativo primeiro, mas a primeira rodada
 deixaria de comparar só a propagação (ADR 0029) (falha o terceiro).
+Em vez de: o Web Component com *signals* no entorno, na primeira rodada
+(decisão da manhã de 2026-10-31); isolaria a propagação granular com a
+montagem do Web Component, mas é uma construção de controle rara nos
+programas reais (11 arquivos com o `solid-js` na busca de código do
+GitHub, em TypeScript, em 2026-10-17), e somaria de 20 a 29 páginas a um entorno
+que já passa de 70 (falha o terceiro).
 
-Custo: cerca de 91 a 107 páginas, quase a metade da análise do núcleo
+Custo: cerca de 71 a 78 páginas, perto da metade da análise do núcleo
 (`docs/processo/estimativa-de-paginas.md`); 6 implementações novas,
 depois da análise principal e antes do fechamento em 2026-11-20; o
 Cycle.js está parado desde 2022 e não tem artigo revisado por pares; o
-Effection teve 68.080 downloads de 2026-09-30 a 2026-10-29; o Web
-Component com *signals* é raro nos programas reais (11 arquivos na
-busca de código do GitHub, em TypeScript, em 2026-10-17); a diferença
+Effection teve 68.080 downloads de 2026-09-30 a 2026-10-29; o passo do
+imperativo ao granular com a mesma montagem fica sem leitura; a diferença
 no passo ao Cycle.js não se atribui a uma variável só; e cada
 tecnologia do entorno só se compara com a implementação de que parte.
 

@@ -9,8 +9,9 @@ programação, e o Android e o *desktop*, fora da análise desde
 (ADR 0001). O núcleo é o Web Component e o React, com os passos da
 terceira rodada ao Web Component com RxJS, ao React com `useReducer`, ao
 React com RxJS e ao React com derivados no RxJS (ADRs 0013 e 0029); o
-entorno é o Web Component com *signals*, o Lit, o Solid, o Web
-Component com Effection e o Cycle.js (ADR 0042). O Angular com
+entorno é o Lit, o Solid, o Web Component com Effection e o Cycle.js
+(ADR 0042); o Web Component com *signals* saiu em 2026-10-31, e o
+código dele fica no repositório. O Angular com
 *signals*, que saiu pelo ADR 0013, e o Android e o *desktop*, pelo ADR
 0001, de 2026-10-17, vão para os trabalhos futuros da conclusão
 (tcc-dpci), e o código deles saiu do repositório em 2026-10-25 e fica
@@ -28,7 +29,7 @@ a forma escrita de um modelo de programação numa tecnologia.
 | sequencial × manual | | Web Component com Effection |
 | atribuição × manual | Web Component | |
 | atribuição × re-renderização | React | Lit |
-| atribuição × granular | | Web Component com *signals*, Solid |
+| atribuição × granular | | Solid |
 | mensagem × re-renderização | React com `useReducer` | |
 | acumulação × manual | Web Component com RxJS | |
 | acumulação × re-renderização | React com RxJS | |

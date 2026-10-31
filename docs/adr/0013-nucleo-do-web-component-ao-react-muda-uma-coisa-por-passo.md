@@ -45,8 +45,9 @@ da classe à função, o que o texto declara; a diferença se atribui à
 propagação pelo sinal escrito (ADR 0021). Se a análise não conseguir
 separar a montagem, um passo do Web Component ao Web Component com o
 jsx-dom, ainda na primeira rodada, a isola (decisão do autor em
-2026-10-31). O Solid, o Lit e o Web Component com *signals*, que já
-estão implementados, saem do núcleo para o entorno (ADR 0042), e o
+2026-10-31). O Solid e o Lit, que já estão implementados, saem do
+núcleo para o entorno, e o Web Component com *signals* sai da análise
+(ADR 0042); o
 Angular fica nos trabalhos futuros (tcc-dpci).
 
 Em vez de: a cadeia de pares de 2026-10-25, Web Component → Web

@@ -61,7 +61,7 @@ trabalhos futuros desde 2026-10-31 (ADR 0029).
 | Tecnologia | Modelo de programação (orquestração × propagação) | Montagem da tela | Interfaces |
 |---|---|---|---|
 | Web Component | atribuição × manual; núcleo | esqueleto em HTML num texto; partes repetidas com `createElement` (ADR 0037) | as sete |
-| Web Component com *signals* do `solid-js` | atribuição × granular; entorno, só na primeira rodada (ADR 0042) | a do Web Component (ADR 0037) | as sete |
+| Web Component com *signals* do `solid-js` | atribuição × granular; fora da análise e do entorno desde 2026-10-31, com o código no repositório (ADR 0042) | a do Web Component (ADR 0037) | as sete |
 | Solid | atribuição × granular; entorno, só na primeira rodada (ADR 0042) | JSX | as sete |
 | React | atribuição × re-renderização; núcleo | JSX | as sete |
 | Lit | atribuição × re-renderização; fora da análise de 2026-10-19 a 2026-10-25, num ramo da cadeia até 2026-10-30 e, desde 2026-10-31, no entorno, só na primeira rodada (ADR 0042) | *template* `html` | as sete |

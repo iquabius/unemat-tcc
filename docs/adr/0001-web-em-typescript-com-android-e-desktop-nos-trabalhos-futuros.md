@@ -20,8 +20,8 @@ trabalhos futuros da conclusão (tcc-dpci, decisão do autor em
 2026-10-17): as tecnologias do núcleo e do entorno (ADRs 0013 e 0042)
 se escrevem em TypeScript `strict`, sobre o mesmo modelo de computação,
 e o par que só o *desktop* tinha, o imperativo contra o granular com a
-mesma montagem da tela, passa à web pelo Web Component com *signals*,
-no entorno (ADR 0042). O código do
+mesma montagem da tela, ficou sem leitura na web em 2026-10-31, quando
+saiu o Web Component com *signals* (ADR 0042). O código do
 Android e do *desktop* saiu do repositório em 2026-10-25, pela regra do
 ADR 0025.
 

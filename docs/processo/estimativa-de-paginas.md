@@ -20,16 +20,15 @@ vão para o chat pelo hook `bin/lembrete-do-chat.py`, na forma da seção
   interfaces, a 2.ª com treze mudanças, a 3.ª com cinco passos na
   Busca, no Login e no Placar ao vivo
 - Em aberto: o entorno do núcleo depois da análise, fora da conta acima
-  e o primeiro a sair no corte; com os diffs no Web Component com
-  signals e no Solid: PDF sem anexo +91, análise +91, anexo 0, PDF com
-  anexo +91; com as listagens inteiras: PDF sem anexo +107, análise
-  +107, anexo 0, PDF com anexo +107
+  e o primeiro a sair no corte; com o Solid em diff do React: PDF sem
+  anexo +71, análise +71, anexo 0, PDF com anexo +71; com a listagem
+  inteira: PDF sem anexo +78, análise +78, anexo 0, PDF com anexo +78
 
 **Resumo curto:**
 - ≈ PDF s/anexo 222 | análise 163 | anexo 20 | PDF c/anexo 242
 - núcleo Web Component e React, 3.ª rodada em cinco passos | em aberto:
-  entorno com diffs +91/+91/0/+91 · com listagens +107/+107/0/+107
-  (PDF s/anexo, análise, anexo, PDF c/anexo)
+  entorno com diff +71/+71/0/+71 · com listagem +78/+78/0/+78 (PDF
+  s/anexo, análise, anexo, PDF c/anexo)
 
 ## A forma do Resumo
 
@@ -120,8 +119,11 @@ Conclusão: com o núcleo do Web Component e do React (ADR 0013), as três
 rodadas do ADR 0029 e o código no corpo (ADR 0017), o PDF fica em ≈ 222
 páginas sem o anexo e ≈ 242 com ele; o núcleo fica no tamanho da conta
 de 2026-10-29 (≈ 253 com o anexo), e o entorno (ADR 0042), com as
-listagens no corpo, o Effection e o Cycle.js, soma de 91 a 107 páginas,
-quase a metade da análise do núcleo.
+listagens no corpo, o Effection e o Cycle.js, soma de 71 a 78 páginas,
+perto da metade da análise do núcleo. A conta da manhã de 2026-10-31
+dava de 91 a 107, com o Web Component com *signals*, que saiu do
+entorno no mesmo dia (ADR 0042) e fica na tabela abaixo, riscado da
+soma.
 
 As linhas são as não vazias e sem `import` do módulo principal
 (`src/main.ts` ou `src/main.tsx`), contadas por um script da sessão em
@@ -141,12 +143,12 @@ do ADR 0013 de 2026-10-18, que já contavam os trechos.
 
 | Entorno, na ordem de corte | Código | Prosa | Total |
 |---|---|---|---|
-| Web Component com *signals* (863 linhas), em diff do Web Component | ≈ 13 a 22 | ≈ 7 | ≈ 20 a 29 |
+| ~~Web Component com *signals* (863 linhas), em diff do Web Component~~, fora desde 2026-10-31 | ≈ 13 a 22 | ≈ 7 | ≈ 20 a 29, fora da soma |
 | Lit (790 linhas), listagem | ≈ 20 | ≈ 7 | ≈ 27 |
 | Web Component com Effection, três interfaces | ≈ 8 | ≈ 6 | ≈ 14 |
 | Solid (626 linhas), em diff do React | ≈ 9 a 16 | ≈ 7 | ≈ 16 a 23 |
 | Cycle.js, três interfaces | ≈ 8 | ≈ 6 | ≈ 14 |
-| Entorno inteiro | | | ≈ 91 a 107 |
+| Entorno inteiro | | | ≈ 71 a 78 |
 
 PDF sem o anexo = 56 + 3 (a demonstração da estrutura de pares na
 fundamentação) + análise = ≈ 222; o anexo é o domínio, 785 linhas não
