@@ -8,14 +8,30 @@ import { createServer, type Server } from "node:http";
 import path from "node:path";
 
 export const IMPLEMENTACOES = import.meta.dirname;
-// As tecnologias, na ordem em que os scripts as percorrem.
+// As tecnologias, na ordem em que os scripts as percorrem: as do núcleo, as
+// do entorno e a que saiu dos dois com o código mantido.
 export const TECNOLOGIAS = [
   "web-component",
-  "web-component-signals",
-  "lit",
   "react",
+  "lit",
   "solid",
+  "web-component-signals",
 ];
+// As pastas da interface com uma subpasta por tecnologia: o conjunto
+// analisado, o entorno do núcleo e o código fora dos dois.
+const GRUPOS = ["analisadas", "entorno", "fora"];
+
+// O projeto da implementação, no grupo em que ela está, ou undefined se a
+// interface não a tem. As capturas de uma interface ficam numa pasta só,
+// pelo nome da tecnologia, e por isso o nome não pode estar em dois grupos.
+function projetoDa(gui: string, tecnologia: string): string | undefined {
+  const projetos = GRUPOS.map((grupo) =>
+    path.join(IMPLEMENTACOES, gui, grupo, tecnologia),
+  ).filter((projeto) => existsSync(path.join(projeto, "package.json")));
+  if (projetos.length > 1)
+    throw new Error(`${gui}/${tecnologia} está em mais de um grupo`);
+  return projetos[0];
+}
 
 const TIPOS: Record<string, string> = {
   ".html": "text/html; charset=utf-8",
@@ -39,8 +55,7 @@ export async function implementacoes(
     if (!existsSync(path.join(IMPLEMENTACOES, "openspec", "specs", gui)))
       continue;
     for (const tecnologia of TECNOLOGIAS) {
-      const projeto = path.join(IMPLEMENTACOES, gui, "analisadas", tecnologia);
-      if (!existsSync(path.join(projeto, "package.json"))) continue;
+      if (!projetoDa(gui, tecnologia)) continue;
       const escolhido =
         filtros.length === 0 ||
         filtros.some((f) => f === gui || f === `${gui}/${tecnologia}`);
@@ -85,7 +100,8 @@ export async function construirEServir(
   gui: string,
   tecnologia: string,
 ): Promise<{ endereco: string; servidor: Server }> {
-  const projeto = path.join(IMPLEMENTACOES, gui, "analisadas", tecnologia);
+  const projeto = projetoDa(gui, tecnologia);
+  if (!projeto) throw new Error(`${gui} não tem a implementação ${tecnologia}`);
   execFileSync(
     "npm",
     ["run", "build", "-w", path.relative(IMPLEMENTACOES, projeto)],
