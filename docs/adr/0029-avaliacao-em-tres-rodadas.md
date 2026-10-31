@@ -63,9 +63,9 @@ diff no lugar do tempo de edição; a terceira rodada se mede igual. São
 - Placar ao vivo: o bolão, com os pontos e o total derivados;
 - Placar ao vivo: a frequência de 1, 5 ou 10 s, numa requisição à parte;
 - Planilha: a referência circular, sem avaliar o ciclo (Kiss, p. 54);
-- Circle Drawer: arrastar os círculos, com o arraste no desfazer;
-- Circle Drawer: salvar num servidor simulado, na ordem das mudanças;
-- Circle Drawer: o campo numérico do diâmetro, nos dois sentidos.
+- Desenhador de círculos: arrastar os círculos, com o arraste no desfazer;
+- Desenhador de círculos: salvar num servidor simulado, na ordem das mudanças;
+- Desenhador de círculos: o campo numérico do diâmetro, nos dois sentidos.
 
 A terceira muda só a forma: refatora o código da segunda rodada da
 Busca, do Login e do Placar ao vivo, as interfaces em que a combinação
@@ -97,7 +97,7 @@ xstream não tem versão nova desde a 11.14.0, de 2020; o xstream entra
 no entorno, junto do Cycle.js (ADR 0042). A biblioteca do ecossistema,
 a máquina de estados tipada (o XState), a API nova da plataforma (o
 `Observable` do WICG) e os padrões de projeto (o *Command* no desfazer
-do Circle Drawer) vão aos trabalhos futuros da conclusão, com o peso
+do Desenhador de círculos) vão aos trabalhos futuros da conclusão, com o peso
 do *toolkit* que Kiss achou (p. 56); a medida das bibliotecas fica em
 `docs/plataformas/medida-das-bibliotecas.md`.
 
@@ -129,7 +129,7 @@ Em vez de: o Redux no lugar do `useReducer`, com os derivados no
 mas o passo mudaria o lugar do estado, no *store*, e a escrita dos
 derivados ao mesmo tempo (falha o primeiro).
 Em vez de: a terceira rodada nas sete interfaces; não teria interface a
-escolher, mas o Contador, a Reserva, a Planilha e o Circle Drawer pesam
+escolher, mas o Contador, a Reserva, a Planilha e o Desenhador de círculos pesam
 no gerenciamento de estado, e a orquestração deles quase não tem o que
 mudar (falha o quarto).
 Em vez de: uma rodada só, com as interfaces no tamanho da primeira, como

@@ -17,10 +17,10 @@ num `dominio.ts` por interface, comum às tecnologias do núcleo e do
 entorno (ADRs 0013 e 0042); o servidor do Placar ao vivo fala SSE em
 todas as rodadas (ADR 0029). A alteração do estado fica
 em cada implementação, no idioma da tecnologia (a propagação da
-Planilha; criar, ajustar, desfazer e refazer no Circle Drawer, ADR
+Planilha; criar, ajustar, desfazer e refazer no Desenhador de círculos, ADR
 0040), porque, numa função do domínio que devolve o estado novo, a
 diferença entre alterar no lugar e trocar por uma cópia, que Kiss (2014,
-p. 46) aponta no Circle Drawer, sairia da análise. Decisões do autor em
+p. 46) aponta no Desenhador de círculos, sairia da análise. Decisões do autor em
 2026-10-19 e 2026-10-20.
 
 Em vez de: cada implementação escrever o próprio domínio; mais perto de
@@ -37,7 +37,7 @@ no navegador; a alteração se repete em cada implementação, e um erro
 numa delas só o teste de conformidade pega; a guarda que uma função do
 domínio daria (o limite, o índice que não existe) passa a depender de
 cada implementação; o compilador não avisa da cópia esquecida, porque o
-tipo do estado não é só de leitura: no Circle Drawer, o círculo do
+tipo do estado não é só de leitura: no Desenhador de círculos, o círculo do
 domínio tem campos alteráveis, e só a lista do React se declara assim
 (errata `89eef7e6`); a linha entre a regra e a alteração se traça em
 cada especificação; o domínio do Placar ao vivo simula o servidor SSE.

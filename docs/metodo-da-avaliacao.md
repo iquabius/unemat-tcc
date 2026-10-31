@@ -98,11 +98,11 @@ coisa.
   Contador, o *Counter* (§3.3, p. 17), a base em que a primeira leitura
   registra o básico de cada tecnologia; a Reserva de passagem, o *Flight
   Booker* (§3.5, p. 25) levado à passagem de ônibus; a planilha, o
-  *Cells* (§3.9, p. 49) em oito células numa coluna; e o Circle Drawer
+  *Cells* (§3.9, p. 49) em oito células numa coluna; e o Desenhador de círculos
   (§3.8, p. 40). De 2026-10-19 a 2026-10-22, o conversor de moedas, o
   *Temperature Converter* (§3.4, p. 21), ocupava o lugar do Contador, e
   a coordenação nos dois sentidos dele passou ao campo do diâmetro do
-  Circle Drawer, na segunda rodada (ADR 0029). A Busca, o Login com quarentena e o
+  Desenhador de círculos, na segunda rodada (ADR 0029). A Busca, o Login com quarentena e o
   Placar ao vivo não vêm do 7GUIs: o Login adapta Berry e Serrano
   (2020), e o Placar, Meijer (2012). Até 2026-10-11, três interfaces
   partiam do 7GUIs: o Contador, o *Counter* (§3.3, p. 17); o Formulário,
@@ -117,7 +117,7 @@ coisa.
   selecionada junto com a grade (ADR 0002). Até 2026-10-11, o estado
   compartilhado vinha do Carrinho e, de 2026-10-12 a 2026-10-19, do
   Quadro de tarefas.
-- Desfazer e controle de diálogo: o Circle Drawer (§3.8, p. 40) traz o
+- Desfazer e controle de diálogo: o Desenhador de círculos (§3.8, p. 40) traz o
   desfazer e o refazer e o diálogo que ajusta o diâmetro do círculo
   escolhido (ADR 0002); o desfazer estava antes no Carrinho e no Quadro.
 
@@ -439,7 +439,7 @@ Contador; a volta empurrada pela ida na Reserva de passagem; a espera
 de 300 ms e o *combobox* na Busca; a quarentena e o "lembrar meu nome"
 no Login com quarentena; a reconexão, o bolão e a frequência de
 atualização no Placar ao vivo; a referência circular na planilha; e
-arrastar, salvar e o campo do diâmetro no Circle Drawer. Até
+arrastar, salvar e o campo do diâmetro no Desenhador de círculos. Até
 2026-10-22, eram 12, com a escolha da moeda no conversor de moedas. A Reserva de passagem perdeu o
 assistente, a verificação do e-mail e as poltronas, e o Quadro de
 tarefas saiu do conjunto. Os protótipos de 2026-10-12 sustentaram o
@@ -468,7 +468,7 @@ eles e não reconferidos. Código e números em
 | *Timer* do 7GUIs | coordenação de 6 a 9 linhas contra montagem de 15 e 16; a pausa da segunda rodada não separa React de Solid | descartado |
 | Login com quarentena (Berry e Serrano 2020, p. 534-539) | a quarentena custa +20 a +21 linhas nos três; o diff tem o mesmo tamanho, e muda o tipo: o Web Component repete, os declarativos acrescentam uma condição | desmente em parte "Almost all the initial implementation components need to be modified" (p. 539); a quarentena segue na segunda rodada de 2026-10-19 (ADR 0029) |
 | Placar ao vivo (então Dados ao vivo, com as cotações de Meijer 2012, p. 66-67) | sem a limpeza, o vazamento é silencioso no Web Component e aparece na tela, ou nem ocorre, nos declarativos | a regra comum da limpeza ao sair da tela |
-| Quadro com desfazer, contra o desfazer no Carrinho | +43/+79/+64 contra +36/+57/+50; no Carrinho, "Finalizar compra" teve de apagar o histórico; no Solid, guardar o próprio *store* no histórico falhou em 8 verificações | o Quadro entra no lugar do Carrinho; a diferença que Kiss aponta entre comando e cópia do estado some quando as transições ficam no domínio; o Quadro saiu do conjunto em 2026-10-19, e o desfazer passou ao Circle Drawer (ADR 0002) |
+| Quadro com desfazer, contra o desfazer no Carrinho | +43/+79/+64 contra +36/+57/+50; no Carrinho, "Finalizar compra" teve de apagar o histórico; no Solid, guardar o próprio *store* no histórico falhou em 8 verificações | o Quadro entra no lugar do Carrinho; a diferença que Kiss aponta entre comando e cópia do estado some quando as transições ficam no domínio; o Quadro saiu do conjunto em 2026-10-19, e o desfazer passou ao Desenhador de círculos (ADR 0002) |
 | Carteira no Placar ao vivo (então Dados ao vivo) | +27/+23/+23; 10 linhas da primeira rodada mudam no Web Component, nenhuma no React e no Solid; nenhum *glitch* no sentido de Kiss (2014, p. 104) com a fonte por ativo | entrou na segunda rodada e foi trocada pelo bolão (linha seguinte) |
 | Placares no lugar das cotações (Placar ao vivo, então Dados ao vivo; protótipos de 2026-10-13, `tmp/prototipos/2026-10-13-placar/`) | primeira rodada +5/+2/+4, sem mudar a coordenação; na base formatada pelo Prettier, o bolão custa +40/+29/+34 e a carteira +45/+33/+38; o bolão altera 9/2/3 linhas da primeira rodada, porque o palpite decide o destaque, e a carteira 7/0/1, em que a linha do Solid é só o import que o Prettier quebra; a frequência controlável é a mesma mudança nos dois domínios (+19/+14/+14) | o placar entra no lugar das cotações, e o bolão no da carteira (ADRs 0002 e 0029); o bolão e a frequência seguem na segunda rodada de 2026-10-19 |
 | Atualização otimista no Quadro | +32/+51/+40 sobre a primeira rodada; o `useOptimistic` do React aplica as respostas na ordem em que chegam | entrou na segunda rodada e saiu com o Quadro em 2026-10-19 (ADRs 0002 e 0029); as regras da fila são do protótipo |
@@ -668,7 +668,7 @@ mudaram; mudou o que a nota afirmava sobre o conjunto de antes:
 
 Em 2026-10-22, o Contador voltou como primeira das sete interfaces, no
 lugar do conversor de moedas, e a segunda rodada passou a 13 mudanças,
-com a lista de contadores e o campo do diâmetro do Circle Drawer (ADRs
+com a lista de contadores e o campo do diâmetro do Desenhador de círculos (ADRs
 0002 e 0029); "O 7GUIs e as interfaces", a conclusão do *benchmark* e a
 linha da primeira leitura no procedimento mudaram com isso.
 
@@ -697,7 +697,7 @@ Em 2026-10-26, o parágrafo do estado da análise passou às decisões de
 2026-10-25: cinco tecnologias, com o Lit num ramo do Web Component, 35
 implementações (ADR 0013), 13 mudanças na segunda rodada e a terceira
 em quatro vertentes, na Reserva de passagem, no Placar ao vivo e no
-Circle Drawer (ADR 0029). Antes, dizia o estado de 2026-10-19.
+Desenhador de círculos (ADR 0029). Antes, dizia o estado de 2026-10-19.
 
 Em 2026-10-29, a terceira rodada passou a só a vertente do ecossistema,
 na Reserva de passagem e no Placar ao vivo (ADR 0029), e o parágrafo do

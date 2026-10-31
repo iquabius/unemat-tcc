@@ -318,8 +318,8 @@ as menções, em 2026-10-25.
   `designpatterns` 1.726 artigos (1.499 desde 2021-10-25), `commandpattern`
   1, `undo` 8.
 - **Regra possível**, proposta do agente: o padrão se fixa antes da
-  rodada pelo precedente na literatura da interface (Kiss para o Circle
-  Drawer) e pelo catálogo (Gamma et al., 1995, `gamma1995` no `refs.bib`,
+  rodada pelo precedente na literatura da interface (Kiss para o Desenhador
+  de círculos) e pelo catálogo (Gamma et al., 1995, `gamma1995` no `refs.bib`,
   sem cópia no `acervo/`), e não por medida de uso; as contagens acima só
   mostram que o Command tem mais literatura no desfazer (OpenAlex) e mais
   menções em geral (Stack Overflow, GitHub) que o Memento.
@@ -359,7 +359,7 @@ Solid Form (0,6% do `solid-js`) e deixa o `react-hook-form` (29,8%) e o
 o Web Component por decisão e não aparece.
 
 Vertente da máquina de estados tipada (Placar ao vivo e, se entrar, o
-Circle Drawer):
+Desenhador de círculos):
 
 | Tecnologia | A. Downloads, nova | A. ADR | A. Limpa | B. Mediana | E. Dependentes | F. Repositórios | G. jsDelivr | I. Com filtro (24 m) |
 |---|---|---|---|---|---|---|---|---|

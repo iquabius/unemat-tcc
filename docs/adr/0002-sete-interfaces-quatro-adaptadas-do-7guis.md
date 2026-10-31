@@ -32,11 +32,12 @@ Sete interfaces, quatro adaptadas do 7GUIs:
 - Planilha, o *Cells* (§3.9, p. 49) em oito células, e não em 100 linhas
   por 26 colunas, porque a grade dominaria o código: Kiss achou "very
   verbose" a customização da tabela (p. 54);
-- Circle Drawer (§3.8, p. 40).
+- Desenhador de círculos, o *Circle Drawer* (§3.8, p. 40), nome
+  traduzido por decisão do autor em 2026-10-31.
 
 A orquestração pesa na Busca, no Login e no Placar ao vivo; o
-gerenciamento de estado, na Reserva de passagem, na Planilha e no Circle
-Drawer (decisão do autor em 2026-10-22). As exigências de cada uma, por
+gerenciamento de estado, na Reserva de passagem, na Planilha e no Desenhador
+de círculos (decisão do autor em 2026-10-22). As exigências de cada uma, por
 tipo e rodada, estão em `docs/exigencias-de-coordenacao.md`; o que a
 segunda rodada acrescenta, como a lista de contadores e o campo numérico
 do diâmetro, é do ADR 0029. Saem da análise o conversor de moedas, cujo

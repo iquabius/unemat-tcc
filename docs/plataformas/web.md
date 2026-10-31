@@ -499,7 +499,7 @@ jQuery, o Angular com RxJS, o Svelte e o Vue continuam fora.
    somam e falha quando um muda a leitura de outro, como a montagem em
    JSX pode mudar a leitura da ligação; a parte que vem só da
    re-renderização se lê no par Web Component × Lit, que muda com a
-   ligação também a montagem e, no Circle Drawer e na Planilha, a
+   ligação também a montagem e, no Desenhador de círculos e na Planilha, a
    alteração por cópia (ADRs 0013 e 0040). No Web Component com
    *signals*, o corpo de cada efeito ainda é uma escrita no DOM, e o
    texto precisa mostrar o sinal escrito do granular para o leitor não o
@@ -895,7 +895,7 @@ global do arquivo por componente nem mede o `style` inline.
 Em 2026-10-22, nenhuma implementação fora de
 `implementacoes/fora-da-analise/` chama `attachShadow`; cada interface
 tem um `estilo.css` que as tecnologias importam e citam por classes, e o
-`style` aparece só na posição do menu do Circle Drawer, nas três
+`style` aparece só na posição do menu do Desenhador de círculos, nas três
 tecnologias prontas, e no tamanho do *canvas*, no domínio. Ali o dialeto
 difere: `style={{ left: posicaoDoMenu.x }}` no React, com o número que
 ganha `px` sozinho; `` left: `${posicaoDoMenu().x}px` `` no Solid; e

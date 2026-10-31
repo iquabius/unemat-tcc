@@ -66,7 +66,7 @@ xstream entraram no `cases.org` em 2020.
 | Objetivos específicos | Demonstrar PF; demonstrar PR e POO com *callbacks*; analisar e comparar | Implementar as sete interfaces nas cinco tecnologias, estendê-las na segunda rodada e refatorar duas delas na terceira; avaliá-las pelas 14 DCs em cada rodada; sintetizar, por exigência de coordenação, o que cada modelo de programação facilita e o que dificulta (ADR 0014) |
 | Processamento de listas | Primeira parte do método | Fora dos objetivos, na fundamentação de PF (ADR 0014) |
 | Tela | Fora | Dentro da notação, como montagem da tela (ADR 0021) |
-| Programas | Não nomeados | Sete interfaces: Contador, Reserva de passagem, Busca com sugestões, Login com quarentena, Placar ao vivo, Planilha e Circle Drawer; quatro adaptam o 7GUIs (Kiss 2014), o Login adapta Berry e Serrano (2020), e o Placar ao vivo, Meijer (2012) (ADR 0002) |
+| Programas | Não nomeados | Sete interfaces: Contador, Reserva de passagem, Busca com sugestões, Login com quarentena, Placar ao vivo, Planilha e Desenhador de círculos; quatro adaptam o 7GUIs (Kiss 2014), o Login adapta Berry e Serrano (2020), e o Placar ao vivo, Meijer (2012) (ADR 0002) |
 | Tecnologias | Não nomeadas | Web Component, Web Component com *signals* do `solid-js`, Solid, React e Lit, na web; o Android e o *desktop*, nos trabalhos futuros (ADRs 0001 e 0013) |
 | Linguagem | JavaScript | TypeScript, só na web (ADR 0001) |
 | Critério | DCs, sem lista | As 14 DCs canônicas, percorridas em cada rodada (ADR 0017) |

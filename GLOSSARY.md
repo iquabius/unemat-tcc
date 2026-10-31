@@ -83,7 +83,7 @@ disposição como termo à parte
 **Interface**:
 Uma das sete interfaces gráficas especificadas que todas as implementações
 seguem: Contador, Reserva de passagem, Busca com sugestões, Login com
-quarentena, Placar ao vivo, Planilha e Circle Drawer (ADR 0002; o
+quarentena, Placar ao vivo, Planilha e Desenhador de círculos (ADR 0002; o
 conversor de moedas saiu da análise em 2026-10-22). Onde "a interface" puder ser qualquer interface gráfica, leva
 o nome ("a interface da Reserva de passagem") ou o número ("as sete
 interfaces"); o domínio fica no plural ou com "gráfica" ("programar
@@ -92,6 +92,8 @@ _Avoid_: tarefa (o termo do 7GUIs e de Sim et al., 2003, até 2026-10-14:
 colide com a tarefa do bd e com a *task* das DCs, o que se faz com a
 notação, que no trabalho seria cada mudança da segunda rodada, Blackwell
 e Green, 2003, p. 107);
+Circle Drawer (o nome do 7GUIs, usado até 2026-10-31; o nome traduzido,
+como os das outras interfaces, por decisão do autor);
 caso e estudo de caso (o estudo de caso é um método que o trabalho não
 adota, embora Kiss, 2014, chame cada item de *case study*); problema (o de
 Erdweg et al., 2015, e de Nanz et al., 2013: colide com o problema de

@@ -1,6 +1,6 @@
-# 0040. O desfazer do Circle Drawer com fotografias
+# 0040. O desfazer do Desenhador de círculos com fotografias
 
-2026-10-25. No Circle Drawer, a análise atribuiria ao modelo de
+2026-10-25. No Desenhador de círculos, a análise atribuiria ao modelo de
 programação uma escolha de projeto: a conclusão de Kiss (2014, p. 48),
 de que o paradigma dominou, junta a forma do histórico, o comando do
 Java contra a lista de listas do Scala (p. 41-45), e a forma da
@@ -14,7 +14,7 @@ Critérios:
 - a escolha que qualquer tecnologia aceita fica igual em todas;
 - o código de cada tecnologia segue o idioma dela.
 
-O desfazer do Circle Drawer guarda fotografias: em todas as tecnologias,
+O desfazer do Desenhador de círculos guarda fotografias: em todas as tecnologias,
 o histórico guarda uma fotografia da lista a cada passo, e o desfazer e
 o refazer movem o cursor. A alteração segue o ADR 0010: no lugar no Web
 Component; num *store* do `solid-js`, com `produce`, no Solid e no Web
@@ -52,7 +52,7 @@ erros e nível de abstração (p. 46-48), não entra na análise, e o
 arrastar da segunda rodada (ADR 0029) entra como mais uma fotografia em
 todas, o caso barato de Kiss (p. 47); nas três tecnologias que
 alteram no lugar, a cópia profunda se escreve, e a esquecida só o teste
-de conformidade pega; no Circle Drawer e na Planilha, a alteração muda
+de conformidade pega; no Desenhador de círculos e na Planilha, a alteração muda
 com a ligação no par Web Component × Lit, como no Solid × React, porque
 a re-renderização compara o estado por referência, e a análise separa o
 que vem dela só pelas linhas da alteração, o sinal escrito (ADR 0021;
