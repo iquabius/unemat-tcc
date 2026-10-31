@@ -9,7 +9,10 @@ resultado. As medições da vertente do ecossistema estão nas seções de
 `bibliotecas-de-inscricao-e-reconexao.md` (Placar ao vivo); as das outras
 três vertentes, que não têm nota própria, ficam nesta. O autor decidiu em
 2026-10-25 pela variante I, que o ADR 0031 passou a dizer; as outras
-ficam como alternativas, com o que cada uma mudaria. Cada afirmação sobre ferramenta, versão ou
+ficam como alternativas, com o que cada uma mudaria. Em 2026-10-31, as
+vertentes e a biblioteca do ecossistema foram aos trabalhos futuros
+(ADR 0029), e o ADR 0031 saiu (`docs/processo/historico-dos-adrs.md`):
+a nota fica como a medida que a conclusão cita. Cada afirmação sobre ferramenta, versão ou
 contagem leva a data em que foi observada; tudo o que não diz outra data
 foi medido em 2026-10-25, com os dados brutos em
 `tmp/pesquisas/2026-10-25-medida-das-bibliotecas/` (fora do git).

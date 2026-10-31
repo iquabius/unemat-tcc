@@ -10,31 +10,26 @@ refaz quando o delineamento ou o texto muda, e os dois blocos abaixo
 vão para o chat pelo hook `bin/lembrete-do-chat.py`, na forma da seção
 "A forma do Resumo".
 
-**Resumo (2026-10-29):**
-- PDF sem anexo: ≈ 156 páginas
-- Análise: ≈ 100, com trechos por DC
-- Anexo de código, da 1.ª rodada: ≈ 97 (b, sem os import e sem a
-  montagem repetida); pelo ADR 0029, o código não cabe inteiro no
-  pós-texto
-- PDF com anexo: ≈ 253
-- Delineamento: 3 rodadas, a 3.ª só na vertente do ecossistema, na
-  Reserva de passagem e no Placar ao vivo, 2 pares interface-vertente;
-  5 tecnologias, 35 implementações
-- Em aberto: o corte do Lit fora do trio, na revisão depois da análise;
-  sem a 2.ª rodada do Lit fora do trio: PDF sem anexo −4, análise −4,
-  anexo 0, PDF com anexo −4; L2: PDF sem anexo −8, análise −8, anexo
-  −11, PDF com anexo −19
-- Em aberto: o entorno da cadeia depois da análise, fora da conta acima
-  e o primeiro a sair no corte; com a 2.ª rodada: PDF sem anexo +26,
-  análise 0, anexo 0, PDF com anexo +26; só com a 1.ª: PDF sem anexo
-  +14, análise 0, anexo 0, PDF com anexo +14
+**Resumo (2026-10-31):**
+- PDF sem anexo: ≈ 222 páginas
+- Análise: ≈ 163, com as listagens e os diffs do núcleo no corpo
+- Anexo de código: ≈ 20, só o domínio; o código do núcleo vai ao
+  corpo, junto da análise (ADR 0017)
+- PDF com anexo: ≈ 242
+- Delineamento: o núcleo, Web Component e React; a 1.ª rodada nas sete
+  interfaces, a 2.ª com treze mudanças, a 3.ª com cinco passos na
+  Busca, no Login e no Placar ao vivo
+- Em aberto: o entorno do núcleo depois da análise, fora da conta acima
+  e o primeiro a sair no corte; com os diffs no Web Component com
+  signals e no Solid: PDF sem anexo +91, análise +91, anexo 0, PDF com
+  anexo +91; com as listagens inteiras: PDF sem anexo +107, análise
+  +107, anexo 0, PDF com anexo +107
 
 **Resumo curto:**
-- ≈ PDF s/anexo 156 | análise 100 | anexo b 97 | PDF c/anexo 253
-- 3 rodadas, 3.ª só no ecossistema (2 pares), 5 tecnologias | em
-  aberto: Lit fora do trio −4/−4/0/−4 · L2 −8/−8/−11/−19;
-  entorno com a 2.ª rodada +26/0/0/+26 · só a 1.ª +14/0/0/+14 (PDF
-  s/anexo, análise, anexo, PDF c/anexo)
+- ≈ PDF s/anexo 222 | análise 163 | anexo 20 | PDF c/anexo 242
+- núcleo Web Component e React, 3.ª rodada em cinco passos | em aberto:
+  entorno com diffs +91/+91/0/+91 · com listagens +107/+107/0/+107
+  (PDF s/anexo, análise, anexo, PDF c/anexo)
 
 ## A forma do Resumo
 
@@ -57,10 +52,9 @@ correr os olhos pelos números em vez de ler um parágrafo):
 - o item que não cabe em 72 colunas continua na linha seguinte, com
   recuo, e o hook o junta de volta numa linha só.
 
-As decisões pendentes em 2026-10-29 são o corte do Lit fora do trio
-(tcc-7qty) e o entorno da cadeia, que fica fora da conta e é o
-primeiro a sair no corte; a regra vale para qualquer outra que as
-substitua, sem mexer nas outras linhas. O teste do hook confere, na
+A decisão pendente em 2026-10-31 é o entorno do núcleo, que fica fora
+da conta e é o primeiro a sair no corte (ADR 0042); a regra vale para
+qualquer outra que a substitua, sem mexer nas outras linhas. O teste do hook confere, na
 nota, que os números dos dois blocos são os mesmos.
 
 ## Como se conta
@@ -119,6 +113,49 @@ as páginas projetadas do pré-texto, da introdução, do capítulo 2, da
 conclusão, das referências e dos apêndices, as ≈ 30 linhas por mudança
 da segunda rodada e o tamanho do Lit. Quem refizer a conta troca os
 dois blocos e a data.
+
+## A conta de 2026-10-31: o núcleo, o código no corpo e o entorno
+
+Conclusão: com o núcleo do Web Component e do React (ADR 0013), as três
+rodadas do ADR 0029 e o código no corpo (ADR 0017), o PDF fica em ≈ 222
+páginas sem o anexo e ≈ 242 com ele; o núcleo fica no tamanho da conta
+de 2026-10-29 (≈ 253 com o anexo), e o entorno (ADR 0042), com as
+listagens no corpo, o Effection e o Cycle.js, soma de 91 a 107 páginas,
+quase a metade da análise do núcleo.
+
+As linhas são as não vazias e sem `import` do módulo principal
+(`src/main.ts` ou `src/main.tsx`), contadas por um script da sessão em
+2026-10-31, a 40 linhas por página. As frações por página de prosa, as
+linhas de diff por mudança e por passo e o quanto o diff encurta o Web
+Component com *signals* e o Solid são do agente, sem fonte.
+
+| Parte do núcleo | Código no corpo | Prosa | Total |
+|---|---|---|---|
+| 1.ª rodada, sete interfaces | 1.488 linhas (Web Component 811, React 677) ≈ 37 | ≈ 4 por interface ≈ 28 | ≈ 65 |
+| 2.ª rodada, treze mudanças em duas tecnologias | ≈ 45 linhas de diff por mudança ≈ 29 | ≈ 3 por interface ≈ 21 | ≈ 50 |
+| 3.ª rodada, cinco passos em três interfaces | ≈ 70 linhas por passo ≈ 26 | ≈ 1,5 por passo ≈ 22 | ≈ 48 |
+| Análise do núcleo | | | ≈ 163 |
+
+A prosa dá ≈ 10 páginas por interface nas três rodadas, perto das 12
+do ADR 0013 de 2026-10-18, que já contavam os trechos.
+
+| Entorno, na ordem de corte | Código | Prosa | Total |
+|---|---|---|---|
+| Web Component com *signals* (863 linhas), em diff do Web Component | ≈ 13 a 22 | ≈ 7 | ≈ 20 a 29 |
+| Lit (790 linhas), listagem | ≈ 20 | ≈ 7 | ≈ 27 |
+| Web Component com Effection, três interfaces | ≈ 8 | ≈ 6 | ≈ 14 |
+| Solid (626 linhas), em diff do React | ≈ 9 a 16 | ≈ 7 | ≈ 16 a 23 |
+| Cycle.js, três interfaces | ≈ 8 | ≈ 6 | ≈ 14 |
+| Entorno inteiro | | | ≈ 91 a 107 |
+
+PDF sem o anexo = 56 + 3 (a demonstração da estrutura de pares na
+fundamentação) + análise = ≈ 222; o anexo é o domínio, 785 linhas não
+vazias em seis arquivos, ≈ 20 páginas, e a página comum, 26 linhas; o
+estilo (364 linhas não vazias, ≈ 9 páginas), o HTML e a configuração
+ficam no repositório, citado pela tag. Só uma linha dos módulos do
+núcleo, no React, passa de 80 colunas, mas 31% das do Web Component e
+24% das do React passam de 45, e por isso a listagem fica em largura total, abaixo
+da captura.
 
 ## A conta de 2026-10-24 à noite: quatro vertentes, o anexo por variante e o Lit
 

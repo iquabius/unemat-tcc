@@ -116,7 +116,7 @@ exigência decidida pelo autor.
   navegador e domínio, pela MDN; a WHATWG, §9.2.7, sugere um *shared
   worker*): vários painéis ou abas do Placar ao vivo. A página comum
   (ADR 0043) hospeda um painel; fora do conjunto. Forma: limitação a
-  declarar, com o SSE nas duas primeiras rodadas (ADR 0029).
+  declarar, com o SSE em todas as rodadas (ADR 0029).
 - **Retomada exata depois da pausa** (o `Last-Event-ID` não acompanha
   um `EventSource` novo): o Placar ao vivo com SSE; o "Gols novos"
   depende do último lote. Forma: parte da mudança de reconexão da
@@ -124,9 +124,9 @@ exigência decidida pelo autor.
 - **Cache e deduplicação de respostas** (TanStack Query, SWR): a Busca,
   que já tem "o termo repetido" na primeira rodada. Forma: ramo de
   biblioteca de busca de dados na Busca, a forma de ecossistema mais
-  medida (298 milhões de downloads na janela do ADR 0031), hoje guardada
-  para o entorno da cadeia (ADR 0042). Custo: um ramo a mais, cinco
-  diffs e uma subseção; tira o TanStack Query do entorno.
+  medida (298 milhões de downloads de 2026-09-12 a 2026-10-11), nos
+  trabalhos futuros desde 2026-10-31 (ADR 0042). Custo: um ramo a mais,
+  cinco diffs e uma subseção.
 
 Candidatas a irmãs dos ramos da terceira rodada (a biblioteca do
 ecossistema e o padrão de projeto), anotadas na tarefa tcc-l7qe: o

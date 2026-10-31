@@ -1,6 +1,6 @@
 # 0001. A web em TypeScript, com Android e desktop nos trabalhos futuros
 
-2026-10-17. A análise, que compara os três modelos de programação (ADR
+2026-10-17. A análise, que compara os modelos de programação (ADR
 0021) pela notação, perde o controle quando a linguagem ou a montagem da
 tela mudam junto do modelo de programação. Até essa data, o plano levava
 a análise também ao Android e ao *desktop*.
@@ -17,10 +17,11 @@ Critérios:
 
 A análise fica na web, em TypeScript, com o Android e o *desktop* nos
 trabalhos futuros da conclusão (tcc-dpci, decisão do autor em
-2026-10-17): as cinco tecnologias (ADR 0013) se escrevem em TypeScript
-`strict`, sobre o mesmo modelo de computação, e o par que só o *desktop*
-tinha, o imperativo contra o granular com a mesma montagem da tela,
-passa à web pelo Web Component com *signals* (ADR 0013). O código do
+2026-10-17): as tecnologias do núcleo e do entorno (ADRs 0013 e 0042)
+se escrevem em TypeScript `strict`, sobre o mesmo modelo de computação,
+e o par que só o *desktop* tinha, o imperativo contra o granular com a
+mesma montagem da tela, passa à web pelo Web Component com *signals*,
+no entorno (ADR 0042). O código do
 Android e do *desktop* saiu do repositório em 2026-10-25, pela regra do
 ADR 0025.
 

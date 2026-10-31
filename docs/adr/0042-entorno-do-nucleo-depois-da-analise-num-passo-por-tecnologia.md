@@ -1,95 +1,109 @@
-# 0042. O entorno da cadeia depois da análise, em duas rodadas
+# 0042. O entorno do núcleo depois da análise, num passo por tecnologia
 
-2026-10-25. O leitor do texto não vê onde ficam os três modelos de
-programação entre os vizinhos que a cadeia de pares (ADR 0013) deixa de
-fora, porque sem código o texto não tem como mostrá-lo: o MVU, que
-Sperber e Schlegel (2025, p. 32) descrevem e Kiss (2014) avaliou pelas
-DCs numa "selection of the case studies" (p. 3), quatro das sete
-interfaces (p. 80-96); o Angular, o granular mais usado, cujo custo do
-pré-processador não tem alvo no conjunto analisado (decisão do autor em
-2026-10-23); e a orquestração de eventos em *streams*.
+2026-10-31. O leitor do texto não vê onde ficam as células do núcleo
+(ADR 0013) entre as vizinhas que ele deixa de fora, porque sem código o
+texto não tem como mostrá-las: a coluna granular, a do Solid; a linha
+sequencial, em que o código espera o próximo evento e segue em ordem; o
+Lit, que escreve a mesma célula do React numa classe; e a reescrita da
+interface inteira numa tecnologia de fluxos, como a troca de tecnologia
+num projeto novo.
 
 Critérios:
 
-- os vizinhos que o texto cita, com código que faz o mesmo que o da
+- cada tecnologia do entorno parte de uma implementação do núcleo, num
+  passo só;
+- as vizinhas que o texto cita, com código que faz o mesmo que o da
   análise;
-- a leitura do custo do Elm na mudança de requisito, que Kiss só
-  esboçou (p. 91);
-- cada tecnologia nas interfaces em que ela difere;
 - a análise principal sem peso a mais: o entorno vem depois dela e sai
-  antes, numa ordem fixada antes de ver o código.
+  antes, numa ordem fixada antes de ver o código;
+- o passo que muda mais de uma coisa se declara, e a diferença nele não
+  se atribui a uma variável só.
 
-O entorno da cadeia vem depois da análise, em duas rodadas, com cinco
-tecnologias: uma seção lê, cada tecnologia nas interfaces em que ela
-difere, o Elm 0.19.3 e o Foldkit 0.169.0 (a arquitetura do Elm em
-TypeScript sobre o Effect) no Contador, na Reserva de passagem e no
-Circle Drawer; o Angular 22 com *signals*, com o RxJS 7 pela ponte
-oficial onde há orquestração de eventos, e o Cycle.js (`@cycle/dom`
-23.1.0, `xstream` 11.14.0) na Busca e no Placar ao vivo; e o TanStack
-Query (`@tanstack/query-core` 5.104.5, com o
-`experimental_streamedQuery` e o `retry`) no Placar ao vivo, no React e
-no Solid. Cada uma implementa a primeira rodada e as mudanças da segunda
-dessas interfaces (ADR 0029), na mesma ordem: 12 implementações e 26
-commits (5 mudanças no Elm, no Foldkit, no Cycle.js e no Angular, 3 no
-TanStack Query no React e 3 no Solid). A seção lê o diff da segunda
-rodada pela viscosidade, e a primeira só como ponto de partida, porque o
-custo do Elm que Kiss descreve com mais força vem de um requisito que
-ele imaginou mudar: iniciar o campo do Flight Booker com a data de hoje
-"seems very involved" (p. 91), e ele fixou a data para não escrevê-lo;
-no balanço, "some easy things with JavaFX required a lot of work in Elm"
-(p. 96) (decisão do autor em 2026-10-25). O código fica na pasta
-`entorno/` da interface, fora do conjunto analisado (ADR 0025), e passa
-pelo teste de conformidade e pelas capturas da interface. O nome diz o
-que essas tecnologias são para a cadeia, o que a cerca, e o papel da
-seção, situar nele os três modelos; até 2026-10-26, a seção se chamava
-contraste, a palavra que Kiss usa para a comparação principal ("a
-meaningful contrast for the case studies", p. 12) e que diz oposição
-(decisão do autor em 2026-10-26; `GLOSSARY.md`, Entorno).
+O entorno do núcleo vem depois da análise, num passo por tecnologia,
+só onde o ponto de partida já existe (decisões do autor em
+2026-10-31):
 
-No corte do ADR 0029, o entorno sai antes de tudo: primeiro a segunda
-rodada dele, inteira, e a seção volta a ler só a primeira, como Kiss;
-depois uma tecnologia por vez: 1) o TanStack Query; 2) o Foldkit; 3) o
-Cycle.js; 4) o Angular com *signals* e RxJS; 5) o Elm, o último, pelo
-precedente de Kiss (decisões do autor em 2026-10-23 e 2026-10-25).
+- na primeira rodada, nas sete interfaces, com o código já
+  implementado: Web Component → Web Component com *signals*, a
+  propagação de manual a granular, com a montagem igual (ADR 0037) e o
+  `solid-js` (1.9.15) só para a reatividade; Web Component → Lit (3.3.3),
+  a propagação de manual a re-renderização, com o componente ainda numa
+  classe e o dado trocado por uma cópia, como a documentação do Lit
+  recomenda; e React → Solid, a propagação de re-renderização a
+  granular, com o JSX num dialeto um pouco diferente;
+- na Busca, no Login e no Placar ao vivo: Web Component → Web Component
+  com Effection (4.2.0, "Structured Concurrency and Effects for
+  JavaScript"), sobre o código da segunda rodada, a orquestração de
+  atribuição a sequencial, com a espera escrita como `yield*`; e React
+  com derivados no RxJS → Cycle.js (`@cycle/run` 5.7.0, `@cycle/dom`
+  23.1.0, `xstream` 11.14.0), sobre o último passo da terceira rodada.
 
-Em vez de: o entorno só na primeira rodada, como o Elm em Kiss
-(decisão de 2026-10-23); 12 implementações, com precedente, mas sem a
-mudança de requisito em que Kiss esboçou o custo do Elm (falha o segundo
-critério).
-Em vez de: o entorno lendo a terceira rodada, ao lado da biblioteca do
-ecossistema;
-seria a leitura mais próxima da P1.2, mas exige antes as duas primeiras
-rodadas dessas tecnologias, ao lado da análise principal (falha o
-quarto).
-Em vez de: as cinco tecnologias nas mesmas três interfaces (o Contador,
-a Busca e o Placar ao vivo); lado a lado nas mesmas telas, mas o MVU
-perderia o Circle Drawer, em que o desfazer guarda fotografias do
-estado (ADR 0040), e o MVU guarda o estado num valor só (Sperber e
-Schlegel 2025, p. 32) (falha o terceiro).
-Em vez de: o entorno depois do bolão e do "lembrar meu nome", ou fora
-da ordem de corte; pesaria mais que duas mudanças sem tipo novo, ou
-seria mais simples, mas passaria à frente da análise principal, ou
-deixaria o corte para depois de ver o código (falha o quarto).
-Em vez de: o XState, com a quarentena e a reconexão como *statecharts*;
-não monta a tela e compararia a orquestração, e não o modelo de
-programação (falha o primeiro); a máquina de estados tipada vai aos
-trabalhos futuros da conclusão (ADR 0029).
-Custo: cerca de 12 implementações e 26 commits a mais, depois da
-análise principal e antes do fechamento em 2026-11-20; o Elm pede outra
-linguagem e as regras do domínio reescritas, também nas mudanças; o
-Foldkit está em beta e quebra em versões menores; o Cycle.js está
-parado desde 2022 e não tem artigo revisado por pares; o Angular fica
-com duas notações, e a seção separa o que é do *signal* e o que é do
-RxJS; o TanStack Query, uma biblioteca que não impõe um modelo de
-programação, conta como uma das cinco tecnologias do entorno; as
-tecnologias do entorno só se comparam duas a duas, na mesma
-interface.
+O passo ao Cycle.js muda de uma vez a biblioteca de fluxos, o modelo de
+componente, os efeitos, que vão a *drivers* (o Placar ao vivo num
+*driver* escrito à mão, porque o Cycle.js não tem um oficial para ele),
+e a montagem da tela, e o texto o declara sem controle, como os casos
+de Kiss (2014), em que "the toolkit dominated this evaluation and the
+paradigms did not come into play" (p. 23), com a exceção do sexto caso
+(p. 48). O contraste com os passos do núcleo mostra quanto da
+diferença vem dessa troca. São 27 implementações, 21 delas prontas.
+Cada uma entra no corpo, junto da análise dela, como diff quando ele é
+mais curto que a listagem, senão como a listagem inteira com as linhas
+mudadas realçadas (ADR 0017). O código fica na pasta `entorno/` da
+interface, fora do conjunto analisado (ADR 0025), e passa pelo teste de
+conformidade e pelas capturas da interface. A estrutura de pares se
+demonstra antes, na fundamentação, com o `for` contra o `map` e o
+`filter` e um contador nos modos de orquestração, sem as DCs.
 
-Fontes: Kiss (2014, p. 3, 12, 80-96, 91 e 96); Sperber e Schlegel (2025,
-p. 32); Blackheath e Jones (2016), *Cell* e *Stream*, e Elliott e Hudak
-(1997), *behaviors* e *events*, para a divisão entre o *signal* e o
-*stream*; versões no registro do npm e nos lançamentos do Elm no GitHub,
-consultados em 2026-10-23; pesquisa de 2026-10-23 sobre o Effect e os
-*frameworks* funcionais do ecossistema TypeScript (notas da tcc-3y1c);
-`docs/paradigma-modelo-e-notacao.md`, seção "Tensões que o texto precisa
-enfrentar".
+No corte do ADR 0029, o entorno sai antes de tudo, uma tecnologia por
+vez, nesta ordem: 1) o Web Component com *signals*, uma construção de
+controle da cadeia antiga, rara nos programas reais; 2) o Lit, que
+repete a coluna do React; 3) o Web Component com Effection, o único da
+linha sequencial; 4) o Solid; 5) o Cycle.js, o último (decisões do
+autor em 2026-10-31). Vão aos trabalhos futuros da conclusão, cada um
+com o par de um passo que formaria: o Elm, o Foldkit, o Angular com
+*signals* e o TanStack Query, do entorno anterior; o redux-saga, a forma
+sequencial que se usa com o React; o XState, o `Observable` do WICG, o
+TanStack Form, o *Command* e o Backbone. O jsx-dom fica para um passo
+do núcleo, se a análise precisar (ADR 0013).
+
+Em vez de: o entorno da cadeia de 2026-10-25, com o Elm 0.19.3, o
+Foldkit, o Angular 22 com *signals* e RxJS, o Cycle.js e o TanStack
+Query, nas interfaces em que cada um difere, na primeira e na segunda
+rodada, 12 implementações e 26 commits; lia o custo do Elm na mudança de
+requisito que Kiss esboçou (p. 91), mas nenhuma parte de uma
+implementação do núcleo num passo, o Elm pede outra linguagem e o
+domínio reescrito, e o React com `useReducer` já ocupa no núcleo a
+célula do MVU (falha o primeiro critério).
+Em vez de: o entorno também na segunda rodada; mostraria a viscosidade
+das vizinhas, mas somaria cerca de 12 páginas a um entorno que já passa
+de 90 (falha o terceiro).
+Em vez de: o Cycle.js em quatro fases, como uma migração em produção
+(o RxJS ao `xstream`, os componentes à `main` com o `@cycle/react`, os
+efeitos aos *drivers*, o `@cycle/react` ao `@cycle/dom`); levaria ao
+entorno o controle do núcleo, mas com até cerca de 36 páginas e uma
+ponte que teve 294 downloads de 2026-09-30 a 2026-10-29 (falha o
+terceiro).
+Em vez de: o redux-saga para a linha sequencial; é o representante
+popular (5.610.681 downloads de 2026-09-30 a 2026-10-29), mas o passo
+traz o *store* do Redux junto, e a saga põe em sequência os efeitos, com
+o estado ainda alterado por mensagem (falha o primeiro).
+Em vez de: a linha sequencial na primeira rodada, antes do primeiro
+passo; mostraria o extremo imperativo primeiro, mas a primeira rodada
+deixaria de comparar só a propagação (ADR 0029) (falha o terceiro).
+
+Custo: cerca de 91 a 107 páginas, quase a metade da análise do núcleo
+(`docs/processo/estimativa-de-paginas.md`); 6 implementações novas,
+depois da análise principal e antes do fechamento em 2026-11-20; o
+Cycle.js está parado desde 2022 e não tem artigo revisado por pares; o
+Effection teve 68.080 downloads de 2026-09-30 a 2026-10-29; o Web
+Component com *signals* é raro nos programas reais (11 arquivos na
+busca de código do GitHub, em TypeScript, em 2026-10-17); a diferença
+no passo ao Cycle.js não se atribui a uma variável só; e cada
+tecnologia do entorno só se compara com a implementação de que parte.
+
+Fontes: Kiss (2014, p. 23, 48, 56 e 91), em
+`docs/paradigma-modelo-e-notacao.md`, argumento (d); versões e
+downloads na API e no registro do npm (2026-09-30 a 2026-10-29); a
+documentação do Effection, do redux-saga e do Cycle.js, lida em
+2026-10-31; `tmp/pesquisas/2026-10-17-par-imperativo-granular-na-web.md`
+(fora do git), com a busca de código; tarefas tcc-uji5 e tcc-dpci.

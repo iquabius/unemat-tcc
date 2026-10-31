@@ -14,7 +14,7 @@ Critérios:
 - a escolha que qualquer tecnologia aceita fica igual em todas;
 - o código de cada tecnologia segue o idioma dela.
 
-O desfazer do Circle Drawer guarda fotografias: nas cinco tecnologias,
+O desfazer do Circle Drawer guarda fotografias: em todas as tecnologias,
 o histórico guarda uma fotografia da lista a cada passo, e o desfazer e
 o refazer movem o cursor. A alteração segue o ADR 0010: no lugar no Web
 Component; num *store* do `solid-js`, com `produce`, no Solid e no Web

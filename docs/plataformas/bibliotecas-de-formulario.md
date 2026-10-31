@@ -2,7 +2,10 @@
 
 Referência. A biblioteca de formulário de cada tecnologia da análise na
 Reserva de passagem, na terceira rodada, com a medida pública do
-registro, a janela e a fonte, pela regra do ADR 0031. Cada afirmação
+registro, a janela e a fonte, pela regra do ADR 0031. Em 2026-10-31, a
+biblioteca do ecossistema foi aos trabalhos futuros (ADR 0029), e o ADR
+0031 saiu (`docs/processo/historico-dos-adrs.md`); as citações dele
+nesta nota valem para a medida de 2026-10-25. Cada afirmação
 sobre ferramenta ou versão leva a data em que foi observada; medidas de
 2026-10-12, que refazem as de 2026-10-11 com a janela registrada. As das
 tecnologias que saíram da análise estão na seção "Tecnologias fora da

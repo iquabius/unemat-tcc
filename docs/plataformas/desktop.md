@@ -218,9 +218,10 @@ nem `Main`); o *script* do ADR 0017 ainda não existe:
   2026-10-14 e 2026-10-15, ADR 0001). Na primeira e na segunda rodada, o
   WPF escreve o `INotifyPropertyChanged` e o `ICommand` à mão, com o que o
   WPF e o .NET trazem, e o CommunityToolkit.Mvvm entra só na terceira
-  (ADR 0031; decisão do autor em 2026-10-15). Não é o caminho mais comum
-  no ecossistema, em que o CommunityToolkit.Mvvm tem 98,6% dos downloads
-  das candidatas (ADR 0031).
+  (decisão do autor em 2026-10-15, pela regra do ADR 0031, que saiu em
+  2026-10-31, `docs/processo/historico-dos-adrs.md`). Não é o caminho
+  mais comum no ecossistema, em que o CommunityToolkit.Mvvm tem 98,6%
+  dos downloads das candidatas.
 
 ## Qt Widgets × QML (C++ e QML)
 

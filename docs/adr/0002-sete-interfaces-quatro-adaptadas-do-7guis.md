@@ -1,6 +1,6 @@
 # 0002. Sete interfaces, quatro adaptadas do 7GUIs
 
-2026-10-22. A análise, que lê os três modelos de programação interface
+2026-10-22. A análise, que lê os modelos de programação interface
 por interface, perde a comparação com as posições de Kiss (2014) e um
 dos dois eixos da coordenação quando as interfaces não vêm de aplicações
 reais nem do 7GUIs. O conjunto de 2026-10-15 tinha um Quadro de tarefas
@@ -54,7 +54,7 @@ terceiro e o quarto critério).
 Em vez de: o Contador como leitura de base, fora das sete interfaces e
 da tabela-síntese, só na primeira rodada (decisão de 2026-10-20);
 mantinha o conversor, mas tirava da síntese a interface que calibra a
-cadeia, ao contrário de Kiss, em que o *Counter* é um dos sete casos
+comparação, ao contrário de Kiss, em que o *Counter* é um dos sete casos
 (falha o segundo).
 Em vez de: o 7GUIs inteiro, com o conversor, o *Timer* (§3.6, p. 30) e
 o *Crud* (§3.7, p. 34) no lugar da Busca, do Login e do Placar ao vivo;
@@ -67,7 +67,7 @@ Custo: o derivado nos dois sentidos só entra na segunda rodada, e com a
 identidade no lugar da fórmula com inversa; as células do Contador na
 tabela-síntese medem sobretudo a montagem e o modelo de componente
 ("dominated by the toolkit(s)", p. 20); o *canvas* não tem texto que o
-teste de conformidade leia, e o desenho, "o como" nas cinco tecnologias,
+teste de conformidade leia, e o desenho, "o como" em todas as tecnologias,
 pode dominar o código; a Busca, o Login e o Placar ao vivo se sobrepõem
 no cancelamento, cada um com uma política; a conclusão sobre cada eixo
 vem de três ou quatro interfaces.

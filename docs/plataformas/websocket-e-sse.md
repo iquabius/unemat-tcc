@@ -6,7 +6,11 @@ do WebSockets Standard da WHATWG) e os *Server-Sent Events* (a API
 que cada um atende de nascença nas exigências de coordenação do Placar
 ao vivo, a única das sete interfaces com conexão viva. Serviu à decisão
 do protocolo do Placar ao vivo (tcc-jjzc; ADRs 0029 e 0031) e serve ao
-texto onde a diferença couber. Cada afirmação leva a fonte e a data em que foi lida.
+texto onde a diferença couber. Em 2026-10-31, a biblioteca do
+ecossistema foi aos trabalhos futuros, o Placar ao vivo ficou no SSE em
+todas as rodadas (ADR 0029), e o ADR 0031 saiu
+(`docs/processo/historico-dos-adrs.md`); as citações dele abaixo valem
+para a decisão de 2026-10-25. Cada afirmação leva a fonte e a data em que foi lida.
 
 **Conclusão (2026-10-24).** Os dois atendem "só servidor → cliente", a
 inscrição e o cancelamento. A diferença que importa à coordenação é a

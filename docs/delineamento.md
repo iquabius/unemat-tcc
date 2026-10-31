@@ -8,30 +8,24 @@ implementado, uma tarefa fechada. O texto resume o que não se controla
 nas limitações de `texto/intro.org`, no parágrafo que abre por "O
 delineamento tem limitações".
 
-**Conclusão (2026-10-26).** O delineamento fixa a linguagem e o modelo
+**Conclusão (2026-10-31).** O delineamento fixa a linguagem e o modelo
 de computação (TypeScript, só na web), a especificação de cada
 interface, o domínio, as duas regras comuns da primeira rodada
 (mensagens de status anunciadas; limpeza ao sair da tela), a aparência,
-num `estilo.css` comum fora da notação, em todas as rodadas, e, na
-primeira e na segunda rodada, as dependências; na terceira rodada, a Reserva de
-passagem e o Placar ao vivo passam à forma do ecossistema de cada
-tecnologia, sem controle (ADR 0029). As cinco tecnologias implementam
-as sete interfaces, numa cadeia em que cada par muda o mínimo: Web
-Component × Web Component com *signals*, a ligação do estado com a tela
-e a orquestração (o imperativo contra o granular, com a mesma
-montagem); Web Component com *signals* × Solid, a montagem da tela e o
-modelo de componente (um modelo de programação, duas notações); Solid ×
-React, o modelo de programação, com o mesmo JSX; e, num ramo, Web
-Component × Lit, a ligação (o imperativo contra a re-renderização, com
-o mesmo modelo de componente e a mesma orquestração) (ADR 0013). O
-Web Component e o React não formam par: diferem na ligação, na
-montagem, no modelo de componente e na orquestração ao mesmo tempo.
-Ficam sem controle o avaliador, que é o autor, a origem das
-implementações, geradas com agentes de IA, a representação do
-imperativo por uma tecnologia só, a forma rara do Web Component com
-*signals*, as
-bibliotecas da terceira rodada e o idioma de estilo de cada
-ecossistema.
+num `estilo.css` comum fora da notação, e as dependências: cada
+implementação usa só o que a tecnologia traz. O modelo de programação é
+a célula de dois eixos, a propagação e a orquestração (ADR 0021), e o
+núcleo muda um modo por passo (ADR 0013): na primeira e na segunda
+rodada, Web Component × React, a propagação; na terceira, na Busca, no
+Login e no Placar ao vivo, os cinco passos do ADR 0029, que levam o
+código até o declarativo nos dois eixos e fecham o quadrado do Web
+Component, do React e dos dois com RxJS. O entorno parte do núcleo, um
+passo por tecnologia (ADR 0042). Ficam sem controle a montagem e o
+modelo de componente no passo do Web Component ao React, o passo ao
+Cycle.js, o avaliador, que é o autor, a origem das implementações,
+geradas com agentes de IA, a representação de cada célula por uma
+tecnologia, o realismo do Web Component sem biblioteca e o idioma de
+estilo de cada ecossistema.
 
 O termo segue Prodanov e Freitas (2013, p. 54, `prodanov2013`): o
 *design* "pode ser traduzido como delineamento", que "refere-se ao
@@ -41,54 +35,59 @@ que se confunde com o desenho da tela (`GLOSSARY.md`, Delineamento).
 
 ## O que fica fixo
 
-| Variável | Como se controla | De onde vem | Estado em 2026-10-26 |
+| Variável | Como se controla | De onde vem | Estado em 2026-10-31 |
 |---|---|---|---|
 | Linguagem e modelo de computação | TypeScript em modo `strict` em todas as tecnologias, só na web | ADRs 0001 e 0021; `GLOSSARY.md`, Modelo de computação | controlado |
-| Especificação | as implementações de uma interface seguem o mesmo `spec.md` do OpenSpec, com os mesmos textos, regras e dados, e cada mudança entre rodadas entra como *delta spec* | ADRs 0002, 0013 e 0030; `interfaces-graficas/AGENTS.md` | controlado na Reserva de passagem, na Busca, no Login e no Placar ao vivo; o conversor, a Planilha e o Circle Drawer ainda sem especificação; a Reserva de passagem volta ao *Flight Booker* dentro da primeira rodada |
+| Especificação | as implementações de uma interface seguem o mesmo `spec.md` do OpenSpec, com os mesmos textos, regras e dados, e cada mudança entre rodadas entra como *delta spec* | ADRs 0002, 0013 e 0030; `interfaces-graficas/AGENTS.md` | controlado na Reserva de passagem, na Busca, no Login e no Placar ao vivo; a Planilha e o Circle Drawer ainda sem especificação (situação de 2026-10-26) |
 | Teste de conformidade | as mesmas verificações, na mesma ordem, contra cada implementação, cada uma com o nome de um cenário da especificação, conferido por `npm run conferir-especificacao`; colado no console | `interfaces-graficas/AGENTS.md` | o *canvas* do Circle Drawer não tem texto que o teste leia, e o domínio expõe os círculos |
 | Regras comuns da primeira rodada | em todas as interfaces, as mensagens de status ficam numa região anunciada (`role="status"`, WCAG 2.2, 4.1.3), e vale a limpeza ao sair da tela; o teste de conformidade confere as duas, a segunda contando no domínio os relógios, as conexões e as requisições abertas | ADR 0029 | no Login, no Placar ao vivo, na Busca e na Reserva de passagem |
-| Dependências | na primeira e na segunda rodada, cada implementação usa só o que a própria tecnologia traz, sem bibliotecas de formulário; o Web Component com *signals* usa só o `solid-js`; na terceira rodada, a forma do ecossistema | ADRs 0013, 0029 e 0031 | controlado na primeira e na segunda rodada |
-| Domínio | as regras que não dependem da interface (datas, mensagens, servidores simulados, fontes de dados, a cotação, a análise das fórmulas) ficam num domínio comum por interface; a propagação da Planilha fica em cada implementação | ADRs 0002 e 0010 | controlado |
-| Aparência e comportamento | capturas de cada cena, idênticas entre as tecnologias; o estilo e o *layout* estáticos ficam no `estilo.css` comum da interface, que a tela cita por classes, em *light DOM*, em todas as rodadas, e só o valor que depende do estado (a posição do menu do Circle Drawer) entra na notação | ADR 0041 | controlado; o *canvas* do Circle Drawer sai idêntico nas cinco tecnologias (o md5sum das capturas); nenhuma implementação chama `attachShadow`, e o Lit desenha no próprio elemento, pelo `createRenderRoot()` |
-| Versões | fixadas no `package-lock.json`; o `solid-js` na 1.9 | `texto/cases.org`, nota `versoes` (ainda cita o `libs.versions.toml` do Android); ADR 0013 | controlado |
+| Dependências | cada implementação usa só o que a tecnologia traz, sem bibliotecas além das que fazem parte dela: o RxJS nas implementações com RxJS; no entorno, o `solid-js` no Web Component com *signals*, o Effection e o Cycle.js com o `xstream` | ADRs 0029 e 0042; `GLOSSARY.md`, Tecnologia | controlado |
+| Domínio | as regras que não dependem da interface (datas, mensagens, servidores simulados, fontes de dados, a análise das fórmulas) ficam num domínio comum por interface; a propagação da Planilha fica em cada implementação; o Placar ao vivo fala SSE em todas as rodadas | ADRs 0002, 0010 e 0029 | controlado |
+| Aparência e comportamento | capturas de cada cena, idênticas entre as tecnologias; o estilo e o *layout* estáticos ficam no `estilo.css` comum da interface, que a tela cita por classes, em *light DOM*, em todas as rodadas, e só o valor que depende do estado (a posição do menu do Circle Drawer) entra na notação | ADR 0041 | controlado; o *canvas* do Circle Drawer sai idêntico em todas as tecnologias (o md5sum das capturas); nenhuma implementação chama `attachShadow`, e o Lit desenha no próprio elemento, pelo `createRenderRoot()` |
+| Versões | fixadas no `package-lock.json`; o `solid-js` na 1.9 | `texto/cases.org`, nota `versoes` (ainda cita o `libs.versions.toml` do Android); ADR 0042 | controlado |
 | DCs | as 14, percorridas em cada interface e em cada rodada | ADR 0017 | controlado desde 2026-10-11 |
-| Mudança da segunda rodada | a mesma funcionalidade ou o mesmo requisito de orquestração, um por commit, na mesma ordem nas cinco tecnologias; latências, tentativas, prazos e intervalos fixos no domínio | ADR 0029 | a fazer; 13 mudanças, 65 commits |
-| Interfaces por tecnologia | as cinco tecnologias implementam as sete interfaces; o prazo só corta mudanças inteiras, pela ordem fixada antes | ADRs 0013 e 0029 | 35 implementações, todas na primeira rodada em 2026-10-26 |
+| Mudança da segunda rodada | a mesma funcionalidade ou o mesmo requisito de combinação de eventos, um por commit, no Web Component e depois no React; latências, tentativas, prazos e intervalos fixos no domínio | ADR 0029 | a fazer; 13 mudanças, 26 commits |
+| Interfaces por tecnologia | o Web Component e o React implementam as sete interfaces; a terceira rodada, a Busca, o Login e o Placar ao vivo; o prazo só corta pela ordem fixada antes | ADRs 0013 e 0029 | 14 implementações na primeira rodada, prontas desde 2026-10-26 |
 
-## O que um par isola
+## O que um passo isola
 
-| Par | Igual nos dois | Diferente | O que isola | De onde vem |
+Cada passo do núcleo muda um modo de um eixo (ADRs 0013 e 0029); os do
+entorno partem de uma implementação do núcleo (ADR 0042).
+
+| Passo | Rodada | Muda | Fica igual | De onde vem |
 |---|---|---|---|---|
-| Web Component × Web Component com *signals* | modelo de componente (classe que estende `HTMLElement`), montagem da tela (HTML num texto e `createElement`), linguagem, especificação | a ligação do estado com a tela: a escrita na tela em cada tratador contra a escrita declarada uma vez num efeito, que o ambiente de execução reexecuta; e a orquestração, que no Web Component com *signals* se escreve como no Solid (`createResource`, `onCleanup`) | o imperativo por atualização manual contra o declarativo por atualização granular, com a mesma montagem | ADR 0013; `tmp/pesquisas/2026-10-17-par-imperativo-granular-na-web.md` (fora do git) |
-| Web Component com *signals* × Solid | modelo de programação e API de *signals* (`createSignal`, `createMemo`, `createEffect`) | montagem da tela (HTML num texto e `createElement` contra JSX) e modelo de componente (classe contra função) | a notação dentro do mesmo modelo de programação: a montagem da tela e o modelo de componente, que a análise separa pelo sinal escrito | ADRs 0013 e 0021 |
-| Solid × React | JSX, linguagem, especificação | modelo de programação; também o dialeto do JSX (`className` e `class`) e `&&` e `.map` contra `<Show>` e `<For>` | o modelo de programação, entre os dois declarativos | ADR 0021; [`plataformas/web.md`](plataformas/web.md#tecnologias-por-modelo-de-programação) |
-| Web Component × Lit | modelo de componente (classe que estende `HTMLElement`), orquestração (a do Web Component), linguagem, especificação | a ligação do estado com a tela: a escrita na tela em cada tratador contra o `render()` que o ambiente de execução chama a cada alteração de estado; com ela, a montagem (`innerHTML` e `createElement` contra o *template* `html` e o `map`) e, no Circle Drawer e na Planilha, a alteração (no lugar contra a cópia) | o imperativo por atualização manual contra o declarativo por re-renderização | ADRs 0013 e 0040 |
-
-O Lit e o React são um modelo de programação com duas notações, e não
-formam par: diferem na montagem, no modelo de componente e na
-orquestração (ADRs 0013 e 0021).
+| Web Component → React | primeira e segunda, nas sete interfaces | a propagação, de manual a re-renderização; também a montagem (`createElement` contra JSX) e o modelo de componente (classe contra função), sem controle | a orquestração por atribuição, a especificação, o domínio | ADR 0013 |
+| Web Component → Web Component com RxJS | terceira | a orquestração, de atribuição a acumulação | a propagação manual: os derivados escritos à mão no *listener* | ADR 0029 |
+| React → React com `useReducer` | terceira | a orquestração, de atribuição a mensagem | a propagação, os derivados no corpo | ADR 0029 |
+| React com `useReducer` → React com RxJS | terceira | a orquestração, de mensagem a acumulação, o mesmo *reducer* no `scan` | os derivados no corpo | ADR 0029 |
+| Web Component com RxJS → React com RxJS | terceira | a propagação, de manual a re-renderização; fecha o quadrado | a orquestração por acumulação | ADR 0029 |
+| React com RxJS → React com derivados no RxJS | terceira | a propagação dos derivados, do corpo aos combinadores | a orquestração e a ligação com a tela | ADR 0029 |
+| Web Component → Web Component com *signals* | entorno, primeira | a propagação, de manual a granular | a montagem (ADR 0037) | ADR 0042 |
+| Web Component → Lit | entorno, primeira | a propagação, de manual a re-renderização; com ela, a montagem (o *template* `html` e o `map`) e, no Circle Drawer e na Planilha, a alteração por cópia | o modelo de componente (classe que estende `HTMLElement`) e a orquestração | ADRs 0040 e 0042 |
+| React → Solid | entorno, primeira | a propagação, de re-renderização a granular | o JSX, num dialeto um pouco diferente, e a orquestração por atribuição | ADR 0042; [`plataformas/web.md`](plataformas/web.md#tecnologias-por-modelo-de-programação) |
+| Web Component → Web Component com Effection | entorno, sobre a segunda, na Busca, no Login e no Placar | a orquestração, de atribuição a sequencial | a propagação manual e a montagem | ADR 0042 |
+| React com derivados no RxJS → Cycle.js | entorno, sobre a terceira | sem controle: a biblioteca de fluxos, o modelo de componente, os efeitos em *drivers* e a montagem | a célula (acumulação × combinadores) | ADR 0042 |
 
 Os pares de antes saíram da análise e estão nos trabalhos futuros da
-conclusão (tcc-dpci), e o código deles saiu do repositório em 2026-10-25
-e fica no commit anterior ao que tirou a pasta `fora-da-analise/`: Solid
-× Angular com *signals*, um modelo com duas notações (até 2026-10-18);
-Views × Compose, no Android, e Swing × JavaFX em código, no *desktop*
-(até 2026-10-17); o que cada um acrescentava está em
+conclusão: a cadeia de 2026-10-25 (Web Component → Web Component com
+*signals* → Solid → React, com o Lit num ramo) passou ao núcleo e ao
+entorno em 2026-10-31 (ADR 0013); Solid × Angular com *signals*, até
+2026-10-18 (tcc-dpci); Views × Compose, no Android, e Swing × JavaFX em
+código, no *desktop*, até 2026-10-17, com o que cada um acrescentava em
 [`plataformas/android.md`](plataformas/android.md) e
-[`plataformas/desktop.md`](plataformas/desktop.md). O Web Component ×
-Lit, fora da análise de 2026-10-19 a 2026-10-25, voltou nas sete
-interfaces (ADR 0013).
+[`plataformas/desktop.md`](plataformas/desktop.md).
 
 ## O que fica sem controle
 
 | Variável | Por que não se controla | Onde o texto diz | Em aberto |
 |---|---|---|---|
-| Web Component × React | o Web Component e o React diferem na ligação, na montagem, no modelo de componente e na orquestração ao mesmo tempo; a diferença se atribui ao passo da cadeia em que ela aparece, e a que nenhum passo explica, pelo sinal escrito (coordenação, montagem ou ligação entre as duas); a parte que vem só da re-renderização se lê no par Web Component × Lit; a atribuição supõe que os passos se somam | limitações de `texto/intro.org`, ainda por escrever | ADR 0013 (decisão de 2026-10-19); o texto, "Decidir como a análise atribui as diferenças entre o imperativo e os declarativos onde a web não tem par controlado" (tcc-4ie) |
-| Representantes por modelo de programação | uma tecnologia no imperativo (Web Component) e duas em cada declarativo (React e Lit na re-renderização, Web Component com *signals* e Solid no granular); a conclusão generaliza a partir delas | limitações; `docs/paradigma-modelo-e-notacao.md`, seção "Unidade comparada e evidência: o TCC compara categorias" | ADR 0013 |
-| Forma do Web Component com *signals* | rara nos programas reais (11 arquivos na busca de código do GitHub em 2026-10-17): uma construção de controle, que a regra do ADR 0037 não cobre; o corpo do efeito ainda escreve no DOM | ainda não | ADRs 0013 e 0021 |
-| Bibliotecas da terceira rodada | cada tecnologia usa a forma do ecossistema na Reserva de passagem e no Placar ao vivo, e a conclusão de cada vertente se lê como "nessa forma"; o Web Component com *signals* e o Lit seguem o Web Component | ainda não | ADRs 0029 e 0031; tcc-vgrx |
-| Idioma de estilo do ecossistema | o estilo fica fora da notação nas cinco tecnologias, e o que cada ecossistema usa não entra: no React, o Tailwind, os CSS Modules e o styled-components (State of React 2025, amostra autosselecionada); nos *widgets* empacotados, o `<style>` no *shadow root*; as DCs não veem a mistura de estilo e componente, nem as dependências ocultas do HTML com o CSS, e o código do React e do Solid pode parecer pouco realista a quem é do ecossistema | ainda não: a separação entre HTML e CSS, que o Java no *desktop* não tem, e o lugar do estilo vão ao método e às limitações de `texto/intro.org` | ADR 0041; [`plataformas/web.md`](plataformas/web.md#onde-ficam-o-estilo-e-o-layout) |
-| Divergência dentro da coluna | as duas tecnologias de um declarativo (o Lit e o React, o Web Component com *signals* e o Solid) podem divergir numa DC | a célula da tabela-síntese registra a divergência | ADR 0017 |
+| Montagem e modelo de componente no passo Web Component → React | o passo muda a propagação, a montagem e o modelo de componente ao mesmo tempo; a diferença se atribui pelo sinal escrito (coordenação, montagem ou ligação entre as duas); se a análise não conseguir separar a montagem, um passo ao Web Component com o jsx-dom a isola | limitações de `texto/intro.org` | ADR 0013 |
+| Passo ao Cycle.js | muda a biblioteca, o modelo de componente, os efeitos e a montagem de uma vez, como os casos de Kiss (2014, p. 23); a diferença não se atribui a uma variável só | delineamento e limitações | ADR 0042 |
+| Representantes por célula | uma tecnologia por célula no núcleo; a conclusão generaliza a partir dela | limitações; `docs/paradigma-modelo-e-notacao.md`, seção "Unidade comparada e evidência: o TCC compara categorias" | ADR 0013 |
+| Realismo do Web Component | a plataforma sem biblioteca é o extremo controlado, e não o representante do mercado: o jQuery, na mesma célula, é muito mais usado, mas não tem modelo de componente | limitações | ADR 0013 |
+| Forma do React com RxJS | os derivados no corpo do componente, uma forma que nenhuma documentação mostra, para que o passo seguinte mude só os derivados | delineamento | ADR 0029 |
+| Forma do Web Component com *signals* | rara nos programas reais (11 arquivos na busca de código do GitHub em 2026-10-17): uma construção de controle; o primeiro a sair no corte | ainda não | ADR 0042 |
+| Idioma de estilo do ecossistema | o estilo fica fora da notação em todas as tecnologias, e o que cada ecossistema usa não entra: no React, o Tailwind, os CSS Modules e o styled-components (State of React 2025, amostra autosselecionada); nos *widgets* empacotados, o `<style>` no *shadow root*; as DCs não veem a mistura de estilo e componente, nem as dependências ocultas do HTML com o CSS, e o código do React pode parecer pouco realista a quem é do ecossistema | ainda não: a separação entre HTML e CSS, que o Java no *desktop* não tem, e o lugar do estilo vão ao método e às limitações de `texto/intro.org` | ADR 0041; [`plataformas/web.md`](plataformas/web.md#onde-ficam-o-estilo-e-o-layout) |
 | Avaliador | uma pessoa só, o autor, que construiu o que avalia, com familiaridade desigual, maior com o React | limitações (Hertzum e Jacobsen 2003, p. 183; Dagit et al. 2006) | — |
 | Origem das implementações | as atuais foram geradas com agentes de IA a partir de implementações de referência do autor, e não se sabe de quais | ainda não | `docs/processo/implementacoes-no-codesandbox.md`; "Escrever a declaração de uso de IA do TCC a partir do histórico do repositório" (tcc-gjw) |
 | Tamanho das interfaces | pequenas; a segunda rodada as faz crescer por mudanças acrescentadas (ADR 0029), mas o que só aparece em programa grande continua de fora | limitações | Stol e Fitzgerald (2018, p. 11:10) e Green e Blackwell (1998, p. 62), candidatas (`docs/metodo-da-avaliacao.md`, seção "Programas de brinquedo: isolar uma escolha e o limite do tamanho") |
@@ -96,12 +95,10 @@ interfaces (ADR 0013).
 
 ## O que cada par isola, DC a DC
 
-Leitura de 2026-10-12. Em 2026-10-18, o Lit e o Angular saíram da
-análise, e o Lit voltou em 2026-10-25 (ADR 0013): a coluna Web
+Leitura de 2026-10-12, de dois pares que em 2026-10-31 passaram ao
+entorno (ADR 0042): Web Component × Lit e React × Solid. A coluna Web
 Component × Lit é a leitura de um rascunho de 2026-10-12, anterior às
-implementações de agora, e a leitura DC a DC dos pares novos (Web
-Component × Web Component com *signals*; Web Component com *signals* ×
-Solid) está por fazer.
+implementações de agora.
 
 Conclusão: Web Component × Lit e React × Solid pesam o mesmo número de
 DCs, mas não isolam a mesma diferença. Sem o primeiro, os custos dos

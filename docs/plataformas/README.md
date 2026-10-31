@@ -1,41 +1,41 @@
 # Plataformas: as notas e as tecnologias da análise
 
 Referência. O índice das notas de `docs/plataformas/`: a web, em que a
-análise fica, com as cinco tecnologias por modelo de programação e a
-cadeia de pares, e o Android e o *desktop*, fora da análise desde
+análise fica, com as tecnologias do núcleo e do entorno por modelo de
+programação, e o Android e o *desktop*, fora da análise desde
 2026-10-17, como referência para os trabalhos futuros da conclusão.
 
-**Conclusão.** A análise fica só na web, em TypeScript (ADR 0001), com o
-Web Component, o Web Component com *signals* do `solid-js`, o Solid, o
-React e o Lit, numa cadeia de pares em que cada passo muda o mínimo,
-com o Lit num ramo do Web Component (ADR 0013, de 2026-10-25). O Angular
-com *signals* saiu pelo ADR 0013, e o Android e o *desktop*, pelo ADR
-0001, de 2026-10-17; todos vão para os trabalhos futuros da conclusão
+**Conclusão (2026-10-31).** A análise fica só na web, em TypeScript
+(ADR 0001). O núcleo é o Web Component e o React, com os passos da
+terceira rodada ao Web Component com RxJS, ao React com `useReducer`, ao
+React com RxJS e ao React com derivados no RxJS (ADRs 0013 e 0029); o
+entorno é o Web Component com *signals*, o Lit, o Solid, o Web
+Component com Effection e o Cycle.js (ADR 0042). O Angular com
+*signals*, que saiu pelo ADR 0013, e o Android e o *desktop*, pelo ADR
+0001, de 2026-10-17, vão para os trabalhos futuros da conclusão
 (tcc-dpci), e o código deles saiu do repositório em 2026-10-25 e fica
 no commit anterior ao que tirou a pasta `fora-da-analise/`.
 
 Os termos seguem o `GLOSSARY.md` e o ADR 0021, com as definições e as
-fontes em `docs/paradigma-modelo-e-notacao.md`: o que se compara são três
-modelos de programação, e a notação é a forma escrita de um modelo de
-programação numa tecnologia.
+fontes em `docs/paradigma-modelo-e-notacao.md`: o modelo de programação
+é a célula de dois eixos, a propagação e a orquestração, e a notação é
+a forma escrita de um modelo de programação numa tecnologia.
 
 ## A web, na análise
 
-| Modelo de programação | Tecnologias |
-|---|---|
-| Imperativo por atualização manual | Web Component |
-| Declarativo por re-renderização | React, Lit |
-| Declarativo por atualização granular | Web Component com *signals*, Solid |
+| Célula (orquestração × propagação) | Núcleo | Entorno |
+|---|---|---|
+| sequencial × manual | | Web Component com Effection |
+| atribuição × manual | Web Component | |
+| atribuição × re-renderização | React | Lit |
+| atribuição × granular | | Web Component com *signals*, Solid |
+| mensagem × re-renderização | React com `useReducer` | |
+| acumulação × manual | Web Component com RxJS | |
+| acumulação × re-renderização | React com RxJS | |
+| acumulação × combinadores | React com derivados no RxJS | Cycle.js |
 
-A cadeia de pares (ADR 0013): Web Component → (a ligação do estado com a
-tela e a orquestração) → Web Component com *signals* → (a montagem da
-tela e o modelo de componente) → Solid → (o modelo de programação, com
-o mesmo JSX) → React; e, num ramo, Web Component → (a ligação) → Lit.
-Cada declarativo é um modelo de programação com duas notações (ADR
-0021). O Web Component e o React não formam par: a diferença entre eles
-se atribui ao passo da cadeia em que ela aparece, e a que nenhum passo
-explica, pelo sinal escrito (ADR 0021); a parte que vem só da
-re-renderização se lê no par Web Component × Lit (ADR 0013).
+Os passos do núcleo e do entorno, e o que cada um isola, estão em
+`docs/delineamento.md`.
 
 As notas:
 
@@ -43,10 +43,11 @@ As notas:
   programação e a montagem da tela de cada uma, onde ficam o estilo e o
   *layout*, a documentação, as medidas de uso e a literatura cinzenta;
 - `bibliotecas-de-formulario.md`: a biblioteca de formulário de cada
-  tecnologia na Reserva de passagem, na terceira rodada (ADR 0031);
+  tecnologia na Reserva de passagem, medida em 2026-10-25 para a
+  terceira rodada e guardada para os trabalhos futuros (ADR 0029);
 - `bibliotecas-de-inscricao-e-reconexao.md`: a biblioteca que trata a
-  inscrição e a reconexão no Placar ao vivo, na terceira rodada (ADR
-  0031);
+  inscrição e a reconexão no Placar ao vivo, medida e guardada do mesmo
+  jeito;
 - `medida-das-bibliotecas.md`: os eixos, as janelas, o filtro e as
   variantes de regra com que se mede a forma de cada vertente da
   terceira rodada, a sensibilidade da escolha e as medidas da máquina de
@@ -54,9 +55,8 @@ As notas:
   2026-10-25);
 - `websocket-e-sse.md`: o WebSocket (RFC 6455) e os Server-Sent Events
   (EventSource) pelas fontes primárias, e o que cada um dá de nascença
-  ao Placar ao vivo; a decisão de 2026-10-25 foi o SSE na primeira e na
-  segunda rodada e o WebSocket na vertente do ecossistema (ADRs 0029 e
-  0031).
+  ao Placar ao vivo; desde 2026-10-31, o SSE vale em todas as rodadas
+  (ADR 0029).
 
 ## Android e *desktop*, nos trabalhos futuros
 

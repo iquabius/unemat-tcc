@@ -14,7 +14,7 @@ Critérios:
   0029);
 - um desvio de aparência entre as implementações fica à vista;
 - a fronteira que a documentação e os programas reais seguem;
-- uma regra de escolha que se aplique às cinco tecnologias.
+- uma regra de escolha que se aplique a todas as tecnologias.
 
 O estilo e o layout ficam no `estilo.css` comum, fora da notação: em
 todas as rodadas, as cores, as fontes, o flex, o grid e o espaçamento
@@ -36,10 +36,6 @@ React e no Solid e `<style>` no *shadow root* do Web Component; mais
 perto da prática, mas a diferença viria da ferramenta, e entrariam
 dependências que a tecnologia não traz (falha o primeiro e o segundo
 critério).
-Em vez de: o estilo do ecossistema na vertente do ecossistema (ADRs 0029
-e 0031); caberia nela, mas a vertente mediria a biblioteca e o estilo
-juntos, e o React, sem maioria clara, e o Web Component, sem idioma
-único, não dariam regra de escolha (falha o quinto).
 Em vez de: o layout escrito no código do Web Component
 (`style.display`, `style.gridTemplateColumns`), como o JavaFX em código
 de Kiss; se oporia ao declarativo também no layout, mas não tem
@@ -60,8 +56,7 @@ dependências ocultas que Green et al. (2006, p. 342) acham no "joint
 system" HTML/CSS; o Web Component fica do lado dos elementos de
 aplicação, e não dos *widgets* empacotados, que estilizam no *shadow
 root*; no Lit, o `createRenderRoot()` devolve o próprio elemento,
-contra o *shadow DOM* que ele usa por padrão; a conclusão de cada
-vertente, "nessa forma" (ADR 0029), não cobre o estilo; a separação,
+contra o *shadow DOM* que ele usa por padrão; a separação,
 que o JavaFX de Kiss não usa (o layout em código, Kiss 2014, p. 16-17),
 pede uma frase no método; as capturas são imagens binárias no
 repositório, e o *canvas* do Circle Drawer entra nelas só como pixels

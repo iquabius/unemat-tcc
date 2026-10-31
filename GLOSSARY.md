@@ -1,9 +1,10 @@
 # TCC: modelos de programação de interfaces gráficas
 
-Trabalho de conclusão que compara três modelos de programação de
-interfaces gráficas pelas Dimensões Cognitivas de Notações, aplicadas à
-notação com que cada tecnologia os escreve, com as mesmas interfaces
-implementadas em cinco tecnologias web, em três rodadas. Texto em
+Trabalho de conclusão que compara modelos de programação de interfaces
+gráficas, do imperativo ao declarativo, pelas Dimensões Cognitivas de
+Notações, aplicadas à notação com que cada tecnologia os escreve, com as
+mesmas interfaces implementadas no Web Component e no React, em três
+rodadas, e um entorno de outras tecnologias. Texto em
 `texto/`, código em `interfaces-graficas/`, decisões em `docs/adr/`,
 definições e fontes dos termos em `docs/paradigma-modelo-e-notacao.md`.
 
@@ -12,14 +13,18 @@ definições e fontes dos termos em `docs/paradigma-modelo-e-notacao.md`.
 **Modelo de programação**:
 Um modo de coordenar evento, estado e tela que uma tecnologia torna
 possível: as técnicas e os princípios de projeto construídos sobre um
-modelo de computação (Van Roy e Haridi, 2004). São três: o imperativo por
-atualização manual, o declarativo por re-renderização e o declarativo por
-atualização granular, nomeados por como a alteração de estado chega à
-tela. Cada declarativo tem duas tecnologias, um modelo de programação
-com duas notações: o Web Component com *signals* e o Solid, e o Lit e o
-React. É o que o trabalho compara, pela notação de cada tecnologia, e
-aplica conceitos de um ou mais paradigmas (ADR 0021).
-_Avoid_: "modelo" sozinho (o modelo de computação, o de execução de uma
+modelo de computação (Van Roy e Haridi, 2004). Cada modelo de
+programação combina um modo de orquestração, do evento ao estado, com um
+de propagação, do estado à tela, e cada modo tem um grau entre o
+imperativo e o declarativo: o Web Component, com a orquestração por
+atribuição e a propagação manual, é imperativo nos dois eixos; o React,
+imperativo na orquestração e declarativo na propagação; o React com RxJS,
+declarativo nos dois. É o que o trabalho compara, pela notação de cada
+tecnologia, e aplica conceitos de um ou mais paradigmas (ADR 0021).
+_Avoid_: o imperativo por atualização manual, o declarativo por
+re-renderização e o declarativo por atualização granular (os nomes até
+2026-10-30: o adjetivo valia para a propagação só, e o Solid, declarativo
+nela, é imperativo na orquestração, Bahr, 2025, p. 25); "modelo" sozinho (o modelo de computação, o de execução de uma
 tecnologia e o de componente são outros); notação para o que se compara;
 paradigma; abordagem; estilo; arquitetura (MVC e MVU organizam a
 aplicação); reativo fino, reativo granular ("reativo" só nomeia termos das
@@ -118,21 +123,19 @@ desempenho (Tichy, 2014)
 
 **Interface base**:
 A Reserva de passagem, o *Flight Booker* adaptado, a interface de que o
-trabalho parte e que a vertente do ecossistema refatora na terceira rodada
-com a biblioteca de formulário de cada tecnologia, ao lado do Placar ao
-vivo (ADRs 0029 e 0031).
+trabalho parte (ADR 0002).
 _Avoid_: interface principal; tarefa base (até 2026-10-14); caso base
 
 **Delineamento**:
 O planejamento da pesquisa, com as formas de controle das variáveis
-(Prodanov e Freitas, 2013): o que fica fixo, o que os pares de tecnologias
-isolam e o que fica sem controle (`docs/delineamento.md`).
+(Prodanov e Freitas, 2013): o que fica fixo, o que cada passo isola e o
+que fica sem controle (`docs/delineamento.md`).
 _Avoid_: desenho (confunde-se com o desenho da tela); projeto (o projeto de
 pesquisa é o documento de 2017)
 
 **Exigência de coordenação**:
 O que uma interface exige do modelo de programação, em dois eixos, a
-orquestração de eventos e o gerenciamento de estado: evento → estado →
+combinação de eventos e o gerenciamento de estado: evento → estado →
 tela, estado derivado (também nos dois sentidos e por um grafo que o
 usuário escreve), assincronia, ciclo de vida de relógios e inscrições,
 lista derivada (com a montagem dos itens na tela), estado compartilhado,
@@ -141,41 +144,48 @@ uma proporção própria dos dois eixos, como a aplicação real que ela
 reproduz.
 _Avoid_: problema de coordenação (até 2026-10-14: "problema" fica para o
 de usabilidade e o de pesquisa); requisito de coordenação (confunde-se com
-o requisito de orquestração); padrão de interface; tratamento de eventos
-(é o vocabulário do imperativo, e mediria os três modelos de programação
-com a régua de um); tempo de vida (até 2026-10-16: "ciclo de vida" é o
+o requisito de combinação de eventos); padrão de interface; tratamento de eventos
+(é o vocabulário do imperativo, e mediria os modelos de programação com
+a régua de um); tempo de vida (até 2026-10-16: "ciclo de vida" é o
 termo das documentações do Android e do React em português); assinatura e
 assinar, para o *subscribe* (até 2026-10-16: "assinatura" se lê como
 mensalidade de serviço, e a documentação do React em português diz
 "inscrição" e "inscrever")
 
-**Orquestração de eventos**:
+**Combinação de eventos**:
 O eixo da exigência de coordenação que combina no tempo eventos de várias
 fontes: a espera depois da última tecla, o cancelamento, a ordem das
 respostas, a nova tentativa (Meijer, 2012).
-_Avoid_: coordenação de eventos (coordenar cobre também o estado, Edwards,
-2009); orquestração para o estado; em curso, para a requisição ou a
-tentativa que espera resposta (até 2026-10-16: "em andamento" é a forma
-das telas brasileiras)
+_Avoid_: orquestração de eventos (o nome até 2026-10-30, quando
+orquestração passou a nomear o eixo do modelo de programação: a
+exigência é o que a interface pede, e a orquestração, como o código o
+escreve); coordenação de eventos (coordenar cobre também o estado,
+Edwards, 2009); em curso, para a requisição ou a tentativa que espera
+resposta (até 2026-10-16: "em andamento" é a forma das telas
+brasileiras)
 
 **Gerenciamento de estado**:
-O eixo da exigência de coordenação que propaga cada alteração de estado aos
-valores derivados e à tela (*change propagation*, Bainomugisha et al.,
-2013; *state management*, State of JS).
-_Avoid_: gestão de estado; gerência de estado
+O eixo da exigência de coordenação que diz quanto depende de cada estado:
+os valores derivados e as partes da tela que mudam com ele, em quantos
+sentidos, e se o histórico se guarda (*state management*, State of JS). A
+interface pede, e a propagação diz como o código o escreve.
+_Avoid_: gestão de estado; gerência de estado; propagação (é o eixo do
+modelo de programação)
 
 **Rodada**:
 Uma das três etapas da avaliação, cada uma mais estreita que a anterior,
 chamadas pelo ordinal: a primeira, a segunda e a terceira rodada. A
-primeira responde à pergunta de pesquisa, a P1; a segunda e a terceira, às
-subperguntas, a P1.1 e a P1.2 (ADR 0014). Os rótulos ficam para as
-perguntas, e o ordinal, para as rodadas, em todo lugar. A primeira
-constrói as sete interfaces nas cinco tecnologias, com o modelo de
-programação isolado; a segunda muda o comportamento, com funcionalidades e
-requisitos de orquestração acrescentados a cada interface; a terceira muda
-só a forma, com a vertente do ecossistema sobre o código da segunda, na
-Reserva de passagem e no Placar ao vivo (ADR 0029).
-_Avoid_: fase (é do roteiro); iteração (é do *snowballing*); rodada para
+primeira responde à pergunta de pesquisa, a P1; a segunda, à P1.1; a
+terceira, à P1.2 (ADR 0014). Os rótulos ficam para as perguntas, e o
+ordinal, para as rodadas, em todo lugar. A primeira constrói as sete
+interfaces no núcleo e compara a propagação; a segunda muda o
+comportamento, com funcionalidades e requisitos de combinação de eventos
+acrescentados a cada interface; a terceira refatora o código da segunda
+da Busca, do Login e do Placar ao vivo, um modo por passo, até o
+declarativo nos dois eixos (ADR 0029).
+_Avoid_: vertente (até 2026-10-30, a refatoração da terceira rodada para
+a biblioteca do ecossistema, que foi aos trabalhos futuros); fase (é do
+roteiro); iteração (é do *snowballing*); rodada para
 a passada da revisão do texto ou o ciclo de busca da revisão
 bibliográfica (até 2026-10-26, "rodada de corte", "rodada sobre o diff" e
 "rodada de busca", que davam à palavra três sentidos, dois deles no PDF);
@@ -203,18 +213,6 @@ _Avoid_: rodada (é da avaliação; "rodada de corte", "rodada sobre o
 diff" e as rodadas da revisão do ramo até 2026-10-26); revisão sozinha
 (serve também à bibliográfica e à do ramo)
 
-**Vertente**:
-A refatoração da terceira rodada sobre o código da segunda, chamada pela
-forma a que leva: a vertente do ecossistema, a biblioteca que o
-ecossistema de cada tecnologia mais usa (ADR 0031), na Reserva de
-passagem e no Placar ao vivo, que responde à P1.2. De 2026-10-24 a
-2026-10-28 eram quatro, irmãs e sem ordem entre si; a da máquina de
-estados tipada, a da API nova da plataforma e a dos padrões de projeto
-foram aos trabalhos futuros (ADR 0029, decisão do autor em 2026-10-29).
-_Avoid_: ramo (é o do git, e a vertente nasce como um ramo do git);
-sub-rodada e quarta rodada (sugerem sequência); variante (verbete
-Tecnologia); eixo (os da coordenação); braço (o grupo do ensaio clínico)
-
 **Estado**:
 O que o programa guarda sobre os eventos anteriores e consulta, junto com
 o evento que chega, para calcular a saída; cada evento pode alterá-lo
@@ -225,8 +223,10 @@ aparência e o comportamento da tela (Oney, Myers e Brandt, 2012, p. 230).
 _Avoid_: memória (é a do computador); *statefull*
 
 **Alteração de estado**:
-O que um evento faz ao estado da interface: o *callback*, o *setter* ou o
-*signal* grava um valor novo. Os valores derivados e a tela se atualizam
+O que um evento faz ao estado da interface: o *callback* ou o *setter*
+grava um valor novo, a função `update` devolve o estado seguinte, ou o
+estado se define de novo sobre o fluxo de eventos; o modo de escrevê-la é
+o eixo da orquestração. Os valores derivados e a tela se atualizam
 depois, pelo programador ou pelo ambiente de execução: o evento altera o
 estado, e a atualização o leva à tela.
 _Avoid_: mudança de estado (mudança é a do OpenSpec); atualização do
@@ -234,12 +234,39 @@ estado (atualização é a dos derivados e da tela); modificação (a
 atividade das DCs)
 
 **Atualização**:
-O que leva uma alteração de estado aos valores derivados e à tela: no
-imperativo, o programador a escreve; nos declarativos, o ambiente de
-execução a faz. Dá o nome ao imperativo por atualização manual e ao
-declarativo por atualização granular.
+O que leva uma alteração de estado aos valores derivados e à tela: na
+propagação manual, o programador a escreve; nas outras, o ambiente de
+execução a faz. O modo de escrevê-la é o eixo da propagação.
 _Avoid_: atualização para o estado (alteração de estado);
 re-renderização para toda atualização (é a do React e do Compose)
+
+**Propagação**:
+O eixo do modelo de programação que diz como se escreve a dependência dos
+valores derivados e da tela em relação ao estado. Quatro modos: manual, em
+que o programador escreve a atualização, o imperativo; por
+re-renderização, em que o componente inteiro é a expressão do estado, a
+leitura do estado é comum e o derivado é uma constante no corpo;
+granular, em que cada derivado e cada trecho da tela é uma função à
+parte, a leitura do estado se marca com uma chamada e o corpo roda uma
+vez; e por combinadores, em que a dependência se escreve com operadores
+sobre fluxos que nomeiam as fontes. Os três últimos são declarativos, e a
+re-renderização e o granular têm o mesmo grau: diferem no tipo, por uma
+família de sinais, e os nomes são os das documentações, definidos pelo
+que se escreve (ADR 0021). É a *change propagation* da PR (Bainomugisha
+et al., 2013).
+_Avoid_: atualização para o eixo (a atualização é o que a propagação leva
+à tela); gerenciamento de estado (é o eixo da exigência de coordenação)
+
+**Orquestração**:
+O eixo do modelo de programação que diz como se escreve o caminho do
+evento ao estado. Quatro modos: por atribuição, o *callback* que atribui
+ou chama o *setter*, e sequencial, o código que espera os eventos em
+ordem, os dois imperativos; por mensagem, tratada por uma função `update`
+pura, e por acumulação, o estado definido sobre o fluxo de eventos, sem
+*setter*, os dois declarativos.
+_Avoid_: alteração para o eixo (a alteração de estado é o que a
+orquestração produz); combinação de eventos (é o eixo da exigência de
+coordenação, que até 2026-10-30 se chamava orquestração de eventos)
 
 **Funcionalidade**:
 Mudança acrescentada a uma interface na segunda rodada que muda o que o
@@ -250,11 +277,13 @@ com o critério da WCAG).
 _Avoid_: *feature*; recurso; "o que o usuário vê" (exclui quem não vê a
 tela); requisito não funcional para a acessibilidade
 
-**Requisito de orquestração**:
+**Requisito de combinação de eventos**:
 Mudança acrescentada a uma interface na segunda rodada que deixa as cenas
 iguais e muda como se combinam eventos de várias fontes, como a espera de
 300 ms da Busca.
-_Avoid_: requisito não funcional (a mudança é de comportamento)
+_Avoid_: requisito de orquestração (o nome até 2026-10-30: a orquestração
+é o modo de escrever, e o requisito é o que a interface pede); requisito
+não funcional (a mudança é de comportamento)
 
 **Limpeza ao sair da tela**:
 Regra comum da primeira rodada: quando a interface sai da tela, ela
@@ -271,7 +300,7 @@ inscrição, como em "Exigência de coordenação")
 
 **Página comum**:
 O módulo em TypeScript puro, `interfaces-graficas/pagina.ts`, que hospeda
-a interface nas cinco tecnologias: monta-a no contêiner e a tira da página
+a interface em todas as tecnologias: monta-a no contêiner e a tira da página
 pela rota do hash, para o teste conferir a limpeza ao sair da tela. A
 interface montada nela é a ilha, no sentido da arquitetura de ilhas, e
 cada implementação só traz o gancho de montagem, o par montar e desmontar
@@ -281,13 +310,10 @@ a página não tem); roteador como nome do módulo (o hash é o mecanismo, e
 não o papel); desmontar para a limpeza (é "sair da tela")
 
 **Ecossistema**:
-As bibliotecas que a comunidade de uma tecnologia usa junto dela; na
-terceira rodada, as que a vertente do ecossistema escolhe pela regra do
-ADR 0031.
+As bibliotecas que a comunidade de uma tecnologia usa junto dela.
 _Avoid_: ecossistema para as ferramentas de *build*, teste ou edição;
 ecossistema para a API da plataforma (a validação de restrições, o FACE),
-que é o que a tecnologia traz desde a primeira rodada e fica com a
-vertente quando nenhuma biblioteca domina
+que é o que a tecnologia traz desde a primeira rodada
 
 **Ambiente de execução**:
 A parte da tecnologia que, em tempo de execução, faz as atualizações que o
@@ -304,14 +330,22 @@ _Avoid_: plataforma para o *framework*; replicação para o Android (nome de
 plataforma (é o domínio dela, na linguagem dela)
 
 **Tecnologia**:
-Uma forma de implementar uma interface numa plataforma: na análise, Web
-Component (a plataforma), Lit, Web Component com *signals* do `solid-js`,
-Solid e React (ADR 0013); fora dela, o Angular, as Views, o Compose, o
-Swing e o JavaFX. Cada uma impõe um modelo de programação e se escreve
-numa notação própria; a documentação a classifica como biblioteca,
+O que uma implementação usa para escrever a interface no navegador: a
+plataforma e as bibliotecas que escrevem um dos eixos do modelo de
+programação, tomadas juntas, como o Web Component (só a plataforma), o
+React e o React com RxJS; fora da web, as Views, o Compose, o Swing e o
+JavaFX. Cada uma se escreve numa notação própria e torna possível um ou
+mais modelos de programação: o React escreve a orquestração por
+atribuição (`useState`) ou por mensagem (`useReducer`) sem biblioteca a
+mais, e a implementação se nomeia então também pelo modo ("o React com
+`useReducer`"). A documentação classifica cada peça como biblioteca,
 *framework*, *toolkit* ou plataforma, e o texto usa essas categorias só
 para descrevê-la.
-_Avoid_: biblioteca, *framework* ou *toolkit* como nome genérico; variante
+_Avoid_: biblioteca, *framework* ou *toolkit* como nome genérico (o
+React se diz "library", o Solid, "framework", e o *framework* do React é
+o Next.js, *full-stack*); *stack* e pilha (anglicismo; pilha é a
+estrutura de dados); "impõe um modelo de programação" (até 2026-10-30);
+variante
 (as do Android são tecnologias como as da web); tecnologia nativa (no
 Android, nativa é a interface do sistema, e as duas são)
 
@@ -325,15 +359,15 @@ Schmidt, 1997), com que a documentação classifica o produto. Essas
 palavras classificam a tecnologia, e não a nomeiam: o nome é React ou
 Solid.
 _Avoid_: nomear para a categoria (o nome é o da tecnologia, ou o que o
-trabalho dá a cada modelo de programação: "imperativo por atualização
-manual" é o nome de uma categoria); rotular para a categoria ou para o
+trabalho dá a cada modelo de programação: "atribuição × manual" é o nome
+de uma categoria); rotular para a categoria ou para o
 nome dela (o rótulo é o valor que se atribui a um item, como /mantida/ na
 tabela-síntese ou a classificação do método)
 
 **Biblioteca**:
 Código reutilizável que a aplicação chama, sem lhe ceder o controle
 (Fayad e Schmidt, 1997): o React, como a documentação dele se chama, e
-as bibliotecas de formulário da terceira rodada. A definição falha quando a biblioteca
+o RxJS da terceira rodada. A definição falha quando a biblioteca
 recebe funções da aplicação: o React chama os componentes.
 _Avoid_: biblioteca para o que se compara (modelo de programação) ou como
 nome genérico das tecnologias
@@ -351,33 +385,55 @@ o Compose se apresenta assim.
 _Avoid_: *toolkit* como sinônimo de biblioteca; kit de ferramentas
 
 **Implementação**:
-Uma interface numa tecnologia: na primeira rodada, as sete interfaces nas
-cinco tecnologias, 35 (ADR 0013); na terceira, a Reserva de passagem e o
-Placar ao vivo refatorados na vertente do ecossistema, nas cinco
-(ADR 0029).
+Uma interface numa tecnologia: na primeira rodada, as sete interfaces
+em cada tecnologia do conjunto analisado; na terceira, a Busca, o Login e
+o Placar ao vivo refatorados para outro modo de orquestração (ADR 0029).
 _Avoid_: versão, exemplo; solução (pede "problema" para a interface)
 
 **Conjunto analisado**:
-As implementações que a análise pelas DCs lê, as sete interfaces nas
-cinco tecnologias (ADR 0013), em
-`interfaces-graficas/<interface>/analisadas/`; as de `entorno/`, ao
-lado, ficam de fora (ADR 0025).
+As implementações do núcleo, que a análise pelas DCs lê: as sete
+interfaces no Web Component e no React e os passos da terceira rodada
+(ADRs 0013 e 0029), em `interfaces-graficas/<interface>/analisadas/`; as
+de `entorno/`, ao lado, ficam de fora (ADR 0025).
 _Avoid_: recorte da análise (o recorte é o da pesquisa, ADR 0014); escopo;
 amostra (a amostra de tarefas é o conjunto das interfaces, no *benchmark*
 de notação)
 
+**Núcleo**:
+As tecnologias que a análise lê nas três rodadas, o Web Component e o
+React, com os passos da terceira rodada, em que cada passo muda um modo
+de um eixo do modelo de programação (ADR 0013).
+_Avoid_: cadeia de pares (o desenho até 2026-10-30, com cinco
+tecnologias em fila); conjunto analisado para as tecnologias (o
+conjunto analisado são as implementações)
+
+**Passo**:
+A mudança de uma implementação para a seguinte, a partir de outra que já
+existe: no núcleo, muda um modo de um eixo; no entorno, parte de uma
+implementação do núcleo, e o passo que muda mais de uma coisa se declara
+sem controle (ADRs 0013 e 0042). O quadrado é o conjunto de quatro
+implementações que cruza dois modos de cada eixo, o Web Component, o
+React e os dois com RxJS, e lê se a diferença num eixo depende do modo
+no outro; a escada, os passos seguidos num eixo só.
+_Avoid_: par para o passo do núcleo (o par é o de duas tecnologias da
+cadeia de pares, até 2026-10-30); vertente (a refatoração para a
+biblioteca do ecossistema, até 2026-10-30); espelho (o lado do quadrado
+nos esboços de 2026-10-29 e 2026-10-30)
+
 **Entorno**:
-As implementações de tecnologias fora da cadeia de pares, o que a cerca,
-na primeira e na segunda rodada das interfaces em que cada uma difere,
-lidas depois da análise, pelo diff da segunda, para situar nele os três
-modelos de programação, como o Elm em Kiss (2014) (ADR 0042). Na
-primeira menção de cada seção, "o entorno da cadeia"; depois, "o
-entorno" e "as tecnologias do entorno".
-_Avoid_: contraste (o nome até 2026-10-26: em Kiss, 2014, p. 12,
-"contrast" é a comparação principal, e a palavra diz oposição, e não o
-papel de situar); comparação (a comparação é a da análise); controle (o
-controle é o das variáveis, no delineamento); trabalhos futuros (são a
-seção da conclusão, que recebe o Angular e o par que sai do corte)
+As implementações de tecnologias fora do núcleo, cada uma num passo a
+partir de uma implementação dele, só onde o ponto de partida existe,
+lidas depois da análise para situar nela as células vizinhas: o Web
+Component com *signals*, o Lit e o Solid na primeira rodada; o Web
+Component com Effection e o Cycle.js na Busca, no Login e no Placar ao
+vivo (ADR 0042). Na primeira menção de cada seção, "o entorno do
+núcleo"; depois, "o entorno" e "as tecnologias do entorno".
+_Avoid_: entorno da cadeia (até 2026-10-30); contraste (o nome até
+2026-10-26: em Kiss, 2014, p. 12, "contrast" é a comparação principal, e
+a palavra diz oposição, e não o papel de situar); comparação (a
+comparação é a da análise); controle (o controle é o das variáveis, no
+delineamento); trabalhos futuros (são a seção da conclusão, que recebe o
+Elm, o Angular e o par que sai do corte)
 
 **Código autoral**:
 O código que o autor escreveu à mão no CodeSandbox, em *sandboxes* como
@@ -415,7 +471,7 @@ especificação (é a apresentação da interface)
 Uma regra da especificação, que a interface deve cumprir, com um ou mais
 cenários.
 _Avoid_: requisito sozinho para o que a segunda rodada acrescenta (funcionalidade ou
-requisito de orquestração); restrição, que só o 7GUIs usa
+requisito de combinação de eventos); restrição, que só o 7GUIs usa
 
 **Cenário**:
 Um exemplo de um requisito, com o estado de partida, a ação e o
@@ -427,7 +483,7 @@ caso de teste
 **Mudança**:
 O que se propõe e se arquiva no OpenSpec para a especificação (*change*):
 a especificação de uma interface nova e cada funcionalidade e requisito de
-orquestração da segunda rodada (ADR 0030). A correção dentro de uma
+combinação de eventos da segunda rodada (ADR 0030). A correção dentro de uma
 rodada, como a retirada da espera da Busca na primeira, edita a
 especificação direto, sem mudança no OpenSpec. É o termo da engenharia de
 software em português para *change* (gerência de mudanças, análise de

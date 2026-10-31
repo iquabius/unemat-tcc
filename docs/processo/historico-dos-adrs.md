@@ -49,3 +49,16 @@ pelo assunto, que se acha no `git log`; o sha sai de
 | 0008 | `0008-capturas-versionadas-identicas-entre-as-tecnologias-web.md` | 0041 | "Reescreve o ADR 0041 com as capturas idênticas dentro dele" |
 | 0036 | `0036-notas-de-fontes-por-assunto-com-ponto-de-entrada.md` | o `AGENTS.md`, seção "Notas em `docs/`", e o ADR 0035 (a fronteira entre a matriz e a nota de fontes) | "Leva ao AGENTS.md as notas de docs/ por assunto" |
 | 0022 | `0022-corte-antes-da-frase-revisado-no-diff.md` | 0023 | "Reescreve o ADR 0023 com o corte antes da frase dentro dele" |
+
+## O redesenho de 2026-10-31
+
+Em 2026-10-31, o delineamento passou da cadeia de pares ao núcleo do
+Web Component e do React, e a terceira rodada, da biblioteca do
+ecossistema ao eixo da orquestração (decisões do autor em 2026-10-31).
+A biblioteca do ecossistema foi aos trabalhos futuros, e o ADR que a
+escolhia saiu; a medida feita fica em
+`docs/plataformas/medida-das-bibliotecas.md`, para a conclusão.
+
+| ADR | Arquivo | Absorvido por | Commit |
+|---|---|---|---|
+| 0031 | `0031-biblioteca-da-vertente-do-ecossistema-pela-maioria-dos-downloads.md` | 0029 (a terceira rodada pela orquestração, com a biblioteca do ecossistema num "Em vez de" e nos trabalhos futuros) | "Reescreve os ADRs pelo núcleo, pelas células e pelo entorno" |

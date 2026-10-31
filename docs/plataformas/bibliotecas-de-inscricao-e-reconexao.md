@@ -3,7 +3,10 @@
 Referência. A biblioteca que trata a inscrição numa fonte e a reconexão
 no Placar ao vivo, por tecnologia, na terceira rodada, com a medida
 pública do npm, a janela e a fonte, pela regra do ADR 0031. Medidas e
-versões observadas em 2026-10-19.
+versões observadas em 2026-10-19. Em 2026-10-31, a biblioteca do
+ecossistema foi aos trabalhos futuros (ADR 0029), e o ADR 0031 saiu
+(`docs/processo/historico-dos-adrs.md`); as citações dele nesta nota
+valem para a medida em que ele valia.
 
 **Conclusão.** Pela regra do ADR 0031, de 2026-10-25, com as candidatas
 só de WebSocket, porque a vertente do ecossistema troca o SSE pelo

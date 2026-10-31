@@ -1,100 +1,86 @@
-# 0013. A cadeia de pares, com o Lit num ramo e o Angular fora
+# 0013. O núcleo, do Web Component ao React, muda uma coisa por passo
 
-2026-10-25. A análise atribui cada diferença entre duas implementações a
-um modelo de programação, e perde a causa quando as duas tecnologias
-diferem em várias coisas de uma vez. Com a análise só na web (ADR 0001),
-o par entre o imperativo por atualização manual e o declarativo por
-atualização granular com a mesma montagem da tela, que o Swing × JavaFX
-dava no *desktop*, ficou sem lugar.
+2026-10-31. A análise atribui cada diferença entre duas implementações a
+um modelo de programação, e perde a causa quando as duas diferem em
+várias coisas de uma vez. A cadeia de pares de 2026-10-25, com cinco
+tecnologias, só andava na propagação: precisava de três passos para ir
+do Web Component ao React, e a orquestração, o outro eixo do modelo de
+programação (ADR 0021), ficava sem passo.
 
 Critérios:
 
-- cada par da cadeia difere no mínimo, para a diferença ter uma causa;
-- o imperativo tem par direto com cada um dos dois declarativos;
+- cada passo muda uma coisa só, um modo de um eixo, para a diferença
+  ter uma causa;
+- o conjunto lido atravessa o espectro nos dois eixos, do imperativo nos
+  dois ao declarativo nos dois;
 - as mesmas tecnologias nas sete interfaces (ADR 0017);
 - o texto de cada interface num tamanho que o leitor leia;
-- tecnologias estáveis, no uso que a documentação recomenda para o
-  estado.
+- tecnologias estáveis, no uso que a documentação recomenda.
 
-A cadeia de pares tem o Lit num ramo e o Angular fora. Cinco
-tecnologias implementam as sete interfaces (ADR 0002), 35
-implementações: Web Component → (a ligação do estado com a tela e a
-orquestração) → Web Component com *signals* → (a montagem da tela e o
-modelo de componente) → Solid → (o modelo de programação, com o mesmo
-JSX) → React; e, num ramo, Web Component → (a ligação) → Lit. O Lit
-(3.3.3) muda a ligação, o `render()` que o ambiente de execução chama a
-cada alteração de estado (Google 2026d), e, com ela, o que a
-re-renderização muda na montagem, o *template* do `html` no lugar do
-`innerHTML` e o `map` nas partes repetidas, e na alteração: o dado que o
-Web Component altera no lugar, o Lit troca por uma cópia, como a
-documentação dele recomenda ("Treat objects and arrays as immutable",
-lit.dev, Properties, lida em 2026-10-25), porque compara o `@state()`
-por referência, como o React no passo Solid → React (decisões do autor
-em 2026-10-25, tcc-cp6c, e em 2026-10-26, a cópia como parte da
-ligação). O Web Component com *signals* usa o `solid-js`
-(1.9.15) só para a reatividade, com a montagem do Web Component (ADR
-0037) e a orquestração do Solid, para o par com o Solid diferir só na
-montagem e no modelo de componente (decisões do autor em 2026-10-23). A
-forma de cada uma está no `interfaces-graficas/AGENTS.md`.
+O núcleo vai do Web Component ao React e muda uma coisa por passo. Na
+primeira e na segunda rodada, duas tecnologias implementam as sete
+interfaces (ADR 0002): o Web Component, a plataforma sem biblioteca,
+com a orquestração por atribuição e a propagação manual, e o React,
+com a orquestração por atribuição e a propagação por re-renderização;
+o passo entre os dois muda a propagação. Na terceira rodada, os passos do ADR 0029 levam o código
+da Busca, do Login e do Placar ao vivo a mais quatro células: o Web
+Component com RxJS, o React com `useReducer`, o React com RxJS e o
+React com derivados no RxJS, o declarativo nos dois eixos. O Web
+Component, o React e os dois com RxJS formam o quadrado, em que se lê
+se a diferença num eixo depende do modo no outro; a escada do React
+desce a orquestração, de atribuição a mensagem e a acumulação; e a
+linha da acumulação atravessa a propagação, de manual a re-renderização
+e a combinadores (decisões do autor em 2026-10-31). A forma de cada
+implementação está no `interfaces-graficas/AGENTS.md`, e usar só o que
+a tecnologia traz é regra do ADR 0029.
 
-O imperativo fica com uma tecnologia, e cada declarativo, com duas, um
-modelo de programação com duas notações (ADR 0021): o Web Component com
-*signals* e o Solid, que diferem na montagem e no modelo de componente;
-o Lit e o React, que não formam par e diferem também na orquestração
-(decisão do autor em 2026-10-25). A diferença
-entre o Web Component e o React se atribui ao passo da cadeia em que
-aparece, e a que nenhum passo explica, pelo sinal escrito (decisão do
-autor em 2026-10-19); a parte que vem só da re-renderização se lê no
-par Web Component × Lit. O Angular vai para os trabalhos futuros
-(tcc-dpci) e volta, fora do conjunto analisado, no entorno da cadeia
-(ADR 0042). Usar só o que a tecnologia traz, na primeira e na segunda
-rodada, é regra do ADR 0029.
+O Web Component fica como o extremo controlado, a plataforma que toda
+biblioteca usa por baixo, e não como o representante do mercado: o
+jQuery, na mesma célula, teve 55.886.526 downloads de 2026-09-30 a
+2026-10-29, mas não tem modelo de componente, e o passo dele ao React
+mudaria a propagação e o modelo de componente juntos; o texto o cita
+nas limitações. O passo do Web Component ao React muda também a
+montagem da tela, do `createElement` ao JSX, e o modelo de componente,
+da classe à função, o que o texto declara; a diferença se atribui à
+propagação pelo sinal escrito (ADR 0021). Se a análise não conseguir
+separar a montagem, um passo do Web Component ao Web Component com o
+jsx-dom, ainda na primeira rodada, a isola (decisão do autor em
+2026-10-31). O Solid, o Lit e o Web Component com *signals*, que já
+estão implementados, saem do núcleo para o entorno (ADR 0042), e o
+Angular fica nos trabalhos futuros (tcc-dpci).
 
-Em vez de: as quatro tecnologias de 2026-10-23, sem o Lit; 28
-implementações e cerca de 12 páginas por interface, mas o imperativo e
-a re-renderização ficavam sem par direto (falha o segundo critério).
-Em vez de: o Lit só nas três interfaces da terceira rodada (L2,
-proposta de 2026-10-24) ou numa quarta rodada (L1); menos texto, mas o
-par direto ficaria fora de quatro interfaces (falha o terceiro); se o
-Lit perde parte da segunda rodada fora do trio, decide a revisão depois
-da análise, com as páginas medidas no PDF (tcc-7qty).
-Em vez de: o Angular com *signals* no granular, ao lado do Solid (cinco
-tecnologias em 2026-10-13, seis em 2026-10-17); é o granular mais usado
-(Stack Overflow 2025: 18,2%), mas o par Solid × Angular muda ao mesmo
-tempo a montagem, o modelo de componente e a API, e, somado às cinco
-tecnologias, levaria cada interface de cerca de 16,6 a cerca de 19
-páginas (20 a mais, como as do Lit: 7 + 7 + 6 interfaces-rodadas, a 1
-página por coluna; 136 ÷ 7, `docs/processo/estimativa-de-paginas.md`),
-demais para o leitor (autor, 2026-10-18 e 2026-10-25) (falha o primeiro
-e o quarto).
-Em vez de: o Angular com RxJS como quarto modelo de programação;
-retomaria a PR do projeto de 2017, mas o RxJS para o estado vai contra
-a documentação do Angular, e um quarto modelo mudaria a pergunta (ADR
-0014) (falha o quinto).
-Em vez de: outra biblioteca de *signals* no Web Component
-(`@preact/signals-core`, `alien-signals`, `@vue/reactivity`, o
-`signal-polyfill`) ou o Lit com `@lit-labs/signals`; uma dependência
-que só uma implementação usaria, com um vocabulário que tira o par com
-o Solid, ou um pacote experimental em que o `render()` continua a
-executar (falha o primeiro e o quinto).
+Em vez de: a cadeia de pares de 2026-10-25, Web Component → Web
+Component com *signals* → Solid → React, com o Lit num ramo a partir do
+Web Component, 35 implementações; cada passo mudava pouco, mas a
+cadeia só andava na propagação e na montagem, e a orquestração não
+tinha passo (falha o segundo critério), com cerca de 16,6 páginas por
+interface (falha o quarto).
+Em vez de: o esboço C de 2026-10-30, uma escada pela diagonal do
+espectro (Web Component → React → Solid; React → React com
+`useReducer` → React com Redux; React com RxJS → Cycle.js); atravessava
+os dois eixos, mas o passo ao Redux mudava o lugar do estado e a
+escrita dos derivados, e o passo ao Cycle.js, a tela, o modelo de
+componente e os efeitos (falha o primeiro).
+Em vez de: o jQuery ou o Backbone (1.6.1) no lugar do Web Component,
+mais perto do que se escreve na produção; o jQuery não tem modelo de
+componente, e o Backbone monta a tela em *templates* de texto numa
+classe, de modo que o passo ao React mudaria ainda três coisas (falha o
+primeiro).
+Em vez de: o quadrado com o Solid no lugar do React, para manter a
+coluna granular no núcleo; o Solid é imperativo na orquestração como o
+React, mas a coluna granular só se distingue da re-renderização por uma
+família de sinais (ADR 0021), e o React é o ponto de partida do
+`useReducer`, que o Solid não tem (falha o segundo).
 
-Custo: 35 implementações, e cerca de 16,6 páginas por interface (116 ÷
-7, `docs/processo/estimativa-de-paginas.md`), acima dos 12 a 14 com que
-este ADR tirou o Lit em 2026-10-18; o primeiro passo muda a ligação e a
-orquestração, o do ramo, a ligação, o que ela muda na montagem (o
-*template* e o `map`) e a alteração do estado (a cópia, no Circle Drawer
-e na Planilha), e o último, também o dialeto do JSX; a coluna da
-re-renderização junta duas notações mais distantes que as do granular; o
-Web Component com *signals* é raro nos programas reais (11 arquivos na
-busca de código do GitHub, em TypeScript, em 2026-10-17, contra 45.824
-com `extends HTMLElement` e `createElement`), uma construção de controle
-que o texto declara, e o corpo do efeito, uma escrita no DOM, pode
-passar por imperativo; a conclusão sobre o imperativo generaliza de uma
-tecnologia; e a atribuição pela cadeia supõe que os passos se somam, o
-que falha quando um passo muda a leitura de outro.
+Custo: o passo do Web Component ao React muda três coisas, e a
+atribuição à propagação depende da leitura do sinal escrito; a
+conclusão sobre cada célula vem de uma tecnologia; a coluna granular e
+a linha sequencial ficam só no entorno, que sai primeiro no corte; o
+Web Component sem biblioteca é raro na produção, e a ressalva vai às
+limitações; a atribuição pelos passos supõe que eles se somam, o que o
+quadrado testa só nas três interfaces da terceira rodada.
 
-Fontes: `tmp/pesquisas/2026-10-17-par-imperativo-granular-na-web.md`
-(fora do git), com o protótipo e a busca de código; Stack Overflow
-Developer Survey 2025; lit.dev/docs/data/signals (lida em 2026-10-17);
-Google (2026d), *Lifecycle*, em `texto/fontes/google2026d.org`;
-tarefas tcc-cp6c, tcc-dpci e tcc-7qty.
+Fontes: downloads do jQuery, do Backbone, do Stimulus e do jsx-dom na
+API do npm (2026-09-30 a 2026-10-29);
+`tmp/pesquisas/2026-10-29-celulas-dos-eixos/levantamento.md` (fora do
+git), com o esboço C e a grade; tarefas tcc-uji5 e tcc-dpci.

@@ -5,7 +5,7 @@ anexo, procura cada implementação pela interface e perde tempo com o que
 está na árvore sem ser lido. Até 2026-10-14, a raiz misturava o material
 do autor, a máquina LaTeX e o npm; depois,
 `implementacoes/<interface>/<tecnologia>/` não tinha lugar para o
-entorno da cadeia (ADR 0042), que usa o domínio, as cenas e o teste de
+entorno do núcleo (ADR 0042), que usa o domínio, as cenas e o teste de
 cada interface, nem para o código autoral.
 
 Critérios:

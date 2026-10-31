@@ -51,25 +51,28 @@ e Lit 3.3.3 (2026-10-26). O Lit e o Angular 22.2.0 com RxJS 7.8.2
 saíram dos *workspaces* em 2026-10-19, quando ficaram fora da análise, e
 o Lit voltou, na mesma versão, com a volta dele à análise, em 2026-10-25
 (ADR 0013).
-As bibliotecas de formulário da terceira rodada, com as medidas do
-registro de 2026-10-12, estão em
-`docs/plataformas/bibliotecas-de-formulario.md` (ADR 0031).
+As bibliotecas de formulário medidas para a terceira rodada, com as
+medidas do registro de 2026-10-12, estão em
+`docs/plataformas/bibliotecas-de-formulario.md`, guardadas para os
+trabalhos futuros desde 2026-10-31 (ADR 0029).
 
 ## Tecnologias por modelo de programação
 
-| Tecnologia | Modelo de programação | Montagem da tela | Interfaces |
+| Tecnologia | Modelo de programação (orquestração × propagação) | Montagem da tela | Interfaces |
 |---|---|---|---|
-| Web Component | imperativo por atualização manual | esqueleto em HTML num texto; partes repetidas com `createElement` (ADR 0037) | as sete |
-| Web Component com *signals* do `solid-js` | declarativo por atualização granular | a do Web Component (ADR 0037) | as sete |
-| Solid | declarativo por atualização granular | JSX | as sete |
-| React | declarativo por re-renderização | JSX | as sete |
-| Lit | declarativo por re-renderização; fora da análise de 2026-10-19 a 2026-10-25, e desde então num ramo da cadeia (ADR 0013) | *template* `html` | as sete |
-| Angular com *signals* | declarativo por atualização granular; fora da análise desde 2026-10-19 (ADR 0013) | *template* | nenhuma; o código de quatro interfaces de então no commit anterior ao que tirou `fora-da-analise/`, em 2026-10-25 |
+| Web Component | atribuição × manual; núcleo | esqueleto em HTML num texto; partes repetidas com `createElement` (ADR 0037) | as sete |
+| Web Component com *signals* do `solid-js` | atribuição × granular; entorno, só na primeira rodada (ADR 0042) | a do Web Component (ADR 0037) | as sete |
+| Solid | atribuição × granular; entorno, só na primeira rodada (ADR 0042) | JSX | as sete |
+| React | atribuição × re-renderização; núcleo | JSX | as sete |
+| Lit | atribuição × re-renderização; fora da análise de 2026-10-19 a 2026-10-25, num ramo da cadeia até 2026-10-30 e, desde 2026-10-31, no entorno, só na primeira rodada (ADR 0042) | *template* `html` | as sete |
+| Angular com *signals* | atribuição × granular; fora da análise desde 2026-10-19 (ADR 0013) | *template* | nenhuma; o código de quatro interfaces de então no commit anterior ao que tirou `fora-da-analise/`, em 2026-10-25 |
 | Angular com RxJS | fora da análise (ADR 0013) | *template* | — |
 | jQuery | fora da análise (ADR 0013) | HTML e DOM | — |
 
-As cinco tecnologias formam uma cadeia de pares em que cada passo muda o
-mínimo (ADR 0013): Web Component → (a ligação do estado com a tela e a
+Até 2026-10-30, as cinco tecnologias formavam uma cadeia de pares em
+que cada passo mudava o mínimo; desde 2026-10-31, o núcleo é o Web
+Component e o React, e as outras estão no entorno, onde os passos
+abaixo continuam a valer (ADRs 0013 e 0042). A cadeia era: Web Component → (a ligação do estado com a tela e a
 orquestração) → Web Component com *signals* → (a montagem da tela e o
 modelo de componente) → Solid → (o modelo de programação, com o mesmo
 JSX) → React; e, num ramo, Web Component → (a ligação) → Lit. O Web
@@ -329,12 +332,12 @@ jQuery, o Angular com RxJS, o Svelte e o Vue continuam fora.
     componente (decisão do autor em 2026-10-23, ADR 0013); a análise
     separa as duas pelo sinal escrito. O par com o Solid difere também
     no modelo de componente (a classe com o `connectedCallback` e o
-    `disconnectedCallback` contra a função com o `onCleanup`) e, na
-    terceira rodada, em que o Web Component com *signals* segue o Web
-    Component, na biblioteca (ADRs 0029 e 0031). O `solid-js` fica na
+    `disconnectedCallback` contra a função com o `onCleanup`). Desde
+    2026-10-31, o par está no entorno, só na primeira rodada (ADR
+    0042). O `solid-js` fica na
     1.9, porque a 2.0 muda o `createEffect`, e no Node, sem a condição
     `browser`, resolve para o *build* do servidor, em que os efeitos não
-    rodam e nada avisa. Fontes: ADRs 0013, 0021, 0029, 0031 e 0037;
+    rodam e nada avisa. Fontes: ADRs 0013, 0021, 0037 e 0042;
     busca de código do GitHub (2026-10-17). Evidência: número; fato.
 - **React como a declarativa por re-renderização**
   - *pró*: A mais usada em todas as medidas (44,7% SO; 85% State of JS;

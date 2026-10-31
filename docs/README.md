@@ -26,7 +26,7 @@ achar as fontes que mais pesam, pela tabela "Fontes centrais".
 | Método: o rótulo, as DCs, as rodadas, o tamanho das interfaces | `texto/intro.org`, metodologia | `docs/metodo-da-avaliacao.md`; o que se controla, em `docs/delineamento.md`; o que cada interface exige e cada par cobre, em `docs/exigencias-de-coordenacao.md` |
 | Análise por DC | `texto/cases.org`, `texto/results.org` | `docs/metodo-da-avaliacao.md`, seção "Como as fontes aplicaram as DCs a código, e as armadilhas"; `docs/achados-das-implementacoes.md`; `docs/exigencias-de-coordenacao.md`, seção "Mapa por interface"; a skill `avaliacao-pelas-dcs` |
 | Capítulo de programação | `texto/prog.org` | `docs/paradigma-modelo-e-notacao.md`, `docs/bibliografia/programacao-funcional-e-reativa.md`, `docs/estado-eventos-e-complexidade.md` |
-| Tecnologias e plataformas | ADRs 0001, 0013 e 0031 | `docs/plataformas/README.md`, e dali `web.md`, `bibliotecas-de-formulario.md`, `bibliotecas-de-inscricao-e-reconexao.md` e `medida-das-bibliotecas.md`; o Android e o *desktop*, fora da análise, em `android.md` e `desktop.md` |
+| Tecnologias e plataformas | ADRs 0001, 0013 e 0042 | `docs/plataformas/README.md`, e dali `web.md`, `bibliotecas-de-formulario.md`, `bibliotecas-de-inscricao-e-reconexao.md` e `medida-das-bibliotecas.md`; o Android e o *desktop*, fora da análise, em `android.md` e `desktop.md` |
 | Forma da introdução | `texto/intro.org` | `docs/bibliografia/escrita-da-introducao.md` |
 | Como a busca foi feita | Apêndice II | `docs/bibliografia/protocolo-da-revisao.md` |
 
