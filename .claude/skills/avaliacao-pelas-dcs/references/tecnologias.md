@@ -1,11 +1,11 @@
 # Onde cada tecnologia escreve a coordenação
 
 Mapa de leitura para o guia (passo 2 da skill), sobretudo nas tecnologias
-que o autor conhece pouco: o Web Component e o Web Component com
-*signals*. Diz onde procurar, e não o que concluir. Cada linha é
-um ponto de partida: antes de explicar ao autor o que uma construção faz,
-confira no código da implementação e, para a semântica da tecnologia, na
-documentação oficial, com a data da leitura. O que não vier de uma das
+que o autor conhece pouco, como o Web Component. Diz onde procurar, e
+não o que concluir. Cada linha é um ponto de partida: antes de explicar
+ao autor o que uma construção faz, confira no código da implementação
+e, para a semântica da tecnologia, na documentação oficial, com a data
+da leitura. O que não vier de uma das
 duas fica marcado "a conferir".
 
 Os seis pontos de cada tecnologia seguem a exigência de coordenação
@@ -21,10 +21,16 @@ da página", no Login do React) são notação secundária escrita por quem
 implementou, não pela tecnologia. Servem ao leitor para se orientar e
 não entram como sinal de nenhuma DC.
 
-As quatro tecnologias são as da cadeia do ADR 0013, na ordem dela: Web
-Component → Web Component com *signals* → Solid → React.
+O núcleo do ADR 0013 são o Web Component e o React, na primeira e na
+segunda rodada, e, na terceira, as quatro implementações que os cinco
+passos da Busca, do Login e do Placar ao vivo trazem a partir deles
+(ADR 0029), em `nucleo/`. O entorno do núcleo (ADR 0042), em
+`entorno/`, se lê depois da análise. O título de cada seção diz a
+célula, a orquestração × a propagação (ADR 0021), menos o do Cycle.js,
+que se lê sem controle. A forma de cada implementação está no
+`interfaces-graficas/AGENTS.md`.
 
-## Web Component (imperativo por atualização manual)
+## Web Component (atribuição × manual)
 
 - Arquivos: `web-component/src/main.ts` (a classe que estende
   `HTMLElement`) e o `index.html`, que só monta o elemento.
@@ -41,67 +47,12 @@ Component → Web Component com *signals* → Solid → React.
   inscrição) fica escrito no `disconnectedCallback`.
 - Montagem: o esqueleto em *template literal* marcado `/* HTML */`,
   atribuído ao `innerHTML` uma vez; as partes repetidas e os filhos com
-  `createElement` e `append` (`interfaces-graficas/AGENTS.md`). É a mesma
-  montagem do Web Component com *signals*: o passo entre os dois muda a
-  ligação do estado com a tela e a orquestração (ADR 0013).
+  `createElement` e `append` (`interfaces-graficas/AGENTS.md`). O passo
+  ao React muda também a montagem, ao JSX, e o modelo de componente, à
+  função (ADR 0013).
 - Documentação: developer.mozilla.org, "Using custom elements".
 
-## Web Component com *signals* (declarativo por atualização granular)
-
-Implementado na Reserva de passagem, na Busca, no Login e no Placar ao
-vivo (tcc-2pu0); a regra está em `interfaces-graficas/AGENTS.md`. Confira
-cada ponto no código da interface antes do guia.
-
-- Arquivos: `web-component-signals/` (tcc-2pu0), com a classe que
-  estende `HTMLElement`, como no Web Component; o `solid-js` entra só
-  como biblioteca de reatividade (ADR 0013).
-- Estado: `createSignal`; lê-se chamando, como no Solid (ADR 0021).
-- Derivado: `createMemo` ou uma função, como no Solid da interface.
-- Evento → estado: o tratador altera um *signal*.
-- Estado → tela: cada escrita na tela fica num `createEffect`, que o
-  ambiente de execução reexecuta só quando muda um *signal* lido nele. A
-  escrita se escreve uma vez por parte da tela, e o corpo do efeito ainda
-  é uma escrita no DOM, que o leitor pode tomar por imperativa (ADR 0013,
-  "Custo").
-- Ciclo de vida: um `createRoot` aberto no `connectedCallback` e
-  fechado no `disconnectedCallback`.
-- Orquestração: a do Solid da interface, e não a do Web Component, como
-  o `createResource` da Busca; o que o Solid limpa (o relógio, a
-  inscrição, a tentativa aberta) se registra com `onCleanup` dentro do
-  `createRoot` (ADR 0013, decisão do autor em 2026-10-23). O passo do
-  Web Component muda a ligação e a orquestração juntas, e a análise as
-  separa pelo sinal escrito (ADR 0021).
-- Montagem: a do Web Component, o esqueleto em HTML num texto atribuído
-  ao `innerHTML` uma vez e o laço de `createElement` nas partes
-  repetidas, nunca o `mapArray`: a coleção que acompanha um *signal* se
-  remonta num efeito que a lê (ADRs 0013 e 0037). Com o Solid, a
-  diferença é a montagem da tela e o modelo de componente: a classe com
-  o `connectedCallback` e o `disconnectedCallback` contra a função com o
-  `onCleanup` (ADRs 0013 e 0021).
-- Execução: no Node, sem a condição `browser`, o `solid-js` resolve
-  para o *build* do servidor, em que os efeitos não rodam e nada avisa
-  (ADR 0013); por isso, a execução que depende dos efeitos, como o teste
-  de conformidade e a tela, roda no navegador.
-- Documentação: docs.solidjs.com, *createEffect*, *createRoot* e
-  *mapArray*.
-
-## Solid (declarativo por atualização granular)
-
-- Arquivos: `solid/src/main.tsx`; o componente executa uma vez.
-- Estado: `createSignal`; lê-se chamando (`contador()`).
-- Derivado: função que lê o *signal* (`() => contador() * 2`) ou
-  `createMemo`; uma constante (`const dobro = contador() * 2`) nunca
-  atualiza (ADR 0021).
-- Evento → estado: `onClick` no JSX, como no React.
-- Estado → tela: as expressões do JSX que leem *signals* se atualizam
-  sozinhas; as *props* não se desestruturam, para não perder a leitura.
-- Ciclo de vida: `onCleanup`, dentro do componente ou do
-  `createEffect`.
-- Montagem: o mesmo JSX do React com outro dialeto (`class`, `<Show>`,
-  `<For>`).
-- Documentação: docs.solidjs.com.
-
-## React (declarativo por re-renderização)
+## React (atribuição × re-renderização)
 
 - Arquivos: `react/src/main.tsx`; componentes são funções.
 - Estado: `useState`; o componente inteiro reexecuta a cada mudança.
@@ -114,3 +65,60 @@ cada ponto no código da interface antes do guia.
 - Montagem: JSX, com `&&`, ternário e `.map` com `key`.
 - Documentação: react.dev (pt-br.react.dev para os termos em
   português).
+
+## Terceira rodada: as quatro implementações novas
+
+As implementações ainda não têm código (2026-10-31): cada ponto vem do
+ADR 0029 e fica "a conferir" no código da interface antes do guia.
+
+- **Web Component com RxJS** (`web-component-rxjs/`, acumulação ×
+  manual): os eventos viram fluxos do RxJS, e o estado se define sobre
+  eles com `scan`, sem *setter*; os derivados e a tela continuam
+  escritos à mão no *listener* do `subscribe`, com a montagem do Web
+  Component. Documentação: rxjs.dev.
+- **React com `useReducer`** (`react-reducer/`, mensagem ×
+  re-renderização): o tratador despacha uma ação, e um *reducer* puro
+  devolve o estado novo, pela receita de react.dev, "Extracting State
+  Logic into a Reducer".
+- **React com RxJS** (`react-rxjs/`, acumulação × re-renderização): o
+  mesmo *reducer* no `scan` de um fluxo de ações; o estado chega ao
+  componente pelo `useSyncExternalStore`, a ponte escrita no código, e
+  os derivados ficam no corpo do componente, como no React.
+- **React com derivados no RxJS** (`react-rxjs-derivados/`, acumulação ×
+  combinadores): os derivados saem do corpo do componente para os
+  operadores do RxJS, que nomeiam as fontes; o declarativo nos dois
+  eixos.
+
+## Entorno do núcleo
+
+Lido depois da análise, cada tecnologia contra a implementação de que
+parte (ADR 0042).
+
+- **Lit** (`entorno/lit/`, atribuição × re-renderização), a partir do
+  Web Component: a mesma classe e a mesma orquestração; o `@state()` e o
+  `render()` com o *template* do `html` no lugar das escritas na tela,
+  e o dado trocado por uma cópia; até a tcc-f50c, o Circle Drawer e a
+  Planilha ainda alteram no lugar, seguido de `requestUpdate()`, e o
+  guia lê o código como ele está. Documentação: lit.dev.
+- **Solid** (`entorno/solid/`, atribuição × granular), a partir do
+  React: o componente executa uma vez; o estado em `createSignal`, lido
+  chamando (`contador()`); o derivado numa função que lê o *signal* ou
+  num `createMemo`, porque uma constante (`const dobro = contador() *
+  2`) nunca atualiza (ADR 0021); as expressões do JSX que leem
+  *signals* se atualizam sozinhas, e as *props* não se desestruturam,
+  para não perder a leitura; a limpeza no `onCleanup`; o JSX num
+  dialeto um pouco diferente (`class`, `<Show>`, `<For>`). O código
+  veio da cadeia de pares (até 2026-10-30), e a orquestração da Busca
+  (`createResource`) difere da do React. Documentação: docs.solidjs.com.
+- **Web Component com Effection** (`entorno/web-component-effection/`,
+  sequencial × manual), a partir do Web Component da segunda rodada: o
+  código espera o próximo evento e segue em ordem, com a espera escrita
+  como `yield*`; a montagem e a propagação são as do Web Component. Sem
+  código ainda (2026-10-31): "a conferir". Documentação: a do
+  Effection 4.
+- **Cycle.js** (`entorno/cycle/`), a partir do React com derivados no
+  RxJS: a `main` recebe as fontes e devolve fluxos para os *drivers*,
+  que fazem os efeitos e a tela (`@cycle/dom`), com o `xstream` no lugar
+  do RxJS; o passo muda várias coisas de uma vez e se lê sem controle.
+  Sem código ainda (2026-10-31): "a conferir". Documentação:
+  cycle.js.org.

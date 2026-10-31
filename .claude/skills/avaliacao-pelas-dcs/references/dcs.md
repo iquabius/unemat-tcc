@@ -31,12 +31,13 @@ da implementação, não o exemplo.
 5. **Atribuir ao modelo de programação o que é da tecnologia**: "tiny
    programs are dominated by the toolkit" (Kiss 2014, p. 56). Diga se o
    sinal está na coordenação, na montagem da tela ou na ligação entre as
-   duas (ADR 0021), e se outra tecnologia do mesmo modelo o tem.
-6. **Na terceira rodada, misturar a biblioteca com o modelo de
-   programação.** A conclusão da terceira rodada se lê "no ecossistema típico" (ADR 0029): o sinal que
-   vem da API da biblioteca (react-hook-form, TanStack Solid Form,
-   `react-use-websocket`, `@solid-primitives/websocket`; ADR 0031) é da
-   biblioteca.
+   duas (ADR 0021), e se outra implementação na mesma célula o tem.
+6. **Na terceira rodada, misturar o RxJS com o modo de orquestração.**
+   A conclusão da terceira rodada é sobre o eixo da orquestração (ADR
+   0029): o sinal que vem da API do RxJS (o nome de um operador, a ponte
+   pelo `useSyncExternalStore`) é da biblioteca, e o que vale para o
+   modo se confere no outro lado do quadrado, onde a biblioteca é a
+   mesma e muda o outro eixo.
 7. **Contar o mesmo fato em várias dimensões.** Kiss conta a lista do
    `createXBinding` nas dependências ocultas (p. 28) e na viscosidade
    (p. 29). Pode valer em duas, mas diga que é o mesmo trecho.

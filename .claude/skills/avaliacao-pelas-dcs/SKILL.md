@@ -1,14 +1,14 @@
 ---
 name: avaliacao-pelas-dcs
-description: Planeja, pré-analisa e revisa a avaliação do TCC pelas 14 Dimensões Cognitivas (DCs), interface por interface e rodada por rodada (primeira, segunda e terceira) — o plano da rodada, o guia de leitura do código por DC, factual e sem conclusão, que o agente entrega antes de o autor ler, e a revisão da análise que o autor ditou (Wispr Flow), conferida contra os trechos e as armadilhas, com a origem de cada posição registrada. Use sempre que for avaliar, analisar, pré-analisar ou ler uma implementação ou um diff de interfaces-graficas/ pelas DCs, preparar a leitura de uma tecnologia que o autor conhece pouco (o Web Component, o Web Component com signals), revisar uma posição por DC, preencher a tabela-síntese ou dizer se a diferença entre os modelos de programação ficou mantida, ampliada, reduzida, anulada, invertida ou surgida — mesmo que o pedido não diga "DC", como "vamos ler a Reserva de passagem no Web Component", "o que olhar na viscosidade da segunda rodada" ou "confere minha análise da Busca". Não use para escrever ou revisar a frase do texto (revisao-de-texto) nem para implementar uma das interfaces.
+description: Planeja, pré-analisa e revisa a avaliação do TCC pelas 14 Dimensões Cognitivas (DCs), interface por interface e rodada por rodada (primeira, segunda e terceira) — o plano da rodada, o guia de leitura do código por DC, factual e sem conclusão, que o agente entrega antes de o autor ler, e a revisão da análise que o autor ditou (Wispr Flow), conferida contra os trechos e as armadilhas, com a origem de cada posição registrada. Use sempre que for avaliar, analisar, pré-analisar ou ler uma implementação ou um diff de interfaces-graficas/ pelas DCs, preparar a leitura de uma tecnologia que o autor conhece pouco (o Web Component), revisar uma posição por DC, preencher a tabela-síntese ou dizer se a diferença entre os modelos de programação ficou mantida, ampliada, reduzida, anulada, invertida ou surgida — mesmo que o pedido não diga "DC", como "vamos ler a Reserva de passagem no Web Component", "o que olhar na viscosidade da segunda rodada" ou "confere minha análise da Busca". Não use para escrever ou revisar a frase do texto (revisao-de-texto) nem para implementar uma das interfaces.
 ---
 
 # Avaliação pelas DCs: plano, guia de leitura e revisão
 
 Por que existe: desde 2026-10-11, a avaliação percorre as 14 DCs em cada
-rodada (ADRs 0017 e 0029), nas cinco tecnologias do ADR 0013, e o autor
-conhece pouco duas delas, o Web Component e o Web
-Component com *signals*. A avaliação é analítica, feita pelo autor
+rodada (ADRs 0017 e 0029), no núcleo do ADR 0013, e o autor conhece
+pouco o Web Component, a ponta do núcleo sem biblioteca. A avaliação é
+analítica, feita pelo autor
 (`GLOSSARY.md`, verbete Avaliação): a conclusão é dele. O agente prepara a
 leitura e revisa depois, em duas etapas (decisão do autor de 2026-10-13,
 tcc-4a9): o guia de leitura vem antes e não toma posição, para não
@@ -84,9 +84,17 @@ Entrada: a interface e a rodada. Saída: `plano.md` (modelo em
 `references/formatos.md`).
 
 1. `bd ready` e a tarefa do bd da rodada; o sha do `master` que se lê.
-2. **Implementações.** As quatro tecnologias do ADR 0013, em todas as
-   interfaces: o Web Component, o Web Component com *signals*, o Solid e
-   o React. Para cada uma, os arquivos da notação e os que ficam fora
+2. **Implementações.** As do núcleo (ADR 0013), em
+   `interfaces-graficas/<interface>/nucleo/`: na primeira e na
+   segunda rodada, o Web Component e o React, em todas as interfaces; na
+   terceira, na Busca, no Login e no Placar ao vivo, as quatro
+   implementações novas dos cinco passos, o Web Component com RxJS, o
+   React com `useReducer`, o React com RxJS e o React com derivados no
+   RxJS (ADR 0029). O entorno do núcleo (o Lit, o Solid, o Web
+   Component com Effection e o Cycle.js, em `entorno/`) se lê só depois
+   da análise, cada tecnologia contra a
+   implementação de que parte (ADR 0042), e o que está em `fora/` não se
+   lê. Para cada uma, os arquivos da notação e os que ficam fora
    (domínio, estilo, testes, configuração), pelo
    `references/tecnologias.md`.
 3. **Atividade** (Blackwell e Green 2003, tabela 5.1, p. 113), que diz
@@ -100,26 +108,32 @@ Entrada: a interface e a rodada. Saída: `plano.md` (modelo em
      (especificação em
      `interfaces-graficas/openspec/specs/<interface>/spec.md`) e entende
      como as partes se ligam.
-   - Segunda e terceira rodadas: modificação. O objeto é o diff de cada mudança, um commit
-     por mudança, na mesma ordem em todas as tecnologias; a terceira
-     refatora a Reserva de passagem e o Placar ao vivo para a forma do
-     ecossistema de cada tecnologia (ADRs 0029 e 0031).
+   - Segunda e terceira rodadas: modificação. Na segunda, o objeto é o
+     diff de cada mudança, um commit por mudança, na mesma ordem nas duas
+     tecnologias; na terceira, o diff de cada passo, da pasta de que ele
+     parte à dele, que refatora o código da segunda rodada da Busca, do
+     Login e do Placar ao vivo pelo eixo da orquestração, sem mudar o
+     comportamento (ADR 0029).
 4. **Perguntas de leitura**, uma por exigência de coordenação da interface:
    onde a notação escreve o evento que muda o estado, o derivado, a tela,
    a assincronia e a limpeza ao sair da tela. Na segunda rodada, uma por mudança: que
    trechos o diff toca, quantos e por quê.
-5. **Comparações da rodada**: os três modelos de programação e os
-   passos da cadeia do ADR 0013, cada um com o que muda: Web Component →
-   Web Component com *signals* (a ligação do estado com a tela e a
-   orquestração, que segue a do Solid) → Solid (a montagem da tela e o
-   modelo de componente) → React (o modelo de programação, com o mesmo
-   JSX). No primeiro passo, separe a ligação da orquestração pelo sinal
-   escrito (ADR 0021). A diferença entre o Web Component e o
-   React, que não formam par, se atribui ao passo da cadeia em que ela
-   aparece, e a que nenhum passo explica, pelo sinal escrito (ADR 0013).
+5. **Comparações da rodada**: as células do modelo de programação, a
+   combinação de um modo da propagação e um da orquestração (ADR 0021),
+   e os passos do núcleo, cada um com o modo que muda (ADR 0013). Na
+   primeira e na segunda rodada, o passo do Web Component ao React muda
+   a propagação, de manual a re-renderização, e também a montagem da
+   tela e o modelo de componente, que o texto declara: atribua a
+   diferença à propagação pelo sinal escrito (ADR 0021). Na terceira,
+   os cinco passos, entre eles o do Web Component com RxJS ao React com
+   RxJS, que fecha o quadrado: a diferença num eixo se lê nos dois lados
+   do quadrado, para ver se depende do modo no outro (ADR 0029).
 6. **Apoio medido**: linhas por implementação, com o script do ADR 0017
    (tcc-hlh7) quando existir, senão `git diff --stat`/`wc -l` marcados
-   como provisórios; na segunda e na terceira, o `git diff --stat` de cada commit da mudança.
+   como provisórios; na segunda, o `git diff --stat` de cada commit da
+   mudança, e na terceira, o `git diff --no-index --stat` entre o `src/`
+   da pasta de que o passo parte e o da dele, que deixa de fora o
+   `dist/` do *build*, fora do git, e a configuração.
 
 Mostre o plano ao autor antes do guia; ele pode tirar ou acrescentar
 pergunta.
@@ -137,7 +151,7 @@ pela revisão de design de 2026-10-14 (tcc-4a9; modelo em
   inclusive as que o perfil de atividade não lista, que se leem com a
   mesma ficha e sem o peso publicado (ADR 0017);
 - **a legenda dos arquivos**, um nome curto por arquivo, que diga a
-  tecnologia e a linguagem (`WC.ts`, `Solid.tsx`, `React.tsx`), sem
+  tecnologia e a linguagem (`WC.ts`, `React.tsx`, `ReactReducer.tsx`), sem
   usar o nome da tecnologia sozinho para o arquivo;
 - o quadro das tecnologias pouco familiares (abaixo).
 
@@ -229,8 +243,8 @@ que se procurou. Não force um trecho para preencher a seção: as fontes
 pedem que se pergunte por todas as dimensões, e "sem diferença" também é
 resultado (ADR 0017).
 
-Nas tecnologias pouco familiares (o Web Component e o Web Component com
-*signals*), o guia abre, antes da DC 1, com um quadro de três a
+Nas tecnologias pouco familiares (o Web Component, e as que o autor
+disser), o guia abre, antes da DC 1, com um quadro de três a
 cinco linhas por tecnologia sobre como ela escreve o estado, o evento e
 a tela, a partir de `references/tecnologias.md` e da documentação.
 Nenhum termo do guia usa "modelo" sozinho (`GLOSSARY.md`): o formato do
@@ -270,9 +284,9 @@ cada DC do texto ditado:
    `references/dcs.md`; cada uma que a conclusão comete vira um
    apontamento com o trecho do ditado, a linha do `.org`, o trecho do
    código e a fonte da armadilha.
-3. **Contradição**: outra tecnologia do mesmo modelo (o Web Component
-   com *signals* e o Solid, no granular), outro passo da cadeia ou outra
-   interface contradizem a conclusão? (ADRs 0013 e 0017.)
+3. **Contradição**: o outro lado do quadrado (o mesmo modo de um eixo
+   com o outro modo no outro eixo), outro passo do núcleo ou outra
+   interface contradizem a conclusão? (ADRs 0013, 0017 e 0029.)
 4. **Lacunas**: DC sem posição ditada, tecnologia da rodada sem
    menção, célula sem o valor da mudança entre rodadas.
 5. **Termos**: palavras que o `GLOSSARY.md` manda evitar ("paradigma"

@@ -2,7 +2,7 @@
 
 Os três arquivos ficam em `docs/avaliacao/<rodada>-<interface>/`
 (`primeira-rodada-reserva-de-passagem`, `segunda-rodada-busca`,
-`terceira-rodada-reserva-de-passagem`), versionados, cada um no seu commit
+`terceira-rodada-placar-ao-vivo`), versionados, cada um no seu commit
 (SKILL.md, regra 5; a interface fora da análise fica em `tmp/`, regra
 6). Como toda nota de `docs/`, cada um diz o tipo na primeira linha
 depois do título, e abre com a interface, a rodada, o sha de
@@ -21,7 +21,7 @@ Commit lido: <sha> (<data>). Atividade: <busca e compreensão | modificação>
 (Blackwell e Green 2003, tabela 5.1, p. 113).
 
 ## Implementações
-- <Tecnologia> (<modelo de programação>): <arquivos da notação>.
+- <Tecnologia> (<orquestração> × <propagação>): <arquivos da notação>.
   Fora: <domínio, estilo, testes, configuração>. Linhas: <n> (<script ou
   provisório>).
 - ...
@@ -32,10 +32,12 @@ Commit lido: <sha> (<data>). Atividade: <busca e compreensão | modificação>
 2. ...
 
 ## Comparações
-- Modelos: imperativo por atualização manual (<tecnologias>), re-renderização
-  (<...>), atualização granular (<...>).
-- Passos da cadeia (ADR 0013): <WC → WC com signals | WC com signals →
-  Solid | Solid → React>, com o que cada passo muda nesta interface.
+- Células (ADR 0021): <tecnologia> (<orquestração> × <propagação>), ...
+- Passos do núcleo (ADR 0013): <WC → React | WC → WC com RxJS | React →
+  React com useReducer | React com useReducer → React com RxJS | WC com
+  RxJS → React com RxJS | React com RxJS → React com derivados no RxJS>,
+  com o modo que cada passo muda nesta interface e o que ele muda além
+  dele.
 ```
 
 ## guia.md
@@ -58,8 +60,8 @@ conclusão: as perguntas são para o autor responder ao ditar. Atividade:
 
 Arquivos, a partir de `interfaces-graficas/<interface>/nucleo/`:
 - `WC.ts` = `web-component/src/main.ts`
-- `Solid.tsx` = `solid/src/main.tsx`
 - `React.tsx` = `react/src/main.tsx`
+- `ReactReducer.tsx` = `react-reducer/src/main.tsx` (terceira rodada)
 - ...
 
 ## Como cada tecnologia escreve a coordenação
@@ -122,8 +124,8 @@ as linhas em até 41 colunas:
 > O que faz: uma atribuição põe o valor na tela (l. 33), no método
 > `renderizar`, chamado ao abrir, no fim do `connectedCallback` (l. 24),
 > e depois de cada clique (l. 29); o estado é o campo da classe (l. 4).
-> Parte: ligação. Fonte: código. No React e no Solid, o valor se
-> escreve no JSX, em um lugar (`React.tsx` e `Solid.tsx`, l. 10).
+> Parte: ligação. Fonte: código. No React, o valor se escreve no JSX,
+> em um lugar (`React.tsx`, l. 10).
 
 Exemplos de frase que o guia não aceita:
 
