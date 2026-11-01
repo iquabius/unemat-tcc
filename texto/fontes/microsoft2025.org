@@ -1,3 +1,0 @@
-#+title: microsoft2025: Microsoft (2025), Data Binding Overview: WPF
-#+startup: overview
-

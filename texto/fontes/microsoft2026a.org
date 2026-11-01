@@ -1,3 +1,0 @@
-#+title: microsoft2026a: Microsoft (2026), Events Overview: Windows Forms
-#+startup: overview
-

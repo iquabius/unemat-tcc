@@ -1,3 +1,0 @@
-#+title: mdn2026: MDN Web Docs (2026), Browser Compatibility Data: api/Observable
-#+startup: overview
-

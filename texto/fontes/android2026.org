@@ -1,3 +1,0 @@
-#+title: android2026: Google (2026), Thinking in Compose
-#+startup: overview
-

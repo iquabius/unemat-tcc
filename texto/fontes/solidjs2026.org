@@ -16,7 +16,7 @@
   tela (Lee; Ahn; Yi, 2025, p. 289:38).” Em 2026-10-24, o Angular saiu
   da frase, com a análise (ADR 0013). Em 2026-10-15,
   “os valores e trechos da tela” passou a “o que depende dele”: no Angular,
-  o /signal/ lido no /template/ marca o componente (google2026, l. 222), e
+  o /signal/ lido no /template/ marca o componente (=acervo/google2026.txt=, l. 222), e
   o grão de cada um fica para cases.org (checagem adversarial, decisão do
   autor).
 - Trecho: “data entities (signals) will maintain a list of their

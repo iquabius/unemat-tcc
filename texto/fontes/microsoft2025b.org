@@ -1,3 +1,0 @@
-#+title: microsoft2025b: Microsoft (2025), Overview of Data Binding and Windows Forms
-#+startup: overview
-
