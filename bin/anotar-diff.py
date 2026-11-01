@@ -47,11 +47,12 @@ pela mensagem da tag, como a release; depois, as páginas alteradas por
 capítulo e seção, com as medidas e um link em cada número de página
 (tabela_por_lugar()); por último, os commits, sem data nem hash, cada um
 com as páginas de onde o texto saiu (vermelho), uma seta e as páginas em
-que entrou (azul), ou, com um lado só, o nome dele, um link por página e
-seção, e as chaves do refs.bib que ele mudou, com link para a entrada na
-bibliografia (âncora cite.0@chave do biblatex). O commit cujo trecho foi
-refeito depois, ou que só mudou rótulos, e que não mudou uma entrada que
-as referências mostram, não entra.
+que entrou (azul), ou, com um lado só, o nome dele, ou, com os dois lados
+nas mesmas seções e páginas, "reescrito:" e as páginas (roxo), um link por
+página e seção, e as chaves do refs.bib que ele mudou, com link para a
+entrada na bibliografia (âncora cite.0@chave do biblatex). O commit cujo
+trecho foi refeito depois, ou que só mudou rótulos, e que não mudou uma
+entrada que as referências mostram, não entra.
 """
 import json
 import os
@@ -537,6 +538,26 @@ def titulo_do_resumo(texto):
     return r"\par\medskip{\large\bfseries " + texto + r"\par}\smallskip"
 
 
+# A cor das páginas de cada lado de um commit na lista do resumo, que o
+# resumo define com \colorlet.
+CORES = {"saiu": "difsaiu", "entrou": "difentrou", "reescrito": "difreescrito"}
+
+
+def paginas_do_lado(por_secao, cor):
+    """As páginas de um lado de um commit na lista do resumo, por lugar
+    ({(capítulo, seção, subseção): {página: n}}), com o título do lugar
+    mais fundo, cada página um link para a âncora n, na cor."""
+    grupos = []
+    for (cap, sec, sub), paginas in por_secao.items():
+        secao = esc(sub or sec or cap)
+        # A classe esconde a cor dos links (hidelinks): a cor vai no número.
+        links = [f"\\hyperref[difancora-{n}]{{\\textcolor{{{cor}}}{{{esc(p)}}}}}"
+                 for p, n in paginas.items()]
+        grupos.append((f"{secao}, " if secao else "") + ("p.~" if len(links) == 1 else "pp.~")
+                      + ", ".join(links))
+    return "; ".join(grupos)
+
+
 def resumo(dir_, aux, job, base_nome, ref_nome):
     """O DIR/difresumo.tex: a mensagem da tag, a tabela por lugar
     (tabela_por_lugar(), quando o .aux da compilação anterior já diz as
@@ -551,10 +572,12 @@ def resumo(dir_, aux, job, base_nome, ref_nome):
 
     # O vermelho do que saiu, mais escuro que o red do latexdiff, que dá
     # 4,0:1 sobre o branco, abaixo dos 4,5:1 da WCAG 1.4.3; este dá 7,2:1,
-    # e o azul do que entrou, 8,6:1.
+    # o azul do que entrou, 8,6:1, e o roxo do reescrito, o violet do
+    # xcolor, metade do red e metade do blue puros, 9,5:1.
     out = [r"\makeatletter\let\dif@inicio\@currentHref\gdef\dif@resumo{-1}\makeatother",
            r"\begingroup\pagenumbering{roman}\thispagestyle{empty}\setlength{\parindent}{0pt}",
-           r"\colorlet{difsaiu}{red!70!black}\colorlet{difentrou}{blue}"]
+           r"\colorlet{difsaiu}{red!70!black}\colorlet{difentrou}{blue}"
+           r"\colorlet{difreescrito}{violet}"]
     titulo = f"{esc(base_nome)} \\textrightarrow{{}} {esc(ref_nome)}"
     if d.get("nome"):
         titulo += ": " + esc(d["nome"])
@@ -577,28 +600,30 @@ def resumo(dir_, aux, job, base_nome, ref_nome):
                 r"é um link para ela.\par\smallskip"] + tabela_por_lugar(dados) + ["}"]
     itens_dos_commits = []
     for c in d["commits"]:
-        lados = {}  # tipo -> as páginas por seção, com link
-        for tipo, cor in (("saiu", "difsaiu"), ("entrou", "difentrou")):
-            por_secao = {}  # título -> {página: n}, na ordem do documento
+        # tipo -> {(capítulo, seção, subseção): {página: n}}, na ordem do documento
+        lados = {}
+        for tipo in ("saiu", "entrou"):
+            por_secao = {}
             for an in sorted((x for x in d["ancoras"] if x["commit"] == c["commit"] and x["tipo"] == tipo),
                              key=lambda x: (int(rotulos[x["n"]][0]) if x["n"] in rotulos
                                             and rotulos[x["n"]][0].isdigit() else 0, x["n"])):
                 pagina, cap, sec, sub = rotulos.get(an["n"], (f"#{an['n']}", an["capitulo"], "", ""))
-                secao = esc(sub or sec or cap)
-                por_secao.setdefault(secao, {}).setdefault(pagina, an["n"])
-            if not por_secao:
-                continue
-            grupos = []
-            for secao, paginas in por_secao.items():
-                # A classe esconde a cor dos links (hidelinks): a cor vai no número.
-                links = [f"\\hyperref[difancora-{n}]{{\\textcolor{{{cor}}}{{{esc(p)}}}}}"
-                         for p, n in paginas.items()]
-                grupos.append((f"{secao}, " if secao else "") + ("p.~" if len(links) == 1 else "pp.~")
-                              + ", ".join(links))
-            lados[tipo] = "; ".join(grupos)
+                por_secao.setdefault((cap, sec, sub), {}).setdefault(pagina, an["n"])
+            if por_secao:
+                lados[tipo] = por_secao
         # De onde o texto saiu para onde entrou; com um lado só, o nome dele.
-        partes = ([f"{lados['saiu']} \\textrightarrow{{}} {lados['entrou']}"] if len(lados) == 2
-                  else [f"{tipo}: {lado}" for tipo, lado in lados.items()])
+        # Com os dois lados nos mesmos lugares e páginas, o texto foi reescrito
+        # no lugar, e a seta diria que ele se moveu: o item leva ao trecho novo.
+        # O lugar se compara inteiro, porque duas subseções de capítulos
+        # diferentes podem ter o mesmo título.
+        if len(lados) == 2 and ({lg: list(p) for lg, p in lados["saiu"].items()}
+                                == {lg: list(p) for lg, p in lados["entrou"].items()}):
+            partes = ["reescrito: " + paginas_do_lado(lados["entrou"], CORES["reescrito"])]
+        elif len(lados) == 2:
+            partes = [f"{paginas_do_lado(lados['saiu'], CORES['saiu'])} \\textrightarrow{{}} "
+                      f"{paginas_do_lado(lados['entrou'], CORES['entrou'])}"]
+        else:
+            partes = [f"{tipo}: {paginas_do_lado(lado, CORES[tipo])}" for tipo, lado in lados.items()]
         # A chave que as referências não mostram (a fonte não citada) não
         # leva a lugar nenhum, e fica de fora como o trecho que não existe.
         chaves = [f"\\hyperlink{{cite.0@{k}}}{{\\texttt{{{esc(k)}}}}}"
@@ -615,8 +640,11 @@ def resumo(dir_, aux, job, base_nome, ref_nome):
         out += [titulo_do_resumo("Os commits"),
                 r"{\small Os commits que mudaram o texto, do mais antigo ao mais novo, com as "
                 r"páginas de onde o texto saiu, em {\color{difsaiu}vermelho}, e, depois da seta, "
-                r"as páginas em que entrou, em {\color{difentrou}azul}. Cada página leva ao "
-                r"trecho no diff, e as chaves do refs.bib, à entrada nas referências.\par}",
+                r"as páginas em que entrou, em {\color{difentrou}azul}. "
+                r"Com os dois lados nas mesmas seções e páginas, o texto foi reescrito no lugar, "
+                r"e o item diz \enquote{reescrito:}, com as páginas em {\color{difreescrito}roxo}. "
+                r"Cada página leva ao trecho no diff, e as chaves do refs.bib, à entrada nas "
+                r"referências.\par}",
                 r"\begin{enumerate}\small\setlength{\itemsep}{2pt}"]
         out += itens_dos_commits + [r"\end{enumerate}"]
     # O \label sem contador próprio (o do capítulo sem número) pegaria o
