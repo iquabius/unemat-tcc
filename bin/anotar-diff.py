@@ -34,9 +34,13 @@ passos:
 O trecho que entrou é atribuído pelo git blame BASE..REF do .tex de REF; o
 que saiu, ao commit em cujo diff a linha de BASE some do arquivo, seguida
 de pai para filho (quem_tirou()); a linha que só mudou de lugar, ao
-commit que a moveu; e a cópia de uma linha repetida, que esses diffs não
-decidem, pelo git blame --reverse. A âncora vai para o ponto de REF onde
-o trecho estava. As âncoras ficam só no lado novo, como comandos que o
+commit que a moveu. A linha que o diff de BASE a REF dá como tirada e que
+chega a REF é a cópia de uma linha repetida, quando esses diffs tiram a
+outra cópia, e vai a quem a tirou, mesmo que um commit a tenha movido;
+sem cópia tirada, vai a quem a moveu, ou, sem movimento, não saiu e não
+leva âncora. A que nenhum commit tirou nem levou a REF vai pelo git
+blame --reverse. A âncora vai para o ponto de REF onde o trecho estava.
+As âncoras ficam só no lado novo, como comandos que o
 latexdiff não envolve em \\DIFadd, e por isso funcionam também para o que
 saiu. Ficam fora de verbatim, minted, matemática, tabelas e argumentos de
 comando (legenda, nota); antes dos ambientes que o latexdiff não marca, como
@@ -253,15 +257,16 @@ def casar(atual, novo):
 
 def quem_tirou(repo, base, ref, antigas, nomes, nome_em):
     """({número da linha de BASE (0-based) -> commit que a tirou}, {número
-    -> último commit que só a mudou de lugar}): segue cada linha de antigas
-    de pai para filho, pelos commits de BASE..REF que tocaram o arquivo,
-    até o commit em que ela deixa de casar com uma linha do pai em que
-    estava (casar()). O pai de fora do intervalo parte do casamento com
-    antigas. nomes e nome_em vêm de nomes_do_arquivo(): o arquivo, em cada
-    commit, tem o nome de nome_em, ou, no commit que não o mudou, o do pai;
-    sem ele, o commit o apagou. O git blame --reverse dá o último commit em
-    que a linha existia, e esse pode ser de um ramo juntado depois: o
-    commit seguinte a ele na ordem do rev-list pode não ser o que a tirou."""
+    -> último commit que só a mudou de lugar}, {números das que chegam a
+    REF}): segue cada linha de antigas de pai para filho, pelos commits de
+    BASE..REF que tocaram o arquivo, até o commit em que ela deixa de casar
+    com uma linha do pai em que estava (casar()). O pai de fora do
+    intervalo parte do casamento com antigas. nomes e nome_em vêm de
+    nomes_do_arquivo(): o arquivo, em cada commit, tem o nome de nome_em,
+    ou, no commit que não o mudou, o do pai; sem ele, o commit o apagou. O
+    git blame --reverse dá o último commit em que a linha existia, e esse
+    pode ser de um ramo juntado depois: o commit seguinte a ele na ordem do
+    rev-list pode não ser o que a tirou."""
     def arquivo(c, nome):
         try:
             return git(repo, "show", f"{c}:{nome}").splitlines(keepends=True)
@@ -323,7 +328,7 @@ def quem_tirou(repo, base, ref, antigas, nomes, nome_em):
                      "movidas": movidas}
         ultimo = c
     tirou = {i: quem for i, quem in estado[ultimo]["mortas"].items() if quem}
-    return tirou, estado[ultimo]["movidas"]
+    return tirou, estado[ultimo]["movidas"], set(estado[ultimo]["vivas"])
 
 
 def ancorar(repo, base, ref, dir_, main="tcc.tex"):
@@ -394,10 +399,19 @@ def ancorar(repo, base, ref, dir_, main="tcc.tex"):
             antigas = []
         if antigas:
             tocaram = git(repo, "rev-list", "--reverse", f"{base}..{ref}", "--", *nomes).split()
-            tirou, moveu = quem_tirou(repo, base, ref, antigas, nomes, nome_em)
+            tirou, moveu, chegam = quem_tirou(repo, base, ref, antigas, nomes, nome_em)
             ultimo = None
-            sm = SequenceMatcher(None, antigas, linhas, autojunk=False)
-            for op, i1, i2, j1, _j2 in sm.get_opcodes():
+            trechos = SequenceMatcher(None, antigas, linhas, autojunk=False).get_opcodes()
+            tiradas = {i for op, i1, i2, _, _ in trechos if op in ("delete", "replace")
+                       for i in range(i1, i2)}
+            # As cópias que os diffs de commit a commit tiram e que o de BASE
+            # a REF dá como ficadas, por texto, na ordem: cada uma vai a uma
+            # só cópia igual que ele dá como tirada e que chega a REF.
+            sobram = {}
+            for j, q in sorted(tirou.items()):
+                if j not in tiradas:
+                    sobram.setdefault(antigas[j], []).append(q)
+            for op, i1, i2, j1, _j2 in trechos:
                 if op not in ("delete", "replace"):
                     continue
                 vistos = []
@@ -406,11 +420,24 @@ def ancorar(repo, base, ref, dir_, main="tcc.tex"):
                         continue
                     # A linha que o diff de BASE a REF dá como tirada e que
                     # chega a REF só mudou de lugar: fica com o commit que
-                    # a moveu. A que os diffs de commit a commit não
-                    # decidem (uma cópia de linha repetida casada com
-                    # outra) fica com o commit seguinte ao último em que o
-                    # git blame --reverse a vê.
-                    quem = tirou.get(i) or moveu.get(i)
+                    # a moveu. A que chega a REF sem que nenhum commit a
+                    # movesse é a cópia de uma linha repetida, quando os
+                    # diffs de commit a commit tiram a outra cópia, e fica
+                    # com quem a tirou (sobram); sem cópia tirada, o diff
+                    # de BASE a REF só a dá como tirada porque outras se
+                    # moveram em volta, e ela fica sem âncora. A cópia tirada
+                    # vem antes do movimento: a cópia que chega e que um
+                    # commit também moveu fica com quem tirou a outra, que
+                    # senão sumiria da lista, e quem a moveu ainda tem o
+                    # lado do que entrou. A que nenhum commit tirou nem
+                    # leva a REF fica com o commit seguinte ao último em que
+                    # o git blame --reverse a vê.
+                    quem = tirou.get(i)
+                    if quem is None and i in chegam and sobram.get(antigas[i]):
+                        quem = sobram[antigas[i]].pop(0)
+                    quem = quem or moveu.get(i)
+                    if quem is None and i in chegam:
+                        continue
                     if quem is None:
                         if ultimo is None:
                             ultimo, _ = blame(repo, f"{base}..{ref}", velho, reverso=True)

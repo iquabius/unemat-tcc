@@ -226,14 +226,16 @@ class QuemTirou(unittest.TestCase):
 
     def test_linha_vai_ao_commit_em_que_some(self):
         c0, c1, c2, c3, c4 = self.commits
-        tirou, moveu = anotar.quem_tirou(
+        tirou, moveu, chegam = anotar.quem_tirou(
             str(self.repo), c0, c4, self.BASE,
             *anotar.nomes_do_arquivo(str(self.repo), c0, c4, "c.tex", "a.tex"))
         # A abertura reescrita sai em c1; o bloco, que c1 só levou para o
         # fim, sai em c2; o "Sai.", em c4, depois das duas renomeações (c3,
-        # que só renomeia, não tira nada). Nada movido chega ao fim.
+        # que só renomeia, não tira nada). Nada movido chega ao fim; o
+        # "Meio." e o "Fica." chegam sem ter saído.
         self.assertEqual(tirou, {0: c1, 1: c2, 2: c2, 5: c4})
         self.assertEqual(moveu, {})
+        self.assertEqual(chegam, {3, 4})
 
     def commit(self, arquivos, msg):
         """Grava {nome: linhas} (None apaga) e commita; devolve o sha."""
@@ -259,9 +261,9 @@ class QuemTirou(unittest.TestCase):
         self.git("mv", "a.tex", "b.tex")
         self.commit({"a.tex": ["Outro arquivo.\n"]}, "c1")
         c2 = self.commit({"a.tex": None, "b.tex": ["P.\n", "Q.\n"]}, "c2")
-        tirou, _ = anotar.quem_tirou(str(self.repo), base, c2, ["P.\n", "X.\n", "Q.\n"],
-                                     *anotar.nomes_do_arquivo(str(self.repo), base, c2,
-                                                              "b.tex", "a.tex"))
+        tirou, *_ = anotar.quem_tirou(str(self.repo), base, c2, ["P.\n", "X.\n", "Q.\n"],
+                                      *anotar.nomes_do_arquivo(str(self.repo), base, c2,
+                                                               "b.tex", "a.tex"))
         self.assertEqual(tirou, {1: c2})
 
     def test_junção_não_toma_o_movimento_de_um_lado(self):
@@ -278,7 +280,7 @@ class QuemTirou(unittest.TestCase):
         self.git("merge", "-q", "--no-edit", "troca")
         junta = subprocess.run(["git", "rev-parse", "HEAD"], cwd=self.repo,
                                capture_output=True, text=True, check=True).stdout.strip()
-        tirou, moveu = anotar.quem_tirou(str(self.repo), base, junta, linhas, ["x.tex"], {})
+        tirou, moveu, _ = anotar.quem_tirou(str(self.repo), base, junta, linhas, ["x.tex"], {})
         self.assertEqual(moveu, {3: move})
 
     def test_junção_com_o_nome_do_lado_que_renomeou(self):
@@ -301,9 +303,9 @@ class QuemTirou(unittest.TestCase):
             self.git("merge", "-q", "--no-edit", "lado")
         self.commit({"a.tex": ["Outro arquivo.\n"], "b.tex": linhas[:2] + linhas[3:]}, "junta")
         fim = self.commit({"b.tex": linhas[:2] + linhas[3:6] + linhas[7:]}, "fim")
-        tirou, _ = anotar.quem_tirou(str(self.repo), base, fim, linhas,
-                                     *anotar.nomes_do_arquivo(str(self.repo), base, fim,
-                                                              "b.tex", "a.tex"))
+        tirou, *_ = anotar.quem_tirou(str(self.repo), base, fim, linhas,
+                                      *anotar.nomes_do_arquivo(str(self.repo), base, fim,
+                                                               "b.tex", "a.tex"))
         self.assertEqual(tirou, {2: tira, 6: fim})
 
     def test_junção_com_o_nome_de_volta(self):
@@ -328,9 +330,9 @@ class QuemTirou(unittest.TestCase):
             self.commit({"a.tex": linhas[:2] + linhas[3:], "b.tex": ["Outro arquivo.\n"]},
                         "junta")
         fim = self.commit({"a.tex": linhas[:2] + linhas[3:6] + linhas[7:]}, "fim")
-        tirou, _ = anotar.quem_tirou(str(self.repo), base, fim, linhas,
-                                     *anotar.nomes_do_arquivo(str(self.repo), base, fim,
-                                                              "a.tex", "a.tex"))
+        tirou, *_ = anotar.quem_tirou(str(self.repo), base, fim, linhas,
+                                      *anotar.nomes_do_arquivo(str(self.repo), base, fim,
+                                                               "a.tex", "a.tex"))
         self.assertEqual(tirou, {2: tira, 6: fim})
 
     def test_junção_com_cópia_no_nome_antigo(self):
@@ -353,9 +355,9 @@ class QuemTirou(unittest.TestCase):
             ["git", "rev-list", "--parents", "-1", junta], cwd=self.repo, capture_output=True,
             text=True, check=True).stdout.split()), 3)
         fim = self.commit({"b.tex": ["AA.\n"] + linhas[1:3] + linhas[4:]}, "fim")
-        tirou, _ = anotar.quem_tirou(str(self.repo), base, fim, linhas,
-                                     *anotar.nomes_do_arquivo(str(self.repo), base, fim,
-                                                              "b.tex", "b.tex"))
+        tirou, *_ = anotar.quem_tirou(str(self.repo), base, fim, linhas,
+                                      *anotar.nomes_do_arquivo(str(self.repo), base, fim,
+                                                               "b.tex", "b.tex"))
         self.assertEqual(tirou, {0: troca, 3: fim})
 
     def test_nome_de_base_pela_renomeação_que_o_diff_não_vê(self):
@@ -393,9 +395,74 @@ class QuemTirou(unittest.TestCase):
         self.git("checkout", "-q", "outro")
         self.git("merge", "-q", "--no-edit", "lado")
         tira = self.commit({"x.tex": ["Z.\n"] + resto}, "tira")
-        tirou, _ = anotar.quem_tirou(str(self.repo), base, tira,
-                                     ["Y.\n"] + resto + ["X.\n"], ["x.tex"], {})
+        tirou, *_ = anotar.quem_tirou(str(self.repo), base, tira,
+                                      ["Y.\n"] + resto + ["X.\n"], ["x.tex"], {})
         self.assertEqual(tirou, {0: lado, 4: tira})
+
+
+class CopiaRepetida(unittest.TestCase):
+    """Na v0.12, a introdução da v0.11 tinha duas cópias de uma citação, e
+    o commit que tirou uma delas não ganhava o lado do que saiu: o diff da
+    v0.11 à v0.12 dá como tirada a outra cópia, que chega à v0.12."""
+
+    def ancoras(self, versoes):
+        """Os shas das versões, commitadas em tags v0, v1..., e os pares
+        (tipo, commit) das âncoras do ancorar() da primeira à última."""
+        tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(tmp.cleanup)
+        repo = Path(tmp.name)
+        env = {"GIT_CONFIG_GLOBAL": os.devnull, "GIT_CONFIG_NOSYSTEM": "1",
+               "GIT_AUTHOR_NAME": "t", "GIT_AUTHOR_EMAIL": "t@t",
+               "GIT_COMMITTER_NAME": "t", "GIT_COMMITTER_EMAIL": "t@t"}
+
+        def git(*args):
+            return subprocess.run(["git", *args], cwd=repo, env={**os.environ, **env},
+                                  check=True, capture_output=True, text=True).stdout.strip()
+
+        cap = repo / "latex/capitulos/intro.tex"
+        cap.parent.mkdir(parents=True)
+        (repo / "latex/tcc.tex").write_text(
+            "\\begin{document}\n\\chapter{Introdução}\n\\input{capitulos/intro}\n"
+            "\\end{document}\n", encoding="utf-8")
+        git("init", "-q")
+        shas = []
+        for k, linhas in enumerate(versoes):
+            cap.write_text("\n".join(linhas) + "\n", encoding="utf-8")
+            git("add", ".")
+            git("commit", "-qm", f"v{k}")
+            git("tag", f"v{k}")
+            shas.append(git("rev-parse", "HEAD"))
+        with mock.patch.dict(os.environ, env):
+            anotar.ancorar(str(repo), "v0", f"v{len(versoes) - 1}", str(repo), "latex/tcc.tex")
+        ancoras = json.loads((repo / "latex/difancoras.json").read_text())["ancoras"]
+        return shas, [(a["tipo"], a["commit"]) for a in ancoras]
+
+    def test_cópia_que_chega_fica_com_quem_tirou_a_outra(self):
+        # c1 tira o primeiro X; c2 tira o B e o C. De v0 a v2, o diff casa
+        # o primeiro X com o que ficou e dá o segundo como tirado.
+        shas, ancoras = self.ancoras([["A.", "X.", "B.", "C.", "X.", "D."],
+                                      ["A.", "B.", "C.", "X.", "D."],
+                                      ["A.", "X.", "D."]])
+        self.assertEqual(set(ancoras), {("saiu", shas[1]), ("saiu", shas[2])})
+
+    def test_cópia_que_chega_movida_fica_com_quem_tirou_a_outra(self):
+        # c1 tira o primeiro X; c2 leva o que ficou para antes do C. Com o
+        # movimento antes da cópia tirada, c1 sumiria da lista; c2 ainda
+        # tem o lado do que entrou.
+        shas, ancoras = self.ancoras([["A.", "X.", "B.", "C.", "X.", "D."],
+                                      ["A.", "B.", "C.", "X.", "D."],
+                                      ["A.", "B.", "X.", "C.", "D."]])
+        self.assertIn(("saiu", shas[1]), ancoras)
+        self.assertIn(("entrou", shas[2]), ancoras)
+
+    def test_cada_cópia_tirada_vai_a_uma_cópia_só(self):
+        # c1 tira o primeiro X, c2 o segundo, e c3 o D e o E: cada um tira
+        # uma linha, e a mesma cópia tirada não serve a duas que chegam.
+        shas, ancoras = self.ancoras([["A.", "X.", "B.", "C.", "X.", "D.", "E.", "X.", "F."],
+                                      ["A.", "B.", "C.", "X.", "D.", "E.", "X.", "F."],
+                                      ["A.", "B.", "C.", "D.", "E.", "X.", "F."],
+                                      ["A.", "B.", "C.", "X.", "F."]])
+        self.assertEqual(set(ancoras), {("saiu", s) for s in shas[1:]})
 
 
 class AncoraForaDaFigura(unittest.TestCase):
