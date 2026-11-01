@@ -280,7 +280,7 @@ cuida sozinha das dependências entre eles
 linguagem de programação mais utilizada por usuários finais” (tradução nossa).
 A maior parte da pesquisa em \gls{pr}, dizem ainda, descende do Fran, uma
 linguagem da \gls{pf} do fim dos anos 1990.
-A \gls{pr} traz duas abstrações: os \emph{behaviours}, para os valores que variam de forma contínua
+A \gls{pr} traz duas abstrações: os \emph{behaviors}, para os valores que variam de forma contínua
 no tempo, e os eventos, para os valores discretos
 \cite[p. 52:2]{bainomugisha2013}.
 
@@ -297,11 +297,11 @@ dependem dela se recalculam \cite[p. 52:2]{bainomugisha2013}.
 Na \gls{pr}, a ordem das atualizações não se escreve: o ambiente de
 execução propaga a alteração de um valor às computações que dependem dele
 e as recalcula na ordem do grafo de dependências, cada uma depois das que
-ela usa \cite[p. 52:5 e 52:7]{bainomugisha2013}.
+ela usa \cite[p. 52:4 e 52:7]{bainomugisha2013}.
 As fontes descrevem também como essa propagação se executa.
 No modelo \emph{pull}, a computação que precisa do valor o busca na fonte, e no \emph{push},
 a fonte empurra o valor novo às computações que dependem dele; há
-linguagens que combinam os dois \cite[p. 52:5-52:6]{bainomugisha2013}.
+linguagens que combinam os dois \cite[p. 52:6-52:7]{bainomugisha2013}.
 Este trabalho não classifica os modos por essa execução, e sim pelo que o
 código escreve.
 

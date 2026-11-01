@@ -1,4 +1,8 @@
-#+title: disch2025: Disch et al. (2025), Functional Reactive GUI Programming with Modal Types
+#+title: disch2025: Disch et al. (2026), Functional Reactive GUI Programming with Modal Types
+# Em 2026-11-01, o ano da referência passou de 2025, a data on-line
+# (2025-10-01), a 2026, o do volume 15652 do LNCS, como o Springer cita
+# (decisão do autor); a chave ficou disch2025, e as frases abaixo trazem o
+# ano com que foram conferidas.
 #+startup: overview
 
 * [[file:../modelos.org::O grau também se dá a cada parte do código][modelos: O grau também se dá a cada parte do código]], p. 93
@@ -30,10 +34,11 @@
 - Trecho: “Most modern GUI frameworks use an imperative programming model
   that is based on shared mutable state that is read and updated via
   callback functions.” (introdução, logo depois do resumo)
-- Lido em: =acervo/disch2025.pdf=, p. 1 da pré-publicação. Cópia: o
-  Crossref dá p. 93-114 no LNCS, e a pré-publicação já está no formato do
-  LNCS, então a frase deve estar na p. 93; a versão publicada não foi
-  conferida.
+- Lido em: =acervo/disch2025-aceito.pdf=, p. 1 do manuscrito aceito,
+  conferido em 2026-11-01: ele tem 22 páginas, como o capítulo no LNCS
+  (p. 93-114), e o trecho fica no meio da primeira (linhas 32-34 de 48),
+  igual ao da pré-publicação (=acervo/disch2025.pdf=, p. 1); a edição do
+  Springer, paga, não foi vista.
 - Observação: substitui Meta (2026a), documentação do React, na definição
   do imperativo (pedido do autor em 2026-10-09).
 - Conferido: 2026-10-09.

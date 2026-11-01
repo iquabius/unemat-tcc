@@ -7,7 +7,9 @@
   Tamburrelli, 2015, p. 953).”
 - Trecho: “the Observer design pattern that decouples event consumers
   (observers) from event producers (observables).” (p. 953)
-- Lido em: =acervo/salvaneschi2015.pdf=, p. 1 do PDF (p. 953).
+- Lido em: =acervo/salvaneschi2015-publicada.pdf=, a versão dos anais,
+  com a p. 953 impressa no rodapé, conferida em 2026-11-01; antes,
+  =acervo/salvaneschi2015.pdf=, p. 1 do PDF, sem número impresso.
 - Observação: veio da introdução no corte de 2026-10-28; a forma das
   orações relativas vem da opção que o autor preferiu em 2026-10-15.
 - Conferido: 2026-10-15.
