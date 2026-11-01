@@ -49,11 +49,13 @@
   sequencial, que é a proposta do artigo (StreamAsync), e não um recurso do
   JavaScript; corrigido na checagem de 2026-10-08.
 - Conferido: 2026-10-09.
-* [[file:../modelos.org::compararam, com 36 estudantes de graduação,][modelos: compararam, com 36 estudantes de graduação,]], p. 15
+* [[file:../modelos.org::avaliaram com usuários duas][modelos: avaliaram com usuários duas]], p. 15
 - Frase: “Fora das DCs, Grolaux et al. (2026, p. 15) compararam
-  conceitualmente, numa prova de conceito em JavaScript, o async/await com
-  /listeners/, barramento de eventos, /streams/ funcionais e PR no
-  tratamento dos eventos de interface.”
+  conceitualmente, numa prova de conceito em JavaScript, o /async/ e o
+  /await/ com os /listeners/, o barramento de eventos, os fluxos
+  funcionais e a PR no tratamento dos eventos de interface.” Em
+  2026-11-01, “/streams/ funcionais” virou “fluxos funcionais”, o termo do
+  glossário para /streams/.
 - Trecho: “Through conceptual comparisons with other paradigms, including
   synchronous scripts, event listeners, event-bus architectures, animation
   loops, functional streams, and reactive programming” (p. 15); “Through

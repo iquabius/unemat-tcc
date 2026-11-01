@@ -1,0 +1,23 @@
+#+title: verma2026: Verma, Odak e Narechania (2026), SuperProvenanceWidgets: Tracking and Visualizing Analytic Provenance Across UI Control Elements
+#+startup: overview
+
+* [[file:../modelos.org::avaliaram com usuários duas][modelos: avaliaram com usuários duas]] (autoavaliação pelas DCs)
+- Frase: “Narechania et al. (2025) e Verma, Odak e Narechania (2026)
+  avaliam pelas DCs a notação da própria biblioteca de controles, feita em
+  Angular e em React, numa autoavaliação dos autores. Não avaliam a notação
+  do Angular nem a do React: do React, a autoavaliação só diz que a
+  notação da biblioteca é consistente com ele (Verma; Odak; Narechania,
+  2026).” Fora da autoavaliação, nas limitações da mesma página, o React
+  volta: a adoção “may require additional effort for non-React developers
+  unfamiliar with its TypeScript-based APIs”.
+- Trecho: “We present a technical self-assessment of
+  SuperProvenanceWidgets using the Cognitive Dimensions of Notations”;
+  “The notation is also consistent with the framework it has been
+  implemented in (i.e. React.js), as well as being independent of base
+  libraries (via Web Components).” (seção 4, p. 6 da cópia)
+- Lido em: =acervo/verma2026.pdf=, a cópia do arXiv (2604.15342), no
+  formato da ACM, p. 6; a citação vai sem página até a conferência na
+  publicada.
+- Observação: entrou nos trabalhos relacionados por decisão do autor de
+  2026-11-01, que a quer também na introdução.
+- Conferido: 2026-11-01.

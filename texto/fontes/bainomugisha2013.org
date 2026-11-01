@@ -64,7 +64,7 @@
 - Conferido: 2026-10-15.
 * [[file:../modelos.org::Na \[\[gls:pr\]\], a ordem das atualizações][modelos: Na PR, a ordem das atualizações]], p. 52:5 e 52:7 (a ordem implícita)
 - Frase: “Na PR, a ordem das atualizações não se escreve: o ambiente de
-  execução propaga a mudança de um valor às computações que dependem dele
+  execução propaga a alteração de um valor às computações que dependem dele
   e as recalcula na ordem do grafo de dependências, cada uma depois das que
   ela usa (Bainomugisha et al., 2013, p. 52:5 e 52:7).”
 - Trecho: “From the programmer’s point of view, propagation of changes

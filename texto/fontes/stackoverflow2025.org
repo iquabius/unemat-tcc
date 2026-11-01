@@ -1,40 +1,29 @@
 #+title: stackoverflow2025: Stack Overflow (2025), 2025 Stack Overflow Developer Survey
 #+startup: overview
 
-* [[file:../modelos.org::As pesquisas de uso medem][modelos: As pesquisas de uso medem]]
-- Frase: “Na questão sobre tecnologias web do Stack Overflow Developer
-  Survey 2025, React, jQuery e Angular estão entre as sete mais usadas, com
-  44,7%, 23,4% e 18,2% dos que a responderam.”
+* [[file:../comparacao.org::O Web Component entra no núcleo][comparacao: O Web Component entra no núcleo]] (o React e o jQuery)
+- Frase: “Na pesquisa do Stack Overflow de 2025, o React é a segunda
+  tecnologia web mais usada entre quem respondeu à questão, com 44,7%, e o
+  jQuery, na mesma célula do Web Component, a terceira, com 23,4% (Stack
+  Overflow, 2025).”
 - Trecho: a questão, “Which web frameworks and web technologies have you
-  done extensive development work in over the past year [...]?”; “2. React:
-  44.7%”, “3. jQuery: 23.4%”, “7. Angular: 18.2%” (All Respondents);
-  “Responses: 23,678 (48.3%)”.
+  done extensive development work in over the past year [...]?”; “1.
+  Node.js: 48.7%”, “2. React: 44.7%”, “3. jQuery: 23.4%” (All
+  Respondents); “Responses: 23,678 (48.3%)”.
 - Lido em: =acervo/stackoverflow2025.txt=, l. 11, 15-20 e 42 (página
   salva em 2026-09-29).
-- Observação: Seção “Uso das tecnologias web”, nova em 2026-10-13. Parágrafo
-  vindo da introdução e dos estudos de casos, como dado de interesse, sem
-  papel de justificativa. Os porcentuais são dos 23.678 que responderam à
-  questão, e não dos 49.009 respondentes da pesquisa (checagem adversarial
-  de 2026-10-08).
-- Conferido: 2026-10-06; a questão e o total, em 2026-10-09.
-* [[file:../modelos.org::Cada pesquisa de uso tem um limite][modelos: Cada pesquisa de uso tem um limite de amostra]]
-- Frase: “Os respondentes do Stack Overflow Developer Survey 2025 são
-  recrutados sobretudo pelos próprios canais do site, o que favorece os
-  usuários mais ativos.”
+- Observação: os porcentuais são dos 23.678 que responderam à questão, e
+  não dos 49.009 respondentes da pesquisa (checagem adversarial de
+  2026-10-08). O React entrou na frase em 2026-11-01, vindo da seção “Uso
+  das tecnologias web” de =modelos.org=, que saiu (decisão do autor).
+- Conferido: 2026-10-31; o React, em 2026-11-01.
+* [[file:../comparacao.org::O Web Component entra no núcleo][comparacao: O Web Component entra no núcleo]] (o limite da amostra)
+- Frase: “Os respondentes vêm sobretudo dos canais do próprio site, o que
+  favorece os usuários mais ativos (Stack Overflow, 2025).”
 - Trecho: “Respondents were recruited primarily through channels owned by
   Stack Overflow. [...] highly-engaged users on Stack Overflow were more
   likely to notice the prompts to take the survey”
 - Lido em: =acervo/stackoverflow2025-metodologia.txt=, l. 35.
-- Observação: Seção “Uso das tecnologias web”. Parágrafo vindo dos estudos
-  de casos em 2026-10-13.
-- Conferido: 2026-10-13.
-
-* [[file:../comparacao.org::O Web Component entra no núcleo][comparacao: O Web Component entra no núcleo]] (o jQuery)
-- Frase: “O jQuery, na mesma célula, é a terceira tecnologia web mais
-  usada entre quem respondeu à pesquisa do Stack Overflow de 2025, com
-  23,4% (Stack Overflow, 2025).”
-- Trecho: a questão, “Which web frameworks and web technologies have you
-  done extensive development work in over the past year [...]?”; “3.
-  jQuery: 23.4%” (All Respondents).
-- Lido em: =acervo/stackoverflow2025.txt=, l. 11 e 15-20.
-- Conferido: 2026-10-31.
+- Observação: veio de “Uso das tecnologias web”, em =modelos.org=, em
+  2026-11-01.
+- Conferido: 2026-10-13; de novo em 2026-11-01.

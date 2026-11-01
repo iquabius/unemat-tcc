@@ -9,13 +9,19 @@
   C# Forms for application library.” (resumo)
 - Lido em: =acervo/mernik2009.pdf=, p. 1 do PDF (p. 180).
 - Conferido: 2026-10-06.
-* [[file:../modelos.org::compararam, com 36 estudantes de graduação,][modelos: compararam, com 36 estudantes de graduação,]]
-- Frase: “Mernik et al. (2009) compararam, com 36 programadores, uma
-  linguagem de domínio específico para descrever interfaces gráficas, o
-  XAML, e uma biblioteca de aplicação, o C# Forms.”
-- Trecho: “The experiment was conducted with 36 programmers [...] the same
-  problem domain has been used – construction of graphical user
-  interfaces. In terms of domain-specific language, XAML has been used and
-  C# Forms for application library.” (resumo)
-- Lido em: =acervo/mernik2009.pdf=, p. 1 do PDF (p. 180).
-- Conferido: 2026-10-06.
+* [[file:../modelos.org::Três trabalhos compararam formas de programar][modelos: Três trabalhos compararam formas de programar]]
+- Frase: “Mernik et al. (2009) compararam pelas DCs, com as respostas de
+  36 estudantes de graduação a perguntas sobre os dois, uma linguagem de
+  domínio específico para descrever interfaces gráficas, o XAML, e uma
+  biblioteca de aplicação, o Windows Forms em C#.”
+- Trecho: “The experiment was conducted with 36 programmers, which were
+  answering questions on more than 100 long pages on both implementation
+  approaches. [...] In terms of domain-specific language, XAML has been
+  used and C# Forms for application library. For comparison of XAML and
+  C# Forms cognitive dimension framework has been used.” (resumo, p. 180);
+  “students (second year of undergraduate computer science)” (seção 3)
+- Lido em: =acervo/mernik2009.pdf=, p. 1 do PDF (p. 180) e a seção 3.
+- Observação: em 2026-11-01, a frase ganhou o instrumento, as DCs pelas
+  respostas dos participantes, e a 2.7 passou a dizer de cada trabalho
+  como avalia.
+- Conferido: 2026-10-06; o instrumento, em 2026-11-01.

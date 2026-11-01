@@ -19,23 +19,22 @@
   orquestração por acumulação, venham dessas abstrações é leitura do
   trabalho (ADR 0021).
 - Conferido: 2026-11-01.
-* [[file:../modelos.org::No experimento de \[\[textcite:salvaneschi2017\]][modelos: No experimento de Salvaneschi et al.]], p. 1125-1134 (o desenho do experimento)
-- Frase: “No experimento de Salvaneschi et al. (2017, p. 1125-1134), 127
-  estudantes do quarto ano de Ciência da Computação foram divididos ao
-  acaso em dois grupos, em duas rodadas. Um grupo leu dez programas em
-  Scala escritos com PR, e o outro, os mesmos programas com o /Observer
-  Pattern/. [...] Só no grupo do /Observer Pattern/ os acertos acompanharam
-  o nível de habilidade de programação dos participantes.”
+* [[file:../modelos.org::testaram uma afirmação repetida][modelos: testaram uma afirmação repetida]], p. 1125-1134 (o desenho do experimento)
+- Frase: “No experimento controlado, 127 estudantes do quarto ano de
+  Ciência da Computação foram divididos ao acaso em dois grupos: um leu
+  dez programas em Scala escritos com PR, e o outro, os mesmos programas
+  com o /Observer Pattern/, e cada participante respondia a uma pergunta
+  de múltipla escolha sobre o comportamento de cada programa. [...] Só no
+  grupo do /Observer Pattern/ os acertos acompanharam o nível de
+  habilidade de programação dos participantes.”
 - Trecho: a mesma descrição do experimento da entrada da introdução
   (“o experimento”, p. 1125-1134).
 - Lido em: =acervo/salvaneschi2017.pdf=.
-- Observação: o parágrafo saiu da programação reativa para os trabalhos
-  relacionados em 2026-11-01, sem mudança de texto; antes não tinha
-  entrada na matriz. A palavra “rodadas”, das etapas da avaliação neste
-  trabalho, ainda está aqui.
-- Conferido: 2026-11-01, no PDF, os 127 participantes, o quarto ano, a
-  divisão ao acaso e as duas rodadas (seção 3); o resto, pela entrada da
-  introdução.
+- Observação: em 2026-11-01, o parágrafo do desenho saiu da programação
+  reativa e se fundiu com o dos números, nos trabalhos relacionados, e
+  saiu “em duas rodadas”, palavra das etapas da avaliação neste trabalho.
+- Conferido: 2026-11-01, no PDF, os 127 participantes, o quarto ano e a
+  divisão ao acaso (seção 3); o resto, pela entrada da introdução.
 
 * [[file:../intro.org::No navegador, as sub-rotinas desse][intro: No navegador, as sub-rotinas desse]], p. 1125 (os /callbacks/ no /Observer Pattern/)
 - Frase: “Os /callbacks/, também chamados de /listeners/ ou /event

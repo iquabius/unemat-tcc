@@ -34,10 +34,22 @@
   tasks” (resumo, p. 1506).
 - Lido em: =acervo/zimmerle2025.pdf=, p. 5 e 8 do PDF.
 - Conferido: 2026-10-06.
-* [[file:../modelos.org::compararam, com 36 estudantes de graduação,][modelos: compararam, com 36 estudantes de graduação,]], p. 1510 e 1513
+* [[file:../modelos.org::avaliaram com usuários duas][modelos: avaliaram com usuários duas]], p. 1507 (o questionário das cinco dimensões)
+- Frase: “[...] por um questionário que mede cinco dimensões tiradas das
+  DCs (Zimmerle; Gama, 2025, p. 1507).”
+- Trecho: “our study with users is based on the Cognitive Dimensions of
+  Notation framework that allows us to measure usability in five
+  different dimensions [21]: understandability, learnability,
+  abstraction, expressiveness, and reusability.” (p. 1507)
+- Lido em: =acervo/zimmerle2025.pdf=, p. 2 do PDF (p. 1507).
+- Observação: “sem interface gráfica” é a leitura da nota
+  =docs/trabalhos-relacionados-e-lacuna.md=, seção “Zimmerle e Gama 2025 e
+  a tese de Lima 2024”: as tarefas são de requisições HTTP.
+- Conferido: 2026-11-01.
+* [[file:../modelos.org::avaliaram com usuários duas][modelos: avaliaram com usuários duas]], p. 1510 e 1513
 - Frase: “Zimmerle e Gama (2025, p. 1510 e 1513) avaliaram com usuários
   duas bibliotecas de PR para JavaScript, RxJS e Bacon.js, em tarefas de
-  requisições HTTP.”
+  requisições HTTP [...].”
 - Trecho: “we focus on Bacon.js and RxJS in the present work” (p. 1510);
   “In total, we defined five tasks [...], all revolving HTTP requests”
   (p. 1513); “a user-centered study was performed involving programming

@@ -1,0 +1,22 @@
+#+title: narechania2025: Narechania et al. (2025), ProvenanceWidgets: A Library of UI Control Elements to Track and Dynamically Overlay Analytic Provenance
+#+startup: overview
+
+* [[file:../modelos.org::avaliaram com usuários duas][modelos: avaliaram com usuários duas]] (autoavaliação pelas DCs)
+- Frase: “Narechania et al. (2025) e Verma, Odak e Narechania (2026)
+  avaliam pelas DCs a notação da própria biblioteca de controles, feita em
+  Angular e em React, numa autoavaliação dos autores. Não avaliam a notação
+  do Angular nem a do React [...].”
+- Trecho: “We self-assess our library from a developer standpoint based on
+  the Cognitive Dimensions of Notation [9]” (seção 4.3, p. 7 da cópia);
+  “The library is built using Angular but is universally compatible across
+  different frameworks through Web Components.” (p. 2 da cópia)
+- Lido em: =acervo/narechania2025.pdf=, a cópia do arXiv (2407.17431),
+  p. 2 e 7, sem a paginação da TVCG; a citação vai sem página até a
+  conferência na publicada.
+- Observação: entrou nos trabalhos relacionados por decisão do autor de
+  2026-11-01, que a quer também na introdução; a nota
+  =docs/trabalhos-relacionados-e-lacuna.md= a chama de “o mais perto da
+  lacuna”. As dimensões da autoavaliação são a consistência, a difusão,
+  as operações mentais difíceis e a viscosidade (nota, seção
+  “Autoavaliações pelas DCs de bibliotecas de controles”).
+- Conferido: 2026-11-01.

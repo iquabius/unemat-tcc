@@ -145,7 +145,34 @@
   e não de Kiss.
 - Conferido: 2026-10-23; de novo em 2026-10-30, com a p. 17 (p. 23 do
   PDF).
-* [[file:../modelos.org::compararam, com 36 estudantes de graduação,][modelos: compararam, com 36 estudantes de graduação,]], p. v e 104
+* [[file:../modelos.org::Três trabalhos compararam formas de programar][modelos: Três trabalhos compararam formas de programar]], p. 96 (o Elm em quatro das sete)
+- Frase: “O Elm, que roda no navegador, ficou em quatro das sete
+  interfaces, porque faltou tempo para as outras (Kiss, 2014, p. 96).”
+- Trecho: “The time unfortunately ran out for the other case studies. It
+  seems that hypothetical Elm solutions for Timer and Circle Drawer would
+  be similar to the solutions in ReactFX.” (4.3, p. 96); as soluções em
+  Elm são o Counter, o Temperature Converter, o Flight Booker e o Crud
+  (4.3, p. 80-96).
+- Lido em: =acervo/kiss2014.pdf=, p. 86-102 do PDF.
+- Observação: a tcc-5n8c pedia esta frase junto da de Kiss nos trabalhos
+  relacionados. “Que roda no navegador” é do trabalho: o Elm compila para
+  JavaScript, e o resto das tecnologias de Kiss roda na JVM.
+- Conferido: 2026-11-01.
+* [[file:../modelos.org::Três trabalhos compararam formas de programar][modelos: Três trabalhos compararam formas de programar]], p. 97 (o resultado do ReactFX e do Elm)
+- Frase: “Com o ReactFX, e mais ainda com o Elm, o nível de abstração ficou
+  mais exigente, e a difusão e a viscosidade, um pouco maiores, enquanto
+  as dependências ocultas e a propensão a erros diminuíram (Kiss, 2014,
+  p. 97) [...].”
+- Trecho: “In the case of ReactFX, and considerably moreso in the case of
+  Elm, the Abstraction Level in general is more demanding and the
+  dimensions Diffuseness and Viscosity are slightly higher compared to the
+  solutions from chapter 3. On the other hand, Hidden Dependencies and
+  Error-Proneness are reduced.” (4.4, “Verdict”, p. 97)
+- Lido em: =acervo/kiss2014.pdf=, p. 103 do PDF (p. 97).
+- Observação: “é um resultado anterior com que a análise deste trabalho
+  pode se comparar” é do trabalho, e não da fonte.
+- Conferido: 2026-11-01.
+* [[file:../modelos.org::Três trabalhos compararam formas de programar][modelos: Três trabalhos compararam formas de programar]], p. v e 104
 - Frase: “Kiss (2014, p. v e 104) comparou a POO e a PF em sete interfaces
   gráficas, com JavaFX, ScalaFX, Scala.Rx, ReactFX e Elm, e deixou como
   trabalho futuro comparar os /frameworks/ de interface do navegador.”
