@@ -649,6 +649,7 @@ def resumo(dir_, aux, job, base_nome, ref_nome):
                 r"{\small Os commits que mudaram o texto, do mais antigo ao mais novo, com as "
                 r"páginas de onde o texto saiu, em {\color{difsaiu}vermelho}, e, depois da seta, "
                 r"as páginas em que entrou, em {\color{difentrou}azul}. "
+                r"Com um lado só, o item diz qual, \enquote{saiu:} ou \enquote{entrou:}. "
                 r"Com os dois lados nas mesmas seções e páginas, o texto foi reescrito no lugar, "
                 r"e o item diz \enquote{reescrito:}, com as páginas em {\color{difreescrito}roxo}. "
                 r"Cada página leva ao trecho no diff, e as chaves do refs.bib, à entrada nas "

@@ -636,6 +636,13 @@ class ResumoDoDiff(unittest.TestCase):
                       r"{\texttt{novo2020}}.", resumo)
         self.assertIn(r"\colorlet{difsaiu}{red!70!black}", resumo)
 
+    def test_legenda_diz_as_três_formas_do_item(self):
+        resumo = self.resumo()
+        legenda = resumo[resumo.index("Os commits que mudaram"):resumo.index(r"\begin{enumerate}")]
+        for forma in ("depois da seta", r"\enquote{saiu:} ou \enquote{entrou:}",
+                      r"\enquote{reescrito:}"):
+            self.assertIn(forma, legenda)
+
     def test_reescrito_quando_os_lados_caem_nas_mesmas_páginas(self):
         # Saiu da p. 9 da introdução e entrou na mesma página: a seta diria
         # que o texto se moveu.
