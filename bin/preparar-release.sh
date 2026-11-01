@@ -9,8 +9,9 @@
 #   release mostraria as quebras de linha da tag), o primeiro no alto,
 #   como abertura, e os outros em itens (até a v0.10, todos em itens),
 #   com cada ADR citado numa nota de rodapé que traz o título e leva ao
-#   arquivo na tag; os links dos PDFs; e as páginas que mudaram, por
-#   capítulo, seção e subseção (bin/anotar-diff.py corpo).
+#   arquivo na tag; os links dos PDFs; e o total das páginas que mudaram,
+#   com as medidas, cujo detalhe por capítulo e seção abre o PDF do diff
+#   (bin/anotar-diff.py corpo).
 # Arquivos: o PDF do texto, o do diff desde a tag anterior e o mesmo diff só
 #   com o resumo e as páginas alteradas. Numa release que já existe, os
 #   arquivos são trocados, e os que não são mais gerados (os PNGs de uma

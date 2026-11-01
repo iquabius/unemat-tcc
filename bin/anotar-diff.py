@@ -1,19 +1,22 @@
 #!/usr/bin/env python3
-"""anotar-diff.py — página de abertura do diff de versões, com cada commit do
-intervalo e links para os trechos que ele mudou. Chamado pelo
-bin/gerar-versao.sh, em quatro passos:
+"""anotar-diff.py — página de abertura do diff de versões, com o que mudou,
+as páginas e as medidas de cada lugar e cada commit do intervalo, com links
+para as páginas e os trechos. Chamado pelo bin/gerar-versao.sh, em quatro
+passos:
 
   ancorar REPO BASE REF DIR [MAIN]
                               antes do latexdiff: põe \\difancora{N} nos .tex
                               de DIR (cópia da árvore de REF) e grava
                               difancoras.json ao lado de MAIN, o tcc.tex
                               (latex/tcc.tex; tcc.tex até a v0.9)
-  montar DIFF.tex             depois do latexdiff: define \\difancora no
+  montar DIFF.tex             depois do latexdiff: define \\difancora e o
+                              destino de cada página (difpag.N) no
                               preâmbulo e abre o documento com difresumo.tex
   resumo DIR AUX JOB BASE_NOME REF_NOME
                               entre as compilações: escreve DIR/difresumo.tex
-                              a partir dos rótulos em DIR/AUX/JOB.aux; DIR é
-                              o diretório do tcc.tex
+                              a partir dos rótulos em DIR/AUX/JOB.aux e das
+                              medidas do DIR/JOB.tex; DIR é o diretório do
+                              tcc.tex
   paginas DIR AUX JOB PDF SAIDA
                               depois da última compilação: SAIDA.pdf, o diff
                               só com o resumo e as páginas com marca do
@@ -22,10 +25,10 @@ bin/gerar-versao.sh, em quatro passos:
                               as medidas do texto de cada lugar, do JOB.tex,
                               e o número de páginas do resumo
   corpo SAIDA TAG BASE REPO   o corpo da release, em Markdown: a mensagem
-                              da tag em itens, os PDFs, as páginas
-                              alteradas por capítulo, com as medidas, e
-                              os ADRs citados em notas de rodapé, com
-                              links para o GitHub de REPO, dono/nome
+                              da tag em itens, os PDFs, o total das
+                              páginas alteradas e das medidas, e os ADRs
+                              citados em notas de rodapé, com links para
+                              o GitHub de REPO, dono/nome
                               (bin/preparar-release.sh)
 
 O trecho que entrou é atribuído pelo git blame BASE..REF do .tex de REF; o
@@ -39,11 +42,13 @@ o tikzpicture; e depois do \\item e do título de seção, para que o
 \\nameref dê a seção certa. A \\difancora devolve o \\@currentHref, e o
 \\label seguinte (de seção ou legenda) continua apontando para o lugar dele.
 
-O resumo abre pela mensagem da tag, como a release; depois, os commits,
-cada um com um link por página e seção em que entrou texto (azul) e outro
-onde saiu (vermelho), e as chaves do refs.bib que ele mudou, com link para
-a entrada na bibliografia (âncora cite.0@chave do biblatex). Commits cujo
-trecho foi refeito depois, ou que só mudaram rótulos, aparecem sem link.
+O resumo abre pela mensagem da tag, como a release; depois, as páginas
+alteradas por capítulo e seção, com as medidas e um link em cada número de
+página (tabela_por_lugar()); por último, os commits, cada um com um link por
+página e seção em que entrou texto (azul) e outro onde saiu (vermelho), e
+as chaves do refs.bib que ele mudou, com link para a entrada na
+bibliografia (âncora cite.0@chave do biblatex). Commits cujo trecho foi
+refeito depois, ou que só mudaram rótulos, aparecem sem link.
 """
 import json
 import os
@@ -354,8 +359,18 @@ PREAMBULO = r"""
 \let\dif@DIFdelbegin\DIFdelbegin \DeclareRobustCommand\DIFdelbegin{\dif@pagina\dif@DIFdelbegin}
 \let\dif@DIFaddbeginFL\DIFaddbeginFL \DeclareRobustCommand\DIFaddbeginFL{\dif@pagina\dif@DIFaddbeginFL}
 \let\dif@DIFdelbeginFL\DIFdelbeginFL \DeclareRobustCommand\DIFdelbeginFL{\dif@pagina\dif@DIFdelbeginFL}
-% O número de páginas do resumo, que o resumo grava no .aux ao terminar.
+% Um destino no alto de cada página depois do resumo, pela posição dela a
+% partir da capa (difpag.N, com N a página física menos as do resumo), para
+% a tabela do resumo levar à página. O page.N do hyperref, com o
+% hypertexnames=false da classe, conta as páginas físicas, e o resumo cresce
+% da primeira compilação para a segunda; o número impresso se repete (a capa
+% e a folha de rosto são as duas 1). O resumo põe -1 no \dif@resumo, que
+% cala o destino nas páginas dele, e no fim o número das suas páginas, que
+% também grava no .aux (\difresumo), para a tabela achar a posição.
 \providecommand*\difresumo[1]{}
+\gdef\dif@resumo{0}
+\AddToHook{shipout/foreground}{\ifnum\dif@resumo<0 \else
+  \put(0,0){\pdfdest name{difpag.\the\numexpr\ReadonlyShipoutCounter-\dif@resumo\relax} xyz}\fi}
 \makeatother
 """
 
@@ -521,6 +536,9 @@ def titulo_do_resumo(texto):
 
 
 def resumo(dir_, aux, job, base_nome, ref_nome):
+    """O DIR/difresumo.tex: a mensagem da tag, a tabela por lugar
+    (tabela_por_lugar(), quando o .aux da compilação anterior já diz as
+    páginas) e os commits, com os links para os trechos."""
     d = json.load(open(Path(dir_) / "difancoras.json"))
     a = Path(dir_) / aux / f"{job}.aux"
     # n -> (página, capítulo, seção, subseção); vazio antes da primeira
@@ -529,7 +547,7 @@ def resumo(dir_, aux, job, base_nome, ref_nome):
     bbl = Path(dir_) / aux / f"{job}.bbl"
     na_bib = set(re.findall(r"\\entry\{([^}]+)\}", bbl.read_text(errors="replace"))) if bbl.exists() else set()
 
-    out = [r"\makeatletter\let\dif@inicio\@currentHref\makeatother",
+    out = [r"\makeatletter\let\dif@inicio\@currentHref\gdef\dif@resumo{-1}\makeatother",
            r"\begingroup\pagenumbering{roman}\thispagestyle{empty}\setlength{\parindent}{0pt}"]
     titulo = f"{esc(base_nome)} \\textrightarrow{{}} {esc(ref_nome)}"
     if d.get("nome"):
@@ -543,6 +561,14 @@ def resumo(dir_, aux, job, base_nome, ref_nome):
     if mudancas := textos[len(abertura):]:
         out += [titulo_do_resumo("O que mudou"), r"\begin{itemize}\setlength{\itemsep}{2pt}"]
         out += [f"\\item {esc(t)}" for t in mudancas] + [r"\end{itemize}"]
+    # Onde mudou: as páginas e as medidas por lugar, depois da primeira
+    # compilação, que grava no .aux as páginas das marcas.
+    dados = medidas(dir_, a.read_text(errors="replace"), job) if a.exists() else None
+    if dados and dados["paginas"]:
+        geral = visao_geral(dados, esc, tex_medida)
+        out += [titulo_do_resumo(paginas_alteradas_desde(dados, base_nome)),
+                r"{\small " + (f"{geral}. " if geral else "") + r"Cada número de página "
+                r"é um link para ela.\par\smallskip"] + tabela_por_lugar(dados) + ["}"]
     out += [titulo_do_resumo("Os commits"),
             r"{\small Commits que mudaram o texto, do mais antigo ao mais novo. "
             r"Cada página é um link para o trecho no diff: em {\color{blue}azul}, onde "
@@ -580,7 +606,7 @@ def resumo(dir_, aux, job, base_nome, ref_nome):
     # O \label sem contador próprio (o do capítulo sem número) pegaria o
     # último item da lista; volta a apontar para onde apontava sem o resumo.
     # Depois do \clearpage, o resumo inteiro saiu: o número das páginas dele
-    # vai para o .aux.
+    # vai para os destinos difpag.N e para o .aux.
     out.append(r"\clearpage\endgroup\pagenumbering{arabic}"
                r"\makeatletter\global\let\@currentHref\dif@inicio"
                r"\xdef\dif@resumo{\the\ReadonlyShipoutCounter}"
@@ -854,8 +880,10 @@ def medidas(dir_, aux, job):
     """As páginas alteradas do texto do .aux (paginas_alteradas()) e o
     número de páginas do resumo (\\difresumo, 0 sem ele), as medidas de
     cada lugar e os títulos que saíram, do JOB.tex (metricas()): o que o
-    SAIDA.json guarda para a release."""
+    SAIDA.json guarda para a release e o que a tabela do resumo mostra."""
     lugares, sairam = metricas((Path(dir_) / f"{job}.tex").read_text(errors="replace"))
+    # As páginas do resumo na compilação que gravou o .aux, para a posição
+    # de cada página (tabela_por_lugar()).
     resumo_ = re.search(r"\\difresumo\{(\d+)\}", aux)
     return {"paginas": paginas_alteradas(aux), "resumo": int(resumo_.group(1)) if resumo_ else 0,
             "lugares": [dict(zip(("capitulo", "secao", "subsecao"), lg), **m)
@@ -863,14 +891,15 @@ def medidas(dir_, aux, job):
             "sairam": [dict(zip(("nivel", "capitulo", "titulo"), s)) for s in sairam]}
 
 
-def intervalos(numeros):
-    """[5, 6, 7, 9] -> "pp. 5–7, 9"."""
+def intervalos(numeros, num=str, seguidos=lambda a, b: b == a + 1):
+    """[5, 6, 7, 9] -> "pp. 5–7, 9", com cada número escrito por num e o
+    intervalo enquanto seguidos(anterior, próximo)."""
     partes, i = [], 0
     while i < len(numeros):
         j = i
-        while j + 1 < len(numeros) and numeros[j + 1] == numeros[j] + 1:
+        while j + 1 < len(numeros) and seguidos(numeros[j], numeros[j + 1]):
             j += 1
-        partes.append(str(numeros[i]) if i == j else f"{numeros[i]}–{numeros[j]}")
+        partes.append(num(numeros[i]) if i == j else f"{num(numeros[i])}–{num(numeros[j])}")
         i = j + 1
     return ("p. " if len(numeros) == 1 else "pp. ") + ", ".join(partes)
 
@@ -912,14 +941,27 @@ def rodapes(textos, adrs):
     return textos, [(n, *v) for n, v in notas.items()]
 
 
-# Com mais linhas que isto, a lista das páginas recolhe (<details>) os
-# capítulos que têm ao menos SUBITENS_PARA_RECOLHER itens embaixo; o de um
-# ou dois fica aberto, porque recolher não poupa nada.
-LINHAS_ABERTAS = 12
-SUBITENS_PARA_RECOLHER = 3
 # O espaço entre os números e a palavra de uma medida não quebra: "+324 −95"
 # não se parte, nem "+13 fontes" no fim da linha.
 INQUEBRAVEL = "\u00a0"
+
+
+def tex_medida(s):
+    """Uma medida (mais_menos(), contagem(), "24% novo") em LaTeX: o esc()
+    e, além dele, o menos (U+2212), que o inputenc não conhece, e o espaço
+    inquebrável."""
+    return esc(s).replace("−", r"\textminus{}").replace(INQUEBRAVEL, "~")
+
+
+def tex_paginas(posicoes, impressa):
+    """intervalos() das posições das páginas (a física menos as do resumo),
+    cada uma escrita pelo número impresso (impressa: posição -> número)
+    num link para o destino difpag.N que o PREAMBULO põe nela. O intervalo
+    junta só posições seguidas de números seguidos: a capa e a folha de
+    rosto, as duas 1, ficam separadas."""
+    return intervalos(posicoes, lambda p: f"\\hyperlink{{difpag.{p}}}{{{impressa[p]}}}",
+                      lambda a, b: b == a + 1 and int(impressa[b]) == int(impressa[a]) + 1
+                      ).replace(" ", "~", 1)
 
 
 def milhar(n):
@@ -950,31 +992,33 @@ def somar(metricas_):
 
 
 def resumo_do_lugar(natureza, paginas, m):
-    """A natureza, as páginas, as palavras e as fontes de um lugar, numa
-    linha; o que é zero fica de fora."""
+    """A natureza, as páginas (já em LaTeX, de tex_paginas()), as palavras
+    e as fontes de um lugar, numa linha, em LaTeX; o que é zero fica de
+    fora."""
     return " · ".join(p for p in (
-        natureza, intervalos(paginas).replace(" ", INQUEBRAVEL, 1) if paginas else "",
-        mais_menos(m.get("palavras_mais", 0), m.get("palavras_menos", 0), "palavra", "palavras"),
-        mais_menos(len(m.get("fontes_novas", [])), len(m.get("fontes_sairam", [])),
-                   "fonte", "fontes")) if p)
+        natureza, paginas,
+        tex_medida(mais_menos(m.get("palavras_mais", 0), m.get("palavras_menos", 0),
+                              "palavra", "palavras")),
+        tex_medida(mais_menos(len(m.get("fontes_novas", [])), len(m.get("fontes_sairam", [])),
+                              "fonte", "fontes"))) if p)
 
 
 def extras_do_lugar(natureza, m):
     """O resto das medidas: a parte nova do texto (fora do lugar novo, que
     é todo novo), os parágrafos, as citações e as figuras, tabelas e
-    listagens."""
+    listagens, em LaTeX."""
     novo = ""
     if natureza != "nova" and m.get("palavras") and m.get("palavras_mais"):
         novo = min(100, round(100 * m["palavras_mais"] / m["palavras"]))
         novo = f"{novo}% novo" if novo else ""
     floats = [f"{tipo[0]}{n}{INQUEBRAVEL}{tipo[1:]}{'s' if n > 1 else ''}"
               for tipo, n in sorted(m.get("floats", {}).items())]
-    return " · ".join(p for p in [
+    return tex_medida(" · ".join(p for p in [
         novo,
         mais_menos(m.get("paragrafos_mais", 0), m.get("paragrafos_menos", 0),
                    "parágrafo", "parágrafos"),
         mais_menos(m.get("citacoes_mais", 0), m.get("citacoes_menos", 0), "citação", "citações"),
-        *floats] if p)
+        *floats] if p))
 
 
 NIVEIS = {"chapter": "capítulo", "section": "seção", "subsection": "subseção"}
@@ -984,23 +1028,33 @@ def juntar(nomes):
     return ", ".join(nomes[:-1]) + " e " + nomes[-1] if len(nomes) > 1 else nomes[0]
 
 
-def paginas_por_capitulo(dados):
-    """As linhas da lista das páginas alteradas, na ordem do documento.
+def tabela_por_lugar(dados):
+    """As páginas alteradas por lugar, em LaTeX, na ordem do documento,
+    para o resumo do diff: um elemento por parágrafo de capítulo, por
+    \\begin e \\end de lista e por item.
 
-    Cada capítulo abre por uma linha com o nome em negrito e o resumo
-    somado (resumo_do_lugar()), e uma segunda com o resto das medidas
-    somadas (extras_do_lugar()) e o que saiu dele. Embaixo, um item por
-    seção e um por subseção, recuada, só com o resumo; a seção ou
-    subseção sem palavras que entraram ou saíram, que não é nova e (a
-    seção) não tem subseção que mudou entra no último item, "Só
-    marcação", com as páginas e os nomes das seções, e as subseções
-    contadas. A lista com mais de LINHAS_ABERTAS linhas recolhe num
-    <details> cada capítulo de ao menos SUBITENS_PARA_RECOLHER itens."""
-    paginas, metricas_ = {}, {}
+    Cada capítulo abre por um parágrafo com o nome em negrito e o resumo
+    somado (resumo_do_lugar()), numa linha, e na seguinte o resto das
+    medidas somadas (extras_do_lugar()) e o que saiu dele. Embaixo, um
+    item por seção e, numa lista dentro do item da seção, um por
+    subseção, só com o resumo; a seção ou subseção sem palavras que
+    entraram ou saíram, que não é nova e (a seção) não tem subseção que
+    mudou entra no último item, "Só marcação", com as páginas e os nomes
+    das seções, e as subseções contadas. Cada número de página leva à
+    página (tex_paginas())."""
+    # As páginas de cada lugar pela posição (a física menos as do resumo),
+    # que o destino difpag.N usa, e o número impresso de cada posição.
+    paginas, impressa, metricas_ = {}, {}, {}
     for p in dados["paginas"]:
         lg = (p["capitulo"], p["secao"], p["subsecao"])
-        if int(p["pagina"]) not in paginas.setdefault(lg, []):
-            paginas[lg].append(int(p["pagina"]))
+        pos = p["fisica"] - dados.get("resumo", 0)
+        impressa[pos] = p["pagina"]
+        if pos not in paginas.setdefault(lg, []):
+            paginas[lg].append(pos)
+
+    def links(posicoes):
+        return tex_paginas(sorted(posicoes), impressa) if posicoes else ""
+
     for m in dados["lugares"]:
         metricas_[(m["capitulo"], m["secao"], m["subsecao"])] = m
 
@@ -1013,11 +1067,11 @@ def paginas_por_capitulo(dados):
             if filho and (filho[1] or filho[2]) and filho not in capitulos[lg[0]]:
                 capitulos[lg[0]].append(filho)
 
-    blocos = []  # (nome, resumo, extras, itens)
+    saida = []
     for cap, filhos in capitulos.items():
         todos = [(cap, "", "")] + filhos
         soma = somar(metricas_[lg] for lg in todos if lg in metricas_)
-        pags = sorted({n for lg in todos for n in paginas.get(lg, [])})
+        pags = {n for lg in todos for n in paginas.get(lg, [])}
         natureza = metricas_.get((cap, "", ""), {}).get("natureza", "")
 
         def mudou(lg):
@@ -1029,46 +1083,47 @@ def paginas_por_capitulo(dados):
                         or m.get("fontes_novas") or m.get("fontes_sairam")) \
                 or (not lg[2] and any(mudou(f) for f in filhos if f[:2] == lg[:2] and f[2]))
 
-        itens, marcacao = [], []
+        itens, marcacao = [], []  # itens: (nível, texto), 2 na subseção de uma seção
         for lg in filhos:
             if not mudou(lg):
                 marcacao.append(lg)
                 continue
             m = metricas_.get(lg, {})
-            itens.append(("  " if lg[1] and lg[2] else "") + "- " + " · ".join(p for p in [
-                markdown(lg[2] or lg[1]),
-                resumo_do_lugar(m.get("natureza", ""), paginas.get(lg, []), m)] if p))
+            itens.append((2 if lg[1] and lg[2] else 1, " · ".join(p for p in [
+                esc(lg[2] or lg[1]),
+                resumo_do_lugar(m.get("natureza", ""), links(paginas.get(lg, [])), m)] if p)))
         if marcacao:
-            secoes = [markdown(lg[1]) for lg in marcacao if not lg[2]]
+            secoes = [esc(lg[1]) for lg in marcacao if not lg[2]]
             subs = len(marcacao) - len(secoes)
             nomes = secoes + ([contagem(subs, "subseção", "subseções")] if subs else [])
-            pags_m = sorted({n for lg in marcacao for n in paginas.get(lg, [])})
-            itens.append("- Só marcação" + (f", {intervalos(pags_m).replace(" ", INQUEBRAVEL, 1)}" if pags_m else "")
-                         + f": {juntar(nomes)}")
+            pags_m = {n for lg in marcacao for n in paginas.get(lg, [])}
+            itens.append((1, "Só marcação" + (f", {links(pags_m)}" if pags_m else "")
+                          + f": {juntar(nomes)}"))
         extras = extras_do_lugar(natureza, soma)
         # O texto do que saiu fica no capítulo em que estava: diz-se lá.
-        sairam = [f"saiu: {markdown(s['titulo'])} ({NIVEIS[s['nivel']]})"
+        sairam = [f"saiu: {esc(s['titulo'])} ({NIVEIS[s['nivel']]})"
                   for s in dados.get("sairam", []) if s["capitulo"] == cap]
-        blocos.append((cap[0].upper() + cap[1:], resumo_do_lugar(natureza, pags, soma),
-                       " · ".join(p for p in [extras] + sairam if p), itens))
+        extras = " · ".join(p for p in [extras] + sairam if p)
+        saida.append(f"\\noindent\\textbf{{{esc(cap[0].upper() + cap[1:])}}} · "
+                     f"{resumo_do_lugar(natureza, links(pags), soma)}"
+                     + (f"\\\\\n{extras}" if extras else "") + "\\par")
+        if itens:
+            saida.append(r"\begin{itemize}\setlength{\itemsep}{0pt}\setlength{\parsep}{0pt}")
+            dentro = False  # na lista das subseções de uma seção
+            for nivel, texto in itens:
+                if (nivel == 2) != dentro:
+                    saida.append(r"\begin{itemize}" if nivel == 2 else r"\end{itemize}")
+                    dentro = nivel == 2
+                saida.append(f"\\item {texto}")
+            saida += [r"\end{itemize}"] * (1 + dentro)
+    return saida
 
-    recolher = sum(1 + bool(extras) + len(i) for _, _, extras, i in blocos) > LINHAS_ABERTAS
-    saida = []
-    for nome, resumo, extras, itens in blocos:
-        if recolher and len(itens) >= SUBITENS_PARA_RECOLHER:
-            html = nome.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
-            saida += ["<details>", f"<summary><b>{html}</b> · {resumo}</summary>", ""]
-            saida += ([extras, ""] if extras else []) + itens + ["", "</details>", ""]
-            continue
-        # A quebra de linha do Markdown: a barra no fim da linha.
-        saida.append(f"**{markdown(nome)}** · {resumo}" + (f"\\\n{extras}" if extras else ""))
-        saida += [""] + (itens + [""] if itens else [])
-    return saida[:-1]
 
-
-def visao_geral(dados):
-    """A linha que abre a lista das páginas: as palavras, as fontes, as
-    seções novas e o que saiu."""
+def visao_geral(dados, titulo=markdown, medida=lambda s: s):
+    """O total das medidas: as palavras, as fontes, as seções novas e o que
+    saiu; em Markdown, para a release, ou, com titulo=esc e
+    medida=tex_medida, em LaTeX, para o resumo do diff, antes da tabela
+    por lugar."""
     soma = somar(dados["lugares"])
     novos = Counter(max(n for n, p in enumerate((m["capitulo"], m["secao"], m["subsecao"])) if p)
                     for m in dados["lugares"] if m["natureza"] == "nova")
@@ -1078,10 +1133,18 @@ def visao_geral(dados):
     partes += [contagem(novos[n], um, varios) for n, um, varios in (
         (0, "capítulo novo", "capítulos novos"), (1, "seção nova", "seções novas"),
         (2, "subseção nova", "subseções novas")) if novos[n]]
-    sairam = [f"{markdown(s['titulo'])} ({NIVEIS[s['nivel']]})" for s in dados.get("sairam", [])]
+    partes = [medida(p) for p in partes]
+    sairam = [f"{titulo(s['titulo'])} ({NIVEIS[s['nivel']]})" for s in dados.get("sairam", [])]
     if sairam:
         partes.append("saiu: " + ", ".join(sairam))
     return " · ".join(p for p in partes if p)
+
+
+def paginas_alteradas_desde(dados, base):
+    """"36 páginas alteradas desde a v0.11", pelas páginas físicas."""
+    n = len({p["fisica"] for p in dados["paginas"]})
+    s = "s" if n > 1 else ""
+    return f"{n} página{s} alterada{s} desde a {base}"
 
 
 # A primeira tag cuja mensagem abre por um parágrafo de abertura (ADR 0024).
@@ -1108,9 +1171,9 @@ def corpo(saida, tag, base, repo):
     como itens de "O que mudou" (ADR 0024; até a v0.10, todos como
     itens), com cada ADR citado numa nota de rodapé que traz o título
     dele, da linha "# NNNN. Título" do arquivo, e leva ao arquivo na tag;
-    os PDFs; e as páginas que mudaram desde a base, por capítulo e
-    seção, com as medidas do texto (visao_geral() e
-    paginas_por_capitulo())."""
+    os PDFs; e o total das páginas que mudaram desde a base, com as
+    medidas do texto (visao_geral()). O detalhe por capítulo e seção fica
+    no resumo do diff (tabela_por_lugar()), onde cada página é um link."""
     mensagem = git(".", "tag", "-l", "--format=%(contents:body)", tag)
     adrs = {}
     for caminho in git(".", "ls-tree", "--name-only", tag, "docs/adr/").split():
@@ -1133,17 +1196,20 @@ def corpo(saida, tag, base, repo):
     if Path(saida + ".json").exists():
         with open(saida + ".json") as f:
             dados = json.load(f)
-        if not isinstance(dados, dict) or "lugares" not in dados:
-            sys.exit(f"{saida}.json não traz as métricas de cada lugar: "
+        # O JSON sem o "resumo" é de um diff de antes da tabela por lugar:
+        # a release mandaria a um resumo que não tem a tabela.
+        if not isinstance(dados, dict) or "lugares" not in dados or "resumo" not in dados:
+            sys.exit(f"{saida}.json é de um diff sem a tabela por lugar no resumo: "
                      f"rode bin/gerar-versao.sh {tag}")
-        n = len({p["fisica"] for p in dados["paginas"]})
-        s = "s" if n > 1 else ""
         linhas += [f"- [Só as páginas alteradas]({baixar}{diff}-paginas.pdf), "
-                   "com o resumo dos commits na frente",
-                   "", f"### {n} página{s} alterada{s} desde a {base}", ""]
+                   "com o resumo na frente", ""]
+        # O total numa linha só: o detalhe por lugar fica no resumo do diff.
         geral = visao_geral(dados)
-        linhas += [geral, ""] if geral else []
-        linhas += paginas_por_capitulo(dados)
+        linhas += [f"**{paginas_alteradas_desde(dados, base)}**"
+                   + (f" · {geral}" if geral else ""), ""]
+        linhas.append("O resumo que abre o diff diz onde: as páginas e as medidas por "
+                      "capítulo e seção, com um link em cada número de página, e os "
+                      "commits, com links para os trechos.")
     if notas:
         linhas.append("")
         linhas += [f"[^adr-{n}]: [ADR {n}: {titulo}](https://github.com/{repo}/blob/{tag}/{arquivo})"
