@@ -27,7 +27,7 @@ retrato; o `bd dolt push` mexe em refs do GitHub, e um clone novo pede
 principal; a linha do tempo com prazo só existe no Beads Dashboard, no
 VS Code; o Scotty envia por padrão um evento diário ao PostHog. O
 detalhe está em `docs/processo/tarefas-no-beads.md`, e o uso, no
-`AGENTS.md`, seção "Tarefas".
+`AGENTS.md`, seção "Tarefas: Beads (`bd`)".
 
 Fontes: pesquisa dos painéis em 2026-09-27 (tcc-308d, no
 `.beads/issues.jsonl` do commit `c81c5e7`); beads.gascity.com, "Sync
