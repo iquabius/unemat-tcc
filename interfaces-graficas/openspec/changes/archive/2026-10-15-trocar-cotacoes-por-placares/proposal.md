@@ -1,9 +1,9 @@
 ## Why
 
 O ADR 0002, reescrito em 2026-10-15, troca as cotações de bolsa dos Dados
-ao vivo por placares de jogos em andamento: as cotações (PETR4, VALE3,
+ao Vivo por placares de jogos em andamento: as cotações (PETR4, VALE3,
 ITUB4 e WEGE3) ficam opacas para quem não acompanha a bolsa, e o placar se
-entende sem contexto. Os Dados ao vivo passam a adaptar as cotações de
+entende sem contexto. Os Dados ao Vivo passam a adaptar as cotações de
 Meijer (2012, p. 66-67), como o Formulário adapta o *Flight Booker*. No
 protótipo de 2026-10-13 (`tmp/prototipos-placar-2026-10-13/`, fora do
 git), a troca não muda a coordenação em Web Component, React e Solid, e o
@@ -62,9 +62,9 @@ Nenhuma.
   capturas.
 - As implementações web: Web Component, React, Solid e Lit, na mesma
   ordem.
-- Views e Compose (ADR 0005) ainda não têm os Dados ao vivo e nascem com
+- Views e Compose (ADR 0005) ainda não têm os Dados ao Vivo e nascem com
   os placares (tcc-ysxk).
 - Na segunda rodada, a carteira vira o bolão (ADR 0029, tcc-dnk5).
-- A frase da origem dos Dados ao vivo em `texto/cases.org` muda no
+- A frase da origem dos Dados ao Vivo em `texto/cases.org` muda no
   checkout principal, pela revisão do texto (ADR 0023), fora deste ramo.
 - Tarefa do bd: tcc-dw83.

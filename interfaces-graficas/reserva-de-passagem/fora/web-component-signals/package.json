@@ -2,7 +2,7 @@
   "name": "reserva-de-passagem-web-component-signals",
   "private": true,
   "type": "module",
-  "description": "Reserva de passagem em Web Component com os signals do solid-js, sem JSX",
+  "description": "Reserva de Passagem em Web Component com os signals do solid-js, sem JSX",
   "scripts": {
     "dev": "vite",
     "build": "tsc -p . && vite build",

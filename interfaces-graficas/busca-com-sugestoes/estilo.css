@@ -1,4 +1,4 @@
-/* Aparência comum às implementações da Busca com sugestões, para que só a lógica mude. */
+/* Aparência comum às implementações da Busca com Sugestões, para que só a lógica mude. */
 /* As versões imperativas escondem elementos com o atributo hidden, mas uma
    regra de display do autor (como a da .sugestoes) venceria o display: none
    que o navegador aplica a [hidden]. */

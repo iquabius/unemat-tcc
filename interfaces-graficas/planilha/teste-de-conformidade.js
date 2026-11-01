@@ -1,4 +1,4 @@
-// Teste de conformidade da planilha, igual para todas as implementações web.
+// Teste de conformidade da Planilha, igual para todas as implementações web.
 // Cole no console do navegador com a implementação recém-aberta; a última
 // linha devolve o resultado de cada verificação ("ok" ou "FALHOU"). Cada
 // verificação é um cenário de

@@ -2,7 +2,7 @@
   "name": "busca-com-sugestoes-lit",
   "private": true,
   "type": "module",
-  "description": "Busca com sugestões em Lit (propagação por re-renderização sobre o Web Component)",
+  "description": "Busca com Sugestões em Lit (propagação por re-renderização sobre o Web Component)",
   "scripts": {
     "dev": "vite",
     "build": "tsc -p . && vite build",

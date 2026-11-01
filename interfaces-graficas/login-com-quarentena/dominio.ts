@@ -1,5 +1,5 @@
 // Regras, mensagens, o servidor simulado e o relógio da sessão do Login com
-// quarentena, iguais em todas as implementações web. Nada aqui depende de
+// Quarentena, iguais em todas as implementações web. Nada aqui depende de
 // interface.
 
 /** Nome e senha mais curtos que isso deixam o "Entrar" desabilitado. */

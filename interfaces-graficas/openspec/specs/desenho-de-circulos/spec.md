@@ -1,7 +1,7 @@
-# Desenhador de círculos
+# Desenhador de Círculos
 
 ## Purpose
-Desenhador de círculos, o Circle Drawer do 7GUIs (Kiss 2014, §3.8, p. 40):
+Desenhador de Círculos, o Circle Drawer do 7GUIs (Kiss 2014, §3.8, p. 40):
 círculos desenhados num *canvas*, com o círculo sob o ponteiro selecionado,
 o diâmetro ajustado num diálogo aberto pelo menu do botão direito e o
 desfazer e o refazer de cada passo, para o usuário corrigir o desenho sem

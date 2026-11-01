@@ -1,4 +1,4 @@
-// Regras de domínio, mensagens e o servidor simulado da Reserva de passagem,
+// Regras de domínio, mensagens e o servidor simulado da Reserva de Passagem,
 // iguais em todas as implementações web. Nada aqui depende de interface: cada
 // implementação decide quando chamar.
 

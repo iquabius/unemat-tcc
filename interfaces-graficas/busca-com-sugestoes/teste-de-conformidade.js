@@ -1,4 +1,4 @@
-// Teste de conformidade da Busca com sugestões, igual para todas as
+// Teste de conformidade da Busca com Sugestões, igual para todas as
 // implementações web. Cole no console do navegador com a implementação aberta;
 // a última linha devolve o resultado de cada verificação ("ok" ou "FALHOU").
 // Segue a especificação, com latência de 800 ms (até 2 letras) ou 200 ms (3

@@ -2,7 +2,7 @@
   "name": "busca-com-sugestoes-web-component",
   "private": true,
   "type": "module",
-  "description": "Busca com sugestões em Web Component (DOM puro, classe e callbacks)",
+  "description": "Busca com Sugestões em Web Component (DOM puro, classe e callbacks)",
   "scripts": {
     "dev": "vite",
     "build": "tsc -p . && vite build",

@@ -2,7 +2,7 @@
   "name": "login-com-quarentena-web-component-signals",
   "private": true,
   "type": "module",
-  "description": "Login com quarentena em Web Component com os signals do solid-js, sem JSX",
+  "description": "Login com Quarentena em Web Component com os signals do solid-js, sem JSX",
   "scripts": {
     "dev": "vite",
     "build": "tsc -p . && vite build",

@@ -2,7 +2,7 @@
   "name": "desenho-de-circulos-react",
   "private": true,
   "type": "module",
-  "description": "Desenhador de círculos em React (propagação por re-renderização)",
+  "description": "Desenhador de Círculos em React (propagação por re-renderização)",
   "scripts": {
     "dev": "vite",
     "build": "tsc -p . && vite build",

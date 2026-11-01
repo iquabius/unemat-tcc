@@ -2,7 +2,7 @@
   "name": "placar-ao-vivo-web-component-signals",
   "private": true,
   "type": "module",
-  "description": "Placar ao vivo em Web Component com os signals do solid-js, sem JSX",
+  "description": "Placar ao Vivo em Web Component com os signals do solid-js, sem JSX",
   "scripts": {
     "dev": "vite",
     "build": "tsc -p . && vite build",

@@ -1,6 +1,6 @@
 ## Why
 
-O ADR 0002 traz a planilha entre as sete interfaces, pelo gerenciamento
+O ADR 0002 traz a Planilha entre as sete interfaces, pelo gerenciamento
 de estado: o *Cells* de Kiss (2014, §3.9, p. 49) em oito células numa
 coluna, o orçamento do mês. É a interface do grafo de dependências que o
 usuário escreve: a fórmula cita outras células, e a alteração se propaga
@@ -29,7 +29,7 @@ Kiss não tinha.
   dois caminhos (como o Excel), e a propagação para na célula cujo valor
   não mudou (como o `setValue` de Kiss, p. 50). O domínio conta as
   avaliações ao lado do `avaliar` e expõe a contagem em `globalThis`
-  (`contarAvaliacoes()`), como o `contarInscricoes()` do Placar ao vivo,
+  (`contarAvaliacoes()`), como o `contarInscricoes()` do Placar ao Vivo,
   e o teste confere quantas avaliações cada alteração faz: o React que
   reavalia tudo a cada renderização falha.
 - O domínio analisa o texto da célula, lista as referências da fórmula e a
@@ -40,7 +40,7 @@ Kiss não tinha.
 - Das duas regras comuns da primeira rodada (ADR 0029), a mensagem de erro
   da célula selecionada fica numa região `role="status"` presente desde a
   abertura. A limpeza ao sair da tela vale sem verificação nem botão de
-  esconder, porque a planilha não abre relógio, requisição nem inscrição.
+  esconder, porque a Planilha não abre relógio, requisição nem inscrição.
 - O teste de conformidade da web, colado no console como o das outras
   interfaces, clica nos botões da grade, digita na barra, tecla Enter e
   Esc e confere os valores, a barra, a mensagem e a contagem; sem relógio
@@ -50,7 +50,7 @@ Kiss não tinha.
 
 ### New Capabilities
 
-- `planilha`: a planilha da primeira rodada.
+- `planilha`: a Planilha da primeira rodada.
 
 ### Modified Capabilities
 
@@ -64,7 +64,7 @@ Nenhuma.
   no Web Component com *signals*, quando a forma dele estiver no `master`
   (tcc-2pu0). O Lit e o Angular saem da análise (tcc-mbrc) e não a
   implementam.
-- O nome da interface passa a "planilha" no ADR 0002 e no `GLOSSARY.md`,
+- O nome da interface passa a "Planilha" no ADR 0002 e no `GLOSSARY.md`,
   em vez de "planilha do orçamento", que não foi decisão do autor.
 - Tarefa do bd: tcc-z6tg. A referência circular entra na segunda rodada
   como mudança.

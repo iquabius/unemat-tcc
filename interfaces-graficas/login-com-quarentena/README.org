@@ -1,4 +1,4 @@
-#+TITLE: Login com quarentena
+#+TITLE: Login com Quarentena
 
 Painel de login com nome, senha, "Entrar" e "Sair", cuja sessão expira
 sozinha (o /login panel/ de Berry e Serrano, 2020, p. 534-535). É a

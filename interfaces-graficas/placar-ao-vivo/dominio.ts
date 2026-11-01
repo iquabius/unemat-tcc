@@ -1,4 +1,4 @@
-// Jogos, mensagens e o servidor SSE simulado do Placar ao vivo,
+// Jogos, mensagens e o servidor SSE simulado do Placar ao Vivo,
 // iguais em todas as implementações web. Nada aqui depende de interface.
 
 /** Gols de cada lado: o placar de um jogo ou o palpite do usuário. */

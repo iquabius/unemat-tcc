@@ -16,7 +16,7 @@
   (`npm run openspec -- archive especificar-dados-ao-vivo --yes`) e trocar
   o título do `spec.md` pelo nome da tarefa; verificar com
   `npm run conferir-especificacao`, que tem de passar com 15 cenários nos
-  Dados ao vivo.
+  Dados ao Vivo.
 
 ## Workflow follow-up
 

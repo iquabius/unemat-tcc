@@ -2,7 +2,7 @@
   "name": "busca-com-sugestoes-react",
   "private": true,
   "type": "module",
-  "description": "Busca com sugestões em React (propagação por re-renderização)",
+  "description": "Busca com Sugestões em React (propagação por re-renderização)",
   "scripts": {
     "dev": "vite",
     "build": "tsc -p . && vite build",

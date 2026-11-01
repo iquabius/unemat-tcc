@@ -78,7 +78,7 @@ Nenhuma.
   `teste-de-conformidade.js`, `README.org`, `cenas.mts` e as capturas.
 - Implementações em Web Component, React, Solid e Web Component com
   *signals*, um commit cada. O do Web Component com *signals* espera a
-  Reserva de passagem nessa tecnologia no `master` (tcc-2pu0), que fixa a
+  Reserva de Passagem nessa tecnologia no `master` (tcc-2pu0), que fixa a
   forma dela. O Lit e o Angular com *signals* saem da análise (tcc-mbrc)
   e não o implementam.
 - Tarefa do bd: tcc-wtt6. O arrastar e o salvamento entram na segunda

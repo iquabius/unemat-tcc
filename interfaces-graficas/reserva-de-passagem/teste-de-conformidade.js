@@ -1,4 +1,4 @@
-// Teste de conformidade da Reserva de passagem, igual para todas as
+// Teste de conformidade da Reserva de Passagem, igual para todas as
 // implementações web. Cole no console do navegador com a implementação
 // aberta; a última linha devolve o resultado de cada verificação ("ok" ou
 // "FALHOU"). Cada verificação é um cenário de

@@ -25,7 +25,7 @@ rodada.
   `<output>`, que tem o papel `status`, presente desde a abertura, como o
   `README.org` já pedia. A limpeza ao sair da tela vale sem verificação
   nem botão de esconder, porque o Contador não abre relógio, requisição
-  nem inscrição, como a planilha.
+  nem inscrição, como a Planilha.
 - O teste de conformidade da web, colado no console como o das outras
   interfaces, clica no botão e confere o valor, o botão e o `<output>`;
   sem relógio falso, porque nada espera tempo.

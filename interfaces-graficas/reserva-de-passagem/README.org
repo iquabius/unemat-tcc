@@ -1,6 +1,6 @@
-#+TITLE: Reserva de passagem
+#+TITLE: Reserva de Passagem
 
-Reserva de passagem de ônibus, a tarefa /Flight Booker/ do [[https://eugenkiss.github.io/7guis/tasks/][7GUIs]] (=kiss2014=,
+Reserva de Passagem de ônibus, a tarefa /Flight Booker/ do [[https://eugenkiss.github.io/7guis/tasks/][7GUIs]] (=kiss2014=,
 §3.5, p. 25) com o tema trocado. Todas as implementações seguem a mesma
 especificação; as regras de domínio (formato de data, mensagens) ficam em
 =dominio.ts=, compartilhado pelos projetos web, para que as implementações só

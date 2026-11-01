@@ -2,7 +2,7 @@
   "name": "login-com-quarentena-web-component",
   "private": true,
   "type": "module",
-  "description": "Login com quarentena em Web Component (DOM puro, classe e callbacks)",
+  "description": "Login com Quarentena em Web Component (DOM puro, classe e callbacks)",
   "scripts": {
     "dev": "vite",
     "build": "tsc -p . && vite build",

@@ -111,7 +111,7 @@ commit que mexa numa especificação ou num teste de conformidade.
 
 ### Interface nova
 
-O Login, o Placar ao vivo e outra que vier entram como *delta spec*,
+O Login, o Placar ao Vivo e outra que vier entram como *delta spec*,
 como a mudança entre rodadas ("Mudança numa especificação", abaixo),
 para a especificação ser revisada antes do código:
 
@@ -172,7 +172,7 @@ Passos do *delta spec*:
        novo é comparado aos cenários do requisito antigo. O `archive` põe
        o `ADDED` no fim da especificação viva, e o commit do arquivamento
        o devolve à ordem à mão (a mudança `trocar-cotacoes-por-placares`
-       fez assim com três requisitos do Placar ao vivo);
+       fez assim com três requisitos do Placar ao Vivo);
      - `REMOVED` só com o nome, `**Reason**` e `**Migration**`;
      - `RENAMED` com `FROM:`/`TO:`, só para o nome do requisito;
    - `tasks.md`: só o teste de conformidade, os arquivos da interface que
@@ -223,7 +223,7 @@ A mudança não se porta para o código de `autorais/`, que é registro.
   contêiner, `<main id="raiz" class="<classe do layout>">`. A limpeza
   ao sair da tela (o `disconnectedCallback`, o retorno do `useEffect`, o
   `onCleanup`) fica na implementação: é o que se compara. O Contador e a
-  planilha, sem nada a limpar (ADR 0029), montam direto no
+  Planilha, sem nada a limpar (ADR 0029), montam direto no
   `index.html`, sem a página.
 - Crie o `cenas.mts` da interface (estados a capturar), gere as capturas com
   `npm run capturas -- <interface>` e versione-as no mesmo commit.
@@ -257,7 +257,7 @@ A mudança não se porta para o código de `autorais/`, que é registro.
   - nenhum tratador escreve na tela: ele altera um *signal*
     (`createSignal`), ou o *store* com `produce` onde o Solid da
     interface guarda nele o estado, como a lista do Desenhador de
-    círculos; o derivado é um `createMemo` ou uma função, como no Solid
+    Círculos; o derivado é um `createMemo` ou uma função, como no Solid
     da interface, e cada escrita na tela que acompanha o estado
     (`textContent`, `value`, `disabled`, `hidden`, atributo) fica num
     `createEffect`; o texto inicial que a montagem do Web Component já
@@ -283,14 +283,14 @@ A mudança não se porta para o código de `autorais/`, que é registro.
   tratador, para o passo ao Solid mudar só a montagem e o modelo de
   componente. O
   *store* é decisão do autor de 2026-10-24, pelo mesmo motivo: no Desenhador
-  de círculos, a lista se altera no lugar com `produce`, como no Solid,
+  de Círculos, a lista se altera no lugar com `produce`, como no Solid,
   contra o *signal* da lista copiada, a forma do React, e o *signal* com
   `equals: false`, a do Web Component (ADR 0040).
 
   O efeito roda pela primeira vez na mesma tarefa, antes da pintura, no
   fim do `createRoot`, antes de o `connectedCallback` voltar: a ilha
   entra pelo `append` do gancho de montagem, fora de qualquer efeito
-  (conferido no navegador em 2026-10-23, com a Reserva de passagem; o
+  (conferido no navegador em 2026-10-23, com a Reserva de Passagem; o
   caso do painel criado por um efeito da página, o do Login até
   2026-10-24, deixou de existir com a página comum, ADR 0043), e por isso
   o `createRenderEffect` não faz falta. O *signal* lido fora de um efeito
@@ -335,12 +335,12 @@ A mudança não se porta para o código de `autorais/`, que é registro.
     de `@query`, e o que o *template* não monta, como o desenho no
     canvas, se faz no `updated()`;
   - o que o Web Component altera no lugar, como a lista do Desenhador
-    de círculos e os mapas da Planilha, se troca por uma cópia, como no
+    de Círculos e os mapas da Planilha, se troca por uma cópia, como no
     React, porque o Lit compara o `@state()` por referência e a
     documentação dele recomenda os dados imutáveis: o passo do Web
     Component ao Lit muda a propagação com o dado copiado, e o texto o
     declara (ADR 0042; decisão do autor em 2026-10-25, tcc-f50c). Até a
-    tcc-f50c, o Desenhador de círculos e a Planilha ainda alteram no
+    tcc-f50c, o Desenhador de Círculos e a Planilha ainda alteram no
     lugar, seguido de `requestUpdate()`.
 
   Os decoradores são os do TypeScript (`experimentalDecorators` e
@@ -362,7 +362,7 @@ A mudança não se porta para o código de `autorais/`, que é registro.
 ## Terceira rodada e entorno do núcleo: uma pasta por implementação
 
 A terceira rodada refatora o código da segunda da Busca, do Login e do
-Placar ao vivo, um modo de um eixo por passo, sem mudar o
+Placar ao Vivo, um modo de um eixo por passo, sem mudar o
 comportamento: cada passo chega a uma implementação nova, numa subpasta
 própria ao lado da de que parte, porque o quadrado lê o Web Component,
 o React e os dois com RxJS lado a lado (ADRs 0013 e 0029; os nomes,
@@ -412,7 +412,7 @@ e troca as frases que dizem que os comandos percorrem os três grupos
 ou o `fora/` (a primeira e a última seção daqui, o `README.org` e o ADR
 0025); o código deles fica no estado da
 primeira rodada, que o teste do commit anterior ao *delta* confere. Na
-Busca, no Login e no Placar ao vivo:
+Busca, no Login e no Placar ao Vivo:
 
 - `web-component-effection/`, a partir do Web Component da segunda
   rodada: a orquestração, de atribuição a sequencial, com o Effection
@@ -422,7 +422,7 @@ Busca, no Login e no Placar ao vivo:
 - `cycle/`, a partir do React com derivados no RxJS, com o Cycle.js
   (`@cycle/run` 5.7.0, `@cycle/dom` 23.1.0, `xstream` 11.14.0): o passo
   muda de uma vez a biblioteca de fluxos, o modelo de componente, os
-  efeitos, que vão a *drivers*, e a montagem da tela; o Placar ao vivo
+  efeitos, que vão a *drivers*, e a montagem da tela; o Placar ao Vivo
   leva um *driver* escrito à mão, porque o Cycle.js não tem um oficial
   para ele.
 
@@ -454,7 +454,7 @@ só nas que já seguem o teste novo.
 O `bin/testes-da-revisao.py` o roda nas interfaces que o ramo muda.
 
 - **Relógio falso.** Na interface com prazos de segundos (a sessão do Login,
-  os lotes do Placar ao vivo), o teste não espera em tempo real: no
+  os lotes do Placar ao Vivo), o teste não espera em tempo real: no
   começo, troca `setTimeout`, `setInterval`, `clearTimeout` e
   `clearInterval` da página por um relógio falso, que só anda com
   `avancar(ms)`, e o desinstala num `finally`. Copie o
@@ -463,7 +463,7 @@ O `bin/testes-da-revisao.py` o roda nas interfaces que o ramo muda.
   que tiraria o teste do console, e contra o tempo real, que no Login
   esperaria 27,5 s). Ele só controla os temporizadores criados depois de
   instalado, e não troca o `Date.now`: a interface que lê a hora (o placar
-  do Placar ao vivo) acrescenta o `Date.now` ao relógio falso.
+  do Placar ao Vivo) acrescenta o `Date.now` ao relógio falso.
 - **Escoar.** O React faz a tela e roda os efeitos em mensagens de
   `MessageChannel`, fora do relógio falso: entre um disparo e outro, e
   depois de cada clique ou digitação, o teste espera quatro voltas do
@@ -481,7 +481,7 @@ O `bin/testes-da-revisao.py` o roda nas interfaces que o ramo muda.
   elemento na abertura e, no fim, confere que a mensagem está nele e
   que ele tem o papel.
 - **Limpeza ao sair da tela.** Na interface que abre requisições, relógios
-  ou inscrições (todas menos o Contador e a planilha, ADR 0029), o
+  ou inscrições (todas menos o Contador e a Planilha, ADR 0029), o
   `dominio.ts` conta o que está aberto numa função em `globalThis`, como o
   `contarAbertos()` do Login, e a página que hospeda a interface
   (`interfaces-graficas/pagina.ts`) a tira da página na rota `#/` e a põe

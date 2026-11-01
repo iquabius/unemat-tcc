@@ -7,11 +7,11 @@
   interfaces gráficas na web, cada um um modo de orquestração, do evento
   ao estado, combinado com um de propagação, do estado à tela, pelas
   Dimensões Cognitivas de Notações, aplicadas ao código. O /benchmark/ de
-  notação são sete interfaces (Contador, Reserva de passagem, Busca com
-  sugestões, Login com quarentena, Placar ao vivo, Planilha e Desenhador
-  de círculos), implementadas no Web Component e no React e avaliadas em três
+  notação são sete interfaces (Contador, Reserva de Passagem, Busca com
+  Sugestões, Login com Quarentena, Placar ao Vivo, Planilha e Desenhador
+  de Círculos), implementadas no Web Component e no React e avaliadas em três
   rodadas, a terceira com mais quatro modelos de programação na Busca, no
-  Login e no Placar ao vivo. Os termos do projeto estão no =GLOSSARY.md=.
+  Login e no Placar ao Vivo. Os termos do projeto estão no =GLOSSARY.md=.
 
 * Leiaute
 

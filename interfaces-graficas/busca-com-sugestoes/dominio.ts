@@ -1,4 +1,4 @@
-// Cidades, mensagens e a API simulada da Busca com sugestões, iguais em todas
+// Cidades, mensagens e a API simulada da Busca com Sugestões, iguais em todas
 // as implementações web. Nada aqui depende de interface.
 
 export interface Cidade {

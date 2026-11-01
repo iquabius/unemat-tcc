@@ -2,7 +2,7 @@
   "name": "reserva-de-passagem-react",
   "private": true,
   "type": "module",
-  "description": "Reserva de passagem em React (propagação por re-renderização)",
+  "description": "Reserva de Passagem em React (propagação por re-renderização)",
   "scripts": {
     "dev": "vite",
     "build": "tsc -p . && vite build",

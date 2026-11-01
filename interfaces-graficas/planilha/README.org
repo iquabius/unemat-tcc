@@ -3,7 +3,7 @@
 O orçamento do mês em oito células numa coluna, com a barra de fórmula,
 para quem controla o mês ver o saldo na hora em que muda um gasto e
 montar as contas do seu jeito. Adapta o /Cells/ de Kiss (2014, §3.9, p.
-49), como a Reserva de passagem adapta o /Flight Booker/ (ADR 0002), sem a
+49), como a Reserva de Passagem adapta o /Flight Booker/ (ADR 0002), sem a
 grade de 100 linhas por 26 colunas e sem o /widget/ de tabela
 customizado, que Kiss deixou fora da listagem (p. 50). É a interface do
 grafo de dependências que o usuário escreve: a fórmula cita outras
@@ -21,7 +21,7 @@ e =formatar(valor)= o escreve. A propagação (quem reavaliar, em que ordem,
 quando parar) fica em cada implementação, porque escrever uma alteração de
 estado é parte da notação (ADR 0010). =contarAvaliacoes()= diz quantas
 vezes o =avaliar= rodou, para o teste conferir que só as dependentes se
-avaliam. A planilha não abre relógio, requisição nem inscrição, e por isso
+avaliam. A Planilha não abre relógio, requisição nem inscrição, e por isso
 o teste não sai da tela, como o das outras interfaces: a limpeza ao sair
 da tela não tem o que conferir.
 

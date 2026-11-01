@@ -2,7 +2,7 @@
   "name": "placar-ao-vivo-lit",
   "private": true,
   "type": "module",
-  "description": "Placar ao vivo em Lit (propagação por re-renderização sobre o Web Component)",
+  "description": "Placar ao Vivo em Lit (propagação por re-renderização sobre o Web Component)",
   "scripts": {
     "dev": "vite",
     "build": "tsc -p . && vite build",

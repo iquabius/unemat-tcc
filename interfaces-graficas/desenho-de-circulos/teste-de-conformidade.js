@@ -1,4 +1,4 @@
-// Teste de conformidade do Desenhador de círculos, igual para todas as
+// Teste de conformidade do Desenhador de Círculos, igual para todas as
 // implementações web. Cole no console do navegador com a implementação
 // aberta; a última linha devolve o resultado de cada verificação ("ok" ou
 // "FALHOU"). Cada verificação é um cenário de

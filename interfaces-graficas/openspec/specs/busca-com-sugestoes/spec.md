@@ -1,4 +1,4 @@
-# Busca com sugestões
+# Busca com Sugestões
 
 ## Purpose
 

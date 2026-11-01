@@ -1,6 +1,6 @@
 ## Why
 
-O ADR 0002 traz o Login com quarentena entre as cinco tarefas, pela
+O ADR 0002 traz o Login com Quarentena entre as cinco tarefas, pela
 orquestração: a tentativa nova que cancela a anterior e o relógio da
 sessão, que vive só enquanto a sessão vive. Na P1 (ADR 0029), Web
 Component, React e Solid o implementam, com as duas regras comuns: a
@@ -28,7 +28,7 @@ da tela. A quarentena é da P2 (tcc-r29v).
 
 ### New Capabilities
 
-- `login-com-quarentena`: o Login com quarentena da P1, sem a quarentena.
+- `login-com-quarentena`: o Login com Quarentena da P1, sem a quarentena.
 
 ### Modified Capabilities
 

@@ -22,7 +22,7 @@
   arquivamento põe no fim (Abertura, Lotes da partida, Destaque do
   palpite, Pausa, Retomada com os gols da pausa, Situação anunciada e
   Limpeza ao sair da tela); verificar com `npm run conferir-especificacao`,
-  que tem de passar com 15 cenários nos Dados ao vivo.
+  que tem de passar com 15 cenários nos Dados ao Vivo.
 
 ## Workflow follow-up
 

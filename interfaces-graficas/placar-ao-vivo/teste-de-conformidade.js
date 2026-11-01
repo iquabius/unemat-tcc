@@ -1,4 +1,4 @@
-// Teste de conformidade do Placar ao vivo, igual para as quatro
+// Teste de conformidade do Placar ao Vivo, igual para as quatro
 // implementações web. Cole no console do navegador com a implementação
 // aberta; a última linha devolve o resultado de cada verificação ("ok" ou
 // "FALHOU"). Segue a especificação, com um lote a cada 1 s; cada

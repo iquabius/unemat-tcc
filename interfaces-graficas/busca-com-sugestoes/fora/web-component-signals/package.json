@@ -2,7 +2,7 @@
   "name": "busca-com-sugestoes-web-component-signals",
   "private": true,
   "type": "module",
-  "description": "Busca com sugestões em Web Component com os signals do solid-js, sem JSX",
+  "description": "Busca com Sugestões em Web Component com os signals do solid-js, sem JSX",
   "scripts": {
     "dev": "vite",
     "build": "tsc -p . && vite build",

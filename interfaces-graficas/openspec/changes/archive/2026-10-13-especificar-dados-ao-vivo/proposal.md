@@ -1,6 +1,6 @@
 ## Why
 
-O ADR 0002 traz os Dados ao vivo com pausa entre as cinco tarefas, pela
+O ADR 0002 traz os Dados ao Vivo com pausa entre as cinco tarefas, pela
 orquestração: cotações empurradas por uma fonte (Meijer, 2012, p. 66-67),
 com a assinatura presa à tela e a pausa. Na P1 (ADR 0029), Web Component,
 React, Solid e Lit a implementam (ADR 0013), com as duas regras comuns: a
@@ -29,7 +29,7 @@ da tela. A reconexão, a carteira e a frequência de atualização são da P2
 
 ### New Capabilities
 
-- `dados-ao-vivo`: os Dados ao vivo com pausa da P1.
+- `dados-ao-vivo`: os Dados ao Vivo com pausa da P1.
 
 ### Modified Capabilities
 
@@ -43,6 +43,6 @@ Nenhuma.
   primeiro Lit do repositório: a pasta `lit/` entra nos *workspaces* de
   `casos/package.json` e nas tecnologias de `casos/capturar.mts`, e a
   convenção do Lit, em `casos/AGENTS.md`. Views e Compose fazem os Dados ao
-  vivo no Android (tcc-ysxk).
+  Vivo no Android (tcc-ysxk).
 - Tarefa do bd: tcc-dxdg. A reconexão, a carteira e a frequência entram na
   P2 como mudanças (tcc-dnk5).

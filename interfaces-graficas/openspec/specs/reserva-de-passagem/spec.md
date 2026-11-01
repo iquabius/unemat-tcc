@@ -1,8 +1,8 @@
-# Reserva de passagem
+# Reserva de Passagem
 
 ## Purpose
 
-Reserva de passagem de ônibus com tipo de viagem e duas datas, a
+Reserva de Passagem de ônibus com tipo de viagem e duas datas, a
 interface *Flight Booker* do 7GUIs (Kiss 2014, §3.5, p. 25): restrições
 entre campos e dentro de um campo, com estado derivado, no gerenciamento
 de estado, e o envio que ignora o reenvio enquanto espera a resposta, na
