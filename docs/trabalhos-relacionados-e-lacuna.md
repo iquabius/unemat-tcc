@@ -45,7 +45,7 @@ notas de fontes".
 ## A lacuna
 
 Estado em 2026-10-09, depois do terceiro ciclo de busca
-(`docs/bibliografia/protocolo-da-revisao.md`, seção "Terceira rodada"):
+(`docs/bibliografia/protocolo-da-revisao.md`, seção "Terceiro ciclo"):
 o nicho continua sem trabalho. O mais perto são duas autoavaliações
 pelas DCs de bibliotecas de controles feitas em Angular e em React
 (Narechania et al., 2025; Verma, Odak e Narechania, 2026), que avaliam a
@@ -58,7 +58,7 @@ contras dos modelos declarativos e não toca a lacuna (mesma nota, seção
 
 O nicho e as quatro lacunas parciais, levantadas em 2026-09-24 e
 revistas em 2026-10-02, depois do segundo ciclo de busca
-(`docs/bibliografia/protocolo-da-revisao.md`, seção "Segunda rodada"):
+(`docs/bibliografia/protocolo-da-revisao.md`, seção "Segundo ciclo"):
 
 - **Nicho.** Não se encontrou análise pelas DCs de React nem dos
   *signals* das tecnologias web atuais (Solid, Angular), nem comparação

@@ -1,16 +1,16 @@
-# Scripts da coleta da terceira rodada da revisão
+# Scripts da coleta do terceiro ciclo da revisão
 
-Referência. Cópia do código que consultou o OpenAlex na terceira rodada
+Referência. Cópia do código que consultou o OpenAlex no terceiro ciclo
 da revisão bibliográfica (tcc-lf9, 2026-10-09), recriada em 2026-10-14
 (tcc-ds6j), porque os originais não foram guardados no repositório. O
 protocolo e os números estão em
-`docs/bibliografia/protocolo-da-revisao.md`, seção "Terceira rodada", e
+`docs/bibliografia/protocolo-da-revisao.md`, seção "Terceiro ciclo", e
 no Apêndice II.
 
 Os três scripts de então (um auxiliar de acesso à API, um de citantes e
 um de referências) viram um módulo só, o `coleta.py`, com um subcomando
 por passo. Ele refaz a coleta: os citantes e as referências de cada
-semente, a junção que corta em 2013 e marca o que as rodadas anteriores
+semente, a junção que corta em 2013 e marca o que os ciclos anteriores
 já viram, a lista da saída 80, a busca no texto completo e o DOI
 avulso. Não refaz o código que formatou o texto das outras saídas nem a
 triagem, que ficam descritos na tabela abaixo.
@@ -25,7 +25,7 @@ iguais.
 
 | Saída | Do `coleta.py` | Fora dele |
 |---|---|---|
-| 80 | `citantes`, `juntar` e `listar`, com `sementes-iteracao1.txt` | o cabeçalho, escrito para a rodada (a data da consulta e o nome do arquivo de triagem); o `listar` escreve um cabeçalho genérico |
+| 80 | `citantes`, `juntar` e `listar`, com `sementes-iteracao1.txt` | o cabeçalho, escrito para o ciclo (a data da consulta e o nome do arquivo de triagem); o `listar` escreve um cabeçalho genérico |
 | 81 | o JSON do `juntar`: os registros com `seen` falso, em ordem de título | a decisão de cada registro e as notas, pela leitura do título e do resumo |
 | 82 | `filtro 'fulltext.search:<termo>'` para "7GUIs", "eugenkiss", "eugen kiss", "GUI programming benchmark" e outros | o código que pôs os JSON em listas; Semantic Scholar, busca na web e GitHub; a triagem |
 | 83 | `citantes` e `referencias`, com `sementes-iteracao2.txt` | o código que pôs os JSON em listas; a triagem |

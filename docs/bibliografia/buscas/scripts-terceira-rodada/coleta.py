@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Coleta da terceira rodada da revisão no OpenAlex (tcc-lf9, 2026-10-09).
+"""Coleta do terceiro ciclo da revisão no OpenAlex (tcc-lf9, 2026-10-09).
 
 Cópia de referência dos scripts que geraram as saídas 80, 82, 83 e 85
 de docs/bibliografia/buscas/, recriada em 2026-10-14 (tcc-ds6j): os
@@ -10,7 +10,7 @@ com o tempo: rodar de novo dá números próximos, não iguais.
 
     # iteração 1: citantes de cada semente, um JSON por semente
     ./coleta.py citantes sementes-iteracao1.txt dados/
-    # junta, corta em 2013 e marca o que as rodadas anteriores já viram
+    # junta, corta em 2013 e marca o que os ciclos anteriores já viram
     ./coleta.py juntar sementes-iteracao1.txt dados/ dados/iteracao1.json
     # a saída 80, a lista dos citantes por semente
     ./coleta.py listar sementes-iteracao1.txt dados/ dados/iteracao1.json \\
@@ -207,7 +207,7 @@ def listar(nomes, por_semente, recortados, ano_minimo=ANO_MINIMO):
     antes."""
     por_id = {c["id"]: c for c in recortados}
     linhas = [
-        "# Terceira rodada (tcc-lf9), iteração 1: citantes no OpenAlex",
+        "# Terceiro ciclo (tcc-lf9), iteração 1: citantes no OpenAlex",
         "# [visto] = já nas saídas anteriores (pelo id do OpenAlex ou pelo"
         f" DOI); [antes de {ano_minimo}] = fora do período;"
         " [sem ano] = fora do recorte, sem ano no OpenAlex;"
@@ -265,7 +265,7 @@ def ler_citantes(sementes, pasta):
 
 
 def saidas_anteriores():
-    """As saídas de 00 a 79, das rodadas de 2026-09-24 e 2026-10-02."""
+    """As saídas de 00 a 79, dos ciclos de 2026-09-24 e 2026-10-02."""
     return sorted(p for p in BUSCAS.glob("[0-7]*") if p.is_file())
 
 

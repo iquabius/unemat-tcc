@@ -111,9 +111,9 @@ Em `docs/bibliografia/`, as fontes de apoio e a busca:
 - `escrita-da-introducao.md` (Fontes): a forma da introdução e os ciclos
   de lacuna;
 - `protocolo-da-revisao.md` (Fontes): as bases, os critérios e os
-  números de cada rodada da busca;
-- `buscas/`: as saídas brutas das buscas e os scripts da terceira
-  rodada.
+  números de cada ciclo da busca;
+- `buscas/`: as saídas brutas das buscas e os scripts do terceiro
+  ciclo.
 
 Em `docs/plataformas/`, as tecnologias, com a data de cada observação:
 

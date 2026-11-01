@@ -1,21 +1,21 @@
-# Protocolo da revisão: bases, critérios e rodadas
+# Protocolo da revisão: bases, critérios e ciclos
 
-Fontes. Diz como a revisão bibliográfica do TCC foi feita, nas três
-rodadas, com os números de cada etapa e os incluídos; serve à
+Fontes. Diz como a revisão bibliográfica do TCC foi feita, em cada
+ciclo de busca, com os números de cada etapa e os incluídos; serve à
 metodologia da revisão, que o Apêndice II (`latex/apendices/apend_II.tex`)
 resume. A lacuna que a revisão sustenta está em
 `docs/trabalhos-relacionados-e-lacuna.md`. Cada afirmação sobre
 ferramenta leva a data em que foi observada.
 
-**Conclusão.** Em 2026-10-09, depois da terceira rodada, nenhum trabalho
+**Conclusão.** Em 2026-10-09, depois do terceiro ciclo, nenhum trabalho
 encontrado avalia pelas DCs a notação do React, do Solid ou do Angular
 com *signals*, nem compara os três modelos de programação nas mesmas
 interfaces: a lacuna se mantém
 (`docs/trabalhos-relacionados-e-lacuna.md`, seção "A lacuna"). O
-*snowballing* para a frente saturou na segunda rodada (seção "Segunda
-rodada"), e a terceira fechou o laço sem trabalho novo na segunda
+*snowballing* para a frente saturou no segundo ciclo (seção "Segundo
+ciclo"), e o terceiro fechou o laço sem trabalho novo na segunda
 iteração; no Google Acadêmico, consultado em 2026-10-13, os citantes de
-Kiss (2014) e do 7GUIs não trouxeram incluído (seção "Terceira rodada").
+Kiss (2014) e do 7GUIs não trouxeram incluído (seção "Terceiro ciclo").
 O quarto ciclo, de 2026-10-26, não toca a lacuna: busca os contras dos
 modelos declarativos, que a problematização dos *callbacks* não dizia, e
 achou 36 trabalhos (seção "Quarto ciclo").
@@ -29,16 +29,16 @@ Origem: revisão bibliográfica de 2026-09-24 (Modo 2 da skill
 `docs/bibliografia/buscas/` (resumos retirados; título, autores, DOI e
 contagem de citações ficaram; para reler um resumo,
 `buscar_literatura.py doi`). Os 30 DOIs citados na primeira versão de
-`docs/literatura.md` foram conferidos no Crossref e no `doi.org`. A
-segunda rodada, de 2026-10-02, tem as saídas nos arquivos 69 a 79 da
-mesma pasta (seção "Segunda rodada"), e a terceira, de 2026-10-09, nos
-arquivos 80 a 86 (seção "Terceira rodada"), e o quarto ciclo, de
+`docs/literatura.md` foram conferidos no Crossref e no `doi.org`. O
+segundo ciclo, de 2026-10-02, tem as saídas nos arquivos 69 a 79 da
+mesma pasta (seção "Segundo ciclo"), o terceiro, de 2026-10-09, nos
+arquivos 80 a 86 (seção "Terceiro ciclo"), e o quarto, de
 2026-10-26, nos arquivos 87a a 91i (seção "Quarto ciclo"). As ações que a revisão pediu
 estão nas tarefas do `bd`.
 
-## Protocolo e primeira rodada
+## Protocolo e primeiro ciclo
 
-Primeira rodada em 2026-09-24.
+Primeiro ciclo em 2026-09-24.
 
 - **Perguntas.** (P1) Que abordagens de PR/PFR foram propostas ou
   consolidadas para GUIs desde 2016? (P2) Que evidência empírica existe sobre
@@ -62,9 +62,9 @@ Primeira rodada em 2026-09-24.
 - **Cópias.** O texto completo de cada fonte lida fica em `acervo/` (ADR
   0038), e de onde a cópia veio, com o link e a data do download, numa
   linha de `acervo/procedencia.tsv` (ADR 0039), escrita no mesmo passo
-  do download. Nas três rodadas, até 2026-10-13, o link ficou numa
-  `annotation` do `refs.bib`, numa nota ou só na conversa; a rodada de
-  procedência da tarefa da Bibliografia que imprime a URL e o acesso o
+  do download. Nos três primeiros ciclos, até 2026-10-13, o link ficou
+  numa `annotation` do `refs.bib`, numa nota ou só na conversa; a
+  passada de procedência da tarefa da Bibliografia que imprime a URL e o acesso o
   recupera.
 
 | Etapa | Registros |
@@ -136,7 +136,7 @@ Leituras depois de 2026-09-25:
   (`docs/trabalhos-relacionados-e-lacuna.md`, seção "Zimmerle e Gama
   2025").
 
-## Segunda rodada
+## Segundo ciclo
 
 Em 2026-10-02.
 
@@ -149,7 +149,7 @@ brasileiras só trouxeram o que a base já tinha.
   Crossref; BDTD (`bdtd`) e SBC-OpenLib (`buscar --sbc`); ACM DL, à mão,
   pelo autor. O Semantic Scholar recusou as consultas (HTTP 429). SciELO
   e Portal CAPES não foram consultados.
-- **Critérios.** Os da seção "Protocolo e primeira rodada", escritos em
+- **Critérios.** Os da seção "Protocolo e primeiro ciclo", escritos em
   `buscas/69-criterios-segunda-rodada.md`: entram (I1) PR, PFR,
   *signals* ou UI declarativa para GUIs, web ou apps móveis; (I2) estudo
   empírico de compreensão, usabilidade, manutenção ou defeitos de PR, PF
@@ -174,8 +174,8 @@ brasileiras só trouxeram o que a base já tinha.
 | Etapa | Registros |
 |---|---|
 | Citantes das 4 sementes, todos os anos | 2359 (308 + 629 + 171 + 1251, com sobreposição) |
-| Citantes únicos desde 2013 | 1230 (263 já vistos na primeira rodada, pelo DOI; 280 sem resumo) |
-| Incluídos por título e resumo, iteração 1 | 89 (44 com DOI fora da primeira rodada) |
+| Citantes únicos desde 2013 | 1230 (263 já vistos no primeiro ciclo, pelo DOI; 280 sem resumo) |
+| Incluídos por título e resumo, iteração 1 | 89 (44 com DOI fora do primeiro ciclo) |
 | Iteração 2 (13 trabalhos) | 79 citantes, 70 inéditos, 1 incluído (*Realizing persistent signals in JavaScript*, REBLS 2023) |
 | Iteração 3 | 14 referências e 4 trabalhos com "7GUIs"; nenhum incluído |
 | BDTD (14 consultas) e SBC-OpenLib (10) | 556 exibidos, 508 títulos únicos, 2 incluídos, ambos já na base (Lima 2024; farias2024) |
@@ -192,14 +192,14 @@ Limitações:
   eventos, PR e interfaces declarativas";
 - 280 registros sem resumo foram julgados pelo título;
 - dissertações em francês saíram pelo idioma;
-- os citantes de Kiss (2014) não foram vistos (vistos em parte na
-  terceira rodada, seção "Terceira rodada").
+- os citantes de Kiss (2014) não foram vistos (vistos em parte no
+  terceiro ciclo, seção "Terceiro ciclo").
 
-## Terceira rodada
+## Terceiro ciclo
 
 Em 2026-10-09.
 
-A rodada não achou trabalho que avalie pelas DCs a notação do React, do
+O ciclo não achou trabalho que avalie pelas DCs a notação do React, do
 Solid ou do Angular com *signals*, nem que compare os três modelos de
 programação nas mesmas interfaces: o nicho
 (`docs/trabalhos-relacionados-e-lacuna.md`, seção "A lacuna") se mantém.
@@ -208,7 +208,7 @@ notação de bibliotecas de controles de interface feitas em Angular e em
 React (Narechania et al., 2025; Verma, Odak e Narechania, 2026), e não a
 das bibliotecas de base (`docs/trabalhos-relacionados-e-lacuna.md`,
 seção "Autoavaliações pelas DCs de bibliotecas de controles"). Dos
-citantes de Kiss (2014), a rodada viu os que o Google Acadêmico, o texto
+citantes de Kiss (2014), o ciclo viu os que o Google Acadêmico, o texto
 completo do OpenAlex e a web acham: 13 trabalhos que citam a dissertação
 ou o 7GUIs, nenhum incluído. O Google Acadêmico tem a dissertação e o
 7GUIs só como registros de citação; o autor consultou os citantes deles
@@ -216,8 +216,8 @@ em 2026-10-13 (`buscas/86`).
 
 - **Motivo.** O que a checagem adversarial de 2026-10-08 (tcc-kh1) deixou
   aberto: os citantes de Kiss (2014), fora do OpenAlex; os de Green (1989)
-  e de Blackwell e Green (2003), não vistos; a iteração 3 da segunda
-  rodada, parcial.
+  e de Blackwell e Green (2003), não vistos; a iteração 3 do segundo
+  ciclo, parcial.
 - **Critérios.** Os do Apêndice II e de `buscas/69-criterios-segunda-rodada.md`
   (I1 a I5). Segue para a iteração seguinte, nos dois sentidos (Wohlin,
   2014, p. 3-4), o incluído que aplica as DCs a notação, linguagem ou
@@ -441,8 +441,10 @@ Veio de `docs/literatura.md` (índice até `ff620ad`), seções 1, 3.3, 5 e
 ganhou o nome de agora, a lacuna foi para
 `docs/trabalhos-relacionados-e-lacuna.md`, e vieram de
 `docs/fundamentacao.md` a matriz tema × referência e os incluídos de
-prioridade alta da primeira rodada. Em 2026-10-16, foi para
+prioridade alta do primeiro ciclo. Em 2026-10-16, foi para
 `docs/bibliografia/`, com as outras notas de fontes de apoio. Em
 2026-10-26, ganhou a seção "Quarto ciclo", já com o termo do
-`GLOSSARY.md` (verbete "Ciclo de busca"); as seções das três primeiras
-continuam com "rodada" até a tarefa tcc-adhv.
+`GLOSSARY.md` (verbete "Ciclo de busca"). Em 2026-11-01, as seções dos
+três primeiros e o título passaram de "rodada" a "ciclo", como o
+Apêndice A (tcc-adhv); os nomes de arquivo em `buscas/` ainda dizem
+"rodada".

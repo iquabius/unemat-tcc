@@ -1,4 +1,4 @@
-# Sementes da iteração 1 da terceira rodada (2026-10-09), na ordem da
+# Sementes da iteração 1 do terceiro ciclo (2026-10-09), na ordem da
 # saída 80. Linha "chave referência"; a referência é um id do OpenAlex
 # (W...) quando o trabalho não tem DOI ou o DOI não está no OpenAlex.
 #

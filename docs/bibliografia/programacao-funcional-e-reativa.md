@@ -2,7 +2,7 @@
 
 Fontes. As fontes sobre programação funcional e programação reativa que
 o capítulo de programação (`texto/modelos.org`) e a análise usam: os
-complementares da primeira rodada da busca, o contraponto de Zampetti et
+complementares do primeiro ciclo da busca, o contraponto de Zampetti et
 al. (2025) às vantagens da PF e os trechos sobre a PR que saíram da
 introdução.
 
