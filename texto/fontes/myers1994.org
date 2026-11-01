@@ -48,21 +48,8 @@
   na rodada 2 do corte.
 - Lido em, p. 75: =acervo/myers1994.pdf=, p. 3 do PDF.
 - Conferido: 2026-10-06; a p. 75, em 2026-10-14.
-* [[file:../modelos.org::No projeto da interface, além dos][modelos: No projeto da interface, além dos]], p. 75 (projeto)
-- Frase: “No projeto, além dos problemas comuns a todo sistema de software
-  complexo, os /designers/ lidam com tarefas e domínios complexos e têm
-  dificuldade de pensar como o usuário (Myers, 1994, p. 75).”
-- Trecho: “in addition to the difficulties associated with designing any
-  complex software system, user interfaces add the following problems:
-  designers have difficulty thinking like users; tasks and domains are
-  complex” (seção “No Silver Bullet”, p. 75)
-- Lido em: =acervo/myers1994.pdf=, p. 3 do PDF (p. 75).
-- Observação: é a distinção entre projeto e implementação que Kiss
-  (2014, p. 5) faz citando o relatório técnico de Myers de 1993, a
-  versão anterior deste artigo.
-- Conferido: 2026-10-12.
-* [[file:../modelos.org::No projeto da interface, além dos][modelos: No projeto da interface, além dos]], p. 75, 79 e 80 (robustez)
-- Frase: “Também precisa ser robusto: tratar qualquer entrada sem parar de
+* [[file:../modelos.org::O programa também precisa ser robusto][modelos: O programa também precisa ser robusto]], p. 75, 79 e 80
+- Frase: “O programa também precisa ser robusto: tratar qualquer entrada sem parar de
   funcionar e, como o usuário espera, permitir que ele cancele e desfaça a
   maioria das ações (Myers, 1994, p. 75, 79 e 80).”
 - Trecho: “the software must be especially robust while supporting

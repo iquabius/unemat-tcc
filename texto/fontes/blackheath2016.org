@@ -10,3 +10,16 @@
   sequences with events.” (p. 16)
 - Lido em: =acervo/blackheath2016-cap1.pdf=, p. 19 do PDF (p. 16).
 - Conferido: 2026-10-07.
+* [[file:../modelos.org::O /callback/ fragmenta o fluxo de controle][modelos: O callback fragmenta o fluxo de controle]], p. 8
+- Frase: “Numa rede de /callbacks/, a ordem em que os eventos chegam pode
+  depender da ordem em que os /callbacks/ foram registrados, o que a torna
+  difícil de prever (Blackheath; Jones, 2016, p. 8).”
+- Trecho: “Unpredictable order—In a complex network of listeners, the order
+  in which events are received can depend on the order in which you
+  registered the listeners, which isn’t helpful.” (p. 8)
+- Lido em: =acervo/blackheath2016-cap1.pdf=, p. 11 do PDF (p. 8).
+- Observação: é a primeira das seis fontes de erro dos /listeners/ que o
+  capítulo lista. Estava no parágrafo da inversão de controle, que saiu
+  em 2026-11-01 por repetir a introdução; a frase foi para o da
+  fragmentação.
+- Conferido: 2026-11-01.

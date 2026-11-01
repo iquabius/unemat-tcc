@@ -1,10 +1,10 @@
 #+title: krishnamurthi2019: Krishnamurthi e Fisler (2019), Programming Paradigms and Beyond
 #+startup: overview
 
-* [[file:../modelos.org::Nem todo evento vem do usuário][modelos: Nem todo evento vem do usuário]], p. N (eventos que não vêm do usuário)
+* [[file:../modelos.org::Nem todo evento vem do usuário][modelos: Nem todo evento vem do usuário]], p. 8 (eventos que não vêm do usuário)
 - Frase: “Nem todo evento vem do usuário: a chegada de um pacote da rede e
   o tique do relógio também são eventos, e cada evento faz rodar a parte do
-  programa que responde a ele (Krishnamurthi; Fisler, 2019, p. N).”
+  programa que responde a ele (Krishnamurthi; Fisler, 2019, p. 8).”
 - Trecho: “In contrast, in an event-driven program, it is the operating
   environment that is in charge; each event (whether a keystroke, a screen
   touch, a Web request, a network packet arrival, or the tick of a clock)
@@ -22,13 +22,15 @@
   atualizações que o código declara, e não o /operating environment/ da
   fonte. Substitui Madsen, Lhoták e Tip (2017, 86:1), que fica em
   =prog.org= (decisão do autor em 2026-10-14). Veio da introdução para
-  prog no corte de 2026-10-27.
-- Conferido: 2026-10-14.
-* [[file:../modelos.org::O desafio do programador é escrever][modelos: O desafio do programador é escrever]], p. N (o estado entre os eventos)
+  prog no corte de 2026-10-27. Em 2026-11-01, a página passou de “p. N” à
+  p. 8 da versão dos autores, até a conferência na publicada (tcc-jbaz).
+- Conferido: 2026-10-14; a página, em 2026-11-01.
+* [[file:../modelos.org::Nem todo evento vem do usuário][modelos: Nem todo evento vem do usuário]], p. 8 (o estado entre os eventos)
 - Frase: “O desafio do programador é escrever, no código, como o estado
-  passa de um evento a outro (Krishnamurthi; Fisler, 2019, p. N).” Veio
+  passa de um evento a outro (Krishnamurthi; Fisler, 2019, p. 8).” Veio
   da introdução no corte de 2026-10-26: os dois eixos da coordenação já
-  dizem lá o desafio (decisão do autor).
+  dizem lá o desafio (decisão do autor). Em 2026-11-01, entrou no
+  parágrafo dos eventos que não vêm do usuário, que a precede na fonte.
 - Trecho: “The programmer’s challenge is to arrange how state is
   transferred between the events.” (seção 3, “Beyond Paradigms”)
 - Lido em: =acervo/krishnamurthi2019.pdf=, p. 8 do PDF, a versão dos

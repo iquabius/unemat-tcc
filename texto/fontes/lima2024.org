@@ -1,12 +1,3 @@
 #+title: lima2024: de Lima (2024), Unveiling the Usability of Reactive Programming APIs: Findings, Tools, and Recommendations
 #+startup: overview
 
-* [[file:../modelos.org::O Angular acrescentou os /signals/ à][modelos: O Angular acrescentou os signals à]], p. 18
-- Frase: “O Angular acrescentou os /signals/ à sua API (Lima, 2024,
-  p. 18) [...].”
-- Trecho: “Angular, on the hand, has RxJS (Rx for JavaScript) as an integral
-  part of its components since early versions, and, more recently, it added
-  the Signal (behavior) abstraction to its API.”
-- Lido em: =acervo/lima2024.pdf=,
-  p. 19 do PDF.
-- Conferido: 2026-10-09.

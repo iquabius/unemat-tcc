@@ -19,6 +19,19 @@
   mechanism” (p. 13).
 - Lido em: =acervo/grolaux2026.pdf=, p. 7 do PDF (p. 13).
 - Conferido: 2026-10-12.
+* [[file:../modelos.org::O /callback/ fragmenta o fluxo de controle][modelos: O callback fragmenta o fluxo de controle]], p. 8
+- Frase: “Em 2026, o tratamento de eventos nas interfaces ainda se apoia em
+  /callbacks/ ou /listeners/, que tornam difíceis de exprimir e de manter os
+  fluxos de interação complexos (Grolaux et al., 2026, p. 8).”
+- Trecho: “We regret that existing event-handling approaches in GUIs still
+  rely on callbacks or listener-based mechanisms, which fragment the program
+  logic across multiple handlers and make complex interaction flows
+  difficult to express and maintain.” (seção 2, p. 8)
+- Lido em: =acervo/grolaux2026.pdf=, p. 2 do PDF (p. 8).
+- Observação: estava no parágrafo da inversão de controle, que saiu em
+  2026-11-01; a frase foi para o da fragmentação, que a fonte também diz
+  (“fragment the program logic”).
+- Conferido: 2026-11-01.
 * [[file:../modelos.org::O JavaScript ganhou alternativas ao][modelos: O JavaScript ganhou alternativas ao callback]], p. 9
 - Frase: “As /promises/ achatam o aninhamento dos /callbacks/, mas a lógica
   complexa continua presa em cadeias de /callbacks/.”

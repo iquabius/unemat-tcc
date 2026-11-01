@@ -44,7 +44,7 @@
 - Observação: antes de 2026-10-15, citava a p. 52:1-3, com o exemplo de
   =var3=; a p. 52:1 é o resumo e não traz a planilha.
 - Conferido: 2026-10-15.
-* [[file:../modelos.org::Nas linguagens imperativas, esse estado é][modelos: Nas linguagens imperativas, esse estado é]], p. 52:2 (a gestão manual)
+* [[file:../modelos.org::Nas linguagens imperativas, o estado é][modelos: Nas linguagens imperativas, o estado é]], p. 52:2 (a gestão manual)
 - Frase: “Numa interface, é o programador quem escreve essa ordem: para
   cada mudança de estado, ele precisa escrever a atualização de tudo o que
   depende do valor alterado, e esse código é complexo e propenso a erros, como o que

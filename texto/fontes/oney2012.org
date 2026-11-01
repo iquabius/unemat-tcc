@@ -42,13 +42,6 @@
   frameworks.” (p. 229)
 - Lido em: =acervo/oney2012.pdf=, p. 1 do PDF (versão da ACM).
 - Conferido: 2026-10-09.
-* [[file:../modelos.org::Um programa orientado a eventos reage ao][modelos: Um programa orientado a eventos reage ao]], p. 230 (estado)
-- Frase: “A reação depende também do /estado/ da aplicação, que determina
-  a aparência e o comportamento dela (Oney; Myers; Brandt, 2012, p. 230).”
-- Trecho: “GUIs are often stateful [9] – the application state determines
-  its appearance and behavior.” (p. 230)
-- Lido em: =acervo/oney2012.pdf=, p. 2 do PDF (p. 230).
-- Conferido: 2026-10-14.
 * [[file:../modelos.org::Um programa orientado a eventos reage ao][modelos: Um programa orientado a eventos reage ao]], p. 230 (barra de ferramentas)
 - Frase: “Uma barra de ferramentas, por exemplo, fica encaixada acima da
   área de trabalho até que o usuário a segure pelo topo, gesto que muda o

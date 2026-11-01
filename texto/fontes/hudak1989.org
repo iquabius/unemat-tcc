@@ -1,8 +1,8 @@
 #+title: hudak1989: Hudak (1989), Conception, Evolution, and Application of Functional Programming Languages
 #+startup: overview
 
-* [[file:../modelos.org::Nas linguagens imperativas, esse estado é][modelos: Nas linguagens imperativas, esse estado é]], p. 361 (imperativo)
-- Frase: “Nas linguagens imperativas, esse estado é implícito e muda por
+* [[file:../modelos.org::Nas linguagens imperativas, o estado é][modelos: Nas linguagens imperativas, o estado é]], p. 361 (imperativo)
+- Frase: “Nas linguagens imperativas, o estado é implícito e muda por
   comandos, como a atribuição de um valor a uma variável, e essas mudanças
   são os /efeitos colaterais/ dos comandos (Hudak, 1989, p. 361).”
 - Trecho: “Imperative languages are characterized as having an implicit
@@ -18,7 +18,7 @@
   antecedente, que saiu em 2026-10-15; o capítulo volta a usar o termo na
   citação de Hughes, na seção de programação funcional.
 - Conferido: 2026-10-14; efeito colateral em 2026-10-15.
-* [[file:../modelos.org::Nas linguagens imperativas, esse estado é][modelos: Nas linguagens imperativas, esse estado é]], p. 361 (sequência)
+* [[file:../modelos.org::Nas linguagens imperativas, o estado é][modelos: Nas linguagens imperativas, o estado é]], p. 361 (sequência)
 - Frase: “Por isso, para controlar o estado com precisão e de forma
   determinística, elas costumam fixar a ordem em que os comandos se
   executam (Hudak, 1989, p. 361).”

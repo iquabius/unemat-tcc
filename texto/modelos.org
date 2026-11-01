@@ -4,43 +4,17 @@
 
 # Revisão de Literatura --------------------------------------------------------
 
-Um programa de computador é expresso por um conjunto de sentenças em alguma
-linguagem de programação[fn:statement]\todo[fancyline]{Trazer o conteúdo do rodapé pra cá?}.
-A forma como as sentenças de uma linguagem são executadas pelo computador é
-definida por um /modelo de computação/ cite:vanroy2004.
+Esta seção reúne os conceitos em que a comparação se apoia, do problema ao
+vocabulário com que ela se faz.
+Começa pelo que os eventos e o estado pedem do código de uma interface e
+pela diferença entre o imperativo e o declarativo.
+Depois trata do modelo de programação, que é a unidade comparada, e da
+[[gls:pf]] e da [[gls:pr]], de que vêm os modos de cada eixo.
+Termina pelas [[glspl:dc]], com que a análise descreve a diferença, e pelos
+trabalhos relacionados.
 
-O código fonte de um programa consiste de uma série de instruções que expressam
-uma sequência de comandos a se seguir durante a execução — esse período é
-conhecido como /tempo de execução/, do inglês /runtime/.
-Tradicionalmente, as sentenças de uma linguagem de programação denotam essa
-sequência de forma explícita.
-Tais linguagens são baseadas no modelo /imperativo/ de computação, e são
-denominadas /linguagens imperativas/.
+* Eventos, estado e /callbacks/
 
-* Linguagens de programação
-  <<sec:langs>>
-
-  Linguagens de programação são mais simples que linguagens naturais, no
-  entanto, elas ainda podem conter uma sintaxe surpreendentemente rica, um
-  conjunto de abstrações, e bibliotecas auxiliares.
-  Esse é essencialmente o caso de linguagens usadas para resolver problemas
-  reais do dia-a-dia.
-  \textcite{vanroy2004} as chamam de linguagens /práticas/, que são “\textelp{}
-  como a caixa de ferramentas de um mecânico experiente: há várias ferramentas
-  diferentes para finalidades diferentes e todas estão lá por uma razão.” (p.
-  33; tradução nossa).
-
-  Todas as linguagens de programação possuem elementos primitivos para a
-  descrição de dados e das transformações, ou processos, aplicados à eles —
-  como a adição de dois números ou a seleção de um item de uma coleção.
-  Essas primitivas são definidas por regras de sintaxe — a gramática — e pela
-  semântica — o significado.
-
-  # dados
-  # processos
-  # -> sintaxe
-  # -> semântica
-  # -> estado
   Um programa orientado a eventos reage ao que acontece no ambiente externo: o
   clique num botão, a tecla digitada, a mensagem do servidor
   [[cite:madsen2017][p. 86:1]].
@@ -49,14 +23,72 @@ denominadas /linguagens imperativas/.
   como a interação depende de eventos externos, que podem ocorrer em
   qualquer ordem, entender o programa exige seguir várias cadeias de causa
   e efeito [[cite:martin2022][p. 125]].
-  A reação depende também do /estado/ da aplicação, que determina a
-  aparência e o comportamento dela [[cite:oney2012][p. 230]].
+  Cada evento pode alterar o /estado/ da aplicação.
   Uma barra de ferramentas, por exemplo, fica encaixada acima da área de
   trabalho até que o usuário a segure pelo topo, gesto que muda o estado
   dela: a barra se solta e passa a seguir o mouse [[cite:oney2012][p. 230]].
 
-  # -> imperativo e declarativo
-  Nas linguagens imperativas, esse estado é implícito e muda por comandos,
+  Nem todo evento vem do usuário: a chegada de um pacote da rede e o tique do
+  relógio também são eventos, e cada evento faz rodar a parte do programa que
+  responde a ele [[cite:krishnamurthi2019][p. 8]].
+  O desafio do programador é escrever, no código, como o estado passa de um
+  evento a outro [[cite:krishnamurthi2019][p. 8]].
+
+  O programa também precisa ser robusto: tratar qualquer entrada sem parar
+  de funcionar e, como o usuário espera, permitir que ele cancele e desfaça
+  a maioria das ações [[cite:myers1994][p. 75, 79 e 80]].
+
+  O /callback/ é síncrono quando a função que o recebe o chama antes de
+  retornar, e assíncrono quando sua execução fica para algum tempo depois de a
+  função retornar [[cite:gallaba2015][p. 2]].
+  O navegador executa a aplicação numa /thread/ só, e, para que ela continue
+  respondendo ao usuário, os programadores recorrem às operações assíncronas
+  [[cite:alimadadi2014][p. 368-369]].
+  O /callback/ de um clique é desse tipo: registrado quando a tela é montada,
+  só roda quando o usuário clica, e os eventos do [[gls:dom]] estão entre as
+  operações assíncronas do navegador [[cite:gallaba2015][p. 5]].
+
+  Em JavaScript, os /callbacks/ são frequentes: num estudo de 138 programas, em
+  média uma em cada dez definições de função recebe um /callback/, e a maioria dos
+  /callbacks/ é aninhada [[cite:gallaba2015][p. 1]].
+  No código do navegador, em média 9% das chamadas de função passam um
+  /callback/, e 72% desses /callbacks/ são assíncronos [[cite:gallaba2015][p. 6]].
+
+  O /callback/ fragmenta o fluxo de controle: a sequência de passos que o
+  programador tem em mente para uma operação fica dividida entre vários
+  /callbacks/ [[cite:fischer2007][p. 134-135]].
+  Numa rede de /callbacks/, a ordem em que os eventos chegam pode depender da
+  ordem em que os /callbacks/ foram registrados, o que a torna difícil de prever
+  [[cite:blackheath2016][p. 8]].
+  Em 2026, o tratamento de eventos nas interfaces ainda se apoia em
+  /callbacks/ ou /listeners/, que tornam difíceis de exprimir e de manter os
+  fluxos de interação complexos [[cite:grolaux2026][p. 8]].
+
+  O JavaScript ganhou alternativas ao /callback/: as /promises/, que encadeiam
+  computações assíncronas [[cite:madsen2017][p. 86:1]], e as palavras-chave
+  /async/ e /await/, que permitem escrever operações assíncronas em estilo
+  sequencial [[cite:grolaux2026][p. 9]].
+  As /promises/ achatam o aninhamento dos /callbacks/, mas a lógica complexa
+  continua presa em cadeias de /callbacks/ [[cite:grolaux2026][p. 9]].
+  As /promises/ têm semântica complexa, e o fluxo de controle e de dados do
+  código que as usa dificulta a compreensão e leva facilmente a erros
+  [[cite:alimadadi2018][p. 162:1]].
+  Numa implementação em JavaScript que guarda o estado da aplicação em variáveis
+  globais, o /async/ e o /await/ não ajudam a coordenar esse estado
+  [[cite:berry2020][p. 535 e 538]].
+
+  /Threads/ exprimem sequência, e eventos exprimem dependência, e muitos
+  problemas vêm de escrever uma com o recurso da outra
+  [[cite:blackheath2016][p. 16]].
+  Os dois modos imperativos da orquestração correspondem a esses dois
+  recursos.
+  Na orquestração por atribuição, cada /callback/ trata um evento e grava o
+  valor no estado; na sequencial, o código espera o próximo evento e segue
+  em ordem, como permitem o /async/ e o /await/.
+
+* Imperativo e declarativo
+
+  Nas linguagens imperativas, o estado é implícito e muda por comandos,
   como a atribuição de um valor a uma variável, e essas mudanças são os
   /efeitos colaterais/ dos comandos [[cite:hudak1989][p. 361]].
   Por isso, para controlar o estado com precisão e de forma determinística,
@@ -81,6 +113,13 @@ denominadas /linguagens imperativas/.
   A programação declarativa costuma ser descrita como a que expressa “o
   quê” e não “o como” da computação, embora a diferença seja de grau
   [[cite:hudak1989][p. 361]].
+
+  O código sequencial tem o problema oposto ao do /callback/: a linguagem
+  obriga a fixar a ordem de execução mesmo quando ela não importa, e quem lê
+  precisa supor que importa [[cite:moseley2006][p. 8-9]].
+  Para [[textcite:moseley2006][p. 1]], essa preocupação com o fluxo de controle
+  está, ao lado do volume de código e do tratamento do estado, entre as
+  principais causas da complexidade dos sistemas de grande porte.
 
 * Paradigmas e modelos de programação
   @@latex:\todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}@@
@@ -183,131 +222,6 @@ denominadas /linguagens imperativas/.
   Esses paradigmas não possuem condições de corrida, /‘race conditions’/ em
   inglês.
   \todo{Esses últimos dois parágrafos parecem estar deslocados.}
-
-# Falta o item “6.1.3 Programação de Interfaces Gráficas” do pré-projeto
-
-* Programação de interfaces gráficas
-  @@latex:\todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}@@
-
-  No projeto da interface, além dos problemas comuns a todo sistema de
-  software complexo, os /designers/ lidam com tarefas e domínios complexos e
-  têm dificuldade de pensar como o usuário [[cite:myers1994][p. 75]].
-  Na implementação, o programa também precisa ser robusto: tratar qualquer
-  entrada sem parar de funcionar e, como o usuário espera, permitir que ele
-  cancele e desfaça a maioria das ações [[cite:myers1994][p. 75, 79 e 80]].
-
-  O /callback/ é síncrono quando a função que o recebe o chama antes de
-  retornar, e assíncrono quando sua execução fica para algum tempo depois de a
-  função retornar [[cite:gallaba2015][p. 2]].
-  O navegador executa a aplicação numa /thread/ só, e, para que ela continue
-  respondendo ao usuário, os programadores recorrem às operações assíncronas
-  [[cite:alimadadi2014][p. 368-369]].
-  O /callback/ de um clique é desse tipo: registrado quando a tela é montada,
-  só roda quando o usuário clica, e os eventos do [[gls:dom]] estão entre as
-  operações assíncronas do navegador [[cite:gallaba2015][p. 5]].
-
-  /Threads/ exprimem sequência, e eventos exprimem dependência, e muitos
-  problemas vêm de escrever uma com o recurso da outra
-  [[cite:blackheath2016][p. 16]].
-
-  Em JavaScript, os /callbacks/ são frequentes: num estudo de 138 programas, em
-  média uma em cada dez definições de função recebe um /callback/, e a maioria dos
-  /callbacks/ é aninhada [[cite:gallaba2015][p. 1]].
-  No código do navegador, em média 9% das chamadas de função passam um
-  /callback/, e 72% desses /callbacks/ são assíncronos [[cite:gallaba2015][p. 6]].
-  Numa sessão típica de uso de onze sites, como Gmail, Facebook e Amazon, os
-  tratadores de eventos executam de 31,6% a 99,1% das instruções JavaScript
-  [[cite:ratanaworabhan2010]].
-
-  O JavaScript ganhou alternativas ao /callback/: as /promises/, que encadeiam
-  computações assíncronas [[cite:madsen2017][p. 86:1]], e as palavras-chave
-  /async/ e /await/, que permitem escrever operações assíncronas em estilo
-  sequencial [[cite:grolaux2026][p. 9]].
-  As /promises/ achatam o aninhamento dos /callbacks/, mas a lógica complexa
-  continua presa em cadeias de /callbacks/ [[cite:grolaux2026][p. 9]].
-  Numa implementação em JavaScript que guarda o estado da aplicação em variáveis
-  globais, o /async/ e o /await/ não ajudam a coordenar esse estado
-  [[cite:berry2020][p. 535 e 538]].
-
-  O código sequencial tem o problema oposto ao do /callback/: a linguagem
-  obriga a fixar a ordem de execução mesmo quando ela não importa, e quem lê
-  precisa supor que importa [[cite:moseley2006][p. 8-9]].
-  Para [[textcite:moseley2006][p. 1]], essa preocupação com o fluxo de controle
-  está, ao lado do volume de código e do tratamento do estado, entre as
-  principais causas da complexidade dos sistemas de grande porte.
-
-  O Angular acrescentou os /signals/ à sua [[gls:api]] [[cite:lima2024][p. 18]],
-  e o Solid e o Angular com /signals/ aparecem entre as implementações da
-  [[gls:pr]] [[cite:tsukanova2026][p. 57]].
-
-  @@latex:\todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}@@
-
-  O /callback/ fragmenta o fluxo de controle: a sequência de passos que o
-  programador tem em mente para uma operação fica dividida entre vários
-  /callbacks/ [[cite:fischer2007][p. 134-135]].
-
-  O desafio do programador é escrever, no código, como o estado passa de um
-  evento a outro [[cite:krishnamurthi2019][p. N]].
-
-  Nem todo evento vem do usuário: a chegada de um pacote da rede e o tique do
-  relógio também são eventos, e cada evento faz rodar a parte do programa que
-  responde a ele [[cite:krishnamurthi2019][p. N]].
-
-  Com o estado, as interfaces gráficas lembram informações
-  [[cite:vanroy2009][p. 14]], como os valores digitados nos campos
-  [[cite:madsen2020][p. 12:3]].
-
-  O /Observer Pattern/ separa os observadores, que consomem os eventos, dos
-  observáveis, que os produzem [[cite:salvaneschi2015][p. 953]].
-
-  @@latex:\todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}@@
-  Na implementação, a aplicação deixa de controlar a execução e se divide em
-  sub-rotinas que o /toolkit/ da interface chama quando o usuário age, e
-  programas assim parecem mais difíceis de organizar e modularizar
-  [[cite:myers1994][p. 79]].
-  Numa rede de /callbacks/, a ordem em que os eventos chegam pode depender da
-  ordem em que os /callbacks/ foram registrados, o que a torna difícil de prever
-  [[cite:blackheath2016][p. 8]].
-  “Coordenar alterações ao estado compartilhado em meio a esse caos pode ser
-  desconcertante, e está longe de ser modular. A definição coloquial é /Callback
-  Hell/.” [[cite:edwards2009][p. 926; tradução nossa]].
-  Em quatro sistemas de grande porte com as interfaces gráficas feitas na
-  mesma [[gls:api]], [[textcite:mijailovic2014][p. 770]] contaram de 1.221 a 31.285
-  tratadores de eventos.
-  Em 2026, o tratamento de eventos nas interfaces ainda se apoia em
-  /callbacks/ ou /listeners/, que tornam difíceis de exprimir e de manter os
-  fluxos de interação complexos [[cite:grolaux2026][p. 8]].
-  As /promises/ têm semântica complexa, e o fluxo de controle e de dados do
-  código que as usa dificulta a compreensão e leva facilmente a erros
-  [[cite:alimadadi2018][p. 162:1]].
-
-  @@latex:\todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}@@
-  O JSX, em que o React e o Solid montam a tela, é uma extensão de sintaxe do
-  JavaScript que permite escrever marcação parecida com [[gls:html]] dentro de
-  um arquivo JavaScript cite:meta2026c.
-
-  A aparência da tela, que este trabalho deixa fora da notação, se declara
-  na web em [[gls:css]], uma camada de notação à parte do [[gls:html]]
-  [[cite:green2006][p. 342]], enquanto no JavaFX o /layout/ faz parte do
-  código que monta a tela [[cite:kiss2014][p. 17]].
-
-  Conforme é notado por textcite:blackheath2016, a maioria das aplicações que
-  interagem com o ambiente externo são arquitetadas em torno de dois modelos de
-  programaçao, ou uma mistura dos dois:
-
-  - /Threads/ :: modelam transições de estado como um fluxo de controle.
-                 Adequadas para operações de I/O ou qualquer situação onde as
-                 transições de estado se enquadram em uma sequência claramente
-                 definida.
-  - Eventos :: são mensagens discretas e assíncronas que são propagadas pela
-               aplicação. Formam um modelo adequado para sequências menos
-               óbvias, principalmente onde as interações entre componentes são
-               mais complexas. Algumas aplicações incluem /GUIs/ e video
-               games.
-
-  Alguns problemas de computação são melhor resolvidos com o modelo baseado
-  em /threads/. No entanto textcite:blackheath2016 afirmam que a
-  abordagem com eventos geralmente é a melhor escolha.
 
 * Programação funcional
   [[Gls:pf]] é assim chamada porque sua operação básica é a
@@ -435,6 +349,9 @@ denominadas /linguagens imperativas/.
 
 * Programação reativa
   @@latex:\todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}@@
+
+  O /Observer Pattern/ separa os observadores, que consomem os eventos, dos
+  observáveis, que os produzem [[cite:salvaneschi2015][p. 953]].
 
   [[textcite:bainomugisha2013][p. 52:2]] chamam as planilhas de “possivelmente a
   linguagem de programação mais utilizada por usuários finais” (tradução nossa).
@@ -584,13 +501,6 @@ denominadas /linguagens imperativas/.
   cite:codigofonte2026.
 
 * Footnotes
-
-[fn:statement]
-Uma sentença (/statement/) pode conter uma ou várias expressões ou instruções.
-Uma única instrução numa linguagem de alto nível pode representar múltiplas
-instruções de máquinas.
-Programas consistem de instruções e expressões.
-Uma expressão é um grupo de símbolos que representa um valor.
 
 [fn:interactive]
 Este tipo de programa é popularmente conhecido como interativo — nota-se muito o

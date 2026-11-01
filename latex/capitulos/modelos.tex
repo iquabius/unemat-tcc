@@ -1,38 +1,13 @@
-Um programa de computador é expresso por um conjunto de sentenças em alguma
-linguagem de programação\footnote{Uma sentença (\emph{statement}) pode conter uma ou várias expressões ou instruções.
-Uma única instrução numa linguagem de alto nível pode representar múltiplas
-instruções de máquinas.
-Programas consistem de instruções e expressões.
-Uma expressão é um grupo de símbolos que representa um valor.}\todo[fancyline]{Trazer o conteúdo do rodapé pra cá?}.
-A forma como as sentenças de uma linguagem são executadas pelo computador é
-definida por um \emph{modelo de computação} \cite{vanroy2004}.
-
-O código fonte de um programa consiste de uma série de instruções que expressam
-uma sequência de comandos a se seguir durante a execução — esse período é
-conhecido como \emph{tempo de execução}, do inglês \emph{runtime}.
-Tradicionalmente, as sentenças de uma linguagem de programação denotam essa
-sequência de forma explícita.
-Tais linguagens são baseadas no modelo \emph{imperativo} de computação, e são
-denominadas \emph{linguagens imperativas}.
-\section{Linguagens de programação}
-\label{sec:linguagens-de-programacao}
-\label{sec:langs}
-
-Linguagens de programação são mais simples que linguagens naturais, no
-entanto, elas ainda podem conter uma sintaxe surpreendentemente rica, um
-conjunto de abstrações, e bibliotecas auxiliares.
-Esse é essencialmente o caso de linguagens usadas para resolver problemas
-reais do dia-a-dia.
-\textcite{vanroy2004} as chamam de linguagens \emph{práticas}, que são “\textelp{}
-como a caixa de ferramentas de um mecânico experiente: há várias ferramentas
-diferentes para finalidades diferentes e todas estão lá por uma razão.” (p.
-33; tradução nossa).
-
-Todas as linguagens de programação possuem elementos primitivos para a
-descrição de dados e das transformações, ou processos, aplicados à eles —
-como a adição de dois números ou a seleção de um item de uma coleção.
-Essas primitivas são definidas por regras de sintaxe — a gramática — e pela
-semântica — o significado.
+Esta seção reúne os conceitos em que a comparação se apoia, do problema ao
+vocabulário com que ela se faz.
+Começa pelo que os eventos e o estado pedem do código de uma interface e
+pela diferença entre o imperativo e o declarativo.
+Depois trata do modelo de programação, que é a unidade comparada, e da
+\gls{pf} e da \gls{pr}, de que vêm os modos de cada eixo.
+Termina pelas \glspl{dc}, com que a análise descreve a diferença, e pelos
+trabalhos relacionados.
+\section{Eventos, estado e \emph{callbacks}}
+\label{sec:eventos-estado-e-callbacks}
 
 Um programa orientado a eventos reage ao que acontece no ambiente externo: o
 clique num botão, a tecla digitada, a mensagem do servidor
@@ -42,13 +17,72 @@ Os eventos entram numa fila, e o programa os trata um de cada vez
 como a interação depende de eventos externos, que podem ocorrer em
 qualquer ordem, entender o programa exige seguir várias cadeias de causa
 e efeito \cite[p. 125]{martin2022}.
-A reação depende também do \emph{estado} da aplicação, que determina a
-aparência e o comportamento dela \cite[p. 230]{oney2012}.
+Cada evento pode alterar o \emph{estado} da aplicação.
 Uma barra de ferramentas, por exemplo, fica encaixada acima da área de
 trabalho até que o usuário a segure pelo topo, gesto que muda o estado
 dela: a barra se solta e passa a seguir o mouse \cite[p. 230]{oney2012}.
 
-Nas linguagens imperativas, esse estado é implícito e muda por comandos,
+Nem todo evento vem do usuário: a chegada de um pacote da rede e o tique do
+relógio também são eventos, e cada evento faz rodar a parte do programa que
+responde a ele \cite[p. 8]{krishnamurthi2019}.
+O desafio do programador é escrever, no código, como o estado passa de um
+evento a outro \cite[p. 8]{krishnamurthi2019}.
+
+O programa também precisa ser robusto: tratar qualquer entrada sem parar
+de funcionar e, como o usuário espera, permitir que ele cancele e desfaça
+a maioria das ações \cite[p. 75, 79 e 80]{myers1994}.
+
+O \emph{callback} é síncrono quando a função que o recebe o chama antes de
+retornar, e assíncrono quando sua execução fica para algum tempo depois de a
+função retornar \cite[p. 2]{gallaba2015}.
+O navegador executa a aplicação numa \emph{thread} só, e, para que ela continue
+respondendo ao usuário, os programadores recorrem às operações assíncronas
+\cite[p. 368-369]{alimadadi2014}.
+O \emph{callback} de um clique é desse tipo: registrado quando a tela é montada,
+só roda quando o usuário clica, e os eventos do \gls{dom} estão entre as
+operações assíncronas do navegador \cite[p. 5]{gallaba2015}.
+
+Em JavaScript, os \emph{callbacks} são frequentes: num estudo de 138 programas, em
+média uma em cada dez definições de função recebe um \emph{callback}, e a maioria dos
+\emph{callbacks} é aninhada \cite[p. 1]{gallaba2015}.
+No código do navegador, em média 9\% das chamadas de função passam um
+\emph{callback}, e 72\% desses \emph{callbacks} são assíncronos \cite[p. 6]{gallaba2015}.
+
+O \emph{callback} fragmenta o fluxo de controle: a sequência de passos que o
+programador tem em mente para uma operação fica dividida entre vários
+\emph{callbacks} \cite[p. 134-135]{fischer2007}.
+Numa rede de \emph{callbacks}, a ordem em que os eventos chegam pode depender da
+ordem em que os \emph{callbacks} foram registrados, o que a torna difícil de prever
+\cite[p. 8]{blackheath2016}.
+Em 2026, o tratamento de eventos nas interfaces ainda se apoia em
+\emph{callbacks} ou \emph{listeners}, que tornam difíceis de exprimir e de manter os
+fluxos de interação complexos \cite[p. 8]{grolaux2026}.
+
+O JavaScript ganhou alternativas ao \emph{callback}: as \emph{promises}, que encadeiam
+computações assíncronas \cite[p. 86:1]{madsen2017}, e as palavras-chave
+\emph{async} e \emph{await}, que permitem escrever operações assíncronas em estilo
+sequencial \cite[p. 9]{grolaux2026}.
+As \emph{promises} achatam o aninhamento dos \emph{callbacks}, mas a lógica complexa
+continua presa em cadeias de \emph{callbacks} \cite[p. 9]{grolaux2026}.
+As \emph{promises} têm semântica complexa, e o fluxo de controle e de dados do
+código que as usa dificulta a compreensão e leva facilmente a erros
+\cite[p. 162:1]{alimadadi2018}.
+Numa implementação em JavaScript que guarda o estado da aplicação em variáveis
+globais, o \emph{async} e o \emph{await} não ajudam a coordenar esse estado
+\cite[p. 535 e 538]{berry2020}.
+
+\emph{Threads} exprimem sequência, e eventos exprimem dependência, e muitos
+problemas vêm de escrever uma com o recurso da outra
+\cite[p. 16]{blackheath2016}.
+Os dois modos imperativos da orquestração correspondem a esses dois
+recursos.
+Na orquestração por atribuição, cada \emph{callback} trata um evento e grava o
+valor no estado; na sequencial, o código espera o próximo evento e segue
+em ordem, como permitem o \emph{async} e o \emph{await}.
+\section{Imperativo e declarativo}
+\label{sec:imperativo-e-declarativo}
+
+Nas linguagens imperativas, o estado é implícito e muda por comandos,
 como a atribuição de um valor a uma variável, e essas mudanças são os
 \emph{efeitos colaterais} dos comandos \cite[p. 361]{hudak1989}.
 Por isso, para controlar o estado com precisão e de forma determinística,
@@ -72,6 +106,13 @@ ela usa \cite[p. 52:5 e 52:7]{bainomugisha2013}.
 A programação declarativa costuma ser descrita como a que expressa “o
 quê” e não “o como” da computação, embora a diferença seja de grau
 \cite[p. 361]{hudak1989}.
+
+O código sequencial tem o problema oposto ao do \emph{callback}: a linguagem
+obriga a fixar a ordem de execução mesmo quando ela não importa, e quem lê
+precisa supor que importa \cite[p. 8-9]{moseley2006}.
+Para \textcite[p. 1]{moseley2006}, essa preocupação com o fluxo de controle
+está, ao lado do volume de código e do tratamento do estado, entre as
+principais causas da complexidade dos sistemas de grande porte.
 \section{Paradigmas e modelos de programação}
 \label{sec:paradigmas-e-modelos-de-programacao}
 \todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}
@@ -166,131 +207,6 @@ programa também irá calcular o resultado de saída incrementalmente.”
 Esses paradigmas não possuem condições de corrida, \emph{‘race conditions’} em
 inglês.
 \todo{Esses últimos dois parágrafos parecem estar deslocados.}
-\section{Programação de interfaces gráficas}
-\label{sec:programacao-de-interfaces-graficas}
-\todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}
-
-No projeto da interface, além dos problemas comuns a todo sistema de
-software complexo, os \emph{designers} lidam com tarefas e domínios complexos e
-têm dificuldade de pensar como o usuário \cite[p. 75]{myers1994}.
-Na implementação, o programa também precisa ser robusto: tratar qualquer
-entrada sem parar de funcionar e, como o usuário espera, permitir que ele
-cancele e desfaça a maioria das ações \cite[p. 75, 79 e 80]{myers1994}.
-
-O \emph{callback} é síncrono quando a função que o recebe o chama antes de
-retornar, e assíncrono quando sua execução fica para algum tempo depois de a
-função retornar \cite[p. 2]{gallaba2015}.
-O navegador executa a aplicação numa \emph{thread} só, e, para que ela continue
-respondendo ao usuário, os programadores recorrem às operações assíncronas
-\cite[p. 368-369]{alimadadi2014}.
-O \emph{callback} de um clique é desse tipo: registrado quando a tela é montada,
-só roda quando o usuário clica, e os eventos do \gls{dom} estão entre as
-operações assíncronas do navegador \cite[p. 5]{gallaba2015}.
-
-\emph{Threads} exprimem sequência, e eventos exprimem dependência, e muitos
-problemas vêm de escrever uma com o recurso da outra
-\cite[p. 16]{blackheath2016}.
-
-Em JavaScript, os \emph{callbacks} são frequentes: num estudo de 138 programas, em
-média uma em cada dez definições de função recebe um \emph{callback}, e a maioria dos
-\emph{callbacks} é aninhada \cite[p. 1]{gallaba2015}.
-No código do navegador, em média 9\% das chamadas de função passam um
-\emph{callback}, e 72\% desses \emph{callbacks} são assíncronos \cite[p. 6]{gallaba2015}.
-Numa sessão típica de uso de onze sites, como Gmail, Facebook e Amazon, os
-tratadores de eventos executam de 31,6\% a 99,1\% das instruções JavaScript
-\cite{ratanaworabhan2010}.
-
-O JavaScript ganhou alternativas ao \emph{callback}: as \emph{promises}, que encadeiam
-computações assíncronas \cite[p. 86:1]{madsen2017}, e as palavras-chave
-\emph{async} e \emph{await}, que permitem escrever operações assíncronas em estilo
-sequencial \cite[p. 9]{grolaux2026}.
-As \emph{promises} achatam o aninhamento dos \emph{callbacks}, mas a lógica complexa
-continua presa em cadeias de \emph{callbacks} \cite[p. 9]{grolaux2026}.
-Numa implementação em JavaScript que guarda o estado da aplicação em variáveis
-globais, o \emph{async} e o \emph{await} não ajudam a coordenar esse estado
-\cite[p. 535 e 538]{berry2020}.
-
-O código sequencial tem o problema oposto ao do \emph{callback}: a linguagem
-obriga a fixar a ordem de execução mesmo quando ela não importa, e quem lê
-precisa supor que importa \cite[p. 8-9]{moseley2006}.
-Para \textcite[p. 1]{moseley2006}, essa preocupação com o fluxo de controle
-está, ao lado do volume de código e do tratamento do estado, entre as
-principais causas da complexidade dos sistemas de grande porte.
-
-O Angular acrescentou os \emph{signals} à sua \gls{api} \cite[p. 18]{lima2024},
-e o Solid e o Angular com \emph{signals} aparecem entre as implementações da
-\gls{pr} \cite[p. 57]{tsukanova2026}.
-
-\todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}
-
-O \emph{callback} fragmenta o fluxo de controle: a sequência de passos que o
-programador tem em mente para uma operação fica dividida entre vários
-\emph{callbacks} \cite[p. 134-135]{fischer2007}.
-
-O desafio do programador é escrever, no código, como o estado passa de um
-evento a outro \cite[p. N]{krishnamurthi2019}.
-
-Nem todo evento vem do usuário: a chegada de um pacote da rede e o tique do
-relógio também são eventos, e cada evento faz rodar a parte do programa que
-responde a ele \cite[p. N]{krishnamurthi2019}.
-
-Com o estado, as interfaces gráficas lembram informações
-\cite[p. 14]{vanroy2009}, como os valores digitados nos campos
-\cite[p. 12:3]{madsen2020}.
-
-O \emph{Observer Pattern} separa os observadores, que consomem os eventos, dos
-observáveis, que os produzem \cite[p. 953]{salvaneschi2015}.
-
-\todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}
-Na implementação, a aplicação deixa de controlar a execução e se divide em
-sub-rotinas que o \emph{toolkit} da interface chama quando o usuário age, e
-programas assim parecem mais difíceis de organizar e modularizar
-\cite[p. 79]{myers1994}.
-Numa rede de \emph{callbacks}, a ordem em que os eventos chegam pode depender da
-ordem em que os \emph{callbacks} foram registrados, o que a torna difícil de prever
-\cite[p. 8]{blackheath2016}.
-“Coordenar alterações ao estado compartilhado em meio a esse caos pode ser
-desconcertante, e está longe de ser modular. A definição coloquial é \emph{Callback
-Hell}.” \cite[p. 926; tradução nossa]{edwards2009}.
-Em quatro sistemas de grande porte com as interfaces gráficas feitas na
-mesma \gls{api}, \textcite[p. 770]{mijailovic2014} contaram de 1.221 a 31.285
-tratadores de eventos.
-Em 2026, o tratamento de eventos nas interfaces ainda se apoia em
-\emph{callbacks} ou \emph{listeners}, que tornam difíceis de exprimir e de manter os
-fluxos de interação complexos \cite[p. 8]{grolaux2026}.
-As \emph{promises} têm semântica complexa, e o fluxo de controle e de dados do
-código que as usa dificulta a compreensão e leva facilmente a erros
-\cite[p. 162:1]{alimadadi2018}.
-
-\todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}
-O JSX, em que o React e o Solid montam a tela, é uma extensão de sintaxe do
-JavaScript que permite escrever marcação parecida com \gls{html} dentro de
-um arquivo JavaScript \cite{meta2026c}.
-
-A aparência da tela, que este trabalho deixa fora da notação, se declara
-na web em \gls{css}, uma camada de notação à parte do \gls{html}
-\cite[p. 342]{green2006}, enquanto no JavaFX o \emph{layout} faz parte do
-código que monta a tela \cite[p. 17]{kiss2014}.
-
-Conforme é notado por \textcite{blackheath2016}, a maioria das aplicações que
-interagem com o ambiente externo são arquitetadas em torno de dois modelos de
-programaçao, ou uma mistura dos dois:
-
-\begin{description}
-\item[{\emph{Threads}}] modelam transições de estado como um fluxo de controle.
-Adequadas para operações de I/O ou qualquer situação onde as
-transições de estado se enquadram em uma sequência claramente
-definida.
-\item[{Eventos}] são mensagens discretas e assíncronas que são propagadas pela
-aplicação. Formam um modelo adequado para sequências menos
-óbvias, principalmente onde as interações entre componentes são
-mais complexas. Algumas aplicações incluem \emph{GUIs} e video
-games.
-\end{description}
-
-Alguns problemas de computação são melhor resolvidos com o modelo baseado
-em \emph{threads}. No entanto \textcite{blackheath2016} afirmam que a
-abordagem com eventos geralmente é a melhor escolha.
 \section{Programação funcional}
 \label{sec:programacao-funcional}
 \Gls{pf} é assim chamada porque sua operação básica é a
@@ -397,6 +313,9 @@ contribuir significativamente para a modularização de programas:
 \section{Programação reativa}
 \label{sec:programacao-reativa}
 \todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}
+
+O \emph{Observer Pattern} separa os observadores, que consomem os eventos, dos
+observáveis, que os produzem \cite[p. 953]{salvaneschi2015}.
 
 \textcite[p. 52:2]{bainomugisha2013} chamam as planilhas de “possivelmente a
 linguagem de programação mais utilizada por usuários finais” (tradução nossa).

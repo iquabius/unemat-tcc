@@ -1,0 +1,14 @@
+#+title: alimadadi2018: Alimadadi et al. (2018), Finding Broken Promises in Asynchronous JavaScript Programs
+#+startup: overview
+
+* [[file:../modelos.org::O JavaScript ganhou alternativas ao][modelos: O JavaScript ganhou alternativas ao callback]], p. 162:1
+- Frase: “As /promises/ têm semântica complexa, e o fluxo de controle e de
+  dados do código que as usa dificulta a compreensão e leva facilmente a
+  erros (Alimadadi et al., 2018, p. 162:1).”
+- Trecho: “Unfortunately, promises have complex semantics and the intricate
+  control- and data-flow present in promise-based code hinders program
+  comprehension and can easily lead to bugs.” (resumo, p. 162:1)
+- Lido em: =acervo/alimadadi2018.pdf=, p. 1 do PDF (162:1).
+- Observação: estava no parágrafo da inversão de controle, que saiu em
+  2026-11-01; a frase foi para o das /promises/, que é o assunto dela.
+- Conferido: 2026-11-01.
