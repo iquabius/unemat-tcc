@@ -34,9 +34,13 @@ passos:
 O trecho que entrou é atribuído pelo git blame BASE..REF do .tex de REF; o
 que saiu, ao commit em cujo diff a linha de BASE some do arquivo, seguida
 de pai para filho (quem_tirou()); a linha que só mudou de lugar, ao
-commit que a moveu; e a cópia de uma linha repetida, que esses diffs não
-decidem, pelo git blame --reverse. A âncora vai para o ponto de REF onde
-o trecho estava. As âncoras ficam só no lado novo, como comandos que o
+commit que a moveu. A linha que o diff de BASE a REF dá como tirada e que
+chega a REF é a cópia de uma linha repetida, quando esses diffs tiram a
+outra cópia, e vai a quem a tirou, mesmo que um commit a tenha movido;
+sem cópia tirada, vai a quem a moveu, ou, sem movimento, não saiu e não
+leva âncora. A que nenhum commit tirou nem levou a REF vai pelo git
+blame --reverse. A âncora vai para o ponto de REF onde o trecho estava.
+As âncoras ficam só no lado novo, como comandos que o
 latexdiff não envolve em \\DIFadd, e por isso funcionam também para o que
 saiu. Ficam fora de verbatim, minted, matemática, tabelas e argumentos de
 comando (legenda, nota); antes dos ambientes que o latexdiff não marca, como
@@ -48,15 +52,14 @@ O resumo é escrito para o orientador, que lê o PDF sem o repositório. Abre
 pela mensagem da tag, como a release; depois, as páginas alteradas por
 capítulo e seção, com as medidas e um link em cada número de página
 (tabela_por_lugar()); por último, os commits, sem data nem hash, cada um
-com as páginas de onde o texto saiu (vermelho), uma seta e as páginas em
-que entrou (azul), ou, com um lado só, o nome dele, ou, com os dois lados
-nas mesmas seções e páginas, "reescrito:" e as páginas (roxo), agrupadas
-por seção e, as seguidas, num intervalo, com link para o trecho em cada
-página solta e nas pontas do intervalo, e as chaves do refs.bib que ele
-mudou, com link para a entrada na bibliografia (âncora cite.0@chave do
-biblatex). O commit cujo trecho foi refeito depois, ou que só mudou
-rótulos, e que não mudou uma entrada que as referências mostram, não
-entra.
+com "reescrito:" e as páginas (roxo) em que o texto saiu e entrou no
+mesmo lugar, e, das outras, as de onde saiu (vermelho), uma seta e as em
+que entrou (azul), ou, com um lado só, o nome dele, agrupadas por seção
+e, as seguidas, num intervalo, com link para o trecho em cada página
+solta e nas pontas do intervalo, e as fontes do refs.bib que ele mudou,
+por autor e ano (\\textcite), com link para a entrada na bibliografia. O
+commit cujo trecho foi refeito depois, ou que só mudou rótulos, e que não
+mudou uma entrada que as referências mostram, não entra.
 """
 import json
 import os
@@ -253,15 +256,16 @@ def casar(atual, novo):
 
 def quem_tirou(repo, base, ref, antigas, nomes, nome_em):
     """({número da linha de BASE (0-based) -> commit que a tirou}, {número
-    -> último commit que só a mudou de lugar}): segue cada linha de antigas
-    de pai para filho, pelos commits de BASE..REF que tocaram o arquivo,
-    até o commit em que ela deixa de casar com uma linha do pai em que
-    estava (casar()). O pai de fora do intervalo parte do casamento com
-    antigas. nomes e nome_em vêm de nomes_do_arquivo(): o arquivo, em cada
-    commit, tem o nome de nome_em, ou, no commit que não o mudou, o do pai;
-    sem ele, o commit o apagou. O git blame --reverse dá o último commit em
-    que a linha existia, e esse pode ser de um ramo juntado depois: o
-    commit seguinte a ele na ordem do rev-list pode não ser o que a tirou."""
+    -> último commit que só a mudou de lugar}, {números das que chegam a
+    REF}): segue cada linha de antigas de pai para filho, pelos commits de
+    BASE..REF que tocaram o arquivo, até o commit em que ela deixa de casar
+    com uma linha do pai em que estava (casar()). O pai de fora do
+    intervalo parte do casamento com antigas. nomes e nome_em vêm de
+    nomes_do_arquivo(): o arquivo, em cada commit, tem o nome de nome_em,
+    ou, no commit que não o mudou, o do pai; sem ele, o commit o apagou. O
+    git blame --reverse dá o último commit em que a linha existia, e esse
+    pode ser de um ramo juntado depois: o commit seguinte a ele na ordem do
+    rev-list pode não ser o que a tirou."""
     def arquivo(c, nome):
         try:
             return git(repo, "show", f"{c}:{nome}").splitlines(keepends=True)
@@ -323,7 +327,7 @@ def quem_tirou(repo, base, ref, antigas, nomes, nome_em):
                      "movidas": movidas}
         ultimo = c
     tirou = {i: quem for i, quem in estado[ultimo]["mortas"].items() if quem}
-    return tirou, estado[ultimo]["movidas"]
+    return tirou, estado[ultimo]["movidas"], set(estado[ultimo]["vivas"])
 
 
 def ancorar(repo, base, ref, dir_, main="tcc.tex"):
@@ -394,10 +398,19 @@ def ancorar(repo, base, ref, dir_, main="tcc.tex"):
             antigas = []
         if antigas:
             tocaram = git(repo, "rev-list", "--reverse", f"{base}..{ref}", "--", *nomes).split()
-            tirou, moveu = quem_tirou(repo, base, ref, antigas, nomes, nome_em)
+            tirou, moveu, chegam = quem_tirou(repo, base, ref, antigas, nomes, nome_em)
             ultimo = None
-            sm = SequenceMatcher(None, antigas, linhas, autojunk=False)
-            for op, i1, i2, j1, _j2 in sm.get_opcodes():
+            trechos = SequenceMatcher(None, antigas, linhas, autojunk=False).get_opcodes()
+            tiradas = {i for op, i1, i2, _, _ in trechos if op in ("delete", "replace")
+                       for i in range(i1, i2)}
+            # As cópias que os diffs de commit a commit tiram e que o de BASE
+            # a REF dá como ficadas, por texto, na ordem: cada uma vai a uma
+            # só cópia igual que ele dá como tirada e que chega a REF.
+            sobram = {}
+            for j, q in sorted(tirou.items()):
+                if j not in tiradas:
+                    sobram.setdefault(antigas[j], []).append(q)
+            for op, i1, i2, j1, _j2 in trechos:
                 if op not in ("delete", "replace"):
                     continue
                 vistos = []
@@ -406,11 +419,24 @@ def ancorar(repo, base, ref, dir_, main="tcc.tex"):
                         continue
                     # A linha que o diff de BASE a REF dá como tirada e que
                     # chega a REF só mudou de lugar: fica com o commit que
-                    # a moveu. A que os diffs de commit a commit não
-                    # decidem (uma cópia de linha repetida casada com
-                    # outra) fica com o commit seguinte ao último em que o
-                    # git blame --reverse a vê.
-                    quem = tirou.get(i) or moveu.get(i)
+                    # a moveu. A que chega a REF sem que nenhum commit a
+                    # movesse é a cópia de uma linha repetida, quando os
+                    # diffs de commit a commit tiram a outra cópia, e fica
+                    # com quem a tirou (sobram); sem cópia tirada, o diff
+                    # de BASE a REF só a dá como tirada porque outras se
+                    # moveram em volta, e ela fica sem âncora. A cópia tirada
+                    # vem antes do movimento: a cópia que chega e que um
+                    # commit também moveu fica com quem tirou a outra, que
+                    # senão sumiria da lista, e quem a moveu ainda tem o
+                    # lado do que entrou. A que nenhum commit tirou nem
+                    # leva a REF fica com o commit seguinte ao último em que
+                    # o git blame --reverse a vê.
+                    quem = tirou.get(i)
+                    if quem is None and i in chegam and sobram.get(antigas[i]):
+                        quem = sobram[antigas[i]].pop(0)
+                    quem = quem or moveu.get(i)
+                    if quem is None and i in chegam:
+                        continue
                     if quem is None:
                         if ultimo is None:
                             ultimo, _ = blame(repo, f"{base}..{ref}", velho, reverso=True)
@@ -765,29 +791,46 @@ def resumo(dir_, aux, job, base_nome, ref_nome):
                 por_secao.setdefault((cap, sec, sub), {}).setdefault(pagina, an["n"])
             if por_secao:
                 lados[tipo] = por_secao
-        # De onde o texto saiu para onde entrou; com um lado só, o nome dele.
-        # Com os dois lados nos mesmos lugares e páginas, o texto foi reescrito
-        # no lugar, e a seta diria que ele se moveu: o item leva ao trecho novo.
+        # A página de um lugar que está nos dois lados: o texto foi reescrito
+        # ali, e a seta diria que ele se moveu. Ela vai para o
+        # "reescrito:", com o link do trecho novo, e o resto fica de onde o
+        # texto saiu para onde entrou, ou, com um lado só, com o nome dele.
         # O lugar se compara inteiro, porque duas subseções de capítulos
         # diferentes podem ter o mesmo título.
-        if len(lados) == 2 and ({lg: list(p) for lg, p in lados["saiu"].items()}
-                                == {lg: list(p) for lg, p in lados["entrou"].items()}):
-            partes = ["reescrito: " + paginas_do_lado(lados["entrou"], CORES["reescrito"])]
+        comum = {}
+        if len(lados) == 2:
+            for lg, paginas in lados["entrou"].items():
+                if no_lugar := {p: n for p, n in paginas.items() if p in lados["saiu"].get(lg, {})}:
+                    comum[lg] = no_lugar
+            for tipo in ("saiu", "entrou"):
+                resto = {lg: r for lg, paginas in lados[tipo].items()
+                         if (r := {p: n for p, n in paginas.items() if p not in comum.get(lg, {})})}
+                if resto:
+                    lados[tipo] = resto
+                else:
+                    del lados[tipo]
+        partes = []
+        if comum:
+            partes.append("reescrito: " + paginas_do_lado(comum, CORES["reescrito"]))
             formas.add("reescrito")
-        elif len(lados) == 2:
-            partes = [f"{paginas_do_lado(lados['saiu'], CORES['saiu'])} \\textrightarrow{{}} "
-                      f"{paginas_do_lado(lados['entrou'], CORES['entrou'])}"]
+        if len(lados) == 2:
+            partes.append(f"{paginas_do_lado(lados['saiu'], CORES['saiu'])} \\textrightarrow{{}} "
+                          f"{paginas_do_lado(lados['entrou'], CORES['entrou'])}")
             formas.add("seta")
         else:
-            partes = [f"{tipo}: {paginas_do_lado(lado, CORES[tipo])}" for tipo, lado in lados.items()]
-            if lados:
-                formas.add("um lado")
+            partes += [f"{tipo}: {paginas_do_lado(lado, CORES[tipo])}"
+                       for tipo, lado in lados.items()]
+            formas.update(lados)
         # A chave que as referências não mostram (a fonte não citada) não
         # leva a lugar nenhum, e fica de fora como o trecho que não existe.
-        chaves = [f"\\hyperlink{{cite.0@{k}}}{{\\texttt{{{esc(k)}}}}}"
-                  for k in c["chaves"] if k in na_bib]
+        # Por autor e ano, como o texto cita, e não pela chave do refs.bib,
+        # que quem lê o PDF sem o repositório não conhece; o \textcite leva
+        # à entrada nas referências. O ponto e vírgula separa as fontes,
+        # porque a vírgula já separa os autores de uma delas.
+        chaves = [f"\\textcite{{{k}}}" for k in c["chaves"] if k in na_bib]
         if chaves:
-            partes.append("refs.bib: " + ", ".join(chaves))
+            partes.append("Referências: " + "; ".join(chaves))
+            formas.add("referências")
         # O commit sem trecho próprio no diff (refeito por um posterior, ou
         # só rótulos ou fontes que o PDF não mostra) não leva a lugar nenhum.
         if partes:
@@ -795,28 +838,35 @@ def resumo(dir_, aux, job, base_nome, ref_nome):
     # Sem nenhum item, nem o título: o enumerate vazio para o pdflatex
     # ("missing \item").
     if itens_dos_commits:
+        fora_do_roxo = " fora das páginas em roxo" if "reescrito" in formas else ""
         out += [titulo_do_resumo("Os commits"),
                 r"{\small Os commits que mudaram o texto, do mais antigo ao mais novo. "
                 # Só as formas que a lista tem: a frase de uma forma que não
                 # aparece manda procurar o que não está na página. Cada uma
-                # diz as cores que usa.
+                # diz as cores que usa, na ordem em que o item as mostra.
+                + (r"As páginas em que o texto saiu e entrou no mesmo lugar, onde ele foi "
+                   r"reescrito, vêm em {\color{difreescrito}roxo}, depois de "
+                   r"\enquote{reescrito:}. " if "reescrito" in formas else "")
                 + (r"Com os dois lados, as páginas de onde o texto saiu, em "
                    r"{\color{difsaiu}vermelho}, vêm antes da seta, e as páginas em que entrou, "
                    r"em {\color{difentrou}azul}, depois dela. " if "seta" in formas else "")
                 # O lado do que saiu conta só as linhas de BASE (quem_tirou()),
                 # e o do que entrou, só as que ficaram em REF (o git blame).
-                + (r"Com um lado só, o item diz qual: \enquote{entrou:}, em "
-                   r"{\color{difentrou}azul}, quando nada do texto que o commit tirou da "
-                   f"{esc(base_nome)} falta na {esc(ref_nome)}, e \\enquote{{saiu:}}, em "
-                   r"{\color{difsaiu}vermelho}, "
-                   f"quando nada do texto que ele pôs ficou na {esc(ref_nome)}; o capítulo "
-                   r"que ele apagou ou esvaziou não entra na conta. "
-                   if "um lado" in formas else "")
-                + (r"Com os dois lados nas mesmas seções e páginas, o texto foi reescrito no "
-                   r"lugar, e o item diz \enquote{reescrito:}, com as páginas em "
-                   r"{\color{difreescrito}roxo}. " if "reescrito" in formas else "")
-                + r"Cada página leva ao trecho no diff, e as chaves do refs.bib, à entrada nas "
-                r"referências.\par}",
+                # Cada lado só tem a frase dele. As páginas em roxo têm os
+                # dois lados, e ficam fora da conta.
+                + ("Com um lado só, " + " e ".join(
+                    ([r"\enquote{entrou:}, em {\color{difentrou}azul}, quer dizer que nada do "
+                      f"texto que o commit tirou da {esc(base_nome)} falta na {esc(ref_nome)}"
+                      + fora_do_roxo] if "entrou" in formas else [])
+                    + ([r"\enquote{saiu:}, em {\color{difsaiu}vermelho}, quer dizer que nada "
+                        f"do texto que o commit pôs ficou na {esc(ref_nome)}" + fora_do_roxo]
+                       if "saiu" in formas else []))
+                   + "; o capítulo que o commit apagou ou esvaziou não entra na conta. "
+                   if formas & {"entrou", "saiu"} else "")
+                + "Cada página leva ao trecho no diff"
+                + (r", e cada fonte depois de \enquote{Referências:}, à entrada dela"
+                   if "referências" in formas else "")
+                + r".\par}",
                 r"\begin{enumerate}\small\setlength{\itemsep}{2pt}"]
         out += itens_dos_commits + [r"\end{enumerate}"]
     # O \label sem contador próprio (o do capítulo sem número) pegaria o

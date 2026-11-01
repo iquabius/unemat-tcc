@@ -291,25 +291,27 @@
    fontes que entraram e saíram e, na linha do capítulo, a parte nova, os
    parágrafos, as citações e as figuras, cada número de página com link para
    ela; e os commits do intervalo que mudaram os =.tex= dos capítulos e
-   apêndices ou o =refs.bib=, sem data nem hash. Em cada commit, as páginas
-   de onde o texto saiu (vermelho), uma seta e as páginas em que entrou
-   (azul), ou, com um lado só, o nome dele, ou, com os dois lados nas mesmas
-   seções e páginas, "reescrito:" e as páginas (roxo), agrupadas por seção
-   e, as seguidas, num intervalo, são links para o trecho (no intervalo, só
-   as pontas), e as chaves do =refs.bib= levam à entrada nas referências; o
-   commit que não deixou trecho no diff nem mudou uma entrada que as
-   referências mostram fica de fora. A release traz só o total das páginas e
-   das medidas. O =bin/anotar-diff.py= atribui o que entrou pelo =git blame=
-   do =.tex=, e o que saiu ao commit em cujo diff a linha some do arquivo,
-   seguida de pai para filho; a linha que só mudou de lugar vai ao commit
-   que a moveu, e a cópia de uma linha repetida, pelo
-   =git blame --reverse=. A âncora vai no lado novo, que o =latexdiff=
-   deixa fora do =\DIFadd=; a página e a seção saem do =.aux= da primeira
-   compilação. O trecho reescrito por um commit posterior fica com o
-   commit posterior. Num capítulo que mudou de pasta no intervalo, como os
-   de =texto/= para =latex/capitulos/= (ADR 0025), o que saiu se procura
-   pelos nomes que ele teve. A capa continua na página 1, como no PDF do
-   texto.
+   apêndices ou o =refs.bib=, sem data nem hash. Em cada commit,
+   "reescrito:" e as páginas (roxo) em que o texto saiu e entrou no mesmo
+   lugar, e, das outras, as de onde saiu (vermelho), uma seta e as em que
+   entrou (azul), ou, com um lado só, o nome dele, agrupadas por seção e,
+   as seguidas, num intervalo, são links para o trecho (no intervalo, só as
+   pontas), e as fontes do =refs.bib= que ele mudou, por autor e ano depois
+   de "Referências:", levam à entrada nas referências; o commit que não
+   deixou trecho no diff nem mudou uma entrada que as referências mostram
+   fica de fora. A release traz só o total das páginas e das medidas. O
+   =bin/anotar-diff.py= atribui o que entrou pelo =git blame= do =.tex=, e
+   o que saiu ao commit em cujo diff a linha some do arquivo, seguida de
+   pai para filho; a linha que só mudou de lugar vai ao commit que a
+   moveu, e a cópia de uma linha repetida, a quem tirou a outra cópia,
+   mesmo que um commit a tenha movido; a linha que chega à versão nova sem
+   que um commit a movesse nem tirasse uma cópia dela não saiu. A âncora
+   vai no lado novo, que o =latexdiff= deixa fora do =\DIFadd=; a página e
+   a seção saem do =.aux= da primeira compilação. O trecho reescrito por um
+   commit posterior fica com o commit posterior. Num capítulo que mudou de
+   pasta no intervalo, como os de =texto/= para =latex/capitulos/= (ADR
+   0025), o que saiu se procura pelos nomes que ele teve. A capa continua
+   na página 1, como no PDF do texto.
 
    No lugar do ano, a capa e a folha de rosto dos dois PDFs dizem
    =U Boneque=, a versão (no diff, o intervalo), o nome do marco e a data
