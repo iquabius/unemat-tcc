@@ -150,7 +150,7 @@ brasileiras só trouxeram o que a base já tinha.
   pelo autor. O Semantic Scholar recusou as consultas (HTTP 429). SciELO
   e Portal CAPES não foram consultados.
 - **Critérios.** Os da seção "Protocolo e primeiro ciclo", escritos em
-  `buscas/69-criterios-segunda-rodada.md`: entram (I1) PR, PFR,
+  `buscas/69-criterios-segundo-ciclo.md`: entram (I1) PR, PFR,
   *signals* ou UI declarativa para GUIs, web ou apps móveis; (I2) estudo
   empírico de compreensão, usabilidade, manutenção ou defeitos de PR, PF
   ou declarativo contra *callbacks*, Observer ou imperativo; (I3) DCs
@@ -218,7 +218,7 @@ em 2026-10-13 (`buscas/86`).
   aberto: os citantes de Kiss (2014), fora do OpenAlex; os de Green (1989)
   e de Blackwell e Green (2003), não vistos; a iteração 3 do segundo
   ciclo, parcial.
-- **Critérios.** Os do Apêndice II e de `buscas/69-criterios-segunda-rodada.md`
+- **Critérios.** Os do Apêndice II e de `buscas/69-criterios-segundo-ciclo.md`
   (I1 a I5). Segue para a iteração seguinte, nos dois sentidos (Wohlin,
   2014, p. 3-4), o incluído que aplica as DCs a notação, linguagem ou
   biblioteca de interface ou de PR, ou que compara notações de interface
@@ -446,5 +446,9 @@ prioridade alta do primeiro ciclo. Em 2026-10-16, foi para
 2026-10-26, ganhou a seção "Quarto ciclo", já com o termo do
 `GLOSSARY.md` (verbete "Ciclo de busca"). Em 2026-11-01, as seções dos
 três primeiros e o título passaram de "rodada" a "ciclo", como o
-Apêndice A (tcc-adhv); os nomes de arquivo em `buscas/` ainda dizem
-"rodada".
+Apêndice A (tcc-adhv), e os nomes de arquivo em `buscas/` que diziam
+"rodada" também (`69-criterios-segundo-ciclo.md`,
+`80-citantes-terceiro-ciclo.txt`, `81-triagem-terceiro-ciclo.md` e
+`scripts-terceiro-ciclo/`). O conteúdo das saídas guardadas em
+`buscas/` fica como foi escrito, com "rodada", porque registra a busca
+como ela se fez; só os caminhos dos arquivos renomeados mudaram nelas.

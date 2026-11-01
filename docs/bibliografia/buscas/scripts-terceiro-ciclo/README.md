@@ -41,7 +41,7 @@ referências (56 e 41, total 97); alguns ids não se resolvem pelo filtro
 ## Uso
 
 ```bash
-cd docs/bibliografia/buscas/scripts-terceira-rodada
+cd docs/bibliografia/buscas/scripts-terceiro-ciclo
 ./coleta.py citantes sementes-iteracao1.txt dados/
 ./coleta.py juntar sementes-iteracao1.txt dados/ dados/iteracao1.json
 ./coleta.py listar sementes-iteracao1.txt dados/ dados/iteracao1.json \
@@ -59,7 +59,7 @@ Testes, sem rede, e a conferência ao vivo contra a saída 80:
 
 ```bash
 python3 -m unittest discover \
-    -s docs/bibliografia/buscas/scripts-terceira-rodada
+    -s docs/bibliografia/buscas/scripts-terceiro-ciclo
 COLETA_AO_VIVO=1 python3 -m unittest discover \
-    -s docs/bibliografia/buscas/scripts-terceira-rodada -k AoVivo
+    -s docs/bibliografia/buscas/scripts-terceiro-ciclo -k AoVivo
 ```

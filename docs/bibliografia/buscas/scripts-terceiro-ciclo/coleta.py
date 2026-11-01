@@ -14,7 +14,7 @@ com o tempo: rodar de novo dá números próximos, não iguais.
     ./coleta.py juntar sementes-iteracao1.txt dados/ dados/iteracao1.json
     # a saída 80, a lista dos citantes por semente
     ./coleta.py listar sementes-iteracao1.txt dados/ dados/iteracao1.json \\
-        -o ../80-citantes-terceira-rodada.txt
+        -o ../80-citantes-terceiro-ciclo.txt
     # iteração 2: citantes e referências dos incluídos
     ./coleta.py citantes sementes-iteracao2.txt dados/
     ./coleta.py referencias sementes-iteracao2.txt dados/

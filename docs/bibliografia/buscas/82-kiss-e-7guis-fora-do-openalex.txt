@@ -61,5 +61,5 @@ Wiersdorf et al. (2024), que escreve "7GUI" e cita Kiss (2014) e o site do 7GUIs
 - Disch, Heegaard e Bahr (2025, `disch2025`): Counter e Timer em Widget Rattus. I1, já na base.
 - Borowski et al. (2022, Varv), Nielsen et al. (2026), Bahr e Møgelberg (2026, JFP, DOI 10.46298/jfp.17791), Vidal (2018, HAL tel-01900619) e a monografia russa de 2024 (W7113712827): achados no texto completo do OpenAlex. Nenhum avalia notações pelas DCs. Vidal é o Hiphop.js, em francês; Bahr e Møgelberg, semântica de PFR assíncrona.
 
-## Citantes, no OpenAlex, dos trabalhos que citam o 7GUIs (em 80-citantes-terceira-rodada.txt)
+## Citantes, no OpenAlex, dos trabalhos que citam o 7GUIs (em 80-citantes-terceiro-ciclo.txt)
 - Lu et al. 3; Disch et al. 1; Varv 21; Nielsen et al. 0; Bahr e Møgelberg 0; Vidal 0; Wiersdorf et al. 0.

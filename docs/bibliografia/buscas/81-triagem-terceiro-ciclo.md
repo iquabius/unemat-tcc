@@ -1,7 +1,7 @@
 # Triagem da iteração 1 da terceira rodada (tcc-lf9, 2026-10-09)
 
-Critérios: os do Apêndice II e de `69-criterios-segunda-rodada.md` (I1 a I5, E, NICHO).
-Registros: os citantes de 2013 em diante, de `80-citantes-terceira-rodada.txt`, ainda não vistos nas rodadas anteriores.
+Critérios: os do Apêndice II e de `69-criterios-segundo-ciclo.md` (I1 a I5, E, NICHO).
+Registros: os citantes de 2013 em diante, de `80-citantes-terceiro-ciclo.txt`, ainda não vistos nas rodadas anteriores.
 Total: 374 (75 sem resumo, julgados pelo título); incluídos: 2.
 
 Salvo nota, excluído pelo título e pelo resumo: visualização de dados, modelagem e notações diagramáticas, música e *live coding*, ensino, programação pelo usuário final, IHC geral e capítulos de livro-texto de IHC (2025). Os registros com nota tiveram o resumo lido, e os incluídos e o Bluefish, o texto completo.

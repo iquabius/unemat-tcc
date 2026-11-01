@@ -1,5 +1,5 @@
 # Terceira rodada (tcc-lf9), iteração 1: citantes no OpenAlex, consultados em 2026-10-09
-# [visto] = já nas saídas das rodadas de 2026-09-24 e 2026-10-02 (pelo id do OpenAlex ou pelo DOI); [antes de 2013] = fora do período; sem marca = triado em 81-triagem-terceira-rodada.md
+# [visto] = já nas saídas das rodadas de 2026-09-24 e 2026-10-02 (pelo id do OpenAlex ou pelo DOI); [antes de 2013] = fora do período; sem marca = triado em 81-triagem-terceiro-ciclo.md
 
 # Trabalhos que citam: Cognitive dimensions of notations (Green, 1989) [W2163314677]
 # Total: 470

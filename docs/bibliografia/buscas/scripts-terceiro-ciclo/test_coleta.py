@@ -4,7 +4,7 @@
 Sem rede, os de sempre:
 
     python3 -m unittest discover \
-        -s docs/bibliografia/buscas/scripts-terceira-rodada
+        -s docs/bibliografia/buscas/scripts-terceiro-ciclo
 
 A conferência ao vivo contra a saída 80 (os citantes de Zimmerle e Gama
 2025) só roda com COLETA_AO_VIVO=1, porque depende da rede e do OpenAlex
@@ -271,14 +271,14 @@ class Arquivos(unittest.TestCase):
     def test_saidas_anteriores_sao_as_de_00_a_79(self):
         nomes = [p.name for p in coleta.saidas_anteriores()]
         self.assertIn("79-survey-titulo-openalex.txt", nomes)
-        self.assertNotIn("80-citantes-terceira-rodada.txt", nomes)
+        self.assertNotIn("80-citantes-terceiro-ciclo.txt", nomes)
 
 
 @unittest.skipUnless(os.environ.get("COLETA_AO_VIVO") == "1",
                      "conferência ao vivo: COLETA_AO_VIVO=1")
 class AoVivo(ComPasta):
     def test_citantes_de_zimmerle_e_gama_batem_com_a_saida_80(self):
-        saida80 = (AQUI.parent / "80-citantes-terceira-rodada.txt").read_text(
+        saida80 = (AQUI.parent / "80-citantes-terceiro-ciclo.txt").read_text(
             encoding="utf-8")
         bloco = saida80.split("(Zimmerle; Gama, 2025) [", 1)[1]
         wid = bloco.split("]", 1)[0]
