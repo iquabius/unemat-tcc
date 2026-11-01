@@ -294,18 +294,19 @@
    apêndices ou o =refs.bib=, sem data nem hash. Em cada commit, as páginas
    de onde o texto saiu (vermelho), uma seta e as páginas em que entrou
    (azul), ou, com um lado só, o nome dele, ou, com os dois lados nas mesmas
-   seções e páginas, "reescrito:" e as páginas (roxo), agrupadas por seção,
-   são links para o trecho, e as chaves do =refs.bib= levam à entrada nas
-   referências; o commit que não deixou trecho no diff nem mudou uma entrada
-   que as referências mostram fica de fora. A release traz só o total das
-   páginas e das medidas. O =bin/anotar-diff.py= atribui cada trecho pelo
-   =git blame= do =.tex= (o que saiu, pelo =git blame --reverse=) e põe uma
-   âncora no lado novo, que o =latexdiff= deixa fora do =\DIFadd=; a página
-   e a seção saem do =.aux= da primeira compilação. O trecho reescrito por
-   um commit posterior fica com o commit posterior. Num capítulo que mudou
-   de pasta no intervalo, como os de =texto/= para =latex/capitulos/= (ADR
-   0025), o que saiu se procura pelo caminho que ele tinha na versão base. A
-   capa continua na página 1, como no PDF do texto.
+   seções e páginas, "reescrito:" e as páginas (roxo), agrupadas por seção
+   e, as seguidas, num intervalo, são links para o trecho (no intervalo, só
+   as pontas), e as chaves do =refs.bib= levam à entrada nas referências; o
+   commit que não deixou trecho no diff nem mudou uma entrada que as
+   referências mostram fica de fora. A release traz só o total das páginas e
+   das medidas. O =bin/anotar-diff.py= atribui cada trecho pelo =git blame=
+   do =.tex= (o que saiu, pelo =git blame --reverse=) e põe uma âncora no
+   lado novo, que o =latexdiff= deixa fora do =\DIFadd=; a página e a seção
+   saem do =.aux= da primeira compilação. O trecho reescrito por um commit
+   posterior fica com o commit posterior. Num capítulo que mudou de pasta no
+   intervalo, como os de =texto/= para =latex/capitulos/= (ADR 0025), o que
+   saiu se procura pelo caminho que ele tinha na versão base. A capa
+   continua na página 1, como no PDF do texto.
 
    No lugar do ano, a capa e a folha de rosto dos dois PDFs dizem
    =U Boneque=, a versão (no diff, o intervalo), o nome do marco e a data

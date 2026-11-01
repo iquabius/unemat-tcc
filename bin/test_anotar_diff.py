@@ -684,6 +684,20 @@ class ResumoDoDiff(unittest.TestCase):
                       r"{\textcolor{difsaiu}{9}} \textrightarrow{} Exemplo, p.~"
                       r"\hyperref[difancora-3]{\textcolor{difentrou}{10}}.", resumo)
 
+    def test_páginas_seguidas_num_intervalo_com_link_nas_pontas(self):
+        def link(n, p):
+            return rf"\hyperref[difancora-{n}]{{\textcolor{{difsaiu}}{{{p}}}}}"
+        self.assertEqual(
+            anotar.paginas_do_lado({("Introdução", "", ""): {"9": 1, "10": 2, "11": 3, "13": 4},
+                                    ("Comparação", "As rodadas", ""): {"31": 5}}, "difsaiu"),
+            f"Introdução, pp.~{link(1, 9)}–{link(3, 11)}, {link(4, 13)}; "
+            f"As rodadas, p.~{link(5, 31)}")
+        # A romana e o #n não são números: ficam soltos.
+        self.assertEqual(
+            anotar.paginas_do_lado({("pré-textuais", "", ""): {"ii": 6, "iii": 7, "#8": 8}},
+                                   "difsaiu"),
+            f"pré-textuais, pp.~{link(6, 'ii')}, {link(7, 'iii')}, {link(8, '\\#8')}")
+
     def test_commit_sem_data_nem_hash(self):
         resumo = self.resumo()
         self.assertIn(r"\item Leva o método\\ ", resumo)

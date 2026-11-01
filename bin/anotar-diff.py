@@ -48,11 +48,13 @@ capítulo e seção, com as medidas e um link em cada número de página
 (tabela_por_lugar()); por último, os commits, sem data nem hash, cada um
 com as páginas de onde o texto saiu (vermelho), uma seta e as páginas em
 que entrou (azul), ou, com um lado só, o nome dele, ou, com os dois lados
-nas mesmas seções e páginas, "reescrito:" e as páginas (roxo), um link por
-página e seção, e as chaves do refs.bib que ele mudou, com link para a
-entrada na bibliografia (âncora cite.0@chave do biblatex). O commit cujo
-trecho foi refeito depois, ou que só mudou rótulos, e que não mudou uma
-entrada que as referências mostram, não entra.
+nas mesmas seções e páginas, "reescrito:" e as páginas (roxo), agrupadas
+por seção e, as seguidas, num intervalo, com link para o trecho em cada
+página solta e nas pontas do intervalo, e as chaves do refs.bib que ele
+mudou, com link para a entrada na bibliografia (âncora cite.0@chave do
+biblatex). O commit cujo trecho foi refeito depois, ou que só mudou
+rótulos, e que não mudou uma entrada que as referências mostram, não
+entra.
 """
 import json
 import os
@@ -546,16 +548,22 @@ CORES = {"saiu": "difsaiu", "entrou": "difentrou", "reescrito": "difreescrito"}
 def paginas_do_lado(por_secao, cor):
     """As páginas de um lado de um commit na lista do resumo, por lugar
     ({(capítulo, seção, subseção): {página: n}}), com o título do lugar
-    mais fundo, cada página um link para a âncora n, na cor."""
-    grupos = []
-    for (cap, sec, sub), paginas in por_secao.items():
-        secao = esc(sub or sec or cap)
+    mais fundo, na cor. As páginas seguidas formam um intervalo, como na
+    tabela por lugar; a página solta e as pontas de cada intervalo são
+    links para a âncora n delas, e a página do meio de um intervalo não
+    tem link. A página que não é um número (a romana, ou o #n de antes da
+    primeira compilação) fica fora de intervalo."""
+    def link(pagina_n):
+        p, n = pagina_n
         # A classe esconde a cor dos links (hidelinks): a cor vai no número.
-        links = [f"\\hyperref[difancora-{n}]{{\\textcolor{{{cor}}}{{{esc(p)}}}}}"
-                 for p, n in paginas.items()]
-        grupos.append((f"{secao}, " if secao else "") + ("p.~" if len(links) == 1 else "pp.~")
-                      + ", ".join(links))
-    return "; ".join(grupos)
+        return f"\\hyperref[difancora-{n}]{{\\textcolor{{{cor}}}{{{esc(p)}}}}}"
+
+    def seguidas(a, b):
+        return a[0].isdigit() and b[0].isdigit() and int(b[0]) == int(a[0]) + 1
+
+    return "; ".join((f"{esc(sub or sec or cap)}, " if sub or sec or cap else "")
+                     + intervalos(list(paginas.items()), link, seguidas).replace(" ", "~", 1)
+                     for (cap, sec, sub), paginas in por_secao.items())
 
 
 def resumo(dir_, aux, job, base_nome, ref_nome):
@@ -937,7 +945,9 @@ def medidas(dir_, aux, job):
 
 def intervalos(numeros, num=str, seguidos=lambda a, b: b == a + 1):
     """[5, 6, 7, 9] -> "pp. 5–7, 9", com cada número escrito por num e o
-    intervalo enquanto seguidos(anterior, próximo)."""
+    intervalo enquanto seguidos(anterior, próximo). Os elementos só passam
+    por num e seguidos: podem ser outra coisa que números, como os pares
+    (página, âncora) da lista dos commits (paginas_do_lado())."""
     partes, i = [], 0
     while i < len(numeros):
         j = i
