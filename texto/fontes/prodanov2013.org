@@ -1,7 +1,7 @@
 #+title: prodanov2013: Prodanov e Freitas (2013), Metodologia do trabalho científico
 #+startup: overview
 
-* [[file:../cases.org::Quatro coisas poderiam diferenciar as implementações][cases: Quatro coisas poderiam diferenciar as implementações]], p. 54
+* [[file:../cases.org::Seis coisas poderiam diferenciar as implementações][cases: Seis coisas poderiam diferenciar as implementações]], p. 54
 - Frase: “Esse controle das variáveis é parte do planejamento da
   pesquisa, o delineamento (Prodanov; Freitas, 2013, p. 54).”
 - Trecho: “[...] denominado de design, que pode ser traduzido como
@@ -10,7 +10,8 @@
   interpretação de coleta de dados, considerando o ambiente em que são
   coletados e as formas de controle das variáveis envolvidas.” (p. 54)
 - Lido em: =acervo/prodanov2013.pdf=, p. 54 do PDF (p. 54).
-- Observação: primeira menção de “delineamento” no capítulo, no fim do
-  parágrafo que mostra o controle; o termo segue o GLOSSARY.md, contra
-  “desenho”.
-- Conferido: 2026-10-13.
+- Observação: a frase fecha o parágrafo que lista o que fica fixo; o
+  termo segue o GLOSSARY.md, contra “desenho”. Até 2026-10-31, o
+  parágrafo abria por “Quatro coisas” e era a primeira menção de
+  “delineamento” no capítulo, que agora abre pelo título “Delineamento”.
+- Conferido: 2026-10-13; o trecho, de novo em 2026-10-31.

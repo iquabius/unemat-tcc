@@ -230,35 +230,49 @@
   ligação nos dois sentidos.
 
 ** Os controles e o teste de conformidade
-  @@latex:\todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}@@
 
-  Quatro coisas poderiam diferenciar as implementações sem ser o modelo de
-  programação nem a notação, e as quatro ficam fixas: a linguagem, a
-  especificação, as bibliotecas e o domínio.
-  A linguagem é uma só em cada plataforma: na web, o /TypeScript/, que o
-  Angular exige cite:google2026b e as demais tecnologias também usam; no
-  Android, o Kotlin; e, no /desktop/, o C#.
-  As implementações de uma interface seguem a mesma especificação, com os mesmos
-  textos, regras e dados, e, nas duas primeiras rodadas, cada uma usa só o que a própria
-  tecnologia traz, sem bibliotecas de formulário.
-  As regras que não dependem da tela, como o formato das datas, a
-  validação do e-mail e as transições do quadro, ficam num /domínio/ comum
-  às implementações de cada plataforma, na linguagem dela.
+  Seis coisas poderiam diferenciar as implementações sem ser o modelo de
+  programação nem a notação, e as seis ficam fixas: a linguagem, a
+  especificação, as dependências, o domínio, a aparência e as versões.
   Esse controle das variáveis é parte do planejamento da pesquisa, o
   delineamento [[cite:prodanov2013][p. 54]].
 
-  Um /teste de conformidade/ por interface executa as verificações da
-  especificação contra cada implementação; na web, ele roda no console do
-  navegador.
+  Todas as implementações estão na web, em /TypeScript/ no modo estrito.
+  As de uma interface seguem a mesma especificação, com os mesmos textos,
+  regras e dados, e cada mudança da segunda rodada entra na especificação
+  antes do código.
+  Cada implementação usa só o que a tecnologia traz, sem bibliotecas além
+  das que fazem parte dela: o RxJS nos passos da terceira rodada e, no
+  entorno, o Effection e o Cycle.js.
+  As regras que não dependem da tela, como o formato das datas, as
+  mensagens, os servidores simulados e a análise das fórmulas da
+  Planilha, ficam num /domínio/ comum às implementações de cada
+  interface; o Contador não tem nenhuma.
+  A alteração do estado, como a propagação da Planilha e o desfazer do
+  Desenhador de círculos, fica em cada implementação, para que a
+  diferença entre alterar no lugar e trocar por uma cópia não saia da
+  análise.
+
+  Na primeira rodada, duas regras valem para todas as interfaces.
+  As mensagens de situação ficam numa região que o leitor de tela anuncia
+  sem mover o foco, e a interface que sai da tela encerra o que abriu:
+  relógios, conexões, requisições e ouvintes.
+
+  Um /teste de conformidade/ por interface executa as mesmas verificações,
+  na mesma ordem, contra cada implementação, cada uma com o nome de um
+  cenário da especificação.
+  Ele se cola no console do navegador, com a implementação aberta, ou roda
+  por um comando que abre cada implementação no Chromium.
+  O teste confere também as mensagens de situação e, nas interfaces que
+  abrem relógios, conexões, requisições ou ouvintes, a limpeza ao sair da
+  tela.
   /Capturas/ de tela dos estados escolhidos de cada interface, geradas
   automaticamente, denunciam desvios de comportamento ou de aparência,
-  porque devem sair idênticas entre as tecnologias web.
-  As implementações, os testes de conformidade e as capturas ficam num repositório público,
-  em https://github.com/iquabius/unemat-tcc.
-  Nele, as versões de linguagens, bibliotecas e ferramentas ficam
+  porque devem sair idênticas entre as tecnologias.
+  As implementações, os testes de conformidade e as capturas ficam num
+  repositório público, em https://github.com/iquabius/unemat-tcc.
+  Nele, as versões da linguagem, das bibliotecas e das ferramentas ficam
   fixadas[fn:versoes], para que as implementações possam ser reproduzidas.
-
-  @@latex:\todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}@@
 
   Na aparência, que fica fixa num arquivo [[gls:css]] comum às
   implementações de cada interface, a tela só cita as classes pelo nome.
@@ -889,12 +903,9 @@
 
 * Footnotes
 
-[fn:versoes] No =package-lock.json= e no =libs.versions.toml=.
-Na web, TypeScript 6.0.3, React 19.3.0, Solid 1.9.15, Lit 3.3.3 e Angular
-22.2.0, com Vite 8.3.1 para o /build/ (no Angular, o =@angular/build= 22.2.0)
-e Playwright 1.63.0 para as capturas.
-No Android, Kotlin 2.4.20, Jetpack Compose pela [[gls:bom]]
-2026.09.00 e, para as capturas, Robolectric 4.17 com Roborazzi 1.75.0.
+[fn:versoes] No =package-lock.json=: TypeScript 6.0.3, React 19.3.0,
+Solid 1.9.15 e Lit 3.3.3, com Vite 8.3.1 para o /build/ e Playwright
+1.63.0 para as capturas e o teste de conformidade por comando.
 
 [fn:encadeamento] Note que o nome da variável src_js{cliqueStream} já nem faz mais
 sentido, pois o resultado da expressão não inclui apenas os eventos de clique.
