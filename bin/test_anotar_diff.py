@@ -172,6 +172,232 @@ Texto depois, mudado.
 """)
 
 
+class QuemTirou(unittest.TestCase):
+    """Na v0.12, o git blame --reverse dava as linhas que o "Tira da
+    introdução quatro detalhes" tirou a um commit anterior, que só mexeu em
+    volta delas, e o "Tira…" ficava sem o lado do que saiu. A linha vai ao
+    commit em que ela some do arquivo."""
+
+    BASE = ["Abre.\n", "Bloco um.\n", "Bloco dois.\n", "Meio.\n", "Fica.\n", "Sai.\n"]
+    # (nome do arquivo, linhas) de cada commit depois de c0, em a.tex.
+    VERSOES = [
+        # c1 reescreve em volta: muda a abertura e leva o bloco para o fim.
+        ("a.tex", ["Abre de novo.\n", "Meio.\n", "Fica.\n", "Sai.\n", "Bloco um.\n",
+                   "Bloco dois.\n"]),
+        # c2 tira o bloco; c3 só renomeia o arquivo para b.tex; c4 o
+        # renomeia para c.tex e tira o "Sai.".
+        ("a.tex", ["Abre de novo.\n", "Meio.\n", "Fica.\n", "Sai.\n"]),
+        ("b.tex", ["Abre de novo.\n", "Meio.\n", "Fica.\n", "Sai.\n"]),
+        ("c.tex", ["Abre de novo.\n", "Meio.\n", "Fica.\n"]),
+    ]
+
+    def setUp(self):
+        tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(tmp.cleanup)
+        self.repo = Path(tmp.name)
+        self.env = {"GIT_CONFIG_GLOBAL": os.devnull, "GIT_CONFIG_NOSYSTEM": "1",
+                    "GIT_AUTHOR_NAME": "t", "GIT_AUTHOR_EMAIL": "t@t",
+                    "GIT_COMMITTER_NAME": "t", "GIT_COMMITTER_EMAIL": "t@t"}
+        self.git("init", "-q")
+        self.commits = []
+        nome = "a.tex"
+        for k, (novo, linhas) in enumerate([("a.tex", self.BASE)] + self.VERSOES):
+            if novo != nome:
+                self.git("mv", nome, novo)
+                nome = novo
+            (self.repo / nome).write_text("".join(linhas))
+            self.git("add", "-A")
+            self.git("commit", "-qm", f"c{k}")
+            self.commits.append(subprocess.run(
+                ["git", "rev-parse", "HEAD"], cwd=self.repo, capture_output=True,
+                text=True, check=True).stdout.strip())
+
+    def git(self, *args):
+        subprocess.run(["git", *args], cwd=self.repo, env={**os.environ, **self.env},
+                       check=True, capture_output=True)
+
+    def test_nomes_do_meio_da_renomeação(self):
+        # De a.tex a c.tex: o b.tex do meio entra, ou o c3 não teria nenhum
+        # dos dois nomes, e tudo o que restava sairia nele.
+        c0, c1, c2, c3, c4 = self.commits
+        nomes, nome_em = anotar.nomes_do_arquivo(str(self.repo), c0, c4, "c.tex", "a.tex")
+        self.assertEqual(nomes, ["a.tex", "b.tex", "c.tex"])
+        self.assertEqual(nome_em, {c1: "a.tex", c2: "a.tex", c3: "b.tex", c4: "c.tex"})
+
+    def test_linha_vai_ao_commit_em_que_some(self):
+        c0, c1, c2, c3, c4 = self.commits
+        tirou, moveu = anotar.quem_tirou(
+            str(self.repo), c0, c4, self.BASE,
+            *anotar.nomes_do_arquivo(str(self.repo), c0, c4, "c.tex", "a.tex"))
+        # A abertura reescrita sai em c1; o bloco, que c1 só levou para o
+        # fim, sai em c2; o "Sai.", em c4, depois das duas renomeações (c3,
+        # que só renomeia, não tira nada). Nada movido chega ao fim.
+        self.assertEqual(tirou, {0: c1, 1: c2, 2: c2, 5: c4})
+        self.assertEqual(moveu, {})
+
+    def commit(self, arquivos, msg):
+        """Grava {nome: linhas} (None apaga) e commita; devolve o sha."""
+        for nome, linhas in arquivos.items():
+            if linhas is None:
+                self.git("rm", "-q", nome)
+            else:
+                (self.repo / nome).write_text("".join(linhas))
+        self.git("add", "-A")
+        self.git("commit", "-qm", msg)
+        return subprocess.run(["git", "rev-parse", "HEAD"], cwd=self.repo,
+                              capture_output=True, text=True, check=True).stdout.strip()
+
+    def novo_ramo(self):
+        self.git("checkout", "-q", "--orphan", "outro")
+        self.git("rm", "-rqf", ".")
+
+    def test_nome_antigo_reutilizado_por_outro_arquivo(self):
+        # c1 leva o arquivo para b.tex e cria outro a.tex; c2 apaga o novo
+        # a.tex e tira o X de b.tex. O X sai em c2, não em c1.
+        self.novo_ramo()
+        base = self.commit({"a.tex": ["P.\n", "X.\n", "Q.\n"]}, "base")
+        self.git("mv", "a.tex", "b.tex")
+        self.commit({"a.tex": ["Outro arquivo.\n"]}, "c1")
+        c2 = self.commit({"a.tex": None, "b.tex": ["P.\n", "Q.\n"]}, "c2")
+        tirou, _ = anotar.quem_tirou(str(self.repo), base, c2, ["P.\n", "X.\n", "Q.\n"],
+                                     *anotar.nomes_do_arquivo(str(self.repo), base, c2,
+                                                              "b.tex", "a.tex"))
+        self.assertEqual(tirou, {1: c2})
+
+    def test_junção_não_toma_o_movimento_de_um_lado(self):
+        # Um lado leva o X para o fim; o outro troca o A por AA. A junção
+        # leva os dois, e quem moveu o X continua sendo o primeiro lado.
+        self.novo_ramo()
+        linhas = ["A.\n", "B.\n", "C.\n", "X.\n", "D.\n", "E.\n", "F.\n"]
+        base = self.commit({"x.tex": linhas}, "base")
+        self.git("branch", "troca")
+        move = self.commit({"x.tex": linhas[:3] + linhas[4:] + ["X.\n"]}, "move")
+        self.git("checkout", "-q", "troca")
+        self.commit({"x.tex": ["AA.\n"] + linhas[1:]}, "troca")
+        self.git("checkout", "-q", "outro")
+        self.git("merge", "-q", "--no-edit", "troca")
+        junta = subprocess.run(["git", "rev-parse", "HEAD"], cwd=self.repo,
+                               capture_output=True, text=True, check=True).stdout.strip()
+        tirou, moveu = anotar.quem_tirou(str(self.repo), base, junta, linhas, ["x.tex"], {})
+        self.assertEqual(moveu, {3: move})
+
+    def test_junção_com_o_nome_do_lado_que_renomeou(self):
+        # Um lado renomeia a.tex para b.tex e põe outro arquivo em a.tex; o
+        # outro tira o l2 de a.tex. A junção, que o git log --follow não
+        # lista, fica com b.tex: com o nome do primeiro pai, ela tiraria
+        # tudo, e com o a.tex novo, também.
+        self.novo_ramo()
+        linhas = [f"l{i}.\n" for i in range(8)]
+        base = self.commit({"a.tex": linhas}, "base")
+        self.git("branch", "lado")
+        tira = self.commit({"a.tex": linhas[:2] + linhas[3:]}, "tira")
+        self.git("checkout", "-q", "lado")
+        self.git("mv", "a.tex", "b.tex")
+        self.commit({"a.tex": ["Outro arquivo.\n"]}, "renomeia")
+        self.git("checkout", "-q", "outro")
+        # O git não junta o a.tex mudado de um lado e trocado do outro: o
+        # conflito se resolve com o l2 tirado em b.tex e o a.tex novo.
+        with self.assertRaises(subprocess.CalledProcessError):
+            self.git("merge", "-q", "--no-edit", "lado")
+        self.commit({"a.tex": ["Outro arquivo.\n"], "b.tex": linhas[:2] + linhas[3:]}, "junta")
+        fim = self.commit({"b.tex": linhas[:2] + linhas[3:6] + linhas[7:]}, "fim")
+        tirou, _ = anotar.quem_tirou(str(self.repo), base, fim, linhas,
+                                     *anotar.nomes_do_arquivo(str(self.repo), base, fim,
+                                                              "b.tex", "a.tex"))
+        self.assertEqual(tirou, {2: tira, 6: fim})
+
+    def test_junção_com_o_nome_de_volta(self):
+        # O arquivo vai de a.tex a b.tex; um lado o volta a a.tex e põe
+        # outro arquivo em b.tex, e o outro tira o l2 do b.tex. A junção fica
+        # com o arquivo em a.tex, o nome que casa as linhas dos pais, e não
+        # com o b.tex novo, que vem depois em nomes.
+        self.novo_ramo()
+        linhas = [f"l{i}.\n" for i in range(8)]
+        base = self.commit({"a.tex": linhas}, "base")
+        self.git("mv", "a.tex", "b.tex")
+        self.commit({}, "para b")
+        self.git("branch", "lado")
+        tira = self.commit({"b.tex": linhas[:2] + linhas[3:]}, "tira")
+        self.git("checkout", "-q", "lado")
+        self.git("mv", "b.tex", "a.tex")
+        self.commit({"b.tex": ["Outro arquivo.\n"]}, "volta")
+        self.git("checkout", "-q", "outro")
+        try:
+            self.git("merge", "-q", "--no-edit", "lado")
+        except subprocess.CalledProcessError:
+            self.commit({"a.tex": linhas[:2] + linhas[3:], "b.tex": ["Outro arquivo.\n"]},
+                        "junta")
+        fim = self.commit({"a.tex": linhas[:2] + linhas[3:6] + linhas[7:]}, "fim")
+        tirou, _ = anotar.quem_tirou(str(self.repo), base, fim, linhas,
+                                     *anotar.nomes_do_arquivo(str(self.repo), base, fim,
+                                                              "a.tex", "a.tex"))
+        self.assertEqual(tirou, {2: tira, 6: fim})
+
+    def test_junção_com_cópia_no_nome_antigo(self):
+        # Um lado troca o A por AA; o outro renomeia a.tex para b.tex. A
+        # junção fica com o capítulo em b.tex e põe em a.tex uma cópia do
+        # texto de BASE, que casa mais linhas que o b.tex: o nome da junção
+        # vem do commit seguinte, que mexe no b.tex, e não da cópia.
+        self.novo_ramo()
+        linhas = ["A.\n", "B.\n", "C.\n", "D.\n", "E.\n", "F.\n"]
+        base = self.commit({"a.tex": linhas}, "base")
+        self.git("branch", "lado")
+        troca = self.commit({"a.tex": ["AA.\n"] + linhas[1:]}, "troca")
+        self.git("checkout", "-q", "lado")
+        self.git("mv", "a.tex", "b.tex")
+        self.commit({}, "renomeia")
+        self.git("checkout", "-q", "outro")
+        self.git("merge", "-q", "--no-commit", "lado")
+        junta = self.commit({"a.tex": linhas, "b.tex": ["AA.\n"] + linhas[1:]}, "junta")
+        self.assertEqual(len(subprocess.run(
+            ["git", "rev-list", "--parents", "-1", junta], cwd=self.repo, capture_output=True,
+            text=True, check=True).stdout.split()), 3)
+        fim = self.commit({"b.tex": ["AA.\n"] + linhas[1:3] + linhas[4:]}, "fim")
+        tirou, _ = anotar.quem_tirou(str(self.repo), base, fim, linhas,
+                                     *anotar.nomes_do_arquivo(str(self.repo), base, fim,
+                                                              "b.tex", "b.tex"))
+        self.assertEqual(tirou, {0: troca, 3: fim})
+
+    def test_nome_de_base_pela_renomeação_que_o_diff_não_vê(self):
+        # O capítulo muda de pasta e depois é quase todo reescrito: o git
+        # diff -M de BASE a REF não vê a renomeação, e o nome de BASE vem do
+        # git log --follow.
+        self.novo_ramo()
+        (self.repo / "texto").mkdir()
+        (self.repo / "latex").mkdir()
+        linhas = [f"Frase {i} da versão base.\n" for i in range(6)]
+        base = self.commit({"texto/a.tex": linhas}, "base")
+        self.git("mv", "texto/a.tex", "latex/a.tex")
+        self.commit({}, "muda de pasta")
+        fim = self.commit({"latex/a.tex": linhas[:1] + [f"Nova {i}.\n" for i in range(20)]},
+                          "reescreve")
+        status = subprocess.run(["git", "diff", "-M", "--name-status", base, fim],
+                                cwd=self.repo, capture_output=True, text=True,
+                                check=True).stdout
+        self.assertNotIn("R", status.split()[0::2])
+        nomes, _ = anotar.nomes_do_arquivo(str(self.repo), base, fim, "latex/a.tex",
+                                           "latex/a.tex")
+        self.assertEqual(nomes[0], "texto/a.tex")
+
+    def test_ramo_juntado_não_tira_o_que_nunca_teve(self):
+        # O ramo que saiu de antes de BASE não tem o X que BASE pôs: a
+        # junção o leva pelo lado de BASE, e quem o tira é o commit depois
+        # dela. O Y, o ramo o troca por Z.
+        self.novo_ramo()
+        resto = ["k1.\n", "k2.\n", "k3.\n"]
+        self.commit({"x.tex": ["Y.\n"] + resto}, "o")
+        self.git("branch", "lado")
+        base = self.commit({"x.tex": ["Y.\n"] + resto + ["X.\n"]}, "base")
+        self.git("checkout", "-q", "lado")
+        lado = self.commit({"x.tex": ["Z.\n"] + resto}, "lado")
+        self.git("checkout", "-q", "outro")
+        self.git("merge", "-q", "--no-edit", "lado")
+        tira = self.commit({"x.tex": ["Z.\n"] + resto}, "tira")
+        tirou, _ = anotar.quem_tirou(str(self.repo), base, tira,
+                                     ["Y.\n"] + resto + ["X.\n"], ["x.tex"], {})
+        self.assertEqual(tirou, {0: lado, 4: tira})
+
+
 class AncoraForaDaFigura(unittest.TestCase):
     """No diff v0.10..v0.11 de 2026-10-26, o ancorar pôs \\difancora nas
     opções do \\begin{tikzpicture}[...] e antes do \\node, nas linhas
@@ -636,12 +862,27 @@ class ResumoDoDiff(unittest.TestCase):
                       r"{\texttt{novo2020}}.", resumo)
         self.assertIn(r"\colorlet{difsaiu}{red!70!black}", resumo)
 
-    def test_legenda_diz_as_três_formas_do_item(self):
-        resumo = self.resumo()
-        legenda = resumo[resumo.index("Os commits que mudaram"):resumo.index(r"\begin{enumerate}")]
-        for forma in ("depois da seta", r"\enquote{saiu:} ou \enquote{entrou:}",
-                      r"\enquote{reescrito:}"):
-            self.assertIn(forma, legenda)
+    def legenda(self, resumo):
+        return resumo[resumo.index("Os commits que mudaram"):resumo.index(r"\begin{enumerate}")]
+
+    def test_legenda_diz_só_as_formas_que_a_lista_tem(self):
+        # A seta e o lado só ("Põe uma frase"), sem reescrito: o roxo não
+        # aparece na página, e a legenda não fala dele.
+        legenda = self.legenda(self.resumo())
+        self.assertIn("vêm antes da seta", legenda)
+        self.assertIn(r"quando nada do texto que o commit tirou da v0.11 falta na v0.12, e "
+                      r"\enquote{saiu:}, em "
+                      r"{\color{difsaiu}vermelho}, quando nada do texto que ele pôs ficou na v0.12; "
+                      r"o capítulo que ele apagou ou esvaziou não entra na conta.", legenda)
+        self.assertNotIn("reescrito", legenda)
+        # Só o reescrito: nem a seta nem o lado só.
+        ancoras = dict(self.ANCORAS, commits=self.ANCORAS["commits"][:1], ancoras=[
+            {"n": 1, "commit": "a" * 40, "tipo": "saiu", "capitulo": "Introdução"},
+            {"n": 2, "commit": "a" * 40, "tipo": "entrou", "capitulo": "Introdução"}])
+        legenda = self.legenda(self.resumo(ancoras=ancoras))
+        self.assertIn(r"\enquote{reescrito:}", legenda)
+        self.assertNotIn("seta", legenda)
+        self.assertNotIn("Com um lado só", legenda)
 
     def test_reescrito_quando_os_lados_caem_nas_mesmas_páginas(self):
         # Saiu da p. 9 da introdução e entrou na mesma página: a seta diria
