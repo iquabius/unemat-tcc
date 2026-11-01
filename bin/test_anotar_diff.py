@@ -870,7 +870,10 @@ class ResumoDoDiff(unittest.TestCase):
         # aparece na página, e a legenda não fala dele.
         legenda = self.legenda(self.resumo())
         self.assertIn("vêm antes da seta", legenda)
-        self.assertIn("Com um lado só", legenda)
+        self.assertIn(r"quando nada do texto que o commit tirou da v0.11 falta na v0.12, e "
+                      r"\enquote{saiu:}, em "
+                      r"{\color{difsaiu}vermelho}, quando nada do texto que ele pôs ficou na v0.12; "
+                      r"o capítulo que ele apagou ou esvaziou não entra na conta.", legenda)
         self.assertNotIn("reescrito", legenda)
         # Só o reescrito: nem a seta nem o lado só.
         ancoras = dict(self.ANCORAS, commits=self.ANCORAS["commits"][:1], ancoras=[

@@ -803,9 +803,15 @@ def resumo(dir_, aux, job, base_nome, ref_nome):
                 + (r"Com os dois lados, as páginas de onde o texto saiu, em "
                    r"{\color{difsaiu}vermelho}, vêm antes da seta, e as páginas em que entrou, "
                    r"em {\color{difentrou}azul}, depois dela. " if "seta" in formas else "")
-                + (r"Com um lado só, o item diz qual, \enquote{saiu:}, em "
-                   r"{\color{difsaiu}vermelho}, ou \enquote{entrou:}, em "
-                   r"{\color{difentrou}azul}. " if "um lado" in formas else "")
+                # O lado do que saiu conta só as linhas de BASE (quem_tirou()),
+                # e o do que entrou, só as que ficaram em REF (o git blame).
+                + (r"Com um lado só, o item diz qual: \enquote{entrou:}, em "
+                   r"{\color{difentrou}azul}, quando nada do texto que o commit tirou da "
+                   f"{esc(base_nome)} falta na {esc(ref_nome)}, e \\enquote{{saiu:}}, em "
+                   r"{\color{difsaiu}vermelho}, "
+                   f"quando nada do texto que ele pôs ficou na {esc(ref_nome)}; o capítulo "
+                   r"que ele apagou ou esvaziou não entra na conta. "
+                   if "um lado" in formas else "")
                 + (r"Com os dois lados nas mesmas seções e páginas, o texto foi reescrito no "
                    r"lugar, e o item diz \enquote{reescrito:}, com as páginas em "
                    r"{\color{difreescrito}roxo}. " if "reescrito" in formas else "")
