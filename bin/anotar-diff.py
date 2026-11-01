@@ -42,14 +42,16 @@ o tikzpicture; e depois do \\item e do título de seção, para que o
 \\nameref dê a seção certa. A \\difancora devolve o \\@currentHref, e o
 \\label seguinte (de seção ou legenda) continua apontando para o lugar dele.
 
-O resumo abre pela mensagem da tag, como a release; depois, as páginas
-alteradas por capítulo e seção, com as medidas e um link em cada número de
-página (tabela_por_lugar()); por último, os commits, sem data nem hash,
-cada um com um link por página e seção em que entrou texto (azul) e outro
-onde saiu (vermelho), e as chaves do refs.bib que ele mudou, com link para
-a entrada na bibliografia (âncora cite.0@chave do biblatex). O commit cujo
-trecho foi refeito depois, ou que só mudou rótulos, e que não mudou uma
-entrada que as referências mostram, não entra.
+O resumo é escrito para o orientador, que lê o PDF sem o repositório. Abre
+pela mensagem da tag, como a release; depois, as páginas alteradas por
+capítulo e seção, com as medidas e um link em cada número de página
+(tabela_por_lugar()); por último, os commits, sem data nem hash, cada um
+com as páginas de onde o texto saiu (vermelho), uma seta e as páginas em
+que entrou (azul), ou, com um lado só, o nome dele, um link por página e
+seção, e as chaves do refs.bib que ele mudou, com link para a entrada na
+bibliografia (âncora cite.0@chave do biblatex). O commit cujo trecho foi
+refeito depois, ou que só mudou rótulos, e que não mudou uma entrada que
+as referências mostram, não entra.
 """
 import json
 import os
@@ -547,8 +549,12 @@ def resumo(dir_, aux, job, base_nome, ref_nome):
     bbl = Path(dir_) / aux / f"{job}.bbl"
     na_bib = set(re.findall(r"\\entry\{([^}]+)\}", bbl.read_text(errors="replace"))) if bbl.exists() else set()
 
+    # O vermelho do que saiu, mais escuro que o red do latexdiff, que dá
+    # 4,0:1 sobre o branco, abaixo dos 4,5:1 da WCAG 1.4.3; este dá 7,2:1,
+    # e o azul do que entrou, 8,6:1.
     out = [r"\makeatletter\let\dif@inicio\@currentHref\gdef\dif@resumo{-1}\makeatother",
-           r"\begingroup\pagenumbering{roman}\thispagestyle{empty}\setlength{\parindent}{0pt}"]
+           r"\begingroup\pagenumbering{roman}\thispagestyle{empty}\setlength{\parindent}{0pt}",
+           r"\colorlet{difsaiu}{red!70!black}\colorlet{difentrou}{blue}"]
     titulo = f"{esc(base_nome)} \\textrightarrow{{}} {esc(ref_nome)}"
     if d.get("nome"):
         titulo += ": " + esc(d["nome"])
@@ -571,8 +577,8 @@ def resumo(dir_, aux, job, base_nome, ref_nome):
                 r"é um link para ela.\par\smallskip"] + tabela_por_lugar(dados) + ["}"]
     itens_dos_commits = []
     for c in d["commits"]:
-        partes = []
-        for tipo, cor in (("entrou", "blue"), ("saiu", "red")):
+        lados = {}  # tipo -> as páginas por seção, com link
+        for tipo, cor in (("saiu", "difsaiu"), ("entrou", "difentrou")):
             por_secao = {}  # título -> {página: n}, na ordem do documento
             for an in sorted((x for x in d["ancoras"] if x["commit"] == c["commit"] and x["tipo"] == tipo),
                              key=lambda x: (int(rotulos[x["n"]][0]) if x["n"] in rotulos
@@ -584,16 +590,21 @@ def resumo(dir_, aux, job, base_nome, ref_nome):
                 continue
             grupos = []
             for secao, paginas in por_secao.items():
-                links = [f"\\hyperref[difancora-{n}]{{{esc(p)}}}" for p, n in paginas.items()]
+                # A classe esconde a cor dos links (hidelinks): a cor vai no número.
+                links = [f"\\hyperref[difancora-{n}]{{\\textcolor{{{cor}}}{{{esc(p)}}}}}"
+                         for p, n in paginas.items()]
                 grupos.append((f"{secao}, " if secao else "") + ("p.~" if len(links) == 1 else "pp.~")
                               + ", ".join(links))
-            partes.append(f"{tipo}: {{\\hypersetup{{linkcolor={cor}}}" + "; ".join(grupos) + "}")
+            lados[tipo] = "; ".join(grupos)
+        # De onde o texto saiu para onde entrou; com um lado só, o nome dele.
+        partes = ([f"{lados['saiu']} \\textrightarrow{{}} {lados['entrou']}"] if len(lados) == 2
+                  else [f"{tipo}: {lado}" for tipo, lado in lados.items()])
         # A chave que as referências não mostram (a fonte não citada) não
         # leva a lugar nenhum, e fica de fora como o trecho que não existe.
         chaves = [f"\\hyperlink{{cite.0@{k}}}{{\\texttt{{{esc(k)}}}}}"
                   for k in c["chaves"] if k in na_bib]
         if chaves:
-            partes.append("refs.bib: {\\hypersetup{linkcolor=violet}" + ", ".join(chaves) + "}")
+            partes.append("refs.bib: " + ", ".join(chaves))
         # O commit sem trecho próprio no diff (refeito por um posterior, ou
         # só rótulos ou fontes que o PDF não mostra) não leva a lugar nenhum.
         if partes:
@@ -602,10 +613,10 @@ def resumo(dir_, aux, job, base_nome, ref_nome):
     # ("missing \item").
     if itens_dos_commits:
         out += [titulo_do_resumo("Os commits"),
-                r"{\small Commits que mudaram o texto, do mais antigo ao mais novo. "
-                r"Cada página é um link para o trecho no diff: em {\color{blue}azul}, onde "
-                r"o texto entrou; em {\color{red}vermelho}, onde saiu. As chaves do refs.bib "
-                r"levam à entrada nas referências.\par}",
+                r"{\small Os commits que mudaram o texto, do mais antigo ao mais novo, com as "
+                r"páginas de onde o texto saiu, em {\color{difsaiu}vermelho}, e, depois da seta, "
+                r"as páginas em que entrou, em {\color{difentrou}azul}. Cada página leva ao "
+                r"trecho no diff, e as chaves do refs.bib, à entrada nas referências.\par}",
                 r"\begin{enumerate}\small\setlength{\itemsep}{2pt}"]
         out += itens_dos_commits + [r"\end{enumerate}"]
     # O \label sem contador próprio (o do capítulo sem número) pegaria o

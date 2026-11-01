@@ -626,6 +626,16 @@ class ResumoDoDiff(unittest.TestCase):
         # Antes da primeira compilação não há páginas, nem tabela.
         self.assertNotIn("páginas alteradas", self.resumo(com_aux=False))
 
+    def test_commits_de_onde_saiu_para_onde_entrou(self):
+        resumo = self.resumo()
+        self.assertIn(r"\item Leva o método\\ Introdução, p.~\hyperref[difancora-1]"
+                      r"{\textcolor{difsaiu}{9}} \textrightarrow{} Delineamento, "
+                      r"p.~\hyperref[difancora-3]{\textcolor{difentrou}{30}}.", resumo)
+        self.assertIn(r"\item Põe uma frase\\ entrou: Introdução, p.~\hyperref[difancora-2]"
+                      r"{\textcolor{difentrou}{9}}. refs.bib: \hyperlink{cite.0@novo2020}"
+                      r"{\texttt{novo2020}}.", resumo)
+        self.assertIn(r"\colorlet{difsaiu}{red!70!black}", resumo)
+
     def test_commit_sem_data_nem_hash(self):
         resumo = self.resumo()
         self.assertIn(r"\item Leva o método\\ ", resumo)
