@@ -37,9 +37,10 @@ trabalhos relacionados.
   de funcionar e, como o usuário espera, permitir que ele cancele e desfaça
   a maioria das ações [[cite:myers1994][p. 75, 79 e 80]].
 
-  O /callback/ é síncrono quando a função que o recebe o chama antes de
-  retornar, e assíncrono quando sua execução fica para algum tempo depois de a
-  função retornar [[cite:gallaba2015][p. 2]].
+  O /callback/ é uma função passada como argumento a outra, e é síncrono
+  quando a função que o recebe o chama antes de retornar, e assíncrono
+  quando sua execução fica para algum tempo depois de a função retornar
+  [[cite:gallaba2015][p. 2]].
   O navegador executa a aplicação numa /thread/ só, e, para que ela continue
   respondendo ao usuário, os programadores recorrem às operações assíncronas
   [[cite:alimadadi2014][p. 368-369]].
@@ -147,6 +148,14 @@ trabalhos relacionados.
   não à tecnologia.
 
 * Paradigma e modelo de programação
+
+  O termo /modelo de programação/ vem de
+  [[textcite:vanroy2004][p. xiii e 29]], para quem ele são as técnicas e os
+  princípios de projeto tornados possíveis pelo /modelo de computação/, o
+  sistema formal que define uma linguagem e como se executam os programas
+  escritos nela.
+  Aqui, quem torna possível o modelo de programação é a tecnologia, e não o
+  modelo de computação, que é o mesmo nas tecnologias web.
 
   O modelo de programação não é o paradigma, noção imprecisa que o modelo
   de computação torna precisa [[cite:vanroy2004][p. xiii]].
@@ -290,7 +299,9 @@ const formatados = precos
   atribuição [[cite:bainomugisha2013][p. 52:3]].
   Na [[gls:pr]], =var3= se recalcula sempre que =var1= ou =var2= se
   alteram [[cite:bainomugisha2013][p. 52:3]].
-  É o que a planilha faz com as fórmulas.
+  A planilha eletrônica faz o mesmo: cada célula guarda um valor ou uma
+  fórmula, e, quando o valor de uma célula se altera, as fórmulas que
+  dependem dela se recalculam [[cite:bainomugisha2013][p. 52:2]].
 
   Na [[gls:pr]], a ordem das atualizações não se escreve: o ambiente de
   execução propaga a alteração de um valor às computações que dependem dele

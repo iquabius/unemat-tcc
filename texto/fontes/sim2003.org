@@ -1,8 +1,15 @@
 #+title: sim2003: Sim et al. (2003), Using Benchmarking to Advance Research: A Challenge to Software Engineering
 #+startup: overview
 
-* [[file:../intro.org::Quanto aos meios, o trabalho é][intro: Quanto aos meios, o trabalho é uma avaliação qualitativa]]
-- Frase: a mesma, na parte de Sim et al.; antes de 2026-10-14, “O
+* [[file:../comparacao.org::O conjunto de interfaces é um][comparacao: O conjunto de interfaces é um]], p. 76
+- Frase: “Um /benchmark/ é um conjunto de testes que deve formar uma
+  amostra representativa das tarefas da prática e serve para comparar
+  técnicas alternativas por medidas de desempenho, que podem ser
+  qualitativas e feitas por uma pessoa (Sim; Easterbrook; Holt, 2003,
+  p. 76).” Em 2026-11-01, a frase veio da introdução para a 3.1.1, no
+  corte da introdução (decisão do autor), e passou a definir o
+  /benchmark/ em vez de explicar o “/benchmark/ de notação” de Kiss.
+  Antes de 2026-10-14, “O
   conjunto de tarefas segue a ideia de /benchmark/: testes que
   representam as tarefas da prática e servem para comparar técnicas
   alternativas.” “Amostra representativa das tarefas da prática” traduz o

@@ -1,5 +1,16 @@
 \section{Delineamento}
 \label{sec:delineamento}
+
+Quanto aos objetivos, a pesquisa é \emph{exploratória}: busca compreensão nova
+\notamudou{O projeto também classificava a pesquisa como exploratória, com Leal (2011), e de natureza aplicada; \textbf{a natureza sai}.}
+e gera ideias e hipóteses para outras pesquisas
+\cite[p. 135]{runeson2009}.
+A pergunta de pesquisa, como a usabilidade da notação difere entre os modelos de
+programação, é do tipo que \textcite{easterbrook2008} chamam de
+descritivo-comparativo, das perguntas sobre como uma coisa difere de outra,
+e põem entre as perguntas exploratórias.
+Quanto aos meios, o trabalho é uma avaliação qualitativa, pelas
+\glspl{dc}, de implementações de um mesmo conjunto de interfaces.
 \subsection{As interfaces e as exigências de coordenação}
 \label{sec:as-interfaces-e-as-exigencias-de-coordenacao}
 
@@ -7,6 +18,15 @@ O conjunto de interfaces é um \emph{benchmark} de notação, como os \emph{benc
 de resultado qualitativo do projeto de linguagens
 \cite[p. 35]{erdweg2015}, entre os quais está o 7GUIs
 \cite[p. 8:20]{lu2021}.
+Um \emph{benchmark} é um conjunto de testes que deve formar uma amostra
+representativa das tarefas da prática e serve para comparar técnicas
+alternativas por medidas de desempenho, que podem ser qualitativas e
+feitas por uma pessoa \cite[p. 76]{sim2003}.
+Aqui, as técnicas são os modelos de programação, e a medida, a avaliação
+pelas \glspl{dc}.
+A representatividade da amostra é desejável, mas a escolha das
+interfaces, pelas exigências de coordenação que cada uma traz, e a
+comparação entre os modelos de programação passam na frente dela.
 \notamudou{\textbf{Saíram as seções do projeto} sobre a revisão do JavaScript, o processamento de listas e a coordenação de eventos. As dimensões ficam na seção \ref{sec:as-dimensoes}, e a análise de cada interface vem depois deste delineamento.}
 
 Das sete interfaces, quatro adaptam casos do 7GUIs: o Contador, o
@@ -70,6 +90,10 @@ que o navegador chama \cite{mozilla2026}.
 Nele, o tratador de cada evento atribui o valor novo ao estado e escreve
 também a atualização de cada elemento da tela que depende dele, a
 orquestração por atribuição e a propagação manual.
+Num cronômetro escrito assim, o tratador do botão que zera o tempo
+altera o valor guardado, mas não o leva à tela, e, até o próximo tique
+do relógio, o tempo exibido não corresponde ao valor guardado
+\cite[p. 3]{meyerovich2009}.
 No React, a tela se monta em JSX, marcação parecida com \gls{html}
 escrita dentro do JavaScript \cite{meta2026c}.
 O tratador também atribui o valor novo ao estado, mas não escreve a
@@ -109,7 +133,9 @@ vira uma ação, e uma função pura, o \emph{reducer}, recebe o estado e a aç�
 e devolve o estado seguinte \cite{meta2026d}.
 O RxJS leva o Web Component e o React à orquestração por acumulação, em
 que o estado se define sobre o fluxo de eventos, e, no último passo,
-leva os derivados do React aos combinadores.
+leva os derivados do React aos combinadores, em que a dependência se
+escreve com operadores sobre fluxos de eventos que nomeiam as fontes,
+como o \texttt{combineLatest} \cite{reactivex2026}.
 
 Depois da análise, o entorno do núcleo situa as células vizinhas, com
 cada tecnologia num passo a partir de uma implementação do núcleo
@@ -136,6 +162,9 @@ No Solid, a tela também se monta em JSX, mas o componente não se
 reexecuta, e a alteração de um \emph{signal} atualiza só os trechos da tela
 que dependem dele \cites[][ p. 289:38]{lee2025}{solidjs2026}: o passo
 muda a propagação, de re-renderização a granular.
+A orquestração continua por atribuição: o tratador altera o \emph{signal} por
+uma função, e \textcite[p. 25]{bahr2025} chama de imperativos os
+\emph{frameworks} com \emph{signals} que funcionam assim.
 
 \begin{figure}[htbp]
 \caption{\label{fig:grade-do-nucleo-e-do-entorno}O núcleo, da Figura \ref{fig:grade-do-nucleo}, e o entorno na grade dos modos de orquestração e de propagação, com uma seta por passo.}
@@ -529,6 +558,8 @@ implementações de cada interface, a tela só cita as classes pelo nome.
 As capturas de tela conferem que ela sai igual em todas as tecnologias.
 Só o valor que depende do estado, como a posição de um menu, entra na
 notação.
+O propósito é o de \textcite[p. 16]{kiss2014}, que não usou o FXML, a
+linguagem de \emph{layout} do JavaFX, para não tirar o foco da comparação.
 
 Com a aparência fora da notação, a avaliação não vê o estilo escrito
 junto do componente, no próprio código que monta a tela.

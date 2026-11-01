@@ -36,7 +36,9 @@
 - Frase: a mesma do disch2025 acima, na mesma citação; Oney, Myers e
   Brandt sustentam a atualização da tela escrita nos /callbacks/ (“callbacks
   that modify the DOM”), como no jQuery e nos Web Components sem
-  biblioteca. “Por efeitos colaterais” saiu da frase em 2026-10-15.
+  biblioteca. “Por efeitos colaterais” saiu da frase em 2026-10-15; em
+  2026-11-01, no corte da introdução, a frase perdeu o fim, “como nos Web
+  Components sem biblioteca” (Mozilla, 2026).
 - Trecho: “JavaScript code defines interactive behaviors with callbacks
   that modify the DOM using side effects — a paradigm used by most GUI
   frameworks.” (p. 229)

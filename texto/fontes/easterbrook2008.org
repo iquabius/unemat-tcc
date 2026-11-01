@@ -1,7 +1,7 @@
 #+title: easterbrook2008: Easterbrook et al. (2008), Selecting Empirical Methods for Software Engineering Research
 #+startup: overview
 
-* [[file:../intro.org::Quanto aos objetivos, a pesquisa é][intro: Quanto aos objetivos, a pesquisa é exploratória]]
+* [[file:../comparacao.org::Quanto aos objetivos, a pesquisa é][intro: Quanto aos objetivos, a pesquisa é exploratória]]
 - Frase: “A pergunta de pesquisa, como a usabilidade difere entre os
   modelos de programação, é do tipo que Easterbrook et al. (2008) chamam de
   descritivo-comparativo, das perguntas sobre como uma coisa difere de

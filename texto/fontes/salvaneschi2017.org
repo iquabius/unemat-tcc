@@ -50,28 +50,6 @@
   do registro dinâmico; a frase é do autor, na pergunta socrática da
   segunda passada da checagem adversarial.
 - Conferido: 2026-10-30.
-* [[file:../intro.org::A \[\[gls:pr\]\] foi proposta como][intro: A PR foi proposta como]], p. 1126 (o que o programador declara)
-- Frase: “Nela, o programador declara como os valores dependem uns dos
-  outros, e o ambiente de execução leva cada alteração aos valores que
-  dependem dela, sem que o programador escreva essa atualização
-  (Salvaneschi et al., 2017, p. 1126).”
-- Trecho: “Declarativeness With RP, programmers state how components
-  functionally depend on each other, rather than providing the
-  computational steps that derive the new state of a component based on
-  the state of another one.”; “Developers do not need to manually update
-  dependent values, because the language runtime takes care of change
-  propagation.” (seção 2, p. 1126)
-- Lido em: =acervo/salvaneschi2017.pdf=, p. 2 do PDF (p. 1126).
-- Observação: substitui, em 2026-10-15, a citação narrativa da p. 1125-1126
-  e a frase do “potential” da p. 1125 (“for the potential to express
-  otherwise complex reactive behavior”), que a frase dava como fato; a
-  p. 1126 é a definição de princípio. “Não precisa escrever” segue o
-  “manually update” pela regra do =AGENTS.md= (“O programador escreve, e o
-  programa executa”). Reescrita dos §5 a §7 na checagem adversarial. Em
-  2026-10-27, as duas frases se fundiram numa só no corte da introdução,
-  e saiu o “em vez de escrever os passos que calculam o valor novo de
-  cada um”.
-- Conferido: 2026-10-15; de novo em 2026-10-27, na frase fundida.
 * [[file:../intro.org::A \[\[gls:pr\]\] foi proposta como][intro: A PR foi proposta como]], p. 1128 e 1133 (as aplicações interativas)
 - Frase: “Nas três aplicações interativas do experimento, porém, e só
   nelas, a diferença não foi significativa nem nos acertos nem no tempo
@@ -105,10 +83,12 @@
 - Conferido: 2026-10-15; de novo em 2026-10-30.
 * [[file:../intro.org::A \[\[gls:pr\]\] foi proposta como][intro: A PR foi proposta como]], p. 1125-1134 (o experimento)
 - Frase: “A forma de escrever o programa pode pesar na compreensão: num
-  experimento controlado com 127 estudantes, quem leu programas escritos
-  com PR os compreendeu melhor do que quem leu as versões dos mesmos
-  programas com o /Observer Pattern/ (Salvaneschi et al., 2017,
-  p. 1125-1134).” Em 2026-10-15, a frase ganhou a abertura, que leva para
+  experimento controlado, quem leu programas escritos com PR os
+  compreendeu melhor do que quem leu as versões dos mesmos programas com
+  o /Observer Pattern/ (Salvaneschi et al., 2017, p. 1125-1134).” Até
+  2026-11-01, “num experimento controlado com 127 estudantes”; no corte
+  da introdução, o número ficou só na 2.7, com o desenho do experimento
+  (decisão do autor). Em 2026-10-15, a frase ganhou a abertura, que leva para
   cá a ponte para a notação que o §2 fazia com Fischer et al. (2007),
   sem medição (checagem adversarial, decisão do autor).
 - Trecho: “The study involves 127 subjects and compares reactive

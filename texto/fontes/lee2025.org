@@ -26,10 +26,13 @@
   tecnologias”, conferida ali em 2026-10-31.
 - Conferido: 2026-11-01.
 
-* [[file:../intro.org::Nos declarativos, o programador descreve a tela][intro: Nos declarativos, o programador descreve a tela]], p. 289:1 e 289:2 (as declarativas)
-- Frase: “Nos declarativos, o programador descreve a tela em função do
-  estado, e o ambiente de execução a mantém atualizada (Lee; Ahn; Yi, 2025,
-  p. 289:1 e 289:2; SolidJS, 2026).”
+* [[file:../intro.org::Nas tecnologias que este trabalho compara][intro: Nas tecnologias que este trabalho compara]], p. 289:1 e 289:2 (as declarativas)
+- Frase: “Nas declarativas, ele descreve a tela em função do estado, e o
+  ambiente de execução a mantém atualizada (Lee; Ahn; Yi, 2025, p. 289:1
+  e 289:2) [...]”. Até 2026-11-01, “Nos declarativos, o programador
+  descreve [...] (Lee; Ahn; Yi, 2025, p. 289:1 e 289:2; SolidJS, 2026)”;
+  no corte da introdução, os três parágrafos dos modos viraram um, e o
+  Solid saiu da introdução (decisão do autor).
 - Trecho: “A React component is a function that serves as a declarative
   specification of a UI, which is read by the React runtime to render the
   interface.” (289:1); “the same component is called for both creating a new
@@ -44,90 +47,6 @@
   mudou na checagem adversarial: a citação ganhou a p. 289:2, sobre a
   criação e a atualização da tela.
 - Conferido: 2026-10-24; de novo em 2026-10-28.
-* [[file:../intro.org::Nos declarativos, o programador descreve a tela][intro: Nos declarativos, o programador descreve a tela]], p. 289:38 (a fronteira)
-- Frase: “Cada /signal/ avisa o que depende dele, como no Solid (SolidJS,
-  2026), e o ambiente de execução não chama de novo a parte que monta a
-  tela (Lee; Ahn; Yi, 2025, p. 289:38).”
-- Trecho: Tabela 2, “Comparison of reactive UI frameworks”, pela
-  propriedade “whether they re-read component specifications for
-  re-rendering”: “Re-read Spec.” é “Yes” no React e “No” no Solid (289:38).
-- Lido em: =acervo/lee2025.pdf=, p. 38 do PDF (apêndice C).
-- Observação: é a fronteira entre a re-renderização e a atualização
-  granular (decisão do autor de 2026-10-20,
-  =docs/paradigma-modelo-e-notacao.md=, seção “Tensões que o texto
-  precisa enfrentar”). O critério é o que o ambiente de execução faz, e
-  cobre o Web Component com /signals/, que não tem pré-processador; “a
-  parte que monta a tela” é a “component specification” da fonte, como
-  na frase da re-renderização, duas frases antes.
-- Conferido: 2026-10-24.
-
-* [[file:../intro.org::Nos declarativos, o programador descreve a tela][intro: Nos declarativos, o programador descreve a tela]], p. 289:1, 289:2, 289:4 e 289:6 (o componente é uma função)
-- Frase: “No /declarativo por re-renderização/, o ambiente de execução chama
-  de novo, quando o estado se altera, a parte que monta a tela. No React, é
-  o próprio componente, uma função que especifica a tela e que, idealmente,
-  chamada com os mesmos argumentos, exibe a mesma interface (Lee; Ahn; Yi,
-  2025, p. 289:1, 289:2, 289:4 e 289:6).”
-- Trecho: “A React component is a function that serves as a declarative
-  specification of a UI [...]. Ideally, when a component is called with the
-  same arguments, it should render the same interface”.
-- Lido em: =acervo/lee2025.pdf=, cópia do arXiv com a paginação da ACM.
-- Observação: o “specification of a UI” é a definição do componente no
-  declarativo por re-renderização; a frase saiu do parágrafo do declarativo,
-  que deixou a introdução em 2026-10-14, e se fundiu com a do modelo
-  (Moseley e Marks, 2006, usam “declarativo” sem definição, checagem de
-  2026-10-08). Em 2026-10-15, a função deixou de definir o modelo e passou a
-  valer só para o React: o declarativo por re-renderização se define pelo
-  que se reexecuta, a função ou o método que monta a tela, porque o
-  componente do Lit é uma classe (checagem adversarial, decisão do autor).
-  Em 2026-10-28, a frase mudou na checagem adversarial: “a cada alteração de
-  estado” virou “quando o estado se altera”, pois as alterações são
-  enfileiradas, e “deve exibir” virou “idealmente, exibe”.
-- Conferido: 2026-10-09; de novo em 2026-10-28.
-* [[file:../intro.org::Nos declarativos, o programador descreve a tela][intro: Nos declarativos, o programador descreve a tela]], p. 289:2, 289:4 e 289:6 (chama de novo)
-- Frase: “No /declarativo por re-renderização/, o ambiente de execução chama
-  de novo, quando o estado se altera, a parte que monta a tela. No React, é
-  o próprio componente, uma função que especifica a tela e que, idealmente,
-  chamada com os mesmos argumentos, exibe a mesma interface (Lee; Ahn; Yi,
-  2025, p. 289:1, 289:2, 289:4 e 289:6).”
-- Trecho: “Ideally, when a component is called with the same arguments, it
-  should render the same interface” (289:1); “the same component is called
-  for both creating a new view and updating an existing view” (289:2); “this
-  does not immediately update s, but queues the update [...]. The update is
-  processed by the runtime during the next render” (289:4); “setting state
-  within an Effect triggers the runtime to Check if the state has changed,
-  which is implemented by invoking the component body again. If the state
-  whose setter function is called is actually modified, the component
-  re-renders” (289:6).
-- Lido em: =acervo/lee2025.pdf=, p. 1, 2, 4 e 6 do PDF (paginação da ACM
-  impressa na cópia do arXiv).
-- Observação: substitui Meta (2026b), documentação do React (decisão do
-  autor em 2026-10-09). “A parte que monta a tela” é redação do autor
-  (2026-10-15), no lugar de “a função ou o método”. Em 2026-10-28, a frase
-  mudou na checagem adversarial: “a cada alteração de estado” virou “quando
-  o estado se altera”, pois as alterações são enfileiradas, e “deve exibir”
-  virou “idealmente, exibe”.
-- Conferido: 2026-10-09; de novo em 2026-10-28.
-* [[file:../intro.org::Nos declarativos, o programador descreve a tela][intro: Nos declarativos, o programador descreve a tela]], p. 289:2 (o contador)
-- Frase: “Nele, o /callback/ continua a tratar o evento, mas não escreve a
-  atualização da tela: num contador, o do clique soma um ao estado, e o
-  componente devolve o botão com o valor novo (Lee; Ahn; Yi, 2025, p. 289:2;
-  Sperber; Schlegel, 2025, p. 32).”
-- Trecho: o =Counter= da p. 289:2: “const [s, setS] = useState(() => x);
-  const h = () => setS((s) => s+1); return <button onClick={h}> {s}
-  </button>”; “setS must be used to update the state.”
-- Lido em: =acervo/lee2025.pdf=, p. 2 do PDF (paginação da ACM impressa na
-  cópia do arXiv).
-- Observação: de 2026-10-15 a 2026-10-26, a ilustração fechava o parágrafo
-  dos declarativos, numa frase própria depois da de Sperber e Schlegel
-  (reescrita dos §5 a §7 na checagem adversarial de 2026-10-15). Lee et al.
-  sustentam o contador; Sperber e Schlegel, o “continua” e o “não escreve a
-  atualização da tela” (entrada deles). Em 2026-10-26, as duas frases
-  viraram uma, logo depois da do componente do React (último corte, decisão
-  do autor). Em 2026-10-28, a frase mudou na checagem adversarial: “só
-  altera o estado” virou “não escreve a atualização da tela”, pois o
-  /callback/ também pode substituir as propriedades.
-- Conferido: 2026-10-15; de novo em 2026-10-27, na frase fundida; de novo em
-  2026-10-28.
 * [[file:../comparacao.org::O núcleo tem duas tecnologias][comparacao: O núcleo tem duas tecnologias]] (o React reexecuta), p. 289:38
 - Frase: “quando o estado se altera, o React reexecuta o componente
   inteiro (Lee; Ahn; Yi, 2025, p. 289:38; SolidJS, 2026), a propagação

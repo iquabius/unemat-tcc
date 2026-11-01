@@ -13,17 +13,6 @@
   pode encurtar agora que a 2.6 a traz.
 - Conferido: 2026-11-01.
 
-* [[file:../intro.org::Para discutir o quanto uma notação facilita][intro: Para discutir o quanto uma notação facilita]], p. 327
-- Frase: “Elas são um vocabulário para descrever a usabilidade de notações
-  e de outros artefatos de informação.”
-- Trecho: “The Cognitive Dimensions of Notations are such a vocabulary.”
-  (p. 326); “Cognitive Dimensions of Notations (CDs) is a framework for
-  describing the usability of notational systems [...] and information
-  artifacts” (p. 327)
-- Lido em: =acervo/blackwell2001-springer.pdf=, p. 2-3 do PDF
-  (p. 326-327; o capítulo vai de 325 a 341), em 2026-10-10; antes, na
-  cópia dos autores, =acervo/blackwell2001.pdf=, sem paginação.
-- Conferido: 2026-10-06.
 * [[file:../comparacao.org::Em cada rodada, a avaliação percorre][comparacao: Em cada rodada, a avaliação percorre]], p. 332
 - Frase: “e não um subconjunto escolhido antes, porque a escolha prévia
   pode atrapalhar, e o conjunto inteiro traz resultados inesperados e

@@ -19,11 +19,12 @@
 - Conferido: 2026-11-01.
 
 * [[file:../intro.org::Nas tecnologias que este trabalho compara][intro: Nas tecnologias que este trabalho compara]], p. 93
-- Frase: “No /imperativo por atualização manual/, o programador escreve,
+- Frase: “Na propagação /manual/, a imperativa, o programador escreve,
   nos /callbacks/, a alteração do estado e a atualização da tela (Disch;
-  Heegaard; Bahr, 2025, p. 93; Oney; Myers; Brandt, 2012, p. 229; Sperber;
-  Schlegel, 2025, p. 28 e 32) [...]” (Disch sustenta o estado alterado
-  nos /callbacks/). Em 2026-10-15, “por efeitos colaterais” saiu, a pedido
+  Heegaard; Bahr, 2025, p. 93; Oney; Myers; Brandt, 2012, p. 229).”
+  (Disch sustenta o estado alterado nos /callbacks/.) Até 2026-11-01, a
+  citação tinha também Sperber e Schlegel (2025, p. 28 e 32), que saiu do
+  texto no corte da introdução (decisão do autor). Em 2026-10-15, “por efeitos colaterais” saiu, a pedido
   do autor, e a frase passou a dizer o que o programador escreve (=AGENTS.md=,
   “O programador escreve, e o programa executa”).
 - Trecho: “Most modern GUI frameworks use an imperative programming model

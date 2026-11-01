@@ -20,3 +20,25 @@
   as operações mentais difíceis e a viscosidade (nota, seção
   “Autoavaliações pelas DCs de bibliotecas de controles”).
 - Conferido: 2026-11-01.
+* [[file:../intro.org::Nenhum desses trabalhos compara, sobre as mesmas interfaces][intro: Nenhum desses trabalhos compara, sobre as mesmas interfaces]] (o caso mais próximo)
+- Frase: “O caso mais próximo avalia pelas DCs a notação de um conjunto de
+  controles de interface que os próprios autores escreveram em Angular e
+  estenderam depois em React, e não a notação do React, em que esses
+  controles se escrevem (Narechania et al., 2025; Verma; Odak;
+  Narechania, 2026).”
+- Trecho: “We present ProvenanceWidgets, a Javascript library of UI
+  control elements such as radio buttons, checkboxes, and [...]” (resumo,
+  p. 1 da cópia); “We self-assess our library from a developer standpoint
+  based on the Cognitive Dimensions of Notation [9]” (seção 4.3, p. 7 da
+  cópia); “The library is built using Angular but is universally
+  compatible across different frameworks through Web Components.” (p. 2
+  da cópia)
+- Lido em: =acervo/narechania2025.pdf=, a cópia do arXiv (2407.17431),
+  p. 1, 2 e 7, sem a paginação da TVCG; a citação vai sem página, como na
+  2.7.
+- Observação: entrou na introdução no corte de 2026-11-01, por decisão do
+  autor, como o caso mais perto da lacuna. A frase evita “biblioteca”,
+  que o leitor tomaria pelo React (decisão do autor, redação B2). “Em
+  que esses controles se escrevem” vale para a extensão em React (Verma;
+  Odak; Narechania, 2026).
+- Conferido: 2026-11-01.

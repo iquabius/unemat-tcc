@@ -30,10 +30,17 @@
   Fran”, do fim dos anos 1990, para gráficos e mídia interativa (decisão
   do autor).
 - Conferido: 2026-10-15; de novo em 2026-10-30.
-* [[file:../intro.org::A \[\[gls:pr\]\] foi proposta como][intro: A PR foi proposta como]], p. 52:2 (a planilha)
-- Frase: “A PR leva às linguagens de programação o modelo da planilha
-  eletrônica, em que alterar o valor de uma célula recalcula as fórmulas
-  que dependem dela (Bainomugisha et al., 2013, p. 52:2).”
+* [[file:../modelos.org::Na soma =var3 = var1 + var2=][modelos: Na soma var3 = var1 + var2]], p. 52:2 (a planilha)
+- Frase: “A planilha eletrônica faz o mesmo: cada célula guarda um valor
+  ou uma fórmula, e, quando o valor de uma célula se altera, as fórmulas
+  que dependem dela se recalculam (Bainomugisha et al., 2013, p. 52:2).”
+  Até 2026-11-01, na introdução: “A PR leva às linguagens de programação
+  o modelo da planilha eletrônica, em que alterar o valor de uma célula
+  recalcula as fórmulas que dependem dela”. No corte da introdução, a
+  planilha foi para a 2.5, ao lado do =var3=, no lugar de “É o que a
+  planilha faz com as fórmulas.” (decisão do autor). “Que dependem dela”
+  é leitura do modelo da planilha (“automatic management of data
+  dependencies”); a fonte diz que as fórmulas se recalculam.
 - Trecho: “automatic management of data dependencies can be observed in
   spreadsheet systems [...] If a value of a cell changes then the formulas
   are automatically recalculated. Reactive programming is essentially

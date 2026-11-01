@@ -1,11 +1,13 @@
 #+title: bahr2025: Bahr (2025), Simple Modal Types for Functional Reactive Programming
 #+startup: overview
 
-* [[file:../intro.org::Na orquestração, o modo /por atribuição/][intro: Na orquestração, o modo por atribuição]], p. 25
-- Frase: “Por isso o React e o Solid, declarativos na propagação, são
-  imperativos na orquestração: nos dois, o /callback/ altera o estado por
-  uma função, e Bahr (2025, p. 25) chama de imperativos os /frameworks/
-  com /signals/ que funcionam assim.”
+* [[file:../comparacao.org::Depois da análise, o entorno do núcleo][comparacao: Depois da análise, o entorno do núcleo]], p. 25
+- Frase: “A orquestração continua por atribuição: o tratador altera o
+  /signal/ por uma função, e Bahr (2025, p. 25) chama de imperativos os
+  /frameworks/ com /signals/ que funcionam assim.” Até 2026-11-01, na
+  introdução, a frase dizia o mesmo do React e do Solid; no corte da
+  introdução (decisão do autor), ela foi para o passo do Solid na 3.1.2,
+  e o React saiu dela, porque a fonte não o nomeia.
 - Trecho: “[mutable cells are] standard in imperative reactive programming
   approaches and now underpins mainstream reactive user-interface
   frameworks such as SolidJS, Vue, Angular, Svelte, and the TC39 Signals

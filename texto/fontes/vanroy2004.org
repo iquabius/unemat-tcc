@@ -41,12 +41,14 @@
 - Observação: é a fonte do grau de cada modo no ADR 0021.
 - Conferido: 2026-11-01.
 
-* [[file:../intro.org::Este trabalho compara /modelos de programação/][intro: Este trabalho compara modelos de programação]], p. xiii e 29
-- Frase: “O termo vem de Van Roy e Haridi, para quem o modelo de
-  programação são as técnicas e os princípios de projeto tornados possíveis
-  pelo /modelo de computação/, o sistema formal que define uma linguagem e
-  como se executam os programas escritos nela (Van Roy; Haridi, 2004,
-  p. xiii e 29).”
+* [[file:../modelos.org::O termo /modelo de programação/ vem de][modelos: O termo modelo de programação vem de]], p. xiii e 29
+- Frase: “O termo /modelo de programação/ vem de Van Roy e Haridi (2004,
+  p. xiii e 29), para quem ele são as técnicas e os princípios de projeto
+  tornados possíveis pelo /modelo de computação/, o sistema formal que
+  define uma linguagem e como se executam os programas escritos nela.”
+  Até 2026-11-01, na introdução, com a citação no fim; no corte da
+  introdução, a origem do termo e a adaptação foram para a 2.3 (decisão
+  do autor), e a citação passou a narrativa.
 - Trecho: “A computation model is a formal system that defines how
   computations are done.” e “Sometimes we use the phrase “programming
   model.” This refers to what the programmer needs: the programming

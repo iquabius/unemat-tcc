@@ -1,11 +1,15 @@
 #+title: gallaba2015: Gallaba et al. (2015), Don't Call Us, We'll Call You: Characterizing Callbacks in JavaScript
 #+startup: overview
 
-* [[file:../modelos.org::O /callback/ é síncrono quando a][modelos: O /callback/ é síncrono quando a]], p. 2
-- Frase: “O /callback/ é síncrono quando a função que o recebe o chama
-  antes de retornar, e assíncrono quando o chama algum tempo depois, ao
-  fim da operação que ele espera.”
-- Trecho: “A callback passed to a function f can be invoked synchronously
+* [[file:../modelos.org::O /callback/ é uma função passada][modelos: O /callback/ é uma função passada]], p. 2
+- Frase: “O /callback/ é uma função passada como argumento a outra, e é
+  síncrono quando a função que o recebe o chama antes de retornar, e
+  assíncrono quando sua execução fica para algum tempo depois de a função
+  retornar (Gallaba; Mesbah; Beschastnikh, 2015, p. 2).” Em 2026-11-01, a
+  definição veio da introdução, no corte dela (decisão do autor).
+- Trecho: “A callback is a function that is passed as an argument to
+  another function, which is expected to invoke it either immediately or
+  at some point in the future” (p. 2); “A callback passed to a function f can be invoked synchronously
   before f returns, or it can be deferred to execute asynchronously some
   time after f returns.”; “the desired non-blocking operation is scheduled
   as a callback and the main thread continues its synchronous execution.
@@ -13,7 +17,7 @@
   along with the provided callback.” (p. 2)
 - Lido em: =acervo/gallaba2015.pdf=, p. 2.
 - Conferido: 2026-10-07.
-* [[file:../modelos.org::O /callback/ é síncrono quando a][modelos: O /callback/ é síncrono quando a]], p. 5
+* [[file:../modelos.org::O /callback/ é uma função passada][modelos: O /callback/ é uma função passada]], p. 5
 - Frase: “O /callback/ de um clique é desse tipo: registrado quando a tela é
   montada, só roda quando o usuário clica, e os eventos do DOM estão entre
   as operações assíncronas do navegador.”
@@ -55,10 +59,12 @@
   enganosos depois de “No navegador”; o autor a moveu para cá em
   2026-10-16.
 - Conferido: 2026-10-16.
-* [[file:../intro.org::No navegador, as sub-rotinas desse código][intro: No navegador, as sub-rotinas desse código]], p. 1-2 (o callback)
+* [[file:../intro.org::No navegador, as sub-rotinas desse código][intro: No navegador, as sub-rotinas desse código]], p. 1 (o callback)
 - Frase: “No navegador, as sub-rotinas desse código do avesso são
-  /callbacks/: funções passadas como argumento a outra função, que as chama
-  na hora ou mais tarde (Gallaba; Mesbah; Beschastnikh, 2015, p. 1-2).”
+  /callbacks/ (Gallaba; Mesbah; Beschastnikh, 2015, p. 1).” Até
+  2026-11-01, a frase seguia com a definição, “funções passadas como
+  argumento a outra função, que as chama na hora ou mais tarde” (p. 2),
+  que foi para a 2.1 no corte da introdução (decisão do autor).
 - Trecho: “JavaScript callbacks are used to responsively handle events on
   the client-side” (p. 1); “A callback is a function that is passed as an
   argument to another function, which is expected to invoke it either

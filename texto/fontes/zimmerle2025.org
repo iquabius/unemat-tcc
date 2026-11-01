@@ -25,15 +25,6 @@
 - Observação: a mesma afirmação da introdução, conferida em 2026-10-31.
 - Conferido: 2026-11-01.
 
-* [[file:../intro.org::Para discutir o quanto uma notação facilita][intro: Para discutir o quanto uma notação facilita]], p. 1510 e 1513
-- Frase: “Zimmerle e Gama (2025, p. 1510 e 1513) avaliaram com usuários duas
-  bibliotecas de PR para JavaScript.”
-- Trecho: “we focus on Bacon.js and RxJS in the present work” (p. 1510);
-  “In total, we defined five tasks [...], all revolving HTTP requests”
-  (p. 1513); “a user-centered study was performed involving programming
-  tasks” (resumo, p. 1506).
-- Lido em: =acervo/zimmerle2025.pdf=, p. 5 e 8 do PDF.
-- Conferido: 2026-10-06.
 * [[file:../modelos.org::avaliaram com usuários duas][modelos: avaliaram com usuários duas]], p. 1507 (o questionário das cinco dimensões)
 - Frase: “[...] por um questionário que mede cinco dimensões tiradas das
   DCs (Zimmerle; Gama, 2025, p. 1507).”
@@ -73,12 +64,3 @@
   veio da introdução no corte de outubro de 2026; a frase mudou em
   2026-10-14 (“juízo” saiu, GLOSSARY.md, Avaliação).
 - Conferido: 2026-10-14.
-
-* [[file:../intro.org::Na orquestração, o modo /por atribuição/][intro: Na orquestração, o modo por atribuição]] (a acumulação), p. 1530
-- Frase: “no modo /por acumulação/, o estado se define sobre o fluxo de
-  eventos, sem função que o altere, como o =scan= do RxJS, uma variação
-  do /fold/ (Zimmerle; Gama, 2025, p. 1530).”
-- Trecho: “users are encouraged to use either reduce or scan, a variation
-  of the general FP combinator fold, to express the functionality.”
-- Lido em: =acervo/zimmerle2025.pdf=, p. 25 do PDF.
-- Conferido: 2026-10-31.

@@ -27,17 +27,14 @@ estado da aplicação determina a aparência e o comportamento da tela
 Programar interfaces exige montar os elementos gráficos na tela e
 coordená-los com o resto do programa.
 Essa coordenação, tema desta pesquisa, se divide aqui em dois eixos: a
-orquestração de eventos [[cite:meijer2012][p. 67]] e o gerenciamento de
+combinação de eventos [[cite:meijer2012][p. 67]] e o gerenciamento de
 estado [[cite:bainomugisha2013][p. 52:2]].
 O primeiro combina eventos de diferentes fontes, como as teclas digitadas e
 as respostas de uma busca, e o segundo leva cada alteração aos valores que
 dependem dela e à tela.
 
-No navegador, as sub-rotinas desse código do avesso são /callbacks/: funções
-passadas como argumento a outra função, que as chama na hora ou mais tarde
-[[cite:gallaba2015][p. 1-2]].
-A forma tradicional de implementar programas que reagem a eventos é o
-/Observer Pattern/ [[cite:salvaneschi2015][p. 953]].
+No navegador, as sub-rotinas desse código do avesso são /callbacks/
+[[cite:gallaba2015][p. 1]].
 Os /callbacks/, também chamados de /listeners/ ou /event handlers/, são um
 dos mecanismos do /Observer Pattern/
 [[cites:&bainomugisha2013 p. 52:2;&salvaneschi2017 p. 1125]].
@@ -52,31 +49,22 @@ A [[gls:pr]] foi proposta como solução para as aplicações orientadas a
 eventos, em que coordenar os /callbacks/ é difícil, com abstrações próprias
 para os eventos e para as alterações de estado
 [[cite:bainomugisha2013][p. 52:2]].
-Nela, o programador declara como os valores dependem uns dos outros, e o
-ambiente de execução leva cada alteração aos valores que dependem dela,
-sem que o programador escreva essa atualização
-[[cite:salvaneschi2017][p. 1126]].
 A forma de escrever o programa pode pesar na compreensão: num experimento
-controlado com 127 estudantes, quem leu programas escritos
+controlado, quem leu programas escritos
 com [[gls:pr]] os compreendeu melhor do que quem leu as versões dos mesmos
 programas com o /Observer Pattern/ [[cite:salvaneschi2017][p. 1125-1134]].
 Nas três aplicações interativas do experimento, porém, e só nelas, a
 diferença não foi significativa nem nos acertos nem no tempo
 [[cite:salvaneschi2017][p. 1128 e 1133]].
-A [[gls:pr]] leva às linguagens de programação o modelo da planilha
-eletrônica, em que alterar o valor de uma célula recalcula as fórmulas que
-dependem dela [[cite:bainomugisha2013][p. 52:2]].
+As abstrações também têm custo: nos /frameworks/ de interface
+populares, o ambiente de execução chama as funções que dependem do estado
+quando julga necessário, e essa execução oculta pode tornar difícil
+acompanhar o fluxo real do programa [[cite:grolaux2026][p. 13-14]].
 
   Este trabalho compara /modelos de programação/: na programação de
   interfaces gráficas, um modo de coordenar evento, estado e tela que uma
   tecnologia torna possível.
   @@latex:\notamudou[list,prepend,caption={\textbf{1. Mudanças desde o projeto de 2017}}]{o projeto comparava paradigmas, a PF e a PR frente à POO com \emph{callbacks}; \textbf{agora se comparam modelos de programação}.}@@
-  O termo vem de Van Roy e Haridi, para quem o modelo de programação são
-  as técnicas e os princípios de projeto tornados possíveis pelo /modelo de
-  computação/, o sistema formal que define uma linguagem e como se executam
-  os programas escritos nela [[cite:vanroy2004][p. xiii e 29]].
-  Aqui, quem torna possível o modelo de programação é a tecnologia, e não o
-  modelo de computação, que é o mesmo nas tecnologias web.
   A /notação/ é a forma escrita de um modelo de programação numa
   tecnologia: as palavras e os sinais com que o programador escreve, no
   código-fonte da aplicação, o tratamento dos eventos, o estado, os valores
@@ -84,91 +72,48 @@ dependem dela [[cite:bainomugisha2013][p. 52:2]].
   @@latex:\notamudou{A montagem da tela, que o projeto deixou de fora, \textbf{passa a fazer parte da notação}.}@@
   A tela entra na notação pela /montagem/: quais elementos ela tem, em que
   hierarquia e com que textos.
-  A aparência, isto é, as cores, as fontes e o /layout/, fica fora dela,
-  salvo o valor que depende do estado, como a posição de um menu.
 
   Nas tecnologias que este trabalho compara, cada modelo de programação se
-  descreve por dois eixos: a /orquestração/, como o código leva o evento
-  ao estado, e a /propagação/, como leva o estado à tela.
-  Em cada eixo, o modo de escrever vai do imperativo ao declarativo.
+  descreve por dois eixos, que respondem aos dois da coordenação: a
+  /orquestração/, como o código leva o evento ao estado, e a /propagação/,
+  como leva o estado à tela.
+  Em cada eixo, o modo de escrever vai do imperativo ao declarativo
+  (Figura [[ref:fig:grade-do-nucleo]]).
   Na propagação /manual/, a imperativa, o programador escreve, nos
   /callbacks/, a alteração do estado e a atualização da tela
-  [[cites:&disch2025 p. 93;&oney2012 p. 229;&sperber2025 p. 28 e 32]], como
-  nos Web Components sem biblioteca cite:mozilla2026.
-  Num cronômetro escrito assim, o /callback/ do botão que zera o tempo
-  altera o valor guardado, mas não o leva à tela
-  [[cite:meyerovich2009][p. 3]].
-  Até o próximo tique do relógio, o tempo exibido não corresponde ao valor
-  guardado, e cabe ao programador escrever a sincronização da tela com o
-  estado [[cite:meyerovich2009][p. 3]].
-
-  Nos declarativos, o programador descreve a tela em função do estado, e o
-  ambiente de execução a mantém atualizada
-  [[cites:&lee2025 p. 289:1 e 289:2;&solidjs2026]].
-  Em troca, o ambiente de execução chama as funções que dependem do estado
-  quando julga necessário, e essa execução oculta pode tornar difícil
-  acompanhar o fluxo real do programa [[cite:grolaux2026][p. 13-14]].
-  Na propagação /por re-renderização/, o ambiente de execução chama de
-  novo, quando o estado se altera, a parte que monta a tela.
-  No React, é o próprio componente, uma função que especifica a tela e que,
-  idealmente, chamada com os mesmos argumentos, exibe a mesma interface
-  [[cite:lee2025][p. 289:1, 289:2, 289:4 e 289:6]].
-  Nele, o /callback/ continua a tratar o evento, mas não escreve a
-  atualização da tela:
-  num contador, o do clique soma um ao estado, e o componente devolve o
-  botão com o valor novo [[cites:&lee2025 p. 289:2;&sperber2025 p. 32]].
-  A propagação /granular/ usa uma das abstrações da
-  [[gls:pr]], os valores que variam no tempo, chamados /signals/, cujas
-  alterações se
-  propagam automaticamente [[cite:salvaneschi2015][p. 953]].
-  Cada /signal/ avisa o que depende dele, como no Solid cite:solidjs2026,
-  e o ambiente de execução não chama de novo a parte que monta a tela
-  [[cite:lee2025][p. 289:38]].
-  No código, isso se vê no derivado, que vira uma função à parte
-  cite:solidjs2026a, e na leitura do estado, que se marca por uma
-  chamada, como =contador()= no Solid cite:solidjs2026b.
-  Na propagação /por combinadores/, a dependência se escreve com
-  operadores sobre fluxos de eventos que nomeiam as fontes, como o
-  =combineLatest= do RxJS cite:reactivex2026.
-
-  Na orquestração, o modo /por atribuição/ é o /callback/ que grava um
-  valor no estado ou chama a função que o altera, e o /sequencial/, o
-  código que espera o próximo evento e segue em ordem~--- os dois são
-  imperativos.
-  Por isso o React e o Solid, declarativos na propagação, são imperativos
-  na orquestração: nos dois, o /callback/ altera o estado por uma função,
-  e [[textcite:bahr2025][p. 25]] chama de imperativos os /frameworks/ com
-  /signals/ que funcionam assim.
-  No modo /por mensagem/, cada evento vira uma mensagem que uma função
-  pura transforma no estado seguinte, como o =useReducer= do React
-  cite:meta2026d.
-  No modo /por acumulação/, o estado se define sobre o fluxo de eventos, sem função que o altere, como o =scan= do RxJS,
-  uma variação do /fold/ [[cite:zimmerle2025][p. 1530]].
+  [[cites:&disch2025 p. 93;&oney2012 p. 229]].
+  Nas declarativas, ele descreve a tela em função do estado, e o ambiente
+  de execução a mantém atualizada [[cite:lee2025][p. 289:1 e 289:2]].
+  Para isso, o ambiente chama de novo a parte que monta a tela, na propagação
+  /por re-renderização/;
+  avisa só o que depende de cada valor, na /granular/; ou segue os
+  operadores que o código escreve sobre fluxos de eventos, na propagação
+  /por combinadores/.
+  Na orquestração, os modos /por atribuição/, o /callback/ que grava o
+  valor no estado, e /sequencial/, o código que espera o próximo evento e
+  segue em ordem, são imperativos.
+  Nos modos /por mensagem/ e /por acumulação/, declarativos, o estado
+  seguinte se define em função do evento, por uma função pura ou sobre o
+  fluxo de eventos.
   O modelo de programação é a combinação de um modo de cada eixo: o Web
   Component sem biblioteca é imperativo nos dois, e o React com RxJS, com
   os derivados escritos com operadores, é declarativo nos dois.
 
   Para discutir o quanto uma notação facilita a compreensão e a
   manutenção, há as [[glspl:dc]], propostas por textcite:green1989.
-  Elas são um vocabulário para descrever a usabilidade de notações e de outros
-  artefatos de informação [[cite:blackwell2001][p. 327]].
   Trabalhos anteriores compararam por elas, ou por questionários derivados
   delas, paradigmas e linguagens de
-  programação de interfaces e bibliotecas de [[gls:pr]].
-  textcite:mernik2009 compararam o [[gls:xaml]] e o Windows Forms em C#.
-  [[textcite:kiss2014][p. v, 11 e 104]] comparou a [[gls:poo]] e a [[gls:pf]]
-  em sete interfaces gráficas, com JavaFX e ScalaFX, e deixou como trabalho
-  futuro comparar os /frameworks/ de interface do navegador.
-  [[textcite:zimmerle2025][p. 1510 e 1513]] avaliaram com usuários duas
-  bibliotecas de [[gls:pr]] para JavaScript.
-  Fora das [[glspl:dc]], [[textcite:grolaux2026][p. 15]] compararam
-  conceitualmente o async/await com outras formas de tratar os eventos de
-  interface, entre elas a [[gls:pr]].
+  programação de interfaces e bibliotecas de [[gls:pr]] (seção
+  [[ref:sec:trabalhos-relacionados]]), e [[textcite:kiss2014][p. 104]]
+  deixou como trabalho futuro comparar os /frameworks/ de interface do
+  navegador.
 
   Nenhum desses trabalhos compara, sobre as mesmas interfaces e em tecnologias
   web, modelos de programação do imperativo ao declarativo nos dois eixos.
-  Os trabalhos incluídos na revisão bibliográfica também não avaliam pelas
-  [[glspl:dc]] a notação do React nem a do Solid.
+  O caso mais próximo avalia pelas [[glspl:dc]] a notação de um conjunto de
+  controles de interface que os próprios autores escreveram em Angular e
+  estenderam depois em React, e não a notação do React, em que esses
+  controles se escrevem [[cites:&narechania2025;&verma2026]].
   A lacuna vale para o que encontrou a revisão bibliográfica descrita no
   Apêndice ref:apend:2.
   Além disso, [[textcite:kiss2014][p. 103-104]] propôs, como trabalho
@@ -214,45 +159,20 @@ dependem dela [[cite:bainomugisha2013][p. 52:2]].
 
    @@latex:\notamudou[inline]{No projeto, o objetivo geral era demonstrar e analisar conceitos declarativos de PF e PR, e o primeiro objetivo específico, demonstrar a programação declarativa com a PF, se cumpria com programas de processamento de listas. \textbf{Esse objetivo sai} e vai para a seção 2, porque fundamentar conceitos não responde à pergunta. Os \enquote{programas concretos} passam a sete interfaces na web, avaliadas em três rodadas; o JavaScript passa a TypeScript; e as DCs, que o projeto não listava, passam às 14 da lista completa.}@@
 
-  Quanto aos objetivos, a pesquisa é /exploratória/: busca compreensão nova
-  @@latex:\notamudou{O projeto também classificava a pesquisa como exploratória, com Leal (2011), e de natureza aplicada; \textbf{a natureza sai}.}@@
-  e gera ideias e hipóteses para outras pesquisas
-  [[cite:runeson2009][p. 135]].
-  A pergunta de pesquisa, como a usabilidade da notação difere entre os modelos de
-  programação, é do tipo que textcite:easterbrook2008 chamam de
-  descritivo-comparativo, das perguntas sobre como uma coisa difere de outra,
-  e põem entre as perguntas exploratórias.
-
-  Quanto aos meios, o trabalho é @@latex:\realce{@@uma avaliação qualitativa@@latex:}\notapergunta[list,prepend,caption={\textbf{2. Classificação do método}}]{no projeto, estudo de casos múltiplos (Yin 2001). \textbf{Fica o rótulo novo?} A troca se explica no texto ou só no pedido à coordenação?}@@, pelas [[glspl:dc]], de
-  implementações de um mesmo conjunto de interfaces.
-  O conjunto é um /benchmark/ de notação [[cite:kiss2014][p. 114]]: testes que devem
-  formar uma amostra representativa das tarefas da prática e servem para comparar
-  técnicas alternativas por medidas de desempenho, que podem ser
-  qualitativas e feitas por uma pessoa [[cite:sim2003][p. 76]].
-  A medida, neste trabalho, é a avaliação pelas [[glspl:dc]].
-  Aqui, as técnicas são os modelos de programação, e a amostra, sete
-  interfaces gráficas.
-  A representatividade dessa amostra é desejável, mas a escolha das
-  interfaces, pelas exigências de coordenação que cada uma traz, e a
-  comparação entre os modelos de programação passam na frente dela.
-  Na primeira rodada, o Contador mostra a estrutura básica que o código de
-  uma interface exige em cada tecnologia e como os recursos mais básicos se
-  juntam [[cite:kiss2014][p. 17]].
-  As outras seis trazem exigências da coordenação: as de orquestração
-  pesam na Busca com Sugestões, no Login com Quarentena e no Placar ao
-  Vivo, e as de gerenciamento de estado, na Reserva de Passagem, na
-  Planilha e no Desenhador de Círculos.
+  A pesquisa, exploratória, é @@latex:\realce{@@uma avaliação qualitativa@@latex:}\notapergunta[list,prepend,caption={\textbf{2. Classificação do método}}]{no projeto, estudo de casos múltiplos (Yin 2001). \textbf{Fica o rótulo novo?} O estudo de caso pede um fenômeno no seu contexto real (Runeson e Höst 2009), e aqui as interfaces se constroem para a comparação. A classificação completa está na seção \ref{sec:delineamento}. A troca se explica no texto ou só no pedido à coordenação?}@@, pelas [[glspl:dc]], de
+  implementações de um mesmo conjunto de interfaces, um /benchmark/ de
+  notação [[cite:kiss2014][p. 114]].
+  Fora o Contador, as interfaces trazem exigências de coordenação: as de
+  combinação de eventos pesam na Busca com Sugestões, no Login com
+  Quarentena e no Placar ao Vivo, e as de gerenciamento de estado, na
+  Reserva de Passagem, na Planilha e no Desenhador de Círculos.
 
   As sete interfaces são implementadas na web por duas tecnologias, o
   núcleo, em passos que mudam um modo de um eixo de cada vez
   (Figura [[ref:fig:grade-do-nucleo]]).
-  O núcleo parte do Web Component, a plataforma sem biblioteca, imperativo
-  nos dois eixos.
+  O núcleo parte do Web Component.
   O passo ao React muda a propagação, de manual a re-renderização, com a
   orquestração por atribuição nos dois.
-  O mesmo passo muda também a montagem da tela, do =createElement= ao
-  JSX, e o modelo de componente, da classe à função, e a análise separa
-  pelo sinal escrito o que vem de cada mudança.
 
   A avaliação se faz em três rodadas.
   A primeira constrói as sete interfaces no núcleo e responde à P1.
@@ -262,22 +182,17 @@ dependem dela [[cite:bainomugisha2013][p. 52:2]].
   A terceira refatora o código da segunda rodada da Busca, do Login e do
   Placar ao Vivo, sem mudar o comportamento, um modo por passo, e
   responde à P1.2.
-  Ela leva o Web Component e o React à orquestração por acumulação, com
-  o RxJS, passando no React pela orquestração por mensagem, do
-  =useReducer=, e depois leva os derivados do React aos combinadores.
+  Em cada rodada, a avaliação percorre as 14 [[glspl:dc]], e uma
+  tabela-síntese reúne o perfil de cada modelo de programação, que também
+  se lê por exigência de coordenação.
   Depois da análise, um entorno situa as células vizinhas, com cada
   tecnologia num passo a partir do núcleo
   (Figura [[ref:fig:grade-do-nucleo-e-do-entorno]]).
-  O Lit e o Solid entram na primeira rodada, e o Web Component com
-  Effection, que escreve a orquestração sequencial, na Busca, no Login e
-  no Placar ao Vivo.
-  O último passo do entorno, do React com os derivados no RxJS ao
-  Cycle.js, muda de uma vez a biblioteca de fluxos, o modelo de
-  componente, os efeitos e a montagem da tela.
-  Como nos casos de [[textcite:kiss2014][p. 23]], em que o /toolkit/
-  pesou mais que o paradigma, a diferença que esse passo mostra não se
-  atribui só ao modelo de programação.
   @@latex:\notamudou{\textbf{As três rodadas são novas}; o projeto não as previa.}@@
+  A seção ref:chap:cases detalha o delineamento, e as implementações, os
+  testes de conformidade e as capturas ficam em
+  https://github.com/iquabius/unemat-tcc.
+  @@latex:\notaproxima[inline]{Termos: \enquote{comparar} fica para o objetivo, \enquote{avaliação} para a aplicação das DCs ao código e \enquote{análise} para a parte que apresenta os resultados. Considerar um termo só, \enquote{avaliação}, para a atividade toda. A favor: uma palavra por conceito, sem o leitor se perguntar se são três atividades. Contra: mudam mais frases, e o objetivo geral perde o verbo \enquote{comparar}, que diz o que se faz entre os modelos de programação.}@@
 
   #+CAPTION: O núcleo na grade dos modos de orquestração (do evento ao estado) e de propagação (do estado à tela), com uma seta por passo. A linha tracejada separa, em cada eixo, os modos imperativos dos declarativos.
   #+NAME: fig:grade-do-nucleo
@@ -396,24 +311,6 @@ dependem dela [[cite:bainomugisha2013][p. 52:2]].
   #+end_export
   #+end_figure
 
-  A linguagem, a especificação e as regras de domínio ficam fixas, cada
-  implementação usa só o que a tecnologia traz, e um teste de conformidade confere que as implementações de uma
-  interface fazem o mesmo.
-  A aparência também fica fixa, num arquivo [[gls:css]] comum às
-  implementações de cada interface.
-  [[textcite:kiss2014][p. 16]] não usou o FXML, a linguagem de /layout/ do
-  JavaFX, para não tirar o foco da comparação; com o mesmo propósito, este
-  trabalho mantém fora da notação o que não distingue os modelos de
-  programação.
-  Em cada rodada, o autor percorre as 14 [[glspl:dc]] no código, e a análise
-  compara o perfil de cada modelo de programação numa tabela-síntese, que
-  também se lê por exigência de coordenação.
-  @@latex:\notamudou{\textbf{As DCs passam às 14} em cada rodada.}@@
-  A seção ref:chap:cases detalha o delineamento, e as implementações, os
-  testes de conformidade e as capturas ficam em
-  https://github.com/iquabius/unemat-tcc.
-  @@latex:\notaproxima[inline]{Termos: \enquote{comparar} fica para o objetivo, \enquote{avaliação} para a aplicação das DCs ao código e \enquote{análise} para a parte que apresenta os resultados. Considerar um termo só, \enquote{avaliação}, para a atividade toda. A favor: uma palavra por conceito, sem o leitor se perguntar se são três atividades. Contra: mudam mais frases, e o objetivo geral perde o verbo \enquote{comparar}, que diz o que se faz entre os modelos de programação.}@@
-
   O delineamento tem limitações em três pontos: quem avalia, o instrumento e o
   objeto.
   @@latex:\realce{@@Como a avaliação cabe ao autor, nenhum outro avaliador confere as posições@@latex:}\notapergunta[list,prepend,caption={\textbf{4. Avaliador único}}]{o texto só declara o risco. \textbf{Entra um avaliador externo}, que aplique duas DCs a parte das implementações para comparar as leituras? \textbf{Conhece alguém} que revise o código de uma tecnologia ou faça uma segunda análise de um par?}@@
@@ -447,7 +344,8 @@ dependem dela [[cite:bainomugisha2013][p. 52:2]].
   programação tem uma tecnologia no núcleo, e o perfil dele generaliza a
   partir dela.
   Os passos também isolam pouco: o do Web Component ao React muda também
-  a montagem e o modelo de componente.
+  a montagem e o modelo de componente, e a análise separa pelo sinal
+  escrito o que vem de cada mudança.
   Atribuir as diferenças aos passos supõe que eles se somam, o que só o quadrado do Web Component, do React
   e dos dois com RxJS testa, na terceira rodada.
 

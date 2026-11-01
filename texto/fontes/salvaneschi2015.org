@@ -1,32 +1,6 @@
 #+title: salvaneschi2015: Salvaneschi et al. (2015), Reactive Programming: A Walkthrough
 #+startup: overview
 
-* [[file:../intro.org::Nos declarativos, o programador descreve a tela][intro: Nos declarativos, o programador descreve a tela]], p. 953
-- Frase: “O /declarativo por atualização granular/ usa uma das abstrações da
-  PR, os valores que variam no tempo, chamados /signals/, cujas alterações
-  se propagam automaticamente (Salvaneschi; Margara; Tamburrelli, 2015, p.
-  953).”
-- Trecho: “It is based on concepts like time-varying values (a.k.a. signals
-  or behaviors), events streams to model discrete updates, automatic
-  tracking of dependencies, and automated propagation of change.”
-- Lido em: =acervo/salvaneschi2015.pdf=, p. 1 do PDF (p. 953).
-- Observação: Em 2026-10-15, “O modelo de programação por atualização
-  granular” passou ao nome do modelo (=GLOSSARY.md=). Em 2026-10-28, a frase
-  mudou na checagem adversarial: “as abstrações” virou “uma das abstrações”,
-  pois a fonte lista também os fluxos de eventos.
-- Conferido: 2026-10-06; de novo em 2026-10-28.
-* [[file:../intro.org::No navegador, as sub-rotinas desse código][intro: No navegador, as sub-rotinas desse código]], p. 953 (o Observer Pattern)
-- Frase: “A forma tradicional de implementar programas que reagem a eventos
-  é o /Observer Pattern/ (Salvaneschi; Margara; Tamburrelli, 2015,
-  p. 953).”
-- Trecho: “The traditional approach to implement reactive applications is
-  the Observer design pattern” (p. 953)
-- Lido em: =acervo/salvaneschi2015.pdf=, p. 1 do PDF (p. 953).
-- Observação: “programas que reagem a eventos” traduz /reactive
-  applications/, para não usar “reativo” fora da PR (=AGENTS.md=,
-  preferências do autor). Em 2026-10-28, no corte do contorno, a definição
-  (os observadores e os observáveis) foi para prog.org (decisão do autor).
-- Conferido: 2026-10-15.
 * [[file:../modelos.org::O /Observer Pattern/ separa os observadores][modelos: O Observer Pattern separa os observadores]], p. 953 (a definição do Observer Pattern)
 - Frase: “O /Observer Pattern/ separa os observadores, que consomem os
   eventos, dos observáveis, que os produzem (Salvaneschi; Margara;

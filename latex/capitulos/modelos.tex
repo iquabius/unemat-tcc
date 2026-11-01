@@ -32,9 +32,10 @@ O programa também precisa ser robusto: tratar qualquer entrada sem parar
 de funcionar e, como o usuário espera, permitir que ele cancele e desfaça
 a maioria das ações \cite[p. 75, 79 e 80]{myers1994}.
 
-O \emph{callback} é síncrono quando a função que o recebe o chama antes de
-retornar, e assíncrono quando sua execução fica para algum tempo depois de a
-função retornar \cite[p. 2]{gallaba2015}.
+O \emph{callback} é uma função passada como argumento a outra, e é síncrono
+quando a função que o recebe o chama antes de retornar, e assíncrono
+quando sua execução fica para algum tempo depois de a função retornar
+\cite[p. 2]{gallaba2015}.
 O navegador executa a aplicação numa \emph{thread} só, e, para que ela continue
 respondendo ao usuário, os programadores recorrem às operações assíncronas
 \cite[p. 368-369]{alimadadi2014}.
@@ -142,6 +143,14 @@ Por isso, este trabalho dá o grau a cada eixo do modelo de programação, e
 não à tecnologia.
 \section{Paradigma e modelo de programação}
 \label{sec:paradigma-e-modelo-de-programacao}
+
+O termo \emph{modelo de programação} vem de
+\textcite[p. xiii e 29]{vanroy2004}, para quem ele são as técnicas e os
+princípios de projeto tornados possíveis pelo \emph{modelo de computação}, o
+sistema formal que define uma linguagem e como se executam os programas
+escritos nela.
+Aqui, quem torna possível o modelo de programação é a tecnologia, e não o
+modelo de computação, que é o mesmo nas tecnologias web.
 
 O modelo de programação não é o paradigma, noção imprecisa que o modelo
 de computação torna precisa \cite[p. xiii]{vanroy2004}.
@@ -281,7 +290,9 @@ depois outro valor, a não ser que o programador escreva de novo a
 atribuição \cite[p. 52:3]{bainomugisha2013}.
 Na \gls{pr}, \texttt{var3} se recalcula sempre que \texttt{var1} ou \texttt{var2} se
 alteram \cite[p. 52:3]{bainomugisha2013}.
-É o que a planilha faz com as fórmulas.
+A planilha eletrônica faz o mesmo: cada célula guarda um valor ou uma
+fórmula, e, quando o valor de uma célula se altera, as fórmulas que
+dependem dela se recalculam \cite[p. 52:2]{bainomugisha2013}.
 
 Na \gls{pr}, a ordem das atualizações não se escreve: o ambiente de
 execução propaga a alteração de um valor às computações que dependem dele

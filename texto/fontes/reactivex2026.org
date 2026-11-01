@@ -1,10 +1,13 @@
 #+title: reactivex2026: ReactiveX (2026), combineLatest
 #+startup: overview
 
-* [[file:../intro.org::Nos declarativos, o programador descreve a tela][intro: Nos declarativos, o programador descreve a tela]] (os combinadores)
-- Frase: “Na propagação /por combinadores/, a dependência se escreve com
-  operadores sobre fluxos de eventos que nomeiam as fontes, como o
-  =combineLatest= do RxJS (ReactiveX, 2026).”
+* [[file:../comparacao.org::Na terceira rodada, na Busca][comparacao: Na terceira rodada, na Busca]] (os combinadores)
+- Frase: “[...] leva os derivados do React aos combinadores, em que a
+  dependência se escreve com operadores sobre fluxos de eventos que
+  nomeiam as fontes, como o =combineLatest= (ReactiveX, 2026).” Até
+  2026-11-01, a frase definia a propagação por combinadores na
+  introdução; no corte da introdução, foi para a 3.1.2 (decisão do
+  autor).
 - Trecho: “Combines multiple Observables to create an Observable whose
   values are calculated from the latest values of each of its input
   Observables.”

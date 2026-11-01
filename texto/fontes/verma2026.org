@@ -21,3 +21,23 @@
 - Observação: entrou nos trabalhos relacionados por decisão do autor de
   2026-11-01, que a quer também na introdução.
 - Conferido: 2026-11-01.
+* [[file:../intro.org::Nenhum desses trabalhos compara, sobre as mesmas interfaces][intro: Nenhum desses trabalhos compara, sobre as mesmas interfaces]] (o caso mais próximo)
+- Frase: “O caso mais próximo avalia pelas DCs a notação de um conjunto de
+  controles de interface que os próprios autores escreveram em Angular e
+  estenderam depois em React, e não a notação do React, em que esses
+  controles se escrevem (Narechania et al., 2025; Verma; Odak;
+  Narechania, 2026).”
+- Trecho: “we present SuperProvenanceWidgets, an extension to
+  ProvenanceWidgets that tracks and visualizes provenance across multiple
+  UI controls” (p. 1 da cópia); “We present a technical self-assessment
+  of SuperProvenanceWidgets using the Cognitive Dimensions of
+  Notations”; “The notation is also consistent with the framework it has
+  been implemented in (i.e. React.js)” (seção 4, p. 6 da cópia).
+- Lido em: =acervo/verma2026.pdf=, a cópia do arXiv (2604.15342), p. 1 e
+  6; a citação vai sem página, como na 2.7.
+- Observação: “estenderam depois em React” segue o “extension to
+  ProvenanceWidgets”: a versão em React acrescenta o rastro entre os
+  controles, e não é só a mesma biblioteca reescrita. Até a conferência
+  de 2026-11-01, a redação aprovada dizia “escreveram em Angular e depois
+  em React”.
+- Conferido: 2026-11-01.

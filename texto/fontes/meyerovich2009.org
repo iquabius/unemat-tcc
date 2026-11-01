@@ -1,12 +1,15 @@
 #+title: meyerovich2009: Meyerovich et al. (2009), Flapjax: A Programming Language for Ajax Applications
 #+startup: overview
 
-* [[file:../intro.org::Nas tecnologias que este trabalho compara][intro: Nas tecnologias que este trabalho compara]], p. 3 (o cronômetro)
-- Frase: “Num cronômetro escrito assim, o /callback/ do botão que zera o
-  tempo altera o valor guardado, mas não o leva à tela (Meyerovich et al.,
-  2009, p. 3). Até o próximo tique do relógio, o tempo exibido não
-  corresponde ao valor guardado, e cabe ao programador escrever a
-  sincronização da tela com o estado (Meyerovich et al., 2009, p. 3).”
+* [[file:../comparacao.org::O núcleo tem duas tecnologias][comparacao: O núcleo tem duas tecnologias]], p. 3 (o cronômetro)
+- Frase: “Num cronômetro escrito assim, o tratador do botão que zera o
+  tempo altera o valor guardado, mas não o leva à tela, e, até o próximo
+  tique do relógio, o tempo exibido não corresponde ao valor guardado
+  (Meyerovich et al., 2009, p. 3).” Até 2026-11-01, duas frases na
+  introdução, a segunda com “cabe ao programador escrever a sincronização
+  da tela com o estado”; no corte da introdução, a ilustração foi para o
+  Web Component na 3.1.2 (decisão do autor), que já diz que o tratador
+  escreve a atualização da tela.
 - Trecho: “The bug is that the time displayed on-screen—which we might
   think of as having to always represent the value of elapsedTime (i.e., a
   model-view relationship)—is undefined between when the user clicks on

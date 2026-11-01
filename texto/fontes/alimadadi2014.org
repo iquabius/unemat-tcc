@@ -1,7 +1,7 @@
 #+title: alimadadi2014: Alimadadi et al. (2014), Understanding JavaScript Event-Based Interactions
 #+startup: overview
 
-* [[file:../modelos.org::O /callback/ é síncrono quando a][modelos: O /callback/ é síncrono quando a]], p. 368-369
+* [[file:../modelos.org::O /callback/ é uma função passada][modelos: O /callback/ é uma função passada]], p. 368-369
 - Frase: “O navegador executa a aplicação numa /thread/ só, e, para que ela
   continue respondendo ao usuário, os programadores recorrem às operações
   assíncronas.”

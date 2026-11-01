@@ -37,10 +37,13 @@
 - Observação: a referência [30] de Kiss é o relatório técnico de Myers de
   1993, a versão anterior de Myers (1994).
 - Conferido: 2026-10-12.
-* [[file:../intro.org::Para discutir o quanto uma notação facilita][intro: Para discutir o quanto uma notação facilita]], p. v e 104
-- Frase: “Kiss (2014, p. v, 11 e 104) comparou a POO e a PF em sete
-  interfaces gráficas, com JavaFX e ScalaFX, e deixou como trabalho futuro
-  comparar os /frameworks/ de interface do navegador.” Em 2026-10-15, a
+* [[file:../intro.org::Para discutir o quanto uma notação facilita][intro: Para discutir o quanto uma notação facilita]], p. 104
+- Frase: “[...] e Kiss (2014, p. 104) deixou como trabalho futuro comparar
+  os /frameworks/ de interface do navegador.” Até 2026-11-01, “Kiss (2014,
+  p. v, 11 e 104) comparou a POO e a PF em sete interfaces gráficas, com
+  JavaFX e ScalaFX, e deixou como trabalho futuro [...]”; no corte da
+  introdução, o que Kiss comparou ficou só na 2.7, e a introdução, com o
+  trabalho futuro (decisão do autor). Em 2026-10-15, a
   frase ganhou Scala.Rx, ReactFX e Elm, como a de prog.org, pela checagem
   adversarial (decisão do autor); em 2026-10-28, no corte do contorno, eles
   saíram da introdução e ficam só em prog.org (decisão do autor).
@@ -87,12 +90,13 @@
   modificar os casos e estudar casos maiores para verificar se a abordagem
   escala.
 - Conferido: 2026-10-13; de novo em 2026-10-28 e 2026-10-30.
-* [[file:../intro.org::Quanto aos meios, o trabalho é][intro: Quanto aos meios, o trabalho é uma avaliação qualitativa]], p. 114
-- Frase: “O conjunto é um /benchmark/ de notação (Kiss, 2014, p. 114):
-  testes que devem formar uma amostra representativa das tarefas da prática e
-  servem para comparar técnicas alternativas por medidas de desempenho,
-  que podem ser qualitativas e feitas por uma pessoa (Sim; Easterbrook;
-  Holt, 2003, p. 76).”
+* [[file:../intro.org::A pesquisa, exploratória, é][intro: A pesquisa, exploratória, é]], p. 114
+- Frase: “A pesquisa, exploratória, é uma avaliação qualitativa, pelas
+  DCs, de implementações de um mesmo conjunto de interfaces, um
+  /benchmark/ de notação (Kiss, 2014, p. 114).” Até 2026-11-01, “O
+  conjunto é um /benchmark/ de notação (Kiss, 2014, p. 114): testes que
+  devem formar [...] (Sim; Easterbrook; Holt, 2003, p. 76)”; no corte da
+  introdução, a definição de Sim foi para a 3.1.1 (decisão do autor).
 - Trecho: o repositório com as soluções de todos os /case studies/ “is
   structured in a way as to be a notational benchmark for languages
   and/or libraries/frameworks/toolkits with respect to GUI programming”
@@ -104,29 +108,15 @@
   um /benchmark/ de um item só; por isso a citação é a p. 114, onde o
   termo nomeia o conjunto.
 - Conferido: 2026-10-14.
-* [[file:../intro.org::Quanto aos meios, o trabalho é][intro: Quanto aos meios, o trabalho é uma avaliação qualitativa]], p. 17 (o Contador)
-- Frase: “Na primeira rodada, o Contador mostra a estrutura básica que o
-  código de uma interface exige em cada tecnologia e como os recursos mais
-  básicos se juntam (Kiss, 2014, p. 17).”
-- Trecho: “Challenges: understanding the basic ideas of a language/toolkit
-  and the essential scaffolding”; “by comparing Counter implementations one
-  can clearly see what basic scaffolding is needed and how the very basic
-  features work together to build a GUI application.” (p. 17)
-- Lido em: =acervo/kiss2014.pdf=, p. 23 do PDF (p. 17).
-- Observação: que o Contador não tem exigência de coordenação própria é do
-  ADR 0002 (2026-10-22), e não de Kiss; “estrutura básica” traduz /basic
-  scaffolding/. Em 2026-10-28, a frase mudou na checagem adversarial: a
-  estrutura básica do Contador ficou restrita à primeira rodada, pois na
-  segunda ele ganha a lista de contadores. Em 2026-10-30, na segunda
-  passada, saiu o “só”, que é do ADR 0002 e não de Kiss, e entrou o resto
-  do trecho, “how the very basic features work together” (decisão do
-  autor).
-- Conferido: 2026-10-24; de novo em 2026-10-28 e 2026-10-30.
-* [[file:../intro.org::A linguagem, a especificação e as regras de domínio][intro: A linguagem, a especificação e as regras de domínio]], p. 16
-- Frase: “Kiss (2014, p. 16) não usou o FXML, a linguagem de /layout/ do
-  JavaFX, para não tirar o foco da comparação; com o mesmo propósito, este
-  trabalho mantém fora da notação o que não distingue os modelos de
-  programação.” Até 2026-10-29, “Como Kiss (2014, p. 16), que deixou de
+* [[file:../comparacao.org::Na aparência, que fica fixa][comparacao: Na aparência, que fica fixa]], p. 16
+- Frase: “O propósito é o de Kiss (2014, p. 16), que não usou o FXML, a
+  linguagem de /layout/ do JavaFX, para não tirar o foco da comparação.”
+  Em 2026-11-01, a frase veio da introdução para o parágrafo da aparência
+  na 3.1.4, no corte da introdução (decisão do autor), e “o propósito”
+  retoma a aparência fora da notação, dita na frase anterior. Até
+  2026-11-01, “Kiss (2014, p. 16) não usou o FXML [...]; com o mesmo
+  propósito, este trabalho mantém fora da notação o que não distingue os
+  modelos de programação.” Até 2026-10-29, “Como Kiss (2014, p. 16), que deixou de
   fora a linguagem de /layout/ do JavaFX [...]”: o “Como” sugeria que os
   dois fizeram o mesmo, mas Kiss escreveu o /layout/ no código Java
   (“count and countUp are laid out horizontally by an HBox”, p. 17), e só
@@ -269,15 +259,6 @@
   dele; a 3.1.6 define as 14 pela fonte primária e toma de Kiss só a
   forma, a definição com um exemplo.
 - Conferido: 2026-11-01.
-
-* [[file:../intro.org::A avaliação se faz em três rodadas.][intro: A avaliação se faz em três rodadas.]] (o passo sem controle), p. 23
-- Frase: “Como nos casos de Kiss (2014, p. 23), em que o /toolkit/ pesou
-  mais que o paradigma, a diferença que esse passo mostra não se atribui
-  só ao modelo de programação.”
-- Trecho: “As before, the toolkit dominated this evaluation and the
-  paradigms did not come into play once again.”
-- Lido em: =acervo/kiss2014.pdf=, p. 29 do PDF.
-- Conferido: 2026-10-31.
 
 * [[file:../comparacao.org::Na Busca, no Login e no Placar ao Vivo, o Web Component com Effection][comparacao: Na Busca, no Login e no Placar ao Vivo, o Web Component com Effection]] (o passo sem controle), p. 23
 - Frase: “A diferença nesse passo não se atribui a uma variável só, como
