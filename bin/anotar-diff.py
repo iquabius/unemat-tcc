@@ -780,8 +780,7 @@ def resumo(dir_, aux, job, base_nome, ref_nome):
             formas.add("seta")
         else:
             partes = [f"{tipo}: {paginas_do_lado(lado, CORES[tipo])}" for tipo, lado in lados.items()]
-            if lados:
-                formas.add("um lado")
+            formas.update(lados)
         # A chave que as referências não mostram (a fonte não citada) não
         # leva a lugar nenhum, e fica de fora como o trecho que não existe.
         chaves = [f"\\hyperlink{{cite.0@{k}}}{{\\texttt{{{esc(k)}}}}}"
@@ -805,13 +804,16 @@ def resumo(dir_, aux, job, base_nome, ref_nome):
                    r"em {\color{difentrou}azul}, depois dela. " if "seta" in formas else "")
                 # O lado do que saiu conta só as linhas de BASE (quem_tirou()),
                 # e o do que entrou, só as que ficaram em REF (o git blame).
-                + (r"Com um lado só, o item diz qual: \enquote{entrou:}, em "
-                   r"{\color{difentrou}azul}, quando nada do texto que o commit tirou da "
-                   f"{esc(base_nome)} falta na {esc(ref_nome)}, e \\enquote{{saiu:}}, em "
-                   r"{\color{difsaiu}vermelho}, "
-                   f"quando nada do texto que ele pôs ficou na {esc(ref_nome)}; o capítulo "
-                   r"que ele apagou ou esvaziou não entra na conta. "
-                   if "um lado" in formas else "")
+                # Cada lado só tem a frase dele.
+                + ("Com um lado só, " + " e ".join(
+                    ([r"\enquote{entrou:}, em {\color{difentrou}azul}, quer dizer que nada do "
+                      f"texto que o commit tirou da {esc(base_nome)} falta na {esc(ref_nome)}"]
+                     if "entrou" in formas else [])
+                    + ([r"\enquote{saiu:}, em {\color{difsaiu}vermelho}, quer dizer que nada "
+                        f"do texto que o commit pôs ficou na {esc(ref_nome)}"]
+                       if "saiu" in formas else []))
+                   + "; o capítulo que o commit apagou ou esvaziou não entra na conta. "
+                   if formas & {"entrou", "saiu"} else "")
                 + (r"Com os dois lados nas mesmas seções e páginas, o texto foi reescrito no "
                    r"lugar, e o item diz \enquote{reescrito:}, com as páginas em "
                    r"{\color{difreescrito}roxo}. " if "reescrito" in formas else "")

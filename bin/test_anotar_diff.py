@@ -870,11 +870,19 @@ class ResumoDoDiff(unittest.TestCase):
         # aparece na página, e a legenda não fala dele.
         legenda = self.legenda(self.resumo())
         self.assertIn("vêm antes da seta", legenda)
-        self.assertIn(r"quando nada do texto que o commit tirou da v0.11 falta na v0.12, e "
-                      r"\enquote{saiu:}, em "
-                      r"{\color{difsaiu}vermelho}, quando nada do texto que ele pôs ficou na v0.12; "
-                      r"o capítulo que ele apagou ou esvaziou não entra na conta.", legenda)
+        # O lado só é o do que entrou: a legenda não explica o "saiu:".
+        self.assertIn(r"Com um lado só, \enquote{entrou:}, em {\color{difentrou}azul}, quer "
+                      r"dizer que nada do texto que o commit tirou da v0.11 falta na v0.12; "
+                      r"o capítulo que o commit apagou ou esvaziou não entra na conta.", legenda)
+        self.assertNotIn(r"\enquote{saiu:}", legenda)
         self.assertNotIn("reescrito", legenda)
+        # Só o lado do que saiu: a frase dele, e não a do que entrou.
+        ancoras = dict(self.ANCORAS, commits=self.ANCORAS["commits"][:1], ancoras=[
+            {"n": 1, "commit": "a" * 40, "tipo": "saiu", "capitulo": "Introdução"}])
+        legenda = self.legenda(self.resumo(ancoras=ancoras))
+        self.assertIn(r"Com um lado só, \enquote{saiu:}, em {\color{difsaiu}vermelho}, quer "
+                      r"dizer que nada do texto que o commit pôs ficou na v0.12;", legenda)
+        self.assertNotIn(r"\enquote{entrou:}", legenda)
         # Só o reescrito: nem a seta nem o lado só.
         ancoras = dict(self.ANCORAS, commits=self.ANCORAS["commits"][:1], ancoras=[
             {"n": 1, "commit": "a" * 40, "tipo": "saiu", "capitulo": "Introdução"},
