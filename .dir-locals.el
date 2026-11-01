@@ -32,5 +32,5 @@
                            ;; com o rótulo sorteado do Org.
                            (gambi/org-document-files
                             . ("intro.org" "modelos.org" "comparacao.org"
-                               "results.org" "conclusao.org" "../latex/tcc.tex"
+                               "conclusao.org" "../latex/tcc.tex"
                                "../latex/apendices/*.tex")))))))

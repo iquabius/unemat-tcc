@@ -24,7 +24,7 @@ achar as fontes que mais pesam, pela tabela "Fontes centrais".
 | Pergunta e objetivos | `texto/intro.org` | ADR 0014; o tipo da pergunta, em `texto/fontes/easterbrook2008.org` |
 | O que se compara: modelo de programação e notação | `texto/intro.org`, `texto/modelos.org` | `docs/paradigma-modelo-e-notacao.md`; os termos, no `GLOSSARY.md` |
 | Método: o rótulo, as DCs, as rodadas, o tamanho das interfaces | `texto/intro.org`, metodologia | `docs/metodo-da-avaliacao.md`; o que se controla, em `docs/delineamento.md`; o que cada interface exige e cada par cobre, em `docs/exigencias-de-coordenacao.md` |
-| Análise por DC | `texto/comparacao.org`, `texto/results.org` | `docs/metodo-da-avaliacao.md`, seção "Como as fontes aplicaram as DCs a código, e as armadilhas"; `docs/achados-das-implementacoes.md`; `docs/exigencias-de-coordenacao.md`, seção "Mapa por interface"; a skill `avaliacao-pelas-dcs` |
+| Análise por DC | `texto/comparacao.org` | `docs/metodo-da-avaliacao.md`, seção "Como as fontes aplicaram as DCs a código, e as armadilhas"; `docs/achados-das-implementacoes.md`; `docs/exigencias-de-coordenacao.md`, seção "Mapa por interface"; a skill `avaliacao-pelas-dcs` |
 | Capítulo de programação | `texto/modelos.org` | `docs/paradigma-modelo-e-notacao.md`, `docs/bibliografia/programacao-funcional-e-reativa.md`, `docs/estado-eventos-e-complexidade.md` |
 | Tecnologias e plataformas | ADRs 0001, 0013 e 0042 | `docs/plataformas/README.md`, e dali `web.md`, `bibliotecas-de-formulario.md`, `bibliotecas-de-inscricao-e-reconexao.md` e `medida-das-bibliotecas.md`; o Android e o *desktop*, fora da análise, em `android.md` e `desktop.md` |
 | Forma da introdução | `texto/intro.org` | `docs/bibliografia/escrita-da-introducao.md` |

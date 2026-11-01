@@ -69,7 +69,7 @@ As tarefas vivem no [Beads](https://github.com/gastownhall/beads) (`bd`
   |---|---|
   | `texto/intro.org`, `docs/metodo-da-avaliacao.md`, `docs/estado-eventos-e-complexidade.md`, `docs/bibliografia/escrita-da-introducao.md` | Fase 1: introdução (`tcc-e2e`) |
   | a pauta de uma orientação | a fase em andamento, a primeira ainda aberta |
-  | `texto/comparacao.org`, `texto/results.org`, a análise por DC | Fase 2: análise das implementações (`tcc-d40`) |
+  | `texto/comparacao.org`, a análise por DC | Fase 2: análise das implementações (`tcc-d40`) |
   | `texto/modelos.org`, `docs/bibliografia/programacao-funcional-e-reativa.md`, `docs/trabalhos-relacionados-e-lacuna.md` | Fase 3: capítulo de programação (`tcc-2o8`) |
   | `texto/conclusao.org`, o título, o texto do resumo | Fase 4: fechamento (`tcc-y8x`) |
   | `interfaces-graficas/`: código, especificação, testes de conformidade, capturas | Código das interfaces (`tcc-3jg`) |
