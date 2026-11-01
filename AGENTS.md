@@ -656,6 +656,18 @@ mudanças alheias. No checkout principal, todo commit nomeia os arquivos
 (`git commit -- <arquivos>`), porque o índice pode guardar o rascunho do
 texto que o autor ainda não aprovou.
 
+O commit que nomeia os arquivos grava cada um inteiro, como está na
+árvore na hora do commit, e não como estava na conferência: o que o
+autor ou outra sessão escreveu no mesmo arquivo nesse meio-tempo entra
+junto. Logo antes do `git commit`, o agente confere de novo `git diff
+--stat HEAD -- <arquivos>` e para se vier mais do que a mudança
+conferida; com o autor ou outra sessão trabalhando no mesmo checkout,
+commita por índice temporário, montado do `HEAD` com o patch conferido
+(`git apply --cached`), que não pega o que mudou depois. Em 2026-11-01,
+um commit do agente por caminho levou do `texto/refs.bib` uma entrada
+que outra sessão acrescentou depois da conferência, e saiu refeito por
+amend, com o aprovo do autor.
+
 Antes de cada commit, o agente carrega a skill `mensagem-de-commit` e
 confere o commit pelos critérios do eixo História da `revisao-rigorosa`: uma
 mudança lógica por commit, com mover, renomear ou reformatar num commit
