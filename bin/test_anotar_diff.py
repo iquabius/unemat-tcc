@@ -925,7 +925,7 @@ class ResumoDoDiff(unittest.TestCase):
         self.assertIn(r"\item Leva o método\\ Introdução, p.~\hyperref[difancora-1]"
                       r"{\textcolor{difsaiu}{9}} \textrightarrow{} Delineamento, "
                       r"p.~\hyperref[difancora-3]{\textcolor{difentrou}{30}}.", resumo)
-        self.assertIn(r"\item Põe uma frase\\ entrou: Introdução, p.~\hyperref[difancora-2]"
+        self.assertIn(r"\item Põe uma frase\\ \textcolor{difentrou}{entrou:} Introdução, p.~\hyperref[difancora-2]"
                       r"{\textcolor{difentrou}{9}}. Referências: \textcite{novo2020}.", resumo)
         self.assertIn(r"e cada fonte depois de \enquote{Referências:}, à entrada dela.", resumo)
         self.assertNotIn("refs.bib", resumo)
@@ -940,24 +940,24 @@ class ResumoDoDiff(unittest.TestCase):
         legenda = self.legenda(self.resumo())
         self.assertIn("vêm antes da seta", legenda)
         # O lado só é o do que entrou: a legenda não explica o "saiu:".
-        self.assertIn(r"Com um lado só, \enquote{entrou:}, em {\color{difentrou}azul}, quer "
+        self.assertIn(r"Com um lado só, \enquote{\textcolor{difentrou}{entrou:}}, em {\color{difentrou}azul}, quer "
                       r"dizer que nada do texto que o commit tirou da v0.11 falta na v0.12; "
                       r"o capítulo que o commit apagou ou esvaziou não entra na conta.", legenda)
-        self.assertNotIn(r"\enquote{saiu:}", legenda)
+        self.assertNotIn(r"{saiu:}", legenda)
         self.assertNotIn("reescrito", legenda)
         # Só o lado do que saiu: a frase dele, e não a do que entrou.
         ancoras = dict(self.ANCORAS, commits=self.ANCORAS["commits"][:1], ancoras=[
             {"n": 1, "commit": "a" * 40, "tipo": "saiu", "capitulo": "Introdução"}])
         legenda = self.legenda(self.resumo(ancoras=ancoras))
-        self.assertIn(r"Com um lado só, \enquote{saiu:}, em {\color{difsaiu}vermelho}, quer "
+        self.assertIn(r"Com um lado só, \enquote{\textcolor{difsaiu}{saiu:}}, em {\color{difsaiu}vermelho}, quer "
                       r"dizer que nada do texto que o commit pôs ficou na v0.12;", legenda)
-        self.assertNotIn(r"\enquote{entrou:}", legenda)
+        self.assertNotIn(r"{entrou:}", legenda)
         # Só o reescrito: nem a seta nem o lado só.
         ancoras = dict(self.ANCORAS, commits=self.ANCORAS["commits"][:1], ancoras=[
             {"n": 1, "commit": "a" * 40, "tipo": "saiu", "capitulo": "Introdução"},
             {"n": 2, "commit": "a" * 40, "tipo": "entrou", "capitulo": "Introdução"}])
         legenda = self.legenda(self.resumo(ancoras=ancoras))
-        self.assertIn(r"\enquote{reescrito:}", legenda)
+        self.assertIn(r"\enquote{\textcolor{difreescrito}{reescrito:}}", legenda)
         self.assertNotIn("seta", legenda)
         self.assertNotIn("Com um lado só", legenda)
 
@@ -977,10 +977,10 @@ class ResumoDoDiff(unittest.TestCase):
             {"n": 1, "commit": "a" * 40, "tipo": "saiu", "capitulo": "Introdução"},
             {"n": 2, "commit": "a" * 40, "tipo": "entrou", "capitulo": "Introdução"}])
         resumo = self.resumo(ancoras=ancoras)
-        self.assertIn(r"\item Leva o método\\ reescrito: Introdução, p.~"
+        self.assertIn(r"\item Leva o método\\ \textcolor{difreescrito}{reescrito:} Introdução, p.~"
                       r"\hyperref[difancora-2]{\textcolor{difreescrito}{9}}.", resumo)
         self.assertNotIn(r"\textrightarrow{} Introdução", resumo)
-        self.assertIn(r"vêm em {\color{difreescrito}roxo}, depois de \enquote{reescrito:}.",
+        self.assertIn(r"vêm em {\color{difreescrito}roxo}, depois de \enquote{\textcolor{difreescrito}{reescrito:}}.",
                       resumo)
 
     def test_reescrito_só_na_página_que_está_nos_dois_lados(self):
@@ -993,8 +993,8 @@ class ResumoDoDiff(unittest.TestCase):
             {"n": 2, "commit": "a" * 40, "tipo": "entrou", "capitulo": "Introdução"},
             {"n": 3, "commit": "a" * 40, "tipo": "entrou", "capitulo": "Comparação"}])
         resumo = self.resumo(ancoras=ancoras)
-        self.assertIn(r"\item Leva o método\\ reescrito: Introdução, p.~"
-                      r"\hyperref[difancora-2]{\textcolor{difreescrito}{9}}. entrou: "
+        self.assertIn(r"\item Leva o método\\ \textcolor{difreescrito}{reescrito:} Introdução, p.~"
+                      r"\hyperref[difancora-2]{\textcolor{difreescrito}{9}}. \textcolor{difentrou}{entrou:} "
                       r"Delineamento, p.~\hyperref[difancora-3]{\textcolor{difentrou}{30}}.",
                       resumo)
         self.assertNotIn(r"\textrightarrow{} Introdução", resumo)
@@ -1029,7 +1029,7 @@ class ResumoDoDiff(unittest.TestCase):
             {"n": 2, "commit": "b" * 40, "tipo": "saiu", "capitulo": "Solid"},
             {"n": 3, "commit": "b" * 40, "tipo": "entrou", "capitulo": "Solid"}])
         resumo = self.resumo(ancoras=ancoras, aux=self.AUX_EXEMPLOS)
-        self.assertNotIn("reescrito: Exemplo", resumo)
+        self.assertNotIn("reescrito:} Exemplo", resumo)
         self.assertIn(r"\item Leva o exemplo\\ Exemplo, p.~\hyperref[difancora-1]"
                       r"{\textcolor{difsaiu}{9}} \textrightarrow{} Exemplo, p.~"
                       r"\hyperref[difancora-2]{\textcolor{difentrou}{9}}.", resumo)

@@ -54,12 +54,14 @@ capítulo e seção, com as medidas e um link em cada número de página
 (tabela_por_lugar()); por último, os commits, sem data nem hash, cada um
 com "reescrito:" e as páginas (roxo) em que o texto saiu e entrou no
 mesmo lugar, e, das outras, as de onde saiu (vermelho), uma seta e as em
-que entrou (azul), ou, com um lado só, o nome dele, agrupadas por seção
-e, as seguidas, num intervalo, com link para o trecho em cada página
-solta e nas pontas do intervalo, e as fontes do refs.bib que ele mudou,
-por autor e ano (\\textcite), com link para a entrada na bibliografia. O
-commit cujo trecho foi refeito depois, ou que só mudou rótulos, e que não
-mudou uma entrada que as referências mostram, não entra.
+que entrou (azul), ou, com um lado só, o nome dele; cada rótulo vai na
+cor das páginas dele (rotulo()). As páginas vêm agrupadas por seção e,
+as seguidas, num intervalo, com link para o trecho em cada página solta
+e nas pontas do intervalo; depois, as fontes do refs.bib que o commit
+mudou, por autor e ano (\\textcite), com link para a entrada na
+bibliografia. O commit cujo trecho foi refeito depois, ou que só mudou
+rótulos, e que não mudou uma entrada que as referências mostram, não
+entra.
 """
 import json
 import os
@@ -716,6 +718,12 @@ def titulo_do_resumo(texto):
 CORES = {"saiu": "difsaiu", "entrou": "difentrou", "reescrito": "difreescrito"}
 
 
+def rotulo(tipo):
+    """O rótulo de um lado na lista do resumo ("saiu:"), na cor das páginas
+    dele, para a palavra e os números dizerem o mesmo."""
+    return f"\\textcolor{{{CORES[tipo]}}}{{{tipo}:}}"
+
+
 def paginas_do_lado(por_secao, cor):
     """As páginas de um lado de um commit na lista do resumo, por lugar
     ({(capítulo, seção, subseção): {página: n}}), com o título do lugar
@@ -811,14 +819,14 @@ def resumo(dir_, aux, job, base_nome, ref_nome):
                     del lados[tipo]
         partes = []
         if comum:
-            partes.append("reescrito: " + paginas_do_lado(comum, CORES["reescrito"]))
+            partes.append(f"{rotulo('reescrito')} " + paginas_do_lado(comum, CORES["reescrito"]))
             formas.add("reescrito")
         if len(lados) == 2:
             partes.append(f"{paginas_do_lado(lados['saiu'], CORES['saiu'])} \\textrightarrow{{}} "
                           f"{paginas_do_lado(lados['entrou'], CORES['entrou'])}")
             formas.add("seta")
         else:
-            partes += [f"{tipo}: {paginas_do_lado(lado, CORES[tipo])}"
+            partes += [f"{rotulo(tipo)} {paginas_do_lado(lado, CORES[tipo])}"
                        for tipo, lado in lados.items()]
             formas.update(lados)
         # A chave que as referências não mostram (a fonte não citada) não
@@ -846,7 +854,7 @@ def resumo(dir_, aux, job, base_nome, ref_nome):
                 # diz as cores que usa, na ordem em que o item as mostra.
                 + (r"As páginas em que o texto saiu e entrou no mesmo lugar, onde ele foi "
                    r"reescrito, vêm em {\color{difreescrito}roxo}, depois de "
-                   r"\enquote{reescrito:}. " if "reescrito" in formas else "")
+                   f"\\enquote{{{rotulo('reescrito')}}}. " if "reescrito" in formas else "")
                 + (r"Com os dois lados, as páginas de onde o texto saiu, em "
                    r"{\color{difsaiu}vermelho}, vêm antes da seta, e as páginas em que entrou, "
                    r"em {\color{difentrou}azul}, depois dela. " if "seta" in formas else "")
@@ -855,10 +863,12 @@ def resumo(dir_, aux, job, base_nome, ref_nome):
                 # Cada lado só tem a frase dele. As páginas em roxo têm os
                 # dois lados, e ficam fora da conta.
                 + ("Com um lado só, " + " e ".join(
-                    ([r"\enquote{entrou:}, em {\color{difentrou}azul}, quer dizer que nada do "
+                    ([f"\\enquote{{{rotulo('entrou')}}}, em "
+                      r"{\color{difentrou}azul}, quer dizer que nada do "
                       f"texto que o commit tirou da {esc(base_nome)} falta na {esc(ref_nome)}"
                       + fora_do_roxo] if "entrou" in formas else [])
-                    + ([r"\enquote{saiu:}, em {\color{difsaiu}vermelho}, quer dizer que nada "
+                    + ([f"\\enquote{{{rotulo('saiu')}}}, em "
+                        r"{\color{difsaiu}vermelho}, quer dizer que nada "
                         f"do texto que o commit pôs ficou na {esc(ref_nome)}" + fora_do_roxo]
                        if "saiu" in formas else []))
                    + "; o capítulo que o commit apagou ou esvaziou não entra na conta. "
