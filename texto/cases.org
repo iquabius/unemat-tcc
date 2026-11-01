@@ -287,7 +287,6 @@
   e pelo [[gls:css]].
 
 ** A avaliação
-  @@latex:\todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}@@
 
   A avaliação cabe ao autor, que examina o código das implementações dimensão
   a dimensão, sem participantes.
@@ -320,36 +319,45 @@
   Na primeira rodada, as atividades são a busca e a compreensão exploratória
   do código pronto, e, na segunda e na terceira, a modificação [[cite:blackwell2003][p. 113]].
 
-  A análise compara os modelos de programação pelo perfil
-  de cada um nas [[glspl:dc]] [[cite:blackwell2003][p. 107-108 e 118]] e abre
-  com uma tabela-síntese, com uma linha por
-  [[gls:dc]] e uma coluna por modelo de programação.
-  Cada célula dá a posição do modelo na [[gls:dc]], indica de que interface vem a evidência e
-  registra quando as duas tecnologias web da coluna divergem, o Solid e o
-  Angular com /signals/ ou o React e o Lit.
-  No primeiro par, ela diz também se a diferença vem da montagem da tela,
-  do modelo de componente ou da [[gls:api]].
-  Como cada interface exercita exigências de coordenação próprias, a síntese
-  por exigência reúne as células que vêm das interfaces dela.
-  Da primeira rodada para as outras duas, a linha de cada [[gls:dc]] diz se a diferença
-  entre os modelos de programação fica /mantida/, /ampliada/, /reduzida/,
-  /anulada/, /invertida/ ou /surgida/, e a célula diz se a posição do
-  modelo /sobe/, /desce/ ou /fica igual/.
-  Segue uma seção por [[gls:dc]], com os trechos de uma interface escolhida,
-  antes da avaliação, pela exigência de coordenação que a dimensão mais toca.
-  Em cada seção, a análise aponta se a diferença está na coordenação, na
-  montagem da tela ou na ligação entre as duas.
-  Nas seções em que as implementações do Android ou do /desktop/ mostram
-  diferença entre as duas tecnologias da plataforma, a análise diz se a
-  posição da web se repete nela.
-  A concisão tem ainda o apoio de uma contagem das linhas de cada
-  implementação.
-  Na segunda e na terceira rodada, o /diff/ de cada mudança apoia a viscosidade: a mesma
-  mudança, preparada antes e feita em cada implementação, como no teste
-  de [[textcite:green1996d][p. 162]], mostra quantas ações ela pede, e
-  quantas outras restauram a consistência [[cite:blackwell2003][p. 115]].
+  A análise é por interface, como os casos de
+  [[textcite:kiss2014][p. 17-55]], um por seção.
+  A seção de cada interface traz a especificação curta, as cenas, a
+  captura da tela e, logo abaixo, o módulo principal do Web Component e
+  do React, inteiro menos os =import=, com as linhas numeradas.
+  Seguem as 14 [[glspl:dc]], cada uma em poucas linhas, que citam as linhas
+  da listagem em vez de repetir o trecho, com "sem diferença" quando os
+  modelos de programação não diferem nela.
+  Em cada [[gls:dc]], a análise aponta se a diferença está na coordenação,
+  na montagem da tela ou na ligação entre as duas.
+  Na mesma seção ficam as rodadas da interface: a segunda, com o /diff/
+  de cada mudança, e, na Busca, no Login e no Placar ao vivo, a terceira,
+  com os cinco passos.
+  Cada passo entra como /diff/ quando ele é mais curto que a listagem
+  nova, senão como a listagem nova inteira, com as linhas que mudaram
+  realçadas, e o entorno segue a mesma regra depois da análise.
+  O anexo guarda só o domínio de cada interface.
+  Como as sete interfaces se leem inteiras, o avaliador não escolhe a
+  interface que dá a evidência de cada [[gls:dc]], nem antes nem depois de
+  ver o código.
 
-  @@latex:\todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}@@
+  Na segunda e na terceira rodada, o /diff/ de cada mudança apoia a
+  viscosidade: a mesma mudança, preparada antes e feita em cada
+  implementação, como no teste de [[textcite:green1996d][p. 162]], mostra
+  quantas ações ela pede, e quantas outras restauram a consistência
+  [[cite:blackwell2003][p. 115]].
+  A concisão tem ainda o apoio de uma contagem das linhas não vazias e
+  sem comentários de cada implementação, sem o domínio e o estilo.
+
+  A comparação fecha numa tabela-síntese, que reúne o perfil de cada
+  modelo de programação nas [[glspl:dc]] [[cite:blackwell2003][p. 107-108 e 118]],
+  com uma linha por [[gls:dc]] e uma coluna por modelo: duas na primeira e
+  na segunda rodada, e seis com a terceira.
+  Cada célula dá a posição do modelo na [[gls:dc]] e de que interface vem a
+  evidência, e a mesma tabela se lê por exigência de coordenação.
+  Da primeira rodada para as outras duas, a linha de cada [[gls:dc]] diz se
+  a diferença entre os modelos de programação fica /mantida/,
+  /ampliada/, /reduzida/, /anulada/, /invertida/ ou /surgida/, e a célula
+  diz se a posição do modelo /sobe/, /desce/ ou /fica igual/.
 
   Quem avalia pelas [[glspl:dc]] o que construiu tem conflito de
   interesse e, num sistema implementado ao longo de muito tempo, tende a não

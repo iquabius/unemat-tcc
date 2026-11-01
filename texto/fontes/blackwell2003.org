@@ -39,10 +39,10 @@
   por rodada são do trabalho (docs/metodo-da-avaliacao.md, seção "Rodadas e crescimento do código";
   tmp/pesquisas/2026-10-11-relatorio-termos-e-coordenacao.md, seção 5.1).
 - Conferido: 2026-10-13.
-* [[file:../cases.org::A análise compara os modelos de][cases: A análise compara os modelos de]], p. 107-108 e 118
-- Frase: “A seção 4 compara os modelos de programação pelo perfil de cada
-  um nas DCs (Blackwell; Green, 2003, p. 107-108 e 118) [...]. Cada
-  célula dá a posição do modelo na DC [...]”
+* [[file:../cases.org::A comparação fecha numa tabela-síntese][cases: A comparação fecha numa tabela-síntese]], p. 107-108 e 118
+- Frase: “A comparação fecha numa tabela-síntese, que reúne o perfil de
+  cada modelo de programação nas DCs (Blackwell; Green, 2003, p. 107-108
+  e 118) [...]. Cada célula dá a posição do modelo na DC [...]”
 - Trecho: “For each step in each task, ask whether the user can choose
   where to start, [...] and so on for the other dimensions. This will
   generate an observed profile.” (p. 107-108); “the second step is to
@@ -54,9 +54,10 @@
 - Observação: “posição” e “perfil” vêm daí (decisão do autor em
   2026-10-14; GLOSSARY.md, Posição e Perfil); a fonte compara o perfil
   observado com o que cada atividade pede, e o trabalho compara os perfis
-  dos modelos entre si.
+  dos modelos entre si. Até 2026-10-31, a tabela abria a análise, que
+  seguia por DC; com a análise por interface (ADR 0017), ela a fecha.
 - Conferido: 2026-10-26.
-* [[file:../cases.org::A análise compara os modelos de][cases: A análise compara os modelos de]], p. 115 (viscosidade)
+* [[file:../cases.org::Na segunda e na terceira rodada, o /diff/][cases: Na segunda e na terceira rodada, o diff]], p. 115 (viscosidade)
 - Frase: “mostra quantas ações ela pede, e quantas outras restauram a
   consistência (Blackwell; Green, 2003, p. 115).”
 - Trecho: “A viscous system needs many user actions to accomplish one
