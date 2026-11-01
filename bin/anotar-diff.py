@@ -32,9 +32,11 @@ passos:
                               (bin/preparar-release.sh)
 
 O trecho que entrou é atribuído pelo git blame BASE..REF do .tex de REF; o
-que saiu, pelo git blame --reverse do .tex de BASE, ao commit seguinte ao
-último em que a linha existia, e a âncora vai para o ponto de REF onde o
-trecho estava. As âncoras ficam só no lado novo, como comandos que o
+que saiu, ao commit em cujo diff a linha de BASE some do arquivo, seguida
+de pai para filho (quem_tirou()); a linha que só mudou de lugar, ao
+commit que a moveu; e a cópia de uma linha repetida, que esses diffs não
+decidem, pelo git blame --reverse. A âncora vai para o ponto de REF onde
+o trecho estava. As âncoras ficam só no lado novo, como comandos que o
 latexdiff não envolve em \\DIFadd, e por isso funcionam também para o que
 saiu. Ficam fora de verbatim, minted, matemática, tabelas e argumentos de
 comando (legenda, nota); antes dos ambientes que o latexdiff não marca, como
@@ -189,6 +191,141 @@ def blame(repo, intervalo, arquivo, reverso=False):
     return saida, limites
 
 
+def nomes_do_arquivo(repo, base, ref, arq, velho):
+    """Os nomes que o arquivo arq de REF teve entre BASE e REF, do de BASE
+    ao de REF, e o nome dele em cada commit que o mudou, do git log
+    --follow a partir de REF: ([nome], {commit -> nome}). O nome de BASE é
+    o que o commit mais antigo tinha antes de mudar o arquivo, ou velho,
+    se nenhum commit o mudou. Seguir o
+    arquivo pelo nome que ele tem em cada commit, e não pelo primeiro nome
+    que existir, evita o outro arquivo que reutiliza um nome antigo. A
+    junção, que o git log --follow não lista, tem o nome que o primeiro
+    commit listado depois dela tinha antes de mudar o arquivo (o nome antigo
+    de uma renomeação), ou, sem nenhum, o de REF."""
+    nome_em, antes, c = {}, {}, None
+    for linha in git(repo, "log", "--follow", "--name-status", "--format=%H",
+                     f"{base}..{ref}", "--", arq).splitlines():
+        if re.fullmatch(r"[0-9a-f]{40}", linha):
+            c = linha
+        elif linha and c:
+            partes = linha.split("\t")
+            nome_em[c], antes[c] = partes[-1], partes[1]
+    if antes:
+        velho = list(antes.values())[-1]
+    nomes = list(dict.fromkeys([velho] + list(nome_em.values())[::-1] + [arq]))
+    filhos, juncoes = {}, []
+    for linha in git(repo, "rev-list", "--topo-order", "--parents", f"{base}..{ref}",
+                     "--", *nomes).splitlines():
+        k, *pais = linha.split()
+        for p in pais:
+            filhos.setdefault(p, []).append(k)
+        if len(pais) > 1 and k not in nome_em:
+            juncoes.append(k)
+    for j in juncoes:
+        k = j
+        while k not in antes and filhos.get(k):
+            k = filhos[k][0]
+        nome_em[j] = antes.get(k, arq)
+    return nomes, nome_em
+
+
+def casar(atual, novo):
+    """{posição em atual -> posição em novo} das linhas que o diff casa, e o
+    conjunto das que só casam com uma cópia igual que entrou no mesmo
+    diff: o bloco que mudou de lugar, que o diff mostra como tirado e posto.
+    O par do bloco movido se faz pelo texto, na ordem, e uma linha repetida
+    (um \\item) que sai pode casar com outra cópia que entrou noutro ponto."""
+    casa = {}
+    for a, b, k in SequenceMatcher(None, atual, novo, autojunk=False).get_matching_blocks():
+        casa.update((a + d, b + d) for d in range(k))
+    livres = {}  # texto -> posições em novo que não casaram
+    usadas = set(casa.values())
+    for b, t in enumerate(novo):
+        if b not in usadas:
+            livres.setdefault(t, []).append(b)
+    movidas = set()
+    for a, t in enumerate(atual):
+        if a not in casa and livres.get(t):
+            casa[a] = livres[t].pop(0)
+            movidas.add(a)
+    return casa, movidas
+
+
+def quem_tirou(repo, base, ref, antigas, nomes, nome_em):
+    """({número da linha de BASE (0-based) -> commit que a tirou}, {número
+    -> último commit que só a mudou de lugar}): segue cada linha de antigas
+    de pai para filho, pelos commits de BASE..REF que tocaram o arquivo,
+    até o commit em que ela deixa de casar com uma linha do pai em que
+    estava (casar()). O pai de fora do intervalo parte do casamento com
+    antigas. nomes e nome_em vêm de nomes_do_arquivo(): o arquivo, em cada
+    commit, tem o nome de nome_em, ou, no commit que não o mudou, o do pai;
+    sem ele, o commit o apagou. O git blame --reverse dá o último commit em
+    que a linha existia, e esse pode ser de um ramo juntado depois: o
+    commit seguinte a ele na ordem do rev-list pode não ser o que a tirou."""
+    def arquivo(c, nome):
+        try:
+            return git(repo, "show", f"{c}:{nome}").splitlines(keepends=True)
+        except subprocess.CalledProcessError:
+            return None  # o arquivo não tem esse nome no commit
+
+    base = git(repo, "rev-parse", base + "^{commit}").strip()
+    # Por commit: as linhas e o nome do arquivo; vivas, {linha de BASE ->
+    # posição nas linhas}; mortas, {linha de BASE que não está -> commit
+    # que a tirou, ou None}; e movidas, {linha de BASE viva -> último
+    # commit que a mudou de lugar}.
+    estado = {base: {"linhas": antigas, "nome": nomes[0], "movidas": {}, "mortas": {},
+                     "vivas": {i: i for i in range(len(antigas))}}}
+    ultimo = base
+    for linha in git(repo, "rev-list", "--reverse", "--topo-order", "--parents",
+                     f"{base}..{ref}", "--", *nomes).splitlines():
+        c, *pais = linha.split()
+        for p in pais:
+            if p not in estado:
+                # Fora do intervalo: casa-se com BASE, e a linha de BASE que
+                # o pai não tem não foi tirada por ninguém do intervalo,
+                # nem a do pai que não tem o arquivo com o nome de BASE.
+                linhas_p = arquivo(p, nomes[0]) or []
+                casa, _ = casar(antigas, linhas_p)
+                estado[p] = {"linhas": linhas_p, "nome": nomes[0], "vivas": casa, "movidas": {},
+                             "mortas": {i: None for i in range(len(antigas)) if i not in casa}}
+        # O commit que apagou o arquivo tira tudo o que restava.
+        nome = nome_em.get(c, estado[pais[0]]["nome"])
+        novo = arquivo(c, nome) or []
+        vivas, movidas, herdada = {}, {}, set()
+        for p in pais:
+            casa, so_movidas = casar(estado[p]["linhas"], novo)
+            for i, j in estado[p]["vivas"].items():
+                if j not in casa:
+                    continue
+                vivas.setdefault(i, casa[j])
+                # Quem moveu a linha é o do pai em que ela não mudou de
+                # lugar: a junção que leva o movimento de um lado não o faz.
+                if j not in so_movidas and i not in herdada:
+                    herdada.add(i)
+                    if estado[p]["movidas"].get(i):
+                        movidas[i] = estado[p]["movidas"][i]
+                    else:
+                        movidas.pop(i, None)
+                elif i not in herdada:
+                    movidas[i] = c
+        # A linha que não está no commit, na ordem: a que um pai já tinha
+        # tirado fica com quem a tirou (a junção que fica com o lado que a
+        # tirou não a tira); a que estava viva num pai, o commit a tirou; a
+        # que nenhum pai tinha (o ramo de antes de BASE) não tem quem a
+        # tirou. A junção que leva a linha por um dos lados a mantém viva.
+        mortas = {}
+        for i in {i for p in pais for i in (*estado[p]["vivas"], *estado[p]["mortas"])} - vivas.keys():
+            quem = next((estado[p]["mortas"][i] for p in pais if estado[p]["mortas"].get(i)), None)
+            if quem is None and any(i in estado[p]["vivas"] for p in pais):
+                quem = c
+            mortas[i] = quem
+        estado[c] = {"linhas": novo, "nome": nome, "vivas": vivas, "mortas": mortas,
+                     "movidas": movidas}
+        ultimo = c
+    tirou = {i: quem for i, quem in estado[ultimo]["mortas"].items() if quem}
+    return tirou, estado[ultimo]["movidas"]
+
+
 def ancorar(repo, base, ref, dir_, main="tcc.tex"):
     base = git(repo, "rev-parse", base + "^{commit}").strip()
     ref = git(repo, "rev-parse", ref + "^{commit}").strip()
@@ -210,14 +347,6 @@ def ancorar(repo, base, ref, dir_, main="tcc.tex"):
         for m in re.finditer(r"\\input\{([^}]+)\}", l):
             arq = os.path.normpath(pasta_main / m.group(1).removesuffix(".tex"))
             capitulos[arq + ".tex"] = ultimo_cap
-    # O caminho em BASE de cada arquivo que mudou de pasta no intervalo, como
-    # texto/intro.tex, que virou latex/capitulos/intro.tex (ADR 0025). O
-    # blame segue o arquivo pelo nome antigo também no --reverse.
-    renomes = {}
-    for linha in git(repo, "diff", "-M", "--name-status", base, ref).splitlines():
-        partes = linha.split("\t")
-        if partes[0].startswith("R"):
-            renomes[partes[2]] = partes[1]
     figura = picturenv()
     ancoras, n = [], 0
     for arq in arquivos:
@@ -251,16 +380,22 @@ def ancorar(repo, base, ref, dir_, main="tcc.tex"):
                 marcar(i, c, "entrou")
             anterior = c
 
-        # O que saiu: linhas de BASE que não estão em REF.
-        velho = renomes.get(arq, arq)
+        # O que saiu: linhas de BASE que não estão em REF. O arquivo que
+        # mudou de pasta no intervalo, como texto/intro.tex, que virou
+        # latex/capitulos/intro.tex (ADR 0025), tem em BASE o nome que o git
+        # log --follow dá; o git diff -M de BASE a REF não vê a renomeação
+        # quando o texto também mudou muito. O blame segue o arquivo pelo
+        # nome antigo também no --reverse.
+        nomes, nome_em = nomes_do_arquivo(repo, base, ref, arq, arq)
+        velho = nomes[0]
         try:
             antigas = git(repo, "show", f"{base}:{velho}").splitlines(keepends=True)
         except subprocess.CalledProcessError:
             antigas = []
         if antigas:
-            ultimo, _ = blame(repo, f"{base}..{ref}", velho, reverso=True)
-            tocaram = git(repo, "rev-list", "--reverse", f"{base}..{ref}", "--",
-                          *dict.fromkeys((velho, arq))).split()
+            tocaram = git(repo, "rev-list", "--reverse", f"{base}..{ref}", "--", *nomes).split()
+            tirou, moveu = quem_tirou(repo, base, ref, antigas, nomes, nome_em)
+            ultimo = None
             sm = SequenceMatcher(None, antigas, linhas, autojunk=False)
             for op, i1, i2, j1, _j2 in sm.get_opcodes():
                 if op not in ("delete", "replace"):
@@ -269,8 +404,18 @@ def ancorar(repo, base, ref, dir_, main="tcc.tex"):
                 for i in range(i1, i2):
                     if not visivel(antigas[i]):
                         continue
-                    x = ultimo.get(i, base)
-                    quem = next((c for c in tocaram if pos[c] > pos.get(x, -1)), None)
+                    # A linha que o diff de BASE a REF dá como tirada e que
+                    # chega a REF só mudou de lugar: fica com o commit que
+                    # a moveu. A que os diffs de commit a commit não
+                    # decidem (uma cópia de linha repetida casada com
+                    # outra) fica com o commit seguinte ao último em que o
+                    # git blame --reverse a vê.
+                    quem = tirou.get(i) or moveu.get(i)
+                    if quem is None:
+                        if ultimo is None:
+                            ultimo, _ = blame(repo, f"{base}..{ref}", velho, reverso=True)
+                        x = ultimo.get(i, base)
+                        quem = next((c for c in tocaram if pos[c] > pos.get(x, -1)), None)
                     if quem and quem not in vistos:
                         vistos.append(quem)
                 for quem in vistos:
