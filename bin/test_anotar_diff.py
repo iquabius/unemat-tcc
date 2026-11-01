@@ -862,12 +862,24 @@ class ResumoDoDiff(unittest.TestCase):
                       r"{\texttt{novo2020}}.", resumo)
         self.assertIn(r"\colorlet{difsaiu}{red!70!black}", resumo)
 
-    def test_legenda_diz_as_três_formas_do_item(self):
-        resumo = self.resumo()
-        legenda = resumo[resumo.index("Os commits que mudaram"):resumo.index(r"\begin{enumerate}")]
-        for forma in ("depois da seta", r"\enquote{saiu:} ou \enquote{entrou:}",
-                      r"\enquote{reescrito:}"):
-            self.assertIn(forma, legenda)
+    def legenda(self, resumo):
+        return resumo[resumo.index("Os commits que mudaram"):resumo.index(r"\begin{enumerate}")]
+
+    def test_legenda_diz_só_as_formas_que_a_lista_tem(self):
+        # A seta e o lado só ("Põe uma frase"), sem reescrito: o roxo não
+        # aparece na página, e a legenda não fala dele.
+        legenda = self.legenda(self.resumo())
+        self.assertIn("vêm antes da seta", legenda)
+        self.assertIn("Com um lado só", legenda)
+        self.assertNotIn("reescrito", legenda)
+        # Só o reescrito: nem a seta nem o lado só.
+        ancoras = dict(self.ANCORAS, commits=self.ANCORAS["commits"][:1], ancoras=[
+            {"n": 1, "commit": "a" * 40, "tipo": "saiu", "capitulo": "Introdução"},
+            {"n": 2, "commit": "a" * 40, "tipo": "entrou", "capitulo": "Introdução"}])
+        legenda = self.legenda(self.resumo(ancoras=ancoras))
+        self.assertIn(r"\enquote{reescrito:}", legenda)
+        self.assertNotIn("seta", legenda)
+        self.assertNotIn("Com um lado só", legenda)
 
     def test_reescrito_quando_os_lados_caem_nas_mesmas_páginas(self):
         # Saiu da p. 9 da introdução e entrou na mesma página: a seta diria

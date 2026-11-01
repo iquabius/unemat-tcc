@@ -752,6 +752,7 @@ def resumo(dir_, aux, job, base_nome, ref_nome):
                 r"{\small " + (f"{geral}. " if geral else "") + r"Cada número de página "
                 r"é um link para ela.\par\smallskip"] + tabela_por_lugar(dados) + ["}"]
     itens_dos_commits = []
+    formas = set()  # as formas de item da lista, para a legenda dizer só delas
     for c in d["commits"]:
         # tipo -> {(capítulo, seção, subseção): {página: n}}, na ordem do documento
         lados = {}
@@ -772,11 +773,15 @@ def resumo(dir_, aux, job, base_nome, ref_nome):
         if len(lados) == 2 and ({lg: list(p) for lg, p in lados["saiu"].items()}
                                 == {lg: list(p) for lg, p in lados["entrou"].items()}):
             partes = ["reescrito: " + paginas_do_lado(lados["entrou"], CORES["reescrito"])]
+            formas.add("reescrito")
         elif len(lados) == 2:
             partes = [f"{paginas_do_lado(lados['saiu'], CORES['saiu'])} \\textrightarrow{{}} "
                       f"{paginas_do_lado(lados['entrou'], CORES['entrou'])}"]
+            formas.add("seta")
         else:
             partes = [f"{tipo}: {paginas_do_lado(lado, CORES[tipo])}" for tipo, lado in lados.items()]
+            if lados:
+                formas.add("um lado")
         # A chave que as referências não mostram (a fonte não citada) não
         # leva a lugar nenhum, e fica de fora como o trecho que não existe.
         chaves = [f"\\hyperlink{{cite.0@{k}}}{{\\texttt{{{esc(k)}}}}}"
@@ -791,13 +796,20 @@ def resumo(dir_, aux, job, base_nome, ref_nome):
     # ("missing \item").
     if itens_dos_commits:
         out += [titulo_do_resumo("Os commits"),
-                r"{\small Os commits que mudaram o texto, do mais antigo ao mais novo, com as "
-                r"páginas de onde o texto saiu, em {\color{difsaiu}vermelho}, e, depois da seta, "
-                r"as páginas em que entrou, em {\color{difentrou}azul}. "
-                r"Com um lado só, o item diz qual, \enquote{saiu:} ou \enquote{entrou:}. "
-                r"Com os dois lados nas mesmas seções e páginas, o texto foi reescrito no lugar, "
-                r"e o item diz \enquote{reescrito:}, com as páginas em {\color{difreescrito}roxo}. "
-                r"Cada página leva ao trecho no diff, e as chaves do refs.bib, à entrada nas "
+                r"{\small Os commits que mudaram o texto, do mais antigo ao mais novo. "
+                # Só as formas que a lista tem: a frase de uma forma que não
+                # aparece manda procurar o que não está na página. Cada uma
+                # diz as cores que usa.
+                + (r"Com os dois lados, as páginas de onde o texto saiu, em "
+                   r"{\color{difsaiu}vermelho}, vêm antes da seta, e as páginas em que entrou, "
+                   r"em {\color{difentrou}azul}, depois dela. " if "seta" in formas else "")
+                + (r"Com um lado só, o item diz qual, \enquote{saiu:}, em "
+                   r"{\color{difsaiu}vermelho}, ou \enquote{entrou:}, em "
+                   r"{\color{difentrou}azul}. " if "um lado" in formas else "")
+                + (r"Com os dois lados nas mesmas seções e páginas, o texto foi reescrito no "
+                   r"lugar, e o item diz \enquote{reescrito:}, com as páginas em "
+                   r"{\color{difreescrito}roxo}. " if "reescrito" in formas else "")
+                + r"Cada página leva ao trecho no diff, e as chaves do refs.bib, à entrada nas "
                 r"referências.\par}",
                 r"\begin{enumerate}\small\setlength{\itemsep}{2pt}"]
         out += itens_dos_commits + [r"\end{enumerate}"]
