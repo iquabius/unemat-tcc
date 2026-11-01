@@ -318,9 +318,10 @@
    medidas do texto por lugar, contadas no =.tex= do =latexdiff=: as
    palavras, os parágrafos, as citações e as fontes que entraram e
    saíram, as figuras, tabelas e listagens que entraram ou saíram e se o
-   lugar é novo. O corte é
-   do =qpdf=, que mantém os objetos das páginas: os links do resumo
-   continuam levando ao trecho. O =pdfunite=, o =pdfjam= e o Ghostscript
+   lugar é novo, e o número de páginas do resumo, que o resumo grava no
+   =.aux=, o corte usa e o =.json= guarda. O corte é do =qpdf=,
+   que mantém os objetos das páginas: os links do resumo continuam
+   levando ao trecho. O =pdfunite=, o =pdfjam= e o Ghostscript
    (=gs -sPageList=) perdem esses links ou os mandam para a página errada
    (testado em 2026-10-05). Links para páginas que ficaram de fora, como os
    do sumário, só funcionam no diff completo.

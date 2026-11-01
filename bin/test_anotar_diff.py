@@ -335,6 +335,14 @@ class SecoesDoAux(unittest.TestCase):
         nomes = {nome for p in lista for nome in (p["capitulo"], p["secao"], p["subsecao"])}
         self.assertFalse({n for n in nomes if "Cadeia" in n or "Segunda rodada" in n})
 
+    def test_medidas_com_as_páginas_do_resumo(self):
+        # A capa e a folha de rosto imprimem as duas 1: a conta das páginas
+        # do resumo vem do \difresumo, e não da primeira página impressa.
+        with tempfile.TemporaryDirectory() as d:
+            (Path(d) / "diff.tex").write_text("\\begin{document}\n\\end{document}\n")
+            self.assertEqual(anotar.medidas(d, AUX + "\\difresumo{3}\n", "diff")["resumo"], 3)
+            self.assertEqual(anotar.medidas(d, AUX, "diff")["resumo"], 0)
+
     def test_titulo_em_texto(self):
         self.assertEqual(anotar.texto_simples(
             r"\texorpdfstring {\MakeUppercase {\DIFadd {Uso de \texttt {x}}}}{\DIFadd {Uso de \texttt {x}}}"),

@@ -18,8 +18,9 @@ bin/gerar-versao.sh, em quatro passos:
                               depois da última compilação: SAIDA.pdf, o diff
                               só com o resumo e as páginas com marca do
                               latexdiff (qpdf), e SAIDA.json com a página, o
-                              capítulo, a seção e a subseção de cada uma e
-                              as medidas do texto de cada lugar, do JOB.tex
+                              capítulo, a seção e a subseção de cada uma,
+                              as medidas do texto de cada lugar, do JOB.tex,
+                              e o número de páginas do resumo
   corpo SAIDA TAG BASE REPO   o corpo da release, em Markdown: a mensagem
                               da tag em itens, os PDFs, as páginas
                               alteradas por capítulo, com as medidas, e
@@ -353,6 +354,8 @@ PREAMBULO = r"""
 \let\dif@DIFdelbegin\DIFdelbegin \DeclareRobustCommand\DIFdelbegin{\dif@pagina\dif@DIFdelbegin}
 \let\dif@DIFaddbeginFL\DIFaddbeginFL \DeclareRobustCommand\DIFaddbeginFL{\dif@pagina\dif@DIFaddbeginFL}
 \let\dif@DIFdelbeginFL\DIFdelbeginFL \DeclareRobustCommand\DIFdelbeginFL{\dif@pagina\dif@DIFdelbeginFL}
+% O número de páginas do resumo, que o resumo grava no .aux ao terminar.
+\providecommand*\difresumo[1]{}
 \makeatother
 """
 
@@ -576,8 +579,12 @@ def resumo(dir_, aux, job, base_nome, ref_nome):
     out.append(r"\end{enumerate}")
     # O \label sem contador próprio (o do capítulo sem número) pegaria o
     # último item da lista; volta a apontar para onde apontava sem o resumo.
+    # Depois do \clearpage, o resumo inteiro saiu: o número das páginas dele
+    # vai para o .aux.
     out.append(r"\clearpage\endgroup\pagenumbering{arabic}"
-               r"\makeatletter\global\let\@currentHref\dif@inicio\makeatother")
+               r"\makeatletter\global\let\@currentHref\dif@inicio"
+               r"\xdef\dif@resumo{\the\ReadonlyShipoutCounter}"
+               r"\immediate\write\@auxout{\string\difresumo{\dif@resumo}}\makeatother")
     (Path(dir_) / "difresumo.tex").write_text("\n".join(out) + "\n")
 
 
@@ -811,20 +818,26 @@ def metricas(tex):
 def paginas(dir_, aux, job, pdf, saida):
     """O diff só com o resumo e as páginas que têm marca do latexdiff, em
     SAIDA.pdf, e SAIDA.json com as páginas, a impressa, o capítulo, a
-    seção e a subseção de cada uma (secoes()), e as medidas do texto de
-    cada lugar e os títulos que saíram, do JOB.tex (metricas()).
-    O qpdf mantém os objetos das páginas, e os links do resumo continuam
-    levando ao trecho; o pdfunite, o pdfjam e o Ghostscript os perdem."""
+    seção e a subseção de cada uma (secoes()), as medidas do texto de
+    cada lugar e os títulos que saíram, do JOB.tex (metricas()), e o
+    número de páginas do resumo (medidas()). O qpdf mantém os objetos das
+    páginas, e os links do resumo continuam levando ao trecho; o pdfunite,
+    o pdfjam e o Ghostscript os perdem."""
     texto = (Path(dir_) / aux / f"{job}.aux").read_text(errors="replace")
-    lista = paginas_alteradas(texto)
-    lugares, sairam = metricas((Path(dir_) / f"{job}.tex").read_text(errors="replace"))
+    dados = medidas(dir_, texto, job)
+    lista = dados["paginas"]
     for velho in (Path(saida + ".pdf"), Path(saida + ".json")):
         velho.unlink(missing_ok=True)
     if not lista:
         print("páginas: nenhuma com alteração")
         return
-    # O resumo são as páginas antes da capa, que é a página 1 impressa.
-    resumo = lista[0]["fisica"] - int(lista[0]["pagina"])
+    # As páginas do resumo, que ele grava no .aux (\difresumo): a página
+    # impressa não as conta, porque a capa e a folha de rosto imprimem as
+    # duas 1. Sem o \difresumo, o resumo não entrou na compilação.
+    resumo = dados["resumo"]
+    if not resumo:
+        sys.exit(f"anotar-diff.py: sem \\difresumo em {aux}/{job}.aux; o difresumo.tex "
+                 "não entrou na compilação")
     paginas_pdf = list(range(1, resumo + 1)) + [p["fisica"] for p in lista]
     biblio = [int(n) for n in re.findall(r"\\difbiblio\{(\d+)\}", texto)]
     if len(biblio) == 2:
@@ -833,12 +846,21 @@ def paginas(dir_, aux, job, pdf, saida):
     subprocess.run(["qpdf", pdf, "--pages", ".", ",".join(map(str, paginas_pdf)), "--",
                     saida + ".pdf"], check=True)
     with open(saida + ".json", "w") as f:
-        json.dump({"paginas": lista,
-                   "lugares": [dict(zip(("capitulo", "secao", "subsecao"), lg), **m)
-                               for lg, m in lugares.items()],
-                   "sairam": [dict(zip(("nivel", "capitulo", "titulo"), s)) for s in sairam]},
-                  f, ensure_ascii=False, indent=1)
+        json.dump(dados, f, ensure_ascii=False, indent=1)
     print(f"páginas: {len({p['fisica'] for p in lista})} em {saida}.pdf")
+
+
+def medidas(dir_, aux, job):
+    """As páginas alteradas do texto do .aux (paginas_alteradas()) e o
+    número de páginas do resumo (\\difresumo, 0 sem ele), as medidas de
+    cada lugar e os títulos que saíram, do JOB.tex (metricas()): o que o
+    SAIDA.json guarda para a release."""
+    lugares, sairam = metricas((Path(dir_) / f"{job}.tex").read_text(errors="replace"))
+    resumo_ = re.search(r"\\difresumo\{(\d+)\}", aux)
+    return {"paginas": paginas_alteradas(aux), "resumo": int(resumo_.group(1)) if resumo_ else 0,
+            "lugares": [dict(zip(("capitulo", "secao", "subsecao"), lg), **m)
+                        for lg, m in lugares.items()],
+            "sairam": [dict(zip(("nivel", "capitulo", "titulo"), s)) for s in sairam]}
 
 
 def intervalos(numeros):
