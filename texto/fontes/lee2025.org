@@ -1,6 +1,19 @@
 #+title: lee2025: Lee et al. (2025), React-tRace: A Semantics for Understanding React Hooks: An Operational Semantics and a Visualizer for Clarifying React Hooks
 #+startup: overview
 
+* [[file:../modelos.org::A \[\[gls:pf\]\] se chama assim porque][modelos: A PF se chama assim porque]], p. 289:1 (o componente como função)
+- Frase: “O componente do React segue essa ideia: é uma função que,
+  idealmente, chamada com os mesmos argumentos, exibe a mesma tela (Lee;
+  Ahn; Yi, 2025, p. 289:1).”
+- Trecho: “A React component is a function that serves as a declarative
+  specification of a UI [...]. Ideally, when a component is called with
+  the same arguments, it should render the same interface” (289:1)
+- Lido em: =acervo/lee2025.pdf=, cópia do arXiv com a paginação da ACM,
+  p. 1.
+- Observação: a introdução cita o mesmo trecho; aqui ele liga a função pura
+  ao componente.
+- Conferido: 2026-11-01.
+
 * [[file:../modelos.org::O mesmo texto de programa também pode ter][modelos: O mesmo texto de programa também pode ter]], p. 289:38 (o JSX no React e no Solid)
 - Frase: “o React reexecuta o componente quando o estado se altera, e o
   Solid atualiza só os trechos da tela que dependem dele (Lee; Ahn; Yi,

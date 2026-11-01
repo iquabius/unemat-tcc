@@ -1,6 +1,37 @@
 #+title: vanroy2004: Van Roy e Haridi (2004), Concepts, Techniques, and Models of Computer Programming
 #+startup: overview
 
+* [[file:../modelos.org::Uma função também pode receber outra como][modelos: Uma função também pode receber outra como]], p. 177 (ordem superior)
+- Frase: “A função que recebe é de ordem superior, e a programação de ordem
+  superior é o conjunto das técnicas que essa possibilidade abre (Van Roy;
+  Haridi, 2004, p. 177).”
+- Trecho: “Higher-order programming is the collection of programming
+  techniques that become available when using procedure values in programs.
+  [...] A procedure that has at least one first-order procedure in an
+  argument is of second order.” (seção 3.6, p. 177)
+- Lido em: =acervo/vanroy2004.pdf=, p. 208 do PDF (p. 177).
+- Observação: a fonte fala de procedimentos; a frase diz “função”, o termo
+  do TypeScript. Entre as três fontes lidas para a frase (Van Roy 2009, Van
+  Roy e Haridi 2004 e Hughes 1990), é a única que define a ordem superior;
+  Van Roy (2009) só a usa, e Hughes a chama de “glue”.
+- Conferido: 2026-11-01.
+* [[file:../modelos.org::Uma função também pode receber outra como][modelos: Uma função também pode receber outra como]], p. 190-191 (map e filter)
+- Frase: “Com as listas, a ordem superior toma o lugar do laço: o =map=
+  calcula uma lista nova aplicando uma função a cada elemento da antiga, e
+  o =filter= guarda os elementos para os quais uma função dá verdadeiro
+  (Van Roy; Haridi, 2004, p. 190-191).”
+- Trecho: “Higher-order programming is often used together with lists.
+  Some of the loop abstractions can be seen in this way, e.g., FoldL and
+  FoldR. [...] A common list operation is Map, which calculates a new list
+  from an old list by applying a function to each element.” (p. 190);
+  “Another common list operation is Filter, which applies a boolean
+  function to each list element and outputs the list of all elements that
+  give true.” (p. 191)
+- Lido em: =acervo/vanroy2004.pdf=, p. 221 e 222 do PDF (p. 190 e 191).
+- Observação: “toma o lugar do laço” resume o “loop abstractions” da
+  fonte.
+- Conferido: 2026-11-01.
+
 * [[file:../modelos.org::O declarativo não é uma propriedade absoluta][modelos: O declarativo não é uma propriedade absoluta]], p. 406
 - Frase: “O declarativo não é uma propriedade absoluta, e sim uma questão
   de grau (Van Roy; Haridi, 2004, p. 406).”

@@ -1,6 +1,17 @@
 #+title: vanroy2009: Van Roy (2009), Programming Paradigms for Dummies: What Every Programmer Should Know
 #+startup: overview
 
+* [[file:../modelos.org::A \[\[gls:pf\]\] se chama assim porque][modelos: A PF se chama assim porque]], p. 26 (funções matemáticas)
+- Frase: “São funções matemáticas: chamadas com os mesmos argumentos, dão
+  sempre os mesmos resultados (Van Roy, 2009, p. 26).”
+- Trecho: “In functional programs, there is no notion of time. Functions
+  are mathematical functions: when called with the same arguments, they
+  always give the same results.” (p. 26)
+- Lido em: =acervo/vanroy2009.pdf=, p. 18 do PDF (p. 26).
+- Observação: até 2026-11-01, o trecho vinha numa citação em bloco
+  traduzida, com o resto do parágrafo (os organismos que crescem).
+- Conferido: 2026-11-01.
+
 * [[file:../modelos.org::Um /paradigma de programação/ é uma abordagem][modelos: Um paradigma de programação é uma abordagem]], p. 10 (definição)
 - Frase: “Um /paradigma de programação/ é uma abordagem da programação
   baseada numa teoria matemática ou num conjunto coerente de princípios

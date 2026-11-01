@@ -1,0 +1,31 @@
+#+title: hughes1990: Hughes (1990), Why Functional Programming Matters
+#+startup: overview
+
+* [[file:../modelos.org::A \[\[gls:pf\]\] se chama assim porque][modelos: A PF se chama assim porque]], p. 1
+- Frase: “A PF se chama assim porque o programa consiste inteiramente de
+  funções (Hughes, 1990, p. 1).”
+- Trecho: “Functional programming is so called because a program consists
+  entirely of functions.” (seção 1, p. 1 da cópia)
+- Lido em: =acervo/hughes1990.pdf=, p. 1, a versão revista do memorando de
+  Chalmers, com a paginação própria (p. 1-23), e não a do livro de Turner
+  (p. 17-42); a página do livro espera a versão publicada.
+- Observação: até 2026-11-01, a frase dizia, sem página, que a PF “é assim
+  chamada porque sua operação básica é a aplicação de funções à
+  argumentos”, o que a cópia não diz.
+- Conferido: 2026-11-01.
+* [[file:../modelos.org::Uma função também pode receber outra como][modelos: Uma função também pode receber outra como]], p. 5 (o fold)
+- Frase: “O /fold/ combina os elementos num valor só: a soma de uma lista se
+  escreve como um padrão geral de recursão, o /fold/, mais a parte própria
+  do problema, a função que soma dois números (Hughes, 1990, p. 5).”
+- Trecho: “the computation of a sum can be modularised by glueing together
+  a general recursive pattern and the boxed parts. This recursive pattern is
+  conventionally called reduce and so sum can be expressed as sum = reduce
+  add 0” (seção 3, p. 4-5 da cópia)
+- Lido em: =acervo/hughes1990.pdf=, p. 5, a versão revista do memorando,
+  com a paginação própria.
+- Observação: o /reduce/ de Hughes é o /fold/ (o =FoldR= de Van Roy e
+  Haridi, 2004, p. 190); a frase usa “fold”, o nome que a introdução já dá
+  ao =scan= do RxJS (Zimmerle e Gama, 2025, p. 1530). Entre Hughes e Van
+  Roy e Haridi, a soma de Hughes mostra o padrão e a parte própria do
+  problema numa linha só.
+- Conferido: 2026-11-01.
