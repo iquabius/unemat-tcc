@@ -19,7 +19,7 @@ A Busca traz o cancelamento de uma requisição já começada, cuja
 resposta atrasada nunca aparece, comportamento assíncrono que nenhum
 dos casos do 7GUIs testa, como reconhece \textcite[p. 77]{kiss2014}.
 Cada interface exige da coordenação o que segue, com o que isso dá ao
-usuário:
+usuário e, entre parênteses, o nome das exigências:
 
 \begin{description}
 \item[{Contador:}] um número e um botão que soma um a ele, sem exigência de
@@ -27,28 +27,36 @@ coordenação própria, o mínimo de código que cada tecnologia pede para
 uma interface;
 \item[{Busca com Sugestões:}] um campo de destino que sugere cidades a cada
 termo novo de duas letras ou mais e cancela a busca do termo anterior,
-para o usuário nunca ver as sugestões de um termo que já mudou;
+para o usuário nunca ver as sugestões de um termo que já mudou
+(assincronia, ciclo de vida da requisição, lista derivada e
+histórico);
 \item[{Login com Quarentena:}] um painel de nome e senha em que um novo
 clique em Entrar cancela a tentativa anterior, para o usuário que errou
 a senha tentar de novo sem esperar a resposta dela, e a sessão que
-expira sozinha, com um relógio que para quando ela se encerra;
+expira sozinha, com um relógio que para quando ela se encerra
+(assincronia, ciclo de vida do relógio e estado derivado);
 \item[{Placar ao Vivo:}] um painel de placares que uma fonte envia sem o
 usuário pedir, numa conexão aberta ao entrar na página, para ele seguir
 os jogos, e fechada ao pausar e ao sair dela, para ele ler a tabela
-parada e não gastar rede com o que não vê;
+parada e não gastar rede com o que não vê (assincronia de uma fonte de
+fora, ciclo de vida da conexão, estado derivado, lista derivada e
+histórico);
 \item[{Reserva de Passagem:}] um formulário de passagem de ônibus com o tipo
 de viagem e duas datas, em que a data de volta só se habilita em ida e
 volta e se marca como inválida quando é anterior à ida, para o usuário
 saber por que não pode reservar, e o envio que ignora um novo clique
-em Reservar até a resposta, para a mesma reserva não sair duas vezes;
+em Reservar até a resposta, para a mesma reserva não sair duas vezes
+(estado derivado das duas datas, assincronia e ciclo de vida do envio
+e histórico);
 \item[{Planilha:}] uma coluna de oito células com o orçamento do mês e a
 barra de fórmula, em que a alteração de uma célula se propaga só às
 que dependem dela, para o usuário ver o saldo na hora em que muda um
-gasto;
+gasto (estado derivado por um grafo que o usuário escreve, estado
+compartilhado entre a grade e a barra e lista derivada);
 \item[{Desenhador de Círculos:}] um \emph{canvas} em que o clique desenha um
 círculo, o diâmetro ajustado num diálogo que guarda o círculo escolhido
 e o desfazer e o refazer de cada passo, para o usuário corrigir o
-desenho sem recomeçar.
+desenho sem recomeçar (histórico, lista derivada e estado derivado).
 \end{description}
 \subsection{As tecnologias e os passos}
 \label{sec:as-tecnologias-e-os-passos}
