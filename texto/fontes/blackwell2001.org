@@ -20,23 +20,11 @@
   full set of dimensions can produce some unexpected, but useful results”
   (p. 332)
 - Lido em: =acervo/blackwell2001-springer.pdf=, p. 8 do PDF (p. 332).
-- Conferido: 2026-10-13.
-* [[file:../comparacao.org::Quatro das 14 \[\[glspl:dc\]\] pesam no ambiente de edição][comparacao: Quatro das 14 DCs pesam no ambiente de edição]], p. 332 (as quatro do ambiente)
-- Frase: “Elas entram mesmo assim, porque escolher de antemão um subconjunto
-  das DCs pode ser pouco útil (Blackwell et al., 2001, p. 332).”
-- Trecho: “The conclusion was that prior selection of a subset of CDs may be
-  unhelpful. Using the full set of dimensions can produce some unexpected,
-  but useful results and should be done in order to discover as much
-  information as possible.” (p. 332)
-- Lido em: =acervo/blackwell2001-springer.pdf=, p. 8 do PDF (p. 332).
 - Observação: Blackwell et al. relatam o estudo de Britton e Kutar (2001),
   que diz o mesmo com mais força (“it is detrimental to use only a subset
   of the dimensions in the creation of profiles”), na p. 7 da cópia em
   =acervo/britton2001.pdf=, sem paginação impressa (o artigo vai de
-  265 a 274 e a cópia tem 7 páginas). O agrupamento das quatro (compromisso
-  prematuro, avaliação progressiva, visibilidade e provisoriedade) é do
-  trabalho, e a frase anterior o diz; Kiss (2014, p. 15) deixa de fora outro
-  bloco, o das DCs de “tooling and the process” (visibilidade, avaliação
-  progressiva e provisoriedade). Checagem adversarial de 2026-10-15,
-  pedido do autor. Veio da introdução para cases no corte de 2026-10-27.
-- Conferido: 2026-10-15.
+  265 a 274 e a cópia tem 7 páginas). Até 2026-11-01, um parágrafo do fim
+  de "A avaliação" repetia a afirmação para as quatro DCs do ambiente de
+  edição, e saiu por repetir esta.
+- Conferido: 2026-10-13.

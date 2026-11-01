@@ -1,6 +1,29 @@
 #+title: blackwell2003: Blackwell e Green (2003), Notational Systems: The Cognitive Dimensions of Notations Framework
 #+startup: overview
 
+* [[file:../comparacao.org::A avaliação cabe ao autor][comparacao: A avaliação cabe ao autor]], p. 106 (ferramentas de discussão)
+- Frase: “As DCs, porém, não são um método analítico, mas ferramentas de
+  discussão, um vocabulário para quem projeta ou avalia, de traço grosso,
+  que não dá previsões detalhadas (Blackwell; Green, 2003, p. 106).”
+- Trecho: “The Cognitive Dimensions framework is not an analytic method.
+  Rather, it is a set of discussion tools for use by designers and people
+  evaluating designs.” Na mesma página, contra as abordagens da IHC que
+  “require extensive, detailed modeling”: “Although its broad-brush
+  nature precludes detailed predictions” (p. 106).
+- Lido em: =acervo/blackwell2003-livro.pdf=, p. 4 do PDF (p. 106); a
+  p. 107 diz que as ferramentas de discussão pedem “the same vocabulary”.
+- Observação: a frase anterior chama a avaliação de analítica no sentido
+  de Blandford e Green (2008), o tipo, sem usuários; esta diz o
+  instrumento. A p. 106 não define “analytic method”; “de traço grosso,
+  que não dá previsões detalhadas” traduz “broad-brush nature precludes
+  detailed predictions”, o contraste com as abordagens que “require
+  extensive, detailed modeling”. Blandford e Green incluem o GOMS entre
+  os métodos analíticos, que modelam: o “analítico” deles abrange esses
+  métodos, e o tipo sem usuários é o que a frase anterior usa. Até
+  2026-11-01, a frase estava na seção de 2017 "Dimensões de avaliação",
+  em contradição aparente com a de Blandford e Green (tcc-22kf).
+- Conferido: 2026-10-31 (conferência das fontes da 3.1.5); de novo em
+  2026-11-01.
 * [[file:../comparacao.org::Em cada rodada, a avaliação percorre][comparacao: Em cada rodada, a avaliação percorre]], p. 115-118
 - Frase: “Em cada rodada, a avaliação percorre as 14 DCs da lista completa
   (Blackwell; Green, 2003, p. 115-118)”.
@@ -15,7 +38,7 @@
   e quatro é do trabalho (comparacao.org, seção "Dimensões de avaliação"),
   e não da fonte.
 - Conferido: 2026-10-13.
-* [[file:../comparacao.org::Em cada rodada, a avaliação percorre][comparacao: Em cada rodada, a avaliação percorre]], p. 115 (atividade)
+* [[file:../comparacao.org::Nenhuma dimensão é boa ou má em si][comparacao: Nenhuma dimensão é boa ou má em si]], p. 115 (atividade)
 - Frase: “Nenhuma dimensão é boa ou má em si, e a avaliação sempre leva em
   conta a atividade a apoiar (Blackwell; Green, 2003, p. 115).”
 - Trecho: “Important: None of these dimensions is evaluative when
@@ -23,7 +46,7 @@
   activities to be supported.” (p. 115)
 - Lido em: o mesmo PDF, p. 13 (p. 115).
 - Conferido: 2026-10-13.
-* [[file:../comparacao.org::Em cada rodada, a avaliação percorre][comparacao: Em cada rodada, a avaliação percorre]], p. 113
+* [[file:../comparacao.org::Nenhuma dimensão é boa ou má em si][comparacao: Nenhuma dimensão é boa ou má em si]], p. 113
 - Frase: “Na primeira rodada, as atividades são a busca e a compreensão
   exploratória do código pronto, e, na segunda e na terceira, a modificação
   (Blackwell; Green, 2003,

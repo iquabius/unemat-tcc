@@ -306,12 +306,15 @@
   A avaliação cabe ao autor, que examina o código das implementações dimensão
   a dimensão, sem participantes.
   É uma avaliação analítica, feita por especialista, sem a participação de
-  usuários cite:blandford2008, como a de [[textcite:kiss2014][p. 8]] pelas
-  [[glspl:dc]].
-  Ela serve de alternativa aos estudos com programadores, que comparam
-  linguagens a custo alto e com resultados muitas vezes inconclusivos
-  [[cite:sadowski2011][p. 9]], e as [[glspl:dc]] pedem menos tempo que eles
-  cite:dagit2006.
+  usuários cite:blandford2008, e [[textcite:kiss2014][p. 8]] também chama
+  de analítica a abordagem pelas [[glspl:dc]].
+  As [[glspl:dc]], porém, não são um método analítico, mas ferramentas de
+  discussão, um vocabulário para quem projeta ou avalia, de traço grosso,
+  que não dá previsões detalhadas [[cite:blackwell2003][p. 106]].
+  A avaliação analítica serve de alternativa aos estudos com usuários, que
+  comparam linguagens a custo alto e com resultados em geral
+  inconclusivos [[cite:sadowski2011][p. 9]], e as [[glspl:dc]] tomam
+  menos tempo do projetista que esses estudos cite:dagit2006.
 
   Em cada rodada, a avaliação percorre as 14 [[glspl:dc]] da lista
   completa [[cite:blackwell2003][p. 115-118]], e não um subconjunto
@@ -321,6 +324,8 @@
   Oito tratam da notação: /nível de abstração/, /proximidade de
   descrição/, /consistência/, /concisão/, /operações mentais difíceis/,
   /dependências ocultas/, /expressividade de papel/ e /notação secundária/.
+  Para [[textcite:green2006][p. 334]], duas delas, a expressividade de
+  papel e as operações mentais difíceis, sempre foram mal descritas.
   Duas são do sistema, que o ambiente de edição agrava ou atenua: a
   /viscosidade/ e a /propensão a erros/.
   As outras quatro pesam no ambiente de edição: o /compromisso
@@ -329,6 +334,7 @@
   Destas, a avaliação lê a face que aparece na notação, porque os próprios
   autores suspeitam que há uma zona cinzenta entre as dimensões da notação e as
   do ambiente [[cite:green2006][p. 357]].
+
   Nenhuma dimensão é boa ou má em si, e a avaliação sempre leva em conta a
   atividade a apoiar [[cite:blackwell2003][p. 115]].
   Na primeira rodada, as atividades são a busca e a compreensão exploratória
@@ -361,7 +367,9 @@
   quantas ações ela pede, e quantas outras restauram a consistência
   [[cite:blackwell2003][p. 115]].
   A concisão tem ainda o apoio de uma contagem das linhas não vazias e
-  sem comentários de cada implementação, sem o domínio e o estilo.
+  sem comentários de cada implementação, sem o domínio e o estilo, e com
+  a montagem da tela onde ela estiver: no Web Component, o texto em
+  [[gls:html]] e os =createElement=; no React, o JSX.
 
   A comparação fecha numa tabela-síntese, que reúne o perfil de cada
   modelo de programação nas [[glspl:dc]] [[cite:blackwell2003][p. 107-108 e 118]],
@@ -373,6 +381,7 @@
   a diferença entre os modelos de programação fica /mantida/,
   /ampliada/, /reduzida/, /anulada/, /invertida/ ou /surgida/, e a célula
   diz se a posição do modelo /sobe/, /desce/ ou /fica igual/.
+  Esses rótulos são deste trabalho, e não de uma fonte.
 
   Quem avalia pelas [[glspl:dc]] o que construiu tem conflito de
   interesse e, num sistema implementado ao longo de muito tempo, tende a não
@@ -380,22 +389,8 @@
   O conflito diminui num sistema ainda em formação, e usar as [[glspl:dc]]
   tarde no próprio sistema é melhor do que não usá-las cite:dagit2006.
 
-  Quatro das 14 [[glspl:dc]] pesam no ambiente de edição, e este trabalho as
-  lê só pela face que aparece na notação, onde podem mostrar pouca diferença
-  no código.
-  Elas entram mesmo assim, porque escolher de antemão um subconjunto das
-  [[glspl:dc]] pode ser pouco útil [[cite:blackwell2001][p. 332]].
-  Para [[textcite:green2006][p. 334]], duas das outras, a expressividade de
-  papel e as operações mentais difíceis, sempre foram mal descritas.
-  Na tabela-síntese, os rótulos do que acontece com a diferença de uma
-  rodada a outra, /mantida/, /ampliada/, /reduzida/, /anulada/,
-  /invertida/ ou /surgida/, são deste trabalho, e não de uma fonte.
-
 * Dimensões de avaliação
   @@latex:\todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}@@
-  A avaliação usa as [[glspl:dc]], que [[textcite:blackwell2003][p. 106]] chamam de ferramentas
-  de discussão, para quem projeta ou avalia artefatos de informação, e não
-  de método analítico.
 
   [[textcite:blackwell2019][p. 58 e 60]] registram, na psicologia da
   programação, o pedido por ensaios controlados randomizados no estudo do

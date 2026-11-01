@@ -202,16 +202,17 @@
 - Lido em: =acervo/kiss2014.pdf=, p. 9 do PDF (p. 3).
 - Conferido: 2026-10-13.
 * [[file:../comparacao.org::A avaliação cabe ao autor][comparacao: A avaliação cabe ao autor]], p. 8
-- Frase: “Kiss (2014, p. 8) chama de analítica a avaliação pelas DCs e a
-  adota como alternativa aos experimentos com programadores, muitas vezes
-  caros e de resultados necessariamente restritos.”
+- Frase: “[...] e Kiss (2014, p. 8) também chama de analítica a abordagem
+  pelas DCs.” Até 2026-11-01, a frase dizia “como a de Kiss (2014, p. 8)”,
+  que estendia a ele também o “feito por especialista, sem a participação
+  de usuários”, que a p. 8 não diz: ele agradece a revisores especialistas.
 - Trecho: “Such studies have high meaningfulness but are often expensive
   and their results are by necessity rather narrow. An alternative is an
   analytical approach. The Cognitive Dimensions of Notations framework
   (CDs) [43] is a set of standardized criteria for analyzing the
   usability of ‘information artifacts’”
 - Lido em: =acervo/kiss2014.pdf=, p. 14 do PDF (p. 8 impressa).
-- Conferido: 2026-10-06.
+- Conferido: 2026-10-06; de novo em 2026-11-01.
 * [[file:../intro.org::Por ser analítica, e não um experimento][intro: Por ser analítica, e não um experimento]], p. 103
 - Frase: “Por ser analítica, e não um experimento, a avaliação pelas DCs
   aponta diferenças que convém testar depois com programadores (Kiss, 2014,

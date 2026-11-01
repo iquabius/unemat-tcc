@@ -10,10 +10,12 @@
   expressed (CSS in this case)” (p. 342)
 - Lido em: =acervo/green2006-publicada.pdf=, p. 15 do PDF (p. 342).
 - Conferido: 2026-10-23.
-* [[file:../comparacao.org::Quatro das 14 \[\[glspl:dc\]\] pesam no ambiente de edição][comparacao: Quatro das 14 DCs pesam no ambiente de edição]], p. 334
-- Frase: “Para Green et al. (2006, p. 334), duas das outras, a
-  expressividade de papel e as operações mentais difíceis, sempre foram
-  mal descritas.” Veio da introdução para cases no corte de 2026-10-27.
+* [[file:../comparacao.org::Em cada rodada, a avaliação percorre][comparacao: Em cada rodada, a avaliação percorre]], p. 334
+- Frase: “Para Green et al. (2006, p. 334), duas delas, a expressividade
+  de papel e as operações mentais difíceis, sempre foram mal descritas.”
+  Veio da introdução para cases no corte de 2026-10-27; em 2026-11-01,
+  passou do parágrafo das quatro do ambiente, que saiu por repetir este,
+  ao agrupamento, logo depois das oito da notação, onde as duas estão.
 - Trecho: “Examples here are the ‘hard mental operations’ and the
   ‘role-expressiveness’ dimensions, which have always been poorly
   described” (p. 334)

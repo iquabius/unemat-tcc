@@ -311,12 +311,15 @@ e pelo \gls{css}.
 A avaliação cabe ao autor, que examina o código das implementações dimensão
 a dimensão, sem participantes.
 É uma avaliação analítica, feita por especialista, sem a participação de
-usuários \cite{blandford2008}, como a de \textcite[p. 8]{kiss2014} pelas
-\glspl{dc}.
-Ela serve de alternativa aos estudos com programadores, que comparam
-linguagens a custo alto e com resultados muitas vezes inconclusivos
-\cite[p. 9]{sadowski2011}, e as \glspl{dc} pedem menos tempo que eles
-\cite{dagit2006}.
+usuários \cite{blandford2008}, e \textcite[p. 8]{kiss2014} também chama
+de analítica a abordagem pelas \glspl{dc}.
+As \glspl{dc}, porém, não são um método analítico, mas ferramentas de
+discussão, um vocabulário para quem projeta ou avalia, de traço grosso,
+que não dá previsões detalhadas \cite[p. 106]{blackwell2003}.
+A avaliação analítica serve de alternativa aos estudos com usuários, que
+comparam linguagens a custo alto e com resultados em geral
+inconclusivos \cite[p. 9]{sadowski2011}, e as \glspl{dc} tomam
+menos tempo do projetista que esses estudos \cite{dagit2006}.
 
 Em cada rodada, a avaliação percorre as 14 \glspl{dc} da lista
 completa \cite[p. 115-118]{blackwell2003}, e não um subconjunto
@@ -326,6 +329,8 @@ Para a análise, o trabalho as agrupa pelo que descrevem.
 Oito tratam da notação: \emph{nível de abstração}, \emph{proximidade de
 descrição}, \emph{consistência}, \emph{concisão}, \emph{operações mentais difíceis},
 \emph{dependências ocultas}, \emph{expressividade de papel} e \emph{notação secundária}.
+Para \textcite[p. 334]{green2006}, duas delas, a expressividade de
+papel e as operações mentais difíceis, sempre foram mal descritas.
 Duas são do sistema, que o ambiente de edição agrava ou atenua: a
 \emph{viscosidade} e a \emph{propensão a erros}.
 As outras quatro pesam no ambiente de edição: o \emph{compromisso
@@ -334,6 +339,7 @@ prematuro}, a \emph{avaliação progressiva}, a \emph{visibilidade} e a
 Destas, a avaliação lê a face que aparece na notação, porque os próprios
 autores suspeitam que há uma zona cinzenta entre as dimensões da notação e as
 do ambiente \cite[p. 357]{green2006}.
+
 Nenhuma dimensão é boa ou má em si, e a avaliação sempre leva em conta a
 atividade a apoiar \cite[p. 115]{blackwell2003}.
 Na primeira rodada, as atividades são a busca e a compreensão exploratória
@@ -366,7 +372,9 @@ implementação, como no teste de \textcite[p. 162]{green1996d}, mostra
 quantas ações ela pede, e quantas outras restauram a consistência
 \cite[p. 115]{blackwell2003}.
 A concisão tem ainda o apoio de uma contagem das linhas não vazias e
-sem comentários de cada implementação, sem o domínio e o estilo.
+sem comentários de cada implementação, sem o domínio e o estilo, e com
+a montagem da tela onde ela estiver: no Web Component, o texto em
+\gls{html} e os \texttt{createElement}; no React, o JSX.
 
 A comparação fecha numa tabela-síntese, que reúne o perfil de cada
 modelo de programação nas \glspl{dc} \cite[p. 107-108 e 118]{blackwell2003},
@@ -378,29 +386,16 @@ Da primeira rodada para as outras duas, a linha de cada \gls{dc} diz se
 a diferença entre os modelos de programação fica \emph{mantida},
 \emph{ampliada}, \emph{reduzida}, \emph{anulada}, \emph{invertida} ou \emph{surgida}, e a célula
 diz se a posição do modelo \emph{sobe}, \emph{desce} ou \emph{fica igual}.
+Esses rótulos são deste trabalho, e não de uma fonte.
 
 Quem avalia pelas \glspl{dc} o que construiu tem conflito de
 interesse e, num sistema implementado ao longo de muito tempo, tende a não
 ver os problemas que se acostumou a contornar \cite{dagit2006}.
 O conflito diminui num sistema ainda em formação, e usar as \glspl{dc}
 tarde no próprio sistema é melhor do que não usá-las \cite{dagit2006}.
-
-Quatro das 14 \glspl{dc} pesam no ambiente de edição, e este trabalho as
-lê só pela face que aparece na notação, onde podem mostrar pouca diferença
-no código.
-Elas entram mesmo assim, porque escolher de antemão um subconjunto das
-\glspl{dc} pode ser pouco útil \cite[p. 332]{blackwell2001}.
-Para \textcite[p. 334]{green2006}, duas das outras, a expressividade de
-papel e as operações mentais difíceis, sempre foram mal descritas.
-Na tabela-síntese, os rótulos do que acontece com a diferença de uma
-rodada a outra, \emph{mantida}, \emph{ampliada}, \emph{reduzida}, \emph{anulada},
-\emph{invertida} ou \emph{surgida}, são deste trabalho, e não de uma fonte.
 \section{Dimensões de avaliação}
 \label{sec:dimensoes-de-avaliacao}
 \todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}
-A avaliação usa as \glspl{dc}, que \textcite[p. 106]{blackwell2003} chamam de ferramentas
-de discussão, para quem projeta ou avalia artefatos de informação, e não
-de método analítico.
 
 \textcite[p. 58 e 60]{blackwell2019} registram, na psicologia da
 programação, o pedido por ensaios controlados randomizados no estudo do

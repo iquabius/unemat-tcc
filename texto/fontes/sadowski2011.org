@@ -2,10 +2,13 @@
 #+startup: overview
 
 * [[file:../comparacao.org::A avaliação cabe ao autor][comparacao: A avaliação cabe ao autor]], p. 9
-- Frase: “Ela serve de alternativa aos estudos com programadores, que
-  comparam linguagens a custo alto e com resultados muitas vezes
+- Frase: “A avaliação analítica serve de alternativa aos estudos com
+  usuários, que comparam linguagens a custo alto e com resultados em geral
   inconclusivos (Sadowski; Kurniawan, 2011, p. 9) [...].”
 - Trecho: “user studies which compare programming languages or systems are
   often very expensive and typically inconclusive.”
 - Lido em: =acervo/sadowski2011.pdf=, p. 1 do PDF (resumo).
-- Conferido: 2026-10-09.
+- Observação: até 2026-11-01, a frase dizia “estudos com programadores”
+  e “muitas vezes inconclusivos”; passou a “estudos com usuários” e “em
+  geral”, como “user studies” e “typically”.
+- Conferido: 2026-10-09; de novo em 2026-11-01.
