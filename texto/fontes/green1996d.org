@@ -18,15 +18,18 @@
   com fonte; a de categorias, e não artefatos, é da nota de referência
   docs/paradigma-modelo-e-notacao.md, seção "Unidade comparada e evidência: o TCC compara categorias".
 - Conferido: 2026-10-09.
-* [[file:../cases.org::A avaliação se faz em três rodadas][cases: A avaliação se faz em três rodadas]], p. 161
-- Frase: “A segunda rodada faz o código crescer porque é nos problemas grandes que os
-  efeitos da viscosidade mais aparecem (Green; Petre, 1996, p. 161).”
+* [[file:../cases.org::A segunda rodada muda o comportamento][cases: A segunda rodada muda o comportamento]], p. 161
+- Frase: “A segunda rodada muda o comportamento e faz o código crescer,
+  porque é nos problemas grandes que os efeitos da viscosidade mais
+  aparecem (Green; Petre, 1996, p. 161).”
 - Trecho: “Nobody can do big, hard problems in their heads. Which is a
   pity, because those are the ones where the effects of viscosity will be
   most apparent.” (p. 161)
 - Lido em: =acervo/green1996d.pdf=,
   p. 31 do PDF (p. 161).
-- Conferido: 2026-10-13.
+- Observação: até 2026-10-31, a frase estava no primeiro parágrafo da
+  subseção das rodadas.
+- Conferido: 2026-10-13; de novo em 2026-10-31.
 * [[file:../cases.org::A análise compara os modelos de][cases: A análise compara os modelos de]], p. 162
 - Frase: “a mesma mudança, preparada antes e feita em cada implementação,
   como no teste de Green e Petre (1996, p. 162)”.

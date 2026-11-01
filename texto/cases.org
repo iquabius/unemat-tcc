@@ -141,153 +141,93 @@
   Web Component com Effection; o Solid; e o Cycle.js.
 
 ** As rodadas
-  @@latex:\todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}@@
 
   A avaliação se faz em três rodadas, cada uma mais estreita que a
   anterior, como as de [[textcite:kiss2014][p. 3]]: a primeira responde à
   P1, e a segunda e a terceira, à P1.1 e à P1.2.
-  Na primeira rodada, as tecnologias implementam as interfaces descritas acima.
-  Na segunda, cada interface recebe funcionalidades, como o assistente
-  em três passos do Formulário, e requisitos de orquestração, como a
-  espera de 300 ms depois da última tecla na Busca.
-  Uma funcionalidade muda o que o usuário percebe ou pode fazer, e um
-  requisito de orquestração deixa a tela igual e muda só como se combinam
-  os eventos.
-  São onze mudanças, feitas uma por /commit/ e na mesma ordem em
-  todas as tecnologias que implementam a interface.
-  A segunda rodada faz o código crescer porque é nos problemas grandes que os efeitos
-  da viscosidade mais aparecem [[cite:green1996d][p. 161]].
-  Na terceira, o Formulário estendido é reescrito em cada tecnologia
-  com a biblioteca de formulário mais usada no ecossistema dela, ou com a
-  [[gls:api]] da plataforma quando nenhuma predomina.
-  Como as bibliotecas variam de uma tecnologia para outra, a conclusão da
-  terceira rodada vale para o ecossistema típico de cada tecnologia, e não só
-  para o modelo de programação.
+  Cada rodada lê um eixo: a primeira, a propagação; a segunda, o
+  crescimento do código; a terceira, a orquestração.
 
-  #+CAPTION: As sete interfaces rodada a rodada: a primeira constrói as 35 implementações; a segunda acrescenta de uma a três mudanças por interface, 13 ao todo; a terceira refatora o código da segunda em seis pares interface-vertente, mais um opcional. Cada marca vale para as cinco tecnologias. Grafite: imperativo por atualização manual; ocre: declarativo por atualização granular; roxo: declarativo por re-renderização.
-  #+NAME: fig:interfaces-por-rodada
-  #+ATTR_LATEX: :options [htbp]
-  #+begin_figure
-  #+begin_export latex
-  \centering
-  \begin{tikzpicture}[delineamento,
-      grade/.style={matrix of nodes, nodes in empty cells, row sep=0pt, column sep=0pt,
-        inner sep=0pt, outer sep=0pt,
-        nodes={anchor=center, inner sep=0.05cm, minimum height=0.55cm,
-          text width=1.9cm, align=center,
-          execute at begin node={\hyphenpenalty=10000 }},
-        column 1/.style={nodes={text width=3.3cm, align=left}},
-        column 3/.style={nodes={text width=2.1cm}},
-        row 1/.style={nodes={minimum height=0.85cm, font=\scriptsize}},
-        row 9/.style={nodes={minimum height=0.85cm, font=\scriptsize}}},
-      % A marca é um círculo na cor do texto, e não um quadrado cinza, para
-      % não se confundir com a caixa de um modelo de programação.
-      marca/.style={circle, fill=black, minimum size=5.5pt, inner sep=0pt},
-      opcional/.style={circle, draw=black, dash pattern=on 1pt off 0.8pt, line width=0.6pt,
-        minimum size=5.5pt, inner sep=0pt},
-      regua/.style={draw=black!15},
-      divisa/.style={draw=black!40},
-      rodada/.style={anchor=south, inner sep=2pt, align=center},
-    ]
-    \matrix[cadeia] (t) {
-      |[rer]| \tecnologia{Lit}{\rerender} &
-      |[imp]| \tecnologia{Web Component}{\imperativo} &
-      |[gra]| \tecnologia{Web Component com \emph{signals}}{\granular} &
-      |[gra]| \tecnologia{Solid}{\granular} &
-      |[rer]| \tecnologia{React}{\rerender} \\
-    };
-    \node[font=\scriptsize, above=4pt of t.north west, anchor=south west, inner sep=0pt]
-      {Cada marca e cada número valem para as cinco tecnologias:};
-    \matrix[grade, below=1.25cm of t] (m) {
-      & implementa & mudanças & ecossistema & máquina de estados & API nova da plataforma & padrões de projeto \\
-      Contador & & 1 & & & & \\
-      Reserva de passagem & & 1 & & & & \\
-      Busca com sugestões & & 2 & & & & \\
-      Login com quarentena & & 2 & & & & \\
-      Placar ao vivo & & 3 & & & & \\
-      Planilha & & 1 & & & & \\
-      Circle Drawer & & 3 & & & & \\
-      ao todo & 35\par implementações & 13 mudanças\par 65 \emph{commits} & & & & \\
-    };
-    % Os títulos das rodadas sobre as colunas de cada uma.
-    \path (m-1-2.north west) -- (m-1-2.north east)
-      node[midway, rodada] {\textbf{1.ª rodada}\\\scriptsize P1};
-    \path (m-1-3.north west) -- (m-1-3.north east)
-      node[midway, rodada] {\textbf{2.ª rodada}\\\scriptsize P1.1};
-    \path (m-1-4.north west) -- (m-1-7.north east)
-      node[midway, rodada] {\textbf{3.ª rodada}: as vertentes\\\scriptsize P1.2};
-    \path (m-9-4.west) -- (m-9-7.east)
-      node[midway, font=\scriptsize, align=center] {6 pares e 30 refatorações, mais 1 par opcional};
-    % Réguas: forte sob os títulos e sobre o total, leve entre as interfaces.
-    \draw[black!60] (m-1-1.south west) -- (m-1-7.south east);
-    \foreach \r in {2,...,7} \draw[regua] (m-\r-1.south west) -- (m-\r-7.south east);
-    \draw[black!60] (m-8-1.south west) -- (m-8-7.south east);
-    \foreach \c in {2,3,4} \draw[divisa] (m-1-\c.north west) -- (m-9-\c.south west);
-    % As marcas: a primeira rodada em todas as interfaces; a terceira nos pares.
-    \foreach \r in {2,...,8} \node[marca] at (m-\r-2) {};
-    \foreach \r/\c in {3/4, 6/4, 6/5, 6/6, 8/6, 8/7} \node[marca] at (m-\r-\c) {};
-    \node[opcional] at (m-8-5) {};
-    % Legenda das marcas.
-    \node[marca, below=0.35cm of m.south west, anchor=north west, xshift=0.1cm] (l1) {};
-    \node[right=3pt of l1, font=\scriptsize, inner sep=0pt] (l1t) {a interface entra na rodada ou no par};
-    \node[opcional, right=0.6cm of l1t] (l2) {};
-    \node[right=3pt of l2, font=\scriptsize, inner sep=0pt] {par opcional, o primeiro a sair no corte};
-  \end{tikzpicture}
-  #+end_export
-  #+end_figure
+  Na primeira rodada, o Web Component e o React implementam as sete
+  interfaces, 14 implementações, cada uma só com o que a tecnologia traz.
+  A orquestração é por atribuição nas duas, e a diferença entre elas está
+  na propagação, manual numa e por re-renderização na outra.
 
-  @@latex:\todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}@@
+  A segunda rodada muda o comportamento e faz o código crescer, porque é
+  nos problemas grandes que os efeitos da viscosidade mais aparecem
+  [[cite:green1996d][p. 161]].
+  Cada interface recebe funcionalidades, que mudam o que o usuário
+  percebe ou pode fazer, e requisitos de combinação de eventos, que deixam
+  a tela igual e mudam só como os eventos se combinam.
+  São 13 mudanças, numa ordem fixada antes da análise, cada uma num
+  /commit/ no Web Component e depois num no React, 26 /commits/ ao todo:
 
-  Cada vertente entra na interface cuja exigência de coordenação ela sabe
-  tratar.
-  A biblioteca que o ecossistema de cada tecnologia usa vai à Reserva de
-  passagem e ao Placar ao vivo; a máquina de estados tipada, ao Placar ao
-  vivo; a [[gls:api]] nova da plataforma, ao Placar ao vivo e ao Circle
-  Drawer; e o padrão de projeto, ao Circle Drawer.
+  - Contador: :: a lista de contadores, com a remoção de um deles e o
+    total derivado, para o usuário contar várias coisas ao mesmo tempo;
+  - Reserva de passagem: :: a data de volta empurrada ao dia seguinte à
+    ida quando a ida passa dela, para o usuário não ter de corrigir a
+    volta;
+  - Busca com sugestões: :: a espera de 300 ms depois da última tecla,
+    para as sugestões não mudarem a cada letra, e o /combobox/ operável
+    pelo teclado, para quem não usa o mouse escolher uma sugestão;
+  - Login com quarentena: :: a quarentena depois de três falhas seguidas,
+    que [[textcite:berry2020][p. 539]] acrescentam ao painel na segunda
+    versão dele, para proteger a conta de quem tenta adivinhar a senha, e
+    o "lembrar meu nome", para o usuário não digitar o nome a cada
+    entrada;
+  - Placar ao vivo: :: a queda da conexão, que o navegador refaz sozinho
+    [[cite:whatwg2026][§ 9.2.1]], com o aviso "Reconectando…" até o
+    próximo lote, para o usuário saber que a tabela parou por queda, e não
+    por pausa; o bolão, com os pontos de cada palpite e o total
+    derivados, para o usuário ver quantos pontos fez; e a frequência de 1,
+    5 ou 10 s, que vai ao servidor numa requisição à parte, para o usuário
+    escolher de quanto em quanto tempo os placares mudam;
+  - Planilha: :: a referência circular, que a Planilha acusa sem avaliar o
+    ciclo, a exigência com que [[textcite:kiss2014][p. 54]] discute a
+    viscosidade do /Cells/, para o usuário ver o erro em vez de a planilha
+    travar;
+  - Desenhador de círculos: :: arrastar os círculos, com o arraste no
+    desfazer, para o usuário mudar um círculo de lugar sem desfazer e
+    desenhar de novo; salvar o desenho num servidor simulado, na ordem
+    das mudanças, para o desenho não se perder; e o campo numérico do
+    diâmetro, ligado ao /slider/ nos dois sentidos, para o usuário
+    digitar o diâmetro exato.
 
-  Na vertente do ecossistema, a forma de cada tecnologia é a biblioteca
-  com mais da metade dos downloads no npm entre as que guardam o estado
-  do formulário ou tratam a conexão ao vivo
-  (Tabela [[ref:tab:bibliotecas-do-ecossistema]]).
-  Antes da conta saem as depreciadas, as arquivadas e as sem versão há
-  mais de 24 meses.
-  Quando nenhuma domina, a forma é a [[gls:api]] da plataforma.
-  No Web Component com /signals/ e no Lit, vale a forma do Web Component,
-  para o passo a cada um não mudar também a biblioteca.
-  Pelo mesmo motivo, o React usa na Reserva de passagem a biblioteca do
-  Solid, que tem adaptador oficial nas duas tecnologias.
-  Nas duas primeiras rodadas, o Placar ao vivo recebe os lotes por
-  [[gls:sse]], e o navegador refaz sozinho a conexão que cai
-  [[cite:whatwg2026][§ 9.2.1]].
-  A frequência escolhida pelo usuário, na segunda, vai ao servidor por
-  uma requisição à parte, a solução provisória que o jargão chama de
-  gambiarra.
-  A vertente do ecossistema a substitui pelo WebSocket, e a reconexão
-  passa à biblioteca.
+  Latências, tentativas, prazos e intervalos ficam fixos no domínio,
+  iguais nas duas tecnologias.
 
-  #+CAPTION: Bibliotecas da vertente do ecossistema, por interface e tecnologia.
-  #+NAME: tab:bibliotecas-do-ecossistema
-  #+ATTR_LATEX: :options [htbp]
-  #+begin_table
-  #+LATEX: \centering
-  #+ATTR_LATEX: :align p{3.4cm}p{3.3cm}p{3.6cm}p{3.8cm} :font \small :float nil :center nil
-  |--------------------------------------------------------+-------------------------------------------------------------------------+------------------------------------------------------------+-----------------------|
-  | Interface                                              | @@latex:\raggedright@@ Web Component, Lit e Web Component com /signals/ | Solid                                                      | React                 |
-  |--------------------------------------------------------+-------------------------------------------------------------------------+------------------------------------------------------------+-----------------------|
-  | @@latex:\raggedright@@ Reserva de passagem: formulário | =final-form=                                                            | TanStack Solid Form                                        | TanStack React Form   |
-  | @@latex:\raggedright@@ Placar ao vivo: conexão         | =partysocket=                                                           | @@latex:\texttt{@solid-primitives/\allowbreak websocket}@@ | =react-use-websocket= |
-  |--------------------------------------------------------+-------------------------------------------------------------------------+------------------------------------------------------------+-----------------------|
+  A terceira rodada muda só a forma: refatora o código da segunda rodada
+  da Busca, do Login e do Placar ao vivo, as interfaces em que a
+  combinação de eventos pesa.
+  O comportamento não muda, e o teste de conformidade e as cenas da
+  segunda rodada servem de rede.
+  São cinco passos por interface, cada um num modo de um eixo, 15
+  refatorações ao todo:
 
-  #+LATEX: \small Fonte: elaborado pelo autor.
-  #+end_table
+  - do Web Component ao Web Component com RxJS, a orquestração, de
+    atribuição a acumulação, com os derivados ainda escritos à mão no
+    /listener/;
+  - do React ao React com =useReducer=, a orquestração, de atribuição a
+    mensagem;
+  - do React com =useReducer= ao React com RxJS, a orquestração, de
+    mensagem a acumulação, com o mesmo /reducer/ no =scan=;
+  - do Web Component com RxJS ao React com RxJS, a propagação, de manual
+    a re-renderização;
+  - do React com RxJS ao React com os derivados no RxJS, a propagação dos
+    derivados, do corpo do componente aos combinadores.
 
-  A reconexão depois de queda fica com o navegador nas duas primeiras
-  rodadas e com a biblioteca na terceira: nenhuma tecnologia a escreve, e
-  por isso ela não se mede como as outras mudanças da segunda.
-  A [[gls:api]] nova da plataforma está implementada só no Chromium
-  [[cite:mdn2026]]: o teste de conformidade, que roda nele, prova a
-  conformidade das implementações, e não a disponibilidade da
-  [[gls:api]] ao usuário.
+  O Web Component, o React e os dois com RxJS formam um quadrado, em que
+  se lê se a diferença num eixo depende do modo no outro.
+  No React com RxJS, os derivados ficam no corpo do componente, forma
+  escolhida para que o passo seguinte mude só os derivados.
+
+  Se o prazo apertar, depois do entorno saem, nesta ordem, fixada antes
+  da análise: o bolão, o "lembrar meu nome" e o Login na terceira rodada.
+  Cada mudança sai inteira, nas duas tecnologias.
+  Não saem a primeira rodada nem a Busca e o Placar ao vivo na terceira.
+  Também ficam a lista de contadores e o campo do diâmetro, as únicas
+  mudanças que trazem a remoção com a identidade dos que ficam e a
+  ligação nos dois sentidos.
 
 ** Os controles e o teste de conformidade
   @@latex:\todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}@@

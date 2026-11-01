@@ -282,3 +282,18 @@
   paradigms did not come into play once again.”
 - Lido em: =acervo/kiss2014.pdf=, p. 29 do PDF.
 - Conferido: 2026-10-31.
+
+* [[file:../cases.org::Contador: :: a lista de contadores][cases: a lista das mudanças da segunda rodada]] (a referência circular), p. 54
+- Frase: “a referência circular, que a Planilha acusa sem avaliar o
+  ciclo, a exigência com que Kiss (2014, p. 54) discute a viscosidade do
+  /Cells/”.
+- Trecho: “Viscosity. Let us say that we want to prevent feedback loops
+  now. It is not immediately obvious how to implement this requirement.
+  In an ideal system, feedback loops would be taken care of automatically
+  for us.” (p. 54)
+- Lido em: =acervo/kiss2014.pdf=, p. 60 do PDF (p. 54).
+- Observação: Kiss fala de /feedback loops/, o laço de realimentação
+  entre células, que o texto chama de referência circular, o nome que a
+  planilha eletrônica lhe dá; que a Planilha acusa o erro sem avaliar o
+  ciclo é da especificação do trabalho (ADR 0029).
+- Conferido: 2026-10-31.

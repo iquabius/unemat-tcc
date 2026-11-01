@@ -23,3 +23,15 @@
 - Observação: a quarentena é o “Login Panel 2.0” da p. 539 e entra na segunda
   rodada (ADR 0029); o nome da interface já a traz.
 - Conferido: 2026-10-13.
+* [[file:../cases.org::Contador: :: a lista de contadores][cases: a lista das mudanças da segunda rodada]], p. 539 (a quarentena)
+- Frase: “a quarentena depois de três falhas seguidas, que Berry e Serrano
+  (2020, p. 539) acrescentam ao painel na segunda versão dele”.
+- Trecho: “let us evolve our login panel specification: for version 2.0,
+  after a fixed number of unsuccessful connection attempts, the whole
+  system should freeze for a quarantine period.” (p. 539)
+- Lido em: =acervo/berry2020.pdf=, p. 7 do PDF (p. 539).
+- Observação: o texto de Berry e Serrano diz “a fixed number of
+  successive unsuccessful connections”, e o exemplo deles chama o módulo
+  com =run Freeze(max=5, attempts=3, ...)= (l. 70 da listagem, p. 539);
+  as três falhas seguidas do trabalho estão no ADR 0029.
+- Conferido: 2026-10-31.
