@@ -322,7 +322,8 @@ inconclusivos \cite[p. 9]{sadowski2011}, e as \glspl{dc} tomam
 menos tempo do projetista que esses estudos \cite{dagit2006}.
 
 Em cada rodada, a avaliação percorre as 14 \glspl{dc} da lista
-completa \cite[p. 115-118]{blackwell2003}, e não um subconjunto
+completa \cite[p. 115-118]{blackwell2003}, definidas na seção
+\ref{sec:as-dimensoes}, e não um subconjunto
 escolhido antes, porque a escolha prévia pode atrapalhar, e o conjunto
 inteiro traz resultados inesperados e úteis \cite[p. 332]{blackwell2001}.
 Para a análise, o trabalho as agrupa pelo que descrevem.
@@ -351,7 +352,7 @@ A seção de cada interface traz a especificação curta, as cenas, a
 captura da tela e, logo abaixo, o módulo principal do Web Component e
 do React, inteiro menos os \texttt{import}, com as linhas numeradas.
 Seguem as 14 \glspl{dc}, cada uma em poucas linhas, que citam as linhas
-da listagem em vez de repetir o trecho, com "sem diferença" quando os
+da listagem em vez de repetir o trecho, com “sem diferença” quando os
 modelos de programação não diferem nela.
 Em cada \gls{dc}, a análise aponta se a diferença está na coordenação,
 na montagem da tela ou na ligação entre as duas.
@@ -393,153 +394,88 @@ interesse e, num sistema implementado ao longo de muito tempo, tende a não
 ver os problemas que se acostumou a contornar \cite{dagit2006}.
 O conflito diminui num sistema ainda em formação, e usar as \glspl{dc}
 tarde no próprio sistema é melhor do que não usá-las \cite{dagit2006}.
-\section{Dimensões de avaliação}
-\label{sec:dimensoes-de-avaliacao}
-\todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}
-
-\textcite[p. 58 e 60]{blackwell2019} registram, na psicologia da
-programação, o pedido por ensaios controlados randomizados no estudo do
-projeto de linguagens e o ceticismo sobre apoiar nesse empirismo um
-processo de projeto complexo.
-Para eles, a parte cognitiva das \glspl{dc} importa bem menos que a teoria de
-projeto implícita nelas.
-
-As \glspl{dc} de \textcite{green1989} são um conjunto estabelecido de
-dimensões, o que facilita a comparação dos resultados com os de outros
-trabalhos baseados nelas, como argumenta \textcite[p. 12]{kiss2014},
-que usou um subconjunto delas.
+\subsection{As dimensões}
+\label{sec:as-dimensoes}
+Cada uma das 14 \glspl{dc} vem abaixo com a definição curta e a
+explicação de \textcite[p. 115-118]{blackwell2003}, na ordem do
+agrupamento de “A avaliação”, com a página de cada uma.
+Cada uma traz também um exemplo da web, escolhido por este trabalho,
+como \textcite[p. 12-14]{kiss2014} faz com as dele.
+Os exemplos ilustram a dimensão e não antecipam a posição de nenhuma
+das tecnologias comparadas.
 
 \begin{description}
-\item[{Nível de abstração}] \emph{Disponibilidade e tipos de mecanismos de abstração}
-
-O sistema fornece alguma forma de definir novos termos com a notação pra
-que eles possam ser extendidos afim de descrever ideias claramente? Os
-detalhes podem ser encapsulados? O sistema insiste em definir novos
-termos? Qual o número de novos conceitos de alto nível devem ser
-aprendidos pra se fazer uso do sistema? Eles são fáceis de aprender e
-usar?
-
-   Cada novo conceito é um empecilho pra aprendizagem e aceitação, mas
-também pode tornar um código complexo mais compreensível. Por exemplo, o
-React emprega o \emph{fluxo de dados de mão única} --- do inglês \emph{one-way data
-flow} ou \emph{one-way binding} --- em sua arquitetura. É necessário aprender
-conceitos novos para usar os componentes do React de forma adequada. Não
-compensa para aplicações pequenas, mas para aplicações complexas pode tornar
-o código mais compreensível e passível de manutenção porque os detalhes
-podem ser encapsulados em novos termos: os componentes.
-
-Outro exemplo é a função:
-
-\begin{citacao}
-  A function has a name and, optionally, parameters as well as a body that
-  returns a value following certain computational steps. A client can simply
-  refer to a function by its name without knowing its implementation details.
-  Accordingly, a function abstracts the computational process involved in the
-  computation of a value. The learning barrier to the principle of a function is
-  not great but it can still make a lot of code much more understandable 3 by
-  hiding unimportant details.
-  \cite[p.~13]{kiss2014}
-\end{citacao}
-
-\item[{Proximidade de descrição}] \todo{Traduzido de “Closeness of mapping”, poderia ser “Proximidade de mapeamento”} \emph{Semelhança entre representação e o domínio}
-
-O quão relacionado é a notação com o resultado que ela descreve, ou
-melhor, o domínio do problema? Que partes parecem ser uma forma
-particularmente estranha de descrever algo?
-
-\begin{citacao}
-  Um exemplo é a definição de layout de uma interface gráfica. Linguagens que
-  não fornecem uma forma de descrever o layout de modo aninhado, ou seja,
-  hierárquico, e como tal força o programador a “linearizar” o código com o uso
-  desnecessário de variáveis intermediárias, dificultando enchergar como a
-  estrutura de definição do layout corresponde com o layout final da aplicação.
-  Não é atoa que especificações baseadas no XML são amplamente usadas na
-  construção de interfaces gráficas em linguagens sem suporte nativo para
-  representação hierárquica de layout.
-  \cite[p.~13; tradução nossa]{kiss2014}
-\end{citacao}
-
-\item[{Dependências ocultas}] \emph{Vínculos importantes implícitos entre entidades}
-
-As dependências entre as entidades da notação são visíveis ou ocultas?
-Todas as dependências são especificadas em ambas as direções? Alterações
-locais podem ter efeitos globais confusos?
-
-Se uma entidade cita outra, que por sua vez cita uma terceira, a
-alteração do valor da terceira entidade pode desencadear efeitos
-inesperados. O principal problema não é o fato de A depender de B, mas sim
-que a dependência não é explicitamente visível. Um caso bem conhecido de dependência
-oculta é o “problema da classe base frágil”\footnote{Veja: \url{https://en.wikipedia.org/wiki/Fragile\_base\_class}.}.
-
-\begin{citacao}
-  In (complex) class hierarchies a seemingly safe modification to a base class
-  may cause derived classes to malfunction. The IDE in general cannot help
-  discovering such problems and only certain programming language features can
-  help preventing them. Another example are non-local side-effects in
-  procedures, i.e. the dependencies of a procedure with non-local side-effects
-  are not visible in its signature.
-  \cite[pg.~14]{kiss2014}
-\end{citacao}
-
-\item[{Propensão a erros}] \emph{Notação incita erros}
-
-Até que ponto a notação influência o programador a cometer um erro? Fazer
-algumas coisas parece ser particularmente complexo ou difícil, p. ex.,
-juntar várias coisas?
-
-Em muitas linguagens dinâmicas com definições implícitas de
-variáveis\footnote{Isto é, quando não se precede uma definição de variável
-com \texttt{var} ou \texttt{let} por exemplo.}, um erro de tipagem em uma variável pode
-de repente causar erros difíceis de encontrar já que o \gls{ide} nem sempre
-pode apontar tal erro devido a dinamicidade na linguagem. A inicialização
-implícita de variáveis com valor \texttt{null} pode levar a uma exceção de
-ponteiro nulo se o programador esquecer de inicializar as variáveis
-corretamente antes de usá-las.
-
-\item[{Concisão        }] \emph{Verbosidade da linguagem}
-
-Quantos símbolos ou quanto espaço a notação requer pra produzir um certo
-resultado ou expressar uma ideia. Que tipos de coisas ocupam mais espaço
-para se descrever?
-
-\begin{citacao}
-  Some notations can be annoyingly long-winded, or occupy too much valuable
-  “real-estate” within a display area. In Java before version 8 in order to
-  express what are lambdas today anonymous classes were employed. Compared to
-  Java 8’s lambdas these anonymous classes used to be a very verbose way of
-  encoding anonymous functions especially when used in a callback-heavy setting
-  like traditional GUI programming~\cite[p.~14]{kiss2014}.
-  \todo[inline]{Pensar num exemplo mais próximo da Web e substituir citação direta.}
-\end{citacao}
-
-\item[{Viscosidade    }] \emph{Resistência a mudanças}
-
-Existe alguma barreira contra mudança na notação? Quanto esforço é
-necessário pra fazer uma alteração num programa expresso na notação?
-
-Num sistema viscoso o usuário precisa realizar várias passos para
-concluir uma tarefa. Alterar o tipo de retorno de uma função pode causar
-erros em várias partes do código onde a função é chamada. Nesses casos um
-\gls{ide} pode ajudar muito.
+\item[{Nível de abstração:}] os tipos e a disponibilidade de mecanismos de
+abstração. Uma abstração muda a notação de base, e o sistema que
+permite muitas é potencialmente difícil de aprender (p. 116-117).
+Uma função dá nome a um cálculo que se repete, e quem a chama não
+precisa saber como ele se faz.
+\item[{Proximidade de descrição:}] o quanto a representação se aproxima do
+domínio, ou o quanto a notação se relaciona com o resultado que ela
+descreve (p. 117). Uma tabela em \gls{html}, escrita linha a linha
+e célula a célula, tem a forma da tabela que aparece na tela.
+\item[{Consistência:}] semânticas parecidas se expressam em formas
+sintáticas parecidas. O usuário infere a estrutura pelos padrões da
+notação, e a informação parecida que se apresenta de maneiras
+diferentes fica obscurecida e compromete a usabilidade (p. 117). No \gls{dom}, um tratador de
+clique se liga tanto pela propriedade \texttt{onclick} quanto por
+\texttt{addEventListener}.
+\item[{Concisão:}] a verbosidade da linguagem. Há notações prolixas, que
+ocupam espaço demais na área de exibição (p. 117). A função de seta
+escreve um \emph{callback} com menos símbolos que a expressão \texttt{function}.
+\item[{Operações mentais difíceis:}] a demanda alta sobre os recursos
+cognitivos, por exigir demais da memória de trabalho ou por pedir
+objetivos aninhados em muitos níveis (p. 117). \emph{Callbacks} aninhados
+em vários níveis obrigam o leitor a guardar de cabeça em que ponto de
+cada um ele está.
+\item[{Dependências ocultas:}] vínculos importantes entre entidades que não
+se veem. Se uma entidade cita outra, que cita uma terceira, alterar a
+terceira pode ter repercussões inesperadas, como nas células de uma
+planilha e nos \emph{links} do \gls{html} (p. 116). Uma regra global de
+\gls{css}, escrita longe do elemento, muda a aparência dele sem que
+o código que monta o elemento a cite.
+\item[{Expressividade de papel:}] o propósito de uma entidade se infere com
+facilidade. A notação expressiva deixa ver por que o autor montou a
+estrutura de certo jeito; nas outras, as entidades se parecem, e as
+relações entre elas custam a aparecer (p. 116). Um \texttt{<button>} diz o
+papel que um \texttt{<div>} com tratador de clique, sem o atributo \texttt{role},
+esconde.
+\item[{Notação secundária:}] informação a mais por meios que não a sintaxe
+formal, como os comentários de uma linguagem de programação e as cores
+e os formatos que acrescentam informação ao texto (p. 117). A
+indentação e as linhas em branco dizem ao leitor o que o compilador
+ignora.
+\item[{Viscosidade:}] a resistência à mudança. Um sistema viscoso pede
+muitas ações do usuário para um objetivo só, seja pela repetição da
+mesma ação, seja pelas ações que restauram a consistência depois de
+uma mudança (p. 115). Sem uma ferramenta de refatoração, renomear uma
+propriedade do estado pede uma edição em cada lugar que a lê.
+\item[{Propensão a erros:}] a notação convida ao erro, e o sistema protege
+pouco; mecanismos de prevenção, como a declaração obrigatória de
+identificadores, reduzem o problema (p. 116). O ouvinte que a
+interface acrescenta à janela e esquece de remover ao sair da tela
+continua a responder a eventos.
+\item[{Compromisso prematuro:}] restrições na ordem de fazer as coisas,
+como ter de declarar identificadores cedo demais (p. 116). No
+\emph{TypeScript} estrito, o parâmetro de uma função declarada à parte
+precisa do tipo escrito, mesmo antes de o programador saber tudo o que
+ela vai receber.
+\item[{Avaliação progressiva:}] o trabalho feito até ali pode ser conferido
+a qualquer momento, como nos ambientes interpretados, em que o usuário
+experimenta versões incompletas do programa (p. 118). O servidor de
+desenvolvimento que recarrega a página a cada arquivo salvo mostra a
+tela de uma versão ainda incompleta.
+\item[{Visibilidade:}] a capacidade de ver os componentes com facilidade.
+Sistemas que enterram a informação em encapsulamentos reduzem a
+visibilidade (p. 116). O estado que uma biblioteca guarda dentro dela,
+e que só se lê pelas funções dela, não aparece no código de quem a
+usa.
+\item[{Provisoriedade:}] o grau de compromisso com as ações ou as marcas.
+Mesmo com restrições rígidas na ordem de fazer as coisas, ajuda poder
+fazer ações provisórias, como registrar opções de projeto, esboçar ou
+testar hipóteses do tipo “e se” (p. 117-118). Comentar um
+trecho para provar outra versão é uma ação provisória no código.
 \end{description}
-
-
-As outras oito dimensões da lista completa são:
-
-\begin{itemize}
-\item Compromisso prematuro: \emph{limitações na ordem de fazer as coisas}
-\item Expressividade de papel: \emph{o propósito de uma entidade pode ser rapidamente determinado}
-\item Consistência: \emph{semânticas parecidas são apresentadas em estilo sintático
-parecido}
-\item Operações mentais difíceis: \emph{alto esforço cognitivo pra realizar tarefas}
-\item Notação secundária: \emph{informações extras por meio de notações além das
-formais}
-\item Visibilidade: \emph{habilidade de ver os componentes claramente}
-\item Avaliação progressiva: \emph{trabalho realizado pode ser verificado em qualquer
-momento}
-\item Provisoriedade: \emph{grau
-de comprometimento com uma ação ou marco}
-\end{itemize}
 \section{*Revisão do JavaScript}
 \label{sec:revisao-do-javascript}
 Talvez devêssemos colocar uma seção de revisão das ferramentas utilizadas na

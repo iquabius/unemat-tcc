@@ -250,21 +250,19 @@
   (p. 34), a lista, os campos e os botões leem e alteram a mesma lista de
   nomes, mas num quadro só.
 - Conferido: 2026-10-16.
-* [[file:../comparacao.org::As \[\[glspl:dc\]\] de textcite:green1989 são][comparacao: As DCs de Green (1989) são um conjunto estabelecido]], p. 12
-- Frase: “o que facilita a comparação dos resultados com os de outros
-  trabalhos baseados nelas, como argumenta Kiss (2014, p. 12), que usou um
-  subconjunto delas.”
-- Trecho: “As remarked in chapter 2 we base our dimensions on CDs. This
-  way we use established criteria and thus make it easier to compare our
-  results with other works based on CDs. The complete framework has 14
-  dimensions. The designers of CDs recommend to use a subset which fits
-  the particular information artifact at hand. Consequently, we left out
-  dimensions” (p. 12)
-- Lido em: =acervo/kiss2014.pdf=, p. 18 do PDF (p. 12 impressa).
-- Observação: a recomendação do subconjunto que Kiss atribui aos autores
-  das DCs não tem fonte nele, e Blackwell et al. (2001, p. 332) dizem o
-  contrário; o texto atribui a Kiss só o argumento e a escolha.
-- Conferido: 2026-10-25.
+* [[file:../comparacao.org::Cada uma das 14 \[\[glspl:dc\]\] vem abaixo][comparacao: Cada uma das 14 DCs vem abaixo]], p. 12-14
+- Frase: “Cada uma traz também um exemplo da web, escolhido por este
+  trabalho, como Kiss (2014, p. 12-14) faz com as dele.”
+- Trecho: “For each dimension we chose we give a short explanation as
+  well as one or two brief examples of its meaning” (p. 12); as
+  explicações e os exemplos das seis dimensões dele vão até a p. 14.
+- Lido em: =acervo/kiss2014.pdf=, p. 18 a 20 do PDF (p. 12 a 14
+  impressas).
+- Observação: até 2026-11-01, a seção "Dimensões de avaliação" citava a
+  p. 12 pelo “established criteria” e trazia seis dimensões traduzidas
+  dele; a 3.1.6 define as 14 pela fonte primária e toma de Kiss só a
+  forma, a definição com um exemplo.
+- Conferido: 2026-11-01.
 
 * [[file:../intro.org::A avaliação se faz em três rodadas.][intro: A avaliação se faz em três rodadas.]] (o passo sem controle), p. 23
 - Frase: “Como nos casos de Kiss (2014, p. 23), em que o /toolkit/ pesou

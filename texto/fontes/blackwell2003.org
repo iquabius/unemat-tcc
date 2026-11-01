@@ -62,6 +62,72 @@
   por rodada são do trabalho (docs/metodo-da-avaliacao.md, seção "Rodadas e crescimento do código";
   tmp/pesquisas/2026-10-11-relatorio-termos-e-coordenacao.md, seção 5.1).
 - Conferido: 2026-10-13.
+* [[file:../comparacao.org::Cada uma das 14 \[\[glspl:dc\]\] vem abaixo][comparacao: Cada uma das 14 DCs vem abaixo]], p. 115-118 (as definições)
+- Frase: a lista das 14 em "As dimensões", cada uma com a definição curta
+  e a explicação, e a página entre parênteses.
+- Trecho, um por dimensão, na ordem da lista:
+  - “Abstraction: types and availability of abstraction mechanisms.
+    Abstractions (redefinitions) change the underlying notation” (p.
+    116); “Systems that allow many abstractions are potentially difficult
+    to learn” (p. 117);
+  - “Closeness of Mapping: closeness of representation to domain. How
+    closely related is the notation to the result it is describing?”
+    (p. 117);
+  - “Consistency: similar semantics are expressed in similar syntactic
+    forms. Users often infer the structure of information artifacts from
+    patterns in notation. If similar information is obscured by
+    presenting it in different ways, usability is compromised.” (p. 117);
+  - “Diffuseness: verbosity of language. Some notations can be annoyingly
+    long-winded, or they can occupy too much valuable ‘real-estate’
+    within a display area.” (p. 117);
+  - “Hard Mental Operations: high demand on cognitive resources. A
+    notation can make things complex or difficult to work out in your
+    head, by making inordinate demands on working memory or by requiring
+    deeply nested goal structures.” (p. 117);
+  - “Hidden Dependencies: important links between entities are not
+    visible. If one entity cites another entity, which in turn cites a
+    third, changing the value of the third entity may have unexpected
+    repercussions. Examples: cells of spreadsheets; style definitions in
+    Word; complex class hierarchies; HTML links.” (p. 116);
+  - “Role-Expressiveness: the purpose of an entity is readily inferred.
+    Role-expressive notations make it easy to discover why the author has
+    built the structure in a particular way; in other notations each
+    entity looks much the same, and discovering their relationships is
+    difficult.” (p. 116);
+  - “Secondary Notation: extra information in means other than formal
+    syntax. [...] One example is comments in a programming language;
+    another is the use of colors or format choices to indicate
+    information additional to the content of text.” (p. 117);
+  - “Viscosity: resistance to change. A viscous system needs many user
+    actions to accomplish one goal. [...] We distinguish repetition
+    viscosity [...] from knock-on (or ‘domino’) viscosity, where further
+    actions are required to restore consistency.” (p. 115);
+  - “Error-Proneness: the notation invites mistakes and the system gives
+    little protection. [...] Preventative mechanisms (e.g., check digits,
+    enforced declaration of identifiers, etc.) can redeem the problem.”
+    (p. 116);
+  - “Premature Commitment: constraints on the order of doing things.
+    Self-explanatory. Examples: being forced to declare identifiers too
+    soon” (p. 116);
+  - “Progressive Evaluation: work-to-date can be checked at any time.
+    [...] users can try out partially completed versions of the product
+    program” (p. 118);
+  - “Visibility: ability to view components easily. Systems that bury
+    information in encapsulations reduce visibility.” (p. 116);
+  - “Provisionality: degree of commitment to actions or marks. Even if
+    there are hard constraints on the order of doing things (premature
+    commitment), it can be useful to make provisional actions such as
+    recording potential design options, sketching, or playing ‘what-if’
+    games.” (p. 117-118).
+- Lido em: =acervo/blackwell2003-livro.pdf=, p. 13 a 16 do PDF (p. 115
+  a 118).
+- Observação: os nomes em português seguem o GLOSSARY.md e "A
+  avaliação"; os exemplos da web, depois de cada definição, são do
+  trabalho, e não da fonte, e a abertura da seção o diz; nenhum deles
+  toca o que distingue o Web Component do React (sem a marca nova do
+  HTML, o CSS ao lado do componente nem a tela dividida em três arquivos,
+  que a conferência de 2026-11-01 apontou).
+- Conferido: 2026-11-01.
 * [[file:../comparacao.org::A comparação fecha numa tabela-síntese][comparacao: A comparação fecha numa tabela-síntese]], p. 107-108 e 118
 - Frase: “A comparação fecha numa tabela-síntese, que reúne o perfil de
   cada modelo de programação nas DCs (Blackwell; Green, 2003, p. 107-108
