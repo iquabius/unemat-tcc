@@ -21,9 +21,9 @@ O rascunho é a árvore de trabalho do `texto/*.org` no checkout
 principal, onde o autor escreve, e o commit espera a revisão: o HEAD é
 o texto aprovado (decisões do autor em 2026-10-04 e, para a revisão no
 diff, em 2026-10-06). O rascunho do autor vai para o índice, o agente
-aplica por cima, de uma vez, as correções da rodada, a mecânica numa
+aplica por cima, de uma vez, as correções da passada, a mecânica numa
 linha e a de sentido com o motivo e a fonte lida no PDF, e o autor lê
-o diff inteiro e desfaz o hunk que recusar. Antes vem a rodada de
+o diff inteiro e desfaz o hunk que recusar. Antes vem a passada de
 corte, aplicada e revisada do mesmo modo e, desde 2026-10-07, sem meta
 de palavras. Antes de aplicar, pergunta-se só a decisão do autor
 (método, rótulo, recorte, critério), a correção que derruba uma
@@ -45,10 +45,10 @@ commits não revisados ou um squash que apagaria a separação (falha o
 primeiro e o terceiro).
 Em vez de: um orçamento de 2.500 palavras na introdução (decisão de
 2026-10-04, `e6a2e4c0`); levou-a de 3.941 a 2.564 palavras (v0.10) em
-três rodadas, mas não tinha norma nem fonte (o regimento do curso, Anexo
+três passadas, mas não tinha norma nem fonte (o regimento do curso, Anexo
 II, X, p. 15, só põe a metodologia na introdução), e as últimas palavras
 custavam um elo (falha o quinto).
-Em vez de: cortar dentro da rodada da frase; nada sairia sem o autor
+Em vez de: cortar dentro da passada da frase; nada sairia sem o autor
 ver, mas a frase que sai seria revisada com fonte (falha o quarto).
 Custo: a correção de sentido que o autor não notar no diff entra; o
 checkout principal guarda texto não revisado por dias, e os commits ali

@@ -35,13 +35,13 @@ vírgula, e a forma do org-ref 3 com a página de cada chave,
 A citação sem entrada se aponta, por padrão, só nos parágrafos que já têm
 alguma afirmação na matriz; os parágrafos de antes dela ficam de fora.
 Com --desde REV, só nos parágrafos novos ou alterados desde REV (git show
-REV:<capítulo>), como os da rodada antes do commit (--desde HEAD); com
+REV:<capítulo>), como os da passada antes do commit (--desde HEAD); com
 --todas, em todos. Os outros dois problemas se apontam sempre no capítulo
 todo.
 
 Com --paragrafos, antes dos problemas, cada parágrafo que cita uma fonte
 ou tem afirmação, na ordem do texto, com as afirmações dele embaixo (o
-título e o corpo), para a leitura da rodada da porta aberta; com --desde,
+título e o corpo), para a leitura da passada da porta aberta; com --desde,
 só os parágrafos alterados.
 """
 import argparse

@@ -17,7 +17,7 @@
 # A cada PDF novo, leva o Evince (SyncTeX, pelo D-Bus) à primeira linha do
 # diff que mudou desde o PDF anterior: a última edição salva.
 #
-# Com BASE em HEAD, o commit de uma rodada leva a BASE ao HEAD novo: o laço
+# Com BASE em HEAD, o commit de uma passada leva a BASE ao HEAD novo: o laço
 # confere a cada segundo o HEAD (ou a ponta do ramo) e, quando um commit
 # muda a árvore do latex/, extrai de novo base/, refaz novo/ a partir da
 # árvore e recompila, sem reabrir o Evince nem levá-lo a lugar nenhum. Só

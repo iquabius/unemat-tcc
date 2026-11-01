@@ -176,9 +176,9 @@ e o HEAD é o texto aprovado (ADR 0023, skill `revisao-de-texto`).
   pergunta, uma pergunta por vez, e o autor escreve: no Emacs, ou ditando
   a frase, que o agente copia letra por letra.
 - **Porta aberta.** Nenhuma frase nova ou alterada entra num commit sem a
-  rodada sobre o `git diff HEAD -- texto/`:
+  passada sobre o `git diff HEAD -- texto/`:
   - o rascunho do autor vai para o índice antes de qualquer correção, e
-    o agente aplica todas as correções da rodada por cima, no `git diff`:
+    o agente aplica todas as correções da passada por cima, no `git diff`:
     as mecânicas (página, ano, grafia, link, sigla, norma culta) numa
     linha cada, as de sentido com o motivo e a fonte;
   - o autor revisa no diff (Magit, Cursor ou PDF ao vivo) e desfaz o hunk
@@ -194,7 +194,7 @@ e o HEAD é o texto aprovado (ADR 0023, skill `revisao-de-texto`).
     (`bin/pagina-no-pdf.py`);
   - o commit espera o aprovo do autor.
 
-Para simplificar a leitura, o bloco passa antes pela rodada de corte da
+Para simplificar a leitura, o bloco vai antes à passada de corte da
 mesma skill (ADR 0023), sem meta de palavras: `metricas_texto.py
 --orcamento` só mede antes e depois. Cada parágrafo, frase e fonte recebe
 um rótulo: manter, condensar, mover ou cortar. A frase que ilustra fica
@@ -509,7 +509,7 @@ juntado é rascunho, e a história dele se condensa antes do merge (passo
 5. **Condense o ramo e marque a ponta** (passo 7 da `revisao-rigorosa`):
    cada conserto entra no commit que ele corrige, e a série fica com uma
    mudança lógica por commit, com as mensagens escritas a partir da
-   árvore (skill `mensagem-de-commit`), sem as rodadas da revisão:
+   árvore (skill `mensagem-de-commit`), sem as passadas da revisão:
 
    ```sh
    # na worktree
