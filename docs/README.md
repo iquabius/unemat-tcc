@@ -48,7 +48,7 @@ de uma fonte mudar, esta tabela muda junto.
 | Lacuna | Grolaux et al. 2026 (`grolaux2026`) | a comparação conceitual de notações de eventos, sem DCs | `docs/trabalhos-relacionados-e-lacuna.md`, seção "Trechos dos trabalhos mais próximos" |
 | Lacuna e método | Mernik et al. 2009 (`mernik2009`) | XAML contra C# Forms pelas DCs, com 36 programadores | `docs/trabalhos-relacionados-e-lacuna.md` e `docs/metodo-da-avaliacao.md`, seção "Expressividade e operações mentais difíceis nas fontes" |
 | O que se compara | Van Roy 2009 (`vanroy2009`) | paradigma, conceito e linguagem núcleo | `docs/paradigma-modelo-e-notacao.md`, seção "Van Roy: conceito, paradigma, modelo" |
-| O que se compara | Lee, Ahn e Yi 2025 (`lee2025`) | o componente do React que reexecuta | `docs/paradigma-modelo-e-notacao.md`, seção "Re-renderização e atualização granular" |
+| O que se compara | Lee, Ahn e Yi 2025 (`lee2025`) | o componente do React que reexecuta | `docs/paradigma-modelo-e-notacao.md`, seção "Re-renderização e propagação granular" |
 | O que se compara | MDN 2026 (`mozilla2026`) | o mecanismo do Web Component | só `texto/fontes/mozilla2026.org` e a `annotation` |
 | O que se compara | Solid 2026 (`solidjs2026`) | os *signals* do Solid | só `texto/fontes/solidjs2026.org` e a `annotation` |
 | Método | Sim, Easterbrook e Holt 2003 (`sim2003`) | o *benchmark* e os três componentes | `docs/metodo-da-avaliacao.md`, seção "O rótulo do método: avaliação de um conjunto de interfaces, não estudo de caso" |

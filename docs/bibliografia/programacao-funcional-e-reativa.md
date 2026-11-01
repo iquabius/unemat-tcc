@@ -16,7 +16,7 @@ os controles, e os autores não afirmam causa (seção "Zampetti et al.
 
 **Fontes centrais.** Lee, Ahn e Yi (2025, `lee2025`), a semântica dos
 *hooks* do React; os trechos estão em `docs/paradigma-modelo-e-notacao.md`,
-seção "Re-renderização e atualização granular". As definições de PR
+seção "Re-renderização e propagação granular". As definições de PR
 daqui, de Bainomugisha et al. (2013) e Salvaneschi et al. (2017), são
 `apoio`.
 
