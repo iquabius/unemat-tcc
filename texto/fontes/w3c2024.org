@@ -1,0 +1,21 @@
+#+title: w3c2024: W3C (2024), Web Content Accessibility Guidelines (WCAG) 2.2
+#+startup: overview
+
+* [[file:../comparacao.org::Na primeira rodada, duas regras valem][comparacao: Na primeira rodada, duas regras valem]], critério 4.1.3 (as mensagens de situação)
+- Frase: “As mensagens de situação ficam numa região que o leitor de tela
+  anuncia sem mover o foco (W3C, 2024, critério 4.1.3)”.
+- Trecho: “Success Criterion 4.1.3 Status Messages (Level AA): In content
+  implemented using markup languages, status messages can be
+  programmatically determined through role or properties such that they
+  can be presented to the user by assistive technologies without
+  receiving focus.” A definição de status message: “change in content
+  that is not a change of context, and that provides information to the
+  user on the success or results of an action, on the waiting state of
+  an application, on the progress of a process, or on the existence of
+  errors”.
+- Lido em: =acervo/w3c2024.html=, W3C Recommendation de 2024-12-12,
+  cópia de 2026-11-01.
+- Observação: o critério fala da tecnologia assistiva em geral, e a frase,
+  do leitor de tela, que é uma delas; “região” é a região viva que o papel
+  =status= marca, que o critério não nomeia.
+- Conferido: 2026-11-01.

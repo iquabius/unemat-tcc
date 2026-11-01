@@ -267,7 +267,7 @@ análise.
 
 Na primeira rodada, duas regras valem para todas as interfaces.
 As mensagens de situação ficam numa região que o leitor de tela anuncia
-sem mover o foco, e a interface que sai da tela encerra o que abriu:
+sem mover o foco \cite[critério 4.1.3]{w3c2024}, e a interface que sai da tela encerra o que abriu:
 relógios, conexões, requisições e ouvintes.
 
 Um \emph{teste de conformidade} por interface executa as mesmas verificações,
@@ -287,6 +287,12 @@ Nele, as versões da linguagem, das bibliotecas e das ferramentas ficam
 fixadas\footnote{No \texttt{package-lock.json}: TypeScript 6.0.3, React 19.3.0,
 Solid 1.9.15 e Lit 3.3.3, com Vite 8.3.1 para o \emph{build} e Playwright
 1.63.0 para as capturas e o teste de conformidade por comando.}, para que as implementações possam ser reproduzidas.
+
+As implementações foram geradas com agentes de inteligência artificial,
+em parte a partir de implementações que o autor escreveu antes em
+JavaScript, com \emph{callbacks}, com classes e com as bibliotecas de fluxos
+RxJS e xstream, e passam pelos mesmos controles: a especificação, o
+teste de conformidade e as capturas.
 
 Na aparência, que fica fixa num arquivo \gls{css} comum às
 implementações de cada interface, a tela só cita as classes pelo nome.
@@ -661,15 +667,6 @@ const total = preços.reduce(somar);
 \label{sec:agrupamento-de-valores-com-zip}
 \section{Coordenação de eventos}
 \label{sec:coordenacao-de-eventos}
-\todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}
-A triagem em geral se apoia no que se escreveu sobre as alternativas, e não
-no uso delas \cite[p. 15]{kitchenham1996}.
-Aqui, ela se apoia também no uso de duas das notações, porque o autor
-escreveu implementações de referência em React e em JavaScript com
-\emph{callbacks}.
-Na escrita das implementações, a familiaridade desigual do autor pesa
-menos, porque elas seguem a mesma especificação e são padronizadas entre
-as tecnologias.
 
 \textcite[p. 11]{kiss2014} também compara as implementações pela
 usabilidade do código, e não por tempo de execução e memória, como num

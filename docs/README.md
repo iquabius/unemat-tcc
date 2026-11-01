@@ -32,7 +32,7 @@ achar as fontes que mais pesam, pela tabela "Fontes centrais".
 
 ## Fontes centrais
 
-As 19 entradas com `peso = {central}` no `refs.bib` em 2026-10-15, pelo
+As 18 entradas com `peso = {central}` no `refs.bib` em 2026-11-01, pelo
 elo que sustentam. A lista do dia sai de
 `grep -B1 'peso = {central}' texto/refs.bib | grep '^@'`; quando o peso
 de uma fonte mudar, esta tabela muda junto.
@@ -53,7 +53,6 @@ de uma fonte mudar, esta tabela muda junto.
 | O que se compara | Solid 2026 (`solidjs2026`) | os *signals* do Solid | só `texto/fontes/solidjs2026.org` e a `annotation` |
 | Método | Sim, Easterbrook e Holt 2003 (`sim2003`) | o *benchmark* e os três componentes | `docs/metodo-da-avaliacao.md`, seção "O rótulo do método: avaliação de um conjunto de interfaces, não estudo de caso" |
 | Método | Runeson e Höst 2009 (`runeson2009`) | por que não é estudo de caso | idem |
-| Método | Kitchenham 1996 (`kitchenham1996`) | a DESMET e a *feature analysis* | idem |
 | Método | Green 1989 (`green1989`) | as DCs e a notação como estrutura de informação | `docs/metodo-da-avaliacao.md`, seção "Expressividade e operações mentais difíceis nas fontes" |
 | Método | Green e Petre 1996 (`green1996d`) | as DCs, o teste de viscosidade e o precedente do delineamento | `docs/metodo-da-avaliacao.md`, seções "Rodadas e crescimento do código" e "Armadilhas declaradas pelas fontes" |
 | Método | Blackwell et al. 2001 (`blackwell2001`) | as 14 DCs, e não um subconjunto escolhido antes | `docs/metodo-da-avaliacao.md`, seção "As 14 DCs canônicas" |
