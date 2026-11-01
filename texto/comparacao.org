@@ -172,12 +172,10 @@
 
   - Contador: :: a lista de contadores, com a remoção de um deles e o
     total derivado, para o usuário contar várias coisas ao mesmo tempo;
-  - Reserva de Passagem: :: a data de volta empurrada ao dia seguinte à
-    ida quando a ida passa dela, para o usuário não ter de corrigir a
-    volta;
   - Busca com Sugestões: :: a espera de 300 ms depois da última tecla,
     para as sugestões não mudarem a cada letra, e o /combobox/ operável
-    pelo teclado, para quem não usa o mouse escolher uma sugestão;
+    pelo teclado cite:w3c2026, para quem não usa o mouse escolher uma
+    sugestão;
   - Login com Quarentena: :: a quarentena depois de três falhas seguidas,
     que [[textcite:berry2020][p. 539]] acrescentam ao painel na segunda
     versão dele, para proteger a conta de quem tenta adivinhar a senha, e
@@ -190,6 +188,9 @@
     derivados, para o usuário ver quantos pontos fez; e a frequência de 1,
     5 ou 10 s, que vai ao servidor numa requisição à parte, para o usuário
     escolher de quanto em quanto tempo os placares mudam;
+  - Reserva de Passagem: :: a data de volta empurrada ao dia seguinte à
+    ida quando a ida passa dela, para o usuário não ter de corrigir a
+    volta;
   - Planilha: :: a referência circular, que a Planilha acusa sem avaliar o
     ciclo, a exigência com que [[textcite:kiss2014][p. 54]] discute a
     viscosidade do /Cells/, para o usuário ver o erro em vez de a planilha

@@ -1,0 +1,18 @@
+#+title: w3c2026: W3C (2026), Combobox Pattern
+#+startup: overview
+
+* [[file:../comparacao.org::Contador: :: a lista de contadores][comparacao: a lista das mudanças da segunda rodada]], seção Keyboard Interaction (o combobox operável pelo teclado)
+- Frase: “e o /combobox/ operável pelo teclado (W3C, 2026), para quem
+  não usa o mouse escolher uma sugestão”.
+- Trecho: “When focus is in the combobox: Down Arrow: If the popup is
+  available, moves focus into the popup […] Escape: Dismisses the popup
+  if it is visible. […] Enter: If the combobox is editable and an
+  autocomplete suggestion is selected in the popup, accepts the
+  suggestion” (seção Keyboard Interaction, Combobox Keyboard
+  Interaction).
+- Lido em: =acervo/w3c2026.html=, página sem data, cópia de 2026-11-01.
+- Observação: a página não tem número de página nem data; a citação vai
+  sem localizador. A especificação da segunda rodada da Busca ainda não
+  existe; quais teclas a mudança cobre se decide nela (ADR 0029 cita a
+  WCAG 2.1.1 e o APG).
+- Conferido: 2026-11-01.
