@@ -599,7 +599,7 @@ class ResumoDoDiff(unittest.TestCase):
                     {"commit": "c" * 40, "assunto": "Reexporta", "chaves": []}],
         "nome": "Marco", "corpo": "A abertura.\n\nO primeiro item.\n\nO segundo item."}
 
-    def resumo(self, com_aux=True, ancoras=None):
+    def resumo(self, com_aux=True, ancoras=None, aux=None):
         tmp = tempfile.TemporaryDirectory()
         self.addCleanup(tmp.cleanup)
         d = Path(tmp.name)
@@ -607,7 +607,7 @@ class ResumoDoDiff(unittest.TestCase):
         (d / "difancoras.json").write_text(json.dumps(ancoras or self.ANCORAS))
         (d / "diff.tex").write_text(self.TEX)
         if com_aux:
-            (d / "aux" / "diff.aux").write_text(self.AUX)
+            (d / "aux" / "diff.aux").write_text(aux or self.AUX)
             (d / "aux" / "diff.bbl").write_text(r"\entry{novo2020}{book}{}")
         anotar.resumo(str(d), "aux", "diff", "v0.11", "v0.12")
         return (d / "difresumo.tex").read_text()
@@ -635,6 +635,75 @@ class ResumoDoDiff(unittest.TestCase):
                       r"{\textcolor{difentrou}{9}}. refs.bib: \hyperlink{cite.0@novo2020}"
                       r"{\texttt{novo2020}}.", resumo)
         self.assertIn(r"\colorlet{difsaiu}{red!70!black}", resumo)
+
+    def test_legenda_diz_as_três_formas_do_item(self):
+        resumo = self.resumo()
+        legenda = resumo[resumo.index("Os commits que mudaram"):resumo.index(r"\begin{enumerate}")]
+        for forma in ("depois da seta", r"\enquote{saiu:} ou \enquote{entrou:}",
+                      r"\enquote{reescrito:}"):
+            self.assertIn(forma, legenda)
+
+    def test_reescrito_quando_os_lados_caem_nas_mesmas_páginas(self):
+        # Saiu da p. 9 da introdução e entrou na mesma página: a seta diria
+        # que o texto se moveu.
+        ancoras = dict(self.ANCORAS, commits=self.ANCORAS["commits"][:1], ancoras=[
+            {"n": 1, "commit": "a" * 40, "tipo": "saiu", "capitulo": "Introdução"},
+            {"n": 2, "commit": "a" * 40, "tipo": "entrou", "capitulo": "Introdução"}])
+        resumo = self.resumo(ancoras=ancoras)
+        self.assertIn(r"\item Leva o método\\ reescrito: Introdução, p.~"
+                      r"\hyperref[difancora-2]{\textcolor{difreescrito}{9}}.", resumo)
+        self.assertNotIn(r"\textrightarrow{} Introdução", resumo)
+        self.assertIn(r"\enquote{reescrito:}, com as páginas em {\color{difreescrito}roxo}",
+                      resumo)
+
+    # Duas subseções "Exemplo", em capítulos diferentes, na mesma página, e a
+    # segunda também na seguinte.
+    AUX_EXEMPLOS = textwrap.dedent(r"""
+        \difresumo{2}
+        \@writefile{toc}{\contentsline {chapter}{\numberline {1}React}{9}{chapter.1}}
+        \@writefile{toc}{\contentsline {section}{\numberline {1.1}Exemplo}{9}{section.1.1}}
+        \difpagina{11}{9}{Exemplo}
+        \newlabel{difancora-1}{{1.1}{9}{Exemplo}{section*.1}{}}
+        \@writefile{toc}{\contentsline {chapter}{\numberline {2}Solid}{9}{chapter.2}}
+        \@writefile{toc}{\contentsline {section}{\numberline {2.1}Exemplo}{9}{section.2.1}}
+        \newlabel{difancora-2}{{2.1}{9}{Exemplo}{section*.2}{}}
+        \difpagina{12}{10}{Exemplo}
+        \newlabel{difancora-3}{{2.1}{10}{Exemplo}{section*.3}{}}
+        """)
+
+    def test_seta_entre_lugares_de_mesmo_título_ou_em_outra_página(self):
+        # Do Exemplo do React ao do Solid, na mesma página: o título é o
+        # mesmo, o lugar não. Do Exemplo do Solid à página seguinte: o
+        # lugar é o mesmo, a página não.
+        commits = [{"commit": "a" * 40, "assunto": "Leva o exemplo", "chaves": []},
+                   {"commit": "b" * 40, "assunto": "Estende o exemplo", "chaves": []}]
+        ancoras = dict(self.ANCORAS, commits=commits, ancoras=[
+            {"n": 1, "commit": "a" * 40, "tipo": "saiu", "capitulo": "React"},
+            {"n": 2, "commit": "a" * 40, "tipo": "entrou", "capitulo": "Solid"},
+            {"n": 2, "commit": "b" * 40, "tipo": "saiu", "capitulo": "Solid"},
+            {"n": 3, "commit": "b" * 40, "tipo": "entrou", "capitulo": "Solid"}])
+        resumo = self.resumo(ancoras=ancoras, aux=self.AUX_EXEMPLOS)
+        self.assertNotIn("reescrito: Exemplo", resumo)
+        self.assertIn(r"\item Leva o exemplo\\ Exemplo, p.~\hyperref[difancora-1]"
+                      r"{\textcolor{difsaiu}{9}} \textrightarrow{} Exemplo, p.~"
+                      r"\hyperref[difancora-2]{\textcolor{difentrou}{9}}.", resumo)
+        self.assertIn(r"\item Estende o exemplo\\ Exemplo, p.~\hyperref[difancora-2]"
+                      r"{\textcolor{difsaiu}{9}} \textrightarrow{} Exemplo, p.~"
+                      r"\hyperref[difancora-3]{\textcolor{difentrou}{10}}.", resumo)
+
+    def test_páginas_seguidas_num_intervalo_com_link_nas_pontas(self):
+        def link(n, p):
+            return rf"\hyperref[difancora-{n}]{{\textcolor{{difsaiu}}{{{p}}}}}"
+        self.assertEqual(
+            anotar.paginas_do_lado({("Introdução", "", ""): {"9": 1, "10": 2, "11": 3, "13": 4},
+                                    ("Comparação", "As rodadas", ""): {"31": 5}}, "difsaiu"),
+            f"Introdução, pp.~{link(1, 9)}–{link(3, 11)}, {link(4, 13)}; "
+            f"As rodadas, p.~{link(5, 31)}")
+        # A romana e o #n não são números: ficam soltos.
+        self.assertEqual(
+            anotar.paginas_do_lado({("pré-textuais", "", ""): {"ii": 6, "iii": 7, "#8": 8}},
+                                   "difsaiu"),
+            f"pré-textuais, pp.~{link(6, 'ii')}, {link(7, 'iii')}, {link(8, '\\#8')}")
 
     def test_commit_sem_data_nem_hash(self):
         resumo = self.resumo()

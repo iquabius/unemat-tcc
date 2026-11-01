@@ -293,9 +293,11 @@
    ela; e os commits do intervalo que mudaram os =.tex= dos capítulos e
    apêndices ou o =refs.bib=, sem data nem hash. Em cada commit, as páginas
    de onde o texto saiu (vermelho), uma seta e as páginas em que entrou
-   (azul), ou, com um lado só, o nome dele, agrupadas por seção, são links
-   para o trecho, e as chaves do =refs.bib= levam à entrada nas referências;
-   o commit que não deixou trecho no diff nem mudou uma entrada que as
+   (azul), ou, com um lado só, o nome dele, ou, com os dois lados nas mesmas
+   seções e páginas, "reescrito:" e as páginas (roxo), agrupadas por seção
+   e, as seguidas, num intervalo, são links para o trecho (no intervalo, só
+   as pontas), e as chaves do =refs.bib= levam à entrada nas referências; o
+   commit que não deixou trecho no diff nem mudou uma entrada que as
    referências mostram fica de fora. A release traz só o total das páginas e
    das medidas. O =bin/anotar-diff.py= atribui cada trecho pelo =git blame=
    do =.tex= (o que saiu, pelo =git blame --reverse=) e põe uma âncora no
