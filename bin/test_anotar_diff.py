@@ -340,6 +340,9 @@ class SecoesDoAux(unittest.TestCase):
             r"\texorpdfstring {\MakeUppercase {\DIFadd {Uso de \texttt {x}}}}{\DIFadd {Uso de \texttt {x}}}"),
             "Uso de x")
         self.assertEqual(anotar.texto_simples(r"A\nobreakspace {}---x"), "A ---x")
+        # O escape do LaTeX sai: o esc() do resumo escaparia o \& de novo.
+        self.assertEqual(anotar.texto_simples(r"Tipos \& dados, 50\% e a\_b"),
+                         "Tipos & dados, 50% e a_b")
 
     def test_argumentos_com_chaves_em_qualquer_profundidade(self):
         self.assertEqual(anotar.argumentos(r"{a{b{c}}}{d\}}x", 0, 2),

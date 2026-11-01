@@ -390,13 +390,15 @@ def texto_simples(titulo):
     """O título como ficou em REF, em texto, sem comandos nem chaves: o
     \\texorpdfstring fica com o segundo argumento, e o \\MakeUppercase do
     título de capítulo some com o [] que o sumário deixa depois dele; o
-    espaço inquebrável vira espaço."""
+    espaço inquebrável vira espaço, e o caractere escapado (\\&, \\%, \\_,
+    \\#, \\$), o caractere, que esc() escapa de novo onde precisar."""
     t = sem_marcas(titulo)
     while (m := re.search(r"\\texorpdfstring\s*", t)):
         args, fim = argumentos(t, m.end(), 2)
         t = t[:m.start()] + (args[1] if args else "") + t[fim if args else m.end():]
     t = re.sub(r"\\nobreakspace\s*\{\}|~", " ", t)
     t = re.sub(r"\\[a-zA-Z@]+\*?\s*(\[[^\]]*\])?|[{}]", "", t)
+    t = re.sub(r"\\([&%_#$])", r"\1", t)
     return " ".join(t.split()).rstrip(".:;")
 
 
