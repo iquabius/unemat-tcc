@@ -1,6 +1,16 @@
 #+title: zimmerle2025: Zimmerle e Gama (2025), On the Usability of Reactive Programming APIs: A Mixed Evaluation
 #+startup: overview
 
+* [[file:../modelos.org::Um contador mostra os três modos da orquestração][modelos: Um contador mostra os três modos da orquestração]] (o scan), p. 1530
+- Frase: “No Código [...], por acumulação, o valor se define sobre o fluxo
+  dos cliques, com o =scan= do RxJS, uma variação do /fold/ (Zimmerle;
+  Gama, 2025, p. 1530), e nenhuma variável o guarda.”
+- Trecho: “users are encouraged to use either reduce or scan, a variation
+  of the general FP combinator fold, to express the functionality.”
+- Lido em: =acervo/zimmerle2025.pdf=, p. 25 do PDF.
+- Observação: a mesma afirmação da introdução, conferida em 2026-10-31.
+- Conferido: 2026-11-01.
+
 * [[file:../intro.org::Para discutir o quanto uma notação facilita][intro: Para discutir o quanto uma notação facilita]], p. 1510 e 1513
 - Frase: “Zimmerle e Gama (2025, p. 1510 e 1513) avaliaram com usuários duas
   bibliotecas de PR para JavaScript.”

@@ -1,0 +1,18 @@
+#+title: berry1989: Berry (1989), Real Time Programming: Special Purpose or General Purpose Languages
+#+startup: overview
+
+* [[file:../modelos.org::As aplicações orientadas a eventos e][modelos: As aplicações orientadas a eventos e]] (o programa reativo)
+- Frase: “Para Berry (1989), reativo é o programa que mantém a interação
+  com o ambiente no ritmo do ambiente, e não no próprio, como os que
+  tratam a interface entre a pessoa e a máquina.”
+- Trecho: “Reactive programs also maintain a continuous interaction with
+  their environment, but at a speed which is determined by the
+  environment, not by the program itself.”; “there are reactive programs
+  that are not usually considered as being real-time, such as protocols,
+  system drivers, or man-machine interface handlers.”
+- Lido em: =acervo/berry1989.pdf=, p. 7 do PDF; o relatório não imprime
+  número de página, e a citação fica sem página.
+- Observação: até 2026-11-01, a seção 2 trazia a lista dos três tipos de
+  programa de Berry (transacional, interativo, reativo); fica a definição
+  do reativo, que mostra por que o trabalho diz “aplicação interativa”.
+- Conferido: 2026-11-01.

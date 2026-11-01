@@ -1,6 +1,42 @@
 #+title: salvaneschi2017: Salvaneschi et al. (2017), On the Positive Effect of Reactive Programming on Software Comprehension: An Empirical Study
 #+startup: overview
 
+* [[file:../modelos.org::Nas bibliotecas de \[\[gls:pr\]\] para linguagens][modelos: Nas bibliotecas de PR para linguagens]], p. 1126 (signal e fluxo de eventos)
+- Frase: “O /signal/ é um conceito de linguagem para escrever, de forma
+  declarativa, as dependências funcionais entre valores (Salvaneschi et
+  al., 2017, p. 1126) [...]. Os fluxos de eventos vêm com operadores que os
+  transformam, filtram e combinam (Salvaneschi et al., 2017, p. 1126)
+  [...].”
+- Trecho: “Constraints are expressed as signals, a language concept for
+  expressing functional dependencies among values in a declarative way.”;
+  “They provide event streams and operators that transform, filter, and
+  combine event streams, but do not attempt to model continuous time”
+  (seção 2, p. 1126)
+- Lido em: =acervo/salvaneschi2017.pdf=, p. 2 do PDF (p. 1126).
+- Observação: a segunda frase fala das bibliotecas de PR para linguagens de
+  uso geral, “(non-pure) general-purpose languages”, como a frase que abre
+  o parágrafo. Que a propagação granular e a por combinadores, e a
+  orquestração por acumulação, venham dessas abstrações é leitura do
+  trabalho (ADR 0021).
+- Conferido: 2026-11-01.
+* [[file:../modelos.org::No experimento de \[\[textcite:salvaneschi2017\]][modelos: No experimento de Salvaneschi et al.]], p. 1125-1134 (o desenho do experimento)
+- Frase: “No experimento de Salvaneschi et al. (2017, p. 1125-1134), 127
+  estudantes do quarto ano de Ciência da Computação foram divididos ao
+  acaso em dois grupos, em duas rodadas. Um grupo leu dez programas em
+  Scala escritos com PR, e o outro, os mesmos programas com o /Observer
+  Pattern/. [...] Só no grupo do /Observer Pattern/ os acertos acompanharam
+  o nível de habilidade de programação dos participantes.”
+- Trecho: a mesma descrição do experimento da entrada da introdução
+  (“o experimento”, p. 1125-1134).
+- Lido em: =acervo/salvaneschi2017.pdf=.
+- Observação: o parágrafo saiu da programação reativa para os trabalhos
+  relacionados em 2026-11-01, sem mudança de texto; antes não tinha
+  entrada na matriz. A palavra “rodadas”, das etapas da avaliação neste
+  trabalho, ainda está aqui.
+- Conferido: 2026-11-01, no PDF, os 127 participantes, o quarto ano, a
+  divisão ao acaso e as duas rodadas (seção 3); o resto, pela entrada da
+  introdução.
+
 * [[file:../intro.org::No navegador, as sub-rotinas desse][intro: No navegador, as sub-rotinas desse]], p. 1125 (os /callbacks/ no /Observer Pattern/)
 - Frase: “Os /callbacks/, também chamados de /listeners/ ou /event
   handlers/, são um dos mecanismos do /Observer Pattern/ (Bainomugisha et

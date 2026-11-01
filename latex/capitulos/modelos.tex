@@ -260,28 +260,128 @@ const formatados = precos
   \end{listing}
 \section{Programação reativa}
 \label{sec:programacao-reativa}
-\todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}
 
 O \emph{Observer Pattern} separa os observadores, que consomem os eventos, dos
 observáveis, que os produzem \cite[p. 953]{salvaneschi2015}.
+
+A \gls{pr} oferece abstrações para os valores que variam no tempo e
+cuida sozinha das dependências entre eles
+\cite[p. 52:1]{bainomugisha2013}.
+\textcite[p. 52:2]{bainomugisha2013} chamam as planilhas de “possivelmente a
+linguagem de programação mais utilizada por usuários finais” (tradução nossa).
+A maior parte da pesquisa em \gls{pr}, dizem ainda, descende do Fran, uma
+linguagem da \gls{pf} do fim dos anos 1990.
+A \gls{pr} traz duas abstrações: os \emph{behaviours}, para os valores que variam de forma contínua
+no tempo, e os eventos, para os valores discretos
+\cite[p. 52:2]{bainomugisha2013}.
+
+Na soma \texttt{var3 = var1 + var2}, a programação sequencial imperativa guarda
+em \texttt{var3} a soma dos valores iniciais, mesmo que \texttt{var1} ou \texttt{var2} recebam
+depois outro valor, a não ser que o programador escreva de novo a
+atribuição \cite[p. 52:3]{bainomugisha2013}.
+Na \gls{pr}, \texttt{var3} se recalcula sempre que \texttt{var1} ou \texttt{var2} se
+alteram \cite[p. 52:3]{bainomugisha2013}.
+É o que a planilha faz com as fórmulas.
 
 Na \gls{pr}, a ordem das atualizações não se escreve: o ambiente de
 execução propaga a mudança de um valor às computações que dependem dele
 e as recalcula na ordem do grafo de dependências, cada uma depois das que
 ela usa \cite[p. 52:5 e 52:7]{bainomugisha2013}.
+As fontes descrevem também como essa propagação se executa.
+No modelo \emph{pull}, a computação que precisa do valor o busca na fonte, e no \emph{push},
+a fonte empurra o valor novo às computações que dependem dele; há
+linguagens que combinam os dois \cite[p. 52:5-52:6]{bainomugisha2013}.
+Este trabalho não classifica os modos por essa execução, e sim pelo que o
+código escreve.
+
+Nas bibliotecas de \gls{pr} para linguagens de uso geral, as duas
+abstrações aparecem como \emph{signals} e fluxos de eventos.
+O \emph{signal} é um conceito de linguagem para escrever, de forma declarativa,
+as dependências funcionais entre valores \cite[p. 1126]{salvaneschi2017},
+e é dele que vem a propagação granular.
+Os fluxos de eventos vêm com operadores que os transformam, filtram e
+combinam \cite[p. 1126]{salvaneschi2017}, e deles vêm a propagação por
+combinadores e a orquestração por acumulação, em que o estado é o \emph{fold}
+dos eventos.
 
 As aplicações orientadas a eventos e interativas, na literatura de
 \gls{pr}, também se chamam reativas \cite[p. 1125]{salvaneschi2017}, mas
 a palavra tem sentidos diferentes em linguagens de programação e em sistemas
-distribuídos \cite[5:1]{myter2019} e já nomeia tecnologias como o React
+distribuídos \cite[p. 5:1]{myter2019} e já nomeia tecnologias como o React
 \cite[p. 13]{grolaux2026}.
-Por isso, este trabalho as chama de interativas e reserva “reativo” para a
-\gls{pr}.
+Para \textcite{berry1989}, reativo é o programa que mantém a interação
+com o ambiente no ritmo do ambiente, e não no próprio, como os que tratam
+a interface entre a pessoa e a máquina.
+\textcite[p. 564]{salvaneschi2014} põem o React entre as bibliotecas que
+implementam princípios da \gls{pr}, mas nele o código não escreve a
+dependência entre os valores: quando o estado se altera, o componente
+inteiro se reexecuta.
+Por isso, este trabalho chama essas aplicações de interativas e reserva
+“reativo” para a \gls{pr}.
 
-\textcite[p. 52:2]{bainomugisha2013} chamam as planilhas de “possivelmente a
-linguagem de programação mais utilizada por usuários finais” (tradução nossa).
-A maior parte da pesquisa em \gls{pr}, dizem ainda, descende do Fran, uma
-linguagem da \gls{pf} do fim dos anos 1990.
+Um contador mostra os três modos da orquestração que o núcleo percorre,
+com a tela escrita do mesmo jeito nos três, para só a orquestração mudar.
+Nos três, \texttt{botao} e \texttt{caixa} são o botão e o elemento que mostra o valor.
+No Código \ref{code:contador-atribuicao}, por atribuição, o \emph{callback}
+do clique soma um à variável.
+No Código \ref{code:contador-mensagem}, por mensagem, o clique vira uma
+mensagem que uma função pura, \texttt{atualizar}, transforma no valor seguinte,
+como o \emph{reducer} que o \texttt{useReducer} do React recebe \cite{meta2026d}.
+No Código \ref{code:contador-acumulacao}, por acumulação, o valor se
+define sobre o fluxo dos cliques, com o \texttt{scan} do RxJS, uma variação do
+\emph{fold} \cite[p. 1530]{zimmerle2025}, e nenhuma variável o guarda.
+
+  \begin{listing}[htbp]
+    \caption{O contador com a orquestração por atribuição.}
+    \begin{minted}{typescript}
+let valor = 0;
+botao.addEventListener("click", () => {
+  valor = valor + 1;
+  caixa.textContent = String(valor);
+});
+    \end{minted}
+    \small Fonte: elaborado pelo autor.
+    \label{code:contador-atribuicao}
+  \end{listing}
+
+  \begin{listing}[htbp]
+    \caption{O contador com a orquestração por mensagem.}
+    \begin{minted}{typescript}
+type Mensagem = { tipo: "incrementar" };
+
+function atualizar(valor: number, mensagem: Mensagem): number {
+  switch (mensagem.tipo) {
+    case "incrementar":
+      return valor + 1;
+  }
+}
+
+let valor = 0;
+botao.addEventListener("click", () => {
+  valor = atualizar(valor, { tipo: "incrementar" });
+  caixa.textContent = String(valor);
+});
+    \end{minted}
+    \small Fonte: elaborado pelo autor.
+    \label{code:contador-mensagem}
+  \end{listing}
+
+  \begin{listing}[htbp]
+    \caption{O contador com a orquestração por acumulação, no RxJS.}
+    \begin{minted}{typescript}
+import { fromEvent, scan } from "rxjs";
+
+fromEvent(botao, "click")
+  .pipe(scan((valor) => valor + 1, 0))
+  .subscribe((valor) => {
+    caixa.textContent = String(valor);
+  });
+    \end{minted}
+    \small Fonte: elaborado pelo autor.
+    \label{code:contador-acumulacao}
+  \end{listing}
+\section{Trabalhos relacionados}
+\label{sec:trabalhos-relacionados}
 
 No experimento de \textcite[p. 1125-1134]{salvaneschi2017}, 127 estudantes
 do quarto ano de Ciência da Computação foram divididos ao acaso em dois
@@ -292,72 +392,6 @@ Para cada programa, os participantes respondiam a uma pergunta de múltipla
 escolha sobre o comportamento dele.
 Só no grupo do \emph{Observer Pattern} os acertos acompanharam o nível de
 habilidade de programação dos participantes.
-
-Programação reativa abrange um leque enorme de conceitos de programação.
-Isso se deve pela escolha da palavra ‘reativa’, que diz mais sobre uma
-\emph{propriedade do que se programa} do que sobre um \emph{conceito de programação}.
-Vários conceitos e paradigmas diferentes podem ser empregados na programação
-de uma aplicação reativa — ou de qualquer tipo de programa \cite{vanroy2009}.
-Entende-se então o porquê do paradigma abarcar tantos conceitos.
-Portanto, faz sentido descrever \emph{programas reativos} e a propriedade
-\emph{reativa}, antes de discutir os modelos de programação disponíveis para
-abordá-los.
-A \emph{priori}, é conveniente distinguir entre três tipos de programas de
-computador:
-
-\begin{itemize}
-\item \emph{programa transacional}: computa resultados a partir de um conjunto de dados
-de entrada. Compiladores e programas de computação numérica são alguns
-exemplos clássicos;
-\item \emph{programa interativo}: interage, no seu próprio ritmo, com usuários ou com
-outros programas. Sistemas de tempo compartilhado são interativos, do ponto
-de vista do usuário;
-\item \emph{programa reativo}: também mantém interação contínua com seu ambiente, mas
-no ritmo determinado pelo ambiente, não pelo próprio programa. Interfaces
-gráficas\footnote{Este tipo de programa é popularmente conhecido como interativo — nota-se muito o
-uso da expressão ‘Aplicações interativas’ por exemplo.} e robôs são exemplos muito comuns.
-\end{itemize}
-
-Programas interativos computam no seu próprio ritmo e tratam, em grande parte,
-de comunicação.
-Enquanto programas reativos só computam em resposta a demanda externa e lidam
-principalmente com eventos ou interrupções de hardware \cite{berry1989}.
-\emph{Interfaces gráficas} reagem a cliques do mouse, pressionamento de teclas,
-gestos multitoque, etc.
-\emph{Sistemas embarcados} reagem a sinais de hardware.
-E \emph{programas de monitoração e controle} reagem a mudanças no ambiente externo
-\cite{salvaneschi2015}.
-
-Programação reativa é um paradigma que dá suporte à programação de aplicações
-reativas através de alguns conceitos específicos.
-Alguns deles são:
-
-\begin{itemize}
-\item \emph{fluxos de eventos\footnote{Tradução literal de \emph{‘event streams’}, em inglês.}}: servem para modelar notificações
-discretas;
-\item \emph{propagação automática de alterações}: o modelo de execução automaticamente
-repercuti alterações nos dados;
-\end{itemize}
-
-\Gls{pr} é compartilha muitos conceitos com o paradigma de \gls{pfr}.
-Os dois geralmente são confundidos na comunidade de praticantes.
-\Gls{pfr} possui dois conceitos importantes que o diferencia da \gls{pr}.
-O primeiro é o conceito de \emph{tempo contínuo} — na \gls{pr} o tempo é discreto.
-O segundo é o conceito de \emph{semântica denotacional}.
-\Gls{pfr} é mais indicada para domínios que precisam representar tempo contínuo,
-como simulações físicas.
-\Gls{pr} é mais indicada para sistemas reativos, como é explicado por
-\textcite{vanroy2009}:
-
-\begin{citacao}
-  Usar tempo discreto simplifica enormemente a programação de sistemas reativos.
-  Por exemplo, isso significa que subprogramas podem ser compostos de forma
-  trivial: os eventos de saída de um subcomponente estão instantaneamente
-  disponíveis como eventos de entrada para outros subcomponentes.
-  (p. 36; tradução nossa)
-\end{citacao}
-\section{Trabalhos relacionados}
-\label{sec:trabalhos-relacionados}
 \todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}
 
 \textcite{mernik2009} compararam, com 36 estudantes de graduação, uma linguagem de

@@ -1,0 +1,19 @@
+#+title: salvaneschi2014: Salvaneschi et al. (2014), An Empirical Study on Program Comprehension with Reactive Programming
+#+startup: overview
+
+* [[file:../modelos.org::As aplicações orientadas a eventos e][modelos: As aplicações orientadas a eventos e]], p. 564 (o React entre as bibliotecas de PR)
+- Frase: “Salvaneschi et al. (2014, p. 564) põem o React entre as
+  bibliotecas que implementam princípios da PR, mas nele o código não
+  escreve a dependência entre os valores: quando o estado se altera, o
+  componente inteiro se reexecuta.”
+- Trecho: “a lot of attention in the front-end developers community is
+  revealed by the increasing number of libraries, inspired by the Flapjax
+  reactive language [29], that implement RP principles, among the others
+  React.js, Bacon.js, Knockout, Meteor and Reactive.coffee.” (introdução,
+  p. 564)
+- Lido em: =acervo/salvaneschi2014.pdf=, p. 1 do PDF (p. 564).
+- Observação: a segunda metade da frase é do trabalho, e não da fonte: é
+  a tensão que =docs/paradigma-modelo-e-notacao.md=, seção “Tensões que o
+  texto precisa enfrentar”, manda o texto enfrentar, e a reexecução do
+  componente está na 3.1.2, com Lee, Ahn e Yi (2025, 289:38).
+- Conferido: 2026-11-01.

@@ -81,7 +81,72 @@
   programador. Na p. 52:7, /dependents/ são as expressões de que a
   expressão depende, por isso “depois das que ela usa”.
 - Conferido: 2026-10-15.
-* [[file:../modelos.org::chamam as planilhas de][modelos: chamam as planilhas de]], p. 52:2 (planilhas e Fran)
+* [[file:../modelos.org::A \[\[gls:pr\]\] oferece abstrações para os valores][modelos: A PR oferece abstrações para os valores]], p. 52:1 (a definição)
+- Frase: “A PR oferece abstrações para os valores que variam no tempo e
+  cuida sozinha das dependências entre eles (Bainomugisha et al., 2013,
+  p. 52:1).”
+- Trecho: “Reactive programming has recently gained popularity as a paradigm
+  that is well-suited for developing event-driven and interactive
+  applications. It facilitates the development of such applications by
+  providing abstractions to express time-varying values and automatically
+  managing dependencies between such values.” (resumo, p. 52:1)
+- Lido em: =acervo/bainomugisha2013.pdf=, versão dos autores, p. 1 do PDF.
+- Observação: é a definição da PR que a nota de PF e PR
+  (=docs/bibliografia/programacao-funcional-e-reativa.md=) pedia na seção 2.
+- Conferido: 2026-11-01.
+* [[file:../modelos.org::A \[\[gls:pr\]\] oferece abstrações para os valores][modelos: A PR oferece abstrações para os valores]], p. 52:2 (behaviours e eventos)
+- Frase: “[...] e a PR traz duas abstrações: os /behaviours/, para os
+  valores que variam de forma contínua no tempo, e os eventos, para os
+  valores discretos (Bainomugisha et al., 2013, p. 52:2).”
+- Trecho: “It introduces the notion of behaviours for representing
+  continuous time-varying values and events for representing discrete
+  values.” (p. 52:2)
+- Lido em: =acervo/bainomugisha2013.pdf=, versão dos autores, p. 2 do PDF
+  (cabeçalho “:2”).
+- Observação: entrou em 2026-11-01 no lugar do parágrafo da PFR, que
+  dizia sem fonte que ela se distingue da PR pelo tempo contínuo e pela
+  semântica denotacional; a cópia de Elliott e Hudak (1997) em =acervo/=
+  sai ilegível no =pdftotext=.
+- Conferido: 2026-11-01.
+* [[file:../modelos.org::Na soma =var3 = var1 + var2=][modelos: Na soma var3 = var1 + var2]], p. 52:3 (o var3)
+- Frase: “Na soma =var3 = var1 + var2=, a programação sequencial imperativa
+  guarda em =var3= a soma dos valores iniciais, mesmo que =var1= ou =var2=
+  recebam depois outro valor, a não ser que o programador escreva de novo
+  a atribuição; na PR, =var3= se recalcula sempre que =var1= ou =var2= se
+  alteram (Bainomugisha et al., 2013, p. 52:3).”
+- Trecho: “In conventional sequential imperative programming, the value of
+  the variable var3 will always contain 3, which is the sum of the initial
+  values of variables var1 and var2 even when var1 or var2 is later
+  assigned a new value (unless the programmer explicitly assigns a new
+  value to the variable var3). In reactive programming, the value of the
+  variable var3 is always kept up-to-date.” (p. 52:3)
+- Lido em: =acervo/bainomugisha2013.pdf=, versão dos autores, p. 3 do PDF.
+- Observação: o /explicitly assigns/ sai como “escreva de novo a
+  atribuição”, a forma que o =AGENTS.md= dá para este trecho (“O
+  programador escreve, e o programa executa”). A tarefa tcc-5n8c pedia o
+  exemplo ao lado da planilha.
+- Conferido: 2026-11-01.
+* [[file:../modelos.org::Na \[\[gls:pr\]\], a ordem das atualizações][modelos: Na PR, a ordem das atualizações]], p. 52:5-52:6 (push e pull)
+- Frase: “As fontes descrevem também como essa propagação se executa: no
+  modelo /pull/, a computação que precisa do valor o busca na fonte, e no
+  /push/, a fonte empurra o valor novo às computações que dependem dele;
+  há linguagens que combinam os dois (Bainomugisha et al., 2013,
+  p. 52:5-52:6).”
+- Trecho: “In the pull-based model, the computation that requires a value
+  needs to ‘pull’ it from the source.” (p. 52:5); “In the push-based
+  model, when the source has new data, it pushes the data to its dependent
+  computations.” (p. 52:5); “Some reactive programming languages use
+  either a pull-based or push-based model while others employ both.”
+  (p. 52:6)
+- Lido em: =acervo/bainomugisha2013.pdf=, versão dos autores, p. 5 e 6 do
+  PDF.
+- Observação: é a frase da decisão 9 do autor (2026-11-01), que fica para
+  reavaliar no fim da Fase 3 (tcc-2z5k); fecha as tarefas tcc-863p e
+  tcc-9ve8. O /push-pull/ dos /signals/ (TC39, Carniato 2024) fica de
+  fora, sem entrada no =refs.bib=; a combinação dos dois modelos vem da
+  própria fonte.
+- Conferido: 2026-11-01.
+* [[file:../modelos.org::A \[\[gls:pr\]\] oferece abstrações para os valores][modelos: A PR oferece abstrações para os valores]], p. 52:2 (planilhas e Fran)
 - Frase: “Bainomugisha et al. (2013, p. 52:2) chamam as planilhas de
   “possivelmente a linguagem de programação mais utilizada por usuários
   finais” (tradução nossa). A maior parte da pesquisa em PR, dizem ainda,

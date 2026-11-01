@@ -4,7 +4,8 @@
 * [[file:../modelos.org::As aplicações orientadas a eventos e][modelos: As aplicações orientadas a eventos e]], 5:1
 - Frase: “[...] mas a palavra tem sentidos diferentes em linguagens de
   programação e em sistemas distribuídos (Myter; Scholliers; De Meuter,
-  2019, 5:1) [...]”
+  2019, p. 5:1) [...]” Em 2026-11-01, a citação ganhou o “p.”, como a
+  introdução faz com os artigos numerados (tcc-5n8c).
 - Trecho: “The term reactivity is popular in two areas of research:
   programming languages and distributed systems. On one hand, reactive
   programming is a paradigm [...]. On the other hand, reactive distributed
