@@ -26,8 +26,9 @@ só onde o ponto de partida já existe (decisões do autor em
 - na primeira rodada, nas sete interfaces, com o código já
   implementado: Web Component → Lit (3.3.3),
   a propagação de manual a re-renderização, com o componente ainda numa
-  classe e o dado trocado por uma cópia, como a documentação do Lit
-  recomenda; e React → Solid, a propagação de re-renderização a
+  classe e, no Desenhador de círculos e na Planilha, a lista e os mapas
+  alterados no lugar, com o `requestUpdate()`, que a documentação do Lit
+  admite quando o dado serve a um componente só; e React → Solid, a propagação de re-renderização a
   granular, com o JSX num dialeto um pouco diferente;
 - na Busca, no Login e no Placar ao vivo: Web Component → Web Component
   com Effection (4.2.0, "Structured Concurrency and Effects for
