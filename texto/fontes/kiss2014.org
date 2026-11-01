@@ -203,9 +203,9 @@
   selection of the case studies in Elm.” (p. 3)
 - Lido em: =acervo/kiss2014.pdf=, p. 9 do PDF (p. 3).
 - Conferido: 2026-10-13.
-* [[file:../comparacao.org::A avaliação cabe ao autor][comparacao: A avaliação cabe ao autor]], p. 8
+* [[file:../modelos.org::A avaliação pelas \[\[glspl:dc\]\] é analítica][modelos: A avaliação pelas DCs é analítica]], p. 8
 - Frase: “[...] e Kiss (2014, p. 8) também chama de analítica a abordagem
-  pelas DCs.” Até 2026-11-01, a frase dizia “como a de Kiss (2014, p. 8)”,
+  por elas.” Até 2026-11-01, na 3.1.5, “a abordagem pelas DCs”; antes, a frase dizia “como a de Kiss (2014, p. 8)”,
   que estendia a ele também o “feito por especialista, sem a participação
   de usuários”, que a p. 8 não diz: ele agradece a revisores especialistas.
 - Trecho: “Such studies have high meaningfulness but are often expensive

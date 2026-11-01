@@ -396,6 +396,41 @@ fromEvent(botao, "click")
   \end{listing}
   #+END_EXPORT
 
+* Dimensões Cognitivas
+
+  As [[glspl:dc]], propostas por [[textcite:green1989][p. 443]], tratam as
+  linguagens de programação como estruturas de informação, ou notações, e
+  são um vocabulário para descrever a
+  usabilidade das notações e de outros artefatos de informação
+  [[cite:blackwell2001][p. 327]].
+  Elas valem também para as bibliotecas de uma mesma linguagem:
+  [[textcite:zimmerle2025][p. 1507]] avaliam por elas, com usuários, duas
+  bibliotecas de [[gls:pr]] para JavaScript.
+
+  Para as [[glspl:dc]], o que conta na notação é a estrutura, e não a
+  aparência.
+  [[textcite:green2006][p. 333]] querem um método que não mude quando um
+  tocador de MP3 troca de pele, porque o funcionamento do dispositivo
+  continua o mesmo, e por isso a aparência fica fora da notação neste
+  trabalho.
+  Já a abstração muda a notação: com ela vem uma camada nova de notação,
+  em que as abstrações se escrevem, como o [[gls:css]]
+  [[cite:green2006][p. 342]].
+
+  A avaliação pelas [[glspl:dc]] é analítica, feita por especialista, sem a
+  participação de usuários cite:blandford2008, e
+  [[textcite:kiss2014][p. 8]] também chama de analítica a abordagem por
+  elas.
+  As [[glspl:dc]], porém, não são um método analítico, mas ferramentas de
+  discussão, um vocabulário para quem projeta ou avalia, de traço grosso,
+  que não dá previsões detalhadas [[cite:blackwell2003][p. 106]].
+  A avaliação analítica serve de alternativa aos estudos com usuários, que
+  comparam linguagens a custo alto e com resultados em geral
+  inconclusivos [[cite:sadowski2011][p. 9]], e as [[glspl:dc]] tomam
+  menos tempo do projetista que esses estudos cite:dagit2006.
+  A seção [[ref:sec:as-dimensoes]] define as 14 dimensões, e a seção
+  [[ref:sec:a-avaliacao]] diz como este trabalho as aplica.
+
 * Trabalhos relacionados
 
   No experimento de [[textcite:salvaneschi2017][p. 1125-1134]], 127 estudantes

@@ -1,6 +1,29 @@
 #+title: green2006: Green et al. (2006), Cognitive Dimensions: Achievements, New Directions, and Open Questions
 #+startup: overview
 
+* [[file:../modelos.org::Para as \[\[glspl:dc\]\], o que conta na notação][modelos: Para as DCs, o que conta na notação]], p. 333 (a aparência fora)
+- Frase: “Green et al. (2006, p. 333) querem um método que não mude quando
+  um tocador de MP3 troca de pele, porque o funcionamento do dispositivo
+  continua o mesmo, e por isso a aparência fica fora da notação neste
+  trabalho.”
+- Trecho: “Typically, online MP3 players are ‘skinnable’ [...]. Because the
+  fundamental operation of the device is unchanged by reskinning, we want
+  an evaluation method that will be invariant across changes of
+  appearance.” (p. 333)
+- Lido em: =acervo/green2006-publicada.pdf=, p. 6 do PDF (p. 333).
+- Observação: “e por isso a aparência fica fora” é a ligação do trabalho
+  com a fonte; a decisão está no ADR 0041 e na seção 3.1.4.
+- Conferido: 2026-11-01.
+* [[file:../modelos.org::Para as \[\[glspl:dc\]\], o que conta na notação][modelos: Para as DCs, o que conta na notação]], p. 342 (a abstração muda a notação)
+- Frase: “Já a abstração muda a notação: com ela vem uma camada nova de
+  notação, em que as abstrações se escrevem, como o CSS (Green et al.,
+  2006, p. 342).”
+- Trecho: “From a CDs perspective, with the introduction of abstraction
+  mechanisms comes a new layer of notation, in which the abstractions are
+  expressed (CSS in this case)” (p. 342)
+- Lido em: =acervo/green2006-publicada.pdf=, p. 15 do PDF (p. 342).
+- Conferido: 2026-11-01.
+
 * [[file:../comparacao.org::Em cada rodada, a avaliação percorre][comparacao: Em cada rodada, a avaliação percorre]], p. 334
 - Frase: “Para Green et al. (2006, p. 334), duas delas, a expressividade
   de papel e as operações mentais difíceis, sempre foram mal descritas.”

@@ -1,6 +1,20 @@
 #+title: zimmerle2025: Zimmerle e Gama (2025), On the Usability of Reactive Programming APIs: A Mixed Evaluation
 #+startup: overview
 
+* [[file:../modelos.org::As \[\[glspl:dc\]\], propostas por][modelos: As DCs, propostas por]], p. 1507 (bibliotecas avaliadas pelas DCs)
+- Frase: “Elas valem também para as bibliotecas de uma mesma linguagem:
+  Zimmerle e Gama (2025, p. 1507) avaliam por elas, com usuários, duas
+  bibliotecas de PR para JavaScript.”
+- Trecho: “our study with users is based on the Cognitive Dimensions of
+  Notation framework that allows us to measure usability in five
+  different dimensions [21]: understandability, learnability,
+  abstraction, expressiveness, and reusability.” (introdução, p. 1507)
+- Lido em: =acervo/zimmerle2025.pdf=, p. 2 do PDF (p. 1507).
+- Observação: as bibliotecas são o RxJS e o Bacon.js, como diz a
+  introdução (p. 1510 e 1513); as cinco dimensões são as de um
+  questionário, e não as 14.
+- Conferido: 2026-11-01.
+
 * [[file:../modelos.org::Um contador mostra os três modos da orquestração][modelos: Um contador mostra os três modos da orquestração]] (o scan), p. 1530
 - Frase: “No Código [...], por acumulação, o valor se define sobre o fluxo
   dos cliques, com o =scan= do RxJS, uma variação do /fold/ (Zimmerle;

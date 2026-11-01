@@ -1,6 +1,17 @@
 #+title: green1989: Green (1989), Cognitive Dimensions of Notations
 #+startup: overview
 
+* [[file:../modelos.org::As \[\[glspl:dc\]\], propostas por][modelos: As DCs, propostas por]], p. 443
+- Frase: “As DCs, propostas por Green (1989, p. 443), tratam as linguagens
+  de programação como estruturas de informação, ou notações [...].”
+- Trecho: “‘Cognitive dimensions’ are features of computer languages
+  considered purely as information structures or notations.” (resumo,
+  p. 443)
+- Lido em: =acervo/green1989.pdf=, p. 1 do PDF, a versão do autor; a
+  p. 443 é a primeira dos anais, onde fica o resumo, como na entrada da
+  introdução.
+- Conferido: 2026-11-01.
+
 * [[file:../modelos.org::O declarativo não é uma propriedade absoluta][modelos: O declarativo não é uma propriedade absoluta]], p. 3 (sequência e circunstância)
 - Frase: “As linguagens procedurais facilitam extrair a ordem dos passos, e
   as declarativas, as condições em que cada coisa acontece (Green, 1989,

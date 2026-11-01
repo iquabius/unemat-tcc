@@ -1,7 +1,7 @@
 #+title: blackwell2003: Blackwell e Green (2003), Notational Systems: The Cognitive Dimensions of Notations Framework
 #+startup: overview
 
-* [[file:../comparacao.org::A avaliação cabe ao autor][comparacao: A avaliação cabe ao autor]], p. 106 (ferramentas de discussão)
+* [[file:../modelos.org::A avaliação pelas \[\[glspl:dc\]\] é analítica][modelos: A avaliação pelas DCs é analítica]], p. 106 (ferramentas de discussão)
 - Frase: “As DCs, porém, não são um método analítico, mas ferramentas de
   discussão, um vocabulário para quem projeta ou avalia, de traço grosso,
   que não dá previsões detalhadas (Blackwell; Green, 2003, p. 106).”

@@ -1,6 +1,18 @@
 #+title: blackwell2001: Blackwell et al. (2001), Cognitive Dimensions of Notations: Design Tools for Cognitive Technology
 #+startup: overview
 
+* [[file:../modelos.org::As \[\[glspl:dc\]\], propostas por][modelos: As DCs, propostas por]], p. 327
+- Frase: “[...] e são um vocabulário para descrever a usabilidade das
+  notações e de outros artefatos de informação (Blackwell et al., 2001,
+  p. 327).”
+- Trecho: “Cognitive Dimensions of Notations (CDs) is a framework for
+  describing the usability of notational systems [...] and information
+  artifacts” (p. 327)
+- Lido em: =acervo/blackwell2001-springer.pdf=, p. 3 do PDF (p. 327).
+- Observação: a mesma afirmação da introdução, que a sessão da introdução
+  pode encurtar agora que a 2.6 a traz.
+- Conferido: 2026-11-01.
+
 * [[file:../intro.org::Para discutir o quanto uma notação facilita][intro: Para discutir o quanto uma notação facilita]], p. 327
 - Frase: “Elas são um vocabulário para descrever a usabilidade de notações
   e de outros artefatos de informação.”

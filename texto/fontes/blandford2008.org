@@ -1,9 +1,10 @@
 #+title: blandford2008: Blandford e Green (2008), Methodological Development
 #+startup: overview
 
-* [[file:../comparacao.org::A avaliação cabe ao autor][comparacao: A avaliação cabe ao autor]]
-- Frase: “É uma avaliação analítica, feita por especialista, sem a
-  participação de usuários (Blandford; Green, 2008) [...].”
+* [[file:../modelos.org::A avaliação pelas \[\[glspl:dc\]\] é analítica][modelos: A avaliação pelas DCs é analítica]]
+- Frase: “A avaliação pelas DCs é analítica, feita por especialista, sem a
+  participação de usuários (Blandford; Green, 2008) [...].” Até
+  2026-11-01, na 3.1.5, a frase abria por “É uma avaliação analítica”.
 - Trecho: métodos “which do not require the active involvement of users,
   being applied, rather, by HCI experts”; “These methods are usually
   referred to as either ‘analytical’ or ‘inspection’.” As DCs estão na lista
