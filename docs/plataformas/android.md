@@ -38,7 +38,7 @@ dos números"). Tratar como literatura cinzenta no texto.
 | Jetpack Compose | declarativo por re-renderização | funções | `Estilo.kt` |
 
 Kotlin nas duas (ADR 0001). Conferem a web no Formulário, no Quadro e nos
-Dados ao vivo (ADR 0029); capturas pelo Robolectric com Roborazzi, na
+Dados ao Vivo (ADR 0029); capturas pelo Robolectric com Roborazzi, na
 JVM, idênticas às da web (no ADR das capturas, que saiu de `docs/adr/`
 em 2026-10-25, `docs/processo/historico-dos-adrs.md`).
 
@@ -48,7 +48,7 @@ Documentação do Android lida em 2026-10-15, nas páginas "Thinking in
 Compose", "State and Jetpack Compose", "Lifecycle of composables" e
 "Side-effects in Compose", todas atualizadas em 2026-10-01; as
 implementações usam o BOM `2026.09.00`. Hipótese a conferir na
-pré-análise do Quadro e dos Dados ao vivo: pela notação, o Compose é
+pré-análise do Quadro e dos Dados ao Vivo: pela notação, o Compose é
 declarativo por re-renderização, como o React; pelo ambiente de execução,
 fica perto do declarativo por atualização granular, porque rastreia
 sozinho o que cada função lê e chama de novo só o que leu o valor
@@ -77,7 +77,7 @@ React reativo de Salvaneschi et al. (2014, p. 564).
   nas funções filhas (`Entrada`, `Erro`). Nada se escreve como o `() =>`
   do derivado do Solid. Leitura nossa, sem medida.
 - **Onde o granular pode chegar à notação**, os sinais a procurar no
-  Quadro e nos Dados ao vivo:
+  Quadro e nos Dados ao Vivo:
   - o `derivedStateOf`, que "creates a new Compose state object you can
     observe that only updates as much as you need" (Side-effects in
     Compose), como o `computed` do Angular com *signals* (leitura nossa);
@@ -94,11 +94,11 @@ React reativo de Salvaneschi et al. (2014, p. 564).
   que o efeito abriu quando "the keys change or if the composable leaves
   the Composition" (Side-effects in Compose): o ciclo de vida de relógios e
   inscrições fica amarrado à composição. No Views, a inscrição dos Dados
-  ao vivo se escreve em `onStart` e `onStop`; as duas tecnologias usam as
+  ao Vivo se escreve em `onStart` e `onStop`; as duas tecnologias usam as
   corrotinas da linguagem, sem `ViewModel` nem `Flow`, e o escopo delas
   difere, a composição contra o ciclo de vida da `Activity` (ADR 0001).
   Leitura nossa: a diferença do par na orquestração deve ficar no ciclo de
-  vida, nos Dados ao vivo, e nas políticas do envio do Formulário, que
+  vida, nos Dados ao Vivo, e nas políticas do envio do Formulário, que
   ignora o reenvio (primeira rodada), e da atualização otimista do Quadro,
   que aplica os pedidos na ordem dos cliques (segunda rodada). A política
   em que a requisição nova cancela a anterior, que a Busca e o Login

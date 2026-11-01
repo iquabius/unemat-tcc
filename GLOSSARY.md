@@ -96,17 +96,16 @@ notação, que no trabalho seria cada mudança da segunda rodada, Blackwell
 e Green, 2003, p. 107);
 Circle Drawer (o nome do 7GUIs, usado até 2026-10-31; o nome traduzido,
 como os das outras interfaces, por decisão do autor);
-a maiúscula só na primeira palavra do nome ("Placar ao vivo", até
-2026-10-31);
+a maiúscula só na primeira palavra do nome (até 2026-10-31);
 caso e estudo de caso (o estudo de caso é um método que o trabalho não
 adota, embora Kiss, 2014, chame cada item de *case study*); problema (o de
 Erdweg et al., 2015, e de Nanz et al., 2013: colide com o problema de
 usabilidade e o de pesquisa, e pede "solução" no lugar de implementação);
 programa; exemplo; cenário; interface em texto corrido para o tipo da POO
 (escreve-se a palavra-chave em código: o tipo `Reserva`, declarado com
-`interface`); interface para a API; Formulário e Dados ao vivo para a
+`interface`); interface para a API; Formulário e Dados ao Vivo para a
 Reserva de Passagem e o Placar ao Vivo (nomes até 2026-10-19:
-"Formulário" colide com a biblioteca de formulário, e "Dados ao vivo"
+"Formulário" colide com a biblioteca de formulário, e "Dados ao Vivo"
 não diz que dados são); conversor de câmbio para o conversor de moedas
 (até 2026-10-19: vinha do título da tarefa do bd, e não de uma decisão;
 "conversor de moedas" é o nome comum da ferramenta e o *currency

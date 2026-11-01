@@ -220,9 +220,9 @@ do JSX. As abreviaturas: WC, o Web Component; WCS, o Web Component com
 - O Lit, pelo código que estava congelado em
   `implementacoes/fora-da-analise/` (commit `328b2110`, do conjunto
   antigo, só como medida de tamanho):
-  Busca 129, Dados ao vivo 138, Formulário 150, Login 144, Quadro 240
+  Busca 129, Dados ao Vivo 138, Formulário 150, Login 144, Quadro 240
   linhas, 4 ou 5 de `import` cada. Para L2, a Reserva pelo Formulário, o
-  Placar pelos Dados ao vivo e o Desenhador de Círculos pelo Quadro: ≈ 516 linhas
+  Placar pelos Dados ao Vivo e o Desenhador de Círculos pelo Quadro: ≈ 516 linhas
   sem os `import`, ≈ 13 páginas. Para L3, mais o Contador (≈ 40, como o
   Web Component), a Busca e o Login pelos congelados e a Planilha ≈ 160
   (como o Web Component): ≈ 973 linhas, ≈ 24 páginas.

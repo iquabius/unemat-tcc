@@ -3,7 +3,7 @@
 Contexto: TCC que compara três notações de coordenação para programar interfaces
 gráficas (imperativa com callbacks, declarativa por re-renderização como React,
 reativa fina com signals como Solid/Angular signals) implementando os mesmos
-cinco casos (contador, formulário com validação, busca com sugestões, lista
+cinco casos (contador, formulário com validação, Busca com Sugestões, lista
 filtrável, carrinho) em várias tecnologias web (Web Component, jQuery, React,
 Solid, Angular) e no Android (Views, Compose), e as avalia pelas Dimensões
 Cognitivas de Notações (DCs, Green & Petre 1996).

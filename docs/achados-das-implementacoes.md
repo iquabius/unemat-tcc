@@ -195,7 +195,7 @@ requisitos da segunda rodada".
   Solid diz que o argumento passa a ser do store. A correção ficou no
   domínio, que devolve um objeto novo a cada leitura.
 
-## 2026-10-17, Dados ao vivo no Android (commits `4f44d7c` a `4335773` e seguinte)
+## 2026-10-17, Dados ao Vivo no Android (commits `4f44d7c` a `4335773` e seguinte)
 
 - **Em segundo plano, o Views fecha a inscrição e o Compose a mantém**
   (dependências ocultas, propensão a erros): no Views, a inscrição se
@@ -327,8 +327,8 @@ Swing e JavaFX, com a tela do JavaFX em código, no Formulário.
 A Busca no Views e no Compose ficou no ramo busca-no-android, que não
 foi juntado: com o Android fora da análise (ADR 0001), o autor
 pediu em 2026-10-19 que o ramo fosse excluído. Os commits continuam no
-repositório, sem ramo: `5e7b9c0` ("Implementa a Busca com sugestões no
-Views") e `08673d6` ("Implementa a Busca com sugestões no Compose"), que
+repositório, sem ramo: `5e7b9c0` ("Implementa a Busca com Sugestões no
+Views") e `08673d6` ("Implementa a Busca com Sugestões no Compose"), que
 traz no `docs/achados-das-implementacoes.md` dele mais seis achados da
 Busca no Android. Este, registrado aqui em 2026-10-23, é o que a tarefa
 dos trabalhos futuros cita como o que o Android muda em relação à web

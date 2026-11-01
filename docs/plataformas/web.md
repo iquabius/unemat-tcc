@@ -971,7 +971,7 @@ Em 2026-10-19, passou à cadeia de quatro tecnologias do ADR 0013,
 reescrito nessa data: o Lit e o Angular com *signals* saíram da análise,
 por decisão do autor de 2026-10-18, e o Web Component com *signals* do
 `solid-js` entrou, nas sete interfaces do ADR 0002, em que o Formulário
-e os Dados ao vivo passaram a Reserva de Passagem e Placar ao Vivo e o
+e os Dados ao Vivo passaram a Reserva de Passagem e Placar ao Vivo e o
 Quadro de tarefas saiu. A seção "Tecnologias por modelo de
 programação" ganhou a linha do Web Component com *signals* e trocou os
 quatro pares próximos pela cadeia, com a atribuição da diferença entre o
