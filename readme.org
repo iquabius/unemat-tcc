@@ -290,11 +290,11 @@
    seção, com as palavras e as fontes que entraram e saíram e, na linha
    do capítulo, a parte nova, os parágrafos, as citações e as figuras,
    cada número de página com link para ela; e os commits do intervalo que
-   mudaram os =.tex= dos capítulos e apêndices ou o =refs.bib=. Em cada
-   commit, as páginas onde o texto entrou (azul) e onde saiu (vermelho),
-   agrupadas por seção, são links para o trecho, e as chaves do =refs.bib=
-   levam à entrada nas referências. A release traz só o total das páginas
-   e das medidas. O =bin/anotar-diff.py= atribui cada trecho pelo
+   mudaram os =.tex= dos capítulos e apêndices ou o =refs.bib=, sem data nem
+   hash. Em cada commit, as páginas onde o texto entrou (azul) e onde saiu
+   (vermelho), agrupadas por seção, são links para o trecho, e as chaves do
+   =refs.bib= levam à entrada nas referências. A release traz só o total das
+   páginas e das medidas. O =bin/anotar-diff.py= atribui cada trecho pelo
    =git blame= do =.tex= (o que saiu, pelo =git blame --reverse=) e põe uma
    âncora no lado novo, que o =latexdiff= deixa fora do =\DIFadd=; a página e
    a seção saem do =.aux= da primeira compilação. O trecho reescrito por um

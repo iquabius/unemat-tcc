@@ -594,12 +594,9 @@ class ResumoDoDiff(unittest.TestCase):
         "ancoras": [{"n": 1, "commit": "a" * 40, "tipo": "saiu", "capitulo": "Introdução"},
                     {"n": 3, "commit": "a" * 40, "tipo": "entrou", "capitulo": "Comparação"},
                     {"n": 2, "commit": "b" * 40, "tipo": "entrou", "capitulo": "Introdução"}],
-        "commits": [{"commit": "a" * 40, "data": "2026-10-27", "assunto": "Leva o método",
-                     "chaves": []},
-                    {"commit": "b" * 40, "data": "2026-10-28", "assunto": "Põe uma frase",
-                     "chaves": ["novo2020"]},
-                    {"commit": "c" * 40, "data": "2026-10-29", "assunto": "Reexporta",
-                     "chaves": []}],
+        "commits": [{"commit": "a" * 40, "assunto": "Leva o método", "chaves": []},
+                    {"commit": "b" * 40, "assunto": "Põe uma frase", "chaves": ["novo2020"]},
+                    {"commit": "c" * 40, "assunto": "Reexporta", "chaves": []}],
         "nome": "Marco", "corpo": "A abertura.\n\nO primeiro item.\n\nO segundo item."}
 
     def resumo(self, com_aux=True):
@@ -628,6 +625,11 @@ class ResumoDoDiff(unittest.TestCase):
         self.assertIn(r"\textbf{Introdução} · p.~\hyperlink{difpag.9}{9}", resumo)
         # Antes da primeira compilação não há páginas, nem tabela.
         self.assertNotIn("páginas alteradas", self.resumo(com_aux=False))
+
+    def test_commit_sem_data_nem_hash(self):
+        resumo = self.resumo()
+        self.assertIn(r"\item Leva o método\\ ", resumo)
+        self.assertNotIn("aaaaaaa", resumo)
 
 
 def pagina(n, cap, sec="", sub=""):

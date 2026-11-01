@@ -44,11 +44,11 @@ o tikzpicture; e depois do \\item e do título de seção, para que o
 
 O resumo abre pela mensagem da tag, como a release; depois, as páginas
 alteradas por capítulo e seção, com as medidas e um link em cada número de
-página (tabela_por_lugar()); por último, os commits, cada um com um link por
-página e seção em que entrou texto (azul) e outro onde saiu (vermelho), e
-as chaves do refs.bib que ele mudou, com link para a entrada na
-bibliografia (âncora cite.0@chave do biblatex). Commits cujo trecho foi
-refeito depois, ou que só mudaram rótulos, aparecem sem link.
+página (tabela_por_lugar()); por último, os commits, sem data nem hash,
+cada um com um link por página e seção em que entrou texto (azul) e outro
+onde saiu (vermelho), e as chaves do refs.bib que ele mudou, com link para
+a entrada na bibliografia (âncora cite.0@chave do biblatex). Commits cujo
+trecho foi refeito depois, ou que só mudaram rótulos, aparecem sem link.
 """
 import json
 import os
@@ -277,12 +277,11 @@ def ancorar(repo, base, ref, dir_, main="tcc.tex"):
     # Commits do intervalo que mudaram o texto ou o refs.bib, e as chaves do
     # refs.bib que cada um mudou.
     commits = []
-    for linha in git(repo, "log", "--reverse", "--format=%H%x09%as%x09%s",
+    for linha in git(repo, "log", "--reverse", "--format=%H%x09%s",
                      f"{base}..{ref}", "--", *[f":(glob){p}*.tex" for p in PASTAS_TEX],
                      *BIBS).splitlines():
-        h, data, assunto = linha.split("\t", 2)
-        commits.append({"commit": h, "data": data, "assunto": assunto,
-                        "chaves": chaves_mudadas(repo, h)})
+        h, assunto = linha.split("\t", 1)
+        commits.append({"commit": h, "assunto": assunto, "chaves": chaves_mudadas(repo, h)})
     nome, corpo = "", ""
     if git(repo, "tag", "--points-at", ref).split():
         tag = git(repo, "describe", "--tags", "--exact-match", ref).strip()
@@ -600,8 +599,7 @@ def resumo(dir_, aux, job, base_nome, ref_nome):
         if not partes:
             partes.append(r"\emph{sem trecho próprio no diff: refeito por um commit "
                               r"posterior, ou só rótulos que o PDF não mostra}")
-        out.append(f"\\item \\textbf{{{c['data']}}} {esc(c['assunto'])} "
-                   f"{{\\scriptsize\\texttt{{{c['commit'][:7]}}}}}\\\\ " + ". ".join(partes) + ".")
+        out.append(f"\\item {esc(c['assunto'])}\\\\ " + ". ".join(partes) + ".")
     out.append(r"\end{enumerate}")
     # O \label sem contador próprio (o do capítulo sem número) pegaria o
     # último item da lista; volta a apontar para onde apontava sem o resumo.
