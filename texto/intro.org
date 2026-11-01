@@ -266,7 +266,8 @@ dependem dela [[cite:bainomugisha2013][p. 52:2]].
   o RxJS, passando no React pela orquestração por mensagem, do
   =useReducer=, e depois leva os derivados do React aos combinadores.
   Depois da análise, um entorno situa as células vizinhas, com cada
-  tecnologia num passo a partir do núcleo.
+  tecnologia num passo a partir do núcleo
+  (Figura [[ref:fig:grade-do-nucleo-e-do-entorno]]).
   O Lit e o Solid entram na primeira rodada, e o Web Component com
   Effection, que escreve a orquestração sequencial, na Busca, no Login e
   no Placar ao Vivo.
@@ -278,42 +279,44 @@ dependem dela [[cite:bainomugisha2013][p. 52:2]].
   atribui só ao modelo de programação.
   @@latex:\notamudou{\textbf{As três rodadas são novas}; o projeto não as previa.}@@
 
-  #+CAPTION: Tecnologias do núcleo e do entorno na grade dos modos de orquestração (do evento ao estado) e de propagação (do estado à tela), com uma seta por passo. A linha tracejada separa, em cada eixo, os modos imperativos dos declarativos.
+  #+CAPTION: O núcleo na grade dos modos de orquestração (do evento ao estado) e de propagação (do estado à tela), com uma seta por passo. A linha tracejada separa, em cada eixo, os modos imperativos dos declarativos.
   #+NAME: fig:grade-do-nucleo
   #+ATTR_LATEX: :options [htbp]
   #+begin_figure
   #+begin_export latex
   \centering
+  % A grade da introdução, só com o núcleo: as 16 células da orquestração e
+  % da propagação, com a fileira sequencial e a coluna granular vazias, as
+  % seis caixas do núcleo e as setas das três rodadas. Tirada da
+  % fig:grade-do-nucleo de texto/intro.org (2026-10-31), sem o entorno.
   \begin{tikzpicture}[grade]
-    % As tecnologias, uma linha da matriz por fileira de caixas: sequencial;
-    % atribuição em duas (empilhadas na célula); mensagem; acumulação em
-    % duas. As colunas: manual, por re-renderização, granular, por
-    % combinadores.
+    % As tecnologias, uma linha da matriz por fileira de caixas: sequencial
+    % (vazia, com uma caixa invisível que dá a altura); atribuição; mensagem;
+    % acumulação. As colunas: manual, por re-renderização, granular (vazia,
+    % com uma caixa invisível que dá a largura), por combinadores.
     \matrix[celulas] (g) {
-      |[entorno, largo] (eff)| \nagradecom{Web Component}{com Effection} & & & \\
-      & |[entorno] (lit)| \nagrade{Lit} & & \\
+      |[minimum width=2.98cm, minimum height=0.35cm] (seq)| {} & & & \\
       |[nucleo, largo] (wc)| \nagrade{Web Component} &
         |[nucleo] (react)| \nagrade{React} &
-        |[entorno, estreito] (solid)| \nagrade{Solid} & \\
+        |[minimum width=2.2cm] (gra)| {} & \\
       & |[nucleo] (usered)| \nagradecom{React}{com \texttt{useReducer}} & & \\
       |[nucleo, largo] (wcrx)| \nagradecom{Web Component}{com RxJS} &
         |[nucleo] (reactrx)| \nagradecom{React}{com RxJS} & &
         |[nucleo, maislargo] (reactder)| \nagradecom{React}{com derivados no RxJS} \\
-      & & & |[entorno, maislargo] (cycle)| \nagrade{Cycle.js} \\
     };
 
     % As bordas das células, tiradas das caixas: o meio de cada vão entre
     % colunas e entre fileiras, e 0,25 cm além das caixas nas bordas.
     \coordinate (x0) at ([xshift=-0.25cm]wc.west);
     \path (wc.east) -- (react.west) coordinate[midway] (x1);
-    \path (react.east) -- (solid.west) coordinate[midway] (x2);
-    \path (solid.east) -- (solid.east -| reactder.west) coordinate[midway] (x3);
+    \path (react.east) -- (gra.west) coordinate[midway] (x2);
+    \path (gra.east) -- (gra.east -| reactder.west) coordinate[midway] (x3);
     \coordinate (x4) at ([xshift=0.25cm]reactder.east);
-    \coordinate (y0) at ([yshift=0.3cm]eff.north);
-    \coordinate (y1) at ([yshift=0.3cm]lit.north);
+    \coordinate (y0) at ([yshift=0.3cm]seq.north);
+    \path (seq.south) -- (wc.north) coordinate[midway] (y1);
     \path (wc.south) -- (wc.south |- usered.north) coordinate[midway] (y2);
     \path (usered.south) -- (reactrx.north) coordinate[midway] (y3);
-    \coordinate (y4) at ([yshift=-0.3cm]cycle.south);
+    \coordinate (y4) at ([yshift=-0.3cm]reactder.south);
 
     % Os tons dos cantos e as linhas, atrás das caixas.
     \begin{scope}[on background layer]
@@ -332,7 +335,7 @@ dependem dela [[cite:bainomugisha2013][p. 52:2]].
     \path (x1 |- y0) -- (x4 |- y0) coordinate[midway] (topodec);
     \node[modoalto] at (wc |- y0) {manual};
     \node[modoalto] at (react |- y0) {por re-renderização};
-    \node[modoalto] at (solid |- y0) {granular};
+    \node[modoalto] at (gra |- y0) {granular};
     \node[modoalto] at (reactder |- y0) {por combinadores};
     \node[ladoalto] at (topoimp) {imperativo};
     \node[ladoalto] at (topodec) {declarativo};
@@ -369,19 +372,13 @@ dependem dela [[cite:bainomugisha2013][p. 52:2]].
     \draw[terceira] (usered) -- (reactrx);
     \draw[terceira] (wcrx) -- (reactrx);
     \draw[terceira] (reactrx) -- (reactder);
-    % Entorno.
-    \draw[doentorno] (wc) -- (eff);
-    \draw[doentorno] ([xshift=-0.15cm]wc.north east) -- ([xshift=0.15cm]lit.south west);
-    \draw[doentorno] (react) -- (solid);
-    \draw[doentorno] (reactder) -- (cycle);
 
-    % Legenda, em duas linhas centradas sob a grade.
+    % Legenda, em duas linhas centradas sob a grade, como a da grade
+    % inteira, sem o núcleo e o entorno: todas as caixas são do núcleo.
     \path (x0 |- y4) -- (x4 |- y4) coordinate[midway] (base);
     \matrix[matrix of nodes, anchor=north, column sep=3pt, inner sep=0pt,
         nodes={anchor=base west, font=\scriptsize}] (leg1)
         at ([yshift=-0.35cm]base) {
-      |[amostra, fill=cornucleo]| {} & núcleo &[0.45cm]
-      |[amostra, draw=black!75, line width=0.6pt]| {} & entorno &[0.45cm]
       |[amostra, fill=corcantoimp, draw=black!25]| {} & imperativo nos dois eixos &[0.45cm]
       |[amostra, fill=corcantodec, draw=black!25]| {} & declarativo nos dois eixos \\
     };
@@ -389,12 +386,10 @@ dependem dela [[cite:bainomugisha2013][p. 52:2]].
         nodes={anchor=base west, font=\scriptsize}] (leg2)
         at ([yshift=-0.25cm]leg1.south) {
       |[amostra]| {} & passo da 1.ª e da 2.ª rodadas &[0.45cm]
-      |[amostra]| {} & passo da 3.ª rodada &[0.45cm]
-      |[amostra]| {} & passo do entorno \\
+      |[amostra]| {} & passo da 3.ª rodada \\
     };
     \draw[primeiras] (leg2-1-1.west) -- (leg2-1-1.east);
     \draw[terceira] (leg2-1-3.west) -- (leg2-1-3.east);
-    \draw[doentorno] (leg2-1-5.west) -- (leg2-1-5.east);
   \end{tikzpicture}
 
   \small Fonte: elaborado pelo autor.
