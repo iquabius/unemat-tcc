@@ -1,10 +1,15 @@
 \usepackage[newfloat]{minted}
 
-% borland, rtt,
-% manni, paraiso-dark, paraiso-light, autumn, vim, xcode
-% colorful, murphy, pastie, fruity, tango, lovelace
-\usemintedstyle[js]{manni}
-\usemintedstyle[elm]{rrt}
+% A fonte monoespaçada do documento, no lugar da Courier estreitada do
+% pslatex, de traço fino: a DejaVu Sans Mono, base da Menlo, padrão do VS
+% Code no macOS. Na escala de 0.86, 80 colunas cabem no quadro.
+\usepackage[scaled=0.86]{DejaVuSansMono}
+
+% Um estilo só, para todas as linguagens: o GitHub Light de alto contraste,
+% em que toda cor passa de 4,5:1 contra o branco (WCAG 2.2, 1.4.3). Vem do
+% pacote pygments-styles, que o Python do latexminted precisa enxergar; sem
+% ele, o minted para com "Pygments style ... was not found".
+\usemintedstyle{github-light-high-contrast}
 
 %\renewcommand{\theFancyVerbLine}{\sffamily
 %  \textcolor[rgb]{0.5,0.5,1.0}{\tiny
@@ -26,14 +31,6 @@
   fontsize=\normalsize,
   style=bw,
 }
-
-% \setmintedinline[elm]{
-%   
-% }
-% 
-% \setmintedinline[js]{
-%   
-% }
 
 \SetupFloatingEnvironment{listing}{
   name=Código,
