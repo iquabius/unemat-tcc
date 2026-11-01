@@ -426,7 +426,8 @@ dependem dela [[cite:bainomugisha2013][p. 52:2]].
 
   Por ser analítica, e não um experimento, a avaliação pelas [[glspl:dc]] aponta
   diferenças que convém testar depois com programadores
-  [[cite:kiss2014][p. 103]].
+  [[cite:kiss2014][p. 103]], com tarefas de programação e um questionário
+  derivado das [[glspl:dc]] [[cite:lima2024][p. 76-77 e 82]].
   As [[glspl:dc]] também dizem pouco das escolhas de alto nível, como o
   modelo de computação, e a relevância delas começa quando se definem os
   detalhes [[cite:green1996d][p. 139]].

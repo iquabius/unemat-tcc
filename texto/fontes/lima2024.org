@@ -1,3 +1,24 @@
 #+title: lima2024: de Lima (2024), Unveiling the Usability of Reactive Programming APIs: Findings, Tools, and Recommendations
 #+startup: overview
 
+* [[file:../intro.org::Por ser analítica, e não um experimento][intro: Por ser analítica, e não um experimento]], p. 76-77 e 82
+- Frase: “Por ser analítica, e não um experimento, a avaliação pelas DCs
+  aponta diferenças que convém testar depois com programadores (Kiss,
+  2014, p. 103), com tarefas de programação e um questionário derivado
+  das DCs (Lima, 2024, p. 76-77 e 82).”
+- Trecho: “The study was formulated following usual steps of a usability
+  study which starts by inviting participants to perform programming tasks
+  [...] and asking them to answer a post-task questionnaire” (4.1.3,
+  “Usability Study”, p. 76-77); “For the main tool for data collection, we
+  adopted the CDN questionnaire (Section 2.3.1). [...] we formulated and
+  utilized a modified version of the CDN questionnaire.” (4.1.3.3,
+  “Questionnaire”, p. 82)
+- Lido em: =acervo/lima2024.pdf=, p. 77-78 e 83 do PDF.
+- Observação: Kiss diz que convém testar com programadores; Lima diz
+  como se fez o teste com usuários nas APIs de PR, sem partir de uma
+  avaliação analítica anterior. Por isso a frase cita Lima só pelo meio
+  do teste, e não como quem testou o que uma avaliação analítica
+  apontou. Entrou em 2026-11-01, pela tcc-7xln: das citações de Kiss
+  fora da comparação de interfaces, esta foi a única em que o autor
+  juntou Lima.
+- Conferido: 2026-11-01.

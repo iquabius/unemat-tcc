@@ -252,7 +252,9 @@
 - Lido em: =acervo/kiss2014.pdf=, p. 109 do PDF (p. 103 impressa).
 - Observação: antes de 2026-10-15, a frase não citava fonte e dizia
   “precisam ser testadas”; o “it would make sense” de Kiss pede o “convém”
-  (checagem adversarial).
+  (checagem adversarial). Em 2026-11-01, a frase ganhou o meio do teste,
+  as tarefas e o questionário derivado das DCs, por Lima (2024, p. 76-77
+  e 82); Kiss continua com a recomendação.
 - Conferido: 2026-10-15.
 * [[file:../comparacao.org::Cada uma das 14 \[\[glspl:dc\]\] vem abaixo][comparacao: Cada uma das 14 DCs vem abaixo]], p. 12-14
 - Frase: “Cada uma traz também um exemplo da web, escolhido por este
