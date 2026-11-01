@@ -39,8 +39,8 @@ próximos:
 tabela de trechos só pelo parágrafo do Moseley; a nota dele é
 `docs/estado-eventos-e-complexidade.md`.
 
-Na coluna "Lido", "subagente" quer dizer que o autor ainda não conferiu
-no PDF; o resto da legenda está em `docs/README.md`.
+A legenda da coluna "Lido" está em `docs/README.md`, seção "Legenda das
+notas de fontes".
 
 ## A lacuna
 
