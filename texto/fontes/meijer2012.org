@@ -1,8 +1,8 @@
 #+title: meijer2012: Meijer (2012), Your Mouse Is a Database
 #+startup: overview
 
-* [[file:../cases.org::A orquestração pesa mais na Busca][cases: A orquestração pesa mais na Busca]], p. 66
-- Frase: “e os Dados ao vivo adaptam a placares de jogos as cotações que
+* [[file:../cases.org::Das sete interfaces, quatro adaptam][cases: Das sete interfaces, quatro adaptam]], p. 66
+- Frase: “e o Placar ao vivo adapta a placares de jogos as cotações que
   uma fonte manda aos clientes, de Meijer (2012, p. 66).”
 - Trecho: “source asynchronously pushing data to its clients”; “push-based
   streams of stock quotes” (p. 66)

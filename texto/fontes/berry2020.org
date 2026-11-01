@@ -14,7 +14,7 @@
 - Observação: as variáveis globais são do exemplo de Berry e Serrano, e não
   da linguagem; corrigido na checagem de 2026-10-08.
 - Conferido: 2026-10-07; a p. 535, em 2026-10-09.
-* [[file:../cases.org::A orquestração pesa mais na Busca][cases: A orquestração pesa mais na Busca]], p. 534
+* [[file:../cases.org::Das sete interfaces, quatro adaptam][cases: Das sete interfaces, quatro adaptam]], p. 534
 - Frase: “O Login segue o painel de Berry e Serrano (2020, p. 534)”.
 - Trecho: “We introduce HipHop.js with a simple login panel as used by
   many web applications. When both the user name and password are filled

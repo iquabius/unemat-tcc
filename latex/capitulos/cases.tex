@@ -2,42 +2,54 @@
 \label{sec:delineamento}
 \subsection{As interfaces e as exigências de coordenação}
 \label{sec:as-interfaces-e-as-exigencias-de-coordenacao}
-\todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}
 
 O conjunto de interfaces é um \emph{benchmark} de notação, como os \emph{benchmarks}
 de resultado qualitativo do projeto de linguagens
 \cite[p. 35]{erdweg2015}, entre os quais está o 7GUIs
-\cite[8:20]{lu2021}.
+\cite[p. 8:20]{lu2021}.
+
+Das sete interfaces, quatro adaptam casos do 7GUIs: o Contador, o
+\emph{Counter}; a Reserva de passagem, o \emph{Flight Booker}, com a viagem de
+ônibus no lugar do voo; a Planilha, o \emph{Cells}; e o Desenhador de
+círculos, o \emph{Circle Drawer} \cite[p. 17, 25, 40 e 49]{kiss2014}.
+O Login segue o painel de \textcite[p. 534]{berry2020}, e o Placar ao
+vivo adapta a placares de jogos as cotações que uma fonte manda aos
+clientes, de \textcite[p. 66]{meijer2012}.
+A Busca traz o cancelamento de uma requisição já começada, cuja
+resposta atrasada nunca aparece, comportamento assíncrono que nenhum
+dos casos do 7GUIs testa, como reconhece \textcite[p. 77]{kiss2014}.
+Cada interface exige da coordenação o que segue, com o que isso dá ao
+usuário:
 
 \begin{description}
-\item[{Formulário com validação:}] os campos que dependem uns dos outros, o
-estado derivado e o envio que, enquanto espera a resposta, ignora um
-novo clique em Reservar, para o usuário não reservar o mesmo voo duas
-vezes;
-\item[{Busca com sugestões:}] o cancelamento da busca já requisitada, a resposta
-anterior que nunca aparece e a lista derivada das sugestões, para o
-usuário ver só as cidades correspondentes ao texto que está no campo;
-\item[{Login com quarentena:}] a tentativa nova que cancela a anterior, para
-o usuário que errou a senha tentar de novo sem esperar a resposta da
-primeira, e o relógio da sessão, que para quando a sessão se encerra;
-\item[{Quadro de tarefas:}] o estado compartilhado entre o cabeçalho e três
-colunas, o limite de duas tarefas em "Fazendo", que desabilita os
-botões das outras colunas, e o quadro gravado no navegador, para o
-usuário achar cada tarefa na coluna em que a deixou, ao voltar à página
-ou em outra aba;
-\item[{Dados ao vivo:}] valores que uma fonte envia sem o usuário pedir, como
-o placar de um jogo, a inscrição presa à tela e a pausa, para quem
-acompanha o painel ler os valores sem que a tabela se atualize.
+\item[{Contador:}] um número e um botão que soma um a ele, sem exigência de
+coordenação própria, o mínimo de código que cada tecnologia pede para
+uma interface;
+\item[{Busca com sugestões:}] um campo de destino que sugere cidades a cada
+termo novo de duas letras ou mais e cancela a busca do termo anterior,
+para o usuário nunca ver as sugestões de um termo que já mudou;
+\item[{Login com quarentena:}] um painel de nome e senha em que um novo
+clique em Entrar cancela a tentativa anterior, para o usuário que errou
+a senha tentar de novo sem esperar a resposta dela, e a sessão que
+expira sozinha, com um relógio que para quando ela se encerra;
+\item[{Placar ao vivo:}] um painel de placares que uma fonte envia sem o
+usuário pedir, numa conexão aberta ao entrar na página, para ele seguir
+os jogos, e fechada ao pausar e ao sair dela, para ele ler a tabela
+parada e não gastar rede com o que não vê;
+\item[{Reserva de passagem:}] um formulário de passagem de ônibus com o tipo
+de viagem e duas datas, em que a data de volta só se habilita em ida e
+volta e se marca como inválida quando é anterior à ida, para o usuário
+saber por que não pode reservar, e o envio que ignora um novo clique
+em Reservar até a resposta, para a mesma reserva não sair duas vezes;
+\item[{Planilha:}] uma coluna de oito células com o orçamento do mês e a
+barra de fórmula, em que a alteração de uma célula se propaga só às
+que dependem dela, para o usuário ver o saldo na hora em que muda um
+gasto;
+\item[{Desenhador de círculos:}] um \emph{canvas} em que o clique desenha um
+círculo, o diâmetro ajustado num diálogo que guarda o círculo escolhido
+e o desfazer e o refazer de cada passo, para o usuário corrigir o
+desenho sem recomeçar.
 \end{description}
-
-A orquestração pesa mais na Busca, no Login e nos Dados ao vivo, e o
-gerenciamento de estado, no Formulário e no Quadro.
-O Formulário adapta o \emph{Flight Booker}, uma das sete interfaces do 7GUIs, de
-\textcite[p. 11 e 25]{kiss2014}, e acrescenta os campos de nome e de
-e-mail.
-O Login segue o painel de \textcite[p. 534]{berry2020}, e os Dados ao
-vivo adaptam a placares de jogos as cotações que uma fonte manda aos
-clientes, de \textcite[p. 66]{meijer2012}.
 \subsection{As tecnologias e os pares}
 \label{sec:as-tecnologias-e-os-pares}
 \todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}

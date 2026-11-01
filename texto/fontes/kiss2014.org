@@ -158,18 +158,36 @@
 - Observação: as sete interfaces estão na p. 11 (entrada do §17); Kiss as
   chama de /case studies/, e o 7GUIs, de /tasks/.
 - Conferido: 2026-10-06.
-* [[file:../cases.org::A orquestração pesa mais na Busca][cases: A orquestração pesa mais na Busca]], p. 11 e 25
-- Frase: “O Formulário adapta o /Flight Booker/, uma das sete interfaces do
-  7GUIs, de Kiss (2014, p. 11 e 25), e acrescenta os campos de nome e de
-  e-mail.”
-- Trecho: “seven case studies in increasing complexity are presented”
-  (p. 11); sumário: “3.5 Flight Booker … 25”; o nome 7GUIs é o do
-  repositório da dissertação, “https://github.com/eugenkiss/7guis”
-  (Apêndice A, p. 114, p. 120 do PDF).
-- Lido em: =acervo/kiss2014.pdf=, p. 17 do PDF para a p. 11 impressa.
-- Observação: até 2026-10-13, o Contador e a Lista adaptavam também o
-  /Counter/ (p. 17) e o /CRUD/ (p. 34); saíram da análise (ADR 0002).
-- Conferido: 2026-10-06; de novo em 2026-10-13.
+* [[file:../cases.org::Das sete interfaces, quatro adaptam][cases: Das sete interfaces, quatro adaptam]] (os quatro casos), p. 17, 25, 40 e 49
+- Frase: “Das sete interfaces, quatro adaptam casos do 7GUIs: o Contador,
+  o /Counter/; a Reserva de passagem, o /Flight Booker/ [...]; a
+  Planilha, o /Cells/; e o Desenhador de círculos, o /Circle Drawer/
+  (Kiss, 2014, p. 17, 25, 40 e 49).”
+- Trecho: “3.3 Counter / Challenges: understanding the basic ideas of a
+  language/toolkit and the essential scaffolding” (p. 17); “3.5 Flight
+  Booker / Challenges: working with constraints” (p. 25); “3.8 Circle
+  Drawer / Challenges: implementing undo/redo functionality, custom
+  drawing, implementing dialog control” (p. 40); “3.9 Cells /
+  Challenges: implementing change propagation” (p. 49).
+- Lido em: =acervo/kiss2014.pdf=, p. 23, 31, 46 e 55 do PDF.
+- Observação: o nome 7GUIs é o do repositório da dissertação (Apêndice
+  A, p. 114). Até 2026-10-31, a frase dizia o Formulário e o /Flight
+  Booker/ com a p. 11, a dos sete casos, e as outras três adaptações
+  entraram com o conjunto de 2026-10-22 (ADR 0002).
+- Conferido: 2026-10-31.
+* [[file:../cases.org::Das sete interfaces, quatro adaptam][cases: Das sete interfaces, quatro adaptam]] (a assincronia), p. 77
+- Frase: “A Busca traz o cancelamento de uma requisição já começada,
+  cuja resposta atrasada nunca aparece, comportamento assíncrono que
+  nenhum dos casos do 7GUIs testa, como reconhece Kiss (2014, p. 77).”
+- Trecho: “It could be held against our case studies that none of them
+  really tests such an asynchronous behavior which is a fair criticism.
+  As future work one of the case studies could be replaced (for example
+  Timer) with a case study similar to this example” (nota 26, p. 77).
+- Lido em: =acervo/kiss2014.pdf=, p. 83 do PDF.
+- Observação: o exemplo da nota é o realce de sintaxe que cancela a
+  computação anterior a cada texto novo, como a Busca cancela a busca
+  anterior a cada tecla.
+- Conferido: 2026-10-31.
 * [[file:../cases.org::A avaliação se faz em três rodadas][cases: A avaliação se faz em três rodadas]], p. 3
 - Frase: “A avaliação se faz em três rodadas, cada uma mais estreita que
   a anterior, como as de Kiss (2014, p. 3): a primeira responde à P1, e a
