@@ -406,6 +406,10 @@ fromEvent(botao, "click")
   Elas valem também para as bibliotecas de uma mesma linguagem:
   [[textcite:zimmerle2025][p. 1507]] avaliam por elas, com usuários, duas
   bibliotecas de [[gls:pr]] para JavaScript.
+  Na usabilidade de [[glspl:api]], as [[glspl:dc]] são um método corrente, mas o
+  conjunto original é tido como complexo, caro e voltado a quem projeta, e
+  por isso surgiram versões centradas em quem programa
+  [[cite:lima2024][p. 37-38]].
 
   Para as [[glspl:dc]], o que conta na notação é a estrutura, e não a
   aparência.

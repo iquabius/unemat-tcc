@@ -22,3 +22,22 @@
   fora da comparação de interfaces, esta foi a única em que o autor
   juntou Lima.
 - Conferido: 2026-11-01.
+* [[file:../modelos.org::As \[\[glspl:dc\]\], propostas por][modelos: As DCs, propostas por]], p. 37-38 (as DCs na usabilidade de APIs)
+- Frase: “Na usabilidade de APIs, as DCs são um método corrente, mas o
+  conjunto original é tido como complexo, caro e voltado a quem projeta,
+  e por isso surgiram versões centradas em quem programa (Lima, 2024,
+  p. 37-38).”
+- Trecho: “A very popular method in the area instead is the use of the
+  CDN framework (LÓPEZ-FERNÁNDEZ et al., 2017).” (2.3.1, p. 37); “the
+  original dimensions and their applicability are often considered
+  complex [...], cost and time consuming, and very directed to the
+  designers’ perspective [...]. In this way, researchers have proposed
+  variations of the framework more centered in the developers’
+  perspective” (p. 37-38)
+- Lido em: =acervo/lima2024.pdf=, p. 38-39 do PDF (p. 37-38).
+- Observação: Lima resume aí a crítica de López-Fernández et al. (2017),
+  Diprose et al. (2017) e Scheller e Kühn (2015) e as versões de
+  Piccioni, Furia e Meyer (2013) e López-Fernández et al. (2017); a frase
+  cita Lima como quem faz o balanço. Entrou na 2.6 pela decisão 10 do autor, de
+  2026-11-01, depois da confirmação da origem da cópia.
+- Conferido: 2026-11-01.
