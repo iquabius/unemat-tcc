@@ -101,6 +101,13 @@ class TituloAlterado(unittest.TestCase):
         aux = (self.dir / "diff.aux").read_text(encoding="utf-8", errors="replace")
         self.assertIn("\\difpagina", aux)
 
+    def test_destino_em_cada_página_pela_posição(self):
+        self.assertEqual(self.pdflatex, 0, self.erros)
+        destinos = subprocess.run(HOST + ["pdfinfo", "-dests", str(self.dir / "diff.pdf")],
+                                  capture_output=True, text=True, check=True).stdout
+        self.assertEqual(sorted(re.findall(r'"(difpag\.\w+)"', destinos)),
+                         ["difpag.1", "difpag.2"])
+
     def test_marcador_do_pdf_leva_o_titulo_como_ficou(self):
         self.assertEqual(self.pdflatex, 0, self.erros)
         out = (self.dir / "diff.out").read_text(encoding="latin-1")
@@ -335,11 +342,22 @@ class SecoesDoAux(unittest.TestCase):
         nomes = {nome for p in lista for nome in (p["capitulo"], p["secao"], p["subsecao"])}
         self.assertFalse({n for n in nomes if "Cadeia" in n or "Segunda rodada" in n})
 
+    def test_medidas_com_as_páginas_do_resumo(self):
+        # A capa e a folha de rosto imprimem as duas 1: a conta das páginas
+        # do resumo vem do \difresumo, e não da primeira página impressa.
+        with tempfile.TemporaryDirectory() as d:
+            (Path(d) / "diff.tex").write_text("\\begin{document}\n\\end{document}\n")
+            self.assertEqual(anotar.medidas(d, AUX + "\\difresumo{3}\n", "diff")["resumo"], 3)
+            self.assertEqual(anotar.medidas(d, AUX, "diff")["resumo"], 0)
+
     def test_titulo_em_texto(self):
         self.assertEqual(anotar.texto_simples(
             r"\texorpdfstring {\MakeUppercase {\DIFadd {Uso de \texttt {x}}}}{\DIFadd {Uso de \texttt {x}}}"),
             "Uso de x")
         self.assertEqual(anotar.texto_simples(r"A\nobreakspace {}---x"), "A ---x")
+        # O escape do LaTeX sai: o esc() do resumo escaparia o \& de novo.
+        self.assertEqual(anotar.texto_simples(r"Tipos \& dados, 50\% e a\_b"),
+                         "Tipos & dados, 50% e a_b")
 
     def test_argumentos_com_chaves_em_qualquer_profundidade(self):
         self.assertEqual(anotar.argumentos(r"{a{b{c}}}{d\}}x", 0, 2),
@@ -387,7 +405,8 @@ class CorpoDaRelease(unittest.TestCase):
                  "secao": "*Revisão do JavaScript", "subsecao": ""}],
             "lugares": [dict(lugar("Introdução"), palavras_mais=20, palavras_menos=5,
                              palavras=40, fontes_novas=["a2020"])],
-            "sairam": [{"nivel": "chapter", "capitulo": "Comparação", "titulo": "Resultados"}]})
+            "sairam": [{"nivel": "chapter", "capitulo": "Comparação", "titulo": "Resultados"}],
+            "resumo": 3})
         corpo = self.corpo_de("A introdução saiu do corte do ADR 0022.\n\nDuas figuras.\n",
                               "v0.10", saida).replace(anotar.INQUEBRAVEL, " ")
         # Até a v0.10, a mensagem não tem abertura: todo parágrafo é item.
@@ -398,19 +417,26 @@ class CorpoDaRelease(unittest.TestCase):
                       "(https://github.com/dono/repo/blob/v0.10/docs/adr/0022-corte.md)", corpo)
         self.assertIn("(https://github.com/dono/repo/releases/download/v0.10/"
                       "diff-v0.9.v0.10-paginas.pdf)", corpo)
-        self.assertIn("### 2 páginas alteradas desde a v0.9\n\n"
-                      "+20 −5 palavras · +1 fonte · saiu: Resultados (capítulo)", corpo)
-        self.assertIn("**Introdução** · p. 11 · +20 −5 palavras · +1 fonte\\\n50% novo", corpo)
-        self.assertIn("- Só marcação, p. 44: \\*Revisão do JavaScript", corpo)
+        # Só o total: o detalhe por lugar fica no resumo do diff.
+        self.assertIn("pdf), com o resumo na frente\n\n"
+                      "**2 páginas alteradas desde a v0.9** · "
+                      "+20 −5 palavras · +1 fonte · saiu: Resultados (capítulo)\n\n"
+                      "O resumo que abre o diff diz onde", corpo)
+        self.assertNotIn("Introdução", corpo)
+        self.assertNotIn("Só marcação", corpo)
 
-        # O JSON de antes das medidas: uma lista de páginas.
-        Path(saida + ".json").write_text(json.dumps([{"pagina": "11", "fisica": 19, "secao": "x"}]))
-        with self.assertRaises(SystemExit) as erro:
-            self.corpo_de("Duas figuras.\n", "v0.10", saida)
-        self.assertIn("rode bin/gerar-versao.sh v0.10", str(erro.exception))
+        # O JSON de antes das medidas, uma lista de páginas, e o de antes da
+        # tabela por lugar no resumo, sem o "resumo": a release mandaria a
+        # um resumo sem a tabela.
+        for velho in ([{"pagina": "11", "fisica": 19, "secao": "x"}],
+                      {"paginas": [], "lugares": [], "sairam": []}):
+            Path(saida + ".json").write_text(json.dumps(velho))
+            with self.assertRaises(SystemExit) as erro:
+                self.corpo_de("Duas figuras.\n", "v0.10", saida)
+            self.assertIn("rode bin/gerar-versao.sh v0.10", str(erro.exception))
 
     def test_abertura_no_alto_desde_a_v0_11(self):
-        saida = self.saida({"paginas": [], "lugares": []})
+        saida = self.saida({"paginas": [], "lugares": [], "resumo": 1})
         mensagem = ("A introdução fica mais curta.\n\n"
                     "A introdução saiu do corte do ADR 0022.\n\nDuas figuras.\n")
         casos = [
@@ -451,6 +477,15 @@ class CorpoDaRelease(unittest.TestCase):
                                   "Os ADRs 0012[^adr-0012] a 0014[^adr-0014] e 0016[^adr-0016]."])
         self.assertEqual([n for n, _, _ in notas], ["0011", "0014", "0012", "0016"])
 
+
+class TabelaPorLugar(unittest.TestCase):
+    def linhas(self, dados):
+        """As linhas da tabela, com os links das páginas trocados pelo
+        número e o LaTeX das medidas pelo texto, para ler no teste."""
+        return [re.sub(r"\\hyperlink\{difpag\.\d+\}\{(\d+)\}", r"\1", l)
+                .replace("~", " ").replace(r"\textminus{}", "−").replace(r"\%", "%")
+                for l in anotar.tabela_por_lugar(dados)]
+
     def test_capitulo_seções_e_só_marcação(self):
         dados = {
             "paginas": [pagina(1, "pré-textuais"), pagina(11, "Introdução"),
@@ -464,51 +499,165 @@ class CorpoDaRelease(unittest.TestCase):
                      palavras_mais=300, palavras_menos=90, palavras=600, citacoes_mais=2,
                      fontes_novas=["a2020", "b2021"], fontes_sairam=["c2019"]),
                 dict(lugar("Modelos", "Listas"), paragrafos_menos=2)],
-            "sairam": []}
-        linhas = [l.replace(anotar.INQUEBRAVEL, " ") for l in anotar.paginas_por_capitulo(dados)]
-        self.assertEqual(linhas, [
-            "**Pré-textuais** · p. 1",
-            "",
-            "**Introdução** · p. 11 · +3 palavras\\\n75% novo · +1 parágrafo · +1 figura",
-            "",
-            "**Modelos** · pp. 25–27, 46–47 · +300 −90 palavras · +2 −1 fontes\\\n"
-            "50% novo · −2 parágrafos · +2 citações",
-            "",
-            "- Linguagens · título mudou · pp. 25–26 · +300 −90 palavras · +2 −1 fontes",
-            "- Só marcação, pp. 27, 46–47: Listas e 2 subseções",
-            "",
-            "**Apêndices** · p. 64",
+            "sairam": [], "resumo": 8}
+        self.assertEqual(self.linhas(dados), [
+            r"\noindent\textbf{Pré-textuais} · p. 1\par",
+            r"\noindent\textbf{Introdução} · p. 11 · +3 palavras\\" "\n"
+            r"75% novo · +1 parágrafo · +1 figura\par",
+            r"\noindent\textbf{Modelos} · pp. 25–27, 46–47 · +300 −90 palavras · +2 −1 fontes\\"
+            "\n" r"50% novo · −2 parágrafos · +2 citações\par",
+            r"\begin{itemize}\setlength{\itemsep}{0pt}\setlength{\parsep}{0pt}",
+            r"\item Linguagens · título mudou · pp. 25–26 · +300 −90 palavras · +2 −1 fontes",
+            r"\item Só marcação, pp. 27, 46–47: Listas e 2 subseções",
+            r"\end{itemize}",
+            r"\noindent\textbf{Apêndices} · p. 64\par",
         ])
+        # Cada número leva à posição da página depois do resumo (a física, que
+        # pagina() põe 8 adiante, menos as 8 do resumo); o menos e o por
+        # cento, em LaTeX.
+        tabela = anotar.tabela_por_lugar(dados)
+        self.assertIn(r"pp.~\hyperlink{difpag.25}{25}–\hyperlink{difpag.27}{27}, "
+                      r"\hyperlink{difpag.46}{46}–\hyperlink{difpag.47}{47}", tabela[2])
+        self.assertIn(r"+300~\textminus{}90~palavras", tabela[2])
+        self.assertIn(r"50\% novo", tabela[2])
 
     def test_seção_parada_com_subseção_que_mudou_fica_na_lista(self):
         dados = {"paginas": [pagina(20, "Cap", "Seção"), pagina(21, "Cap", "Seção", "Sub")],
                  "lugares": [dict(lugar("Cap", "Seção", "Sub"), palavras_mais=7, palavras=7)],
                  "sairam": []}
-        linhas = [l.replace(anotar.INQUEBRAVEL, " ") for l in anotar.paginas_por_capitulo(dados)]
-        self.assertEqual(linhas[-2:], ["- Seção · p. 20", "  - Sub · p. 21 · +7 palavras"])
+        # A subseção numa lista dentro do item da seção.
+        self.assertEqual(self.linhas(dados)[-5:], [
+            r"\item Seção · p. 20", r"\begin{itemize}", r"\item Sub · p. 21 · +7 palavras",
+            r"\end{itemize}", r"\end{itemize}"])
         # A seção sem página própria fica só com o nome, sem separador no fim.
         dados["paginas"] = dados["paginas"][1:]
-        linhas = [l.replace(anotar.INQUEBRAVEL, " ") for l in anotar.paginas_por_capitulo(dados)]
-        self.assertEqual(linhas[-2:], ["- Seção", "  - Sub · p. 21 · +7 palavras"])
+        self.assertEqual(self.linhas(dados)[-5], r"\item Seção")
         # Só marcação sem página própria: sem "pp." vazio.
         dados = {"paginas": [pagina(20, "Cap", "Seção", "Sub")], "lugares": [], "sairam": []}
-        linhas = [l.replace(anotar.INQUEBRAVEL, " ") for l in anotar.paginas_por_capitulo(dados)]
-        self.assertEqual(linhas[-1], "- Só marcação, p. 20: Seção e 1 subseção")
+        self.assertEqual(self.linhas(dados)[-2:], [r"\item Só marcação, p. 20: Seção e 1 subseção",
+                                                    r"\end{itemize}"])
 
-    def test_recolhe_só_o_capítulo_de_três_itens_na_lista_longa(self):
-        secoes = [f"Seção {n}" for n in range(1, 11)]
-        dados = {"paginas": [pagina(10 + n, "Grande", s) for n, s in enumerate(secoes)]
-                 + [pagina(30, "Pequeno", "Única")],
-                 "lugares": [dict(lugar("Grande", s), palavras_mais=10, palavras=10) for s in secoes]
-                 + [dict(lugar("Pequeno", "Única"), palavras_mais=5, palavras=5)],
+    def test_volta_à_lista_de_fora_depois_das_subseções(self):
+        dados = {"paginas": [pagina(20, "Cap", "A", "A1"), pagina(21, "Cap", "B")],
+                 "lugares": [dict(lugar("Cap", "A", "A1"), palavras_mais=1, palavras=1),
+                             dict(lugar("Cap", "B"), palavras_menos=2)],
                  "sairam": []}
-        linhas = anotar.paginas_por_capitulo(dados)
-        self.assertEqual(linhas.count("<details>"), 1)
-        self.assertTrue(linhas[1].startswith("<summary><b>Grande</b>"))
-        self.assertIn("**Pequeno** · p.\u00a030 · +5\u00a0palavras\\\n100% novo", linhas)
-        # Curta, a lista fica toda aberta.
-        dados["paginas"], dados["lugares"] = dados["paginas"][:3], dados["lugares"][:3]
-        self.assertNotIn("<details>", anotar.paginas_por_capitulo(dados))
+        self.assertEqual(self.linhas(dados)[1:], [
+            r"\begin{itemize}\setlength{\itemsep}{0pt}\setlength{\parsep}{0pt}",
+            r"\item A", r"\begin{itemize}", r"\item A1 · p. 20 · +1 palavra", r"\end{itemize}",
+            r"\item B · p. 21 · −2 palavras", r"\end{itemize}"])
+
+    def test_título_com_caractere_do_latex(self):
+        dados = {"paginas": [pagina(20, "Cap", "Uso de & e %")],
+                 "lugares": [dict(lugar("Cap", "Uso de & e %"), palavras_mais=1, palavras=1)],
+                 "sairam": [], "resumo": 8}
+        self.assertIn(r"\item Uso de \& e \% · p.~\hyperlink{difpag.20}{20}",
+                      anotar.tabela_por_lugar(dados)[-2])
+
+    def test_capa_e_folha_de_rosto_com_o_mesmo_número(self):
+        # As duas imprimem 1: cada uma leva à sua posição, sem intervalo.
+        dados = {"paginas": [dict(pagina(1, "pré-textuais"), fisica=4),
+                             dict(pagina(1, "pré-textuais"), fisica=5),
+                             dict(pagina(2, "pré-textuais"), fisica=6)],
+                 "lugares": [], "sairam": [], "resumo": 3}
+        self.assertEqual(anotar.tabela_por_lugar(dados), [
+            r"\noindent\textbf{Pré-textuais} · pp.~\hyperlink{difpag.1}{1}, "
+            r"\hyperlink{difpag.2}{1}–\hyperlink{difpag.3}{2}\par"])
+
+
+class ResumoDoDiff(unittest.TestCase):
+    """O difresumo.tex de um diff com três commits: um que leva texto da
+    introdução ao delineamento, um que só põe texto e um sem trecho
+    próprio no diff."""
+
+    AUX = textwrap.dedent(r"""
+        \@writefile{toc}{\contentsline {chapter}{Introdução}{9}{chapter*.5}}
+        \difresumo{2}
+        \difpagina{11}{9}{Introdução}
+        \newlabel{difancora-1}{{}{9}{Introdução}{section*.1}{}}
+        \newlabel{difancora-2}{{}{9}{Introdução}{section*.2}{}}
+        \@writefile{toc}{\contentsline {chapter}{\numberline {1}Comparação}{30}{chapter.1}}
+        \@writefile{toc}{\contentsline {section}{\numberline {1.1}Delineamento}{30}{section.1.1}}
+        \difpagina{32}{30}{Delineamento}
+        \newlabel{difancora-3}{{1.1}{30}{Delineamento}{section*.3}{}}
+        """)
+    TEX = textwrap.dedent(r"""
+        \begin{document}
+        \chapter*{Introdução}
+        Fica. \DIFdel{Saiu daqui.}
+        \chapter{Comparação}
+        \section{Delineamento}
+        \DIFadd{Entrou aqui.}
+        \end{document}
+        """)
+    ANCORAS = {
+        "ancoras": [{"n": 1, "commit": "a" * 40, "tipo": "saiu", "capitulo": "Introdução"},
+                    {"n": 3, "commit": "a" * 40, "tipo": "entrou", "capitulo": "Comparação"},
+                    {"n": 2, "commit": "b" * 40, "tipo": "entrou", "capitulo": "Introdução"}],
+        "commits": [{"commit": "a" * 40, "assunto": "Leva o método", "chaves": []},
+                    {"commit": "b" * 40, "assunto": "Põe uma frase", "chaves": ["novo2020"]},
+                    {"commit": "c" * 40, "assunto": "Reexporta", "chaves": []}],
+        "nome": "Marco", "corpo": "A abertura.\n\nO primeiro item.\n\nO segundo item."}
+
+    def resumo(self, com_aux=True, ancoras=None):
+        tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(tmp.cleanup)
+        d = Path(tmp.name)
+        (d / "aux").mkdir()
+        (d / "difancoras.json").write_text(json.dumps(ancoras or self.ANCORAS))
+        (d / "diff.tex").write_text(self.TEX)
+        if com_aux:
+            (d / "aux" / "diff.aux").write_text(self.AUX)
+            (d / "aux" / "diff.bbl").write_text(r"\entry{novo2020}{book}{}")
+        anotar.resumo(str(d), "aux", "diff", "v0.11", "v0.12")
+        return (d / "difresumo.tex").read_text()
+
+    def test_mensagem_da_tag_como_na_release(self):
+        resumo = self.resumo()
+        self.assertIn("v0.11 \\textrightarrow{} v0.12: Marco", resumo)
+        self.assertIn("A abertura.\\par\n" + anotar.titulo_do_resumo("O que mudou"), resumo)
+        self.assertIn("\\item O primeiro item.\n\\item O segundo item.\n\\end{itemize}", resumo)
+
+    def test_tabela_por_lugar_antes_dos_commits(self):
+        resumo = self.resumo()
+        self.assertLess(resumo.index("2 páginas alteradas desde a v0.11"),
+                        resumo.index("Os commits"))
+        self.assertIn(r"\textbf{Introdução} · p.~\hyperlink{difpag.9}{9}", resumo)
+        # Antes da primeira compilação não há páginas, nem tabela.
+        self.assertNotIn("páginas alteradas", self.resumo(com_aux=False))
+
+    def test_commits_de_onde_saiu_para_onde_entrou(self):
+        resumo = self.resumo()
+        self.assertIn(r"\item Leva o método\\ Introdução, p.~\hyperref[difancora-1]"
+                      r"{\textcolor{difsaiu}{9}} \textrightarrow{} Delineamento, "
+                      r"p.~\hyperref[difancora-3]{\textcolor{difentrou}{30}}.", resumo)
+        self.assertIn(r"\item Põe uma frase\\ entrou: Introdução, p.~\hyperref[difancora-2]"
+                      r"{\textcolor{difentrou}{9}}. refs.bib: \hyperlink{cite.0@novo2020}"
+                      r"{\texttt{novo2020}}.", resumo)
+        self.assertIn(r"\colorlet{difsaiu}{red!70!black}", resumo)
+
+    def test_commit_sem_data_nem_hash(self):
+        resumo = self.resumo()
+        self.assertIn(r"\item Leva o método\\ ", resumo)
+        self.assertNotIn("aaaaaaa", resumo)
+
+    def test_commit_sem_trecho(self):
+        self.assertNotIn("Reexporta", self.resumo())
+
+    def test_commit_só_com_fonte_fora_das_referências(self):
+        # A fonte não citada não sai nas referências: o item não levaria a
+        # lugar nenhum.
+        commits = [{"commit": "d" * 40, "assunto": "Anota fonte", "chaves": ["naocitada2020"]}]
+        resumo = self.resumo(ancoras=dict(self.ANCORAS, ancoras=[], commits=commits))
+        self.assertNotIn("Anota fonte", resumo)
+        self.assertNotIn("naocitada2020", resumo)
+
+    def test_sem_commit_com_trecho_sem_a_lista(self):
+        # Só a reexportação: o enumerate vazio pararia o pdflatex.
+        ancoras = dict(self.ANCORAS, ancoras=[], commits=self.ANCORAS["commits"][2:])
+        resumo = self.resumo(ancoras=ancoras)
+        self.assertNotIn("Os commits", resumo)
+        self.assertNotIn(r"\begin{enumerate}", resumo)
 
 
 def pagina(n, cap, sec="", sub=""):
@@ -608,7 +757,7 @@ class Metricas(unittest.TestCase):
                  "sairam": [dict(zip(("nivel", "capitulo", "titulo"), s)) for s in self.sairam]}
         geral = anotar.visao_geral(dados).replace(anotar.INQUEBRAVEL, " ")
         self.assertIn("1 seção nova · saiu: Velharia (seção), Resultados (capítulo)", geral)
-        linhas = anotar.paginas_por_capitulo(dados)
+        linhas = anotar.tabela_por_lugar(dados)
         self.assertIn("saiu: Velharia (seção) · saiu: Resultados (capítulo)", linhas[0])
 
     def test_palavras_sem_citação_nota_link_nem_0pt(self):

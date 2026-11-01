@@ -159,10 +159,13 @@ bin/anotar-diff.py montar "$dir_tex/$job.tex"
 # fica com a primeira entrada de cada chave repetida.
 cp "$base/$(bib "$base_ref")" "$dir_tex/refs-$BASE_NOME.bib"
 sed -i "s|^\\\\addbibresource{[^}]*}|&\\\\addbibresource{refs-$BASE_NOME.bib}|" "$dir_tex/$job.tex"
-# Duas compilações: a primeira grava a página e a seção de cada âncora no
-# .aux; com elas, o resumo agrupa os links por página e seção. O resumo tem
-# numeração romana e devolve a página 1 à capa, então as páginas não mudam
-# da primeira para a segunda.
+# Duas compilações: a primeira grava no .aux a página e a seção de cada
+# âncora e o número de páginas do resumo (\difresumo); com elas, o resumo
+# agrupa os links por página e seção e monta a tabela por lugar. O resumo
+# tem numeração romana e devolve a página 1 à capa, então os números
+# impressos não mudam da primeira para a segunda; a página física muda,
+# porque o resumo cresce, e os links da tabela vão pela posição depois do
+# resumo (o PREAMBULO do bin/anotar-diff.py).
 bin/anotar-diff.py resumo "$dir_tex" aux "$job" "$BASE_NOME" "$REF_NOME"
 pre=$(capa "$BASE_NOME..$REF_NOME")
 compilar "$dir_tex" "$job.tex" aux "$pre"

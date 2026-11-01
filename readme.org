@@ -285,19 +285,26 @@
    também o =refs.bib= da versão base, para a citação riscada de uma
    referência que saiu não ficar indefinida.
 
-   O diff abre com uma página, em numeração romana, com o nome e a descrição
-   do marco (a mensagem da tag) e os commits do intervalo que mudaram os
-   =.tex= dos capítulos e apêndices ou o =refs.bib=. Em cada commit, as
-   páginas onde o texto entrou (azul) e onde saiu (vermelho), agrupadas por
-   seção, são links para o trecho, e as chaves do =refs.bib= levam à entrada
-   nas referências. O =bin/anotar-diff.py= atribui cada trecho pelo
-   =git blame= do =.tex= (o que saiu, pelo =git blame --reverse=) e põe uma
-   âncora no lado novo, que o =latexdiff= deixa fora do =\DIFadd=; a página e
-   a seção saem do =.aux= da primeira compilação. O trecho reescrito por um
-   commit posterior fica com o commit posterior. Num capítulo que mudou de
-   pasta no intervalo, como os de =texto/= para =latex/capitulos/= (ADR
-   0025), o que saiu se procura pelo caminho que ele tinha na versão base.
-   A capa continua na página 1, como no PDF do texto.
+   O diff abre com um resumo, em numeração romana, escrito para quem lê o
+   PDF sem o repositório: o nome do marco e a mensagem da tag, como na
+   release; as páginas alteradas por capítulo e seção, com as palavras e as
+   fontes que entraram e saíram e, na linha do capítulo, a parte nova, os
+   parágrafos, as citações e as figuras, cada número de página com link para
+   ela; e os commits do intervalo que mudaram os =.tex= dos capítulos e
+   apêndices ou o =refs.bib=, sem data nem hash. Em cada commit, as páginas
+   de onde o texto saiu (vermelho), uma seta e as páginas em que entrou
+   (azul), ou, com um lado só, o nome dele, agrupadas por seção, são links
+   para o trecho, e as chaves do =refs.bib= levam à entrada nas referências;
+   o commit que não deixou trecho no diff nem mudou uma entrada que as
+   referências mostram fica de fora. A release traz só o total das páginas e
+   das medidas. O =bin/anotar-diff.py= atribui cada trecho pelo =git blame=
+   do =.tex= (o que saiu, pelo =git blame --reverse=) e põe uma âncora no
+   lado novo, que o =latexdiff= deixa fora do =\DIFadd=; a página e a seção
+   saem do =.aux= da primeira compilação. O trecho reescrito por um commit
+   posterior fica com o commit posterior. Num capítulo que mudou de pasta no
+   intervalo, como os de =texto/= para =latex/capitulos/= (ADR 0025), o que
+   saiu se procura pelo caminho que ele tinha na versão base. A capa
+   continua na página 1, como no PDF do texto.
 
    No lugar do ano, a capa e a folha de rosto dos dois PDFs dizem
    =U Boneque=, a versão (no diff, o intervalo), o nome do marco e a data
@@ -317,9 +324,10 @@
    medidas do texto por lugar, contadas no =.tex= do =latexdiff=: as
    palavras, os parágrafos, as citações e as fontes que entraram e
    saíram, as figuras, tabelas e listagens que entraram ou saíram e se o
-   lugar é novo. O corte é
-   do =qpdf=, que mantém os objetos das páginas: os links do resumo
-   continuam levando ao trecho. O =pdfunite=, o =pdfjam= e o Ghostscript
+   lugar é novo, e o número de páginas do resumo, que o resumo grava no
+   =.aux=, o corte usa e a release exige no =.json=. O corte é do =qpdf=,
+   que mantém os objetos das páginas: os links do resumo continuam
+   levando ao trecho. O =pdfunite=, o =pdfjam= e o Ghostscript
    (=gs -sPageList=) perdem esses links ou os mandam para a página errada
    (testado em 2026-10-05). Links para páginas que ficaram de fora, como os
    do sumário, só funcionam no diff completo.
@@ -329,15 +337,14 @@
    O =bin/preparar-release.sh= cria ou atualiza a release de cada tag como
    rascunho, com o que o =bin/gerar-versao.sh= deixou em =pdf/versoes/=: o
    título pelo nome do marco; o corpo com a mensagem da tag em itens, um
-   por parágrafo, os links dos PDFs e as páginas alteradas por capítulo,
-   seção e subseção, com as medidas (o capítulo de ao menos três itens
-   recolhido num =<details>= quando a lista é longa, ADR 0024), e cada
-   ADR citado numa nota de rodapé com o título e
-   o link para ele na tag; e como arquivos o PDF do texto, o diff
-   completo e o diff só das páginas alteradas. Numa release que já existe,
-   troca os arquivos e tira os que não são mais gerados. Não publica: o
-   autor confere o rascunho e publica no GitHub. A tag precisa estar no
-   GitHub antes, e o =gh= precisa de login (=gh auth login=, no host).
+   por parágrafo, os links dos PDFs e o total das páginas alteradas, com
+   as medidas, cujo detalhe por capítulo e seção fica no resumo do diff, e
+   cada ADR citado numa nota de rodapé com o título e o link para ele na
+   tag; e como arquivos o PDF do texto, o diff completo e o diff só das
+   páginas alteradas. Numa release que já existe, troca os arquivos e tira
+   os que não são mais gerados. Não publica: o autor confere o rascunho e
+   publica no GitHub. A tag precisa estar no GitHub antes, e o =gh=
+   precisa de login (=gh auth login=, no host).
 
    #+begin_src fish
    bin/gerar-versao.sh v0.9 && bin/preparar-release.sh v0.9
