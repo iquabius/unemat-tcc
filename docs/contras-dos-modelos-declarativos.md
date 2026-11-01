@@ -127,9 +127,9 @@ resumem na p. 33.
 | Também no *callback* | Kiss 2014 | 118-119 | copia a definição de Bainomugisha et al. e acrescenta: "Glitches are not exclusive to FRP. They can also happen in classical callback code such as in JavaFX"; o Scala.Rx e o Elm os evitam sozinhos, o ReactFX dá meios de evitá-los à mão; "If the paradigm automatically prevents glitches then this is a win" | conferido em 2026-10-26, `acervo/kiss2014.pdf`, Apêndice E |
 | O teste que Kiss propõe | Kiss 2014 | 104 | como trabalho futuro, "A requirement that tests for the absence of glitches" | conferido em 2026-10-26 |
 
-No Placar ao vivo, a carteira, que entrou na segunda rodada e foi
+No Placar ao Vivo, a carteira, que entrou na segunda rodada e foi
 trocada pelo bolão, não mostrou glitch no sentido de Kiss
-(`docs/metodo-da-avaliacao.md`, a linha "Carteira no Placar ao vivo").
+(`docs/metodo-da-avaliacao.md`, a linha "Carteira no Placar ao Vivo").
 
 ## Onde o declarativo não perde
 

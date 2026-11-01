@@ -124,10 +124,10 @@ Em `docs/plataformas/`, as tecnologias, com a data de cada observação:
 - `web.md` (Referência): as tecnologias web, a notação de cada uma e a
   literatura cinzenta sobre elas;
 - `bibliotecas-de-formulario.md` (Referência): a biblioteca de
-  formulário de cada tecnologia na Reserva de passagem, na terceira
+  formulário de cada tecnologia na Reserva de Passagem, na terceira
   rodada, e as medidas das tecnologias que saíram da análise;
 - `bibliotecas-de-inscricao-e-reconexao.md` (Referência): a biblioteca
-  que trata a inscrição e a reconexão no Placar ao vivo, por tecnologia,
+  que trata a inscrição e a reconexão no Placar ao Vivo, por tecnologia,
   na terceira rodada;
 - `medida-das-bibliotecas.md` (Referência): como se mede o uso de cada
   candidata a forma de uma vertente da terceira rodada, os eixos além dos
@@ -136,7 +136,7 @@ Em `docs/plataformas/`, as tecnologias, com a data de cada observação:
   tecnologia e as medidas das vertentes sem nota própria;
 - `websocket-e-sse.md` (Referência): o WebSocket e os Server-Sent Events
   pelas fontes primárias, característica por característica, e o que
-  cada um atende de nascença nas exigências do Placar ao vivo; a
+  cada um atende de nascença nas exigências do Placar ao Vivo; a
   reconexão é do programador no primeiro e do navegador no segundo;
 - `android.md` e `desktop.md` (Referência): as plataformas que saíram
   da análise em 2026-10-17 (ADR 0001), como referência para os

@@ -22,22 +22,22 @@ Sete interfaces, quatro adaptadas do 7GUIs:
 - Contador, o *Counter* (§3.3, p. 17), a base: "the essential
   scaffolding" (p. 17), em que a primeira leitura registra o básico de
   cada tecnologia, como em Kiss (p. 18);
-- Reserva de passagem, o *Flight Booker* (§3.5, p. 25) para a passagem
+- Reserva de Passagem, o *Flight Booker* (§3.5, p. 25) para a passagem
   de ônibus;
-- Busca com sugestões, o caso assíncrono que Kiss sugere (p. 77, nota
+- Busca com Sugestões, o caso assíncrono que Kiss sugere (p. 77, nota
   26);
-- Login com quarentena, o painel de Berry e Serrano (2020, p. 534-539);
-- Placar ao vivo, as cotações de Meijer (2012, p. 66-67) como placares
+- Login com Quarentena, o painel de Berry e Serrano (2020, p. 534-539);
+- Placar ao Vivo, as cotações de Meijer (2012, p. 66-67) como placares
   de jogos;
 - Planilha, o *Cells* (§3.9, p. 49) em oito células, e não em 100 linhas
   por 26 colunas, porque a grade dominaria o código: Kiss achou "very
   verbose" a customização da tabela (p. 54);
-- Desenhador de círculos, o *Circle Drawer* (§3.8, p. 40), nome
+- Desenhador de Círculos, o *Circle Drawer* (§3.8, p. 40), nome
   traduzido por decisão do autor em 2026-10-31.
 
-A orquestração pesa na Busca, no Login e no Placar ao vivo; o
-gerenciamento de estado, na Reserva de passagem, na Planilha e no Desenhador
-de círculos (decisão do autor em 2026-10-22). As exigências de cada uma, por
+A orquestração pesa na Busca, no Login e no Placar ao Vivo; o
+gerenciamento de estado, na Reserva de Passagem, na Planilha e no Desenhador
+de Círculos (decisão do autor em 2026-10-22). As exigências de cada uma, por
 tipo e rodada, estão em `docs/exigencias-de-coordenacao.md`; o que a
 segunda rodada acrescenta, como a lista de contadores e o campo numérico
 do diâmetro, é do ADR 0029. Saem da análise o conversor de moedas, cujo
@@ -58,7 +58,7 @@ mantinha o conversor, mas tirava da síntese a interface que calibra a
 comparação, ao contrário de Kiss, em que o *Counter* é um dos sete casos
 (falha o segundo).
 Em vez de: o 7GUIs inteiro, com o conversor, o *Timer* (§3.6, p. 30) e
-o *Crud* (§3.7, p. 34) no lugar da Busca, do Login e do Placar ao vivo;
+o *Crud* (§3.7, p. 34) no lugar da Busca, do Login e do Placar ao Vivo;
 tudo se compararia com Kiss, mas nenhum dos sete casos testa a
 assincronia, o próprio Kiss sugere trocar o *Timer* por um caso
 assíncrono (p. 77, nota 26), e no protótipo de 2026-10-12 a coordenação
@@ -69,7 +69,7 @@ identidade no lugar da fórmula com inversa; as células do Contador na
 tabela-síntese medem sobretudo a montagem e o modelo de componente
 ("dominated by the toolkit(s)", p. 20); o *canvas* não tem texto que o
 teste de conformidade leia, e o desenho, "o como" em todas as tecnologias,
-pode dominar o código; a Busca, o Login e o Placar ao vivo se sobrepõem
+pode dominar o código; a Busca, o Login e o Placar ao Vivo se sobrepõem
 no cancelamento, cada um com uma política; a conclusão sobre cada eixo
 vem de três ou quatro interfaces.
 

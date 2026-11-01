@@ -23,7 +23,7 @@ interfaces (ADR 0002): o Web Component, a plataforma sem biblioteca,
 com a orquestração por atribuição e a propagação manual, e o React,
 com a orquestração por atribuição e a propagação por re-renderização;
 o passo entre os dois muda a propagação. Na terceira rodada, os passos do ADR 0029 levam o código
-da Busca, do Login e do Placar ao vivo a mais quatro células: o Web
+da Busca, do Login e do Placar ao Vivo a mais quatro células: o Web
 Component com RxJS, o React com `useReducer`, o React com RxJS e o
 React com derivados no RxJS, o declarativo nos dois eixos. O Web
 Component, o React e os dois com RxJS formam o quadrado, em que se lê

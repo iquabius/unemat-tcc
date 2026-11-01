@@ -26,11 +26,11 @@ só onde o ponto de partida já existe (decisões do autor em
 - na primeira rodada, nas sete interfaces, com o código já
   implementado: Web Component → Lit (3.3.3),
   a propagação de manual a re-renderização, com o componente ainda numa
-  classe e, no Desenhador de círculos e na Planilha, a lista e os mapas
+  classe e, no Desenhador de Círculos e na Planilha, a lista e os mapas
   alterados no lugar, com o `requestUpdate()`, que a documentação do Lit
   admite quando o dado serve a um componente só; e React → Solid, a propagação de re-renderização a
   granular, com o JSX num dialeto um pouco diferente;
-- na Busca, no Login e no Placar ao vivo: Web Component → Web Component
+- na Busca, no Login e no Placar ao Vivo: Web Component → Web Component
   com Effection (4.2.0, "Structured Concurrency and Effects for
   JavaScript"), sobre o código da segunda rodada, a orquestração de
   atribuição a sequencial, com a espera escrita como `yield*`; e React
@@ -38,7 +38,7 @@ só onde o ponto de partida já existe (decisões do autor em
   23.1.0, `xstream` 11.14.0), sobre o último passo da terceira rodada.
 
 O passo ao Cycle.js muda de uma vez a biblioteca de fluxos, o modelo de
-componente, os efeitos, que vão a *drivers* (o Placar ao vivo num
+componente, os efeitos, que vão a *drivers* (o Placar ao Vivo num
 *driver* escrito à mão, porque o Cycle.js não tem um oficial para ele),
 e a montagem da tela, e o texto o declara sem controle, como os casos
 de Kiss (2014), em que "the toolkit dominated this evaluation and the

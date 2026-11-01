@@ -18,7 +18,7 @@ vão para o chat pelo hook `bin/lembrete-do-chat.py`, na forma da seção
 - PDF com anexo: ≈ 242
 - Delineamento: o núcleo, Web Component e React; a 1.ª rodada nas sete
   interfaces, a 2.ª com treze mudanças, a 3.ª com cinco passos na
-  Busca, no Login e no Placar ao vivo
+  Busca, no Login e no Placar ao Vivo
 - Em aberto: o entorno do núcleo depois da análise, fora da conta acima
   e o primeiro a sair no corte; com o Solid em diff do React: PDF sem
   anexo +71, análise +71, anexo 0, PDF com anexo +71; com a listagem
@@ -77,7 +77,7 @@ nota, que os números dos dois blocos são os mesmos.
   do autor no ADR 0013 (2026-10-18): com seis tecnologias, cada
   interface passaria de 12 a 14 páginas; com quatro, ≈ 12, que cobrem as
   três rodadas do ADR 0029 de 2026-10-23, com a terceira em dois pares
-  (a Reserva de passagem e o Placar ao vivo na forma do ecossistema).
+  (a Reserva de Passagem e o Placar ao Vivo na forma do ecossistema).
   Uma coluna de tecnologia a mais ≈ 1 página por interface-rodada (a
   listagem enxuta e as células das DCs); um par interface-vertente a
   mais na terceira rodada ≈ 3 páginas (os diffs e as DCs lidas pelo
@@ -187,12 +187,12 @@ do JSX. As abreviaturas: WC, o Web Component; WCS, o Web Component com
 | Interface | WC | WCS | Solid | React |
 |---|---|---|---|---|
 | Contador | 38 | 41 | 21 | 23 |
-| Reserva de passagem | 148 | 173 | 114 | 109 |
+| Reserva de Passagem | 148 | 173 | 114 | 109 |
 | Busca | 129 | 156 | 116 | 116 |
 | Login | 114 | 118 | 100 | 106 |
-| Placar ao vivo | 153 | 162 | 93 | 98 |
+| Placar ao Vivo | 153 | 162 | 93 | 98 |
 | Planilha | 170 | 148 | 107 | 143 |
-| Desenhador de círculos | 237 | 274 | 235 | 232 |
+| Desenhador de Círculos | 237 | 274 | 235 | 232 |
 | **Total** | **989** | **1.072** | **786** | **827** |
 | `import` | 76 (7,7%) | 111 (10,4%) | 105 (13,4%) | 90 (10,9%) |
 | Montagem | 146 (14,8%) | 146 (13,6%) | 313 (39,8%) | 307 (37,1%) |
@@ -203,10 +203,10 @@ do JSX. As abreviaturas: WC, o Web Component; WCS, o Web Component com
   a montagem 912 (24,8%), as linhas em branco 315 e os comentários 241.
   Sem os `import`: 3.292 linhas. A conta de 2026-10-24 de manhã (3.315
   linhas, 357 de `import`) era sobre 26 implementações, sem a Planilha e
-  o Desenhador de círculos no Web Component com *signals*.
+  o Desenhador de Círculos no Web Component com *signals*.
 - A montagem do Web Component e a do Web Component com *signals* são as
   mesmas 146 linhas, letra por letra (ADRs 0013 e 0037); é 14% do
-  arquivo, e não os 30% a 40% estimados antes, porque o Desenhador de círculos
+  arquivo, e não os 30% a 40% estimados antes, porque o Desenhador de Círculos
   desenha no *canvas* e o Login e o Placar têm esqueletos curtos. No
   JSX, a montagem é de 37% a 40% do arquivo, e 89 linhas do Solid e 83
   do React dentro dela carregam uma expressão (`value={ida()}`,
@@ -215,14 +215,14 @@ do JSX. As abreviaturas: WC, o Web Component; WCS, o Web Component com
   ≈ 224 linhas do React.
 - Fora de `src/`: o domínio tem 923 linhas em seis arquivos (a Reserva
   110, a Busca 157, o Login 85, o Placar 272, a Planilha 139, o Desenhador
-  de círculos 160; o Contador não tem) e `pagina.ts` tem 28: ≈ 24 páginas, se
+  de Círculos 160; o Contador não tem) e `pagina.ts` tem 28: ≈ 24 páginas, se
   entrarem no anexo.
 - O Lit, pelo código que estava congelado em
   `implementacoes/fora-da-analise/` (commit `328b2110`, do conjunto
   antigo, só como medida de tamanho):
   Busca 129, Dados ao vivo 138, Formulário 150, Login 144, Quadro 240
   linhas, 4 ou 5 de `import` cada. Para L2, a Reserva pelo Formulário, o
-  Placar pelos Dados ao vivo e o Desenhador de círculos pelo Quadro: ≈ 516 linhas
+  Placar pelos Dados ao vivo e o Desenhador de Círculos pelo Quadro: ≈ 516 linhas
   sem os `import`, ≈ 13 páginas. Para L3, mais o Contador (≈ 40, como o
   Web Component), a Busca e o Login pelos congelados e a Planilha ≈ 160
   (como o Web Component): ≈ 973 linhas, ≈ 24 páginas.
@@ -247,7 +247,7 @@ encurtar as listagens" diz o custo); as outras só a listagem.
 O anexo leva só a primeira rodada, a versão de cada implementação
 antes de qualquer mudança da segunda rodada; as linhas das quatro
 tecnologias de antes do Lit foram contadas no `master` de 2026-10-24
-(`967d35f5`, a junção do Desenhador de círculos no Web Component com *signals*),
+(`967d35f5`, a junção do Desenhador de Círculos no Web Component com *signals*),
 e as do Lit são estimadas (nenhuma mudança da segunda rodada
 foi implementada: `interfaces-graficas/openspec/changes/archive/` não tem
 *delta* de segunda rodada); as mudanças da segunda rodada (13, 52
@@ -270,7 +270,7 @@ da primeira rodada.
 - Base: 7 interfaces × 12 = 84, que cobrem as três rodadas com a
   terceira em dois pares.
 - Quatro vertentes: 6 pares − 2 da base = 4 × 3 = +12 → ≈ 96; com o 7.º
-  par, o opcional (Desenhador de círculos × máquina de estados), +15 → ≈ 99.
+  par, o opcional (Desenhador de Círculos × máquina de estados), +15 → ≈ 99.
 - O Lit, ≈ 1 página por interface-rodada com a coluna a mais: L2, 3
   interfaces na primeira e na segunda rodada e 6 pares na terceira = 12
   → ≈ 108 (13 → ≈ 112 com o opcional); L3, 7 + 7 + 6 = 20 → ≈ 116 (21
@@ -429,7 +429,7 @@ decisões em aberto, da mesma tabela.
   mudanças e 44 commits, a conta sem o bolão e o "lembrar meu nome",
   contra as 13 do ADR 0029; ficou dito.
 - 2026-10-29: a terceira rodada passou a só a vertente do ecossistema,
-  na Reserva de passagem e no Placar ao vivo, 2 pares e 10
+  na Reserva de Passagem e no Placar ao Vivo, 2 pares e 10
   refatorações (ADR 0029, decisão do autor; tcc-wx05). Pela seção "As
   páginas da análise por delineamento", a base de 84 páginas já cobre a
   terceira rodada em dois pares, e o Lit em L3 passa de 7 + 7 + 6 = 20

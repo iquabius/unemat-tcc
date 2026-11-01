@@ -5,8 +5,8 @@ da terceira rodada, em cada tecnologia da análise: os eixos de medida, a
 janela de tempo fixada em cada eixo, o filtro de depreciação e
 manutenção, as variantes de regra de escolha e o que cada uma muda no
 resultado. As medições da vertente do ecossistema estão nas seções de
-2026-10-25 de `bibliotecas-de-formulario.md` (Reserva de passagem) e de
-`bibliotecas-de-inscricao-e-reconexao.md` (Placar ao vivo); as das outras
+2026-10-25 de `bibliotecas-de-formulario.md` (Reserva de Passagem) e de
+`bibliotecas-de-inscricao-e-reconexao.md` (Placar ao Vivo); as das outras
 três vertentes, que não têm nota própria, ficam nesta. O autor decidiu em
 2026-10-25 pela variante I, que o ADR 0031 passou a dizer; as outras
 ficam como alternativas, com o que cada uma mudaria. Em 2026-10-31, as
@@ -20,9 +20,9 @@ foi medido em 2026-10-25, com os dados brutos em
 **Conclusão (2026-10-25).** A regra do ADR 0031, a maioria dos downloads
 das candidatas, escolhe o mesmo que escolheu em 2026-10 em três dos
 seis pares interface × tecnologia da vertente do ecossistema, nas três
-janelas medidas: o `react-hook-form` na Reserva de passagem (83,9% a
+janelas medidas: o `react-hook-form` na Reserva de Passagem (83,9% a
 85,8% dos downloads), o `react-use-websocket` (96,1% a 97,9%) e o
-`@solid-primitives/websocket` (candidata única) no Placar ao vivo. Os
+`@solid-primitives/websocket` (candidata única) no Placar ao Vivo. Os
 eixos de uso direto confirmam os dois pares do Placar (o
 `react-use-websocket` tem 68,5% dos repositórios dependentes e 93,3% dos
 *hits* do jsDelivr) e tiram a maioria do React da Reserva: os
@@ -101,7 +101,7 @@ medidos:
   a fatia da versão `latest` diz se quem baixa acompanha o projeto ou
   está preso a uma versão antiga; enviesa contra o pacote estável que não
   precisa de versão nova. Medido só para a ressalva (seção "Dependentes"
-  da nota do Placar ao vivo).
+  da nota do Placar ao Vivo).
 - **Fatia do dependente descontada**: os downloads do candidato menos os
   do maior dependente, um limite inferior do uso direto; enviesa contra o
   pacote que um *framework* popular adota, que é justamente o sinal de
@@ -150,7 +150,7 @@ ficam.
 Depois, no mesmo dia, o autor estendeu "depreciada" à depreciação dita na
 documentação oficial do pacote, e não só no campo `deprecated` do
 registro: o `@vaadin/hilla-lit-form`, candidata do Lit na Reserva de
-passagem, tem o campo vazio e versão em 2026-10-21, mas a documentação
+Passagem, tem o campo vazio e versão em 2026-10-21, mas a documentação
 abre com "Hilla with Lit is deprecated and is removed in Vaadin 26"
 (vaadin.com/docs, Form Binding Reference, lida em 2026-10-25). Nas
 escolhidas da regra, o campo `deprecated` está vazio, e os README do
@@ -163,11 +163,11 @@ do git).
 Onde o filtro muda o resultado, em 2026-10-25: na máquina de estados sem
 *framework*, a maioria dos downloads passa de "nenhuma" (o `@xstate/fsm`,
 parado desde 2023, lidera com 37%) para o `xstate` (52%) quando a sem
-versão há 24 meses sai; e na Reserva de passagem sem *framework*, o
+versão há 24 meses sai; e na Reserva de Passagem sem *framework*, o
 resíduo do `final-form` passa de 49,3% para 62,7% quando saem o
 `hyperform`, o `just-validate`, o `pristinejs` e o
 `form-associated-helpers`, todos sem versão há mais de 24 meses, e a API
-da plataforma deixa de ser o resultado. No Placar ao vivo sem
+da plataforma deixa de ser o resultado. No Placar ao Vivo sem
 *framework*, o filtro muda só a fração: o `partysocket`, que já tem a
 maioria, passa de 80% para 99%, porque os outros cinco candidatos estão
 parados há mais de 24 meses, menos o `websocket-ts`. Nos outros pares, o
@@ -319,7 +319,7 @@ as menções, em 2026-10-25.
   1, `undo` 8.
 - **Regra possível**, proposta do agente: o padrão se fixa antes da
   rodada pelo precedente na literatura da interface (Kiss para o Desenhador
-  de círculos) e pelo catálogo (Gamma et al., 1995, `gamma1995` no `refs.bib`,
+  de Círculos) e pelo catálogo (Gamma et al., 1995, `gamma1995` no `refs.bib`,
   sem cópia no `acervo/`), e não por medida de uso; as contagens acima só
   mostram que o Command tem mais literatura no desfazer (OpenAlex) e mais
   menções em geral (Stack Overflow, GitHub) que o Memento.
@@ -358,8 +358,8 @@ Solid Form (0,6% do `solid-js`) e deixa o `react-hook-form` (29,8%) e o
 `@solid-primitives/websocket` (2,3%). O Web Component com *signals* segue
 o Web Component por decisão e não aparece.
 
-Vertente da máquina de estados tipada (Placar ao vivo e, se entrar, o
-Desenhador de círculos):
+Vertente da máquina de estados tipada (Placar ao Vivo e, se entrar, o
+Desenhador de Círculos):
 
 | Tecnologia | A. Downloads, nova | A. ADR | A. Limpa | B. Mediana | E. Dependentes | F. Repositórios | G. jsDelivr | I. Com filtro (24 m) |
 |---|---|---|---|---|---|---|---|---|

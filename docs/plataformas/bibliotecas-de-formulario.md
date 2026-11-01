@@ -1,7 +1,7 @@
 # Bibliotecas de formulário da terceira rodada
 
 Referência. A biblioteca de formulário de cada tecnologia da análise na
-Reserva de passagem, na terceira rodada, com a medida pública do
+Reserva de Passagem, na terceira rodada, com a medida pública do
 registro, a janela e a fonte, pela regra do ADR 0031. Em 2026-10-31, a
 biblioteca do ecossistema foi aos trabalhos futuros (ADR 0029), e o ADR
 0031 saiu (`docs/processo/historico-dos-adrs.md`); as citações dele
@@ -13,7 +13,7 @@ análise (medida de 2026-10-12)".
 
 **Conclusão.** Pela regra do ADR 0031, de 2026-10-25, a maioria dos
 downloads depois do filtro de manutenção, na janela de 2026-09-12 a
-2026-10-11, a Reserva de passagem da vertente do ecossistema usa o
+2026-10-11, a Reserva de Passagem da vertente do ecossistema usa o
 `final-form` 5.0.1 no Web Component, o TanStack Solid Form 1.33.5 no
 Solid e o TanStack React Form 1.33.5 no React, pela regra do par. O Lit
 e o Web Component com *signals* seguem o Web Component por decisão do
@@ -339,7 +339,7 @@ Saem da lista:
   0.1.0 (2025-12-23), dos *mixins* para escrever esse controle no Lit,
   com 25 downloads na janela;
 - o `@lion/ui` 0.25.0 (2026-10-19), biblioteca de componentes inteira,
-  como as coleções de *hooks* que o ADR 0031 tira do Placar ao vivo: os
+  como as coleções de *hooks* que o ADR 0031 tira do Placar ao Vivo: os
   downloads vêm dos outros componentes; o *form-core* do Lion, sem
   versão própria desde 2022-09-08, continua dentro dele, em
   `components/form-core`.

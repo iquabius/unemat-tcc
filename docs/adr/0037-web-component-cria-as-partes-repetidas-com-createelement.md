@@ -5,7 +5,7 @@ Component e o JSX, e, sem JSX nem *template*, no Web Component e no Web
 Component com *signals*, a montagem também pode se escrever passo a
 passo, como no Swing e no JavaFX em código: a forma escolhida decide
 essa diferença. Em 2026-10-15, as implementações misturavam três
-(`createElement` na Busca, `insertRow` no Placar ao vivo, HTML num
+(`createElement` na Busca, `insertRow` no Placar ao Vivo, HTML num
 texto no Quadro de tarefas).
 
 Critérios:

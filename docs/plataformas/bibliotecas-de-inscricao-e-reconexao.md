@@ -1,7 +1,7 @@
 # Bibliotecas de inscrição e reconexão da terceira rodada
 
 Referência. A biblioteca que trata a inscrição numa fonte e a reconexão
-no Placar ao vivo, por tecnologia, na terceira rodada, com a medida
+no Placar ao Vivo, por tecnologia, na terceira rodada, com a medida
 pública do npm, a janela e a fonte, pela regra do ADR 0031. Medidas e
 versões observadas em 2026-10-19. Em 2026-10-31, a biblioteca do
 ecossistema foi aos trabalhos futuros (ADR 0029), e o ADR 0031 saiu
@@ -10,7 +10,7 @@ valem para a medida em que ele valia.
 
 **Conclusão.** Pela regra do ADR 0031, de 2026-10-25, com as candidatas
 só de WebSocket, porque a vertente do ecossistema troca o SSE pelo
-WebSocket, e a janela de 2026-09-12 a 2026-10-11, o Placar ao vivo da
+WebSocket, e a janela de 2026-09-12 a 2026-10-11, o Placar ao Vivo da
 vertente usa o `partysocket` 1.3.0 no Web Component, o
 `@solid-primitives/websocket` 1.4.0 no Solid e o `react-use-websocket`
 4.13.0 no React; o Lit e o Web Component com *signals* seguem o Web
@@ -26,7 +26,7 @@ primeira rodada, e as duas decisões mudaram em 2026-10-25 (tcc-jjzc).
 
 ## A regra
 
-Pelo ADR 0031, conta como candidata no Placar ao vivo a biblioteca da
+Pelo ADR 0031, conta como candidata no Placar ao Vivo a biblioteca da
 tecnologia que trata a inscrição numa fonte e a reconexão. A leitura
 decidida pelo autor em 2026-10-19 conta só os pacotes feitos para a
 conexão ao vivo (WebSocket ou SSE), e deixa fora:
@@ -141,7 +141,7 @@ Downloads das tecnologias na mesma janela, para a escala: `react`
 - **Dias sem contagem.** A API do npm dá zero a todos os pacotes em
   2026-09-15 e em 2026-10-06 (`downloads/range`, consultado em
   2026-10-19), inclusive ao `react`; a falta pesa igual em todas as
-  candidatas e na medida da Reserva de passagem, que usa a mesma janela.
+  candidatas e na medida da Reserva de Passagem, que usa a mesma janela.
 - **Versão antiga no Solid.** Na semana até 2026-10-18, 104.796 dos
   downloads do `@solid-primitives/websocket` foram da versão 1.3.1, e
   1.992 da 1.4.0 (`api.npmjs.org/versions`); o deps.dev conta 8
@@ -322,7 +322,7 @@ O autor decidiu em 2026-10-19 guardar o TanStack Query, com o
 `retry` como reconexão, para uma seção posterior à análise, como Kiss
 (2014) fez com o Elm numa seleção dos casos (p. 3); em 2026-10-25, o ADR
 0042 o pôs entre as cinco tecnologias do entorno da cadeia, no Placar ao
-vivo, no React e no Solid. Ele lê uma fonte genérica, sem protocolo, e é
+Vivo, no React e no Solid. Ele lê uma fonte genérica, sem protocolo, e é
 a mesma biblioteca no React e no Solid; a API está exportada como
 experimental no `@tanstack/query-core` 5.104.5
 (`build/modern/index.d.ts`, consultado em 2026-10-19).

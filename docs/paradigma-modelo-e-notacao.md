@@ -182,7 +182,7 @@ O Web Component × Lit é o par que isola o imperativo contra a
 re-renderização, nas sete interfaces (ADR 0013): a mesma classe e a
 mesma orquestração, e muda a ligação, o `render()` que o ambiente de
 execução chama a cada alteração de estado, com o que ela muda na
-montagem (o *template* `html` e o `map`) e, no Desenhador de círculos e na
+montagem (o *template* `html` e o `map`) e, no Desenhador de Círculos e na
 Planilha, na alteração, a cópia do dado que o Web Component altera no
 lugar (ADR 0040). O Web Component e o React diferem na ligação, na
 montagem, no modelo de componente e na orquestração, e a diferença entre

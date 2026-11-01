@@ -381,7 +381,7 @@ jQuery, o Angular com RxJS, o Svelte e o Vue continuam fora.
     2026. Evidência: fato oficial; medida de rascunho; número.
   - *contra*: Uso pequeno (10% no State of JS 2025, retenção de 67%;
     ausente no Stack Overflow e no W3Techs); em 2026-10-13, ficava em
-    três das cinco interfaces de então, e na Reserva de passagem (então
+    três das cinco interfaces de então, e na Reserva de Passagem (então
     Formulário) o rascunho saía quase linha a linha igual ao React,
     dentro de uma classe; a variante com *signals* (`@lit-labs/signals`
     0.3.0) é experimental. Saiu em 2026-10-19 com a cadeia de quatro
@@ -499,7 +499,7 @@ jQuery, o Angular com RxJS, o Svelte e o Vue continuam fora.
    somam e falha quando um muda a leitura de outro, como a montagem em
    JSX pode mudar a leitura da ligação; a parte que vem só da
    re-renderização se lê no par Web Component × Lit, que muda com a
-   ligação também a montagem e, no Desenhador de círculos e na Planilha, a
+   ligação também a montagem e, no Desenhador de Círculos e na Planilha, a
    alteração por cópia (ADRs 0013 e 0040). No Web Component com
    *signals*, o corpo de cada efeito ainda é uma escrita no DOM, e o
    texto precisa mostrar o sinal escrito do granular para o leitor não o
@@ -895,7 +895,7 @@ global do arquivo por componente nem mede o `style` inline.
 Em 2026-10-22, nenhuma implementação fora de
 `implementacoes/fora-da-analise/` chama `attachShadow`; cada interface
 tem um `estilo.css` que as tecnologias importam e citam por classes, e o
-`style` aparece só na posição do menu do Desenhador de círculos, nas três
+`style` aparece só na posição do menu do Desenhador de Círculos, nas três
 tecnologias prontas, e no tamanho do *canvas*, no domínio. Ali o dialeto
 difere: `style={{ left: posicaoDoMenu.x }}` no React, com o número que
 ganha `px` sozinho; `` left: `${posicaoDoMenu().x}px` `` no Solid; e
@@ -971,7 +971,7 @@ Em 2026-10-19, passou à cadeia de quatro tecnologias do ADR 0013,
 reescrito nessa data: o Lit e o Angular com *signals* saíram da análise,
 por decisão do autor de 2026-10-18, e o Web Component com *signals* do
 `solid-js` entrou, nas sete interfaces do ADR 0002, em que o Formulário
-e os Dados ao vivo passaram a Reserva de passagem e Placar ao vivo e o
+e os Dados ao vivo passaram a Reserva de Passagem e Placar ao Vivo e o
 Quadro de tarefas saiu. A seção "Tecnologias por modelo de
 programação" ganhou a linha do Web Component com *signals* e trocou os
 quatro pares próximos pela cadeia, com a atribuição da diferença entre o

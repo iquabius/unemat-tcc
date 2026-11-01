@@ -20,7 +20,7 @@ O estilo e o layout ficam no `estilo.css` comum, fora da notação: em
 todas as rodadas, as cores, as fontes, o flex, o grid e o espaçamento
 ficam no arquivo da interface, que a tela cita por classes, em *light
 DOM*; o valor que depende do estado, como a posição do menu do Desenhador
-de círculos, entra na notação, pelo `style` do JSX, do *template* do Lit ou
+de Círculos, entra na notação, pelo `style` do JSX, do *template* do Lit ou
 do elemento. É a fronteira que o react.dev, a documentação do Solid e
 os Web Components sem biblioteca lidos em 2026-10-21 indicam, e Kiss
 deixou o FXML de fora pelo mesmo motivo: "using yet another language or
@@ -59,7 +59,7 @@ root*; no Lit, o `createRenderRoot()` devolve o próprio elemento,
 contra o *shadow DOM* que ele usa por padrão; a separação,
 que o JavaFX de Kiss não usa (o layout em código, Kiss 2014, p. 16-17),
 pede uma frase no método; as capturas são imagens binárias no
-repositório, e o *canvas* do Desenhador de círculos entra nelas só como pixels
+repositório, e o *canvas* do Desenhador de Círculos entra nelas só como pixels
 (iguais nas cinco em 2026-10-25).
 
 Fontes: `tmp/pesquisas/2026-10-21-montagem-e-estilo/` (fora do git), com

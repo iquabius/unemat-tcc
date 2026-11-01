@@ -4,10 +4,10 @@ Referência. A diferença entre o WebSocket (RFC 6455; a API `WebSocket`
 do WebSockets Standard da WHATWG) e os *Server-Sent Events* (a API
 `EventSource` do HTML Standard da WHATWG), pelas fontes primárias, e o
 que cada um atende de nascença nas exigências de coordenação do Placar
-ao vivo, a única das sete interfaces com conexão viva. Serviu à decisão
-do protocolo do Placar ao vivo (tcc-jjzc; ADRs 0029 e 0031) e serve ao
+ao Vivo, a única das sete interfaces com conexão viva. Serviu à decisão
+do protocolo do Placar ao Vivo (tcc-jjzc; ADRs 0029 e 0031) e serve ao
 texto onde a diferença couber. Em 2026-10-31, a biblioteca do
-ecossistema foi aos trabalhos futuros, o Placar ao vivo ficou no SSE em
+ecossistema foi aos trabalhos futuros, o Placar ao Vivo ficou no SSE em
 todas as rodadas (ADR 0029), e o ADR 0031 saiu
 (`docs/processo/historico-dos-adrs.md`); as citações dele abaixo valem
 para a decisão de 2026-10-25. Cada afirmação leva a fonte e a data em que foi lida.
@@ -18,7 +18,7 @@ reconexão: o `EventSource` reconecta sozinho, com o intervalo que o
 servidor manda em `retry:` e a retomada pelo `Last-Event-ID`, e o
 programador só mostra o estado; o WebSocket não tem reconexão no
 protocolo nem na API, e o RFC 6455 a delega ao cliente, com *backoff*.
-Se o Placar ao vivo deve exercitar a reconexão como exigência de
+Se o Placar ao Vivo deve exercitar a reconexão como exigência de
 coordenação do código da interface (a segunda rodada, ADR 0029), o
 WebSocket é o protocolo que a deixa visível; o SSE a esconde no
 navegador e deixaria a segunda rodada sem o que medir, e a terceira e a
@@ -73,7 +73,7 @@ possible" (conferido), citando o RFC. O artigo é um estudo de
 prevalência, sem prescrição; o resumo diz que o *polling* continua mais
 comum e a adoção do WebSocket estagnou.
 
-## As exigências do Placar ao vivo, protocolo a protocolo
+## As exigências do Placar ao Vivo, protocolo a protocolo
 
 | Exigência | WebSocket | Server-Sent Events |
 |---|---|---|
@@ -108,7 +108,7 @@ para a plataforma.
 
 ## Consequência para o delineamento
 
-Decisão do autor de 2026-10-25 (ADRs 0029 e 0031): o Placar ao vivo
+Decisão do autor de 2026-10-25 (ADRs 0029 e 0031): o Placar ao Vivo
 fala SSE na primeira e na segunda rodada, com a reconexão do navegador,
 e WebSocket só na vertente do ecossistema da terceira, cujas
 bibliotecas são as de WebSocket; o código passou ao `EventSource` em
@@ -139,7 +139,7 @@ contra 806.489 do de WebSocket).
 ## Histórico
 
 Criada em 2026-10-24, na sessão de texto, a pedido do autor, para a
-decisão do protocolo do Placar ao vivo (tcc-jjzc) e para o texto, onde
+decisão do protocolo do Placar ao Vivo (tcc-jjzc) e para o texto, onde
 a diferença couber (a fundamentação ou a análise do Placar). As cópias
 entraram no `acervo/` com a linha de procedência no mesmo passo.
 

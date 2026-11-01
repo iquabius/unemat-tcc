@@ -28,8 +28,8 @@ Component, Web Component com *signals* do `solid-js`, Solid, React e
 Lit) nas sete interfaces, 35 implementações (ADRs 0002 e 0013), em três
 rodadas (ADR 0029): a primeira constrói as sete; a segunda tem 13
 mudanças de comportamento, entre funcionalidades e requisitos de
-orquestração; a terceira muda só a forma, na Reserva de passagem e no
-Placar ao vivo, para a biblioteca que o ecossistema de cada tecnologia
+orquestração; a terceira muda só a forma, na Reserva de Passagem e no
+Placar ao Vivo, para a biblioteca que o ecossistema de cada tecnologia
 mais usa (seção "A terceira rodada e os trabalhos futuros"). Antes,
 em 2026-10-11, o autor decidiu avaliar em três rodadas e percorrer as 14
 DCs; em 2026-10-12, trocou as interfaces e levou a segunda rodada às
@@ -96,14 +96,14 @@ coisa.
   (p. 11).
 - Em 2026-10-22, quatro das sete interfaces vêm do 7GUIs (ADR 0002): o
   Contador, o *Counter* (§3.3, p. 17), a base em que a primeira leitura
-  registra o básico de cada tecnologia; a Reserva de passagem, o *Flight
+  registra o básico de cada tecnologia; a Reserva de Passagem, o *Flight
   Booker* (§3.5, p. 25) levado à passagem de ônibus; a planilha, o
-  *Cells* (§3.9, p. 49) em oito células numa coluna; e o Desenhador de círculos
+  *Cells* (§3.9, p. 49) em oito células numa coluna; e o Desenhador de Círculos
   (§3.8, p. 40). De 2026-10-19 a 2026-10-22, o conversor de moedas, o
   *Temperature Converter* (§3.4, p. 21), ocupava o lugar do Contador, e
   a coordenação nos dois sentidos dele passou ao campo do diâmetro do
-  Desenhador de círculos, na segunda rodada (ADR 0029). A Busca, o Login com quarentena e o
-  Placar ao vivo não vêm do 7GUIs: o Login adapta Berry e Serrano
+  Desenhador de Círculos, na segunda rodada (ADR 0029). A Busca, o Login com Quarentena e o
+  Placar ao Vivo não vêm do 7GUIs: o Login adapta Berry e Serrano
   (2020), e o Placar, Meijer (2012). Até 2026-10-11, três interfaces
   partiam do 7GUIs: o Contador, o *Counter* (§3.3, p. 17); o Formulário,
   do *Flight Booker*; e a Lista filtrável, com o filtro por prefixo do
@@ -117,7 +117,7 @@ coisa.
   selecionada junto com a grade (ADR 0002). Até 2026-10-11, o estado
   compartilhado vinha do Carrinho e, de 2026-10-12 a 2026-10-19, do
   Quadro de tarefas.
-- Desfazer e controle de diálogo: o Desenhador de círculos (§3.8, p. 40) traz o
+- Desfazer e controle de diálogo: o Desenhador de Círculos (§3.8, p. 40) traz o
   desfazer e o refazer e o diálogo que ajusta o diâmetro do círculo
   escolhido (ADR 0002); o desfazer estava antes no Carrinho e no Quadro.
 
@@ -435,22 +435,22 @@ Protótipos de 2026-10-12.
 
 Conclusão: em 2026-10-22, a segunda rodada tem as 13 mudanças do ADR
 0029 nas sete interfaces do ADR 0002: a lista de contadores no
-Contador; a volta empurrada pela ida na Reserva de passagem; a espera
+Contador; a volta empurrada pela ida na Reserva de Passagem; a espera
 de 300 ms e o *combobox* na Busca; a quarentena e o "lembrar meu nome"
-no Login com quarentena; a reconexão, o bolão e a frequência de
-atualização no Placar ao vivo; a referência circular na planilha; e
-arrastar, salvar e o campo do diâmetro no Desenhador de círculos. Até
-2026-10-22, eram 12, com a escolha da moeda no conversor de moedas. A Reserva de passagem perdeu o
+no Login com Quarentena; a reconexão, o bolão e a frequência de
+atualização no Placar ao Vivo; a referência circular na planilha; e
+arrastar, salvar e o campo do diâmetro no Desenhador de Círculos. Até
+2026-10-22, eram 12, com a escolha da moeda no conversor de moedas. A Reserva de Passagem perdeu o
 assistente, a verificação do e-mail e as poltronas, e o Quadro de
 tarefas saiu do conjunto. Os protótipos de 2026-10-12 sustentaram o
 passo anterior: o conjunto de então deixava a orquestração de eventos só
 na Busca, e o Contador e a Lista não traziam exigência própria;
 protótipos em Web Component, React e Solid, medidos pelo mesmo critério
 de linhas (montagem da tela, coordenação, ligação), sustentaram a troca
-por Login com quarentena, Quadro de tarefas e Dados ao vivo e a escolha
+por Login com Quarentena, Quadro de tarefas e Dados ao vivo e a escolha
 de 11 requisitos da segunda rodada pela realidade de cada interface
 (versão de 2026-10-15 do ADR 0029). Das medidas da tabela, a do Login
-com quarentena, a da limpeza ao sair da tela e a dos placares, do bolão
+com Quarentena, a da limpeza ao sair da tela e a dos placares, do bolão
 e da frequência tratam de regras e mudanças que seguem em 2026-10-19; as
 outras ficam como registro, com o que saiu marcado na coluna Uso. A
 interface que continua leva o nome de 2026-10-19, com o de então entre
@@ -463,24 +463,24 @@ eles e não reconferidos. Código e números em
 
 | Achado | Medida | Uso |
 |---|---|---|
-| Densidade de coordenação nas interfaces antigas (coordenação / total) | Busca 0,52; Reserva de passagem (então Formulário) 0,29; Contador 0,24; Carrinho 0,22; Lista 0,12 | o Contador e a Lista saem (ADR 0002); o Contador volta em 2026-10-22 como a base, e não por uma exigência própria |
-| Assistente da Reserva de passagem (então Formulário), acréscimo em Web Component e React | montagem +22 e +25, coordenação +13 e +11, ligação +21 e +18; o React reindenta 67 linhas | a montagem é o maior balde, mas não domina; o assistente saiu da segunda rodada no ADR 0029 de 2026-10-19 |
+| Densidade de coordenação nas interfaces antigas (coordenação / total) | Busca 0,52; Reserva de Passagem (então Formulário) 0,29; Contador 0,24; Carrinho 0,22; Lista 0,12 | o Contador e a Lista saem (ADR 0002); o Contador volta em 2026-10-22 como a base, e não por uma exigência própria |
+| Assistente da Reserva de Passagem (então Formulário), acréscimo em Web Component e React | montagem +22 e +25, coordenação +13 e +11, ligação +21 e +18; o React reindenta 67 linhas | a montagem é o maior balde, mas não domina; o assistente saiu da segunda rodada no ADR 0029 de 2026-10-19 |
 | *Timer* do 7GUIs | coordenação de 6 a 9 linhas contra montagem de 15 e 16; a pausa da segunda rodada não separa React de Solid | descartado |
-| Login com quarentena (Berry e Serrano 2020, p. 534-539) | a quarentena custa +20 a +21 linhas nos três; o diff tem o mesmo tamanho, e muda o tipo: o Web Component repete, os declarativos acrescentam uma condição | desmente em parte "Almost all the initial implementation components need to be modified" (p. 539); a quarentena segue na segunda rodada de 2026-10-19 (ADR 0029) |
-| Placar ao vivo (então Dados ao vivo, com as cotações de Meijer 2012, p. 66-67) | sem a limpeza, o vazamento é silencioso no Web Component e aparece na tela, ou nem ocorre, nos declarativos | a regra comum da limpeza ao sair da tela |
-| Quadro com desfazer, contra o desfazer no Carrinho | +43/+79/+64 contra +36/+57/+50; no Carrinho, "Finalizar compra" teve de apagar o histórico; no Solid, guardar o próprio *store* no histórico falhou em 8 verificações | o Quadro entra no lugar do Carrinho; a diferença que Kiss aponta entre comando e cópia do estado some quando as transições ficam no domínio; o Quadro saiu do conjunto em 2026-10-19, e o desfazer passou ao Desenhador de círculos (ADR 0002) |
-| Carteira no Placar ao vivo (então Dados ao vivo) | +27/+23/+23; 10 linhas da primeira rodada mudam no Web Component, nenhuma no React e no Solid; nenhum *glitch* no sentido de Kiss (2014, p. 104) com a fonte por ativo | entrou na segunda rodada e foi trocada pelo bolão (linha seguinte) |
-| Placares no lugar das cotações (Placar ao vivo, então Dados ao vivo; protótipos de 2026-10-13, `tmp/prototipos/2026-10-13-placar/`) | primeira rodada +5/+2/+4, sem mudar a coordenação; na base formatada pelo Prettier, o bolão custa +40/+29/+34 e a carteira +45/+33/+38; o bolão altera 9/2/3 linhas da primeira rodada, porque o palpite decide o destaque, e a carteira 7/0/1, em que a linha do Solid é só o import que o Prettier quebra; a frequência controlável é a mesma mudança nos dois domínios (+19/+14/+14) | o placar entra no lugar das cotações, e o bolão no da carteira (ADRs 0002 e 0029); o bolão e a frequência seguem na segunda rodada de 2026-10-19 |
+| Login com Quarentena (Berry e Serrano 2020, p. 534-539) | a quarentena custa +20 a +21 linhas nos três; o diff tem o mesmo tamanho, e muda o tipo: o Web Component repete, os declarativos acrescentam uma condição | desmente em parte "Almost all the initial implementation components need to be modified" (p. 539); a quarentena segue na segunda rodada de 2026-10-19 (ADR 0029) |
+| Placar ao Vivo (então Dados ao vivo, com as cotações de Meijer 2012, p. 66-67) | sem a limpeza, o vazamento é silencioso no Web Component e aparece na tela, ou nem ocorre, nos declarativos | a regra comum da limpeza ao sair da tela |
+| Quadro com desfazer, contra o desfazer no Carrinho | +43/+79/+64 contra +36/+57/+50; no Carrinho, "Finalizar compra" teve de apagar o histórico; no Solid, guardar o próprio *store* no histórico falhou em 8 verificações | o Quadro entra no lugar do Carrinho; a diferença que Kiss aponta entre comando e cópia do estado some quando as transições ficam no domínio; o Quadro saiu do conjunto em 2026-10-19, e o desfazer passou ao Desenhador de Círculos (ADR 0002) |
+| Carteira no Placar ao Vivo (então Dados ao vivo) | +27/+23/+23; 10 linhas da primeira rodada mudam no Web Component, nenhuma no React e no Solid; nenhum *glitch* no sentido de Kiss (2014, p. 104) com a fonte por ativo | entrou na segunda rodada e foi trocada pelo bolão (linha seguinte) |
+| Placares no lugar das cotações (Placar ao Vivo, então Dados ao vivo; protótipos de 2026-10-13, `tmp/prototipos/2026-10-13-placar/`) | primeira rodada +5/+2/+4, sem mudar a coordenação; na base formatada pelo Prettier, o bolão custa +40/+29/+34 e a carteira +45/+33/+38; o bolão altera 9/2/3 linhas da primeira rodada, porque o palpite decide o destaque, e a carteira 7/0/1, em que a linha do Solid é só o import que o Prettier quebra; a frequência controlável é a mesma mudança nos dois domínios (+19/+14/+14) | o placar entra no lugar das cotações, e o bolão no da carteira (ADRs 0002 e 0029); o bolão e a frequência seguem na segunda rodada de 2026-10-19 |
 | Atualização otimista no Quadro | +32/+51/+40 sobre a primeira rodada; o `useOptimistic` do React aplica as respostas na ordem em que chegam | entrou na segunda rodada e saiu com o Quadro em 2026-10-19 (ADRs 0002 e 0029); as regras da fila são do protótipo |
-| Passageiros dinâmicos na Reserva de passagem (então Formulário) | +55/+61/+61; uma armadilha de identidade diferente por notação, invisível ao `tsc` | fica fora (ADR 0029) |
+| Passageiros dinâmicos na Reserva de Passagem (então Formulário) | +55/+61/+61; uma armadilha de identidade diferente por notação, invisível ao `tsc` | fica fora (ADR 0029) |
 | Filtro no Quadro | +25/+30/+24; não interfere no desfazer | fica fora (ADR 0029); o Quadro saiu do conjunto em 2026-10-19 (ADR 0002) |
 
 Acessibilidade: em 2026-10-19, os dois requisitos de acessibilidade da
 segunda rodada e a regra das mensagens de status da primeira vêm da WCAG
 2.2 (W3C, 2024-12-12): 2.1.1 e o padrão *Combobox* do WAI-ARIA APG na
-Busca, 2.2.2 na frequência de atualização do Placar ao vivo e 4.1.3 nas
+Busca, 2.2.2 na frequência de atualização do Placar ao Vivo e 4.1.3 nas
 mensagens de status (ADR 0029). O terceiro de 2026-10-12, 2.4.3 e 3.3.1
-no assistente com foco gerenciado da Reserva de passagem (então
+no assistente com foco gerenciado da Reserva de Passagem (então
 Formulário), saiu com o assistente. Nos protótipos, o foco foi o ponto
 em que os declarativos voltam ao imperativo (`useRef` com `useEffect` no
 React, `ref` com `createEffect` no Solid; `FocusRequester` com
@@ -663,12 +663,12 @@ mudaram; mudou o que a nota afirmava sobre o conjunto de antes:
 - a seção "*Benchmark* de notação e requisitos da segunda rodada": a
   conclusão passa às 12 mudanças, a tabela guarda as medidas dos
   protótipos com o que saiu marcado e os nomes novos da Reserva de
-  passagem e do Placar ao vivo, e a acessibilidade perde o assistente;
+  Passagem e do Placar ao Vivo, e a acessibilidade perde o assistente;
 - o Contador como primeira leitura, no procedimento.
 
 Em 2026-10-22, o Contador voltou como primeira das sete interfaces, no
 lugar do conversor de moedas, e a segunda rodada passou a 13 mudanças,
-com a lista de contadores e o campo do diâmetro do Desenhador de círculos (ADRs
+com a lista de contadores e o campo do diâmetro do Desenhador de Círculos (ADRs
 0002 e 0029); "O 7GUIs e as interfaces", a conclusão do *benchmark* e a
 linha da primeira leitura no procedimento mudaram com isso.
 
@@ -696,11 +696,11 @@ em `tmp/pesquisas/2026-10-25-requisitos-tipicos/` (fora do git).
 Em 2026-10-26, o parágrafo do estado da análise passou às decisões de
 2026-10-25: cinco tecnologias, com o Lit num ramo do Web Component, 35
 implementações (ADR 0013), 13 mudanças na segunda rodada e a terceira
-em quatro vertentes, na Reserva de passagem, no Placar ao vivo e no
-Desenhador de círculos (ADR 0029). Antes, dizia o estado de 2026-10-19.
+em quatro vertentes, na Reserva de Passagem, no Placar ao Vivo e no
+Desenhador de Círculos (ADR 0029). Antes, dizia o estado de 2026-10-19.
 
 Em 2026-10-29, a terceira rodada passou a só a vertente do ecossistema,
-na Reserva de passagem e no Placar ao vivo (ADR 0029), e o parágrafo do
+na Reserva de Passagem e no Placar ao Vivo (ADR 0029), e o parágrafo do
 estado da análise mudou com ela. Entrou a seção "A terceira rodada e os
 trabalhos futuros", com as fontes da busca de 2026-10-27 que a P1.2 não
 cita e que a conclusão pode usar.

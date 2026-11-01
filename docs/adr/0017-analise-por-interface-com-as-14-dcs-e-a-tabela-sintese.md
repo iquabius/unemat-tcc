@@ -29,7 +29,7 @@ linhas da listagem em vez de repetir o trecho, e com "sem diferença"
 quando os modelos de programação não diferem nela, onde Kiss omite a
 dimensão (p. 12). Dentro da seção ficam as rodadas da interface: a
 segunda, com o diff de cada mudança, e, na Busca, no Login e no Placar
-ao vivo, a terceira, com os cinco passos do ADR 0029. Cada passo entra
+ao Vivo, a terceira, com os cinco passos do ADR 0029. Cada passo entra
 no corpo, junto da análise dele, como diff quando o diff é mais curto
 que a listagem nova, senão como a listagem nova inteira, com as linhas
 que mudaram realçadas; o entorno segue a mesma regra (ADR 0042). O

@@ -37,7 +37,7 @@ anunciam sem receber o foco (WCAG 2.2, critério 4.1.3), e vale a
 limpeza ao sair da tela (Shahoor et al. 2023; Vilk e Berger 2018, p.
 15). O teste de conformidade confere as duas, a segunda pela página
 comum (ADR 0043), menos no Contador e na Planilha, que nada abrem e a
-cumprem sem verificação. No Placar ao vivo, a fonte simulada manda os
+cumprem sem verificação. No Placar ao Vivo, a fonte simulada manda os
 lotes por SSE em todas as rodadas, e o navegador refaz sozinho a
 conexão que cai.
 
@@ -54,21 +54,21 @@ diff no lugar do tempo de edição; a terceira rodada se mede igual. São
 13 mudanças, 26 commits:
 
 - Contador: a lista de contadores, com a remoção e o total derivado;
-- Reserva de passagem: a volta empurrada ao dia seguinte à ida;
+- Reserva de Passagem: a volta empurrada ao dia seguinte à ida;
 - Busca: a espera de 300 ms depois da última tecla;
 - Busca: o *combobox* operável pelo teclado (WCAG 2.1.1; APG);
 - Login: a quarentena depois de três falhas (Berry e Serrano 2020);
 - Login: o "lembrar meu nome";
-- Placar ao vivo: a reconexão depois de queda;
-- Placar ao vivo: o bolão, com os pontos e o total derivados;
-- Placar ao vivo: a frequência de 1, 5 ou 10 s, numa requisição à parte;
+- Placar ao Vivo: a reconexão depois de queda;
+- Placar ao Vivo: o bolão, com os pontos e o total derivados;
+- Placar ao Vivo: a frequência de 1, 5 ou 10 s, numa requisição à parte;
 - Planilha: a referência circular, sem avaliar o ciclo (Kiss, p. 54);
-- Desenhador de círculos: arrastar os círculos, com o arraste no desfazer;
-- Desenhador de círculos: salvar num servidor simulado, na ordem das mudanças;
-- Desenhador de círculos: o campo numérico do diâmetro, nos dois sentidos.
+- Desenhador de Círculos: arrastar os círculos, com o arraste no desfazer;
+- Desenhador de Círculos: salvar num servidor simulado, na ordem das mudanças;
+- Desenhador de Círculos: o campo numérico do diâmetro, nos dois sentidos.
 
 A terceira muda só a forma: refatora o código da segunda rodada da
-Busca, do Login e do Placar ao vivo, as interfaces em que a combinação
+Busca, do Login e do Placar ao Vivo, as interfaces em que a combinação
 de eventos pesa, com o teste e as cenas da segunda como rede, um modo
 por passo, em cinco passos por interface:
 
@@ -97,7 +97,7 @@ xstream não tem versão nova desde a 11.14.0, de 2020; o xstream entra
 no entorno, junto do Cycle.js (ADR 0042). A biblioteca do ecossistema,
 a máquina de estados tipada (o XState), a API nova da plataforma (o
 `Observable` do WICG) e os padrões de projeto (o *Command* no desfazer
-do Desenhador de círculos) vão aos trabalhos futuros da conclusão, com o peso
+do Desenhador de Círculos) vão aos trabalhos futuros da conclusão, com o peso
 do *toolkit* que Kiss achou (p. 56); a medida das bibliotecas fica em
 `docs/plataformas/medida-das-bibliotecas.md`.
 
@@ -106,13 +106,13 @@ Se o prazo apertar, sai primeiro o entorno do núcleo, na ordem do ADR
 "lembrar meu nome"; 3) o Login na terceira rodada (decisões do autor
 em 2026-10-24, 2026-10-25 e 2026-10-31). A mudança sai inteira, nas
 duas tecnologias, e vai aos trabalhos futuros da conclusão. Não saem a
-primeira rodada, o núcleo, a Busca e o Placar ao vivo na terceira
+primeira rodada, o núcleo, a Busca e o Placar ao Vivo na terceira
 rodada nem o tipo de exigência que só uma mudança traz: a lista de
 contadores (a remoção com a identidade dos que ficam) e o campo do
 diâmetro (os dois sentidos).
 
 Em vez de: a terceira rodada na biblioteca que o ecossistema de cada
-tecnologia mais usa, na Reserva de passagem e no Placar ao vivo, em 2
+tecnologia mais usa, na Reserva de Passagem e no Placar ao Vivo, em 2
 pares e 10 refatorações (decisão de 2026-10-29, com a medida do ADR
 0031, que saiu); media o custo de adotar a solução pronta no lugar da
 própria abstração, mas o TanStack Form e o `react-use-websocket` mudam
@@ -129,7 +129,7 @@ Em vez de: o Redux no lugar do `useReducer`, com os derivados no
 mas o passo mudaria o lugar do estado, no *store*, e a escrita dos
 derivados ao mesmo tempo (falha o primeiro).
 Em vez de: a terceira rodada nas sete interfaces; não teria interface a
-escolher, mas o Contador, a Reserva, a Planilha e o Desenhador de círculos pesam
+escolher, mas o Contador, a Reserva, a Planilha e o Desenhador de Círculos pesam
 no gerenciamento de estado, e a orquestração deles quase não tem o que
 mudar (falha o quarto).
 Em vez de: uma rodada só, com as interfaces no tamanho da primeira, como

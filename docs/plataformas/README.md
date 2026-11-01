@@ -44,10 +44,10 @@ As notas:
   programação e a montagem da tela de cada uma, onde ficam o estilo e o
   *layout*, a documentação, as medidas de uso e a literatura cinzenta;
 - `bibliotecas-de-formulario.md`: a biblioteca de formulário de cada
-  tecnologia na Reserva de passagem, medida em 2026-10-25 para a
+  tecnologia na Reserva de Passagem, medida em 2026-10-25 para a
   terceira rodada e guardada para os trabalhos futuros (ADR 0029);
 - `bibliotecas-de-inscricao-e-reconexao.md`: a biblioteca que trata a
-  inscrição e a reconexão no Placar ao vivo, medida e guardada do mesmo
+  inscrição e a reconexão no Placar ao Vivo, medida e guardada do mesmo
   jeito;
 - `medida-das-bibliotecas.md`: os eixos, as janelas, o filtro e as
   variantes de regra com que se mede a forma de cada vertente da
@@ -56,7 +56,7 @@ As notas:
   2026-10-25);
 - `websocket-e-sse.md`: o WebSocket (RFC 6455) e os Server-Sent Events
   (EventSource) pelas fontes primárias, e o que cada um dá de nascença
-  ao Placar ao vivo; desde 2026-10-31, o SSE vale em todas as rodadas
+  ao Placar ao Vivo; desde 2026-10-31, o SSE vale em todas as rodadas
   (ADR 0029).
 
 ## Android e *desktop*, nos trabalhos futuros

@@ -41,6 +41,6 @@ no repositório é o link do Contador com POO em `texto/cases.org`, de
 O Contador, o Conversor de temperatura e a Reserva de voo têm os nomes de
 três tarefas do 7GUIs (*Counter*, *Temperature Converter* e *Flight
 Booker*; Kiss 2014). A introdução diz que o Contador e o Formulário com
-validação adaptam o *Counter* e o *Flight Booker*. A Busca com sugestões,
+validação adaptam o *Counter* e o *Flight Booker*. A Busca com Sugestões,
 a Lista filtrável e o Carrinho não têm implementação de referência na
 lista.
