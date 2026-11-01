@@ -203,8 +203,8 @@ dependem dela [[cite:bainomugisha2013][p. 52:2]].
    Especificamente:
 
    - implementar com Web Component e React sete interfaces gráficas:
-     Busca com sugestões, Contador, Desenhador de círculos, Login com
-     quarentena, Placar ao vivo, Planilha e Reserva de passagem;
+     Busca com Sugestões, Contador, Desenhador de Círculos, Login com
+     Quarentena, Placar ao Vivo, Planilha e Reserva de Passagem;
    - estender as sete na segunda rodada e refatorar três delas na
      terceira, um modo de cada vez;
    - avaliar as implementações pelas 14 [[glspl:dc]] em cada rodada;
@@ -239,9 +239,9 @@ dependem dela [[cite:bainomugisha2013][p. 52:2]].
   uma interface exige em cada tecnologia e como os recursos mais básicos se
   juntam [[cite:kiss2014][p. 17]].
   As outras seis trazem exigências da coordenação: as de orquestração
-  pesam na Busca com sugestões, no Login com quarentena e no Placar ao
-  vivo, e as de gerenciamento de estado, na Reserva de passagem, na
-  Planilha e no Desenhador de círculos.
+  pesam na Busca com Sugestões, no Login com Quarentena e no Placar ao
+  Vivo, e as de gerenciamento de estado, na Reserva de Passagem, na
+  Planilha e no Desenhador de Círculos.
 
   As sete interfaces são implementadas na web por duas tecnologias, o
   núcleo, em passos que mudam um modo de um eixo de cada vez
@@ -260,7 +260,7 @@ dependem dela [[cite:bainomugisha2013][p. 52:2]].
   combinação de eventos, iguais no Web Component e no React, e responde
   à P1.1.
   A terceira refatora o código da segunda rodada da Busca, do Login e do
-  Placar ao vivo, sem mudar o comportamento, um modo por passo, e
+  Placar ao Vivo, sem mudar o comportamento, um modo por passo, e
   responde à P1.2.
   Ela leva o Web Component e o React à orquestração por acumulação, com
   o RxJS, passando no React pela orquestração por mensagem, do
@@ -269,7 +269,7 @@ dependem dela [[cite:bainomugisha2013][p. 52:2]].
   tecnologia num passo a partir do núcleo.
   O Lit e o Solid entram na primeira rodada, e o Web Component com
   Effection, que escreve a orquestração sequencial, na Busca, no Login e
-  no Placar ao vivo.
+  no Placar ao Vivo.
   O último passo do entorno, do React com os derivados no RxJS ao
   Cycle.js, muda de uma vez a biblioteca de fluxos, o modelo de
   componente, os efeitos e a montagem da tela.

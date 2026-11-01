@@ -25,7 +25,7 @@
   requestUpdate(), if you prefer.”
 - Lido em: =acervo/google2026e.html=, seção “Mutating object and array
   properties”.
-- Observação: que o Lit do Desenhador de círculos e da Planilha altera a
+- Observação: que o Lit do Desenhador de Círculos e da Planilha altera a
   lista e os mapas no lugar e chama =requestUpdate()= é do código
   (=interfaces-graficas/desenho-de-circulos/entorno/lit/src/main.ts= e
   =interfaces-graficas/planilha/entorno/lit/src/main.ts=), e não da fonte.

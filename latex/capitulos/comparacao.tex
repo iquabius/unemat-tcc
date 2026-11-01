@@ -9,11 +9,11 @@ de resultado qualitativo do projeto de linguagens
 \cite[p. 8:20]{lu2021}.
 
 Das sete interfaces, quatro adaptam casos do 7GUIs: o Contador, o
-\emph{Counter}; a Reserva de passagem, o \emph{Flight Booker}, com a viagem de
+\emph{Counter}; a Reserva de Passagem, o \emph{Flight Booker}, com a viagem de
 ônibus no lugar do voo; a Planilha, o \emph{Cells}; e o Desenhador de
-círculos, o \emph{Circle Drawer} \cite[p. 17, 25, 40 e 49]{kiss2014}.
+Círculos, o \emph{Circle Drawer} \cite[p. 17, 25, 40 e 49]{kiss2014}.
 O Login segue o painel de \textcite[p. 534]{berry2020}, e o Placar ao
-vivo adapta a placares de jogos as cotações que uma fonte manda aos
+Vivo adapta a placares de jogos as cotações que uma fonte manda aos
 clientes, de \textcite[p. 66]{meijer2012}.
 A Busca traz o cancelamento de uma requisição já começada, cuja
 resposta atrasada nunca aparece, comportamento assíncrono que nenhum
@@ -25,18 +25,18 @@ usuário:
 \item[{Contador:}] um número e um botão que soma um a ele, sem exigência de
 coordenação própria, o mínimo de código que cada tecnologia pede para
 uma interface;
-\item[{Busca com sugestões:}] um campo de destino que sugere cidades a cada
+\item[{Busca com Sugestões:}] um campo de destino que sugere cidades a cada
 termo novo de duas letras ou mais e cancela a busca do termo anterior,
 para o usuário nunca ver as sugestões de um termo que já mudou;
-\item[{Login com quarentena:}] um painel de nome e senha em que um novo
+\item[{Login com Quarentena:}] um painel de nome e senha em que um novo
 clique em Entrar cancela a tentativa anterior, para o usuário que errou
 a senha tentar de novo sem esperar a resposta dela, e a sessão que
 expira sozinha, com um relógio que para quando ela se encerra;
-\item[{Placar ao vivo:}] um painel de placares que uma fonte envia sem o
+\item[{Placar ao Vivo:}] um painel de placares que uma fonte envia sem o
 usuário pedir, numa conexão aberta ao entrar na página, para ele seguir
 os jogos, e fechada ao pausar e ao sair dela, para ele ler a tabela
 parada e não gastar rede com o que não vê;
-\item[{Reserva de passagem:}] um formulário de passagem de ônibus com o tipo
+\item[{Reserva de Passagem:}] um formulário de passagem de ônibus com o tipo
 de viagem e duas datas, em que a data de volta só se habilita em ida e
 volta e se marca como inválida quando é anterior à ida, para o usuário
 saber por que não pode reservar, e o envio que ignora um novo clique
@@ -45,7 +45,7 @@ em Reservar até a resposta, para a mesma reserva não sair duas vezes;
 barra de fórmula, em que a alteração de uma célula se propaga só às
 que dependem dela, para o usuário ver o saldo na hora em que muda um
 gasto;
-\item[{Desenhador de círculos:}] um \emph{canvas} em que o clique desenha um
+\item[{Desenhador de Círculos:}] um \emph{canvas} em que o clique desenha um
 círculo, o diâmetro ajustado num diálogo que guarda o círculo escolhido
 e o desfazer e o refazer de cada passo, para o usuário corrigir o
 desenho sem recomeçar.
@@ -90,7 +90,7 @@ quem respondeu à pesquisa do Stack Overflow de 2025, com 23,4\%
 Ficou de fora porque não organiza a tela em componentes: o passo dele
 ao React acrescentaria um componente onde não havia nenhum.
 
-Na terceira rodada, na Busca, no Login e no Placar ao vivo, o núcleo
+Na terceira rodada, na Busca, no Login e no Placar ao Vivo, o núcleo
 anda também na orquestração, sem trocar de tecnologia.
 O \texttt{useReducer} leva o React à orquestração por mensagem: cada evento
 vira uma ação, e uma função pura, o \emph{reducer}, recebe o estado e a ação
@@ -117,14 +117,14 @@ A documentação recomenda, na maioria das aplicações, tratar os dados
 como imutáveis, mas admite, quando o dado serve a um componente só,
 alterá-lo no lugar e pedir a atualização com \texttt{requestUpdate()}
 \cite{google2026e}.
-É o que fazem o Desenhador de círculos e a Planilha, que alteram a
+É o que fazem o Desenhador de Círculos e a Planilha, que alteram a
 lista e os mapas no lugar, como no Web Component.
 No Solid, a tela também se monta em JSX, mas o componente não se
 reexecuta, e a alteração de um \emph{signal} atualiza só os trechos da tela
 que dependem dele \cites[][ p. 289:38]{lee2025}{solidjs2026}: o passo
 muda a propagação, de re-renderização a granular.
 
-Na Busca, no Login e no Placar ao vivo, o Web Component com Effection
+Na Busca, no Login e no Placar ao Vivo, o Web Component com Effection
 parte do Web Component da segunda rodada e muda a orquestração, de
 atribuição a sequencial.
 Na orquestração sequencial, o código espera o próximo evento e segue
@@ -164,18 +164,18 @@ São 13 mudanças, numa ordem fixada antes da análise, cada uma num
 \begin{description}
 \item[{Contador:}] a lista de contadores, com a remoção de um deles e o
 total derivado, para o usuário contar várias coisas ao mesmo tempo;
-\item[{Reserva de passagem:}] a data de volta empurrada ao dia seguinte à
+\item[{Reserva de Passagem:}] a data de volta empurrada ao dia seguinte à
 ida quando a ida passa dela, para o usuário não ter de corrigir a
 volta;
-\item[{Busca com sugestões:}] a espera de 300 ms depois da última tecla,
+\item[{Busca com Sugestões:}] a espera de 300 ms depois da última tecla,
 para as sugestões não mudarem a cada letra, e o \emph{combobox} operável
 pelo teclado, para quem não usa o mouse escolher uma sugestão;
-\item[{Login com quarentena:}] a quarentena depois de três falhas seguidas,
+\item[{Login com Quarentena:}] a quarentena depois de três falhas seguidas,
 que \textcite[p. 539]{berry2020} acrescentam ao painel na segunda
 versão dele, para proteger a conta de quem tenta adivinhar a senha, e
 o "lembrar meu nome", para o usuário não digitar o nome a cada
 entrada;
-\item[{Placar ao vivo:}] a queda da conexão, que o navegador refaz sozinho
+\item[{Placar ao Vivo:}] a queda da conexão, que o navegador refaz sozinho
 \cite[§ 9.2.1]{whatwg2026}, com o aviso "Reconectando…" até o
 próximo lote, para o usuário saber que a tabela parou por queda, e não
 por pausa; o bolão, com os pontos de cada palpite e o total
@@ -186,7 +186,7 @@ escolher de quanto em quanto tempo os placares mudam;
 ciclo, a exigência com que \textcite[p. 54]{kiss2014} discute a
 viscosidade do \emph{Cells}, para o usuário ver o erro em vez de a planilha
 travar;
-\item[{Desenhador de círculos:}] arrastar os círculos, com o arraste no
+\item[{Desenhador de Círculos:}] arrastar os círculos, com o arraste no
 desfazer, para o usuário mudar um círculo de lugar sem desfazer e
 desenhar de novo; salvar o desenho num servidor simulado, na ordem
 das mudanças, para o desenho não se perder; e o campo numérico do
@@ -198,7 +198,7 @@ Latências, tentativas, prazos e intervalos ficam fixos no domínio,
 iguais nas duas tecnologias.
 
 A terceira rodada muda só a forma: refatora o código da segunda rodada
-da Busca, do Login e do Placar ao vivo, as interfaces em que a
+da Busca, do Login e do Placar ao Vivo, as interfaces em que a
 combinação de eventos pesa.
 O comportamento não muda, e o teste de conformidade e as cenas da
 segunda rodada servem de rede.
@@ -227,7 +227,7 @@ escolhida para que o passo seguinte mude só os derivados.
 Se o prazo apertar, depois do entorno saem, nesta ordem, fixada antes
 da análise: o bolão, o "lembrar meu nome" e o Login na terceira rodada.
 Cada mudança sai inteira, nas duas tecnologias.
-Não saem a primeira rodada nem a Busca e o Placar ao vivo na terceira.
+Não saem a primeira rodada nem a Busca e o Placar ao Vivo na terceira.
 Também ficam a lista de contadores e o campo do diâmetro, as únicas
 mudanças que trazem a remoção com a identidade dos que ficam e a
 ligação nos dois sentidos.
@@ -252,7 +252,7 @@ mensagens, os servidores simulados e a análise das fórmulas da
 Planilha, ficam num \emph{domínio} comum às implementações de cada
 interface; o Contador não tem nenhuma.
 A alteração do estado, como a propagação da Planilha e o desfazer do
-Desenhador de círculos, fica em cada implementação, para que a
+Desenhador de Círculos, fica em cada implementação, para que a
 diferença entre alterar no lugar e trocar por uma cópia não saia da
 análise.
 
@@ -335,7 +335,7 @@ modelos de programação não diferem nela.
 Em cada \gls{dc}, a análise aponta se a diferença está na coordenação,
 na montagem da tela ou na ligação entre as duas.
 Na mesma seção ficam as rodadas da interface: a segunda, com o \emph{diff}
-de cada mudança, e, na Busca, no Login e no Placar ao vivo, a terceira,
+de cada mudança, e, na Busca, no Login e no Placar ao Vivo, a terceira,
 com os cinco passos.
 Cada passo entra como \emph{diff} quando ele é mais curto que a listagem
 nova, senão como a listagem nova inteira, com as linhas que mudaram
