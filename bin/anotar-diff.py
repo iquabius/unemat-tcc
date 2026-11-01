@@ -38,11 +38,11 @@ o tikzpicture; e depois do \\item e do título de seção, para que o
 \\nameref dê a seção certa. A \\difancora devolve o \\@currentHref, e o
 \\label seguinte (de seção ou legenda) continua apontando para o lugar dele.
 
-No resumo, cada commit lista um link por página e seção em que entrou
-texto (azul) e outro onde saiu (vermelho), e as chaves do refs.bib que ele
-mudou, com link para a entrada na bibliografia (âncora cite.0@chave do
-biblatex). Commits cujo trecho foi refeito depois, ou que só mudaram rótulos, aparecem
-sem link.
+O resumo abre pela mensagem da tag, como a release; depois, os commits,
+cada um com um link por página e seção em que entrou texto (azul) e outro
+onde saiu (vermelho), e as chaves do refs.bib que ele mudou, com link para
+a entrada na bibliografia (âncora cite.0@chave do biblatex). Commits cujo
+trecho foi refeito depois, ou que só mudaram rótulos, aparecem sem link.
 """
 import json
 import os
@@ -512,6 +512,11 @@ def secoes(aux):
     return marcas, ancoras
 
 
+def titulo_do_resumo(texto):
+    """O título de uma parte do resumo: o que mudou, onde e os commits."""
+    return r"\par\medskip{\large\bfseries " + texto + r"\par}\smallskip"
+
+
 def resumo(dir_, aux, job, base_nome, ref_nome):
     d = json.load(open(Path(dir_) / "difancoras.json"))
     a = Path(dir_) / aux / f"{job}.aux"
@@ -527,13 +532,20 @@ def resumo(dir_, aux, job, base_nome, ref_nome):
     if d.get("nome"):
         titulo += ": " + esc(d["nome"])
     out.append(r"{\Large\bfseries " + titulo + r"\par}\medskip")
-    if d["corpo"]:
-        out.append(esc(d["corpo"]).replace("\n\n", "\\par\\smallskip ") + r"\par\medskip")
-    out.append(r"{\small Commits que mudaram o texto, do mais antigo ao mais novo. "
-               r"Cada página é um link para o trecho no diff: em {\color{blue}azul}, onde "
-               r"o texto entrou; em {\color{red}vermelho}, onde saiu. As chaves do refs.bib "
-               r"levam à entrada nas referências.\par}")
-    out.append(r"\begin{enumerate}\small\setlength{\itemsep}{2pt}")
+    # A mensagem da tag como na release (corpo()): a abertura e os itens de
+    # "O que mudou".
+    textos = itens(d["corpo"])
+    abertura = textos[:1] if com_abertura(ref_nome) else []
+    out += [esc(t) + r"\par" for t in abertura]
+    if mudancas := textos[len(abertura):]:
+        out += [titulo_do_resumo("O que mudou"), r"\begin{itemize}\setlength{\itemsep}{2pt}"]
+        out += [f"\\item {esc(t)}" for t in mudancas] + [r"\end{itemize}"]
+    out += [titulo_do_resumo("Os commits"),
+            r"{\small Commits que mudaram o texto, do mais antigo ao mais novo. "
+            r"Cada página é um link para o trecho no diff: em {\color{blue}azul}, onde "
+            r"o texto entrou; em {\color{red}vermelho}, onde saiu. As chaves do refs.bib "
+            r"levam à entrada nas referências.\par}",
+            r"\begin{enumerate}\small\setlength{\itemsep}{2pt}"]
     for c in d["commits"]:
         partes = []
         for tipo, cor in (("entrou", "blue"), ("saiu", "red")):
@@ -1059,6 +1071,15 @@ def versao(tag):
     return tuple(int(n) for n in tag.removeprefix("v").split("."))
 
 
+def com_abertura(tag):
+    """Se a mensagem da tag abre por um parágrafo de abertura; o diff até
+    um commit sem tag não tem mensagem, e a resposta não importa."""
+    try:
+        return versao(tag) >= ABERTURA_DESDE
+    except ValueError:
+        return False
+
+
 def corpo(saida, tag, base, repo):
     """O corpo da release, em Markdown: a mensagem da tag sem a primeira
     linha, em parágrafos (itens()), o primeiro como abertura e os outros
@@ -1079,7 +1100,7 @@ def corpo(saida, tag, base, repo):
     baixar = f"https://github.com/{repo}/releases/download/{tag}/"
     diff = f"diff-{base}.{tag}"
     # Até a v0.10, a mensagem não tinha abertura, e todo parágrafo é item.
-    abertura = textos[:1] if versao(tag) >= ABERTURA_DESDE else []
+    abertura = textos[:1] if com_abertura(tag) else []
     mudancas = textos[len(abertura):]
     linhas = (abertura + [""]) if abertura else []
     if mudancas:

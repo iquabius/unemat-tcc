@@ -514,6 +514,32 @@ class CorpoDaRelease(unittest.TestCase):
         self.assertNotIn("<details>", anotar.paginas_por_capitulo(dados))
 
 
+class ResumoDoDiff(unittest.TestCase):
+    """O difresumo.tex de um diff com dois commits."""
+
+    ANCORAS = {
+        "ancoras": [],
+        "commits": [{"commit": "a" * 40, "data": "2026-10-27", "assunto": "Leva o método",
+                     "chaves": []},
+                    {"commit": "b" * 40, "data": "2026-10-28", "assunto": "Põe uma frase",
+                     "chaves": []}],
+        "nome": "Marco", "corpo": "A abertura.\n\nO primeiro item.\n\nO segundo item."}
+
+    def resumo(self):
+        tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(tmp.cleanup)
+        d = Path(tmp.name)
+        (d / "difancoras.json").write_text(json.dumps(self.ANCORAS))
+        anotar.resumo(str(d), "aux", "diff", "v0.11", "v0.12")
+        return (d / "difresumo.tex").read_text()
+
+    def test_mensagem_da_tag_como_na_release(self):
+        resumo = self.resumo()
+        self.assertIn("v0.11 \\textrightarrow{} v0.12: Marco", resumo)
+        self.assertIn("A abertura.\\par\n" + anotar.titulo_do_resumo("O que mudou"), resumo)
+        self.assertIn("\\item O primeiro item.\n\\item O segundo item.\n\\end{itemize}", resumo)
+
+
 def pagina(n, cap, sec="", sub=""):
     return {"pagina": str(n), "fisica": n + 8, "capitulo": cap, "secao": sec, "subsecao": sub}
 
