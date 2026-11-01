@@ -1,17 +1,23 @@
 # Trabalhos relacionados e lacuna
 
-Fontes. Os candidatos à seção de trabalhos relacionados, que ainda não
-existe no texto (tarefa tcc-iku), e a lacuna que eles deixam: o que cada
-um compara e como, os trechos conferidos dos mais próximos e o estado da
-lacuna depois de cada rodada. Os trabalhos vão dos mais próximos aos mais
+Fontes. Os candidatos à seção "Trabalhos relacionados" de
+`texto/modelos.org`, que ainda está por montar (tarefa tcc-iku), e a
+lacuna que eles deixam: o que cada um compara e como, os trechos
+conferidos dos mais próximos e o estado da lacuna depois de cada ciclo
+de busca. Os trabalhos vão dos mais próximos aos mais
 distantes do delineamento; a busca que os achou está em
 `docs/bibliografia/protocolo-da-revisao.md`.
 
 **Conclusão.** Em 2026-10-09, nenhum trabalho encontrado repete o
 delineamento do TCC (mesmas interfaces, várias tecnologias, avaliação
-pelas DCs) nem compara os três modelos de programação nas tecnologias web
-mais usadas sobre as mesmas interfaces: a lacuna se mantém (seção "A
-lacuna"). Os mais próximos:
+pelas DCs) nem compara os três modelos de programação de então (os
+nomes até 2026-10-30) nas tecnologias web mais usadas sobre as mesmas
+interfaces: a lacuna se mantém (seção "A lacuna"). Com o modelo de
+programação nos dois eixos, a propagação e a orquestração (ADR 0021),
+a introdução diz a lacuna como a falta de comparação, sobre as mesmas
+interfaces e em tecnologias web, de modelos de programação do
+imperativo ao declarativo nos dois eixos (seção "No texto"). Os mais
+próximos:
 
 - **Kiss (2014)** já avaliou *signals* pelas DCs (Scala.Rx e Elm), na
   JVM e no Elm, e deixou a web como trabalho futuro (seções "Precedentes
@@ -20,8 +26,8 @@ lacuna"). Os mais próximos:
 - **Lima (2024)** e a versão em periódico, Zimmerle e Gama (2025),
   avaliam bibliotecas de PR, sem interface gráfica (seção "Zimmerle e
   Gama 2025 e a tese de Lima 2024");
-- **Grolaux et al. (2026)** comparam notações de eventos no navegador,
-  mas conceitualmente e sem DCs (seção "Trechos dos trabalhos mais
+- **Grolaux et al. (2026)** comparam formas de tratar os eventos no
+  navegador, mas conceitualmente e sem DCs (seção "Trechos dos trabalhos mais
   próximos");
 - **Narechania et al. (2025) e Verma, Odak e Narechania (2026)** avaliam
   pelas DCs a notação da própria biblioteca, e não a do Angular ou a do
@@ -38,7 +44,7 @@ no PDF; o resto da legenda está em `docs/README.md`.
 
 ## A lacuna
 
-Estado em 2026-10-09, depois da terceira rodada
+Estado em 2026-10-09, depois do terceiro ciclo de busca
 (`docs/bibliografia/protocolo-da-revisao.md`, seção "Terceira rodada"):
 o nicho continua sem trabalho. O mais perto são duas autoavaliações
 pelas DCs de bibliotecas de controles feitas em Angular e em React
@@ -46,23 +52,25 @@ pelas DCs de bibliotecas de controles feitas em Angular e em React
 notação da própria biblioteca; a de Verma et al. só diz que ela é
 "consistent with the framework it has been implemented in (i.e.
 React.js)" (p. 6 da cópia; seção "Autoavaliações pelas DCs de
-bibliotecas de controles").
+bibliotecas de controles"). O quarto ciclo, de 2026-10-26, buscou os
+contras dos modelos declarativos e não toca a lacuna (mesma nota, seção
+"Quarto ciclo").
 
 O nicho e as quatro lacunas parciais, levantadas em 2026-09-24 e
-revistas em 2026-10-02, depois da segunda rodada
+revistas em 2026-10-02, depois do segundo ciclo de busca
 (`docs/bibliografia/protocolo-da-revisao.md`, seção "Segunda rodada"):
 
 - **Nicho.** Não se encontrou análise pelas DCs de React nem dos
-  *signals* das bibliotecas web atuais (Solid, Angular), nem comparação
-  dos três modelos de programação (imperativo por atualização manual,
-  declarativo por re-renderização, declarativo por atualização granular)
-  nas mesmas interfaces. As DCs já foram aplicadas à PR por Kiss (2014),
-  com Scala.Rx, ReactFX e Elm (`docs/metodo-da-avaliacao.md`, seção "As
+  *signals* das tecnologias web atuais (Solid, Angular), nem comparação
+  dos três modelos de programação de então (imperativo por atualização
+  manual, declarativo por re-renderização, declarativo por atualização
+  granular, os nomes até 2026-10-30) nas mesmas interfaces. As DCs já
+  foram aplicadas à PR por Kiss (2014), com Scala.Rx, ReactFX e Elm (`docs/metodo-da-avaliacao.md`, seção "As
   DCs de Kiss e as 14 do TCC"), e por Zimmerle & Gama (2025), com RxJS
   e Bacon.js por questionário (nesta nota, seção "Zimmerle e Gama 2025 e
   a tese de Lima 2024"); "nenhuma análise de *signals* pelas DCs" não se
-  sustenta. O mais perto de comparar notações de coordenação é Grolaux
-  et al. (2026): reproduzem numa biblioteca com async/await o essencial de seis
+  sustenta. O mais perto de comparar formas de tratar os eventos de
+  interface é Grolaux et al. (2026): reproduzem numa biblioteca com async/await o essencial de seis
   práticas, de *listeners* e barramento de eventos a RxJS e componentes
   reativos, e as comparam conceitualmente, com exemplos diferentes para
   cada uma, sem interfaces comuns nem DCs (p. 8, 10, 14-15). A revisão
@@ -70,9 +78,10 @@ revistas em 2026-10-02, depois da segunda rodada
   DCs, pergunta que elementos do *framework* se usam (p. 1-2 da cópia),
   não a que notações, e não confirma a primeira parte.
 - **Lacuna 1, experimento controlado** (continua em 2026-10-02): nenhum
-  experimento controlado comparando *callbacks*, PR (RxJS) e o modelo
-  React/*signals* em GUIs em JavaScript: reforça a justificativa do
-  trabalho. A segunda rodada não achou experimento controlado novo.
+  experimento controlado comparando *callbacks*, PR (RxJS), o React e
+  os *signals* em GUIs em JavaScript: reforça a justificativa do
+  trabalho. O segundo ciclo de busca não achou experimento controlado
+  novo.
 - **Lacuna 2, *survey* de PR** (confirmada em 2026-10-02): nenhuma
   *survey* de PR revisada por pares com o alcance de Bainomugisha et al.
   (2013) no OpenAlex, no Crossref nem na ACM DL. Há visões parciais:
@@ -96,13 +105,15 @@ revistas em 2026-10-02, depois da segunda rodada
 
 ### No texto
 
-Ficam em `texto/intro.org`, na seção dos trabalhos relacionados: a lacuna
-("Nenhum desses trabalhos compara, sobre as mesmas interfaces e em
-tecnologias web, os três modelos de programação", apoiada na revisão por
-palavras-chave e *snowballing*, Wohlin 2014) e a pergunta P1, sobre como
-difere, pelas DCs, a usabilidade da notação entre os três modelos. Os
-candidatos e os trechos dos trabalhos relacionados estão em
-`docs/trabalhos-relacionados-e-lacuna.md`.
+Em `texto/intro.org`, o parágrafo dos trabalhos relacionados fecha com
+a lacuna ("Nenhum desses trabalhos compara, sobre as mesmas interfaces e
+em tecnologias web, modelos de programação do imperativo ao declarativo
+nos dois eixos"), restrita ao que encontrou a revisão bibliográfica do
+Apêndice II, e a pergunta P1 pergunta como difere, pelas DCs, a
+usabilidade da notação entre modelos de programação que vão do
+imperativo ao declarativo na propagação e na orquestração (ADR 0014). A
+seção "Trabalhos relacionados" de `texto/modelos.org` tem o trecho que
+saiu da introdução no corte de outubro, ainda por integrar (tcc-iku).
 
 ## Trechos dos trabalhos mais próximos
 
@@ -111,8 +122,9 @@ Lidos em 2026-10-02, salvo os de Grolaux et al. vindos de
 
 Trechos guardados mesmo quando o texto não os usa, para outras seções.
 Em 2026-10-02, eles já sustentavam a conclusão do início desta nota:
-nenhum trabalho lido compara os três modelos de programação nas
-tecnologias web mais usadas sobre as mesmas interfaces.
+nenhum trabalho lido compara os três modelos de programação de então
+(os nomes até 2026-10-30) nas tecnologias web mais usadas sobre as
+mesmas interfaces.
 
 | Fonte | Trecho | Onde | Leitura | Uso |
 |---|---|---|---|---|
@@ -145,7 +157,7 @@ tecnologias web mais usadas sobre as mesmas interfaces.
 O trecho de Sperber e Schlegel (2025, p. 32) sobre a re-renderização
 está na seção "Candidatos sobre eventos, PR e interfaces declarativas"
 e, conferido em 2026-10-09, em `docs/paradigma-modelo-e-notacao.md`,
-seção "Re-renderização e atualização granular".
+seção "Re-renderização e propagação granular".
 
 ## Zimmerle e Gama 2025 e a tese de Lima 2024
 
@@ -217,7 +229,7 @@ Para a tarefa tcc-fua, lidas em 2026-10-13.
 Clarke e Becker (2003, p. 359 e 364-365), Clarke (2004; 2005) e Stylos,
 Clarke e Myers (2006, p. 137-138) tratam cada API como uma notação, com
 dimensões reescritas para ela; Zimmerle e Gama (2025, p. 1508) tomam a
-premissa e medem por questionário. Nenhuma avalia *framework* de
+premissa e medem por questionário. Nenhuma avalia tecnologia de
 interface gráfica. Dá precedente à alternativa "uma notação por
 tecnologia", que o ADR 0021 recusou. Os trechos com página, conferidos
 no PDF, e o erro nas referências de Blackwell, Petre e Church (2019,
@@ -226,10 +238,10 @@ notação"; onde entram no texto é decisão do autor.
 
 ## Autoavaliações pelas DCs de bibliotecas de controles
 
-Da terceira rodada (2026-10-09).
+Do terceiro ciclo de busca (2026-10-09).
 
 Os dois avaliam pelas DCs a notação da própria biblioteca, e não a do
-Angular ou a do React; no `refs.bib` desde a rodada, com as cópias do
+Angular ou a do React; no `refs.bib` desde o ciclo, com as cópias do
 arXiv em `acervo/`. "TC" é o texto completo, lido nessas cópias.
 
 | Trabalho | O que faz | Para que serve | Lido |
@@ -243,7 +255,7 @@ Levantados em 2026-09-28.
 
 | Trabalho | O que compara e como | Lido |
 |---|---|---|
-| KISS (2014) | `docs/metodo-da-avaliacao.md`, seções "O 7GUIs e as interfaces" e "As DCs de Kiss e as 14 do TCC", e, nesta nota, trechos na seção "Trechos dos trabalhos mais próximos"; JavaFX × ScalaFX, Scala.Rx, ReactFX, Elm em sete tarefas, pelas DCs | TC |
+| KISS (2014) | `docs/metodo-da-avaliacao.md`, seções "O 7GUIs e as interfaces" e "As DCs de Kiss e as 14 do TCC", e, nesta nota, trechos na seção "Trechos dos trabalhos mais próximos"; JavaFX × ScalaFX, Scala.Rx, ReactFX, Elm em sete interfaces, pelas DCs | TC |
 | GREEN, T. R. G.; PETRE, M. *Usability analysis of visual programming environments: a 'cognitive dimensions' framework*. JVLC, v. 7, p. 131-174, 1996. DOI 10.1006/jvlc.1996.0009 | Basic, LabVIEW e Prograph num mesmo problema, pelas DCs, pelos dois autores; "*broad-brush evaluation technique*" (p. 131, resumo, na versão publicada, conferida em 2026-10-10; p. 3 da pré-publicação) | TC (pré-publicação; página da publicada conferida em 2026-10-10) |
 | BAYRAK, G.; OCKER, F.; VOGEL-HEUSER, B. *Evaluation of selected control programming languages for process engineers by means of cognitive effectiveness and dimensions*. JSEA, v. 10, p. 457-481, 2017. DOI 10.4236/jsea.2017.105026 | Três notações de controle num exemplo e cinco modificações, pelas DCs | TC (conferido, p. 457 e 467) |
 | NANZ, S. et al. *Benchmarking usability and performance of multicore languages*. ESEM 2013, p. 183-192. DOI 10.1109/esem.2013.10 | Quatro linguagens, seis problemas, um implementador e revisão por especialistas (§II-E) | TC (arXiv; conferido) |
@@ -269,7 +281,7 @@ Levantados em 2026-09-28.
 
 ## Candidatos sobre eventos, PR e interfaces declarativas
 
-Da segunda rodada (2026-10-02).
+Do segundo ciclo de busca (2026-10-02).
 
 Nenhum repete o delineamento do TCC. "R" é o resumo, relido no OpenAlex ou no
 Crossref; "TC", o texto completo, lido em 2026-10-02 nas cópias de
@@ -277,8 +289,8 @@ Crossref; "TC", o texto completo, lido em 2026-10-02 nas cópias de
 
 | Trabalho | O que faz | Para que serve | Lido |
 |---|---|---|---|
-| GROLAUX, D.; NGUYEN, T.-D.; VANDERDONCKT, J. *Async/await is an effective paradigm for event management of user interfaces*. EICS '26 Companion, p. 7-16, 2026. DOI 10.1145/3807968.3810928 | Prova de conceito (StreamAsync, JavaScript) que trata eventos de GUI como E/S com async/await. Reproduz nela o essencial de seis práticas (programação síncrona, *listeners*, barramento de eventos, laço de animação, RxJS e afins, componentes reativos) e as compara "conceitualmente", sem interfaces comuns, DCs nem medidas (p. 10, 15); a introdução fala em cinco práticas e lista seis (p. 8). Contra a reatividade implícita, p. 14 (trechos na seção "Trechos dos trabalhos mais próximos"). Limites declarados: princípios centrais de cada prática, sem desempenho, sem experiência em escala (p. 14) | O mais perto de comparar notações de coordenação; trabalhos relacionados; a frase da p. 14 toca as dependências ocultas | TC |
-| SPERBER, M.; SCHLEGEL, M. *Evolution of functional UI paradigms*. FUNARCH '25, p. 27-38, 2025. DOI 10.1145/3759163.3760429 | Narra a evolução dos *toolkits* funcionais de UI (eXene, Fudgets, Fruit, Haggis, Universe do Racket, Elm, React) pela arquitetura: acoplamento e os desafios de atualizar a tela, de modularidade e de circularidade do MVC (p. 28); inclui os *toolkits* dos autores (Reacl, reacl-c). Não é revisão sistemática nem usa DCs. O React "re-renders the entire UI on each interaction, just like Elm" (p. 32); Angular, Svelte e Vue.js atualizam "specific parts of the UI corresponding to specific changes in the model" (p. 32); o Elm deixou a PFR em 2016 (p. 31) | Visão parcial depois de 2013 (lacuna 2, seção "A lacuna"); a p. 32 sustenta a fronteira entre re-renderização e atualização fina | TC |
+| GROLAUX, D.; NGUYEN, T.-D.; VANDERDONCKT, J. *Async/await is an effective paradigm for event management of user interfaces*. EICS '26 Companion, p. 7-16, 2026. DOI 10.1145/3807968.3810928 | Prova de conceito (StreamAsync, JavaScript) que trata eventos de GUI como E/S com async/await. Reproduz nela o essencial de seis práticas (programação síncrona, *listeners*, barramento de eventos, laço de animação, RxJS e afins, componentes reativos) e as compara "conceitualmente", sem interfaces comuns, DCs nem medidas (p. 10, 15); a introdução fala em cinco práticas e lista seis (p. 8). Contra a reatividade implícita, p. 14 (trechos na seção "Trechos dos trabalhos mais próximos"). Limites declarados: princípios centrais de cada prática, sem desempenho, sem experiência em escala (p. 14) | O mais perto de comparar formas de tratar os eventos de interface; trabalhos relacionados; a frase da p. 14 toca as dependências ocultas | TC |
+| SPERBER, M.; SCHLEGEL, M. *Evolution of functional UI paradigms*. FUNARCH '25, p. 27-38, 2025. DOI 10.1145/3759163.3760429 | Narra a evolução dos *toolkits* funcionais de UI (eXene, Fudgets, Fruit, Haggis, Universe do Racket, Elm, React) pela arquitetura: acoplamento e os desafios de atualizar a tela, de modularidade e de circularidade do MVC (p. 28); inclui os *toolkits* dos autores (Reacl, reacl-c). Não é revisão sistemática nem usa DCs. O React "re-renders the entire UI on each interaction, just like Elm" (p. 32); Angular, Svelte e Vue.js atualizam "specific parts of the UI corresponding to specific changes in the model" (p. 32); o Elm deixou a PFR em 2016 (p. 31) | Visão parcial depois de 2013 (lacuna 2, seção "A lacuna"); a p. 32 descreve a re-renderização do React e a atualização só das partes no Angular, no Svelte e no Vue.js, mas não sustenta a fronteira entre a re-renderização e o granular, que se lê nos sinais escritos (ADR 0021; `docs/paradigma-modelo-e-notacao.md`, seção "Tensões que o texto precisa enfrentar") | TC |
 | WIJAYARATHNA, C.; GROBLER, M.; ARACHCHILAGE, N. A. G. *Software developers need help too! Developing a methodology to analyse cognitive dimension-based feedback on usability*. Behaviour & Information Technology, 2019. DOI 10.1080/0144929x.2019.1705393 | Revisão sistemática de 70 estudos que usaram questionários de DCs e diretrizes para analisar as respostas | Método: DCs por questionário, contra a análise feita pelo autor | R; versão submetida aberta na UNSWorks |
 | ZHUANG, Y.; CHIBA, S. *Expanding event systems to support signals by enabling the automation of handler bindings*. Journal of Information Processing, v. 24, n. 4, p. 620-634, 2016. DOI 10.2197/ipsjjip.24.620 | Opõe a ligação explícita de *handlers* nos eventos à implícita dos *signals* e estende sistemas de eventos | *Callbacks* × *signals*; o resumo não fala de GUI | R |
 | ALABOR, M.; STOLZE, M. *Debugging of RxJS-based applications*. REBLS 2020, p. 15-24. DOI 10.1145/3427763.3428313 | Como se depuram aplicações em RxJS e o que atrapalha | Apoio (Angular com RxJS); propensão a erros | R |
@@ -287,8 +299,8 @@ Crossref; "TC", o texto completo, lido em 2026-10-02 nas cópias de
 | MORSHCHININA, L. et al. *A comparative study of web frontend reactivity*. CMSD-IV 2024 (Proc. SPIE), 2025. DOI 10.1117/12.3061434 | Reatividade do Vue 2 (`Object.defineProperty`) contra a do Vue 3 (`Proxy`): flexibilidade, modularidade, desempenho | Rastreamento automático de dependências no front-end; veículo fora da área | R |
 | MATOS, E. F. de; ZUCHI, J. D. *Estudo sobre programação reativa*. Revista Interface Tecnológica, v. 18, n. 2, p. 219-228, 2021. DOI 10.31510/infa.v18i2.1287 | Revisão bibliográfica de PR | Brasileiro; visão parcial (lacuna 2); conferir se o Zuchi é o de Ferreira e Zuchi (2018), citado por Cavalcante (seção "Trabalhos brasileiros") | R |
 | NAVES, T. D. *Comparação dos modelos ReactiveX e programação reativa estruturada em aplicações soft real time*. PUC-Rio, 2021 (a BDTD diz tese; o OpenAlex, *dissertation*). DOI 10.17771/pucrio.acad.53553 | PR estruturada × ReactiveX em aplicações em Lua de tempo real brando | Brasileiro; mesma aplicação em dois modelos, sem GUI | R (BDTD) |
-| SAEED, M. S. *Traditional view system vs. Kotlin-driven Jetpack Compose in native Android development*. Dissertação (mestrado), University of Helsinki, 2024 | Views (imperativo, orientado a eventos) × Compose (declarativo) | Replicação no Android; literatura cinzenta | R |
-| SUAREZ-CARVAJAL, F.-E. et al. *MVVM in the era of modern Android: a systematic literature review and taxonomy of architectural trade-offs*. CLEI Electronic Journal, v. 29, n. 2, 2026. DOI 10.19153/cleiej.29.2.8 | Revisão sistemática de 78 estudos (2017-2025) sobre MVVM e UI declarativa no Android | Replicação no Android | R, só o início |
+| SAEED, M. S. *Traditional view system vs. Kotlin-driven Jetpack Compose in native Android development*. Dissertação (mestrado), University of Helsinki, 2024 | Views (imperativo, orientado a eventos) × Compose (declarativo), nos termos do autor | O Android, nos trabalhos futuros (ADR 0001); literatura cinzenta | R |
+| SUAREZ-CARVAJAL, F.-E. et al. *MVVM in the era of modern Android: a systematic literature review and taxonomy of architectural trade-offs*. CLEI Electronic Journal, v. 29, n. 2, 2026. DOI 10.19153/cleiej.29.2.8 | Revisão sistemática de 78 estudos (2017-2025) sobre MVVM e UI declarativa no Android | O Android, nos trabalhos futuros (ADR 0001) | R, só o início |
 
 ## Trabalhos de conclusão de bacharelado
 
@@ -297,7 +309,7 @@ Levantados em 2026-10-10.
 Os trabalhos de conclusão de bacharelado em computação no tema do TCC,
 em português e em inglês, que uma busca rápida na web achou em
 2026-10-10, mais os que as fontes já tinham. Os comparativos comparam
-*frameworks* web por popularidade e desempenho; nenhum usa as DCs nem
+tecnologias web por popularidade e desempenho; nenhum usa as DCs nem
 trata dos *signals*. Não são revisados por pares e ficam fora dos
 critérios da revisão (Apêndice II), que só admitem, além dos revisados,
 dissertações e teses da BDTD: servem de termo de comparação para o
@@ -346,11 +358,12 @@ Dissertações e teses, e alguns trabalhos de graduação, que respondem à
 pergunta de Kiss (2014) por outro método, levam o objeto dele à web,
 propõem outra saída para o Observer da orientação a objetos ou tratam da
 interface declarativa no Brasil. Vieram de 24 buscas na BDTD
-(2026-10-10, além das 14 da segunda rodada), de 15 buscas no OpenAlex por
+(2026-10-10, além das 14 do segundo ciclo de busca), de 15 buscas no OpenAlex por
 `type:dissertation` de 2008 a 2026 e dos que a base já tinha. Kiss avalia
 pelas DCs, sozinho e analiticamente, descarta experimentos e desempenho
 (`docs/metodo-da-avaliacao.md`) e fica na JVM e no Elm; nenhum trabalho
-daqui aplica as DCs a três notações nas mesmas interfaces.
+daqui aplica as DCs, nas mesmas interfaces, às notações de modelos de
+programação diferentes.
 Grau ainda aberto, inclusive o bacharelado, para restringir depois:
 "Grau" diz de onde ele vem, e "não confirmado" é página que recusou a
 consulta. "R" é o resumo, lido no OpenAlex, na BDTD ou no repositório;
@@ -375,7 +388,7 @@ que ele defende.
 
 | Trabalho | Diferença para Kiss | Grau | Lido |
 |---|---|---|---|
-| GROV, M. *Building user interfaces using virtual DOM: a comparison against dirty checking and KVO*. Universitetet i Oslo, 2015. hdl.handle.net/10852/45209 | DOM virtual (React) contra *dirty checking* (AngularJS) e observação de valores (KVO), por desempenho, questionário com estudantes e dez entrevistas; o mais perto das três notações do TCC | mestrado, registro da universidade (`DegreeMaster`), em 2026-10-10 | R (OpenAlex) |
+| GROV, M. *Building user interfaces using virtual DOM: a comparison against dirty checking and KVO*. Universitetet i Oslo, 2015. hdl.handle.net/10852/45209 | DOM virtual (React) contra *dirty checking* (AngularJS) e observação de valores (KVO), por desempenho, questionário com estudantes e dez entrevistas; o mais perto dos modelos de programação que o TCC compara | mestrado, registro da universidade (`DegreeMaster`), em 2026-10-10 | R (OpenAlex) |
 | GREŠAK, M. *Assessing the suitability of Elm language for developing web applications*. Univerza v Ljubljani (FRI), 2018. eprints.fri.uni-lj.si/4111 | Elm contra React na mesma aplicação: a pergunta de Kiss com o React no lugar do JavaFX | bacharelado, folha de rosto ("diplomsko delo", primeiro ciclo); em esloveno | TC (seção "Trabalhos de conclusão de bacharelado") |
 | LEVLIN, M. *DOM benchmark comparison of the front-end JavaScript frameworks React, Angular, Vue, and Svelte*. 2020. doria.fi/handle/10024/177433 | Velocidade de operações no DOM, o desempenho que Kiss descarta | não confirmado | R (OpenAlex) |
 | BELLINCANTA FILHO, N. *AgDataBox-Map 5.0: modernização do front-end – migração de Angular para React com foco em desempenho, manutenibilidade e paridade funcional*. UNIOESTE, 2025. tede.unioeste.br/handle/tede/8291 | Migração de Angular para React avaliada antes e depois, de forma controlada | "tese" pela BDTD, a conferir | R (BDTD) |
@@ -412,3 +425,16 @@ próximos aos mais distantes, e recebeu a lacuna, que estava em
 `docs/problema-lacuna-pergunta.md` (hoje
 `docs/estado-eventos-e-complexidade.md`), e os trechos de Grolaux et al.
 de `docs/fundamentacao.md`.
+
+Em 2026-11-01, a conclusão passou a citar a lacuna como a introdução a
+diz, nos dois eixos do modelo de programação (ADR 0021); os achados de
+2026-10-02 e de 2026-10-09 ficaram com os três modelos de programação
+de então, marcados com a data em que os nomes saíram, e as seções sobre
+Kiss na web deixaram de falar das três notações do TCC. A busca
+bibliográfica passou a se contar por ciclos de busca, e não por
+rodadas (`GLOSSARY.md`, Ciclo de busca); Grolaux et al. passaram a
+comparar formas de tratar os eventos, e não notações de coordenação; e
+Sperber e Schlegel (2025, p. 32) deixaram de sustentar a fronteira entre
+a re-renderização e o granular, que o ADR 0021 lê nos sinais escritos.
+A nota deixou de dizer que a seção de trabalhos relacionados não existe
+no texto: ela está em `texto/modelos.org`, por montar.
