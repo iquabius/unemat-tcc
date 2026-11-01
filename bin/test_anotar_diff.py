@@ -980,8 +980,27 @@ class ResumoDoDiff(unittest.TestCase):
         self.assertIn(r"\item Leva o método\\ reescrito: Introdução, p.~"
                       r"\hyperref[difancora-2]{\textcolor{difreescrito}{9}}.", resumo)
         self.assertNotIn(r"\textrightarrow{} Introdução", resumo)
-        self.assertIn(r"\enquote{reescrito:}, com as páginas em {\color{difreescrito}roxo}",
+        self.assertIn(r"vêm em {\color{difreescrito}roxo}, depois de \enquote{reescrito:}.",
                       resumo)
+
+    def test_reescrito_só_na_página_que_está_nos_dois_lados(self):
+        # Saiu da p. 9 da introdução e entrou nela e na p. 30 do
+        # delineamento: a p. 9 está nos dois lados e vai ao roxo, e o
+        # delineamento, que só tem o que entrou, fica com o "entrou:", sem
+        # seta.
+        ancoras = dict(self.ANCORAS, commits=self.ANCORAS["commits"][:1], ancoras=[
+            {"n": 1, "commit": "a" * 40, "tipo": "saiu", "capitulo": "Introdução"},
+            {"n": 2, "commit": "a" * 40, "tipo": "entrou", "capitulo": "Introdução"},
+            {"n": 3, "commit": "a" * 40, "tipo": "entrou", "capitulo": "Comparação"}])
+        resumo = self.resumo(ancoras=ancoras)
+        self.assertIn(r"\item Leva o método\\ reescrito: Introdução, p.~"
+                      r"\hyperref[difancora-2]{\textcolor{difreescrito}{9}}. entrou: "
+                      r"Delineamento, p.~\hyperref[difancora-3]{\textcolor{difentrou}{30}}.",
+                      resumo)
+        self.assertNotIn(r"\textrightarrow{} Introdução", resumo)
+        # O "entrou:" ao lado do roxo: a frase do lado só deixa as páginas em
+        # roxo fora da conta.
+        self.assertIn(r"falta na v0.12 fora das páginas em roxo;", resumo)
 
     # Duas subseções "Exemplo", em capítulos diferentes, na mesma página, e a
     # segunda também na seguinte.

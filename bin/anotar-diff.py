@@ -52,15 +52,14 @@ O resumo é escrito para o orientador, que lê o PDF sem o repositório. Abre
 pela mensagem da tag, como a release; depois, as páginas alteradas por
 capítulo e seção, com as medidas e um link em cada número de página
 (tabela_por_lugar()); por último, os commits, sem data nem hash, cada um
-com as páginas de onde o texto saiu (vermelho), uma seta e as páginas em
-que entrou (azul), ou, com um lado só, o nome dele, ou, com os dois lados
-nas mesmas seções e páginas, "reescrito:" e as páginas (roxo), agrupadas
-por seção e, as seguidas, num intervalo, com link para o trecho em cada
-página solta e nas pontas do intervalo, e as fontes do refs.bib que ele
-mudou, por autor e ano (\\textcite), com link para a entrada na
-bibliografia. O commit cujo trecho foi refeito depois, ou que só mudou
-rótulos, e que não mudou uma entrada que as referências mostram, não
-entra.
+com "reescrito:" e as páginas (roxo) em que o texto saiu e entrou no
+mesmo lugar, e, das outras, as de onde saiu (vermelho), uma seta e as em
+que entrou (azul), ou, com um lado só, o nome dele, agrupadas por seção
+e, as seguidas, num intervalo, com link para o trecho em cada página
+solta e nas pontas do intervalo, e as fontes do refs.bib que ele mudou,
+por autor e ano (\\textcite), com link para a entrada na bibliografia. O
+commit cujo trecho foi refeito depois, ou que só mudou rótulos, e que não
+mudou uma entrada que as referências mostram, não entra.
 """
 import json
 import os
@@ -792,21 +791,35 @@ def resumo(dir_, aux, job, base_nome, ref_nome):
                 por_secao.setdefault((cap, sec, sub), {}).setdefault(pagina, an["n"])
             if por_secao:
                 lados[tipo] = por_secao
-        # De onde o texto saiu para onde entrou; com um lado só, o nome dele.
-        # Com os dois lados nos mesmos lugares e páginas, o texto foi reescrito
-        # no lugar, e a seta diria que ele se moveu: o item leva ao trecho novo.
+        # A página de um lugar que está nos dois lados: o texto foi reescrito
+        # ali, e a seta diria que ele se moveu. Ela vai para o
+        # "reescrito:", com o link do trecho novo, e o resto fica de onde o
+        # texto saiu para onde entrou, ou, com um lado só, com o nome dele.
         # O lugar se compara inteiro, porque duas subseções de capítulos
         # diferentes podem ter o mesmo título.
-        if len(lados) == 2 and ({lg: list(p) for lg, p in lados["saiu"].items()}
-                                == {lg: list(p) for lg, p in lados["entrou"].items()}):
-            partes = ["reescrito: " + paginas_do_lado(lados["entrou"], CORES["reescrito"])]
+        comum = {}
+        if len(lados) == 2:
+            for lg, paginas in lados["entrou"].items():
+                if no_lugar := {p: n for p, n in paginas.items() if p in lados["saiu"].get(lg, {})}:
+                    comum[lg] = no_lugar
+            for tipo in ("saiu", "entrou"):
+                resto = {lg: r for lg, paginas in lados[tipo].items()
+                         if (r := {p: n for p, n in paginas.items() if p not in comum.get(lg, {})})}
+                if resto:
+                    lados[tipo] = resto
+                else:
+                    del lados[tipo]
+        partes = []
+        if comum:
+            partes.append("reescrito: " + paginas_do_lado(comum, CORES["reescrito"]))
             formas.add("reescrito")
-        elif len(lados) == 2:
-            partes = [f"{paginas_do_lado(lados['saiu'], CORES['saiu'])} \\textrightarrow{{}} "
-                      f"{paginas_do_lado(lados['entrou'], CORES['entrou'])}"]
+        if len(lados) == 2:
+            partes.append(f"{paginas_do_lado(lados['saiu'], CORES['saiu'])} \\textrightarrow{{}} "
+                          f"{paginas_do_lado(lados['entrou'], CORES['entrou'])}")
             formas.add("seta")
         else:
-            partes = [f"{tipo}: {paginas_do_lado(lado, CORES[tipo])}" for tipo, lado in lados.items()]
+            partes += [f"{tipo}: {paginas_do_lado(lado, CORES[tipo])}"
+                       for tipo, lado in lados.items()]
             formas.update(lados)
         # A chave que as referências não mostram (a fonte não citada) não
         # leva a lugar nenhum, e fica de fora como o trecho que não existe.
@@ -825,29 +838,31 @@ def resumo(dir_, aux, job, base_nome, ref_nome):
     # Sem nenhum item, nem o título: o enumerate vazio para o pdflatex
     # ("missing \item").
     if itens_dos_commits:
+        fora_do_roxo = " fora das páginas em roxo" if "reescrito" in formas else ""
         out += [titulo_do_resumo("Os commits"),
                 r"{\small Os commits que mudaram o texto, do mais antigo ao mais novo. "
                 # Só as formas que a lista tem: a frase de uma forma que não
                 # aparece manda procurar o que não está na página. Cada uma
-                # diz as cores que usa.
+                # diz as cores que usa, na ordem em que o item as mostra.
+                + (r"As páginas em que o texto saiu e entrou no mesmo lugar, onde ele foi "
+                   r"reescrito, vêm em {\color{difreescrito}roxo}, depois de "
+                   r"\enquote{reescrito:}. " if "reescrito" in formas else "")
                 + (r"Com os dois lados, as páginas de onde o texto saiu, em "
                    r"{\color{difsaiu}vermelho}, vêm antes da seta, e as páginas em que entrou, "
                    r"em {\color{difentrou}azul}, depois dela. " if "seta" in formas else "")
                 # O lado do que saiu conta só as linhas de BASE (quem_tirou()),
                 # e o do que entrou, só as que ficaram em REF (o git blame).
-                # Cada lado só tem a frase dele.
+                # Cada lado só tem a frase dele. As páginas em roxo têm os
+                # dois lados, e ficam fora da conta.
                 + ("Com um lado só, " + " e ".join(
                     ([r"\enquote{entrou:}, em {\color{difentrou}azul}, quer dizer que nada do "
-                      f"texto que o commit tirou da {esc(base_nome)} falta na {esc(ref_nome)}"]
-                     if "entrou" in formas else [])
+                      f"texto que o commit tirou da {esc(base_nome)} falta na {esc(ref_nome)}"
+                      + fora_do_roxo] if "entrou" in formas else [])
                     + ([r"\enquote{saiu:}, em {\color{difsaiu}vermelho}, quer dizer que nada "
-                        f"do texto que o commit pôs ficou na {esc(ref_nome)}"]
+                        f"do texto que o commit pôs ficou na {esc(ref_nome)}" + fora_do_roxo]
                        if "saiu" in formas else []))
                    + "; o capítulo que o commit apagou ou esvaziou não entra na conta. "
                    if formas & {"entrou", "saiu"} else "")
-                + (r"Com os dois lados nas mesmas seções e páginas, o texto foi reescrito no "
-                   r"lugar, e o item diz \enquote{reescrito:}, com as páginas em "
-                   r"{\color{difreescrito}roxo}. " if "reescrito" in formas else "")
                 + "Cada página leva ao trecho no diff"
                 + (r", e cada fonte depois de \enquote{Referências:}, à entrada dela"
                    if "referências" in formas else "")
