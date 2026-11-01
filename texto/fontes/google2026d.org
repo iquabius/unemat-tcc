@@ -1,10 +1,12 @@
 #+title: google2026d: Google (2026), Lifecycle
 #+startup: overview
 
-* [[file:../cases.org::Na web, Web Component, React e Solid][cases: Na web, Web Component, React e Solid]]
-- Frase: “O Lit se constrói sobre o Web Component: seus componentes são
-  elementos personalizados do navegador, mas cada alteração de estado chama
-  de novo o método que monta a tela (Google, 2026d).”
+* [[file:../cases.org::Depois da análise, o entorno do núcleo][cases: Depois da análise, o entorno do núcleo]] (o Lit sobre o Web Component)
+- Frase: “O Lit se constrói sobre o Web Component: o componente continua
+  uma classe que o navegador chama como elemento personalizado, mas a
+  alteração de uma propriedade reativa agenda um ciclo de atualização,
+  que chama de novo o =render()= e atualiza a tela pelo /template/
+  (Google, 2026d; Google, 2026e).”
 - Trecho: “Lit components are standard custom elements and inherit the
   custom element lifecycle methods.”; “The reactive update cycle is
   triggered when a reactive property changes or when the requestUpdate()
@@ -12,7 +14,8 @@
   to update its internal DOM.”
 - Lido em: =acervo/google2026d.html= (página salva em
   2026-10-13; lit.dev/docs/components/lifecycle/).
-- Observação: que o par Web Component e Lit mantém o modelo de componente
-  e a orquestração é do próprio delineamento (ADR 0013), e não da fonte.
-- Conferido: 2026-10-13.
-
+- Observação: que o passo do Web Component ao Lit mantém o modelo de
+  componente e a orquestração é do próprio delineamento (ADR 0042), e não
+  da fonte. Até 2026-10-31, a frase estava no parágrafo dos pares, que
+  saiu com a reescrita do delineamento.
+- Conferido: 2026-10-13; de novo em 2026-10-31, na frase nova.

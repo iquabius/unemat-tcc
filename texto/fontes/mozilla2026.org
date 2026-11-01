@@ -21,14 +21,19 @@
 - Observação: até 2026-10-13, a frase contrapunha o jQuery, que se diz
   biblioteca; o jQuery saiu do texto (ADR 0013).
 - Conferido: 2026-10-09; frase revista em 2026-10-13.
-* [[file:../cases.org::Na web, Web Component, React e Solid][cases: Na web, Web Component, React e Solid]] (escolha do Web Component)
-- Frase: “O imperativo por atualização manual entra com o Web Component, a forma
-  do próprio navegador de criar elementos personalizados (Mozilla, 2026).”
+* [[file:../cases.org::O núcleo tem duas tecnologias][cases: O núcleo tem duas tecnologias]] (o Web Component)
+- Frase: “O Web Component é a forma do próprio navegador de criar
+  elementos personalizados, sem biblioteca: uma classe que estende
+  =HTMLElement= e que o navegador chama (Mozilla, 2026).”
 - Trecho: “custom elements: that is, HTML elements whose behavior is
   defined by the web developer, that extend the set of elements available
-  in the browser.”; “This class will not be called by you, but will be
-  called by the browser.”
+  in the browser.”; “A custom element is implemented as a class which
+  extends HTMLElement (in the case of autonomous elements) [...]. This
+  class will not be called by you, but will be called by the browser.”
 - Lido em: =acervo/mozilla2026.txt=, l. 7 e 49 (página salva; MDN,
   modificada em 2026-09-01).
 - Observação: o jQuery, que dividia a frase, saiu do texto (ADR 0013).
-- Conferido: 2026-10-13.
+  Até 2026-10-31, a frase estava no parágrafo dos pares, que saiu com a
+  reescrita do delineamento; “sem biblioteca” é do delineamento (ADR
+  0013), e não da fonte.
+- Conferido: 2026-10-13; de novo em 2026-10-31, na frase nova.

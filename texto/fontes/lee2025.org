@@ -103,13 +103,22 @@
   /callback/ também pode substituir as propriedades.
 - Conferido: 2026-10-15; de novo em 2026-10-27, na frase fundida; de novo em
   2026-10-28.
-* [[file:../cases.org::No React e no Solid, a tela se monta][cases: No React e no Solid, a tela se monta em JSX]], 289:38
-- Frase: “a cada alteração de estado, o React reexecuta o componente
-  inteiro, e o Solid atualiza só os trechos da tela que dependem do
-  /signal/ alterado (Lee; Ahn; Yi, 2025, 289:38; SolidJS, 2026b).”
+* [[file:../cases.org::O núcleo tem duas tecnologias][cases: O núcleo tem duas tecnologias]] (o React reexecuta), p. 289:38
+- Frase: “quando o estado se altera, o React reexecuta o componente
+  inteiro (Lee; Ahn; Yi, 2025, p. 289:38; SolidJS, 2026), a propagação
+  por re-renderização.”
 - Trecho: Tabela 2, “Comparison of reactive UI frameworks”: “Re-read
   Spec.” é “Yes” no React e “No” no Solid e no Angular; a propriedade é
   “whether they re-read component specifications for re-rendering”
   (289:38).
 - Lido em: =acervo/lee2025.pdf=, p. 38 do PDF (apêndice C).
-- Conferido: 2026-10-09.
+- Observação: até 2026-10-31, o React e o Solid estavam numa frase só,
+  com a citação “289:38” sem o “p.”.
+- Conferido: 2026-10-09; de novo em 2026-10-31.
+* [[file:../cases.org::Depois da análise, o entorno do núcleo][cases: Depois da análise, o entorno do núcleo]] (o Solid não reexecuta), p. 289:38
+- Frase: “No Solid, a tela também se monta em JSX, mas o componente não se
+  reexecuta, e a alteração de um /signal/ atualiza só os trechos da tela
+  que dependem dele (Lee; Ahn; Yi, 2025, p. 289:38; SolidJS, 2026)”.
+- Trecho: o mesmo da Tabela 2: “Re-read Spec.” é “No” no Solid.
+- Lido em: =acervo/lee2025.pdf=, p. 38 do PDF (apêndice C).
+- Conferido: 2026-10-31.

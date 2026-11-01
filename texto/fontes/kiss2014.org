@@ -273,3 +273,12 @@
   paradigms did not come into play once again.”
 - Lido em: =acervo/kiss2014.pdf=, p. 29 do PDF.
 - Conferido: 2026-10-31.
+
+* [[file:../cases.org::Na Busca, no Login e no Placar ao vivo, o Web Component com Effection][cases: Na Busca, no Login e no Placar ao vivo, o Web Component com Effection]] (o passo sem controle), p. 23
+- Frase: “A diferença nesse passo não se atribui a uma variável só, como
+  nos casos de Kiss (2014, p. 23), em que o /toolkit/ pesou mais que o
+  paradigma.”
+- Trecho: “As before, the toolkit dominated this evaluation and the
+  paradigms did not come into play once again.”
+- Lido em: =acervo/kiss2014.pdf=, p. 29 do PDF.
+- Conferido: 2026-10-31.

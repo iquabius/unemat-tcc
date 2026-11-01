@@ -10,3 +10,12 @@
   and should return the next state.”
 - Lido em: =acervo/paginas-web/react2026-usereducer.md=.
 - Conferido: 2026-10-31.
+* [[file:../cases.org::Na terceira rodada, na Busca][cases: Na terceira rodada, na Busca]] (o reducer)
+- Frase: “O =useReducer= leva o React à orquestração por mensagem: cada
+  evento vira uma ação, e uma função pura, o /reducer/, recebe o estado e
+  a ação e devolve o estado seguinte (Meta Platforms, 2026d).”
+- Trecho: “reducer: The reducer function that specifies how the state gets
+  updated. It must be pure, should take the state and action as arguments,
+  and should return the next state.”
+- Lido em: =acervo/paginas-web/react2026-usereducer.md=, l. 41.
+- Conferido: 2026-10-31.

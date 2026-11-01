@@ -1,3 +1,33 @@
 #+title: google2026e: Google (2026e), Reactive properties
 #+startup: overview
 
+* [[file:../cases.org::Depois da análise, o entorno do núcleo][cases: Depois da análise, o entorno do núcleo]] (o ciclo de atualização)
+- Frase: “a alteração de uma propriedade reativa agenda um ciclo de
+  atualização, que chama de novo o =render()= e atualiza a tela pelo
+  /template/ (Google, 2026d; Google, 2026e).”
+- Trecho: “When a reactive property changes, the component schedules an
+  update.”; “A property change can trigger a reactive update cycle, which
+  causes the component to re-render its template.”
+- Lido em: =acervo/google2026e.html=, seção “What happens when properties
+  change”.
+- Conferido: 2026-10-31.
+* [[file:../cases.org::Depois da análise, o entorno do núcleo][cases: Depois da análise, o entorno do núcleo]] (a alteração no lugar)
+- Frase: “Alterar um objeto ou uma lista sem trocar a referência não
+  dispara a atualização. A documentação recomenda, na maioria das
+  aplicações, tratar os dados como imutáveis, mas admite, quando o dado
+  serve a um componente só, alterá-lo no lugar e pedir a atualização com
+  =requestUpdate()= (Google, 2026e).”
+- Trecho: “Mutating an object or array doesn't change the object
+  reference, so it won't trigger an update.”; “In general, using top-down
+  data flow with immutable objects is best for most applications.”; “In
+  simple cases, when you know that a given piece of data is only used in a
+  single component, it should be safe to mutate the data and call
+  requestUpdate(), if you prefer.”
+- Lido em: =acervo/google2026e.html=, seção “Mutating object and array
+  properties”.
+- Observação: que o Lit do Desenhador de círculos e da Planilha altera a
+  lista e os mapas no lugar e chama =requestUpdate()= é do código
+  (=interfaces-graficas/desenho-de-circulos/entorno/lit/src/main.ts= e
+  =interfaces-graficas/planilha/entorno/lit/src/main.ts=), e não da fonte.
+  O ADR 0042 diz o contrário, “o dado trocado por uma cópia”.
+- Conferido: 2026-10-31.

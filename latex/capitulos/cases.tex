@@ -50,107 +50,37 @@ círculo, o diâmetro ajustado num diálogo que guarda o círculo escolhido
 e o desfazer e o refazer de cada passo, para o usuário corrigir o
 desenho sem recomeçar.
 \end{description}
-\subsection{As tecnologias e os pares}
-\label{sec:as-tecnologias-e-os-pares}
-\todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}
+\subsection{As tecnologias e os passos}
+\label{sec:as-tecnologias-e-os-passos}
 
-Na web, Web Component, React e Solid, uma tecnologia por modelo de
-programação, implementam as cinco interfaces.
-O imperativo por atualização manual entra com o Web Component, a forma do
-próprio navegador de criar elementos personalizados \cite{mozilla2026}.
-Lit e Angular com \emph{signals} implementam três interfaces cada, em pares de
-tecnologias próximas: o Lit com o Web Component, e o Angular com o Solid.
-O Lit se constrói sobre o Web Component: seus componentes são elementos
-personalizados do navegador, mas cada alteração de estado chama de novo o
-método que monta a tela \cite{google2026d}.
-Por isso fica no declarativo por re-renderização, como o React, com
-outra notação.
-O par Web Component e Lit, no Formulário, na Busca e nos Dados ao vivo,
-mantém o modelo de componente e a orquestração.
-Muda só a ligação do estado com a tela, escrita à mão no primeiro e
-refeita pelo \emph{template} a cada alteração de estado no segundo.
-
-No React e no Solid, a tela se monta em JSX, marcação parecida com \gls{html}
+O núcleo tem duas tecnologias, o Web Component e o React, que
+implementam as sete interfaces na primeira e na segunda rodada.
+O Web Component é a forma do próprio navegador de criar elementos
+personalizados, sem biblioteca: uma classe que estende \texttt{HTMLElement} e
+que o navegador chama \cite{mozilla2026}.
+Nele, o tratador de cada evento atribui o valor novo ao estado e escreve
+também a atualização de cada elemento da tela que depende dele, a
+orquestração por atribuição e a propagação manual.
+No React, a tela se monta em JSX, marcação parecida com \gls{html}
 escrita dentro do JavaScript \cite{meta2026c}.
-O que os separa, sobretudo, é o modo de coordenar: a cada alteração de
-estado, o React reexecuta o componente inteiro, e o Solid atualiza só os
-trechos da tela que dependem do \emph{signal} alterado
-\cites[][ 289:38]{lee2025}{solidjs2026}.
+O tratador também atribui o valor novo ao estado, mas não escreve a
+atualização da tela: quando o estado se altera, o React reexecuta o
+componente inteiro \cites[][ p. 289:38]{lee2025}{solidjs2026}, a
+propagação por re-renderização.
 
-Solid e Angular com \emph{signals}, ao contrário, coordenam do mesmo modo: os
-dois guardam o estado em \emph{signals} e derivam valores de outros \emph{signals}
-\cite{solidjs2026a,google2026}.
-Por isso ficam no mesmo modelo de programação, e o par, no Formulário,
-na Busca e no Quadro, mostra como a notação varia entre tecnologias em
-três pontos.
-No Solid, a tela se monta em JSX numa função, e, no Angular, num \emph{template}
-baseado em \gls{html}, com construtos próprios \cite{google2026a}.
-O componente do Angular é uma classe com decorador \cite{google2026b}, e
-participa da injeção de dependências \cite{google2026c}.
-E as \glspl{api} dos dois diferem no que vai além do \emph{signal} e do valor
-derivado, como o cancelamento das requisições na Busca.
-Quando o \emph{signal} se altera, o Solid recalcula só os valores e trechos da
-tela que dependem dele \cite{solidjs2026}; o Angular marca o componente que o
-lê e o atualiza na próxima detecção de alterações \cite{google2026}.
-
-Dentro de um mesmo modelo de programação, a notação também muda de uma
-tecnologia para outra, como entre o Solid e o Angular com \emph{signals} ou
-entre o React e o Lit, e a avaliação registra quando essa diferença muda
-a posição.
-
-Fora da web, cada plataforma tem um par de tecnologias, que confere se
-as posições encontradas na web se repetem em outra plataforma e outra
-linguagem.
-No Android, Views e Compose implementam o Formulário, o Quadro e os
-Dados ao vivo.
-As Views ficam no imperativo por atualização manual, e o Compose, no declarativo
-por re-renderização, porque chama de novo as funções da tela quando o estado
-se altera \cite{android2026}.
-No \emph{desktop}, Windows Forms e WPF implementam o Formulário, o Quadro e o
-Login.
-O Windows Forms fica no imperativo por atualização manual, porque o
-tratador de cada evento atribui os valores aos controles, sem o \emph{data
-binding} que ele também oferece \cites{microsoft2025b}{microsoft2026a},
-e o WPF, no declarativo por atualização granular, porque, quando um dado se altera, os elementos ligados a
-ele se atualizam sozinhos \cite{microsoft2025}.
-
-Na web, só o par Web Component e Lit isola o imperativo por
-atualização manual, e só em três interfaces.
-Ele isola a ligação do estado com a tela, e não a orquestração, que no
-Lit se escreve como no Web Component.
-Fora da web, os dois pares mudam também a montagem da tela, e cada
-plataforma confere só dois dos três modelos de programação: o Android
-fica sem o declarativo por atualização granular, e o \emph{desktop}, sem o
-declarativo por re-renderização.
-
-\todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}
-
-O nome do modelo diz como a alteração do estado chega à tela, e não como
-a tela se monta.
+O passo do Web Component ao React muda a propagação, de manual a
+re-renderização, e deixa a orquestração por atribuição nos dois.
+O nome de cada modo diz como a alteração do estado chega à tela, e não
+como a tela se monta, e o mesmo passo muda duas coisas que o
+delineamento não controla.
+Uma é a montagem da tela.
 Nas implementações deste trabalho, o esqueleto da tela do Web Component
-fica em \gls{html}, e só se montam elemento a elemento as partes que o
-estado repete ou põe e tira da tela, como os itens de uma lista.
-Os textos e os valores calculados do estado mudam nos elementos já
-montados, e essa atualização é a parte imperativa.
-
-O Web Component com \emph{signals} é uma construção de controle, feita para
-este trabalho, e não tirada de programas reais.
-Nele, o \texttt{solid-js} serve só como biblioteca de \emph{signals}, e a classe e a
-montagem da tela são as do Web Component.
-O Web Component e o React não formam par: a parte da diferença entre
-eles que vem só da re-renderização se lê no par Web Component × Lit, e
-o resto se atribui ao passo da cadeia em que ela aparece.
-A que nenhum passo explica se atribui pelo sinal escrito na notação: se
-ele está na coordenação, na montagem da tela ou na ligação entre as duas.
-
-Os pares isolam pouco: o primeiro passo da cadeia muda, além do modelo
-de programação, a orquestração, que segue a do Solid.
-Atribuir aos passos da cadeia a diferença entre o Web Component e o
-React supõe que os passos se somam.
-O par Web Component × Lit também muda, com a ligação, a montagem das
-partes repetidas, que a re-renderização refaz a cada alteração.
-A suposição falha quando um passo muda a leitura de outro, como a
-montagem em JSX pode mudar a leitura do modo como o estado chega à tela.
+fica em \gls{html} num texto, e só as partes que o estado repete ou põe
+e tira da tela se montam elemento a elemento, com \texttt{createElement}.
+No React, a tela inteira se monta em JSX.
+A outra é o modelo de componente, de uma classe a uma função.
+A análise atribui cada diferença pelo sinal escrito na notação: se ele
+está na coordenação, na montagem da tela ou na ligação entre as duas.
 
 O Web Component entra no núcleo como o extremo imperativo controlado,
 sem biblioteca, e não como o representante do que se usa na prática.
@@ -159,6 +89,55 @@ quem respondeu à pesquisa do Stack Overflow de 2025, com 23,4\%
 \cite{stackoverflow2025}.
 Ficou de fora porque não organiza a tela em componentes: o passo dele
 ao React acrescentaria um componente onde não havia nenhum.
+
+Na terceira rodada, na Busca, no Login e no Placar ao vivo, o núcleo
+anda também na orquestração, sem trocar de tecnologia.
+O \texttt{useReducer} leva o React à orquestração por mensagem: cada evento
+vira uma ação, e uma função pura, o \emph{reducer}, recebe o estado e a ação
+e devolve o estado seguinte \cite{meta2026d}.
+O RxJS leva o Web Component e o React à orquestração por acumulação, em
+que o estado se define sobre o fluxo de eventos, e, no último passo,
+leva os derivados do React aos combinadores.
+
+Depois da análise, o entorno do núcleo situa as células vizinhas, com
+cada tecnologia num passo a partir de uma implementação do núcleo.
+Na primeira rodada, nas sete interfaces, o Lit parte do Web Component,
+e o Solid, do React.
+O Lit se constrói sobre o Web Component: o componente continua uma
+classe que o navegador chama como elemento personalizado, mas a
+alteração de uma propriedade reativa agenda um ciclo de atualização,
+que chama de novo o \texttt{render()} e atualiza a tela pelo \emph{template}
+\cites{google2026d}{google2026e}.
+O passo muda a propagação, de manual a re-renderização, e, com ela, a
+montagem das partes repetidas, que passa do \texttt{createElement} ao \texttt{map} no
+\emph{template}.
+Alterar um objeto ou uma lista sem trocar a referência não dispara a
+atualização.
+A documentação recomenda, na maioria das aplicações, tratar os dados
+como imutáveis, mas admite, quando o dado serve a um componente só,
+alterá-lo no lugar e pedir a atualização com \texttt{requestUpdate()}
+\cite{google2026e}.
+É o que fazem o Desenhador de círculos e a Planilha, que alteram a
+lista e os mapas no lugar, como no Web Component.
+No Solid, a tela também se monta em JSX, mas o componente não se
+reexecuta, e a alteração de um \emph{signal} atualiza só os trechos da tela
+que dependem dele \cites[][ p. 289:38]{lee2025}{solidjs2026}: o passo
+muda a propagação, de re-renderização a granular.
+
+Na Busca, no Login e no Placar ao vivo, o Web Component com Effection
+parte do Web Component da segunda rodada e muda a orquestração, de
+atribuição a sequencial.
+Na orquestração sequencial, o código espera o próximo evento e segue
+em ordem.
+O Cycle.js parte do React com os derivados no RxJS, o último passo da
+terceira rodada, e muda de uma vez a biblioteca de fluxos, o modelo de
+componente, os efeitos e a montagem da tela.
+A diferença nesse passo não se atribui a uma variável só, como nos
+casos de \textcite[p. 23]{kiss2014}, em que o \emph{toolkit} pesou mais
+que o paradigma.
+Se o prazo não der para tudo, o entorno sai antes do resto, uma
+tecnologia por vez, nesta ordem: o Lit, na mesma célula do React; o
+Web Component com Effection; o Solid; e o Cycle.js.
 \subsection{As rodadas}
 \label{sec:as-rodadas}
 \todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}
