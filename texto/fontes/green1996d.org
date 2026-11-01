@@ -18,7 +18,7 @@
   com fonte; a de categorias, e não artefatos, é da nota de referência
   docs/paradigma-modelo-e-notacao.md, seção "Unidade comparada e evidência: o TCC compara categorias".
 - Conferido: 2026-10-09.
-* [[file:../cases.org::A segunda rodada muda o comportamento][cases: A segunda rodada muda o comportamento]], p. 161
+* [[file:../comparacao.org::A segunda rodada muda o comportamento][comparacao: A segunda rodada muda o comportamento]], p. 161
 - Frase: “A segunda rodada muda o comportamento e faz o código crescer,
   porque é nos problemas grandes que os efeitos da viscosidade mais
   aparecem (Green; Petre, 1996, p. 161).”
@@ -30,7 +30,7 @@
 - Observação: até 2026-10-31, a frase estava no primeiro parágrafo da
   subseção das rodadas.
 - Conferido: 2026-10-13; de novo em 2026-10-31.
-* [[file:../cases.org::Na segunda e na terceira rodada, o /diff/][cases: Na segunda e na terceira rodada, o diff]], p. 162
+* [[file:../comparacao.org::Na segunda e na terceira rodada, o /diff/][comparacao: Na segunda e na terceira rodada, o diff]], p. 162
 - Frase: “a mesma mudança, preparada antes e feita em cada implementação,
   como no teste de Green e Petre (1996, p. 162)”.
 - Trecho: “As a straw test of viscosity, we made the same change to each

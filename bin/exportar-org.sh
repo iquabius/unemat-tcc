@@ -3,7 +3,7 @@
 # com o init do usuário e o org-ref, numa chamada só do Emacs.
 #
 #   uso:  bin/exportar-org.sh [-o DIR] ARQUIVO.org...
-#         bin/exportar-org.sh texto/intro.org texto/cases.org
+#         bin/exportar-org.sh texto/intro.org texto/comparacao.org
 #         bin/exportar-org.sh texto/*.org
 #   -o DIR  escreve DIR/<nome>.tex em vez de latex/capitulos/<nome>.tex do
 #           repositório de cada .org (o mesmo destino do #+EXPORT_FILE_NAME)

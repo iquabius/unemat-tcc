@@ -19,13 +19,13 @@ achar as fontes que mais pesam, pela tabela "Fontes centrais".
 |---|---|---|
 | Problema: coordenar evento, estado e tela torna a interface difícil | `texto/intro.org` | `docs/estado-eventos-e-complexidade.md`, seções "Estado", "Eventos" e "Uma peça possível para o problema da introdução" |
 | Justificativa: o custo do *callback* e da complexidade acidental | `texto/intro.org` | `docs/estado-eventos-e-complexidade.md`, seções "*Callbacks*, eventos e *promises*: fontes da justificativa" e "Complexidade: Moseley e Marks, e Brooks" |
-| O contrapeso: os custos dos modelos declarativos | `texto/intro.org`, `texto/prog.org` | `docs/contras-dos-modelos-declarativos.md` |
+| O contrapeso: os custos dos modelos declarativos | `texto/intro.org`, `texto/modelos.org` | `docs/contras-dos-modelos-declarativos.md` |
 | Lacuna | `texto/intro.org`, trabalhos relacionados | `docs/trabalhos-relacionados-e-lacuna.md`, seção "A lacuna" |
 | Pergunta e objetivos | `texto/intro.org` | ADR 0014; o tipo da pergunta, em `texto/fontes/easterbrook2008.org` |
-| O que se compara: modelo de programação e notação | `texto/intro.org`, `texto/prog.org` | `docs/paradigma-modelo-e-notacao.md`; os termos, no `GLOSSARY.md` |
+| O que se compara: modelo de programação e notação | `texto/intro.org`, `texto/modelos.org` | `docs/paradigma-modelo-e-notacao.md`; os termos, no `GLOSSARY.md` |
 | Método: o rótulo, as DCs, as rodadas, o tamanho das interfaces | `texto/intro.org`, metodologia | `docs/metodo-da-avaliacao.md`; o que se controla, em `docs/delineamento.md`; o que cada interface exige e cada par cobre, em `docs/exigencias-de-coordenacao.md` |
-| Análise por DC | `texto/cases.org`, `texto/results.org` | `docs/metodo-da-avaliacao.md`, seção "Como as fontes aplicaram as DCs a código, e as armadilhas"; `docs/achados-das-implementacoes.md`; `docs/exigencias-de-coordenacao.md`, seção "Mapa por interface"; a skill `avaliacao-pelas-dcs` |
-| Capítulo de programação | `texto/prog.org` | `docs/paradigma-modelo-e-notacao.md`, `docs/bibliografia/programacao-funcional-e-reativa.md`, `docs/estado-eventos-e-complexidade.md` |
+| Análise por DC | `texto/comparacao.org`, `texto/results.org` | `docs/metodo-da-avaliacao.md`, seção "Como as fontes aplicaram as DCs a código, e as armadilhas"; `docs/achados-das-implementacoes.md`; `docs/exigencias-de-coordenacao.md`, seção "Mapa por interface"; a skill `avaliacao-pelas-dcs` |
+| Capítulo de programação | `texto/modelos.org` | `docs/paradigma-modelo-e-notacao.md`, `docs/bibliografia/programacao-funcional-e-reativa.md`, `docs/estado-eventos-e-complexidade.md` |
 | Tecnologias e plataformas | ADRs 0001, 0013 e 0042 | `docs/plataformas/README.md`, e dali `web.md`, `bibliotecas-de-formulario.md`, `bibliotecas-de-inscricao-e-reconexao.md` e `medida-das-bibliotecas.md`; o Android e o *desktop*, fora da análise, em `android.md` e `desktop.md` |
 | Forma da introdução | `texto/intro.org` | `docs/bibliografia/escrita-da-introducao.md` |
 | Como a busca foi feita | Apêndice II | `docs/bibliografia/protocolo-da-revisao.md` |

@@ -737,7 +737,7 @@ Mernik et al. 2009 e Hudak 1996, página da cópia.
 | Van Roy 2009 | os conceitos são "the basic primitive elements used to construct the paradigms" | p. 13 | verbete Conceito |
 | Van Roy 2009 | "It is not enough that libraries have been written in the language to support the paradigm. The language's kernel language should support the paradigm" | p. 14 | biblioteca não faz paradigma; tensão com p. 18 ("The first paradigm is a solver library") e 2020, 83:4 |
 | Van Roy 2009 | os quatro conceitos mais importantes: registros, *closures* com escopo léxico, independência (concorrência) e estado nomeado | p. 23 | verbete Conceito |
-| Van Roy 2009 | a citação usada em `texto/prog.org` (l. 326-336) é sobre a programação síncrona discreta (Esterel, Lustre, Signal), não sobre a PR | p. 35-36 | erro a corrigir no capítulo de programação |
+| Van Roy 2009 | a citação usada em `texto/modelos.org` (l. 326-336) é sobre a programação síncrona discreta (Esterel, Lustre, Signal), não sobre a PR | p. 35-36 | erro a corrigir no capítulo de programação |
 | Van Roy 2009 | não usa "computation model" nem "programming model"; "model" só solto ("a concurrent model", p. 11 e 37) | texto inteiro | sem contradição com o CTM: troca de termo |
 | Van Roy 2003 | "programming should be taught in terms of concepts, not paradigms"; paradigmas são "styles of programming based on particular mathematical theories or schools of thought" | p. 269, 270 | contexto |
 | Van Roy e Haridi 2004 (`vanroy2004`) | "The term computation model makes precise the imprecise notion of 'programming paradigm.'"; "programming model": "the programming techniques and design principles made possible by the computation model" | p. xiii | modelo × paradigma |

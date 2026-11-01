@@ -57,7 +57,9 @@
    um título insere o =ref:sec:...= e grava o rótulo como =CUSTOM_ID= do
    título citado, que pode estar em outro capítulo: daí em diante, renomear o
    título não muda o rótulo. O clique no =ref:= leva ao título ou ao rótulo;
-   o =ref:chap:X= abre o =X.org=.
+   o =ref:chap:X= abre o =.org= do capítulo: o =X.org=, se existe, ou o que
+   o =tcc.tex= puxa com =\input= depois do =\label{chap:X}= (o
+   =ref:chap:prog= abre o =modelos.org=).
    Use o =CUSTOM_ID=, e não o =:ID:= do org-id: o org-ref aceita os dois, mas
    o =:ID:= não vira rótulo no =.tex=, e a referência sairia indefinida.
 
@@ -146,7 +148,7 @@
 
    #+begin_src fish
    bin/exportar-org.sh texto/intro.org             # escreve latex/capitulos/intro.tex
-   bin/exportar-org.sh texto/intro.org texto/cases.org
+   bin/exportar-org.sh texto/intro.org texto/comparacao.org
    bin/exportar-org.sh -o /tmp/saida texto/*.org   # .tex noutro diretório
    #+end_src
 

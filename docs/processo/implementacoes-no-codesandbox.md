@@ -27,7 +27,7 @@ no repositório é o link do Contador com POO em `texto/cases.org`, de
 | Interface | Implementação no CodeSandbox | Interface atual |
 |---|---|---|
 | Contador | [contador-com-callback](https://codesandbox.io/p/sandbox/contador-com-callback-m66fh?file=%2Fsrc%2Findex.js) | Contador |
-| Contador | [contador-com-oop-callbacks](https://codesandbox.io/p/sandbox/contador-com-oop-callbacks-nst9y), citada num comentário de `texto/cases.org` | Contador |
+| Contador | [contador-com-oop-callbacks](https://codesandbox.io/p/sandbox/contador-com-oop-callbacks-nst9y), citada num comentário de `texto/comparacao.org` | Contador |
 | Contador | [contador-com-oop-funcao-de-seta](https://codesandbox.io/p/sandbox/contador-com-oop-funcao-de-seta-jv2ei) | Contador |
 | Contador | [contador-com-rxjs](https://codesandbox.io/p/sandbox/contador-com-rxjs-odfoq?file=%2Fsrc%2Findex.js) | Contador |
 | Contador | [contador-com-rxjs-2](https://codesandbox.io/p/sandbox/contador-com-rxjs-2-t00ud?file=%2Fsrc%2Findex.js) | Contador |

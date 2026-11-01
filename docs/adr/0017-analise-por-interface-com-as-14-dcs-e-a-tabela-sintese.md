@@ -20,7 +20,7 @@ Critérios:
 A análise é por interface, com as 14 DCs e a tabela-síntese. O conjunto
 analisado é o todo, as 14 implementações da primeira rodada no núcleo
 (ADR 0013), sem implementação a escolher. O capítulo da comparação
-(`texto/cases.org`) tem uma seção por interface, como o capítulo 3 de
+(`texto/comparacao.org`) tem uma seção por interface, como o capítulo 3 de
 Kiss (2014, p. 17-55), com a especificação curta, as cenas, a captura
 da tela e, logo abaixo dela, em largura total e com as linhas
 numeradas, o módulo principal inteiro do Web Component e do React, sem

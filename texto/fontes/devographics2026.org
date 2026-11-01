@@ -1,7 +1,7 @@
 #+title: devographics2026: Devographics (2026), State of JavaScript 2025
 #+startup: overview
 
-* [[file:../prog.org::As pesquisas de uso medem][prog: As pesquisas de uso medem]]
+* [[file:../modelos.org::As pesquisas de uso medem][modelos: As pesquisas de uso medem]]
 - Frase: “e pelo Solid, usado por 10% dos respondentes do State of JS
   2025”
 - Trecho: “Solid may only be used by 10% of respondents”
@@ -11,7 +11,7 @@
   vindo da introdução e dos estudos de casos, como dado de interesse, sem
   papel de justificativa.
 - Conferido: 2026-10-06.
-* [[file:../prog.org::Cada pesquisa de uso tem um limite][prog: Cada pesquisa de uso tem um limite de amostra]]
+* [[file:../modelos.org::Cada pesquisa de uso tem um limite][modelos: Cada pesquisa de uso tem um limite de amostra]]
 - Frase: “O State of JS 2025 é um levantamento aberto a quem quiser
   responder, que se declara o retrato de um subconjunto de
   desenvolvedores.”

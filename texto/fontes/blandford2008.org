@@ -1,7 +1,7 @@
 #+title: blandford2008: Blandford e Green (2008), Methodological Development
 #+startup: overview
 
-* [[file:../cases.org::A avaliação cabe ao autor][cases: A avaliação cabe ao autor]]
+* [[file:../comparacao.org::A avaliação cabe ao autor][comparacao: A avaliação cabe ao autor]]
 - Frase: “É uma avaliação analítica, feita por especialista, sem a
   participação de usuários (Blandford; Green, 2008) [...].”
 - Trecho: métodos “which do not require the active involvement of users,

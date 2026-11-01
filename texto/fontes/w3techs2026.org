@@ -1,7 +1,7 @@
 #+title: w3techs2026: W3Techs (2026), Usage Statistics of JavaScript Libraries for Websites
 #+startup: overview
 
-* [[file:../prog.org::As pesquisas de uso medem][prog: As pesquisas de uso medem]]
+* [[file:../modelos.org::As pesquisas de uso medem][modelos: As pesquisas de uso medem]]
 - Frase: “No W3Techs, o jQuery está em 65,5% dos /sites/ monitorados, o
   React em 6,0% e o Angular em 0,2%.”
 - Trecho: “jQuery is used by 65.5% of all the websites”; na tabela, a
@@ -14,7 +14,7 @@
   vindo da introdução e dos estudos de casos, como dado de interesse, sem
   papel de justificativa.
 - Conferido: 2026-10-13.
-* [[file:../prog.org::Cada pesquisa de uso tem um limite][prog: Cada pesquisa de uso tem um limite de amostra]]
+* [[file:../modelos.org::Cada pesquisa de uso tem um limite][modelos: Cada pesquisa de uso tem um limite de amostra]]
 - Frase: “No W3Techs, basta achar a biblioteca em qualquer página para o
   /site/ contar, o que favorece o jQuery e nada diz das aplicações novas.”
 - Trecho: “jQuery is used by 65.5% of all the websites”

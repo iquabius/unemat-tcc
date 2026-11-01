@@ -21,7 +21,7 @@ código 1 se houver algum:
   meio de um parágrafo; o começo vale depois do marcador de item e da
   citação que abre a frase. O parágrafo que abre com outro link entre
   colchetes, como uma sigla, leva os colchetes escapados na busca, como o
-  Org os aceita: file:../cases.org::As \\[\\[glspl:dc\\]\\] de.
+  Org os aceita: file:../comparacao.org::As \\[\\[glspl:dc\\]\\] de.
 
 O link se procura como o Org procura um link de texto: sem diferença de
 maiúsculas e com qualquer espaço ou quebra de linha entre as palavras, na

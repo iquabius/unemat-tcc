@@ -1,7 +1,7 @@
 #+title: gallaba2015: Gallaba et al. (2015), Don't Call Us, We'll Call You: Characterizing Callbacks in JavaScript
 #+startup: overview
 
-* [[file:../prog.org::O /callback/ é síncrono quando a][prog: O /callback/ é síncrono quando a]], p. 2
+* [[file:../modelos.org::O /callback/ é síncrono quando a][modelos: O /callback/ é síncrono quando a]], p. 2
 - Frase: “O /callback/ é síncrono quando a função que o recebe o chama
   antes de retornar, e assíncrono quando o chama algum tempo depois, ao
   fim da operação que ele espera.”
@@ -13,7 +13,7 @@
   along with the provided callback.” (p. 2)
 - Lido em: =acervo/gallaba2015.pdf=, p. 2.
 - Conferido: 2026-10-07.
-* [[file:../prog.org::O /callback/ é síncrono quando a][prog: O /callback/ é síncrono quando a]], p. 5
+* [[file:../modelos.org::O /callback/ é síncrono quando a][modelos: O /callback/ é síncrono quando a]], p. 5
 - Frase: “O /callback/ de um clique é desse tipo: registrado quando a tela é
   montada, só roda quando o usuário clica, e os eventos do DOM estão entre
   as operações assíncronas do navegador.”
@@ -28,7 +28,7 @@
   roda no clique) é ilustração do autor; a fonte sustenta que o evento do
   DOM é API assíncrona.
 - Conferido: 2026-10-07.
-* [[file:../prog.org::Em JavaScript, os /callbacks/ são frequentes:][prog: Em JavaScript, os /callbacks/ são frequentes:]], p. 1
+* [[file:../modelos.org::Em JavaScript, os /callbacks/ são frequentes:][modelos: Em JavaScript, os /callbacks/ são frequentes:]], p. 1
 - Frase: “Em JavaScript, os /callbacks/ são frequentes: num estudo de 138
   programas, em média uma em cada dez definições de função recebe um
   /callback/, e a maioria dos /callbacks/ é aninhada.”
@@ -37,7 +37,7 @@
   callbacks are nested” (resumo).
 - Lido em: =acervo/gallaba2015.pdf=, p. 1.
 - Conferido: 2026-10-06.
-* [[file:../prog.org::Em JavaScript, os /callbacks/ são frequentes:][prog: Em JavaScript, os /callbacks/ são frequentes:]], p. 6 (o navegador)
+* [[file:../modelos.org::Em JavaScript, os /callbacks/ são frequentes:][modelos: Em JavaScript, os /callbacks/ são frequentes:]], p. 6 (o navegador)
 - Frase: “No código do navegador, em média 9% das chamadas de função
   passam um /callback/, e 72% desses /callbacks/ são assíncronos.”
 - Trecho: “Finding 2: On average, every 5th function callsite takes a

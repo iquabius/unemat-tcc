@@ -31,7 +31,7 @@
   the language [...] are executed” (decisão do autor).
 - Conferido: 2026-10-09; a definição do modelo de computação, em
   2026-10-28.
-* [[file:../prog.org::O modelo de programação não é][prog: O modelo de programação não é]], p. xiii (paradigma)
+* [[file:../modelos.org::O modelo de programação não é][modelos: O modelo de programação não é]], p. xiii (paradigma)
 - Frase: “Ele não é o paradigma, noção imprecisa que o modelo de
   computação torna precisa (Van Roy; Haridi, 2004, p. xiii) [...]”
 - Trecho: “The term computation model makes precise the imprecise notion

@@ -4,7 +4,7 @@ Fontes. O que a literatura registra contra os modelos declarativos de
 interface (a PR e os *signals*, a re-renderização do React, a PF
 aplicada à interface e à compreensão), para equilibrar a problematização
 dos *callbacks* na introdução (`texto/intro.org`) e no capítulo de
-programação (`texto/prog.org`), e para a análise por DC. Saiu do quarto
+programação (`texto/modelos.org`), e para a análise por DC. Saiu do quarto
 ciclo de busca, de 2026-10-26 (`docs/bibliografia/protocolo-da-revisao.md`,
 seção "Quarto ciclo"), para a tarefa tcc-t81w.
 

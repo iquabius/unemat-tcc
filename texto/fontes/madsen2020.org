@@ -1,7 +1,7 @@
 #+title: madsen2020: Madsen, Lhoták e Tip (2020), A Semantics for the Essence of React
 #+startup: overview
 
-* [[file:../prog.org::Com o estado, as interfaces gráficas lembram informações][prog: Com o estado, as interfaces gráficas lembram informações]], p. 12:3 (os valores dos campos)
+* [[file:../modelos.org::Com o estado, as interfaces gráficas lembram informações][modelos: Com o estado, as interfaces gráficas lembram informações]], p. 12:3 (os valores dos campos)
 - Frase: “Com o estado, as interfaces gráficas lembram informações [...],
   como os valores digitados nos campos (Madsen; Lhoták; Tip, 2020, 12:3).”
 - Trecho: “The state holds time-varying values, e.g., the values of input

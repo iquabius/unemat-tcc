@@ -1,7 +1,7 @@
 #+title: w3techs2026a: W3Techs (2026), Technologies Overview
 #+startup: overview
 
-* [[file:../prog.org::Cada pesquisa de uso tem um limite][prog: Cada pesquisa de uso tem um limite de amostra]]
+* [[file:../modelos.org::Cada pesquisa de uso tem um limite][modelos: Cada pesquisa de uso tem um limite de amostra]]
 - Frase: “No W3Techs, basta achar a biblioteca em qualquer página para o
   /site/ contar”
 - Trecho: “If we find a technology on any of the pages, it is considered

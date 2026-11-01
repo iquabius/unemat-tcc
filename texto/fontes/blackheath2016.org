@@ -1,7 +1,7 @@
 #+title: blackheath2016: Blackheath e Jones (2016), Functional Reactive Programming
 #+startup: overview
 
-* [[file:../prog.org::/Threads/ exprimem sequência][prog: Threads exprimem sequência]], p. 16
+* [[file:../modelos.org::/Threads/ exprimem sequência][modelos: Threads exprimem sequência]], p. 16
 - Frase: “/Threads/ exprimem sequência, e eventos exprimem dependência, e
   muitos problemas vêm de escrever uma com o recurso da outra.”
 - Trecho: “Threads allow you to express sequence; events allow you to

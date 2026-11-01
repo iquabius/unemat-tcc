@@ -143,8 +143,8 @@ class Matriz(unittest.TestCase):
                          (5, "Três estudos medem", []))
 
     def test_busca_com_colchetes_escapados(self):
-        a, = cf.matriz(r"* [[file:../cases.org::As \[\[glspl:dc\]\] de]"
-                       r"[cases: As DCs]], p. 12" "\n", "k", "k.org")
+        a, = cf.matriz(r"* [[file:../comparacao.org::As \[\[glspl:dc\]\] de]"
+                       r"[comparacao: As DCs]], p. 12" "\n", "k", "k.org")
         self.assertEqual((a.busca, a.resto), ("As [[glspl:dc]] de", ", p. 12"))
 
     def test_desfaz_os_escapes_como_o_org(self):
@@ -261,7 +261,7 @@ class Script(unittest.TestCase):
         (self.raiz / "texto/intro.org").write_text(CAPITULO)
         for chave, texto in MATRIZ.items():
             self.escrever(chave, texto)
-        (self.raiz / "texto/prog.org").write_text("Sem matriz cite:x.\n")
+        (self.raiz / "texto/modelos.org").write_text("Sem matriz cite:x.\n")
         git = ["git", "-C", str(self.raiz), "-c", "user.name=t",
                "-c", "user.email=t@t", "-c", "core.hooksPath=/dev/null"]
         subprocess.run(git[:3] + ["init", "-q"], check=True)
@@ -283,7 +283,7 @@ class Script(unittest.TestCase):
         self.assertEqual(r.returncode, 0, r.stdout + r.stderr)
         self.assertIn("texto/intro.org: 3 parágrafos, 7 afirmações; "
                       "matriz em dia", r.stdout)
-        self.assertIn("texto/prog.org: 1 parágrafos, 0 afirmações; "
+        self.assertIn("texto/modelos.org: 1 parágrafos, 0 afirmações; "
                       "matriz em dia", r.stdout)
 
     def test_problema_sai_com_um_e_lista_por_tipo(self):
@@ -306,7 +306,7 @@ class Script(unittest.TestCase):
     def test_todas_aponta_os_paragrafos_sem_afirmacao(self):
         r = self.rodar("--todas")
         self.assertEqual(r.returncode, 1)
-        self.assertIn("texto/prog.org:1: §1 x", r.stdout)
+        self.assertIn("texto/modelos.org:1: §1 x", r.stdout)
         r = self.rodar("--todas", "--desde", "HEAD")
         self.assertEqual(r.returncode, 2)
 
@@ -320,7 +320,7 @@ class Script(unittest.TestCase):
         self.assertIn("3 parágrafos, 1 alterados desde HEAD", r.stdout)
         self.assertIn("texto/intro.org:3: §1 nova2026", r.stdout)
         self.assertNotIn("fischer2007", r.stdout)  # §2 não mudou
-        r = self.rodar("texto/prog.org", "--desde", "HEAD")
+        r = self.rodar("texto/modelos.org", "--desde", "HEAD")
         self.assertEqual(r.returncode, 0, r.stdout)
 
     def test_afirmacao_fora_dos_capitulos(self):
@@ -336,10 +336,10 @@ class Script(unittest.TestCase):
                       r.stdout)
 
     def test_capitulo_na_linha_de_comando(self):
-        r = self.rodar("texto/prog.org")
+        r = self.rodar("texto/modelos.org")
         self.assertEqual(r.returncode, 0, r.stdout)
         self.assertNotIn("intro.org", r.stdout)
-        self.escrever("x", "* [[file:../prog.org::Sem matriz]]\n")
+        self.escrever("x", "* [[file:../modelos.org::Sem matriz]]\n")
         self.assertEqual(self.rodar("texto/intro.org").returncode, 0)
 
     def test_paragrafos_na_ordem_do_texto(self):

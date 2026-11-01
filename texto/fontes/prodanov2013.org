@@ -1,7 +1,7 @@
 #+title: prodanov2013: Prodanov e Freitas (2013), Metodologia do trabalho científico
 #+startup: overview
 
-* [[file:../cases.org::Seis coisas poderiam diferenciar as implementações][cases: Seis coisas poderiam diferenciar as implementações]], p. 54
+* [[file:../comparacao.org::Seis coisas poderiam diferenciar as implementações][comparacao: Seis coisas poderiam diferenciar as implementações]], p. 54
 - Frase: “Esse controle das variáveis é parte do planejamento da
   pesquisa, o delineamento (Prodanov; Freitas, 2013, p. 54).”
 - Trecho: “[...] denominado de design, que pode ser traduzido como

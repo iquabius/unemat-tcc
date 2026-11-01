@@ -26,10 +26,11 @@
                            ;; tcc.tex e os apêndices: o rótulo de cada título
                            ;; sai do título (sec:delineamento), único no
                            ;; documento, e o ref: do org-ref lista e segue os
-                           ;; rótulos de todos eles; o ref:chap:X abre o X.org.
+                           ;; rótulos de todos eles; o ref:chap:X abre o .org
+                           ;; do capítulo (readme.org).
                            ;; Arquivo fora da lista, como os de fontes/, fica
                            ;; com o rótulo sorteado do Org.
                            (gambi/org-document-files
-                            . ("intro.org" "prog.org" "cases.org" "results.org"
-                               "conclusion.org" "../latex/tcc.tex"
+                            . ("intro.org" "modelos.org" "comparacao.org"
+                               "results.org" "conclusao.org" "../latex/tcc.tex"
                                "../latex/apendices/*.tex")))))))

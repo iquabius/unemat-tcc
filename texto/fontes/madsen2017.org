@@ -1,14 +1,14 @@
 #+title: madsen2017: Madsen et al. (2017), A Model for Reasoning about JavaScript Promises
 #+startup: overview
 
-* [[file:../prog.org::O JavaScript ganhou alternativas ao][prog: O JavaScript ganhou alternativas ao callback]], p. 86:1
+* [[file:../modelos.org::O JavaScript ganhou alternativas ao][modelos: O JavaScript ganhou alternativas ao callback]], p. 86:1
 - Frase: “as /promises/, que encadeiam computações assíncronas”
 - Trecho: “promises, an alternative mechanism for managing asynchrony that
   enables programmers to chain asynchronous computations while supporting
   proper error handling” (resumo, p. 86:1).
 - Lido em: =acervo/madsen2017.pdf=, p. 1 do PDF (p. 86:1).
 - Conferido: 2026-10-07.
-* [[file:../prog.org::Um programa orientado a eventos reage ao][prog: Um programa orientado a eventos reage ao]], p. 86:1 (fontes de eventos)
+* [[file:../modelos.org::Um programa orientado a eventos reage ao][modelos: Um programa orientado a eventos reage ao]], p. 86:1 (fontes de eventos)
 - Frase: “Um programa orientado a eventos reage ao que acontece no
   ambiente externo: o clique num botão, a tecla digitada, a mensagem do
   servidor (Madsen; Lhoták; Tip, 2017, p. 86:1).”
@@ -23,7 +23,7 @@
   (Meijer, 2012, p. 66-67). “Do servidor” é a forma das fontes brasileiras
   (=docs/estado-eventos-e-complexidade.md=, seção "De onde vêm").
 - Conferido: 2026-10-14.
-* [[file:../prog.org::Um programa orientado a eventos reage ao][prog: Um programa orientado a eventos reage ao]], p. 86:1 (a fila)
+* [[file:../modelos.org::Um programa orientado a eventos reage ao][modelos: Um programa orientado a eventos reage ao]], p. 86:1 (a fila)
 - Frase: “Os eventos entram numa fila, e o programa os trata um de cada
   vez (Madsen; Lhoták; Tip, 2017, p. 86:1), [...]”
 - Trecho: “[...] and enqueued for processing. In the main event loop, an

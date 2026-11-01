@@ -1,7 +1,7 @@
 #+title: hudak1989: Hudak (1989), Conception, Evolution, and Application of Functional Programming Languages
 #+startup: overview
 
-* [[file:../prog.org::Nas linguagens imperativas, esse estado é][prog: Nas linguagens imperativas, esse estado é]], p. 361 (imperativo)
+* [[file:../modelos.org::Nas linguagens imperativas, esse estado é][modelos: Nas linguagens imperativas, esse estado é]], p. 361 (imperativo)
 - Frase: “Nas linguagens imperativas, esse estado é implícito e muda por
   comandos, como a atribuição de um valor a uma variável, e essas mudanças
   são os /efeitos colaterais/ dos comandos (Hudak, 1989, p. 361).”
@@ -18,7 +18,7 @@
   antecedente, que saiu em 2026-10-15; o capítulo volta a usar o termo na
   citação de Hughes, na seção de programação funcional.
 - Conferido: 2026-10-14; efeito colateral em 2026-10-15.
-* [[file:../prog.org::Nas linguagens imperativas, esse estado é][prog: Nas linguagens imperativas, esse estado é]], p. 361 (sequência)
+* [[file:../modelos.org::Nas linguagens imperativas, esse estado é][modelos: Nas linguagens imperativas, esse estado é]], p. 361 (sequência)
 - Frase: “Por isso, para controlar o estado com precisão e de forma
   determinística, elas costumam fixar a ordem em que os comandos se
   executam (Hudak, 1989, p. 361).”
@@ -31,7 +31,7 @@
   controle” saiu daqui; a introdução o define (=intro.org=, “O /callback/
   fragmenta o fluxo de controle”).
 - Conferido: 2026-10-14.
-* [[file:../prog.org::Nas linguagens declarativas, não há estado][prog: Nas linguagens declarativas, não há estado]], p. 361 (declarativo)
+* [[file:../modelos.org::Nas linguagens declarativas, não há estado][modelos: Nas linguagens declarativas, não há estado]], p. 361 (declarativo)
 - Frase: “Nas linguagens declarativas, não há estado implícito, e o
   programa se escreve com expressões (Hudak, 1989, p. 361).”
 - Trecho: “In contrast, declarative languages are characterized as having
@@ -39,7 +39,7 @@
   programming with expressions (or terms).” (p. 361)
 - Lido em: =acervo/hudak1989.pdf=, p. 3 do PDF (p. 361).
 - Conferido: 2026-10-14.
-* [[file:../prog.org::Nas linguagens declarativas, não há estado][prog: Nas linguagens declarativas, não há estado]], p. 361 ("o quê" e "o como")
+* [[file:../modelos.org::Nas linguagens declarativas, não há estado][modelos: Nas linguagens declarativas, não há estado]], p. 361 ("o quê" e "o como")
 - Frase: “A programação declarativa costuma ser descrita como a que
   expressa “o quê” e não “o como” da computação, embora a diferença seja de
   grau (Hudak, 1989, p. 361).”

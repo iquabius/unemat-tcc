@@ -278,7 +278,7 @@ perguntas, e então o autor dá o rótulo.
      afirmações do mesmo parágrafo. O parágrafo que abre com outro link
      entre colchetes, como uma sigla, leva os colchetes escapados na
      busca, como o Org os aceita, e a descrição sem eles:
-     `* [[file:../cases.org::As \[\[glspl:dc\]\] de][cases: As DCs de]], p. N`;
+     `* [[file:../comparacao.org::As \[\[glspl:dc\]\] de][comparacao: As DCs de]], p. N`;
      a citação que abre o parágrafo fica fora da busca;
    - embaixo, uma linha `- Rótulo:` por campo: `Frase` (a frase do texto,
      ou o trecho dela que faz a afirmação), `Trecho` (curto, na língua

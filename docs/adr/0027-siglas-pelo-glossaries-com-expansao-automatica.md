@@ -47,7 +47,7 @@ as limitações que decidem a saída:
   lugares.
 - L2 (observada): a expansão cai na primeira sigla da seção, mesmo numa
   frase que não foi escrita para definir ("baseadas nas DCs de Green
-  (1989)", em `texto/cases.org`). Contorno: reescrever a frase na
+  (1989)", em `texto/comparacao.org`). Contorno: reescrever a frase na
   revisão, olhando o PDF (ADR 0023).
 - L5 (observada em 2026-10-06, contornada em 2026-10-07): o latexdiff
   comenta `\gls`, `\glspl` e `\Gls` no texto apagado, e a sigla sumia;

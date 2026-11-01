@@ -20,7 +20,7 @@
 - Observação: a referência [30] de Kiss é o relatório técnico de Myers de
   1993, a versão anterior de Myers (1994).
 - Conferido: 2026-10-12.
-* [[file:../prog.org::A aparência da tela, que este trabalho][prog: A aparência da tela, que este trabalho]], p. 17
+* [[file:../modelos.org::A aparência da tela, que este trabalho][modelos: A aparência da tela, que este trabalho]], p. 17
 - Frase: “A aparência da tela, que este trabalho deixa fora da notação, se
   declara na web em CSS, uma camada de notação à parte do HTML (Green et
   al., 2006, p. 342), enquanto no JavaFX o /layout/ faz parte do código que
@@ -143,7 +143,7 @@
   e não de Kiss.
 - Conferido: 2026-10-23; de novo em 2026-10-30, com a p. 17 (p. 23 do
   PDF).
-* [[file:../prog.org::compararam, com 36 estudantes de graduação,][prog: compararam, com 36 estudantes de graduação,]], p. v e 104
+* [[file:../modelos.org::compararam, com 36 estudantes de graduação,][modelos: compararam, com 36 estudantes de graduação,]], p. v e 104
 - Frase: “Kiss (2014, p. v e 104) comparou a POO e a PF em sete interfaces
   gráficas, com JavaFX, ScalaFX, Scala.Rx, ReactFX e Elm, e deixou como
   trabalho futuro comparar os /frameworks/ de interface do navegador.”
@@ -158,7 +158,7 @@
 - Observação: as sete interfaces estão na p. 11 (entrada do §17); Kiss as
   chama de /case studies/, e o 7GUIs, de /tasks/.
 - Conferido: 2026-10-06.
-* [[file:../cases.org::Das sete interfaces, quatro adaptam][cases: Das sete interfaces, quatro adaptam]] (os quatro casos), p. 17, 25, 40 e 49
+* [[file:../comparacao.org::Das sete interfaces, quatro adaptam][comparacao: Das sete interfaces, quatro adaptam]] (os quatro casos), p. 17, 25, 40 e 49
 - Frase: “Das sete interfaces, quatro adaptam casos do 7GUIs: o Contador,
   o /Counter/; a Reserva de passagem, o /Flight Booker/ [...]; a
   Planilha, o /Cells/; e o Desenhador de círculos, o /Circle Drawer/
@@ -175,7 +175,7 @@
   Booker/ com a p. 11, a dos sete casos, e as outras três adaptações
   entraram com o conjunto de 2026-10-22 (ADR 0002).
 - Conferido: 2026-10-31.
-* [[file:../cases.org::Das sete interfaces, quatro adaptam][cases: Das sete interfaces, quatro adaptam]] (a assincronia), p. 77
+* [[file:../comparacao.org::Das sete interfaces, quatro adaptam][comparacao: Das sete interfaces, quatro adaptam]] (a assincronia), p. 77
 - Frase: “A Busca traz o cancelamento de uma requisição já começada,
   cuja resposta atrasada nunca aparece, comportamento assíncrono que
   nenhum dos casos do 7GUIs testa, como reconhece Kiss (2014, p. 77).”
@@ -188,7 +188,7 @@
   computação anterior a cada texto novo, como a Busca cancela a busca
   anterior a cada tecla.
 - Conferido: 2026-10-31.
-* [[file:../cases.org::A avaliação se faz em três rodadas][cases: A avaliação se faz em três rodadas]], p. 3
+* [[file:../comparacao.org::A avaliação se faz em três rodadas][comparacao: A avaliação se faz em três rodadas]], p. 3
 - Frase: “A avaliação se faz em três rodadas, cada uma mais estreita que
   a anterior, como as de Kiss (2014, p. 3): a primeira responde à P1, e a
   segunda e a terceira, à P1.1 e à P1.2.” A ligação de cada rodada a uma
@@ -201,7 +201,7 @@
   selection of the case studies in Elm.” (p. 3)
 - Lido em: =acervo/kiss2014.pdf=, p. 9 do PDF (p. 3).
 - Conferido: 2026-10-13.
-* [[file:../cases.org::A avaliação cabe ao autor][cases: A avaliação cabe ao autor]], p. 8
+* [[file:../comparacao.org::A avaliação cabe ao autor][comparacao: A avaliação cabe ao autor]], p. 8
 - Frase: “Kiss (2014, p. 8) chama de analítica a avaliação pelas DCs e a
   adota como alternativa aos experimentos com programadores, muitas vezes
   caros e de resultados necessariamente restritos.”
@@ -224,7 +224,7 @@
   “precisam ser testadas”; o “it would make sense” de Kiss pede o “convém”
   (checagem adversarial).
 - Conferido: 2026-10-15.
-* [[file:../cases.org::Das sete interfaces do 7GUIs, só o][cases: Das sete interfaces do 7GUIs, só o Flight Booker fica]] (Flight Booker), p. 25
+* [[file:../comparacao.org::Das sete interfaces do 7GUIs, só o][comparacao: Das sete interfaces do 7GUIs, só o Flight Booker fica]] (Flight Booker), p. 25
 - Frase: “Das sete interfaces do 7GUIs, só o /Flight Booker/ fica no
   conjunto, adaptado no Formulário.”
 - Trecho: “3.5 Flight Booker / Challenges: working with constraints” (p. 25);
@@ -234,7 +234,7 @@
   (p. 17) e o /Crud/ (p. 34), que o Contador e a Lista filtrável adaptavam;
   as duas interfaces saíram do conjunto (ADR 0002).
 - Conferido: 2026-10-16.
-* [[file:../cases.org::Das sete interfaces do 7GUIs, só o][cases: Das sete interfaces do 7GUIs, só o Flight Booker fica]] (Timer), p. 30
+* [[file:../comparacao.org::Das sete interfaces do 7GUIs, só o][comparacao: Das sete interfaces do 7GUIs, só o Flight Booker fica]] (Timer), p. 30
 - Frase: “O /Timer/ trata da concorrência entre um relógio e o usuário, mas
   nenhuma das sete faz uma requisição cujas respostas chegam fora de ordem
   ou são canceladas.” A segunda metade é leitura do conjunto inteiro
@@ -249,7 +249,7 @@
   (p. 34), a lista, os campos e os botões leem e alteram a mesma lista de
   nomes, mas num quadro só.
 - Conferido: 2026-10-16.
-* [[file:../cases.org::As \[\[glspl:dc\]\] de textcite:green1989 são][cases: As DCs de Green (1989) são um conjunto estabelecido]], p. 12
+* [[file:../comparacao.org::As \[\[glspl:dc\]\] de textcite:green1989 são][comparacao: As DCs de Green (1989) são um conjunto estabelecido]], p. 12
 - Frase: “o que facilita a comparação dos resultados com os de outros
   trabalhos baseados nelas, como argumenta Kiss (2014, p. 12), que usou um
   subconjunto delas.”
@@ -274,7 +274,7 @@
 - Lido em: =acervo/kiss2014.pdf=, p. 29 do PDF.
 - Conferido: 2026-10-31.
 
-* [[file:../cases.org::Na Busca, no Login e no Placar ao vivo, o Web Component com Effection][cases: Na Busca, no Login e no Placar ao vivo, o Web Component com Effection]] (o passo sem controle), p. 23
+* [[file:../comparacao.org::Na Busca, no Login e no Placar ao vivo, o Web Component com Effection][comparacao: Na Busca, no Login e no Placar ao vivo, o Web Component com Effection]] (o passo sem controle), p. 23
 - Frase: “A diferença nesse passo não se atribui a uma variável só, como
   nos casos de Kiss (2014, p. 23), em que o /toolkit/ pesou mais que o
   paradigma.”
@@ -283,7 +283,7 @@
 - Lido em: =acervo/kiss2014.pdf=, p. 29 do PDF.
 - Conferido: 2026-10-31.
 
-* [[file:../cases.org::Contador: :: a lista de contadores][cases: a lista das mudanças da segunda rodada]] (a referência circular), p. 54
+* [[file:../comparacao.org::Contador: :: a lista de contadores][comparacao: a lista das mudanças da segunda rodada]] (a referência circular), p. 54
 - Frase: “a referência circular, que a Planilha acusa sem avaliar o
   ciclo, a exigência com que Kiss (2014, p. 54) discute a viscosidade do
   /Cells/”.
@@ -298,7 +298,7 @@
   ciclo é da especificação do trabalho (ADR 0029).
 - Conferido: 2026-10-31.
 
-* [[file:../cases.org::A análise é por interface][cases: A análise é por interface]] (um caso por seção), p. 17-55
+* [[file:../comparacao.org::A análise é por interface][comparacao: A análise é por interface]] (um caso por seção), p. 17-55
 - Frase: “A análise é por interface, como os casos de Kiss (2014,
   p. 17-55), um por seção.”
 - Trecho: as seções 3.3 a 3.9, uma por caso, do “3.3 Counter” (p. 17) ao

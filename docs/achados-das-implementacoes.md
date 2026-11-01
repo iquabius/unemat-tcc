@@ -1,7 +1,7 @@
 # Achados das implementações, à espera da análise
 
 Achados. Observações feitas ao implementar as interfaces, com data e
-commit, para entrar na análise em `texto/cases.org` (tarefa no `bd`). Cada
+commit, para entrar na análise em `texto/comparacao.org` (tarefa no `bd`). Cada
 item diz a que Dimensão Cognitiva (DC) parece servir; a classificação é
 provisória.
 

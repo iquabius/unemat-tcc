@@ -1,7 +1,7 @@
 #+title: google2026d: Google (2026), Lifecycle
 #+startup: overview
 
-* [[file:../cases.org::Depois da análise, o entorno do núcleo][cases: Depois da análise, o entorno do núcleo]] (o Lit sobre o Web Component)
+* [[file:../comparacao.org::Depois da análise, o entorno do núcleo][comparacao: Depois da análise, o entorno do núcleo]] (o Lit sobre o Web Component)
 - Frase: “O Lit se constrói sobre o Web Component: o componente continua
   uma classe que o navegador chama como elemento personalizado, mas a
   alteração de uma propriedade reativa agenda um ciclo de atualização,

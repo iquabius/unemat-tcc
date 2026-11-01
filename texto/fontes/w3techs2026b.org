@@ -1,7 +1,7 @@
 #+title: w3techs2026b: W3Techs (2026), Usage Statistics and Market Share of Angular for Websites
 #+startup: overview
 
-* [[file:../prog.org::Cada pesquisa de uso tem um limite][prog: Cada pesquisa de uso tem um limite de amostra]]
+* [[file:../modelos.org::Cada pesquisa de uso tem um limite][modelos: Cada pesquisa de uso tem um limite de amostra]]
 - Frase: “O W3Techs nem separa o Angular do AngularJS”
 - Trecho: “Usage statistics and market share of Angular for websites”;
   “Angular is a JavaScript library for building web applications,

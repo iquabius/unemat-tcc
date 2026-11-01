@@ -1,7 +1,7 @@
 #+title: berry2020: Berry e Serrano (2020), HipHop.js: (A)Synchronous Reactive Web Programming
 #+startup: overview
 
-* [[file:../prog.org::O JavaScript ganhou alternativas ao][prog: O JavaScript ganhou alternativas ao callback]], p. 535 e 538
+* [[file:../modelos.org::O JavaScript ganhou alternativas ao][modelos: O JavaScript ganhou alternativas ao callback]], p. 535 e 538
 - Frase: “Numa implementação em JavaScript que guarda o estado da aplicação
   em variáveis globais, o /async/ e o /await/ não ajudam a coordenar esse
   estado.”
@@ -14,7 +14,7 @@
 - Observação: as variáveis globais são do exemplo de Berry e Serrano, e não
   da linguagem; corrigido na checagem de 2026-10-08.
 - Conferido: 2026-10-07; a p. 535, em 2026-10-09.
-* [[file:../cases.org::Das sete interfaces, quatro adaptam][cases: Das sete interfaces, quatro adaptam]], p. 534
+* [[file:../comparacao.org::Das sete interfaces, quatro adaptam][comparacao: Das sete interfaces, quatro adaptam]], p. 534
 - Frase: “O Login segue o painel de Berry e Serrano (2020, p. 534)”.
 - Trecho: “We introduce HipHop.js with a simple login panel as used by
   many web applications. When both the user name and password are filled
@@ -23,7 +23,7 @@
 - Observação: a quarentena é o “Login Panel 2.0” da p. 539 e entra na segunda
   rodada (ADR 0029); o nome da interface já a traz.
 - Conferido: 2026-10-13.
-* [[file:../cases.org::Contador: :: a lista de contadores][cases: a lista das mudanças da segunda rodada]], p. 539 (a quarentena)
+* [[file:../comparacao.org::Contador: :: a lista de contadores][comparacao: a lista das mudanças da segunda rodada]], p. 539 (a quarentena)
 - Frase: “a quarentena depois de três falhas seguidas, que Berry e Serrano
   (2020, p. 539) acrescentam ao painel na segunda versão dele”.
 - Trecho: “let us evolve our login panel specification: for version 2.0,

@@ -226,7 +226,7 @@ revisão por pares. O argumento, conferido no PDF em 2026-10-14:
 | 23 | "we are going to identify state as accidental state if we can omit it in this ideal world" | a definição de estado acidental |
 | 25 | o dado derivado "can always be re-derived [...] whenever required [...] and it is clearly accidental state" | o estado derivado é acidental |
 
-Os trechos de `prog.org` sobre a ordem fixada pela linguagem (p. 8-9) e
+Os trechos de `modelos.org` sobre a ordem fixada pela linguagem (p. 8-9) e
 as causas da complexidade (p. 1) estão em `texto/fontes/moseley2006.org`.
 
 ### Os dois textos de Brooks
@@ -305,7 +305,7 @@ A cadeia, com a fonte de cada elo:
   Kamina e Aotani (2018), Van Roy (2020, PACMPL, DOI 10.1145/3386333) e
   Brooks (qual edição do "No Silver Bullet": a de 1987 na *IEEE Computer*,
   que Edwards (2009) cita, ou o capítulo da edição de 1995 do livro).
-- A frase de `texto/prog.org` que distingue a complexidade essencial da
+- A frase de `texto/modelos.org` que distingue a complexidade essencial da
   acidental cita só Moseley e Marks (p. 1 e 21); com Brooks, a distinção
   passa a ser dele e a discordância, dos dois.
 - Conferir no sumário da edição da Alta Books (2018) se o capítulo 1 saiu

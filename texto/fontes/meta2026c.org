@@ -1,13 +1,13 @@
 #+title: meta2026c: Meta Platforms (2026), Writing Markup with JSX
 #+startup: overview
 
-* [[file:../cases.org::O núcleo tem duas tecnologias][cases: O núcleo tem duas tecnologias]]
+* [[file:../comparacao.org::O núcleo tem duas tecnologias][comparacao: O núcleo tem duas tecnologias]]
 - Frase: “No React, a tela se monta em JSX, marcação parecida com HTML
   escrita dentro do JavaScript.”
 - Trecho: “JSX is a syntax extension for JavaScript that lets you write
   HTML-like markup inside a JavaScript file.”
 - Lido em: https://react.dev/learn/writing-markup-with-jsx, em 2026-10-07.
-- Observação: a definição por extenso está no prog.org, seção de
+- Observação: a definição por extenso está no modelos.org, seção de
   programação de interfaces gráficas. Até 2026-10-31, a frase falava do
   React e do Solid juntos; o Solid passou ao parágrafo do entorno.
 - Conferido: 2026-10-07; frase revista em 2026-10-31.

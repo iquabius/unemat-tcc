@@ -1,7 +1,7 @@
 #+title: erdweg2015: Erdweg et al. (2015), Evaluating and Comparing Language Workbenches: Existing Results and Benchmarks for the Future
 #+startup: overview
 
-* [[file:../cases.org::O conjunto de interfaces é um][cases: O conjunto de interfaces é um]], p. 35
+* [[file:../comparacao.org::O conjunto de interfaces é um][comparacao: O conjunto de interfaces é um]], p. 35
 - Frase: “A medida, neste trabalho, é a avaliação pelas DCs, como nos
   /benchmarks/ de resultado qualitativo do projeto de linguagens (Erdweg et
   al., 2015, p. 35) [...].”

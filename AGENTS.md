@@ -69,9 +69,9 @@ As tarefas vivem no [Beads](https://github.com/gastownhall/beads) (`bd`
   |---|---|
   | `texto/intro.org`, `docs/metodo-da-avaliacao.md`, `docs/estado-eventos-e-complexidade.md`, `docs/bibliografia/escrita-da-introducao.md` | Fase 1: introdução (`tcc-e2e`) |
   | a pauta de uma orientação | a fase em andamento, a primeira ainda aberta |
-  | `texto/cases.org`, `texto/results.org`, a análise por DC | Fase 2: análise das implementações (`tcc-d40`) |
-  | `texto/prog.org`, `docs/bibliografia/programacao-funcional-e-reativa.md`, `docs/trabalhos-relacionados-e-lacuna.md` | Fase 3: capítulo de programação (`tcc-2o8`) |
-  | `texto/conclusion.org`, o título, o texto do resumo | Fase 4: fechamento (`tcc-y8x`) |
+  | `texto/comparacao.org`, `texto/results.org`, a análise por DC | Fase 2: análise das implementações (`tcc-d40`) |
+  | `texto/modelos.org`, `docs/bibliografia/programacao-funcional-e-reativa.md`, `docs/trabalhos-relacionados-e-lacuna.md` | Fase 3: capítulo de programação (`tcc-2o8`) |
+  | `texto/conclusao.org`, o título, o texto do resumo | Fase 4: fechamento (`tcc-y8x`) |
   | `interfaces-graficas/`: código, especificação, testes de conformidade, capturas | Código das interfaces (`tcc-3jg`) |
   | `texto/refs.bib`, `acervo/`, `docs/bibliografia/protocolo-da-revisao.md` | Bibliografia (`tcc-bkm`) |
   | `latex/`, pré-textuais, margens, legendas | Formatação do documento (`tcc-juu`) |
@@ -79,7 +79,7 @@ As tarefas vivem no [Beads](https://github.com/gastownhall/beads) (`bd`
 
   A descrição de cada épico diz o que entra e o que não entra; leia-a
   quando a tabela não decidir. Tarefa que muda dois artefatos vai para o
-  épico do que ela entrega: ler uma fonte para citar em `prog.org` é da
+  épico do que ela entrega: ler uma fonte para citar em `modelos.org` é da
   Fase 3, e não da Bibliografia. Se ainda houver dúvida entre dois épicos,
   pergunte ao autor na hora, com as opções e o que cada uma implica
   (ferramenta de pergunta ao usuário quando houver), antes de criar: não

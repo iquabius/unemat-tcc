@@ -1,7 +1,7 @@
 #+title: blackwell2003: Blackwell e Green (2003), Notational Systems: The Cognitive Dimensions of Notations Framework
 #+startup: overview
 
-* [[file:../cases.org::Em cada rodada, a avaliação percorre][cases: Em cada rodada, a avaliação percorre]], p. 115-118
+* [[file:../comparacao.org::Em cada rodada, a avaliação percorre][comparacao: Em cada rodada, a avaliação percorre]], p. 115-118
 - Frase: “Em cada rodada, a avaliação percorre as 14 DCs da lista completa
   (Blackwell; Green, 2003, p. 115-118)”.
 - Trecho: “The full list is currently 14 (although several more have been
@@ -12,10 +12,10 @@
   p. 13 a 16 do PDF (p. 115 a 118).
 - Observação: os nomes em português e a expressividade de papel
   (/role-expressiveness/) seguem o GLOSSARY.md; o agrupamento em oito, duas
-  e quatro é do trabalho (cases.org, seção "Dimensões de avaliação"), e
-  não da fonte.
+  e quatro é do trabalho (comparacao.org, seção "Dimensões de avaliação"),
+  e não da fonte.
 - Conferido: 2026-10-13.
-* [[file:../cases.org::Em cada rodada, a avaliação percorre][cases: Em cada rodada, a avaliação percorre]], p. 115 (atividade)
+* [[file:../comparacao.org::Em cada rodada, a avaliação percorre][comparacao: Em cada rodada, a avaliação percorre]], p. 115 (atividade)
 - Frase: “Nenhuma dimensão é boa ou má em si, e a avaliação sempre leva em
   conta a atividade a apoiar (Blackwell; Green, 2003, p. 115).”
 - Trecho: “Important: None of these dimensions is evaluative when
@@ -23,7 +23,7 @@
   activities to be supported.” (p. 115)
 - Lido em: o mesmo PDF, p. 13 (p. 115).
 - Conferido: 2026-10-13.
-* [[file:../cases.org::Em cada rodada, a avaliação percorre][cases: Em cada rodada, a avaliação percorre]], p. 113
+* [[file:../comparacao.org::Em cada rodada, a avaliação percorre][comparacao: Em cada rodada, a avaliação percorre]], p. 113
 - Frase: “Na primeira rodada, as atividades são a busca e a compreensão
   exploratória do código pronto, e, na segunda e na terceira, a modificação
   (Blackwell; Green, 2003,
@@ -39,7 +39,7 @@
   por rodada são do trabalho (docs/metodo-da-avaliacao.md, seção "Rodadas e crescimento do código";
   tmp/pesquisas/2026-10-11-relatorio-termos-e-coordenacao.md, seção 5.1).
 - Conferido: 2026-10-13.
-* [[file:../cases.org::A comparação fecha numa tabela-síntese][cases: A comparação fecha numa tabela-síntese]], p. 107-108 e 118
+* [[file:../comparacao.org::A comparação fecha numa tabela-síntese][comparacao: A comparação fecha numa tabela-síntese]], p. 107-108 e 118
 - Frase: “A comparação fecha numa tabela-síntese, que reúne o perfil de
   cada modelo de programação nas DCs (Blackwell; Green, 2003, p. 107-108
   e 118) [...]. Cada célula dá a posição do modelo na DC [...]”
@@ -57,7 +57,7 @@
   dos modelos entre si. Até 2026-10-31, a tabela abria a análise, que
   seguia por DC; com a análise por interface (ADR 0017), ela a fecha.
 - Conferido: 2026-10-26.
-* [[file:../cases.org::Na segunda e na terceira rodada, o /diff/][cases: Na segunda e na terceira rodada, o diff]], p. 115 (viscosidade)
+* [[file:../comparacao.org::Na segunda e na terceira rodada, o /diff/][comparacao: Na segunda e na terceira rodada, o diff]], p. 115 (viscosidade)
 - Frase: “mostra quantas ações ela pede, e quantas outras restauram a
   consistência (Blackwell; Green, 2003, p. 115).”
 - Trecho: “A viscous system needs many user actions to accomplish one

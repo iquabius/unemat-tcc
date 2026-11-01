@@ -1,7 +1,7 @@
 #+title: ratanaworabhan2010: Ratanaworabhan, Livshits e Zorn (2010), JSMeter: Comparing the Behavior of JavaScript Benchmarks with Real Web Applications
 #+startup: overview
 
-* [[file:../prog.org::Em JavaScript, os /callbacks/ são frequentes:][prog: Em JavaScript, os /callbacks/ são frequentes:]], sem página
+* [[file:../modelos.org::Em JavaScript, os /callbacks/ são frequentes:][modelos: Em JavaScript, os /callbacks/ são frequentes:]], sem página
 - Frase: “Numa sessão típica de uso de onze sites, como Gmail, Facebook e
   Amazon, os tratadores de eventos executam de 31,6% a 99,1% das
   instruções JavaScript.”

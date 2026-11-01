@@ -18,7 +18,7 @@
   Myers (1994, p. 79), citado na frase anterior; “complica muito” traduz o
   “severely complicates”.
 - Conferido: 2026-10-15.
-* [[file:../prog.org::O /callback/ fragmenta o fluxo de controle][prog: O callback fragmenta o fluxo de controle]], p. 134-135
+* [[file:../modelos.org::O /callback/ fragmenta o fluxo de controle][modelos: O callback fragmenta o fluxo de controle]], p. 134-135
 - Frase: “O /callback/ fragmenta o fluxo de controle: a sequência de passos
   que o programador tem em mente para uma operação fica dividida entre
   vários /callbacks/ (Fischer; Majumdar; Millstein, 2007, p. 134-135).” Em

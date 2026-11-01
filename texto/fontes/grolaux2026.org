@@ -12,21 +12,21 @@
   interface of modern JavaScript” (p. 9).
 - Lido em: =acervo/grolaux2026.pdf=, p. 1, 3 e 9 do PDF (p. 7 a 16).
 - Conferido: 2026-10-06.
-* [[file:../prog.org::As aplicações orientadas a eventos e][prog: As aplicações orientadas a eventos e]], p. 13
+* [[file:../modelos.org::As aplicações orientadas a eventos e][modelos: As aplicações orientadas a eventos e]], p. 13
 - Frase: “[...] e já nomeia tecnologias como o React (Grolaux;
   Nguyen; Vanderdonckt, 2026, p. 13).”
 - Trecho: “Common reactive systems like React or Vue rely on a virtual DOM
   mechanism” (p. 13).
 - Lido em: =acervo/grolaux2026.pdf=, p. 7 do PDF (p. 13).
 - Conferido: 2026-10-12.
-* [[file:../prog.org::O JavaScript ganhou alternativas ao][prog: O JavaScript ganhou alternativas ao callback]], p. 9
+* [[file:../modelos.org::O JavaScript ganhou alternativas ao][modelos: O JavaScript ganhou alternativas ao callback]], p. 9
 - Frase: “As /promises/ achatam o aninhamento dos /callbacks/, mas a lógica
   complexa continua presa em cadeias de /callbacks/.”
 - Trecho: “Promises [34] improved this by flattening the structure (Listing
   2), yet complex logic remains trapped in callback chains.” (p. 9)
 - Lido em: =acervo/grolaux2026.pdf=, p. 3 do PDF (p. 9).
 - Conferido: 2026-10-07.
-* [[file:../prog.org::O JavaScript ganhou alternativas ao][prog: O JavaScript ganhou alternativas ao callback]], p. 9 (async e await)
+* [[file:../modelos.org::O JavaScript ganhou alternativas ao][modelos: O JavaScript ganhou alternativas ao callback]], p. 9 (async e await)
 - Frase: “[...] e as palavras-chave /async/ e /await/, que permitem escrever
   operações assíncronas em estilo sequencial (Grolaux et al., 2026, p. 9).”
 - Trecho: “async/await [14] solves this by allowing asynchronous operations
@@ -36,7 +36,7 @@
   sequencial, que é a proposta do artigo (StreamAsync), e não um recurso do
   JavaScript; corrigido na checagem de 2026-10-08.
 - Conferido: 2026-10-09.
-* [[file:../prog.org::compararam, com 36 estudantes de graduação,][prog: compararam, com 36 estudantes de graduação,]], p. 15
+* [[file:../modelos.org::compararam, com 36 estudantes de graduação,][modelos: compararam, com 36 estudantes de graduação,]], p. 15
 - Frase: “Fora das DCs, Grolaux et al. (2026, p. 15) compararam
   conceitualmente, numa prova de conceito em JavaScript, o async/await com
   /listeners/, barramento de eventos, /streams/ funcionais e PR no
@@ -68,7 +68,7 @@
   computações sobre os dados, separadas do “reactive template”, a tela.
   “As funções que dependem do estado” traduz
   “reactive function” sem usar “reativo”, que este trabalho reserva à PR
-  (prog.org, “As aplicações orientadas a eventos e”). Entre os
+  (modelos.org, “As aplicações orientadas a eventos e”). Entre os
   “reactive frameworks”, o artigo nomeia o React e o Vue, com DOM
   virtual, e o Svelte, que “relies on direct DOM mutations instead of
   virtual DOM” (p. 13); o Solid e os /signals/ não aparecem, e estender

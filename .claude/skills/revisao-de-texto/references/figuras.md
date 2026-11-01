@@ -6,7 +6,7 @@ e caixas de altura fixa, e compila num protótipo, medida no log e vista em
 cinza, antes de ir ao `.org`. Regras aprovadas pelo autor em 2026-10-26,
 depois da revisão de design das figuras do delineamento
 (`fig:cadeia-e-rodadas`, em `texto/intro.org`, e
-`fig:interfaces-por-rodada`, em `texto/cases.org`), que já as seguem e
+`fig:interfaces-por-rodada`, em `texto/comparacao.org`), que já as seguem e
 servem de exemplo. A regra curta está no `AGENTS.md` ("Texto", item da
 figura em TikZ); aqui ficam as regras, o porquê e a medida de cada uma.
 

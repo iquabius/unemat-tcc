@@ -1,7 +1,7 @@
 #+title: sadowski2011: Sadowski e Kurniawan (2011), Heuristic Evaluation of Programming Language Features: Two Parallel Programming Case Studies
 #+startup: overview
 
-* [[file:../cases.org::A avaliação cabe ao autor][cases: A avaliação cabe ao autor]], p. 9
+* [[file:../comparacao.org::A avaliação cabe ao autor][comparacao: A avaliação cabe ao autor]], p. 9
 - Frase: “Ela serve de alternativa aos estudos com programadores, que
   comparam linguagens a custo alto e com resultados muitas vezes
   inconclusivos (Sadowski; Kurniawan, 2011, p. 9) [...].”

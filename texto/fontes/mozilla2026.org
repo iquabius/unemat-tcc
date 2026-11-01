@@ -8,7 +8,7 @@
 - Lido em: =acervo/mozilla2026.txt=, l. 606 (página salva; MDN,
   modificada em 2026-09-01).
 - Conferido: 2026-10-06.
-* [[file:../prog.org::O modelo de programação não é][prog: O modelo de programação não é]] (recurso do navegador)
+* [[file:../modelos.org::O modelo de programação não é][modelos: O modelo de programação não é]] (recurso do navegador)
 - Frase: “o Web Component, recurso do próprio navegador (Mozilla, 2026),
   não é nenhum dos dois e tem um modelo de programação como as outras
   tecnologias.”
@@ -21,7 +21,7 @@
 - Observação: até 2026-10-13, a frase contrapunha o jQuery, que se diz
   biblioteca; o jQuery saiu do texto (ADR 0013).
 - Conferido: 2026-10-09; frase revista em 2026-10-13.
-* [[file:../cases.org::O núcleo tem duas tecnologias][cases: O núcleo tem duas tecnologias]] (o Web Component)
+* [[file:../comparacao.org::O núcleo tem duas tecnologias][comparacao: O núcleo tem duas tecnologias]] (o Web Component)
 - Frase: “O Web Component é a forma do próprio navegador de criar
   elementos personalizados, sem biblioteca: uma classe que estende
   =HTMLElement= e que o navegador chama (Mozilla, 2026).”

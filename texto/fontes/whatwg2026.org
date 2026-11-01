@@ -1,7 +1,7 @@
 #+title: whatwg2026: WHATWG (2026), HTML Standard: Server-Sent Events
 #+startup: overview
 
-* [[file:../cases.org::Contador: :: a lista de contadores][cases: a lista das mudanças da segunda rodada]], § 9.2.1 (a reconexão automática do SSE)
+* [[file:../comparacao.org::Contador: :: a lista de contadores][comparacao: a lista das mudanças da segunda rodada]], § 9.2.1 (a reconexão automática do SSE)
 - Frase: “a queda da conexão, que o navegador refaz sozinho (WHATWG,
   2026, § 9.2.1), com o aviso "Reconectando…" até o próximo lote”.
 - Trecho: “Clients will reconnect if the connection is closed; a client

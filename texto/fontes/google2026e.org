@@ -1,7 +1,7 @@
 #+title: google2026e: Google (2026e), Reactive properties
 #+startup: overview
 
-* [[file:../cases.org::Depois da análise, o entorno do núcleo][cases: Depois da análise, o entorno do núcleo]] (o ciclo de atualização)
+* [[file:../comparacao.org::Depois da análise, o entorno do núcleo][comparacao: Depois da análise, o entorno do núcleo]] (o ciclo de atualização)
 - Frase: “a alteração de uma propriedade reativa agenda um ciclo de
   atualização, que chama de novo o =render()= e atualiza a tela pelo
   /template/ (Google, 2026d; Google, 2026e).”
@@ -11,7 +11,7 @@
 - Lido em: =acervo/google2026e.html=, seção “What happens when properties
   change”.
 - Conferido: 2026-10-31.
-* [[file:../cases.org::Depois da análise, o entorno do núcleo][cases: Depois da análise, o entorno do núcleo]] (a alteração no lugar)
+* [[file:../comparacao.org::Depois da análise, o entorno do núcleo][comparacao: Depois da análise, o entorno do núcleo]] (a alteração no lugar)
 - Frase: “Alterar um objeto ou uma lista sem trocar a referência não
   dispara a atualização. A documentação recomenda, na maioria das
   aplicações, tratar os dados como imutáveis, mas admite, quando o dado

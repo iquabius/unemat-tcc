@@ -1,7 +1,7 @@
 #+title: meta2026b: Meta Platforms (2026), You Might Not Need an Effect
 #+startup: overview
 
-* [[file:../cases.org::No Web Component, as tarefas de cada coluna][cases: No Web Component, as tarefas de cada coluna do Quadro]]
+* [[file:../comparacao.org::No Web Component, as tarefas de cada coluna][comparacao: No Web Component, as tarefas de cada coluna do Quadro]]
 - Frase: “A documentação do React chama os efeitos de ‘uma saída de
   emergência do paradigma do React’.” A frase anterior, “o estado do Quadro
   se grava no armazenamento do navegador, um sistema externo, por um

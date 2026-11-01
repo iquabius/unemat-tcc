@@ -53,7 +53,7 @@ na segunda rodada e refatoram três delas na terceira, um modo por passo
 programação facilita e o que dificulta, e não as vantagens e
 desvantagens, um juízo que as DCs não fazem (decisões do autor em
 2026-10-09). Os programas de processamento de listas, que não são passo
-para o objetivo geral, vão para a fundamentação (`prog.org`).
+para o objetivo geral, vão para a fundamentação (`modelos.org`).
 
 Em vez de: a P1 entre "os três modelos de programação" e a P1.2 sobre a
 biblioteca que o ecossistema de cada tecnologia mais usa (decisões de
@@ -77,7 +77,7 @@ segundo e o quarto).
 Custo: a resposta da P1.2 sai de três interfaces, sem as de
 gerenciamento de estado; a P1 diz um espectro, mais longo de ler que
 três nomes; o que não aparece no código, como o desempenho, fica fora;
-o título, a introdução e a análise do Contador em `cases.org` se
+o título, a introdução e a análise do Contador em `comparacao.org` se
 reescrevem, e a mudança, a segunda desde a v0.12, se justifica ao curso
 e aos orientadores.
 

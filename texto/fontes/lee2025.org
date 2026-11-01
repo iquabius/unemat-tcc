@@ -103,7 +103,7 @@
   /callback/ também pode substituir as propriedades.
 - Conferido: 2026-10-15; de novo em 2026-10-27, na frase fundida; de novo em
   2026-10-28.
-* [[file:../cases.org::O núcleo tem duas tecnologias][cases: O núcleo tem duas tecnologias]] (o React reexecuta), p. 289:38
+* [[file:../comparacao.org::O núcleo tem duas tecnologias][comparacao: O núcleo tem duas tecnologias]] (o React reexecuta), p. 289:38
 - Frase: “quando o estado se altera, o React reexecuta o componente
   inteiro (Lee; Ahn; Yi, 2025, p. 289:38; SolidJS, 2026), a propagação
   por re-renderização.”
@@ -115,7 +115,7 @@
 - Observação: até 2026-10-31, o React e o Solid estavam numa frase só,
   com a citação “289:38” sem o “p.”.
 - Conferido: 2026-10-09; de novo em 2026-10-31.
-* [[file:../cases.org::Depois da análise, o entorno do núcleo][cases: Depois da análise, o entorno do núcleo]] (o Solid não reexecuta), p. 289:38
+* [[file:../comparacao.org::Depois da análise, o entorno do núcleo][comparacao: Depois da análise, o entorno do núcleo]] (o Solid não reexecuta), p. 289:38
 - Frase: “No Solid, a tela também se monta em JSX, mas o componente não se
   reexecuta, e a alteração de um /signal/ atualiza só os trechos da tela
   que dependem dele (Lee; Ahn; Yi, 2025, p. 289:38; SolidJS, 2026)”.

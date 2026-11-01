@@ -1,7 +1,7 @@
 #+title: tsukanova2026: Tsukanova e Zabrodin (2026), Reactive Programming as an Evolution of Architectural Trade-offs in Managing Changes
 #+startup: overview
 
-* [[file:../prog.org::O Angular acrescentou os /signals/ à][prog: O Angular acrescentou os signals à]], p. 57
+* [[file:../modelos.org::O Angular acrescentou os /signals/ à][modelos: O Angular acrescentou os signals à]], p. 57
 - Frase: “[...] e o Solid e o Angular com /signals/ aparecem entre as
   implementações da PR (Tsukanova; Zabrodin, 2026, p. 57).”
 - Trecho: tabela “Сравнение push- и pull-моделей”, linha “Примеры

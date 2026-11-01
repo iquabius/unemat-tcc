@@ -1,6 +1,6 @@
 #+PROPERTY: header-args:js  :exports code
 #+PROPERTY: header-args:elm  :exports code
-#+EXPORT_FILE_NAME: ../latex/capitulos/prog
+#+EXPORT_FILE_NAME: ../latex/capitulos/modelos
 
 # Revisão de Literatura --------------------------------------------------------
 

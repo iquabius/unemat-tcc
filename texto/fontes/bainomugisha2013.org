@@ -44,7 +44,7 @@
 - Observação: antes de 2026-10-15, citava a p. 52:1-3, com o exemplo de
   =var3=; a p. 52:1 é o resumo e não traz a planilha.
 - Conferido: 2026-10-15.
-* [[file:../prog.org::Nas linguagens imperativas, esse estado é][prog: Nas linguagens imperativas, esse estado é]], p. 52:2 (a gestão manual)
+* [[file:../modelos.org::Nas linguagens imperativas, esse estado é][modelos: Nas linguagens imperativas, esse estado é]], p. 52:2 (a gestão manual)
 - Frase: “Numa interface, é o programador quem escreve essa ordem: para
   cada mudança de estado, ele precisa escrever a atualização de tudo o que
   depende do valor alterado, e esse código é complexo e propenso a erros, como o que
@@ -62,7 +62,7 @@
   O /manually update/ sai como “escrever a atualização”, pela regra do
   AGENTS.md: o programador escreve, e o programa executa.
 - Conferido: 2026-10-15.
-* [[file:../prog.org::Nas linguagens declarativas, não há estado][prog: Nas linguagens declarativas, não há estado]], p. 52:5 e 52:7 (a ordem implícita)
+* [[file:../modelos.org::Nas linguagens declarativas, não há estado][modelos: Nas linguagens declarativas, não há estado]], p. 52:5 e 52:7 (a ordem implícita)
 - Frase: “Na PR, a ordem das atualizações não se escreve: o ambiente de
   execução propaga a mudança de um valor às computações que dependem dele
   e as recalcula na ordem do grafo de dependências, cada uma depois das que
@@ -81,7 +81,7 @@
   programador. Na p. 52:7, /dependents/ são as expressões de que a
   expressão depende, por isso “depois das que ela usa”.
 - Conferido: 2026-10-15.
-* [[file:../prog.org::chamam as planilhas de][prog: chamam as planilhas de]], p. 52:2 (planilhas e Fran)
+* [[file:../modelos.org::chamam as planilhas de][modelos: chamam as planilhas de]], p. 52:2 (planilhas e Fran)
 - Frase: “Bainomugisha et al. (2013, p. 52:2) chamam as planilhas de
   “possivelmente a linguagem de programação mais utilizada por usuários
   finais” (tradução nossa). A maior parte da pesquisa em PR, dizem ainda,
@@ -107,7 +107,7 @@
   PDF (cabeçalho “:2”).
 - Observação: dá o porquê da “orquestração de eventos” antes do tema, no
   fim do primeiro parágrafo, o dos eventos (pedido do autor em
-  2026-10-15). A seção 2 (=prog.org=) diz a ordem dos eventos com Martin
+  2026-10-15). A seção 2 (=modelos.org=) diz a ordem dos eventos com Martin
   (2022, p. 125) desde 3bf8b08.
 - Conferido: 2026-10-15.
 * [[file:../intro.org::Cada toque num aplicativo de celular, clique][intro: Cada toque num aplicativo de celular, clique]], p. 52:1-2 (os eventos)

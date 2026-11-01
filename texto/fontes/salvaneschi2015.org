@@ -27,7 +27,7 @@
   preferências do autor). Em 2026-10-28, no corte do contorno, a definição
   (os observadores e os observáveis) foi para prog.org (decisão do autor).
 - Conferido: 2026-10-15.
-* [[file:../prog.org::O /Observer Pattern/ separa os observadores][prog: O Observer Pattern separa os observadores]], p. 953 (a definição do Observer Pattern)
+* [[file:../modelos.org::O /Observer Pattern/ separa os observadores][modelos: O Observer Pattern separa os observadores]], p. 953 (a definição do Observer Pattern)
 - Frase: “O /Observer Pattern/ separa os observadores, que consomem os
   eventos, dos observáveis, que os produzem (Salvaneschi; Margara;
   Tamburrelli, 2015, p. 953).”
