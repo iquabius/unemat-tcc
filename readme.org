@@ -296,7 +296,8 @@
    (azul), ou, com um lado só, o nome dele, ou, com os dois lados nas mesmas
    seções e páginas, "reescrito:" e as páginas (roxo), agrupadas por seção
    e, as seguidas, num intervalo, são links para o trecho (no intervalo, só
-   as pontas), e as chaves do =refs.bib= levam à entrada nas referências; o
+   as pontas), e as fontes do =refs.bib= que ele mudou, por autor e ano
+   depois de "Referências:", levam à entrada nas referências; o
    commit que não deixou trecho no diff nem mudou uma entrada que as
    referências mostram fica de fora. A release traz só o total das páginas e
    das medidas. O =bin/anotar-diff.py= atribui o que entrou pelo =git blame=

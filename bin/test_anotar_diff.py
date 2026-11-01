@@ -901,7 +901,8 @@ class ResumoDoDiff(unittest.TestCase):
         (d / "diff.tex").write_text(self.TEX)
         if com_aux:
             (d / "aux" / "diff.aux").write_text(aux or self.AUX)
-            (d / "aux" / "diff.bbl").write_text(r"\entry{novo2020}{book}{}")
+            (d / "aux" / "diff.bbl").write_text(r"\entry{novo2020}{book}{}"
+                                                r"\entry{outro2015}{book}{}")
         anotar.resumo(str(d), "aux", "diff", "v0.11", "v0.12")
         return (d / "difresumo.tex").read_text()
 
@@ -925,8 +926,9 @@ class ResumoDoDiff(unittest.TestCase):
                       r"{\textcolor{difsaiu}{9}} \textrightarrow{} Delineamento, "
                       r"p.~\hyperref[difancora-3]{\textcolor{difentrou}{30}}.", resumo)
         self.assertIn(r"\item Põe uma frase\\ entrou: Introdução, p.~\hyperref[difancora-2]"
-                      r"{\textcolor{difentrou}{9}}. refs.bib: \hyperlink{cite.0@novo2020}"
-                      r"{\texttt{novo2020}}.", resumo)
+                      r"{\textcolor{difentrou}{9}}. Referências: \textcite{novo2020}.", resumo)
+        self.assertIn(r"e cada fonte depois de \enquote{Referências:}, à entrada dela.", resumo)
+        self.assertNotIn("refs.bib", resumo)
         self.assertIn(r"\colorlet{difsaiu}{red!70!black}", resumo)
 
     def legenda(self, resumo):
@@ -958,6 +960,15 @@ class ResumoDoDiff(unittest.TestCase):
         self.assertIn(r"\enquote{reescrito:}", legenda)
         self.assertNotIn("seta", legenda)
         self.assertNotIn("Com um lado só", legenda)
+
+    def test_fontes_separadas_por_ponto_e_vírgula(self):
+        # "Ammerlaan, Veninga e Zaidman (2015)" tem vírgula: a vírgula entre
+        # as fontes a confundiria com os autores.
+        commits = [{"commit": "b" * 40, "assunto": "Põe duas fontes",
+                    "chaves": ["novo2020", "outro2015"]}]
+        resumo = self.resumo(ancoras=dict(self.ANCORAS, commits=commits, ancoras=[]))
+        self.assertIn(r"\item Põe duas fontes\\ Referências: \textcite{novo2020}; "
+                      r"\textcite{outro2015}.", resumo)
 
     def test_reescrito_quando_os_lados_caem_nas_mesmas_páginas(self):
         # Saiu da p. 9 da introdução e entrou na mesma página: a seta diria

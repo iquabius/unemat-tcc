@@ -56,9 +56,9 @@ com as páginas de onde o texto saiu (vermelho), uma seta e as páginas em
 que entrou (azul), ou, com um lado só, o nome dele, ou, com os dois lados
 nas mesmas seções e páginas, "reescrito:" e as páginas (roxo), agrupadas
 por seção e, as seguidas, num intervalo, com link para o trecho em cada
-página solta e nas pontas do intervalo, e as chaves do refs.bib que ele
-mudou, com link para a entrada na bibliografia (âncora cite.0@chave do
-biblatex). O commit cujo trecho foi refeito depois, ou que só mudou
+página solta e nas pontas do intervalo, e as fontes do refs.bib que ele
+mudou, por autor e ano (\\textcite), com link para a entrada na
+bibliografia. O commit cujo trecho foi refeito depois, ou que só mudou
 rótulos, e que não mudou uma entrada que as referências mostram, não
 entra.
 """
@@ -810,10 +810,14 @@ def resumo(dir_, aux, job, base_nome, ref_nome):
             formas.update(lados)
         # A chave que as referências não mostram (a fonte não citada) não
         # leva a lugar nenhum, e fica de fora como o trecho que não existe.
-        chaves = [f"\\hyperlink{{cite.0@{k}}}{{\\texttt{{{esc(k)}}}}}"
-                  for k in c["chaves"] if k in na_bib]
+        # Por autor e ano, como o texto cita, e não pela chave do refs.bib,
+        # que quem lê o PDF sem o repositório não conhece; o \textcite leva
+        # à entrada nas referências. O ponto e vírgula separa as fontes,
+        # porque a vírgula já separa os autores de uma delas.
+        chaves = [f"\\textcite{{{k}}}" for k in c["chaves"] if k in na_bib]
         if chaves:
-            partes.append("refs.bib: " + ", ".join(chaves))
+            partes.append("Referências: " + "; ".join(chaves))
+            formas.add("referências")
         # O commit sem trecho próprio no diff (refeito por um posterior, ou
         # só rótulos ou fontes que o PDF não mostra) não leva a lugar nenhum.
         if partes:
@@ -844,8 +848,10 @@ def resumo(dir_, aux, job, base_nome, ref_nome):
                 + (r"Com os dois lados nas mesmas seções e páginas, o texto foi reescrito no "
                    r"lugar, e o item diz \enquote{reescrito:}, com as páginas em "
                    r"{\color{difreescrito}roxo}. " if "reescrito" in formas else "")
-                + r"Cada página leva ao trecho no diff, e as chaves do refs.bib, à entrada nas "
-                r"referências.\par}",
+                + "Cada página leva ao trecho no diff"
+                + (r", e cada fonte depois de \enquote{Referências:}, à entrada dela"
+                   if "referências" in formas else "")
+                + r".\par}",
                 r"\begin{enumerate}\small\setlength{\itemsep}{2pt}"]
         out += itens_dos_commits + [r"\end{enumerate}"]
     # O \label sem contador próprio (o do capítulo sem número) pegaria o
