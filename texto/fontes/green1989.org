@@ -1,6 +1,21 @@
 #+title: green1989: Green (1989), Cognitive Dimensions of Notations
 #+startup: overview
 
+* [[file:../modelos.org::O declarativo não é uma propriedade absoluta][modelos: O declarativo não é uma propriedade absoluta]], p. 3 (sequência e circunstância)
+- Frase: “As linguagens procedurais facilitam extrair a ordem dos passos, e
+  as declarativas, as condições em que cada coisa acontece (Green, 1989,
+  p. 3)”.
+- Trecho: “it would be more valid to say that the structure of procedural
+  languages makes it easier to extract sequence information than
+  circumstance information (Green, 1977), while the reverse is true for
+  declarative languages (Gilmore & Green, 1984).”
+- Lido em: =acervo/green1989.pdf=, p. 3 do PDF, a versão do autor, sem a
+  paginação dos anais (p. 443-460); a página impressa espera a versão
+  publicada.
+- Observação: /circumstance information/ sai como “as condições em que
+  cada coisa acontece”, o que se lê do programa declarativo.
+- Conferido: 2026-11-01.
+
 * [[file:../intro.org::Para discutir o quanto uma notação facilita][intro: Para discutir o quanto uma notação facilita]]
 - Frase: “há as DCs, propostas por Green (1989)”.
 - Trecho: “‘Cognitive dimensions’ are features of computer languages

@@ -1,6 +1,17 @@
 #+title: solidjs2026: SolidJS (2026), Fine-Grained Reactivity
 #+startup: overview
 
+* [[file:../modelos.org::O mesmo texto de programa também pode ter][modelos: O mesmo texto de programa também pode ter]] (o JSX no React e no Solid)
+- Frase: “o React reexecuta o componente quando o estado se altera, e o
+  Solid atualiza só os trechos da tela que dependem dele (Lee; Ahn; Yi,
+  2025, p. 289:38; SolidJS, 2026).”
+- Trecho: “In contrast, React would re-execute an entire component for a
+  change in the single attribute”
+- Lido em: =acervo/solidjs2026.txt=, l. 10 (página salva).
+- Observação: a mesma afirmação de =comparacao.org=, “O núcleo tem duas
+  tecnologias”.
+- Conferido: 2026-11-01.
+
 * [[file:../intro.org::Nos declarativos, o programador descreve a tela][intro: Nos declarativos, o programador descreve a tela]] (as declarativas)
 - Frase: “Nos declarativos, o programador descreve a tela em função do
   estado, e o ambiente de execução a mantém atualizada.” (o Solid)

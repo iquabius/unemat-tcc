@@ -1,0 +1,22 @@
+#+title: mijailovic2014: Mijailović e Milićev (2014), Empirical Analysis of GUI Programming Concerns
+#+startup: overview
+
+* [[file:../modelos.org::O grau também se dá a cada parte do código][modelos: O grau também se dá a cada parte do código]], p. 765
+- Frase: “Numa classificação das tecnologias de interface em seis
+  categorias, até a das declarativas escreve de forma declarativa a
+  estrutura e a ligação com os dados, e de forma imperativa o
+  comportamento, com tratadores de eventos (Mijailović; Milićev, 2014,
+  p. 765).”
+- Trecho: Tabela 5, “Summary of the ways GUI concerns are addressed in each
+  category of GUI technologies (S – standards-based, C – custom, D –
+  (entirely or mostly) declarative, I – (entirely or mostly) imperative)”;
+  na linha “Declarative”, “Structure & layout” e “Data binding” são D, e
+  “Behavior” é I, com “Event handlers, ECMA, DOM API, host language”
+  (p. 765).
+- Lido em: =acervo/mijailovic2014.pdf=, p. 9 do PDF (p. 765).
+- Observação: as seis categorias são Form-oriented, Template-Based,
+  Object-Oriented, Hybrid, Declarative e Model-Driven; só a Model-Driven
+  marca o comportamento como D. Até 2026-11-01, a fonte sustentava em
+  =modelos.org= os 1.221 a 31.285 tratadores de eventos (p. 770), que
+  saíram.
+- Conferido: 2026-11-01.

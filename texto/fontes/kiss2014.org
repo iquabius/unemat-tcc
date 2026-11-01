@@ -1,6 +1,23 @@
 #+title: kiss2014: Kiss (2014), Comparison of Object-Oriented and Functional Programming for GUI Development
 #+startup: overview
 
+* [[file:../modelos.org::A própria noção de paradigma é contestada][modelos: A própria noção de paradigma é contestada]], p. 23 e 56 (o toolkit pesou mais)
+- Frase: “Na comparação de Kiss (2014, p. 23 e 56) entre a POO e a PF em
+  sete interfaces, o /toolkit/ teve o papel principal, e as diferenças de
+  paradigma e de linguagem pesaram menos.”
+- Trecho: “As before, the toolkit dominated this evaluation and the
+  paradigms did not come into play once again.” (p. 23); “we can conclude
+  that the toolkit in general played the most crucial role in our case
+  studies. [...] Paradigm and language differences played a more minor
+  role. Still, there were situations where they lead to different
+  results.” (3.10, “Verdict”, p. 56)
+- Lido em: =acervo/kiss2014.pdf=, p. 29 e 62 do PDF (p. 23 e 56).
+- Observação: a introdução cita a p. 23 para o passo do entorno ao
+  Cycle.js; aqui, a mesma página sustenta que o paradigma não é a unidade
+  comparada. Na p. 56, o Circle Drawer é o caso em que o paradigma
+  dominou.
+- Conferido: 2026-11-01.
+
 * [[file:../intro.org::O desenvolvimento de interfaces gráficas é difícil][intro: O desenvolvimento de interfaces gráficas é difícil]], p. 5
 - Frase: “Como Kiss (2014, p. 5), este trabalho não aborda, apesar da
   importância, o projeto da interface e a usabilidade dela para quem a

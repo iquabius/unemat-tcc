@@ -1,6 +1,23 @@
 #+title: disch2025: Disch et al. (2025), Functional Reactive GUI Programming with Modal Types
 #+startup: overview
 
+* [[file:../modelos.org::O grau também se dá a cada parte do código][modelos: O grau também se dá a cada parte do código]], p. 93
+- Frase: “Mesmo assim, as fontes costumam dar o rótulo à tecnologia
+  inteira: para Disch, Heegaard e Bahr (2025, p. 93), a maioria dos
+  /frameworks/ de interface atuais é imperativa, porque o estado é
+  mutável e compartilhado, e os /callbacks/ o leem e o alteram.”
+- Trecho: “Most modern GUI frameworks use an imperative programming model
+  that is based on shared mutable state that is read and updated via
+  callback functions.” (introdução)
+- Lido em: =acervo/disch2025-aceito.pdf=, p. 1 do manuscrito aceito, sem
+  a paginação do LNCS; a mesma frase abre a introdução da
+  pré-publicação (=acervo/disch2025.pdf=, p. 1). A p. 93 é a primeira do
+  capítulo no LNCS (p. 93-114), como na entrada da introdução.
+- Observação: “modelo de programação”, na fonte, é o modo de programar
+  dos /frameworks/, e não a célula deste trabalho; a frase do texto evita
+  o termo.
+- Conferido: 2026-11-01.
+
 * [[file:../intro.org::Nas tecnologias que este trabalho compara][intro: Nas tecnologias que este trabalho compara]], p. 93
 - Frase: “No /imperativo por atualização manual/, o programador escreve,
   nos /callbacks/, a alteração do estado e a atualização da tela (Disch;

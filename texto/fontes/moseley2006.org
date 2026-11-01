@@ -1,6 +1,39 @@
 #+title: moseley2006: Moseley e Marks (2006), Out of the Tar Pit
 #+startup: overview
 
+* [[file:../modelos.org::O código sequencial tem o problema oposto][modelos: O código sequencial tem o problema oposto]], p. 1 e 21 (essencial e acidental)
+- Frase: “Os autores distinguem a complexidade essencial, própria do
+  problema, da acidental, todo o resto, e propõem reduzir a acidental com
+  a PF e o modelo relacional de dados (Moseley; Marks, 2006, p. 1 e 21).”
+- Trecho: “Following Brooks we distinguish accidental from essential
+  difficulty [...] we then give an outline for a potential
+  complexity-minimizing approach based on functional programming and
+  Codd’s relational model of data.” (resumo, p. 1); “Essential Complexity
+  is inherent in, and the essence of, the problem (as seen by the users).
+  Accidental Complexity is all the rest” (p. 21)
+- Lido em: =acervo/moseley2006.pdf=, p. 1 e 21.
+- Observação: estava na subseção “Porque programação funcional é
+  relevante”, que vinha da introdução; em 2026-11-01 foi para o parágrafo
+  do código sequencial, que já cita a p. 1.
+- Conferido: 2026-11-01.
+* [[file:../modelos.org::O mesmo texto de programa também pode ter][modelos: O mesmo texto de programa também pode ter]], p. 9
+- Frase: “O mesmo texto de programa também pode ter outra semântica. A
+  ordem que ele fixa está na semântica da linguagem, e não no texto, que
+  seria um programa válido numa linguagem que não executasse os comandos
+  na ordem em que se escrevem (Moseley; Marks, 2006, p. 9).”
+- Trecho: “It is important to note that the problem is not in the text of
+  the program above [...] it is solely in the semantics of the
+  hypothetical imperative language we have assumed. It is possible to
+  consider the exact same program text as being a valid program in a
+  language whose semantics did not define a run-time sequencing based
+  upon textual ordering within the program.” (p. 9)
+- Lido em: =acervo/moseley2006.pdf=, p. 9.
+- Observação: a fonte fala da ordem de execução; a frase seguinte do
+  texto aplica a ideia ao JSX, que se escreve igual no React e no Solid
+  (leitura deste trabalho, nota “Tensões que o texto precisa enfrentar”
+  de =docs/paradigma-modelo-e-notacao.md=).
+- Conferido: 2026-11-01.
+
 * [[file:../modelos.org::O código sequencial tem o problema oposto][modelos: O código sequencial tem o problema oposto]], p. 8-9
 - Frase: “O código sequencial tem o problema oposto ao do /callback/: a
   linguagem obriga a fixar a ordem de execução mesmo quando ela não

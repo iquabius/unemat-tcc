@@ -1,6 +1,35 @@
 #+title: krishnamurthi2019: Krishnamurthi e Fisler (2019), Programming Paradigms and Beyond
 #+startup: overview
 
+* [[file:../modelos.org::A própria noção de paradigma é contestada][modelos: A própria noção de paradigma é contestada]], p. 1 (conceito mal definido)
+- Frase: “Para Krishnamurthi e Fisler (2019, p. 1), a literatura se perde
+  num conceito mal definido e até confuso.”
+- Trecho: “much of the community lacks useful tools to understand and
+  organize languages, since the standard literature is mired in the
+  ill-defined and even confusing concept of paradigms.” (resumo)
+- Lido em: =acervo/krishnamurthi2019.pdf=, p. 1 do PDF, a versão dos
+  autores; a página do livro espera a versão publicada (tcc-jbaz).
+- Observação: é a voz crítica a Van Roy que a tarefa tcc-giwg pedia.
+- Conferido: 2026-11-01.
+* [[file:../modelos.org::A própria noção de paradigma é contestada][modelos: A própria noção de paradigma é contestada]], p. 7 (taxonomia e reatividade)
+- Frase: “As linguagens não se organizam em taxonomias, porque as mais
+  usadas misturam conceitos de vários paradigmas (Krishnamurthi; Fisler,
+  2019, p. 7). Ser imperativo também não impede ser reativo: a
+  reatividade diz como o programa se comporta quando um valor se altera,
+  e não como ele se organiza (Krishnamurthi; Fisler, 2019, p. 7).”
+- Trecho: “being imperative does not preclude being reactive [...] while
+  OO and FP are statements about program organization, reactivity is a
+  statement about program behavior on update.”; “Languages do not organize
+  into hierarchical taxonomies the way plants and animals do [...] modern
+  mainstream languages are usually a mélange of many of these bins.”
+  (seção 3, “Beyond Paradigms”)
+- Lido em: =acervo/krishnamurthi2019.pdf=, p. 7 do PDF, a versão dos
+  autores.
+- Observação: a fonte põe primeiro a reatividade e depois a taxonomia; a
+  frase inverte a ordem para ligar a taxonomia à mistura de conceitos do
+  parágrafo de Van Roy.
+- Conferido: 2026-11-01.
+
 * [[file:../modelos.org::Nem todo evento vem do usuário][modelos: Nem todo evento vem do usuário]], p. 8 (eventos que não vêm do usuário)
 - Frase: “Nem todo evento vem do usuário: a chegada de um pacote da rede e
   o tique do relógio também são eventos, e cada evento faz rodar a parte do

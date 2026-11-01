@@ -1,6 +1,17 @@
 #+title: green1996d: Green e Petre (1996), Usability Analysis of Visual Programming Environments: A ‘Cognitive Dimensions’ Framework
 #+startup: overview
 
+* [[file:../modelos.org::O declarativo não é uma propriedade absoluta][modelos: O declarativo não é uma propriedade absoluta]], p. 136
+- Frase: “uma linguagem com GOTO destaca a ordem de execução dos comandos à
+  custa da informação declarativa (Green; Petre, 1996, p. 136).”
+- Trecho: “a traditional GOTO-language highlights the procedural informtion
+  (the order of execution of statements) at the expense of the declarative
+  information (how many types of input are distinguished and how each type
+  is handled)” (p. 136-137; “informtion” assim no original)
+- Lido em: =acervo/green1996d.pdf=; a frase começa no fim da p. 136 e
+  termina na p. 137.
+- Conferido: 2026-11-01.
+
 * [[file:../intro.org::Por ser analítica, e não um experimento][intro: Por ser analítica, e não um experimento]], p. 139
 - Frase: “As DCs também dizem pouco das escolhas de alto nível, como o
   modelo de computação, e a relevância delas começa quando se definem os

@@ -1,6 +1,18 @@
 #+title: lee2025: Lee et al. (2025), React-tRace: A Semantics for Understanding React Hooks: An Operational Semantics and a Visualizer for Clarifying React Hooks
 #+startup: overview
 
+* [[file:../modelos.org::O mesmo texto de programa também pode ter][modelos: O mesmo texto de programa também pode ter]], p. 289:38 (o JSX no React e no Solid)
+- Frase: “o React reexecuta o componente quando o estado se altera, e o
+  Solid atualiza só os trechos da tela que dependem dele (Lee; Ahn; Yi,
+  2025, p. 289:38; SolidJS, 2026).”
+- Trecho: Tabela 2, “Comparison of reactive UI frameworks”: “Re-read
+  Spec.” é “Yes” no React e “No” no Solid; a propriedade é “whether they
+  re-read component specifications for re-rendering” (289:38).
+- Lido em: =acervo/lee2025.pdf=, p. 38 do PDF (apêndice C).
+- Observação: a mesma afirmação de =comparacao.org=, “O núcleo tem duas
+  tecnologias”, conferida ali em 2026-10-31.
+- Conferido: 2026-11-01.
+
 * [[file:../intro.org::Nos declarativos, o programador descreve a tela][intro: Nos declarativos, o programador descreve a tela]], p. 289:1 e 289:2 (as declarativas)
 - Frase: “Nos declarativos, o programador descreve a tela em função do
   estado, e o ambiente de execução a mantém atualizada (Lee; Ahn; Yi, 2025,

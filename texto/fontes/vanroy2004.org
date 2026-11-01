@@ -1,6 +1,15 @@
 #+title: vanroy2004: Van Roy e Haridi (2004), Concepts, Techniques, and Models of Computer Programming
 #+startup: overview
 
+* [[file:../modelos.org::O declarativo não é uma propriedade absoluta][modelos: O declarativo não é uma propriedade absoluta]], p. 406
+- Frase: “O declarativo não é uma propriedade absoluta, e sim uma questão
+  de grau (Van Roy; Haridi, 2004, p. 406).”
+- Trecho: “The real problem is that ‘declarative’ is not an absolute
+  property, but a matter of degree.” (seção 6.1, p. 406)
+- Lido em: =acervo/vanroy2004.pdf=, p. 437 do PDF (p. 406).
+- Observação: é a fonte do grau de cada modo no ADR 0021.
+- Conferido: 2026-11-01.
+
 * [[file:../intro.org::Este trabalho compara /modelos de programação/][intro: Este trabalho compara modelos de programação]], p. xiii e 29
 - Frase: “O termo vem de Van Roy e Haridi, para quem o modelo de
   programação são as técnicas e os princípios de projeto tornados possíveis

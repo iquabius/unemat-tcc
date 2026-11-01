@@ -1,7 +1,42 @@
 #+title: vanroy2009: Van Roy (2009), Programming Paradigms for Dummies: What Every Programmer Should Know
 #+startup: overview
 
-* [[file:../modelos.org::Cada modelo de programação aplica conceitos][modelos: Cada modelo de programação aplica conceitos]], p. 10
+* [[file:../modelos.org::Um /paradigma de programação/ é uma abordagem][modelos: Um paradigma de programação é uma abordagem]], p. 10 (definição)
+- Frase: “Um /paradigma de programação/ é uma abordagem da programação
+  baseada numa teoria matemática ou num conjunto coerente de princípios
+  (Van Roy, 2009, p. 10).”
+- Trecho: “A programming paradigm is an approach to programming a computer
+  based on a mathematical theory or a coherent set of principles.” (p. 10)
+- Lido em: =acervo/vanroy2009.pdf=, p. 2 do PDF (p. 10).
+- Observação: até 2026-11-01, a definição vinha numa citação em bloco
+  traduzida, com “Programação é uma disciplina extensa” antes.
+- Conferido: 2026-11-01.
+* [[file:../modelos.org::Na classificação de \[\[textcite:vanroy2009\]\[p. 14\]\]][modelos: Na classificação de Van Roy (2009, p. 14)]], p. 14 (linguagem núcleo)
+- Frase: “Na classificação de Van Roy (2009, p. 14), uma linguagem só
+  entra num paradigma quando a linguagem núcleo dela o suporta, e não
+  basta que haja bibliotecas escritas nela para isso.”
+- Trecho: “It is not enough that libraries have been written in the
+  language to support the paradigm. The language’s kernel language should
+  support the paradigm.” (p. 14)
+- Lido em: =acervo/vanroy2009.pdf=, p. 6 do PDF (p. 14).
+- Observação: o critério é o da Figura 2 da fonte, que diz que linguagens
+  dão suporte a cada paradigma; é a tensão com os modelos de programação
+  deste trabalho, que se escrevem todos no TypeScript (ADR 0021).
+- Conferido: 2026-11-01.
+* [[file:../modelos.org::Na classificação de \[\[textcite:vanroy2009\]\[p. 14\]\]][modelos: Na classificação de Van Roy (2009, p. 14)]], p. 10 (a POO em C)
+- Frase: “Entender os conceitos certos melhora a programação mesmo numa
+  linguagem que não os suporta, como a programação orientada a objetos é
+  possível em C, com a atitude certa do programador (Van Roy, 2009,
+  p. 10).”
+- Trecho: “Nevertheless, understanding the right concepts can help improve
+  programming style even in languages that do not directly support them,
+  just as object-oriented programming is possible in C with the right
+  programmer attitude.” (p. 10)
+- Lido em: =acervo/vanroy2009.pdf=, p. 2 do PDF (p. 10).
+- Observação: até 2026-11-01, sem página, num parágrafo próprio depois da
+  defesa do multiparadigma.
+- Conferido: 2026-11-01.
+* [[file:../modelos.org::Um /paradigma de programação/ é uma abordagem][modelos: Um paradigma de programação é uma abordagem]], p. 10 (cada parte pede os seus conceitos)
 - Frase: “Em quase todo problema, cada parte pede o seu conjunto de conceitos
   (Van Roy, 2009, p. 10), e as implementações deste trabalho também os
   misturam.”

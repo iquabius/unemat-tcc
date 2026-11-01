@@ -89,12 +89,12 @@ trabalhos relacionados.
 * Imperativo e declarativo
 
   Nas linguagens imperativas, o estado é implícito e muda por comandos,
-  como a atribuição de um valor a uma variável, e essas mudanças são os
+  como a atribuição de um valor a uma variável, e essas alterações são os
   /efeitos colaterais/ dos comandos [[cite:hudak1989][p. 361]].
   Por isso, para controlar o estado com precisão e de forma determinística,
   elas costumam fixar a ordem em que os comandos se executam
   [[cite:hudak1989][p. 361]].
-  Numa interface, é o programador quem escreve essa ordem: para cada mudança
+  Numa interface, é o programador quem escreve essa ordem: para cada alteração
   de estado, ele precisa escrever a atualização de tudo o que depende do
   valor alterado, e esse código é complexo e propenso a erros, como o que
   muda o estado na hora errada ou na ordem errada
@@ -103,26 +103,51 @@ trabalhos relacionados.
   programador escreve poderia ficar a cargo da execução, ao menos nas
   aplicações interativas.
 
-  # -> ordem implícita no declarativo
-  Nas linguagens declarativas, não há estado implícito, e o programa se
-  escreve com expressões [[cite:hudak1989][p. 361]].
-  Na [[gls:pr]], a ordem das atualizações não se escreve: o ambiente de
-  execução propaga a mudança de um valor às computações que dependem dele
-  e as recalcula na ordem do grafo de dependências, cada uma depois das que
-  ela usa [[cite:bainomugisha2013][p. 52:5 e 52:7]].
-  A programação declarativa costuma ser descrita como a que expressa “o
-  quê” e não “o como” da computação, embora a diferença seja de grau
-  [[cite:hudak1989][p. 361]].
-
   O código sequencial tem o problema oposto ao do /callback/: a linguagem
   obriga a fixar a ordem de execução mesmo quando ela não importa, e quem lê
   precisa supor que importa [[cite:moseley2006][p. 8-9]].
   Para [[textcite:moseley2006][p. 1]], essa preocupação com o fluxo de controle
   está, ao lado do volume de código e do tratamento do estado, entre as
   principais causas da complexidade dos sistemas de grande porte.
+  Os autores distinguem a complexidade essencial, própria do problema, da
+  acidental, todo o resto, e propõem reduzir a acidental com a [[gls:pf]] e
+  o modelo relacional de dados [[cite:moseley2006][p. 1 e 21]].
 
-* Paradigmas e modelos de programação
-  @@latex:\todo{Trecho vindo da introdução no corte de outubro de 2026, ainda por integrar a esta seção.}@@
+  Nas linguagens declarativas, não há estado implícito, e o programa se
+  escreve com expressões [[cite:hudak1989][p. 361]].
+  A programação declarativa costuma ser descrita como a que expressa “o
+  quê” e não “o como” da computação, embora a diferença seja de grau
+  [[cite:hudak1989][p. 361]].
+
+  O declarativo não é uma propriedade absoluta, e sim uma questão de grau
+  [[cite:vanroy2004][p. 406]].
+  Para dizer o grau de um código, este trabalho segue o critério das
+  [[glspl:dc]], o da informação que a notação deixa à vista.
+  As linguagens procedurais facilitam extrair a ordem dos passos, e as
+  declarativas, as condições em que cada coisa acontece
+  [[cite:green1989][p. 3]]; uma linguagem com GOTO destaca a ordem de
+  execução dos comandos à custa da informação declarativa
+  [[cite:green1996d][p. 136]].
+  Em cada eixo, o modo imperativo deixa à vista os passos, e o declarativo,
+  a relação.
+  Na propagação, a manual mostra os passos que atualizam a tela, e as
+  declarativas, como a tela depende do estado.
+  Na orquestração, a atribuição e a sequencial mostram os passos que alteram o estado, e a
+  mensagem e a acumulação, o estado seguinte como função do evento.
+
+  O grau também se dá a cada parte do código, e não à tecnologia inteira.
+  Numa classificação das tecnologias de interface em seis categorias, até a
+  das declarativas escreve de forma declarativa a estrutura e a ligação com
+  os dados, e de forma imperativa o comportamento, com tratadores de eventos
+  [[cite:mijailovic2014][p. 765]].
+  Mesmo assim, as fontes costumam dar o rótulo à tecnologia inteira: para
+  [[textcite:disch2025][p. 93]], a maioria dos /frameworks/ de interface
+  atuais é imperativa, porque o estado é mutável e compartilhado, e os
+  /callbacks/ o leem e o alteram.
+  Por isso, este trabalho dá o grau a cada eixo do modelo de programação, e
+  não à tecnologia.
+
+* Paradigma e modelo de programação
 
   O modelo de programação não é o paradigma, noção imprecisa que o modelo
   de computação torna precisa [[cite:vanroy2004][p. xiii]].
@@ -131,97 +156,48 @@ trabalhos relacionados.
   nenhum dos dois e tem um modelo de programação como as outras
   tecnologias.
 
-  Cada modelo de programação aplica conceitos de um ou mais paradigmas.
-  Em quase todo problema, cada parte pede o seu conjunto de conceitos
+  Um /paradigma de programação/ é uma abordagem da programação baseada numa
+  teoria matemática ou num conjunto coerente de princípios
+  [[cite:vanroy2009][p. 10]].
+  Cada modelo de programação aplica conceitos de um ou mais paradigmas:
+  em quase todo problema, cada parte pede o seu conjunto de conceitos
   [[cite:vanroy2009][p. 10]], e as implementações deste trabalho também os
   misturam.
 
-  As aplicações orientadas a eventos e interativas, na literatura de
-  [[gls:pr]], também se chamam reativas [[cite:salvaneschi2017][p. 1125]], mas
-  a palavra tem sentidos diferentes em linguagens de programação e em sistemas
-  distribuídos [[cite:myter2019][5:1]] e já nomeia tecnologias como o React
-  [[cite:grolaux2026][p. 13]].
-  Por isso, este trabalho as chama de interativas e reserva “reativo” para a
-  [[gls:pr]].
+  Na classificação de [[textcite:vanroy2009][p. 14]], uma linguagem só
+  entra num paradigma quando a linguagem núcleo dela o suporta, e não basta
+  que haja bibliotecas escritas nela para isso.
+  Os modelos de programação deste trabalho se escrevem todos na mesma
+  linguagem, o TypeScript, e só as bibliotecas e a própria plataforma os
+  separam.
+  Por isso a unidade comparada é o modelo de programação, e não o
+  paradigma.
+  Entender os conceitos certos melhora a programação mesmo numa linguagem
+  que não os suporta, como a programação orientada a objetos é possível em
+  C, com a atitude certa do programador [[cite:vanroy2009][p. 10]].
 
-  Programação é uma disciplina extensa, e linguagens práticas de programação
-  geralmente são bastante complicadas.
-  Felizmente, as ideias importantes de linguagens de programação são simples
-  cite:vanroy2009.
-  Um /paradigma de programação/:
+  A própria noção de paradigma é contestada.
+  Para [[textcite:krishnamurthi2019][p. 1]], a literatura se perde num
+  conceito mal definido e até confuso.
+  As linguagens não se organizam em taxonomias, porque as mais usadas
+  misturam conceitos de vários paradigmas [[cite:krishnamurthi2019][p. 7]].
+  Ser imperativo também não impede ser reativo: a reatividade diz como o programa se comporta quando um valor se
+  altera, e não como ele se organiza [[cite:krishnamurthi2019][p. 7]].
+  Na comparação de [[textcite:kiss2014][p. 23 e 56]] entre a [[gls:poo]] e
+  a [[gls:pf]] em sete interfaces, o /toolkit/ teve o papel principal, e as
+  diferenças de paradigma e de linguagem pesaram menos.
 
-  #+BEGIN_EXPORT latex
-  \begin{citacao}
-    \textelp{} é uma abordagem para a programação de um computador baseada em
-    uma teoria matemática ou um conjunto coerente de princípios.
-    \cite[p.~10; tradução nossa]{vanroy2009}
-  \end{citacao}
-  #+END_EXPORT
-
-  É mais interessante focar em paradigmas de programação do que em linguagens,
-  porque há muito menos paradigmas que linguagens, como pode-se notar na Figura
-  ref:img:LangsParadigmsConcepts cite:vanroy2009.
-  Segundo textcite:vanroy2009:
-
-  #+BEGIN_EXPORT latex
-  \begin{citacao}
-    Os conceitos são os elementos primitivos básicos usados para construir os
-    paradigmas. Muitas vezes dois paradigmas que parecem muitos diferentes (por
-    exemplo, programação funcional e programação orientada a objetos) diferem
-    por apenas um conceito. (p. 13; tradução nossa)
-  \end{citacao}
-  #+END_EXPORT
-
-  #+BEGIN_EXPORT latex
-  \begin{figure}[ht]
-    \caption{Linguagens, paradigmas, e conceitos de programação.} \centering
-    \includegraphics[width=12cm]{./fig/roy2009_languages_paradigms_and_concepts.jpeg}
-
-    \small Fonte: \textcite[p.~12]{vanroy2009}.
-    \label{img:LangsParadigmsConcepts}
-  \end{figure}
-  #+END_EXPORT
-
-  Da mesma forma que em engenharia de software (como um processo) pode-se adotar
-  diferentes metodologias de desenvolvimento, em linguagens de programação (como
-  modelos de computação) é desejável utilizar diferentes paradigmas de
+  O mesmo texto de programa também pode ter outra semântica.
+  A ordem que ele fixa está na semântica da linguagem, e não no texto, que
+  seria um
+  programa válido numa linguagem que não executasse os comandos na ordem
+  em que se escrevem [[cite:moseley2006][p. 9]].
+  É o caso do JSX, que se escreve com a mesma sintaxe no React e no Solid: o
+  React reexecuta o componente quando o estado se altera, e o Solid
+  atualiza só os trechos da tela que dependem dele
+  [[cites:&lee2025 p. 289:38;&solidjs2026]].
+  Por isso, a mesma montagem da tela pode pertencer a dois modelos de
   programação.
-  Linguagens tradicionais como Java e C++ dão suporte a um ou dois paradigmas
-  diferentes.
-  “Isso é lamentável, pois problemas de programação diferentes precisam de
-  conceitos diferentes de programação para serem resolvidos claramente.”
-  [[cite:vanroy2009][p. 10]].
-
-  textcite:vanroy2009 defende o uso de um modelo de programação /multiparadigma/,
-  porque:
-
-  #+BEGIN_EXPORT latex
-  \begin{citacao}
-    Idealmente, uma linguagem deveria dar suporte a vários conceitos de forma
-    bem integrada, para que o programador possa escolher os conceitos certos
-    sempre que forem necessários, sem que um complique o outro.
-    (p.~10; tradução nossa)
-  \end{citacao}
-  #+END_EXPORT
-
-  Apesar de linguagens tradicionais não dar suporte a esse modelo, entender os
-  conceitos certos pode melhorar a forma de programação, mesmo em linguagens que
-  não dê suporte direto a eles, assim como programação orientada a objetos é
-  possível em C com a atitude adequada cite:vanroy2009.
-
-  textcite:vanroy2009 apresenta quatro modelos importantes que simplificam
-  programação concorrente em relação à linguagens convencionais: /concorrência
-  declarativa/, /programação funcional reativa/, /programação síncrona
-  discreta/, e /programação com restrições/.
-
-  No modelo declarativo de concorrência o resultado de um programa pode ser
-  calculado incrementalmente.
-  “Se a entrada de um programa concorrente é dada incrementalmente, então o
-  programa também irá calcular o resultado de saída incrementalmente.”
-  [[cite:vanroy2004][p. 238; tradução nossa]].
-  Esses paradigmas não possuem condições de corrida, /‘race conditions’/ em
-  inglês.
-  \todo{Esses últimos dois parágrafos parecem estar deslocados.}
 
 * Programação funcional
   [[Gls:pf]] é assim chamada porque sua operação básica é a
@@ -305,9 +281,6 @@ trabalhos relacionados.
 
 ** Porque programação funcional é relevante
    @@latex:\todo{Trecho vindo da introdução na checagem de outubro de 2026, ainda por integrar a esta seção.}@@
-   [[textcite:moseley2006][p. 1 e 21]] distinguem a complexidade essencial,
-   própria do problema, da acidental, todo o resto, e propõem reduzir a
-   acidental com a [[gls:pf]] e o modelo relacional de dados.
 
    Muitas das vezes as características e vantagens da programação funcional são
    resumidas com declarações do tipo ‘programas funcionais não contêm
@@ -352,6 +325,19 @@ trabalhos relacionados.
 
   O /Observer Pattern/ separa os observadores, que consomem os eventos, dos
   observáveis, que os produzem [[cite:salvaneschi2015][p. 953]].
+
+  Na [[gls:pr]], a ordem das atualizações não se escreve: o ambiente de
+  execução propaga a mudança de um valor às computações que dependem dele
+  e as recalcula na ordem do grafo de dependências, cada uma depois das que
+  ela usa [[cite:bainomugisha2013][p. 52:5 e 52:7]].
+
+  As aplicações orientadas a eventos e interativas, na literatura de
+  [[gls:pr]], também se chamam reativas [[cite:salvaneschi2017][p. 1125]], mas
+  a palavra tem sentidos diferentes em linguagens de programação e em sistemas
+  distribuídos [[cite:myter2019][5:1]] e já nomeia tecnologias como o React
+  [[cite:grolaux2026][p. 13]].
+  Por isso, este trabalho as chama de interativas e reserva “reativo” para a
+  [[gls:pr]].
 
   [[textcite:bainomugisha2013][p. 52:2]] chamam as planilhas de “possivelmente a
   linguagem de programação mais utilizada por usuários finais” (tradução nossa).
