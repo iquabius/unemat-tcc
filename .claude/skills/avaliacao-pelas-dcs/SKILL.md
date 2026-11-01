@@ -1,6 +1,6 @@
 ---
 name: avaliacao-pelas-dcs
-description: Planeja, pré-analisa e revisa a avaliação do TCC pelas 14 Dimensões Cognitivas (DCs), interface por interface e rodada por rodada (primeira, segunda e terceira) — o plano da rodada, o guia de leitura do código por DC, factual e sem conclusão, que o agente entrega antes de o autor ler, e a revisão da análise que o autor ditou (Wispr Flow), conferida contra os trechos e as armadilhas, com a origem de cada posição registrada. Use sempre que for avaliar, analisar, pré-analisar ou ler uma implementação ou um diff de interfaces-graficas/ pelas DCs, preparar a leitura de uma tecnologia que o autor conhece pouco (o Web Component), revisar uma posição por DC, preencher a tabela-síntese ou dizer se a diferença entre os modelos de programação ficou mantida, ampliada, reduzida, anulada, invertida ou surgida — mesmo que o pedido não diga "DC", como "vamos ler a Reserva de passagem no Web Component", "o que olhar na viscosidade da segunda rodada" ou "confere minha análise da Busca". Não use para escrever ou revisar a frase do texto (revisao-de-texto) nem para implementar uma das interfaces.
+description: Planeja, pré-analisa e revisa a avaliação do TCC pelas 14 Dimensões Cognitivas (DCs), interface por interface e rodada por rodada (primeira, segunda e terceira) — o plano da rodada, o guia de leitura do código por DC, factual e sem conclusão, que o agente entrega antes de o autor ler, e a revisão da análise que o autor ditou (Wispr Flow), conferida contra os trechos e as armadilhas, com a origem de cada posição registrada. Use sempre que for avaliar, analisar, pré-analisar ou ler uma implementação ou um diff de interfaces-graficas/ pelas DCs, preparar a leitura de uma tecnologia que o autor conhece pouco (o Web Component), revisar uma posição por DC, preencher a tabela-síntese ou dizer se a diferença entre os modelos de programação ficou mantida, ampliada, reduzida, anulada, invertida ou surgida — mesmo que o pedido não diga "DC", como "vamos ler a Reserva de Passagem no Web Component", "o que olhar na viscosidade da segunda rodada" ou "confere minha análise da Busca". Não use para escrever ou revisar a frase do texto (revisao-de-texto) nem para implementar uma das interfaces.
 ---
 
 # Avaliação pelas DCs: plano, guia de leitura e revisão
@@ -87,7 +87,7 @@ Entrada: a interface e a rodada. Saída: `plano.md` (modelo em
 2. **Implementações.** As do núcleo (ADR 0013), em
    `interfaces-graficas/<interface>/nucleo/`: na primeira e na
    segunda rodada, o Web Component e o React, em todas as interfaces; na
-   terceira, na Busca, no Login e no Placar ao vivo, as quatro
+   terceira, na Busca, no Login e no Placar ao Vivo, as quatro
    implementações novas dos cinco passos, o Web Component com RxJS, o
    React com `useReducer`, o React com RxJS e o React com derivados no
    RxJS (ADR 0029). O entorno do núcleo (o Lit, o Solid, o Web
@@ -112,7 +112,7 @@ Entrada: a interface e a rodada. Saída: `plano.md` (modelo em
      diff de cada mudança, um commit por mudança, na mesma ordem nas duas
      tecnologias; na terceira, o diff de cada passo, da pasta de que ele
      parte à dele, que refatora o código da segunda rodada da Busca, do
-     Login e do Placar ao vivo pelo eixo da orquestração, sem mudar o
+     Login e do Placar ao Vivo pelo eixo da orquestração, sem mudar o
      comportamento (ADR 0029).
 4. **Perguntas de leitura**, uma por exigência de coordenação da interface:
    onde a notação escreve o evento que muda o estado, o derivado, a tela,
@@ -312,7 +312,7 @@ declaração de uso de IA (tcc-gjw).
 
 1. Ditado copiado letra por letra (passo 3, porta fechada).
 2. Revisão pelas DCs (passo 4); o autor reescreve no `.org`.
-3. Rodada de corte da `revisao-de-texto` (ADR 0023), sem meta de
+3. Passada de corte da `revisao-de-texto` (ADR 0023), sem meta de
    palavras: a seção de cada DC perde o que não sustenta a conclusão.
 4. Porta aberta da `revisao-de-texto` (ADR 0023): o rascunho no índice,
    as correções por cima, a fonte de cada afirmação conferida no PDF e

@@ -5,10 +5,11 @@ cabe nos 16 cm do texto, se monta numa grade de 15,6 cm, de colunas iguais
 e caixas de altura fixa, e compila num protótipo, medida no log e vista em
 cinza, antes de ir ao `.org`. Regras aprovadas pelo autor em 2026-10-26,
 depois da revisão de design das figuras do delineamento
-(`fig:cadeia-e-rodadas`, em `texto/intro.org`, e
-`fig:interfaces-por-rodada`, em `texto/comparacao.org`), que já as seguem e
-servem de exemplo. A regra curta está no `AGENTS.md` ("Texto", item da
-figura em TikZ); aqui ficam as regras, o porquê e a medida de cada uma.
+(`fig:cadeia-e-rodadas` e `fig:interfaces-por-rodada`, que saíram do
+texto); em 2026-11-01, a única figura em TikZ do texto é a
+`fig:grade-do-nucleo`, em `texto/intro.org`. A regra curta está no
+`AGENTS.md` ("Texto", item da figura em TikZ); aqui ficam as regras, o
+porquê e a medida de cada uma.
 
 ## As regras
 
@@ -16,15 +17,21 @@ As medidas são de 2026-10-26, na figura de antes da revisão, num
 protótipo com o preâmbulo do trabalho (seção "O protótipo"); 1 cm =
 28,45 pt.
 
-1. **Estilos num lugar só.** As cores dos modelos de programação e os
-   estilos TikZ das figuras ficam no `latex/tcc.tex`, e a figura só cita
-   os nomes: o estilo `delineamento` e, dentro dele, `imp`, `gra`, `rer`,
-   `caixa`, `seta`, `ramo` e `cadeia`; os comandos `\tecnologia`,
-   `\imperativo`, `\granular` e `\rerender`; as cores `corimperativo`,
-   `corgranular` e `correrender`. Nenhuma figura redefine cor. Por quê:
-   com a cor definida em cada figura, a troca de paleta muda uma figura e
-   esquece a outra, e as duas figuras do delineamento usam o mesmo código
-   de cor, em capítulos diferentes.
+1. **Estilos num lugar só.** As cores e os estilos TikZ das figuras
+   ficam no `latex/tcc.tex`, e a figura só cita os nomes: o estilo
+   `grade` e, dentro dele, `celulas`, `tec`, `nucleo`, `entorno`, as
+   larguras `largo`, `maislargo` e `estreito`, as setas `primeiras`,
+   `terceira` e `doentorno`, `linha`, `divisa`, `cantoimp`, `cantodec`, os
+   rótulos dos eixos e a `amostra` da legenda; os comandos `\nagrade` e
+   `\nagradecom`; as cores `cornucleo`, `corcantoimp` e `corcantodec`. O
+   estilo `delineamento` (`imp`, `gra`, `rer`, `caixa`, `seta`, `ramo` e
+   `cadeia`), os comandos `\tecnologia`, `\imperativo`, `\granular` e
+   `\rerender` e as cores dos três modelos (`corimperativo`,
+   `corgranular` e `correrender`) continuam no preâmbulo, sem figura do
+   texto que os use em 2026-11-01. Nenhuma figura redefine cor. Por quê:
+   com a cor definida em cada figura, a troca de paleta muda uma figura
+   e esquece a outra, e figuras de capítulos diferentes usam o mesmo
+   código de cor.
 2. **Largura.** A grade de colunas tem 15,6 cm (regra 3), e a figura
    inteira, com as bordas e os rótulos, cabe no `\textwidth` de 16 cm
    (455,24 pt), medida pelo `\sbox` no protótipo; as duas figuras do
@@ -43,7 +50,10 @@ protótipo com o preâmbulo do trabalho (seção "O protótipo"); 1 cm =
    rótulos das rodadas terminavam em x = −38,4 pt, as faixas começavam em
    −34,8 e as caixas em −36,2, e as faixas ficavam 2,8 pt mais estreitas
    que a fileira das caixas (365,5 contra 368,3 pt): nada se alinhava
-   numa coluna.
+   numa coluna. As cinco colunas iguais são das figuras do delineamento;
+   na grade, cada coluna tem a largura da caixa mais larga dela (`largo`,
+   `maislargo` e `estreito`, com o porquê no comentário do
+   `latex/tcc.tex`), e a posição pela matriz vale igual.
 4. **Altura fixa por fileira.** O conteúdo de cada caixa, rótulo e faixa
    vai em espaços de altura fixa (`\parbox[t][altura][t]`), alinhados no
    alto: todas as caixas da fileira com a mesma altura e as mesmas linhas
@@ -92,25 +102,31 @@ protótipo com o preâmbulo do trabalho (seção "O protótipo"); 1 cm =
    quê: os cabeçalhos "L, WC, WS, S, R" da figura de cases.org estavam em
    `\tiny` (6 pt), e um itálico só de forma se confundiria com o itálico
    de sentido do texto.
-10. **Cor.** Cada modelo de programação tem uma cor, sem vermelho nem
-    verde, que dizem certo e errado (e trocam de sentido entre o Ocidente
-    e o Oriente): grafite #474747 no imperativo, ocre #9A6200 no granular
-    e roxo #7B3FA8 na re-renderização, com o texto branco a 9,3:1, 5,1:1 e
-    6,7:1. No `validate_palette.js` da skill `dataviz` (`--mode light
-    --pairs all`, em 2026-10-26), a paleta passa na separação (15,3 para
-    daltônicos, 18,8 na visão normal), e falham só a faixa de luminosidade
-    e o piso de croma no grafite, que é cinza de propósito; em cinza as
-    três ficam em tons espaçados (luminância 0,06, 0,16 e 0,11). O roxo
-    não convive com um azul, que o deuteranope vê igual. A cor de um
-    modelo não marca outra coisa: a marca de presença é um círculo preto.
-    A cor nunca vai sozinha: o modelo vai escrito na figura. Por quê: a
-    paleta de antes punha o texto branco a 4,45:1 no cinza (#74787B),
-    4,15:1 no vermelho e 3,07:1 no azul (os dois a 85%), abaixo dos 4,5:1
-    da WCAG 1.4.3, no subtítulo em `\scriptsize` que diz o modelo; o cinza
-    e o vermelho diferiam 0,017 em luminância e saíam iguais em preto e
-    branco; na figura de cases.org, só a cor dizia o modelo de cada coluna
-    (WCAG 1.4.1), e o cinza do imperativo marcava também, na legenda, a
-    célula que se implementa, muda ou refatora.
+10. **Cor.** A cor marca o grupo da tecnologia e o canto da grade; o
+    modelo de programação se lê pela célula. Nenhuma cor é vermelha nem
+    verde, que dizem certo e errado (e trocam de sentido entre o
+    Ocidente e o Oriente). A caixa do núcleo é cheia, em roxo #7B3FA8
+    (`cornucleo`), com o texto branco a 6,7:1, e a do entorno não tem
+    fundo, só a borda preta a 75%. O canto imperativo nos dois eixos
+    leva o azul-escuro do brasão da UNEMAT (#2E215C) clareado 75% para o
+    branco, #CBC8D6 (`corcantoimp`), e o declarativo nos dois eixos, um
+    pêssego claro, #FBE8D8 (`corcantodec`), com o texto preto a 12,8:1 e
+    17,6:1 (decisão do autor em 2026-10-31, entre oito variantes). Em
+    cinza, a luminosidade L* fica em 39 no roxo, 81 no canto imperativo,
+    93 no declarativo e 100 na célula sem tom, e a caixa do núcleo se
+    separa dos cantos a 4,1:1 e 5,7:1 (calculado em 2026-11-01). A cor
+    nunca vai sozinha: a legenda diz o que cada tom marca, e o nome da
+    tecnologia vai escrito na caixa. Figura nova usa estas cores, e não
+    as dos três modelos (grafite #474747, ocre #9A6200 e roxo #7B3FA8, em
+    `corimperativo`, `corgranular` e `correrender`), cujo roxo é o do
+    núcleo: na mesma página, ele diria duas coisas. Por quê: o tom frio
+    marca o canto imperativo, e o quente, o declarativo, e o núcleo se
+    destaca nos dois cantos. A paleta de antes de 2026-10-26 punha o
+    texto branco a 4,45:1 no cinza (#74787B), 4,15:1 no vermelho e 3,07:1
+    no azul (os dois a 85%), abaixo dos 4,5:1 da WCAG 1.4.3; o cinza e o
+    vermelho diferiam 0,017 em luminância e saíam iguais em preto e
+    branco; e, na figura de cases.org, só a cor dizia o modelo de cada
+    coluna (WCAG 1.4.1).
 11. **Protótipo antes do texto.** A figura nova ou mudada compila num
     `.tex` autônomo com o preâmbulo do trabalho, no host, mede alturas e
     larguras no log (`\medir`, `\medirfigura`) e se renderiza em cor e em
@@ -123,10 +139,10 @@ protótipo com o preâmbulo do trabalho (seção "O protótipo"); 1 cm =
     pinta as palavras que saíram e entraram só quando estão no texto de
     um nó ou da matriz, ou no argumento de um comando de texto do LaTeX
     (`\textbf`, `\emph`) ou de um comando definido por `\newcommand` no
-    documento (`\rodada`, `\passo`, `\tecnologia`). O texto escrito
+    documento (`\nagrade`, `\nagradecom`, `\tecnologia`). O texto escrito
     direto no argumento de `\parbox`, `\makebox` ou de outro comando de
     pacote não se pinta; o comando próprio da figura, que recebe o texto
-    e monta a caixa (como o `\rodada`), deixa a palavra legível pelo
+    e monta a caixa (como o `\nagrade`), deixa a palavra legível pelo
     filtro. Por quê: a cor na lista do `\foreach` parou o pdflatex no
     protótipo de 2026-10-29, e o filtro só pinta onde sabe que é texto.
     A figura que mudou só no comentário ou no espaço sai como antes, uma

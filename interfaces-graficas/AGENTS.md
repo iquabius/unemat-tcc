@@ -207,7 +207,7 @@ A mudança não se porta para o código de `autorais/`, que é registro.
   usuário ...", como em "cancela a inscrição ao sair da tela, para o
   usuário não gastar rede e bateria com um painel que não vê". A frase
   técnica diz o que o programa faz, e a ilustrativa, por que a aplicação
-  real o pede; a rodada de revisão do texto confere as duas (skill
+  real o pede; a passada de revisão do texto confere as duas (skill
   `revisao-de-texto`).
 - A página que hospeda a interface é `interfaces-graficas/pagina.ts`,
   comum às tecnologias e importada por caminho relativo, como o

@@ -1,9 +1,9 @@
 ---
 name: revisao-de-texto
-description: Passo a passo da escrita e da revisão do texto do TCC (texto/*.org) — porta fechada (o autor escreve no .org, pede edições pelo chat, sem checagem, ou responde a perguntas socráticas e escreve ele mesmo) e porta aberta (rodada sobre o git diff contra HEAD, com o rascunho do autor no índice e as correções do agente por cima, fonte lida no PDF, matriz de fontes, métricas, aprovo, diff ao vivo no Evince, exportação, compilação e commit); antes, a rodada de corte, que simplifica a leitura; antes de cada tag de fase, a checagem adversarial de fatos e de lógica do capítulo inteiro. Use sempre que for escrever, reescrever, editar ou corrigir uma frase de texto/*.org, inclusive a pedido do autor pelo chat ou pelo celular, revisar o que o autor escreveu, aplicar uma proposta de texto já discutida, acrescentar entrada ao refs.bib para citar no texto, cortar ou encurtar um bloco do texto, fechar uma fase com tag, ou quando o autor pedir para "revisar pelo processo", "me pergunte", "não reescreva por mim", "cortar", "checar os fatos", "mostrar no PDF" ou "abrir no Evince".
+description: Passo a passo da escrita e da revisão do texto do TCC (texto/*.org) — porta fechada (o autor escreve no .org, pede edições pelo chat, sem checagem, ou responde a perguntas socráticas e escreve ele mesmo) e porta aberta (passada sobre o git diff contra HEAD, com o rascunho do autor no índice e as correções do agente por cima, fonte lida no PDF, matriz de fontes, métricas, aprovo, diff ao vivo no Evince, exportação, compilação e commit); antes, a passada de corte, que simplifica a leitura; antes de cada tag de fase, a checagem adversarial de fatos e de lógica do capítulo inteiro. Use sempre que for escrever, reescrever, editar ou corrigir uma frase de texto/*.org, inclusive a pedido do autor pelo chat ou pelo celular, revisar o que o autor escreveu, aplicar uma proposta de texto já discutida, acrescentar entrada ao refs.bib para citar no texto, cortar ou encurtar um bloco do texto, fechar uma fase com tag, ou quando o autor pedir para "revisar pelo processo", "me pergunte", "não reescreva por mim", "cortar", "checar os fatos", "mostrar no PDF" ou "abrir no Evince".
 ---
 
-# Rodada de revisão de texto no TCC
+# Passada de revisão de texto no TCC
 
 Por que existe: ADR 0023. O rascunho é a árvore de
 trabalho do `texto/*.org` no checkout principal, e o HEAD é o texto
@@ -16,9 +16,9 @@ A sessão do Claude roda num container (distrobox). Emacs, TeX Live e
 Evince estão só no host: tudo que os usa vai por `distrobox-host-exec`.
 `pdftotext`, `pdfgrep` e Python rodam no container.
 
-## Antes da rodada
+## Antes da passada
 
-1. `bd ready` e a tarefa da rodada (`bd show`); `bd update <id> --status
+1. `bd ready` e a tarefa da passada (`bd show`); `bd update <id> --status
    in_progress`.
 2. A sessão que edita o texto roda no checkout principal, o mesmo do
    Emacs do autor, e uma por vez. Numa worktree, o rascunho do autor não
@@ -38,11 +38,11 @@ Evince estão só no host: tudo que os usa vai por `distrobox-host-exec`.
    distrobox-host-exec bash -lc 'cd "<checkout>" && setsid bin/diff-ao-vivo.sh . HEAD >pdf/diff-ao-vivo.out 2>&1 &'
    ```
 
-   Contra HEAD, a BASE acompanha os commits: o commit da rodada, que leva
+   Contra HEAD, a BASE acompanha os commits: o commit da passada, que leva
    os `.tex` exportados, a passa ao HEAD novo e o PDF perde as marcas do
    que entrou, sem reiniciar (a saída diz "BASE agora é <sha>"); o commit
    do `.org` de um capítulo sem o `.tex` dele deixa a marca, e a saída
-   avisa. Para mostrar a rodada inteira depois do commit, pare-o e inicie
+   avisa. Para mostrar a passada inteira depois do commit, pare-o e inicie
    de novo com um sha (`bin/diff-ao-vivo.sh . <sha>`), cuja BASE fica
    parada (o nome de um ramo acompanha a ponta dele, como HEAD acompanha
    os commits); dois ao mesmo tempo escreveriam no mesmo `pdf/ao-vivo/`.
@@ -59,7 +59,7 @@ Tudo que se mostra ao autor sobre o texto vai em markdown no chat,
 legível no celular: nunca widget, nem caminho de arquivo para abrir; o
 Emacs do host, só a pedido. As correções da porta aberta vão todas
 de uma vez no diff (passo 6 da porta aberta). O formato abaixo vale para
-as alternativas a escolher antes de editar: o passo 4 da rodada de
+as alternativas a escolher antes de editar: o passo 4 da passada de
 corte, o passo 4 da porta aberta e os passos 5 e 6 da checagem
 adversarial.
 
@@ -87,11 +87,11 @@ Exemplo de 2026-10-09: a decisão de método sobre replicação e porte, na
 introdução, saiu como lista resumida, sem a legenda e sem os parágrafos
 inteiros.
 
-## Rodada de corte, antes da rodada da frase
+## Passada de corte, antes da passada da frase
 
 Por que existe: ADR 0023. Revisar com fonte e página uma frase que depois
 sai é trabalho perdido. Por isso o bloco é cortado antes, e só o que
-sobra passa pela rodada por bloco. As técnicas e as fontes estão em
+sobra vai à passada por bloco. As técnicas e as fontes estão em
 `references/processo-e-corte.md` da `escrita-academica`.
 
 1. **Medida.** O corte serve para simplificar a leitura, sem meta de
@@ -175,21 +175,21 @@ sobra passa pela rodada por bloco. As técnicas e as fontes estão em
      matriz no mesmo commit do corte. A frase movida de capítulo só troca
      o link das afirmações dela;
    - releia a cadeia inteira, do primeiro ao último parágrafo, antes do
-     commit de toda rodada. A releitura local do passo 5 não a substitui, nem o
+     commit de toda passada. A releitura local do passo 5 não a substitui, nem o
      `--parte`, que só acha a palavra-marcador de cada elo. O mapa da
      cadeia vai para o `tmp/revisao/<data>-estrutura-<bloco>.md`, uma linha por
      parágrafo: o elo que ele sustenta, os eixos da pesquisa que ele
      carrega (os da pergunta e dos objetivos) e se segue do anterior.
      Depois, confira cada eixo: o objetivo que não tem etapa no método, a
      afirmação que perdeu a fonte ou o antecedente, o eixo que aparece no
-     desenho e some da análise. O que a rodada causou se corrige antes do
+     desenho e some da análise. O que a passada causou se corrige antes do
      commit; o que tira ou enfraquece um elo se pergunta antes (passo 4);
      o que já estava no texto vira pendência no mapa ou tarefa no `bd`.
-     Exemplo de 2026-10-06: as rodadas 1 e 2 da introdução foram
-     commitadas sem essa releitura, e só depois apareceram a frase
-     "é nela que a programação de interfaces se afasta dos outros
-     programas" sem a fonte, que tinha ido para `prog.org`, e a notação
-     imperativa fora do parágrafo do desenho.
+     Exemplo de 2026-10-06: as duas primeiras passadas de corte da
+     introdução foram commitadas sem essa releitura, e só depois
+     apareceram a frase "é nela que a programação de interfaces se
+     afasta dos outros programas" sem a fonte, que tinha ido para
+     `prog.org`, e a notação imperativa fora do parágrafo do desenho.
 7. **Quarentena.** O bloco commitado só volta a ser lido no PDF numa
    sessão seguinte, e não na mesma do corte. Primeiro se procura o que
    falta e o que sobra; só então a frase. No aprovo do diff (passo 8 da
@@ -214,7 +214,7 @@ Nessa fase o agente faz o que o autor pediu e não "melhora" o resto do
 rascunho por conta própria. Se notar um problema fora do pedido, diga
 numa linha e deixe para a porta aberta.
 
-A exceção é a releitura do passo 5 da rodada de corte. Quando a edição
+A exceção é a releitura do passo 5 da passada de corte. Quando a edição
 pedida põe ou tira uma frase, o agente relê o parágrafo e, na edição
 maior, os vizinhos e as frases do capítulo que retomavam o que saiu, e
 reescreve junto as frases que perderam o antecedente, a conta ou a
@@ -238,10 +238,10 @@ modo:
 - o pedido de ajuda vira pergunta; se o autor pedir que o agente
   escreva, o modo acaba, e a frase passa pela porta aberta.
 
-Na rodada de corte, o teste do silêncio do passo 3 também se faz em
+Na passada de corte, o teste do silêncio do passo 3 também se faz em
 perguntas, e então o autor dá o rótulo.
 
-## Porta aberta: a rodada sobre o diff
+## Porta aberta: a passada sobre o diff
 
 1. **Rascunho no índice.** Com o autor de acordo, `git add texto/<capítulo>.org`,
    antes de qualquer correção do agente. Daí em diante, `git diff --cached`
@@ -288,7 +288,7 @@ perguntas, e então o autor dá o rótulo.
      houver, e `Conferido` (a data).
 
    A frase que sai do texto sai da matriz; a que muda de capítulo ou de
-   parágrafo só troca o link. Para ler a rodada parágrafo por parágrafo,
+   parágrafo só troca o link. Para ler a passada parágrafo por parágrafo,
    `bin/conferir-fontes.py --paragrafos --desde HEAD texto/<capítulo>.org`
    junta, na ordem do texto, as afirmações de cada parágrafo alterado.
 4. **O que se pergunta antes de aplicar**, no formato de "Alternativas
@@ -296,7 +296,7 @@ perguntas, e então o autor dá o rótulo.
    - decisão de método, rótulo, recorte ou critério, que é do autor;
    - correção que derruba uma premissa ou uma conclusão do texto;
    - movimento de corte que tira ou enfraquece um elo da cadeia (ADR
-     0023, passo 4 da rodada de corte).
+     0023, passo 4 da passada de corte).
 
    Frase sem fonte ganha o marcador (`p. N`, "precisa de fonte") e o aviso,
    e não some. Decisão cara de reverter vira ADR (skill `adr`).
@@ -313,7 +313,7 @@ perguntas, e então o autor dá o rótulo.
    **ENTÃO** do cenário; `interfaces-graficas/AGENTS.md`, "Interface ou
    implementação nova"); o que faltar entra como correção de sentido.
 6. **Correções por cima, todas de uma vez.** O agente aplica no `.org`
-   todas as correções da rodada, sem commit, com a entrada de cada fonte
+   todas as correções da passada, sem commit, com a entrada de cada fonte
    conferida já na matriz. O autor revisa no diff, e não no chat (ADR
    0023). A resposta separa as duas classes:
    - **mecânicas**, que não mudam o que a frase afirma: página, ano,
@@ -327,7 +327,7 @@ perguntas, e então o autor dá o rótulo.
      do passo 7.
 
    Correção que acrescenta, tira ou move uma frase pede a releitura do
-   passo 5 da rodada de corte antes de aplicar: o parágrafo inteiro, os
+   passo 5 da passada de corte antes de aplicar: o parágrafo inteiro, os
    vizinhos na edição maior e as frases do capítulo que retomavam o que
    saiu. A frase ao redor que a releitura reescreve é correção de
    sentido, e a linha dela diz o que foi relido.
@@ -371,7 +371,7 @@ perguntas, e então o autor dá o rótulo.
 
 ## Fechar e commitar
 
-Na rodada de corte, o commit espera a releitura da cadeia inteira do
+Na passada de corte, o commit espera a releitura da cadeia inteira do
 passo 6, feita e mostrada ao autor, com o que ela achou corrigido ou
 decidido.
 
@@ -391,7 +391,7 @@ checagem).
    a chave e o link de busca que não casa com o começo de um parágrafo.
    Sem `--desde`, a citação sem entrada se aponta nos parágrafos que já
    têm afirmação; com `--todas`, também nos de antes da matriz.
-3. Exportar pelo Emacs, body only, cada capítulo que a rodada mudou,
+3. Exportar pelo Emacs, body only, cada capítulo que a passada mudou,
    nunca por conversor próprio (`readme.org`, "Exportar pelo terminal"; o
    script passa sozinho pelo `distrobox-host-exec`):
 
@@ -417,16 +417,16 @@ checagem).
    mesma seção pede para todo commit direto no `master`.
    O commit, depois do aprovo, leva
    `texto/*.org`, `latex/capitulos/*.tex`, `texto/fontes/*.org`, `texto/refs.bib` e, se
-   a rodada fecha ou muda tarefa, o `.beads/issues.jsonl` com só as
-   tarefas da rodada: ele é o banco inteiro, e leva as tarefas que outras
+   a passada fecha ou muda tarefa, o `.beads/issues.jsonl` com só as
+   tarefas da passada: ele é o banco inteiro, e leva as tarefas que outras
    sessões mudaram e não commitaram, então o commit é o comando único da
    seção "Tarefas" do AGENTS.md: `bd export`, `bin/juntar-tarefas.py --so
    <ids>` e o `git commit`, ligados por `&&`. Nomeie os arquivos no
    próprio commit (`git commit -- <arquivos>`), para não levar o que
    outra sessão deixou no índice. A mensagem termina com uma linha
-   `Fontes conferidas:` com chave e página de cada fonte lida na rodada,
+   `Fontes conferidas:` com chave e página de cada fonte lida na passada,
    chave que o hook confere no `refs.bib`. Antes de commitar, confira
-   que a ponta do `master` anotada no começo da rodada (`git rev-parse
+   que a ponta do `master` anotada no começo da passada (`git rev-parse
    master`) continua na história (`AGENTS.md`, "Commits"). Mensagem
    que mudou depois do aprovo volta ao autor. Nada de push.
 6. Pendências que sobraram viram tarefa no `bd`; achado de implementação,
@@ -455,7 +455,7 @@ da skill `escrita-academica`, o cartucho do capítulo, que a
    --paragrafos texto/<capítulo>.org` junta as afirmações na ordem do
    capítulo); para o próprio trabalho (interfaces, tecnologias,
    implementações), `interfaces-graficas/` e `GLOSSARY.md`. A cadeia do
-   mapa é a da rodada de corte, passo 3. As contradições se procuram
+   mapa é a da passada de corte, passo 3. As contradições se procuram
    também nos outros capítulos e contra os termos do `GLOSSARY.md`.
 3. **Passada 1.** Um subagente por lote, todos na mesma mensagem, com a
    instrução da referência e os caminhos absolutos dos PDFs em

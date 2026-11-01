@@ -42,7 +42,7 @@ mapa, os testes e o que conferir no PDF.
 A nota é lida fria, na margem, longe da frase, por quem leu o projeto de
 2017 e nenhuma versão intermediária. Cada nota criada ou alterada passa
 por duas leituras antes de ir ao diff, e o que elas acham se corrige na
-mesma rodada:
+mesma passada:
 
 - **Texto** (lente da skill `revisao-de-usabilidade`, `references/texto.md` e
   `references/heuristicas.md`): leia a nota em voz alta como o orientador,

@@ -23,7 +23,7 @@ não entram como sinal de nenhuma DC.
 
 O núcleo do ADR 0013 são o Web Component e o React, na primeira e na
 segunda rodada, e, na terceira, as quatro implementações que os cinco
-passos da Busca, do Login e do Placar ao vivo trazem a partir deles
+passos da Busca, do Login e do Placar ao Vivo trazem a partir deles
 (ADR 0029), em `nucleo/`. O entorno do núcleo (ADR 0042), em
 `entorno/`, se lê depois da análise. O título de cada seção diz a
 célula, a orquestração × a propagação (ADR 0021), menos o do Cycle.js,
@@ -98,7 +98,7 @@ parte (ADR 0042).
   Web Component: a mesma classe e a mesma orquestração; o `@state()` e o
   `render()` com o *template* do `html` no lugar das escritas na tela,
   e o dado trocado por uma cópia; até a tcc-f50c, o Desenhador de
-  círculos e a Planilha ainda alteram no lugar, seguido de
+  Círculos e a Planilha ainda alteram no lugar, seguido de
   `requestUpdate()`, e o guia lê o código como ele está. Documentação: lit.dev.
 - **Solid** (`entorno/solid/`, atribuição × granular), a partir do
   React: o componente executa uma vez; o estado em `createSignal`, lido
