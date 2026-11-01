@@ -599,12 +599,12 @@ class ResumoDoDiff(unittest.TestCase):
                     {"commit": "c" * 40, "assunto": "Reexporta", "chaves": []}],
         "nome": "Marco", "corpo": "A abertura.\n\nO primeiro item.\n\nO segundo item."}
 
-    def resumo(self, com_aux=True):
+    def resumo(self, com_aux=True, ancoras=None):
         tmp = tempfile.TemporaryDirectory()
         self.addCleanup(tmp.cleanup)
         d = Path(tmp.name)
         (d / "aux").mkdir()
-        (d / "difancoras.json").write_text(json.dumps(self.ANCORAS))
+        (d / "difancoras.json").write_text(json.dumps(ancoras or self.ANCORAS))
         (d / "diff.tex").write_text(self.TEX)
         if com_aux:
             (d / "aux" / "diff.aux").write_text(self.AUX)
@@ -630,6 +630,24 @@ class ResumoDoDiff(unittest.TestCase):
         resumo = self.resumo()
         self.assertIn(r"\item Leva o método\\ ", resumo)
         self.assertNotIn("aaaaaaa", resumo)
+
+    def test_commit_sem_trecho(self):
+        self.assertNotIn("Reexporta", self.resumo())
+
+    def test_commit_só_com_fonte_fora_das_referências(self):
+        # A fonte não citada não sai nas referências: o item não levaria a
+        # lugar nenhum.
+        commits = [{"commit": "d" * 40, "assunto": "Anota fonte", "chaves": ["naocitada2020"]}]
+        resumo = self.resumo(ancoras=dict(self.ANCORAS, ancoras=[], commits=commits))
+        self.assertNotIn("Anota fonte", resumo)
+        self.assertNotIn("naocitada2020", resumo)
+
+    def test_sem_commit_com_trecho_sem_a_lista(self):
+        # Só a reexportação: o enumerate vazio pararia o pdflatex.
+        ancoras = dict(self.ANCORAS, ancoras=[], commits=self.ANCORAS["commits"][2:])
+        resumo = self.resumo(ancoras=ancoras)
+        self.assertNotIn("Os commits", resumo)
+        self.assertNotIn(r"\begin{enumerate}", resumo)
 
 
 def pagina(n, cap, sec="", sub=""):

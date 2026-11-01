@@ -47,8 +47,9 @@ alteradas por capítulo e seção, com as medidas e um link em cada número de
 página (tabela_por_lugar()); por último, os commits, sem data nem hash,
 cada um com um link por página e seção em que entrou texto (azul) e outro
 onde saiu (vermelho), e as chaves do refs.bib que ele mudou, com link para
-a entrada na bibliografia (âncora cite.0@chave do biblatex). Commits cujo
-trecho foi refeito depois, ou que só mudaram rótulos, aparecem sem link.
+a entrada na bibliografia (âncora cite.0@chave do biblatex). O commit cujo
+trecho foi refeito depois, ou que só mudou rótulos, e que não mudou uma
+entrada que as referências mostram, não entra.
 """
 import json
 import os
@@ -568,12 +569,7 @@ def resumo(dir_, aux, job, base_nome, ref_nome):
         out += [titulo_do_resumo(paginas_alteradas_desde(dados, base_nome)),
                 r"{\small " + (f"{geral}. " if geral else "") + r"Cada número de página "
                 r"é um link para ela.\par\smallskip"] + tabela_por_lugar(dados) + ["}"]
-    out += [titulo_do_resumo("Os commits"),
-            r"{\small Commits que mudaram o texto, do mais antigo ao mais novo. "
-            r"Cada página é um link para o trecho no diff: em {\color{blue}azul}, onde "
-            r"o texto entrou; em {\color{red}vermelho}, onde saiu. As chaves do refs.bib "
-            r"levam à entrada nas referências.\par}",
-            r"\begin{enumerate}\small\setlength{\itemsep}{2pt}"]
+    itens_dos_commits = []
     for c in d["commits"]:
         partes = []
         for tipo, cor in (("entrou", "blue"), ("saiu", "red")):
@@ -592,15 +588,26 @@ def resumo(dir_, aux, job, base_nome, ref_nome):
                 grupos.append((f"{secao}, " if secao else "") + ("p.~" if len(links) == 1 else "pp.~")
                               + ", ".join(links))
             partes.append(f"{tipo}: {{\\hypersetup{{linkcolor={cor}}}" + "; ".join(grupos) + "}")
-        chaves = [f"\\hyperlink{{cite.0@{k}}}{{\\texttt{{{esc(k)}}}}}" if k in na_bib
-                  else f"\\texttt{{{esc(k)}}}" for k in c["chaves"]]
+        # A chave que as referências não mostram (a fonte não citada) não
+        # leva a lugar nenhum, e fica de fora como o trecho que não existe.
+        chaves = [f"\\hyperlink{{cite.0@{k}}}{{\\texttt{{{esc(k)}}}}}"
+                  for k in c["chaves"] if k in na_bib]
         if chaves:
             partes.append("refs.bib: {\\hypersetup{linkcolor=violet}" + ", ".join(chaves) + "}")
-        if not partes:
-            partes.append(r"\emph{sem trecho próprio no diff: refeito por um commit "
-                              r"posterior, ou só rótulos que o PDF não mostra}")
-        out.append(f"\\item {esc(c['assunto'])}\\\\ " + ". ".join(partes) + ".")
-    out.append(r"\end{enumerate}")
+        # O commit sem trecho próprio no diff (refeito por um posterior, ou
+        # só rótulos ou fontes que o PDF não mostra) não leva a lugar nenhum.
+        if partes:
+            itens_dos_commits.append(f"\\item {esc(c['assunto'])}\\\\ " + ". ".join(partes) + ".")
+    # Sem nenhum item, nem o título: o enumerate vazio para o pdflatex
+    # ("missing \item").
+    if itens_dos_commits:
+        out += [titulo_do_resumo("Os commits"),
+                r"{\small Commits que mudaram o texto, do mais antigo ao mais novo. "
+                r"Cada página é um link para o trecho no diff: em {\color{blue}azul}, onde "
+                r"o texto entrou; em {\color{red}vermelho}, onde saiu. As chaves do refs.bib "
+                r"levam à entrada nas referências.\par}",
+                r"\begin{enumerate}\small\setlength{\itemsep}{2pt}"]
+        out += itens_dos_commits + [r"\end{enumerate}"]
     # O \label sem contador próprio (o do capítulo sem número) pegaria o
     # último item da lista; volta a apontar para onde apontava sem o resumo.
     # Depois do \clearpage, o resumo inteiro saiu: o número das páginas dele
